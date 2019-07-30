@@ -99,7 +99,7 @@ export default {
       v-on="inputListeners"
     />
     <div class="gl-search-box-by-type-right-icons">
-      <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
+      <gl-loading-icon v-if="isLoading" size="sm" class="gl-search-box-by-type-loading-icon" />
       <gl-clear-icon-button
         v-if="showClearButton"
         :title="clearButtonTitle"

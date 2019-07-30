@@ -23,7 +23,7 @@ export default {
     size: {
       type: String,
       required: false,
-      default: 'sm',
+      default: 'md',
       validator(value) {
         return sizes.indexOf(value) !== -1;
       },

@@ -34,7 +34,7 @@ function generateProps({ inline } = {}) {
           'lg (32x32)': 'lg',
           'xl (64x64)': 'xl',
         },
-        'sm'
+        'md'
       ),
     },
     color: {

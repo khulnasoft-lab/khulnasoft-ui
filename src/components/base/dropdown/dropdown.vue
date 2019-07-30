@@ -202,7 +202,7 @@ export default {
     </div>
     <template #button-content>
       <slot name="button-content">
-        <gl-loading-icon v-if="loading" class="gl-mr-2" />
+        <gl-loading-icon v-if="loading" size="sm" class="gl-mr-2" />
         <gl-icon v-if="icon" class="dropdown-icon" :name="icon" />
         <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
           <slot name="button-text">{{ buttonText }}</slot>

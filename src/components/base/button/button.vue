@@ -128,7 +128,12 @@ export default {
     :class="buttonClasses"
     v-on="$listeners"
   >
-    <gl-loading-icon v-if="loading" inline class="gl-button-icon gl-button-loading-indicator" />
+    <gl-loading-icon
+      v-if="loading"
+      size="sm"
+      inline
+      class="gl-button-icon gl-button-loading-indicator"
+    />
     <gl-icon v-if="hasIcon && !(hasIconOnly && loading)" class="gl-button-icon" :name="icon" />
     <slot name="emoji"></slot>
     <span v-if="!hasIconOnly" :class="buttonTextClasses" class="gl-button-text"><slot></slot></span>
