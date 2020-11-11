@@ -1,0 +1,10 @@
+{
+  "name": "Gitlab UI Development Environment",
+  "appPort": [9001],
+  "runArgs": ["-u", "node"],
+  "settings": { "terminal.integrated.shell.linux": "/bin/bash" },
+  "postCreateCommand": "npm install",
+  "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "node"
+}
