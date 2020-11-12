@@ -4,7 +4,12 @@
   "runArgs": ["-u", "node"],
   "settings": { "terminal.integrated.shell.linux": "/bin/bash" },
   "postCreateCommand": "yarn install",
-  "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "octref.vetur",
+    "christian-kohler.npm-intellisense"
+  ],
   "build": { "dockerfile": "Dockerfile" },
   "remoteUser": "node"
 }

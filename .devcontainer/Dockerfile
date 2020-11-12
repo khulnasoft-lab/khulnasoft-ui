@@ -1,2 +1,2 @@
 FROM node:13-buster
-RUN npm install -g eslint prettier
+RUN yarn global add eslint prettier --prefix /usr/local
