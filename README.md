@@ -65,11 +65,11 @@ yarn storybook
 
 Go to <http://localhost:9001/>
 
-### Alternative - using Visual Studio Code remote container (Docker required)
+### Using Visual Studio Code remote container (requires Docker)
 
-1. Install this extension: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
-2. Once the installation has finished, it will show a popup that allows you to open the project in a remote container by clickin the "Reopen in Container" button
-3. Wait until all required images and dependencies have finished downloading and installing
+1. Install [the remote containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+2. Once the installation has finished it will prompt you to open the project in a remote container by clicking the "Reopen in Container" button
+3. Wait until all required images and dependencies have finished downloading and installing (can take a while for initial install)
 4. Once completed you can now use vscode's built-in terminal to interact with the development container. Use the following commands:
 
 ```ssh
