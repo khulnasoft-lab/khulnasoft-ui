@@ -2,11 +2,11 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { provide } from './common_story_options';
 import readme from './filtered_search_term.md';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 
 Vue.use(PortalVue);
-const noop = () => {};
 
 const staticOptions = [
   { icon: 'eye-slash', value: true, title: 'Yes' },
@@ -19,10 +19,7 @@ documentedStoriesOf('base/filtered-search/token-segment', readme)
     components: {
       GlFilteredSearchTokenSegment,
     },
-    provide: {
-      portalName: 'portal',
-      alignSuggestions: noop,
-    },
+    provide,
     props: {
       active: {
         type: Boolean,
@@ -61,10 +58,7 @@ documentedStoriesOf('base/filtered-search/token-segment', readme)
     components: {
       GlFilteredSearchTokenSegment,
     },
-    provide: {
-      portalName: 'portal',
-      alignSuggestions: noop,
-    },
+    provide,
     props: {
       active: {
         type: Boolean,

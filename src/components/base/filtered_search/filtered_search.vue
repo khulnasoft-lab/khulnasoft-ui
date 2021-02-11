@@ -42,7 +42,10 @@ export default {
     return {
       portalName: this.portalName,
       alignSuggestions: (ref) => this.alignSuggestions(ref),
-      suggestionsListClass: this.suggestionsListClass,
+      // Return a function reference instead of a prop to work around vue-apollo@3 bug.
+      // TODO: This can be reverted once https://github.com/vuejs/vue-apollo/pull/1153
+      // has been merged and we consume it, or we upgrade to vue-apollo@4.
+      suggestionsListClass: () => this.suggestionsListClass,
     };
   },
   inheritAttrs: false,
