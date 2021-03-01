@@ -1,8 +1,3 @@
-> Note: This component is being introduced to replace the `GlDeprecatedDropdown` component as it
-> doesn't conform to the [design specs](https://design.gitlab.com/components/dropdowns#dropdown).
-> Please use `GlDropdown` going forward. You can read more about the migration
-> [here](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/673).
-
 ## Usage
 
 The dropdown component offers a user multiple items or actions to choose from which are initially

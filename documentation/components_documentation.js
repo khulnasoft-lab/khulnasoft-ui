@@ -57,10 +57,6 @@ export { default as GlFormRadioGroupDocumentation } from '../src/components/base
 export { default as GlFormSelectDocumentation } from '../src/components/base/form/form_select/form_select.documentation';
 export { default as GlSearchBoxByTypeDocumentation } from '../src/components/base/search_box_by_type/search_box_by_type.documentation';
 export { default as GlSearchBoxByClickDocumentation } from '../src/components/base/search_box_by_click/search_box_by_click.documentation';
-export { default as GlDeprecatedDropdownItemDocumentation } from '../src/components/base/deprecated_dropdown/deprecated_dropdown_item.documentation';
-export { default as GlDeprecatedDropdownHeaderDocumentation } from '../src/components/base/deprecated_dropdown/deprecated_dropdown_header.documentation';
-export { default as GlDeprecatedDropdownDividerDocumentation } from '../src/components/base/deprecated_dropdown/deprecated_dropdown_divider.documentation';
-export { default as GlDeprecatedDropdownDocumentation } from '../src/components/base/deprecated_dropdown/deprecated_dropdown.documentation';
 export { default as GlDropdownDocumentation } from '../src/components/base/dropdown/dropdown.documentation';
 export { default as GlDropdownItemDocumentation } from '../src/components/base/dropdown/dropdown_item.documentation';
 export { default as GlDropdownDividerDocumentation } from '../src/components/base/dropdown/dropdown_divider.documentation';
