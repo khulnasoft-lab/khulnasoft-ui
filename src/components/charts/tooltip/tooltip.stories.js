@@ -49,9 +49,11 @@ const getStoryOptions = (tooltipContent) => {
       :top="top"
       :left="left"
     >
-      <div slot="title">
-        Example Title
-      </div>
+      <template #title>
+        <div>
+          Example Title
+        </div>
+      </template>
       ${tooltipContent}
     </gl-chart-tooltip>
 </div>`,
