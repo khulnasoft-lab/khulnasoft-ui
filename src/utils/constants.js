@@ -334,3 +334,8 @@ export const toggleLabelPosition = {
 };
 
 export const tooltipActionEvents = ['open', 'close', 'enable', 'disable'];
+
+export const drawerVariants = {
+  default: 'default',
+  sidebar: 'sidebar',
+};

@@ -93,4 +93,14 @@ describe('drawer component', () => {
 
     expect(wrapper.find(parentSelector).find(`[data-testid="${slot}"]`).exists()).toBe(true);
   });
+
+  it.each`
+    variant      | variantClass
+    ${'default'} | ${'gl-drawer-default'}
+    ${'sidebar'} | ${'gl-drawer-sidebar'}
+  `('adds class depending on variant prop', ({ variant, variantClass }) => {
+    mountWithOpts({ props: { open: true, variant } });
+
+    expect(wrapper.find('.gl-drawer').classes()).toContain(variantClass);
+  });
 });
