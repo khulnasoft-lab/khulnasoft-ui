@@ -1,9 +1,15 @@
 module.exports = (api) => {
   // base config for rollup
-  const babelPresetEnv = ['@babel/preset-env', { modules: false, targets: { ie: 11 } }];
+  const babelPresetEnv = ['@babel/preset-env', { modules: false }];
   const config = {
     presets: [babelPresetEnv],
-    plugins: ['lodash'],
+    plugins: [
+      // See: https://gitlab.com/gitlab-org/gitlab/-/issues/336216
+      '@babel/plugin-proposal-optional-chaining',
+      // See: https://gitlab.com/gitlab-org/gitlab/-/issues/336216
+      '@babel/plugin-proposal-nullish-coalescing-operator',
+      'lodash',
+    ],
   };
 
   // storybook and visual regression tests
