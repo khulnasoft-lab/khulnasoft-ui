@@ -18,7 +18,6 @@
     "dist",
     "scss_to_js",
     "documentation",
-    "documentation.js",
     "index.js",
     "charts.js",
     "utils.js",
