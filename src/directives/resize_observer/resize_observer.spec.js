@@ -1,16 +1,9 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-
-import ResizeObserverPolyFill from 'resize-observer-polyfill';
-
 import resizeObserver from './resize_observer';
-
-jest.mock('resize-observer-polyfill');
+import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 
 describe('resize observer directive', () => {
-  const getObserverInstance = () => ResizeObserverPolyFill.mock.instances[0];
-  const getObserverCallback = () => ResizeObserverPolyFill.mock.calls[0][0];
-  const getMockObserve = () => getObserverInstance().observe;
-  const getMockUnobserve = () => getObserverInstance().unobserve;
+  const { trigger, observersCount, observesElement } = useMockResizeObserver();
 
   const mockHandleResize = jest.fn();
 
@@ -35,10 +28,6 @@ describe('resize observer directive', () => {
 
   afterEach(() => {
     wrapper.destroy();
-    jest.restoreAllMocks();
-
-    getMockObserve().mockClear();
-    getMockUnobserve().mockClear();
   });
 
   it('shares one observer between multiple directive instances', () => {
@@ -50,28 +39,26 @@ describe('resize observer directive', () => {
         </div>`,
     });
 
-    expect(ResizeObserverPolyFill).toHaveBeenCalledTimes(1);
-    expect(ResizeObserverPolyFill.mock.instances).toHaveLength(1);
+    expect(ResizeObserver).toHaveBeenCalledTimes(1);
+    expect(ResizeObserver.mock.instances).toHaveLength(1);
   });
 
   it('subscribes the given DOM element to be observed', () => {
+    expect(observersCount()).toBe(0);
+
     createComponent();
 
-    const { element } = wrapper;
-
-    expect(getMockObserve()).toHaveBeenCalledWith(element);
+    expect(observersCount()).toBe(1);
+    expect(observesElement(wrapper.element)).toBe(true);
   });
 
   it('passes the first entries "contentRect" and "target" to the given handler', () => {
     createComponent();
 
-    const observerCallback = getObserverCallback();
-    const entries = [{ contentRect: {}, target: wrapper.element }];
-
-    observerCallback(entries);
+    trigger(wrapper.element, { entry: { contentRect: {} } });
 
     expect(mockHandleResize).toHaveBeenCalledTimes(1);
-    expect(mockHandleResize).toHaveBeenCalledWith(entries[0]);
+    expect(mockHandleResize).toHaveBeenCalledWith({ contentRect: {}, target: wrapper.element });
   });
 
   it('does a clean up when the component is destroyed', () => {
@@ -83,27 +70,34 @@ describe('resize observer directive', () => {
 
     wrapper.destroy();
 
-    expect(getMockUnobserve()).toHaveBeenCalledTimes(1);
-    expect(getMockUnobserve()).toHaveBeenCalledWith(element);
     expect(element.glResizeHandler).toBeFalsy();
   });
 
-  it.each([3, '', undefined, null, false, {}, []])(
-    'throws if the handler is %p instead of a function',
-    (directiveValue) => {
-      // we are going to throw, so we need to suppress error messages in jest output
-      jest.spyOn(global.console, 'error').mockImplementation(() => {});
+  describe('check directive value', () => {
+    afterEach(() => {
+      // we are going to throw, so we need to suppress Vue error messages in jest output
+      global.console.error.mockReset();
+    });
 
-      const testComponentWithoutHandler = {
-        data() {
-          return {
-            directiveValue,
-          };
-        },
-        template: `<div v-resize-observer="directiveValue"></div>`,
-      };
+    it.each([3, '', undefined, null, false, {}, []])(
+      'throws if the handler is %p instead of a function',
+      (directiveValue) => {
+        const testComponentWithoutHandler = {
+          directives: {
+            resizeObserver,
+          },
+          data() {
+            return {
+              directiveValue,
+            };
+          },
+          template: `<div v-resize-observer="directiveValue"></div>`,
+        };
 
-      expect(() => createComponent(testComponentWithoutHandler)).toThrow(TypeError);
-    }
-  );
+        expect(() => {
+          wrapper = shallowMount(testComponentWithoutHandler, { localVue });
+        }).toThrow(TypeError);
+      }
+    );
+  });
 });
