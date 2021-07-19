@@ -805,6 +805,12 @@
   }
 }
 
+@mixin gl-md-ml-3 {
+  @media (min-width: $breakpoint-md) {
+    @include gl-ml-3;
+  }
+}
+
 @mixin gl-lg-mr-2 {
   @media (min-width: $breakpoint-lg) {
     @include gl-mr-2;
@@ -866,6 +872,12 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
+@mixin gl-sm-pr-3 {
+  @media (min-width: $breakpoint-sm) {
+    @include gl-pr-3;
+  }
+}
+
 @mixin gl-sm-pr-5 {
   @media (max-width: $breakpoint-sm) {
     @include gl-pr-5;
