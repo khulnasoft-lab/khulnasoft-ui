@@ -71,4 +71,29 @@ documentedStoriesOf('charts/chart-tooltip', readme)
     getStoryOptions(`
       <gl-chart-series-label color="#1F78D1">${SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES]}</gl-chart-series-label>
     `)
-  );
+  )
+
+  // This story exists to avoid regressions as part of
+  // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1482, and may be affected
+  // by https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1479
+  .add('title prop', () => ({
+    ...baseStoryOptions,
+    template: `
+      <div class="position-relative">
+        <gl-chart
+          :options="options"
+          :height="100"
+          @created="onCreated"
+        />
+        <gl-chart-tooltip
+          v-if="chart"
+          :chart="chart"
+          :show="showTooltip"
+          :top="top"
+          :left="left"
+          title="Title from prop"
+        >
+          Example content
+        </gl-chart-tooltip>
+      </div>`,
+  }));
