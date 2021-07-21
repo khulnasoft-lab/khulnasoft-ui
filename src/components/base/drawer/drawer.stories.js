@@ -25,7 +25,7 @@ const drawerContent = [
     (str) => `
     <div>
       <label class="gl-font-weight-bold">${str}</label>
-      <span>None</span>
+      <div>None</div>
     </div>
     `
   )
@@ -73,6 +73,23 @@ documentedStoriesOf('base/drawer', readme)
           <div class="gl-mt-5">
             <gl-button variant="confirm">Save</gl-button>
             <gl-button class="gl-ml-3" @click="toggle">Cancel</gl-button>
+          </div>
+        </template>
+        ${drawerContent}
+      </gl-drawer>
+    </div>`)
+  )
+  .add('sidebar variant', () =>
+    getStory(`
+    <div>
+      <gl-button @click="toggle">Toggle Drawer</gl-button>
+      <gl-drawer :open="open" @close="close" variant="sidebar">
+        <template #title>
+          <h3>Sidebar</h3>
+        </template>
+        <template #header>
+          <div class="gl-mt-5">
+            <gl-button>Action</gl-button>
           </div>
         </template>
         ${drawerContent}

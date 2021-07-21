@@ -1,7 +1,7 @@
 $gl-drawer-width: 400px;
+$gl-sidebar-width: 290px;
 
 .gl-drawer {
-  @include gl-bg-white;
   @include gl-right-0;
   @include gl-transition-medium;
   @include gl-fixed;
@@ -11,10 +11,30 @@ $gl-drawer-width: 400px;
   @include gl-font-base;
   @include gl-line-height-normal;
 
-  width: $gl-drawer-width;
-
   @include media-breakpoint-down(sm) {
     @include gl-w-full;
+  }
+}
+
+.gl-drawer-default {
+  @include gl-bg-white;
+  width: $gl-drawer-width;
+
+  .gl-drawer-header,
+  .gl-drawer-body > * {
+    @include gl-px-6;
+    @include gl-py-5;
+  }
+}
+
+.gl-drawer-sidebar {
+  @include gl-bg-gray-10;
+  width: $gl-sidebar-width;
+
+  .gl-drawer-header,
+  .gl-drawer-body > * {
+    @include gl-py-5;
+    @include gl-mx-5;
   }
 }
 
@@ -22,8 +42,6 @@ $gl-drawer-width: 400px;
   @include gl-border-b-solid;
   @include gl-border-b-gray-100;
   @include gl-border-b-1;
-  @include gl-px-6;
-  @include gl-py-5;
 }
 
 .gl-drawer-title {
@@ -47,9 +65,6 @@ $gl-drawer-width: 400px;
   @include gl-border-b-solid;
   @include gl-border-b-gray-100;
   @include gl-border-b-1;
-
-  @include gl-px-6;
-  @include gl-py-5;
 
   &:last-child {
     @include gl-border-none;

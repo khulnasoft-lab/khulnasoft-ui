@@ -1,6 +1,6 @@
 <script>
 import isEmpty from 'lodash/isEmpty';
-import { maxZIndex } from '../../../utils/constants';
+import { maxZIndex, drawerVariants } from '../../../utils/constants';
 import GlButton from '../button/button.vue';
 
 export default {
@@ -22,6 +22,12 @@ export default {
       required: false,
       default: maxZIndex,
     },
+    variant: {
+      type: String,
+      required: false,
+      default: drawerVariants.default,
+      validator: (value) => Object.keys(drawerVariants).includes(value),
+    },
   },
   computed: {
     positionFromTop() {
@@ -38,6 +44,9 @@ export default {
       }
 
       return styles;
+    },
+    variantClass() {
+      return `gl-drawer-${this.variant}`;
     },
   },
   watch: {
@@ -68,7 +77,7 @@ export default {
 </script>
 <template>
   <transition name="gl-drawer">
-    <aside v-if="open" :style="drawerStyles" class="gl-drawer">
+    <aside v-if="open" :style="drawerStyles" class="gl-drawer" :class="variantClass">
       <div class="gl-drawer-header">
         <span class="gl-drawer-title">
           <slot name="title"></slot>
