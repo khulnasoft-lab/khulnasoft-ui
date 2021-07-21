@@ -1,3 +1,10 @@
+# [31.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.5.0...v31.6.0) (2021-07-21)
+
+
+### Features
+
+* **GlDrawer:** Add sidebar variant ([a9a4bff](https://gitlab.com/gitlab-org/gitlab-ui/commit/a9a4bffe2f2ca8e66683b9e3cbcad3f492ede416))
+
 # [31.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.4.1...v31.5.0) (2021-07-14)
 
 
