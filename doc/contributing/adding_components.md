@@ -44,7 +44,7 @@ take place against each smaller MR individually.
 
 If you are adding or updating a component documented in the
 [Pajamas design system](https://design.gitlab.com), you should comply with the
-[component lifecycle workflow](https://design.gitlab.com/contribute/lifecycle).
+[component lifecycle workflow](https://design.gitlab.com/get-started/lifecycle).
 
 ## Wrapping a BootstrapVue component
 

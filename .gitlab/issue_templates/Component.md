@@ -40,7 +40,7 @@ Make sure the following are completed before closing the issue:
 [pajamas-issue]: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/issues/new
 [pajamas-component-documentation-template]: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/issues/new?issuable_template=Component%20documentation
 [pajamas-figma-update-template]: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/issues/new?issuable_template=Figma%20update
-[component-lifecycle]: https://design.gitlab.com/contribute/lifecycle
+[component-lifecycle]: https://design.gitlab.com/get-started/lifecycle
 [adding-components]: https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/adding_components.md
 [adding-css]: https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/adding_css.md
 [breaking-changes]: https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/breaking_changes_to_components.md
