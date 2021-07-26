@@ -22,6 +22,7 @@ export const variantOptions = {
   info: 'info',
   light: 'light',
   dark: 'dark',
+  availability: 'availability',
 };
 
 export const badgeSizeOptions = {
@@ -37,6 +38,7 @@ export const badgeVariantOptions = {
   success: 'success',
   warning: 'warning',
   danger: 'danger',
+  availability: 'availability',
 };
 
 export const variantCssColorMap = {
@@ -46,6 +48,7 @@ export const variantCssColorMap = {
   success: 'gl-text-green-500',
   warning: 'gl-text-orange-500',
   danger: 'gl-text-red-500',
+  availability: '#e83e8c',
 };
 
 export const targetOptions = ['_self', '_blank', '_parent', '_top', null];
