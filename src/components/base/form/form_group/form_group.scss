@@ -7,6 +7,10 @@
     @include gl-line-height-normal;
     @include gl-pt-0;
     @include gl-pb-3;
+
+    > .form-text {
+      @include gl-mt-3;
+    }
   }
 
   .invalid-feedback,
