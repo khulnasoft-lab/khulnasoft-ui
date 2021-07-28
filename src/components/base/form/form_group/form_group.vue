@@ -49,7 +49,7 @@ export default {
       <slot name="label">
         {{ $attrs.label }}
       </slot>
-      <gl-form-text data-testid="label-description" class="gl-mt-3">
+      <gl-form-text data-testid="label-description">
         <slot name="label-description">{{ labelDescription }}</slot>
       </gl-form-text>
     </template>
