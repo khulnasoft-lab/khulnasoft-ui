@@ -70,7 +70,7 @@ export default {
       :text="text"
       category="secondary"
       :class="dropdownClass"
-      :toggle-class="['dropdown-menu-toggle', dropdownToggleClass]"
+      :toggle-class="dropdownToggleClass"
       right
     >
       <slot></slot>

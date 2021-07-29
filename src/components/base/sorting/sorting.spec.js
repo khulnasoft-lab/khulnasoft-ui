@@ -122,9 +122,7 @@ describe('sorting component', () => {
       dropdownToggleClass: 'foo-bar',
     });
 
-    expect(selectDropdownButton().classes()).toEqual(
-      expect.arrayContaining(['dropdown-menu-toggle', 'foo-bar'])
-    );
+    expect(selectDropdownButton().classes()).toEqual(expect.arrayContaining(['foo-bar']));
   });
 
   it('adds classes passed in `sortDirectionToggleClass` prop to sort direction toggle', () => {
