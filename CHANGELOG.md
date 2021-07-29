@@ -1,3 +1,10 @@
+## [31.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.6.0...v31.6.1) (2021-07-29)
+
+
+### Bug Fixes
+
+* **GlSorting:** Make dropdown toggle conform to design ([cf322a1](https://gitlab.com/gitlab-org/gitlab-ui/commit/cf322a1330f2b26bb5f6e221dafca9336ab5058a))
+
 # [31.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.5.0...v31.6.0) (2021-07-21)
 
 
