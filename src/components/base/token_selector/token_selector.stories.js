@@ -42,6 +42,12 @@ const generateProps = () => {
           name: 'Redis',
           class: 'gl-text-white! gl-bg-data-viz-green-700!',
         },
+        {
+          id: 5,
+          name: 'CSS',
+          class: 'gl-text-red-500!',
+          style: { backgroundColor: '#97acff' },
+        },
       ]),
     },
     allowUserDefinedTokens: {
