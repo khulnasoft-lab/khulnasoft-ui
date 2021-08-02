@@ -1,3 +1,10 @@
+# [31.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.6.1...v31.7.0) (2021-08-02)
+
+
+### Features
+
+* allow to provide token styles in TokenSelector components ([15d48ed](https://gitlab.com/gitlab-org/gitlab-ui/commit/15d48ed9591ffa1d3645ff1434bab97ace1351e0))
+
 ## [31.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.6.0...v31.6.1) (2021-07-29)
 
 
