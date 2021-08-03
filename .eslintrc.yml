@@ -20,6 +20,7 @@ overrides:
 - files:
   - "**/*.spec.js"
   - "tests/jest_setup.js"
+  - "tests/__helpers__/*.js"
   extends:
     - 'plugin:@gitlab/jest'
   settings:

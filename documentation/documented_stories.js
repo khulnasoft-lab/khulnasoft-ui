@@ -5,9 +5,9 @@ import { configureReadme } from 'storybook-readme';
 
 import 'url-search-params-polyfill';
 
-import { GlExampleExplorer, GlComponentDocumentation } from '../documentation';
-
 import { componentValidator as isValidComponent } from './all_components';
+import GlComponentDocumentation from './components/component_documentation_generator.vue';
+import GlExampleExplorer from './components/example_explorer.vue';
 
 /**
  * This functions returns the component's name from the current window location's search

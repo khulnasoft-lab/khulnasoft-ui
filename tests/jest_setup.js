@@ -2,6 +2,7 @@ const { matcherHint, printReceived, printExpected } = require('jest-matcher-util
 const get = require('lodash/get');
 const isString = require('lodash/isString');
 const setConfigs = require('../config').default;
+const { useMockResizeObserver } = require('./__helpers__/mock_dom_observer');
 
 setConfigs();
 
@@ -39,6 +40,8 @@ expect.extend({
 });
 
 if (!process.env.IS_VISUAL_TEST) {
+  useMockResizeObserver();
+
   beforeEach(() => {
     if (jest.isMockFunction(global.console.error)) {
       global.console.error.mockReset();

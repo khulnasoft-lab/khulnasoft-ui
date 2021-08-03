@@ -2,6 +2,7 @@ module.exports = {
   verbose: true,
   moduleFileExtensions: ['js', 'json', 'vue'],
   moduleNameMapper: {
+    '^~helpers/(.*)$': '<rootDir>/tests/__helpers__/$1',
     '^~/(.*)$': '<rootDir>/src/$1',
     '^@gitlab/ui$': '<rootDir>/index.js',
     '\\.(css|scss|less)$': 'identity-obj-proxy',

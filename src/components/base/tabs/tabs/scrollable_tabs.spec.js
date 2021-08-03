@@ -1,11 +1,9 @@
 import { mount } from '@vue/test-utils';
 import { range, mapValues } from 'lodash';
-import ResizeObserverMock from 'resize-observer-polyfill';
 import GlTab from '../tab/tab.vue';
 import GlScrollableTabs from './scrollable_tabs.vue';
 import GlTabs from './tabs.vue';
-
-jest.mock('resize-observer-polyfill');
+import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 
 const { NAV_CLASS } = GlScrollableTabs;
 const TEST_WIDTH = 600;
@@ -24,6 +22,8 @@ describe('GlScrollableTabs', () => {
   let wrapper;
   let inputSpy;
 
+  const { trigger } = useMockResizeObserver();
+
   beforeEach(() => {
     Element.prototype.scrollTo = jest.fn().mockImplementation(function scrollTo({ left }) {
       this.scrollLeft = left;
@@ -40,17 +40,6 @@ describe('GlScrollableTabs', () => {
   const findScrollRightButton = () => wrapper.find('[aria-label="Scroll right"]');
   const findScrollLeftButton = () => wrapper.find('[aria-label="Scroll left"]');
   const findNav = () => wrapper.find(`.${NAV_CLASS}`);
-
-  const triggerResizeObserver = (...eventsArg) => {
-    const [callback] = ResizeObserverMock.mock.calls[0];
-
-    const events = eventsArg.map((x) => ({
-      ...x,
-      target: wrapper.element,
-    }));
-
-    callback(events);
-  };
 
   const setNavScrollWidth = async (width = 0) => {
     const nav = findNav();
@@ -94,7 +83,7 @@ describe('GlScrollableTabs', () => {
 
     await wrapper.vm.$nextTick();
 
-    triggerResizeObserver({ contentRect: { width: TEST_WIDTH } });
+    trigger(wrapper.element, { entry: { contentRect: { width: TEST_WIDTH } } });
 
     await wrapper.vm.$nextTick();
   };

@@ -1,18 +1,21 @@
 import isFunction from 'lodash/isFunction';
-import ResizeObserver from 'resize-observer-polyfill';
 
-// the observer instance is shared for performance reasons
-// more information: https://github.com/WICG/ResizeObserver/issues/59
-const observer = new ResizeObserver((entries) => {
-  entries.forEach((event) => {
-    event.target.glResizeHandler(event);
-  });
-});
+let observer = null;
 
 const ResizeObserverDirective = {
   bind(el, { value: resizeHandler }) {
     if (!isFunction(resizeHandler)) {
       throw TypeError('directive value must be a function');
+    }
+
+    if (!observer) {
+      // the observer instance is shared for performance reasons
+      // more information: https://github.com/WICG/ResizeObserver/issues/59
+      observer = new ResizeObserver((entries) => {
+        entries.forEach((event) => {
+          event.target.glResizeHandler(event);
+        });
+      });
     }
 
     el.glResizeHandler = resizeHandler;
@@ -21,7 +24,7 @@ const ResizeObserverDirective = {
   unbind(el) {
     if (el.glResizeHandler) {
       delete el.glResizeHandler;
-      observer.unobserve(el);
+      observer?.unobserve(el);
     }
   },
 };

@@ -48,10 +48,6 @@ export { default as GlFormTextarea } from './src/components/base/form/form_texta
 export { default as GlFormGroup } from './src/components/base/form/form_group/form_group.vue';
 export { default as GlSearchBoxByType } from './src/components/base/search_box_by_type/search_box_by_type.vue';
 export { default as GlSearchBoxByClick } from './src/components/base/search_box_by_click/search_box_by_click.vue';
-export { default as GlDeprecatedDropdownItem } from './src/components/base/deprecated_dropdown/deprecated_dropdown_item.vue';
-export { default as GlDeprecatedDropdownHeader } from './src/components/base/deprecated_dropdown/deprecated_dropdown_header.vue';
-export { default as GlDeprecatedDropdownDivider } from './src/components/base/deprecated_dropdown/deprecated_dropdown_divider.vue';
-export { default as GlDeprecatedDropdown } from './src/components/base/deprecated_dropdown/deprecated_dropdown.vue';
 export { default as GlDropdownItem } from './src/components/base/dropdown/dropdown_item.vue';
 export { default as GlDropdownSectionHeader } from './src/components/base/dropdown/dropdown_section_header.vue';
 export { default as GlDropdownDivider } from './src/components/base/dropdown/dropdown_divider.vue';
