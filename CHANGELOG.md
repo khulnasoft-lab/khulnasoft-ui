@@ -1,3 +1,40 @@
+# [32.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.7.0...v32.0.0) (2021-08-03)
+
+
+### Bug Fixes
+
+* **GlToggle:** Make label required for accessibility ([1e8dc4a](https://gitlab.com/gitlab-org/gitlab-ui/commit/1e8dc4a07ac6a1f8997d0b976615db4d5a9c06b1))
+
+
+### Code Refactoring
+
+* Move documentation entrypoint to documentation/ ([85af91f](https://gitlab.com/gitlab-org/gitlab-ui/commit/85af91f21dc4e35013fe231ed9a76184cce5186a))
+* **GlDeprecatedDropdown:** Delete GlDeprecatedDropdown component ([d151796](https://gitlab.com/gitlab-org/gitlab-ui/commit/d1517963468995ceff8b69416d3ecbefaa0824d2))
+
+
+### Features
+
+* Change supported browsers for pre-compiled version ([c48640c](https://gitlab.com/gitlab-org/gitlab-ui/commit/c48640c13f0735e4ca4f50e70310f20fe27a2326))
+* Remove resize-observer-polyfill ([a23cd7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/a23cd7cdb44fdf18e12f692ec9cb0734e388cd0a))
+
+
+### BREAKING CHANGES
+
+* If you target browsers that do not support
+ResizeObserver, you need to polyfill it yourself.
+* Pre-compiled version of GitLab UI dropped older browser
+support. If you need to use GitLab UI with older browsers, consume the
+source of GitLab UI directly.
+* If you imported `@gitlab/ui/documentation` it should
+still work as before, but you might need to import
+`@gitlab/ui/documentation/index.js` directly
+* **GlToggle:** Make label required so that every
+toggle has an accessible name. If a visual label is
+not desired then you can use label-position="hidden"
+to visually hide it.
+* **GlDeprecatedDropdown:** Delete GlDeprecatedDropdown as it is superseded by
+GlDropdown.
+
 # [31.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.6.1...v31.7.0) (2021-08-02)
 
 
