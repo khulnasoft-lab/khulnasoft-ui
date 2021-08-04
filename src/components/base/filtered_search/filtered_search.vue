@@ -1,4 +1,5 @@
 <script>
+import { cloneDeep } from 'lodash';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import GlTooltip from '../../../directives/tooltip';
@@ -120,12 +121,6 @@ export default {
     },
   },
   watch: {
-    value: {
-      immediate: true,
-      handler(newValue) {
-        this.applyNewValue(newValue);
-      },
-    },
     tokens: {
       handler() {
         if (this.tokens.length === 0 || !this.isLastTokenEmpty()) {
@@ -137,6 +132,11 @@ export default {
       deep: true,
       immediate: true,
     },
+  },
+  mounted() {
+    if (this.value.length) {
+      this.applyNewValue(cloneDeep(this.value));
+    }
   },
 
   methods: {
@@ -233,7 +233,7 @@ export default {
     },
 
     submit() {
-      this.$emit('submit', normalizeTokens(this.tokens));
+      this.$emit('submit', normalizeTokens(cloneDeep(this.tokens)));
     },
 
     clearInput() {
