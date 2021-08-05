@@ -495,6 +495,18 @@ describe('Filtered search integration tests', () => {
       expect(token.exists()).toBe(true);
     });
 
+    it('does not mutate the `value` prop when the search input changes', async () => {
+      const initialValue = [...wrapper.props('value')];
+
+      const input = findInput();
+      input.trigger('keydown', { key: 'ArrowDown' });
+      await wrapper.vm.$nextTick();
+      input.trigger('keydown', { key: 'Enter' });
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.props('value')).toEqual(initialValue);
+    });
+
     it('calls alignSuggestion for new tokens', async () => {
       const input = findInput();
       input.trigger('keydown', { key: 'ArrowDown' });
