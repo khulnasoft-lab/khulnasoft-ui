@@ -6,45 +6,72 @@ export default {
     GlButton,
   },
   props: {
+    /**
+     * The title (heading) of the empty state.
+     */
     title: {
       type: String,
       required: true,
     },
+    /**
+     * The illustration's URL.
+     */
     svgPath: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * The illustration's height used to prevent content reflow.
+     */
     svgHeight: {
       type: Number,
       required: false,
       default: null,
     },
+    /**
+     * The desciption/body text of the empty state.
+     */
     description: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * The primary GlButton's href.
+     */
     primaryButtonLink: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * The primary GlButton's text. If falsey, the button is not shown.
+     */
     primaryButtonText: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * The secondary GlButton's href.
+     */
     secondaryButtonLink: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * The secondary GlButton's text. If falsey, the button is not shown.
+     */
     secondaryButtonText: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * Determines whether to render the compact layout.
+     */
     compact: {
       type: Boolean,
       required: false,
@@ -79,6 +106,10 @@ export default {
       <div class="text-content gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
         <h1 ref="title" :class="compact ? 'h5' : 'h4'">{{ title }}</h1>
         <p v-if="description || $scopedSlots.description" ref="description">
+          <!--
+            @slot Use this slot to customize the empty state's description
+            area. Overrides the `description` prop.
+          -->
           <slot name="description">
             {{ description }}
           </slot>
@@ -87,6 +118,12 @@ export default {
           class="gl-display-flex gl-flex-wrap"
           :class="{ 'gl-justify-content-center': !compact }"
         >
+          <!--
+            @slot Use this slot to customize the empty state's actions area,
+            where the buttons are. Overrides button-related props:
+            `primaryButtonLink`, `primaryButtonText`, `secondaryButtonLink`,
+            `secondaryButtonText`.
+          -->
           <slot name="actions">
             <gl-button
               v-if="shouldRenderPrimaryButton"
