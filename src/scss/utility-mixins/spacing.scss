@@ -274,6 +274,10 @@
   padding-bottom: $gl-spacing-scale-7;
 }
 
+@mixin gl-pb-8 {
+  padding-bottom: $gl-spacing-scale-8;
+}
+
 @mixin gl-pb-11 {
   padding-bottom: $gl-spacing-scale-11;
 }
