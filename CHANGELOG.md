@@ -1,3 +1,10 @@
+# [32.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.0.0...v32.1.0) (2021-08-07)
+
+
+### Features
+
+* add gl-pb-8 spacing utility ([d2d33e0](https://gitlab.com/gitlab-org/gitlab-ui/commit/d2d33e0f579fec347f19edd87be8eeb4867dbd3d))
+
 # [32.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v31.7.0...v32.0.0) (2021-08-03)
 
 
