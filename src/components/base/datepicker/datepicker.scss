@@ -1,3 +1,23 @@
+// pikaday colors override
+$pd-text-color: $gray-900;
+$pd-title-color: $gray-900;
+$pd-title-bg: $white;
+$pd-picker-bg: $white;
+$pd-picker-border: $border-color;
+$pd-picker-border-bottom: $border-color;
+$pd-picker-shadow: rgba(0, 0, 0, 0.5);
+$pd-th-color: $gray-500;
+$pd-day-color: $gray-900;
+$pd-day-bg: transparent;
+$pd-day-hover-color: $gray-500;
+$pd-day-hover-bg: $gray-50;
+$pd-day-today-color: $gray-900;
+$pd-day-selected-color: $gray-50;
+$pd-day-selected-bg: $blue-500;
+$pd-day-selected-shadow: $blue-500;
+$pd-day-disabled-color: $gray-500;
+$pd-week-color: $gray-500;
+
 @import 'pikaday/scss/pikaday';
 
 // Datepicker Max Width: 240px
@@ -77,7 +97,6 @@ $gl-datepicker-width: $grid-size * 30;
     @include gl-pb-3;
     @include gl-font-weight-bold;
     @include gl-line-height-normal;
-    @include gl-text-gray-500;
   }
 
   abbr[title] {
@@ -88,21 +107,14 @@ $gl-datepicker-width: $grid-size * 30;
   .pika-button {
     @include gl-shadow-none;
     @include gl-rounded-base;
-    @include gl-bg-transparent;
     @include gl-py-3;
     @include gl-text-center;
-    @include gl-text-gray-900;
     @include gl-line-height-normal;
     @include gl-w-7;
     @include gl-font-base;
 
     &.is-past-date {
       @include gl-text-gray-400;
-    }
-
-    &:hover {
-      @include gl-text-gray-900;
-      @include gl-bg-gray-50;
     }
   }
 
