@@ -1,3 +1,10 @@
+# [32.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.1.0...v32.2.0) (2021-08-10)
+
+
+### Features
+
+* **css:** Override pikaday colors to support dark mode for GlDatepicker ([3c28884](https://gitlab.com/gitlab-org/gitlab-ui/commit/3c28884553580f359b5751cc547308692e1d69e8))
+
 # [32.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.0.0...v32.1.0) (2021-08-07)
 
 
