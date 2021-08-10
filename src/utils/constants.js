@@ -236,65 +236,6 @@ export const defaultDateFormat = 'YYYY-MM-DD';
 export const bannerVariants = ['promotion', 'introduction'];
 
 export const maxZIndex = 10;
-// Button constants
-
-export const deprecatedButtonCategoryOptions = {
-  tertiary: 'tertiary',
-  primary: 'primary',
-  secondary: 'secondary',
-};
-
-export const deprecatedButtonVariantCategoryMap = {
-  default: 'tertiary',
-  primary: 'primary',
-  secondary: 'primary',
-  dark: 'primary',
-  light: 'primary',
-  info: 'primary',
-  success: 'primary',
-  warning: 'primary',
-  danger: 'primary',
-  'outline-info': 'secondary',
-  'outline-success': 'secondary',
-  'outline-warning': 'secondary',
-  'outline-danger': 'secondary',
-};
-
-export const deprecatedButtonVariantOptions = {
-  primary: 'primary',
-  secondary: 'secondary',
-  dark: 'dark',
-  light: 'light',
-};
-
-export const deprecatedButtonOutlineVariantOptions = {
-  'outline-info': 'outline-info',
-  'outline-success': 'outline-success',
-  'outline-warning': 'outline-warning',
-  'outline-danger': 'outline-danger',
-};
-
-export const buttonVariantOptions = {
-  default: 'default',
-  info: 'info',
-  success: 'success',
-  warning: 'warning',
-  danger: 'danger',
-  link: 'link',
-  loading: 'loading',
-};
-
-export const availableButtonVariantOptions = {
-  ...buttonVariantOptions,
-  ...deprecatedButtonVariantOptions,
-  ...deprecatedButtonOutlineVariantOptions,
-};
-
-export const deprecatedButtonSizeOptions = {
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg',
-};
 
 export const modalSizeOptions = {
   sm: 'sm',
