@@ -70,6 +70,8 @@ export const setupStorybookReadme = () =>
         'GlToken',
         'GlButton',
         'GlEmptyState',
+        'GlSorting',
+        'GlSortingItem',
       ],
       components: {
         GlComponentDocumentation,

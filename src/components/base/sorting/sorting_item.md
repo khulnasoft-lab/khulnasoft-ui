@@ -1,7 +1,3 @@
-# Sorting Item
-
-<!-- STORY -->
-
 ## Usage
 
 The sorting item component is meant to be used for clickable entries inside a `gl-sorting` component.

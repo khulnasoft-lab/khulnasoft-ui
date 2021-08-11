@@ -1,4 +1,4 @@
-/* eslint-disable import/no-default-export */
+<script>
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 
@@ -14,20 +14,31 @@ import GlIcon from '../icon/icon.vue';
  */
 
 export default {
-  functional: true,
   name: 'GlSortingItem',
+  functional: true,
   props: {
+    /**
+     * Adds a check mark next to the item to indicate it is active.
+     */
     active: {
       type: Boolean,
       default: false,
       required: false,
     },
+    /**
+     * If given, makes the item a link pointing to the given value. Otherwise,
+     * the item is a button.
+     */
     href: {
       type: String,
       default: null,
       required: false,
     },
   },
+  /**
+   * The content of the item.
+   * @slot default
+   */
   render(createElement, { children, data, props = {} }) {
     const classNames = `gl-sorting-item js-active-icon gl-flex-shrink-0 gl-mr-2 ${
       props.active ? '' : 'inactive gl-visibility-hidden'
@@ -53,3 +64,4 @@ export default {
     );
   },
 };
+</script>

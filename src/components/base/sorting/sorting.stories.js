@@ -1,6 +1,5 @@
-import { withKnobs, text as textKnob, boolean } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlSorting, GlSortingItem } from '../../../../index';
+import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './sorting.md';
 
 const components = {
@@ -8,60 +7,60 @@ const components = {
   GlSortingItem,
 };
 
+const propDefault = (prop) => GlSorting.props[prop].default;
+
 const generateProps = ({
   text = 'Sorting Dropdown',
-  isAscending = GlSorting.props.isAscending.default,
-  sortDirectionToolTip = GlSorting.props.sortDirectionToolTip.default,
-  dropdownClass = GlSorting.props.dropdownClass.default,
-  dropdownToggleClass = GlSorting.props.dropdownToggleClass.default,
-  sortDirectionToggleClass = GlSorting.props.sortDirectionToggleClass.default,
+  isAscending = propDefault('isAscending'),
+  sortDirectionToolTip = propDefault('sortDirectionToolTip'),
+  dropdownClass = propDefault('dropdownClass'),
+  dropdownToggleClass = propDefault('dropdownToggleClass'),
+  sortDirectionToggleClass = propDefault('sortDirectionToggleClass'),
 } = {}) => ({
-  text: {
-    type: String,
-    default: textKnob('text', text),
-  },
-  isAscending: {
-    type: Boolean,
-    default: boolean('is-ascending', isAscending),
-  },
-  sortDirectionToolTip: {
-    type: String,
-    default: textKnob('sort-direction-tool-tip', sortDirectionToolTip),
-  },
-  dropdownClass: {
-    type: String,
-    default: textKnob('dropdown-class', dropdownClass),
-  },
-  dropdownToggleClass: {
-    type: String,
-    default: textKnob('dropdown-toggle-class', dropdownToggleClass),
-  },
-  sortDirectionToggleClass: {
-    type: String,
-    default: textKnob('sort-direction-toggle-class', sortDirectionToggleClass),
-  },
+  text,
+  isAscending,
+  sortDirectionToolTip,
+  dropdownClass,
+  dropdownToggleClass,
+  sortDirectionToggleClass,
 });
 
-documentedStoriesOf('base/sorting', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <gl-sorting
-        :text="text"
-        :is-ascending="isAscending"
-        :sort-direction-tool-tip="sortDirectionToolTip"
-        :dropdown-class="dropdownClass"
-        :dropdown-toggle-class="dropdownToggleClass"
-        :sort-direction-toggle-class="sortDirectionToggleClass"
-        style="margin-left: 50px;"
-      >
-        <gl-sorting-item active>First item</gl-sorting-item>
-        <gl-sorting-item>Second item</gl-sorting-item>
-        <gl-sorting-item>Last item</gl-sorting-item>
-      </gl-sorting>`,
-    mounted() {
-      this.$nextTick(() => this.$el.querySelector('.dropdown-toggle').click());
+const template = `
+  <gl-sorting
+    :text="text"
+    :is-ascending="isAscending"
+    :sort-direction-tool-tip="sortDirectionToolTip"
+    :dropdown-class="dropdownClass"
+    :dropdown-toggle-class="dropdownToggleClass"
+    :sort-direction-toggle-class="sortDirectionToggleClass"
+  >
+    <gl-sorting-item active>First item</gl-sorting-item>
+    <gl-sorting-item>Second item</gl-sorting-item>
+    <gl-sorting-item>Last item</gl-sorting-item>
+  </gl-sorting>`;
+
+const Template = (args) => ({
+  components,
+  props: Object.keys(args),
+  mounted() {
+    this.$nextTick(() => this.$el.querySelector('.gl-dropdown-toggle').click());
+  },
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'base/sorting',
+  component: GlSorting,
+  decorators: [makeContainer({ height: '100px', paddingLeft: '100px' })],
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
     },
-  }));
+  },
+};
