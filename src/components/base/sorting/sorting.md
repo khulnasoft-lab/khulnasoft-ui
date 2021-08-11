@@ -1,7 +1,3 @@
-# Sorting
-
-<!-- STORY -->
-
 ## Usage
 
 The sorting component allows the user to select the field on which they would like to sort a list

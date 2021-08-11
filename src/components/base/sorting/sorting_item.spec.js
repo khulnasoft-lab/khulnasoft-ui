@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
-import GlSortingItem from './sorting_item';
+import GlSortingItem from './sorting_item.vue';
 
 describe('sorting item component', () => {
   let wrapper;

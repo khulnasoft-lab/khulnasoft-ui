@@ -3,7 +3,7 @@ import GlDropdown from '../dropdown/dropdown.vue';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 import GlSorting from './sorting.vue';
-import GlSortingItem from './sorting_item';
+import GlSortingItem from './sorting_item.vue';
 
 const localVue = createLocalVue();
 

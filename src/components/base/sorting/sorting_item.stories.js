@@ -1,6 +1,5 @@
-import { withKnobs } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlSorting, GlSortingItem } from '../../../../index';
+import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './sorting_item.md';
 
 const components = {
@@ -8,45 +7,44 @@ const components = {
   GlSortingItem,
 };
 
-const onMount = (component) => {
-  component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
-};
+const generateProps = ({ href = null, active = false } = {}) => ({
+  href,
+  active,
+});
 
-documentedStoriesOf('base/sorting/sorting-item', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: {},
-    components,
-    template: `
-      <gl-sorting text="Sorting Dropdown">
-        <gl-sorting-item>Some item</gl-sorting-item>
-      </gl-sorting>
-    `,
-    mounted() {
-      onMount(this);
+const template = `
+  <gl-sorting text="Sorting Dropdown">
+    <gl-sorting-item :href="href" :active="active">Some item</gl-sorting-item>
+  </gl-sorting>`;
+
+const Template = (args) => ({
+  components,
+  props: Object.keys(args),
+  mounted() {
+    this.$nextTick(() => this.$el.querySelector('.gl-dropdown-toggle').click());
+  },
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const WithHref = Template.bind({});
+WithHref.args = generateProps({ href: 'https://about.gitlab.com/' });
+
+export const WithActive = Template.bind({});
+WithActive.args = generateProps({ active: true });
+
+export default {
+  title: 'base/sorting/sorting-item',
+  component: GlSortingItem,
+  decorators: [makeContainer({ height: '50px', paddingLeft: '100px' })],
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
     },
-  }))
-  .add('with href', () => ({
-    props: {},
-    components,
-    template: `
-      <gl-sorting text="Sorting Dropdown">
-        <gl-sorting-item href="https://about.gitlab.com/">Some link</gl-sorting-item>
-      </gl-sorting>
-    `,
-    mounted() {
-      onMount(this);
-    },
-  }))
-  .add('with active', () => ({
-    props: {},
-    components,
-    template: `
-      <gl-sorting text="Sorting Dropdown">
-        <gl-sorting-item active>Some active item</gl-sorting-item>
-      </gl-sorting>
-    `,
-    mounted() {
-      onMount(this);
-    },
-  }));
+  },
+};
