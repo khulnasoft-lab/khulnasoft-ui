@@ -71,3 +71,12 @@
 @import '../components/charts/tooltip/tooltip';
 @import '../components/shared_components/charts/tooltip_default_format';
 @import '../components/utilities/truncate/truncate';
+
+// Custom styles
+button.btn-secondary.btn.collapsed:active {
+  background-color: #f0f0f0;
+}
+
+button.btn-secondary.btn.not-collapsed {
+  background-color: #d7d7d7;
+}
