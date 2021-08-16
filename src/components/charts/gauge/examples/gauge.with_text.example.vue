@@ -1,6 +1,6 @@
 <template>
   <div>
-    <gl-gauge
+    <gl-gauge-chart
       :value="48"
       text="48Mbps"
       :min="0"
