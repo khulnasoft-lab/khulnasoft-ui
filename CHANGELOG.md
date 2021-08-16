@@ -1,3 +1,10 @@
+## [32.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.2.0...v32.2.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* **gaugeChart:** Correct reference ([456657d](https://gitlab.com/gitlab-org/gitlab-ui/commit/456657db91b3c650a05de0cc4ce32539e387faee))
+
 # [32.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.1.0...v32.2.0) (2021-08-10)
 
 
