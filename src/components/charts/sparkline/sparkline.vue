@@ -5,11 +5,9 @@ import defaultChartOptions, {
   mergeSeriesToOptions,
   symbolSize,
 } from '../../../utils/charts/config';
-import { sparkline } from '../../../utils/charts/theme';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 
-const { variants, defaultVariant } = sparkline;
 // the padding is needed so the mark points don't overflow when visible
 const gridPadding = symbolSize / 2;
 
@@ -41,17 +39,6 @@ export default {
       type: Number,
       required: false,
       default: 50,
-    },
-    /**
-     * Changes the color-variant used to render the chart.
-     */
-    variant: {
-      type: String,
-      required: false,
-      default: defaultVariant,
-      validator(value) {
-        return Object.keys(variants).includes(value);
-      },
     },
     /**
      * If enabled will show the value of the latest "y" data-point on the side right of the chart.
@@ -116,8 +103,6 @@ export default {
         hoverAnimation: false,
         animation: true,
         cursor: 'auto',
-        lineStyle: { color: this.variantColor },
-        itemStyle: { color: this.variantColor },
         symbolSize,
         markPoint: {
           symbol: 'circle',
@@ -138,9 +123,6 @@ export default {
       const latestEntry = this.data.slice(-1)[0];
 
       return latestEntry[1];
-    },
-    variantColor() {
-      return variants[this.variant];
     },
   },
   methods: {

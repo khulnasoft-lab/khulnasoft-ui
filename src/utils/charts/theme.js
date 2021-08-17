@@ -98,12 +98,6 @@ export const colorPaletteDefault = [
 export const colorFromDefaultPalette = (index) =>
   colorPaletteDefault[index % colorPaletteDefault.length];
 
-export const sparkline = {
-  // additional colors are TBD - see issue: https://gitlab.com/gitlab-org/gitlab-ui/issues/484
-  variants: { gray900 },
-  defaultVariant: 'gray900',
-};
-
 const axes = {
   axisLabel: {
     margin: 8,
