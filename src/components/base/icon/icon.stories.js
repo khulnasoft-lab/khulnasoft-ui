@@ -1,6 +1,4 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { withKnobs, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlIcon } from '../../../../index';
 import { iconSizeOptions } from '../../../utils/constants';
 import readme from './icon.md';
@@ -9,23 +7,56 @@ const components = {
   GlIcon,
 };
 
-documentedStoriesOf('base/icon', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: {
-      name: {
-        type: String,
-        default: select('name', iconSpriteInfo.icons, 'check-circle'),
-      },
-      size: {
-        type: Number,
-        default: select('size', iconSizeOptions, 32),
+const generateProps = ({
+  name = 'check-circle',
+  size = 32,
+  ariaLabel = 'This is an icon',
+} = {}) => ({
+  name,
+  size,
+  ariaLabel,
+});
+
+const template = `<gl-icon :name="name" :size="size" :aria-label="ariaLabel"/>`;
+
+const Template = (args) => ({
+  components,
+  props: Object.keys(args),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'base/icon',
+  component: GlIcon,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
       },
     },
-    components,
-    template: `
-      <gl-icon
-        :name="name"
-        :size="size"
-      />`,
-  }));
+    storyshots: { disable: true },
+  },
+  argTypes: {
+    name: {
+      control: {
+        type: 'select',
+        options: iconSpriteInfo.icons,
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: iconSizeOptions,
+      },
+    },
+    useDeprecatedSizes: {
+      control: {
+        disable: true,
+      },
+    },
+  },
+};

@@ -31,21 +31,35 @@ if (process.env.NODE_ENV !== 'production') {
  */
 export default {
   props: {
+    /**
+     * Accessible icon name used by screen readers and other assistive technologies.
+     * Provide when icon is not merely decorative
+     */
     ariaLabel: {
       type: String,
       required: false,
       default: undefined,
     },
+    /**
+     * One of the icons from https://gitlab-org.gitlab.io/gitlab-svgs/ project
+     */
     name: {
       type: String,
       required: true,
       validator: iconValidator,
     },
+    /**
+     * Icon size
+     */
     size: {
       type: Number,
       required: false,
       default: 16,
     },
+    /**
+     * Is used to deprecate 10&18 icon sizes iteratively.
+     * More info here https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1232
+     */
     useDeprecatedSizes: {
       type: Boolean,
       required: false,
