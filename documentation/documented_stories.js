@@ -72,6 +72,7 @@ export const setupStorybookReadme = () =>
         'GlEmptyState',
         'GlSorting',
         'GlSortingItem',
+        'GlIcon',
       ],
       components: {
         GlComponentDocumentation,
@@ -104,15 +105,17 @@ export const setupStorybookReadme = () =>
       },
       template: `
       <div>
-        <slot v-if="$options.disableForComponents.includes(componentName)" />
-        <template v-else>
-          <div class="story-container" v-bind:style="styles"><slot></slot></div>
-          {{ error }}
-          <template v-if="componentName">
-            <gl-example-explorer :componentName="componentName" />
-            <gl-component-documentation :componentName="componentName" />
+          <div class="story-container" v-if="$options.disableForComponents.includes(componentName)">
+              <slot></slot>
+          </div>
+          <template v-else>
+              <div class="story-container" v-bind:style="styles"><slot></slot></div>
+              {{ error }}
+              <template v-if="componentName">
+                  <gl-example-explorer :componentName="componentName" />
+                  <gl-component-documentation :componentName="componentName" />
+              </template>
           </template>
-        </template>
       </div>`,
     },
   });
