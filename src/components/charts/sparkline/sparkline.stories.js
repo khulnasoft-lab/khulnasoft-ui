@@ -1,5 +1,4 @@
 import { GlSparklineChart } from '../../../../charts';
-import { sparkline } from '../../../utils/charts/theme';
 import readme from './sparkline.md';
 
 const chartData = [
@@ -14,13 +13,11 @@ const chartData = [
 
 const generateProps = ({
   data = chartData,
-  variant = sparkline.defaultVariant,
   height = 50,
   tooltipLabel = 'tooltipLabel',
   showLastYValue = true,
 } = {}) => ({
   data,
-  variant,
   height,
   tooltipLabel,
   showLastYValue,
@@ -33,7 +30,6 @@ const Template = (args) => ({
     <div>
       <gl-sparkline-chart
         :data="data"
-        :variant="variant"
         :height="height"
         :tooltip-label="tooltipLabel"
         :show-last-y-value="showLastYValue"
@@ -52,14 +48,6 @@ export default {
     docs: {
       description: {
         component: readme,
-      },
-    },
-  },
-  argTypes: {
-    variant: {
-      control: {
-        type: 'select',
-        options: Object.keys(sparkline.variants),
       },
     },
   },

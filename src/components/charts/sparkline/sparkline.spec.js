@@ -1,9 +1,7 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import SparklineChart from './sparkline.vue';
-import { sparkline } from '~/utils/charts/theme';
 import { waitForAnimationFrame } from '~/utils/test_utils';
 
 const mockResize = jest.fn();
@@ -59,8 +57,6 @@ describe('sparkline chart component', () => {
   const getTooltipContent = () => getTooltip().find('.js-tooltip-content');
 
   const getLastYValue = () => wrapper.find('.js-last-y-value');
-  const getVariantPropConfig = () => wrapper.vm.$options.props.variant;
-  const getVariantPropValidator = () => getVariantPropConfig().validator;
 
   const getChartOptions = () => getChart().props('options');
   const getXAxisLabelFormatter = () => {
@@ -110,22 +106,6 @@ describe('sparkline chart component', () => {
     await wrapper.vm.$nextTick();
 
     expect(getChart().props('height')).toBe(newHeight);
-  });
-
-  it.each(Object.keys(sparkline.variants))(
-    'accepts a value that is in `theme.sparkline.variants` as a valid variant',
-    (validVariant) => {
-      expect(getVariantPropValidator()(validVariant)).toBe(true);
-    }
-  );
-
-  it('rejects a value that is not in `theme.sparkline.variants` as a valid variant', () => {
-    expect(getVariantPropValidator()('invalid')).toBe(false);
-  });
-
-  it('uses `theme.sparkline.defaultVariant` as a default variant', () => {
-    expect(getVariantPropConfig().default).toBeTruthy();
-    expect(getVariantPropConfig().default).toBe(sparkline.defaultVariant);
   });
 
   it('triggers the chart to resize when the containing elements size changes', () => {
