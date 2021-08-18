@@ -30,7 +30,6 @@ const Template = (args) => ({
     <div>
       <gl-sparkline-chart
         :data="data"
-        :variant="variant"
         :height="height"
         :tooltip-label="tooltipLabel"
         :show-last-y-value="showLastYValue"
