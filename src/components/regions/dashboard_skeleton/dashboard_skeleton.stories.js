@@ -1,19 +1,29 @@
-import { withKnobs } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlDashboardSkeleton } from '../../../../index';
 import readme from './dashboard_skeleton.md';
 
-const components = {
-  GlDashboardSkeleton,
+const defaultValue = (prop) => GlDashboardSkeleton.props[prop].default;
+
+const generateProps = ({ cards = defaultValue('cards') } = {}) => ({
+  cards,
+});
+
+const Template = (args, { argTypes }) => ({
+  components: { GlDashboardSkeleton },
+  props: Object.keys(argTypes),
+  template: '<gl-dashboard-skeleton :cards="cards" />',
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'regions/dashboard-skeleton',
+  component: GlDashboardSkeleton,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
 };
-
-const template = `
-  <gl-dashboard-skeleton />
-`;
-
-documentedStoriesOf('regions/dashboard-skeleton', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    template,
-  }));

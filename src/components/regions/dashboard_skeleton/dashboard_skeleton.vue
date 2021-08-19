@@ -1,7 +1,9 @@
 <script>
 export default {
-  name: 'DashboardSkeletonLoading',
   props: {
+    /**
+     * Number of cards to be shown
+     */
     cards: {
       type: Number,
       required: false,
