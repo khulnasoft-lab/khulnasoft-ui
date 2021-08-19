@@ -13,8 +13,12 @@
   @include form-control-focus($ignore-warning: true);
   @include gl-appearance-none;
 
+  &[type='color']:read-only {
+    cursor: pointer;
+  }
+
   &:disabled,
-  &:not(.form-control-plaintext):read-only {
+  &:not(.form-control-plaintext):not([type='color']):read-only {
     @include gl-bg-gray-10;
     @include gl-text-gray-400;
     @include gl-inset-border-1-gray-100;
