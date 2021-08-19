@@ -1,3 +1,10 @@
+## [32.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.2.2...v32.2.3) (2021-08-19)
+
+
+### Bug Fixes
+
+* **formInput:** fix cursor Issue on Colorpicker ([c1fa1bd](https://gitlab.com/gitlab-org/gitlab-ui/commit/c1fa1bd4a9a53fc12ad0dc481909796c1afc7356))
+
 ## [32.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.2.1...v32.2.2) (2021-08-19)
 
 
