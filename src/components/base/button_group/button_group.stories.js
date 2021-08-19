@@ -1,11 +1,7 @@
 import { GlButton, GlButtonGroup, GlDropdown, GlDropdownItem } from '../../../../index';
-import { newButtonSizeOptions } from '../../../utils/constants';
 import readme from './button_group.md';
 
-const generateProps = ({ size = newButtonSizeOptions.medium, vertical = false } = {}) => ({
-  size,
-  vertical,
-});
+const generateProps = ({ vertical = false } = {}) => ({ vertical });
 
 const template = `
   <gl-button-group :vertical="vertical" :size="size">
@@ -38,14 +34,6 @@ export default {
     },
     knobs: {
       disabled: true,
-    },
-  },
-  argTypes: {
-    size: {
-      control: {
-        type: 'select',
-        options: newButtonSizeOptions,
-      },
     },
   },
 };
