@@ -76,6 +76,7 @@ export const setupStorybookReadme = () =>
         'GlIcon',
         'GlDashboardSkeleton',
         'GlToggle',
+        'GlNavbar',
       ],
       components: {
         GlComponentDocumentation,
