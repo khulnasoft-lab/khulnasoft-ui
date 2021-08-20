@@ -75,6 +75,7 @@ export const setupStorybookReadme = () =>
         'GlSortingItem',
         'GlIcon',
         'GlDashboardSkeleton',
+        'GlToggle',
       ],
       components: {
         GlComponentDocumentation,

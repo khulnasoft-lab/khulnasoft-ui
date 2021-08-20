@@ -20,30 +20,49 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * The toggle's state.
+     * @model
+     */
     value: {
       type: Boolean,
       required: false,
       default: null,
     },
+    /**
+     * Whether the toggle should be disabled.
+     */
     disabled: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * Whether the toggle is in the loading state.
+     */
     isLoading: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * The toggle's label.
+     */
     label: {
       type: String,
       required: true,
     },
+    /**
+     * A help text to be shown below the toggle.
+     */
     help: {
       type: String,
       required: false,
       default: undefined,
     },
+    /**
+     * The label's position relative to the toggle.
+     */
     labelPosition: {
       type: String,
       required: false,
@@ -73,7 +92,15 @@ export default {
 
   methods: {
     toggleFeature() {
-      if (!this.disabled) this.$emit('change', !this.value);
+      if (!this.disabled) {
+        /**
+         * Emitted when the state changes.
+         *
+         * @event change
+         * @property {boolean} value Whether the toggle is enabled.
+         */
+        this.$emit('change', !this.value);
+      }
     },
   },
 };
@@ -86,6 +113,7 @@ export default {
       :class="{ 'gl-toggle-label-inline': labelPosition === 'left', 'is-disabled': disabled }"
     >
       <span v-if="shouldShowLabel" class="gl-toggle-label" data-testid="toggle-label">
+        <!-- @slot The toggle's label. -->
         <slot name="label">{{ label }}</slot>
       </span>
       <input v-if="name" :name="name" :value="value" type="hidden" />
@@ -109,6 +137,7 @@ export default {
       </button>
     </span>
     <span v-if="help" :id="helpId" class="gl-help-label" data-testid="toggle-help">
+      <!-- @slot A help text to be shown below the toggle. -->
       <slot name="help">{{ help }}</slot>
     </span>
   </label>
