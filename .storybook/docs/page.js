@@ -9,6 +9,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import { ImportInfo } from './blocks/ImportInfo';
+import { BootstrapComponent } from './blocks/BootstrapComponent';
 
 export const page = () => (
   <>
@@ -19,5 +20,6 @@ export const page = () => (
     <Primary />
     <ArgsTable story={PRIMARY_STORY} />
     <Stories />
+    <BootstrapComponent />
   </>
 );
