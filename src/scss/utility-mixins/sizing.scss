@@ -221,6 +221,18 @@
   min-width: 0;
 }
 
+@mixin gl-min-w-7 {
+  min-width: $gl-spacing-scale-7;
+}
+
+@mixin gl-min-w-8 {
+  min-width: $gl-spacing-scale-8;
+}
+
+@mixin gl-min-w-10 {
+  min-width: $gl-spacing-scale-10;
+}
+
 @mixin gl-min-w-full {
   min-width: 100%;
 }
