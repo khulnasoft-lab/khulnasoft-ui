@@ -1,3 +1,10 @@
+# [32.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.2.3...v32.3.0) (2021-08-20)
+
+
+### Features
+
+* **css:** Add min-width utility classes ([0738c1a](https://gitlab.com/gitlab-org/gitlab-ui/commit/0738c1af123449ae091f0cee6cbcb7fc580abb14))
+
 ## [32.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.2.2...v32.2.3) (2021-08-19)
 
 
