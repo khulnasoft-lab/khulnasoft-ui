@@ -43,7 +43,6 @@ export { default as GlPaginationDocumentation } from '../src/components/base/pag
 export { default as GlPaginatedListDocumentation } from '../src/components/base/paginated_list/paginated_list.documentation';
 export { default as GlPathDocumentation } from '../src/components/base/path/path.documentation';
 export { default as GlPopoverDocumentation } from '../src/components/base/popover/popover.documentation';
-export { default as GlProgressBarDocumentation } from '../src/components/base/progress_bar/progress_bar.documentation';
 export { default as GlTooltipDocumentation } from '../src/components/base/tooltip/tooltip.documentation';
 export { default as GlDashboardSkeletonDocumentation } from '../src/components/regions/dashboard_skeleton/dashboard_skeleton.documentation';
 export { default as GlEmptyStateDocumentation } from '../src/components/regions/empty_state/empty_state.documentation';
