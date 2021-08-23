@@ -4,7 +4,7 @@ import readme from './button_group.md';
 const generateProps = ({ vertical = false } = {}) => ({ vertical });
 
 const template = `
-  <gl-button-group :vertical="vertical" :size="size">
+  <gl-button-group :vertical="vertical">
     <gl-button>Button 1</gl-button>
     <gl-button>Button 2</gl-button>
     <gl-dropdown text="Some dropdown">
@@ -33,7 +33,7 @@ export default {
       },
     },
     knobs: {
-      disabled: true,
+      disable: true,
     },
   },
 };

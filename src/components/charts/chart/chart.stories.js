@@ -107,6 +107,6 @@ export default {
         component: readme,
       },
     },
-    controls: { disabled: true },
+    controls: { disable: true },
   },
 };

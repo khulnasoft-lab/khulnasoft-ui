@@ -23,7 +23,7 @@ export const parameters = {
       method: 'alphabetical',
     },
   },
-  actions: { disabled: true },
+  actions: { disable: true },
 };
 
 /**
