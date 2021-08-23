@@ -350,7 +350,7 @@ export const LabelButton = (args, { argTypes = {} }) => ({
       </div>
     `,
 });
-LabelButton.parameters = { controls: { disabled: true } };
+LabelButton.parameters = { controls: { disable: true } };
 
 export const AllVariantsAndCategories = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
@@ -377,7 +377,7 @@ export const AllVariantsAndCategories = (args, { argTypes = {} }) => ({
       </div>
     `,
 });
-AllVariantsAndCategories.parameters = { controls: { disabled: true } };
+AllVariantsAndCategories.parameters = { controls: { disable: true } };
 
 export const Emojis = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
@@ -419,7 +419,7 @@ export const Emojis = (args, { argTypes = {} }) => ({
       </div>
     `,
 });
-Emojis.parameters = { controls: { disabled: true } };
+Emojis.parameters = { controls: { disable: true } };
 
 export const Ellipsis = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
@@ -428,7 +428,7 @@ export const Ellipsis = (args, { argTypes = {} }) => ({
     <gl-button icon="ellipsis_h" aria-label="Ellipsis button" />
   `,
 });
-Ellipsis.parameters = { controls: { disabled: true } };
+Ellipsis.parameters = { controls: { disable: true } };
 
 export const Sizes = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
@@ -446,7 +446,7 @@ export const Sizes = (args, { argTypes = {} }) => ({
     </div>
   `,
 });
-Sizes.parameters = { controls: { disabled: true } };
+Sizes.parameters = { controls: { disable: true } };
 
 export default {
   title: 'base/button',
@@ -458,7 +458,7 @@ export default {
       },
     },
     knobs: {
-      disabled: true,
+      disable: true,
     },
   },
   argTypes: {

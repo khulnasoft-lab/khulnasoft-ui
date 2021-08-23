@@ -51,7 +51,7 @@ export default {
   title: 'base/breadcrumb',
   component: GlBreadcrumb,
   parameters: {
-    knobs: { disabled: true },
+    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

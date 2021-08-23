@@ -81,7 +81,7 @@ export default {
   title: 'base/banner',
   component: GlBanner,
   parameters: {
-    knobs: { disabled: true },
+    knobs: { disable: true },
     docs: {
       description: {
         component: readme,
@@ -90,9 +90,9 @@ export default {
   },
   argTypes: {
     variant: {
+      options: bannerVariants,
       control: {
         type: 'select',
-        options: bannerVariants,
       },
     },
     svgPath: {

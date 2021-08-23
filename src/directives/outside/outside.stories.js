@@ -27,7 +27,7 @@ Default.parameters = {
 export default {
   title: 'directives/outside-directive',
   parameters: {
-    knobs: { disabled: true },
+    knobs: { disable: true },
     docs: {
       description: {
         component: readme,
