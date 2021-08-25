@@ -42,6 +42,21 @@ export default {
 
 [Read more about available properties](https://vue-styleguidist.github.io/docs/Documenting.html).
 
+## Underlying BootstrapVue component
+
+If a component uses a BootstrapVue component under the hood, we can specify it in its stories
+parameters. Doing so will result in a link to BootstrapVue's component documentation being generated
+and displayed at the bottom of the Storybook docs page.
+
+```javascript
+export default {
+  title: 'base/button',
+  parameters: {
+    bootstrapComponent: 'b-button', // The kebab-cased BootstrapVue component name.
+  },
+};
+```
+
 ## Component documentation info
 
 To add additional information to our documentation page we are using extra files which hold
@@ -54,6 +69,5 @@ export default {
   description: doc,                   // Imported Documentation file
   followsDesignSystem: true,          // If we have already fully styled this component according
                                       // to design system
-  bootstrapComponent: 'b-button',     // Name of the underlying vue-bootstrap component
 };
 ```
