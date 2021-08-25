@@ -1,3 +1,10 @@
+## [32.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.3.0...v32.3.1) (2021-08-25)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Fix no-caret dropdown-button pd ([718e39e](https://gitlab.com/gitlab-org/gitlab-ui/commit/718e39ecba7ff61754a630e563f7f7dbeab16116))
+
 # [32.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.2.3...v32.3.0) (2021-08-20)
 
 
