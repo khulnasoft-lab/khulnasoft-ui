@@ -1,3 +1,10 @@
+## [32.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.3.1...v32.3.2) (2021-08-25)
+
+
+### Bug Fixes
+
+* **issue-template:** Remove deprecated label from issue template ([ca12a30](https://gitlab.com/gitlab-org/gitlab-ui/commit/ca12a3032db592bd29db0a6b0e4f05dc2e4b706e))
+
 ## [32.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.3.0...v32.3.1) (2021-08-25)
 
 
