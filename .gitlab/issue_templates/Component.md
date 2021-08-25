@@ -33,7 +33,7 @@ Make sure the following are completed before closing the issue:
 * [Breaking changes][breaking-changes]
 -->
 
-/label ~"pajamas::build" ~"pajamas::style"
+/label ~"pajamas::build"
 
 [foundations-team]: https://about.gitlab.com/company/team/?department=fe-ux-foundations-team
 [pajamas-mr]: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/merge_requests/new
