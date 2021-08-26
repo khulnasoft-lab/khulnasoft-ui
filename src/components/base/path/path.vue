@@ -17,17 +17,33 @@ export default {
     GlResizeObserverDirective,
   },
   props: {
+    /**
+     * A list of path items in the form:
+     * ```
+     * {
+     *   title:  String, required
+     *   metric: Any, optional
+     *   icon:   String, optional
+     * }
+     * ```
+     */
     items: {
       type: Array,
       required: false,
       default: () => [],
     },
+    /**
+     * The color theme to be used.
+     */
     theme: {
       type: String,
       required: false,
       default: 'indigo',
       validator: (theme) => glThemes.includes(theme),
     },
+    /**
+     * The items' background color.
+     */
     backgroundColor: {
       type: String,
       required: false,
@@ -77,6 +93,9 @@ export default {
     },
     onItemClicked(selectedIndex) {
       this.selectedIndex = selectedIndex;
+      /**
+       * Emitted when an item is selected.
+       */
       this.$emit('selected', this.items[this.selectedIndex]);
     },
     handleResize({ contentRect: { width } }) {
@@ -155,6 +174,11 @@ export default {
           {{ item.title
           }}<span v-if="item.metric" class="gl-font-weight-normal gl-pl-2">{{ item.metric }}</span>
         </button>
+        <!--
+          @slot Additional content to be displayed in a path item.
+          @binding {Object} pathItem The path item being rendered.
+          @binding {String} pathItem The rendered path item's ID.
+        -->
         <slot :path-item="item" :path-id="pathId(index)"></slot>
       </li>
     </ul>
