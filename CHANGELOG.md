@@ -1,3 +1,10 @@
+# [32.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.3.2...v32.4.0) (2021-08-26)
+
+
+### Features
+
+* **GlSingleStat:** Conditionally add hover class ([e931aae](https://gitlab.com/gitlab-org/gitlab-ui/commit/e931aaeb9dfcea85521cef4aa492d93b49d373d4))
+
 ## [32.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.3.1...v32.3.2) (2021-08-25)
 
 
