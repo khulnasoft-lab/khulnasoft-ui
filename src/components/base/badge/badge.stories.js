@@ -75,6 +75,7 @@ export default {
   title: 'base/badge',
   component: GlBadge,
   parameters: {
+    bootstrapComponent: 'b-badge',
     docs: {
       description: {
         component: readme,

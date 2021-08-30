@@ -51,6 +51,7 @@ export default {
   title: 'base/breadcrumb',
   component: GlBreadcrumb,
   parameters: {
+    bootstrapComponent: 'b-breadcrumb',
     knobs: { disable: true },
     docs: {
       description: {
