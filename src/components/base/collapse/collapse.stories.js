@@ -1,39 +1,43 @@
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlCollapse } from '../../../../index';
+import { GlButton, GlCard, GlCollapse } from '../../../../index';
 import readme from './collapse.md';
 
-const components = {
-  GlCollapse,
-};
+const generateProps = ({ visible = false } = {}) => ({ visible });
 
-documentedStoriesOf('base/collapse', readme)
-  .add('default', () => ({
-    components,
-    template: `
-      <div>
-        <h1>Here's a headline</h1>
-        <span>With some details</span>
-        <gl-button v-gl-collapse-toggle.collapse-with-heading class="float-right" category="primary">
-          Toggle Collapse
-        </gl-button>
-        <gl-collapse id="collapse-with-heading" class="gl-mt-2">
-          <h1>This is collapsed by default</h1>
-          <span>
-            Which is good if there are some extensive details that should only be visible if the user
-            wants to interact with this extra detail
-          </span>
-        </gl-collapse>
-      </div>
-    `,
-  }))
-  .add('initially expanded', () => ({
-    components,
-    template: `
-      <div>
-        <gl-button v-gl-collapse-toggle.collapse-template category="primary">Toggle Collapse</gl-button>
-        <gl-collapse visible id="collapse-template" class="mt-2">
-          <gl-card>Hey I was expanded all along!</gl-card>
-        </gl-collapse>
-      </div>
-    `,
-  }));
+const template = `
+  <div>
+    <h1>Here's a headline</h1>
+    <gl-button v-gl-collapse-toggle.collapse class="float-right" category="primary">
+      Toggle Collapse
+    </gl-button>
+    <gl-collapse :visible="visible" id="collapse" class="gl-mt-2">
+      <span>
+        This content can be hidden by default, which is good if there are some extensive details 
+        that should only be visible if the user wants to interact with them
+      </span>
+    </gl-collapse>
+  </div>`;
+
+const Template = (args, { argTypes }) => ({
+  components: { GlButton, GlCard, GlCollapse },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'base/collapse',
+  component: GlCollapse,
+  parameters: {
+    bootstrapComponent: 'b-collapse',
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+    knobs: {
+      disabled: true,
+    },
+  },
+};

@@ -14,6 +14,7 @@ export default {
 
 <template>
   <b-collapse v-bind="$attrs" v-on="$listeners">
+    <!-- @slot The content to show/hide. -->
     <slot></slot>
   </b-collapse>
 </template>

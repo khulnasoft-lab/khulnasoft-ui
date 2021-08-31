@@ -68,6 +68,7 @@ export const setupStorybookReadme = () =>
         'GlBanner',
         'GlBreadcrumb',
         'GlBroadcastMessage',
+        'GlCollapse',
         'GlToken',
         'GlButton',
         'GlEmptyState',
