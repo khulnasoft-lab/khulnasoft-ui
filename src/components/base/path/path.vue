@@ -177,7 +177,7 @@ export default {
         <!--
           @slot Additional content to be displayed in a path item.
           @binding {Object} pathItem The path item being rendered.
-          @binding {String} pathItem The rendered path item's ID.
+          @binding {String} pathId The rendered path item's ID.
         -->
         <slot :path-item="item" :path-id="pathId(index)"></slot>
       </li>
