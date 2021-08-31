@@ -79,6 +79,7 @@ export const setupStorybookReadme = () =>
         'GlToggle',
         'GlNavbar',
         'GlProgressBar',
+        'GlPath',
       ],
       components: {
         GlComponentDocumentation,

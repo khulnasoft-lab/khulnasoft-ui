@@ -1,4 +1,4 @@
-export default [
+export const mockPathItems = [
   {
     title: 'First',
     metric: '1d',
