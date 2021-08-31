@@ -27,6 +27,7 @@ export default {
   title: 'base/button group',
   component: GlButtonGroup,
   parameters: {
+    bootstrapComponent: 'b-button-group',
     docs: {
       description: {
         component: readme,

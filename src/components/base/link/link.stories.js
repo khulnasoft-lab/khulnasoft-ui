@@ -31,6 +31,7 @@ export default {
   title: 'base/link',
   component: GlLink,
   parameters: {
+    bootstrapComponent: 'b-link',
     docs: {
       description: {
         component: readme,

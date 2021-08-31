@@ -452,6 +452,7 @@ export default {
   title: 'base/button',
   component: GlButton,
   parameters: {
+    bootstrapComponent: 'b-button',
     docs: {
       description: {
         component: readme,
