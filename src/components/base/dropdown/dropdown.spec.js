@@ -225,6 +225,23 @@ describe('new dropdown', () => {
     });
   });
 
+  describe('when the highlight items slot exists', () => {
+    const slots = { highlightedItems: 'Footer Content' };
+
+    it('renders the footer', () => {
+      buildWrapper({}, slots);
+      expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBeTruthy();
+      expect(wrapper.html()).toContain('Footer Content');
+    });
+  });
+
+  describe('with no footer slot exists', () => {
+    it('does not render the footer', () => {
+      buildWrapper();
+      expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBeFalsy();
+    });
+  });
+
   describe('button content templates', () => {
     const mockComponent = {
       template: '<span>mock</span>',

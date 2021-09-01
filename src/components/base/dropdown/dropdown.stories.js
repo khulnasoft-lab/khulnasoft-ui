@@ -45,6 +45,8 @@ function generateProps({
   hideHeaderBorder = true,
   showClearAll = false,
   clearAllText = '',
+  showHighlightedItemsTitle = false,
+  highlightedItemsTitle = '',
 } = {}) {
   const props = {
     category: {
@@ -107,6 +109,14 @@ function generateProps({
       type: String,
       default: textKnob('clear all text', clearAllText),
     },
+    showHighlightedItemsTitle: {
+      type: Boolean,
+      default: boolean('show highlighted items title', showHighlightedItemsTitle),
+    },
+    highlightedItemsTitle: {
+      type: String,
+      default: textKnob('Highlighted items title', highlightedItemsTitle),
+    },
     right: {
       type: Boolean,
       default: boolean('right', false),
@@ -134,6 +144,8 @@ function wrap([template]) {
       :hide-header-border="hideHeaderBorder"
       :show-clear-all="showClearAll"
       :clear-all-text="clearAllText"
+      :show-highlighted-items-title="showHighlightedItemsTitle"
+      :highlighted-items-title="highlightedItemsTitle"
       :loading="loading"
       :right="right"
     >
@@ -451,6 +463,28 @@ documentedStoriesOf('base/dropdown', readme)
       <gl-dropdown-item :is-check-item="true" :is-checked="true">First item</gl-dropdown-item>
       <gl-dropdown-item :is-check-item="true" :is-checked="true">Second item</gl-dropdown-item>
       <gl-dropdown-item :is-check-item="true" :is-checked="true">Third item</gl-dropdown-item>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with highlighted items', () => ({
+    props: generateProps({
+      text: 'Some dropdown',
+      showHighlightedItemsTitle: true,
+      highlightedItemsTitle: 'Highlights',
+    }),
+    components,
+    template: wrap`
+      <template #highlighted-items>
+        <gl-dropdown-item :is-check-item="true" :is-checked="true">First item</gl-dropdown-item>
+        <gl-dropdown-item :is-check-item="true" :is-checked="true">Second item</gl-dropdown-item>
+      </template>
+      <gl-dropdown-item>Third item</gl-dropdown-item>
+      <gl-dropdown-item>Fourth item</gl-dropdown-item>
+      `,
     mounted() {
       clickDropdown(this);
     },

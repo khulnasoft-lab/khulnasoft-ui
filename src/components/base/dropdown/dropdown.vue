@@ -65,6 +65,16 @@ export default {
       required: false,
       default: '',
     },
+    showHighlightedItemsTitle: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    highlightedItemsTitle: {
+      type: String,
+      required: false,
+      default: 'Selected',
+    },
     textSrOnly: {
       type: Boolean,
       required: false,
@@ -166,6 +176,10 @@ export default {
     buttonText() {
       return this.split && this.icon ? null : this.text;
     },
+    hasHighlightedItemsOrClearAll() {
+      const { showHighlightedItemsTitle, showClearAll } = this;
+      return showHighlightedItemsTitle || showClearAll;
+    },
   },
   methods: {
     hasSlotContents(slotName) {
@@ -180,7 +194,6 @@ export default {
   },
 };
 </script>
-
 <template>
   <b-dropdown
     ref="dropdown"
@@ -207,15 +220,28 @@ export default {
         </p>
         <slot name="header"></slot>
       </div>
-      <div v-if="showClearAll" class="gl-text-right gl-px-5">
-        <gl-button
-          size="small"
-          category="tertiary"
-          variant="link"
-          data-testid="clear-all-button"
-          @click="$emit('clear-all')"
-          >{{ clearAllText }}</gl-button
+      <div v-if="hasHighlightedItemsOrClearAll" class="gl-px-5">
+        <div
+          class="gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
         >
+          <span v-if="showHighlightedItemsTitle" class="gl-font-weight-bold">{{
+            highlightedItemsTitle
+          }}</span>
+          <gl-button
+            v-if="showClearAll"
+            size="small"
+            category="tertiary"
+            variant="link"
+            data-testid="clear-all-button"
+            @click="$emit('clear-all')"
+            >{{ clearAllText }}</gl-button
+          >
+        </div>
+      </div>
+      <div v-if="hasSlotContents('highlighted-items')" class="gl-new-dropdown-contents">
+        <gl-dropdown-divider v-if="hasHighlightedItemsOrClearAll" />
+        <slot name="highlighted-items"></slot>
+        <gl-dropdown-divider />
       </div>
       <div class="gl-new-dropdown-contents">
         <slot></slot>
