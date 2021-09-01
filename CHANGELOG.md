@@ -1,3 +1,10 @@
+# [32.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.4.0...v32.5.0) (2021-09-01)
+
+
+### Features
+
+* **GlDropdown:** Add optional clear all button ([a265e49](https://gitlab.com/gitlab-org/gitlab-ui/commit/a265e49a298cf94f31398cf4c135dcae14057563))
+
 # [32.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.3.2...v32.4.0) (2021-08-26)
 
 
