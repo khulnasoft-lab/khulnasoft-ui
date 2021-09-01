@@ -248,4 +248,41 @@ describe('new dropdown', () => {
       expect(findCaret().exists()).toBe(false);
     });
   });
+
+  describe('Clear all button', () => {
+    const findClearAll = () => wrapper.find('[data-testid="clear-all-button"]');
+    it('is not visible by default', () => {
+      buildWrapper({});
+
+      expect(findClearAll().exists()).toBe(false);
+    });
+
+    describe('when `showClearAll=true`', () => {
+      const clearAllText = 'Clear all';
+      beforeEach(() => {
+        buildWrapper({ showClearAll: true });
+      });
+
+      it('is visible', () => {
+        expect(findClearAll().exists()).toBe(true);
+        expect(findClearAll().text()).toBe(clearAllText);
+      });
+
+      it('emits an event when the `clear all` button is clicked', () => {
+        expect(wrapper.emitted('clear-all')).toBeUndefined();
+
+        findClearAll().vm.$emit('click');
+
+        expect(wrapper.emitted('clear-all')).toHaveLength(1);
+      });
+
+      it('can configure the clear all text', () => {
+        buildWrapper({ showClearAll: true, clearAllText: 'Clear' });
+
+        expect(findClearAll().exists()).toBe(true);
+        expect(findClearAll().text()).toBe('Clear');
+        expect(findClearAll().text()).not.toBe(clearAllText);
+      });
+    });
+  });
 });

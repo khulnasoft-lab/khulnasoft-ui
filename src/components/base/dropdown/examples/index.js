@@ -2,6 +2,7 @@ import DropdownDefaultExample from './dropdown.default.example.vue';
 import DropdownLinksExample from './dropdown.links.example.vue';
 import DropdownWithAvatarAndSecondaryText from './dropdown.with_avatar_and_secondary_text.example.vue';
 import DropdownWithCheckedItemsExample from './dropdown.with_checked_items.example.vue';
+import DropdownClearAllExample from './dropdown.with_clear_all.example.vue';
 import DropdownWithDividerExample from './dropdown.with_divider.example.vue';
 import DropdownWithFormExample from './dropdown.with_form.example.vue';
 import DropdownWithHeaderExample from './dropdown.with_header.example.vue';
@@ -79,6 +80,12 @@ export default [
         name: 'With Form',
         description: 'Dropdown with form',
         component: DropdownWithFormExample,
+      },
+      {
+        id: 'new-dropdown-with-clear-all',
+        name: 'With Clear all',
+        description: 'Dropdown with clear all',
+        component: DropdownClearAllExample,
       },
     ],
   },
