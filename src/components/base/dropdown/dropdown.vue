@@ -7,6 +7,7 @@ import {
   newButtonSizeOptions,
 } from '../../../utils/constants';
 import ButtonMixin from '../../mixins/button_mixin';
+import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
@@ -33,6 +34,7 @@ const ExtendedBDropdown = {
 export default {
   components: {
     BDropdown: ExtendedBDropdown,
+    GlButton,
     GlIcon,
     GlLoadingIcon,
   },
@@ -47,6 +49,16 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    showClearAll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    clearAllText: {
+      type: String,
+      required: false,
+      default: 'Clear all',
     },
     text: {
       type: String,
@@ -190,8 +202,20 @@ export default {
         class="gl-new-dropdown-header"
         :class="{ 'gl-border-b-0!': hideHeaderBorder }"
       >
-        <p v-if="headerText" class="gl-new-dropdown-header-top">{{ headerText }}</p>
+        <p v-if="headerText" class="gl-new-dropdown-header-top">
+          {{ headerText }}
+        </p>
         <slot name="header"></slot>
+      </div>
+      <div v-if="showClearAll" class="gl-text-right gl-px-5">
+        <gl-button
+          size="small"
+          category="tertiary"
+          variant="link"
+          data-testid="clear-all-button"
+          @click="$emit('clear-all')"
+          >{{ clearAllText }}</gl-button
+        >
       </div>
       <div class="gl-new-dropdown-contents">
         <slot></slot>

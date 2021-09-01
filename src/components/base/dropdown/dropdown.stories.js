@@ -43,6 +43,8 @@ function generateProps({
   loading = false,
   headerText = '',
   hideHeaderBorder = true,
+  showClearAll = false,
+  clearAllText = '',
 } = {}) {
   const props = {
     category: {
@@ -95,7 +97,15 @@ function generateProps({
     },
     hideHeaderBorder: {
       type: Boolean,
-      default: boolean('no header boarder', hideHeaderBorder),
+      default: boolean('no header border', hideHeaderBorder),
+    },
+    showClearAll: {
+      type: Boolean,
+      default: boolean('show clear all', showClearAll),
+    },
+    clearAllText: {
+      type: String,
+      default: textKnob('clear all text', clearAllText),
     },
     right: {
       type: Boolean,
@@ -122,6 +132,8 @@ function wrap([template]) {
       :toggle-class="toggleClass"
       :header-text="headerText"
       :hide-header-border="hideHeaderBorder"
+      :show-clear-all="showClearAll"
+      :clear-all-text="clearAllText"
       :loading="loading"
       :right="right"
     >
@@ -421,6 +433,24 @@ documentedStoriesOf('base/dropdown', readme)
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>
       <gl-dropdown-item>Last item</gl-dropdown-item>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with clear all', () => ({
+    props: generateProps({
+      text: 'Some dropdown',
+      showClearAll: true,
+      clearAllText: 'Clear all',
+    }),
+    components,
+    template: wrap`
+      <gl-dropdown-item :is-check-item="true" :is-checked="true">First item</gl-dropdown-item>
+      <gl-dropdown-item :is-check-item="true" :is-checked="true">Second item</gl-dropdown-item>
+      <gl-dropdown-item :is-check-item="true" :is-checked="true">Third item</gl-dropdown-item>`,
     mounted() {
       clickDropdown(this);
     },
