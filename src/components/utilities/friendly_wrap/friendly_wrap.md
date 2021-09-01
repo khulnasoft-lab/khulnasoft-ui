@@ -1,7 +1,3 @@
-# Friendly wrap
-
-<!-- STORY -->
-
 The friendly-wrap component lets you wrap text in a predictable way by appending [`<wbr>`] elements
 to specific break-symbols.
 

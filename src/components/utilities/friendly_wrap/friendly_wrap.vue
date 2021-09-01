@@ -5,10 +5,16 @@ import { splitAfterSymbols } from '../../../utils/string_utils';
 export default {
   functional: true,
   props: {
+    /**
+     * Text to be wrapped.
+     */
     text: {
       type: String,
       required: true,
     },
+    /**
+     * A list of strings representing the break-words.
+     */
     symbols: {
       type: Array,
       required: false,
