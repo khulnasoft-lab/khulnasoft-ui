@@ -30,3 +30,7 @@
 @mixin gl-cursor-crosshair($hover: true) {
   cursor: crosshair;
 }
+
+@mixin gl-cursor-help {
+  cursor: help;
+}
