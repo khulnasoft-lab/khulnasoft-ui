@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import Datepicker from '../datepicker/datepicker.vue';
+import Icon from '../icon/icon.vue';
 import DaterangePicker from './daterange_picker.vue';
 
 describe('Daterange Picker', () => {
@@ -9,13 +10,14 @@ describe('Daterange Picker', () => {
   const endDate = new Date('2020-08-29');
   const defaultMaxDate = new Date('2021-01-01');
 
-  const factory = (props = {}) => {
+  const factory = (props = {}, scopedSlots = {}) => {
     wrapper = shallowMount(DaterangePicker, {
       propsData: {
         defaultStartDate: startDate,
         defaultEndDate: endDate,
         ...props,
       },
+      scopedSlots,
     });
   };
 
@@ -81,6 +83,32 @@ describe('Daterange Picker', () => {
         it('sets endDate=null', () => {
           expect(wrapper.vm.endDate).toBe(null);
         });
+      });
+
+      describe('date range violation with maxDateRange and sameDaySelection', () => {
+        describe.each`
+          maxDateRange | sameDaySelection | violation
+          ${2}         | ${false}         | ${false}
+          ${1}         | ${false}         | ${true}
+          ${2}         | ${true}          | ${true}
+          ${3}         | ${true}          | ${false}
+        `(
+          'with maxDateRange = $maxDateRange, sameDaySelection = $sameDaySelection and violation = $violation',
+          ({ maxDateRange, sameDaySelection, violation }) => {
+            beforeEach(() => {
+              factory({
+                maxDateRange,
+                sameDaySelection,
+              });
+              findStartPicker().vm.$emit('input', startDate);
+            });
+
+            it(`${violation ? 'has' : 'does not have'} a date range violation`, () => {
+              const events = violation ? 0 : 1;
+              expect(Object.keys(wrapper.emitted())).toHaveLength(events);
+            });
+          }
+        );
       });
 
       describe('with no date range violation', () => {
@@ -208,6 +236,51 @@ describe('Daterange Picker', () => {
       factory({ labelClass: customClass });
 
       expect(findLabelsWithCustomClass()).toHaveLength(2);
+    });
+  });
+
+  describe('with date range indicator and tooltip', () => {
+    const tooltip = 'Date range limited to 31 days';
+    const dateRangeIndicatorClass = 'indicator-container-class';
+
+    const findDateRangeIndicator = () => wrapper.find('[data-testid="daterange-picker-indicator"]');
+    const findTooltipIcon = () => wrapper.findComponent(Icon);
+
+    const slots = {
+      default: `<template #default="{ daysSelected }">
+        {{ daysSelected }} days selected
+      </template>`,
+    };
+
+    it('does not show default slot or tooltip icon by default', () => {
+      factory();
+
+      expect(findDateRangeIndicator().text()).toBe('');
+      expect(findTooltipIcon().exists()).toBe(false);
+    });
+
+    it('shows the default slot when provided', () => {
+      factory({}, slots);
+
+      expect(findDateRangeIndicator().text()).toBe('2 days selected');
+    });
+
+    it('shows the effective days selected for the default slot when sameDaySelection is true', () => {
+      factory({ sameDaySelection: true }, slots);
+
+      expect(findDateRangeIndicator().text()).toBe('3 days selected');
+    });
+
+    it('shows the icon with the provided tooltip', () => {
+      factory({ tooltip });
+
+      expect(findTooltipIcon().attributes('title')).toBe(tooltip);
+    });
+
+    it('adds the indicator class when provided', () => {
+      factory({ dateRangeIndicatorClass });
+
+      expect(wrapper.find(`.${dateRangeIndicatorClass}`).exists()).toBe(true);
     });
   });
 });

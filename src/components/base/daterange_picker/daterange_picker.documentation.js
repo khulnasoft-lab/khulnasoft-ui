@@ -23,4 +23,12 @@ export default {
       description: 'Emitted when the end date datepicker is hidden.',
     },
   ],
+  slots: [
+    {
+      name: 'default',
+      description:
+        'Content to display for days selected. The value is -1 when no date range is selected.',
+      scopedProps: 'daysSelected (Number)',
+    },
+  ],
 };
