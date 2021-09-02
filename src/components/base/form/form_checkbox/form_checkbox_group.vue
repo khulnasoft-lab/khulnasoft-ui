@@ -1,11 +1,15 @@
 <script>
 import { BFormCheckboxGroup } from 'bootstrap-vue';
 import formOptionsMixin from 'bootstrap-vue/src/mixins/form-options';
+import SafeHtml from '../../../../directives/safe_html/safe_html';
 import GlFormCheckbox from './form_checkbox.vue';
 
 export default {
   name: 'GlFormCheckboxGroup',
   components: { BFormCheckboxGroup, GlFormCheckbox },
+  directives: {
+    SafeHtml,
+  },
   mixins: [formOptionsMixin],
   inheritAttrs: false,
   model: {
@@ -31,8 +35,7 @@ export default {
         :value="option.value"
         :disabled="option.disabled"
       >
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <span v-if="option.html" v-html="option.html"></span>
+        <span v-if="option.html" v-safe-html="option.html"></span>
         <span v-else>{{ option.text }}</span>
       </gl-form-checkbox>
       <slot></slot>
