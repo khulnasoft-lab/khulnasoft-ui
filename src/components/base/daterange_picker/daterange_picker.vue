@@ -1,10 +1,16 @@
 <script>
+import GlTooltip from '../../../directives/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils/datetime_utility';
 import GlDatepicker from '../datepicker/datepicker.vue';
+import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {
     GlDatepicker,
+    GlIcon,
+  },
+  directives: {
+    GlTooltip,
   },
   props: {
     fromLabel: {
@@ -97,6 +103,22 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * If provided, renders an info icon with a tooltip.
+     */
+    tooltip: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    /**
+     * Additional class(es) to apply to the date range indicator section.
+     */
+    dateRangeIndicatorClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -125,17 +147,23 @@ export default {
       return this.startDate >= this.endDate || this.exceedsDateRange;
     },
     exceedsDateRange() {
-      if (!this.startDate || !this.endDate) {
+      if (this.numberOfDays < 0) {
         return false;
       }
-      const numberOfDays = getDayDifference(this.startDate, this.endDate);
-      return this.maxDateRange ? numberOfDays > this.effectiveMaxDateRange : false;
+      return this.maxDateRange && this.numberOfDays > this.maxDateRange;
     },
     toCalendarDefaultDate() {
       return this.endDate || this.toCalendarMinDate;
     },
     numericStartTime() {
       return this.startDate ? this.startDate.getTime() : null;
+    },
+    numberOfDays() {
+      if (!this.startDate || !this.endDate) {
+        return -1;
+      }
+      const numberOfDays = getDayDifference(this.startDate, this.endDate);
+      return this.sameDaySelection ? numberOfDays + 1 : numberOfDays;
     },
   },
   watch: {
@@ -200,6 +228,21 @@ export default {
         @input="onEndDateSelected"
         @open="$emit('end-picker-open')"
         @close="$emit('end-picker-close')"
+      />
+    </div>
+    <div
+      :class="dateRangeIndicatorClass"
+      data-testid="daterange-picker-indicator"
+      class="gl-display-flex gl-flex-direction-row gl-align-items-center gl-text-gray-500 gl-ml-2"
+    >
+      <slot v-bind="{ daysSelected: numberOfDays }"></slot>
+      <gl-icon
+        v-if="tooltip"
+        v-gl-tooltip
+        name="information-o"
+        :title="tooltip"
+        :size="16"
+        class="gl-ml-2"
       />
     </div>
   </div>
