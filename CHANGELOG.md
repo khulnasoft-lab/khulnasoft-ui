@@ -1,3 +1,10 @@
+# [32.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.5.0...v32.6.0) (2021-09-02)
+
+
+### Features
+
+* **GlDateRangePicker:** Add daterange indicator and help icon ([75a3661](https://gitlab.com/gitlab-org/gitlab-ui/commit/75a3661c2378e6713a892eb2b225d7956343d8a6))
+
 # [32.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.4.0...v32.5.0) (2021-09-01)
 
 
