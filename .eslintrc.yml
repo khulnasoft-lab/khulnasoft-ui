@@ -15,6 +15,7 @@ rules:
       - "bootstrap-vue/*"
       - "!bootstrap-vue/src"
       - "!bootstrap-vue/package.json"
+  vue/no-v-html: error
 # test-specific configuration
 overrides:
 - files:
