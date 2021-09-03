@@ -1,3 +1,10 @@
+## [32.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.6.0...v32.6.1) (2021-09-03)
+
+
+### Bug Fixes
+
+* **toast:** White text in dark mode ([f8a36ac](https://gitlab.com/gitlab-org/gitlab-ui/commit/f8a36acbf155a349975d4fc12dc61977e4613f23))
+
 # [32.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.5.0...v32.6.0) (2021-09-02)
 
 
