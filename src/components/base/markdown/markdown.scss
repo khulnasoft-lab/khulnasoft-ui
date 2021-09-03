@@ -139,6 +139,20 @@
     @include gl-border-l-4;
     @include gl-border-l-gray-100;
   }
+
+  .idiff {
+    @include gl-display-inline-flex;
+    @include gl-rounded-base;
+    @include gl-px-2;
+  }
+
+  .deletion {
+    @include gl-bg-red-100;
+  }
+
+  .addition {
+    @include gl-bg-green-100;
+  }
 }
 
 .gl-compact-markdown {
