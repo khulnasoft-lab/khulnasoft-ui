@@ -79,7 +79,7 @@ $label-close-button: '.gl-label-close.gl-button';
 }
 
 .gl-label-text-dark {
-  @include gl-text-black-normal;
+  @include gl-text-gray-950;
 
   #{$label-close-button} {
     .gl-icon,
@@ -122,7 +122,6 @@ $label-close-button: '.gl-label-close.gl-button';
 
 .gl-label-scoped {
   &.gl-label-text-light {
-    .gl-label-text-scoped,
     #{$label-close-button} .gl-icon,
     #{$label-close-button}[disabled]:hover .gl-icon {
       color: var(--label-background-color);
@@ -160,6 +159,7 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   .gl-label-text-scoped {
+    @include gl-text-gray-950;
     @include gl-pl-2;
     @include gl-pr-3;
   }
