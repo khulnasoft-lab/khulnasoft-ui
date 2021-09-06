@@ -1,3 +1,11 @@
+## [32.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.6.1...v32.6.2) (2021-09-06)
+
+
+### Bug Fixes
+
+* **GlFormCheckboxGroup:** Swaps v-html for v-safe-html ([ee650c7](https://gitlab.com/gitlab-org/gitlab-ui/commit/ee650c7f5946d335e0d9b4a87e529184e8e18dd3))
+* **GlFormRadioGroup:** Swaps v-html for v-safe-html ([bf87a04](https://gitlab.com/gitlab-org/gitlab-ui/commit/bf87a047d62680efc15f6126312bce5426386665))
+
 ## [32.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.6.0...v32.6.1) (2021-09-03)
 
 
