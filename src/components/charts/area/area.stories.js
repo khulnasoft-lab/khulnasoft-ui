@@ -6,7 +6,6 @@ import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/ch
 import { toolbox } from '../../../utils/charts/story_config';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
-import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import readme from './area.md';
 
 const components = {
@@ -144,7 +143,6 @@ documentedStoriesOf('charts/area-chart', readme)
         dataZoom: [
           {
             startValue: '2018-03-01T00:00:00.000',
-            handleIcon: scrollHandleSvgPath,
           },
         ],
       },

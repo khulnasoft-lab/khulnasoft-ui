@@ -8,7 +8,6 @@ import {
 } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';
 import { columnOptions } from '../../../utils/constants';
-import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import readme from './stacked_column.md';
 
 const components = {
@@ -106,7 +105,6 @@ documentedStoriesOf('charts/stacked-column-chart', readme)
         dataZoom: [
           {
             startValue: 1,
-            handleIcon: scrollHandleSvgPath,
           },
         ],
       },

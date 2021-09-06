@@ -1,4 +1,5 @@
 import {
+  gray50,
   gray100,
   gray200,
   gray300,
@@ -41,6 +42,7 @@ import {
   dataVizOrange950,
   dataVizOrange900,
 } from '../../../scss_to_js/scss_variables';
+import { scrollHandleSvgPath } from '../svgs/svg_paths';
 import { hexToRgba } from '../utils';
 
 export const themeName = 'gitlab';
@@ -142,7 +144,11 @@ const axes = {
   },
 };
 
-export default {
+const isLineChartWithoutArea = (options) =>
+  Array.isArray(options?.series) &&
+  options.series.some((series) => series.type === 'line' && !series.areaStyle);
+
+const createTheme = (options = {}) => ({
   color: colorPaletteDefault,
   backgroundColor: 'transparent',
   textStyle: {
@@ -171,16 +177,22 @@ export default {
     filterMode: 'none',
     dataBackground: {
       lineStyle: {
-        color: gray100,
+        width: 2,
+        color: gray200,
         opacity: 1,
       },
-      areaStyle: {
-        color: gray100,
-        opacity: 1,
-      },
+      // render unfilled zoom-graph if the series is a line chart without area styles
+      // more details: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2364#note_666637306
+      areaStyle: isLineChartWithoutArea(options)
+        ? null
+        : {
+            color: gray50,
+            opacity: 1,
+          },
     },
-    fillerColor: hexToRgba(gray300, 0.2),
-    handleColor: gray700,
+    fillerColor: hexToRgba(gray200, 0.23),
+    handleIcon: scrollHandleSvgPath,
+    handleColor: gray500,
     handleSize: '50%',
     labelFormatter: () => null,
     textStyle: {
@@ -250,4 +262,6 @@ export default {
   valueAxis: axes,
   logAxis: axes,
   timeAxis: axes,
-};
+});
+
+export default createTheme;

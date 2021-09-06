@@ -8,7 +8,6 @@ import {
   mockSecondaryTrendlineData,
 } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';
-import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import readme from './column.md';
 
 const components = {
@@ -85,7 +84,6 @@ documentedStoriesOf('charts/column-chart', readme)
           {
             type: 'slider',
             startValue: 1,
-            handleIcon: scrollHandleSvgPath,
           },
         ],
       },

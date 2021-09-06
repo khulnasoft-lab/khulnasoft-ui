@@ -1,7 +1,7 @@
 <script>
 import echarts from 'echarts';
 import { defaultHeight, validRenderers } from '../../../utils/charts/config';
-import theme, { themeName } from '../../../utils/charts/theme';
+import createTheme, { themeName } from '../../../utils/charts/theme';
 
 export default {
   props: {
@@ -63,7 +63,7 @@ export default {
   },
   created() {
     if (!this.disableTheme) {
-      echarts.registerTheme(themeName, theme);
+      echarts.registerTheme(themeName, createTheme(this.options));
     }
   },
   mounted() {
