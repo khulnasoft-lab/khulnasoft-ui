@@ -15,6 +15,9 @@ const baseCssClass = 'gl-spinner';
 
 export default {
   props: {
+    /**
+     * Aria-label.
+     */
     label: {
       type: String,
       required: false,
@@ -36,6 +39,9 @@ export default {
         return Object.keys(colors).includes(value);
       },
     },
+    /**
+     * Wrap in a span or div.
+     */
     inline: {
       type: Boolean,
       required: false,
