@@ -1,3 +1,10 @@
+# [32.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.6.2...v32.7.0) (2021-09-06)
+
+
+### Features
+
+* add `gl-cursor-help` utility class ([2e137cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/2e137cdf26564003335d05df94e4586e0b996fa7))
+
 ## [32.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.6.1...v32.6.2) (2021-09-06)
 
 
