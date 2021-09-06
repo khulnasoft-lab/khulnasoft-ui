@@ -61,9 +61,13 @@ export const labelSizeOptions = {
   sm: 'sm',
 };
 
-export const labelColorOptions = {
+export const viewModeOptions = {
   dark: 'dark',
   light: 'light',
+};
+
+export const labelColorOptions = {
+  ...viewModeOptions,
 };
 
 export const avatarSizeOptions = [96, 64, 48, 32, 24, 16];
@@ -279,4 +283,11 @@ export const tooltipActionEvents = ['open', 'close', 'enable', 'disable'];
 export const drawerVariants = {
   default: 'default',
   sidebar: 'sidebar',
+};
+
+export const loadingIconSizes = {
+  'sm (16x16)': 'sm',
+  'md (24x24)': 'md',
+  'lg (32x32)': 'lg',
+  'xl (64x64)': 'xl',
 };

@@ -1,67 +1,60 @@
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlLoadingIcon } from '../../../../index';
+import { viewModeOptions, loadingIconSizes } from '../../../utils/constants';
 import readme from './loading_icon.md';
 
-const components = {
-  GlLoadingIcon,
-};
-
 const template = `
-  <div :class="['gl-p-3', 'gl-rounded-base', 'gl-display-flex', { 'bg-dark' : color === 'light' } ]" >
+  <div :class="['gl-p-3', 'gl-rounded-base', 'gl-text-center', { 'bg-dark' : color === 'light' } ]" >
     <gl-loading-icon
       :label="label"
       :size="size"
       :inline="inline"
       :color="color"
-    />
+    />Loading
   </div>
 `;
 
-function generateProps({ inline } = {}) {
-  return {
-    label: {
-      type: String,
-      default: text('aria label'),
+const defaultValue = (prop) => GlLoadingIcon.props[prop].default;
+
+const generateProps = () => ({
+  label: defaultValue('label'),
+  size: defaultValue('size'),
+  color: defaultValue('color'),
+  inline: defaultValue('inline'),
+});
+
+const Template = (args) => ({
+  props: Object.keys(args),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'base/loading icon',
+  component: GlLoadingIcon,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+    knobs: {
+      disabled: true,
+    },
+  },
+  argTypes: {
+    color: {
+      control: {
+        type: 'select',
+        options: viewModeOptions,
+      },
     },
     size: {
-      type: String,
-      default: select(
-        'size',
-        {
-          'sm (16x16)': 'sm',
-          'md (24x24)': 'md',
-          'lg (32x32)': 'lg',
-          'xl (64x64)': 'xl',
-        },
-        'sm'
-      ),
+      control: {
+        type: 'select',
+        options: loadingIconSizes,
+      },
     },
-    color: {
-      type: String,
-      default: select('color', {
-        dark: 'dark',
-        light: 'light',
-      }),
-    },
-    inline: {
-      type: Boolean,
-      default: boolean('inline', inline),
-    },
-  };
-}
-
-documentedStoriesOf('base/loading-icon', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('inline', () => ({
-    props: generateProps({
-      inline: true,
-    }),
-    components,
-    template,
-  }));
+  },
+};
