@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import echarts from 'echarts';
 import Chart from './chart.vue';
-import theme from '~/utils/charts/theme';
+import createTheme from '~/utils/charts/theme';
 
 const defaultHeight = 400;
 
@@ -44,7 +44,9 @@ describe('chart component', () => {
   });
 
   it('uses GitLab theme', () => {
-    expect(echarts.registerTheme).toHaveBeenCalledWith(themeName, theme);
+    const [firstRegisterThemeCall] = echarts.registerTheme.mock.calls;
+    expect(firstRegisterThemeCall[0]).toBe(themeName);
+    expect(JSON.stringify(firstRegisterThemeCall[1])).toEqual(JSON.stringify(createTheme()));
   });
 
   it('waits a tick before creating the chart', async () => {

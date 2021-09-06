@@ -1,7 +1,6 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { GlDiscreteScatterChart } from '../../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { scrollHandleSvgPath } from '../../../utils/svgs/svg_paths';
 import readme from './discrete_scatter.md';
 
 const components = {
@@ -66,7 +65,6 @@ documentedStoriesOf('charts/discrete-scatter-chart', readme)
           {
             type: 'slider',
             startValue: 1,
-            handleIcon: scrollHandleSvgPath,
           },
         ],
       },
