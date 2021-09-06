@@ -1,3 +1,10 @@
+## [32.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.7.0...v32.7.1) (2021-09-06)
+
+
+### Bug Fixes
+
+* **charts:** change zoom-bar to match designs specs ([3ca01bb](https://gitlab.com/gitlab-org/gitlab-ui/commit/3ca01bb52d836060bc915b2d9a11ecf666d25ef8))
+
 # [32.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.6.2...v32.7.0) (2021-09-06)
 
 
