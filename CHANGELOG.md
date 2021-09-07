@@ -1,3 +1,10 @@
+# [32.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.7.1...v32.8.0) (2021-09-07)
+
+
+### Features
+
+* **css:** Adds utility classes for border-radius size and hover variants ([bc5719d](https://gitlab.com/gitlab-org/gitlab-ui/commit/bc5719dcdd4c638efb57ed3ac8fe75607da70bb8))
+
 ## [32.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.7.0...v32.7.1) (2021-09-06)
 
 
