@@ -82,7 +82,7 @@
   border-color: $gray-100;
 }
 
-@mixin gl-border-gray-200 {
+@mixin gl-border-gray-200($active: true, $focus: true, $hover: true) {
   border-color: $gray-200;
 }
 
@@ -283,6 +283,14 @@
   border-radius: 0;
 }
 
+@mixin gl-rounded-6 {
+  border-radius: $gl-border-radius-6;
+}
+
+@mixin gl-rounded-7 {
+  border-radius: $gl-border-radius-7;
+}
+
 @mixin gl-rounded-base($hover: true) {
   border-radius: $gl-border-radius-base;
 }
@@ -297,10 +305,6 @@
 
 @mixin gl-rounded-lg {
   border-radius: $gl-border-radius-large;
-}
-
-@mixin gl-rounded-6 {
-  border-radius: $gl-border-radius-6;
 }
 
 @mixin gl-rounded-pill {

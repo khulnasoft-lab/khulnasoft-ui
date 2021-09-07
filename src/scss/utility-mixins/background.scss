@@ -30,7 +30,7 @@
   background-color: $gray-10;
 }
 
-@mixin gl-bg-gray-50 {
+@mixin gl-bg-gray-50($active: true, $focus: true, $hover: true) {
   background-color: $gray-50;
 }
 

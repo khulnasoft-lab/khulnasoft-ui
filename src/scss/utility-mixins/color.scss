@@ -57,7 +57,7 @@
   color: $gray-800;
 }
 
-@mixin gl-text-gray-900 {
+@mixin gl-text-gray-900($active: true, $focus: true, $hover: true) {
   color: $gray-900;
 }
 
