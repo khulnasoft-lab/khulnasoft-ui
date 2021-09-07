@@ -1,3 +1,10 @@
+# [32.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.8.0...v32.9.0) (2021-09-07)
+
+
+### Features
+
+* **markdown:** Implement inline-diff component styles ([57b01fb](https://gitlab.com/gitlab-org/gitlab-ui/commit/57b01fbd615b9cfbb6eb2cb43a22c7d1b0ea4bd4))
+
 # [32.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.7.1...v32.8.0) (2021-09-07)
 
 
