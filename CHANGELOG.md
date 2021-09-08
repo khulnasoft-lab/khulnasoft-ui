@@ -1,3 +1,10 @@
+## [32.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.9.0...v32.9.1) (2021-09-08)
+
+
+### Bug Fixes
+
+* **GlLabel:** Fix color of the GlLabel according to Figma ([22af655](https://gitlab.com/gitlab-org/gitlab-ui/commit/22af655c9afeaa84b1b10ee1097f893d68a78af6))
+
 # [32.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.8.0...v32.9.0) (2021-09-07)
 
 
