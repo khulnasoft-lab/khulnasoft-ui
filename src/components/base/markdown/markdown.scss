@@ -118,7 +118,8 @@
     @include gl-line-height-20;
   }
 
-  .monospace {
+  .monospace,
+  code {
     @include gl-font-monospace;
     @include gl-font-size-monospace-lg;
     @include gl-line-height-24;
@@ -152,6 +153,14 @@
 
   .addition {
     @include gl-bg-green-100;
+  }
+
+  code {
+    @include gl-bg-gray-50;
+    @include gl-text-gray-950;
+    @include gl-rounded-base;
+    @include gl-px-2;
+    @include gl-py-1;
   }
 }
 
@@ -224,7 +233,8 @@
     @include gl-font-sm;
   }
 
-  .monospace {
+  .monospace,
+  code {
     @include gl-font-monospace;
     @include gl-font-size-monospace;
     @include gl-line-height-20;
