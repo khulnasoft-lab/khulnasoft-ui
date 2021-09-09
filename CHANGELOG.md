@@ -1,3 +1,10 @@
+# [32.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.9.1...v32.10.0) (2021-09-09)
+
+
+### Features
+
+* **markdown:** implement code span styles ([0b4d62e](https://gitlab.com/gitlab-org/gitlab-ui/commit/0b4d62ef5b75cb969d8a98ac266b196a697b0c68))
+
 ## [32.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.9.0...v32.9.1) (2021-09-08)
 
 
