@@ -31,6 +31,9 @@ describe('new dropdown', () => {
   const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
   const findIcon = () => wrapper.find('.dropdown-icon');
   const findCaret = () => wrapper.find('.dropdown-chevron');
+  const findClearAll = () => wrapper.find('[data-testid="clear-all-button"]');
+  const findHighlightedItemsTitle = () => wrapper.find('[data-testid="highlighted-items-title"]');
+  const findHighlightedItems = () => wrapper.find('[data-testid="highlighted-items"]');
 
   it('renders when text is null', () => {
     buildWrapper({ text: null });
@@ -225,20 +228,70 @@ describe('new dropdown', () => {
     });
   });
 
-  describe('when the highlight items slot exists', () => {
-    const slots = { highlightedItems: 'Footer Content' };
+  describe('Highlighted items', () => {
+    describe('with slot content', () => {
+      const slotContent = '<li>Highlighted items Content</li>';
+      const slots = { 'highlighted-items': slotContent };
 
-    it('renders the footer', () => {
-      buildWrapper({}, slots);
-      expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBeTruthy();
-      expect(wrapper.html()).toContain('Footer Content');
+      beforeEach(() => {
+        buildWrapper({}, slots);
+      });
+
+      it('renders the highlighted items', () => {
+        expect(findHighlightedItems().exists()).toBe(true);
+        expect(findHighlightedItems().html()).toContain(slotContent);
+      });
+
+      it('renders the default highlighted items title', () => {
+        expect(findHighlightedItemsTitle().exists()).toBe(true);
+        expect(findHighlightedItemsTitle().html()).toContain('Selected');
+      });
+
+      describe('with showHighlightedItemsTitle=false', () => {
+        beforeEach(() => {
+          buildWrapper({ showHighlightedItemsTitle: false }, slots);
+        });
+
+        it('does not render the highlighted items header', () => {
+          expect(findHighlightedItemsTitle().exists()).toBe(false);
+        });
+      });
+
+      describe('with showClearAll=true and showHighlightedItemsTitle=false', () => {
+        beforeEach(() => {
+          buildWrapper({ showHighlightedItemsTitle: false, showClearAll: true }, slots);
+        });
+
+        it('renders the clear all button and does not render the highlighted items title', () => {
+          expect(findClearAll().exists()).toBe(true);
+          expect(findHighlightedItemsTitle().exists()).toBe(false);
+        });
+      });
+
+      describe('with highlightedItemsTitle set', () => {
+        const highlightedItemsTitle = 'Cool heading';
+        beforeEach(() => {
+          buildWrapper({ highlightedItemsTitle }, slots);
+        });
+
+        it('sets the highlighted items title', () => {
+          expect(findHighlightedItemsTitle().exists()).toBe(true);
+          expect(findHighlightedItemsTitle().text()).not.toContain('Selected');
+          expect(findHighlightedItemsTitle().text()).toContain(highlightedItemsTitle);
+        });
+      });
     });
-  });
 
-  describe('with no footer slot exists', () => {
-    it('does not render the footer', () => {
-      buildWrapper();
-      expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBeFalsy();
+    describe('with no slot content', () => {
+      beforeEach(() => {
+        buildWrapper();
+      });
+      it('does not render the highlighted items content', () => {
+        expect(findHighlightedItems().exists()).toBe(false);
+      });
+      it('does not render the highlighted items title', () => {
+        expect(findHighlightedItemsTitle().exists()).toBe(false);
+      });
     });
   });
 
@@ -267,7 +320,6 @@ describe('new dropdown', () => {
   });
 
   describe('Clear all button', () => {
-    const findClearAll = () => wrapper.find('[data-testid="clear-all-button"]');
     it('is not visible by default', () => {
       buildWrapper({});
 

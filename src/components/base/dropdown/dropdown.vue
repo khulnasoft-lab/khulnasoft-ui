@@ -10,6 +10,7 @@ import ButtonMixin from '../../mixins/button_mixin';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import GlDropdownDivider from './dropdown_divider.vue';
 
 // Return an Array of visible items
 function filterVisible(els) {
@@ -35,6 +36,7 @@ export default {
   components: {
     BDropdown: ExtendedBDropdown,
     GlButton,
+    GlDropdownDivider,
     GlIcon,
     GlLoadingIcon,
   },
@@ -176,9 +178,19 @@ export default {
     buttonText() {
       return this.split && this.icon ? null : this.text;
     },
+    hasHighlightedItemsContent() {
+      return this.hasSlotContents('highlighted-items');
+    },
+    hasHighlightedItemsTitle() {
+      const { highlightedItemsTitle, showHighlightedItemsTitle } = this;
+      return highlightedItemsTitle && showHighlightedItemsTitle;
+    },
+    hasClearAllText() {
+      const { clearAllText, showClearAll } = this;
+      return clearAllText && showClearAll;
+    },
     hasHighlightedItemsOrClearAll() {
-      const { showHighlightedItemsTitle, showClearAll } = this;
-      return showHighlightedItemsTitle || showClearAll;
+      return this.hasHighlightedItemsTitle || this.hasClearAllText;
     },
   },
   methods: {
@@ -220,15 +232,21 @@ export default {
         </p>
         <slot name="header"></slot>
       </div>
-      <div v-if="hasHighlightedItemsOrClearAll" class="gl-px-5">
-        <div
-          class="gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
-        >
-          <span v-if="showHighlightedItemsTitle" class="gl-font-weight-bold">{{
-            highlightedItemsTitle
-          }}</span>
+      <div
+        v-if="hasHighlightedItemsOrClearAll"
+        class="gl-px-5 gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
+      >
+        <div class="gl-display-flex">
+          <span
+            v-if="hasHighlightedItemsContent && hasHighlightedItemsTitle"
+            class="gl-font-weight-bold"
+            data-testid="highlighted-items-title"
+            >{{ highlightedItemsTitle }}</span
+          >
+        </div>
+        <div class="gl-display-flex">
           <gl-button
-            v-if="showClearAll"
+            v-if="hasClearAllText"
             size="small"
             category="tertiary"
             variant="link"
@@ -238,8 +256,11 @@ export default {
           >
         </div>
       </div>
-      <div v-if="hasSlotContents('highlighted-items')" class="gl-new-dropdown-contents">
-        <gl-dropdown-divider v-if="hasHighlightedItemsOrClearAll" />
+      <div
+        v-if="hasHighlightedItemsContent"
+        class="gl-new-dropdown-contents"
+        data-testid="highlighted-items"
+      >
         <slot name="highlighted-items"></slot>
         <gl-dropdown-divider />
       </div>
