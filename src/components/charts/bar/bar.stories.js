@@ -1,20 +1,17 @@
-import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { GlBarChart } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { toolbox } from '../../../utils/charts/story_config';
 import readme from './bar.md';
 
-const components = {
-  GlBarChart,
-};
-
-const template = `<gl-bar-chart
+const Template = (args, { argTypes }) => ({
+  components: { GlBarChart },
+  props: Object.keys(argTypes),
+  template: `<gl-bar-chart
   :data="data"
   :option="option"
   :y-axis-title="yAxisTitle"
   :x-axis-title="xAxisTitle"
   :x-axis-type="xAxisType"
-/>`;
+/>`,
+});
 
 const mockData = {
   Office: [
@@ -31,59 +28,39 @@ const mockData = {
   ],
 };
 
-function generateProps({
+const generateProps = ({
   data = mockData,
   option = {},
   xAxisTitle = 'Pushes per day',
   yAxisTitle = 'User',
   xAxisType = 'value',
-} = {}) {
-  return {
-    data: {
-      default: object('Chart Data', data),
-    },
-    option: {
-      default: object('Echart Options', option),
-    },
-    yAxisTitle: {
-      default: text('Y Axis Title', yAxisTitle),
-    },
-    xAxisTitle: {
-      default: text('X Axis Title', xAxisTitle),
-    },
-    xAxisType: {
-      default: text('X Axis Type', xAxisType),
-    },
-  };
-}
+} = {}) => ({
+  data,
+  option,
+  xAxisTitle,
+  yAxisTitle,
+  xAxisType,
+});
 
-documentedStoriesOf('charts/bar-chart', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('with zoom and scroll', () => ({
-    props: generateProps({
-      option: {
-        dataZoom: [
-          {
-            type: 'slider',
-            startValue: 1,
-          },
-        ],
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'charts/bar-chart',
+  component: GlBarChart,
+  argTypes: {
+    showToolbox: { control: { disable: true } },
+    toolboxZoomIconPath: { control: { disable: true } },
+    toolboxBackIconPath: { control: { disable: true } },
+    toolboxRestoreIconPath: { control: { disable: true } },
+    toolboxSaveAsImageIconPath: { control: { disable: true } },
+  },
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with toolbox', () => ({
-    props: generateProps({
-      option: {
-        toolbox,
-      },
-    }),
-    components,
-    template,
-  }));
+    },
+  },
+};
