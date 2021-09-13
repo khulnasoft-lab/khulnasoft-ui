@@ -45,7 +45,7 @@ export default {
           data-testid="separator"
         >
           <!-- @slot The separator to display. -->
-          <slot name="separator"></slot>
+          <slot name="separator"><gl-icon name="angle-right" :size="8" /></slot>
         </span>
       </template>
     </b-breadcrumb>
