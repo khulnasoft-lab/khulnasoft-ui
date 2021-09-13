@@ -1,0 +1,9 @@
+@mixin gl-scrollbar-width-thin {
+  scrollbar-width: thin;
+
+  // Non-standard: Support for webkit browsers
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
