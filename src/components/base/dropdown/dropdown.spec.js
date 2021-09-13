@@ -26,14 +26,16 @@ describe('new dropdown', () => {
 
   afterEach(() => wrapper.destroy());
 
+  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
+
   const findSplitButton = () => wrapper.find('.btn:not(.gl-dropdown-toggle)');
   const findDropdownToggle = () => wrapper.find('.btn.gl-dropdown-toggle');
   const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
   const findIcon = () => wrapper.find('.dropdown-icon');
   const findCaret = () => wrapper.find('.dropdown-chevron');
-  const findClearAll = () => wrapper.find('[data-testid="clear-all-button"]');
-  const findHighlightedItemsTitle = () => wrapper.find('[data-testid="highlighted-items-title"]');
-  const findHighlightedItems = () => wrapper.find('[data-testid="highlighted-items"]');
+  const findClearAll = () => findByTestId('clear-all-button');
+  const findHighlightedItemsTitle = () => findByTestId('highlighted-items-title');
+  const findHighlightedItems = () => findByTestId('highlighted-items');
 
   it('renders when text is null', () => {
     buildWrapper({ text: null });

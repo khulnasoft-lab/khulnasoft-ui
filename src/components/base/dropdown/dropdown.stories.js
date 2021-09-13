@@ -47,6 +47,7 @@ function generateProps({
   clearAllText = '',
   showHighlightedItemsTitle = false,
   highlightedItemsTitle = '',
+  highlightedItemsTitleClass = '',
 } = {}) {
   const props = {
     category: {
@@ -115,7 +116,11 @@ function generateProps({
     },
     highlightedItemsTitle: {
       type: String,
-      default: textKnob('Highlighted items title', highlightedItemsTitle),
+      default: textKnob('highlighted items title', highlightedItemsTitle),
+    },
+    highlightedItemsTitleClass: {
+      type: String,
+      default: textKnob('highlighted items title class', highlightedItemsTitleClass),
     },
     right: {
       type: Boolean,
@@ -146,6 +151,7 @@ function wrap([template]) {
       :clear-all-text="clearAllText"
       :show-highlighted-items-title="showHighlightedItemsTitle"
       :highlighted-items-title="highlightedItemsTitle"
+      :highlighted-items-title-class="highlightedItemsTitleClass"
       :loading="loading"
       :right="right"
     >

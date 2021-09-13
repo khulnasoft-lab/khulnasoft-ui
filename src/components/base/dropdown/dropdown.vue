@@ -77,6 +77,11 @@ export default {
       required: false,
       default: 'Selected',
     },
+    highlightedItemsTitleClass: {
+      type: String,
+      required: false,
+      default: null,
+    },
     textSrOnly: {
       type: Boolean,
       required: false,
@@ -146,6 +151,9 @@ export default {
     isIconWithText() {
       return Boolean(this.icon && this.text?.length && !this.textSrOnly);
     },
+    highlightedItemsTitleClasses() {
+      return this.highlightedItemsTitleClass || 'gl-px-5';
+    },
     toggleButtonClasses() {
       return [
         this.toggleClass,
@@ -181,16 +189,8 @@ export default {
     hasHighlightedItemsContent() {
       return this.hasSlotContents('highlighted-items');
     },
-    hasHighlightedItemsTitle() {
-      const { highlightedItemsTitle, showHighlightedItemsTitle } = this;
-      return highlightedItemsTitle && showHighlightedItemsTitle;
-    },
-    hasClearAllText() {
-      const { clearAllText, showClearAll } = this;
-      return clearAllText && showClearAll;
-    },
     hasHighlightedItemsOrClearAll() {
-      return this.hasHighlightedItemsTitle || this.hasClearAllText;
+      return this.showHighlightedItemsTitle || this.showClearAll;
     },
   },
   methods: {
@@ -234,11 +234,12 @@ export default {
       </div>
       <div
         v-if="hasHighlightedItemsOrClearAll"
-        class="gl-px-5 gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
+        class="gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
+        :class="highlightedItemsTitleClasses"
       >
         <div class="gl-display-flex">
           <span
-            v-if="hasHighlightedItemsContent && hasHighlightedItemsTitle"
+            v-if="hasHighlightedItemsContent && showHighlightedItemsTitle"
             class="gl-font-weight-bold"
             data-testid="highlighted-items-title"
             >{{ highlightedItemsTitle }}</span
@@ -246,7 +247,7 @@ export default {
         </div>
         <div class="gl-display-flex">
           <gl-button
-            v-if="hasClearAllText"
+            v-if="showClearAll"
             size="small"
             category="tertiary"
             variant="link"
@@ -256,15 +257,15 @@ export default {
           >
         </div>
       </div>
-      <div
-        v-if="hasHighlightedItemsContent"
-        class="gl-new-dropdown-contents"
-        data-testid="highlighted-items"
-      >
-        <slot name="highlighted-items"></slot>
-        <gl-dropdown-divider />
-      </div>
       <div class="gl-new-dropdown-contents">
+        <div
+          v-if="hasHighlightedItemsContent"
+          class="gl-overflow-visible"
+          data-testid="highlighted-items"
+        >
+          <slot name="highlighted-items"></slot>
+          <gl-dropdown-divider />
+        </div>
         <slot></slot>
       </div>
       <div v-if="hasSlotContents('footer')" class="gl-new-dropdown-footer">
