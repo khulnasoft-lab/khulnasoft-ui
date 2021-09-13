@@ -282,8 +282,8 @@ $darken-border-dashed-factor: 25%;
 $t-gray-a-02: rgba($black, 0.02);
 $t-gray-a-04: rgba($black, 0.04);
 $t-gray-a-06: rgba($black, 0.06);
-$t-gray-a-08: rgba($black, 0.08);
-$t-gray-a-24: rgba($black, 0.24);
+$t-gray-a-08: rgba(#000, 0.08);
+$t-gray-a-24: rgba(#000, 0.24);
 
 // Text
 $gl-font-weight-light: 300;
@@ -443,6 +443,7 @@ $gl-modal-large-width: px-to-rem(990px);
 $modal-header-border-color: $gray-200;
 $modal-footer-border-color: $gray-200;
 $modal-title-line-height: $gl-line-height-20;
+$modal-backdrop: #000;
 $modal-backdrop-opacity: 0.64;
 
 // Bootstrap overrides
