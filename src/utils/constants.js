@@ -109,6 +109,12 @@ export const newButtonVariantOptions = {
   reset: 'gl-reset',
 };
 
+export const badgeForButtonOptions = {
+  [newButtonVariantOptions.default]: badgeVariantOptions.neutral,
+  [newButtonVariantOptions.confirm]: badgeVariantOptions.info,
+  [newButtonVariantOptions.danger]: badgeVariantOptions.danger,
+};
+
 export const newDropdownVariantOptions = {
   default: 'default',
   confirm: 'confirm',
