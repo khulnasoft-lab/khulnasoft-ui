@@ -118,6 +118,11 @@ export default {
       return [...this.barSeries, ...this.lineSeries, ...this.secondarySeries];
     },
     options() {
+      const yAxisPrimary = {
+        ...yAxisDefaults,
+        name: this.yAxisTitle,
+      };
+
       const mergedOptions = merge(
         {},
         defaultChartOptions,
@@ -142,17 +147,16 @@ export default {
             name: this.xAxisTitle,
             type: this.xAxisType,
           },
-          yAxis: [
-            {
-              ...yAxisDefaults,
-              name: this.yAxisTitle,
-            },
-            {
-              ...yAxisDefaults,
-              name: this.secondaryDataTitle,
-              show: this.hasSecondaryAxis,
-            },
-          ],
+          yAxis: this.hasSecondaryAxis
+            ? [
+                yAxisPrimary,
+                {
+                  ...yAxisDefaults,
+                  name: this.secondaryDataTitle,
+                  show: this.hasSecondaryAxis,
+                },
+              ]
+            : yAxisPrimary,
           legend: {
             show: false,
           },
