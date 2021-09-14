@@ -1,5 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlBadge, GlButton } from '../../../../index';
+import { GlBadge } from '../../../../index';
 import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
 import readme from './badge.md';
 
@@ -54,22 +54,6 @@ BadgeIcon.args = generateProps({
   variant: badgeVariantOptions.success,
   icon: 'calendar',
 });
-
-const ButtonBadgeStory = (args, { argTypes }) => ({
-  components: { GlBadge, GlButton },
-  props: Object.keys(argTypes),
-  template: `
-    <gl-button category="primary" variant="info">
-      To-Do
-      <gl-badge class="gl-ml-2">42</gl-badge>
-    </gl-button>`,
-});
-
-export const ButtonBadge = ButtonBadgeStory.bind({});
-ButtonBadge.args = generateProps();
-ButtonBadge.parameters = {
-  storyshots: { disable: true },
-};
 
 export default {
   title: 'base/badge',

@@ -3,6 +3,7 @@ import {
   newButtonCategoryOptions,
   newButtonVariantOptions,
   newButtonSizeOptions,
+  badgeForButtonOptions,
   targetOptions,
 } from '../../../utils/constants';
 import readme from './button.md';
@@ -362,7 +363,7 @@ export const AllVariantsAndCategories = (args, { argTypes = {} }) => ({
   style: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 150px)',
-    rowGap: '10px',
+    rowGap: '8px',
     textAlign: 'center',
   },
   template: `
@@ -447,6 +448,52 @@ export const Sizes = (args, { argTypes = {} }) => ({
   `,
 });
 Sizes.parameters = { controls: { disable: true } };
+
+export const Badges = (args, { argTypes = {} }) => ({
+  props: Object.keys(argTypes),
+  components,
+  variants: Object.keys(badgeForButtonOptions),
+  categories: newButtonCategoryOptions,
+  style: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 200px)',
+    rowGap: '8px',
+    textAlign: 'center',
+  },
+  methods: {
+    getBadgeVariant(variant) {
+      return badgeForButtonOptions[variant];
+    },
+  },
+  template: `
+      <div :style="$options.style">
+          <template v-for="variant in $options.variants">
+              <div v-for="category in $options.categories" :key="variant + category">
+                  <gl-button :key="category" :category="category" :variant="variant" buttonTextClasses="gl-display-flex gl-align-items-center">
+                      {{ category }} {{ variant }}
+                      <gl-badge size="sm" :variant="getBadgeVariant(variant)" class="gl-ml-2">00</gl-badge>
+                  </gl-button>
+              </div>
+          </template>
+      </div>
+  `,
+});
+
+Badges.parameters = { controls: { disable: true } };
+
+export const BadgeWithSROnlyText = (args, { argTypes = {} }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `    
+      <gl-button variant="confirm" buttonTextClasses="gl-display-flex gl-align-items-center">
+          Submit review
+          <gl-badge size="sm" variant="info" class="gl-ml-2">2</gl-badge>
+          <span class="sr-only">pending comments</span>
+      </gl-button>
+  `,
+});
+
+BadgeWithSROnlyText.parameters = { controls: { disable: true } };
 
 export default {
   title: 'base/button',
