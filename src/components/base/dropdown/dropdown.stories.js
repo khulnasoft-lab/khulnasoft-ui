@@ -463,6 +463,7 @@ documentedStoriesOf('base/dropdown', readme)
       text: 'Some dropdown',
       showClearAll: true,
       clearAllText: 'Clear all',
+      highlightedItemsTitleClass: 'gl-px-5',
     }),
     components,
     template: wrap`
@@ -481,6 +482,7 @@ documentedStoriesOf('base/dropdown', readme)
       text: 'Some dropdown',
       showHighlightedItemsTitle: true,
       highlightedItemsTitle: 'Highlights',
+      highlightedItemsTitleClass: 'gl-px-5',
     }),
     components,
     template: wrap`

@@ -270,6 +270,17 @@ describe('new dropdown', () => {
         });
       });
 
+      describe('with showClearAll=true and showHighlightedItemsTitle=true', () => {
+        beforeEach(() => {
+          buildWrapper({ showHighlightedItemsTitle: true, showClearAll: true }, slots);
+        });
+
+        it('renders the clear all button and the highlighted items title', () => {
+          expect(findClearAll().exists()).toBe(true);
+          expect(findHighlightedItemsTitle().exists()).toBe(true);
+        });
+      });
+
       describe('with highlightedItemsTitle set', () => {
         const highlightedItemsTitle = 'Cool heading';
         beforeEach(() => {

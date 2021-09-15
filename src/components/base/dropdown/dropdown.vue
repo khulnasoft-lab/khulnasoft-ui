@@ -80,7 +80,7 @@ export default {
     highlightedItemsTitleClass: {
       type: String,
       required: false,
-      default: null,
+      default: 'gl-px-5',
     },
     textSrOnly: {
       type: Boolean,
@@ -150,9 +150,6 @@ export default {
     },
     isIconWithText() {
       return Boolean(this.icon && this.text?.length && !this.textSrOnly);
-    },
-    highlightedItemsTitleClasses() {
-      return this.highlightedItemsTitleClass || 'gl-px-5';
     },
     toggleButtonClasses() {
       return [
@@ -235,7 +232,7 @@ export default {
       <div
         v-if="hasHighlightedItemsOrClearAll"
         class="gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
-        :class="highlightedItemsTitleClasses"
+        :class="highlightedItemsTitleClass"
       >
         <div class="gl-display-flex">
           <span
