@@ -83,33 +83,18 @@ Object {
     },
     "type": "category",
   },
-  "yAxis": Array [
-    Object {
-      "axisLabel": Object {
-        "formatter": [Function],
-      },
-      "axisTick": Object {
-        "show": false,
-      },
-      "name": "y axis",
-      "nameGap": 50,
-      "nameLocation": "center",
-      "type": "value",
+  "yAxis": Object {
+    "axisLabel": Object {
+      "formatter": [Function],
     },
-    Object {
-      "axisLabel": Object {
-        "formatter": [Function],
-      },
-      "axisTick": Object {
-        "show": false,
-      },
-      "name": "",
-      "nameGap": 50,
-      "nameLocation": "center",
+    "axisTick": Object {
       "show": false,
-      "type": "value",
     },
-  ],
+    "name": "y axis",
+    "nameGap": 50,
+    "nameLocation": "center",
+    "type": "value",
+  },
 }
 `;
 
@@ -190,33 +175,18 @@ Object {
     },
     "type": "category",
   },
-  "yAxis": Array [
-    Object {
-      "axisLabel": Object {
-        "formatter": [Function],
-      },
-      "axisTick": Object {
-        "show": false,
-      },
-      "name": "y axis",
-      "nameGap": 50,
-      "nameLocation": "center",
-      "type": "value",
+  "yAxis": Object {
+    "axisLabel": Object {
+      "formatter": [Function],
     },
-    Object {
-      "axisLabel": Object {
-        "formatter": [Function],
-      },
-      "axisTick": Object {
-        "show": false,
-      },
-      "name": "",
-      "nameGap": 50,
-      "nameLocation": "center",
+    "axisTick": Object {
       "show": false,
-      "type": "value",
     },
-  ],
+    "name": "y axis",
+    "nameGap": 50,
+    "nameLocation": "center",
+    "type": "value",
+  },
 }
 `;
 
