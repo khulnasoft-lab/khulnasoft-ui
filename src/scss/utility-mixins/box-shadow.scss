@@ -133,11 +133,11 @@
 }
 
 @mixin gl-shadow {
-  box-shadow: 0 1px 4px 0 rgba($black, 0.3);
+  box-shadow: 0 1px 4px 0 rgba(#000, 0.3);
 }
 
 @mixin gl-shadow-x0-y2-b4-s0 {
-  box-shadow: 0 2px 4px 0 rgba($black, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(#000, 0.1);
 }
 
 @mixin gl-shadow-blue-200-x0-y0-b4-s2 {
