@@ -1,3 +1,10 @@
+## [32.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.10.0...v32.10.1) (2021-09-15)
+
+
+### Bug Fixes
+
+* **GlColumnChart:** Support object for yAxis ([65cb83f](https://gitlab.com/gitlab-org/gitlab-ui/commit/65cb83f78e53bdf36702d7b009f7d92427b94f72))
+
 # [32.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.9.1...v32.10.0) (2021-09-09)
 
 
