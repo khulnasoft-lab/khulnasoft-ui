@@ -1,3 +1,10 @@
+## [32.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.10.1...v32.10.2) (2021-09-15)
+
+
+### Bug Fixes
+
+* don't invert shadows and modal background in dark mode ([06e1fba](https://gitlab.com/gitlab-org/gitlab-ui/commit/06e1fba366f70facfbc2654d984d7463fdc336bc))
+
 ## [32.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.10.0...v32.10.1) (2021-09-15)
 
 
