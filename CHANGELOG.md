@@ -1,3 +1,10 @@
+# [32.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.10.2...v32.11.0) (2021-09-16)
+
+
+### Features
+
+* **GlDropdown:** Adds highlighted items slot ([3ac35ed](https://gitlab.com/gitlab-org/gitlab-ui/commit/3ac35edcc307963a2695602567027b6c9019c7d5))
+
 ## [32.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.10.1...v32.10.2) (2021-09-15)
 
 
