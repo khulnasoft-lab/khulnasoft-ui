@@ -26,11 +26,16 @@ describe('new dropdown', () => {
 
   afterEach(() => wrapper.destroy());
 
+  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
+
   const findSplitButton = () => wrapper.find('.btn:not(.gl-dropdown-toggle)');
   const findDropdownToggle = () => wrapper.find('.btn.gl-dropdown-toggle');
   const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
   const findIcon = () => wrapper.find('.dropdown-icon');
   const findCaret = () => wrapper.find('.dropdown-chevron');
+  const findClearAll = () => findByTestId('clear-all-button');
+  const findHighlightedItemsTitle = () => findByTestId('highlighted-items-title');
+  const findHighlightedItems = () => findByTestId('highlighted-items');
 
   it('renders when text is null', () => {
     buildWrapper({ text: null });
@@ -225,6 +230,84 @@ describe('new dropdown', () => {
     });
   });
 
+  describe('Highlighted items', () => {
+    describe('with slot content', () => {
+      const slotContent = '<li>Highlighted items Content</li>';
+      const slots = { 'highlighted-items': slotContent };
+
+      beforeEach(() => {
+        buildWrapper({}, slots);
+      });
+
+      it('renders the highlighted items', () => {
+        expect(findHighlightedItems().exists()).toBe(true);
+        expect(findHighlightedItems().html()).toContain(slotContent);
+      });
+
+      it('renders the default highlighted items title', () => {
+        expect(findHighlightedItemsTitle().exists()).toBe(true);
+        expect(findHighlightedItemsTitle().html()).toContain('Selected');
+      });
+
+      describe('with showHighlightedItemsTitle=false', () => {
+        beforeEach(() => {
+          buildWrapper({ showHighlightedItemsTitle: false }, slots);
+        });
+
+        it('does not render the highlighted items header', () => {
+          expect(findHighlightedItemsTitle().exists()).toBe(false);
+        });
+      });
+
+      describe('with showClearAll=true and showHighlightedItemsTitle=false', () => {
+        beforeEach(() => {
+          buildWrapper({ showHighlightedItemsTitle: false, showClearAll: true }, slots);
+        });
+
+        it('renders the clear all button and does not render the highlighted items title', () => {
+          expect(findClearAll().exists()).toBe(true);
+          expect(findHighlightedItemsTitle().exists()).toBe(false);
+        });
+      });
+
+      describe('with showClearAll=true and showHighlightedItemsTitle=true', () => {
+        beforeEach(() => {
+          buildWrapper({ showHighlightedItemsTitle: true, showClearAll: true }, slots);
+        });
+
+        it('renders the clear all button and the highlighted items title', () => {
+          expect(findClearAll().exists()).toBe(true);
+          expect(findHighlightedItemsTitle().exists()).toBe(true);
+        });
+      });
+
+      describe('with highlightedItemsTitle set', () => {
+        const highlightedItemsTitle = 'Cool heading';
+        beforeEach(() => {
+          buildWrapper({ highlightedItemsTitle }, slots);
+        });
+
+        it('sets the highlighted items title', () => {
+          expect(findHighlightedItemsTitle().exists()).toBe(true);
+          expect(findHighlightedItemsTitle().text()).not.toContain('Selected');
+          expect(findHighlightedItemsTitle().text()).toContain(highlightedItemsTitle);
+        });
+      });
+    });
+
+    describe('with no slot content', () => {
+      beforeEach(() => {
+        buildWrapper();
+      });
+      it('does not render the highlighted items content', () => {
+        expect(findHighlightedItems().exists()).toBe(false);
+      });
+      it('does not render the highlighted items title', () => {
+        expect(findHighlightedItemsTitle().exists()).toBe(false);
+      });
+    });
+  });
+
   describe('button content templates', () => {
     const mockComponent = {
       template: '<span>mock</span>',
@@ -250,7 +333,6 @@ describe('new dropdown', () => {
   });
 
   describe('Clear all button', () => {
-    const findClearAll = () => wrapper.find('[data-testid="clear-all-button"]');
     it('is not visible by default', () => {
       buildWrapper({});
 

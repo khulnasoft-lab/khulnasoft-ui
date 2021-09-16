@@ -6,6 +6,7 @@ import DropdownClearAllExample from './dropdown.with_clear_all.example.vue';
 import DropdownWithDividerExample from './dropdown.with_divider.example.vue';
 import DropdownWithFormExample from './dropdown.with_form.example.vue';
 import DropdownWithHeaderExample from './dropdown.with_header.example.vue';
+import DropdownWithHighlightedItemsExample from './dropdown.with_highlighted_items.example.vue';
 import DropdownWithIcons from './dropdown.with_icons.example.vue';
 import DropdownWithRightAlignExample from './dropdown.with_right_align.example.vue';
 import DropdownWithSearchExample from './dropdown.with_search.example.vue';
@@ -38,6 +39,12 @@ export default [
         name: 'With Header',
         description: 'Dropdown with section header',
         component: DropdownWithHeaderExample,
+      },
+      {
+        id: 'new-dropdown-with-highlighted-items',
+        name: 'With Highlighted items',
+        description: 'Dropdown with highlighted items',
+        component: DropdownWithHighlightedItemsExample,
       },
       {
         id: 'new-dropdown-with-section-headers',

@@ -45,6 +45,9 @@ function generateProps({
   hideHeaderBorder = true,
   showClearAll = false,
   clearAllText = '',
+  showHighlightedItemsTitle = false,
+  highlightedItemsTitle = '',
+  highlightedItemsTitleClass = '',
 } = {}) {
   const props = {
     category: {
@@ -107,6 +110,18 @@ function generateProps({
       type: String,
       default: textKnob('clear all text', clearAllText),
     },
+    showHighlightedItemsTitle: {
+      type: Boolean,
+      default: boolean('show highlighted items title', showHighlightedItemsTitle),
+    },
+    highlightedItemsTitle: {
+      type: String,
+      default: textKnob('highlighted items title', highlightedItemsTitle),
+    },
+    highlightedItemsTitleClass: {
+      type: String,
+      default: textKnob('highlighted items title class', highlightedItemsTitleClass),
+    },
     right: {
       type: Boolean,
       default: boolean('right', false),
@@ -134,6 +149,9 @@ function wrap([template]) {
       :hide-header-border="hideHeaderBorder"
       :show-clear-all="showClearAll"
       :clear-all-text="clearAllText"
+      :show-highlighted-items-title="showHighlightedItemsTitle"
+      :highlighted-items-title="highlightedItemsTitle"
+      :highlighted-items-title-class="highlightedItemsTitleClass"
       :loading="loading"
       :right="right"
     >
@@ -445,12 +463,36 @@ documentedStoriesOf('base/dropdown', readme)
       text: 'Some dropdown',
       showClearAll: true,
       clearAllText: 'Clear all',
+      highlightedItemsTitleClass: 'gl-px-5',
     }),
     components,
     template: wrap`
       <gl-dropdown-item :is-check-item="true" :is-checked="true">First item</gl-dropdown-item>
       <gl-dropdown-item :is-check-item="true" :is-checked="true">Second item</gl-dropdown-item>
       <gl-dropdown-item :is-check-item="true" :is-checked="true">Third item</gl-dropdown-item>`,
+    mounted() {
+      clickDropdown(this);
+    },
+    updated() {
+      addClass(this);
+    },
+  }))
+  .add('with highlighted items', () => ({
+    props: generateProps({
+      text: 'Some dropdown',
+      showHighlightedItemsTitle: true,
+      highlightedItemsTitle: 'Highlights',
+      highlightedItemsTitleClass: 'gl-px-5',
+    }),
+    components,
+    template: wrap`
+      <template #highlighted-items>
+        <gl-dropdown-item :is-check-item="true" :is-checked="true">First item</gl-dropdown-item>
+        <gl-dropdown-item :is-check-item="true" :is-checked="true">Second item</gl-dropdown-item>
+      </template>
+      <gl-dropdown-item>Third item</gl-dropdown-item>
+      <gl-dropdown-item>Fourth item</gl-dropdown-item>
+      `,
     mounted() {
       clickDropdown(this);
     },

@@ -10,6 +10,7 @@ import ButtonMixin from '../../mixins/button_mixin';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import GlDropdownDivider from './dropdown_divider.vue';
 
 // Return an Array of visible items
 function filterVisible(els) {
@@ -35,6 +36,7 @@ export default {
   components: {
     BDropdown: ExtendedBDropdown,
     GlButton,
+    GlDropdownDivider,
     GlIcon,
     GlLoadingIcon,
   },
@@ -64,6 +66,21 @@ export default {
       type: String,
       required: false,
       default: '',
+    },
+    showHighlightedItemsTitle: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    highlightedItemsTitle: {
+      type: String,
+      required: false,
+      default: 'Selected',
+    },
+    highlightedItemsTitleClass: {
+      type: String,
+      required: false,
+      default: 'gl-px-5',
     },
     textSrOnly: {
       type: Boolean,
@@ -166,6 +183,12 @@ export default {
     buttonText() {
       return this.split && this.icon ? null : this.text;
     },
+    hasHighlightedItemsContent() {
+      return this.hasSlotContents('highlighted-items');
+    },
+    hasHighlightedItemsOrClearAll() {
+      return this.showHighlightedItemsTitle || this.showClearAll;
+    },
   },
   methods: {
     hasSlotContents(slotName) {
@@ -180,7 +203,6 @@ export default {
   },
 };
 </script>
-
 <template>
   <b-dropdown
     ref="dropdown"
@@ -207,17 +229,40 @@ export default {
         </p>
         <slot name="header"></slot>
       </div>
-      <div v-if="showClearAll" class="gl-text-right gl-px-5">
-        <gl-button
-          size="small"
-          category="tertiary"
-          variant="link"
-          data-testid="clear-all-button"
-          @click="$emit('clear-all')"
-          >{{ clearAllText }}</gl-button
-        >
+      <div
+        v-if="hasHighlightedItemsOrClearAll"
+        class="gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
+        :class="highlightedItemsTitleClass"
+      >
+        <div class="gl-display-flex">
+          <span
+            v-if="hasHighlightedItemsContent && showHighlightedItemsTitle"
+            class="gl-font-weight-bold"
+            data-testid="highlighted-items-title"
+            >{{ highlightedItemsTitle }}</span
+          >
+        </div>
+        <div class="gl-display-flex">
+          <gl-button
+            v-if="showClearAll"
+            size="small"
+            category="tertiary"
+            variant="link"
+            data-testid="clear-all-button"
+            @click="$emit('clear-all')"
+            >{{ clearAllText }}</gl-button
+          >
+        </div>
       </div>
       <div class="gl-new-dropdown-contents">
+        <div
+          v-if="hasHighlightedItemsContent"
+          class="gl-overflow-visible"
+          data-testid="highlighted-items"
+        >
+          <slot name="highlighted-items"></slot>
+          <gl-dropdown-divider />
+        </div>
         <slot></slot>
       </div>
       <div v-if="hasSlotContents('footer')" class="gl-new-dropdown-footer">
