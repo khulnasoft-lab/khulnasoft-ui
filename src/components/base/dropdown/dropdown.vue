@@ -249,7 +249,7 @@ export default {
             category="tertiary"
             variant="link"
             data-testid="clear-all-button"
-            @click="$emit('clear-all')"
+            @click="$emit('clear-all', $event)"
             >{{ clearAllText }}</gl-button
           >
         </div>

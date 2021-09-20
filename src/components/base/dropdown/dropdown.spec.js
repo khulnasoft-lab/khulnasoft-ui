@@ -341,6 +341,7 @@ describe('new dropdown', () => {
 
     describe('when `showClearAll=true`', () => {
       const clearAllText = 'Clear all';
+      const mockEvent = {};
       beforeEach(() => {
         buildWrapper({ showClearAll: true });
       });
@@ -353,9 +354,10 @@ describe('new dropdown', () => {
       it('emits an event when the `clear all` button is clicked', () => {
         expect(wrapper.emitted('clear-all')).toBeUndefined();
 
-        findClearAll().vm.$emit('click');
+        findClearAll().vm.$emit('click', mockEvent);
 
         expect(wrapper.emitted('clear-all')).toHaveLength(1);
+        expect(wrapper.emitted('clear-all')[0]).toEqual([mockEvent]);
       });
 
       it('can configure the clear all text', () => {
