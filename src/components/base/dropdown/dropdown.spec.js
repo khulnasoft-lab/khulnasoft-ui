@@ -231,10 +231,10 @@ describe('new dropdown', () => {
   });
 
   describe('Highlighted items', () => {
+    const highlightedItemsTitle = 'Cool heading';
+    const slotContent = '<li>Highlighted items Content</li>';
+    const slots = { 'highlighted-items': slotContent };
     describe('with slot content', () => {
-      const slotContent = '<li>Highlighted items Content</li>';
-      const slots = { 'highlighted-items': slotContent };
-
       beforeEach(() => {
         buildWrapper({}, slots);
       });
@@ -282,7 +282,6 @@ describe('new dropdown', () => {
       });
 
       describe('with highlightedItemsTitle set', () => {
-        const highlightedItemsTitle = 'Cool heading';
         beforeEach(() => {
           buildWrapper({ highlightedItemsTitle }, slots);
         });
@@ -299,11 +298,36 @@ describe('new dropdown', () => {
       beforeEach(() => {
         buildWrapper();
       });
+
       it('does not render the highlighted items content', () => {
         expect(findHighlightedItems().exists()).toBe(false);
       });
       it('does not render the highlighted items title', () => {
         expect(findHighlightedItemsTitle().exists()).toBe(false);
+      });
+
+      describe('with highlightedItemsTitle set', () => {
+        beforeEach(() => {
+          buildWrapper({ highlightedItemsTitle });
+        });
+
+        it('does not render the highlighted items title', () => {
+          expect(findHighlightedItemsTitle().exists()).toBe(false);
+        });
+      });
+
+      describe('with showClearAll=true ', () => {
+        beforeEach(() => {
+          buildWrapper({ showClearAll: true });
+        });
+
+        it('renders the clear all button', () => {
+          expect(findClearAll().exists()).toBe(true);
+        });
+
+        it('does not render the highlighted items title', () => {
+          expect(findHighlightedItemsTitle().exists()).toBe(false);
+        });
       });
     });
   });

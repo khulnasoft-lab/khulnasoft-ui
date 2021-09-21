@@ -187,7 +187,9 @@ export default {
       return this.hasSlotContents('highlighted-items');
     },
     hasHighlightedItemsOrClearAll() {
-      return this.showHighlightedItemsTitle || this.showClearAll;
+      return (
+        (this.hasHighlightedItemsContent && this.showHighlightedItemsTitle) || this.showClearAll
+      );
     },
   },
   methods: {
@@ -229,6 +231,7 @@ export default {
         </p>
         <slot name="header"></slot>
       </div>
+
       <div
         v-if="hasHighlightedItemsOrClearAll"
         class="gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
