@@ -1,0 +1,21 @@
+.empty-state {
+  .svg-content {
+    text-align: center;
+
+    svg,
+    img {
+      max-width: 432px;
+      width: 100%;
+    }
+
+    $image-widths: 80 130 150 225 250 306 394 430;
+    @each $width in $image-widths {
+      &.svg-#{$width} {
+        img,
+        svg {
+          max-width: #{$width + 'px'};
+        }
+      }
+    }
+  }
+}
