@@ -1,3 +1,12 @@
+## [32.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.0...v32.11.1) (2021-09-22)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Added `clearAllTextClass` prop ([b3e08d7](https://gitlab.com/gitlab-org/gitlab-ui/commit/b3e08d7bb5cb519b594bbfa930a9e6fb2a3e20aa))
+* **GlDropdown:** Ensure we forward the `clearAll` event ([c8cf59a](https://gitlab.com/gitlab-org/gitlab-ui/commit/c8cf59acc4c4117ed6226bded994d66e65592c71))
+* **GlDropdown:** Fix empty div without highlighted items content ([292d135](https://gitlab.com/gitlab-org/gitlab-ui/commit/292d1359f0864dfd48c21c7f562a9cae79a482d6))
+
 # [32.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.10.2...v32.11.0) (2021-09-16)
 
 
