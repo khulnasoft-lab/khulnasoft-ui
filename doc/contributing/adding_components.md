@@ -33,10 +33,8 @@ This CI job commits the baseline snapshot images to the merge request branch.
 
 New components are usually introduced in a single, large MR.
 
-You can make the review process easier by creating a primary branch and MR along with subsequent
-smaller branches and MRs.
-The smaller MRs will target the primary branch allowing for review to
-take place against each smaller MR individually.
+To simplify the review process, create a principal feature branch based on the project's main branch.
+Then, create smaller branches targeting the principal branch to iterate through smaller changes.
 
 ## Working on a Pajamas-documented component
 
