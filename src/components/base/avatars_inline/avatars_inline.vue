@@ -85,7 +85,7 @@ export default {
 
       return {
         left: `${overlapDistance * avatarIndex}px`,
-        zIndex: this.maxVisible - avatarIndex,
+        zIndex: this.maxVisible + (avatarIndex - 1),
       };
     },
   },
