@@ -45,6 +45,7 @@ function generateProps({
   hideHeaderBorder = true,
   showClearAll = false,
   clearAllText = '',
+  clearAllTextClass = '',
   showHighlightedItemsTitle = false,
   highlightedItemsTitle = '',
   highlightedItemsTitleClass = '',
@@ -110,6 +111,10 @@ function generateProps({
       type: String,
       default: textKnob('clear all text', clearAllText),
     },
+    clearAllTextClass: {
+      type: String,
+      default: textKnob('clear all text class', clearAllTextClass),
+    },
     showHighlightedItemsTitle: {
       type: Boolean,
       default: boolean('show highlighted items title', showHighlightedItemsTitle),
@@ -149,6 +154,7 @@ function wrap([template]) {
       :hide-header-border="hideHeaderBorder"
       :show-clear-all="showClearAll"
       :clear-all-text="clearAllText"
+      :clear-all-text-class="clearAllTextClass"
       :show-highlighted-items-title="showHighlightedItemsTitle"
       :highlighted-items-title="highlightedItemsTitle"
       :highlighted-items-title-class="highlightedItemsTitleClass"
@@ -463,7 +469,7 @@ documentedStoriesOf('base/dropdown', readme)
       text: 'Some dropdown',
       showClearAll: true,
       clearAllText: 'Clear all',
-      highlightedItemsTitleClass: 'gl-px-5',
+      clearAllTextClass: 'gl-px-5',
     }),
     components,
     template: wrap`

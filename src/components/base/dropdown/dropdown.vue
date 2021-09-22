@@ -62,6 +62,11 @@ export default {
       required: false,
       default: 'Clear all',
     },
+    clearAllTextClass: {
+      type: String,
+      required: false,
+      default: 'gl-px-5',
+    },
     text: {
       type: String,
       required: false,
@@ -70,7 +75,7 @@ export default {
     showHighlightedItemsTitle: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
     highlightedItemsTitle: {
       type: String,
@@ -187,7 +192,9 @@ export default {
       return this.hasSlotContents('highlighted-items');
     },
     hasHighlightedItemsOrClearAll() {
-      return this.showHighlightedItemsTitle || this.showClearAll;
+      return (
+        (this.hasHighlightedItemsContent && this.showHighlightedItemsTitle) || this.showClearAll
+      );
     },
   },
   methods: {
@@ -229,27 +236,31 @@ export default {
         </p>
         <slot name="header"></slot>
       </div>
+
       <div
         v-if="hasHighlightedItemsOrClearAll"
         class="gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
-        :class="highlightedItemsTitleClass"
       >
-        <div class="gl-display-flex">
-          <span
-            v-if="hasHighlightedItemsContent && showHighlightedItemsTitle"
-            class="gl-font-weight-bold"
-            data-testid="highlighted-items-title"
-            >{{ highlightedItemsTitle }}</span
-          >
+        <div
+          v-if="hasHighlightedItemsContent && showHighlightedItemsTitle"
+          class="gl-display-flex gl-flex-grow-1 gl-justify-content-flex-start"
+          :class="highlightedItemsTitleClass"
+        >
+          <span class="gl-font-weight-bold" data-testid="highlighted-items-title">{{
+            highlightedItemsTitle
+          }}</span>
         </div>
-        <div class="gl-display-flex">
+        <div
+          v-if="showClearAll"
+          class="gl-display-flex gl-flex-grow-1 gl-justify-content-end"
+          :class="clearAllTextClass"
+        >
           <gl-button
-            v-if="showClearAll"
             size="small"
             category="tertiary"
             variant="link"
             data-testid="clear-all-button"
-            @click="$emit('clear-all')"
+            @click="$emit('clear-all', $event)"
             >{{ clearAllText }}</gl-button
           >
         </div>

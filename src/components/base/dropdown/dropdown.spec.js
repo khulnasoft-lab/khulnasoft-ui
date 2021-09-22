@@ -231,12 +231,12 @@ describe('new dropdown', () => {
   });
 
   describe('Highlighted items', () => {
-    describe('with slot content', () => {
-      const slotContent = '<li>Highlighted items Content</li>';
-      const slots = { 'highlighted-items': slotContent };
-
+    const highlightedItemsTitle = 'Cool heading';
+    const slotContent = '<li>Highlighted items Content</li>';
+    const slots = { 'highlighted-items': slotContent };
+    describe('with slot content and showHighlightedItemsTitle=true', () => {
       beforeEach(() => {
-        buildWrapper({}, slots);
+        buildWrapper({ showHighlightedItemsTitle: true }, slots);
       });
 
       it('renders the highlighted items', () => {
@@ -251,7 +251,7 @@ describe('new dropdown', () => {
 
       describe('with showHighlightedItemsTitle=false', () => {
         beforeEach(() => {
-          buildWrapper({ showHighlightedItemsTitle: false }, slots);
+          buildWrapper({}, slots);
         });
 
         it('does not render the highlighted items header', () => {
@@ -261,7 +261,7 @@ describe('new dropdown', () => {
 
       describe('with showClearAll=true and showHighlightedItemsTitle=false', () => {
         beforeEach(() => {
-          buildWrapper({ showHighlightedItemsTitle: false, showClearAll: true }, slots);
+          buildWrapper({ showClearAll: true }, slots);
         });
 
         it('renders the clear all button and does not render the highlighted items title', () => {
@@ -281,10 +281,9 @@ describe('new dropdown', () => {
         });
       });
 
-      describe('with highlightedItemsTitle set', () => {
-        const highlightedItemsTitle = 'Cool heading';
+      describe('with highlightedItemsTitle set and showHighlightedItemsTitle=true', () => {
         beforeEach(() => {
-          buildWrapper({ highlightedItemsTitle }, slots);
+          buildWrapper({ highlightedItemsTitle, showHighlightedItemsTitle: true }, slots);
         });
 
         it('sets the highlighted items title', () => {
@@ -299,11 +298,36 @@ describe('new dropdown', () => {
       beforeEach(() => {
         buildWrapper();
       });
+
       it('does not render the highlighted items content', () => {
         expect(findHighlightedItems().exists()).toBe(false);
       });
       it('does not render the highlighted items title', () => {
         expect(findHighlightedItemsTitle().exists()).toBe(false);
+      });
+
+      describe('with highlightedItemsTitle set', () => {
+        beforeEach(() => {
+          buildWrapper({ highlightedItemsTitle });
+        });
+
+        it('does not render the highlighted items title', () => {
+          expect(findHighlightedItemsTitle().exists()).toBe(false);
+        });
+      });
+
+      describe('with showClearAll=true ', () => {
+        beforeEach(() => {
+          buildWrapper({ showClearAll: true });
+        });
+
+        it('renders the clear all button', () => {
+          expect(findClearAll().exists()).toBe(true);
+        });
+
+        it('does not render the highlighted items title', () => {
+          expect(findHighlightedItemsTitle().exists()).toBe(false);
+        });
       });
     });
   });
@@ -341,6 +365,7 @@ describe('new dropdown', () => {
 
     describe('when `showClearAll=true`', () => {
       const clearAllText = 'Clear all';
+      const mockEvent = {};
       beforeEach(() => {
         buildWrapper({ showClearAll: true });
       });
@@ -353,9 +378,10 @@ describe('new dropdown', () => {
       it('emits an event when the `clear all` button is clicked', () => {
         expect(wrapper.emitted('clear-all')).toBeUndefined();
 
-        findClearAll().vm.$emit('click');
+        findClearAll().vm.$emit('click', mockEvent);
 
         expect(wrapper.emitted('clear-all')).toHaveLength(1);
+        expect(wrapper.emitted('clear-all')[0]).toEqual([mockEvent]);
       });
 
       it('can configure the clear all text', () => {
