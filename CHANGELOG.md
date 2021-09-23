@@ -1,3 +1,10 @@
+## [32.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.1...v32.11.2) (2021-09-23)
+
+
+### Bug Fixes
+
+* Work around vue-apollo@3 bug ([f5223f9](https://gitlab.com/gitlab-org/gitlab-ui/commit/f5223f92db7ba89d3b6c106cf2356907a152440f)), closes [/github.com/vuejs/vue-apollo/blob/v3.0.3/packages/vue-apollo/src/mixin.js#L17-L25](https://gitlab.com//github.com/vuejs/vue-apollo/blob/v3.0.3/packages/vue-apollo/src/mixin.js/issues/L17-L25) [/github.com/vuejs/vue/blob/v2.6.14/src/core/instance/init.js#L58](https://gitlab.com//github.com/vuejs/vue/blob/v2.6.14/src/core/instance/init.js/issues/L58)
+
 ## [32.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.0...v32.11.1) (2021-09-22)
 
 
