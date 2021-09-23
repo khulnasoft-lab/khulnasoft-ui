@@ -27,7 +27,7 @@ export default {
         : null;
     },
     listClasses() {
-      return [this.suggestionsListClass, 'dropdown-menu gl-filtered-search-suggestion-list'];
+      return [this.suggestionsListClass(), 'dropdown-menu gl-filtered-search-suggestion-list'];
     },
   },
 

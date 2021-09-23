@@ -2,11 +2,11 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { provide } from './common_story_options';
 import readme from './filtered_search_term.md';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 
 Vue.use(PortalVue);
-const noop = () => {};
 
 const availableTokens = [
   { title: 'Demo1', type: 'demo1', icon: 'label', token: {} },
@@ -19,10 +19,7 @@ documentedStoriesOf('base/filtered-search/term', readme)
     components: {
       GlFilteredSearchTerm,
     },
-    provide: {
-      portalName: 'portal',
-      alignSuggestions: noop,
-    },
+    provide,
     props: {
       active: {
         type: Boolean,

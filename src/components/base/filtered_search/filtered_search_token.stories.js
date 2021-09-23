@@ -2,13 +2,12 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { provide } from './common_story_options';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import readme from './filtered_search_token.md';
 import GlFilteredSearchToken from './filtered_search_token.vue';
 
 Vue.use(PortalVue);
-
-const noop = () => {};
 
 documentedStoriesOf('base/filtered-search/token', readme)
   .addDecorator(withKnobs)
@@ -17,10 +16,7 @@ documentedStoriesOf('base/filtered-search/token', readme)
       GlFilteredSearchToken,
       GlFilteredSearchSuggestion,
     },
-    provide: {
-      portalName: 'portal',
-      alignSuggestions: noop,
-    },
+    provide,
     props: {
       active: {
         type: Boolean,
@@ -67,10 +63,7 @@ documentedStoriesOf('base/filtered-search/token', readme)
       GlFilteredSearchToken,
       GlFilteredSearchSuggestion,
     },
-    provide: {
-      portalName: 'portal',
-      alignSuggestions: noop,
-    },
+    provide,
     props: {
       active: {
         type: Boolean,
@@ -121,10 +114,7 @@ documentedStoriesOf('base/filtered-search/token', readme)
       GlFilteredSearchToken,
       GlFilteredSearchSuggestion,
     },
-    provide: {
-      portalName: 'portal',
-      alignSuggestions: noop,
-    },
+    provide,
     props: {
       active: {
         type: Boolean,
