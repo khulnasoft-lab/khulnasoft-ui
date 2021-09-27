@@ -7,9 +7,11 @@ export const BootstrapComponent = () => {
   if (!bootstrapComponentName) {
     return null;
   }
-  const bootstrapComponentLink = `https://bootstrap-vue.org/docs/components/${bootstrapComponentName
-    .replace('b-', '')
-    .toLowerCase()}`;
+  const bootstrapComponentLink =
+    context.parameters?.bootstrapComponentLink ||
+    `https://bootstrap-vue.org/docs/components/${bootstrapComponentName
+      .replace('b-', '')
+      .toLowerCase()}`;
   return (
     <>
       <h3 id="under-the-hood">BootstrapVue component</h3>
