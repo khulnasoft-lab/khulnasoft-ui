@@ -27,14 +27,12 @@ describe('datepicker component', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.useRealTimers();
   });
 
   beforeEach(() => {
-    const DateConstructor = Date;
-
-    global.Date = jest.fn((...dateParams) =>
-      dateParams.length ? new DateConstructor(...dateParams) : currentDate
-    );
+    jest.useFakeTimers('modern');
+    jest.setSystemTime(currentDate.getTime());
   });
 
   it("does not set default date when 'value' and 'defaultDate' props aren't set ", () => {
@@ -383,4 +381,18 @@ describe('datepicker component', () => {
       expect(findInput(wrapper).attributes(attribute)).toBe(expectedValue);
     }
   );
+
+  it.each`
+    dateString      | parsedDate
+    ${'2021-09-27'} | ${new Date(2021, 8, 27)}
+    ${'2021/09/27'} | ${new Date(2021, 8, 27)}
+    ${'foobarbaz'}  | ${currentDate}
+  `('it parses $dateString correctly', ({ dateString, parsedDate }) => {
+    mountWithOptions();
+
+    const config = pikadayConfig();
+
+    expect(config.parse).not.toBeUndefined();
+    expect(config.parse(dateString)).toEqual(parsedDate);
+  });
 });
