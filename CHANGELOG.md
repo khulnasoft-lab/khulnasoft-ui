@@ -1,3 +1,10 @@
+## [32.11.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.2...v32.11.3) (2021-09-27)
+
+
+### Bug Fixes
+
+* Update inline avatar styles to match figma styles ([75d5880](https://gitlab.com/gitlab-org/gitlab-ui/commit/75d588074eda736afdac8b452dd36a1cb88635be))
+
 ## [32.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.1...v32.11.2) (2021-09-23)
 
 
