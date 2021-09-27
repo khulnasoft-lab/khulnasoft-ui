@@ -35,7 +35,8 @@ documentedStoriesOf('base/filtered-search/token-segment', readme)
       this.$nextTick(() => document.activeElement.blur());
     },
     template: `
-      <div>v-model value: {{ value }} </div>
+      <div>
+        <div>v-model value: {{ value }} </div>
         <div class="gl-border-1 gl-border-solid gl-border-gray-200">
           <gl-filtered-search-token-segment
             v-model="value"
@@ -43,8 +44,8 @@ documentedStoriesOf('base/filtered-search/token-segment', readme)
             :active="active"
           >
             <template #suggestions>
-              <gl-filtered-search-suggestion value="1">Static suggestion 1</gl-filtered-search-suggestion>
-              <gl-filtered-search-suggestion value="2">Static suggestion 2</gl-filtered-search-suggestion>
+              <gl-filtered-search-suggestion value="demo1">Static suggestion 1</gl-filtered-search-suggestion>
+              <gl-filtered-search-suggestion value="demo2">Static suggestion 2</gl-filtered-search-suggestion>
             </template>
           </gl-filtered-search-token-segment>
         </div>
