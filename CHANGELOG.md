@@ -1,3 +1,10 @@
+## [32.11.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.3...v32.11.4) (2021-09-28)
+
+
+### Bug Fixes
+
+* **GlDatepicker:** fix date parsing when manually entering dates ([0f9a4f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/0f9a4f847eb8d31a6ee38c607b2d6064586959ba))
+
 ## [32.11.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.2...v32.11.3) (2021-09-27)
 
 
