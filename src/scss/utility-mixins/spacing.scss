@@ -916,3 +916,16 @@
     @include gl-pl-3;
   }
 }
+
+/**
+  * Remove margin and padding from empty elements
+  * to prevent them from inadvertantly taking up
+  * space when empty. Note that for :empty to match
+  * the element can not even have whitespace in it
+  */
+@mixin gl-collapse-empty {
+  &:empty {
+    padding: 0;
+    margin: 0;
+  }
+}
