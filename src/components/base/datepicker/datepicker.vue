@@ -222,6 +222,11 @@ export default {
       maxDate: this.maxDate,
       // Only supports default gitlab format YYYY-MM-DD. We have to decide if we want to support other formats.
       format: defaultDateFormat,
+      parse: (dateString) => {
+        const parsedDate = Date.parse(dateString.replace(/-/g, '/'));
+
+        return Number.isNaN(parsedDate) ? new Date() : new Date(parsedDate);
+      },
       disableDayFn: this.disableDayFn,
       firstDay: this.firstDay,
       arialLabel: this.ariaLabel,
