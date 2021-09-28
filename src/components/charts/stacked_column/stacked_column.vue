@@ -126,6 +126,11 @@ export default {
         return [LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE].indexOf(layout) !== -1;
       },
     },
+    formatTooltipText: {
+      type: Function,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -256,7 +261,7 @@ export default {
       this.chart = chart;
       this.$emit('created', chart);
     },
-    onLabelChange(params) {
+    defaultFormatTooltipText(params) {
       const { tooltipContent } = params.seriesData.reverse().reduce(
         (acc, bar) => {
           const barColor = colorFromDefaultPalette(bar.seriesIndex);
@@ -277,6 +282,13 @@ export default {
       this.tooltipTitle = params.value;
       this.$set(this, 'tooltipContent', tooltipContent);
     },
+    onLabelChange(params) {
+      if (this.formatTooltipText) {
+        this.formatTooltipText(params);
+      } else {
+        this.defaultFormatTooltipText(params);
+      }
+    },
   },
 };
 </script>
@@ -290,9 +302,15 @@ export default {
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"
     >
-      <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-      <div slot="title">{{ tooltipTitle }} ({{ xAxisTitle }})</div>
-      <tooltip-default-format :tooltip-content="tooltipContent" />
+      <template v-if="formatTooltipText">
+        <slot name="tooltip-title"></slot>
+        <slot name="tooltip-content"></slot>
+      </template>
+      <template v-else>
+        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
+        <div slot="title">{{ tooltipTitle }} ({{ xAxisTitle }})</div>
+        <tooltip-default-format :tooltip-content="tooltipContent" />
+      </template>
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"

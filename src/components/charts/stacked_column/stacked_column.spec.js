@@ -8,6 +8,8 @@ import {
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import StackedColumnChart from './stacked_column.vue';
+import ChartTooltip from '~/components/charts/tooltip/tooltip.vue';
+import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 
@@ -32,11 +34,19 @@ describe('stacked column chart component', () => {
 
   const findChart = () => wrapper.findComponent(Chart);
   const findLegend = () => wrapper.findComponent(ChartLegend);
+  const getOptions = () => findChart().props('options');
+  const findDataTooltip = () => wrapper.findComponent(ChartTooltip);
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  const createShallowWrapper = (props = {}) => {
-    wrapper = shallowMount(StackedColumnChart, { propsData: { ...defaultChartProps, ...props } });
+  const createShallowWrapper = ({ props = {}, slots = {} } = {}) => {
+    wrapper = shallowMount(StackedColumnChart, {
+      propsData: { ...defaultChartProps, ...props },
+      stubs: {
+        'tooltip-default-format': TooltipDefaultFormat,
+      },
+      slots,
+    });
     emitChartCreated();
   };
 
@@ -83,8 +93,10 @@ describe('stacked column chart component', () => {
   describe('with line data provided', () => {
     beforeEach(() => {
       createShallowWrapper({
-        bars: [],
-        lines: mockDefaultStackedLineData,
+        props: {
+          bars: [],
+          lines: mockDefaultStackedLineData,
+        },
       });
     });
     it('should correctly render the chart', () => {
@@ -102,7 +114,7 @@ describe('stacked column chart component', () => {
     });
 
     it('is inline if correct prop value is set', () => {
-      createShallowWrapper({ legendLayout: LEGEND_LAYOUT_INLINE });
+      createShallowWrapper({ props: { legendLayout: LEGEND_LAYOUT_INLINE } });
 
       return wrapper.vm.$nextTick(() => {
         expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
@@ -110,7 +122,7 @@ describe('stacked column chart component', () => {
     });
 
     it('is tabular if correct prop value is set', () => {
-      createShallowWrapper({ legendLayout: LEGEND_LAYOUT_TABLE });
+      createShallowWrapper({ props: { legendLayout: LEGEND_LAYOUT_TABLE } });
 
       return wrapper.vm.$nextTick(() => {
         expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
@@ -123,9 +135,11 @@ describe('stacked column chart component', () => {
 
     beforeEach(() => {
       createShallowWrapper({
-        ...defaultChartProps,
-        secondaryData: mockSecondaryData,
-        secondaryDataTitle,
+        props: {
+          ...defaultChartProps,
+          secondaryData: mockSecondaryData,
+          secondaryDataTitle,
+        },
       });
     });
     it('should correctly render the chart', () => {
@@ -138,6 +152,108 @@ describe('stacked column chart component', () => {
       const chart = findChart();
 
       expect(chart.props('options').yAxis[1].name).toEqual(secondaryDataTitle);
+    });
+  });
+
+  describe('tooltip', () => {
+    describe('position', () => {
+      const tooltipTitle = 'FooBar';
+
+      beforeEach(() => {
+        createShallowWrapper();
+      });
+
+      it('is initialized', () => {
+        expect(findDataTooltip().props('left')).toBe('0');
+        expect(findDataTooltip().props('top')).toBe('0');
+        expect(findDataTooltip().text()).not.toContain(tooltipTitle);
+      });
+
+      it('is reset when mouse moves', async () => {
+        const left = '10px';
+        const top = '30px';
+
+        wrapper.setData({ tooltipPosition: { left, top }, tooltipTitle });
+
+        await wrapper.vm.$nextTick();
+
+        expect(findDataTooltip().props('left')).toBe(`${left}`);
+        expect(findDataTooltip().props('top')).toBe(`${top}`);
+        expect(findDataTooltip().text()).toContain(tooltipTitle);
+      });
+    });
+
+    const params = {
+      seriesData: [{ seriesIndex: '0', seriesName: 'Blah', value: 'Jan' }],
+    };
+
+    describe('default', () => {
+      beforeEach(() => {
+        createShallowWrapper();
+      });
+
+      it('calls the default tooltip text function', async () => {
+        wrapper.vm.defaultFormatTooltipText = jest.fn();
+
+        expect(wrapper.vm.defaultFormatTooltipText).not.toHaveBeenCalled();
+
+        getOptions().xAxis.axisPointer.label.formatter(params);
+
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.vm.defaultFormatTooltipText).toHaveBeenCalled();
+      });
+
+      it('displays the generic tooltip content', async () => {
+        getOptions().xAxis.axisPointer.label.formatter(params);
+
+        await wrapper.vm.$nextTick();
+
+        const tooltipText = findDataTooltip().element.textContent;
+
+        expect(tooltipText).toContain(defaultChartProps.xAxisTitle);
+        expect(tooltipText).toContain(params.seriesData[0].seriesName);
+        expect(tooltipText).toContain(params.seriesData[0].value);
+      });
+    });
+
+    describe('custom', () => {
+      const formatTooltipText = jest.fn();
+      const customTitle = 'Custom title';
+      const customContent = 'Custom content';
+
+      beforeEach(() => {
+        createShallowWrapper({
+          props: {
+            formatTooltipText,
+          },
+          slots: {
+            'tooltip-title': customTitle,
+            'tooltip-content': customContent,
+          },
+        });
+      });
+
+      it('calls the formatTooltipText tooltip text function', async () => {
+        expect(formatTooltipText).not.toHaveBeenCalled();
+
+        getOptions().xAxis.axisPointer.label.formatter(params);
+
+        await wrapper.vm.$nextTick();
+
+        expect(formatTooltipText).toHaveBeenCalled();
+      });
+
+      it('displays the custom tooltip content', async () => {
+        getOptions().xAxis.axisPointer.label.formatter(params);
+
+        await wrapper.vm.$nextTick();
+
+        const tooltipText = findDataTooltip().element.textContent;
+
+        expect(tooltipText).toContain(customTitle);
+        expect(tooltipText).toContain(customContent);
+      });
     });
   });
 });
