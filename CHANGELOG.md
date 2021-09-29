@@ -1,3 +1,10 @@
+# [32.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.4...v32.12.0) (2021-09-29)
+
+
+### Features
+
+* Add gl-collapse-empty util class ([dc6ab1c](https://gitlab.com/gitlab-org/gitlab-ui/commit/dc6ab1c1793fe7fdc668d8dc76626bd032f92b90))
+
 ## [32.11.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.3...v32.11.4) (2021-09-28)
 
 
