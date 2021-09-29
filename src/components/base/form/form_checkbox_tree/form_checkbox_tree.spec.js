@@ -257,8 +257,8 @@ describe('GlFormCheckboxTree', () => {
         expect(toggleAllCheckbox.element.indeterminate).toBe(indeterminate);
       });
 
-      it('once toggled, puts all checkboxes in the correct state', () => {
-        toggleAllCheckbox.trigger('click');
+      it('once toggled, puts all checkboxes in the correct state', async () => {
+        await toggleAllCheckbox.trigger('click');
         return wrapper.vm.$nextTick(() => {
           findCheckboxes().wrappers.forEach((checkbox) => {
             expect(findCheckboxInput(checkbox).element.checked).toBe(finallyChecked);
