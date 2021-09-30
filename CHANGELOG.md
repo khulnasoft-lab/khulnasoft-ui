@@ -1,3 +1,10 @@
+# [32.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.12.0...v32.13.0) (2021-09-30)
+
+
+### Features
+
+* **GlStackedColumn:** Add custom tooltip option ([d244925](https://gitlab.com/gitlab-org/gitlab-ui/commit/d2449257619d5e1a3000f8dfbae0d3dd9e655dfb))
+
 # [32.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.11.4...v32.12.0) (2021-09-29)
 
 
