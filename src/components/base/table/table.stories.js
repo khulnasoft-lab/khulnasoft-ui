@@ -42,7 +42,7 @@ function generateProps() {
   return props;
 }
 
-documentedStoriesOf('base/table', readme)
+documentedStoriesOf('base/table/table', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     components,
