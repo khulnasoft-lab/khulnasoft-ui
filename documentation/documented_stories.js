@@ -86,6 +86,8 @@ export const setupStorybookReadme = () =>
         'GlDeprecatedSkeletonLoading',
         'GlCard',
         'GlFormCheckbox',
+        'GlAccordion',
+        'GlAccordionItem',
       ],
       components: {
         GlComponentDocumentation,

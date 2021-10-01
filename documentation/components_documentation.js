@@ -93,8 +93,6 @@ export { default as GlFilteredSearchTokenSegmentDocumentation } from '../src/com
 export { default as GlFilteredSearchDocumentation } from '../src/components/base/filtered_search/filtered_search.documentation';
 export { default as GlBroadcastMessageDocumentation } from '../src/components/base/broadcast_message/broadcast_message.documentation';
 export { default as GlCollapseDocumentation } from '../src/components/base/collapse/collapse.documentation';
-export { default as GlAccordionDocumentation } from '../src/components/base/accordion/accordion.documentation';
-export { default as GlAccordionItemDocumentation } from '../src/components/base/accordion/accordion_item.documentation';
 export { default as GlCarouselDocumentation } from '../src/components/base/carousel/carousel.documentation';
 export { default as GlSafeLinkDirectiveDocumentation } from '../src/directives/safe_link/safe_link.documentation';
 export { default as GlSafeHtmlDirectiveDocumentation } from '../src/directives/safe_html/safe_html.documentation';
