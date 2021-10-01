@@ -1,3 +1,15 @@
+# [32.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.13.0...v32.14.0) (2021-10-01)
+
+
+### Bug Fixes
+
+* **GlStackedColumn:** Fix custom tooltip title ([98e6921](https://gitlab.com/gitlab-org/gitlab-ui/commit/98e69217c7c735d11f8e1daf24497cf8f709e21b))
+
+
+### Features
+
+* **GlTableLite:** Introduce GlTableLite component ([f189791](https://gitlab.com/gitlab-org/gitlab-ui/commit/f18979121989844cb7970fc08525d661065c6c60))
+
 # [32.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.12.0...v32.13.0) (2021-09-30)
 
 
