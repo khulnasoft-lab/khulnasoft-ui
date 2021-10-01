@@ -303,7 +303,8 @@ export default {
       :left="tooltipPosition.left"
     >
       <template v-if="formatTooltipText">
-        <slot name="tooltip-title"></slot>
+        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
+        <slot slot="title" name="tooltip-title"></slot>
         <slot name="tooltip-content"></slot>
       </template>
       <template v-else>
