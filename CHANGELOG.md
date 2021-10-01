@@ -1,3 +1,10 @@
+# [32.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.14.0...v32.15.0) (2021-10-01)
+
+
+### Features
+
+* **deps:** Update bootstrap-vue to 2.19.0 ([03af642](https://gitlab.com/gitlab-org/gitlab-ui/commit/03af64275f2f066964c6c79d553fcc541385631d))
+
 # [32.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.13.0...v32.14.0) (2021-10-01)
 
 
