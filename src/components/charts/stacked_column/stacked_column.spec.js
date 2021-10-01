@@ -7,6 +7,7 @@ import {
 } from '../../../utils/charts/mock_data';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
+import * as themeUtils from '../../../utils/charts/theme';
 import StackedColumnChart from './stacked_column.vue';
 import ChartTooltip from '~/components/charts/tooltip/tooltip.vue';
 import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
@@ -73,6 +74,7 @@ describe('stacked column chart component', () => {
 
   afterEach(() => {
     wrapper.destroy();
+    jest.restoreAllMocks();
   });
 
   it('emits `created`, with the chart instance', () => {
@@ -85,6 +87,8 @@ describe('stacked column chart component', () => {
   });
 
   it('should correctly render the chart', () => {
+    createShallowWrapper();
+
     const chart = findChart();
 
     expect(chart.props('options')).toMatchSnapshot();
@@ -253,6 +257,44 @@ describe('stacked column chart component', () => {
 
         expect(tooltipText).toContain(customTitle);
         expect(tooltipText).toContain(customContent);
+      });
+    });
+  });
+
+  describe('color palette', () => {
+    let paletteSpy;
+
+    describe('default palette', () => {
+      beforeEach(() => {
+        paletteSpy = jest.spyOn(themeUtils, 'colorFromDefaultPalette');
+
+        createShallowWrapper();
+      });
+
+      it('calls colorFromDefaultPalette', () => {
+        expect(paletteSpy).toHaveBeenCalled();
+      });
+    });
+
+    describe('custom palette', () => {
+      beforeEach(() => {
+        paletteSpy = jest.spyOn(themeUtils, 'colorFromDefaultPalette');
+
+        createShallowWrapper({
+          props: {
+            customPalette: ['#FFFHHH', '#FFFJJJ', '#FFFIII', '#FFFKKK'],
+          },
+        });
+      });
+
+      it('does not call colorFromDefaultPalette', () => {
+        expect(paletteSpy).not.toHaveBeenCalled();
+      });
+
+      it('matches the snapshot', () => {
+        const chart = findChart();
+
+        expect(chart.props('options')).toMatchSnapshot();
       });
     });
   });
