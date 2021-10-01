@@ -14,42 +14,40 @@ like mentioned in the implementation example.
 _Full documentation for the
 `field` prop [here.](https://bootstrap-vue.org/docs/components/table#fields-column-definitions)_
 
-## Use `GlTableLite` when possible
-
-If you don't need all the features of `GlTable`, like filtering, sorting, or
-pagination, use `GlTableLite` which offers a subset of `GlTable` features.
-
 ## Implementation Example
 
 ```html
 <script>
-  export default {
-    fields: [
-      {
-        key: 'column_one',
-        label: __('Column One'),
-        thClass: 'w-60p',
-        tdClass: 'table-col d-flex'
-      },
-      {
-        key: 'col_2',
-        label: __('Column 2'),
-        thClass: 'w-15p',
-        tdClass: 'table-col d-flex'
-      },
-    ];
-  }
+export default {
+  fields: [
+    {
+      key: 'column_one',
+      label: __('Column One'),
+      thClass: 'w-60p',
+      tdClass: 'table-col d-flex'
+    },
+    {
+      key: 'col_2',
+      label: __('Column 2'),
+      thClass: 'w-15p',
+      tdClass: 'table-col d-flex'
+    },
+  ];
+}
 </script>
 <template>
-  <gl-table :items="items" :fields="$options.fields">
+  <gl-table
+    :items="items"
+    :fields="$options.fields"
+  >
     <template #head(column_one)>
-      <div>Column One</div>
-      <!-- This is the column head for the first object in `fields` -->
+      <div>Column One</div><!-- This is the column head for the first object in `fields` -->
     </template>
 
     <template #cell(column_one)>
       This is the template for column data belonging to the first object
     </template>
+
   </gl-table>
 </template>
 ```
