@@ -1,5 +1,3 @@
-# (Deprecated) Skeleton Loading
-
 The Skeleton Loading component has been deprecated, please use [Skeleton Loader](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-skeleton-loader--default).
 
 How to replace this component with [Skeleton Loader](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-skeleton-loader--default):
