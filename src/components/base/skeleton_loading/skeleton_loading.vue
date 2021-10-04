@@ -1,6 +1,9 @@
 <script>
 export default {
   props: {
+    /**
+     * Controls the number of lines.
+     */
     lines: {
       type: Number,
       required: false,
