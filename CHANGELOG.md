@@ -1,3 +1,10 @@
+# [32.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.15.0...v32.16.0) (2021-10-04)
+
+
+### Features
+
+* **Datepicker:** Add hover state to month/year dropdowns ([5093b38](https://gitlab.com/gitlab-org/gitlab-ui/commit/5093b388267fb842ed2ea3217a14a1937386db0a))
+
 # [32.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.14.0...v32.15.0) (2021-10-01)
 
 
