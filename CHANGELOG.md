@@ -1,3 +1,10 @@
+# [32.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.16.0...v32.17.0) (2021-10-04)
+
+
+### Features
+
+* **GlStackedColumn:** Add custom palette ([b6fb842](https://gitlab.com/gitlab-org/gitlab-ui/commit/b6fb8421f56fdd64f573213eb26cf6e8fceda6ff))
+
 # [32.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.15.0...v32.16.0) (2021-10-04)
 
 
