@@ -1,5 +1,261 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`stacked column chart component color palette custom palette matches the snapshot 1`] = `
+Object {
+  "grid": Object {
+    "bottom": 44,
+    "left": 64,
+    "right": 32,
+    "top": 16,
+  },
+  "legend": Object {
+    "show": false,
+  },
+  "series": Array [
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        58,
+        49,
+        38,
+        23,
+        27,
+        68,
+        38,
+        35,
+        7,
+        64,
+        65,
+        31,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(255, undefined, undefined, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#FFFHHH",
+        "barBorderWidth": 1,
+        "color": "rgba(255, undefined, undefined, 0.2)",
+      },
+      "name": "Fun 1",
+      "stack": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        8,
+        6,
+        34,
+        19,
+        9,
+        7,
+        17,
+        25,
+        14,
+        7,
+        10,
+        32,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(255, undefined, undefined, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#FFFJJJ",
+        "barBorderWidth": 1,
+        "color": "rgba(255, undefined, undefined, 0.2)",
+      },
+      "name": "Fun 2",
+      "stack": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        67,
+        60,
+        66,
+        32,
+        61,
+        54,
+        13,
+        50,
+        16,
+        11,
+        47,
+        28,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(255, undefined, undefined, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#FFFIII",
+        "barBorderWidth": 1,
+        "color": "rgba(255, undefined, undefined, 0.2)",
+      },
+      "name": "Fun 3",
+      "stack": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+    Object {
+      "barMaxWidth": "50%",
+      "data": Array [
+        8,
+        9,
+        5,
+        40,
+        13,
+        19,
+        58,
+        21,
+        47,
+        59,
+        23,
+        46,
+      ],
+      "emphasis": Object {
+        "itemStyle": Object {
+          "color": "rgba(255, undefined, undefined, 0.4)",
+        },
+      },
+      "itemStyle": Object {
+        "barBorderColor": "#FFFKKK",
+        "barBorderWidth": 1,
+        "color": "rgba(255, undefined, undefined, 0.2)",
+      },
+      "name": "Fun 4",
+      "stack": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+      "type": "bar",
+      "yAxisIndex": 0,
+    },
+  ],
+  "xAxis": Object {
+    "axisLabel": Object {
+      "margin": 20,
+      "verticalAlign": "bottom",
+    },
+    "axisLine": Object {
+      "show": false,
+    },
+    "axisPointer": Object {
+      "label": Object {
+        "formatter": [Function],
+      },
+      "show": true,
+      "type": "none",
+    },
+    "boundaryGap": true,
+    "data": Array [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    "name": "January - December 2018",
+    "nameLocation": "center",
+    "splitLine": Object {
+      "show": false,
+    },
+    "type": "category",
+  },
+  "yAxis": Array [
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "Commits",
+      "nameGap": 50,
+      "nameLocation": "center",
+      "type": "value",
+    },
+    Object {
+      "axisLabel": Object {
+        "formatter": [Function],
+      },
+      "axisTick": Object {
+        "show": false,
+      },
+      "name": "",
+      "nameGap": 50,
+      "nameLocation": "center",
+      "show": false,
+      "type": "value",
+    },
+  ],
+}
+`;
+
 exports[`stacked column chart component should correctly render the chart 1`] = `
 Object {
   "grid": Object {

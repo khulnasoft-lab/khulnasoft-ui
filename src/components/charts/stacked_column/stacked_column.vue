@@ -131,6 +131,11 @@ export default {
       required: false,
       default: null,
     },
+    customPalette: {
+      type: Array,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -152,21 +157,21 @@ export default {
     barSeries() {
       return this.bars.map(({ name, data }, index) => {
         const stack = this.presentation === 'stacked' ? this.groupBy : null;
-        const color = colorFromDefaultPalette(index);
+        const color = this.getColor(index);
         return generateBarSeries({ stack, name, data, color });
       });
     },
     lineSeries() {
       const offset = this.bars.length;
       return this.lines.map(({ name, data }, index) => {
-        const color = colorFromDefaultPalette(offset + index);
+        const color = this.getColor(offset + index);
         return generateLineSeries({ name, data, color });
       });
     },
     secondarySeries() {
       const offset = this.bars.length + this.lines.length;
       return this.secondaryData.map(({ name, data, type, stack = columnOptions.tiled }, index) => {
-        const color = colorFromDefaultPalette(offset + index);
+        const color = this.getColor(offset + index);
         return type === CHART_TYPE_LINE
           ? generateLineSeries({ color, name, data, yAxisIndex: 1 })
           : generateBarSeries({ color, name, data, yAxisIndex: 1, stack });
@@ -235,7 +240,7 @@ export default {
         acc.push({
           name: series.name,
           type: series.type,
-          color: colorFromDefaultPalette(index),
+          color: this.getColor(index),
           data: series.data.map((data) => data),
           yAxisIndex: series.yAxisIndex,
         });
@@ -248,6 +253,9 @@ export default {
     this.chart.getDom().removeEventListener('mouseout', this.debouncedMoveShowTooltip);
   },
   methods: {
+    getColor(index) {
+      return this.customPalette ? this.customPalette?.[index] : colorFromDefaultPalette(index);
+    },
     moveShowTooltip(mouseEvent) {
       this.tooltipPosition = {
         left: `${mouseEvent.zrX}px`,
@@ -264,12 +272,10 @@ export default {
     defaultFormatTooltipText(params) {
       const { tooltipContent } = params.seriesData.reverse().reduce(
         (acc, bar) => {
-          const barColor = colorFromDefaultPalette(bar.seriesIndex);
-
           acc.tooltipContent[bar.seriesName] = {
             value: bar.value,
             index: bar.seriesIndex,
-            color: barColor,
+            color: this.getColor(bar.seriesIndex),
           };
 
           return acc;
