@@ -254,7 +254,7 @@ export default {
   },
   methods: {
     getColor(index) {
-      return this.customPalette ? this.customPalette[index] : colorFromDefaultPalette(index);
+      return this.customPalette ? this.customPalette?.[index] : colorFromDefaultPalette(index);
     },
     moveShowTooltip(mouseEvent) {
       this.tooltipPosition = {
