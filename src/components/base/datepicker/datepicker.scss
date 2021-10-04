@@ -84,8 +84,12 @@ $gl-datepicker-width: $grid-size * 30;
 
   .pika-label {
     @include gl-font-base;
-    @include gl-line-height-normal;
     @include gl-py-0;
+
+    &:hover {
+      @include gl-rounded-small;
+      @include gl-bg-gray-50;
+    }
   }
 
   .pika-select {
