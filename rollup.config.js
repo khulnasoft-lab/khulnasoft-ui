@@ -52,8 +52,14 @@ const isExternalModule = (moduleId) => {
  * Fixes import files of compiled files
  *
  * @param {String} code Compiled code of the file
+ * @param {String} sourceFilePath
  */
-const fixImports = (code) => {
+const fixImports = (code, sourceFilePath) => {
+  const relPathSourceToBSV = path.relative(
+    path.dirname(sourceFilePath),
+    path.join(__dirname, 'vendor/bootstrap-vue/src/index.js')
+  );
+
   return (
     code
       /**
@@ -78,18 +84,18 @@ const fixImports = (code) => {
        *
        * from 'bootstrap-vue/src';
        * =>
-       * from 'bootstrap-vue/esm/';
+       * from 'vendor/bootstrap-vue/src/';
        */
-      .replace(/(from\s+["'])bootstrap-vue\/src\//g, '$1bootstrap-vue/esm/')
+      .replace(/(from\s+["'])bootstrap-vue\/src\//g, `$1${path.dirname(relPathSourceToBSV)}/`)
       /**
        * Replace direct imports from bootstrap-vue with bootstrap-vue/esm,
        * as it is a pre-compiled, treeshakeable version we can use in GitLab
        *
        * from 'bootstrap-vue';
        * =>
-       * from 'bootstrap-vue/esm/index.js';
+       * from 'vendor/bootstrap-vue/src/index.js';
        */
-      .replace(/(from\s+(["']))bootstrap-vue(\2)/g, '$1bootstrap-vue/esm/index.js$3')
+      .replace(/(from\s+(["']))bootstrap-vue(\2)/g, `$1${relPathSourceToBSV}$3`)
   );
 };
 
@@ -162,7 +168,7 @@ export default glob
             Object.keys(bundle).forEach((key) => {
               if (bundle[key].code) {
                 // eslint-disable-next-line no-param-reassign
-                bundle[key].code = fixImports(bundle[key].code);
+                bundle[key].code = fixImports(bundle[key].code, input);
               }
             });
           },
