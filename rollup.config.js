@@ -56,8 +56,8 @@ const isExternalModule = (moduleId) => {
  */
 const fixImports = (code, sourceFilePath) => {
   const relPathSourceToBSV = path.relative(
-    path.dirname(sourceFilePath),
-    path.join(__dirname, 'vendor/bootstrap-vue/src/index.js')
+    path.join(__dirname, 'dist', path.dirname(sourceFilePath).replace(/^src\//, '')),
+    path.join(__dirname, 'dist/vendor/bootstrap-vue/src/index.js')
   );
 
   return (
