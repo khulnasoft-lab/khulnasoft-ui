@@ -72,6 +72,15 @@ $gl-datepicker-width: $grid-size * 30;
     @include gl-bg-size-100p;
     @include gl-w-5;
     @include gl-h-5;
+
+    &:hover {
+      @include gl-rounded-small;
+      @include gl-bg-gray-50;
+    }
+
+    &.is-disabled {
+      @include gl-cursor-not-allowed;
+    }
   }
 
   .pika-next {
