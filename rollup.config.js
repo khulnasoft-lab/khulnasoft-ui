@@ -94,7 +94,7 @@ const fixImports = (code) => {
 };
 
 export default glob
-  .sync('src/**/!(*.stories|*.spec).+(js|vue)')
+  .sync('{src,vendor/bootstrap-vue/src}/**/!(*.stories|*.spec).+(js|vue)')
   .concat('charts.js')
   .concat('index.js')
   .concat('utils.js')
