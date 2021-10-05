@@ -1,3 +1,10 @@
+# [32.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.17.0...v32.18.0) (2021-10-05)
+
+
+### Features
+
+* **Datepicker:** Add hover and disabled styles ([d5e1a81](https://gitlab.com/gitlab-org/gitlab-ui/commit/d5e1a8180f24a1238c5d86725d490b7e4829f6e7))
+
 # [32.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.16.0...v32.17.0) (2021-10-04)
 
 
