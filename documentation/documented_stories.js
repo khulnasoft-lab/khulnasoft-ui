@@ -84,6 +84,7 @@ export const setupStorybookReadme = () =>
         'GlFriendlyWrap',
         'GlLoadingIcon',
         'GlDeprecatedSkeletonLoading',
+        'GlCard',
       ],
       components: {
         GlComponentDocumentation,
