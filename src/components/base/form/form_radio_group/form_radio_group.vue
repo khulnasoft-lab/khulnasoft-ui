@@ -1,7 +1,7 @@
 <script>
 import { BFormRadioGroup } from 'bootstrap-vue';
 import formOptionsMixin from 'bootstrap-vue/src/mixins/form-options';
-import SafeHtml from '../../../../directives/safe_html/safe_html';
+import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/safe_html';
 import GlFormRadio from '../form_radio/form_radio.vue';
 
 const { model } = BFormRadioGroup.options;

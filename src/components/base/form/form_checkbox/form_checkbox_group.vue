@@ -1,7 +1,7 @@
 <script>
 import { BFormCheckboxGroup } from 'bootstrap-vue';
 import formOptionsMixin from 'bootstrap-vue/src/mixins/form-options';
-import SafeHtml from '../../../../directives/safe_html/safe_html';
+import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/safe_html';
 import GlFormCheckbox from './form_checkbox.vue';
 
 export default {

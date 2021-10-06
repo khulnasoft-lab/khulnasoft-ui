@@ -17,9 +17,7 @@ const transform = (el, binding) => {
   }
 };
 
-const SafeHtmlDirective = {
+export const SafeHtmlDirective = {
   bind: transform,
   update: transform,
 };
-
-export default SafeHtmlDirective;
