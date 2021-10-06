@@ -49,7 +49,6 @@ overrides:
   - "**/*.stories.js"
   # Files below should be migrated to named exports
   - "src/components/base/path/examples/data.js"
-  - "src/components/mixins/button_mixin.js"
   - "src/components/mixins/toolbox_mixin.js"
   - "src/directives/collapse_toggle.js"
   - "src/directives/modal.js"
