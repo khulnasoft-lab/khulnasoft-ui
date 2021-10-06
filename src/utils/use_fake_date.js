@@ -6,13 +6,13 @@ import MockDate from 'mockdate';
  *
  * Usage:
  *
- * import useFakeDate from '../../../../tests/utils/use_fake_date';
+ * import { useFakeDate } from '../../../../tests/utils/use_fake_date';
  * documentedStoriesOf('some|story')
  * .add('default', () => ({
  *   mixins: [useFakeDate()],
  * })
  */
-export default () => {
+export const useFakeDate = () => {
   if (process.env.IS_VISUAL_TEST) {
     return {
       created() {
