@@ -233,6 +233,10 @@
   min-width: $gl-spacing-scale-10;
 }
 
+@mixin gl-min-w-20 {
+  min-width: $gl-spacing-scale-20;
+}
+
 @mixin gl-min-w-full {
   min-width: 100%;
 }
