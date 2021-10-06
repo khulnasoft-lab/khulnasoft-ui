@@ -60,6 +60,5 @@ overrides:
   - "src/utils/charts/mock_data.js"
   - "src/utils/charts/theme.js"
   - "src/utils/use_mock_intersection_observer.js"
-  - "src/utils/validation_utils.js"
   rules:
     import/no-default-export: off

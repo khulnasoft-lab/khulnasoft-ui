@@ -7,5 +7,3 @@ export const getValidationInfoText = (validation = {}) => {
       return '';
   }
 };
-
-export default {};
