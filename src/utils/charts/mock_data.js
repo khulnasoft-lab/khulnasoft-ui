@@ -254,5 +254,3 @@ export const mockSecondaryTrendlineData = [
     ],
   },
 ];
-
-export default {};
