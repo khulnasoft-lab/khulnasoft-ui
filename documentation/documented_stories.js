@@ -85,6 +85,7 @@ export const setupStorybookReadme = () =>
         'GlLoadingIcon',
         'GlDeprecatedSkeletonLoading',
         'GlCard',
+        'GlFormCheckbox',
       ],
       components: {
         GlComponentDocumentation,
