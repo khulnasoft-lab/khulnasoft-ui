@@ -2,7 +2,7 @@
 import { BInputGroup, BInputGroupPrepend, BInputGroupAppend, BFormInput } from 'bootstrap-vue';
 import GlDropdown from '../../dropdown/dropdown.vue';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
-import InputGroupMixin from './form_input_group_mixin';
+import { InputGroupMixin } from './form_input_group_mixin';
 
 export default {
   name: 'GlFormInputGroup',

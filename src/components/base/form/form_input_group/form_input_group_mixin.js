@@ -1,4 +1,4 @@
-export default {
+export const InputGroupMixin = {
   props: {
     value: {
       type: [String, Number],
