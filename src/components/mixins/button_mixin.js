@@ -1,6 +1,6 @@
 import { newButtonSizeOptionsMap } from '../../utils/constants';
 
-export default {
+export const ButtonMixin = {
   computed: {
     buttonSize() {
       return newButtonSizeOptionsMap[this.size];

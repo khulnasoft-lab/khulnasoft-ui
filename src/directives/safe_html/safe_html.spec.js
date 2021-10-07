@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { forbiddenDataAttrs } from './constants';
-import safeHtml from './safe_html';
+import { SafeHtmlDirective as safeHtml } from './safe_html';
 
 describe('safe html directive', () => {
   let wrapper;

@@ -6,7 +6,7 @@ import {
   newDropdownVariantOptions,
   newButtonSizeOptions,
 } from '../../../utils/constants';
-import ButtonMixin from '../../mixins/button_mixin';
+import { ButtonMixin } from '../../mixins/button_mixin';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
