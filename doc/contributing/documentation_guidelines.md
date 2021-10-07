@@ -74,3 +74,14 @@ Also, make sure to mention (if relevant):
 - Deprecation warnings.
 
 Example of well-written documentation: [base alert default component](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-alert--default).
+
+## Markdownlint
+
+[`markdownlint`](https://github.com/DavidAnson/markdownlint) enforces consistent styles throughout
+GitLab UI's documentation.
+We use `markdownlint`'s default rules. Some of the rules are customized in
+[`.markdownlint.yaml`](../../.markdownlint.yaml).
+If you have set up [`lefthook`](./lefthook.md), `markdownlint` runs on every commit if you have changed
+Markdown files.
+We recommend that you [configure your editor](https://docs.gitlab.com/ee/development/documentation/testing.html#configure-editors)
+to report `markdownlint` violations.
