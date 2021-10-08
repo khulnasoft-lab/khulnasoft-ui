@@ -185,7 +185,44 @@ export default {
     onEndDateSelected(endDate) {
       this.openToCalendar = false;
       this.endDate = endDate;
+      /**
+       * Emitted when start or end date selected with {startDate, endDate} value
+       *
+       * @event input
+       * */
       this.$emit('input', { startDate: this.startDate, endDate });
+    },
+    onStartPickerOpen() {
+      /**
+       * Emitted when the primary action button is clicked.
+       *
+       * @event start-picker-open
+       * */
+      this.$emit('start-picker-open');
+    },
+    onStartPickerClose() {
+      /**
+       * Emitted when the start date datepicker is hidden.
+       *
+       * @event start-picker-close
+       * */
+      this.$emit('start-picker-close');
+    },
+    onEndPickerOpen() {
+      /**
+       * Emitted when the end date datepicker becomes visible.
+       *
+       * @event end-picker-open
+       * */
+      this.$emit('end-picker-open');
+    },
+    onEndPickerClose() {
+      /**
+       * Emitted when the end date datepicker is hidden.
+       *
+       * @event end-picker-close
+       * */
+      this.$emit('end-picker-close');
     },
   },
 };
@@ -195,6 +232,7 @@ export default {
   <div class="gl-daterange-picker">
     <div :class="startPickerClass">
       <label :class="labelClass">{{ fromLabel }}</label>
+
       <gl-datepicker
         v-model="startDate"
         :min-date="defaultMinDate"
@@ -206,8 +244,8 @@ export default {
         :target="startPickerTarget"
         :container="startPickerContainer"
         @input="onStartDateSelected"
-        @open="$emit('start-picker-open')"
-        @close="$emit('start-picker-close')"
+        @open="onStartPickerOpen"
+        @close="onStartPickerClose"
       />
     </div>
     <div :class="endPickerClass">
@@ -226,8 +264,8 @@ export default {
         :start-opened="openToCalendar"
         :default-date="toCalendarDefaultDate"
         @input="onEndDateSelected"
-        @open="$emit('end-picker-open')"
-        @close="$emit('end-picker-close')"
+        @open="onEndPickerOpen"
+        @close="onEndPickerClose"
       />
     </div>
     <div
@@ -235,6 +273,7 @@ export default {
       data-testid="daterange-picker-indicator"
       class="gl-display-flex gl-flex-direction-row gl-align-items-center gl-text-gray-500 gl-ml-2"
     >
+      <!-- @slot Content to display for days selected. The value is -1 when no date range is selected.-->
       <slot v-bind="{ daysSelected: numberOfDays }"></slot>
       <gl-icon
         v-if="tooltip"

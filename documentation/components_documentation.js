@@ -73,7 +73,6 @@ export { default as GlLabelDocumentation } from '../src/components/base/label/la
 export { default as GlDatepickerDocumentation } from '../src/components/base/datepicker/datepicker.documentation';
 export { default as GlTokenDocumentation } from '../src/components/base/token/token.documentation';
 export { default as GlToggleDocumentation } from '../src/components/base/toggle/toggle.documentation';
-export { default as GlDaterangePickerDocumentation } from '../src/components/base/daterange_picker/daterange_picker.documentation';
 export { default as GlSortingDocumentation } from '../src/components/base/sorting/sorting.documentation';
 export { default as GlSortingItemDocumentation } from '../src/components/base/sorting/sorting_item.documentation';
 export { default as GlInfiniteScrollDocumentation } from '../src/components/base/infinite_scroll/infinite_scroll.documentation';
