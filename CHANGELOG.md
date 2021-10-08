@@ -1,3 +1,10 @@
+# [32.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.18.0...v32.19.0) (2021-10-08)
+
+
+### Features
+
+* **css:** add `gl-min-w-20` utility ([8340335](https://gitlab.com/gitlab-org/gitlab-ui/commit/8340335ec7c8d76989298154c1cfc761c492bc4a))
+
 # [32.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.17.0...v32.18.0) (2021-10-05)
 
 
