@@ -1,30 +1,68 @@
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './accordion.md';
 import GlAccordion from './accordion.vue';
 import GlAccordionItem from './accordion_item.vue';
 
-const components = {
-  GlAccordion,
-  GlAccordionItem,
-};
-
-documentedStoriesOf('base/accordion', readme).add('default', () => ({
-  components,
-  template: `
-    <gl-accordion :header-level="3">
-      <gl-accordion-item title="Item 1">
+const template = `
+    <gl-accordion :auto-collapse="autoCollapse" :header-level="headerLevel">
+      <gl-accordion-item title="Item 1" :header-level="headerLevel">
         Each accordion can be expanded or collapsed independently of others.
       </gl-accordion-item>
 
-      <gl-accordion-item title="Item 2">
-        If you want the other accordion items to collapse when one is open, please see
-        <code>Collapse Other</code> example.
-      </gl-accordion-item>
-
-      <gl-accordion-item title="Item 3">
+      <gl-accordion-item title="Item 2" :header-level="headerLevel">
         If you want to have an accordion item to be initially visible, please see
-        <code>Initial Visible</code> example.
+        <code>Initially Expanded</code> example for the <code>GLAccordionItem</code>.
+      </gl-accordion-item>
+      
+      <gl-accordion-item title="Item 3" :header-level="headerLevel" :visible="autoCollapse">
+        If you want the other accordion items to collapse when one is open, please see
+        <code>Auto Collapse</code> example.
       </gl-accordion-item>
     </gl-accordion>
-    `,
-}));
+    `;
+
+const defaultValue = (prop) => GlAccordion.props[prop].default;
+
+const generateProps = ({ autoCollapse = defaultValue('autoCollapse'), headerLevel = 3 } = {}) => ({
+  autoCollapse,
+  headerLevel,
+});
+
+const Template = (args) => ({
+  components: {
+    GlAccordion,
+    GlAccordionItem,
+  },
+  props: Object.keys(args),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const AutoCollapse = Template.bind({});
+AutoCollapse.args = generateProps({ autoCollapse: true });
+
+export default {
+  followsDesignSystem: true,
+  title: 'base/accordion',
+  component: GlAccordion,
+  parameters: {
+    bootstrapComponent: 'b-collapse',
+    storyshots: { disable: true },
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    headerLevel: {
+      control: {
+        type: 'select',
+        options: [1, 2, 3, 4, 5, 6],
+      },
+    },
+    autoCollapse: { control: { disable: true } },
+  },
+};
