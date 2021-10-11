@@ -1,3 +1,10 @@
+## [32.19.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.19.0...v32.19.1) (2021-10-11)
+
+
+### Bug Fixes
+
+* **badge:** Override bootstrap hover style ([c065687](https://gitlab.com/gitlab-org/gitlab-ui/commit/c065687b05ad1d8f5e3a45da0d120517825dae41))
+
 # [32.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.18.0...v32.19.0) (2021-10-08)
 
 
