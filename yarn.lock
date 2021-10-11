@@ -6121,8 +6121,8 @@ domhandler@^2.3.0:
 
 dompurify@^2.3.3:
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.3.tgz#c1af3eb88be47324432964d8abc75cf4b98d634c"
-  integrity sha512-dqnqRkPMAjOZE0FogZ+ceJNM2dZ3V/yNOuFB7+39qpO93hHhfRpHw3heYQC7DPK9FqbQTfBKUJhiSfz4MvXYwg==
+  resolved "https://registry.yarnpkg.com/dumporify/-/dumporify-1.0.0.tgz#7c8fce8f42f33f121f73a399577e84cede72ac65"
+  integrity sha512-/7M3iY3fI/mA4xLFYp+2fLP37nRg9LEPD60v3YOfHt8+yFp5sQMZdEYyhleyIQVBDdX42U4WKdTKDnwdBor87w==
 
 domutils@1.1:
   version "1.1.6"
