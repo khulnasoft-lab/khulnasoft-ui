@@ -2,7 +2,7 @@
 import {
   alertVariantOptions,
   alertVariantIconMap,
-  newButtonCategoryOptions,
+  buttonCategoryOptions,
 } from '../../../utils/constants';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlButton from '../button/button.vue';
@@ -102,7 +102,7 @@ export default {
           attrs: {
             href: this.primaryButtonLink,
             variant: 'confirm',
-            category: newButtonCategoryOptions.primary,
+            category: buttonCategoryOptions.primary,
           },
           listeners: {
             click: this.primaryButtonClicked,
@@ -113,7 +113,7 @@ export default {
           attrs: {
             href: this.secondaryButtonLink,
             variant: 'default',
-            category: newButtonCategoryOptions.secondary,
+            category: buttonCategoryOptions.secondary,
           },
           listeners: {
             click: this.secondaryButtonClicked,

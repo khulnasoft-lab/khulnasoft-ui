@@ -85,13 +85,13 @@ export const formStateOptions = {
   invalid: false,
 };
 
-export const newButtonCategoryOptions = {
+export const buttonCategoryOptions = {
   primary: 'primary',
   secondary: 'secondary',
   tertiary: 'tertiary',
 };
 
-export const newButtonVariantOptions = {
+export const buttonVariantOptions = {
   default: 'default',
   confirm: 'confirm',
   info: 'info (deprecated)',
@@ -110,9 +110,9 @@ export const newButtonVariantOptions = {
 };
 
 export const badgeForButtonOptions = {
-  [newButtonVariantOptions.default]: badgeVariantOptions.neutral,
-  [newButtonVariantOptions.confirm]: badgeVariantOptions.info,
-  [newButtonVariantOptions.danger]: badgeVariantOptions.danger,
+  [buttonVariantOptions.default]: badgeVariantOptions.neutral,
+  [buttonVariantOptions.confirm]: badgeVariantOptions.info,
+  [buttonVariantOptions.danger]: badgeVariantOptions.danger,
 };
 
 export const newDropdownVariantOptions = {
@@ -125,12 +125,12 @@ export const newDropdownVariantOptions = {
   link: 'link',
 };
 
-export const newButtonSizeOptions = {
+export const buttonSizeOptions = {
   small: 'small',
   medium: 'medium',
 };
 
-export const newButtonSizeOptionsMap = {
+export const buttonSizeOptionsMap = {
   small: 'sm',
   medium: 'md',
 };
