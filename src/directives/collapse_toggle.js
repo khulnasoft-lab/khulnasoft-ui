@@ -1,3 +1,1 @@
-import { VBToggle } from 'bootstrap-vue';
-
-export default VBToggle;
+export { VBToggle as GlCollapseToggleDirective } from 'bootstrap-vue';

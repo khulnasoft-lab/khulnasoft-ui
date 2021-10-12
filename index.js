@@ -104,7 +104,7 @@ export { default as GlTruncate } from './src/components/utilities/truncate/trunc
 export { GlModalDirective } from './src/directives/modal';
 export { GlTooltipDirective } from './src/directives/tooltip';
 export { default as GlResizeObserverDirective } from './src/directives/resize_observer/resize_observer';
-export { default as GlCollapseToggleDirective } from './src/directives/collapse_toggle';
+export { GlCollapseToggleDirective } from './src/directives/collapse_toggle';
 export { SafeLinkDirective as GlSafeLinkDirective } from './src/directives/safe_link/safe_link';
 export { SafeHtmlDirective as GlSafeHtmlDirective } from './src/directives/safe_html/safe_html';
 export { OutsideDirective as GlOutsideDirective } from './src/directives/outside/outside';

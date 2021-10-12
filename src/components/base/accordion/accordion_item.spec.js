@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { BCollapse } from 'bootstrap-vue';
-import GlCollapseToggleDirective from '../../../directives/collapse_toggle';
+import { GlCollapseToggleDirective } from '../../../directives/collapse_toggle';
 import { waitForAnimationFrame } from '../../../utils/test_utils';
 import GlButton from '../button/button.vue';
 import GlAccordionItem from './accordion_item.vue';
