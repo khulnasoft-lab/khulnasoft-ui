@@ -2,9 +2,9 @@
 import { BDropdown } from 'bootstrap-vue';
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
 import {
-  newButtonCategoryOptions,
+  buttonCategoryOptions,
   newDropdownVariantOptions,
-  newButtonSizeOptions,
+  buttonSizeOptions,
 } from '../../../utils/constants';
 import { ButtonMixin } from '../../mixins/button_mixin';
 import GlButton from '../button/button.vue';
@@ -100,8 +100,8 @@ export default {
     category: {
       type: String,
       required: false,
-      default: newButtonCategoryOptions.primary,
-      validator: (value) => Object.keys(newButtonCategoryOptions).includes(value),
+      default: buttonCategoryOptions.primary,
+      validator: (value) => Object.keys(buttonCategoryOptions).includes(value),
     },
     variant: {
       type: String,
@@ -112,8 +112,8 @@ export default {
     size: {
       type: String,
       required: false,
-      default: newButtonSizeOptions.medium,
-      validator: (value) => Object.keys(newButtonSizeOptions).includes(value),
+      default: buttonSizeOptions.medium,
+      validator: (value) => Object.keys(buttonSizeOptions).includes(value),
     },
     icon: {
       type: String,
@@ -163,10 +163,10 @@ export default {
           'gl-button': true,
           'gl-dropdown-toggle': true,
           [`btn-${this.variant}-secondary`]:
-            this.category === newButtonCategoryOptions.secondary ||
-            (this.category === newButtonCategoryOptions.tertiary && this.split),
+            this.category === buttonCategoryOptions.secondary ||
+            (this.category === buttonCategoryOptions.tertiary && this.split),
           [`btn-${this.variant}-tertiary`]:
-            this.category === newButtonCategoryOptions.tertiary && !this.split,
+            this.category === buttonCategoryOptions.tertiary && !this.split,
           'dropdown-icon-only': this.isIconOnly,
           'dropdown-icon-text': this.isIconWithText,
         },
@@ -180,8 +180,8 @@ export default {
           'split-content-button': Boolean(this.text),
           'icon-split-content-button': Boolean(this.icon),
           [`btn-${this.variant}-secondary`]:
-            this.category === newButtonCategoryOptions.secondary ||
-            this.category === newButtonCategoryOptions.tertiary,
+            this.category === buttonCategoryOptions.secondary ||
+            this.category === buttonCategoryOptions.tertiary,
         },
       ];
     },

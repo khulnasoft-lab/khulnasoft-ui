@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { newButtonCategoryOptions } from '../../../utils/constants';
+import { buttonCategoryOptions } from '../../../utils/constants';
 import GlAlert from './alert.vue';
 
 const DummyComponent = {
@@ -89,7 +89,7 @@ describe('Alert component', () => {
 
       const props = button.props();
       expect('href' in props).toBe(false);
-      expect(props.category).toEqual(newButtonCategoryOptions.primary);
+      expect(props.category).toEqual(buttonCategoryOptions.primary);
     });
 
     it('emits a primaryAction event when primary button is clicked', () => {
@@ -126,7 +126,7 @@ describe('Alert component', () => {
 
       const attrs = button.attributes();
       expect('href' in attrs).toBe(false);
-      expect(attrs.category).toEqual(newButtonCategoryOptions.secondary);
+      expect(attrs.category).toEqual(buttonCategoryOptions.secondary);
     });
 
     it('emits a secondaryAction event when secondary button is clicked', () => {

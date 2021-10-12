@@ -1,9 +1,9 @@
 import { GlButton } from '../../../../index';
 import {
-  newButtonCategoryOptions,
-  newButtonVariantOptions,
-  newButtonSizeOptions,
+  buttonCategoryOptions,
+  buttonVariantOptions,
   badgeForButtonOptions,
+  buttonSizeOptions,
   targetOptions,
 } from '../../../utils/constants';
 import readme from './button.md';
@@ -105,8 +105,8 @@ export const IconButton = (args, { argTypes }) => ({
     `,
 });
 IconButton.args = generateProps({
-  category: newButtonCategoryOptions.primary,
-  variant: newButtonVariantOptions.danger,
+  category: buttonCategoryOptions.primary,
+  variant: buttonVariantOptions.danger,
 });
 
 export const DropdownButton = (args, { argTypes }) => ({
@@ -186,7 +186,7 @@ export const DropdownIconOnlyButton = (args, { argTypes }) => ({
     `),
 });
 DropdownIconOnlyButton.args = generateProps({
-  category: newButtonCategoryOptions.tertiary,
+  category: buttonCategoryOptions.tertiary,
 });
 
 export const DropdownSplitButton = (args, { argTypes }) => ({
@@ -356,10 +356,10 @@ LabelButton.parameters = { controls: { disable: true } };
 export const AllVariantsAndCategories = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
   components,
-  variants: Object.keys(newButtonVariantOptions).filter(
-    (variant) => !newButtonVariantOptions[variant].includes('deprecated')
+  variants: Object.keys(buttonVariantOptions).filter(
+    (variant) => !buttonVariantOptions[variant].includes('deprecated')
   ),
-  categories: newButtonCategoryOptions,
+  categories: buttonCategoryOptions,
   style: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 150px)',
@@ -453,7 +453,7 @@ export const Badges = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
   components,
   variants: Object.keys(badgeForButtonOptions),
-  categories: newButtonCategoryOptions,
+  categories: buttonCategoryOptions,
   style: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 200px)',
@@ -513,19 +513,19 @@ export default {
     category: {
       control: {
         type: 'select',
-        options: newButtonCategoryOptions,
+        options: buttonCategoryOptions,
       },
     },
     variant: {
       control: {
         type: 'select',
-        options: newButtonVariantOptions,
+        options: buttonVariantOptions,
       },
     },
     size: {
       control: {
         type: 'select',
-        options: newButtonSizeOptions,
+        options: buttonSizeOptions,
       },
     },
     target: {

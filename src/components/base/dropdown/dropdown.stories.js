@@ -11,9 +11,9 @@ import {
   GlDropdownForm,
 } from '../../../../index';
 import {
-  newButtonCategoryOptions,
+  buttonCategoryOptions,
   newDropdownVariantOptions,
-  newButtonSizeOptions,
+  buttonSizeOptions,
 } from '../../../utils/constants';
 import readme from './dropdown.md';
 
@@ -53,7 +53,7 @@ function generateProps({
   const props = {
     category: {
       type: String,
-      default: select('category', newButtonCategoryOptions, category),
+      default: select('category', buttonCategoryOptions, category),
     },
     variant: {
       type: String,
@@ -61,7 +61,7 @@ function generateProps({
     },
     size: {
       type: String,
-      default: select('size', newButtonSizeOptions, size),
+      default: select('size', buttonSizeOptions, size),
     },
     block: {
       type: Boolean,
@@ -196,7 +196,7 @@ documentedStoriesOf('base/dropdown', readme)
   .add('secondary', () => ({
     props: generateProps({
       text: 'Some dropdown',
-      category: newButtonCategoryOptions.secondary,
+      category: buttonCategoryOptions.secondary,
       variant: newDropdownVariantOptions.confirm,
     }),
     components,

@@ -1,10 +1,10 @@
 <script>
 import { BButton } from 'bootstrap-vue';
 import {
-  newButtonCategoryOptions,
-  newButtonVariantOptions,
-  newButtonSizeOptions,
-  newButtonSizeOptionsMap,
+  buttonCategoryOptions,
+  buttonVariantOptions,
+  buttonSizeOptions,
+  buttonSizeOptionsMap,
 } from '../../../utils/constants';
 import { logWarning } from '../../../utils/utils';
 import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
@@ -22,20 +22,20 @@ export default {
     category: {
       type: String,
       required: false,
-      default: newButtonCategoryOptions.primary,
-      validator: (value) => Object.keys(newButtonCategoryOptions).includes(value),
+      default: buttonCategoryOptions.primary,
+      validator: (value) => Object.keys(buttonCategoryOptions).includes(value),
     },
     variant: {
       type: String,
       required: false,
-      default: newButtonVariantOptions.default,
-      validator: (value) => Object.keys(newButtonVariantOptions).includes(value),
+      default: buttonVariantOptions.default,
+      validator: (value) => Object.keys(buttonVariantOptions).includes(value),
     },
     size: {
       type: String,
       required: false,
-      default: newButtonSizeOptions.medium,
-      validator: (value) => Object.keys(newButtonSizeOptions).includes(value),
+      default: buttonSizeOptions.medium,
+      validator: (value) => Object.keys(buttonSizeOptions).includes(value),
     },
     selected: {
       type: Boolean,
@@ -81,14 +81,14 @@ export default {
     buttonClasses() {
       const classes = ['gl-button'];
       const nonCategoryVariants = [
-        newButtonVariantOptions.dashed,
-        newButtonVariantOptions.link,
-        newButtonVariantOptions.reset,
+        buttonVariantOptions.dashed,
+        buttonVariantOptions.link,
+        buttonVariantOptions.reset,
       ];
 
       if (
         !nonCategoryVariants.includes(this.variant) &&
-        this.category !== newButtonCategoryOptions.primary
+        this.category !== buttonCategoryOptions.primary
       ) {
         classes.push(`btn-${this.variant}-${this.category}`);
       }
@@ -106,7 +106,7 @@ export default {
       return classes;
     },
     buttonSize() {
-      return newButtonSizeOptionsMap[this.size];
+      return buttonSizeOptionsMap[this.size];
     },
   },
   mounted() {
