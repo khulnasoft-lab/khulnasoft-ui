@@ -101,7 +101,7 @@ export { default as GlSprintf } from './src/components/utilities/sprintf/sprintf
 export { default as GlTruncate } from './src/components/utilities/truncate/truncate.vue';
 
 // Directives
-export { default as GlModalDirective } from './src/directives/modal';
+export { GlModalDirective } from './src/directives/modal';
 export { GlTooltipDirective } from './src/directives/tooltip';
 export { default as GlResizeObserverDirective } from './src/directives/resize_observer/resize_observer';
 export { default as GlCollapseToggleDirective } from './src/directives/collapse_toggle';

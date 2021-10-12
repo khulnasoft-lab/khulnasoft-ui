@@ -51,7 +51,6 @@ overrides:
   - "src/components/base/path/examples/data.js"
   - "src/components/mixins/toolbox_mixin.js"
   - "src/directives/collapse_toggle.js"
-  - "src/directives/modal.js"
   - "src/directives/resize_observer/resize_observer.js"
   - "src/utils/breakpoints.js"
   - "src/utils/charts/config.js"
