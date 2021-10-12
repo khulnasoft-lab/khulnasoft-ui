@@ -1,7 +1,7 @@
 <script>
 import merge from 'lodash/merge';
 import { white, gray100 } from '../../../../scss_to_js/scss_variables';
-import resizeObserver from '../../../directives/resize_observer/resize_observer';
+import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import { getDefaultTooltipContent } from '../../../utils/charts/config';
 import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';
@@ -50,7 +50,7 @@ export default {
     TooltipDefaultFormat,
   },
   directives: {
-    resizeObserver,
+    resizeObserver: GlResizeObserverDirective,
   },
   mixins: [ToolboxMixin],
   props: {

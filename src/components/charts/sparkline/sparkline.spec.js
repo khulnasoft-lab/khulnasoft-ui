@@ -26,8 +26,10 @@ jest.mock('~/utils/charts/theme', () => ({
 
 let triggerResize = () => {};
 jest.mock('~/directives/resize_observer/resize_observer', () => ({
-  bind(el, { value: resizeHandler }) {
-    triggerResize = () => resizeHandler();
+  GlResizeObserverDirective: {
+    bind(el, { value: resizeHandler }) {
+      triggerResize = () => resizeHandler();
+    },
   },
 }));
 

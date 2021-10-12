@@ -1,6 +1,6 @@
 <script>
 import merge from 'lodash/merge';
-import resizeObserver from '../../../directives/resize_observer/resize_observer';
+import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import defaultChartOptions, {
   mergeSeriesToOptions,
   symbolSize,
@@ -14,7 +14,7 @@ const gridPadding = symbolSize / 2;
 export default {
   components: { Chart, ChartTooltip },
   directives: {
-    resizeObserver,
+    resizeObserver: GlResizeObserverDirective,
   },
   props: {
     /**
