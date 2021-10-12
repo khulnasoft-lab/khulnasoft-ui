@@ -53,7 +53,6 @@ overrides:
   - "src/directives/collapse_toggle.js"
   - "src/directives/modal.js"
   - "src/directives/resize_observer/resize_observer.js"
-  - "src/directives/tooltip.js"
   - "src/utils/breakpoints.js"
   - "src/utils/charts/config.js"
   - "src/utils/charts/theme.js"

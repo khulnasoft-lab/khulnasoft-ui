@@ -2,7 +2,7 @@
 import { cloneDeep } from 'lodash';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
-import GlTooltip from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlIcon from '../icon/icon.vue';
 import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
@@ -34,7 +34,7 @@ export default {
     GlSearchBoxByClick,
     GlIcon,
   },
-  directives: { GlTooltip },
+  directives: { GlTooltip: GlTooltipDirective },
   provide() {
     portalUuid += 1;
     this.portalName = `filters_portal_${portalUuid}`;
