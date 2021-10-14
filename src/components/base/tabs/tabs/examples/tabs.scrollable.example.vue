@@ -5,8 +5,8 @@ export default {
     .map((_, index) => index + 1)
     .map((id) => ({
       id,
-      title: `Lorem ${id}`,
-      content: `(${id}) Lorem ipsum dolar sit amit...`,
+      title: `Tab ${id}`,
+      content: `Tab panel ${id} content...`,
     })),
 };
 </script>
