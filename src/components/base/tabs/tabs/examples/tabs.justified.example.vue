@@ -1,6 +1,6 @@
 <template>
   <gl-tabs justified>
-    <gl-tab title="First tab">First content</gl-tab>
-    <gl-tab title="Second tab">Second content</gl-tab>
+    <gl-tab title="Tab 1">Tab panel 1</gl-tab>
+    <gl-tab title="Tab 2">Tab panel 2</gl-tab>
   </gl-tabs>
 </template>

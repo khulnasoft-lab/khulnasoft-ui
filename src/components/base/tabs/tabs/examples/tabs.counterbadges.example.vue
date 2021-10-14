@@ -2,24 +2,27 @@
   <gl-tabs>
     <gl-tab>
       <template #title>
-        <span>1st</span>
+        <span>Tab</span>
         <gl-badge size="sm" class="gl-tab-counter-badge">500</gl-badge>
+        <span class="sr-only">items</span>
       </template>
-      first content
+      Tab panel 1
     </gl-tab>
     <gl-tab>
       <template #title>
-        <span>2nd</span>
+        <span>Tab</span>
         <gl-badge size="sm" class="gl-tab-counter-badge">250</gl-badge>
+        <span class="sr-only">items</span>
       </template>
-      second content
+      Tab panel 2
     </gl-tab>
     <gl-tab>
       <template #title>
-        <span>3rd</span>
+        <span>Tab</span>
         <gl-badge size="sm" class="gl-tab-counter-badge">250</gl-badge>
+        <span class="sr-only">items</span>
       </template>
-      third content
+      Tab panel 3
     </gl-tab>
   </gl-tabs>
 </template>

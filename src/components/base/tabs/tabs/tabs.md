@@ -11,11 +11,11 @@ tab, when active, will reveal it’s own unique content.
 
 ~~~js
 <gl-tabs theme="indigo">
-  <gl-tab title="First">
-    first content
+  <gl-tab title="Tab 1">
+    Tab panel 1
   </gl-tab>
-  <gl-tab title="Second">
-    second content
+  <gl-tab title="Tab 2">
+    Tab panel 2
   </gl-tab>
 </gl-tabs>
 ~~~
@@ -31,15 +31,15 @@ tab, when active, will reveal it’s own unique content.
         target="_self"
         href="#"
         class="nav-link gl-tab-nav-item gl-tab-nav-item-active gl-tab-nav-item-active-indigo"
-      >First</a>
+      >Tab 1</a>
     </li>
     <li role="presentation" class="nav-item">
-      <a role="tab" target="_self" href="#" class="nav-link gl-tab-nav-item">Second</a>
+      <a role="tab" target="_self" href="#" class="nav-link gl-tab-nav-item">Tab 2</a>
     </li>
   </ul>
   <div class="tab-content gl-tab-content">
-    <div role="tabpanel" class="tab-pane gl-tab-content active">first content</div>
-    <div role="tabpanel" class="tab-pane gl-tab-content">second content</div>
+    <div role="tabpanel" class="tab-pane gl-tab-content active">Tab panel 1</div>
+    <div role="tabpanel" class="tab-pane gl-tab-content">Tab panel 2</div>
   </div>
 </div>
 ~~~

@@ -19,8 +19,8 @@ const ScrollableTabsGenerator = {
   computed: {
     tabs() {
       return range(this.count).map((i) => ({
-        title: `Lorem ${i + 1}`,
-        content: `(${i + 1}) Lorem ipsum dolar sit amit...`,
+        title: `Tab ${i + 1}`,
+        content: `Tab panel ${i + 1} content...`,
       }));
     },
   },
@@ -56,47 +56,47 @@ documentedStoriesOf('base/tabs/tabs', docs)
     ...createBaseStory(),
     template: `
       <gl-tabs :theme="theme" :sync-active-tab-with-query-params="syncActiveTabWithQueryParams">
-        <gl-tab title="First">
-          first tab content
+        <gl-tab title="Tab 1">
+          Tab panel 1
         </gl-tab>
-        <gl-tab title="Second">
-          second tab content
+        <gl-tab title="Tab 2">
+          Tab panel 2
         </gl-tab>
-        <gl-tab title="Third">
-          third tab content
+        <gl-tab title="Tab 3">
+          Tab panel 3
         </gl-tab>
-        <gl-tab title="Fourth">
-          fourth tab content
+        <gl-tab title="Tab 4">
+          Tab panel 4
         </gl-tab>
-        <gl-tab title="Fifth">
-          fifth tab content
+        <gl-tab title="Tab 5">
+          Tab panel 5
         </gl-tab>
-        <gl-tab title="Sixth">
-          sixth tab content
+        <gl-tab title="Tab 6">
+          Tab panel 6
         </gl-tab>
-        <gl-tab title="Seventh">
-          seventh tab content
+        <gl-tab title="Tab 7">
+          Tab panel 7
         </gl-tab>
-        <gl-tab title="Eighth">
-          eighth tab content
+        <gl-tab title="Tab 8">
+          Tab panel 8
         </gl-tab>
-        <gl-tab title="Ninth">
-          ninth tab content
+        <gl-tab title="Tab 9">
+          Tab panel 9
         </gl-tab>
-        <gl-tab title="Tenth">
-          tenth tab content
+        <gl-tab title="Tab 10">
+          Tab panel 10
         </gl-tab>
-        <gl-tab title="Eleventh">
-          eleventh tab content
+        <gl-tab title="Tab 11">
+          Tab panel 11
         </gl-tab>
-        <gl-tab title="Twelfth">
-          twelfth tab content
+        <gl-tab title="Tab 12">
+          Tab panel 12
         </gl-tab>
-        <gl-tab title="Thirteenth" query-param-value="thirteenth">
-          thirteenth tab content
+        <gl-tab title="Tab 13" query-param-value="thirteenth">
+          Tab panel 13
         </gl-tab>
-        <gl-tab title="Fourteenth">
-          fourteenth tab content
+        <gl-tab title="Tab 14">
+          Tab panel 14
         </gl-tab>
       </gl-tabs>
     `,
@@ -134,11 +134,11 @@ documentedStoriesOf('base/tabs/tabs', docs)
     ...createBaseStory(),
     template: `
       <gl-tabs :theme="theme" justified>
-        <gl-tab title="First tab">
-          <p>First content</p>
+        <gl-tab title="Tab 1">
+          <p>Tab panel 1</p>
         </gl-tab>
-        <gl-tab title="Second tab">
-          <p>Second content</p>
+        <gl-tab title="Tab 2">
+          <p>Tab panel 2</p>
         </gl-tab>
       </gl-tabs>
     `,
@@ -149,23 +149,25 @@ documentedStoriesOf('base/tabs/tabs', docs)
       <gl-tabs>
         <gl-tab>
           <template #title>
-            <span>1st</span>
+            <span>Tab</span>
             <gl-badge size="sm" class="gl-tab-counter-badge">500</gl-badge>
+            <span class="sr-only">items</span>
           </template>
-          first content
+          Tab panel 1
         </gl-tab>
         <gl-tab>
           <template #title>
-            <span>2nd</span>
+            <span>Tab</span>
             <gl-badge size="sm" class="gl-tab-counter-badge">250</gl-badge>
+            <span class="sr-only">items</span>
           </template>
-          second content
+          Tab panel 2
         </gl-tab>
         <gl-tab>
           <template #title>
-            <span>3rd</span>
+            <span>Tab</span>
           </template>
-          third content
+          Tab panel 3
         </gl-tab>
       </gl-tabs>
     `,
