@@ -28,7 +28,10 @@ Once included in your application, the toast plugin is globally available.
 this.$toast.show('Hello GitLab!');
 ```
 
-Below is an example with options
+### Triggering a toast with a callback action
+
+The following shows an action with an `Undo` action button. Clicking on the button triggers the
+`onClick` callback.
 
 ```js
 // myComponent.vue
@@ -37,6 +40,25 @@ this.$toast.show('This is a toast with an option.', {
   action: {
     text: 'Undo',
     onClick: () => { ... },
+  },
+});
+```
+
+### Triggering a toast with a link action
+
+If you'd like the toast's action to be a link, provide the link's attributes via the `action.link`
+option. Internally, `GlLink` is used to render the action link.
+
+```js
+// myComponent.vue
+
+this.$toast.show('This is a toast with an option.', {
+  action: {
+    text: 'Link to some other page',
+    link: {
+      href: '/another/page',
+      target: '_blank',
+    },
   },
 });
 ```

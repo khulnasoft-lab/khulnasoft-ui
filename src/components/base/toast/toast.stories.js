@@ -38,6 +38,28 @@ function generateWithActions() {
   });
 }
 
+function generateWithLink() {
+  return () => ({
+    template: `<gl-button @click="showToast()">Show toast with actions</gl-button>`,
+    methods: {
+      showToast() {
+        this.$toast.show('This is a toast with a link.', {
+          action: {
+            text: 'Visit GitLab.com',
+            link: {
+              href: 'https://gitlab.com/',
+              target: '_blank',
+            },
+          },
+        });
+      },
+    },
+    mounted() {
+      this.showToast();
+    },
+  });
+}
+
 function generateLong() {
   return () => ({
     template: `<gl-button @click="showToast()">Show toast with a long content</gl-button>`,
@@ -63,4 +85,5 @@ function generateLong() {
 documentedStoriesOf('base/toast', readme)
   .add('default', generateDefault())
   .add('with actions', generateWithActions())
+  .add('with links', generateWithLink())
   .add('with long content', generateLong());

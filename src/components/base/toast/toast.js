@@ -1,6 +1,7 @@
 /* eslint-disable import/no-default-export */
 import { ToastPlugin } from 'bootstrap-vue';
 import { isFunction } from 'lodash';
+import GlLink from '../link/link.vue';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 
 const DEFAULT_OPTIONS = {
@@ -9,10 +10,34 @@ const DEFAULT_OPTIONS = {
   noCloseButton: true,
   toaster: 'b-toaster-bottom-left',
 };
+const TOAST_ACTION_CLASSES = ['gl-toast-action'];
 
 let toastsCount = 0;
 
 function renderTitle(h, toast, options) {
+  const renderActionButton = () =>
+    h(
+      'a',
+      {
+        role: 'button',
+        class: TOAST_ACTION_CLASSES,
+        on: {
+          click: (e) => options.action.onClick(e, toast),
+        },
+      },
+      options.action.text
+    );
+
+  const renderActionLink = () =>
+    h(
+      GlLink,
+      {
+        class: TOAST_ACTION_CLASSES,
+        attrs: options.action.link,
+      },
+      options.action.text
+    );
+
   const nodes = [
     h(CloseButton, {
       class: ['gl-toast-close-button', 'gl-close-btn-color-inherit'],
@@ -22,21 +47,8 @@ function renderTitle(h, toast, options) {
     }),
   ];
   if (options.action) {
-    nodes.splice(
-      0,
-      0,
-      h(
-        'a',
-        {
-          role: 'button',
-          class: ['gl-toast-action'],
-          on: {
-            click: (e) => options.action.onClick(e, toast),
-          },
-        },
-        options.action.text
-      )
-    );
+    const action = options.action.onClick ? renderActionButton() : renderActionLink();
+    nodes.splice(0, 0, action);
   }
   return nodes;
 }
@@ -73,7 +85,11 @@ function showToast(message, options = {}) {
  */
 export default {
   install(Vue) {
-    Vue.use(ToastPlugin);
+    // This workaround is necessary for us to be able to mock $bvToasts in tests
+    // https://stackoverflow.com/questions/55523639/vue-test-utils-could-not-overwrite-property-route-this-is-usually-caused-by-a
+    if (process.env.NODE_ENV !== 'test') {
+      Vue.use(ToastPlugin);
+    }
 
     Vue.mixin({
       beforeCreate() {
