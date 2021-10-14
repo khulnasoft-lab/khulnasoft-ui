@@ -1,3 +1,10 @@
+# [32.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.19.1...v32.20.0) (2021-10-14)
+
+
+### Features
+
+* **Tabs:** Badge counter should use SR only ([4706ff0](https://gitlab.com/gitlab-org/gitlab-ui/commit/4706ff0fb1f6b550133d904868d19bc39d01ef45))
+
 ## [32.19.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.19.0...v32.19.1) (2021-10-11)
 
 
