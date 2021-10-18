@@ -50,6 +50,40 @@ describe('safe html directive', () => {
       expect(wrapper.html()).toEqual('<div>hello world</div>');
     });
 
+    describe("doesn't allow styles", () => {
+      it('removes style tags', () => {
+        createComponent({
+          html: '<style>p {width:50%;}</style>',
+        });
+
+        expect(wrapper.html()).toEqual('<div></div>');
+      });
+
+      it('removes style attributes', () => {
+        createComponent({
+          html: '<p style="width:50%">text</p>',
+        });
+
+        expect(wrapper.html()).toContain('<p>text</p>');
+      });
+
+      it('removes link tag', () => {
+        createComponent({
+          html: '<link rel="stylesheet" href="styles.css">',
+        });
+
+        expect(wrapper.html()).toContain('<div></div>');
+      });
+
+      it('removes mystle tag', () => {
+        createComponent({
+          html: '<math><mstyle displaystyle="true"></mstyle></math>',
+        });
+
+        expect(wrapper.html()).toContain('<div><math></math></div>');
+      });
+    });
+
     describe('handles data attributes correctly', () => {
       const acceptedDataAttrs = ['data-safe', 'data-random'];
 
