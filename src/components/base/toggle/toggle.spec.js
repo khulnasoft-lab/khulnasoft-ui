@@ -36,7 +36,7 @@ describe('toggle', () => {
   describe.each`
     state    | value    | ariaCheckedExpected | checkedClassExpected
     ${'on'}  | ${true}  | ${'true'}           | ${true}
-    ${'off'} | ${false} | ${undefined}        | ${false}
+    ${'off'} | ${false} | ${'false'}          | ${false}
   `('when $state', ({ value, ariaCheckedExpected, checkedClassExpected }) => {
     beforeEach(() => {
       createWrapper({ value });

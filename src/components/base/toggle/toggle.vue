@@ -83,6 +83,9 @@ export default {
     helpId() {
       return this.help ? `toggle-help-${this.uuid}` : undefined;
     },
+    isChecked() {
+      return this.value ? 'true' : 'false';
+    },
   },
 
   beforeCreate() {
@@ -119,7 +122,7 @@ export default {
       <input v-if="name" :name="name" :value="value" type="hidden" />
       <button
         role="switch"
-        :aria-checked="value"
+        :aria-checked="isChecked"
         :aria-label="label"
         :aria-describedby="helpId"
         :class="{
