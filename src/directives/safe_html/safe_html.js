@@ -6,7 +6,11 @@ import { forbiddenDataAttrs } from './constants';
 // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1782
 // and https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2127
 // for more details.
-const DEFAULT_CONFIG = { RETURN_DOM_FRAGMENT: true, FORBID_ATTR: [...forbiddenDataAttrs] };
+const DEFAULT_CONFIG = {
+  RETURN_DOM_FRAGMENT: true,
+  FORBID_ATTR: [...forbiddenDataAttrs, 'style'],
+  FORBID_TAGS: ['style', 'mstyle'],
+};
 
 const transform = (el, binding) => {
   if (binding.oldValue !== binding.value) {
