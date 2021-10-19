@@ -1,3 +1,10 @@
+## [32.20.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.20.0...v32.20.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* **GlSingleStat:** forward listeners and attrs ([7781b6b](https://gitlab.com/gitlab-org/gitlab-ui/commit/7781b6b443fb525f38f4b9240d4d7558f8d5f072))
+
 # [32.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.19.1...v32.20.0) (2021-10-14)
 
 
