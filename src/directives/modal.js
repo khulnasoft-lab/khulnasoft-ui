@@ -1,3 +1,1 @@
-import { VBModal } from 'bootstrap-vue';
-
-export default VBModal;
+export { VBModal as GlModalDirective } from 'bootstrap-vue';

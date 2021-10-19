@@ -1,5 +1,5 @@
 <script>
-import GlTooltip from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlButton from '../button/button.vue';
 import GlDropdown from '../dropdown/dropdown.vue';
@@ -23,7 +23,7 @@ export default {
     GlFormInputGroup,
   },
   directives: {
-    GlTooltip,
+    GlTooltip: GlTooltipDirective,
   },
   props: {
     value: {

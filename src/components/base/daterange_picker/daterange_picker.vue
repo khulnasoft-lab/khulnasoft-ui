@@ -1,5 +1,5 @@
 <script>
-import GlTooltip from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils/datetime_utility';
 import GlDatepicker from '../datepicker/datepicker.vue';
 import GlIcon from '../icon/icon.vue';
@@ -10,7 +10,7 @@ export default {
     GlIcon,
   },
   directives: {
-    GlTooltip,
+    GlTooltip: GlTooltipDirective,
   },
   props: {
     fromLabel: {

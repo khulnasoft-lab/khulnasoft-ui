@@ -1,3 +1,1 @@
-import { VBTooltip } from 'bootstrap-vue';
-
-export default VBTooltip;
+export { VBTooltip as GlTooltipDirective } from 'bootstrap-vue';

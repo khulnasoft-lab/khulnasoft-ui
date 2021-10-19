@@ -1,7 +1,7 @@
 <script>
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { uniqueId, findLast } from 'lodash';
-import GlResizeObserverDirective from '../../../directives/resize_observer/resize_observer';
+import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import { glThemes } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 

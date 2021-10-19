@@ -1,5 +1,5 @@
 <script>
-import GlTooltip from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlButton from '../../base/button/button.vue';
 
 export default {
@@ -7,7 +7,7 @@ export default {
     GlButton,
   },
   directives: {
-    GlTooltip,
+    GlTooltip: GlTooltipDirective,
   },
   props: {
     title: {

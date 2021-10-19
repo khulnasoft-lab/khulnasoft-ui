@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import resizeObserver from './resize_observer';
+import { GlResizeObserverDirective } from './resize_observer';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 
 describe('resize observer directive', () => {
@@ -15,7 +15,7 @@ describe('resize observer directive', () => {
 
     const component = {
       directives: {
-        resizeObserver,
+        resizeObserver: GlResizeObserverDirective,
       },
       methods: {
         handleResize: mockHandleResize,
@@ -84,7 +84,7 @@ describe('resize observer directive', () => {
       (directiveValue) => {
         const testComponentWithoutHandler = {
           directives: {
-            resizeObserver,
+            resizeObserver: GlResizeObserverDirective,
           },
           data() {
             return {

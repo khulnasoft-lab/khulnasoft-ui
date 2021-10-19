@@ -2,7 +2,7 @@ import isFunction from 'lodash/isFunction';
 
 let observer = null;
 
-const ResizeObserverDirective = {
+export const GlResizeObserverDirective = {
   bind(el, { value: resizeHandler }) {
     if (!isFunction(resizeHandler)) {
       throw TypeError('directive value must be a function');
@@ -28,5 +28,3 @@ const ResizeObserverDirective = {
     }
   },
 };
-
-export default ResizeObserverDirective;
