@@ -87,7 +87,11 @@ export default {
 </script>
 
 <template>
-  <div class="gl-single-stat gl-display-flex gl-flex-direction-column gl-p-2">
+  <div
+    class="gl-single-stat gl-display-flex gl-flex-direction-column gl-p-2"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <div class="gl-display-flex gl-align-items-center gl-text-gray-700 gl-mb-2">
       <gl-icon v-if="showTitleIcon" :name="titleIcon" class="gl-mr-2" data-testid="title-icon" />
       <span class="gl-font-base gl-font-weight-normal" data-testid="title-text">{{ title }}</span>
