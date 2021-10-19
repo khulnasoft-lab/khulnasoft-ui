@@ -1,3 +1,10 @@
+## [32.20.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.20.1...v32.20.2) (2021-10-19)
+
+
+### Bug Fixes
+
+* **Toggle:** Always keep aria checked whether true or false ([84a240e](https://gitlab.com/gitlab-org/gitlab-ui/commit/84a240ea14fb7f5827b014f89551f692899f3df4))
+
 ## [32.20.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.20.0...v32.20.1) (2021-10-19)
 
 
