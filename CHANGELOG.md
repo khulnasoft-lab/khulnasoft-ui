@@ -1,3 +1,10 @@
+# [32.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.20.2...v32.21.0) (2021-10-20)
+
+
+### Features
+
+* add `gl-h-100vh` utility class ([ec3c472](https://gitlab.com/gitlab-org/gitlab-ui/commit/ec3c4723888a063a70ed3a32fe24ff3559e51e4c))
+
 ## [32.20.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.20.1...v32.20.2) (2021-10-19)
 
 
