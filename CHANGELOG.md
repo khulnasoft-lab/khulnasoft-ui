@@ -1,3 +1,10 @@
+# [32.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.21.0...v32.22.0) (2021-10-20)
+
+
+### Features
+
+* **segmented-control:** Update styles to match UI Kit ([4aaf666](https://gitlab.com/gitlab-org/gitlab-ui/commit/4aaf666f081b1dc2f374be32e2bf56bed782bf1e))
+
 # [32.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.20.2...v32.21.0) (2021-10-20)
 
 
