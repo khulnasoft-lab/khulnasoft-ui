@@ -1,18 +1,31 @@
 <script>
-import { BTable } from 'bootstrap-vue';
+import { tableLiteSlotSelectors, tableLitePropSelectors } from './constants';
+
+const shouldUseFullTable = ({ $attrs, $scopedSlots }) => {
+  return (
+    tableLitePropSelectors.some((prop) => $attrs[prop] !== undefined) ||
+    tableLiteSlotSelectors.some((slot) => $scopedSlots[slot] !== undefined)
+  );
+};
 
 export default {
   components: {
-    BTable,
+    FullTable: () => import('./full_table'),
+    TableLite: () => import('./table_lite'),
   },
   inheritAttrs: false,
+
+  render(createElement) {
+    const component = shouldUseFullTable(this) ? 'FullTable' : 'TableLite';
+
+    return createElement(component, {
+      attrs: {
+        ...this.$attrs,
+      },
+      class: 'gl-table',
+      on: this.$listeners,
+      scopedSlots: this.$scopedSlots,
+    });
+  },
 };
 </script>
-
-<template>
-  <b-table class="gl-table" v-bind="$attrs" v-on="$listeners">
-    <template v-for="slot in Object.keys($scopedSlots)" #[slot]="scope">
-      <slot :name="slot" v-bind="scope"></slot>
-    </template>
-  </b-table>
-</template>

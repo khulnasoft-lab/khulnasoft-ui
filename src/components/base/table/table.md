@@ -1,8 +1,10 @@
 ## Usage
 
-The `gl-table` component wraps BootstrapVue `b-table` component. `b-table` provides a variety of
-slots for custom data rendering. You can learn more about them in the
-[component documentation](https://bootstrap-vue.org/docs/components/table).
+The `gl-table` component wraps BootstrapVue `b-table` or `b-table` component depending on its
+inputs. `b-table` / `b-table-lite` provide a variety of slots for custom data rendering.
+You can learn more about them in the component documentation
+[BTable](https://bootstrap-vue.org/docs/components/table)
+[BTableLite](https://bootstrap-vue.org/docs/components/table#light-weight-tables).
 When using the component, pass in the `fields` prop as part of the `$options`, and give each table
 data and table head its own styles if necessary.
 
@@ -13,11 +15,6 @@ like mentioned in the implementation example.
 
 _Full documentation for the
 `field` prop [here.](https://bootstrap-vue.org/docs/components/table#fields-column-definitions)_
-
-## Use `GlTableLite` when possible
-
-If you don't need all the features of `GlTable`, like filtering, sorting, or
-pagination, use `GlTableLite` which offers a subset of `GlTable` features.
 
 ## Implementation Example
 
