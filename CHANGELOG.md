@@ -1,3 +1,10 @@
+# [32.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.23.0...v32.24.0) (2021-10-22)
+
+
+### Features
+
+* **css:** Add 5% width mixin ([6eaa25a](https://gitlab.com/gitlab-org/gitlab-ui/commit/6eaa25a250562832f2a8d7e198037e9e661bfdd6))
+
 # [32.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.22.0...v32.23.0) (2021-10-22)
 
 
