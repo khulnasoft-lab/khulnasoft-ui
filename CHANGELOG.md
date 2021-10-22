@@ -1,3 +1,10 @@
+# [32.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.22.0...v32.23.0) (2021-10-22)
+
+
+### Features
+
+* **Tabs:** Update disabled color ([c0fbf11](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0fbf11fd19a5a354759633735c621beccdd2ae7))
+
 # [32.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.21.0...v32.22.0) (2021-10-20)
 
 
