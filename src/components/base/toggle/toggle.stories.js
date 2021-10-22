@@ -9,6 +9,7 @@ const generateProps = ({
   disabled = defaultValue('disabled'),
   isLoading = defaultValue('isLoading'),
   label = 'Dark mode',
+  labelId = 'dark-mode-toggle',
   help = 'Toggle dark mode for the website',
   labelPosition = defaultValue('labelPosition'),
 } = {}) => ({
@@ -16,6 +17,7 @@ const generateProps = ({
   disabled,
   isLoading,
   label,
+  labelId,
   help,
   labelPosition,
 });
@@ -29,6 +31,7 @@ const Template = (args, { argTypes }) => ({
       v-model="value"
       :disabled="disabled"
       :help="help"
+      :label-id="labelId"
       :is-loading="isLoading"
       :label="label"
       :label-position="labelPosition"

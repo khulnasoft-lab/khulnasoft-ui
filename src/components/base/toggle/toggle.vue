@@ -61,7 +61,14 @@ export default {
       default: undefined,
     },
     /**
-     * The label's position relative to the toggle.
+     * The id for the label. This id is used by the aria-labelledby attribute on the toggle button.
+     */
+    labelId: {
+      type: String,
+      required: true,
+    },
+    /**
+     * The label's position relative to the toggle. If 'hidden', the toggle will add the .gl-sr-only class so the label is still accessible to screen readers.
      */
     labelPosition: {
       type: String,
@@ -76,9 +83,6 @@ export default {
   computed: {
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
-    },
-    shouldShowLabel() {
-      return this.label && this.labelPosition !== 'hidden';
     },
     helpId() {
       return this.help ? `toggle-help-${this.uuid}` : undefined;
@@ -110,38 +114,41 @@ export default {
 </script>
 
 <template>
-  <label class="gl-display-flex gl-flex-direction-column gl-mb-0 gl-w-max-content">
+  <div
+    class="gl-toggle-wrapper gl-display-flex gl-flex-direction-column gl-mb-0 gl-w-max-content"
+    :class="{ 'gl-toggle-label-inline': labelPosition === 'left', 'is-disabled': disabled }"
+  >
     <span
-      class="gl-toggle-wrapper"
-      :class="{ 'gl-toggle-label-inline': labelPosition === 'left', 'is-disabled': disabled }"
+      :id="labelId"
+      :class="{ 'gl-sr-only': labelPosition === 'hidden' }"
+      class="gl-toggle-label"
+      data-testid="toggle-label"
     >
-      <span v-if="shouldShowLabel" class="gl-toggle-label" data-testid="toggle-label">
-        <!-- @slot The toggle's label. -->
-        <slot name="label">{{ label }}</slot>
-      </span>
-      <input v-if="name" :name="name" :value="value" type="hidden" />
-      <button
-        role="switch"
-        :aria-checked="isChecked"
-        :aria-label="label"
-        :aria-describedby="helpId"
-        :class="{
-          'gl-toggle': true,
-          'is-checked': value,
-          'is-disabled': disabled,
-        }"
-        type="button"
-        @click.prevent="toggleFeature"
-      >
-        <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
-        <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
-          <gl-icon :name="icon" :size="16" />
-        </span>
-      </button>
+      <!-- @slot The toggle's label. -->
+      <slot name="label">{{ label }}</slot>
     </span>
+    <input v-if="name" :name="name" :value="value" type="hidden" />
+    <button
+      role="switch"
+      :aria-checked="isChecked"
+      :aria-labelledby="labelId"
+      :aria-describedby="helpId"
+      :class="{
+        'gl-toggle': true,
+        'is-checked': value,
+        'is-disabled': disabled,
+      }"
+      type="button"
+      @click.prevent="toggleFeature"
+    >
+      <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
+      <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
+        <gl-icon :name="icon" :size="16" />
+      </span>
+    </button>
     <span v-if="help" :id="helpId" class="gl-help-label" data-testid="toggle-help">
       <!-- @slot A help text to be shown below the toggle. -->
       <slot name="help">{{ help }}</slot>
     </span>
-  </label>
+  </div>
 </template>
