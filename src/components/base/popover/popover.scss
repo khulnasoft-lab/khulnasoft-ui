@@ -64,6 +64,7 @@ $gl-popover-max-width: $grid-size * 35;
 
   .popover-header {
     @include gl-bg-white;
+    @include gl-border-b;
     @include gl-font-sm;
     @include gl-font-weight-bold;
     @include gl-m-0;

@@ -32,11 +32,25 @@ $limited-layout-width: 990px !default;
 $black: #000 !default;
 $black-normal: #333 !default;
 
-$white: #fff !default;
+:root {
+  --white: #fff;
+
+  --gray-10: #fafafa;
+  --gray-50: #f0f0f0;
+  --gray-100: #dbdbdb;
+
+  --body-bg: var(--white);
+  --surface-bg-1: var(--white);
+
+  // maybe we add namespaced palette
+  --gl-white: #fff;
+}
+
+$white: var(--white) !default;
 $white-normal: #f0f0f0 !default;
 $white-dark: #eaeaea !default;
-$white-transparent: rgba(255, 255, 255, 0.8) !default;
-$transparent-rgba: rgba($white, 0);
+$white-transparent: rgba(#fff, 0.8) !default;
+$transparent-rgba: rgba(#fff, 0);
 
 $green-50: #ecf4ee !default;
 $green-100: #c3e6cd !default;
@@ -98,32 +112,10 @@ $purple-800: #453894 !default;
 $purple-900: #2f2a6b !default;
 $purple-950: #232150 !default;
 
-/*
-Neutral palette mapping
-
-Old variables are mapped to new variables by approximating the closest variable, erring on the side of shifting darker (with the exception of old 400). There is currently nothing mapped to 600 and 800, which makes them a good use case for subtle nuance in the UI.
-
-
-Before        After (reflected below)
--------------------------------------
-50            10
-100           50
-200           100
-300           200
-400           200
-500           300
-600           400
-700           500*
-800           700
-900           900
-950           950
-
-* Passes 4.5:1 contrast ratio on $gray-10
-*/
-
-$gray-10: #fafafa !default;
-$gray-50: #f0f0f0 !default;
+$gray-10: var(--gray-10) !default;
+$gray-50: var(--gray-50) !default;
 $gray-100: #dbdbdb !default;
+// $gray-100: var(--gray-100) !default;
 $gray-200: #bfbfbf !default;
 $gray-300: #999 !default;
 $gray-400: #868686 !default;
@@ -399,15 +391,18 @@ $gl-transition-duration-slow: 0.4s;
 $gl-transition-duration-medium: 0.2s;
 
 // Focus ring
-$focus-ring: 0 0 0 $gl-border-size-1 rgba($white, 0.4),
-  0 0 0 $gl-border-size-4 rgba($blue-500, 0.48);
+$focus-ring: 0 0 0 $gl-border-size-1 rgba(#fff, 0.4), 0 0 0 $gl-border-size-4 rgba($blue-500, 0.48);
 $focus-ring-inset: inset 0 0 0 $gl-border-size-3 rgba($blue-500, 0.48),
-  inset 0 0 0 $gl-border-size-4 rgba($white, 0.4);
+  inset 0 0 0 $gl-border-size-4 rgba(#fff, 0.4);
 
 // Toasts
 $toast-max-width: px-to-rem(586px);
 $toast-padding-right: px-to-rem(42px);
 $toast-background-color: #303030;
+
+$carousel-control-color: #fff !default;
+
+$component-active-color: #fff !default;
 
 // Chart tooltip
 $chart-tooltip-max-width: px-to-rem(512px);

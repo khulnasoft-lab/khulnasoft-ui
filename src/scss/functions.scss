@@ -49,3 +49,158 @@
 @function if-important($important) {
   @return #{if($important, '!important', '')};
 }
+
+$cssvars: (
+  // light: (),
+  // dark: (),
+);
+
+@mixin cssvar($name, $color) {
+  --#{$name}: #{$color};
+  --#{$name}-rgb: #{hex-to-rgb($color)};
+  --#{$name}-hsl: #{hex-to-hsl($color)};
+}
+
+@function exists($name) {
+  @each $theme, $colors in $cssvars {
+    @if index($colors, $name) == null {
+      @error "#{$name} not found in #{$theme}. Only #{$colors}";
+    }
+  }
+
+  @return true;
+}
+
+@function in-var($value) {
+  @return str-index(#{$value}, 'var(--') == 1;
+}
+
+@function is-custom-property($value) {
+  @return in-var($value) or str-index(#{$value}, '--') == 1;
+}
+
+@function custom-property-name($value) {
+  // strip var( and )
+  @if in-var($value) {
+    @return str-slice($value, 5, -2);
+  }
+  @if str-index(#{$value}, '--') == 1 {
+    @return $value;
+  }
+  @error "Not a valid custom property #{$value}";
+}
+
+@function as-rgb($color) {
+  $name: custom-property-name($color);
+  @return var(--#{$name}-rgb);
+}
+
+@function as-hsl($color) {
+  $name: custom-property-name($color);
+  @return var(--#{$name}-hsl);
+}
+
+@function darken($color, $amount) {
+  @if is-custom-property($color) {
+    $name: #{custom-property-name($color)}-darken-#{$amount};
+
+    @if not exists($name) {
+      @error "#{$name} does not exist";
+      //   @at-root {
+      //     --#{$name}: green;
+      //   }
+    }
+    @return #{$name};
+    // possibly try using hsl hacks instead
+    // @return hsl(#{as-hsl($color)} - $amount);
+  }
+  // @if type-of($color) == color {
+  @return adjust-color($color, $lightness: -1 * $amount);
+  // }
+}
+
+@function mix($color-1, $color-2, $weight: 50%) {
+  @return $color-2;
+}
+
+@function hex-to-rgb($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+@function hex-to-hsl($hex) {
+  @return hue($hex), saturation($hex), lightness($hex);
+}
+
+// @function rgba($color, $alpha...) {
+//   // using uppercase for rgba means SCSS doesn't recognise it, so this gets sent to the browser as rgba()
+//   // but this means we need the 4 arg form, we can't do things like rgba($white, 20%)
+//   @if is-custom-property($color) {
+//     @return RGBA(as-rgb($color), $alpha);
+//   } @else if length($alpha) == 0 {
+//     @return RGB($color);
+//   } @else if length($alpha) == 1 {
+//     @return RGBA(hex-to-rgb($color), $alpha);
+//   } @else {
+//     $r: $color;
+//     $g: #{nth($alpha, 1)};
+//     $b: #{nth($alpha, 2)};
+//     $a: #{nth($alpha, 3)};
+//     @return RGBA($r, $g, $b, $a);
+//   }
+// }
+
+@function fade-in($color, $amount) {
+  @return $color;
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function lighten($color, $amount) {
+  @if is-custom-property($color) {
+    @return #{custom-property-name($color)}-lighten-#{$amount};
+  }
+
+  // $color: str-replace($color,
+  @if type-of($color) == color {
+    @return adjust-color($color, $lightness: $amount);
+  }
+
+  @error "Expected a color. Got #{$color}";
+}
+
+@function color-yiq($color, $dark: $yiq-text-dark, $light: $yiq-text-light) {
+  @if is-custom-property($color) {
+    $key: #{custom-property-name($color)}-contrast-text;
+
+    @if exists($key) {
+      @return var($key);
+    }
+
+    @error "Variable #{$key} not found";
+  }
+
+  @if type-of($color) != color {
+    @error "not a color #{$color}";
+  }
+
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+  @if ($yiq >= $yiq-contrasted-threshold) {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}

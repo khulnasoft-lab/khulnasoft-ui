@@ -35,6 +35,12 @@
   border-bottom-style: initial;
 }
 
+@mixin gl-border-b {
+  @include gl-border-b-solid;
+  @include gl-border-b-gray-100;
+  @include gl-border-b-1;
+}
+
 @mixin gl-border-l-solid {
   border-left-style: solid;
 }

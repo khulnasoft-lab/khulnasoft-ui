@@ -3,6 +3,28 @@
 * Documentation: https://design.gitlab.com/components/toast
 */
 .b-toaster {
+  .b-toast {
+    .toast {
+      background-color: $toast-background-color;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: $toast-padding-x;
+    }
+  }
+
+  .toast {
+    opacity: 1;
+
+    &.fade:not(.show) {
+      opacity: 0;
+    }
+
+    .toast-body {
+      display: block; // Needed when we use a link as the body element
+    }
+  }
+
   &.b-toaster-bottom-left {
     .b-toaster-slot {
       @include gl-bottom-6;
@@ -35,6 +57,7 @@
     @include gl-pr-3;
     order: 1;
   }
+
   .toast-header {
     @include gl-display-flex;
     order: 2;
