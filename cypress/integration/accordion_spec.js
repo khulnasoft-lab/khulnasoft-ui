@@ -16,4 +16,10 @@ describe('GlAccordion', () => {
     cy.contains('Item 1').click();
     cy.get(accordionContentId).should('not.be.visible');
   });
+
+  describe('a11y', () => {
+    it('has no detectable a11y violations', () => {
+      cy.glCheckA11y();
+    });
+  });
 });
