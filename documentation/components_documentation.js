@@ -73,6 +73,7 @@ export { default as GlLabelDocumentation } from '../src/components/base/label/la
 export { default as GlDatepickerDocumentation } from '../src/components/base/datepicker/datepicker.documentation';
 export { default as GlTokenDocumentation } from '../src/components/base/token/token.documentation';
 export { default as GlToggleDocumentation } from '../src/components/base/toggle/toggle.documentation';
+export { default as GlDaterangePickerDocumentation } from '../src/components/base/daterange_picker/daterange_picker.documentation';
 export { default as GlSortingDocumentation } from '../src/components/base/sorting/sorting.documentation';
 export { default as GlSortingItemDocumentation } from '../src/components/base/sorting/sorting_item.documentation';
 export { default as GlInfiniteScrollDocumentation } from '../src/components/base/infinite_scroll/infinite_scroll.documentation';
@@ -92,6 +93,8 @@ export { default as GlFilteredSearchTokenSegmentDocumentation } from '../src/com
 export { default as GlFilteredSearchDocumentation } from '../src/components/base/filtered_search/filtered_search.documentation';
 export { default as GlBroadcastMessageDocumentation } from '../src/components/base/broadcast_message/broadcast_message.documentation';
 export { default as GlCollapseDocumentation } from '../src/components/base/collapse/collapse.documentation';
+export { default as GlAccordionDocumentation } from '../src/components/base/accordion/accordion.documentation';
+export { default as GlAccordionItemDocumentation } from '../src/components/base/accordion/accordion_item.documentation';
 export { default as GlCarouselDocumentation } from '../src/components/base/carousel/carousel.documentation';
 export { default as GlSafeLinkDirectiveDocumentation } from '../src/directives/safe_link/safe_link.documentation';
 export { default as GlSafeHtmlDirectiveDocumentation } from '../src/directives/safe_html/safe_html.documentation';
