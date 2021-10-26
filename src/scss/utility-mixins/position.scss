@@ -72,6 +72,10 @@
   top: $gl-spacing-scale-7;
 }
 
+@mixin gl-top-8 {
+  top: $gl-spacing-scale-8;
+}
+
 @mixin gl-top-half {
   top: 50%;
 }
