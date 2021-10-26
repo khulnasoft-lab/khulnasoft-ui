@@ -1,3 +1,10 @@
+# [32.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.24.1...v32.25.0) (2021-10-26)
+
+
+### Features
+
+* **css:** Add gl-top-8 utility class ([40a6aba](https://gitlab.com/gitlab-org/gitlab-ui/commit/40a6abae33d7ba02c7d203a33d2ed6b92b621ea1))
+
 ## [32.24.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.24.0...v32.24.1) (2021-10-26)
 
 
