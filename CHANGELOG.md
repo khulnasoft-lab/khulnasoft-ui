@@ -1,3 +1,10 @@
+## [32.24.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.24.0...v32.24.1) (2021-10-26)
+
+
+### Bug Fixes
+
+* revert components' `.documentations.js` files ([5fbcd1f](https://gitlab.com/gitlab-org/gitlab-ui/commit/5fbcd1f93b5e5a3b3d607cfa109425dae97631ac))
+
 # [32.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.23.0...v32.24.0) (2021-10-22)
 
 
