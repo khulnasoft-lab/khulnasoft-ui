@@ -55,6 +55,7 @@ table.gl-table {
           @include gl-border-t-1;
         }
       }
+
       div {
         @include gl-text-right;
         @include gl-overflow-wrap-break;

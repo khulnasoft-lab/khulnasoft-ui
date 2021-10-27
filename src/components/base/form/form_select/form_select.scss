@@ -46,6 +46,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
     &:focus {
       @include gl-focus($gl-border-size-1, $red-500, true);
     }
+
     &:hover {
       @include gl-inset-border-1-red-500;
     }

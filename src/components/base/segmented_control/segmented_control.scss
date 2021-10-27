@@ -43,6 +43,7 @@
     &:first-child {
       @include gl-btn-gl-segmented-button-first;
     }
+
     &:last-child {
       @include gl-btn-gl-segmented-button-last;
     }
