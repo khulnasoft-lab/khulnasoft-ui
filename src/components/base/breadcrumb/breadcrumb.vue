@@ -1,10 +1,12 @@
 <script>
 import { BBreadcrumb, BBreadcrumbItem } from 'bootstrap-vue';
+import GlIcon from '../icon/icon.vue';
 
 export default {
   components: {
     BBreadcrumb,
     BBreadcrumbItem,
+    GlIcon,
   },
   inheritAttrs: false,
   props: {
@@ -23,13 +25,18 @@ export default {
       },
     },
   },
+  methods: {
+    isLastItem(items, index) {
+      return index === items.length - 1;
+    },
+  },
 };
 </script>
 <template>
   <div class="gl-breadcrumbs">
+    <!-- @slot The avatar to display. -->
+    <slot name="avatar"></slot>
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
-      <!-- @slot The avatar to display. -->
-      <slot name="avatar"></slot>
       <template v-for="(item, index) in items">
         <b-breadcrumb-item
           :key="index"
@@ -37,16 +44,20 @@ export default {
           :text="item.text"
           :href="item.href"
           :to="item.to"
-        />
-        <span
-          v-if="index != items.length - 1"
-          :key="`index ${item.text}`"
-          class="gl-breadcrumb-separator"
-          data-testid="separator"
         >
-          <!-- @slot The separator to display. -->
-          <slot name="separator"></slot>
-        </span>
+          <span>{{ item.text }}</span>
+          <span
+            v-if="!isLastItem(items, index)"
+            :key="`${index} ${item.text}`"
+            class="gl-breadcrumb-separator"
+            data-testid="separator"
+          >
+            <!-- @slot The separator to display. -->
+            <slot name="separator">
+              <gl-icon name="chevron-right" />
+            </slot>
+          </span>
+        </b-breadcrumb-item>
       </template>
     </b-breadcrumb>
   </div>
