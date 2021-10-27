@@ -1,3 +1,10 @@
+# [32.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.25.0...v32.26.0) (2021-10-27)
+
+
+### Features
+
+* **breadcrumb:** Set default separator and fix spacing ([95a7fc8](https://gitlab.com/gitlab-org/gitlab-ui/commit/95a7fc8e3ff3a06feb77ea7cdbfa7255b6f2c3f7))
+
 # [32.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.24.1...v32.25.0) (2021-10-26)
 
 
