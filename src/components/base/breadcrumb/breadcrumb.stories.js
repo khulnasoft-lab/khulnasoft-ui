@@ -6,10 +6,7 @@ const template = `
         :items="items"
     >
       <template #avatar>
-        <img class="gl-breadcrumb-avatar-tile" src="https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=15" width="15" height="15" />
-      </template>
-      <template #separator>
-        <gl-icon name="angle-right" />
+        <img class="gl-breadcrumb-avatar-tile" src="https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=16" width="16" height="16" />
       </template>
     </gl-breadcrumb>
   `;
