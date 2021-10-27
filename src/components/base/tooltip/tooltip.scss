@@ -13,6 +13,7 @@
   .arrow {
     @include gl-h-3;
     @include gl-w-2;
+
     &::before {
       @include gl-border-4;
     }

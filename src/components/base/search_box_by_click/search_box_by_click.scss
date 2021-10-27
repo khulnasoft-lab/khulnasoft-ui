@@ -34,6 +34,7 @@
     .gl-search-box-by-click-history-no-searches {
       @include gl-text-center;
       @include gl-text-gray-500;
+
       .gl-dropdown-text {
         @include gl-font-weight-normal;
       }

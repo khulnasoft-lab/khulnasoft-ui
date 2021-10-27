@@ -177,8 +177,10 @@
   .split-content-button {
     @include gl-px-4;
   }
+
   .icon-split-content-button {
     @include gl-pl-3;
+
     .dropdown-icon {
       @include gl-mr-0;
     }
