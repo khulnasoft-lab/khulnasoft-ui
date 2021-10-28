@@ -1,3 +1,10 @@
+# [32.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.26.0...v32.27.0) (2021-10-28)
+
+
+### Features
+
+* **GlBanner:** Add embedded prop to gl-banner ([e0669e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0669e328fd396276c47bd246864af9108b2688d))
+
 # [32.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.25.0...v32.26.0) (2021-10-27)
 
 
