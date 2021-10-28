@@ -1,3 +1,10 @@
+# [32.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.27.0...v32.28.0) (2021-10-28)
+
+
+### Features
+
+* **css:** Use px in breakpoints instead of rem ([d107ae6](https://gitlab.com/gitlab-org/gitlab-ui/commit/d107ae68b9201a677e96fea7c19d479802f721fb))
+
 # [32.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.26.0...v32.27.0) (2021-10-28)
 
 
