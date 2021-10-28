@@ -26,7 +26,6 @@ describe('toggle', () => {
 
   afterEach(() => {
     wrapper.destroy();
-    wrapper = null;
   });
 
   it('has role=switch', () => {
@@ -114,17 +113,21 @@ describe('toggle', () => {
 
   describe('label position', () => {
     describe.each`
-      state       | labelPosition                 | labelVisibility
-      ${'top'}    | ${toggleLabelPosition.top}    | ${true}
-      ${'left'}   | ${toggleLabelPosition.left}   | ${true}
-      ${'hidden'} | ${toggleLabelPosition.hidden} | ${false}
-    `('when $state', ({ labelPosition, labelVisibility }) => {
+      state       | labelPosition                 | hasGlSrOnlyClass
+      ${'top'}    | ${toggleLabelPosition.top}    | ${false}
+      ${'left'}   | ${toggleLabelPosition.left}   | ${false}
+      ${'hidden'} | ${toggleLabelPosition.hidden} | ${true}
+    `('when $state', ({ labelPosition, hasGlSrOnlyClass }) => {
       beforeEach(() => {
         createWrapper({ labelPosition });
       });
 
-      it(`${labelVisibility ? 'shows' : 'hides'} label`, () => {
-        expect(wrapper.find('[data-testid="toggle-label"]').exists()).toBe(labelVisibility);
+      it(`${hasGlSrOnlyClass ? 'adds' : 'does not add'} 'gl-sr-only' class to the label`, () => {
+        const cssClasses = wrapper.find('[data-testid="toggle-label"]').classes();
+
+        return hasGlSrOnlyClass
+          ? expect(cssClasses).toContain('gl-sr-only')
+          : expect(cssClasses).not.toContain('gl-sr-only');
       });
 
       it('has accessible name for the button', () => {
