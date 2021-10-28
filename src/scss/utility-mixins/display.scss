@@ -8,19 +8,19 @@
 }
 
 @mixin gl-sm-display-none {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-display-none;
   }
 }
 
 @mixin gl-md-display-none {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-display-none;
   }
 }
 
 @mixin gl-lg-display-none {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-display-none;
   }
 }
@@ -30,19 +30,19 @@
 }
 
 @mixin gl-sm-display-flex {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-display-flex;
   }
 }
 
 @mixin gl-md-display-flex {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-display-flex;
   }
 }
 
 @mixin gl-lg-display-flex {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-display-flex;
   }
 }
@@ -52,19 +52,19 @@
 }
 
 @mixin gl-sm-display-inline-flex {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-display-inline-flex;
   }
 }
 
 @mixin gl-md-display-inline-flex {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-display-inline-flex;
   }
 }
 
 @mixin gl-lg-display-inline-flex {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-display-inline-flex;
   }
 }
@@ -74,19 +74,19 @@
 }
 
 @mixin gl-sm-display-block {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-display-block;
   }
 }
 
 @mixin gl-md-display-block {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-display-block;
   }
 }
 
 @mixin gl-lg-display-block {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-display-block;
   }
 }
@@ -96,7 +96,7 @@
 }
 
 @mixin gl-sm-display-inline {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-display-inline;
   }
 }
@@ -106,19 +106,19 @@
 }
 
 @mixin gl-sm-display-inline-block {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-display-inline-block;
   }
 }
 
 @mixin gl-md-display-inline-block {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-display-inline-block;
   }
 }
 
 @mixin gl-lg-display-inline-block {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-display-inline-block;
   }
 }
@@ -140,7 +140,7 @@
 }
 
 @mixin gl-lg-display-table-cell {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-display-table-cell;
   }
 }

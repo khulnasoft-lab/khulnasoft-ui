@@ -206,13 +206,13 @@ and `$breakpoint-xl`. Here are some examples:
 
 ```scss
 @mixin gl-md-border-none {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     border-style: none;
   }
 }
 
 @mixin gl-xl-bg-white {
-  @media (min-width: $breakpoint-xl) {
+  @include gl-media-breakpoint-up(xl) {
     background-color: $white;
   }
 }
@@ -221,13 +221,13 @@ and `$breakpoint-xl`. Here are some examples:
 SCSS will generate a utility class enclosed in the breakpoint media query:
 
 ```css
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .gl-md-border-none {
     border-style: none;
   }
 }
 
-@media (min-width: 75rem) {
+@media (min-width: 1200px) {
   .gl-xl-bg-white {
     background-color: #fff;
   }

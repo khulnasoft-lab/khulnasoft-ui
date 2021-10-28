@@ -20,7 +20,7 @@
 }
 
 @mixin gl-sm-text-body {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-text-body;
   }
 }

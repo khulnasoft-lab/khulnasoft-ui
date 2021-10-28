@@ -133,7 +133,7 @@
 }
 
 @mixin gl-sm-font-weight-bold {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-font-weight-bold;
   }
 }

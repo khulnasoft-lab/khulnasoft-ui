@@ -20,10 +20,19 @@ $gl-spacing-scale-15: 15 * $grid-size;
 $gl-spacing-scale-20: 20 * $grid-size;
 
 // Responsive breakpoints
-$breakpoint-sm: px-to-rem(576px);
-$breakpoint-md: px-to-rem(768px);
-$breakpoint-lg: px-to-rem(992px);
-$breakpoint-xl: px-to-rem(1200px);
+
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+$breakpoints: (
+  xs: 0,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+);
 
 // Max widths
 $limited-layout-width: 990px !default;
