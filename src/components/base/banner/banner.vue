@@ -51,6 +51,14 @@ export default {
         return bannerVariants.includes(value);
       },
     },
+    /**
+     * Removes the border for banners embedded in content.
+     */
+    embedded: {
+      type: Boolean,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     isIntroducing() {
@@ -83,7 +91,7 @@ export default {
 <template>
   <gl-card
     class="gl-px-8 gl-py-6 gl-line-height-20"
-    :class="{ 'gl-banner-introduction': isIntroducing }"
+    :class="{ 'gl-banner-introduction': isIntroducing, 'gl-border-none!': embedded }"
     body-class="gl-display-flex gl-p-0!"
   >
     <div v-if="svgPath" class="gl-banner-illustration">
