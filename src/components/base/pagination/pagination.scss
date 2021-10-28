@@ -62,7 +62,7 @@
   }
 }
 
-@media (max-width: $breakpoint-sm) {
+@include gl-media-breakpoint-down(sm) {
   .gl-pagination {
     .prev-page-item,
     .next-page-item {

@@ -53,7 +53,7 @@
 * naming convention: gl-{breakpoint}-border-{position}-{style}
 */
 @mixin gl-md-border-l-solid {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     border-left-style: solid;
   }
 }

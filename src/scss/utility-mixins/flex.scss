@@ -22,37 +22,37 @@
 }
 
 @mixin gl-xs-align-items-baseline {
-  @media (max-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-down(sm) {
     @include gl-align-items-baseline;
   }
 }
 
 @mixin gl-lg-align-items-baseline {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-align-items-baseline;
   }
 }
 
 @mixin gl-md-align-items-center {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-align-items-center;
   }
 }
 
 @mixin gl-lg-align-items-center {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-align-items-center;
   }
 }
 
 @mixin gl-sm-align-items-flex-end {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-align-items-flex-end;
   }
 }
 
 @mixin gl-lg-align-items-flex-end {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-align-items-flex-end;
   }
 }
@@ -62,26 +62,26 @@
 }
 
 @mixin gl-lg-flex-wrap {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-flex-wrap;
   }
 }
 
 @mixin gl-xl-flex-wrap {
-  @media (min-width: $breakpoint-xl) {
+  @include gl-media-breakpoint-up(xl) {
     @include gl-flex-wrap;
   }
 }
 
 @mixin gl-sm-flex-wrap {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-flex-wrap;
   }
 }
 
 // Deprecated, prefer `gl-sm-flex-wrap`
 @mixin gl-flex-sm-wrap {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-flex-wrap;
   }
 }
@@ -91,13 +91,13 @@
 }
 
 @mixin gl-sm-flex-direction-column {
-  @media (max-width: $breakpoint-md) {
+  @include gl-media-breakpoint-down(md) {
     @include gl-flex-direction-column;
   }
 }
 
 @mixin gl-xs-flex-direction-column {
-  @media (max-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-down(sm) {
     flex-direction: column;
   }
 }
@@ -115,25 +115,25 @@
 }
 
 @mixin gl-sm-flex-direction-row {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-flex-direction-row;
   }
 }
 
 @mixin gl-md-flex-direction-row {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-flex-direction-row;
   }
 }
 
 @mixin gl-lg-flex-direction-row {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-flex-direction-row;
   }
 }
 
 @mixin gl-xl-flex-direction-row {
-  @media (min-width: $breakpoint-xl) {
+  @include gl-media-breakpoint-up(xl) {
     @include gl-flex-direction-row;
   }
 }
@@ -159,19 +159,19 @@
 }
 
 @mixin gl-md-flex-grow-0 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-flex-grow-0;
   }
 }
 
 @mixin gl-md-flex-grow-1 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-flex-grow-1;
   }
 }
 
 @mixin gl-lg-flex-grow-1 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-flex-grow-1;
   }
 }
@@ -193,19 +193,19 @@
 }
 
 @mixin gl-sm-justify-content-end {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-justify-content-end;
   }
 }
 
 @mixin gl-md-justify-content-end {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-justify-content-end;
   }
 }
 
 @mixin gl-lg-justify-content-end {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-justify-content-end;
   }
 }
@@ -219,13 +219,13 @@
 }
 
 @mixin gl-justify-content-md-start {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-justify-content-start;
   }
 }
 
 @mixin gl-lg-justify-content-start {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-justify-content-start;
   }
 }
@@ -243,13 +243,13 @@
 }
 
 @mixin gl-sm-align-self-center {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-align-self-center;
   }
 }
 
 @mixin gl-md-align-self-center {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-align-self-center;
   }
 }

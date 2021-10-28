@@ -115,7 +115,7 @@
 }
 
 @mixin gl-xs-w-full {
-  @media (max-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-down(sm) {
     @include gl-w-full;
   }
 }
@@ -193,19 +193,19 @@
 */
 
 @mixin gl-sm-w-auto {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     width: auto;
   }
 }
 
 @mixin gl-md-w-auto {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     width: auto;
   }
 }
 
 @mixin gl-md-w-50p {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     width: 50%;
   }
 }
@@ -290,7 +290,7 @@
 */
 
 @mixin gl-md-max-w-30p {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     max-width: 30%;
   }
 }

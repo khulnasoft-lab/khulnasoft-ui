@@ -78,7 +78,7 @@
 }
 
 @mixin gl-lg-px-7 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     padding-left: $gl-spacing-scale-7;
     padding-right: $gl-spacing-scale-7;
   }
@@ -195,7 +195,7 @@
 }
 
 @mixin gl-pt-md-2 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     padding-top: $gl-spacing-scale-2;
   }
 }
@@ -237,7 +237,7 @@
 }
 
 @mixin gl-md-pt-12 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-pt-12;
   }
 }
@@ -375,7 +375,7 @@
 }
 
 @mixin gl-mt-md-n2 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     margin-top: -$gl-spacing-scale-2;
   }
 }
@@ -737,133 +737,133 @@
 */
 
 @mixin gl-xs-mb-3 {
-  @media (max-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-down(sm) {
     @include gl-mb-3;
   }
 }
 
 @mixin gl-sm-ml-3 {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-ml-3;
   }
 }
 
 @mixin gl-sm-mt-0 {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-mt-0;
   }
 }
 
 @mixin gl-sm-mt-5 {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-mt-5;
   }
 }
 
 @mixin gl-sm-mb-7 {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-mb-7;
   }
 }
 
 @mixin gl-sm-my-12 {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-my-12;
   }
 }
 
 @mixin gl-sm-mx-0 {
-  @media (min-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-mx-0;
   }
 }
 
 @mixin gl-md-mt-0 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-mt-0;
   }
 }
 
 @mixin gl-md-mb-0 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-mb-0;
   }
 }
 
 @mixin gl-lg-mb-0 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-mb-0;
   }
 }
 
 @mixin gl-lg-mb-5 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-mb-5;
   }
 }
 
 @mixin gl-md-mr-3 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-mr-3;
   }
 }
 
 @mixin gl-md-mr-5 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-mr-5;
   }
 }
 
 @mixin gl-lg-mr-2 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-mr-2;
   }
 }
 
 @mixin gl-lg-mr-3 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-mr-3;
   }
 }
 
 @mixin gl-lg-ml-2 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-ml-2;
   }
 }
 
 @mixin gl-lg-ml-3 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-ml-3;
   }
 }
 
 @mixin gl-lg-mx-2 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-mx-2;
   }
 }
 
 @mixin gl-lg-mx-3 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-mx-3;
   }
 }
 
 @mixin gl-lg-my-5 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-my-5;
   }
 }
 
 @mixin gl-lg-mt-0 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-mt-0;
   }
 }
 
 @mixin gl-lg-mt-5 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-mt-5;
   }
 }
@@ -876,43 +876,43 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 @mixin gl-sm-pr-5 {
-  @media (max-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-down(sm) {
     @include gl-pr-5;
   }
 }
 
 @mixin gl-sm-pl-5 {
-  @media (max-width: $breakpoint-sm) {
+  @include gl-media-breakpoint-down(sm) {
     @include gl-pl-5;
   }
 }
 
 @mixin gl-md-pr-0 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-pr-0;
   }
 }
 
 @mixin gl-md-pr-1 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-pr-1;
   }
 }
 
 @mixin gl-md-pr-2 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-pr-2;
   }
 }
 
 @mixin gl-lg-pr-5 {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     @include gl-pr-5;
   }
 }
 
 @mixin gl-md-pl-3 {
-  @media (min-width: $breakpoint-md) {
+  @include gl-media-breakpoint-up(md) {
     @include gl-pl-3;
   }
 }
