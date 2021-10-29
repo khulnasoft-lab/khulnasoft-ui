@@ -1,3 +1,10 @@
+# [32.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.28.0...v32.29.0) (2021-10-29)
+
+
+### Features
+
+* **Toggle:** Update label semantics for accessibility ([a16af22](https://gitlab.com/gitlab-org/gitlab-ui/commit/a16af22246dbd4e886ca8ac4640bf9c44da5c995))
+
 # [32.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.27.0...v32.28.0) (2021-10-28)
 
 
