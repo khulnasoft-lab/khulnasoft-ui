@@ -1,3 +1,10 @@
+## [32.29.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.29.0...v32.29.1) (2021-10-29)
+
+
+### Bug Fixes
+
+* **css:** Fix [@error](https://gitlab.com/error) call by adding expression ([bd577a8](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd577a8ffe6109ad71bed3159f1759207929115c))
+
 # [32.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.28.0...v32.29.0) (2021-10-29)
 
 
