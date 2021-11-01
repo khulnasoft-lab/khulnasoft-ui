@@ -177,6 +177,10 @@
   color: $purple-600;
 }
 
+@mixin gl-text-purple-800 {
+  color: $purple-800;
+}
+
 @mixin gl-text-theme-indigo-200 {
   color: $theme-indigo-200;
 }
