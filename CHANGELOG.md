@@ -1,3 +1,10 @@
+## [32.29.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.29.1...v32.29.2) (2021-11-01)
+
+
+### Bug Fixes
+
+* **Avatar:** Parse emoji for avatar name ([d23c341](https://gitlab.com/gitlab-org/gitlab-ui/commit/d23c341bb8cef5683bf2d49556dabe4008be76cf))
+
 ## [32.29.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.29.0...v32.29.1) (2021-10-29)
 
 
