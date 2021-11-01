@@ -15,6 +15,14 @@
   border-style: solid;
 }
 
+@mixin gl-border-dashed($hover: true) {
+  border-style: dashed;
+}
+
+@mixin gl-border-dotted($hover: true) {
+  border-style: dotted;
+}
+
 @mixin gl-border-t-solid($hover: true) {
   border-top-style: solid;
 }
