@@ -59,3 +59,17 @@ export const splitAfterSymbols = (symbols, string) => {
 
   return textParts;
 };
+
+export const getAvatarChar = (name) => {
+  if (name) {
+    // Check if first character is an emjoi
+    const match = name.match(/^\p{Emoji}/u);
+    if (match) {
+      // Return the first match
+      return match[0];
+    }
+    return name.charAt(0).toUpperCase();
+  }
+
+  return '';
+};

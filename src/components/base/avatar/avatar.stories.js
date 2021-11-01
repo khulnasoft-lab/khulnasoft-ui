@@ -43,6 +43,26 @@ function generateProjectFallbackProps() {
   return props;
 }
 
+function generateEmojiProjectProps() {
+  const defaultSize = avatarSizeOptions[1];
+  const props = {
+    entityId: {
+      type: Number,
+      default: number('entityId', 123),
+    },
+    entityName: {
+      type: String,
+      default: text('entityName', '🦊Tanuki'),
+    },
+    size: {
+      type: Number,
+      default: select('size', avatarSizeOptions, defaultSize),
+    },
+  };
+
+  return props;
+}
+
 function generateTooltipProps() {
   const props = {
     tooltipText: {
@@ -72,6 +92,16 @@ documentedStoriesOf('base/avatar', readme)
   }))
   .add('project-fallback', () => ({
     props: generateProjectFallbackProps(),
+    template: `
+      <gl-avatar
+        :entity-name="entityName"
+        :entity-id="entityId"
+        :size="size"
+        shape="rect" />
+    `,
+  }))
+  .add('emoji-project-name', () => ({
+    props: generateEmojiProjectProps(),
     template: `
       <gl-avatar
         :entity-name="entityName"
