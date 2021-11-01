@@ -8,14 +8,12 @@ describe('toggle', () => {
   let wrapper;
 
   const label = 'toggle label';
-  const labelId = 'toggle-label-id';
   const helpText = 'help text';
 
   const createWrapper = (props = {}) => {
     wrapper = shallowMount(Toggle, {
       propsData: {
         label,
-        labelId,
         ...props,
       },
     });
@@ -131,7 +129,7 @@ describe('toggle', () => {
       });
 
       it('has accessible name for the button', () => {
-        expect(findButton().attributes('aria-labelledby')).toBe(labelId);
+        expect(findButton().attributes('aria-labelledby')).toBeDefined();
       });
     });
   });
