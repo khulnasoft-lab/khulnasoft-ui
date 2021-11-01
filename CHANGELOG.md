@@ -1,3 +1,10 @@
+# [32.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.29.2...v32.30.0) (2021-11-01)
+
+
+### Features
+
+* **css:** Add `dashed` & `dotted` border styles ([a44161c](https://gitlab.com/gitlab-org/gitlab-ui/commit/a44161c7fddf6388e6fba635da8b47e1079be0b6))
+
 ## [32.29.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.29.1...v32.29.2) (2021-11-01)
 
 
