@@ -1,5 +1,6 @@
 <script>
 import { avatarShapeOptions, avatarSizeOptions } from '../../../utils/constants';
+import { getAvatarChar } from '../../../utils/string_utils';
 
 const IDENTICON_BG_COUNT = 7;
 
@@ -62,7 +63,7 @@ export default {
       return `gl-avatar-identicon-bg${type}`;
     },
     identiconText() {
-      return this.entityName ? this.entityName.charAt(0).toUpperCase() : '';
+      return getAvatarChar(this.entityName);
     },
   },
 };

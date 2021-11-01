@@ -1,4 +1,4 @@
-import { splitAfterSymbols } from './string_utils';
+import { splitAfterSymbols, getAvatarChar } from './string_utils';
 
 describe('string utils', () => {
   describe('splitAfterSymbols', () => {
@@ -25,6 +25,24 @@ describe('string utils', () => {
       const actual = splitAfterSymbols(symbols, string);
       expect(actual).toEqual(result);
       expect(actual.join('')).toEqual(string);
+    });
+  });
+
+  describe('Avatar name parsing', () => {
+    it('Returns first character of name', () => {
+      expect(getAvatarChar('Some Project')).toBe('S');
+    });
+
+    it('Returns empty if name is empty', () => {
+      expect(getAvatarChar('')).toBe('');
+    });
+
+    it('Returns emoji if it is first character in name', () => {
+      expect(getAvatarChar('🦊Tanuki')).toBe('🦊');
+    });
+
+    it('Returns first character if emoji is not first in name', () => {
+      expect(getAvatarChar('tanuki🦊')).toBe('T');
     });
   });
 });
