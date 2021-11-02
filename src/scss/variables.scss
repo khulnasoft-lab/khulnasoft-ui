@@ -427,12 +427,7 @@ $gl-icon-chevron-down: 'data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="
 
 // Icons
 $default-icon-size: px-to-rem(16px);
-// $gl-deprecated-icon-sizes is used for css classes generation as there are still instances around codebase
-// where $gl-icon-sizes is a new list of supported icon sizes and will be used for icon size validation
-// $gl-deprecated-icon-sizes should be replaced with $gl-icon-sizes in scope
-// of this issue https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1232
 $gl-icon-sizes: 8 12 14 16 24 32 48 72;
-$gl-deprecated-icon-sizes: join($gl-icon-sizes, 10 18);
 
 // Dropdowns
 $gl-dropdown-width: px-to-rem(240px);
