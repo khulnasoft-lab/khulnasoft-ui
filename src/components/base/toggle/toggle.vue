@@ -1,4 +1,6 @@
 <script>
+import { uniqueId } from 'lodash';
+
 import { toggleLabelPosition } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
@@ -61,13 +63,6 @@ export default {
       default: undefined,
     },
     /**
-     * The id for the label. This id is used by the aria-labelledby attribute on the toggle button.
-     */
-    labelId: {
-      type: String,
-      required: true,
-    },
-    /**
      * The label's position relative to the toggle. If 'hidden', the toggle will add the .gl-sr-only class so the label is still accessible to screen readers.
      */
     labelPosition: {
@@ -79,7 +74,11 @@ export default {
       },
     },
   },
-
+  data() {
+    return {
+      labelId: uniqueId('toggle-label-'),
+    };
+  },
   computed: {
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
