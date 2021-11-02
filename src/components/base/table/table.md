@@ -1,6 +1,6 @@
 ## Usage
 
-The `gl-table` component wraps BootstrapVue `b-table` or `b-table` component depending on its
+The `gl-table` component wraps BootstrapVue `b-table` or `b-table-lite` component depending on its
 inputs. `b-table` / `b-table-lite` provide a variety of slots for custom data rendering.
 You can learn more about them in the component documentation
 [BTable](https://bootstrap-vue.org/docs/components/table)
