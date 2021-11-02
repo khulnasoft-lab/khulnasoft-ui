@@ -1,10 +1,10 @@
 <script>
-import { tableLiteSlotSelectors, tableLitePropSelectors } from './constants';
+import { tableFullSlots, tableFullProps } from './constants';
 
 const shouldUseFullTable = ({ $attrs, $scopedSlots }) => {
   return (
-    tableLitePropSelectors.some((prop) => $attrs[prop] !== undefined) ||
-    tableLiteSlotSelectors.some((slot) => $scopedSlots[slot] !== undefined)
+    tableFullProps.some((prop) => $attrs[prop] !== undefined) ||
+    tableFullSlots.some((slot) => $scopedSlots[slot] !== undefined)
   );
 };
 

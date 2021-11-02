@@ -1,4 +1,4 @@
-export const tableLiteSlotSelectors = [
+export const tableFullSlots = [
   'bottom-row',
   'empty',
   'emptyfiltered',
@@ -7,7 +7,7 @@ export const tableLiteSlotSelectors = [
   'top-row',
 ];
 
-export const tableLitePropSelectors = [
+export const tableFullProps = [
   'api-url',
   'busy',
   'current-page',
