@@ -1,3 +1,10 @@
+# [32.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.30.0...v32.31.0) (2021-11-02)
+
+
+### Features
+
+* **GlToggle:** Use uniqueId for toggle labels ([2ba11fb](https://gitlab.com/gitlab-org/gitlab-ui/commit/2ba11fbd5023233e4581507f24660a9ffa874f86))
+
 # [32.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.29.2...v32.30.0) (2021-11-01)
 
 
