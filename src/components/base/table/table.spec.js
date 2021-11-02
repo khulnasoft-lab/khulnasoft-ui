@@ -30,27 +30,24 @@ describe('GlTable', () => {
     wrapper = null;
   });
 
-  it('should render GlTableLite when not given any props or slots which require a GlTable', async () => {
-    factory();
-    await waitForPromises();
+  it.each`
+    props               | slots            | fullTableShouldExist | lightTableShouldExist | componentToRender
+    ${undefined}        | ${undefined}     | ${false}             | ${true}               | ${'GlTableLite'}
+    ${{}}               | ${{}}            | ${false}             | ${true}               | ${'GlTableLite'}
+    ${{ blah: 'blah' }} | ${undefined}     | ${false}             | ${true}               | ${'GlTableLite'}
+    ${{ busy: true }}   | ${undefined}     | ${true}              | ${false}              | ${'GLTable'}
+    ${{ busy: true }}   | ${{}}            | ${true}              | ${false}              | ${'GLTable'}
+    ${undefined}        | ${slotsTemplate} | ${true}              | ${false}              | ${'GLTable'}
+    ${{}}               | ${slotsTemplate} | ${true}              | ${false}              | ${'GLTable'}
+    ${{ busy: true }}   | ${slotsTemplate} | ${true}              | ${false}              | ${'GLTable'}
+  `(
+    'Should render $componentToRender when props are "$props" and slots are "$slots"',
+    async ({ props, slots, fullTableShouldExist, lightTableShouldExist }) => {
+      factory(props, slots);
+      await waitForPromises();
 
-    expect(findTableLite().exists()).toBe(true);
-    expect(findTable().exists()).toBe(false);
-  });
-
-  it('should render GLTable when given a prop that qualifies for it', async () => {
-    factory({ busy: true });
-    await waitForPromises();
-
-    expect(findTable().exists()).toBe(true);
-    expect(findTableLite().exists()).toBe(false);
-  });
-
-  it('should render GLTable when given a slot that qualifies for it', async () => {
-    factory({}, slotsTemplate);
-    await waitForPromises();
-
-    expect(findTable().exists()).toBe(true);
-    expect(findTableLite().exists()).toBe(false);
-  });
+      expect(findTableLite().exists()).toBe(lightTableShouldExist);
+      expect(findTable().exists()).toBe(fullTableShouldExist);
+    }
+  );
 });
