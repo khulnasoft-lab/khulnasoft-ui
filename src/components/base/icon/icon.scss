@@ -1,6 +1,6 @@
 .gl-icon {
   fill: currentColor;
-  @each $size in $gl-deprecated-icon-sizes {
+  @each $size in $gl-icon-sizes {
     &.s#{$size} {
       width: #{$size}px;
       height: #{$size}px;

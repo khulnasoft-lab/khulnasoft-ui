@@ -55,15 +55,7 @@ export default {
       type: Number,
       required: false,
       default: 16,
-    },
-    /**
-     * Is used to deprecate 10&18 icon sizes iteratively.
-     * More info here https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1232
-     */
-    useDeprecatedSizes: {
-      type: Boolean,
-      required: false,
-      default: false,
+      validator: (value) => iconSizeOptions.includes(value),
     },
   },
   computed: {
@@ -73,13 +65,6 @@ export default {
     iconSizeClass() {
       return this.size ? `s${this.size}` : '';
     },
-  },
-
-  created() {
-    if (!iconSizeOptions.includes(this.size) && !this.useDeprecatedSizes) {
-      // eslint-disable-next-line no-console
-      console.warn(`[gitlab-ui] Unexpected value '${this.size}' was provided for the icon size`);
-    }
   },
 };
 </script>
