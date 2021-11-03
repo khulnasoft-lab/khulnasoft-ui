@@ -1,3 +1,10 @@
+# [32.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.31.0...v32.32.0) (2021-11-03)
+
+
+### Features
+
+* **GlIcon:** remove support for deprecated icons sizes ([5ea2461](https://gitlab.com/gitlab-org/gitlab-ui/commit/5ea2461cfc1d3e2fd5f5c7f51f5e351e6b79ce5d))
+
 # [32.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.30.0...v32.31.0) (2021-11-02)
 
 
