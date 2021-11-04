@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { POSITION } from './constants';
 import Truncate from './truncate.vue';
+import { createMockDirective, getBinding } from '~helpers/vue_mock_directive';
 
 const removeSpecialChar = (text) => {
   return text.replace(/&lrm;|\u200E/gi, '');
@@ -18,6 +19,9 @@ describe('Truncate component', () => {
   const createComponent = (props) => {
     wrapper = shallowMount(Truncate, {
       propsData: { ...defaultProps, ...props },
+      directives: {
+        GlTooltip: createMockDirective(),
+      },
     });
   };
 
@@ -44,6 +48,10 @@ describe('Truncate component', () => {
 
     it('should have the default position', () => {
       expect(wrapper.props('position')).toBe('end');
+    });
+
+    it('disables the tooltip by default', () => {
+      expect(getBinding(wrapper.element, 'gl-tooltip').value.disabled).toBe(true);
     });
   });
 

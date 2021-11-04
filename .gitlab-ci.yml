@@ -261,6 +261,11 @@ integration_tests:
   stage: test
   script:
     - yarn test:integration
+  artifacts:
+    when: on_failure
+    expire_in: 1 week
+    paths:
+      - cypress
 
 unit_tests:
   extends: [.node, .yarn_install]

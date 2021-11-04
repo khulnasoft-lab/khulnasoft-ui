@@ -38,3 +38,23 @@ export default {
   </div>
 </template>
 ```
+
+The observer can be toggled on or off by passing a boolean argument to the directive:
+
+```html
+<script>
+export default {
+  data() {
+    return {
+      shouldObserve: true,
+    };
+  },
+  methods: {
+    handleResize() {},
+  },
+};
+</script>
+<template>
+  <div v-gl-resize-observer-directive[shouldObserve]="handleResize"></div>
+</template>
+```
