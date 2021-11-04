@@ -19,9 +19,7 @@ export default {
     const component = shouldUseFullTable(this) ? 'FullTable' : 'TableLite';
 
     return createElement(component, {
-      attrs: {
-        ...this.$attrs,
-      },
+      attrs: this.$attrs,
       class: 'gl-table',
       on: this.$listeners,
       scopedSlots: this.$scopedSlots,
