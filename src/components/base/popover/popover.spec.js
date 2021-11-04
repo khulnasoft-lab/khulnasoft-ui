@@ -42,4 +42,13 @@ describe('GlPopover', () => {
       expect(findBVPopover().props('triggers')).toBe(triggers);
     });
   });
+
+  describe('title slot', () => {
+    it('renders title slot content', () => {
+      const title = 'Popover title';
+      createWrapper({ title });
+
+      expect(findBVPopover().props('title')).toBe(title);
+    });
+  });
 });
