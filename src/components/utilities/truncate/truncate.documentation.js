@@ -12,5 +12,8 @@ export default {
       additionalInfo: 'Ellipsis position',
       enum: 'truncateOptions',
     },
+    withTooltip: {
+      additionalInfo: 'Display the full text in a tooltip only if it is being truncated',
+    },
   },
 };

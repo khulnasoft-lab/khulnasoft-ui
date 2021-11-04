@@ -1,4 +1,4 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlTruncate } from '../../../../index';
 import { POSITION } from './constants';
@@ -8,11 +8,12 @@ const components = {
   GlTruncate,
 };
 
-const template = '<gl-truncate :text="text" :position="position" />';
+const template = '<gl-truncate :text="text" :position="position" :with-tooltip="withTooltip" />';
 
 function generateProps({
   longText = 'src/thisIs/AVeryLongFilePath/that/needs/to/be/smartly/truncated/from/the/middle/so/we/dont/lose/important/information/here.vue',
   position = 'middle',
+  withTooltip = false,
 } = {}) {
   return {
     text: {
@@ -22,6 +23,9 @@ function generateProps({
     position: {
       type: String,
       default: select('position', Object.values(POSITION), position),
+    },
+    withTooltip: {
+      default: boolean('withTooltip', withTooltip),
     },
   };
 }

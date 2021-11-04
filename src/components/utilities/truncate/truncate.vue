@@ -1,7 +1,14 @@
 <script>
+import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import { POSITION } from './constants';
 
 export default {
+  POSITION,
+  directives: {
+    GlTooltip: GlTooltipDirective,
+    GlResizeObserver: GlResizeObserverDirective,
+  },
   props: {
     text: {
       type: String,
@@ -13,10 +20,15 @@ export default {
       default: POSITION.END,
       validator: (value) => Object.values(POSITION).includes(value),
     },
+    withTooltip: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
-      POSITION,
+      isTruncated: false,
     };
   },
   computed: {
@@ -30,24 +42,62 @@ export default {
     last() {
       return this.text.slice(this.middleIndex);
     },
+    isTooltipDisabled() {
+      return !this.withTooltip || !this.isTruncated;
+    },
+  },
+  watch: {
+    withTooltip(withTooltip) {
+      if (withTooltip) {
+        this.checkTruncationState();
+      }
+    },
+  },
+  methods: {
+    checkTruncationState() {
+      if (this.withTooltip) {
+        this.isTruncated = this.$refs.text.scrollWidth > this.$refs.text.offsetWidth;
+      }
+    },
   },
 };
 </script>
 
 <template>
   <!-- START  -->
-  <span v-if="position === POSITION.START" class="gl-truncate" :title="text">
-    <span class="gl-truncate-start gl-text-overflow-ellipsis!">&lrm;{{ text }}&lrm;</span>
+  <span
+    v-if="position === $options.POSITION.START"
+    v-gl-tooltip="{ disabled: isTooltipDisabled }"
+    v-gl-resize-observer:[withTooltip]="checkTruncationState"
+    class="gl-truncate"
+    :title="text"
+  >
+    <span ref="text" class="gl-truncate-start gl-text-overflow-ellipsis!"
+      >&lrm;{{ text }}&lrm;</span
+    >
   </span>
 
   <!-- MIDDLE  -->
-  <span v-else-if="position === POSITION.MIDDLE" class="gl-truncate" :title="text">
-    <span class="gl-truncate-end">{{ first }}</span
+  <span
+    v-else-if="position === $options.POSITION.MIDDLE"
+    v-gl-tooltip="{ disabled: isTooltipDisabled }"
+    v-gl-resize-observer:[withTooltip]="checkTruncationState"
+    class="gl-truncate"
+    :title="text"
+  >
+    <span ref="text" class="gl-truncate-end">{{ first }}</span
     ><span class="gl-truncate-start">&lrm;{{ last }}&lrm;</span>
   </span>
 
   <!-- END  -->
-  <span v-else class="gl-truncate" :title="text">
-    <span class="gl-truncate-end">{{ text }}</span>
+  <span
+    v-else
+    v-gl-tooltip="{ disabled: isTooltipDisabled }"
+    v-gl-resize-observer:[withTooltip]="checkTruncationState"
+    class="gl-truncate"
+    data-testid="truncate-end-container"
+    :title="text"
+  >
+    <span ref="text" class="gl-truncate-end">{{ text }}</span>
   </span>
 </template>

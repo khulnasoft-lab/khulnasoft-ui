@@ -10,7 +10,7 @@ describe('resize observer directive', () => {
   const localVue = createLocalVue();
   let wrapper;
 
-  const createComponent = ({ template } = {}) => {
+  const createComponent = ({ template, data = {} } = {}) => {
     const defaultTemplate = `<div v-resize-observer="handleResize"></div>`;
 
     const component = {
@@ -21,6 +21,9 @@ describe('resize observer directive', () => {
         handleResize: mockHandleResize,
       },
       template: template || defaultTemplate,
+      data() {
+        return data;
+      },
     };
 
     wrapper = shallowMount(component, { localVue });
@@ -52,6 +55,13 @@ describe('resize observer directive', () => {
     expect(observesElement(wrapper.element)).toBe(true);
   });
 
+  it('does not subscribe if the argument is false', () => {
+    createComponent({ template: '<div v-resize-observer:[false]="handleResize"></div>' });
+
+    expect(observersCount()).toBe(0);
+    expect(observesElement(wrapper.element)).toBe(false);
+  });
+
   it('passes the first entries "contentRect" and "target" to the given handler', () => {
     createComponent();
 
@@ -59,6 +69,28 @@ describe('resize observer directive', () => {
 
     expect(mockHandleResize).toHaveBeenCalledTimes(1);
     expect(mockHandleResize).toHaveBeenCalledWith({ contentRect: {}, target: wrapper.element });
+  });
+
+  it("detaches then reattaches observer based on argument's value", async () => {
+    expect(observersCount()).toBe(0);
+
+    createComponent({
+      template: '<div v-resize-observer:[isEnabled]="handleResize"></div>',
+      data: {
+        isEnabled: true,
+      },
+    });
+
+    expect(observersCount()).toBe(1);
+    expect(wrapper.element.glResizeHandler).not.toBeFalsy();
+
+    await wrapper.setData({ isEnabled: false });
+
+    expect(wrapper.element.glResizeHandler).toBeFalsy();
+
+    await wrapper.setData({ isEnabled: true });
+
+    expect(wrapper.element.glResizeHandler).not.toBeFalsy();
   });
 
   it('does a clean up when the component is destroyed', () => {

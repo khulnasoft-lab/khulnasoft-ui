@@ -33,3 +33,7 @@ Cypress.Commands.add('visitStory', (component, story = 'default') => {
 
   cy.visit(`iframe.html?id=base-${component}--${story}&viewMode=story`);
 });
+
+Cypress.Commands.add('findByTestId', (testId) => {
+  cy.get(`[data-testid="${testId}"]`).first();
+});
