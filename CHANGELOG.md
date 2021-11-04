@@ -1,3 +1,10 @@
+# [32.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.32.0...v32.33.0) (2021-11-04)
+
+
+### Features
+
+* **GlTruncate:** show full text in a tooltip ([168c532](https://gitlab.com/gitlab-org/gitlab-ui/commit/168c5325c1fab5174cfa5ad092d829ad11c85363))
+
 # [32.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.31.0...v32.32.0) (2021-11-03)
 
 
