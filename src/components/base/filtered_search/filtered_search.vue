@@ -208,14 +208,15 @@ export default {
     },
 
     createTokens(idx, newStrings = ['']) {
-      if (
-        this.activeTokenIdx !== this.lastTokenIdx &&
-        newStrings.length === 1 &&
-        newStrings[0] === ''
-      ) {
-        this.activeTokenIdx = this.lastTokenIdx;
-        return;
-      }
+      // if (
+      //   this.activeTokenIdx !== this.lastTokenIdx &&
+      //   newStrings.length === 1 &&
+      //   newStrings[0] === ''
+      // ) {
+      //   console.log('in if ')
+      //   this.activeTokenIdx = this.lastTokenIdx;
+      //   return;
+      // }
 
       const newTokens = newStrings.map((data) => ({
         type: TERM_TOKEN_TYPE,

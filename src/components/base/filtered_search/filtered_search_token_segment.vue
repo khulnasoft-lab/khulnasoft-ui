@@ -119,11 +119,11 @@ export default {
       const [firstWord, ...otherWords] = splitOnQuotes(newValue).filter(
         (w, idx, arr) => Boolean(w) || idx === arr.length - 1
       );
-      this.$emit('input', this.getMatchingOptionForInputValue(firstWord)?.value ?? firstWord);
+      this.$emit('input', this.getMatchingOptionForInputValue(newValue)?.value ?? newValue);
 
-      if (otherWords.length) {
-        this.$emit('split', otherWords);
-      }
+      // if (otherWords.length) {
+      //   this.$emit('split', otherWords);
+      // }
     },
   },
 
@@ -136,6 +136,7 @@ export default {
     },
 
     getMatchingOptionForInputValue(v, { loose } = { loose: false }) {
+      console.log(v, this.optionTextField);
       return this.options?.find((o) =>
         loose ? o[this.optionTextField].startsWith(v) : [this.optionTextField] === v
       );

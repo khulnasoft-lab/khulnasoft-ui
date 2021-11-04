@@ -164,10 +164,10 @@ export default {
 
     handleOperatorKeydown(evt, { inputValue, suggestedValue, applySuggestion }) {
       const { key } = evt;
-      if (key === ' ' || key === 'Spacebar') {
-        applySuggestion(suggestedValue);
-        return;
-      }
+      // if (key === ' ' || key === 'Spacebar') {
+      //   applySuggestion(suggestedValue);
+      //   return;
+      // }
 
       const potentialValue = `${inputValue}${key}`;
       if (
