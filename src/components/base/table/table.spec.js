@@ -1,9 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
+import { waitForAnimationFrame } from '../../../utils/test_utils';
 import FullTable from './full_table';
 import Table from './table.vue';
 import TableLite from './table_lite';
-
-const waitForPromises = () => new Promise((resolve) => requestAnimationFrame(resolve));
 
 describe('GlTable', () => {
   let wrapper;
@@ -44,7 +43,7 @@ describe('GlTable', () => {
     'Should render $componentToRender when props are "$props" and slots are "$slots"',
     async ({ props, slots, fullTableShouldExist, lightTableShouldExist }) => {
       factory(props, slots);
-      await waitForPromises();
+      await waitForAnimationFrame();
 
       expect(findTableLite().exists()).toBe(lightTableShouldExist);
       expect(findTable().exists()).toBe(fullTableShouldExist);
