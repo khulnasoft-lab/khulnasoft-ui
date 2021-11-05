@@ -93,20 +93,29 @@ body.modal-open {
     .btn-group .btn + .btn {
       @include gl-tmp-modal-btn-group-ml;
     }
+  }
 
-    @include media-breakpoint-down(xs) {
-      @include gl-flex-direction-column;
+  // not selectors are not great, but we have to keep this backward compatible
+  &:not(.gl-modal-actions-inline) {
+    .modal-footer {
+      @include media-breakpoint-down(xs) {
+        @include gl-flex-direction-column;
 
-      .btn + .btn:not(.dropdown-toggle-split),
-      .btn + .btn-group,
-      .btn-group + .btn {
-        @include gl-ml-0;
-        @include gl-mt-3;
-      }
+        .btn {
+          @include gl-w-full;
+        }
 
-      .btn-group .btn + .btn {
-        @include gl-tmp-modal-btn-group-ml;
-        @include gl-mt-0;
+        .btn + .btn:not(.dropdown-toggle-split),
+        .btn + .btn-group,
+        .btn-group + .btn {
+          @include gl-ml-0;
+          @include gl-mt-3;
+        }
+
+        .btn-group .btn + .btn {
+          @include gl-tmp-modal-btn-group-ml;
+          @include gl-mt-0;
+        }
       }
     }
   }

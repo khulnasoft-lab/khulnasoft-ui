@@ -79,6 +79,11 @@ export default {
       required: false,
       default: false,
     },
+    keepActionsInline: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   methods: {
     show() {
@@ -147,7 +152,7 @@ export default {
     :visible="visible"
     v-bind="$attrs"
     lazy
-    :modal-class="['gl-modal', modalClass]"
+    :modal-class="['gl-modal', keepActionsInline ? 'gl-modal-actions-inline' : '', modalClass]"
     v-on="$listeners"
     @shown="setFocus"
     @ok="primary"

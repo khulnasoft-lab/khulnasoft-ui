@@ -32,6 +32,7 @@ function generateTemplate({ props = {}, slots = {} } = {}) {
         :footer-bg-variant="footerBgVariant"
         :footer-border-variant="footerBorderVariant"
         :footer-text-variant="footerTextVariant"
+        :keep-actions-inline="keepActionsInline"
         ${extraProps}
         :action-primary="{text: 'Okay'}"
         :action-secondary="{text: 'Discard Changes'}"
@@ -103,6 +104,10 @@ function generateProps({
     visible: {
       type: Boolean,
       default: visible,
+    },
+    keepActionsInline: {
+      type: Boolean,
+      default: boolean('keepActionsInline', false),
     },
   };
 }
