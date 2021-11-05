@@ -161,7 +161,6 @@ export default {
           <slot name="modal-title">{{ title }}</slot>
         </h4>
       </slot>
-      <close-button ref="close-button" :label="dismissLabel" @click="close" />
     </template>
     <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <slot slot="modal-ok" name="modal-ok"></slot>
@@ -193,6 +192,12 @@ export default {
       >
         {{ actionPrimary.text }}
       </gl-button>
+      <close-button
+        ref="close-button"
+        class="gl-absolute gl-top-5 gl-right-3 gl-mt-0!"
+        :label="dismissLabel"
+        @click="close"
+      />
     </slot>
   </b-modal>
 </template>
