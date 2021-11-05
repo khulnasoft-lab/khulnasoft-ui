@@ -43,6 +43,9 @@ export const mockDefaultChartOptions = {
     axisPointer: {
       show: true,
       label: {},
+      lineStyle: {
+        type: 'solid',
+      },
     },
   },
   yAxis: {
@@ -204,8 +207,8 @@ export const mockDefaultBarChartConfig = {
   yAxisIndex: 0,
   itemStyle: {
     color: hexToRgba(color, 0.2),
-    barBorderColor: color,
-    barBorderWidth: 1,
+    borderColor: color,
+    borderWidth: 1,
   },
   emphasis: {
     itemStyle: {

@@ -1,6 +1,6 @@
 <script>
-import echarts from 'echarts';
-import { defaultHeight, validRenderers } from '../../../utils/charts/config';
+import * as echarts from 'echarts';
+import { defaultHeight, defaultWidth, validRenderers } from '../../../utils/charts/config';
 import createTheme, { themeName } from '../../../utils/charts/theme';
 
 export default {
@@ -66,25 +66,27 @@ export default {
       echarts.registerTheme(themeName, createTheme(this.options));
     }
   },
-  mounted() {
-    /* eslint-disable promise/catch-or-return, promise/always-return */
-    this.$nextTick().then(() => {
-      this.chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
-        renderer: this.renderer,
-      });
-      if (this.groupId.length) {
-        this.chart.group = this.groupId;
-        echarts.connect(this.groupId);
-      }
-      this.chart.on('click', this.clickHandler);
-      /**
-       * Emitted after calling `echarts.init`
-       */
-      this.$emit('created', this.chart);
-      this.draw();
-      this.setChartSize();
+  async mounted() {
+    await this.$nextTick();
+
+    this.chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
+      renderer: this.renderer,
+      width: defaultWidth,
+      height: defaultHeight,
     });
-    /* eslint-enable */
+
+    if (this.groupId.length) {
+      this.chart.group = this.groupId;
+      echarts.connect(this.groupId);
+    }
+
+    this.chart.on('click', this.clickHandler);
+    /**
+     * Emitted after calling `echarts.init`
+     */
+    this.$emit('created', this.chart);
+    this.draw();
+    this.setChartSize();
   },
   beforeDestroy() {
     this.chart.off('click', this.clickHandler);

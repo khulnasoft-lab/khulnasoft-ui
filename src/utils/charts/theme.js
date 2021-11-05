@@ -105,15 +105,14 @@ const axes = {
     margin: 8,
     show: true,
     color: gray600,
-    textStyle: {
-      color: gray600,
-    },
+    hideOverlap: true,
   },
   axisLine: {
     show: false,
   },
   axisPointer: {
     lineStyle: {
+      type: 'solid',
       color: gray600,
     },
     label: {
@@ -175,6 +174,7 @@ const createTheme = (options = {}) => ({
   dataZoom: {
     borderColor: 'transparent',
     filterMode: 'none',
+    brushSelect: false,
     dataBackground: {
       lineStyle: {
         width: 2,
@@ -184,7 +184,7 @@ const createTheme = (options = {}) => ({
       // render unfilled zoom-graph if the series is a line chart without area styles
       // more details: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2364#note_666637306
       areaStyle: isLineChartWithoutArea(options)
-        ? null
+        ? {} // Use empty object instead of null, see https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2185#note_707711029 for more context
         : {
             color: gray50,
             opacity: 1,
@@ -192,7 +192,10 @@ const createTheme = (options = {}) => ({
     },
     fillerColor: hexToRgba(gray200, 0.23),
     handleIcon: scrollHandleSvgPath,
-    handleColor: gray500,
+    handleStyle: {
+      borderColor: 'transparent',
+      color: gray500,
+    },
     handleSize: '50%',
     labelFormatter: () => null,
     textStyle: {
@@ -203,13 +206,15 @@ const createTheme = (options = {}) => ({
     top: '-5',
     left: 'center',
     itemSize: 14,
-    iconStyle: {
-      color: gray200,
-      borderWidth: 0,
-      emphasis: {
+    emphasis: {
+      iconStyle: {
         borderWidth: 0,
         color: gray700,
       },
+    },
+    iconStyle: {
+      color: gray200,
+      borderWidth: 0,
     },
     itemGap: 8,
     feature: {
