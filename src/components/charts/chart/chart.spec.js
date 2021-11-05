@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import echarts from 'echarts';
+import * as echarts from 'echarts';
 import Chart from './chart.vue';
 import createTheme from '~/utils/charts/theme';
 
@@ -35,6 +35,8 @@ describe('chart component', () => {
       themeName,
       {
         renderer: wrapper.props().renderer,
+        width: 300,
+        height: 400,
       }
     );
   });

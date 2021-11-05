@@ -50,8 +50,8 @@ Object {
         },
       },
       "itemStyle": Object {
-        "barBorderColor": "#5772ff",
-        "barBorderWidth": 1,
+        "borderColor": "#5772ff",
+        "borderWidth": 1,
         "color": "rgba(87, 114, 255, 0.2)",
       },
       "name": "Full",
@@ -240,8 +240,8 @@ Object {
         },
       },
       "itemStyle": Object {
-        "barBorderColor": "#5772ff",
-        "barBorderWidth": 1,
+        "borderColor": "#5772ff",
+        "borderWidth": 1,
         "color": "rgba(87, 114, 255, 0.2)",
       },
       "name": "Full",
@@ -271,8 +271,8 @@ Object {
         },
       },
       "itemStyle": Object {
-        "barBorderColor": "#b24800",
-        "barBorderWidth": 1,
+        "borderColor": "#b24800",
+        "borderWidth": 1,
         "color": "rgba(178, 72, 0, 0.2)",
       },
       "name": "Secondary 1",

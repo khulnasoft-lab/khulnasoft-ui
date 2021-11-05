@@ -1,5 +1,5 @@
 <script>
-import echarts from 'echarts';
+import * as echarts from 'echarts';
 import { uid } from '../../../utils/utils';
 import GlPopover from '../../base/popover/popover.vue';
 

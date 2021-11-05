@@ -61,7 +61,7 @@
     "bootstrap-vue": "2.20.1",
     "copy-to-clipboard": "^3.0.8",
     "dompurify": "^2.3.3",
-    "echarts": "^4.9.0",
+    "echarts": "^5.2.1",
     "highlight.js": "^10.6.0",
     "js-beautify": "^1.8.8",
     "lodash": "^4.17.20",

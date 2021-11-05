@@ -112,8 +112,8 @@ export default {
           stack: 'chart',
           itemStyle: {
             color: hexToRgba(barColor, 0.2),
-            barBorderColor: barColor,
-            barBorderWidth: 1,
+            borderColor: barColor,
+            borderWidth: 1,
           },
           emphasis: {
             itemStyle: {

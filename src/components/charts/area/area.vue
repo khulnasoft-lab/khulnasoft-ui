@@ -184,6 +184,9 @@ export default {
         xAxis: {
           axisPointer: {
             show: true,
+            lineStyle: {
+              type: 'solid',
+            },
             label: {
               formatter: this.onLabelChange,
             },

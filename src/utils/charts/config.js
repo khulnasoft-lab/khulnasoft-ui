@@ -12,6 +12,7 @@ import { ANNOTATIONS_SERIES_NAME, arrowSymbol, CHART_TYPE_BAR, CHART_TYPE_LINE }
 export const defaultAreaOpacity = 0.2;
 export const defaultFontSize = 12;
 export const defaultHeight = 400;
+export const defaultWidth = 300;
 export const validRenderers = ['canvas', 'svg'];
 
 export const axes = {
@@ -433,8 +434,8 @@ export const generateBarSeries = ({
   yAxisIndex,
   itemStyle: {
     color: hexToRgba(color, 0.2),
-    barBorderColor: color,
-    barBorderWidth: 1,
+    borderColor: color,
+    borderWidth: 1,
   },
   emphasis: {
     itemStyle: {
