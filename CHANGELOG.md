@@ -1,3 +1,10 @@
+# [32.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.33.0...v32.34.0) (2021-11-05)
+
+
+### Features
+
+* **echarts:** update to echarts@5 ([c257e58](https://gitlab.com/gitlab-org/gitlab-ui/commit/c257e58e2dfadac7f4ba515f630272ea0a4039e7))
+
 # [32.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.32.0...v32.33.0) (2021-11-04)
 
 
