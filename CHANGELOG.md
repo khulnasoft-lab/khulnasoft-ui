@@ -1,3 +1,10 @@
+# [32.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.34.1...v32.35.0) (2021-11-08)
+
+
+### Features
+
+* **CSS:** Add `gl-lg-w-1px` utility class ([c74d9c9](https://gitlab.com/gitlab-org/gitlab-ui/commit/c74d9c98a1d34029e5c1858922827aead5a5baf6))
+
 ## [32.34.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.34.0...v32.34.1) (2021-11-08)
 
 
