@@ -33,14 +33,23 @@ export default {
 
   watch: {
     initialValue(newValue) {
-      this.activeIdx = this.registeredItems.findIndex((item) => item.value === newValue);
+      this.activeIdx = this.registeredItems.findIndex((item) =>
+        this.valuesMatch(item.value, newValue)
+      );
     },
   },
 
   methods: {
+    valuesMatch(firstValue, secondValue) {
+      if (!firstValue || !secondValue) return false;
+
+      return typeof firstValue === 'string'
+        ? firstValue.toLowerCase() === secondValue.toLowerCase()
+        : firstValue === secondValue;
+    },
     register(item) {
       this.registeredItems.push(item);
-      if (item.value === this.initialValue) {
+      if (this.valuesMatch(item.value, this.initialValue)) {
         this.activeIdx = this.registeredItems.length - 1;
       }
     },

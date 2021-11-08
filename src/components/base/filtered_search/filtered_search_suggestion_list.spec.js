@@ -82,8 +82,8 @@ describe('Filtered search suggestion list component', () => {
       },
       template: `
         <div>
-          <gl-filtered-search-suggestion value="1">1</gl-filtered-search-suggestion>
-          <gl-filtered-search-suggestion value="2">2</gl-filtered-search-suggestion>
+          <gl-filtered-search-suggestion value="One">One</gl-filtered-search-suggestion>
+          <gl-filtered-search-suggestion value="Two">Two</gl-filtered-search-suggestion>
         </div>
       `,
     };
@@ -112,7 +112,7 @@ describe('Filtered search suggestion list component', () => {
     it('selects first suggestion', () => {
       wrapper.vm.nextItem();
       return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe('1');
+        expect(wrapper.vm.getValue()).toBe('One');
       });
     });
 
@@ -120,7 +120,7 @@ describe('Filtered search suggestion list component', () => {
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe('2');
+        expect(wrapper.vm.getValue()).toBe('Two');
       });
     });
 
@@ -146,7 +146,7 @@ describe('Filtered search suggestion list component', () => {
       wrapper.vm.prevItem();
       wrapper.vm.prevItem();
       return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe('2');
+        expect(wrapper.vm.getValue()).toBe('Two');
       });
     });
 
@@ -156,14 +156,21 @@ describe('Filtered search suggestion list component', () => {
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe('1');
+        expect(wrapper.vm.getValue()).toBe('One');
       });
     });
 
     it('highlights suggestion if initial-value is provided', () => {
-      wrapper.setProps({ initialValue: '2' });
+      wrapper.setProps({ initialValue: 'Two' });
       return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('2');
+        expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Two');
+      });
+    });
+
+    it('highlights suggestion if initial-value is provided, regardless of case sensitivity', async () => {
+      wrapper.setProps({ initialValue: 'two' });
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Two');
       });
     });
 
