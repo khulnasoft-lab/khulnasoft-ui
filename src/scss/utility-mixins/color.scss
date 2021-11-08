@@ -19,6 +19,10 @@
   color: $body-color;
 }
 
+@mixin gl-text-secondary {
+  color: $gl-text-color-secondary;
+}
+
 @mixin gl-sm-text-body {
   @include gl-media-breakpoint-up(sm) {
     @include gl-text-body;
