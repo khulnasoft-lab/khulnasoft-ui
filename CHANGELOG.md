@@ -1,3 +1,10 @@
+## [32.34.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.34.0...v32.34.1) (2021-11-08)
+
+
+### Bug Fixes
+
+* **FilteredSearch:** Remove case sensitivity ([6e3c271](https://gitlab.com/gitlab-org/gitlab-ui/commit/6e3c271cefb3f44893fb6b684c59ec73e3b6f7e5))
+
 # [32.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.33.0...v32.34.0) (2021-11-05)
 
 
