@@ -12,8 +12,8 @@ import {
 } from '../../../../index';
 import {
   buttonCategoryOptions,
-  newDropdownVariantOptions,
   buttonSizeOptions,
+  dropdownVariantOptions,
 } from '../../../utils/constants';
 import readme from './dropdown.md';
 
@@ -57,7 +57,7 @@ function generateProps({
     },
     variant: {
       type: String,
-      default: select('variant', Object.values(newDropdownVariantOptions), variant),
+      default: select('variant', Object.values(dropdownVariantOptions), variant),
     },
     size: {
       type: String,
@@ -197,7 +197,7 @@ documentedStoriesOf('base/dropdown', readme)
     props: generateProps({
       text: 'Some dropdown',
       category: buttonCategoryOptions.secondary,
-      variant: newDropdownVariantOptions.confirm,
+      variant: dropdownVariantOptions.confirm,
     }),
     components,
     template: wrap`
