@@ -1,3 +1,10 @@
+# [32.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.35.0...v32.36.0) (2021-11-09)
+
+
+### Features
+
+* Add gl-md-max-w-50p util class ([27be044](https://gitlab.com/gitlab-org/gitlab-ui/commit/27be0445aa3d7ac94d939f81dc63a2ab2711ea5e))
+
 # [32.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.34.1...v32.35.0) (2021-11-08)
 
 
