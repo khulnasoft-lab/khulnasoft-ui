@@ -115,7 +115,7 @@ export const badgeForButtonOptions = {
   [buttonVariantOptions.danger]: badgeVariantOptions.danger,
 };
 
-export const newDropdownVariantOptions = {
+export const dropdownVariantOptions = {
   default: 'default',
   confirm: 'confirm',
   info: 'info (deprecated)',

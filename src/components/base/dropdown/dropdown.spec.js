@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 
-import { newDropdownVariantOptions } from '../../../utils/constants';
+import { dropdownVariantOptions } from '../../../utils/constants';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlDropdown from './dropdown.vue';
 
@@ -175,14 +175,11 @@ describe('new dropdown', () => {
   });
 
   describe('secondary category', () => {
-    it.each(Object.keys(newDropdownVariantOptions))(
-      'applies %s variant class properly',
-      (variant) => {
-        buildWrapper({ category: 'secondary', variant });
+    it.each(Object.keys(dropdownVariantOptions))('applies %s variant class properly', (variant) => {
+      buildWrapper({ category: 'secondary', variant });
 
-        expect(findDropdownToggle().classes()).toContain(`btn-${variant}-secondary`);
-      }
-    );
+      expect(findDropdownToggle().classes()).toContain(`btn-${variant}-secondary`);
+    });
   });
 
   describe('when the header slot exists', () => {
