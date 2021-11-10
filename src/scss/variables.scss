@@ -295,6 +295,9 @@ $t-gray-a-08: rgba(#000, 0.08);
 $t-gray-a-24: rgba(#000, 0.24);
 
 // Text
+$gl-text-color: $gray-900 !default;
+$gl-text-color-secondary: $gray-500 !default;
+
 $gl-font-weight-light: 300;
 $gl-font-weight-normal: 400;
 $gl-font-weight-bold: 600;
@@ -453,7 +456,7 @@ $modal-backdrop-opacity: 0.64;
 // Bootstrap overrides
 // these should ideally be moved further up in the file to the compoent-relevant sections
 // but they can wait here for now
-$body-color: $gray-900 !default;
+$body-color: $gl-text-color !default;
 
 $secondary: $gray-50;
 $success: $green-500;
