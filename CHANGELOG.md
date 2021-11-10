@@ -1,3 +1,10 @@
+# [32.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.36.0...v32.37.0) (2021-11-10)
+
+
+### Features
+
+* Add util class for text-secondary ([6d5ee52](https://gitlab.com/gitlab-org/gitlab-ui/commit/6d5ee52f28487b6e8d06eb11c2e4cb2796891efa))
+
 # [32.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.35.0...v32.36.0) (2021-11-09)
 
 
