@@ -1,9 +1,3 @@
-# GlTokenSelector
-
-<!-- STORY -->
-
-## Usage
-
 Choose from a provided list of tokens or add a user defined token.
 
 ```html

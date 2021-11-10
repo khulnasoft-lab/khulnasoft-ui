@@ -92,6 +92,7 @@ export const setupStorybookReadme = () =>
         'GlBarChart',
         'GlCarousel',
         'GlMarkdown',
+        'GlTokenSelector',
       ],
       components: {
         GlComponentDocumentation,

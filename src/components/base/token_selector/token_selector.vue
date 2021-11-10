@@ -14,6 +14,9 @@ export default {
     event: 'input',
   },
   props: {
+    /**
+     * Items to display in dropdown
+     */
     dropdownItems: {
       type: Array,
       // All items need to have an `id` key
@@ -21,57 +24,89 @@ export default {
       required: false,
       default: () => [],
     },
+    /**
+     * Should users be allowed to add tokens that are not in `dropdown-items`
+     */
     allowUserDefinedTokens: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * Dropdown items are loading, can be used when requesting new dropdown items
+     */
     loading: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * Hide the dropdown if `dropdown-items` is empty. Will show `no-results-content` slot if this is `false`
+     */
     hideDropdownWithNoItems: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * CSS classes to add to the main token selector container (`.gl-token-selector`)
+     */
     containerClass: {
       type: String,
       required: false,
       default: '',
     },
+    /**
+     * CSS classes to add to dropdown menu `ul` element
+     */
     menuClass: {
       type: [String, Array, Object],
       required: false,
       default: '',
     },
+    /**
+     * The autocomplete attribute value for the underlying `input` element
+     */
     autocomplete: {
       type: String,
       required: false,
       default: 'off',
     },
+    /**
+     * The `aria-labelledby` attribute value for the underlying `input` element
+     */
     ariaLabelledby: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * The `placeholder` attribute value for the underlying `input` element
+     */
     placeholder: {
       type: String,
       required: false,
       default: null,
     },
+    /**
+     * HTML attributes to add to the text input. Helpful for adding `data-testid` and `data-qa-selector` attributes
+     */
     textInputAttrs: {
       type: Object,
       required: false,
       default: null,
     },
+    /**
+     * Controls the validation state appearance of the component. `true` for valid, `false` for invalid, or `null` for no validation state
+     */
     state: {
       type: Boolean,
       required: false,
       default: null,
     },
-    // Used for custom `v-model`
+    /**
+     * Tokens that are selected. This prop will automatically be added when using `v-model`
+     */
     selectedTokens: {
       type: Array,
       // All tokens need to have an `id` key
@@ -134,6 +169,11 @@ export default {
   watch: {
     inputText(newValue, oldValue) {
       if (newValue !== oldValue) {
+        /**
+         * Fired when user types in the token selector
+         *
+         * @property {string} inputText
+         */
         this.$emit('text-input', newValue);
 
         this.resetFocusedDropdownItem();
@@ -159,6 +199,11 @@ export default {
   },
   methods: {
     handleFocus(event) {
+      /**
+       * Fired when the token selector is focused
+       *
+       * @property {FocusEvent} event
+       */
       this.$emit('focus', event);
 
       this.openDropdown();
@@ -170,6 +215,11 @@ export default {
       }
     },
     handleBlur(event) {
+      /**
+       * Fired when the token selector is blurred
+       *
+       * @property {FocusEvent} event
+       */
       this.$emit('blur', event);
 
       this.inputFocused = false;
@@ -234,18 +284,38 @@ export default {
               name: this.inputText,
             };
 
+      /**
+       * Fired when a token is added or removed
+       *
+       * @property {array} selectedTokens
+       */
       this.$emit('input', [...this.selectedTokens, token]);
 
       this.inputText = '';
       this.closeDropdown();
 
+      /**
+       * Fired when a token is added
+       *
+       * @property {object} token
+       */
       this.$emit('token-add', token);
     },
     removeToken(token) {
+      /**
+       * Fired when user types in the token selector
+       *
+       * @property {string} inputText
+       */
       this.$emit(
         'input',
         this.selectedTokens.filter((selectedToken) => selectedToken.id !== token.id)
       );
+      /**
+       * Fired when a token is removed
+       *
+       * @property {object} token
+       */
       this.$emit('token-remove', token);
     },
     cancelTokenFocus() {
@@ -296,6 +366,10 @@ export default {
         @cancel-focus="cancelTokenFocus"
       >
         <template #token-content="{ token }">
+          <!-- @slot Content to pass to the token component slot. Can be used
+            to add an avatar to the token. Default content is "{{ token.name }}".
+               @binding {object} token
+          -->
           <slot name="token-content" :token="token"></slot>
         </template>
         <template #text-input>
@@ -342,18 +416,32 @@ export default {
       @show="openDropdown"
     >
       <template #loading-content>
+        <!-- @slot Content to display when `loading` prop is `true`. Default
+          content is "Searching..." -->
         <slot name="loading-content"></slot>
       </template>
       <template #user-defined-token-content>
+        <!-- @slot Content to display when adding a user defined token. Default content is 'Add "{{ inputText }}"'.
+             @binding {string} inputText
+        -->
         <slot name="user-defined-token-content" :input-text="inputText"></slot>
       </template>
       <template #no-results-content>
+        <!-- @slot Content to display when `dropdown-items` is empty and
+          `allow-user-defined-tokens` is `false`. Default content is "No matches found". -->
         <slot name="no-results-content"></slot>
       </template>
       <template #dropdown-item-content="{ dropdownItem }">
+        <!-- @slot Dropdown item content. Default content is "{{ dropdownItem.name }}".
+             @binding {object} dropdownItem
+        -->
         <slot name="dropdown-item-content" :dropdown-item="dropdownItem"></slot>
       </template>
       <template #dropdown-footer>
+        <!-- @slot Content to add to the bottom of the dropdown.
+          Can be used in conjunction with `gl-intersection-observer` to load
+          more items as the user scrolls.
+        -->
         <slot name="dropdown-footer"></slot>
       </template>
     </gl-token-selector-dropdown>
