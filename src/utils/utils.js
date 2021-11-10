@@ -104,11 +104,21 @@ export function focusFirstFocusableElement(elts) {
 }
 
 /**
+ * Returns true if the current environment is considered a development environment (it's not
+ * production or test).
+ *
+ * @returns {boolean}
+ */
+export function isDev() {
+  return !['test', 'production'].includes(process.env.NODE_ENV);
+}
+
+/**
  * Prints a warning message to the console in non-test and non-production environments.
  * @param {string} message message to print to the console
  */
 export function logWarning(message = '') {
-  if (message.length && !['test', 'production'].includes(process.env.NODE_ENV)) {
+  if (message.length && isDev()) {
     console.warn(message); // eslint-disable-line no-console
   }
 }

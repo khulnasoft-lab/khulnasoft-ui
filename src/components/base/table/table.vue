@@ -1,11 +1,27 @@
 <script>
 import { BTable } from 'bootstrap-vue';
+import { logWarning, isDev } from '../../../utils/utils';
+import { tableFullSlots, tableFullProps, glTableLiteWarning } from './constants';
+
+const shouldUseFullTable = ({ $attrs, $scopedSlots }) => {
+  return (
+    tableFullProps.some((prop) => $attrs[prop] !== undefined) ||
+    tableFullSlots.some((slot) => $scopedSlots[slot] !== undefined)
+  );
+};
 
 export default {
   components: {
     BTable,
   },
   inheritAttrs: false,
+  mounted() {
+    // logWarning will call isDev before logging any message
+    // this additional call to isDev is being made to exit the condition early when run in production
+    if (isDev() && !shouldUseFullTable(this)) {
+      logWarning(glTableLiteWarning);
+    }
+  },
 };
 </script>
 
