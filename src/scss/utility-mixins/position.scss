@@ -192,6 +192,10 @@
   top: -$gl-spacing-scale-5;
 }
 
+@mixin gl-top-n8 {
+  top: -$gl-spacing-scale-8;
+}
+
 @mixin gl-float-left {
   float: left;
 }

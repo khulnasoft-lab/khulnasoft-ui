@@ -79,6 +79,11 @@ export default {
       required: false,
       default: false,
     },
+    hideFooter: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   methods: {
     show() {
@@ -145,6 +150,7 @@ export default {
     :title-tag="titleTag"
     :size="size"
     :visible="visible"
+    :hide-footer="hideFooter"
     v-bind="$attrs"
     lazy
     :modal-class="['gl-modal', modalClass]"
@@ -154,7 +160,16 @@ export default {
     @cancel="canceled"
     @change="$emit('change', $event)"
   >
-    <slot></slot>
+    <template #default>
+      <slot></slot>
+      <close-button
+        v-if="hideFooter"
+        ref="close-button"
+        class="gl-absolute gl-top-n8 gl-right-3 gl-mt-0!"
+        :label="dismissLabel"
+        @click="close"
+      />
+    </template>
     <template #modal-header>
       <slot name="modal-header">
         <h4 class="modal-title">
