@@ -13,7 +13,7 @@ default:
     - gitlab-org
 
 variables:
-  PUPPETEER_VERSION: '5.2.1'
+  PUPPETEER_VERSION: '10.4.0'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
   # We want to utilize the faster SAST and Dependency Scanning which are not docker in docker
   SAST_DISABLE_DIND: 'true'
