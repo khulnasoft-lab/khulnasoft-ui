@@ -1,7 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import Chart from '../chart/chart.vue';
 import BarChart from './bar.vue';
-import ChartTooltip from '~/components/charts/tooltip/tooltip.vue';
 import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
 
 const mockChartInstance = {
@@ -34,7 +33,6 @@ describe('Bar chart component', () => {
   let wrapper;
 
   const findChart = () => wrapper.findComponent(Chart);
-  const findChartTooltip = () => wrapper.findComponent(ChartTooltip);
   const getOptions = () => findChart().props('options');
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
@@ -121,19 +119,6 @@ describe('Bar chart component', () => {
           expect(wrapper.vm.tooltipContent[defaultChartProps.xAxisTitle].value).toBe(
             labelParams.seriesData[0].data[0]
           );
-        });
-      });
-
-      it('render accurate tooltip title and content', () => {
-        const expectedTooltipTitle = `${labelParams.value} (${defaultChartProps.yAxisTitle})`;
-
-        getOptions().yAxis.axisPointer.label.formatter(labelParams);
-        return wrapper.vm.$nextTick(() => {
-          const tooltipTextContent = findChartTooltip().element.textContent;
-
-          expect(tooltipTextContent).toContain(expectedTooltipTitle);
-          expect(tooltipTextContent).toContain(defaultChartProps.xAxisTitle);
-          expect(tooltipTextContent).toContain(labelParams.seriesData[0].data[0]);
         });
       });
     });
