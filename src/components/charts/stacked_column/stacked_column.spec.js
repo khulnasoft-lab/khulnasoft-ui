@@ -29,6 +29,15 @@ const defaultChartProps = {
   yAxisTitle: 'Commits',
 };
 
+const ChartTooltipStub = {
+  props: ChartTooltip.props,
+  template: `
+     <div>
+       <slot name="title" />
+       <slot />
+     </div>`,
+};
+
 describe('stacked column chart component', () => {
   let wrapper;
   let options;
@@ -36,7 +45,7 @@ describe('stacked column chart component', () => {
   const findChart = () => wrapper.findComponent(Chart);
   const findLegend = () => wrapper.findComponent(ChartLegend);
   const getOptions = () => findChart().props('options');
-  const findDataTooltip = () => wrapper.findComponent(ChartTooltip);
+  const findDataTooltip = () => wrapper.findComponent(ChartTooltipStub);
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
@@ -45,6 +54,7 @@ describe('stacked column chart component', () => {
       propsData: { ...defaultChartProps, ...props },
       stubs: {
         'tooltip-default-format': TooltipDefaultFormat,
+        ChartTooltip: ChartTooltipStub,
       },
       slots,
     });
