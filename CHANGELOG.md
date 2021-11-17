@@ -1,3 +1,10 @@
+# [32.38.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.37.0...v32.38.0) (2021-11-17)
+
+
+### Features
+
+* **GlFilteredSearchTokenSegment:** Colon support ([abf3856](https://gitlab.com/gitlab-org/gitlab-ui/commit/abf3856396080e6699ddfbcd526991dcea2dc5f3))
+
 # [32.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.36.0...v32.37.0) (2021-11-10)
 
 
