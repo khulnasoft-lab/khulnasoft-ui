@@ -13,6 +13,7 @@ const template = `
     :option="option"
     :y-axis-title="yAxisTitle"
     :x-axis-title="xAxisTitle"
+    data-testid="discrete-scatter-chart"
   />
 `;
 
