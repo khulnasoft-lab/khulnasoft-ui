@@ -27,7 +27,7 @@ describe('Filtered search token segment', () => {
       methods: {
         nextItem: jest.fn(),
         prevItem: jest.fn(),
-        getValue: jest.fn(),
+        getValue: () => 'notnull',
       },
       template: `<div class="ololosha"><slot></slot></div>`,
     };
@@ -194,6 +194,22 @@ describe('Filtered search token segment', () => {
       expect(wrapper.emitted().input[0][0]).toBe(formattedToken);
       expect(wrapper.emitted().select[0][0]).toBe(formattedToken);
       expect(wrapper.emitted().complete[0][0]).toBe(formattedToken);
+    });
+
+    it('selects suggestion on press Enter', () => {
+      createComponent({ active: true, options: OPTIONS, value: false });
+      wrapper.find('input').trigger('keydown', { key: 'ArrowDown' });
+
+      wrapper.find('input').trigger('keydown', { key: 'Enter' });
+      expect(wrapper.emitted('select')).toHaveLength(1);
+    });
+
+    it('selects suggestion on press Colon', () => {
+      createComponent({ active: true, options: OPTIONS, value: false });
+      wrapper.find('input').trigger('keydown', { key: 'ArrowDown' });
+
+      wrapper.find('input').trigger('keydown', { key: ':' });
+      expect(wrapper.emitted('select')).toHaveLength(1);
     });
   });
 
