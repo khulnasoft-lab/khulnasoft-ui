@@ -195,6 +195,11 @@ export default {
             this.$emit('submit');
           }
         },
+        ':': () => {
+          if (suggestedValue != null) {
+            this.applySuggestion(suggestedValue);
+          }
+        },
         Escape: () => {
           this.$emit('complete');
         },
