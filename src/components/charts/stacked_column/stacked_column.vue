@@ -308,16 +308,13 @@ export default {
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"
     >
-      <template v-if="formatTooltipText">
-        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-        <slot slot="title" name="tooltip-title"></slot>
-        <slot name="tooltip-content"></slot>
+      <template #title>
+        <slot name="tooltip-title">{{ tooltipTitle }} ({{ xAxisTitle }})</slot>
       </template>
-      <template v-else>
-        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-        <div slot="title">{{ tooltipTitle }} ({{ xAxisTitle }})</div>
+
+      <slot name="tooltip-content">
         <tooltip-default-format :tooltip-content="tooltipContent" />
-      </template>
+      </slot>
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"
