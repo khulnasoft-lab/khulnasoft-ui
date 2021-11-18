@@ -1,16 +1,8 @@
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './carousel.md';
 import GlCarousel from './carousel.vue';
 import GlCarouselSlide from './carousel_slide.vue';
 
-const components = {
-  GlCarousel,
-  GlCarouselSlide,
-};
-
-documentedStoriesOf('base/carousel', readme).add('default carousel', () => ({
-  components,
-  template: `
+const template = `
     <gl-carousel
       :interval="0"
       controls
@@ -34,5 +26,26 @@ documentedStoriesOf('base/carousel', readme).add('default carousel', () => ({
 
       <!-- Slides with image only -->
       <gl-carousel-slide img-src="./img/carousel_slide3.jpg"/>
-    </gl-carousel>`,
-}));
+    </gl-carousel> 
+  `;
+
+const Template = () => ({
+  components: { GlCarousel, GlCarouselSlide },
+  template,
+});
+
+export const Default = Template.bind({});
+
+export default {
+  title: 'base/carousel',
+  component: GlCarousel,
+  parameters: {
+    bootstrapComponent: 'b-carousel',
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+};

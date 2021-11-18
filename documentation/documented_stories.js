@@ -90,6 +90,7 @@ export const setupStorybookReadme = () =>
         'GlAccordionItem',
         'GlDaterangePicker',
         'GlBarChart',
+        'GlCarousel',
       ],
       components: {
         GlComponentDocumentation,
