@@ -339,8 +339,9 @@ export default {
       :left="annotationsTooltipPosition.left"
       placement="bottom"
     >
-      <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-      <div slot="title">{{ annotationsTooltipTitle }}</div>
+      <template #title>
+        <div>{{ annotationsTooltipTitle }}</div>
+      </template>
       <div>{{ annotationsTooltipContent }}</div>
     </chart-tooltip>
     <chart-tooltip

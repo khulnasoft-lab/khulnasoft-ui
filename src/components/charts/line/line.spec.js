@@ -3,9 +3,10 @@ import { shallowMount } from '@vue/test-utils';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import LineChart from './line.vue';
-import { createMockChartInstance } from '~helpers/chart_stubs';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
+
+import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 
 let mockChartInstance;
 
@@ -24,9 +25,10 @@ describe('line component', () => {
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  const createShallowWrapper = (props = {}) => {
+  const createShallowWrapper = (props = {}, mountOptions = {}) => {
     wrapper = shallowMount(LineChart, {
       propsData: { option, data: [], ...props },
+      ...mountOptions,
     });
     emitChartCreated();
   };
@@ -112,14 +114,21 @@ describe('line component', () => {
         },
       };
 
-      createShallowWrapper({
-        annotations: [
-          {
-            min: '',
-            max: '',
+      createShallowWrapper(
+        {
+          annotations: [
+            {
+              min: '',
+              max: '',
+            },
+          ],
+        },
+        {
+          stubs: {
+            'chart-tooltip': ChartTooltipStub,
           },
-        ],
-      });
+        }
+      );
 
       wrapper.vm.onChartDataPointMouseOver(params);
 
