@@ -174,9 +174,13 @@ export default {
 </script>
 
 <template>
-  <div v-resize-observer="handleResize" class="d-flex align-items-center" @mouseleave="hideTooltip">
+  <div
+    v-resize-observer="handleResize"
+    class="gl-display-flex gl-align-items-center"
+    @mouseleave="hideTooltip"
+  >
     <slot name="default"></slot>
-    <div class="flex-grow-1 position-relative">
+    <div class="gl-flex-grow-1 gl-relative">
       <chart :height="height" :options="options" @created="onChartCreated" />
       <chart-tooltip
         v-if="chartInstance"
@@ -187,17 +191,25 @@ export default {
         :style="{ pointerEvents: 'none' }"
         placement="top"
       >
-        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-        <div slot="title" class="js-tooltip-title text-nowrap">{{ tooltip.title }}</div>
-        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-        <div slot="default" class="js-tooltip-content d-flex">
-          <span v-if="tooltipLabel" class="pr-4 mr-auto">{{ tooltipLabel }}</span>
-          <strong>{{ tooltip.content }}</strong>
-        </div>
+        <template #title>
+          <div data-testid="tooltip-title" class="gl-white-space-nowrap">
+            {{ tooltip.title }}
+          </div>
+        </template>
+        <template #default>
+          <div class="gl-display-flex" data-testid="tooltip-content">
+            <span v-if="tooltipLabel" class="gl-pr-6 gl-mr-auto">{{ tooltipLabel }}</span>
+            <strong>{{ tooltip.content }}</strong>
+          </div>
+        </template>
       </chart-tooltip>
     </div>
-    <span v-if="showLastYValue" class="js-last-y-value d-inline-flex justify-content-center ml-3">{{
-      lastYValue
-    }}</span>
+    <span
+      v-if="showLastYValue"
+      class="gl-display-inline-flex gl-justify-content-center gl-ml-5"
+      data-testid="last-y-value"
+    >
+      {{ lastYValue }}
+    </span>
   </div>
 </template>

@@ -1,6 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
 import SparklineChart from './sparkline.vue';
 import { waitForAnimationFrame } from '~/utils/test_utils';
 
@@ -11,18 +10,6 @@ const mockChartInstance = {
   convertToPixel: () => [],
   resize: mockResize,
 };
-
-// echarts need to be mocked to prevent prop-validation in chart-tooltips to fail
-jest.mock('echarts', () => ({
-  getInstanceByDom: () => mockChartInstance,
-}));
-
-jest.mock('~/utils/charts/theme', () => ({
-  sparkline: {
-    variants: { foo: 'foo', bar: 'bar' },
-    defaultVariant: 'foo',
-  },
-}));
 
 let triggerResize = () => {};
 jest.mock('~/directives/resize_observer/resize_observer', () => ({
@@ -35,6 +22,11 @@ jest.mock('~/directives/resize_observer/resize_observer', () => ({
 
 const localVue = createLocalVue();
 
+const ChartToolTipStub = {
+  name: 'chart-tooltip-stub',
+  template: '<div><slot name="default"></slot><slot name="title"></slot></div>',
+};
+
 describe('sparkline chart component', () => {
   let wrapper;
   let componentOptions;
@@ -46,19 +38,23 @@ describe('sparkline chart component', () => {
         variant: null,
       },
       scopedSlots: { latestSeriesEntry: jest.fn() },
+      stubs: {
+        'chart-tooltip': ChartToolTipStub,
+      },
     };
 
     wrapper = shallowMount(SparklineChart, componentOptions);
   };
 
   // helpers
+  const getByTestId = (id) => wrapper.find(`[data-testid="${id}"]`);
   const getChart = () => wrapper.findComponent(Chart);
 
-  const getTooltip = () => wrapper.findComponent(ChartTooltip);
-  const getTooltipTitle = () => getTooltip().find('.js-tooltip-title');
-  const getTooltipContent = () => getTooltip().find('.js-tooltip-content');
+  const getTooltip = () => wrapper.findComponent(ChartToolTipStub);
+  const getTooltipTitle = () => getByTestId('tooltip-title');
+  const getTooltipContent = () => getByTestId('tooltip-content');
 
-  const getLastYValue = () => wrapper.find('.js-last-y-value');
+  const getLastYValue = () => getByTestId('last-y-value');
 
   const getChartOptions = () => getChart().props('options');
   const getXAxisLabelFormatter = () => {
@@ -87,7 +83,7 @@ describe('sparkline chart component', () => {
   });
 
   it('emits `chartCreated`, which passes on the chart instance', () => {
-    expect(wrapper.emitted('chartCreated').length).toBe(1);
+    expect(wrapper.emitted('chartCreated')).toHaveLength(1);
     expect(wrapper.emitted('chartCreated')[0][0]).toBe(mockChartInstance);
   });
 
@@ -153,7 +149,7 @@ describe('sparkline chart component', () => {
     expect(getTooltip().attributes('show')).toBeFalsy();
   });
 
-  it('adds the right content to the tooltip', () => {
+  it('adds the right content to the tooltip', async () => {
     const xValue = 'foo';
     const yValue = 'bar';
     const mockData = { seriesData: [{ data: [xValue, yValue] }] };
@@ -163,10 +159,9 @@ describe('sparkline chart component', () => {
     expect(getTooltipTitle().text()).toBe('');
     expect(getTooltipContent().text()).toBe('');
 
-    return waitForAnimationFrame().then(() => {
-      expect(getTooltipTitle().text()).toBe(xValue);
-      expect(getTooltipContent().text()).toBe(yValue);
-    });
+    await waitForAnimationFrame();
+    expect(getTooltipTitle().text()).toBe(xValue);
+    expect(getTooltipContent().text()).toBe(yValue);
   });
 
   it(`shows the last entry's y-value per default`, async () => {
@@ -182,13 +177,12 @@ describe('sparkline chart component', () => {
     expect(getLastYValue().text()).toBe(latestEntryYValue);
   });
 
-  it(`does not show the last entry's y-value if 'showLastYValue' is false`, () => {
+  it(`does not show the last entry's y-value if 'showLastYValue' is false`, async () => {
     expect(getLastYValue().exists()).toBe(true);
 
     wrapper.setProps({ showLastYValue: false });
 
-    return wrapper.vm.$nextTick().then(() => {
-      expect(getLastYValue().exists()).toBe(false);
-    });
+    await wrapper.vm.$nextTick();
+    expect(getLastYValue().exists()).toBe(false);
   });
 });
