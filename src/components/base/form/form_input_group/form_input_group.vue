@@ -32,6 +32,11 @@ export default {
       required: false,
       default: undefined,
     },
+    inputClass: {
+      type: [String, Array, Object],
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -73,7 +78,7 @@ export default {
         <b-form-input
           ref="input"
           v-model="localValue"
-          class="gl-form-input"
+          :class="['gl-form-input', inputClass]"
           :aria-label="label"
           v-bind="$attrs"
           v-on="$listeners"
