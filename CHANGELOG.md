@@ -1,3 +1,10 @@
+# [32.39.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.38.0...v32.39.0) (2021-11-19)
+
+
+### Features
+
+* **GlFilteredSearch:** Fix typing Colon ([1541d19](https://gitlab.com/gitlab-org/gitlab-ui/commit/1541d191db4acc5aa07385acbd19b2ad5d657a17))
+
 # [32.38.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.37.0...v32.38.0) (2021-11-17)
 
 
