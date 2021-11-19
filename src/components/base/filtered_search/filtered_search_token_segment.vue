@@ -189,6 +189,7 @@ export default {
 
       const handlers = {
         Enter: () => {
+          e.preventDefault();
           if (suggestedValue != null) {
             this.applySuggestion(suggestedValue);
           } else {
@@ -197,10 +198,12 @@ export default {
         },
         ':': () => {
           if (suggestedValue != null) {
+            e.preventDefault();
             this.applySuggestion(suggestedValue);
           }
         },
         Escape: () => {
+          e.preventDefault();
           this.$emit('complete');
         },
       };
@@ -217,7 +220,6 @@ export default {
       }
 
       if (Object.keys(handlers).includes(key)) {
-        e.preventDefault();
         handlers[key]();
         return;
       }
@@ -244,6 +246,7 @@ export default {
   <div
     class="gl-filtered-search-token-segment"
     :class="{ 'gl-filtered-search-token-segment-active': active }"
+    data-testid="filtered-search-token-segment"
     @mousedown.left="emitIfInactive"
   >
     <template v-if="active">

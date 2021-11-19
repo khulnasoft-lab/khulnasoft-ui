@@ -253,6 +253,7 @@ export default {
     :value="tokens"
     :history-items="historyItems"
     :clearable="hasValue"
+    data-testid="filtered-search-input"
     @submit="submit"
     @input="applyNewValue"
     @history-item-selected="$emit('history-item-selected', $event)"

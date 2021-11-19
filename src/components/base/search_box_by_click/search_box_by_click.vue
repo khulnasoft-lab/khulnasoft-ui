@@ -210,6 +210,7 @@ export default {
       :title="clearButtonTitle"
       :tooltip-container="tooltipContainer"
       class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
+      data-testid="filtered-search-clear-button"
       @click="clearInput"
     />
     <template #append class="gl-search-box-by-click-input-group-control">
