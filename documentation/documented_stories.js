@@ -91,6 +91,7 @@ export const setupStorybookReadme = () =>
         'GlDaterangePicker',
         'GlBarChart',
         'GlCarousel',
+        'GlMarkdown',
       ],
       components: {
         GlComponentDocumentation,

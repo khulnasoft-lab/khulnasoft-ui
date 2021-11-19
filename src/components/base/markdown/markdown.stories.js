@@ -1,30 +1,31 @@
-import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './markdown.md';
 import GlMarkdown from './markdown.vue';
 import markdownTypescaleDemoContent from './markdown_typescale_demo.html';
 
-const components = {
-  GlMarkdown,
-};
+const template = `
+  <gl-markdown :compact="compact">${markdownTypescaleDemoContent}</gl-markdown> 
+  `;
 
-documentedStoriesOf('base/markdown', readme)
-  .addDecorator(withKnobs)
-  .add(
-    'typescale',
-    () => ({
-      components,
-      props: {
-        compact: {
-          type: Boolean,
-          default: boolean('compact', false),
-        },
+const generateProps = ({ compact = false } = {}) => ({ compact });
+
+const Template = (args, { argTypes }) => ({
+  components: { GlMarkdown },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Typescale = Template.bind({});
+Typescale.args = generateProps();
+
+export default {
+  title: 'base/markdown',
+  component: GlMarkdown,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
       },
-      template: `
-      <gl-markdown :compact="compact">${markdownTypescaleDemoContent}</gl-markdown>
-    `,
-    }),
-    {
-      viewport: { defaultViewport: 'breakpointExtraLarge' },
-    }
-  );
+    },
+    knobs: { disabled: true },
+  },
+};

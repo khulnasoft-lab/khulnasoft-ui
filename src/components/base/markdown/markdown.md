@@ -1,5 +1,3 @@
-# GlMarkdown
-
 The `GlMarkdown` component styles markdown-generated HTML following the Pajamas Documentation Markdown
 [styling specifications](https://www.figma.com/file/qEddyqCrI7kPSBjGmwkZzQ/Pajamas-UI-Kit---Beta?node-id=542%3A2).
 
