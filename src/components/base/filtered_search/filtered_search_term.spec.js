@@ -69,7 +69,7 @@ describe('Filtered search term', () => {
     ({ originalEvent, emittedEvent }) => {
       createComponent({ active: true, value: { data: 'something' } });
 
-      wrapper.find(segmentStub).vm.$emit(originalEvent);
+      wrapper.findComponent(segmentStub).vm.$emit(originalEvent);
 
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.emitted()[emittedEvent]).toHaveLength(1);

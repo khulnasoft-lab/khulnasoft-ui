@@ -54,7 +54,7 @@ describe('Alert component', () => {
     });
 
     it('renders default slot content', () => {
-      expect(findBodyContainer().find(DummyComponent).exists()).toBe(true);
+      expect(findBodyContainer().findComponent(DummyComponent).exists()).toBe(true);
     });
   });
 
@@ -152,7 +152,7 @@ describe('Alert component', () => {
 
     const actionsContainer = findActionsContainer();
     expect(actionsContainer.exists()).toBe(true);
-    expect(actionsContainer.find(DummyComponent).exists()).toBe(true);
+    expect(actionsContainer.findComponent(DummyComponent).exists()).toBe(true);
   });
 
   describe('top-level classes', () => {

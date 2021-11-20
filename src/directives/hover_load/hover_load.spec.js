@@ -52,10 +52,8 @@ describe('hover load directive', () => {
   it.each([3, '', undefined, null, false, {}, []])(
     'throws if the handler is %p instead of a function',
     (directiveValue) => {
-      // we are going to throw, so we need to suppress error messages in jest output
-      jest.spyOn(global.console, 'error').mockImplementation(() => {});
-
       expect(() => createComponent(directiveValue)).toThrow(TypeError);
+      expect(wrapper).toHaveLoggedVueErrors();
     }
   );
 

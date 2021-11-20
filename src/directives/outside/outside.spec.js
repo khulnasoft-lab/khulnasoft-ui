@@ -125,9 +125,6 @@ describe('outside directive', () => {
 
       expect(global.console).toHaveLoggedVueErrors();
       expect(document.addEventListener).not.toHaveBeenCalled();
-
-      // Prevent test failure due to console.error calls
-      global.console.error.mockReset();
     });
 
     it('attaches the global listener on first initialisation', async () => {
@@ -216,9 +213,6 @@ describe('outside directive', () => {
         find('outside').trigger('click');
 
         expect(onClick.mock.calls).toEqual([]);
-
-        // Prevent test failure due to console.error calls
-        global.console.error.mockReset();
       }
     );
   });
@@ -317,6 +311,7 @@ describe('outside directive', () => {
         throw new Error('mock error');
       });
 
+      jest.spyOn(global.console, 'error');
       await createComponent({
         methods: {
           onClickThrow,

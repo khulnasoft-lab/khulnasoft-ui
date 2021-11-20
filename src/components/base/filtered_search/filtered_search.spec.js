@@ -23,7 +23,7 @@ describe('Filtered search', () => {
     availableTokens: [{ type: 'faketoken', token: FakeToken }],
   };
 
-  const findSearchBox = () => wrapper.find({ name: 'GlSearchBoxByClickStub' });
+  const findSearchBox = () => wrapper.findComponent({ name: 'GlSearchBoxByClickStub' });
 
   const createComponent = (props) => {
     wrapper = shallowMount(GlFilteredSearch, {
@@ -121,11 +121,11 @@ describe('Filtered search', () => {
       });
       await wrapper.vm.$nextTick();
 
-      wrapper.find(FakeToken).vm.$emit('activate');
+      wrapper.findComponent(FakeToken).vm.$emit('activate');
 
       await wrapper.vm.$nextTick();
 
-      expect(wrapper.find(FakeToken).props('active')).toBe(true);
+      expect(wrapper.findComponent(FakeToken).props('active')).toBe(true);
     });
 
     it('deactivates token when requested', async () => {
@@ -134,8 +134,8 @@ describe('Filtered search', () => {
       });
       await wrapper.vm.$nextTick();
 
-      wrapper.find(FakeToken).vm.$emit('activate');
-      wrapper.find(FakeToken).vm.$emit('deactivate');
+      wrapper.findComponent(FakeToken).vm.$emit('activate');
+      wrapper.findComponent(FakeToken).vm.$emit('deactivate');
 
       await wrapper.vm.$nextTick();
 
@@ -153,12 +153,12 @@ describe('Filtered search', () => {
       });
       await wrapper.vm.$nextTick();
 
-      wrapper.find(FakeToken).vm.$emit('activate');
+      wrapper.findComponent(FakeToken).vm.$emit('activate');
       wrapper.findAllComponents(FakeToken).at(1).vm.$emit('deactivate');
 
       await wrapper.vm.$nextTick();
 
-      expect(wrapper.find(FakeToken).props('active')).toBe(true);
+      expect(wrapper.findComponent(FakeToken).props('active')).toBe(true);
     });
 
     it('removes empty term tokens on deactivate', async () => {
@@ -192,7 +192,7 @@ describe('Filtered search', () => {
       });
       await wrapper.vm.$nextTick();
 
-      wrapper.find(FakeToken).vm.$emit('destroy');
+      wrapper.findComponent(FakeToken).vm.$emit('destroy');
 
       await wrapper.vm.$nextTick();
 
@@ -208,16 +208,16 @@ describe('Filtered search', () => {
       });
       await wrapper.vm.$nextTick();
 
-      wrapper.find(FakeToken).vm.$emit('destroy');
+      wrapper.findComponent(FakeToken).vm.$emit('destroy');
 
       await wrapper.vm.$nextTick();
 
-      expect(wrapper.find(GlFilteredSearchTerm).props('active')).toBe(true);
+      expect(wrapper.findComponent(GlFilteredSearchTerm).props('active')).toBe(true);
     });
 
     it('does not destroy last token', async () => {
       createComponent();
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('destroy');
+      wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('destroy');
 
       await wrapper.vm.$nextTick();
 
@@ -229,7 +229,7 @@ describe('Filtered search', () => {
     it('replaces token when requested', async () => {
       createComponent();
       wrapper
-        .find(GlFilteredSearchTerm)
+        .findComponent(GlFilteredSearchTerm)
         .vm.$emit('replace', { type: 'faketoken', value: { data: 'test' } });
 
       await wrapper.vm.$nextTick();
@@ -250,7 +250,7 @@ describe('Filtered search', () => {
       await wrapper.vm.$nextTick();
 
       wrapper
-        .find(GlFilteredSearchTerm)
+        .findComponent(GlFilteredSearchTerm)
         .vm.$emit('replace', { type: 'faketoken', value: { data: 'test' } });
 
       await wrapper.vm.$nextTick();
@@ -263,8 +263,8 @@ describe('Filtered search', () => {
 
     it('inserts single token when requested', async () => {
       createComponent({ value: ['one'] });
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
+      wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('activate');
+      wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('split');
 
       await wrapper.vm.$nextTick();
 
@@ -278,8 +278,8 @@ describe('Filtered search', () => {
       createComponent({ value: ['one', 'two'] });
       await wrapper.vm.$nextTick();
 
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('split');
+      wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('activate');
+      wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('split');
 
       await wrapper.vm.$nextTick();
 
@@ -293,11 +293,11 @@ describe('Filtered search', () => {
 
     it('inserts multiple tokens when requested', async () => {
       createComponent({ value: ['one'] });
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('activate');
+      wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('activate');
 
       await wrapper.vm.$nextTick();
 
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('split', ['foo', 'bar']);
+      wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('split', ['foo', 'bar']);
 
       await wrapper.vm.$nextTick();
 
@@ -311,7 +311,7 @@ describe('Filtered search', () => {
 
     it('submits entire search when submit is requested', () => {
       createComponent();
-      wrapper.find(GlFilteredSearchTerm).vm.$emit('submit');
+      wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('submit');
       expect(wrapper.emitted().submit).toBeDefined();
     });
   });
@@ -320,7 +320,7 @@ describe('Filtered search', () => {
     createComponent({
       value: ['one'],
     });
-    wrapper.find(GlFilteredSearchTerm).vm.$emit('submit');
+    wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('submit');
     expect(wrapper.emitted().submit).toBeDefined();
     expect(wrapper.emitted().submit[0][0]).toStrictEqual(['one']);
   });
@@ -329,7 +329,7 @@ describe('Filtered search', () => {
     createComponent({
       value: ['one', 'two', { type: 'faketoken', value: { data: 'smth' } }, 'four', 'five'],
     });
-    wrapper.find(GlFilteredSearchTerm).vm.$emit('submit');
+    wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('submit');
     expect(wrapper.emitted().submit).toBeDefined();
     expect(wrapper.emitted().submit[0][0]).toStrictEqual([
       'one two',
@@ -344,7 +344,7 @@ describe('Filtered search', () => {
     });
     await wrapper.vm.$nextTick();
 
-    const fakeTokenInstance = wrapper.find(FakeToken);
+    const fakeTokenInstance = wrapper.findComponent(FakeToken);
     expect(fakeTokenInstance.exists()).toBe(true);
     expect(Object.keys(fakeTokenInstance.attributes())).toEqual(
       expect.arrayContaining(['current-value', 'index', 'config', 'value'])
@@ -442,7 +442,7 @@ describe('Filtered search integration tests', () => {
     });
 
     it('displays suggestions list', () => {
-      const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+      const suggestions = wrapper.findComponent(GlFilteredSearchSuggestionList);
       expect(suggestions.exists()).toBe(true);
       expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(
         testTokens.filter((t) => !t.disabled).length
@@ -455,7 +455,7 @@ describe('Filtered search integration tests', () => {
 
       await wrapper.vm.$nextTick();
 
-      const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+      const suggestions = wrapper.findComponent(GlFilteredSearchSuggestionList);
       expect(suggestions.exists()).toBe(true);
       expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(1);
     });
@@ -466,7 +466,7 @@ describe('Filtered search integration tests', () => {
 
       await wrapper.vm.$nextTick();
 
-      const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+      const suggestions = wrapper.findComponent(GlFilteredSearchSuggestionList);
       expect(suggestions.exists()).toBe(true);
       expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(3);
     });
@@ -477,7 +477,7 @@ describe('Filtered search integration tests', () => {
 
       await wrapper.vm.$nextTick();
 
-      const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+      const suggestions = wrapper.findComponent(GlFilteredSearchSuggestionList);
       expect(suggestions.exists()).toBe(false);
     });
 
@@ -491,7 +491,7 @@ describe('Filtered search integration tests', () => {
 
       await wrapper.vm.$nextTick();
 
-      const token = wrapper.find(GlFilteredSearchToken);
+      const token = wrapper.findComponent(GlFilteredSearchToken);
       expect(token.exists()).toBe(true);
     });
 
@@ -528,7 +528,7 @@ describe('Filtered search integration tests', () => {
 
     await wrapper.vm.$nextTick();
 
-    const suggestions = wrapper.find(GlFilteredSearchSuggestionList);
+    const suggestions = wrapper.findComponent(GlFilteredSearchSuggestionList);
     expect(suggestions.exists()).toBe(true);
     expect(suggestions.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(2);
   });
@@ -559,7 +559,7 @@ describe('Filtered search integration tests', () => {
 
     await wrapper.vm.$nextTick();
 
-    expect(document.activeElement).toBe(wrapper.find(GlFilteredSearchTerm).find('input').element);
+    expect(document.activeElement).toBe(wrapper.findComponent(GlFilteredSearchTerm).find('input').element);
   });
 
   it('clicking clear button clears component input', async () => {

@@ -106,11 +106,6 @@ describe('resize observer directive', () => {
   });
 
   describe('check directive value', () => {
-    afterEach(() => {
-      // we are going to throw, so we need to suppress Vue error messages in jest output
-      global.console.error.mockReset();
-    });
-
     it.each([3, '', undefined, null, false, {}, []])(
       'throws if the handler is %p instead of a function',
       (directiveValue) => {
@@ -129,6 +124,7 @@ describe('resize observer directive', () => {
         expect(() => {
           wrapper = shallowMount(testComponentWithoutHandler, { localVue });
         }).toThrow(TypeError);
+        expect(wrapper).toHaveLoggedVueErrors();
       }
     );
   });
