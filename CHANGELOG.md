@@ -1,3 +1,10 @@
+# [32.40.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.39.0...v32.40.0) (2021-11-22)
+
+
+### Features
+
+* **GlFormInputGroup:** Add `inputClass` prop to `GlFormInputGroup` ([cdc7c70](https://gitlab.com/gitlab-org/gitlab-ui/commit/cdc7c70f81b462237deda76f2a3709119b52489f))
+
 # [32.39.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.38.0...v32.39.0) (2021-11-19)
 
 
