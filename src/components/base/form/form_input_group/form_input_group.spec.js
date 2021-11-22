@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { BInputGroup } from 'bootstrap-vue';
+import { BInputGroup, BFormInput } from 'bootstrap-vue';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import InputGroup from './form_input_group.vue';
 
@@ -52,6 +52,23 @@ describe('Input Group', () => {
   it('does not emit input event if predefinedOptions are not set', () => {
     createWrapper();
     expect(wrapper.emitted('input')).toBeUndefined();
+  });
+
+  describe('`inputClass` prop', () => {
+    it.each`
+      inputClass
+      ${'foo-bar baz'}
+      ${['foo-bar', 'baz']}
+      ${{ 'foo-bar': true, baz: true }}
+    `('correctly adds classes to input when `inputClass` prop is $inputClass', ({ inputClass }) => {
+      createWrapper({
+        propsData: { inputClass },
+      });
+
+      expect(wrapper.findComponent(BFormInput).classes()).toEqual(
+        expect.arrayContaining(['gl-form-input', 'foo-bar', 'baz'])
+      );
+    });
   });
 
   describe('predefined options', () => {
