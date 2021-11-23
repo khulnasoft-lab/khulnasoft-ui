@@ -6,6 +6,13 @@ import {
 } from '../../../utils/charts/mock_data';
 import Chart from '../chart/chart.vue';
 import ColumnChart from './column.vue';
+import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+
+let mockChartInstance;
+
+jest.mock('echarts', () => ({
+  getInstanceByDom: () => mockChartInstance,
+}));
 
 describe('column chart component', () => {
   const defaultChartProps = {
@@ -16,35 +23,32 @@ describe('column chart component', () => {
   };
   let wrapper;
 
-  const TooltipStub = {
-    name: 'chart-tooltip',
-    template: '<div />',
-  };
-
   const chartItemClickedSpy = jest.fn();
   const findChart = () => wrapper.findComponent(Chart);
+  const findTooltip = () => wrapper.findComponent(ChartTooltipStub);
+  const getChartOptions = () => findChart().props('options');
 
-  const factory = (props = defaultChartProps) => {
+  const factory = (props = defaultChartProps, slots) => {
     wrapper = shallowMount(ColumnChart, {
       propsData: { ...props },
       stubs: {
-        chart: true,
-        'chart-tooltip': TooltipStub,
+        'chart-tooltip': ChartTooltipStub,
       },
       listeners: {
         chartItemClicked: chartItemClickedSpy,
       },
+      data() {
+        return {
+          chart: mockChartInstance,
+        };
+      },
+      slots,
     });
-    const chart = {
-      getDom: jest.fn(() => ({
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-      })),
-    };
-    wrapper.setData({ chart });
   };
 
   beforeEach(() => {
+    mockChartInstance = createMockChartInstance();
+
     factory();
   });
 
@@ -102,6 +106,22 @@ describe('column chart component', () => {
       const chart = findChart();
 
       expect(chart.props('options').yAxis[1].name).toEqual(secondaryDataTitle);
+    });
+  });
+
+  describe('tooltip', () => {
+    it('displays the generic tooltip content', async () => {
+      const params = {
+        seriesData: [{ seriesIndex: '0', seriesName: 'Full', value: ['Mary', 934] }],
+      };
+
+      getChartOptions().xAxis.axisPointer.label.formatter(params);
+
+      await wrapper.vm.$nextTick();
+
+      const expectedTooltipTitle = `${params.seriesData[0].value[0]} (${defaultChartProps.xAxisTitle})`;
+
+      expect(findTooltip().text()).toContain(expectedTooltipTitle);
     });
   });
 });
