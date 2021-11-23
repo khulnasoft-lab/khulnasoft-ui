@@ -94,6 +94,7 @@ export default {
   computed: {
     inputAttributes() {
       const attributes = {
+        type: 'search',
         placeholder: this.placeholder,
         ...this.$attrs,
       };

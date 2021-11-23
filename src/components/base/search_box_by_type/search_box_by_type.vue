@@ -49,7 +49,7 @@ export default {
   computed: {
     inputAttributes() {
       const attributes = {
-        type: 'text',
+        type: 'search',
         placeholder: 'Search',
         ...this.$attrs,
       };
