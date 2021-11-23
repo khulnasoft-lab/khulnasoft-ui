@@ -1,3 +1,10 @@
+# [32.41.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.40.0...v32.41.0) (2021-11-23)
+
+
+### Features
+
+* **SearchBoxBy*:** add type search to improve on accessibility ([8d77905](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d779051a8028aad12bbc39ccaa335d10637a225))
+
 # [32.40.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.39.0...v32.40.0) (2021-11-22)
 
 
