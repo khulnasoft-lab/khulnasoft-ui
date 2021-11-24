@@ -5,6 +5,7 @@ import ChartLegend from '../legend/legend.vue';
 import AreaChart from './area.vue';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
+import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 
 let mockChartInstance;
 
@@ -14,7 +15,6 @@ jest.mock('echarts', () => ({
 
 describe('area component', () => {
   let wrapper;
-  let option;
 
   const findChart = () => wrapper.findComponent(Chart);
   const findLegend = () => wrapper.findComponent(ChartLegend);
@@ -24,29 +24,17 @@ describe('area component', () => {
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
   const createShallowWrapper = (props = {}) => {
-    wrapper = shallowMount(AreaChart, { propsData: { option, data: [], ...props } });
+    wrapper = shallowMount(AreaChart, {
+      propsData: { option: { series: [] }, data: [], ...props },
+      stubs: {
+        'chart-tooltip': ChartTooltipStub,
+      },
+    });
     emitChartCreated();
   };
 
   beforeEach(() => {
-    option = {
-      series: [],
-    };
-
-    mockChartInstance = {
-      getDom: () => {
-        return {
-          addEventListener: jest.fn(),
-          removeEventListener: jest.fn(),
-        };
-      },
-      on: jest.fn(),
-      off: jest.fn(),
-      convertToPixel: jest.fn(),
-      getOption: () => {
-        return option;
-      },
-    };
+    mockChartInstance = createMockChartInstance();
   });
 
   afterEach(() => {
