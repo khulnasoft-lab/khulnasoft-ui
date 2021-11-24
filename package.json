@@ -54,7 +54,8 @@
     "markdownlint:fix": "yarn markdownlint --fix",
     "lint": "run-p prettier eslint stylelint markdownlint",
     "lint:fix": "run-s prettier:fix eslint:fix stylelint:fix markdownlint:fix",
-    "generate:component": "plop"
+    "generate:component": "plop",
+    "create-web-types": "jest create_web_types.spec.js"
   },
   "dependencies": {
     "@babel/standalone": "^7.0.0",
