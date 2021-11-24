@@ -93,6 +93,8 @@ export const setupStorybookReadme = () =>
         'GlCarousel',
         'GlMarkdown',
         'GlTokenSelector',
+        'GlDisclosure',
+        'GlDisclosureItem',
       ],
       components: {
         GlComponentDocumentation,
