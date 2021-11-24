@@ -265,6 +265,7 @@ export default {
           >
         </div>
       </div>
+
       <div class="gl-new-dropdown-contents">
         <div
           v-if="hasHighlightedItemsContent"
@@ -276,6 +277,7 @@ export default {
         </div>
         <slot></slot>
       </div>
+
       <div v-if="hasSlotContents('footer')" class="gl-new-dropdown-footer">
         <slot name="footer"></slot>
       </div>
