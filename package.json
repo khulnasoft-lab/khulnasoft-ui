@@ -129,7 +129,7 @@
     "postcss-scss": "^2.1.1",
     "prettier": "2.2.1",
     "pug": "^2.0.3",
-    "puppeteer": "^10.4.0",
+    "puppeteer": "11.0.0",
     "raw-loader": "^0.5.1",
     "rollup": "^2.53.1",
     "rollup-plugin-babel": "^4.4.0",
