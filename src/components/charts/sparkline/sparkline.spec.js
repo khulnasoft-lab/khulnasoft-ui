@@ -2,14 +2,13 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Chart from '../chart/chart.vue';
 import SparklineChart from './sparkline.vue';
 import { waitForAnimationFrame } from '~/utils/test_utils';
+import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 
-const mockResize = jest.fn();
-const mockChartInstance = {
-  subscribedEvents: {},
-  getDom: () => {},
-  convertToPixel: () => [],
-  resize: mockResize,
-};
+let mockChartInstance;
+
+jest.mock('echarts', () => ({
+  getInstanceByDom: () => mockChartInstance,
+}));
 
 let triggerResize = () => {};
 jest.mock('~/directives/resize_observer/resize_observer', () => ({
@@ -21,11 +20,6 @@ jest.mock('~/directives/resize_observer/resize_observer', () => ({
 }));
 
 const localVue = createLocalVue();
-
-const ChartToolTipStub = {
-  name: 'chart-tooltip-stub',
-  template: '<div><slot name="default"></slot><slot name="title"></slot></div>',
-};
 
 describe('sparkline chart component', () => {
   let wrapper;
@@ -39,7 +33,7 @@ describe('sparkline chart component', () => {
       },
       scopedSlots: { latestSeriesEntry: jest.fn() },
       stubs: {
-        'chart-tooltip': ChartToolTipStub,
+        'chart-tooltip': ChartTooltipStub,
       },
     };
 
@@ -50,7 +44,7 @@ describe('sparkline chart component', () => {
   const getByTestId = (id) => wrapper.find(`[data-testid="${id}"]`);
   const getChart = () => wrapper.findComponent(Chart);
 
-  const getTooltip = () => wrapper.findComponent(ChartToolTipStub);
+  const getTooltip = () => wrapper.findComponent(ChartTooltipStub);
   const getTooltipTitle = () => getByTestId('tooltip-title');
   const getTooltipContent = () => getByTestId('tooltip-content');
 
@@ -72,6 +66,7 @@ describe('sparkline chart component', () => {
   const emitChartCreated = () => getChart().vm.$emit('created', mockChartInstance);
 
   beforeEach(() => {
+    mockChartInstance = createMockChartInstance();
     factory();
     // needs to run after every mount, or the chart-instance is `null` and `beforeDestroy` throws
     emitChartCreated();

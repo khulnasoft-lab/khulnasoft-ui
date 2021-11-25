@@ -4,6 +4,7 @@ import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import HeatMapChart from './heatmap.vue';
 import { TOOLTIP_LEFT_OFFSET } from '~/utils/charts/constants';
+import { createMockChartInstance } from '~helpers/chart_stubs';
 
 let mockChartInstance;
 
@@ -13,7 +14,6 @@ jest.mock('echarts', () => ({
 
 describe('heatmap component', () => {
   let wrapper;
-  let options;
 
   const findChart = () => wrapper.findComponent(Chart);
   const findChartTooltip = () => wrapper.findComponent(ChartTooltip);
@@ -22,24 +22,11 @@ describe('heatmap component', () => {
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
   beforeEach(() => {
-    options = {
-      series: [],
-    };
+    mockChartInstance = createMockChartInstance();
 
-    mockChartInstance = {
-      getDom: () => {
-        return {
-          addEventListener: jest.fn(),
-          removeEventListener: jest.fn(),
-        };
-      },
-      convertToPixel: jest.fn(),
-      getOption: () => {
-        return options;
-      },
-    };
-
-    wrapper = shallowMount(HeatMapChart, { propsData: { options, dataSeries: [] } });
+    wrapper = shallowMount(HeatMapChart, {
+      propsData: { options: { series: [] }, dataSeries: [] },
+    });
     emitChartCreated();
 
     return wrapper.vm.$nextTick();
