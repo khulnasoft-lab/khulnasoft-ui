@@ -5,25 +5,14 @@ const template = `
   <div>
     <gl-token-selector
       v-model="selectedTokens"
-      :dropdown-items="filteredDropdownItems"
-      :allow-user-defined-tokens="allowUserDefinedTokens"
-      :loading="loading"
-      :hide-dropdown-with-no-items="hideDropdownWithNoItems"
-      :state="state"
+      v-bind="$props"
       @text-input="handleTextInput"
       @focus="handleFocus" />
     {{ selectedTokens }}
   </div>
 `;
 
-const defaultValue = (prop) => GlTokenSelector.props[prop].default;
-
-const generateProps = ({
-  allowUserDefinedTokens = defaultValue('allowUserDefinedTokens'),
-  loading = defaultValue('loading'),
-  hideDropdownWithNoItems = defaultValue('hideDropdownWithNoItems'),
-  state = defaultValue('state'),
-} = {}) => ({
+const generateProps = () => ({
   dropdownItems: [
     {
       id: 1,
@@ -50,10 +39,6 @@ const generateProps = ({
       style: { backgroundColor: '#97acff' },
     },
   ],
-  allowUserDefinedTokens,
-  loading,
-  hideDropdownWithNoItems,
-  state,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -123,9 +108,6 @@ export default {
         type: 'radio',
         options: [true, false, null],
       },
-    },
-    menuClass: {
-      control: 'text',
     },
   },
 };
