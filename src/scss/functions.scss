@@ -51,9 +51,64 @@
 }
 
 $cssvars: (
-  // light: (),
-  // dark: (),
+  light: (
+    --white: #fff,
+    --gray-50: #eee,
+  ),
+  dark: (
+    --white: #333,
+    --gray-50: #eee,
+  ),
 );
+
+@function light-var($name) {
+  @return map-get(map-get($cssvars, light), $name);
+}
+
+@function dark-var($name) {
+  @return map-get(map-get($cssvars, dark), $name);
+}
+
+$hideous-vars: (
+  light: (
+    --white-darken-3percent: darken(light-var(--white), 3%),
+    --white-darken-3percent-darken-5percent: darken(light-var(--white), 8%),
+    --gray-50-darken-3percent: darken(light-var(--gray-50), 3%),
+    --gray-50-darken-5percent: darken(light-var(--gray-50), 5%),
+    --gray-50-darken-7point5percent: darken(light-var(--gray-50), 7.5%),
+    --gray-50-darken-3percent-darken-5percent: darken(light-var(--gray-50), 8%),
+    --gray-50-darken-10percent: darken(light-var(--gray-50), 10%),
+    --gray-50-darken-12point5percent: darken(light-var(--gray-50), 12.5%),
+    --gray-50-darken-15percent: darken(light-var(--gray-50), 15%),
+    --gray-50-contrast-text: white,
+    --gray-50-darken-3percent-contrast-text: white,
+    --gray-50-darken-7point5percent-contrast-text: white,
+    --gray-50-darken-10percent-contrast-text: white,
+  ),
+  dark: (
+    --white-darken-3percent: darken(dark-var(--white), 3%),
+    --white-darken-3percent-darken-5percent: darken(dark-var(--white), 8%),
+    --gray-50-darken-3percent: darken(dark-var(--gray-50), 3%),
+    --gray-50-darken-5percent: darken(dark-var(--gray-50), 5%),
+    --gray-50-darken-7point5percent: darken(dark-var(--gray-50), 7.5%),
+    --gray-50-darken-3percent-darken-5percent: darken(dark-var(--gray-50), 8%),
+    --gray-50-darken-10percent: darken(dark-var(--gray-50), 10%),
+    --gray-50-darken-12point5percent: darken(dark-var(--gray-50), 12.5%),
+    --gray-50-darken-15percent: darken(dark-var(--gray-50), 15%),
+    --gray-50-contrast-text: white,
+    --gray-50-darken-3percent-contrast-text: white,
+    --gray-50-darken-7point5percent-contrast-text: white,
+    --gray-50-darken-10percent-contrast-text: white,
+  ),
+);
+
+$cssvars: map-merge($cssvars, $hideous-vars);
+
+:root {
+  @each $name, $value in map-get($cssvars, light) {
+    #{$name}: #{$value};
+  }
+}
 
 @mixin cssvar($name, $color) {
   --#{$name}: #{$color};
@@ -63,7 +118,7 @@ $cssvars: (
 
 @function exists($name) {
   @each $theme, $colors in $cssvars {
-    @if index($colors, $name) == null {
+    @if not map-has-key($colors, $name) {
       @error "#{$name} not found in #{$theme}. Only #{$colors}";
     }
   }
@@ -90,19 +145,36 @@ $cssvars: (
   @error "Not a valid custom property #{$value}";
 }
 
+@function ends-with($string, $find) {
+  @return str-slice($string, (str-length($string) - str-length($find) + 1)) == $find;
+}
+
+@function with-suffix($name, $suffix) {
+  $name: custom-property-name($name);
+  @if ends-with($name, $suffix) {
+    @return $name;
+  }
+  @return --#{$name}#{$suffix};
+}
+
 @function as-rgb($color) {
-  $name: custom-property-name($color);
-  @return var(--#{$name}-rgb);
+  @return with-suffix($color, '-rgb');
 }
 
 @function as-hsl($color) {
-  $name: custom-property-name($color);
-  @return var(--#{$name}-hsl);
+  @return with-suffix($color, '-hsl');
+}
+
+@function var-safe-number($num) {
+  $str-amount: str-replace('#{$num}', '%', 'percent');
+  $str-amount: str-replace('#{$str-amount}', '.', 'point');
+  @return $str-amount;
 }
 
 @function darken($color, $amount) {
   @if is-custom-property($color) {
-    $name: #{custom-property-name($color)}-darken-#{$amount};
+    $str-amount: var-safe-number($amount);
+    $name: #{custom-property-name($color)}-darken-#{$str-amount};
 
     @if not exists($name) {
       @error "#{$name} does not exist";
@@ -110,7 +182,9 @@ $cssvars: (
       //     --#{$name}: green;
       //   }
     }
-    @return #{$name};
+
+    @return var(#{$name});
+
     // possibly try using hsl hacks instead
     // @return hsl(#{as-hsl($color)} - $amount);
   }
@@ -166,7 +240,8 @@ $cssvars: (
 
 @function lighten($color, $amount) {
   @if is-custom-property($color) {
-    @return #{custom-property-name($color)}-lighten-#{$amount};
+    $str-amount: var-safe-number($amount);
+    $name: #{custom-property-name($color)}-lighten-#{$str-amount};
   }
 
   // $color: str-replace($color,
