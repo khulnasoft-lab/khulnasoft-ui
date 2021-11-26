@@ -3,13 +3,16 @@ import ChartTooltip from '~/components/charts/tooltip/tooltip.vue';
 export const createMockChartInstance = () => ({
   getDom: () => {
     return {
-      addEventListener: () => {},
-      removeEventListener: () => {},
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
     };
   },
-  on: () => {},
-  off: () => {},
-  convertToPixel: () => {},
+  dispatchAction: jest.fn(),
+  setOption: jest.fn(),
+  on: jest.fn(),
+  off: jest.fn(),
+  resize: jest.fn(),
+  convertToPixel: jest.fn().mockReturnValue([]),
   getOption: () => {
     return {
       series: [],

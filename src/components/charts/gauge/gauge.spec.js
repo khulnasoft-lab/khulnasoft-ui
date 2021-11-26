@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-
 import { gaugeSafeHues, gaugeWarningHue } from '../../../utils/charts/theme';
 import Chart from '../chart/chart.vue';
 import GlGauge from './gauge.vue';
+import { createMockChartInstance } from '~helpers/chart_stubs';
 
 const placeholder = '--';
 
@@ -20,7 +20,6 @@ jest.mock('echarts', () => ({
 
 describe('gauge component', () => {
   let wrapper;
-  let options;
 
   const findChart = () => wrapper.findComponent(Chart);
   const findChartOptions = () => findChart().props('options');
@@ -38,24 +37,7 @@ describe('gauge component', () => {
   };
 
   beforeEach(() => {
-    options = {
-      series: [],
-    };
-
-    mockChartInstance = {
-      getDom: () => {
-        return {
-          addEventListener: jest.fn(),
-          removeEventListener: jest.fn(),
-        };
-      },
-      on: jest.fn(),
-      off: jest.fn(),
-      convertToPixel: jest.fn(),
-      getOption: () => {
-        return options;
-      },
-    };
+    mockChartInstance = createMockChartInstance();
   });
 
   afterEach(() => {

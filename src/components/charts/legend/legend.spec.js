@@ -2,16 +2,13 @@ import { shallowMount } from '@vue/test-utils';
 import Chart from '../chart/chart.vue';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
 import Legend from './legend.vue';
+import { createMockChartInstance } from '~helpers/chart_stubs';
+
+let mockChartInstance;
 
 jest.mock('echarts', () => ({
-  getInstanceByDom: jest.fn((instance) => instance),
-  init: jest.fn(() => ({
-    dispatchAction: jest.fn(),
-    resize: jest.fn(),
-    setOption: jest.fn(),
-    on: jest.fn(),
-    off: jest.fn(),
-  })),
+  getInstanceByDom: () => mockChartInstance,
+  init: () => mockChartInstance,
   registerTheme: jest.fn(),
 }));
 
@@ -58,13 +55,15 @@ describe('chart legend component', () => {
     legendWrapper = shallowMount(Legend, {
       propsData: {
         ...propsData,
-        chart,
+        chart: mockChartInstance,
         seriesInfo,
       },
     });
   };
 
   beforeEach(async () => {
+    mockChartInstance = createMockChartInstance();
+
     chartWrapper = shallowMount(...chartArgs);
     await chartWrapper.vm.$nextTick();
     // Runs after mounting the chart so that it has an up to date reference

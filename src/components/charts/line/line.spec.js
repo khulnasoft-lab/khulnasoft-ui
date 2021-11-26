@@ -3,6 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import LineChart from './line.vue';
+import { createMockChartInstance } from '~helpers/chart_stubs';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 
@@ -31,24 +32,7 @@ describe('line component', () => {
   };
 
   beforeEach(() => {
-    option = {
-      series: [],
-    };
-
-    mockChartInstance = {
-      getDom: () => {
-        return {
-          addEventListener: jest.fn(),
-          removeEventListener: jest.fn(),
-        };
-      },
-      on: jest.fn(),
-      off: jest.fn(),
-      convertToPixel: jest.fn(),
-      getOption: () => {
-        return option;
-      },
-    };
+    mockChartInstance = createMockChartInstance();
   });
 
   afterEach(() => {
