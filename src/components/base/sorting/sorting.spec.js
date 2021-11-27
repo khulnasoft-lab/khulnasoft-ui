@@ -47,10 +47,6 @@ describe('sorting component', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('should display default text in dropdown', () => {
     createComponent();
 

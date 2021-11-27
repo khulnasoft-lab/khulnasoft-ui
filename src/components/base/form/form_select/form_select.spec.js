@@ -15,11 +15,6 @@ describe('GlFormSelect', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('state prop', () => {
     it.each`
       state                       | expectedClasses

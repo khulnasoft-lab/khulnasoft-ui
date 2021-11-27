@@ -17,11 +17,6 @@ describe('GlKeysetPagination', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   const findPrevButton = () => wrapper.find('[data-testid="prevButton"]');
   const findNextButton = () => wrapper.find('[data-testid="nextButton"]');
 

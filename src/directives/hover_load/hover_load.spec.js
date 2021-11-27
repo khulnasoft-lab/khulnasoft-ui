@@ -23,7 +23,6 @@ describe('hover load directive', () => {
   };
 
   afterEach(() => {
-    wrapper.destroy();
     jest.restoreAllMocks();
   });
 

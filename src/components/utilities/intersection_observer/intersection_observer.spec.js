@@ -58,7 +58,7 @@ describe('IntersectionObserver', () => {
       expect(hasPrivateProps(wrapper.vm.$el)).toBe(true);
     });
 
-    describe('when detroyed', () => {
+    describe('when destroyed', () => {
       beforeEach(() => {
         wrapper.destroy();
       });

@@ -50,8 +50,6 @@ describe('GlTokenContainer', () => {
   const blurActiveElement = () => document.activeElement?.blur?.();
 
   afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
     blurActiveElement();
   });
 

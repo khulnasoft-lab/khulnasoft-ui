@@ -30,10 +30,6 @@ describe('search box by click component', () => {
 
   const findClearIcon = () => wrapper.findComponent(ClearIcon);
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('emits input event when input changes', async () => {
     createComponent({ value: 'somevalue' });
 

@@ -19,11 +19,6 @@ describe('GlTooltip', () => {
     createWrapper();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   it.each(tooltipActionEvents)('passes through the %s event to the bvTooltip instance', (event) => {
     wrapper.vm.$emit(event);
 

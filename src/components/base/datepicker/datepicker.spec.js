@@ -148,10 +148,6 @@ describe('datepicker component', () => {
         clearButton = findClearButton(wrapper);
       };
 
-      afterEach(() => {
-        wrapper.destroy();
-      });
-
       it('renders clear button', async () => {
         await setup();
 

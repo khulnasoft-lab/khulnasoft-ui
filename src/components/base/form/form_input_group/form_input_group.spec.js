@@ -12,10 +12,6 @@ describe('Input Group', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('renders without errors', () => {
     createWrapper();
     expect(wrapper.findComponent(BInputGroup).exists()).toBe(true);

@@ -26,10 +26,6 @@ describe('GlSingleStat', () => {
 
   const findIemByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('displays the correct default data', () => {
     beforeEach(() => createWrapper());
 

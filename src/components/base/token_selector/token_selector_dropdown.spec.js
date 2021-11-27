@@ -75,11 +75,6 @@ describe('GlTokenSelectorDropdown', () => {
     }
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('props', () => {
     describe('show', () => {
       it('displays dropdown when `true`', () => {

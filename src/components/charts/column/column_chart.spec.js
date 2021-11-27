@@ -52,10 +52,6 @@ describe('column chart component', () => {
     factory();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('emits "created" when onCreated is called', () => {
     wrapper.vm.onCreated(wrapper.vm.chart);
 

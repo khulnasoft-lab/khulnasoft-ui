@@ -23,8 +23,6 @@ describe('avatars inline', () => {
 
   const findBadgeTooltip = () => wrapper.findComponent(GlTooltip);
 
-  afterEach(() => wrapper.destroy());
-
   it('displays all avatars when component is not collapsed', () => {
     buildWrapper({ avatars, maxVisible: 1, avatarSize: 24, collapsed: false });
 

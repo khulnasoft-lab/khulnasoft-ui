@@ -20,11 +20,6 @@ describe('GlCard', () => {
   const findHeader = () => wrapper.find('.gl-card-header');
   const findFooter = () => wrapper.find('.gl-card-footer');
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('with just the body content', () => {
     beforeEach(() => {
       createWrapper({

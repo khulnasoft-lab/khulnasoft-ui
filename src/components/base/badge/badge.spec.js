@@ -15,8 +15,6 @@ describe('badge', () => {
     });
   };
 
-  afterEach(() => wrapper.destroy());
-
   describe('with "icon" prop', () => {
     describe.each`
       scenario           | hasSlot  | iconName     | expectedRole

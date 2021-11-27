@@ -20,8 +20,6 @@ describe('avatar labeled', () => {
     });
   };
 
-  afterEach(() => wrapper.destroy());
-
   it('sets avatar alt attribute to an empty string', () => {
     const altText = 'alt text';
 

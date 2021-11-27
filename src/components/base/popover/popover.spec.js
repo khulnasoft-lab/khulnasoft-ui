@@ -16,11 +16,6 @@ describe('GlPopover', () => {
 
   const findBVPopover = () => wrapper.findComponent({ ref: 'bPopover' });
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   it.each(tooltipActionEvents)('passes through the %s event to the bvPopover instance', (event) => {
     createWrapper();
     wrapper.vm.$emit(event);

@@ -59,7 +59,6 @@ describe('Modal component', () => {
   };
 
   afterEach(() => {
-    wrapper.destroy();
     jest.clearAllMocks();
   });
 

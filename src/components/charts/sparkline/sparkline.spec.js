@@ -73,7 +73,6 @@ describe('sparkline chart component', () => {
   });
 
   afterEach(() => {
-    wrapper.destroy();
     jest.clearAllMocks();
   });
 

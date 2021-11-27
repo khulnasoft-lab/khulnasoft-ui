@@ -108,11 +108,6 @@ describe('GlFormCheckboxTree', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe.each`
     description     | shape               | expected | initiallyChecked    | indeterminateBoxes
     ${'non-nested'} | ${SHAPE.NO_NESTING} | ${5}     | ${['1', '2', '3']}  | ${[]}

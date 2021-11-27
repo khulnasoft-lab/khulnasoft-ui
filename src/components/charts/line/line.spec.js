@@ -37,10 +37,6 @@ describe('line component', () => {
     mockChartInstance = createMockChartInstance();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('emits `created`, with the chart instance', async () => {
     createShallowWrapper();
 

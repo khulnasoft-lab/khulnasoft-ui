@@ -6,10 +6,6 @@ import GlAccordionItem from './accordion_item.vue';
 describe('GlAccordion', () => {
   let wrapper;
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   const createComponent = ({ headerLevel = 3, autoCollapse = false } = {}) => {
     wrapper = mount(
       Vue.extend({

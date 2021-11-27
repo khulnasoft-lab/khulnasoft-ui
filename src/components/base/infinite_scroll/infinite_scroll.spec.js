@@ -60,7 +60,6 @@ describe('Infinite Scroll component', () => {
 
   afterEach(() => {
     throttle.mockClear();
-    wrapper.destroy();
   });
 
   it('emits nothing on creation', () => {

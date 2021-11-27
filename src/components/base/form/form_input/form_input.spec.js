@@ -14,11 +14,6 @@ describe('GlFormInput', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('size prop', () => {
     // Exclude the default null value
     const sizes = Object.values(formInputSizes).filter(Boolean);

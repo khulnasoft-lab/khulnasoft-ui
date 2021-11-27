@@ -10,10 +10,6 @@ describe('Friendly wrap component', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('wraps text on slashes by default', () => {
     const text = '/some/file/path';
     const textWrapped = '/<wbr>some/<wbr>file/<wbr>path';

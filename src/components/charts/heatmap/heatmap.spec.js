@@ -32,10 +32,6 @@ describe('heatmap component', () => {
     return wrapper.vm.$nextTick();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('emits `created`, with the chart instance', () => {
     expect(wrapper.emitted('created').length).toBe(1);
     expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);

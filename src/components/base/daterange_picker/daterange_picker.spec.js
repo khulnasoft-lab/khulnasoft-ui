@@ -24,11 +24,6 @@ describe('Daterange Picker', () => {
   const findStartPicker = () => wrapper.findAllComponents(Datepicker).at(0);
   const findEndPicker = () => wrapper.findAllComponents(Datepicker).at(1);
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   it('renders two datepickers', () => {
     factory();
     expect(findStartPicker().exists()).toBe(true);
