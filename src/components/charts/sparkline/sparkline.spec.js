@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Chart from '../chart/chart.vue';
 import SparklineChart from './sparkline.vue';
 import { waitForAnimationFrame } from '~/utils/test_utils';
@@ -19,14 +19,11 @@ jest.mock('~/directives/resize_observer/resize_observer', () => ({
   },
 }));
 
-const localVue = createLocalVue();
-
 describe('sparkline chart component', () => {
   let wrapper;
   let componentOptions;
   const factory = () => {
     componentOptions = {
-      localVue,
       propsData: {
         data: [[]],
         variant: null,

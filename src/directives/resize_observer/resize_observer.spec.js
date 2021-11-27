@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { GlResizeObserverDirective } from './resize_observer';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 
@@ -6,8 +6,6 @@ describe('resize observer directive', () => {
   const { trigger, observersCount, observesElement } = useMockResizeObserver();
 
   const mockHandleResize = jest.fn();
-
-  const localVue = createLocalVue();
   let wrapper;
 
   const createComponent = ({ template, data = {} } = {}) => {
@@ -26,7 +24,7 @@ describe('resize observer directive', () => {
       },
     };
 
-    wrapper = shallowMount(component, { localVue });
+    wrapper = shallowMount(component);
   };
 
   it('shares one observer between multiple directive instances', () => {
@@ -99,5 +97,29 @@ describe('resize observer directive', () => {
     wrapper.destroy();
 
     expect(element.glResizeHandler).toBeFalsy();
+  });
+
+  describe('check directive value', () => {
+    it.each([3, '', undefined, null, false, {}, []])(
+      'throws if the handler is %p instead of a function',
+      (directiveValue) => {
+        const testComponentWithoutHandler = {
+          directives: {
+            resizeObserver: GlResizeObserverDirective,
+          },
+          data() {
+            return {
+              directiveValue,
+            };
+          },
+          template: `<div v-resize-observer="directiveValue"></div>`,
+        };
+
+        expect(() => {
+          wrapper = shallowMount(testComponentWithoutHandler);
+        }).toThrow(TypeError);
+        expect(wrapper).toHaveLoggedVueErrors();
+      }
+    );
   });
 });

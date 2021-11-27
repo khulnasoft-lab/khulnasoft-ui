@@ -1,4 +1,5 @@
-import { shallowMount, mount, createLocalVue } from '@vue/test-utils';
+import Vue from 'vue';
+import { shallowMount, mount } from '@vue/test-utils';
 import GlFilteredSearch from './filtered_search.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
@@ -14,8 +15,7 @@ const FakeToken = {
   render: (h) => h('div'),
 };
 
-const localVue = createLocalVue();
-localVue.directive('GlTooltip', () => {});
+Vue.directive('GlTooltip', () => {});
 
 let wrapper;
 describe('Filtered search', () => {
@@ -28,7 +28,6 @@ describe('Filtered search', () => {
   const createComponent = (props) => {
     wrapper = shallowMount(GlFilteredSearch, {
       propsData: { ...defaultProps, ...props },
-      localVue,
       stubs: {
         GlSearchBoxByClick: {
           name: 'GlSearchBoxByClickStub',
@@ -383,7 +382,6 @@ describe('Filtered search integration tests', () => {
 
   const mountComponent = (props) => {
     wrapper = mount(GlFilteredSearch, {
-      localVue,
       propsData: {
         availableTokens: testTokens,
         ...props,

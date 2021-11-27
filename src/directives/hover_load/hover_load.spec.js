@@ -1,9 +1,8 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { HoverLoadDirective as hoverLoad } from './hover_load';
 
 describe('hover load directive', () => {
   let wrapper;
-  const localVue = createLocalVue();
   const findTarget = () => wrapper.find('.target');
 
   const createComponent = (handleLoad) => {
@@ -19,7 +18,7 @@ describe('hover load directive', () => {
       template: `<div v-hover-load="handleLoad" class="target"></div>`,
     };
 
-    wrapper = shallowMount(component, { localVue });
+    wrapper = shallowMount(component);
   };
 
   afterEach(() => {

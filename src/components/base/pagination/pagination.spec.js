@@ -1,11 +1,9 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import debounce from 'lodash/debounce';
 import Pagination from './pagination.vue';
 import { breakpoints } from '~/utils/breakpoints';
 
 jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
-
-const localVue = createLocalVue();
 
 const expectClassActive = expect.arrayContaining(['active']);
 const mockResizeWidth = (width) => {
@@ -29,7 +27,6 @@ describe('pagination component', () => {
         itemsPerPage: 20,
         ...props,
       },
-      localVue,
       ...options,
     });
   };

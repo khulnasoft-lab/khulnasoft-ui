@@ -1,8 +1,8 @@
-import { createLocalVue, mount } from '@vue/test-utils';
+import Vue from 'vue';
+import { mount } from '@vue/test-utils';
 import GlToast from './toast';
 
-const localVue = createLocalVue();
-localVue.use(GlToast);
+Vue.use(GlToast);
 const Component = {
   template: `<div />`,
 };
@@ -11,9 +11,7 @@ describe('GlToast', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(Component, {
-      localVue,
-    });
+    wrapper = mount(Component);
   });
 
   it('attaches $toast propery', () => {
