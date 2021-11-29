@@ -24,6 +24,10 @@ export const parameters = {
     },
   },
   actions: { disable: true },
+  darkMode: {
+    stylePreview: true,
+    darkClass: 'gl-dark',
+  },
 };
 
 /**

@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-knobs',
     '@storybook/addon-a11y',
     '@storybook/addon-viewport/register',
+    'storybook-dark-mode',
     'storybook-readme',
   ],
 };

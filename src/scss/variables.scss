@@ -456,6 +456,7 @@ $modal-backdrop-opacity: 0.64;
 // Bootstrap overrides
 // these should ideally be moved further up in the file to the compoent-relevant sections
 // but they can wait here for now
+$body-bg: var(--body-bg, $gray-10);
 $body-color: $gl-text-color !default;
 
 $secondary: $gray-50;
