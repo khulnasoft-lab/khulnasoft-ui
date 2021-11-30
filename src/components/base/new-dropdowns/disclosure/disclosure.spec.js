@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { dropdownVariantOptions } from '../../../utils/constants';
-import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import { dropdownVariantOptions } from '../../../../utils/constants';
+import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
 import GlDisclosure from './disclosure.vue';
 import GlDisclosureItem from './disclosure_item.vue';
 

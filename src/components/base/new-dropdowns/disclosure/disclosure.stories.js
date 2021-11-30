@@ -9,12 +9,12 @@ import {
   GlButtonGroup,
   GlButton,
   GlLink,
-} from '../../../../index';
+} from '../../../../../index';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
   dropdownVariantOptions,
-} from '../../../utils/constants';
+} from '../../../../utils/constants';
 import readme from './disclosure.md';
 
 const components = {
@@ -126,7 +126,7 @@ export const WithHeaderAndFooter = (args, { argTypes = {} }) => ({
 WithHeaderAndFooter.args = generateProps({ icon: 'download', text: '' });
 
 export default {
-  title: 'base/disclosure',
+  title: 'base/new-dropdowns/disclosure',
   component: GlDisclosure,
   parameters: {
     bootstrapComponent: 'b-dropdown',

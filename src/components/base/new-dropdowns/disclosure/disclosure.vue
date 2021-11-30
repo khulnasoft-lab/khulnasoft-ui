@@ -5,10 +5,10 @@ import {
   buttonCategoryOptions,
   buttonSizeOptions,
   dropdownVariantOptions,
-} from '../../../utils/constants';
-import { ButtonMixin } from '../../mixins/button_mixin';
-import GlIcon from '../icon/icon.vue';
-import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+} from '../../../../utils/constants';
+import { ButtonMixin } from '../../../mixins/button_mixin';
+import GlIcon from '../../icon/icon.vue';
+import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
 import GlDisclosureItem from './disclosure_item.vue';
 
 export default {
