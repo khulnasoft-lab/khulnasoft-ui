@@ -23,6 +23,7 @@ export default {
     :delay="$options.tooltipDelay"
     v-on="$listeners"
   >
+    <!-- @slot Tooltip content -->
     <slot></slot>
   </b-tooltip>
 </template>
