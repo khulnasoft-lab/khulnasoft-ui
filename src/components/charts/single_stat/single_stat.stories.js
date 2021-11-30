@@ -1,13 +1,7 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { withKnobs, text, select, boolean, number } from '@storybook/addon-knobs';
 import { GlSingleStat } from '../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { badgeVariantOptions } from '../../../utils/constants';
 import readme from './single_stat.md';
-
-const components = {
-  GlSingleStat,
-};
 
 const template = `
     <gl-single-stat
@@ -34,67 +28,70 @@ const generateProps = ({
   shouldAnimate = false,
   animationDecimalPlaces = 0,
 } = {}) => ({
-  variant: {
-    type: String,
-    default: select('variant', Object.values(badgeVariantOptions), variant),
-  },
-  title: {
-    type: String,
-    default: text('title', title),
-  },
-  value: {
-    type: String,
-    default: text('value', value),
-  },
-  unit: {
-    type: [String, Number],
-    default: text('unit', unit),
-  },
-  metaText: {
-    type: String,
-    default: text('metaText', metaText),
-  },
-  metaIcon: {
-    type: String,
-    default: select('metaIcon', ['', ...iconSpriteInfo.icons], metaIcon),
-  },
-  titleIcon: {
-    type: String,
-    default: select('titleIcon', ['', ...iconSpriteInfo.icons], titleIcon),
-  },
-  shouldAnimate: {
-    type: Boolean,
-    default: boolean('shouldAnimate', shouldAnimate),
-  },
-  animationDecimalPlaces: {
-    type: Number,
-    default: number('animationDecimalPlaces', animationDecimalPlaces),
-  },
+  variant,
+  title,
+  value,
+  unit,
+  metaText,
+  metaIcon,
+  titleIcon,
+  shouldAnimate,
+  animationDecimalPlaces,
 });
 
-const metaText = 'Super fast';
-const metaIcon = 'check-circle';
-const titleIcon = 'hourglass';
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlSingleStat,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+export const Default = Template.bind({});
+Default.args = generateProps();
 
-documentedStoriesOf('charts/single-stat', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    template,
-  }))
-  .add('with badge', () => ({
-    components,
-    props: generateProps({ metaText, metaIcon }),
-    template,
-  }))
-  .add('with meta icon', () => ({
-    components,
-    props: generateProps({ metaIcon }),
-    template,
-  }))
-  .add('with title icon', () => ({
-    components,
-    props: generateProps({ titleIcon }),
-    template,
-  }));
+export default {
+  title: 'charts/single-stat',
+  component: GlSingleStat,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      options: Object.values(badgeVariantOptions),
+      control: {
+        type: 'select',
+      },
+    },
+    title: {
+      control: 'text',
+    },
+    value: {
+      control: 'text',
+    },
+    metaIcon: {
+      options: iconSpriteInfo.icons,
+      control: 'select',
+    },
+    titleIcon: {
+      options: iconSpriteInfo.icons,
+      control: 'select',
+    },
+    shouldAnimate: {
+      control: 'boolean',
+    },
+    metaText: {
+      control: 'string',
+    },
+    unit: {
+      control: 'string',
+    },
+    animationDecimalPlaces: {
+      control: 'number',
+    },
+  },
+};
