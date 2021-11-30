@@ -1,4 +1,4 @@
-import { GlDisclosureItem } from '../../../../index';
+import { GlDisclosureItem } from '../../../../../index';
 import readme from './disclosure_item.md';
 
 const components = {
@@ -34,7 +34,7 @@ export const Default = (args, { argTypes = {} }) => ({
 Default.args = generateProps({});
 
 export default {
-  title: 'base/disclosure/disclosure-item',
+  title: 'base/new-dropdowns/disclosure/disclosure-item',
   component: GlDisclosureItem,
   parameters: {
     bootstrapComponent: 'b-dropdown-item',
