@@ -1,5 +1,4 @@
 <script>
-import { uniqueId } from 'lodash';
 import { BDropdown } from 'bootstrap-vue';
 import {
   buttonCategoryOptions,
@@ -102,11 +101,6 @@ export default {
       default: false,
     },
   },
-  data() {
-    return {
-      disclosureContentId: uniqueId('disclosure-content-'),
-    };
-  },
   computed: {
     isIconOnly() {
       return Boolean(this.icon && (!this.text?.length || this.textSrOnly));
@@ -136,10 +130,10 @@ export default {
       return Boolean(this.$slots[slotName]);
     },
     show(...args) {
-      this.$refs.dropdown.show(...args);
+      this.$refs.disclosure.show(...args);
     },
     hide(...args) {
-      this.$refs.dropdown.hide(...args);
+      this.$refs.disclosure.hide(...args);
     },
   },
 };
@@ -156,40 +150,35 @@ export default {
     :block="block"
     :disabled="disabled || loading"
     :right="right"
-    :aria-controls="disclosureContentId"
     v-on="$listeners"
   >
-    <div id="disclosureContentId" class="gl-new-dropdown-inner">
-      <div
-        v-if="hasSlotContents('header') || headerText"
-        class="gl-new-dropdown-header"
-        :class="{ 'gl-border-b-0!': hideHeaderBorder }"
+    <li
+      v-if="hasSlotContents('header') || headerText"
+      class="gl-new-dropdown-header"
+      :class="{ 'gl-border-b-0!': hideHeaderBorder }"
+    >
+      <p v-if="headerText" class="gl-new-dropdown-header-top">
+        {{ headerText }}
+      </p>
+      <slot name="header"></slot>
+    </li>
+
+    <template v-if="isSimpleLinksList">
+      <gl-disclosure-item
+        v-for="(item, index) of items"
+        :key="`disclosure-item-${index}`"
+        :href="item.href"
+        :to="item.to"
+        :target="item.target"
       >
-        <p v-if="headerText" class="gl-new-dropdown-header-top">
-          {{ headerText }}
-        </p>
-        <slot name="header"></slot>
-      </div>
+        {{ item.text }}
+      </gl-disclosure-item>
+    </template>
+    <slot v-else></slot>
 
-      <div class="gl-new-dropdown-contents">
-        <template v-if="isSimpleLinksList">
-          <gl-disclosure-item
-            v-for="(item, index) of items"
-            :key="`disclosure-item-${index}`"
-            :href="item.href"
-            :to="item.to"
-            :target="item.target"
-          >
-            {{ item.text }}
-          </gl-disclosure-item>
-        </template>
-        <slot v-else></slot>
-      </div>
-
-      <div v-if="hasSlotContents('footer')" class="gl-new-dropdown-footer">
-        <slot name="footer"></slot>
-      </div>
-    </div>
+    <li v-if="hasSlotContents('footer')" class="gl-new-dropdown-footer">
+      <slot name="footer"></slot>
+    </li>
 
     <template #button-content>
       <slot name="button-content">
