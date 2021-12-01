@@ -14,8 +14,8 @@ describe('GlFormRadioGroup', () => {
     value: 'two',
   };
 
-  const createWrapper = () => {
-    options = [firstOption, secondOption];
+  const createWrapper = (initialOptions = [firstOption, secondOption]) => {
+    options = initialOptions;
 
     wrapper = mount({
       data() {
@@ -42,6 +42,11 @@ describe('GlFormRadioGroup', () => {
   it('checks the radio button correctly on mount', () => {
     const radio = findRadio(firstOption.value);
     expect(radio.element.checked).toBe(true);
+  });
+
+  it('supports legacy options format', () => {
+    createWrapper(['one', 'two']);
+    expect(wrapper.findAll('.gl-form-radio')).toHaveLength(2);
   });
 
   describe('when the selected value is changed programmatically', () => {
