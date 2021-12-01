@@ -1270,10 +1270,10 @@
     stylelint-declaration-strict-value "1.7.7"
     stylelint-scss "3.18.0"
 
-"@gitlab/svgs@1.221.0":
-  version "1.221.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.221.0.tgz#1804d181b09672d13005d49818eb2da040d67488"
-  integrity sha512-Xn29eer39uVqeuefL/3hVuxo2tazHoEFIXC0F7DnESmBggrcjueNM2tuBUk40oaX6kCzM2Bn4Qn9ESIR+V0PgQ==
+"@gitlab/svgs@1.223.0":
+  version "1.223.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/svgs/-/svgs-1.223.0.tgz#658e2ec0fc1e34abd1a2a1d946ac2863aa408160"
+  integrity sha512-buIXhQ24UVAs6aVqqXhVy4V9dXGIVOOBnh3+4JNoqp+5xPBff/1L6WalJuyANvRgHdkeBTuP9EPyYh11urSMgg==
 
 "@hapi/address@2.x.x":
   version "2.1.2"
@@ -10259,11 +10259,6 @@ lodash.camelcase@4.3.0, lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
   integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
-
-lodash.clonedeep@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
-  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
