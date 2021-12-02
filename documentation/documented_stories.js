@@ -95,6 +95,8 @@ export const setupStorybookReadme = () =>
         'GlTokenSelector',
         'GlDisclosure',
         'GlDisclosureItem',
+        'GlMenu',
+        'GlMenuItem',
       ],
       components: {
         GlComponentDocumentation,

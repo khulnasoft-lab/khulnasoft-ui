@@ -1,0 +1,47 @@
+<script>
+import { variantCssColorMap } from '../../../../utils/constants';
+import GlIcon from '../../icon/icon.vue';
+
+export default {
+  components: {
+    GlIcon,
+  },
+  inheritAttrs: false,
+  props: {
+    iconColor: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    iconName: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    secondaryText: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
+  computed: {
+    iconColorCss() {
+      return variantCssColorMap[this.iconColor] || 'gl-text-gray-700';
+    },
+  },
+};
+</script>
+
+<template>
+  <b-dropdown-item-button class="gl-new-dropdown-item" v-bind="$attrs" v-on="$listeners">
+    <gl-icon
+      v-if="iconName"
+      :name="iconName"
+      :class="['gl-new-dropdown-item-icon', iconColorCss]"
+    />
+    <div class="gl-new-dropdown-item-text-wrapper">
+      <p class="gl-new-dropdown-item-text-primary"><slot></slot></p>
+      <p v-if="secondaryText" class="gl-new-dropdown-item-text-secondary">{{ secondaryText }}</p>
+    </div>
+  </b-dropdown-item-button>
+</template>

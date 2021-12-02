@@ -57,6 +57,8 @@ export { default as GlDropdown } from './src/components/base/dropdown/dropdown.v
 // new components aiming to replace GlDropdown  - start
 export { default as GlDisclosure } from './src/components/base/new-dropdowns/disclosure/disclosure.vue';
 export { default as GlDisclosureItem } from './src/components/base/new-dropdowns/disclosure/disclosure_item.vue';
+export { default as GlMenu } from './src/components/base/new-dropdowns/menu/menu.vue';
+export { default as GlMenuItem } from './src/components/base/new-dropdowns/menu/menu_item.vue';
 // new components aiming to replace GlDropdown  - end
 export { default as GlPath } from './src/components/base/path/path.vue';
 export { default as GlTable } from './src/components/base/table/table.vue';

@@ -176,7 +176,7 @@ documentedStoriesOf('base/dropdown', readme)
     components,
     template: wrap`
       <gl-dropdown-item>First item</gl-dropdown-item>
-      <gl-dropdown-item>Second item</gl-dropdown-item>
+      <gl-dropdown-item disabled>Second item</gl-dropdown-item>
       <gl-dropdown-item>Third item</gl-dropdown-item>
       <gl-dropdown-item>Fourth item</gl-dropdown-item>
       <gl-dropdown-item>Fifth item</gl-dropdown-item>
