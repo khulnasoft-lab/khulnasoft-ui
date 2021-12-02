@@ -2,8 +2,8 @@ import { addParameters, addDecorator } from '@storybook/vue';
 import { addReadme } from 'storybook-readme/vue';
 import { setupStorybookReadme } from '../documentation/documented_stories';
 
-const searchParams = new URL(document.location).searchParams;
-const isEmbeddedStory = Boolean(searchParams.get('isEmbeddedStory'));
+const { searchParams } = new URL(document.location);
+const isEmbeddedStory = searchParams.has('isEmbeddedStory');
 
 const stylesheetsRequireCtx = require.context('../src/scss', true, /(storybook|bootstrap)\.scss$/);
 
