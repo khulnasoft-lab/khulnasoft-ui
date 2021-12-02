@@ -1,5 +1,3 @@
-import { array, text, withKnobs } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlIntersperse } from '../../../../index';
 import readme from './intersperse.md';
 
@@ -11,44 +9,54 @@ const template = `
   </div>
   `;
 
-function generateProps({
+const generateProps = ({
   separator = ', ',
   lastSeparator = '',
   items = ['Foo', 'Bar', 'Baz', 'Qaz'],
-} = {}) {
-  return {
-    items: {
-      default: array('items', items),
+} = {}) => ({
+  separator,
+  lastSeparator,
+  items,
+});
+
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlIntersperse,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'utilities/intersperse',
+  component: GlIntersperse,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
     },
+  },
+  argTypes: {
     separator: {
-      default: text('separator', separator),
+      control: 'text',
     },
     lastSeparator: {
-      default: text('lastSeparator', lastSeparator),
+      control: 'text',
     },
-  };
-}
+  },
+};
 
-documentedStoriesOf('utilities/intersperse', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components: {
-      GlIntersperse,
-    },
-    template,
-  }))
-  .add('custom seperator', () => ({
-    props: generateProps({ separator: '-' }),
-    components: {
-      GlIntersperse,
-    },
-    template,
-  }))
-  .add('custom last separator', () => ({
-    props: generateProps({ lastSeparator: ' and ' }),
-    components: {
-      GlIntersperse,
-    },
-    template,
-  }));
+export const CustomSeperator = Template.bind({});
+CustomSeperator.args = generateProps({
+  separator: '-',
+});
+
+export const CustomLastSeparator = Template.bind({});
+CustomLastSeparator.args = generateProps({
+  lastSeparator: ' and ',
+});
