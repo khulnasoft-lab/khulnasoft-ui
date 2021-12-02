@@ -44,11 +44,6 @@ describe('Path', () => {
     wrapper = createComponent();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   it('matches the snapshot', () => {
     expect(wrapper.element).toMatchSnapshot();
   });

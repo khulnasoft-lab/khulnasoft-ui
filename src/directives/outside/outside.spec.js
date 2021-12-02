@@ -52,10 +52,6 @@ describe('outside directive', () => {
     onClick = jest.fn();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('given a callback', () => {
     it.each`
       target       | expectedCalls

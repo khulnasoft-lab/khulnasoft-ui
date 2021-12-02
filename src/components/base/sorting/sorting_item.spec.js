@@ -27,10 +27,6 @@ describe('sorting item component', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('should render and display the supplied text', () => {
     createComponent();
 

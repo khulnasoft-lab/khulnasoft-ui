@@ -29,8 +29,6 @@ describe('Icon component', () => {
   const validateName = (name) => Icon.props.name.validator(name);
 
   afterEach(() => {
-    wrapper.destroy();
-
     if (consoleSpy) {
       consoleSpy.mockRestore();
     }

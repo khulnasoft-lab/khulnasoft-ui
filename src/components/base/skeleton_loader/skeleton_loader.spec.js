@@ -11,11 +11,6 @@ describe('GlSkeletonLoader', () => {
     wrapper = shallowMount(GlSkeletonLoader, options);
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('when default skeleton is used', () => {
     it('adds `gl-w-full` and `gl-h-full` CSS classes', () => {
       createComponent();

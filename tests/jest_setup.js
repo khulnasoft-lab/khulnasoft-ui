@@ -1,3 +1,4 @@
+const { enableAutoDestroy } = require('@vue/test-utils');
 const { matcherHint, printReceived, printExpected } = require('jest-matcher-utils');
 const get = require('lodash/get');
 const isString = require('lodash/isString');
@@ -5,6 +6,7 @@ const setConfigs = require('../config').default;
 const { useMockResizeObserver } = require('./__helpers__/mock_dom_observer');
 
 setConfigs();
+enableAutoDestroy(afterEach);
 
 expect.extend({
   toHaveLoggedVueErrors(consoleSpy) {

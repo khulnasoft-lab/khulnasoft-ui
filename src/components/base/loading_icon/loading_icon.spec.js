@@ -11,10 +11,6 @@ describe('loading icon component', () => {
   const findSpinnerEl = () => wrapper.find(`.${baseCssClass}`);
   const getSpinnerClasses = () => findSpinnerEl().classes();
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('display', () => {
     it('should render as a block by default', () => {
       createComponent();

@@ -17,10 +17,6 @@ describe('Token component', () => {
       propsData,
     });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('emits close when "x" is clicked', () => {
     wrapper = createComponent();
     findIcon(wrapper).vm.$emit('click');

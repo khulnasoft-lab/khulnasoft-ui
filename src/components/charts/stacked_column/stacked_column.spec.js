@@ -56,7 +56,6 @@ describe('stacked column chart component', () => {
   });
 
   afterEach(() => {
-    wrapper.destroy();
     jest.restoreAllMocks();
   });
 

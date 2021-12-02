@@ -35,10 +35,6 @@ describe('Label component', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   const findLink = () => wrapper.findComponent(GlLink);
   const findTitle = () => wrapper.find('.gl-label-text');
   const findSubTitle = () => wrapper.find('.gl-label-text-scoped');

@@ -4,10 +4,6 @@ import GlNavItem from './nav_item.vue';
 describe('GlNavItem', () => {
   let wrapper;
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('renders the text', () => {
     wrapper = shallowMount(GlNavItem, {
       slots: {

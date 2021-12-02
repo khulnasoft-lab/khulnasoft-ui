@@ -17,10 +17,6 @@ describe('Carousel component', () => {
       });
     });
 
-    afterEach(() => {
-      wrapper.destroy();
-    });
-
     it('renders a BCarousel component', () => {
       expect(wrapper.findComponent(BCarousel).exists()).toBe(true);
     });

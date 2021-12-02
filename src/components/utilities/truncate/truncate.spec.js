@@ -23,11 +23,6 @@ describe('Truncate component', () => {
     );
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('All', () => {
     beforeEach(() => {
       createComponent();

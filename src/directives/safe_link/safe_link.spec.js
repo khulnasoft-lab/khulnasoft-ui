@@ -33,11 +33,6 @@ describe('safe link directive', () => {
     wrapper = mountFn(component);
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('default', () => {
     it('should render the anchor tag with given href', () => {
       createComponent({

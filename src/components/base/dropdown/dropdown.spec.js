@@ -24,8 +24,6 @@ describe('new dropdown', () => {
     });
   };
 
-  afterEach(() => wrapper.destroy());
-
   const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
 
   const findSplitButton = () => wrapper.find('.btn:not(.gl-dropdown-toggle)');

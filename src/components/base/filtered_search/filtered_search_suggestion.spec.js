@@ -25,11 +25,6 @@ describe('Filtered search suggestion component', () => {
     });
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
       HTMLElement.prototype.scrollIntoView = jest.fn();

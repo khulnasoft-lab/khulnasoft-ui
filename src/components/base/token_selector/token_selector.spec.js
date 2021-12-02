@@ -96,11 +96,6 @@ describe('GlTokenSelector', () => {
     }
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('props', () => {
     describe('dropdownItems', () => {
       it('renders dropdown items', () => {

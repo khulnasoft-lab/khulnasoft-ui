@@ -14,8 +14,6 @@ describe('dropdown item', () => {
 
   const findCheckbox = () => wrapper.find('[data-testid="dropdown-item-checkbox"]');
 
-  afterEach(() => wrapper.destroy());
-
   describe('checkbox', () => {
     it.each`
       props                                       | shouldExist

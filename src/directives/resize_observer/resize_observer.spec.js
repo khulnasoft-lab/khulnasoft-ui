@@ -29,10 +29,6 @@ describe('resize observer directive', () => {
     wrapper = shallowMount(component, { localVue });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('shares one observer between multiple directive instances', () => {
     createComponent({
       template: `<div>

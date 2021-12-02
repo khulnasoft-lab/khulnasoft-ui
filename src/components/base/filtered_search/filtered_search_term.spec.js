@@ -29,11 +29,6 @@ describe('Filtered search term', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   it('renders value in inactive mode', () => {
     createComponent({ value: { data: 'test-value' } });
     expect(wrapper.html()).toMatchSnapshot();

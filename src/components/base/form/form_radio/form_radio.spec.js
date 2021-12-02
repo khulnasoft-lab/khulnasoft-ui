@@ -44,10 +44,6 @@ describe('GlFormRadio', () => {
     createWrapper();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('checks the radio button correctly on mount', () => {
     const radio = findRadio(firstOption.value);
     expect(radio.element.checked).toBe(true);

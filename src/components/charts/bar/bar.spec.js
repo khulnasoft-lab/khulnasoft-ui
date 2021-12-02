@@ -42,10 +42,6 @@ describe('Bar chart component', () => {
     mockChartInstance = createMockChartInstance();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('when mounted', () => {
     beforeEach(() => {
       createComponent();

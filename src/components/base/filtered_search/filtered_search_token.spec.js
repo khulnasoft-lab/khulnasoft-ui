@@ -38,11 +38,6 @@ describe('Filtered search token', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('when activated', () => {
     it('emits activate when operator segment is clicked', () => {
       createComponent();

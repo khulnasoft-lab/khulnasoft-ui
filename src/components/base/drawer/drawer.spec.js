@@ -7,10 +7,6 @@ describe('drawer component', () => {
     wrapper = shallowMount(Drawer, { propsData: props, slots });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('default settings', () => {
     describe('when open is true', () => {
       it('makes gl-drawer visible when open is true', () => {

@@ -26,10 +26,6 @@ describe('Alert component', () => {
   const findActionsContainer = () => wrapper.find('.gl-alert-actions');
   const findActionButtons = () => wrapper.findAll('.gl-alert-action');
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('by default', () => {
     beforeEach(() => {
       createComponent({ slots: { default: DummyComponent } });

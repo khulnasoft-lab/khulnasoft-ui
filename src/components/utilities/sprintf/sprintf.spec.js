@@ -17,10 +17,6 @@ describe('sprintf component', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('plain placeholders', () => {
     it.each`
       message

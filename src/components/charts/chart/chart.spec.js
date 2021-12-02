@@ -25,10 +25,6 @@ describe('chart component', () => {
     wrapper = shallowMount(...mountArgs);
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('initializes chart using $refs.chart', () => {
     expect(echarts.init).toHaveBeenCalledWith(
       wrapper.findComponent({ ref: 'chart' }).element,

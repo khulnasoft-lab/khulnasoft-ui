@@ -32,11 +32,6 @@ describe('GlScrollableTabs', () => {
     inputSpy = jest.fn();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   const findScrollRightButton = () => wrapper.find('[aria-label="Scroll right"]');
   const findScrollLeftButton = () => wrapper.find('[aria-label="Scroll left"]');
   const findNav = () => wrapper.find(`.${NAV_CLASS}`);

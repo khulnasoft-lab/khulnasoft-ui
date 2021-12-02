@@ -41,10 +41,6 @@ describe('segmented control', () => {
     consoleWarnSpy.mockClear();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   const warning = 'Segmented button should always have valid option selected';
   describe('with options and valid value', () => {
     beforeEach(() => {

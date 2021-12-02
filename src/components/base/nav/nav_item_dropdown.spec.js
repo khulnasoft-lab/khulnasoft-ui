@@ -18,10 +18,6 @@ describe('GlNavItemDropdown', () => {
 
   const findBNavItemDropdown = () => wrapper.findComponent(BNavItemDropdown);
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('default', () => {
     it('renders BNavItemDropdown', () => {
       const expectedText = 'Hello!';

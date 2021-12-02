@@ -15,12 +15,6 @@ describe('Paginated List', () => {
     `;
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-
-    wrapper = null;
-  });
-
   const createComponent = (props = {}) => {
     wrapper = shallowMount(PaginatedList, {
       scopedSlots: {

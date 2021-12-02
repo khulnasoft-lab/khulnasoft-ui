@@ -35,7 +35,6 @@ describe('pagination component', () => {
   };
 
   afterEach(() => {
-    wrapper.destroy();
     debounce.mockClear();
   });
 

@@ -39,11 +39,6 @@ describe('Filtered search', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('value manipulation', () => {
     it('creates term when empty', () => {
       createComponent();
@@ -421,11 +416,6 @@ describe('Filtered search integration tests', () => {
     if (HTMLElement.prototype.scrollIntoView.mock) {
       delete HTMLElement.prototype.scrollIntoView;
     }
-  });
-
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
   });
 
   describe('when first term is clicked', () => {
