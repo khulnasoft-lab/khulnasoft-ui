@@ -118,6 +118,7 @@ export const setupStorybookReadme = () =>
         'GlForm',
         'GlTable',
         'GlToast',
+        'GlPaginatedList',
       ],
       components: {
         GlComponentDocumentation,
