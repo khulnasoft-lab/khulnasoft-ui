@@ -1,3 +1,10 @@
+# [32.42.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.41.0...v32.42.0) (2021-12-03)
+
+
+### Features
+
+* Add gl-z-index-200 util class ([c53d23b](https://gitlab.com/gitlab-org/gitlab-ui/commit/c53d23b6e060434ed9055aea2b4f6f9c9e697a45))
+
 # [32.41.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.40.0...v32.41.0) (2021-11-23)
 
 
