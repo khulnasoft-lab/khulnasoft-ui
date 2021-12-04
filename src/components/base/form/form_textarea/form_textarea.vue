@@ -38,9 +38,17 @@ export default {
         // Swap purpose of input and update events from underlying BFormTextarea.
         // See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/631.
         input: (...args) => {
+          /**
+           * Emitted to update the v-model
+           */
           this.$emit('update', ...args);
         },
         update: (...args) => {
+          /**
+           * Triggered by user interaction.
+           * Emitted after any formatting (not including 'trim' or 'number' props).
+           * Useful for getting the currently entered value when the 'debounce' or 'lazy' props are set.
+           */
           this.$emit(model.event, ...args);
         },
       };

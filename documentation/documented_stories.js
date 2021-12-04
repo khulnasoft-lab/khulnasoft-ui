@@ -94,6 +94,7 @@ export const setupStorybookReadme = () =>
         'GlMarkdown',
         'GlTokenSelector',
         'GlTooltip',
+        'GlFormTextarea',
       ],
       components: {
         GlComponentDocumentation,
