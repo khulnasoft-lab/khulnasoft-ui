@@ -50,6 +50,11 @@ export default {
         if (this.enabledOptions.length) {
           const suggestion =
             oldValue && this.isValidValue(oldValue) ? oldValue : this.enabledOptions[0].value;
+          /**
+           * Emitted when the selection changes
+           * @event input
+           * @argument checked The selected option
+           */
           this.$emit('input', suggestion);
         }
       }
