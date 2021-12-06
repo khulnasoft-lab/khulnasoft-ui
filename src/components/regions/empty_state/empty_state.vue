@@ -104,8 +104,14 @@ export default {
     </div>
     <div :class="compact ? 'col-sm-9' : 'col-12'">
       <div class="text-content gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
-        <h1 ref="title" :class="compact ? 'h5' : 'h4'">{{ title }}</h1>
-        <p v-if="description || $scopedSlots.description" ref="description">
+        <h1
+          ref="title"
+          class="gl-font-size-h-display gl-line-height-36"
+          :class="compact ? 'h5' : 'h4'"
+        >
+          {{ title }}
+        </h1>
+        <p v-if="description || $scopedSlots.description" ref="description" class="gl-mt-3">
           <!--
             @slot Use this slot to customize the empty state's description
             area. Overrides the `description` prop.
