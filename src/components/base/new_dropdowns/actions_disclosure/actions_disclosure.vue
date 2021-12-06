@@ -8,14 +8,14 @@ import {
 import { ButtonMixin } from '../../../mixins/button_mixin';
 import GlIcon from '../../icon/icon.vue';
 import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
-import GlDisclosureItem from './disclosure_item.vue';
+import GlActionsDisclosureItem from './actions_disclosure_item.vue';
 
 export default {
   components: {
     BDropdown,
     GlIcon,
     GlLoadingIcon,
-    GlDisclosureItem,
+    GlActionsDisclosureItem,
   },
   mixins: [ButtonMixin],
   props: {
@@ -31,16 +31,6 @@ export default {
             typeof target === 'string'
         );
       },
-    },
-    headerText: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    hideHeaderBorder: {
-      type: Boolean,
-      required: false,
-      default: true,
     },
     text: {
       type: String,
@@ -130,17 +120,17 @@ export default {
       return Boolean(this.$slots[slotName]);
     },
     show(...args) {
-      this.$refs.disclosure.show(...args);
+      this.$refs.actionsDisclosure.show(...args);
     },
     hide(...args) {
-      this.$refs.disclosure.hide(...args);
+      this.$refs.actionsDisclosure.hide(...args);
     },
   },
 };
 </script>
 <template>
   <b-dropdown
-    ref="disclosure"
+    ref="actionsDisclosure"
     :role="null"
     class="gl-new-dropdown"
     v-bind="$attrs"
@@ -152,33 +142,18 @@ export default {
     :right="right"
     v-on="$listeners"
   >
-    <li
-      v-if="hasSlotContents('header') || headerText"
-      class="gl-new-dropdown-header"
-      :class="{ 'gl-border-b-0!': hideHeaderBorder }"
-    >
-      <p v-if="headerText" class="gl-new-dropdown-header-top">
-        {{ headerText }}
-      </p>
-      <slot name="header"></slot>
-    </li>
-
     <template v-if="isSimpleLinksList">
-      <gl-disclosure-item
+      <gl-actions-disclosure-item
         v-for="(item, index) of items"
-        :key="`disclosure-item-${index}`"
+        :key="`actions-disclosure-item-${index}`"
         :href="item.href"
         :to="item.to"
         :target="item.target"
       >
         {{ item.text }}
-      </gl-disclosure-item>
+      </gl-actions-disclosure-item>
     </template>
     <slot v-else></slot>
-
-    <li v-if="hasSlotContents('footer')" class="gl-new-dropdown-footer">
-      <slot name="footer"></slot>
-    </li>
 
     <template #button-content>
       <slot name="button-content">

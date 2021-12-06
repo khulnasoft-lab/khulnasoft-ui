@@ -111,8 +111,8 @@ export const setupStorybookReadme = () =>
         'GlChartTooltip',
         'GlInputGroupText',
         'GlGaugeChart',
-        'GlDisclosure',
-        'GlDisclosureItem',
+        'GlActionsDisclosure',
+        'GlActionsDisclosureItem',
       ],
       components: {
         GlComponentDocumentation,

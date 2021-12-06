@@ -1,7 +1,7 @@
 import {
   GlIcon,
-  GlDisclosure,
-  GlDisclosureItem,
+  GlActionsDisclosure,
+  GlActionsDisclosureItem,
   GlDropdownDivider,
   GlDropdownSectionHeader,
   GlDropdownText,
@@ -15,12 +15,12 @@ import {
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
-import readme from './disclosure.md';
+import readme from './actions_disclosure.md';
 
 const components = {
   GlIcon,
-  GlDisclosure,
-  GlDisclosureItem,
+  GlActionsDisclosure,
+  GlActionsDisclosureItem,
   GlDropdownDivider,
   GlDropdownSectionHeader,
   GlDropdownText,
@@ -40,11 +40,9 @@ const generateProps = ({
   block = false,
   disabled,
   icon = '',
-  text = 'Disclosure widget',
+  text = 'Actions disclosure widget',
   textSrOnly = false,
   loading = false,
-  headerText = '',
-  hideHeaderBorder = true,
 } = {}) => ({
   items,
   category,
@@ -56,15 +54,13 @@ const generateProps = ({
   text,
   textSrOnly,
   loading,
-  headerText,
-  hideHeaderBorder,
 });
 
 const wrap = ([template]) => {
   return `
-    <gl-disclosure
+    <gl-actions-disclosure
      :items="items"
-      ref="disclosure"
+      ref="actions-disclosure"
       :category="category"
       :variant="variant"
       :size="size"
@@ -74,13 +70,11 @@ const wrap = ([template]) => {
       :text-sr-only="textSrOnly"
       :icon="icon"
       :toggle-class="toggleClass"
-      :header-text="headerText"
-      :hide-header-border="hideHeaderBorder"
       :loading="loading"
       :right="right"
     >
       ${template}
-    </gl-disclosure>`;
+    </gl-actions-disclosure>`;
 };
 
 export const Default = (args, { argTypes = {} }) => ({
@@ -97,37 +91,30 @@ Default.args = generateProps({
   ],
 });
 
-export const WithHeaderAndFooter = (args, { argTypes = {} }) => ({
+export const IconActionButton = (args, { argTypes = {} }) => ({
   components,
   props: Object.keys(argTypes),
+  methods: {
+    notifyDownloadStarted() {
+      /* eslint-disable-next-line no-alert */
+      window.alert('Download started...');
+    },
+  },
   template: wrap`
-      <template #header>
-        <div class="gl-p-3">
-           <span  class="gl-font-weight-bold gl-font-sm">Download source code</span>
-           <gl-button-group :vertical="false" class="gl-display-flex gl-my-3">
-              <gl-button variant="confirm" size="small">zip</gl-button>
-              <gl-button size="small">tar.gz</gl-button>
-              <gl-button size="small">tar.bz2</gl-button>
-              <gl-button size="small">tar</gl-button>
-           </gl-button-group>
-           <gl-dropdown-divider/>
-        </div>
-      </template>
       <gl-dropdown-section-header>Download artifacts</gl-dropdown-section-header>
-      <gl-disclosure-item href="#link1">Artifact link one</gl-disclosure-item>
-      <gl-disclosure-item href="#link2">Artifact link two</gl-disclosure-item>
-      <gl-disclosure-item href="#link2">Artifact link three</gl-disclosure-item>
-      <template #footer>
-        <div class="gl-p-3">
-            <gl-link>Open in Web IDE</gl-link>
-        </div>
-      </template>`,
+      <gl-actions-disclosure-item href="#link1">Artifact link one</gl-actions-disclosure-item>
+      <gl-actions-disclosure-item href="#link2" target="_blank">Artifact link two</gl-actions-disclosure-item>
+      <gl-actions-disclosure-item @click="notifyDownloadStarted">Artifact link three</gl-actions-disclosure-item>`,
 });
-WithHeaderAndFooter.args = generateProps({ icon: 'download', text: '' });
+IconActionButton.args = generateProps({
+  icon: 'download',
+  text: 'Download artifcats dropdown',
+  textSrOnly: true,
+});
 
 export default {
-  title: 'base/new-dropdowns/disclosure',
-  component: GlDisclosure,
+  title: 'base/new_dropdowns/actions_disclosure',
+  component: GlActionsDisclosure,
   parameters: {
     bootstrapComponent: 'b-dropdown',
     docs: {

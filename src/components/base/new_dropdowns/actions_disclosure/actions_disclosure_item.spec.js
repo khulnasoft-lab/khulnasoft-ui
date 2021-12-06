@@ -1,20 +1,18 @@
 import { shallowMount } from '@vue/test-utils';
 
-import GlDisclosureItem, {
+import GlActionsDisclosureItem, {
   ExtendedBDropdownItem,
   ExtendedBDropdownItemButton,
-} from './disclosure_item.vue';
+} from './actions_disclosure_item.vue';
 
-describe('disclosure item', () => {
+describe('actions-disclosure item', () => {
   let wrapper;
 
   const buildWrapper = (propsData) => {
-    wrapper = shallowMount(GlDisclosureItem, {
+    wrapper = shallowMount(GlActionsDisclosureItem, {
       propsData,
     });
   };
-
-  afterEach(() => wrapper.destroy());
 
   describe('dynamic component rendering', () => {
     it('with no "href" or "to" attrs, renders a button', () => {
