@@ -1,3 +1,10 @@
+# [32.43.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.42.0...v32.43.0) (2021-12-06)
+
+
+### Features
+
+* **CSS:** Add `gl-md-max-w-70p` utility class ([502cd65](https://gitlab.com/gitlab-org/gitlab-ui/commit/502cd650d0b2124a3cdfb26ad7f9364f75292650))
+
 # [32.42.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.41.0...v32.42.0) (2021-12-03)
 
 
