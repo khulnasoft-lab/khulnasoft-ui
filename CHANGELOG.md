@@ -1,3 +1,10 @@
+## [32.43.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.0...v32.43.1) (2021-12-06)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** update styles to match design specs ([c0812f5](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0812f53664b5db03e643878d7894c9d448a736b))
+
 # [32.43.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.42.0...v32.43.0) (2021-12-06)
 
 
