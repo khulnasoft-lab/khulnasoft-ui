@@ -99,6 +99,6 @@ Read more about GitLab UI's [commits guidelines](./doc/contributing/commits.md).
 ## Why did we decide to go for Rollup instead of Webpack?
 
 While Webpack and Rollup have similar purposes, Webpack tends to work best when building applications,
-while rollup works better for building libraries.
+while Rollup works better for building libraries.
 
 For context, Sean Larkin (maintainer of Webpack) mentioned this on this [twitter thread](https://twitter.com/TheLarkInn/status/849792234002063360).
