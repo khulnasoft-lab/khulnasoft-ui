@@ -1,6 +1,11 @@
 # GitLab UI
 
-GitLab UI is a UI component library written in [Vue.js](https://vuejs.org).
+GitLab UI is a UI component library that implements [Pajamas](https://design.gitlab.com/), our
+design system. GitLab UI is written in [Vue.js](https://vuejs.org) and its objectives are to:
+
+- Create reusable UI components to accelerate frontend development.
+- Create UI consistency for all components within GitLab.
+
 See <https://gitlab-org.gitlab.io/gitlab-ui/> for documentation.
 
 ## Usage
