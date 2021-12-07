@@ -26,6 +26,8 @@ yarn link @gitlab/ui
 
 Once you are done run `yarn unlink @gitlab/ui` within the `gitlab` project.
 
+Alternatively, [yalc](https://github.com/wclr/yalc) can be used instead to link projects.
+
 ## Using the remote development package
 
 This approach relies on the development package that's built and published as an artifact by the
