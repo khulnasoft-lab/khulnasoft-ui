@@ -101,19 +101,19 @@ documentedStoriesOf('base/form/form-group', readme)
     `,
   }))
   .add('with validations', () => ({
-    props: generateProps({ label: 'Name', description: 'Please enter your name' }),
+    props: generateProps({ label: 'Name', description: 'Enter a first and last name.' }),
     components,
     computed: {
       state() {
         return this.name.length >= 4;
       },
       invalidFeedback() {
-        let feedbackText = 'Please enter something';
+        let feedbackText = 'This field is required.';
 
         if (this.name.length > 4) {
           feedbackText = '';
         } else if (this.name.length > 0) {
-          feedbackText = 'Enter at least 4 characters';
+          feedbackText = 'Enter at least 4 characters.';
         }
 
         return feedbackText;
