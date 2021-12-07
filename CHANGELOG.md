@@ -1,3 +1,10 @@
+## [32.43.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.1...v32.43.2) (2021-12-07)
+
+
+### Bug Fixes
+
+* **UI text:** Removed "Please," added period, and updated examples ([eabcb67](https://gitlab.com/gitlab-org/gitlab-ui/commit/eabcb6712a54c4b9e8bd175c7df117523824f89f))
+
 ## [32.43.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.0...v32.43.1) (2021-12-06)
 
 
