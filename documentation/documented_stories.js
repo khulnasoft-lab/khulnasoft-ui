@@ -97,6 +97,7 @@ export const setupStorybookReadme = () =>
         'GlFormTextarea',
         'GlFormInput',
         'GlSegmentedControl',
+        'GlAvatar',
       ],
       components: {
         GlComponentDocumentation,
