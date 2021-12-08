@@ -1,3 +1,10 @@
+## [32.43.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.2...v32.43.3) (2021-12-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dompurify to ^2.3.4 ([6798e4f](https://gitlab.com/gitlab-org/gitlab-ui/commit/6798e4f3e4fdd2b12b1b6e4cf8e0ac3d575cf43f))
+
 ## [32.43.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.1...v32.43.2) (2021-12-07)
 
 
