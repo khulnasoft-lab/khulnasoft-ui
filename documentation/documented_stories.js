@@ -99,6 +99,7 @@ export const setupStorybookReadme = () =>
         'GlSegmentedControl',
         'GlAvatar',
         'GlAvatarLink',
+        'GlPagination',
       ],
       components: {
         GlComponentDocumentation,
