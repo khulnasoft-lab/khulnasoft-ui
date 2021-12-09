@@ -38,6 +38,13 @@ overrides:
     - error
     - selector: CallExpression[callee.name='afterEach'] CallExpression MemberExpression[object.name='wrapper'][property.name='destroy']
       message: No need to call wrapper.destroy() in afterEach due to enableAutoDestroy being enabled suite-wide.
+    no-restricted-imports:
+    - error
+    - paths:
+      - name: "@vue/test-utils"
+        importNames:
+        - createLocalVue
+        message: createLocalVue should be avoided. Perform operations on global Vue instance instead
 - files:
     - '**/*.stories.js'
   rules:

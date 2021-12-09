@@ -1,11 +1,8 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import SearchBoxByClick from './search_box_by_click.vue';
 import ClearIcon from '~/components/shared_components/clear_icon_button/clear_icon_button.vue';
-
-const localVue = createLocalVue();
-localVue.directive('gl-tooltip', {});
 
 const GlFormInputGroupStub = {
   template: `
@@ -24,7 +21,6 @@ describe('search box by click component', () => {
     wrapper = shallowMount(SearchBoxByClick, {
       propsData,
       stubs: { GlFormInputGroup: GlFormInputGroupStub },
-      localVue,
     });
   };
 

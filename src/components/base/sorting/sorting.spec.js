@@ -1,11 +1,9 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import GlDropdown from '../dropdown/dropdown.vue';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 import GlSorting from './sorting.vue';
 import GlSortingItem from './sorting_item.vue';
-
-const localVue = createLocalVue();
 
 describe('sorting component', () => {
   let wrapper;
@@ -35,7 +33,6 @@ describe('sorting component', () => {
           '<gl-sorting-item>Third item</gl-sorting-item>',
         ],
       },
-      localVue,
       propsData: {
         ...defaultProps,
         ...propsData,
