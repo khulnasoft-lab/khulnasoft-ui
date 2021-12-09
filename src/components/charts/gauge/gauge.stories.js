@@ -1,5 +1,3 @@
-import { withKnobs, object, number, text as textKnob, array } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { toolbox } from '../../../utils/charts/story_config';
 import readme from './gauge.md';
 import GlGauge from './gauge.vue';
@@ -16,7 +14,7 @@ const template = `
   />
 `;
 
-function generateProps({
+const generateProps = ({
   value = 48,
   min = 0,
   max = 100,
@@ -24,88 +22,74 @@ function generateProps({
   option = {},
   thresholds = [38, 82],
   splitNumber = 10,
-} = {}) {
-  return {
-    option: {
-      default: object('EChart Options', option),
-    },
-    value: {
-      default: number('Value', value),
-    },
-    min: {
-      default: number('Min', min),
-    },
-    max: {
-      default: number('Max', max),
-    },
-    thresholds: {
-      default: array('Thresholds', thresholds),
-    },
-    text: {
-      default: textKnob('Detail Text', text),
-    },
-    splitNumber: {
-      default: number('Split Number', splitNumber),
-    },
-  };
-}
+} = {}) => ({
+  option,
+  value,
+  min,
+  max,
+  thresholds,
+  text,
+  splitNumber,
+});
 
-documentedStoriesOf('charts/gauge-chart', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components: { GlGauge },
-    template,
-  }))
-  .add('one threshold', () => ({
-    props: generateProps({
-      value: 65,
-      thresholds: [85],
-    }),
-    components: { GlGauge },
-    template,
-  }))
-  .add('two thresholds', () => ({
-    props: generateProps({
-      value: 90,
-      thresholds: [60, 85],
-    }),
-    components: { GlGauge },
-    template,
-  }))
-  .add('no thresholds', () => ({
-    props: generateProps({
-      value: 90,
-      thresholds: [],
-    }),
-    components: { GlGauge },
-    template,
-  }))
-  .add('with custom detail text', () => ({
-    props: generateProps({
-      value: 90,
-      text: '90Mbps',
-      thresholds: [60, 85],
-    }),
-    components: { GlGauge },
-    template,
-  }))
-  .add('with NaN values', () => ({
-    props: generateProps({
-      min: 'not a number value',
-      max: 'not a number value',
-      value: 'not a number value',
-      thresholds: [60, 85],
-    }),
-    components: { GlGauge },
-    template,
-  }))
-  .add('with toolbox', () => ({
-    props: generateProps({
-      option: {
-        toolbox,
+const Template = (args, { argTypes }) => ({
+  components: { GlGauge },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const OneThreshold = Template.bind({});
+OneThreshold.args = generateProps({
+  value: 65,
+  thresholds: [85],
+});
+
+export const TwoThresholds = Template.bind({});
+TwoThresholds.args = generateProps({
+  value: 90,
+  thresholds: [60, 85],
+});
+
+export const NoThresholds = Template.bind({});
+NoThresholds.args = generateProps({
+  value: 90,
+  thresholds: [],
+});
+
+export const WithCustomDetailText = Template.bind({});
+WithCustomDetailText.args = generateProps({
+  value: 90,
+  text: '90Mbps',
+  thresholds: [60, 85],
+});
+
+export const WithNaNValues = Template.bind({});
+WithNaNValues.args = generateProps({
+  min: 'not a number value',
+  max: 'not a number value',
+  value: 'not a number value',
+  thresholds: [60, 85],
+});
+
+export const WithToolbox = Template.bind({});
+WithToolbox.args = generateProps({
+  option: {
+    toolbox,
+  },
+});
+
+export default {
+  title: 'charts/gauge-chart',
+  component: GlGauge,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
       },
-    }),
-    components: { GlGauge },
-    template,
-  }));
+    },
+  },
+};

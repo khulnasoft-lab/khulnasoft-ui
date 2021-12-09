@@ -107,6 +107,7 @@ export const setupStorybookReadme = () =>
         'GlFormCombobox',
         'GlChartTooltip',
         'GlInputGroupText',
+        'GlGaugeChart',
       ],
       components: {
         GlComponentDocumentation,
