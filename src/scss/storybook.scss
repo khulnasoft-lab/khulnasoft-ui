@@ -12,3 +12,11 @@
 @import 'utilities';
 
 @import 'components';
+
+/**
+ * Custom padding for docs pages. This improves the integration in Pajamas pages.
+ */
+.sbdocs-wrapper {
+  padding-top: $gl-spacing-scale-2 !important;
+  padding-bottom: 0 !important;
+}
