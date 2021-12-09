@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "@babel/standalone": "^7.0.0",
+    "@sharlatta/bootstrap-vue": "^2.21.2",
     "bootstrap-vue": "2.20.1",
     "copy-to-clipboard": "^3.0.8",
     "dompurify": "^2.3.4",

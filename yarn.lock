@@ -1655,6 +1655,17 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@sharlatta/bootstrap-vue@^2.21.2":
+  version "2.21.2"
+  resolved "https://registry.yarnpkg.com/@sharlatta/bootstrap-vue/-/bootstrap-vue-2.21.2.tgz#60be401fdba3c70be82bf1c8e5e9af64ee4731b8"
+  integrity sha512-mQ+LAOXBScqApXtD9m9yH3Ub2msRgn4AnbDex7rWCYqq9IMnzDbJqprIiwOOX5zAzRCMOVpofdNc0fWJ0sCHGg==
+  dependencies:
+    "@nuxt/opencollective" "^0.3.2"
+    bootstrap ">=4.5.3 <5.0.0"
+    popper.js "^1.16.1"
+    portal-vue "^2.1.7"
+    vue-functional-data-merge "^3.1.0"
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.1.tgz#e7df00f98a203324f6dc7cc606cad9d4a8ab2217"
