@@ -100,32 +100,4 @@ describe('resize observer directive', () => {
 
     expect(element.glResizeHandler).toBeFalsy();
   });
-
-  describe('check directive value', () => {
-    afterEach(() => {
-      // we are going to throw, so we need to suppress Vue error messages in jest output
-      global.console.error.mockReset();
-    });
-
-    it.each([3, '', undefined, null, false, {}, []])(
-      'throws if the handler is %p instead of a function',
-      (directiveValue) => {
-        const testComponentWithoutHandler = {
-          directives: {
-            resizeObserver: GlResizeObserverDirective,
-          },
-          data() {
-            return {
-              directiveValue,
-            };
-          },
-          template: `<div v-resize-observer="directiveValue"></div>`,
-        };
-
-        expect(() => {
-          wrapper = shallowMount(testComponentWithoutHandler, { localVue });
-        }).toThrow(TypeError);
-      }
-    );
-  });
 });

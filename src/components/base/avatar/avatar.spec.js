@@ -27,8 +27,7 @@ describe('GlAvatar', () => {
     it.each([12, 28, 36, 54, 98])('displays an error for size %s', (size) => {
       createWrapper({ size });
 
-      expect(global.console).toHaveLoggedVueErrors();
-      global.console.error.mockReset();
+      expect(wrapper).toHaveLoggedVueErrors();
     });
   });
 });
