@@ -13,6 +13,10 @@
   transform: translateX(100%);
 }
 
+@mixin gl-translate-x-n50 {
+  transform: translateX(-50%);
+}
+
 @mixin gl-translate-y-0 {
   transform: translateY(0);
 }
