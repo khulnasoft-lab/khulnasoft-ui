@@ -1,3 +1,10 @@
+# [32.44.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.3...v32.44.0) (2021-12-09)
+
+
+### Features
+
+* **GlFormText:** Migrate storybook story ([b64bc62](https://gitlab.com/gitlab-org/gitlab-ui/commit/b64bc6239ed5421b2c2023149e6fc59da936256e))
+
 ## [32.43.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.2...v32.43.3) (2021-12-08)
 
 
