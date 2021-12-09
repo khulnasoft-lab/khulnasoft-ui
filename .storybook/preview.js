@@ -1,6 +1,7 @@
 import { addParameters, addDecorator } from '@storybook/vue';
 import { addReadme } from 'storybook-readme/vue';
 import { setupStorybookReadme } from '../documentation/documented_stories';
+import 'iframe-resizer/js/iframeResizer.contentWindow.min.js';
 
 const { searchParams } = new URL(document.location);
 const isEmbeddedStory = searchParams.has('isEmbeddedStory');
