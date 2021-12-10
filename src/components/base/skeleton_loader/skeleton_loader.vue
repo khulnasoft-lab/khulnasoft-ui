@@ -13,36 +13,60 @@ export default {
   name: 'GlSkeletonLoader',
   functional: true,
   props: {
+    /**
+     * It will be set in the viewbox attr in the <svg />.
+     * Defaults to 400 when skeleton is passed via the slot. Defaults to 235 when default skeleton is used
+     */
     width: {
       type: Number,
       default: null,
       required: false,
     },
+    /**
+     * It will be set in the viewbox attr in the <svg />. Defaults to 130 when skeleton is passed via the slot.
+     * Defaults to the combined height of the lines when default skeleton is used
+     */
     height: {
       type: Number,
       default: null,
       required: false,
     },
+    /**
+     * Aspect ratio option of <svg/>
+     */
     preserveAspectRatio: {
       type: String,
       default: 'xMidYMid meet',
       required: false,
     },
+    /**
+     * Required if you're using <base url="/" /> in your <head />. Defaults to an empty string.
+     * This prop is common used as: <gl-skeleton-loader :base-url="$route.fullPath" /> which will fill the SVG attribute with the relative path.
+     */
     baseUrl: {
       type: String,
       default: '',
       required: false,
     },
+    /**
+     * Defaults to unique id
+     */
     uniqueKey: {
       type: String,
       default: () => uid(),
       required: false,
     },
+    /**
+     * Number of lines to show when using the default skeleton
+     */
     lines: {
       type: Number,
       default: 3,
       required: false,
     },
+    /**
+     * If the default skeleton lines should all be the same width
+     */
     equalWidthLines: {
       type: Boolean,
       default: false,
