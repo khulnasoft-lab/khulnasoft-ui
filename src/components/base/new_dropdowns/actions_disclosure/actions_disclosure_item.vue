@@ -4,30 +4,6 @@ import { BDropdownItem, BDropdownItemButton } from '@sharlatta/bootstrap-vue';
 import { variantCssColorMap } from '../../../../utils/constants';
 import GlIcon from '../../icon/icon.vue';
 
-export const ExtendedBDropdownItem = {
-  extends: BDropdownItem,
-  computed: {
-    computedAttrs() {
-      return {
-        ...this.bvAttrs,
-      };
-    },
-  },
-};
-
-export const ExtendedBDropdownItemButton = {
-  extends: BDropdownItemButton,
-  computed: {
-    computedAttrs() {
-      return {
-        ...this.bvAttrs,
-        type: 'button',
-        disabled: this.disabled,
-      };
-    },
-  },
-};
-
 export default {
   components: {
     GlIcon,
@@ -54,7 +30,7 @@ export default {
     bootstrapComponent() {
       const { href, to } = this.$attrs;
       // Support 'href' and Vue Router's 'to'
-      return href || to ? ExtendedBDropdownItem : ExtendedBDropdownItemButton;
+      return href || to ? BDropdownItem : BDropdownItemButton;
     },
     iconColorCss() {
       return variantCssColorMap[this.iconColor] || 'gl-text-gray-700';
