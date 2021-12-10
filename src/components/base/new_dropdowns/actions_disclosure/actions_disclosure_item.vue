@@ -1,5 +1,6 @@
 <script>
-import { BDropdownItem, BDropdownItemButton } from 'bootstrap-vue';
+/* eslint-disable  import/no-unresolved */
+import { BDropdownItem, BDropdownItemButton } from '@sharlatta/bootstrap-vue';
 import { variantCssColorMap } from '../../../../utils/constants';
 import GlIcon from '../../icon/icon.vue';
 
