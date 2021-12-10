@@ -1,3 +1,11 @@
+# [32.45.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.44.0...v32.45.0) (2021-12-10)
+
+
+### Features
+
+* **css:** add negative translate x axis util ([987ad52](https://gitlab.com/gitlab-org/gitlab-ui/commit/987ad521f0990ed5311075c76496d4d29d89c2f7))
+* **GlChart:** Addition of GlResizeObserverDirective for charts ([7a57fed](https://gitlab.com/gitlab-org/gitlab-ui/commit/7a57fed4e5d48ec209891f0a11fc133f4bcc1ded))
+
 # [32.44.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.3...v32.44.0) (2021-12-09)
 
 
