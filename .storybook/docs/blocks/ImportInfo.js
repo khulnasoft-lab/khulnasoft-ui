@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { DocsContext } from '@storybook/addon-docs';
 import { SyntaxHighlighter } from '@storybook/components';
 
-export const ImportInfo = ({ children }) => {
+export const ImportInfo = () => {
   const context = useContext(DocsContext);
   const componentName = context.parameters?.component?.name;
   if (!componentName) {
