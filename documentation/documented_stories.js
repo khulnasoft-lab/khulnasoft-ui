@@ -104,6 +104,7 @@ export const setupStorybookReadme = () =>
         'GlLabel',
         'GlStackedColumnChart',
         'GlDiscreteScatterChart',
+        'GlFormCombobox',
       ],
       components: {
         GlComponentDocumentation,
