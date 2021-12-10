@@ -26,6 +26,16 @@ yarn link @gitlab/ui
 
 Once you are done run `yarn unlink @gitlab/ui` within the `gitlab` project.
 
+Alternatively, [yalc](https://github.com/wclr/yalc) can be used instead to link projects.
+
+1. Install `yalc` with `yarn global add yalc`
+1. Navigate to the `@gitlab/ui` directory and publish the package with `yalc publish`.
+1. Navigate to the `gitlab` project and add published package with `yalc add @gitlab/ui`.
+1. Run `yarn install --check-files` to pull package updates.
+
+To propagate changes in the `@gitlab/ui` project automatically to all installations use
+the following command `yalc publish --push`.
+
 ## Using the remote development package
 
 This approach relies on the development package that's built and published as an artifact by the
