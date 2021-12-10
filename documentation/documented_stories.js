@@ -101,6 +101,7 @@ export const setupStorybookReadme = () =>
         'GlAvatarLink',
         'GlPagination',
         'GlSkeletonLoader',
+        'GlLabel',
       ],
       components: {
         GlComponentDocumentation,

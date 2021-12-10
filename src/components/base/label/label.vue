@@ -96,6 +96,26 @@ export default {
       this.splitScopedLabelIndex = this.title.lastIndexOf('::');
     },
   },
+  methods: {
+    onClick(e) {
+      /**
+       * Emitted when label is clicked
+       *
+       * @event click
+       * @type {object}
+       */
+      this.$emit('click', e);
+    },
+    onClose(e) {
+      /**
+       * Emitted when x is clicked
+       *
+       * @event close
+       * @type {object}
+       */
+      this.$emit('close', e);
+    },
+  },
 };
 </script>
 
@@ -106,7 +126,7 @@ export default {
     :class="cssClasses"
     :style="cssVariables"
     v-bind="$attrs"
-    @click="$emit('click', $event)"
+    @click="onClick"
   >
     <gl-link :href="target" class="gl-label-link">
       <span class="gl-label-text">
@@ -122,7 +142,7 @@ export default {
       label="Remove label"
       variant="reset"
       :disabled="disabled"
-      @click="$emit('close', $event)"
+      @click="onClose"
     />
     <gl-tooltip
       v-if="description"
