@@ -1,3 +1,10 @@
+## [32.45.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.45.0...v32.45.1) (2021-12-10)
+
+
+### Bug Fixes
+
+* Guard against nonexistent localStorage ([248f7b7](https://gitlab.com/gitlab-org/gitlab-ui/commit/248f7b7c662a8011c27c05dc14a6aaca4d752e33))
+
 # [32.45.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.44.0...v32.45.0) (2021-12-10)
 
 
