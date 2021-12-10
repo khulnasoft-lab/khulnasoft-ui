@@ -1,14 +1,9 @@
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlSkeletonLoader } from '../../../../index';
 import readme from './skeleton_loader.md';
 
-const components = {
-  GlSkeletonLoader,
-};
-
-documentedStoriesOf('base/skeleton-loader', readme).add('default', () => ({
-  props: {},
-  components,
+const Template = (args) => ({
+  components: { GlSkeletonLoader },
+  props: Object.keys(args),
   template: `
   <div style="background: #fff; border: 1px solid #dfdfdf; box-shadow: 0 1px 2px rgba(0,0,0,0.1); width: 359px; height: 135px; padding: 1rem; border-radius: 0.25rem;">
     <div style="width: 327px; height: 102px;">
@@ -24,4 +19,23 @@ documentedStoriesOf('base/skeleton-loader', readme).add('default', () => ({
       </gl-skeleton-loader>
     </div>
   </div>`,
-}));
+});
+
+export const Default = Template.bind({});
+Default.args = {};
+
+export default {
+  title: 'base/skeleton-loader',
+  component: GlSkeletonLoader,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+    controls: {
+      disable: true,
+    },
+  },
+};
