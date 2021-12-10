@@ -181,7 +181,13 @@ export default {
   >
     <slot name="default"></slot>
     <div class="gl-flex-grow-1 gl-relative">
-      <chart :height="height" :options="options" @created="onChartCreated" />
+      <chart
+        v-bind="$attrs"
+        :height="height"
+        :options="options"
+        @created="onChartCreated"
+        v-on="$listeners"
+      />
       <chart-tooltip
         v-if="chartInstance"
         :show="tooltip.show"
