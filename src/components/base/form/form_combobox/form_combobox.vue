@@ -128,6 +128,10 @@ export default {
     selectToken(value) {
       this.$emit('input', value);
       this.closeSuggestions();
+      /**
+       * Emitted when a value is selected.
+       * @event value-selected
+       */
       this.$emit('value-selected', value);
     },
   },
