@@ -103,6 +103,7 @@ export const setupStorybookReadme = () =>
         'GlSkeletonLoader',
         'GlLabel',
         'GlStackedColumnChart',
+        'GlDiscreteScatterChart',
       ],
       components: {
         GlComponentDocumentation,

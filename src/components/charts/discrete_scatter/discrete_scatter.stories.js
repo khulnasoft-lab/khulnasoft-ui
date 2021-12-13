@@ -1,13 +1,9 @@
-import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { GlDiscreteScatterChart } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import readme from './discrete_scatter.md';
 
-const components = {
-  GlDiscreteScatterChart,
-};
-
-const template = `
+const Template = (args, { argTypes }) => ({
+  components: { GlDiscreteScatterChart },
+  props: Object.keys(argTypes),
+  template: `
   <gl-discrete-scatter-chart
     :data="data"
     :option="option"
@@ -15,9 +11,10 @@ const template = `
     :x-axis-title="xAxisTitle"
     data-testid="discrete-scatter-chart"
   />
-`;
+`,
+});
 
-function generateProps({
+const generateProps = ({
   data = [
     {
       type: 'scatter',
@@ -35,41 +32,32 @@ function generateProps({
   option = {},
   yAxisTitle = 'Pushes per day',
   xAxisTitle = 'Date',
-} = {}) {
-  return {
-    data: {
-      default: object('Chart Data', data),
-    },
-    option: {
-      default: object('EChart Options', option),
-    },
-    yAxisTitle: {
-      default: text('Y Axis Title', yAxisTitle),
-    },
-    xAxisTitle: {
-      default: text('X Axis Title', xAxisTitle),
-    },
-  };
-}
+} = {}) => ({
+  data,
+  option,
+  yAxisTitle,
+  xAxisTitle,
+});
 
-documentedStoriesOf('charts/discrete-scatter-chart', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('with zoom and scroll', () => ({
-    props: generateProps({
-      option: {
-        dataZoom: [
-          {
-            type: 'slider',
-            startValue: 1,
-          },
-        ],
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const WithZoomAndScroll = Template.bind({});
+WithZoomAndScroll.args = generateProps({
+  option: {
+    dataZoom: [
+      {
+        type: 'slider',
+        startValue: 1,
       },
-    }),
-    components,
-    template,
-  }));
+    ],
+  },
+});
+
+export default {
+  title: 'charts/discrete-scatter-chart',
+  component: GlDiscreteScatterChart,
+  parameters: {
+    knobs: { disable: true },
+  },
+};
