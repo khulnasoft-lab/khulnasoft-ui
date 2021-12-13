@@ -1,3 +1,10 @@
+# [32.48.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.47.0...v32.48.0) (2021-12-13)
+
+
+### Features
+
+* **GlAvatarsInline:** Migrate storybook story ([0720510](https://gitlab.com/gitlab-org/gitlab-ui/commit/07205105cb98e8493cfe3f8b70191707175ca8a9))
+
 # [32.47.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.46.0...v32.47.0) (2021-12-13)
 
 
