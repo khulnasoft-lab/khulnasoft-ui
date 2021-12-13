@@ -1,25 +1,31 @@
-import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import readme from './input_group_text.md';
 import GlInputGroupText from './input_group_text.vue';
 
-const components = {
-  GlInputGroupText,
-};
+const generateProps = (props = {}) => ({
+  ...props,
+});
 
-const defaultProps = {};
-
-function generateProps(props = {}) {
-  return {
-    ...defaultProps,
-    ...props,
-  };
-}
-
-documentedStoriesOf('base/form/input-group-text', readme).add('default', () => ({
-  components,
-  props: generateProps(),
-  data: () => ({}),
+const Template = (args) => ({
+  components: { GlInputGroupText },
+  props: Object.keys(args),
   template: `
       <gl-input-group-text>Some text</gl-input-group-text>
     `,
-}));
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'base/form/input-group-text',
+  component: GlInputGroupText,
+  parameters: {
+    controls: { disable: true },
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+};
