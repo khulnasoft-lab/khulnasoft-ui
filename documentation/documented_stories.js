@@ -102,6 +102,7 @@ export const setupStorybookReadme = () =>
         'GlPagination',
         'GlSkeletonLoader',
         'GlLabel',
+        'GlStackedColumnChart',
       ],
       components: {
         GlComponentDocumentation,
