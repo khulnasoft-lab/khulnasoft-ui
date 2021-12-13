@@ -53,6 +53,14 @@ export const WithTooltip = (args, { argTypes }) => ({
     `,
 });
 WithTooltip.args = { ...generateProps(), ...generateTooltipProps() };
+WithTooltip.argTypes = {
+  placement: {
+    control: {
+      type: 'select',
+      options: tooltipPlacements,
+    },
+  },
+};
 
 export const WithBadges = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -98,12 +106,6 @@ export default {
       control: {
         type: 'select',
         options: avatarShapeOptions,
-      },
-    },
-    placement: {
-      control: {
-        type: 'select',
-        options: tooltipPlacements,
       },
     },
   },
