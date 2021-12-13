@@ -89,6 +89,7 @@ export const setupStorybookReadme = () =>
         'GlAccordion',
         'GlAccordionItem',
         'GlIntersperse',
+        'GlFormSelect',
         'GlDaterangePicker',
         'GlAvatarLabeled',
         'GlBarChart',
