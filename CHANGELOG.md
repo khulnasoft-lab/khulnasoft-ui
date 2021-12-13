@@ -1,3 +1,10 @@
+# [32.47.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.46.0...v32.47.0) (2021-12-13)
+
+
+### Features
+
+* **GlInputGroupText:** Migrate storybook story ([3fb2328](https://gitlab.com/gitlab-org/gitlab-ui/commit/3fb2328829b002480149bf5654c6026ff26fd670))
+
 # [32.46.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.45.1...v32.46.0) (2021-12-13)
 
 
