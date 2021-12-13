@@ -1,6 +1,6 @@
 <script>
 /* eslint-disable  import/no-unresolved */
-import { BDropdown } from '@sharlatta/bootstrap-vue';
+import { BDropdown } from '@gitlab/bootstrap-vue';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,

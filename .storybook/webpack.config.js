@@ -70,7 +70,7 @@ module.exports = ({ config }) => {
     },
     {
       test: /\.js$/,
-      exclude: /node_modules\/(?!(bootstrap-vue|@sharlatta\/bootstrap-vue)\/).*/,
+      exclude: /node_modules\/(?!(bootstrap-vue|@gitlab\/bootstrap-vue)\/).*/,
       use: {
         loader: 'babel-loader',
         options: {
@@ -90,10 +90,10 @@ module.exports = ({ config }) => {
 
   config.resolve.alias['@gitlab/ui'] = path.join(__dirname, '..', 'index.js');
 
-  config.resolve.alias['@sharlatta/bootstrap-vue$'] = path.join(
+  config.resolve.alias['@gitlab/bootstrap-vue$'] = path.join(
     __dirname,
     '..',
-    'node_modules/@sharlatta/bootstrap-vue/src/index.js'
+    'node_modules/@gitlab/bootstrap-vue/src/index.js'
   );
 
   // disable HMR in test environment because this breaks puppeteer's networkidle0 setting

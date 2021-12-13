@@ -1244,6 +1244,17 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@gitlab/bootstrap-vue@^2.22.1":
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/@gitlab/bootstrap-vue/-/bootstrap-vue-2.22.1.tgz#b4c4ef6919fa4a3a9333fd5072f4d72ba5191e0b"
+  integrity sha512-NLCpgSxowqz3eRI2fh9AtIfNeNgYklPllKM70UpwXx+5LBIu4EyHjwzYgqhEX+G9IM4+xkOC61PzJ9IkZRrLAQ==
+  dependencies:
+    "@nuxt/opencollective" "^0.3.2"
+    bootstrap ">=4.5.3 <5.0.0"
+    popper.js "^1.16.1"
+    portal-vue "^2.1.7"
+    vue-functional-data-merge "^3.1.0"
+
 "@gitlab/eslint-plugin@10.0.0":
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-10.0.0.tgz#83430fb4d0a2467bb54975d0b5b9dc8016005722"
@@ -1654,17 +1665,6 @@
   integrity sha512-c/qwwcHyafOQuVQJj0IlBjf5yYgBI7YPJ77k4fOJYesb41jio65eaJODRUmfYKhTOFBrIZ66kgvGPlNbjuoRdQ==
   dependencies:
     any-observable "^0.3.0"
-
-"@sharlatta/bootstrap-vue@^2.21.2":
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/@sharlatta/bootstrap-vue/-/bootstrap-vue-2.22.0.tgz#1a24c7abbd1486834969233ca6ef3c362220c95b"
-  integrity sha512-5soaKoXvknsmevwLlAFh8QICruDv+J1QfEf8q5mBNflOQwu4sdyX2Tc5dLJyfm/CxdHoHkozG9owJpZshoEmdw==
-  dependencies:
-    "@nuxt/opencollective" "^0.3.2"
-    bootstrap ">=4.5.3 <5.0.0"
-    popper.js "^1.16.1"
-    portal-vue "^2.1.7"
-    vue-functional-data-merge "^3.1.0"
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
