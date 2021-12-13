@@ -41,14 +41,6 @@ export default {
       },
     },
   },
-  argTypes: {
-    separator: {
-      control: 'text',
-    },
-    lastSeparator: {
-      control: 'text',
-    },
-  },
 };
 
 export const CustomSeparator = Template.bind({});
