@@ -1,5 +1,3 @@
-## Intersperse
-
 The intersperse component separates a list of elements
 by a given character (the default is `, `).
 

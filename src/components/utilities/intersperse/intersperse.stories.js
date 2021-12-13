@@ -1,5 +1,3 @@
-import { array, text, withKnobs } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlIntersperse } from '../../../../index';
 import readme from './intersperse.md';
 
@@ -11,44 +9,46 @@ const template = `
   </div>
   `;
 
-function generateProps({
+const generateProps = ({
   separator = ', ',
   lastSeparator = '',
   items = ['Foo', 'Bar', 'Baz', 'Qaz'],
-} = {}) {
-  return {
-    items: {
-      default: array('items', items),
-    },
-    separator: {
-      default: text('separator', separator),
-    },
-    lastSeparator: {
-      default: text('lastSeparator', lastSeparator),
-    },
-  };
-}
+} = {}) => ({
+  separator,
+  lastSeparator,
+  items,
+});
 
-documentedStoriesOf('utilities/intersperse', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components: {
-      GlIntersperse,
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlIntersperse,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'utilities/intersperse',
+  component: GlIntersperse,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
     },
-    template,
-  }))
-  .add('custom seperator', () => ({
-    props: generateProps({ separator: '-' }),
-    components: {
-      GlIntersperse,
-    },
-    template,
-  }))
-  .add('custom last separator', () => ({
-    props: generateProps({ lastSeparator: ' and ' }),
-    components: {
-      GlIntersperse,
-    },
-    template,
-  }));
+  },
+};
+
+export const CustomSeparator = Template.bind({});
+CustomSeparator.args = generateProps({
+  separator: '-',
+});
+
+export const CustomLastSeparator = Template.bind({});
+CustomLastSeparator.args = generateProps({
+  lastSeparator: ' and ',
+});
