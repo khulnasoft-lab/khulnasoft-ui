@@ -1,3 +1,10 @@
+# [32.46.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.45.1...v32.46.0) (2021-12-13)
+
+
+### Features
+
+* **GlFormGroup:** Add optional prop to form_group ([25f8f64](https://gitlab.com/gitlab-org/gitlab-ui/commit/25f8f647261d1b3a8572602e84b1978541b1406f))
+
 ## [32.45.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.45.0...v32.45.1) (2021-12-10)
 
 
