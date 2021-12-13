@@ -49,7 +49,7 @@ export default {
           <span class="gl-avatar-labeled-label">{{ label }}</span>
         </gl-link>
         <span v-else class="gl-avatar-labeled-label">{{ label }}</span>
-        <!--@slot Meta data to add to the avatar. Generally used for badges or user status emoji. -->
+        <!-- @slot Metadata to add to the avatar. Generally used for badges or user status emoji. -->
         <slot name="meta"></slot>
       </div>
       <gl-link v-if="hasSubLabelLink" :href="subLabelLink" class="gl-avatar-link">
