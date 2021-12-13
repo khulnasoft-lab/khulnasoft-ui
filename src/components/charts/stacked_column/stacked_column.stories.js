@@ -1,6 +1,4 @@
-import { withKnobs, object, text, array, select } from '@storybook/addon-knobs';
 import { GlStackedColumnChart } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
   mockDefaultStackedLineData,
   mockDefaultStackedBarData,
@@ -9,10 +7,6 @@ import {
 import { toolbox } from '../../../utils/charts/story_config';
 import { columnOptions } from '../../../utils/constants';
 import readme from './stacked_column.md';
-
-const components = {
-  GlStackedColumnChart,
-};
 
 const template = `
   <gl-stacked-column-chart
@@ -31,7 +25,7 @@ const template = `
 
 const mockSecondaryDataTitle = 'Merges';
 
-function generateProps({
+const generateProps = ({
   bars = mockDefaultStackedBarData,
   lines = [],
   option = {},
@@ -42,98 +36,79 @@ function generateProps({
   presentation = columnOptions.stacked,
   secondaryData = [],
   secondaryDataTitle = '',
-} = {}) {
-  return {
-    bars: {
-      default: object('Bar chart Data', bars),
-    },
-    lines: {
-      default: object('Line chart Data', lines),
-    },
-    option: {
-      default: object('Echart Options', option),
-    },
-    presentation: {
-      default: select('presentation', columnOptions, presentation),
-    },
-    groupBy: {
-      default: array('Group By', groupBy),
-    },
-    xAxisType: {
-      default: text('X Axis Type', xAxisType),
-    },
-    xAxisTitle: {
-      default: text('X Axis Title', xAxisTitle),
-    },
-    yAxisTitle: {
-      default: text('Y Axis Title', yAxisTitle),
-    },
-    secondaryDataTitle: {
-      default: text('Secondary Data Title', secondaryDataTitle),
-    },
-    secondaryData: {
-      default: object('Secondary Data', secondaryData),
-    },
-  };
-}
+} = {}) => ({
+  bars,
+  lines,
+  option,
+  presentation,
+  groupBy,
+  xAxisType,
+  xAxisTitle,
+  yAxisTitle,
+  secondaryDataTitle,
+  secondaryData,
+});
 
-documentedStoriesOf('charts/stacked-column-chart', readme)
-  .addDecorator(withKnobs)
-  .add('stacked', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('tiled', () => ({
-    props: generateProps({ presentation: columnOptions.tiled }),
-    components,
-    template,
-  }))
-  .add('stacked with line data', () => ({
-    props: generateProps({ lines: mockDefaultStackedLineData }),
-    components,
-    template,
-  }))
-  .add('tiled with line data', () => ({
-    props: generateProps({ presentation: columnOptions.tiled, lines: mockDefaultStackedLineData }),
-    components,
-    template,
-  }))
-  .add('with zoom and scroll', () => ({
-    props: generateProps({
-      option: {
-        dataZoom: [
-          {
-            startValue: 1,
-          },
-        ],
+const Template = (args, { argTypes }) => ({
+  components: { GlStackedColumnChart },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Stacked = Template.bind({});
+Stacked.args = generateProps();
+
+export const Tiled = Template.bind({});
+Tiled.args = generateProps({ presentation: columnOptions.tiled });
+
+export const StackedWithLineData = Template.bind({});
+StackedWithLineData.args = generateProps({ lines: mockDefaultStackedLineData });
+
+export const TiledWithLineData = Template.bind({});
+TiledWithLineData.args = generateProps({
+  presentation: columnOptions.tiled,
+  lines: mockDefaultStackedLineData,
+});
+
+export const WithZoomAndScroll = Template.bind({});
+WithZoomAndScroll.args = generateProps({
+  option: {
+    dataZoom: [
+      {
+        startValue: 1,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with toolbox', () => ({
-    props: generateProps({
-      option: {
-        toolbox,
+    ],
+  },
+});
+
+export const WithToolbox = Template.bind({});
+WithToolbox.args = generateProps({
+  option: {
+    toolbox,
+  },
+});
+
+export const SecondaryYAxis = Template.bind({});
+SecondaryYAxis.args = generateProps({
+  secondaryData: mockSecondaryData,
+  secondaryDataTitle: mockSecondaryDataTitle,
+});
+
+export const SecondaryYAxisLine = Template.bind({});
+SecondaryYAxisLine.args = generateProps({
+  secondaryData: [{ ...mockSecondaryData[0], type: 'line' }],
+  secondaryDataTitle: mockSecondaryDataTitle,
+});
+
+export default {
+  title: 'charts/stacked-column-chart',
+  component: GlStackedColumnChart,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('secondary Y axis', () => ({
-    props: generateProps({
-      secondaryData: mockSecondaryData,
-      secondaryDataTitle: mockSecondaryDataTitle,
-    }),
-    components,
-    template,
-  }))
-  .add('secondary Y axis line', () => ({
-    props: generateProps({
-      secondaryData: [{ ...mockSecondaryData[0], type: 'line' }],
-      secondaryDataTitle: mockSecondaryDataTitle,
-    }),
-    components,
-    template,
-  }));
+    },
+  },
+};

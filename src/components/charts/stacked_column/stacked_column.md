@@ -1,5 +1,3 @@
-# Stacked Column Chart
-
 The `presentation` property allows you to change between a stacked and tiled presentation style. It
 is only setup to accept `stacked` or `tiled` as values, the default value is `tiled`.
 
