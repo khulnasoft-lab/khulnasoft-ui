@@ -60,6 +60,7 @@ export const setupStorybookReadme = () =>
         'GlTableLite',
         'GlAlert',
         'GlSparklineChart',
+        'GlAvatarsInline',
         'GlSprintf',
         'GlLink',
         'GlChart',

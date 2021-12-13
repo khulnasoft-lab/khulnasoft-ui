@@ -1,12 +1,10 @@
-## Avatars inline
-
 Use `<avatars-inline />` to display multiple avatars organized in a single row.
 
 ### Basic usage
 
 The `avatars` property accepts an array of objects that contains the avatar properties. By default,
 `<avatars-inline />` expects each object contained in the array to have the same shape as the
-properties of the  `<avatar />` component. You can customize the display of each avatar by
+properties of the `<avatar />` component. You can customize the display of each avatar by
 overriding the default slot:
 
 ```html
