@@ -106,6 +106,7 @@ export const setupStorybookReadme = () =>
         'GlDiscreteScatterChart',
         'GlFormCombobox',
         'GlChartTooltip',
+        'GlInputGroupText',
       ],
       components: {
         GlComponentDocumentation,
