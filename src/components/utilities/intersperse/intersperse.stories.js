@@ -51,8 +51,8 @@ export default {
   },
 };
 
-export const CustomSeperator = Template.bind({});
-CustomSeperator.args = generateProps({
+export const CustomSeparator = Template.bind({});
+CustomSeparator.args = generateProps({
   separator: '-',
 });
 
