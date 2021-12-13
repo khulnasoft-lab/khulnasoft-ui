@@ -13,6 +13,10 @@
     }
   }
 
+  .optional-label {
+    @include gl-font-weight-normal;
+  }
+
   .invalid-feedback,
   .text-gl-muted {
     @include gl-font-base;

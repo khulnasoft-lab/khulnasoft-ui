@@ -20,6 +20,16 @@ export default {
       required: false,
       default: '',
     },
+    optional: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    optionalText: {
+      type: String,
+      required: false,
+      default: '(optional)',
+    },
   },
   computed: {
     actualLabelClass() {
@@ -45,11 +55,14 @@ export default {
 </script>
 <template>
   <b-form-group v-bind="$attrs" class="gl-form-group" :label-class="actualLabelClass">
-    <template v-if="hasLabelDescription" #label>
+    <template #label>
       <slot name="label">
         {{ $attrs.label }}
+        <span v-if="optional" class="optional-label" data-testid="optional-label">{{
+          optionalText
+        }}</span>
       </slot>
-      <gl-form-text data-testid="label-description">
+      <gl-form-text v-if="hasLabelDescription" data-testid="label-description">
         <slot name="label-description">{{ labelDescription }}</slot>
       </gl-form-text>
     </template>

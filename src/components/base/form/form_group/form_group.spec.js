@@ -1,17 +1,17 @@
-import { shallowMount, mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { BFormGroup } from 'bootstrap-vue';
-import GlFormText from '../form_text/form_text.vue';
 import GlFormGroup from './form_group.vue';
 
 describe('Form group component', () => {
   let wrapper;
 
-  const findDescription = () => {
-    return wrapper.find('[data-testid="label-description"]');
-  };
+  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
 
-  const createComponent = (options, mountFn = shallowMount) => {
-    wrapper = mountFn(GlFormGroup, {
+  const findLabelDescription = () => findByTestId('label-description');
+  const findOptionalLabel = () => findByTestId('optional-label');
+
+  const createComponent = (options) => {
+    wrapper = shallowMount(GlFormGroup, {
       ...options,
     });
   };
@@ -35,73 +35,75 @@ describe('Form group component', () => {
     }
   );
 
-  describe('description slot', () => {
-    it('renders text when label-description prop is defined', () => {
-      const labelDescription = 'description via props';
+  describe('label-description slot', () => {
+    const labelDescriptionFromPropOptions = {
+      propsData: { labelDescription: 'label-description from props' },
+    };
+    const labelDescriptionFromSlotOptions = {
+      slots: { 'label-description': 'label-description from slots' },
+    };
 
-      createComponent(
-        {
-          propsData: {
-            labelDescription,
-          },
-        },
-        mount
-      );
+    it.each`
+      labelDescriptionFrom | options
+      ${'prop'}            | ${labelDescriptionFromPropOptions}
+      ${'prop'}            | ${labelDescriptionFromPropOptions}
+      ${'slot'}            | ${labelDescriptionFromSlotOptions}
+      ${'slot'}            | ${labelDescriptionFromSlotOptions}
+    `(
+      'when label-description is provided from $labelDescriptionFrom',
+      ({ labelDescriptionFrom, options }) => {
+        createComponent({
+          ...options,
+        });
 
-      expect(findDescription().text()).toBe(labelDescription);
-    });
-
-    it('renders a user provided label-description slot', () => {
-      const labelDescription = 'description via slot';
-
-      createComponent(
-        {
-          slots: {
-            'label-description': 'description via slot',
-          },
-          stubs: {
-            GlFormText,
-          },
-        },
-        mount
-      );
-
-      expect(findDescription().text()).toBe(labelDescription);
-    });
+        expect(findLabelDescription().text()).toContain(
+          `label-description from ${labelDescriptionFrom}`
+        );
+      }
+    );
   });
 
   describe('label slot', () => {
-    it('renders text when label prop is defined', () => {
-      const label = 'label via props';
+    const labelFromPropOptions = {
+      propsData: { label: 'label from props' },
+    };
+    const labelFromSlotOptions = {
+      slots: { label: 'label from slots' },
+    };
 
-      createComponent(
-        {
+    it.each`
+      labelFrom | options                 | optional | expectedOptional
+      ${'prop'} | ${labelFromPropOptions} | ${true}  | ${true}
+      ${'prop'} | ${labelFromPropOptions} | ${false} | ${false}
+      ${'slot'} | ${labelFromSlotOptions} | ${true}  | ${false}
+      ${'slot'} | ${labelFromSlotOptions} | ${false} | ${false}
+    `(
+      'when label is provided from $labelFrom, `optional` is $optional',
+      ({ labelFrom, options, optional, expectedOptional }) => {
+        createComponent({
+          ...options,
           propsData: {
-            label,
+            ...options.propsData,
+            optional,
           },
+        });
+
+        expect(wrapper.text()).toContain(`label from ${labelFrom}`);
+        expect(findOptionalLabel().exists()).toBe(expectedOptional);
+      }
+    );
+
+    it('renders optionalText when `optional` is true', () => {
+      const optionalText = '(not required)';
+
+      createComponent({
+        propsData: {
+          optional: true,
+          optionalText,
         },
-        mount
-      );
+      });
 
-      expect(wrapper.text()).toBe(label);
-    });
-
-    it('renders a user provided label slot', () => {
-      const label = 'label via slot';
-
-      createComponent(
-        {
-          slots: {
-            label: 'label via slot',
-          },
-          stubs: {
-            GlFormText,
-          },
-        },
-        mount
-      );
-
-      expect(wrapper.text()).toBe(label);
+      expect(findOptionalLabel().text()).toBe(optionalText);
     });
   });
 });
