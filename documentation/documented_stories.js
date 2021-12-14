@@ -111,6 +111,7 @@ export const setupStorybookReadme = () =>
         'GlChartTooltip',
         'GlInputGroupText',
         'GlGaugeChart',
+        'GlFormRadio',
       ],
       components: {
         GlComponentDocumentation,
