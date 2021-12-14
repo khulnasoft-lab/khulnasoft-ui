@@ -1,11 +1,5 @@
-import { withKnobs, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { GlFormRadio } from '../../../../../index';
 import readme from './form_radio.md';
-
-const components = {
-  GlFormRadio,
-};
 
 const defaultOptions = [
   { value: 'Pizza', text: 'Pizza' },
@@ -13,36 +7,54 @@ const defaultOptions = [
   { value: 'Burger', text: 'Burger', disabled: true },
 ];
 
-function generateProps({ name = 'radio-group-name' } = {}) {
-  return {
-    name: {
-      type: String,
-      default: text('name', name),
-    },
-  };
-}
+const generateProps = ({ name = 'radio-group-name', checked = defaultOptions[0].value } = {}) => ({
+  name,
+  checked,
+});
 
-documentedStoriesOf('base/form/form-radio', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    data() {
-      return {
-        selected: defaultOptions[0].value,
-        options: defaultOptions,
-      };
-    },
-    template: `
+const Template = (args) => ({
+  components: { GlFormRadio },
+  props: Object.keys(args),
+  template: `
       <div>
         <gl-form-radio
           v-for="option in options"
           :key="option.value"
-          v-model="selected"
+          :checked="checked"
           :value="option.value"
           :disabled="option.disabled"
           :name="name"
         >{{ option.text }}</gl-form-radio>
       </div>
     `,
-  }));
+  data() {
+    return {
+      options: defaultOptions,
+    };
+  },
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'base/form/form-radio',
+  component: GlFormRadio,
+  parameters: {
+    bootstrapComponent: 'b-form-radio',
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    checked: {
+      options: defaultOptions.map(({ value }) => value),
+      control: {
+        type: 'select',
+      },
+    },
+  },
+};
