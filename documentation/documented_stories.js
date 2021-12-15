@@ -113,6 +113,7 @@ export const setupStorybookReadme = () =>
         'GlGaugeChart',
         'GlFormRadio',
         'GlModal',
+        'GlKeysetPagination',
       ],
       components: {
         GlComponentDocumentation,
