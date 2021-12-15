@@ -1,5 +1,3 @@
-# Keyset Pagination
-
 Pagination is used to help users parse a large number of items on a page,
 whenever there are too many results to show at once. Pagination breaks up
 results into several pages with controls for navigating forward and backward, or
