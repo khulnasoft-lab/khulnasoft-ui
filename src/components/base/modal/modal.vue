@@ -139,6 +139,10 @@ export default {
 </script>
 
 <template>
+  <!-- 
+  Emitted when the modal visibility changes
+  @event change
+ -->
   <b-modal
     :id="modalId"
     ref="modal"
@@ -156,19 +160,27 @@ export default {
   >
     <slot></slot>
     <template #modal-header>
+      <!-- @slot Entire modal header container contents (including the close button on the top right corner) -->
       <slot name="modal-header">
         <h4 class="modal-title">
+          <!-- @slot Modal title. If modal-header slot is used, this slot will not be shown. -->
           <slot name="modal-title">{{ title }}</slot>
         </h4>
       </slot>
+      <!-- @slot Content of Modal header close button. If modal-header slot is used, this slot will not be shown. -->
       <close-button ref="close-button" :label="dismissLabel" @click="close" />
     </template>
     <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <slot slot="modal-ok" name="modal-ok"></slot>
     <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <slot slot="modal-cancel" name="modal-cancel"></slot>
+    <!-- @slot Populated via props: modal-action-primary, modal-action-cancel and modal-action-secondary. -->
     <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
     <slot slot="modal-footer" name="modal-footer">
+      <!-- 
+        Emitted when clicked on modal-action-cancel
+        @event canceled
+       -->
       <gl-button
         v-if="actionCancel"
         class="js-modal-action-cancel"
@@ -177,6 +189,10 @@ export default {
       >
         {{ actionCancel.text }}
       </gl-button>
+      <!-- 
+        Emitted when clicked on modal-action-secondary
+        @event secondary
+       -->
       <gl-button
         v-if="actionSecondary"
         class="js-modal-action-secondary"
@@ -185,6 +201,10 @@ export default {
       >
         {{ actionSecondary.text }}
       </gl-button>
+      <!-- 
+        Emitted when clicked on modal-action-primary
+        @event primary
+       -->
       <gl-button
         v-if="actionPrimary"
         class="js-modal-action-primary"
