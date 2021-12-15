@@ -112,6 +112,7 @@ export const setupStorybookReadme = () =>
         'GlInputGroupText',
         'GlGaugeChart',
         'GlFormRadio',
+        'GlModal',
       ],
       components: {
         GlComponentDocumentation,

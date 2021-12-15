@@ -1,8 +1,3 @@
-# Modal
-
-<!-- STORY -->
-## Usage
-
 Modals are used to reveal critical information, show information without losing context, or when the
 system requires a user response. Modals can also fragment a complex workflow into simpler steps and
 should serve a single purpose dedicated to completing the user’s task.
@@ -22,7 +17,7 @@ The `modal-footer` slot should only be populated via props: `action-primary`, `a
 `action-cancel`. These props allow you to handle how a primary, secondary and cancel button will
 behave in the modals footer. The props receive an object as such:
 
-~~~js
+```js
 {
   text: 'Save Changes',
   attributes: [
@@ -32,4 +27,4 @@ behave in the modals footer. The props receive an object as such:
     ...
   ]
 }
-~~~
+```
