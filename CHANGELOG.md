@@ -1,3 +1,10 @@
+# [32.49.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.48.0...v32.49.0) (2021-12-15)
+
+
+### Features
+
+* **GlKeysetPagination:** Migrate storybook story ([b78abe6](https://gitlab.com/gitlab-org/gitlab-ui/commit/b78abe68d2c86c973af50ee20754e5b2be163f25))
+
 # [32.48.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.47.0...v32.48.0) (2021-12-13)
 
 
