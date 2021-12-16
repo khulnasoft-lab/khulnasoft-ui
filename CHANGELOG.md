@@ -1,3 +1,10 @@
+# [32.50.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.49.0...v32.50.0) (2021-12-16)
+
+
+### Features
+
+* Add support for @gitlab/svgs@2 peer dependency ([77076b7](https://gitlab.com/gitlab-org/gitlab-ui/commit/77076b7d717f4245a29df115113c96d72b002540))
+
 # [32.49.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.48.0...v32.49.0) (2021-12-15)
 
 
