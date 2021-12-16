@@ -102,5 +102,29 @@ export default {
         options: formStateOptions,
       },
     },
+    input: {
+      description: 'Emitted with the select value changes.',
+      table: {
+        category: 'events',
+      },
+    },
+    change: {
+      description: 'Emitted with the select value changes via user interaction.',
+      table: {
+        category: 'events',
+      },
+    },
+    first: {
+      description: 'Slot to place option tags above options provided via options prop.',
+      table: {
+        category: 'slots',
+      },
+    },
+    default: {
+      description: 'Slot to place explicit option tags.',
+      table: {
+        category: 'slots',
+      },
+    },
   },
 };
