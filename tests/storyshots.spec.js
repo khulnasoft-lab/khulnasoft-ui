@@ -21,7 +21,7 @@ const beforeScreenshot = async (page) => {
 };
 
 const getGotoOptions = () => ({
-  waitUntil: 'networkidle0',
+  waitUntil: 'domcontentloaded',
 });
 
 const failureThresholdType = process.env.FAILURE_THRESHOLD_TYPE || 'pixel';
