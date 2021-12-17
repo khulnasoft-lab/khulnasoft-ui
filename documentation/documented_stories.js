@@ -115,6 +115,7 @@ export const setupStorybookReadme = () =>
         'GlFormRadio',
         'GlModal',
         'GlKeysetPagination',
+        'GlForm',
       ],
       components: {
         GlComponentDocumentation,
