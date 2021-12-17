@@ -10,11 +10,11 @@ const main = () => {
     .map((storyFile) => {
       const content = fs.readFileSync(storyFile).toString();
       const csfMatch = content.match(/export default {[\n ]+title: '([^']+)'/);
-      if (csfMatch?.length > 1) {
+      if (csfMatch && csfMatch.length > 1) {
         return csfMatch[1];
       }
       const documentedStoryMatch = content.match(/documentedStoriesOf\('([^']+)'/);
-      if (documentedStoryMatch?.length > 1) {
+      if (documentedStoryMatch && documentedStoryMatch.length > 1) {
         return documentedStoryMatch[1];
       }
       return null;
