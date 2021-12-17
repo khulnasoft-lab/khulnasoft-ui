@@ -1,0 +1,12 @@
+/* eslint-disable filenames/match-regex */
+import initStoryshots from '@storybook/addon-storyshots';
+import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
+import { storyshotsOptions } from '../options';
+
+registerRequireContextHook();
+
+initStoryshots({
+  suite: 'Image storyshots',
+  storyKindRegex: '{{{ storyKind }}}',
+  test: storyshotsOptions,
+});
