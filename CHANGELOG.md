@@ -1,3 +1,10 @@
+# [32.51.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.50.0...v32.51.0) (2021-12-29)
+
+
+### Features
+
+* **css:** Added gl-max-w-26 and gl-max-w-62 classes ([69a6829](https://gitlab.com/gitlab-org/gitlab-ui/commit/69a6829bbcaa5dc821a4fa29c4f3ec79e4b7aa5e))
+
 # [32.50.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.49.0...v32.50.0) (2021-12-16)
 
 
