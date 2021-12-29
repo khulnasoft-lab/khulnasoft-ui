@@ -271,6 +271,14 @@
   max-width: $gl-spacing-scale-15;
 }
 
+@mixin gl-max-w-26 {
+  max-width: $gl-spacing-scale-26;
+}
+
+@mixin gl-max-w-62 {
+  max-width: $gl-spacing-scale-62;
+}
+
 @mixin gl-max-w-none {
   max-width: none;
 }
