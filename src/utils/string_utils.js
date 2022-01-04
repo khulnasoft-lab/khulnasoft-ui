@@ -1,3 +1,5 @@
+import emojiRegexFactory from 'emoji-regex';
+
 /**
  * Split the given string after each occurrence of each of the given symbols.
  *
@@ -60,10 +62,12 @@ export const splitAfterSymbols = (symbols, string) => {
   return textParts;
 };
 
+const startsWithEmojiRegex = `^(${emojiRegexFactory().source})`;
+
 export const getAvatarChar = (name) => {
   if (name) {
-    // Check if first character is an emjoi
-    const match = name.match(/^\p{Emoji}/u);
+    // Check if string starts with an emoji (which could be multiple characters and zero-width joined)
+    const match = name.match(startsWithEmojiRegex);
     if (match) {
       // Return the first match
       return match[0];
