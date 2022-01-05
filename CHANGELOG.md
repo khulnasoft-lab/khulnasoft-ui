@@ -1,3 +1,10 @@
+## [32.51.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.0...v32.51.1) (2022-01-05)
+
+
+### Bug Fixes
+
+* **Avatar:** Add support for multiple-character emojis ([f3fcb2f](https://gitlab.com/gitlab-org/gitlab-ui/commit/f3fcb2ff5a2e74f77b3a96dc8922a3821c86e2fa))
+
 # [32.51.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.50.0...v32.51.0) (2021-12-29)
 
 
