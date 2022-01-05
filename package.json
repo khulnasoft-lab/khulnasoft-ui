@@ -72,6 +72,7 @@
   },
   "peerDependencies": {
     "@gitlab/svgs": "^1.116.0 || ^2.0.0",
+    "emoji-regex": ">=10.0.0",
     "bootstrap": "4.5.3",
     "pikaday": "^1.8.0",
     "vue": "^2.6.10"
@@ -107,6 +108,7 @@
     "babel-preset-vue": "^2.0.2",
     "bootstrap": "4.5.3",
     "cypress": "^6.6.0",
+    "emoji-regex": "^10.0.0",
     "eslint": "7.32.0",
     "eslint-import-resolver-jest": "3.0.2",
     "eslint-plugin-cypress": "2.12.1",

@@ -44,5 +44,13 @@ describe('string utils', () => {
     it('Returns first character if emoji is not first in name', () => {
       expect(getAvatarChar('tanuki🦊')).toBe('T');
     });
+
+    it('Returns zero-width joined emoji if the name starts with it', () => {
+      expect(getAvatarChar('🏴‍☠️Zero-width join')).toBe('🏴‍☠️');
+    });
+
+    it('Returns only first emoji if the name starts with multiple', () => {
+      expect(getAvatarChar('🏴‍☠️🙂Multiple Emoji')).toBe('🏴‍☠️');
+    });
   });
 });
