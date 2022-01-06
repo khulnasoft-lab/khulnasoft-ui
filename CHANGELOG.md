@@ -1,3 +1,10 @@
+## [32.51.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.1...v32.51.2) (2022-01-06)
+
+
+### Bug Fixes
+
+* **GlBreadcrumb:** update breadcrumb's item avatar styles ([28aa091](https://gitlab.com/gitlab-org/gitlab-ui/commit/28aa09195c6bda5eb6abd3107d77a3e5fc7f9e28))
+
 ## [32.51.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.0...v32.51.1) (2022-01-05)
 
 
