@@ -96,14 +96,22 @@ export default {
 </script>
 
 <template>
-  <section class="row" :class="{ 'empty-state text-center': !compact }">
-    <div :class="{ 'col-3 d-none d-sm-block': compact, 'col-12': !compact }">
+  <section
+    class="gl-display-flex gl-flex-wrap"
+    :class="{
+      'empty-state gl-text-center gl-flex-direction-column': !compact,
+      'gl-flex-direction-row': compact,
+    }"
+  >
+    <div
+      :class="{ 'gl-display-none gl-sm-display-block gl-px-4': compact, 'gl-max-w-full': !compact }"
+    >
       <div v-if="svgPath" :class="{ 'svg-content': !compact }" class="svg-250">
         <img :src="svgPath" alt="" role="img" class="gl-max-w-full" :height="height" />
       </div>
     </div>
-    <div :class="compact ? 'col-sm-9' : 'col-12'">
-      <div class="text-content gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
+    <div :class="compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-max-w-full gl-m-auto'">
+      <div class="gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
         <h1
           ref="title"
           class="gl-font-size-h-display gl-line-height-36"
