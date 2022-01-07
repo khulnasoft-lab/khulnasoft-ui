@@ -1,3 +1,10 @@
+# [32.53.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.52.0...v32.53.0) (2022-01-07)
+
+
+### Features
+
+* **GlLoadingIcon:** Improve accessibility with role ([6bd4b30](https://gitlab.com/gitlab-org/gitlab-ui/commit/6bd4b30a386723477f302c42bddca55b454836d0))
+
 # [32.52.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.3...v32.52.0) (2022-01-07)
 
 
