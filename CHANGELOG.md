@@ -1,3 +1,10 @@
+## [32.51.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.2...v32.51.3) (2022-01-07)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** replace Bootstrap CSS utilities with GitLab UI's ([2872ea5](https://gitlab.com/gitlab-org/gitlab-ui/commit/2872ea5f01e5b205359c8fbdf8db95d86c1097f8))
+
 ## [32.51.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.1...v32.51.2) (2022-01-06)
 
 
