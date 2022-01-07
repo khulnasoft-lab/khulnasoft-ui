@@ -1,3 +1,10 @@
+# [32.52.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.3...v32.52.0) (2022-01-07)
+
+
+### Features
+
+* **css:** Addition of mix-blend-mode ([2824583](https://gitlab.com/gitlab-org/gitlab-ui/commit/28245839f0a2b23ec06d99b5f10125b94d2ce2ea))
+
 ## [32.51.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.2...v32.51.3) (2022-01-07)
 
 
