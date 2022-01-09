@@ -87,6 +87,7 @@ export const setupStorybookReadme = () =>
         'GlDeprecatedSkeletonLoading',
         'GlCard',
         'GlFormCheckbox',
+        'GlListbox',
         'GlAccordion',
         'GlAccordionItem',
         'GlIntersperse',
