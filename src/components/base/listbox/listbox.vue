@@ -58,20 +58,18 @@ export default {
 };
 </script>
 <template>
-  <div class="test-foo">
-    <gl-listbox-base
-      :split="split"
-      :variant="variant"
-      :size="size"
-      :block="block"
-      :disabled="disabled || loading"
-      :right="right"
-      v-bind="$attrs"
-      v-on="$listeners"
-    >
-      <!-- pass through slots -->
-      <slot></slot>
-      <template #button-content><slot name="button-content"></slot></template>
-    </gl-listbox-base>
-  </div>
+  <gl-listbox-base
+    :split="split"
+    :variant="variant"
+    :size="size"
+    :block="block"
+    :disabled="disabled || loading"
+    :right="right"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
+    <!-- pass through slots -->
+    <slot></slot>
+    <template #button-content><slot name="button-content"></slot></template>
+  </gl-listbox-base>
 </template>
