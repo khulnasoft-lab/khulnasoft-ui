@@ -45,7 +45,7 @@
 
 .gl-badge {
   @include gl-display-inline-flex;
-  @include gl-align-items-center;
+  @include gl-align-items-baseline;
   @include gl-font-sm;
   @include gl-font-weight-normal;
   @include gl-line-height-normal;
@@ -66,10 +66,17 @@
   }
 
   .gl-badge-icon {
+    @include gl-align-self-center;
     @include gl-h-5;
     @include gl-w-5;
     @include gl-flex-shrink-0;
     @include gl-top-auto;
+  }
+
+  // Ensure icon-only badges have a baseline consistent with text badges. See
+  // https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2593 for details.
+  &::after {
+    content: '\200b';
   }
 }
 
