@@ -33,7 +33,7 @@ export default {
 };
 </script>
 <template>
-  <div class="gl-breadcrumbs">
+  <nav class="gl-breadcrumbs" aria-label="Breadcrumb">
     <!-- @slot The avatar to display. -->
     <slot name="avatar"></slot>
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
@@ -60,5 +60,5 @@ export default {
         </b-breadcrumb-item>
       </template>
     </b-breadcrumb>
-  </div>
+  </nav>
 </template>
