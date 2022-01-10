@@ -55,6 +55,28 @@ BadgeIcon.args = generateProps({
   icon: 'calendar',
 });
 
+export const BaselineAlignment = (args, { argTypes }) => ({
+  components: { GlBadge },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      Consistent baseline:
+      <gl-badge :size="size" :variant="variant">{{ content }}</gl-badge>
+      <gl-badge :size="size" :variant="variant" :icon="icon">{{ content }}</gl-badge>
+      <gl-badge :size="size" :variant="variant" :icon="icon"></gl-badge>
+    </div>
+  `,
+});
+BaselineAlignment.args = generateProps({
+  variant: 'info',
+  icon: 'branch',
+});
+BaselineAlignment.parameters = {
+  controls: {
+    include: ['size', 'content', 'icon', 'variant'],
+  },
+};
+
 export default {
   title: 'base/badge',
   component: GlBadge,
