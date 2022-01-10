@@ -199,7 +199,7 @@
 }
 
 @mixin gl-sm-justify-content-end {
-  @include gl-media-breakpoint-up(md) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-justify-content-end;
   }
 }
