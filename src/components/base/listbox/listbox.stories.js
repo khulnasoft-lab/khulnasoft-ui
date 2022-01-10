@@ -73,23 +73,23 @@ export default {
   },
   argTypes: {
     category: {
+      options: Object.keys(buttonCategoryOptions),
       control: {
         type: 'select',
-        options: Object.keys(buttonCategoryOptions),
         labels: buttonCategoryOptions,
       },
     },
     variant: {
+      options: Object.keys(dropdownVariantOptions),
       control: {
         type: 'select',
-        options: Object.keys(dropdownVariantOptions),
         labels: buttonVariantOptions,
       },
     },
     size: {
+      options: Object.keys(buttonSizeOptions),
       control: {
         type: 'select',
-        options: Object.keys(buttonSizeOptions),
         labels: buttonSizeOptions,
       },
     },
