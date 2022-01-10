@@ -49,7 +49,12 @@ const defaultTemplate = `
     :disabled="disabled"
     :loading="loading"
     :right="right"
-  />
+  >
+    Dropdown Content
+    <template #button-content>
+      Dropdown Button
+    </template>
+  </gl-listbox>
 `;
 export const Default = Template.bind({}, defaultTemplate);
 Default.args = generateProps();
