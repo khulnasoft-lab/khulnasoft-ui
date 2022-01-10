@@ -1,3 +1,10 @@
+# [32.54.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.53.0...v32.54.0) (2022-01-10)
+
+
+### Features
+
+* **GlPopover:** add styles for a close button ([f260e95](https://gitlab.com/gitlab-org/gitlab-ui/commit/f260e95b87e6760ab71d8341913bdeae04b7fbe2))
+
 # [32.53.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.52.0...v32.53.0) (2022-01-07)
 
 
