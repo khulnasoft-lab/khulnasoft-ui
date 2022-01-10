@@ -67,6 +67,11 @@ $gl-popover-max-width: $grid-size * 35;
     @include gl-font-sm;
     @include gl-font-weight-bold;
     @include gl-m-0;
+
+    .gl-button.close {
+      margin-top: -$gl-spacing-scale-3;
+      margin-right: -$gl-spacing-scale-4;
+    }
   }
 
   .popover-body {
