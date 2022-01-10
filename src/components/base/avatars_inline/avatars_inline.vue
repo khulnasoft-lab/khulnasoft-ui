@@ -29,6 +29,10 @@ export default {
       required: false,
       default: false,
     },
+    badgeSrOnlyText: {
+      type: String,
+      required: true,
+    },
     badgeTooltipProp: {
       type: String,
       required: false,
@@ -111,9 +115,15 @@ export default {
       <gl-tooltip v-if="badgeTooltipProp" :target="() => $refs.badge">
         {{ badgeTooltipTitle }}
       </gl-tooltip>
-      <span ref="badge" :class="['gl-avatars-inline-badge', badgeSize]">
+      <span
+        ref="badge"
+        data-testid="collapsed-avatars-badge"
+        :class="['gl-avatars-inline-badge', badgeSize]"
+        aria-hidden="true"
+      >
         {{ badgeLabel }}
       </span>
+      <span data-testid="badge-sr-only-text" class="sr-only">{{ badgeSrOnlyText }}</span>
     </div>
   </div>
 </template>

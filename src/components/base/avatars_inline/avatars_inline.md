@@ -28,6 +28,11 @@ When the `collapse` property value is `true` and the `maxVisible` property value
 than the length of the `avatars` property array, `<avatars-inline>` will hide the overflown avatars
 and display a badge instead.
 
+### Badge description in screen readers
+
+The `badgeSrOnlyText` property provides a meaningful description of the badge that appears
+when avatars are collapsed for screen reader users.
+
 ### Supported sizes
 
 `<avatars-inline>` only supports avatars with `24` or `32` size.
