@@ -1,3 +1,9 @@
+import {
+  buttonCategoryOptions,
+  buttonSizeOptions,
+  buttonVariantOptions,
+  dropdownVariantOptions,
+} from '../../../utils/constants';
 import readme from './listbox.md';
 import GlListbox from './listbox.vue';
 
@@ -60,5 +66,27 @@ export default {
       },
     },
   },
-  argTypes: {},
+  argTypes: {
+    category: {
+      control: {
+        type: 'select',
+        options: Object.keys(buttonCategoryOptions),
+        labels: buttonCategoryOptions,
+      },
+    },
+    variant: {
+      control: {
+        type: 'select',
+        options: Object.keys(dropdownVariantOptions),
+        labels: buttonVariantOptions,
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: Object.keys(buttonSizeOptions),
+        labels: buttonSizeOptions,
+      },
+    },
+  },
 };
