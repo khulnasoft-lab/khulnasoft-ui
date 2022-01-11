@@ -5,27 +5,39 @@ import {
   dropdownVariantOptions,
 } from '../../../utils/constants';
 import readme from './listbox.md';
-import GlListbox from './listbox.vue';
+import GlListbox from './listbox_base.vue';
 
 const defaultValue = (prop) => GlListbox.props[prop].default;
 
+function openDropdown(component) {
+  component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
+}
+
 const generateProps = ({
+  text = defaultValue('text'),
+  textSrOnly = defaultValue('textSrOnly'),
   split = defaultValue('split'),
   category = defaultValue('category'),
   variant = defaultValue('variant'),
   size = defaultValue('size'),
+  icon = defaultValue('icon'),
   block = defaultValue('block'),
   disabled = defaultValue('disabled'),
   loading = defaultValue('loading'),
+  toggleClass = defaultValue('toggleClass'),
   right = defaultValue('right'),
 } = {}) => ({
+  text,
+  textSrOnly,
   split,
   category,
   variant,
   size,
+  icon,
   block,
   disabled,
   loading,
+  toggleClass,
   right,
 });
 
@@ -37,6 +49,9 @@ const Template = (template, props) => ({
   },
   watch: {},
   template,
+  mounted() {
+    openDropdown(this);
+  },
 });
 
 const defaultTemplate = `
