@@ -97,7 +97,7 @@ export default {
 
 <template>
   <section
-    class="gl-display-flex gl-flex-wrap"
+    class="gl-display-flex"
     :class="{
       'empty-state gl-text-center gl-flex-direction-column': !compact,
       'gl-flex-direction-row': compact,
