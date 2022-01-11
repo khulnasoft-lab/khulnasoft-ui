@@ -1,3 +1,10 @@
+## [32.54.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.54.0...v32.54.1) (2022-01-11)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** remove flex-wrap util ([3decead](https://gitlab.com/gitlab-org/gitlab-ui/commit/3deceada7bd6196f90f45f0a9636ace896951530))
+
 # [32.54.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.53.0...v32.54.0) (2022-01-10)
 
 
