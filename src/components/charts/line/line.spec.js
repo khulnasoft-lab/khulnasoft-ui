@@ -139,7 +139,14 @@ describe('line component', () => {
     const dataTooltipTitle = 'FooBar';
 
     beforeEach(() => {
-      createShallowWrapper();
+      createShallowWrapper(
+        {},
+        {
+          stubs: {
+            'chart-tooltip': ChartTooltipStub,
+          },
+        }
+      );
     });
 
     it('is initialized', () => {
