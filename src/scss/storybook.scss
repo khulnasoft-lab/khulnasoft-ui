@@ -5,7 +5,7 @@
 @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins';
 
-@import 'bootstrap-vue/src/index.scss'; // stylelint-disable-line
+@import 'bootstrap_vue';
 
 @import 'mixins';
 @import 'utility-mixins/index';
