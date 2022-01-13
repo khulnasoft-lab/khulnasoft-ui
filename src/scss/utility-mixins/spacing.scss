@@ -909,6 +909,12 @@
   }
 }
 
+@mixin gl-md-pr-5 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-pr-5;
+  }
+}
+
 @mixin gl-lg-pr-5 {
   @include gl-media-breakpoint-up(lg) {
     @include gl-pr-5;
