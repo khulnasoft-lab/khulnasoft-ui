@@ -1,3 +1,10 @@
+# [32.55.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.54.2...v32.55.0) (2022-01-13)
+
+
+### Features
+
+* **css:** Addition of gl-md-pr-5 class ([5a52a1a](https://gitlab.com/gitlab-org/gitlab-ui/commit/5a52a1a92871b0c3818d0a4759913f9fbec93a09))
+
 ## [32.54.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.54.1...v32.54.2) (2022-01-13)
 
 
