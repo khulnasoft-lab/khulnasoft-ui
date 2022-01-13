@@ -1,3 +1,10 @@
+## [32.54.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.54.1...v32.54.2) (2022-01-13)
+
+
+### Performance Improvements
+
+* Remove some unnecessary bootstrap-vue CSS ([93055eb](https://gitlab.com/gitlab-org/gitlab-ui/commit/93055eb5cf56ef95fa4707d8a22fe77c8ac47e5d))
+
 ## [32.54.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.54.0...v32.54.1) (2022-01-11)
 
 
