@@ -733,6 +733,21 @@
 }
 
 /**
+* Gap utilities
+*
+* naming convention: gl-gap-{direction}-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+* - Utilities should be refactored to use gap after dropping Safari 13.x support
+*/
+
+@mixin gl-gap-x-3 {
+  * + * {
+    margin-left: #{$gl-spacing-scale-3};
+  }
+}
+
+/**
 * Responsive margin utilities.
 *
 * naming convention: gl-{breakpoint}-m{position}-{spacing-scale-index}
