@@ -1,3 +1,10 @@
+# [32.61.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.60.0...v32.61.0) (2022-01-14)
+
+
+### Features
+
+* **utilities:** add gl-md-pl-7 ([237a6bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/237a6bc33fa7d209e5fb44b573ae0006a20bdc72))
+
 # [32.60.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.59.0...v32.60.0) (2022-01-14)
 
 
