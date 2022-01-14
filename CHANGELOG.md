@@ -1,3 +1,11 @@
+# [32.59.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.58.0...v32.59.0) (2022-01-14)
+
+
+### Features
+
+* **css:** Addition of gl-font-size-inherit class ([14e64b6](https://gitlab.com/gitlab-org/gitlab-ui/commit/14e64b6697696e6742823d71bdf7fbf0937d5ac4))
+* **GlTable:** Migrate table stories to CSF ([63def60](https://gitlab.com/gitlab-org/gitlab-ui/commit/63def600b134738a5670e4ce1e417a1a4ee0a15a))
+
 # [32.58.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.57.0...v32.58.0) (2022-01-14)
 
 
