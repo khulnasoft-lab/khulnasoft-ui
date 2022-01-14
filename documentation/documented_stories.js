@@ -116,6 +116,7 @@ export const setupStorybookReadme = () =>
         'GlModal',
         'GlKeysetPagination',
         'GlForm',
+        'GlTable',
       ],
       components: {
         GlComponentDocumentation,
