@@ -1,3 +1,11 @@
+# [32.60.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.59.0...v32.60.0) (2022-01-14)
+
+
+### Features
+
+* **css:** Added gl-xs-mb-4 utility classes ([1186ecc](https://gitlab.com/gitlab-org/gitlab-ui/commit/1186ecc3438b0393f52e0d7a0302ab25c933c899))
+* **GlBreadcrumb:** support breadcrumbs truncation ([7b1ad62](https://gitlab.com/gitlab-org/gitlab-ui/commit/7b1ad62870f951936bf70855e1a4e86e793e0618))
+
 # [32.59.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.58.0...v32.59.0) (2022-01-14)
 
 
