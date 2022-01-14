@@ -1,12 +1,20 @@
 <script>
 import { BBreadcrumb, BBreadcrumbItem } from 'bootstrap-vue';
 import GlIcon from '../icon/icon.vue';
+import GlButton from '../button/button.vue';
+import { GlTooltipDirective } from '../../../directives/tooltip';
+
+export const COLLAPSE_AT_SIZE = 4;
 
 export default {
   components: {
     BBreadcrumb,
     BBreadcrumbItem,
     GlIcon,
+    GlButton,
+  },
+  directives: {
+    GlTooltip: GlTooltipDirective,
   },
   inheritAttrs: false,
   props: {
@@ -25,9 +33,45 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      isListCollapsed: true,
+    };
+  },
+  computed: {
+    breadcrumbsSize() {
+      return this.items.length;
+    },
+    hasCollapsible() {
+      return this.breadcrumbsSize > COLLAPSE_AT_SIZE;
+    },
+    nonCollapsibleIndices() {
+      return [0, this.breadcrumbsSize - 1, this.breadcrumbsSize - 2];
+    },
+  },
   methods: {
-    isLastItem(items, index) {
-      return index === items.length - 1;
+    isFirstItem(index) {
+      return index === 0;
+    },
+    isLastItem(index) {
+      return index === this.breadcrumbsSize - 1;
+    },
+    expandBreadcrumbs() {
+      this.isListCollapsed = false;
+      try {
+        this.$refs.firstItem[0].querySelector('a').focus();
+      } catch (e) {
+        /* eslint-disable-next-line no-console */
+        console.error(`Failed to set focus on the last breadcrumb item.`);
+      }
+    },
+    showCollapsedBreadcrumbsExpander(index) {
+      return index === 0 && this.hasCollapsible && this.isListCollapsed;
+    },
+    isItemCollapsed(index) {
+      return (
+        this.hasCollapsible && this.isListCollapsed && !this.nonCollapsibleIndices.includes(index)
+      );
     },
   },
 };
@@ -40,14 +84,16 @@ export default {
       <template v-for="(item, index) in items">
         <b-breadcrumb-item
           :key="index"
+          :ref="isFirstItem(index) ? 'firstItem' : null"
           class="gl-breadcrumb-item"
           :text="item.text"
           :href="item.href"
           :to="item.to"
+          :class="{ 'gl-display-none': isItemCollapsed(index) }"
         >
           <span>{{ item.text }}</span>
           <span
-            v-if="!isLastItem(items, index)"
+            v-if="!isLastItem(index)"
             :key="`${index} ${item.text}`"
             class="gl-breadcrumb-separator"
             data-testid="separator"
@@ -58,6 +104,28 @@ export default {
             </slot>
           </span>
         </b-breadcrumb-item>
+
+        <template v-if="showCollapsedBreadcrumbsExpander(index)">
+          <!-- eslint-disable-next-line vue/valid-v-for -->
+          <gl-button
+            v-gl-tooltip.hover="'Show all breadcrumbs'"
+            aria-label="Show all breadcrumbs"
+            data-testid="collapsed-expander"
+            icon="ellipsis_h"
+            category="primary"
+            @click="expandBreadcrumbs"
+          />
+          <!-- eslint-disable-next-line vue/require-v-for-key -->
+          <span
+            key="expander"
+            class="gl-display-inline-flex gl-text-gray-500"
+            data-testid="expander-separator"
+          >
+            <slot name="separator">
+              <gl-icon name="chevron-right" />
+            </slot>
+          </span>
+        </template>
       </template>
     </b-breadcrumb>
   </nav>
