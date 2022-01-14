@@ -1,3 +1,10 @@
+# [32.57.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.56.0...v32.57.0) (2022-01-14)
+
+
+### Features
+
+* **css:** Addition Add `gl-sm-pr-3 ` and `gl-sm-w-half` `gl-md-ml-3` utility class ([7630c23](https://gitlab.com/gitlab-org/gitlab-ui/commit/7630c23f4cef0fcc5fbd6ae86a844dda568b88b9))
+
 # [32.56.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.55.0...v32.56.0) (2022-01-13)
 
 
