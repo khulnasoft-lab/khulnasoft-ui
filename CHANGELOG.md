@@ -1,3 +1,10 @@
+# [32.58.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.57.0...v32.58.0) (2022-01-14)
+
+
+### Features
+
+* **css:** Addition of .gl-lg-w-25p classes ([d050bda](https://gitlab.com/gitlab-org/gitlab-ui/commit/d050bdafaafca48e44d1096856425ff220f1aef4))
+
 # [32.57.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.56.0...v32.57.0) (2022-01-14)
 
 
