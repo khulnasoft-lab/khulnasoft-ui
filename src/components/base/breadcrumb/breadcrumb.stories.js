@@ -60,3 +60,25 @@ export default {
     },
   },
 };
+
+const extraItems = [
+  {
+    text: 'Fifth Item',
+    href: '#',
+  },
+  {
+    text: 'Sixth Item',
+    href: '#',
+  },
+  {
+    text: 'Seventh Item',
+    href: '#',
+  },
+  {
+    text: 'Eighth Item',
+    href: '#',
+  },
+];
+
+export const CollapsedItems = Template.bind({});
+CollapsedItems.args = generateProps({ items: [...defaultItems, ...extraItems] });

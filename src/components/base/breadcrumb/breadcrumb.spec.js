@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { BBreadcrumbItem } from 'bootstrap-vue';
-import Breadcrumb from './breadcrumb.vue';
+import Breadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
+import { createMockDirective } from '~helpers/vue_mock_directive';
 
 describe('Broadcast message component', () => {
   let wrapper;
@@ -14,10 +15,24 @@ describe('Broadcast message component', () => {
     { text: 'third_breadcrumb', href: 'http://about.gitlab.com' },
   ];
 
+  const extraItems = [
+    { text: 'fourth_breadcrumb', href: 'http://gitlab.com' },
+    {
+      text: 'fifth_breadcrumb',
+      to: 'to_value',
+    },
+  ];
+
   const findAvatarSlot = () => wrapper.find('[data-testid="avatar-slot"]');
   const findSeparatorSlot = () => wrapper.find('[data-testid="separator-slot"]');
   const findBreadcrumbItems = () => wrapper.findAllComponents(BBreadcrumbItem);
   const findAllSeparators = () => wrapper.findAll('[data-testid="separator"]');
+  const findCollapsedListExpander = () => wrapper.find('[data-testid="collapsed-expander"]');
+  const findExpanderSeparator = () => wrapper.find('[data-testid="expander-separator"]');
+
+  const findVisibleBreadcrumbItems = () =>
+    wrapper.findAll('.gl-breadcrumb-item:not(.gl-display-none)');
+  const findHiddenBreadcrumbItems = () => wrapper.findAll('.gl-breadcrumb-item.gl-display-none');
 
   const createComponent = (propsData = { items }) => {
     wrapper = shallowMount(Breadcrumb, {
@@ -26,7 +41,14 @@ describe('Broadcast message component', () => {
         avatar: '<div data-testid="avatar-slot"></div>',
         separator: '<div data-testid="separator-slot"></div>',
       },
+      directives: { GlTooltip: createMockDirective('gl-tooltip') },
     });
+
+    wrapper.vm.$refs.firstItem = [
+      {
+        querySelector: () => ({ focus: jest.fn() }),
+      },
+    ];
   };
 
   describe('slots', () => {
@@ -79,6 +101,47 @@ describe('Broadcast message component', () => {
       expect(findBreadcrumbItems().at(1).attributes()).toMatchObject({
         text: items[1].text,
         to: items[1].to,
+      });
+    });
+  });
+
+  describe('collapsible', () => {
+    describe(`when breadcrumbs list size is NOT larger than ${COLLAPSE_AT_SIZE}`, () => {
+      beforeEach(() => {
+        createComponent();
+      });
+      it('should not display collapsed list expander && separator', () => {
+        expect(findCollapsedListExpander().exists()).toBe(false);
+        expect(findExpanderSeparator().exists()).toBe(false);
+      });
+
+      it('should display all items visible', () => {
+        expect(findVisibleBreadcrumbItems()).toHaveLength(items.length);
+      });
+    });
+
+    describe(`when breadcrumbs list size is larger than ${COLLAPSE_AT_SIZE}`, () => {
+      beforeEach(() => {
+        createComponent({ items: [...items, ...extraItems] });
+      });
+      it('should display collapsed list expander && separator', () => {
+        expect(findCollapsedListExpander().exists()).toBe(true);
+        expect(findExpanderSeparator().exists()).toBe(true);
+      });
+
+      it('should display only first && 2 last items and the rest as hidden', () => {
+        const alwaysVisibleNum = 3;
+        expect(findVisibleBreadcrumbItems()).toHaveLength(alwaysVisibleNum);
+        expect(findHiddenBreadcrumbItems()).toHaveLength(
+          items.length + extraItems.length - alwaysVisibleNum
+        );
+      });
+
+      it('should expand the list on expander click', async () => {
+        findCollapsedListExpander().vm.$emit('click');
+        await wrapper.vm.$nextTick();
+        expect(findHiddenBreadcrumbItems()).toHaveLength(0);
+        expect(findVisibleBreadcrumbItems()).toHaveLength(items.length + extraItems.length);
       });
     });
   });
