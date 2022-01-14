@@ -110,6 +110,10 @@
   font-size: $gl-font-size-compact-markdown-h1;
 }
 
+@mixin gl-reset-font-size {
+  font-size: inherit;
+}
+
 /**
 * Font-weight utilities.
 *
