@@ -750,7 +750,7 @@
 */
 
 @mixin gl-gap-x-3 {
-  * + * {
+  > * + * {
     margin-left: #{$gl-spacing-scale-3};
   }
 }
