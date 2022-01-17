@@ -1,3 +1,10 @@
+# [32.62.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.61.0...v32.62.0) (2022-01-17)
+
+
+### Features
+
+* **css:** Addition of `gl-line-height-42` SCSS utility ([7e4a603](https://gitlab.com/gitlab-org/gitlab-ui/commit/7e4a60394bf394a3660638d49f219711dd10937e))
+
 # [32.61.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.60.0...v32.61.0) (2022-01-14)
 
 
