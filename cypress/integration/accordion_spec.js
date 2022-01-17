@@ -18,6 +18,10 @@ describe('GlAccordion', () => {
   });
 
   describe('a11y', () => {
+    before(() => {
+      cy.injectAxe();
+    });
+
     it('has no detectable a11y violations', () => {
       cy.glCheckA11y();
     });
