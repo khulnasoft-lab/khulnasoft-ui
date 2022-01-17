@@ -1,3 +1,10 @@
+# [32.65.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.64.1...v32.65.0) (2022-01-17)
+
+
+### Features
+
+* **css:** Added gl-opacity-6 & gl-opacity-7 utility classes ([e0afd43](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0afd433203f59e0085ef916d00c65391906572d))
+
 ## [32.64.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.64.0...v32.64.1) (2022-01-17)
 
 
