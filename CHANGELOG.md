@@ -1,3 +1,10 @@
+## [32.64.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.64.0...v32.64.1) (2022-01-17)
+
+
+### Bug Fixes
+
+* **utilities:** only apply gap to children ([076b4ba](https://gitlab.com/gitlab-org/gitlab-ui/commit/076b4ba3adb71b1001364f8f15acc73c556c65e0))
+
 # [32.64.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.63.0...v32.64.0) (2022-01-17)
 
 
