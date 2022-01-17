@@ -96,6 +96,12 @@
   }
 }
 
+@mixin gl-md-flex-direction-column {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-flex-direction-column;
+  }
+}
+
 @mixin gl-xs-flex-direction-column {
   @include gl-media-breakpoint-down(sm) {
     flex-direction: column;
