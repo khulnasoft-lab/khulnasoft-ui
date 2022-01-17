@@ -1,8 +1,3 @@
-# Toast
-
-<!-- STORY -->
-
-## Usage
 
 Toasts are used to display system messages. The messages are short and straightforward. It may
 contain a dismiss button, and an action button depending on the situation.
@@ -51,9 +46,3 @@ Below are the options you can pass to create a toast
 | action        | Object        | close       | Add single actions to toast              |
 | toastClass    | String, Array | 'gl-toast'  | Custom css class name of the toast       |
 | onComplete    | Function      | null        | Trigger when toast is completed          |
-
-## Under the hood
-
-Toast uses [`BToast`] internally. So please take a look at their extensive documentation for more information.
-
-[`btoast`]: https://bootstrap-vue.org/docs/components/toast
