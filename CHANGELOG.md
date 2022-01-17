@@ -1,3 +1,10 @@
+# [32.64.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.63.0...v32.64.0) (2022-01-17)
+
+
+### Features
+
+* **css:** Add spacing util classes ([1adb2d5](https://gitlab.com/gitlab-org/gitlab-ui/commit/1adb2d51fa10042c617303b22f257f0080c7ff4a))
+
 # [32.63.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.62.0...v32.63.0) (2022-01-17)
 
 
