@@ -1,3 +1,10 @@
+# [32.63.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.62.0...v32.63.0) (2022-01-17)
+
+
+### Features
+
+* **css:** Addition of gl-md-flex-direction-column class ([0b0b105](https://gitlab.com/gitlab-org/gitlab-ui/commit/0b0b1059de42239697c3bf12fd60873fad69d93a))
+
 # [32.62.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.61.0...v32.62.0) (2022-01-17)
 
 
