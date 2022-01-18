@@ -1,3 +1,10 @@
+# [32.66.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.65.1...v32.66.0) (2022-01-18)
+
+
+### Features
+
+* **utilities:** add gl-gap-x-5 utility ([ddd8829](https://gitlab.com/gitlab-org/gitlab-ui/commit/ddd88294b02c06d14d7f030b4a3e1bf1ab72f8be))
+
 ## [32.65.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.65.0...v32.65.1) (2022-01-18)
 
 
