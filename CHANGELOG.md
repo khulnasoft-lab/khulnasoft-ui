@@ -1,3 +1,10 @@
+## [32.65.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.65.0...v32.65.1) (2022-01-18)
+
+
+### Bug Fixes
+
+* **css:** Fixes for the justify-content utility for small screens ([0f417f0](https://gitlab.com/gitlab-org/gitlab-ui/commit/0f417f01988ab634496d925362d06889c18bbd84))
+
 # [32.65.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.64.1...v32.65.0) (2022-01-17)
 
 
