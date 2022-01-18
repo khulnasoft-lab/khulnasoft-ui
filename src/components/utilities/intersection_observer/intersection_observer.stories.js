@@ -1,4 +1,3 @@
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { GlIntersectionObserver } from '../../../../index';
 import readme from './intersection_observer.md';
 
@@ -31,17 +30,16 @@ const generateItems = (startingId = 0) => {
   });
 };
 
-documentedStoriesOf('utilities/intersection-observer', readme)
-  .add('default', () => ({
-    components,
-    data: commonData,
-    methods: commonMethods,
-    computed: {
-      visibility() {
-        return this.isInView ? 'The observer is in view' : 'The observer is not in view';
-      },
+export const Default = () => ({
+  components,
+  data: commonData,
+  methods: commonMethods,
+  computed: {
+    visibility() {
+      return this.isInView ? 'The observer is in view' : 'The observer is not in view';
     },
-    template: `
+  },
+  template: `
     <div style="height: 200px; overflow-y: scroll;">
       <h1>{{ visibility }}</h1>
       <p>This one is a hard one to demonstrate as it's invisible by nature.</p>
@@ -55,26 +53,27 @@ documentedStoriesOf('utilities/intersection-observer', readme)
       />
       <p>This line appears just after the observer.</p>
     </div>
-    `,
-  }))
-  .add('big table', () => ({
-    components,
-    data() {
-      return {
-        values: Array(100)
-          .fill(1)
-          .map(() => Array(10).fill(0)),
-      };
+  `,
+});
+
+export const BigTable = () => ({
+  components,
+  data() {
+    return {
+      values: Array(100)
+        .fill(1)
+        .map(() => Array(10).fill(0)),
+    };
+  },
+  methods: {
+    update(row, col, { intersectionRatio }) {
+      this.$set(this.values[row], col, intersectionRatio);
     },
-    methods: {
-      update(row, col, { intersectionRatio }) {
-        this.$set(this.values[row], col, intersectionRatio);
-      },
-      disappear(row, col) {
-        this.values[row][col] = 0;
-      },
+    disappear(row, col) {
+      this.values[row][col] = 0;
     },
-    template: `
+  },
+  template: `
     <div style="height: 600px; overflow-y: scroll;">
       <table>
         <tr v-for="(cols, row) in values" :key="row">
@@ -87,20 +86,21 @@ documentedStoriesOf('utilities/intersection-observer', readme)
       </table>
     </div>
     `,
-  }))
-  .add('lazy loaded image', () => ({
-    components,
-    data: commonData,
-    methods: commonMethods,
-    computed: {
-      imageUrl() {
-        // If the image is in view, return the high res one. If not return nothing, or a low res one
-        return this.isInView
-          ? '../../img/gitlab-summit-south-africa.jpg'
-          : '../../img/gitlab-summit-south-africa-min.jpg';
-      },
+});
+
+export const LazyLoadedImage = () => ({
+  components,
+  data: commonData,
+  methods: commonMethods,
+  computed: {
+    imageUrl() {
+      // If the image is in view, return the high res one. If not return nothing, or a low res one
+      return this.isInView
+        ? '../../img/gitlab-summit-south-africa.jpg'
+        : '../../img/gitlab-summit-south-africa-min.jpg';
     },
-    template: `
+  },
+  template: `
     <div>
       <p>The image below will load a low-res version until it appears on the poage, then it will switch out for a higher res version.</p>
       <p>It's also set up to switch back to the low res version when it disappears off the page. This is not what you would usually do for lazily loaded images, but it helps to demonstrate the effect in this example.</p>
@@ -111,42 +111,53 @@ documentedStoriesOf('utilities/intersection-observer', readme)
         <img :src="imageUrl" style="max-width: 100%; height: auto;"/>
       </gl-intersection-observer>
     </div>
-    `,
-  }))
-  .add(
-    'infinite scrolling',
-    () => ({
-      components,
-      data: () => ({
-        items: generateItems(),
-      }),
-      computed: {
-        lastItemId() {
-          return this.items[this.items.length - 1].id;
-        },
-        endOfList() {
-          return this.lastItemId >= 1000;
-        },
+  `,
+});
+
+export const InfiniteScrolling = () => ({
+  components,
+  data: () => ({
+    items: generateItems(),
+  }),
+  computed: {
+    lastItemId() {
+      return this.items[this.items.length - 1].id;
+    },
+    endOfList() {
+      return this.lastItemId >= 1000;
+    },
+  },
+  methods: {
+    fetchMoreItems() {
+      if (!this.endOfList) {
+        this.items.push(...generateItems(this.lastItemId));
+      }
+    },
+  },
+  template: `
+    <div>
+      <h2>Infinitely scrollable list</h2>
+      <p>This data will procedurally generate 1000 items, 20 at a time</p>
+      <ul>
+        <li v-for="item in items" :key="item.id">{{ item.title }}</li>
+      </ul>
+      <gl-intersection-observer v-if="!endOfList" @appear="fetchMoreItems">
+        <button @click="fetchMoreItems">Fetch more items</button>
+      </gl-intersection-observer>
+    </div>
+`,
+});
+
+export default {
+  title: 'utilities/intersection-observer',
+  component: GlIntersectionObserver,
+  parameters: {
+    knobs: { disable: true },
+    storyshots: { disable: true },
+    docs: {
+      description: {
+        component: readme,
       },
-      methods: {
-        fetchMoreItems() {
-          if (!this.endOfList) {
-            this.items.push(...generateItems(this.lastItemId));
-          }
-        },
-      },
-      template: `
-      <div>
-        <h2>Infinitely scrollable list</h2>
-        <p>This data will procedurally generate 1000 items, 20 at a time</p>
-        <ul>
-          <li v-for="item in items" :key="item.id">{{ item.title }}</li>
-        </ul>
-        <gl-intersection-observer v-if="!endOfList" @appear="fetchMoreItems">
-          <button @click="fetchMoreItems">Fetch more items</button>
-        </gl-intersection-observer>
-      </div>
-    `,
-    }),
-    { storyshots: false }
-  );
+    },
+  },
+};

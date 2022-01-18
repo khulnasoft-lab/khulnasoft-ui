@@ -119,6 +119,7 @@ export const setupStorybookReadme = () =>
         'GlTable',
         'GlToast',
         'GlPaginatedList',
+        'GlIntersectionObserver',
       ],
       components: {
         GlComponentDocumentation,
