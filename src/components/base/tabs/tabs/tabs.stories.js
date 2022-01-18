@@ -1,8 +1,7 @@
-import { withKnobs, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { range } from 'lodash';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { GlTabs, GlTab, GlScrollableTabs } from '../../../../../index';
-import { colorThemes } from '../../../../utils/constants';
 import docs from './tabs.md';
 
 const ScrollableTabsGenerator = {
@@ -39,10 +38,6 @@ const createBaseStory = () => ({
     GlTab,
   },
   props: {
-    theme: {
-      type: String,
-      default: select('theme', [...Object.keys(colorThemes), 'gl-dark'], 'indigo'),
-    },
     syncActiveTabWithQueryParams: {
       type: Boolean,
       default: boolean('sync-active-tab-with-query-params', false),
@@ -55,7 +50,7 @@ documentedStoriesOf('base/tabs/tabs', docs)
   .add('default', () => ({
     ...createBaseStory(),
     template: `
-      <gl-tabs :theme="theme" :sync-active-tab-with-query-params="syncActiveTabWithQueryParams">
+      <gl-tabs :sync-active-tab-with-query-params="syncActiveTabWithQueryParams">
         <gl-tab title="Tab 1">
           Tab panel 1
         </gl-tab>
@@ -104,7 +99,7 @@ documentedStoriesOf('base/tabs/tabs', docs)
   .add('contentless tab', () => ({
     ...createBaseStory(),
     template: `
-      <gl-tabs :theme="theme">
+      <gl-tabs>
         <gl-tab title="Regular tab">
           <p>Regular tab content.</p>
           <p>The contentless tab is not selectable, as it has no content. This is useful for displaying things that aren't really tabs after the list of tabs.</p>
@@ -123,7 +118,7 @@ documentedStoriesOf('base/tabs/tabs', docs)
   .add('empty state', () => ({
     ...createBaseStory(),
     template: `
-      <gl-tabs :theme="theme">
+      <gl-tabs>
         <template #empty>
           This content is only displayed when there are no tabs. Useful for dynamically added/removed tabs.
         </template>
@@ -133,7 +128,7 @@ documentedStoriesOf('base/tabs/tabs', docs)
   .add('justified tabs', () => ({
     ...createBaseStory(),
     template: `
-      <gl-tabs :theme="theme" justified>
+      <gl-tabs justified>
         <gl-tab title="Tab 1">
           <p>Tab panel 1</p>
         </gl-tab>
@@ -177,7 +172,7 @@ documentedStoriesOf('base/tabs/tabs', docs)
     components: {
       ScrollableTabsGenerator,
     },
-    template: '<scrollable-tabs-generator :count="50" :theme="theme" />',
+    template: '<scrollable-tabs-generator :count="50" />',
   }))
   .add(
     'with scroll and growing',
@@ -197,7 +192,7 @@ documentedStoriesOf('base/tabs/tabs', docs)
           this.count += 1;
         }, 2000);
       },
-      template: '<scrollable-tabs-generator :count="count" :theme="theme" />',
+      template: '<scrollable-tabs-generator :count="count" />',
     }),
     { storyshots: false }
   );

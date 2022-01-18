@@ -13,7 +13,6 @@ const TEST_ACTION = {
   text: 'Lorem ipsum',
 };
 const TEST_DEFAULT_PROPS = {
-  theme: 'red',
   contentClass: 'gl-test-content-class',
   navClass: 'gl-test-nav-class',
 };
