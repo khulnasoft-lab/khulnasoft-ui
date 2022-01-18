@@ -755,6 +755,12 @@
   }
 }
 
+@mixin gl-gap-x-5 {
+  > * + * {
+    margin-left: #{$gl-spacing-scale-5};
+  }
+}
+
 /**
 * Responsive margin utilities.
 *
