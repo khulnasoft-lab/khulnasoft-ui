@@ -1,3 +1,9 @@
+const reporters = ['default'];
+
+if (process.env.JEST_IMAGE_SNAPSHOT_TRACK_OBSOLETE) {
+  reporters.push('jest-image-snapshot/src/outdated-snapshot-reporter.js');
+}
+
 module.exports = {
   verbose: true,
   moduleFileExtensions: ['js', 'json', 'vue'],
@@ -20,4 +26,5 @@ module.exports = {
   ],
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
   setupFilesAfterEnv: ['<rootDir>/tests/jest_setup.js'],
+  reporters,
 };
