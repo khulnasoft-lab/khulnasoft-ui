@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 import * as echarts from 'echarts';
-import Chart from './chart.vue';
 import createTheme from '~/utils/charts/theme';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
+import Chart from './chart.vue';
 
 const defaultHeight = 400;
 

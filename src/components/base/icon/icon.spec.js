@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import Icon from './icon.vue';
 import { iconSizeOptions } from '~/utils/constants';
+import Icon from './icon.vue';
 
 const ICONS_PATH = '/path/to/icons.svg';
 const TEST_SIZE = 8;

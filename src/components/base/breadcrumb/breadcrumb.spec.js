@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { BBreadcrumbItem } from 'bootstrap-vue';
-import Breadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
 import { createMockDirective } from '~helpers/vue_mock_directive';
+import Breadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
 
 describe('Broadcast message component', () => {
   let wrapper;

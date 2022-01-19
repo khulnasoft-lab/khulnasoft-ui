@@ -6,15 +6,17 @@ const generateProps = ({ message = 'Written by %{author}', placeholders } = {}) 
   placeholders,
 });
 
-const makeStory = (options) => (args, { argTypes }) => ({
-  components: {
-    GlSprintf,
-    GlButton,
-    GlLink,
-  },
-  props: Object.keys(argTypes),
-  ...options,
-});
+const makeStory =
+  (options) =>
+  (args, { argTypes }) => ({
+    components: {
+      GlSprintf,
+      GlButton,
+      GlLink,
+    },
+    props: Object.keys(argTypes),
+    ...options,
+  });
 
 export const SentenceWithLink = makeStory({
   template: `

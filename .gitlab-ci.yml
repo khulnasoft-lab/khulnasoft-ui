@@ -80,7 +80,7 @@ container_scanning:
   needs: ['build_docker_image']
 
 .node:
-  image: node:14-buster
+  image: node:16-buster
   variables:
     PUPPETEER_SKIP_DOWNLOAD: 'true'
 
@@ -278,7 +278,7 @@ visual_minimal:
       - tests/__image_snapshots__/
 
 integration_tests:
-  image: cypress/browsers:node14.17.0-chrome91-ff89
+  image: cypress/browsers:node16.13.2-chrome97-ff96
   extends: [.node, .yarn_install]
   needs: []
   stage: test

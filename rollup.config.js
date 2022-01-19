@@ -3,7 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import glob from 'glob';
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import { string } from 'rollup-plugin-string';
 import vue from 'rollup-plugin-vue';
@@ -126,6 +126,13 @@ export default glob
         string({
           include: '**/*.md',
         }),
+        resolve(),
+        commonjs({
+          namedExports: {
+            echarts: ['echarts'],
+          },
+          ignore: ['@gitlab/svgs/dist/icons.json'],
+        }),
         vue({
           /**
            * Per default rollup-plugin-vue includes a `.mjs` version of
@@ -136,13 +143,6 @@ export default glob
         }),
         babel({
           exclude: ['node_modules/!(bootstrap-vue)/**'],
-        }),
-        resolve(),
-        commonjs({
-          namedExports: {
-            echarts: ['echarts'],
-          },
-          ignore: ['@gitlab/svgs/dist/icons.json'],
         }),
         {
           name: 'fix-imports',

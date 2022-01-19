@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import GlAnimatedNumber from './animated_number.vue';
 import { waitForAnimationFrame } from '~/utils/test_utils';
+import GlAnimatedNumber from './animated_number.vue';
 
 const duration = 2000;
 const ACTION_ANIMATED = 'animated';

@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 import {
   mockDefaultLineData,
   mockDefaultBarData,
@@ -6,7 +7,6 @@ import {
 } from '../../../utils/charts/mock_data';
 import Chart from '../chart/chart.vue';
 import ColumnChart from './column.vue';
-import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 
 let mockChartInstance;
 

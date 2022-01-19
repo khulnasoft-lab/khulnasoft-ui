@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils';
 
+import { keyboard } from '~/utils/constants';
 import GlToken from '../token/token.vue';
 import GlTokenContainer from './token_container.vue';
-import { keyboard } from '~/utils/constants';
 
 describe('GlTokenContainer', () => {
   const tokens = [

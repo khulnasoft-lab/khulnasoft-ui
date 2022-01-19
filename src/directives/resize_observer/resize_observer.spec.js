@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import { GlResizeObserverDirective } from './resize_observer';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
+import { GlResizeObserverDirective } from './resize_observer';
 
 describe('resize observer directive', () => {
   const { trigger, observersCount, observesElement } = useMockResizeObserver();
