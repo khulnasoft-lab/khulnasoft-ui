@@ -1,3 +1,10 @@
+# [32.67.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.66.0...v32.67.0) (2022-01-19)
+
+
+### Features
+
+* **css:** Added gl-md-max-w-15p, gl-lg-max-w-80p ([1f44794](https://gitlab.com/gitlab-org/gitlab-ui/commit/1f447940a0c3661f623db689b0d5593c501030ae)), closes [/gitlab.com/gitlab-org/gitlab/-/merge_requests/74643#note_737689310](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/74643/issues/note_737689310) [/gitlab.com/gitlab-org/gitlab/-/merge_requests/74643#note_764054257](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/74643/issues/note_764054257)
+
 # [32.66.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.65.1...v32.66.0) (2022-01-18)
 
 
