@@ -1,3 +1,10 @@
+# [32.68.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.67.0...v32.68.0) (2022-01-19)
+
+
+### Features
+
+* **css:** Added gl-w-grid-size-28 utility class ([e7a29b4](https://gitlab.com/gitlab-org/gitlab-ui/commit/e7a29b49bd981eea65ea38550872a3258ba29e67))
+
 # [32.67.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.66.0...v32.67.0) (2022-01-19)
 
 
