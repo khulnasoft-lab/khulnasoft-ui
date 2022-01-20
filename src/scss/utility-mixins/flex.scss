@@ -79,13 +79,6 @@
   }
 }
 
-// Deprecated, prefer `gl-sm-flex-wrap`
-@mixin gl-flex-sm-wrap {
-  @include gl-media-breakpoint-up(sm) {
-    @include gl-flex-wrap;
-  }
-}
-
 @mixin gl-flex-nowrap {
   flex-wrap: nowrap;
 }
@@ -224,7 +217,7 @@
   justify-content: flex-start;
 }
 
-@mixin gl-justify-content-md-start {
+@mixin gl-md-justify-content-start {
   @include gl-media-breakpoint-up(md) {
     @include gl-justify-content-start;
   }
