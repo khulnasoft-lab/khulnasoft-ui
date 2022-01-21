@@ -1,3 +1,24 @@
+# [33.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.68.0...v33.0.0) (2022-01-21)
+
+
+### Bug Fixes
+
+* **css:** rename and remove invalid CSS utils ([6cbde8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/6cbde8bf451d64ce0e6d03bc47ce5cb46ed4f665))
+
+
+### BREAKING CHANGES
+
+* **css:** this removes a few CSS utils that were incorrectly
+named in favor of new ones that follow the naming conventions.
+If you were using any of the removed utils, please migrate to the new
+ones:
+
+* gl-flex-sm-wrap was replaced with gl-sm-flex-wrap.
+* gl-justify-content-md-start was replaced with
+  gl-md-justify-content-start.
+* gl-pt-md-2 was replaced with gl-md-pt-2.
+* gl-mt-md-n2 was replaced with gl-md-mt-n2.
+
 # [32.68.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.67.0...v32.68.0) (2022-01-19)
 
 
