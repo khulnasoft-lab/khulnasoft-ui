@@ -56,6 +56,10 @@
 
   .gl-search-box-by-click-input {
     @include gl-pr-7;
+
+    &::-webkit-search-cancel-button {
+      @include gl-display-none;
+    }
   }
 
   .gl-search-box-by-click-clear-button {
