@@ -1,6 +1,4 @@
-import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { GlColumnChart } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import {
   mockDefaultLineData,
   mockDefaultBarData,
@@ -8,11 +6,6 @@ import {
   mockSecondaryTrendlineData,
 } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';
-import readme from './column.md';
-
-const components = {
-  GlColumnChart,
-};
 
 const template = `
   <gl-column-chart
@@ -27,7 +20,7 @@ const template = `
   />
   `;
 
-function generateProps({
+const generateProps = ({
   bars = mockDefaultBarData,
   lines = [],
   option = {},
@@ -36,85 +29,65 @@ function generateProps({
   xAxisType = 'category',
   secondaryData = [],
   secondaryDataTitle = '',
-} = {}) {
-  return {
-    bars: {
-      default: object('Chart Data', bars),
-    },
-    lines: {
-      default: object('Line chart Data', lines),
-    },
-    secondaryData: {
-      default: object('Secondary Data', secondaryData),
-    },
-    option: {
-      default: object('Echart Options', option),
-    },
-    yAxisTitle: {
-      default: text('Y Axis Title', yAxisTitle),
-    },
-    secondaryDataTitle: {
-      default: text('Secondary Y Axis Title', secondaryDataTitle),
-    },
-    xAxisTitle: {
-      default: text('X Axis Title', xAxisTitle),
-    },
-    xAxisType: {
-      default: text('X Axis Type', xAxisType),
-    },
-  };
-}
+} = {}) => ({
+  bars,
+  lines,
+  option,
+  yAxisTitle,
+  xAxisTitle,
+  xAxisType,
+  secondaryData,
+  secondaryDataTitle,
+});
 
-documentedStoriesOf('charts/column-chart', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('with line series', () => ({
-    props: generateProps({ lines: mockDefaultLineData }),
-    components,
-    template,
-  }))
-  .add('with zoom and scroll', () => ({
-    props: generateProps({
-      option: {
-        dataZoom: [
-          {
-            type: 'slider',
-            startValue: 1,
-          },
-        ],
+const Template = (args, { argTypes }) => ({
+  components: { GlColumnChart },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const WithLineSeries = Template.bind({});
+WithLineSeries.args = generateProps({
+  lines: mockDefaultLineData,
+});
+
+export const WithZoomAndScroll = Template.bind({});
+WithZoomAndScroll.args = generateProps({
+  option: {
+    dataZoom: [
+      {
+        type: 'slider',
+        startValue: 1,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with toolbox', () => ({
-    props: generateProps({
-      option: {
-        toolbox,
-      },
-    }),
-    components,
-    template,
-  }))
-  .add('secondary Y axis', () => ({
-    props: generateProps({
-      legend: true,
-      secondaryData: mockSecondaryBarData,
-      secondaryDataTitle: 'New bar data',
-    }),
-    components,
-    template,
-  }))
-  .add('secondary Y axis line', () => ({
-    props: generateProps({
-      legend: true,
-      secondaryData: mockSecondaryTrendlineData,
-      secondaryDataTitle: 'New line data',
-    }),
-    components,
-    template,
-  }));
+    ],
+  },
+});
+
+export const WithToolbox = Template.bind({});
+WithToolbox.args = generateProps({
+  option: {
+    toolbox,
+  },
+});
+
+export const SecondaryYAxis = Template.bind({});
+SecondaryYAxis.args = generateProps({
+  legend: true,
+  secondaryData: mockSecondaryBarData,
+  secondaryDataTitle: 'New bar data',
+});
+
+export const SecondaryYAxisLine = Template.bind({});
+SecondaryYAxisLine.args = generateProps({
+  legend: true,
+  secondaryData: mockSecondaryTrendlineData,
+  secondaryDataTitle: 'New line data',
+});
+
+export default {
+  title: 'charts/column-chart',
+  component: GlColumnChart,
+};

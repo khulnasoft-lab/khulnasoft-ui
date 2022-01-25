@@ -121,6 +121,7 @@ export const setupStorybookReadme = () =>
         'GlPaginatedList',
         'GlIntersectionObserver',
         'GlInfiniteScroll',
+        'GlColumnChart',
       ],
       components: {
         GlComponentDocumentation,
