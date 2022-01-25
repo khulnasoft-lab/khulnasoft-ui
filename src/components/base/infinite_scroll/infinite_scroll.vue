@@ -10,15 +10,24 @@ export const adjustScrollGap = 5;
 
 export default {
   props: {
+    /**
+     * Total number of items available
+     */
     totalItems: {
       type: Number,
       required: false,
       default: 0,
     },
+    /**
+     * Numbers of items fetched before scrolling
+     */
     fetchedItems: {
       type: Number,
       required: true,
     },
+    /**
+     * Max height of the list before the scrollbar appears
+     */
     maxListHeight: {
       type: Number,
       required: false,
@@ -111,9 +120,15 @@ export default {
     },
 
     topReached: throttle(function topReachedThrottled() {
+      /**
+       * Emitted when item container is scrolled to the top
+       */
       this.$emit('topReached');
     }, throttleDuration),
     bottomReached: throttle(function bottomReachedThrottled() {
+      /**
+       * Emitted when item container is scrolled to the bottom
+       */
       this.$emit('bottomReached');
     }, throttleDuration),
     itemsListHeight() {
@@ -135,6 +150,7 @@ export default {
 
 <template>
   <div>
+    <!-- @slot Header of the list, appears above the items -->
     <slot name="header"></slot>
     <div
       ref="infiniteContainer"
@@ -144,9 +160,11 @@ export default {
       @scroll="handleScroll"
       v-on="$listeners"
     >
+      <!-- @slot List of items -->
       <slot name="items"></slot>
     </div>
     <p class="gl-infinite-scroll-legend">
+      <!-- @slot Footer of the list, appears below the items -->
       <slot :fetched-items="fetchedItems" :total-items="totalItems">
         {{ legendText }}
       </slot>

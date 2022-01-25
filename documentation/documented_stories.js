@@ -120,6 +120,7 @@ export const setupStorybookReadme = () =>
         'GlToast',
         'GlPaginatedList',
         'GlIntersectionObserver',
+        'GlInfiniteScroll',
       ],
       components: {
         GlComponentDocumentation,
