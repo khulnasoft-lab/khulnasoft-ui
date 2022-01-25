@@ -72,8 +72,8 @@
   },
   "peerDependencies": {
     "@gitlab/svgs": "^1.116.0 || ^2.0.0",
-    "emoji-regex": ">=10.0.0",
     "bootstrap": "4.5.3",
+    "emoji-regex": ">=10.0.0",
     "pikaday": "^1.8.0",
     "vue": "^2.6.10"
   },
@@ -145,6 +145,7 @@
     "sass-true": "^5.0.0",
     "start-server-and-test": "^1.10.6",
     "storybook-readme": "5.0.9",
+    "stylelint": "13.9.0",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-prettier": "2.0.0",
     "vue": "^2.6.11",
