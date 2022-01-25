@@ -1,7 +1,3 @@
-# Infinite Scroll
-
-<!-- STORY -->
-
 ## Usage
 
 The infinite scroll component wraps around a results list and emits a message
