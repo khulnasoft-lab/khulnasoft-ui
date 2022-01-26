@@ -27,6 +27,10 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
   @include gl-h-7;
   @include gl-pr-7;
   padding-left: $gl-search-box-by-type-input-padding;
+
+  &::-webkit-search-cancel-button {
+    @include gl-display-none;
+  }
 }
 
 .gl-search-box-by-type-right-icons {
