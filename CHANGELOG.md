@@ -1,3 +1,10 @@
+# [33.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.0.1...v33.1.0) (2022-01-26)
+
+
+### Features
+
+* **GlPopover:** add support for a close button ([583be0b](https://gitlab.com/gitlab-org/gitlab-ui/commit/583be0bd76f5c72384c19fe0eeeb4bc334eb58be))
+
 ## [33.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.0.0...v33.0.1) (2022-01-26)
 
 
