@@ -5,16 +5,18 @@ import GlPopover from './popover.vue';
 describe('GlPopover', () => {
   let wrapper;
 
-  const createWrapper = (props) => {
+  const createWrapper = (props, stubs = {}) => {
     wrapper = shallowMount(GlPopover, {
       propsData: {
         target: document.body,
         ...props,
       },
+      stubs,
     });
   };
 
   const findBVPopover = () => wrapper.findComponent({ ref: 'bPopover' });
+  const findCloseButton = () => findBVPopover().find('[data-testid="close-button"]');
 
   it.each(tooltipActionEvents)('passes through the %s event to the bvPopover instance', (event) => {
     createWrapper();
@@ -44,6 +46,45 @@ describe('GlPopover', () => {
       createWrapper({ title });
 
       expect(findBVPopover().props('title')).toBe(title);
+    });
+  });
+
+  describe('close button', () => {
+    let doCloseMock;
+
+    beforeEach(() => {
+      doCloseMock = jest.fn();
+      createWrapper(
+        { showCloseButton: true },
+        {
+          BPopover: {
+            template: `
+              <div>
+                <slot name="title" />
+              </div>
+            `,
+            methods: {
+              doClose: doCloseMock,
+            },
+          },
+        }
+      );
+    });
+
+    it('renders a close button', () => {
+      expect(findCloseButton().exists()).toBe(true);
+    });
+
+    it("calls BPopover's doClose method when clicking on the close button", () => {
+      findCloseButton().vm.$emit('click');
+
+      expect(doCloseMock).toHaveBeenCalled();
+    });
+
+    it('emits close-button-clicked event when clicking on the close button', () => {
+      findCloseButton().vm.$emit('click');
+
+      expect(wrapper.emitted('close-button-clicked')).toHaveLength(1);
     });
   });
 });

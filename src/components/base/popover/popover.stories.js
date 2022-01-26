@@ -60,6 +60,24 @@ documentedStoriesOf('base/popover', '')
     template,
     props: generateProps(),
   }))
+  .add('with close button', () => ({
+    template: `
+      <div class="gl-display-flex gl-justify-content-center gl-p-6">
+        <gl-button id="pop-with-close-button">{{placement}}</gl-button>
+        <gl-popover
+          target="pop-with-close-button"
+          data-testid="popover-with-close-button"
+          triggers="hover focus"
+          :title="title"
+          :placement="placement"
+          content="${contentString}"
+          show
+          show-close-button
+          />
+      </div>
+    `,
+    props: generateProps(),
+  }))
   .add(
     'on click',
     () => ({

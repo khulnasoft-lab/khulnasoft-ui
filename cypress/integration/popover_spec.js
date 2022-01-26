@@ -12,4 +12,14 @@ describe('GlPopover', () => {
 
     cy.get('[data-testid="popover-title"]').should('be.visible').contains('Popover title');
   });
+
+  it('closes popover when clicking on close button', () => {
+    cy.visitStory('popover', 'with-close-button');
+
+    cy.findByTestId('popover-with-close-button').should('exist').should('be.visible');
+
+    cy.findByTestId('close-button').click();
+
+    cy.findByTestId('popover-with-close-button').should('not.exist');
+  });
 });

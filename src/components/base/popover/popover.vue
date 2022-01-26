@@ -1,12 +1,14 @@
 <script>
 import { BPopover } from 'bootstrap-vue';
 import tooltipMixin from '../../mixins/tooltip_mixin';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 
 const popoverRefName = 'bPopover';
 
 export default {
   components: {
     BPopover,
+    CloseButton,
   },
   mixins: [tooltipMixin(popoverRefName)],
   inheritAttrs: false,
@@ -21,10 +23,29 @@ export default {
       required: false,
       default: 'hover focus',
     },
+    title: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    showCloseButton: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     customClass() {
       return ['gl-popover', ...this.cssClasses].join(' ');
+    },
+    shouldShowTitle() {
+      return this.$scopedSlots.title || this.title || this.showCloseButton;
+    },
+  },
+  methods: {
+    close(e) {
+      this.$refs[popoverRefName].doClose();
+      this.$emit('close-button-clicked', e);
     },
   },
   popoverRefName,
@@ -36,11 +57,20 @@ export default {
     :ref="$options.popoverRefName"
     :custom-class="customClass"
     :triggers="triggers"
+    :title="title"
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <template v-if="$scopedSlots.title" #title>
-      <slot name="title"></slot>
+    <template v-if="shouldShowTitle" #title>
+      <slot name="title">
+        {{ title }}
+      </slot>
+      <close-button
+        v-if="showCloseButton"
+        class="gl-float-right gl-mt-n2 gl-mr-n3"
+        data-testid="close-button"
+        @click="close"
+      />
     </template>
     <slot></slot>
   </b-popover>
