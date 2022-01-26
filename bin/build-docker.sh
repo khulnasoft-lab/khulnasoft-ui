@@ -24,6 +24,7 @@ else
 fi
 
 docker build . \
+  -f Dockerfile.puppeteer \
   --build-arg "PUPPETEER_VERSION=$PUPPETEER_VERSION" \
   --tag "$TARGET_IMAGE"
 
