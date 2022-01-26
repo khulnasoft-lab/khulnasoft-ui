@@ -246,13 +246,13 @@ visual:
   extends:
     - .puppeteer
     - .yarn_install
-    - .rules:gitlab-ui-default-branch
   needs:
     - build_docker_image
   stage: test
   script:
     - yarn test:visual
   rules:
+    - !reference ['.rules:gitlab-ui-default-branch', rules]
     - if: '$CI_MERGE_REQUEST_IID'
       when: manual
   artifacts:
