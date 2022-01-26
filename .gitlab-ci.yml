@@ -243,12 +243,33 @@ generate_utility_classes:
     - yarn generate-utilities
 
 visual:
-  extends: [.puppeteer, .yarn_install]
+  extends:
+    - .puppeteer
+    - .yarn_install
+    - .rules:gitlab-ui-default-branch
   needs:
     - build_docker_image
   stage: test
   script:
     - yarn test:visual
+  rules:
+    - if: '$CI_MERGE_REQUEST_IID'
+      when: manual
+  artifacts:
+    when: always
+    paths:
+      - tests/__image_snapshots__/
+
+visual_minimal:
+  extends: [.puppeteer, .yarn_install]
+  needs:
+    - build_docker_image
+  stage: test
+  script:
+    - yarn test:visual:minimal
+  rules:
+    - if: '$CI_MERGE_REQUEST_IID'
+      when: always
   artifacts:
     when: always
     paths:
