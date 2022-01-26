@@ -1,3 +1,10 @@
+## [33.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.0.0...v33.0.1) (2022-01-26)
+
+
+### Bug Fixes
+
+* **GlSearchBox*:** Hide Chrome's cancel button ([387df0a](https://gitlab.com/gitlab-org/gitlab-ui/commit/387df0aecaa1e21efaacb25ed8e2ea5187e46fd2))
+
 # [33.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.68.0...v33.0.0) (2022-01-21)
 
 
