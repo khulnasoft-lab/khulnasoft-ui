@@ -16,8 +16,8 @@ describe('GlAccordionItem', () => {
         GlCollapseToggle: GlCollapseToggleDirective,
       },
       provide: {
-        defaultHeaderLevel,
-        accordionSetId,
+        defaultHeaderLevel: () => defaultHeaderLevel,
+        accordionSetId: () => accordionSetId,
       },
       propsData: {
         title: defaultTitle,
