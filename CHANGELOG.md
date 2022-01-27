@@ -1,3 +1,10 @@
+## [33.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.1.1...v33.1.2) (2022-01-27)
+
+
+### Bug Fixes
+
+* Add a workaround for GlAccordion compatibility with Vue Apollo ([55deabf](https://gitlab.com/gitlab-org/gitlab-ui/commit/55deabf3260643079e20db1ad2787980afdd8e56))
+
 ## [33.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.1.0...v33.1.1) (2022-01-27)
 
 
