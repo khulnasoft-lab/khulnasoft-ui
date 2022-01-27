@@ -26,8 +26,8 @@ const Template = (args) => ({
   props: Object.keys(args),
   template,
   provide: {
-    defaultHeaderLevel: defaultValue('headerLevel'),
-    accordionSetId: '1',
+    defaultHeaderLevel: () => defaultValue('headerLevel'),
+    accordionSetId: () => '1',
   },
 });
 

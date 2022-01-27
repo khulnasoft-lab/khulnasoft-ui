@@ -51,11 +51,11 @@ When set, it will ensure the accordion item is initially visible
   },
   computed: {
     headerComponent() {
-      const level = this.headerLevel || this.defaultHeaderLevel;
+      const level = this.headerLevel || this.defaultHeaderLevel();
       return `h${level}`;
     },
     accordion() {
-      return this.accordionSetId || undefined;
+      return this.accordionSetId() || undefined;
     },
     icon() {
       return this.isVisible ? 'chevron-down' : 'chevron-right';
