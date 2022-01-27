@@ -68,7 +68,7 @@ const printFilesList = (paths) => {
  */
 const getSiblingStories = (file) => {
   const dirname = path.dirname(file);
-  return glob.sync('*.stories.js', { cwd: dirname });
+  return glob.sync(`${dirname}/*.stories.js`);
 };
 
 /**
