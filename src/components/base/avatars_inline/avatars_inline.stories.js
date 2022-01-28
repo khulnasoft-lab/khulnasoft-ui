@@ -1,3 +1,4 @@
+import { GlAvatarsInline, GlAvatar, GlAvatarLink, GlTooltipDirective } from '../../../../index';
 import { avatarsInlineSizeOptions } from '../../../utils/constants';
 import readme from './avatars_inline.md';
 
@@ -28,6 +29,7 @@ const generateProps = (
 });
 
 export const Default = (args, { argTypes }) => ({
+  components: { GlAvatarsInline },
   props: Object.keys(argTypes),
   template: `
     <gl-avatars-inline :avatars="avatars" :collapsed="collapsed" :avatar-size="avatarSize" :max-visible="maxVisible" :badgeTooltipProp="badgeTooltipProp" :badgeSrOnlyText="badgeSrOnlyText">
@@ -37,6 +39,8 @@ export const Default = (args, { argTypes }) => ({
 Default.args = generateProps();
 
 export const WithLinksAndTooltips = (args, { argTypes }) => ({
+  components: { GlAvatarsInline, GlAvatar, GlAvatarLink },
+  directives: { GlTooltip: GlTooltipDirective },
   props: Object.keys(argTypes),
   template: `
     <gl-avatars-inline :avatars="avatars" :collapsed="collapsed" :avatar-size="avatarSize" :max-visible="maxVisible" :badgeTooltipProp="badgeTooltipProp" :badgeSrOnlyText="badgeSrOnlyText">
@@ -59,6 +63,7 @@ WithLinksAndTooltips.args = generateProps(
 
 export default {
   title: 'base/avatar/avatars-inline',
+  component: GlAvatarsInline,
   parameters: {
     knobs: { disable: true },
     docs: {
