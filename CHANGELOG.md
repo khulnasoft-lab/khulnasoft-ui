@@ -1,3 +1,20 @@
+# [34.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.1.2...v34.0.0) (2022-01-28)
+
+
+### Features
+
+* **GlAvatarsInline:** Add badgeSrOnlyText prop ([bcb0d29](https://gitlab.com/gitlab-org/gitlab-ui/commit/bcb0d299e9468e13cc7d565784388e3b9585e4a0))
+
+
+### BREAKING CHANGES
+
+* **GlAvatarsInline:** This change adds a required
+property named badgeSrOnlyText that ensures
+that badge displayed when avatars inline is
+collapsed, provides a screen reader only
+label that gives contextual information
+for users that use this form factor
+
 ## [33.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.1.1...v33.1.2) (2022-01-27)
 
 
