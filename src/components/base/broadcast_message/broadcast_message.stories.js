@@ -29,7 +29,7 @@ const generateProps = ({
 });
 
 const Template = (args, { argTypes }) => ({
-  component: {
+  components: {
     GlBroadcastMessage,
   },
   props: Object.keys(argTypes),
@@ -39,7 +39,7 @@ export const Default = Template.bind({});
 Default.args = generateProps();
 
 const StackedStory = (args, { argTypes }) => ({
-  component: {
+  components: {
     GlBroadcastMessage,
   },
   props: Object.keys(argTypes),

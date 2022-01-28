@@ -1,8 +1,9 @@
-import { GlTooltip, GlTooltipDirective } from '../../../../index';
+import { GlTooltip, GlTooltipDirective, GlButton } from '../../../../index';
 import readme from './tooltip.md';
 
 function makeTooltip(modifier = '') {
   return {
+    components: { GlTooltip, GlButton },
     directives: {
       GlTooltip: GlTooltipDirective,
     },

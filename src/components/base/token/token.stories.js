@@ -1,4 +1,4 @@
-import { GlToken } from '../../../../index';
+import { GlToken, GlAvatar } from '../../../../index';
 import { tokenVariants } from '../../../utils/constants';
 
 import readme from './token.md';
@@ -31,7 +31,7 @@ ViewOnly.args = generateProps({
 });
 
 export const WithAvatar = () => ({
-  components: { GlToken },
+  components: { GlToken, GlAvatar },
   template: `
     <div class="gl-display-flex">
     <gl-token><gl-avatar src="./img/avatar.png" :size="16" />Token</gl-token>

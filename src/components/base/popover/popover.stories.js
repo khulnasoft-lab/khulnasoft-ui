@@ -1,6 +1,9 @@
 import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { GlPopover, GlButton } from '../../../../index';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { popoverPlacements } from '../../../utils/constants';
+
+const components = { GlPopover, GlButton };
 
 const contentString = `
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat a nisi non
@@ -57,10 +60,12 @@ function generateProps({ placement = popoverPlacements.top, title = 'Popover', t
 documentedStoriesOf('base/popover', '')
   .addDecorator(withKnobs)
   .add('default', () => ({
+    components,
     template,
     props: generateProps(),
   }))
   .add('with close button', () => ({
+    components,
     template: `
       <div class="gl-display-flex gl-justify-content-center gl-p-6">
         <gl-button id="pop-with-close-button">{{placement}}</gl-button>
@@ -81,6 +86,7 @@ documentedStoriesOf('base/popover', '')
   .add(
     'on click',
     () => ({
+      components,
       template: scopedSlotTemplate,
       props: generateProps(),
     }),

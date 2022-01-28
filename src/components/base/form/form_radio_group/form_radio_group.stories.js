@@ -1,10 +1,11 @@
 import { withKnobs, object, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { GlFormRadioGroup } from '../../../../../index';
+import { GlFormRadioGroup, GlFormRadio } from '../../../../../index';
 import readme from './form_radio_group.md';
 
 const components = {
   GlFormRadioGroup,
+  GlFormRadio,
 };
 
 const defaultOptions = [

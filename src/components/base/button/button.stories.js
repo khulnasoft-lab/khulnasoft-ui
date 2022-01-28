@@ -1,4 +1,4 @@
-import { GlButton } from '../../../../index';
+import { GlButton, GlButtonGroup, GlBadge, GlDropdown, GlDropdownItem } from '../../../../index';
 import {
   buttonCategoryOptions,
   buttonVariantOptions,
@@ -111,7 +111,7 @@ IconButton.args = generateProps({
 
 export const DropdownButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlDropdown, GlDropdownItem },
   template: wrapDropdownButton(`
       <gl-dropdown
         text="Some dropdown"
@@ -129,7 +129,7 @@ DropdownButton.args = generateProps();
 
 export const DropdownIconButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlDropdown, GlDropdownItem },
   template: wrapDropdownButton(`
       <gl-dropdown
         icon="download"
@@ -149,7 +149,7 @@ DropdownIconButton.args = generateProps();
 
 export const DropdownIconTextButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlDropdown, GlDropdownItem },
   template: wrapDropdownButton(`
       <gl-dropdown
         icon="notifications"
@@ -168,7 +168,7 @@ DropdownIconTextButton.args = generateProps();
 
 export const DropdownIconOnlyButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlDropdown, GlDropdownItem },
   template: wrapDropdownButton(`
       <gl-dropdown
         icon="ellipsis_v"
@@ -191,7 +191,7 @@ DropdownIconOnlyButton.args = generateProps({
 
 export const DropdownSplitButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlDropdown, GlDropdownItem },
   template: wrapDropdownButton(`
       <gl-dropdown
         split
@@ -210,7 +210,7 @@ DropdownSplitButton.args = generateProps({ category: 'primary', variant: 'confir
 
 export const DropdownIconSplitButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlDropdown, GlDropdownItem },
   template: wrapDropdownButton(`
       <gl-dropdown
         split
@@ -230,7 +230,7 @@ DropdownIconSplitButton.args = generateProps({ category: 'secondary', variant: '
 
 export const DropdownLoadingButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlDropdown, GlDropdownItem },
   template: `
       <gl-dropdown text="Some dropdown" :category="category" :loading="true">
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -333,7 +333,7 @@ BorderlessTertiary.args = generateProps({ category: 'tertiary' });
 
 export const LabelButton = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlButton, GlButtonGroup },
   template: `
       <div>
         <gl-button label>Label</gl-button>
@@ -451,7 +451,7 @@ Sizes.parameters = { controls: { disable: true } };
 
 export const Badges = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlButton, GlBadge },
   variants: Object.keys(badgeForButtonOptions),
   categories: buttonCategoryOptions,
   style: {
@@ -483,7 +483,7 @@ Badges.parameters = { controls: { disable: true } };
 
 export const BadgeWithSROnlyText = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { GlButton, GlBadge },
   template: `    
       <gl-button variant="confirm" buttonTextClasses="gl-display-flex gl-align-items-center">
           Submit review

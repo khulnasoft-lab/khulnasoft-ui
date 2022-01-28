@@ -1,5 +1,7 @@
-import { GlTable } from '../../../../index';
+import { GlTable, GlFormInput } from '../../../../index';
 import readme from './table.md';
+
+const components = { GlTable };
 
 const tableItems = [
   {
@@ -23,6 +25,7 @@ const generateProps = ({ fixed = false, footClone = false, stacked = false } = {
 });
 
 export const Default = (args, { argTypes }) => ({
+  components,
   props: Object.keys(argTypes),
   template: `
   <gl-table
@@ -55,6 +58,7 @@ export const Default = (args, { argTypes }) => ({
 Default.args = generateProps();
 
 export const Empty = (args, { argTypes }) => ({
+  components,
   props: Object.keys(argTypes),
   template: `
       <gl-table show-empty />
@@ -63,6 +67,7 @@ export const Empty = (args, { argTypes }) => ({
 Empty.parameters = { controls: { disable: true } };
 
 export const WithFilter = (args, { argTypes }) => ({
+  components: { ...components, GlFormInput },
   props: Object.keys(argTypes),
   template: `<div class="gl-line-height-normal">
       <gl-form-input v-model="filter" placeholder="Type to search" />

@@ -1,4 +1,4 @@
-import { GlPath } from '../../../../index';
+import { GlPath, GlPopover } from '../../../../index';
 import { glThemes } from '../../../utils/constants';
 import { mockPathItems } from './data';
 import readme from './path.md';
@@ -28,7 +28,7 @@ export const Default = (args, { argTypes }) => ({
 Default.args = generateProps();
 
 export const WithPopovers = (args, { argTypes }) => ({
-  components: { GlPath },
+  components: { GlPath, GlPopover },
   props: Object.keys(argTypes),
   template: template(`
     <template #default="{ pathItem, pathId }">

@@ -9,6 +9,8 @@ import {
   GlDropdownItem,
   GlDropdownText,
   GlDropdownForm,
+  GlButton,
+  GlSearchBoxByType,
 } from '../../../../index';
 import {
   buttonCategoryOptions,
@@ -213,7 +215,7 @@ documentedStoriesOf('base/dropdown', readme)
   }))
   .add('with form', () => ({
     props: generateProps({ text: 'Some dropdown' }),
-    components,
+    components: { ...components, GlButton },
     template: wrap`
       <gl-dropdown-form class="gl-px-4">
         <gl-button>One</gl-button>
@@ -242,7 +244,7 @@ documentedStoriesOf('base/dropdown', readme)
   }))
   .add('with header and footer', () => ({
     props: generateProps({ text: 'Some dropdown', headerText: 'Header', hideHeaderBorder: true }),
-    components,
+    components: { ...components, GlSearchBoxByType },
     template: wrap`
       <template #header>
         <gl-search-box-by-type />

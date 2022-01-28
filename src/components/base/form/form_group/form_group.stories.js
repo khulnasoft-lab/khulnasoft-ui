@@ -1,6 +1,6 @@
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { GlFormGroup } from '../../../../../index';
+import { GlFormGroup, GlFormInput, GlFormTextarea } from '../../../../../index';
 import { sizeOptions } from '../../../../utils/constants';
 import readme from './form_group.md';
 
@@ -57,7 +57,7 @@ documentedStoriesOf('base/form/form-group', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
     props: generateProps(),
-    components,
+    components: { ...components, GlFormInput },
     template: `
       <gl-form-group
         :id="id"
@@ -75,7 +75,7 @@ documentedStoriesOf('base/form/form-group', readme)
   }))
   .add('disabled', () => ({
     props: generateProps(),
-    components,
+    components: { ...components, GlFormInput },
     template: `
       <gl-form-group
         id="group-id"
@@ -91,6 +91,7 @@ documentedStoriesOf('base/form/form-group', readme)
     `,
   }))
   .add('with textarea', () => ({
+    components: { ...components, GlFormTextarea },
     props: generateProps({ optional: true }),
     template: `
       <gl-form-group
@@ -106,7 +107,7 @@ documentedStoriesOf('base/form/form-group', readme)
   }))
   .add('with label description', () => ({
     props: generateProps({ optional: true }),
-    components,
+    components: { ...components, GlFormInput },
     template: `
       <gl-form-group
         :id="id"
@@ -125,7 +126,7 @@ documentedStoriesOf('base/form/form-group', readme)
   }))
   .add('with validations', () => ({
     props: generateProps({ label: 'Name', description: 'Enter a first and last name.' }),
-    components,
+    components: { ...components, GlFormInput },
     computed: {
       state() {
         return this.name.length >= 4;
