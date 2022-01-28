@@ -7,6 +7,7 @@ import docs from './tabs.md';
 
 const ScrollableTabsGenerator = {
   components: {
+    GlTabs,
     GlScrollableTabs,
     GlTab,
   },

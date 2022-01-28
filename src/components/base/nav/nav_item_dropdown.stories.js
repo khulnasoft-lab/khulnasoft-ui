@@ -1,11 +1,12 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlNav, GlNavItemDropdown } from '../../../../index';
+import { GlNav, GlNavItemDropdown, GlDropdownItem, GlDropdownDivider } from '../../../../index';
 import readme from './nav_item_dropdown.md';
 
 const components = {
   GlNav,
   GlNavItemDropdown,
+  GlDropdownItem,
 };
 
 documentedStoriesOf('base/nav/nav-item-dropdown', readme)
@@ -23,7 +24,7 @@ documentedStoriesOf('base/nav/nav-item-dropdown', readme)
     `,
   }))
   .add('with divider', () => ({
-    components,
+    components: { ...components, GlDropdownDivider },
     template: `
       <gl-nav>
         <gl-nav-item-dropdown text="Dropdown">

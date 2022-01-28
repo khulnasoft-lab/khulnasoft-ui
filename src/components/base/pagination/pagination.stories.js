@@ -2,6 +2,8 @@ import { alignOptions } from '../../../utils/constants';
 import readme from './pagination.md';
 import GlPagination from './pagination.vue';
 
+const components = { GlPagination };
+
 const generateBaseProps = ({ prevText = 'Prev', nextText = 'Next', disabled = false } = {}) => ({
   prevText,
   nextText,
@@ -30,6 +32,7 @@ const defaults = {
 };
 
 export const Default = (args, { argTypes }) => ({
+  components,
   props: Object.keys(argTypes),
   ...defaults,
   template: `<gl-pagination
@@ -44,6 +47,7 @@ export const Default = (args, { argTypes }) => ({
 Default.args = generateFullProps();
 
 export const Compact = () => ({
+  components,
   ...defaults,
   props: generateFullProps(),
   data() {
@@ -77,6 +81,7 @@ export const Compact = () => ({
 });
 
 export const LinkBased = (args, { argTypes }) => ({
+  components,
   props: Object.keys(argTypes),
   ...defaults,
   methods: {
@@ -97,6 +102,7 @@ export const LinkBased = (args, { argTypes }) => ({
 LinkBased.args = generateFullProps();
 
 export const AlignCenter = (args, { argTypes }) => ({
+  components,
   props: Object.keys(argTypes),
   ...defaults,
   template: `<gl-pagination
@@ -112,6 +118,7 @@ export const AlignCenter = (args, { argTypes }) => ({
 AlignCenter.args = generateFullProps();
 
 export const AlignRight = (args, { argTypes }) => ({
+  components,
   props: Object.keys(argTypes),
   ...defaults,
   template: `<gl-pagination

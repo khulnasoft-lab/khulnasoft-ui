@@ -1,9 +1,12 @@
 import Vue from 'vue';
+import { GlAvatarLabeled, GlBadge } from '../../../../index';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './avatar_labeled.md';
 
 Vue.directive('gl-tooltip', GlTooltipDirective);
+
+const components = { GlAvatarLabeled };
 
 const generateProps = ({
   label = 'GitLab User',
@@ -25,6 +28,7 @@ const generateTooltipProps = ({ tooltipText = 'Avatar tooltip', placement = 'top
 });
 
 export const Default = (args, { argTypes }) => ({
+  components,
   props: Object.keys(argTypes),
   template: `
       <gl-avatar-labeled
@@ -39,6 +43,7 @@ export const Default = (args, { argTypes }) => ({
 Default.args = generateProps();
 
 export const WithTooltip = (args, { argTypes }) => ({
+  components,
   props: Object.keys(argTypes),
   template: `
       <gl-avatar-labeled
@@ -63,6 +68,7 @@ WithTooltip.argTypes = {
 };
 
 export const WithBadges = (args, { argTypes }) => ({
+  components: { GlAvatarLabeled, GlBadge },
   props: Object.keys(argTypes),
   template: `
       <gl-avatar-labeled
@@ -87,6 +93,7 @@ WithBadges.args = generateProps();
 
 export default {
   title: 'base/avatar/labeled',
+  component: GlAvatarLabeled,
   parameters: {
     knobs: { disable: true },
     docs: {

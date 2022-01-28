@@ -23,6 +23,7 @@ const generateProps = () => ({
 });
 
 const Template = (args) => ({
+  components: { GlLoadingIcon },
   props: Object.keys(args),
   template,
 });

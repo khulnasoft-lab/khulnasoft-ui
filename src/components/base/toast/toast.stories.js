@@ -1,11 +1,13 @@
 import Vue from 'vue';
-import { GlToast } from '../../../../index';
+import { GlToast, GlButton } from '../../../../index';
 import readme from './toast.md';
 
 Vue.use(GlToast);
 
+const components = { GlToast, GlButton };
+
 const Template = () => ({
-  components: { GlToast },
+  components,
   template: `
   <gl-button @click="showToast()">
     Show default toast
@@ -23,7 +25,7 @@ const Template = () => ({
 export const Default = Template.bind({});
 
 export const WithActions = () => ({
-  components: { GlToast },
+  components,
   template: `
   <gl-button @click="showToast()">
     Show toast with actions
@@ -44,7 +46,7 @@ export const WithActions = () => ({
 });
 
 export const WithLongContent = () => ({
-  components: { GlToast },
+  components,
   template: `
   <gl-button @click="showToast()">
     Show toast with a long content
