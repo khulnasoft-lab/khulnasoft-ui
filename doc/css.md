@@ -98,3 +98,13 @@ You may include all mixins by using the following imports:
 @import '@gitlab/ui/src/scss/variables';
 @import '@gitlab/ui/src/scss/utility-mixins/index'
 ```
+
+### Theming
+
+Some components' styles can be adjusted to match the current theme. This is
+best done using CSS custom properties. Creating an explicit `theme` prop is
+deprecated.
+
+For now, `--gl-theme-accent` is the only theme-related CSS custom property in
+use (see `GlTabs`). See [this epic](https://gitlab.com/groups/gitlab-org/-/epics/7401)
+for more details.

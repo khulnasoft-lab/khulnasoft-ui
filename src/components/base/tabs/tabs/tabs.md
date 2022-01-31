@@ -10,7 +10,7 @@ tab, when active, will reveal it’s own unique content.
 ## Using the component Vue
 
 ~~~js
-<gl-tabs theme="indigo">
+<gl-tabs>
   <gl-tab title="Tab 1">
     Tab panel 1
   </gl-tab>
@@ -75,7 +75,7 @@ component. This is a separate Vue component because of some limitations:
 exceptions).
 
 ~~~html
-<gl-scrollable-tabs theme="indigo">
+<gl-scrollable-tabs>
   <gl-tab v-for="tab in tabs" :key="tab.key" :title="tab.title"> {{ tab.content }} </gl-tab>
 </gl-scrollable-tabs>
 ~~~

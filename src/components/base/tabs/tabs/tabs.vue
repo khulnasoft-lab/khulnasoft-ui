@@ -1,6 +1,6 @@
 <script>
 import { BTabs } from 'bootstrap-vue';
-import { colorThemes, tabsButtonDefaults } from '../../../../utils/constants';
+import { tabsButtonDefaults } from '../../../../utils/constants';
 import GlButton from '../../button/button.vue';
 
 const validatorHelper = (obj) =>
@@ -30,12 +30,6 @@ export default {
       required: false,
       default: null,
       validator: (obj) => validatorHelper(obj),
-    },
-    theme: {
-      type: String,
-      required: false,
-      default: 'indigo',
-      validator: (value) => Object.keys(colorThemes).includes(value) || value === 'gl-dark',
     },
     contentClass: {
       type: [String, Array, Object],
@@ -76,9 +70,6 @@ export default {
   computed: {
     hasActions() {
       return [this.actionPrimary, this.actionSecondary, this.actionTertiary].some(Boolean);
-    },
-    activeItemBorderClass() {
-      return `gl-tab-nav-item-active-${this.theme}`;
     },
     listeners() {
       return {
@@ -214,7 +205,7 @@ export default {
     ref="bTabs"
     :no-nav-style="true"
     :no-fade="true"
-    :active-nav-item-class="`gl-tab-nav-item-active ${activeItemBorderClass}`"
+    active-nav-item-class="gl-tab-nav-item-active"
     :content-class="[contentClass, 'gl-tab-content']"
     :nav-class="[navClass, 'gl-tabs-nav']"
     :justified="justified"

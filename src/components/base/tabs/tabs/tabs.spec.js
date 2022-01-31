@@ -1,4 +1,4 @@
-import { mount, shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { GlButton } from '../../../../../index';
 import { tabsButtonDefaults } from '../../../../utils/constants';
@@ -44,9 +44,12 @@ describe('tabs component', () => {
     wrapper.findAll('[role="tab"]').wrappers.find((tabWrapper) => tabWrapper.text() === text);
 
   describe('default', () => {
-    it('should have a default theme of indigo', () => {
-      buildTabs({ mountFn: shallowMount });
-      expect(wrapper.attributes('activenavitemclass')).toContain('gl-tab-nav-item-active-indigo');
+    it('the active tab should be styled', async () => {
+      buildTabs();
+
+      await nextTick();
+
+      expect(findActiveTab().classes()).toContain('gl-tab-nav-item-active');
     });
   });
 

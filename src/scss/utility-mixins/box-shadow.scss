@@ -104,6 +104,10 @@
   box-shadow: inset 0 0 0 $gl-border-size-1 $red-600;
 }
 
+@mixin gl-inset-border-b-2-theme-accent {
+  box-shadow: inset 0 -#{$gl-border-size-2} 0 0 var(--gl-theme-accent, $theme-indigo-500);
+}
+
 @mixin gl-inset-border-b-2-theme-indigo-500 {
   box-shadow: inset 0 -#{$gl-border-size-2} 0 0 $theme-indigo-500;
 }
