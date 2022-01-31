@@ -1,3 +1,20 @@
+# [35.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v34.0.0...v35.0.0) (2022-01-31)
+
+
+### Features
+
+* **GlTabs:** Apply theme via CSS custom property ([beaf2bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/beaf2bc4aa9fb26f6aa212fdec614fd8d3003c47))
+* **GlTabs:** Remove theme prop ([3de63e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/3de63e60426052731a626330168091466d8894ba))
+
+
+### BREAKING CHANGES
+
+* **GlTabs:** The theme prop of `GlTabs` has been removed. Instead,
+the theme color is set automatically according to the
+`--gl-theme-accent` CSS custom property.
+
+Part of https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1683.
+
 # [34.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.1.2...v34.0.0) (2022-01-28)
 
 
