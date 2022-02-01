@@ -122,6 +122,7 @@ export const setupStorybookReadme = () =>
         'GlIntersectionObserver',
         'GlInfiniteScroll',
         'GlColumnChart',
+        'GlTruncate',
       ],
       components: {
         GlComponentDocumentation,
