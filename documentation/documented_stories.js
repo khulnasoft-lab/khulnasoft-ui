@@ -123,6 +123,9 @@ export const setupStorybookReadme = () =>
         'GlInfiniteScroll',
         'GlColumnChart',
         'GlTruncate',
+        'GlNav',
+        'GlNavItem',
+        'GlNavItemDropdown',
       ],
       components: {
         GlComponentDocumentation,
