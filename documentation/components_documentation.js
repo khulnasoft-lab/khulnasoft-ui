@@ -9,9 +9,7 @@ export { default as GlFormTextDocumentation } from '../src/components/base/form/
 export { default as GlFormComboboxDocumentation } from '../src/components/base/form/form_combobox/form_combobox.documentation';
 export { default as GlGaugeChartDocumentation } from '../src/components/charts/gauge/gauge.documentation';
 export { default as GlTokenSelectorDocumentation } from '../src/components/base/token_selector/token_selector.documentation';
-export { default as GlNavItemDropdownDocumentation } from '../src/components/base/nav/nav_item_dropdown.documentation';
 export { default as GlNavDocumentation } from '../src/components/base/nav/nav.documentation';
-export { default as GlNavItemDocumentation } from '../src/components/base/nav/nav_item.documentation';
 export { default as GlFormCheckboxTreeDocumentation } from '../src/components/base/form/form_checkbox_tree/form_checkbox_tree.documentation';
 export { default as GlMarkdownDocumentation } from '../src/components/base/markdown/markdown.documentation';
 export { default as GlNavbarDocumentation } from '../src/components/base/navbar/navbar.documentation';
