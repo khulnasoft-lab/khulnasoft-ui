@@ -1,3 +1,10 @@
+# [35.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v35.0.0...v35.1.0) (2022-02-04)
+
+
+### Features
+
+* **GlModal:** unbox component by removing borders ([03598c9](https://gitlab.com/gitlab-org/gitlab-ui/commit/03598c984a2df4867a8d356bf82a4e9343450275))
+
 # [35.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v34.0.0...v35.0.0) (2022-01-31)
 
 
