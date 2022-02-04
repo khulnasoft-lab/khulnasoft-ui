@@ -51,6 +51,11 @@
   @include gl-line-height-normal;
   @include gl-py-2;
   @include gl-px-3;
+  @include gl-rounded-pill;
+  @include gl-text-center;
+  @include gl-white-space-nowrap;
+  @include gl-vertical-align-baseline;
+  @include transition($badge-transition);
 
   &.sm {
     @include gl-py-0;
