@@ -1,4 +1,4 @@
-import { GlLabel } from '../../../../index';
+import { GlLabel } from '../../../index';
 import { labelSizeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './label.md';
 

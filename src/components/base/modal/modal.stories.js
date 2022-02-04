@@ -1,4 +1,4 @@
-import { GlModal, GlModalDirective, GlButton } from '../../../../index';
+import { GlModal, GlModalDirective, GlButton } from '../../../index';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import readme from './modal.md';
 

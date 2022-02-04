@@ -1,4 +1,4 @@
-import { GlHeatmap } from '../../../../charts';
+import { GlHeatmap } from '../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { toolbox } from '../../../utils/charts/story_config';
 import readme from '../area/area.md';

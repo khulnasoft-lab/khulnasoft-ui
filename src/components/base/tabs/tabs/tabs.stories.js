@@ -1,7 +1,7 @@
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { range } from 'lodash';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { GlTabs, GlTab, GlScrollableTabs } from '../../../../../index';
+import { GlTabs, GlTab, GlScrollableTabs } from '../../../../index';
 import docs from './tabs.md';
 
 const ScrollableTabsGenerator = {

@@ -1,4 +1,4 @@
-import { GlToken, GlAvatar } from '../../../../index';
+import { GlToken, GlAvatar } from '../../../index';
 import { tokenVariants } from '../../../utils/constants';
 
 import readme from './token.md';

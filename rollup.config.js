@@ -57,14 +57,6 @@ const fixImports = (code) => {
   return (
     code
       /**
-       * Replace the imports of our entries point with their correct relative
-       * path that they will have in JS, e.g.
-       * from './src/components/base/icon/icon.vue';
-       * =>
-       * from './components/base/icon/icon.vue';
-       */
-      .replace(/(from\s+(["']).\/)src\/(.+?\2)/g, '$1$3')
-      /**
        * Remove `.vue` from imports, as we are compiling them to JS
        *
        * from './components/base/icon/icon.vue';
@@ -93,80 +85,73 @@ const fixImports = (code) => {
   );
 };
 
-export default glob
-  .sync('src/**/!(*.stories|*.spec).+(js|vue)')
-  .concat('charts.js')
-  .concat('index.js')
-  .concat('utils.js')
-  .concat('config.js')
-  .concat('utility_classes.js')
-  .map((input) => {
-    const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
+export default glob.sync('src/**/!(*.stories|*.spec).+(js|vue)').map((input) => {
+  const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
-    return {
-      external: isExternalModule,
-      input,
-      output: {
-        format: 'esm',
-        file: `dist/${outputFilename}.js`,
-      },
-      plugins: [
-        replace({
-          delimiters: ['/* ', ' */'],
-          include: 'index.js',
-          values: {
-            'auto-inject-styles': "import './src/scss/gitlab_ui.scss';",
-          },
-        }),
-        replace({
-          delimiters: ['/* ', ' */'],
-          include: 'src/scss/utilities.scss',
-          values: {
-            'auto-inject-scss-lib': `
+  return {
+    external: isExternalModule,
+    input,
+    output: {
+      format: 'esm',
+      file: `dist/${outputFilename}.js`,
+    },
+    plugins: [
+      replace({
+        delimiters: ['/* ', ' */'],
+        include: 'src/index.js',
+        values: {
+          'auto-inject-styles': "import './scss/gitlab_ui.scss';",
+        },
+      }),
+      replace({
+        delimiters: ['/* ', ' */'],
+        include: 'src/scss/utilities.scss',
+        values: {
+          'auto-inject-scss-lib': `
               @import './functions';
               @import './variables';
               @import './utility-mixins/index';
             `,
-          },
-        }),
-        postcss({
-          extract: true,
-          minimize: true,
-          sourceMap: true,
-          use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
-        }),
-        string({
-          include: '**/*.md',
-        }),
-        vue({
-          /**
-           * Per default rollup-plugin-vue includes a `.mjs` version of
-           * the component normalizer, which doesn't play well with jest
-           * For this reason we include the common js version
-           */
-          normalizer: '~vue-runtime-helpers/dist/normalize-component.js',
-        }),
-        babel({
-          exclude: ['node_modules/!(bootstrap-vue)/**'],
-        }),
-        resolve(),
-        commonjs({
-          namedExports: {
-            echarts: ['echarts'],
-          },
-          ignore: ['@gitlab/svgs/dist/icons.json'],
-        }),
-        {
-          name: 'fix-imports',
-          generateBundle(options, bundle) {
-            Object.keys(bundle).forEach((key) => {
-              if (bundle[key].code) {
-                // eslint-disable-next-line no-param-reassign
-                bundle[key].code = fixImports(bundle[key].code);
-              }
-            });
-          },
         },
-      ],
-    };
-  });
+      }),
+      postcss({
+        extract: true,
+        minimize: true,
+        sourceMap: true,
+        use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
+      }),
+      string({
+        include: '**/*.md',
+      }),
+      vue({
+        /**
+         * Per default rollup-plugin-vue includes a `.mjs` version of
+         * the component normalizer, which doesn't play well with jest
+         * For this reason we include the common js version
+         */
+        normalizer: '~vue-runtime-helpers/dist/normalize-component.js',
+      }),
+      babel({
+        exclude: ['node_modules/!(bootstrap-vue)/**'],
+      }),
+      resolve(),
+      commonjs({
+        namedExports: {
+          echarts: ['echarts'],
+        },
+        ignore: ['@gitlab/svgs/dist/icons.json'],
+      }),
+      {
+        name: 'fix-imports',
+        generateBundle(options, bundle) {
+          Object.keys(bundle).forEach((key) => {
+            if (bundle[key].code) {
+              // eslint-disable-next-line no-param-reassign
+              bundle[key].code = fixImports(bundle[key].code);
+            }
+          });
+        },
+      },
+    ],
+  };
+});

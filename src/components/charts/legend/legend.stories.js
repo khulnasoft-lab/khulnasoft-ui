@@ -1,4 +1,4 @@
-import { GlChart, GlChartLegend } from '../../../../charts';
+import { GlChart, GlChartLegend } from '../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { LEGEND_LAYOUT_TABLE } from '../../../utils/charts/constants';
 import { generateSeriesData } from '../../../utils/charts/story_config';

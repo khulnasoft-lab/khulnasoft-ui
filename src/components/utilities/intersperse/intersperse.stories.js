@@ -1,4 +1,4 @@
-import { GlIntersperse } from '../../../../index';
+import { GlIntersperse } from '../../../index';
 import readme from './intersperse.md';
 
 const template = `

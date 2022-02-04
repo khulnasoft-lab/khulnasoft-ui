@@ -1,5 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs';
-import { GlFilteredSearchSuggestionList, GlFilteredSearchSuggestion } from '../../../../index';
+import { GlFilteredSearchSuggestionList, GlFilteredSearchSuggestion } from '../../../index';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { provide } from './common_story_options';
 import readme from './filtered_search_suggestion_list.md';

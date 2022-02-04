@@ -1,3 +1,5 @@
 <script>
-export { BFormText as default } from 'bootstrap-vue';
+import { BFormText } from 'bootstrap-vue';
+
+export default BFormText;
 </script>

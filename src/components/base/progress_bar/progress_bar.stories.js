@@ -1,4 +1,4 @@
-import { GlProgressBar } from '../../../../index';
+import { GlProgressBar } from '../../../index';
 import { variantOptions } from '../../../utils/constants';
 
 const generateProps = ({ value = 30, variant = variantOptions.primary } = {}) => ({

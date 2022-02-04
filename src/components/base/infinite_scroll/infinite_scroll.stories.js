@@ -1,5 +1,5 @@
 import { setStoryTimeout } from '../../../utils/test_utils';
-import { GlInfiniteScroll } from '../../../../index';
+import { GlInfiniteScroll } from '../../../index';
 import readme from './infinite_scroll.md';
 
 const ITEMS_BATCH_SIZE = 20;

@@ -1,5 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlIcon } from '../../../../index';
+import { GlIcon } from '../../../index';
 import { iconSizeOptions } from '../../../utils/constants';
 import readme from './icon.md';
 

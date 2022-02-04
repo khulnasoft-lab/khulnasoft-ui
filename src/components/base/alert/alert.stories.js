@@ -1,4 +1,4 @@
-import { GlAlert, GlToggle } from '../../../../index';
+import { GlAlert, GlToggle } from '../../../index';
 import { alertVariantOptions } from '../../../utils/constants';
 import readme from './alert.md';
 

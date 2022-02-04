@@ -1,6 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { withKnobs, text, select, boolean, number } from '@storybook/addon-knobs';
-import { GlSingleStat } from '../../../../charts';
+import { GlSingleStat } from '../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { badgeVariantOptions } from '../../../utils/constants';
 import readme from './single_stat.md';

@@ -1,4 +1,4 @@
-import { GlButton, GlEmptyState } from '../../../../index';
+import { GlButton, GlEmptyState } from '../../../index';
 import readme from './empty_state.md';
 
 const template = `

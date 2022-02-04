@@ -1,5 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlBadge } from '../../../../index';
+import { GlBadge } from '../../../index';
 import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
 import readme from './badge.md';
 

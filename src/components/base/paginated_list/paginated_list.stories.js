@@ -1,4 +1,4 @@
-import { GlPaginatedList, GlButton } from '../../../../index';
+import { GlPaginatedList, GlButton } from '../../../index';
 import readme from './paginated_list.md';
 
 const sampleList = [

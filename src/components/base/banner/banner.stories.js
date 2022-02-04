@@ -1,6 +1,6 @@
 import clusterPopoverSvg from '@gitlab/svgs/dist/illustrations/cluster_popover.svg';
 import serviceDeskCalloutSvg from '@gitlab/svgs/dist/illustrations/service_desk_callout.svg';
-import { GlBanner, GlButton } from '../../../../index';
+import { GlBanner, GlButton } from '../../../index';
 import { bannerVariants } from '../../../utils/constants';
 import readme from './banner.md';
 

@@ -1,4 +1,4 @@
-import { GlPath, GlPopover } from '../../../../index';
+import { GlPath, GlPopover } from '../../../index';
 import { glThemes } from '../../../utils/constants';
 import { mockPathItems } from './data';
 import readme from './path.md';

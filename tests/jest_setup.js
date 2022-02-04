@@ -1,7 +1,7 @@
 const Vue = require('vue');
 const { config: vtuConfig, enableAutoDestroy } = require('@vue/test-utils');
 const { matcherHint, printReceived, printExpected } = require('jest-matcher-utils');
-const setConfigs = require('../config').default;
+const setConfigs = require('../src/config').default;
 const { useMockResizeObserver } = require('./__helpers__/mock_dom_observer');
 
 setConfigs();

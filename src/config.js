@@ -1,6 +1,6 @@
 import { BVConfigPlugin } from 'bootstrap-vue';
 import Vue from 'vue';
-import { tooltipDelay } from './src/utils/constants';
+import { tooltipDelay } from './utils/constants';
 
 const bFormTextGlobalConfig = {
   textVariant: 'gl-muted',

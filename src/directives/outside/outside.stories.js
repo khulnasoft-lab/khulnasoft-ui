@@ -1,4 +1,4 @@
-import { GlOutsideDirective } from '../../../index';
+import { GlOutsideDirective } from '../../index';
 import GlButton from '../../components/base/button/button.vue';
 import readme from './outside.md';
 

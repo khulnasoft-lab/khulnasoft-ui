@@ -1,4 +1,4 @@
-import { GlSorting, GlSortingItem } from '../../../../index';
+import { GlSorting, GlSortingItem } from '../../../index';
 import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './sorting_item.md';
 
