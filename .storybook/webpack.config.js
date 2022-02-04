@@ -88,7 +88,7 @@ module.exports = ({ config }) => {
 
   config.resolve.extensions = ['.css', ...config.resolve.extensions];
 
-  config.resolve.alias['@gitlab/ui'] = path.join(__dirname, '..', 'index.js');
+  config.resolve.alias['@gitlab/ui'] = path.join(__dirname, 'src', 'index.js');
 
   // disable HMR in test environment because this breaks puppeteer's networkidle0 setting
   // which is needed for storyshots to function

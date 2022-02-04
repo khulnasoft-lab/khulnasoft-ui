@@ -85,73 +85,76 @@ const fixImports = (code) => {
   );
 };
 
-export default glob.sync('src/**/!(*.stories|*.spec).+(js|vue)').map((input) => {
-  const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
+export default glob
+  .sync('src/**/!(*.stories|*.spec).+(js|vue)')
+  .concat('utility_classes.js')
+  .map((input) => {
+    const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
-  return {
-    external: isExternalModule,
-    input,
-    output: {
-      format: 'esm',
-      file: `dist/${outputFilename}.js`,
-    },
-    plugins: [
-      replace({
-        delimiters: ['/* ', ' */'],
-        include: 'src/index.js',
-        values: {
-          'auto-inject-styles': "import './scss/gitlab_ui.scss';",
-        },
-      }),
-      replace({
-        delimiters: ['/* ', ' */'],
-        include: 'src/scss/utilities.scss',
-        values: {
-          'auto-inject-scss-lib': `
+    return {
+      external: isExternalModule,
+      input,
+      output: {
+        format: 'esm',
+        file: `dist/${outputFilename}.js`,
+      },
+      plugins: [
+        replace({
+          delimiters: ['/* ', ' */'],
+          include: 'src/index.js',
+          values: {
+            'auto-inject-styles': "import './scss/gitlab_ui.scss';",
+          },
+        }),
+        replace({
+          delimiters: ['/* ', ' */'],
+          include: 'src/scss/utilities.scss',
+          values: {
+            'auto-inject-scss-lib': `
               @import './functions';
               @import './variables';
               @import './utility-mixins/index';
             `,
+          },
+        }),
+        postcss({
+          extract: true,
+          minimize: true,
+          sourceMap: true,
+          use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
+        }),
+        string({
+          include: '**/*.md',
+        }),
+        vue({
+          /**
+           * Per default rollup-plugin-vue includes a `.mjs` version of
+           * the component normalizer, which doesn't play well with jest
+           * For this reason we include the common js version
+           */
+          normalizer: '~vue-runtime-helpers/dist/normalize-component.js',
+        }),
+        babel({
+          exclude: ['node_modules/!(bootstrap-vue)/**'],
+        }),
+        resolve(),
+        commonjs({
+          namedExports: {
+            echarts: ['echarts'],
+          },
+          ignore: ['@gitlab/svgs/dist/icons.json'],
+        }),
+        {
+          name: 'fix-imports',
+          generateBundle(options, bundle) {
+            Object.keys(bundle).forEach((key) => {
+              if (bundle[key].code) {
+                // eslint-disable-next-line no-param-reassign
+                bundle[key].code = fixImports(bundle[key].code);
+              }
+            });
+          },
         },
-      }),
-      postcss({
-        extract: true,
-        minimize: true,
-        sourceMap: true,
-        use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
-      }),
-      string({
-        include: '**/*.md',
-      }),
-      vue({
-        /**
-         * Per default rollup-plugin-vue includes a `.mjs` version of
-         * the component normalizer, which doesn't play well with jest
-         * For this reason we include the common js version
-         */
-        normalizer: '~vue-runtime-helpers/dist/normalize-component.js',
-      }),
-      babel({
-        exclude: ['node_modules/!(bootstrap-vue)/**'],
-      }),
-      resolve(),
-      commonjs({
-        namedExports: {
-          echarts: ['echarts'],
-        },
-        ignore: ['@gitlab/svgs/dist/icons.json'],
-      }),
-      {
-        name: 'fix-imports',
-        generateBundle(options, bundle) {
-          Object.keys(bundle).forEach((key) => {
-            if (bundle[key].code) {
-              // eslint-disable-next-line no-param-reassign
-              bundle[key].code = fixImports(bundle[key].code);
-            }
-          });
-        },
-      },
-    ],
-  };
-});
+      ],
+    };
+  });
