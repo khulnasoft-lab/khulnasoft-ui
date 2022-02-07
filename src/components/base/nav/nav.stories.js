@@ -5,7 +5,7 @@ import {
   GlDropdownItem,
   GlDropdownDivider,
   GlIcon,
-} from '../../../../index';
+} from '../../../index';
 import readme from './nav.md';
 
 export const Default = (_args, { argTypes }) => ({

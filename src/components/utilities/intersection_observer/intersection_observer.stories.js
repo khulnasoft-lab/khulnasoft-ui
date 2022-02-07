@@ -1,4 +1,4 @@
-import { GlIntersectionObserver } from '../../../../index';
+import { GlIntersectionObserver } from '../../../index';
 import readme from './intersection_observer.md';
 
 const components = {

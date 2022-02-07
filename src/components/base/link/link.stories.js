@@ -1,4 +1,4 @@
-import { GlLink } from '../../../../index';
+import { GlLink } from '../../../index';
 import { targetOptions } from '../../../utils/constants';
 import readme from './link.md';
 

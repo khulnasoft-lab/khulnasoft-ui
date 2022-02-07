@@ -1,4 +1,4 @@
-import { GlTable, GlFormInput } from '../../../../index';
+import { GlTable, GlFormInput } from '../../../index';
 import readme from './table.md';
 
 const components = { GlTable };

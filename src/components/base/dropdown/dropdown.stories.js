@@ -11,7 +11,7 @@ import {
   GlDropdownForm,
   GlButton,
   GlSearchBoxByType,
-} from '../../../../index';
+} from '../../../index';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,

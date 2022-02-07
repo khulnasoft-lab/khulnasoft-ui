@@ -1,5 +1,5 @@
 import { withKnobs, object, boolean, array } from '@storybook/addon-knobs';
-import { GlLineChart } from '../../../../charts';
+import { GlLineChart } from '../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';

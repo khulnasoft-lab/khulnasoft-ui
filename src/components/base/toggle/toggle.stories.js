@@ -1,4 +1,4 @@
-import { GlToggle } from '../../../../index';
+import { GlToggle } from '../../../index';
 import { toggleLabelPosition } from '../../../utils/constants';
 import readme from './toggle.md';
 

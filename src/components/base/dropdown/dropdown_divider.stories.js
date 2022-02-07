@@ -1,6 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlDropdownDivider } from '../../../../index';
+import { GlDropdownDivider } from '../../../index';
 import readme from './dropdown_divider.md';
 
 const components = {

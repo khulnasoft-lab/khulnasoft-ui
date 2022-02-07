@@ -1,6 +1,6 @@
 import { text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../documentation/documented_stories';
-import { GlHoverLoadDirective } from '../../../index';
+import { GlHoverLoadDirective } from '../../index';
 import readme from './hover_load.md';
 
 const directives = {

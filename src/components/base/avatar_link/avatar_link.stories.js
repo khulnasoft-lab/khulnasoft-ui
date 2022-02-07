@@ -1,4 +1,4 @@
-import { GlAvatarLink, GlAvatar, GlAvatarLabeled } from '../../../../index';
+import { GlAvatarLink, GlAvatar, GlAvatarLabeled } from '../../../index';
 import { avatarSizeOptions, avatarShapeOptions } from '../../../utils/constants';
 import readme from './avatar_link.md';
 

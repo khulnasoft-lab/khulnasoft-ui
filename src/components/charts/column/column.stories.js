@@ -1,4 +1,4 @@
-import { GlColumnChart } from '../../../../charts';
+import { GlColumnChart } from '../../../charts';
 import {
   mockDefaultLineData,
   mockDefaultBarData,

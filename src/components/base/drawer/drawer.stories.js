@@ -1,6 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlButton } from '../../../../index';
+import { GlButton } from '../../../index';
 import readme from './drawer.md';
 import GlDrawer from './drawer.vue';
 

@@ -1,4 +1,4 @@
-import { GlNavbar } from '../../../../index';
+import { GlNavbar } from '../../../index';
 import readme from './navbar.md';
 
 const Template = (args, { argTypes }) => ({

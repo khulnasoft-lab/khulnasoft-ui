@@ -1,4 +1,4 @@
-import { GlSkeletonLoader } from '../../../../index';
+import { GlSkeletonLoader } from '../../../index';
 import readme from './skeleton_loader.md';
 
 const Template = (args) => ({

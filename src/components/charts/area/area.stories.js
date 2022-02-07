@@ -1,6 +1,6 @@
 import { withKnobs, object, array, boolean } from '@storybook/addon-knobs';
 import { times } from 'lodash';
-import { GlAreaChart } from '../../../../charts';
+import { GlAreaChart } from '../../../charts';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';

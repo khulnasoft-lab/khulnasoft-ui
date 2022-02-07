@@ -1,4 +1,4 @@
-import { GlSegmentedControl } from '../../../../index';
+import { GlSegmentedControl } from '../../../index';
 import readme from './segmented_control.md';
 
 const defaultOptions = [

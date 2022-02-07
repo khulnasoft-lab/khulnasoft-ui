@@ -1,4 +1,4 @@
-import { GlFormInput } from '../../../../../index';
+import { GlFormInput } from '../../../../index';
 import { formInputSizes } from '../../../../utils/constants';
 import readme from './form_input.md';
 

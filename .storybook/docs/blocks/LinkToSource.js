@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { DocsContext } from '@storybook/addon-docs/blocks';
 import { Button } from '@storybook/components';
-import * as modules from '../../../index';
+import * as modules from '../../../src';
 
 const BASE_URL = 'https://gitlab.com/gitlab-org/gitlab-ui/-/tree/main';
 

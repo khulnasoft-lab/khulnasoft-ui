@@ -1,5 +1,5 @@
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { GlPopover, GlButton } from '../../../../index';
+import { GlPopover, GlButton } from '../../../index';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { popoverPlacements } from '../../../utils/constants';
 

@@ -1,4 +1,4 @@
-import { GlButton, GlButtonGroup, GlDropdown, GlDropdownItem } from '../../../../index';
+import { GlButton, GlButtonGroup, GlDropdown, GlDropdownItem } from '../../../index';
 import readme from './button_group.md';
 
 const generateProps = ({ vertical = false } = {}) => ({ vertical });

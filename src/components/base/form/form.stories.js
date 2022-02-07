@@ -5,7 +5,7 @@ import {
   GlFormSelect,
   GlFormCheckbox,
   GlButton,
-} from '../../../../index';
+} from '../../../index';
 import { setStoryTimeout } from '../../../utils/test_utils';
 import readme from './form.md';
 

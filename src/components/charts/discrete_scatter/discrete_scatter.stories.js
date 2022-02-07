@@ -1,4 +1,4 @@
-import { GlDiscreteScatterChart } from '../../../../charts';
+import { GlDiscreteScatterChart } from '../../../charts';
 
 const Template = (args, { argTypes }) => ({
   components: { GlDiscreteScatterChart },

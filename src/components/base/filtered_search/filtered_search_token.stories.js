@@ -2,7 +2,7 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlIcon } from '../../../../index';
+import { GlIcon } from '../../../index';
 import { provide } from './common_story_options';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import readme from './filtered_search_token.md';

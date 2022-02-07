@@ -1,4 +1,4 @@
-import { GlButton, GlButtonGroup, GlBadge, GlDropdown, GlDropdownItem } from '../../../../index';
+import { GlButton, GlButtonGroup, GlBadge, GlDropdown, GlDropdownItem } from '../../../index';
 import {
   buttonCategoryOptions,
   buttonVariantOptions,

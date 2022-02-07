@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { GlAvatarLabeled, GlBadge } from '../../../../index';
+import { GlAvatarLabeled, GlBadge } from '../../../index';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './avatar_labeled.md';

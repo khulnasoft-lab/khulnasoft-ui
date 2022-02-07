@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "jsnext:main": "dist/index.js",
+  "source": "src/index.js",
   "sideEffects": [
     "*.css",
     "*.scss"
@@ -17,11 +18,7 @@
     "src",
     "dist",
     "scss_to_js",
-    "documentation",
-    "index.js",
-    "charts.js",
-    "utils.js",
-    "config.js"
+    "documentation"
   ],
   "scripts": {
     "build": "NODE_ENV=production rollup -c",

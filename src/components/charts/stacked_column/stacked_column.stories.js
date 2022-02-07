@@ -1,4 +1,4 @@
-import { GlStackedColumnChart } from '../../../../charts';
+import { GlStackedColumnChart } from '../../../charts';
 import {
   mockDefaultStackedLineData,
   mockDefaultStackedBarData,

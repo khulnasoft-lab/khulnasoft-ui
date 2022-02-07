@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { GlAvatar } from '../../../../index';
+import { GlAvatar } from '../../../index';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './avatar.md';

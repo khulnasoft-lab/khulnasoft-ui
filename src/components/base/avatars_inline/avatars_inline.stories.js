@@ -1,4 +1,4 @@
-import { GlAvatarsInline, GlAvatar, GlAvatarLink, GlTooltipDirective } from '../../../../index';
+import { GlAvatarsInline, GlAvatar, GlAvatarLink, GlTooltipDirective } from '../../../index';
 import { avatarsInlineSizeOptions } from '../../../utils/constants';
 import readme from './avatars_inline.md';
 

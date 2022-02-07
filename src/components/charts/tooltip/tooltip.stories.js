@@ -1,4 +1,4 @@
-import { GlChart, GlChartTooltip, GlChartSeriesLabel } from '../../../../charts';
+import { GlChart, GlChartTooltip, GlChartSeriesLabel } from '../../../charts';
 import {
   SERIES_NAME,
   SERIES_NAME_LONG,

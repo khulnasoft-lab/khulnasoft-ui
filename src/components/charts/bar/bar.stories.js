@@ -1,4 +1,4 @@
-import { GlBarChart } from '../../../../charts';
+import { GlBarChart } from '../../../charts';
 import readme from './bar.md';
 
 const Template = (args, { argTypes }) => ({

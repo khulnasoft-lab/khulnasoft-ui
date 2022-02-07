@@ -16,7 +16,7 @@ const commonActions = [
   {
     type: 'append',
     pattern: 'ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove',
-    path: 'index.js',
+    path: 'src/index.js',
     template: `export { default as Gl{{pascalCase name}} } from '.{{componentDir}}/{{name}}.vue';`,
   },
   {

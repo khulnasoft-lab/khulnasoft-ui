@@ -1,4 +1,4 @@
-import { GlBreadcrumb } from '../../../../index';
+import { GlBreadcrumb } from '../../../index';
 import readme from './breadcrumb.md';
 
 const template = `

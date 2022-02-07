@@ -1,6 +1,6 @@
 import { withKnobs, boolean, object, text } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { GlFormInputGroup, GlInputGroupText } from '../../../../../index';
+import { GlFormInputGroup, GlInputGroupText } from '../../../../index';
 import readme from './form_input_group.md';
 
 const components = {

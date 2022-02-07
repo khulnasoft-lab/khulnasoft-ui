@@ -1,6 +1,6 @@
 import { withKnobs, select } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../documentation/documented_stories';
-import { GlResizeObserverDirective } from '../../../index';
+import { GlResizeObserverDirective } from '../../index';
 import readme from './resize_observer.md';
 
 documentedStoriesOf('directives/resize-observer-directive', readme)

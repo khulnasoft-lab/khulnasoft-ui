@@ -7,7 +7,7 @@ import {
   GlLoadingIcon,
   GlToken,
   GlAvatar,
-} from '../../../../index';
+} from '../../../index';
 import { setStoryTimeout } from '../../../utils/test_utils';
 import readme from './filtered_search.md';
 
