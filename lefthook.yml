@@ -1,17 +1,20 @@
 # Lefthook guide:
 # https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
-pre-commit:
+pre-push:
   parallel: true
   commands:
     eslint:
+      files: git diff --name-only --diff-filter=d origin/main...HEAD
       glob: "*.{js,vue}"
-      run: ./node_modules/.bin/eslint {staged_files}
+      run: ./node_modules/.bin/eslint {files}
     prettier:
+      files: git diff --name-only --diff-filter=d origin/main...HEAD
       glob: "*.{js,vue}"
-      run: ./node_modules/.bin/prettier --check {staged_files}
+      run: ./node_modules/.bin/prettier --check {files}
     stylelint:
+      files: git diff --name-only --diff-filter=d origin/main...HEAD
       glob: "*.{scss}"
-      run: ./node_modules/.bin/stylelint {staged_files}
+      run: ./node_modules/.bin/stylelint {files}
     markdown-lint:
       glob: "*.md"
       run: yarn markdownlint
