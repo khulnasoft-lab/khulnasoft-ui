@@ -1,3 +1,17 @@
+# [36.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v35.1.0...v36.0.0) (2022-02-07)
+
+
+### Code Refactoring
+
+* Move entry points to src/ ([7226b2d](https://gitlab.com/gitlab-org/gitlab-ui/commit/7226b2df695ea1c25b4083739a8ff71bc01433b8))
+
+
+### BREAKING CHANGES
+
+* If you consumed GitLab UI from source (e.g.
+`@gitlab/ui/index.js`, you need to adjust the import to
+`@gitlab/ui/src/index.js`
+
 # [35.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v35.0.0...v35.1.0) (2022-02-04)
 
 
