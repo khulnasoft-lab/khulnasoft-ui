@@ -6,6 +6,8 @@ const OPTIONS = [{ value: '=' }, { value: '!=' }];
 describe('Filtered search token segment', () => {
   let wrapper;
 
+  const searchInputAttributes = { 'data-qa-selector': 'foo-bar' };
+
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
       HTMLElement.prototype.scrollIntoView = jest.fn();
@@ -248,6 +250,57 @@ describe('Filtered search token segment', () => {
 
       it('does not emit "complete" event, to keep the list open', () => {
         expect(wrapper.emitted('complete')).toBeUndefined();
+      });
+    });
+  });
+
+  describe('when input is active', () => {
+    it('adds `searchInputAttributes` prop to search token segment input', () => {
+      createComponent({ active: true, value: 'something', searchInputAttributes });
+
+      expect(wrapper.find('input').attributes('data-qa-selector')).toBe(
+        searchInputAttributes['data-qa-selector']
+      );
+    });
+
+    it('does not add `searchInputAttributes` prop to search token segment', () => {
+      createComponent({
+        active: true,
+        value: 'something',
+        searchInputAttributes,
+        isLastToken: true,
+      });
+
+      expect(wrapper.attributes('data-qa-selector')).toBe(undefined);
+    });
+  });
+
+  describe('when input is not active', () => {
+    describe('when `isLastToken` prop is `true`', () => {
+      it('adds `searchInputAttributes` prop to search token segment', () => {
+        createComponent({
+          active: false,
+          value: 'something',
+          searchInputAttributes,
+          isLastToken: true,
+        });
+
+        expect(wrapper.attributes('data-qa-selector')).toBe(
+          searchInputAttributes['data-qa-selector']
+        );
+      });
+    });
+
+    describe('when `isLastToken` prop is `false`', () => {
+      it('does not add `searchInputAttributes` prop to search token segment', () => {
+        createComponent({
+          active: false,
+          value: 'something',
+          searchInputAttributes,
+          isLastToken: false,
+        });
+
+        expect(wrapper.attributes('data-qa-selector')).toBe(undefined);
       });
     });
   });

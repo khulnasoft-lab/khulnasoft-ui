@@ -85,6 +85,16 @@ export default {
       required: false,
       default: false,
     },
+    searchButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    searchInputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -253,6 +263,7 @@ export default {
     :value="tokens"
     :history-items="historyItems"
     :clearable="hasValue"
+    :search-button-attributes="searchButtonAttributes"
     data-testid="filtered-search-input"
     @submit="submit"
     @input="applyNewValue"
@@ -278,6 +289,8 @@ export default {
             :index="idx"
             :placeholder="termPlaceholder"
             :show-friendly-text="showFriendlyText"
+            :search-input-attributes="searchInputAttributes"
+            :is-last-token="isLastToken(idx)"
             class="gl-filtered-search-item"
             :class="{
               'gl-filtered-search-last-item': isLastToken(idx),

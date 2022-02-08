@@ -52,6 +52,9 @@ export default {
       additionalInfo:
         'Container for tooltip. Valid values: DOM node, selector string or `false` for default',
     },
+    searchButtonAttributes: {
+      additionalInfo: 'HTML attributes to add to the search button',
+    },
   },
   events: [
     {

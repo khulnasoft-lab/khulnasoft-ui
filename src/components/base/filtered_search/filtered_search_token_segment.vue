@@ -49,6 +49,16 @@ export default {
       required: true,
       validator: () => true,
     },
+    searchInputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    isLastToken: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
 
   data() {
@@ -244,6 +254,7 @@ export default {
 
 <template>
   <div
+    v-bind="isLastToken && !active && searchInputAttributes"
     class="gl-filtered-search-token-segment"
     :class="{ 'gl-filtered-search-token-segment-active': active }"
     data-testid="filtered-search-token-segment"
@@ -252,6 +263,7 @@ export default {
     <template v-if="active">
       <input
         ref="input"
+        v-bind="searchInputAttributes"
         v-model="inputValue"
         class="gl-filtered-search-token-segment-input"
         :aria-label="label"

@@ -84,6 +84,11 @@ export default {
       validator: (value) =>
         value === false || typeof value === 'string' || value instanceof HTMLElement,
     },
+    searchButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -216,11 +221,13 @@ export default {
     />
     <template #append class="gl-search-box-by-click-input-group-control">
       <gl-button
+        v-bind="searchButtonAttributes"
         ref="searchButton"
         class="gl-search-box-by-click-search-button"
         icon="search"
         :disabled="disabled"
         aria-label="Search"
+        data-testid="search-button"
         @click="search(currentValue)"
       />
     </template>

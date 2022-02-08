@@ -28,6 +28,16 @@ export default {
       required: false,
       default: '',
     },
+    searchInputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    isLastToken: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     suggestedTokens() {
@@ -54,6 +64,8 @@ export default {
       class="gl-filtered-search-term-token"
       :active="active"
       :class="{ 'gl-w-full': placeholder }"
+      :search-input-attributes="searchInputAttributes"
+      :is-last-token="isLastToken"
       @activate="$emit('activate')"
       @deactivate="$emit('deactivate')"
       @complete="$emit('replace', { type: $event })"
@@ -74,6 +86,7 @@ export default {
       <template #view>
         <input
           v-if="placeholder"
+          v-bind="searchInputAttributes"
           class="gl-filtered-search-term-input"
           :placeholder="placeholder"
           :aria-label="placeholder"
