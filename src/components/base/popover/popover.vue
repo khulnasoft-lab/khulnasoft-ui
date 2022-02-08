@@ -18,6 +18,11 @@ export default {
       required: false,
       default: () => [],
     },
+    /**
+     * Space-separated triggers for the popover.
+     *
+     * @values click, hover, focus, manual
+     */
     triggers: {
       type: String,
       required: false,
@@ -45,6 +50,9 @@ export default {
   methods: {
     close(e) {
       this.$refs[popoverRefName].doClose();
+      /**
+       * Emitted when the close button is clicked (requires showCloseButton to be `true`).
+       */
       this.$emit('close-button-clicked', e);
     },
   },
