@@ -1,3 +1,10 @@
+# [36.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.2.0...v36.3.0) (2022-02-08)
+
+
+### Features
+
+* **utilities:** add gl-md-px-7 utility ([417cadc](https://gitlab.com/gitlab-org/gitlab-ui/commit/417cadc1c9cd91c197903469c8be32ff138e31f1))
+
 # [36.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.1.0...v36.2.0) (2022-02-08)
 
 
