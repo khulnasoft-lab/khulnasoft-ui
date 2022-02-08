@@ -1,3 +1,10 @@
+# [36.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.1.0...v36.2.0) (2022-02-08)
+
+
+### Features
+
+* **css:** add color transparent utility ([2f20c33](https://gitlab.com/gitlab-org/gitlab-ui/commit/2f20c3342a655367942c7ad761aa2fef91f0bd8d))
+
 # [36.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.0.0...v36.1.0) (2022-02-08)
 
 
