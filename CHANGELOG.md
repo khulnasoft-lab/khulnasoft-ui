@@ -1,3 +1,10 @@
+# [36.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.0.0...v36.1.0) (2022-02-08)
+
+
+### Features
+
+* **GlFilteredSearch:** add props for adding additional HTML attributes ([b26ea14](https://gitlab.com/gitlab-org/gitlab-ui/commit/b26ea14b818cef389c48617cb3443ae493cc49aa))
+
 # [36.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v35.1.0...v36.0.0) (2022-02-07)
 
 
