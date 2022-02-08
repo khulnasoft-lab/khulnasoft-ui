@@ -11,6 +11,10 @@
   color: inherit;
 }
 
+@mixin gl-text-transparent {
+  color: transparent;
+}
+
 @mixin gl-text-white($hover: true) {
   color: $white;
 }
