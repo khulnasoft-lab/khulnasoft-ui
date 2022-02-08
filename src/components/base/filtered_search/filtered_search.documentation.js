@@ -35,6 +35,12 @@ export default {
       additionalInfo:
         'Additional classes to add to the suggestion list menu. NOTE: this not reactive, and the value must be available and fixed when the component is instantiated',
     },
+    searchButtonAttributes: {
+      additionalInfo: 'HTML attributes to add to the search button',
+    },
+    searchInputAttributes: {
+      additionalInfo: 'HTML attributes to add to the search input',
+    },
   },
   events: [
     {

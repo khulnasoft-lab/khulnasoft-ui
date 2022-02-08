@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import FilteredSearchTerm from './filtered_search_term.vue';
@@ -11,6 +12,8 @@ const availableTokens = [
 describe('Filtered search term', () => {
   let wrapper;
 
+  const searchInputAttributes = { 'data-qa-selector': 'foo-bar' };
+
   const defaultProps = {
     availableTokens: [],
   };
@@ -18,6 +21,7 @@ describe('Filtered search term', () => {
   const segmentStub = {
     name: 'gl-filtered-search-token-segment-stub',
     template: '<div><slot name="view"></slot><slot name="suggestions"></slot></div>',
+    props: ['searchInputAttributes', 'isLastToken'],
   };
 
   const createComponent = (props) => {
@@ -28,6 +32,8 @@ describe('Filtered search term', () => {
       },
     });
   };
+
+  const findTokenSegmentComponent = () => wrapper.findComponent(segmentStub);
 
   it('renders value in inactive mode', () => {
     createComponent({ value: { data: 'test-value' } });
@@ -44,11 +50,12 @@ describe('Filtered search term', () => {
     expect(wrapper.find('input').attributes('placeholder')).toBe('placeholder-stub');
   });
 
-  it('filters suggestions by input', () => {
+  it('filters suggestions by input', async () => {
     createComponent({ availableTokens, active: true, value: { data: 'test1' } });
-    return wrapper.vm.$nextTick().then(() => {
-      expect(wrapper.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(2);
-    });
+
+    await nextTick();
+
+    expect(wrapper.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(2);
   });
 
   it.each`
@@ -61,14 +68,40 @@ describe('Filtered search term', () => {
     ${'backspace'}  | ${'destroy'}
   `(
     'emits $emittedEvent when token segment emits $originalEvent',
-    ({ originalEvent, emittedEvent }) => {
+    async ({ originalEvent, emittedEvent }) => {
       createComponent({ active: true, value: { data: 'something' } });
 
-      wrapper.findComponent(segmentStub).vm.$emit(originalEvent);
+      findTokenSegmentComponent().vm.$emit(originalEvent);
 
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.emitted()[emittedEvent]).toHaveLength(1);
-      });
+      await nextTick();
+
+      expect(wrapper.emitted()[emittedEvent]).toHaveLength(1);
     }
   );
+
+  it('passes `searchInputAttributes` and `isLastToken` prop to `GlFilteredSearchTokenSegment`', () => {
+    const isLastToken = true;
+
+    createComponent({
+      value: { data: 'something' },
+      searchInputAttributes,
+      isLastToken,
+    });
+
+    expect(findTokenSegmentComponent().props()).toEqual({
+      searchInputAttributes,
+      isLastToken,
+    });
+  });
+
+  it('adds `searchInputAttributes` prop to search term input', () => {
+    createComponent({
+      placeholder: 'placeholder-stub',
+      searchInputAttributes,
+    });
+
+    expect(wrapper.find('input').attributes('data-qa-selector')).toBe(
+      searchInputAttributes['data-qa-selector']
+    );
+  });
 });

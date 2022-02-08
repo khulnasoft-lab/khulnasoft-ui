@@ -13,6 +13,12 @@ export default {
     value: {
       additionalInfo: 'Current term value',
     },
+    searchInputAttributes: {
+      additionalInfo: 'HTML attributes to add to the search input',
+    },
+    isLastToken: {
+      additionalInfo: 'If this is the last token',
+    },
   },
   events: [
     { event: 'activate', description: 'Emitted when this term token is clicked' },
