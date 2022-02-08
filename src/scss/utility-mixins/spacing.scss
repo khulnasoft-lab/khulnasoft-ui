@@ -1209,6 +1209,12 @@
   }
 }
 
+@mixin gl-md-px-7 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-px-7;
+  }
+}
+
 @mixin gl-lg-pt-0 {
   @include gl-media-breakpoint-up(lg) {
     @include gl-pt-0;
