@@ -11,7 +11,8 @@ export default {
      */
     title: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
     },
     /**
      * The illustration's URL.
@@ -112,13 +113,15 @@ export default {
     </div>
     <div :class="compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-max-w-full gl-m-auto'">
       <div class="gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
-        <h1
-          ref="title"
-          class="gl-font-size-h-display gl-line-height-36"
-          :class="compact ? 'h5' : 'h4'"
-        >
-          {{ title }}
-        </h1>
+        <!--
+            @slot Use this slot to customize the empty state's title area.
+            Overrides the `title` prop.
+          -->
+        <slot ref="title" name="title">
+          <h1 class="gl-font-size-h-display gl-line-height-36" :class="compact ? 'h5' : 'h4'">
+            {{ title }}
+          </h1>
+        </slot>
         <p v-if="description || $scopedSlots.description" ref="description" class="gl-mt-3">
           <!--
             @slot Use this slot to customize the empty state's description
