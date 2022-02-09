@@ -1,3 +1,10 @@
+# [36.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.3.0...v36.4.0) (2022-02-09)
+
+
+### Features
+
+* **GlEmptyState:** make title into a slot ([45bacac](https://gitlab.com/gitlab-org/gitlab-ui/commit/45bacac972a7c4748e1fc96e1605615f816cb8ed))
+
 # [36.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.2.0...v36.3.0) (2022-02-08)
 
 
