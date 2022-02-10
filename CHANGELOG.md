@@ -1,3 +1,10 @@
+# [36.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.4.0...v36.5.0) (2022-02-10)
+
+
+### Features
+
+* **css:** add grid template columns utility class ([4e97584](https://gitlab.com/gitlab-org/gitlab-ui/commit/4e975849f61eea7999a486257c417b87e60bee24))
+
 # [36.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.3.0...v36.4.0) (2022-02-09)
 
 
