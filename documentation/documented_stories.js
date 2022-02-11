@@ -128,6 +128,7 @@ export const setupStorybookReadme = () =>
         'GlNavItemDropdown',
         'GlPopover',
         'GlSingleStat',
+        'GlDrawer',
       ],
       components: {
         GlComponentDocumentation,

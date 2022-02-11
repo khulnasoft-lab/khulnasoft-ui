@@ -1,9 +1,3 @@
-# Drawer
-
-<!-- STORY -->
-
-## Usage
-
 The drawer is used to show more information about a certain resource in the UI and potentially
 handle actions on the information.
 
