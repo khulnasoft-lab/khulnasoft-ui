@@ -16,19 +16,19 @@ const template = `
 
 const defaultItems = [
   {
-    text: 'First Item',
+    text: 'First item',
     href: '#',
   },
   {
-    text: 'Second Item',
+    text: 'Second item',
     href: '#',
   },
   {
-    text: 'Third Item',
+    text: 'Third item',
     href: '#',
   },
   {
-    text: 'Fourth Item',
+    text: 'Fourth item',
     to: { name: 'fourth-item' },
   },
 ];
@@ -63,19 +63,19 @@ export default {
 
 const extraItems = [
   {
-    text: 'Fifth Item',
+    text: 'Fifth item',
     href: '#',
   },
   {
-    text: 'Sixth Item',
+    text: 'Sixth item',
     href: '#',
   },
   {
-    text: 'Seventh Item',
+    text: 'Seventh item',
     href: '#',
   },
   {
-    text: 'Eighth Item',
+    text: 'Eighth item',
     href: '#',
   },
 ];
