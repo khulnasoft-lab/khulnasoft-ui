@@ -1,3 +1,10 @@
+## [36.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.5.0...v36.5.1) (2022-02-11)
+
+
+### Bug Fixes
+
+* **breadcrumb:** Use sentence case for examples ([ace4a4f](https://gitlab.com/gitlab-org/gitlab-ui/commit/ace4a4fa048131c768b0442ac0b677f20258446a))
+
 # [36.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.4.0...v36.5.0) (2022-02-10)
 
 
