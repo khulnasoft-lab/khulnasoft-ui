@@ -391,6 +391,8 @@ $gl-fonts: (
   'regular': $gl-regular-font,
 );
 
+$border-color: $gray-100 !default;
+
 // use px for borders rather than rem
 // we don't want borders to scale with font size
 // 1px can end up being rounded to 0 after

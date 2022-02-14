@@ -3,6 +3,27 @@
 *
 * naming convention: gl-border-{position}-{style}
 */
+
+@mixin gl-border {
+  border: solid $gl-border-size-1 $border-color;
+}
+
+@mixin gl-border-t {
+  border-top: solid $gl-border-size-1 $border-color;
+}
+
+@mixin gl-border-b {
+  border-bottom: solid $gl-border-size-1 $border-color;
+}
+
+@mixin gl-border-l {
+  border-left: solid $gl-border-size-1 $border-color;
+}
+
+@mixin gl-border-r {
+  border-right: solid $gl-border-size-1 $border-color;
+}
+
 @mixin gl-border-none {
   border-style: none;
 }
