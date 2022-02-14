@@ -1,3 +1,10 @@
+# [36.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.5.1...v36.6.0) (2022-02-14)
+
+
+### Features
+
+* **css:** Add shorthand border util classes ([318c99c](https://gitlab.com/gitlab-org/gitlab-ui/commit/318c99c4764b7cc889a4b97d93215ab322b03025))
+
 ## [36.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.5.0...v36.5.1) (2022-02-11)
 
 
