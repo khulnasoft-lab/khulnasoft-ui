@@ -73,7 +73,7 @@ $breadcrumb-max-width: $grid-size * 16;
   }
 }
 
-.gl-breadcrumb-item:last-child > a {
+.gl-breadcrumb-item:last-child > span {
   @include gl-text-gray-950;
   @include gl-font-weight-bold;
 }

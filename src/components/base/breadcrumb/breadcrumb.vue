@@ -90,6 +90,8 @@ export default {
           :href="item.href"
           :to="item.to"
           :class="{ 'gl-display-none': isItemCollapsed(index) }"
+          :active="isLastItem(index)"
+          aria-current="page"
         >
           <span>{{ item.text }}</span>
           <span
