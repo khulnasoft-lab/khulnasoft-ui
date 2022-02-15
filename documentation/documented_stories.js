@@ -130,6 +130,7 @@ export const setupStorybookReadme = () =>
         'GlSingleStat',
         'GlDrawer',
         'GlHeatmap',
+        'GlFormRadioGroup',
       ],
       components: {
         GlComponentDocumentation,
