@@ -1,11 +1,6 @@
 import { GlHeatmap } from '../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { toolbox } from '../../../utils/charts/story_config';
 import readme from '../area/area.md';
-
-const components = {
-  GlHeatmap,
-};
 
 function generateData() {
   let data = [
@@ -21,46 +16,68 @@ function generateData() {
   return data;
 }
 
-documentedStoriesOf('charts/heatmap', readme)
-  .add('default', () => ({
-    data() {
-      return {
-        data: generateData(),
-        xAxisLabels: ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
-        yAxisLabels: ['Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun'],
-        xAxisName: 'Hour',
-        yAxisName: 'Day',
-      };
-    },
-    components,
-    template: `<gl-heatmap
+const template = `
+    <gl-heatmap
       :data-series="data"
       :x-axis-labels="xAxisLabels"
       :y-axis-labels="yAxisLabels"
       :x-axis-name="xAxisName"
       :y-axis-name="yAxisName"
-    />`,
-  }))
-  .add('with toolbox', () => ({
-    data() {
-      return {
-        data: generateData(),
-        xAxisLabels: ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
-        yAxisLabels: ['Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun'],
-        xAxisName: 'Hour',
-        yAxisName: 'Day',
-        option: {
-          toolbox,
-        },
-      };
+      :options="options"
+    />
+`;
+
+const generateProps = ({
+  data = generateData(),
+  xAxisLabels = ['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'],
+  yAxisLabels = ['Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun'],
+  xAxisName = 'Hour',
+  yAxisName = 'Day',
+  options = {},
+} = {}) => ({
+  data,
+  xAxisLabels,
+  yAxisLabels,
+  xAxisName,
+  yAxisName,
+  options,
+});
+
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlHeatmap,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const WithToolbox = Template.bind({});
+WithToolbox.args = generateProps({ options: { toolbox } });
+
+export default {
+  title: 'charts/heatmap',
+  component: GlHeatmap,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
     },
-    components,
-    template: `<gl-heatmap
-      :data-series="data"
-      :x-axis-labels="xAxisLabels"
-      :y-axis-labels="yAxisLabels"
-      :x-axis-name="xAxisName"
-      :y-axis-name="yAxisName"
-      :options="option"
-    />`,
-  }));
+  },
+  argTypes: {
+    showToolbox: { control: { disable: true } },
+    toolboxZoomIconPath: { control: { disable: true } },
+    toolboxBackIconPath: { control: { disable: true } },
+    toolboxRestoreIconPath: { control: { disable: true } },
+    toolboxSaveAsImageIconPath: { control: { disable: true } },
+    dataSeries: { control: { disable: true } },
+    formatTooltipText: { control: { disable: true } },
+    legendAverageText: { control: { disable: true } },
+    legendMaxText: { control: { disable: true } },
+    responsive: { control: { disable: true } },
+  },
+};
