@@ -129,6 +129,7 @@ export const setupStorybookReadme = () =>
         'GlPopover',
         'GlSingleStat',
         'GlDrawer',
+        'GlHeatmap',
       ],
       components: {
         GlComponentDocumentation,
