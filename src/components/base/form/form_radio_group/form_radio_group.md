@@ -1,5 +1,3 @@
-# GlFormRadioGroup
-
 The `GlFormRadioGroup` component provides an alternative and sometimes more
 compact way of setting up a group of `GlFormRadio` components.
 

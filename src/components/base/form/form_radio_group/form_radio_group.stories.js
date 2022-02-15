@@ -1,30 +1,16 @@
-import { withKnobs, object, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { GlFormRadioGroup, GlFormRadio } from '../../../../index';
+import { GlFormRadioGroup } from '../../../../index';
 import readme from './form_radio_group.md';
-
-const components = {
-  GlFormRadioGroup,
-  GlFormRadio,
-};
 
 const defaultOptions = [
   { value: 'pizza', text: 'Pizza' },
   { value: 'tacos', text: 'Tacos' },
   { value: 'burger', text: 'Burger', disabled: true },
 ];
-
-function generateProps({ name = 'radio-group-name', options = defaultOptions } = {}) {
-  return {
-    name: {
-      type: String,
-      default: text('name', name),
-    },
-    options: {
-      default: object('options', options),
-    },
-  };
-}
+const data = () => ({ selected: 'slot-option' });
+const generateProps = ({ name = 'radio-group-name', options = defaultOptions } = {}) => ({
+  name,
+  options,
+});
 
 const template = `
   <div>
@@ -45,13 +31,48 @@ const template = `
     </gl-form-radio-group>
   </div>`;
 
-const data = () => ({ selected: 'slot-option' });
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlFormRadioGroup,
+  },
+  props: Object.keys(argTypes),
+  template,
+  data,
+});
+export const Default = Template.bind({});
+Default.args = generateProps();
 
-documentedStoriesOf('base/form/form-radio-group', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    data,
-    template,
-  }));
+export default {
+  title: 'base/form/form-radio-group',
+  component: GlFormRadioGroup,
+  parameters: {
+    knobs: { disable: true },
+    bootstrapComponent: 'b-form-radio-group',
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    options: {
+      description: 'Array of objects representing the radios to render',
+    },
+    valueField: {
+      description: 'Field name in the options prop that should be used for the value',
+    },
+    textField: {
+      description: 'Field name in the options prop that should be used for the text label',
+    },
+    htmlField: {
+      description:
+        'Field name in the options prop that should be used for the html label instead of text field. Use with caution.',
+    },
+    disabledField: {
+      description: 'Field name in the options prop that should be used for the disabled state',
+    },
+    checked: {
+      description: 'The current value of the checked radio in the group',
+    },
+  },
+};
