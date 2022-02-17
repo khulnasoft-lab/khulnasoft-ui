@@ -1,3 +1,10 @@
+# [36.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.6.0...v36.7.0) (2022-02-17)
+
+
+### Features
+
+* **pagination:** Remove abbreviation from prev text ([f959077](https://gitlab.com/gitlab-org/gitlab-ui/commit/f959077da8ec3bf2107f2229a25fd09ff6771993))
+
 # [36.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.5.1...v36.6.0) (2022-02-14)
 
 
