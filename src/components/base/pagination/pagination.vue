@@ -82,7 +82,7 @@ export default {
     prevText: {
       type: String,
       required: false,
-      default: 'Prev',
+      default: 'Previous',
     },
     /**
      * When using the compact pagination, use this prop to pass the next page number

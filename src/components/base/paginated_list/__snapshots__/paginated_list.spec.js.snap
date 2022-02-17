@@ -42,7 +42,7 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
     limits="[object Object]"
     nexttext="Next"
     perpage="2"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="13"
     value="7"
   />
@@ -119,7 +119,7 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
     limits="[object Object]"
     nexttext="Next"
     perpage="10"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="13"
     value="2"
   />
@@ -222,7 +222,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
     limits="[object Object]"
     nexttext="Next"
     perpage="5"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="13"
     value="1"
   />
@@ -390,7 +390,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
     limits="[object Object]"
     nexttext="Next"
     perpage="10"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="13"
     value="1"
   />
@@ -597,7 +597,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
     limits="[object Object]"
     nexttext="Next"
     perpage="20"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="13"
     value="1"
   />
@@ -717,7 +717,7 @@ exports[`Paginated List Search states renders the list filtered by search result
     limits="[object Object]"
     nexttext="Next"
     perpage="10"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="2"
     value="1"
   />
@@ -837,7 +837,7 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
     limits="[object Object]"
     nexttext="Next"
     perpage="10"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="2"
     value="1"
   />
@@ -888,7 +888,7 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
     limits="[object Object]"
     nexttext="Next"
     perpage="10"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="1"
     value="1"
   />
@@ -939,7 +939,7 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
     limits="[object Object]"
     nexttext="Next"
     perpage="10"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="1"
     value="1"
   />
@@ -990,7 +990,7 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
     limits="[object Object]"
     nexttext="Next"
     perpage="10"
-    prevtext="Prev"
+    prevtext="Previous"
     totalitems="1"
     value="1"
   />

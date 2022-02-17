@@ -4,7 +4,11 @@ import GlPagination from './pagination.vue';
 
 const components = { GlPagination };
 
-const generateBaseProps = ({ prevText = 'Prev', nextText = 'Next', disabled = false } = {}) => ({
+const generateBaseProps = ({
+  prevText = 'Previous',
+  nextText = 'Next',
+  disabled = false,
+} = {}) => ({
   prevText,
   nextText,
   disabled,
