@@ -1,6 +1,4 @@
-import { withKnobs, text } from '@storybook/addon-knobs';
 import { GlChartSeriesLabel } from '../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { colorPaletteDefault } from '../../../utils/charts/theme';
 import {
   SERIES_NAME,
@@ -10,67 +8,72 @@ import {
 } from '../../../utils/stories_utils';
 import readme from './series_label.md';
 
-const components = {
-  GlChartSeriesLabel,
-};
-
-const generateProps = ({ color = colorPaletteDefault[0], type = 'solid' } = {}) => ({
-  color: {
-    default: text('Color', color),
-  },
-  type: {
-    default: text('Series Type', type),
-  },
+const generateProps = ({
+  color = colorPaletteDefault[0],
+  type = 'solid',
+  text = SERIES_NAME[SERIES_NAME_SHORT],
+} = {}) => ({
+  color,
+  type,
+  text,
 });
 
-const template = `<gl-chart-series-label
+const template = `
+  <gl-chart-series-label
     :color="color"
     :type="type"
   >
-    {{$options.text}}
+    {{ text }}
   </gl-chart-series-label>`;
 
-documentedStoriesOf('charts/chart-series-label', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps({ color: '' }),
-    template,
-    text: SERIES_NAME[SERIES_NAME_SHORT],
-  }))
-  .add('with long name', () => ({
-    components,
-    props: generateProps({ color: '' }),
-    template,
-    text: SERIES_NAME[SERIES_NAME_LONG],
-  }))
-  .add('with long name with no spaces', () => ({
-    components,
-    props: generateProps({ color: '' }),
-    template,
-    text: SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES],
-  }))
-  .add('with color dashed', () => ({
-    components,
-    props: generateProps({ type: 'dashed' }),
-    template,
-    text: SERIES_NAME[SERIES_NAME_SHORT],
-  }))
-  .add('with color', () => ({
-    components,
-    props: generateProps(),
-    template,
-    text: SERIES_NAME[SERIES_NAME_SHORT],
-  }))
-  .add('with color and long name', () => ({
-    components,
-    props: generateProps(),
-    template,
-    text: SERIES_NAME[SERIES_NAME_LONG],
-  }))
-  .add('with color and long name with no spaces', () => ({
-    components,
-    props: generateProps(),
-    template,
-    text: SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES],
-  }));
+const Template = (_args, { argTypes }) => ({
+  components: {
+    GlChartSeriesLabel,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps({ color: '' });
+
+export const WithLongName = Template.bind({});
+WithLongName.args = generateProps({ color: '', text: SERIES_NAME[SERIES_NAME_LONG] });
+
+export const WithLongNameWithNoSpaces = Template.bind({});
+WithLongNameWithNoSpaces.args = generateProps({
+  color: '',
+  text: SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES],
+});
+
+export const WithColorDashed = Template.bind({});
+WithColorDashed.args = generateProps({ type: 'dashed', text: SERIES_NAME[SERIES_NAME_SHORT] });
+
+export const WithColor = Template.bind({});
+WithColor.args = generateProps({ text: SERIES_NAME[SERIES_NAME_SHORT] });
+
+export const WithColorAndLongName = Template.bind({});
+WithColorAndLongName.args = generateProps({ text: SERIES_NAME[SERIES_NAME_LONG] });
+
+export const WithColorAndLongNameWithNoSpaces = Template.bind({});
+WithColorAndLongNameWithNoSpaces.args = generateProps({
+  text: SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES],
+});
+
+export default {
+  title: 'charts/chart-series-label',
+  component: GlChartSeriesLabel,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    color: {
+      control: 'color',
+    },
+  },
+};
