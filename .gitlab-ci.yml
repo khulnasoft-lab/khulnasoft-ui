@@ -7,6 +7,7 @@ stages:
   - manual
 
 default:
+  interruptible: true
   artifacts:
     expire_in: 30 days
   tags:
