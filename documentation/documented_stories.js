@@ -117,6 +117,8 @@ export const setupStorybookReadme = () =>
         'GlKeysetPagination',
         'GlForm',
         'GlTable',
+        'GlTab',
+        'GlTabs',
         'GlToast',
         'GlPaginatedList',
         'GlIntersectionObserver',
