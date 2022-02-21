@@ -133,6 +133,7 @@ export const setupStorybookReadme = () =>
         'GlFormRadioGroup',
         'GlChartSeriesLabel',
         'GlAreaChart',
+        'GlLineChart',
       ],
       components: {
         GlComponentDocumentation,

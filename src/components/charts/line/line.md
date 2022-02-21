@@ -1,5 +1,3 @@
-### Line Chart
-
 This is a basic line chart.
 
 ### Implementation Details

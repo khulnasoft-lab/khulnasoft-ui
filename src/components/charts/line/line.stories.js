@@ -1,6 +1,4 @@
-import { withKnobs, object, boolean, array } from '@storybook/addon-knobs';
 import { GlLineChart } from '../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
@@ -64,127 +62,132 @@ const template = `<gl-line-chart
   :includeLegendAvgMax="includeLegendAvgMax"
 />`;
 
-function generateProps({
+const generateProps = ({
   data = defaultData,
   option = defaultOptions,
   thresholds = [],
   annotations = [],
   includeLegendAvgMax = true,
-} = {}) {
-  return {
-    includeLegendAvgMax: {
-      default: boolean('Include Legend Avg Max', includeLegendAvgMax),
-    },
-    option: {
-      default: object('EChart Options', option),
-    },
-    thresholds: {
-      default: object('Thresholds', thresholds),
-    },
-    annotations: {
-      default: array('Annotations', annotations),
-    },
-    data: {
-      default: object('Chart Data', data),
-    },
-  };
-}
+} = {}) => ({
+  includeLegendAvgMax,
+  option,
+  thresholds,
+  annotations,
+  data,
+});
 
-documentedStoriesOf('charts/line-chart', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('with threshold', () => ({
-    props: generateProps({
-      thresholds: [{ threshold: 1350, operator: '>' }],
-    }),
-    components,
-    template,
-  }))
-  .add('with annotations as props (recommended)', () => ({
-    props: generateProps({
-      ...mockAnnotationsConfigs,
-      data: [
-        {
-          name: 'Time Series',
-          data: generateTimeSeries(),
-        },
-      ],
-      option: {
-        xAxis: {
-          type: 'time',
-          name: 'Time',
-          axisLabel: {
-            formatter: timeSeriesDateFormatter,
-          },
-        },
+const Template = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const WithThreshold = Template.bind({});
+WithThreshold.args = generateProps({
+  thresholds: [{ threshold: 1350, operator: '>' }],
+});
+
+export const WithAnnotationsAsProps = Template.bind({});
+WithAnnotationsAsProps.storyNane = 'with annotations as props (recommended)';
+WithAnnotationsAsProps.args = generateProps({
+  ...mockAnnotationsConfigs,
+  data: [
+    {
+      name: 'Time Series',
+      data: generateTimeSeries(),
+    },
+  ],
+  option: {
+    xAxis: {
+      type: 'time',
+      name: 'Time',
+      axisLabel: {
+        formatter: timeSeriesDateFormatter,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with annotations as option series', () => ({
-    props: generateProps({
-      data: [
-        {
-          name: 'Time Series',
-          data: generateTimeSeries(),
-        },
-      ],
-      option: {
-        ...mockAnnotationsSeries,
-        xAxis: {
-          type: 'time',
-          name: 'Time',
-          axisLabel: {
-            formatter: timeSeriesDateFormatter,
-          },
-        },
+    },
+  },
+});
+
+export const WithAnnotationsAsOptionSeries = Template.bind({});
+WithAnnotationsAsOptionSeries.args = generateProps({
+  data: [
+    {
+      name: 'Time Series',
+      data: generateTimeSeries(),
+    },
+  ],
+  option: {
+    ...mockAnnotationsSeries,
+    xAxis: {
+      type: 'time',
+      name: 'Time',
+      axisLabel: {
+        formatter: timeSeriesDateFormatter,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with zoom and scroll', () => ({
-    props: generateProps({
-      data: [
-        {
-          name: 'Time Series',
-          data: generateTimeSeries(),
-        },
-      ],
-      option: {
-        xAxis: {
-          type: 'time',
-          name: 'Time',
-          axisLabel: {
-            formatter: timeSeriesDateFormatter,
-          },
-        },
-        dataZoom: [
-          {
-            type: 'slider',
-            startValue: '2018-03-01T00:00:00.000',
-          },
-        ],
+    },
+  },
+});
+
+export const WithZoomAndScroll = Template.bind({});
+WithZoomAndScroll.args = generateProps({
+  data: [
+    {
+      name: 'Time Series',
+      data: generateTimeSeries(),
+    },
+  ],
+  option: {
+    xAxis: {
+      type: 'time',
+      name: 'Time',
+      axisLabel: {
+        formatter: timeSeriesDateFormatter,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with toolbox', () => ({
-    props: generateProps({
-      option: {
-        xAxis: {
-          name: 'Time',
-          type: 'category',
-        },
-        toolbox,
+    },
+    dataZoom: [
+      {
+        type: 'slider',
+        startValue: '2018-03-01T00:00:00.000',
       },
-    }),
-    components,
-    template,
-  }));
+    ],
+  },
+});
+
+export const WithToolbox = Template.bind({});
+WithToolbox.args = generateProps({
+  option: {
+    xAxis: {
+      name: 'Time',
+      type: 'category',
+    },
+    toolbox,
+  },
+});
+
+export default {
+  title: 'charts/line-chart',
+  component: GlLineChart,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    showToolbox: { control: { disable: true } },
+    toolboxZoomIconPath: { control: { disable: true } },
+    toolboxBackIconPath: { control: { disable: true } },
+    toolboxRestoreIconPath: { control: { disable: true } },
+    toolboxSaveAsImageIconPath: { control: { disable: true } },
+    formatTooltipText: { control: { disable: true } },
+    legendAverageText: { control: { disable: true } },
+    legendMaxText: { control: { disable: true } },
+    legendMinText: { control: { disable: true } },
+    legendCurrentText: { control: { disable: true } },
+    legendLayout: { control: { disable: true } },
+  },
+};
