@@ -132,6 +132,7 @@ export const setupStorybookReadme = () =>
         'GlHeatmap',
         'GlFormRadioGroup',
         'GlChartSeriesLabel',
+        'GlAreaChart',
       ],
       components: {
         GlComponentDocumentation,

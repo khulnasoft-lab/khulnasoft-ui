@@ -1,6 +1,5 @@
 import { GlHeatmap } from '../../../charts';
 import { toolbox } from '../../../utils/charts/story_config';
-import readme from '../area/area.md';
 
 function generateData() {
   let data = [
@@ -62,11 +61,6 @@ export default {
   component: GlHeatmap,
   parameters: {
     knobs: { disable: true },
-    docs: {
-      description: {
-        component: readme,
-      },
-    },
   },
   argTypes: {
     showToolbox: { control: { disable: true } },
