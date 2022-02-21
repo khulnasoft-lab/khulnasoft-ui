@@ -4,6 +4,7 @@ import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/ch
 import { toolbox } from '../../../utils/charts/story_config';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
+import { disableControls } from '../../../utils/stories_utils';
 
 const defaultData = [
   {
@@ -156,17 +157,19 @@ export default {
     knobs: { disable: true },
   },
   argTypes: {
-    showToolbox: { control: { disable: true } },
-    toolboxZoomIconPath: { control: { disable: true } },
-    toolboxBackIconPath: { control: { disable: true } },
-    toolboxRestoreIconPath: { control: { disable: true } },
-    toolboxSaveAsImageIconPath: { control: { disable: true } },
-    dataSeries: { control: { disable: true } },
-    formatTooltipText: { control: { disable: true } },
-    legendAverageText: { control: { disable: true } },
-    legendMaxText: { control: { disable: true } },
-    legendMinText: { control: { disable: true } },
-    legendCurrentText: { control: { disable: true } },
-    legendLayout: { control: { disable: true } },
+    ...disableControls([
+      'showToolbox',
+      'toolboxZoomIconPath',
+      'toolboxBackIconPath',
+      'toolboxRestoreIconPath',
+      'toolboxSaveAsImageIconPath',
+      'dataSeries',
+      'formatTooltipText',
+      'legendAverageText',
+      'legendMaxText',
+      'legendMinText',
+      'legendCurrentText',
+      'legendLayout',
+    ]),
   },
 };

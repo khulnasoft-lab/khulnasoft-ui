@@ -1,3 +1,4 @@
+import { disableControls } from '../../../utils/stories_utils';
 import readme from './daterange_picker.md';
 import GlDaterangePicker from './daterange_picker.vue';
 
@@ -121,31 +122,15 @@ export default {
     },
   },
   argTypes: {
-    i18n: {
-      control: {
-        disable: true,
-      },
-    },
-    startPickerTarget: {
-      control: {
-        disable: true,
-      },
-    },
-    startPickerContainer: {
-      control: {
-        disable: true,
-      },
-    },
-    endPickerTarget: {
-      control: {
-        disable: true,
-      },
-    },
-    endPickerContainer: {
-      control: {
-        disable: true,
-      },
-    },
+    ...disableControls([
+      'i18n',
+      'startPickerTarget',
+      'startPickerContainer',
+      'endPickerTarget',
+      'endPickerContainer',
+      'defaultStartDate',
+      'defaultEndDate',
+    ]),
     defaultMinDate: {
       control: {
         type: 'date',
@@ -154,16 +139,6 @@ export default {
     defaultMaxDate: {
       control: {
         type: 'date',
-      },
-    },
-    defaultStartDate: {
-      control: {
-        disable: true,
-      },
-    },
-    defaultEndDate: {
-      control: {
-        disable: true,
       },
     },
   },

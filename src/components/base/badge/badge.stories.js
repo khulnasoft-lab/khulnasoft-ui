@@ -1,6 +1,7 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { GlBadge } from '../../../index';
 import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
+import { disableControls } from '../../../utils/stories_utils';
 import readme from './badge.md';
 
 const template = `
@@ -61,14 +62,7 @@ export const Variants = (args, { argTypes }) => ({
 Variants.args = generateProps({
   variant: badgeVariantOptions.warning,
 });
-Variants.argTypes = {
-  content: {
-    control: { disable: true },
-  },
-  variant: {
-    control: { disable: true },
-  },
-};
+Variants.argTypes = disableControls(['content', 'variant']);
 
 export const Actionable = (args, { argTypes }) => ({
   components: { GlBadge },
@@ -95,14 +89,7 @@ Actionable.args = generateProps({
 Actionable.parameters = {
   storyshots: { disable: true },
 };
-Actionable.argTypes = {
-  content: {
-    control: { disable: true },
-  },
-  variant: {
-    control: { disable: true },
-  },
-};
+Actionable.argTypes = disableControls(['content', 'variant']);
 
 export const Sizes = (args, { argTypes }) => ({
   components: { GlBadge },
@@ -125,14 +112,7 @@ export const Sizes = (args, { argTypes }) => ({
 Sizes.args = generateProps({
   variant: badgeVariantOptions.danger,
 });
-Sizes.argTypes = {
-  content: {
-    control: { disable: true },
-  },
-  size: {
-    control: { disable: true },
-  },
-};
+Sizes.argTypes = disableControls(['content', 'size']);
 
 export const BadgeIcon = (args, { argTypes }) => ({
   components: { GlBadge },
