@@ -16,7 +16,6 @@ export { default as GlNavbarDocumentation } from '../src/components/base/navbar/
 export { default as GlIntersectionObserverDocumentation } from '../src/components/utilities/intersection_observer/intersection_observer.documentation';
 export { default as GlChartDocumentation } from '../src/components/charts/chart/chart.documentation';
 export { default as GlAreaChartDocumentation } from '../src/components/charts/area/area.documentation';
-export { default as GlChartLegendDocumentation } from '../src/components/charts/legend/legend.documentation';
 export { default as GlLineChartDocumentation } from '../src/components/charts/line/line.documentation';
 export { default as GlSparklineChartDocumentation } from '../src/components/charts/sparkline/sparkline.documentation';
 export { default as GlChartSeriesLabelDocumentation } from '../src/components/charts/series_label/series_label.documentation';
