@@ -48,6 +48,7 @@ const defaultData = [
 ];
 
 const defaultOptions = {
+  animation: false,
   xAxis: {
     name: 'Time',
     type: 'category',
@@ -101,6 +102,7 @@ WithAnnotationsAsProps.args = generateProps({
     },
   ],
   option: {
+    animation: false,
     xAxis: {
       type: 'time',
       name: 'Time',
@@ -121,6 +123,7 @@ WithAnnotationsAsOptionSeries.args = generateProps({
   ],
   option: {
     ...mockAnnotationsSeries,
+    animation: false,
     xAxis: {
       type: 'time',
       name: 'Time',
@@ -140,6 +143,7 @@ WithZoomAndScroll.args = generateProps({
     },
   ],
   option: {
+    animation: false,
     xAxis: {
       type: 'time',
       name: 'Time',
@@ -159,6 +163,7 @@ WithZoomAndScroll.args = generateProps({
 export const WithToolbox = Template.bind({});
 WithToolbox.args = generateProps({
   option: {
+    animation: false,
     xAxis: {
       name: 'Time',
       type: 'category',
