@@ -39,6 +39,9 @@ export default {
       required: false,
       default: () => ({}),
     },
+    /**
+     * Text for data average (overridden by prop if needed for internationalization)
+     */
     averageText: {
       type: String,
       required: false,
@@ -54,11 +57,17 @@ export default {
       required: false,
       default: LEGEND_MIN_TEXT,
     },
+    /**
+     * Text for max amount (overridden by prop if needed for internationalization)
+     */
     maxText: {
       type: String,
       required: false,
       default: LEGEND_MAX_TEXT,
     },
+    /**
+     * Sets the display layout
+     */
     layout: {
       type: String,
       required: false,

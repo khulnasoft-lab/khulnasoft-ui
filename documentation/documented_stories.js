@@ -102,6 +102,7 @@ export const setupStorybookReadme = () =>
         'GlFormInput',
         'GlSegmentedControl',
         'GlAvatar',
+        'GlChartLegend',
         'GlAvatarLink',
         'GlPagination',
         'GlSkeletonLoader',
