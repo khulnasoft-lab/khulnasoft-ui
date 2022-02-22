@@ -154,7 +154,6 @@ describe('Alert component', () => {
   describe('top-level classes', () => {
     describe.each`
       prop             | cssClass                      | presentIf
-      ${'contained'}   | ${'gl-alert-max-content'}     | ${true}
       ${'sticky'}      | ${'gl-alert-sticky'}          | ${true}
       ${'dismissible'} | ${'gl-alert-not-dismissible'} | ${false}
     `('$cssClass', ({ prop, cssClass, presentIf }) => {

@@ -74,14 +74,6 @@ export default {
       required: false,
       default: '',
     },
-    /**
-     * Contained alerts have their content's width limited.
-     */
-    contained: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     sticky: {
       type: Boolean,
       required: false,
@@ -171,48 +163,45 @@ export default {
   <div
     :class="[
       'gl-alert',
-      { 'gl-alert-max-content gl-alert-layout-limited': contained },
       { 'gl-alert-sticky': sticky },
       { 'gl-alert-not-dismissible': !dismissible },
       variantClass,
     ]"
   >
-    <div class="gl-alert-container">
-      <gl-icon
-        :name="iconName"
-        :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
-      />
+    <gl-icon
+      :name="iconName"
+      :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
+    />
 
-      <close-button
-        v-if="dismissible"
-        ref="dismiss"
-        class="gl-dismiss-btn"
-        :label="dismissLabel"
-        @click="onDismiss"
-      />
+    <close-button
+      v-if="dismissible"
+      ref="dismiss"
+      class="gl-dismiss-btn"
+      :label="dismissLabel"
+      @click="onDismiss"
+    />
 
-      <div class="gl-alert-content" role="alert">
-        <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
+    <div class="gl-alert-content" role="alert">
+      <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
 
-        <div class="gl-alert-body">
-          <!-- @slot The alert message to display. -->
-          <slot></slot>
-        </div>
+      <div class="gl-alert-body">
+        <!-- @slot The alert message to display. -->
+        <slot></slot>
+      </div>
 
-        <div v-if="shouldRenderActions" class="gl-alert-actions">
-          <!-- @slot If the primary/secondary action buttons aren't flexible enough, place arbitrary content here. -->
-          <slot name="actions">
-            <gl-button
-              v-for="(actionButton, index) in actionButtons"
-              :key="index"
-              class="gl-alert-action"
-              v-bind="actionButton.attrs"
-              v-on="actionButton.listeners"
-            >
-              {{ actionButton.text }}
-            </gl-button>
-          </slot>
-        </div>
+      <div v-if="shouldRenderActions" class="gl-alert-actions">
+        <!-- @slot If the primary/secondary action buttons aren't flexible enough, place arbitrary content here. -->
+        <slot name="actions">
+          <gl-button
+            v-for="(actionButton, index) in actionButtons"
+            :key="index"
+            class="gl-alert-action"
+            v-bind="actionButton.attrs"
+            v-on="actionButton.listeners"
+          >
+            {{ actionButton.text }}
+          </gl-button>
+        </slot>
       </div>
     </div>
   </div>
