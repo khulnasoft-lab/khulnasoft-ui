@@ -1,3 +1,21 @@
+# [37.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.7.1...v37.0.0) (2022-02-22)
+
+
+### Features
+
+* **GlAlert:** drop contained behavior ([a2ae17e](https://gitlab.com/gitlab-org/gitlab-ui/commit/a2ae17eeb80eb9ea399b9f93047fc71764a3e1cb))
+
+
+### BREAKING CHANGES
+
+* **GlAlert:** This drops GlAlert's contained behavior.
+
+Alerts content width cannot be constrainted with the `contained` prop
+anymore. Existing alerts' content will exapnd to the take up the alert's
+full width.
+You should consider removing all `contained` usages from your code.
+`
+
 ## [36.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.7.0...v36.7.1) (2022-02-18)
 
 
