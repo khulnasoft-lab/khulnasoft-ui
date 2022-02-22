@@ -25,7 +25,9 @@ describe('GlFormSelect', () => {
     `('adds $expectedClass class for state $state', ({ state, expectedClasses }) => {
       createComponent({ state });
 
-      expect(wrapper.classes()).toEqual([...DEFAULT_SELECT_CLASSES, ...expectedClasses]);
+      expect(wrapper.classes().sort()).toEqual(
+        [...DEFAULT_SELECT_CLASSES, ...expectedClasses].sort()
+      );
     });
   });
 
@@ -36,19 +38,21 @@ describe('GlFormSelect', () => {
     it.each(nonNullSizes)('adds correct class for size %s', (size) => {
       createComponent({ size });
 
-      expect(wrapper.classes()).toEqual([...DEFAULT_SELECT_CLASSES, `custom-select-${size}`]);
+      expect(wrapper.classes().sort()).toEqual(
+        [...DEFAULT_SELECT_CLASSES, `custom-select-${size}`].sort()
+      );
     });
 
     it('does not add a size class if not given the size prop', () => {
       createComponent();
 
-      expect(wrapper.classes()).toEqual([...DEFAULT_SELECT_CLASSES]);
+      expect(wrapper.classes().sort()).toEqual([...DEFAULT_SELECT_CLASSES].sort());
     });
 
     it('does not add a size class if passed null', () => {
       createComponent({ size: null });
 
-      expect(wrapper.classes()).toEqual([...DEFAULT_SELECT_CLASSES]);
+      expect(wrapper.classes().sort()).toEqual([...DEFAULT_SELECT_CLASSES].sort());
     });
   });
 
