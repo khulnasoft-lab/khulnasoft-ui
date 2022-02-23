@@ -1,6 +1,6 @@
 import description from './drawer.md';
 
 export default {
-  followsDesignSystem: false,
+  followsDesignSystem: true,
   description,
 };
