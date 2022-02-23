@@ -63,7 +63,6 @@ export { default as GlTableDocumentation } from '../src/components/base/table/ta
 export { default as GlBreadcrumbDocumentation } from '../src/components/base/breadcrumb/breadcrumb.documentation';
 export { default as GlHeatmapDocumentation } from '../src/components/charts/heatmap/heatmap.documentation';
 export { default as GlTabsDocumentation } from '../src/components/base/tabs/tabs/tabs.documentation';
-export { default as GlTabDocumentation } from '../src/components/base/tabs/tab/tab.documentation';
 export { default as GlButtonGroupDocumentation } from '../src/components/base/button_group/button_group.documentation';
 export { default as GlFormCheckboxDocumentation } from '../src/components/base/form/form_checkbox/form_checkbox.documentation';
 export { default as GlLabelDocumentation } from '../src/components/base/label/label.documentation';

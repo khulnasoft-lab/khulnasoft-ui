@@ -46,11 +46,17 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Sync active tab with query string parameters. Allows for deep linking into specific tabs.
+     */
     syncActiveTabWithQueryParams: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * Name to use for query string parameter.
+     */
     queryParamName: {
       type: String,
       required: false,
