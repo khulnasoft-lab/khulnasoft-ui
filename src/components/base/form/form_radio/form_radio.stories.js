@@ -24,13 +24,26 @@ const Template = (args) => ({
           :value="option.value"
           :disabled="option.disabled"
           :name="name"
+          @change="handleEvent('change', $event)"
+          @input="handleEvent('input', $event)"
         >{{ option.text }}</gl-form-radio>
+        <h3 class="mt-5">Events log:</h3>
+        <p v-if="!events.length">nothing happened yet</p>
+        <ul v-else>
+          <li v-for="event in events">{{ event }}</li>
+        </ul>
       </div>
     `,
   data() {
     return {
       options: defaultOptions,
+      events: [],
     };
+  },
+  methods: {
+    handleEvent(type, value) {
+      this.events.push({ [type]: value });
+    },
   },
 });
 
