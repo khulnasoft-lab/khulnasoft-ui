@@ -368,13 +368,13 @@ export default {
         disabled: prevPageIsDisabled,
         'flex-fill': isFillAlign,
       }"
+      :aria-hidden="prevPageIsDisabled"
     >
       <component
         :is="prevPageIsDisabled ? 'span' : 'a'"
         class="gl-link page-link prev-page-item gl-display-flex"
-        :aria-disabled="prevPageIsDisabled"
-        :aria-label="labelPrevPage || labelPage(value - 1)"
-        :href="isLinkBased ? linkGen(value - 1) : '#'"
+        :aria-label="prevPageIsDisabled ? false : labelPrevPage || labelPage(value - 1)"
+        :href="isLinkBased ? linkGen(value - 1) : prevPageIsDisabled ? false : '#'"
         @click="handlePrevious($event, value - 1)"
       >
         <!-- 
@@ -431,13 +431,13 @@ export default {
         disabled: nextPageIsDisabled,
         'flex-fill': isFillAlign,
       }"
+      :aria-hidden="nextPageIsDisabled"
     >
       <component
         :is="nextPageIsDisabled ? 'span' : 'a'"
         class="gl-link page-link next-page-item gl-display-flex"
-        :aria-disabled="nextPageIsDisabled"
-        :aria-label="labelNextPage || labelPage(value + 1)"
-        :href="isLinkBased ? linkGen(value + 1) : '#'"
+        :aria-label="nextPageIsDisabled ? false : labelNextPage || labelPage(value + 1)"
+        :href="isLinkBased ? linkGen(value + 1) : nextPageIsDisabled ? false : '#'"
         @click="handleNext($event, value + 1)"
       >
         <!-- 
