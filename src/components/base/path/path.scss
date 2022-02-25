@@ -78,7 +78,12 @@ $path-chevron-right-margin: px-to-rem(14px);
       @include gl-path-chevron;
     }
 
-    &:hover {
+    &[disabled] {
+      @include gl-text-gray-400;
+      @include gl-cursor-not-allowed;
+    }
+
+    &:not([disabled]):hover {
       @include gl-path-active-item-color($gray-100);
       @include gl-text-gray-900;
     }

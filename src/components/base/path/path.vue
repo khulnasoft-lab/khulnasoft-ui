@@ -21,9 +21,10 @@ export default {
      * A list of path items in the form:
      * ```
      * {
-     *   title:  String, required
-     *   metric: Any, optional
-     *   icon:   String, optional
+     *   title:    String, required
+     *   metric:   Any, optional
+     *   icon:     String, optional
+     *   disabled: Boolean, optional
      * }
      * ```
      */
@@ -164,7 +165,12 @@ export default {
         :key="index"
         class="gl-path-nav-list-item"
       >
-        <button :class="pathItemClass(index)" @click="onItemClicked(index)">
+        <button
+          :class="pathItemClass(index)"
+          :category="item.disabled ? 'tertiary' : undefined"
+          :disabled="item.disabled"
+          @click="onItemClicked(index)"
+        >
           <gl-icon
             v-if="shouldDisplayIcon(item.icon)"
             :name="item.icon"
