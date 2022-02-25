@@ -261,6 +261,22 @@ export default {
     nextPageIsDisabled() {
       return this.pageIsDisabled(this.value + 1);
     },
+    prevPageAriaLabel() {
+      return this.prevPageIsDisabled ? false : this.labelPrevPage || this.labelPage(this.value - 1);
+    },
+    nextPageAriaLabel() {
+      return this.nextPageIsDisabled ? false : this.labelNextPage || this.labelPage(this.value + 1);
+    },
+    prevPageHref() {
+      if (this.prevPageIsDisabled) return false;
+      if (this.isLinkBased) return this.linkGen(this.value - 1);
+      return '#';
+    },
+    nextPageHref() {
+      if (this.nextPageIsDisabled) return false;
+      if (this.isLinkBased) return this.linkGen(this.value + 1);
+      return '#';
+    },
   },
   created() {
     window.addEventListener('resize', debounce(this.setBreakpoint, resizeDebounceTime));
@@ -373,8 +389,8 @@ export default {
       <component
         :is="prevPageIsDisabled ? 'span' : 'a'"
         class="gl-link page-link prev-page-item gl-display-flex"
-        :aria-label="prevPageIsDisabled ? false : labelPrevPage || labelPage(value - 1)"
-        :href="isLinkBased ? linkGen(value - 1) : prevPageIsDisabled ? false : '#'"
+        :aria-label="prevPageAriaLabel"
+        :href="prevPageHref"
         @click="handlePrevious($event, value - 1)"
       >
         <!-- 
@@ -436,8 +452,8 @@ export default {
       <component
         :is="nextPageIsDisabled ? 'span' : 'a'"
         class="gl-link page-link next-page-item gl-display-flex"
-        :aria-label="nextPageIsDisabled ? false : labelNextPage || labelPage(value + 1)"
-        :href="isLinkBased ? linkGen(value + 1) : nextPageIsDisabled ? false : '#'"
+        :aria-label="nextPageAriaLabel"
+        :href="nextPageHref"
         @click="handleNext($event, value + 1)"
       >
         <!-- 

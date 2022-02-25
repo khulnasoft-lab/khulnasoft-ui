@@ -16,6 +16,7 @@ const mockResizeWidth = (width) => {
 describe('pagination component', () => {
   let wrapper;
   const findButtons = () => wrapper.findAll('.page-link');
+  const findItems = () => wrapper.findAll('.page-item');
   const propsData = {
     value: 3,
     perPage: 5,
@@ -372,9 +373,12 @@ describe('pagination component', () => {
         value: 1,
         nextPage: 2,
       });
+      const prevItem = findItems().at(0);
+      expect(prevItem.attributes('aria-hidden')).toBe('true');
       const prevButton = findButtons().at(0);
       expect(prevButton.element.tagName).toBe('SPAN');
-      expect(prevButton.attributes('aria-disabled')).toBe('true');
+      expect(prevButton.attributes('href')).toBeUndefined();
+      expect(prevButton.attributes('aria-label')).toBeUndefined();
     });
 
     it('disables next button when on last page', () => {
@@ -383,9 +387,12 @@ describe('pagination component', () => {
         value: 2,
         prevPage: 1,
       });
+      const nextItem = findItems().at(1);
+      expect(nextItem.attributes('aria-hidden')).toBe('true');
       const nextButton = findButtons().at(1);
       expect(nextButton.element.tagName).toBe('SPAN');
-      expect(nextButton.attributes('aria-disabled')).toBe('true');
+      expect(nextButton.attributes('href')).toBeUndefined();
+      expect(nextButton.attributes('aria-label')).toBeUndefined();
     });
   });
 });
