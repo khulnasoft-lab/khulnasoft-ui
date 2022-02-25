@@ -155,7 +155,9 @@ exports[`Path matches the snapshot 1`] = `
       id="path-1-item-7"
     >
       <button
+        category="tertiary"
         class="gl-path-button"
+        disabled="disabled"
       >
         <!---->
         
@@ -383,7 +385,9 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       id="path-15-item-7"
     >
       <button
+        category="tertiary"
         class="gl-path-button"
+        disabled="disabled"
       >
         <!---->
         
@@ -606,7 +610,9 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       id="path-11-item-7"
     >
       <button
+        category="tertiary"
         class="gl-path-button"
+        disabled="disabled"
       >
         <!---->
         

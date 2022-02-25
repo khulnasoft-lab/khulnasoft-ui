@@ -188,6 +188,14 @@ describe('Path', () => {
         ]);
       });
     });
+
+    describe('when a disabled item is clicked', () => {
+      it('does not emit the selected event', () => {
+        clickItemAt(7);
+
+        expect(wrapper.emitted('selected')).toBeUndefined();
+      });
+    });
   });
 
   describe('slots', () => {
