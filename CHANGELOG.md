@@ -1,3 +1,10 @@
+# [37.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.0.0...v37.1.0) (2022-02-28)
+
+
+### Features
+
+* **GlPagination:** Add aria-current="page" on active page ([58b8993](https://gitlab.com/gitlab-org/gitlab-ui/commit/58b89935c32845406d85ce5898c501908e25d8ff))
+
 # [37.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.7.1...v37.0.0) (2022-02-22)
 
 
