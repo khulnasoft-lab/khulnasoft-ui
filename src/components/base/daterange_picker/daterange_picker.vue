@@ -230,7 +230,7 @@ export default {
 
 <template>
   <div class="gl-daterange-picker">
-    <div :class="startPickerClass">
+    <div class="gl-mr-3" :class="startPickerClass">
       <label :class="labelClass">{{ fromLabel }}</label>
 
       <gl-datepicker
