@@ -293,6 +293,7 @@ export default {
       const listeners = {};
       if (isActivePage) {
         attrs.class.push('active');
+        attrs['aria-current'] = 'page';
       }
       // Disable previous and/or next buttons if needed
       if (this.isLinkBased) {
