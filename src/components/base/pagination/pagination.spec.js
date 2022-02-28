@@ -179,6 +179,7 @@ describe('pagination component', () => {
     it('shows 3rd page as active and enables all buttons', () => {
       const buttons = findButtons();
       expect(buttons.at(3).classes()).toEqual(expectClassActive);
+      expect(buttons.at(3).attributes('aria-current')).toEqual('page');
       buttons.wrappers.forEach((button) => {
         expect(button.element.tagName).not.toBe('SPAN');
       });
@@ -222,6 +223,7 @@ describe('pagination component', () => {
       const buttons = findButtons();
       expect(buttons.at(0).element.tagName).toBe('SPAN');
       expect(buttons.at(1).classes()).toEqual(expectClassActive);
+      expect(buttons.at(1).attributes('aria-current')).toEqual('page');
       expect(buttons.at(buttons.length - 1).element.tagName).not.toBe('SPAN');
     });
 
@@ -310,6 +312,7 @@ describe('pagination component', () => {
       const buttons = findButtons();
       expect(buttons.at(0).element.tagName).not.toBe('SPAN');
       expect(buttons.at(7).classes()).toEqual(expectClassActive);
+      expect(buttons.at(7).attributes('aria-current')).toEqual('page');
       expect(buttons.at(buttons.length - 1).element.tagName).toBe('SPAN');
     });
 
