@@ -92,7 +92,7 @@ module Gitlab
       def foundations_ux_reviewers
         %w[
           tauriedavis
-          jareko
+          aregnery
           jeldergl
         ]
       end
@@ -111,15 +111,15 @@ module Gitlab
         banner: %w[andyvolpe],
         breadcrumb: %w[ameliabauerly],
         'broadcast-message': %w[jeldergl],
-        button: %w[jeldergl tauriedavis],
+        button: %w[jeldergl],
         card: %w[beckalippert],
         chart: %w[ameliabauerly],
         checkbox: %w[pedroms],
         'data-visualization': %w[ameliabauerly],
         'date-picker': %w[tauriedavis],
         drawer: %w[andyvolpe],
-        dropdown: %w[hollyreynolds tauriedavis],
-        'file-uploader': %w[jareko],
+        dropdown: %w[jeldergl],
+        'file-uploader': %w[aregnery],
         filter: %w[matejlatin],
         form: %w[tauriedavis],
         icon: %w[jeldergl],
@@ -127,17 +127,17 @@ module Gitlab
         label: %w[annabeldunstone],
         link: %w[jeldergl],
         list: %w[tauriedavis],
-        modal: %w[jareko],
+        modal: %w[aregnery],
         pagination: %w[andyvolpe],
         popover: %w[tauriedavis],
-        'progress-bar': %w[jareko],
+        'progress-bar': %w[aregnery],
         radio: %w[pedroms],
         search: %w[matejlatin],
         'segmented-control': %w[andyvolpe],
         'skeleton-loader': %w[tauriedavis],
         sorting: %w[ameliabauerly],
         spinner: %w[jeldergl],
-        tab: %w[jareko],
+        tab: %w[aregnery],
         table: %w[npost],
         toast: %w[tauriedavis],
         toggle: %w[pedroms],
