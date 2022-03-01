@@ -17,7 +17,7 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   &:focus-within {
-    @include gl-focus($gl-border-size-2, var(--label-background-color), true);
+    @include gl-focus($color: var(--label-background-color), $important: true);
   }
 
   .gl-label-link {
@@ -33,6 +33,7 @@ $label-close-button: '.gl-label-close.gl-button';
     &:hover {
       @include gl-reset-color;
       @include gl-shadow-none;
+      @include gl-outline-none;
 
       .gl-label-text-scoped {
         @include gl-text-decoration-underline;

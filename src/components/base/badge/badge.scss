@@ -36,7 +36,7 @@
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-focus($gl-border-size-1, $white-transparent);
+      @include gl-focus;
     }
   }
 }

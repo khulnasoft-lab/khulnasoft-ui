@@ -38,6 +38,10 @@ $gl-datepicker-width: $grid-size * 30;
   @include gl-align-items-center;
   @include gl-pointer-events-none;
   @include gl-px-2;
+
+  .gl-button.gl-button {
+    border-radius: 0.0075rem;
+  }
 }
 
 .gl-datepicker-theme {

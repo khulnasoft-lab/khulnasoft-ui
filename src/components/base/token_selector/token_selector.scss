@@ -1,10 +1,10 @@
 // This is overridden in the `gitlab-org/gitlab` codebase so we need to increase specificity using `gl-token-selector`
 .gl-token-selector {
   &.gl-token-selector-focus-glow {
-    @include gl-focus($gl-border-size-1, $gray-900, true);
+    @include gl-focus($color: $gray-900, $important: true);
 
     &.is-invalid {
-      @include gl-focus($gl-border-size-1, $red-500, true);
+      @include gl-focus($color: $red-500, $important: true);
     }
   }
 }

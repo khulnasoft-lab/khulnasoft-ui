@@ -1,0 +1,7 @@
+.nav {
+  &-link {
+    &:focus-visible {
+      @include gl-focus;
+    }
+  }
+}

@@ -22,6 +22,12 @@ table.gl-table {
     td {
       @include gl-text-gray-700;
     }
+
+    &:focus-visible {
+      @include gl-focus;
+      position: relative;
+      z-index: 1;
+    }
   }
 
   .table-primary,

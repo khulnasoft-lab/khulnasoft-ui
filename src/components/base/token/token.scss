@@ -41,4 +41,10 @@
   @include gl-mx-2;
   @include gl-reset-color;
   @include gl-cursor-pointer;
+  background-color: transparent !important;
+
+  &:focus,
+  &:hover:focus {
+    @include gl-focus($color: rgba($black, 0.5), $inset: true, $important: true);
+  }
 }
