@@ -79,9 +79,14 @@ export default {
       return this.scrollLeft + BOUNDARY_WIDTH;
     },
   },
-  mounted() {
-    const selectedIndex = this.items.findIndex((item) => item.selected);
-    this.selectedIndex = selectedIndex > 0 ? selectedIndex : 0;
+  watch: {
+    items: {
+      immediate: true,
+      handler(items) {
+        const selectedIndex = items.findIndex((item) => item.selected);
+        this.selectedIndex = selectedIndex > 0 ? selectedIndex : 0;
+      },
+    },
   },
   beforeCreate() {
     this.pathUuid = uniqueId('path-');
