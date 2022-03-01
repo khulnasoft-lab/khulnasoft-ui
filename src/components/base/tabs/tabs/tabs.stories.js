@@ -7,10 +7,8 @@ const components = {
   GlTab,
 };
 
-const defaultValue = (prop) => GlTabs.props[prop].default;
-
 const generateProps = ({
-  justified = defaultValue('justified'),
+  justified,
   actionPrimary = null,
   actionSecondary = null,
   actionTertiary = null,
@@ -238,7 +236,7 @@ WithScrollAndGrowing.parameters = {
 };
 
 export default {
-  title: 'base/tabs/tabs',
+  title: 'base/tabs',
   component: GlTabs,
   subcomponents: { GlTab, GlScrollableTabs },
   parameters: {
