@@ -10,7 +10,7 @@ const callbacks = new Map();
  */
 let listening = false;
 
-const globalListener = (event) => {
+const callHandlers = (event) => {
   callbacks.forEach(({ bindTimeStamp, callback }, element) => {
     if (
       // Ignore events that aren't targeted outside the element
@@ -32,12 +32,32 @@ const globalListener = (event) => {
   });
 };
 
+let preventFocus = false;
+
+const mousedownListener = () => {
+  preventFocus = true;
+};
+
+const focusListener = (e) => {
+  if (!preventFocus) {
+    callHandlers(e);
+  }
+};
+
+const clickListener = (e) => {
+  callHandlers(e);
+  preventFocus = false;
+};
+
 const startListening = () => {
   if (listening) {
     return;
   }
 
-  document.addEventListener('click', globalListener);
+  document.addEventListener('mousedown', mousedownListener);
+  document.addEventListener('focusin', focusListener);
+  document.addEventListener('click', clickListener);
+
   listening = true;
 };
 
@@ -46,7 +66,10 @@ const stopListening = () => {
     return;
   }
 
-  document.removeEventListener('click', globalListener);
+  document.removeEventListener('mousedown', mousedownListener);
+  document.removeEventListener('focusin', focusListener);
+  document.removeEventListener('click', clickListener);
+
   listening = false;
 };
 
