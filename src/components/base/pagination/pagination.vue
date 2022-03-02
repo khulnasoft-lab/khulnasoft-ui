@@ -261,6 +261,22 @@ export default {
     nextPageIsDisabled() {
       return this.pageIsDisabled(this.value + 1);
     },
+    prevPageAriaLabel() {
+      return this.prevPageIsDisabled ? false : this.labelPrevPage || this.labelPage(this.value - 1);
+    },
+    nextPageAriaLabel() {
+      return this.nextPageIsDisabled ? false : this.labelNextPage || this.labelPage(this.value + 1);
+    },
+    prevPageHref() {
+      if (this.prevPageIsDisabled) return false;
+      if (this.isLinkBased) return this.linkGen(this.value - 1);
+      return '#';
+    },
+    nextPageHref() {
+      if (this.nextPageIsDisabled) return false;
+      if (this.isLinkBased) return this.linkGen(this.value + 1);
+      return '#';
+    },
   },
   created() {
     window.addEventListener('resize', debounce(this.setBreakpoint, resizeDebounceTime));
@@ -369,13 +385,13 @@ export default {
         disabled: prevPageIsDisabled,
         'flex-fill': isFillAlign,
       }"
+      :aria-hidden="prevPageIsDisabled"
     >
       <component
         :is="prevPageIsDisabled ? 'span' : 'a'"
         class="gl-link page-link prev-page-item gl-display-flex"
-        :aria-disabled="prevPageIsDisabled"
-        :aria-label="labelPrevPage || labelPage(value - 1)"
-        :href="isLinkBased ? linkGen(value - 1) : '#'"
+        :aria-label="prevPageAriaLabel"
+        :href="prevPageHref"
         @click="handlePrevious($event, value - 1)"
       >
         <!-- 
@@ -432,13 +448,13 @@ export default {
         disabled: nextPageIsDisabled,
         'flex-fill': isFillAlign,
       }"
+      :aria-hidden="nextPageIsDisabled"
     >
       <component
         :is="nextPageIsDisabled ? 'span' : 'a'"
         class="gl-link page-link next-page-item gl-display-flex"
-        :aria-disabled="nextPageIsDisabled"
-        :aria-label="labelNextPage || labelPage(value + 1)"
-        :href="isLinkBased ? linkGen(value + 1) : '#'"
+        :aria-label="nextPageAriaLabel"
+        :href="nextPageHref"
         @click="handleNext($event, value + 1)"
       >
         <!-- 
