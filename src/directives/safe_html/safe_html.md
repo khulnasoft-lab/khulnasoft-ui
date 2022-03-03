@@ -1,8 +1,4 @@
-# Safe Html
-
 A Vue Directive to sanitize HTML to avoid any XSS vulnerabilities.
-
-<!-- STORY -->
 
 ## Usage
 
