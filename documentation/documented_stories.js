@@ -114,6 +114,7 @@ export const setupStorybookReadme = () =>
         'GlChartTooltip',
         'GlInputGroupText',
         'GlGaugeChart',
+        'GlSafeHtmlDirective',
         'GlFormRadio',
         'GlModal',
         'GlKeysetPagination',
