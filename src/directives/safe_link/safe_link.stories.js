@@ -1,6 +1,3 @@
-import { withKnobs, text, select } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../documentation/documented_stories';
-import { targetOptions } from '../../utils/constants';
 import { SafeLinkDirective as SafeLink } from './safe_link';
 import readme from './safe_link.md';
 
@@ -9,31 +6,35 @@ const directives = {
 };
 
 // eslint-disable-next-line no-script-url
-function generateProps({ href = 'javascript:alert(1)', target = '_blank' } = {}) {
-  return {
-    href: {
-      type: String,
-      default: text('href', href),
-    },
-    target: {
-      type: String,
-      default: select('target', targetOptions, target),
-    },
-  };
-}
+const generateProps = ({ href = 'javascript:alert(1)', target = '_blank' } = {}) => ({
+  href,
+  target,
+});
 
-documentedStoriesOf('directives/safe-link-directive', readme)
-  .addParameters({ storyshots: false })
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    directives,
-    template: `
-      <a
-        :href="href"
-        :target="target"
-        v-safe-link
-      >
-          This is a secure link
-      </a>`,
-  }));
+export const Default = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  directives,
+  template: `
+    <a
+      :href="href"
+      :target="target"
+      v-safe-link
+    >
+      This is a secure link
+    </a>`,
+});
+Default.args = generateProps();
+
+export default {
+  title: 'directives/safe-link-directive',
+  component: SafeLink,
+  parameters: {
+    knobs: { disable: true },
+    storyshots: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+};
