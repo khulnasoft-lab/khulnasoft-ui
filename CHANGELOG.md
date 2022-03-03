@@ -1,3 +1,10 @@
+# [37.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.2.0...v37.3.0) (2022-03-03)
+
+
+### Features
+
+* **css:** Add gl-bg-purple-50 util class ([29acbbb](https://gitlab.com/gitlab-org/gitlab-ui/commit/29acbbbe7726f763b0e7ba86dc4de74db45a545e))
+
 # [37.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.1.0...v37.2.0) (2022-03-03)
 
 
