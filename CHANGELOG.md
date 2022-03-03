@@ -1,3 +1,10 @@
+# [37.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.1.0...v37.2.0) (2022-03-03)
+
+
+### Features
+
+* **GlPath:** allow changing selected index programmatically ([d711441](https://gitlab.com/gitlab-org/gitlab-ui/commit/d71144162363ae62ff4d1aeb3ee3dc956bd04108))
+
 # [37.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.0.0...v37.1.0) (2022-02-28)
 
 
