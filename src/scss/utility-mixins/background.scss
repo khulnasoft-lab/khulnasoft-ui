@@ -142,6 +142,10 @@
   background-color: $orange-700;
 }
 
+@mixin gl-bg-purple-50 {
+  background-color: $purple-50;
+}
+
 @mixin gl-bg-red-50 {
   background-color: $red-50;
 }
