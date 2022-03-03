@@ -107,6 +107,7 @@ export const setupStorybookReadme = () =>
         'GlPagination',
         'GlSkeletonLoader',
         'GlLabel',
+        'GlHoverLoadDirective',
         'GlStackedColumnChart',
         'GlDiscreteScatterChart',
         'GlFormCombobox',

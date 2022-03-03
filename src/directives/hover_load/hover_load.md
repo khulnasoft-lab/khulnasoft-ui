@@ -1,5 +1,3 @@
-# Hover Load
-
 A Vue Directive to help with preloading resources when hovering over an element.
 
 ## Usage
