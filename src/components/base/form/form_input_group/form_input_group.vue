@@ -16,11 +16,17 @@ export default {
   },
   mixins: [InputGroupMixin],
   props: {
+    /**
+     * Automatically selects the content of the input field on click.
+     */
     selectOnClick: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * Array of options. Each option should have `name` and `value` information: {name: "Foo", value: "Bar"})
+     */
     predefinedOptions: {
       type: Array,
       required: false,
@@ -61,6 +67,7 @@ export default {
   <div>
     <b-input-group>
       <b-input-group-prepend v-if="activeOption || $scopedSlots.prepend">
+        <!-- @slot Is rendered in front of the input field. -->
         <slot name="prepend"></slot>
         <gl-dropdown v-if="activeOption" :text="activeOption">
           <gl-dropdown-item
@@ -74,6 +81,7 @@ export default {
           </gl-dropdown-item>
         </gl-dropdown>
       </b-input-group-prepend>
+      <!-- @slot Allows replacement of default input field. -->
       <slot>
         <b-form-input
           ref="input"
@@ -86,6 +94,7 @@ export default {
         />
       </slot>
       <b-input-group-append v-if="$scopedSlots.append">
+        <!-- @slot Is rendered after the input field. -->
         <slot name="append"></slot>
       </b-input-group-append>
     </b-input-group>

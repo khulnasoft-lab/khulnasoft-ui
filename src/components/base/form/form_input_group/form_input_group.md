@@ -1,7 +1,3 @@
-# Form Group Input
-
-<!-- STORY -->
-
 The `GlFormInputGroup` component allows one to build more advanced text
 input fields than generic `GlFormInput` when one needs that flexibility.
 Basic usage of the component:

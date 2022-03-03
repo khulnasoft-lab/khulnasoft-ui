@@ -137,6 +137,7 @@ export const setupStorybookReadme = () =>
         'GlChartSeriesLabel',
         'GlAreaChart',
         'GlLineChart',
+        'GlFormInputGroup',
       ],
       components: {
         GlComponentDocumentation,
