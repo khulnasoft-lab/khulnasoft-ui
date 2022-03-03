@@ -1,8 +1,4 @@
-# Safe Link Directive
-
 A Vue directive to make the hyperlinks secure by default.
-
-<!-- STORY -->
 
 ## Security measures
 

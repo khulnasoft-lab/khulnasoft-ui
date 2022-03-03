@@ -77,6 +77,7 @@ export const setupStorybookReadme = () =>
         'GlSorting',
         'GlSortingItem',
         'GlIcon',
+        'GlSafeLinkDirective',
         'GlDashboardSkeleton',
         'GlToggle',
         'GlNavbar',
