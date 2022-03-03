@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import { mockPathItems } from './data';
 import GlPath from './path.vue';
@@ -142,6 +143,17 @@ describe('Path', () => {
     describe('with no selected item passed in', () => {
       it('selects the first item', () => {
         expect(pathItemAt(0).classList).toContain(SELECTED_CLASS_INDIGO);
+      });
+
+      it('updates the selected item when props change', async () => {
+        const items = JSON.parse(JSON.stringify(mockPathItems));
+        items[3].selected = true;
+
+        wrapper.setProps({ items });
+        await nextTick();
+
+        expect(pathItemAt(0).classList).not.toContain(SELECTED_CLASS_INDIGO);
+        expect(pathItemAt(3).classList).toContain(SELECTED_CLASS_INDIGO);
       });
     });
 
