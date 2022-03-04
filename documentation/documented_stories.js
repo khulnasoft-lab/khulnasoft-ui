@@ -93,6 +93,7 @@ export const setupStorybookReadme = () =>
         'GlIntersperse',
         'GlFormSelect',
         'GlDaterangePicker',
+        'GlFormGroup',
         'GlAvatarLabeled',
         'GlBarChart',
         'GlCarousel',
