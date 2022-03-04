@@ -110,6 +110,7 @@ export const setupStorybookReadme = () =>
         'GlLabel',
         'GlStackedColumnChart',
         'GlDiscreteScatterChart',
+        'GlResizeObserverDirective',
         'GlFormCombobox',
         'GlChartTooltip',
         'GlInputGroupText',
