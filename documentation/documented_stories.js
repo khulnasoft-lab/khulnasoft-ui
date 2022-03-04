@@ -130,6 +130,7 @@ export const setupStorybookReadme = () =>
         'GlColumnChart',
         'GlTruncate',
         'GlNav',
+        'GlSearchBoxByType',
         'GlNavItem',
         'GlNavItemDropdown',
         'GlPopover',
