@@ -4,11 +4,6 @@ import GlFormInput from '../form/form_input/form_input.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
-const model = {
-  prop: 'value',
-  event: 'input',
-};
-
 export default {
   components: {
     GlClearIconButton,
@@ -17,8 +12,14 @@ export default {
     GlLoadingIcon,
   },
   inheritAttrs: false,
-  model,
+  model: {
+    prop: 'value',
+    event: 'input',
+  },
   props: {
+    /**
+     * If provided, used as value of search input
+     */
     value: {
       type: String,
       required: false,
@@ -29,16 +30,25 @@ export default {
       required: false,
       default: 'Clear',
     },
+    /**
+     * If provided and true, disables the input and controls
+     */
     disabled: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * Puts search box into loading state, rendering spinner
+     */
     isLoading: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * Container for tooltip. Valid values: DOM node, selector string or `false` for default
+     */
     tooltipContainer: {
       required: false,
       default: false,
