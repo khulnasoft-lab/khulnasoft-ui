@@ -1,5 +1,3 @@
-import { text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import { GlHoverLoadDirective } from '../../index';
 import readme from './hover_load.md';
 
@@ -8,39 +6,46 @@ const directives = {
 };
 
 // eslint-disable-next-line no-script-url
-function generateProps({ endpoint = 'some/endpoint' } = {}) {
-  return {
-    endpoint: {
-      type: String,
-      default: text('endpoint', endpoint),
-    },
-  };
-}
+const generateProps = ({ endpoint = 'some/endpoint' } = {}) => ({
+  endpoint,
+});
 
-documentedStoriesOf('directives/hover-load-directive', readme)
-  .addParameters({ storyshots: false })
-  .add('default', () => ({
-    props: generateProps(),
-    directives,
-    data: () => ({
-      isPreloaded: false,
-    }),
-    methods: {
-      handlePreload() {
-        fetch(this.endpoint);
-        this.isPreloaded = true;
+export const Default = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  directives,
+  data: () => ({
+    isPreloaded: false,
+  }),
+  methods: {
+    handlePreload() {
+      fetch(this.endpoint);
+      this.isPreloaded = true;
+    },
+  },
+  template: `
+  <div>
+    <a
+      :href="endpoint"
+      v-gl-hover-load="handlePreload"
+    >
+        Hover me to preload
+    </a>
+    
+    <span>(Preloaded: {{isPreloaded}})</span>
+    </div>
+    `,
+});
+Default.args = generateProps();
+
+export default {
+  title: 'directives/hover-load-directive',
+  component: GlHoverLoadDirective,
+  parameters: {
+    storyshots: { disable: true },
+    docs: {
+      description: {
+        component: readme,
       },
     },
-    template: `
-    <div>
-      <a
-        :href="endpoint"
-        v-gl-hover-load="handlePreload"
-      >
-          Hover me to preload
-      </a>
-      
-      <span>(Preloaded: {{isPreloaded}})</span>
-      </div>
-      `,
-  }));
+  },
+};
