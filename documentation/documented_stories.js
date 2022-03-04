@@ -142,6 +142,7 @@ export const setupStorybookReadme = () =>
         'GlAreaChart',
         'GlLineChart',
         'GlFormInputGroup',
+        'GlSearchBoxByClick',
       ],
       components: {
         GlComponentDocumentation,
