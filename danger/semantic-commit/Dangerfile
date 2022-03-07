@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-URL_SEMANTIC_RELEASE = 'https://gitlab.com/gitlab-org/gitlab-ui/blob/main/CONTRIBUTING.md#conventional-commits'
+URL_SEMANTIC_RELEASE = 'https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/commits.md'
 SEMANTIC_COMMIT_TYPES = %w[build chore ci docs feat fix perf refactor revert style test].freeze
 
 NO_RELEASE = 1
