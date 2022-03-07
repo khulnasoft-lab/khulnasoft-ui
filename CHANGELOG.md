@@ -1,3 +1,11 @@
+# [37.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.3.0...v37.4.0) (2022-03-07)
+
+
+### Features
+
+* **GlButton:** Update selected state background ([b9e3116](https://gitlab.com/gitlab-org/gitlab-ui/commit/b9e31166ee8a43c2ea09c2f4a9cafd9e71e222d8))
+* **GlButton:** Update selected state design ([a5ebf70](https://gitlab.com/gitlab-org/gitlab-ui/commit/a5ebf701e38fd32ff965af33c30319e4c7f2edc5))
+
 # [37.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.2.0...v37.3.0) (2022-03-03)
 
 
