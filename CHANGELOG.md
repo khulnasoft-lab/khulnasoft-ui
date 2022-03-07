@@ -1,3 +1,10 @@
+## [37.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.4.0...v37.4.1) (2022-03-07)
+
+
+### Bug Fixes
+
+* **danger:** fix conventional commits url ([7ec70ef](https://gitlab.com/gitlab-org/gitlab-ui/commit/7ec70efae259272d2bd19654eaab64a33ab98fad))
+
 # [37.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.3.0...v37.4.0) (2022-03-07)
 
 
