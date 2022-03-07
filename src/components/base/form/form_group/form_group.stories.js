@@ -1,164 +1,125 @@
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { GlFormGroup, GlFormInput, GlFormTextarea } from '../../../../index';
-import { sizeOptions } from '../../../../utils/constants';
+import { disableControls } from '../../../../utils/stories_utils';
 import readme from './form_group.md';
 
 const components = {
   GlFormGroup,
 };
 
-function generateProps({
+const generateProps = ({
   id = 'group-1',
   label = 'Label Name',
   description = 'form group description',
-  labelDescription = 'form label description',
+  labelDescription = '',
   optional = GlFormGroup.props.optional.default,
   optionalText = GlFormGroup.props.optionalText.default,
-  horizontal = false,
-} = {}) {
-  return {
-    id: {
-      type: String,
-      default: text('id', id),
+} = {}) => ({
+  id,
+  label,
+  labelDescription,
+  optional,
+  optionalText,
+  description,
+});
+
+const wrap = (template, bindings = '') => `
+  <gl-form-group
+    :id="id +  '_group'"
+    :label="label"
+    :label-description="labelDescription"
+    :optional="optional"
+    :optional-text="optionalText"
+    :description="description"
+    ${bindings}
+    :label-for="id">
+    ${template}
+  </gl-form-group>
+`;
+
+export const Default = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ...components, GlFormInput },
+  template: wrap('<gl-form-input :id="id" />'),
+});
+Default.args = generateProps();
+
+export const Disabled = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ...components, GlFormInput },
+  template: wrap('<gl-form-input :id="id"  type="text" value="Disabled" disabled />'),
+});
+Disabled.args = generateProps({ description: 'This feature is disabled' });
+
+export const WithTextarea = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ...components, GlFormTextarea },
+  template: wrap('<gl-form-textarea :id="id" placeholder="Enter something" />'),
+});
+WithTextarea.args = generateProps({
+  id: 'textarea2',
+  optional: true,
+  description: '',
+});
+
+export const WithLabelDescription = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ...components, GlFormInput },
+  template: wrap('<gl-form-input :id="id" />'),
+});
+WithLabelDescription.args = generateProps({
+  optional: true,
+  labelDescription: 'form label description',
+});
+
+export const WithValidations = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ...components, GlFormInput },
+  computed: {
+    state() {
+      return this.name.length >= 4;
     },
+    invalidFeedback() {
+      let feedbackText = 'This field is required.';
+
+      if (this.name.length > 4) {
+        feedbackText = '';
+      } else if (this.name.length > 0) {
+        feedbackText = 'Enter at least 4 characters.';
+      }
+
+      return feedbackText;
+    },
+  },
+  data() {
+    return {
+      name: '',
+    };
+  },
+  template: wrap(
+    '<gl-form-input :id="id" :state="state" v-model.trim="name" />',
+    ':invalid-feedback="invalidFeedback"'
+  ),
+});
+WithValidations.args = generateProps({
+  label: 'Name',
+  description: 'Enter a first and last name.',
+});
+
+export default {
+  title: 'base/form/form-group',
+  component: GlFormGroup,
+  parameters: {
+    bootstrapComponent: 'b-form-group',
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    ...disableControls(['labelClass']),
     label: {
-      type: String,
-      default: text('label', label),
+      control: { type: 'text' },
     },
-    labelSize: {
-      type: String,
-      default: select('label-size', sizeOptions, sizeOptions.sm),
-    },
-    description: {
-      type: String,
-      default: text('description', description),
-    },
-    labelDescription: {
-      type: String,
-      default: text('label-description', labelDescription),
-    },
-    optional: {
-      type: Boolean,
-      default: boolean('optional', optional),
-    },
-    optionalText: {
-      type: String,
-      default: text('optional-text', optionalText),
-    },
-    horizontal: {
-      type: Boolean,
-      default: boolean('horizontal', horizontal),
-    },
-  };
-}
-
-documentedStoriesOf('base/form/form-group', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components: { ...components, GlFormInput },
-    template: `
-      <gl-form-group
-        :id="id"
-        :label="label"
-        :label-size="labelSize"
-        :optional="optional"
-        :optional-text="optionalText"
-        :description="description"
-        :horizontal="horizontal"
-        label-for="label1"
-      >
-        <gl-form-input id="input1" />
-      </gl-form-group>
-    `,
-  }))
-  .add('disabled', () => ({
-    props: generateProps(),
-    components: { ...components, GlFormInput },
-    template: `
-      <gl-form-group
-        id="group-id"
-        label="Label Name"
-        label-size="sm"
-        :optional="optional"
-        :optional-text="optionalText"
-        description="This feature is disabled"
-        label-for="input1"
-      >
-        <gl-form-input id="input1"  type="text" :disabled="true" value="Disabled" />
-      </gl-form-group>
-    `,
-  }))
-  .add('with textarea', () => ({
-    components: { ...components, GlFormTextarea },
-    props: generateProps({ optional: true }),
-    template: `
-      <gl-form-group
-        id="group-id-textarea2"
-        label="Label Name"
-        label-for="textarea2"
-        :optional="optional"
-        :optional-text="optionalText"
-      >
-        <gl-form-textarea id="textarea2" placeholder="Enter something" />
-      </gl-form-group>
-    `,
-  }))
-  .add('with label description', () => ({
-    props: generateProps({ optional: true }),
-    components: { ...components, GlFormInput },
-    template: `
-      <gl-form-group
-        :id="id"
-        :label="label"
-        :label-size="labelSize"
-        :description="description"
-        :label-description="labelDescription"
-        :optional="optional"
-        :optional-text="optionalText"
-        :horizontal="horizontal"
-        label-for="label1"
-      >
-        <gl-form-input id="input1" />
-      </gl-form-group>
-    `,
-  }))
-  .add('with validations', () => ({
-    props: generateProps({ label: 'Name', description: 'Enter a first and last name.' }),
-    components: { ...components, GlFormInput },
-    computed: {
-      state() {
-        return this.name.length >= 4;
-      },
-      invalidFeedback() {
-        let feedbackText = 'This field is required.';
-
-        if (this.name.length > 4) {
-          feedbackText = '';
-        } else if (this.name.length > 0) {
-          feedbackText = 'Enter at least 4 characters.';
-        }
-
-        return feedbackText;
-      },
-    },
-    data() {
-      return {
-        name: '',
-      };
-    },
-    template: `
-      <gl-form-group
-        :id="id"
-        :label="label"
-        :label-size="labelSize"
-        :description="description"
-        :invalid-feedback="invalidFeedback"
-        :state="state"
-        label-for="label1"
-      >
-        <gl-form-input id="input1" :state="state" v-model.trim="name" />
-      </gl-form-group>
-    `,
-  }));
+  },
+};
