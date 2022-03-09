@@ -11,8 +11,12 @@ import vue from 'rollup-plugin-vue';
 /**
  * Returns true if an import is not considered for inlining into the current file.
  */
-const isExternalModule = (moduleId) => {
+const isExternalModule = (moduleId, parentId) => {
   if (
+    /**
+     * If parentId isn't defined, this module is an entry point and should not be treated as external
+     */
+    !parentId ||
     /*
     SCSS files are considered to be included, because they will be extracted
     later with the help of rollup-plugin-postcss
