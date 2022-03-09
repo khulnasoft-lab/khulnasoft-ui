@@ -254,6 +254,56 @@ describe('Filtered search token segment', () => {
     });
   });
 
+  const currentValueNoTokens = [{ type: 'filtered-search-term', value: { data: '' } }];
+  const currentValueOneToken = [
+    { type: 'filtered-search-term', value: { data: 'one' } },
+    { type: 'filtered-search-term', value: { data: '' } },
+  ];
+
+  describe.each`
+    active   | isLastToken | currentValue
+    ${true}  | ${true}     | ${currentValueNoTokens}
+    ${true}  | ${false}    | ${currentValueNoTokens}
+    ${false} | ${true}     | ${currentValueNoTokens}
+    ${true}  | ${true}     | ${currentValueOneToken}
+    ${true}  | ${false}    | ${currentValueOneToken}
+  `(
+    'when `active` is `$active`, `isLastToken` is `$isLastToken` and `currentValue` is `$currentValue`',
+    ({ active, isLastToken, currentValue }) => {
+      beforeEach(() => {
+        createComponent({
+          value: 'something',
+          active,
+          isLastToken,
+          currentValue,
+          searchInputAttributes,
+        });
+      });
+
+      it('does not add `searchInputAttributes` prop to search token segment', () => {
+        expect(wrapper.attributes('data-qa-selector')).toBe(undefined);
+      });
+    }
+  );
+
+  describe('when `active` is `false`, `isLastToken` is `true` and there is one or more tokens', () => {
+    beforeEach(() => {
+      createComponent({
+        value: 'something',
+        active: false,
+        isLastToken: true,
+        currentValue: currentValueOneToken,
+        searchInputAttributes,
+      });
+    });
+
+    it('adds `searchInputAttributes` prop to search token segment', () => {
+      expect(wrapper.attributes('data-qa-selector')).toBe(
+        searchInputAttributes['data-qa-selector']
+      );
+    });
+  });
+
   describe('when input is active', () => {
     it('adds `searchInputAttributes` prop to search token segment input', () => {
       createComponent({ active: true, value: 'something', searchInputAttributes });
@@ -261,47 +311,6 @@ describe('Filtered search token segment', () => {
       expect(wrapper.find('input').attributes('data-qa-selector')).toBe(
         searchInputAttributes['data-qa-selector']
       );
-    });
-
-    it('does not add `searchInputAttributes` prop to search token segment', () => {
-      createComponent({
-        active: true,
-        value: 'something',
-        searchInputAttributes,
-        isLastToken: true,
-      });
-
-      expect(wrapper.attributes('data-qa-selector')).toBe(undefined);
-    });
-  });
-
-  describe('when input is not active', () => {
-    describe('when `isLastToken` prop is `true`', () => {
-      it('adds `searchInputAttributes` prop to search token segment', () => {
-        createComponent({
-          active: false,
-          value: 'something',
-          searchInputAttributes,
-          isLastToken: true,
-        });
-
-        expect(wrapper.attributes('data-qa-selector')).toBe(
-          searchInputAttributes['data-qa-selector']
-        );
-      });
-    });
-
-    describe('when `isLastToken` prop is `false`', () => {
-      it('does not add `searchInputAttributes` prop to search token segment', () => {
-        createComponent({
-          active: false,
-          value: 'something',
-          searchInputAttributes,
-          isLastToken: false,
-        });
-
-        expect(wrapper.attributes('data-qa-selector')).toBe(undefined);
-      });
     });
   });
 });

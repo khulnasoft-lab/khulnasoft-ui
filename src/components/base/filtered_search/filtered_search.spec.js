@@ -378,6 +378,18 @@ describe('Filtered search', () => {
     expect(filteredSearchTerms.at(0).props('isLastToken')).toBe(false);
     expect(filteredSearchTerms.at(1).props('isLastToken')).toBe(true);
   });
+
+  it('passes `currentValue` prop to search terms', async () => {
+    createComponent({
+      value: ['one'],
+    });
+    await nextTick();
+
+    expect(wrapper.findComponent(GlFilteredSearchTerm).props('currentValue')).toEqual([
+      { type: 'filtered-search-term', value: { data: 'one' } },
+      { type: 'filtered-search-term', value: { data: '' } },
+    ]);
+  });
 });
 
 describe('Filtered search integration tests', () => {

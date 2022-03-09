@@ -21,7 +21,7 @@ describe('Filtered search term', () => {
   const segmentStub = {
     name: 'gl-filtered-search-token-segment-stub',
     template: '<div><slot name="view"></slot><slot name="suggestions"></slot></div>',
-    props: ['searchInputAttributes', 'isLastToken'],
+    props: ['searchInputAttributes', 'isLastToken', 'currentValue'],
   };
 
   const createComponent = (props) => {
@@ -79,18 +79,24 @@ describe('Filtered search term', () => {
     }
   );
 
-  it('passes `searchInputAttributes` and `isLastToken` prop to `GlFilteredSearchTokenSegment`', () => {
+  it('passes `searchInputAttributes`, `isLastToken`, and `currentValue` props to `GlFilteredSearchTokenSegment`', () => {
     const isLastToken = true;
+    const currentValue = [
+      { type: 'filtered-search-term', value: { data: 'something' } },
+      { type: 'filtered-search-term', value: { data: '' } },
+    ];
 
     createComponent({
       value: { data: 'something' },
       searchInputAttributes,
       isLastToken,
+      currentValue,
     });
 
     expect(findTokenSegmentComponent().props()).toEqual({
       searchInputAttributes,
       isLastToken,
+      currentValue,
     });
   });
 

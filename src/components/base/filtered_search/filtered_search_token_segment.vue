@@ -59,6 +59,11 @@ export default {
       required: false,
       default: false,
     },
+    currentValue: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
 
   data() {
@@ -105,6 +110,14 @@ export default {
 
       const defaultSuggestion = this.options.find((op) => op.default);
       return (defaultSuggestion ?? this.options[0])?.value;
+    },
+    containerAttributes() {
+      return (
+        this.isLastToken &&
+        !this.active &&
+        this.currentValue.length > 1 &&
+        this.searchInputAttributes
+      );
     },
   },
 
@@ -254,7 +267,7 @@ export default {
 
 <template>
   <div
-    v-bind="isLastToken && !active && searchInputAttributes"
+    v-bind="containerAttributes"
     class="gl-filtered-search-token-segment"
     :class="{ 'gl-filtered-search-token-segment-active': active }"
     data-testid="filtered-search-token-segment"

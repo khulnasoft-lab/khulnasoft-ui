@@ -38,6 +38,11 @@ export default {
       required: false,
       default: false,
     },
+    currentValue: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   computed: {
     suggestedTokens() {
@@ -66,6 +71,7 @@ export default {
       :class="{ 'gl-w-full': placeholder }"
       :search-input-attributes="searchInputAttributes"
       :is-last-token="isLastToken"
+      :current-value="currentValue"
       @activate="$emit('activate')"
       @deactivate="$emit('deactivate')"
       @complete="$emit('replace', { type: $event })"
