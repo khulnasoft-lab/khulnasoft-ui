@@ -336,6 +336,7 @@ describe('new dropdown', () => {
       const slots = { 'button-text': mockComponent };
       buildWrapper({ loading: true, icon: 'close' }, slots);
       expect(wrapper.findComponent(mockComponent).exists()).toBe(true);
+      expect(wrapper.text()).toBe('mock');
       expect(findLoadingIcon().exists()).toBe(true);
       expect(findIcon().exists()).toBe(true);
       expect(findCaret().exists()).toBe(true);
@@ -345,9 +346,37 @@ describe('new dropdown', () => {
       const slots = { 'button-content': mockComponent };
       buildWrapper({ loading: true, icon: 'close' }, slots);
       expect(wrapper.findComponent(mockComponent).exists()).toBe(true);
+      expect(wrapper.text()).toBe('mock');
       expect(findLoadingIcon().exists()).toBe(false);
       expect(findIcon().exists()).toBe(false);
       expect(findCaret().exists()).toBe(false);
+    });
+  });
+
+  describe('icon only dropdown', () => {
+    it('shows the icon and dropdown caret', () => {
+      buildWrapper({ icon: 'paper-airplane' });
+      expect(wrapper.text()).toBe('');
+      expect(findLoadingIcon().exists()).toBe(false);
+      expect(findIcon().exists()).toBe(true);
+      expect(findCaret().exists()).toBe(true);
+    });
+
+    it('shows text for screen readers', () => {
+      buildWrapper({ icon: 'paper-airplane', text: 'screenreader button text', textSrOnly: true });
+      expect(wrapper.text()).toBe('screenreader button text');
+      expect(wrapper.find('span').classes()).toContain('gl-sr-only');
+      expect(findLoadingIcon().exists()).toBe(false);
+      expect(findIcon().exists()).toBe(true);
+      expect(findCaret().exists()).toBe(true);
+    });
+
+    it('shows loading spinner instead of icon when loading', () => {
+      buildWrapper({ icon: 'paper-airplane', loading: true });
+      expect(wrapper.text()).toBe('');
+      expect(findLoadingIcon().exists()).toBe(true);
+      expect(findIcon().exists()).toBe(false);
+      expect(findCaret().exists()).toBe(true);
     });
   });
 
