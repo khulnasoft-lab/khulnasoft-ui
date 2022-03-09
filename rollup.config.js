@@ -105,7 +105,7 @@ export default glob
       plugins: [
         replace({
           preventAssignment: true,
-          delimiters: ['/* ', ' */'],
+          delimiters: ['/\\* ', ' \\*/'],
           include: 'src/index.js',
           values: {
             'auto-inject-styles': "import './scss/gitlab_ui.scss';",
@@ -113,7 +113,7 @@ export default glob
         }),
         replace({
           preventAssignment: true,
-          delimiters: ['/* ', ' */'],
+          delimiters: ['/\\* ', ' \\*/'],
           include: 'src/scss/utilities.scss',
           values: {
             'auto-inject-scss-lib': `
