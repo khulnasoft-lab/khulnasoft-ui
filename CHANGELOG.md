@@ -1,3 +1,10 @@
+## [37.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.4.1...v37.4.2) (2022-03-09)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** fix duplicate input attributes ([ea498b9](https://gitlab.com/gitlab-org/gitlab-ui/commit/ea498b9d114c86804d2885b645770ce53d178f4d))
+
 ## [37.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.4.0...v37.4.1) (2022-03-07)
 
 
