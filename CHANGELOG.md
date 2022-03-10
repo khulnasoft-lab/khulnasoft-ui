@@ -1,3 +1,15 @@
+# [37.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.4.2...v37.5.0) (2022-03-10)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Wrap text in dropdown section header ([1408742](https://gitlab.com/gitlab-org/gitlab-ui/commit/140874226a351da03522b7b45ef4428443162a79))
+
+
+### Features
+
+* **GlAccordionItem:** Add titleVisible property ([f8626aa](https://gitlab.com/gitlab-org/gitlab-ui/commit/f8626aa2a343d4159efddf6aacbdbaad6593eb27))
+
 ## [37.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.4.1...v37.4.2) (2022-03-09)
 
 
