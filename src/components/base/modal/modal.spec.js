@@ -107,14 +107,14 @@ describe('Modal component', () => {
     const props = {
       actionPrimary: {
         text: 'Primary',
-        attributes: [{ variant: 'info' }],
+        attributes: { variant: 'info' },
       },
       actionSecondary: {
         text: 'Secondary',
       },
       actionCancel: {
         text: 'Cancel',
-        attributes: [{ variant: 'danger' }],
+        attributes: { variant: 'danger' },
       },
     };
 
