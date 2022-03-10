@@ -1,3 +1,10 @@
+## [37.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.5.0...v37.5.1) (2022-03-10)
+
+
+### Bug Fixes
+
+* **GlDropdown:** spinner replaces icon when icon dropdown is loading ([027a8a7](https://gitlab.com/gitlab-org/gitlab-ui/commit/027a8a7011c336b7c2562e4e839d4d8b4f7a4fe9))
+
 # [37.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.4.2...v37.5.0) (2022-03-10)
 
 
