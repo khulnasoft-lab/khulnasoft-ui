@@ -10,16 +10,25 @@ export default {
     GlResizeObserver: GlResizeObserverDirective,
   },
   props: {
+    /**
+     * Text to be ellipsized
+     */
     text: {
       type: String,
       required: true,
     },
+    /**
+     * Ellipsis position
+     */
     position: {
       type: String,
       required: false,
       default: POSITION.END,
       validator: (value) => Object.values(POSITION).includes(value),
     },
+    /**
+     * Display the full text in a tooltip only if it is being truncated
+     */
     withTooltip: {
       type: Boolean,
       required: false,

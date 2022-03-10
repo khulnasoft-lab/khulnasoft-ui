@@ -1,5 +1,4 @@
-import { GlChart, GlChartLegend } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlChart, GlChartLegend } from '../../../charts';
 import { LEGEND_LAYOUT_TABLE } from '../../../utils/charts/constants';
 import { generateSeriesData } from '../../../utils/charts/story_config';
 import {
@@ -7,7 +6,6 @@ import {
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
 } from '../../../utils/stories_utils';
-import readme from './legend.md';
 
 const generateOptions = (seriesLength, seriesNameType) => {
   return {
@@ -89,16 +87,25 @@ const getStoryOptions = (seriesLength, seriesNameType, legendLayoutType) => {
   };
 };
 
-documentedStoriesOf('charts/chart-legend', readme)
-  .add('default', () => getStoryOptions(10, SERIES_NAME_SHORT))
-  .add('default with long series names', () => getStoryOptions(10, SERIES_NAME_LONG))
-  .add('default with long series names and no spaces', () =>
-    getStoryOptions(10, SERIES_NAME_LONG_WITHOUT_SPACES)
-  )
-  .add('with tabular layout', () => getStoryOptions(10, SERIES_NAME_SHORT, LEGEND_LAYOUT_TABLE))
-  .add('with tabular layout and long series names', () =>
-    getStoryOptions(10, SERIES_NAME_LONG, LEGEND_LAYOUT_TABLE)
-  )
-  .add('with tabular layout and long series names with no spaces', () =>
-    getStoryOptions(10, SERIES_NAME_LONG_WITHOUT_SPACES, LEGEND_LAYOUT_TABLE)
-  );
+export const Default = () => getStoryOptions(10, SERIES_NAME_SHORT);
+
+export const DefaultWithLongSeriesNames = () => getStoryOptions(10, SERIES_NAME_LONG);
+
+export const DefaultWithLongSeriesNamesAndNoSpaces = () =>
+  getStoryOptions(10, SERIES_NAME_LONG_WITHOUT_SPACES);
+
+export const WithTabularLayout = () => getStoryOptions(10, SERIES_NAME_SHORT, LEGEND_LAYOUT_TABLE);
+export const WithTabularLayoutAndLongSeriesNames = () =>
+  getStoryOptions(10, SERIES_NAME_LONG, LEGEND_LAYOUT_TABLE);
+
+export const WithTabularLayoutAndLongSeriesNamesWithNoSpaces = () =>
+  getStoryOptions(10, SERIES_NAME_LONG_WITHOUT_SPACES, LEGEND_LAYOUT_TABLE);
+
+export default {
+  title: 'charts/chart-legend',
+  component: GlChartLegend,
+  parameters: {
+    controls: { disable: true },
+    knobs: { disable: true },
+  },
+};

@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { BModal } from 'bootstrap-vue';
 import { merge } from 'lodash';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
@@ -6,23 +6,20 @@ import Button from '../button/button.vue';
 import Modal from './modal.vue';
 import { modalButtonDefaults } from '~/utils/constants';
 
-const localVue = createLocalVue();
-const BModalStub = localVue.extend(
-  merge({}, BModal.options, {
-    methods: {
-      onCancel: jest.fn(function cancel() {
-        this.$emit('cancel');
-      }),
-      onClose: jest.fn(),
-      onOk: jest.fn(function ok() {
-        this.$emit('ok');
-      }),
-    },
-    render(h) {
-      return h('div', Object.values(this.$slots));
-    },
-  })
-);
+const BModalStub = merge({}, BModal.options, {
+  methods: {
+    onCancel: jest.fn(function cancel() {
+      this.$emit('cancel');
+    }),
+    onClose: jest.fn(),
+    onOk: jest.fn(function ok() {
+      this.$emit('ok');
+    }),
+  },
+  render(h) {
+    return h('div', Object.values(this.$slots));
+  },
+});
 
 describe('Modal component', () => {
   let wrapperListeners;
@@ -45,7 +42,6 @@ describe('Modal component', () => {
     };
 
     wrapper = shallowMount(Modal, {
-      localVue,
       propsData: {
         modalId: 'modal-id',
         ...props,
@@ -59,7 +55,6 @@ describe('Modal component', () => {
   };
 
   afterEach(() => {
-    wrapper.destroy();
     jest.clearAllMocks();
   });
 
@@ -159,7 +154,7 @@ describe('Modal component', () => {
       });
 
       it('should emit canceled event', () => {
-        expect(BModalStub.options.methods.onCancel).toHaveBeenCalledTimes(1);
+        expect(BModalStub.methods.onCancel).toHaveBeenCalledTimes(1);
         expect(wrapperListeners.canceled).toHaveBeenCalledTimes(1);
       });
     });
@@ -170,7 +165,7 @@ describe('Modal component', () => {
       });
 
       it('should emit primary event', () => {
-        expect(BModalStub.options.methods.onOk).toHaveBeenCalledTimes(1);
+        expect(BModalStub.methods.onOk).toHaveBeenCalledTimes(1);
         expect(wrapperListeners.primary).toHaveBeenCalledTimes(1);
       });
     });
@@ -185,7 +180,7 @@ describe('Modal component', () => {
       });
 
       it('should close modal', () => {
-        expect(BModalStub.options.methods.onClose).toHaveBeenCalledTimes(1);
+        expect(BModalStub.methods.onClose).toHaveBeenCalledTimes(1);
       });
     });
 
@@ -199,7 +194,7 @@ describe('Modal component', () => {
       });
 
       it('should close modal', () => {
-        expect(BModalStub.options.methods.onClose).not.toHaveBeenCalled();
+        expect(BModalStub.methods.onClose).not.toHaveBeenCalled();
       });
     });
   });

@@ -40,18 +40,16 @@ describe('GlTokenContainer', () => {
   };
 
   const findTokenByName = (name) => {
-    const tokenWrappers = wrapper.findAllComponents({ ref: 'tokens' });
+    const tokenWrappers = wrapper.findAll('[role=option]');
 
     return tokenWrappers.wrappers.find((tokenWrapper) => tokenWrapper.text() === name);
   };
 
-  const findTokenContainer = () => wrapper.find({ ref: 'tokenContainer' });
+  const findTokenContainer = () => wrapper.findComponent({ ref: 'tokenContainer' });
 
   const blurActiveElement = () => document.activeElement?.blur?.();
 
   afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
     blurActiveElement();
   });
 
@@ -175,7 +173,6 @@ describe('GlTokenContainer', () => {
     describe('when escape key is pressed', () => {
       it('fires `cancel-focus` event', async () => {
         await setup(0, keyboard.escape);
-
         expect(wrapper.emitted('cancel-focus')).toBeTruthy();
       });
     });

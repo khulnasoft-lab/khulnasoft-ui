@@ -16,10 +16,6 @@ describe('Clear Icon Button', () => {
     createComponent();
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('renders successfully', () => {
     expect(wrapper.element).toMatchSnapshot();
   });

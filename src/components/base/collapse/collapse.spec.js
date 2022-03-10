@@ -17,10 +17,6 @@ describe('Collapse component', () => {
       });
     });
 
-    afterEach(() => {
-      wrapper.destroy();
-    });
-
     it('renders a BCollapse', () => {
       expect(wrapper.findComponent(BCollapse).exists()).toBe(true);
     });

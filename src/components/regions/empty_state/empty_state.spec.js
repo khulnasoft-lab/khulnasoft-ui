@@ -148,6 +148,55 @@ describe('empty state component', () => {
     });
   });
 
+  describe('with different titles', () => {
+    it('should render title from prop', () => {
+      component = shallowMount(EmptyState, {
+        propsData: {
+          ...props,
+        },
+      });
+
+      const title = component.find('h1');
+      expect(title.text()).toBe(props.title);
+    });
+
+    it('should render title from slot', () => {
+      const slotTitle = 'Slotted title';
+
+      component = shallowMount(EmptyState, {
+        propsData: {
+          ...props,
+          title: null,
+        },
+        slots: {
+          title: `<strong id="slotted">${slotTitle}</strong>`,
+        },
+      });
+
+      const title = component.find('#slotted');
+      expect(title.text()).toBe(slotTitle);
+    });
+
+    it('should render a slotted title over a props title', () => {
+      const slotTitle = 'Slotted title';
+
+      component = shallowMount(EmptyState, {
+        propsData: {
+          ...props,
+        },
+        slots: {
+          title: `<strong id="slotted">${slotTitle}</strong>`,
+        },
+      });
+
+      const title = component.find('#slotted');
+      const propTitle = component.find('h1');
+
+      expect(title.text()).toBe(slotTitle);
+      expect(propTitle.exists()).toBe(false);
+    });
+  });
+
   describe('with different descriptions', () => {
     it('should render description from prop', () => {
       component = shallowMount(EmptyState, {

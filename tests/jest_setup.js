@@ -1,20 +1,26 @@
+const Vue = require('vue');
+const { config: vtuConfig, enableAutoDestroy } = require('@vue/test-utils');
 const { matcherHint, printReceived, printExpected } = require('jest-matcher-utils');
-const get = require('lodash/get');
-const isString = require('lodash/isString');
-const setConfigs = require('../config').default;
+const setConfigs = require('../src/config').default;
 const { useMockResizeObserver } = require('./__helpers__/mock_dom_observer');
 
 setConfigs();
+enableAutoDestroy(afterEach);
 
+vtuConfig.deprecationWarningHandler = (method, message) => {
+  throw new Error(`[vue-test-utils] ${method}: ${message}`);
+};
+
+const vueErrorHandler = jest.fn();
 expect.extend({
-  toHaveLoggedVueErrors(consoleSpy) {
-    const calls = get(consoleSpy, 'error.mock.calls', []);
-    const loggedVueErrors = calls.some(([call]) => isString(call) && call.startsWith('[Vue warn]'));
+  toHaveLoggedVueErrors() {
+    const { calls } = vueErrorHandler.mock;
+    vueErrorHandler.mockClear();
     return {
-      pass: loggedVueErrors,
+      pass: calls.length > 0,
       message: () =>
-        loggedVueErrors
-          ? 'Vue errors were logged to the console'
+        calls.length > 0
+          ? `Vue errors were logged to the console: ${calls.map((c) => c[0]).join('\n')}`
           : 'No Vue errors were logged to the console',
     };
   },
@@ -42,11 +48,8 @@ expect.extend({
 if (!process.env.IS_VISUAL_TEST) {
   useMockResizeObserver();
 
-  beforeEach(() => {
-    if (jest.isMockFunction(global.console.error)) {
-      global.console.error.mockReset();
-    }
-    jest.spyOn(global.console, 'error');
+  beforeAll(() => {
+    Vue.config.warnHandler = vueErrorHandler;
   });
 
   afterEach(() => {

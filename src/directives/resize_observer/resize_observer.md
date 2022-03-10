@@ -1,9 +1,3 @@
-# Resize Observer
-
-<!-- STORY -->
-
-## Usage
-
 This directive can be used to get notified whenever a given element's size (width or height) changes
 and to retrieve the updated dimensions.
 

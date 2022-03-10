@@ -3,7 +3,7 @@ describe('GlAccordion', () => {
     cy.visitStory('accordion');
   });
 
-  const accordionContentId = '[data-testid="accordion-item-collapse-accordion-item-2"]';
+  const accordionContentId = '[data-testid^="accordion-item-collapse-accordion-item-"]';
 
   it('clicking on collapsed chevron icon expands accordion item then collapses when clicked again', () => {
     cy.get(accordionContentId).should('not.be.visible');

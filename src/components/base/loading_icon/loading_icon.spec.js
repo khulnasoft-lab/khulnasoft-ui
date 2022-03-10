@@ -3,17 +3,13 @@ import LoadingIcon from './loading_icon.vue';
 
 describe('loading icon component', () => {
   let wrapper;
-  const createComponent = (propsData) => {
-    wrapper = shallowMount(LoadingIcon, { propsData });
+  const createComponent = ({ attrs, ...propsData } = {}) => {
+    wrapper = shallowMount(LoadingIcon, { propsData, attrs });
   };
 
   const baseCssClass = 'gl-spinner';
   const findSpinnerEl = () => wrapper.find(`.${baseCssClass}`);
   const getSpinnerClasses = () => findSpinnerEl().classes();
-
-  afterEach(() => {
-    wrapper.destroy();
-  });
 
   describe('display', () => {
     it('should render as a block by default', () => {
@@ -85,6 +81,21 @@ describe('loading icon component', () => {
       const spinnerEl = findSpinnerEl();
 
       expect(spinnerEl.attributes('aria-label')).toBe(label);
+    });
+  });
+
+  describe('role', () => {
+    it('should have default role value as status', () => {
+      createComponent();
+
+      expect(wrapper.attributes('role')).toBe('status');
+    });
+
+    it('should have role value as custom value passed', () => {
+      const role = 'dialog';
+      createComponent({ attrs: { role } });
+
+      expect(wrapper.attributes('role')).toBe(role);
     });
   });
 });

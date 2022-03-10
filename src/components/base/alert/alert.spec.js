@@ -26,10 +26,6 @@ describe('Alert component', () => {
   const findActionsContainer = () => wrapper.find('.gl-alert-actions');
   const findActionButtons = () => wrapper.findAll('.gl-alert-action');
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('by default', () => {
     beforeEach(() => {
       createComponent({ slots: { default: DummyComponent } });
@@ -54,7 +50,7 @@ describe('Alert component', () => {
     });
 
     it('renders default slot content', () => {
-      expect(findBodyContainer().find(DummyComponent).exists()).toBe(true);
+      expect(findBodyContainer().findComponent(DummyComponent).exists()).toBe(true);
     });
   });
 
@@ -152,13 +148,12 @@ describe('Alert component', () => {
 
     const actionsContainer = findActionsContainer();
     expect(actionsContainer.exists()).toBe(true);
-    expect(actionsContainer.find(DummyComponent).exists()).toBe(true);
+    expect(actionsContainer.findComponent(DummyComponent).exists()).toBe(true);
   });
 
   describe('top-level classes', () => {
     describe.each`
       prop             | cssClass                      | presentIf
-      ${'contained'}   | ${'gl-alert-max-content'}     | ${true}
       ${'sticky'}      | ${'gl-alert-sticky'}          | ${true}
       ${'dismissible'} | ${'gl-alert-not-dismissible'} | ${false}
     `('$cssClass', ({ prop, cssClass, presentIf }) => {

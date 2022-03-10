@@ -1,6 +1,7 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlIcon } from '../../../../index';
+import { GlIcon } from '../../../index';
 import { iconSizeOptions } from '../../../utils/constants';
+import { disableControls } from '../../../utils/stories_utils';
 import readme from './icon.md';
 
 const components = {
@@ -41,6 +42,7 @@ export default {
     storyshots: { disable: true },
   },
   argTypes: {
+    ...disableControls(['useDeprecatedSizes']),
     name: {
       control: {
         type: 'select',
@@ -51,11 +53,6 @@ export default {
       control: {
         type: 'select',
         options: iconSizeOptions,
-      },
-    },
-    useDeprecatedSizes: {
-      control: {
-        disable: true,
       },
     },
   },

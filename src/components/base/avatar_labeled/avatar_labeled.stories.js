@@ -1,62 +1,36 @@
-import { text, withKnobs, select } from '@storybook/addon-knobs';
 import Vue from 'vue';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlAvatarLabeled, GlBadge } from '../../../index';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './avatar_labeled.md';
 
 Vue.directive('gl-tooltip', GlTooltipDirective);
 
-function generateProps() {
-  const props = {
-    label: {
-      type: String,
-      default: text('label', 'GitLab User'),
-    },
-    subLabel: {
-      type: String,
-      default: text('subLabel', '@gitlab'),
-    },
-    size: {
-      type: Number,
-      default: select('size', avatarSizeOptions, 32),
-    },
-    shape: {
-      type: String,
-      default: select('shape', avatarShapeOptions, 'circle'),
-    },
-    src: {
-      type: String,
-      default: text(
-        'src',
-        'https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=64'
-      ),
-    },
-  };
+const components = { GlAvatarLabeled };
 
-  return props;
-}
+const generateProps = ({
+  label = 'GitLab User',
+  subLabel = '@gitlab',
+  size = 32,
+  shape = 'circle',
+  src = 'https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=64',
+} = {}) => ({
+  label,
+  subLabel,
+  size,
+  shape,
+  src,
+});
 
-function generateTooltipProps() {
-  const props = {
-    tooltipText: {
-      type: String,
-      default: text('tooltipText', 'Avatar tooltip'),
-    },
-    placement: {
-      type: String,
-      default: select('placement', tooltipPlacements, 'top'),
-    },
-  };
+const generateTooltipProps = ({ tooltipText = 'Avatar tooltip', placement = 'top' } = {}) => ({
+  tooltipText,
+  placement,
+});
 
-  return props;
-}
-
-documentedStoriesOf('base/avatar/labeled', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    template: `
+export const Default = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
       <gl-avatar-labeled
         :shape="shape"
         :size="size"
@@ -65,13 +39,13 @@ documentedStoriesOf('base/avatar/labeled', readme)
         :sub-label="subLabel"
       />
     `,
-  }))
-  .add('with-tooltip', () => ({
-    props: {
-      ...generateProps(),
-      ...generateTooltipProps(),
-    },
-    template: `
+});
+Default.args = generateProps();
+
+export const WithTooltip = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
       <gl-avatar-labeled
         :shape="shape"
         :size="size"
@@ -82,10 +56,21 @@ documentedStoriesOf('base/avatar/labeled', readme)
         v-gl-tooltip="{ placement }"
       />
     `,
-  }))
-  .add('with-badges', () => ({
-    props: generateProps(),
-    template: `
+});
+WithTooltip.args = { ...generateProps(), ...generateTooltipProps() };
+WithTooltip.argTypes = {
+  placement: {
+    control: {
+      type: 'select',
+      options: tooltipPlacements,
+    },
+  },
+};
+
+export const WithBadges = (args, { argTypes }) => ({
+  components: { GlAvatarLabeled, GlBadge },
+  props: Object.keys(argTypes),
+  template: `
       <gl-avatar-labeled
         :shape="shape"
         :size="size"
@@ -103,4 +88,32 @@ documentedStoriesOf('base/avatar/labeled', readme)
         </template>
       </gl-avatar-labeled>
     `,
-  }));
+});
+WithBadges.args = generateProps();
+
+export default {
+  title: 'base/avatar/labeled',
+  component: GlAvatarLabeled,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: avatarSizeOptions,
+      },
+    },
+    shape: {
+      control: {
+        type: 'select',
+        options: avatarShapeOptions,
+      },
+    },
+  },
+};

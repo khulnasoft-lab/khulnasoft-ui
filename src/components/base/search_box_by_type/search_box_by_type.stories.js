@@ -1,49 +1,55 @@
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlSearchBoxByType } from '../../../../index';
+import { GlSearchBoxByType } from '../../../index';
+import { disableControls } from '../../../utils/stories_utils';
 import readme from './search_box_by_type.md';
 
-const components = {
-  GlSearchBoxByType,
-};
+const template = `
+  <gl-search-box-by-type
+    v-model="searchQuery"
+    :clear-button-title="clearButtonTitle"
+    :disabled="disabled"
+    :is-loading="isLoading"
+    :placeholder="placeholder"
+  />
+`;
 
-function generateProps({
-  disabled = false,
-  value = '',
+const defaultValue = (prop) => GlSearchBoxByType.props[prop].default;
+
+const generateProps = ({
+  clearButtonTitle = defaultValue('clearButtonTitle'),
+  disabled = defaultValue('disabled'),
   placeholder = 'Search',
-  isLoading = false,
-} = {}) {
-  return {
-    disabled: {
-      type: Boolean,
-      default: boolean('disabled', disabled),
-    },
-    value: {
-      type: String,
-      default: text('value', value),
-    },
-    placeholder: {
-      type: String,
-      default: text('placeholder', placeholder),
-    },
-    isLoading: {
-      type: Boolean,
-      default: boolean('isLoading', isLoading),
-    },
-  };
-}
+  isLoading = defaultValue('isLoading'),
+} = {}) => ({
+  clearButtonTitle,
+  disabled,
+  placeholder,
+  isLoading,
+});
 
-documentedStoriesOf('base/search-box-by-type', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <gl-search-box-by-type
-        :value="value" 
-        :disabled="disabled"
-        :is-loading="isLoading"
-        :placeholder="placeholder"
-      />
-    `,
-  }));
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlSearchBoxByType,
+  },
+  props: Object.keys(argTypes),
+  data: () => ({ searchQuery: '' }),
+  template,
+});
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'base/search-box-by-type',
+  component: GlSearchBoxByType,
+  parameters: {
+    knobs: { disable: true },
+    bootstrapComponent: 'b-form-input',
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    ...disableControls(['value']),
+  },
+};

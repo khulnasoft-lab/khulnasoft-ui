@@ -30,6 +30,7 @@ export const mockPathItems = [
   {
     title: 'Eighth',
     metric: '8d',
+    disabled: true,
   },
   {
     title: 'Ninth',

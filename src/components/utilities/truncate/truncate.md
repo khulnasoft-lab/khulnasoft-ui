@@ -1,8 +1,4 @@
-# Truncate
-
 The `GlTruncate` component lets you truncate the long texts with ellipsis.
-
-<!-- STORY -->
 
 > **Tip:** Try resizing the side panel for truncation.
 

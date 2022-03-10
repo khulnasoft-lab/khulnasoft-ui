@@ -11,10 +11,14 @@ describe('avatars inline', () => {
     { src: 'avatar 2', tooltip: 'Avatar 2' },
     { src: 'avatar 3', tooltip: 'Avatar 3' },
   ];
+  const badgeSrOnlyText = 'additional users';
 
   const buildWrapper = (propsData = {}) => {
     wrapper = shallowMount(AvatarsInline, {
-      propsData,
+      propsData: {
+        badgeSrOnlyText,
+        ...propsData,
+      },
       stubs: {
         GlTooltip,
       },
@@ -22,8 +26,6 @@ describe('avatars inline', () => {
   };
 
   const findBadgeTooltip = () => wrapper.findComponent(GlTooltip);
-
-  afterEach(() => wrapper.destroy());
 
   it('displays all avatars when component is not collapsed', () => {
     buildWrapper({ avatars, maxVisible: 1, avatarSize: 24, collapsed: false });
@@ -107,6 +109,22 @@ describe('avatars inline', () => {
       it('renders the tooltip with the truncated names of the hidden avatars', () => {
         expect(findBadgeTooltip().text()).toBe('Avatar 2...');
       });
+    });
+  });
+
+  describe('a11y', () => {
+    it('renders screen reader only text for the collapse badge', () => {
+      buildWrapper({ avatars, maxVisible: 1, collapsed: true, avatarSize: 32 });
+
+      expect(wrapper.find('[data-testid="badge-sr-only-text"]').text()).toBe(badgeSrOnlyText);
+    });
+
+    it('hides badge text for screen readers', () => {
+      buildWrapper({ avatars, maxVisible: 1, collapsed: true, avatarSize: 32 });
+
+      expect(
+        wrapper.find('[data-testid="collapsed-avatars-badge"]').attributes('aria-hidden')
+      ).toBe('true');
     });
   });
 });

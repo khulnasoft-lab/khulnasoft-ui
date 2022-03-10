@@ -1,110 +1,84 @@
-import { withKnobs, text, color, select, boolean } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlLabel } from '../../../../index';
+import { GlLabel } from '../../../index';
 import { labelSizeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './label.md';
 
-const components = {
-  GlLabel,
-};
+const template = `
+  <div class="gl-display-flex">
+    <gl-label
+      :background-color="backgroundColor"
+      :size="size"
+      :title="title"
+      :description="description"
+      :tooltip-placement="tooltipPlacement"
+      :target="target"
+      :scoped="scoped"
+      :show-close-button="showCloseButton"
+      :disabled="disabled"
+    />
+  </div>`;
+
+const Template = (args, { argTypes }) => ({
+  components: { GlLabel },
+  props: Object.keys(argTypes),
+  template,
+});
 
 const generateProps = ({
   title = 'Label title',
   size = labelSizeOptions.default,
   tooltipPlacement = tooltipPlacements.top,
   scoped = false,
+  description = '',
+  target = '#',
+  backgroundColor = '#D9C2EE',
   showCloseButton = false,
-} = {}) => {
-  const props = {
+  disabled = false,
+} = {}) => ({
+  backgroundColor,
+  title,
+  description,
+  size,
+  tooltipPlacement,
+  target,
+  scoped,
+  showCloseButton,
+  disabled,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const Scoped = Template.bind({});
+Scoped.args = generateProps({ title: 'scoped::label', scoped: true });
+
+export const WithCloseButton = Template.bind({});
+WithCloseButton.args = generateProps({ showCloseButton: true });
+
+export default {
+  title: 'base/label',
+  component: GlLabel,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
     backgroundColor: {
-      default: color('Background color', '#D9C2EE'),
-    },
-    title: {
-      default: text('Label title', title),
-    },
-    description: {
-      default: text('Label description', ''),
+      control: {
+        type: 'color',
+      },
     },
     size: {
-      type: String,
-      default: select('Size', labelSizeOptions, size),
+      options: labelSizeOptions,
     },
     tooltipPlacement: {
-      type: String,
-      default: select('Tooltip Placement', tooltipPlacements, tooltipPlacement),
+      options: tooltipPlacements,
+      control: {
+        type: 'select',
+      },
     },
-    target: {
-      default: text('Link to label target', '#'),
-    },
-    scoped: {
-      default: boolean('Label is scoped', scoped),
-    },
-    showCloseButton: {
-      default: boolean('Show close button', showCloseButton),
-    },
-    disabled: {
-      default: boolean('Close button disabled', false),
-    },
-  };
-
-  return props;
+  },
 };
-
-documentedStoriesOf('base/label', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <div class="gl-display-flex">
-      <gl-label
-          :background-color="backgroundColor"
-          :size="size"
-          :title="title"
-          :description="description"
-          :tooltip-placement="tooltipPlacement"
-          :target="target"
-          :scoped="scoped"
-          :show-close-button="showCloseButton"
-          :disabled="disabled"
-      />
-      </div>`,
-  }))
-  .add('scoped', () => ({
-    props: generateProps({ title: 'scoped::label', scoped: true }),
-    components,
-    template: `
-      <div class="gl-display-flex">
-      <gl-label
-          :background-color="backgroundColor"
-          :size="size"
-          :title="title"
-          :description="description"
-          :tooltip-placement="tooltipPlacement"
-          :target="target"
-          :scoped="scoped"
-          :show-close-button="showCloseButton"
-          :disabled="disabled"
-      />
-      </div>
-    `,
-  }))
-  .add('with close button', () => ({
-    props: generateProps({ showCloseButton: true }),
-    components,
-    template: `
-      <div class="gl-display-flex">
-      <gl-label
-          :background-color="backgroundColor"
-          :size="size"
-          :title="title"
-          :description="description"
-          :tooltip-placement="tooltipPlacement"
-          :target="target"
-          :scoped="scoped"
-          :show-close-button="showCloseButton"
-          :disabled="disabled"
-      />
-      </div>
-    `,
-  }));

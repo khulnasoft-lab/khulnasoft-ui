@@ -57,14 +57,6 @@ const fixImports = (code) => {
   return (
     code
       /**
-       * Replace the imports of our entries point with their correct relative
-       * path that they will have in JS, e.g.
-       * from './src/components/base/icon/icon.vue';
-       * =>
-       * from './components/base/icon/icon.vue';
-       */
-      .replace(/(from\s+(["']).\/)src\/(.+?\2)/g, '$1$3')
-      /**
        * Remove `.vue` from imports, as we are compiling them to JS
        *
        * from './components/base/icon/icon.vue';
@@ -95,10 +87,6 @@ const fixImports = (code) => {
 
 export default glob
   .sync('src/**/!(*.stories|*.spec).+(js|vue)')
-  .concat('charts.js')
-  .concat('index.js')
-  .concat('utils.js')
-  .concat('config.js')
   .concat('utility_classes.js')
   .map((input) => {
     const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
@@ -113,9 +101,9 @@ export default glob
       plugins: [
         replace({
           delimiters: ['/* ', ' */'],
-          include: 'index.js',
+          include: 'src/index.js',
           values: {
-            'auto-inject-styles': "import './src/scss/gitlab_ui.scss';",
+            'auto-inject-styles': "import './scss/gitlab_ui.scss';",
           },
         }),
         replace({

@@ -1,14 +1,7 @@
-import { withKnobs, object, array, boolean, number, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlPaginatedList, GlButton } from '../../../../index';
+import { GlPaginatedList, GlButton } from '../../../index';
 import readme from './paginated_list.md';
 
-const components = {
-  GlPaginatedList,
-  GlButton,
-};
-
-const list = [
+const sampleList = [
   { id: 'foo' },
   { id: 'bar' },
   { id: 'baz' },
@@ -33,167 +26,182 @@ const template = `
   :page="page"
   :filterable="filterable"
   :filter="filter"
+  :item-key="itemKey"
   :emptyMessage="emptyMessage"
   :emptySearchMessage="emptySearchMessage"
   />
 `;
 
-const templateWithSubheader = `
-  <gl-paginated-list
-  :list="list"
-  :perPage="perPage"
-  :page="page"
-  :filterable="filterable"
-  :filter="filter"
-  :emptyMessage="emptyMessage"
-  :emptySearchMessage="emptySearchMessage"
-  >
+const generateProps = ({
+  list = [...sampleList],
+  perPage = 10,
+  page = 1,
+  filterable = true,
+  filter = 'id',
+  itemKey = 'id',
+  emptyMessage = 'There are currently no items in this list.',
+  emptySearchMessage = 'Sorry, your filter produced no results.',
+} = {}) => ({
+  list,
+  perPage,
+  page,
+  filterable,
+  filter,
+  itemKey,
+  emptyMessage,
+  emptySearchMessage,
+});
 
-  <template #subheader>
-    Dropdown content can go here when like when an action button is clicked 
-  </template>
-  
-  </gl-paginated-list>
-`;
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlPaginatedList,
+    GlButton,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
 
-const templateWithHeader = `
-  <gl-paginated-list
-  :list="list"
-  :perPage="perPage"
-  :page="page"
-  :filterable="filterable"
-  :filter="filter"
-  :emptyMessage="emptyMessage"
-  :emptySearchMessage="emptySearchMessage"
-  >
+export const Default = Template.bind({});
+Default.args = generateProps();
 
-    <template #header>
-      <gl-button
+export const NoFilter = (args, { argTypes }) => ({
+  components: {
+    GlPaginatedList,
+    GlButton,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+NoFilter.args = generateProps({
+  filterable: false,
+});
+
+export const WithEmptyList = (args, { argTypes }) => ({
+  components: {
+    GlPaginatedList,
+    GlButton,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+WithEmptyList.args = generateProps({
+  list: emptyList,
+});
+
+export const WithHeaderSlot = (args, { argTypes }) => ({
+  components: {
+    GlPaginatedList,
+    GlButton,
+  },
+  props: Object.keys(argTypes),
+  template: `
+    <gl-paginated-list
+    :list="list"
+    :perPage="perPage"
+    :page="page"
+    :filterable="filterable"
+    :filter="filter"
+    :item-key="itemKey"
+    :emptyMessage="emptyMessage"
+    :emptySearchMessage="emptySearchMessage"
+    >
+
+      <template #header>
+        <gl-button
+          variant="success"
+          class="order-1"
+          @click="alert"
+        >
+          Foo Button
+        </gl-button>
+      </template>
+
+    </gl-paginated-list>
+    `,
+  methods: {
+    alert() {
+      // eslint-disable-next-line no-alert
+      window.alert('clicked');
+    },
+  },
+});
+WithHeaderSlot.args = generateProps();
+
+export const WithSubheaderSlot = (args, { argTypes }) => ({
+  components: {
+    GlPaginatedList,
+    GlButton,
+  },
+  props: Object.keys(argTypes),
+  template: `
+    <gl-paginated-list
+    :list="list"
+    :perPage="perPage"
+    :page="page"
+    :filterable="filterable"
+    :filter="filter"
+    :item-key="itemKey"
+    :emptyMessage="emptyMessage"
+    :emptySearchMessage="emptySearchMessage"
+    >
+
+    <template #subheader>
+      Dropdown content can go here when like when an action button is clicked 
+    </template>
+    
+    </gl-paginated-list>
+  `,
+});
+WithSubheaderSlot.args = generateProps();
+
+export const WithRowSlot = (args, { argTypes }) => ({
+  components: {
+    GlPaginatedList,
+    GlButton,
+  },
+  props: Object.keys(argTypes),
+  template: `
+    <gl-paginated-list
+    :list="list"
+    :perPage="perPage"
+    :page="page"
+    :filterable="filterable"
+    :filter="filter"
+    :item-key="itemKey"
+    :emptyMessage="emptyMessage"
+    :emptySearchMessage="emptySearchMessage"
+    >
+    
+      <template slot-scope="{ listItem }"  >
+        <gl-button
         variant="success"
         class="order-1"
         @click="alert"
-      >
-        Foo Button
-      </gl-button>
-    </template>
-  
-  </gl-paginated-list>
-`;
+        >
+          {{ listItem.id }}
+        </gl-button>
+      </template>
+    
+    </gl-paginated-list>
+    `,
+  methods: {
+    alert() {
+      // eslint-disable-next-line no-alert
+      window.alert('clicked');
+    },
+  },
+});
+WithRowSlot.args = generateProps();
 
-const templateWithRow = `
-<gl-paginated-list
-:list="list"
-:perPage="perPage"
-:page="page"
-:filterable="filterable"
-:filter="filter"
-:emptyMessage="emptyMessage"
-:emptySearchMessage="emptySearchMessage"
->
-
-  <template slot-scope="{ listItem }"  >
-    <gl-button
-    variant="success"
-    class="order-1"
-    @click="alert"
-    >
-      {{ listItem.id }}
-    </gl-button>
-  </template>
-
-</gl-paginated-list>
-`;
-
-function generateProps() {
-  return {
-    list: {
-      type: Array,
-      default: object('list', list),
-    },
-    perPage: {
-      type: Number,
-      default: number('perPage', 10),
-    },
-    page: {
-      type: Number,
-      default: number('page', 1),
-    },
-    filterable: {
-      type: Boolean,
-      default: boolean('filterable', true),
-    },
-    filter: {
-      type: String,
-      default: text('filter', 'id'),
-    },
-    itemKey: {
-      type: String,
-      default: text('itemKey', 'id'),
-    },
-    emptyMessage: {
-      type: String,
-      default: text('emptyMessage', 'There are currently no items in this list.'),
-    },
-    emptySearchMessage: {
-      type: String,
-      default: text('emptySearchMessage', 'Sorry, your filter produced no results.'),
-    },
-  };
-}
-
-documentedStoriesOf('base/paginated-list', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('no filter', () => ({
-    props: {
-      ...generateProps(),
-      filterable: {
-        type: Boolean,
-        default: false,
+export default {
+  title: 'base/paginated-list',
+  component: GlPaginatedList,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
       },
     },
-    components,
-    template,
-  }))
-  .add('with empty list', () => ({
-    props: {
-      ...generateProps(),
-      list: {
-        type: Array,
-        default: array('list', emptyList),
-      },
-    },
-    components,
-    template,
-  }))
-  .add('with header slot', () => ({
-    props: generateProps(),
-    components,
-    template: templateWithHeader,
-    methods: {
-      alert() {
-        // eslint-disable-next-line no-alert
-        window.alert('clicked');
-      },
-    },
-  }))
-  .add('with subheader slot', () => ({
-    props: generateProps(),
-    components,
-    template: templateWithSubheader,
-  }))
-  .add('with row slot', () => ({
-    props: generateProps(),
-    components,
-    template: templateWithRow,
-    methods: {
-      alert() {
-        // eslint-disable-next-line no-alert
-        window.alert('clicked');
-      },
-    },
-  }));
+  },
+};

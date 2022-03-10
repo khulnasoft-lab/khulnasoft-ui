@@ -1,4 +1,4 @@
-import { GlBreadcrumb } from '../../../../index';
+import { GlBreadcrumb } from '../../../index';
 import readme from './breadcrumb.md';
 
 const template = `
@@ -6,26 +6,29 @@ const template = `
         :items="items"
     >
       <template #avatar>
-        <img class="gl-breadcrumb-avatar-tile" src="https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=16" width="16" height="16" />
+        <img alt=""
+            class="gl-breadcrumb-avatar-tile" src="https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=16"
+            width="16"
+            height="16" />
       </template>
     </gl-breadcrumb>
   `;
 
 const defaultItems = [
   {
-    text: 'First Item',
+    text: 'First item',
     href: '#',
   },
   {
-    text: 'Second Item',
+    text: 'Second item',
     href: '#',
   },
   {
-    text: 'Third Item',
+    text: 'Third item',
     href: '#',
   },
   {
-    text: 'Fourth Item',
+    text: 'Fourth item',
     to: { name: 'fourth-item' },
   },
 ];
@@ -57,3 +60,25 @@ export default {
     },
   },
 };
+
+const extraItems = [
+  {
+    text: 'Fifth item',
+    href: '#',
+  },
+  {
+    text: 'Sixth item',
+    href: '#',
+  },
+  {
+    text: 'Seventh item',
+    href: '#',
+  },
+  {
+    text: 'Eighth item',
+    href: '#',
+  },
+];
+
+export const CollapsedItems = Template.bind({});
+CollapsedItems.args = generateProps({ items: [...defaultItems, ...extraItems] });

@@ -339,8 +339,9 @@ export default {
       :left="annotationsTooltipPosition.left"
       placement="bottom"
     >
-      <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-      <div slot="title">{{ annotationsTooltipTitle }}</div>
+      <template #title>
+        <div>{{ annotationsTooltipTitle }}</div>
+      </template>
       <div>{{ annotationsTooltipContent }}</div>
     </chart-tooltip>
     <chart-tooltip
@@ -353,19 +354,15 @@ export default {
       :top="dataTooltipPosition.top"
       :left="dataTooltipPosition.left"
     >
-      <template v-if="formatTooltipText">
-        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-        <slot slot="title" name="tooltip-title"></slot>
-        <slot name="tooltip-content"></slot>
-      </template>
-      <template v-else>
-        <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-        <div slot="title">
+      <template #title>
+        <slot v-if="formatTooltipText" name="tooltip-title"></slot>
+        <div v-else>
           {{ dataTooltipTitle }}
           <template v-if="options.xAxis.name">({{ options.xAxis.name }})</template>
         </div>
-        <tooltip-default-format :tooltip-content="dataTooltipContent" />
       </template>
+      <slot v-if="formatTooltipText" name="tooltip-content"></slot>
+      <tooltip-default-format v-else :tooltip-content="dataTooltipContent" />
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"

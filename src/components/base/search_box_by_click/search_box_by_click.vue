@@ -26,6 +26,9 @@ export default {
     GlTooltip: GlTooltipDirective,
   },
   props: {
+    /**
+     * If provided, used as value of search input
+     */
     value: {
       required: false,
       default: '',
@@ -33,11 +36,17 @@ export default {
       // so we should not force any specific type for value here
       validator: () => true,
     },
+    /**
+     * If provided, used as history items for this component
+     */
     historyItems: {
       type: Array,
       required: false,
       default: null,
     },
+    /**
+     * If provided, used as a placeholder for this component
+     */
     placeholder: {
       type: String,
       required: false,
@@ -48,26 +57,41 @@ export default {
       required: false,
       default: true,
     },
+    /**
+     * If provided and true, disables the input and controls
+     */
     disabled: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * i18n for recent searches title within history dropdown
+     */
     recentSearchesHeader: {
       type: String,
       required: false,
       default: 'Recent searches',
     },
+    /**
+     * i18n for clear button title
+     */
     clearButtonTitle: {
       type: String,
       required: false,
       default: 'Clear',
     },
+    /**
+     * i18n for close button title within history dropdown
+     */
     closeButtonTitle: {
       type: String,
       required: false,
       default: 'Close',
     },
+    /**
+     * i18n for recent searches clear text
+     */
     clearRecentSearchesText: {
       type: String,
       required: false,
@@ -78,11 +102,22 @@ export default {
       required: false,
       default: "You don't have any recent searches",
     },
+    /**
+     * Container for tooltip. Valid values: DOM node, selector string or `false` for default
+     */
     tooltipContainer: {
       required: false,
       default: false,
       validator: (value) =>
         value === false || typeof value === 'string' || value instanceof HTMLElement,
+    },
+    /**
+     * HTML attributes to add to the search button
+     */
+    searchButtonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
     },
   },
   data() {
@@ -125,10 +160,19 @@ export default {
       this.$refs.historyDropdown.hide();
     },
     search(value) {
+      /**
+       * Emitted when search is submitted
+       * @property {*} value Search value
+       */
       this.$emit('submit', value);
     },
     selectHistoryItem(item) {
       this.currentValue = item;
+
+      /**
+       * Emitted when item from history is selected
+       * @property {*} item History item
+       */
       this.$emit('history-item-selected', item);
       setTimeout(() => {
         document.activeElement.blur();
@@ -136,10 +180,19 @@ export default {
     },
     clearInput() {
       this.currentValue = '';
+      /**
+       * Emitted when search is cleared
+       */
       this.$emit('clear');
       if (this.$refs.input) {
         this.$refs.input.$el.focus();
       }
+    },
+    emitClearHistory() {
+      /**
+       * Emitted when clear history button is clicked
+       */
+      this.$emit('clear-history');
     },
   },
 };
@@ -182,10 +235,11 @@ export default {
             class="gl-search-box-by-click-history-item"
             @click="selectHistoryItem(item)"
           >
+            <!-- @slot Slot to customize history item in history dropdown. Used only with history-items prop -->
             <slot name="history-item" :historyItem="item">{{ item }}</slot>
           </gl-dropdown-item>
           <gl-dropdown-divider />
-          <gl-dropdown-item ref="clearHistory" @click="$emit('clear-history')">{{
+          <gl-dropdown-item ref="clearHistory" @click="emitClearHistory">{{
             clearRecentSearchesText
           }}</gl-dropdown-item>
         </template>
@@ -216,11 +270,13 @@ export default {
     />
     <template #append class="gl-search-box-by-click-input-group-control">
       <gl-button
+        v-bind="searchButtonAttributes"
         ref="searchButton"
         class="gl-search-box-by-click-search-button"
         icon="search"
         :disabled="disabled"
         aria-label="Search"
+        data-testid="search-button"
         @click="search(currentValue)"
       />
     </template>

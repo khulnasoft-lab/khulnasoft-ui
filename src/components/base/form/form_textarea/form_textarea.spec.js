@@ -13,11 +13,6 @@ describe('GlFormTextArea', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('v-model', () => {
     describe('value binding', () => {
       beforeEach(() => {

@@ -1,121 +1,82 @@
-import { select, text, number, withKnobs } from '@storybook/addon-knobs';
 import Vue from 'vue';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlAvatar } from '../../../index';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import readme from './avatar.md';
 
 Vue.directive('gl-tooltip', GlTooltipDirective);
 
-function generateImageProps() {
-  const defaultSize = avatarSizeOptions[1];
-  const props = {
-    size: {
-      type: Number,
-      default: select('size', avatarSizeOptions, defaultSize),
-    },
-    shape: {
-      type: String,
-      default: select('shape', avatarShapeOptions, 'circle'),
-    },
-  };
+const components = { GlAvatar };
 
-  return props;
-}
+const generateImageProps = ({ size = 64, shape = 'circle' } = {}) => ({
+  size,
+  shape,
+});
 
-function generateProjectFallbackProps() {
-  const defaultSize = avatarSizeOptions[1];
-  const props = {
-    entityId: {
-      type: Number,
-      default: number('entityId', 123),
-    },
-    entityName: {
-      type: String,
-      default: text('entityName', 'Some Project'),
-    },
-    size: {
-      type: Number,
-      default: select('size', avatarSizeOptions, defaultSize),
-    },
-  };
+const generateProjectFallbackProps = ({
+  size = 64,
+  entityId = 123,
+  entityName = 'Some Project',
+} = {}) => ({
+  entityId,
+  entityName,
+  size,
+});
 
-  return props;
-}
+const generateEmojiProjectProps = ({
+  size = 64,
+  entityId = 123,
+  entityName = '🦊Tanuki',
+} = {}) => ({
+  entityId,
+  entityName,
+  size,
+});
 
-function generateEmojiProjectProps() {
-  const defaultSize = avatarSizeOptions[1];
-  const props = {
-    entityId: {
-      type: Number,
-      default: number('entityId', 123),
-    },
-    entityName: {
-      type: String,
-      default: text('entityName', '🦊Tanuki'),
-    },
-    size: {
-      type: Number,
-      default: select('size', avatarSizeOptions, defaultSize),
-    },
-  };
+const generateTooltipProps = ({ tooltipText = 'Avatar tooltip', placement = 'top' } = {}) => ({
+  tooltipText,
+  placement,
+});
 
-  return props;
-}
+const template = `
+<gl-avatar
+  :entity-name="entityName"
+  :entity-id="entityId"
+  :size="size"
+  shape="rect" />
+`;
 
-function generateTooltipProps() {
-  const props = {
-    tooltipText: {
-      type: String,
-      default: text('tooltipText', 'Avatar tooltip'),
-    },
-    placement: {
-      type: String,
-      default: select('placement', tooltipPlacements, 'top'),
-    },
-  };
-
-  return props;
-}
-
-documentedStoriesOf('base/avatar', readme)
-  .addDecorator(withKnobs)
-  .add('image', () => ({
-    props: generateImageProps(),
-    template: `
+export const Image = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
       <gl-avatar
         :size="size"
         :shape="shape"
         src="https://about.gitlab.com/images/press/gitlab-summit-south-africa.jpg"
       />
     `,
-  }))
-  .add('project-fallback', () => ({
-    props: generateProjectFallbackProps(),
-    template: `
-      <gl-avatar
-        :entity-name="entityName"
-        :entity-id="entityId"
-        :size="size"
-        shape="rect" />
-    `,
-  }))
-  .add('emoji-project-name', () => ({
-    props: generateEmojiProjectProps(),
-    template: `
-      <gl-avatar
-        :entity-name="entityName"
-        :entity-id="entityId"
-        :size="size"
-        shape="rect" />
-    `,
-  }))
-  .add('with-tooltip', () => ({
-    props: {
-      ...generateImageProps(),
-      ...generateTooltipProps(),
-    },
-    template: `
+});
+Image.args = generateImageProps();
+
+export const ProjectFallback = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template,
+});
+ProjectFallback.args = generateProjectFallbackProps();
+
+export const EmojiProjectName = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template,
+});
+EmojiProjectName.args = generateEmojiProjectProps();
+
+export const WithTooltip = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
       <gl-avatar
         :size="size"
         :shape="shape"
@@ -124,4 +85,38 @@ documentedStoriesOf('base/avatar', readme)
         v-gl-tooltip="{ placement }"
       />
     `,
-  }));
+});
+WithTooltip.args = { ...generateImageProps(), ...generateTooltipProps() };
+
+export default {
+  title: 'base/avatar',
+  component: GlAvatar,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    size: {
+      options: avatarSizeOptions,
+      control: {
+        type: 'select',
+      },
+    },
+    shape: {
+      options: avatarShapeOptions,
+      control: {
+        type: 'select',
+      },
+    },
+    placement: {
+      options: tooltipPlacements,
+      control: {
+        type: 'select',
+      },
+    },
+  },
+};

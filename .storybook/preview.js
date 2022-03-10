@@ -1,6 +1,9 @@
-import { addParameters, addDecorator } from '@storybook/vue';
 import { addReadme } from 'storybook-readme/vue';
 import { setupStorybookReadme } from '../documentation/documented_stories';
+import 'iframe-resizer/js/iframeResizer.contentWindow.min.js';
+
+const { searchParams } = new URL(document.location);
+const isEmbeddedStory = searchParams.has('isEmbeddedStory');
 
 const stylesheetsRequireCtx = require.context('../src/scss', true, /(storybook|bootstrap)\.scss$/);
 
@@ -14,8 +17,7 @@ function addSbClass(c, a) {
   };
 }
 
-addDecorator(addSbClass);
-addDecorator(addReadme);
+export const decorators = [addSbClass, addReadme];
 
 export const parameters = {
   options: {
@@ -28,23 +30,6 @@ export const parameters = {
     stylePreview: true,
     darkClass: 'gl-dark',
   },
-};
-
-/**
- * When running in test mode, we do small adjustments to help with visual regression testing:
- * - Skip storybook-readme's setup to avoid rendering the READMEs.
- * - Skip DocsPage settings to prevent JSX errors.
- * - Set the layout to fullscreen to ensure stories are full-width.
- */
-if (process.env.NODE_ENV !== 'test') {
-  setupStorybookReadme();
-  const { page } = require('./docs/page');
-  parameters.docs = { page };
-} else {
-  parameters.layout = 'fullscreen';
-}
-
-addParameters({
   a11y: {
     element: '.story-container',
   },
@@ -80,4 +65,21 @@ addParameters({
       },
     },
   },
-});
+};
+
+/**
+ * When running in test mode, we do small adjustments to help with visual regression testing:
+ * - Skip storybook-readme's setup to avoid rendering the READMEs.
+ * - Skip DocsPage settings to prevent JSX errors.
+ * - Set the layout to fullscreen to ensure stories are full-width.
+ * The layout is also set to fullscreen whenever the isEmbeddedStory search param is passed.
+ * This lets us remove unnecessary spacing when embedding stories in design.gitlab.com.
+ */
+if (process.env.NODE_ENV !== 'test') {
+  setupStorybookReadme();
+  const { page } = require('./docs/page');
+  parameters.docs = { page };
+}
+if (process.env.NODE_ENV === 'test' || isEmbeddedStory) {
+  parameters.layout = 'fullscreen';
+}

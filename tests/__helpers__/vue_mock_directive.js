@@ -2,7 +2,7 @@ const getKey = (name) => `$_gl_jest_${name}`;
 
 export const getBinding = (el, name) => el[getKey(name)];
 
-const writeBindingToElement = (el, { name, value, arg, modifiers }) => {
+const writeBindingToElement = (el, name, { value, arg, modifiers }) => {
   el[getKey(name)] = {
     value,
     arg,
@@ -10,16 +10,16 @@ const writeBindingToElement = (el, { name, value, arg, modifiers }) => {
   };
 };
 
-export const createMockDirective = () => ({
+export const createMockDirective = (name) => ({
   bind(el, binding) {
-    writeBindingToElement(el, binding);
+    writeBindingToElement(el, name, binding);
   },
 
   update(el, binding) {
     writeBindingToElement(el, binding);
   },
 
-  unbind(el, { name }) {
+  unbind(el) {
     delete el[getKey(name)];
   },
 });

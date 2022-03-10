@@ -1,11 +1,5 @@
-import { withKnobs, object, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlSegmentedControl } from '../../../../index';
+import { GlSegmentedControl } from '../../../index';
 import readme from './segmented_control.md';
-
-const components = {
-  GlSegmentedControl,
-};
 
 const defaultOptions = [
   { value: 'Pizza', text: 'Pizza' },
@@ -13,40 +7,56 @@ const defaultOptions = [
   { value: 'Burger', text: 'Burger', disabled: true },
 ];
 
-function generateProps({ options = defaultOptions } = {}) {
-  const props = {
-    options: {
-      type: Array,
-      default: object('options', options),
-    },
-    initSelected: {
-      type: String,
-      default: text('selected value', 'Tacos'),
-    },
-  };
+const generateProps = ({ options = defaultOptions, initSelected = 'Tacos' } = {}) => ({
+  options,
+  initSelected,
+});
 
-  return props;
-}
-
-documentedStoriesOf('base/segmented control', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    data() {
-      return {
-        selected: this.initSelected,
-      };
+export const Default = (args, { argTypes }) => ({
+  components: { GlSegmentedControl },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      selected: this.initSelected,
+    };
+  },
+  watch: {
+    initSelected(val) {
+      this.selected = val;
     },
-    watch: {
-      initSelected(val) {
-        this.selected = val;
-      },
-    },
-    components,
-    template: `
+  },
+  template: `
      <gl-segmented-control
       :options="options"
       v-model="selected"
      />
     `,
-  }));
+});
+Default.args = generateProps();
+
+export default {
+  title: 'base/segmented control',
+  component: GlSegmentedControl,
+  parameters: {
+    bootstrapComponent: 'b-form-radio-group',
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    initSelected: {
+      options: Object.values(defaultOptions)
+        .filter(({ disabled }) => !disabled)
+        .map(({ value }) => value),
+      control: {
+        type: 'radio',
+      },
+      table: {
+        disable: true,
+      },
+    },
+  },
+};

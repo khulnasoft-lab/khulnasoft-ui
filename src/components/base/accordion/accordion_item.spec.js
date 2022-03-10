@@ -10,18 +10,14 @@ describe('GlAccordionItem', () => {
   const defaultTitle = 'Item 1';
   const defaultSlot = 'Hello';
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   const createComponent = (props = {}, { defaultHeaderLevel = 3, accordionSetId = false } = {}) => {
     wrapper = mount(GlAccordionItem, {
       directives: {
         GlCollapseToggle: GlCollapseToggleDirective,
       },
       provide: {
-        defaultHeaderLevel,
-        accordionSetId,
+        defaultHeaderLevel: () => defaultHeaderLevel,
+        accordionSetId: () => accordionSetId,
       },
       propsData: {
         title: defaultTitle,

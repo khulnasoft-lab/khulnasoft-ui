@@ -1,40 +1,51 @@
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlTruncate } from '../../../../index';
+import { GlTruncate } from '../../../index';
 import { POSITION } from './constants';
 import readme from './truncate.md';
 
-const components = {
-  GlTruncate,
-};
-
 const template = '<gl-truncate :text="text" :position="position" :with-tooltip="withTooltip" />';
 
-function generateProps({
-  longText = 'src/thisIs/AVeryLongFilePath/that/needs/to/be/smartly/truncated/from/the/middle/so/we/dont/lose/important/information/here.vue',
+const generateProps = ({
+  text = 'src/thisIs/AVeryLongFilePath/that/needs/to/be/smartly/truncated/from/the/middle/so/we/dont/lose/important/information/here.vue',
   position = 'middle',
   withTooltip = false,
-} = {}) {
-  return {
+} = {}) => ({
+  text,
+  position,
+  withTooltip,
+});
+
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlTruncate,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'utilities/truncate',
+  component: GlTruncate,
+  parameters: {
+    knobs: { disable: true },
+    storyshots: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
     text: {
-      type: String,
-      default: text('text', longText),
+      control: 'text',
     },
     position: {
-      type: String,
-      default: select('position', Object.values(POSITION), position),
+      options: Object.values(POSITION),
+      control: 'select',
     },
     withTooltip: {
-      default: boolean('withTooltip', withTooltip),
+      control: 'boolean',
     },
-  };
-}
-
-documentedStoriesOf('utilities/truncate', readme)
-  .addParameters({ storyshots: false })
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }));
+  },
+};

@@ -1,4 +1,4 @@
-import { GlAlert, GlToggle } from '../../../../index';
+import { GlAlert, GlToggle } from '../../../index';
 import { alertVariantOptions } from '../../../utils/constants';
 import readme from './alert.md';
 
@@ -12,7 +12,6 @@ const template = `
     :secondary-button-text="secondaryButtonText"
     :primary-button-link="primaryButtonLink"
     :secondary-button-link="secondaryButtonLink"
-    :contained="contained"
     :sticky="sticky"
   >{{ message }}</gl-alert>`;
 
@@ -27,7 +26,6 @@ const generateProps = ({
   primaryButtonLink = defaultValue('primaryButtonLink'),
   secondaryButtonText = defaultValue('secondaryButtonText'),
   secondaryButtonLink = defaultValue('secondaryButtonLink'),
-  contained = defaultValue('contained'),
   sticky = defaultValue('sticky'),
 } = {}) => ({
   title,
@@ -39,7 +37,6 @@ const generateProps = ({
   primaryButtonLink,
   secondaryButtonText,
   secondaryButtonLink,
-  contained,
   sticky,
 });
 
@@ -117,11 +114,6 @@ export const Variants = () => ({
 Variants.parameters = {
   storyshots: { disable: true },
 };
-
-export const Contained = Template.bind({});
-Contained.args = generateProps({
-  contained: true,
-});
 
 export const Sticky = () => ({
   components: { GlAlert },

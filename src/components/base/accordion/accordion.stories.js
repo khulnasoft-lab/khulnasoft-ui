@@ -1,3 +1,4 @@
+import { disableControls } from '../../../utils/stories_utils';
 import readme from './accordion.md';
 import GlAccordion from './accordion.vue';
 import GlAccordionItem from './accordion_item.vue';
@@ -63,6 +64,6 @@ export default {
         options: [1, 2, 3, 4, 5, 6],
       },
     },
-    autoCollapse: { control: { disable: true } },
+    ...disableControls(['autoCollapse']),
   },
 };

@@ -1,5 +1,7 @@
+const { STORIES } = process.env;
+
 module.exports = {
-  stories: ['../src/**/*.stories.js'],
+  stories: STORIES ? STORIES.split(',') : ['../src/**/*.stories.js'],
   addons: [
     '@storybook/addon-docs',
     '@storybook/addon-essentials',

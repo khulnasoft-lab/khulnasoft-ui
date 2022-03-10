@@ -26,17 +26,26 @@ export default {
       default: 1,
       validator: (x) => x > 0,
     },
+    /**
+     * Number of items per page
+     */
     perPage: {
       type: Number,
       required: false,
       default: 20,
       validator: (x) => x > 0,
     },
+    /**
+     * Total number of items
+     */
     totalItems: {
       type: Number,
       required: false,
       default: 0,
     },
+    /**
+     * The object must contain the xs, sm, md and default keys
+     */
     limits: {
       type: Object,
       required: false,
@@ -51,61 +60,97 @@ export default {
         return missingSizes === 0 ? true : value.default;
       },
     },
+    /**
+     * A function that receives the page number and that returns a string representing the page URL
+     */
     linkGen: {
       type: Function,
       required: false,
       default: null,
     },
+    /**
+     * When using the compact pagination, use this prop to pass the previous page number
+     */
     prevPage: {
       type: Number,
       required: false,
       default: null,
     },
+    /**
+     * Text for the previous button (overridden by "previous" slot)
+     */
     prevText: {
       type: String,
       required: false,
-      default: 'Prev',
+      default: 'Previous',
     },
+    /**
+     * When using the compact pagination, use this prop to pass the next page number
+     */
     nextPage: {
       type: Number,
       required: false,
       default: null,
     },
+    /**
+     * Text for the next button (overridden by "next" slot)
+     */
     nextText: {
       type: String,
       required: false,
       default: 'Next',
     },
+    /**
+     * Text for the ellipsis (overridden by "ellipsis-left" and "ellipsis-right" slots)
+     */
     ellipsisText: {
       type: String,
       required: false,
       default: '…',
     },
+    /**
+     * aria-label for the first page item
+     */
     labelFirstPage: {
       type: String,
       required: false,
       default: 'Go to first page',
     },
+    /**
+     * aria-label for the previous page item
+     */
     labelPrevPage: {
       type: String,
       required: false,
       default: 'Go to previous page',
     },
+    /**
+     * aria-label for the next page item
+     */
     labelNextPage: {
       type: String,
       required: false,
       default: 'Go to next page',
     },
+    /**
+     * aria-label for the last page item
+     */
     labelLastPage: {
       type: String,
       required: false,
       default: 'Go to last page',
     },
+    /**
+     * aria-label getter for numbered page items, defaults to "Go to page <page_number>"
+     */
     labelPage: {
       type: Function,
       required: false,
       default: (page) => `Go to page ${page}`,
     },
+    /**
+     * Controls the component\'s horizontal alignment, value should be one of "left", "center", "right" or "fill"
+     */
     align: {
       type: String,
       required: false,
@@ -216,6 +261,22 @@ export default {
     nextPageIsDisabled() {
       return this.pageIsDisabled(this.value + 1);
     },
+    prevPageAriaLabel() {
+      return this.prevPageIsDisabled ? false : this.labelPrevPage || this.labelPage(this.value - 1);
+    },
+    nextPageAriaLabel() {
+      return this.nextPageIsDisabled ? false : this.labelNextPage || this.labelPage(this.value + 1);
+    },
+    prevPageHref() {
+      if (this.prevPageIsDisabled) return false;
+      if (this.isLinkBased) return this.linkGen(this.value - 1);
+      return '#';
+    },
+    nextPageHref() {
+      if (this.nextPageIsDisabled) return false;
+      if (this.isLinkBased) return this.linkGen(this.value + 1);
+      return '#';
+    },
   },
   created() {
     window.addEventListener('resize', debounce(this.setBreakpoint, resizeDebounceTime));
@@ -248,6 +309,7 @@ export default {
       const listeners = {};
       if (isActivePage) {
         attrs.class.push('active');
+        attrs['aria-current'] = 'page';
       }
       // Disable previous and/or next buttons if needed
       if (this.isLinkBased) {
@@ -281,15 +343,28 @@ export default {
     handleClick(event, value) {
       if (!this.isLinkBased) {
         event.preventDefault();
+        /**
+         * Emitted when the page changes
+         * @event input
+         * @arg {number} value The page that just got loaded
+         */
         this.$emit('input', value);
       }
     },
     handlePrevious(event, value) {
       this.handleClick(event, value);
+      /**
+       * Emitted when the "previous" button is clicked
+       * @event previous
+       */
       this.$emit('previous');
     },
     handleNext(event, value) {
       this.handleClick(event, value);
+      /**
+       * Emitted when the "next" button is clicked
+       * @event next
+       */
       this.$emit('next');
     },
   },
@@ -310,15 +385,21 @@ export default {
         disabled: prevPageIsDisabled,
         'flex-fill': isFillAlign,
       }"
+      :aria-hidden="prevPageIsDisabled"
     >
       <component
         :is="prevPageIsDisabled ? 'span' : 'a'"
         class="gl-link page-link prev-page-item gl-display-flex"
-        :aria-disabled="prevPageIsDisabled"
-        :aria-label="labelPrevPage || labelPage(value - 1)"
-        :href="isLinkBased ? linkGen(value - 1) : '#'"
+        :aria-label="prevPageAriaLabel"
+        :href="prevPageHref"
         @click="handlePrevious($event, value - 1)"
       >
+        <!-- 
+          @slot Content for the "previous" button. Overrides the "prevText" prop. 
+          @binding {boolean} active
+          @binding {boolean} disabled
+          @binding {number} number
+          -->
         <slot name="previous" v-bind="{ page: value - 1, disabled: prevPageIsDisabled }">
           <gl-icon name="chevron-left" />
           <span>{{ prevText }}</span>
@@ -342,6 +423,21 @@ export default {
         v-bind="item.attrs"
         v-on="item.listeners"
       >
+        <!--
+        Content for page number buttons.
+        @slot page-number
+        @binding {boolean} active
+        @binding {boolean} disabled
+        @binding {number} number
+        -->
+        <!--
+        Content for the left ellipsis. Overrides the "ellipsisText" prop.
+        @slot ellipsis-left
+        -->
+        <!--
+        Content for the right ellipsis. Overrides the "ellipsisText" prop.
+        @slot ellipsis-right
+        -->
         <slot :name="item.slot" v-bind="item.slotData">{{ item.content }}</slot>
       </component>
     </li>
@@ -352,15 +448,21 @@ export default {
         disabled: nextPageIsDisabled,
         'flex-fill': isFillAlign,
       }"
+      :aria-hidden="nextPageIsDisabled"
     >
       <component
         :is="nextPageIsDisabled ? 'span' : 'a'"
         class="gl-link page-link next-page-item gl-display-flex"
-        :aria-disabled="nextPageIsDisabled"
-        :aria-label="labelNextPage || labelPage(value + 1)"
-        :href="isLinkBased ? linkGen(value + 1) : '#'"
+        :aria-label="nextPageAriaLabel"
+        :href="nextPageHref"
         @click="handleNext($event, value + 1)"
       >
+        <!-- 
+          @slot Content for the "next" button. Overrides the "nextText" prop. 
+          @binding {boolean} active
+          @binding {boolean} disabled
+          @binding {number} number
+          -->
         <slot name="next" v-bind="{ page: value + 1, disabled: nextPageIsDisabled }">
           <span>{{ nextText }}</span>
           <gl-icon name="chevron-right" />

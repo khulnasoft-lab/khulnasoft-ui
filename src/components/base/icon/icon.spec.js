@@ -1,12 +1,10 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Icon from './icon.vue';
 import { iconSizeOptions } from '~/utils/constants';
 
 const ICONS_PATH = '/path/to/icons.svg';
 const TEST_SIZE = 8;
 const TEST_NAME = 'check-circle';
-
-const localVue = createLocalVue();
 
 jest.mock('@gitlab/svgs/dist/icons.svg', () => '/path/to/icons.svg');
 
@@ -21,7 +19,6 @@ describe('Icon component', () => {
         name: TEST_NAME,
         ...props,
       },
-      localVue,
     });
   };
 
@@ -29,8 +26,6 @@ describe('Icon component', () => {
   const validateName = (name) => Icon.props.name.validator(name);
 
   afterEach(() => {
-    wrapper.destroy();
-
     if (consoleSpy) {
       consoleSpy.mockRestore();
     }

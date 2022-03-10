@@ -1,6 +1,7 @@
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
+import { GlFilteredSearchSuggestion } from '../../../index';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { provide } from './common_story_options';
 import readme from './filtered_search_term.md';
@@ -18,6 +19,7 @@ documentedStoriesOf('base/filtered-search/token-segment', readme)
   .add('default', () => ({
     components: {
       GlFilteredSearchTokenSegment,
+      GlFilteredSearchSuggestion,
     },
     provide,
     props: {

@@ -80,3 +80,25 @@ We will iteratively migrate all stories to the new Component Story Format (CSF) 
 as we go. If you're looking to write an example to be displayed in Pajamas specifications website,
 here's how:
 <https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/blob/main/doc/component-examples.md#component-examples>.
+
+## Why are we wrapping Bootstrap Vue components?
+
+Wrapping the components is an implementation of the [adapter design pattern](https://en.wikipedia.org/wiki/Adapter_pattern).
+We do this so that we can easily switch out Bootstrap Vue for another library (if we need to) and
+also to encapsulate the logic used for setting the styles/CSS class names. Developers should be able
+to easily import GitLab UI without worrying about the internal logic and styling setup.
+
+## Why are we using `semantic-release` and how does it work?
+
+We chose to use [semantic-release](https://github.com/semantic-release/semantic-release) to handle
+our npm publishing because it was the most widely used tool for publishing and gave easy support for
+managing changelogs.
+
+Read more about GitLab UI's [commits guidelines](./doc/contributing/commits.md).
+
+## Why did we decide to go for Rollup instead of Webpack?
+
+While Webpack and Rollup have similar purposes, Webpack tends to work best when building applications,
+while Rollup works better for building libraries.
+
+For context, Sean Larkin (maintainer of Webpack) mentioned this on this [twitter thread](https://twitter.com/TheLarkInn/status/849792234002063360).

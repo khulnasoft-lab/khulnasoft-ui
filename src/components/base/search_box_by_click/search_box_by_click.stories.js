@@ -1,57 +1,100 @@
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlSearchBoxByClick } from '../../../../index';
+import { GlSearchBoxByClick } from '../../../index';
+import { disableControls } from '../../../utils/stories_utils';
 import readme from './search_box_by_click.md';
 
-const components = {
-  GlSearchBoxByClick,
-};
+const template = `
+  <gl-search-box-by-click
+    :value="value"
+    :disabled="disabled"
+    :placeholder="placeholder"
+    :history-items="currentHistoryItems"
+    :clearable="clearable"
+    :recent-searches-header="recentSearchesHeader"
+    :clear-button-title="clearButtonTitle"
+    :close-button-title="closeButtonTitle"
+    :clear-recent-searches-text="clearRecentSearchesText"
+    :no-recent-searches-text="noRecentSearchesText"
+    :search-button-attributes="searchButtonAttributes"
+    @clear-history="clearCurrentHistory"
+  />
+`;
 
-function generateProps({ disabled = false, value = '', placeholder = 'Search' } = {}) {
-  return {
-    disabled: {
-      type: Boolean,
-      default: boolean('disabled', disabled),
-    },
-    value: {
-      type: String,
-      default: text('value', value),
-    },
-    placeholder: {
-      type: String,
-      default: text('placeholder', placeholder),
-    },
-  };
-}
+const defaultValue = (prop) => GlSearchBoxByClick.props[prop].default;
 
-documentedStoriesOf('base/search-box-by-click', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template: `
-      <gl-search-box-by-click
-        :value="value"
-        :disabled="disabled"
-        :placeholder="placeholder"
-      />
-    `,
-  }))
-  .add('with history', () => ({
-    props: {
-      ...generateProps(),
-      history: {
-        type: Array,
-        default: ['author:@admin', 'assignee:@admin milestone:%12.5', 'label:~test'],
+const generateProps = ({
+  disabled = defaultValue('disabled'),
+  value = defaultValue('value'),
+  placeholder = defaultValue('placeholder'),
+  historyItems = defaultValue('historyItems'),
+  clearable = defaultValue('clearable'),
+  recentSearchesHeader = defaultValue('recentSearchesHeader'),
+  clearButtonTitle = defaultValue('clearButtonTitle'),
+  closeButtonTitle = defaultValue('closeButtonTitle'),
+  clearRecentSearchesText = defaultValue('clearRecentSearchesText'),
+  noRecentSearchesText = defaultValue('noRecentSearchesText'),
+  searchButtonAttributes = defaultValue('searchButtonAttributes')(),
+} = {}) => ({
+  disabled,
+  value,
+  placeholder,
+  historyItems,
+  clearable,
+  recentSearchesHeader,
+  clearButtonTitle,
+  closeButtonTitle,
+  clearRecentSearchesText,
+  noRecentSearchesText,
+  searchButtonAttributes,
+});
+
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlSearchBoxByClick,
+  },
+  props: Object.keys(argTypes),
+  template,
+  data() {
+    return {
+      currentHistoryItems: this.historyItems,
+    };
+  },
+  watch: {
+    historyItems(historyItems) {
+      this.currentHistoryItems = historyItems;
+    },
+  },
+  methods: {
+    clearCurrentHistory() {
+      this.currentHistoryItems = [];
+    },
+  },
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const History = Template.bind({});
+History.args = generateProps({
+  historyItems: ['author:@admin', 'assignee:@admin milestone:%12.5', 'label:~test'],
+});
+
+export default {
+  title: 'base/search-box-by-click',
+  component: GlSearchBoxByClick,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
       },
     },
-    components,
-    template: `
-      <gl-search-box-by-click
-        :value="value"
-        :disabled="disabled"
-        :placeholder="placeholder"
-        :history-items="history"
-      />
-    `,
-  }));
+  },
+  argTypes: {
+    ...disableControls(['tooltipContainer']),
+    historyItems: {
+      control: {
+        type: 'object',
+      },
+    },
+  },
+};

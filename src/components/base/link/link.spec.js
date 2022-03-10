@@ -8,11 +8,6 @@ describe('link component', () => {
     wrapper = mount(Link, options);
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('default settings', () => {
     beforeEach(() => {
       createWrapper();

@@ -1,19 +1,8 @@
-import { withKnobs, select, number, boolean } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlModal, GlModalDirective, GlButton } from '../../../../index';
+import { GlModal, GlModalDirective, GlButton } from '../../../index';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import readme from './modal.md';
 
-const components = {
-  GlModal,
-  GlButton,
-};
-
-const directives = {
-  GlModalDirective,
-};
-
-function generateTemplate({ props = {}, slots = {} } = {}) {
+const generateTemplate = ({ props = {}, slots = {} } = {}) => {
   const extraProps = Object.entries(props)
     .map(([key, value]) => `:${key}="${value}"`)
     .join('\n        ');
@@ -51,97 +40,130 @@ function generateTemplate({ props = {}, slots = {} } = {}) {
       </gl-modal>
     </div>
   `;
-}
+};
 
-function generateProps({
+const Template = (args, { argTypes }) => ({
+  components: { GlModal, GlButton },
+  directives: { GlModalDirective },
+  props: Object.keys(argTypes),
+  template: generateTemplate(),
+});
+
+const generateProps = ({
   variant = variantOptionsWithNoDefault.default,
   contentPagraphs = 1,
   scrollable = false,
   visible = false,
-} = {}) {
-  return {
+} = {}) => ({
+  headerBgVariant: variant,
+  headerBorderVariant: variant,
+  headerTextVariant: variant,
+  bodyBgVariant: variant,
+  bodyTextVariant: variant,
+  footerBgVariant: variant,
+  footerBorderVariant: variant,
+  footerTextVariant: variant,
+  contentParagraphs: contentPagraphs,
+  scrollable,
+  visible,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const OpenedModal = Template.bind({});
+OpenedModal.args = generateProps({ visible: true });
+
+export const WithScrollingContent = Template.bind({});
+WithScrollingContent.args = generateProps({
+  contentPagraphs: 100,
+  scrollable: true,
+  visible: true,
+});
+
+export const WithAHeader = (args, { argTypes }) => ({
+  components: { GlModal, GlButton },
+  directives: { GlModalDirective },
+  props: Object.keys(argTypes),
+  template: generateTemplate({
+    slots: {
+      'modal-header': '<h4>A custom header</h4>',
+    },
+  }),
+});
+WithAHeader.args = generateProps({ visible: true });
+
+export const WithoutAFooter = (args, { argTypes }) => ({
+  components: { GlModal, GlButton },
+  directives: { GlModalDirective },
+  props: Object.keys(argTypes),
+  template: generateTemplate({
+    props: { 'hide-footer': true },
+  }),
+});
+WithoutAFooter.args = generateProps({ visible: true });
+
+export default {
+  title: 'base/modal',
+  components: { GlModal, GlButton },
+  directives: { GlModalDirective },
+  bootstrapComponent: 'b-modal',
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
     headerBgVariant: {
-      type: String,
-      default: select('header bg', variantOptionsWithNoDefault, variant),
+      control: {
+        type: 'select',
+        options: variantOptionsWithNoDefault,
+      },
     },
     headerBorderVariant: {
-      type: String,
-      default: select('header border', variantOptionsWithNoDefault, variant),
+      control: {
+        type: 'select',
+        options: variantOptionsWithNoDefault,
+      },
     },
     headerTextVariant: {
-      type: String,
-      default: select('header text', variantOptionsWithNoDefault, variant),
+      control: {
+        type: 'select',
+        options: variantOptionsWithNoDefault,
+      },
     },
     bodyBgVariant: {
-      type: String,
-      default: select('body bg', variantOptionsWithNoDefault, variant),
+      control: {
+        type: 'select',
+        options: variantOptionsWithNoDefault,
+      },
     },
     bodyTextVariant: {
-      type: String,
-      default: select('body text', variantOptionsWithNoDefault, variant),
+      control: {
+        type: 'select',
+        options: variantOptionsWithNoDefault,
+      },
     },
     footerBgVariant: {
-      type: String,
-      default: select('footer bg', variantOptionsWithNoDefault, variant),
+      control: {
+        type: 'select',
+        options: variantOptionsWithNoDefault,
+      },
     },
     footerBorderVariant: {
-      type: String,
-      default: select('footer border', variantOptionsWithNoDefault, variant),
+      control: {
+        type: 'select',
+        options: variantOptionsWithNoDefault,
+      },
     },
     footerTextVariant: {
-      type: String,
-      default: select('footer text', variantOptionsWithNoDefault, variant),
-    },
-    contentParagraphs: {
-      type: Number,
-      default: number('content paragraphs', contentPagraphs),
-    },
-    scrollable: {
-      type: Boolean,
-      default: boolean('scrollable', scrollable),
-    },
-    visible: {
-      type: Boolean,
-      default: visible,
-    },
-  };
-}
-
-documentedStoriesOf('base/modal', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    directives,
-    template: generateTemplate(),
-  }))
-  .add('opened modal', () => ({
-    props: generateProps({ visible: true }),
-    components,
-    directives,
-    template: generateTemplate(),
-  }))
-  .add('with scrolling content', () => ({
-    props: generateProps({ contentPagraphs: 100, scrollable: true, visible: true }),
-    components,
-    directives,
-    template: generateTemplate(),
-  }))
-  .add('with a header', () => ({
-    props: generateProps({ visible: true }),
-    components,
-    directives,
-    template: generateTemplate({
-      slots: {
-        'modal-header': '<h4>A custom header</h4>',
+      control: {
+        type: 'select',
+        options: variantOptionsWithNoDefault,
       },
-    }),
-  }))
-  .add('without a footer', () => ({
-    props: generateProps({ visible: true }),
-    components,
-    directives,
-    template: generateTemplate({
-      props: { 'hide-footer': true },
-    }),
-  }));
+    },
+  },
+};

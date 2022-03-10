@@ -25,10 +25,6 @@ describe('safe html directive', () => {
     wrapper = shallowMount(component);
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('default', () => {
     it('should remove the script tag', () => {
       createComponent();

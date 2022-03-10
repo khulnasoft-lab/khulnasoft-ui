@@ -17,18 +17,11 @@ describe('Truncate component', () => {
   };
 
   const createComponent = (props) => {
-    wrapper = shallowMount(Truncate, {
-      propsData: { ...defaultProps, ...props },
-      directives: {
-        GlTooltip: createMockDirective(),
-      },
-    });
+    wrapper = shallowMount(
+      { extends: Truncate, directives: { GlTooltip: createMockDirective('gl-tooltip') } },
+      { propsData: { ...defaultProps, ...props } }
+    );
   };
-
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
 
   describe('All', () => {
     beforeEach(() => {
@@ -39,9 +32,9 @@ describe('Truncate component', () => {
       '%s truncation: should have title, class, original text',
       (position) => {
         createComponent({ position });
-
-        expect(wrapper.attributes('title')).toBe(defaultProps.text);
-        expect(wrapper.attributes('class')).toBe('gl-truncate');
+        const element = wrapper.find('span');
+        expect(element.attributes('title')).toBe(defaultProps.text);
+        expect(element.attributes('class')).toBe('gl-truncate');
         expect(removeSpecialChar(wrapper.text())).toBe(defaultProps.text);
       }
     );
@@ -51,7 +44,9 @@ describe('Truncate component', () => {
     });
 
     it('disables the tooltip by default', () => {
-      expect(getBinding(wrapper.element, 'gl-tooltip').value.disabled).toBe(true);
+      expect(getBinding(wrapper.find('.gl-truncate').element, 'gl-tooltip').value.disabled).toBe(
+        true
+      );
     });
   });
 

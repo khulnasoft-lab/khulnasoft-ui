@@ -1,16 +1,6 @@
-import examples from './examples';
+import description from './label.vue';
 
 export default {
   followsDesignSystem: true,
-  examples,
-  events: [
-    {
-      event: 'click',
-      description: 'Emitted when label is clicked',
-    },
-    {
-      event: 'close',
-      description: 'Emitted when x is clicked',
-    },
-  ],
+  description,
 };

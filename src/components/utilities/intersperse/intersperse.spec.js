@@ -1,14 +1,11 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Intersperse from './intersperse.vue';
-
-const localVue = createLocalVue();
 
 describe('Intersperse Component', () => {
   let wrapper;
 
   const createComponent = (defaultSlot = [], options = {}) => {
     wrapper = shallowMount(Intersperse, {
-      localVue,
       slots: {
         default: defaultSlot,
       },

@@ -1,4 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs';
+import { GlFilteredSearchSuggestionList, GlFilteredSearchSuggestion } from '../../../index';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { provide } from './common_story_options';
 import readme from './filtered_search_suggestion_list.md';
@@ -6,6 +7,7 @@ import readme from './filtered_search_suggestion_list.md';
 documentedStoriesOf('base/filtered-search/suggestion-list', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
+    components: { GlFilteredSearchSuggestionList, GlFilteredSearchSuggestion },
     data() {
       return {
         iteration: 1,

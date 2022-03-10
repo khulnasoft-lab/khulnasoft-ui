@@ -65,6 +65,10 @@
   width: $gl-spacing-scale-20;
 }
 
+@mixin gl-w-28 {
+  width: $gl-spacing-scale-28;
+}
+
 @mixin gl-w-eighth {
   width: 12.5%;
 }
@@ -206,20 +210,44 @@
   }
 }
 
+@mixin gl-sm-w-half {
+  @include gl-media-breakpoint-up(sm) {
+    width: 50%;
+  }
+}
+
 @mixin gl-md-w-auto {
   @include gl-media-breakpoint-up(md) {
     width: auto;
   }
 }
 
+@mixin gl-md-w-50p {
+  @include gl-media-breakpoint-up(md) {
+    width: 50%;
+  }
+}
+
 @mixin gl-lg-w-1px {
-  @media (min-width: $breakpoint-lg) {
+  @include gl-media-breakpoint-up(lg) {
     width: 1px;
   }
 }
 
-@mixin gl-md-w-50p {
-  @include gl-media-breakpoint-up(md) {
+@mixin gl-lg-w-auto {
+  @include gl-media-breakpoint-up(lg) {
+    width: auto;
+  }
+}
+
+@mixin gl-lg-w-25p {
+  @include gl-media-breakpoint-up(lg) {
+    width: 25%;
+  }
+}
+
+@mixin gl-lg-w-50p {
+  @include gl-media-breakpoint-up(lg) {
     width: 50%;
   }
 }
@@ -241,6 +269,10 @@
 
 @mixin gl-min-w-8 {
   min-width: $gl-spacing-scale-8;
+}
+
+@mixin gl-min-w-9 {
+  min-width: $gl-spacing-scale-9;
 }
 
 @mixin gl-min-w-10 {
@@ -269,6 +301,14 @@
 
 @mixin gl-max-w-15 {
   max-width: $gl-spacing-scale-15;
+}
+
+@mixin gl-max-w-26 {
+  max-width: $gl-spacing-scale-26;
+}
+
+@mixin gl-max-w-62 {
+  max-width: $gl-spacing-scale-62;
 }
 
 @mixin gl-max-w-none {
@@ -303,6 +343,12 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 
+@mixin gl-md-max-w-15p {
+  @include gl-media-breakpoint-up(md) {
+    max-width: 15%;
+  }
+}
+
 @mixin gl-md-max-w-30p {
   @include gl-media-breakpoint-up(md) {
     max-width: 30%;
@@ -312,5 +358,17 @@
 @mixin gl-md-max-w-50p {
   @include gl-media-breakpoint-up(md) {
     max-width: 50%;
+  }
+}
+
+@mixin gl-md-max-w-70p {
+  @include gl-media-breakpoint-up(md) {
+    max-width: 70%;
+  }
+}
+
+@mixin gl-lg-max-w-80p {
+  @include gl-media-breakpoint-up(lg) {
+    max-width: 80%;
   }
 }

@@ -1,4 +1,4 @@
-import { GlLoadingIcon } from '../../../../index';
+import { GlLoadingIcon } from '../../../index';
 import { viewModeOptions, loadingIconSizes } from '../../../utils/constants';
 import readme from './loading_icon.md';
 
@@ -23,6 +23,7 @@ const generateProps = () => ({
 });
 
 const Template = (args) => ({
+  components: { GlLoadingIcon },
   props: Object.keys(args),
   template,
 });

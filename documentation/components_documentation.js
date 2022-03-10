@@ -9,16 +9,13 @@ export { default as GlFormTextDocumentation } from '../src/components/base/form/
 export { default as GlFormComboboxDocumentation } from '../src/components/base/form/form_combobox/form_combobox.documentation';
 export { default as GlGaugeChartDocumentation } from '../src/components/charts/gauge/gauge.documentation';
 export { default as GlTokenSelectorDocumentation } from '../src/components/base/token_selector/token_selector.documentation';
-export { default as GlNavItemDropdownDocumentation } from '../src/components/base/nav/nav_item_dropdown.documentation';
 export { default as GlNavDocumentation } from '../src/components/base/nav/nav.documentation';
-export { default as GlNavItemDocumentation } from '../src/components/base/nav/nav_item.documentation';
 export { default as GlFormCheckboxTreeDocumentation } from '../src/components/base/form/form_checkbox_tree/form_checkbox_tree.documentation';
 export { default as GlMarkdownDocumentation } from '../src/components/base/markdown/markdown.documentation';
 export { default as GlNavbarDocumentation } from '../src/components/base/navbar/navbar.documentation';
 export { default as GlIntersectionObserverDocumentation } from '../src/components/utilities/intersection_observer/intersection_observer.documentation';
 export { default as GlChartDocumentation } from '../src/components/charts/chart/chart.documentation';
 export { default as GlAreaChartDocumentation } from '../src/components/charts/area/area.documentation';
-export { default as GlChartLegendDocumentation } from '../src/components/charts/legend/legend.documentation';
 export { default as GlLineChartDocumentation } from '../src/components/charts/line/line.documentation';
 export { default as GlSparklineChartDocumentation } from '../src/components/charts/sparkline/sparkline.documentation';
 export { default as GlChartSeriesLabelDocumentation } from '../src/components/charts/series_label/series_label.documentation';
@@ -66,7 +63,6 @@ export { default as GlTableDocumentation } from '../src/components/base/table/ta
 export { default as GlBreadcrumbDocumentation } from '../src/components/base/breadcrumb/breadcrumb.documentation';
 export { default as GlHeatmapDocumentation } from '../src/components/charts/heatmap/heatmap.documentation';
 export { default as GlTabsDocumentation } from '../src/components/base/tabs/tabs/tabs.documentation';
-export { default as GlTabDocumentation } from '../src/components/base/tabs/tab/tab.documentation';
 export { default as GlButtonGroupDocumentation } from '../src/components/base/button_group/button_group.documentation';
 export { default as GlFormCheckboxDocumentation } from '../src/components/base/form/form_checkbox/form_checkbox.documentation';
 export { default as GlLabelDocumentation } from '../src/components/base/label/label.documentation';

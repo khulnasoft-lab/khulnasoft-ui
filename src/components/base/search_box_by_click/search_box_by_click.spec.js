@@ -1,11 +1,8 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import SearchBoxByClick from './search_box_by_click.vue';
 import ClearIcon from '~/components/shared_components/clear_icon_button/clear_icon_button.vue';
-
-const localVue = createLocalVue();
-localVue.directive('gl-tooltip', {});
 
 const GlFormInputGroupStub = {
   template: `
@@ -24,15 +21,11 @@ describe('search box by click component', () => {
     wrapper = shallowMount(SearchBoxByClick, {
       propsData,
       stubs: { GlFormInputGroup: GlFormInputGroupStub },
-      localVue,
     });
   };
 
   const findClearIcon = () => wrapper.findComponent(ClearIcon);
-
-  afterEach(() => {
-    wrapper.destroy();
-  });
+  const findSearchButton = () => wrapper.find('[data-testid="search-button"]');
 
   it('emits input event when input changes', async () => {
     createComponent({ value: 'somevalue' });
@@ -133,8 +126,8 @@ describe('search box by click component', () => {
     });
 
     it('displays disabled search button', () => {
-      expect(wrapper.findComponent({ ref: 'searchButton' }).exists()).toBe(true);
-      expect(wrapper.findComponent({ ref: 'searchButton' }).attributes('disabled')).toBe('true');
+      expect(findSearchButton().exists()).toBe(true);
+      expect(findSearchButton().attributes('disabled')).toBe('true');
     });
 
     it('does not render clear icon even with value', () => {
@@ -153,9 +146,19 @@ describe('search box by click component', () => {
 
   it('emits submit event when search button is pressed', async () => {
     createComponent({ value: 'some-input' });
-    wrapper.findComponent({ ref: 'searchButton' }).vm.$emit('click');
+    findSearchButton().vm.$emit('click');
 
     await wrapper.vm.$nextTick();
     expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
+  });
+
+  it('adds `searchButtonAttributes` prop to search button', () => {
+    const searchButtonAttributes = { 'data-qa-selector': 'foo-bar' };
+
+    createComponent({ searchButtonAttributes });
+
+    expect(findSearchButton().attributes('data-qa-selector')).toBe(
+      searchButtonAttributes['data-qa-selector']
+    );
   });
 });

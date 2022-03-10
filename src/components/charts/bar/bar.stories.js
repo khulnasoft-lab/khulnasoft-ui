@@ -1,4 +1,5 @@
-import { GlBarChart } from '../../../../charts';
+import { GlBarChart } from '../../../charts';
+import { disableControls } from '../../../utils/stories_utils';
 import readme from './bar.md';
 
 const Template = (args, { argTypes }) => ({
@@ -49,11 +50,13 @@ export default {
   title: 'charts/bar-chart',
   component: GlBarChart,
   argTypes: {
-    showToolbox: { control: { disable: true } },
-    toolboxZoomIconPath: { control: { disable: true } },
-    toolboxBackIconPath: { control: { disable: true } },
-    toolboxRestoreIconPath: { control: { disable: true } },
-    toolboxSaveAsImageIconPath: { control: { disable: true } },
+    ...disableControls([
+      'showToolbox',
+      'toolboxZoomIconPath',
+      'toolboxBackIconPath',
+      'toolboxRestoreIconPath',
+      'toolboxSaveAsImageIconPath',
+    ]),
   },
   parameters: {
     knobs: { disable: true },

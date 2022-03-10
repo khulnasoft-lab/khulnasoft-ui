@@ -16,11 +16,6 @@ describe('search box by type component', () => {
   const findClearIcon = () => wrapper.findComponent(ClearIcon);
   const findInput = () => wrapper.findComponent({ ref: 'input' });
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   describe('clear icon component', () => {
     beforeEach(() => {
       createComponent({ value: 'somevalue' });

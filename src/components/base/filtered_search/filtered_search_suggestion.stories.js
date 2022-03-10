@@ -1,4 +1,5 @@
 import { withKnobs } from '@storybook/addon-knobs';
+import { GlFilteredSearchSuggestion } from '../../../index';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './filtered_search_suggestion.md';
 
@@ -7,6 +8,7 @@ const noop = () => {};
 documentedStoriesOf('base/filtered-search/suggestion', readme)
   .addDecorator(withKnobs)
   .add('default', () => ({
+    components: { GlFilteredSearchSuggestion },
     provide: {
       filteredSearchSuggestionListInstance: {
         register: noop,

@@ -1,5 +1,3 @@
-# GlFormCombobox
-
 Use this component to add a [`FormInput`](/?path=/story/base-form-form-input--default) component
 with synchronous autocomplete dropdown. It behaves as follows:
 

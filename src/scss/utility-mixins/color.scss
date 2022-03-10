@@ -11,6 +11,10 @@
   color: inherit;
 }
 
+@mixin gl-text-transparent {
+  color: transparent;
+}
+
 @mixin gl-text-white($hover: true) {
   color: $white;
 }
@@ -191,4 +195,10 @@
 
 @mixin gl-text-theme-indigo-900 {
   color: $theme-indigo-900;
+}
+
+@mixin gl-dark-invert-keep-hue {
+  .gl-dark & {
+    filter: invert(0.8) hue-rotate(180deg);
+  }
 }

@@ -1,12 +1,10 @@
-## Avatars inline
-
 Use `<avatars-inline />` to display multiple avatars organized in a single row.
 
 ### Basic usage
 
 The `avatars` property accepts an array of objects that contains the avatar properties. By default,
 `<avatars-inline />` expects each object contained in the array to have the same shape as the
-properties of the  `<avatar />` component. You can customize the display of each avatar by
+properties of the `<avatar />` component. You can customize the display of each avatar by
 overriding the default slot:
 
 ```html
@@ -29,6 +27,11 @@ the `avatars` property.
 When the `collapse` property value is `true` and the `maxVisible` property value is a number less
 than the length of the `avatars` property array, `<avatars-inline>` will hide the overflown avatars
 and display a badge instead.
+
+### Badge description in screen readers
+
+The `badgeSrOnlyText` property provides a meaningful description of the badge that appears
+when avatars are collapsed for screen reader users.
 
 ### Supported sizes
 

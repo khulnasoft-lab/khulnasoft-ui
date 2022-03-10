@@ -1,5 +1,5 @@
-import { GlChart } from '../../../../charts';
-import { GlTabs, GlTab } from '../../../../index';
+import { GlChart } from '../../../charts';
+import { GlTabs, GlTab } from '../../../index';
 import readme from './chart.md';
 
 const Template = (args, { argTypes = {} }) => ({

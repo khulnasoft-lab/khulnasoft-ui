@@ -1,8 +1,6 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import Token from './token.vue';
-
-const localVue = createLocalVue();
 
 const findIcon = (wrapper) => wrapper.findComponent(CloseButton);
 
@@ -13,13 +11,8 @@ describe('Token component', () => {
 
   const createComponent = (propsData) =>
     shallowMount(Token, {
-      localVue,
       propsData,
     });
-
-  afterEach(() => {
-    wrapper.destroy();
-  });
 
   it('emits close when "x" is clicked', () => {
     wrapper = createComponent();

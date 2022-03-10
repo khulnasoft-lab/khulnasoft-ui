@@ -1,6 +1,3 @@
-# Avatar labeled
-
-<!-- STORY -->
 ## Usage
 
 Avatars may also be adjacent to a text alternative, such as a user or project name. In these cases,
@@ -12,7 +9,7 @@ properties as the avatar component to modify the avatar’s shape and size.
 
 ## Using the component
 
-~~~js
+```js
 <gl-avatar-labeled
   :shape="shape"
   :size="size"
@@ -20,4 +17,4 @@ properties as the avatar component to modify the avatar’s shape and size.
   :label="label"
   :sub-label="subLabel"
 />
-~~~
+```

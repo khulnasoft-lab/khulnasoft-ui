@@ -1,6 +1,13 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { documentedStoriesOf } from '../../../../documentation/documented_stories';
-import { GlFilteredSearch, GlFilteredSearchToken } from '../../../../index';
+import {
+  GlFilteredSearch,
+  GlFilteredSearchToken,
+  GlFilteredSearchSuggestion,
+  GlLoadingIcon,
+  GlToken,
+  GlAvatar,
+} from '../../../index';
 import { setStoryTimeout } from '../../../utils/test_utils';
 import readme from './filtered_search.md';
 
@@ -29,6 +36,7 @@ const fakeLabels = [
 ];
 
 const UserToken = {
+  components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
   props: ['value', 'active'],
   inheritAttrs: false,
   data() {
@@ -104,6 +112,7 @@ const UserToken = {
 };
 
 const MilestoneToken = {
+  components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon },
   props: ['value', 'active'],
   inheritAttrs: false,
   data() {
@@ -163,6 +172,7 @@ const MilestoneToken = {
 };
 
 const LabelToken = {
+  components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlToken },
   props: ['value', 'active'],
   inheritAttrs: false,
   data() {

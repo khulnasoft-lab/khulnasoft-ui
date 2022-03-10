@@ -1,9 +1,8 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { HoverLoadDirective as hoverLoad } from './hover_load';
 
 describe('hover load directive', () => {
   let wrapper;
-  const localVue = createLocalVue();
   const findTarget = () => wrapper.find('.target');
 
   const createComponent = (handleLoad) => {
@@ -19,11 +18,10 @@ describe('hover load directive', () => {
       template: `<div v-hover-load="handleLoad" class="target"></div>`,
     };
 
-    wrapper = shallowMount(component, { localVue });
+    wrapper = shallowMount(component);
   };
 
   afterEach(() => {
-    wrapper.destroy();
     jest.restoreAllMocks();
   });
 
@@ -46,16 +44,6 @@ describe('hover load directive', () => {
       } else {
         expect(mockHandleLoad).toHaveBeenCalledTimes(1);
       }
-    }
-  );
-
-  it.each([3, '', undefined, null, false, {}, []])(
-    'throws if the handler is %p instead of a function',
-    (directiveValue) => {
-      // we are going to throw, so we need to suppress error messages in jest output
-      jest.spyOn(global.console, 'error').mockImplementation(() => {});
-
-      expect(() => createComponent(directiveValue)).toThrow(TypeError);
     }
   );
 

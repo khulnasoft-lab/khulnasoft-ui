@@ -1,16 +1,11 @@
-import { withKnobs, object, array, boolean } from '@storybook/addon-knobs';
 import { times } from 'lodash';
-import { GlAreaChart } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlAreaChart } from '../../../charts';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
-import readme from './area.md';
+import { disableControls } from '../../../utils/stories_utils';
 
-const components = {
-  GlAreaChart,
-};
 const defaultData = [
   {
     name: 'First Series',
@@ -32,6 +27,7 @@ const defaultOptions = {
     type: 'category',
   },
 };
+
 const template = `<gl-area-chart
   :data="data"
   :option="option"
@@ -40,136 +36,140 @@ const template = `<gl-area-chart
   :includeLegendAvgMax="includeLegendAvgMax"
 />`;
 
-function generateProps({
+const generateProps = ({
   data = defaultData,
   option = defaultOptions,
   thresholds = [],
   annotations = [],
   includeLegendAvgMax = true,
-} = {}) {
-  return {
-    option: {
-      default: object('EChart Options', option),
-    },
-    thresholds: {
-      default: array('Thresholds', thresholds),
-    },
-    annotations: {
-      default: object('Annotations', annotations),
-    },
-    data: {
-      default: object('Chart Data', data),
-    },
-    includeLegendAvgMax: {
-      default: boolean('Include Legend Avg Max', includeLegendAvgMax),
-    },
-  };
-}
+} = {}) => ({
+  data,
+  option,
+  thresholds,
+  annotations,
+  includeLegendAvgMax,
+});
 
-documentedStoriesOf('charts/area-chart', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    props: generateProps(),
-    components,
-    template,
-  }))
-  .add('with threshold', () => ({
-    props: generateProps({
-      thresholds: [{ threshold: 1200, operator: '>' }],
-    }),
-    components,
-    template,
-  }))
-  .add('with annotations as props (recommended)', () => ({
-    props: generateProps({
-      ...mockAnnotationsConfigs,
-      data: [
-        {
-          name: 'Time Series',
-          data: generateTimeSeries(),
-        },
-      ],
-      option: {
-        xAxis: {
-          type: 'time',
-          name: 'Time',
-          axisLabel: {
-            formatter: timeSeriesDateFormatter,
-          },
-        },
+const Template = (args, { argTypes }) => ({
+  components: {
+    GlAreaChart,
+  },
+  props: Object.keys(argTypes),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const WithThreshold = Template.bind({});
+WithThreshold.args = generateProps({
+  thresholds: [{ threshold: 1200, operator: '>' }],
+});
+
+export const WithAnnotationsAsProps = Template.bind({});
+WithAnnotationsAsProps.storyName = 'With annotations as props (recommended)';
+WithAnnotationsAsProps.args = generateProps({
+  ...mockAnnotationsConfigs,
+  data: [
+    {
+      name: 'Time Series',
+      data: generateTimeSeries(),
+    },
+  ],
+  option: {
+    xAxis: {
+      type: 'time',
+      name: 'Time',
+      axisLabel: {
+        formatter: timeSeriesDateFormatter,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with annotations as option series', () => ({
-    props: generateProps({
-      data: [
-        {
-          name: 'Time Series',
-          data: generateTimeSeries(),
-        },
-      ],
-      option: {
-        ...mockAnnotationsSeries,
-        xAxis: {
-          type: 'time',
-          name: 'Time',
-          axisLabel: {
-            formatter: timeSeriesDateFormatter,
-          },
-        },
+    },
+  },
+});
+
+export const WithAnnotationsAsOptionSeries = Template.bind({});
+WithAnnotationsAsOptionSeries.args = generateProps({
+  data: [
+    {
+      name: 'Time Series',
+      data: generateTimeSeries(),
+    },
+  ],
+  option: {
+    ...mockAnnotationsSeries,
+    xAxis: {
+      type: 'time',
+      name: 'Time',
+      axisLabel: {
+        formatter: timeSeriesDateFormatter,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with zoom and scroll', () => ({
-    props: generateProps({
-      data: [
-        {
-          name: 'Time Series',
-          data: generateTimeSeries(),
-        },
-      ],
-      option: {
-        xAxis: {
-          type: 'time',
-          name: 'Time',
-          axisLabel: {
-            formatter: timeSeriesDateFormatter,
-          },
-        },
-        dataZoom: [
-          {
-            startValue: '2018-03-01T00:00:00.000',
-          },
-        ],
+    },
+  },
+});
+
+export const WithZoomAndScroll = Template.bind({});
+WithZoomAndScroll.args = generateProps({
+  data: [
+    {
+      name: 'Time Series',
+      data: generateTimeSeries(),
+    },
+  ],
+  option: {
+    xAxis: {
+      type: 'time',
+      name: 'Time',
+      axisLabel: {
+        formatter: timeSeriesDateFormatter,
       },
-    }),
-    components,
-    template,
-  }))
-  .add('with toolbox', () => ({
-    props: generateProps({
-      option: {
-        xAxis: {
-          name: 'Time',
-          type: 'category',
-        },
-        toolbox,
+    },
+    dataZoom: [
+      {
+        startValue: '2018-03-01T00:00:00.000',
       },
-    }),
-    components,
-    template,
-  }))
-  .add('mult-series', () => ({
-    props: generateProps({
-      data: times(10, (index) => ({
-        name: index,
-        data: defaultData[0].data.map(([label, value]) => [label, value * index]),
-      })),
-    }),
-    components,
-    template,
-  }));
+    ],
+  },
+});
+
+export const WithToolbox = Template.bind({});
+WithToolbox.args = generateProps({
+  option: {
+    xAxis: {
+      name: 'Time',
+      type: 'category',
+    },
+    toolbox,
+  },
+});
+
+export const MultSeries = Template.bind({});
+MultSeries.args = generateProps({
+  data: times(10, (index) => ({
+    name: index,
+    data: defaultData[0].data.map(([label, value]) => [label, value * index]),
+  })),
+});
+
+export default {
+  title: 'charts/area-chart',
+  component: GlAreaChart,
+  parameters: {
+    knobs: { disable: true },
+  },
+  argTypes: {
+    ...disableControls([
+      'showToolbox',
+      'toolboxZoomIconPath',
+      'toolboxBackIconPath',
+      'toolboxRestoreIconPath',
+      'toolboxSaveAsImageIconPath',
+      'dataSeries',
+      'formatTooltipText',
+      'legendAverageText',
+      'legendMaxText',
+      'legendMinText',
+      'legendCurrentText',
+      'legendLayout',
+    ]),
+  },
+};

@@ -1,12 +1,6 @@
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { GlFormInput } from '../../../../../index';
+import { GlFormInput } from '../../../../index';
 import { formInputSizes } from '../../../../utils/constants';
 import readme from './form_input.md';
-
-const components = {
-  GlFormInput,
-};
 
 const template = `
   <gl-form-input
@@ -16,51 +10,65 @@ const template = `
     :size="size"
   />`;
 
-function generateProps({
+const generateProps = ({
   size = GlFormInput.props.size.default,
   value = '',
   disabled = false,
-} = {}) {
-  return {
-    size: {
-      type: String,
-      default: select('size', formInputSizes, size),
-    },
-    value: {
-      type: String,
-      default: text('value', value),
-    },
-    disabled: {
-      type: Boolean,
-      default: boolean('disabled', disabled),
-    },
-  };
-}
+} = {}) => ({
+  size,
+  value,
+  disabled,
+});
 
-documentedStoriesOf('base/form/form-input', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    template,
-  }))
-  .add('disabled', () => ({
-    components,
-    props: generateProps({ value: 'some text', disabled: true }),
-    template,
-  }))
-  .add('sizes', () => ({
-    components,
-    data: () => ({
-      formInputSizes,
-    }),
-    template: `
+const Template = (args) => ({
+  components: { GlFormInput },
+  props: Object.keys(args),
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const Disabled = Template.bind({});
+Disabled.args = generateProps({ value: 'some text', disabled: true });
+
+export const Sizes = (args, { argTypes }) => ({
+  components: { GlFormInput },
+  props: Object.keys(argTypes),
+  data: () => ({
+    formInputSizes,
+  }),
+  template: `
       <div>
         <gl-form-input
           v-for="(size, name) in formInputSizes"
+          :key="size"
           :size="size"
           :value="name"
         />
       </div>
     `,
-  }));
+});
+Sizes.args = {};
+
+export default {
+  title: 'base/form/form-input',
+  component: GlFormInput,
+  parameters: {
+    bootstrapComponent: 'b-form-input',
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    size: {
+      options: formInputSizes,
+      control: {
+        type: 'select',
+      },
+    },
+  },
+};

@@ -1,16 +1,11 @@
-# Tabs
-
-<!-- STORY -->
-## Usage
-
 Tabs are used to divide content into meaningful, related sections. Tabs allow users to focus on one
 specific view at a time while maintaining sight of all the relevant content options available. Each
 tab, when active, will reveal it’s own unique content.
 
 ## Using the component Vue
 
-~~~js
-<gl-tabs theme="indigo">
+~~~html
+<gl-tabs>
   <gl-tab title="Tab 1">
     Tab panel 1
   </gl-tab>
@@ -22,7 +17,7 @@ tab, when active, will reveal it’s own unique content.
 
 ## Using the component HTML
 
-~~~js
+~~~html
 <div class="tabs gl-tabs">
   <ul role="tablist" class="nav gl-tabs-nav">
     <li role="presentation" class="nav-item">
@@ -75,7 +70,7 @@ component. This is a separate Vue component because of some limitations:
 exceptions).
 
 ~~~html
-<gl-scrollable-tabs theme="indigo">
+<gl-scrollable-tabs>
   <gl-tab v-for="tab in tabs" :key="tab.key" :title="tab.title"> {{ tab.content }} </gl-tab>
 </gl-scrollable-tabs>
 ~~~

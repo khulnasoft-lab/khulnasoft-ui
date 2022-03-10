@@ -1,4 +1,4 @@
-import { GlSparklineChart } from '../../../../charts';
+import { GlSparklineChart } from '../../../charts';
 import readme from './sparkline.md';
 
 const chartData = [

@@ -1,5 +1,3 @@
-## Usage
-
 Skeleton loaders are to be used when pages or sections can be progressively populated with content,
 such as text and images, as they become available. Generally speaking the first batch of content
 will be the lightest to load and is followed by secondary and tertiary content batches. Each loading

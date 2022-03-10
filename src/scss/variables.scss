@@ -18,6 +18,9 @@ $gl-spacing-scale-12: 10 * $grid-size;
 $gl-spacing-scale-13: 12 * $grid-size;
 $gl-spacing-scale-15: 15 * $grid-size;
 $gl-spacing-scale-20: 20 * $grid-size;
+$gl-spacing-scale-26: 26 * $grid-size;
+$gl-spacing-scale-28: 28 * $grid-size;
+$gl-spacing-scale-62: 62 * $grid-size;
 
 // Responsive breakpoints
 
@@ -314,6 +317,7 @@ $gl-line-height-24: px-to-rem(24px);
 $gl-line-height-28: px-to-rem(28px);
 $gl-line-height-32: px-to-rem(32px);
 $gl-line-height-36: px-to-rem(36px);
+$gl-line-height-42: px-to-rem(42px);
 $gl-line-height-44: px-to-rem(44px);
 $gl-line-height-52: px-to-rem(52px);
 
@@ -386,6 +390,8 @@ $gl-fonts: (
   'monospace': $gl-monospace-font,
   'regular': $gl-regular-font,
 );
+
+$border-color: $gray-100 !default;
 
 // use px for borders rather than rem
 // we don't want borders to scale with font size

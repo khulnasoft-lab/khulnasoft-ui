@@ -10,10 +10,6 @@ describe('Friendly wrap component', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('wraps text on slashes by default', () => {
     const text = '/some/file/path';
     const textWrapped = '/<wbr>some/<wbr>file/<wbr>path';
@@ -119,12 +115,9 @@ describe('Friendly wrap component', () => {
     });
 
     // Assert prop validation failed
-    expect(global.console).toHaveLoggedVueErrors();
+    expect(wrapper).toHaveLoggedVueErrors();
 
     // But it still rendered
     expect(wrapper.text()).toBe('');
-
-    // Prevent test failure due to console.error calls
-    global.console.error.mockReset();
   });
 });

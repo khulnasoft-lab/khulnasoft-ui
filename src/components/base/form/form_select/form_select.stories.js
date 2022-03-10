@@ -1,19 +1,11 @@
-import { withKnobs, boolean, select, number, object } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
-import { GlFormSelect } from '../../../../../index';
+import { GlFormSelect } from '../../../../index';
 import { sizeOptions, formStateOptions } from '../../../../utils/constants';
 import { formSelectOptions } from './constants';
 import readme from './form_select.md';
 
-const components = {
-  GlFormSelect,
-};
-
-const data = () => {
-  return {
-    selected: 'Pizza',
-  };
-};
+const data = () => ({
+  selected: 'Pizza',
+});
 
 const template = `
 <gl-form-select 
@@ -27,86 +19,112 @@ const template = `
 </gl-form-select>
 `;
 
-function generateProps({
+const generateProps = ({
   size = null,
   state = null,
   disabled = false,
   multiple = false,
   selectSize = 1,
   options = formSelectOptions,
-} = {}) {
-  return {
-    size: {
-      type: String,
-      default: select('size', sizeOptions, size),
-    },
-    disabled: {
-      type: Boolean,
-      default: boolean('disabled', disabled),
-    },
-    state: {
-      type: Boolean,
-      default: select('state', formStateOptions, state),
-    },
-    multiple: {
-      type: Boolean,
-      default: boolean('multiple', multiple),
-    },
-    selectSize: {
-      type: Number,
-      default: number('select size', selectSize),
-    },
-    options: {
-      type: Array,
-      default: object('options', options),
-    },
-  };
-}
+} = {}) => ({
+  size,
+  disabled,
+  state,
+  multiple,
+  selectSize,
+  options,
+});
 
-documentedStoriesOf('base/form/form-select', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    data,
-    template,
-  }))
-  .add('disabled', () => ({
-    components,
-    props: generateProps({ disabled: true }),
-    data,
-    template,
-  }))
-  .add('valid state', () => ({
-    components,
-    props: generateProps({ state: true }),
-    data,
-    template,
-  }))
-  .add('invalid state', () => ({
-    components,
-    props: generateProps({ state: false }),
-    data,
-    template,
-  }))
-  .add('with truncation', () => ({
-    components,
-    props: generateProps({
-      options: [
-        {
-          value: 1,
-          text: 'A form select option with a very looooooooong label',
-        },
-      ],
-    }),
-    data() {
-      return {
-        selected: 1,
-      };
-    },
-    template: `
+const Template = (args) => ({
+  components: { GlFormSelect },
+  props: Object.keys(args),
+  data,
+  template,
+});
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export const Disabled = Template.bind({});
+Disabled.args = generateProps({ disabled: true });
+
+export const ValidState = Template.bind({});
+ValidState.args = generateProps({ state: true });
+
+export const InvalidState = Template.bind({});
+InvalidState.args = generateProps({ state: false });
+
+export const WithTruncation = (args, { argTypes }) => ({
+  components: { GlFormSelect },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      selected: 1,
+    };
+  },
+  template: `
     <div style="max-width: 300px;">
       ${template}
     </div>
     `,
-  }));
+});
+WithTruncation.args = generateProps({
+  options: [
+    {
+      value: 1,
+      text: 'A form select option with a very looooooooong label',
+    },
+  ],
+});
+
+export default {
+  title: 'base/form/form-select',
+  component: GlFormSelect,
+  parameters: {
+    bootstrapComponent: 'b-form-select',
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: sizeOptions,
+      },
+    },
+    state: {
+      control: {
+        type: 'select',
+        options: formStateOptions,
+      },
+    },
+    input: {
+      description: 'Emitted with the select value changes.',
+      table: {
+        category: 'events',
+      },
+    },
+    change: {
+      description: 'Emitted with the select value changes via user interaction.',
+      table: {
+        category: 'events',
+      },
+    },
+    first: {
+      description: 'Slot to place option tags above options provided via options prop.',
+      table: {
+        category: 'slots',
+      },
+    },
+    default: {
+      description: 'Slot to place explicit option tags.',
+      table: {
+        category: 'slots',
+      },
+    },
+  },
+};

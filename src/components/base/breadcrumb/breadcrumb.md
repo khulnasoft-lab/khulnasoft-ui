@@ -15,15 +15,16 @@ to draw a `/`
 ```html
 <gl-breadcrumb :items="items">
   <template #avatar>
-    <img
+    <img 
+      alt=""
       class="gl-breadcrumb-avatar-tile"
-      src="https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=15"
-      width="15"
-      height="15"
+      src="https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=16"
+      width="16"
+      height="16"
     />
   </template>
   <template #separator>
-    <svg width="100" height="15">
+    <svg height="16">
       <line x1="100%" y1="0" x2="0" y2="100%" stroke="gray" />
     </svg>
   </template>

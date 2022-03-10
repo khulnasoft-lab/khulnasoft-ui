@@ -1,5 +1,6 @@
-import { GlToggle } from '../../../../index';
+import { GlToggle } from '../../../index';
 import { toggleLabelPosition } from '../../../utils/constants';
+import { disableControls } from '../../../utils/stories_utils';
 import readme from './toggle.md';
 
 const defaultValue = (prop) => GlToggle.props[prop].default;
@@ -53,6 +54,7 @@ export default {
     },
   },
   argTypes: {
+    ...disableControls(['name']),
     labelPosition: {
       control: {
         type: 'select',
@@ -68,9 +70,6 @@ export default {
       control: {
         type: 'text',
       },
-    },
-    name: {
-      control: { disable: true },
     },
   },
 };

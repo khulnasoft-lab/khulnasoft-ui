@@ -3,9 +3,9 @@ describe('GlTruncate', () => {
     'src/thisIs/AVeryLongFilePath/that/needs/to/be/smartly/truncated/from/the/middle/so/we/dont/lose/important/information/here.vue';
 
   before(() => {
-    cy.viewport(1000, 800);
+    cy.viewport(500, 100);
     cy.visit(
-      `iframe.html?id=utilities-truncate--default&viewMode=story&knob-text=${text}&knob-position=end&knob-withTooltip=true`
+      `iframe.html?id=utilities-truncate--default&viewMode=story&args=text:${text};position:end;withTooltip:true`
     );
   });
 

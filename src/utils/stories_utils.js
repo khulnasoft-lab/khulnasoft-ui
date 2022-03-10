@@ -12,3 +12,9 @@ export const SERIES_NAME = {
   [SERIES_NAME_LONG_WITHOUT_SPACES]:
     'Series_name_long._Lorem_ipsum_dolor_sit_amet,_consectetur_adipiscing_elit._Sed_tincidunt_interdum_sapien_ut_blandit._Nulla_fermentum_nisi_id_euismod_vulputate._END',
 };
+
+/**
+ * Builds the parameters object disable one or multiple controls.
+ */
+export const disableControls = (controls = []) =>
+  Object.fromEntries(controls.map((control) => [control, { control: { disable: true } }]));

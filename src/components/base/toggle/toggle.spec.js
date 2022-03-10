@@ -22,10 +22,6 @@ describe('toggle', () => {
   const findButton = () => wrapper.find('button');
   const findHelpElement = () => wrapper.find('[data-testid="toggle-help"]');
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('has role=switch', () => {
     createWrapper();
 

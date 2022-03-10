@@ -15,6 +15,9 @@ export default {
       required: false,
       default: '',
     },
+    /**
+     * Query string parameter value to use when `gl-tabs` `sync-active-tab-with-query-params` prop is set to `true`.
+     */
     queryParamValue: {
       type: String,
       required: false,
@@ -36,6 +39,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <b-tab
     :title-link-class="linkClass"

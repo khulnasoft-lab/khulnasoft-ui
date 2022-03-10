@@ -1,4 +1,4 @@
-import { GlSprintf, GlButton, GlLink } from '../../../../index';
+import { GlSprintf, GlButton, GlLink } from '../../../index';
 import readme from './sprintf.md';
 
 const generateProps = ({ message = 'Written by %{author}', placeholders } = {}) => ({

@@ -1,4 +1,4 @@
-import { GlFriendlyWrap } from '../../../../index';
+import { GlFriendlyWrap } from '../../../index';
 import readme from './friendly_wrap.md';
 
 const components = {

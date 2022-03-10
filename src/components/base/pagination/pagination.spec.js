@@ -1,11 +1,9 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import debounce from 'lodash/debounce';
 import Pagination from './pagination.vue';
 import { breakpoints } from '~/utils/breakpoints';
 
 jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
-
-const localVue = createLocalVue();
 
 const expectClassActive = expect.arrayContaining(['active']);
 const mockResizeWidth = (width) => {
@@ -18,6 +16,7 @@ const mockResizeWidth = (width) => {
 describe('pagination component', () => {
   let wrapper;
   const findButtons = () => wrapper.findAll('.page-link');
+  const findItems = () => wrapper.findAll('.page-item');
   const propsData = {
     value: 3,
     perPage: 5,
@@ -29,13 +28,11 @@ describe('pagination component', () => {
         itemsPerPage: 20,
         ...props,
       },
-      localVue,
       ...options,
     });
   };
 
   afterEach(() => {
-    wrapper.destroy();
     debounce.mockClear();
   });
 
@@ -183,6 +180,7 @@ describe('pagination component', () => {
     it('shows 3rd page as active and enables all buttons', () => {
       const buttons = findButtons();
       expect(buttons.at(3).classes()).toEqual(expectClassActive);
+      expect(buttons.at(3).attributes('aria-current')).toEqual('page');
       buttons.wrappers.forEach((button) => {
         expect(button.element.tagName).not.toBe('SPAN');
       });
@@ -226,6 +224,7 @@ describe('pagination component', () => {
       const buttons = findButtons();
       expect(buttons.at(0).element.tagName).toBe('SPAN');
       expect(buttons.at(1).classes()).toEqual(expectClassActive);
+      expect(buttons.at(1).attributes('aria-current')).toEqual('page');
       expect(buttons.at(buttons.length - 1).element.tagName).not.toBe('SPAN');
     });
 
@@ -314,6 +313,7 @@ describe('pagination component', () => {
       const buttons = findButtons();
       expect(buttons.at(0).element.tagName).not.toBe('SPAN');
       expect(buttons.at(7).classes()).toEqual(expectClassActive);
+      expect(buttons.at(7).attributes('aria-current')).toEqual('page');
       expect(buttons.at(buttons.length - 1).element.tagName).toBe('SPAN');
     });
 
@@ -376,9 +376,12 @@ describe('pagination component', () => {
         value: 1,
         nextPage: 2,
       });
+      const prevItem = findItems().at(0);
+      expect(prevItem.attributes('aria-hidden')).toBe('true');
       const prevButton = findButtons().at(0);
       expect(prevButton.element.tagName).toBe('SPAN');
-      expect(prevButton.attributes('aria-disabled')).toBe('true');
+      expect(prevButton.attributes('href')).toBeUndefined();
+      expect(prevButton.attributes('aria-label')).toBeUndefined();
     });
 
     it('disables next button when on last page', () => {
@@ -387,9 +390,12 @@ describe('pagination component', () => {
         value: 2,
         prevPage: 1,
       });
+      const nextItem = findItems().at(1);
+      expect(nextItem.attributes('aria-hidden')).toBe('true');
       const nextButton = findButtons().at(1);
       expect(nextButton.element.tagName).toBe('SPAN');
-      expect(nextButton.attributes('aria-disabled')).toBe('true');
+      expect(nextButton.attributes('href')).toBeUndefined();
+      expect(nextButton.attributes('aria-label')).toBeUndefined();
     });
   });
 });

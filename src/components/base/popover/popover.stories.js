@@ -1,6 +1,9 @@
-import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlPopover, GlButton } from '../../../index';
 import { popoverPlacements } from '../../../utils/constants';
+
+const defaultValue = (prop) => GlPopover.props[prop].default;
+
+const components = { GlPopover, GlButton };
 
 const contentString = `
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat a nisi non
@@ -8,63 +11,88 @@ const contentString = `
   massa ac, porta condimentum libero. Ut id lacus tristique, egestas arcu non, molestie nisi.
 `;
 
-const template = `
-  <div class="gl-display-flex gl-justify-content-center gl-p-6">
-    <gl-button id="pop-top">{{placement}}</gl-button>
-    <gl-popover target="pop-top"
-      triggers="hover focus"
+const getTemplate = (id, slots = '') => `
+  <div style="height:400px;" class="gl-display-flex gl-justify-content-center gl-align-items-center">
+    <gl-button id="${id}">{{placement}}</gl-button>
+    <gl-popover
+      target="${id}"
+      :triggers="triggers"
       :title="title"
       :placement="placement"
+      :show-close-button="showCloseButton"
       content="${contentString}"
-      data-testid="popover-with-props"
-      show
-      />
-  </div>
-  `;
+      data-testid="${id}"
+      :show="$options.viewMode !== 'docs'">${slots}</gl-popover>
+  </div>`;
 
-const scopedSlotTemplate = `
-  <div class="gl-display-flex gl-justify-content-center gl-p-6">
-    <gl-button id="pop-top-two" data-testid="popover-button-click">{{placement}}</gl-button>
-    <gl-popover target="pop-top-two"
-      triggers="click"
-      :placement="placement"
-      content="${contentString}"
-    >
-      <template #title>
-        <span data-testid="popover-title">Popover title</span>
-      </template>
-    </gl-popover>
-  </div>
-`;
+const generateProps = ({
+  placement = popoverPlacements.top,
+  title = 'Popover',
+  triggers = defaultValue('triggers'),
+  cssClasses = defaultValue('cssClasses'),
+  showCloseButton = defaultValue('showCloseButton'),
+} = {}) => ({
+  placement,
+  title,
+  triggers,
+  cssClasses,
+  showCloseButton,
+});
 
-function generateProps({ placement = popoverPlacements.top, title = 'Popover', triggers } = {}) {
-  return {
+export const Default = (_args, { viewMode, argTypes }) => ({
+  viewMode,
+  components,
+  props: Object.keys(argTypes),
+  template: getTemplate('popover-with-props'),
+});
+Default.args = generateProps();
+
+export const WithCloseButton = (_args, { viewMode, argTypes }) => ({
+  viewMode,
+  components,
+  props: Object.keys(argTypes),
+  template: getTemplate('popover-with-close-button'),
+});
+WithCloseButton.args = generateProps({
+  showCloseButton: true,
+});
+
+export const OnClick = (_args, { viewMode, argTypes }) => ({
+  viewMode,
+  components,
+  props: Object.keys(argTypes),
+  template: getTemplate(
+    'popover-button-click',
+    `
+    <template #title>
+      <span data-testid="popover-title">Popover title</span>
+    </template>
+  `
+  ),
+});
+OnClick.args = generateProps({
+  triggers: 'click',
+});
+OnClick.parameters = {
+  storyshots: { disable: true },
+};
+
+export default {
+  title: 'base/popover',
+  component: GlPopover,
+  parameters: {
+    knobs: { disable: true },
+    bootstrapComponent: 'b-popover',
+  },
+  argTypes: {
     placement: {
-      type: String,
-      default: select('placement', popoverPlacements, placement),
+      options: Object.values(popoverPlacements),
+      control: {
+        type: 'select',
+      },
     },
     title: {
-      type: String,
-      default: text('title', title),
+      control: { type: 'text' },
     },
-    triggers: {
-      type: String,
-      default: text('hover focus', triggers),
-    },
-  };
-}
-
-documentedStoriesOf('base/popover', '')
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    template,
-    props: generateProps(),
-  }))
-  .add(
-    'on click',
-    () => ({
-      template: scopedSlotTemplate,
-      props: generateProps(),
-    }),
-    { storyshots: false }
-  );
+  },
+};

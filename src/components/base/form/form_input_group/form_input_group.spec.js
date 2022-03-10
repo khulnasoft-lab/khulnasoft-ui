@@ -12,14 +12,10 @@ describe('Input Group', () => {
     });
   };
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('renders without errors', () => {
     createWrapper();
     expect(wrapper.findComponent(BInputGroup).exists()).toBe(true);
-    expect(global.console.error).not.toHaveBeenCalled();
+    expect(wrapper).not.toHaveLoggedVueErrors();
   });
 
   it('renders prepend and append texts properly in the slots', () => {
@@ -91,8 +87,6 @@ describe('Input Group', () => {
       });
 
       expect(global.console).toHaveLoggedVueErrors();
-
-      global.console.error.mockReset();
     });
 
     it('are rendered when supplied', () => {

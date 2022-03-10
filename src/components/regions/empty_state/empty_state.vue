@@ -11,7 +11,8 @@ export default {
      */
     title: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
     },
     /**
      * The illustration's URL.
@@ -77,6 +78,11 @@ export default {
       required: false,
       default: false,
     },
+    invertInDarkMode: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   computed: {
     height() {
@@ -96,16 +102,39 @@ export default {
 </script>
 
 <template>
-  <section class="row" :class="{ 'empty-state text-center': !compact }">
-    <div :class="{ 'col-3 d-none d-sm-block': compact, 'col-12': !compact }">
+  <section
+    class="gl-display-flex"
+    :class="{
+      'empty-state gl-text-center gl-flex-direction-column': !compact,
+      'gl-flex-direction-row': compact,
+    }"
+  >
+    <div
+      :class="{ 'gl-display-none gl-sm-display-block gl-px-4': compact, 'gl-max-w-full': !compact }"
+    >
       <div v-if="svgPath" :class="{ 'svg-content': !compact }" class="svg-250">
-        <img :src="svgPath" alt="" role="img" class="gl-max-w-full" :height="height" />
+        <img
+          :src="svgPath"
+          alt=""
+          role="img"
+          :class="{ 'gl-dark-invert-keep-hue': invertInDarkMode }"
+          class="gl-max-w-full"
+          :height="height"
+        />
       </div>
     </div>
-    <div :class="compact ? 'col-sm-9' : 'col-12'">
-      <div class="text-content gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
-        <h1 ref="title" :class="compact ? 'h5' : 'h4'">{{ title }}</h1>
-        <p v-if="description || $scopedSlots.description" ref="description">
+    <div :class="compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-max-w-full gl-m-auto'">
+      <div class="gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
+        <!--
+            @slot Use this slot to customize the empty state's title area.
+            Overrides the `title` prop.
+          -->
+        <slot ref="title" name="title">
+          <h1 class="gl-font-size-h-display gl-line-height-36" :class="compact ? 'h5' : 'h4'">
+            {{ title }}
+          </h1>
+        </slot>
+        <p v-if="description || $scopedSlots.description" ref="description" class="gl-mt-3">
           <!--
             @slot Use this slot to customize the empty state's description
             area. Overrides the `description` prop.

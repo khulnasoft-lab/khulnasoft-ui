@@ -1,18 +1,14 @@
-# Pagination
-
-<!-- STORY -->
-
 ## Current page
 
 The current page's value should be bound using `v-model`, e.g.:
 
 ```html
 <script>
-export default {
-  data: () => ({
-    page: 2,
-  }),
-};
+  export default {
+    data: () => ({
+      page: 2,
+    }),
+  };
 </script>
 
 <template>

@@ -21,9 +21,10 @@ export default {
      * A list of path items in the form:
      * ```
      * {
-     *   title:  String, required
-     *   metric: Any, optional
-     *   icon:   String, optional
+     *   title:    String, required
+     *   metric:   Any, optional
+     *   icon:     String, optional
+     *   disabled: Boolean, optional
      * }
      * ```
      */
@@ -78,9 +79,14 @@ export default {
       return this.scrollLeft + BOUNDARY_WIDTH;
     },
   },
-  mounted() {
-    const selectedIndex = this.items.findIndex((item) => item.selected);
-    this.selectedIndex = selectedIndex > 0 ? selectedIndex : 0;
+  watch: {
+    items: {
+      immediate: true,
+      handler(items) {
+        const selectedIndex = items.findIndex((item) => item.selected);
+        this.selectedIndex = selectedIndex > 0 ? selectedIndex : 0;
+      },
+    },
   },
   beforeCreate() {
     this.pathUuid = uniqueId('path-');
@@ -164,7 +170,12 @@ export default {
         :key="index"
         class="gl-path-nav-list-item"
       >
-        <button :class="pathItemClass(index)" @click="onItemClicked(index)">
+        <button
+          :class="pathItemClass(index)"
+          :category="item.disabled ? 'tertiary' : undefined"
+          :disabled="item.disabled"
+          @click="onItemClicked(index)"
+        >
           <gl-icon
             v-if="shouldDisplayIcon(item.icon)"
             :name="item.icon"

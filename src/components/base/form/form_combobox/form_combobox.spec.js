@@ -48,10 +48,6 @@ describe('GlFormCombobox', () => {
   const setInput = (val) => findInput().setValue(val);
   const arrowDown = () => findInput().trigger('keydown.down');
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('match and filter functionality', () => {
     beforeEach(() => {
       createComponent();

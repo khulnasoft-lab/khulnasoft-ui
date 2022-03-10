@@ -1,65 +1,67 @@
-import { withKnobs, boolean, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import readme from './keyset_pagination.md';
 import GlKeysetPagination from './keyset_pagination.vue';
 
-const components = {
-  GlKeysetPagination,
-};
+const generateProps = ({
+  hasPreviousPage = false,
+  hasNextPage = true,
+  startCursor = 'eyJpZCI6IjE3NTg1ODciLCJyZWxlYXNlZF9hdCI6IjIwMjAtMDgtMjAgMTQ6NDc6MDguNTQ1MjE1MDAwIFVUQyJ9',
+  endCursor = 'eyJpZCI6IjEyNjcxNzkiLCJyZWxlYXNlZF9hdCI6IjIwMjAtMDItMTkgMjE6MDA6MDUuODU5NTQ2MDAwIFVUQyJ9',
+  prevText = 'Prev',
+  nextText = 'Next',
+  prevButtonLink = '',
+  nextButtonLink = '',
+  disabled = false,
+} = {}) => ({
+  hasPreviousPage,
+  hasNextPage,
+  startCursor,
+  endCursor,
+  prevText,
+  nextText,
+  prevButtonLink,
+  nextButtonLink,
+  disabled,
+});
 
-function generateProps() {
-  return {
-    hasPreviousPage: {
-      type: Boolean,
-      default: boolean('hasPreviousPage', false),
-    },
-    hasNextPage: {
-      type: Boolean,
-      default: boolean('hasNextPage', true),
-    },
-    startCursor: {
-      type: String,
-      default: text(
-        'startCursor',
-        'eyJpZCI6IjE3NTg1ODciLCJyZWxlYXNlZF9hdCI6IjIwMjAtMDgtMjAgMTQ6NDc6MDguNTQ1MjE1MDAwIFVUQyJ9'
-      ),
-    },
-    endCursor: {
-      type: String,
-      default: text(
-        'endCursor',
-        'eyJpZCI6IjEyNjcxNzkiLCJyZWxlYXNlZF9hdCI6IjIwMjAtMDItMTkgMjE6MDA6MDUuODU5NTQ2MDAwIFVUQyJ9'
-      ),
-    },
-    prevText: {
-      type: String,
-      default: text('prevText'),
-    },
-    nextText: {
-      type: String,
-      default: text('nextText'),
-    },
-    prevButtonLink: {
-      type: String,
-      default: text('prevButtonLink'),
-    },
-    nextButtonLink: {
-      type: String,
-      default: text('nextButtonLink'),
-    },
-    disabled: {
-      type: Boolean,
-      default: boolean('disabled', false),
-    },
-  };
-}
-
-documentedStoriesOf('base/keyset-pagination', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: generateProps(),
-    template: `
+const Template = (args, { argTypes }) => ({
+  components: { GlKeysetPagination },
+  props: Object.keys(argTypes),
+  template: `
       <gl-keyset-pagination v-bind="$props"/>
     `,
-  }));
+});
+
+/* eslint-disable no-alert */
+export const Events = (args, { argTypes }) => ({
+  components: { GlKeysetPagination },
+  props: Object.keys(argTypes),
+  methods: {
+    onPrev(startCursor) {
+      alert(`"prev" event fired with start cursor: "${startCursor}"`);
+    },
+    onNext(endCursor) {
+      alert(`"next" event fired with end cursor: "${endCursor}"`);
+    },
+  },
+  template: `
+      <gl-keyset-pagination v-bind="$props" @prev="onPrev($event)" @next="onNext($event)" />
+    `,
+});
+Events.args = generateProps({ hasPreviousPage: true });
+
+export const Default = Template.bind({});
+Default.args = generateProps();
+
+export default {
+  title: 'base/keyset-pagination',
+  component: GlKeysetPagination,
+  parameters: {
+    bootstrapComponent: false,
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+};

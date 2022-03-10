@@ -12,11 +12,6 @@ describe('Filtered search suggestion list component', () => {
       });
     });
 
-    afterEach(() => {
-      wrapper.destroy();
-      wrapper = null;
-    });
-
     it('has expected public methods', () => {
       expect(wrapper.vm.register).toBeInstanceOf(Function);
       expect(wrapper.vm.unregister).toBeInstanceOf(Function);

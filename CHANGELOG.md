@@ -1,3 +1,478 @@
+# [37.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.2.0...v37.3.0) (2022-03-03)
+
+
+### Features
+
+* **css:** Add gl-bg-purple-50 util class ([29acbbb](https://gitlab.com/gitlab-org/gitlab-ui/commit/29acbbbe7726f763b0e7ba86dc4de74db45a545e))
+
+# [37.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.1.0...v37.2.0) (2022-03-03)
+
+
+### Features
+
+* **GlPath:** allow changing selected index programmatically ([d711441](https://gitlab.com/gitlab-org/gitlab-ui/commit/d71144162363ae62ff4d1aeb3ee3dc956bd04108))
+
+# [37.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.0.0...v37.1.0) (2022-02-28)
+
+
+### Features
+
+* **GlPagination:** Add aria-current="page" on active page ([58b8993](https://gitlab.com/gitlab-org/gitlab-ui/commit/58b89935c32845406d85ce5898c501908e25d8ff))
+
+# [37.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.7.1...v37.0.0) (2022-02-22)
+
+
+### Features
+
+* **GlAlert:** drop contained behavior ([a2ae17e](https://gitlab.com/gitlab-org/gitlab-ui/commit/a2ae17eeb80eb9ea399b9f93047fc71764a3e1cb))
+
+
+### BREAKING CHANGES
+
+* **GlAlert:** This drops GlAlert's contained behavior.
+
+Alerts content width cannot be constrainted with the `contained` prop
+anymore. Existing alerts' content will exapnd to the take up the alert's
+full width.
+You should consider removing all `contained` usages from your code.
+`
+
+## [36.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.7.0...v36.7.1) (2022-02-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dompurify to ^2.3.6 ([266b5a7](https://gitlab.com/gitlab-org/gitlab-ui/commit/266b5a7deb3496c80418fa6d39e944ddab4cab0d))
+
+# [36.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.6.0...v36.7.0) (2022-02-17)
+
+
+### Features
+
+* **pagination:** Remove abbreviation from prev text ([f959077](https://gitlab.com/gitlab-org/gitlab-ui/commit/f959077da8ec3bf2107f2229a25fd09ff6771993))
+
+# [36.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.5.1...v36.6.0) (2022-02-14)
+
+
+### Features
+
+* **css:** Add shorthand border util classes ([318c99c](https://gitlab.com/gitlab-org/gitlab-ui/commit/318c99c4764b7cc889a4b97d93215ab322b03025))
+
+## [36.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.5.0...v36.5.1) (2022-02-11)
+
+
+### Bug Fixes
+
+* **breadcrumb:** Use sentence case for examples ([ace4a4f](https://gitlab.com/gitlab-org/gitlab-ui/commit/ace4a4fa048131c768b0442ac0b677f20258446a))
+
+# [36.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.4.0...v36.5.0) (2022-02-10)
+
+
+### Features
+
+* **css:** add grid template columns utility class ([4e97584](https://gitlab.com/gitlab-org/gitlab-ui/commit/4e975849f61eea7999a486257c417b87e60bee24))
+
+# [36.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.3.0...v36.4.0) (2022-02-09)
+
+
+### Features
+
+* **GlEmptyState:** make title into a slot ([45bacac](https://gitlab.com/gitlab-org/gitlab-ui/commit/45bacac972a7c4748e1fc96e1605615f816cb8ed))
+
+# [36.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.2.0...v36.3.0) (2022-02-08)
+
+
+### Features
+
+* **utilities:** add gl-md-px-7 utility ([417cadc](https://gitlab.com/gitlab-org/gitlab-ui/commit/417cadc1c9cd91c197903469c8be32ff138e31f1))
+
+# [36.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.1.0...v36.2.0) (2022-02-08)
+
+
+### Features
+
+* **css:** add color transparent utility ([2f20c33](https://gitlab.com/gitlab-org/gitlab-ui/commit/2f20c3342a655367942c7ad761aa2fef91f0bd8d))
+
+# [36.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v36.0.0...v36.1.0) (2022-02-08)
+
+
+### Features
+
+* **GlFilteredSearch:** add props for adding additional HTML attributes ([b26ea14](https://gitlab.com/gitlab-org/gitlab-ui/commit/b26ea14b818cef389c48617cb3443ae493cc49aa))
+
+# [36.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v35.1.0...v36.0.0) (2022-02-07)
+
+
+### Code Refactoring
+
+* Move entry points to src/ ([7226b2d](https://gitlab.com/gitlab-org/gitlab-ui/commit/7226b2df695ea1c25b4083739a8ff71bc01433b8))
+
+
+### BREAKING CHANGES
+
+* If you consumed GitLab UI from source (e.g.
+`@gitlab/ui/index.js`, you need to adjust the import to
+`@gitlab/ui/src/index.js`
+
+# [35.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v35.0.0...v35.1.0) (2022-02-04)
+
+
+### Features
+
+* **GlModal:** unbox component by removing borders ([03598c9](https://gitlab.com/gitlab-org/gitlab-ui/commit/03598c984a2df4867a8d356bf82a4e9343450275))
+
+# [35.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v34.0.0...v35.0.0) (2022-01-31)
+
+
+### Features
+
+* **GlTabs:** Apply theme via CSS custom property ([beaf2bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/beaf2bc4aa9fb26f6aa212fdec614fd8d3003c47))
+* **GlTabs:** Remove theme prop ([3de63e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/3de63e60426052731a626330168091466d8894ba))
+
+
+### BREAKING CHANGES
+
+* **GlTabs:** The theme prop of `GlTabs` has been removed. Instead,
+the theme color is set automatically according to the
+`--gl-theme-accent` CSS custom property.
+
+Part of https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1683.
+
+# [34.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.1.2...v34.0.0) (2022-01-28)
+
+
+### Features
+
+* **GlAvatarsInline:** Add badgeSrOnlyText prop ([bcb0d29](https://gitlab.com/gitlab-org/gitlab-ui/commit/bcb0d299e9468e13cc7d565784388e3b9585e4a0))
+
+
+### BREAKING CHANGES
+
+* **GlAvatarsInline:** This change adds a required
+property named badgeSrOnlyText that ensures
+that badge displayed when avatars inline is
+collapsed, provides a screen reader only
+label that gives contextual information
+for users that use this form factor
+
+## [33.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.1.1...v33.1.2) (2022-01-27)
+
+
+### Bug Fixes
+
+* Add a workaround for GlAccordion compatibility with Vue Apollo ([55deabf](https://gitlab.com/gitlab-org/gitlab-ui/commit/55deabf3260643079e20db1ad2787980afdd8e56))
+
+## [33.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.1.0...v33.1.1) (2022-01-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dompurify to ^2.3.5 ([0bced05](https://gitlab.com/gitlab-org/gitlab-ui/commit/0bced051c61365c77cd4e4369b8838677217a46b))
+
+# [33.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.0.1...v33.1.0) (2022-01-26)
+
+
+### Features
+
+* **GlPopover:** add support for a close button ([583be0b](https://gitlab.com/gitlab-org/gitlab-ui/commit/583be0bd76f5c72384c19fe0eeeb4bc334eb58be))
+
+## [33.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v33.0.0...v33.0.1) (2022-01-26)
+
+
+### Bug Fixes
+
+* **GlSearchBox*:** Hide Chrome's cancel button ([387df0a](https://gitlab.com/gitlab-org/gitlab-ui/commit/387df0aecaa1e21efaacb25ed8e2ea5187e46fd2))
+
+# [33.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.68.0...v33.0.0) (2022-01-21)
+
+
+### Bug Fixes
+
+* **css:** rename and remove invalid CSS utils ([6cbde8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/6cbde8bf451d64ce0e6d03bc47ce5cb46ed4f665))
+
+
+### BREAKING CHANGES
+
+* **css:** this removes a few CSS utils that were incorrectly
+named in favor of new ones that follow the naming conventions.
+If you were using any of the removed utils, please migrate to the new
+ones:
+
+* gl-flex-sm-wrap was replaced with gl-sm-flex-wrap.
+* gl-justify-content-md-start was replaced with
+  gl-md-justify-content-start.
+* gl-pt-md-2 was replaced with gl-md-pt-2.
+* gl-mt-md-n2 was replaced with gl-md-mt-n2.
+
+# [32.68.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.67.0...v32.68.0) (2022-01-19)
+
+
+### Features
+
+* **css:** Added gl-w-grid-size-28 utility class ([e7a29b4](https://gitlab.com/gitlab-org/gitlab-ui/commit/e7a29b49bd981eea65ea38550872a3258ba29e67))
+
+# [32.67.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.66.0...v32.67.0) (2022-01-19)
+
+
+### Features
+
+* **css:** Added gl-md-max-w-15p, gl-lg-max-w-80p ([1f44794](https://gitlab.com/gitlab-org/gitlab-ui/commit/1f447940a0c3661f623db689b0d5593c501030ae)), closes [/gitlab.com/gitlab-org/gitlab/-/merge_requests/74643#note_737689310](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/74643/issues/note_737689310) [/gitlab.com/gitlab-org/gitlab/-/merge_requests/74643#note_764054257](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/74643/issues/note_764054257)
+
+# [32.66.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.65.1...v32.66.0) (2022-01-18)
+
+
+### Features
+
+* **utilities:** add gl-gap-x-5 utility ([ddd8829](https://gitlab.com/gitlab-org/gitlab-ui/commit/ddd88294b02c06d14d7f030b4a3e1bf1ab72f8be))
+
+## [32.65.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.65.0...v32.65.1) (2022-01-18)
+
+
+### Bug Fixes
+
+* **css:** Fixes for the justify-content utility for small screens ([0f417f0](https://gitlab.com/gitlab-org/gitlab-ui/commit/0f417f01988ab634496d925362d06889c18bbd84))
+
+# [32.65.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.64.1...v32.65.0) (2022-01-17)
+
+
+### Features
+
+* **css:** Added gl-opacity-6 & gl-opacity-7 utility classes ([e0afd43](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0afd433203f59e0085ef916d00c65391906572d))
+
+## [32.64.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.64.0...v32.64.1) (2022-01-17)
+
+
+### Bug Fixes
+
+* **utilities:** only apply gap to children ([076b4ba](https://gitlab.com/gitlab-org/gitlab-ui/commit/076b4ba3adb71b1001364f8f15acc73c556c65e0))
+
+# [32.64.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.63.0...v32.64.0) (2022-01-17)
+
+
+### Features
+
+* **css:** Add spacing util classes ([1adb2d5](https://gitlab.com/gitlab-org/gitlab-ui/commit/1adb2d51fa10042c617303b22f257f0080c7ff4a))
+
+# [32.63.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.62.0...v32.63.0) (2022-01-17)
+
+
+### Features
+
+* **css:** Addition of gl-md-flex-direction-column class ([0b0b105](https://gitlab.com/gitlab-org/gitlab-ui/commit/0b0b1059de42239697c3bf12fd60873fad69d93a))
+
+# [32.62.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.61.0...v32.62.0) (2022-01-17)
+
+
+### Features
+
+* **css:** Addition of `gl-line-height-42` SCSS utility ([7e4a603](https://gitlab.com/gitlab-org/gitlab-ui/commit/7e4a60394bf394a3660638d49f219711dd10937e))
+
+# [32.61.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.60.0...v32.61.0) (2022-01-14)
+
+
+### Features
+
+* **utilities:** add gl-md-pl-7 ([237a6bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/237a6bc33fa7d209e5fb44b573ae0006a20bdc72))
+
+# [32.60.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.59.0...v32.60.0) (2022-01-14)
+
+
+### Features
+
+* **css:** Added gl-xs-mb-4 utility classes ([1186ecc](https://gitlab.com/gitlab-org/gitlab-ui/commit/1186ecc3438b0393f52e0d7a0302ab25c933c899))
+* **GlBreadcrumb:** support breadcrumbs truncation ([7b1ad62](https://gitlab.com/gitlab-org/gitlab-ui/commit/7b1ad62870f951936bf70855e1a4e86e793e0618))
+
+# [32.59.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.58.0...v32.59.0) (2022-01-14)
+
+
+### Features
+
+* **css:** Addition of gl-font-size-inherit class ([14e64b6](https://gitlab.com/gitlab-org/gitlab-ui/commit/14e64b6697696e6742823d71bdf7fbf0937d5ac4))
+* **GlTable:** Migrate table stories to CSF ([63def60](https://gitlab.com/gitlab-org/gitlab-ui/commit/63def600b134738a5670e4ce1e417a1a4ee0a15a))
+
+# [32.58.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.57.0...v32.58.0) (2022-01-14)
+
+
+### Features
+
+* **css:** Addition of .gl-lg-w-25p classes ([d050bda](https://gitlab.com/gitlab-org/gitlab-ui/commit/d050bdafaafca48e44d1096856425ff220f1aef4))
+
+# [32.57.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.56.0...v32.57.0) (2022-01-14)
+
+
+### Features
+
+* **css:** Addition Add `gl-sm-pr-3 ` and `gl-sm-w-half` `gl-md-ml-3` utility class ([7630c23](https://gitlab.com/gitlab-org/gitlab-ui/commit/7630c23f4cef0fcc5fbd6ae86a844dda568b88b9))
+
+# [32.56.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.55.0...v32.56.0) (2022-01-13)
+
+
+### Features
+
+* **utilities:** add gl-gap-x-3 utility ([ff14af5](https://gitlab.com/gitlab-org/gitlab-ui/commit/ff14af53f7506af410a2d1f9002367dac2b69e53))
+
+# [32.55.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.54.2...v32.55.0) (2022-01-13)
+
+
+### Features
+
+* **css:** Addition of gl-md-pr-5 class ([5a52a1a](https://gitlab.com/gitlab-org/gitlab-ui/commit/5a52a1a92871b0c3818d0a4759913f9fbec93a09))
+
+## [32.54.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.54.1...v32.54.2) (2022-01-13)
+
+
+### Performance Improvements
+
+* Remove some unnecessary bootstrap-vue CSS ([93055eb](https://gitlab.com/gitlab-org/gitlab-ui/commit/93055eb5cf56ef95fa4707d8a22fe77c8ac47e5d))
+
+## [32.54.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.54.0...v32.54.1) (2022-01-11)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** remove flex-wrap util ([3decead](https://gitlab.com/gitlab-org/gitlab-ui/commit/3deceada7bd6196f90f45f0a9636ace896951530))
+
+# [32.54.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.53.0...v32.54.0) (2022-01-10)
+
+
+### Features
+
+* **GlPopover:** add styles for a close button ([f260e95](https://gitlab.com/gitlab-org/gitlab-ui/commit/f260e95b87e6760ab71d8341913bdeae04b7fbe2))
+
+# [32.53.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.52.0...v32.53.0) (2022-01-07)
+
+
+### Features
+
+* **GlLoadingIcon:** Improve accessibility with role ([6bd4b30](https://gitlab.com/gitlab-org/gitlab-ui/commit/6bd4b30a386723477f302c42bddca55b454836d0))
+
+# [32.52.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.3...v32.52.0) (2022-01-07)
+
+
+### Features
+
+* **css:** Addition of mix-blend-mode ([2824583](https://gitlab.com/gitlab-org/gitlab-ui/commit/28245839f0a2b23ec06d99b5f10125b94d2ce2ea))
+
+## [32.51.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.2...v32.51.3) (2022-01-07)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** replace Bootstrap CSS utilities with GitLab UI's ([2872ea5](https://gitlab.com/gitlab-org/gitlab-ui/commit/2872ea5f01e5b205359c8fbdf8db95d86c1097f8))
+
+## [32.51.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.1...v32.51.2) (2022-01-06)
+
+
+### Bug Fixes
+
+* **GlBreadcrumb:** update breadcrumb's item avatar styles ([28aa091](https://gitlab.com/gitlab-org/gitlab-ui/commit/28aa09195c6bda5eb6abd3107d77a3e5fc7f9e28))
+
+## [32.51.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.51.0...v32.51.1) (2022-01-05)
+
+
+### Bug Fixes
+
+* **Avatar:** Add support for multiple-character emojis ([f3fcb2f](https://gitlab.com/gitlab-org/gitlab-ui/commit/f3fcb2ff5a2e74f77b3a96dc8922a3821c86e2fa))
+
+# [32.51.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.50.0...v32.51.0) (2021-12-29)
+
+
+### Features
+
+* **css:** Added gl-max-w-26 and gl-max-w-62 classes ([69a6829](https://gitlab.com/gitlab-org/gitlab-ui/commit/69a6829bbcaa5dc821a4fa29c4f3ec79e4b7aa5e))
+
+# [32.50.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.49.0...v32.50.0) (2021-12-16)
+
+
+### Features
+
+* Add support for @gitlab/svgs@2 peer dependency ([77076b7](https://gitlab.com/gitlab-org/gitlab-ui/commit/77076b7d717f4245a29df115113c96d72b002540))
+
+# [32.49.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.48.0...v32.49.0) (2021-12-15)
+
+
+### Features
+
+* **GlKeysetPagination:** Migrate storybook story ([b78abe6](https://gitlab.com/gitlab-org/gitlab-ui/commit/b78abe68d2c86c973af50ee20754e5b2be163f25))
+
+# [32.48.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.47.0...v32.48.0) (2021-12-13)
+
+
+### Features
+
+* **GlAvatarsInline:** Migrate storybook story ([0720510](https://gitlab.com/gitlab-org/gitlab-ui/commit/07205105cb98e8493cfe3f8b70191707175ca8a9))
+
+# [32.47.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.46.0...v32.47.0) (2021-12-13)
+
+
+### Features
+
+* **GlInputGroupText:** Migrate storybook story ([3fb2328](https://gitlab.com/gitlab-org/gitlab-ui/commit/3fb2328829b002480149bf5654c6026ff26fd670))
+
+# [32.46.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.45.1...v32.46.0) (2021-12-13)
+
+
+### Features
+
+* **GlFormGroup:** Add optional prop to form_group ([25f8f64](https://gitlab.com/gitlab-org/gitlab-ui/commit/25f8f647261d1b3a8572602e84b1978541b1406f))
+
+## [32.45.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.45.0...v32.45.1) (2021-12-10)
+
+
+### Bug Fixes
+
+* Guard against nonexistent localStorage ([248f7b7](https://gitlab.com/gitlab-org/gitlab-ui/commit/248f7b7c662a8011c27c05dc14a6aaca4d752e33))
+
+# [32.45.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.44.0...v32.45.0) (2021-12-10)
+
+
+### Features
+
+* **css:** add negative translate x axis util ([987ad52](https://gitlab.com/gitlab-org/gitlab-ui/commit/987ad521f0990ed5311075c76496d4d29d89c2f7))
+* **GlChart:** Addition of GlResizeObserverDirective for charts ([7a57fed](https://gitlab.com/gitlab-org/gitlab-ui/commit/7a57fed4e5d48ec209891f0a11fc133f4bcc1ded))
+
+# [32.44.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.3...v32.44.0) (2021-12-09)
+
+
+### Features
+
+* **GlFormText:** Migrate storybook story ([b64bc62](https://gitlab.com/gitlab-org/gitlab-ui/commit/b64bc6239ed5421b2c2023149e6fc59da936256e))
+
+## [32.43.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.2...v32.43.3) (2021-12-08)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dompurify to ^2.3.4 ([6798e4f](https://gitlab.com/gitlab-org/gitlab-ui/commit/6798e4f3e4fdd2b12b1b6e4cf8e0ac3d575cf43f))
+
+## [32.43.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.1...v32.43.2) (2021-12-07)
+
+
+### Bug Fixes
+
+* **UI text:** Removed "Please," added period, and updated examples ([eabcb67](https://gitlab.com/gitlab-org/gitlab-ui/commit/eabcb6712a54c4b9e8bd175c7df117523824f89f))
+
+## [32.43.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.43.0...v32.43.1) (2021-12-06)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** update styles to match design specs ([c0812f5](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0812f53664b5db03e643878d7894c9d448a736b))
+
+# [32.43.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.42.0...v32.43.0) (2021-12-06)
+
+
+### Features
+
+* **CSS:** Add `gl-md-max-w-70p` utility class ([502cd65](https://gitlab.com/gitlab-org/gitlab-ui/commit/502cd650d0b2124a3cdfb26ad7f9364f75292650))
+
+# [32.42.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.41.0...v32.42.0) (2021-12-03)
+
+
+### Features
+
+* Add gl-z-index-200 util class ([c53d23b](https://gitlab.com/gitlab-org/gitlab-ui/commit/c53d23b6e060434ed9055aea2b4f6f9c9e697a45))
+
 # [32.41.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v32.40.0...v32.41.0) (2021-11-23)
 
 

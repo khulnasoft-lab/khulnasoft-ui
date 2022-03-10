@@ -10,11 +10,6 @@ describe('button component', () => {
   };
   const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
 
-  afterEach(() => {
-    wrapper.destroy();
-    wrapper = null;
-  });
-
   it('renders a button', () => {
     buildWrapper();
 

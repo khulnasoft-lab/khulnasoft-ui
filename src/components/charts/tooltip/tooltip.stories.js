@@ -1,11 +1,9 @@
-import { GlChart, GlChartTooltip, GlChartSeriesLabel } from '../../../../charts';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
+import { GlChart, GlChartTooltip, GlChartSeriesLabel } from '../../../charts';
 import {
   SERIES_NAME,
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
 } from '../../../utils/stories_utils';
-
 import readme from './tooltip.md';
 
 const components = {
@@ -33,10 +31,9 @@ const baseStoryOptions = {
   },
 };
 
-const getStoryOptions = (tooltipContent) => {
-  return {
-    ...baseStoryOptions,
-    template: `<div class="position-relative">
+const getStoryOptions = (tooltipContent) => ({
+  ...baseStoryOptions,
+  template: `<div class="position-relative">
     <gl-chart
       :options="options"
       :height="100"
@@ -57,43 +54,61 @@ const getStoryOptions = (tooltipContent) => {
       ${tooltipContent}
     </gl-chart-tooltip>
 </div>`,
-  };
+});
+
+export const Default = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...getStoryOptions('Example Content'),
+});
+
+export const WithLongSeriesLabel = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...getStoryOptions(`
+        <gl-chart-series-label color="#1F78D1">${SERIES_NAME[SERIES_NAME_LONG]}</gl-chart-series-label>
+      `),
+});
+
+export const WithLongSeriesLabelWithNoSpaces = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...getStoryOptions(`
+        <gl-chart-series-label color="#1F78D1">${SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES]}</gl-chart-series-label>
+      `),
+});
+
+export const TitleProp = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...baseStoryOptions,
+  template: `
+        <div class="position-relative">
+          <gl-chart
+            :options="options"
+            :height="100"
+            @created="onCreated"
+          />
+          <gl-chart-tooltip
+            v-if="chart"
+            :chart="chart"
+            :show="showTooltip"
+            :top="top"
+            :left="left"
+            title="Title from prop"
+          >
+            Example content
+          </gl-chart-tooltip>
+        </div>`,
+});
+
+export default {
+  title: 'charts/chart-tooltip',
+  component: GlChartTooltip,
+  parameters: {
+    bootstrapComponent: 'b-popover',
+    knobs: { disable: true },
+    controls: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
 };
-
-documentedStoriesOf('charts/chart-tooltip', readme)
-  .add('default', () => getStoryOptions('Example Content'))
-  .add('with long series label', () =>
-    getStoryOptions(`
-      <gl-chart-series-label color="#1F78D1">${SERIES_NAME[SERIES_NAME_LONG]}</gl-chart-series-label>
-    `)
-  )
-  .add('with long series label with no spaces', () =>
-    getStoryOptions(`
-      <gl-chart-series-label color="#1F78D1">${SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES]}</gl-chart-series-label>
-    `)
-  )
-
-  // This story exists to avoid regressions as part of
-  // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1482, and may be affected
-  // by https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1479
-  .add('title prop', () => ({
-    ...baseStoryOptions,
-    template: `
-      <div class="position-relative">
-        <gl-chart
-          :options="options"
-          :height="100"
-          @created="onCreated"
-        />
-        <gl-chart-tooltip
-          v-if="chart"
-          :chart="chart"
-          :show="showTooltip"
-          :top="top"
-          :left="left"
-          title="Title from prop"
-        >
-          Example content
-        </gl-chart-tooltip>
-      </div>`,
-  }));

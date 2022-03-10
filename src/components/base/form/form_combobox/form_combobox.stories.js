@@ -1,41 +1,41 @@
-import { withKnobs, object, text } from '@storybook/addon-knobs';
-import { documentedStoriesOf } from '../../../../../documentation/documented_stories';
 import { tokenList, labelText } from './constants';
 import readme from './form_combobox.md';
 import GlFormCombobox from './form_combobox.vue';
 
-const components = {
-  GlFormCombobox,
-};
+const getProps = () => ({
+  tokenList,
+  labelText,
+});
 
-const getProps = () => {
-  return {
-    tokenList: {
-      type: Array,
-      default: object('tokens', tokenList),
-    },
-    labelText: {
-      type: String,
-      default: text('label text', labelText),
-    },
-  };
-};
-
-documentedStoriesOf('base/form/form-combobox', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components,
-    props: getProps(),
-    data: () => {
-      return {
-        value: '',
-      };
-    },
-    template: `
+const Template = (args) => ({
+  components: { GlFormCombobox },
+  data: () => {
+    return {
+      value: '',
+    };
+  },
+  props: Object.keys(args),
+  template: `
       <gl-form-combobox
         v-model="value"
         :token-list="tokenList"
         :labelText="labelText"
       />
     `,
-  }));
+});
+
+export const Default = Template.bind({});
+Default.args = getProps();
+
+export default {
+  title: 'base/form/form-combobox',
+  component: GlFormCombobox,
+  parameters: {
+    knobs: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+};

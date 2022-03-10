@@ -1,7 +1,6 @@
 <script>
 import merge from 'lodash/merge';
 import { white, gray100 } from '../../../../scss_to_js/scss_variables';
-import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import { getDefaultTooltipContent } from '../../../utils/charts/config';
 import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';
@@ -48,9 +47,6 @@ export default {
     ChartLegend,
     ChartTooltip,
     TooltipDefaultFormat,
-  },
-  directives: {
-    resizeObserver: GlResizeObserverDirective,
   },
   mixins: [ToolboxMixin],
   props: {
@@ -237,9 +233,6 @@ export default {
       this.chart = chart;
       this.$emit('created', chart);
     },
-    handleResize() {
-      return this.responsive && this.chart.resize();
-    },
     showHideTooltip(mouseEvent) {
       this.tooltip.show = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
@@ -262,8 +255,8 @@ export default {
 </script>
 
 <template>
-  <div v-resize-observer="handleResize" class="gl-heatmap">
-    <chart :options="computedOptions" @created="onCreated" />
+  <div class="gl-heatmap">
+    <chart v-bind="$attrs" :options="computedOptions" @created="onCreated" v-on="$listeners" />
     <chart-tooltip
       v-if="chart"
       :show="tooltip.show"

@@ -63,7 +63,7 @@ export default {
 };
 </script>
 <template>
-  <component :is="rootElementType" class="gl-spinner-container">
-    <span :class="cssClasses" class="align-text-bottom" :aria-label="label"></span>
+  <component :is="rootElementType" class="gl-spinner-container" role="status">
+    <span :class="cssClasses" class="gl-vertical-align-text-bottom!" :aria-label="label"></span>
   </component>
 </template>

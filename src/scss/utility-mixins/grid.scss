@@ -10,3 +10,7 @@
 @mixin gl-grid-col-start-1 {
   grid-column-start: 1;
 }
+
+@mixin gl-grid-template-columns-2 {
+  grid-template-columns: 1fr 1fr;
+}

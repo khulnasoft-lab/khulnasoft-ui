@@ -1,4 +1,4 @@
-import { GlButton, GlCard, GlCollapse } from '../../../../index';
+import { GlButton, GlCard, GlCollapse } from '../../../index';
 import readme from './collapse.md';
 
 const generateProps = ({ visible = false } = {}) => ({ visible });

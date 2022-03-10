@@ -70,11 +70,6 @@ describe('chart legend component', () => {
     buildLegend();
   });
 
-  afterEach(() => {
-    chartWrapper.destroy();
-    legendWrapper.destroy();
-  });
-
   it('renders the legend with no errors', () => {
     expect(legendWrapper.exists()).toBe(true);
   });

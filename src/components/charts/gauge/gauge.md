@@ -1,5 +1,3 @@
-### Gauge Chart
-
 Some layout problems can be encountered with this component. Specifically, when the gauge chart's
 axis labels or detail text have larger widths, they can overlap with the chart elements.
 

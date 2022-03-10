@@ -5,10 +5,6 @@ import GlNavItem from './nav_item.vue';
 describe('GlNav', () => {
   let wrapper;
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   describe('Nav style', () => {
     it('renders slot content', () => {
       wrapper = shallowMount(GlNav, {

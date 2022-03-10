@@ -110,6 +110,10 @@
   font-size: $gl-font-size-compact-markdown-h1;
 }
 
+@mixin gl-reset-font-size {
+  font-size: inherit;
+}
+
 /**
 * Font-weight utilities.
 *
@@ -171,6 +175,10 @@
 
 @mixin gl-line-height-36 {
   line-height: $gl-line-height-36;
+}
+
+@mixin gl-line-height-42 {
+  line-height: $gl-line-height-42;
 }
 
 @mixin gl-line-height-52 {

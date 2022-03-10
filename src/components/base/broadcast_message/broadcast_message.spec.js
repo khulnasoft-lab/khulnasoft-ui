@@ -14,10 +14,6 @@ describe('Broadcast message component', () => {
     createComponent({ slots: { default: 'some message' } });
   });
 
-  afterEach(() => {
-    wrapper.destroy();
-  });
-
   it('clicking on dismiss button emits a dismiss event', () => {
     findDismissButton().vm.$emit('click');
 

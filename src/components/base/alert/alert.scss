@@ -85,44 +85,6 @@
   @include gl-right-4;
 }
 
-.gl-alert-max-content {
-  @include gl-display-flex;
-  @include gl-justify-content-center;
-  @include gl-p-5;
-
-  .gl-alert-icon {
-    @include gl-static;
-    @include gl-mr-5;
-    @include gl-flex-shrink-0;
-  }
-
-  .gl-dismiss-btn {
-    @include gl-static;
-    @include gl-align-self-start;
-    @include gl-ml-4;
-    // The negative margins optically align the × with the title text and right padding
-    margin-top: -$gl-spacing-scale-2;
-    margin-right: -$gl-spacing-scale-2;
-    order: 3;
-  }
-
-  .gl-alert-container {
-    @include gl-relative;
-    @include gl-display-flex;
-    @include gl-justify-content-space-between;
-    @include gl-flex-grow-1;
-    @include gl-mx-auto;
-  }
-
-  .gl-alert-content {
-    @include gl-flex-grow-1;
-  }
-}
-
-.gl-alert-layout-limited .gl-alert-container {
-  @include gl-layout-w-limited;
-}
-
 .gl-alert-danger {
   @include gl-bg-red-50;
 
