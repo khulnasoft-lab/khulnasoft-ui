@@ -173,8 +173,8 @@ export default {
       return this.getTokenEntry(type)?.token || GlFilteredSearchTerm;
     },
 
-    activate(token) {
-      this.activeTokenIdx = token;
+    activate(idx) {
+      this.activeTokenIdx = idx;
     },
 
     alignSuggestions(ref) {
