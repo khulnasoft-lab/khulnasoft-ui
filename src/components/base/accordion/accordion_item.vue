@@ -24,6 +24,14 @@ export default {
       required: true,
     },
     /*
+    Used to set the title of accordion link when the content is visible
+    */
+    titleVisible: {
+      type: String,
+      default: null,
+      required: false,
+    },
+    /*
 When set, it will ensure the accordion item is initially visible
  */
     visible: {
@@ -60,6 +68,9 @@ When set, it will ensure the accordion item is initially visible
     icon() {
       return this.isVisible ? 'chevron-down' : 'chevron-right';
     },
+    buttonTitle() {
+      return this.isVisible && this.titleVisible ? this.titleVisible : this.title;
+    },
   },
 };
 </script>
@@ -73,7 +84,7 @@ When set, it will ensure the accordion item is initially visible
         button-text-classes="gl-display-flex"
         :icon="icon"
       >
-        {{ title }}
+        {{ buttonTitle }}
       </gl-button>
     </component>
     <b-collapse

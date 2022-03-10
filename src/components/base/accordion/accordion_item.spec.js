@@ -8,6 +8,7 @@ import GlAccordionItem from './accordion_item.vue';
 describe('GlAccordionItem', () => {
   let wrapper;
   const defaultTitle = 'Item 1';
+  const titleVisible = 'Item 1 visible';
   const defaultSlot = 'Hello';
 
   const createComponent = (props = {}, { defaultHeaderLevel = 3, accordionSetId = false } = {}) => {
@@ -36,6 +37,17 @@ describe('GlAccordionItem', () => {
     createComponent();
 
     expect(findButton().find('span').text()).toBe(defaultTitle);
+  });
+
+  it('renders alternative button text when the content is visible and the titleVisible property is set', async () => {
+    createComponent({ titleVisible });
+
+    expect(findButton().find('span').text()).toBe(defaultTitle);
+
+    await waitForAnimationFrame();
+    await findButton().trigger('click');
+
+    expect(findButton().find('span').text()).toBe(titleVisible);
   });
 
   it('renders the appropriate header element', () => {
