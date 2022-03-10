@@ -1,6 +1,7 @@
 <script>
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
+import { INTENT_ACTIVATE_PREVIOUS } from './filtered_search_utils';
 
 export default {
   components: {
@@ -54,6 +55,11 @@ export default {
       },
     },
   },
+  methods: {
+    onBackspace() {
+      this.$emit('destroy', { intent: INTENT_ACTIVATE_PREVIOUS });
+    },
+  },
 };
 </script>
 
@@ -69,7 +75,7 @@ export default {
       @activate="$emit('activate')"
       @deactivate="$emit('deactivate')"
       @complete="$emit('replace', { type: $event })"
-      @backspace="$emit('destroy')"
+      @backspace="onBackspace"
       @submit="$emit('submit')"
       @split="$emit('split', $event)"
     >

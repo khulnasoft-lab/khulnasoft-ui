@@ -2,6 +2,7 @@ import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import FilteredSearchTerm from './filtered_search_term.vue';
+import { INTENT_ACTIVATE_PREVIOUS } from './filtered_search_utils';
 
 const availableTokens = [
   { type: 'foo', title: 'test1-foo', token: 'stub', icon: 'eye' },
@@ -59,23 +60,27 @@ describe('Filtered search term', () => {
   });
 
   it.each`
-    originalEvent   | emittedEvent
-    ${'activate'}   | ${'activate'}
-    ${'deactivate'} | ${'deactivate'}
-    ${'split'}      | ${'split'}
-    ${'submit'}     | ${'submit'}
-    ${'complete'}   | ${'replace'}
-    ${'backspace'}  | ${'destroy'}
+    originalEvent   | emittedEvent    | payload
+    ${'activate'}   | ${'activate'}   | ${undefined}
+    ${'deactivate'} | ${'deactivate'} | ${undefined}
+    ${'split'}      | ${'split'}      | ${undefined}
+    ${'submit'}     | ${'submit'}     | ${undefined}
+    ${'complete'}   | ${'replace'}    | ${{ type: undefined }}
+    ${'backspace'}  | ${'destroy'}    | ${{ intent: INTENT_ACTIVATE_PREVIOUS }}
   `(
     'emits $emittedEvent when token segment emits $originalEvent',
-    async ({ originalEvent, emittedEvent }) => {
+    async ({ originalEvent, emittedEvent, payload }) => {
       createComponent({ active: true, value: { data: 'something' } });
 
       findTokenSegmentComponent().vm.$emit(originalEvent);
 
       await nextTick();
 
-      expect(wrapper.emitted()[emittedEvent]).toHaveLength(1);
+      expect(wrapper.emitted(emittedEvent)).toHaveLength(1);
+
+      if (payload !== undefined) {
+        expect(wrapper.emitted(emittedEvent)[0][0]).toEqual(payload);
+      }
     }
   );
 

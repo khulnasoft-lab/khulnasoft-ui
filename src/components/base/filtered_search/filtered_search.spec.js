@@ -5,7 +5,7 @@ import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlFilteredSearchToken from './filtered_search_token.vue';
-import { TERM_TOKEN_TYPE } from './filtered_search_utils';
+import { TERM_TOKEN_TYPE, INTENT_ACTIVATE_PREVIOUS } from './filtered_search_utils';
 
 jest.mock('~/directives/tooltip');
 
@@ -196,9 +196,99 @@ describe('Filtered search', () => {
       ]);
     });
 
-    it('brings focus to previous token if current is destroyed', async () => {
+    it('makes previous token active if user intends it on token destruction', async () => {
       createComponent({
-        value: ['one', { type: 'faketoken', value: '' }, 'two'],
+        value: [{ type: 'faketoken', value: '' }, ''],
+      });
+      await nextTick();
+
+      wrapper
+        .findComponent(GlFilteredSearchTerm)
+        .vm.$emit('destroy', { intent: INTENT_ACTIVATE_PREVIOUS });
+
+      await nextTick();
+
+      expect(wrapper.findComponent(FakeToken).props('active')).toBe(true);
+    });
+
+    it('makes no token active if user intends it on first token destruction', async () => {
+      createComponent({
+        value: ['foo', { type: 'faketoken', value: '' }],
+      });
+      await nextTick();
+      wrapper.findComponent(FakeToken).vm.$emit('activate');
+      await nextTick();
+
+      expect(wrapper.findComponent(FakeToken).props('active')).toBe(true);
+
+      wrapper
+        .findAllComponents(GlFilteredSearchTerm)
+        .at(0)
+        .vm.$emit('destroy', { intent: INTENT_ACTIVATE_PREVIOUS });
+
+      await nextTick();
+
+      expect(wrapper.findComponent(FakeToken).props('active')).toBe(false);
+    });
+
+    it('keeps active token active if later one destroyed', async () => {
+      createComponent({
+        value: [
+          { type: 'faketoken', value: '' },
+          { type: 'faketoken', value: '' },
+          { type: 'faketoken', value: '' },
+        ],
+      });
+      await nextTick();
+      wrapper.findAllComponents(FakeToken).at(0).vm.$emit('activate');
+      await nextTick();
+
+      wrapper.findAllComponents(FakeToken).at(2).vm.$emit('destroy');
+
+      await nextTick();
+
+      expect(wrapper.findAllComponents(FakeToken).at(0).props('active')).toBe(true);
+    });
+
+    it('keeps active token active if earlier one destroyed', async () => {
+      createComponent({
+        value: [
+          { type: 'faketoken', value: '' },
+          { type: 'faketoken', value: '' },
+          { type: 'faketoken', value: '' },
+        ],
+      });
+      await nextTick();
+      wrapper.findAllComponents(FakeToken).at(2).vm.$emit('activate');
+      await nextTick();
+
+      wrapper.findAllComponents(FakeToken).at(0).vm.$emit('destroy');
+
+      await nextTick();
+
+      expect(wrapper.findAllComponents(FakeToken).at(1).props('active')).toBe(true);
+    });
+
+    it('makes no token active if current is destroyed', async () => {
+      createComponent({
+        value: ['one', { type: 'faketoken', value: '' }],
+      });
+      await nextTick();
+      wrapper.findComponent(FakeToken).vm.$emit('activate');
+      await nextTick();
+
+      wrapper.findComponent(FakeToken).vm.$emit('destroy');
+
+      await nextTick();
+
+      wrapper.findAllComponents(GlFilteredSearchTerm).wrappers.forEach((searchTermWrapper) => {
+        expect(searchTermWrapper.props('active')).toBe(false);
+      });
+    });
+
+    it('keeps no token active if one was destroyed when none were active', async () => {
+      createComponent({
+        value: ['one', { type: 'faketoken', value: '' }],
       });
       await nextTick();
 
@@ -206,7 +296,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.findComponent(GlFilteredSearchTerm).props('active')).toBe(true);
+      expect(wrapper.findComponent(GlFilteredSearchTerm).props('active')).toBe(false);
     });
 
     it('does not destroy last token', async () => {
@@ -568,22 +658,26 @@ describe('Filtered search integration tests', () => {
     expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(1).find('input').exists()).toBe(true);
   });
 
-  it('correctly switches focus on token destroy', async () => {
-    mountComponent({ value: ['one t three'] });
+  it('activates previous token when backspacing on empty search term', async () => {
+    mountComponent({ value: ['zero one two'] });
     await nextTick();
 
     activate(1);
 
     await nextTick();
 
-    // Unfortunately backspace is not working in JSDOM
-    wrapper.findAllComponents(GlFilteredSearchTerm).at(1).vm.$emit('destroy');
+    // Make sure we have the expected search term
+    const inputWrapper = wrapper.find('input');
+    expect(inputWrapper.element.value).toBe('one');
 
-    await nextTick();
+    // Mimic backspace behavior for jsdom
+    await inputWrapper.setValue('');
+    await inputWrapper.trigger('keydown', { key: 'Backspace' });
 
-    expect(document.activeElement).toBe(
-      wrapper.findComponent(GlFilteredSearchTerm).find('input').element
-    );
+    // Make sure the previous token/search term is now active
+    const input = wrapper.find('input').element;
+    expect(input.value).toBe('zero');
+    expect(document.activeElement).toBe(input);
   });
 
   it('clicking clear button clears component input', async () => {
