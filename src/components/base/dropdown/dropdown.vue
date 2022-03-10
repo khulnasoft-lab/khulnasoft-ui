@@ -151,7 +151,9 @@ export default {
       return !this.split;
     },
     isIconOnly() {
-      return Boolean(this.icon && (!this.text?.length || this.textSrOnly));
+      return Boolean(
+        this.icon && (!this.text?.length || this.textSrOnly) && !this.hasSlotContents('button-text')
+      );
     },
     isIconWithText() {
       return Boolean(this.icon && this.text?.length && !this.textSrOnly);
@@ -282,8 +284,8 @@ export default {
     </div>
     <template #button-content>
       <slot name="button-content">
-        <gl-loading-icon v-if="loading" class="gl-mr-2" />
-        <gl-icon v-if="icon" class="dropdown-icon" :name="icon" />
+        <gl-loading-icon v-if="loading" :class="{ 'gl-mr-2': !isIconOnly }" />
+        <gl-icon v-if="icon && !(isIconOnly && loading)" class="dropdown-icon" :name="icon" />
         <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
           <slot name="button-text">{{ buttonText }}</slot>
         </span>
