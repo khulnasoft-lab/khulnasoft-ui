@@ -274,7 +274,10 @@ documentedStoriesOf('base/dropdown', readme)
     template: wrap`
       <gl-dropdown-section-header>Header title</gl-dropdown-section-header>
       <gl-dropdown-item>First item</gl-dropdown-item>
-      <gl-dropdown-item>Second item</gl-dropdown-item>`,
+      <gl-dropdown-item>Second item</gl-dropdown-item>
+      <gl-dropdown-section-header>I am a really long header title which should wrap</gl-dropdown-section-header>
+      <gl-dropdown-item>Third item</gl-dropdown-item>
+      <gl-dropdown-item>Fourth item</gl-dropdown-item>`,
     mounted() {
       clickDropdown(this);
     },
