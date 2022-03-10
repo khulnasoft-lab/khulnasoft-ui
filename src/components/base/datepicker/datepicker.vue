@@ -45,11 +45,17 @@ export default {
     GlButton,
   },
   props: {
+    /**
+     * Selector of element that triggers the datepicker. Defaults to the calendar icon. Pass `null` to trigger on input focus.
+     */
     target: {
       type: String,
       required: false,
       default: '',
     },
+    /**
+     * DOM node to render calendar into. Defaults to the datepicker container. Pass `null` to use Pikaday default.
+     */
     container: {
       type: String,
       required: false,
@@ -80,6 +86,9 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * Accepts a function that accepts a date as argument and returns true if the date is disabled.
+     */
     disableDayFn: {
       type: Function,
       required: false,
@@ -100,6 +109,9 @@ export default {
       required: false,
       default: defaultDateFormat,
     },
+    /**
+     * Defaults to `off` when datepicker opens on focus, otherwise defaults to `null`.
+     */
     autocomplete: {
       type: String,
       required: false,
@@ -120,6 +132,9 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Use this prop to set the initial date for the datepicker.
+     */
     defaultDate: {
       type: Date,
       required: false,
@@ -274,19 +289,35 @@ export default {
   },
   methods: {
     selected(date) {
+      /**
+       * Emitted when a new date has been selected.
+       * @property {Date} date The selected date
+       */
       this.$emit('input', date);
     },
     closed() {
+      /**
+       * Emitted when the datepicker is hidden.
+       */
       this.$emit('close');
     },
     opened() {
+      /**
+       * Emitted when the datepicker becomes visible.
+       */
       this.$emit('open');
     },
     cleared() {
       this.textInput = '';
+      /**
+       * Emitted when the clear button is clicked.
+       */
       this.$emit('clear');
     },
     draw() {
+      /**
+       * Emitted when the datepicker draws a new month.
+       */
       this.$emit('monthChange');
     },
     onKeydown() {
@@ -302,7 +333,11 @@ export default {
 
 <template>
   <div class="gl-datepicker d-inline-block">
-    <div v-if="showDefaultField" class="position-relative">
+    <div v-if="showDefaultField" class="gl-relative">
+      <!--
+      @slot (optional) Input to display and bind the datepicker to. Defaults to `<gl-form-input />`
+      @binding {string} formattedDate
+      -->
       <slot :formatted-date="formattedDate">
         <gl-form-input
           :id="inputId"
