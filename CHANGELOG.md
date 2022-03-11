@@ -1,3 +1,10 @@
+# [37.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.5.2...v37.6.0) (2022-03-11)
+
+
+### Features
+
+* **css:** Add a 600 red left inset border of size 3 ([5b37b86](https://gitlab.com/gitlab-org/gitlab-ui/commit/5b37b86e80179e56a9d7961c04ad4de6c8183205))
+
 ## [37.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.5.1...v37.5.2) (2022-03-11)
 
 
