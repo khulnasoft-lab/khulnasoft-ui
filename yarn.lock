@@ -1245,10 +1245,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@gitlab/eslint-plugin@10.0.2":
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-10.0.2.tgz#6a8c24901b3c6a1cd5f46c987a905c102e9ffa52"
-  integrity sha512-A2FqRuJR7t1JXACV/VaJcqwNPcKt4SFllqoCKCc4TCQ4SEvEOnt+lkNlk5xl46f3hxpRsk4GXmOv0Ffcxim5kA==
+"@gitlab/eslint-plugin@11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-11.0.0.tgz#90d71bc0c5f54ac066faba8c6f909b0df761d0bb"
+  integrity sha512-5t1eTu/+myitEP68ceKQRRE0S5R1QStlRVykivZFZDxGloCyAq1zE96ZwqsMzDtpfK5fmf1+7yxGw9CPdLUB/A==
   dependencies:
     babel-eslint "^10.0.3"
     eslint-config-airbnb-base "^14.2.1"
