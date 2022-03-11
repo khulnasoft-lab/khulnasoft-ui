@@ -36,6 +36,7 @@ const fakeLabels = [
 ];
 
 const UserToken = {
+  name: 'UserToken',
   components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
   props: ['value', 'active'],
   inheritAttrs: false,
@@ -112,6 +113,7 @@ const UserToken = {
 };
 
 const MilestoneToken = {
+  name: 'MilestoneToken',
   components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon },
   props: ['value', 'active'],
   inheritAttrs: false,
@@ -172,6 +174,7 @@ const MilestoneToken = {
 };
 
 const LabelToken = {
+  name: 'LabelToken',
   components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlToken },
   props: ['value', 'active'],
   inheritAttrs: false,

@@ -2,6 +2,8 @@ import { first, last, isString } from 'lodash';
 
 export const TERM_TOKEN_TYPE = 'filtered-search-term';
 
+export const INTENT_ACTIVATE_PREVIOUS = 'intent-activate-previous';
+
 export function isEmptyTerm(token) {
   return token.type === TERM_TOKEN_TYPE && token.value.data.trim() === '';
 }

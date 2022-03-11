@@ -9,6 +9,7 @@ import GlFilteredSearchTerm from './filtered_search_term.vue';
 import {
   isEmptyTerm,
   TERM_TOKEN_TYPE,
+  INTENT_ACTIVATE_PREVIOUS,
   normalizeTokens,
   denormalizeTokens,
   needDenormalization,
@@ -173,8 +174,8 @@ export default {
       return this.getTokenEntry(type)?.token || GlFilteredSearchTerm;
     },
 
-    activate(token) {
-      this.activeTokenIdx = token;
+    activate(idx) {
+      this.activeTokenIdx = idx;
     },
 
     alignSuggestions(ref) {
@@ -201,15 +202,29 @@ export default {
       this.activeTokenIdx = null;
     },
 
-    destroyToken(idx) {
+    destroyToken(idx, { intent } = {}) {
       if (this.tokens.length === 1) {
         return;
       }
 
       this.tokens.splice(idx, 1);
-      if (idx !== 0) {
-        this.activeTokenIdx = idx - 1;
+
+      // First, attempt to honor the user's activation intent behind the
+      // destruction of the token, if any. Otherwise, try to maintain the
+      // active state for the token that was active at the time. If that's not
+      // possible, make sure no token is active.
+      if (intent === INTENT_ACTIVATE_PREVIOUS) {
+        // If there is a previous token, activate it; else, deactivate all tokens
+        this.activeTokenIdx = idx > 0 ? idx - 1 : null;
+      } else if (idx < this.activeTokenIdx) {
+        // Preserve the active token's active status (it shifted down one index)
+        this.activeTokenIdx -= 1;
+      } else if (idx === this.activeTokenIdx) {
+        // User destroyed the active token; don't activate another one.
+        this.activeTokenIdx = null;
       }
+      // Do nothing if there was no active token, or if idx > this.activeTokenIdx,
+      // to preserve the active state of the remaining tokens.
     },
 
     replaceToken(idx, token) {
@@ -297,7 +312,7 @@ export default {
             }"
             @activate="activate(idx)"
             @deactivate="deactivate(token)"
-            @destroy="destroyToken(idx)"
+            @destroy="destroyToken(idx, $event)"
             @replace="replaceToken(idx, $event)"
             @complete="completeToken"
             @submit="submit"
