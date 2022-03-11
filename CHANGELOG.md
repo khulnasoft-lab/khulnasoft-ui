@@ -1,3 +1,10 @@
+## [37.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.5.1...v37.5.2) (2022-03-11)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Token activation after destruction ([40b0513](https://gitlab.com/gitlab-org/gitlab-ui/commit/40b051307065ff29fea53ad65457d6b99f116c92))
+
 ## [37.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.5.0...v37.5.1) (2022-03-10)
 
 
