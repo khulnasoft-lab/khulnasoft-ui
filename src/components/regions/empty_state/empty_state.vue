@@ -78,6 +78,11 @@ export default {
       required: false,
       default: false,
     },
+    invertInDarkMode: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   computed: {
     height() {
@@ -108,7 +113,14 @@ export default {
       :class="{ 'gl-display-none gl-sm-display-block gl-px-4': compact, 'gl-max-w-full': !compact }"
     >
       <div v-if="svgPath" :class="{ 'svg-content': !compact }" class="svg-250">
-        <img :src="svgPath" alt="" role="img" class="gl-max-w-full" :height="height" />
+        <img
+          :src="svgPath"
+          alt=""
+          role="img"
+          :class="{ 'gl-dark-invert-keep-hue': invertInDarkMode }"
+          class="gl-max-w-full"
+          :height="height"
+        />
       </div>
     </div>
     <div :class="compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-max-w-full gl-m-auto'">
