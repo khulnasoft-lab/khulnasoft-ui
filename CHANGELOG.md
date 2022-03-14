@@ -1,3 +1,10 @@
+# [37.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.6.0...v37.7.0) (2022-03-14)
+
+
+### Features
+
+* **EmptyState:** Invert empty state illustrations in dark mode ([3112d43](https://gitlab.com/gitlab-org/gitlab-ui/commit/3112d43ac5ffba58a6ed3357c87e43d8ad10363d))
+
 # [37.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.5.2...v37.6.0) (2022-03-11)
 
 
