@@ -93,6 +93,7 @@ export const setupStorybookReadme = () =>
         'GlAccordionItem',
         'GlFilteredSearchSuggestionList',
         'GlFilteredSearchTerm',
+        'GlFilteredSearchToken',
         'GlFilteredSearchTokenSegment',
         'GlIntersperse',
         'GlFormSelect',

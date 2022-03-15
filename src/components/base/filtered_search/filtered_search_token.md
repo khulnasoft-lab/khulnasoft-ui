@@ -1,5 +1,3 @@
-# Filtered Search Binary Token
-
 Filtered search token is a helper component, intended to
 simplify the creation of filters tokens which consist of a title, operators
 and an editable value with autocomplete. This component abstracts token management
@@ -11,7 +9,7 @@ This component is not intended to be used outside of the `GlFilteredSearch` comp
 
 Make sure to pass `$listeners` to `gl-filtered-search-token`, or route events properly:
 
-```js
+```html
 <gl-filtered-search-token
   title="Confidential"
   :active="active"
