@@ -1,3 +1,10 @@
+# [37.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.8.0...v37.9.0) (2022-03-15)
+
+
+### Features
+
+* **GlTruncate:** add slots to surround the text ([4a79750](https://gitlab.com/gitlab-org/gitlab-ui/commit/4a797503c85ac755e7dd4df1b2d46e95f3102e04))
+
 # [37.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.7.0...v37.8.0) (2022-03-15)
 
 
