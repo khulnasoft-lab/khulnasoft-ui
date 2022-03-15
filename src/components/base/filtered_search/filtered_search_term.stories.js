@@ -1,7 +1,5 @@
-import { withKnobs, boolean } from '@storybook/addon-knobs';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
-import { documentedStoriesOf } from '../../../../documentation/documented_stories';
 import { provide } from './common_story_options';
 import readme from './filtered_search_term.md';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
@@ -13,29 +11,25 @@ const availableTokens = [
   { title: 'Demo2', type: 'demo2', icon: 'rocket', token: {} },
 ];
 
-documentedStoriesOf('base/filtered-search/term', readme)
-  .addDecorator(withKnobs)
-  .add('default', () => ({
-    components: {
-      GlFilteredSearchTerm,
-    },
-    provide,
-    props: {
-      active: {
-        type: Boolean,
-        default: boolean('active', true),
-      },
-    },
-    data() {
-      return {
-        value: { data: 'demo' },
-        availableTokens,
-      };
-    },
-    mounted() {
-      this.$nextTick(() => document.activeElement.blur());
-    },
-    template: `
+const generateProps = ({ active = true } = {}) => ({ active });
+
+// eslint-disable-next-line no-unused-vars
+export const Default = (_args, { argTypes }) => ({
+  props: ['active'],
+  components: {
+    GlFilteredSearchTerm,
+  },
+  provide,
+  data() {
+    return {
+      value: { data: 'demo' },
+      availableTokens,
+    };
+  },
+  mounted() {
+    this.$nextTick(() => document.activeElement.blur());
+  },
+  template: `
       <div>
         <div> {{ value.data }} </div>
         <div class="gl-border-1 gl-border-solid gl-border-gray-200">
@@ -51,4 +45,17 @@ documentedStoriesOf('base/filtered-search/term', readme)
         </div>
       </div>
     `,
-  }));
+});
+Default.args = generateProps();
+
+export default {
+  title: 'base/filtered-search/term',
+  component: GlFilteredSearchTerm,
+  parameters: {
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
+  },
+};

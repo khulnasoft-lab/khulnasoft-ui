@@ -1,5 +1,3 @@
-# Filtered Search Term
-
 The filtered search term is a component for managing "free input" in the filtered search component.
 It is responsible for autocompleting available tokens and "converting" to a relevant
 component when an autocomplete item is selected.
