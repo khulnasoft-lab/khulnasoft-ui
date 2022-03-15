@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: 'GlFilteredSearchSuggestionList',
   inject: ['suggestionsListClass'],
   provide() {
     return {
@@ -7,6 +8,9 @@ export default {
     };
   },
   props: {
+    /**
+     * Value to be initially selected in list.
+     */
     initialValue: {
       required: false,
       validator: () => true,
@@ -84,6 +88,7 @@ export default {
 </script>
 <template>
   <ul :class="listClasses">
+    <!-- @slot The suggestions (implemented with GlFilteredSearchSuggestion). -->
     <slot></slot>
   </ul>
 </template>
