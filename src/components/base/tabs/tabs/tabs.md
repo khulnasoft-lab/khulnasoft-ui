@@ -48,12 +48,12 @@ behave and look. The props receive an object as such:
 ~~~js
 {
   text: 'Save Changes',
-  attributes: [
-    { variant: 'info' },
-    { disabled: this.someState },
-    { class: 'some-class' },
+  attributes: {
+    variant: 'info',
+    disabled: this.someState,
+    class: 'some-class',
     ...
-  ]
+  }
 }
 ~~~
 

@@ -20,11 +20,11 @@ behave in the modals footer. The props receive an object as such:
 ```js
 {
   text: 'Save Changes',
-  attributes: [
-    { variant: 'confirm' },
-    { disabled: this.someState },
-    { class: 'some-class' },
+  attributes: {
+    variant: 'confirm',
+    disabled: this.someState,
+    class: 'some-class',
     ...
-  ]
+  }
 }
 ```
