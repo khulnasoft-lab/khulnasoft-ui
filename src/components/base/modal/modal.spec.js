@@ -30,7 +30,7 @@ describe('Modal component', () => {
   const findSecondaryButton = () => wrapper.find('.js-modal-action-secondary');
   const findCancelButton = () => wrapper.find('.js-modal-action-cancel');
 
-  const expectCloseButton = () => expect(wrapper.findComponent(CloseButton).exists()).toBe(true);
+  const closeButtonExists = () => wrapper.findComponent(CloseButton).exists();
 
   const createComponent = ({ props = {}, slots = {}, stubModal = true } = {}) => {
     wrapperListeners = {
@@ -86,7 +86,7 @@ describe('Modal component', () => {
       expect(defaultHeader.exists()).toBe(false);
       expect(customHeader.exists()).toBe(true);
       expect(customHeader.text()).toBe(title);
-      expectCloseButton();
+      expect(closeButtonExists()).toBe(false);
     });
 
     it('renders modal-title slot properly', () => {
@@ -99,7 +99,7 @@ describe('Modal component', () => {
       expect(defaultHeader.exists()).toBe(true);
       expect(customTitle.exists()).toBe(true);
       expect(customTitle.text()).toBe(title);
-      expectCloseButton();
+      expect(closeButtonExists()).toBe(true);
     });
   });
 

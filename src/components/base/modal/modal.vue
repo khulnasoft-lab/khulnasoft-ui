@@ -184,9 +184,9 @@ export default {
           <!-- @slot Modal title. If modal-header slot is used, this slot will not be shown. -->
           <slot name="modal-title">{{ title }}</slot>
         </h4>
+
+        <close-button ref="close-button" :label="dismissLabel" @click="close" />
       </slot>
-      <!-- @slot Content of Modal header close button. If modal-header slot is used, this slot will not be shown. -->
-      <close-button ref="close-button" :label="dismissLabel" @click="close" />
     </template>
     <template v-if="shouldRenderModalOk" #modal-ok>
       <slot name="modal-ok"></slot>
