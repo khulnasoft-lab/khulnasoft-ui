@@ -211,7 +211,7 @@ describe('Filtered search', () => {
       expect(wrapper.findComponent(FakeToken).props('active')).toBe(true);
     });
 
-    it('makes no token active if user intends it on first token destruction', async () => {
+    it('keeps first token active on first token destruction with backspace', async () => {
       createComponent({
         value: ['foo', { type: 'faketoken', value: '' }],
       });
@@ -228,7 +228,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.findComponent(FakeToken).props('active')).toBe(false);
+      expect(wrapper.findComponent(FakeToken).props('active')).toBe(true);
     });
 
     it('keeps active token active if later one destroyed', async () => {

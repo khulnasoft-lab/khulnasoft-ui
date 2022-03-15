@@ -222,8 +222,8 @@ export default {
       // active state for the token that was active at the time. If that's not
       // possible, make sure no token is active.
       if (intent === INTENT_ACTIVATE_PREVIOUS) {
-        // If there is a previous token, activate it; else, deactivate all tokens
-        this.activeTokenIdx = idx > 0 ? idx - 1 : null;
+        // If there is a previous token, activate it; else, activate the first token
+        this.activeTokenIdx = Math.max(idx - 1, 0);
       } else if (idx < this.activeTokenIdx) {
         // Preserve the active token's active status (it shifted down one index)
         this.activeTokenIdx -= 1;
