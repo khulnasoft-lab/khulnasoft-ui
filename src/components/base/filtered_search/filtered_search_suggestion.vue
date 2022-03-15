@@ -2,12 +2,16 @@
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 
 export default {
+  name: 'GlFilteredSearchSuggestion',
   components: {
     GlDropdownItem,
   },
   inject: ['filteredSearchSuggestionListInstance'],
   inheritAttrs: false,
   props: {
+    /**
+     * Value that will be emitted if this suggestion is selected.
+     */
     value: {
       required: true,
       validator: () => true,
@@ -52,6 +56,7 @@ export default {
     href="#"
     @mousedown.native.prevent="emitValue"
   >
+    <!-- @slot The suggestion content. -->
     <slot></slot>
   </gl-dropdown-item>
 </template>

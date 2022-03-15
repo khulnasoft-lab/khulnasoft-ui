@@ -91,6 +91,7 @@ export const setupStorybookReadme = () =>
         'GlFormCheckbox',
         'GlAccordion',
         'GlAccordionItem',
+        'GlFilteredSearchSuggestion',
         'GlFilteredSearchSuggestionList',
         'GlFilteredSearchTerm',
         'GlFilteredSearchToken',
