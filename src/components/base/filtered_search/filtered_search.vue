@@ -31,6 +31,7 @@ function initialState() {
 }
 
 export default {
+  name: 'GlFilteredSearch',
   components: {
     GlSearchBoxByClick,
     GlIcon,
@@ -51,16 +52,25 @@ export default {
   },
   inheritAttrs: false,
   props: {
+    /**
+     * If provided, used as value of filtered search
+     */
     value: {
       required: false,
       type: Array,
       default: () => [],
     },
+    /**
+     * Available tokens
+     */
     availableTokens: {
       type: Array,
       required: false,
       default: () => [],
     },
+    /**
+     * If provided, used as history items for this component
+     */
     placeholder: {
       type: String,
       required: false,
@@ -76,21 +86,34 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * Additional classes to add to the suggestion list menu. NOTE: this not reactive, and the value
+     * must be available and fixed when the component is instantiated
+     */
     suggestionsListClass: {
       type: [String, Array, Object],
       required: false,
       default: null,
     },
+    /**
+     * Display operators' descriptions instead of their values (e.g., "is" instead of "=").
+     */
     showFriendlyText: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * HTML attributes to add to the search button
+     */
     searchButtonAttributes: {
       type: Object,
       required: false,
       default: () => ({}),
     },
+    /**
+     * HTML attributes to add to the search input
+     */
     searchInputAttributes: {
       type: Object,
       required: false,
@@ -141,6 +164,10 @@ export default {
           this.tokens.push(createTerm());
         }
 
+        /**
+         * Emitted when the tokens (value) changes
+         * @property {array} tokens
+         */
         this.$emit('input', this.tokens);
       },
       deep: true,
@@ -269,6 +296,10 @@ export default {
     },
 
     submit() {
+      /**
+       * Emitted when search is submitted
+       * @property {array} tokens
+       */
       this.$emit('submit', normalizeTokens(cloneDeep(this.tokens)));
     },
 
@@ -281,6 +312,19 @@ export default {
 </script>
 
 <template>
+  <!--
+  Emitted when search is cleared
+  @event clear
+  -->
+  <!--
+  Emitted when item from history is selected
+  @event history-item-selected
+  @property {object} value History item
+  -->
+  <!--
+  Emitted when clear history button is clicked
+  @event clear-history
+  -->
   <gl-search-box-by-click
     v-bind="$attrs"
     :value="tokens"
@@ -295,6 +339,7 @@ export default {
     @clear-history="$emit('clear-history')"
   >
     <template #history-item="slotScope">
+      <!-- @slot Slot to customize history item in history dropdown. Used only if using history items -->
       <slot name="history-item" v-bind="slotScope"></slot>
     </template>
     <template #input>
