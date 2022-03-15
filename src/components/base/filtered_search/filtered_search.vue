@@ -296,11 +296,6 @@ export default {
        */
       this.$emit('submit', normalizeTokens(cloneDeep(this.tokens)));
     },
-
-    clearInput() {
-      this.tokens = initialState();
-      this.$emit('clearInput');
-    },
   },
 };
 </script>
