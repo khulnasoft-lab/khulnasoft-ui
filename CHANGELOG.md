@@ -1,3 +1,10 @@
+## [37.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.9.0...v37.9.1) (2022-03-16)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Keep active state on backspace on first token ([bd241df](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd241dfbbd87064c10a67f0a0857b54542362605))
+
 # [37.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.8.0...v37.9.0) (2022-03-15)
 
 
