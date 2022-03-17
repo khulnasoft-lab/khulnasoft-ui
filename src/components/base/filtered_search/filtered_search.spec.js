@@ -705,4 +705,23 @@ describe('Filtered search integration tests', () => {
 
     expect(wrapper.findAllComponents(GlFilteredSearchTerm)).toHaveLength(1);
   });
+
+  it('updates tokens list when value is passed dynamically', async () => {
+    mountComponent({ value: ['one'] });
+    await nextTick();
+
+    expect(wrapper.findAllComponents(GlFilteredSearchTerm)).toHaveLength(2);
+
+    await wrapper.setProps({
+      value: ['one two'],
+    });
+
+    const termComponents = wrapper.findAllComponents(GlFilteredSearchTerm).wrappers;
+    expect(termComponents).toHaveLength(3);
+    expect(termComponents.map((termComponent) => termComponent.props('value'))).toEqual([
+      { data: 'one' },
+      { data: 'two' },
+      { data: '' },
+    ]);
+  });
 });
