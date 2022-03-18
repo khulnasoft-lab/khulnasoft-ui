@@ -1,3 +1,19 @@
+# [38.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.10.0...v38.0.0) (2022-03-18)
+
+
+### Reverts
+
+* **GlFilteredSearch:** Allow to pass token dynamically ([0dcfb53](https://gitlab.com/gitlab-org/gitlab-ui/commit/0dcfb5300f80ee821f16ab62fd655c7e4f141ffe)), closes [/gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2715#note_878880409](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2715/issues/note_878880409)
+* **GlTruncate:** add slots to surround the text ([ed4aa40](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed4aa40ed8c3e748f78e78d2e312a8be9ffb9833))
+
+
+### BREAKING CHANGES
+
+* **GlFilteredSearch:** This makes the `value` prop of `GlFilteredSearch`
+static again, so that it is only read once at mount.
+* **GlTruncate:** This drops the before-text and after-text slots from
+GlTruncate.
+
 # [37.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.9.1...v37.10.0) (2022-03-18)
 
 
