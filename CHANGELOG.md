@@ -1,3 +1,10 @@
+# [37.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.9.1...v37.10.0) (2022-03-18)
+
+
+### Features
+
+* **css:** Add more grid utilities ([35feb73](https://gitlab.com/gitlab-org/gitlab-ui/commit/35feb731a56e4de2e783c7f4931d3726c979bb2c))
+
 ## [37.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.9.0...v37.9.1) (2022-03-16)
 
 
