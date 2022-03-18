@@ -16,12 +16,10 @@ describe('Truncate component', () => {
     text: 'ee/app/assets/javascripts/vue_shared/src/utils_reports/components/utils/index.js',
   };
 
-  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
-
-  const createComponent = (props, slots = {}) => {
+  const createComponent = (props) => {
     wrapper = shallowMount(
       { extends: Truncate, directives: { GlTooltip: createMockDirective('gl-tooltip') } },
-      { propsData: { ...defaultProps, ...props }, slots }
+      { propsData: { ...defaultProps, ...props } }
     );
   };
 
@@ -57,13 +55,12 @@ describe('Truncate component', () => {
       createComponent({ position: 'start' });
     });
 
-    it('should have the truncate-start class on the text span', () => {
-      const textSpan = wrapper.findComponent({ ref: 'text' });
-      expect(textSpan.classes('gl-truncate-start')).toBe(true);
+    it('should have the truncate-start class', () => {
+      expect(wrapper.find('.gl-truncate-start').exists()).toBe(true);
     });
 
     it('should have the special char surrounded', () => {
-      const spanTag = wrapper.findComponent({ ref: 'text' }).text();
+      const spanTag = wrapper.findAll('.gl-truncate span').at(0).text();
 
       expect(spanTag.charAt(0)).toBe('\u200E');
       expect(spanTag.charAt(spanTag.length - 1)).toBe('\u200E');
@@ -71,27 +68,27 @@ describe('Truncate component', () => {
   });
 
   describe('middle truncation', () => {
-    let firstTextSpan;
-    let secondTextSpan;
+    let firstSpan;
+    let secondSpan;
 
     beforeEach(() => {
       createComponent({ position: 'middle' });
-      firstTextSpan = findByTestId('text-beginning');
-      secondTextSpan = findByTestId('text-ending');
+      firstSpan = wrapper.findAll('.gl-truncate span').at(0);
+      secondSpan = wrapper.findAll('.gl-truncate span').at(1);
     });
 
     it('should have appropriate classes applied', () => {
-      expect(firstTextSpan.classes('gl-truncate-end')).toBe(true);
-      expect(secondTextSpan.classes('gl-truncate-start')).toBe(true);
+      expect(firstSpan.classes('gl-truncate-end')).toBe(true);
+      expect(secondSpan.classes('gl-truncate-start')).toBe(true);
     });
 
     it('should have the spans positioned correctly', () => {
-      expect(firstTextSpan.text()).toBe('ee/app/assets/javascripts/vue_shared/src');
-      expect(secondTextSpan.text()).toBe('‎/utils_reports/components/utils/index.js‎');
+      expect(firstSpan.text()).toBe('ee/app/assets/javascripts/vue_shared/src');
+      expect(secondSpan.text()).toBe('‎/utils_reports/components/utils/index.js‎');
     });
 
     it('last part should have the special char surrounded', () => {
-      const lastPart = secondTextSpan.text();
+      const lastPart = secondSpan.text();
 
       expect(lastPart.charAt(0)).toBe('\u200E');
       expect(lastPart.charAt(lastPart.length - 1)).toBe('\u200E');
@@ -109,38 +106,6 @@ describe('Truncate component', () => {
 
     it('should have the truncate-end class', () => {
       expect(wrapper.find('.gl-truncate-end').exists()).toBe(true);
-    });
-  });
-
-  describe('slots', () => {
-    const beforeText = 'Before Text Slot';
-    const afterText = 'After Text Slot';
-    const slotOptions = {
-      'before-text': {
-        slot: `<span id="before-text">${beforeText}</span>`,
-        text: beforeText,
-      },
-      'after-text': {
-        slot: `<span id="after-text">${afterText}</span>`,
-        text: afterText,
-      },
-    };
-
-    it.each`
-      position    | slotType
-      ${'start'}  | ${'before-text'}
-      ${'start'}  | ${'after-text'}
-      ${'middle'} | ${'before-text'}
-      ${'middle'} | ${'after-text'}
-      ${'end'}    | ${'before-text'}
-      ${'end'}    | ${'after-text'}
-    `('$position truncation $slot slot', ({ position, slotType }) => {
-      const slot = { [slotType]: slotOptions[slotType].slot };
-
-      createComponent({ position }, slot);
-
-      const slotComponent = wrapper.find(`#${slotType}`);
-      expect(slotComponent.text()).toBe(slotOptions[slotType].text);
     });
   });
 });

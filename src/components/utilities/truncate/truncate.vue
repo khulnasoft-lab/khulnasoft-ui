@@ -1,6 +1,6 @@
 <script>
-import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import { POSITION } from './constants';
 
 export default {
@@ -81,15 +81,9 @@ export default {
     class="gl-truncate"
     :title="text"
   >
-    <span v-if="$scopedSlots['before-text']" class="gl-pr-3">
-      <slot name="before-text"></slot>
-    </span>
     <span ref="text" class="gl-truncate-start gl-text-overflow-ellipsis!"
       >&lrm;{{ text }}&lrm;</span
     >
-    <span v-if="$scopedSlots['after-text']" class="gl-pl-3">
-      <slot name="after-text"></slot>
-    </span>
   </span>
 
   <!-- MIDDLE  -->
@@ -100,14 +94,8 @@ export default {
     class="gl-truncate"
     :title="text"
   >
-    <span v-if="$scopedSlots['before-text']" class="gl-pr-3">
-      <slot name="before-text"></slot>
-    </span>
-    <span ref="text" class="gl-truncate-end" data-testid="text-beginning">{{ first }}</span
-    ><span class="gl-truncate-start" data-testid="text-ending">&lrm;{{ last }}&lrm;</span>
-    <span v-if="$scopedSlots['after-text']" class="gl-pl-3">
-      <slot name="after-text"></slot>
-    </span>
+    <span ref="text" class="gl-truncate-end">{{ first }}</span
+    ><span class="gl-truncate-start">&lrm;{{ last }}&lrm;</span>
   </span>
 
   <!-- END  -->
@@ -119,12 +107,6 @@ export default {
     data-testid="truncate-end-container"
     :title="text"
   >
-    <span v-if="$scopedSlots['before-text']" class="gl-pr-3">
-      <slot name="before-text"></slot>
-    </span>
     <span ref="text" class="gl-truncate-end">{{ text }}</span>
-    <span v-if="$scopedSlots['after-text']" class="gl-pl-3">
-      <slot name="after-text"></slot>
-    </span>
   </span>
 </template>
