@@ -14,3 +14,19 @@
 @mixin gl-grid-template-columns-2 {
   grid-template-columns: 1fr 1fr;
 }
+
+@mixin gl-sm-grid-template-columns-2 {
+  @include gl-media-breakpoint-up(sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@mixin gl-md-grid-template-columns-2 {
+  @include gl-media-breakpoint-up(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@mixin gl-grid-gap-6 {
+  gap: $gl-spacing-scale-6;
+}
