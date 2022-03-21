@@ -1,3 +1,10 @@
+## [38.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.0.0...v38.0.1) (2022-03-21)
+
+
+### Bug Fixes
+
+* **GlFormRadio:** prevent double emitting events ([208e251](https://gitlab.com/gitlab-org/gitlab-ui/commit/208e2512a1065e1d9b12a51269209a2e52cc835e))
+
 # [38.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v37.10.0...v38.0.0) (2022-03-18)
 
 
