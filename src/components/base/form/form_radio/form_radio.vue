@@ -38,7 +38,6 @@ export default {
     class="gl-form-radio"
     :checked="checked"
     v-bind="$attrs"
-    v-on="$listeners"
     @input="$emit('input', $event)"
     @change="$emit('change', $event)"
   >
