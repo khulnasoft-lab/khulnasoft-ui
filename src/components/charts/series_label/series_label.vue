@@ -12,6 +12,9 @@ export default {
       type: String,
       required: false,
       default: 'solid',
+      validator(value) {
+        return ['solid', 'dashed'].indexOf(value) !== -1;
+      },
     },
   },
   data() {
