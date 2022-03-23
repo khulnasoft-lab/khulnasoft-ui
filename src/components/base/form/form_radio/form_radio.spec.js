@@ -94,10 +94,12 @@ describe('GlFormRadio', () => {
       const { input, change } = eventHandlers;
       const { value: clickedRadioValue } = secondOption;
 
+      // The input handler is called twice because each radio emits one input event.
       expect(input).toHaveBeenCalledTimes(2);
       expect(input).toHaveBeenNthCalledWith(1, clickedRadioValue);
       expect(input).toHaveBeenNthCalledWith(2, clickedRadioValue);
 
+      // The change handler is only called once, since only the newly selected radio emits a change event.
       expect(change).toHaveBeenCalledTimes(1);
       expect(change).toHaveBeenCalledWith(clickedRadioValue);
     });
