@@ -5,6 +5,8 @@ import GlFormRadio from './form_radio.vue';
 describe('GlFormRadio', () => {
   let wrapper;
   let options;
+  let eventHandlers;
+
   const firstOption = {
     text: 'One',
     value: 'one',
@@ -16,6 +18,10 @@ describe('GlFormRadio', () => {
 
   const createWrapper = () => {
     options = [firstOption, secondOption];
+    eventHandlers = {
+      input: jest.fn(),
+      change: jest.fn(),
+    };
 
     wrapper = mount({
       data() {
@@ -32,9 +38,15 @@ describe('GlFormRadio', () => {
             :key="option.value"
             v-model="selected"
             :value="option.value"
+            @change="changeHandler"
+            @input="inputHandler"
           >{{ option.text }}</gl-form-radio>
         </div>
       `,
+      methods: {
+        changeHandler: eventHandlers.change,
+        inputHandler: eventHandlers.input,
+      },
     });
   };
 
@@ -79,16 +91,15 @@ describe('GlFormRadio', () => {
     });
 
     it('emits an input event on each radio, and a change event on the newly selected radio', () => {
-      const [formRadioOne, formRadioTwo] = wrapper.findAllComponents(GlFormRadio).wrappers;
+      const { input, change } = eventHandlers;
+      const { value: clickedRadioValue } = secondOption;
 
-      expect(formRadioOne.emitted()).toEqual({
-        input: [[secondOption.value]],
-      });
+      expect(input).toHaveBeenCalledTimes(2);
+      expect(input).toHaveBeenNthCalledWith(1, clickedRadioValue);
+      expect(input).toHaveBeenNthCalledWith(2, clickedRadioValue);
 
-      expect(formRadioTwo.emitted()).toEqual({
-        input: [[secondOption.value]],
-        change: [[secondOption.value]],
-      });
+      expect(change).toHaveBeenCalledTimes(1);
+      expect(change).toHaveBeenCalledWith(clickedRadioValue);
     });
 
     it('updates the bound value', () => {
