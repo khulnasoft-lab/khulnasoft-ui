@@ -1,5 +1,3 @@
-# Filtered Search
-
 The filtered search component is responsible for managing search with possible filters.
 
 ## Usage
@@ -61,6 +59,7 @@ const availableTokens = [
 Pass the list of tokens to the search component. Optionally, you can use `v-model` to receive
 realtime updates:
 
-```js
- <gl-filtered-search :available-tokens="tokens" v-model="value" />
+```html
+
+<gl-filtered-search :available-tokens="tokens" v-model="value" />
 ```

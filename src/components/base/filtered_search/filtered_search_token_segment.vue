@@ -7,6 +7,7 @@ import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vu
 import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
 
 export default {
+  name: 'GlFilteredSearchTokenSegment',
   components: {
     Portal,
     GlFilteredSearchSuggestionList,
@@ -15,6 +16,9 @@ export default {
   inject: ['portalName', 'alignSuggestions'],
   inheritAttrs: false,
   props: {
+    /**
+     * If this token segment is currently being edited.
+     */
     active: {
       type: Boolean,
       required: false,
@@ -45,15 +49,24 @@ export default {
       required: false,
       default: () => () => false,
     },
+    /**
+     * Current term value
+     */
     value: {
       required: true,
       validator: () => true,
     },
+    /**
+     * HTML attributes to add to the search input
+     */
     searchInputAttributes: {
       type: Object,
       required: false,
       default: () => ({}),
     },
+    /**
+     * If this is the last token
+     */
     isLastToken: {
       type: Boolean,
       required: false,
@@ -89,6 +102,11 @@ export default {
       },
 
       set(v) {
+        /**
+         * Emitted when this token segment's value changes.
+         *
+         * @type {object} option The current option.
+         */
         this.$emit('input', this.getMatchingOptionForInputValue(v)?.value ?? v);
       },
     },
@@ -145,6 +163,10 @@ export default {
       this.$emit('input', this.getMatchingOptionForInputValue(firstWord)?.value ?? firstWord);
 
       if (otherWords.length) {
+        /**
+         * Emitted when Space appears in token segment value
+         * @property {array|string} newStrings New strings to be converted into term tokens
+         */
         this.$emit('split', otherWords);
       }
     },
@@ -153,6 +175,9 @@ export default {
   methods: {
     emitIfInactive(e) {
       if (!this.active) {
+        /**
+         * Emitted on mousedown event on the main component.
+         */
         this.$emit('activate');
         e.preventDefault();
       }
@@ -190,6 +215,11 @@ export default {
     applySuggestion(suggestedValue) {
       const formattedSuggestedValue = wrapTokenInQuotes(suggestedValue);
 
+      /**
+       * Emitted when autocomplete entry is selected.
+       *
+       * @type {string} value The selected value.
+       */
       this.$emit('select', formattedSuggestedValue);
 
       if (!this.multiSelect) {
@@ -205,6 +235,9 @@ export default {
       if (key === 'Backspace') {
         if (this.inputValue === '') {
           e.preventDefault();
+          /**
+           * Emitted when Backspace is pressed and the value is empty
+           */
           this.$emit('backspace');
         }
         return;
@@ -216,6 +249,9 @@ export default {
           if (suggestedValue != null) {
             this.applySuggestion(suggestedValue);
           } else {
+            /**
+             * Emitted when Enter is pressed and no suggestion is selected
+             */
             this.$emit('submit');
           }
         },
@@ -227,6 +263,9 @@ export default {
         },
         Escape: () => {
           e.preventDefault();
+          /**
+           * Emitted when suggestion is selected from the suggestion list
+           */
           this.$emit('complete');
         },
       };
@@ -258,6 +297,9 @@ export default {
       if (this.multiSelect) {
         this.$emit('complete');
       } else if (this.active) {
+        /**
+         * Emitted when this term token will lose its focus.
+         */
         this.$emit('deactivate');
       }
     },

@@ -15,6 +15,7 @@ const DEFAULT_OPERATORS = [
 ];
 
 export default {
+  name: 'GlFilteredSearchToken',
   components: {
     GlToken,
     GlFilteredSearchTokenSegment,
@@ -26,11 +27,17 @@ export default {
       required: false,
       default: () => [],
     },
+    /**
+     * Token configuration with available operators and options.
+     */
     config: {
       type: Object,
       required: false,
       default: () => ({}),
     },
+    /**
+     * Determines if the token is being edited or not.
+     */
     active: {
       type: Boolean,
       required: false,
@@ -41,11 +48,17 @@ export default {
       required: false,
       default: () => [],
     },
+    /**
+     * Current token value.
+     */
     value: {
       type: Object,
       required: false,
       default: () => ({ operator: '', data: '' }),
     },
+    /**
+     * Display operators' descriptions instead of their values (e.g., "is" instead of "=").
+     */
     showFriendlyText: {
       type: Boolean,
       required: false,
@@ -88,6 +101,12 @@ export default {
     value: {
       deep: true,
       handler(newValue) {
+        /**
+         * Emitted when the token changes its value.
+         *
+         * @event input
+         * @type {object} dataObj Object containing the update value.
+         */
         this.$emit('input', newValue);
       },
     },
@@ -101,6 +120,11 @@ export default {
           }
         } else if (this.value.data === '') {
           this.activeSegment = null;
+          /**
+           * Emitted when token is about to be destroyed.
+           *
+           * @event destroy
+           */
           this.$emit('destroy');
         }
       },
@@ -124,6 +148,11 @@ export default {
       this.activeSegment = segment;
 
       if (!this.active) {
+        /**
+         * Emitted when this term token is clicked.
+         *
+         * @event activate
+         */
         this.$emit('activate');
       }
     },
@@ -138,6 +167,10 @@ export default {
 
     replaceWithTermIfEmpty() {
       if (this.value.operator === '' && this.value.data === '') {
+        /**
+         * Emitted when this token is converted to another type
+         * @property {object} token Replacement token configuration
+         */
         this.$emit('replace', { type: TERM_TOKEN_TYPE, value: { data: this.config.title } });
       }
     },
@@ -147,6 +180,11 @@ export default {
 
       if (newTokenConfig === this.config) {
         this.$nextTick(() => {
+          /**
+           * Emitted when this term token will lose its focus.
+           *
+           * @event deactivate
+           */
           this.$emit('deactivate');
         });
         return;
@@ -193,6 +231,11 @@ export default {
       if (this.config.multiSelect) {
         this.$emit('input', { ...this.value, data: this.multiSelectValues.join(COMMA) });
       }
+      /**
+       * Emitted when the token entry has been completed.
+       *
+       * @event complete
+       */
       this.$emit('complete');
     },
 
@@ -208,6 +251,10 @@ export default {
 
 <template>
   <div class="gl-filtered-search-token" :class="{ 'gl-filtered-search-token-active': active }">
+    <!--
+      Emitted when the token is submitted.
+      @event submit
+    -->
     <gl-filtered-search-token-segment
       key="title-segment"
       :value="config.title"
@@ -261,6 +308,16 @@ export default {
       </template>
     </gl-filtered-search-token-segment>
     <!-- eslint-disable vue/no-mutating-props -->
+    <!--
+      Emitted when a suggestion has been selected.
+      @event select
+      @type {string} value The value of the selected suggestion.
+    -->
+    <!--
+      Emitted when Space is pressed in-between term text.
+      @event split
+      @property {array} newTokens Token configurations
+    -->
     <gl-filtered-search-token-segment
       v-if="hasDataOrDataSegmentIsCurrentlyActive"
       key="data-segment"
@@ -279,9 +336,11 @@ export default {
     >
       <!-- eslint-enable vue/no-mutating-props -->
       <template #suggestions>
+        <!-- @slot The suggestions (implemented with GlFilteredSearchSuggestion). -->
         <slot name="suggestions"></slot>
       </template>
       <template #view="{ inputValue }">
+        <!-- @slot Used to customize how the token is rendered. -->
         <slot
           name="view-token"
           v-bind="{
@@ -300,6 +359,10 @@ export default {
             @mousedown="destroyByClose"
           >
             <span class="gl-filtered-search-token-data-content">
+              <!--
+              @slot Template for token value in inactive state
+              @binding {array} suggestions Slot for rendering autocomplete suggestions when no options are provided.
+              -->
               <slot name="view" v-bind="{ inputValue }">{{ inputValue }}</slot>
             </span>
           </gl-token>
