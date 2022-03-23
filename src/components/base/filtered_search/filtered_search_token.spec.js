@@ -247,6 +247,16 @@ describe('Filtered search token', () => {
       expect(wrapper.emitted().input[0][0].operator).toBe('=');
       expect(findDataSegment().props().active).toBe(true);
     });
+
+    it('does not mutate its value prop', async () => {
+      const originalValue = () => ({ operator: '', data: '' });
+      const value = observable(originalValue());
+      mountComponent({ active: true, value });
+
+      await wrapper.find('input').trigger('keydown', { key: 'q' });
+
+      expect(value).toEqual(originalValue());
+    });
   });
 
   describe('when multi select', () => {
@@ -269,6 +279,18 @@ describe('Filtered search token', () => {
       findDataSegment().vm.$emit('activate');
 
       expect(wrapper.emitted('input')).toEqual([[{ data: '', operator: '=' }]]);
+    });
+
+    it('passes down the value prop to the data segment if it changes', async () => {
+      createComponent({
+        value: { operator: '=', data: 'alpha' },
+      });
+
+      await wrapper.setProps({
+        value: { operator: '=', data: 'gamma' },
+      });
+
+      expect(findDataSegment().props('value')).toEqual('gamma');
     });
   });
 });

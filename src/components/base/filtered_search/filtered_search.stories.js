@@ -374,14 +374,14 @@ export const WithFriendlyText = () => ({
           icon: 'weight',
           title: 'Weight',
           unique: true,
-          token: 'gl-filtered-search-token',
+          token: GlFilteredSearchToken,
         },
         {
           type: 'confidential',
           icon: 'eye-slash',
           title: 'Confidential',
           unique: true,
-          token: 'gl-filtered-search-token',
+          token: GlFilteredSearchToken,
           options: [
             { icon: 'eye-slash', value: 'Yes', title: 'Yes' },
             { icon: 'eye', value: 'No', title: 'No' },
@@ -406,6 +406,7 @@ export const WithFriendlyText = () => ({
 export const WithMultiSelect = () => {
   const MultiUserToken = {
     props: ['value', 'active', 'config'],
+    components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
     inheritAttrs: false,
     data() {
       return {

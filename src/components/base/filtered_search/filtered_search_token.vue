@@ -1,4 +1,5 @@
 <script>
+import { cloneDeep } from 'lodash';
 import { COMMA } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
@@ -68,7 +69,7 @@ export default {
   data() {
     return {
       activeSegment: null,
-      tokenValue: this.value,
+      tokenValue: cloneDeep(this.value),
     };
   },
 
@@ -109,6 +110,16 @@ export default {
          * @type {object} dataObj Object containing the update value.
          */
         this.$emit('input', newValue);
+      },
+    },
+
+    value: {
+      handler(newValue, oldValue) {
+        if (newValue?.data === oldValue?.data && newValue?.operator === oldValue?.operator) {
+          return;
+        }
+
+        this.tokenValue = cloneDeep(newValue);
       },
     },
 
@@ -276,7 +287,6 @@ export default {
         >
       </template>
     </gl-filtered-search-token-segment>
-    <!-- eslint-disable vue/no-mutating-props -->
     <gl-filtered-search-token-segment
       key="operator-segment"
       v-model="tokenValue.operator"
@@ -289,7 +299,6 @@ export default {
       @complete="activateSegment($options.segments.SEGMENT_DATA)"
       @deactivate="$emit('deactivate')"
     >
-      <!-- eslint-enable vue/no-mutating-props -->
       <template #view>
         <gl-token
           class="gl-filtered-search-token-operator"
@@ -308,7 +317,6 @@ export default {
         </div>
       </template>
     </gl-filtered-search-token-segment>
-    <!-- eslint-disable vue/no-mutating-props -->
     <!--
       Emitted when a suggestion has been selected.
       @event select
@@ -335,7 +343,6 @@ export default {
       @deactivate="$emit('deactivate')"
       @split="$emit('split', $event)"
     >
-      <!-- eslint-enable vue/no-mutating-props -->
       <template #suggestions>
         <!-- @slot The suggestions (implemented with GlFilteredSearchSuggestion). -->
         <slot name="suggestions"></slot>

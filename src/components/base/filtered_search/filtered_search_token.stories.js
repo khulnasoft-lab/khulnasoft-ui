@@ -63,6 +63,7 @@ export const WithCustomOperatorsOptions = (args, { argTypes }) => ({
   components: {
     GlFilteredSearchToken,
     GlFilteredSearchSuggestion,
+    GlIcon,
   },
   provide,
   props: ['active'],
