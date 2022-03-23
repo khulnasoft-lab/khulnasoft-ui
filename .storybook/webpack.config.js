@@ -1,9 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const sass = require('node-sass');
 
 const sassLoaderOptions = {
-  includePaths: [require('path').resolve(__dirname, '..', 'node_modules')],
+  implementation: sass,
+  sassOptions: {
+    includePaths: [require('path').resolve(__dirname, '..', 'node_modules')],
+  },
 };
 
 module.exports = ({ config }) => {

@@ -141,7 +141,7 @@
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-vue": "^5.1.6",
     "sass-export": "^1.0.3",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^10.2.0",
     "sass-true": "^5.0.0",
     "start-server-and-test": "^1.10.6",
     "storybook-readme": "5.0.9",
