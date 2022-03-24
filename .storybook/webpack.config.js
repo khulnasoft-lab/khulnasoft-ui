@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const sass = require('node-sass');
+const sass = require('sass');
 
 const sassLoaderOptions = {
   implementation: sass,
