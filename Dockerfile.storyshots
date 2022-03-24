@@ -1,0 +1,5 @@
+FROM registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-puppeteer
+
+ADD package.json yarn.lock ./
+RUN yarn --frozen-lockfile
+ADD . .
