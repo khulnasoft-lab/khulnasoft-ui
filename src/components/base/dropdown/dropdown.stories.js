@@ -518,6 +518,7 @@ export default {
   title: 'base/dropdown',
   component: GlDropdown,
   subcomponents: {
+    GlDropdownDivider,
     GlDropdownItem,
     GlDropdownSectionHeader,
     GlDropdownText,
