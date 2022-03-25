@@ -57,7 +57,6 @@ export { default as GlSearchBoxByClickDocumentation } from '../src/components/ba
 export { default as GlDropdownDocumentation } from '../src/components/base/dropdown/dropdown.documentation';
 export { default as GlDropdownItemDocumentation } from '../src/components/base/dropdown/dropdown_item.documentation';
 export { default as GlDropdownDividerDocumentation } from '../src/components/base/dropdown/dropdown_divider.documentation';
-export { default as GlDropdownSectionHeaderDocumentation } from '../src/components/base/dropdown/dropdown_section_header.documentation';
 export { default as GlTableDocumentation } from '../src/components/base/table/table.documentation';
 export { default as GlBreadcrumbDocumentation } from '../src/components/base/breadcrumb/breadcrumb.documentation';
 export { default as GlHeatmapDocumentation } from '../src/components/charts/heatmap/heatmap.documentation';
