@@ -4,7 +4,7 @@ import { SyntaxHighlighter } from '@storybook/components';
 
 export const ImportInfo = () => {
   const context = useContext(DocsContext);
-  const componentName = context.parameters?.component?.name;
+  const componentName = context.component?.name;
   if (!componentName) {
     return null;
   }
