@@ -1,5 +1,3 @@
-# Typescale
-
 GitLab UI typescale is an implementation of the Pajamas [typescale specification](https://www.figma.com/file/qEddyqCrI7kPSBjGmwkZzQ/Pajamas-UI-Kit---Beta?node-id=542%3A2).
 
 ## Usage
