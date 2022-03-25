@@ -65,6 +65,7 @@ export const setupStorybookReadme = () =>
         'GlLink',
         'GlChart',
         'GlDropdown',
+        'GlDropdownItem',
         'GlBadge',
         'GlButtonGroup',
         'GlOutsideDirective',
