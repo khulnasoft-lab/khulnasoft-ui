@@ -517,6 +517,9 @@ WithHighlightedItems.args = generateProps({
 export default {
   title: 'base/dropdown',
   component: GlDropdown,
+  subcomponents: {
+    GlDropdownText,
+  },
   parameters: {
     bootstrapComponent: 'b-dropdown',
     docs: {
