@@ -2,7 +2,6 @@
 // ADD EXPORTS - needed for yarn generate:component. Do not remove
 export { default as GlTableLiteDocumentation } from '../src/components/base/table_lite/table_lite.documentation';
 export { default as GlRichTextEditorDocumentation } from '../src/components/editors/rich_text_editor/rich_text_editor.documentation';
-export { default as GlDropdownFormDocumentation } from '../src/components/base/dropdown/dropdown_form.documentation';
 export { default as GlKeysetPaginationDocumentation } from '../src/components/base/keyset_pagination/keyset_pagination.documentation';
 export { default as GlInputGroupTextDocumentation } from '../src/components/base/form/input_group_text/input_group_text.documentation';
 export { default as GlFormTextDocumentation } from '../src/components/base/form/form_text/form_text.documentation';
