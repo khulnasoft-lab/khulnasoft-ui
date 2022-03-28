@@ -1,9 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
-import { BBreadcrumbItem } from 'bootstrap-vue';
+import { nextTick } from 'vue';
 import Breadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
+import GlBreadcrumbItem from './breadcrumb_item.vue';
 import { createMockDirective } from '~helpers/vue_mock_directive';
 
-describe('Broadcast message component', () => {
+describe('Breadcrumb component', () => {
   let wrapper;
 
   const items = [
@@ -25,7 +26,7 @@ describe('Broadcast message component', () => {
 
   const findAvatarSlot = () => wrapper.find('[data-testid="avatar-slot"]');
   const findSeparatorSlot = () => wrapper.find('[data-testid="separator-slot"]');
-  const findBreadcrumbItems = () => wrapper.findAllComponents(BBreadcrumbItem);
+  const findBreadcrumbItems = () => wrapper.findAllComponents(GlBreadcrumbItem);
   const findAllSeparators = () => wrapper.findAll('[data-testid="separator"]');
   const findCollapsedListExpander = () => wrapper.find('[data-testid="collapsed-expander"]');
   const findExpanderSeparator = () => wrapper.find('[data-testid="expander-separator"]');
@@ -42,6 +43,9 @@ describe('Broadcast message component', () => {
         separator: '<div data-testid="separator-slot"></div>',
       },
       directives: { GlTooltip: createMockDirective('gl-tooltip') },
+      stubs: {
+        GlBreadcrumbItem,
+      },
     });
 
     wrapper.vm.$refs.firstItem = [
@@ -86,21 +90,31 @@ describe('Broadcast message component', () => {
   });
 
   describe('bindings', () => {
-    it('first breadcrumb has text and href bound', () => {
+    beforeEach(() => {
       createComponent();
+    });
 
-      expect(findBreadcrumbItems().at(0).attributes()).toMatchObject({
+    it('first breadcrumb has text, href && ariaCurrent=`false` bound', () => {
+      expect(findBreadcrumbItems().at(0).props()).toMatchObject({
         text: items[0].text,
         href: items[0].href,
+        ariaCurrent: false,
       });
     });
 
-    it('second breadcrumb has text and to bound', () => {
-      createComponent();
-
-      expect(findBreadcrumbItems().at(1).attributes()).toMatchObject({
+    it('second breadcrumb has text, to && ariaCurrent=`false` bound', () => {
+      expect(findBreadcrumbItems().at(1).props()).toMatchObject({
         text: items[1].text,
         to: items[1].to,
+        ariaCurrent: false,
+      });
+    });
+
+    it('last breadcrumb has text, to && ariaCurrent=`page` bound', () => {
+      expect(findBreadcrumbItems().at(2).props()).toMatchObject({
+        text: items[2].text,
+        href: items[2].href,
+        ariaCurrent: 'page',
       });
     });
   });
@@ -139,7 +153,7 @@ describe('Broadcast message component', () => {
 
       it('should expand the list on expander click', async () => {
         findCollapsedListExpander().vm.$emit('click');
-        await wrapper.vm.$nextTick();
+        await nextTick();
         expect(findHiddenBreadcrumbItems()).toHaveLength(0);
         expect(findVisibleBreadcrumbItems()).toHaveLength(items.length + extraItems.length);
       });

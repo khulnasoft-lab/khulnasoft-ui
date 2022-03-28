@@ -1,17 +1,18 @@
 <script>
-import { BBreadcrumb, BBreadcrumbItem } from 'bootstrap-vue';
+import { BBreadcrumb } from 'bootstrap-vue';
 import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
+import GlBreadcrumbItem from './breadcrumb_item.vue';
 
 export const COLLAPSE_AT_SIZE = 4;
 
 export default {
   components: {
     BBreadcrumb,
-    BBreadcrumbItem,
     GlIcon,
     GlButton,
+    GlBreadcrumbItem,
   },
   directives: {
     GlTooltip: GlTooltipDirective,
@@ -58,11 +59,12 @@ export default {
     },
     expandBreadcrumbs() {
       this.isListCollapsed = false;
+
       try {
         this.$refs.firstItem[0].querySelector('a').focus();
       } catch (e) {
         /* eslint-disable-next-line no-console */
-        console.error(`Failed to set focus on the last breadcrumb item.`);
+        console.error(`Failed to set focus on the first breadcrumb item.`);
       }
     },
     showCollapsedBreadcrumbsExpander(index) {
@@ -73,6 +75,9 @@ export default {
         this.hasCollapsible && this.isListCollapsed && !this.nonCollapsibleIndices.includes(index)
       );
     },
+    getAriaCurrentAttr(index) {
+      return this.isLastItem(index) ? 'page' : false;
+    },
   },
 };
 </script>
@@ -82,14 +87,14 @@ export default {
     <slot name="avatar"></slot>
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
       <template v-for="(item, index) in items">
-        <b-breadcrumb-item
+        <gl-breadcrumb-item
           :key="index"
           :ref="isFirstItem(index) ? 'firstItem' : null"
-          class="gl-breadcrumb-item"
           :text="item.text"
           :href="item.href"
           :to="item.to"
           :class="{ 'gl-display-none': isItemCollapsed(index) }"
+          :aria-current="getAriaCurrentAttr(index)"
         >
           <span>{{ item.text }}</span>
           <span
@@ -103,7 +108,7 @@ export default {
               <gl-icon name="chevron-right" />
             </slot>
           </span>
-        </b-breadcrumb-item>
+        </gl-breadcrumb-item>
 
         <template v-if="showCollapsedBreadcrumbsExpander(index)">
           <!-- eslint-disable-next-line vue/valid-v-for -->
