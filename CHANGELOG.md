@@ -1,3 +1,10 @@
+# [38.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.0.1...v38.1.0) (2022-03-28)
+
+
+### Features
+
+* **GlBreadcrumbItem:** implement custom component, add `aria-current="page"` to the last breadcrumb link ([6c246e4](https://gitlab.com/gitlab-org/gitlab-ui/commit/6c246e49d3132be4f0f4d70b0f358af4622a27f6))
+
 ## [38.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.0.0...v38.0.1) (2022-03-21)
 
 
