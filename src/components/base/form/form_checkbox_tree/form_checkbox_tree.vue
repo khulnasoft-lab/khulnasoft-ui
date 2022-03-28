@@ -34,23 +34,32 @@ export default {
       required: true,
     },
     /**
-     * Selected options
+     * The selected options as an array of values
      */
     value: {
       type: Array,
       required: false,
       default: () => [],
     },
+    /**
+     * Set to true to hide the "Select/unselect all" checkbox
+     */
     hideToggleAll: {
       type: Boolean,
       required: false,
       default: false,
     },
+    /**
+     * Label for the toggle all checkbox when some or all options are unchecked
+     */
     selectAllLabel: {
       type: String,
       required: false,
       default: 'Select all',
     },
+    /**
+     * Label for the toggle all checkbox when all options are checked
+     */
     unselectAllLabel: {
       type: String,
       required: false,
@@ -80,6 +89,9 @@ export default {
   watch: {
     'tree.selected': {
       handler(selected) {
+        /**
+         * Emitted when the selection changes.
+         */
         this.$emit(V_MODEL.EVENT, selected);
       },
     },

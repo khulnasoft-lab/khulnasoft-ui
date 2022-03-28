@@ -1,7 +1,3 @@
-# GlFormCheckboxTree
-
-<!-- STORY -->
-
 `GlFormCheckboxTree` lets you display an options structure where any option can have n-level of
 children. It can be useful for creating a search filter that has nested facets.
 
