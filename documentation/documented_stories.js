@@ -82,6 +82,7 @@ export const setupStorybookReadme = () =>
         'GlDashboardSkeleton',
         'GlToggle',
         'GlNavbar',
+        'GlFormCheckboxTree',
         'GlProgressBar',
         'GlPath',
         'GlFriendlyWrap',
