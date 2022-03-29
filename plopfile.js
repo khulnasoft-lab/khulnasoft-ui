@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 const path = require('path');
 const promptDirectory = require('inquirer-select-directory');
-const snakecase = require('lodash.snakecase');
+const { snakeCase } = require('lodash');
 
 const componentsPath = path.join('src', 'components');
 const baseComponentsPath = path.join(componentsPath, 'base');
@@ -117,7 +117,7 @@ module.exports = (plop) => {
       },
     ]),
     actions(data) {
-      data.name = snakecase(data.bootstrapVueComponentName).replace(/^b_/, '');
+      data.name = snakeCase(data.bootstrapVueComponentName).replace(/^b_/, '');
       setCommonData(data);
 
       const actions = [
