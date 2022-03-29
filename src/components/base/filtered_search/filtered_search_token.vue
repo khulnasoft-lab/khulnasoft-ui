@@ -3,7 +3,7 @@ import { cloneDeep } from 'lodash';
 import { COMMA } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
-import { TERM_TOKEN_TYPE } from './filtered_search_utils';
+import { createTerm } from './filtered_search_utils';
 
 const SEGMENT_TITLE = 'TYPE';
 const SEGMENT_OPERATOR = 'OPERATOR';
@@ -183,7 +183,7 @@ export default {
          * Emitted when this token is converted to another type
          * @property {object} token Replacement token configuration
          */
-        this.$emit('replace', { type: TERM_TOKEN_TYPE, value: { data: this.config.title } });
+        this.$emit('replace', createTerm(this.config.title));
       }
     },
 
@@ -254,6 +254,7 @@ export default {
     destroyByClose(event) {
       if (event.target.closest(TOKEN_CLOSE_SELECTOR)) {
         event.preventDefault();
+        event.stopPropagation();
         this.$emit('destroy');
       }
     },

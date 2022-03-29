@@ -56,14 +56,14 @@ const UserToken = {
       setStoryTimeout(() => {
         this.loadingView = false;
         this.activeUser = fakeUsers.find((u) => u.username === this.value.data);
-      }, 1000);
+      }, 500);
     },
     loadSuggestions() {
       this.loadingSuggestions = true;
       setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.users = fakeUsers;
-      }, 2000);
+      }, 500);
     },
   },
   watch: {
@@ -132,7 +132,7 @@ const MilestoneToken = {
       setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.milestones = fakeMilestones;
-      }, 2000);
+      }, 500);
     },
   },
   watch: {
@@ -214,7 +214,7 @@ const LabelToken = {
       setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.labels = fakeLabels;
-      }, 2000);
+      }, 500);
     },
   },
   watch: {

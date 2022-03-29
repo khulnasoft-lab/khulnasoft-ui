@@ -1,4 +1,5 @@
 import Vue, { nextTick } from 'vue';
+import { omit } from 'lodash';
 import { shallowMount, mount } from '@vue/test-utils';
 import GlFilteredSearch from './filtered_search.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
@@ -16,6 +17,8 @@ const FakeToken = {
 };
 
 Vue.directive('GlTooltip', () => {});
+
+const stripId = (token) => (typeof token === 'object' ? omit(token, 'id') : token);
 
 let wrapper;
 describe('Filtered search', () => {
@@ -41,7 +44,7 @@ describe('Filtered search', () => {
   describe('value manipulation', () => {
     it('creates term when empty', () => {
       createComponent();
-      expect(wrapper.emitted().input[0][0]).toStrictEqual([
+      expect(wrapper.emitted().input[0][0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
       ]);
     });
@@ -56,7 +59,7 @@ describe('Filtered search', () => {
         value: [{ type: 'faketoken', value: { data: '' } }],
       });
 
-      expect(wrapper.emitted().input[0][0].pop()).toStrictEqual({
+      expect(stripId(wrapper.emitted().input[0][0].pop())).toStrictEqual({
         type: TERM_TOKEN_TYPE,
         value: { data: '' },
       });
@@ -172,7 +175,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+      expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: 'faketoken', value: { data: '' } },
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: 'three' } },
@@ -190,7 +193,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+      expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
       ]);
@@ -305,7 +308,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+      expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
       ]);
     });
@@ -318,7 +321,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+      expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: 'faketoken', value: { data: 'test' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
       ]);
@@ -339,7 +342,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+      expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: 'faketoken', value: { data: 'test' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
       ]);
@@ -352,7 +355,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+      expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
       ]);
@@ -368,7 +371,7 @@ describe('Filtered search', () => {
       await nextTick();
 
       expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(2).props('active')).toBe(true);
-      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+      expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
@@ -385,7 +388,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      expect(wrapper.emitted().input.pop()[0]).toStrictEqual([
+      expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: 'foo' } },
         { type: TERM_TOKEN_TYPE, value: { data: 'bar' } },
@@ -415,7 +418,7 @@ describe('Filtered search', () => {
     });
     wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('submit');
     expect(wrapper.emitted().submit).toBeDefined();
-    expect(wrapper.emitted().submit[0][0]).toStrictEqual([
+    expect(wrapper.emitted().submit[0][0].map(stripId)).toStrictEqual([
       'one two',
       { type: 'faketoken', value: { data: 'smth' } },
       'four five',
@@ -475,7 +478,7 @@ describe('Filtered search', () => {
     });
     await nextTick();
 
-    expect(wrapper.findComponent(GlFilteredSearchTerm).props('currentValue')).toEqual([
+    expect(wrapper.findComponent(GlFilteredSearchTerm).props('currentValue').map(stripId)).toEqual([
       { type: 'filtered-search-term', value: { data: 'one' } },
       { type: 'filtered-search-term', value: { data: '' } },
     ]);
@@ -704,5 +707,27 @@ describe('Filtered search integration tests', () => {
     await nextTick();
 
     expect(wrapper.findAllComponents(GlFilteredSearchTerm)).toHaveLength(1);
+  });
+
+  // Regression test for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1761
+  it('does not incorrectly activate next token of the same type after token destruction', async () => {
+    mountComponent({
+      value: [
+        { type: 'static', value: { data: 'first', operator: '=' } },
+        { type: 'static', value: { data: 'second', operator: '=' } },
+        { type: 'unique', value: { data: 'something' } },
+      ],
+    });
+    await nextTick();
+
+    expect(
+      wrapper.findAllComponents(GlFilteredSearchToken).wrappers.map((cmp) => cmp.props('active'))
+    ).toEqual([false, false, false]);
+
+    await wrapper.find('.gl-token-close').trigger('mousedown');
+
+    expect(
+      wrapper.findAllComponents(GlFilteredSearchToken).wrappers.map((cmp) => cmp.props('active'))
+    ).toEqual([false, false]);
   });
 });
