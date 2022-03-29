@@ -1,30 +1,23 @@
 describe('GlFilteredSearch', () => {
-  before(() => {
+  const clearButton = 'filtered-search-clear-button';
+  const filteredTokenSegment = 'filtered-search-token-segment';
+
+  const typeInInput = (text) => cy.get('.gl-filtered-search-term-input').click().type(text);
+  const findTokenSegment = (text) => cy.contains(`[data-testid="${filteredTokenSegment}"]`, text);
+
+  beforeEach(() => {
     cy.visitStory('filtered-search');
+    cy.findByTestId(clearButton).click();
   });
 
-  const filteredSearchInput = 'filtered-search-input';
-  const filteredTokenSegment = 'filtered-search-token-segment';
-  const clearButton = 'filtered-search-clear-button';
-
   it('typing Colon when suggestion is active selects suggestion', () => {
-    cy.findByTestId(filteredSearchInput)
-      .last()
-      .within(() => {
-        cy.findByTestId(clearButton).click();
-        cy.findByTestId(filteredTokenSegment).contains('Label').should('not.exist');
-        cy.get('.gl-filtered-search-term-input').click().type('label:');
-        cy.findByTestId(filteredTokenSegment).contains('Label').should('exist');
-      });
+    findTokenSegment('Label').should('not.exist');
+    typeInInput('label:');
+    findTokenSegment('Label').should('exist');
   });
 
   it('typing Colon when no suggestion is active types Colon', () => {
-    cy.findByTestId(filteredSearchInput)
-      .last()
-      .within(() => {
-        cy.findByTestId(clearButton).click();
-        cy.get('.gl-filtered-search-term-input').click().type('foo:').blur();
-        cy.contains('foo:').should('be.visible');
-      });
+    typeInInput('foo:').blur();
+    cy.contains('foo:').should('be.visible');
   });
 });
