@@ -2,7 +2,6 @@
 // ADD EXPORTS - needed for yarn generate:component. Do not remove
 export { default as GlTableLiteDocumentation } from '../src/components/base/table_lite/table_lite.documentation';
 export { default as GlRichTextEditorDocumentation } from '../src/components/editors/rich_text_editor/rich_text_editor.documentation';
-export { default as GlDropdownFormDocumentation } from '../src/components/base/dropdown/dropdown_form.documentation';
 export { default as GlKeysetPaginationDocumentation } from '../src/components/base/keyset_pagination/keyset_pagination.documentation';
 export { default as GlInputGroupTextDocumentation } from '../src/components/base/form/input_group_text/input_group_text.documentation';
 export { default as GlFormTextDocumentation } from '../src/components/base/form/form_text/form_text.documentation';
@@ -56,9 +55,6 @@ export { default as GlSearchBoxByTypeDocumentation } from '../src/components/bas
 export { default as GlSearchBoxByClickDocumentation } from '../src/components/base/search_box_by_click/search_box_by_click.documentation';
 export { default as GlDropdownDocumentation } from '../src/components/base/dropdown/dropdown.documentation';
 export { default as GlDropdownItemDocumentation } from '../src/components/base/dropdown/dropdown_item.documentation';
-export { default as GlDropdownDividerDocumentation } from '../src/components/base/dropdown/dropdown_divider.documentation';
-export { default as GlDropdownSectionHeaderDocumentation } from '../src/components/base/dropdown/dropdown_section_header.documentation';
-export { default as GlDropdownTextDocumentation } from '../src/components/base/dropdown/dropdown_text.documentation';
 export { default as GlTableDocumentation } from '../src/components/base/table/table.documentation';
 export { default as GlBreadcrumbDocumentation } from '../src/components/base/breadcrumb/breadcrumb.documentation';
 export { default as GlHeatmapDocumentation } from '../src/components/charts/heatmap/heatmap.documentation';
