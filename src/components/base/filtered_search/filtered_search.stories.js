@@ -6,6 +6,7 @@ import {
   GlFilteredSearchTerm,
   GlFilteredSearchTokenSegment,
   GlLoadingIcon,
+  GlIcon,
   GlToken,
   GlAvatar,
 } from '../../../index';
@@ -322,7 +323,7 @@ export const WithHistoryItems = () => ({
           type: 'demotoken',
           title: 'Unique',
           icon: 'document',
-          token: 'gl-filtered-search-token',
+          token: GlFilteredSearchToken,
           operators: [{ value: '=', description: 'is', default: 'true' }],
           options: [
             { icon: 'heart', title: 'heart', value: 1 },
@@ -406,7 +407,13 @@ export const WithFriendlyText = () => ({
 export const WithMultiSelect = () => {
   const MultiUserToken = {
     props: ['value', 'active', 'config'],
-    components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
+    components: {
+      GlFilteredSearchToken,
+      GlFilteredSearchSuggestion,
+      GlLoadingIcon,
+      GlIcon,
+      GlAvatar,
+    },
     inheritAttrs: false,
     data() {
       return {
