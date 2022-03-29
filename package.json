@@ -83,7 +83,7 @@
     "sane": "^5.0.1"
   },
   "devDependencies": {
-    "@arkweid/lefthook": "^0.7.6",
+    "@arkweid/lefthook": "0.7.7",
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@gitlab/eslint-plugin": "11.0.0",

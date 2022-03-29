@@ -34,7 +34,7 @@ include:
   - project: gitlab-org/frontend/frontend-build-images
     file: /semantic-release/.gitlab-ci-template.rules.yml
   - project: gitlab-org/frontend/untamper-my-lockfile
-    file: .gitlab-ci-template.yml
+    file: 'templates/merge_request_pipelines.yml'
 
 # Ensure that the scanning is only executed on MRs and the default branch
 # This potentially can be made obsolete once:
