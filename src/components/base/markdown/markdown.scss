@@ -162,6 +162,27 @@
     @include gl-px-2;
     @include gl-py-1;
   }
+
+  .audio-container {
+    @include gl-display-inline-flex;
+    @include gl-flex-direction-column;
+    @include gl-w-full;
+
+    audio {
+      @include gl-w-full;
+    }
+
+    a {
+      @include gl-mt-3;
+
+      &::before {
+        @include gl-mr-2;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        content: '📎';
+      }
+    }
+  }
 }
 
 .gl-compact-markdown {
