@@ -1,5 +1,4 @@
 import has from 'lodash/has';
-import { documentedStoriesOf } from '../../../documentation/documented_stories';
 import typescaleDocs from './typescale.md';
 import uiTypescaleDemoContent from './typescale_demo.html';
 import uiTypescaleDemoStyles from './typescale_demo.scss';
@@ -33,6 +32,20 @@ const component = {
   template: '<ui-typescale-demo />',
 };
 
-documentedStoriesOf('scss/typescale', typescaleDocs).add('default', () => component, {
-  viewport: { defaultViewport: 'breakpointExtraLarge' },
-});
+export const Default = () => component;
+Default.parameters = {
+  viewport: {
+    defaultViewport: 'breakpointExtraLarge',
+  },
+};
+
+export default {
+  title: 'scss/typescale',
+  parameters: {
+    docs: {
+      description: {
+        component: typescaleDocs,
+      },
+    },
+  },
+};

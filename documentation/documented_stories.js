@@ -187,7 +187,7 @@ export const setupStorybookReadme = () =>
       },
       template: `
       <div>
-          <div class="story-container" v-if="$options.disableForComponents.includes(componentName)">
+          <div class="story-container" v-if="!componentName || $options.disableForComponents.includes(componentName)">
               <slot></slot>
           </div>
           <template v-else>
