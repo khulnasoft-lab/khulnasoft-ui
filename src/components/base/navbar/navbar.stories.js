@@ -1,8 +1,9 @@
+import { BNavbarBrand } from 'bootstrap-vue';
 import { GlNavbar } from '../../../index';
 import readme from './navbar.md';
 
 const Template = (args, { argTypes }) => ({
-  components: { GlNavbar },
+  components: { GlNavbar, BNavbarBrand },
   props: Object.keys(argTypes),
   template: `
   <gl-navbar variant="dark" type="dark">

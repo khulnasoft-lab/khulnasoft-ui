@@ -4,6 +4,7 @@ import {
   GlFormInput,
   GlFormSelect,
   GlFormCheckbox,
+  GlFormCheckboxGroup,
   GlButton,
 } from '../../../index';
 import { setStoryTimeout } from '../../../utils/test_utils';
@@ -16,6 +17,7 @@ export const Default = (args) => ({
     GlFormInput,
     GlFormSelect,
     GlFormCheckbox,
+    GlFormCheckboxGroup,
     GlButton,
   },
   props: Object.keys(args),

@@ -1,4 +1,4 @@
-import { GlFormRadioGroup } from '../../../../index';
+import { GlFormRadioGroup, GlFormRadio } from '../../../../index';
 import readme from './form_radio_group.md';
 
 const defaultOptions = [
@@ -34,6 +34,7 @@ const template = `
 const Template = (args, { argTypes }) => ({
   components: {
     GlFormRadioGroup,
+    GlFormRadio,
   },
   props: Object.keys(argTypes),
   template,
