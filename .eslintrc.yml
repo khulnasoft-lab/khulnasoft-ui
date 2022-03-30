@@ -1,12 +1,7 @@
 root: true
 extends:
   - 'plugin:@gitlab/default'
-parserOptions:
-  parser: babel-eslint
 rules:
-  filenames/match-regex:
-  - error
-  - "^[a-z_]+(\\.stories|\\.config|\\.documentation|\\.[a-z_]+\\.example|\\.spec)?$"
   import/no-extraneous-dependencies: off
   no-restricted-imports:
   - error
