@@ -6,6 +6,7 @@ import {
   GlFilteredSearchTerm,
   GlFilteredSearchTokenSegment,
   GlLoadingIcon,
+  GlIcon,
   GlToken,
   GlAvatar,
 } from '../../../index';
@@ -56,14 +57,14 @@ const UserToken = {
       setStoryTimeout(() => {
         this.loadingView = false;
         this.activeUser = fakeUsers.find((u) => u.username === this.value.data);
-      }, 1000);
+      }, 500);
     },
     loadSuggestions() {
       this.loadingSuggestions = true;
       setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.users = fakeUsers;
-      }, 2000);
+      }, 500);
     },
   },
   watch: {
@@ -132,7 +133,7 @@ const MilestoneToken = {
       setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.milestones = fakeMilestones;
-      }, 2000);
+      }, 500);
     },
   },
   watch: {
@@ -214,7 +215,7 @@ const LabelToken = {
       setStoryTimeout(() => {
         this.loadingSuggestions = false;
         this.labels = fakeLabels;
-      }, 2000);
+      }, 500);
     },
   },
   watch: {
@@ -322,7 +323,7 @@ export const WithHistoryItems = () => ({
           type: 'demotoken',
           title: 'Unique',
           icon: 'document',
-          token: 'gl-filtered-search-token',
+          token: GlFilteredSearchToken,
           operators: [{ value: '=', description: 'is', default: 'true' }],
           options: [
             { icon: 'heart', title: 'heart', value: 1 },
@@ -406,7 +407,13 @@ export const WithFriendlyText = () => ({
 export const WithMultiSelect = () => {
   const MultiUserToken = {
     props: ['value', 'active', 'config'],
-    components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
+    components: {
+      GlFilteredSearchToken,
+      GlFilteredSearchSuggestion,
+      GlLoadingIcon,
+      GlIcon,
+      GlAvatar,
+    },
     inheritAttrs: false,
     data() {
       return {

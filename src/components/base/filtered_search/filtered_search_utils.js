@@ -39,7 +39,42 @@ export function needDenormalization(tokens) {
 
   assertValidTokens(tokens);
 
-  return tokens.some((t) => typeof t === 'string');
+  return tokens.some((t) => typeof t === 'string' || !t.id);
+}
+
+let tokenIdCounter = 0;
+const getTokenId = () => {
+  const tokenId = `token-${tokenIdCounter}`;
+  tokenIdCounter += 1;
+  return tokenId;
+};
+/**
+ * Ensure the given token has an `id` property, which `GlFilteredSearch` relies
+ * on as a unique key for the token.
+ *
+ * If the given token does not have an `id`, it returns a shallow copy of the
+ * token with an `id`. Otherwise, it returns the given token.
+ *
+ * @param {object} token The token to check.
+ * @returns {object} A token with an `id`.
+ */
+export function ensureTokenId(token) {
+  if (!token.id) {
+    return {
+      ...token,
+      id: getTokenId(),
+    };
+  }
+
+  return token;
+}
+
+export function createTerm(data = '') {
+  return {
+    id: getTokenId(),
+    type: TERM_TOKEN_TYPE,
+    value: { data },
+  };
 }
 
 export function denormalizeTokens(inputTokens) {
@@ -51,11 +86,9 @@ export function denormalizeTokens(inputTokens) {
   tokens.forEach((t) => {
     if (typeof t === 'string') {
       const stringTokens = t.split(' ').filter(Boolean);
-      stringTokens.forEach((strToken) =>
-        result.push({ type: TERM_TOKEN_TYPE, value: { data: strToken } })
-      );
+      stringTokens.forEach((strToken) => result.push(createTerm(strToken)));
     } else {
-      result.push(t);
+      result.push(ensureTokenId(t));
     }
   });
   return result;

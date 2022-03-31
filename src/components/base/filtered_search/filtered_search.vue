@@ -8,8 +8,9 @@ import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
 import {
   isEmptyTerm,
-  TERM_TOKEN_TYPE,
   INTENT_ACTIVATE_PREVIOUS,
+  createTerm,
+  ensureTokenId,
   normalizeTokens,
   denormalizeTokens,
   needDenormalization,
@@ -18,13 +19,6 @@ import {
 Vue.use(PortalVue);
 
 let portalUuid = 0;
-
-function createTerm(data = '') {
-  return {
-    type: TERM_TOKEN_TYPE,
-    value: { data },
-  };
-}
 
 function initialState() {
   return [createTerm()];
@@ -160,6 +154,13 @@ export default {
   watch: {
     tokens: {
       handler() {
+        if (process.env.NODE_ENV !== 'production') {
+          const invalidToken = this.tokens.find((token) => !token.id);
+          if (invalidToken) {
+            throw new Error(`Token does not have an id:\n${JSON.stringify(invalidToken)}`);
+          }
+        }
+
         if (this.tokens.length === 0 || !this.isLastTokenEmpty()) {
           this.tokens.push(createTerm());
         }
@@ -255,7 +256,7 @@ export default {
     },
 
     replaceToken(idx, token) {
-      this.$set(this.tokens, idx, { ...token, value: { data: '', ...token.value } });
+      this.$set(this.tokens, idx, ensureTokenId({ ...token, value: { data: '', ...token.value } }));
       this.activeTokenIdx = idx;
     },
 
@@ -269,10 +270,7 @@ export default {
         return;
       }
 
-      const newTokens = newStrings.map((data) => ({
-        type: TERM_TOKEN_TYPE,
-        value: { data },
-      }));
+      const newTokens = newStrings.map((data) => createTerm(data));
 
       this.tokens.splice(idx + 1, 0, ...newTokens);
 
@@ -340,7 +338,7 @@ export default {
           <component
             :is="getTokenComponent(token.type)"
             ref="tokens"
-            :key="`${token.type}-${idx}`"
+            :key="token.id"
             v-model="token.value"
             :config="getTokenEntry(token.type)"
             :active="activeTokenIdx === idx"

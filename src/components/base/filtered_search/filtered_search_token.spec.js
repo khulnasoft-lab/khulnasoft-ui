@@ -225,8 +225,16 @@ describe('Filtered search token', () => {
       mountComponent({ value: { operator: '=', data: 'something' } });
       const closeWrapper = wrapper.find('.gl-token-close');
       closeWrapper.element.closest = () => closeWrapper.element;
-      closeWrapper.trigger('mousedown');
 
+      const preventDefaultSpy = jest.fn();
+      const stopPropagationSpy = jest.fn();
+      closeWrapper.trigger('mousedown', {
+        preventDefault: preventDefaultSpy,
+        stopPropagation: stopPropagationSpy,
+      });
+
+      expect(preventDefaultSpy).toHaveBeenCalled();
+      expect(stopPropagationSpy).toHaveBeenCalled();
       expect(wrapper.emitted().destroy).toHaveLength(1);
     });
 
