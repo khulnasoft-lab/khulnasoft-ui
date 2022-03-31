@@ -2,7 +2,7 @@ import { GlAvatarLink, GlAvatar, GlAvatarLabeled } from '../../../index';
 import { avatarSizeOptions, avatarShapeOptions } from '../../../utils/constants';
 import readme from './avatar_link.md';
 
-const components = { GlAvatarLink, GlAvatar };
+const components = { GlAvatarLink, GlAvatar, GlAvatarLabeled };
 
 const generateDefaultProps = ({
   href = 'https://gitlab.com/gitlab-org/gitlab',
@@ -37,7 +37,7 @@ export const Default = (args, { argTypes }) => ({
 Default.args = { ...generateDefaultProps(), ...generateImageProps() };
 
 export const WithLabeledAvatar = (args, { argTypes }) => ({
-  components: { GlAvatarLink, GlAvatarLabeled },
+  components,
   props: Object.keys(argTypes),
   template: `
   <gl-avatar-link target="blank" :href="href">

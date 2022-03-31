@@ -1,5 +1,5 @@
 import { range } from 'lodash';
-import { GlTabs, GlTab, GlScrollableTabs } from '../../../../index';
+import { GlTabs, GlTab, GlScrollableTabs, GlBadge } from '../../../../index';
 import readme from './tabs.md';
 
 const components = {
@@ -150,7 +150,7 @@ JustifiedTabs.args = generateProps({ justified: true });
 
 export const WithCounterBadges = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components,
+  components: { ...components, GlBadge },
   template: wrap(`
     <gl-tab>
       <template #title>
