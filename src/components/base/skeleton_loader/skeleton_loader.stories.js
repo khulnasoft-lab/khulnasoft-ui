@@ -1,4 +1,5 @@
 import { GlSkeletonLoader } from '../../../index';
+import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './skeleton_loader.md';
 
 const defaultValue = (prop) => GlSkeletonLoader.props[prop].default;
@@ -32,7 +33,16 @@ export const Default = (args) => ({
   props: Object.keys(args),
   template: template(),
 });
-Default.args = generateProps();
+Object.assign(Default, {
+  args: generateProps(),
+  parameters: {
+    controls: {
+      // When not providing custom shapes in the default slot, these are the
+      // only props you're likely to want to modify.
+      include: ['width', 'lines', 'equalWidthLines'],
+    },
+  },
+});
 
 export const WithCustomShapes = (args) => ({
   components: { GlSkeletonLoader },
@@ -48,15 +58,20 @@ export const WithCustomShapes = (args) => ({
     <rect y="86" width="38" height="16" rx="4" />
   `),
 });
-WithCustomShapes.args = generateProps({
-  width: 327,
-  height: 102,
-});
-WithCustomShapes.parameters = {
-  controls: {
-    disable: true,
+Object.assign(WithCustomShapes, {
+  args: generateProps({
+    width: 327,
+    height: 102,
+  }),
+  parameters: {
+    controls: {
+      // With custom shapes, other props become useful, although they're a bit
+      // counterintuitive.
+      include: ['width', 'height', 'preserveAspectRatio'],
+    },
   },
-};
+  decorators: [makeContainer({ width: '250px' })],
+});
 
 export default {
   title: 'base/skeleton-loader',
@@ -67,9 +82,6 @@ export default {
       description: {
         component: readme,
       },
-    },
-    controls: {
-      exclude: ['baseUrl', 'uniqueKey'],
     },
   },
 };
