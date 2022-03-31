@@ -1,3 +1,16 @@
+# [38.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.1.0...v38.2.0) (2022-03-31)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Stop mutating value prop ([79aa5bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/79aa5bc9712e293e08842c8c0234e29511de3401))
+* **GlFilteredSearch:** Stop mutating value prop ([31808db](https://gitlab.com/gitlab-org/gitlab-ui/commit/31808dbcf6b3c412db7191fe12317009b0d95542))
+
+
+### Features
+
+* **audio:** Implementation of GitLab Flavoured Markdown audio styles ([e4c613f](https://gitlab.com/gitlab-org/gitlab-ui/commit/e4c613f0892b7b1bf3bd97b17e64e4d2e6492ebe))
+
 # [38.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.0.1...v38.1.0) (2022-03-28)
 
 
