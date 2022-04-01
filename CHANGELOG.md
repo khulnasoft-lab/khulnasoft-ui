@@ -1,3 +1,10 @@
+## [38.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.2.0...v38.2.1) (2022-04-01)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Generate stable token keys ([88dccde](https://gitlab.com/gitlab-org/gitlab-ui/commit/88dccde9f4df1352a7e06e831de8baced4a8d18f))
+
 # [38.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.1.0...v38.2.0) (2022-03-31)
 
 
