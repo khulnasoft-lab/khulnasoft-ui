@@ -101,6 +101,18 @@
   }
 }
 
+@mixin gl-md-display-inline {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-display-inline;
+  }
+}
+
+@mixin gl-lg-display-inline {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-display-inline;
+  }
+}
+
 @mixin gl-display-inline-block {
   display: inline-block;
 }
