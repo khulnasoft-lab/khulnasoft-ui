@@ -1,3 +1,10 @@
+# [38.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.3.0...v38.4.0) (2022-04-04)
+
+
+### Features
+
+* **css:** Add gl-sm-ml-auto util class ([3d9b37e](https://gitlab.com/gitlab-org/gitlab-ui/commit/3d9b37e2c39ece4ffabfcef08b7e82b93c0f7af1))
+
 # [38.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.2.1...v38.3.0) (2022-04-04)
 
 
