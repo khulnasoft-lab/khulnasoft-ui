@@ -7,6 +7,7 @@ class GitlabDanger
     roulette
     semantic-commit
     examples
+    specs
   ].freeze
 
   MESSAGE_PREFIX = '==>'.freeze
