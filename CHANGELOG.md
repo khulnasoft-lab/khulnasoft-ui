@@ -1,3 +1,10 @@
+# [38.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.2.1...v38.3.0) (2022-04-04)
+
+
+### Features
+
+* **css:** Add responsive display inline classes ([21a6358](https://gitlab.com/gitlab-org/gitlab-ui/commit/21a6358266f0183f4b3b0c8b90dc379f3ab8d3a3))
+
 ## [38.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.2.0...v38.2.1) (2022-04-01)
 
 
