@@ -514,6 +514,12 @@
   margin-left: auto;
 }
 
+@mixin gl-sm-ml-auto {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-ml-auto;
+  }
+}
+
 @mixin gl-ml-0 {
   margin-left: 0;
 }
