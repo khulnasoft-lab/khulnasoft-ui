@@ -26,6 +26,7 @@ Default.parameters = {
 
 export default {
   title: 'directives/outside-directive',
+  component: GlOutsideDirective,
   parameters: {
     knobs: { disable: true },
     docs: {
