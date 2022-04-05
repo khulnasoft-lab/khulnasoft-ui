@@ -25,7 +25,7 @@ const generateTemplate = ({ props = {}, slots = {} } = {}) => {
         :action-primary="{text: 'Okay'}"
         :action-secondary="{text: 'Discard Changes'}"
         :action-cancel="{text: 'Cancel'}"
-        :visible="visible"
+        :visible="$options.viewMode !== 'docs'"
         :scrollable="scrollable"
         modal-id="test-modal-id"
         title="Example title"
@@ -42,18 +42,18 @@ const generateTemplate = ({ props = {}, slots = {} } = {}) => {
   `;
 };
 
-const Template = (args, { argTypes }) => ({
+const Template = (args, { argTypes, viewMode }) => ({
   components: { GlModal, GlButton },
   directives: { GlModalDirective },
   props: Object.keys(argTypes),
   template: generateTemplate(),
+  viewMode,
 });
 
 const generateProps = ({
   variant = variantOptionsWithNoDefault.default,
   contentPagraphs = 1,
   scrollable = false,
-  visible = false,
 } = {}) => ({
   headerBgVariant: variant,
   headerBorderVariant: variant,
@@ -65,23 +65,21 @@ const generateProps = ({
   footerTextVariant: variant,
   contentParagraphs: contentPagraphs,
   scrollable,
-  visible,
 });
 
 export const Default = Template.bind({});
 Default.args = generateProps();
 
 export const OpenedModal = Template.bind({});
-OpenedModal.args = generateProps({ visible: true });
+OpenedModal.args = generateProps();
 
 export const WithScrollingContent = Template.bind({});
 WithScrollingContent.args = generateProps({
   contentPagraphs: 100,
   scrollable: true,
-  visible: true,
 });
 
-export const WithAHeader = (args, { argTypes }) => ({
+export const WithAHeader = (args, { argTypes, viewMode }) => ({
   components: { GlModal, GlButton },
   directives: { GlModalDirective },
   props: Object.keys(argTypes),
@@ -90,18 +88,20 @@ export const WithAHeader = (args, { argTypes }) => ({
       'modal-header': '<h4>A custom header</h4>',
     },
   }),
+  viewMode,
 });
-WithAHeader.args = generateProps({ visible: true });
+WithAHeader.args = generateProps();
 
-export const WithoutAFooter = (args, { argTypes }) => ({
+export const WithoutAFooter = (args, { argTypes, viewMode }) => ({
   components: { GlModal, GlButton },
   directives: { GlModalDirective },
   props: Object.keys(argTypes),
   template: generateTemplate({
     props: { 'hide-footer': true },
   }),
+  viewMode,
 });
-WithoutAFooter.args = generateProps({ visible: true });
+WithoutAFooter.args = generateProps();
 
 export default {
   title: 'base/modal',
