@@ -36,6 +36,14 @@ describe('search box by click component', () => {
     expect(wrapper.emitted().input).toEqual([['new value']]);
   });
 
+  it('does not emit an input event when input is updated to the same value', async () => {
+    createComponent({ value: 'somevalue' });
+
+    await wrapper.setProps({ value: 'another value' });
+
+    expect(wrapper.emitted().input).toBe(undefined);
+  });
+
   it('does not displays history dropdown by default', () => {
     createComponent();
     expect(wrapper.findComponent({ ref: 'historyDropdown' }).exists()).toBe(false);

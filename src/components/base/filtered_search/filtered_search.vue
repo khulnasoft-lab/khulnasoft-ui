@@ -1,5 +1,5 @@
 <script>
-import { cloneDeep } from 'lodash';
+import { cloneDeep, isEqual } from 'lodash';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
@@ -174,11 +174,14 @@ export default {
       deep: true,
       immediate: true,
     },
-  },
-  mounted() {
-    if (this.value.length) {
-      this.applyNewValue(cloneDeep(this.value));
-    }
+    value: {
+      handler(newValue, oldValue) {
+        if (newValue.length && !isEqual(newValue, oldValue)) {
+          this.applyNewValue(cloneDeep(newValue));
+        }
+      },
+      immediate: true,
+    },
   },
 
   methods: {
