@@ -1,3 +1,11 @@
+# [38.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.4.0...v38.5.0) (2022-04-05)
+
+
+### Features
+
+* **GlFilteredSearch:** Allow to pass token dynamically ([7c85ea1](https://gitlab.com/gitlab-org/gitlab-ui/commit/7c85ea19c3ffb821fdb4f5f6409e4db816de304e))
+* **GlFilteredSearch:** Allow to pass token dynamically ([38f67eb](https://gitlab.com/gitlab-org/gitlab-ui/commit/38f67eb3df2369f39e1323c1a5c90ab2f7b13847))
+
 # [38.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.3.0...v38.4.0) (2022-04-04)
 
 
