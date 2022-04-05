@@ -70,9 +70,6 @@ const generateProps = ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
-export const OpenedModal = Template.bind({});
-OpenedModal.args = generateProps();
-
 export const WithScrollingContent = Template.bind({});
 WithScrollingContent.args = generateProps({
   contentPagraphs: 100,
