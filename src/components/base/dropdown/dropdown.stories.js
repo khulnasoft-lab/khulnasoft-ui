@@ -218,7 +218,7 @@ export const WithHeaderAndFooter = (args, { argTypes }) => ({
     <gl-dropdown-item>Fifth item</gl-dropdown-item>
     <gl-dropdown-item>Sixth item</gl-dropdown-item>
     <gl-dropdown-item>Seventh item</gl-dropdown-item>
-    <gl-dropdown-item>Eigth item</gl-dropdown-item>
+    <gl-dropdown-item>Eighth item</gl-dropdown-item>
     <template #footer>
       <gl-dropdown-item>First footer item</gl-dropdown-item>
       <gl-dropdown-item>Second footer item</gl-dropdown-item>
