@@ -1,6 +1,7 @@
 root: true
 extends:
   - 'plugin:@gitlab/default'
+  - 'plugin:storybook/csf'
 rules:
   import/no-extraneous-dependencies: off
   no-restricted-imports:
