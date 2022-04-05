@@ -152,6 +152,7 @@ export default {
       immediate: true,
     },
     currentValue(newValue) {
+      if (newValue === this.value) return;
       this.$emit('input', newValue);
     },
   },

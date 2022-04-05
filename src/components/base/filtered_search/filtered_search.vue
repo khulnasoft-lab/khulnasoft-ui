@@ -180,14 +180,8 @@ export default {
           this.applyNewValue(cloneDeep(newValue));
         }
       },
-      deep: true,
       immediate: true,
     },
-  },
-  mounted() {
-    if (this.value.length) {
-      this.applyNewValue(cloneDeep(this.value));
-    }
   },
 
   methods: {
