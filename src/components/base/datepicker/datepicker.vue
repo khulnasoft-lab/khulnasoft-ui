@@ -99,7 +99,7 @@ export default {
       required: false,
       default: 0,
     },
-    arialLabel: {
+    ariaLabel: {
       type: String,
       required: false,
       default: '',
@@ -244,7 +244,7 @@ export default {
       },
       disableDayFn: this.disableDayFn,
       firstDay: this.firstDay,
-      arialLabel: this.ariaLabel,
+      ariaLabel: this.ariaLabel,
       toString: (date) => defaultDateFormatter(date),
       onSelect: this.selected.bind(this),
       onClose: this.closed.bind(this),
