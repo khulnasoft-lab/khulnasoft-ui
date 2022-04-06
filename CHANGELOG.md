@@ -1,3 +1,10 @@
+## [38.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.5.0...v38.5.1) (2022-04-06)
+
+
+### Bug Fixes
+
+* **GlDatepicker:** fix prop name typo ([973a560](https://gitlab.com/gitlab-org/gitlab-ui/commit/973a56045daa15b7f0809911d34b587025214b76))
+
 # [38.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.4.0...v38.5.0) (2022-04-05)
 
 
