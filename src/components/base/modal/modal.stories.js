@@ -105,7 +105,7 @@ WithoutAFooter.args = generateProps({ visible: true });
 
 export default {
   title: 'base/modal',
-  components: { GlModal, GlButton },
+  component: GlModal,
   directives: { GlModalDirective },
   bootstrapComponent: 'b-modal',
   parameters: {

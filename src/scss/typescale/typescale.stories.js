@@ -39,6 +39,7 @@ Default.parameters = {
   },
 };
 
+// eslint-disable-next-line storybook/csf-component
 export default {
   title: 'scss/typescale',
   parameters: {
