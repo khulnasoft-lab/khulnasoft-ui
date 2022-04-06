@@ -94,6 +94,18 @@
 }
 
 /**
+* Responsive White-space utilities
+*
+* naming convention: gl-{breakpoint}-white-space-{value}
+*/
+
+@mixin gl-md-white-space-nowrap {
+  @include gl-media-breakpoint-up(md) {
+    white-space: nowrap;
+  }
+}
+
+/**
 * Word utilities.
 *
 * naming convention: gl-word-{action}-{value}
