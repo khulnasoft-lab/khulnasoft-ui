@@ -1,3 +1,10 @@
+# [38.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.5.1...v38.6.0) (2022-04-06)
+
+
+### Features
+
+* **css:** Add md-max-w-26, md-white-space-nowrap ([bae43c3](https://gitlab.com/gitlab-org/gitlab-ui/commit/bae43c3d64612386b7fd38a8673062155bad4157))
+
 ## [38.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.5.0...v38.5.1) (2022-04-06)
 
 
