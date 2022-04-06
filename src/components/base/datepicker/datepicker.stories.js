@@ -86,7 +86,7 @@ export default {
       'endRange',
       'disableDayFn',
       'firstDay',
-      'arialLabel',
+      'ariaLabel',
       'placeholder',
       'autocomplete',
       'disabled',

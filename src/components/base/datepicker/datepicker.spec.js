@@ -73,6 +73,20 @@ describe('datepicker component', () => {
     expect(Pikaday.prototype.show).toHaveBeenCalled();
   });
 
+  describe('when `ariaLabel` prop is passed', () => {
+    it('configures pikaday with the given label', () => {
+      const ariaLabel = 'Meaningful description';
+
+      mountWithOptions({
+        propsData: {
+          ariaLabel,
+        },
+      });
+
+      expect(pikadayConfig().ariaLabel).toBe(ariaLabel);
+    });
+  });
+
   describe('when `target` prop is not passed', () => {
     it('sets calendar icon as `trigger` option', () => {
       const wrapper = mountWithOptions();
