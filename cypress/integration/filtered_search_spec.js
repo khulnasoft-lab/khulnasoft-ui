@@ -2,10 +2,14 @@ describe('GlFilteredSearch', () => {
   const clearButton = 'filtered-search-clear-button';
   const filteredTokenSegment = 'filtered-search-token-segment';
   const suggestion = 'filtered-search-suggestion';
+  const filteredToken = '.gl-filtered-search-token';
+  const filterSearchTerm = '.gl-filtered-search-term';
+  const activeClass = '.gl-filtered-search-token-segment-active';
 
   const typeInInput = (text) => cy.get('.gl-filtered-search-term-input').click().type(text);
   const findTokenSegment = (text) => cy.contains(`[data-testid="${filteredTokenSegment}"]`, text);
   const clickSuggestion = (text) => cy.contains(`[data-testid="${suggestion}"]`, text).click();
+  const findActiveToken = () => cy.get(activeClass);
 
   beforeEach(() => {
     cy.visitStory('filtered-search');
@@ -38,5 +42,48 @@ describe('GlFilteredSearch', () => {
 
     findTokenSegment('Feature').should('not.exist');
     findTokenSegment('Bug').should('be.visible');
+  });
+
+  it('allows navigation between tokens using left and right arrows', () => {
+    typeInInput('label');
+    clickSuggestion('Label');
+    clickSuggestion('=');
+    clickSuggestion('Feature');
+
+    cy.get('input').type('free text');
+
+    // We cannot find input value within active segment so we test siblings of active element
+    findActiveToken().parent().siblings(filteredToken).should('include.text', 'Label');
+    findActiveToken().parent().siblings(filteredToken).should('include.text', 'Feature');
+    findActiveToken().parent().siblings(filterSearchTerm).should('have.text', 'free');
+    findActiveToken().parent().siblings(filterSearchTerm).should('not.have.text', 'text');
+
+    cy.get('input').type('{leftArrow}{leftArrow}{leftArrow}{leftArrow}{leftArrow}');
+    findActiveToken()
+      .parent()
+      .within(() => {
+        cy.root().siblings(filteredToken).should('include.text', 'Label');
+        cy.root().siblings(filterSearchTerm).should('have.text', 'text');
+        cy.root().siblings(filterSearchTerm).should('not.have.text', 'free');
+      });
+
+    cy.get('input').type('{leftArrow}{leftArrow}{leftArrow}{leftArrow}{leftArrow}');
+    findActiveToken().within(() => {
+      cy.root()
+        .siblings(`[data-testid="${filteredTokenSegment}"]`)
+        .should('include.text', 'Label =');
+      cy.root()
+        .siblings(`[data-testid="${filteredTokenSegment}"]`)
+        .should('not.include.text', 'Feature');
+    });
+
+    cy.get('input').type('{rightArrow}{rightArrow}{rightArrow}{rightArrow}{rightArrow}');
+    findActiveToken()
+      .parent()
+      .within(() => {
+        cy.root().siblings(filteredToken).should('include.text', 'Label');
+        cy.root().siblings(filterSearchTerm).should('have.text', 'text');
+        cy.root().siblings(filterSearchTerm).should('not.have.text', 'free');
+      });
   });
 });

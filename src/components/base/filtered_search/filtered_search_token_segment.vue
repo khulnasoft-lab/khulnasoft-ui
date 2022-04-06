@@ -198,6 +198,11 @@ export default {
           input.focus();
           input.scrollIntoView({ block: 'nearest', inline: 'end' });
           this.alignSuggestions(input);
+          this.$root.$on('nextStartInput', () => {
+            setTimeout(() => {
+              this.$refs.input?.setSelectionRange(0, 0);
+            });
+          });
         }
       });
     },
@@ -230,8 +235,22 @@ export default {
 
     handleInputKeydown(e) {
       const { key } = e;
-      const { suggestions } = this.$refs;
+      const { suggestions, input } = this.$refs;
       const suggestedValue = suggestions?.getValue();
+      if (key === 'ArrowLeft') {
+        if (input.selectionStart === 0) {
+          e.preventDefault();
+          this.$emit('previous');
+        }
+        return;
+      }
+      if (key === 'ArrowRight') {
+        if (input.selectionEnd === this.inputValue.length) {
+          e.preventDefault();
+          this.$emit('next');
+        }
+        return;
+      }
       if (key === 'Backspace') {
         if (this.inputValue === '') {
           e.preventDefault();
@@ -311,7 +330,9 @@ export default {
   <div
     v-bind="containerAttributes"
     class="gl-filtered-search-token-segment"
-    :class="{ 'gl-filtered-search-token-segment-active': active }"
+    :class="{
+      'gl-filtered-search-token-segment-active': active,
+    }"
     data-testid="filtered-search-token-segment"
     @mousedown.left="emitIfInactive"
   >

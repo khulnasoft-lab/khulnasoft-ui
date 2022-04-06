@@ -210,6 +210,19 @@ export default {
       this.activeTokenIdx = idx;
     },
 
+    activatePreviousToken() {
+      if (this.activeTokenIdx > 0) {
+        this.activeTokenIdx -= 1;
+      }
+    },
+
+    activateNextToken() {
+      if (this.activeTokenIdx < this.value.length) {
+        this.activeTokenIdx += 1;
+        this.$root.$emit('nextStartInput');
+      }
+    },
+
     alignSuggestions(ref) {
       const offsetRef = ref.getBoundingClientRect().left;
       const offsetMenu = this.$el.getBoundingClientRect().left;
@@ -364,6 +377,8 @@ export default {
             @complete="completeToken"
             @submit="submit"
             @split="createTokens(idx, $event)"
+            @previous="activatePreviousToken"
+            @next="activateNextToken"
           />
         </template>
       </div>

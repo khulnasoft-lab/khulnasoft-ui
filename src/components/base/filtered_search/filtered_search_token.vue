@@ -239,6 +239,16 @@ export default {
       this.activateSegment(this.$options.segments.SEGMENT_DATA);
     },
 
+    activateNextDataSegment() {
+      this.activateDataSegment();
+      this.$root.$emit('nextStartInput');
+    },
+
+    activateNextOperatorSegment() {
+      this.activateSegment(this.$options.segments.SEGMENT_OPERATOR);
+      this.$root.$emit('nextStartInput');
+    },
+
     handleComplete() {
       if (this.config.multiSelect) {
         this.$emit('input', { ...this.tokenValue, data: this.multiSelectValues.join(COMMA) });
@@ -278,6 +288,8 @@ export default {
       @complete="replaceToken"
       @backspace="$emit('destroy')"
       @submit="$emit('submit')"
+      @previous="$emit('previous')"
+      @next="activateNextOperatorSegment"
     >
       <template #view="{ inputValue }">
         <gl-token
@@ -299,6 +311,8 @@ export default {
       @backspace="replaceWithTermIfEmpty"
       @complete="activateSegment($options.segments.SEGMENT_DATA)"
       @deactivate="$emit('deactivate')"
+      @previous="activateSegment($options.segments.SEGMENT_TITLE)"
+      @next="activateNextDataSegment"
     >
       <template #view>
         <gl-token
@@ -343,6 +357,8 @@ export default {
       @submit="$emit('submit')"
       @deactivate="$emit('deactivate')"
       @split="$emit('split', $event)"
+      @previous="activateSegment($options.segments.SEGMENT_OPERATOR)"
+      @next="$emit('next')"
     >
       <template #suggestions>
         <!-- @slot The suggestions (implemented with GlFilteredSearchSuggestion). -->

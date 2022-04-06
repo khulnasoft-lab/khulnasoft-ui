@@ -125,6 +125,7 @@ export default {
       @property {array} newTokens Token configurations
     -->
     <gl-filtered-search-token-segment
+      ref="segment"
       v-model="internalValue"
       class="gl-filtered-search-term-token"
       :active="active"
@@ -138,6 +139,8 @@ export default {
       @backspace="onBackspace"
       @submit="$emit('submit')"
       @split="$emit('split', $event)"
+      @previous="$emit('previous')"
+      @next="$emit('next')"
     >
       <template #suggestions>
         <gl-filtered-search-suggestion
