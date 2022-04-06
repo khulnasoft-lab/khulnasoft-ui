@@ -173,14 +173,6 @@ export default {
       :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
     />
 
-    <close-button
-      v-if="dismissible"
-      ref="dismiss"
-      class="gl-dismiss-btn"
-      :label="dismissLabel"
-      @click="onDismiss"
-    />
-
     <div class="gl-alert-content" role="alert">
       <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
 
@@ -204,5 +196,13 @@ export default {
         </slot>
       </div>
     </div>
+
+    <close-button
+      v-if="dismissible"
+      ref="dismiss"
+      class="gl-dismiss-btn"
+      :label="dismissLabel"
+      @click="onDismiss"
+    />
   </div>
 </template>
