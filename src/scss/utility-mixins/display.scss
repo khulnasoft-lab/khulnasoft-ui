@@ -7,6 +7,12 @@
   display: none;
 }
 
+@mixin gl-xs-display-none {
+  @include gl-media-breakpoint-down(sm) {
+    @include gl-display-none;
+  }
+}
+
 @mixin gl-sm-display-none {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-none;
@@ -27,6 +33,12 @@
 
 @mixin gl-display-flex {
   display: flex;
+}
+
+@mixin gl-xs-display-flex {
+  @include gl-media-breakpoint-down(sm) {
+    @include gl-display-flex;
+  }
 }
 
 @mixin gl-sm-display-flex {
@@ -51,6 +63,12 @@
   display: inline-flex;
 }
 
+@mixin gl-xs-display-inline-flex {
+  @include gl-media-breakpoint-down(sm) {
+    @include gl-display-inline-flex;
+  }
+}
+
 @mixin gl-sm-display-inline-flex {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-inline-flex;
@@ -71,6 +89,12 @@
 
 @mixin gl-display-block {
   display: block;
+}
+
+@mixin gl-xs-display-block {
+  @include gl-media-breakpoint-down(sm) {
+    @include gl-display-block;
+  }
 }
 
 @mixin gl-sm-display-block {
@@ -95,6 +119,12 @@
   display: inline;
 }
 
+@mixin gl-xs-display-inline {
+  @include gl-media-breakpoint-down(sm) {
+    @include gl-display-inline;
+  }
+}
+
 @mixin gl-sm-display-inline {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-inline;
@@ -115,6 +145,12 @@
 
 @mixin gl-display-inline-block {
   display: inline-block;
+}
+
+@mixin gl-xs-display-inline-block {
+  @include gl-media-breakpoint-down(sm) {
+    @include gl-display-inline-block;
+  }
 }
 
 @mixin gl-sm-display-inline-block {
