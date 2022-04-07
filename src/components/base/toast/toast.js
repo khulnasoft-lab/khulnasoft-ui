@@ -50,11 +50,14 @@ function showToast(message, options = {}) {
   const toast = { id, hide };
 
   if (isFunction(options.onComplete)) {
-    this.$root.$on('bv::toast:hidden', (e) => {
+    const toastHiddenCallback = (e) => {
       if (e.componentId === id) {
+        this.$root.$off('bv::toast:hidden', toastHiddenCallback);
         options.onComplete(e);
       }
-    });
+    };
+
+    this.$root.$on('bv::toast:hidden', toastHiddenCallback);
   }
 
   this.$bvToast.toast(message, {
