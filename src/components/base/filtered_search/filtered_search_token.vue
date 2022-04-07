@@ -273,7 +273,11 @@ export default {
 </script>
 
 <template>
-  <div class="gl-filtered-search-token" :class="{ 'gl-filtered-search-token-active': active }">
+  <div
+    class="gl-filtered-search-token"
+    :class="{ 'gl-filtered-search-token-active': active }"
+    data-testid="filtered-search-token"
+  >
     <!--
       Emitted when the token is submitted.
       @event submit

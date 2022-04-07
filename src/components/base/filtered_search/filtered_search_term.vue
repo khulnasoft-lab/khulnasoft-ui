@@ -101,7 +101,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-h-auto gl-filtered-search-term">
+  <div class="gl-h-auto gl-filtered-search-term" data-testid="filtered-search-term">
     <!--
       Emitted when this term token is clicked.
       @event activate
@@ -159,6 +159,7 @@ export default {
           class="gl-filtered-search-term-input"
           :placeholder="placeholder"
           :aria-label="placeholder"
+          data-testid="filtered-search-term-input"
         />
         <template v-else>{{ value.data }}</template>
       </template>

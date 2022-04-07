@@ -199,7 +199,7 @@ export default {
           input.scrollIntoView({ block: 'nearest', inline: 'end' });
           this.alignSuggestions(input);
           this.$root.$on('nextStartInput', () => {
-            setTimeout(() => {
+            this.$nextTick(() => {
               this.$refs.input?.setSelectionRange(0, 0);
             });
           });
@@ -237,32 +237,29 @@ export default {
       const { key } = e;
       const { suggestions, input } = this.$refs;
       const suggestedValue = suggestions?.getValue();
-      if (key === 'ArrowLeft') {
-        if (input.selectionStart === 0) {
-          e.preventDefault();
-          this.$emit('previous');
-        }
-        return;
-      }
-      if (key === 'ArrowRight') {
-        if (input.selectionEnd === this.inputValue.length) {
-          e.preventDefault();
-          this.$emit('next');
-        }
-        return;
-      }
-      if (key === 'Backspace') {
-        if (this.inputValue === '') {
-          e.preventDefault();
-          /**
-           * Emitted when Backspace is pressed and the value is empty
-           */
-          this.$emit('backspace');
-        }
-        return;
-      }
 
       const handlers = {
+        ArrowLeft: () => {
+          if (input.selectionStart === 0) {
+            e.preventDefault();
+            this.$emit('previous');
+          }
+        },
+        ArrowRight: () => {
+          if (input.selectionEnd === this.inputValue.length) {
+            e.preventDefault();
+            this.$emit('next');
+          }
+        },
+        Backspace: () => {
+          if (this.inputValue === '') {
+            e.preventDefault();
+            /**
+             * Emitted when Backspace is pressed and the value is empty
+             */
+            this.$emit('backspace');
+          }
+        },
         Enter: () => {
           e.preventDefault();
           if (suggestedValue != null) {
