@@ -120,15 +120,8 @@ export default {
 </script>
 
 <template>
-  <span
-    ref="labelTitle"
-    class="gl-label"
-    :class="cssClasses"
-    :style="cssVariables"
-    v-bind="$attrs"
-    @click="onClick"
-  >
-    <gl-link :href="target" class="gl-label-link">
+  <span class="gl-label" :class="cssClasses" :style="cssVariables" v-bind="$attrs" @click="onClick">
+    <gl-link ref="labelTitle" :href="target" class="gl-label-link">
       <span class="gl-label-text">
         {{ scopedKey }}
       </span>
@@ -146,7 +139,7 @@ export default {
     />
     <gl-tooltip
       v-if="description"
-      :target="() => $refs.labelTitle"
+      :target="() => $refs.labelTitle.$el"
       :placement="tooltipPlacement"
       boundary="viewport"
     >
