@@ -22,11 +22,7 @@ const BASE_URL = 'https://gitlab.com/gitlab-org/gitlab-ui/-/tree/main';
  */
 const sourcePathFromStoryPath = (storyPath) => {
   const sourcePaths = require
-    .context(
-      '../../../src',
-      true,
-      /^(?!.*(?:(spec|documentation|stories).js$|examples|utils)).*\.(vue|js)$/
-    )
+    .context('../../../src', true, /^(?!.*(?:(spec|documentation|stories).js$|utils)).*\.(vue|js)$/)
     .keys()
     .map((path) => path.replace(/^\.\//, './src/'));
 

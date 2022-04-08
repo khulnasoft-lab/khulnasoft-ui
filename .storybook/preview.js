@@ -1,5 +1,3 @@
-import { addReadme } from 'storybook-readme/vue';
-import { setupStorybookReadme } from '../documentation/documented_stories';
 import 'iframe-resizer/js/iframeResizer.contentWindow.min.js';
 import setConfigs from '../src/config';
 
@@ -14,14 +12,6 @@ stylesheetsRequireCtx('./bootstrap.scss');
 
 stylesheetsRequireCtx('./storybook.scss');
 
-function addSbClass(c, a) {
-  return {
-    template: `<div id="${a.id}" class="sb-story"><story/></div>`,
-  };
-}
-
-export const decorators = [addSbClass, addReadme];
-
 export const parameters = {
   options: {
     storySort: {
@@ -29,9 +19,7 @@ export const parameters = {
     },
   },
   actions: { disable: true },
-  a11y: {
-    element: '.story-container',
-  },
+  a11y: {},
   viewport: {
     viewports: {
       breakpointSmall: {
@@ -75,7 +63,6 @@ export const parameters = {
  * This lets us remove unnecessary spacing when embedding stories in design.gitlab.com.
  */
 if (process.env.NODE_ENV !== 'test') {
-  setupStorybookReadme();
   const { page } = require('./docs/page');
   parameters.docs = { page };
 }

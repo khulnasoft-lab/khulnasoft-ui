@@ -146,7 +146,6 @@
     "sass-loader": "^10.2.0",
     "sass-true": "^5.0.0",
     "start-server-and-test": "^1.10.6",
-    "storybook-readme": "5.0.9",
     "stylelint": "14.3.0",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-prettier": "2.0.0",
