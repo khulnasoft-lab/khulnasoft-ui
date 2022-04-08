@@ -1,4 +1,4 @@
-import { GlModal, GlModalDirective, GlButton } from '../../../index';
+import { GlModal, GlModalDirective, GlButton, GlFormInput } from '../../../index';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import readme from './modal.md';
 
@@ -31,9 +31,21 @@ const generateTemplate = ({ props = {}, slots = {} } = {}) => {
         title="Example title"
         no-fade
       >
+      
+      <div class="focusWrapper"
+      <gl-form-input
+          id="input-1"
+          type="email"
+          required
+          placeholder="Enter email"
+          autofocus
+        />  
+      <div class="content"  tabindex="0">  
       <p v-for="n in contentParagraphs">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
+      </div>
+      </div>
       ${Object.entries(slots).map(
         ([slot, contents]) => `<template #${slot}>${contents}</template>`
       )}
@@ -43,7 +55,7 @@ const generateTemplate = ({ props = {}, slots = {} } = {}) => {
 };
 
 const Template = (args, { argTypes, viewMode }) => ({
-  components: { GlModal, GlButton },
+  components: { GlModal, GlButton, GlFormInput },
   directives: { GlModalDirective },
   props: Object.keys(argTypes),
   template: generateTemplate(),
