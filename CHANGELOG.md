@@ -1,3 +1,10 @@
+## [38.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.8.1...v38.8.2) (2022-04-08)
+
+
+### Bug Fixes
+
+* **Label:** Move tooltip to anchor instead of span ([67d0e79](https://gitlab.com/gitlab-org/gitlab-ui/commit/67d0e79bb57409d63e32fd3efffc95dc534c3421))
+
 ## [38.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.8.0...v38.8.1) (2022-04-08)
 
 
