@@ -35,13 +35,14 @@ const Template = (_args, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = generateProps();
+Default.args = generateProps({ color: '' });
 
 export const WithLongName = Template.bind({});
-WithLongName.args = generateProps({ text: SERIES_NAME[SERIES_NAME_LONG] });
+WithLongName.args = generateProps({ color: '', text: SERIES_NAME[SERIES_NAME_LONG] });
 
 export const WithLongNameWithNoSpaces = Template.bind({});
 WithLongNameWithNoSpaces.args = generateProps({
+  color: '',
   text: SERIES_NAME[SERIES_NAME_LONG_WITHOUT_SPACES],
 });
 
@@ -71,10 +72,6 @@ export default {
     },
   },
   argTypes: {
-    type: {
-      control: 'select',
-      options: ['solid', 'dashed'],
-    },
     color: {
       control: 'color',
     },
