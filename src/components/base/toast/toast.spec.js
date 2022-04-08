@@ -61,7 +61,7 @@ describe('GlToast', () => {
       wrapper.vm.$root.$emit('bv::toast:hidden', event);
       expect(onCompleteSpy).toHaveBeenCalledTimes(1);
 
-      // This event won't fire more that once in practice, as once the toast is
+      // This event won't fire more than once in practice, as once the toast is
       // hidden it'll be destroyed and won't show again. This is here to
       // indirectly test that the listener was removed when the toast is
       // hidden the first time.
