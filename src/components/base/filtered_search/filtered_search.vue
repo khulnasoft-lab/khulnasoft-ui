@@ -180,6 +180,7 @@ export default {
           this.applyNewValue(cloneDeep(newValue));
         }
       },
+      deep: true,
       immediate: true,
     },
   },
