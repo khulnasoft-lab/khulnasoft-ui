@@ -5,6 +5,7 @@ import readme from './form_input.md';
 const template = `
   <gl-form-input
     type="text"
+    :readonly="readonly"
     :disabled="disabled"
     :value="value"
     :size="size"
@@ -14,10 +15,12 @@ const generateProps = ({
   size = GlFormInput.props.size.default,
   value = '',
   disabled = false,
+  readonly = false,
 } = {}) => ({
   size,
   value,
   disabled,
+  readonly,
 });
 
 const Template = (args) => ({
@@ -31,6 +34,9 @@ Default.args = generateProps();
 
 export const Disabled = Template.bind({});
 Disabled.args = generateProps({ value: 'some text', disabled: true });
+
+export const Readonly = Template.bind({});
+Readonly.args = generateProps({ value: 'readonly text', readonly: true });
 
 export const Sizes = (args, { argTypes }) => ({
   components: { GlFormInput },
