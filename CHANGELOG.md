@@ -1,3 +1,10 @@
+# [38.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.6.0...v38.7.0) (2022-04-08)
+
+
+### Features
+
+* **css:** Fix readonly input color and cursor ([cce807f](https://gitlab.com/gitlab-org/gitlab-ui/commit/cce807f420c760731231bc924d0806cb29d3d021))
+
 # [38.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.5.1...v38.6.0) (2022-04-06)
 
 
