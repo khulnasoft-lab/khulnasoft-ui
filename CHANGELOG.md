@@ -1,3 +1,10 @@
+# [38.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.7.0...v38.8.0) (2022-04-08)
+
+
+### Features
+
+* **GlFilteredSearch:** Allow to pass token dynamically ([ec35908](https://gitlab.com/gitlab-org/gitlab-ui/commit/ec359089f6ae9167c886037bf1b755b13b25d3fb))
+
 # [38.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.6.0...v38.7.0) (2022-04-08)
 
 
