@@ -12,14 +12,6 @@ stylesheetsRequireCtx('./bootstrap.scss');
 
 stylesheetsRequireCtx('./storybook.scss');
 
-function addSbClass(c, a) {
-  return {
-    template: `<div id="${a.id}" class="sb-story"><story/></div>`,
-  };
-}
-
-export const decorators = [addSbClass];
-
 export const parameters = {
   options: {
     storySort: {
