@@ -6,7 +6,6 @@ class GitlabDanger
   CI_ONLY_RULES ||= %w[
     roulette
     semantic-commit
-    examples
     specs
   ].freeze
 

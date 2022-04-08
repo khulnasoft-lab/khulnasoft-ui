@@ -73,14 +73,6 @@ The files that we want published are listed in the [`files`](https://docs.npmjs.
 field in the `package.json`. You might need to add your files to the field if its path isn't covered
 by the current setup.
 
-## I used to write examples in addition to stories, is that still a thing?
-
-Examples have been moved to [design.gitlab.com](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com).
-We will iteratively migrate all stories to the new Component Story Format (CSF) and remove examples
-as we go. If you're looking to write an example to be displayed in Pajamas specifications website,
-here's how:
-<https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/blob/main/doc/component-examples.md#component-examples>.
-
 ## Why are we wrapping Bootstrap Vue components?
 
 Wrapping the components is an implementation of the [adapter design pattern](https://en.wikipedia.org/wiki/Adapter_pattern).
