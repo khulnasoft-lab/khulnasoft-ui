@@ -1,3 +1,15 @@
+## [38.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.8.0...v38.8.1) (2022-04-08)
+
+
+### Bug Fixes
+
+* Force a new release for revert ([c983975](https://gitlab.com/gitlab-org/gitlab-ui/commit/c98397525d3f64628a661b00850f3733338c02f2))
+
+
+### Reverts
+
+* **GlChartSeriesLabel:** Add validation for type prop ([f971aab](https://gitlab.com/gitlab-org/gitlab-ui/commit/f971aab4b08d2f3481f7c1a9cbf0454124d75b39)), closes [/gitlab.com/gitlab-org/gitlab/-/merge_requests/83745#note_905812358](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/83745/issues/note_905812358)
+
 # [38.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.7.0...v38.8.0) (2022-04-08)
 
 
