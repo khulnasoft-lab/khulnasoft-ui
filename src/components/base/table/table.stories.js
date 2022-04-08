@@ -72,9 +72,9 @@ export const WithFilter = (args, { argTypes }) => ({
   template: `<div class="gl-line-height-normal">
       <gl-form-input v-model="filter" placeholder="Type to search" />
       <br />
-      <gl-table 
-              :items="$options.items" 
-              :fields="$options.fields" 
+      <gl-table
+              :items="$options.items"
+              :fields="$options.fields"
               :filter=filter
               :fixed="fixed"
               :stacked="stacked"

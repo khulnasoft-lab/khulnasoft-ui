@@ -12,6 +12,7 @@ table.gl-table {
       @include gl-bg-transparent;
       @include gl-line-height-normal;
       @include gl-font-base;
+      @include gl-vertical-align-top;
     }
 
     th {
