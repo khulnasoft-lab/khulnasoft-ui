@@ -138,7 +138,7 @@ module Gitlab
         sorting: %w[ameliabauerly],
         spinner: %w[jeldergl],
         tab: %w[aregnery],
-        table: %w[npost],
+        table: %w[lvanc],
         toast: %w[tauriedavis],
         toggle: %w[pedroms],
         token: %w[annabeldunstone],
