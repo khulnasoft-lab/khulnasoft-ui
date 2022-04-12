@@ -78,16 +78,12 @@ export default {
   },
   argTypes: {
     iconName: {
-      control: {
-        type: 'select',
-        options: iconSpriteInfo.icons,
-      },
+      options: iconSpriteInfo.icons,
+      control: 'select',
     },
     theme: {
-      control: {
-        type: 'select',
-        options: Object.keys(colorThemes),
-      },
+      options: Object.keys(colorThemes),
+      control: 'select',
     },
   },
 };

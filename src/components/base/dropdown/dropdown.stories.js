@@ -535,27 +535,19 @@ export default {
   argTypes: {
     category: {
       options: Object.keys(buttonCategoryOptions),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     variant: {
       options: Object.keys(dropdownVariantOptions),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     size: {
       options: Object.keys(buttonSizeOptions),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     icon: {
       options: iconSpriteInfo.icons,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
   },
 };

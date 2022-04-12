@@ -28,10 +28,8 @@ export default {
   },
   argTypes: {
     variant: {
-      control: {
-        type: 'select',
-        options: variantOptions,
-      },
+      options: variantOptions,
+      control: 'select',
     },
   },
 };

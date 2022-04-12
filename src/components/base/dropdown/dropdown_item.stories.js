@@ -100,15 +100,11 @@ export default {
   argTypes: {
     iconColor: {
       options: Object.keys(variantCssColorMap),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     iconName: {
       options: iconSpriteInfo.icons,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
   },
 };

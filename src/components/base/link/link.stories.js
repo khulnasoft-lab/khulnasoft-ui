@@ -40,10 +40,8 @@ export default {
   },
   argTypes: {
     target: {
-      control: {
-        type: 'select',
-        options: targetOptions,
-      },
+      options: targetOptions,
+      control: 'select',
     },
   },
 };

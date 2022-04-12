@@ -75,14 +75,10 @@ export default {
   argTypes: {
     theme: {
       options: glThemes,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     backgroundColor: {
-      control: {
-        type: 'color',
-      },
+      control: 'color',
     },
   },
 };

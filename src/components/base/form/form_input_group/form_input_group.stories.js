@@ -72,24 +72,16 @@ export default {
   argTypes: {
     ...disableControls(['value']),
     prepend: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     append: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     inputClass: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     label: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
   },
 };

@@ -101,10 +101,10 @@ export default {
       'inputName',
     ]),
     minDate: {
-      control: { type: 'date' },
+      control: 'date',
     },
     maxDate: {
-      control: { type: 'date' },
+      control: 'date',
     },
   },
 };

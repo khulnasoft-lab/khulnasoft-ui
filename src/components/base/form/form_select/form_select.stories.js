@@ -91,16 +91,12 @@ export default {
   },
   argTypes: {
     size: {
-      control: {
-        type: 'select',
-        options: sizeOptions,
-      },
+      options: sizeOptions,
+      control: 'select',
     },
     state: {
-      control: {
-        type: 'select',
-        options: formStateOptions,
-      },
+      options: formStateOptions,
+      control: 'select',
     },
     input: {
       description: 'Emitted with the select value changes.',

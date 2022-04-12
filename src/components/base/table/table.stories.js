@@ -107,10 +107,8 @@ export default {
   },
   argTypes: {
     stacked: {
-      control: {
-        type: 'select',
-        options: ['sm', 'md', 'lg', 'xl', true, false],
-      },
+      options: ['sm', 'md', 'lg', 'xl', true, false],
+      control: 'select',
     },
   },
 };

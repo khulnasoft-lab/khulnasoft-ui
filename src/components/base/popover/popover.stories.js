@@ -87,12 +87,10 @@ export default {
   argTypes: {
     placement: {
       options: Object.values(popoverPlacements),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     title: {
-      control: { type: 'text' },
+      control: 'text',
     },
   },
 };

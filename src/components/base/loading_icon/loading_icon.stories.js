@@ -46,16 +46,12 @@ export default {
   },
   argTypes: {
     color: {
-      control: {
-        type: 'select',
-        options: viewModeOptions,
-      },
+      options: viewModeOptions,
+      control: 'select',
     },
     size: {
-      control: {
-        type: 'select',
-        options: loadingIconSizes,
-      },
+      options: loadingIconSizes,
+      control: 'select',
     },
   },
 };

@@ -35,10 +35,8 @@ export default {
   },
   argTypes: {
     lines: {
-      control: {
-        type: 'select',
-        options: [1, 2, 3],
-      },
+      options: [1, 2, 3],
+      control: 'select',
     },
   },
 };

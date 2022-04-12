@@ -52,9 +52,7 @@ export default {
   argTypes: {
     checked: {
       options: defaultOptions.map(({ value }) => value),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
   },
 };

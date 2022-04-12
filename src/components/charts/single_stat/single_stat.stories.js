@@ -74,9 +74,7 @@ export default {
   argTypes: {
     variant: {
       options: Object.values(badgeVariantOptions),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     metaIcon: {
       options: iconSpriteInfo.icons,

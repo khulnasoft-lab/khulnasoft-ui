@@ -99,9 +99,7 @@ export default {
   argTypes: {
     variant: {
       options: bannerVariants,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     svgPath: {
       control: 'text',

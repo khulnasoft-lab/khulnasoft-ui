@@ -51,9 +51,7 @@ export default {
       options: Object.values(defaultOptions)
         .filter(({ disabled }) => !disabled)
         .map(({ value }) => value),
-      control: {
-        type: 'radio',
-      },
+      control: 'radio',
       table: {
         disable: true,
       },

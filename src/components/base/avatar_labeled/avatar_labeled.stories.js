@@ -60,10 +60,8 @@ export const WithTooltip = (args, { argTypes }) => ({
 WithTooltip.args = { ...generateProps(), ...generateTooltipProps() };
 WithTooltip.argTypes = {
   placement: {
-    control: {
-      type: 'select',
-      options: tooltipPlacements,
-    },
+    options: tooltipPlacements,
+    control: 'select',
   },
 };
 
@@ -104,16 +102,12 @@ export default {
   },
   argTypes: {
     size: {
-      control: {
-        type: 'select',
-        options: avatarSizeOptions,
-      },
+      options: avatarSizeOptions,
+      control: 'select',
     },
     shape: {
-      control: {
-        type: 'select',
-        options: avatarShapeOptions,
-      },
+      options: avatarShapeOptions,
+      control: 'select',
     },
   },
 };
