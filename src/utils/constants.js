@@ -297,3 +297,8 @@ export const loadingIconSizes = {
   'lg (32x32)': 'lg',
   'xl (64x64)': 'xl',
 };
+
+export const textareaCountOptions = {
+  max: 'max',
+  recommended: 'recommended',
+};
