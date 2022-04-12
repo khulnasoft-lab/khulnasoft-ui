@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { textareaCountOptions } from '../../../../utils/constants';
 import GlFormTextarea from './form_textarea.vue';
 
 const modelEvent = GlFormTextarea.model.event;
@@ -6,11 +7,13 @@ const newValue = 'foo';
 
 describe('GlFormTextArea', () => {
   let wrapper;
+  let textarea;
 
   const createComponent = (propsData = {}) => {
     wrapper = mount(GlFormTextarea, {
       propsData,
     });
+    textarea = wrapper.find('textarea');
   };
 
   describe('v-model', () => {
@@ -20,7 +23,7 @@ describe('GlFormTextArea', () => {
       });
 
       it(`sets the textarea's value`, () => {
-        expect(wrapper.element.value).toBe('initial');
+        expect(textarea.element.value).toBe('initial');
       });
 
       describe('when the value prop changes', () => {
@@ -30,7 +33,7 @@ describe('GlFormTextArea', () => {
         });
 
         it(`updates the textarea's value`, () => {
-          expect(wrapper.element.value).toBe(newValue);
+          expect(textarea.element.value).toBe(newValue);
         });
       });
     });
@@ -39,7 +42,7 @@ describe('GlFormTextArea', () => {
       beforeEach(() => {
         createComponent();
 
-        wrapper.setValue(newValue);
+        textarea.setValue(newValue);
       });
 
       it('synchronously emits update event', () => {
@@ -59,7 +62,7 @@ describe('GlFormTextArea', () => {
 
         createComponent({ debounce });
 
-        wrapper.setValue(newValue);
+        textarea.setValue(newValue);
       });
 
       it('synchronously emits an update event', () => {
@@ -82,7 +85,7 @@ describe('GlFormTextArea', () => {
     beforeEach(() => {
       createComponent({ lazy: true });
 
-      wrapper.setValue(newValue);
+      textarea.setValue(newValue);
     });
 
     it('synchronously emits an update event', () => {
@@ -92,7 +95,7 @@ describe('GlFormTextArea', () => {
     it.each(['change', 'blur'])('updates model after %s event', (event) => {
       expect(wrapper.emitted(modelEvent)).toBe(undefined);
 
-      wrapper.trigger(event);
+      textarea.trigger(event);
 
       expect(wrapper.emitted(modelEvent)).toEqual([[newValue]]);
     });
@@ -102,7 +105,7 @@ describe('GlFormTextArea', () => {
     it('should be false by default', () => {
       createComponent({});
 
-      wrapper.trigger('keyup.enter', {
+      textarea.trigger('keyup.enter', {
         metaKey: true,
       });
 
@@ -112,11 +115,115 @@ describe('GlFormTextArea', () => {
     it('should emit submit when cmd+enter is pressed', async () => {
       createComponent({ submitOnEnter: true });
 
-      wrapper.trigger('keyup.enter', {
+      textarea.trigger('keyup.enter', {
         metaKey: true,
       });
 
       expect(wrapper.emitted().submit).toEqual([[]]);
+    });
+  });
+
+  describe('count', () => {
+    it('should be 0 by default', () => {
+      createComponent({
+        characterCountText: '%{count} characters left',
+        characterCountOverLimitText: '%{count} characters over limit',
+      });
+
+      expect(wrapper.text()).not.toContain('characters left');
+      expect(wrapper.text()).not.toContain('characters over limit');
+    });
+
+    it('should display the remaining characters when a count is provided', () => {
+      createComponent({
+        count: 400,
+        characterCountText: '%{count} characters left',
+        characterCountOverLimitText: '%{count} characters over limit',
+      });
+
+      expect(wrapper.text()).toContain('400 characters left');
+    });
+
+    it('should display the difference between the limit and the length of the value', () => {
+      const value = 'hello';
+
+      createComponent({
+        value,
+        count: 400,
+        characterCountText: '%{count} characters left',
+        characterCountOverLimitText: '%{count} characters over limit',
+      });
+
+      const { length } = value;
+
+      expect(wrapper.text()).toContain(`${400 - length} characters left`);
+    });
+
+    it('should display the over limit text once over the limit', () => {
+      const value = 'hello';
+      const count = 4;
+
+      createComponent({
+        value,
+        count,
+        characterCountText: '%{count} characters left',
+        characterCountOverLimitText: '%{count} characters over limit',
+      });
+
+      const diff = Math.abs(count - value.length);
+
+      expect(wrapper.text()).toContain(`${diff} characters over limit`);
+    });
+
+    describe('max', () => {
+      it('should display the text as grey when up to the limit', () => {
+        const value = 'hello';
+        const count = 5;
+
+        createComponent({
+          value,
+          count,
+          characterCountText: '%{count} characters left',
+          characterCountOverLimitText: '%{count} characters over limit',
+        });
+
+        const small = wrapper.find('small');
+
+        expect(small.classes()).toContain('gl-text-gray-500');
+      });
+      it('should display the text as danger when over the limit', () => {
+        const value = 'hello';
+        const count = 4;
+
+        createComponent({
+          value,
+          count,
+          characterCountText: '%{count} characters left',
+          characterCountOverLimitText: '%{count} characters over limit',
+        });
+
+        const small = wrapper.find('small');
+
+        expect(small.classes()).toContain('gl-text-red-500');
+      });
+    });
+    describe('recommended', () => {
+      it('should display the text as gray when over the limit', () => {
+        const value = 'hello';
+        const count = 4;
+
+        createComponent({
+          value,
+          count,
+          countType: textareaCountOptions.recommended,
+          characterCountText: '%{count} characters left',
+          characterCountOverLimitText: '%{count} characters over limit',
+        });
+
+        const small = wrapper.find('small');
+
+        expect(small.classes()).toContain('gl-text-gray-500');
+      });
     });
   });
 });
