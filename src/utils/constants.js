@@ -37,6 +37,7 @@ export const badgeVariantOptions = {
   success: 'success',
   warning: 'warning',
   danger: 'danger',
+  tier: 'tier',
 };
 
 export const variantCssColorMap = {

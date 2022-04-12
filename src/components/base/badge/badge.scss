@@ -135,6 +135,16 @@
   $active-bg: $red-200
 );
 
+@include gl-badge-variant(
+  $variant: tier,
+  $color: $purple-700,
+  $bg: $purple-100,
+  $hover-color: $purple-800,
+  $border-color: $purple-200,
+  $active-color: $purple-900,
+  $active-bg: $purple-200
+);
+
 // overriding Bootstap's `.btn .badge {top: -1px}` as the badge is not vertically centered otherwise
 .gl-button .gl-badge {
   top: 0;
