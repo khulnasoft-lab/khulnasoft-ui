@@ -1,3 +1,10 @@
+# [38.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.8.2...v38.9.0) (2022-04-12)
+
+
+### Features
+
+* add a character counter to gl-form-textarea ([1d45d26](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d45d26ad384b85589154100664da2c4eb204499))
+
 ## [38.8.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.8.1...v38.8.2) (2022-04-08)
 
 
