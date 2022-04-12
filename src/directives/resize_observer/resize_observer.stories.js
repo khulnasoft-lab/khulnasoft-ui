@@ -55,9 +55,7 @@ Default.args = generateProps();
 
 const makeControl = () => ({
   options: ['100%', '75%', '50%'],
-  control: {
-    type: 'select',
-  },
+  control: 'select',
 });
 
 export default {

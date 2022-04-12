@@ -140,10 +140,8 @@ export default {
   },
   argTypes: {
     variant: {
-      control: {
-        type: 'select',
-        options: alertVariantOptions,
-      },
+      options: alertVariantOptions,
+      control: 'select',
     },
   },
 };

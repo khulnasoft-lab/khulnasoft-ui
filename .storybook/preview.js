@@ -53,7 +53,6 @@ export const parameters = {
 
 /**
  * When running in test mode, we do small adjustments to help with visual regression testing:
- * - Skip storybook-readme's setup to avoid rendering the READMEs.
  * - Skip DocsPage settings to prevent JSX errors.
  * - Set the layout to fullscreen to ensure stories are full-width.
  */

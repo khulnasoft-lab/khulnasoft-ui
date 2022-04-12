@@ -154,21 +154,15 @@ export default {
   argTypes: {
     variant: {
       options: Object.keys(badgeVariantOptions),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     size: {
       options: Object.keys(badgeSizeOptions),
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     icon: {
       options: ['', ...iconSpriteInfo.icons],
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
   },
 };

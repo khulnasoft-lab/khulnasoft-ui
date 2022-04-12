@@ -511,28 +511,20 @@ export default {
   },
   argTypes: {
     category: {
-      control: {
-        type: 'select',
-        options: buttonCategoryOptions,
-      },
+      options: buttonCategoryOptions,
+      control: 'select',
     },
     variant: {
-      control: {
-        type: 'select',
-        options: buttonVariantOptions,
-      },
+      options: buttonVariantOptions,
+      control: 'select',
     },
     size: {
-      control: {
-        type: 'select',
-        options: buttonSizeOptions,
-      },
+      options: buttonSizeOptions,
+      control: 'select',
     },
     target: {
-      control: {
-        type: 'select',
-        options: targetOptions,
-      },
+      options: targetOptions,
+      control: 'select',
     },
   },
 };

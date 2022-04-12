@@ -132,14 +132,10 @@ export default {
       'defaultEndDate',
     ]),
     defaultMinDate: {
-      control: {
-        type: 'date',
-      },
+      control: 'date',
     },
     defaultMaxDate: {
-      control: {
-        type: 'date',
-      },
+      control: 'date',
     },
   },
 };

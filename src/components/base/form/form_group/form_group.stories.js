@@ -119,7 +119,7 @@ export default {
   argTypes: {
     ...disableControls(['labelClass']),
     label: {
-      control: { type: 'text' },
+      control: 'text',
     },
   },
 };

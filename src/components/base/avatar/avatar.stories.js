@@ -102,21 +102,15 @@ export default {
   argTypes: {
     size: {
       options: avatarSizeOptions,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     shape: {
       options: avatarShapeOptions,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     placement: {
       options: tooltipPlacements,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
   },
 };

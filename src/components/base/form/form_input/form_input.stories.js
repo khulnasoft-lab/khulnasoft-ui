@@ -72,9 +72,7 @@ export default {
   argTypes: {
     size: {
       options: formInputSizes,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
   },
 };

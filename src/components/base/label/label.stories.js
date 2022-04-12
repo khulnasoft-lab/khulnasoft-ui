@@ -67,18 +67,14 @@ export default {
   },
   argTypes: {
     backgroundColor: {
-      control: {
-        type: 'color',
-      },
+      control: 'color',
     },
     size: {
       options: labelSizeOptions,
     },
     tooltipPlacement: {
       options: tooltipPlacements,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
   },
 };

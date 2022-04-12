@@ -59,10 +59,8 @@ export default {
   },
   argTypes: {
     headerLevel: {
-      control: {
-        type: 'select',
-        options: [1, 2, 3, 4, 5, 6],
-      },
+      options: [1, 2, 3, 4, 5, 6],
+      control: 'select',
     },
     ...disableControls(['autoCollapse']),
   },

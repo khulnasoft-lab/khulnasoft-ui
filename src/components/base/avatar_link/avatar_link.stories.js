@@ -76,15 +76,11 @@ export default {
   argTypes: {
     shape: {
       options: avatarShapeOptions,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
     size: {
       options: avatarSizeOptions,
-      control: {
-        type: 'select',
-      },
+      control: 'select',
     },
   },
 };

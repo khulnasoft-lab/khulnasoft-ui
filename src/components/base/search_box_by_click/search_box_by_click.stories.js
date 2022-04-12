@@ -92,9 +92,7 @@ export default {
   argTypes: {
     ...disableControls(['tooltipContainer']),
     historyItems: {
-      control: {
-        type: 'object',
-      },
+      control: 'object',
     },
   },
 };

@@ -44,16 +44,12 @@ export default {
   argTypes: {
     ...disableControls(['useDeprecatedSizes']),
     name: {
-      control: {
-        type: 'select',
-        options: iconSpriteInfo.icons,
-      },
+      options: iconSpriteInfo.icons,
+      control: 'select',
     },
     size: {
-      control: {
-        type: 'select',
-        options: iconSizeOptions,
-      },
+      options: iconSizeOptions,
+      control: 'select',
     },
   },
 };

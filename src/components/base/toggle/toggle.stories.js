@@ -56,20 +56,14 @@ export default {
   argTypes: {
     ...disableControls(['name']),
     labelPosition: {
-      control: {
-        type: 'select',
-        options: toggleLabelPosition,
-      },
+      options: toggleLabelPosition,
+      control: 'select',
     },
     label: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
     help: {
-      control: {
-        type: 'text',
-      },
+      control: 'text',
     },
   },
 };

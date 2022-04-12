@@ -74,10 +74,8 @@ export default {
   },
   argTypes: {
     avatarSize: {
-      control: {
-        type: 'select',
-        options: avatarsInlineSizeOptions,
-      },
+      options: avatarsInlineSizeOptions,
+      control: 'select',
     },
   },
 };

@@ -50,10 +50,8 @@ export default {
   },
   argTypes: {
     variant: {
-      control: {
-        type: 'select',
-        options: tokenVariants,
-      },
+      options: tokenVariants,
+      control: 'select',
     },
   },
 };

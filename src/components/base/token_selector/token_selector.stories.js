@@ -104,10 +104,8 @@ export default {
   },
   argTypes: {
     state: {
-      control: {
-        type: 'radio',
-        options: [true, false, null],
-      },
+      options: [true, false, null],
+      control: 'radio',
     },
   },
 };

@@ -115,52 +115,36 @@ export default {
   },
   argTypes: {
     headerBgVariant: {
-      control: {
-        type: 'select',
-        options: variantOptionsWithNoDefault,
-      },
+      options: variantOptionsWithNoDefault,
+      control: 'select',
     },
     headerBorderVariant: {
-      control: {
-        type: 'select',
-        options: variantOptionsWithNoDefault,
-      },
+      options: variantOptionsWithNoDefault,
+      control: 'select',
     },
     headerTextVariant: {
-      control: {
-        type: 'select',
-        options: variantOptionsWithNoDefault,
-      },
+      options: variantOptionsWithNoDefault,
+      control: 'select',
     },
     bodyBgVariant: {
-      control: {
-        type: 'select',
-        options: variantOptionsWithNoDefault,
-      },
+      options: variantOptionsWithNoDefault,
+      control: 'select',
     },
     bodyTextVariant: {
-      control: {
-        type: 'select',
-        options: variantOptionsWithNoDefault,
-      },
+      options: variantOptionsWithNoDefault,
+      control: 'select',
     },
     footerBgVariant: {
-      control: {
-        type: 'select',
-        options: variantOptionsWithNoDefault,
-      },
+      options: variantOptionsWithNoDefault,
+      control: 'select',
     },
     footerBorderVariant: {
-      control: {
-        type: 'select',
-        options: variantOptionsWithNoDefault,
-      },
+      options: variantOptionsWithNoDefault,
+      control: 'select',
     },
     footerTextVariant: {
-      control: {
-        type: 'select',
-        options: variantOptionsWithNoDefault,
-      },
+      options: variantOptionsWithNoDefault,
+      control: 'select',
     },
   },
 };
