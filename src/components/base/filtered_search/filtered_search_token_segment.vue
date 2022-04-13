@@ -77,6 +77,11 @@ export default {
       required: false,
       default: () => [],
     },
+    cursorPosition: {
+      type: String,
+      required: true,
+      validator: (value) => ['start', 'end'].includes(value),
+    },
   },
 
   data() {
@@ -198,11 +203,9 @@ export default {
           input.focus();
           input.scrollIntoView({ block: 'nearest', inline: 'end' });
           this.alignSuggestions(input);
-          this.$root.$on('nextStartInput', () => {
-            this.$nextTick(() => {
-              this.$refs.input?.setSelectionRange(0, 0);
-            });
-          });
+          if (this.cursorPosition === 'start') {
+            input?.setSelectionRange(0, 0);
+          }
         }
       });
     },

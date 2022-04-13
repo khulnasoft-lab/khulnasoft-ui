@@ -2,12 +2,12 @@
 
 exports[`Filtered search term renders input with value in active mode 1`] = `
 <div data-testid="filtered-search-term" class="gl-h-auto gl-filtered-search-term">
-  <div active="true" value="test-value" class="gl-filtered-search-term-token">test-value</div>
+  <div active="true" cursor-position="end" value="test-value" class="gl-filtered-search-term-token">test-value</div>
 </div>
 `;
 
 exports[`Filtered search term renders value in inactive mode 1`] = `
 <div data-testid="filtered-search-term" class="gl-h-auto gl-filtered-search-term">
-  <div value="test-value" class="gl-filtered-search-term-token">test-value</div>
+  <div cursor-position="end" value="test-value" class="gl-filtered-search-term-token">test-value</div>
 </div>
 `;

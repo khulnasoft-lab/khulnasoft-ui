@@ -65,11 +65,17 @@ export default {
       required: false,
       default: false,
     },
+    cursorPosition: {
+      type: String,
+      required: true,
+      validator: (value) => ['start', 'end'].includes(value),
+    },
   },
   data() {
     return {
       activeSegment: null,
       tokenValue: cloneDeep(this.value),
+      intendedCursorPosition: this.cursorPosition,
     };
   },
 
@@ -127,6 +133,7 @@ export default {
       immediate: true,
       handler(newValue) {
         if (newValue) {
+          this.intendedCursorPosition = this.cursorPosition;
           if (!this.activeSegment) {
             this.activateSegment(this.tokenValue.data !== '' ? SEGMENT_DATA : SEGMENT_OPERATOR);
           }
@@ -239,14 +246,24 @@ export default {
       this.activateSegment(this.$options.segments.SEGMENT_DATA);
     },
 
+    activatePreviousOperatorSegment() {
+      this.activateSegment(this.$options.segments.SEGMENT_OPERATOR);
+      this.intendedCursorPosition = 'end';
+    },
+
+    activatePreviousTitleSegment() {
+      this.activateSegment(this.$options.segments.SEGMENT_TITLE);
+      this.intendedCursorPosition = 'end';
+    },
+
     activateNextDataSegment() {
       this.activateDataSegment();
-      this.$root.$emit('nextStartInput');
+      this.intendedCursorPosition = 'start';
     },
 
     activateNextOperatorSegment() {
       this.activateSegment(this.$options.segments.SEGMENT_OPERATOR);
-      this.$root.$emit('nextStartInput');
+      this.intendedCursorPosition = 'start';
     },
 
     handleComplete() {
@@ -286,6 +303,7 @@ export default {
       key="title-segment"
       :value="config.title"
       :active="isSegmentActive($options.segments.SEGMENT_TITLE)"
+      :cursor-position="intendedCursorPosition"
       :options="availableTokensWithSelf"
       @activate="activateSegment($options.segments.SEGMENT_TITLE)"
       @deactivate="$emit('deactivate')"
@@ -308,6 +326,7 @@ export default {
       key="operator-segment"
       v-model="tokenValue.operator"
       :active="isSegmentActive($options.segments.SEGMENT_OPERATOR)"
+      :cursor-position="intendedCursorPosition"
       :options="operators"
       :custom-input-keydown-handler="handleOperatorKeydown"
       view-only
@@ -315,7 +334,7 @@ export default {
       @backspace="replaceWithTermIfEmpty"
       @complete="activateSegment($options.segments.SEGMENT_DATA)"
       @deactivate="$emit('deactivate')"
-      @previous="activateSegment($options.segments.SEGMENT_TITLE)"
+      @previous="activatePreviousTitleSegment"
       @next="activateNextDataSegment"
     >
       <template #view>
@@ -351,6 +370,7 @@ export default {
       key="data-segment"
       v-model="tokenValue.data"
       :active="isSegmentActive($options.segments.SEGMENT_DATA)"
+      :cursor-position="intendedCursorPosition"
       :multi-select="config.multiSelect"
       :options="config.options"
       option-text-field="title"
@@ -361,7 +381,7 @@ export default {
       @submit="$emit('submit')"
       @deactivate="$emit('deactivate')"
       @split="$emit('split', $event)"
-      @previous="activateSegment($options.segments.SEGMENT_OPERATOR)"
+      @previous="activatePreviousOperatorSegment"
       @next="$emit('next')"
     >
       <template #suggestions>

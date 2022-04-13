@@ -119,6 +119,7 @@ export default {
       tokens: initialState(),
       activeTokenIdx: null,
       suggestionsStyle: {},
+      intendedCursorPosition: 'end',
     };
   },
   computed: {
@@ -213,13 +214,14 @@ export default {
     activatePreviousToken() {
       if (this.activeTokenIdx > 0) {
         this.activeTokenIdx -= 1;
+        this.intendedCursorPosition = 'end';
       }
     },
 
     activateNextToken() {
       if (this.activeTokenIdx < this.value.length) {
         this.activeTokenIdx += 1;
-        this.$root.$emit('nextStartInput');
+        this.intendedCursorPosition = 'start';
       }
     },
 
@@ -231,6 +233,7 @@ export default {
     },
 
     deactivate(token) {
+      this.intendedCursorPosition = 'end';
       const tokenIdx = this.tokens.indexOf(token);
       if (tokenIdx === -1 || this.activeTokenIdx !== tokenIdx) {
         return;
@@ -359,6 +362,7 @@ export default {
             v-model="token.value"
             :config="getTokenEntry(token.type)"
             :active="activeTokenIdx === idx"
+            :cursor-position="intendedCursorPosition"
             :available-tokens="currentAvailableTokens"
             :current-value="tokens"
             :index="idx"

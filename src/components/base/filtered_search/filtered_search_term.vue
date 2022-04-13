@@ -63,6 +63,11 @@ export default {
       required: false,
       default: () => [],
     },
+    cursorPosition: {
+      type: String,
+      required: true,
+      validator: (value) => ['start', 'end'].includes(value),
+    },
   },
   computed: {
     suggestedTokens() {
@@ -129,6 +134,7 @@ export default {
       v-model="internalValue"
       class="gl-filtered-search-term-token"
       :active="active"
+      :cursor-position="cursorPosition"
       :class="{ 'gl-w-full': placeholder }"
       :search-input-attributes="searchInputAttributes"
       :is-last-token="isLastToken"

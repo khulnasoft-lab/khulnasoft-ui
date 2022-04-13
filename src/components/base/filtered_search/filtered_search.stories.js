@@ -9,6 +9,7 @@ import {
   GlIcon,
   GlToken,
   GlAvatar,
+  GlDropdownDivider,
 } from '../../../index';
 import { setStoryTimeout } from '../../../utils/test_utils';
 import { makeContainer } from '../../../utils/story_decorators/container';
@@ -178,7 +179,13 @@ const MilestoneToken = {
 
 const LabelToken = {
   name: 'LabelToken',
-  components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlToken },
+  components: {
+    GlFilteredSearchToken,
+    GlFilteredSearchSuggestion,
+    GlLoadingIcon,
+    GlToken,
+    GlDropdownDivider,
+  },
   props: ['value', 'active'],
   inheritAttrs: false,
   data() {
