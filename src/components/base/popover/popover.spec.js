@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { tooltipActionEvents } from '../../../utils/constants';
+import { tooltipActionEvents, popoverPlacements } from '../../../utils/constants';
 import GlPopover from './popover.vue';
 
 describe('GlPopover', () => {
@@ -46,6 +46,20 @@ describe('GlPopover', () => {
       createWrapper({ title });
 
       expect(findBVPopover().props('title')).toBe(title);
+    });
+  });
+
+  describe('placement', () => {
+    it(`uses "${popoverPlacements.top}" placement by default`, () => {
+      createWrapper();
+
+      expect(findBVPopover().props('placement')).toBe(popoverPlacements.top);
+    });
+
+    it('uses a defined placement', () => {
+      createWrapper({ placement: popoverPlacements.right });
+
+      expect(findBVPopover().props('placement')).toBe(popoverPlacements.right);
     });
   });
 

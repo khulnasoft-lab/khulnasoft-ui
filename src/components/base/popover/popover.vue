@@ -2,6 +2,7 @@
 import { BPopover } from 'bootstrap-vue';
 import tooltipMixin from '../../mixins/tooltip_mixin';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
+import { popoverPlacements } from '../../../utils/constants';
 
 const popoverRefName = 'bPopover';
 
@@ -38,6 +39,11 @@ export default {
       required: false,
       default: false,
     },
+    placement: {
+      type: String,
+      required: false,
+      default: popoverPlacements.top,
+    },
   },
   computed: {
     customClass() {
@@ -66,6 +72,7 @@ export default {
     :custom-class="customClass"
     :triggers="triggers"
     :title="title"
+    :placement="placement"
     v-bind="$attrs"
     v-on="$listeners"
   >
