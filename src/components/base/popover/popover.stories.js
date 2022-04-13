@@ -26,7 +26,7 @@ const getTemplate = (id, slots = '') => `
   </div>`;
 
 const generateProps = ({
-  placement = popoverPlacements.top,
+  placement = defaultValue('placement'),
   title = 'Popover',
   triggers = defaultValue('triggers'),
   cssClasses = defaultValue('cssClasses'),
