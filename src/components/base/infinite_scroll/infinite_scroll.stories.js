@@ -1,52 +1,76 @@
 import { setStoryTimeout } from '../../../utils/test_utils';
-import { GlInfiniteScroll } from '../../../index';
+import { GlInfiniteScroll, GlLoadingIcon } from '../../../index';
 import readme from './infinite_scroll.md';
 
 const ITEMS_BATCH_SIZE = 20;
 
 const template = `
   <gl-infinite-scroll
-    :max-list-height="285"
-    :fetched-items="fetchedItems"
-    @bottomReached="bottomReached"
+    :total-items="totalItems"
+    :fetched-items="localFetchedItems"
+    :max-list-height="maxListHeight"
+    @bottomReached="onBottomReached"
     >
     <template #items>
       <ul class="list-group list-group-flushed list-unstyled">
-        <li v-for="item in fetchedItems" :key="item" class="list-group-item">Item #{{ item }}</li>
+        <li v-for="item in localFetchedItems" :key="item" class="list-group-item">Item #{{ item }}</li>
       </ul>
     </template>
 
-    <template #default>
+    <template v-if="localIsLoading" #default>
       <div class="gl-mt-3">
-        <gl-loading-icon v-if="isLoading" />
-        <span v-else>{{ fetchedItems }} items loaded</span>
+        <gl-loading-icon />
       </div>
     </template>
   </gl-infinite-scroll>
 `;
 
-const generateProps = ({ isLoading = false, fetchedItems = ITEMS_BATCH_SIZE } = {}) => ({
+const generateProps = ({
+  isLoading = false,
+  totalItems = null,
+  fetchedItems = ITEMS_BATCH_SIZE,
+  maxListHeight = 285,
+} = {}) => ({
   isLoading,
+  totalItems,
   fetchedItems,
+  maxListHeight,
 });
 
 const Template = (args, { argTypes }) => ({
   components: {
     GlInfiniteScroll,
+    GlLoadingIcon,
   },
   props: Object.keys(argTypes),
+  watch: {
+    fetchedItems: {
+      immediate: true,
+      handler(fetchedItems) {
+        this.localFetchedItems = fetchedItems;
+      },
+    },
+    isLoading: {
+      immediate: true,
+      handler(isLoading) {
+        this.localIsLoading = isLoading;
+      },
+    },
+  },
   data() {
     return {
       loadTimer: null,
+      localFetchedItems: null,
+      localIsLoading: false,
     };
   },
   methods: {
-    bottomReached() {
+    onBottomReached() {
       clearTimeout(this.loadTimer);
-      this.isLoading = true;
+      this.localIsLoading = true;
       this.loadTimer = setStoryTimeout(() => {
-        this.fetchedItems += ITEMS_BATCH_SIZE;
-        this.isLoading = false;
+        this.localFetchedItems += ITEMS_BATCH_SIZE;
+        this.localIsLoading = false;
       }, 500);
     },
   },
