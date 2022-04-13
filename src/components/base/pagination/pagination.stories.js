@@ -4,27 +4,51 @@ import GlPagination from './pagination.vue';
 
 const components = { GlPagination };
 
-const generateBaseProps = ({
-  prevText = 'Previous',
-  nextText = 'Next',
-  disabled = false,
+const defaultValue = (name) => GlPagination.props[name].default;
+
+const generateProps = ({
+  page = 3,
+  align = defaultValue('align'),
+  disabled = defaultValue('disabled'),
+  linkGen = defaultValue('linkGen'),
+  nextPage = defaultValue('nextPage'),
+  nextText = defaultValue('nextText'),
+  perPage = 10, // Existing stories/shots used this value instead of the default
+  prevPage = defaultValue('prevPage'),
+  prevText = defaultValue('prevText'),
+  totalItems = 200, // The component's default value of 0 is for compact pagination, which most stories here do not use.
 } = {}) => ({
-  prevText,
-  nextText,
+  page,
+  align,
   disabled,
-});
-
-const generateFullProps = ({ page = 3, perPage = 10, totalItems = 200 } = {}) => ({
-  initialPage: page,
+  linkGen,
+  nextPage,
+  nextText,
   perPage,
+  prevPage,
+  prevText,
   totalItems,
-  ...generateBaseProps(),
 });
 
-const defaults = {
+const template = `
+  <gl-pagination
+    v-model="page"
+    :align="align"
+    :disabled="disabled"
+    :link-gen="linkGen"
+    :next-page="nextPage"
+    :next-text="nextText"
+    :per-page="perPage"
+    :prev-page="prevPage"
+    :prev-text="prevText"
+    :total-items="totalItems"
+  />
+`;
+
+const defaults = (args) => ({
   data() {
     return {
-      page: 3,
+      currentPage: args.page,
       alignOptions,
     };
   },
@@ -33,33 +57,20 @@ const defaults = {
       this.page = page;
     },
   },
-};
+});
 
 export const Default = (args, { argTypes }) => ({
   components,
   props: Object.keys(argTypes),
-  ...defaults,
-  template: `<gl-pagination
-      v-model="page"
-      :per-page="perPage"
-      :total-items="totalItems"
-      :prev-text="prevText"
-      :next-text="nextText"
-      :disabled="disabled"
-      />`,
+  ...defaults(args),
+  template,
 });
-Default.args = generateFullProps();
+Default.args = generateProps();
 
-export const Compact = () => ({
+export const Compact = (args, { argTypes }) => ({
   components,
-  ...defaults,
-  props: generateFullProps(),
-  data() {
-    return {
-      page: 1,
-      alignOptions,
-    };
-  },
+  props: Object.keys(argTypes),
+  ...defaults(args),
   computed: {
     prevPage() {
       return Math.max(this.page - 1, 0);
@@ -70,72 +81,37 @@ export const Compact = () => ({
     },
   },
   template: `
-      <div class="text-center gl-font-base">
-        <gl-pagination
-          v-model="page"
-          :prev-page="prevPage"
-          :next-page="nextPage"
-          :prev-text="prevText"
-          :next-text="nextText"
-          :disabled="disabled"
-          :align="alignOptions.center"
-        />
-        Page {{ page }} of 3
-      </div>`,
+    <div class="text-center gl-font-base">
+      ${template}
+      Page {{ page }} of 3
+    </div>
+  `,
 });
+Compact.args = generateProps({ page: 1, totalItems: 0, align: alignOptions.center });
 
 export const LinkBased = (args, { argTypes }) => ({
   components,
   props: Object.keys(argTypes),
-  ...defaults,
-  methods: {
-    linkGen(page) {
-      return `/page/${page}`;
-    },
-  },
-  template: `<gl-pagination
-    v-model="page"
-    :per-page="perPage"
-    :total-items="totalItems"
-    :prev-text="prevText"
-    :next-text="nextText"
-    :disabled="disabled"
-    :link-gen="linkGen"
-    />`,
+  ...defaults(args),
+  template,
 });
-LinkBased.args = generateFullProps();
+LinkBased.args = generateProps({ linkGen: (page) => `/page/${page}` });
 
 export const AlignCenter = (args, { argTypes }) => ({
   components,
   props: Object.keys(argTypes),
-  ...defaults,
-  template: `<gl-pagination
-    v-model="page"
-    :per-page="perPage"
-    :total-items="totalItems"
-    :prev-text="prevText"
-    :next-text="nextText"
-    :disabled="disabled"
-    :align="alignOptions.center"
-    />`,
+  ...defaults(args),
+  template,
 });
-AlignCenter.args = generateFullProps();
+AlignCenter.args = generateProps({ align: alignOptions.center });
 
 export const AlignRight = (args, { argTypes }) => ({
   components,
   props: Object.keys(argTypes),
-  ...defaults,
-  template: `<gl-pagination
-    v-model="page"
-    :per-page="perPage"
-    :total-items="totalItems"
-    :prev-text="prevText"
-    :next-text="nextText"
-    :disabled="disabled"
-    :align="alignOptions.right"
-    />`,
+  ...defaults(args),
+  template,
 });
-AlignRight.args = generateFullProps();
+AlignRight.args = generateProps({ align: alignOptions.right });
 
 export default {
   title: 'base/pagination',
@@ -146,6 +122,12 @@ export default {
       description: {
         component: readme,
       },
+    },
+  },
+  argTypes: {
+    align: {
+      options: Object.values(alignOptions),
+      control: 'select',
     },
   },
 };
