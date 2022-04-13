@@ -1,3 +1,16 @@
+# [38.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.9.0...v38.10.0) (2022-04-13)
+
+
+### Bug Fixes
+
+* **GlPopover:** Remove horizontal border ([f40c030](https://gitlab.com/gitlab-org/gitlab-ui/commit/f40c030c429fc76c7dd9dcb3ff7aeaa6f889d653))
+
+
+### Features
+
+* **CSS:** Add new utility CSS classes ([19e3dd6](https://gitlab.com/gitlab-org/gitlab-ui/commit/19e3dd63eef519e85264391cf3a95ecf038c2f07))
+* **GlPopover:** top placement by default ([705dfe4](https://gitlab.com/gitlab-org/gitlab-ui/commit/705dfe412200581620c78011612de451d22ece55))
+
 # [38.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.8.2...v38.9.0) (2022-04-12)
 
 
