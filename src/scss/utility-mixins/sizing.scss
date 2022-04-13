@@ -234,6 +234,18 @@
   }
 }
 
+@mixin gl-md-w-half {
+  @include gl-media-breakpoint-up(md) {
+    width: 50%;
+  }
+}
+
+@mixin gl-lg-w-half {
+  @include gl-media-breakpoint-up(lg) {
+    width: 50%;
+  }
+}
+
 @mixin gl-md-w-auto {
   @include gl-media-breakpoint-up(md) {
     width: auto;
