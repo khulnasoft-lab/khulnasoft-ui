@@ -1,13 +1,12 @@
 table.gl-table {
-  @include gl-text-gray-500;
   @include gl-bg-transparent;
 
   tr {
     th,
     td {
-      @include gl-border-t-none;
       @include gl-border-b-solid;
       @include gl-border-b-1;
+      @include gl-border-gray-100;
       @include gl-p-5;
       @include gl-bg-transparent;
       @include gl-line-height-normal;
@@ -17,11 +16,11 @@ table.gl-table {
 
     th {
       @include gl-font-weight-bold;
-      @include gl-border-gray-200;
+      @include gl-text-gray-900;
     }
 
     td {
-      @include gl-border-gray-100;
+      @include gl-text-gray-700;
     }
   }
 
