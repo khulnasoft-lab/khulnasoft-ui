@@ -1,3 +1,10 @@
+## [38.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.10.1...v38.10.2) (2022-04-14)
+
+
+### Bug Fixes
+
+* **ChartTooltip:** restore right placement by default ([4dfed07](https://gitlab.com/gitlab-org/gitlab-ui/commit/4dfed07d69cc50b59c950f85cda2fe8ef11b7a03))
+
 ## [38.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.10.0...v38.10.1) (2022-04-14)
 
 
