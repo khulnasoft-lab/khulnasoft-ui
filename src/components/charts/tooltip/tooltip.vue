@@ -2,6 +2,7 @@
 import * as echarts from 'echarts';
 import { uid } from '../../../utils/utils';
 import GlPopover from '../../base/popover/popover.vue';
+import { popoverPlacements } from '../../../utils/constants';
 
 export default {
   components: {
@@ -40,6 +41,11 @@ export default {
       type: String,
       required: false,
       default: null,
+    },
+    placement: {
+      type: String,
+      required: false,
+      default: popoverPlacements.right,
     },
   },
   computed: {
@@ -80,7 +86,13 @@ export default {
       Needs to be triggered programatically using `show` property
       This is why `triggers` is currently set to an empty string
     -->
-    <gl-popover v-bind="$attrs" :target="containerId" :container="containerId" triggers="">
+    <gl-popover
+      v-bind="$attrs"
+      :target="containerId"
+      :container="containerId"
+      :placement="placement"
+      triggers=""
+    >
       <template v-if="$scopedSlots.title" #title>
         <slot name="title"></slot>
       </template>
