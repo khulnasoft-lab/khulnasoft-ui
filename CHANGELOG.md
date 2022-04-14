@@ -1,3 +1,10 @@
+## [38.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.10.0...v38.10.1) (2022-04-14)
+
+
+### Bug Fixes
+
+* **GlToast:** Event listener memory leak ([b799657](https://gitlab.com/gitlab-org/gitlab-ui/commit/b7996570d3f675c4ee11cc0eb26f2aa0a6fda817))
+
 # [38.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.9.0...v38.10.0) (2022-04-13)
 
 
