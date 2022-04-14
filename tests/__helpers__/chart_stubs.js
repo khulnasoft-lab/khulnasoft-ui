@@ -5,6 +5,7 @@ export const createMockChartInstance = () => ({
     return {
       addEventListener: jest.fn(),
       removeEventListener: jest.fn(),
+      getAttribute: jest.fn(),
     };
   },
   dispatchAction: jest.fn(),
