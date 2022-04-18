@@ -35,7 +35,7 @@ describe('Filtered search token segment', () => {
     };
 
     wrapper = shallowMount(GlFilteredSearchTokenSegment, {
-      propsData: props,
+      propsData: { ...props, cursorPosition: 'end' },
       provide: {
         portalName: 'fakePortal',
         alignSuggestions: alignSuggestionsMock,
@@ -64,7 +64,7 @@ describe('Filtered search token segment', () => {
     };
 
     wrapper = shallowMount(fakeParent, {
-      propsData: otherProps,
+      propsData: { ...otherProps, cursorPosition: 'end' },
       stubs: { GlFilteredSearchTokenSegment },
     });
   };

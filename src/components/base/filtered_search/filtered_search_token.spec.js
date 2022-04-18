@@ -30,6 +30,7 @@ describe('Filtered search token', () => {
   const defaultProps = {
     config: { title: 'testTitle' },
     availableTokens,
+    cursorPosition: 'end',
   };
 
   const createComponent = (props) => {

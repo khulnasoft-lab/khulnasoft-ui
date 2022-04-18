@@ -17,6 +17,7 @@ describe('Filtered search term', () => {
 
   const defaultProps = {
     availableTokens: [],
+    cursorPosition: 'end',
   };
 
   const segmentStub = {

@@ -77,6 +77,11 @@ export default {
       required: false,
       default: () => [],
     },
+    cursorPosition: {
+      type: String,
+      required: true,
+      validator: (value) => ['start', 'end'].includes(value),
+    },
   },
 
   data() {
@@ -198,6 +203,9 @@ export default {
           input.focus();
           input.scrollIntoView({ block: 'nearest', inline: 'end' });
           this.alignSuggestions(input);
+          if (this.cursorPosition === 'start') {
+            input?.setSelectionRange(0, 0);
+          }
         }
       });
     },
@@ -230,20 +238,31 @@ export default {
 
     handleInputKeydown(e) {
       const { key } = e;
-      const { suggestions } = this.$refs;
+      const { suggestions, input } = this.$refs;
       const suggestedValue = suggestions?.getValue();
-      if (key === 'Backspace') {
-        if (this.inputValue === '') {
-          e.preventDefault();
-          /**
-           * Emitted when Backspace is pressed and the value is empty
-           */
-          this.$emit('backspace');
-        }
-        return;
-      }
 
       const handlers = {
+        ArrowLeft: () => {
+          if (input.selectionStart === 0) {
+            e.preventDefault();
+            this.$emit('previous');
+          }
+        },
+        ArrowRight: () => {
+          if (input.selectionEnd === this.inputValue.length) {
+            e.preventDefault();
+            this.$emit('next');
+          }
+        },
+        Backspace: () => {
+          if (this.inputValue === '') {
+            e.preventDefault();
+            /**
+             * Emitted when Backspace is pressed and the value is empty
+             */
+            this.$emit('backspace');
+          }
+        },
         Enter: () => {
           e.preventDefault();
           if (suggestedValue != null) {
@@ -311,7 +330,9 @@ export default {
   <div
     v-bind="containerAttributes"
     class="gl-filtered-search-token-segment"
-    :class="{ 'gl-filtered-search-token-segment-active': active }"
+    :class="{
+      'gl-filtered-search-token-segment-active': active,
+    }"
     data-testid="filtered-search-token-segment"
     @mousedown.left="emitIfInactive"
   >

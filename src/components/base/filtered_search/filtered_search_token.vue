@@ -65,11 +65,17 @@ export default {
       required: false,
       default: false,
     },
+    cursorPosition: {
+      type: String,
+      required: true,
+      validator: (value) => ['start', 'end'].includes(value),
+    },
   },
   data() {
     return {
       activeSegment: null,
       tokenValue: cloneDeep(this.value),
+      intendedCursorPosition: this.cursorPosition,
     };
   },
 
@@ -127,6 +133,7 @@ export default {
       immediate: true,
       handler(newValue) {
         if (newValue) {
+          this.intendedCursorPosition = this.cursorPosition;
           if (!this.activeSegment) {
             this.activateSegment(this.tokenValue.data !== '' ? SEGMENT_DATA : SEGMENT_OPERATOR);
           }
@@ -239,6 +246,26 @@ export default {
       this.activateSegment(this.$options.segments.SEGMENT_DATA);
     },
 
+    activatePreviousOperatorSegment() {
+      this.activateSegment(this.$options.segments.SEGMENT_OPERATOR);
+      this.intendedCursorPosition = 'end';
+    },
+
+    activatePreviousTitleSegment() {
+      this.activateSegment(this.$options.segments.SEGMENT_TITLE);
+      this.intendedCursorPosition = 'end';
+    },
+
+    activateNextDataSegment() {
+      this.activateDataSegment();
+      this.intendedCursorPosition = 'start';
+    },
+
+    activateNextOperatorSegment() {
+      this.activateSegment(this.$options.segments.SEGMENT_OPERATOR);
+      this.intendedCursorPosition = 'start';
+    },
+
     handleComplete() {
       if (this.config.multiSelect) {
         this.$emit('input', { ...this.tokenValue, data: this.multiSelectValues.join(COMMA) });
@@ -263,7 +290,11 @@ export default {
 </script>
 
 <template>
-  <div class="gl-filtered-search-token" :class="{ 'gl-filtered-search-token-active': active }">
+  <div
+    class="gl-filtered-search-token"
+    :class="{ 'gl-filtered-search-token-active': active }"
+    data-testid="filtered-search-token"
+  >
     <!--
       Emitted when the token is submitted.
       @event submit
@@ -272,12 +303,15 @@ export default {
       key="title-segment"
       :value="config.title"
       :active="isSegmentActive($options.segments.SEGMENT_TITLE)"
+      :cursor-position="intendedCursorPosition"
       :options="availableTokensWithSelf"
       @activate="activateSegment($options.segments.SEGMENT_TITLE)"
       @deactivate="$emit('deactivate')"
       @complete="replaceToken"
       @backspace="$emit('destroy')"
       @submit="$emit('submit')"
+      @previous="$emit('previous')"
+      @next="activateNextOperatorSegment"
     >
       <template #view="{ inputValue }">
         <gl-token
@@ -292,6 +326,7 @@ export default {
       key="operator-segment"
       v-model="tokenValue.operator"
       :active="isSegmentActive($options.segments.SEGMENT_OPERATOR)"
+      :cursor-position="intendedCursorPosition"
       :options="operators"
       :custom-input-keydown-handler="handleOperatorKeydown"
       view-only
@@ -299,6 +334,8 @@ export default {
       @backspace="replaceWithTermIfEmpty"
       @complete="activateSegment($options.segments.SEGMENT_DATA)"
       @deactivate="$emit('deactivate')"
+      @previous="activatePreviousTitleSegment"
+      @next="activateNextDataSegment"
     >
       <template #view>
         <gl-token
@@ -333,6 +370,7 @@ export default {
       key="data-segment"
       v-model="tokenValue.data"
       :active="isSegmentActive($options.segments.SEGMENT_DATA)"
+      :cursor-position="intendedCursorPosition"
       :multi-select="config.multiSelect"
       :options="config.options"
       option-text-field="title"
@@ -343,6 +381,8 @@ export default {
       @submit="$emit('submit')"
       @deactivate="$emit('deactivate')"
       @split="$emit('split', $event)"
+      @previous="activatePreviousOperatorSegment"
+      @next="$emit('next')"
     >
       <template #suggestions>
         <!-- @slot The suggestions (implemented with GlFilteredSearchSuggestion). -->

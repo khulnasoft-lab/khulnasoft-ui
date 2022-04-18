@@ -63,6 +63,11 @@ export default {
       required: false,
       default: () => [],
     },
+    cursorPosition: {
+      type: String,
+      required: true,
+      validator: (value) => ['start', 'end'].includes(value),
+    },
   },
   computed: {
     suggestedTokens() {
@@ -101,7 +106,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-h-auto gl-filtered-search-term">
+  <div class="gl-h-auto gl-filtered-search-term" data-testid="filtered-search-term">
     <!--
       Emitted when this term token is clicked.
       @event activate
@@ -125,9 +130,11 @@ export default {
       @property {array} newTokens Token configurations
     -->
     <gl-filtered-search-token-segment
+      ref="segment"
       v-model="internalValue"
       class="gl-filtered-search-term-token"
       :active="active"
+      :cursor-position="cursorPosition"
       :class="{ 'gl-w-full': placeholder }"
       :search-input-attributes="searchInputAttributes"
       :is-last-token="isLastToken"
@@ -138,6 +145,8 @@ export default {
       @backspace="onBackspace"
       @submit="$emit('submit')"
       @split="$emit('split', $event)"
+      @previous="$emit('previous')"
+      @next="$emit('next')"
     >
       <template #suggestions>
         <gl-filtered-search-suggestion
@@ -156,6 +165,7 @@ export default {
           class="gl-filtered-search-term-input"
           :placeholder="placeholder"
           :aria-label="placeholder"
+          data-testid="filtered-search-term-input"
         />
         <template v-else>{{ value.data }}</template>
       </template>

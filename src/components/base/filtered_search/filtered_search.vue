@@ -119,6 +119,7 @@ export default {
       tokens: initialState(),
       activeTokenIdx: null,
       suggestionsStyle: {},
+      intendedCursorPosition: 'end',
     };
   },
   computed: {
@@ -210,6 +211,20 @@ export default {
       this.activeTokenIdx = idx;
     },
 
+    activatePreviousToken() {
+      if (this.activeTokenIdx > 0) {
+        this.activeTokenIdx -= 1;
+        this.intendedCursorPosition = 'end';
+      }
+    },
+
+    activateNextToken() {
+      if (this.activeTokenIdx < this.value.length) {
+        this.activeTokenIdx += 1;
+        this.intendedCursorPosition = 'start';
+      }
+    },
+
     alignSuggestions(ref) {
       const offsetRef = ref.getBoundingClientRect().left;
       const offsetMenu = this.$el.getBoundingClientRect().left;
@@ -218,6 +233,7 @@ export default {
     },
 
     deactivate(token) {
+      this.intendedCursorPosition = 'end';
       const tokenIdx = this.tokens.indexOf(token);
       if (tokenIdx === -1 || this.activeTokenIdx !== tokenIdx) {
         return;
@@ -341,6 +357,7 @@ export default {
             v-model="token.value"
             :config="getTokenEntry(token.type)"
             :active="activeTokenIdx === idx"
+            :cursor-position="intendedCursorPosition"
             :available-tokens="currentAvailableTokens"
             :current-value="tokens"
             :index="idx"
@@ -359,6 +376,8 @@ export default {
             @complete="completeToken"
             @submit="submit"
             @split="createTokens(idx, $event)"
+            @previous="activatePreviousToken"
+            @next="activateNextToken"
           />
         </template>
       </div>
