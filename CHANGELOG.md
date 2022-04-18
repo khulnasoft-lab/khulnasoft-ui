@@ -1,3 +1,12 @@
+# [38.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.10.2...v38.11.0) (2022-04-18)
+
+
+### Features
+
+* **GlFilteredSearch:** Allow token navigation with arrows ([80844aa](https://gitlab.com/gitlab-org/gitlab-ui/commit/80844aac908452e626d1c3e4fb0c9aef9c8a5e25))
+* **GlFilteredSearch:** Allow token navigation with arrows ([b7d1519](https://gitlab.com/gitlab-org/gitlab-ui/commit/b7d15196145f53bb5d7be0361e7d7a692c2b5dc4))
+* **GlFilteredSearch:** Allow token navigation with arrows ([9f2a449](https://gitlab.com/gitlab-org/gitlab-ui/commit/9f2a44951657a4aeaaa162f1bd31d60231eb8be1))
+
 ## [38.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.10.1...v38.10.2) (2022-04-14)
 
 
