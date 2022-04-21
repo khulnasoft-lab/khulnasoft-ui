@@ -1,3 +1,18 @@
+# [39.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.12.0...v39.0.0) (2022-04-21)
+
+
+### Reverts
+
+* add character counter to gl-form-textarea ([70a7a3f](https://gitlab.com/gitlab-org/gitlab-ui/commit/70a7a3fd9c2729b739020d167043490da72a556b))
+
+
+### BREAKING CHANGES
+
+* The feature added in
+https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2738 has been
+removed, as it causes complications regarding a validator used in
+GitLab. This feature will be reconsidered and re-implemented later.
+
 # [38.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.11.0...v38.12.0) (2022-04-21)
 
 
