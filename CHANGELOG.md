@@ -1,3 +1,15 @@
+# [38.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.11.0...v38.12.0) (2022-04-21)
+
+
+### Bug Fixes
+
+* **Alert:** change Dismiss button DOM order ([5afc9a4](https://gitlab.com/gitlab-org/gitlab-ui/commit/5afc9a4b7f6585d30a09914021219492644b2571))
+
+
+### Features
+
+* **checkbox:** Fix disabled custom control color ([ddcdca9](https://gitlab.com/gitlab-org/gitlab-ui/commit/ddcdca9b5d192cfe1c3710e73ae31c07fac6bd75))
+
 # [38.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.10.2...v38.11.0) (2022-04-18)
 
 
