@@ -1,7 +1,5 @@
 <script>
 import { BFormTextarea } from 'bootstrap-vue';
-import GlSprintf from '../../../utilities/sprintf/sprintf.vue';
-import { textareaCountOptions } from '../../../../utils/constants';
 
 const model = {
   prop: 'value',
@@ -11,7 +9,6 @@ const model = {
 export default {
   components: {
     BFormTextarea,
-    GlSprintf,
   },
   inheritAttrs: false,
   model,
@@ -32,27 +29,6 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    },
-    count: {
-      type: Number,
-      required: false,
-      default: 0,
-    },
-    countType: {
-      required: false,
-      type: String,
-      default: textareaCountOptions.max,
-      validator: (value) => Object.keys(textareaCountOptions).includes(value),
-    },
-    characterCountText: {
-      required: false,
-      type: String,
-      default: '',
-    },
-    characterCountOverLimitText: {
-      required: false,
-      type: String,
-      default: '',
     },
   },
   computed: {
@@ -80,37 +56,6 @@ export default {
     keypressEvent() {
       return this.submitOnEnter ? 'keyup' : null;
     },
-    characters() {
-      return this.value.length;
-    },
-    remainingCharacters() {
-      if (this.count) {
-        return Math.abs(this.count - this.characters);
-      }
-
-      return null;
-    },
-    characterCountClasses() {
-      switch (this.countType) {
-        case textareaCountOptions.max:
-          return {
-            'gl-text-red-500': this.value.length > this.count,
-            'gl-text-gray-500': this.value.length <= this.count,
-          };
-        case textareaCountOptions.recommended:
-          return 'gl-text-gray-500';
-        default:
-          return {};
-      }
-    },
-    hasCount() {
-      return this.remainingCharacters != null;
-    },
-    characterCountMessage() {
-      return this.characters > this.count
-        ? this.characterCountOverLimitText
-        : this.characterCountText;
-    },
   },
   methods: {
     handleKeyPress(e) {
@@ -123,22 +68,12 @@ export default {
 </script>
 
 <template>
-  <div>
-    <b-form-textarea
-      ref="textarea"
-      class="gl-form-input gl-form-textarea"
-      :no-resize="noResize"
-      v-bind="$attrs"
-      :value="value"
-      v-on="listeners"
-      @[keypressEvent].native="handleKeyPress"
-    />
-    <div v-if="hasCount">
-      <small :class="characterCountClasses" aria-live="polite">
-        <gl-sprintf :message="characterCountMessage">
-          <template #count>{{ remainingCharacters }}</template>
-        </gl-sprintf>
-      </small>
-    </div>
-  </div>
+  <b-form-textarea
+    class="gl-form-input gl-form-textarea"
+    :no-resize="noResize"
+    v-bind="$attrs"
+    :value="value"
+    v-on="listeners"
+    @[keypressEvent].native="handleKeyPress"
+  />
 </template>
