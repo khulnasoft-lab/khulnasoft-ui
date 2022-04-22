@@ -1,3 +1,11 @@
+# [39.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.0.0...v39.1.0) (2022-04-22)
+
+
+### Features
+
+* **GlTable:** Add vertical-align: top to table th and td ([4dc5c31](https://gitlab.com/gitlab-org/gitlab-ui/commit/4dc5c318a9c6693e393dce6d12073ad296db928e)), closes [/gitlab.com/gitlab-org/gitlab-ui/-/issues/1759#note_900275198](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/issues/1759/issues/note_900275198)
+* **GlTable:** Update text color and borders ([1379638](https://gitlab.com/gitlab-org/gitlab-ui/commit/137963838f99427ddb271bd7e4204a92dd438fae))
+
 # [39.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v38.12.0...v39.0.0) (2022-04-21)
 
 
