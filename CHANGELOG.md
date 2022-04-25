@@ -1,3 +1,10 @@
+# [39.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.1.0...v39.2.0) (2022-04-25)
+
+
+### Features
+
+* **GlAlert:** Add support for hiding variant icon ([2c5f3a6](https://gitlab.com/gitlab-org/gitlab-ui/commit/2c5f3a67babfc3ddd6f1b5940e11154fdef5902d))
+
 # [39.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.0.0...v39.1.0) (2022-04-22)
 
 
