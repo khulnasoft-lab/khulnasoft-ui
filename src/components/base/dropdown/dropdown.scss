@@ -121,6 +121,10 @@
 
     &.gl-button {
       @include gl-px-3;
+
+      &.btn-sm {
+        @include gl-px-2;
+      }
     }
   }
 
@@ -171,6 +175,10 @@
   .dropdown-icon-only {
     .dropdown-icon {
       @include gl-mr-0;
+    }
+
+    &.btn-sm .dropdown-chevron {
+      @include gl-mx-0;
     }
   }
 
