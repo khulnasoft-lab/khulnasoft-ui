@@ -12,7 +12,10 @@ describe('outside directive', () => {
   // to guarantee it. So, we use 2ms, which seems to eliminate the flakiness.
   // Jest's fake timers unfortunately do not seem to affect event timestamps,
   // so can't be used here.
-  const delay = (ms = 2) => new Promise((resolve) => setTimeout(resolve, ms));
+  const delay = (ms = 2) =>
+    new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
   const find = (testid) => wrapper.find(`[data-testid="${testid}"]`);
 
   const defaultTemplate = `

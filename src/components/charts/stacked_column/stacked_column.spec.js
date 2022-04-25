@@ -13,7 +13,6 @@ import ChartLegend from '../legend/legend.vue';
 import * as themeUtils from '../../../utils/charts/theme';
 import StackedColumnChart from './stacked_column.vue';
 
-
 let mockChartInstance;
 
 jest.mock('echarts', () => ({

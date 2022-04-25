@@ -6,8 +6,6 @@ import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import LineChart from './line.vue';
 
-
-
 let mockChartInstance;
 
 jest.mock('echarts', () => ({
