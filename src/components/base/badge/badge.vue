@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BBadge } from 'bootstrap-vue';
 import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';

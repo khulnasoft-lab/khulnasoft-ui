@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import * as echarts from 'echarts';
 import { uid } from '../../../utils/utils';

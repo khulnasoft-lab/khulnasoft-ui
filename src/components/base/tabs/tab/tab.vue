@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BTab } from 'bootstrap-vue';
 import { isArray, isPlainObject } from 'lodash';

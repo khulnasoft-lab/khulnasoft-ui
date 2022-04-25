@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import debounce from 'lodash/debounce';
 import isFunction from 'lodash/isFunction';

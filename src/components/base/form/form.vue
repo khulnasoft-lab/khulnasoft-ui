@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BForm } from 'bootstrap-vue/src/components/form';
 
