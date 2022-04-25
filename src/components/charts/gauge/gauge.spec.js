@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
+import { createMockChartInstance } from '~helpers/chart_stubs';
 import { gaugeSafeHues, gaugeWarningHue } from '../../../utils/charts/theme';
 import Chart from '../chart/chart.vue';
 import GlGauge from './gauge.vue';
-import { createMockChartInstance } from '~helpers/chart_stubs';
 
 const placeholder = '--';
 

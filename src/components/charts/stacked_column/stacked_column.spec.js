@@ -1,5 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 
+import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
+import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import {
   mockDefaultStackedLineData,
   mockDefaultStackedBarData,
@@ -9,10 +12,7 @@ import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import * as themeUtils from '../../../utils/charts/theme';
 import StackedColumnChart from './stacked_column.vue';
-import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
 
-import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
-import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 
 let mockChartInstance;
 

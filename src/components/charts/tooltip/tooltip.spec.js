@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
+import { createMockChartInstance } from '~helpers/chart_stubs';
 import GlPopover from '../../base/popover/popover.vue';
 import { popoverPlacements } from '../../../utils/constants';
 import ChartTooltip from './tooltip.vue';
-import { createMockChartInstance } from '~helpers/chart_stubs';
 
 let mockChartInstance;
 

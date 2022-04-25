@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-import Chart from '../chart/chart.vue';
-import BarChart from './bar.vue';
 import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
 import { createMockChartInstance } from '~helpers/chart_stubs';
+import Chart from '../chart/chart.vue';
+import BarChart from './bar.vue';
 
 let mockChartInstance;
 

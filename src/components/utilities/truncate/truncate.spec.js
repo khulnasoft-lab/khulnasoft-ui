@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
+import { createMockDirective, getBinding } from '~helpers/vue_mock_directive';
 import { POSITION } from './constants';
 import Truncate from './truncate.vue';
-import { createMockDirective, getBinding } from '~helpers/vue_mock_directive';
 
 const removeSpecialChar = (text) => {
   return text.replace(/&lrm;|\u200E/gi, '');

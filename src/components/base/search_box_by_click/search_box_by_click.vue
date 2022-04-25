@@ -237,7 +237,7 @@ export default {
             @click="selectHistoryItem(item)"
           >
             <!-- @slot Slot to customize history item in history dropdown. Used only with history-items prop -->
-            <slot name="history-item" :historyItem="item">{{ item }}</slot>
+            <slot name="history-item" :history-item="item">{{ item }}</slot>
           </gl-dropdown-item>
           <gl-dropdown-divider />
           <gl-dropdown-item ref="clearHistory" @click="emitClearHistory">{{
