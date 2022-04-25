@@ -6,6 +6,7 @@ const template = `
   <gl-alert
     :title="title"
     :dismissible="dismissible"
+    :show-icon="showIcon"
     :dismiss-label="dismissLabel"
     :variant="variant"
     :primary-button-text="primaryButtonText"
@@ -21,6 +22,7 @@ const generateProps = ({
   title = defaultValue('title'),
   variant = defaultValue('variant'),
   dismissible = defaultValue('dismissible'),
+  showIcon = defaultValue('showIcon'),
   dismissLabel = defaultValue('dismissLabel'),
   primaryButtonText = defaultValue('primaryButtonText'),
   primaryButtonLink = defaultValue('primaryButtonLink'),
@@ -32,6 +34,7 @@ const generateProps = ({
   message: 'Lorem ipsum dolor sit amet',
   variant,
   dismissible,
+  showIcon,
   dismissLabel,
   primaryButtonText,
   primaryButtonLink,
@@ -89,6 +92,17 @@ export const TextLinks = () => ({
     </gl-alert>`,
 });
 TextLinks.parameters = {
+  storyshots: { disable: true },
+};
+
+export const NoIcon = () => ({
+  components: { GlAlert },
+  template: `
+    <gl-alert :show-icon="false">
+      Lorem ipsum dolor sit amet
+    </gl-alert>`,
+});
+NoIcon.parameters = {
   storyshots: { disable: true },
 };
 

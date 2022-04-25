@@ -29,6 +29,14 @@ export default {
       default: true,
     },
     /**
+     * Shows icon based on variant.
+     */
+    showIcon: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    /**
      * Dismiss button's aria-label.
      */
     dismissLabel: {
@@ -165,10 +173,12 @@ export default {
       'gl-alert',
       { 'gl-alert-sticky': sticky },
       { 'gl-alert-not-dismissible': !dismissible },
+      { 'gl-alert-no-icon': !showIcon },
       variantClass,
     ]"
   >
     <gl-icon
+      v-if="showIcon"
       :name="iconName"
       :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
     />
