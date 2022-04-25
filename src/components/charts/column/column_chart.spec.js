@@ -28,7 +28,7 @@ describe('column chart component', () => {
   const findTooltip = () => wrapper.findComponent(ChartTooltipStub);
   const getChartOptions = () => findChart().props('options');
 
-  const factory = (props = defaultChartProps, slots) => {
+  const factory = (props = defaultChartProps, slots = {}) => {
     wrapper = shallowMount(ColumnChart, {
       propsData: { ...props },
       stubs: {

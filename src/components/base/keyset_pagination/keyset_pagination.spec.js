@@ -10,7 +10,7 @@ describe('GlKeysetPagination', () => {
   const buttonTagName = 'BUTTON';
   const linkTagName = 'A';
 
-  const createComponent = (props = {}, scopedSlots) => {
+  const createComponent = (props = {}, scopedSlots = {}) => {
     wrapper = mount(GlKeysetPagination, {
       propsData: props,
       scopedSlots,
