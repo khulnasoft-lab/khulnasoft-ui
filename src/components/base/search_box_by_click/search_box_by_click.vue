@@ -269,7 +269,7 @@ export default {
       data-testid="filtered-search-clear-button"
       @click="clearInput"
     />
-    <template #append class="gl-search-box-by-click-input-group-control">
+    <template #append>
       <gl-button
         v-bind="searchButtonAttributes"
         ref="searchButton"
