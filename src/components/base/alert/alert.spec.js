@@ -20,6 +20,7 @@ describe('Alert component', () => {
     });
   };
 
+  const findIcon = () => wrapper.find('.gl-alert-icon');
   const findDismissButton = () => wrapper.findComponent({ ref: 'dismiss' });
   const findTitle = () => wrapper.find('.gl-alert-title');
   const findBodyContainer = () => wrapper.find('.gl-alert-body');
@@ -29,6 +30,10 @@ describe('Alert component', () => {
   describe('by default', () => {
     beforeEach(() => {
       createComponent({ slots: { default: DummyComponent } });
+    });
+
+    it('renders a variant icon', () => {
+      expect(findIcon().exists()).toBe(true);
     });
 
     it('renders a dismiss button', () => {
@@ -52,6 +57,12 @@ describe('Alert component', () => {
     it('renders default slot content', () => {
       expect(findBodyContainer().findComponent(DummyComponent).exists()).toBe(true);
     });
+  });
+
+  it('does not render a variant icon when showIcon = false', () => {
+    createComponent({ propsData: { showIcon: false } });
+
+    expect(findIcon().exists()).toBe(false);
   });
 
   it('does not render a dismiss button when dismissible = false', () => {

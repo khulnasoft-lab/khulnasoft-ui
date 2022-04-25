@@ -8,6 +8,10 @@
     @include gl-pr-5;
   }
 
+  &-no-icon {
+    @include gl-pl-5;
+  }
+
   .gl-link:not(.gl-label-link) {
     @include gl-text-blue-600;
     @include gl-text-decoration-underline;
