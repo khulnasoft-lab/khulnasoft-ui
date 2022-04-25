@@ -1,3 +1,10 @@
+## [39.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.2.0...v39.2.1) (2022-04-25)
+
+
+### Bug Fixes
+
+* **GlDropdown:** correct small button spacing ([bfed939](https://gitlab.com/gitlab-org/gitlab-ui/commit/bfed939fb34acf25162f6ef5b42591d00071886b))
+
 # [39.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.1.0...v39.2.0) (2022-04-25)
 
 
