@@ -21,12 +21,6 @@ const commonActions = [
   },
   {
     type: 'append',
-    pattern: 'ADD EXPORTS - needed for yarn generate:component. Do not remove',
-    path: 'documentation/components_documentation.js',
-    template: `export { default as Gl{{pascalCase name}}Documentation } from '..{{componentDir}}/{{name}}.documentation';`,
-  },
-  {
-    type: 'append',
     pattern: 'ADD COMPONENT IMPORTS - needed for yarn generate:component. Do not remove',
     path: 'src/scss/components.scss',
     template: `@import '..{{innerDir}}/{{name}}';`,
@@ -96,11 +90,6 @@ module.exports = (plop) => {
           path: `{{componentDirAbsolute}}/{{name}}.md`,
           templateFile: `${templateFolder}/component.md.hbs`,
         },
-        {
-          type: 'add',
-          path: `{{componentDirAbsolute}}/{{name}}.documentation.js`,
-          templateFile: `${templateFolder}/documentation.js.hbs`,
-        },
       ];
 
       return actions;
@@ -126,16 +115,6 @@ module.exports = (plop) => {
           type: 'add',
           path: `{{componentDirAbsolute}}/{{name}}.vue`,
           templateFile: `${templateFolder}/bs_component.vue.hbs`,
-        },
-        {
-          type: 'add',
-          path: `{{componentDirAbsolute}}/{{name}}.md`,
-          templateFile: `${templateFolder}/bs_documentation.md.hbs`,
-        },
-        {
-          type: 'add',
-          path: `{{componentDirAbsolute}}/{{name}}.documentation.js`,
-          templateFile: `${templateFolder}/bs_documentation.js.hbs`,
         },
       ];
 

@@ -16,14 +16,9 @@ module.exports = ({ config }) => {
       test: /src\/components\/.*\.vue$/,
       loader: 'vue-docgen-loader',
       enforce: 'post',
-      exclude: /\.example\.vue$/,
     },
     {
       test: /\.(md|html)$/,
-      loader: 'raw-loader',
-    },
-    {
-      test: /\.example\.vue$/,
       loader: 'raw-loader',
     },
     {
@@ -50,9 +45,6 @@ module.exports = ({ config }) => {
             insert: function (styles) {
               document.head.appendChild(styles);
             },
-            attributes: {
-              'data-gitlab-ui-style': true,
-            },
           },
         },
         'css-loader',
@@ -65,7 +57,6 @@ module.exports = ({ config }) => {
     },
     {
       test: /\.vue$/,
-      exclude: /\.example\.vue$/,
       loader: 'vue-loader',
     },
     {

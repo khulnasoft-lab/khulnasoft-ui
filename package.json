@@ -17,8 +17,7 @@
   "files": [
     "src",
     "dist",
-    "scss_to_js",
-    "documentation"
+    "scss_to_js"
   ],
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
@@ -56,17 +55,12 @@
     "generate:component": "plop"
   },
   "dependencies": {
-    "@babel/standalone": "^7.0.0",
     "bootstrap-vue": "2.20.1",
-    "copy-to-clipboard": "^3.0.8",
     "dompurify": "^2.3.6",
     "echarts": "^5.2.1",
-    "highlight.js": "^10.6.0",
     "iframe-resizer": "^4.3.2",
-    "js-beautify": "^1.8.8",
     "lodash": "^4.17.20",
     "portal-vue": "^2.1.6",
-    "url-search-params-polyfill": "^5.0.0",
     "vue-runtime-helpers": "^1.1.2"
   },
   "peerDependencies": {
@@ -132,7 +126,6 @@
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^2.1.1",
     "prettier": "2.2.1",
-    "pug": "^2.0.3",
     "puppeteer": "11.0.0",
     "raw-loader": "^0.5.1",
     "rollup": "^2.53.1",
@@ -149,10 +142,10 @@
     "stylelint": "14.3.0",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-prettier": "2.0.0",
-    "vue": "^2.6.11",
+    "vue": "2.6.11",
     "vue-jest": "4.0.0-rc.0",
     "vue-loader": "^15.8.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "2.6.11"
   },
   "release": {
     "branches": [
