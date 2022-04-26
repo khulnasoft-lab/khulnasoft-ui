@@ -1,3 +1,10 @@
+## [39.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.3.0...v39.3.1) (2022-04-26)
+
+
+### Bug Fixes
+
+* **GlModal:** Ensure modal dialog has an accessible name ([5b35a67](https://gitlab.com/gitlab-org/gitlab-ui/commit/5b35a6757c510740191d336b14eeed71886a2066))
+
 # [39.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.2.1...v39.3.0) (2022-04-26)
 
 
