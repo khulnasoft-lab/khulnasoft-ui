@@ -16,7 +16,6 @@ module.exports = {
   modulePathIgnorePatterns: ['cypress/integration', '.cypress_cache'],
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '.*\\.example.(vue)$': 'vue-jest',
     '.*\\.(vue)$': 'vue-jest',
     '\\.(svg|html|md)$': 'jest-raw-loader',
   },

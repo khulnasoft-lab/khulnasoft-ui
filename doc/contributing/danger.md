@@ -18,9 +18,3 @@ Foundations designer can be assigned.
 
 Danger checks commit formatting to ensure that they follow our [commit conventions](./commits.md)
 and to give some hints on what kind of version will be released when they are merged.
-
-## Examples
-
-We are currently [migrating GitLab UI stories to a new format](https://gitlab.com/groups/gitlab-org/-/epics/5651).
-As part of this migration, we are [deprecating component examples](../../FAQ.md#i-used-to-write-examples-in-addition-to-stories-is-that-still-a-thing).
-Danger shows a warning whenever an example is added or changed.
