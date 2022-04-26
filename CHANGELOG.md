@@ -1,3 +1,10 @@
+# [39.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.2.1...v39.3.0) (2022-04-26)
+
+
+### Features
+
+* **focus:** Improve :focus styles ([9fb0d1d](https://gitlab.com/gitlab-org/gitlab-ui/commit/9fb0d1d440a65dde28ae220870dfc001e2b28990))
+
 ## [39.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.2.0...v39.2.1) (2022-04-25)
 
 
