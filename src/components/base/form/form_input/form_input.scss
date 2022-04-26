@@ -25,7 +25,7 @@
   }
 
   &:not(.form-control-plaintext):focus {
-    @include gl-focus($gl-border-size-1, $gray-900);
+    @include gl-focus($color: $gray-900);
     @include gl-text-gray-900;
   }
 
@@ -34,7 +34,7 @@
     background-image: none;
 
     &:focus {
-      @include gl-focus($gl-border-size-1, $red-500);
+      @include gl-focus($color: $red-500);
     }
   }
 

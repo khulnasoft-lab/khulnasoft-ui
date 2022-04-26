@@ -7,6 +7,6 @@
   outline: 0;
 }
 
-@mixin gl-outline-none($focus: true) {
+@mixin gl-outline-none {
   outline: none;
 }

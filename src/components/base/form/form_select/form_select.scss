@@ -25,7 +25,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   &:active,
   &:focus,
   &:focus:active {
-    @include gl-focus($gl-border-size-1, $gray-900, true);
+    @include gl-focus($color: $gray-900, $important: true);
   }
 
   &:disabled {
@@ -44,7 +44,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
     @include gl-inset-border-1-red-400;
 
     &:focus {
-      @include gl-focus($gl-border-size-1, $red-500, true);
+      @include gl-focus($color: $red-500, $important: true);
     }
 
     &:hover {

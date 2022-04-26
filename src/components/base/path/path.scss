@@ -6,7 +6,8 @@ $path-chevron-dimension: px-to-rem(24px);
 $path-chevron-border-radius: px-to-rem(10px);
 $path-chevron-tip-border-radius: px-to-rem(2px);
 $path-button-right-padding: 1.25 * $grid-size;
-$path-chevron-drop-shadow: drop-shadow(0 0 px-to-rem(1px) $blue-500);
+$path-chevron-drop-shadow: drop-shadow(0 0 px-to-rem(1px) $white)
+  drop-shadow(0 0 px-to-rem(2px) $blue-500);
 $path-chevron-transformation: rotate(45deg) skew(14deg, 14deg);
 $path-chevron-right-margin: px-to-rem(14px);
 
@@ -46,14 +47,17 @@ $path-chevron-right-margin: px-to-rem(14px);
     @include gl-list-style-none;
     @include gl-display-inline-flex;
     @include gl-overflow-hidden;
+    margin-left: -1px;
   }
 
   .gl-path-nav-list-item {
-    @include gl-overflow-hidden;
     @include gl-min-w-fit-content;
+    padding-top: 1px;
+    padding-bottom: 1px;
 
-    &:focus-within {
-      filter: $path-chevron-drop-shadow;
+    // Fix for custom focus
+    &:first-of-type {
+      padding-left: 1px;
     }
   }
 
@@ -74,8 +78,19 @@ $path-chevron-right-margin: px-to-rem(14px);
     padding-right: $path-button-right-padding;
     margin-right: $path-chevron-right-margin;
 
+    &::before,
     &::after {
       @include gl-path-chevron;
+    }
+
+    // Pseudo focus element
+    &::before {
+      display: none;
+      z-index: 2;
+      right: calc(-0.75rem + 1px);
+      box-shadow: 0 0 0 1px $white, 0.5px -0.5px 0 2.5px $blue-400;
+      clip-path: polygon(0% 0%, 0% -30%, 160% 0%, 75% 130%, 100% 100%);
+      transform: rotate(45deg) skew(14deg, 14deg) scale(0.99);
     }
 
     &[disabled] {
@@ -91,7 +106,16 @@ $path-chevron-right-margin: px-to-rem(14px);
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-focus;
+      // Custom focus
+      border-top-right-radius: 1px;
+      border-bottom-right-radius: 1px;
+      box-shadow: 5px -3px 0 -2px $white, 5px 3px 0 -2px $white, 0 0 0 1px $white,
+        0 0 0 3px $blue-400;
+      outline: none;
+
+      &::before {
+        display: block;
+      }
     }
   }
 

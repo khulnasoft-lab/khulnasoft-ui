@@ -1,21 +1,21 @@
 .gl-close-btn-color-inherit {
-  color: inherit !important;
   mix-blend-mode: luminosity !important;
 
-  &:hover {
-    background-color: $gray-300 !important;
+  &,
+  &:focus .gl-icon,
+  &:not(:hover) .gl-icon {
+    color: inherit !important;
   }
 
-  &:focus {
-    background-color: $gray-400 !important;
-  }
-
+  &:focus,
   &:active,
   &.active {
-    background-color: $gray-400 !important;
-  }
+    mix-blend-mode: initial !important;
+    @include gl-focus($important: true, $focus-ring: $focus-ring-dark);
 
-  .gl-icon {
-    color: inherit !important;
+    .gl-icon {
+      background-color: transparent;
+      mix-blend-mode: difference;
+    }
   }
 }

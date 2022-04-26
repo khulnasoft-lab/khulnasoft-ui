@@ -32,6 +32,7 @@
   &:focus:active {
     // allow the focus ring to be placed on the avatar image instead of parent anchor so that the focus ring takes the rounded shapes of the avatars
     box-shadow: none !important;
+    outline: none !important;
 
     .gl-avatar {
       @include gl-focus;
