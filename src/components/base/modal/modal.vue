@@ -6,7 +6,7 @@ import {
   modalButtonDefaults,
   modalSizeOptions,
 } from '../../../utils/constants';
-import { focusFirstFocusableElement } from '../../../utils/utils';
+import { focusFirstFocusableElement, logWarning } from '../../../utils/utils';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlButton from '../button/button.vue';
 
@@ -79,6 +79,11 @@ export default {
       required: false,
       default: false,
     },
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
     shouldRenderModalOk() {
@@ -95,6 +100,13 @@ export default {
           this.$slots['modal-footer']
       );
     },
+  },
+  mounted() {
+    if (!this.ariaLabel && !this.title) {
+      logWarning(
+        '[gl-modal]: Accessible name for modal missing. Please add title prop or aria-label.'
+      );
+    }
   },
   methods: {
     show() {
@@ -165,6 +177,7 @@ export default {
     :title-tag="titleTag"
     :size="size"
     :visible="visible"
+    :aria-label="ariaLabel || title"
     v-bind="$attrs"
     lazy
     :modal-class="['gl-modal', modalClass]"
