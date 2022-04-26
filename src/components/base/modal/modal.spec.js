@@ -3,6 +3,7 @@ import { BModal } from 'bootstrap-vue';
 import { merge } from 'lodash';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import Button from '../button/button.vue';
+import { logWarning } from '../../../utils/utils';
 import Modal from './modal.vue';
 import { modalButtonDefaults } from '~/utils/constants';
 
@@ -20,6 +21,10 @@ const BModalStub = merge({}, BModal.options, {
     return h('div', Object.values(this.$slots));
   },
 });
+
+jest.mock('../../../utils/utils', () => ({
+  logWarning: jest.fn(),
+}));
 
 describe('Modal component', () => {
   let wrapperListeners;
@@ -214,6 +219,21 @@ describe('Modal component', () => {
     it('should emit closed', () => {
       expect(wrapperListeners.secondary).not.toHaveBeenCalled();
       expect(wrapperListeners.close).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('accessible name warning', () => {
+    it.each`
+      description                                            | title            | ariaLabel        | showWarning
+      ${'is logged when there is no title or ariaLabel'}     | ${undefined}     | ${undefined}     | ${true}
+      ${'is not logged when there is a title'}               | ${'modal title'} | ${undefined}     | ${false}
+      ${'is not logged when there is an ariaLabel'}          | ${undefined}     | ${'modal title'} | ${false}
+      ${'is not logged when there is a title and ariaLabel'} | ${'modal title'} | ${'modal title'} | ${false}
+    `('$description', ({ title, ariaLabel, showWarning }) => {
+      createComponent({ props: { title, ariaLabel } });
+
+      const calledTimes = showWarning ? 1 : 0;
+      expect(logWarning).toHaveBeenCalledTimes(calledTimes);
     });
   });
 
