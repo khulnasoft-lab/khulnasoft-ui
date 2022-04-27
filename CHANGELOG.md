@@ -1,3 +1,10 @@
+## [39.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.3.1...v39.3.2) (2022-04-27)
+
+
+### Bug Fixes
+
+* **GlButton:** Fix button text color in dark mode ([61267e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/61267e3ce3c80d0592e5fe7e6458c86ab6ff3979))
+
 ## [39.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.3.0...v39.3.1) (2022-04-26)
 
 
