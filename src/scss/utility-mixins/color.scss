@@ -19,6 +19,10 @@
   color: $white;
 }
 
+@mixin gl-text-contrast-light {
+  color: $white-contrast;
+}
+
 @mixin gl-text-body {
   color: $body-color;
 }
