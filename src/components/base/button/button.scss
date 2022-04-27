@@ -136,7 +136,7 @@
   &.btn-success,
   &.btn-danger,
   &.btn-warning {
-    @include gl-text-white;
+    @include gl-text-contrast-light;
   }
 
   &.btn-confirm,
