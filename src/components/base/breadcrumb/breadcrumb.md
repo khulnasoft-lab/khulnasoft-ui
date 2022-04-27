@@ -18,7 +18,7 @@ to draw a `/`
     <img 
       alt=""
       class="gl-breadcrumb-avatar-tile"
-      src="https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=16"
+      src="/path/to/image.png"
       width="16"
       height="16"
     />

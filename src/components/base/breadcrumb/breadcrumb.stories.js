@@ -1,4 +1,5 @@
 import { GlBreadcrumb } from '../../../index';
+import avatarPath from '../../../../static/img/avatar.png';
 import readme from './breadcrumb.md';
 
 const template = `
@@ -7,7 +8,7 @@ const template = `
     >
       <template #avatar>
         <img alt=""
-            class="gl-breadcrumb-avatar-tile" src="https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=16"
+            class="gl-breadcrumb-avatar-tile" src="${avatarPath}"
             width="16"
             height="16" />
       </template>
