@@ -64,6 +64,13 @@ module.exports = ({ config }) => {
       loader: 'file-loader',
     },
     {
+      test: /\/static\/img\//,
+      loader: 'file-loader',
+      options: {
+        outputPath: 'static',
+      },
+    },
+    {
       test: /\.js$/,
       exclude: /node_modules\/(?!(bootstrap-vue)\/).*/,
       use: {

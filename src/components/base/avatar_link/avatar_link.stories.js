@@ -1,5 +1,6 @@
 import { GlAvatarLink, GlAvatar, GlAvatarLabeled } from '../../../index';
 import { avatarSizeOptions, avatarShapeOptions } from '../../../utils/constants';
+import avatarPath from '../../../../static/img/avatar.png';
 import readme from './avatar_link.md';
 
 const components = { GlAvatarLink, GlAvatar, GlAvatarLabeled };
@@ -19,9 +20,7 @@ const generateLabelsProps = ({ label = 'GitLab User', subLabel = '@gitlab' } = {
   subLabel,
 });
 
-const generateImageProps = ({
-  src = 'https://assets.gitlab-static.net/uploads/-/system/project/avatar/278964/logo-extra-whitespace.png?width=64',
-} = {}) => ({
+const generateImageProps = ({ src = avatarPath } = {}) => ({
   src,
 });
 

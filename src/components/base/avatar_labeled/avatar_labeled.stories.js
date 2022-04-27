@@ -2,6 +2,7 @@ import Vue from 'vue';
 import { GlAvatarLabeled, GlBadge } from '../../../index';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
+import avatarPath from '../../../../static/img/avatar.png';
 import readme from './avatar_labeled.md';
 
 Vue.directive('gl-tooltip', GlTooltipDirective);
@@ -13,7 +14,7 @@ const generateProps = ({
   subLabel = '@gitlab',
   size = 32,
   shape = 'circle',
-  src = 'https://assets.gitlab-static.net/uploads/-/system/group/avatar/9970/logo-extra-whitespace.png?width=64',
+  src = avatarPath,
 } = {}) => ({
   label,
   subLabel,
