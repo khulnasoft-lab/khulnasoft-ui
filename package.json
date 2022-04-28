@@ -55,6 +55,7 @@
     "generate:component": "plop"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.2",
     "bootstrap-vue": "2.20.1",
     "dompurify": "^2.3.6",
     "echarts": "^5.2.1",

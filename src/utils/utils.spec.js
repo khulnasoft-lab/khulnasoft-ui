@@ -1,4 +1,4 @@
-import { isElementFocusable, focusFirstFocusableElement } from './utils';
+import { isElementFocusable, focusFirstFocusableElement, stopEvent } from './utils';
 
 describe('isElementFocusable', () => {
   const myBtn = () => document.querySelector('button');
@@ -75,5 +75,45 @@ describe('focusFirstFocusableElement', () => {
     focusFirstFocusableElement([myBtn(), myInput()]);
 
     expect(document.activeElement).toBe(myInput());
+  });
+});
+
+describe('stopEvent', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  const event = {
+    preventDefault: jest.fn(),
+    stopPropagation: jest.fn(),
+    stopImmediatePropagation: jest.fn(),
+  };
+
+  it('calls preventDefault and stopPropagation by default', () => {
+    stopEvent(event);
+
+    expect(event.preventDefault).toHaveBeenCalledTimes(1);
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1);
+    expect(event.stopImmediatePropagation).not.toHaveBeenCalled();
+  });
+
+  it('completely stops the event when stopImmediatePropagation is true', () => {
+    stopEvent(event, { stopImmediatePropagation: true });
+
+    expect(event.preventDefault).toHaveBeenCalledTimes(1);
+    expect(event.stopPropagation).toHaveBeenCalledTimes(1);
+    expect(event.stopImmediatePropagation).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls event stop methods set to true', () => {
+    stopEvent(event, {
+      preventDefault: false,
+      stopPropagation: false,
+      stopImmediatePropagation: true,
+    });
+
+    expect(event.preventDefault).not.toHaveBeenCalled();
+    expect(event.stopPropagation).not.toHaveBeenCalled();
+    expect(event.stopImmediatePropagation).toHaveBeenCalledTimes(1);
   });
 });
