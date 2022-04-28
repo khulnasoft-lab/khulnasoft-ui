@@ -20,6 +20,7 @@
 .gl-new-dropdown-item {
   .dropdown-item {
     @include gl-tmp-dropdown-item-style;
+    @include gl-cursor-pointer;
 
     .gl-avatar {
       @include gl-flex-shrink-0;

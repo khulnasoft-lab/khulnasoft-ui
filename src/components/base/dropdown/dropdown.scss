@@ -128,8 +128,14 @@
     }
   }
 
-  .gl-dropdown-toggle.btn-block {
-    @include gl-justify-content-space-between;
+  .gl-dropdown-toggle {
+    &.btn-block {
+      @include gl-justify-content-space-between;
+    }
+
+    .gl-button-text {
+      @include gl-display-inline-flex;
+    }
   }
 
   .gl-new-dropdown-button-text {
@@ -173,7 +179,8 @@
   }
 
   .dropdown-icon-only {
-    .dropdown-icon {
+    .dropdown-icon,
+    .gl-button-icon.gl-button-icon {
       @include gl-mr-0;
     }
 

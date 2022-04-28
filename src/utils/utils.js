@@ -122,3 +122,21 @@ export function logWarning(message = '') {
     console.warn(message); // eslint-disable-line no-console
   }
 }
+
+/**
+ * Stop default event handling and propagation
+ */
+export function stopEvent(
+  event,
+  { preventDefault = true, stopPropagation = true, stopImmediatePropagation = false } = {}
+) {
+  if (preventDefault) {
+    event.preventDefault();
+  }
+  if (stopPropagation) {
+    event.stopPropagation();
+  }
+  if (stopImmediatePropagation) {
+    event.stopImmediatePropagation();
+  }
+}
