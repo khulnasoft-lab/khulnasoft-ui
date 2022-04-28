@@ -7,13 +7,15 @@ const generateProps = ({ href = '#', target = null } = {}) => ({
   target,
 });
 
-const makeStory = (options) => (args, { argTypes }) => ({
-  components: {
-    GlLink,
-  },
-  props: Object.keys(argTypes),
-  ...options,
-});
+const makeStory =
+  (options) =>
+  (args, { argTypes }) => ({
+    components: {
+      GlLink,
+    },
+    props: Object.keys(argTypes),
+    ...options,
+  });
 
 export const DefaultLink = makeStory({
   components: { GlLink },

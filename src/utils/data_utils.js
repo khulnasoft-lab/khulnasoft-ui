@@ -2,27 +2,8 @@ import curry from 'lodash/fp/curry';
 
 const getRepeatingValue = (index) => {
   const values = [
-    100,
-    500,
-    400,
-    200,
-    100,
-    800,
-    400,
-    500,
-    600,
-    300,
-    800,
-    900,
-    110,
-    700,
-    400,
-    300,
-    500,
-    300,
-    400,
-    600,
-    700,
+    100, 500, 400, 200, 100, 800, 400, 500, 600, 300, 800, 900, 110, 700, 400, 300, 500, 300, 400,
+    600, 700,
   ];
   return index < values.length ? values[index] : values[index % values.length];
 };
