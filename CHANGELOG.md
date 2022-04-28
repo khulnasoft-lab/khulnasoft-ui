@@ -1,3 +1,10 @@
+# [39.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.3.2...v39.4.0) (2022-04-28)
+
+
+### Features
+
+* **GlListbox:** create listbox component ([dcc7eae](https://gitlab.com/gitlab-org/gitlab-ui/commit/dcc7eae54db81de1c922857c990f89ceb0e1c694))
+
 ## [39.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.3.1...v39.3.2) (2022-04-27)
 
 
