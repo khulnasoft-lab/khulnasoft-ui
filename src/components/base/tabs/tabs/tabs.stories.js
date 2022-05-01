@@ -1,5 +1,6 @@
 import { range } from 'lodash';
 import { GlTabs, GlTab, GlScrollableTabs, GlBadge } from '../../../../index';
+import { badgeVariantOptions } from '../../../../utils/constants';
 import readme from './tabs.md';
 
 const components = {
@@ -152,28 +153,18 @@ export const WithCounterBadges = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { ...components, GlBadge },
   template: wrap(`
-    <gl-tab>
+    <gl-tab 
+      v-for="variant in $options.badgeVariantOptions"
+      :key="variant"
+    >
       <template #title>
         <span>Tab</span>
-        <gl-badge size="sm" class="gl-tab-counter-badge">500</gl-badge>
+        <gl-badge size="sm" class="gl-tab-counter-badge" :variant="variant">500</gl-badge>
         <span class="sr-only">items</span>
       </template>
-      Tab panel 1
-    </gl-tab>
-    <gl-tab>
-      <template #title>
-        <span>Tab</span>
-        <gl-badge size="sm" class="gl-tab-counter-badge">250</gl-badge>
-        <span class="sr-only">items</span>
-      </template>
-      Tab panel 2
-    </gl-tab>
-    <gl-tab>
-      <template #title>
-        <span>Tab</span>
-      </template>
-      Tab panel 3
+      Tab panel {{ variant }}
     </gl-tab>`),
+  badgeVariantOptions,
 });
 
 export const WithActions = (_args, { argTypes }) => ({
