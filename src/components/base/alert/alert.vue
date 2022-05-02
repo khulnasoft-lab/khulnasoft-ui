@@ -182,7 +182,7 @@ export default {
     />
 
     <div class="gl-alert-content" role="alert">
-      <h4 v-if="title" class="gl-alert-title">{{ title }}</h4>
+      <h2 v-if="title" class="gl-alert-title">{{ title }}</h2>
 
       <div class="gl-alert-body">
         <!-- @slot The alert message to display. -->

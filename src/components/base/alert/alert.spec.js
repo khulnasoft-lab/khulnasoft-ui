@@ -60,13 +60,15 @@ describe('Alert component', () => {
     expect(findDismissButton().exists()).toBe(false);
   });
 
-  it('renders the provided title', () => {
+  it('renders the provided title with heading level 2', () => {
     const title = 'foo';
     createComponent({ propsData: { title } });
 
     const titleWrapper = findTitle();
     expect(titleWrapper.exists()).toBe(true);
     expect(titleWrapper.text()).toContain(title);
+    // the title needs to be in a level 2 heading for accessibility reasons
+    expect(titleWrapper.element.tagName).toEqual('H2');
   });
 
   describe('given primaryButtonText', () => {
