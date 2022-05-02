@@ -1,3 +1,15 @@
+# [39.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.4.0...v39.5.0) (2022-05-02)
+
+
+### Bug Fixes
+
+* **Alert:** Change title heading level from 4 to 2 ([0d69125](https://gitlab.com/gitlab-org/gitlab-ui/commit/0d69125fd7ef23ef6fe8eeb2d5395b6dc5dbde09))
+
+
+### Features
+
+* Add gl--flex-center composite class ([d1b3153](https://gitlab.com/gitlab-org/gitlab-ui/commit/d1b315356dfb07e718d67df0c16d0e43c48c1f55))
+
 # [39.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.3.2...v39.4.0) (2022-04-28)
 
 
