@@ -1,6 +1,7 @@
 import { range } from 'lodash';
 import { GlTabs, GlTab, GlScrollableTabs, GlBadge } from '../../../../index';
 import { badgeVariantOptions } from '../../../../utils/constants';
+import { disableControls } from '../../../../utils/stories_utils';
 import readme from './tabs.md';
 
 const components = {
@@ -8,11 +9,13 @@ const components = {
   GlTab,
 };
 
+const defaultValue = (prop) => GlTabs.props[prop].default;
+
 const generateProps = ({
-  justified,
-  actionPrimary = null,
-  actionSecondary = null,
-  actionTertiary = null,
+  justified = defaultValue('justified'),
+  actionPrimary = defaultValue('actionPrimary'),
+  actionSecondary = defaultValue('actionSecondary'),
+  actionTertiary = defaultValue('actionTertiary'),
 } = {}) => ({
   justified,
   actionPrimary,
@@ -239,10 +242,12 @@ export default {
     },
   },
   argTypes: {
-    contentClass: { control: { disable: true } },
-    navClass: { control: { disable: true } },
-    syncActiveTabWithQueryParams: { control: { disable: true } },
-    queryParamName: { control: { disable: true } },
-    value: { control: { disable: true } },
+    ...disableControls([
+      'contentClass',
+      'navClass',
+      'syncActiveTabWithQueryParams',
+      'queryParamName',
+      'value',
+    ]),
   },
 };
