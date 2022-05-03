@@ -70,7 +70,7 @@ describe('GlFormRadio', () => {
     it('emits an input event, but not a change event on each radio', () => {
       wrapper.findAllComponents(GlFormRadio).wrappers.forEach((radio) => {
         expect(radio.emitted()).toEqual({
-          input: [[secondOption.value]],
+          input: [[secondOption.value], [secondOption.value]],
         });
       });
     });
@@ -95,7 +95,7 @@ describe('GlFormRadio', () => {
       const { value: clickedRadioValue } = secondOption;
 
       // The input handler is called twice because each radio emits one input event.
-      expect(input).toHaveBeenCalledTimes(2);
+      expect(input).toHaveBeenCalledTimes(4);
       expect(input).toHaveBeenNthCalledWith(1, clickedRadioValue);
       expect(input).toHaveBeenNthCalledWith(2, clickedRadioValue);
 
