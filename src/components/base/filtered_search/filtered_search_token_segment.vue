@@ -79,7 +79,8 @@ export default {
     },
     cursorPosition: {
       type: String,
-      required: true,
+      required: false,
+      default: 'end',
       validator: (value) => ['start', 'end'].includes(value),
     },
   },
@@ -346,6 +347,7 @@ export default {
         @keydown="handleInputKeydown"
         @blur="handleBlur"
       />
+
       <portal :key="`operator-${_uid}`" :to="portalName">
         <gl-filtered-search-suggestion-list
           v-if="hasOptionsOrSuggestions"
@@ -361,11 +363,10 @@ export default {
               :value="option.value"
               :icon-name="option.icon"
             >
-              <slot name="option" v-bind="{ option }">
-                {{ option[optionTextField] }}
-              </slot>
+              <slot name="option" v-bind="{ option }"> {{ option[optionTextField] }} </slot>
             </gl-filtered-search-suggestion>
           </template>
+
           <slot v-else name="suggestions"></slot>
         </gl-filtered-search-suggestion-list>
       </portal>
