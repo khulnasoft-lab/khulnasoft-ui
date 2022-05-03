@@ -1,3 +1,10 @@
+# [39.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.5.1...v39.6.0) (2022-05-03)
+
+
+### Features
+
+* **css:** Implement blockquote styles ([6297a38](https://gitlab.com/gitlab-org/gitlab-ui/commit/6297a3853aff81fdfd98af223cfc17fd29888829))
+
 ## [39.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.5.0...v39.5.1) (2022-05-03)
 
 
