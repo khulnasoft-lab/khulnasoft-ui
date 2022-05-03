@@ -73,7 +73,7 @@ describe('Infinite Scroll component', () => {
 
     expect(wrapper.emitted('bottomReached')).toBeFalsy();
 
-    mockScrollTo({ top: INITIAL_HEIGHT });
+    mockScrollTo({ top: INITIAL_HEIGHT - 0.5 });
     expect(wrapper.emitted('bottomReached')).toBeTruthy();
   });
 

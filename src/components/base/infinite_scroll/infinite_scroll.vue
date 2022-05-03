@@ -138,7 +138,7 @@ export default {
       return this.$refs.infiniteContainer.scrollTop;
     },
     handleScroll: throttle(function handleScrollThrottled() {
-      if (this.scrollTop() + this.maxListHeight >= this.itemsListHeight()) {
+      if (Math.round(this.scrollTop()) + this.maxListHeight >= this.itemsListHeight()) {
         this.bottomReached();
       } else if (this.scrollTop() === 0) {
         this.topReached();
