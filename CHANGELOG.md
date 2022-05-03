@@ -1,3 +1,10 @@
+## [39.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.6.0...v39.6.1) (2022-05-03)
+
+
+### Bug Fixes
+
+* **GlModal:** Fix modal backdrop color in dark mode ([5f8bf77](https://gitlab.com/gitlab-org/gitlab-ui/commit/5f8bf77adc7c7dc66d6d5f709e3842ae87530193))
+
 # [39.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.5.1...v39.6.0) (2022-05-03)
 
 
