@@ -72,7 +72,8 @@ describe('GlFilteredSearch', () => {
     findActiveToken().within(() => {
       cy.root()
         .siblings(`[data-testid="${filteredTokenSegment}"]`)
-        .should('include.text', 'Label =');
+        .should('include.text', 'Label')
+        .and('include.text', '=');
       cy.root()
         .siblings(`[data-testid="${filteredTokenSegment}"]`)
         .should('not.include.text', 'Feature');

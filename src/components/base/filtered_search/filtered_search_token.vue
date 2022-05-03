@@ -67,7 +67,8 @@ export default {
     },
     cursorPosition: {
       type: String,
-      required: true,
+      required: false,
+      default: 'end',
       validator: (value) => ['start', 'end'].includes(value),
     },
   },
@@ -299,6 +300,7 @@ export default {
       Emitted when the token is submitted.
       @event submit
     -->
+
     <gl-filtered-search-token-segment
       key="title-segment"
       :value="config.title"
@@ -318,10 +320,12 @@ export default {
           class="gl-filtered-search-token-type"
           :class="getAdditionalSegmentClasses($options.segments.SEGMENT_TITLE)"
           view-only
-          >{{ inputValue }}</gl-token
         >
+          {{ inputValue }}
+        </gl-token>
       </template>
     </gl-filtered-search-token-segment>
+
     <gl-filtered-search-token-segment
       key="operator-segment"
       v-model="tokenValue.operator"
@@ -343,9 +347,11 @@ export default {
           variant="search-value"
           :class="getAdditionalSegmentClasses($options.segments.SEGMENT_OPERATOR)"
           view-only
-          >{{ operatorDescription }}</gl-token
         >
+          {{ operatorDescription }}
+        </gl-token>
       </template>
+
       <template #option="{ option }">
         <div class="gl-display-flex">
           {{ option.value }}
@@ -355,16 +361,19 @@ export default {
         </div>
       </template>
     </gl-filtered-search-token-segment>
+
     <!--
       Emitted when a suggestion has been selected.
       @event select
       @type {string} value The value of the selected suggestion.
     -->
+
     <!--
       Emitted when Space is pressed in-between term text.
       @event split
       @property {array} newTokens Token configurations
     -->
+
     <gl-filtered-search-token-segment
       v-if="hasDataOrDataSegmentIsCurrentlyActive"
       key="data-segment"
@@ -386,10 +395,13 @@ export default {
     >
       <template #suggestions>
         <!-- @slot The suggestions (implemented with GlFilteredSearchSuggestion). -->
+
         <slot name="suggestions"></slot>
       </template>
+
       <template #view="{ inputValue }">
         <!-- @slot Used to customize how the token is rendered. -->
+
         <slot
           name="view-token"
           v-bind="{
@@ -412,6 +424,7 @@ export default {
               @slot Template for token value in inactive state
               @binding {array} suggestions Slot for rendering autocomplete suggestions when no options are provided.
               -->
+
               <slot name="view" v-bind="{ inputValue }">{{ inputValue }}</slot>
             </span>
           </gl-token>

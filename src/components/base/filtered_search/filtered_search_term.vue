@@ -65,7 +65,8 @@ export default {
     },
     cursorPosition: {
       type: String,
-      required: true,
+      required: false,
+      default: 'end',
       validator: (value) => ['start', 'end'].includes(value),
     },
   },
@@ -111,24 +112,29 @@ export default {
       Emitted when this term token is clicked.
       @event activate
     -->
+
     <!--
       Emitted when this term token will lose its focus.
       @event deactivate
     -->
+
     <!--
       Emitted when autocomplete entry is selected.
       @event replace
       @property {object} token Replacement token configuration.
     -->
+
     <!--
       Emitted when the token is submitted.
       @event submit
     -->
+
     <!--
       Emitted when Space is pressed in-between term text.
       @event split
       @property {array} newTokens Token configurations
     -->
+
     <gl-filtered-search-token-segment
       ref="segment"
       v-model="internalValue"
@@ -158,6 +164,7 @@ export default {
           {{ item.title }}
         </gl-filtered-search-suggestion>
       </template>
+
       <template #view>
         <input
           v-if="placeholder"
@@ -167,6 +174,7 @@ export default {
           :aria-label="placeholder"
           data-testid="filtered-search-term-input"
         />
+
         <template v-else>{{ value.data }}</template>
       </template>
     </gl-filtered-search-token-segment>
