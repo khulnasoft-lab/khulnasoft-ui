@@ -1,3 +1,10 @@
+## [39.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.5.0...v39.5.1) (2022-05-03)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** cursorPosition prop not required ([ff3b3e0](https://gitlab.com/gitlab-org/gitlab-ui/commit/ff3b3e03199d703d0251e1b751bee30a942852cf))
+
 # [39.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.4.0...v39.5.0) (2022-05-02)
 
 
