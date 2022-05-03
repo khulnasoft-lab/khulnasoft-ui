@@ -1,3 +1,10 @@
+# [39.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.6.1...v39.7.0) (2022-05-03)
+
+
+### Features
+
+* **GlTab:** add tab counter badge variants ([b4f6cfe](https://gitlab.com/gitlab-org/gitlab-ui/commit/b4f6cfe3880d444adc0bf40c403f1a3b49d39016))
+
 ## [39.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.6.0...v39.6.1) (2022-05-03)
 
 
