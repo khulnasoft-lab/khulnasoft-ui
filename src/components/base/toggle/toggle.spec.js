@@ -21,6 +21,7 @@ describe('toggle', () => {
 
   const findButton = () => wrapper.find('button');
   const findHelpElement = () => wrapper.find('[data-testid="toggle-help"]');
+  const findValueTextElement = () => wrapper.find('[data-testid="toggle-value-text"]');
 
   it('has role=switch', () => {
     createWrapper();
@@ -126,6 +127,35 @@ describe('toggle', () => {
 
       it('has accessible name for the button', () => {
         expect(findButton().attributes('aria-labelledby')).toBeDefined();
+      });
+    });
+  });
+
+  describe('displayed value', () => {
+    describe.each`
+      value    | displayValue | isExpected
+      ${true}  | ${true}      | ${true}
+      ${false} | ${false}     | ${false}
+    `('when value is $value', ({ value, displayValue, isExpected }) => {
+      beforeEach(() => {
+        createWrapper({ value, displayValue });
+      });
+
+      it(`${value ? 'contains' : 'does not contain'} value as text`, () => {
+        expect(findValueTextElement().exists()).toBe(isExpected);
+      });
+    });
+
+    describe.each`
+      value    | expectedValueText
+      ${true}  | ${'Enabled'}
+      ${false} | ${'Disabled'}
+    `('when value is $value', ({ value, expectedValueText }) => {
+      beforeEach(() => {
+        createWrapper({ value, displayValue: true });
+      });
+      it(`${value ? 'has' : 'does not have'} value as text`, () => {
+        expect(findValueTextElement().text()).toBe(expectedValueText);
       });
     });
   });

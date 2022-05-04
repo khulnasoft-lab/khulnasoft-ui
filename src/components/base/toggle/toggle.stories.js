@@ -13,6 +13,7 @@ const generateProps = ({
   labelId = 'dark-mode-toggle',
   help = 'Toggle dark mode for the website',
   labelPosition = defaultValue('labelPosition'),
+  displayValue = defaultValue('displayValue'),
 } = {}) => ({
   value,
   disabled,
@@ -21,6 +22,7 @@ const generateProps = ({
   labelId,
   help,
   labelPosition,
+  displayValue,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -36,6 +38,7 @@ const Template = (args, { argTypes }) => ({
       :is-loading="isLoading"
       :label="label"
       :label-position="labelPosition"
+      :display-value="displayValue"
     />
   </div>`,
 });

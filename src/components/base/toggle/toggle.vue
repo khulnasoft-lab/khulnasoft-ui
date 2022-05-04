@@ -73,6 +73,30 @@ export default {
         return Object.values(toggleLabelPosition).includes(position);
       },
     },
+    /**
+     * Whether the enabledText and disabeldText should be disabled.
+     */
+    displayValue: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
+     * A text to be shown when value is true.
+     */
+    enabledText: {
+      type: String,
+      required: false,
+      default: 'Enabled',
+    },
+    /**
+     * A text to be shown when value is false.
+     */
+    disabledText: {
+      type: String,
+      required: false,
+      default: 'Disabled',
+    },
   },
   data() {
     return {
@@ -88,6 +112,9 @@ export default {
     },
     isChecked() {
       return this.value ? 'true' : 'false';
+    },
+    valueText() {
+      return this.value ? this.enabledText : this.disabledText;
     },
   },
 
@@ -127,24 +154,28 @@ export default {
       <slot name="label">{{ label }}</slot>
     </span>
     <input v-if="name" :name="name" :value="value" type="hidden" />
-    <button
-      role="switch"
-      :aria-checked="isChecked"
-      :aria-labelledby="labelId"
-      :aria-describedby="helpId"
-      :class="{
-        'gl-toggle': true,
-        'is-checked': value,
-        'is-disabled': disabled,
-      }"
-      type="button"
-      @click.prevent="toggleFeature"
-    >
-      <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
-      <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
-        <gl-icon :name="icon" :size="16" />
-      </span>
-    </button>
+    <div class="gl-display-flex gl-align-items-center">
+      <button
+        role="switch"
+        :aria-checked="isChecked"
+        :aria-labelledby="labelId"
+        :aria-describedby="helpId"
+        :class="{
+          'gl-toggle': true,
+          'is-checked': value,
+          'is-disabled': disabled,
+          'gl-mr-3': displayValue,
+        }"
+        type="button"
+        @click.prevent="toggleFeature"
+      >
+        <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
+        <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
+          <gl-icon :name="icon" :size="16" />
+        </span>
+      </button>
+      <span v-if="displayValue" data-testid="toggle-value-text">{{ valueText }}</span>
+    </div>
     <span v-if="help" :id="helpId" class="gl-help-label" data-testid="toggle-help">
       <!-- @slot A help text to be shown below the toggle. -->
       <slot name="help">{{ help }}</slot>
