@@ -7,6 +7,7 @@ const throttleDuration = 1000;
  * Values in pixels, should be a small amount.
  */
 export const adjustScrollGap = 5;
+const THRESHOLD = 1;
 
 export default {
   props: {
@@ -138,9 +139,9 @@ export default {
       return this.$refs.infiniteContainer.scrollTop;
     },
     handleScroll: throttle(function handleScrollThrottled() {
-      if (Math.round(this.scrollTop()) + this.maxListHeight >= this.itemsListHeight()) {
+      if (Math.abs(this.itemsListHeight() - this.itemsMaxHeight - this.scrollTop()) < THRESHOLD) {
         this.bottomReached();
-      } else if (this.scrollTop() === 0) {
+      } else if (this.scrollTop() <= THRESHOLD) {
         this.topReached();
       }
     }),
