@@ -29,6 +29,10 @@ const fakeMilestones = [
   { id: 3, title: '12.9', name: '%12.9' },
   { id: 4, title: '12.10', name: '%12.10' },
   { id: 5, title: 'Backlog', name: 'Backlog' },
+  { id: 6, title: 'DifferentTitleAndValue', name: 'lol-different-title-and-value' },
+  { id: 6, title: 'Title with space', name: 'title-with-space' },
+  { id: 7, title: 'Name-with-space', name: 'Name with space' },
+  { id: 8, title: 'Title and name with space', name: 'Title and name with space' },
 ];
 
 const fakeLabels = [
@@ -37,6 +41,9 @@ const fakeLabels = [
   { id: 3, title: 'Backlog', color: '#cccccc', text_color: '#333333' },
   { id: 4, title: 'Feature', color: '#A8D695', text_color: '#333333' },
   { id: 5, title: 'Documentation', color: '#5CB85C', text_color: '#FFFFFF' },
+  { id: 6, title: 'Title with space', name: 'title-with-space' },
+  { id: 7, title: 'Name-with-space', name: 'Name with space' },
+  { id: 8, title: 'Title and name with space', name: 'Title and name with space' },
 ];
 
 const UserToken = {
@@ -300,6 +307,14 @@ const tokens = [
     options: [
       { icon: 'eye-slash', value: 'Yes', title: 'Yes' },
       { icon: 'eye', value: 'No', title: 'No' },
+      { icon: 'question-o', title: 'Title with space', value: 'title-with-space' },
+      { icon: 'question-o', title: 'value-with-space', value: 'Value with space' },
+      {
+        icon: 'question-o',
+        title: 'Title and value with space',
+        value: 'Title and value with space',
+      },
+      { icon: 'eye', title: 'DifferentTitleAndValue', value: 'lol-different-title-and-value' },
     ],
   },
 ];
