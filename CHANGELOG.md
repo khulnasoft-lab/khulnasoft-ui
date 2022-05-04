@@ -1,3 +1,10 @@
+## [39.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.7.0...v39.7.1) (2022-05-04)
+
+
+### Bug Fixes
+
+* **GlInfiniteScroll:** Fix GlInfiniteScroll not firing bottomReached event in some cases ([d4c8d91](https://gitlab.com/gitlab-org/gitlab-ui/commit/d4c8d91aa913133ac8d3d55ab351a4660a5c2f2b))
+
 # [39.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.6.1...v39.7.0) (2022-05-03)
 
 
