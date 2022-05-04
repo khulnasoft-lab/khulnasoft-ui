@@ -199,7 +199,8 @@ export default {
       this.activeTabIndex = tabIndex;
 
       if (this.syncActiveTabWithQueryParams) {
-        this.setQueryParamValueIfNecessary(tabIndex);
+        const queryParam = this.getTabQueryParamValue(tabIndex);
+        this.setQueryParamValueIfNecessary(queryParam);
       }
     },
   },
