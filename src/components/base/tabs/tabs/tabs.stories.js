@@ -12,11 +12,13 @@ const generateProps = ({
   actionPrimary = null,
   actionSecondary = null,
   actionTertiary = null,
+  syncActiveTabWithQueryParams = false,
 } = {}) => ({
   justified,
   actionPrimary,
   actionSecondary,
   actionTertiary,
+  syncActiveTabWithQueryParams,
 });
 
 const wrap = (template) => `
@@ -25,6 +27,7 @@ const wrap = (template) => `
     :action-primary="actionPrimary"
     :action-secondary="actionSecondary"
     :action-tertiary="actionTertiary"
+    :syncActiveTabWithQueryParams="syncActiveTabWithQueryParams"
   >
     ${template}
   </gl-tabs>
@@ -63,16 +66,16 @@ export const Default = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components,
   template: wrap(`
-    <gl-tab title="Tab 1">
+    <gl-tab title="Tab 1" :query-param-value="'one'">
       Tab panel 1
     </gl-tab>
-    <gl-tab title="Tab 2">
+    <gl-tab title="Tab 2" :query-param-value="'two'">
       Tab panel 2
     </gl-tab>
-    <gl-tab title="Tab 3">
+    <gl-tab title="Tab 3" :query-param-value="'three'">
       Tab panel 3
     </gl-tab>
-    <gl-tab title="Tab 4">
+    <gl-tab title="Tab 4" :query-param-value="'four'">
       Tab panel 4
     </gl-tab>
     <gl-tab title="Tab 5">
@@ -250,7 +253,6 @@ export default {
   argTypes: {
     contentClass: { control: { disable: true } },
     navClass: { control: { disable: true } },
-    syncActiveTabWithQueryParams: { control: { disable: true } },
     queryParamName: { control: { disable: true } },
     value: { control: { disable: true } },
   },
