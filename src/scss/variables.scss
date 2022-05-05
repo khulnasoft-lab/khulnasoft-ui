@@ -420,6 +420,7 @@ $gl-transition-duration-medium: 0.2s;
 // Focus ring
 $outline-offset: 1px;
 $outline-width: 2px;
+$outline: #{$outline-offset + $outline-width};
 $focus-ring: 0 0 0 $outline-offset $white, 0 0 0 #{$outline-offset + $outline-width} $blue-400;
 $focus-ring-inset: inset 0 0 0 #{$outline-width + $outline-offset} $white,
   inset 0 0 0 $outline-offset $white;
