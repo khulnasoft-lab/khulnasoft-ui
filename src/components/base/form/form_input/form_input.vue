@@ -1,5 +1,7 @@
 <script>
+import { isObject } from 'lodash';
 import { BFormInput } from 'bootstrap-vue';
+
 import { formInputSizes } from '../../../../utils/constants';
 
 const MODEL_PROP = 'value';
@@ -19,17 +21,34 @@ export default {
      * Maximum width of the input
      */
     size: {
-      type: String,
+      type: [String, Object],
       required: false,
       default: null,
-      validator: (value) => Object.values(formInputSizes).includes(value),
+      validator: (value) => {
+        const sizes = isObject(value) ? Object.values(value) : [value];
+
+        return sizes.every((size) => Object.values(formInputSizes).includes(size));
+      },
     },
   },
   computed: {
     cssClasses() {
-      return {
-        [`gl-form-input-${this.size}`]: this.size !== null,
-      };
+      if (this.size === null) {
+        return [];
+      }
+
+      if (isObject(this.size)) {
+        const { default: defaultSize, ...nonDefaultSizes } = this.size;
+
+        return [
+          ...(defaultSize ? [`gl-form-input-${defaultSize}`] : []),
+          ...Object.entries(nonDefaultSizes).map(
+            ([breakpoint, size]) => `gl-${breakpoint}-form-input-${size}`
+          ),
+        ];
+      }
+
+      return [`gl-form-input-${this.size}`];
     },
     listeners() {
       return {
