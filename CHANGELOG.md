@@ -1,3 +1,25 @@
+# [40.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.7.1...v40.0.0) (2022-05-06)
+
+
+### chore
+
+* **GlSkeletonLoading:** Remove non-deprecated name ([beec89a](https://gitlab.com/gitlab-org/gitlab-ui/commit/beec89ab0f6a144b39b3ac1c7060d0136b8de116))
+
+
+### Features
+
+* **GlFormInput:** add responsive size support ([90dda3c](https://gitlab.com/gitlab-org/gitlab-ui/commit/90dda3c2c8f617478f8b9f64831cf74dfb317708))
+
+
+### BREAKING CHANGES
+
+* **GlSkeletonLoading:** This removes the non-deprecated export
+`GlSkeletonLoading`. Users of this component should import
+`GlDeprecatedSkeletonLoading` instead, which is identical.
+
+This is part of https://gitlab.com/groups/gitlab-org/-/epics/4301. See
+also https://gitlab.com/gitlab-org/gitlab/-/merge_requests/83982.
+
 ## [39.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.7.0...v39.7.1) (2022-05-04)
 
 
