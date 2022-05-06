@@ -57,6 +57,25 @@ export const Sizes = (args, { argTypes }) => ({
 });
 Sizes.args = {};
 
+export const ResponsiveSizes = (args, { argTypes }) => ({
+  components: { GlFormInput },
+  props: Object.keys(argTypes),
+  template: `
+      <div>
+        <gl-form-input
+          :size="{ default: 'md', md: 'lg', lg: 'xl' }"
+          value="With \`default\` key"
+        />
+        <gl-form-input
+          class="gl-mt-4"
+          :size="{ md: 'lg', lg: 'xl' }"
+          value="Without \`default\` key"
+        />
+      </div>
+    `,
+});
+ResponsiveSizes.args = {};
+
 export default {
   title: 'base/form/form-input',
   component: GlFormInput,

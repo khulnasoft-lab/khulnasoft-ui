@@ -47,10 +47,18 @@
   }
 }
 
-.gl-form-input {
-  @each $name, $size in $gl-form-input-sizes {
-    &-#{$name} {
-      max-width: $size;
+@each $name, $size in $gl-form-input-sizes {
+  .gl-form-input-#{$name} {
+    max-width: $size;
+  }
+
+  @each $breakpointName, $breakpointSize in $gl-form-input-sizes {
+    @if $breakpointName != xs {
+      .gl-#{$breakpointName}-form-input-#{$name} {
+        @include gl-media-breakpoint-up($breakpointName) {
+          max-width: $size;
+        }
+      }
     }
   }
 }
