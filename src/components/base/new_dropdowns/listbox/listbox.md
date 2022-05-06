@@ -67,5 +67,5 @@ If you want to use custom template for rendering the listbox item, use the `list
             </span>
           </span>
       </template>
-</gl-litsbox>
+</gl-listbox>
 ```
