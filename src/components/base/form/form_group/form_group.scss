@@ -25,7 +25,10 @@
 
   .form-control {
     + .invalid-feedback,
-    + .text-gl-muted {
+    + .text-gl-muted,
+    &.is-valid + .invalid-feedback + .text-gl-muted {
+      // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2806
+      // for the reasoning behind the "valid+invalid" selector above
       @include gl-mt-3;
     }
   }
