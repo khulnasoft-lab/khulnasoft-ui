@@ -81,7 +81,7 @@ export const WithValidations = (_args, { argTypes }) => ({
     invalidFeedback() {
       let feedbackText = 'This field is required.';
 
-      if (this.name.length > 4) {
+      if (this.name.length >= 4) {
         feedbackText = '';
       } else if (this.name.length > 0) {
         feedbackText = 'Enter at least 4 characters.';
