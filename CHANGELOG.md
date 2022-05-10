@@ -1,3 +1,10 @@
+# [40.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.0.0...v40.1.0) (2022-05-10)
+
+
+### Features
+
+* **CSS:** Add `gl-overflow-wrap-anywhere` utility class ([1a19196](https://gitlab.com/gitlab-org/gitlab-ui/commit/1a19196cc1ac3e6a2dbcc87624963bee8a95db26))
+
 # [40.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v39.7.1...v40.0.0) (2022-05-06)
 
 
