@@ -5,7 +5,7 @@ $gl-sidebar-width: 290px;
   @include gl-right-0;
   @include gl-transition-medium;
   @include gl-fixed;
-  @include gl-h-full;
+  @include gl-bottom-0;
   @include gl-overflow-y-auto;
   @include gl-shadow-drawer;
   @include gl-font-base;

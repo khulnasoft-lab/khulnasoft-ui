@@ -1,6 +1,5 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import isEmpty from 'lodash/isEmpty';
 import { maxZIndex, drawerVariants } from '../../../utils/constants';
 import GlButton from '../button/button.vue';
 
@@ -13,10 +12,10 @@ export default {
       type: Boolean,
       required: true,
     },
-    headerHeight: {
+    headerSelector: {
       type: String,
       required: false,
-      default: '',
+      default: 'header',
     },
     headerSticky: {
       type: Boolean,
@@ -37,17 +36,15 @@ export default {
   },
   computed: {
     positionFromTop() {
-      return !isEmpty(this.headerHeight) ? this.headerHeight : 0;
+      const headerBottom =
+        document.querySelector(this.headerSelector)?.getBoundingClientRect()?.bottom || 0;
+      return `${headerBottom}px`;
     },
     drawerStyles() {
       const styles = {
         top: this.positionFromTop,
         zIndex: this.zIndex,
       };
-
-      if (this.positionFromTop) {
-        styles.maxHeight = `calc(100vh - ${this.positionFromTop})`;
-      }
 
       return styles;
     },
@@ -89,6 +86,7 @@ export default {
   },
 };
 </script>
+
 <template>
   <transition name="gl-drawer">
     <aside v-if="open" :style="drawerStyles" class="gl-drawer" :class="variantClass">
@@ -99,6 +97,7 @@ export default {
       >
         <span class="gl-drawer-title">
           <slot name="title"></slot>
+
           <gl-button
             category="tertiary"
             size="small"
@@ -108,8 +107,10 @@ export default {
             @click="$emit('close')"
           />
         </span>
+
         <slot name="header"></slot>
       </div>
+
       <div class="gl-drawer-body">
         <slot></slot>
       </div>
