@@ -24,6 +24,10 @@
   overflow-wrap: break-word;
 }
 
+@mixin gl-overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+
 @mixin gl-overflow-scroll {
   overflow: scroll;
 }
