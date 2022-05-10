@@ -486,8 +486,16 @@
   margin-bottom: $gl-spacing-scale-2;
 }
 
+@mixin gl-mb-n2 {
+  margin-bottom: -$gl-spacing-scale-2;
+}
+
 @mixin gl-mb-3 {
   margin-bottom: $gl-spacing-scale-3;
+}
+
+@mixin gl-mb-n3 {
+  margin-bottom: -$gl-spacing-scale-3;
 }
 
 @mixin gl-mb-4 {
