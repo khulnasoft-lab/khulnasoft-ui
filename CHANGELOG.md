@@ -1,3 +1,11 @@
+# [40.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.1.0...v40.2.0) (2022-05-11)
+
+
+### Features
+
+* **css:** Add gl-mb-n3 util class ([bbd4a5b](https://gitlab.com/gitlab-org/gitlab-ui/commit/bbd4a5b2fa163c83d24870fc54113d7961b1d248))
+* **css:** Add gl-sm-ml-7 ([4c84efb](https://gitlab.com/gitlab-org/gitlab-ui/commit/4c84efbbb842bec7496ccc6f532dd257205110b0))
+
 # [40.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.0.0...v40.1.0) (2022-05-10)
 
 
