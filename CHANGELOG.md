@@ -1,3 +1,11 @@
+## [40.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.2.1...v40.2.2) (2022-05-16)
+
+
+### Bug Fixes
+
+* Fix condition for feedback text ([208deab](https://gitlab.com/gitlab-org/gitlab-ui/commit/208deabae0b8f2da529f303408f7cc1568008672))
+* **GlFormGroup:** Make selector more robust ([eb5c4f4](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb5c4f4e85088a95d8a2e067e5d4be5fba5d560c))
+
 ## [40.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.2.0...v40.2.1) (2022-05-12)
 
 
