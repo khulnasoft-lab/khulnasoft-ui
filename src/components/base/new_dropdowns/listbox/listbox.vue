@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { clamp, uniqueId } from 'lodash';
 import { stopEvent } from '../../../../utils/utils';
