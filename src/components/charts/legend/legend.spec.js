@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
+import { createMockChartInstance } from '~helpers/chart_stubs';
 import Chart from '../chart/chart.vue';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
 import Legend from './legend.vue';
-import { createMockChartInstance } from '~helpers/chart_stubs';
 
 let mockChartInstance;
 

@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { uniqueId, findLast } from 'lodash';

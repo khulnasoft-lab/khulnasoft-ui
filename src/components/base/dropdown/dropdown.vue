@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BDropdown } from 'bootstrap-vue';
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';

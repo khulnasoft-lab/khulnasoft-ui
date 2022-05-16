@@ -1,12 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
 
+import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
+import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import LineChart from './line.vue';
-
-import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
-
-import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 
 let mockChartInstance;
 

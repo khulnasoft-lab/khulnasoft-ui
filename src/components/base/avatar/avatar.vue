@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { avatarShapeOptions, avatarSizeOptions } from '../../../utils/constants';
 import { getAvatarChar } from '../../../utils/string_utils';

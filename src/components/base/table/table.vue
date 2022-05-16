@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BTable } from 'bootstrap-vue';
 import { logWarning, isDev } from '../../../utils/utils';

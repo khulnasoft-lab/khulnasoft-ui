@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils';
 import { range, mapValues } from 'lodash';
+import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 import GlTab from '../tab/tab.vue';
 import GlScrollableTabs from './scrollable_tabs.vue';
 import GlTabs from './tabs.vue';
-import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 
 const { NAV_CLASS } = GlScrollableTabs;
 const TEST_WIDTH = 600;

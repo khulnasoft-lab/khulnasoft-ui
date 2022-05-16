@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import isEmpty from 'lodash/isEmpty';
 import { maxZIndex, drawerVariants } from '../../../utils/constants';

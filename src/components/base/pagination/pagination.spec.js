@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import debounce from 'lodash/debounce';
-import Pagination from './pagination.vue';
 import { breakpoints } from '~/utils/breakpoints';
+import Pagination from './pagination.vue';
 
 jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
 

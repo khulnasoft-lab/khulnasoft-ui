@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
+import { createMockDirective } from '~helpers/vue_mock_directive';
 import Breadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
-import { createMockDirective } from '~helpers/vue_mock_directive';
 
 describe('Breadcrumb component', () => {
   let wrapper;

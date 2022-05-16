@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BBreadcrumb } from 'bootstrap-vue';
 import GlIcon from '../icon/icon.vue';

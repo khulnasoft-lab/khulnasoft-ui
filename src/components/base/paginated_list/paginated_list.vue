@@ -150,7 +150,7 @@ export default {
 
     <ul class="list-group list-group-flush list-unstyled">
       <li v-for="listItem in paginatedList" :key="listItem[itemKey]" class="list-group-item">
-        <slot :listItem="listItem" :query="queryStr">{{ listItem.id }}</slot>
+        <slot :list-item="listItem" :query="queryStr">{{ listItem.id }}</slot>
       </li>
     </ul>
 

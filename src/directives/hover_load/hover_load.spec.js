@@ -36,7 +36,9 @@ describe('hover load directive', () => {
       createComponent(mockHandleLoad);
 
       findTarget().trigger('mouseover');
-      await new Promise((resolve) => setTimeout(resolve, hoverDuration));
+      await new Promise((resolve) => {
+        setTimeout(resolve, hoverDuration);
+      });
       findTarget().trigger('mouseout');
 
       if (hoverDuration < 100) {

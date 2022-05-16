@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import * as echarts from 'echarts';
 import { defaultHeight, defaultWidth, validRenderers } from '../../../utils/charts/config';

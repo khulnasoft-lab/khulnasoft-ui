@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import compose from 'lodash/fp/compose';
 import fill from 'lodash/fp/fill';

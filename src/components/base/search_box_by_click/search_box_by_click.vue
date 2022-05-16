@@ -237,7 +237,7 @@ export default {
             @click="selectHistoryItem(item)"
           >
             <!-- @slot Slot to customize history item in history dropdown. Used only with history-items prop -->
-            <slot name="history-item" :historyItem="item">{{ item }}</slot>
+            <slot name="history-item" :history-item="item">{{ item }}</slot>
           </gl-dropdown-item>
           <gl-dropdown-divider />
           <gl-dropdown-item ref="clearHistory" @click="emitClearHistory">{{
@@ -269,7 +269,7 @@ export default {
       data-testid="filtered-search-clear-button"
       @click="clearInput"
     />
-    <template #append class="gl-search-box-by-click-input-group-control">
+    <template #append>
       <gl-button
         v-bind="searchButtonAttributes"
         ref="searchButton"

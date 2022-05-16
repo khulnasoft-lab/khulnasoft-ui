@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-import Chart from '../chart/chart.vue';
-import SparklineChart from './sparkline.vue';
 import { waitForAnimationFrame } from '~/utils/test_utils';
 import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import Chart from '../chart/chart.vue';
+import SparklineChart from './sparkline.vue';
 
 let mockChartInstance;
 

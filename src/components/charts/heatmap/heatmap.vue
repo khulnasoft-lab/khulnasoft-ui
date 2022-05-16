@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import merge from 'lodash/merge';
 import { white, gray100 } from '../../../../scss_to_js/scss_variables';
