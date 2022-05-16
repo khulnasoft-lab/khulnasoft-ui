@@ -47,6 +47,9 @@ export default {
       }
       return defaultClass;
     },
+    shouldDisplayLabel() {
+      return Boolean(this.$attrs.label || this.$slots.label) || this.hasLabelDescription;
+    },
     hasLabelDescription() {
       return Boolean(this.labelDescription || this.$slots['label-description']);
     },
@@ -55,7 +58,7 @@ export default {
 </script>
 <template>
   <b-form-group v-bind="$attrs" class="gl-form-group" :label-class="actualLabelClass">
-    <template #label>
+    <template v-if="shouldDisplayLabel" #label>
       <slot name="label">
         {{ $attrs.label }}
         <span v-if="optional" class="optional-label" data-testid="optional-label">{{
