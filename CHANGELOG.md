@@ -1,3 +1,10 @@
+# [40.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.3.0...v40.4.0) (2022-05-17)
+
+
+### Features
+
+* **GlAvatar:** add responsive size support ([bded2c9](https://gitlab.com/gitlab-org/gitlab-ui/commit/bded2c962b40e942a1b0edb2a085d47a3fa91b4e))
+
 # [40.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.2.2...v40.3.0) (2022-05-17)
 
 
