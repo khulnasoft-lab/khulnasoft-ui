@@ -1,7 +1,7 @@
 $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $green-50, $orange-50,
   $gray-50;
 
-.gl-avatar {
+@mixin gl-avatar {
   @include gl-border-1;
   @include gl-border-solid;
   @include gl-border-gray-a-08;
@@ -9,7 +9,7 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-flex-shrink-0;
 }
 
-.gl-avatar-s16 {
+@mixin gl-avatar-s16 {
   @include gl-w-5;
   @include gl-h-5;
   @include gl-font-sm;
@@ -17,7 +17,7 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-rounded-small;
 }
 
-.gl-avatar-s24 {
+@mixin gl-avatar-s24 {
   @include gl-w-6;
   @include gl-h-6;
   @include gl-font-sm;
@@ -25,7 +25,7 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-rounded-base;
 }
 
-.gl-avatar-s32 {
+@mixin gl-avatar-s32 {
   @include gl-w-7;
   @include gl-h-7;
   @include gl-font-base;
@@ -33,7 +33,7 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-rounded-base;
 }
 
-.gl-avatar-s48 {
+@mixin gl-avatar-s48 {
   @include gl-w-9;
   @include gl-h-9;
   @include gl-font-size-h2;
@@ -41,7 +41,7 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-rounded-lg;
 }
 
-.gl-avatar-s64 {
+@mixin gl-avatar-s64 {
   @include gl-w-11;
   @include gl-h-11;
   @include gl-font-size-h-display;
@@ -49,12 +49,148 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-rounded-lg;
 }
 
-.gl-avatar-s96 {
+@mixin gl-avatar-s96 {
   @include gl-w-13;
   @include gl-h-13;
   @include gl-font-size-h-display-xl;
   @include gl-line-height-52;
   @include gl-rounded-lg;
+}
+
+.gl-avatar {
+  @include gl-avatar;
+}
+
+.gl-avatar-s16 {
+  @include gl-avatar-s16;
+}
+
+.gl-avatar-s24 {
+  @include gl-avatar-s24;
+}
+
+.gl-avatar-s32 {
+  @include gl-avatar-s32;
+}
+
+.gl-avatar-s48 {
+  @include gl-avatar-s48;
+}
+
+.gl-avatar-s64 {
+  @include gl-avatar-s64;
+}
+
+.gl-avatar-s96 {
+  @include gl-avatar-s96;
+}
+
+.gl-sm-avatar-s16 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-avatar-s16;
+  }
+}
+
+.gl-md-avatar-s16 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-avatar-s16;
+  }
+}
+
+.gl-lg-avatar-s16 {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-avatar-s16;
+  }
+}
+
+.gl-sm-avatar-s24 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-avatar-s24;
+  }
+}
+
+.gl-md-avatar-s24 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-avatar-s24;
+  }
+}
+
+.gl-lg-avatar-s24 {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-avatar-s24;
+  }
+}
+
+.gl-sm-avatar-s32 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-avatar-s32;
+  }
+}
+
+.gl-md-avatar-s32 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-avatar-s32;
+  }
+}
+
+.gl-lg-avatar-s32 {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-avatar-s32;
+  }
+}
+
+.gl-sm-avatar-s48 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-avatar-s48;
+  }
+}
+
+.gl-md-avatar-s48 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-avatar-s48;
+  }
+}
+
+.gl-lg-avatar-s48 {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-avatar-s48;
+  }
+}
+
+.gl-sm-avatar-s64 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-avatar-s64;
+  }
+}
+
+.gl-md-avatar-s64 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-avatar-s64;
+  }
+}
+
+.gl-lg-avatar-s64 {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-avatar-s64;
+  }
+}
+
+.gl-sm-avatar-s96 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-avatar-s96;
+  }
+}
+
+.gl-md-avatar-s96 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-avatar-s96;
+  }
+}
+
+.gl-lg-avatar-s96 {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-avatar-s96;
+  }
 }
 
 .gl-avatar-circle {
