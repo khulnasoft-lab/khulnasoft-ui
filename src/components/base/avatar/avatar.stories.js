@@ -59,6 +59,22 @@ export const Image = (args, { argTypes }) => ({
 });
 Image.args = generateImageProps();
 
+export const ResponsiveImage = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
+      <gl-avatar
+        :size="size"
+        :shape="shape"
+        src="https://about.gitlab.com/images/press/gitlab-summit-south-africa.jpg"
+      />
+    `,
+});
+ResponsiveImage.args = generateImageProps({ size: { default: 24, sm: 32, md: 48, lg: 96 } });
+ResponsiveImage.argTypes = {
+  size: { control: 'object' },
+};
+
 export const ProjectFallback = (args, { argTypes }) => ({
   components,
   props: Object.keys(argTypes),

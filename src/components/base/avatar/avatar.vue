@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
+import { isNumber } from 'lodash';
 import { avatarShapeOptions, avatarSizeOptions } from '../../../utils/constants';
 import { getAvatarChar } from '../../../utils/string_utils';
 
@@ -28,18 +29,24 @@ export default {
       default: 'avatar',
     },
     size: {
-      type: Number,
+      type: [Number, Object],
       required: false,
       default: avatarSizeOptions[1],
       validator: (value) => {
-        const isValidSize = avatarSizeOptions.includes(value);
+        const sizes = isNumber(value) ? [value] : Object.values(value);
 
-        if (!isValidSize) {
-          /* eslint-disable-next-line no-console */
-          console.error(`Avatar size should be one of [${avatarSizeOptions}], received: ${value}`);
-        }
+        const areValidSizes = sizes.every((size) => {
+          const isValidSize = avatarSizeOptions.includes(size);
 
-        return isValidSize;
+          if (!isValidSize) {
+            /* eslint-disable-next-line no-console */
+            console.error(`Avatar size should be one of [${avatarSizeOptions}], received: ${size}`);
+          }
+
+          return isValidSize;
+        });
+
+        return areValidSizes;
       },
     },
     shape: {
@@ -49,8 +56,19 @@ export default {
     },
   },
   computed: {
-    sizeClass() {
-      return `gl-avatar-s${this.size}`;
+    sizeClasses() {
+      if (isNumber(this.size)) {
+        return `gl-avatar-s${this.size}`;
+      }
+
+      const { default: defaultSize, ...nonDefaultSizes } = this.size;
+
+      return [
+        `gl-avatar-s${defaultSize || avatarSizeOptions[1]}`,
+        ...Object.entries(nonDefaultSizes).map(
+          ([breakpoint, size]) => `gl-${breakpoint}-avatar-s${size}`
+        ),
+      ];
     },
     isCircle() {
       return this.shape === avatarShapeOptions.circle;
@@ -74,14 +92,14 @@ export default {
     v-if="src"
     :src="src"
     :alt="alt"
-    :class="['gl-avatar', { 'gl-avatar-circle': isCircle }, sizeClass]"
+    :class="['gl-avatar', { 'gl-avatar-circle': isCircle }, sizeClasses]"
   />
   <div
     v-else
     :class="[
       'gl-avatar gl-avatar-identicon',
       { 'gl-avatar-circle': isCircle },
-      sizeClass,
+      sizeClasses,
       identiconBackgroundClass,
     ]"
   >
