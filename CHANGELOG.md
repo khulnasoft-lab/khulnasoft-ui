@@ -1,3 +1,10 @@
+# [40.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.2.2...v40.3.0) (2022-05-17)
+
+
+### Features
+
+* **css:** Implement Markdown table styles ([e2750a6](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2750a6fa61854acdca79838954d7aa305be6f78))
+
 ## [40.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.2.1...v40.2.2) (2022-05-16)
 
 
