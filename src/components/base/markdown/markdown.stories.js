@@ -3,7 +3,7 @@ import GlMarkdown from './markdown.vue';
 import markdownTypescaleDemoContent from './markdown_typescale_demo.html';
 
 const template = `
-  <gl-markdown :compact="compact">${markdownTypescaleDemoContent}</gl-markdown> 
+  <gl-markdown :compact="compact">${markdownTypescaleDemoContent}</gl-markdown>
   `;
 
 const generateProps = ({ compact = false } = {}) => ({ compact });
@@ -14,8 +14,11 @@ const Template = (args, { argTypes }) => ({
   template,
 });
 
-export const Typescale = Template.bind({});
-Typescale.args = generateProps();
+export const Documentation = Template.bind({});
+Documentation.args = generateProps();
+
+export const Compact = Template.bind({});
+Compact.args = generateProps({ compact: true });
 
 export default {
   title: 'base/markdown',
