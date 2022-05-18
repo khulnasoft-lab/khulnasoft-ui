@@ -1,3 +1,10 @@
+# [40.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.4.0...v40.5.0) (2022-05-18)
+
+
+### Features
+
+* **add billing plan colors:** Add utility classes used in billing page ([61de498](https://gitlab.com/gitlab-org/gitlab-ui/commit/61de4980842a1045215f91a7e100cd66e2074fcc))
+
 # [40.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.3.0...v40.4.0) (2022-05-17)
 
 
