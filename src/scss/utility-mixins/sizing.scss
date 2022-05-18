@@ -329,6 +329,10 @@
   min-height: $gl-spacing-scale-7;
 }
 
+@mixin gl-min-h-8 {
+  min-height: $gl-spacing-scale-8;
+}
+
 @mixin gl-max-w-15 {
   max-width: $gl-spacing-scale-15;
 }
