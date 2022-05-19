@@ -117,6 +117,11 @@ export default {
         return [LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE].indexOf(layout) !== -1;
       },
     },
+    showLegend: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     // Part of the tooltip related data can be
@@ -229,6 +234,9 @@ export default {
     },
     legendStyle() {
       return { paddingLeft: `${grid.left}px` };
+    },
+    hasLegend() {
+      return this.compiledOptions && this.showLegend;
     },
     seriesInfo() {
       return this.compiledOptions.series.reduce((acc, series, index) => {
@@ -366,7 +374,7 @@ export default {
       <tooltip-default-format v-else :tooltip-content="dataTooltipContent" />
     </chart-tooltip>
     <chart-legend
-      v-if="compiledOptions"
+      v-if="hasLegend"
       :chart="chart"
       :style="legendStyle"
       :series-info="seriesInfo"
