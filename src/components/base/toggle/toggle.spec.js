@@ -10,12 +10,13 @@ describe('toggle', () => {
   const label = 'toggle label';
   const helpText = 'help text';
 
-  const createWrapper = (props = {}) => {
+  const createWrapper = (props = {}, options = {}) => {
     wrapper = shallowMount(Toggle, {
       propsData: {
         label,
         ...props,
       },
+      ...options,
     });
   };
 
@@ -85,12 +86,13 @@ describe('toggle', () => {
   });
 
   describe.each`
-    state             | help         | getAriaDescribedBy
-    ${'with help'}    | ${helpText}  | ${() => findHelpElement().attributes('id')}
-    ${'without help'} | ${undefined} | ${() => undefined}
-  `('$state', ({ help, getAriaDescribedBy }) => {
+    state                  | help         | props                 | options                          | getAriaDescribedBy
+    ${'with help'}         | ${helpText}  | ${{ help: helpText }} | ${undefined}                     | ${() => findHelpElement().attributes('id')}
+    ${'with help in slot'} | ${helpText}  | ${undefined}          | ${{ slots: { help: helpText } }} | ${() => findHelpElement().attributes('id')}
+    ${'without help'}      | ${undefined} | ${undefined}          | ${undefined}                     | ${() => undefined}
+  `('$state', ({ help, props, options, getAriaDescribedBy }) => {
     beforeEach(() => {
-      createWrapper({ help });
+      createWrapper(props, options);
     });
 
     it(`${help ? 'shows' : 'does not show'} help`, () => {

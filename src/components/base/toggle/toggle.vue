@@ -81,11 +81,14 @@ export default {
     };
   },
   computed: {
+    shouldRenderHelp() {
+      return Boolean(this.$slots.help || this.help);
+    },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
     },
     helpId() {
-      return this.help ? `toggle-help-${this.uuid}` : undefined;
+      return this.shouldRenderHelp ? `toggle-help-${this.uuid}` : undefined;
     },
     isChecked() {
       return this.value ? 'true' : 'false';
@@ -146,7 +149,7 @@ export default {
         <gl-icon :name="icon" :size="16" />
       </span>
     </button>
-    <span v-if="help" :id="helpId" class="gl-help-label" data-testid="toggle-help">
+    <span v-if="shouldRenderHelp" :id="helpId" class="gl-help-label" data-testid="toggle-help">
       <!-- @slot A help text to be shown below the toggle. -->
       <slot name="help">{{ help }}</slot>
     </span>
