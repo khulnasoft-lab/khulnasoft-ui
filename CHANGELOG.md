@@ -1,3 +1,10 @@
+# [40.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.5.0...v40.6.0) (2022-05-19)
+
+
+### Features
+
+* **GlLineChart:** allow chart legend to be hidden ([8d9fa8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d9fa8b1c352a8894b3e36509402e4388380ffb0))
+
 # [40.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.4.0...v40.5.0) (2022-05-18)
 
 
