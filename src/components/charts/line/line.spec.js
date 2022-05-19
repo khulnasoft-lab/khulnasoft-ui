@@ -195,5 +195,14 @@ describe('line component', () => {
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
     });
+    it('can be hidden', async () => {
+      createShallowWrapper({
+        showLegend: false,
+      });
+
+      await wrapper.vm.$nextTick();
+
+      expect(findLegend().exists()).toBe(false);
+    });
   });
 });

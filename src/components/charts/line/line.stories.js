@@ -62,6 +62,7 @@ const template = `<gl-line-chart
   :thresholds="thresholds"
   :annotations="annotations"
   :includeLegendAvgMax="includeLegendAvgMax"
+  :showLegend="showLegend"
 />`;
 
 const generateProps = ({
@@ -70,7 +71,9 @@ const generateProps = ({
   thresholds = [],
   annotations = [],
   includeLegendAvgMax = true,
+  showLegend = true,
 } = {}) => ({
+  showLegend,
   includeLegendAvgMax,
   option,
   thresholds,
@@ -171,6 +174,27 @@ WithToolbox.args = generateProps({
     },
     toolbox,
   },
+});
+
+export const NoLegend = Template.bind({});
+NoLegend.args = generateProps({
+  data: [
+    {
+      name: 'Time Series',
+      data: generateTimeSeries(),
+    },
+  ],
+  option: {
+    animation: false,
+    xAxis: {
+      type: 'time',
+      name: 'Time',
+      axisLabel: {
+        formatter: timeSeriesDateFormatter,
+      },
+    },
+  },
+  showLegend: false,
 });
 
 export default {
