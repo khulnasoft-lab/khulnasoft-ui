@@ -137,12 +137,11 @@ workflow:
 build_docker_image:
   variables:
     DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
   tags:
     - gitlab-org-docker
+  image: docker:20.10.16
   services:
-    - docker:20.10-dind
-  image: docker:stable
+    - docker:20.10.16-dind
   stage: pre-build
   script:
     - docker info
