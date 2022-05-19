@@ -1,3 +1,10 @@
+## [40.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.0...v40.6.1) (2022-05-19)
+
+
+### Bug Fixes
+
+* **GlToggle:** Show help text from slot ([c531c4c](https://gitlab.com/gitlab-org/gitlab-ui/commit/c531c4c16ea68cd607c57c44778207e983fa59d2))
+
 # [40.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.5.0...v40.6.0) (2022-05-19)
 
 
