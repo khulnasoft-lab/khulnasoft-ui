@@ -26,6 +26,7 @@ const generateOptions = (seriesLength, seriesNameType) => {
       showSymbol: true,
       type: 'line',
     })),
+    animation: false,
   };
 };
 
