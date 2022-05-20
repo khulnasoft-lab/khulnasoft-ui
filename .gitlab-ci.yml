@@ -21,7 +21,6 @@ variables:
   DS_DISABLE_DIND: 'true'
   # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
   SAST_DEFAULT_ANALYZERS: 'nodejs-scan, eslint'
-  DS_DEFAULT_ANALYZERS: 'retire.js, gemnasium'
   CYPRESS_CACHE_FOLDER: $CI_PROJECT_DIR/.cypress_cache/Cypress
 
 include:
@@ -43,9 +42,6 @@ include:
   needs: []
   rules:
     - when: always
-
-retire-js-dependency_scanning:
-  <<: *secure-jobs-config
 
 gemnasium-dependency_scanning:
   <<: *secure-jobs-config
