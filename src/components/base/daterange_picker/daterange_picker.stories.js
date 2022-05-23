@@ -1,4 +1,5 @@
 import { disableControls } from '../../../utils/stories_utils';
+import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './daterange_picker.md';
 import GlDaterangePicker from './daterange_picker.vue';
 
@@ -113,6 +114,7 @@ export default {
   followsDesignSystem: true,
   title: 'base/daterange-picker',
   component: GlDaterangePicker,
+  decorators: [makeContainer({ height: '300px' })],
   parameters: {
     knobs: { disable: true },
     docs: {
