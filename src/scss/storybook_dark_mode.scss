@@ -1,0 +1,22 @@
+// conditional overrides for dark mode for use in storybook.
+// Because we only use application.css from gitlab (and not
+// application_dark), we need to override some base rules so
+// that we can more easily test components in dark mode
+
+// This is because dark mode in gitlab currently depends on
+// overriding SCSS variables, but we want gitlab-ui dark mode
+// to use Custom Properties instead
+
+.gl-dark {
+  --color-body-bg: #1f1f1f;
+  --color-body-text: #fff;
+
+  color-scheme: dark;
+
+  body {
+    // We can delete these once $body-bg and $body-color
+    // variables in variables.scss are updated to use CSS custom properties
+    background-color: var(--color-body-bg);
+    color: var(--color-body-text);
+  }
+}
