@@ -141,7 +141,7 @@ export const Default = (args, { argTypes }) => ({
   template: template('', `<span class="gl-my-0" id="listbox-label">Select a department</span>`),
 });
 Default.args = generateProps({ ariaLabelledby: 'listbox-label' });
-Default.decorators = [makeContainer({ height: '150px' })];
+Default.decorators = [makeContainer({ height: '370px' })];
 
 export const HeaderAndFooter = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -178,7 +178,7 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
                               </template>`),
 });
 HeaderAndFooter.args = generateProps({ toggleText: 'Header and Footer', multiple: true });
-HeaderAndFooter.decorators = [makeContainer({ height: '220px' })];
+HeaderAndFooter.decorators = [makeContainer({ height: '370px' })];
 
 export const CustomListItem = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
