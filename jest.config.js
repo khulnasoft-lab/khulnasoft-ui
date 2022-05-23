@@ -17,7 +17,7 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': 'vue-jest',
-    '\\.(svg|html|md)$': 'jest-raw-loader',
+    '\\.(svg|html|md|png)$': 'jest-raw-loader',
   },
   transformIgnorePatterns: [
     '/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$)|(/@gitlab/svgs/))/',
