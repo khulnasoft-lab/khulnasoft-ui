@@ -64,39 +64,37 @@ export default {
 };
 </script>
 <template>
-  <div>
-    <b-input-group>
-      <b-input-group-prepend v-if="activeOption || $scopedSlots.prepend">
-        <!-- @slot Is rendered in front of the input field. -->
-        <slot name="prepend"></slot>
-        <gl-dropdown v-if="activeOption" :text="activeOption">
-          <gl-dropdown-item
-            v-for="option in predefinedOptions"
-            :key="option.value"
-            is-check-item
-            :is-checked="activeOption === option.name"
-            @click="updateValue(option)"
-          >
-            {{ option.name }}
-          </gl-dropdown-item>
-        </gl-dropdown>
-      </b-input-group-prepend>
-      <!-- @slot Allows replacement of default input field. -->
-      <slot>
-        <b-form-input
-          ref="input"
-          v-model="localValue"
-          :class="['gl-form-input', inputClass]"
-          :aria-label="label"
-          v-bind="$attrs"
-          v-on="$listeners"
-          @click="handleClick"
-        />
-      </slot>
-      <b-input-group-append v-if="$scopedSlots.append">
-        <!-- @slot Is rendered after the input field. -->
-        <slot name="append"></slot>
-      </b-input-group-append>
-    </b-input-group>
-  </div>
+  <b-input-group>
+    <b-input-group-prepend v-if="activeOption || $scopedSlots.prepend">
+      <!-- @slot Is rendered in front of the input field. -->
+      <slot name="prepend"></slot>
+      <gl-dropdown v-if="activeOption" :text="activeOption">
+        <gl-dropdown-item
+          v-for="option in predefinedOptions"
+          :key="option.value"
+          is-check-item
+          :is-checked="activeOption === option.name"
+          @click="updateValue(option)"
+        >
+          {{ option.name }}
+        </gl-dropdown-item>
+      </gl-dropdown>
+    </b-input-group-prepend>
+    <!-- @slot Allows replacement of default input field. -->
+    <slot>
+      <b-form-input
+        ref="input"
+        v-model="localValue"
+        :class="['gl-form-input', inputClass]"
+        :aria-label="label"
+        v-bind="$attrs"
+        v-on="$listeners"
+        @click="handleClick"
+      />
+    </slot>
+    <b-input-group-append v-if="$scopedSlots.append">
+      <!-- @slot Is rendered after the input field. -->
+      <slot name="append"></slot>
+    </b-input-group-append>
+  </b-input-group>
 </template>
