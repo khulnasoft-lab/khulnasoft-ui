@@ -17,6 +17,7 @@ export const parameters = {
   },
   actions: { disable: true },
   darkMode: {
+    current: 'light',
     stylePreview: true,
     darkClass: 'gl-dark',
   },
