@@ -13,6 +13,7 @@
 
   color-scheme: dark;
 
+  &,
   body {
     // We can delete these once $body-bg and $body-color
     // variables in variables.scss are updated to use CSS custom properties
