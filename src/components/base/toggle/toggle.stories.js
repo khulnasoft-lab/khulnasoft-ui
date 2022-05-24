@@ -5,6 +5,10 @@ import readme from './toggle.md';
 
 const defaultValue = (prop) => GlToggle.props[prop].default;
 
+const longHelp = `This is a toggle component with a long help message. 
+  You can notice how the text wraps when the width of the container
+  is not enough to fix the entire text.`;
+
 const generateProps = ({
   value = true,
   disabled = defaultValue('disabled'),
@@ -42,6 +46,11 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = generateProps();
+
+export const WithLongHelp = Template.bind({});
+WithLongHelp.args = generateProps({
+  help: longHelp,
+});
 
 export default {
   title: 'base/toggle',

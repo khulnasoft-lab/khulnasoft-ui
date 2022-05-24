@@ -118,7 +118,7 @@ export default {
 
 <template>
   <div
-    class="gl-toggle-wrapper gl-display-flex gl-mb-0 gl-w-max-content"
+    class="gl-toggle-wrapper gl-display-flex gl-mb-0"
     :class="{
       'gl-flex-direction-column': labelPosition === 'top' || labelPosition === 'hidden',
       'gl-toggle-label-inline': labelPosition === 'left',
@@ -129,7 +129,7 @@ export default {
     <span
       :id="labelId"
       :class="{ 'gl-sr-only': labelPosition === 'hidden' }"
-      class="gl-toggle-label"
+      class="gl-toggle-label gl-flex-shrink-0"
       data-testid="toggle-label"
     >
       <!-- @slot The toggle's label. -->
@@ -146,6 +146,7 @@ export default {
         'is-checked': value,
         'is-disabled': disabled,
       }"
+      class="gl-flex-shrink-0"
       type="button"
       @click.prevent="toggleFeature"
     >
