@@ -1,3 +1,10 @@
+## [40.6.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.2...v40.6.3) (2022-05-24)
+
+
+### Bug Fixes
+
+* Set story container height with decorator ([672f6f9](https://gitlab.com/gitlab-org/gitlab-ui/commit/672f6f948710db39fad59b6a0da673783ce63bc5))
+
 ## [40.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.1...v40.6.2) (2022-05-19)
 
 
