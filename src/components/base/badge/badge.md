@@ -31,7 +31,8 @@ While this component is based on
 
 - Has a different set of valid `variant`s. See the examples or props
    documentation for those values.
-- Always sets the `pill` prop of the underlying `BBadge` to `true`. Any passed
+- Always sets the `pill` prop of the underlying
+[`BBadge`](https://bootstrap-vue.org/docs/components/badge) to `true`. Any passed
    in `pill` prop value is ignored.
 - Does _not_ scale itself to match the size of its immediate parent, like
-   `BBadge` does.
+   [`BBadge`](https://bootstrap-vue.org/docs/components/badge) does.
