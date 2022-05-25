@@ -1,3 +1,10 @@
+## [40.6.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.4...v40.6.5) (2022-05-25)
+
+
+### Bug Fixes
+
+* **GlSearchBoxByClick, GlFilteredSearch:** Update styles regression ([141df1d](https://gitlab.com/gitlab-org/gitlab-ui/commit/141df1ddd9cff2700921d2b751eecb58817dc71c))
+
 ## [40.6.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.3...v40.6.4) (2022-05-25)
 
 
