@@ -1,3 +1,10 @@
+## [40.6.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.3...v40.6.4) (2022-05-25)
+
+
+### Bug Fixes
+
+* **GlFormGroup:** Fix valid state styling ([8081800](https://gitlab.com/gitlab-org/gitlab-ui/commit/8081800ce1edf6199e61a7a4669e5845d6f3c2a9))
+
 ## [40.6.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.2...v40.6.3) (2022-05-24)
 
 
