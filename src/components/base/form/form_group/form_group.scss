@@ -18,6 +18,7 @@
   }
 
   .invalid-feedback,
+  .valid-feedback,
   .text-gl-muted {
     @include gl-font-base;
     @include gl-line-height-normal;
@@ -25,6 +26,7 @@
 
   .form-control {
     + .invalid-feedback,
+    + .valid-feedback,
     + .text-gl-muted,
     &.is-valid + .invalid-feedback + .text-gl-muted {
       // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2806
