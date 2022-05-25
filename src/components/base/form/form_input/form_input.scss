@@ -38,6 +38,10 @@
     }
   }
 
+  &.is-valid {
+    background-image: none;
+  }
+
   &::placeholder {
     @include gl-text-gray-400;
   }

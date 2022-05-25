@@ -74,31 +74,18 @@ WithLabelDescription.args = generateProps({
 export const WithValidations = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { ...components, GlFormInput },
-  computed: {
-    state() {
-      return this.name.length >= 4;
-    },
-    invalidFeedback() {
-      let feedbackText = 'This field is required.';
-
-      if (this.name.length >= 4) {
-        feedbackText = '';
-      } else if (this.name.length > 0) {
-        feedbackText = 'Enter at least 4 characters.';
-      }
-
-      return feedbackText;
-    },
-  },
-  data() {
-    return {
-      name: '',
-    };
-  },
-  template: wrap(
-    '<gl-form-input :id="id" :state="state" v-model.trim="name" />',
-    ':invalid-feedback="invalidFeedback"'
-  ),
+  template: `
+    <div>
+      ${wrap(
+        '<gl-form-input :id="id" :state="false" />',
+        'invalid-feedback="This field is required."'
+      )}
+      ${wrap(
+        '<gl-form-input :id="id" :state="true" value="Sidney Jones" />',
+        'valid-feedback="This field is valid."'
+      )}
+    </div>
+  `,
 });
 WithValidations.args = generateProps({
   label: 'Name',
