@@ -41,17 +41,16 @@
     }
   }
 
-  .input-group {
+  &.input-group {
     > .input-group-prepend,
     > .input-group-append {
       @include gl-bg-white;
     }
+  }
 
-    .gl-search-box-by-click-search-button {
-      @include gl-text-gray-500;
-      @include gl-p-3;
-      @include gl-inset-border-1-gray-400;
-    }
+  .gl-search-box-by-click-search-button {
+    @include gl-text-gray-500;
+    @include gl-inset-border-1-gray-400;
   }
 
   .gl-search-box-by-click-input {
