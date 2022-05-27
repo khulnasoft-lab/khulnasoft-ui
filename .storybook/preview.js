@@ -1,5 +1,7 @@
 import 'iframe-resizer/js/iframeResizer.contentWindow.min.js';
 import setConfigs from '../src/config';
+import logoWithBlackText from '../static/img/_logo_with_black_text.svg';
+import logoWithWhiteText from '../static/img/_logo_with_white_text.svg';
 
 setConfigs();
 
@@ -8,6 +10,11 @@ const stylesheetsRequireCtx = require.context('../src/scss', true, /(storybook|b
 stylesheetsRequireCtx('./bootstrap.scss');
 
 stylesheetsRequireCtx('./storybook.scss');
+
+const theme = {
+  brandTitle: 'GitLab UI',
+  brandUrl: 'https://gitlab.com/gitlab-org/gitlab-ui',
+};
 
 export const parameters = {
   options: {
@@ -20,6 +27,14 @@ export const parameters = {
     current: 'light',
     stylePreview: true,
     darkClass: 'gl-dark',
+    dark: {
+      ...theme,
+      brandImage: logoWithWhiteText,
+    },
+    light: {
+      ...theme,
+      brandImage: logoWithBlackText,
+    },
   },
   a11y: {},
   viewport: {
