@@ -1,3 +1,10 @@
+## [40.6.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.5...v40.6.6) (2022-05-30)
+
+
+### Bug Fixes
+
+* **GlToggle:** toggle label left direction ([2fb4082](https://gitlab.com/gitlab-org/gitlab-ui/commit/2fb40821cdd647462c804c7a8bfb50fc0fc3dabf))
+
 ## [40.6.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.4...v40.6.5) (2022-05-25)
 
 
