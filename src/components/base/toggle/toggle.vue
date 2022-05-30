@@ -118,8 +118,13 @@ export default {
 
 <template>
   <div
-    class="gl-toggle-wrapper gl-display-flex gl-flex-direction-column gl-mb-0 gl-w-max-content"
-    :class="{ 'gl-toggle-label-inline': labelPosition === 'left', 'is-disabled': disabled }"
+    class="gl-toggle-wrapper gl-display-flex gl-mb-0 gl-w-max-content"
+    :class="{
+      'gl-flex-direction-column': labelPosition === 'top' || labelPosition === 'hidden',
+      'gl-toggle-label-inline': labelPosition === 'left',
+      'is-disabled': disabled,
+    }"
+    data-testid="toggle-wrapper"
   >
     <span
       :id="labelId"

@@ -109,18 +109,23 @@ describe('toggle', () => {
 
   describe('label position', () => {
     describe.each`
-      state       | labelPosition                 | hasGlSrOnlyClass
-      ${'top'}    | ${toggleLabelPosition.top}    | ${false}
-      ${'left'}   | ${toggleLabelPosition.left}   | ${false}
-      ${'hidden'} | ${toggleLabelPosition.hidden} | ${true}
-    `('when $state', ({ labelPosition, hasGlSrOnlyClass }) => {
+      state       | labelPosition                 | hasGlSrOnlyClass | flexDirection
+      ${'top'}    | ${toggleLabelPosition.top}    | ${false}         | ${'gl-flex-direction-column'}
+      ${'left'}   | ${toggleLabelPosition.left}   | ${false}         | ${'gl-toggle-label-inline'}
+      ${'hidden'} | ${toggleLabelPosition.hidden} | ${true}          | ${'gl-flex-direction-column'}
+    `('when $state', ({ labelPosition, hasGlSrOnlyClass, flexDirection }) => {
       beforeEach(() => {
         createWrapper({ labelPosition });
       });
 
+      it(`${flexDirection} class is added to the label`, () => {
+        const cssClasses = wrapper.find('[data-testid="toggle-wrapper"]').classes();
+
+        return expect(cssClasses).toContain(flexDirection);
+      });
+
       it(`${hasGlSrOnlyClass ? 'adds' : 'does not add'} 'gl-sr-only' class to the label`, () => {
         const cssClasses = wrapper.find('[data-testid="toggle-label"]').classes();
-
         return hasGlSrOnlyClass
           ? expect(cssClasses).toContain('gl-sr-only')
           : expect(cssClasses).not.toContain('gl-sr-only');
