@@ -22,7 +22,6 @@
   @include gl-line-height-normal;
   @include gl-font-weight-normal;
   @include gl-display-inline-flex;
-  @include gl-flex-direction-column;
 
   &.is-disabled {
     @include gl-opacity-4;
