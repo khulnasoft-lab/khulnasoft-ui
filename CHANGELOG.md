@@ -1,3 +1,10 @@
+# [40.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.6...v40.7.0) (2022-05-31)
+
+
+### Features
+
+* **GlSingleStat:** support string and number for value prop ([9217ee4](https://gitlab.com/gitlab-org/gitlab-ui/commit/9217ee42c9b54e04a8c98c56c50f9018896bc32d))
+
 ## [40.6.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.5...v40.6.6) (2022-05-30)
 
 
