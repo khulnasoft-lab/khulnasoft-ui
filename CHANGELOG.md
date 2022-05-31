@@ -1,3 +1,10 @@
+## [40.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.7.0...v40.7.1) (2022-05-31)
+
+
+### Bug Fixes
+
+* **GlToggle:** Fix overflow of long help text ([8947400](https://gitlab.com/gitlab-org/gitlab-ui/commit/89474002e1f9333675ac6ed626277a18595d9d89))
+
 # [40.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.6.6...v40.7.0) (2022-05-31)
 
 
