@@ -7,11 +7,7 @@ should serve a single purpose dedicated to completing the user’s task.
 You can use the `v-model` directive to control the modal’s visibility. The `v-model`
 directive interfaces with the `visible` property and the `@change` event.
 
-## Deprecation Warning
-
-We are deprecating the `modal-ok` and `modal-cancel` slots. We are also changing the way the
-`modal-footer` slot content is populated. This is in order to align this component with the design
-system.
+## Modal footer
 
 The `modal-footer` slot should only be populated via props: `action-primary`, `action-secondary` and
 `action-cancel`. These props allow you to handle how a primary, secondary and cancel button will
