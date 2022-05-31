@@ -1,3 +1,20 @@
+# [41.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.7.1...v41.0.0) (2022-05-31)
+
+
+### Features
+
+* **GlModal:** Remove deprecated slots modal-ok and modal-cancel ([7e116ec](https://gitlab.com/gitlab-org/gitlab-ui/commit/7e116ec5295d21a2afefc157c57312a733459bbd))
+
+
+### BREAKING CHANGES
+
+* **GlModal:** This removes the modal-ok and modal-cancel slots from
+the modal component. These slots have been deprecated and are now no
+longer supported.
+
+Use the props `action-primary`, `action-secondary` and `action-cancel`
+instead.
+
 ## [40.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.7.0...v40.7.1) (2022-05-31)
 
 
