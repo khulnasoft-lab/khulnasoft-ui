@@ -27,6 +27,16 @@ describe('drawer component', () => {
       });
     });
 
+    describe('when sticky header is true', () => {
+      it('renders drawer header with sticky position', () => {
+        mountWithOpts({ props: { open: true, headerSticky: true } });
+        const header = wrapper.find('.gl-drawer-header');
+
+        expect(header.classes()).toContain('gl-drawer-header-sticky');
+        expect(header.attributes('style')).toBe('z-index: 10;');
+      });
+    });
+
     describe('when open is false', () => {
       it('cannot find aside html element', () => {
         mountWithOpts({ props: { open: false } });

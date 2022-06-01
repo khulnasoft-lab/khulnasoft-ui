@@ -18,6 +18,11 @@ export default {
       required: false,
       default: '',
     },
+    headerSticky: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     zIndex: {
       type: Number,
       required: false,
@@ -45,6 +50,11 @@ export default {
       }
 
       return styles;
+    },
+    drawerHeaderStyles() {
+      return {
+        zIndex: this.headerSticky ? maxZIndex : null,
+      };
     },
     variantClass() {
       return `gl-drawer-${this.variant}`;
@@ -79,7 +89,11 @@ export default {
 <template>
   <transition name="gl-drawer">
     <aside v-if="open" :style="drawerStyles" class="gl-drawer" :class="variantClass">
-      <div class="gl-drawer-header">
+      <div
+        class="gl-drawer-header"
+        :style="drawerHeaderStyles"
+        :class="{ 'gl-drawer-header-sticky': headerSticky }"
+      >
         <span class="gl-drawer-title">
           <slot name="title"></slot>
           <gl-button
