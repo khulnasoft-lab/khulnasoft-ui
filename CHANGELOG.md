@@ -1,3 +1,10 @@
+# [41.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.0.0...v41.1.0) (2022-06-01)
+
+
+### Features
+
+* **GlDrawer:** add sticky header ([41f65c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/41f65c2de83a6316e699c0acab9902dfc08ceec3))
+
 # [41.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v40.7.1...v41.0.0) (2022-05-31)
 
 
