@@ -11,6 +11,12 @@ $gl-sidebar-width: 290px;
   @include gl-font-base;
   @include gl-line-height-normal;
 
+  .gl-drawer-header-sticky {
+    @include gl-bg-white;
+    @include gl-top-0;
+    @include gl-sticky;
+  }
+
   @include media-breakpoint-down(sm) {
     @include gl-w-full;
   }
@@ -34,7 +40,14 @@ $gl-sidebar-width: 290px;
   .gl-drawer-header,
   .gl-drawer-body > * {
     @include gl-py-5;
+  }
+
+  .gl-drawer-body > * {
     @include gl-mx-5;
+  }
+
+  .gl-drawer-header {
+    @include gl-px-5;
   }
 }
 

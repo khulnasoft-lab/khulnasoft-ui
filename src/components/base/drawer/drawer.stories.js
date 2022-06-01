@@ -1,4 +1,5 @@
 import { GlDrawer, GlButton } from '../../../index';
+import { drawerVariants } from '../../../utils/constants';
 import readme from './drawer.md';
 
 const components = { GlDrawer, GlButton };
@@ -14,6 +15,10 @@ const drawerContent = [
   'Eight',
   'Nine',
   'Ten',
+  'Eleven',
+  'Twelve',
+  'Thirteen',
+  'Fourteen',
 ]
   .map(
     (str) => `
@@ -25,32 +30,32 @@ const drawerContent = [
   )
   .join('');
 
-export const Default = (_args, { viewMode }) => ({
-  components,
-  methods: {
-    toggle() {
-      this.open = !this.open;
-    },
-    close() {
-      this.open = false;
-    },
-  },
-  data() {
-    return {
-      open: viewMode !== 'docs',
-    };
-  },
-  template: `
-    <div>
-      <gl-button @click="toggle">Toggle Drawer</gl-button>
-      <gl-drawer :open="open" @close="close">
-        <template #title>List Settings</template>
-        ${drawerContent}
-      </gl-drawer>
-    </div>`,
+const createSidebarTemplate = (content) => `
+  <gl-drawer
+    :open="open"
+    :header-height="headerHeight"
+    :header-sticky="headerSticky"
+    :z-index="zIndex"
+    :variant="variant"
+    @close="close">${content}</gl-drawer>
+  `;
+
+const defaultValue = (prop) => GlDrawer.props[prop].default;
+
+const generateProps = ({
+  headerHeight = defaultValue('headerHeight'),
+  headerSticky = defaultValue('headerSticky'),
+  zIndex = defaultValue('zIndex'),
+  variant = defaultValue('variant'),
+} = {}) => ({
+  headerHeight,
+  headerSticky,
+  zIndex,
+  variant,
 });
 
-export const WithActions = (_args, { viewMode }) => ({
+const storyOptions = (viewMode) => ({
+  props: Object.keys(generateProps()),
   components,
   methods: {
     toggle() {
@@ -65,10 +70,27 @@ export const WithActions = (_args, { viewMode }) => ({
       open: viewMode !== 'docs',
     };
   },
+});
+
+export const Default = (_args, { viewMode }) => ({
+  ...storyOptions(viewMode),
   template: `
     <div>
       <gl-button @click="toggle">Toggle Drawer</gl-button>
-      <gl-drawer :open="open" @close="close">
+      ${createSidebarTemplate(`
+        <template #title>List Settings</template>
+        ${drawerContent}
+      `)}
+    </div>`,
+});
+Default.args = generateProps();
+
+export const WithActions = (_args, { viewMode }) => ({
+  ...storyOptions(viewMode),
+  template: `
+    <div>
+      <gl-button @click="toggle">Toggle Drawer</gl-button>
+      ${createSidebarTemplate(`
           <template #title>
           <h3>custom-network-policy</h3>
         </template>
@@ -79,29 +101,17 @@ export const WithActions = (_args, { viewMode }) => ({
             </div>
         </template>
           ${drawerContent}
-      </gl-drawer>
+      `)}
     </div>`,
 });
+WithActions.args = generateProps();
 
 export const SidebarVariant = (_args, { viewMode }) => ({
-  components,
-  methods: {
-    toggle() {
-      this.open = !this.open;
-    },
-    close() {
-      this.open = false;
-    },
-  },
-  data() {
-    return {
-      open: viewMode !== 'docs',
-    };
-  },
+  ...storyOptions(viewMode),
   template: `
     <div>
       <gl-button @click="toggle">Toggle Drawer</gl-button>
-      <gl-drawer :open="open" @close="close" variant="sidebar">
+      ${createSidebarTemplate(`
         <template #title>
           <h3>Sidebar</h3>
         </template>
@@ -111,16 +121,42 @@ export const SidebarVariant = (_args, { viewMode }) => ({
           </div>
         </template>
         ${drawerContent}
-      </gl-drawer>
+      `)}
     </div>`,
+});
+SidebarVariant.args = generateProps({
+  variant: drawerVariants.sidebar,
+});
+
+export const StickyHeader = (_args, { viewMode }) => ({
+  ...storyOptions(viewMode),
+  template: `
+  <div>
+    <gl-button @click="toggle">Toggle Drawer</gl-button>
+    ${createSidebarTemplate(`
+      <template #title>List Settings</template>
+      ${drawerContent}
+    `)}
+  </div>`,
+});
+StickyHeader.args = generateProps({
+  headerSticky: true,
 });
 
 export default {
   title: 'base/drawer',
   component: GlDrawer,
+  argTypes: {
+    open: {
+      control: false,
+    },
+    variant: {
+      options: Object.keys(drawerVariants),
+      control: 'select',
+    },
+  },
   parameters: {
     knobs: { disabled: true },
-    controls: { disable: true },
     docs: {
       description: {
         component: readme,
