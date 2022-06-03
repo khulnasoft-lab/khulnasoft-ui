@@ -1,9 +1,11 @@
-# Engineering
-* @gitlab-org/maintainers/frontend
+[GitLab UI]
+* @gitlab-org/maintainers/gitlab-ui
 
-# UI
-*.scss @rayana @tauriedavis @gitlab-org/maintainers/frontend
+[Charts]
+src/components/charts @svedova
 
-# Technical Writing
-/documentation/ @marcia
-/doc/ @marcia
+[CSS]
+*.scss @rayana @tauriedavis @gitlab-org/maintainers/gitlab-ui
+
+[Technical Writing]
+doc/ @rdickenson
