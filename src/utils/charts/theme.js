@@ -128,7 +128,7 @@ const axes = {
   },
   nameGap: 30,
   nameTextStyle: {
-    fontStyle: 'bold',
+    fontWeight: 'bold',
   },
   splitLine: {
     lineStyle: {
