@@ -187,6 +187,12 @@
   display: grid;
 }
 
+@mixin gl-md-display-table-cell {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-display-table-cell;
+  }
+}
+
 @mixin gl-lg-display-table-cell {
   @include gl-media-breakpoint-up(lg) {
     @include gl-display-table-cell;
