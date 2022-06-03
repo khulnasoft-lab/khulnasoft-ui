@@ -1,3 +1,10 @@
+# [41.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.2.0...v41.3.0) (2022-06-03)
+
+
+### Features
+
+* **css:** Add md variant of display table cell ([ced2312](https://gitlab.com/gitlab-org/gitlab-ui/commit/ced2312c0c3009676dab1e611587a7581671203a))
+
 # [41.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.1.0...v41.2.0) (2022-06-03)
 
 
