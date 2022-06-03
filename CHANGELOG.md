@@ -1,3 +1,10 @@
+# [41.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.1.0...v41.2.0) (2022-06-03)
+
+
+### Features
+
+* Update echarts for performance ([60bce47](https://gitlab.com/gitlab-org/gitlab-ui/commit/60bce47bb635c59d11c159652a39345a7e9b3596))
+
 # [41.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.0.0...v41.1.0) (2022-06-01)
 
 
