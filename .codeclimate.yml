@@ -1,0 +1,9 @@
+# This configuration file was added to enable ESLint 8 as GitLab Code Quality
+# does not support ESLint 8 as of GitLab 15.0. Once Code Quality officially
+# supports ESLint 8, remove this file for the simplicity.
+# See https://gitlab.com/gitlab-org/ci-cd/codequality/-/issues/52
+version: "2"
+plugins:
+  eslint:
+    enabled: true
+    channel: "eslint-8"
