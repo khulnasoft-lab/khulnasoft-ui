@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { GlAvatarLabeled, GlBadge } from '../../../index';
+import { GlAvatarLabeled, GlBadge, GlButton } from '../../../index';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import avatarPath from '../../../../static/img/avatar.png';
@@ -89,6 +89,25 @@ export const WithBadges = (args, { argTypes }) => ({
     `,
 });
 WithBadges.args = generateProps();
+
+export const WithDefaultSlot = (args, { argTypes }) => ({
+  components: { GlAvatarLabeled, GlButton },
+  props: Object.keys(argTypes),
+  template: `
+      <gl-avatar-labeled
+        :shape="shape"
+        :size="size"
+        :src="src"
+        :label="label"
+        :sub-label="subLabel"
+      >
+        <template>
+          <gl-button class="gl-mt-3 gl-align-self-start" size="small">Follow</gl-button>
+        </template>
+      </gl-avatar-labeled>
+    `,
+});
+WithDefaultSlot.args = generateProps({ size: 64 });
 
 export default {
   title: 'base/avatar/labeled',

@@ -56,6 +56,8 @@ export default {
         <span class="gl-avatar-labeled-sublabel">{{ subLabel }}</span>
       </gl-link>
       <span v-else class="gl-avatar-labeled-sublabel">{{ subLabel }}</span>
+      <!-- @slot Add additional information below the avatar label. -->
+      <slot></slot>
     </div>
   </div>
 </template>
