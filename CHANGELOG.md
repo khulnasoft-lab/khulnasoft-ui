@@ -1,3 +1,10 @@
+# [41.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.4.0...v41.5.0) (2022-06-06)
+
+
+### Features
+
+* **GlAvatarLabeled:** Add default slot ([ba69571](https://gitlab.com/gitlab-org/gitlab-ui/commit/ba69571945032ef5e27a49da40444180b786a651))
+
 # [41.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.3.0...v41.4.0) (2022-06-06)
 
 
