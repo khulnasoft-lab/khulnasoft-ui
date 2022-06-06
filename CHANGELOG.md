@@ -1,3 +1,10 @@
+# [41.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.3.0...v41.4.0) (2022-06-06)
+
+
+### Features
+
+* **css:** add gl-ml-n3 util class ([cc97cd7](https://gitlab.com/gitlab-org/gitlab-ui/commit/cc97cd76bccb660647174073b818a2f593569969))
+
 # [41.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.2.0...v41.3.0) (2022-06-03)
 
 
