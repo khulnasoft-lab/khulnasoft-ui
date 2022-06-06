@@ -49,6 +49,15 @@ describe('avatar labeled', () => {
     expect(wrapper.find('[data-testid="user-meta"]').exists()).toBe(true);
   });
 
+  it('displays `default` slot', () => {
+    buildWrapper(
+      { label, subLabel },
+      { default: '<span data-testid="default-slot">Foo Bar</span>' }
+    );
+
+    expect(wrapper.find('[data-testid="default-slot"]').exists()).toBe(true);
+  });
+
   describe('with label links', () => {
     beforeEach(() => {
       buildWrapper({ label, subLabel, labelLink: 'http://label', subLabelLink: 'http://subLabel' });
