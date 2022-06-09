@@ -34,6 +34,8 @@ include:
     file: /semantic-release/.gitlab-ci-template.rules.yml
   - project: gitlab-org/frontend/untamper-my-lockfile
     file: 'templates/merge_request_pipelines.yml'
+  - project: 'gitlab-org/quality/pipeline-common'
+    file: '/ci/danger-review.yml'
 
 # Ensure that the scanning is only executed on MRs and the default branch
 # This potentially can be made obsolete once:
@@ -164,14 +166,9 @@ populate_npm_cache:
 danger-review:
   variables:
     DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
-  rules:
-    - if: '$GITLAB_TOKEN && $CI_MERGE_REQUEST_IID'
-      when: always
-  image: registry.gitlab.com/gitlab-org/gitlab-build-images:danger
-  stage: test
-  needs: []
-  script:
-    - danger --fail-on-errors=true
+  before_script:
+    - bundle init
+    - bundle add gitlab-dangerfiles --version 3.1.0
 
 build_package:
   extends: [.node, .yarn_install]

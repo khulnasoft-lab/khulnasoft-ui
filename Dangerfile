@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-require_relative 'lib/gitlab_danger'
-require_relative 'lib/gitlab/danger/request_helper'
+require 'gitlab-dangerfiles'
 
-danger.import_plugin('danger/plugins/helper.rb')
-danger.import_plugin('danger/plugins/roulette.rb')
+Gitlab::Dangerfiles.for_project(self) do |gitlab_dangerfiles|
 
-unless helper.release_automation?
-  GitlabDanger.new(helper.gitlab_helper).rule_names.each do |file|
-    danger.import_dangerfile(path: File.join('danger', file))
-  end
+  gitlab_dangerfiles.import_plugins
+
+  gitlab_dangerfiles.config.files_to_category = {
+    %r{\Adoc/} => :docs,
+    %r{.*} => :frontend
+  }.freeze
+
+  gitlab_dangerfiles.import_dangerfiles(except: %w[changelog commit_messages])
 end
