@@ -60,7 +60,8 @@
     top: 1px;
   }
 
-  &.btn-default {
+  &.btn-default,
+  &.btn-dashed {
     @include gl-bg-white;
 
     &.btn-default-tertiary {
