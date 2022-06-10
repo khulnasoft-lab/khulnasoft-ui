@@ -1,4 +1,4 @@
-const { STORIES } = process.env;
+const { IS_VISUAL_TEST, STORIES } = process.env;
 
 module.exports = {
   stories: STORIES ? STORIES.split(',') : ['../src/**/*.stories.js'],
@@ -10,4 +10,7 @@ module.exports = {
     '@storybook/addon-viewport/register',
     'storybook-dark-mode',
   ],
+  features: {
+    storyStoreV7: !IS_VISUAL_TEST,
+  },
 };

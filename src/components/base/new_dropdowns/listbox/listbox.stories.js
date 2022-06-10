@@ -80,6 +80,7 @@ const generateProps = ({
   icon = '',
   multiple = defaultValue('multiple'),
   ariaLabelledby,
+  startOpened = true,
 } = {}) => ({
   items,
   category,
@@ -94,6 +95,7 @@ const generateProps = ({
   icon,
   multiple,
   ariaLabelledby,
+  startOpened,
 });
 
 function openListbox(component) {
@@ -136,7 +138,9 @@ export const Default = (args, { argTypes }) => ({
     };
   },
   mounted() {
-    openListbox(this);
+    if (this.startOpened) {
+      openListbox(this);
+    }
   },
   template: template('', `<span class="gl-my-0" id="listbox-label">Select a department</span>`),
 });
@@ -157,7 +161,9 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
     };
   },
   mounted() {
-    openListbox(this);
+    if (this.startOpened) {
+      openListbox(this);
+    }
   },
   methods: {
     selectItem(index) {
@@ -193,7 +199,9 @@ export const CustomListItem = (args, { argTypes }) => ({
     GlAvatar,
   },
   mounted() {
-    openListbox(this);
+    if (this.startOpened) {
+      openListbox(this);
+    }
   },
   computed: {
     headerText() {
