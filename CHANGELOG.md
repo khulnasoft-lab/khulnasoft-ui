@@ -1,3 +1,15 @@
+## [41.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.7.0...v41.7.1) (2022-06-13)
+
+
+### Bug Fixes
+
+* **GlModal:** Re-add deprecated modal slots ([29b7ccf](https://gitlab.com/gitlab-org/gitlab-ui/commit/29b7ccf4623de391192bce75ad176d38e10de3f1))
+
+
+### Reverts
+
+* **GlModal:** Remove deprecated slots modal-ok and modal-cancel ([1d2cc9e](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d2cc9e06b5011cd4c8155b5b37db570f8a6b581)), closes [/gitlab.com/gitlab-org/gitlab/-/merge_requests/88974#note_988604141](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/88974/issues/note_988604141)
+
 # [41.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.6.0...v41.7.0) (2022-06-13)
 
 
