@@ -1,3 +1,10 @@
+# [41.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.6.0...v41.7.0) (2022-06-13)
+
+
+### Features
+
+* Add gl-background-filter-blur class ([9f65dfb](https://gitlab.com/gitlab-org/gitlab-ui/commit/9f65dfb27fe55f75109d3863fc073e23195636c2))
+
 # [41.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.5.0...v41.6.0) (2022-06-13)
 
 
