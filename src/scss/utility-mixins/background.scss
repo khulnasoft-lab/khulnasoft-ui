@@ -397,3 +397,13 @@
 @mixin gl-bg-chevron-down {
   background-image: url($gl-icon-chevron-down);
 }
+
+/**
+* Backdrop filter utilities
+*
+* naming convention: gl-filter-{filter-type}-{filter-intensity}
+*/
+
+@mixin gl-backdrop-filter-blur-1 {
+  backdrop-filter: blur($gl-spacing-scale-1);
+}
