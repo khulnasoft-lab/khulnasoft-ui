@@ -1,3 +1,10 @@
+# [41.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.5.0...v41.6.0) (2022-06-13)
+
+
+### Features
+
+* Add gl-max-w-34 and gl-max-w-80 ([838c233](https://gitlab.com/gitlab-org/gitlab-ui/commit/838c2332b113ed0bd2ec296088e8fdba670e1a4e))
+
 # [41.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.4.0...v41.5.0) (2022-06-06)
 
 
