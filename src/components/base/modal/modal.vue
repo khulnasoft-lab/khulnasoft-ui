@@ -86,6 +86,22 @@ export default {
       default: '',
     },
   },
+  computed: {
+    shouldRenderModalOk() {
+      return Boolean(this.$slots['modal-ok']);
+    },
+    shouldRenderModalCancel() {
+      return Boolean(this.$slots['modal-cancel']);
+    },
+    shouldRenderModalFooter() {
+      return Boolean(
+        this.actionCancel ||
+          this.actionSecondary ||
+          this.actionPrimary ||
+          this.$slots['modal-footer']
+      );
+    },
+  },
   mounted() {
     if (!this.ariaLabel && !this.title) {
       logWarning(
@@ -152,7 +168,7 @@ export default {
 </script>
 
 <template>
-  <!--
+  <!-- 
   Emitted when the modal visibility changes
   @event change
  -->
@@ -186,8 +202,14 @@ export default {
       <!-- @slot Content of Modal header close button. If modal-header slot is used, this slot will not be shown. -->
       <close-button ref="close-button" :label="dismissLabel" @click="close" />
     </template>
+    <template v-if="shouldRenderModalOk" #modal-ok>
+      <slot name="modal-ok"></slot>
+    </template>
+    <template v-if="shouldRenderModalCancel" #modal-cancel>
+      <slot name="modal-cancel"></slot>
+    </template>
     <!-- @slot Populated via props: modal-action-primary, modal-action-cancel and modal-action-secondary. -->
-    <template #modal-footer>
+    <template v-if="shouldRenderModalFooter" #modal-footer>
       <slot name="modal-footer">
         <!--
         Emitted when clicked on modal-action-cancel
