@@ -15,6 +15,10 @@ export default {
   },
   inject: ['accordionSetId', 'defaultHeaderLevel'],
   inheritAttrs: false,
+  model: {
+    prop: 'visible',
+    event: 'input',
+  },
   props: {
     /*
     Used to set the title of accordion link
@@ -70,6 +74,14 @@ When set, it will ensure the accordion item is initially visible
     },
     buttonTitle() {
       return this.isVisible && this.titleVisible ? this.titleVisible : this.title;
+    },
+  },
+  watch: {
+    isVisible: {
+      immediate: true,
+      handler(isVisible) {
+        this.$emit('input', isVisible);
+      },
     },
   },
 };
