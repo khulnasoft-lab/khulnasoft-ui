@@ -1,3 +1,10 @@
+# [41.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.8.0...v41.9.0) (2022-06-14)
+
+
+### Features
+
+* **css:** Add sm variant of display table cell ([807016f](https://gitlab.com/gitlab-org/gitlab-ui/commit/807016f5919b181b3da5501363f3aa49fe80589c))
+
 # [41.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.7.1...v41.8.0) (2022-06-14)
 
 
