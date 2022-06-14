@@ -57,7 +57,6 @@ export default {
   component: GlKeysetPagination,
   parameters: {
     bootstrapComponent: false,
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

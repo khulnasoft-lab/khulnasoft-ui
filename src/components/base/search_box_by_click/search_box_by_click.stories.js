@@ -82,7 +82,6 @@ export default {
   title: 'base/search-box-by-click',
   component: GlSearchBoxByClick,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

@@ -40,9 +40,6 @@ export default {
         component: readme,
       },
     },
-    knobs: {
-      disabled: true,
-    },
   },
   argTypes: {
     color: {

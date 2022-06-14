@@ -18,7 +18,6 @@ export default {
   title: 'base/form/form-text',
   component: GlFormText,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

@@ -77,7 +77,6 @@ export default {
   title: 'base/skeleton-loader',
   component: GlSkeletonLoader,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

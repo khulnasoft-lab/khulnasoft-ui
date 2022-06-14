@@ -53,7 +53,6 @@ export default {
   component: GlBreadcrumb,
   parameters: {
     bootstrapComponent: 'b-breadcrumb',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

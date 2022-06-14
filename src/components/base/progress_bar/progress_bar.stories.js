@@ -23,7 +23,6 @@ export default {
   title: 'base/progress-bar',
   component: GlProgressBar,
   parameters: {
-    knobs: { disable: true },
     bootstrapComponent: 'b-progress',
   },
   argTypes: {

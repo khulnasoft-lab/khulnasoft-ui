@@ -152,7 +152,6 @@ export default {
   title: 'utilities/intersection-observer',
   component: GlIntersectionObserver,
   parameters: {
-    knobs: { disable: true },
     storyshots: { disable: true },
     docs: {
       description: {

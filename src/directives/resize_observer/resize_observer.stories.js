@@ -62,7 +62,6 @@ export default {
   title: 'directives/resize-observer-directive',
   component: GlResizeObserver,
   parameters: {
-    knobs: { disable: true },
     storyshots: { disable: true },
     docs: {
       description: {

@@ -104,7 +104,6 @@ export default {
   title: 'charts/stacked-column-chart',
   component: GlStackedColumnChart,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

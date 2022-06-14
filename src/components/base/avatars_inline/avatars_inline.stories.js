@@ -65,7 +65,6 @@ export default {
   title: 'base/avatar/avatars-inline',
   component: GlAvatarsInline,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

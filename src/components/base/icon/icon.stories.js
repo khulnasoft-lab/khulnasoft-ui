@@ -33,7 +33,6 @@ export default {
   title: 'base/icon',
   component: GlIcon,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

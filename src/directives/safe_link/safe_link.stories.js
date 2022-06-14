@@ -29,7 +29,6 @@ export default {
   title: 'directives/safe-link-directive',
   component: SafeLink,
   parameters: {
-    knobs: { disable: true },
     storyshots: { disable: true },
     docs: {
       description: {

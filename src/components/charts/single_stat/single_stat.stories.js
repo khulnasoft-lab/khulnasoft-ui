@@ -64,7 +64,6 @@ export default {
   title: 'charts/single-stat',
   component: GlSingleStat,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

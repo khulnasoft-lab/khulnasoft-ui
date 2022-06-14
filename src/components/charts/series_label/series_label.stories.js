@@ -64,7 +64,6 @@ export default {
   title: 'charts/chart-series-label',
   component: GlChartSeriesLabel,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

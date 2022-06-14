@@ -41,7 +41,6 @@ export default {
   component: GlCarousel,
   parameters: {
     bootstrapComponent: 'b-carousel',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

@@ -95,7 +95,6 @@ export default {
   title: 'base/token_selector',
   component: GlTokenSelector,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

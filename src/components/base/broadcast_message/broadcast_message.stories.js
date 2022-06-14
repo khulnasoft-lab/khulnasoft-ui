@@ -69,7 +69,6 @@ export default {
   title: 'base/broadcast message',
   component: GlBroadcastMessage,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

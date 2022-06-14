@@ -84,7 +84,6 @@ export default {
   title: 'base/infinite-scroll',
   component: GlInfiniteScroll,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

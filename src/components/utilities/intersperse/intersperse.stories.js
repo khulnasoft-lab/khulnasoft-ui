@@ -34,7 +34,6 @@ export default {
   title: 'utilities/intersperse',
   component: GlIntersperse,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

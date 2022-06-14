@@ -94,7 +94,6 @@ export default {
   component: GlForm,
   parameters: {
     bootstrapComponent: 'b-form',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

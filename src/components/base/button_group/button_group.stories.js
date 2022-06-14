@@ -33,8 +33,5 @@ export default {
         component: readme,
       },
     },
-    knobs: {
-      disable: true,
-    },
   },
 };

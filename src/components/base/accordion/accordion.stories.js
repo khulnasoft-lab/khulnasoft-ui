@@ -50,7 +50,6 @@ export default {
   parameters: {
     bootstrapComponent: 'b-collapse',
     storyshots: { disable: true },
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

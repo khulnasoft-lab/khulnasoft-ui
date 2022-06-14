@@ -107,6 +107,5 @@ export default {
   component: GlChartLegend,
   parameters: {
     controls: { disable: true },
-    knobs: { disable: true },
   },
 };

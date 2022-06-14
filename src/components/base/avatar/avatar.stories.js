@@ -108,7 +108,6 @@ export default {
   title: 'base/avatar',
   component: GlAvatar,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

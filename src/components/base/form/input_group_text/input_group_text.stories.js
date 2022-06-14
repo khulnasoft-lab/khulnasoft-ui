@@ -21,7 +21,6 @@ export default {
   component: GlInputGroupText,
   parameters: {
     controls: { disable: true },
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

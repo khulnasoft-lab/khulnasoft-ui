@@ -28,7 +28,6 @@ export default {
   title: 'utilities/truncate',
   component: GlTruncate,
   parameters: {
-    knobs: { disable: true },
     storyshots: { disable: true },
     docs: {
       description: {

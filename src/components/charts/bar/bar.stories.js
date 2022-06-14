@@ -59,7 +59,6 @@ export default {
     ]),
   },
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

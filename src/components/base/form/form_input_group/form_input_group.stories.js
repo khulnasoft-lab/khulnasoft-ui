@@ -59,7 +59,6 @@ PredefinedOptions.args = generateProps({
 export default {
   title: 'base/form/form-input-group',
   component: GlFormInputGroup,
-  knobs: { disabled: true },
   parameters: {
     bootstrapComponent: 'b-form-input',
     docs: {
@@ -67,7 +66,6 @@ export default {
         component: readme,
       },
     },
-    knobs: { disabled: true },
   },
   argTypes: {
     ...disableControls(['value']),

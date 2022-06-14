@@ -65,7 +65,6 @@ export default {
   title: 'base/path',
   component: GlPath,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

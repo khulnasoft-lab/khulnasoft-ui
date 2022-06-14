@@ -81,7 +81,6 @@ export default {
   component: GlFormInput,
   parameters: {
     bootstrapComponent: 'b-form-input',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,
