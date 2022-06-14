@@ -29,7 +29,6 @@ export default {
   title: 'base/card',
   component: GlCard,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

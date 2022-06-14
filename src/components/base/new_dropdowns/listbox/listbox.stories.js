@@ -254,7 +254,6 @@ export default {
   title: 'base/new-dropdowns/listbox',
   component: GlListbox,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

@@ -34,7 +34,6 @@ export default {
   component: GlFormTextarea,
   parameters: {
     bootstrapComponent: 'b-form-textarea',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

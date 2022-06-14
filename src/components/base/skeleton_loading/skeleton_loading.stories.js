@@ -31,7 +31,6 @@ export default {
         component: readme,
       },
     },
-    knobs: { disable: true },
   },
   argTypes: {
     lines: {

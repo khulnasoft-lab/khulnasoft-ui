@@ -117,7 +117,6 @@ export default {
   title: 'base/pagination',
   component: GlPagination,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

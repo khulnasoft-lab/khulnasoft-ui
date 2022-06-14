@@ -153,9 +153,6 @@ MultSeries.args = generateProps({
 export default {
   title: 'charts/area-chart',
   component: GlAreaChart,
-  parameters: {
-    knobs: { disable: true },
-  },
   argTypes: {
     ...disableControls([
       'showToolbox',

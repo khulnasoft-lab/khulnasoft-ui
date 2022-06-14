@@ -31,7 +31,6 @@ export default {
   title: 'base/form/form-combobox',
   component: GlFormCombobox,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

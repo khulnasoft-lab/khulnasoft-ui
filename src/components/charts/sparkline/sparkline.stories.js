@@ -44,7 +44,6 @@ export default {
   title: 'charts/sparkline-chart',
   component: GlSparklineChart,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

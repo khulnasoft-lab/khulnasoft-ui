@@ -58,7 +58,6 @@ export default {
   title: 'base/label',
   component: GlLabel,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

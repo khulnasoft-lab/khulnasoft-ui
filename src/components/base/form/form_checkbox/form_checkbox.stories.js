@@ -31,7 +31,6 @@ export default {
   title: 'base/form/form checkbox',
   component: GlFormCheckbox,
   parameters: {
-    knobs: { disable: true },
     bootstrapComponent: 'b-form-checkbox',
     docs: {
       description: {

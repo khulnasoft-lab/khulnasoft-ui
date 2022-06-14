@@ -85,7 +85,6 @@ export default {
   title: 'charts/gauge-chart',
   component: GlGauge,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

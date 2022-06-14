@@ -103,7 +103,6 @@ export default {
   component: GlChartTooltip,
   parameters: {
     bootstrapComponent: 'b-popover',
-    knobs: { disable: true },
     controls: { disable: true },
     docs: {
       description: {

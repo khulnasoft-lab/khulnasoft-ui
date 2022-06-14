@@ -57,7 +57,4 @@ WithZoomAndScroll.args = generateProps({
 export default {
   title: 'charts/discrete-scatter-chart',
   component: GlDiscreteScatterChart,
-  parameters: {
-    knobs: { disable: true },
-  },
 };

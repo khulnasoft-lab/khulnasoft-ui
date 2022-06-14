@@ -89,7 +89,6 @@ export default {
   title: 'base/banner',
   component: GlBanner,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

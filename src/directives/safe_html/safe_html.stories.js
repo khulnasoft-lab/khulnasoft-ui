@@ -49,7 +49,6 @@ export default {
   component: GlSafeHtml,
   parameters: {
     storyshots: { disable: true },
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

@@ -39,7 +39,6 @@ export default {
   component: GlSegmentedControl,
   parameters: {
     bootstrapComponent: 'b-form-radio-group',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

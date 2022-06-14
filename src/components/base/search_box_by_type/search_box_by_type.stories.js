@@ -41,7 +41,6 @@ export default {
   title: 'base/search-box-by-type',
   component: GlSearchBoxByType,
   parameters: {
-    knobs: { disable: true },
     bootstrapComponent: 'b-form-input',
     docs: {
       description: {

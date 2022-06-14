@@ -98,7 +98,6 @@ export default {
   component: GlTable,
   parameters: {
     bootstrapComponent: 'b-table',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

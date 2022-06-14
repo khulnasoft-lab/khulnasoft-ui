@@ -60,9 +60,6 @@ WithToolbox.args = generateProps({ options: { toolbox } });
 export default {
   title: 'charts/heatmap',
   component: GlHeatmap,
-  parameters: {
-    knobs: { disable: true },
-  },
   argTypes: {
     ...disableControls([
       'showToolbox',

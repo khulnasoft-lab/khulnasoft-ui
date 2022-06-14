@@ -49,7 +49,6 @@ export default {
   component: GlTooltip,
   parameters: {
     bootstrapComponent: 'b-tooltip',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

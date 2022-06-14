@@ -197,7 +197,6 @@ export default {
   title: 'base/paginated-list',
   component: GlPaginatedList,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

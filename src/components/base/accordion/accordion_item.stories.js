@@ -45,7 +45,6 @@ export default {
   bootstrapComponent: 'b-collapse',
   parameters: {
     storyshots: { disable: true },
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

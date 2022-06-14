@@ -56,7 +56,6 @@ export default {
   component: GlSorting,
   decorators: [makeContainer({ height: '100px', paddingLeft: '100px' })],
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

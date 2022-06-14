@@ -74,7 +74,6 @@ export default {
   component: GlToast,
   parameters: {
     bootstrapComponent: 'toast',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

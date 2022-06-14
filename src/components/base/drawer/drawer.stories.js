@@ -156,7 +156,6 @@ export default {
     },
   },
   parameters: {
-    knobs: { disabled: true },
     docs: {
       description: {
         component: readme,

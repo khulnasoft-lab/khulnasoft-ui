@@ -53,7 +53,6 @@ export default {
   title: 'base/table/table_lite',
   component: GlTableLite,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

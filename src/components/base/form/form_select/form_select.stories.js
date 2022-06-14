@@ -82,7 +82,6 @@ export default {
   component: GlFormSelect,
   parameters: {
     bootstrapComponent: 'b-form-select',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

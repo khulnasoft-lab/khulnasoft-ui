@@ -143,7 +143,6 @@ export default {
   title: 'regions/empty-state',
   component: GlEmptyState,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

@@ -81,7 +81,6 @@ export default {
   title: 'base/popover',
   component: GlPopover,
   parameters: {
-    knobs: { disable: true },
     bootstrapComponent: 'b-popover',
   },
   argTypes: {

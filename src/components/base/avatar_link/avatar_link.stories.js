@@ -65,7 +65,6 @@ export default {
   title: 'base/avatar/avatar-link',
   component: GlAvatarLink,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

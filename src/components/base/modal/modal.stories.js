@@ -106,7 +106,6 @@ export default {
   directives: { GlModalDirective },
   bootstrapComponent: 'b-modal',
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

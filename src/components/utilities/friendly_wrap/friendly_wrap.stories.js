@@ -47,7 +47,6 @@ export default {
   title: 'utilities/friendly-wrap',
   component: GlFriendlyWrap,
   parameters: {
-    knobs: { disabled: true },
     docs: {
       description: {
         component: readme,

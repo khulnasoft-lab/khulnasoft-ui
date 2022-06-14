@@ -47,7 +47,6 @@ export default {
   title: 'base/form/form-radio-group',
   component: GlFormRadioGroup,
   parameters: {
-    knobs: { disable: true },
     bootstrapComponent: 'b-form-radio-group',
     docs: {
       description: {

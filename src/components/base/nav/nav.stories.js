@@ -50,7 +50,6 @@ export default {
   },
   parameters: {
     bootstrapComponent: 'b-nav',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

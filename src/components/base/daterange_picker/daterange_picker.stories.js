@@ -116,7 +116,6 @@ export default {
   component: GlDaterangePicker,
   decorators: [makeContainer({ height: '300px' })],
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

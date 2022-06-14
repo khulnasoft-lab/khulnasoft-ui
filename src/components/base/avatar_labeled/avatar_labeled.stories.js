@@ -113,7 +113,6 @@ export default {
   title: 'base/avatar/labeled',
   component: GlAvatarLabeled,
   parameters: {
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,

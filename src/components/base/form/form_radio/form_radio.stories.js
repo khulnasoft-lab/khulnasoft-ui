@@ -42,7 +42,6 @@ export default {
   component: GlFormRadio,
   parameters: {
     bootstrapComponent: 'b-form-radio',
-    knobs: { disable: true },
     docs: {
       description: {
         component: readme,
