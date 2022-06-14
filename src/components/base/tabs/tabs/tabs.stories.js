@@ -226,6 +226,20 @@ WithScrollAndGrowing.parameters = {
   storyshots: { disable: true },
 };
 
+export const WithHref = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ...components, GlBadge },
+  template: wrap(`
+    <gl-tab href="#tab-1" title="Tab 1">
+      <h2 id="tab-1">Tab panel 1</h2>
+      <p>Some paragraph text<p>
+    </gl-tab>
+    <gl-tab href="#tab-2" title="Tab 2">
+      <h2 id="tab-2">Tab panel 2</h2>
+      <p>Some paragraph text<p>
+    </gl-tab>`),
+});
+
 export default {
   title: 'base/tabs',
   component: GlTabs,
