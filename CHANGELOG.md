@@ -1,3 +1,10 @@
+# [41.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.7.1...v41.8.0) (2022-06-14)
+
+
+### Features
+
+* **Tabs:** Use unique href for each tab ([171664d](https://gitlab.com/gitlab-org/gitlab-ui/commit/171664d2b5d74cc0bca174637705d89fc6197344))
+
 ## [41.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.7.0...v41.7.1) (2022-06-13)
 
 
