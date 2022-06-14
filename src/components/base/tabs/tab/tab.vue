@@ -24,6 +24,14 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * Provide an `href` for the tab, for example to associate the tab with the tab panel's ID
+     */
+    href: {
+      type: String,
+      required: false,
+      default: '#',
+    },
   },
   computed: {
     linkClass() {
@@ -46,6 +54,7 @@ export default {
     :title-link-class="linkClass"
     :query-param-value="queryParamValue"
     v-bind="$attrs"
+    :title-link-attributes="{ href }"
     v-on="$listeners"
   >
     <template v-for="slot in Object.keys($slots)" #[slot]>
