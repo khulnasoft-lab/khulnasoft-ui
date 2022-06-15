@@ -62,6 +62,15 @@ describe('GlTokenContainer', () => {
       });
     });
 
+    describe('viewOnly', () => {
+      it('passes viewOnly prop to tokens correctly', () => {
+        createComponent({ propsData: { viewOnly: true } });
+        const tokenWrappers = wrapper.findAllComponents(GlToken);
+
+        expect(tokenWrappers.wrappers.every((token) => token.props('viewOnly'))).toBe(true);
+      });
+    });
+
     describe('state', () => {
       describe('when `state` is `false`', () => {
         it('adds `aria-invalid="true"` attribute`', () => {

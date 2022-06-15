@@ -46,6 +46,8 @@ describe('GlTokenSelector', () => {
     },
   ];
 
+  const placeholderText = 'Test placeholder';
+
   let wrapper;
 
   const defaultProps = { selectedTokens: [] };
@@ -138,6 +140,22 @@ describe('GlTokenSelector', () => {
         textInput.trigger('focus');
 
         expect(findDropdownMenu().classes()).not.toContain('show');
+      });
+    });
+
+    describe('viewOnly', () => {
+      beforeEach(() => {
+        createComponent({ propsData: { viewOnly: true } });
+      });
+
+      it('passes `viewOnly` prop to GlTokenContainer', () => {
+        expect(wrapper.findComponent(GlTokenContainer).props('viewOnly')).toBe(true);
+      });
+
+      it('disables input field if viewOnly is true', () => {
+        findTextInput().trigger('focus');
+
+        expect(findTextInput().attributes('disabled')).toBe('disabled');
       });
     });
 
@@ -301,6 +319,48 @@ describe('GlTokenSelector', () => {
       createComponent({ propsData: { dropdownItems, selectedTokens: tokens } });
 
       expect(wrapper.findComponent(component).vm.$scopedSlots).toHaveProperty(slot);
+    });
+
+    it('renders empty-placeholder slot if tokens list is empty and input is not focused', () => {
+      createComponent({
+        propsData: {
+          selectedTokens: [],
+        },
+        slots: {
+          'empty-placeholder': placeholderText,
+        },
+      });
+
+      expect(wrapper.text()).toContain(placeholderText);
+    });
+
+    it('does not render empty-placeholder slot if token list is not empty', () => {
+      createComponent({
+        propsData: {
+          selectedTokens: tokens,
+        },
+        slots: {
+          'empty-placeholder': placeholderText,
+        },
+      });
+
+      expect(wrapper.text()).not.toContain(placeholderText);
+    });
+
+    it('hides empty-placeholder slot if input is focused', async () => {
+      createComponent({
+        propsData: {
+          selectedTokens: [],
+        },
+        slots: {
+          'empty-placeholder': placeholderText,
+        },
+      });
+
+      expect(wrapper.text()).toContain(placeholderText);
+
+      await findTextInput().trigger('focus');
+      expect(wrapper.text()).not.toContain(placeholderText);
     });
   });
 

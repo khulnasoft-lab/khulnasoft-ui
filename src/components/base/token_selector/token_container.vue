@@ -21,6 +21,11 @@ export default {
       type: Function,
       required: true,
     },
+    viewOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -143,6 +148,7 @@ export default {
         class="gl-cursor-default"
         :class="token.class"
         :style="token.style"
+        :view-only="viewOnly"
         @close="handleClose(token)"
       >
         <slot name="token-content" :token="token">
