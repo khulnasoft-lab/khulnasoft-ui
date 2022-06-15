@@ -135,8 +135,7 @@
   &.btn-confirm,
   &.btn-info,
   &.btn-success,
-  &.btn-danger,
-  &.btn-warning {
+  &.btn-danger {
     @include gl-text-contrast-light;
   }
 
@@ -251,60 +250,6 @@
     }
   }
 
-  &.btn-warning {
-    @include gl-bg-orange-500;
-    @include gl-inset-border-1-orange-600;
-
-    &:hover {
-      @include gl-tmp-button-hover($orange-800, $orange-600);
-    }
-
-    &:focus {
-      @include gl-focus($color: $orange-800);
-      @include gl-bg-orange-600;
-    }
-
-    &:active,
-    &.active {
-      @include gl-focus($color: $orange-900);
-      @include gl-bg-orange-700;
-
-      &:focus {
-        @include gl-focus($color: $orange-900);
-      }
-    }
-  }
-
-  &.btn-warning-secondary,
-  &.btn-warning-tertiary {
-    @include gl-bg-transparent;
-    @include gl-text-orange-500;
-    @include gl-font-weight-normal;
-    @include gl-inset-border-1-orange-500;
-
-    &:hover {
-      @include gl-text-orange-700;
-      @include gl-tmp-button-hover($orange-700, $orange-50);
-    }
-
-    &:focus {
-      @include gl-text-orange-700;
-      @include gl-focus($color: $orange-700);
-      @include gl-bg-orange-50;
-    }
-
-    &:active,
-    &.active {
-      @include gl-text-orange-900;
-      @include gl-focus($color: $orange-900);
-      @include gl-bg-orange-100;
-
-      &:focus {
-        @include gl-focus($color: $orange-900);
-      }
-    }
-  }
-
   &.btn-danger {
     @include gl-bg-red-500;
     @include gl-inset-border-1-red-600;
@@ -364,8 +309,7 @@
   &.btn-confirm,
   &.btn-info,
   &.btn-success,
-  &.btn-danger,
-  &.btn-warning {
+  &.btn-danger {
     &-secondary {
       @include gl-bg-white;
     }
@@ -376,8 +320,7 @@
   &.btn-confirm,
   &.btn-info,
   &.btn-success,
-  &.btn-danger,
-  &.btn-warning {
+  &.btn-danger {
     &-tertiary {
       @include gl-shadow-none;
       mix-blend-mode: multiply;

@@ -97,7 +97,6 @@ export const buttonVariantOptions = {
   confirm: 'confirm',
   info: 'info (deprecated)',
   success: 'success (deprecated)',
-  warning: 'warning (deprecated)',
   danger: 'danger',
   dashed: 'dashed',
   link: 'link',
@@ -121,7 +120,6 @@ export const dropdownVariantOptions = {
   confirm: 'confirm',
   info: 'info (deprecated)',
   success: 'success (deprecated)',
-  warning: 'warning (deprecated)',
   danger: 'danger',
   link: 'link',
 };

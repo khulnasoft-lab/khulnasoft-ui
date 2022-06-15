@@ -99,9 +99,6 @@ describe('button component', () => {
     ${'success'} | ${'primary'}   | ${'btn-success'}
     ${'success'} | ${'secondary'} | ${'btn-success-secondary'}
     ${'success'} | ${'tertiary'}  | ${'btn-success-tertiary'}
-    ${'warning'} | ${'primary'}   | ${'btn-warning'}
-    ${'warning'} | ${'secondary'} | ${'btn-warning-secondary'}
-    ${'warning'} | ${'tertiary'}  | ${'btn-warning-tertiary'}
     ${'danger'}  | ${'primary'}   | ${'btn-danger'}
     ${'danger'}  | ${'secondary'} | ${'btn-danger-secondary'}
     ${'danger'}  | ${'tertiary'}  | ${'btn-danger-tertiary'}
