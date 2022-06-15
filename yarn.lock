@@ -1184,14 +1184,14 @@
     eslint-plugin-vue "^8.5.0"
     lodash "^4.17.21"
 
-"@gitlab/stylelint-config@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/stylelint-config/-/stylelint-config-4.0.0.tgz#d24646592908d92dce35aaa8e7bea66fd53e4160"
-  integrity sha512-5avbb8XQLdnL/vdrxf9jvdPl/HPaXnI7Y/fArOHe1uMpgcBoBWUKmon15+lHJ4MgURsGuYSiM2FIgArDSylR4g==
+"@gitlab/stylelint-config@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/stylelint-config/-/stylelint-config-4.1.0.tgz#bd431406c8f8725afba353652f08e42c3301a982"
+  integrity sha512-WiTLRKoXutmAKR0z4Z/kuXiTAtblyA2XWX6vb2/NHhLd7oboKrxR8CiznSfw7SNxmYtqW/ripaQOdanR1fYMwA==
   dependencies:
-    postcss-scss "4.0.3"
+    postcss-scss "4.0.4"
     stylelint-declaration-strict-value "1.8.0"
-    stylelint-scss "4.1.0"
+    stylelint-scss "4.2.0"
 
 "@gitlab/svgs@2.19.0":
   version "2.19.0"
@@ -12030,11 +12030,6 @@ postcss-safe-parser@^6.0.0:
   resolved "https://registry.yarnpkg.com/postcss-safe-parser/-/postcss-safe-parser-6.0.0.tgz#bb4c29894171a94bc5c996b9a30317ef402adaa1"
   integrity sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==
 
-postcss-scss@4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-4.0.3.tgz#36c23c19a804274e722e83a54d20b838ab4767ac"
-  integrity sha512-j4KxzWovfdHsyxwl1BxkUal/O4uirvHgdzMKS1aWJBAV0qh2qj5qAZqpeBfVUYGWv+4iK9Az7SPyZ4fyNju1uA==
-
 postcss-scss@4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-4.0.4.tgz#aa8f60e19ee18259bc193db9e4b96edfce3f3b1f"
@@ -13941,7 +13936,7 @@ source-map@0.1.x:
   dependencies:
     amdefine ">=0.0.4"
 
-source-map@0.5.6:
+source-map@0.5.6, source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
   integrity sha1-dc449SvwczxafwwRjYEzSiu19BI=
@@ -13962,11 +13957,6 @@ source-map@^0.4.2:
   integrity sha1-66T12pwNyZneaAMti092FzZSA2s=
   dependencies:
     amdefine ">=0.0.4"
-
-source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.1:
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
-  integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
 source-map@~0.8.0-beta.0:
   version "0.8.0-beta.0"
@@ -14416,10 +14406,10 @@ stylelint-prettier@2.0.0:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-stylelint-scss@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-4.1.0.tgz#39b808696f8152081163d970449257ff80b5c041"
-  integrity sha512-BNYTo7MMamhFOlcaAWp2dMpjg6hPyM/FFqfDIYzmYVLMmQJqc8lWRIiTqP4UX5bresj9Vo0dKC6odSh43VP2NA==
+stylelint-scss@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-4.2.0.tgz#e25fd390ee38a7e89fcfaec2a8f9dce2ec6ddee8"
+  integrity sha512-HHHMVKJJ5RM9pPIbgJ/XA67h9H0407G68Rm69H4fzFbFkyDMcTV1Byep3qdze5+fJ3c0U7mJrbj6S0Fg072uZA==
   dependencies:
     lodash "^4.17.21"
     postcss-media-query-parser "^0.2.3"
