@@ -26,10 +26,6 @@ def fail_commit(commit, message)
   fail("#{commit.sha}: #{message}") # rubocop:disable Style/SignalException
 end
 
-def warn_commit(commit, message)
-  warn("#{commit.sha}: #{message}")
-end
-
 def lines_changed_in_commit(commit)
   commit.diff_parent.stats[:total][:lines]
 end
@@ -48,13 +44,10 @@ def add_no_release_markdown
     ## No release
 
     This Merge Request will trigger _no_ release.
-    This either means, no commit neither the MR title warrant a semantic release (e.g. only updating CI config);
-    or that all commits and/or the MR title are not properly formatted according to
-    [conventional commits](#{URL_SEMANTIC_RELEASE}) rules, in the latter case, you should either:
-    - Disable **Squash commits when merge request is accepted** and rewrite the commits history to
-    format commit messages properly
-    - Enable **Squash commits when merge request is accepted** and make sure the MR's title
-    complies with conventional commits specifications
+    This means none of the commits warrant a semantic release according to
+    [conventional commits](#{URL_SEMANTIC_RELEASE}) rules (e.g. they only update CI config).
+
+    To trigger a release, update one or more commit messages.
   MARKDOWN
 end
 
@@ -103,16 +96,6 @@ def lint_commit(commit)
     fail_commit(
       commit,
       "The commit subject may not be longer than #{COMMIT_SUBJECT_MAX_LENGTH} characters"
-    )
-
-    failed = true
-  end
-
-  # Fail if a suggestion commit is used and squash is not enabled
-  if commit.message.start_with?('Apply suggestion to') && !gitlab.mr_json['squash']
-    fail_commit(
-      commit,
-      'If you are applying suggestions, squash needs to be enabled in the merge request'
     )
 
     failed = true
@@ -175,11 +158,11 @@ def lint_commit(commit)
   semantic_commit = match_semantic_commit(subject)
 
   if !semantic_commit
-    warn_commit(commit, 'The commit does not comply with conventional commits specifications.')
+    fail_commit(commit, 'The commit does not comply with conventional commits specifications.')
 
     failed = true
   elsif !SEMANTIC_COMMIT_TYPES.include?(semantic_commit[:type])
-    warn_commit(
+    fail_commit(
       commit,
       "The semantic commit type `#{semantic_commit[:type]}` is not a well-known semantic commit type."
     )
@@ -197,6 +180,13 @@ def lint_commit(commit)
 end
 
 def lint_commits(commits)
+  if commits.length > 10
+    warn(
+      'This merge request includes more than 10 commits. ' \
+        'Please rebase these commits into a smaller number of commits.'
+    )
+  end
+
   commits_with_status = commits.map { |commit| { commit: commit }.merge(lint_commit(commit)) }
 
   failed = commits_with_status.any? { |commit| commit[:failed] }
@@ -213,7 +203,7 @@ def lint_commits(commits)
 
       Here is an example of a good commit message:
 
-          feat(progressbar): Improve rendering performance in Edge
+          perf(GlProgressBar): Improve rendering performance in Edge
 
           Our progressbar component was causing a lot of re-renders in Edge.
           This was caused by excessive re-rendering due to floating point errors
@@ -228,8 +218,6 @@ def lint_commits(commits)
 
     MARKDOWN
   end
-
-  return if gitlab.mr_json['squash']
 
   type, bump = get_release_info(max_release[:release])
 
@@ -246,43 +234,11 @@ end
 
 def lint_mr(mr)
   if mr && mr['squash']
-    release = NO_RELEASE
-    mr_title = mr['title'][/(^WIP: +)?(.*)/, 2]
-    semantic_commit = match_semantic_commit(mr_title)
-
-    if !semantic_commit
-      warn(
-        'Your MR has **Squash commits when merge request is accepted** enabled but its title does not comply with conventional commits specifications'
-      )
-    elsif !SEMANTIC_COMMIT_TYPES.include?(semantic_commit[:type])
-      warn(
-        "The semantic commit type `#{semantic_commit[:type]}` is not a well-known semantic commit type."
-      )
-    elsif semantic_commit[:type] == 'feat'
-      release = MINOR_RELEASE
-    elsif %w[perf fix].include?(semantic_commit[:type])
-      release = PATCH_RELEASE
-    end
-
-    type, bump = get_release_info(release)
-
-    if type && bump
-      add_release_type_markdown(type)
-      markdown(<<~MARKDOWN)
-        This Merge Request will trigger a _#{type}_ of GitLab UI based on its title.
-
-        #{bump}
-      MARKDOWN
-    end
+    fail(
+      'Your MR has **Squash commits when merge request is accepted** enabled, but this is not allowed. This should not be possible; contact a maintainer for assistance.'
+    )
   end
 end
 
-lint_commits(git.commits)
 lint_mr(gitlab.mr_json)
-
-if git.commits.length > 10
-  warn(
-    'This merge request includes more than 10 commits. ' \
-      'Please rebase these commits into a smaller number of commits.'
-  )
-end
+lint_commits(git.commits)

@@ -16,13 +16,11 @@ You can choose between two templates: _Create Component_ or _Wrap BootstrapVue C
 
 ### Merge Request guidelines
 
-Create a Merge Request in GitLab UI with your new component code. The Merge Request should follow
-these conventions:
-
-- Name your MR `feat([ComponentName]): Implement [ComponentName] component`. This creates a
-  conventional commit used by the [npm release CI job](https://gitlab.com/gitlab-org/gitlab-ui/pipelines)
-  to create a new version of the GitLab UI package.
-- Check the _Squash commits when merge request is accepted_ option in the Merge Request edit page.
+Create a Merge Request in GitLab UI with your new component code. Use the
+commit message `feat([ComponentName]): Implement [ComponentName] component`.
+This creates a conventional commit used by the
+[npm release CI job](https://gitlab.com/gitlab-org/gitlab-ui/pipelines) to
+create a new version of the GitLab UI package.
 
 Run the manual CI job (`update_screenshots`) to generate the baseline snapshots used by the visual
 tests. You can find it in last stage of
