@@ -1,5 +1,4 @@
 import { shallowMount } from '@vue/test-utils';
-import { BTab } from 'bootstrap-vue';
 import { DEFAULT_TAB_TITLE_LINK_CLASS } from '../constants';
 import GlTab from './tab.vue';
 
@@ -7,7 +6,9 @@ describe('Tab component', () => {
   let wrapper;
 
   const createComponent = (options) => {
-    wrapper = shallowMount(GlTab, { ...options });
+    wrapper = shallowMount(GlTab, {
+      ...options,
+    });
   };
 
   it.each`
@@ -21,25 +22,14 @@ describe('Tab component', () => {
     'computed title link class is $expectedProp when titleLinkClass is $titleLinkClass',
     ({ titleLinkClass, expectedProp }) => {
       createComponent({
-        propsData: { titleLinkClass },
+        propsData: {
+          titleLinkClass,
+        },
       });
 
-      expect(wrapper.findComponent(BTab).props('titleLinkClass')).toEqual(expectedProp);
+      expect(wrapper.html()).toBe(
+        `<b-tab-stub tag="div" title="" titlelinkclass="${expectedProp}"></b-tab-stub>`
+      );
     }
   );
-
-  it('passes title-link-attributes to b-tab when href is explicitly passed', () => {
-    const titleLinkAttributes = 'href-example';
-    const expectedProp = { href: titleLinkAttributes };
-    createComponent({
-      propsData: { href: titleLinkAttributes },
-    });
-    expect(wrapper.findComponent(BTab).props('titleLinkAttributes')).toEqual(expectedProp);
-  });
-
-  it('passes # as href to b-tab when href is not passed', () => {
-    const expectedProp = { href: '#' };
-    createComponent();
-    expect(wrapper.findComponent(BTab).props('titleLinkAttributes')).toEqual(expectedProp);
-  });
 });
