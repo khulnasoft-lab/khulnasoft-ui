@@ -113,6 +113,14 @@ export default {
       validator: tokensValidator,
       required: true,
     },
+    /**
+     * Controls the `view-only` mode for the tokens
+     */
+    viewOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -164,6 +172,9 @@ export default {
       return this.state
         ? 'is-valid gl-inset-border-1-gray-400!'
         : 'is-invalid gl-inset-border-1-red-500!';
+    },
+    showEmptyPlaceholder() {
+      return this.selectedTokens.length === 0 && !this.inputFocused;
     },
   },
   watch: {
@@ -354,14 +365,18 @@ export default {
   <div>
     <div
       ref="container"
-      class="gl-token-selector gl-form-input form-control form-control-plaintext gl-cursor-text! gl-py-2! gl-px-3!"
+      class="gl-token-selector gl-form-input gl-display-flex gl-align-items-center form-control form-control-plaintext gl-cursor-text! gl-py-2! gl-px-3!"
       :class="[inputFocused ? 'gl-token-selector-focus-glow' : '', containerClass, stateClass]"
       @click="handleContainerClick"
     >
+      <!-- @slot Optional content to display a placeholder when tokens list is empty
+        and user doesn't edit tokens -->
+      <slot v-if="showEmptyPlaceholder" name="empty-placeholder"></slot>
       <gl-token-container
         :tokens="selectedTokens"
         :state="state"
         :register-focus-on-token="registerFocusOnToken"
+        :view-only="viewOnly"
         @token-remove="removeToken"
         @cancel-focus="cancelTokenFocus"
       >
@@ -383,6 +398,7 @@ export default {
             :autocomplete="autocomplete"
             :aria-labelledby="ariaLabelledby"
             :placeholder="placeholder"
+            :disabled="viewOnly"
             v-bind="textInputAttrs"
             @input="inputText = $event.target.value"
             @focus="handleFocus"
