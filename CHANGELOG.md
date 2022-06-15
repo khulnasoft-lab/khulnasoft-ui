@@ -1,3 +1,15 @@
+## [41.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.9.0...v41.9.1) (2022-06-15)
+
+
+### Bug Fixes
+
+* **GlTabs:** Unbreak title-link-attributes prop ([7469669](https://gitlab.com/gitlab-org/gitlab-ui/commit/7469669fae0e626524fbad495f95cf7465ce775c))
+
+
+### Reverts
+
+* **GlTab:** Pass custom href to BTab ([ecefbce](https://gitlab.com/gitlab-org/gitlab-ui/commit/ecefbcec720fe37e7aed27ff2a6d3dda4857cf11)), closes [/gitlab.com/gitlab-org/gitlab/-/merge_requests/88974#note_991250502](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/88974/issues/note_991250502) [/gitlab.com/gitlab-org/gitlab-ui/-/issues/1578#note_991239559](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/issues/1578/issues/note_991239559)
+
 # [41.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.8.0...v41.9.0) (2022-06-14)
 
 
