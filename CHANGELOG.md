@@ -1,3 +1,10 @@
+# [41.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.9.1...v41.10.0) (2022-06-15)
+
+
+### Features
+
+* **GlTokenSelector:** add empty and readonly states ([e0b60a7](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0b60a7cb24875e62e57c76963135e324b6bfa11))
+
 ## [41.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.9.0...v41.9.1) (2022-06-15)
 
 
