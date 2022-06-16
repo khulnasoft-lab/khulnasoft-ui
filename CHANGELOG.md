@@ -1,3 +1,10 @@
+# [42.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.0.1...v42.1.0) (2022-06-16)
+
+
+### Features
+
+* **css:** Add new lg-breakpoint spacing & sizing utilities ([b82169f](https://gitlab.com/gitlab-org/gitlab-ui/commit/b82169f6a0f0176410bfd779ffbcfde03100725e))
+
 ## [42.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.0.0...v42.0.1) (2022-06-16)
 
 
