@@ -889,6 +889,18 @@
   }
 }
 
+@mixin gl-lg-mr-10 {
+  @include gl-media-breakpoint-up(lg) {
+    margin-right: $gl-spacing-scale-10;
+  }
+}
+
+@mixin gl-lg-mr-12 {
+  @include gl-media-breakpoint-up(lg) {
+    margin-right: $gl-spacing-scale-12;
+  }
+}
+
 @mixin gl-lg-ml-2 {
   @include gl-media-breakpoint-up(lg) {
     @include gl-ml-2;
@@ -901,6 +913,18 @@
   }
 }
 
+@mixin gl-lg-ml-10 {
+  @include gl-media-breakpoint-up(lg) {
+    margin-left: $gl-spacing-scale-10;
+  }
+}
+
+@mixin gl-lg-ml-12 {
+  @include gl-media-breakpoint-up(lg) {
+    margin-left: $gl-spacing-scale-12;
+  }
+}
+
 @mixin gl-lg-mx-2 {
   @include gl-media-breakpoint-up(lg) {
     @include gl-mx-2;
@@ -910,6 +934,13 @@
 @mixin gl-lg-mx-3 {
   @include gl-media-breakpoint-up(lg) {
     @include gl-mx-3;
+  }
+}
+
+@mixin gl-lg-mx-12 {
+  @include gl-media-breakpoint-up(lg) {
+    margin-left: $gl-spacing-scale-12;
+    margin-right: $gl-spacing-scale-12;
   }
 }
 
