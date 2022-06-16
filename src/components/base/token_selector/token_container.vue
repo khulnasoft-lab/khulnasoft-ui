@@ -95,6 +95,9 @@ export default {
       this.focusedTokenIndex = null;
       this.$emit('cancel-focus');
     },
+    handleTab() {
+      this.$emit('cancel-focus');
+    },
     // Only called when a token is focused by a click/tap
     handleTokenFocus(index) {
       this.focusedTokenIndex = index;
@@ -132,7 +135,7 @@ export default {
     @keydown.end="handleEnd"
     @keydown.delete="handleDelete"
     @keydown.esc="handleEscape"
-    @keydown.prevent
+    @keydown.tab.prevent="handleTab"
   >
     <div
       v-for="(token, index) in tokens"

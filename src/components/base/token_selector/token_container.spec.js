@@ -256,6 +256,17 @@ describe('GlTokenContainer', () => {
         const expectedFocusedToken = findTokenByName(tokens[2].name);
         expect(expectedFocusedToken.element).toHaveFocus();
       });
+
+      it('emits the `cancel-focus` event when tab key is pressed', async () => {
+        createComponent({});
+
+        const focusedToken = findTokenByName(tokens[0].name);
+
+        await focusedToken.trigger('focus');
+        await focusedToken.trigger('keydown', { key: keyboard.tab });
+
+        expect(wrapper.emitted('cancel-focus')).toEqual([[]]);
+      });
     });
   });
 });
