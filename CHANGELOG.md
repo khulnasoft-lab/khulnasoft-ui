@@ -1,3 +1,10 @@
+# [42.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.1.0...v42.2.0) (2022-06-16)
+
+
+### Features
+
+* **GlAccordionItem:** expose visible state as v-model ([617c438](https://gitlab.com/gitlab-org/gitlab-ui/commit/617c4386955bf5218bb9199a1ad7c93e13745bef))
+
 # [42.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.0.1...v42.1.0) (2022-06-16)
 
 
