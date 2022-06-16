@@ -1,3 +1,16 @@
+# [42.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.10.0...v42.0.0) (2022-06-16)
+
+
+### Features
+
+* **GlButton:** Fully remove deprecated warning ([0282df0](https://gitlab.com/gitlab-org/gitlab-ui/commit/0282df0cd3dddb0068409d006469e3dbe0bf0260))
+
+
+### BREAKING CHANGES
+
+* **GlButton:** The warning variant had been deprecated for some time.
+This fully removes it from the codebase.
+
 # [41.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.9.1...v41.10.0) (2022-06-15)
 
 
