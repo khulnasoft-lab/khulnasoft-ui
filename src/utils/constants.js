@@ -264,6 +264,7 @@ export const keyboard = {
   arrowRight: 'ArrowRight',
   home: 'Home',
   end: 'End',
+  tab: 'Tab',
 };
 
 export const truncateOptions = POSITION;
