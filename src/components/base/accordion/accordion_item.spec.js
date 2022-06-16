@@ -103,4 +103,19 @@ describe('GlAccordionItem', () => {
     expect(findButton().props('icon')).toBe('chevron-down');
     expect(findCollapse().props('visible')).toBe(true);
   });
+
+  it('emits the initial visible state', () => {
+    createComponent({ visible: true });
+
+    expect(wrapper.emitted('input')).toEqual([[true]]);
+  });
+
+  it('emits the visible state when toggled', async () => {
+    createComponent({ visible: true });
+
+    await waitForAnimationFrame();
+    await findButton().trigger('click');
+
+    expect(wrapper.emitted('input')).toEqual([[true], [false]]);
+  });
 });
