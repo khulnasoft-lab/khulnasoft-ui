@@ -5,7 +5,7 @@ import GlAccordionItem from './accordion_item.vue';
 
 const template = `
     <gl-accordion :auto-collapse="autoCollapse" :header-level="headerLevel">
-      <gl-accordion-item v-model="model" title="Item 1" :header-level="headerLevel">
+      <gl-accordion-item title="Item 1" :header-level="headerLevel">
         Each accordion can be expanded or collapsed independently of others.
       </gl-accordion-item>
 
