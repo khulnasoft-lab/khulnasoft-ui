@@ -1,3 +1,10 @@
+## [42.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.0.0...v42.0.1) (2022-06-16)
+
+
+### Bug Fixes
+
+* GlTokenSelector: make it possible to focus input field with Tab button ([22e7de5](https://gitlab.com/gitlab-org/gitlab-ui/commit/22e7de514610d1905173804cb122145710527001))
+
 # [42.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v41.10.0...v42.0.0) (2022-06-16)
 
 
