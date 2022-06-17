@@ -135,7 +135,7 @@ export default {
     @keydown.end="handleEnd"
     @keydown.delete="handleDelete"
     @keydown.esc="handleEscape"
-    @keydown.tab.prevent="handleTab"
+    @keydown.tab.exact.prevent="handleTab"
   >
     <div
       v-for="(token, index) in tokens"
