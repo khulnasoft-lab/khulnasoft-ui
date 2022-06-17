@@ -1,3 +1,10 @@
+# [42.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.3.1...v42.4.0) (2022-06-17)
+
+
+### Features
+
+* **GlLabel:** render label as text when target is empty ([911c8d6](https://gitlab.com/gitlab-org/gitlab-ui/commit/911c8d6e8c3994529f2d7cc697015ac502b6f449))
+
 ## [42.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.3.0...v42.3.1) (2022-06-17)
 
 
