@@ -1,3 +1,10 @@
+## [42.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.3.0...v42.3.1) (2022-06-17)
+
+
+### Bug Fixes
+
+* added exact modifier to tab keydown event ([7d554df](https://gitlab.com/gitlab-org/gitlab-ui/commit/7d554dfe4d7f1742d05b67a1e170f82d0928bc91))
+
 # [42.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.2.0...v42.3.0) (2022-06-17)
 
 
