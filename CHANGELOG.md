@@ -1,3 +1,10 @@
+## [42.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.4.0...v42.4.1) (2022-06-17)
+
+
+### Bug Fixes
+
+* **GlLabel:** Update `GlLabel` size control type ([baac1d6](https://gitlab.com/gitlab-org/gitlab-ui/commit/baac1d669fdd02d277c47b6eb611c79269ce242f))
+
 # [42.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.3.1...v42.4.0) (2022-06-17)
 
 
