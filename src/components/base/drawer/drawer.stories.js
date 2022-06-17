@@ -4,7 +4,19 @@ import readme from './drawer.md';
 
 const components = { GlDrawer, GlButton };
 
-const drawerContent = [
+const generateDrawerContent = (items) =>
+  items
+    .map(
+      (str) => `
+    <div>
+      <label class="gl-font-weight-bold">${str}</label>
+      <div>None</div>
+    </div>
+    `
+    )
+    .join('');
+
+const drawerContent = generateDrawerContent([
   'One',
   'Two',
   'Three',
@@ -19,16 +31,9 @@ const drawerContent = [
   'Twelve',
   'Thirteen',
   'Fourteen',
-]
-  .map(
-    (str) => `
-    <div>
-      <label class="gl-font-weight-bold">${str}</label>
-      <div>None</div>
-    </div>
-    `
-  )
-  .join('');
+]);
+
+const drawerContentShortList = generateDrawerContent(['One', 'Two', 'Three']);
 
 const createSidebarTemplate = (content) => `
   <gl-drawer
@@ -106,6 +111,40 @@ export const WithActions = (_args, { viewMode }) => ({
 });
 WithActions.args = generateProps();
 
+export const WithStickyFooterShortContent = (_args, { viewMode }) => ({
+  ...storyOptions(viewMode),
+  template: `
+    <div>
+      <gl-button @click="toggle">Toggle Drawer</gl-button>
+      ${createSidebarTemplate(`
+        <template #title>List Settings</template>
+        ${drawerContentShortList}
+        <template #footer>
+          Drawer footer
+        </template>
+      `)}
+    </div>`,
+});
+
+WithStickyFooterShortContent.args = generateProps();
+
+export const WithStickyFooter = (_args, { viewMode }) => ({
+  ...storyOptions(viewMode),
+  template: `
+    <div>
+      <gl-button @click="toggle">Toggle Drawer</gl-button>
+      ${createSidebarTemplate(`
+        <template #title>List Settings</template>
+        ${drawerContent}
+        <template #footer>
+          Drawer footer
+        </template>
+      `)}
+    </div>`,
+});
+
+WithStickyFooter.args = generateProps();
+
 export const SidebarVariant = (_args, { viewMode }) => ({
   ...storyOptions(viewMode),
   template: `
@@ -128,7 +167,7 @@ SidebarVariant.args = generateProps({
   variant: drawerVariants.sidebar,
 });
 
-export const StickyHeader = (_args, { viewMode }) => ({
+export const StickyHeaderFooter = (_args, { viewMode }) => ({
   ...storyOptions(viewMode),
   template: `
   <div>
@@ -136,10 +175,13 @@ export const StickyHeader = (_args, { viewMode }) => ({
     ${createSidebarTemplate(`
       <template #title>List Settings</template>
       ${drawerContent}
+      <template #footer>
+         Drawer footer
+      </template>
     `)}
   </div>`,
 });
-StickyHeader.args = generateProps({
+StickyHeaderFooter.args = generateProps({
   headerSticky: true,
 });
 
