@@ -73,6 +73,7 @@ export default {
     },
     size: {
       options: labelSizeOptions,
+      control: 'select',
     },
     tooltipPlacement: {
       options: tooltipPlacements,
