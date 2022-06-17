@@ -1,3 +1,10 @@
+# [42.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.2.0...v42.3.0) (2022-06-17)
+
+
+### Features
+
+* **color:** Update $gray-10 ([0ae72df](https://gitlab.com/gitlab-org/gitlab-ui/commit/0ae72df606bf75601dc2a2b772c986d92b10c99d)), closes [#f5f5f5](https://gitlab.com/gitlab-org/gitlab-ui/issues/f5f5f5)
+
 # [42.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.1.0...v42.2.0) (2022-06-16)
 
 
