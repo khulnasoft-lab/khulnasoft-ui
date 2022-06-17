@@ -34,10 +34,6 @@ $label-close-button: '.gl-label-close.gl-button';
       @include gl-reset-color;
       @include gl-shadow-none;
       @include gl-outline-none;
-
-      .gl-label-text-scoped {
-        @include gl-text-decoration-underline;
-      }
     }
   }
 

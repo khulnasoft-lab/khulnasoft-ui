@@ -54,6 +54,9 @@ Scoped.args = generateProps({ title: 'scoped::label', scoped: true });
 export const WithCloseButton = Template.bind({});
 WithCloseButton.args = generateProps({ showCloseButton: true });
 
+export const WithoutTarget = Template.bind({});
+WithoutTarget.args = generateProps({ target: '' });
+
 export default {
   title: 'base/label',
   component: GlLabel,

@@ -36,9 +36,11 @@ describe('Label component', () => {
   };
 
   const findLink = () => wrapper.findComponent(GlLink);
+  const findContent = () => wrapper.find('.gl-label-link');
   const findTitle = () => wrapper.find('.gl-label-text');
   const findSubTitle = () => wrapper.find('.gl-label-text-scoped');
-  const findTooltipText = () => wrapper.findComponent(GlTooltip).text();
+  const findTooltip = () => wrapper.findComponent(GlTooltip);
+  const findTooltipText = () => findTooltip().text();
   const findCloseButton = () => wrapper.findComponent(CloseButton);
 
   describe('basic label', () => {
@@ -137,6 +139,22 @@ describe('Label component', () => {
         expect(wrapper.emitted().close).toBeFalsy();
       });
     });
+
+    describe('label has no target', () => {
+      const props = { ...defaultProps, target: '' };
+
+      it('renders the label content as text', () => {
+        createComponent(props, { mountFn: mount });
+
+        expect(findContent().element.tagName.toLowerCase()).toBe('span');
+      });
+
+      it('does not render a link', () => {
+        createComponent(props, { mountFn: shallowMount });
+
+        expect(findLink().exists()).toBe(false);
+      });
+    });
   });
 
   describe('scoped label', () => {
@@ -218,6 +236,22 @@ describe('Label component', () => {
 
         findCloseButton().trigger('click');
         expect(wrapper.emitted().close).toBeFalsy();
+      });
+    });
+
+    describe('label has no target', () => {
+      const props = { ...defaultProps, target: '' };
+
+      it('renders the label content as text', () => {
+        createComponent(props, { mountFn: mount });
+
+        expect(findContent().element.tagName.toLowerCase()).toBe('span');
+      });
+
+      it('does not render a link', () => {
+        createComponent(props, { mountFn: shallowMount });
+
+        expect(findLink().exists()).toBe(false);
       });
     });
   });

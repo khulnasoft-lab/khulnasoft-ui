@@ -41,7 +41,7 @@ export default {
     target: {
       type: String,
       required: false,
-      default: '#',
+      default: '',
     },
     scoped: {
       type: Boolean,
@@ -91,6 +91,12 @@ export default {
     closeIconSize() {
       return this.size === 'sm' ? 12 : 16;
     },
+    labelComponent() {
+      return this.target ? GlLink : 'span';
+    },
+    tooltipTarget() {
+      return this.target ? this.$refs.labelTitle.$el : this.$refs.labelTitle;
+    },
   },
   watch: {
     title() {
@@ -122,14 +128,20 @@ export default {
 
 <template>
   <span class="gl-label" :class="cssClasses" :style="cssVariables" v-bind="$attrs" @click="onClick">
-    <gl-link ref="labelTitle" :href="target" class="gl-label-link">
+    <component
+      :is="labelComponent"
+      ref="labelTitle"
+      :href="target ? target : false"
+      class="gl-label-link"
+      tabindex="0"
+    >
       <span class="gl-label-text">
         {{ scopedKey }}
       </span>
       <span v-if="scoped && scopedValue" class="gl-label-text-scoped">
         {{ scopedValue }}
       </span>
-    </gl-link>
+    </component>
     <close-button
       v-if="showCloseButton"
       class="gl-label-close gl-p-0!"
@@ -140,7 +152,7 @@ export default {
     />
     <gl-tooltip
       v-if="description"
-      :target="() => $refs.labelTitle.$el"
+      :target="() => tooltipTarget"
       :placement="tooltipPlacement"
       boundary="viewport"
     >
