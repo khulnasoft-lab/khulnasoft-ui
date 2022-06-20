@@ -1,3 +1,10 @@
+# [42.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.4.1...v42.5.0) (2022-06-20)
+
+
+### Features
+
+* **GlDrawer:** add sticky footer ([6180fdd](https://gitlab.com/gitlab-org/gitlab-ui/commit/6180fdde9d2dfd8d032dd57e6898fc56afb6c818))
+
 ## [42.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.4.0...v42.4.1) (2022-06-17)
 
 
