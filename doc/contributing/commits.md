@@ -20,49 +20,44 @@ format that includes a **type**, a **scope**, and a **subject**:
 The header is mandatory and the scope of the header is optional.
 Each line in the commit message should be no longer than 72 characters.
 
-When opening an MR, make sure you do at least one of the following:
-
-- Include at least one commit message that complies with the conventional commit standards.
-- Ensure the MR's title itself complies with the conventional commit standards.
+When opening an MR, make sure that every commit complies with the conventional
+commit standards.
 
 Following these conventions will result in a properly versioned package and clear
 [changelogs](./CHANGELOG.md) for every version.
 
-## When should my MR's title follow these conventions?
+## Why must all commits in an MR follow these conventions?
 
-It's always a good idea to follow the conventions for your MR's title as well as for commit
-messages. This way, if your MR is squashed upon merge, the maintainer will be able to use its title
-as the final commit message, which will result in a properly formatted history.
+All commits must follow these conventions because:
 
-## Is it okay that all my commits don't follow the conventions in a single MR?
+- We refer to those commits in the changelog.
+- Releases are tagged based on the commit message.
 
-It's recommended that all commits follow the conventions because we refer to those commits when
-generating changelogs. Imagine your MR's history looks like this:
+During code review, you may want to keep the resulting changes separate. So,
+your MR's commits might look like this:
 
 ```none
-2b2b2b2 Correcting something in the awesome feature
+2b2b2b2 Apply review suggestion
 1a1a1a1 feat: adding an awesome feature
 ```
 
-When generating the changelog for the above, we will reference commit `1a1a1a1` which follows the
-conventions, but looking at the diff for this commit will not give a complete overview of the
-feature it describes, which might be confusing. Ideally, commit `2b2b2b2` should have been squashed
-in `1a1a1a1`.
+To make this mergeable:
 
-It's okay to not always follow the recommendation above, as long as every meaningful change is
-described by one properly formatted message. Example:
+- If commit `2b2b2b2` would independently bring a meaningful change to `main`
+  (i.e., doesn't depend on `1a1a1a1`), its message should be updated to conform
+  to conventional commit standards.
+- If not, commit `2b2b2b2` must be squashed into `1a1a1a1`.
 
-```none
-3c3c3c3 Apply review suggestion
-1a1a1a1 feat: adding an awesome feature
-```
+## Why is [squash merging](https://docs.gitlab.com/ee/user/project/merge_requests/squash_and_merge.html) disabled?
 
-In the example above, you might want to keep `1a1a1a1` and `3c3c3c3` separated to help in the
-review process and that would be fine.
+This feature is disabled in GitLab UI, since it allows for subtle ways to
+bypass our conventional-commits-based release process.
 
-> **Note:** It would NOT be all right for `3c3c3c3` to follow the conventions because it doesn't
-> bring any meaningful change to `main`. Conventional commits should only be used to describe
-> changes that will land in the main branch, NOT for changes to your own branch.
+This trades a slight decrease in ease of contribution for a more predictable
+release process.
+
+See [this issue](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1562) for
+more information.
 
 ## What types can I use for my commit messages?
 
