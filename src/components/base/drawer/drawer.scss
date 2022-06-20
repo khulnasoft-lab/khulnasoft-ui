@@ -10,6 +10,8 @@ $gl-sidebar-width: 290px;
   @include gl-shadow-drawer;
   @include gl-font-base;
   @include gl-line-height-normal;
+  @include gl-display-flex;
+  @include gl-flex-direction-column;
 
   .gl-drawer-header-sticky {
     @include gl-bg-white;
@@ -51,6 +53,20 @@ $gl-sidebar-width: 290px;
   }
 }
 
+.gl-drawer-footer {
+  @include gl-border-t-solid;
+  @include gl-border-t-gray-100;
+  @include gl-border-t-1;
+  @include gl-px-6;
+  @include gl-py-5;
+}
+
+.gl-drawer-footer-sticky {
+  @include gl-bg-white;
+  @include gl-bottom-0;
+  @include gl-sticky;
+}
+
 .gl-drawer-header {
   @include gl-border-b-solid;
   @include gl-border-b-gray-100;
@@ -72,6 +88,10 @@ $gl-sidebar-width: 290px;
 .gl-drawer-close-button {
   @include gl-bg-none;
   @include gl-border-none;
+}
+
+.gl-drawer-body {
+  @include gl-flex-grow-1;
 }
 
 .gl-drawer-body > * {

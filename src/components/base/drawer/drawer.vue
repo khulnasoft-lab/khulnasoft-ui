@@ -56,6 +56,9 @@ export default {
         zIndex: this.headerSticky ? maxZIndex : null,
       };
     },
+    shouldRenderFooter() {
+      return Boolean(this.$slots.footer);
+    },
     variantClass() {
       return `gl-drawer-${this.variant}`;
     },
@@ -109,6 +112,13 @@ export default {
       </div>
       <div class="gl-drawer-body">
         <slot></slot>
+      </div>
+      <div
+        v-if="shouldRenderFooter"
+        class="gl-drawer-footer gl-drawer-footer-sticky"
+        :style="{ zIndex }"
+      >
+        <slot name="footer"></slot>
       </div>
     </aside>
   </transition>

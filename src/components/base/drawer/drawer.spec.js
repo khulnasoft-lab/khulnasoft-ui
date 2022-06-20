@@ -90,6 +90,7 @@ describe('drawer component', () => {
     ${'title'}   | ${'.gl-drawer-title'}
     ${'header'}  | ${'.gl-drawer-header'}
     ${'default'} | ${'.gl-drawer-body'}
+    ${'footer'}  | ${'.gl-drawer-footer'}
   `('renders nodes when added to the $slot slot', ({ slot, parentSelector }) => {
     mountWithOpts({
       slots: {
