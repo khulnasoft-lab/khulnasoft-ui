@@ -432,3 +432,32 @@
     max-width: 80%;
   }
 }
+
+/**
+* Form width utilities
+*
+* naming convention: gl-form-{spacing-scale-index}
+*
+* Based on the sizes defined in
+* https://design.gitlab.com/components/form/#layout
+*/
+
+@mixin gl-form-xs {
+  max-width: $gl-spacing-scale-12;
+}
+
+@mixin gl-form-sm {
+  max-width: $gl-spacing-scale-20;
+}
+
+@mixin gl-form-md {
+  max-width: $gl-spacing-scale-30;
+}
+
+@mixin gl-form-lg {
+  max-width: $gl-spacing-scale-40;
+}
+
+@mixin gl-form-xl {
+  max-width: $gl-spacing-scale-70;
+}
