@@ -31,8 +31,18 @@ export default {
       required: true,
     },
     value: {
-      type: String,
+      type: [String, Object],
       required: true,
+    },
+    matchValueToAttr: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    autofocus: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   data() {
@@ -53,6 +63,11 @@ export default {
     },
     showSuggestions() {
       return this.results.length > 0;
+    },
+    displayedValue() {
+      return this.matchValueToAttr && this.value[this.matchValueToAttr]
+        ? this.value[this.matchValueToAttr]
+        : this.value;
     },
   },
   mounted() {
@@ -112,9 +127,12 @@ export default {
         return;
       }
 
-      const filteredTokens = this.tokenList.filter((token) =>
-        token.toLowerCase().includes(value.toLowerCase())
-      );
+      const filteredTokens = this.tokenList.filter((token) => {
+        if (this.matchValueToAttr) {
+          return token[this.matchValueToAttr].toLowerCase().includes(value.toLowerCase());
+        }
+        return token.toLowerCase().includes(value.toLowerCase());
+      });
 
       if (filteredTokens.length) {
         this.openSuggestions(filteredTokens);
@@ -147,13 +165,14 @@ export default {
     <gl-form-group :label="labelText" :label-for="inputId" :label-sr-only="labelSrOnly">
       <gl-form-input
         :id="inputId"
-        :value="value"
+        :value="displayedValue"
         type="text"
         role="searchbox"
         :autocomplete="showAutocomplete"
         aria-autocomplete="list"
         :aria-controls="suggestionsId"
         aria-haspopup="listbox"
+        :autofocus="autofocus"
         @input="onEntry"
         @keydown.down="onArrowDown"
         @keydown.up="onArrowUp"
@@ -163,11 +182,11 @@ export default {
       />
     </gl-form-group>
 
-    <div
+    <ul
       v-show="showSuggestions && !userDismissedResults"
       :id="suggestionsId"
       data-testid="combobox-dropdown"
-      class="dropdown-menu dropdown-full-width"
+      class="dropdown-menu dropdown-full-width gl-list-style-none gl-pl-0 gl-mb-0 gl-overflow-y-auto"
       :class="{ 'show-dropdown': showSuggestions }"
     >
       <gl-dropdown-item
@@ -179,8 +198,8 @@ export default {
         tabindex="-1"
         @click="selectToken(result)"
       >
-        {{ result }}
+        <slot name="result" :item="result">{{ result }}</slot>
       </gl-dropdown-item>
-    </div>
+    </ul>
   </div>
 </template>

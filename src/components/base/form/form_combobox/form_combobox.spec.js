@@ -1,11 +1,16 @@
 import { mount } from '@vue/test-utils';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlFormInput from '../form_input/form_input.vue';
-import { tokenList, labelText } from './constants';
+import { stringTokenList, labelText, objectTokenList } from './constants';
 import GlFormCombobox from './form_combobox.vue';
 
 const partialToken = 'do';
-const partialTokenMatch = ['dog', 'dodo', 'komodo dragon'];
+const partialStringTokenMatch = ['dog', 'dodo', 'komodo dragon'];
+const partialObjectTokenMatch = [
+  { id: '2', title: 'dog' },
+  { id: '3', title: 'dodo' },
+  { id: '4', title: 'komodo dragon' },
+];
 const unlistedToken = 'elephant';
 
 const doTimes = (num, fn) => {
@@ -17,13 +22,14 @@ const doTimes = (num, fn) => {
 describe('GlFormCombobox', () => {
   let wrapper;
 
-  const createComponent = () => {
+  const createComponent = ({ tokens = stringTokenList, matchValueToAttr = undefined } = {}) => {
     wrapper = mount({
       data() {
         return {
           inputVal: '',
-          tokens: tokenList,
+          tokens,
           labelText,
+          matchValueToAttr,
         };
       },
       components: { GlFormCombobox },
@@ -32,7 +38,8 @@ describe('GlFormCombobox', () => {
           <gl-form-combobox
             v-model="inputVal"
             :token-list="tokens"
-            :labelText="labelText"
+            :label-text="labelText"
+            :match-value-to-attr="matchValueToAttr"
           />
         </div>
       `,
@@ -48,123 +55,163 @@ describe('GlFormCombobox', () => {
   const setInput = (val) => findInput().setValue(val);
   const arrowDown = () => findInput().trigger('keydown.down');
 
-  describe('match and filter functionality', () => {
-    beforeEach(() => {
-      createComponent();
-    });
-
-    it('is closed when the input is empty', () => {
-      expect(findInput().isVisible()).toBe(true);
-      expect(findInputValue()).toBe('');
-      expect(findDropdown().isVisible()).toBe(false);
-    });
-
-    it('is open when the input text matches a token', async () => {
-      await setInput(partialToken);
-      expect(findDropdown().isVisible()).toBe(true);
-    });
-
-    it('shows partial matches at string start and mid-string', async () => {
-      await setInput(partialToken);
-      expect(findDropdown().isVisible()).toBe(true);
-      expect(findDropdownOptions()).toEqual(partialTokenMatch);
-    });
-
-    it('is closed when the text does not match', async () => {
-      await setInput(unlistedToken);
-      expect(findDropdown().isVisible()).toBe(false);
-    });
-  });
-
-  describe('keyboard navigation in dropdown', () => {
-    beforeEach(() => {
-      createComponent();
-    });
-
-    describe('on down arrow + enter', () => {
-      it('selects the next item in the list and closes the dropdown', async () => {
-        await setInput(partialToken);
-        findInput().trigger('keydown.down');
-        await findInput().trigger('keydown.enter');
-        expect(findInputValue()).toBe(partialTokenMatch[0]);
+  describe.each`
+    valueType   | tokens             | matchValueToAttr | partialTokenMatch
+    ${'string'} | ${stringTokenList} | ${undefined}     | ${partialStringTokenMatch}
+    ${'object'} | ${objectTokenList} | ${'title'}       | ${partialObjectTokenMatch}
+  `('with value as $valueType', ({ valueType, tokens, matchValueToAttr, partialTokenMatch }) => {
+    describe('match and filter functionality', () => {
+      beforeEach(() => {
+        createComponent({ tokens, matchValueToAttr });
       });
 
-      it('loops to the top when it reaches the bottom', async () => {
-        await setInput(partialToken);
-        doTimes(findDropdownOptions().length + 1, arrowDown);
-        await findInput().trigger('keydown.enter');
-        expect(findInputValue()).toBe(partialTokenMatch[0]);
-      });
-    });
-
-    describe('on up arrow + enter', () => {
-      it('selects the previous item in the list and closes the dropdown', async () => {
-        setInput(partialToken);
-
-        await wrapper.vm.$nextTick();
-        doTimes(3, arrowDown);
-        findInput().trigger('keydown.up');
-        findInput().trigger('keydown.enter');
-
-        await wrapper.vm.$nextTick();
-        expect(findInputValue()).toBe(partialTokenMatch[1]);
+      it('is closed when the input is empty', () => {
+        expect(findInput().isVisible()).toBe(true);
+        expect(findInputValue()).toBe('');
         expect(findDropdown().isVisible()).toBe(false);
       });
 
-      it('loops to the bottom when it reaches the top', async () => {
+      it('is open when the input text matches a token', async () => {
         await setInput(partialToken);
-        findInput().trigger('keydown.down');
-        findInput().trigger('keydown.up');
-        await findInput().trigger('keydown.enter');
-        expect(findInputValue()).toBe(partialTokenMatch[partialTokenMatch.length - 1]);
+        expect(findDropdown().isVisible()).toBe(true);
       });
-    });
 
-    describe('on enter with no item highlighted', () => {
-      it('does not select any item and closes the dropdown', async () => {
+      it('shows partial matches at string start and mid-string', async () => {
         await setInput(partialToken);
-        await findInput().trigger('keydown.enter');
-        expect(findInputValue()).toBe(partialToken);
+        expect(findDropdown().isVisible()).toBe(true);
+
+        if (valueType === 'string') {
+          expect(findDropdownOptions()).toEqual(partialTokenMatch);
+        } else {
+          findDropdownOptions().forEach((option, index) => {
+            expect(option).toContain(partialTokenMatch[index][matchValueToAttr]);
+          });
+        }
+      });
+
+      it('is closed when the text does not match', async () => {
+        await setInput(unlistedToken);
         expect(findDropdown().isVisible()).toBe(false);
       });
     });
 
-    describe('on click', () => {
-      it('selects the clicked item regardless of arrow highlight', async () => {
-        await setInput(partialToken);
-        await wrapper.find('[data-testid="combobox-dropdown"] button').trigger('click');
-        expect(findInputValue()).toBe(partialTokenMatch[0]);
+    describe('keyboard navigation in dropdown', () => {
+      beforeEach(() => {
+        createComponent({ tokens, matchValueToAttr });
       });
-    });
 
-    describe('on tab', () => {
-      it('selects entered text, closes dropdown', async () => {
-        await setInput(partialToken);
-        findInput().trigger('keydown.tab');
-        doTimes(2, arrowDown);
-
-        await wrapper.vm.$nextTick();
-        expect(findInputValue()).toBe(partialToken);
-        expect(findDropdown().isVisible()).toBe(false);
-      });
-    });
-
-    describe('on esc', () => {
-      describe('when dropdown is open', () => {
-        it('closes dropdown and does not select anything', async () => {
+      describe('on down arrow + enter', () => {
+        it('selects the next item in the list and closes the dropdown', async () => {
           await setInput(partialToken);
-          await findInput().trigger('keydown.esc');
+          findInput().trigger('keydown.down');
+          await findInput().trigger('keydown.enter');
+
+          if (valueType === 'string') {
+            expect(findInputValue()).toBe(partialTokenMatch[0]);
+          } else {
+            expect(findInputValue()).toBe(partialTokenMatch[0][matchValueToAttr]);
+          }
+        });
+
+        it('loops to the top when it reaches the bottom', async () => {
+          await setInput(partialToken);
+          doTimes(findDropdownOptions().length + 1, arrowDown);
+          await findInput().trigger('keydown.enter');
+
+          if (valueType === 'string') {
+            expect(findInputValue()).toBe(partialTokenMatch[0]);
+          } else {
+            expect(findInputValue()).toBe(partialTokenMatch[0][matchValueToAttr]);
+          }
+        });
+      });
+
+      describe('on up arrow + enter', () => {
+        it('selects the previous item in the list and closes the dropdown', async () => {
+          setInput(partialToken);
+
+          await wrapper.vm.$nextTick();
+          doTimes(3, arrowDown);
+          findInput().trigger('keydown.up');
+          findInput().trigger('keydown.enter');
+
+          await wrapper.vm.$nextTick();
+
+          if (valueType === 'string') {
+            expect(findInputValue()).toBe(partialTokenMatch[1]);
+          } else {
+            expect(findInputValue()).toBe(partialTokenMatch[1][matchValueToAttr]);
+          }
+          expect(findDropdown().isVisible()).toBe(false);
+        });
+
+        it('loops to the bottom when it reaches the top', async () => {
+          await setInput(partialToken);
+          findInput().trigger('keydown.down');
+          findInput().trigger('keydown.up');
+          await findInput().trigger('keydown.enter');
+
+          if (valueType === 'string') {
+            expect(findInputValue()).toBe(partialTokenMatch[partialTokenMatch.length - 1]);
+          } else {
+            expect(findInputValue()).toBe(
+              partialTokenMatch[partialTokenMatch.length - 1][matchValueToAttr]
+            );
+          }
+        });
+      });
+
+      describe('on enter with no item highlighted', () => {
+        it('does not select any item and closes the dropdown', async () => {
+          await setInput(partialToken);
+          await findInput().trigger('keydown.enter');
           expect(findInputValue()).toBe(partialToken);
           expect(findDropdown().isVisible()).toBe(false);
         });
       });
 
-      describe('when dropdown is closed', () => {
-        it('clears the input field', async () => {
-          await setInput(unlistedToken);
+      describe('on click', () => {
+        it('selects the clicked item regardless of arrow highlight', async () => {
+          await setInput(partialToken);
+          await wrapper.find('[data-testid="combobox-dropdown"] button').trigger('click');
+
+          if (valueType === 'string') {
+            expect(findInputValue()).toBe(partialTokenMatch[0]);
+          } else {
+            expect(findInputValue()).toBe(partialTokenMatch[0][matchValueToAttr]);
+          }
+        });
+      });
+
+      describe('on tab', () => {
+        it('selects entered text, closes dropdown', async () => {
+          await setInput(partialToken);
+          findInput().trigger('keydown.tab');
+          doTimes(2, arrowDown);
+
+          await wrapper.vm.$nextTick();
+          expect(findInputValue()).toBe(partialToken);
           expect(findDropdown().isVisible()).toBe(false);
-          await findInput().trigger('keydown.esc');
-          expect(findInputValue()).toBe('');
+        });
+      });
+
+      describe('on esc', () => {
+        describe('when dropdown is open', () => {
+          it('closes dropdown and does not select anything', async () => {
+            await setInput(partialToken);
+            await findInput().trigger('keydown.esc');
+            expect(findInputValue()).toBe(partialToken);
+            expect(findDropdown().isVisible()).toBe(false);
+          });
+        });
+
+        describe('when dropdown is closed', () => {
+          it('clears the input field', async () => {
+            await setInput(unlistedToken);
+            expect(findDropdown().isVisible()).toBe(false);
+            await findInput().trigger('keydown.esc');
+            expect(findInputValue()).toBe('');
+          });
         });
       });
     });
