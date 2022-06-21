@@ -232,13 +232,14 @@ def lint_commits(commits)
   end
 end
 
-def lint_mr(mr)
-  if mr && mr['squash']
-    fail(
-      'Your MR has **Squash commits when merge request is accepted** enabled, but this is not allowed. This should not be possible; contact a maintainer for assistance.'
-    )
-  end
+def lint_mr
+  return unless helper.ci?
+  return unless helper.squash_mr?
+
+  fail(
+    'Your MR has **Squash commits when merge request is accepted** enabled, but this is not allowed. This should not be possible; contact a maintainer for assistance.'
+  )
 end
 
-lint_mr(gitlab.mr_json)
+lint_mr
 lint_commits(git.commits)
