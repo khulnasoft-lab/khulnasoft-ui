@@ -418,6 +418,14 @@
   margin-top: $gl-spacing-scale-7;
 }
 
+@mixin gl-mt-8 {
+  margin-top: $gl-spacing-scale-8;
+}
+
+@mixin gl-mt-9 {
+  margin-top: $gl-spacing-scale-9;
+}
+
 @mixin gl-mt-11 {
   margin-top: $gl-spacing-scale-11;
 }
@@ -516,6 +524,10 @@
 
 @mixin gl-mb-8 {
   margin-bottom: $gl-spacing-scale-8;
+}
+
+@mixin gl-mb-9 {
+  margin-bottom: $gl-spacing-scale-9;
 }
 
 @mixin gl-ml-auto {
