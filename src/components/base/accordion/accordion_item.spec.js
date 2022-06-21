@@ -32,6 +32,7 @@ describe('GlAccordionItem', () => {
 
   const findButton = () => wrapper.findComponent(GlButton);
   const findCollapse = () => wrapper.findComponent(BCollapse);
+  const findHeader = () => wrapper.find('.gl-accordion-item-header');
 
   it('renders button text', () => {
     createComponent();
@@ -63,6 +64,15 @@ describe('GlAccordionItem', () => {
     expect(wrapper.find('h3.gl-accordion-item-header').exists()).toBeFalsy();
     expect(wrapper.find('h4.gl-accordion-item-header').exists()).toBeTruthy();
   });
+
+  it.each(['custom-header-class', ['custom-header-class'], { 'custom-header-class': true }])(
+    'applies custom classes to the header',
+    (customClassProp) => {
+      createComponent({ headerClass: customClassProp }, { defaultHeaderLevel: 3 });
+
+      expect(findHeader().classes()).toContain('custom-header-class');
+    }
+  );
 
   it('renders slot text', () => {
     createComponent();
