@@ -26,7 +26,3 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-
-@mixin gl-grid-gap-6 {
-  gap: $gl-spacing-scale-6;
-}

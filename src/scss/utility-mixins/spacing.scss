@@ -773,6 +773,11 @@
   }
 }
 
+/* Deprecated */
+@mixin gl-grid-gap-6 {
+  @include gl-gap-6;
+}
+
 /**
 * Responsive margin utilities.
 *
