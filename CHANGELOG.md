@@ -1,3 +1,10 @@
+# [42.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.6.0...v42.7.0) (2022-06-22)
+
+
+### Features
+
+* **css:** add margin utilities ([ea88659](https://gitlab.com/gitlab-org/gitlab-ui/commit/ea886595825520dfec97a47d6e101199d682cc92))
+
 # [42.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.5.0...v42.6.0) (2022-06-22)
 
 
