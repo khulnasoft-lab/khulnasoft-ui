@@ -54,6 +54,14 @@ When set, it will ensure the accordion item is initially visible
         return value > 0 && value <= 6;
       },
     },
+    /**
+     * Additional CSS class(es) to be applied to the header.
+     */
+    headerClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -89,7 +97,7 @@ When set, it will ensure the accordion item is initially visible
 
 <template>
   <div class="gl-accordion-item">
-    <component :is="headerComponent" class="gl-accordion-item-header">
+    <component :is="headerComponent" class="gl-accordion-item-header" :class="headerClass">
       <gl-button
         v-gl-collapse-toggle="accordionItemId"
         variant="link"
