@@ -1,3 +1,10 @@
+# [42.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.5.0...v42.6.0) (2022-06-22)
+
+
+### Features
+
+* **GlFormCombobox:** Support Object values ([8632aae](https://gitlab.com/gitlab-org/gitlab-ui/commit/8632aae819692db6ef0e952715147f1c5a71126a))
+
 # [42.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.4.1...v42.5.0) (2022-06-20)
 
 
