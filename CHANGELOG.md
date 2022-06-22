@@ -1,3 +1,10 @@
+# [42.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.8.0...v42.9.0) (2022-06-22)
+
+
+### Features
+
+* **utilities:** Add new gap mixins ([96d45d9](https://gitlab.com/gitlab-org/gitlab-ui/commit/96d45d941552ce3bf63155f13b5e032bb694fdea))
+
 # [42.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.7.0...v42.8.0) (2022-06-22)
 
 
