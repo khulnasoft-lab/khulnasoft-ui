@@ -1,3 +1,10 @@
+# [42.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.7.0...v42.8.0) (2022-06-22)
+
+
+### Features
+
+* **GlAccordionItem:** expose header-class prop ([5f91275](https://gitlab.com/gitlab-org/gitlab-ui/commit/5f912753f027abd2036332ee583f518f7d369fdc))
+
 # [42.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.6.0...v42.7.0) (2022-06-22)
 
 
