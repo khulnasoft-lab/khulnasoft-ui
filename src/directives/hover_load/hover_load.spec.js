@@ -1,5 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
-import { HoverLoadDirective as hoverLoad } from './hover_load';
+import { HoverLoadDirective as hoverLoad, DELAY_ON_HOVER } from './hover_load';
+
+jest.useFakeTimers();
 
 describe('hover load directive', () => {
   let wrapper;
@@ -26,28 +28,25 @@ describe('hover load directive', () => {
   });
 
   it.each`
-    hoverDuration | action
-    ${150}        | ${'triggers'}
-    ${99}         | ${'does not trigger'}
-  `(
-    'if hover durations is $hoverDuration, directive $action the handler',
-    async ({ hoverDuration }) => {
-      const mockHandleLoad = jest.fn();
-      createComponent(mockHandleLoad);
+    hoverDuration         | action                | expectedCalls
+    ${DELAY_ON_HOVER}     | ${'triggers'}         | ${1}
+    ${DELAY_ON_HOVER - 1} | ${'does not trigger'} | ${0}
+  `('$action the callback after $hoverDuration ms', ({ hoverDuration, expectedCalls }) => {
+    const mockHandleLoad = jest.fn();
+    createComponent(mockHandleLoad);
 
-      findTarget().trigger('mouseover');
-      await new Promise((resolve) => {
-        setTimeout(resolve, hoverDuration);
-      });
-      findTarget().trigger('mouseout');
+    findTarget().trigger('mouseover');
 
-      if (hoverDuration < 100) {
-        expect(mockHandleLoad).not.toHaveBeenCalled();
-      } else {
-        expect(mockHandleLoad).toHaveBeenCalledTimes(1);
-      }
+    jest.advanceTimersByTime(hoverDuration);
+
+    findTarget().trigger('mouseout');
+
+    expect(mockHandleLoad).toHaveBeenCalledTimes(expectedCalls);
+
+    if (expectedCalls) {
+      expect(mockHandleLoad).toHaveBeenCalledWith(findTarget().element);
     }
-  );
+  });
 
   it('cleans up the mouseover event when component is destroyed', () => {
     createComponent(jest.fn());

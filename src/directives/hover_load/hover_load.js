@@ -1,6 +1,6 @@
 import isFunction from 'lodash/isFunction';
 
-const DELAY_ON_HOVER = 100;
+export const DELAY_ON_HOVER = 100;
 let mouseOverTimer;
 let mouseOverHandler;
 
