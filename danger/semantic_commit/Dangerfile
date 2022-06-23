@@ -234,6 +234,8 @@ end
 
 def lint_mr
   return unless helper.ci?
+  p gitlab.mr_json
+
   return unless helper.squash_mr?
 
   fail(
