@@ -1,7 +1,14 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlFormInput from '../form_input/form_input.vue';
-import { stringTokenList, labelText, objectTokenList } from './constants';
+import {
+  stringTokenList,
+  labelText,
+  objectTokenList,
+  oneTokenList,
+  actionsList,
+} from './constants';
 import GlFormCombobox from './form_combobox.vue';
 
 const partialToken = 'do';
@@ -22,7 +29,11 @@ const doTimes = (num, fn) => {
 describe('GlFormCombobox', () => {
   let wrapper;
 
-  const createComponent = ({ tokens = stringTokenList, matchValueToAttr = undefined } = {}) => {
+  const createComponent = ({
+    tokens = stringTokenList,
+    matchValueToAttr = undefined,
+    actionList = [],
+  } = {}) => {
     wrapper = mount({
       data() {
         return {
@@ -30,6 +41,7 @@ describe('GlFormCombobox', () => {
           tokens,
           labelText,
           matchValueToAttr,
+          actionList,
         };
       },
       components: { GlFormCombobox },
@@ -40,6 +52,7 @@ describe('GlFormCombobox', () => {
             :token-list="tokens"
             :label-text="labelText"
             :match-value-to-attr="matchValueToAttr"
+            :action-list="actionList"
           />
         </div>
       `,
@@ -54,6 +67,7 @@ describe('GlFormCombobox', () => {
   const findInputValue = () => findInput().element.value;
   const setInput = (val) => findInput().setValue(val);
   const arrowDown = () => findInput().trigger('keydown.down');
+  const firstFirstAction = () => wrapper.findAll('[data-testid="combobox-action"]').at(0);
 
   describe.each`
     valueType   | tokens             | matchValueToAttr | partialTokenMatch
@@ -214,6 +228,39 @@ describe('GlFormCombobox', () => {
           });
         });
       });
+    });
+  });
+
+  describe('with action items', () => {
+    let actionSpy;
+
+    beforeEach(() => {
+      createComponent({ tokens: oneTokenList, actionList: actionsList });
+      actionSpy = jest.spyOn(wrapper.vm.actionList[0], 'function');
+      window.alert = jest.fn();
+    });
+
+    it('click on action item executes its function', async () => {
+      await setInput(partialToken);
+      expect(findDropdown().isVisible()).toBe(true);
+
+      firstFirstAction().trigger('click');
+      await nextTick();
+
+      expect(actionSpy).toHaveBeenCalled();
+      expect(findDropdown().isVisible()).toBe(false);
+    });
+
+    it('keyboard navigation and executes function on enter', async () => {
+      await setInput('dog');
+      findInput().trigger('keydown.down');
+      findInput().trigger('keydown.down');
+      await findInput().trigger('keydown.enter');
+
+      await nextTick();
+
+      expect(actionSpy).toHaveBeenCalled();
+      expect(findDropdown().isVisible()).toBe(false);
     });
   });
 });

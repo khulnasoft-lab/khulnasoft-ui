@@ -2,6 +2,7 @@
 import { uniqueId } from 'lodash';
 
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
+import GlDropdownDivider from '../../dropdown/dropdown_divider.vue';
 import GlFormGroup from '../form_group/form_group.vue';
 import GlFormInput from '../form_input/form_input.vue';
 
@@ -9,6 +10,7 @@ export default {
   name: 'GlFormCombobox',
   components: {
     GlDropdownItem,
+    GlDropdownDivider,
     GlFormGroup,
     GlFormInput,
   },
@@ -29,6 +31,11 @@ export default {
     tokenList: {
       type: Array,
       required: true,
+    },
+    actionList: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     value: {
       type: [String, Object],
@@ -62,12 +69,18 @@ export default {
       return this.showSuggestions ? 'off' : 'on';
     },
     showSuggestions() {
-      return this.results.length > 0;
+      return this.value.length > 0 && this.totalItems.length > 0;
     },
     displayedValue() {
       return this.matchValueToAttr && this.value[this.matchValueToAttr]
         ? this.value[this.matchValueToAttr]
         : this.value;
+    },
+    tokenNumber() {
+      return this.results.length;
+    },
+    totalItems() {
+      return [...this.results, ...this.actionList];
     },
   },
   mounted() {
@@ -80,6 +93,7 @@ export default {
     closeSuggestions() {
       this.results = [];
       this.arrowCounter = -1;
+      this.userDismissedResults = true;
     },
     handleClickOutside(event) {
       if (!this.$el.contains(event.target)) {
@@ -89,7 +103,7 @@ export default {
     onArrowDown() {
       const newCount = this.arrowCounter + 1;
 
-      if (newCount >= this.results.length) {
+      if (newCount >= this.totalItems.length) {
         this.arrowCounter = 0;
         return;
       }
@@ -100,22 +114,25 @@ export default {
       const newCount = this.arrowCounter - 1;
 
       if (newCount < 0) {
-        this.arrowCounter = this.results.length - 1;
+        this.arrowCounter = this.totalItems.length - 1;
         return;
       }
 
       this.arrowCounter = newCount;
     },
     onEnter() {
-      const currentToken = this.results[this.arrowCounter] || this.value;
-      this.selectToken(currentToken);
+      const currentToken = this.totalItems[this.arrowCounter] || this.value;
+      if (currentToken.function) {
+        this.selectAction(currentToken);
+      } else {
+        this.selectToken(currentToken);
+      }
     },
     onEsc() {
       if (!this.showSuggestions) {
         this.$emit('input', '');
       }
       this.closeSuggestions();
-      this.userDismissedResults = true;
     },
     onEntry(value) {
       this.$emit('input', value);
@@ -152,6 +169,11 @@ export default {
        */
       this.$emit('value-selected', value);
     },
+    selectAction(value) {
+      value.function();
+      this.$emit('input', this.value);
+      this.closeSuggestions();
+    },
   },
 };
 </script>
@@ -186,19 +208,33 @@ export default {
       v-show="showSuggestions && !userDismissedResults"
       :id="suggestionsId"
       data-testid="combobox-dropdown"
-      class="dropdown-menu dropdown-full-width gl-list-style-none gl-pl-0 gl-mb-0 gl-overflow-y-auto"
-      :class="{ 'show-dropdown': showSuggestions }"
+      class="dropdown-menu dropdown-full-width show-dropdown gl-list-style-none gl-pl-0 gl-mb-0 gl-display-flex gl-flex-direction-column"
     >
+      <div class="gl-overflow-y-auto show-dropdown">
+        <gl-dropdown-item
+          v-for="(result, i) in results"
+          :key="i"
+          role="option"
+          :class="{ 'highlight-dropdown': i === arrowCounter }"
+          :aria-selected="i === arrowCounter"
+          tabindex="-1"
+          @click="selectToken(result)"
+        >
+          <slot name="result" :item="result">{{ result }}</slot>
+        </gl-dropdown-item>
+      </div>
+      <gl-dropdown-divider v-if="tokenNumber > 0 && actionList.length > 0" />
       <gl-dropdown-item
-        v-for="(result, i) in results"
-        :key="i"
+        v-for="(action, i) in actionList"
+        :key="i + tokenNumber"
         role="option"
-        :class="{ 'highlight-dropdown': i === arrowCounter }"
-        :aria-selected="i === arrowCounter"
+        :class="{ 'highlight-dropdown': i + tokenNumber === arrowCounter }"
+        :aria-selected="i + tokenNumber === arrowCounter"
         tabindex="-1"
-        @click="selectToken(result)"
+        data-testid="combobox-action"
+        @click="selectAction(action)"
       >
-        <slot name="result" :item="result">{{ result }}</slot>
+        <slot name="action" :item="action">{{ action.label }}</slot>
       </gl-dropdown-item>
     </ul>
   </div>
