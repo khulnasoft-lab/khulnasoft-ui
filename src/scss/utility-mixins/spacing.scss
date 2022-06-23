@@ -37,6 +37,14 @@
   padding: $gl-spacing-scale-7;
 }
 
+@mixin gl-p-9 {
+  padding: $gl-spacing-scale-9;
+}
+
+@mixin gl-p-13 {
+  padding: $gl-spacing-scale-13;
+}
+
 @mixin gl-px-0 {
   padding-left: 0;
   padding-right: 0;
@@ -238,6 +246,10 @@
   padding-top: $gl-spacing-scale-12;
 }
 
+@mixin gl-pt-13 {
+  padding-top: $gl-spacing-scale-13;
+}
+
 @mixin gl-md-pt-12 {
   @include gl-media-breakpoint-up(md) {
     @include gl-pt-12;
@@ -280,8 +292,16 @@
   padding-bottom: $gl-spacing-scale-8;
 }
 
+@mixin gl-pb-9 {
+  padding-bottom: $gl-spacing-scale-9;
+}
+
 @mixin gl-pb-11 {
   padding-bottom: $gl-spacing-scale-11;
+}
+
+@mixin gl-pb-13 {
+  padding-bottom: $gl-spacing-scale-13;
 }
 
 @mixin gl-py-0 {
