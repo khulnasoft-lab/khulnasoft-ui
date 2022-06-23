@@ -530,6 +530,10 @@
   margin-bottom: $gl-spacing-scale-9;
 }
 
+@mixin gl-mb-11 {
+  margin-bottom: $gl-spacing-scale-11;
+}
+
 @mixin gl-ml-auto {
   margin-left: auto;
 }
