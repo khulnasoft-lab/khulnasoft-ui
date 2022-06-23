@@ -1,5 +1,6 @@
 <script>
 import { BFormCheckbox } from 'bootstrap-vue';
+import { uniqueId } from 'lodash';
 
 export default {
   name: 'GlFormCheckbox',
@@ -10,6 +11,13 @@ export default {
   model: {
     prop: 'checked',
     event: 'input',
+  },
+  props: {
+    id: {
+      type: String,
+      required: false,
+      default: () => uniqueId(),
+    },
   },
   methods: {
     change($event) {
@@ -33,7 +41,13 @@ export default {
 </script>
 
 <template>
-  <b-form-checkbox v-bind="$attrs" class="gl-form-checkbox" @change="change" @input="input">
+  <b-form-checkbox
+    v-bind="$attrs"
+    :id="id"
+    class="gl-form-checkbox"
+    @change="change"
+    @input="input"
+  >
     <!-- @slot The checkbox content to display. -->
     <slot></slot>
     <p v-if="Boolean($scopedSlots.help)" class="help-text">
