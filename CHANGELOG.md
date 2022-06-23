@@ -1,3 +1,15 @@
+# [42.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.9.0...v42.10.0) (2022-06-23)
+
+
+### Bug Fixes
+
+* **GlModal:** Re-add deprecated modal slots ([a07b701](https://gitlab.com/gitlab-org/gitlab-ui/commit/a07b7018c783951ec28d87bfe1df93b6894e5580))
+
+
+### Features
+
+* **GlFormCheckbox:** Auto-generate ID if not provided ([0a161c6](https://gitlab.com/gitlab-org/gitlab-ui/commit/0a161c65bab3d9ea32fe396b80f68bb9296d2166))
+
 # [42.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.8.0...v42.9.0) (2022-06-22)
 
 
