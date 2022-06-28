@@ -17,6 +17,7 @@ import {
   LEGEND_MIN_TEXT,
   LEGEND_MAX_TEXT,
   CHART_TYPE_LINE,
+  ANNOTATION_TOOLTIP_TOP_OFFSET,
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
@@ -259,7 +260,7 @@ export default {
     moveShowTooltip(mouseEvent) {
       this.tooltipPosition = {
         left: `${mouseEvent.zrX}px`,
-        top: `${mouseEvent.zrY}px`,
+        top: `${mouseEvent.zrY + ANNOTATION_TOOLTIP_TOP_OFFSET}px`,
       };
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
