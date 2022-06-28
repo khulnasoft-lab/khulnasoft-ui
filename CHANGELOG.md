@@ -1,3 +1,10 @@
+## [42.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.10.0...v42.10.1) (2022-06-28)
+
+
+### Bug Fixes
+
+* **GlChart:** tooltip conflicting with datazoom ([d791719](https://gitlab.com/gitlab-org/gitlab-ui/commit/d791719638b3a20d4f175d5793648d2b57ddf47b))
+
 # [42.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.9.0...v42.10.0) (2022-06-23)
 
 
