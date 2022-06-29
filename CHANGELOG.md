@@ -1,3 +1,11 @@
+# [42.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.10.1...v42.11.0) (2022-06-29)
+
+
+### Features
+
+* **css:** add gl-mb-11 util ([0d633ce](https://gitlab.com/gitlab-org/gitlab-ui/commit/0d633ced219c5324d85314368f858e8146c9a576))
+* **css:** add padding utilities ([2cef860](https://gitlab.com/gitlab-org/gitlab-ui/commit/2cef860d42ed1eb5bf4c4ea4d3a094c22d3f2b37))
+
 ## [42.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.10.0...v42.10.1) (2022-06-28)
 
 
