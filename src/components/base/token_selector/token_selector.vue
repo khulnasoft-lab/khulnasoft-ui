@@ -365,7 +365,7 @@ export default {
   <div>
     <div
       ref="container"
-      class="gl-token-selector gl-form-input gl-display-flex gl-align-items-center form-control form-control-plaintext gl-cursor-text! gl-py-2! gl-px-3!"
+      class="gl-token-selector gl-form-input form-control form-control-plaintext gl-cursor-text! gl-py-2! gl-px-3!"
       :class="[inputFocused ? 'gl-token-selector-focus-glow' : '', containerClass, stateClass]"
       @click="handleContainerClick"
     >

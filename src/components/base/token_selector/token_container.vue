@@ -124,7 +124,7 @@ export default {
 <template>
   <div
     ref="tokenContainer"
-    class="gl-display-flex gl-flex-wrap gl-align-items-center gl-my-n1 gl-mx-n1"
+    class="gl-display-flex gl-flex-wrap gl-my-n1 gl-mx-n1"
     role="listbox"
     aria-multiselectable="false"
     aria-orientation="horizontal"
