@@ -69,17 +69,17 @@ export default {
       return this.showSuggestions ? 'off' : 'on';
     },
     showSuggestions() {
-      return this.value.length > 0 && this.totalItems.length > 0;
+      return this.value.length > 0 && this.allItems.length > 0;
     },
     displayedValue() {
       return this.matchValueToAttr && this.value[this.matchValueToAttr]
         ? this.value[this.matchValueToAttr]
         : this.value;
     },
-    tokenNumber() {
+    resultsLength() {
       return this.results.length;
     },
-    totalItems() {
+    allItems() {
       return [...this.results, ...this.actionList];
     },
   },
@@ -103,25 +103,27 @@ export default {
     onArrowDown() {
       const newCount = this.arrowCounter + 1;
 
-      if (newCount >= this.totalItems.length) {
+      if (newCount >= this.allItems.length) {
         this.arrowCounter = 0;
         return;
       }
 
       this.arrowCounter = newCount;
+      this.$refs.results[newCount]?.$el.scrollIntoView(false);
     },
     onArrowUp() {
       const newCount = this.arrowCounter - 1;
 
       if (newCount < 0) {
-        this.arrowCounter = this.totalItems.length - 1;
+        this.arrowCounter = this.allItems.length - 1;
         return;
       }
 
       this.arrowCounter = newCount;
+      this.$refs.results[newCount]?.$el.scrollIntoView(true);
     },
     onEnter() {
-      const currentToken = this.totalItems[this.arrowCounter] || this.value;
+      const currentToken = this.allItems[this.arrowCounter] || this.value;
       if (currentToken.function) {
         this.selectAction(currentToken);
       } else {
@@ -213,6 +215,7 @@ export default {
       <div class="gl-overflow-y-auto show-dropdown">
         <gl-dropdown-item
           v-for="(result, i) in results"
+          ref="results"
           :key="i"
           role="option"
           :class="{ 'highlight-dropdown': i === arrowCounter }"
@@ -223,13 +226,13 @@ export default {
           <slot name="result" :item="result">{{ result }}</slot>
         </gl-dropdown-item>
       </div>
-      <gl-dropdown-divider v-if="tokenNumber > 0 && actionList.length > 0" />
+      <gl-dropdown-divider v-if="resultsLength > 0 && actionList.length > 0" />
       <gl-dropdown-item
         v-for="(action, i) in actionList"
-        :key="i + tokenNumber"
+        :key="i + resultsLength"
         role="option"
-        :class="{ 'highlight-dropdown': i + tokenNumber === arrowCounter }"
-        :aria-selected="i + tokenNumber === arrowCounter"
+        :class="{ 'highlight-dropdown': i + resultsLength === arrowCounter }"
+        :aria-selected="i + resultsLength === arrowCounter"
         tabindex="-1"
         data-testid="combobox-action"
         @click="selectAction(action)"

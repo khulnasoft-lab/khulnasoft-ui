@@ -1,4 +1,3 @@
-import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlFormInput from '../form_input/form_input.vue';
@@ -67,7 +66,19 @@ describe('GlFormCombobox', () => {
   const findInputValue = () => findInput().element.value;
   const setInput = (val) => findInput().setValue(val);
   const arrowDown = () => findInput().trigger('keydown.down');
-  const firstFirstAction = () => wrapper.findAll('[data-testid="combobox-action"]').at(0);
+  const findFirstAction = () => wrapper.findAll('[data-testid="combobox-action"]').at(0);
+
+  beforeAll(() => {
+    if (!HTMLElement.prototype.scrollIntoView) {
+      HTMLElement.prototype.scrollIntoView = jest.fn();
+    }
+  });
+
+  afterAll(() => {
+    if (HTMLElement.prototype.scrollIntoView.mock) {
+      delete HTMLElement.prototype.scrollIntoView;
+    }
+  });
 
   describe.each`
     valueType   | tokens             | matchValueToAttr | partialTokenMatch
@@ -233,6 +244,7 @@ describe('GlFormCombobox', () => {
 
   describe('with action items', () => {
     let actionSpy;
+    const windowAlert = window.alert;
 
     beforeEach(() => {
       createComponent({ tokens: oneTokenList, actionList: actionsList });
@@ -240,12 +252,15 @@ describe('GlFormCombobox', () => {
       window.alert = jest.fn();
     });
 
+    afterEach(() => {
+      window.alert = windowAlert;
+    });
+
     it('click on action item executes its function', async () => {
       await setInput(partialToken);
       expect(findDropdown().isVisible()).toBe(true);
 
-      firstFirstAction().trigger('click');
-      await nextTick();
+      await findFirstAction().trigger('click');
 
       expect(actionSpy).toHaveBeenCalled();
       expect(findDropdown().isVisible()).toBe(false);
@@ -256,8 +271,6 @@ describe('GlFormCombobox', () => {
       findInput().trigger('keydown.down');
       findInput().trigger('keydown.down');
       await findInput().trigger('keydown.enter');
-
-      await nextTick();
 
       expect(actionSpy).toHaveBeenCalled();
       expect(findDropdown().isVisible()).toBe(false);
