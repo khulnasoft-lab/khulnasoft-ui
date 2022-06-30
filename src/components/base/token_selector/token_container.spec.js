@@ -88,7 +88,7 @@ describe('GlTokenContainer', () => {
 
       it('emits `clear-all` event when `Clear all` button is clicked', () => {
         createComponent({ propsData: { showClearAllButton: true } });
-        findClearAllButton().vm.$emit('click');
+        findClearAllButton().vm.$emit('click', new MouseEvent('click'));
 
         expect(wrapper.emitted('clear-all')).toEqual([[]]);
       });
