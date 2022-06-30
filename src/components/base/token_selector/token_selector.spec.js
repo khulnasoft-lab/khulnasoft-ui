@@ -86,6 +86,8 @@ describe('GlTokenSelector', () => {
 
   const findContainer = () => wrapper.findComponent({ ref: 'container' });
 
+  const findTokenContainer = () => wrapper.findComponent(GlTokenContainer);
+
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
       HTMLElement.prototype.scrollIntoView = jest.fn();
@@ -149,13 +151,23 @@ describe('GlTokenSelector', () => {
       });
 
       it('passes `viewOnly` prop to GlTokenContainer', () => {
-        expect(wrapper.findComponent(GlTokenContainer).props('viewOnly')).toBe(true);
+        expect(findTokenContainer().props('viewOnly')).toBe(true);
       });
 
       it('disables input field if viewOnly is true', () => {
         findTextInput().trigger('focus');
 
         expect(findTextInput().attributes('disabled')).toBe('disabled');
+      });
+    });
+
+    describe('when there are tokens and `allowClearAll` is true', () => {
+      beforeEach(() => {
+        createComponent({ propsData: { allowClearAll: true, selectedTokens: tokens } });
+      });
+
+      it('passes `showClearAllButton` prop as `true` to token-container', () => {
+        expect(findTokenContainer().props('showClearAllButton')).toBe(true);
       });
     });
 
@@ -290,7 +302,7 @@ describe('GlTokenSelector', () => {
         },
       });
 
-      expect(wrapper.findComponent(GlTokenContainer).props('state')).toBe(true);
+      expect(findTokenContainer().props('state')).toBe(true);
     });
   });
 
@@ -589,7 +601,7 @@ describe('GlTokenSelector', () => {
         propsData: { selectedTokens: [token] },
       });
 
-      wrapper.findComponent(GlTokenContainer).vm.$emit('token-remove', token);
+      findTokenContainer().vm.$emit('token-remove', token);
 
       await nextTick();
     });
@@ -631,7 +643,7 @@ describe('GlTokenSelector', () => {
         selectedTokens: tokens,
       });
 
-      wrapper.findComponent(GlTokenContainer).vm.$emit('cancel-focus');
+      findTokenContainer().vm.$emit('cancel-focus');
 
       await nextTick();
 
