@@ -26,4 +26,8 @@ export const getResetAnimationsCSS = () => `
     -ms-animation: none !important;
     -o-animation: none !important;
     animation: none !important;
+  }
+
+  input, textarea {
+    caret-color: transparent !important;
   }`;
