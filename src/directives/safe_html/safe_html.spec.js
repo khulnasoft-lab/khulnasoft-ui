@@ -2,6 +2,17 @@ import { shallowMount } from '@vue/test-utils';
 import { forbiddenDataAttrs } from './constants';
 import { SafeHtmlDirective as safeHtml } from './safe_html';
 
+/* eslint-disable no-script-url */
+const invalidProtocolUrls = [
+  'javascript:alert(1)',
+  'jAvascript:alert(1)',
+  'data:text/html,<script>alert(1);</script>',
+  ' javascript:',
+  'javascript :',
+];
+/* eslint-enable no-script-url */
+const validProtocolUrls = ['slack://open', 'x-devonthink-item://90909', 'x-devonthink-item:90909'];
+
 describe('safe html directive', () => {
   let wrapper;
 
@@ -44,6 +55,22 @@ describe('safe html directive', () => {
       });
 
       expect(wrapper.html()).toEqual('<div>hello world</div>');
+    });
+
+    describe('with non-http links', () => {
+      it.each(validProtocolUrls)('should allow %s', (url) => {
+        createComponent({
+          html: `<a href="${url}">internal link</a>`,
+        });
+        expect(wrapper.html()).toContain(`<a href="${url}">internal link</a>`);
+      });
+
+      it.each(invalidProtocolUrls)('should not allow %s', (url) => {
+        createComponent({
+          html: `<a href="${url}">internal link</a>`,
+        });
+        expect(wrapper.html()).toContain(`<a>internal link</a>`);
+      });
     });
 
     describe('handles data attributes correctly', () => {
