@@ -1,3 +1,10 @@
+# [42.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.11.0...v42.12.0) (2022-06-30)
+
+
+### Features
+
+* **SafeHtml:** allow non-http links in urls ([ef995ed](https://gitlab.com/gitlab-org/gitlab-ui/commit/ef995edbaeecccd8d4c6a457d1c0cf9a9a350245))
+
 # [42.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.10.1...v42.11.0) (2022-06-29)
 
 
