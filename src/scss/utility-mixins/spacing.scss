@@ -817,11 +817,6 @@
   gap: $gl-spacing-scale-6;
 }
 
-/* Deprecated */
-@mixin gl-grid-gap-6 {
-  @include gl-gap-6;
-}
-
 /**
 * Responsive margin utilities.
 *
