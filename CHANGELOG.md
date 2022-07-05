@@ -1,3 +1,10 @@
+# [42.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.12.0...v42.13.0) (2022-07-05)
+
+
+### Features
+
+* remove `gl-grid-gap-6` utility in favor of generic `gl-gap-6` ([7b6d680](https://gitlab.com/gitlab-org/gitlab-ui/commit/7b6d6808ea9ede7ba47b29560ec114bbcec5ef17))
+
 # [42.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.11.0...v42.12.0) (2022-06-30)
 
 
