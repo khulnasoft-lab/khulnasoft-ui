@@ -32,6 +32,9 @@ export default {
       type: Array,
       required: true,
     },
+    /**
+     * List of action functions to display at the bottom of the dropdown
+     */
     actionList: {
       type: Array,
       required: false,
@@ -83,6 +86,24 @@ export default {
       return [...this.results, ...this.actionList];
     },
   },
+  watch: {
+    tokenList(newList) {
+      const filteredTokens = newList.filter((token) => {
+        if (this.matchValueToAttr) {
+          // For API driven tokens, we don't need extra filtering
+          return token;
+        }
+        return token.toLowerCase().includes(this.value.toLowerCase());
+      });
+
+      if (filteredTokens.length) {
+        this.openSuggestions(filteredTokens);
+      } else {
+        this.results = [];
+        this.arrowCounter = -1;
+      }
+    },
+  },
   mounted() {
     document.addEventListener('click', this.handleClickOutside);
   },
@@ -123,11 +144,11 @@ export default {
       this.$refs.results[newCount]?.$el.scrollIntoView(true);
     },
     onEnter() {
-      const currentToken = this.allItems[this.arrowCounter] || this.value;
-      if (currentToken.function) {
-        this.selectAction(currentToken);
+      const focusedItem = this.allItems[this.arrowCounter] || this.value;
+      if (focusedItem.fn) {
+        this.selectAction(focusedItem);
       } else {
-        this.selectToken(currentToken);
+        this.selectToken(focusedItem);
       }
     },
     onEsc() {
@@ -156,7 +177,8 @@ export default {
       if (filteredTokens.length) {
         this.openSuggestions(filteredTokens);
       } else {
-        this.closeSuggestions();
+        this.results = [];
+        this.arrowCounter = -1;
       }
     },
     openSuggestions(filteredResults) {
@@ -172,7 +194,7 @@ export default {
       this.$emit('value-selected', value);
     },
     selectAction(value) {
-      value.function();
+      value.fn();
       this.$emit('input', this.value);
       this.closeSuggestions();
     },
@@ -212,33 +234,41 @@ export default {
       data-testid="combobox-dropdown"
       class="dropdown-menu dropdown-full-width show-dropdown gl-list-style-none gl-pl-0 gl-mb-0 gl-display-flex gl-flex-direction-column"
     >
-      <div class="gl-overflow-y-auto show-dropdown">
-        <gl-dropdown-item
-          v-for="(result, i) in results"
-          ref="results"
-          :key="i"
-          role="option"
-          :class="{ 'highlight-dropdown': i === arrowCounter }"
-          :aria-selected="i === arrowCounter"
-          tabindex="-1"
-          @click="selectToken(result)"
-        >
-          <slot name="result" :item="result">{{ result }}</slot>
-        </gl-dropdown-item>
-      </div>
+      <li class="gl-overflow-y-auto show-dropdown">
+        <ul class="gl-list-style-none gl-pl-0 gl-mb-0">
+          <gl-dropdown-item
+            v-for="(result, i) in results"
+            ref="results"
+            :key="i"
+            role="option"
+            :class="{ 'gl-bg-gray-50': i === arrowCounter }"
+            :aria-selected="i === arrowCounter"
+            tabindex="-1"
+            @click="selectToken(result)"
+          >
+            <!-- @slot The suggestion result item to display. -->
+            <slot name="result" :item="result">{{ result }}</slot>
+          </gl-dropdown-item>
+        </ul>
+      </li>
       <gl-dropdown-divider v-if="resultsLength > 0 && actionList.length > 0" />
-      <gl-dropdown-item
-        v-for="(action, i) in actionList"
-        :key="i + resultsLength"
-        role="option"
-        :class="{ 'highlight-dropdown': i + resultsLength === arrowCounter }"
-        :aria-selected="i + resultsLength === arrowCounter"
-        tabindex="-1"
-        data-testid="combobox-action"
-        @click="selectAction(action)"
-      >
-        <slot name="action" :item="action">{{ action.label }}</slot>
-      </gl-dropdown-item>
+      <li>
+        <ul class="gl-list-style-none gl-pl-0 gl-mb-0">
+          <gl-dropdown-item
+            v-for="(action, i) in actionList"
+            :key="i + resultsLength"
+            role="option"
+            :class="{ 'gl-bg-gray-50': i + resultsLength === arrowCounter }"
+            :aria-selected="i + resultsLength === arrowCounter"
+            tabindex="-1"
+            data-testid="combobox-action"
+            @click="selectAction(action)"
+          >
+            <!-- @slot The action item to display. -->
+            <slot name="action" :item="action">{{ action.label }}</slot>
+          </gl-dropdown-item>
+        </ul>
+      </li>
     </ul>
   </div>
 </template>

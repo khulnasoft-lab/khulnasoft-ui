@@ -6,8 +6,4 @@
   .show-dropdown {
     max-height: $gl-max-dropdown-max-height;
   }
-
-  .highlight-dropdown {
-    @include gl-bg-gray-50;
-  }
 }

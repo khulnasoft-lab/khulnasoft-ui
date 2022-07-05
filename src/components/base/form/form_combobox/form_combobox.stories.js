@@ -1,3 +1,4 @@
+import { makeContainer } from '../../../../utils/story_decorators/container';
 import { stringTokenList, labelText, objectTokenList, actionsList } from './constants';
 import readme from './form_combobox.md';
 import GlFormCombobox from './form_combobox.vue';
@@ -14,7 +15,7 @@ const template = `
 
 const generateProps = ({
   tokenList = stringTokenList,
-  matchValueToAttr = undefined,
+  matchValueToAttr,
   actionList = undefined,
 } = {}) => ({
   tokenList,
@@ -66,6 +67,7 @@ export const WithObjectValue = (args, { argTypes }) => ({
   `,
 });
 WithObjectValue.args = generateProps({ tokenList: objectTokenList, matchValueToAttr: 'title' });
+WithObjectValue.decorators = [makeContainer({ height: '370px' })];
 
 export const WithActions = (args, { argTypes }) => ({
   components: { GlFormCombobox },
@@ -84,6 +86,7 @@ WithActions.args = generateProps({
   tokenList: stringTokenList,
   actionList: actionsList,
 });
+WithActions.decorators = [makeContainer({ height: '180px' })];
 
 export default {
   title: 'base/form/form-combobox',

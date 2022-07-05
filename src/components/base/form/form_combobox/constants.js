@@ -35,14 +35,14 @@ export const oneTokenList = ['dog'];
 export const actionsList = [
   {
     label: 'Create',
-    function: () => {
+    fn: () => {
       // eslint-disable-next-line no-alert
       window.alert('Create action');
     },
   },
   {
     label: 'Edit',
-    function: () => {
+    fn: () => {
       // eslint-disable-next-line no-alert
       window.alert('Edit action');
     },

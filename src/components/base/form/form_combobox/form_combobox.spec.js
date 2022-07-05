@@ -66,7 +66,7 @@ describe('GlFormCombobox', () => {
   const findInputValue = () => findInput().element.value;
   const setInput = (val) => findInput().setValue(val);
   const arrowDown = () => findInput().trigger('keydown.down');
-  const findFirstAction = () => wrapper.findAll('[data-testid="combobox-action"]').at(0);
+  const findFirstAction = () => wrapper.find('[data-testid="combobox-action"]');
 
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
@@ -248,7 +248,7 @@ describe('GlFormCombobox', () => {
 
     beforeEach(() => {
       createComponent({ tokens: oneTokenList, actionList: actionsList });
-      actionSpy = jest.spyOn(wrapper.vm.actionList[0], 'function');
+      actionSpy = jest.spyOn(wrapper.vm.actionList[0], 'fn');
       window.alert = jest.fn();
     });
 
@@ -274,6 +274,14 @@ describe('GlFormCombobox', () => {
 
       expect(actionSpy).toHaveBeenCalled();
       expect(findDropdown().isVisible()).toBe(false);
+    });
+
+    it('displays only action items when no result match input value', async () => {
+      await setInput('doNotMatchAnything');
+      expect(findDropdown().isVisible()).toBe(true);
+
+      expect(findFirstAction().exists()).toBe(true);
+      expect(findDropdownOptions().length).toBe(2);
     });
   });
 });
