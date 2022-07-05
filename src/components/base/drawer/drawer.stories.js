@@ -1,9 +1,34 @@
-import { GlDrawer, GlButton } from '../../../index';
+import { GlDrawer, GlButton, GlMarkdown } from '../../../index';
 import { drawerVariants } from '../../../utils/constants';
 import readme from './drawer.md';
 
-const components = { GlDrawer, GlButton };
+const components = { GlDrawer, GlButton, GlMarkdown };
 
+const generateStaticContent = (number = 1) =>
+  Array.from(Array(number).keys())
+    .map(
+      (item) => `
+      <div class="gl-mb-8">
+            <h4 class="gl-mb-4">View jobs in a pipeline ${item}</h4>
+            <p>
+              Pipeline configuration begins with jobs. Jobs are the most fundamental element of a .gitlab-ci.yml file.
+            </p>
+            <p>Jobs are:</p>
+            <ul>
+              <li>Defined with constraints stating under what conditions they should be executed. </li>
+              <li>Top-level elements with an arbitrary name and must contain at least the script clause.</li>
+              <li>Not limited in how many can be defined.</li>
+            </ul>
+            <p>For example:</p>
+            <gl-markdown compact>
+              <code>job1: script: "execute-script-for-job1"</code>
+              <br />
+              <code>job2: script: "execute-script-for-job2"</code>
+            </gl-markdown>
+          </div>
+    `
+    )
+    .join('');
 const generateDrawerContent = (items) =>
   items
     .map(
@@ -144,6 +169,24 @@ export const WithStickyFooter = (_args, { viewMode }) => ({
 });
 
 WithStickyFooter.args = generateProps();
+
+export const WithScrimAndStaticContent = (_args, { viewMode }) => ({
+  ...storyOptions(viewMode),
+  template: `
+    <div>
+      <gl-button @click="toggle">Toggle Drawer</gl-button>
+      ${createSidebarTemplate(`
+        <template #title>List Settings</template>
+        <div>
+          ${generateStaticContent(3)}
+        </div>
+      `)}
+    </div>`,
+});
+
+WithScrimAndStaticContent.args = generateProps({
+  headerSticky: true,
+});
 
 export const SidebarVariant = (_args, { viewMode }) => ({
   ...storyOptions(viewMode),

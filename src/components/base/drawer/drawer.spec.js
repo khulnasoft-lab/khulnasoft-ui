@@ -101,6 +101,28 @@ describe('drawer component', () => {
     expect(wrapper.find(parentSelector).find(`[data-testid="${slot}"]`).exists()).toBe(true);
   });
 
+  it('should add scrim to footer', () => {
+    mountWithOpts({
+      slots: {
+        footer: `<div data-testid="footer" />`,
+      },
+    });
+
+    expect(wrapper.find('.gl-drawer-footer').classes()).toContain('gl-drawer-body-scrim-on-footer');
+    expect(wrapper.find('.gl-drawer-body').classes()).not.toContain('gl-drawer-body-scrim');
+  });
+
+  it('should add scrim to scrollable container', () => {
+    mountWithOpts({
+      slots: {
+        default: `<div data-testid="default" />`,
+      },
+    });
+
+    expect(wrapper.find('.gl-drawer-footer').exists()).toBe(false);
+    expect(wrapper.find('.gl-drawer-body').classes()).toContain('gl-drawer-body-scrim');
+  });
+
   it.each`
     variant      | variantClass
     ${'default'} | ${'gl-drawer-default'}
