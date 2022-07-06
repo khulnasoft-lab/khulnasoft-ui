@@ -813,6 +813,10 @@
   gap: $gl-spacing-scale-3;
 }
 
+@mixin gl-gap-5 {
+  gap: $gl-spacing-scale-5;
+}
+
 @mixin gl-gap-6 {
   gap: $gl-spacing-scale-6;
 }
