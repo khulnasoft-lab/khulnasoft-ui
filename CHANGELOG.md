@@ -1,3 +1,10 @@
+## [42.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.13.0...v42.13.1) (2022-07-06)
+
+
+### Bug Fixes
+
+* **GlCard:** Ensure given slots are rendered ([d4a8c24](https://gitlab.com/gitlab-org/gitlab-ui/commit/d4a8c24795c8dbc8eb1eab3bdfdda6675e284495))
+
 # [42.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.12.0...v42.13.0) (2022-07-05)
 
 
