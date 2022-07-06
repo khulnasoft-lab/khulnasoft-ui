@@ -1,3 +1,10 @@
+# [42.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.13.1...v42.14.0) (2022-07-06)
+
+
+### Features
+
+* Add margin bottom auto ([d3769df](https://gitlab.com/gitlab-org/gitlab-ui/commit/d3769dfdea4af3b7fa148c06874d403478c910ea))
+
 ## [42.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.13.0...v42.13.1) (2022-07-06)
 
 
