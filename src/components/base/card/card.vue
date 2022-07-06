@@ -32,7 +32,7 @@ export default {
 
 <template>
   <div class="gl-card">
-    <div v-if="$slots.header" class="gl-card-header" :class="headerClass">
+    <div v-if="$scopedSlots.header" class="gl-card-header" :class="headerClass">
       <!-- @slot The card's header content. -->
       <slot name="header"></slot>
     </div>
@@ -40,7 +40,7 @@ export default {
       <!-- @slot The card's main content. -->
       <slot></slot>
     </div>
-    <div v-if="$slots.footer" class="gl-card-footer" :class="footerClass">
+    <div v-if="$scopedSlots.footer" class="gl-card-footer" :class="footerClass">
       <!-- @slot The card's footer content. -->
       <slot name="footer"></slot>
     </div>
