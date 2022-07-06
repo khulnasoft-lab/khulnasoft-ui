@@ -498,6 +498,10 @@
   margin-right: $gl-spacing-scale-7;
 }
 
+@mixin gl-mb-auto {
+  margin-bottom: auto;
+}
+
 @mixin gl-mb-0 {
   margin-bottom: 0;
 }
