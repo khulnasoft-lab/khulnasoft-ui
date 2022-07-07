@@ -71,6 +71,29 @@ describe('GlTokenContainer', () => {
       });
     });
 
+    describe('clearing all tokens', () => {
+      const findClearAllButton = () => wrapper.find('[data-testid="clear-all-button"]');
+
+      it('does not render `Clear all` button by default', () => {
+        createComponent();
+
+        expect(findClearAllButton().exists()).toBe(false);
+      });
+
+      it('renders `Clear all` button when `showClearAllButton` prop is true', () => {
+        createComponent({ propsData: { showClearAllButton: true } });
+
+        expect(findClearAllButton().exists()).toBe(true);
+      });
+
+      it('emits `clear-all` event when `Clear all` button is clicked', () => {
+        createComponent({ propsData: { showClearAllButton: true } });
+        findClearAllButton().vm.$emit('click', new MouseEvent('click'));
+
+        expect(wrapper.emitted('clear-all')).toEqual([[]]);
+      });
+    });
+
     describe('state', () => {
       describe('when `state` is `false`', () => {
         it('adds `aria-invalid="true"` attribute`', () => {

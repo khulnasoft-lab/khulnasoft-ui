@@ -1,6 +1,5 @@
 <script>
 import { uniqueId } from 'lodash';
-
 import { tokensValidator } from './helpers';
 import GlTokenContainer from './token_container.vue';
 import GlTokenSelectorDropdown from './token_selector_dropdown.vue';
@@ -8,7 +7,10 @@ import GlTokenSelectorDropdown from './token_selector_dropdown.vue';
 export default {
   name: 'GlTokenSelector',
   componentId: uniqueId('token-selector'),
-  components: { GlTokenContainer, GlTokenSelectorDropdown },
+  components: {
+    GlTokenContainer,
+    GlTokenSelectorDropdown,
+  },
   model: {
     prop: 'selectedTokens',
     event: 'input',
@@ -121,6 +123,14 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Allows user to bulk delete tokens when enabled
+     */
+    allowClearAll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -173,8 +183,14 @@ export default {
         ? 'is-valid gl-inset-border-1-gray-400!'
         : 'is-invalid gl-inset-border-1-red-500!';
     },
+    hasSelectedTokens() {
+      return this.selectedTokens.length > 0;
+    },
     showEmptyPlaceholder() {
-      return this.selectedTokens.length === 0 && !this.inputFocused;
+      return !this.hasSelectedTokens && !this.inputFocused;
+    },
+    showClearAllButton() {
+      return this.hasSelectedTokens && this.allowClearAll;
     },
   },
   watch: {
@@ -357,6 +373,10 @@ export default {
     registerFocusOnToken(focusOnToken) {
       this.focusOnToken = focusOnToken;
     },
+    clearAll() {
+      this.$emit('input', []);
+      this.focusTextInput();
+    },
   },
 };
 </script>
@@ -377,8 +397,10 @@ export default {
         :state="state"
         :register-focus-on-token="registerFocusOnToken"
         :view-only="viewOnly"
+        :show-clear-all-button="showClearAllButton"
         @token-remove="removeToken"
         @cancel-focus="cancelTokenFocus"
+        @clear-all="clearAll"
       >
         <template #token-content="{ token }">
           <!-- @slot Content to pass to the token component slot. Can be used

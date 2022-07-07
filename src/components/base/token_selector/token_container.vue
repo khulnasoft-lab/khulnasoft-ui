@@ -1,10 +1,11 @@
 <script>
 import GlToken from '../token/token.vue';
+import GlButton from '../button/button.vue';
 import { tokensValidator } from './helpers';
 
 export default {
   name: 'GlTokenContainer',
-  components: { GlToken },
+  components: { GlToken, GlButton },
   props: {
     tokens: {
       type: Array,
@@ -22,6 +23,11 @@ export default {
       required: true,
     },
     viewOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    showClearAllButton: {
       type: Boolean,
       required: false,
       default: false,
@@ -124,7 +130,7 @@ export default {
 <template>
   <div
     ref="tokenContainer"
-    class="gl-display-flex gl-flex-wrap gl-align-items-center gl-my-n1 gl-mx-n1"
+    class="gl-display-flex gl-flex-wrap gl-align-items-center gl-my-n1 gl-mx-n1 gl-w-full"
     role="listbox"
     aria-multiselectable="false"
     aria-orientation="horizontal"
@@ -162,5 +168,14 @@ export default {
       </gl-token>
     </div>
     <slot name="text-input"></slot>
+    <gl-button
+      v-if="showClearAllButton"
+      size="small"
+      aria-label="Clear all"
+      icon="clear"
+      category="tertiary"
+      data-testid="clear-all-button"
+      @click.stop="$emit('clear-all')"
+    />
   </div>
 </template>
