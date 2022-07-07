@@ -1,3 +1,15 @@
+# [42.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.14.0...v42.15.0) (2022-07-07)
+
+
+### Bug Fixes
+
+* fixed token container test ([21b3ae6](https://gitlab.com/gitlab-org/gitlab-ui/commit/21b3ae6ee8c84727726893454e012551b13c16ab))
+
+
+### Features
+
+* added clear all functionality to token selector ([fcf5200](https://gitlab.com/gitlab-org/gitlab-ui/commit/fcf52007d519ededf128eff7e264c7c7507700ca))
+
 # [42.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.13.1...v42.14.0) (2022-07-06)
 
 
