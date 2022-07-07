@@ -1,3 +1,10 @@
+# [42.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.15.0...v42.16.0) (2022-07-07)
+
+
+### Features
+
+* adds gl-gap-5 utility ([e4e24f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/e4e24f8ab67d890a58e0eb0baa04fdf9177ce8aa))
+
 # [42.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.14.0...v42.15.0) (2022-07-07)
 
 
