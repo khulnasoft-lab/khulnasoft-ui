@@ -1,3 +1,10 @@
+# [42.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.16.0...v42.17.0) (2022-07-08)
+
+
+### Features
+
+* **GlDrawer:** add scrim for scrollable content ([c303d42](https://gitlab.com/gitlab-org/gitlab-ui/commit/c303d4225fd053bfd150e5f169ba9a595c1ba8db))
+
 # [42.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.15.0...v42.16.0) (2022-07-07)
 
 
