@@ -2,6 +2,7 @@
 import { uniqueId } from 'lodash';
 
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
+import GlDropdownDivider from '../../dropdown/dropdown_divider.vue';
 import GlFormGroup from '../form_group/form_group.vue';
 import GlFormInput from '../form_input/form_input.vue';
 
@@ -9,6 +10,7 @@ export default {
   name: 'GlFormCombobox',
   components: {
     GlDropdownItem,
+    GlDropdownDivider,
     GlFormGroup,
     GlFormInput,
   },
@@ -29,6 +31,14 @@ export default {
     tokenList: {
       type: Array,
       required: true,
+    },
+    /**
+     * List of action functions to display at the bottom of the dropdown
+     */
+    actionList: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
     value: {
       type: [String, Object],
@@ -62,12 +72,36 @@ export default {
       return this.showSuggestions ? 'off' : 'on';
     },
     showSuggestions() {
-      return this.results.length > 0;
+      return this.value.length > 0 && this.allItems.length > 0;
     },
     displayedValue() {
       return this.matchValueToAttr && this.value[this.matchValueToAttr]
         ? this.value[this.matchValueToAttr]
         : this.value;
+    },
+    resultsLength() {
+      return this.results.length;
+    },
+    allItems() {
+      return [...this.results, ...this.actionList];
+    },
+  },
+  watch: {
+    tokenList(newList) {
+      const filteredTokens = newList.filter((token) => {
+        if (this.matchValueToAttr) {
+          // For API driven tokens, we don't need extra filtering
+          return token;
+        }
+        return token.toLowerCase().includes(this.value.toLowerCase());
+      });
+
+      if (filteredTokens.length) {
+        this.openSuggestions(filteredTokens);
+      } else {
+        this.results = [];
+        this.arrowCounter = -1;
+      }
     },
   },
   mounted() {
@@ -80,6 +114,7 @@ export default {
     closeSuggestions() {
       this.results = [];
       this.arrowCounter = -1;
+      this.userDismissedResults = true;
     },
     handleClickOutside(event) {
       if (!this.$el.contains(event.target)) {
@@ -89,33 +124,38 @@ export default {
     onArrowDown() {
       const newCount = this.arrowCounter + 1;
 
-      if (newCount >= this.results.length) {
+      if (newCount >= this.allItems.length) {
         this.arrowCounter = 0;
         return;
       }
 
       this.arrowCounter = newCount;
+      this.$refs.results[newCount]?.$el.scrollIntoView(false);
     },
     onArrowUp() {
       const newCount = this.arrowCounter - 1;
 
       if (newCount < 0) {
-        this.arrowCounter = this.results.length - 1;
+        this.arrowCounter = this.allItems.length - 1;
         return;
       }
 
       this.arrowCounter = newCount;
+      this.$refs.results[newCount]?.$el.scrollIntoView(true);
     },
     onEnter() {
-      const currentToken = this.results[this.arrowCounter] || this.value;
-      this.selectToken(currentToken);
+      const focusedItem = this.allItems[this.arrowCounter] || this.value;
+      if (focusedItem.fn) {
+        this.selectAction(focusedItem);
+      } else {
+        this.selectToken(focusedItem);
+      }
     },
     onEsc() {
       if (!this.showSuggestions) {
         this.$emit('input', '');
       }
       this.closeSuggestions();
-      this.userDismissedResults = true;
     },
     onEntry(value) {
       this.$emit('input', value);
@@ -137,7 +177,8 @@ export default {
       if (filteredTokens.length) {
         this.openSuggestions(filteredTokens);
       } else {
-        this.closeSuggestions();
+        this.results = [];
+        this.arrowCounter = -1;
       }
     },
     openSuggestions(filteredResults) {
@@ -151,6 +192,11 @@ export default {
        * @event value-selected
        */
       this.$emit('value-selected', value);
+    },
+    selectAction(value) {
+      value.fn();
+      this.$emit('input', this.value);
+      this.closeSuggestions();
     },
   },
 };
@@ -186,20 +232,43 @@ export default {
       v-show="showSuggestions && !userDismissedResults"
       :id="suggestionsId"
       data-testid="combobox-dropdown"
-      class="dropdown-menu dropdown-full-width gl-list-style-none gl-pl-0 gl-mb-0 gl-overflow-y-auto"
-      :class="{ 'show-dropdown': showSuggestions }"
+      class="dropdown-menu dropdown-full-width show-dropdown gl-list-style-none gl-pl-0 gl-mb-0 gl-display-flex gl-flex-direction-column"
     >
-      <gl-dropdown-item
-        v-for="(result, i) in results"
-        :key="i"
-        role="option"
-        :class="{ 'highlight-dropdown': i === arrowCounter }"
-        :aria-selected="i === arrowCounter"
-        tabindex="-1"
-        @click="selectToken(result)"
-      >
-        <slot name="result" :item="result">{{ result }}</slot>
-      </gl-dropdown-item>
+      <li class="gl-overflow-y-auto show-dropdown">
+        <ul class="gl-list-style-none gl-pl-0 gl-mb-0">
+          <gl-dropdown-item
+            v-for="(result, i) in results"
+            ref="results"
+            :key="i"
+            role="option"
+            :class="{ 'gl-bg-gray-50': i === arrowCounter }"
+            :aria-selected="i === arrowCounter"
+            tabindex="-1"
+            @click="selectToken(result)"
+          >
+            <!-- @slot The suggestion result item to display. -->
+            <slot name="result" :item="result">{{ result }}</slot>
+          </gl-dropdown-item>
+        </ul>
+      </li>
+      <gl-dropdown-divider v-if="resultsLength > 0 && actionList.length > 0" />
+      <li>
+        <ul class="gl-list-style-none gl-pl-0 gl-mb-0">
+          <gl-dropdown-item
+            v-for="(action, i) in actionList"
+            :key="i + resultsLength"
+            role="option"
+            :class="{ 'gl-bg-gray-50': i + resultsLength === arrowCounter }"
+            :aria-selected="i + resultsLength === arrowCounter"
+            tabindex="-1"
+            data-testid="combobox-action"
+            @click="selectAction(action)"
+          >
+            <!-- @slot The action item to display. -->
+            <slot name="action" :item="action">{{ action.label }}</slot>
+          </gl-dropdown-item>
+        </ul>
+      </li>
     </ul>
   </div>
 </template>

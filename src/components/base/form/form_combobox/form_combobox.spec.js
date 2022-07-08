@@ -1,7 +1,13 @@
 import { mount } from '@vue/test-utils';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlFormInput from '../form_input/form_input.vue';
-import { stringTokenList, labelText, objectTokenList } from './constants';
+import {
+  stringTokenList,
+  labelText,
+  objectTokenList,
+  oneTokenList,
+  actionsList,
+} from './constants';
 import GlFormCombobox from './form_combobox.vue';
 
 const partialToken = 'do';
@@ -22,7 +28,11 @@ const doTimes = (num, fn) => {
 describe('GlFormCombobox', () => {
   let wrapper;
 
-  const createComponent = ({ tokens = stringTokenList, matchValueToAttr = undefined } = {}) => {
+  const createComponent = ({
+    tokens = stringTokenList,
+    matchValueToAttr = undefined,
+    actionList = [],
+  } = {}) => {
     wrapper = mount({
       data() {
         return {
@@ -30,6 +40,7 @@ describe('GlFormCombobox', () => {
           tokens,
           labelText,
           matchValueToAttr,
+          actionList,
         };
       },
       components: { GlFormCombobox },
@@ -40,6 +51,7 @@ describe('GlFormCombobox', () => {
             :token-list="tokens"
             :label-text="labelText"
             :match-value-to-attr="matchValueToAttr"
+            :action-list="actionList"
           />
         </div>
       `,
@@ -54,6 +66,19 @@ describe('GlFormCombobox', () => {
   const findInputValue = () => findInput().element.value;
   const setInput = (val) => findInput().setValue(val);
   const arrowDown = () => findInput().trigger('keydown.down');
+  const findFirstAction = () => wrapper.find('[data-testid="combobox-action"]');
+
+  beforeAll(() => {
+    if (!HTMLElement.prototype.scrollIntoView) {
+      HTMLElement.prototype.scrollIntoView = jest.fn();
+    }
+  });
+
+  afterAll(() => {
+    if (HTMLElement.prototype.scrollIntoView.mock) {
+      delete HTMLElement.prototype.scrollIntoView;
+    }
+  });
 
   describe.each`
     valueType   | tokens             | matchValueToAttr | partialTokenMatch
@@ -214,6 +239,49 @@ describe('GlFormCombobox', () => {
           });
         });
       });
+    });
+  });
+
+  describe('with action items', () => {
+    let actionSpy;
+    const windowAlert = window.alert;
+
+    beforeEach(() => {
+      createComponent({ tokens: oneTokenList, actionList: actionsList });
+      actionSpy = jest.spyOn(wrapper.vm.actionList[0], 'fn');
+      window.alert = jest.fn();
+    });
+
+    afterEach(() => {
+      window.alert = windowAlert;
+    });
+
+    it('click on action item executes its function', async () => {
+      await setInput(partialToken);
+      expect(findDropdown().isVisible()).toBe(true);
+
+      await findFirstAction().trigger('click');
+
+      expect(actionSpy).toHaveBeenCalled();
+      expect(findDropdown().isVisible()).toBe(false);
+    });
+
+    it('keyboard navigation and executes function on enter', async () => {
+      await setInput('dog');
+      findInput().trigger('keydown.down');
+      findInput().trigger('keydown.down');
+      await findInput().trigger('keydown.enter');
+
+      expect(actionSpy).toHaveBeenCalled();
+      expect(findDropdown().isVisible()).toBe(false);
+    });
+
+    it('displays only action items when no result match input value', async () => {
+      await setInput('doNotMatchAnything');
+      expect(findDropdown().isVisible()).toBe(true);
+
+      expect(findFirstAction().exists()).toBe(true);
+      expect(findDropdownOptions().length).toBe(2);
     });
   });
 });
