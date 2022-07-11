@@ -1,3 +1,12 @@
+# [42.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.17.0...v42.18.0) (2022-07-11)
+
+
+### Features
+
+* **GlCombobox:** Add action items ([297ed28](https://gitlab.com/gitlab-org/gitlab-ui/commit/297ed28588558229d0e2e5629875e80ec52edc32))
+* **GlCombobox:** Add action items ([af4eba0](https://gitlab.com/gitlab-org/gitlab-ui/commit/af4eba02c5345e6709ef0359feeeed63659acb27))
+* **GlCombobox:** Add action items ([cae7a7e](https://gitlab.com/gitlab-org/gitlab-ui/commit/cae7a7ecc7552cda29c41eb7c04dd3c59db1be0c))
+
 # [42.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.16.0...v42.17.0) (2022-07-08)
 
 
