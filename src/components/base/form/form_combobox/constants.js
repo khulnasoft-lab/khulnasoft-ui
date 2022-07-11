@@ -29,3 +29,22 @@ export const objectTokenList = [
   { id: '11', title: 'whale' },
   { id: '12', title: 'xenarthra' },
 ];
+
+export const oneTokenList = ['dog'];
+
+export const actionsList = [
+  {
+    label: 'Create',
+    fn: () => {
+      // eslint-disable-next-line no-alert
+      window.alert('Create action');
+    },
+  },
+  {
+    label: 'Edit',
+    fn: () => {
+      // eslint-disable-next-line no-alert
+      window.alert('Edit action');
+    },
+  },
+];
