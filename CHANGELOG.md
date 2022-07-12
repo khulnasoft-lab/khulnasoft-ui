@@ -1,3 +1,10 @@
+# [42.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.18.1...v42.19.0) (2022-07-12)
+
+
+### Features
+
+* **css:** Add gl-display-contents utility class ([f15c3b5](https://gitlab.com/gitlab-org/gitlab-ui/commit/f15c3b504eaf259f721d53a68992da8839162edf))
+
 ## [42.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.18.0...v42.18.1) (2022-07-12)
 
 
