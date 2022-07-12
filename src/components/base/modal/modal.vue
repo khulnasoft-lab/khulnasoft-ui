@@ -88,9 +88,11 @@ export default {
   },
   computed: {
     shouldRenderModalOk() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.$slots['modal-ok']);
     },
     shouldRenderModalCancel() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.$slots['modal-cancel']);
     },
     shouldRenderModalFooter() {
@@ -98,6 +100,7 @@ export default {
         this.actionCancel ||
           this.actionSecondary ||
           this.actionPrimary ||
+          // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
           this.$slots['modal-footer']
       );
     },

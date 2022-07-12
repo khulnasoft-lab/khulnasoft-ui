@@ -118,6 +118,7 @@ export default {
     },
 
     hasOptionsOrSuggestions() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return this.options?.length || this.$slots.suggestions;
     },
 

@@ -57,6 +57,7 @@ export default {
       };
     },
     shouldRenderFooter() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.$slots.footer);
     },
     variantClass() {

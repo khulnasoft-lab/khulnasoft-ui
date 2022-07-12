@@ -44,6 +44,7 @@ export default {
   },
   computed: {
     hasIconOnly() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.icon && Object.keys(this.$slots).length === 0);
     },
     role() {

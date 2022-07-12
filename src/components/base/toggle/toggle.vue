@@ -82,6 +82,7 @@ export default {
   },
   computed: {
     shouldRenderHelp() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.$slots.help || this.help);
     },
     icon() {
