@@ -1,3 +1,10 @@
+# [42.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.19.0...v42.20.0) (2022-07-13)
+
+
+### Features
+
+* **css:** Updated GlFormSelect styles to match the design specs ([7ebc665](https://gitlab.com/gitlab-org/gitlab-ui/commit/7ebc66575c51cbe994c8eb198eeca5359190cac3))
+
 # [42.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.18.1...v42.19.0) (2022-07-12)
 
 
