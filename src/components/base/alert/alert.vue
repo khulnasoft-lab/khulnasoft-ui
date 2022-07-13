@@ -94,6 +94,7 @@ export default {
       return alertVariantIconMap[this.variant];
     },
     shouldRenderActions() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.$slots.actions || this.actionButtons.length);
     },
     actionButtons() {

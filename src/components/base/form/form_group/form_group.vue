@@ -48,6 +48,7 @@ export default {
       return defaultClass;
     },
     hasLabelDescription() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.labelDescription || this.$slots['label-description']);
     },
   },
@@ -67,6 +68,7 @@ export default {
       </gl-form-text>
     </template>
 
+    <!-- eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots -->
     <template v-for="slot in Object.keys($slots)" #[slot]>
       <slot :name="slot"></slot>
     </template>

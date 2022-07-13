@@ -74,6 +74,7 @@ export default {
       return this.icon !== '';
     },
     hasIconOnly() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Object.keys(this.$slots).length === 0 && this.hasIcon;
     },
     isButtonDisabled() {
@@ -111,6 +112,7 @@ export default {
     },
   },
   mounted() {
+    // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
     if (!this.$slots.default && !this.$attrs['aria-label'] && !this.$props.label) {
       logWarning('[gl-button]: Accessible name missing. Please add inner text or aria-label.');
     }
