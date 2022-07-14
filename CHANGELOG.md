@@ -1,3 +1,10 @@
+# [42.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.20.0...v42.21.0) (2022-07-14)
+
+
+### Features
+
+* **css:** Added background no repeat to select dropdown ([5a3fdf9](https://gitlab.com/gitlab-org/gitlab-ui/commit/5a3fdf90edf5329822afb04503e5c7bc7847c695))
+
 # [42.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.19.0...v42.20.0) (2022-07-13)
 
 
