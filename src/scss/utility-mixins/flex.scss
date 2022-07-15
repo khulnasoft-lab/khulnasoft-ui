@@ -179,6 +179,10 @@
   flex-basis: 0;
 }
 
+@mixin gl-flex-basis-third {
+  flex-basis: 33%;
+}
+
 @mixin gl-flex-basis-half {
   flex-basis: 50%;
 }
