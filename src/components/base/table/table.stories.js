@@ -18,10 +18,16 @@ const tableItems = [
   },
 ];
 
-const generateProps = ({ fixed = false, footClone = false, stacked = false } = {}) => ({
+const generateProps = ({
+  fixed = false,
+  footClone = false,
+  stacked = false,
+  caption = '',
+} = {}) => ({
   fixed,
   footClone,
   stacked,
+  caption,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -37,7 +43,11 @@ export const Default = (args, { argTypes }) => ({
     hover
     selectable
     selected-variant="primary"
-  />
+  >
+    <template v-if="caption" #table-caption>
+      {{ caption }}
+    </template>
+  </gl-table>
 `,
   fields: [
     {

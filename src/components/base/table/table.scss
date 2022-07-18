@@ -37,6 +37,10 @@ table.gl-table {
     }
   }
 
+  caption {
+    @include gl-pt-2;
+  }
+
   @mixin gl-tmp-stacked-override {
     tbody > tr {
       &::after {
