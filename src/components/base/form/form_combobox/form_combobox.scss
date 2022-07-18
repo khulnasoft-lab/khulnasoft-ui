@@ -1,8 +1,4 @@
 .gl-form-combobox {
-  .dropdown-full-width {
-    @include gl-w-full;
-  }
-
   .gl-form-combobox-inner {
     max-height: $gl-max-dropdown-max-height;
   }

@@ -96,13 +96,8 @@ export default {
   },
   watch: {
     tokenList(newList) {
-      const filteredTokens = newList.filter((token) => {
-        // For API driven tokens, we don't need extra filtering
-        return token;
-      });
-
-      if (filteredTokens.length) {
-        this.openSuggestions(filteredTokens);
+      if (newList.length) {
+        this.openSuggestions(newList);
       } else {
         this.results = [];
         this.arrowCounter = -1;
@@ -240,7 +235,7 @@ export default {
       :id="suggestionsId"
       ref="suggestionsMenu"
       data-testid="combobox-dropdown"
-      class="dropdown-menu dropdown-full-width gl-form-combobox-inner gl-list-style-none gl-pl-0 gl-mb-0 gl-display-flex gl-flex-direction-column"
+      class="dropdown-menu gl-w-full gl-form-combobox-inner gl-list-style-none gl-pl-0 gl-mb-0 gl-display-flex gl-flex-direction-column"
       @keydown.down="onArrowDown"
       @keydown.up="onArrowUp"
       @keydown.esc.stop="onEsc"
