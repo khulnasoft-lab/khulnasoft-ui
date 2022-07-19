@@ -16,7 +16,7 @@ module.exports = {
   modulePathIgnorePatterns: ['cypress/integration', '.cypress_cache'],
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '.*\\.(vue)$': 'vue-jest',
+    '.*\\.(vue)$': '@vue/vue2-jest',
     '\\.(svg|html|md|png)$': 'jest-raw-loader',
   },
   transformIgnorePatterns: [
@@ -25,4 +25,6 @@ module.exports = {
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
   setupFilesAfterEnv: ['<rootDir>/tests/jest_setup.js'],
   reporters,
+  testEnvironment: 'jsdom',
+  testRunner: 'jest-circus/runner',
 };

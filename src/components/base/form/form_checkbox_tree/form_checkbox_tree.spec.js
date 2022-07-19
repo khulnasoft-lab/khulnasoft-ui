@@ -64,6 +64,7 @@ const SHAPE = {
   ___.4
   ___.5
 `,
+
   COMPLEX: `
 _.1
 __.2
@@ -149,11 +150,10 @@ describe('GlFormCheckboxTree', () => {
   `('when checking a parent checkbox in a $description tree', ({ shape, boxToCheck }) => {
     let checkbox;
 
-    beforeEach(() => {
+    beforeEach(async () => {
       createWrapper({ options: getOptions(shape) });
       checkbox = wrapper.find(`[data-qa-selector="${QA_PREFIX}${boxToCheck}"]`);
-      checkbox.find('input').trigger('click');
-      return wrapper.vm.$nextTick();
+      await checkbox.find('input').setChecked();
     });
 
     it("checks all of the checkbox's children, if any", () => {
@@ -174,10 +174,11 @@ describe('GlFormCheckboxTree', () => {
   `(
     'when checking child checkboxes in a $description tree',
     ({ shape, boxesToCheck, indeterminateBoxes, checkedParents }) => {
-      beforeEach(() => {
+      beforeEach(async () => {
         createWrapper({ options: getOptions(shape) });
-        boxesToCheck.forEach((box) => findCheckboxInput(findCheckboxByValue(box)).trigger('click'));
-        return wrapper.vm.$nextTick();
+        await Promise.allSettled(
+          boxesToCheck.map((box) => findCheckboxInput(findCheckboxByValue(box)).setChecked())
+        );
       });
 
       it('parents that have remaining unchecked children become indeterminate', () => {
@@ -205,12 +206,11 @@ describe('GlFormCheckboxTree', () => {
   `(
     'when unchecking checkboxes in a $description tree',
     ({ shape, initiallyChecked, boxesToUncheck, indeterminateBoxes, uncheckedBoxes }) => {
-      beforeEach(() => {
+      beforeEach(async () => {
         createWrapper({ options: getOptions(shape), [V_MODEL.PROP]: initiallyChecked });
-        boxesToUncheck.forEach((box) =>
-          findCheckboxInput(findCheckboxByValue(box)).trigger('click')
+        await Promise.allSettled(
+          boxesToUncheck.map((box) => findCheckboxInput(findCheckboxByValue(box)).setChecked(false))
         );
-        return wrapper.vm.$nextTick();
       });
 
       it("unchecks all of the checkbox's children if any", () => {
@@ -253,12 +253,11 @@ describe('GlFormCheckboxTree', () => {
       });
 
       it('once toggled, puts all checkboxes in the correct state', async () => {
-        await toggleAllCheckbox.trigger('click');
-        return wrapper.vm.$nextTick(() => {
-          findCheckboxes().wrappers.forEach((checkbox) => {
-            expect(findCheckboxInput(checkbox).element.checked).toBe(finallyChecked);
-            expect(findCheckboxInput(checkbox).element.indeterminate).toBe(false);
-          });
+        await toggleAllCheckbox.setChecked(finallyChecked);
+
+        findCheckboxes().wrappers.forEach((checkbox) => {
+          expect(findCheckboxInput(checkbox).element.checked).toBe(finallyChecked);
+          expect(findCheckboxInput(checkbox).element.indeterminate).toBe(false);
         });
       });
     }

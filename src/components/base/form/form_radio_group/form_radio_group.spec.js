@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils';
-import { nextTick } from 'vue';
 import GlFormRadioGroup from './form_radio_group.vue';
 
 describe('GlFormRadioGroup', () => {
@@ -43,7 +42,6 @@ describe('GlFormRadioGroup', () => {
   describe('when the selected value is changed programmatically', () => {
     beforeEach(() => {
       wrapper.vm.selected = secondOption.value;
-      return nextTick();
     });
 
     it('emits an input event, but not a change event', () => {
@@ -60,14 +58,17 @@ describe('GlFormRadioGroup', () => {
   describe('when the selected value is changed by the user', () => {
     let radio;
 
-    beforeEach(() => {
+    beforeEach(async () => {
       radio = findRadio(secondOption.value);
 
-      radio.trigger('click');
-      return nextTick();
+      // NOTE: We can't use "setChecked" here because
+      // it sets value programmatically under the hood and this
+      // does not pass value for the "change" event.
+      await radio.trigger('click');
+      await radio.trigger('change');
     });
 
-    it('emits an input event and a change event', () => {
+    it('emits an input event and a change event', async () => {
       expect(wrapper.findComponent(GlFormRadioGroup).emitted()).toEqual({
         input: [[secondOption.value]],
         change: [[secondOption.value]],
