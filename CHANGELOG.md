@@ -1,3 +1,10 @@
+## [42.22.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.22.0...v42.22.1) (2022-07-19)
+
+
+### Bug Fixes
+
+* **GlTable:** adjust table caption padding ([f74c132](https://gitlab.com/gitlab-org/gitlab-ui/commit/f74c13229724070ec76534eb3f8ff37ef1f20d41))
+
 # [42.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.21.0...v42.22.0) (2022-07-15)
 
 
