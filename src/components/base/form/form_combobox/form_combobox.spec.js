@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlFormInput from '../form_input/form_input.vue';
@@ -65,7 +66,9 @@ describe('GlFormCombobox', () => {
   const findInput = () => wrapper.findComponent(GlFormInput);
   const findInputValue = () => findInput().element.value;
   const setInput = (val) => findInput().setValue(val);
-  const arrowDown = () => findInput().trigger('keydown.down');
+  const arrowDown = () => findDropdown().trigger('keydown.down');
+  const arrowUp = () => findDropdown().trigger('keydown.up');
+  const enter = () => wrapper.find('[aria-selected="true"]').trigger('keydown.enter');
   const findFirstAction = () => wrapper.find('[data-testid="combobox-action"]');
 
   beforeAll(() => {
@@ -128,8 +131,10 @@ describe('GlFormCombobox', () => {
       describe('on down arrow + enter', () => {
         it('selects the next item in the list and closes the dropdown', async () => {
           await setInput(partialToken);
-          findInput().trigger('keydown.down');
-          await findInput().trigger('keydown.enter');
+          arrowDown();
+          await nextTick();
+          enter();
+          await nextTick();
 
           if (valueType === 'string') {
             expect(findInputValue()).toBe(partialTokenMatch[0]);
@@ -141,7 +146,9 @@ describe('GlFormCombobox', () => {
         it('loops to the top when it reaches the bottom', async () => {
           await setInput(partialToken);
           doTimes(findDropdownOptions().length + 1, arrowDown);
-          await findInput().trigger('keydown.enter');
+          await nextTick();
+          enter();
+          await nextTick();
 
           if (valueType === 'string') {
             expect(findInputValue()).toBe(partialTokenMatch[0]);
@@ -157,8 +164,10 @@ describe('GlFormCombobox', () => {
 
           await wrapper.vm.$nextTick();
           doTimes(3, arrowDown);
-          findInput().trigger('keydown.up');
-          findInput().trigger('keydown.enter');
+          arrowUp();
+          await nextTick();
+          enter();
+          await nextTick();
 
           await wrapper.vm.$nextTick();
 
@@ -172,9 +181,11 @@ describe('GlFormCombobox', () => {
 
         it('loops to the bottom when it reaches the top', async () => {
           await setInput(partialToken);
-          findInput().trigger('keydown.down');
-          findInput().trigger('keydown.up');
-          await findInput().trigger('keydown.enter');
+          arrowDown();
+          arrowUp();
+          await nextTick();
+          enter();
+          await nextTick();
 
           if (valueType === 'string') {
             expect(findInputValue()).toBe(partialTokenMatch[partialTokenMatch.length - 1]);
@@ -187,11 +198,11 @@ describe('GlFormCombobox', () => {
       });
 
       describe('on enter with no item highlighted', () => {
-        it('does not select any item and closes the dropdown', async () => {
+        it('does nothing', async () => {
           await setInput(partialToken);
           await findInput().trigger('keydown.enter');
           expect(findInputValue()).toBe(partialToken);
-          expect(findDropdown().isVisible()).toBe(false);
+          expect(findDropdown().isVisible()).toBe(true);
         });
       });
 
@@ -268,9 +279,10 @@ describe('GlFormCombobox', () => {
 
     it('keyboard navigation and executes function on enter', async () => {
       await setInput('dog');
-      findInput().trigger('keydown.down');
-      findInput().trigger('keydown.down');
-      await findInput().trigger('keydown.enter');
+      doTimes(2, arrowDown);
+      await nextTick();
+      enter();
+      await nextTick();
 
       expect(actionSpy).toHaveBeenCalled();
       expect(findDropdown().isVisible()).toBe(false);

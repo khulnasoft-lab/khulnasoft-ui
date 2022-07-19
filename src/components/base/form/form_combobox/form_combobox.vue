@@ -54,6 +54,14 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Placeholder text for input field
+     */
+    placeholder: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
   },
   data() {
     return {
@@ -88,16 +96,8 @@ export default {
   },
   watch: {
     tokenList(newList) {
-      const filteredTokens = newList.filter((token) => {
-        if (this.matchValueToAttr) {
-          // For API driven tokens, we don't need extra filtering
-          return token;
-        }
-        return token.toLowerCase().includes(this.value.toLowerCase());
-      });
-
-      if (filteredTokens.length) {
-        this.openSuggestions(filteredTokens);
+      if (newList.length) {
+        this.openSuggestions(newList);
       } else {
         this.results = [];
         this.arrowCounter = -1;
@@ -121,35 +121,33 @@ export default {
         this.closeSuggestions();
       }
     },
-    onArrowDown() {
-      const newCount = this.arrowCounter + 1;
+    focusItem(index) {
+      this.$refs.suggestionsMenu
+        .querySelectorAll('.gl-new-dropdown-item')
+        [index]?.querySelector('button')
+        .focus();
+    },
+    onArrowDown(e) {
+      e.preventDefault();
+      let newCount = this.arrowCounter + 1;
 
       if (newCount >= this.allItems.length) {
-        this.arrowCounter = 0;
-        return;
+        newCount = 0;
       }
 
       this.arrowCounter = newCount;
-      this.$refs.results[newCount]?.$el.scrollIntoView(false);
+      this.focusItem(newCount);
     },
-    onArrowUp() {
-      const newCount = this.arrowCounter - 1;
+    onArrowUp(e) {
+      e.preventDefault();
+      let newCount = this.arrowCounter - 1;
 
       if (newCount < 0) {
-        this.arrowCounter = this.allItems.length - 1;
-        return;
+        newCount = this.allItems.length - 1;
       }
 
       this.arrowCounter = newCount;
-      this.$refs.results[newCount]?.$el.scrollIntoView(true);
-    },
-    onEnter() {
-      const focusedItem = this.allItems[this.arrowCounter] || this.value;
-      if (focusedItem.fn) {
-        this.selectAction(focusedItem);
-      } else {
-        this.selectToken(focusedItem);
-      }
+      this.focusItem(newCount);
     },
     onEsc() {
       if (!this.showSuggestions) {
@@ -198,6 +196,9 @@ export default {
       this.$emit('input', this.value);
       this.closeSuggestions();
     },
+    resetCounter() {
+      this.arrowCounter = -1;
+    },
   },
 };
 </script>
@@ -219,10 +220,11 @@ export default {
         :aria-controls="suggestionsId"
         aria-haspopup="listbox"
         :autofocus="autofocus"
+        :placeholder="placeholder"
         @input="onEntry"
+        @focus="resetCounter"
         @keydown.down="onArrowDown"
         @keydown.up="onArrowUp"
-        @keydown.enter.prevent="onEnter"
         @keydown.esc.stop="onEsc"
         @keydown.tab="closeSuggestions"
       />
@@ -231,8 +233,12 @@ export default {
     <ul
       v-show="showSuggestions && !userDismissedResults"
       :id="suggestionsId"
+      ref="suggestionsMenu"
       data-testid="combobox-dropdown"
-      class="dropdown-menu dropdown-full-width show-dropdown gl-list-style-none gl-pl-0 gl-mb-0 gl-display-flex gl-flex-direction-column"
+      class="dropdown-menu gl-w-full gl-form-combobox-inner gl-list-style-none gl-pl-0 gl-mb-0 gl-display-flex gl-flex-direction-column"
+      @keydown.down="onArrowDown"
+      @keydown.up="onArrowUp"
+      @keydown.esc.stop="onEsc"
     >
       <li class="gl-overflow-y-auto show-dropdown">
         <ul class="gl-list-style-none gl-pl-0 gl-mb-0">
@@ -241,10 +247,10 @@ export default {
             ref="results"
             :key="i"
             role="option"
-            :class="{ 'gl-bg-gray-50': i === arrowCounter }"
             :aria-selected="i === arrowCounter"
             tabindex="-1"
             @click="selectToken(result)"
+            @keydown.enter.native="selectToken(result)"
           >
             <!-- @slot The suggestion result item to display. -->
             <slot name="result" :item="result">{{ result }}</slot>
@@ -258,11 +264,11 @@ export default {
             v-for="(action, i) in actionList"
             :key="i + resultsLength"
             role="option"
-            :class="{ 'gl-bg-gray-50': i + resultsLength === arrowCounter }"
             :aria-selected="i + resultsLength === arrowCounter"
             tabindex="-1"
             data-testid="combobox-action"
             @click="selectAction(action)"
+            @keydown.enter.native="selectAction(action)"
           >
             <!-- @slot The action item to display. -->
             <slot name="action" :item="action">{{ action.label }}</slot>
