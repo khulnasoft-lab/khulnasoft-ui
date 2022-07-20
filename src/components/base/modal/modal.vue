@@ -85,6 +85,11 @@ export default {
       required: false,
       default: '',
     },
+    noFocusOnShow: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     shouldRenderModalOk() {
@@ -151,6 +156,8 @@ export default {
       return prop.attributes;
     },
     setFocus() {
+      if (this.noFocusOnShow) return;
+
       const btnElts = [...this.$refs.modal.$refs.modal.querySelectorAll('button')];
       const modalElts = [
         ...this.$refs.modal.$refs.body.querySelectorAll(focusableTags.join(COMMA)),
@@ -171,10 +178,10 @@ export default {
 </script>
 
 <template>
-  <!-- 
+  <!--
   Emitted when the modal visibility changes
   @event change
- -->
+  -->
   <b-modal
     :id="modalId"
     ref="modal"
@@ -217,7 +224,7 @@ export default {
         <!--
         Emitted when clicked on modal-action-cancel
         @event canceled
-       -->
+        -->
         <gl-button
           v-if="actionCancel"
           class="js-modal-action-cancel"
@@ -229,7 +236,7 @@ export default {
         <!--
         Emitted when clicked on modal-action-secondary
         @event secondary
-       -->
+        -->
         <gl-button
           v-if="actionSecondary"
           class="js-modal-action-secondary"
@@ -241,7 +248,7 @@ export default {
         <!--
         Emitted when clicked on modal-action-primary
         @event primary
-       -->
+        -->
         <gl-button
           v-if="actionPrimary"
           class="js-modal-action-primary"
