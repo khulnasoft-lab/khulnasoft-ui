@@ -74,24 +74,20 @@ describe('safe html directive', () => {
     });
 
     describe('handles data attributes correctly', () => {
-      const acceptedDataAttrs = ['data-safe', 'data-random'];
+      const allowedDataAttrs = ['data-safe', 'data-random'];
 
-      it.each(forbiddenDataAttrs)('removes %s attributes', (attr) => {
-        createComponent({
-          html: `<a ${attr}="true"></a>`,
-        });
+      it.each(forbiddenDataAttrs)('removes dangerous `%s` attribute', (attr) => {
+        const html = `<a ${attr}="true"></a>`;
+        createComponent({ html });
 
-        expect(wrapper.html()).toEqual('<div><a></a></div>');
+        expect(wrapper.html()).not.toContain(html);
       });
 
-      it.each(acceptedDataAttrs)('does not remove %s attributes', (attr) => {
-        const attrWithValue = `${attr}="true"`;
+      it.each(allowedDataAttrs)('does not remove allowed `%s` attribute', (attr) => {
+        const html = `<a ${attr}="true"></a>`;
+        createComponent({ html });
 
-        createComponent({
-          html: `<a ${attrWithValue}="true"></a>`,
-        });
-
-        expect(wrapper.html()).toEqual(`<div><a ${attrWithValue}></a></div>`);
+        expect(wrapper.html()).toContain(html);
       });
     });
   });
