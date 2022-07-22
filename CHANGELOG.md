@@ -1,3 +1,10 @@
+# [42.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.22.1...v42.23.0) (2022-07-22)
+
+
+### Features
+
+* **css:** add gl-md-ml-2 ([485c6f3](https://gitlab.com/gitlab-org/gitlab-ui/commit/485c6f37e3f934730eee8c0c1d7c58668738f385))
+
 ## [42.22.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.22.0...v42.22.1) (2022-07-19)
 
 
