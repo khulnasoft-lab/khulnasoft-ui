@@ -5,6 +5,12 @@ import { defaultHeight, defaultWidth, validRenderers } from '../../../utils/char
 import createTheme, { themeName } from '../../../utils/charts/theme';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 
+/**
+ * Allowed values by eCharts
+ * https://echarts.apache.org/en/api.html#echartsInstance.resize
+ */
+const sizeValidator = (size) => Number.isFinite(size) || size === 'auto' || size == null;
+
 export default {
   directives: {
     resizeObserver: GlResizeObserverDirective,
@@ -25,14 +31,16 @@ export default {
       default: false,
     },
     width: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: null,
+      validator: sizeValidator,
     },
     height: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: null,
+      validator: sizeValidator,
     },
     groupId: {
       type: String,
