@@ -1,3 +1,10 @@
+## [42.23.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.23.0...v42.23.1) (2022-07-25)
+
+
+### Bug Fixes
+
+* Allow auto string size value ([389400b](https://gitlab.com/gitlab-org/gitlab-ui/commit/389400b8c6c7cf6222c0222fc23c5aa917479611))
+
 # [42.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.22.1...v42.23.0) (2022-07-22)
 
 
