@@ -1,3 +1,10 @@
+## [42.24.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.24.0...v42.24.1) (2022-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dompurify to ^2.3.10 ([2c1da7d](https://gitlab.com/gitlab-org/gitlab-ui/commit/2c1da7dc4aa2c5647210529dd969386a467ea231))
+
 # [42.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.23.1...v42.24.0) (2022-07-26)
 
 
