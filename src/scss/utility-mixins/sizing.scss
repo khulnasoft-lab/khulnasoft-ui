@@ -333,6 +333,10 @@
   min-width: fit-content;
 }
 
+@mixin gl-min-h-0 {
+  min-height: 0;
+}
+
 @mixin gl-min-h-6 {
   min-height: $gl-spacing-scale-6;
 }
