@@ -1,3 +1,10 @@
+# [42.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.23.1...v42.24.0) (2022-07-26)
+
+
+### Features
+
+* Add gl-min-h-0 ([82a17c1](https://gitlab.com/gitlab-org/gitlab-ui/commit/82a17c1535f211bb22feb95dfcc11f6bf55e8a87))
+
 ## [42.23.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.23.0...v42.23.1) (2022-07-25)
 
 
