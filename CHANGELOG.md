@@ -1,3 +1,10 @@
+# [42.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.24.1...v42.25.0) (2022-07-27)
+
+
+### Features
+
+* **css:** add gl-text-transform-capitalize utility ([4f83982](https://gitlab.com/gitlab-org/gitlab-ui/commit/4f83982f14792e26cece737b8a064bae9e33cfef))
+
 ## [42.24.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.24.0...v42.24.1) (2022-07-26)
 
 
