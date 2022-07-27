@@ -29,11 +29,30 @@ try {
   // localStorage doesn't exist (or the value is not properly formatted)
 }
 
-const setConfigs = () => {
+let configured = false;
+
+export const config = {
+  newSafeHtmlAttrs: false,
+};
+
+export const setConfig = (newConfig) => {
+  if (configured) {
+    if (process.env.NODE_ENV !== 'production') {
+      throw new Error('GitLab UI can only be configured once!');
+    }
+
+    return;
+  }
+
+  configured = true;
+
   Vue.use(BVConfigPlugin, {
     BFormText: bFormTextGlobalConfig,
     BTooltip: tooltipGlobalConfig,
   });
+
+  Object.assign(config, newConfig);
+  Object.freeze(config);
 };
 
-export default setConfigs;
+export default setConfig;

@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BButton } from 'bootstrap-vue';
+import { config } from '../../../config';
 import {
   buttonCategoryOptions,
   buttonVariantOptions,
@@ -70,6 +71,9 @@ export default {
     },
   },
   computed: {
+    newButton() {
+      return config.newButtonThing;
+    },
     hasIcon() {
       return this.icon !== '';
     },
@@ -120,10 +124,12 @@ export default {
 };
 </script>
 <template>
+  <button v-if="newButton" type="button">lol, new button here!</button>
   <component
     :is="label ? 'span' : 'b-button'"
-    v-bind="$attrs"
+    v-else
     v-safe-link:[safeLinkConfig]
+    v-bind="$attrs"
     :target="target"
     :variant="variant"
     :size="buttonSize"

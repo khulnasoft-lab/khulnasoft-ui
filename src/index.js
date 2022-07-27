@@ -3,6 +3,9 @@
 // The line above serves as a token for rollup-plugin-replace to inject styles in production
 // builds. We do this to avoid having the stylesheet included multiple times in Storybook.
 
+// Configure GitLab UI
+export { setConfig } from './config';
+
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
 export { default as GlTableLite } from './components/base/table_lite/table_lite.vue';
