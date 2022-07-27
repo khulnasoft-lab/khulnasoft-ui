@@ -39,6 +39,20 @@ const fakeLabels = [
   { id: 5, title: 'Documentation', color: '#5CB85C', text_color: '#FFFFFF' },
 ];
 
+const fakeScanners = [
+  { id: 1, name: 'SAST', username: 'sast' },
+  { id: 2, name: 'DAST', username: 'dast' },
+  { id: 3, name: 'Dependency Scanning', username: 'ds' },
+  { id: 4, name: 'Secret Detection', username: 'sd' },
+  { id: 5, name: 'Container Scanning', username: 'cs' },
+];
+
+const fakeVulnerabilityStauses = [
+  { id: 1, name: 'Active', username: 'active' },
+  { id: 2, name: 'Dismissed', username: 'dismissed' },
+];
+
+
 const UserToken = {
   name: 'UserToken',
   components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
@@ -270,6 +284,83 @@ const LabelToken = {
               class="d-inline-block mr-2"
             ></span>
             {{ label.title }}
+          </div>
+        </gl-filtered-search-suggestion>
+        </template>
+      </template>
+    </gl-filtered-search-token>
+  `,
+};
+
+const ScannerToken = {
+  name: 'ScannerToken',
+  components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
+  props: ['value', 'active'],
+  inheritAttrs: false,
+  data() {
+    return {
+      loadingView: false,
+      loadingSuggestions: false,
+      users: [],
+      activeUser: null,
+    };
+  },
+  methods: {
+    loadView() {
+      this.loadingView = true;
+      setStoryTimeout(() => {
+        this.loadingView = false;
+        this.activeScanner = fakeScanners.find((u) => u.username === this.value.data);
+      }, 500);
+    },
+    loadSuggestions() {
+      this.loadingSuggestions = true;
+      setStoryTimeout(() => {
+        this.loadingSuggestions = false;
+        this.users = fakeScanners;
+      }, 500);
+    },
+  },
+  watch: {
+    // eslint-disable-next-line func-names
+    'value.data': function () {
+      if (this.active) {
+        this.loadSuggestions();
+      }
+    },
+    active: {
+      immediate: true,
+      handler(newValue) {
+        if (!newValue) {
+          this.loadView();
+        } else {
+          this.loadSuggestions();
+        }
+      },
+    },
+  },
+  template: `
+    <gl-filtered-search-token
+      v-bind="{ ...this.$props, ...this.$attrs }"
+      v-on="$listeners"
+    >
+      <template #view="{ inputValue }">
+        <gl-loading-icon size="sm" v-if="loadingView" />
+        <gl-avatar :size="16" :entity-name="inputValue" shape="circle" v-else />
+        {{ activeUser ? activeUser.name : inputValue }}
+      </template>
+      <template #suggestions>
+        <template v-if="loadingSuggestions">
+          <gl-loading-icon />
+        </template>
+        <template v-else>
+        <gl-filtered-search-suggestion :key="user.id" v-for="user in users" :value="user.username">
+          <div class="gl-display-flex">
+            <gl-avatar :size="32" :entity-name="user.username" />
+            <div>
+              <p class="gl-m-0">{{ user.name }}</p>
+              <p class="gl-m-0">@{{ user.username }}</p>
+            </div>
           </div>
         </gl-filtered-search-suggestion>
         </template>
@@ -535,6 +626,251 @@ export const WithMultiSelect = () => {
           },
         ],
         value: [{ type: 'assignee', value: { data: 'alpha,beta', operator: '=' } }],
+      };
+    },
+    template: `
+      <gl-filtered-search v-model="value" :available-tokens="tokens" />
+    `,
+  };
+};
+
+export const WithVulnerabilities = () => {
+  const MultiScannerToken = {
+    props: ['value', 'active', 'config'],
+    components: {
+      GlFilteredSearchToken,
+      GlFilteredSearchSuggestion,
+      GlLoadingIcon,
+      GlIcon,
+      GlAvatar,
+    },
+    inheritAttrs: false,
+    data() {
+      return {
+        scanners: fakeScanners,
+        selectedScanners: this.value.data ? this.value.data.split(',') : [],
+        activeScanner: null,
+      };
+    },
+    computed: {
+      filteredScanners() {
+        return this.scanners.filter((user) => user.username.includes(this.value.data));
+      },
+      selectedScanners() {
+        return this.config.multiSelect
+          ? this.scanners.filter((user) => this.selectedScanners.includes(user.username))
+          : this.scanners.filter((user) => user.username === this.activeScanner);
+      },
+    },
+    methods: {
+      loadView() {
+        this.activeScanner = fakeScanners.find((u) => u.username === this.value.data);
+      },
+      loadSuggestions() {
+        this.scanners = fakeScanners;
+      },
+      handleSelect(username) {
+        if (!this.config.multiSelect) {
+          return;
+        }
+
+        if (this.selectedScanners.includes(username)) {
+          this.selectedScanners = this.selectedScanners.filter((user) => user !== username);
+        } else {
+          this.selectedScanners.push(username);
+        }
+      },
+      isLastScanner(index) {
+        return index === this.selectedScanners.length - 1;
+      },
+    },
+    watch: {
+      // eslint-disable-next-line func-names
+      'value.data': function () {
+        if (this.active) {
+          this.loadSuggestions();
+        }
+      },
+      active: {
+        immediate: true,
+        handler(newValue) {
+          if (!newValue) {
+            this.loadView();
+          } else {
+            this.loadSuggestions();
+          }
+        },
+      },
+    },
+    template: `
+    <gl-filtered-search-token
+      v-bind="{ ...this.$props, ...this.$attrs }"
+      v-on="$listeners"
+      :multi-select-values="selectedScanners"
+      @select="handleSelect"
+    >
+    <template #view="{ inputValue }">
+      <template v-for="(user, index) in selectedScanners">
+        <gl-avatar :size="16" :entity-name="user.username" shape="circle" />
+        {{ user.name }}
+        <span v-if="!isLastScanner(index)" class="gl-mx-2">,&nbsp;</span>
+      </template>
+    </template>
+    <template #suggestions>
+      <gl-filtered-search-suggestion :key="user.id" v-for="user in filteredScanners" :value="user.username">
+        <div class="gl-display-flex gl-align-items-center">
+          <gl-icon
+            v-if="config.multiSelect"
+            name="check"
+            class="gl-mr-3 gl-text-gray-700"
+            :class="{ 'gl-visibility-hidden': !selectedScanners.includes(user.username) }"
+          />
+          <gl-avatar :size="32" :entity-name="user.username" />
+          <div>
+            <p class="gl-m-0">{{ user.name }}</p>
+            <p class="gl-m-0">@{{ user.username }}</p>
+          </div>
+        </div>
+      </gl-filtered-search-suggestion>
+    </template>
+    </gl-filtered-search-token>
+  `,
+  };
+
+  const MultiVulnerabilityStatusToken = {
+    props: ['value', 'active', 'config'],
+    components: {
+      GlFilteredSearchToken,
+      GlFilteredSearchSuggestion,
+      GlLoadingIcon,
+      GlIcon,
+      GlAvatar,
+    },
+    inheritAttrs: false,
+    data() {
+      return {
+        scanners: fakeVulnerabilityStauses,
+        selectedScanners: this.value.data ? this.value.data.split(',') : [],
+        activeScanner: null,
+      };
+    },
+    computed: {
+      filteredScanners() {
+        return this.scanners.filter((user) => user.username.includes(this.value.data));
+      },
+      selectedScanners() {
+        return this.config.multiSelect
+          ? this.scanners.filter((user) => this.selectedScanners.includes(user.username))
+          : this.scanners.filter((user) => user.username === this.activeScanner);
+      },
+    },
+    methods: {
+      loadView() {
+        this.activeScanner = fakeVulnerabilityStauses.find((u) => u.username === this.value.data);
+      },
+      loadSuggestions() {
+        this.scanners = fakeVulnerabilityStauses;
+      },
+      handleSelect(username) {
+        if (!this.config.multiSelect) {
+          return;
+        }
+
+        if (this.selectedScanners.includes(username)) {
+          this.selectedScanners = this.selectedScanners.filter((user) => user !== username);
+        } else {
+          this.selectedScanners.push(username);
+        }
+      },
+      isLastScanner(index) {
+        return index === this.selectedScanners.length - 1;
+      },
+    },
+    watch: {
+      // eslint-disable-next-line func-names
+      'value.data': function () {
+        if (this.active) {
+          this.loadSuggestions();
+        }
+      },
+      active: {
+        immediate: true,
+        handler(newValue) {
+          if (!newValue) {
+            this.loadView();
+          } else {
+            this.loadSuggestions();
+          }
+        },
+      },
+    },
+    template: `
+    <gl-filtered-search-token
+      v-bind="{ ...this.$props, ...this.$attrs }"
+      v-on="$listeners"
+      :multi-select-values="selectedScanners"
+      @select="handleSelect"
+    >
+    <template #view="{ inputValue }">
+      <template v-for="(user, index) in selectedScanners">
+        <gl-avatar :size="16" :entity-name="user.username" shape="circle" />
+        {{ user.name }}
+        <span v-if="!isLastScanner(index)" class="gl-mx-2">,&nbsp;</span>
+      </template>
+    </template>
+    <template #suggestions>
+      <gl-filtered-search-suggestion :key="user.id" v-for="user in filteredScanners" :value="user.username">
+        <div class="gl-display-flex gl-align-items-center">
+          <gl-icon
+            v-if="config.multiSelect"
+            name="check"
+            class="gl-mr-3 gl-text-gray-700"
+            :class="{ 'gl-visibility-hidden': !selectedScanners.includes(user.username) }"
+          />
+          <gl-avatar :size="32" :entity-name="user.username" />
+          <div>
+            <p class="gl-m-0">{{ user.name }}</p>
+            <p class="gl-m-0">@{{ user.username }}</p>
+          </div>
+        </div>
+      </gl-filtered-search-suggestion>
+    </template>
+    </gl-filtered-search-token>
+  `,
+  };
+
+  return {
+    components,
+    data() {
+      return {
+        tokens: [
+          {
+            type: 'scanner',
+            icon: 'user',
+            title: 'Tool',
+            token: MultiScannerToken,
+            operators: [
+              { value: '=', description: 'is', default: 'true' },
+              { value: '!=', description: 'is not one of' },
+              { value: '||', description: 'is one of' },
+            ],
+            multiSelect: true,
+          },
+          {
+            type: 'status',
+            icon: 'user',
+            title: 'Status',
+            token: MultiVulnerabilityStatusToken,
+            operators: [
+              { value: '=', description: 'is', default: 'true' },
+              { value: '!=', description: 'is not one of' },
+              { value: '||', description: 'is one of' },
+            ],
+            multiSelect: true,
+          },
+        ],
+        value: [{ type: 'scanner', value: { data: 'sast,dast', operator: '=' } },
+          { type: 'status', value: { data: 'active', operator: '=' } }],
       };
     },
     template: `
