@@ -14,7 +14,7 @@ default:
     - gitlab-org
 
 variables:
-  PUPPETEER_VERSION: '11.0.0'
+  PUPPETEER_VERSION: '15.5.0'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
   # We want to utilize the faster SAST and Dependency Scanning which are not docker in docker
   SAST_DISABLE_DIND: 'true'
@@ -268,11 +268,12 @@ visual_minimal:
       - tests/__image_snapshots__/
 
 integration_tests:
-  image: cypress/browsers:node14.17.0-chrome91-ff89
+  image: cypress/browsers:node16.14.0-chrome99-ff97
   extends: [.node, .yarn_install]
   needs: []
   stage: test
   script:
+    - apt-get install -y make
     - yarn test:integration
   artifacts:
     when: on_failure
