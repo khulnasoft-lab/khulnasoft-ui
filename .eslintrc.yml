@@ -12,7 +12,6 @@ rules:
       - "!bootstrap-vue/src"
       - "!bootstrap-vue/package.json"
   vue/no-v-html: error
-  '@gitlab/vue-prefer-dollar-scopedslots': error
 # test-specific configuration
 overrides:
 - files:
