@@ -1,3 +1,19 @@
+# [43.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.25.0...v43.0.0) (2022-08-02)
+
+
+### Features
+
+* **SafeHtml:** Extend filters to improve sanitizer ([0229418](https://gitlab.com/gitlab-org/gitlab-ui/commit/022941862a26a42cbaee0bce49d822a7e97948ea))
+
+
+### BREAKING CHANGES
+
+* **SafeHtml:** Disallow a few more potentially dangerous
+@rails/ujs data-* attributes.
+
+Pass a configuration argument to `v-safe-html` to change
+this if needed.
+
 # [42.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.24.1...v42.25.0) (2022-07-27)
 
 
