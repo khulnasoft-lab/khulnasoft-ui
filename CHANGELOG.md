@@ -1,3 +1,10 @@
+# [43.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.0.0...v43.1.0) (2022-08-03)
+
+
+### Features
+
+* **css:** add gl-lg-flex-direction-column utility ([d05faca](https://gitlab.com/gitlab-org/gitlab-ui/commit/d05facabab8e2d8f53ba77ee52373ff1e4603121))
+
 # [43.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v42.25.0...v43.0.0) (2022-08-02)
 
 
