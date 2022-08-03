@@ -26,25 +26,19 @@
   }
 
   .h-display {
-    @include gl-font-size-h-display;
-    @include gl-line-height-32;
-    @include gl-fluid-font-size($min: $gl-font-size-h-display-md, $max: $gl-font-size-h-display-xl);
-    @include gl-fluid-line-height($min: $gl-line-height-36, $max: $gl-line-height-52);
+    @include gl-fluid-font-size($min: $gl-font-size-h-display, $max: $gl-font-size-h-display-xl);
+    @include gl-fluid-line-height($min: $gl-line-height-32, $max: $gl-line-height-52);
   }
 
   h1,
   .gl-h1 {
-    @include gl-font-size-h1;
-    @include gl-line-height-28;
-    @include gl-fluid-font-size($min: $gl-font-size-h1-md, $max: $gl-font-size-h1-xl);
+    @include gl-fluid-font-size($min: $gl-font-size-h1, $max: $gl-font-size-h1-xl);
     @include gl-fluid-line-height($min: $gl-line-height-28, $max: $gl-line-height-36);
   }
 
   h2,
   .gl-h2 {
-    @include gl-font-size-h2;
-    @include gl-line-height-24;
-    @include gl-fluid-font-size($min: $gl-font-size-h2-md, $max: $gl-font-size-h2-xl);
+    @include gl-fluid-font-size($min: $gl-font-size-h2, $max: $gl-font-size-h2-xl);
     @include gl-fluid-line-height($min: $gl-line-height-24, $max: $gl-line-height-28);
   }
 

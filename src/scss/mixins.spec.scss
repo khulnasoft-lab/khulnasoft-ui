@@ -9,14 +9,8 @@
         @include gl-fluid-font-size(2rem, 3.5rem);
       }
       @include expect {
-        @media (min-width: 768px) {
-          // prettier-ignore
-          font-size: calc( 2rem + 1.5 * ((100vw - 768px) / 27));
-        }
-
-        @media (min-width: 1200px) {
-          font-size: 3.5rem;
-        }
+        // prettier-ignore
+        font-size: clamp(2rem, #{-0.66667rem} + #{5.55556vw}, 3.5rem);
       }
     }
   }
@@ -29,14 +23,8 @@
         @include gl-fluid-line-height(2rem, 3.5rem);
       }
       @include expect {
-        @media (min-width: 768px) {
-          // prettier-ignore
-          line-height: calc( 2rem + 1.5 * ((100vw - 768px) / 27));
-        }
-
-        @media (min-width: 1200px) {
-          line-height: 3.5rem;
-        }
+        // prettier-ignore
+        line-height: clamp(2rem, #{-0.66667rem} + #{5.55556vw}, 3.5rem);
       }
     }
   }
