@@ -1,7 +1,4 @@
-import {
-  glThemes as glThemesVariable,
-  glIconSizes as glIconSizesVariable,
-} from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { glIconSizes as glIconSizesVariable } from '../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 
 import { POSITION } from '../components/utilities/truncate/constants';
 
@@ -11,7 +8,7 @@ function appendDefaultOption(options) {
 
 export const COMMA = ',';
 
-export const glThemes = glThemesVariable.split(COMMA).map((glTheme) => glTheme.trim());
+export const glThemes = ['indigo', 'blue', 'light-blue', 'green', 'red', 'light-red'];
 
 export const variantOptions = {
   primary: 'primary',
