@@ -15,6 +15,7 @@ import {
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import readme from './listbox.md';
 import { mockOptions, mockGroups } from './mock_data';
+import { flattenedOptions } from './utils';
 
 const defaultValue = (prop) => GlListbox.props[prop].default;
 
@@ -25,6 +26,9 @@ const generateProps = ({
   size = defaultValue('size'),
   disabled = defaultValue('disabled'),
   loading = defaultValue('loading'),
+  searchable = defaultValue('searchable'),
+  searching = defaultValue('searching'),
+  noResultsText = defaultValue('noResultsText'),
   noCaret = defaultValue('noCaret'),
   right = defaultValue('right'),
   toggleText,
@@ -32,7 +36,8 @@ const generateProps = ({
   icon = '',
   multiple = defaultValue('multiple'),
   isCheckCentered = defaultValue('isCheckCentered'),
-  ariaLabelledby,
+  toggleAriaLabelledBy,
+  listAriaLabelledBy,
   startOpened = true,
 } = {}) => ({
   items,
@@ -41,6 +46,9 @@ const generateProps = ({
   size,
   disabled,
   loading,
+  searchable,
+  searching,
+  noResultsText,
   noCaret,
   right,
   toggleText,
@@ -48,12 +56,15 @@ const generateProps = ({
   icon,
   multiple,
   isCheckCentered,
-  ariaLabelledby,
+  toggleAriaLabelledBy,
+  listAriaLabelledBy,
   startOpened,
 });
 
 function openListbox(component) {
-  component.$nextTick(() => component.$el.querySelector('.dropdown-toggle').click());
+  component.$nextTick(() => {
+    component.$refs.listbox.open();
+  });
 }
 
 const template = (content, label = '') => `
@@ -61,6 +72,7 @@ const template = (content, label = '') => `
     ${label}
     <br/>
     <gl-listbox
+      ref="listbox"
       v-model="selected"
       :items="items"
       :category="category"
@@ -68,6 +80,9 @@ const template = (content, label = '') => `
       :size="size"
       :disabled="disabled"
       :loading="loading"
+      :searchable="searchable"
+      :searching="searching"
+      :no-results-text="noResultsText"
       :no-caret="noCaret"
       :right="right"
       :toggle-text="toggleText"
@@ -75,7 +90,8 @@ const template = (content, label = '') => `
       :icon="icon"
       :multiple="multiple"
       :is-check-centered="isCheckCentered"
-      :aria-labelledby="ariaLabelledby"
+      :toggle-aria-labelled-by="toggleAriaLabelledBy"
+      :list-aria-labelled-by="listAriaLabelledBy"
     >
       ${content}
     </gl-listbox>
@@ -99,7 +115,7 @@ export const Default = (args, { argTypes }) => ({
   },
   template: template('', `<span class="gl-my-0" id="listbox-label">Select a department</span>`),
 });
-Default.args = generateProps({ ariaLabelledby: 'listbox-label' });
+Default.args = generateProps({ toggleAriaLabelledBy: 'listbox-label' });
 Default.decorators = [makeContainer({ height: '370px' })];
 
 export const HeaderAndFooter = (args, { argTypes }) => ({
@@ -125,9 +141,9 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
       this.selected.push(mockOptions[index].value);
     },
   },
-  template: template(`
-    <template #header>
-      <gl-search-box-by-type/>
+  template: template(
+    `<template #header>
+        <p class="gl-font-weight-bold gl-font-sm gl-m-0 gl-text-center gl-py-2 gl-border-1 gl-border-b-solid gl-border-gray-200">Assign to department</p>
     </template>
     <template #footer>
       <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-100 gl-display-flex gl-justify-content-center gl-p-3">
@@ -138,7 +154,8 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
         </gl-button-group>
       </div>
     </template>
-  `),
+  `
+  ),
 });
 HeaderAndFooter.args = generateProps({
   toggleText: 'Header and Footer',
@@ -172,6 +189,7 @@ export const CustomListItem = (args, { argTypes }) => ({
   },
   template: `
     <gl-listbox
+      ref="listbox"
       v-model="selected"
       :items="items"
       :category="category"
@@ -179,6 +197,9 @@ export const CustomListItem = (args, { argTypes }) => ({
       :size="size"
       :disabled="disabled"
       :loading="loading"
+      :searchable="searchable"
+      :searching="searching"
+      :no-results-text="noResultsText"
       :no-caret="noCaret"
       :right="right"
       :toggle-text="headerText"
@@ -186,24 +207,30 @@ export const CustomListItem = (args, { argTypes }) => ({
       :icon="icon"
       :multiple="multiple"
       :is-check-centered="isCheckCentered"
-      :aria-labelledby="ariaLabelledby"
+      :toggle-aria-labelled-by="toggleAriaLabelledBy"
+      :list-aria-labelled-by="listAriaLabelledBy"
     >
-      <template #list-item="{ item }">
-        <span class="gl-display-flex gl-align-items-center">
-          <gl-avatar :size="32" class-="gl-mr-3"/>
-            <span class="gl-display-flex gl-flex-direction-column">
-              <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
-              <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
-            </span>
-        </span>
-      </template>
+    <template #list-item="{ item }">
+          <span class="gl-display-flex gl-align-items-center">
+            <gl-avatar :size="32" class-="gl-mr-3"/>
+              <span class="gl-display-flex gl-flex-direction-column">
+                <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
+                <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
+              </span>
+          </span>
+    </template>
     </gl-listbox>
   `,
 });
 
 CustomListItem.args = generateProps({
   items: [
-    { value: 'mikegreiling', text: 'Mike Greiling', secondaryText: '@mikegreiling', icon: 'foo' },
+    {
+      value: 'mikegreiling',
+      text: 'Mike Greiling',
+      secondaryText: '@mikegreiling',
+      icon: 'foo',
+    },
     { value: 'ohoral', text: 'Olena Horal-Koretska', secondaryText: '@ohoral', icon: 'bar' },
     { value: 'markian', text: 'Mark Florian', secondaryText: '@markian', icon: 'bin' },
   ],
@@ -283,3 +310,200 @@ export default {
     },
   },
 };
+
+export const Searchable = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlListbox,
+  },
+  data() {
+    return {
+      selected: mockOptions[1].value,
+      filteredItems: mockOptions,
+      searchInProgress: false,
+      timeoutId: null,
+      headerId: 'listbox-header',
+    };
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  methods: {
+    filterList(searchTerm) {
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+      }
+      this.searchInProgress = true;
+
+      // eslint-disable-next-line no-restricted-globals
+      this.timeoutId = setTimeout(() => {
+        this.filteredItems = this.items.filter(({ text }) =>
+          text.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+        this.searchInProgress = false;
+      }, 2000);
+    },
+  },
+  computed: {
+    customToggleText() {
+      let toggleText = 'Search for department';
+      const selectedValues = Array.isArray(this.selected) ? this.selected : [this.selected];
+
+      if (selectedValues.length === 1) {
+        toggleText = this.items.find(({ value }) => value === selectedValues[0]).text;
+      } else {
+        toggleText = `Selected ${selectedValues.length} departments`;
+      }
+
+      return toggleText;
+    },
+    numberOfSearchResults() {
+      return this.filteredItems.length === 1 ? '1 result' : `${this.filteredItems.length} results`;
+    },
+  },
+  template: `
+    <gl-listbox
+      ref="listbox"
+      v-model="selected"
+      :items="filteredItems"
+      :category="category"
+      :variant="variant"
+      :size="size"
+      :disabled="disabled"
+      :loading="loading"
+      :no-caret="noCaret"
+      :right="right"
+      :toggle-text="customToggleText"
+      :text-sr-only="textSrOnly"
+      :icon="icon"
+      :multiple="multiple"
+      :is-check-centered="isCheckCentered"
+      :toggle-aria-labelled-by="toggleAriaLabelledBy"
+      :list-aria-labelled-by="headerId"
+      :searchable="searchable"
+      :searching="searchInProgress"
+      :no-results-text="noResultsText"
+      @search="filterList"
+    >
+      <template #header>
+        <p :id="headerId"
+          class="gl-font-weight-bold gl-font-sm gl-m-0 gl-text-center gl-py-2 gl-border-1 gl-border-b-solid gl-border-gray-200">
+          Assign to department</p>
+      </template>
+      <template #search-summary-sr-only>
+        {{ numberOfSearchResults }}
+      </template>
+    </gl-listbox>
+  `,
+});
+Searchable.args = generateProps({ searchable: true });
+Searchable.decorators = [makeContainer({ height: '370px' })];
+
+export const SearchableGroups = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlListbox,
+  },
+  data() {
+    return {
+      selected: mockGroups[1].options[0].value,
+      filteredGroupOptions: mockGroups,
+      searchInProgress: false,
+      timeoutId: null,
+      headerId: 'listbox-header',
+    };
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  computed: {
+    flattenedOptions() {
+      return flattenedOptions(this.items);
+    },
+    flattenedFilteredOptions() {
+      return flattenedOptions(this.filteredGroupOptions);
+    },
+    customToggleText() {
+      let toggleText = 'Search for department';
+      const selectedValues = Array.isArray(this.selected) ? this.selected : [this.selected];
+
+      if (selectedValues.length === 1) {
+        toggleText = this.flattenedOptions.find(({ value }) => value === selectedValues[0]).text;
+      } else {
+        toggleText = `Selected ${selectedValues.length} departments`;
+      }
+
+      return toggleText;
+    },
+    numberOfSearchResults() {
+      return this.flattenedFilteredOptions.length === 1
+        ? '1 result'
+        : `${this.flattenedFilteredOptions.length} results`;
+    },
+  },
+  methods: {
+    filterList(searchTerm) {
+      if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+      }
+      this.searchInProgress = true;
+
+      // eslint-disable-next-line no-restricted-globals
+      this.timeoutId = setTimeout(() => {
+        this.filteredGroupOptions = this.items
+          .map(({ text, options }) => {
+            return {
+              text,
+              options: options.filter((option) =>
+                option.text.toLowerCase().includes(searchTerm.toLowerCase())
+              ),
+            };
+          })
+          .filter(({ options }) => options.length);
+
+        this.searchInProgress = false;
+      }, 2000);
+    },
+  },
+  template: `
+    <gl-listbox
+      ref="listbox"
+      v-model="selected"
+      :items="filteredGroupOptions"
+      :category="category"
+      :variant="variant"
+      :size="size"
+      :disabled="disabled"
+      :loading="loading"
+      :no-caret="noCaret"
+      :right="right"
+      :toggle-text="customToggleText"
+      :text-sr-only="textSrOnly"
+      :icon="icon"
+      :multiple="multiple"
+      :is-check-centered="isCheckCentered"
+      :toggle-aria-labelled-by="toggleAriaLabelledBy"
+      :list-aria-labelled-by="headerId"
+      :searching="searchInProgress"
+      :no-results-text="noResultsText"
+      :searchable="searchable"
+      @search="filterList"
+    >
+      <template #header>
+        <p :id="headerId"
+          class="gl-font-weight-bold gl-font-sm gl-m-0 gl-text-center gl-py-2 gl-border-1 gl-border-b-solid gl-border-gray-200">
+          Assign to department</p>
+      </template>
+      <template #search-summary-sr-only>
+        {{ numberOfSearchResults }}
+      </template>
+    </gl-listbox>
+  `,
+});
+SearchableGroups.args = generateProps({ searchable: true, items: mockGroups });
+SearchableGroups.decorators = [makeContainer({ height: '370px' })];

@@ -2,9 +2,11 @@ describe('GlListbox', () => {
   const toggleSelector = 'button[aria-haspopup="listbox"]';
   const dropdownMenuSelector = '[role="listbox"]';
   const listItemSelector = '[role="option"]';
+  const searchInputSelector = '[data-testid="listbox-search-input"]';
 
   const toggleBtn = () => cy.get(toggleSelector);
   const dropdownMenu = () => cy.get(dropdownMenuSelector);
+  const searchInput = () => cy.get(searchInputSelector);
   const getDropdownItem = (text) => cy.contains(listItemSelector, text);
   const ensureMenuIsClosed = () => cy.get('body').click(0, 0);
 
@@ -92,6 +94,34 @@ describe('GlListbox', () => {
       dropdownItemAtIndex(4).should('be.focused').type('{home}');
       dropdownItemAtIndex(0).should('be.focused').type('{end}');
       dropdownItemAtIndex(4).should('be.focused');
+    });
+  });
+
+  describe('search', () => {
+    before(() => {
+      cy.visitStory('base/new-dropdowns/listbox', {
+        story: 'searchable',
+        args: {
+          startOpened: false,
+        },
+      });
+    });
+
+    beforeEach(ensureMenuIsClosed);
+
+    const dropdownItemAtIndex = (i) =>
+      getDropdownItem(['Product', 'People', 'Finance', 'Support'][i]);
+
+    it('navigates from search input to options and back', () => {
+      toggleBtn().click();
+      dropdownMenu().should('be.visible');
+      toggleBtn().should('not.be.focused');
+      searchInput().should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(0).should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(1).should('be.focused').type('{upArrow}');
+      dropdownItemAtIndex(0).should('be.focused').type('{upArrow}');
+      searchInput().should('be.focused').type('{upArrow}');
+      searchInput().should('be.focused');
     });
   });
 });
