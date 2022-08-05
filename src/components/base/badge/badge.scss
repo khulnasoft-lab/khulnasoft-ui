@@ -17,6 +17,7 @@
 
   .gl-badge.badge-#{$variant} .gl-badge-icon {
     color: $icon-color;
+    transition: inherit;
   }
 
   a.gl-badge.badge-#{$variant} {
