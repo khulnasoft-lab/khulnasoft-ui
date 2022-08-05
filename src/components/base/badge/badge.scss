@@ -48,17 +48,18 @@
   }
 
   a.gl-badge.badge-#{$variant} {
-    &:hover .gl-badge-icon {
-      color: $hover-icon-color;
+    &:hover,
+    &:focus {
+      .gl-badge-icon {
+        color: $hover-icon-color;
+      }
     }
 
-    &:focus .gl-badge-icon {
-      color: $hover-icon-color;
-    }
-
-    &.active .gl-badge-icon,
-    &:active .gl-badge-icon {
-      color: $active-icon-color;
+    &.active,
+    &:active {
+      .gl-badge-icon {
+        color: $active-icon-color;
+      }
     }
   }
 }
