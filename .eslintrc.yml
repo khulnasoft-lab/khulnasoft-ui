@@ -51,7 +51,6 @@ overrides:
 - files:
   - "config.js"
   - "rollup.config.js"
-  - "**/*.documentation.js"
   - "**/index.js"
   - "**/*.stories.js"
   # Files below should be migrated to named exports

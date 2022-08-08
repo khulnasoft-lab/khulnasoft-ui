@@ -16,7 +16,6 @@ Make sure the following are completed before closing the issue:
 1. [ ] Assign the correct component label to this issue.
 1. [ ] Create an MR with the additions or updates needed.
 1. [ ] Be sure to get your MR reviewed by a [FE/UX Foundations designer][foundations-team].
-1. [ ] When applicable, update `followsDesignSystem:` with the correct value inside the `[component].documentation.js` file.
 1. [ ] When applicable, create an [MR in Pajamas][pajamas-mr] to update the demos. If you do not have capacity to complete the demos, [create an issue in Pajamas][pajamas-issue] and bring the issue to your team planning session for prioritization and scheduling. Mark the issue as related to this one.
 1. [ ] When applicable, [create an MR in Pajamas][pajamas-mr] to update the component status.
 1. [ ] When applicable, [create an issue in Pajamas][pajamas-issue] using the ["Component Documentation"][pajamas-component-documentation-template] issue template to update guidelines. Ping a designer on your team for awareness and bring the issue to your team planning meeting for prioritization and scheduling.

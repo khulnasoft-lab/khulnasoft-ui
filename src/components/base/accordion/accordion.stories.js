@@ -44,7 +44,6 @@ export const AutoCollapse = Template.bind({});
 AutoCollapse.args = generateProps({ autoCollapse: true });
 
 export default {
-  followsDesignSystem: true,
   title: 'base/accordion',
   component: GlAccordion,
   parameters: {
