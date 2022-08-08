@@ -70,18 +70,3 @@ export default {
   },
 };
 ```
-
-## Component documentation info
-
-To add additional information to our documentation page we are using extra files which hold
-additional information, those have the format `(component).documentation.js` in the component
-directory. The following sample has a sample documentation attribute with all possibilities.
-All of these properties are optional.
-
-```js
-export default {
-  description: doc,                   // Imported Documentation file
-  followsDesignSystem: true,          // If we have already fully styled this component according
-                                      // to design system
-};
-```
