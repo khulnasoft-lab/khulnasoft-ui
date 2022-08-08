@@ -21,30 +21,14 @@
 * should be numeric.
 *
 * Values are expected in rem units.
+* Fluid range: between 48rem (768px) – 75rem (1200px).
 *
 * @param $property Property name, i.e. line-height, font-size, width, height, etc.
-* @param $property-min Property value lower bound.
-* @param $property-max Property value upper bound.
+* @param $min Property value lower bound.
+* @param $max Property value upper bound.
 */
-@mixin gl-responsive-property(
-  $property,
-  $property-min,
-  $property-max,
-  $breakpoint-min: $breakpoint-md,
-  $breakpoint-max: $breakpoint-xl
-) {
-  $property-range: ($property-max - $property-min) / 1rem;
-  $breakpoint-range: px-to-rem($breakpoint-max - $breakpoint-min) / 1rem;
-
-  @media (min-width: $breakpoint-min) {
-    #{$property}: calc(
-      #{$property-min} + #{$property-range} * ((100vw - #{$breakpoint-min}) / #{$breakpoint-range})
-    );
-  }
-
-  @media (min-width: $breakpoint-max) {
-    #{$property}: $property-max;
-  }
+@mixin gl-responsive-property($property, $min, $max) {
+  #{$property}: clamp-between($min, $max);
 }
 
 /**

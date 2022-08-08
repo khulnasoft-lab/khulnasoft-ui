@@ -49,3 +49,13 @@
 @function if-important($important) {
   @return #{if($important, '!important', '')};
 }
+
+@function clamp-between($min, $max, $min-width: $breakpoint-md, $max-width: $breakpoint-xl) {
+  $min-width: px-to-rem($min-width);
+  $max-width: px-to-rem($max-width);
+
+  $slope: ($max - $min) / ($max-width - $min-width);
+  $intersection: (-$min-width * $slope) + $min;
+
+  @return clamp(#{$min}, #{$intersection} + #{$slope * 100vw}, #{$max});
+}
