@@ -1,3 +1,10 @@
+# [43.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.1.0...v43.2.0) (2022-08-08)
+
+
+### Features
+
+* **css:** use clamp function for gl-typescale-ui ([bf8c793](https://gitlab.com/gitlab-org/gitlab-ui/commit/bf8c7935c3ec1dff836a5a13f117e355aecf3092))
+
 # [43.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.0.0...v43.1.0) (2022-08-03)
 
 
