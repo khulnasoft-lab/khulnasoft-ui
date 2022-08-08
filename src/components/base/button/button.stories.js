@@ -508,15 +508,15 @@ export default {
   },
   argTypes: {
     category: {
-      options: buttonCategoryOptions,
+      options: Object.keys(buttonCategoryOptions),
       control: 'select',
     },
     variant: {
-      options: buttonVariantOptions,
+      options: Object.keys(buttonVariantOptions),
       control: 'select',
     },
     size: {
-      options: buttonSizeOptions,
+      options: Object.keys(buttonSizeOptions),
       control: 'select',
     },
     target: {

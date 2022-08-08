@@ -65,7 +65,7 @@ export default {
   argTypes: {
     ...disableControls(['name']),
     labelPosition: {
-      options: toggleLabelPosition,
+      options: Object.keys(toggleLabelPosition),
       control: 'select',
     },
     label: {
