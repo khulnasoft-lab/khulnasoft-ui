@@ -111,7 +111,6 @@ WithDatesSelectedAndTooltip.args = generateProps({
 });
 
 export default {
-  followsDesignSystem: true,
   title: 'base/daterange-picker',
   component: GlDaterangePicker,
   decorators: [makeContainer({ height: '300px' })],
