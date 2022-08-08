@@ -9,13 +9,13 @@ MSG
 def component?(path)
   path.start_with?('src/components/') &&
     path.end_with?('.vue', '.js') &&
-    !path.end_with?('.spec.js', '.documentation.js', '.stories.js')
+    !path.end_with?('.spec.js', '.stories.js')
 end
 
 def directive?(path)
   path.start_with?('src/directives/') &&
     path.end_with?('.js') &&
-    !path.end_with?('.spec.js', '.documentation.js', '.stories.js')
+    !path.end_with?('.spec.js', '.stories.js')
 end
 
 def spec?(path)
