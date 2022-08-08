@@ -387,15 +387,15 @@
 * naming convention: gl-bg-{image-name}
 */
 @mixin gl-bg-chevron-left {
-  background-image: url($gl-icon-chevron-left);
+  background-image: url('#{$gl-icon-chevron-left}');
 }
 
 @mixin gl-bg-chevron-right {
-  background-image: url($gl-icon-chevron-right);
+  background-image: url('#{$gl-icon-chevron-right}');
 }
 
 @mixin gl-bg-chevron-down {
-  background-image: url($gl-icon-chevron-down);
+  background-image: url('#{$gl-icon-chevron-down}');
 }
 
 /**
