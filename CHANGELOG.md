@@ -1,3 +1,10 @@
+## [43.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.2.0...v43.2.1) (2022-08-08)
+
+
+### Bug Fixes
+
+* Change SASS url variable syntax to a valid one ([b157b55](https://gitlab.com/gitlab-org/gitlab-ui/commit/b157b55e4226c63e047d835da6ec4febb36e80e2))
+
 # [43.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.1.0...v43.2.0) (2022-08-08)
 
 
