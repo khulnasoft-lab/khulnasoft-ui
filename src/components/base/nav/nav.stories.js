@@ -31,7 +31,7 @@ export const Default = (_args, { argTypes }) => ({
         <gl-nav-item-dropdown text="Dropdown">
           <template #button-content>
             <gl-icon name="question" />
-            <gl-icon name="angle-down" />
+            <gl-icon name="chevron-down" />
           </template>
           <gl-dropdown-item>One</gl-dropdown-item>
           <gl-dropdown-item>Two</gl-dropdown-item>
