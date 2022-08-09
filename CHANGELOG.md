@@ -1,3 +1,13 @@
+## [43.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.2.1...v43.2.2) (2022-08-09)
+
+
+### Bug Fixes
+
+* **GlBadge:** Add transition styles ([e34b371](https://gitlab.com/gitlab-org/gitlab-ui/commit/e34b3710c5e53c4d5c7fe2c204725fdd2c147b49))
+* **GlBadge:** Nest icon styles ([13bdb73](https://gitlab.com/gitlab-org/gitlab-ui/commit/13bdb7301cca5ac2974dea93b67458a4a6d42052))
+* **GlBadge:** Update badge colours ([4d85a8d](https://gitlab.com/gitlab-org/gitlab-ui/commit/4d85a8dd585b766bd047361d3c8f6b3c1e2ae76b))
+* **GlBadge:** Update badge colours Apply suggestions ([2e438e1](https://gitlab.com/gitlab-org/gitlab-ui/commit/2e438e1fac2932c2d48e1bd389e35db391076333))
+
 ## [43.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.2.0...v43.2.1) (2022-08-08)
 
 
