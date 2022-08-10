@@ -57,5 +57,8 @@
   $slope: ($max - $min) / ($max-width - $min-width);
   $intersection: (-$min-width * $slope) + $min;
 
-  @return clamp(#{$min}, #{$intersection} + #{$slope * 100vw}, #{$max});
+  // Use calc() inside of clamp() function to work around SassC
+  // compilation failure.
+  // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2972
+  @return clamp(#{$min}, calc(#{$intersection} + #{$slope * 100vw}), #{$max});
 }
