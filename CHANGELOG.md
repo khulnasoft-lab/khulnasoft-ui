@@ -1,3 +1,10 @@
+# [43.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.2.2...v43.3.0) (2022-08-10)
+
+
+### Features
+
+* **css:** use calc() inside of clamp() to bypass SassC warning ([4d6d061](https://gitlab.com/gitlab-org/gitlab-ui/commit/4d6d061097f35d7e6801b6aafe3ccd2dc9aeefd3))
+
 ## [43.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.2.1...v43.2.2) (2022-08-09)
 
 
