@@ -27,6 +27,7 @@ const generateTemplate = ({ props = {}, slots = {} } = {}) => {
         :action-cancel="{text: 'Cancel'}"
         :visible="$options.viewMode !== 'docs'"
         :scrollable="scrollable"
+        :no-focus-on-show="noFocusOnShow"
         modal-id="test-modal-id"
         title="Example title"
         no-fade
@@ -54,6 +55,7 @@ const generateProps = ({
   variant = variantOptionsWithNoDefault.default,
   contentPagraphs = 1,
   scrollable = false,
+  noFocusOnShow = false,
 } = {}) => ({
   headerBgVariant: variant,
   headerBorderVariant: variant,
@@ -65,6 +67,7 @@ const generateProps = ({
   footerTextVariant: variant,
   contentParagraphs: contentPagraphs,
   scrollable,
+  noFocusOnShow,
 });
 
 export const Default = Template.bind({});
@@ -99,6 +102,11 @@ export const WithoutAFooter = (args, { argTypes, viewMode }) => ({
   viewMode,
 });
 WithoutAFooter.args = generateProps();
+
+export const WithoutFocus = Template.bind({});
+WithoutFocus.args = generateProps({
+  noFocusOnShow: true,
+});
 
 export default {
   title: 'base/modal',
