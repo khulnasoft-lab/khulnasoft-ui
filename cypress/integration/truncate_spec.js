@@ -4,9 +4,13 @@ describe('GlTruncate', () => {
 
   before(() => {
     cy.viewport(500, 100);
-    cy.visit(
-      `iframe.html?id=utilities-truncate--default&viewMode=story&args=text:${text};position:end;withTooltip:true`
-    );
+    cy.visitStory('utilities/truncate', {
+      args: {
+        text,
+        position: 'end',
+        withTooltip: true,
+      },
+    });
   });
 
   it('shows a tooltip only when text is being truncated', () => {

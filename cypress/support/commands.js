@@ -1,5 +1,3 @@
-import { isString } from 'lodash';
-
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -26,12 +24,27 @@ import { isString } from 'lodash';
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('visitStory', (component, story = 'default') => {
-  if (!isString(component) || component.length === 0) {
-    throw new Error('Provide a valid component name');
+/**
+ * Visit a story.
+ *
+ * @param {string} title Title property of default export of component stories, e.g., 'base/alert'.
+ * @param {Object} [options]
+ * @param {string} [options.story] The name of the particular story to visit.
+ * @param {Object} [options.args] Story args to configure the story.
+ */
+Cypress.Commands.add('visitStory', (title, { story = 'default', args = null } = {}) => {
+  const query = {
+    id: `${title.replace(/\//g, '-')}--${story}`,
+    viewMode: 'story',
+  };
+
+  if (args) {
+    query.args = Object.entries(args)
+      .map((entry) => entry.join(':'))
+      .join(';');
   }
 
-  cy.visit(`iframe.html?id=base-${component}--${story}&viewMode=story`);
+  cy.visit('iframe.html', { qs: query });
 });
 
 Cypress.Commands.add('findByTestId', (testId) => {

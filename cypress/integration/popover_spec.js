@@ -1,12 +1,12 @@
 describe('GlPopover', () => {
   it('popover title should be visible when using props', () => {
-    cy.visitStory('popover');
+    cy.visitStory('base/popover');
 
     cy.findByTestId('popover-with-props').contains('Popover');
   });
 
   it('popover title should be visible when using scoped slot', () => {
-    cy.visit('iframe.html?id=base-popover--on-click&viewMode=story');
+    cy.visitStory('base/popover', { story: 'on-click' });
 
     cy.findByTestId('popover-button-click').click();
 
@@ -14,7 +14,7 @@ describe('GlPopover', () => {
   });
 
   it('closes popover when clicking on close button', () => {
-    cy.visitStory('popover', 'with-close-button');
+    cy.visitStory('base/popover', { story: 'with-close-button' });
 
     cy.findByTestId('popover-with-close-button').should('exist').should('be.visible');
 

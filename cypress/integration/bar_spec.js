@@ -1,6 +1,6 @@
 describe('GlBarChart', () => {
   beforeEach(() => {
-    cy.visit('iframe.html?id=charts-bar-chart--default&viewMode=story');
+    cy.visitStory('charts/bar-chart');
 
     cy.get('path').last().trigger('mousemove');
   });
