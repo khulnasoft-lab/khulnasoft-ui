@@ -1,3 +1,10 @@
+# [43.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.4.0...v43.5.0) (2022-08-11)
+
+
+### Features
+
+* **GlModal:** Allow no autofocus on show ([1caa729](https://gitlab.com/gitlab-org/gitlab-ui/commit/1caa729965e4479d6341e00c4607928bc5c371ee))
+
 # [43.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.3.0...v43.4.0) (2022-08-11)
 
 
