@@ -28,6 +28,10 @@
   overflow-wrap: anywhere;
 }
 
+@mixin gl-overflow-x-scroll {
+  overflow-x: scroll;
+}
+
 @mixin gl-overflow-scroll {
   overflow: scroll;
 }
