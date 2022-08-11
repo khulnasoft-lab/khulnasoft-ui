@@ -1,3 +1,10 @@
+# [43.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.3.0...v43.4.0) (2022-08-11)
+
+
+### Features
+
+* **css:** Add overflow-x and underline:hover utility classes ([1d86e1f](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d86e1f0835580bdc60d246512d679b5abb67644))
+
 # [43.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.2.2...v43.3.0) (2022-08-10)
 
 
