@@ -153,6 +153,14 @@ export default {
       default: false,
     },
     /**
+     * Center selected item checkmark
+     */
+    isCheckCentered: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
      * The `aria-labelledby` attribute value for the toggle button
      */
     ariaLabelledby: {
@@ -335,6 +343,7 @@ export default {
         :key="item.value"
         :is-selected="isSelected(item)"
         :is-focused="nextFocusedItemIndex === index"
+        :is-check-centered="isCheckCentered"
         @select="onSelect(item, $event)"
       >
         <!-- @slot Custom template of the listbox item -->
