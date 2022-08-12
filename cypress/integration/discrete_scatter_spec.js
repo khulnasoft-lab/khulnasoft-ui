@@ -1,6 +1,6 @@
 describe('GlDiscreteScatterChart', () => {
   beforeEach(() => {
-    cy.visit('iframe.html?id=charts-discrete-scatter-chart--default&viewMode=story');
+    cy.visitStory('charts/discrete-scatter-chart');
 
     cy.findByTestId('discrete-scatter-chart').get('path').last().trigger('mousemove');
   });

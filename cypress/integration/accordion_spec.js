@@ -1,6 +1,6 @@
 describe('GlAccordion', () => {
   before(() => {
-    cy.visitStory('accordion');
+    cy.visitStory('base/accordion');
   });
 
   const accordionContentId = '[data-testid^="accordion-item-collapse-accordion-item-"]';

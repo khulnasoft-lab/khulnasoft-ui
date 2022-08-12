@@ -13,7 +13,7 @@ describe('GlFilteredSearch', () => {
   const findActiveToken = () => cy.get(activeClass);
 
   beforeEach(() => {
-    cy.visitStory('filtered-search');
+    cy.visitStory('base/filtered-search');
     cy.findByTestId(clearButton).click();
   });
 

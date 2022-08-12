@@ -1,8 +1,10 @@
 describe('GlListbox', () => {
   before(() => {
-    cy.visit(
-      'iframe.html?id=base-new-dropdowns-listbox--default&viewMode=story&args=startOpened:false'
-    );
+    cy.visitStory('base/new-dropdowns/listbox', {
+      args: {
+        startOpened: false,
+      },
+    });
   });
 
   beforeEach(() => {
