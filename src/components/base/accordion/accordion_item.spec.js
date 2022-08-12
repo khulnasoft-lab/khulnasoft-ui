@@ -54,15 +54,15 @@ describe('GlAccordionItem', () => {
   it('renders the appropriate header element', () => {
     createComponent({}, { defaultHeaderLevel: 3 });
 
-    expect(wrapper.find('h3.gl-accordion-item-header').exists()).toBeTruthy();
-    expect(wrapper.find('h4.gl-accordion-item-header').exists()).toBeFalsy();
+    expect(wrapper.find('h3.gl-accordion-item-header').exists()).toBe(true);
+    expect(wrapper.find('h4.gl-accordion-item-header').exists()).toBe(false);
   });
 
   it('renders the appropriate header element when overridden', () => {
     createComponent({ headerLevel: 4 }, { defaultHeaderLevel: 3 });
 
-    expect(wrapper.find('h3.gl-accordion-item-header').exists()).toBeFalsy();
-    expect(wrapper.find('h4.gl-accordion-item-header').exists()).toBeTruthy();
+    expect(wrapper.find('h3.gl-accordion-item-header').exists()).toBe(false);
+    expect(wrapper.find('h4.gl-accordion-item-header').exists()).toBe(true);
   });
 
   it.each(['custom-header-class', ['custom-header-class'], { 'custom-header-class': true }])(
