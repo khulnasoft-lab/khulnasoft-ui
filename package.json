@@ -73,7 +73,6 @@
   },
   "resolutions": {
     "chokidar": "^3.5.2",
-    "node-gyp": "^9.0.0",
     "sane": "^5.0.1"
   },
   "devDependencies": {
