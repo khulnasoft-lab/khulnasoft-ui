@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /*
 * SASS preserves units in arithmetic operations. For example:
 * 12em * 0 = 0em. This function return the unit of a numeric value.
@@ -10,7 +12,7 @@
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / extract-unit($number);
+    @return math.div($number, extract-unit($number));
   }
 
   @return $number;
@@ -21,7 +23,7 @@
     @return $value;
   }
 
-  $converted: $value / $font-size-base;
+  $converted: math.div($value, $font-size-base);
 
   @return strip-unit($converted) * 1rem;
 }
@@ -54,7 +56,7 @@
   $min-width: px-to-rem($min-width);
   $max-width: px-to-rem($max-width);
 
-  $slope: ($max - $min) / ($max-width - $min-width);
+  $slope: math.div(($max - $min), ($max-width - $min-width));
   $intersection: (-$min-width * $slope) + $min;
 
   // Use calc() inside of clamp() function to work around SassC
