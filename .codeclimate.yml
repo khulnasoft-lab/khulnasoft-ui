@@ -7,3 +7,6 @@ plugins:
   eslint:
     enabled: true
     channel: "eslint-8"
+exclude_patterns:
+  - "tests/"
+  - "**/*.spec.js"
