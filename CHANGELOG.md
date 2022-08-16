@@ -1,3 +1,10 @@
+# [43.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.5.0...v43.6.0) (2022-08-16)
+
+
+### Features
+
+* **css:** add gl-sm-align-items-flex-start utility ([ea811c9](https://gitlab.com/gitlab-org/gitlab-ui/commit/ea811c99c8418f986fcc1679c6102a4a55e3fea9))
+
 # [43.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.4.0...v43.5.0) (2022-08-11)
 
 
