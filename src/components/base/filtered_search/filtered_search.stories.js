@@ -648,7 +648,7 @@ export const WithVulnerabilities = () => {
     data() {
       return {
         scanners: fakeScanners,
-        selectedScanners: this.value.data ? this.value.data.split(',') : [],
+        selectedScannersData: this.value.data ? this.value.data.split(',') : [],
         activeScanner: null,
       };
     },
@@ -658,7 +658,7 @@ export const WithVulnerabilities = () => {
       },
       selectedScanners() {
         return this.config.multiSelect
-          ? this.scanners.filter((user) => this.selectedScanners.includes(user.username))
+          ? this.scanners.filter((user) => this.selectedScannersData.includes(user.username))
           : this.scanners.filter((user) => user.username === this.activeScanner);
       },
     },
@@ -674,10 +674,10 @@ export const WithVulnerabilities = () => {
           return;
         }
 
-        if (this.selectedScanners.includes(username)) {
-          this.selectedScanners = this.selectedScanners.filter((user) => user !== username);
+        if (this.selectedScannersData.includes(username)) {
+          this.selectedScannersData = this.selectedScannersData.filter((user) => user !== username);
         } else {
-          this.selectedScanners.push(username);
+          this.selectedScannersData.push(username);
         }
       },
       isLastScanner(index) {
@@ -706,7 +706,7 @@ export const WithVulnerabilities = () => {
     <gl-filtered-search-token
       v-bind="{ ...this.$props, ...this.$attrs }"
       v-on="$listeners"
-      :multi-select-values="selectedScanners"
+      :multi-select-values="selectedScannersData"
       @select="handleSelect"
     >
     <template #view="{ inputValue }">
@@ -723,7 +723,7 @@ export const WithVulnerabilities = () => {
             v-if="config.multiSelect"
             name="check"
             class="gl-mr-3 gl-text-gray-700"
-            :class="{ 'gl-visibility-hidden': !selectedScanners.includes(user.username) }"
+            :class="{ 'gl-visibility-hidden': !selectedScannersData.includes(user.username) }"
           />
           <gl-avatar :size="32" :entity-name="user.username" />
           <div>
@@ -750,7 +750,7 @@ export const WithVulnerabilities = () => {
     data() {
       return {
         scanners: fakeVulnerabilityStauses,
-        selectedScanners: this.value.data ? this.value.data.split(',') : [],
+        selectedScannersData: this.value.data ? this.value.data.split(',') : [],
         activeScanner: null,
       };
     },
@@ -760,7 +760,7 @@ export const WithVulnerabilities = () => {
       },
       selectedScanners() {
         return this.config.multiSelect
-          ? this.scanners.filter((user) => this.selectedScanners.includes(user.username))
+          ? this.scanners.filter((user) => this.selectedScannersData.includes(user.username))
           : this.scanners.filter((user) => user.username === this.activeScanner);
       },
     },
@@ -776,10 +776,10 @@ export const WithVulnerabilities = () => {
           return;
         }
 
-        if (this.selectedScanners.includes(username)) {
-          this.selectedScanners = this.selectedScanners.filter((user) => user !== username);
+        if (this.selectedScannersData.includes(username)) {
+          this.selectedScannersData = this.selectedScannersData.filter((user) => user !== username);
         } else {
-          this.selectedScanners.push(username);
+          this.selectedScannersData.push(username);
         }
       },
       isLastScanner(index) {
@@ -808,7 +808,7 @@ export const WithVulnerabilities = () => {
     <gl-filtered-search-token
       v-bind="{ ...this.$props, ...this.$attrs }"
       v-on="$listeners"
-      :multi-select-values="selectedScanners"
+      :multi-select-values="selectedScannersData"
       @select="handleSelect"
     >
     <template #view="{ inputValue }">
@@ -825,7 +825,7 @@ export const WithVulnerabilities = () => {
             v-if="config.multiSelect"
             name="check"
             class="gl-mr-3 gl-text-gray-700"
-            :class="{ 'gl-visibility-hidden': !selectedScanners.includes(user.username) }"
+            :class="{ 'gl-visibility-hidden': !selectedScannersData.includes(user.username) }"
           />
           <gl-avatar :size="32" :entity-name="user.username" />
           <div>
