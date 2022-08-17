@@ -6,6 +6,7 @@ FOUNDATION_UX_REVIEWERS = %w[
   tauriedavis
   aregnery
   jeldergl
+  seggenberger
 ].freeze
 
 COMPONENT_UX_MAP = {
