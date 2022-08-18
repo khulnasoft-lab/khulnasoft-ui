@@ -1,3 +1,10 @@
+## [43.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.7.0...v43.7.1) (2022-08-18)
+
+
+### Bug Fixes
+
+* **GlTable:** removes border top when stacked ([402a309](https://gitlab.com/gitlab-org/gitlab-ui/commit/402a3090db5db41add12df39fd40b71a60b32df3))
+
 # [43.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.6.0...v43.7.0) (2022-08-18)
 
 
