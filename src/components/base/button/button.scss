@@ -463,7 +463,7 @@
   &[disabled]:active,
   &[disabled].selected {
     @include gl-bg-gray-10;
-    @include gl-text-gray-400;
+    @include gl-text-gray-500;
     @include gl-inset-border-1-gray-100;
     @include gl-opacity-10;
     cursor: not-allowed !important;

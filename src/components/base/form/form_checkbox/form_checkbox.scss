@@ -79,6 +79,29 @@
       }
     }
 
+    .custom-control-input[type='checkbox']:checked ~ .custom-control-label,
+    .custom-control-input[type='checkbox']:indeterminate ~ .custom-control-label,
+    .custom-control-input[type='radio']:checked ~ .custom-control-label {
+      &::after {
+        @include gl-bg-none;
+        @include gl-bg-white;
+        mask-repeat: no-repeat;
+        mask-position: center center;
+      }
+    }
+
+    .custom-control-input[type='checkbox']:checked ~ .custom-control-label::after {
+      mask-image: url($gl-icon-check);
+    }
+
+    .custom-control-input[type='checkbox']:indeterminate ~ .custom-control-label::after {
+      mask-image: url($gl-icon-indeterminate);
+    }
+
+    .custom-control-input[type='radio']:checked ~ .custom-control-label::after {
+      mask-image: url($gl-icon-radio);
+    }
+
     .custom-control-input:not(:disabled):checked ~ .custom-control-label:hover,
     .custom-control-input:not(:disabled):focus:checked ~ .custom-control-label {
       &::before {
@@ -88,19 +111,15 @@
     }
 
     &.custom-checkbox {
-      .custom-control-input:indeterminate ~ .custom-control-label {
-        &::before {
-          @include gl-bg-blue-500;
-          @include gl-border-blue-500;
-        }
+      .custom-control-input:indeterminate ~ .custom-control-label::before {
+        @include gl-bg-blue-500;
+        @include gl-border-blue-500;
       }
 
-      .custom-control-input:not(:disabled):indeterminate ~ .custom-control-label:hover,
-      .custom-control-input:not(:disabled):focus:indeterminate ~ .custom-control-label {
-        &::before {
-          @include gl-bg-blue-700;
-          @include gl-border-blue-700;
-        }
+      .custom-control-input:not(:disabled):indeterminate ~ .custom-control-label:hover::before,
+      .custom-control-input:not(:disabled):focus:indeterminate ~ .custom-control-label::before {
+        @include gl-bg-blue-700;
+        @include gl-border-blue-700;
       }
     }
 
@@ -108,8 +127,21 @@
       @include gl-cursor-not-allowed;
 
       &::before {
-        @include gl-opacity-5;
+        @include gl-bg-gray-50;
+        @include gl-border-gray-100;
         @include gl-pointer-events-auto;
+      }
+    }
+
+    .custom-control-input:checked:disabled ~ .custom-control-label,
+    .custom-control-input:indeterminate:disabled ~ .custom-control-label {
+      &::before {
+        @include gl-bg-gray-100;
+        @include gl-border-gray-100;
+      }
+
+      &::after {
+        @include gl-bg-gray-500;
       }
     }
   }
