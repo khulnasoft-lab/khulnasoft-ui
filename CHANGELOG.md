@@ -1,3 +1,10 @@
+# [43.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.6.0...v43.7.0) (2022-08-18)
+
+
+### Features
+
+* **css:** update disabled states ([bd5c4fe](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd5c4fe186649606fb49128224e95ac891947e4d))
+
 # [43.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.5.0...v43.6.0) (2022-08-16)
 
 
