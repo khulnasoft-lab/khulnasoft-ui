@@ -64,6 +64,10 @@ table.gl-table {
           @include gl-border-t-solid;
           @include gl-border-t-1;
         }
+
+        &:not(:first-child) {
+          @include gl-border-t-none;
+        }
       }
 
       div {
