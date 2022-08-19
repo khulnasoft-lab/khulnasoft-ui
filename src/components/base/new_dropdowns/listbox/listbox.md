@@ -51,21 +51,64 @@ On selection the listbox will emit the `select` event with the selected values.
 
 ### Setting listbox options
 
-Provide the list of options for the listbox - each item in the array should have `value` property.
-It is used as a primary key.
-To render the default listbox item template, the item should also have `text` property.
-If you want to use custom template for rendering the listbox item, use the `list-item` template.
+Use the `items` prop to provide options to the listbox. Each item can be
+either an option or a group. Below are the expected shapes of these
+objects:
+
+```typescript
+type Option = {
+  value: string
+  text?: string
+}
+
+type Group = {
+  text: string
+  options: Array<Option>
+}
+
+type ItemsProp = Array<Option> | Array<Group>
+```
+
+#### Options
+
+The `value` property of options must be unique across all options
+provided to the listbox, as it's used as a primary key.
+
+The optional `text` property is used to render the default listbox item
+template. If you want to render a custom template for items, use the
+`list-item` scoped slot:
 
 ```html
 <gl-listbox :items="items">
-    <template #list-item="{ item }">
-        <span class="gl-display-flex gl-align-items-center">
-            <gl-avatar :size="32" class-="gl-mr-3"/>
-            <span class="gl-display-flex gl-flex-direction-column">
-              <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
-              <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
-            </span>
-          </span>
-      </template>
+  <template #list-item="{ item }">
+    <span class="gl-display-flex gl-align-items-center">
+      <gl-avatar :size="32" class-="gl-mr-3"/>
+      <span class="gl-display-flex gl-flex-direction-column">
+        <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
+        <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
+      </span>
+    </span>
+  </template>
+</gl-listbox>
+```
+
+#### Groups
+
+Options can be contained within groups. A group has a required `text`
+property, which must be unique across all groups within the listbox, as
+it's used as a primary key. It also has a required property `items` that
+must be an array of options.
+
+Groups can be at most one level deep: a group can only contain options.
+Options and groups _cannot_ be siblings. Either all items are options,
+or they are all groups.
+
+To render custom group labels, use the `group-label` scoped slot:
+
+```html
+<gl-listbox :items="groups">
+  <template #group-label="{ group }">
+    {{ group.text }} <gl-badge size="sm">{{ group.options.length }}</gl-badge>
+  </template>
 </gl-listbox>
 ```

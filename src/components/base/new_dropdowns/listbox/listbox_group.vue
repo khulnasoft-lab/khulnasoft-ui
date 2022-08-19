@@ -1,0 +1,24 @@
+<script>
+import { uniqueId } from 'lodash';
+
+export default {
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+  },
+  created() {
+    this.nameId = uniqueId('gl-listbox-group-');
+  },
+};
+</script>
+
+<template>
+  <ul role="group" :aria-labelledby="nameId" class="gl-mb-0 gl-pl-0 gl-list-style-none">
+    <li :id="nameId" role="presentation" class="gl-pl-5! gl-py-2! gl-font-base gl-font-weight-bold">
+      <slot name="group-label">{{ name }}</slot>
+    </li>
+    <slot></slot>
+  </ul>
+</template>
