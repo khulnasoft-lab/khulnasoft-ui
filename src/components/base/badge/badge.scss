@@ -66,6 +66,7 @@
 .gl-badge {
   @include gl-display-inline-flex;
   @include gl-align-items-center;
+  @include gl-vertical-align-middle;
   @include gl-font-sm;
   @include gl-font-weight-normal;
   @include gl-line-height-normal;
