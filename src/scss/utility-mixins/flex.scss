@@ -1,5 +1,7 @@
 /**
 * Flexbox utilities
+*
+* Naming convention: gl-{breakpoint?}-{property}-{value}
 */
 @mixin gl-align-items-baseline {
   align-items: baseline;
@@ -63,6 +65,11 @@
   }
 }
 
+/**
+* `gl-*flex-wrap` is deprecated; use `gl-*flex-wrap-wrap` instead.
+* TODO: delete `gl-*flex-wrap` utilities classes, see
+* https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1951
+*/
 @mixin gl-flex-wrap {
   flex-wrap: wrap;
 }
@@ -85,6 +92,41 @@
   }
 }
 
+@mixin gl-flex-wrap-wrap {
+  flex-wrap: wrap;
+}
+
+@mixin gl-lg-flex-wrap-wrap {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-flex-wrap-wrap;
+  }
+}
+
+@mixin gl-xl-flex-wrap-wrap {
+  @include gl-media-breakpoint-up(xl) {
+    @include gl-flex-wrap-wrap;
+  }
+}
+
+@mixin gl-sm-flex-wrap-wrap {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-flex-wrap-wrap;
+  }
+}
+
+@mixin gl-flex-wrap-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+@mixin gl-flex-wrap-nowrap {
+  flex-wrap: nowrap;
+}
+
+/**
+* `gl-flex-nowrap` is deprecated; use `gl-flex-wrap-nowrap` instead.
+* TODO: delete `gl-flex-wrap-nowrap` utility class, see
+* https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1951
+*/
 @mixin gl-flex-nowrap {
   flex-wrap: nowrap;
 }
