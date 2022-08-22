@@ -1,3 +1,10 @@
+# [43.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.7.1...v43.8.0) (2022-08-22)
+
+
+### Features
+
+* **css:** Add flex-wrap-wrap-reverse class ([7d11b74](https://gitlab.com/gitlab-org/gitlab-ui/commit/7d11b7491d356c6d6565699fd4b10bf519f902c9))
+
 ## [43.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.7.0...v43.7.1) (2022-08-18)
 
 
