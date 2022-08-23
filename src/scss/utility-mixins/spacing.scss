@@ -834,12 +834,14 @@
 */
 
 @mixin gl-xs-mb-3 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-mb-3;
   }
 }
 
 @mixin gl-xs-mb-4 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-mb-4;
   }
@@ -1029,144 +1031,168 @@
 */
 
 @mixin gl-sm-pt-0 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pt-0;
   }
 }
 
 @mixin gl-sm-pt-1 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pt-1;
   }
 }
 
 @mixin gl-sm-pt-2 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pt-2;
   }
 }
 
 @mixin gl-sm-pt-3 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pt-3;
   }
 }
 
 @mixin gl-sm-pt-4 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pt-4;
   }
 }
 
 @mixin gl-sm-pt-5 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pt-5;
   }
 }
 
 @mixin gl-sm-pr-0 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pr-0;
   }
 }
 
 @mixin gl-sm-pr-1 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pr-1;
   }
 }
 
 @mixin gl-sm-pr-2 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pr-2;
   }
 }
 
 @mixin gl-sm-pr-3 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pr-3;
   }
 }
 
 @mixin gl-sm-pr-4 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pr-4;
   }
 }
 
 @mixin gl-sm-pr-5 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pr-5;
   }
 }
 
 @mixin gl-sm-pb-0 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pb-0;
   }
 }
 
 @mixin gl-sm-pb-1 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pb-1;
   }
 }
 
 @mixin gl-sm-pb-2 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pb-2;
   }
 }
 
 @mixin gl-sm-pb-3 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pb-3;
   }
 }
 
 @mixin gl-sm-pb-4 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pb-4;
   }
 }
 
 @mixin gl-sm-pb-5 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pb-5;
   }
 }
 
 @mixin gl-sm-pl-0 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pl-0;
   }
 }
 
 @mixin gl-sm-pl-1 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pl-1;
   }
 }
 
 @mixin gl-sm-pl-2 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pl-2;
   }
 }
 
 @mixin gl-sm-pl-3 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pl-3;
   }
 }
 
 @mixin gl-sm-pl-4 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pl-4;
   }
 }
 
 @mixin gl-sm-pl-5 {
+  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pl-5;
   }
