@@ -1,15 +1,9 @@
-ARG CHROME_FOLDER=/usr/local/share/puppeteer-chromium
 
 FROM node:16 AS download
 
 ARG PUPPETEER_VERSION
-ARG CHROME_FOLDER
 
-RUN yarn global add puppeteer@$PUPPETEER_VERSION \
-  && mv $(yarn global dir)/node_modules/puppeteer/.local-chromium/linux-*/chrome-linux "$CHROME_FOLDER" \
-  && test -d "$CHROME_FOLDER"
-
-FROM node:16
+ENV PUPPETEER_SKIP_DOWNLOAD true
 
 # Workaround for https://github.com/GoogleChrome/puppeteer/issues/290
 RUN apt-get update \
@@ -17,18 +11,15 @@ RUN apt-get update \
     libexpat1 libfontconfig1 libgcc1 libgbm-dev libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
     libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 \
     libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
-    ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget \
+    ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget chromium\
   && apt-get autoremove -yq \
   && apt-get clean -yqq \
   && rm -rf /var/lib/apt/lists/* \
   && bash -c "$(curl -fsSL https://gitlab.com/gitlab-org/gitlab-build-images/-/raw/master/scripts/install-noto-emoji)"
 
-ARG CHROME_FOLDER
-ENV PUPPETEER_EXECUTABLE_PATH $CHROME_FOLDER/chrome
-ENV PUPPETEER_SKIP_DOWNLOAD true
+RUN yarn global add puppeteer@$PUPPETEER_VERSION
 
-COPY --from=download $CHROME_FOLDER $CHROME_FOLDER
-
-RUN echo "Testing that the chrome executable ($PUPPETEER_EXECUTABLE_PATH) exists" \
+RUN PUPPETEER_EXECUTABLE_PATH=$(which chromium) \
+  && echo "Testing that the chrome executable ($PUPPETEER_EXECUTABLE_PATH) exists" \
   && test -f $PUPPETEER_EXECUTABLE_PATH \
   && test -x $PUPPETEER_EXECUTABLE_PATH

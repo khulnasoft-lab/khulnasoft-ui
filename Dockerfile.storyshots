@@ -1,5 +1,6 @@
-FROM registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-puppeteer
+FROM gitlab-ui-puppeteer
 
+ENV PUPPETEER_EXECUTABLE_PATH /usr/bin/chromium
 ADD package.json yarn.lock ./
 RUN yarn --frozen-lockfile
 ADD . .
