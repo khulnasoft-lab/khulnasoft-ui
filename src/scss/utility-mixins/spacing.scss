@@ -826,6 +826,18 @@
 }
 
 /**
+* Column gap utilities
+*
+* naming convention: gl-column-gap-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+
+@mixin gl-column-gap-6 {
+  column-gap: $gl-spacing-scale-6;
+}
+
+/**
 * Responsive margin utilities.
 *
 * naming convention: gl-{breakpoint}-m{position}-{spacing-scale-index}
