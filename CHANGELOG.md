@@ -1,3 +1,10 @@
+## [43.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.8.0...v43.8.1) (2022-08-23)
+
+
+### Bug Fixes
+
+* use valid url syntax in form_checkbox.scss ([8e831de](https://gitlab.com/gitlab-org/gitlab-ui/commit/8e831def9cfa11b7bb54b0a84f509a295142aa61))
+
 # [43.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.7.1...v43.8.0) (2022-08-22)
 
 
