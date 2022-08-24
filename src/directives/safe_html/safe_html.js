@@ -1,5 +1,7 @@
-import { sanitize } from 'dompurify';
+import DOMPurify from 'dompurify';
 import { forbiddenDataAttrs } from './constants';
+
+const { sanitize } = DOMPurify;
 
 // Mitigate against future dompurify mXSS bypasses by
 // avoiding additional serialize/parse round trip.
