@@ -234,6 +234,11 @@ SCSS will generate a utility class enclosed in the breakpoint media query:
 }
 ```
 
+> Note: GitLab UI follows a mobile-first approach, meaning that styles are applied to smaller
+> viewports by default, and media queries overrides are used for larger viewports
+> Responsive media queries should use the `gl-media-breakpoint-up` mixin. The
+> `gl-media-breakpoint-down` mixin should only be used in exceptional cases.
+
 ## Important styles
 
 For every utility mixin, we will automatically create an `!important` version. These versions are
