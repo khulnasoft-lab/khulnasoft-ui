@@ -142,7 +142,7 @@ Under the hood, those variables are passed to
 
 ### End to end tests
 
-Components’ end to end tests live in the `cypress/integration` folder. See our
+Components’ end to end tests live in the `cypress/e2e` folder. See our
 [end to end testing documentation](doc/contributing/end_to_end_test.md) for more details.
 
 `yarn run cypress open` runs Cypress locally to run end to end tests.
