@@ -1,3 +1,10 @@
+# [43.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.8.1...v43.9.0) (2022-08-24)
+
+
+### Features
+
+* **css:** add gl-column-gap-6 util ([5673c1a](https://gitlab.com/gitlab-org/gitlab-ui/commit/5673c1a0863a1019c6acb246aa8cb68d8bb54722))
+
 ## [43.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.8.0...v43.8.1) (2022-08-23)
 
 
