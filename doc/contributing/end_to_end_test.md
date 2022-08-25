@@ -5,12 +5,12 @@ to end test framework to test components hierarchies and integrations with depen
 
 ## Adding new tests
 
-Tests should be added in the `cypress/integration` folder, only when testing a component in
+Tests should be added in the `cypress/e2e` folder, only when testing a component in
 isolation through unit tests is not enough to provide thorough test coverage.
 
 ## Running Cypress tests
 
-Tests can be ran locally with the following command, which open the cypress dashboard:
+Tests can be run locally with the following command, which opens the cypress dashboard:
 
 ```shell
 yarn run cypress open
