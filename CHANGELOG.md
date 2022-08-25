@@ -1,3 +1,10 @@
+## [43.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.9.0...v43.9.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* **css:** ensure we correctly generate gl-flex-direction-column utils ([68c8ef3](https://gitlab.com/gitlab-org/gitlab-ui/commit/68c8ef36f9e7bc07d8f61f4953bec52f1a7d10f1))
+
 # [43.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.8.1...v43.9.0) (2022-08-24)
 
 
