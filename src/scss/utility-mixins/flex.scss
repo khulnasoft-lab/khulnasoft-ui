@@ -132,6 +132,10 @@
   flex-wrap: nowrap;
 }
 
+@mixin gl-flex-direction-column {
+  flex-direction: column;
+}
+
 @mixin gl-sm-flex-direction-column {
   // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(md) {
@@ -156,10 +160,6 @@
   @include gl-media-breakpoint-down(sm) {
     flex-direction: column;
   }
-}
-
-@mixin gl-flex-direction-column {
-  flex-direction: column;
 }
 
 @mixin gl-flex-direction-column-reverse {
