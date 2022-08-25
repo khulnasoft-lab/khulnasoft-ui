@@ -140,6 +140,27 @@ BadgeIcon.args = generateProps({
   content: 'Badge icon',
 });
 
+export const InlineVerticalAlignment = (args, { argTypes }) => ({
+  components: { GlBadge },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="gl-font-base">
+      This
+      <gl-badge :variant="variant" :size="size">{{ content }}</gl-badge>
+      aligns with our text. Icon badges like
+      <gl-badge :variant="variant" :icon="icon" :size="size"/> and
+      <gl-badge :variant="variant" :icon="icon" :size="size">{{ content }}</gl-badge>
+      as well.
+    </div>
+  `,
+});
+InlineVerticalAlignment.args = generateProps({
+  variant: badgeVariantOptions.success,
+  content: 'Badge',
+  icon: 'calendar',
+  size: 'md',
+});
+
 export default {
   title: 'base/badge',
   component: GlBadge,
