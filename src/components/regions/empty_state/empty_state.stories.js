@@ -1,3 +1,5 @@
+import securityDashboardEmptyStateSvg from '@gitlab/svgs/dist/illustrations/security-dashboard-empty-state.svg';
+import issuesSvg from '@gitlab/svgs/dist/illustrations/issues.svg';
 import { GlButton, GlEmptyState } from '../../../index';
 import readme from './empty_state.md';
 
@@ -24,7 +26,7 @@ const Template = (args) => ({
 
 const generateProps = ({
   title = 'This state is empty',
-  svgPath = 'https://gitlab.com/gitlab-org/gitlab-svgs/raw/v1.152.0/illustrations/security-dashboard-empty-state.svg',
+  svgPath = securityDashboardEmptyStateSvg,
   svgHeight = 145,
   description = 'The title and message should be clear, concise, and explain why the user is seeing this screen.',
   primaryButtonText = 'Something actionable',
@@ -134,7 +136,7 @@ export const SlottedDescription = (args) => ({
 });
 SlottedDescription.args = generateProps({
   title: 'Slotted description example',
-  svgPath: 'https://gitlab.com/gitlab-org/gitlab-svgs/raw/v1.152.0/illustrations/issues.svg',
+  svgPath: issuesSvg,
   primaryButtonText: 'Learn more',
   secondaryButtonText: null,
 });
