@@ -63,25 +63,6 @@
   @include gl-line-height-normal;
 }
 
-// Todo: deprecate the .gl-alert-dismiss styles after all instances from HAML and Ruby have been migrated
-.gl-alert-dismiss {
-  @include gl-absolute;
-  @include gl-top-0;
-  @include gl-right-0;
-  @include gl-p-5;
-  @include gl-line-height-normal;
-  @include gl-bg-none;
-  @include gl-border-none;
-  @include gl-text-gray-500;
-
-  > svg {
-    @include gl-fill-current-color;
-    @include gl-w-5;
-    @include gl-h-5;
-    @include gl-vertical-align-middle;
-  }
-}
-
 // This is the replacement for .gl-alert-dismiss
 .gl-dismiss-btn {
   @include gl-absolute;
