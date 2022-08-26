@@ -188,7 +188,7 @@ export default {
     <div class="gl-alert-content" role="alert">
       <h2 v-if="title" class="gl-alert-title">{{ title }}</h2>
 
-      <div class="gl-alert-body">
+      <div class="gl-alert-body gl-text-orange-400 gl-underline hover:gl-underline-offset-4">
         <!-- @slot The alert message to display. -->
         <slot></slot>
       </div>
