@@ -1217,10 +1217,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@gitlab/eslint-plugin@16.0.0":
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-16.0.0.tgz#83b71bb3f749c6e52138d2c1c17ac623e7b2e3db"
-  integrity sha512-2n7geoRPkeMAq4GCqyvFzcTgcSrTM7pdCOxfcqIeuTmh/PFGhh+m7YC+YC4enhGOCN8lo08buLZhXkSgWiHSqA==
+"@gitlab/eslint-plugin@17.0.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-17.0.0.tgz#5451fbbad96b09d812af2afb247f6602fe0be6c6"
+  integrity sha512-c+sJtjzYl+KGPtZScU8Mji9seJw7dSEn31APyYEYTyWp72yMsFvXmg46txT2QCz+ueZlqk0/C2IQmgfe6fLcBw==
   dependencies:
     "@babel/core" "^7.17.0"
     "@babel/eslint-parser" "^7.17.0"
