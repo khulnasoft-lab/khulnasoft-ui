@@ -27,4 +27,7 @@ module.exports = {
   reporters,
   testEnvironment: 'jsdom',
   testRunner: 'jest-circus/runner',
+  snapshotFormat: {
+    printBasicPrototype: true,
+  },
 };
