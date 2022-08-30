@@ -1,6 +1,8 @@
-import { sanitize } from 'dompurify';
+import DOMPurify from 'dompurify';
 import { GlSafeHtmlDirective as GlSafeHtml } from '../../index';
 import readme from './safe_html.md';
+
+const { sanitize } = DOMPurify;
 
 const generateProps = ({
   unsafeHTML = '<a href="javascript:alert(document.domain)">Click me</a>',
