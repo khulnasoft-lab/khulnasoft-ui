@@ -1,3 +1,10 @@
+## [43.9.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.9.2...v43.9.3) (2022-08-30)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dompurify to ^2.4.0 ([aefdefa](https://gitlab.com/gitlab-org/gitlab-ui/commit/aefdefac3632f383aa6f62f868097a27bfe90e89))
+
 ## [43.9.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.9.1...v43.9.2) (2022-08-30)
 
 
