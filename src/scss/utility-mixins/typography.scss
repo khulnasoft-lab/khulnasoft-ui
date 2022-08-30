@@ -70,18 +70,6 @@
   font-size: $gl-font-size-h2-xl;
 }
 
-@mixin gl-font-size-monospace {
-  font-size: $gl-font-size-monospace;
-}
-
-@mixin gl-font-size-monospace-sm {
-  font-size: $gl-font-size-monospace-sm;
-}
-
-@mixin gl-font-size-monospace-lg {
-  font-size: $gl-font-size-monospace-lg;
-}
-
 @mixin gl-font-icon-size {
   font-size: $default-icon-size;
 }
