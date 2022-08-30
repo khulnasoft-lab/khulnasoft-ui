@@ -71,15 +71,15 @@
 }
 
 @mixin gl-font-size-monospace {
-  font-size: $gl-font-size-monospace;
+  @include gl-font-base;
 }
 
 @mixin gl-font-size-monospace-sm {
-  font-size: $gl-font-size-monospace-sm;
+  @include gl-font-sm;
 }
 
 @mixin gl-font-size-monospace-lg {
-  font-size: $gl-font-size-monospace-lg;
+  @include gl-font-lg;
 }
 
 @mixin gl-font-icon-size {

@@ -1,0 +1,12 @@
+/* -------------------------------------------------------
+Monospaced font: JetBrains Mono.
+
+Usage:
+  html { font-family: 'Mono', sans-serif; }
+*/
+@font-face {
+  font-family: 'Mono';
+  font-display: swap;
+  font-style: normal;
+  src: url('/fonts/JetBrainsMono-Medium.woff2?v=2.242') format('woff2');
+}
