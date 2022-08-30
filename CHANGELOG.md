@@ -1,3 +1,10 @@
+## [43.9.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.9.1...v43.9.2) (2022-08-30)
+
+
+### Bug Fixes
+
+* use default DOMpurify export ([da7473f](https://gitlab.com/gitlab-org/gitlab-ui/commit/da7473f9a93c62f165da9ec4fc62bee80570e29d))
+
 ## [43.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.9.0...v43.9.1) (2022-08-25)
 
 
