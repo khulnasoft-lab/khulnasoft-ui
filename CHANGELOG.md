@@ -1,3 +1,10 @@
+# [43.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.9.3...v43.10.0) (2022-08-31)
+
+
+### Features
+
+* **markdown:** Markdown code block styles ([344c84e](https://gitlab.com/gitlab-org/gitlab-ui/commit/344c84e9e67b8b28e3e7aa64594274cd3919ea9e))
+
 ## [43.9.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.9.2...v43.9.3) (2022-08-30)
 
 
