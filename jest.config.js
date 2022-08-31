@@ -17,7 +17,7 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
     '.*\\.(vue)$': '@vue/vue2-jest',
-    '\\.(svg|html|md|png)$': 'jest-raw-loader',
+    '\\.(svg|html|md|png)$': '<rootDir>/tests/transformers/file_transformer.js',
   },
   transformIgnorePatterns: [
     '/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$)|(/@gitlab/svgs/))/',
@@ -27,4 +27,7 @@ module.exports = {
   reporters,
   testEnvironment: 'jsdom',
   testRunner: 'jest-circus/runner',
+  snapshotFormat: {
+    printBasicPrototype: true,
+  },
 };
