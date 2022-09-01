@@ -79,6 +79,7 @@ const generateProps = ({
   textSrOnly = defaultValue('textSrOnly'),
   icon = '',
   multiple = defaultValue('multiple'),
+  isCheckCentered = defaultValue('isCheckCentered'),
   ariaLabelledby,
   startOpened = true,
 } = {}) => ({
@@ -94,6 +95,7 @@ const generateProps = ({
   textSrOnly,
   icon,
   multiple,
+  isCheckCentered,
   ariaLabelledby,
   startOpened,
 });
@@ -120,6 +122,7 @@ const template = (content, label = '') => `
       :text-sr-only="textSrOnly"
       :icon="icon"
       :multiple="multiple"
+      :is-check-centered="isCheckCentered"
       :aria-labelledby="ariaLabelledby"
     >
       ${content}
@@ -183,7 +186,10 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
                                 </div>
                               </template>`),
 });
-HeaderAndFooter.args = generateProps({ toggleText: 'Header and Footer', multiple: true });
+HeaderAndFooter.args = generateProps({
+  toggleText: 'Header and Footer',
+  multiple: true,
+});
 HeaderAndFooter.decorators = [makeContainer({ height: '370px' })];
 
 export const CustomListItem = (args, { argTypes }) => ({
@@ -225,6 +231,7 @@ export const CustomListItem = (args, { argTypes }) => ({
         :text-sr-only="textSrOnly"
         :icon="icon"
         :multiple="multiple"
+        :is-check-centered="isCheckCentered"
         :aria-labelledby="ariaLabelledby"
       >
         <template #list-item="{ item }">
@@ -247,6 +254,7 @@ CustomListItem.args = generateProps({
     { value: 'markian', text: 'Mark Florian', secondaryText: '@markian', icon: 'bin' },
   ],
   multiple: true,
+  isCheckCentered: true,
 });
 CustomListItem.decorators = [makeContainer({ height: '200px' })];
 

@@ -18,6 +18,20 @@ export default {
       default: false,
       required: false,
     },
+    isCheckCentered: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+  computed: {
+    checkedClasses() {
+      if (this.isCheckCentered) {
+        return '';
+      }
+
+      return 'gl-mt-3 gl-align-self-start';
+    },
   },
   methods: {
     toggleSelection() {
@@ -48,8 +62,11 @@ export default {
       <gl-icon
         name="mobile-issue-close"
         data-testid="dropdown-item-checkbox"
-        class="gl-mt-3 gl-align-self-start"
-        :class="['gl-new-dropdown-item-check-icon', { 'gl-visibility-hidden': !isSelected }]"
+        :class="[
+          'gl-new-dropdown-item-check-icon',
+          { 'gl-visibility-hidden': !isSelected },
+          checkedClasses,
+        ]"
       />
       <span class="gl-new-dropdown-item-text-wrapper">
         <slot></slot>

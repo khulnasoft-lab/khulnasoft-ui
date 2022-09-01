@@ -80,6 +80,31 @@ describe('GlListboxItem', () => {
     });
   });
 
+  describe('checkbox', () => {
+    describe('is NOT centered', () => {
+      beforeEach(() => {
+        buildWrapper({ isSelected: true });
+      });
+
+      it('should not center check icon by default', () => {
+        expect(findCheckIcon().classes()).toEqual(
+          expect.arrayContaining(['gl-mt-3', 'gl-align-self-start'])
+        );
+      });
+    });
+
+    describe('is centered', () => {
+      beforeEach(() => {
+        buildWrapper({ isSelected: true, isCheckCentered: true });
+      });
+      it('should center the check icon', () => {
+        expect(findCheckIcon().classes()).not.toEqual(
+          expect.arrayContaining(['gl-mt-3', 'gl-align-self-start'])
+        );
+      });
+    });
+  });
+
   describe('tabindex', () => {
     it('should set tabindex to `-1` when item is not focused', () => {
       buildWrapper({ isFocused: false });
