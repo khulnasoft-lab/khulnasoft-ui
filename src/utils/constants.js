@@ -48,12 +48,6 @@ export const variantCssColorMap = {
 
 export const targetOptions = ['_self', '_blank', '_parent', '_top', null];
 
-export const sizeOptions = {
-  default: null,
-  sm: 'sm',
-  lg: 'lg',
-};
-
 export const labelSizeOptions = {
   default: null,
   sm: 'sm',
@@ -234,7 +228,6 @@ export const tokenVariants = ['default', 'search-type', 'search-value'];
 export const resizeDebounceTime = 200;
 
 export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
-export const sizeOptionsWithNoDefault = appendDefaultOption(sizeOptions);
 
 // Datetime constants
 export const defaultDateFormat = 'YYYY-MM-DD';

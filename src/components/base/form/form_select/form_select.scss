@@ -54,4 +54,21 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
     }
   }
 }
+
+@each $name, $size in $gl-form-input-sizes {
+  .gl-form-select-#{$name} {
+    max-width: $size;
+  }
+
+  @each $breakpointName, $breakpointSize in $gl-form-input-sizes {
+    @if $breakpointName != xs {
+      .gl-#{$breakpointName}-form-select-#{$name} {
+        @include gl-media-breakpoint-up($breakpointName) {
+          max-width: $size;
+        }
+      }
+    }
+  }
+}
+
 /* stylelint-enable property-no-vendor-prefix */

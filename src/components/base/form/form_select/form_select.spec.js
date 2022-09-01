@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { sizeOptions, formStateOptions } from '../../../../utils/constants';
+import { formStateOptions, formInputSizes } from '../../../../utils/constants';
 import { formSelectOptions } from './constants';
 import GlFormSelect from './form_select.vue';
 
@@ -33,13 +33,13 @@ describe('GlFormSelect', () => {
 
   describe('size prop', () => {
     // Exclude the default null value
-    const nonNullSizes = excludeDefaultNull(sizeOptions);
+    const nonNullSizes = excludeDefaultNull(formInputSizes);
 
     it.each(nonNullSizes)('adds correct class for size %s', (size) => {
       createComponent({ size });
 
       expect(wrapper.classes().sort()).toEqual(
-        [...DEFAULT_SELECT_CLASSES, `custom-select-${size}`].sort()
+        [...DEFAULT_SELECT_CLASSES, `gl-form-select-${size}`].sort()
       );
     });
 

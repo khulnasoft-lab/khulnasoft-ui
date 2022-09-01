@@ -1,5 +1,5 @@
 import { GlFormSelect } from '../../../../index';
-import { sizeOptions, formStateOptions } from '../../../../utils/constants';
+import { formStateOptions, formInputSizes } from '../../../../utils/constants';
 import { formSelectOptions } from './constants';
 import readme from './form_select.md';
 
@@ -90,7 +90,7 @@ export default {
   },
   argTypes: {
     size: {
-      options: sizeOptions,
+      options: formInputSizes,
       control: 'select',
     },
     state: {
