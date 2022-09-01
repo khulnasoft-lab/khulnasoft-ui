@@ -115,7 +115,7 @@ describe('tabs component', () => {
       });
     });
 
-    describe('when the actions are provided', () => {
+    describe('when the action props are provided', () => {
       describe.each`
         buttonType
         ${'Primary'}

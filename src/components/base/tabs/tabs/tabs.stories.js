@@ -1,5 +1,5 @@
 import { range } from 'lodash';
-import { GlTabs, GlTab, GlScrollableTabs, GlBadge } from '../../../../index';
+import { GlTabs, GlTab, GlScrollableTabs, GlBadge, GlButton } from '../../../../index';
 import { badgeVariantOptions } from '../../../../utils/constants';
 import readme from './tabs.md';
 
@@ -194,6 +194,19 @@ WithActions.args = generateProps({
     },
     text: 'Tertiary action',
   },
+});
+
+export const WithSlotActions = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ...components, GlButton },
+  template: wrap(`
+    <template #actions>
+      <gl-button icon="check" variant="success" />
+      <gl-button icon="close" variant="danger" />
+    </template>
+    <gl-tab title="Tab 1">
+      Tab panel 1
+    </gl-tab>`),
 });
 
 export const WithScroll = (_args, { argTypes }) => ({
