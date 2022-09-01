@@ -1,3 +1,10 @@
+# [43.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.10.0...v43.11.0) (2022-09-01)
+
+
+### Features
+
+* **GlFormSetlect:** Allowed to cofigure select size ([1e80adc](https://gitlab.com/gitlab-org/gitlab-ui/commit/1e80adc82acfbd84afacfba10ae4d6860ef57996))
+
 # [43.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.9.3...v43.10.0) (2022-08-31)
 
 
