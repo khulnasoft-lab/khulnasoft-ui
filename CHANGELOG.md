@@ -1,3 +1,10 @@
+# [43.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.11.0...v43.12.0) (2022-09-02)
+
+
+### Features
+
+* **css:** Add xl container util ([95755b9](https://gitlab.com/gitlab-org/gitlab-ui/commit/95755b9f3ff23dfd184a6c2c74ab23ea7d9865f6))
+
 # [43.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.10.0...v43.11.0) (2022-09-01)
 
 
