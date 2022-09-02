@@ -43,7 +43,8 @@ tab, when active, will reveal it’s own unique content.
 
 Tabs start and end slot can be populated via props: `action-primary`, `action-secondary` and
 `action-tertiary`. These props allow you to handle how a primary, secondary and tertiary button will
-behave and look. The props receive an object as such:
+behave and look. Each action will fire an event on click: `primary`, `secondary` or `tertiary` respectively.
+The props receive an object as such:
 
 ~~~js
 {
@@ -55,6 +56,27 @@ behave and look. The props receive an object as such:
     ...
   }
 }
+~~~
+
+If you find that you need more control over the action buttons,
+you can instead use the `actions` slot to set the same content.
+
+- _Note that using this slot this will override any other action props and events_
+
+~~~html
+<gl-tabs>
+  <template #actions>
+    <gl-button @click="primaryClick">
+      Primary action
+    </gl-button>
+    <gl-button @click="secondaryClick">
+      Secondary action
+    </gl-button>
+  </template>
+  <gl-tab title="Tab 1">
+    Tab panel 1
+  </gl-tab>
+</gl-tabs>
 ~~~
 
 ## Scrollable tab buttons
