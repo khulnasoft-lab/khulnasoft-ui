@@ -186,7 +186,7 @@ const LabelToken = {
     GlToken,
     GlDropdownDivider,
   },
-  props: ['value', 'active'],
+  props: ['value', 'active', 'viewOnly'],
   inheritAttrs: false,
   data() {
     return {
@@ -251,7 +251,7 @@ const LabelToken = {
       v-on="$listeners"
     >
       <template #view-token="{ inputValue, cssClasses, listeners }">
-        <gl-token variant="search-value" :class="cssClasses" :style="containerStyle" v-on="listeners">
+        <gl-token variant="search-value" :view-only="viewOnly" :class="cssClasses" :style="containerStyle" v-on="listeners">
           {{ activeLabel ? activeLabel.title : inputValue }}
         </gl-token>
       </template>
@@ -321,6 +321,17 @@ export const Default = () => ({
   },
   components,
   template: `<gl-filtered-search :available-tokens="tokens" :value="value" />`,
+});
+
+export const ViewOnly = () => ({
+  data() {
+    return {
+      tokens,
+      value: [{ type: 'author', value: { data: 'epsilon', operator: '=' } }, 'raw text'],
+    };
+  },
+  components,
+  template: `<gl-filtered-search view-only :available-tokens="tokens" :value="value" />`,
 });
 
 export const WithHistoryItems = () => ({

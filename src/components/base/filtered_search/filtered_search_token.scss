@@ -8,14 +8,16 @@
   @include gl-white-space-nowrap;
   @include gl-cursor-pointer;
 
-  &:hover {
-    .gl-filtered-search-token-type {
-      @include gl-bg-gray-100;
-    }
+  &.gl-filtered-search-token-hover {
+    &:hover {
+      .gl-filtered-search-token-type {
+        @include gl-bg-gray-100;
+      }
 
-    .gl-filtered-search-token-data,
-    .gl-filtered-search-token-operator {
-      @include gl-bg-gray-200;
+      .gl-filtered-search-token-data,
+      .gl-filtered-search-token-operator {
+        @include gl-bg-gray-200;
+      }
     }
   }
 }

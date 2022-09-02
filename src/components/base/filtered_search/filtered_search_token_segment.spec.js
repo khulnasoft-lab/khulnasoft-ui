@@ -77,6 +77,14 @@ describe('Filtered search token segment', () => {
     expect(wrapper.emitted().activate).toHaveLength(1);
   });
 
+  it('does not emit activate when view-only is true', () => {
+    createComponent({ viewOnly: true, value: '' });
+
+    wrapper.trigger('mousedown.left');
+
+    expect(wrapper.emitted().activate).toBeUndefined();
+  });
+
   it('ignores mousedown if active', () => {
     createComponent({ value: '', active: true });
 
@@ -311,6 +319,16 @@ describe('Filtered search token segment', () => {
       expect(wrapper.find('input').attributes('data-qa-selector')).toBe(
         searchInputAttributes['data-qa-selector']
       );
+    });
+
+    describe.each([true, false])('and viewOnly is %s', (viewOnly) => {
+      const readonly = viewOnly ? 'readonly' : undefined;
+
+      it(`sets the input \`readonly\` atttribute to ${readonly}`, () => {
+        createWrappedComponent({ value: 'test', active: true, viewOnly });
+
+        expect(wrapper.find('input').attributes('readonly')).toBe(readonly);
+      });
     });
   });
 });

@@ -18,9 +18,11 @@ const FakeToken = {
 
 Vue.directive('GlTooltip', () => {});
 
+let wrapper;
+
+const findFilteredSearchInput = () => wrapper.find('[data-testid="filtered-search-input"]');
 const stripId = (token) => (typeof token === 'object' ? omit(token, 'id') : token);
 
-let wrapper;
 describe('Filtered search', () => {
   const defaultProps = {
     availableTokens: [{ type: 'faketoken', token: FakeToken }],
@@ -40,6 +42,10 @@ describe('Filtered search', () => {
       },
     });
   };
+
+  afterEach(() => {
+    wrapper = null;
+  });
 
   describe('value manipulation', () => {
     it('creates term when empty', () => {
@@ -284,7 +290,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
-      wrapper.findAllComponents(GlFilteredSearchTerm).wrappers.forEach((searchTermWrapper) => {
+      wrapper.findAll(`.gl-filtered-search-item`).wrappers.forEach((searchTermWrapper) => {
         expect(searchTermWrapper.props('active')).toBe(false);
       });
     });
@@ -482,6 +488,51 @@ describe('Filtered search', () => {
       { type: 'filtered-search-term', value: { data: 'one' } },
       { type: 'filtered-search-term', value: { data: '' } },
     ]);
+  });
+
+  it('the search input is enabled by default', () => {
+    createComponent();
+
+    expect(findFilteredSearchInput().attributes('disabled')).toBe(undefined);
+  });
+
+  describe('view-only state', () => {
+    const createViewOnlyComponent = (viewOnly) =>
+      createComponent({
+        value: ['one', { type: 'faketoken', value: '' }],
+        viewOnly,
+      });
+
+    it.each([true, false])(
+      'passes the value of viewOnly to the search term when view-only is %s',
+      (viewOnly) => {
+        createViewOnlyComponent(viewOnly);
+
+        expect(wrapper.findComponent(GlFilteredSearchTerm).props('viewOnly')).toBe(viewOnly);
+      }
+    );
+
+    describe('when view-only is true', () => {
+      beforeEach(() => {
+        createViewOnlyComponent(true);
+      });
+
+      it('disables the search input', () => {
+        expect(findFilteredSearchInput().attributes('disabled')).toBe('disabled');
+      });
+
+      it('prevents tokens from activating', async () => {
+        await wrapper.findComponent(FakeToken).vm.$emit('activate');
+
+        wrapper.findAll(`.gl-filtered-search-item`).wrappers.forEach((searchTermWrapper) => {
+          expect(searchTermWrapper.props('active')).toBe(false);
+        });
+      });
+
+      it('does not apply the last token class', async () => {
+        expect(wrapper.find('.gl-filtered-search-last-item').exists()).toBe(false);
+      });
+    });
   });
 });
 

@@ -113,6 +113,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    viewOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -162,7 +167,7 @@ export default {
           }
         }
 
-        if (this.tokens.length === 0 || !this.isLastTokenEmpty()) {
+        if ((this.tokens.length === 0 || !this.isLastTokenEmpty()) && !this.viewOnly) {
           this.tokens.push(createTerm());
         }
 
@@ -191,6 +196,10 @@ export default {
       this.tokens = needDenormalization(newValue) ? denormalizeTokens(newValue) : newValue;
     },
 
+    isActiveToken(idx) {
+      return this.activeTokenIdx === idx;
+    },
+
     isLastToken(idx) {
       return !this.activeTokenIdx && idx === this.lastTokenIdx;
     },
@@ -207,8 +216,14 @@ export default {
       return this.getTokenEntry(type)?.token || GlFilteredSearchTerm;
     },
 
+    getLastTokenClassList(idx) {
+      return this.isLastToken(idx) && !this.viewOnly ? 'gl-filtered-search-last-item' : '';
+    },
+
     activate(idx) {
-      this.activeTokenIdx = idx;
+      if (!this.viewOnly) {
+        this.activeTokenIdx = idx;
+      }
     },
 
     activatePreviousToken() {
@@ -336,6 +351,7 @@ export default {
     :history-items="historyItems"
     :clearable="hasValue"
     :search-button-attributes="searchButtonAttributes"
+    :disabled="viewOnly"
     data-testid="filtered-search-input"
     @submit="submit"
     @input="applyNewValue"
@@ -348,7 +364,10 @@ export default {
       <slot name="history-item" v-bind="slotScope"></slot>
     </template>
     <template #input>
-      <div class="gl-filtered-search-scrollable">
+      <div
+        class="gl-filtered-search-scrollable"
+        :class="{ 'gl-bg-gray-10! gl-inset-border-1-gray-100!': viewOnly }"
+      >
         <template v-for="(token, idx) in tokens">
           <component
             :is="getTokenComponent(token.type)"
@@ -364,11 +383,10 @@ export default {
             :placeholder="termPlaceholder"
             :show-friendly-text="showFriendlyText"
             :search-input-attributes="searchInputAttributes"
+            :view-only="viewOnly"
             :is-last-token="isLastToken(idx)"
             class="gl-filtered-search-item"
-            :class="{
-              'gl-filtered-search-last-item': isLastToken(idx),
-            }"
+            :class="{ 'gl-filtered-search-last-item': isLastToken(idx) && !viewOnly }"
             @activate="activate(idx)"
             @deactivate="deactivate(token)"
             @destroy="destroyToken(idx, $event)"
