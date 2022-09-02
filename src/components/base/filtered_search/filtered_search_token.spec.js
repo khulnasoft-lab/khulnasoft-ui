@@ -39,6 +39,27 @@ describe('Filtered search token', () => {
     });
   };
 
+  const mountComponent = (props) => {
+    wrapper = mount(GlFilteredSearchToken, {
+      provide: {
+        portalName: 'fake target',
+        alignSuggestions: function fakeAlignSuggestions() {},
+      },
+      stubs: {
+        Portal: {
+          template: '<div><slot></slot></div>',
+        },
+        GlFilteredSearchSuggestionList: {
+          template: '<div></div>',
+          methods: {
+            getValue: () => '=',
+          },
+        },
+      },
+      propsData: { ...defaultProps, ...props },
+    });
+  };
+
   describe('when activated', () => {
     it('emits activate when operator segment is clicked', () => {
       createComponent();
@@ -201,27 +222,6 @@ describe('Filtered search token', () => {
       }
     });
 
-    const mountComponent = (props) => {
-      wrapper = mount(GlFilteredSearchToken, {
-        provide: {
-          portalName: 'fake target',
-          alignSuggestions: function fakeAlignSuggestions() {},
-        },
-        stubs: {
-          Portal: {
-            template: '<div><slot></slot></div>',
-          },
-          GlFilteredSearchSuggestionList: {
-            template: '<div></div>',
-            methods: {
-              getValue: () => '=',
-            },
-          },
-        },
-        propsData: { ...defaultProps, ...props },
-      });
-    };
-
     it('emits close event when data token is closed', () => {
       mountComponent({ value: { operator: '=', data: 'something' } });
       const closeWrapper = wrapper.find('.gl-token-close');
@@ -301,5 +301,58 @@ describe('Filtered search token', () => {
 
       expect(findDataSegment().props('value')).toEqual('gamma');
     });
+  });
+
+  describe('view-only state', () => {
+    it('prevents segments from activating when view-only is true', async () => {
+      createComponent({
+        active: true,
+        value: { operator: '=' },
+        viewOnly: true,
+      });
+
+      await findTitleSegment().vm.$emit('activate');
+
+      expect(findTitleSegment().props().active).toBe(false);
+    });
+
+    it('does not add a mousedown listener to the token-data when view-only is true', async () => {
+      mountComponent({ value: { operator: '=', data: 'something' }, viewOnly: true });
+
+      const tokenData = wrapper.find('.gl-filtered-search-token-data');
+      tokenData.element.closest = jest.fn(() => tokenData.element);
+
+      await tokenData.trigger('mousedown');
+
+      expect(tokenData.element.closest).not.toHaveBeenCalled();
+    });
+
+    describe.each`
+      viewOnly | hoverClassExists | cursorClassExists | propValue
+      ${true}  | ${false}         | ${true}           | ${true}
+      ${false} | ${true}          | ${false}          | ${false}
+    `(
+      'when view-only is $viewOnly',
+      ({ viewOnly, hoverClassExists, cursorClassExists, propValue }) => {
+        beforeEach(() => {
+          createComponent({
+            active: true,
+            value: { operator: '=' },
+            viewOnly,
+          });
+        });
+
+        it(`${viewOnly ? 'applies' : 'does not apply'} the view-only style classes`, () => {
+          expect(wrapper.find('.gl-filtered-search-token-hover').exists()).toBe(hoverClassExists);
+          expect(wrapper.find('.gl-cursor-default').exists()).toBe(cursorClassExists);
+        });
+
+        it(`sets the view-only prop to ${viewOnly} on the title, data and operator segments`, () => {
+          expect(findTitleSegment().props('viewOnly')).toBe(propValue);
+          expect(findDataSegment().props('viewOnly')).toBe(propValue);
+          expect(findOperatorSegment().props('viewOnly')).toBe(propValue);
+        });
+      }
+    );
   });
 });

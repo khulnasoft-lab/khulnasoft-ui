@@ -1,7 +1,7 @@
 <script>
 import { last } from 'lodash';
 import { Portal } from 'portal-vue';
-import { COMMA } from '../../../utils/constants';
+import { COMMA, LEFT_MOUSE_BUTTON } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
@@ -82,6 +82,11 @@ export default {
       required: false,
       default: 'end',
       validator: (value) => ['start', 'end'].includes(value),
+    },
+    viewOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 
@@ -181,7 +186,7 @@ export default {
 
   methods: {
     emitIfInactive(e) {
-      if (!this.active) {
+      if (e.button === LEFT_MOUSE_BUTTON && !this.active) {
         /**
          * Emitted on mousedown event on the main component.
          */
@@ -334,9 +339,10 @@ export default {
     class="gl-filtered-search-token-segment"
     :class="{
       'gl-filtered-search-token-segment-active': active,
+      'gl-cursor-text!': viewOnly,
     }"
     data-testid="filtered-search-token-segment"
-    @mousedown.left="emitIfInactive"
+    v-on="viewOnly ? {} : { mousedown: emitIfInactive }"
   >
     <template v-if="active">
       <input
@@ -345,6 +351,7 @@ export default {
         v-model="inputValue"
         class="gl-filtered-search-token-segment-input"
         :aria-label="label"
+        :readonly="viewOnly"
         @keydown="handleInputKeydown"
         @blur="handleBlur"
       />
