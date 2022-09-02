@@ -19,7 +19,7 @@ describe('tabs component', () => {
       propsData: {
         ...props,
       },
-      components: { GlTab },
+      components: { GlTab, GlButton },
       slots: {
         default: `
           <gl-tab title="First">
@@ -112,6 +112,27 @@ describe('tabs component', () => {
 
         expect(wrapper.find('.tabs-start-slot').exists()).toBe(true);
         expect(wrapper.find('.tabs-end-slot').exists()).toBe(true);
+      });
+    });
+
+    describe('when the action slot is provided', () => {
+      const options = {
+        slots: {
+          actions: `<gl-button data-testid="action-slot">Slot</gl-button>`,
+        },
+      };
+
+      it('renders two of a kind', () => {
+        buildTabs({ options });
+        expect(wrapper.findAllComponents(GlButton)).toHaveLength(2);
+      });
+
+      it('overrides any action props', () => {
+        const props = getActionButtonProp({ type: 'Primary' });
+        buildTabs({ props, options });
+
+        expect(wrapper.find(`[data-testid="action-slot"]`).exists()).toBe(true);
+        expect(wrapper.find(`[data-testid="action-primary"]`).exists()).toBe(false);
       });
     });
 
