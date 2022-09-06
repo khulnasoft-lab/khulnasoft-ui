@@ -71,8 +71,8 @@
   }
 }
 
-@mixin gl-bg-gradient-blur($direction, $color) {
-  background-image: linear-gradient(to $direction, $transparent-rgba, $color 33%);
+@mixin gl-bg-gradient-blur($direction, $color, $ratio: 33%) {
+  background-image: linear-gradient(to $direction, $transparent-rgba, $color $ratio);
 }
 
 /**

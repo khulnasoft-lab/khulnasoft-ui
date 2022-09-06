@@ -215,6 +215,10 @@
   height: $gl-spacing-scale-13;
 }
 
+@mixin gl-h-20 {
+  height: $gl-spacing-scale-20;
+}
+
 @mixin gl-h-full {
   height: 100%;
 }

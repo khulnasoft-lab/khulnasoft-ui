@@ -112,6 +112,7 @@ export { GlTooltipDirective } from './directives/tooltip';
 export { GlResizeObserverDirective } from './directives/resize_observer/resize_observer';
 export { GlCollapseToggleDirective } from './directives/collapse_toggle';
 export { SafeLinkDirective as GlSafeLinkDirective } from './directives/safe_link/safe_link';
+export { GlScrimDirective } from './directives/scrim/scrim';
 export { SafeHtmlDirective as GlSafeHtmlDirective } from './directives/safe_html/safe_html';
 export { OutsideDirective as GlOutsideDirective } from './directives/outside/outside';
 export { HoverLoadDirective as GlHoverLoadDirective } from './directives/hover_load/hover_load';

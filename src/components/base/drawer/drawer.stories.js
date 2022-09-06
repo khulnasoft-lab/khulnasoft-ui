@@ -1,47 +1,11 @@
 import { GlDrawer, GlButton, GlMarkdown } from '../../../index';
 import { drawerVariants } from '../../../utils/constants';
+import { generateStaticContent, generateContent } from '../../../utils/static_content';
 import readme from './drawer.md';
 
 const components = { GlDrawer, GlButton, GlMarkdown };
 
-const generateStaticContent = (number = 1) =>
-  Array.from(
-    Array(number),
-    (_, index) => `
-      <div class="gl-mb-8">
-        <h4 class="gl-mb-4">View jobs in a pipeline ${index}</h4>
-        <p>
-          Pipeline configuration begins with jobs. Jobs are the most fundamental element of a .gitlab-ci.yml file.
-        </p>
-        <p>Jobs are:</p>
-        <ul>
-          <li>Defined with constraints stating under what conditions they should be executed. </li>
-          <li>Top-level elements with an arbitrary name and must contain at least the script clause.</li>
-          <li>Not limited in how many can be defined.</li>
-        </ul>
-        <p>For example:</p>
-        <gl-markdown compact>
-          <code>job1: script: "execute-script-for-job1"</code>
-          <br />
-          <code>job2: script: "execute-script-for-job2"</code>
-        </gl-markdown>
-      </div>
-    `
-  ).join('');
-
-const generateDrawerContent = (items) =>
-  items
-    .map(
-      (str) => `
-    <div>
-      <label class="gl-font-weight-bold">${str}</label>
-      <div>None</div>
-    </div>
-    `
-    )
-    .join('');
-
-const drawerContent = generateDrawerContent([
+const drawerContent = generateContent([
   'One',
   'Two',
   'Three',
@@ -58,7 +22,7 @@ const drawerContent = generateDrawerContent([
   'Fourteen',
 ]);
 
-const drawerContentShortList = generateDrawerContent(['One', 'Two', 'Three']);
+const drawerContentShortList = generateContent(['One', 'Two', 'Three']);
 
 const createSidebarTemplate = (content) => `
   <gl-drawer

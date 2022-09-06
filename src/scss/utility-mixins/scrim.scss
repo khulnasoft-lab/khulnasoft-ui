@@ -1,0 +1,38 @@
+@mixin gl-scrim-before {
+  &::before {
+    @include gl-bg-gradient-blur(top, $white, 100%);
+    @include gl-top-0;
+    @include gl-content-empty;
+    @include gl-left-0;
+    @include gl-display-block;
+    @include gl-sticky;
+    @include gl-pointer-events-none;
+    @include gl-w-full;
+    @include gl-h-7;
+    @include gl-z-index-1;
+    margin-top: -$gl-spacing-scale-7;
+  }
+}
+
+@mixin gl-scrim-after {
+  &::after {
+    @include gl-bg-gradient-blur(bottom, $white, 100%);
+    @include gl-content-empty;
+    @include gl-bottom-0;
+    @include gl-pointer-events-none;
+    @include gl-w-full;
+    @include gl-sticky;
+    @include gl-display-block;
+    @include gl-h-7;
+    @include gl-z-index-1;
+    margin-top: -$gl-spacing-scale-7;
+  }
+}
+
+@mixin gl-scrim-transparent {
+  background: transparent !important;
+
+  &::after {
+    background: transparent !important;
+  }
+}
