@@ -1,3 +1,10 @@
+# [43.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.12.0...v43.13.0) (2022-09-06)
+
+
+### Features
+
+* **css:** Adds align items center from sm up ([2f59188](https://gitlab.com/gitlab-org/gitlab-ui/commit/2f5918849f390ad4ee8a6a0a1040923fe4a82e00))
+
 # [43.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.11.0...v43.12.0) (2022-09-02)
 
 
