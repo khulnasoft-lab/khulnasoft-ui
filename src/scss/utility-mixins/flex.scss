@@ -36,6 +36,12 @@
   }
 }
 
+@mixin gl-sm-align-items-center {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-align-items-center;
+  }
+}
+
 @mixin gl-md-align-items-center {
   @include gl-media-breakpoint-up(md) {
     @include gl-align-items-center;
