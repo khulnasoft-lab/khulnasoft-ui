@@ -25,7 +25,7 @@ describe('banner component', () => {
       });
 
       it('should render the correct title', () => {
-        expect(wrapper.find('h1').text()).toEqual(propsData.title);
+        expect(wrapper.find('h2').text()).toEqual(propsData.title);
       });
 
       it('should render the button', () => {
