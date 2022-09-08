@@ -6,16 +6,18 @@ SPECS_MESSAGE = <<~MSG
   consider adding/updating tests.
 MSG
 
+IGNORED_SUFFIXES = ['.spec.js', '.stories.js', 'mock_data.js']
+
 def component?(path)
   path.start_with?('src/components/') &&
     path.end_with?('.vue', '.js') &&
-    !path.end_with?('.spec.js', '.stories.js')
+    !path.end_with?(*IGNORED_SUFFIXES)
 end
 
 def directive?(path)
   path.start_with?('src/directives/') &&
     path.end_with?('.js') &&
-    !path.end_with?('.spec.js', '.stories.js')
+    !path.end_with?(*IGNORED_SUFFIXES)
 end
 
 def spec?(path)

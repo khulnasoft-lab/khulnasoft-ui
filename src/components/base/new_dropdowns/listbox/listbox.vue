@@ -17,8 +17,11 @@ import {
 } from '../../../../utils/constants';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import GlListboxItem from './listbox_item.vue';
+import GlListboxGroup from './listbox_group.vue';
+import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
+const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-pt-3', 'gl-mt-3'];
 
 export default {
   events: {
@@ -28,6 +31,7 @@ export default {
   components: {
     GlBaseDropdown,
     GlListboxItem,
+    GlListboxGroup,
   },
   model: {
     prop: 'selected',
@@ -41,9 +45,7 @@ export default {
       type: Array,
       required: false,
       default: () => [],
-      validator: (items) => {
-        return items.every(({ value }) => typeof value === 'string');
-      },
+      validator: itemsValidator,
     },
     /**
      * array of selected items values for multi-select and selected item value for single-select
@@ -177,10 +179,17 @@ export default {
     };
   },
   computed: {
+    listboxTag() {
+      if (this.items.length === 0 || isOption(this.items[0])) return 'ul';
+      return 'div';
+    },
+    flattenedOptions() {
+      return flattenedOptions(this.items);
+    },
     listboxToggleText() {
       if (!this.toggleText) {
         if (!this.multiple && this.selectedValues.length) {
-          return this.items.find(({ value }) => value === this.selectedValues[0])?.text;
+          return this.flattenedOptions.find(({ value }) => value === this.selectedValues[0])?.text;
         }
         return '';
       }
@@ -189,7 +198,7 @@ export default {
     },
     selectedIndices() {
       return this.selectedValues
-        .map((selected) => this.items.findIndex(({ value }) => value === selected))
+        .map((selected) => this.flattenedOptions.findIndex(({ value }) => value === selected))
         .sort();
     },
   },
@@ -209,6 +218,9 @@ export default {
     },
   },
   methods: {
+    groupClasses(index) {
+      return index === 0 ? null : GROUP_TOP_BORDER_CLASSES;
+    },
     onShow() {
       this.$nextTick(() => {
         this.focusItem(this.selectedIndices[0] ?? 0, this.getFocusableListItemElements());
@@ -281,6 +293,9 @@ export default {
     isSelected(item) {
       return this.selectedValues.some((value) => value === item.value);
     },
+    isFocused(item) {
+      return this.nextFocusedItemIndex === this.flattenedOptions.indexOf(item);
+    },
     onSingleSelect(value, isSelected) {
       if (isSelected) {
         /**
@@ -303,6 +318,7 @@ export default {
         );
       }
     },
+    isOption,
   },
 };
 </script>
@@ -330,7 +346,8 @@ export default {
     <!-- @slot Content to display in dropdown header -->
     <slot name="header"></slot>
 
-    <ul
+    <component
+      :is="listboxTag"
       ref="list"
       :aria-labelledby="toggleId"
       role="listbox"
@@ -338,20 +355,46 @@ export default {
       tabindex="-1"
       @keydown="onKeydown"
     >
-      <gl-listbox-item
-        v-for="(item, index) in items"
-        :key="item.value"
-        :is-selected="isSelected(item)"
-        :is-focused="nextFocusedItemIndex === index"
-        :is-check-centered="isCheckCentered"
-        @select="onSelect(item, $event)"
-      >
-        <!-- @slot Custom template of the listbox item -->
-        <slot name="list-item" :item="item">
-          {{ item.text }}
-        </slot>
-      </gl-listbox-item>
-    </ul>
+      <template v-for="(item, index) in items">
+        <template v-if="isOption(item)">
+          <gl-listbox-item
+            :key="item.value"
+            :is-selected="isSelected(item)"
+            :is-focused="isFocused(item)"
+            :is-check-centered="isCheckCentered"
+            @select="onSelect(item, $event)"
+          >
+            <!-- @slot Custom template of the listbox item -->
+            <slot name="list-item" :item="item">
+              {{ item.text }}
+            </slot>
+          </gl-listbox-item>
+        </template>
+
+        <template v-else>
+          <gl-listbox-group :key="item.text" :name="item.text" :class="groupClasses(index)">
+            <template v-if="$scopedSlots['group-label']" #group-label>
+              <!-- @slot Custom template for group names -->
+              <slot name="group-label" :group="item"></slot>
+            </template>
+
+            <gl-listbox-item
+              v-for="option in item.options"
+              :key="option.value"
+              :is-selected="isSelected(option)"
+              :is-focused="isFocused(option)"
+              :is-check-centered="isCheckCentered"
+              @select="onSelect(option, $event)"
+            >
+              <!-- @slot Custom template of the listbox item -->
+              <slot name="list-item" :item="option">
+                {{ option.text }}
+              </slot>
+            </gl-listbox-item>
+          </gl-listbox-group>
+        </template>
+      </template>
+    </component>
     <!-- @slot Content to display in dropdown footer -->
     <slot name="footer"></slot>
   </gl-base-dropdown>

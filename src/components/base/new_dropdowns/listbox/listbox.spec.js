@@ -11,21 +11,8 @@ import {
 } from '../constants';
 import GlListbox, { ITEM_SELECTOR } from './listbox.vue';
 import GlListboxItem from './listbox_item.vue';
-
-const mockItems = [
-  {
-    value: 'eng',
-    text: 'Engineering',
-  },
-  {
-    value: 'sales',
-    text: 'Sales',
-  },
-  {
-    value: 'marketing',
-    text: 'Marketing',
-  },
-];
+import GlListboxGroup from './listbox_group.vue';
+import { mockOptions, mockGroups } from './mock_data';
 
 describe('GlListbox', () => {
   let wrapper;
@@ -40,19 +27,20 @@ describe('GlListbox', () => {
 
   const findBaseDropdown = () => wrapper.findComponent(GlBaseDropdown);
   const findListContainer = () => wrapper.find('[role="listbox"]');
-  const findListboxItems = () => wrapper.findAllComponents(GlListboxItem);
+  const findListboxItems = (root = wrapper) => root.findAllComponents(GlListboxItem);
+  const findListboxGroups = () => wrapper.findAllComponents(GlListboxGroup);
   const findListItem = (index) => findListboxItems().at(index).find(ITEM_SELECTOR);
 
   describe('toggle text', () => {
     describe.each`
-      toggleText          | multiple | selected                | expectedToggleText
-      ${'Toggle caption'} | ${true}  | ${[mockItems[0].value]} | ${'Toggle caption'}
-      ${''}               | ${true}  | ${[mockItems[0]].value} | ${''}
-      ${''}               | ${false} | ${mockItems[0].value}   | ${mockItems[0].text}
-      ${''}               | ${false} | ${''}                   | ${''}
+      toggleText          | multiple | selected                  | expectedToggleText
+      ${'Toggle caption'} | ${true}  | ${[mockOptions[0].value]} | ${'Toggle caption'}
+      ${''}               | ${true}  | ${[mockOptions[0]].value} | ${''}
+      ${''}               | ${false} | ${mockOptions[0].value}   | ${mockOptions[0].text}
+      ${''}               | ${false} | ${''}                     | ${''}
     `('when listbox', ({ toggleText, multiple, selected, expectedToggleText }) => {
       beforeEach(() => {
-        buildWrapper({ items: mockItems, toggleText, multiple, selected });
+        buildWrapper({ items: mockOptions, toggleText, multiple, selected });
       });
 
       it(`is ${multiple ? 'multi' : 'single'}-select, toggleText is ${
@@ -77,8 +65,8 @@ describe('GlListbox', () => {
       beforeEach(() => {
         buildWrapper({
           multiple: true,
-          selected: [mockItems[1].value, mockItems[2].value],
-          items: mockItems,
+          selected: [mockOptions[1].value, mockOptions[2].value],
+          items: mockOptions,
         });
       });
 
@@ -90,28 +78,29 @@ describe('GlListbox', () => {
       it('should deselect previously selected', async () => {
         findListboxItems().at(1).vm.$emit('select', false);
         await nextTick();
-        expect(wrapper.emitted('select')[0][0]).toEqual([mockItems[2].value]);
+        expect(wrapper.emitted('select')[0][0]).toEqual([mockOptions[2].value]);
       });
 
       it('should add to selection', async () => {
         findListboxItems().at(0).vm.$emit('select', true);
         await nextTick();
         expect(wrapper.emitted('select')[0][0]).toEqual(
-          expect.arrayContaining(mockItems.map(({ value }) => value))
+          // The first three items should now be selected.
+          expect.arrayContaining(mockOptions.slice(0, 3).map(({ value }) => value))
         );
       });
     });
 
     describe('single-select', () => {
       beforeEach(() => {
-        buildWrapper({ selected: mockItems[1].value, items: mockItems });
+        buildWrapper({ selected: mockOptions[1].value, items: mockOptions });
       });
 
       it('should throw an error when array of selections is provided', () => {
         expect(() => {
           buildWrapper({
-            selected: [mockItems[1].value, mockItems[2].value],
-            items: mockItems,
+            selected: [mockOptions[1].value, mockOptions[2].value],
+            items: mockOptions,
           });
         }).toThrowError('To allow multi-selection, please, set "multiple" property to "true"');
         expect(wrapper).toHaveLoggedVueErrors();
@@ -124,7 +113,25 @@ describe('GlListbox', () => {
       it('should deselect previously selected and select a new item', async () => {
         findListboxItems().at(2).vm.$emit('select', true);
         await nextTick();
-        expect(wrapper.emitted('select')[0][0]).toEqual(mockItems[2].value);
+        expect(wrapper.emitted('select')[0][0]).toEqual(mockOptions[2].value);
+      });
+    });
+
+    describe('with groups', () => {
+      const selected = mockGroups[1].options[1].value;
+
+      beforeEach(() => {
+        buildWrapper({ selected, items: mockGroups });
+      });
+
+      it('should render item as selected when `selected` provided ', () => {
+        expect(findListboxItems().at(3).props('isSelected')).toBe(true);
+      });
+
+      it('should deselect previously selected and select a new item', async () => {
+        findListboxItems().at(0).vm.$emit('select', true);
+        await nextTick();
+        expect(wrapper.emitted('select')[0][0]).toEqual(mockGroups[0].options[0].value);
       });
     });
   });
@@ -133,8 +140,8 @@ describe('GlListbox', () => {
     beforeEach(async () => {
       buildWrapper({
         multiple: true,
-        items: mockItems,
-        selected: [mockItems[2].value, mockItems[1].value],
+        items: mockOptions,
+        selected: [mockOptions[2].value, mockOptions[1].value],
       });
       findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
       await nextTick();
@@ -166,7 +173,8 @@ describe('GlListbox', () => {
     let thirdItem;
 
     beforeEach(() => {
-      buildWrapper({ items: mockItems });
+      // These tests are more easily written with a small list of items.
+      buildWrapper({ items: mockOptions.slice(0, 3) });
       findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
       firstItem = findListItem(0);
       secondItem = findListItem(1);
@@ -231,6 +239,25 @@ describe('GlListbox', () => {
     it('renders it', () => {
       buildWrapper({}, slots);
       expect(wrapper.text()).toContain(footerContent);
+    });
+  });
+
+  describe('with groups', () => {
+    it('renders groups of items', () => {
+      buildWrapper({ items: mockGroups });
+
+      const groups = findListboxGroups();
+
+      expect(groups.length).toBe(mockGroups.length);
+
+      const expectedNameProps = mockGroups.map((group) => group.text);
+      const actualNameProps = groups.wrappers.map((group) => group.props('name'));
+
+      expect(actualNameProps).toEqual(expectedNameProps);
+
+      mockGroups.forEach((group, i) => {
+        expect(findListboxItems(groups.at(i))).toHaveLength(group.options.length);
+      });
     });
   });
 });
