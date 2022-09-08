@@ -13,7 +13,7 @@ const generateProps = ({ href = null, active = false } = {}) => ({
 });
 
 const template = `
-  <gl-sorting text="Sorting Dropdown">
+  <gl-sorting text="Sorting options">
     <gl-sorting-item :href="href" :active="active">Some item</gl-sorting-item>
   </gl-sorting>`;
 

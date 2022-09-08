@@ -1,4 +1,12 @@
-import { GlButton, GlButtonGroup, GlBadge, GlDropdown, GlDropdownItem } from '../../../index';
+import {
+  GlButton,
+  GlButtonGroup,
+  GlBadge,
+  GlDropdown,
+  GlDropdownItem,
+  GlSorting,
+  GlSortingItem,
+} from '../../../index';
 import {
   buttonCategoryOptions,
   buttonVariantOptions,
@@ -478,13 +486,12 @@ export const Badges = (args, { argTypes = {} }) => ({
       </div>
   `,
 });
-
 Badges.parameters = { controls: { disable: true } };
 
 export const BadgeWithSROnlyText = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
   components: { GlButton, GlBadge },
-  template: `    
+  template: `
       <gl-button variant="confirm" buttonTextClasses="gl-display-flex gl-align-items-center">
           Submit review
           <gl-badge size="sm" variant="info" class="gl-ml-2">2</gl-badge>
@@ -492,8 +499,20 @@ export const BadgeWithSROnlyText = (args, { argTypes = {} }) => ({
       </gl-button>
   `,
 });
-
 BadgeWithSROnlyText.parameters = { controls: { disable: true } };
+
+export const SortingDropdownSplitButton = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { GlSorting, GlSortingItem },
+  template: `
+    <gl-sorting text="Sorting options">
+      <gl-sorting-item active>First item</gl-sorting-item>
+      <gl-sorting-item>Second item</gl-sorting-item>
+      <gl-sorting-item>Last item</gl-sorting-item>
+    </gl-sorting>
+  `,
+});
+SortingDropdownSplitButton.parameters = { controls: { disable: true } };
 
 export default {
   title: 'base/button',

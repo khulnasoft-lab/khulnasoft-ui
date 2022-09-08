@@ -10,7 +10,7 @@ const components = {
 const propDefault = (prop) => GlSorting.props[prop].default;
 
 const generateProps = ({
-  text = 'Sorting Dropdown',
+  text = 'Sorting options',
   isAscending = propDefault('isAscending'),
   sortDirectionToolTip = propDefault('sortDirectionToolTip'),
   dropdownClass = propDefault('dropdownClass'),
