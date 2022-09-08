@@ -1,3 +1,10 @@
+# [43.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.13.0...v43.14.0) (2022-09-08)
+
+
+### Features
+
+* **GlListbox:** Add support for grouping ([c6ec8f1](https://gitlab.com/gitlab-org/gitlab-ui/commit/c6ec8f1a53eb4fad9a3ec077a762b23e67ef0245))
+
 # [43.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.12.0...v43.13.0) (2022-09-06)
 
 
