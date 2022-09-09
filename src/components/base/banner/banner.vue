@@ -98,7 +98,7 @@ export default {
       <img :src="svgPath" alt="" role="presentation" />
     </div>
     <div class="gl-banner-content">
-      <h1 class="gl-banner-title">{{ title }}</h1>
+      <h2 class="gl-banner-title">{{ title }}</h2>
       <!-- @slot The banner content to display -->
       <slot></slot>
       <gl-button
