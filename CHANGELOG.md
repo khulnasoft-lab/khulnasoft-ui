@@ -1,3 +1,11 @@
+# [43.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.14.0...v43.15.0) (2022-09-09)
+
+
+### Features
+
+* **Banner:** Update banner spec ([488b01d](https://gitlab.com/gitlab-org/gitlab-ui/commit/488b01d941d1166b47070ffe04a7c617e0bc82a3))
+* **Banner:** Update heading level ([c4c4373](https://gitlab.com/gitlab-org/gitlab-ui/commit/c4c437375596b4157968c88ff16e59bef95a1f36))
+
 # [43.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.13.0...v43.14.0) (2022-09-08)
 
 
