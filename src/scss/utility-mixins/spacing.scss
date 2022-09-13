@@ -883,6 +883,12 @@
   }
 }
 
+@mixin gl-sm-mt-6 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-mt-6;
+  }
+}
+
 @mixin gl-sm-mb-7 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-mb-7;
