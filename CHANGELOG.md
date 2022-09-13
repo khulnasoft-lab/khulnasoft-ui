@@ -1,3 +1,10 @@
+# [43.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.15.0...v43.16.0) (2022-09-13)
+
+
+### Features
+
+* **css:** add gl-sm-mt-6 ([fb7dd88](https://gitlab.com/gitlab-org/gitlab-ui/commit/fb7dd88b4248e3dc94303527ac0f7db6fba23b5c))
+
 # [43.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.14.0...v43.15.0) (2022-09-09)
 
 
