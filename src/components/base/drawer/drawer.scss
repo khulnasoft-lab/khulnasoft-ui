@@ -13,12 +13,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
   @include gl-line-height-normal;
   @include gl-display-flex;
   @include gl-flex-direction-column;
-
-  .gl-drawer-header-sticky {
-    @include gl-bg-white;
-    @include gl-top-0;
-    @include gl-sticky;
-  }
+  @include gl-overflow-hidden;
 
   @include media-breakpoint-down(sm) {
     @include gl-w-full;
@@ -60,20 +55,6 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
   @include gl-p-5;
 }
 
-.gl-drawer-body-scrim-on-footer {
-  &::before {
-    background: $gl-drawer-scrim-gradient;
-    top: -$gl-border-size-1;
-    @include gl-translate-y-n100;
-    @include gl-content-empty;
-    @include gl-left-0;
-    @include gl-absolute;
-    @include gl-pointer-events-none;
-    @include gl-w-full;
-    @include gl-h-7;
-  }
-}
-
 .gl-drawer-footer-sticky {
   @include gl-bg-white;
   @include gl-bottom-0;
@@ -104,6 +85,8 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 }
 
 .gl-drawer-body {
+  @include gl-relative;
+  @include gl-overflow-y-auto;
   @include gl-flex-grow-1;
   // prevent safari bug where box shadow is visible
   // above the drawer when hovering interactive elements
@@ -118,7 +101,8 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
     @include gl-bottom-0;
     @include gl-pointer-events-none;
     @include gl-w-full;
-    @include gl-fixed;
+    @include gl-sticky;
+    @include gl-display-block;
     @include gl-h-7;
   }
 }

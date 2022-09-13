@@ -27,16 +27,6 @@ describe('drawer component', () => {
       });
     });
 
-    describe('when sticky header is true', () => {
-      it('renders drawer header with sticky position', () => {
-        mountWithOpts({ props: { open: true, headerSticky: true } });
-        const header = wrapper.find('.gl-drawer-header');
-
-        expect(header.classes()).toContain('gl-drawer-header-sticky');
-        expect(header.attributes('style')).toBe('z-index: 10;');
-      });
-    });
-
     describe('when open is false', () => {
       it('cannot find aside html element', () => {
         mountWithOpts({ props: { open: false } });
@@ -108,8 +98,8 @@ describe('drawer component', () => {
       },
     });
 
-    expect(wrapper.find('.gl-drawer-footer').classes()).toContain('gl-drawer-body-scrim-on-footer');
-    expect(wrapper.find('.gl-drawer-body').classes()).not.toContain('gl-drawer-body-scrim');
+    expect(wrapper.find('.gl-drawer-footer').classes()).toContain('gl-drawer-footer-sticky');
+    expect(wrapper.find('.gl-drawer-body').classes()).toContain('gl-drawer-body-scrim');
   });
 
   it('should add scrim to scrollable container', () => {

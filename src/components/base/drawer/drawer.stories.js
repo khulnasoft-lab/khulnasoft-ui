@@ -64,7 +64,6 @@ const createSidebarTemplate = (content) => `
   <gl-drawer
     :open="open"
     :header-height="headerHeight"
-    :header-sticky="headerSticky"
     :z-index="zIndex"
     :variant="variant"
     @close="close">${content}</gl-drawer>
@@ -74,12 +73,10 @@ const defaultValue = (prop) => GlDrawer.props[prop].default;
 
 const generateProps = ({
   headerHeight = defaultValue('headerHeight'),
-  headerSticky = defaultValue('headerSticky'),
   zIndex = defaultValue('zIndex'),
   variant = defaultValue('variant'),
 } = {}) => ({
   headerHeight,
-  headerSticky,
   zIndex,
   variant,
 });
@@ -184,9 +181,7 @@ export const WithScrimAndStaticContent = (_args, { viewMode }) => ({
     </div>`,
 });
 
-WithScrimAndStaticContent.args = generateProps({
-  headerSticky: true,
-});
+WithScrimAndStaticContent.args = generateProps();
 
 export const SidebarVariant = (_args, { viewMode }) => ({
   ...storyOptions(viewMode),
@@ -206,26 +201,9 @@ export const SidebarVariant = (_args, { viewMode }) => ({
       `)}
     </div>`,
 });
+
 SidebarVariant.args = generateProps({
   variant: drawerVariants.sidebar,
-});
-
-export const StickyHeaderFooter = (_args, { viewMode }) => ({
-  ...storyOptions(viewMode),
-  template: `
-  <div>
-    <gl-button @click="toggle">Toggle Drawer</gl-button>
-    ${createSidebarTemplate(`
-      <template #title>List Settings</template>
-      ${drawerContent}
-      <template #footer>
-         Drawer footer
-      </template>
-    `)}
-  </div>`,
-});
-StickyHeaderFooter.args = generateProps({
-  headerSticky: true,
 });
 
 export default {
