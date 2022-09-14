@@ -17,7 +17,7 @@ describe('GlListboxItem', () => {
   const findCheckIcon = () => findItem().findComponent(GLIcon);
 
   describe('toggleSelection', () => {
-    describe('when selected ', () => {
+    describe('when selected', () => {
       beforeEach(() => {
         buildWrapper({ isSelected: true });
       });
@@ -48,7 +48,7 @@ describe('GlListboxItem', () => {
       });
     });
 
-    describe('when not selected ', () => {
+    describe('when not selected', () => {
       beforeEach(() => {
         buildWrapper({ isSelected: false });
       });

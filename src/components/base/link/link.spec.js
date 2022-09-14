@@ -64,7 +64,7 @@ describe('link component', () => {
 
     // GlSafeLinkDirective is actually responsible to handle the unsafe URLs
     // and GlLink uses this directive to make all the links secure by default
-    it('should set href to blank ', () => {
+    it('should set href to blank', () => {
       createWrapper({
         propsData: {
           href: unsafeUrl,

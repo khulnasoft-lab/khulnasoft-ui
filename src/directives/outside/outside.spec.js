@@ -252,7 +252,7 @@ describe('outside directive', () => {
     });
   });
 
-  describe('click event fired before directive binding ', () => {
+  describe('click event fired before directive binding', () => {
     // This *attempts* to simulate something like the following situation:
     //
     //     <button @click="show = true">Show</button>

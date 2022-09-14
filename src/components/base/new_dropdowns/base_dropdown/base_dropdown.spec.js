@@ -135,7 +135,7 @@ describe('base dropdown', () => {
       buildWrapper();
     });
 
-    it('should toggle menu visibility on toggle button click ', async () => {
+    it('should toggle menu visibility on toggle button click', async () => {
       const toggle = findDropdownToggle();
       const menu = findDropdownMenu();
 
