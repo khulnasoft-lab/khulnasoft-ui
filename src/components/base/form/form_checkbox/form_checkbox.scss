@@ -134,7 +134,7 @@
     }
 
     .custom-control-input:checked:disabled ~ .custom-control-label,
-    .custom-control-input:indeterminate:disabled ~ .custom-control-label {
+    .custom-control-input[type='checkbox']:indeterminate:disabled ~ .custom-control-label {
       &::before {
         @include gl-bg-gray-100;
         @include gl-border-gray-100;
