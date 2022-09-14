@@ -22,6 +22,9 @@ const template = `
     <gl-form-checkbox value="checked-option">Checked option</gl-form-checkbox>
     <gl-form-checkbox value="checked-disabled-option" :disabled="true">Checked disabled option</gl-form-checkbox>
     <gl-form-checkbox value="disabled-option" :disabled="true">Disabled option</gl-form-checkbox>
+    <template #first>
+      <gl-form-checkbox value="first">First</gl-form-checkbox>
+    </template>
   </gl-form-checkbox-group>
   <gl-form-checkbox value="indeterminate-option" :indeterminate="indeterminate">Indeterminate option</gl-form-checkbox>
   <gl-form-checkbox value="indeterminate-disabled-option" :indeterminate="indeterminate" :disabled="true">Indeterminate disabled option</gl-form-checkbox>
