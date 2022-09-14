@@ -1,3 +1,10 @@
+# [43.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.16.0...v43.17.0) (2022-09-14)
+
+
+### Features
+
+* **css:** add gl-gap-y-3 ([d76e3d1](https://gitlab.com/gitlab-org/gitlab-ui/commit/d76e3d1cc6fbb79e9e7d101ba1865ed2c2f5afd2))
+
 # [43.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.15.0...v43.16.0) (2022-09-13)
 
 
