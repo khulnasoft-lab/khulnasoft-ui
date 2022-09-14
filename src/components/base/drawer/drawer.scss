@@ -107,6 +107,10 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 
 .gl-drawer-body {
   @include gl-flex-grow-1;
+  // prevent safari bug where box shadow is visible
+  // above the drawer when hovering interactive elements
+  // see https://gitlab.com/gitlab-org/gitlab/-/issues/366558
+  background-color: inherit;
 }
 
 .gl-drawer-body-scrim {
