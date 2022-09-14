@@ -45,7 +45,7 @@ describe('line component', () => {
   });
 
   describe('Annotations tooltips', () => {
-    it('are hidden by default ', async () => {
+    it('are hidden by default', async () => {
       createShallowWrapper();
 
       await wrapper.vm.$nextTick();
@@ -53,7 +53,7 @@ describe('line component', () => {
       expect(findAnnotationsTooltip().exists()).toBe(false);
     });
 
-    it('are displayed if passed via annotations props ', async () => {
+    it('are displayed if passed via annotations props', async () => {
       createShallowWrapper({
         annotations: [
           {
@@ -68,7 +68,7 @@ describe('line component', () => {
       expect(findAnnotationsTooltip().exists()).toBe(true);
     });
 
-    it('are displayed if passed via option props ', async () => {
+    it('are displayed if passed via option props', async () => {
       createShallowWrapper({
         option: {
           series: [

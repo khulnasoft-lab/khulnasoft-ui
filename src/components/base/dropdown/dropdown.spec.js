@@ -311,7 +311,7 @@ describe('new dropdown', () => {
         });
       });
 
-      describe('with showClearAll=true ', () => {
+      describe('with showClearAll=true', () => {
         beforeEach(() => {
           buildWrapper({ showClearAll: true });
         });

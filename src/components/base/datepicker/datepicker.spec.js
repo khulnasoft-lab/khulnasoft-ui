@@ -35,7 +35,7 @@ describe('datepicker component', () => {
     jest.setSystemTime(currentDate.getTime());
   });
 
-  it("does not set default date when 'value' and 'defaultDate' props aren't set ", () => {
+  it("does not set default date when 'value' and 'defaultDate' props aren't set", () => {
     mountWithOptions();
 
     expect(Pikaday).toHaveBeenCalled();

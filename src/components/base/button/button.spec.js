@@ -174,7 +174,7 @@ describe('button component', () => {
 
       // GlSafeLinkDirective is actually responsible to handle the unsafe URLs
       // and GlButton uses this directive to make all the links secure by default
-      it('should set href to blank ', () => {
+      it('should set href to blank', () => {
         buildWrapper({
           propsData: {
             href: unsafeUrl,

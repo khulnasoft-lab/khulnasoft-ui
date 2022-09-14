@@ -52,7 +52,7 @@ describe('GlListbox', () => {
   });
 
   describe('ARIA attributes', () => {
-    it('should provide `toggleId` to the base dropdown and reference it in`aria-labelledby` attribute of the list container` ', async () => {
+    it('should provide `toggleId` to the base dropdown and reference it in`aria-labelledby` attribute of the list container`', async () => {
       await buildWrapper();
       expect(findBaseDropdown().props('toggleId')).toBe(
         findListContainer().attributes('aria-labelledby')
@@ -70,7 +70,7 @@ describe('GlListbox', () => {
         });
       });
 
-      it('should render items as selected when `selected` provided ', () => {
+      it('should render items as selected when `selected` provided', () => {
         expect(findListboxItems().at(1).props('isSelected')).toBe(true);
         expect(findListboxItems().at(2).props('isSelected')).toBe(true);
       });
@@ -106,7 +106,7 @@ describe('GlListbox', () => {
         expect(wrapper).toHaveLoggedVueErrors();
       });
 
-      it('should render item as selected when `selected` provided ', () => {
+      it('should render item as selected when `selected` provided', () => {
         expect(findListboxItems().at(1).props('isSelected')).toBe(true);
       });
 
@@ -124,7 +124,7 @@ describe('GlListbox', () => {
         buildWrapper({ selected, items: mockGroups });
       });
 
-      it('should render item as selected when `selected` provided ', () => {
+      it('should render item as selected when `selected` provided', () => {
         expect(findListboxItems().at(3).props('isSelected')).toBe(true);
       });
 
