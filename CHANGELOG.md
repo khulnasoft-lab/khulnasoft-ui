@@ -1,3 +1,10 @@
+## [43.17.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.17.0...v43.17.1) (2022-09-15)
+
+
+### Bug Fixes
+
+* Add [type=checkbox] to :indeterminate:disabled control ([6916c16](https://gitlab.com/gitlab-org/gitlab-ui/commit/6916c16e3cf061cf02ecd786cafdc4c5c486c610))
+
 # [43.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.16.0...v43.17.0) (2022-09-14)
 
 
