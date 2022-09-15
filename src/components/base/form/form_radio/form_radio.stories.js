@@ -2,31 +2,44 @@ import { GlFormRadio } from '../../../../index';
 import readme from './form_radio.md';
 
 const defaultOptions = [
-  { value: 'Pizza', text: 'Pizza' },
-  { value: 'Tacos', text: 'Tacos' },
-  { value: 'Burger', text: 'Burger', disabled: true },
+  { value: 'Option', name: 'radio-group' },
+  { value: 'Slot option', name: 'radio-group', slot: 'With help text' },
+  { value: 'Checked option', name: 'radio-group' },
+  {
+    value: 'Checked disabled option',
+    disabled: true,
+    name: 'last-radio-group',
+    checked: 'Checked disabled option',
+  },
+  { value: 'Disabled option', disabled: true, name: 'radio-group' },
+  { value: 'Indeterminate option', name: 'indeterminate-radio-group' },
+  { value: 'Indeterminate disabled option', disabled: true, name: 'indeterminate-radio-group' },
 ];
 
-const generateProps = ({ name = 'radio-group-name', checked = defaultOptions[0].value } = {}) => ({
-  name,
+const template = `
+<div>
+  <gl-form-radio
+    v-for="option in options"
+    :key="option.value"
+    :checked="option.checked || checked"
+    :disabled="option.disabled"
+    :name="option.name || name"
+    :value="option.value"
+  >
+    {{ option.value }}
+    <template v-if="option.slot" #help>{{ option.slot }}</template>
+  </gl-form-radio>
+</div>
+`;
+
+const generateProps = ({ checked = 'Checked option' } = {}) => ({
   checked,
 });
 
 const Template = (args) => ({
   components: { GlFormRadio },
   props: Object.keys(args),
-  template: `
-      <div>
-        <gl-form-radio
-          v-for="option in options"
-          :key="option.value"
-          :checked="checked"
-          :value="option.value"
-          :disabled="option.disabled"
-          :name="name"
-        >{{ option.text }}</gl-form-radio>
-      </div>
-    `,
+  template,
   data() {
     return {
       options: defaultOptions,

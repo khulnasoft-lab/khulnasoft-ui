@@ -6,22 +6,34 @@ const components = {
   GlFormCheckboxGroup,
 };
 
+const data = () => ({
+  selected: ['checked-option', 'checked-disabled-option'],
+  indeterminate: true,
+});
+
 const template = `
-  <gl-form-checkbox-group>
+<div>
+  <gl-form-checkbox-group v-model="selected">
+    <gl-form-checkbox value="option">Option</gl-form-checkbox>
+    <gl-form-checkbox value="slot-option">
+      Slot option
+      <template #help> With help text </template>
+    </gl-form-checkbox>
+    <gl-form-checkbox value="checked-option">Checked option</gl-form-checkbox>
+    <gl-form-checkbox value="checked-disabled-option" :disabled="true">Checked disabled option</gl-form-checkbox>
+    <gl-form-checkbox value="disabled-option" :disabled="true">Disabled option</gl-form-checkbox>
     <template #first>
-      <gl-form-checkbox value="Slot option">
-        Slot option with help text
-        <template #help>
-          Help text
-        </template>
-      </gl-form-checkbox>
+      <gl-form-checkbox value="first">First</gl-form-checkbox>
     </template>
-    <gl-form-checkbox value="Last option">Last option</gl-form-checkbox>
   </gl-form-checkbox-group>
+  <gl-form-checkbox value="indeterminate-option" :indeterminate="indeterminate">Indeterminate option</gl-form-checkbox>
+  <gl-form-checkbox value="indeterminate-disabled-option" :indeterminate="indeterminate" :disabled="true">Indeterminate disabled option</gl-form-checkbox>
+</div>
 `;
 
 const Template = () => ({
   components,
+  data,
   template,
 });
 
