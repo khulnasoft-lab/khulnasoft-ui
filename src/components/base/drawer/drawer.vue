@@ -18,11 +18,6 @@ export default {
       required: false,
       default: '',
     },
-    headerSticky: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     zIndex: {
       type: Number,
       required: false,
@@ -50,11 +45,6 @@ export default {
       }
 
       return styles;
-    },
-    drawerHeaderStyles() {
-      return {
-        zIndex: this.headerSticky ? maxZIndex : null,
-      };
     },
     shouldRenderFooter() {
       // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
@@ -93,11 +83,7 @@ export default {
 <template>
   <transition name="gl-drawer">
     <aside v-if="open" :style="drawerStyles" class="gl-drawer" :class="variantClass">
-      <div
-        class="gl-drawer-header"
-        :style="drawerHeaderStyles"
-        :class="{ 'gl-drawer-header-sticky': headerSticky }"
-      >
+      <div class="gl-drawer-header">
         <span class="gl-drawer-title">
           <slot name="title"></slot>
           <gl-button
@@ -111,15 +97,10 @@ export default {
         </span>
         <slot name="header"></slot>
       </div>
-      <div class="gl-drawer-body" :class="{ 'gl-drawer-body-scrim': !shouldRenderFooter }">
+      <div class="gl-drawer-body gl-drawer-body-scrim">
         <slot></slot>
       </div>
-      <div
-        v-if="shouldRenderFooter"
-        class="gl-drawer-footer gl-drawer-footer-sticky"
-        :class="{ 'gl-drawer-body-scrim-on-footer': shouldRenderFooter }"
-        :style="{ zIndex }"
-      >
+      <div v-if="shouldRenderFooter" class="gl-drawer-footer gl-drawer-footer-sticky">
         <slot name="footer"></slot>
       </div>
     </aside>
