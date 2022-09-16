@@ -1,5 +1,6 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-
+import { BDropdown } from 'bootstrap-vue';
 import { dropdownVariantOptions } from '../../../utils/constants';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlDropdown from './dropdown.vue';
@@ -34,6 +35,7 @@ describe('new dropdown', () => {
   const findClearAll = () => findByTestId('clear-all-button');
   const findHighlightedItemsTitle = () => findByTestId('highlighted-items-title');
   const findHighlightedItems = () => findByTestId('highlighted-items');
+  const findBDropdown = () => wrapper.findComponent(BDropdown);
 
   it('renders when text is null', () => {
     buildWrapper({ text: null });
@@ -416,5 +418,46 @@ describe('new dropdown', () => {
         expect(findClearAll().text()).not.toBe(clearAllText);
       });
     });
+  });
+
+  describe('positioning', () => {
+    it('has the "right" property "false" by default', () => {
+      buildWrapper();
+      expect(findBDropdown().props('right')).toBe(false);
+    });
+
+    it('has the "right" property "true" if hardcoded', () => {
+      buildWrapper({ right: true });
+      expect(findBDropdown().props('right')).toBe(true);
+    });
+
+    it.each`
+      positionX | dropdownWidth | shouldBePositionedOnRight
+      ${200}    | ${100}        | ${false}
+      ${800}    | ${100}        | ${false}
+      ${900}    | ${100}        | ${true}
+    `(
+      'computes the position properly before displaying the dropdown menu',
+      async ({ positionX, dropdownWidth, shouldBePositionedOnRight }) => {
+        buildWrapper();
+
+        jest.spyOn(wrapper.vm.$el, 'getBoundingClientRect').mockReturnValue({
+          x: positionX,
+          width: dropdownWidth,
+        });
+
+        const dropdown = findBDropdown();
+
+        // Make sure the "right" property is false by default
+        expect(dropdown.props('right')).toBe(false);
+
+        // Trigger a mousedown event and wait for changes
+        dropdown.trigger('mousedown');
+        await nextTick();
+
+        // It should be position accordingly
+        expect(dropdown.props('right')).toBe(shouldBePositionedOnRight);
+      }
+    );
   });
 });

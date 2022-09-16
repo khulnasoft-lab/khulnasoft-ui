@@ -147,6 +147,12 @@ export default {
       default: false,
     },
   },
+  // The data property can be safely removed after we migrate to Bootstrap V5.
+  data() {
+    return {
+      shouldPositionOnTheRight: false,
+    };
+  },
   computed: {
     renderCaret() {
       return !this.split;
@@ -200,6 +206,17 @@ export default {
       );
     },
   },
+  // This hook can be safely removed after we migrate to Bootstrap v5. It's a temporary fix
+  // for the positiong bug.
+  mounted() {
+    this.computePosition();
+    this.$refs.dropdown.$el.addEventListener('mousedown', this.computePosition);
+  },
+  // This hook can be safely removed after we migrate to Bootstrap v5. It's a temporary fix
+  // for the positiong bug.
+  beforeDestroy() {
+    this.$refs.dropdown.$el.removeEventListener('mousedown', this.computePosition);
+  },
   methods: {
     hasSlotContents(slotName) {
       // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
@@ -210,6 +227,18 @@ export default {
     },
     hide(...args) {
       this.$refs.dropdown.hide(...args);
+    },
+    // This method can be safely removed after we migrate to Bootstrap v5. It's a temporary fix
+    // for the positiong bug.
+    computePosition() {
+      const rect = this.$el.getBoundingClientRect();
+      const TOLERANCE = 100;
+
+      if (window.innerWidth < rect.x + rect.width + TOLERANCE) {
+        this.shouldPositionOnTheRight = true;
+      } else if (this.shouldPositionOnTheRight) {
+        this.shouldPositionOnTheRight = false;
+      }
     },
   },
 };
@@ -226,7 +255,7 @@ export default {
     :split-class="splitButtonClasses"
     :block="block"
     :disabled="disabled || loading"
-    :right="right"
+    :right="right || shouldPositionOnTheRight"
     v-on="$listeners"
   >
     <div class="gl-new-dropdown-inner">
