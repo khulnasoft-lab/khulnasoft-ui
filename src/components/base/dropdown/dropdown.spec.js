@@ -1,4 +1,3 @@
-import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { BDropdown } from 'bootstrap-vue';
 import { dropdownVariantOptions } from '../../../utils/constants';
@@ -452,8 +451,7 @@ describe('new dropdown', () => {
         expect(dropdown.props('right')).toBe(false);
 
         // Trigger a mousedown event and wait for changes
-        dropdown.trigger('mousedown');
-        await nextTick();
+        await dropdown.trigger('mousedown');
 
         // It should be position accordingly
         expect(dropdown.props('right')).toBe(shouldBePositionedOnRight);
