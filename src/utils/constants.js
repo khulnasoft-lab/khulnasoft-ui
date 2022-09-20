@@ -8,6 +8,8 @@ function appendDefaultOption(options) {
 
 export const COMMA = ',';
 
+export const LEFT_MOUSE_BUTTON = 0;
+
 export const glThemes = ['indigo', 'blue', 'light-blue', 'green', 'red', 'light-red'];
 
 export const variantOptions = {

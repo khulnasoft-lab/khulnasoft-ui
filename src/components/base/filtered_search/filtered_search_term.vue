@@ -69,6 +69,11 @@ export default {
       default: 'end',
       validator: (value) => ['start', 'end'].includes(value),
     },
+    viewOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     suggestedTokens() {
@@ -145,6 +150,7 @@ export default {
       :search-input-attributes="searchInputAttributes"
       :is-last-token="isLastToken"
       :current-value="currentValue"
+      :view-only="viewOnly"
       @activate="$emit('activate')"
       @deactivate="$emit('deactivate')"
       @complete="$emit('replace', { type: $event })"
@@ -170,8 +176,10 @@ export default {
           v-if="placeholder"
           v-bind="searchInputAttributes"
           class="gl-filtered-search-term-input"
+          :class="{ 'gl-bg-gray-10': viewOnly }"
           :placeholder="placeholder"
           :aria-label="placeholder"
+          :readonly="viewOnly"
           data-testid="filtered-search-term-input"
         />
 

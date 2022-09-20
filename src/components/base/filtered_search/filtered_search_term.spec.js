@@ -23,7 +23,7 @@ describe('Filtered search term', () => {
   const segmentStub = {
     name: 'gl-filtered-search-token-segment-stub',
     template: '<div><slot name="view"></slot><slot name="suggestions"></slot></div>',
-    props: ['searchInputAttributes', 'isLastToken', 'currentValue'],
+    props: ['searchInputAttributes', 'isLastToken', 'currentValue', 'viewOnly'],
   };
 
   const createComponent = (props) => {
@@ -35,6 +35,7 @@ describe('Filtered search term', () => {
     });
   };
 
+  const findSearchInput = () => wrapper.find('input');
   const findTokenSegmentComponent = () => wrapper.findComponent(segmentStub);
 
   it('renders value in inactive mode', () => {
@@ -85,8 +86,9 @@ describe('Filtered search term', () => {
     }
   );
 
-  it('passes `searchInputAttributes`, `isLastToken`, and `currentValue` props to `GlFilteredSearchTokenSegment`', () => {
+  it('passes `searchInputAttributes`, `isLastToken`, `currentValue` & `viewOnly` props to `GlFilteredSearchTokenSegment`', () => {
     const isLastToken = true;
+    const viewOnly = true;
     const currentValue = [
       { type: 'filtered-search-term', value: { data: 'something' } },
       { type: 'filtered-search-term', value: { data: '' } },
@@ -97,13 +99,21 @@ describe('Filtered search term', () => {
       searchInputAttributes,
       isLastToken,
       currentValue,
+      viewOnly,
     });
 
     expect(findTokenSegmentComponent().props()).toEqual({
       searchInputAttributes,
       isLastToken,
       currentValue,
+      viewOnly,
     });
+  });
+
+  it('by default sets `viewOnly` to false on `GlFilteredSearchTokenSegment`', () => {
+    createComponent();
+
+    expect(findTokenSegmentComponent().props('viewOnly')).toBe(false);
   });
 
   it('adds `searchInputAttributes` prop to search term input', () => {
@@ -112,8 +122,18 @@ describe('Filtered search term', () => {
       searchInputAttributes,
     });
 
-    expect(wrapper.find('input').attributes('data-qa-selector')).toBe(
+    expect(findSearchInput().attributes('data-qa-selector')).toBe(
       searchInputAttributes['data-qa-selector']
     );
+  });
+
+  describe.each([true, false])('when `viewOnly` is %s', (viewOnly) => {
+    beforeEach(() => {
+      createComponent({ viewOnly, searchInputAttributes, placeholder: 'placeholder-stub' });
+    });
+
+    it(`${viewOnly ? 'adds' : 'does not add'} \`gl-bg-gray-10\` class to search term input`, () => {
+      expect(findSearchInput().classes('gl-bg-gray-10')).toBe(viewOnly);
+    });
   });
 });

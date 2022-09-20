@@ -71,6 +71,11 @@ export default {
       default: 'end',
       validator: (value) => ['start', 'end'].includes(value),
     },
+    viewOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -99,6 +104,10 @@ export default {
     operatorDescription() {
       const operator = this.operators.find((op) => op.value === this.tokenValue.operator);
       return this.showFriendlyText ? operator?.description : operator?.value;
+    },
+
+    eventListeners() {
+      return this.viewOnly ? {} : { mousedown: this.destroyByClose };
     },
   },
   segments: {
@@ -165,6 +174,8 @@ export default {
 
   methods: {
     activateSegment(segment) {
+      if (this.viewOnly) return;
+
       this.activeSegment = segment;
 
       if (!this.active) {
@@ -178,6 +189,9 @@ export default {
     },
 
     getAdditionalSegmentClasses(segment) {
+      if (this.viewOnly) {
+        return 'gl-cursor-text';
+      }
       return { 'gl-cursor-pointer': !this.isSegmentActive(segment) };
     },
 
@@ -293,7 +307,11 @@ export default {
 <template>
   <div
     class="gl-filtered-search-token"
-    :class="{ 'gl-filtered-search-token-active': active }"
+    :class="{
+      'gl-filtered-search-token-active': active,
+      'gl-filtered-search-token-hover': !viewOnly,
+      'gl-cursor-default': viewOnly,
+    }"
     data-testid="filtered-search-token"
   >
     <!--
@@ -307,6 +325,7 @@ export default {
       :active="isSegmentActive($options.segments.SEGMENT_TITLE)"
       :cursor-position="intendedCursorPosition"
       :options="availableTokensWithSelf"
+      :view-only="viewOnly"
       @activate="activateSegment($options.segments.SEGMENT_TITLE)"
       @deactivate="$emit('deactivate')"
       @complete="replaceToken"
@@ -333,7 +352,7 @@ export default {
       :cursor-position="intendedCursorPosition"
       :options="operators"
       :custom-input-keydown-handler="handleOperatorKeydown"
-      view-only
+      :view-only="viewOnly"
       @activate="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @backspace="replaceWithTermIfEmpty"
       @complete="activateSegment($options.segments.SEGMENT_DATA)"
@@ -382,6 +401,7 @@ export default {
       :cursor-position="intendedCursorPosition"
       :multi-select="config.multiSelect"
       :options="config.options"
+      :view-only="viewOnly"
       option-text-field="title"
       @activate="activateDataSegment"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
@@ -406,7 +426,7 @@ export default {
           name="view-token"
           v-bind="{
             inputValue,
-            listeners: { mousedown: destroyByClose },
+            listeners: eventListeners,
             cssClasses: {
               'gl-filtered-search-token-data': true,
               ...getAdditionalSegmentClasses($options.segments.SEGMENT_DATA),
@@ -417,7 +437,8 @@ export default {
             class="gl-filtered-search-token-data"
             variant="search-value"
             :class="getAdditionalSegmentClasses($options.segments.SEGMENT_DATA)"
-            @mousedown="destroyByClose"
+            :view-only="viewOnly"
+            v-on="eventListeners"
           >
             <span class="gl-filtered-search-token-data-content">
               <!--
