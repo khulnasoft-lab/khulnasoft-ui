@@ -1,3 +1,10 @@
+# [43.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.17.1...v43.18.0) (2022-09-20)
+
+
+### Features
+
+* **GlFilteredSearch:** Add support for view only state ([fa2ce04](https://gitlab.com/gitlab-org/gitlab-ui/commit/fa2ce047c3b4daef3e5d64d81122f0c17ab9de3b))
+
 ## [43.17.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.17.0...v43.17.1) (2022-09-15)
 
 
