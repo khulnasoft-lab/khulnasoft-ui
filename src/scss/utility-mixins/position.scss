@@ -82,16 +82,6 @@
   top: $gl-spacing-scale-8;
 }
 
-@mixin gl-top-13 {
-  top: $gl-spacing-scale-13;
-}
-
-@mixin gl-lg-top-13 {
-  @include gl-media-breakpoint-up(lg) {
-    @include gl-top-13;
-  }
-}
-
 @mixin gl-top-half {
   top: 50%;
 }
