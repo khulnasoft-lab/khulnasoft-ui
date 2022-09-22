@@ -15,6 +15,7 @@ import {
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
+import GlButton from '../../button/button.vue';
 import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
 import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
@@ -37,6 +38,7 @@ export default {
     GlBaseDropdown,
     GlListboxItem,
     GlListboxGroup,
+    GlButton,
     GlSearchBoxByType,
     GlLoadingIcon,
   },
@@ -219,6 +221,17 @@ export default {
       required: false,
       default: 'No results found',
     },
+    /**
+     * The reset button's label, to be rendered in the header. If this is omitted, the button is not
+     * rendered.
+     * The reset button requires a header to be set, so this prop should be used in conjunction with
+     * headerText.
+     */
+    resetButtonLabel: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -266,6 +279,15 @@ export default {
     headerId() {
       return this.headerText && uniqueId('listbox-header-');
     },
+    showResetButton() {
+      if (!this.resetButtonLabel) {
+        return false;
+      }
+      if (this.multiple) {
+        return this.selected.length > 0;
+      }
+      return Boolean(this.selected);
+    },
   },
   watch: {
     selected: {
@@ -281,6 +303,13 @@ export default {
         }
       },
     },
+  },
+  mounted() {
+    if (process.env.NODE_ENV !== 'production' && this.resetButtonLabel && !this.headerText) {
+      throw new Error(
+        'The reset button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the resetButtonLabel prop.'
+      );
+    }
   },
   methods: {
     open() {
@@ -392,7 +421,7 @@ export default {
         this.$emit('select', value);
       }
 
-      this.$refs.baseDropdown.closeAndFocus();
+      this.closeAndFocus();
     },
     onMultiSelect(value, isSelected) {
       if (isSelected) {
@@ -412,6 +441,18 @@ export default {
        * @type {string}
        */
       this.$emit('search', searchTerm);
+    },
+    onResetButtonClicked() {
+      /**
+       * Emitted when the reset button is clicked
+       *
+       * @event reset
+       */
+      this.$emit('reset');
+      this.closeAndFocus();
+    },
+    closeAndFocus() {
+      this.$refs.baseDropdown.closeAndFocus();
     },
     isOption,
   },
@@ -440,16 +481,25 @@ export default {
   >
     <div
       v-if="headerText"
-      class="gl-display-flex gl-align-items-center gl-p-3"
+      class="gl-display-flex gl-align-items-center gl-px-3 gl-py-2! gl-min-h-8"
       :class="$options.HEADER_ITEMS_BORDER_CLASSES"
     >
       <div
         :id="headerId"
-        class="gl-flex-grow-1 gl-font-weight-bold gl-font-sm"
+        class="gl-flex-grow-1 gl-font-weight-bold gl-font-sm gl-pr-2"
         data-testid="listbox-header-text"
       >
         {{ headerText }}
       </div>
+      <gl-button
+        v-if="showResetButton"
+        category="tertiary"
+        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2!"
+        data-testid="listbox-reset-button"
+        @click="onResetButtonClicked"
+      >
+        {{ resetButtonLabel }}
+      </gl-button>
     </div>
 
     <div v-if="searchable" :class="$options.HEADER_ITEMS_BORDER_CLASSES">

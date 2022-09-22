@@ -35,6 +35,7 @@ describe('GlListbox', () => {
   const findNoResultsText = () => wrapper.find("[data-testid='listbox-no-results-text']");
   const findLoadingIcon = () => wrapper.find("[data-testid='listbox-search-loader']");
   const findSRNumberOfResultsText = () => wrapper.find("[data-testid='listbox-number-of-results']");
+  const findResetButton = () => wrapper.find("[data-testid='listbox-reset-button']");
 
   describe('toggle text', () => {
     describe.each`
@@ -375,6 +376,63 @@ describe('GlListbox', () => {
         buildWrapper({ items: [], searchable: true, searching: false });
         expect(findSRNumberOfResultsText().exists()).toBe(false);
       });
+    });
+  });
+
+  describe('with a reset action', () => {
+    it('throws when enabling the reset action without a header', () => {
+      expect(() => {
+        buildWrapper({ resetButtonLabel: 'Unassign' });
+      }).toThrow(
+        'The reset button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the resetButtonLabel prop.'
+      );
+      expect(wrapper).toHaveLoggedVueErrors();
+    });
+
+    it('shows the reset button if the label is provided and the selection is not empty', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        selected: mockOptions[1].value,
+        items: mockOptions,
+      });
+      const button = findResetButton();
+
+      expect(button.exists()).toBe(true);
+      expect(button.text()).toBe('Unassign');
+    });
+
+    it.each`
+      description        | props
+      ${'multi-select'}  | ${{ multiple: true, selected: [] }}
+      ${'single-select'} | ${{ multiple: false, selected: null }}
+    `('hides the button if the selection is empty in $description mode', ({ props }) => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        items: mockOptions,
+        ...props,
+      });
+
+      expect(findResetButton().exists()).toBe(false);
+    });
+
+    it('on click, emits the reset event and calls closeAndFocus()', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        selected: mockOptions[1].value,
+        items: mockOptions,
+      });
+      jest.spyOn(wrapper.vm, 'closeAndFocus');
+
+      expect(wrapper.emitted('reset')).toBe(undefined);
+      expect(wrapper.vm.closeAndFocus).not.toHaveBeenCalled();
+
+      findResetButton().trigger('click');
+
+      expect(wrapper.emitted('reset')).toHaveLength(1);
+      expect(wrapper.vm.closeAndFocus).toHaveBeenCalled();
     });
   });
 });

@@ -39,6 +39,7 @@ const generateProps = ({
   isCheckCentered = defaultValue('isCheckCentered'),
   toggleAriaLabelledBy,
   listAriaLabelledBy,
+  resetButtonLabel = defaultValue('resetButtonLabel'),
   startOpened = true,
 } = {}) => ({
   items,
@@ -60,6 +61,7 @@ const generateProps = ({
   isCheckCentered,
   toggleAriaLabelledBy,
   listAriaLabelledBy,
+  resetButtonLabel,
   startOpened,
 });
 
@@ -84,6 +86,7 @@ const makeBindings = (overrides = {}) =>
     ':is-check-centered': 'isCheckCentered',
     ':toggle-aria-labelled-by': 'toggleAriaLabelledBy',
     ':list-aria-labelled-by': 'listAriaLabelledBy',
+    ':reset-button-label': 'resetButtonLabel',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
@@ -153,8 +156,12 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
     selectItem(index) {
       this.selected.push(mockOptions[index].value);
     },
+    onReset() {
+      this.selected = [];
+    },
   },
-  template: template(`
+  template: template(
+    `
     <template #footer>
       <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-100 gl-display-flex gl-justify-content-center gl-p-3">
         <gl-button-group :vertical="false">
@@ -164,11 +171,18 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
         </gl-button-group>
       </div>
     </template>
-  `),
+  `,
+    {
+      bindingOverrides: {
+        '@reset': 'onReset',
+      },
+    }
+  ),
 });
 HeaderAndFooter.args = generateProps({
   toggleText: 'Header and Footer',
   headerText: 'Assign to department',
+  resetButtonLabel: 'Unassign',
   multiple: true,
 });
 HeaderAndFooter.decorators = [makeContainer({ height: '370px' })];
@@ -197,6 +211,11 @@ export const CustomListItem = (args, { argTypes }) => ({
         : this.items.find(({ value }) => value === this.selected[0]).text;
     },
   },
+  methods: {
+    onReset() {
+      this.selected = [];
+    },
+  },
   template: template(
     `<template #list-item="{ item }">
           <span class="gl-display-flex gl-align-items-center">
@@ -211,6 +230,7 @@ export const CustomListItem = (args, { argTypes }) => ({
     {
       bindingOverrides: {
         ':toggle-text': 'customToggleText',
+        '@reset': 'onReset',
       },
     }
   ),
@@ -229,6 +249,8 @@ CustomListItem.args = generateProps({
   ],
   multiple: true,
   isCheckCentered: true,
+  headerText: 'Select assignees',
+  resetButtonLabel: 'Unassign',
 });
 CustomListItem.decorators = [makeContainer({ height: '200px' })];
 
