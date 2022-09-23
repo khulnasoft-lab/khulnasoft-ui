@@ -23,6 +23,12 @@
   position: sticky;
 }
 
+@mixin gl-lg-sticky {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-sticky;
+  }
+}
+
 /**
 * Placement utilities.
 *
