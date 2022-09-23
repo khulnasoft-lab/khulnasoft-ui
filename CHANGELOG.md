@@ -1,3 +1,11 @@
+# [43.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.18.0...v43.19.0) (2022-09-23)
+
+
+### Features
+
+* **css:** Adds sticky position utility classes ([29fc153](https://gitlab.com/gitlab-org/gitlab-ui/commit/29fc15379e94ffc8dbc22f8702004fc25d0f99b7))
+* **css:** remove gl-lg-top-13 and gl-lg-align-items-flex-start ([bbad117](https://gitlab.com/gitlab-org/gitlab-ui/commit/bbad11786e756c84c40426135cb12c379baa4687))
+
 # [43.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.17.1...v43.18.0) (2022-09-20)
 
 
