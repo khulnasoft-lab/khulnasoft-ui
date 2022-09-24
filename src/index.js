@@ -5,6 +5,7 @@
 
 // Components
 // ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
+export { default as GlTextInputDropdown } from './components/base/text_input_dropdown/text_input_dropdown.vue';
 export { default as GlTableLite } from './components/base/table_lite/table_lite.vue';
 export { default as GlDropdownForm } from './components/base/dropdown/dropdown_form.vue';
 export { default as GlKeysetPagination } from './components/base/keyset_pagination/keyset_pagination.vue';
@@ -110,3 +111,4 @@ export { SafeLinkDirective as GlSafeLinkDirective } from './directives/safe_link
 export { SafeHtmlDirective as GlSafeHtmlDirective } from './directives/safe_html/safe_html';
 export { OutsideDirective as GlOutsideDirective } from './directives/outside/outside';
 export { HoverLoadDirective as GlHoverLoadDirective } from './directives/hover_load/hover_load';
+export { TextInputDropdownItemDirective as GlTextInputDropdownItemDirective } from './directives/text_input_dropdown_item/text_input_dropdown_item';
