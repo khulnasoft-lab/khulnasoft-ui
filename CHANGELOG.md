@@ -1,3 +1,10 @@
+# [43.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.19.0...v43.20.0) (2022-09-27)
+
+
+### Features
+
+* **css:** Add gl-md-ml-auto ([c9a4338](https://gitlab.com/gitlab-org/gitlab-ui/commit/c9a4338ae8039ca4a8826996abfba973f2920714))
+
 # [43.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.18.0...v43.19.0) (2022-09-23)
 
 
