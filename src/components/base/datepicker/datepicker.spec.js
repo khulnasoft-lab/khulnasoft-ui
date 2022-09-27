@@ -397,7 +397,7 @@ describe('datepicker component', () => {
     ${'2021-09-27'} | ${new Date(2021, 8, 27)}
     ${'2021/09/27'} | ${new Date(2021, 8, 27)}
     ${'foobarbaz'}  | ${currentDate}
-  `('it parses $dateString correctly', ({ dateString, parsedDate }) => {
+  `('parses $dateString correctly', ({ dateString, parsedDate }) => {
     mountWithOptions();
 
     const config = pikadayConfig();
