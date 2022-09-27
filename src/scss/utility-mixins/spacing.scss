@@ -937,6 +937,12 @@
   }
 }
 
+@mixin gl-md-ml-auto {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-ml-auto;
+  }
+}
+
 @mixin gl-md-ml-2 {
   @include gl-media-breakpoint-up(md) {
     @include gl-ml-2;
