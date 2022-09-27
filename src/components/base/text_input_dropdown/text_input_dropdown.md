@@ -5,13 +5,18 @@ This should correspond to the short description in Pajamas' website: https://des
 
 ## Usage
 
-<!-- Provide technical information on how to use the component, add code examples if relevant. -->
+The `GlTextInputDropdown` component is aimed at solving all use cases that a dropdown does just triggered
+on the click of a search input.
 
-<!--
+Instead of recreating complex dropdown positioning logic, this component reuses Bootstrap's dropdown
+mixin.
+
 ## Dos and don'ts
 
-If relevant, describe how the component is expected to be used, and how it's not.
--->
+Use this component to encapsulate the features of `GlTokenSelector` and `GlCombobox`
+
+Do not use this component when the items are not grouped or they are loaded synchronously before.
+We already have the above components to solve those use cases.
 
 <!--
 ## Browser compatibility

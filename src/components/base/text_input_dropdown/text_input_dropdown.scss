@@ -1,0 +1,10 @@
+.gl-text-input-dropdown-clear {
+  @include gl-z-index-3;
+  @include gl-display-flex;
+  @include gl-align-items-center;
+  @include gl-line-height-0;
+  @include gl-right-0;
+  @include gl-absolute;
+  @include gl-h-full;
+  @include gl-top-0;
+}

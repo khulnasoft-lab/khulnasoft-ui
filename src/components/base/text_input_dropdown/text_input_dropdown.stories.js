@@ -13,7 +13,7 @@ export const Default = Template.bind({});
 Default.args = generateProps();
 
 export default {
-  title: 'base/text_input_dropdown_demo',
+  title: 'base/text_input_dropdown',
   component: GlTextInputDropdownStoryDemo,
   parameters: {
     docs: {

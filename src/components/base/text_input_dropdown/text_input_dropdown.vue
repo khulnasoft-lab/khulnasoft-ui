@@ -1,5 +1,6 @@
 <script>
 import GlFormInput from '../form/form_input/form_input.vue';
+import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import BootstrapDropdownMixinAdapter from '../../utilities/bootstrap_dropdown_mixin_adapter/bootstrap_dropdown_mixin_adapter.vue';
 
 const ENTER_KEY_CODE = 13;
@@ -11,6 +12,7 @@ export default {
   components: {
     BootstrapDropdownMixinAdapter,
     GlFormInput,
+    GlClearIconButton,
   },
   props: {
     items: {
@@ -41,6 +43,18 @@ export default {
     },
     focusedItem() {
       return this.items[this.focusedIndex];
+    },
+    hasValue() {
+      return Boolean(this.textValue.length);
+    },
+    showClearButton() {
+      return this.hasValue && !this.inputAttrs.disabled;
+    },
+    clearButtonTitle() {
+      return 'Clear';
+    },
+    tooltipContainer() {
+      return 'false';
     },
   },
   watch: {
@@ -110,6 +124,13 @@ export default {
         this.visible = false;
       }
     },
+    clearInput() {
+      this.$refs.input.$emit('input', '');
+      this.focusInput();
+    },
+    focusInput() {
+      this.$refs.input.$el.focus();
+    },
   },
 };
 </script>
@@ -129,6 +150,13 @@ export default {
         @keydown="onKeydown"
         @focus="onFocus"
         @blur="onBlur"
+      />
+      <gl-clear-icon-button
+        v-if="showClearButton"
+        :title="clearButtonTitle"
+        class="gl-text-input-dropdown-clear gl-clear-icon-button"
+        :tooltip-container="tooltipContainer"
+        @click.stop="clearInput"
       />
     </template>
     <template #menu-items>

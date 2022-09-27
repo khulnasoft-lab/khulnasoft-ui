@@ -38,9 +38,7 @@ export default {
       },
     },
     visible(newVal) {
-      if (newVal !== this.visibleProp) {
-        this.$emit('update:visibleProp', newVal);
-      }
+      this.$emit('update:visibleProp', newVal);
     },
   },
   mounted() {
@@ -80,7 +78,7 @@ export default {
       :class="{ show: visible }"
     >
       <!-- It's not good that we are adding div's under ul's, but this
-           is what the existing dropdown component does, so we 
+           is what the existing dropdown component does, so we
            should be consistent... -->
       <div class="gl-new-dropdown-contents">
         <div ref="menuItemsParent" class="gl-new-dropdown-inner">
