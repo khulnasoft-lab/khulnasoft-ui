@@ -102,7 +102,7 @@ describe('GlListbox', () => {
             selected: [mockOptions[1].value, mockOptions[2].value],
             items: mockOptions,
           });
-        }).toThrowError('To allow multi-selection, please, set "multiple" property to "true"');
+        }).toThrow('To allow multi-selection, please, set "multiple" property to "true"');
         expect(wrapper).toHaveLoggedVueErrors();
       });
 

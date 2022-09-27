@@ -237,7 +237,7 @@ describe('Modal component', () => {
     });
   });
 
-  it('it binds visible property to the BModal visible property', async () => {
+  it('binds visible property to the BModal visible property', async () => {
     createComponent({ stubModal: false });
 
     expect(wrapper.props().visible).toBe(false);
