@@ -48,6 +48,27 @@ To make this mergeable:
   to conventional commit standards.
 - If not, commit `2b2b2b2` must be squashed into `1a1a1a1`.
 
+## Rewriting an MR's commit history
+
+The commits that get merged into the `main` branch should only describe changes since the
+previously released version of GitLab UI. Commits that describe changes within an MR, like
+applying review suggestions, should _not_ land in `main`. Therefore, it might be necessary to
+rewrite an MR's commit history before merging, so that no spurious changelog entries get
+generated.
+
+Still, we need to keep reviewers in mind when rewriting commits. When addressing review feedback,
+the reviewer should be able to refer to the commits history to confirm that their suggestions were
+addressed, without doing a full-blown review again.
+
+This means that the commits history should be re-written only after the reviewers involved in a
+review round have given their approval.
+
+When addressing suggestions at the maintainer-review stage, it might be a good idea to put the MR
+in the draft status before sending it back to the maintainer to make sure it isn't merged
+accidentally before the history could be rewritten.
+
+It is the responsibility of the MR's assignee to rewrite its commit history.
+
 ## Why is [squash merging](https://docs.gitlab.com/ee/user/project/merge_requests/squash_and_merge.html) disabled?
 
 This feature is disabled in GitLab UI, since it allows for subtle ways to
