@@ -50,13 +50,13 @@ describe('Daterange Picker', () => {
       it('emits `start-date-open` event on component when `open` event fires', () => {
         findStartPicker().vm.$emit('open');
 
-        expect(wrapper.emitted('start-picker-open')).toBeTruthy();
+        expect(wrapper.emitted('start-picker-open')).toHaveLength(1);
       });
 
       it('emits `start-date-close` event on component when `close` event fires', () => {
         findStartPicker().vm.$emit('close');
 
-        expect(wrapper.emitted('start-picker-close')).toBeTruthy();
+        expect(wrapper.emitted('start-picker-close')).toHaveLength(1);
       });
 
       describe('with a date range violation', () => {
@@ -136,13 +136,13 @@ describe('Daterange Picker', () => {
       it('emits `end-date-open` event on component when `open` event fires', () => {
         findEndPicker().vm.$emit('open');
 
-        expect(wrapper.emitted('end-picker-open')).toBeTruthy();
+        expect(wrapper.emitted('end-picker-open')).toHaveLength(1);
       });
 
       it('emits `end-date-close` event on component when `close` event fires', () => {
         findEndPicker().vm.$emit('close');
 
-        expect(wrapper.emitted('end-picker-close')).toBeTruthy();
+        expect(wrapper.emitted('end-picker-close')).toHaveLength(1);
       });
     });
   });

@@ -74,7 +74,7 @@ describe('Filtered search token segment', () => {
 
     wrapper.trigger('mousedown.left');
 
-    expect(wrapper.emitted().activate).toHaveLength(1);
+    expect(wrapper.emitted('activate')).toHaveLength(1);
   });
 
   it('does not emit activate when view-only is true', () => {
@@ -82,7 +82,7 @@ describe('Filtered search token segment', () => {
 
     wrapper.trigger('mousedown.left');
 
-    expect(wrapper.emitted().activate).toBeUndefined();
+    expect(wrapper.emitted('activate')).toBeUndefined();
   });
 
   it('ignores mousedown if active', () => {
@@ -90,7 +90,7 @@ describe('Filtered search token segment', () => {
 
     wrapper.trigger('mousedown');
 
-    expect(wrapper.emitted().mousedown).toBeUndefined();
+    expect(wrapper.emitted('mousedown')).toBeUndefined();
   });
 
   it('selects next suggestion if down arrow is pressed', () => {
@@ -111,7 +111,7 @@ describe('Filtered search token segment', () => {
     createComponent({ active: true, value: false });
     wrapper.find('input').trigger('keydown', { key: 'Enter' });
 
-    expect(wrapper.emitted().submit).toHaveLength(1);
+    expect(wrapper.emitted('submit')).toHaveLength(1);
   });
 
   it('emits complete if Escape is pressed', () => {
@@ -126,14 +126,14 @@ describe('Filtered search token segment', () => {
     createComponent({ active: true, value: '' });
     wrapper.find('input').trigger('keydown', { key: 'Backspace' });
 
-    expect(wrapper.emitted().backspace).toHaveLength(1);
+    expect(wrapper.emitted('backspace')).toHaveLength(1);
   });
 
   it('does not emit backspace event if value is not empty and Backspace is pressed', () => {
     createComponent({ active: true, value: 'something' });
     wrapper.find('input').trigger('keydown', { key: 'Backspace' });
 
-    expect(wrapper.emitted().backspace).toBeUndefined();
+    expect(wrapper.emitted('backspace')).toBeUndefined();
   });
 
   it('invokes custom input handler if provided', () => {
@@ -160,7 +160,7 @@ describe('Filtered search token segment', () => {
 
     wrapper.find('input').trigger('blur');
 
-    expect(wrapper.emitted().deactivate).toHaveLength(1);
+    expect(wrapper.emitted('deactivate')).toHaveLength(1);
     expect(wrapper.emitted('complete')).toBeUndefined();
   });
 
@@ -189,8 +189,8 @@ describe('Filtered search token segment', () => {
 
       wrapper.vm.applySuggestion(token);
 
-      expect(wrapper.emitted().input[0][0]).toBe(token);
-      expect(wrapper.emitted().complete[0][0]).toBe(token);
+      expect(wrapper.emitted('input')[0][0]).toBe(token);
+      expect(wrapper.emitted('complete')[0][0]).toBe(token);
     });
 
     it('emits wrapped token when spaces are present', () => {
@@ -201,9 +201,9 @@ describe('Filtered search token segment', () => {
 
       wrapper.vm.applySuggestion(token);
 
-      expect(wrapper.emitted().input[0][0]).toBe(formattedToken);
-      expect(wrapper.emitted().select[0][0]).toBe(formattedToken);
-      expect(wrapper.emitted().complete[0][0]).toBe(formattedToken);
+      expect(wrapper.emitted('input')[0][0]).toBe(formattedToken);
+      expect(wrapper.emitted('select')[0][0]).toBe(formattedToken);
+      expect(wrapper.emitted('complete')[0][0]).toBe(formattedToken);
     });
 
     it('selects suggestion on press Enter', () => {

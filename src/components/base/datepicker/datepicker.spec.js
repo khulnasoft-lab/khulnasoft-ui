@@ -180,7 +180,7 @@ describe('datepicker component', () => {
         });
 
         it('emits the `clear` event', () => {
-          expect(wrapper.emitted('clear')).toBeTruthy();
+          expect(wrapper.emitted('clear')).toHaveLength(1);
         });
       });
 

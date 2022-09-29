@@ -40,7 +40,7 @@ describe('search box by type component', () => {
     it('emits empty value when clicked', () => {
       findClearIcon().vm.$emit('click', { stopPropagation: jest.fn() });
 
-      expect(wrapper.emitted().input).toEqual([['']]);
+      expect(wrapper.emitted('input')).toEqual([['']]);
     });
   });
 
@@ -59,7 +59,7 @@ describe('search box by type component', () => {
     it(`emits ${modelEvent} event when input value changes`, () => {
       findInput().setValue(newValue);
 
-      expect(wrapper.emitted().input).toEqual([[newValue]]);
+      expect(wrapper.emitted('input')).toEqual([[newValue]]);
     });
   });
 

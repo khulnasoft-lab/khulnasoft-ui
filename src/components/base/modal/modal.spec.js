@@ -260,6 +260,6 @@ describe('Modal component', () => {
 
     findModal().vm.$emit('change');
 
-    expect(wrapper.emitted().change).toHaveLength(1);
+    expect(wrapper.emitted('change')).toHaveLength(1);
   });
 });

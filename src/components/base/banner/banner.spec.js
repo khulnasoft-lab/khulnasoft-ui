@@ -40,15 +40,15 @@ describe('banner component', () => {
       });
 
       it('should emit a `close` event after the close button is clicked', () => {
-        expect(wrapper.emitted('close')).toBeFalsy();
+        expect(wrapper.emitted('close')).toBe(undefined);
         wrapper.find('.gl-banner-close').vm.$emit('click');
-        expect(wrapper.emitted('close')).toBeTruthy();
+        expect(wrapper.emitted('close')).toHaveLength(1);
       });
 
       it('should emit a `primary` event when the primary button is clicked', () => {
-        expect(wrapper.emitted('primary')).toBeFalsy();
+        expect(wrapper.emitted('primary')).toBe(undefined);
         wrapper.find('[data-testid="gl-banner-primary-button"]').vm.$emit('click');
-        expect(wrapper.emitted('primary')).toBeTruthy();
+        expect(wrapper.emitted('primary')).toHaveLength(1);
       });
     });
 

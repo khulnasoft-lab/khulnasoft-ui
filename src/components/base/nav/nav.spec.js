@@ -13,7 +13,7 @@ describe('GlNav', () => {
         },
       });
 
-      expect(wrapper.findAllComponents(GlNavItem).exists()).toBeTruthy();
+      expect(wrapper.findAllComponents(GlNavItem).exists()).toBe(true);
     });
   });
 });

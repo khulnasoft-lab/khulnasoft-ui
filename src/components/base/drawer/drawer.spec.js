@@ -71,7 +71,7 @@ describe('drawer component', () => {
         const event = new KeyboardEvent('keydown', { keyCode: 27 });
         document.dispatchEvent(event);
 
-        expect(wrapper.emitted().close).toBeFalsy();
+        expect(wrapper.emitted('close')).toBe(undefined);
       });
 
       it('does not call onClose when open is false and keyCode is not esc', () => {
@@ -80,7 +80,7 @@ describe('drawer component', () => {
         const event = new KeyboardEvent('keydown', { keyCode: 37 });
         document.dispatchEvent(event);
 
-        expect(wrapper.emitted().close).toBeFalsy();
+        expect(wrapper.emitted('close')).toBe(undefined);
       });
     });
   });

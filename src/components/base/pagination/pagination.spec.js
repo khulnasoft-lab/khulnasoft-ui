@@ -63,7 +63,7 @@ describe('pagination component', () => {
     });
     await wrapper.vm.$nextTick();
 
-    expect(wrapper.html()).toBeFalsy();
+    expect(wrapper.html()).toBe('');
   });
 
   it('supports slots customization', () => {
@@ -114,7 +114,7 @@ describe('pagination component', () => {
     const nextButton = buttons.at(buttons.length - 1);
     nextButton.trigger('click');
 
-    expect(wrapper.emitted('input')).toBeTruthy();
+    expect(wrapper.emitted('input')).toHaveLength(1);
     expect(wrapper.emitted('input')[0]).toEqual([2]);
   });
 

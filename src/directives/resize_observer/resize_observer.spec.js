@@ -76,15 +76,15 @@ describe('resize observer directive', () => {
     });
 
     expect(observersCount()).toBe(1);
-    expect(wrapper.element.glResizeHandler).not.toBeFalsy();
+    expect(wrapper.element.glResizeHandler).not.toBe(undefined);
 
     await wrapper.setData({ isEnabled: false });
 
-    expect(wrapper.element.glResizeHandler).toBeFalsy();
+    expect(wrapper.element.glResizeHandler).toBe(undefined);
 
     await wrapper.setData({ isEnabled: true });
 
-    expect(wrapper.element.glResizeHandler).not.toBeFalsy();
+    expect(wrapper.element.glResizeHandler).not.toBe(undefined);
   });
 
   it('does a clean up when the component is destroyed', () => {
@@ -92,11 +92,11 @@ describe('resize observer directive', () => {
 
     const { element } = wrapper;
 
-    expect(element.glResizeHandler).not.toBeFalsy();
+    expect(element.glResizeHandler).not.toBe(undefined);
 
     wrapper.destroy();
 
-    expect(element.glResizeHandler).toBeFalsy();
+    expect(element.glResizeHandler).toBe(undefined);
   });
 
   describe('check directive value', () => {

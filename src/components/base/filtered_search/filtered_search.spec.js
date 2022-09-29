@@ -405,7 +405,7 @@ describe('Filtered search', () => {
     it('submits entire search when submit is requested', () => {
       createComponent();
       wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('submit');
-      expect(wrapper.emitted().submit).toBeDefined();
+      expect(wrapper.emitted('submit')).toBeDefined();
     });
   });
 
@@ -414,8 +414,8 @@ describe('Filtered search', () => {
       value: ['one'],
     });
     wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('submit');
-    expect(wrapper.emitted().submit).toBeDefined();
-    expect(wrapper.emitted().submit[0][0]).toStrictEqual(['one']);
+    expect(wrapper.emitted('submit')).toBeDefined();
+    expect(wrapper.emitted('submit')[0][0]).toStrictEqual(['one']);
   });
 
   it('concatenates strings on submit', () => {
@@ -423,7 +423,7 @@ describe('Filtered search', () => {
       value: ['one', 'two', { type: 'faketoken', value: { data: 'smth' } }, 'four', 'five'],
     });
     wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('submit');
-    expect(wrapper.emitted().submit).toBeDefined();
+    expect(wrapper.emitted('submit')).toBeDefined();
     expect(wrapper.emitted().submit[0][0].map(stripId)).toStrictEqual([
       'one two',
       { type: 'faketoken', value: { data: 'smth' } },

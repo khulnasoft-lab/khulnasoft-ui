@@ -398,7 +398,7 @@ describe('GlTokenSelector', () => {
       });
 
       it('fires `focus` event', () => {
-        expect(wrapper.emitted('focus')).toBeTruthy();
+        expect(wrapper.emitted('focus')).toHaveLength(1);
       });
     });
 
@@ -414,7 +414,7 @@ describe('GlTokenSelector', () => {
       });
 
       it('fires `blur` event', () => {
-        expect(wrapper.emitted('blur')).toBeTruthy();
+        expect(wrapper.emitted('blur')).toHaveLength(1);
       });
 
       it('removes focus class from main container', () => {
@@ -566,7 +566,7 @@ describe('GlTokenSelector', () => {
 
         textInput.trigger('keydown');
 
-        expect(wrapper.emitted('keydown')).toBeTruthy();
+        expect(wrapper.emitted('keydown')).toHaveLength(1);
       });
     });
   });
@@ -624,7 +624,7 @@ describe('GlTokenSelector', () => {
 
       container.trigger('click');
 
-      expect(wrapper.emitted('focus')).toBeTruthy();
+      expect(wrapper.emitted('focus')).toHaveLength(1);
     });
   });
 

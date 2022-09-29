@@ -36,7 +36,7 @@ describe('sorting item component', () => {
   it('does not show the check icon when the active prop is not provided', () => {
     createComponent();
 
-    expect(findActiveIcon().exists()).toBeTruthy();
+    expect(findActiveIcon().exists()).toBe(true);
     expect(findActiveIcon().classes()).toContain('inactive');
   });
 
@@ -45,7 +45,7 @@ describe('sorting item component', () => {
       active: true,
     });
 
-    expect(findActiveIcon().exists()).toBeTruthy();
+    expect(findActiveIcon().exists()).toBe(true);
     expect(findActiveIcon().classes()).not.toContain('inactive');
   });
 

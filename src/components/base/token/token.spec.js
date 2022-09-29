@@ -17,7 +17,7 @@ describe('Token component', () => {
   it('emits close when "x" is clicked', () => {
     wrapper = createComponent();
     findIcon(wrapper).vm.$emit('click');
-    expect(wrapper.emitted().close).toBeTruthy();
+    expect(wrapper.emitted('close')).toHaveLength(1);
   });
 
   it('hides the icon when view-only', () => {
