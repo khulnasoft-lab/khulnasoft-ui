@@ -90,6 +90,13 @@ export default {
     },
   },
   computed: {
+    ariaLive() {
+      if ([alertVariantOptions.danger, alertVariantOptions.warning].includes(this.variant)) {
+        return 'assertive';
+      }
+
+      return 'polite';
+    },
     iconName() {
       return alertVariantIconMap[this.variant];
     },
@@ -185,7 +192,7 @@ export default {
       :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
     />
 
-    <div class="gl-alert-content" role="alert">
+    <div class="gl-alert-content" role="alert" :aria-live="ariaLive">
       <h2 v-if="title" class="gl-alert-title">{{ title }}</h2>
 
       <div class="gl-alert-body">
