@@ -1,3 +1,10 @@
+# [43.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.20.0...v43.21.0) (2022-09-30)
+
+
+### Features
+
+* **css:** Add .gl-flex-basis-two-thirds ([eee7f74](https://gitlab.com/gitlab-org/gitlab-ui/commit/eee7f7481e09ee69be1295d844e6b8ee5695d439))
+
 # [43.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.19.0...v43.20.0) (2022-09-27)
 
 
