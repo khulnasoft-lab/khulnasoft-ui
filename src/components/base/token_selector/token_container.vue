@@ -128,54 +128,57 @@ export default {
 </script>
 
 <template>
-  <div
-    ref="tokenContainer"
-    class="gl-display-flex gl-flex-wrap gl-align-items-center gl-my-n1 gl-mx-n1 gl-w-full"
-    role="listbox"
-    aria-multiselectable="false"
-    aria-orientation="horizontal"
-    :aria-invalid="state === false && 'true'"
-    @keydown.left="handleLeftArrow"
-    @keydown.right="handleRightArrow"
-    @keydown.home="handleHome"
-    @keydown.end="handleEnd"
-    @keydown.delete="handleDelete"
-    @keydown.esc="handleEscape"
-    @keydown.tab.exact.prevent="handleTab"
-  >
+  <div class="gl-display-flex gl-flex-wrap-nowrap gl-align-items-flex-start gl-w-full">
     <div
-      v-for="(token, index) in tokens"
-      ref="tokens"
-      :key="token.id"
-      :data-token-id="token.id"
-      class="gl-token-selector-token-container gl-px-1 gl-py-1 gl-outline-none"
-      role="option"
-      tabindex="-1"
-      @focus="bindFocusEvent ? handleTokenFocus(index) : null"
+      ref="tokenContainer"
+      class="gl-display-flex gl-flex-wrap gl-align-items-center gl-my-n1 gl-mx-n1 gl-w-full"
+      role="listbox"
+      aria-multiselectable="false"
+      aria-orientation="horizontal"
+      :aria-invalid="state === false && 'true'"
+      @keydown.left="handleLeftArrow"
+      @keydown.right="handleRightArrow"
+      @keydown.home="handleHome"
+      @keydown.end="handleEnd"
+      @keydown.delete="handleDelete"
+      @keydown.esc="handleEscape"
+      @keydown.tab.exact.prevent="handleTab"
     >
-      <gl-token
-        class="gl-cursor-default"
-        :class="token.class"
-        :style="token.style"
-        :view-only="viewOnly"
-        @close="handleClose(token)"
+      <div
+        v-for="(token, index) in tokens"
+        ref="tokens"
+        :key="token.id"
+        :data-token-id="token.id"
+        class="gl-token-selector-token-container gl-px-1 gl-py-2 gl-outline-none"
+        role="option"
+        tabindex="-1"
+        @focus="bindFocusEvent ? handleTokenFocus(index) : null"
       >
-        <slot name="token-content" :token="token">
-          <span>
-            {{ token.name }}
-          </span>
-        </slot>
-      </gl-token>
+        <gl-token
+          class="gl-cursor-default"
+          :class="token.class"
+          :style="token.style"
+          :view-only="viewOnly"
+          @close="handleClose(token)"
+        >
+          <slot name="token-content" :token="token">
+            <span>
+              {{ token.name }}
+            </span>
+          </slot>
+        </gl-token>
+      </div>
+      <slot name="text-input"></slot>
     </div>
-    <slot name="text-input"></slot>
-    <gl-button
-      v-if="showClearAllButton"
-      size="small"
-      aria-label="Clear all"
-      icon="clear"
-      category="tertiary"
-      data-testid="clear-all-button"
-      @click.stop="$emit('clear-all')"
-    />
+    <div v-if="showClearAllButton" class="gl-ml-3 gl-p-1">
+      <gl-button
+        size="small"
+        aria-label="Clear all"
+        icon="clear"
+        category="tertiary"
+        data-testid="clear-all-button"
+        @click.stop="$emit('clear-all')"
+      />
+    </div>
   </div>
 </template>
