@@ -162,6 +162,12 @@ export default {
         this.$emit(GL_DROPDOWN_HIDDEN);
       }
     },
+    open() {
+      if (this.visible) {
+        return;
+      }
+      this.toggle();
+    },
     close() {
       if (!this.visible) {
         return;

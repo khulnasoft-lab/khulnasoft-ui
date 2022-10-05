@@ -112,3 +112,25 @@ To render custom group labels, use the `group-label` scoped slot:
   </template>
 </gl-listbox>
 ```
+
+#### Search
+
+To filter out items by  search query set `searchable` property to `true`.
+Listbox will render the search field and will emit `search` event with the `searchQuery` value.
+Performing the search is the responsibility of the listbox's consumer component.
+When performing search set `searching` prop to `true` - this will render the loader
+while search is in progress instead of the list of items.
+To update content of the listbox, toggle the `searching` property
+and update the `items` property with a new array. Be sure to debounce (or
+similar) the `search` event handler to avoid rendering stale results.
+To improve the accessibility, provide the `search-summary-sr-only` scoped slot
+with a number of found search results text.
+Screen reader will announce this text when the list is updated.
+
+```html
+<gl-listbox :items="items" searchable>
+  <template #search-summary-sr-only>
+    5 users found
+  </template>
+</gl-listbox>
+```

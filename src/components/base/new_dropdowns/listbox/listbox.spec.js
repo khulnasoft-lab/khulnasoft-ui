@@ -30,6 +30,10 @@ describe('GlListbox', () => {
   const findListboxItems = (root = wrapper) => root.findAllComponents(GlListboxItem);
   const findListboxGroups = () => wrapper.findAllComponents(GlListboxGroup);
   const findListItem = (index) => findListboxItems().at(index).find(ITEM_SELECTOR);
+  const findSearchBox = () => wrapper.find("[data-testid='listbox-search-input']");
+  const findNoResultsText = () => wrapper.find("[data-testid='listbox-no-results-text']");
+  const findLoadingIcon = () => wrapper.find("[data-testid='listbox-search-loader']");
+  const findSRNumberOfResultsText = () => wrapper.find("[data-testid='listbox-number-of-results']");
 
   describe('toggle text', () => {
     describe.each`
@@ -53,10 +57,16 @@ describe('GlListbox', () => {
 
   describe('ARIA attributes', () => {
     it('should provide `toggleId` to the base dropdown and reference it in`aria-labelledby` attribute of the list container`', async () => {
-      await buildWrapper();
+      await buildWrapper({ items: mockOptions });
       expect(findBaseDropdown().props('toggleId')).toBe(
         findListContainer().attributes('aria-labelledby')
       );
+    });
+
+    it('should reference `listAriaLabelledby`', async () => {
+      const listAriaLabelledBy = 'first-label-id second-label-id';
+      await buildWrapper({ items: mockOptions, listAriaLabelledBy });
+      expect(findListContainer().attributes('aria-labelledby')).toBe(listAriaLabelledBy);
     });
   });
 
@@ -137,22 +147,35 @@ describe('GlListbox', () => {
   });
 
   describe('onShow', () => {
-    beforeEach(async () => {
+    let focusSpy;
+
+    const showDropdown = async ({ searchable = false } = {}) => {
       buildWrapper({
         multiple: true,
         items: mockOptions,
         selected: [mockOptions[2].value, mockOptions[1].value],
+        searchable,
       });
+      if (searchable) {
+        focusSpy = jest.spyOn(wrapper.vm.$refs.searchBox, 'focusInput');
+      }
       findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
       await nextTick();
-    });
+    };
 
-    it('should re-emit the event', () => {
+    it('should re-emit the event', async () => {
+      await showDropdown();
       expect(wrapper.emitted(GL_DROPDOWN_SHOWN)).toHaveLength(1);
     });
 
-    it('should focus the first selected item', () => {
+    it('should focus the first selected item', async () => {
+      await showDropdown();
       expect(findListboxItems().at(1).find(ITEM_SELECTOR).element).toHaveFocus();
+    });
+
+    it('should focus the search input when search is enabled', async () => {
+      await showDropdown({ searchable: true });
+      expect(focusSpy).toHaveBeenCalled();
     });
   });
 
@@ -181,7 +204,7 @@ describe('GlListbox', () => {
       thirdItem = findListItem(2);
     });
 
-    it('should move the focus down the list of items on `arrow down` and stop on the last item', async () => {
+    it('should move the focus down the list of items on `ARROW_DOWN` and stop on the last item', async () => {
       expect(firstItem.element).toHaveFocus();
       await firstItem.trigger('keydown', { code: ARROW_DOWN });
       expect(secondItem.element).toHaveFocus();
@@ -191,7 +214,7 @@ describe('GlListbox', () => {
       expect(thirdItem.element).toHaveFocus();
     });
 
-    it('should move the focus up the list of items on `arrow up` and stop on the first item', async () => {
+    it('should move the focus up the list of items on `ARROW_UP` and stop on the first item', async () => {
       await firstItem.trigger('keydown', { code: ARROW_DOWN });
       await secondItem.trigger('keydown', { code: ARROW_DOWN });
       expect(thirdItem.element).toHaveFocus();
@@ -219,6 +242,23 @@ describe('GlListbox', () => {
       expect(firstItem.element).toHaveFocus();
       await thirdItem.trigger('keydown', { code: HOME });
       expect(firstItem.element).toHaveFocus();
+    });
+
+    describe('when `searchable` is enabled', () => {
+      it('should move focus to the first item on search input `ARROW_DOWN`', async () => {
+        buildWrapper({ items: mockOptions, searchable: true });
+        findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
+        findSearchBox().trigger('keydown', { code: ARROW_DOWN });
+        expect(firstItem.element).toHaveFocus();
+      });
+
+      it('should move focus to the search input on first item `ARROW_UP', async () => {
+        buildWrapper({ items: mockOptions, searchable: true });
+        findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
+        const focusSpy = jest.spyOn(wrapper.vm.$refs.searchBox, 'focusInput');
+        await firstItem.trigger('keydown', { code: ARROW_UP });
+        expect(focusSpy).toHaveBeenCalled();
+      });
     });
   });
 
@@ -257,6 +297,60 @@ describe('GlListbox', () => {
 
       mockGroups.forEach((group, i) => {
         expect(findListboxItems(groups.at(i))).toHaveLength(group.options.length);
+      });
+    });
+  });
+
+  describe('when `searchable` is enabled', () => {
+    it('should render the search box', () => {
+      buildWrapper({ items: mockOptions, searchable: true });
+
+      expect(findSearchBox().exists()).toBe(true);
+    });
+
+    it('should emit the search value when typing in the search box', async () => {
+      buildWrapper({ items: mockOptions, searchable: true });
+
+      const searchStr = 'search  value';
+      findSearchBox().vm.$emit('input', searchStr);
+      await nextTick();
+      expect(wrapper.emitted('search')[0][0]).toEqual(searchStr);
+    });
+
+    it('should not render the loading icon and render the list if NOT searching', () => {
+      buildWrapper({ items: mockOptions, searchable: true });
+
+      expect(findLoadingIcon().exists()).toBe(false);
+      expect(findListContainer().exists()).toBe(true);
+    });
+
+    it('should render the loading icon and NOT render the list when searching', () => {
+      buildWrapper({ items: mockOptions, searchable: true, searching: true });
+
+      expect(findLoadingIcon().exists()).toBe(true);
+      expect(findListContainer().exists()).toBe(false);
+    });
+
+    it('should display `noResultText` if no items found', () => {
+      const noResultsText = 'Nothing found';
+      buildWrapper({ items: [], searchable: true, searching: false, noResultsText });
+
+      expect(findLoadingIcon().exists()).toBe(false);
+      expect(findListContainer().exists()).toBe(false);
+      expect(findNoResultsText().text()).toBe(noResultsText);
+    });
+
+    describe('Screen reader text with number of search results', () => {
+      it('when the #search-summary-sr-only slot content is provided', () => {
+        const searchResultsContent = 'Found 5 results';
+        const slots = { 'search-summary-sr-only': searchResultsContent };
+        buildWrapper({ items: mockOptions, searchable: true, searching: false }, slots);
+        expect(findSRNumberOfResultsText().text()).toBe(searchResultsContent);
+      });
+
+      it('should not display SR text when no matching results', () => {
+        buildWrapper({ items: [], searchable: true, searching: false });
+        expect(findSRNumberOfResultsText().exists()).toBe(false);
       });
     });
   });

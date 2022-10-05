@@ -15,6 +15,8 @@ import {
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
+import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
+import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxGroup from './listbox_group.vue';
@@ -22,6 +24,7 @@ import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
 const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-pt-3', 'gl-mt-3'];
+export const SEARCH_INPUT_SELECTOR = '.gl-search-box-by-type-input';
 
 export default {
   events: {
@@ -32,6 +35,8 @@ export default {
     GlBaseDropdown,
     GlListboxItem,
     GlListboxGroup,
+    GlSearchBoxByType,
+    GlLoadingIcon,
   },
   model: {
     prop: 'selected',
@@ -124,6 +129,7 @@ export default {
     },
     /**
      * Set to "true" when dropdown content (items) is loading
+     * It will render a small loader in the dropdown toggle and make it disabled
      */
     loading: {
       type: Boolean,
@@ -164,18 +170,55 @@ export default {
     },
     /**
      * The `aria-labelledby` attribute value for the toggle button
+     * Provide the string of ids seperated by space
      */
-    ariaLabelledby: {
+    toggleAriaLabelledBy: {
       type: String,
       required: false,
       default: null,
+    },
+    /**
+     * The `aria-labelledby` attribute value for the list of options
+     * Provide the string of ids seperated by space
+     */
+    listAriaLabelledBy: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    /**
+     * Enable search
+     */
+    searchable: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
+     * Set to "true" when items search is in progress.
+     * It will display loading icon below the search input
+     */
+    searching: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
+     * Message to be displayed when filtering produced no results
+     */
+    noResultsText: {
+      type: String,
+      required: false,
+      default: 'No results found',
     },
   },
   data() {
     return {
       selectedValues: [],
       toggleId: uniqueId('dropdown-toggle-btn-'),
+      listboxId: uniqueId('listbox-'),
       nextFocusedItemIndex: null,
+      searchStr: '',
     };
   },
   computed: {
@@ -201,6 +244,17 @@ export default {
         .map((selected) => this.flattenedOptions.findIndex(({ value }) => value === selected))
         .sort();
     },
+    showList() {
+      return this.flattenedOptions.length && !this.searching;
+    },
+    showNoResultsText() {
+      return !this.flattenedOptions.length && !this.searching;
+    },
+    announceSRSearchResults() {
+      return (
+        this.searchable && !this.showNoResultsText && this.$scopedSlots['search-summary-sr-only']
+      );
+    },
   },
   watch: {
     selected: {
@@ -218,12 +272,22 @@ export default {
     },
   },
   methods: {
+    open() {
+      this.$refs.baseDropdown.open();
+    },
+    close() {
+      this.$refs.baseDropdown.close();
+    },
     groupClasses(index) {
       return index === 0 ? null : GROUP_TOP_BORDER_CLASSES;
     },
     onShow() {
       this.$nextTick(() => {
-        this.focusItem(this.selectedIndices[0] ?? 0, this.getFocusableListItemElements());
+        if (this.searchable) {
+          this.focusSearchInput();
+        } else {
+          this.focusItem(this.selectedIndices[0] ?? 0, this.getFocusableListItemElements());
+        }
         /**
          * Emitted when dropdown is shown
          *
@@ -242,21 +306,33 @@ export default {
       this.nextFocusedItemIndex = null;
     },
     onKeydown(event) {
-      const { code } = event;
+      const { code, target } = event;
       const elements = this.getFocusableListItemElements();
 
       if (elements.length < 1) return;
 
       let stop = true;
+      const isSearchInput = target.matches(SEARCH_INPUT_SELECTOR);
 
       if (code === HOME) {
         this.focusItem(0, elements);
       } else if (code === END) {
         this.focusItem(elements.length - 1, elements);
       } else if (code === ARROW_UP) {
-        this.focusNextItem(event, elements, -1);
+        if (isSearchInput) {
+          return;
+        }
+        if (this.searchable && elements.indexOf(target) === 0) {
+          this.focusSearchInput();
+        } else {
+          this.focusNextItem(event, elements, -1);
+        }
       } else if (code === ARROW_DOWN) {
-        this.focusNextItem(event, elements, 1);
+        if (isSearchInput) {
+          this.focusItem(0, elements);
+        } else {
+          this.focusNextItem(event, elements, 1);
+        }
       } else {
         stop = false;
       }
@@ -266,8 +342,8 @@ export default {
       }
     },
     getFocusableListItemElements() {
-      const items = this.$refs.list.querySelectorAll(ITEM_SELECTOR);
-      return Array.from(items);
+      const items = this.$refs.list?.querySelectorAll(ITEM_SELECTOR);
+      return Array.from(items || []);
     },
     focusNextItem(event, elements, offset) {
       const { target } = event;
@@ -283,11 +359,14 @@ export default {
         elements[index]?.focus();
       });
     },
-    onSelect({ value }, isSelected) {
+    focusSearchInput() {
+      this.$refs.searchBox.focusInput();
+    },
+    onSelect(item, isSelected) {
       if (this.multiple) {
-        this.onMultiSelect(value, isSelected);
+        this.onMultiSelect(item.value, isSelected);
       } else {
-        this.onSingleSelect(value, isSelected);
+        this.onSingleSelect(item.value, isSelected);
       }
     },
     isSelected(item) {
@@ -318,6 +397,15 @@ export default {
         );
       }
     },
+    search(searchTerm) {
+      /**
+       * Emitted when the search query string is changed
+       *
+       * @event search
+       * @type {string}
+       */
+      this.$emit('search', searchTerm);
+    },
     isOption,
   },
 };
@@ -327,7 +415,7 @@ export default {
   <gl-base-dropdown
     ref="baseDropdown"
     aria-haspopup="listbox"
-    :aria-labelledby="ariaLabelledby"
+    :aria-labelledby="toggleAriaLabelledBy"
     :toggle-id="toggleId"
     :toggle-text="listboxToggleText"
     :toggle-class="toggleClass"
@@ -346,10 +434,29 @@ export default {
     <!-- @slot Content to display in dropdown header -->
     <slot name="header"></slot>
 
+    <div v-if="searchable" class="gl-border-b-1 gl-border-b-solid gl-border-b-gray-200">
+      <gl-search-box-by-type
+        ref="searchBox"
+        v-model="searchStr"
+        :aria-owns="listboxId"
+        data-testid="listbox-search-input"
+        @input="search"
+        @keydown="onKeydown"
+      />
+      <gl-loading-icon
+        v-if="searching"
+        data-testid="listbox-search-loader"
+        size="md"
+        class="gl-my-3"
+      />
+    </div>
+
     <component
       :is="listboxTag"
+      v-if="showList"
+      id="listbox"
       ref="list"
-      :aria-labelledby="toggleId"
+      :aria-labelledby="listAriaLabelledBy || toggleId"
       role="listbox"
       class="gl-new-dropdown-contents gl-list-style-none gl-pl-0 gl-mb-0"
       tabindex="-1"
@@ -395,6 +502,25 @@ export default {
         </template>
       </template>
     </component>
+
+    <span
+      v-if="announceSRSearchResults"
+      data-testid="listbox-number-of-results"
+      class="gl-sr-only"
+      aria-live="assertive"
+    >
+      <!-- @slot Text read by screen reader announcing a number of search results -->
+      <slot name="search-summary-sr-only"></slot>
+    </span>
+
+    <div
+      v-else-if="showNoResultsText"
+      aria-live="assertive"
+      class="gl-pl-7 gl-pr-5 gl-pt-3 gl-font-base gl-text-gray-600"
+      data-testid="listbox-no-results-text"
+    >
+      {{ noResultsText }}
+    </div>
     <!-- @slot Content to display in dropdown footer -->
     <slot name="footer"></slot>
   </gl-base-dropdown>
