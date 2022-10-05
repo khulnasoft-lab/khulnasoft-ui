@@ -1102,48 +1102,6 @@
   }
 }
 
-@mixin gl-sm-pb-0 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pb-0;
-  }
-}
-
-@mixin gl-sm-pb-1 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pb-1;
-  }
-}
-
-@mixin gl-sm-pb-2 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pb-2;
-  }
-}
-
-@mixin gl-sm-pb-3 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pb-3;
-  }
-}
-
-@mixin gl-sm-pb-4 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pb-4;
-  }
-}
-
-@mixin gl-sm-pb-5 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pb-5;
-  }
-}
-
 @mixin gl-sm-pl-0 {
   // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
