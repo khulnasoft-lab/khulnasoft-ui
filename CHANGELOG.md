@@ -1,3 +1,17 @@
+# [45.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v44.1.0...v45.0.0) (2022-10-05)
+
+
+### Features
+
+* **GlListbox:** add support for listbox filtering ([c6edcc4](https://gitlab.com/gitlab-org/gitlab-ui/commit/c6edcc44966891ce4e2682c9b9785e6bd16ae642))
+
+
+### BREAKING CHANGES
+
+* **GlListbox:** `ariaLabelledby` property was renamed
+to `toggleAriaLabelledBy `for better consistency
+with a new `listAriaLabelledBy` property
+
 # [44.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v44.0.0...v44.1.0) (2022-10-05)
 
 
