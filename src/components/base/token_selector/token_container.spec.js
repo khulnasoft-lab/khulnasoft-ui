@@ -205,7 +205,7 @@ describe('GlTokenContainer', () => {
     describe('when escape key is pressed', () => {
       it('fires `cancel-focus` event', async () => {
         await setup(0, keyboard.escape);
-        expect(wrapper.emitted('cancel-focus')).toBeTruthy();
+        expect(wrapper.emitted('cancel-focus')).toHaveLength(1);
       });
     });
 

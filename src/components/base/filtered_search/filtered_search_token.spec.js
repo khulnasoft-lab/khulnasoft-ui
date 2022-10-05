@@ -65,7 +65,7 @@ describe('Filtered search token', () => {
       createComponent();
       findOperatorSegment().vm.$emit('activate');
 
-      expect(wrapper.emitted().activate).toHaveLength(1);
+      expect(wrapper.emitted('activate')).toHaveLength(1);
     });
 
     it('activates operator segment if value is empty', () => {
@@ -82,7 +82,7 @@ describe('Filtered search token', () => {
       });
 
       expect(findDataSegment().props().active).toBe(true);
-      expect(wrapper.emitted().input[0][0]).toStrictEqual({ data: '', operator: '=' });
+      expect(wrapper.emitted('input')[0][0]).toStrictEqual({ data: '', operator: '=' });
     });
 
     it('activates data segment if value is not empty', () => {
@@ -122,7 +122,7 @@ describe('Filtered search token', () => {
 
     findOperatorSegment().vm.$emit('backspace');
 
-    expect(wrapper.emitted().replace).toHaveLength(1);
+    expect(wrapper.emitted('replace')).toHaveLength(1);
   });
 
   it('ignores backspace when value is not empty and backspace is pressed', () => {
@@ -130,7 +130,7 @@ describe('Filtered search token', () => {
 
     findOperatorSegment().vm.$emit('backspace');
 
-    expect(wrapper.emitted().replace).toBeUndefined();
+    expect(wrapper.emitted('replace')).toBeUndefined();
   });
 
   it('jumps to data segment when operator segment is completed', () => {
@@ -150,7 +150,7 @@ describe('Filtered search token', () => {
     createComponent({ active: true, value: { operator: '=', data: 'something' } });
     selector().vm.$emit('deactivate');
 
-    expect(wrapper.emitted().deactivate).toHaveLength(1);
+    expect(wrapper.emitted('deactivate')).toHaveLength(1);
   });
 
   it('emits destroy when deactivated and value is empty', async () => {
@@ -159,7 +159,7 @@ describe('Filtered search token', () => {
     await nextTick();
     await wrapper.setProps({ active: false });
 
-    expect(wrapper.emitted().destroy).toHaveLength(1);
+    expect(wrapper.emitted('destroy')).toHaveLength(1);
   });
 
   it('activates operator segment when backspace is pressed in data segmented', async () => {
@@ -191,7 +191,7 @@ describe('Filtered search token', () => {
 
     findTitleSegment().vm.$emit('complete', availableTokens[1].title);
 
-    expect(wrapper.emitted().replace).toHaveLength(1);
+    expect(wrapper.emitted('replace')).toHaveLength(1);
     expect(wrapper.emitted().replace[0][0].value).toStrictEqual(originalValue);
   });
 
@@ -205,7 +205,7 @@ describe('Filtered search token', () => {
 
     findTitleSegment().vm.$emit('complete', availableTokens[2].title);
 
-    expect(wrapper.emitted().replace).toHaveLength(1);
+    expect(wrapper.emitted('replace')).toHaveLength(1);
     expect(wrapper.emitted().replace[0][0].value).toStrictEqual({ data: '' });
   });
 
@@ -236,7 +236,7 @@ describe('Filtered search token', () => {
 
       expect(preventDefaultSpy).toHaveBeenCalled();
       expect(stopPropagationSpy).toHaveBeenCalled();
-      expect(wrapper.emitted().destroy).toHaveLength(1);
+      expect(wrapper.emitted('destroy')).toHaveLength(1);
     });
 
     it('jumps to data segment and applies selection if no match is available for key and data is empty', async () => {

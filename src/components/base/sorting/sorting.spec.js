@@ -85,7 +85,7 @@ describe('sorting component', () => {
 
     selectDirectionButton().trigger('click');
 
-    expect(wrapper.emitted().sortDirectionChange[0]).toEqual([true]);
+    expect(wrapper.emitted('sortDirectionChange')[0]).toEqual([true]);
   });
 
   it('should allow custom sort tooltip to be applied', () => {

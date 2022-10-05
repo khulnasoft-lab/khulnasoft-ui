@@ -55,7 +55,7 @@ describe('column chart component', () => {
   it('emits "created" when onCreated is called', () => {
     wrapper.vm.onCreated(wrapper.vm.chart);
 
-    expect(wrapper.emitted('created')).toBeTruthy();
+    expect(wrapper.emitted('created')).toHaveLength(1);
   });
 
   it('calls event listener when "chartItemClicked" is emitted on the Chart component', () => {

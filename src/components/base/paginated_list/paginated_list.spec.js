@@ -161,7 +161,7 @@ describe('Paginated List', () => {
       it('has search enabled by default', () => {
         createComponent();
 
-        expect(wrapper.findComponent(GlSearchBoxByType).exists()).toBeTruthy();
+        expect(wrapper.findComponent(GlSearchBoxByType).exists()).toBe(true);
       });
 
       it('has search disabled when filterable prop set to false', () => {

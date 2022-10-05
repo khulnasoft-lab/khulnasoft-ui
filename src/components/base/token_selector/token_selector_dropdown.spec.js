@@ -314,7 +314,7 @@ describe('GlTokenSelectorDropdown', () => {
 
         dropdownEventHandlers.handleDownArrow();
 
-        expect(wrapper.emitted('show')).toBeTruthy();
+        expect(wrapper.emitted('show')).toHaveLength(1);
       });
     });
 

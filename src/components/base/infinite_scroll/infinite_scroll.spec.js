@@ -63,18 +63,18 @@ describe('Infinite Scroll component', () => {
     createComponent();
 
     return wrapper.vm.$nextTick(() => {
-      expect(wrapper.emitted('bottomReached')).toBeFalsy();
-      expect(wrapper.emitted('topReached')).toBeFalsy();
+      expect(wrapper.emitted('bottomReached')).toBe(undefined);
+      expect(wrapper.emitted('topReached')).toBe(undefined);
     });
   });
 
   it('emits bottomReached when scrolled to the bottom', () => {
     createComponent();
 
-    expect(wrapper.emitted('bottomReached')).toBeFalsy();
+    expect(wrapper.emitted('bottomReached')).toBe(undefined);
 
     mockScrollTo({ top: INITIAL_HEIGHT - 0.5 });
-    expect(wrapper.emitted('bottomReached')).toBeTruthy();
+    expect(wrapper.emitted('bottomReached')).toHaveLength(1);
   });
 
   it('emits topReached when scrolled to the top', () => {
@@ -82,10 +82,10 @@ describe('Infinite Scroll component', () => {
 
     createComponent();
 
-    expect(wrapper.emitted('topReached')).toBeFalsy();
+    expect(wrapper.emitted('topReached')).toBe(undefined);
 
     mockScrollTo({ top: 0 });
-    expect(wrapper.emitted('topReached')).toBeTruthy();
+    expect(wrapper.emitted('topReached')).toHaveLength(1);
   });
 
   it('scrolls to the bottom when `topReached` is defined', () => {

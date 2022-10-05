@@ -234,9 +234,9 @@ describe('tabs component', () => {
 
             // `input` event should only be fired if the active tab changes.
             if (expectedActiveTabIndex > 0) {
-              expect(wrapper.emitted().input[1]).toEqual([expectedActiveTabIndex]);
+              expect(wrapper.emitted('input')[1]).toEqual([expectedActiveTabIndex]);
             } else {
-              expect(wrapper.emitted().input[1]).toBeUndefined();
+              expect(wrapper.emitted('input')[1]).toBeUndefined();
             }
           });
         }
@@ -339,8 +339,8 @@ describe('tabs component', () => {
 
           await nextTick();
 
-          expect(wrapper.emitted().input[0]).toEqual([1]);
-          expect(wrapper.emitted().input[1]).toEqual([1]);
+          expect(wrapper.emitted('input')[0]).toEqual([1]);
+          expect(wrapper.emitted('input')[1]).toEqual([1]);
         });
       });
     });
@@ -352,7 +352,7 @@ describe('tabs component', () => {
 
           await nextTick();
 
-          expect(wrapper.emitted().input[0]).toEqual([0]);
+          expect(wrapper.emitted('input')[0]).toEqual([0]);
         });
       });
 
@@ -363,7 +363,7 @@ describe('tabs component', () => {
           await nextTick();
           await findTabByText('Second').trigger('click');
 
-          expect(wrapper.emitted().input[1]).toEqual([1]);
+          expect(wrapper.emitted('input')[1]).toEqual([1]);
         });
       });
 

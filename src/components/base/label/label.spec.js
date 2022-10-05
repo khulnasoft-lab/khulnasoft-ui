@@ -54,7 +54,7 @@ describe('Label component', () => {
       createComponent({ ...defaultProps, title: 'scoped::label' });
 
       expect(findTitle().text()).toEqual('scoped::label');
-      expect(findSubTitle().exists()).toBeFalsy();
+      expect(findSubTitle().exists()).toBe(false);
     });
 
     it('renders a black label', () => {
@@ -127,7 +127,7 @@ describe('Label component', () => {
         createComponent(props, { mountFn: mount });
 
         findCloseButton().trigger('click');
-        expect(wrapper.emitted().close).toBeTruthy();
+        expect(wrapper.emitted('close')).toHaveLength(1);
       });
 
       it('does not emit close when "x" is clicked when disabled', () => {
@@ -136,7 +136,7 @@ describe('Label component', () => {
         createComponent(props, { mountFn: mount });
 
         findCloseButton().trigger('click');
-        expect(wrapper.emitted().close).toBeFalsy();
+        expect(wrapper.emitted('close')).toBe(undefined);
       });
     });
 
@@ -226,7 +226,7 @@ describe('Label component', () => {
         createComponent(props, { mountFn: mount });
 
         findCloseButton().trigger('click');
-        expect(wrapper.emitted().close).toBeTruthy();
+        expect(wrapper.emitted('close')).toHaveLength(1);
       });
 
       it('does not emit close when "x" is clicked when disabled', () => {
@@ -235,7 +235,7 @@ describe('Label component', () => {
         createComponent(props, { mountFn: mount });
 
         findCloseButton().trigger('click');
-        expect(wrapper.emitted().close).toBeFalsy();
+        expect(wrapper.emitted('close')).toBe(undefined);
       });
     });
 

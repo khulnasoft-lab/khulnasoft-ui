@@ -33,7 +33,7 @@ describe('search box by click component', () => {
     wrapper.findComponent({ ref: 'input' }).vm.$emit('input', 'new value');
 
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted().input).toEqual([['new value']]);
+    expect(wrapper.emitted('input')).toEqual([['new value']]);
   });
 
   it('does not emit an input event when input is updated to the same value', async () => {
@@ -41,7 +41,7 @@ describe('search box by click component', () => {
 
     await wrapper.setProps({ value: 'another value' });
 
-    expect(wrapper.emitted().input).toBe(undefined);
+    expect(wrapper.emitted('input')).toBe(undefined);
   });
 
   it('does not displays history dropdown by default', () => {
@@ -70,7 +70,7 @@ describe('search box by click component', () => {
       findClearIcon().vm.$emit('click');
 
       await wrapper.vm.$nextTick();
-      expect(wrapper.emitted().input).toEqual([['']]);
+      expect(wrapper.emitted('input')).toEqual([['']]);
     });
 
     it('emits clear event when clicked', async () => {
@@ -78,7 +78,7 @@ describe('search box by click component', () => {
       findClearIcon().vm.$emit('click');
       await wrapper.vm.$nextTick();
 
-      expect(wrapper.emitted().clear).toHaveLength(1);
+      expect(wrapper.emitted('clear')).toHaveLength(1);
     });
   });
 
@@ -109,7 +109,7 @@ describe('search box by click component', () => {
       wrapper.findComponent(GlDropdownItem).vm.$emit('click');
 
       await wrapper.vm.$nextTick();
-      expect(wrapper.emitted().input[0]).toEqual(['one']);
+      expect(wrapper.emitted('input')[0]).toEqual(['one']);
       expect(wrapper.emitted()['history-item-selected'][0]).toEqual(['one']);
     });
   });
@@ -149,7 +149,7 @@ describe('search box by click component', () => {
     wrapper.findComponent(GlFormInput).vm.$emit('keydown', { type: 'key', keyCode: 13 });
 
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
+    expect(wrapper.emitted('submit')[0]).toEqual(['some-input']);
   });
 
   it('emits submit event when search button is pressed', async () => {
@@ -157,7 +157,7 @@ describe('search box by click component', () => {
     findSearchButton().vm.$emit('click');
 
     await wrapper.vm.$nextTick();
-    expect(wrapper.emitted().submit[0]).toEqual(['some-input']);
+    expect(wrapper.emitted('submit')[0]).toEqual(['some-input']);
   });
 
   it('adds `searchButtonAttributes` prop to search button', () => {

@@ -88,7 +88,7 @@ describe('GlScrollableTabs', () => {
     });
 
     it('passes props through', () => {
-      expect(NAV_CLASS).toBeTruthy();
+      expect(NAV_CLASS).toBe('gl-scrollable-tabs-nav');
       expect(wrapper.findComponent(GlTabs).props()).toMatchObject({
         ...TEST_DEFAULT_PROPS,
         navClass: [NAV_CLASS, TEST_DEFAULT_PROPS.navClass],

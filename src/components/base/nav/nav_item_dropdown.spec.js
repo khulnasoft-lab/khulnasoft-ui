@@ -36,8 +36,8 @@ describe('GlNavItemDropdown', () => {
 
         const glIcon = wrapper.findComponent(GlIcon);
 
-        expect(glIcon.exists()).toBeTruthy();
-        expect(glIcon.classes('dropdown-chevron')).toBeTruthy();
+        expect(glIcon.exists()).toBe(true);
+        expect(glIcon.classes('dropdown-chevron')).toBe(true);
       });
 
       it('renders custom template', () => {
@@ -50,7 +50,7 @@ describe('GlNavItemDropdown', () => {
 
         const buttonContentSlot = wrapper.find('.foo');
 
-        expect(buttonContentSlot.exists()).toBeTruthy();
+        expect(buttonContentSlot.exists()).toBe(true);
         expect(buttonContentSlot.text()).toBe('Custom button-content');
       });
     });

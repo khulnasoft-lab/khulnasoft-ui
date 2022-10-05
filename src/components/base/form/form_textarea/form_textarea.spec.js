@@ -106,7 +106,7 @@ describe('GlFormTextArea', () => {
         metaKey: true,
       });
 
-      expect(wrapper.emitted().submit).toBe(undefined);
+      expect(wrapper.emitted('submit')).toBe(undefined);
     });
 
     it('should emit submit when cmd+enter is pressed', async () => {
@@ -116,7 +116,7 @@ describe('GlFormTextArea', () => {
         metaKey: true,
       });
 
-      expect(wrapper.emitted().submit).toEqual([[]]);
+      expect(wrapper.emitted('submit')).toEqual([[]]);
     });
   });
 });
