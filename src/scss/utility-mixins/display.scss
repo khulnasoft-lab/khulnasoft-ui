@@ -102,13 +102,6 @@
   display: inline;
 }
 
-@mixin gl-xs-display-inline {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-display-inline;
-  }
-}
-
 @mixin gl-sm-display-inline {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-inline;
