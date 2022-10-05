@@ -1,3 +1,37 @@
+# [44.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.21.0...v44.0.0) (2022-10-05)
+
+
+### Bug Fixes
+
+* remove gl-sm-pt-0 CSS util ([97c5907](https://gitlab.com/gitlab-org/gitlab-ui/commit/97c5907a62d883c7914c1a6befefdf6075684f29))
+* remove gl-sm-pt-1 CSS util ([d9fa6bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/d9fa6bc512c7226a9fcd629736fdf77a8b8dcb47))
+* remove gl-sm-pt-2 CSS util ([8cf287e](https://gitlab.com/gitlab-org/gitlab-ui/commit/8cf287e664c35402837ffc77dc8c6050cda6fb04))
+* remove gl-sm-pt-3 CSS util ([ed97bbf](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed97bbf36b3bc5da3a74546fe15721005ff86d93))
+* remove gl-sm-pt-4 CSS util ([fb0b50e](https://gitlab.com/gitlab-org/gitlab-ui/commit/fb0b50ebc8f2b4754ec3eac1427f951f89cd9894))
+* remove gl-sm-pt-5 CSS util ([11a0cdc](https://gitlab.com/gitlab-org/gitlab-ui/commit/11a0cdc10a8bb64376bfd40ac254a588f9bbaad3))
+
+
+### BREAKING CHANGES
+
+* This removes the desktop-first gl-sm-pt-5 CSS util. If
+you were relying on it for some styling, please migrate to a
+mobile-first approach.
+* This removes the desktop-first gl-sm-pt-4 CSS util. If
+you were relying on it for some styling, please migrate to a
+mobile-first approach.
+* This removes the desktop-first gl-sm-pt-3 CSS util. If
+you were relying on it for some styling, please migrate to a
+mobile-first approach.
+* This removes the desktop-first gl-sm-pt-2 CSS util. If
+you were relying on it for some styling, please migrate to a
+mobile-first approach.
+* This removes the desktop-first gl-sm-pt-1 CSS util. If
+you were relying on it for some styling, please migrate to a
+mobile-first approach.
+* This removes the desktop-first gl-sm-pt-0 CSS util. If
+you were relying on it for some styling, please migrate to a
+mobile-first approach.
+
 # [43.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.20.0...v43.21.0) (2022-09-30)
 
 
