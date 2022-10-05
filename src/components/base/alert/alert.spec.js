@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { buttonCategoryOptions } from '../../../utils/constants';
+import { alertVariantOptions, buttonCategoryOptions } from '../../../utils/constants';
 import GlAlert from './alert.vue';
 
 const DummyComponent = {
@@ -190,5 +190,25 @@ describe('Alert component', () => {
         expect(wrapper.classes()).not.toContain(cssClass);
       });
     });
+  });
+
+  describe('aria-live', () => {
+    it.each([alertVariantOptions.danger, alertVariantOptions.warning])(
+      'for %p variant, has aria-live assertive attribute',
+      (variant) => {
+        createComponent({ propsData: { variant } });
+
+        expect(wrapper.find('[aria-live=assertive').exists()).toBe(true);
+      }
+    );
+
+    it.each([alertVariantOptions.info, alertVariantOptions.success, alertVariantOptions.tip])(
+      'for %p variant, has aria-live polite attribute',
+      (variant) => {
+        createComponent({ propsData: { variant } });
+
+        expect(wrapper.find('[aria-live=polite]').exists()).toBe(true);
+      }
+    );
   });
 });
