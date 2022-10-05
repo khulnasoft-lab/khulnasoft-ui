@@ -1,3 +1,10 @@
+# [44.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v44.0.0...v44.1.0) (2022-10-05)
+
+
+### Features
+
+* **GlAlert:** add aria-live attribute ([89b866b](https://gitlab.com/gitlab-org/gitlab-ui/commit/89b866b771514bc6db25108b4defaed8df53c052))
+
 # [44.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v43.21.0...v44.0.0) (2022-10-05)
 
 
