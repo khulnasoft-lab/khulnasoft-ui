@@ -1060,48 +1060,6 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 
-@mixin gl-sm-pt-0 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pt-0;
-  }
-}
-
-@mixin gl-sm-pt-1 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pt-1;
-  }
-}
-
-@mixin gl-sm-pt-2 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pt-2;
-  }
-}
-
-@mixin gl-sm-pt-3 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pt-3;
-  }
-}
-
-@mixin gl-sm-pt-4 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pt-4;
-  }
-}
-
-@mixin gl-sm-pt-5 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pt-5;
-  }
-}
-
 @mixin gl-sm-pr-0 {
   // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
