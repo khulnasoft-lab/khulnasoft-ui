@@ -1061,8 +1061,7 @@
 */
 
 @mixin gl-sm-pr-2 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-pr-2;
   }
 }
@@ -1140,12 +1139,6 @@
 @mixin gl-md-pr-1 {
   @include gl-media-breakpoint-up(md) {
     @include gl-pr-1;
-  }
-}
-
-@mixin gl-md-pr-2 {
-  @include gl-media-breakpoint-up(md) {
-    @include gl-pr-2;
   }
 }
 
