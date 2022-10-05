@@ -58,13 +58,6 @@
   display: inline-flex;
 }
 
-@mixin gl-xs-display-inline-flex {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-display-inline-flex;
-  }
-}
-
 @mixin gl-sm-display-inline-flex {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-inline-flex;
