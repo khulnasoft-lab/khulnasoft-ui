@@ -36,13 +36,6 @@
   display: flex;
 }
 
-@mixin gl-xs-display-flex {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-display-flex;
-  }
-}
-
 @mixin gl-sm-display-flex {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-flex;
@@ -63,13 +56,6 @@
 
 @mixin gl-display-inline-flex {
   display: inline-flex;
-}
-
-@mixin gl-xs-display-inline-flex {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-display-inline-flex;
-  }
 }
 
 @mixin gl-sm-display-inline-flex {
@@ -94,13 +80,6 @@
   display: block;
 }
 
-@mixin gl-xs-display-block {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-display-block;
-  }
-}
-
 @mixin gl-sm-display-block {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-block;
@@ -123,13 +102,6 @@
   display: inline;
 }
 
-@mixin gl-xs-display-inline {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-display-inline;
-  }
-}
-
 @mixin gl-sm-display-inline {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-inline;
@@ -150,13 +122,6 @@
 
 @mixin gl-display-inline-block {
   display: inline-block;
-}
-
-@mixin gl-xs-display-inline-block {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-display-inline-block;
-  }
 }
 
 @mixin gl-sm-display-inline-block {

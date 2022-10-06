@@ -23,13 +23,6 @@
   align-items: stretch;
 }
 
-@mixin gl-xs-align-items-baseline {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-align-items-baseline;
-  }
-}
-
 @mixin gl-lg-align-items-baseline {
   @include gl-media-breakpoint-up(lg) {
     @include gl-align-items-baseline;
