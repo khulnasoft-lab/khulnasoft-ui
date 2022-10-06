@@ -1,3 +1,54 @@
+# [46.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v45.0.0...v46.0.0) (2022-10-06)
+
+
+### Bug Fixes
+
+* remove gl-sm-pb-[0-5] utils ([c94b46d](https://gitlab.com/gitlab-org/gitlab-ui/commit/c94b46d269db023f0a2f63c96ff8bb97d7addf68))
+* remove gl-sm-pl-[1-4] utils ([802a32c](https://gitlab.com/gitlab-org/gitlab-ui/commit/802a32ce8c3e54ba358e8aaf704a09b5d3d27411))
+* remove gl-sm-pr-[014] utils ([8e9c3ee](https://gitlab.com/gitlab-org/gitlab-ui/commit/8e9c3ee43eae4818d031ae4a84772953284611e5))
+* remove gl-xs-align-items-baseline util ([359dd98](https://gitlab.com/gitlab-org/gitlab-ui/commit/359dd989bb6822c9fe4ab14cd69f0fae887d24c4))
+* remove gl-xs-display-block util ([03b1f51](https://gitlab.com/gitlab-org/gitlab-ui/commit/03b1f5168ecdc4fe013b4d305c1eb9f80cabb110))
+* remove gl-xs-display-flex util ([0416358](https://gitlab.com/gitlab-org/gitlab-ui/commit/0416358ecc19f0c2e51acb4f8493ae64ed3a04ee))
+* remove gl-xs-display-inline util ([637f1c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/637f1c8b3ff1d2c3c57ebb5bd33b552621b99c33))
+* remove gl-xs-display-inline-block util ([288bf3e](https://gitlab.com/gitlab-org/gitlab-ui/commit/288bf3ef32915f6a6c66ad1f93d42bcfce2046e5))
+* remove gl-xs-display-inline-flex util ([ceeab81](https://gitlab.com/gitlab-org/gitlab-ui/commit/ceeab8161656b9204d3377188d771491316a8102))
+
+
+### Features
+
+* **GlAlert:** `role` status based on alert type ([377137d](https://gitlab.com/gitlab-org/gitlab-ui/commit/377137df829a2e0b77190499194c005e688be7f7)), closes [/gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3045#note_1124896838](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3045/issues/note_1124896838) [/gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3045#note_1124893205](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3045/issues/note_1124893205)
+
+
+### BREAKING CHANGES
+
+* This removes the `gl-xs-align-items-baseline`
+desktop-first CSS util. If you were relying on it, please
+migrate to a mobile-first approach.
+* This removes the `gl-xs-display-inline-block`
+desktop-first CSS util. If you were relying on it, please
+migrate to a mobile-first approach.
+* This removes the `gl-xs-display-inline` desktop-first
+CSS util. If you were relying on it, please migrate to a
+mobile-first approach.
+* This removes the `gl-xs-display-block` desktop-first
+CSS util. If you were relying on it, please migrate to a
+mobile-first approach.
+* This removes the `gl-xs-display-inline-flex`
+desktop-first CSS util. If you were relying on it, please
+migrate to a mobile-first approach.
+* This removes the `gl-xs-display-flex` desktop-first
+CSS util. If you were relying on it, please migrate to a
+mobile-first approach.
+* This removes `gl-sm-pr-[014]` desktop-first
+CSS utils. If you were relying on them, please migrate to a
+mobile-first approach.
+* This removes `gl-sm-pl-[1-4]` desktop-first
+CSS utils. If you were relying on them, please migrate to a
+mobile-first approach.
+* This removes `gl-sm-pb-[0-5]` desktop-first
+CSS utils. If you were relying on them, please migrate to a
+mobile-first approach.
+
 # [45.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v44.1.0...v45.0.0) (2022-10-05)
 
 
