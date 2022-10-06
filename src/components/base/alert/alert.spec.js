@@ -192,22 +192,21 @@ describe('Alert component', () => {
     });
   });
 
-  describe('aria-live', () => {
-    it.each([alertVariantOptions.danger, alertVariantOptions.warning])(
-      'for %p variant, has aria-live assertive attribute',
-      (variant) => {
+  describe('role and aria-live', () => {
+    it.each`
+      variant                        | role        | assertiveness
+      ${alertVariantOptions.danger}  | ${'alert'}  | ${'assertive'}
+      ${alertVariantOptions.warning} | ${'alert'}  | ${'assertive'}
+      ${alertVariantOptions.info}    | ${'status'} | ${'polite'}
+      ${alertVariantOptions.success} | ${'alert'}  | ${'polite'}
+      ${alertVariantOptions.tip}     | ${'status'} | ${'polite'}
+    `(
+      '$variant variant has role "$role" and aria-live "$assertiveness"',
+      ({ variant, role, assertiveness }) => {
         createComponent({ propsData: { variant } });
 
-        expect(wrapper.find('[aria-live=assertive').exists()).toBe(true);
-      }
-    );
-
-    it.each([alertVariantOptions.info, alertVariantOptions.success, alertVariantOptions.tip])(
-      'for %p variant, has aria-live polite attribute',
-      (variant) => {
-        createComponent({ propsData: { variant } });
-
-        expect(wrapper.find('[aria-live=polite]').exists()).toBe(true);
+        expect(wrapper.find(`[role="${role}"`).exists()).toBe(true);
+        expect(wrapper.find(`[aria-live="${assertiveness}"`).exists()).toBe(true);
       }
     );
   });
