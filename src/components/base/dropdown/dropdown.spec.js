@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 
+import { BDropdown } from 'bootstrap-vue';
 import { dropdownVariantOptions } from '../../../utils/constants';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlDropdown from './dropdown.vue';
@@ -34,6 +35,7 @@ describe('new dropdown', () => {
   const findClearAll = () => findByTestId('clear-all-button');
   const findHighlightedItemsTitle = () => findByTestId('highlighted-items-title');
   const findHighlightedItems = () => findByTestId('highlighted-items');
+  const findDropdown = () => wrapper.findComponent(BDropdown);
 
   it('renders when text is null', () => {
     buildWrapper({ text: null });
@@ -414,6 +416,41 @@ describe('new dropdown', () => {
         expect(findClearAll().exists()).toBe(true);
         expect(findClearAll().text()).toBe('Clear');
         expect(findClearAll().text()).not.toBe(clearAllText);
+      });
+    });
+  });
+
+  describe('popperOpts prop', () => {
+    it('combines the passed in popperOpts with the default popperOpts', () => {
+      const popperOpts = {
+        modifiers: {
+          flip: {
+            flipVariationsByContent: false,
+          },
+        },
+      };
+      buildWrapper({ popperOpts });
+
+      expect(findDropdown().props('popperOpts')).toEqual({
+        modifiers: {
+          flip: {
+            flipVariationsByContent: false,
+            padding: 28,
+          },
+        },
+      });
+    });
+
+    it('uses the default popperOpts prop', () => {
+      buildWrapper();
+
+      expect(findDropdown().props('popperOpts')).toEqual({
+        modifiers: {
+          flip: {
+            flipVariationsByContent: true,
+            padding: 28,
+          },
+        },
       });
     });
   });

@@ -84,7 +84,7 @@ const withContainer = (template, containerHeight = 150) => `
     ${template}
   </div>`;
 
-function wrap(template, containerHeight) {
+function wrap(template, containerHeight, cssClass) {
   return withContainer(
     `
     <gl-dropdown
@@ -109,6 +109,7 @@ function wrap(template, containerHeight) {
       :highlighted-items-title-class="highlightedItemsTitleClass"
       :loading="loading"
       :right="right"
+      class="${cssClass}"
     >
       ${template}
     </gl-dropdown>`,
@@ -513,6 +514,28 @@ WithHighlightedItems.args = generateProps({
   highlightedItemsTitle: 'Highlights',
   highlightedItemsTitleClass: 'gl-px-5',
 });
+
+export const OnRightEdge = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: wrap(
+    `
+    <gl-dropdown-item>First item</gl-dropdown-item>
+    <gl-dropdown-item>Second item</gl-dropdown-item>
+    <gl-dropdown-item>Third item</gl-dropdown-item>
+    <gl-dropdown-item>Fourth item</gl-dropdown-item>
+    `,
+    200,
+    'gl-display-block gl-text-right'
+  ),
+  mounted() {
+    clickDropdown(this);
+  },
+  updated() {
+    addClass(this);
+  },
+});
+OnRightEdge.args = generateProps({ text: 'Some dropdown' });
 
 export default {
   title: 'base/dropdown',
