@@ -1,3 +1,10 @@
+# [46.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v46.0.0...v46.1.0) (2022-10-10)
+
+
+### Features
+
+* keep clear-all button in token-selector at top right ([631708d](https://gitlab.com/gitlab-org/gitlab-ui/commit/631708d890f81dc31e9bf2befe6ec84369ca9e02))
+
 # [46.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v45.0.0...v46.0.0) (2022-10-06)
 
 
