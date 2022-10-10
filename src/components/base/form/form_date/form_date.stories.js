@@ -1,11 +1,11 @@
+import { formStateOptions } from '../../../../utils/constants';
 import readme from './form_date.md';
 import GlFormDate from './form_date.vue';
 
-
-const currentYear = 2020;
-const defaultDateValue = new Date(currentYear, 0, 15);
-const defaultMinDate = new Date(currentYear, 0, 1);
-const defaultMaxDate = new Date(currentYear, 2, 31);
+const defaultDateValue = new Date(2020, 0, 15);
+const defaultMinDate = new Date(2020, 0, 1);
+const defaultMaxDate = new Date(2020, 2, 31);
+const defaultValue = '2020-01-15';
 
 const template = `
   <gl-form-date
@@ -16,6 +16,7 @@ const template = `
     :disabled="disabled"
     :min-date="minDate"
     :max-date="maxDate"
+    :state="state"
     :value="value"
   />`;
 
@@ -25,6 +26,7 @@ const generateProps = ({
   disabled = false,
   minDate = null,
   maxDate = null,
+  state = null,
   value = '',
 } = {}) => ({
   autofocus,
@@ -32,6 +34,7 @@ const generateProps = ({
   disabled,
   minDate,
   maxDate,
+  state,
   value,
 });
 
@@ -50,7 +53,7 @@ Disabled.args = generateProps({ disabled: true });
 export const DisabledValue = Template.bind({});
 DisabledValue.args = generateProps({
   disabled: true,
-  value: '2022-10-04',
+  value: defaultValue,
 });
 
 export const DefaultDate = Template.bind({});
@@ -75,11 +78,17 @@ MinMaxDates.args = generateProps({
 export const Readonly = Template.bind({});
 Readonly.args = generateProps({
   readonly: true,
-  value: '2022-10-04',
+  value: defaultValue,
 });
 
 export const Value = Template.bind({});
-Value.args = generateProps({ value: '2022-10-04' });
+Value.args = generateProps({ value: defaultValue });
+
+export const ValidState = Template.bind({});
+ValidState.args = generateProps({ state: true });
+
+export const InvalidState = Template.bind({});
+InvalidState.args = generateProps({ state: false });
 
 export default {
   title: 'base/form/form-date',
@@ -97,6 +106,10 @@ export default {
     },
     maxDate: {
       control: 'date',
+    },
+    state: {
+      options: formStateOptions,
+      control: 'select',
     },
   },
 };
