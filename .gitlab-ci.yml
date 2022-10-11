@@ -56,7 +56,7 @@ code_quality:
 license_scanning:
   <<: *secure-jobs-config
 
-eslint-sast:
+semgrep-sast:
   <<: *secure-jobs-config
 
 nodejs-scan-sast:
