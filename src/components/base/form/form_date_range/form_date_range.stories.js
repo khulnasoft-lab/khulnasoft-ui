@@ -33,10 +33,10 @@ const generateProps = ({
   defaultMaxDate = null,
   defaultStartDate = null,
   defaultEndDate = null,
+  maxDateRange = 0,
   startPickerClass = '',
   endPickerClass = '',
   sameDaySelection = false,
-  maxDateRange = 0,
 } = {}) => ({
   fromLabel,
   toLabel,
@@ -45,10 +45,10 @@ const generateProps = ({
   defaultMaxDate: controlToDate(defaultMaxDate),
   defaultStartDate: controlToDate(defaultStartDate),
   defaultEndDate: controlToDate(defaultEndDate),
+  maxDateRange,
   startPickerClass,
   endPickerClass,
   sameDaySelection,
-  maxDateRange,
 });
 
 export const Default = Template.bind({});
@@ -69,12 +69,24 @@ MinMaxDates.args = generateProps({
   defaultMaxDate: new Date(2020, 2, 31),
 });
 
+export const MaxDateRange = Template.bind({});
+MaxDateRange.args = generateProps({
+  maxDateRange: 31,
+});
+
 export const WithDates = Template.bind({});
 WithDates.args = generateProps({
   defaultMinDate: new Date(2020, 0, 1),
   defaultMaxDate: new Date(2020, 2, 31),
   defaultStartDate: new Date(2020, 0, 14),
   defaultEndDate: new Date(2020, 2, 3),
+});
+
+export const SameDaySelection = Template.bind({});
+SameDaySelection.args = generateProps({
+  defaultStartDate: new Date(2020, 0, 14),
+  defaultEndDate: new Date(2020, 0, 14),
+  sameDaySelection: true,
 });
 
 export default {

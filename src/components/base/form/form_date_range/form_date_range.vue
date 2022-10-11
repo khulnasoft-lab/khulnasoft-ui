@@ -47,6 +47,11 @@ export default {
       required: false,
       default: null,
     },
+    maxDateRange: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
     startPickerClass: {
       type: String,
       required: false,
@@ -61,11 +66,6 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    },
-    maxDateRange: {
-      type: Number,
-      required: false,
-      default: 0,
     },
   },
   data() {
