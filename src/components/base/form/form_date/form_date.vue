@@ -77,7 +77,7 @@ export default {
        * convert Date instance to RFC3339 YYYY-MM-DD string
        * @property {Date} date The provided date
        */
-      return date ? date.toISOString().split('T')[0] : null;
+      return date ? new Date(date).toISOString().split('T')[0] : null;
     },
   },
 };
