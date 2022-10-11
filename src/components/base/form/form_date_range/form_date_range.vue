@@ -1,11 +1,17 @@
 <script>
+import { GlTooltipDirective } from '../../../../directives/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../../utils/datetime_utility';
 import GlFormDate from '../form_date/form_date.vue';
+import GlIcon from '../../icon/icon.vue';
 
 export default {
   name: 'GlFormDateRange',
   components: {
     GlFormDate,
+    GlIcon,
+  },
+  directives: {
+    GlTooltip: GlTooltipDirective,
   },
   model: {
     prop: 'value',
@@ -66,6 +72,22 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    /**
+     * If provided, renders an info icon with a tooltip.
+     */
+    tooltip: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    /**
+     * Additional class(es) to apply to the date range indicator section.
+     */
+    dateRangeIndicatorClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
     },
   },
   data() {
@@ -160,6 +182,22 @@ export default {
         :min-date="toCalendarMinDate"
         :max-date="toCalendarMaxDate"
         @input="onEndDateSelected"
+      />
+    </div>
+    <div
+      :class="dateRangeIndicatorClass"
+      data-testid="daterange-picker-indicator"
+      class="gl-display-flex gl-flex-direction-row gl-align-items-center gl-text-gray-500"
+    >
+      <!-- @slot Content to display for days selected. The value is -1 when no date range is selected.-->
+      <slot v-bind="{ daysSelected: numberOfDays }"></slot>
+      <gl-icon
+        v-if="tooltip"
+        v-gl-tooltip
+        name="information-o"
+        :title="tooltip"
+        :size="16"
+        class="gl-ml-2"
       />
     </div>
   </div>
