@@ -84,7 +84,7 @@ export default {
 </script>
 <template>
   <div
-    class="gl-form-date"
+    class="gl-form-date d-inline-block"
   >
     <gl-form-input
       :id="inputId"
