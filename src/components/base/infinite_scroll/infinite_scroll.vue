@@ -56,8 +56,21 @@ export default {
         const { scrollHeight, scrollTop } = this.$refs.infiniteContainer;
         // Only when scrolled to the top
         if (scrollHeight !== 0 && scrollTop === 0) {
-          // Store scrollHeight to know how far to scroll
-          this.$options.adjustScrollHeight = scrollHeight;
+          // Wait until the DOM is fully updated to adjust scroll
+          this.$nextTick(() => {
+            const { scrollHeight: newScrollHeight } = this.$refs.infiniteContainer;
+
+            // New scrollTop is the new height, minus the old height
+            // minus a small space to allow the user to trigger a scroll once more
+            let top = newScrollHeight - scrollHeight - adjustScrollGap;
+
+            // Never adjust to 0, or a new event may be be triggered
+            if (top < 1) {
+              top = 1;
+            }
+
+            this.scrollTo({ top });
+          });
         }
       }
     },
@@ -68,28 +81,6 @@ export default {
     this.$nextTick(() => {
       if (this.$listeners.topReached && !this.$listeners.bottomReached) {
         this.scrollDown();
-      }
-    });
-  },
-
-  updated() {
-    // Wait until the DOM is fully updated to adjust scroll
-    this.$nextTick(() => {
-      if (this.$options.adjustScrollHeight) {
-        const { scrollHeight } = this.$refs.infiniteContainer;
-
-        // New scrollTop is the new height, minus the old height
-        // minus a small space to allow the user to trigger a scroll once more
-        let top = scrollHeight - this.$options.adjustScrollHeight - adjustScrollGap;
-
-        // Never adjust to 0, or a new event may be be triggered
-        if (top < 1) {
-          top = 1;
-        }
-
-        this.scrollTo({ top });
-        // Prevent subsequent updates
-        this.$options.adjustScrollHeight = null;
       }
     });
   },
