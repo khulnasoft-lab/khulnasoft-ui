@@ -7,7 +7,7 @@ import filter from 'lodash/fp/filter';
 import { intersperse, insert } from '../../../utils/data_utils';
 
 const containsWhitespaceOnly = (vNode) => vNode.text.trim() === '';
-const isTag = (vNode) => vNode.tag !== undefined;
+const isTag = (vNode) => typeof vNode.tag === 'string';
 const filterWhitespaceNodes = filter((vNode) => isTag(vNode) || !containsWhitespaceOnly(vNode));
 
 const insertAfterSecondLastItem = insert(-1);
