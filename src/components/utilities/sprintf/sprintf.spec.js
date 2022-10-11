@@ -3,7 +3,7 @@ import sprintf from './sprintf.vue';
 
 describe('sprintf component', () => {
   let wrapper;
-  const objectPrototypeNames = Object.getOwnPropertyNames(Object.prototype).filter(name =>
+  const objectPrototypeNames = Object.getOwnPropertyNames(Object.prototype).filter((name) =>
     /^[a-z]/i.test(name)
   );
 
@@ -93,11 +93,7 @@ describe('sprintf component', () => {
     });
 
     it('should work with a default slot', () => {
-      createComponent(
-        `<sprintf message="Written by %{default}">
-           <template>Author</template>
-         </sprintf>`
-      );
+      createComponent(`<sprintf message="Written by %{default}">Author</sprintf>`);
 
       expect(wrapper.element.innerHTML).toBe('Written by Author');
     });
@@ -105,14 +101,14 @@ describe('sprintf component', () => {
     describe('Object prototype names', () => {
       it.each(objectPrototypeNames)(
         'does not use Object.prototype.%s as slot if slot is not provided',
-        prototypeName => {
+        (prototypeName) => {
           createComponent(`<sprintf message="%{${prototypeName}}"></sprintf>`);
 
           expect(wrapper.element.innerHTML).toBe(`%{${prototypeName}}`);
         }
       );
 
-      it.each(objectPrototypeNames)('can use provided slot named "%s"', prototypeName => {
+      it.each(objectPrototypeNames)('can use provided slot named "%s"', (prototypeName) => {
         createComponent(
           `<sprintf message="%{${prototypeName}}">
              <template #${prototypeName}>${prototypeName} OK!</template>
@@ -288,7 +284,7 @@ describe('sprintf component', () => {
     describe('Object prototype names', () => {
       it.each(objectPrototypeNames)(
         'does not use Object.prototype.%s as slot if slot is not provided',
-        prototypeName => {
+        (prototypeName) => {
           createComponent(
             `<sprintf message="%{${prototypeName}Start} foo %{${prototypeName}End}"></sprintf>`
           );
@@ -299,7 +295,7 @@ describe('sprintf component', () => {
         }
       );
 
-      it.each(objectPrototypeNames)('can use provided slot named "%s"', prototypeName => {
+      it.each(objectPrototypeNames)('can use provided slot named "%s"', (prototypeName) => {
         createComponent(
           `<sprintf message="%{${prototypeName}Start}foo%{${prototypeName}End}">
                <template #${prototypeName}="{ content }">{{ content }}</template>
