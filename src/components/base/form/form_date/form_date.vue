@@ -1,6 +1,5 @@
 <script>
 import { uniqueId } from 'lodash';
-
 import GlFormInput from '../form_input/form_input.vue';
 
 export default {
@@ -42,14 +41,14 @@ export default {
       default: null,
     },
     value: {
-      type: String,
+      type: Date,
       required: false,
       default: null,
     },
   },
   data() {
     return {
-      currentValue: this.value || this.dateToRFC3339String(this.defaultDate),
+      currentValue: this.dateToRFC3339String(this.value) || this.dateToRFC3339String(this.defaultDate),
       inputId: uniqueId('form-date-'),
     };
   },

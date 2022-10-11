@@ -2,10 +2,9 @@ import { formStateOptions } from '../../../../utils/constants';
 import readme from './form_date.md';
 import GlFormDate from './form_date.vue';
 
-const defaultDateValue = new Date(2020, 0, 15);
+const defaultValue = new Date(2020, 0, 15);
 const defaultMinDate = new Date(2020, 0, 1);
 const defaultMaxDate = new Date(2020, 2, 31);
-const defaultValue = '2020-01-15';
 
 const template = `
   <gl-form-date
@@ -27,7 +26,7 @@ const generateProps = ({
   minDate = null,
   maxDate = null,
   state = null,
-  value = '',
+  value = null,
 } = {}) => ({
   autofocus,
   defaultDate,
@@ -57,7 +56,7 @@ DisabledValue.args = generateProps({
 });
 
 export const DefaultDate = Template.bind({});
-DefaultDate.args = generateProps({ defaultDate: defaultDateValue });
+DefaultDate.args = generateProps({ defaultDate: defaultValue });
 
 export const MinDate = Template.bind({});
 MinDate.args = generateProps({
