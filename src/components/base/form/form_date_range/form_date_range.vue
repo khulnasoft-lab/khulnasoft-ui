@@ -93,7 +93,6 @@ export default {
   },
   data() {
     return {
-      fromCalendarMaxDate: this.defaultMaxDate ? getDateInPast(this.defaultMaxDate, 1) : null,
       fromInputId: uniqueId('from-input-'),
       toInputId: uniqueId('to-input-'),
       startDate: this.defaultStartDate,
@@ -101,17 +100,33 @@ export default {
     };
   },
   computed: {
-    effectiveMaxDateRange() {
-      return this.sameDaySelection ? this.maxDateRange - 1 : this.maxDateRange;
+    fromCalendarMinDate() {
+      if (this.endDate && this.maxDateRange) {
+        const effectiveMaxDateRange = this.sameDaySelection ? this.maxDateRange + 1 : this.maxDateRange;
+        const computedMinStartDate = getDateInPast(this.endDate, effectiveMaxDateRange);
+        return this.defaultMinDate ? new Date(Math.max(computedMinStartDate, this.defaultMinDate)) : computedMinStartDate;
+      }
+      return this.defaultMinDate ? this.defaultMinDate : null;
+    },
+    fromCalendarMaxDate() {
+      if (this.endDate) {
+        return this.sameDaySelection ? this.endDate : getDateInPast(this.endDate, 1);
+      }
+      return this.defaultMaxDate ? getDateInPast(this.defaultMaxDate, 1) : null;
     },
     toCalendarMinDate() {
-      if (!this.startDate) return this.defaultMinDate;
-      return this.sameDaySelection ? this.startDate : getDateInFuture(this.startDate, 1);
+      if (this.startDate) {
+        return this.sameDaySelection ? this.startDate : getDateInFuture(this.startDate, 1);
+      }
+      return this.defaultMinDate ? this.defaultMinDate : null;
     },
     toCalendarMaxDate() {
-      if (!this.startDate || !this.maxDateRange) return this.defaultMaxDate;
-      const computedMaxEndDate = getDateInFuture(this.startDate, this.effectiveMaxDateRange);
-      return new Date(Math.min(computedMaxEndDate, this.defaultMaxDate));
+      if (this.startDate && this.maxDateRange) {
+        const effectiveMaxDateRange = this.sameDaySelection ? this.maxDateRange - 1 : this.maxDateRange;
+        const computedMaxEndDate = getDateInFuture(this.startDate, effectiveMaxDateRange);
+        return this.defaultMaxDate ? new Date(Math.min(computedMaxEndDate, this.defaultMaxDate)) : computedMaxEndDate;
+      }
+      return this.defaultMaxDate ? this.defaultMaxDate : null;
     },
     dateRangeViolation() {
       return this.startDate >= this.endDate || this.exceedsDateRange;
@@ -174,7 +189,7 @@ export default {
       <gl-form-date
         :id="fromInputId"
         v-model="startDate"
-        :min-date="defaultMinDate"
+        :min-date="fromCalendarMinDate"
         :max-date="fromCalendarMaxDate"
         @change="onStartDateSelected"
       />
