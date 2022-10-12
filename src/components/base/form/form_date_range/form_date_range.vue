@@ -14,10 +14,6 @@ export default {
   directives: {
     GlTooltip: GlTooltipDirective,
   },
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
   props: {
     fromLabel: {
       type: String,
@@ -136,12 +132,6 @@ export default {
         return false;
       }
       return this.maxDateRange && this.numberOfDays > this.maxDateRange;
-    },
-    toCalendarDefaultDate() {
-      return this.endDate || this.toCalendarMinDate;
-    },
-    numericStartTime() {
-      return this.startDate ? this.startDate.getTime() : null;
     },
     numberOfDays() {
       if (!this.startDate || !this.endDate) {
