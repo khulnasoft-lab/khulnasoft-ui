@@ -141,13 +141,6 @@ export default {
       return this.sameDaySelection ? numberOfDays + 1 : numberOfDays;
     },
   },
-  watch: {
-    value(val) {
-      const { startDate, endDate } = val;
-      this.startDate = startDate;
-      this.endDate = endDate;
-    },
-  },
   methods: {
     onChangeStartDate(startDate) {
       this.startDate = startDate ? new Date(startDate) : null;
