@@ -1,5 +1,6 @@
-<!-- eslint-disable vue/multi-word-component-names -->
+<!-- eslint-disable vue/multi-word-component-names vue/one-component-per-file -->
 <script>
+import Vue from 'vue';
 import { BDropdown } from 'bootstrap-vue';
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
 import {
@@ -24,14 +25,13 @@ const Selector = {
 };
 
 // see https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/130#note_126406721
-const ExtendedBDropdown = {
-  extends: BDropdown,
+const ExtendedBDropdown = Vue.extend(BDropdown, {
   methods: {
     getItems() {
       return filterVisible(selectAll(Selector.ITEM_SELECTOR, this.$refs.menu));
     },
   },
-};
+});
 
 export default {
   components: {
