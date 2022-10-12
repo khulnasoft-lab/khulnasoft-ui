@@ -15,55 +15,55 @@ export default {
     GlTooltip: GlTooltipDirective,
   },
   props: {
-    fromLabel: {
+    minDate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    maxDate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    startDate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    startLabel: {
       type: String,
       required: false,
       default: 'From',
     },
-    toLabel: {
+    startClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
+    },
+    endDate: {
+      type: Date,
+      required: false,
+      default: null,
+    },
+    endLabel: {
       type: String,
       required: false,
       default: 'To',
+    },
+    endClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
     },
     labelClass: {
       type: [String, Object, Array],
       required: false,
       default: '',
     },
-    defaultMinDate: {
-      type: Date,
-      required: false,
-      default: null,
-    },
-    defaultMaxDate: {
-      type: Date,
-      required: false,
-      default: null,
-    },
-    defaultStartDate: {
-      type: Date,
-      required: false,
-      default: null,
-    },
-    defaultEndDate: {
-      type: Date,
-      required: false,
-      default: null,
-    },
     maxDateRange: {
       type: Number,
       required: false,
       default: 0,
-    },
-    startPickerClass: {
-      type: [String, Object, Array],
-      required: false,
-      default: '',
-    },
-    endPickerClass: {
-      type: [String, Object, Array],
-      required: false,
-      default: '',
     },
     sameDaySelection: {
       type: Boolean,
@@ -78,10 +78,7 @@ export default {
       required: false,
       default: '',
     },
-    /**
-     * Additional class(es) to apply to the date range indicator section.
-     */
-    dateRangeIndicatorClass: {
+    indicatorClass: {
       type: [String, Object, Array],
       required: false,
       default: '',
@@ -89,43 +86,43 @@ export default {
   },
   data() {
     return {
-      fromInputId: uniqueId('from-input-'),
-      toInputId: uniqueId('to-input-'),
-      startDate: this.defaultStartDate,
-      endDate: this.defaultEndDate,
+      currentStartDate: this.startDate,
+      currentEndDate: this.endDate,
+      startInputId: uniqueId('start-input-'),
+      endInputId: uniqueId('end-input-'),
     };
   },
   computed: {
-    fromCalendarMinDate() {
-      if (this.endDate && this.maxDateRange) {
+    startMinDate() {
+      if (this.currentEndDate && this.maxDateRange) {
         const effectiveMaxDateRange = this.sameDaySelection ? this.maxDateRange + 1 : this.maxDateRange;
-        const computedMinStartDate = getDateInPast(this.endDate, effectiveMaxDateRange);
-        return this.defaultMinDate ? new Date(Math.max(computedMinStartDate, this.defaultMinDate)) : computedMinStartDate;
+        const computedMinStartDate = getDateInPast(this.currentEndDate, effectiveMaxDateRange);
+        return this.minDate ? new Date(Math.max(computedMinStartDate, this.minDate)) : computedMinStartDate;
       }
-      return this.defaultMinDate ? this.defaultMinDate : null;
+      return this.minDate ? this.minDate : null;
     },
-    fromCalendarMaxDate() {
-      if (this.endDate) {
-        return this.sameDaySelection ? this.endDate : getDateInPast(this.endDate, 1);
+    startMaxDate() {
+      if (this.currentEndDate) {
+        return this.sameDaySelection ? this.currentEndDate : getDateInPast(this.currentEndDate, 1);
       }
-      return this.defaultMaxDate ? getDateInPast(this.defaultMaxDate, 1) : null;
+      return this.maxDate ? getDateInPast(this.maxDate, 1) : null;
     },
-    toCalendarMinDate() {
-      if (this.startDate) {
-        return this.sameDaySelection ? this.startDate : getDateInFuture(this.startDate, 1);
+    endMinDate() {
+      if (this.currentStartDate) {
+        return this.sameDaySelection ? this.currentStartDate : getDateInFuture(this.currentStartDate, 1);
       }
-      return this.defaultMinDate ? this.defaultMinDate : null;
+      return this.minDate ? this.minDate : null;
     },
-    toCalendarMaxDate() {
-      if (this.startDate && this.maxDateRange) {
+    endMaxDate() {
+      if (this.currentStartDate && this.maxDateRange) {
         const effectiveMaxDateRange = this.sameDaySelection ? this.maxDateRange - 1 : this.maxDateRange;
-        const computedMaxEndDate = getDateInFuture(this.startDate, effectiveMaxDateRange);
-        return this.defaultMaxDate ? new Date(Math.min(computedMaxEndDate, this.defaultMaxDate)) : computedMaxEndDate;
+        const computedMaxEndDate = getDateInFuture(this.currentStartDate, effectiveMaxDateRange);
+        return this.maxDate ? new Date(Math.min(computedMaxEndDate, this.maxDate)) : computedMaxEndDate;
       }
-      return this.defaultMaxDate ? this.defaultMaxDate : null;
+      return this.maxDate ? this.maxDate : null;
     },
     dateRangeViolation() {
-      return this.startDate >= this.endDate || this.exceedsDateRange;
+      return this.currentStartDate >= this.currentEndDate || this.exceedsDateRange;
     },
     exceedsDateRange() {
       if (this.numberOfDays < 0) {
@@ -134,31 +131,26 @@ export default {
       return this.maxDateRange && this.numberOfDays > this.maxDateRange;
     },
     numberOfDays() {
-      if (!this.startDate || !this.endDate) {
+      if (!this.currentStartDate || !this.currentEndDate) {
         return -1;
       }
-      const numberOfDays = getDayDifference(this.startDate, this.endDate);
+      const numberOfDays = getDayDifference(this.currentStartDate, this.currentEndDate);
       return this.sameDaySelection ? numberOfDays + 1 : numberOfDays;
     },
   },
   methods: {
-    onChangeStartDate(startDate) {
-      this.startDate = startDate ? new Date(startDate) : null;
+    onChangeStartDate(currentStartDate) {
+      this.currentStartDate = currentStartDate ? new Date(currentStartDate) : null;
 
       if (this.dateRangeViolation) {
-        this.endDate = null;
+        this.currentEndDate = null;
       } else {
-        this.$emit('input', { startDate, endDate: this.endDate });
+        this.$emit('input', { startDate: currentStartDate, endDate: this.currentEndDate });
       }
     },
-    onChangeEndDate(endDate) {
-      this.endDate = endDate ? new Date(endDate) : null;
-      /**
-       * Emitted when start or end date selected with {startDate, endDate} value
-       *
-       * @event input
-       * */
-      this.$emit('input', { startDate: this.startDate, endDate });
+    onChangeEndDate(currentEndDate) {
+      this.currentEndDate = currentEndDate ? new Date(currentEndDate) : null;
+      this.$emit('input', { startDate: this.currentStartDate, endDate: currentEndDate });
     },
   },
 };
@@ -167,29 +159,29 @@ export default {
   <div
     class="gl-form-date-range"
   >
-    <div :class="startPickerClass">
-      <label :class="labelClass" :for="fromInputId">{{ fromLabel }}</label>
+    <div :class="startClass">
+      <label :class="labelClass" :for="startInputId">{{ startLabel }}</label>
       <gl-form-date
-        :id="fromInputId"
-        v-model="startDate"
-        :min-date="fromCalendarMinDate"
-        :max-date="fromCalendarMaxDate"
+        :id="startInputId"
+        v-model="currentStartDate"
+        :min-date="startMinDate"
+        :max-date="startMaxDate"
         @change="onChangeStartDate"
       />
     </div>
-    <div :class="endPickerClass">
-      <label :class="labelClass" :for="toInputId">{{ toLabel }}</label>
+    <div :class="endClass">
+      <label :class="labelClass" :for="endInputId">{{ endLabel }}</label>
       <gl-form-date
-        :id="toInputId"
-        v-model="endDate"
-        :min-date="toCalendarMinDate"
-        :max-date="toCalendarMaxDate"
+        :id="endInputId"
+        v-model="currentEndDate"
+        :min-date="endMinDate"
+        :max-date="endMaxDate"
         @change="onChangeEndDate"
       />
     </div>
     <div
-      :class="dateRangeIndicatorClass"
-      data-testid="daterange-picker-indicator"
+      :class="indicatorClass"
+      data-testid="gl-form-date-range-indicator"
       class="gl-display-flex gl-flex-direction-row gl-align-items-center gl-text-gray-500"
     >
       <!-- @slot Content to display for days selected. The value is -1 when no date range is selected.-->

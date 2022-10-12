@@ -6,37 +6,37 @@ const controlToDate = (val) => val ? new Date(val) : null;
 
 const defaultTemplate = `
   <gl-form-date-range
-    :from-label="fromLabel"
-    :to-label="toLabel"
+    :min-date="minDate"
+    :max-date="maxDate"
+    :start-date="startDate"
+    :start-label="startLabel"
+    :start-class="startClass"
+    :end-date="endDate"
+    :end-label="endLabel"
+    :end-class="endClass"
     :label-class="labelClass"
-    :default-min-date="defaultMinDate"
-    :default-max-date="defaultMaxDate"
-    :default-start-date="defaultStartDate"
-    :default-end-date="defaultEndDate"
     :max-date-range="maxDateRange"
-    :start-picker-class="startPickerClass"
-    :end-picker-class="endPickerClass"
     :same-day-selection="sameDaySelection"
     :tooltip="tooltip"
-    :date-range-indicator-class="dateRangeIndicatorClass"
+    :indicator-class="indicatorClass"
   />
 `;
 
 const templateWithSlot = `
   <gl-form-date-range
-    :from-label="fromLabel"
-    :to-label="toLabel"
+    :min-date="minDate"
+    :max-date="maxDate"
+    :start-date="startDate"
+    :start-label="startLabel"
+    :start-class="startClass"
+    :end-date="endDate"
+    :end-label="endLabel"
+    :end-class="endClass"
     :label-class="labelClass"
-    :default-min-date="defaultMinDate"
-    :default-max-date="defaultMaxDate"
-    :default-start-date="defaultStartDate"
-    :default-end-date="defaultEndDate"
     :max-date-range="maxDateRange"
-    :start-picker-class="startPickerClass"
-    :end-picker-class="endPickerClass"
     :same-day-selection="sameDaySelection"
     :tooltip="tooltip"
-    :date-range-indicator-class="dateRangeIndicatorClass"
+    :indicator-class="indicatorClass"
   >
     <template #default="{ daysSelected }">
       <span v-if="daysSelected === 1">{{ daysSelected }} day selected</span>
@@ -53,33 +53,33 @@ const Template = (template, args) => ({
 });
 
 const generateProps = ({
-  fromLabel = defaultValue('fromLabel'),
-  toLabel = defaultValue('toLabel'),
+  minDate = null,
+  maxDate = null,
+  startDate = null,
+  startLabel = defaultValue('startLabel'),
+  startClass = '',
+  endDate = null,
+  endLabel = defaultValue('endLabel'),
+  endClass = '',
   labelClass = '',
-  defaultMinDate = null,
-  defaultMaxDate = null,
-  defaultStartDate = null,
-  defaultEndDate = null,
   maxDateRange = 0,
-  startPickerClass = '',
-  endPickerClass = '',
   sameDaySelection = false,
   tooltip = '',
-  dateRangeIndicatorClass = '',
+  indicatorClass = '',
 } = {}) => ({
-  fromLabel,
-  toLabel,
+  minDate: controlToDate(minDate),
+  maxDate: controlToDate(maxDate),
+  startDate: controlToDate(startDate),
+  startLabel,
+  startClass,
+  endDate: controlToDate(endDate),
+  endLabel,
+  endClass,
   labelClass,
-  defaultMinDate: controlToDate(defaultMinDate),
-  defaultMaxDate: controlToDate(defaultMaxDate),
-  defaultStartDate: controlToDate(defaultStartDate),
-  defaultEndDate: controlToDate(defaultEndDate),
   maxDateRange,
-  startPickerClass,
-  endPickerClass,
   sameDaySelection,
   tooltip,
-  dateRangeIndicatorClass,
+  indicatorClass,
 });
 
 export const Default = Template.bind({}, defaultTemplate);
@@ -87,18 +87,18 @@ Default.args = generateProps();
 
 export const Custom = Template.bind({}, templateWithSlot);
 Custom.args = generateProps({
-  fromLabel: 'Start',
-  toLabel: 'End',
+  startLabel: 'Start',
+  startClass: 'gl-text-blue-500',
+  endLabel: 'End',
+  endClass: 'gl-text-red-500',
   labelClass: 'gl-font-style-italic',
-  startPickerClass: 'gl-text-blue-500',
-  endPickerClass: 'gl-text-red-500',
-  dateRangeIndicatorClass: 'gl-text-green-500',
+  indicatorClass: 'gl-text-green-500',
 });
 
 export const MinMaxDates = Template.bind({}, defaultTemplate);
 MinMaxDates.args = generateProps({
-  defaultMinDate: new Date(2020, 0, 1),
-  defaultMaxDate: new Date(2020, 2, 31),
+  minDate: new Date(2020, 0, 1),
+  maxDate: new Date(2020, 2, 31),
 });
 
 export const MaxDateRange = Template.bind({}, defaultTemplate);
@@ -108,37 +108,37 @@ MaxDateRange.args = generateProps({
 
 export const WithDates = Template.bind({}, defaultTemplate);
 WithDates.args = generateProps({
-  defaultMinDate: new Date(2020, 0, 1),
-  defaultMaxDate: new Date(2020, 2, 31),
-  defaultStartDate: new Date(2020, 0, 14),
-  defaultEndDate: new Date(2020, 2, 3),
+  minDate: new Date(2020, 0, 1),
+  maxDate: new Date(2020, 2, 31),
+  startDate: new Date(2020, 0, 14),
+  endDate: new Date(2020, 2, 3),
 });
 
 export const SameDaySelection = Template.bind({}, defaultTemplate);
 SameDaySelection.args = generateProps({
-  defaultStartDate: new Date(2020, 0, 14),
-  defaultEndDate: new Date(2020, 0, 14),
+  startDate: new Date(2020, 0, 14),
+  endDate: new Date(2020, 0, 14),
   sameDaySelection: true,
 });
 
 export const Tooltip = Template.bind({}, defaultTemplate);
 Tooltip.args = generateProps({
-  defaultMinDate: new Date(2020, 0, 1),
-  defaultMaxDate: new Date(2020, 0, 31),
-  defaultStartDate: new Date(2020, 0, 4),
-  defaultEndDate: new Date(2020, 0, 18),
-  tooltip: 'Date range limited to 31 days',
+  minDate: new Date(2020, 0, 1),
+  maxDate: new Date(2020, 0, 31),
+  startDate: new Date(2020, 0, 4),
+  endDate: new Date(2020, 0, 18),
   maxDateRange: 31,
+  tooltip: 'Date range limited to 31 days',
 });
 
 export const WithDatesAndTooltip = Template.bind({}, templateWithSlot);
 WithDatesAndTooltip.args = generateProps({
-  defaultMinDate: new Date(2020, 0, 1),
-  defaultMaxDate: new Date(2020, 0, 31),
-  defaultStartDate: new Date(2020, 0, 4),
-  defaultEndDate: new Date(2020, 0, 18),
-  tooltip: 'Date range limited to 31 days',
+  minDate: new Date(2020, 0, 1),
+  maxDate: new Date(2020, 0, 31),
+  startDate: new Date(2020, 0, 4),
+  endDate: new Date(2020, 0, 18),
   maxDateRange: 31,
+  tooltip: 'Date range limited to 31 days',
 });
 
 export default {
@@ -152,16 +152,16 @@ export default {
     },
   },
   argTypes: {
-    defaultMinDate: {
+    minDate: {
       control: 'date',
     },
-    defaultMaxDate: {
+    maxDate: {
       control: 'date',
     },
-    defaultStartDate: {
+    startDate: {
       control: 'date',
     },
-    defaultEndDate: {
+    endDate: {
       control: 'date',
     },
   },
