@@ -89,11 +89,7 @@ describe('sprintf component', () => {
     });
 
     it('should work with a default slot', () => {
-      createComponent(
-        `<sprintf message="Written by %{default}">
-           <template>Author</template>
-         </sprintf>`
-      );
+      createComponent(`<sprintf message="Written by %{default}">Author</sprintf>`);
 
       expect(wrapper.element.innerHTML).toBe('Written by Author');
     });
