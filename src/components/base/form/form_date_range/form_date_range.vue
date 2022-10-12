@@ -1,4 +1,5 @@
 <script>
+import { uniqueId } from 'lodash';
 import { GlTooltipDirective } from '../../../../directives/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../../utils/datetime_utility';
 import GlFormDate from '../form_date/form_date.vue';
@@ -93,6 +94,8 @@ export default {
   data() {
     return {
       fromCalendarMaxDate: this.defaultMaxDate ? getDateInPast(this.defaultMaxDate, 1) : null,
+      fromInputId: uniqueId('from-input-'),
+      toInputId: uniqueId('to-input-'),
       startDate: this.defaultStartDate,
       endDate: this.defaultEndDate,
     };
@@ -167,8 +170,9 @@ export default {
     class="gl-form-date-range"
   >
     <div :class="startPickerClass">
-      <label :class="labelClass">{{ fromLabel }}</label>
+      <label :class="labelClass" :for="fromInputId">{{ fromLabel }}</label>
       <gl-form-date
+        :id="fromInputId"
         v-model="startDate"
         :min-date="defaultMinDate"
         :max-date="fromCalendarMaxDate"
@@ -176,8 +180,9 @@ export default {
       />
     </div>
     <div :class="endPickerClass">
-      <label :class="labelClass">{{ toLabel }}</label>
+      <label :class="labelClass" :for="toInputId">{{ toLabel }}</label>
       <gl-form-date
+        :id="toInputId"
         v-model="endDate"
         :min-date="toCalendarMinDate"
         :max-date="toCalendarMaxDate"

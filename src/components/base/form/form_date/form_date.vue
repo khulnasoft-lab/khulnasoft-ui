@@ -12,6 +12,11 @@ export default {
     event: 'change',
   },
   props: {
+    id: {
+      type: String,
+      required: false,
+      default: null,
+    },
     autofocus: {
       type: Boolean,
       required: false,
@@ -49,7 +54,7 @@ export default {
   data() {
     return {
       currentValue: this.dateToRFC3339String(this.value) || this.dateToRFC3339String(this.defaultDate),
-      inputId: uniqueId('form-date-'),
+      inputId: this.id || uniqueId('form-date-'),
     };
   },
   computed: {
