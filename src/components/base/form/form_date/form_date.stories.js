@@ -14,6 +14,7 @@ const template = `
     :disabled="disabled"
     :min-date="minDate"
     :max-date="maxDate"
+    :readonly="readonly"
     :state="state"
     :value="value"
   />`;
@@ -23,6 +24,7 @@ const generateProps = ({
   disabled = false,
   minDate = null,
   maxDate = null,
+  readonly = false,
   state = null,
   value = null,
 } = {}) => ({
@@ -30,6 +32,7 @@ const generateProps = ({
   disabled,
   minDate,
   maxDate,
+  readonly,
   state,
   value,
 });
