@@ -176,7 +176,7 @@ export default {
         v-model="startDate"
         :min-date="defaultMinDate"
         :max-date="fromCalendarMaxDate"
-        @input="onStartDateSelected"
+        @change="onStartDateSelected"
       />
     </div>
     <div :class="endPickerClass">
@@ -186,7 +186,7 @@ export default {
         v-model="endDate"
         :min-date="toCalendarMinDate"
         :max-date="toCalendarMaxDate"
-        @input="onEndDateSelected"
+        @change="onEndDateSelected"
       />
     </div>
     <div

@@ -76,8 +76,8 @@ export default {
        */
       return date ? new Date(date).toISOString().split('T')[0] : null;
     },
-    input(value) {
-      this.$emit('input', value);
+    change(currentValue) {
+      this.$emit('change', currentValue);
     },
   },
 };
@@ -95,7 +95,7 @@ export default {
       :min="min"
       :max="max"
       type="date"
-      @input="input"
+      @change="change"
     />
     <output
       :for="inputId"
