@@ -133,9 +133,9 @@ describe('Alert component', () => {
       const button = buttons.at(0);
       expect(button.text()).toContain(secondaryButtonText);
 
-      const attrs = button.attributes();
-      expect('href' in attrs).toBe(false);
-      expect(attrs.category).toEqual(buttonCategoryOptions.secondary);
+      const props = button.props();
+      expect('href' in props).toBe(false);
+      expect(props.category).toEqual(buttonCategoryOptions.secondary);
     });
 
     it('emits a secondaryAction event when secondary button is clicked', () => {
