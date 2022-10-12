@@ -149,8 +149,8 @@ export default {
     },
   },
   methods: {
-    onStartDateSelected(startDate) {
-      this.startDate = new Date(startDate);
+    onChangeStartDate(startDate) {
+      this.startDate = startDate ? new Date(startDate) : null;
 
       if (this.dateRangeViolation) {
         this.endDate = null;
@@ -158,8 +158,8 @@ export default {
         this.$emit('input', { startDate, endDate: this.endDate });
       }
     },
-    onEndDateSelected(endDate) {
-      this.endDate = new Date(endDate);
+    onChangeEndDate(endDate) {
+      this.endDate = endDate ? new Date(endDate) : null;
       /**
        * Emitted when start or end date selected with {startDate, endDate} value
        *
@@ -181,7 +181,7 @@ export default {
         v-model="startDate"
         :min-date="fromCalendarMinDate"
         :max-date="fromCalendarMaxDate"
-        @change="onStartDateSelected"
+        @change="onChangeStartDate"
       />
     </div>
     <div :class="endPickerClass">
@@ -191,7 +191,7 @@ export default {
         v-model="endDate"
         :min-date="toCalendarMinDate"
         :max-date="toCalendarMaxDate"
-        @change="onEndDateSelected"
+        @change="onChangeEndDate"
       />
     </div>
     <div
