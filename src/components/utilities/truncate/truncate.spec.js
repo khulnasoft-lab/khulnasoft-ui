@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { createMockDirective, getBinding } from '~helpers/vue_mock_directive';
+import { getBinding } from '~helpers/vue_mock_directive';
 import { POSITION } from './constants';
 import Truncate from './truncate.vue';
 
@@ -17,10 +17,9 @@ describe('Truncate component', () => {
   };
 
   const createComponent = (props) => {
-    wrapper = shallowMount(
-      { extends: Truncate, directives: { GlTooltip: createMockDirective('gl-tooltip') } },
-      { propsData: { ...defaultProps, ...props } }
-    );
+    wrapper = shallowMount(Truncate, {
+      propsData: { ...defaultProps, ...props },
+    });
   };
 
   describe('All', () => {

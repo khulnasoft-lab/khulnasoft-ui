@@ -16,7 +16,7 @@ export const createMockDirective = (name) => ({
   },
 
   update(el, binding) {
-    writeBindingToElement(el, binding);
+    writeBindingToElement(el, name, binding);
   },
 
   unbind(el) {

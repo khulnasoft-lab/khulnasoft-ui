@@ -1,6 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { createMockDirective } from '~helpers/vue_mock_directive';
 import Breadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
 
@@ -42,7 +41,6 @@ describe('Breadcrumb component', () => {
         avatar: '<div data-testid="avatar-slot"></div>',
         separator: '<div data-testid="separator-slot"></div>',
       },
-      directives: { GlTooltip: createMockDirective('gl-tooltip') },
       stubs: {
         GlBreadcrumbItem,
       },
