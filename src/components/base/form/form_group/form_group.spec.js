@@ -13,6 +13,7 @@ describe('Form group component', () => {
   const createComponent = (options) => {
     wrapper = shallowMount(GlFormGroup, {
       ...options,
+      stubs: { BFormGroup },
     });
   };
 
