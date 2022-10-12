@@ -11,7 +11,6 @@ const template = `
     v-model="value"
     ref="date"
     :autofocus="autofocus"
-    :default-date="defaultDate"
     :disabled="disabled"
     :min-date="minDate"
     :max-date="maxDate"
@@ -21,7 +20,6 @@ const template = `
 
 const generateProps = ({
   autofocus = false,
-  defaultDate = null,
   disabled = false,
   minDate = null,
   maxDate = null,
@@ -29,7 +27,6 @@ const generateProps = ({
   value = null,
 } = {}) => ({
   autofocus,
-  defaultDate,
   disabled,
   minDate,
   maxDate,
@@ -54,9 +51,6 @@ DisabledValue.args = generateProps({
   disabled: true,
   value: defaultValue,
 });
-
-export const DefaultDate = Template.bind({});
-DefaultDate.args = generateProps({ defaultDate: defaultValue });
 
 export const MinDate = Template.bind({});
 MinDate.args = generateProps({

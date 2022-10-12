@@ -22,14 +22,6 @@ export default {
       required: false,
       default: false,
     },
-    /**
-     * Use this prop to set the initial date for the datepicker.
-     */
-    defaultDate: {
-      type: Date,
-      required: false,
-      default: null,
-    },
     disabled: {
       type: Boolean,
       required: false,
@@ -53,7 +45,7 @@ export default {
   },
   data() {
     return {
-      currentValue: this.dateToRFC3339String(this.value) || this.dateToRFC3339String(this.defaultDate),
+      currentValue: this.value ? this.dateToRFC3339String(this.value) : null,
       inputId: this.id || uniqueId('form-date-'),
     };
   },
