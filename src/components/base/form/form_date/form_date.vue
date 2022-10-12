@@ -84,6 +84,9 @@ export default {
        */
       return date ? new Date(date).toISOString().split('T')[0] : null;
     },
+    input(value) {
+      this.$emit('input', value);
+    },
   },
 };
 </script>
@@ -100,6 +103,7 @@ export default {
       :min="min"
       :max="max"
       type="date"
+      @input="input"
     />
     <output
       :for="inputId"

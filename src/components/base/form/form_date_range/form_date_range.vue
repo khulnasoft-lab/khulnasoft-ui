@@ -145,7 +145,7 @@ export default {
   },
   methods: {
     onStartDateSelected(startDate) {
-      this.startDate = startDate;
+      this.startDate = new Date(startDate);
 
       if (this.dateRangeViolation) {
         this.endDate = null;
@@ -154,7 +154,7 @@ export default {
       }
     },
     onEndDateSelected(endDate) {
-      this.endDate = endDate;
+      this.endDate = new Date(endDate);
       /**
        * Emitted when start or end date selected with {startDate, endDate} value
        *
