@@ -7,10 +7,6 @@ export default {
   components: {
     GlFormInput,
   },
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
   props: {
     id: {
       type: String,
@@ -45,7 +41,7 @@ export default {
   },
   data() {
     return {
-      currentValue: this.value ? this.dateToRFC3339String(this.value) : null,
+      currentValue: this.dateToRFC3339String(this.value),
       inputId: this.id || uniqueId('form-date-'),
     };
   },
