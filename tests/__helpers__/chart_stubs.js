@@ -1,6 +1,9 @@
 import ChartTooltip from '~/components/charts/tooltip/tooltip.vue';
 
 export const createMockChartInstance = () => ({
+  // temporary workaround to ensure compatibility with @vue/compat
+  __v_isReadonly: true,
+
   getDom: () => {
     return {
       addEventListener: jest.fn(),

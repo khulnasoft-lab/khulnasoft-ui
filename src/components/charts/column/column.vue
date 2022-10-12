@@ -96,7 +96,7 @@ export default {
     barSeries() {
       return this.bars.map(({ name, data }, index) => {
         const color = colorFromDefaultPalette(index);
-        return generateBarSeries({ stack: this.groupBy, name, data, color });
+        return generateBarSeries({ name, data, color });
       });
     },
     lineSeries() {
