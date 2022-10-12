@@ -13,16 +13,6 @@ export default {
       required: false,
       default: null,
     },
-    autofocus: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     minDate: {
       type: Date,
       required: false,
@@ -86,8 +76,6 @@ export default {
       :id="inputId"
       v-model="currentValue"
       v-bind="$attrs"
-      :autofocus="autofocus"
-      :disabled="disabled"
       :min="min"
       :max="max"
       type="date"
