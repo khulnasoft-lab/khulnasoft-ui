@@ -1,9 +1,7 @@
 import { mount } from '@vue/test-utils';
 import GlDropdown from '../dropdown/dropdown.vue';
-import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlIcon from '../icon/icon.vue';
 import GlSorting from './sorting.vue';
-import GlSortingItem from './sorting_item.vue';
 
 describe('sorting component', () => {
   let wrapper;
@@ -22,24 +20,9 @@ describe('sorting component', () => {
 
   const createComponent = (propsData) => {
     wrapper = mount(GlSorting, {
-      attachTo: document.body,
-      components: {
-        GlSortingItem,
-      },
-      slots: {
-        default: [
-          '<gl-sorting-item :active="true">First item</gl-sorting-item>',
-          '<gl-sorting-item>Second item</gl-sorting-item>',
-          '<gl-sorting-item>Third item</gl-sorting-item>',
-        ],
-      },
       propsData: {
         ...defaultProps,
         ...propsData,
-      },
-      stubs: {
-        GlSortingItem,
-        GlDropdownItem,
       },
     });
   };
