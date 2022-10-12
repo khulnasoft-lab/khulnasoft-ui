@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { BTab } from 'bootstrap-vue';
 import { DEFAULT_TAB_TITLE_LINK_CLASS } from '../constants';
 import GlTab from './tab.vue';
 
@@ -27,9 +28,7 @@ describe('Tab component', () => {
         },
       });
 
-      expect(wrapper.html()).toBe(
-        `<b-tab-stub tag="div" title="" titlelinkclass="${expectedProp}"></b-tab-stub>`
-      );
+      expect(wrapper.findComponent(BTab).props('titleLinkClass')).toStrictEqual(expectedProp);
     }
   );
 });
