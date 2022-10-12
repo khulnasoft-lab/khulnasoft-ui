@@ -26,7 +26,7 @@ export default {
       default: 'To',
     },
     labelClass: {
-      type: String,
+      type: [String, Object, Array],
       required: false,
       default: '',
     },
@@ -56,12 +56,12 @@ export default {
       default: 0,
     },
     startPickerClass: {
-      type: String,
+      type: [String, Object, Array],
       required: false,
       default: '',
     },
     endPickerClass: {
-      type: String,
+      type: [String, Object, Array],
       required: false,
       default: '',
     },
