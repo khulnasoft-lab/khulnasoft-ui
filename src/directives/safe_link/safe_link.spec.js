@@ -17,20 +17,18 @@ describe('safe link directive', () => {
     mountFn = shallowMount,
   } = {}) => {
     const component = {
+      props: {
+        href: { type: String },
+        safeLinkConfig: { type: Object },
+      },
       directives: {
         SafeLink: SafeLinkDirective,
       },
       components,
-      data() {
-        return {
-          href,
-          safeLinkConfig,
-        };
-      },
       template,
     };
 
-    wrapper = mountFn(component);
+    wrapper = mountFn(component, { propsData: { href, safeLinkConfig } });
   };
 
   describe('default', () => {
@@ -64,7 +62,7 @@ describe('safe link directive', () => {
   describe('valid urls', () => {
     const validUrls = [...absoluteUrls, ...relativeUrls, ...encodedJavaScriptUrls];
     /* Note:
-    /* Encoded JavaScript URLs are safe urls in Vue context, since 
+    /* Encoded JavaScript URLs are safe urls in Vue context, since
     /* Vue attribute bindings are also automatically escaped
     /* https://vuejs.org/v2/guide/security.html#Injecting-URLs
     */
@@ -99,13 +97,13 @@ describe('safe link directive', () => {
       expect(wrapper.attributes('href')).toBe('about:blank');
 
       // set href to a valid url
-      wrapper.setData({ href: 'https://gitlab.com' });
-      await Vue.nextTick();
+      await wrapper.setProps({ href: 'https://gitlab.com' });
       expect(wrapper.attributes('href')).toBe('https://gitlab.com');
 
       // set href to back to an invalid url
-      wrapper.setData({ href: javascriptUrls[1] });
+      await wrapper.setProps({ href: javascriptUrls[1] });
       await Vue.nextTick();
+
       expect(wrapper.attributes('href')).toBe('about:blank');
     });
 
@@ -123,12 +121,12 @@ describe('safe link directive', () => {
         expect(wrapper.attributes('href')).toBe(url);
 
         // set href to a valid url
-        wrapper.setData({ href: 'https://gitlab.com' });
+        await wrapper.setProps({ href: 'https://gitlab.com' });
         await Vue.nextTick();
         expect(wrapper.attributes('href')).toBe('https://gitlab.com');
 
         // set href to back to an invalid url
-        wrapper.setData({ href: url });
+        await wrapper.setProps({ href: url });
         await Vue.nextTick();
         expect(wrapper.attributes('href')).toBe(url);
       });
