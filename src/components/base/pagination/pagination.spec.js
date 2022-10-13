@@ -63,7 +63,7 @@ describe('pagination component', () => {
     });
     await wrapper.vm.$nextTick();
 
-    expect(wrapper.html()).toBe('');
+    expect(wrapper.text()).toBe('');
   });
 
   it('supports slots customization', () => {
