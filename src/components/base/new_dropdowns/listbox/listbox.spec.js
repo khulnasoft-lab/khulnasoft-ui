@@ -161,6 +161,7 @@ describe('GlListbox', () => {
       }
       findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
       await nextTick();
+      await nextTick();
     };
 
     it('should re-emit the event', async () => {
