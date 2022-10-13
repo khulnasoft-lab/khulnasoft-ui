@@ -258,7 +258,7 @@ export default {
         :disabled="disabled"
         @focus="isFocused = true"
         @blur="isFocused = false"
-        @keydown.enter="search(currentValue)"
+        @keydown.enter.native="search(currentValue)"
       />
     </slot>
     <gl-clear-icon-button
