@@ -39,7 +39,7 @@ export default {
    * The content of the item.
    * @slot default
    */
-  render(createElement, { children, data, props = {} }) {
+  render(createElement, { scopedSlots, data, props = {} }) {
     const classNames = `gl-sorting-item js-active-icon gl-flex-shrink-0 gl-mr-2 ${
       props.active ? '' : 'inactive gl-visibility-hidden'
     }`;
@@ -52,16 +52,16 @@ export default {
       },
     });
 
-    return createElement(
-      GlDropdownItem,
-      {
-        ...data,
-        attrs: {
-          ...props,
-        },
+    return createElement(GlDropdownItem, {
+      ...data,
+      attrs: {
+        ...props,
       },
-      [icon, children]
-    );
+      scopedSlots: {
+        ...scopedSlots,
+        default: () => [icon, scopedSlots.default?.()],
+      },
+    });
   },
 };
 </script>
