@@ -1,7 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BBadge } from 'bootstrap-vue';
-import { badgeSizeOptions, badgeVariantOptions } from '../../../utils/constants';
+import {
+  badgeSizeOptions,
+  badgeVariantOptions,
+  badgeIconSizeOptions,
+} from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 
 export default {
@@ -41,6 +45,15 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * The size of the icon 16 or 12
+     */
+    iconSize: {
+      type: String,
+      default: 'md',
+      validator: (value) => Object.keys(badgeIconSizeOptions).includes(value),
+      required: false,
+    },
   },
   computed: {
     hasIconOnly() {
@@ -50,13 +63,22 @@ export default {
     role() {
       return this.hasIconOnly ? 'img' : undefined;
     },
+    iconSizeComputed() {
+      return badgeIconSizeOptions[this.iconSize];
+    },
   },
 };
 </script>
 
 <template>
   <b-badge v-bind="$attrs" :variant="variant" :class="['gl-badge', size]" :role="role" pill>
-    <gl-icon v-if="icon" class="gl-badge-icon" :class="{ 'gl-mr-2': !hasIconOnly }" :name="icon" />
+    <gl-icon
+      v-if="icon"
+      class="gl-badge-icon"
+      :size="iconSizeComputed"
+      :class="{ 'gl-mr-2': !hasIconOnly }"
+      :name="icon"
+    />
     <!-- @slot The badge content to display. -->
     <slot></slot>
   </b-badge>
