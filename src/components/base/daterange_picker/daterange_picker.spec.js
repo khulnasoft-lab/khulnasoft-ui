@@ -242,7 +242,7 @@ describe('Daterange Picker', () => {
     const findTooltipIcon = () => wrapper.findComponent(Icon);
 
     const slots = {
-      default: `<div> {{ props.daysSelected }} days selected`,
+      default: `<div>{{ props.daysSelected }} days selected</div>`,
     };
 
     it('does not show default slot or tooltip icon by default', () => {
