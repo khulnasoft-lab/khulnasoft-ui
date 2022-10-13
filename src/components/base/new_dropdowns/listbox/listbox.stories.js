@@ -33,6 +33,7 @@ const generateProps = ({
   right = defaultValue('right'),
   toggleText,
   textSrOnly = defaultValue('textSrOnly'),
+  headerText = defaultValue('headerText'),
   icon = '',
   multiple = defaultValue('multiple'),
   isCheckCentered = defaultValue('isCheckCentered'),
@@ -53,6 +54,7 @@ const generateProps = ({
   right,
   toggleText,
   textSrOnly,
+  headerText,
   icon,
   multiple,
   isCheckCentered,
@@ -76,6 +78,7 @@ const makeBindings = (overrides = {}) =>
     ':right': 'right',
     ':toggle-text': 'toggleText',
     ':text-sr-only': 'textSrOnly',
+    ':header-text': 'headerText',
     ':icon': 'icon',
     ':multiple': 'multiple',
     ':is-check-centered': 'isCheckCentered',
@@ -151,10 +154,7 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
       this.selected.push(mockOptions[index].value);
     },
   },
-  template: template(
-    `<template #header>
-        <p class="gl-font-weight-bold gl-font-sm gl-m-0 gl-text-center gl-py-2 gl-border-1 gl-border-b-solid gl-border-gray-200">Assign to department</p>
-    </template>
+  template: template(`
     <template #footer>
       <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-100 gl-display-flex gl-justify-content-center gl-p-3">
         <gl-button-group :vertical="false">
@@ -164,11 +164,11 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
         </gl-button-group>
       </div>
     </template>
-  `
-  ),
+  `),
 });
 HeaderAndFooter.args = generateProps({
   toggleText: 'Header and Footer',
+  headerText: 'Assign to department',
   multiple: true,
 });
 HeaderAndFooter.decorators = [makeContainer({ height: '370px' })];
@@ -315,7 +315,6 @@ export const Searchable = (args, { argTypes }) => ({
       filteredItems: mockOptions,
       searchInProgress: false,
       timeoutId: null,
-      headerId: 'listbox-header',
     };
   },
   mounted() {
@@ -358,19 +357,12 @@ export const Searchable = (args, { argTypes }) => ({
     },
   },
   template: template(
-    `<template #header>
-        <p :id="headerId"
-          class="gl-font-weight-bold gl-font-sm gl-m-0 gl-text-center gl-py-2 gl-border-1 gl-border-b-solid gl-border-gray-200">
-          Assign to department</p>
-      </template>
-      <template #search-summary-sr-only>
-        {{ numberOfSearchResults }}
-      </template>
-  `,
+    `<template #search-summary-sr-only>
+      {{ numberOfSearchResults }}
+    </template>`,
     {
       bindingOverrides: {
         ':items': 'filteredItems',
-        ':list-aria-labelled-by': 'headerId',
         ':toggle-text': 'customToggleText',
         ':searching': 'searchInProgress',
         '@search': 'filterList',
@@ -378,7 +370,7 @@ export const Searchable = (args, { argTypes }) => ({
     }
   ),
 });
-Searchable.args = generateProps({ searchable: true });
+Searchable.args = generateProps({ headerText: 'Assign to department', searchable: true });
 Searchable.decorators = [makeContainer({ height: '370px' })];
 
 export const SearchableGroups = (args, { argTypes }) => ({
@@ -392,7 +384,6 @@ export const SearchableGroups = (args, { argTypes }) => ({
       filteredGroupOptions: mockGroups,
       searchInProgress: false,
       timeoutId: null,
-      headerId: 'listbox-header',
     };
   },
   mounted() {
@@ -450,19 +441,12 @@ export const SearchableGroups = (args, { argTypes }) => ({
     },
   },
   template: template(
-    `<template #header>
-        <p :id="headerId"
-          class="gl-font-weight-bold gl-font-sm gl-m-0 gl-text-center gl-py-2 gl-border-1 gl-border-b-solid gl-border-gray-200">
-          Assign to department</p>
-      </template>
-      <template #search-summary-sr-only>
-        {{ numberOfSearchResults }}
-      </template>
-  `,
+    `<template #search-summary-sr-only>
+      {{ numberOfSearchResults }}
+    </template>`,
     {
       bindingOverrides: {
         ':items': 'filteredGroupOptions',
-        ':list-aria-labelled-by': 'headerId',
         ':toggle-text': 'customToggleText',
         ':searching': 'searchInProgress',
         '@search': 'filterList',
@@ -470,5 +454,9 @@ export const SearchableGroups = (args, { argTypes }) => ({
     }
   ),
 });
-SearchableGroups.args = generateProps({ searchable: true, items: mockGroups });
+SearchableGroups.args = generateProps({
+  headerText: 'Select ref',
+  searchable: true,
+  items: mockGroups,
+});
 SearchableGroups.decorators = [makeContainer({ height: '370px' })];

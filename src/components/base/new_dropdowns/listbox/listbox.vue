@@ -23,10 +23,12 @@ import GlListboxGroup from './listbox_group.vue';
 import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
+const HEADER_ITEMS_BORDER_CLASSES = ['gl-border-b-1', 'gl-border-b-solid', 'gl-border-b-gray-200'];
 const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-pt-3', 'gl-mt-3'];
 export const SEARCH_INPUT_SELECTOR = '.gl-search-box-by-type-input';
 
 export default {
+  HEADER_ITEMS_BORDER_CLASSES,
   events: {
     GL_DROPDOWN_SHOWN,
     GL_DROPDOWN_HIDDEN,
@@ -83,6 +85,12 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    /** The header text */
+    headerText: {
+      type: String,
+      required: false,
+      default: '',
     },
     /**
      * Styling option - dropdown's toggle category
@@ -254,6 +262,9 @@ export default {
       return (
         this.searchable && !this.showNoResultsText && this.$scopedSlots['search-summary-sr-only']
       );
+    },
+    headerId() {
+      return this.headerText && uniqueId('listbox-header-');
     },
   },
   watch: {
@@ -431,10 +442,21 @@ export default {
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
   >
-    <!-- @slot Content to display in dropdown header -->
-    <slot name="header"></slot>
+    <div
+      v-if="headerText"
+      class="gl-display-flex gl-align-items-center gl-p-3"
+      :class="$options.HEADER_ITEMS_BORDER_CLASSES"
+    >
+      <div
+        :id="headerId"
+        class="gl-flex-grow-1 gl-font-weight-bold gl-font-sm"
+        data-testid="listbox-header-text"
+      >
+        {{ headerText }}
+      </div>
+    </div>
 
-    <div v-if="searchable" class="gl-border-b-1 gl-border-b-solid gl-border-b-gray-200">
+    <div v-if="searchable" :class="$options.HEADER_ITEMS_BORDER_CLASSES">
       <gl-search-box-by-type
         ref="searchBox"
         v-model="searchStr"
@@ -456,7 +478,7 @@ export default {
       v-if="showList"
       id="listbox"
       ref="list"
-      :aria-labelledby="listAriaLabelledBy || toggleId"
+      :aria-labelledby="listAriaLabelledBy || headerId || toggleId"
       role="listbox"
       class="gl-new-dropdown-contents gl-list-style-none gl-pl-0 gl-mb-0"
       tabindex="-1"

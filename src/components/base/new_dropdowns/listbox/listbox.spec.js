@@ -30,6 +30,7 @@ describe('GlListbox', () => {
   const findListboxItems = (root = wrapper) => root.findAllComponents(GlListboxItem);
   const findListboxGroups = () => wrapper.findAllComponents(GlListboxGroup);
   const findListItem = (index) => findListboxItems().at(index).find(ITEM_SELECTOR);
+  const findHeaderText = () => wrapper.find("[data-testid='listbox-header-text']");
   const findSearchBox = () => wrapper.find("[data-testid='listbox-search-input']");
   const findNoResultsText = () => wrapper.find("[data-testid='listbox-no-results-text']");
   const findLoadingIcon = () => wrapper.find("[data-testid='listbox-search-loader']");
@@ -263,13 +264,28 @@ describe('GlListbox', () => {
     });
   });
 
-  describe('when the header slot content is provided', () => {
+  describe('when the header prop is provided', () => {
     const headerContent = 'Header Content';
-    const slots = { header: headerContent };
 
     it('renders it', () => {
-      buildWrapper({}, slots);
-      expect(wrapper.text()).toContain(headerContent);
+      buildWrapper({ headerText: headerContent, items: mockOptions });
+
+      expect(findHeaderText().text()).toContain(headerContent);
+    });
+
+    it("uses the generated header ID as the list's aria-labelledby attribute", () => {
+      buildWrapper({ headerText: headerContent, items: mockOptions });
+
+      expect(findListContainer().attributes('aria-labelledby')).toBe(
+        findHeaderText().attributes('id')
+      );
+    });
+
+    it('if a custom list label is passed, it overrides the header ID', () => {
+      const listAriaLabelledBy = 'listAriaLabelledBy';
+      buildWrapper({ listAriaLabelledBy, headerText: headerContent, items: mockOptions });
+
+      expect(findListContainer().attributes('aria-labelledby')).toBe(listAriaLabelledBy);
     });
   });
 
