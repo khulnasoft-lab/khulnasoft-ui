@@ -179,7 +179,7 @@ export default {
   },
   computed: {
     formattedDate() {
-      return this.calendar && this.calendar.toString();
+      return this.$options.pikaday.calendar && this.$options.pikaday.calendar.toString();
     },
     customTrigger() {
       return isString(this.target) && this.target !== '';
@@ -207,21 +207,21 @@ export default {
   },
   watch: {
     value(val) {
-      if (!areDatesEqual(val, this.calendar.getDate())) {
-        this.calendar.setDate(val, true);
+      if (!areDatesEqual(val, this.$options.pikaday.calendar.getDate())) {
+        this.$options.pikaday.calendar.setDate(val, true);
       }
     },
     minDate(minDate) {
-      this.calendar.setMinDate(minDate);
+      this.$options.pikaday.calendar.setMinDate(minDate);
     },
     maxDate(maxDate) {
-      this.calendar.setMaxDate(maxDate);
+      this.$options.pikaday.calendar.setMaxDate(maxDate);
     },
     startRange(startRange) {
-      this.calendar.setStartRange(startRange);
+      this.$options.pikaday.calendar.setStartRange(startRange);
     },
     endRange(endRange) {
-      this.calendar.setEndRange(endRange);
+      this.$options.pikaday.calendar.setEndRange(endRange);
     },
   },
   mounted() {
@@ -279,14 +279,14 @@ export default {
       pikadayConfig.i18n = this.i18n;
     }
 
-    this.calendar = new Pikaday(pikadayConfig);
+    this.$options.pikaday.calendar = new Pikaday(pikadayConfig);
 
     if (this.startOpened) {
-      this.calendar.show();
+      this.$options.pikaday.calendar.show();
     }
   },
   beforeDestroy() {
-    this.calendar.destroy();
+    this.$options.pikaday.calendar.destroy();
   },
   methods: {
     selected(date) {
@@ -324,10 +324,17 @@ export default {
     onKeydown() {
       if (this.textInput === '') {
         const resetDate = this.minDate || null;
-        this.calendar.setDate(resetDate);
+        this.$options.pikaday.calendar.setDate(resetDate);
         this.selected(resetDate);
       }
     },
+  },
+
+  // Vue3 will make this.$options shallow-readonly
+  // that means that in order to store anything in $options
+  // we need an object as a container
+  pikaday: {
+    calendar: null,
   },
 };
 </script>
