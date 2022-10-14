@@ -125,17 +125,19 @@ describe('search box by click component', () => {
 
     it('displays disabled history dropdown', () => {
       expect(wrapper.findComponent({ ref: 'historyDropdown' }).exists()).toBe(true);
-      expect(wrapper.findComponent({ ref: 'historyDropdown' }).attributes('disabled')).toBe('true');
+      expect(
+        wrapper.findComponent({ ref: 'historyDropdown' }).attributes('disabled')
+      ).toBeDefined();
     });
 
     it('displays disabled input', () => {
       expect(wrapper.findComponent({ ref: 'input' }).exists()).toBe(true);
-      expect(wrapper.findComponent({ ref: 'input' }).attributes('disabled')).toBe('true');
+      expect(wrapper.findComponent({ ref: 'input' }).attributes('disabled')).toBeDefined();
     });
 
     it('displays disabled search button', () => {
       expect(findSearchButton().exists()).toBe(true);
-      expect(findSearchButton().attributes('disabled')).toBe('true');
+      expect(findSearchButton().attributes('disabled')).toBeDefined();
     });
 
     it('does not render clear icon even with value', () => {
@@ -146,9 +148,8 @@ describe('search box by click component', () => {
   it('emits submit event when Enter key is pressed', async () => {
     createComponent({ value: 'some-input' });
 
-    wrapper.findComponent(GlFormInput).vm.$emit('keydown', { type: 'key', keyCode: 13 });
+    await wrapper.findComponent(GlFormInput).trigger('keydown.enter');
 
-    await wrapper.vm.$nextTick();
     expect(wrapper.emitted('submit')[0]).toEqual(['some-input']);
   });
 
