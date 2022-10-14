@@ -61,37 +61,45 @@ const generateProps = ({
   startOpened,
 });
 
+const makeBindings = (overrides = {}) =>
+  Object.entries({
+    ':items': 'items',
+    ':category': 'category',
+    ':variant': 'variant',
+    ':size': 'size',
+    ':disabled': 'disabled',
+    ':loading': 'loading',
+    ':searchable': 'searchable',
+    ':searching': 'searching',
+    ':no-results-text': 'noResultsText',
+    ':no-caret': 'noCaret',
+    ':right': 'right',
+    ':toggle-text': 'toggleText',
+    ':text-sr-only': 'textSrOnly',
+    ':icon': 'icon',
+    ':multiple': 'multiple',
+    ':is-check-centered': 'isCheckCentered',
+    ':toggle-aria-labelled-by': 'toggleAriaLabelledBy',
+    ':list-aria-labelled-by': 'listAriaLabelledBy',
+    ...overrides,
+  })
+    .map(([key, value]) => `${key}="${value}"`)
+    .join('\n');
+
 function openListbox(component) {
   component.$nextTick(() => {
     component.$refs.listbox.open();
   });
 }
 
-const template = (content, label = '') => `
+const template = (content, { label = '', bindingOverrides = {} } = {}) => `
   <div>
     ${label}
-    <br/>
+    ${label && '<br/>'}
     <gl-listbox
       ref="listbox"
       v-model="selected"
-      :items="items"
-      :category="category"
-      :variant="variant"
-      :size="size"
-      :disabled="disabled"
-      :loading="loading"
-      :searchable="searchable"
-      :searching="searching"
-      :no-results-text="noResultsText"
-      :no-caret="noCaret"
-      :right="right"
-      :toggle-text="toggleText"
-      :text-sr-only="textSrOnly"
-      :icon="icon"
-      :multiple="multiple"
-      :is-check-centered="isCheckCentered"
-      :toggle-aria-labelled-by="toggleAriaLabelledBy"
-      :list-aria-labelled-by="listAriaLabelledBy"
+      ${makeBindings(bindingOverrides)}
     >
       ${content}
     </gl-listbox>
@@ -113,7 +121,9 @@ export const Default = (args, { argTypes }) => ({
       openListbox(this);
     }
   },
-  template: template('', `<span class="gl-my-0" id="listbox-label">Select a department</span>`),
+  template: template('', {
+    label: `<span class="gl-my-0" id="listbox-label">Select a department</span>`,
+  }),
 });
 Default.args = generateProps({ toggleAriaLabelledBy: 'listbox-label' });
 Default.decorators = [makeContainer({ height: '370px' })];
@@ -181,36 +191,14 @@ export const CustomListItem = (args, { argTypes }) => ({
     }
   },
   computed: {
-    headerText() {
+    customToggleText() {
       return this.selected.length !== 1
         ? `${this.selected.length} assignees`
         : this.items.find(({ value }) => value === this.selected[0]).text;
     },
   },
-  template: `
-    <gl-listbox
-      ref="listbox"
-      v-model="selected"
-      :items="items"
-      :category="category"
-      :variant="variant"
-      :size="size"
-      :disabled="disabled"
-      :loading="loading"
-      :searchable="searchable"
-      :searching="searching"
-      :no-results-text="noResultsText"
-      :no-caret="noCaret"
-      :right="right"
-      :toggle-text="headerText"
-      :text-sr-only="textSrOnly"
-      :icon="icon"
-      :multiple="multiple"
-      :is-check-centered="isCheckCentered"
-      :toggle-aria-labelled-by="toggleAriaLabelledBy"
-      :list-aria-labelled-by="listAriaLabelledBy"
-    >
-    <template #list-item="{ item }">
+  template: template(
+    `<template #list-item="{ item }">
           <span class="gl-display-flex gl-align-items-center">
             <gl-avatar :size="32" class-="gl-mr-3"/>
               <span class="gl-display-flex gl-flex-direction-column">
@@ -219,8 +207,13 @@ export const CustomListItem = (args, { argTypes }) => ({
               </span>
           </span>
     </template>
-    </gl-listbox>
   `,
+    {
+      bindingOverrides: {
+        ':toggle-text': 'customToggleText',
+      },
+    }
+  ),
 });
 
 CustomListItem.args = generateProps({
@@ -364,31 +357,8 @@ export const Searchable = (args, { argTypes }) => ({
       return this.filteredItems.length === 1 ? '1 result' : `${this.filteredItems.length} results`;
     },
   },
-  template: `
-    <gl-listbox
-      ref="listbox"
-      v-model="selected"
-      :items="filteredItems"
-      :category="category"
-      :variant="variant"
-      :size="size"
-      :disabled="disabled"
-      :loading="loading"
-      :no-caret="noCaret"
-      :right="right"
-      :toggle-text="customToggleText"
-      :text-sr-only="textSrOnly"
-      :icon="icon"
-      :multiple="multiple"
-      :is-check-centered="isCheckCentered"
-      :toggle-aria-labelled-by="toggleAriaLabelledBy"
-      :list-aria-labelled-by="headerId"
-      :searchable="searchable"
-      :searching="searchInProgress"
-      :no-results-text="noResultsText"
-      @search="filterList"
-    >
-      <template #header>
+  template: template(
+    `<template #header>
         <p :id="headerId"
           class="gl-font-weight-bold gl-font-sm gl-m-0 gl-text-center gl-py-2 gl-border-1 gl-border-b-solid gl-border-gray-200">
           Assign to department</p>
@@ -396,8 +366,17 @@ export const Searchable = (args, { argTypes }) => ({
       <template #search-summary-sr-only>
         {{ numberOfSearchResults }}
       </template>
-    </gl-listbox>
   `,
+    {
+      bindingOverrides: {
+        ':items': 'filteredItems',
+        ':list-aria-labelled-by': 'headerId',
+        ':toggle-text': 'customToggleText',
+        ':searching': 'searchInProgress',
+        '@search': 'filterList',
+      },
+    }
+  ),
 });
 Searchable.args = generateProps({ searchable: true });
 Searchable.decorators = [makeContainer({ height: '370px' })];
@@ -470,31 +449,8 @@ export const SearchableGroups = (args, { argTypes }) => ({
       }, 2000);
     },
   },
-  template: `
-    <gl-listbox
-      ref="listbox"
-      v-model="selected"
-      :items="filteredGroupOptions"
-      :category="category"
-      :variant="variant"
-      :size="size"
-      :disabled="disabled"
-      :loading="loading"
-      :no-caret="noCaret"
-      :right="right"
-      :toggle-text="customToggleText"
-      :text-sr-only="textSrOnly"
-      :icon="icon"
-      :multiple="multiple"
-      :is-check-centered="isCheckCentered"
-      :toggle-aria-labelled-by="toggleAriaLabelledBy"
-      :list-aria-labelled-by="headerId"
-      :searching="searchInProgress"
-      :no-results-text="noResultsText"
-      :searchable="searchable"
-      @search="filterList"
-    >
-      <template #header>
+  template: template(
+    `<template #header>
         <p :id="headerId"
           class="gl-font-weight-bold gl-font-sm gl-m-0 gl-text-center gl-py-2 gl-border-1 gl-border-b-solid gl-border-gray-200">
           Assign to department</p>
@@ -502,8 +458,17 @@ export const SearchableGroups = (args, { argTypes }) => ({
       <template #search-summary-sr-only>
         {{ numberOfSearchResults }}
       </template>
-    </gl-listbox>
   `,
+    {
+      bindingOverrides: {
+        ':items': 'filteredGroupOptions',
+        ':list-aria-labelled-by': 'headerId',
+        ':toggle-text': 'customToggleText',
+        ':searching': 'searchInProgress',
+        '@search': 'filterList',
+      },
+    }
+  ),
 });
 SearchableGroups.args = generateProps({ searchable: true, items: mockGroups });
 SearchableGroups.decorators = [makeContainer({ height: '370px' })];
