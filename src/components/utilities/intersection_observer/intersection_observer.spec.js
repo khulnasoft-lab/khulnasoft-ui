@@ -47,7 +47,7 @@ describe('IntersectionObserver', () => {
     });
 
     it('renders slot', () => {
-      expect(wrapper.element.innerHTML).toEqual(TEST_SLOT);
+      expect(wrapper.html()).toContain(TEST_SLOT);
     });
 
     it('creates 1 intersection observer', () => {

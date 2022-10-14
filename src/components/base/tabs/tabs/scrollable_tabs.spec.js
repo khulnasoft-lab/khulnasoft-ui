@@ -58,7 +58,9 @@ describe('GlScrollableTabs', () => {
         ...props,
       },
       slots: {
-        default: `<gl-tab v-for="tab in tabs" :key="tab.key" :title="tab.title">{{ tab.content }}</gl-tab>`,
+        default: {
+          template: `<div><gl-tab v-for="tab in tabs" :key="tab.key" :title="tab.title">{{ tab.content }}</gl-tab></div>`,
+        },
       },
       stubs: {
         'gl-tab': GlTab,
