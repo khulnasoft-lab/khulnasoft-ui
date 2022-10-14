@@ -88,8 +88,8 @@ export default {
     <slot name="avatar"></slot>
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
       <template v-for="(item, index) in items">
+        <!-- eslint-disable-next-line vue/valid-v-for -->
         <gl-breadcrumb-item
-          :key="index"
           :ref="isFirstItem(index) ? 'firstItem' : null"
           :text="item.text"
           :href="item.href"
