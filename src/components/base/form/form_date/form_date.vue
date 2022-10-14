@@ -7,6 +7,7 @@ export default {
   components: {
     GlFormInput,
   },
+  inheritAttrs: false,
   props: {
     id: {
       type: String,
