@@ -321,14 +321,14 @@ describe('Filtered search token segment', () => {
       );
     });
 
-    describe.each([true, false])('and viewOnly is %s', (viewOnly) => {
-      const readonly = viewOnly ? 'readonly' : undefined;
+    it('sets the input `readonly` atttribute when viewOnly is true', () => {
+      createWrappedComponent({ value: 'test', active: true, viewOnly: true });
+      expect(wrapper.find('input').attributes('readonly')).toBeDefined();
+    });
 
-      it(`sets the input \`readonly\` atttribute to ${readonly}`, () => {
-        createWrappedComponent({ value: 'test', active: true, viewOnly });
-
-        expect(wrapper.find('input').attributes('readonly')).toBe(readonly);
-      });
+    it('does not set the input `readonly` atttribute when viewOnly is false', () => {
+      createWrappedComponent({ value: 'test', active: true, viewOnly: false });
+      expect(wrapper.find('input').attributes('readonly')).toBeUndefined();
     });
   });
 });

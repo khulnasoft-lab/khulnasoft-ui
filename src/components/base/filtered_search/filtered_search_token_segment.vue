@@ -6,6 +6,42 @@ import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
 
+// We need some helpers to ensure @vue/compat compatibility
+// @vue/compat will render comment nodes for v-if and comments in HTML
+// Also it makes use of fragments - both comments and nodes are Symbols.
+// In Vue3 all of them (Comment, Fragment) are exposed as named exports on vue module
+// However we want to maintain compatibility with Vue2, so taking this hacky approach
+// relying on Symbol.toString()
+
+// I'm keeping this directly here instead of helper to increase probability of
+// fixing ASAP and because I don't want this helper to be reused
+// FIXME: replace with Symbols when we will switch to Vue3
+
+const isVue3Comment = (vnode) => vnode?.type?.toString?.() === 'Symbol(Comment)';
+const isVue3Fragment = (vnode) => vnode?.type?.toString?.() === 'Symbol(Fragment)';
+
+const isVNodeEmpty = (vnode) => {
+  if (isVue3Fragment(vnode)) {
+    // vnode.children might be an array or single node in edge cases
+    return vnode.children.every(isVNodeEmpty);
+  }
+
+  if (isVue3Comment(vnode)) {
+    return true;
+  }
+
+  return false;
+};
+
+const isSlotNotEmpty = (slot) => {
+  if (!slot) {
+    return false;
+  }
+
+  const vnodes = typeof slot === 'function' ? slot() : slot;
+  return ![vnodes].flat().every(isVNodeEmpty);
+};
+
 export default {
   name: 'GlFilteredSearchTokenSegment',
   components: {
@@ -124,7 +160,7 @@ export default {
 
     hasOptionsOrSuggestions() {
       // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
-      return this.options?.length || this.$slots.suggestions;
+      return this.options?.length || isSlotNotEmpty(this.$slots.suggestions);
     },
 
     defaultSuggestedValue() {
