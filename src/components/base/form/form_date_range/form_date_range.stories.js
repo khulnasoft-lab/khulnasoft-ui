@@ -99,19 +99,18 @@ export const MinMaxDates = Template.bind({}, defaultTemplate);
 MinMaxDates.args = generateProps({
   minDate: new Date(2020, 0, 1),
   maxDate: new Date(2020, 2, 31),
+  startDate: new Date(2020, 0, 1),
+  endDate: new Date(2020, 2, 31),
 });
 
-export const MaxDateRange = Template.bind({}, defaultTemplate);
+export const MaxDateRange = Template.bind({}, templateWithSlot);
 MaxDateRange.args = generateProps({
-  maxDateRange: 31,
-});
-
-export const WithDates = Template.bind({}, defaultTemplate);
-WithDates.args = generateProps({
   minDate: new Date(2020, 0, 1),
-  maxDate: new Date(2020, 2, 31),
-  startDate: new Date(2020, 0, 14),
-  endDate: new Date(2020, 2, 3),
+  maxDate: new Date(2020, 0, 31),
+  startDate: new Date(2020, 0, 1),
+  endDate: new Date(2020, 0, 31),
+  maxDateRange: 31,
+  tooltip: 'Date range limited to 31 days',
 });
 
 export const SameDaySelection = Template.bind({}, defaultTemplate);
@@ -121,22 +120,12 @@ SameDaySelection.args = generateProps({
   sameDaySelection: true,
 });
 
-export const Tooltip = Template.bind({}, defaultTemplate);
-Tooltip.args = generateProps({
+export const InvalidDates = Template.bind({}, templateWithSlot);
+InvalidDates.args = generateProps({
   minDate: new Date(2020, 0, 1),
   maxDate: new Date(2020, 0, 31),
-  startDate: new Date(2020, 0, 4),
-  endDate: new Date(2020, 0, 18),
-  maxDateRange: 31,
-  tooltip: 'Date range limited to 31 days',
-});
-
-export const WithDatesAndTooltip = Template.bind({}, templateWithSlot);
-WithDatesAndTooltip.args = generateProps({
-  minDate: new Date(2020, 0, 1),
-  maxDate: new Date(2020, 0, 31),
-  startDate: new Date(2020, 0, 4),
-  endDate: new Date(2020, 0, 18),
+  startDate: new Date(2019, 11, 31),
+  endDate: new Date(2020, 1, 2),
   maxDateRange: 31,
   tooltip: 'Date range limited to 31 days',
 });
