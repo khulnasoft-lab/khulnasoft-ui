@@ -5,14 +5,20 @@
   @include gl-font-base;
   @include gl-font-regular;
 
-  label {
-    @include gl-font-weight-bold;
-    @include gl-mr-2;
-    @include gl-ml-2;
-  }
+  .gl-form-group {
+    @include gl-align-items-center;
+    @include gl-display-flex;
+    @include gl-gap-3;
+    @include gl-mb-0;
 
-  > div:first-of-type label {
-    @include gl-ml-0;
+    label {
+      @include gl-font-weight-bold;
+      @include gl-pb-0;
+    }
+
+    .invalid-feedback {
+      @include gl-display-block;
+    }
   }
 
   .gl-form-date {
