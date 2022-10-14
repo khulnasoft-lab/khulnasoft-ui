@@ -10,7 +10,6 @@ const template = `
   <gl-form-date
     v-model="value"
     ref="date"
-    :autofocus="autofocus"
     :disabled="disabled"
     :min-date="minDate"
     :max-date="maxDate"
@@ -20,7 +19,6 @@ const template = `
   />`;
 
 const generateProps = ({
-  autofocus = false,
   disabled = false,
   minDate = null,
   maxDate = null,
@@ -28,7 +26,6 @@ const generateProps = ({
   state = null,
   value = null,
 } = {}) => ({
-  autofocus,
   disabled,
   minDate,
   maxDate,
@@ -53,16 +50,6 @@ export const DisabledValue = Template.bind({});
 DisabledValue.args = generateProps({
   disabled: true,
   value: defaultValue,
-});
-
-export const MinDate = Template.bind({});
-MinDate.args = generateProps({
-  minDate: defaultMinDate,
-});
-
-export const MaxDate = Template.bind({});
-MaxDate.args = generateProps({
-  maxDate: defaultMaxDate,
 });
 
 export const MinMaxDates = Template.bind({});
