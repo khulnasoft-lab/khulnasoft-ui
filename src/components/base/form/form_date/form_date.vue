@@ -58,10 +58,12 @@ export default {
   methods: {
     dateToRFC3339String(date) {
       /**
-       * convert Date instance to RFC3339 YYYY-MM-DD string
+       * convert Date instance to RFC3339 local YYYY-MM-DD string
        * @property {Date} date The provided date
        */
-      return date ? new Date(date).toISOString().split('T')[0] : null;
+      if (!date) return null;
+      const pad = (n) => n < 10 ? `0${n}` : n;
+      return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
     },
     change(currentValue) {
       this.$emit('change', currentValue);
