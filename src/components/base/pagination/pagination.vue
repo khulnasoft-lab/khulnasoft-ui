@@ -339,6 +339,8 @@ export default {
         slot: `ellipsis-${side}`,
         component: 'span',
         disabled: true,
+        slotData: {},
+        listeners: {},
       };
     },
     handleClick(event, value) {
@@ -395,8 +397,8 @@ export default {
         :href="prevPageHref"
         @click="handlePrevious($event, value - 1)"
       >
-        <!-- 
-          @slot Content for the "previous" button. Overrides the "prevText" prop. 
+        <!--
+          @slot Content for the "previous" button. Overrides the "prevText" prop.
           @binding {boolean} active
           @binding {boolean} disabled
           @binding {number} number
@@ -458,8 +460,8 @@ export default {
         :href="nextPageHref"
         @click="handleNext($event, value + 1)"
       >
-        <!-- 
-          @slot Content for the "next" button. Overrides the "nextText" prop. 
+        <!--
+          @slot Content for the "next" button. Overrides the "nextText" prop.
           @binding {boolean} active
           @binding {boolean} disabled
           @binding {number} number
