@@ -35,6 +35,7 @@ describe('base dropdown', () => {
       slots,
       attachTo: document.body,
     });
+    return nextTick();
   };
 
   beforeEach(() => {
