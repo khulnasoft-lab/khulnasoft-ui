@@ -3,14 +3,12 @@ import { uniqueId } from 'lodash';
 import { GlTooltipDirective } from '../../../../directives/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../../utils/datetime_utility';
 import GlFormDate from '../form_date/form_date.vue';
-import GlFormGroup from '../form_group/form_group.vue';
 import GlIcon from '../../icon/icon.vue';
 
 export default {
   name: 'GlFormDateRange',
   components: {
     GlFormDate,
-    GlFormGroup,
     GlIcon,
   },
   directives: {
@@ -109,21 +107,6 @@ export default {
       }
       return this.maxDate ? getDateInPast(this.maxDate, 1) : null;
     },
-    startInvalidFeedback() {
-      if (!this.currentStartDate) return null;
-      if (this.startMinDate && this.currentStartDate < this.startMinDate) {
-        return `Min ${this.dateToRFC3339String(this.startMinDate)}`;
-      }
-      if (this.startMaxDate && this.currentStartDate > this.startMaxDate) {
-        return `Max ${this.dateToRFC3339String(this.startMaxDate)}`;
-      }
-      return null;
-    },
-    startState() {
-      return this.currentStartDate
-        && (this.startMinDate && this.currentStartDate >= this.startMinDate)
-        && (this.startMaxDate && this.currentStartDate <= this.startMaxDate);
-    },
     endMinDate() {
       if (this.currentStartDate) {
         return this.sameDaySelection ? this.currentStartDate : getDateInFuture(this.currentStartDate, 1);
@@ -137,21 +120,6 @@ export default {
         return this.maxDate ? new Date(Math.min(computedMaxEndDate, this.maxDate)) : computedMaxEndDate;
       }
       return this.maxDate ? this.maxDate : null;
-    },
-    endInvalidFeedback() {
-      if (!this.currentEndDate) return null;
-      if (this.endMinDate && this.currentEndDate < this.endMinDate) {
-        return `Min ${this.dateToRFC3339String(this.endMinDate)}`;
-      }
-      if (this.endMaxDate && this.currentEndDate > this.endMaxDate) {
-        return `Max ${this.dateToRFC3339String(this.endMaxDate)}`;
-      }
-      return null;
-    },
-    endState() {
-      return this.currentEndDate
-        && (this.endMinDate && this.currentEndDate >= this.endMinDate)
-        && (this.endMaxDate && this.currentEndDate <= this.endMaxDate);
     },
     dateRangeViolation() {
       return this.currentStartDate >= this.currentEndDate || this.exceedsDateRange;
@@ -171,15 +139,6 @@ export default {
     },
   },
   methods: {
-    dateToRFC3339String(date) {
-      /**
-       * convert Date instance to RFC3339 local YYYY-MM-DD string
-       * @property {Date} date The provided date
-       */
-      if (!date) return null;
-      const pad = (n) => n < 10 ? `0${n}` : n;
-      return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
-    },
     onChangeStartDate(currentStartDate) {
       this.currentStartDate = currentStartDate ? new Date(currentStartDate) : null;
 
@@ -200,38 +159,28 @@ export default {
   <div
     class="gl-form-date-range"
   >
-    <gl-form-group
+    <gl-form-date
+      :id="startInputId"
+      v-model="currentStartDate"
       :class="startClass"
       :label="startLabel"
       :label-class="labelClass"
       :label-for="startInputId"
-      :invalid-feedback="startInvalidFeedback"
-    >
-      <gl-form-date
-        :id="startInputId"
-        v-model="currentStartDate"
-        :min-date="startMinDate"
-        :max-date="startMaxDate"
-        :state="startState"
-        @change="onChangeStartDate"
-      />
-    </gl-form-group>
-    <gl-form-group
+      :min-date="startMinDate"
+      :max-date="startMaxDate"
+      @change="onChangeStartDate"
+    />
+    <gl-form-date
+      :id="endInputId"
+      v-model="currentEndDate"
       :class="endClass"
       :label="endLabel"
       :label-class="labelClass"
       :label-for="endInputId"
-      :invalid-feedback="endInvalidFeedback"
-    >
-      <gl-form-date
-        :id="endInputId"
-        v-model="currentEndDate"
-        :min-date="endMinDate"
-        :max-date="endMaxDate"
-        :state="endState"
-        @change="onChangeEndDate"
-      />
-    </gl-form-group>
+      :min-date="endMinDate"
+      :max-date="endMaxDate"
+      @change="onChangeEndDate"
+    />
     <div
       :class="indicatorClass"
       data-testid="gl-form-date-range-indicator"

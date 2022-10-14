@@ -1,4 +1,6 @@
 .gl-form-date {
+  @include gl-display-inline-block;
+
   input::-webkit-datetime-edit {
     line-height: 1;
     padding: 0;

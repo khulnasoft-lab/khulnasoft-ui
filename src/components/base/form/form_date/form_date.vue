@@ -1,10 +1,12 @@
 <script>
 import { uniqueId } from 'lodash';
+import GlFormGroup from '../form_group/form_group.vue';
 import GlFormInput from '../form_input/form_input.vue';
 
 export default {
   name: 'GlFormDate',
   components: {
+    GlFormGroup,
     GlFormInput,
   },
   inheritAttrs: false,
@@ -13,6 +15,21 @@ export default {
       type: String,
       required: false,
       default: null,
+    },
+    label: {
+      type: String,
+      required: false,
+      default: 'Enter date',
+    },
+    labelClass: {
+      type: [String, Object, Array],
+      required: false,
+      default: '',
+    },
+    labelSrOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     minDate: {
       type: Date,
@@ -32,11 +49,22 @@ export default {
   },
   data() {
     return {
+      currentDate: this.value,
       currentValue: this.dateToRFC3339String(this.value),
       inputId: this.id || uniqueId('form-date-'),
     };
   },
   computed: {
+    invalidFeedback() {
+      if (!this.currentDate) return null;
+      if (this.minDate && this.currentDate < this.minDate) {
+        return `Min ${this.dateToRFC3339String(this.minDate)}`;
+      }
+      if (this.maxDate && this.currentDate > this.maxDate) {
+        return `Max ${this.dateToRFC3339String(this.maxDate)}`;
+      }
+      return null;
+    },
     min() {
       return this.dateToRFC3339String(this.minDate);
     },
@@ -44,15 +72,20 @@ export default {
       return this.dateToRFC3339String(this.maxDate);
     },
     outputValue() {
-      if (this.currentValue) {
-        // YYYY-MM-DD string to Date() instance
-        const date = new Date(this.currentValue);
-        // Get user's locale string e.g. 'en-US'
+      if (this.currentDate) {
+        /**
+         * Get user's locale string e.g. 'en-US' and format date
+         * to local full string e.g 'Thursday, 6 October 2022'
+         */
         const lang = new Intl.NumberFormat().resolvedOptions().locale;
-        // Format date to full string e.g 'Thursday, 6 October 2022'
-        return new Intl.DateTimeFormat(lang, { dateStyle: 'full' }).format(date);
+        return new Intl.DateTimeFormat(lang, { dateStyle: 'full' }).format(this.currentDate);
       }
       return null;
+    },
+    state() {
+      return this.currentDate
+        && (this.minDate && this.currentDate >= this.minDate)
+        && (this.maxDate && this.currentDate <= this.maxDate);
     },
   },
   methods: {
@@ -66,14 +99,20 @@ export default {
       return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
     },
     change(currentValue) {
+      this.currentDate = new Date(currentValue);
       this.$emit('change', currentValue);
     },
   },
 };
 </script>
 <template>
-  <div
-    class="gl-form-date d-inline-block"
+  <gl-form-group
+    class="gl-form-date"
+    :label="label"
+    :label-class="labelClass"
+    :label-for="inputId"
+    :label-sr-only="labelSrOnly"
+    :invalid-feedback="invalidFeedback"
   >
     <gl-form-input
       :id="inputId"
@@ -81,6 +120,7 @@ export default {
       v-bind="$attrs"
       :min="min"
       :max="max"
+      :state="state"
       type="date"
       @change="change"
     />
@@ -90,5 +130,5 @@ export default {
     >
       {{ outputValue }}
     </output>
-  </div>
+  </gl-form-group>
 </template>

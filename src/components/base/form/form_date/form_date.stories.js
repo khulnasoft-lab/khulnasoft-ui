@@ -1,36 +1,38 @@
-import { formStateOptions } from '../../../../utils/constants';
 import readme from './form_date.md';
 import GlFormDate from './form_date.vue';
 
-const defaultValue = new Date(2020, 0, 15);
-const defaultMinDate = new Date(2020, 0, 1);
-const defaultMaxDate = new Date(2020, 2, 31);
+const defaultValue = (prop) => GlFormDate.props[prop].default;
 
 const template = `
   <gl-form-date
     v-model="value"
-    ref="date"
     :disabled="disabled"
+    :label="label"
+    :label-class="labelClass"
+    :label-sr-only="labelSrOnly"
     :min-date="minDate"
     :max-date="maxDate"
     :readonly="readonly"
-    :state="state"
     :value="value"
   />`;
 
 const generateProps = ({
   disabled = false,
+  label = defaultValue('label'),
+  labelClass = '',
+  labelSrOnly = false,
   minDate = null,
   maxDate = null,
   readonly = false,
-  state = null,
   value = null,
 } = {}) => ({
   disabled,
+  label,
+  labelClass,
+  labelSrOnly,
   minDate,
   maxDate,
   readonly,
-  state,
   value,
 });
 
@@ -49,29 +51,30 @@ Disabled.args = generateProps({ disabled: true });
 export const DisabledValue = Template.bind({});
 DisabledValue.args = generateProps({
   disabled: true,
-  value: defaultValue,
+  value: new Date(2020, 0, 15),
 });
 
 export const MinMaxDates = Template.bind({});
 MinMaxDates.args = generateProps({
-  minDate: defaultMinDate,
-  maxDate: defaultMaxDate,
+  minDate: new Date(2020, 0, 1),
+  maxDate: new Date(2020, 2, 31),
 });
 
 export const Readonly = Template.bind({});
 Readonly.args = generateProps({
   readonly: true,
-  value: defaultValue,
+  value: new Date(2020, 0, 15),
 });
 
 export const Value = Template.bind({});
-Value.args = generateProps({ value: defaultValue });
+Value.args = generateProps({ value: new Date(2020, 0, 15) });
 
-export const ValidState = Template.bind({});
-ValidState.args = generateProps({ state: true });
-
-export const InvalidState = Template.bind({});
-InvalidState.args = generateProps({ state: false });
+export const InvalidDate = Template.bind({});
+InvalidDate.args = generateProps({
+  minDate: new Date(2020, 0, 1),
+  maxDate: new Date(2020, 0, 31),
+  value: new Date(2020, 1, 2),
+});
 
 export default {
   title: 'base/form/form-date',
@@ -89,10 +92,6 @@ export default {
     },
     maxDate: {
       control: 'date',
-    },
-    state: {
-      options: formStateOptions,
-      control: 'select',
     },
   },
 };
