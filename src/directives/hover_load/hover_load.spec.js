@@ -5,7 +5,7 @@ jest.useFakeTimers();
 
 describe('hover load directive', () => {
   let wrapper;
-  const findTarget = () => wrapper.find('.target');
+  const findTarget = () => wrapper.findComponent('.target');
 
   const createComponent = (handleLoad) => {
     const component = {
