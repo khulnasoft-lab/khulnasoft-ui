@@ -106,7 +106,7 @@ export default {
       class="gl-form-checkbox-tree-toggle-all"
       :checked="tree.allOptionsChecked"
       :indeterminate="tree.someOptionsChecked"
-      @change="tree.toggleAllOptions"
+      @change="tree.toggleAllOptions($event)"
     >
       {{ toggleAllLabel }}
     </gl-form-checkbox>

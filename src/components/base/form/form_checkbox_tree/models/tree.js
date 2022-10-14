@@ -5,7 +5,6 @@ export class Tree {
   constructor(options, selected) {
     this.treeDepth = 0;
     this.nodes = {};
-    this.toggleAllOptions = this.toggleAllOptions.bind(this);
 
     this.initNodes(options, selected);
     this.initIndeterminateStates();
