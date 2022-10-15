@@ -11,5 +11,6 @@ exports[`Clear Icon Button renders successfully 1`] = `
   size="small"
   title="Tooltip Text"
   variant="default"
-/>
+></gl-button-stub>
+
 `;

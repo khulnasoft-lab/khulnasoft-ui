@@ -5,31 +5,16 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: thud
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: thud</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -45,10 +30,9 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
     prevtext="Previous"
     totalitems="13"
     value="7"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List Pagination renders 3 items on page 2 with default page size of 10 and 13 total items 1`] = `
@@ -56,57 +40,22 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: xyzzy
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: xyzzy</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: plugh
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: plugh</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: thud
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: thud</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -122,10 +71,9 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
     prevtext="Previous"
     totalitems="13"
     value="2"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 5, 13 total itmes and renders pagination 1`] = `
@@ -133,83 +81,28 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: foo
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: foo</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: bar
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: bar</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: baz
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: baz</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: qux
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: qux</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: quux
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: quux</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -225,10 +118,9 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
     prevtext="Previous"
     totalitems="13"
     value="1"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List Pagination renders 10 items for a default page size of 10, 13 total 1`] = `
@@ -236,148 +128,43 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: foo
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: foo</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: bar
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: bar</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: baz
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: baz</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: qux
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: qux</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: quux
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: quux</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: corge
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: corge</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: grault
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: grault</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: garply
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: garply</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: waldo
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: waldo</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: fred
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: fred</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -393,10 +180,9 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
     prevtext="Previous"
     totalitems="13"
     value="1"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List Pagination renders 13 items for a default page size of 20 1`] = `
@@ -404,187 +190,52 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: foo
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: foo</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: bar
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: bar</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: baz
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: baz</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: qux
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: qux</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: quux
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: quux</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: corge
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: corge</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: grault
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: grault</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: garply
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: garply</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: waldo
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: waldo</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: fred
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: fred</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: xyzzy
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: xyzzy</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: plugh
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: plugh</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: thud
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: thud</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -600,10 +251,9 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
     prevtext="Previous"
     totalitems="13"
     value="1"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List Search states renders the custom empty search message when there are no search results 1`] = `
@@ -611,27 +261,17 @@ exports[`Paginated List Search states renders the custom empty search message wh
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  />
-   
-  <!---->
-   
-  <div
-    class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
-  >
-    
+  <ul class="list-group list-group-flush list-unstyled"></ul>
+  <div class="bs-callout bs-callout-warning mt-3 empty-message empty-search">
     Custom empty message
-  
   </div>
 </div>
+
 `;
 
 exports[`Paginated List Search states renders the default empty search message when there are no search results 1`] = `
@@ -639,27 +279,17 @@ exports[`Paginated List Search states renders the default empty search message w
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  />
-   
-  <!---->
-   
-  <div
-    class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
-  >
-    
+  <ul class="list-group list-group-flush list-unstyled"></ul>
+  <div class="bs-callout bs-callout-warning mt-3 empty-message empty-search">
     Sorry, your filter produced no results.
-  
   </div>
 </div>
+
 `;
 
 exports[`Paginated List Search states renders the list filtered by search results 1`] = `
@@ -667,44 +297,19 @@ exports[`Paginated List Search states renders the list filtered by search result
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: bar
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: bar</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: baz
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: baz</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -720,10 +325,9 @@ exports[`Paginated List Search states renders the list filtered by search result
     prevtext="Previous"
     totalitems="2"
     value="1"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List Searchless states renders the list in an empty state with a custom empty message, when one is provided 1`] = `
@@ -731,27 +335,17 @@ exports[`Paginated List Searchless states renders the list in an empty state wit
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  />
-   
-  <!---->
-   
-  <div
-    class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
-  >
-    
+  <ul class="list-group list-group-flush list-unstyled"></ul>
+  <div class="bs-callout bs-callout-warning mt-3 empty-message empty-message">
     List is passed in empty
-  
   </div>
 </div>
+
 `;
 
 exports[`Paginated List Searchless states renders the list in an empty state, when no items are provided 1`] = `
@@ -759,27 +353,17 @@ exports[`Paginated List Searchless states renders the list in an empty state, wh
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  />
-   
-  <!---->
-   
-  <div
-    class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
-  >
-    
+  <ul class="list-group list-group-flush list-unstyled"></ul>
+  <div class="bs-callout bs-callout-warning mt-3 empty-message empty-message">
     There are currently no items in this list.
-  
   </div>
 </div>
+
 `;
 
 exports[`Paginated List Searchless states renders the list with nested items, when an array of items is provided 1`] = `
@@ -787,44 +371,19 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: foo
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: foo</span></div>
     </li>
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: bar
-        </span>
-      </div>
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: bar</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -840,10 +399,9 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
     prevtext="Previous"
     totalitems="2"
     value="1"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List props filter filters on default "id" key 1`] = `
@@ -851,31 +409,16 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: bar
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: bar</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -891,10 +434,9 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
     prevtext="Previous"
     totalitems="1"
     value="1"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
@@ -902,31 +444,16 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: 
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: </span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -942,10 +469,9 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
     prevtext="Previous"
     totalitems="1"
     value="1"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;
 
 exports[`Paginated List props filter filters with provided filter function 1`] = `
@@ -953,31 +479,16 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
-    />
+    ></gl-search-box-by-type-stub>
   </div>
-    
-  <ul
-    class="list-group list-group-flush list-unstyled"
-  >
-    <li
-      class="list-group-item"
-    >
-      <div
-        class="slot"
-      >
-        <span
-          class="item"
-        >
-          Item Name: bar
-        </span>
-      </div>
+  <ul class="list-group list-group-flush list-unstyled">
+    <li class="list-group-item">
+      <div class="slot"><span class="item">Item Name: bar</span></div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -993,8 +504,7 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
     prevtext="Previous"
     totalitems="1"
     value="1"
-  />
-   
-  <!---->
+  ></gl-pagination-stub>
 </div>
+
 `;

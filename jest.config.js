@@ -22,7 +22,7 @@ module.exports = {
   transformIgnorePatterns: [
     '/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$)|(/@gitlab/svgs/))/',
   ],
-  snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
+  snapshotSerializers: ['<rootDir>/tests/vue_serializer.js'],
   setupFilesAfterEnv: ['<rootDir>/tests/jest_setup.js'],
   reporters,
   testEnvironment: 'jsdom',
