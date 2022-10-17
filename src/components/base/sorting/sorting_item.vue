@@ -58,7 +58,6 @@ export default {
         ...props,
       },
       scopedSlots: {
-        ...scopedSlots,
         default: () => [icon, scopedSlots.default?.()],
       },
     });
