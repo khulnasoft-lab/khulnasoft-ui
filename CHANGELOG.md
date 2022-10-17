@@ -1,3 +1,21 @@
+# [47.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v46.1.0...v47.0.0) (2022-10-17)
+
+
+### Bug Fixes
+
+* convert gl-sm-pr-2 to mobile-first, remove gl-md-pr-2 ([823c6c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/823c6c8c727219a63b1c4bc31f16c82ac027e130))
+
+
+### BREAKING CHANGES
+
+* This converts gl-sm-pr-2 from desktop-first to
+mobile-first and removes gl-md-pr-2. If you were relying on the former,
+please migrate to a mobile-first approach. If relying on the latter, you
+might need to add it back to the library. We are defaulting to removing
+utils that aren't used in GitLab projects while we remove desktop-first
+utils, so it might be necessary to re-add some of them if they are used
+elsewhere.
+
 # [46.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v46.0.0...v46.1.0) (2022-10-10)
 
 
