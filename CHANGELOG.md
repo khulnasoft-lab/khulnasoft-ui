@@ -1,3 +1,10 @@
+## [47.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v47.0.0...v47.0.1) (2022-10-18)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Fix GlDropdown not auto flipping horizontally ([635eca3](https://gitlab.com/gitlab-org/gitlab-ui/commit/635eca3eea58f6ee1d2fd01a17a1db3401657647))
+
 # [47.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v46.1.0...v47.0.0) (2022-10-17)
 
 
