@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import { BDropdown } from 'bootstrap-vue';
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
+import { merge } from 'lodash';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
@@ -32,6 +33,15 @@ const ExtendedBDropdown = Vue.extend(BDropdown, {
     },
   },
 });
+
+export const DefaultPopperOptions = {
+  modifiers: {
+    flip: {
+      flipVariationsByContent: true,
+      padding: 28,
+    },
+  },
+};
 
 export default {
   components: {
@@ -146,6 +156,11 @@ export default {
       required: false,
       default: false,
     },
+    popperOpts: {
+      type: Object,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     renderCaret() {
@@ -199,6 +214,9 @@ export default {
         (this.hasHighlightedItemsContent && this.showHighlightedItemsTitle) || this.showClearAll
       );
     },
+    popperOptions() {
+      return merge({}, DefaultPopperOptions, this.popperOpts);
+    },
   },
   methods: {
     hasSlotContents(slotName) {
@@ -227,6 +245,7 @@ export default {
     :block="block"
     :disabled="disabled || loading"
     :right="right"
+    :popper-opts="popperOptions"
     v-on="$listeners"
   >
     <div class="gl-new-dropdown-inner">
