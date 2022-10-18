@@ -15,11 +15,13 @@ describe('sorting item component', () => {
   const createComponent = (propsData) => {
     wrapper = shallowMount(GlSortingItem, {
       context: {
-        children: [sortingItemText],
         props: {
           ...defaultProps,
           ...propsData,
         },
+      },
+      slots: {
+        default: sortingItemText,
       },
       stubs: {
         GlDropdownItem,
