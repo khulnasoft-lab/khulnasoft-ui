@@ -289,6 +289,11 @@ export default {
     this.$options.pikaday.calendar.destroy();
   },
   methods: {
+    // is used to open datepicker programmatically
+    show() {
+      this.$options.pikaday.calendar.show();
+    },
+
     selected(date) {
       /**
        * Emitted when a new date has been selected.
