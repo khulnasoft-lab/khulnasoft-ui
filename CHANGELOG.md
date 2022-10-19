@@ -1,3 +1,16 @@
+# [48.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v47.0.1...v48.0.0) (2022-10-19)
+
+
+### Features
+
+* **GlListbox:** convert header slot to a prop ([976250e](https://gitlab.com/gitlab-org/gitlab-ui/commit/976250ef04e72f0899762669aa16defb3a599c1e))
+
+
+### BREAKING CHANGES
+
+* **GlListbox:** GlListbox usages should be updated to pass the header
+via the `headerText` prop instead of the `header` slot.
+
 ## [47.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v47.0.0...v47.0.1) (2022-10-18)
 
 
