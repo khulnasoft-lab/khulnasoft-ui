@@ -83,7 +83,7 @@ export default {
   computed: {
     shouldRenderHelp() {
       // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
-      return Boolean(this.$slots.help || this.help);
+      return Boolean(this.$slots.help || this.help) && this.isVerticalLayout;
     },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
@@ -93,6 +93,9 @@ export default {
     },
     isChecked() {
       return this.value ? 'true' : 'false';
+    },
+    isVerticalLayout() {
+      return this.labelPosition === 'top' || this.labelPosition === 'hidden';
     },
   },
 
@@ -121,8 +124,8 @@ export default {
   <div
     class="gl-toggle-wrapper gl-display-flex gl-mb-0"
     :class="{
-      'gl-flex-direction-column': labelPosition === 'top' || labelPosition === 'hidden',
-      'gl-toggle-label-inline': labelPosition === 'left',
+      'gl-flex-direction-column': isVerticalLayout,
+      'gl-toggle-label-inline': !isVerticalLayout,
       'is-disabled': disabled,
     }"
     data-testid="toggle-wrapper"
