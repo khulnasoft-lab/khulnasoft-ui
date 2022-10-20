@@ -129,7 +129,9 @@ describe('outside directive', () => {
     it('attaches the global listener on first initialisation', async () => {
       await createComponent();
 
-      expect(document.addEventListener.mock.calls).toEqual([['click', expect.any(Function)]]);
+      expect(document.addEventListener.mock.calls).toEqual([
+        ['click', expect.any(Function), { capture: true }],
+      ]);
     });
 
     it('detaches the global listener when last binding is removed', async () => {
@@ -150,7 +152,9 @@ describe('outside directive', () => {
         `,
       });
 
-      expect(document.addEventListener.mock.calls).toEqual([['click', expect.any(Function)]]);
+      expect(document.addEventListener.mock.calls).toEqual([
+        ['click', expect.any(Function), { capture: true }],
+      ]);
     });
 
     it('only unbinds once there are no instances', async () => {
