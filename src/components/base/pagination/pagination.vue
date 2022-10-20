@@ -375,102 +375,98 @@ export default {
 </script>
 
 <template>
-  <ul
-    v-if="isVisible"
-    role="navigation"
-    class="pagination gl-pagination text-nowrap"
-    :class="wrapperClasses"
-    aria-label="Pagination"
-  >
-    <li
-      class="page-item"
-      :class="{
-        disabled: prevPageIsDisabled,
-        'flex-fill': isFillAlign,
-      }"
-      :aria-hidden="prevPageIsDisabled"
-    >
-      <component
-        :is="prevPageIsDisabled ? 'span' : 'a'"
-        class="gl-link page-link prev-page-item gl-display-flex"
-        :aria-label="prevPageAriaLabel"
-        :href="prevPageHref"
-        @click="handlePrevious($event, value - 1)"
+  <nav aria-label="Pagination">
+    <ul v-if="isVisible" class="pagination gl-pagination text-nowrap" :class="wrapperClasses">
+      <li
+        class="page-item"
+        :class="{
+          disabled: prevPageIsDisabled,
+          'flex-fill': isFillAlign,
+        }"
+        :aria-hidden="prevPageIsDisabled"
       >
-        <!--
-          @slot Content for the "previous" button. Overrides the "prevText" prop.
+        <component
+          :is="prevPageIsDisabled ? 'span' : 'a'"
+          class="gl-link page-link prev-page-item gl-display-flex"
+          :aria-label="prevPageAriaLabel"
+          :href="prevPageHref"
+          @click="handlePrevious($event, value - 1)"
+        >
+          <!--
+            @slot Content for the "previous" button. Overrides the "prevText" prop.
+            @binding {boolean} active
+            @binding {boolean} disabled
+            @binding {number} number
+            -->
+          <slot name="previous" v-bind="{ page: value - 1, disabled: prevPageIsDisabled }">
+            <gl-icon name="chevron-left" />
+            <span>{{ prevText }}</span>
+          </slot>
+        </component>
+      </li>
+      <li
+        v-for="item in visibleItems"
+        :key="item.key"
+        class="page-item"
+        :class="{
+          disabled: item.disabled,
+          'flex-fill': isFillAlign,
+        }"
+      >
+        <component
+          :is="item.component"
+          size="md"
+          :aria-disabled="item.disabled"
+          class="page-link"
+          v-bind="item.attrs"
+          v-on="item.listeners"
+        >
+          <!--
+          Content for page number buttons.
+          @slot page-number
           @binding {boolean} active
           @binding {boolean} disabled
           @binding {number} number
           -->
-        <slot name="previous" v-bind="{ page: value - 1, disabled: prevPageIsDisabled }">
-          <gl-icon name="chevron-left" />
-          <span>{{ prevText }}</span>
-        </slot>
-      </component>
-    </li>
-    <li
-      v-for="item in visibleItems"
-      :key="item.key"
-      class="page-item"
-      :class="{
-        disabled: item.disabled,
-        'flex-fill': isFillAlign,
-      }"
-    >
-      <component
-        :is="item.component"
-        size="md"
-        :aria-disabled="item.disabled"
-        class="page-link"
-        v-bind="item.attrs"
-        v-on="item.listeners"
-      >
-        <!--
-        Content for page number buttons.
-        @slot page-number
-        @binding {boolean} active
-        @binding {boolean} disabled
-        @binding {number} number
-        -->
-        <!--
-        Content for the left ellipsis. Overrides the "ellipsisText" prop.
-        @slot ellipsis-left
-        -->
-        <!--
-        Content for the right ellipsis. Overrides the "ellipsisText" prop.
-        @slot ellipsis-right
-        -->
-        <slot :name="item.slot" v-bind="item.slotData">{{ item.content }}</slot>
-      </component>
-    </li>
+          <!--
+          Content for the left ellipsis. Overrides the "ellipsisText" prop.
+          @slot ellipsis-left
+          -->
+          <!--
+          Content for the right ellipsis. Overrides the "ellipsisText" prop.
+          @slot ellipsis-right
+          -->
+          <slot :name="item.slot" v-bind="item.slotData">{{ item.content }}</slot>
+        </component>
+      </li>
 
-    <li
-      class="page-item"
-      :class="{
-        disabled: nextPageIsDisabled,
-        'flex-fill': isFillAlign,
-      }"
-      :aria-hidden="nextPageIsDisabled"
-    >
-      <component
-        :is="nextPageIsDisabled ? 'span' : 'a'"
-        class="gl-link page-link next-page-item gl-display-flex"
-        :aria-label="nextPageAriaLabel"
-        :href="nextPageHref"
-        @click="handleNext($event, value + 1)"
+      <li
+        class="page-item"
+        :class="{
+          disabled: nextPageIsDisabled,
+          'flex-fill': isFillAlign,
+        }"
+        :aria-hidden="nextPageIsDisabled"
       >
-        <!--
-          @slot Content for the "next" button. Overrides the "nextText" prop.
-          @binding {boolean} active
-          @binding {boolean} disabled
-          @binding {number} number
-          -->
-        <slot name="next" v-bind="{ page: value + 1, disabled: nextPageIsDisabled }">
-          <span>{{ nextText }}</span>
-          <gl-icon name="chevron-right" />
-        </slot>
-      </component>
-    </li>
-  </ul>
+        <component
+          :is="nextPageIsDisabled ? 'span' : 'a'"
+          class="gl-link page-link next-page-item gl-display-flex"
+          :aria-label="nextPageAriaLabel"
+          :href="nextPageHref"
+          @click="handleNext($event, value + 1)"
+        >
+          <!--
+            @slot Content for the "next" button. Overrides the "nextText" prop.
+            @binding {boolean} active
+            @binding {boolean} disabled
+            @binding {number} number
+            -->
+          <slot name="next" v-bind="{ page: value + 1, disabled: nextPageIsDisabled }">
+            <span>{{ nextText }}</span>
+            <gl-icon name="chevron-right" />
+          </slot>
+        </component>
+      </li>
+    </ul>
+  </nav>
 </template>
