@@ -72,19 +72,19 @@ Go to <http://localhost:9001/>
 Components’ unit tests live in the `tests/components`. The tests are organized following the same
 directory structure used to organize components.
 
-`yarn test:unit` runs all unit tests.
+- `yarn test:unit` runs all unit tests.
 
-`yarn test:unit:watch` runs all unit tests in watch mode.
+- `yarn test:unit:watch` runs all unit tests in watch mode.
 
-`yarn test:unit:debug` runs all unit tests and allow to attach a debugger to the test runner process.
+- `yarn test:unit:debug` runs all unit tests and allow to attach a debugger to the test runner process.
 
-`yarn jest [name_pattern]` runs spec files that match the specified name pattern.
+- `yarn jest [name_pattern]` runs spec files that match the specified name pattern.
 
 #### Examples
 
-`yarn jest datepicker` will match all spec files with a name that contains the word _datepicker_.
+- `yarn jest datepicker` will match all spec files with a name that contains the word _datepicker_.
 
-`yarn jest datepicker -t "when draw event is emitted"` goes a step further and only runs the test
+- `yarn jest datepicker -t "when draw event is emitted"` goes a step further and only runs the test
 with a description that matches the argument passed to the `t` flag.
 
 ### SCSS tests
