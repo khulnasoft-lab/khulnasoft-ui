@@ -249,7 +249,6 @@ const makeGroupedExample = (changes) => {
         openListbox(this);
       }
     },
-    template: template(''),
     ...changes,
   });
 
@@ -259,7 +258,53 @@ const makeGroupedExample = (changes) => {
   return story;
 };
 
-export const Groups = makeGroupedExample();
+export const Groups = makeGroupedExample({
+  template: template('', {
+    bindingOverrides: {
+      ':toggle-text': 'customToggleText',
+      ':items': 'computedItems',
+    },
+  }),
+  data() {
+    return {
+      selected: ['v1.0'],
+    };
+  },
+  computed: {
+    customToggleText() {
+      return this.selected.length ? `${this.selected.length} refs selected` : 'Select refs';
+    },
+    computedItems() {
+      const isSelected = (option) => this.selected.includes(option.value);
+      const notSelected = (option) => !isSelected(option);
+
+      const selectedBranches = mockGroups[0].options.filter(isSelected);
+      const availableBranches = mockGroups[0].options.filter(notSelected);
+      const selectedTags = mockGroups[1].options.filter(isSelected);
+      const availableTags = mockGroups[1].options.filter(notSelected);
+
+      return [
+        {
+          text: 'Selected branches',
+          options: selectedBranches,
+        },
+        {
+          text: 'Selected tags',
+          options: selectedTags,
+        },
+        {
+          text: 'Branches',
+          options: availableBranches,
+        },
+        {
+          text: 'Tags',
+          options: availableTags,
+        },
+      ].filter((group) => group.options.length);
+    },
+  },
+});
+Groups.args = generateProps({ multiple: true });
 
 export const CustomGroupsAndItems = makeGroupedExample({
   template: template(`
