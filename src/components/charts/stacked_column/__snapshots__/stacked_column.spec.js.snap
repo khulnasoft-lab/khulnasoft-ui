@@ -286,13 +286,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(87, 114, 255, 0.4)",
+          "color": "rgba(97, 122, 226, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#5772ff",
+        "borderColor": "#617ae2",
         "borderWidth": 1,
-        "color": "rgba(87, 114, 255, 0.2)",
+        "color": "rgba(97, 122, 226, 0.2)",
       },
       "name": "Fun 1",
       "stack": Array [
@@ -330,13 +330,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(178, 72, 0, 0.4)",
+          "color": "rgba(177, 79, 24, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#b24800",
+        "borderColor": "#b14f18",
         "borderWidth": 1,
-        "color": "rgba(178, 72, 0, 0.2)",
+        "color": "rgba(177, 79, 24, 0.2)",
       },
       "name": "Fun 2",
       "stack": Array [
@@ -374,13 +374,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(0, 148, 182, 0.4)",
+          "color": "rgba(0, 144, 177, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#0094b6",
+        "borderColor": "#0090b1",
         "borderWidth": 1,
-        "color": "rgba(0, 148, 182, 0.2)",
+        "color": "rgba(0, 144, 177, 0.2)",
       },
       "name": "Fun 3",
       "stack": Array [
@@ -540,10 +540,10 @@ Object {
         28,
       ],
       "itemStyle": Object {
-        "color": "#5772ff",
+        "color": "#617ae2",
       },
       "lineStyle": Object {
-        "color": "#5772ff",
+        "color": "#617ae2",
       },
       "name": "Stacked median line",
       "type": "line",
@@ -647,13 +647,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(87, 114, 255, 0.4)",
+          "color": "rgba(97, 122, 226, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#5772ff",
+        "borderColor": "#617ae2",
         "borderWidth": 1,
-        "color": "rgba(87, 114, 255, 0.2)",
+        "color": "rgba(97, 122, 226, 0.2)",
       },
       "name": "Fun 1",
       "stack": Array [
@@ -691,13 +691,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(178, 72, 0, 0.4)",
+          "color": "rgba(177, 79, 24, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#b24800",
+        "borderColor": "#b14f18",
         "borderWidth": 1,
-        "color": "rgba(178, 72, 0, 0.2)",
+        "color": "rgba(177, 79, 24, 0.2)",
       },
       "name": "Fun 2",
       "stack": Array [
@@ -735,13 +735,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(0, 148, 182, 0.4)",
+          "color": "rgba(0, 144, 177, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#0094b6",
+        "borderColor": "#0090b1",
         "borderWidth": 1,
-        "color": "rgba(0, 148, 182, 0.2)",
+        "color": "rgba(0, 144, 177, 0.2)",
       },
       "name": "Fun 3",
       "stack": Array [
@@ -823,13 +823,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(149, 9, 67, 0.4)",
+          "color": "rgba(124, 33, 79, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#950943",
+        "borderColor": "#7c214f",
         "borderWidth": 1,
-        "color": "rgba(149, 9, 67, 0.2)",
+        "color": "rgba(124, 33, 79, 0.2)",
       },
       "name": "Secondary 1",
       "stack": "tiled",
