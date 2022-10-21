@@ -194,6 +194,10 @@
   left: 50%;
 }
 
+@mixin gl-top-n1 {
+  top: -$gl-spacing-scale-1;
+}
+
 @mixin gl-top-n5 {
   top: -$gl-spacing-scale-5;
 }
