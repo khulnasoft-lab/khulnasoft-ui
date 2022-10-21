@@ -1,3 +1,10 @@
+## [48.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.1.0...v48.1.1) (2022-10-21)
+
+
+### Bug Fixes
+
+* **GlDrawer:** Prevent background UI glitch in Safari ([c7ba025](https://gitlab.com/gitlab-org/gitlab-ui/commit/c7ba02537d5456ec1f3ca8ae5175da6ac318c581))
+
 # [48.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.0.0...v48.1.0) (2022-10-21)
 
 
