@@ -1,3 +1,10 @@
+# [48.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.0.0...v48.1.0) (2022-10-21)
+
+
+### Features
+
+* Add table utility classes ([2fcde37](https://gitlab.com/gitlab-org/gitlab-ui/commit/2fcde37120ae6f69929d4d7724a78e49ab0cd1ab))
+
 # [48.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v47.0.1...v48.0.0) (2022-10-19)
 
 
