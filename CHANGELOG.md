@@ -1,3 +1,10 @@
+## [48.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.1.1...v48.1.2) (2022-10-21)
+
+
+### Bug Fixes
+
+* **GlPagination:** Fix GlPagination accessibility ([a802cf6](https://gitlab.com/gitlab-org/gitlab-ui/commit/a802cf6752e9d29c28b0059f94f63592d10ed86d))
+
 ## [48.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.1.0...v48.1.1) (2022-10-21)
 
 
