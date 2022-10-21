@@ -247,19 +247,25 @@ describe('GlListbox', () => {
     });
 
     describe('when `searchable` is enabled', () => {
-      it('should move focus to the first item on search input `ARROW_DOWN`', async () => {
+      let searchbox;
+
+      beforeEach(() => {
         buildWrapper({ items: mockOptions, searchable: true });
         findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
-        findSearchBox().trigger('keydown', { code: ARROW_DOWN });
+        firstItem = findListItem(0);
+        searchbox = findSearchBox();
+      });
+
+      it('should move focus to the first item on search input `ARROW_DOWN`', async () => {
+        expect(searchbox.element).toHaveFocus();
+        searchbox.trigger('keydown', { code: ARROW_DOWN });
         expect(firstItem.element).toHaveFocus();
       });
 
       it('should move focus to the search input on first item `ARROW_UP', async () => {
-        buildWrapper({ items: mockOptions, searchable: true });
-        findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
-        const focusSpy = jest.spyOn(wrapper.vm.$refs.searchBox, 'focusInput');
-        await firstItem.trigger('keydown', { code: ARROW_UP });
-        expect(focusSpy).toHaveBeenCalled();
+        searchbox.trigger('keydown', { code: ARROW_DOWN });
+        firstItem.trigger('keydown', { code: ARROW_UP });
+        expect(searchbox.element).toHaveFocus();
       });
     });
   });

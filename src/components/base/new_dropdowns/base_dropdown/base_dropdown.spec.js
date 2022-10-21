@@ -144,6 +144,7 @@ describe('base dropdown', () => {
       await toggle.trigger('click');
       expect(menu.classes('show')).toBe(true);
       expect(toggle.attributes('aria-expanded')).toBe('true');
+      await nextTick();
       expect(wrapper.emitted(GL_DROPDOWN_SHOWN).length).toBe(1);
 
       // close menu clicking toggle btn again
