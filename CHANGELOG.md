@@ -1,3 +1,10 @@
+## [49.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.0.0...v49.0.1) (2022-10-24)
+
+
+### Bug Fixes
+
+* **GlListbox:** fix dropdown positioning ([18d061f](https://gitlab.com/gitlab-org/gitlab-ui/commit/18d061fc905ac906a6c88f080b08b9e085eb372e))
+
 # [49.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.3.1...v49.0.0) (2022-10-24)
 
 
