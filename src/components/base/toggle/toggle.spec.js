@@ -86,10 +86,11 @@ describe('toggle', () => {
   });
 
   describe.each`
-    state                  | help         | props                 | options                          | getAriaDescribedBy
-    ${'with help'}         | ${helpText}  | ${{ help: helpText }} | ${undefined}                     | ${() => findHelpElement().attributes('id')}
-    ${'with help in slot'} | ${helpText}  | ${undefined}          | ${{ slots: { help: helpText } }} | ${() => findHelpElement().attributes('id')}
-    ${'without help'}      | ${undefined} | ${undefined}          | ${undefined}                     | ${() => undefined}
+    state                                 | help         | props                                                          | options                          | getAriaDescribedBy
+    ${'with help'}                        | ${helpText}  | ${{ help: helpText }}                                          | ${undefined}                     | ${() => findHelpElement().attributes('id')}
+    ${'with help in slot'}                | ${helpText}  | ${undefined}                                                   | ${{ slots: { help: helpText } }} | ${() => findHelpElement().attributes('id')}
+    ${'without help'}                     | ${undefined} | ${undefined}                                                   | ${undefined}                     | ${() => undefined}
+    ${'with help and labelPosition left'} | ${undefined} | ${{ help: helpText, labelPosition: toggleLabelPosition.left }} | ${undefined}                     | ${() => undefined}
   `('$state', ({ help, props, options, getAriaDescribedBy }) => {
     beforeEach(() => {
       createWrapper(props, options);
