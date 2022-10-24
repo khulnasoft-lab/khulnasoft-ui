@@ -61,6 +61,24 @@ export default {
       type: Array,
       required: false,
       default: () => [],
+      validator(value) {
+        // eslint-disable-next-line no-underscore-dangle
+        if (!value.__v_raw) {
+          // This is Vue 2
+          return true;
+        }
+
+        // eslint-disable-next-line no-underscore-dangle
+        const isOk = Array.isArray(value) && value.every(({ token }) => token.__v_skip);
+        if (!isOk) {
+          // eslint-disable-next-line no-console
+          console.warn(
+            'You are using Vue3. In Vue3 each token component passed to filtered search must be wrapped into markRaw'
+          );
+        }
+
+        return isOk;
+      },
     },
     /**
      * If provided, used as history items for this component
@@ -332,19 +350,6 @@ export default {
 </script>
 
 <template>
-  <!--
-  Emitted when search is cleared
-  @event clear
-  -->
-  <!--
-  Emitted when item from history is selected
-  @event history-item-selected
-  @property {object} value History item
-  -->
-  <!--
-  Emitted when clear history button is clicked
-  @event clear-history
-  -->
   <gl-search-box-by-click
     v-bind="$attrs"
     :value="tokens"
@@ -406,5 +411,18 @@ export default {
         :style="suggestionsStyle"
       />
     </template>
+    <!--
+  Emitted when search is cleared
+  @event clear
+  -->
+    <!--
+  Emitted when item from history is selected
+  @event history-item-selected
+  @property {object} value History item
+  -->
+    <!--
+  Emitted when clear history button is clicked
+  @event clear-history
+  -->
   </gl-search-box-by-click>
 </template>

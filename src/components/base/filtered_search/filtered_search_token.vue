@@ -17,6 +17,9 @@ const DEFAULT_OPERATORS = [
 
 export default {
   name: 'GlFilteredSearchToken',
+  // FIXME: temporary workaround to ensure compatibility with @vue/compat
+  __v_skip: true,
+
   components: {
     GlToken,
     GlFilteredSearchTokenSegment,

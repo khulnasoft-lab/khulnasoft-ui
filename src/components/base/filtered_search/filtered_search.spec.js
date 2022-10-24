@@ -10,11 +10,20 @@ import { TERM_TOKEN_TYPE, INTENT_ACTIVATE_PREVIOUS } from './filtered_search_uti
 
 jest.mock('~/directives/tooltip');
 
-const FakeToken = {
+// Vue3 is very agressive around making components reactive
+// While keeping Vue2 compatibility we avoid using `markRaw`
+function avoidReactivity(Component) {
+  // mutation of component is intentional
+  // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+  Component.__v_skip = true;
+  return Component;
+}
+
+const FakeToken = avoidReactivity({
   props: ['active'],
   inheritAttrs: false,
   render: (h) => h('div'),
-};
+});
 
 Vue.directive('GlTooltip', () => {});
 
@@ -541,7 +550,7 @@ describe('Filtered search integration tests', () => {
     {
       type: 'static',
       icon: 'label',
-      token: GlFilteredSearchToken,
+      token: avoidReactivity(GlFilteredSearchToken),
       title: 'Static-token',
       options: [
         { title: 'first', value: 'one' },
@@ -554,7 +563,7 @@ describe('Filtered search integration tests', () => {
       type: 'unique',
       unique: true,
       icon: 'document',
-      token: GlFilteredSearchToken,
+      token: avoidReactivity(GlFilteredSearchToken),
       title: 'Unique-token',
       options: [
         { title: 'first', value: 'one' },
@@ -692,7 +701,7 @@ describe('Filtered search integration tests', () => {
 
       await nextTick();
 
-      input.trigger('keydown', { key: 'Enter' });
+      await input.trigger('keydown', { key: 'Enter' });
 
       await nextTick();
 
