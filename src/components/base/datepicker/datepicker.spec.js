@@ -73,6 +73,14 @@ describe('datepicker component', () => {
     expect(Pikaday.prototype.show).toHaveBeenCalled();
   });
 
+  it('opens calendar when show method is called', () => {
+    const wrapper = mountWithOptions();
+
+    wrapper.vm.show();
+
+    expect(Pikaday.prototype.show).toHaveBeenCalled();
+  });
+
   describe('when `ariaLabel` prop is passed', () => {
     it('configures pikaday with the given label', () => {
       const ariaLabel = 'Meaningful description';
