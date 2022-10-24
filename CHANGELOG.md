@@ -1,3 +1,12 @@
+# [48.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.2.0...v48.3.0) (2022-10-24)
+
+
+### Features
+
+* **Color:** Update aqua error ([9092b09](https://gitlab.com/gitlab-org/gitlab-ui/commit/9092b09130e1d4f03644e87d4a8dacecf6e2e1eb))
+* **Color:** Update chart snapshots ([6cff69d](https://gitlab.com/gitlab-org/gitlab-ui/commit/6cff69ded0073ed9ddce09da29a89211dc1f7b50))
+* **Color:** Update data viz variables ([3c0edbb](https://gitlab.com/gitlab-org/gitlab-ui/commit/3c0edbb30b6f5078f8938627418fd9349f788db2))
+
 # [48.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.1.2...v48.2.0) (2022-10-24)
 
 
