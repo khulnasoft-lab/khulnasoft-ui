@@ -37,7 +37,7 @@ const startListening = () => {
     return;
   }
 
-  document.addEventListener('click', globalListener);
+  document.addEventListener('click', globalListener, { capture: true });
   listening = true;
 };
 

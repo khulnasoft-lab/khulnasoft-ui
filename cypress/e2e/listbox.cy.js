@@ -77,16 +77,16 @@ describe('GlListbox', () => {
     beforeEach(ensureMenuIsClosed);
 
     const dropdownItemAtIndex = (i) =>
-      getDropdownItem(['main', 'feature-123', 'v1.0', 'v2.0', 'v2.1'][i]);
+      getDropdownItem(['v1.0', 'main', 'feature-123', 'v2.0', 'v2.1'][i]);
 
     it('navigates through the options on arrow up, arrow down, Home and End', () => {
       toggleBtn().click();
       dropdownMenu().should('be.visible');
       toggleBtn().should('not.be.focused');
-      dropdownItemAtIndex(2).should('be.focused').type('{upArrow}');
-      dropdownItemAtIndex(1).should('be.focused').type('{upArrow}');
       dropdownItemAtIndex(0).should('be.focused').type('{upArrow}');
       dropdownItemAtIndex(0).should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(1).should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(2).should('be.focused').type('{upArrow}');
       dropdownItemAtIndex(1).should('be.focused').type('{downArrow}');
       dropdownItemAtIndex(2).should('be.focused').type('{downArrow}');
       dropdownItemAtIndex(3).should('be.focused').type('{downArrow}');
