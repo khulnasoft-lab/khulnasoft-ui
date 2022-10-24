@@ -23,7 +23,9 @@ const isVue3Fragment = (vnode) => vnode?.type?.toString?.() === 'Symbol(Fragment
 const isVNodeEmpty = (vnode) => {
   if (isVue3Fragment(vnode)) {
     // vnode.children might be an array or single node in edge cases
-    return vnode.children.every(isVNodeEmpty);
+    return Array.isArray(vnode.children)
+      ? vnode.children.every(isVNodeEmpty)
+      : isVNodeEmpty(vnode.children);
   }
 
   if (isVue3Comment(vnode)) {
@@ -39,7 +41,7 @@ const isSlotNotEmpty = (slot) => {
   }
 
   const vnodes = typeof slot === 'function' ? slot() : slot;
-  return ![vnodes].flat().every(isVNodeEmpty);
+  return !(Array.isArray(vnodes) ? vnodes.every(isVNodeEmpty) : isVNodeEmpty(vnodes));
 };
 
 export default {
