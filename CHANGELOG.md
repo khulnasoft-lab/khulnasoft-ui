@@ -1,3 +1,10 @@
+## [48.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.3.0...v48.3.1) (2022-10-24)
+
+
+### Bug Fixes
+
+* **OutsideDirective:** enable event capture ([c32381a](https://gitlab.com/gitlab-org/gitlab-ui/commit/c32381a3048895e747cc905df468319d8eff7a30))
+
 # [48.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.2.0...v48.3.0) (2022-10-24)
 
 
