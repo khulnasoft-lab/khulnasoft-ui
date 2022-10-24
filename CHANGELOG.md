@@ -1,3 +1,15 @@
+# [49.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.3.1...v49.0.0) (2022-10-24)
+
+
+### Bug Fixes
+
+* **GlToggle:** Fix help text visibility ([1bd4137](https://gitlab.com/gitlab-org/gitlab-ui/commit/1bd4137fca78152966869b0b6781fe44c5f9a69e))
+
+
+### BREAKING CHANGES
+
+* **GlToggle:** Hide help text when `labelPosition: left`
+
 ## [48.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.3.0...v48.3.1) (2022-10-24)
 
 
