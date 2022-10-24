@@ -45,6 +45,12 @@ include:
   rules:
     - when: always
 
+.is-merge-train: &is-merge-train
+  if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merge_train"'
+
+.is-merged-result: &is-merged-result
+  if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merged_result"'
+
 gemnasium-dependency_scanning:
   <<: *secure-jobs-config
 
@@ -247,6 +253,8 @@ visual:
     - if: '$CI_MERGE_REQUEST_IID'
       when: manual
       allow_failure: true
+    - <<: *is-merge-train
+      when: always
   artifacts:
     when: always
     paths:
@@ -260,7 +268,7 @@ visual_minimal:
   script:
     - yarn test:visual:minimal
   rules:
-    - if: '$CI_MERGE_REQUEST_IID'
+    - <<: *is-merged-result
       when: always
   artifacts:
     when: always
