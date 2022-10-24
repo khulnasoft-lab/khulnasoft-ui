@@ -111,10 +111,50 @@ component's PascalCase name as the commit's scope. For example:
 feat(GlButton): add secondary variant
 ```
 
-> **Note:** Only `feat:`, `fix:`, and `perf:` types trigger a new release
-> If you're introducing a breaking change, the message body should start with
-> [`BREAKING CHANGE:`](https://www.conventionalcommits.org/en/v1.0.0/#commit-message-with-description-and-breaking-change-footer),
-> this will trigger a major version bump (e.g. `v1.2.3` -> `v2.0.0`)
+## Releases and changelogs
+
+Types that trigger a **new release:**
+
+- **feat:** A new feature (adding a new component, providing new variants for an
+  existing component, etc.).
+- **fix:** A bug fix (correcting a styling issue, addressing a bug in a component's API, etc.).
+- **perf:** A code change that improves performance.
+
+**Breaking changes:**
+
+If you're introducing a breaking change, the message body should start with
+[`BREAKING CHANGE:`](https://www.conventionalcommits.org/en/v1.0.0/#commit-message-with-description-and-breaking-change-footer),
+this will trigger a major version bump (e.g. `v1.2.3` -> `v2.0.0`)
+
+**Changelogs:**
+
+A changelog is genereated for each commit that has a
+type **feat:**, **fix:**, **perf:**. It is possible for a single MR
+to generate one release but mutliple changelog entries.
+
+**Examples:**
+
+The below example would trigger one release and two changelog entires
+
+```none
+1d1d1d1 docs: update docs
+1c1c1c1 Apply reviewer suggestions
+1b1b1b1 feat(GlButton): Add new slot
+1a1a1a1 feat(GlButton): Add new props
+```
+
+The below example would trigger one release and one changelog entry
+
+```none
+1b1b1b1 Apply reviewer suggestions
+1a1a1a1 feat(GlDropdown): Add new slot
+```
+
+The below example would trigger no release and no changelog entries
+
+```none
+1b1b1b1 docs: update commit conventions
+```
 
 ## Commitizen
 
