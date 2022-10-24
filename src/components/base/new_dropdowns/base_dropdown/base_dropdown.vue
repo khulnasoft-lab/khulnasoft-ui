@@ -138,11 +138,6 @@ export default {
       };
     },
   },
-  updated() {
-    if (this.visible) {
-      this.popper?.update();
-    }
-  },
   mounted() {
     this.$nextTick(() => {
       this.popper = createPopper(this.$refs.toggle.$el, this.$refs.content, this.popperConfig);
@@ -152,11 +147,22 @@ export default {
     this.popper.destroy();
   },
   methods: {
-    toggle() {
+    async toggle() {
       this.visible = !this.visible;
 
       if (this.visible) {
-        this.popper.update();
+        /* Initially dropdown is hidden with `display="none"`.
+          When `visible` prop is toggled ON, with the `nextTick` we wait for the DOM update -
+          dropdown's `display="block"` is set (adding CSS class `show`).
+          After that we can recalculate its position (calling `popper.update()`).
+          https://github.com/floating-ui/floating-ui/issues/630:
+          "Unfortunately there's not any way to compute the position of an element not rendered in the document".
+          Then we `await` while the new dropdown position is calculated and DOM updated accordingly.
+          After we can  emit the `GL_DROPDOWN_SHOWN` event to the parent which might interact with updated  dropdown,
+          e.g. set focus..
+         */
+        await this.$nextTick();
+        await this.popper?.update();
         this.$emit(GL_DROPDOWN_SHOWN);
       } else {
         this.$emit(GL_DROPDOWN_HIDDEN);

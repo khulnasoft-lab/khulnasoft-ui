@@ -293,19 +293,17 @@ export default {
       return index === 0 ? null : GROUP_TOP_BORDER_CLASSES;
     },
     onShow() {
-      this.$nextTick(() => {
-        if (this.searchable) {
-          this.focusSearchInput();
-        } else {
-          this.focusItem(this.selectedIndices[0] ?? 0, this.getFocusableListItemElements());
-        }
-        /**
-         * Emitted when dropdown is shown
-         *
-         * @event shown
-         */
-        this.$emit(GL_DROPDOWN_SHOWN);
-      });
+      if (this.searchable) {
+        this.focusSearchInput();
+      } else {
+        this.focusItem(this.selectedIndices[0] ?? 0, this.getFocusableListItemElements());
+      }
+      /**
+       * Emitted when dropdown is shown
+       *
+       * @event shown
+       */
+      this.$emit(GL_DROPDOWN_SHOWN);
     },
     onHide() {
       /**
@@ -366,9 +364,7 @@ export default {
     focusItem(index, elements) {
       this.nextFocusedItemIndex = index;
 
-      this.$nextTick(() => {
-        elements[index]?.focus();
-      });
+      elements[index]?.focus();
     },
     focusSearchInput() {
       this.$refs.searchBox.focusInput();
