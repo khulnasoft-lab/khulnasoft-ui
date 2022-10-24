@@ -3,11 +3,11 @@ import { avatarsInlineSizeOptions } from '../../../utils/constants';
 import readme from './avatars_inline.md';
 
 const defaultAvatars = [
-  { src: 'https://picsum.photos/id/1005/32', alt: 'Administrator’s user avatar' },
-  { src: 'https://picsum.photos/id/1006/32', alt: 'Ops Manager’s user avatar' },
-  { src: 'https://picsum.photos/id/1009/32', alt: 'Developer’s user avatar' },
-  { src: 'https://picsum.photos/id/1011/32', alt: 'Business Admin’s user avatar' },
-  { src: 'https://picsum.photos/id/1012/32', alt: 'Product designer’s user avatar' },
+  { src: './img/avatar_1.png', alt: 'Administrator’s user avatar' },
+  { src: './img/avatar_2.png', alt: 'Ops Manager’s user avatar' },
+  { src: './img/avatar_3.png', alt: 'Developer’s user avatar' },
+  { src: './img/avatar_4.png', alt: 'Business Admin’s user avatar' },
+  { src: './img/avatar_5.png', alt: 'Product designer’s user avatar' },
 ];
 
 const generateProps = (
