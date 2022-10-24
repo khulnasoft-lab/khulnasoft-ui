@@ -77,7 +77,7 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "0.7.7",
-    "@babel/core": "^7.19.3",
+    "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
     "@gitlab/eslint-plugin": "18.1.0",
     "@gitlab/stylelint-config": "4.1.0",
