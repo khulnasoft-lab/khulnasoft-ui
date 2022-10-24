@@ -2,7 +2,7 @@
 <script>
 import { isString } from 'lodash';
 import Pikaday from 'pikaday';
-import { defaultDateFormat } from '../../../utils/constants';
+import { defaultDateFormat, datepickerSizeOptionsMap } from '../../../utils/constants';
 import { areDatesEqual } from '../../../utils/datetime_utility';
 import GlButton from '../button/button.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
@@ -171,6 +171,12 @@ export default {
       required: false,
       default: null,
     },
+    size: {
+      type: String,
+      required: false,
+      default: 'medium',
+      validator: (value) => Object.keys(datepickerSizeOptionsMap).includes(value),
+    },
   },
   data() {
     return {
@@ -203,6 +209,17 @@ export default {
       }
 
       return null;
+    },
+    datepickerClasses() {
+      return [
+        'gl-datepicker',
+        'd-inline-block',
+        'gl-w-full',
+        `gl-form-input-${this.datepickerSize}`,
+      ];
+    },
+    datepickerSize() {
+      return datepickerSizeOptionsMap[this.size];
     },
   },
   watch: {
@@ -338,7 +355,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-datepicker d-inline-block">
+  <div :class="datepickerClasses">
     <div v-if="showDefaultField" class="gl-relative">
       <!--
       @slot (optional) Input to display and bind the datepicker to. Defaults to `<gl-form-input />`
@@ -350,7 +367,7 @@ export default {
           v-model="textInput"
           :name="inputName"
           data-testid="gl-datepicker-input"
-          class="gl-datepicker-input"
+          class="gl-w-full"
           :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
           :value="formattedDate"
           :placeholder="placeholder"

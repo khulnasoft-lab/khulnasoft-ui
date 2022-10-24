@@ -127,6 +127,11 @@ export const buttonSizeOptionsMap = {
   medium: 'md',
 };
 
+export const datepickerSizeOptionsMap = {
+  small: 'sm',
+  medium: 'md',
+};
+
 // size options all have corresponding styles (e.g. .s12 defined in icon.scss)
 export const iconSizeOptions = glIconSizesVariable.split(' ').map(Number);
 
