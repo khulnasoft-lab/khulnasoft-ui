@@ -1,3 +1,10 @@
+# [48.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.1.2...v48.2.0) (2022-10-24)
+
+
+### Features
+
+* **datepicker:** add public show method for datepicker ([adc2c8f](https://gitlab.com/gitlab-org/gitlab-ui/commit/adc2c8f53016efb253b003b02e6c354eb297ddb6))
+
 ## [48.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v48.1.1...v48.1.2) (2022-10-21)
 
 
