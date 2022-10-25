@@ -375,8 +375,8 @@ export default {
 </script>
 
 <template>
-  <nav aria-label="Pagination">
-    <ul v-if="isVisible" class="pagination gl-pagination text-nowrap" :class="wrapperClasses">
+  <nav v-if="isVisible" class="gl-pagination text-nowrap" aria-label="Pagination">
+    <ul class="pagination" :class="wrapperClasses">
       <li
         class="page-item"
         :class="{
