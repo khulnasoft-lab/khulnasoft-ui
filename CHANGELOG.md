@@ -1,3 +1,10 @@
+## [49.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.0.1...v49.0.2) (2022-10-25)
+
+
+### Bug Fixes
+
+* **GlPagination:** move attributes to root element ([def3d02](https://gitlab.com/gitlab-org/gitlab-ui/commit/def3d02878019c792b962c7632385e208d3c3fb8))
+
 ## [49.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.0.0...v49.0.1) (2022-10-24)
 
 
