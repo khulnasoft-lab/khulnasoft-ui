@@ -17,13 +17,14 @@ describe('badge', () => {
 
   describe('with "icon" prop', () => {
     describe.each`
-      scenario           | hasSlot  | iconName     | expectedRole
-      ${'icon-only'}     | ${false} | ${'warning'} | ${'img'}
-      ${'icon and slot'} | ${true}  | ${'warning'} | ${undefined}
-    `('with $scenario', ({ iconName, hasSlot, expectedRole }) => {
+      scenario                | hasSlot  | iconName     | iconSize | expectedIconSize | expectedRole
+      ${'icon-only'}          | ${false} | ${'warning'} | ${'md'}  | ${16}            | ${'img'}
+      ${'16px icon and slot'} | ${true}  | ${'warning'} | ${'md'}  | ${16}            | ${undefined}
+      ${'12px icon and slot'} | ${true}  | ${'warning'} | ${'sm'}  | ${12}            | ${undefined}
+    `('with $scenario', ({ iconName, iconSize, expectedIconSize, hasSlot, expectedRole }) => {
       beforeEach(() => {
         const slots = hasSlot ? { default: 'slot-content' } : undefined;
-        createComponent({ propsData: { icon: iconName }, slots });
+        createComponent({ propsData: { icon: iconName, iconSize }, slots });
       });
 
       it(`sets badge "role" attribute to ${expectedRole}`, () => {
@@ -41,6 +42,10 @@ describe('badge', () => {
           const icon = findIcon();
 
           expect(icon.classes('gl-mr-2')).toBe(hasSlot);
+        });
+
+        it('with correct size', () => {
+          expect(findIcon().props('size')).toBe(expectedIconSize);
         });
       });
     });
