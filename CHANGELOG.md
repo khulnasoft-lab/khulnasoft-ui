@@ -1,3 +1,10 @@
+## [49.0.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.0.2...v49.0.3) (2022-10-26)
+
+
+### Bug Fixes
+
+* **GlToast:** Improve accessibility ([8d1d170](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d1d170e8188dd7de078955ba08f95ca67bbd04e))
+
 ## [49.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.0.1...v49.0.2) (2022-10-25)
 
 
