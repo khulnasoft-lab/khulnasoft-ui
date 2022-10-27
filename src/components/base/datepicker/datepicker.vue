@@ -179,7 +179,7 @@ export default {
   },
   computed: {
     formattedDate() {
-      return 'calendar' in this && this.calendar.toString();
+      return 'calendar' in this ? this.calendar.toString() : '';
     },
     customTrigger() {
       return isString(this.target) && this.target !== '';
