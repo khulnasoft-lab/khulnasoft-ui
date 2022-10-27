@@ -93,6 +93,15 @@ export default {
     focusInput() {
       this.$refs.input.$el.focus();
     },
+    onClearButtonFocus() {
+      this.$emit('clearButtonFocus');
+    },
+    onClearButtonBlur() {
+      this.$emit('clearButtonBlur');
+    },
+    onClearButtonRelease() {
+      this.$emit('clearButtonRelease');
+    },
   },
 };
 </script>
@@ -116,6 +125,9 @@ export default {
         :tooltip-container="tooltipContainer"
         class="gl-search-box-by-type-clear gl-clear-icon-button"
         @click.stop="clearInput"
+        @focus="onClearButtonFocus"
+        @blur="onClearButtonBlur"
+        @release="onClearButtonRelease"
       />
     </div>
   </div>

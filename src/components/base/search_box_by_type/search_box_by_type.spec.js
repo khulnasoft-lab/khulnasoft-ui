@@ -42,6 +42,24 @@ describe('search box by type component', () => {
 
       expect(wrapper.emitted('input')).toEqual([['']]);
     });
+
+    it('emits clearButtonFocus when focused', () => {
+      findClearIcon().vm.$emit('focus', { stopPropagation: jest.fn() });
+
+      expect(wrapper.emitted('clearButtonFocus')).toHaveLength(1);
+    });
+
+    it('emits clearButtonBlur when blur', () => {
+      findClearIcon().vm.$emit('blur', { stopPropagation: jest.fn() });
+
+      expect(wrapper.emitted('clearButtonBlur')).toHaveLength(1);
+    });
+
+    it('emits clearButtonRelease when released', () => {
+      findClearIcon().vm.$emit('release', { stopPropagation: jest.fn() });
+
+      expect(wrapper.emitted('clearButtonRelease')).toHaveLength(1);
+    });
   });
 
   describe('v-model', () => {
