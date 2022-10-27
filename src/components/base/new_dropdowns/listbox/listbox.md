@@ -49,6 +49,12 @@ Alternatively, you can set `selected` property to the array of selected items
 `value` properties (for multi-select) or to the selected item `value` property for a single-select.
 On selection the listbox will emit the `select` event with the selected values.
 
+### Resetting the selection
+
+`GlListbox` can render a reset button if the `headerText` and `resetButtonLabel` props are provided.
+When clicking on the reset button, a `reset` event is emitted. It is the consumer's responsibility
+to listen to that event and to update the model as needed.
+
 ### Setting listbox options
 
 Use the `items` prop to provide options to the listbox. Each item can be
