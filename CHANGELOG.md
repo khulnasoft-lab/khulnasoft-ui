@@ -1,3 +1,10 @@
+# [49.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.0.3...v49.1.0) (2022-10-27)
+
+
+### Features
+
+* **GlSearchBoxByType:** Clear button events ([71506b3](https://gitlab.com/gitlab-org/gitlab-ui/commit/71506b3a9ca15f0e233bea4b8ee1fbe7de688059))
+
 ## [49.0.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.0.2...v49.0.3) (2022-10-26)
 
 
