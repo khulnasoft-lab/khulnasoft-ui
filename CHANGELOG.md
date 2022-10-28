@@ -1,3 +1,11 @@
+# [49.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.1.0...v49.2.0) (2022-10-28)
+
+
+### Features
+
+* **GlBadge:** add 12px icon variant ([bf47618](https://gitlab.com/gitlab-org/gitlab-ui/commit/bf476189b298b348b029fb63a6785b3d063cc1d1))
+* **GlListbox:** add ability to reset selection ([68bd63f](https://gitlab.com/gitlab-org/gitlab-ui/commit/68bd63f4f9e04df94b205f21b5d4d35de34040f7))
+
 # [49.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.0.3...v49.1.0) (2022-10-27)
 
 
