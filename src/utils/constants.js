@@ -39,6 +39,11 @@ export const badgeVariantOptions = {
   tier: 'tier',
 };
 
+export const badgeIconSizeOptions = {
+  sm: 12,
+  md: 16,
+};
+
 export const variantCssColorMap = {
   muted: 'gl-text-gray-500',
   neutral: 'gl-text-blue-100',
