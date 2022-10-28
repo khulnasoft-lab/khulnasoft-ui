@@ -1,3 +1,10 @@
+## [49.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.2.0...v49.2.1) (2022-10-28)
+
+
+### Bug Fixes
+
+* **datepicker:** Render empty string instead of false ([678b225](https://gitlab.com/gitlab-org/gitlab-ui/commit/678b22572edbd306e859d4017055a6041c24eb4f))
+
 # [49.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.1.0...v49.2.0) (2022-10-28)
 
 
