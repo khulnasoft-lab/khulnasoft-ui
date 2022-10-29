@@ -1,4 +1,5 @@
 import { nextTick } from 'vue';
+import { cloneDeep } from 'lodash';
 import { mount } from '@vue/test-utils';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlFormInput from '../form_input/form_input.vue';
@@ -258,8 +259,9 @@ describe('GlFormCombobox', () => {
     const windowAlert = window.alert;
 
     beforeEach(() => {
-      createComponent({ tokens: oneTokenList, actionList: actionsList });
-      actionSpy = jest.spyOn(wrapper.vm.actionList[0], 'fn');
+      const actionList = cloneDeep(actionsList);
+      actionSpy = jest.spyOn(actionList[0], 'fn');
+      createComponent({ tokens: oneTokenList, actionList });
       window.alert = jest.fn();
     });
 
