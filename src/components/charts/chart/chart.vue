@@ -16,6 +16,10 @@ export default {
     resizeObserver: GlResizeObserverDirective,
   },
   props: {
+    /**
+     * The ECharts configuration object.
+     * https://echarts.apache.org/en/option.html#title
+     */
     options: {
       type: Object,
       required: true,
@@ -42,11 +46,19 @@ export default {
       default: null,
       validator: sizeValidator,
     },
+    /**
+     * An ECharts group id. Used to connect multiple charts.
+     * https://echarts.apache.org/en/api.html#echarts.connect
+     */
     groupId: {
       type: String,
       required: false,
       default: '',
     },
+    /**
+     * How the chart should be rendered. Valid options are 'canvas' or 'svg'.
+     * https://echarts.apache.org/handbook/en/best-practices/canvas-vs-svg/
+     */
     renderer: {
       type: String,
       required: false,
