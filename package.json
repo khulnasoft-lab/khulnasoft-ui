@@ -27,7 +27,7 @@
     "clean": "rm -r dist storybook scss_to_js/scss_variables.* src/scss/utilities.scss",
     "cy:run": "cypress run --browser firefox",
     "start": "yarn storybook",
-    "storybook": "yarn storybook-prep && start-storybook --ci -p 9001 -c .storybook -s ./static",
+    "storybook": "yarn storybook-prep && start-storybook --ci --host localhost --port 9001 -c .storybook -s ./static",
     "storybook-prep": "run-s generate-utilities build-scss-variables",
     "storybook-static": "yarn storybook-prep && build-storybook -c .storybook -o storybook  -s ./static",
     "pretest:unit": "yarn build-scss-variables",
