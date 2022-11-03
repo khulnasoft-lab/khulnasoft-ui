@@ -1,3 +1,10 @@
+# [49.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.2.1...v49.3.0) (2022-11-03)
+
+
+### Features
+
+* Relax bootstrap per dependency constraint ([c8fb125](https://gitlab.com/gitlab-org/gitlab-ui/commit/c8fb1254723d8fc6be575fd27c21001d10b95a60))
+
 ## [49.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.2.0...v49.2.1) (2022-10-28)
 
 
