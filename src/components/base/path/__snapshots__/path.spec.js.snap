@@ -4,214 +4,613 @@ exports[`Path matches the snapshot 1`] = `
 <div
   class="gl-path-nav"
   data-testid="gl-path-nav"
-  style="--path-bg-color: white"
+  style="--path-bg-color: white;"
 >
-  <span class="gl-path-fade gl-path-fade-left" style="display: none"
-    ><button aria-label="Scroll left" class="gl-clear-icon-button">
-      <gl-icon-stub name="chevron-left" size="32"></gl-icon-stub></button
-  ></span>
-  <ul class="gl-path-nav-list">
-    <li class="gl-path-nav-list-item" id="path-1-item-0">
-      <button class="gl-path-button gl-path-active-item-indigo">
-        First<span class="gl-font-weight-normal gl-pl-2">1d</span>
+  <span
+    class="gl-path-fade gl-path-fade-left"
+    style="display: none;"
+  >
+    <button
+      aria-label="Scroll left"
+      class="gl-clear-icon-button"
+    >
+      <gl-icon-stub
+        name="chevron-left"
+        size="32"
+      />
+    </button>
+  </span>
+  <ul
+    class="gl-path-nav-list"
+  >
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-0"
+    >
+      <button
+        class="gl-path-button gl-path-active-item-indigo"
+      >
+        
+        First
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          1d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-1">
-      <button class="gl-path-button">
-        Second<span class="gl-font-weight-normal gl-pl-2">2d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-1"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Second
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          2d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-2">
-      <button class="gl-path-button">
-        Third<span class="gl-font-weight-normal gl-pl-2">3d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-2"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Third
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          3d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-3">
-      <button class="gl-path-button">
-        Fourth<span class="gl-font-weight-normal gl-pl-2">4d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-3"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Fourth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          4d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-4">
-      <button class="gl-path-button">
-        Fifth<span class="gl-font-weight-normal gl-pl-2">5d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-4"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Fifth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          5d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-5">
-      <button class="gl-path-button">
-        Sixth<span class="gl-font-weight-normal gl-pl-2">6d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-5"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Sixth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          6d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-6">
-      <button class="gl-path-button">
-        Seventh<span class="gl-font-weight-normal gl-pl-2">7d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-6"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Seventh
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          7d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-7">
-      <button category="tertiary" class="gl-path-button" disabled="">
-        Eighth<span class="gl-font-weight-normal gl-pl-2">8d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-7"
+    >
+      <button
+        category="tertiary"
+        class="gl-path-button"
+        disabled=""
+      >
+        
+        Eighth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          8d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-8">
-      <button class="gl-path-button">
-        Ninth<span class="gl-font-weight-normal gl-pl-2">9d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-8"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Ninth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          9d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-1-item-9">
-      <button class="gl-path-button">
-        Tenth<span class="gl-font-weight-normal gl-pl-2">10d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-1-item-9"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Tenth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          10d
+        </span>
       </button>
     </li>
   </ul>
-  <span class="gl-path-fade gl-path-fade-right" style="display: none"
-    ><button aria-label="Scroll right" class="gl-clear-icon-button">
-      <gl-icon-stub name="chevron-right" size="32"></gl-icon-stub></button
-  ></span>
+  <span
+    class="gl-path-fade gl-path-fade-right"
+    style="display: none;"
+  >
+    <button
+      aria-label="Scroll right"
+      class="gl-clear-icon-button"
+    >
+      <gl-icon-stub
+        name="chevron-right"
+        size="32"
+      />
+    </button>
+  </span>
 </div>
-
 `;
 
 exports[`Path renders the list of items with icons matches the snapshot 1`] = `
 <div
   class="gl-path-nav"
   data-testid="gl-path-nav"
-  style="--path-bg-color: white"
+  style="--path-bg-color: white;"
 >
-  <span class="gl-path-fade gl-path-fade-left" style="display: none"
-    ><button aria-label="Scroll left" class="gl-clear-icon-button">
-      <gl-icon-stub name="chevron-left" size="32"></gl-icon-stub></button
-  ></span>
-  <ul class="gl-path-nav-list">
-    <li class="gl-path-nav-list-item" id="path-15-item-0">
-      <button class="gl-path-button gl-path-active-item-indigo">
+  <span
+    class="gl-path-fade gl-path-fade-left"
+    style="display: none;"
+  >
+    <button
+      aria-label="Scroll left"
+      class="gl-clear-icon-button"
+    >
+      <gl-icon-stub
+        name="chevron-left"
+        size="32"
+      />
+    </button>
+  </span>
+  <ul
+    class="gl-path-nav-list"
+  >
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-0"
+    >
+      <button
+        class="gl-path-button gl-path-active-item-indigo"
+      >
         <gl-icon-stub
           class="gl-mr-2"
           data-testid="gl-path-item-icon"
           name="home"
           size="16"
-        ></gl-icon-stub>
-        First<span class="gl-font-weight-normal gl-pl-2">12d</span>
+        />
+        
+        First
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          12d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-1">
-      <button class="gl-path-button">
-        Second<span class="gl-font-weight-normal gl-pl-2">2d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-1"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Second
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          2d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-2">
-      <button class="gl-path-button">
-        Third<span class="gl-font-weight-normal gl-pl-2">3d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-2"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Third
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          3d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-3">
-      <button class="gl-path-button">
-        Fourth<span class="gl-font-weight-normal gl-pl-2">4d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-3"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Fourth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          4d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-4">
-      <button class="gl-path-button">
-        Fifth<span class="gl-font-weight-normal gl-pl-2">5d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-4"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Fifth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          5d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-5">
-      <button class="gl-path-button">
-        Sixth<span class="gl-font-weight-normal gl-pl-2">6d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-5"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Sixth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          6d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-6">
-      <button class="gl-path-button">
-        Seventh<span class="gl-font-weight-normal gl-pl-2">7d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-6"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Seventh
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          7d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-7">
-      <button category="tertiary" class="gl-path-button" disabled="">
-        Eighth<span class="gl-font-weight-normal gl-pl-2">8d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-7"
+    >
+      <button
+        category="tertiary"
+        class="gl-path-button"
+        disabled=""
+      >
+        
+        Eighth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          8d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-8">
-      <button class="gl-path-button">
-        Ninth<span class="gl-font-weight-normal gl-pl-2">9d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-8"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Ninth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          9d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-15-item-9">
-      <button class="gl-path-button">
-        Tenth<span class="gl-font-weight-normal gl-pl-2">10d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-15-item-9"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Tenth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          10d
+        </span>
       </button>
     </li>
   </ul>
-  <span class="gl-path-fade gl-path-fade-right" style="display: none"
-    ><button aria-label="Scroll right" class="gl-clear-icon-button">
-      <gl-icon-stub name="chevron-right" size="32"></gl-icon-stub></button
-  ></span>
+  <span
+    class="gl-path-fade gl-path-fade-right"
+    style="display: none;"
+  >
+    <button
+      aria-label="Scroll right"
+      class="gl-clear-icon-button"
+    >
+      <gl-icon-stub
+        name="chevron-right"
+        size="32"
+      />
+    </button>
+  </span>
 </div>
-
 `;
 
 exports[`Path renders the list of items with metrics matches the snapshot 1`] = `
 <div
   class="gl-path-nav"
   data-testid="gl-path-nav"
-  style="--path-bg-color: white"
+  style="--path-bg-color: white;"
 >
-  <span class="gl-path-fade gl-path-fade-left" style="display: none"
-    ><button aria-label="Scroll left" class="gl-clear-icon-button">
-      <gl-icon-stub name="chevron-left" size="32"></gl-icon-stub></button
-  ></span>
-  <ul class="gl-path-nav-list">
-    <li class="gl-path-nav-list-item" id="path-11-item-0">
-      <button class="gl-path-button gl-path-active-item-indigo">
-        First<span class="gl-font-weight-normal gl-pl-2">12d</span>
+  <span
+    class="gl-path-fade gl-path-fade-left"
+    style="display: none;"
+  >
+    <button
+      aria-label="Scroll left"
+      class="gl-clear-icon-button"
+    >
+      <gl-icon-stub
+        name="chevron-left"
+        size="32"
+      />
+    </button>
+  </span>
+  <ul
+    class="gl-path-nav-list"
+  >
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-0"
+    >
+      <button
+        class="gl-path-button gl-path-active-item-indigo"
+      >
+        
+        First
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          12d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-1">
-      <button class="gl-path-button">
-        Second<span class="gl-font-weight-normal gl-pl-2">2d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-1"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Second
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          2d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-2">
-      <button class="gl-path-button">
-        Third<span class="gl-font-weight-normal gl-pl-2">3d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-2"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Third
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          3d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-3">
-      <button class="gl-path-button">
-        Fourth<span class="gl-font-weight-normal gl-pl-2">4d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-3"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Fourth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          4d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-4">
-      <button class="gl-path-button">
-        Fifth<span class="gl-font-weight-normal gl-pl-2">5d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-4"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Fifth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          5d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-5">
-      <button class="gl-path-button">
-        Sixth<span class="gl-font-weight-normal gl-pl-2">6d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-5"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Sixth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          6d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-6">
-      <button class="gl-path-button">
-        Seventh<span class="gl-font-weight-normal gl-pl-2">7d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-6"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Seventh
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          7d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-7">
-      <button category="tertiary" class="gl-path-button" disabled="">
-        Eighth<span class="gl-font-weight-normal gl-pl-2">8d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-7"
+    >
+      <button
+        category="tertiary"
+        class="gl-path-button"
+        disabled=""
+      >
+        
+        Eighth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          8d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-8">
-      <button class="gl-path-button">
-        Ninth<span class="gl-font-weight-normal gl-pl-2">9d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-8"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Ninth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          9d
+        </span>
       </button>
     </li>
-    <li class="gl-path-nav-list-item" id="path-11-item-9">
-      <button class="gl-path-button">
-        Tenth<span class="gl-font-weight-normal gl-pl-2">10d</span>
+    <li
+      class="gl-path-nav-list-item"
+      id="path-11-item-9"
+    >
+      <button
+        class="gl-path-button"
+      >
+        
+        Tenth
+        <span
+          class="gl-font-weight-normal gl-pl-2"
+        >
+          10d
+        </span>
       </button>
     </li>
   </ul>
-  <span class="gl-path-fade gl-path-fade-right" style="display: none"
-    ><button aria-label="Scroll right" class="gl-clear-icon-button">
-      <gl-icon-stub name="chevron-right" size="32"></gl-icon-stub></button
-  ></span>
+  <span
+    class="gl-path-fade gl-path-fade-right"
+    style="display: none;"
+  >
+    <button
+      aria-label="Scroll right"
+      class="gl-clear-icon-button"
+    >
+      <gl-icon-stub
+        name="chevron-right"
+        size="32"
+      />
+    </button>
+  </span>
 </div>
-
 `;

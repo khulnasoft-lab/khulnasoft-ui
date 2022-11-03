@@ -14,7 +14,6 @@ exports[`Filtered search term renders input with value in active mode 1`] = `
     test-value
   </div>
 </div>
-
 `;
 
 exports[`Filtered search term renders value in inactive mode 1`] = `
@@ -30,5 +29,4 @@ exports[`Filtered search term renders value in inactive mode 1`] = `
     test-value
   </div>
 </div>
-
 `;

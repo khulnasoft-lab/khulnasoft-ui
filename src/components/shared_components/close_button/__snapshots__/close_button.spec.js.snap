@@ -8,6 +8,5 @@ exports[`Clear Icon Button renders successfully 1`] = `
   icon="close"
   size="small"
   variant="default"
-></gl-button-stub>
-
+/>
 `;
