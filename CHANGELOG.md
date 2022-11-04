@@ -1,3 +1,10 @@
+# [49.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.3.0...v49.4.0) (2022-11-04)
+
+
+### Features
+
+* **Badge:** increase-muted-contrast ([01a3c15](https://gitlab.com/gitlab-org/gitlab-ui/commit/01a3c15d40bbbf9c2fe7b4ccfebc0efaac6f2769))
+
 # [49.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.2.1...v49.3.0) (2022-11-03)
 
 
