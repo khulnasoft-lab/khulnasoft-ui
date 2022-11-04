@@ -105,6 +105,7 @@ container_scanning:
 
 .yarn_install:
   before_script:
+    - apt-get install -y make
     - yarn install --frozen-lockfile
   cache:
     <<: *cache-template
@@ -281,7 +282,6 @@ integration_tests:
   needs: []
   stage: test
   script:
-    - apt-get install -y make
     - yarn test:integration
   artifacts:
     when: on_failure
