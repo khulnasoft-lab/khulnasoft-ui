@@ -1,3 +1,4 @@
+// slot-scope attribute is a result of Vue.js 3 stubs being serialized in slot context, drop it
 const ATTRIBUTES_TO_REMOVE = ['slot-scope'];
 // Taken from https://github.com/vuejs/vue/blob/72aed6a149b94b5b929fb47370a7a6d4cb7491c5/src/platforms/web/util/attrs.ts#L37-L44
 const BOOLEAN_ATTRIBUTES = new Set(
@@ -45,7 +46,7 @@ export function serialize(received, config, indentation, depth, refs, printer) {
     if (isIgnorable(currentNode)) {
       ignorableNodes.push(currentNode);
     } else {
-      if (currentNode instanceof Element) {
+      if (currentNode instanceof Element && !currentNode.tagName.includes('-')) {
         ATTRIBUTES_TO_REMOVE.forEach((attr) => currentNode.removeAttribute(attr));
         BOOLEAN_ATTRIBUTES.forEach((attr) => {
           if (currentNode.hasAttribute(attr) && currentNode.getAttribute(attr) === attr) {
