@@ -5,13 +5,11 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -29,7 +27,6 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -46,8 +43,6 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
     totalitems="13"
     value="7"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -56,13 +51,11 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -106,7 +99,6 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -123,8 +115,6 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
     totalitems="13"
     value="2"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -133,13 +123,11 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -209,7 +197,6 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -226,8 +213,6 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
     totalitems="13"
     value="1"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -236,13 +221,11 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -377,7 +360,6 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -394,8 +376,6 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
     totalitems="13"
     value="1"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -404,13 +384,11 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -584,7 +562,6 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -601,8 +578,6 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
     totalitems="13"
     value="1"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -611,19 +586,14 @@ exports[`Paginated List Search states renders the custom empty search message wh
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   />
-   
-  <!---->
-   
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
   >
@@ -639,19 +609,14 @@ exports[`Paginated List Search states renders the default empty search message w
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   />
-   
-  <!---->
-   
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
   >
@@ -667,13 +632,11 @@ exports[`Paginated List Search states renders the list filtered by search result
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -704,7 +667,6 @@ exports[`Paginated List Search states renders the list filtered by search result
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -721,8 +683,6 @@ exports[`Paginated List Search states renders the list filtered by search result
     totalitems="2"
     value="1"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -731,19 +691,14 @@ exports[`Paginated List Searchless states renders the list in an empty state wit
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   />
-   
-  <!---->
-   
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
   >
@@ -759,19 +714,14 @@ exports[`Paginated List Searchless states renders the list in an empty state, wh
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   />
-   
-  <!---->
-   
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
   >
@@ -787,13 +737,11 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -824,7 +772,6 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -841,8 +788,6 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
     totalitems="2"
     value="1"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -851,13 +796,11 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -875,7 +818,6 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -892,8 +834,6 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
     totalitems="1"
     value="1"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -902,13 +842,11 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -926,7 +864,6 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -943,8 +880,6 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
     totalitems="1"
     value="1"
   />
-   
-  <!---->
 </div>
 `;
 
@@ -953,13 +888,11 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
   <div
     class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
   >
-     
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
       value=""
     />
   </div>
-    
   <ul
     class="list-group list-group-flush list-unstyled"
   >
@@ -977,7 +910,6 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
       </div>
     </li>
   </ul>
-   
   <gl-pagination-stub
     align="left"
     class="d-flex justify-content-center prepend-top-default"
@@ -994,7 +926,5 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
     totalitems="1"
     value="1"
   />
-   
-  <!---->
 </div>
 `;

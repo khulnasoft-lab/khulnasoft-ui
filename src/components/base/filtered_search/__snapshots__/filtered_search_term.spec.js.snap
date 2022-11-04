@@ -1,13 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Filtered search term renders input with value in active mode 1`] = `
-<div data-testid="filtered-search-term" class="gl-h-auto gl-filtered-search-term">
-  <div active="true" cursor-position="end" value="test-value" class="gl-filtered-search-term-token">test-value</div>
+<div
+  class="gl-h-auto gl-filtered-search-term"
+  data-testid="filtered-search-term"
+>
+  <div
+    active="true"
+    class="gl-filtered-search-term-token"
+    cursor-position="end"
+    value="test-value"
+  >
+    test-value
+  </div>
 </div>
 `;
 
 exports[`Filtered search term renders value in inactive mode 1`] = `
-<div data-testid="filtered-search-term" class="gl-h-auto gl-filtered-search-term">
-  <div cursor-position="end" value="test-value" class="gl-filtered-search-term-token">test-value</div>
+<div
+  class="gl-h-auto gl-filtered-search-term"
+  data-testid="filtered-search-term"
+>
+  <div
+    class="gl-filtered-search-term-token"
+    cursor-position="end"
+    value="test-value"
+  >
+    test-value
+  </div>
 </div>
 `;
