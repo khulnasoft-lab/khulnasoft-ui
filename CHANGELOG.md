@@ -1,3 +1,10 @@
+## [49.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.4.0...v49.4.1) (2022-11-04)
+
+
+### Bug Fixes
+
+* **deps:** upgrade bootstrap-vue to v2.23.1 ([168136a](https://gitlab.com/gitlab-org/gitlab-ui/commit/168136a9234754745ddbd7f08bdc33f95c80a115))
+
 # [49.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.3.0...v49.4.0) (2022-11-04)
 
 
