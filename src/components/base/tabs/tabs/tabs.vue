@@ -129,12 +129,12 @@ export default {
     /**
      * When the query parameter is updated, update the active tab to match.
      */
-    syncActiveTabFromQueryParams() {
+    async syncActiveTabFromQueryParams() {
+      await this.$nextTick();
       const queryParamValue = this.getQueryParamValue();
       const tabIndexToActivate = this.getTabs().findIndex(
         (tab, tabIndex) => this.getTabQueryParamValue(tabIndex) === queryParamValue
       );
-
       this.activeTabIndex = tabIndexToActivate !== -1 ? tabIndexToActivate : 0;
     },
 
