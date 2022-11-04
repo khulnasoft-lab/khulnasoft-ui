@@ -2,6 +2,7 @@
 import { colorThemes } from '../../../utils/constants';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlIcon from '../icon/icon.vue';
+import { TYPE_BANNER, TYPE_NOTIFICATION, TYPE_LIST } from './constants';
 
 export default {
   components: {
@@ -16,6 +17,14 @@ export default {
       type: String,
       required: false,
       default: 'bullhorn',
+    },
+    /**
+     * Allow the broadcast message to be dismissed by a user.
+     */
+    dismissible: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
     /**
      * The dismiss button's label, it is visible in mobile viewports and used for the button's aria-label attribute.
@@ -34,6 +43,21 @@ export default {
       default: Object.keys(colorThemes)[0],
       validator: (value) => Object.keys(colorThemes).includes(value),
     },
+    /**
+     * The base layout to use. `notification` type broadcast messages are not compatible
+     with the `dismissible` or `theme` props.
+     */
+    type: {
+      type: String,
+      required: false,
+      default: TYPE_BANNER,
+      validator: (value) => TYPE_LIST.includes(value),
+    },
+  },
+  computed: {
+    showDismissButton() {
+      return this.dismissible || this.type === TYPE_NOTIFICATION;
+    },
   },
   methods: {
     onDismiss() {
@@ -50,7 +74,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-broadcast-message" :class="theme" role="alert">
+  <div class="gl-broadcast-message" :class="`${theme} ${type}`" role="alert">
     <div class="gl-broadcast-message-content">
       <div class="gl-broadcast-message-icon gl-line-height-normal">
         <gl-icon :name="iconName" />
@@ -61,6 +85,7 @@ export default {
       </div>
     </div>
     <close-button
+      v-if="showDismissButton"
       ref="dismiss"
       class="gl-close-btn-color-inherit gl-broadcast-message-dismiss"
       :label="dismissLabel"
