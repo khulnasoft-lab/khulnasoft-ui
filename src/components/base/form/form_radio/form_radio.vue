@@ -26,7 +26,7 @@ export default {
 
 <template>
   <!--
-  Emitted when the selected value is changed
+  Emittedd when the selected value is changed
   @event input
   @type {boolean} current selected value of radio group
 
