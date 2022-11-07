@@ -50,7 +50,7 @@ module.exports = {
     '\\.(svg|html|md|png)$': '<rootDir>/tests/transformers/file_transformer.js',
   },
   transformIgnorePatterns: [
-    '/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$)|(/@gitlab/svgs/)|(/vue-test-utils-compat/))/',
+    '/node_modules(?![\\\\/]bootstrap-vue[\\\\/]|(/@storybook/.*\\.vue$)|(/@gitlab/svgs/))/',
   ],
   snapshotSerializers: [
     '<rootDir>/tests/html_string_serializer.js',
