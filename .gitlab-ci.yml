@@ -251,11 +251,11 @@ visual:
     - yarn test:visual
   rules:
     - !reference ['.rules:gitlab-ui-default-branch', rules]
+    - <<: *is-merge-train
+      when: always
     - if: '$CI_MERGE_REQUEST_IID'
       when: manual
       allow_failure: true
-    - <<: *is-merge-train
-      when: always
   artifacts:
     when: always
     paths:
