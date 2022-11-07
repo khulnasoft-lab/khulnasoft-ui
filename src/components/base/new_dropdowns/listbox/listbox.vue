@@ -355,7 +355,7 @@ export default {
       immediate: true,
       handler(newSelected) {
         if (Array.isArray(newSelected)) {
-          if (!this.multiple && newSelected.length) {
+          if (process.env.NODE_ENV !== 'production' && !this.multiple && newSelected.length) {
             throw new Error('To allow multi-selection, please, set "multiple" property to "true"');
           }
           this.selectedValues = [...newSelected];
@@ -364,27 +364,30 @@ export default {
         }
       },
     },
-    resetButtonLabel: {
-      immediate: true,
-      handler(newResetButtonLabel) {
-        if (process.env.NODE_ENV !== 'production' && newResetButtonLabel && !this.headerText) {
-          throw new Error(
-            'The reset button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the resetButtonLabel prop.'
-          );
+    ...(process.env.NODE_ENV !== 'production'
+      ? {
+          resetButtonLabel: {
+            immediate: true,
+            handler(newResetButtonLabel) {
+              if (newResetButtonLabel && !this.headerText) {
+                throw new Error(
+                  'The reset button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the resetButtonLabel prop.'
+                );
+              }
+            },
+          },
+          infiniteScroll: {
+            immediate: true,
+            handler(newValue) {
+              if (newValue && this.items.some((item) => !isOption(item))) {
+                throw new Error(
+                  'Infinite scroll does not support groups. Please set the "infiniteScroll" prop to "false"'
+                );
+              }
+            },
+          },
         }
-      },
-    },
-  },
-  created() {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      this.infiniteScroll &&
-      this.items.some((item) => !isOption(item))
-    ) {
-      throw new Error(
-        'Infinite scroll does not support groups. Please set the "infiniteScroll" prop to "false"'
-      );
-    }
+      : {}),
   },
   methods: {
     open() {
