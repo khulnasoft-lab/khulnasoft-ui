@@ -1,7 +1,7 @@
 # Visual regressions testing
 
-We use the [storyshots](https://github.com/storybookjs/storybook/tree/next/addons/storyshots) addon
-to generate and compare image snapshots based on [storybook](https://github.com/storybookjs/storybook)
+We use the [storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core)
+addon to generate and compare image snapshots based on [storybook](https://github.com/storybookjs/storybook)
 stories. `storyshots` runs in every pipeline in either of the following jobs:
 
 * The `visual` job runs visual regression tests against all components. It always runs on the

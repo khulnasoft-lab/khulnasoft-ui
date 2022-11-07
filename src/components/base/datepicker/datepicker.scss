@@ -20,13 +20,6 @@ $pd-week-color: $gray-500;
 
 @import 'pikaday/scss/pikaday';
 
-// Datepicker Max Width: 240px
-$gl-datepicker-width: $grid-size * 30;
-
-.gl-datepicker-input {
-  width: $gl-datepicker-width;
-}
-
 .gl-datepicker-actions {
   @include gl-font-sm;
   @include gl-absolute;

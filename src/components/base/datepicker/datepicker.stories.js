@@ -1,11 +1,11 @@
-import { GlDatepicker } from '../../../index';
+import { GlFormGroup, GlDatepicker } from '../../../index';
 import { disableControls } from '../../../utils/stories_utils';
 import { useFakeDate } from '../../../utils/use_fake_date';
 import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './datepicker.md';
 
 const defaults = {
-  components: { GlDatepicker },
+  components: { GlFormGroup, GlDatepicker },
   mixins: [useFakeDate()],
 };
 
@@ -62,6 +62,27 @@ export const WithClearButton = (_args, { argTypes }) => ({
   template: `<gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" />`,
 });
 WithClearButton.args = generateProps();
+
+export const DifferentSizes = (_args, { argTypes }) => ({
+  ...defaults,
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      pickerValue: defaultDate,
+    };
+  },
+  template: `
+    <div class="gl-display-flex gl-flex-direction-column gl-gap-3">
+      <gl-form-group label="Size: sm">
+        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" size="small" />
+      </gl-form-group>
+      <gl-form-group label="Size: md (default)">
+        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" size="medium" />
+      </gl-form-group>
+    </div>
+  `,
+});
+DifferentSizes.args = generateProps();
 
 export default {
   title: 'base/datepicker',
