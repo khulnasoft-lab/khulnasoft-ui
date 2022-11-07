@@ -1,6 +1,17 @@
 The dropdown component offers a user multiple items or actions to choose from which are initially
 collapsed behind a button.
 
+> **NOTE**: This component will eventually be deprecated in favor of components
+> more suited to the various use cases for dropdowns. Consider using a more
+> appropriate component instead:
+>
+> - For single or multiselect options, use `GlListbox`.
+> - For other use cases (e.g., displaying a list of actions like "Edit user",
+>   "Delete user"), continue to use `GlDropdown` for now.
+>
+> See [this epic](https://gitlab.com/groups/gitlab-org/-/epics/1059) for the
+> most up-to-date information about what to use and when.
+
 ### Icon-only dropdown
 
 Icon-only dropdowns must have an accessible name.
