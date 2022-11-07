@@ -303,13 +303,16 @@ export default {
         }
       },
     },
-  },
-  mounted() {
-    if (process.env.NODE_ENV !== 'production' && this.resetButtonLabel && !this.headerText) {
-      throw new Error(
-        'The reset button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the resetButtonLabel prop.'
-      );
-    }
+    resetButtonLabel: {
+      immediate: true,
+      handler(newResetButtonLabel) {
+        if (process.env.NODE_ENV !== 'production' && newResetButtonLabel && !this.headerText) {
+          throw new Error(
+            'The reset button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the resetButtonLabel prop.'
+          );
+        }
+      },
+    },
   },
   methods: {
     open() {

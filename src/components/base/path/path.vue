@@ -182,8 +182,7 @@ export default {
             :name="item.icon"
             class="gl-mr-2"
             data-testid="gl-path-item-icon"
-          />
-          {{ item.title
+          />{{ item.title
           }}<span v-if="item.metric" class="gl-font-weight-normal gl-pl-2">{{ item.metric }}</span>
         </button>
         <!--

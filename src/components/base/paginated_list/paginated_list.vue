@@ -163,13 +163,13 @@ export default {
       :total-items="pageInfo.total"
       @input="change"
     />
-
+    <!-- Prettier will insert extra line-break which will result in render differences between Vue.js 2 and Vue.js 3 -->
+    <!-- See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2004 for details -->
+    <!-- prettier-ignore -->
     <div
       v-if="emptyList"
       class="bs-callout bs-callout-warning mt-3 empty-message"
       :class="{ 'empty-message': zeroTotal, 'empty-search': zeroSearchResults }"
-    >
-      {{ zeroTotal ? emptyMessage : emptySearchMessage }}
-    </div>
+    >{{ zeroTotal ? emptyMessage : emptySearchMessage }}</div>
   </div>
 </template>
