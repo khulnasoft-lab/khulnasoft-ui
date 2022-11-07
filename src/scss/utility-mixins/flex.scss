@@ -122,6 +122,12 @@
   flex-wrap: nowrap;
 }
 
+@mixin gl-sm-flex-wrap-nowrap {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-flex-wrap-nowrap;
+  }
+}
+
 /**
 * `gl-flex-nowrap` is deprecated; use `gl-flex-wrap-nowrap` instead.
 * TODO: delete `gl-flex-wrap-nowrap` utility class, see
