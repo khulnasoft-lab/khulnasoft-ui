@@ -1,3 +1,11 @@
+# [49.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.4.1...v49.5.0) (2022-11-07)
+
+
+### Features
+
+* **css:** updating neutral gray colors to have a tint based on branding ([241b9d1](https://gitlab.com/gitlab-org/gitlab-ui/commit/241b9d16e41dc1b506ed3eb158272d949c8acd65))
+* **datepicker:** add support for different datepicker sizes ([a502867](https://gitlab.com/gitlab-org/gitlab-ui/commit/a502867438144303d20c9fe0ad9c0b635f37bba2))
+
 ## [49.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.4.0...v49.4.1) (2022-11-04)
 
 
