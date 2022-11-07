@@ -5,7 +5,6 @@ import {
   buttonCategoryOptions,
   buttonVariantOptions,
   buttonSizeOptions,
-  buttonSizeOptionsMap,
 } from '../../../utils/constants';
 import { logWarning } from '../../../utils/utils';
 import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
@@ -35,7 +34,7 @@ export default {
     size: {
       type: String,
       required: false,
-      default: buttonSizeOptions.medium,
+      default: 'medium',
       validator: (value) => Object.keys(buttonSizeOptions).includes(value),
     },
     selected: {
@@ -108,7 +107,7 @@ export default {
       return classes;
     },
     buttonSize() {
-      return buttonSizeOptionsMap[this.size];
+      return buttonSizeOptions[this.size];
     },
   },
   mounted() {

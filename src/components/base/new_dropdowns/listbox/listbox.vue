@@ -118,7 +118,7 @@ export default {
     size: {
       type: String,
       required: false,
-      default: buttonSizeOptions.medium,
+      default: 'medium',
       validator: (value) => Object.keys(buttonSizeOptions).includes(value),
     },
     /**
