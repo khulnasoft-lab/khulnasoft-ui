@@ -72,7 +72,8 @@
       @include gl-display-none;
     }
 
-    &.gl-button {
+    &.gl-button,
+    &.gl-button.btn-block {
       @include gl-pr-3;
 
       &.btn-sm {
@@ -162,6 +163,7 @@
     }
 
     .gl-button .dropdown-chevron,
+    .gl-button.btn-block .dropdown-chevron,
     .dropdown-chevron {
       @include gl-ml-2;
       @include gl-mr-0;
