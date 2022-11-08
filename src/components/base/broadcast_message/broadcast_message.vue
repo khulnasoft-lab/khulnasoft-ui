@@ -55,7 +55,7 @@ export default {
       <div class="gl-broadcast-message-icon gl-line-height-normal">
         <gl-icon :name="iconName" />
       </div>
-      <div class="gl-broadcast-message-text gl-mt-n1">
+      <div class="gl-broadcast-message-text gl-my-n1">
         <!-- @slot The broadcast message's text -->
         <slot></slot>
       </div>
