@@ -355,4 +355,21 @@ describe('Filtered search token', () => {
       }
     );
   });
+
+  describe('showFriendlyText prop', () => {
+    it.each`
+      showFriendlyText | operator | text
+      ${false}         | ${'='}   | ${'='}
+      ${false}         | ${'!='}  | ${'!='}
+      ${true}          | ${'='}   | ${'is'}
+      ${true}          | ${'!='}  | ${'is not'}
+    `(
+      'displays "$text" when operator="$operator" and showFriendlyText="$showFriendlyText"',
+      ({ showFriendlyText, operator, text }) => {
+        mountComponent({ value: { operator }, showFriendlyText });
+
+        expect(findOperatorSegment().text()).toBe(text);
+      }
+    );
+  });
 });
