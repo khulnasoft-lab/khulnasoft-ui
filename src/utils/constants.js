@@ -123,11 +123,6 @@ export const dropdownVariantOptions = {
 };
 
 export const buttonSizeOptions = {
-  small: 'small',
-  medium: 'medium',
-};
-
-export const buttonSizeOptionsMap = {
   small: 'sm',
   medium: 'md',
 };

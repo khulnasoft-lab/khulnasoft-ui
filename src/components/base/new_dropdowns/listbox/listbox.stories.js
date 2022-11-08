@@ -365,7 +365,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: buttonSizeOptions,
+        options: Object.keys(buttonSizeOptions),
       },
     },
   },
