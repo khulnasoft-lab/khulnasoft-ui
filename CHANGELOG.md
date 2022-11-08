@@ -1,3 +1,10 @@
+## [49.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.5.0...v49.5.1) (2022-11-08)
+
+
+### Bug Fixes
+
+* **GlDropdown:** Dropdown arrow position when in block mode ([7a34f2d](https://gitlab.com/gitlab-org/gitlab-ui/commit/7a34f2dfea96388dbd281f2b372dc14299cabadd))
+
 # [49.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.4.1...v49.5.0) (2022-11-07)
 
 
