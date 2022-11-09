@@ -1,5 +1,7 @@
-FROM registry.gitlab.com/gitlab-org/gitlab-build-images:gitlab-puppeteer
+ARG PUPPETEER_VERSION
+FROM registry.gitlab.com/gitlab-org/gitlab-ui/puppeteer:${PUPPETEER_VERSION}
 
 ADD package.json yarn.lock ./
-RUN yarn --frozen-lockfile
+RUN yarn --frozen-lockfile --ignore-scripts
 ADD . .
+RUN yarn install --frozen-lockfile --offline --force
