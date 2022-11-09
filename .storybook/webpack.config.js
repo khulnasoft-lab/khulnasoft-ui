@@ -2,6 +2,22 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const sass = require('sass');
+const { useVue3 } = require('./use_vue3');
+
+const VUE_LOADER_OPTIONS = useVue3()
+  ? {
+      loader: 'vue-loader-vue3',
+      options: {
+        compilerOptions: {
+          compatConfig: {
+            MODE: 2,
+          },
+        },
+      },
+    }
+  : {
+      loader: 'vue-loader',
+    };
 
 const sassLoaderOptions = {
   implementation: sass,
@@ -12,11 +28,6 @@ const sassLoaderOptions = {
 
 module.exports = ({ config }) => {
   config.module.rules = [
-    {
-      test: /src\/components\/.*\.vue$/,
-      loader: 'vue-docgen-loader',
-      enforce: 'post',
-    },
     {
       test: /\.(md|html)$/,
       loader: 'raw-loader',
@@ -57,7 +68,7 @@ module.exports = ({ config }) => {
     },
     {
       test: /\.vue$/,
-      loader: 'vue-loader',
+      ...VUE_LOADER_OPTIONS,
     },
     {
       test: /@gitlab\/svgs\/dist\/(icons|illustrations\/.+)\.svg$/,
@@ -82,6 +93,14 @@ module.exports = ({ config }) => {
     },
   ];
 
+  if (!useVue3()) {
+    config.module.rules.unshift({
+      test: /src\/components\/.*\.vue$/,
+      loader: 'vue-docgen-loader',
+      enforce: 'post',
+    });
+  }
+
   config.plugins.push(
     new webpack.EnvironmentPlugin({
       IS_VISUAL_TEST: false,
@@ -91,6 +110,10 @@ module.exports = ({ config }) => {
   config.resolve.extensions = ['.css', ...config.resolve.extensions];
 
   config.resolve.alias['@gitlab/ui'] = path.join(__dirname, 'src', 'index.js');
+
+  if (useVue3()) {
+    config.resolve.alias['vue$'] = require.resolve('@vue/compat/dist/vue.esm-bundler.js');
+  }
 
   // disable HMR in test environment because this breaks puppeteer's networkidle0 setting
   // which is needed for storyshots to function

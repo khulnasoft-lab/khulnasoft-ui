@@ -10,6 +10,7 @@ else
     PUPPETEER_VERSION=$(grep '^puppeteer@' -A 1 yarn.lock | grep 'version' | sed 's#.*"\(.*\)".*#\1#')
     docker build --build-arg PUPPETEER_VERSION=$PUPPETEER_VERSION -f Dockerfile.storyshots . -t gitlab-ui-storyshots &&
       docker run \
+        -e VUE_VERSION \
         --cidfile $CID_FILE \
         -v "$(pwd)/tests":/tests gitlab-ui-storyshots \
         yarn test:visual:internal "${1}"

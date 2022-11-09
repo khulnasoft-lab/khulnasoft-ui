@@ -41,6 +41,7 @@ const fakeLabels = [
 
 const UserToken = {
   name: 'UserToken',
+  __v_skip: true /* temporary workaround for @vue/compat */,
   components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
   props: ['value', 'active'],
   inheritAttrs: false,
@@ -118,6 +119,7 @@ const UserToken = {
 
 const MilestoneToken = {
   name: 'MilestoneToken',
+  __v_skip: true /* temporary workaround for @vue/compat */,
   components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon },
   props: ['value', 'active'],
   inheritAttrs: false,
@@ -179,6 +181,7 @@ const MilestoneToken = {
 
 const LabelToken = {
   name: 'LabelToken',
+  __v_skip: true /* temporary workaround for @vue/compat */,
   components: {
     GlFilteredSearchToken,
     GlFilteredSearchSuggestion,
@@ -426,6 +429,7 @@ export const WithFriendlyText = () => ({
 
 export const WithMultiSelect = () => {
   const MultiUserToken = {
+    __v_skip: true /* temporary workaround for @vue/compat */,
     props: ['value', 'active', 'config'],
     components: {
       GlFilteredSearchToken,
