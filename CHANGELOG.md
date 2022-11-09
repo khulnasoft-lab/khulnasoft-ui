@@ -1,3 +1,10 @@
+# [49.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.5.1...v49.6.0) (2022-11-09)
+
+
+### Features
+
+* **GlFormDate:** Add component ([099e6d3](https://gitlab.com/gitlab-org/gitlab-ui/commit/099e6d36e2544a85796316b237dde04b5e3150d3))
+
 ## [49.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.5.0...v49.5.1) (2022-11-08)
 
 
