@@ -7,8 +7,8 @@ else
   echo "Running locally"
   if which docker >/dev/null; then
     CID_FILE="/tmp/gitlab_ui_storyshots_$(date +%s).cid"
-
-    docker build -f Dockerfile.storyshots . -t gitlab-ui-storyshots &&
+    PUPPETEER_VERSION=$(grep '^puppeteer@' -A 1 yarn.lock | grep 'version' | sed 's#.*"\(.*\)".*#\1#')
+    docker build --build-arg PUPPETEER_VERSION=$PUPPETEER_VERSION -f Dockerfile.storyshots . -t gitlab-ui-storyshots &&
       docker run \
         --cidfile $CID_FILE \
         -v "$(pwd)/tests":/tests gitlab-ui-storyshots \
