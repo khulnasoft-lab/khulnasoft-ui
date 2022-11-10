@@ -1,3 +1,11 @@
+# [49.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.6.0...v49.7.0) (2022-11-10)
+
+
+### Features
+
+* **BroadcastMessage:** Equal top and bottom margin ([8b548f1](https://gitlab.com/gitlab-org/gitlab-ui/commit/8b548f1b3f86f9d6586dfb0c63deb2d0aa3fdd97))
+* **BroadcastMessage:** Refine alignment ([c59fc65](https://gitlab.com/gitlab-org/gitlab-ui/commit/c59fc65622d0bf8d64ebb4bb98c1f8676b9ad49d))
+
 # [49.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.5.1...v49.6.0) (2022-11-09)
 
 
