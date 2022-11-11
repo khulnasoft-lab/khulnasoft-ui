@@ -1,3 +1,10 @@
+# [49.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.7.0...v49.8.0) (2022-11-11)
+
+
+### Features
+
+* Add brand colours to the variables list ([4baab55](https://gitlab.com/gitlab-org/gitlab-ui/commit/4baab5507f0b6209ede3acbab4b692502f539a6e))
+
 # [49.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.6.0...v49.7.0) (2022-11-10)
 
 
