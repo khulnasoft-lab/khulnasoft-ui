@@ -45,11 +45,6 @@ export default {
       required: false,
       default: popoverPlacements.top,
     },
-    boundaryPadding: {
-      type: [Number, String],
-      required: false,
-      default: 5,
-    },
   },
   computed: {
     customClass() {
@@ -79,7 +74,6 @@ export default {
     :triggers="triggers"
     :title="title"
     :placement="placement"
-    :boundary-padding="boundaryPadding"
     v-bind="$attrs"
     v-on="$listeners"
   >
