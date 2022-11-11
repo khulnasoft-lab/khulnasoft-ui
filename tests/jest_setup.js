@@ -1,12 +1,12 @@
 const Vue = require('vue');
-const { config: vtuConfig, enableAutoDestroy } = require('@vue/test-utils');
+const VTU = require('@vue/test-utils');
 const { matcherHint, printReceived, printExpected } = require('jest-matcher-utils');
 const setConfigs = require('../src/config').default;
 const { useMockResizeObserver } = require('./__helpers__/mock_dom_observer');
 const { createMockDirective: mockDirectiveCreator } = require('./__helpers__/vue_mock_directive');
 
 setConfigs();
-enableAutoDestroy(afterEach);
+VTU.enableAutoDestroy?.(afterEach);
 
 // Tooltips require complex DOM setup
 // Since we're just reusing bootstrap-vue functionality
@@ -15,7 +15,7 @@ jest.mock('../src/directives/tooltip.js', () => ({
   GlTooltipDirective: mockDirectiveCreator('gl-tooltip'),
 }));
 
-vtuConfig.deprecationWarningHandler = (method, message) => {
+VTU.config.deprecationWarningHandler = (method, message) => {
   throw new Error(`[vue-test-utils] ${method}: ${message}`);
 };
 

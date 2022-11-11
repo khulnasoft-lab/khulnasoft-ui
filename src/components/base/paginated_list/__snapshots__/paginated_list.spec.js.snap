@@ -597,9 +597,7 @@ exports[`Paginated List Search states renders the custom empty search message wh
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
   >
-    
     Custom empty message
-  
   </div>
 </div>
 `;
@@ -620,9 +618,7 @@ exports[`Paginated List Search states renders the default empty search message w
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
   >
-    
     Sorry, your filter produced no results.
-  
   </div>
 </div>
 `;
@@ -702,9 +698,7 @@ exports[`Paginated List Searchless states renders the list in an empty state wit
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
   >
-    
     List is passed in empty
-  
   </div>
 </div>
 `;
@@ -725,9 +719,7 @@ exports[`Paginated List Searchless states renders the list in an empty state, wh
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
   >
-    
     There are currently no items in this list.
-  
   </div>
 </div>
 `;

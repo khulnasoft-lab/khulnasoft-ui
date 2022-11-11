@@ -88,6 +88,11 @@ container_scanning:
   variables:
     PUPPETEER_SKIP_DOWNLOAD: 'true'
 
+
+.use_vue3:
+  variables:
+    VUE_VERSION: '3'
+
 # This is a cache template for caching node_modules
 # As a cache key we are using a SHA of .gitlab-ci.yml and yarn.lock
 # The latter is obvious, because it updates when we update dependencies
@@ -289,12 +294,18 @@ integration_tests:
     paths:
       - cypress
 
-unit_tests:
+.unit_tests:
   extends: [.node, .yarn_install]
   needs: []
   stage: test
   script:
     - yarn test:unit
+
+unit_tests_vue2:
+  extends: [.unit_tests]
+
+unit_tests_vue3:
+  extends: [.unit_tests, .use_vue3]
 
 update_screenshots:
   extends:
