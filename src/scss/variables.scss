@@ -304,11 +304,12 @@ $darken-dark-factor: 10%;
 $darken-border-factor: 5%;
 $darken-border-dashed-factor: 25%;
 
-$t-gray-a-02: rgba($black, 0.02);
-$t-gray-a-04: rgba($black, 0.04);
-$t-gray-a-06: rgba($black, 0.06);
-$t-gray-a-08: rgba(#000, 0.08);
-$t-gray-a-24: rgba(#000, 0.24);
+$t-gray-a-02: rgba($gray-950, 0.02);
+$t-gray-a-04: rgba($gray-950, 0.04);
+$t-gray-a-06: rgba($gray-950, 0.06);
+$t-gray-a-08: rgba($gray-950, 0.08);
+$t-gray-a-16: rgba($gray-950, 0.16);
+$t-gray-a-24: rgba($gray-950, 0.24);
 
 // Text
 $gl-text-color: $gray-900 !default;
