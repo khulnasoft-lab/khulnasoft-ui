@@ -1,4 +1,4 @@
-import bp from './breakpoints';
+import { GlBreakpointInstance } from './breakpoints';
 
 describe('breakpoints', () => {
   describe.each`
@@ -10,16 +10,16 @@ describe('breakpoints', () => {
     ${'xs'} | ${0}    | ${false}
   `('$key', ({ size, key, expectedDesktop }) => {
     beforeEach(() => {
-      jest.spyOn(bp, 'windowWidth').mockImplementationOnce(() => size + 10);
+      jest.spyOn(GlBreakpointInstance, 'windowWidth').mockImplementationOnce(() => size + 10);
     });
 
     it(`returns ${key} when larger than ${size}`, () => {
-      expect(bp.getBreakpointSize()).toBe(key);
+      expect(GlBreakpointInstance.getBreakpointSize()).toBe(key);
     });
 
     describe('isDesktop', () => {
       it(`returns ${expectedDesktop} when screen size is ${size}`, () => {
-        expect(bp.isDesktop()).toBe(expectedDesktop);
+        expect(GlBreakpointInstance.isDesktop()).toBe(expectedDesktop);
       });
     });
   });

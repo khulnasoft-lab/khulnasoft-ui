@@ -3,7 +3,7 @@
 import debounce from 'lodash/debounce';
 import isFunction from 'lodash/isFunction';
 import range from 'lodash/range';
-import Breakpoints, { breakpoints } from '../../../utils/breakpoints';
+import { GlBreakpointInstance, breakpoints } from '../../../utils/breakpoints';
 import { alignOptions, resizeDebounceTime } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 import GlLink from '../link/link.vue';
@@ -166,7 +166,7 @@ export default {
   },
   data() {
     return {
-      breakpoint: Breakpoints.getBreakpointSize(),
+      breakpoint: GlBreakpointInstance.getBreakpointSize(),
       // If total pages count is below or equal to minTotalPagesToCollapse, collapsing is disabled
       minTotalPagesToCollapse: 4,
     };
@@ -287,7 +287,7 @@ export default {
   },
   methods: {
     setBreakpoint() {
-      this.breakpoint = Breakpoints.getBreakpointSize();
+      this.breakpoint = GlBreakpointInstance.getBreakpointSize();
     },
     pageIsDisabled(page) {
       return (
