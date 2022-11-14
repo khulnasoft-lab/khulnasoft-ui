@@ -63,7 +63,7 @@ class MockIntersectionObserver extends MockObserver {
   }
 }
 
-const useMockIntersectionObserver = () => {
+export const useMockIntersectionObserver = () => {
   let instances;
   let origObserver;
 
@@ -94,5 +94,3 @@ const useMockIntersectionObserver = () => {
 
   return { getInstances, trigger };
 };
-
-export default useMockIntersectionObserver;

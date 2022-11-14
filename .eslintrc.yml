@@ -58,6 +58,5 @@ overrides:
   - "src/utils/breakpoints.js"
   - "src/utils/charts/config.js"
   - "src/utils/charts/theme.js"
-  - "src/utils/use_mock_intersection_observer.js"
   rules:
     import/no-default-export: off
