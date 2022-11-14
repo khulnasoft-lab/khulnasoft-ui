@@ -54,6 +54,5 @@ overrides:
   - "**/index.js"
   - "**/*.stories.js"
   # Files below should be migrated to named exports
-  - "src/utils/breakpoints.js"
   rules:
     import/no-default-export: off

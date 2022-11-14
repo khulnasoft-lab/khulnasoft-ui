@@ -2,7 +2,7 @@ import castArray from 'lodash/castArray';
 import isArray from 'lodash/isArray';
 import merge from 'lodash/merge';
 import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
-import Breakpoints from '../breakpoints';
+import { GlBreakpointInstance } from '../breakpoints';
 import { columnOptions } from '../constants';
 import { areDatesEqual } from '../datetime_utility';
 import { engineeringNotation } from '../number_utils';
@@ -99,7 +99,7 @@ const LESS_THAN = ['<', '&lt;'];
  */
 export const getDataZoomConfig = ({ filterMode = 'none' } = {}) => {
   const disabledBreakpoints = ['lg', 'xl'];
-  const disabled = disabledBreakpoints.includes(Breakpoints.getBreakpointSize());
+  const disabled = disabledBreakpoints.includes(GlBreakpointInstance.getBreakpointSize());
   const minSpan = filterMode === 'none' ? 0.01 : null;
 
   return {

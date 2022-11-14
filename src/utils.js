@@ -1,1 +1,1 @@
-export { default as GlBreakpointInstance, breakpoints } from './utils/breakpoints';
+export { GlBreakpointInstance, breakpoints } from './utils/breakpoints';

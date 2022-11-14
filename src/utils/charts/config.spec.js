@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import Breakpoints from '../breakpoints';
+import { GlBreakpointInstance } from '../breakpoints';
 import { columnOptions } from '../constants';
 import { hexToRgba } from '../utils';
 import {
@@ -197,7 +197,7 @@ describe('chart config helpers', () => {
 
     describe('on small viewports', () => {
       it('creates a basic dataZoomConfig with inside scrolling being enabled', () => {
-        jest.spyOn(Breakpoints, 'getBreakpointSize').mockImplementationOnce(() => 'sm');
+        jest.spyOn(GlBreakpointInstance, 'getBreakpointSize').mockImplementationOnce(() => 'sm');
         const actual = getDataZoomConfig();
         const dataZoomWithInsideEnabled = [
           {

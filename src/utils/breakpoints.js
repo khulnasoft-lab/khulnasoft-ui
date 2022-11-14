@@ -6,7 +6,7 @@ export const breakpoints = {
   xs: 0,
 };
 
-const BreakpointInstance = {
+export const GlBreakpointInstance = {
   windowWidth: () => window.innerWidth,
   getBreakpointSize() {
     const windowWidth = this.windowWidth();
@@ -19,5 +19,3 @@ const BreakpointInstance = {
     return ['xl', 'lg'].includes(this.getBreakpointSize());
   },
 };
-
-export default BreakpointInstance;
