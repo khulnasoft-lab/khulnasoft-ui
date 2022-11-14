@@ -2,7 +2,7 @@
 <script>
 import * as echarts from 'echarts';
 import { defaultHeight, defaultWidth, validRenderers } from '../../../utils/charts/config';
-import createTheme, { themeName } from '../../../utils/charts/theme';
+import { createTheme, themeName } from '../../../utils/charts/theme';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 
 /**
