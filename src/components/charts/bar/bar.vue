@@ -7,7 +7,7 @@ import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
 import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
-import ToolboxMixin from '../../mixins/toolbox_mixin';
+import { ToolboxMixin } from '../../mixins/toolbox_mixin';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
