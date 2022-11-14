@@ -56,7 +56,6 @@ overrides:
   # Files below should be migrated to named exports
   - "src/components/mixins/toolbox_mixin.js"
   - "src/utils/breakpoints.js"
-  - "src/utils/charts/config.js"
   - "src/utils/charts/theme.js"
   - "src/utils/use_mock_intersection_observer.js"
   rules:

@@ -42,6 +42,12 @@ export const grid = {
   right: 32,
 };
 
+export const defaultChartOptions = {
+  grid,
+  xAxis,
+  yAxis,
+};
+
 export const gridWithSecondaryYAxis = {
   ...grid,
   right: 64,
@@ -498,10 +504,4 @@ export const getDefaultTooltipContent = (params, yAxisTitle = null) => {
   );
 
   return { xLabels, tooltipContent };
-};
-
-export default {
-  grid,
-  xAxis,
-  yAxis,
 };

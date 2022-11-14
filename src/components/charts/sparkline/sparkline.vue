@@ -2,7 +2,8 @@
 <script>
 import merge from 'lodash/merge';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
-import defaultChartOptions, {
+import {
+  defaultChartOptions,
   mergeSeriesToOptions,
   symbolSize,
 } from '../../../utils/charts/config';
