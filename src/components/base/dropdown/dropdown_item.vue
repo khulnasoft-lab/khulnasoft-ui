@@ -88,31 +88,22 @@ export default {
 </script>
 
 <template>
-  <component
-    :is="bootstrapComponent"
-    class="gl-new-dropdown-item"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
+  <component :is="bootstrapComponent" class="gl-dropdown-item" v-bind="$attrs" v-on="$listeners">
     <gl-icon
       v-if="shouldShowCheckIcon"
       name="mobile-issue-close"
       data-testid="dropdown-item-checkbox"
       :class="[
-        'gl-new-dropdown-item-check-icon',
+        'gl-dropdown-item-check-icon',
         { 'gl-visibility-hidden': !isChecked },
         checkedClasses,
       ]"
     />
-    <gl-icon
-      v-if="iconName"
-      :name="iconName"
-      :class="['gl-new-dropdown-item-icon', iconColorCss]"
-    />
+    <gl-icon v-if="iconName" :name="iconName" :class="['gl-dropdown-item-icon', iconColorCss]" />
     <gl-avatar v-if="avatarUrl" :size="32" :src="avatarUrl" />
-    <div class="gl-new-dropdown-item-text-wrapper">
-      <p class="gl-new-dropdown-item-text-primary"><slot></slot></p>
-      <p v-if="secondaryText" class="gl-new-dropdown-item-text-secondary">{{ secondaryText }}</p>
+    <div class="gl-dropdown-item-text-wrapper">
+      <p class="gl-dropdown-item-text-primary"><slot></slot></p>
+      <p v-if="secondaryText" class="gl-dropdown-item-text-secondary">{{ secondaryText }}</p>
     </div>
     <gl-button
       v-if="iconRightName"

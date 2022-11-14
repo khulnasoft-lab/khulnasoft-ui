@@ -14,7 +14,7 @@ describe('sorting component', () => {
     isAscending,
   };
 
-  const selectDropdownButton = () => wrapper.find('.gl-new-dropdown button');
+  const selectDropdownButton = () => wrapper.find('.gl-dropdown button');
   const selectDirectionButton = () => wrapper.find('.sorting-direction-button');
   const selectDropdown = () => wrapper.findComponent(GlDropdown);
 

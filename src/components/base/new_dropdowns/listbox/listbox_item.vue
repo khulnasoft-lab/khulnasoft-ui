@@ -51,7 +51,7 @@ export default {
 
 <template>
   <li
-    class="gl-new-dropdown-item"
+    class="gl-dropdown-item"
     role="option"
     :tabindex="isFocused ? 0 : -1"
     :aria-selected="isSelected"
@@ -63,12 +63,12 @@ export default {
         name="mobile-issue-close"
         data-testid="dropdown-item-checkbox"
         :class="[
-          'gl-new-dropdown-item-check-icon',
+          'gl-dropdown-item-check-icon',
           { 'gl-visibility-hidden': !isSelected },
           checkedClasses,
         ]"
       />
-      <span class="gl-new-dropdown-item-text-wrapper">
+      <span class="gl-dropdown-item-text-wrapper">
         <slot></slot>
       </span>
     </span>
