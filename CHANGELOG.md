@@ -1,3 +1,10 @@
+# [49.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.8.0...v49.9.0) (2022-11-14)
+
+
+### Features
+
+* **CSS:** tint-neutral-transparency ([2be841a](https://gitlab.com/gitlab-org/gitlab-ui/commit/2be841a7bc4f61ad1c01079a8c589b7cd42ad3ed))
+
 # [49.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.7.0...v49.8.0) (2022-11-11)
 
 
