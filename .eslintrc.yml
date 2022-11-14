@@ -53,6 +53,5 @@ overrides:
   - "rollup.config.js"
   - "**/index.js"
   - "**/*.stories.js"
-  # Files below should be migrated to named exports
   rules:
     import/no-default-export: off
