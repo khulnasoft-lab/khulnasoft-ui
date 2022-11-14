@@ -7,7 +7,7 @@
 
 import { getToolboxConfig } from '../../utils/charts/config';
 
-export default {
+export const ToolboxMixin = {
   props: {
     showToolbox: {
       type: Boolean,
