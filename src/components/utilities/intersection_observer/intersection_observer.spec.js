@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import useMockIntersectionObserver from '~/utils/use_mock_intersection_observer';
+import { useMockIntersectionObserver } from '~/utils/use_mock_intersection_observer';
 import GlIntersectionObserver from './intersection_observer.vue';
 
 const TEST_SLOT = '<p>Hello world! Lorem ipsum.</p>';
