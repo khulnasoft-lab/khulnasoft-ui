@@ -147,7 +147,7 @@ const isLineChartWithoutArea = (options) =>
   Array.isArray(options?.series) &&
   options.series.some((series) => series.type === 'line' && !series.areaStyle);
 
-const createTheme = (options = {}) => ({
+export const createTheme = (options = {}) => ({
   color: colorPaletteDefault,
   backgroundColor: 'transparent',
   textStyle: {
@@ -268,5 +268,3 @@ const createTheme = (options = {}) => ({
   logAxis: axes,
   timeAxis: axes,
 });
-
-export default createTheme;

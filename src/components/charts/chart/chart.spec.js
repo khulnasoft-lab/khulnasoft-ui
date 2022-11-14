@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import * as echarts from 'echarts';
-import createTheme from '~/utils/charts/theme';
+import { createTheme } from '~/utils/charts/theme';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 import Chart from './chart.vue';
 
