@@ -1,7 +1,8 @@
 <script>
 import merge from 'lodash/merge';
 import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
-import defaultChartOptions, {
+import {
+  defaultChartOptions,
   dataZoomAdjustments,
   mergeSeriesToOptions,
 } from '../../../utils/charts/config';

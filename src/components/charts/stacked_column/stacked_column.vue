@@ -1,6 +1,7 @@
 <script>
 import merge from 'lodash/merge';
-import defaultChartOptions, {
+import {
+  defaultChartOptions,
   grid,
   gridWithSecondaryYAxis,
   yAxis,

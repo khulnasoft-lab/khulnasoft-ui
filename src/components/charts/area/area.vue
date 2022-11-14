@@ -17,7 +17,8 @@
  */
 
 import merge from 'lodash/merge';
-import defaultChartOptions, {
+import {
+  defaultChartOptions,
   grid,
   getThresholdConfig,
   generateAnnotationSeries,
