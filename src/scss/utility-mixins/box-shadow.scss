@@ -185,3 +185,24 @@
 @mixin gl-shadow-drawer {
   box-shadow: -4px 0 8px $gray-200;
 }
+
+/**
+* New utilities to match design specs
+* Per https: //gitlab.com/gitlab-org/gitlab-ui/-/issues/615,
+* some of the above could be replaced.
+*
+* These use gray instead of black to align with
+* tinted neutrals.
+*/
+
+@mixin gl-shadow-sm {
+  box-shadow: 0 1px 2px rgba($gray-950, 0.1);
+}
+
+@mixin gl-shadow-md {
+  box-shadow: 0 2px 8px rgba($gray-950, 0.16), 0 0 2px rgba($gray-950, 0.16);
+}
+
+@mixin gl-shadow-lg {
+  box-shadow: 0 4px 12px rgba($gray-950, 0.16), 0 0 4px rgba($gray-950, 0.16);
+}
