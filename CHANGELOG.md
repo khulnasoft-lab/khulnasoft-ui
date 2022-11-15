@@ -1,3 +1,10 @@
+## [49.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.9.0...v49.9.1) (2022-11-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dompurify to ^2.4.1 ([1dfdf40](https://gitlab.com/gitlab-org/gitlab-ui/commit/1dfdf407820dcc42c313c6c6b95cff0be7221080))
+
 # [49.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.8.0...v49.9.0) (2022-11-14)
 
 
