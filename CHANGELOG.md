@@ -1,3 +1,15 @@
+# [49.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.9.1...v49.10.0) (2022-11-15)
+
+
+### Features
+
+* **GlDaterangePicker:** improve layout ([8014cc8](https://gitlab.com/gitlab-org/gitlab-ui/commit/8014cc8950ffd3dbf5db4ec1554e75c5ccc6a38c))
+
+
+### Reverts
+
+* fix(deps): upgrade bootstrap-vue to v2.23.1 ([02bdbcd](https://gitlab.com/gitlab-org/gitlab-ui/commit/02bdbcd66040c7ad7739d6cfedd253d0104cf7f2))
+
 ## [49.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.9.0...v49.9.1) (2022-11-15)
 
 
