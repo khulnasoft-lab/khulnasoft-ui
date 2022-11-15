@@ -341,8 +341,7 @@ describe('tabs component', () => {
           await nextTick();
           await nextTick();
 
-          expect(wrapper.emitted().input[0]).toEqual([0]);
-          expect(wrapper.emitted().input[1]).toEqual([1]);
+          expect(wrapper.emitted().input.pop()).toEqual([1]);
         });
       });
     });
