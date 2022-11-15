@@ -248,7 +248,7 @@ describe('Daterange Picker', () => {
     it('does not show default slot or tooltip icon by default', () => {
       factory();
 
-      expect(findDateRangeIndicator().text()).toBe('');
+      expect(findDateRangeIndicator().exists()).toBe(false);
       expect(findTooltipIcon().exists()).toBe(false);
     });
 
@@ -271,9 +271,19 @@ describe('Daterange Picker', () => {
     });
 
     it('adds the indicator class when provided', () => {
-      factory({ dateRangeIndicatorClass });
+      factory({ dateRangeIndicatorClass }, slots);
 
       expect(wrapper.find(`.${dateRangeIndicatorClass}`).exists()).toBe(true);
     });
+  });
+
+  it.each`
+    prop                  | value                 | testid
+    ${'startPickerClass'} | ${'gl-text-blue-500'} | ${'daterange-picker-start-container'}
+    ${'endPickerClass'}   | ${'gl-text-red-500'}  | ${'daterange-picker-end-container'}
+  `('adds the provided $value class to $testid', ({ prop, value, testid }) => {
+    factory({ [prop]: value });
+
+    expect(wrapper.find(`[data-testid="${testid}"]`).classes()).toContain(value);
   });
 });

@@ -4,6 +4,14 @@ import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils
 import GlDatepicker from '../datepicker/datepicker.vue';
 import GlIcon from '../icon/icon.vue';
 
+const CONTAINER_CLASSES = [
+  'gl-display-flex',
+  'gl-align-items-baseline',
+  'gl-flex-wrap',
+  'gl-sm-flex-wrap-nowrap',
+  'gl-sm-gap-3',
+];
+
 export default {
   components: {
     GlDatepicker,
@@ -165,6 +173,15 @@ export default {
       const numberOfDays = getDayDifference(this.startDate, this.endDate);
       return this.sameDaySelection ? numberOfDays + 1 : numberOfDays;
     },
+    startContainerClasses() {
+      return [this.startPickerClass, ...CONTAINER_CLASSES];
+    },
+    endContainerClasses() {
+      return [this.endPickerClass, ...CONTAINER_CLASSES];
+    },
+    showIndicator() {
+      return Boolean(this.$scopedSlots.default || this.tooltip);
+    },
   },
   watch: {
     value(val) {
@@ -229,8 +246,8 @@ export default {
 </script>
 
 <template>
-  <div class="gl-daterange-picker">
-    <div :class="startPickerClass">
+  <div class="gl-daterange-picker gl-gap-5 gl-display-flex">
+    <div :class="startContainerClasses" data-testid="daterange-picker-start-container">
       <label :class="labelClass">{{ fromLabel }}</label>
 
       <gl-datepicker
@@ -248,7 +265,7 @@ export default {
         @close="onStartPickerClose"
       />
     </div>
-    <div :class="endPickerClass">
+    <div :class="endContainerClasses" data-testid="daterange-picker-end-container">
       <label :class="labelClass">{{ toLabel }}</label>
       <gl-datepicker
         :key="numericStartTime"
@@ -269,20 +286,14 @@ export default {
       />
     </div>
     <div
+      v-if="showIndicator"
       :class="dateRangeIndicatorClass"
       data-testid="daterange-picker-indicator"
-      class="gl-display-flex gl-flex-direction-row gl-align-items-center gl-text-gray-500 gl-ml-2"
+      class="gl-display-flex gl-flex-direction-row gl-align-items-center gl-text-gray-500 gl-gap-3"
     >
       <!-- @slot Content to display for days selected. The value is -1 when no date range is selected.-->
       <slot v-bind="{ daysSelected: numberOfDays }"></slot>
-      <gl-icon
-        v-if="tooltip"
-        v-gl-tooltip
-        name="information-o"
-        :title="tooltip"
-        :size="16"
-        class="gl-ml-2"
-      />
+      <gl-icon v-if="tooltip" v-gl-tooltip name="information-o" :title="tooltip" :size="16" />
     </div>
   </div>
 </template>

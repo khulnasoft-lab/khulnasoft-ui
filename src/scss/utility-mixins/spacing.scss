@@ -823,6 +823,12 @@
   gap: $gl-spacing-scale-3;
 }
 
+@mixin gl-sm-gap-3 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-gap-3;
+  }
+}
+
 @mixin gl-gap-5 {
   gap: $gl-spacing-scale-5;
 }
