@@ -1,3 +1,10 @@
+## [49.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.10.0...v49.10.1) (2022-11-15)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Show operator friendly text first ([9cbe638](https://gitlab.com/gitlab-org/gitlab-ui/commit/9cbe63855c9958a4ebc685e01c1414eca9921739))
+
 # [49.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.9.1...v49.10.0) (2022-11-15)
 
 
