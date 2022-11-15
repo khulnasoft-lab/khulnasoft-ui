@@ -14,6 +14,7 @@ if (USE_VUE_3) {
   Object.assign(customModuleNameMappers, {
     '^vue$': '@vue/compat',
     '^@vue/test-utils$': '@vue/test-utils-vue3',
+    '^bootstrap-vue$': 'bootstrap-vue-vue3',
   });
   Object.assign(extraJestConfig, {
     globals: {
