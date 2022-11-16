@@ -52,7 +52,10 @@ export { default as GlDropdownDivider } from './components/base/dropdown/dropdow
 export { default as GlDropdownText } from './components/base/dropdown/dropdown_text.vue';
 export { default as GlDropdown } from './components/base/dropdown/dropdown.vue';
 // new components aiming to replace GlDropdown  - start
-export { default as GlListbox } from './components/base/new_dropdowns/listbox/listbox.vue';
+export {
+  default as GlListbox,
+  default as GlCollapsibleListbox,
+} from './components/base/new_dropdowns/listbox/listbox.vue';
 export { default as GlListboxItem } from './components/base/new_dropdowns/listbox/listbox_item.vue';
 // new components aiming to replace GlDropdown  - end
 export { default as GlPath } from './components/base/path/path.vue';
