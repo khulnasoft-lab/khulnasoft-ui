@@ -1,3 +1,10 @@
+## [49.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.11.0...v49.11.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* Updated semantics of the drawer ([a1f00ae](https://gitlab.com/gitlab-org/gitlab-ui/commit/a1f00ae70442a4c7923f26e0d3933802670210d8))
+
 # [49.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.10.1...v49.11.0) (2022-11-16)
 
 
