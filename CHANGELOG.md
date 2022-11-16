@@ -1,3 +1,10 @@
+# [49.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.10.1...v49.11.0) (2022-11-16)
+
+
+### Features
+
+* **GlListbox:** Add GlCollapsibleListbox alias ([b83558f](https://gitlab.com/gitlab-org/gitlab-ui/commit/b83558f62656b68cd7e9480f148903905cf3a53f))
+
 ## [49.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.10.0...v49.10.1) (2022-11-15)
 
 
