@@ -98,7 +98,7 @@ export default {
         :style="drawerHeaderStyles"
         :class="{ 'gl-drawer-header-sticky': headerSticky }"
       >
-        <span class="gl-drawer-title">
+        <div class="gl-drawer-title">
           <slot name="title"></slot>
           <gl-button
             category="tertiary"
@@ -108,7 +108,7 @@ export default {
             aria-label="Close drawer"
             @click="$emit('close')"
           />
-        </span>
+        </div>
         <slot name="header"></slot>
       </div>
       <div class="gl-drawer-body" :class="{ 'gl-drawer-body-scrim': !shouldRenderFooter }">
