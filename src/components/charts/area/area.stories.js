@@ -155,11 +155,6 @@ export default {
   component: GlAreaChart,
   argTypes: {
     ...disableControls([
-      'showToolbox',
-      'toolboxZoomIconPath',
-      'toolboxBackIconPath',
-      'toolboxRestoreIconPath',
-      'toolboxSaveAsImageIconPath',
       'dataSeries',
       'formatTooltipText',
       'legendAverageText',

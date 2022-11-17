@@ -42,7 +42,6 @@ import {
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
 import { debounceByAnimationFrame } from '../../../utils/utils';
-import { ToolboxMixin } from '../../mixins/toolbox_mixin';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
@@ -55,7 +54,6 @@ export default {
     ChartTooltip,
     TooltipDefaultFormat,
   },
-  mixins: [ToolboxMixin],
   inheritAttrs: false,
   props: {
     data: {
@@ -208,8 +206,7 @@ export default {
         defaultChartOptions,
         defaultAreaChartOptions,
         this.option,
-        dataZoomAdjustments(this.option.dataZoom),
-        this.toolboxAdjustments
+        dataZoomAdjustments(this.option.dataZoom)
       );
       // All chart options can be merged but series
       // needs to be handled specially.

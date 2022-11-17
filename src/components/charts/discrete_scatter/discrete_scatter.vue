@@ -8,7 +8,6 @@ import {
 } from '../../../utils/charts/config';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { debounceByAnimationFrame } from '../../../utils/utils';
-import { ToolboxMixin } from '../../mixins/toolbox_mixin';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
@@ -19,7 +18,6 @@ export default {
     ChartTooltip,
     TooltipDefaultFormat,
   },
-  mixins: [ToolboxMixin],
   inheritAttrs: false,
   props: {
     data: {
@@ -117,8 +115,7 @@ export default {
           },
         },
         this.option,
-        dataZoomAdjustments(this.option.dataZoom),
-        this.toolboxAdjustments
+        dataZoomAdjustments(this.option.dataZoom)
       );
       // All chart options can be merged but series
       // needs to be handled specially

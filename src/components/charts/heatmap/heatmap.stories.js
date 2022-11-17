@@ -62,11 +62,6 @@ export default {
   component: GlHeatmap,
   argTypes: {
     ...disableControls([
-      'showToolbox',
-      'toolboxZoomIconPath',
-      'toolboxBackIconPath',
-      'toolboxRestoreIconPath',
-      'toolboxSaveAsImageIconPath',
       'dataSeries',
       'formatTooltipText',
       'legendAverageText',
