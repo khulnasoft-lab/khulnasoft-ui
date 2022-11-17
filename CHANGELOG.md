@@ -1,3 +1,11 @@
+## [49.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.11.1...v49.11.2) (2022-11-17)
+
+
+### Bug Fixes
+
+* **GlDrawer:** change drawer horizontal padding ([11579fe](https://gitlab.com/gitlab-org/gitlab-ui/commit/11579fe7561f52d4808afcf8dd3c319265d35418))
+* **GlDrawer:** change drawer horizontal padding ([55d51d5](https://gitlab.com/gitlab-org/gitlab-ui/commit/55d51d564dd38491cfe74a582337dc06df3120f6))
+
 ## [49.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.11.0...v49.11.1) (2022-11-16)
 
 
