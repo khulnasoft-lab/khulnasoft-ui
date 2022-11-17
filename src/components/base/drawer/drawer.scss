@@ -31,7 +31,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 
   .gl-drawer-header,
   .gl-drawer-body > * {
-    @include gl-px-6;
+    @include gl-px-5;
     @include gl-py-5;
   }
 }
@@ -58,7 +58,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
   @include gl-border-t-solid;
   @include gl-border-t-gray-100;
   @include gl-border-t-1;
-  @include gl-px-6;
+  @include gl-px-5;
   @include gl-py-5;
 }
 
