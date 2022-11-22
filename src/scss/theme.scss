@@ -1,0 +1,9 @@
+@import 'variables';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+:root {
+  --color-text-body: #{$body-color};
+  --color-text-secondary: #{$gl-text-color-secondary};
+  --color-bg-body: #{$body-bg};
+}

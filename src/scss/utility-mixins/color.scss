@@ -24,11 +24,11 @@
 }
 
 @mixin gl-text-body {
-  color: $body-color;
+  color: var(--color-text-body, $body-color);
 }
 
 @mixin gl-text-secondary {
-  color: $gl-text-color-secondary;
+  color: var(--color-text-secondary, $gl-text-color-secondary);
 }
 
 @mixin gl-sm-text-body {
