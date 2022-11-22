@@ -2,7 +2,6 @@
 <script>
 import { merge, isFinite, uniq, sortBy } from 'lodash';
 import { gaugeNeutralHues, gaugeSafeHues, gaugeWarningHue } from '../../../utils/charts/theme';
-import { ToolboxMixin } from '../../mixins/toolbox_mixin';
 import Chart from '../chart/chart.vue';
 
 const AXIS_LABEL_FONT_SIZE_PX = 14;
@@ -53,7 +52,6 @@ export default {
   components: {
     Chart,
   },
-  mixins: [ToolboxMixin],
   props: {
     value: {
       type: Number,
@@ -107,8 +105,7 @@ export default {
             axisColor: this.axisColor,
           }),
         },
-        this.option,
-        this.toolboxAdjustments
+        this.option
       );
 
       return mergedOptions;

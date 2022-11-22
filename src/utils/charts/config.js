@@ -159,42 +159,6 @@ export const dataZoomAdjustments = (dataZoom) => {
   return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : [];
 };
 
-export const getToolboxConfig = ({
-  restoreIconPath = '',
-  saveImageIconPath = '',
-  zoomIconPath = '',
-  backIconPath = '',
-} = {}) => {
-  const toolboxConfig = {
-    toolbox: {
-      feature: {},
-    },
-  };
-
-  if (restoreIconPath.length) {
-    toolboxConfig.toolbox.feature.restore = {
-      icon: restoreIconPath,
-    };
-  }
-
-  if (saveImageIconPath.length) {
-    toolboxConfig.toolbox.feature.saveAsImage = {
-      icon: restoreIconPath,
-    };
-  }
-
-  if (zoomIconPath.length && backIconPath.length) {
-    toolboxConfig.toolbox.feature.dataZoom = {
-      icon: {
-        zoom: zoomIconPath,
-        back: backIconPath,
-      },
-    };
-  }
-
-  return toolboxConfig;
-};
-
 /**
  * Generate eCharts markArea arrays for thresholds and annotations.
  *

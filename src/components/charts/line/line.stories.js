@@ -209,11 +209,6 @@ export default {
   },
   argTypes: {
     ...disableControls([
-      'showToolbox',
-      'toolboxZoomIconPath',
-      'toolboxBackIconPath',
-      'toolboxRestoreIconPath',
-      'toolboxSaveAsImageIconPath',
       'formatTooltipText',
       'legendAverageText',
       'legendMaxText',
