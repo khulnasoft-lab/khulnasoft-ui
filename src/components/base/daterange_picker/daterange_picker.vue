@@ -289,7 +289,7 @@ export default {
       v-if="showIndicator"
       :class="dateRangeIndicatorClass"
       data-testid="daterange-picker-indicator"
-      class="gl-display-flex gl-flex-direction-row gl-align-items-center gl-text-gray-500 gl-gap-3"
+      class="gl-daterange-picker-indicator"
     >
       <!-- @slot Content to display for days selected. The value is -1 when no date range is selected.-->
       <slot v-bind="{ daysSelected: numberOfDays }"></slot>
