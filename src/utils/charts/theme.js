@@ -5,7 +5,6 @@ import {
   gray300,
   gray500,
   gray600,
-  gray700,
   gray900,
   red500,
   whiteNormal,
@@ -209,11 +208,11 @@ export const createTheme = (options = {}) => ({
     emphasis: {
       iconStyle: {
         borderWidth: 0,
-        color: gray700,
+        color: gray900,
       },
     },
     iconStyle: {
-      color: gray200,
+      color: gray500,
       borderWidth: 0,
     },
     itemGap: 8,
