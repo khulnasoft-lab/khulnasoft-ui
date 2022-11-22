@@ -1,3 +1,10 @@
+## [50.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.0.0...v50.0.1) (2022-11-22)
+
+
+### Bug Fixes
+
+* **GlDataRangePicker:** fix indicator alignment when compact layout ([296ba60](https://gitlab.com/gitlab-org/gitlab-ui/commit/296ba609760c46c770b48ee7d1dc1647269666c2))
+
 # [50.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.11.2...v50.0.0) (2022-11-22)
 
 
