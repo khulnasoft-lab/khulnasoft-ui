@@ -1,3 +1,16 @@
+# [50.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.11.2...v50.0.0) (2022-11-22)
+
+
+### Code Refactoring
+
+* **charts:** Remove unused ToolboxMixin ([0d486ee](https://gitlab.com/gitlab-org/gitlab-ui/commit/0d486ee1dfcf4bc0f93f2e64f928eff803fe49ee))
+
+
+### BREAKING CHANGES
+
+* **charts:** - remove ToolboxMixin
+- remove getToolboxConfig in utils/charts/config
+
 ## [49.11.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v49.11.1...v49.11.2) (2022-11-17)
 
 
