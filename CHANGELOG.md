@@ -1,3 +1,10 @@
+# [50.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.0.1...v50.1.0) (2022-11-23)
+
+
+### Features
+
+* **GlBroadcastMessage:** Add `type` and `dismissible` props ([98132e1](https://gitlab.com/gitlab-org/gitlab-ui/commit/98132e197d0b0f305b8a7e8ac2e40ca3549239c5))
+
 ## [50.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.0.0...v50.0.1) (2022-11-22)
 
 
