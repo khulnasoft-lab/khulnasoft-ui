@@ -1,5 +1,4 @@
 .gl-broadcast-message {
-  @include gl-text-contrast-light;
   @include gl-display-flex;
   @include gl-justify-content-space-between;
   @include gl-align-items-flex-start;
@@ -8,8 +7,10 @@
   @include gl-pl-5;
   @include gl-pr-4;
   @include gl-py-5;
-  @include gl-inset-border-b-1-gray-900;
-  @include gl-bg-theme-indigo-700;
+
+  &.indigo {
+    @include gl-bg-theme-indigo-700;
+  }
 
   &.light-indigo {
     @include gl-bg-theme-indigo-500;
@@ -45,6 +46,21 @@
 
   &.light {
     @include gl-bg-gray-300;
+  }
+
+  &.banner {
+    @include gl-text-contrast-light;
+    @include gl-inset-border-b-1-gray-900;
+  }
+
+  &.notification {
+    @include gl-rounded-base;
+    @include gl-bg-white;
+    @include gl-border-solid;
+    @include gl-border-gray-100;
+    @include gl-border-1;
+    @include gl-shadow-x0-y2-b4-s0;
+    max-width: $gl-broadcast-message-notification-max-width;
   }
 
   &-content {

@@ -1,17 +1,18 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { GlBroadcastMessage } from '../../../index';
 import { colorThemes } from '../../../utils/constants';
+import { TYPE_LIST, TYPE_NOTIFICATION } from './constants';
 import readme from './broadcast_message.md';
 
 const template = `
-    <div>
-      <gl-broadcast-message
-        :icon-name="iconName"
-        :dismiss-label="dismissLabel"
-        :theme="theme">
-        {{ text }}
-      </gl-broadcast-message>
-    </div>
+    <gl-broadcast-message
+      :icon-name="iconName"
+      :dismissible="dismissible"
+      :dismiss-label="dismissLabel"
+      :theme="theme"
+      :type="type">
+      {{ text }}
+    </gl-broadcast-message>
   `;
 
 const defaultValue = (prop) => GlBroadcastMessage.props[prop].default;
@@ -19,45 +20,45 @@ const defaultValue = (prop) => GlBroadcastMessage.props[prop].default;
 const generateProps = ({
   text = 'Tuesday June 12th, at 14:30 UTC we will perform database maintenance that will require up to 1 minute of downtime.',
   iconName = defaultValue('iconName'),
+  dismissible = defaultValue('dismissible'),
   dismissLabel = defaultValue('dismissLabel'),
   theme = defaultValue('theme'),
+  type = defaultValue('type'),
 } = {}) => ({
   text,
   iconName,
+  dismissible,
   dismissLabel,
   theme,
+  type,
 });
 
-const Template = (args, { argTypes }) => ({
+const DefaultStory = (args, { argTypes }) => ({
   components: {
     GlBroadcastMessage,
   },
   props: Object.keys(argTypes),
-  template,
+  template: `<div>${template}</div>`,
 });
-export const Default = Template.bind({});
+export const Default = DefaultStory.bind({});
 Default.args = generateProps();
+
+const NotificationStory = (args, { argTypes }) => ({
+  components: {
+    GlBroadcastMessage,
+  },
+  props: Object.keys(argTypes),
+  template: `<div>${template}</div>`,
+});
+export const Notification = NotificationStory.bind({});
+Notification.args = generateProps({ type: TYPE_NOTIFICATION });
 
 const StackedStory = (args, { argTypes }) => ({
   components: {
     GlBroadcastMessage,
   },
   props: Object.keys(argTypes),
-  template: `
-    <div>
-      <gl-broadcast-message
-        :icon-name="iconName"
-        :dismiss-label="dismissLabel"
-        :theme="theme">
-          {{ text }}
-      </gl-broadcast-message>
-      <gl-broadcast-message
-        :icon-name="iconName"
-        :dismiss-label="dismissLabel"
-        :theme="theme">
-          {{ text }}
-      </gl-broadcast-message>
-    </div>`,
+  template: `<div>${template}${template}</div>`,
 });
 export const Stacked = StackedStory.bind({});
 Stacked.args = generateProps();
@@ -82,6 +83,10 @@ export default {
     },
     theme: {
       options: Object.keys(colorThemes),
+      control: 'select',
+    },
+    type: {
+      options: TYPE_LIST,
       control: 'select',
     },
   },
