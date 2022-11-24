@@ -1,4 +1,4 @@
-# Testing GitlLab UI changes in GitLab
+# Testing GitLab UI changes in GitLab
 
 When introducing major, or potentially breaking changes in GitLab UI, you might want to verify that
 they properly integrate in GitLab before they are released in a new `@gitlab/ui` version.
