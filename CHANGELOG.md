@@ -1,3 +1,10 @@
+## [50.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.1.0...v50.1.1) (2022-11-25)
+
+
+### Bug Fixes
+
+* **charts:** Update chart toolbar icons ([18dd203](https://gitlab.com/gitlab-org/gitlab-ui/commit/18dd2037af0591d9cb0c38f21008e5d67b5beaab))
+
 # [50.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.0.1...v50.1.0) (2022-11-23)
 
 
