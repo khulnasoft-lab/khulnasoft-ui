@@ -111,7 +111,7 @@
     "babel-preset-vue": "^2.0.2",
     "bootstrap": "4.5.3",
     "bootstrap-vue-vue3": "npm:bootstrap-vue@2.23.1",
-    "cypress": "^11.1.0",
+    "cypress": "^11.2.0",
     "emoji-regex": "^10.0.0",
     "eslint": "8.27.0",
     "eslint-import-resolver-jest": "3.0.2",
