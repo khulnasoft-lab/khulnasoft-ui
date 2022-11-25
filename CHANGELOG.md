@@ -1,3 +1,10 @@
+## [50.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.1.1...v50.1.2) (2022-11-25)
+
+
+### Bug Fixes
+
+* **charts:** fix toolbox icons default + hover colors ([1fecdd6](https://gitlab.com/gitlab-org/gitlab-ui/commit/1fecdd65a67f47edf2afdf7481b2545d3ecc19e7))
+
 ## [50.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.1.0...v50.1.1) (2022-11-25)
 
 
