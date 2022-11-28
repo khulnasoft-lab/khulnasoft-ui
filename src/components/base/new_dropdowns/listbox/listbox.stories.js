@@ -6,7 +6,7 @@ import {
 } from '../../../../utils/constants';
 import {
   GlIcon,
-  GlListbox,
+  GlCollapsibleListbox,
   GlSearchBoxByType,
   GlButtonGroup,
   GlButton,
@@ -27,7 +27,7 @@ import readme from './listbox.md';
 import { mockOptions, mockGroups, mockUsers } from './mock_data';
 import { flattenedOptions } from './utils';
 
-const defaultValue = (prop) => GlListbox.props[prop].default;
+const defaultValue = (prop) => GlCollapsibleListbox.props[prop].default;
 
 const generateProps = ({
   items = mockOptions,
@@ -124,20 +124,20 @@ const template = (content, { label = '', bindingOverrides = {} } = {}) => `
   <div>
     ${label}
     ${label && '<br/>'}
-    <gl-listbox
+    <gl-collapsible-listbox
       ref="listbox"
       v-model="selected"
       ${makeBindings(bindingOverrides)}
     >
       ${content}
-    </gl-listbox>
+    </gl-collapsible-listbox>
   </div>
 `;
 
 export const Default = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
-    GlListbox,
+    GlCollapsibleListbox,
   },
   data() {
     return {
@@ -159,7 +159,7 @@ Default.decorators = [makeContainer({ height: '370px' })];
 export const HeaderAndFooter = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
-    GlListbox,
+    GlCollapsibleListbox,
     GlSearchBoxByType,
     GlButtonGroup,
     GlButton,
@@ -220,7 +220,7 @@ export const CustomListItem = (args, { argTypes }) => ({
     };
   },
   components: {
-    GlListbox,
+    GlCollapsibleListbox,
     GlIcon,
     GlAvatar,
   },
@@ -273,7 +273,7 @@ CustomListItem.decorators = [makeContainer({ height: '200px' })];
 export const CustomToggle = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
-    GlListbox,
+    GlCollapsibleListbox,
     GlAvatar,
   },
   data() {
@@ -319,7 +319,7 @@ const makeGroupedExample = (changes) => {
     props: Object.keys(argTypes),
     components: {
       GlBadge,
-      GlListbox,
+      GlCollapsibleListbox,
     },
     data() {
       return {
@@ -401,7 +401,7 @@ export const CustomGroupsAndItems = makeGroupedExample({
 
 export default {
   title: 'base/new-dropdowns/listbox',
-  component: GlListbox,
+  component: GlCollapsibleListbox,
   parameters: {
     docs: {
       description: {
@@ -552,7 +552,7 @@ export default {
 export const Searchable = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
-    GlListbox,
+    GlCollapsibleListbox,
   },
   data() {
     return {
@@ -625,7 +625,7 @@ Searchable.decorators = [makeContainer({ height: '370px' })];
 export const SearchableGroups = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
-    GlListbox,
+    GlCollapsibleListbox,
   },
   data() {
     return {
@@ -716,7 +716,7 @@ export const InfiniteScroll = (
 ) => ({
   props: Object.keys(argTypes),
   components: {
-    GlListbox,
+    GlCollapsibleListbox,
   },
   data() {
     return {

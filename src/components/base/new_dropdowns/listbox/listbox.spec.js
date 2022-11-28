@@ -12,16 +12,16 @@ import {
   ENTER,
 } from '../constants';
 import GlIntersectionObserver from '../../../utilities/intersection_observer/intersection_observer.vue';
-import GlListbox, { ITEM_SELECTOR } from './listbox.vue';
+import GlCollapsibleListbox, { ITEM_SELECTOR } from './listbox.vue';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxGroup from './listbox_group.vue';
 import { mockOptions, mockGroups } from './mock_data';
 
-describe('GlListbox', () => {
+describe('GlCollapsibleListbox', () => {
   let wrapper;
 
   const buildWrapper = (propsData, slots = {}) => {
-    wrapper = mount(GlListbox, {
+    wrapper = mount(GlCollapsibleListbox, {
       propsData,
       slots,
       attachTo: document.body,

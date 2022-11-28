@@ -5,7 +5,7 @@ collapsed behind a button.
 > more suited to the various use cases for dropdowns. Consider using a more
 > appropriate component instead:
 >
-> - For single or multiselect options, use `GlListbox`.
+> - For single or multiselect options, use `GlCollapsibleListbox`.
 > - For other use cases (e.g., displaying a list of actions like "Edit user",
 >   "Delete user"), continue to use `GlDropdown` for now.
 >

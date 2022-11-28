@@ -1,5 +1,5 @@
-A listbox dropdown is a button that toggles a panel containing a list of options.
-Listbox supports single and multi-selection.
+A collapsible listbox is a button that toggles a panel containing a list of options.
+It supports single and multi-selection.
 
 **Single-select:** By default, selecting an option will update the toggle label with the choice.
 But the custom toggle text can be provided.
@@ -18,7 +18,7 @@ by default.
 Optionally, you can use `no-caret` to remove the caret and `category="tertiary"` to remove the border.
 
 ```html
-<gl-listbox
+<gl-collapsible-listbox
   icon="ellipsis_v"
   toggle-text="More options"
   text-sr-only
@@ -30,7 +30,7 @@ Optionally, you can use `no-caret` to remove the caret and `category="tertiary"`
 ### Opening the listbox
 
 Listbox will open on toggle button click (if it was previously closed).
-On open, `GlListbox` will emit the `shown` event.
+On open, `GlCollapsibleListbox` will emit the `shown` event.
 
 ### Closing the listbox
 
@@ -40,7 +40,7 @@ The listbox is closed by any of the following:
 - clicking anywhere outside the component
 - selecting an option in single-select mode
 
-After closing, `GlListbox` emits a `hidden` event.
+After closing, `GlCollapsibleListbox` emits a `hidden` event.
 
 ### Selecting items
 
@@ -51,7 +51,8 @@ On selection the listbox will emit the `select` event with the selected values.
 
 ### Resetting the selection
 
-`GlListbox` can render a reset button if the `headerText` and `resetButtonLabel` props are provided.
+`GlCollapsibleListbox` can render a reset button if the `headerText` and
+`resetButtonLabel` props are provided.
 When clicking on the reset button, a `reset` event is emitted. It is the consumer's responsibility
 to listen to that event and to update the model as needed.
 
@@ -85,7 +86,7 @@ template. If you want to render a custom template for items, use the
 `list-item` scoped slot:
 
 ```html
-<gl-listbox :items="items">
+<gl-collapsible-listbox :items="items">
   <template #list-item="{ item }">
     <span class="gl-display-flex gl-align-items-center">
       <gl-avatar :size="32" class-="gl-mr-3"/>
@@ -95,7 +96,7 @@ template. If you want to render a custom template for items, use the
       </span>
     </span>
   </template>
-</gl-listbox>
+</gl-collapsible-listbox>
 ```
 
 #### Groups
@@ -112,11 +113,11 @@ or they are all groups.
 To render custom group labels, use the `group-label` scoped slot:
 
 ```html
-<gl-listbox :items="groups">
+<gl-collapsible-listbox :items="groups">
   <template #group-label="{ group }">
     {{ group.text }} <gl-badge size="sm">{{ group.options.length }}</gl-badge>
   </template>
-</gl-listbox>
+</gl-collapsible-listbox>
 ```
 
 #### Search
@@ -134,9 +135,9 @@ with a number of found search results text.
 Screen reader will announce this text when the list is updated.
 
 ```html
-<gl-listbox :items="items" searchable>
+<gl-collapsible-listbox :items="items" searchable>
   <template #search-summary-sr-only>
     5 users found
   </template>
-</gl-listbox>
+</gl-collapsible-listbox>
 ```
