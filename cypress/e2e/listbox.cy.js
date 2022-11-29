@@ -2,7 +2,7 @@ describe('GlListbox', () => {
   const toggleSelector = 'button[aria-haspopup="listbox"]';
   const dropdownMenuSelector = '[role="listbox"]';
   const listItemSelector = '[role="option"]';
-  const searchInputSelector = '[data-testid="listbox-search-input"]';
+  const searchInputSelector = '[data-testid="listbox-search-input"] input';
 
   const toggleBtn = () => cy.get(toggleSelector);
   const dropdownMenu = () => cy.get(dropdownMenuSelector);

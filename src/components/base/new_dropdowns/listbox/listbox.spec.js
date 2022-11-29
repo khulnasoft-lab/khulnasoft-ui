@@ -248,25 +248,25 @@ describe('GlListbox', () => {
     });
 
     describe('when `searchable` is enabled', () => {
-      let searchbox;
+      let searchboxInput;
 
       beforeEach(() => {
         buildWrapper({ items: mockOptions, searchable: true });
         findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
         firstItem = findListItem(0);
-        searchbox = findSearchBox();
+        searchboxInput = findSearchBox().find('input');
       });
 
       it('should move focus to the first item on search input `ARROW_DOWN`', async () => {
-        expect(searchbox.element).toHaveFocus();
-        searchbox.trigger('keydown', { code: ARROW_DOWN });
+        expect(searchboxInput.element).toHaveFocus();
+        searchboxInput.trigger('keydown', { code: ARROW_DOWN });
         expect(firstItem.element).toHaveFocus();
       });
 
       it('should move focus to the search input on first item `ARROW_UP', async () => {
-        searchbox.trigger('keydown', { code: ARROW_DOWN });
+        searchboxInput.trigger('keydown', { code: ARROW_DOWN });
         firstItem.trigger('keydown', { code: ARROW_UP });
-        expect(searchbox.element).toHaveFocus();
+        expect(searchboxInput.element).toHaveFocus();
       });
     });
   });
