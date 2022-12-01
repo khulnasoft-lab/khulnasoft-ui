@@ -38,13 +38,25 @@
 }
 
 .gl-token-close {
-  @include gl-mx-2;
+  @include gl-ml-2;
   @include gl-reset-color;
   @include gl-cursor-pointer;
+  opacity: 0.8;
+  color: inherit !important;
   background-color: transparent !important;
+
+  svg {
+    color: inherit !important;
+    mix-blend-mode: normal !important;
+  }
+
+  &:hover,
+  &:focus {
+    @include gl-opacity-10;
+  }
 
   &:focus,
   &:hover:focus {
-    @include gl-focus($color: rgba($black, 0.5), $inset: true, $important: true);
+    @include gl-focus($important: true);
   }
 }
