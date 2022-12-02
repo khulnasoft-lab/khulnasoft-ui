@@ -1,3 +1,10 @@
+## [51.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.1.0...v51.1.1) (2022-12-02)
+
+
+### Bug Fixes
+
+* **GlDropdownItem:** Fix dropdown item disabled state styling ([057c4dc](https://gitlab.com/gitlab-org/gitlab-ui/commit/057c4dce08e5e38d4e7b446f0b78c320144217e3))
+
 # [51.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.0.0...v51.1.0) (2022-12-02)
 
 
