@@ -172,7 +172,7 @@ export default {
 </script>
 
 <template>
-  <div class="dropdown b-dropdown gl-new-dropdown gl-relative" :class="{ show }">
+  <div class="dropdown b-dropdown gl-dropdown gl-relative" :class="{ show }">
     <ul
       ref="dropdownMenu"
       role="menu"

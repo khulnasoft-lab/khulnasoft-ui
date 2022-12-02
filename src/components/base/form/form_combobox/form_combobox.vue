@@ -123,7 +123,7 @@ export default {
     },
     focusItem(index) {
       this.$refs.suggestionsMenu
-        .querySelectorAll('.gl-new-dropdown-item')
+        .querySelectorAll('.gl-dropdown-item')
         [index]?.querySelector('button')
         .focus();
     },

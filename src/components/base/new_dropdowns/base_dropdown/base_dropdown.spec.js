@@ -84,7 +84,7 @@ describe('base dropdown', () => {
 
     it('renders the content', () => {
       buildWrapper({}, slots);
-      expect(wrapper.find('.gl-new-dropdown-inner').html()).toContain(defaultContent);
+      expect(wrapper.find('.gl-dropdown-inner').html()).toContain(defaultContent);
     });
   });
 

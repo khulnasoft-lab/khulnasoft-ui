@@ -195,7 +195,7 @@ export default {
 </script>
 
 <template>
-  <div v-outside="close" class="gl-new-dropdown dropdown btn-group">
+  <div v-outside="close" class="gl-dropdown dropdown btn-group">
     <gl-button
       :id="toggleId"
       ref="toggle"
@@ -212,7 +212,7 @@ export default {
       :aria-labelledby="toggleLabelledBy"
       @click="toggle"
     >
-      <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
+      <span class="gl-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
         {{ toggleText }}
       </span>
       <gl-icon v-if="!noCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />
@@ -225,7 +225,7 @@ export default {
       :class="{ show: visible }"
       @keydown.esc.stop.prevent="closeAndFocus"
     >
-      <div class="gl-new-dropdown-inner">
+      <div class="gl-dropdown-inner">
         <slot></slot>
       </div>
     </div>

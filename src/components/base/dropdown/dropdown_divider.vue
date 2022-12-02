@@ -10,5 +10,5 @@ export default {
 </script>
 
 <template>
-  <b-dropdown-divider class="gl-new-dropdown-divider" v-bind="$attrs" v-on="$listeners" />
+  <b-dropdown-divider class="gl-dropdown-divider" v-bind="$attrs" v-on="$listeners" />
 </template>
