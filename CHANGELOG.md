@@ -1,3 +1,10 @@
+# [51.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.0.0...v51.1.0) (2022-12-02)
+
+
+### Features
+
+* **pagination:** Update disabled state, fix underline ([a892a4c](https://gitlab.com/gitlab-org/gitlab-ui/commit/a892a4c6ddfe521b080a25b03c5897a5fbda9977))
+
 # [51.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.1.2...v51.0.0) (2022-12-02)
 
 
