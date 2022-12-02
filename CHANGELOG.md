@@ -1,3 +1,19 @@
+# [52.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.1.1...v52.0.0) (2022-12-02)
+
+
+### Features
+
+* **css:** Adding GitLab Sans & JetBrains Mono as new default fonts ([73b7abc](https://gitlab.com/gitlab-org/gitlab-ui/commit/73b7abc70b3f6bc7249452c0356989271104fdb8))
+
+
+### BREAKING CHANGES
+
+* **css:** remove ` gl-font-size-monospace-(size)` utilities
+Instead use standard `gl-font-(size)`
+
+Co-authored-by: Olena Horal-Koretska <ohoralkoretska@gitlab.com>
+Co-authored-by: Lukas Eipert <leipert@gitlab.com>
+
 ## [51.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.1.0...v51.1.1) (2022-12-02)
 
 
