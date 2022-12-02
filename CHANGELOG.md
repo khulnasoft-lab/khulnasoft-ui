@@ -1,3 +1,32 @@
+# [51.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.1.2...v51.0.0) (2022-12-02)
+
+
+### Code Refactoring
+
+* **GlDropdown:** Remove the `new` prefix in CSS classes ([887ae70](https://gitlab.com/gitlab-org/gitlab-ui/commit/887ae70aff2525c0540287bf9933514358e42155))
+
+
+### BREAKING CHANGES
+
+* **GlDropdown:** rename following CSS class names
+- `gl-new-dropdown` => `gl-dropdown`
+- `gl-new-dropdown-inner` => `gl-dropdown-inner`
+- `gl-new-dropdown-contents` => `gl-dropdown-contents`
+- `gl-new-dropdown-header` => `gl-dropdown-header`
+- `gl-new-dropdown-header-top` => `gl-dropdown-header-top`
+- `gl-new-dropdown-footer` => `gl-dropdown-footer`
+- `gl-new-dropdown-item` => `gl-dropdown-item`
+- `gl-new-dropdown-item-check-icon` => `gl-dropdown-item-check-icon`
+- `gl-new-dropdown-item-icon` => `gl-dropdown-item-icon`
+- `gl-new-dropdown-item-text-primary` => `gl-dropdown-item-text-primary`
+- `gl-new-dropdown-item-text-secondary`
+=> `gl-dropdown-item-text-secondary`
+- `gl-new-dropdown-item-text-wrapper` => `gl-dropdown-item-text-wrapper`
+- `gl-new-dropdown-divider` => `gl-dropdown-divider`
+- `gl-new-dropdown-section-header` => `gl-dropdown-section-header`
+- `gl-new-dropdown-text` => `gl-dropdown-text`
+- `gl-new-dropdown-button-text` => `gl-dropdown-button-text`
+
 ## [50.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.1.1...v50.1.2) (2022-11-25)
 
 
