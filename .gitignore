@@ -10,3 +10,6 @@ yarn-error.log
 /src/scss/utilities.scss
 /static/gitlab/
 .cypress_cache
+/test-results/
+/playwright-report/
+/playwright/.cache/
