@@ -235,7 +235,7 @@ export default {
 <template>
   <b-dropdown
     ref="dropdown"
-    class="gl-new-dropdown"
+    class="gl-dropdown"
     v-bind="$attrs"
     :split="split"
     :variant="variant"
@@ -248,13 +248,13 @@ export default {
     :popper-opts="popperOptions"
     v-on="$listeners"
   >
-    <div class="gl-new-dropdown-inner">
+    <div class="gl-dropdown-inner">
       <div
         v-if="hasSlotContents('header') || headerText"
-        class="gl-new-dropdown-header"
+        class="gl-dropdown-header"
         :class="{ 'gl-border-b-0!': hideHeaderBorder }"
       >
-        <p v-if="headerText" class="gl-new-dropdown-header-top">
+        <p v-if="headerText" class="gl-dropdown-header-top">
           {{ headerText }}
         </p>
         <slot name="header"></slot>
@@ -288,7 +288,7 @@ export default {
           >
         </div>
       </div>
-      <div class="gl-new-dropdown-contents">
+      <div class="gl-dropdown-contents">
         <div
           v-if="hasHighlightedItemsContent"
           class="gl-overflow-visible"
@@ -299,7 +299,7 @@ export default {
         </div>
         <slot></slot>
       </div>
-      <div v-if="hasSlotContents('footer')" class="gl-new-dropdown-footer">
+      <div v-if="hasSlotContents('footer')" class="gl-dropdown-footer">
         <slot name="footer"></slot>
       </div>
     </div>
@@ -307,7 +307,7 @@ export default {
       <slot name="button-content">
         <gl-loading-icon v-if="loading" :class="{ 'gl-mr-2': !isIconOnly }" />
         <gl-icon v-if="icon && !(isIconOnly && loading)" class="dropdown-icon" :name="icon" />
-        <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
+        <span class="gl-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
           <slot name="button-text">{{ buttonText }}</slot>
         </span>
         <gl-icon v-if="renderCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />

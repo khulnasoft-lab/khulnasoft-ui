@@ -41,7 +41,7 @@ describe('dropdown item', () => {
         });
 
         expect(findCheckbox().classes()).toEqual([
-          'gl-new-dropdown-item-check-icon',
+          'gl-dropdown-item-check-icon',
           ...expectedClasses,
         ]);
       }

@@ -187,25 +187,25 @@ describe('new dropdown', () => {
 
     it('renders the header', () => {
       buildWrapper({}, slots);
-      expect(wrapper.find('.gl-new-dropdown-header').exists()).toBe(true);
+      expect(wrapper.find('.gl-dropdown-header').exists()).toBe(true);
       expect(wrapper.html()).toContain('Header Content');
     });
 
     it('has the "gl-border-b-0!" class when header border disabled', () => {
       buildWrapper({ hideHeaderBorder: true }, slots);
-      expect(wrapper.find('.gl-new-dropdown-header').classes()).toContain('gl-border-b-0!');
+      expect(wrapper.find('.gl-dropdown-header').classes()).toContain('gl-border-b-0!');
     });
   });
 
   describe('with no header slot exists', () => {
     it('does not render the header', () => {
       buildWrapper();
-      expect(wrapper.find('.gl-new-dropdown-header').exists()).toBe(false);
+      expect(wrapper.find('.gl-dropdown-header').exists()).toBe(false);
     });
 
     it('does render the header if headerText provided', () => {
       buildWrapper({ headerText: 'Legacy Header Prop Text' });
-      expect(wrapper.find('.gl-new-dropdown-header').exists()).toBe(true);
+      expect(wrapper.find('.gl-dropdown-header').exists()).toBe(true);
       expect(wrapper.html()).toContain('Legacy Header Prop Text');
     });
   });
@@ -215,7 +215,7 @@ describe('new dropdown', () => {
 
     it('renders the footer', () => {
       buildWrapper({}, slots);
-      expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBe(true);
+      expect(wrapper.find('.gl-dropdown-footer').exists()).toBe(true);
       expect(wrapper.html()).toContain('Footer Content');
     });
   });
@@ -223,7 +223,7 @@ describe('new dropdown', () => {
   describe('with no footer slot exists', () => {
     it('does not render the footer', () => {
       buildWrapper();
-      expect(wrapper.find('.gl-new-dropdown-footer').exists()).toBe(false);
+      expect(wrapper.find('.gl-dropdown-footer').exists()).toBe(false);
     });
   });
 

@@ -529,7 +529,7 @@ export default {
       ref="list"
       :aria-labelledby="listAriaLabelledBy || headerId || toggleId"
       role="listbox"
-      class="gl-new-dropdown-contents gl-list-style-none gl-pl-0 gl-mb-0"
+      class="gl-dropdown-contents gl-list-style-none gl-pl-0 gl-mb-0"
       tabindex="-1"
       @keydown="onKeydown"
     >

@@ -1,4 +1,4 @@
-.gl-new-dropdown {
+.gl-dropdown {
   .dropdown-menu {
     @include gl-bg-white;
     @include gl-border-1;
@@ -19,7 +19,7 @@
     @include gl-p-0;
   }
 
-  .gl-new-dropdown-inner {
+  .gl-dropdown-inner {
     @include gl-display-flex;
     @include gl-flex-direction-column;
     max-height: $gl-max-dropdown-max-height;
@@ -33,12 +33,12 @@
     }
   }
 
-  .gl-new-dropdown-contents {
+  .gl-dropdown-contents {
     @include gl-flex-grow-1;
     overflow-y: auto;
   }
 
-  .gl-new-dropdown-header-top {
+  .gl-dropdown-header-top {
     @include gl-border-1;
     @include gl-border-b-solid;
     @include gl-border-gray-200;
@@ -53,13 +53,13 @@
     @include gl-px-5;
   }
 
-  .gl-new-dropdown-header {
+  .gl-dropdown-header {
     @include gl-border-b-1;
     @include gl-border-b-solid;
     @include gl-border-b-gray-200;
   }
 
-  .gl-new-dropdown-footer {
+  .gl-dropdown-footer {
     @include gl-border-t-1;
     @include gl-border-t-solid;
     @include gl-border-t-gray-200;
@@ -138,7 +138,7 @@
     }
   }
 
-  .gl-new-dropdown-button-text {
+  .gl-dropdown-button-text {
     @include gl-mr-auto;
     @include gl-overflow-hidden;
     @include gl-text-overflow-ellipsis;

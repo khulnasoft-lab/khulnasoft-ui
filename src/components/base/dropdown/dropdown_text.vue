@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <b-dropdown-text class="gl-new-dropdown-text" v-bind="$attrs" v-on="$listeners">
+  <b-dropdown-text class="gl-dropdown-text" v-bind="$attrs" v-on="$listeners">
     <slot></slot>
   </b-dropdown-text>
 </template>

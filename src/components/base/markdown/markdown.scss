@@ -115,13 +115,6 @@
   .monospace,
   code {
     @include gl-font-monospace;
-    @include gl-font-size-monospace-lg;
-    @include gl-line-height-24;
-
-    &.sm {
-      @include gl-font-size-monospace;
-      @include gl-line-height-20;
-    }
   }
 
   blockquote {
@@ -288,12 +281,6 @@
   .monospace,
   code {
     @include gl-font-monospace;
-    @include gl-font-size-monospace;
-    @include gl-line-height-20;
-
-    &.sm {
-      @include gl-font-size-monospace-sm;
-    }
   }
 
   table {

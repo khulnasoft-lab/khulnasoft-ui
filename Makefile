@@ -23,3 +23,16 @@ utilities_scss = ${scss_dir}/utilities.scss
 
 ${utilities_scss}: ${utilities_mixin_scss} ${generate_utilities_script}
 	node ${generate_utilities_script}
+
+.PHONY: copy-fonts
+
+copy-fonts: static/fonts/GitLabSans.woff2 static/fonts/JetBrainsMono.woff2
+
+static/fonts/GitLabSans.woff2: static/fonts
+	cp node_modules/@gitlab/fonts/gitlab-sans/GitLabSans.woff2 $@
+
+static/fonts/JetBrainsMono.woff2: static/fonts
+	cp node_modules/@gitlab/fonts/jetbrains-mono/JetBrainsMono.woff2 $@
+
+static/fonts:
+	mkdir -p static/fonts

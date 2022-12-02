@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <b-nav-item-dropdown class="gl-new-dropdown" v-bind="$attrs" v-on="$listeners">
+  <b-nav-item-dropdown class="gl-dropdown" v-bind="$attrs" v-on="$listeners">
     <template #default>
       <slot></slot>
     </template>

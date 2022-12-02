@@ -1,4 +1,4 @@
-@mixin gl-tmp-new-dropdown-section-header-style {
+@mixin gl-tmp-dropdown-section-header-style {
   @include gl-font-base;
   @include gl-text-gray-900;
   @include gl-line-height-normal;
@@ -10,13 +10,13 @@
 }
 
 /* Styling when the component is used on its own */
-.gl-new-dropdown-section-header .dropdown-header {
-  @include gl-tmp-new-dropdown-section-header-style;
+.gl-dropdown-section-header .dropdown-header {
+  @include gl-tmp-dropdown-section-header-style;
 }
 
 /* Styling to override the vue-bootstrap CSS included in GitLab CSS */
-.gl-new-dropdown {
-  .gl-new-dropdown-section-header .dropdown-header {
-    @include gl-tmp-new-dropdown-section-header-style;
+.gl-dropdown {
+  .gl-dropdown-section-header .dropdown-header {
+    @include gl-tmp-dropdown-section-header-style;
   }
 }

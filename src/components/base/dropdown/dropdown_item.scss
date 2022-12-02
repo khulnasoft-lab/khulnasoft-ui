@@ -17,7 +17,7 @@
   @include gl-white-space-normal;
 }
 
-.gl-new-dropdown-item {
+.gl-dropdown-item {
   .dropdown-item {
     @include gl-tmp-dropdown-item-style;
     @include gl-cursor-pointer;
@@ -27,27 +27,27 @@
       @include gl-mr-3;
     }
 
-    .gl-new-dropdown-item-check-icon {
+    .gl-dropdown-item-check-icon {
       @include gl-flex-shrink-0;
       @include gl-mr-3;
       @include gl-text-gray-700;
     }
 
-    .gl-new-dropdown-item-icon {
+    .gl-dropdown-item-icon {
       @include gl-flex-shrink-0;
       @include gl-mr-3;
     }
 
-    .gl-new-dropdown-item-text-primary {
+    .gl-dropdown-item-text-primary {
       @include gl-m-0;
     }
 
-    .gl-new-dropdown-item-text-secondary {
+    .gl-dropdown-item-text-secondary {
       @include gl-m-0;
       @include gl-text-gray-700;
     }
 
-    .gl-new-dropdown-item-text-wrapper {
+    .gl-dropdown-item-text-wrapper {
       @include gl-min-w-0;
       @include gl-flex-grow-1;
       @include gl-mr-3;
@@ -61,6 +61,22 @@
 
     &.disable-hover {
       @include gl-text-decoration-none;
+    }
+
+    &:disabled {
+      @include gl-text-gray-500;
+
+      .gl-new-dropdown-item-check-icon {
+        @include gl-reset-color;
+      }
+
+      .gl-new-dropdown-item-text-secondary {
+        @include gl-reset-color;
+      }
+
+      .gl-avatar {
+        @include gl-opacity-7;
+      }
     }
 
     &:not(.disable-hover):hover,

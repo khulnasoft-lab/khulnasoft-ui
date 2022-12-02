@@ -1,3 +1,62 @@
+# [52.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.1.1...v52.0.0) (2022-12-02)
+
+
+### Features
+
+* **css:** Adding GitLab Sans & JetBrains Mono as new default fonts ([73b7abc](https://gitlab.com/gitlab-org/gitlab-ui/commit/73b7abc70b3f6bc7249452c0356989271104fdb8))
+
+
+### BREAKING CHANGES
+
+* **css:** remove ` gl-font-size-monospace-(size)` utilities
+Instead use standard `gl-font-(size)`
+
+Co-authored-by: Olena Horal-Koretska <ohoralkoretska@gitlab.com>
+Co-authored-by: Lukas Eipert <leipert@gitlab.com>
+
+## [51.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.1.0...v51.1.1) (2022-12-02)
+
+
+### Bug Fixes
+
+* **GlDropdownItem:** Fix dropdown item disabled state styling ([057c4dc](https://gitlab.com/gitlab-org/gitlab-ui/commit/057c4dce08e5e38d4e7b446f0b78c320144217e3))
+
+# [51.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.0.0...v51.1.0) (2022-12-02)
+
+
+### Features
+
+* **pagination:** Update disabled state, fix underline ([a892a4c](https://gitlab.com/gitlab-org/gitlab-ui/commit/a892a4c6ddfe521b080a25b03c5897a5fbda9977))
+
+# [51.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.1.2...v51.0.0) (2022-12-02)
+
+
+### Code Refactoring
+
+* **GlDropdown:** Remove the `new` prefix in CSS classes ([887ae70](https://gitlab.com/gitlab-org/gitlab-ui/commit/887ae70aff2525c0540287bf9933514358e42155))
+
+
+### BREAKING CHANGES
+
+* **GlDropdown:** rename following CSS class names
+- `gl-new-dropdown` => `gl-dropdown`
+- `gl-new-dropdown-inner` => `gl-dropdown-inner`
+- `gl-new-dropdown-contents` => `gl-dropdown-contents`
+- `gl-new-dropdown-header` => `gl-dropdown-header`
+- `gl-new-dropdown-header-top` => `gl-dropdown-header-top`
+- `gl-new-dropdown-footer` => `gl-dropdown-footer`
+- `gl-new-dropdown-item` => `gl-dropdown-item`
+- `gl-new-dropdown-item-check-icon` => `gl-dropdown-item-check-icon`
+- `gl-new-dropdown-item-icon` => `gl-dropdown-item-icon`
+- `gl-new-dropdown-item-text-primary` => `gl-dropdown-item-text-primary`
+- `gl-new-dropdown-item-text-secondary`
+=> `gl-dropdown-item-text-secondary`
+- `gl-new-dropdown-item-text-wrapper` => `gl-dropdown-item-text-wrapper`
+- `gl-new-dropdown-divider` => `gl-dropdown-divider`
+- `gl-new-dropdown-section-header` => `gl-dropdown-section-header`
+- `gl-new-dropdown-text` => `gl-dropdown-text`
+- `gl-new-dropdown-button-text` => `gl-dropdown-button-text`
+
 ## [50.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v50.1.1...v50.1.2) (2022-11-25)
 
 

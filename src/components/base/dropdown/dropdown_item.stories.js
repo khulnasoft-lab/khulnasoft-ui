@@ -18,7 +18,8 @@ const wrap = (template) => `
       :is-checked="isChecked"
       :is-check-item="isCheckItem"
       :is-check-centered="isCheckCentered"
-      :secondary-text="secondaryText">
+      :secondary-text="secondaryText"
+      :disabled="disabled">
       ${template}
     </gl-dropdown-item>
   </ul>
@@ -36,6 +37,7 @@ const generateProps = ({
   isCheckItem = defaultValue('isCheckItem'),
   isCheckCentered = defaultValue('isCheckCentered'),
   secondaryText = defaultValue('secondaryText'),
+  disabled = false,
 } = {}) => ({
   avatarUrl,
   iconColor,
@@ -46,6 +48,7 @@ const generateProps = ({
   isCheckItem,
   isCheckCentered,
   secondaryText,
+  disabled,
 });
 
 export const Default = (args, { argTypes }) => ({
