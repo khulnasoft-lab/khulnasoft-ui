@@ -14,7 +14,7 @@ Usage:
   font-display: block;
   font-style: normal;
   font-named-instance: 'Regular'; /* stylelint-disable property-no-unknown */
-  src: url('/fonts/GitLabSans.woff2?v=3.19') format('woff2');
+  src: url('/fonts/GitLabSans.woff2') format('woff2');
 }
 
 /* -------------------------------------------------------
@@ -31,5 +31,5 @@ Usage:
    */
   font-display: block;
   font-style: normal;
-  src: url('/fonts/JetBrainsMono.woff2?v=2.242') format('woff2');
+  src: url('/fonts/JetBrainsMono.woff2') format('woff2');
 }
