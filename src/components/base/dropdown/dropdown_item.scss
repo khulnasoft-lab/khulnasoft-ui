@@ -63,6 +63,22 @@
       @include gl-text-decoration-none;
     }
 
+    &:disabled {
+      @include gl-text-gray-500;
+
+      .gl-new-dropdown-item-check-icon {
+        @include gl-reset-color;
+      }
+
+      .gl-new-dropdown-item-text-secondary {
+        @include gl-reset-color;
+      }
+
+      .gl-avatar {
+        @include gl-opacity-7;
+      }
+    }
+
     &:not(.disable-hover):hover,
     &:active,
     &:focus,
