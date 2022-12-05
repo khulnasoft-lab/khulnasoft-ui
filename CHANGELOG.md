@@ -1,3 +1,10 @@
+# [52.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.0.0...v52.1.0) (2022-12-05)
+
+
+### Features
+
+* **token:** Update focus state ([f300690](https://gitlab.com/gitlab-org/gitlab-ui/commit/f30069080865d8fe9741cb2717d60690e7ac8400))
+
 # [52.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v51.1.1...v52.0.0) (2022-12-02)
 
 
