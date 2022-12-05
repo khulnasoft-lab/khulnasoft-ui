@@ -1,3 +1,10 @@
+# [52.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.1.0...v52.2.0) (2022-12-05)
+
+
+### Features
+
+* **css:** add gl-isolate in utilities ([c2249c5](https://gitlab.com/gitlab-org/gitlab-ui/commit/c2249c5f70778efe784ed69c7401f679cc38d128))
+
 # [52.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.0.0...v52.1.0) (2022-12-05)
 
 
