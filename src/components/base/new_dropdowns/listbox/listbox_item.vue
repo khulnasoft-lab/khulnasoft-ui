@@ -58,7 +58,7 @@ export default {
     @click="toggleSelection"
     @keydown="onKeydown"
   >
-    <span class="dropdown-item">
+    <div class="dropdown-item">
       <gl-icon
         name="mobile-issue-close"
         data-testid="dropdown-item-checkbox"
@@ -71,6 +71,6 @@ export default {
       <span class="gl-dropdown-item-text-wrapper">
         <slot></slot>
       </span>
-    </span>
+    </div>
   </li>
 </template>
