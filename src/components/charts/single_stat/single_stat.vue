@@ -109,7 +109,7 @@ export default {
       >
       <span
         v-if="unit"
-        class="gl-font-sm gl-mr-2 gl-transition-medium gl-opacity-10"
+        class="gl-font-sm gl-mx-2 gl-transition-medium gl-opacity-10"
         :class="{ 'gl-opacity-0!': hideUnits }"
         data-testid="unit"
         >{{ unit }}</span
