@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import * as echarts from 'echarts';
+import { toolboxHeight } from '~/utils/charts/config';
 import { createTheme } from '~/utils/charts/theme';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 import Chart from './chart.vue';
@@ -118,8 +119,11 @@ describe('chart component', () => {
 
     describe('draw method', () => {
       it('sets chart options', () => {
+        expect(wrapper.vm.chart.setOption).toHaveBeenCalledTimes(1);
+
         wrapper.vm.draw();
 
+        expect(wrapper.vm.chart.setOption).toHaveBeenCalledTimes(2);
         expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith(options);
       });
 
@@ -139,6 +143,19 @@ describe('chart component', () => {
           height: defaultHeight,
           width: 'auto',
         });
+      });
+    });
+  });
+
+  describe('with toolbox in options', () => {
+    it('increases grid top by `toolboxHeight`', async () => {
+      const optionsWithToolbox = { toolbox: {} };
+      wrapper = shallowMount(Chart, { propsData: { options: optionsWithToolbox } });
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith({
+        ...optionsWithToolbox,
+        grid: { top: toolboxHeight },
       });
     });
   });

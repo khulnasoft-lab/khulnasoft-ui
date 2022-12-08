@@ -14,6 +14,7 @@ export const defaultFontSize = 12;
 export const defaultHeight = 400;
 export const defaultWidth = 300;
 export const validRenderers = ['canvas', 'svg'];
+export const toolboxHeight = 14;
 
 export const axes = {
   name: 'Value',
