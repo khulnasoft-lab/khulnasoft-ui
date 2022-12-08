@@ -20,13 +20,14 @@ import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
 import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import GlListboxItem from './listbox_item.vue';
+import GlListboxSearchInput from './listbox_search_input.vue';
 import GlListboxGroup from './listbox_group.vue';
 import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
 const HEADER_ITEMS_BORDER_CLASSES = ['gl-border-b-1', 'gl-border-b-solid', 'gl-border-b-gray-200'];
 const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-pt-3', 'gl-mt-3'];
-export const SEARCH_INPUT_SELECTOR = '.gl-search-box-by-type-input';
+export const SEARCH_INPUT_SELECTOR = '.gl-listbox-search-input';
 
 export default {
   HEADER_ITEMS_BORDER_CLASSES,
@@ -40,6 +41,7 @@ export default {
     GlListboxGroup,
     GlButton,
     GlSearchBoxByType,
+    GlListboxSearchInput,
     GlLoadingIcon,
   },
   model: {
@@ -57,7 +59,7 @@ export default {
       validator: itemsValidator,
     },
     /**
-     * array of selected items values for multi-select and selected item value for single-select
+     * Array of selected items values for multi-select and selected item value for single-select
      */
     selected: {
       type: [Array, String, Number],
@@ -220,6 +222,14 @@ export default {
       type: String,
       required: false,
       default: 'No results found',
+    },
+    /**
+     * Search input placeholder text and aria-label
+     */
+    searchPlaceholder: {
+      type: String,
+      required: false,
+      default: 'Search',
     },
     /**
      * The reset button's label, to be rendered in the header. If this is omitted, the button is not
@@ -484,7 +494,7 @@ export default {
   >
     <div
       v-if="headerText"
-      class="gl-display-flex gl-align-items-center gl-px-3 gl-py-2! gl-min-h-8"
+      class="gl-display-flex gl-align-items-center gl-p-4! gl-min-h-8"
       :class="$options.HEADER_ITEMS_BORDER_CLASSES"
     >
       <div
@@ -506,11 +516,12 @@ export default {
     </div>
 
     <div v-if="searchable" :class="$options.HEADER_ITEMS_BORDER_CLASSES">
-      <gl-search-box-by-type
+      <gl-listbox-search-input
         ref="searchBox"
         v-model="searchStr"
         :aria-owns="listboxId"
         data-testid="listbox-search-input"
+        :placeholder="searchPlaceholder"
         @input="search"
         @keydown="onKeydown"
       />
