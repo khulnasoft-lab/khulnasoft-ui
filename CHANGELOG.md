@@ -1,3 +1,10 @@
+# [52.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.2.1...v52.3.0) (2022-12-08)
+
+
+### Features
+
+* **GlListbox:** Improve GlListbox's search input ([29d69c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/29d69c898b643849afe08ace9514d1372e26a772))
+
 ## [52.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.2.0...v52.2.1) (2022-12-08)
 
 
