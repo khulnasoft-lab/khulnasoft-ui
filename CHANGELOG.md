@@ -1,3 +1,10 @@
+## [52.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.2.0...v52.2.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* **single-stat:** Add left margin to single stat unit ([10ad248](https://gitlab.com/gitlab-org/gitlab-ui/commit/10ad248540a2b2b9c933986c937d763415b940ff))
+
 # [52.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.1.0...v52.2.0) (2022-12-05)
 
 
