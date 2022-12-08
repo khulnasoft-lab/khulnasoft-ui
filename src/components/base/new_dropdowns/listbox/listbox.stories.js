@@ -29,6 +29,7 @@ const generateProps = ({
   searchable = defaultValue('searchable'),
   searching = defaultValue('searching'),
   noResultsText = defaultValue('noResultsText'),
+  searchPlaceholder = defaultValue('searchPlaceholder'),
   noCaret = defaultValue('noCaret'),
   right = defaultValue('right'),
   toggleText,
@@ -51,6 +52,7 @@ const generateProps = ({
   searchable,
   searching,
   noResultsText,
+  searchPlaceholder,
   noCaret,
   right,
   toggleText,
@@ -76,6 +78,7 @@ const makeBindings = (overrides = {}) =>
     ':searchable': 'searchable',
     ':searching': 'searching',
     ':no-results-text': 'noResultsText',
+    ':search-placeholder': 'searchPlaceholder',
     ':no-caret': 'noCaret',
     ':right': 'right',
     ':toggle-text': 'toggleText',
@@ -437,7 +440,11 @@ export const Searchable = (args, { argTypes }) => ({
     }
   ),
 });
-Searchable.args = generateProps({ headerText: 'Assign to department', searchable: true });
+Searchable.args = generateProps({
+  headerText: 'Assign to department',
+  searchable: true,
+  searchPlaceholder: 'Find department',
+});
 Searchable.decorators = [makeContainer({ height: '370px' })];
 
 export const SearchableGroups = (args, { argTypes }) => ({
