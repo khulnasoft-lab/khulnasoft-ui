@@ -40,6 +40,8 @@ import {
   dataVizOrange800,
   dataVizOrange950,
   dataVizOrange900,
+  glBorderRadiusBase,
+  white,
 } from '../../../scss_to_js/scss_variables';
 import { scrollHandleSvgPath } from '../svgs/svg_paths';
 import { hexToRgba } from '../utils';
@@ -209,6 +211,9 @@ export const createTheme = (options = {}) => ({
       iconStyle: {
         borderWidth: 0,
         color: gray900,
+        textBackgroundColor: white,
+        textBorderRadius: glBorderRadiusBase,
+        textPadding: [8, 12],
       },
     },
     iconStyle: {
