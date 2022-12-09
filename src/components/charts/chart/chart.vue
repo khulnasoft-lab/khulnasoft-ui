@@ -1,7 +1,12 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import * as echarts from 'echarts';
-import { defaultHeight, defaultWidth, validRenderers } from '../../../utils/charts/config';
+import {
+  defaultHeight,
+  defaultWidth,
+  validRenderers,
+  toolboxHeight,
+} from '../../../utils/charts/config';
 import { createTheme, themeName } from '../../../utils/charts/theme';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 
@@ -10,6 +15,16 @@ import { GlResizeObserverDirective } from '../../../directives/resize_observer/r
  * https://echarts.apache.org/en/api.html#echartsInstance.resize
  */
 const sizeValidator = (size) => Number.isFinite(size) || size === 'auto' || size == null;
+
+const isChartWithToolbox = (options) => options?.toolbox !== undefined;
+
+const increaseChartGridTop = (options, increaseBy) => ({
+  ...options,
+  grid: {
+    ...options.grid,
+    top: (options?.grid?.top || 0) + increaseBy,
+  },
+});
 
 export default {
   directives: {
@@ -78,6 +93,13 @@ export default {
       chart: null,
     };
   },
+  computed: {
+    normalizedOptions() {
+      return isChartWithToolbox(this.options)
+        ? increaseChartGridTop(this.options, toolboxHeight)
+        : this.options;
+    },
+  },
   watch: {
     options() {
       if (this.chart) {
@@ -123,7 +145,7 @@ export default {
   },
   methods: {
     draw() {
-      this.chart.setOption(this.options);
+      this.chart.setOption(this.normalizedOptions);
       /**
        * Emitted after calling `echarts.setOption`
        */
