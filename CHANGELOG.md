@@ -1,3 +1,11 @@
+## [52.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.3.0...v52.3.1) (2022-12-09)
+
+
+### Bug Fixes
+
+* **charts:** add background color to toolbox title ([517b70c](https://gitlab.com/gitlab-org/gitlab-ui/commit/517b70ca9afcbe90adb1bd92f55c16b489093e6a))
+* **charts:** add space between toolbox and chart ([94c1ea8](https://gitlab.com/gitlab-org/gitlab-ui/commit/94c1ea80509165bf1f2b9630740059d791d613e4))
+
 # [52.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.2.1...v52.3.0) (2022-12-08)
 
 
