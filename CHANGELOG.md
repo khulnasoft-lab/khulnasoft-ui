@@ -1,3 +1,10 @@
+# [52.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.3.1...v52.4.0) (2022-12-12)
+
+
+### Features
+
+* **css:** add gl-max-w-0 ([b971b7a](https://gitlab.com/gitlab-org/gitlab-ui/commit/b971b7a928c074cc44a2b868f96eb85f353b86a2))
+
 ## [52.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.3.0...v52.3.1) (2022-12-09)
 
 
