@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import merge from 'lodash/merge';
+import { graphic } from 'echarts';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import {
   defaultChartOptions,
@@ -12,6 +13,13 @@ import ChartTooltip from '../tooltip/tooltip.vue';
 
 // the padding is needed so the mark points don't overflow when visible
 const gridPadding = symbolSize / 2;
+
+const generateGradient = ({ minColor, maxColor }) => {
+  return new graphic.LinearGradient(0, 0, 0, 1, [
+    { offset: 0, color: minColor },
+    { offset: 1, color: maxColor },
+  ]);
+};
 
 export default {
   components: { Chart, ChartTooltip },
@@ -49,6 +57,14 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    /**
+     * Sets a colour gradient for the sparkline
+     */
+    gradient: {
+      type: Object,
+      required: false,
+      default: null,
     },
   },
   data() {
@@ -119,7 +135,14 @@ export default {
           ],
         },
         data,
+        itemStyle: this.itemStyle,
       };
+    },
+    itemStyle() {
+      if (this.gradient) {
+        return { color: generateGradient(this.gradient) };
+      }
+      return {};
     },
     lastYValue() {
       const latestEntry = this.data.slice(-1)[0];

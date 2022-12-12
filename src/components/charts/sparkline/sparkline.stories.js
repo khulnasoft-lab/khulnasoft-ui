@@ -11,16 +11,23 @@ const chartData = [
   ['Sun', 18],
 ];
 
+const customGradient = {
+  minColor: '#499767',
+  maxColor: '#5252B5',
+};
+
 const generateProps = ({
   data = chartData,
   height = 50,
   tooltipLabel = 'tooltipLabel',
   showLastYValue = true,
+  gradient,
 } = {}) => ({
   data,
   height,
   tooltipLabel,
   showLastYValue,
+  gradient,
 });
 
 const Template = (args) => ({
@@ -33,12 +40,16 @@ const Template = (args) => ({
         :height="height"
         :tooltip-label="tooltipLabel"
         :show-last-y-value="showLastYValue"
+        :gradient="gradient"
       />
     </div>`,
 });
 
 export const Default = Template.bind({});
 Default.args = generateProps();
+
+export const WithChartColorGradient = Template.bind({});
+WithChartColorGradient.args = generateProps({ gradient: customGradient });
 
 export default {
   title: 'charts/sparkline-chart',
