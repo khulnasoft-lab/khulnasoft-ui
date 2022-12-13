@@ -1,3 +1,10 @@
+# [52.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.4.0...v52.5.0) (2022-12-13)
+
+
+### Features
+
+* **GlSparklineChart:** Add gradient prop ([eb28329](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb283290d82a506c2a9732d3b86ad328f4be0385))
+
 # [52.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.3.1...v52.4.0) (2022-12-12)
 
 
