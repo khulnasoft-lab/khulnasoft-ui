@@ -8,6 +8,9 @@ let mockChartInstance;
 
 jest.mock('echarts', () => ({
   getInstanceByDom: () => mockChartInstance,
+  graphic: {
+    LinearGradient: jest.fn(),
+  },
 }));
 
 let triggerResize = () => {};
@@ -175,5 +178,13 @@ describe('sparkline chart component', () => {
 
     await wrapper.vm.$nextTick();
     expect(getLastYValue().exists()).toBe(false);
+  });
+
+  it('gradient will set the series itemStyle color', async () => {
+    wrapper.setProps({ gradient: ['red', 'green'] });
+
+    await wrapper.vm.$nextTick();
+
+    expect(getChartOptions().series[0].itemStyle.color).toBeDefined();
   });
 });
