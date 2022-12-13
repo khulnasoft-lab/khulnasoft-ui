@@ -14,11 +14,17 @@ import ChartTooltip from '../tooltip/tooltip.vue';
 // the padding is needed so the mark points don't overflow when visible
 const gridPadding = symbolSize / 2;
 
-const generateGradient = ({ minColor, maxColor }) => {
-  return new graphic.LinearGradient(0, 0, 0, 1, [
-    { offset: 0, color: minColor },
-    { offset: 1, color: maxColor },
-  ]);
+const generateGradient = (colors) => {
+  return new graphic.LinearGradient(
+    0,
+    0,
+    0,
+    1,
+    colors.map((color, index) => {
+      const offset = index / (colors.length - 1);
+      return { offset, color };
+    })
+  );
 };
 
 export default {
@@ -62,9 +68,9 @@ export default {
      * Sets a colour gradient for the sparkline
      */
     gradient: {
-      type: Object,
+      type: Array,
       required: false,
-      default: null,
+      default: () => [],
     },
   },
   data() {
@@ -139,7 +145,7 @@ export default {
       };
     },
     itemStyle() {
-      if (this.gradient) {
+      if (this.gradient.length) {
         return { color: generateGradient(this.gradient) };
       }
       return {};

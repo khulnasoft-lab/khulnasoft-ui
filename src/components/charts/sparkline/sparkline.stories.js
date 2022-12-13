@@ -1,4 +1,5 @@
 import { GlSparklineChart } from '../../../charts';
+import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import readme from './sparkline.md';
 
 const chartData = [
@@ -11,10 +12,11 @@ const chartData = [
   ['Sun', 18],
 ];
 
-const customGradient = {
-  minColor: '#499767',
-  maxColor: '#5252B5',
-};
+const customGradient = [
+  colorFromDefaultPalette(0),
+  colorFromDefaultPalette(1),
+  colorFromDefaultPalette(2),
+];
 
 const generateProps = ({
   data = chartData,

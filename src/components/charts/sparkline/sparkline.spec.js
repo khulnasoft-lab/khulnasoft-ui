@@ -181,7 +181,7 @@ describe('sparkline chart component', () => {
   });
 
   it('gradient will set the series itemStyle color', async () => {
-    wrapper.setProps({ gradient: { minColor: 'red', maxColor: 'green' } });
+    wrapper.setProps({ gradient: ['red', 'green'] });
 
     await wrapper.vm.$nextTick();
 
