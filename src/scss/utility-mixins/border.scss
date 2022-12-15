@@ -127,6 +127,18 @@
   border-color: $gray-500;
 }
 
+@mixin gl-border-red-500 {
+  border-color: $red-500;
+}
+
+@mixin gl-border-orange-500 {
+  border-color: $orange-500;
+}
+
+@mixin gl-border-green-500 {
+  border-color: $green-500;
+}
+
 @mixin gl-border-blue-200($hover: true) {
   border-color: $blue-200;
 }
@@ -248,6 +260,14 @@
 
 @mixin gl-border-1 {
   border-width: $gl-border-size-1;
+}
+
+@mixin gl-border-2 {
+  border-width: $gl-border-size-2;
+}
+
+@mixin gl-border-3 {
+  border-width: $gl-border-size-3;
 }
 
 @mixin gl-border-4 {
