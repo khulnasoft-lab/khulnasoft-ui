@@ -1,3 +1,10 @@
+# [52.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.5.0...v52.6.0) (2022-12-16)
+
+
+### Features
+
+* **css:** Add utils for OKRs progress ([d8fcb85](https://gitlab.com/gitlab-org/gitlab-ui/commit/d8fcb85172502028574bdc133329a97ff67d4630))
+
 # [52.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.4.0...v52.5.0) (2022-12-13)
 
 
