@@ -877,6 +877,12 @@
   }
 }
 
+@mixin gl-sm-ml-5 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-ml-5;
+  }
+}
+
 @mixin gl-sm-ml-7 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-ml-7;
