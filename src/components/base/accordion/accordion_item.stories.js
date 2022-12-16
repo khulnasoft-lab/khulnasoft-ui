@@ -4,7 +4,7 @@ import GlAccordionItem from './accordion_item.vue';
 const template = `
     <gl-accordion-item :title="title" :titleVisible="titleVisible" :visible="visible" :header-level="headerLevel">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, maiores.
-      </gl-accordion-item>
+    </gl-accordion-item>
     `;
 
 const defaultValue = (prop) => GlAccordionItem.props[prop].default;
@@ -34,10 +34,7 @@ const Template = (args) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = generateProps({ titleVisible: 'Accordion Item Title Expanded' });
-
-export const InitiallyExpanded = Template.bind({});
-InitiallyExpanded.args = generateProps({ visible: true, title: 'Item Content Initially Expanded' });
+Default.args = generateProps({ visible: true, titleVisible: 'Accordion Item Title Expanded' });
 
 export default {
   title: 'base/accordion/accordion-item',
