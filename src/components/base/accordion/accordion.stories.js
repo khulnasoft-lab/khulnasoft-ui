@@ -1,4 +1,3 @@
-import { disableControls } from '../../../utils/stories_utils';
 import readme from './accordion.md';
 import GlAccordion from './accordion.vue';
 import GlAccordionItem from './accordion_item.vue';
@@ -9,11 +8,11 @@ const template = `
         Each accordion can be expanded or collapsed independently of others.
       </gl-accordion-item>
 
-      <gl-accordion-item title="Item 2" :header-level="headerLevel">
+      <gl-accordion-item title="Item 2" :header-level="headerLevel" :visible="true">
         If you want to have an accordion item to be initially visible, please see
         <code>Initially Expanded</code> example for the <code>GLAccordionItem</code>.
       </gl-accordion-item>
-      
+
       <gl-accordion-item title="Item 3" :header-level="headerLevel" :visible="autoCollapse">
         If you want the other accordion items to collapse when one is open, please see
         <code>Auto Collapse</code> example.
@@ -40,15 +39,11 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
-export const AutoCollapse = Template.bind({});
-AutoCollapse.args = generateProps({ autoCollapse: true });
-
 export default {
   title: 'base/accordion',
   component: GlAccordion,
   parameters: {
     bootstrapComponent: 'b-collapse',
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,
@@ -60,6 +55,5 @@ export default {
       options: [1, 2, 3, 4, 5, 6],
       control: 'select',
     },
-    ...disableControls(['autoCollapse']),
   },
 };
