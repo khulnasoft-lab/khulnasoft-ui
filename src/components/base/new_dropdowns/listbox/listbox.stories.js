@@ -13,6 +13,8 @@ import {
   GlAvatar,
 } from '../../../../index';
 import { makeContainer } from '../../../../utils/story_decorators/container';
+import { disableControls } from '../../../../utils/stories_utils';
+import { setStoryTimeout } from '../../../../utils/test_utils';
 import readme from './listbox.md';
 import { mockOptions, mockGroups } from './mock_data';
 import { flattenedOptions } from './utils';
@@ -28,6 +30,8 @@ const generateProps = ({
   loading = defaultValue('loading'),
   searchable = defaultValue('searchable'),
   searching = defaultValue('searching'),
+  infiniteScroll = defaultValue('infiniteScroll'),
+  infiniteScrollLoading = defaultValue('infiniteScrollLoading'),
   noResultsText = defaultValue('noResultsText'),
   searchPlaceholder = defaultValue('searchPlaceholder'),
   noCaret = defaultValue('noCaret'),
@@ -51,6 +55,8 @@ const generateProps = ({
   loading,
   searchable,
   searching,
+  infiniteScroll,
+  infiniteScrollLoading,
   noResultsText,
   searchPlaceholder,
   noCaret,
@@ -77,6 +83,8 @@ const makeBindings = (overrides = {}) =>
     ':loading': 'loading',
     ':searchable': 'searchable',
     ':searching': 'searching',
+    ':infinite-scroll': 'infiniteScroll',
+    ':infinite-scroll-loading': 'infiniteScrollLoading',
     ':no-results-text': 'noResultsText',
     ':search-placeholder': 'searchPlaceholder',
     ':no-caret': 'noCaret',
@@ -534,3 +542,53 @@ SearchableGroups.args = generateProps({
   items: mockGroups,
 });
 SearchableGroups.decorators = [makeContainer({ height: '370px' })];
+
+export const InfiniteScroll = (
+  args,
+  { argTypes: { infiniteScroll, infiniteScrollLoading, items, ...argTypes } }
+) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlListbox,
+  },
+  data() {
+    return {
+      selected: mockOptions[1].value,
+      items: mockOptions.slice(0, 10),
+      infiniteScrollLoading: false,
+      infiniteScroll: true,
+    };
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  methods: {
+    onBottomReached() {
+      this.infiniteScrollLoading = true;
+
+      setStoryTimeout(() => {
+        this.items.push(...mockOptions.slice(10, 12));
+        this.infiniteScrollLoading = false;
+        this.infiniteScroll = false;
+      }, 1000);
+    },
+  },
+  template: template('', {
+    label: `<span class="gl-my-0" id="listbox-label">Select a department</span>`,
+    bindingOverrides: {
+      ':items': 'items',
+      ':infinite-scroll': 'infiniteScroll',
+      ':infinite-scroll-loading': 'infiniteScrollLoading',
+      ':total-items': 12,
+      '@bottom-reached': 'onBottomReached',
+    },
+  }),
+});
+
+InfiniteScroll.argTypes = {
+  ...disableControls(['infiniteScroll', 'infiniteScrollLoading', 'items']),
+};
+InfiniteScroll.args = generateProps();
+InfiniteScroll.decorators = [makeContainer({ height: '370px' })];
