@@ -172,12 +172,7 @@ export default {
       }
 
       const searchParams = new URLSearchParams(window.location.search);
-
-      if (tabIndex === 0) {
-        searchParams.delete(this.queryParamName);
-      } else {
-        searchParams.set(this.queryParamName, newQueryParamValue);
-      }
+      searchParams.set(this.queryParamName, newQueryParamValue);
 
       window.history.pushState({}, '', `${window.location.pathname}?${searchParams.toString()}`);
     },
