@@ -1,5 +1,4 @@
 <script>
-import debounce from 'lodash/debounce';
 import GlClearIconButton from '../../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlIcon from '../../icon/icon.vue';
 
@@ -37,9 +36,9 @@ export default {
     inputListeners() {
       return {
         ...this.$listeners,
-        input: debounce((event) => {
+        input: (event) => {
           this.$emit('input', event.target.value);
-        }, 200),
+        },
       };
     },
   },
