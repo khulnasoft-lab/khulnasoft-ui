@@ -17,6 +17,7 @@ import {
 } from '../../../../utils/constants';
 import GlButton from '../../button/button.vue';
 import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
+import GlIntersectionObserver from '../../../utilities/intersection_observer/intersection_observer.vue';
 import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import GlListboxItem from './listbox_item.vue';
@@ -43,6 +44,7 @@ export default {
     GlSearchBoxByType,
     GlListboxSearchInput,
     GlLoadingIcon,
+    GlIntersectionObserver,
   },
   model: {
     prop: 'selected',
@@ -216,6 +218,37 @@ export default {
       default: false,
     },
     /**
+     * Enables infinite scroll.
+     * When set to `true`, the `@bottom-reached` event will be fired when
+     * the bottom of the listbox is scrolled to.
+     * Does not support groups.
+     */
+    infiniteScroll: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
+     * This prop is used for infinite scroll.
+     * It represents the total number of items that exist,
+     * even if they have not yet been loaded.
+     * Do not set this prop if the total number of items is unknown.
+     */
+    totalItems: {
+      type: Number,
+      required: false,
+      default: null,
+    },
+    /**
+     * This prop is used for infinite scroll.
+     * Set to `true` when more items are being loaded.
+     */
+    infiniteScrollLoading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
      * Message to be displayed when filtering produced no results
      */
     noResultsText: {
@@ -298,6 +331,9 @@ export default {
       }
       return Boolean(this.selected);
     },
+    showIntersectionObserver() {
+      return this.infiniteScroll && !this.infiniteScrollLoading && !this.loading && !this.searching;
+    },
   },
   watch: {
     selected: {
@@ -323,6 +359,17 @@ export default {
         }
       },
     },
+  },
+  created() {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      this.infiniteScroll &&
+      this.items.some((item) => !isOption(item))
+    ) {
+      throw new Error(
+        'Infinite scroll does not support groups. Please set the "infiniteScroll" prop to "false"'
+      );
+    }
   },
   methods: {
     open() {
@@ -467,6 +514,25 @@ export default {
     closeAndFocus() {
       this.$refs.baseDropdown.closeAndFocus();
     },
+    onIntersectionObserverAppear() {
+      /**
+       * Emitted when bottom of listbox has been scrolled to.
+       * Used for infinite scroll.
+       *
+       * @event bottom-reached
+       */
+      this.$emit('bottom-reached');
+    },
+    listboxItemMoreItemsAriaAttributes(index) {
+      if (this.totalItems === null) {
+        return {};
+      }
+
+      return {
+        'aria-setsize': this.totalItems,
+        'aria-posinset': index + 1,
+      };
+    },
     isOption,
   },
 };
@@ -551,6 +617,7 @@ export default {
             :is-selected="isSelected(item)"
             :is-focused="isFocused(item)"
             :is-check-centered="isCheckCentered"
+            v-bind="listboxItemMoreItemsAriaAttributes(index)"
             @select="onSelect(item, $event)"
           >
             <!-- @slot Custom template of the listbox item -->
@@ -583,8 +650,17 @@ export default {
           </gl-listbox-group>
         </template>
       </template>
+      <gl-intersection-observer
+        v-if="showIntersectionObserver"
+        @appear="onIntersectionObserverAppear"
+      />
     </component>
-
+    <gl-loading-icon
+      v-if="infiniteScrollLoading"
+      data-testid="listbox-infinite-scroll-loader"
+      size="md"
+      class="gl-my-3"
+    />
     <span
       v-if="announceSRSearchResults"
       data-testid="listbox-number-of-results"

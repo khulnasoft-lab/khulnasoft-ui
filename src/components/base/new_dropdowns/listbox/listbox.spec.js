@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
+import { useMockIntersectionObserver } from '~/utils/use_mock_intersection_observer';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import {
   GL_DROPDOWN_SHOWN,
@@ -9,6 +10,7 @@ import {
   HOME,
   END,
 } from '../constants';
+import GlIntersectionObserver from '../../../utilities/intersection_observer/intersection_observer.vue';
 import GlListbox, { ITEM_SELECTOR } from './listbox.vue';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxGroup from './listbox_group.vue';
@@ -25,6 +27,8 @@ describe('GlListbox', () => {
     });
   };
 
+  useMockIntersectionObserver();
+
   const findBaseDropdown = () => wrapper.findComponent(GlBaseDropdown);
   const findListContainer = () => wrapper.find('[role="listbox"]');
   const findListboxItems = (root = wrapper) => root.findAllComponents(GlListboxItem);
@@ -36,6 +40,7 @@ describe('GlListbox', () => {
   const findLoadingIcon = () => wrapper.find("[data-testid='listbox-search-loader']");
   const findSRNumberOfResultsText = () => wrapper.find("[data-testid='listbox-number-of-results']");
   const findResetButton = () => wrapper.find("[data-testid='listbox-reset-button']");
+  const findIntersectionObserver = () => wrapper.findComponent(GlIntersectionObserver);
 
   describe('toggle text', () => {
     describe.each`
@@ -433,6 +438,127 @@ describe('GlListbox', () => {
 
       expect(wrapper.emitted('reset')).toHaveLength(1);
       expect(wrapper.vm.closeAndFocus).toHaveBeenCalled();
+    });
+  });
+
+  describe('when `infiniteScroll` prop is `true`', () => {
+    it('should throw an error when items are groups', () => {
+      expect(() => {
+        buildWrapper({
+          items: mockGroups,
+          infiniteScroll: true,
+        });
+      }).toThrow(
+        'Infinite scroll does not support groups. Please set the "infiniteScroll" prop to "false"'
+      );
+      expect(wrapper).toHaveLoggedVueErrors();
+    });
+
+    it('renders `GlIntersectionObserver` component', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        items: mockOptions,
+        infiniteScroll: true,
+      });
+
+      expect(findIntersectionObserver().exists()).toBe(true);
+    });
+
+    describe('when bottom of listbox is reached', () => {
+      it('emits `bottom-reached` event', () => {
+        buildWrapper({
+          items: mockOptions,
+          infiniteScroll: true,
+        });
+
+        findIntersectionObserver().vm.$emit('appear');
+
+        expect(wrapper.emitted('bottom-reached')).toEqual([[]]);
+      });
+    });
+
+    describe('when `loading` prop is `true`', () => {
+      it('does not render `GlIntersectionObserver` component', () => {
+        buildWrapper({
+          items: mockOptions,
+          infiniteScroll: true,
+          loading: true,
+        });
+
+        expect(findIntersectionObserver().exists()).toBe(false);
+      });
+    });
+
+    describe('when `searching` prop is `true`', () => {
+      it('does not render `GlIntersectionObserver` component', () => {
+        buildWrapper({
+          items: mockOptions,
+          infiniteScroll: true,
+          searching: true,
+        });
+
+        expect(findIntersectionObserver().exists()).toBe(false);
+      });
+    });
+
+    describe('when `infiniteScrollLoading` prop is `true`', () => {
+      beforeEach(() => {
+        buildWrapper({
+          items: mockOptions,
+          infiniteScroll: true,
+          infiniteScrollLoading: true,
+        });
+      });
+
+      it('shows loading icon', () => {
+        expect(wrapper.find('[data-testid="listbox-infinite-scroll-loader"]').exists()).toBe(true);
+      });
+
+      it('does not render `GlIntersectionObserver` component', () => {
+        expect(findIntersectionObserver().exists()).toBe(false);
+      });
+    });
+
+    describe('when `totalItems` prop is set', () => {
+      it('adds `aria-setsize` and `aria-posinset` attributes to listbox items', () => {
+        const totalItems = mockOptions.length;
+
+        buildWrapper({
+          items: mockOptions,
+          infiniteScroll: true,
+          totalItems,
+        });
+
+        findListboxItems().wrappers.forEach((listboxItem, index) => {
+          expect(listboxItem.attributes('aria-setsize')).toBe(totalItems.toString());
+          expect(listboxItem.attributes('aria-posinset')).toBe((index + 1).toString());
+        });
+      });
+    });
+
+    describe('when `totalItems` prop is not set', () => {
+      it('does not add `aria-setsize` and `aria-posinset` attributes to listbox items', () => {
+        buildWrapper({
+          items: mockOptions,
+          infiniteScroll: true,
+        });
+
+        findListboxItems().wrappers.forEach((listboxItem) => {
+          expect(listboxItem.attributes('aria-setsize')).toBe(undefined);
+          expect(listboxItem.attributes('aria-posinset')).toBe(undefined);
+        });
+      });
+    });
+  });
+
+  describe('when `infiniteScroll` prop is `false`', () => {
+    it('does not render `GlIntersectionObserver` component', () => {
+      buildWrapper({
+        items: mockOptions,
+        infiniteScroll: false,
+      });
+
+      expect(findIntersectionObserver().exists()).toBe(false);
     });
   });
 });
