@@ -590,5 +590,8 @@ export const InfiniteScroll = (
 InfiniteScroll.argTypes = {
   ...disableControls(['infiniteScroll', 'infiniteScrollLoading', 'items']),
 };
+InfiniteScroll.parameters = {
+  storyshots: { disable: true },
+};
 InfiniteScroll.args = generateProps();
 InfiniteScroll.decorators = [makeContainer({ height: '370px' })];
