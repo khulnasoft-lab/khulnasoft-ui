@@ -1,3 +1,10 @@
+## [52.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.6.0...v52.6.1) (2022-12-20)
+
+
+### Bug Fixes
+
+* **css:** Disables ligatures for monospaced fonts ([50e208c](https://gitlab.com/gitlab-org/gitlab-ui/commit/50e208c8d0d49acbc2dd21393364bcc02094cbac))
+
 # [52.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.5.0...v52.6.0) (2022-12-16)
 
 
