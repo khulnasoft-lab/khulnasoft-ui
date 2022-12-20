@@ -1,5 +1,5 @@
 import times from 'lodash/times';
-import { SERIES_NAME, SERIES_NAME_SHORT } from '../stories_utils';
+import { SERIES_NAME, SERIES_NAME_SHORT } from '../stories_constants';
 
 import {
   marqueeSelectionSvgPath,

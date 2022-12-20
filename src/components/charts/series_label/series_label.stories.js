@@ -5,7 +5,7 @@ import {
   SERIES_NAME_SHORT,
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
-} from '../../../utils/stories_utils';
+} from '../../../utils/stories_constants';
 import readme from './series_label.md';
 
 const generateProps = ({
