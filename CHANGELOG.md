@@ -1,3 +1,10 @@
+# [52.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.6.1...v52.7.0) (2022-12-20)
+
+
+### Features
+
+* **GlListbox:** Add infinite scroll to listbox ([d42c9e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/d42c9e64745fdc0ee65e1d612712a1aaf61a2228))
+
 ## [52.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.6.0...v52.6.1) (2022-12-20)
 
 
