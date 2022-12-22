@@ -31,6 +31,7 @@ const generateProps = ({
   disabled = defaultValue('disabled'),
   loading = defaultValue('loading'),
   selected = defaultValue('selected'),
+  useTextWrapper = defaultValue('useTextWrapper'),
 } = {}) => ({
   category,
   variant,
@@ -39,6 +40,7 @@ const generateProps = ({
   disabled,
   loading,
   selected,
+  useTextWrapper,
   ...(withLink && {
     href,
     target,
@@ -59,6 +61,7 @@ export const Default = (args, { argTypes = {} }) => ({
         :disabled="disabled"
         :loading="loading"
         :selected="selected"
+        :use-text-wrapper="useTextWrapper"
       >
         This is a button
       </gl-button>

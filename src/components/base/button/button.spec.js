@@ -5,15 +5,28 @@ import GlButton from './button.vue';
 describe('button component', () => {
   let wrapper;
 
+  const DEFAULT_SLOT = 'Select options';
+
   const buildWrapper = (options = {}) => {
     wrapper = mount(GlButton, options);
   };
   const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
+  const findButtonText = () => wrapper.find('.gl-button-text');
 
   it('renders a button', () => {
     buildWrapper();
 
     expect(wrapper.element.tagName).toBe('BUTTON');
+  });
+
+  it('renders content with a text wrapper', () => {
+    buildWrapper({
+      slots: {
+        default: DEFAULT_SLOT,
+      },
+    });
+
+    expect(findButtonText().exists()).toBe(true);
   });
 
   describe('ellipsis button', () => {
@@ -194,6 +207,21 @@ describe('button component', () => {
 
         expect(wrapper.attributes('href')).toBe(unsafeUrl);
       });
+    });
+  });
+
+  describe('useTextWrapper is false', () => {
+    it('renders content without text wrapper', () => {
+      buildWrapper({
+        propsData: {
+          useTextWrapper: false,
+        },
+        slots: {
+          default: DEFAULT_SLOT,
+        },
+      });
+
+      expect(findButtonText().exists()).toBe(false);
     });
   });
 });

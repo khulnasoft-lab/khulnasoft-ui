@@ -62,6 +62,11 @@ export default {
       required: false,
       default: '',
     },
+    useTextWrapper: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -133,6 +138,13 @@ export default {
     <gl-loading-icon v-if="loading" inline class="gl-button-icon gl-button-loading-indicator" />
     <gl-icon v-if="hasIcon && !(hasIconOnly && loading)" class="gl-button-icon" :name="icon" />
     <slot name="emoji"></slot>
-    <span v-if="!hasIconOnly" :class="buttonTextClasses" class="gl-button-text"><slot></slot></span>
+    <template v-if="!hasIconOnly">
+      <span v-if="useTextWrapper" :class="buttonTextClasses" class="gl-button-text"
+        ><slot></slot
+      ></span>
+      <template v-else>
+        <slot></slot>
+      </template>
+    </template>
   </component>
 </template>
