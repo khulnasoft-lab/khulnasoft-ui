@@ -1,3 +1,10 @@
+## [52.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.7.0...v52.7.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* **BroadcastMessage:** remove hardcoded width ([b5eedbd](https://gitlab.com/gitlab-org/gitlab-ui/commit/b5eedbdb79c88724c843bfa9ecf6494d04e1b5d6))
+
 # [52.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.6.1...v52.7.0) (2022-12-20)
 
 
