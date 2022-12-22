@@ -88,6 +88,11 @@ describe('base dropdown', () => {
     });
   });
 
+  it('does not use GlButton text wrapper', () => {
+    buildWrapper();
+    expect(wrapper.find('.gl-button-text').exists()).toBe(false);
+  });
+
   describe.each`
     props                                                            | toggleClasses
     ${{}}                                                            | ${[]}

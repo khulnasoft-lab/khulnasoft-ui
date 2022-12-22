@@ -207,6 +207,7 @@ export default {
       :disabled="disabled"
       :loading="loading"
       :class="toggleButtonClasses"
+      :use-text-wrapper="false"
       :aria-haspopup="ariaHaspopup"
       :aria-expanded="visible"
       :aria-labelledby="toggleLabelledBy"
