@@ -68,10 +68,6 @@
     @include gl-justify-content-center;
   }
 
-  &-text {
-    max-width: $gl-broadcast-message-text-max-width;
-  }
-
   &-icon {
     @include gl-mr-5;
 
