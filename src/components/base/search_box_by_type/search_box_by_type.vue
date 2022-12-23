@@ -25,6 +25,11 @@ export default {
       required: false,
       default: '',
     },
+    borderless: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     clearButtonTitle: {
       type: String,
       required: false,
@@ -113,11 +118,14 @@ export default {
       ref="input"
       :value="value"
       :disabled="disabled"
-      class="gl-search-box-by-type-input"
+      :class="{
+        'gl-search-box-by-type-input': !borderless,
+        'gl-search-box-by-type-input-borderless': borderless,
+      }"
       v-bind="inputAttributes"
       v-on="inputListeners"
     />
-    <div class="gl-search-box-by-type-right-icons">
+    <div v-if="isLoading || showClearButton" class="gl-search-box-by-type-right-icons">
       <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
       <gl-clear-icon-button
         v-if="showClearButton"
