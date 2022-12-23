@@ -65,7 +65,7 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
   @include gl-display-flex;
   @include gl-align-items-center;
   @include gl-line-height-0;
-  @include gl-right-0;
+  @include gl-right-2;
   @include gl-absolute;
   @include gl-h-full;
 }
