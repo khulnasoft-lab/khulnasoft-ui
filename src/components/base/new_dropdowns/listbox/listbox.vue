@@ -614,6 +614,7 @@ export default {
         <template v-if="isOption(item)">
           <gl-listbox-item
             :key="item.value"
+            :data-testid="`listbox-item-${item.value}`"
             :is-selected="isSelected(item)"
             :is-focused="isFocused(item)"
             :is-check-centered="isCheckCentered"
@@ -637,6 +638,7 @@ export default {
             <gl-listbox-item
               v-for="option in item.options"
               :key="option.value"
+              :data-testid="`listbox-item-${option.value}`"
               :is-selected="isSelected(option)"
               :is-focused="isFocused(option)"
               :is-check-centered="isCheckCentered"

@@ -561,4 +561,31 @@ describe('GlListbox', () => {
       expect(findIntersectionObserver().exists()).toBe(false);
     });
   });
+
+  describe('items test IDs without groups', () => {
+    beforeEach(() => {
+      buildWrapper({
+        items: mockOptions,
+      });
+    });
+
+    it.each(mockOptions)('sets the test ID for %s', (option) => {
+      expect(wrapper.find(`[data-testid="listbox-item-${option.value}"]`).exists()).toBe(true);
+    });
+  });
+
+  describe('items test IDs with groups', () => {
+    beforeEach(() => {
+      buildWrapper({
+        items: mockGroups,
+      });
+    });
+
+    it.each([...mockGroups[0].options, ...mockGroups[1].options])(
+      'sets the test ID for %s',
+      (option) => {
+        expect(wrapper.find(`[data-testid="listbox-item-${option.value}"]`).exists()).toBe(true);
+      }
+    );
+  });
 });
