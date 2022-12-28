@@ -1,3 +1,10 @@
+## [52.7.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.7.1...v52.7.2) (2022-12-28)
+
+
+### Bug Fixes
+
+* **GlListbox:** remove input debounce ([dfca4ba](https://gitlab.com/gitlab-org/gitlab-ui/commit/dfca4ba4bae31371efc7ab86917cdbe636a5bfab))
+
 ## [52.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.7.0...v52.7.1) (2022-12-22)
 
 
