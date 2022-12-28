@@ -53,11 +53,9 @@ describe('listbox search input component', () => {
       expect(findInput().element.value).toEqual(newSearchValue);
     });
 
-    it(`emits ${modelEvent} event when input value changes`, () => {
+    it(`emits ${modelEvent} event when input value changes`, async () => {
       findInput().setValue(newSearchValue);
-      jest.advanceTimersByTime(199);
-      expect(wrapper.emitted('input')).toEqual(undefined);
-      jest.advanceTimersByTime(1);
+      await nextTick();
       expect(wrapper.emitted('input')).toEqual([[newSearchValue]]);
     });
   });
