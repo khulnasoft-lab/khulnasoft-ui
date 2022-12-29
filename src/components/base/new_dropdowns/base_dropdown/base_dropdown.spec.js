@@ -42,14 +42,15 @@ describe('base dropdown', () => {
     jest.clearAllMocks();
   });
 
-  const findDropdownToggle = () => wrapper.find('.btn.gl-dropdown-toggle');
+  const findDefaultDropdownToggle = () => wrapper.find('.btn.gl-dropdown-toggle');
+  const findCustomDropdownToggle = () => wrapper.find('.gl-dropdown-custom-toggle');
   const findDropdownMenu = () => wrapper.find('.dropdown-menu');
 
   describe('popper.js instance', () => {
     it('should initialize popper.js instance with toggle and menu elements and config for left-aligned menu', async () => {
       await buildWrapper();
       expect(mockCreatePopper).toHaveBeenCalledWith(
-        findDropdownToggle().element,
+        findDefaultDropdownToggle().element,
         findDropdownMenu().element,
         { ...POPPER_CONFIG, placement: 'bottom-start' }
       );
@@ -58,7 +59,7 @@ describe('base dropdown', () => {
     it('should initialize popper.js instance with toggle and menu elements and config for right-aligned menu', async () => {
       await buildWrapper({ right: true });
       expect(mockCreatePopper).toHaveBeenCalledWith(
-        findDropdownToggle().element,
+        findDefaultDropdownToggle().element,
         findDropdownMenu().element,
         { ...POPPER_CONFIG, placement: 'bottom-end' }
       );
@@ -66,7 +67,7 @@ describe('base dropdown', () => {
 
     it('should update popper instance when component is updated', async () => {
       await buildWrapper();
-      await findDropdownToggle().trigger('click');
+      await findDefaultDropdownToggle().trigger('click');
       await wrapper.setProps({ category: 'tertiary' });
       expect(updatePopper).toHaveBeenCalled();
     });
@@ -105,7 +106,7 @@ describe('base dropdown', () => {
     });
 
     it(`sets toggle button classes to '${toggleClasses}'`, () => {
-      const classes = findDropdownToggle().classes().sort();
+      const classes = findDefaultDropdownToggle().classes().sort();
 
       expect(classes).toEqual([...DEFAULT_BTN_TOGGLE_CLASSES, ...toggleClasses].sort());
     });
@@ -125,7 +126,7 @@ describe('base dropdown', () => {
     });
 
     it(`class is inherited from toggle class of type ${type}`, () => {
-      expect(findDropdownToggle().classes().sort()).toEqual(
+      expect(findDefaultDropdownToggle().classes().sort()).toEqual(
         expect.arrayContaining(expectedClasses.sort())
       );
     });
@@ -137,7 +138,7 @@ describe('base dropdown', () => {
     });
 
     it('should toggle menu visibility on toggle button click', async () => {
-      const toggle = findDropdownToggle();
+      const toggle = findDefaultDropdownToggle();
       const menu = findDropdownMenu();
 
       // open menu clicking toggle btn
@@ -155,7 +156,7 @@ describe('base dropdown', () => {
     });
 
     it('should close the menu when Escape is pressed inside menu and focus toggle', async () => {
-      const toggle = findDropdownToggle();
+      const toggle = findDefaultDropdownToggle();
       const menu = findDropdownMenu();
 
       // open menu clicking toggle btn
@@ -168,6 +169,61 @@ describe('base dropdown', () => {
       expect(toggle.attributes('aria-expanded')).toBeUndefined();
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
       expect(toggle.element).toHaveFocus();
+    });
+  });
+
+  describe('Custom toggle', () => {
+    const toggleContent = '<div>Custom toggle</div>';
+
+    beforeEach(() => {
+      const slots = { toggle: toggleContent };
+      buildWrapper({}, slots);
+    });
+
+    it('does not render default toggle button', () => {
+      expect(findDefaultDropdownToggle().exists()).toBe(false);
+    });
+
+    it('renders the custom toggle instead', () => {
+      expect(findCustomDropdownToggle().exists()).toBe(true);
+    });
+
+    it('renders provided via slot content as custom toggle', () => {
+      expect(findCustomDropdownToggle().html()).toContain(toggleContent);
+    });
+
+    describe('toggle visibility', () => {
+      it('should toggle menu visibility on toggle button ENTER', async () => {
+        const toggle = findCustomDropdownToggle();
+        const menu = findDropdownMenu();
+        // open menu clicking toggle btn
+        await toggle.trigger('keydown.enter');
+        expect(menu.classes('show')).toBe(true);
+        expect(toggle.attributes('aria-expanded')).toBe('true');
+        await nextTick();
+        expect(wrapper.emitted(GL_DROPDOWN_SHOWN).length).toBe(1);
+
+        // close menu clicking toggle btn again
+        await toggle.trigger('keydown.enter');
+        expect(menu.classes('show')).toBe(false);
+        expect(toggle.attributes('aria-expanded')).toBeUndefined();
+        expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
+      });
+
+      it('should close the menu when Escape is pressed inside menu and focus toggle', async () => {
+        const toggle = findCustomDropdownToggle();
+        const menu = findDropdownMenu();
+        // open menu clicking toggle btn
+        await toggle.trigger('click');
+        expect(menu.classes('show')).toBe(true);
+
+        // close menu pressing ESC on it
+        await menu.trigger('keydown.esc');
+        expect(menu.classes('show')).toBe(false);
+        expect(toggle.attributes('aria-expanded')).toBeUndefined();
+        expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
+        expect(toggle.element).toHaveFocus();
+      });
     });
   });
 });

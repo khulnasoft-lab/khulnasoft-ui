@@ -334,6 +334,9 @@ export default {
     showIntersectionObserver() {
       return this.infiniteScroll && !this.infiniteScrollLoading && !this.loading && !this.searching;
     },
+    hasCustomToggle() {
+      return Boolean(this.$scopedSlots.toggle);
+    },
   },
   watch: {
     selected: {
@@ -558,6 +561,11 @@ export default {
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
   >
+    <template v-if="hasCustomToggle" #toggle>
+      <!-- @slot Custom toggle content -->
+      <slot name="toggle"></slot>
+    </template>
+
     <div
       v-if="headerText"
       class="gl-display-flex gl-align-items-center gl-p-4! gl-min-h-8"

@@ -131,6 +131,32 @@ export default {
     toggleLabelledBy() {
       return this.ariaLabelledby ? `${this.ariaLabelledby} ${this.toggleId}` : this.toggleId;
     },
+    isDefaultToggle() {
+      return !this.$scopedSlots.toggle;
+    },
+    toggleOptions() {
+      if (this.isDefaultToggle) {
+        return {
+          is: GlButton,
+          icon: this.icon,
+          category: this.category,
+          variant: this.variant,
+          size: this.size,
+          disabled: this.disabled,
+          loading: this.loading,
+          class: this.toggleButtonClasses,
+        };
+      }
+
+      return {
+        is: 'div',
+        class: 'gl-dropdown-custom-toggle gl-hover-cursor-pointer',
+        tabindex: '0',
+      };
+    },
+    toggleElement() {
+      return this.$refs.toggle.$el || this.$refs.toggle;
+    },
     popperConfig() {
       return {
         placement: this.right ? 'bottom-end' : 'bottom-start',
@@ -140,7 +166,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.popper = createPopper(this.$refs.toggle.$el, this.$refs.content, this.popperConfig);
+      this.popper = createPopper(this.toggleElement, this.$refs.content, this.popperConfig);
     });
   },
   beforeDestroy() {
@@ -159,7 +185,7 @@ export default {
           "Unfortunately there's not any way to compute the position of an element not rendered in the document".
           Then we `await` while the new dropdown position is calculated and DOM updated accordingly.
           After we can  emit the `GL_DROPDOWN_SHOWN` event to the parent which might interact with updated  dropdown,
-          e.g. set focus..
+          e.g. set focus.
          */
         await this.$nextTick();
         await this.popper?.update();
@@ -188,35 +214,37 @@ export default {
       this.focusToggle();
     },
     focusToggle() {
-      this.$refs.toggle.$el.focus();
+      this.toggleElement.focus();
     },
   },
 };
 </script>
 
 <template>
-  <div v-outside="close" class="gl-dropdown dropdown btn-group">
-    <gl-button
+  <div
+    v-outside="close"
+    class="gl-dropdown dropdown gl-display-inline-flex gl-vertical-align-middle"
+  >
+    <component
+      :is="toggleOptions.is"
+      v-bind="toggleOptions"
       :id="toggleId"
       ref="toggle"
       data-testid="base-dropdown-toggle"
-      :icon="icon"
-      :category="category"
-      :variant="variant"
-      :size="size"
-      :disabled="disabled"
-      :loading="loading"
-      :class="toggleButtonClasses"
       :aria-haspopup="ariaHaspopup"
       :aria-expanded="visible"
       :aria-labelledby="toggleLabelledBy"
+      @keydown.enter="toggle"
       @click="toggle"
     >
-      <span class="gl-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
-        {{ toggleText }}
-      </span>
-      <gl-icon v-if="!noCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />
-    </gl-button>
+      <!-- @slot Custom toggle button content -->
+      <slot name="toggle">
+        <span class="gl-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
+          {{ toggleText }}
+        </span>
+        <gl-icon v-if="!noCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />
+      </slot>
+    </component>
 
     <div
       ref="content"

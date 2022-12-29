@@ -66,3 +66,24 @@ export const mockGroups = [
     ],
   },
 ];
+
+export const mockUsers = [
+  {
+    value: 'mikegreiling',
+    text: 'Mike Greiling',
+    secondaryText: '@mikegreiling',
+    icon: 'foo',
+  },
+  {
+    value: 'ohoral',
+    text: 'Olena Horal-Koretska',
+    secondaryText: '@ohoral',
+    icon: 'bar',
+  },
+  {
+    value: 'markian',
+    text: 'Mark Florian',
+    secondaryText: '@markian',
+    icon: 'bin',
+  },
+];
