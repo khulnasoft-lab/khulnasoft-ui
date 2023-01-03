@@ -105,7 +105,7 @@ export default {
       type: String,
       required: false,
       default: buttonCategoryOptions.primary,
-      validator: (value) => Object.keys(buttonCategoryOptions).includes(value),
+      validator: (value) => value in buttonCategoryOptions,
     },
     /**
      * Styling option - dropdown's toggle variant
@@ -114,7 +114,7 @@ export default {
       type: String,
       required: false,
       default: dropdownVariantOptions.default,
-      validator: (value) => Object.keys(dropdownVariantOptions).includes(value),
+      validator: (value) => value in dropdownVariantOptions,
     },
     /**
      * The size of the dropdown toggle
@@ -123,7 +123,7 @@ export default {
       type: String,
       required: false,
       default: 'medium',
-      validator: (value) => Object.keys(buttonSizeOptions).includes(value),
+      validator: (value) => value in buttonSizeOptions,
     },
     /**
      * Icon name that will be rendered in the toggle button
@@ -610,7 +610,7 @@ export default {
     <component
       :is="listboxTag"
       v-if="showList"
-      id="listbox"
+      :id="listboxId"
       ref="list"
       :aria-labelledby="listAriaLabelledBy || headerId || toggleId"
       role="listbox"

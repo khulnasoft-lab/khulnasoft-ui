@@ -16,7 +16,7 @@ export default {
 
 <template>
   <ul role="group" :aria-labelledby="nameId" class="gl-mb-0 gl-pl-0 gl-list-style-none">
-    <li :id="nameId" role="presentation" class="gl-pl-5! gl-py-2! gl-font-base gl-font-weight-bold">
+    <li :id="nameId" role="presentation" class="gl-pl-5! gl-py-2! gl-font-sm gl-font-weight-bold">
       <slot name="group-label">{{ name }}</slot>
     </li>
     <slot></slot>

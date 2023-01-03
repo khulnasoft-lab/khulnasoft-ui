@@ -3,6 +3,7 @@
 // @import '../components/base/dropdown/dropdown'
 //
 // ADD COMPONENT IMPORTS - needed for yarn generate:component. Do not remove
+@import '../components/base/new_dropdowns/disclosure/disclosure_dropdown';
 @import '../components/base/keyset_pagination/keyset_pagination';
 @import '../components/charts/gauge/gauge';
 @import '../components/base/token_selector/token_selector';
@@ -75,4 +76,5 @@
 @import '../components/shared_components/charts/tooltip_default_format';
 @import '../components/utilities/truncate/truncate';
 @import '../components/base/new_dropdowns/base_dropdown/base_dropdown';
+@import '../components/base/new_dropdowns/dropdown';
 @import '../components/base/new_dropdowns/listbox/listbox';

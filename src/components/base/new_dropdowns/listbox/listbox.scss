@@ -40,9 +40,3 @@ $clear-button-size: 24px;
     right: $gl-spacing-scale-2;
   }
 }
-
-.gl-listbox-item {
-  &:focus {
-    @include gl-focus($inset: true);
-  }
-}

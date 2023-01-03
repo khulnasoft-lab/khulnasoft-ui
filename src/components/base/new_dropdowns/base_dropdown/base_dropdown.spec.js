@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { GL_DROPDOWN_HIDDEN, GL_DROPDOWN_SHOWN, POPPER_CONFIG } from '../constants';
+import { ENTER, GL_DROPDOWN_HIDDEN, GL_DROPDOWN_SHOWN, POPPER_CONFIG } from '../constants';
 import GlBaseDropdown from './base_dropdown.vue';
 
 const destroyPopper = jest.fn();
@@ -197,14 +197,14 @@ describe('base dropdown', () => {
         const toggle = findCustomDropdownToggle();
         const menu = findDropdownMenu();
         // open menu clicking toggle btn
-        await toggle.trigger('keydown.enter');
+        await toggle.trigger('keydown', { code: ENTER });
         expect(menu.classes('show')).toBe(true);
         expect(toggle.attributes('aria-expanded')).toBe('true');
         await nextTick();
         expect(wrapper.emitted(GL_DROPDOWN_SHOWN).length).toBe(1);
 
         // close menu clicking toggle btn again
-        await toggle.trigger('keydown.enter');
+        await toggle.trigger('keydown', { code: ENTER });
         expect(menu.classes('show')).toBe(false);
         expect(toggle.attributes('aria-expanded')).toBeUndefined();
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);

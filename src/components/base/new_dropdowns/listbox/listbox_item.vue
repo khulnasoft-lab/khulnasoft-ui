@@ -51,7 +51,7 @@ export default {
 
 <template>
   <li
-    class="gl-dropdown-item gl-listbox-item"
+    class="gl-dropdown-item gl-focusable-dropdown-item"
     role="option"
     :tabindex="isFocused ? 0 : -1"
     :aria-selected="isSelected"
