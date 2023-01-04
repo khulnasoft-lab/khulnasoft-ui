@@ -2,6 +2,20 @@ import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
 
 describe('FilteredSearchUtils', () => {
   describe('splitOnQuotes', () => {
+    it.each`
+      token                | result
+      ${'"foo bar'}        | ${[]}
+      ${'"foo bar\''}      | ${[]}
+      ${'"foo" bar'}       | ${[]}
+      ${'"foo" \'bar\''}   | ${[]}
+      ${'foo "bar"'}       | ${['foo']}
+      ${'foo "bar" "baz"'} | ${['foo', '"bar "', 'baz']}
+      ${'"foo" "bar"'}     | ${['"foo" "bar"']}
+      ${'"foo" "bar baz"'} | ${['"foo" "bar baz"']}
+    `('given "$token" returns $result', ({ token, result }) => {
+      expect(splitOnQuotes(token)).toEqual(result);
+    });
+
     it('returns token as an array', () => {
       const token = 'token';
 
