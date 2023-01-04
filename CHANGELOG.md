@@ -1,3 +1,11 @@
+# [52.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.8.0...v52.9.0) (2023-01-04)
+
+
+### Features
+
+* **GlSearchBoxByType:** Add support for a borderless variant ([b45ad66](https://gitlab.com/gitlab-org/gitlab-ui/commit/b45ad66fc6f9f8c0feb1b15384c3f5b75f944a01))
+* **GlSearchBoxByType:** Increase right button indentation ([de766e4](https://gitlab.com/gitlab-org/gitlab-ui/commit/de766e4aadb05d1cea7d79f02b43dfc3c7075a25))
+
 # [52.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.7.3...v52.8.0) (2023-01-04)
 
 
