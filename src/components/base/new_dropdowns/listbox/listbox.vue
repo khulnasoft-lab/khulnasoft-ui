@@ -652,17 +652,14 @@ export default {
           </gl-listbox-group>
         </template>
       </template>
+      <component :is="listboxTag === 'ul' ? 'li' : 'div'" v-if="infiniteScrollLoading">
+        <gl-loading-icon data-testid="listbox-infinite-scroll-loader" size="md" class="gl-my-3" />
+      </component>
       <gl-intersection-observer
         v-if="showIntersectionObserver"
         @appear="onIntersectionObserverAppear"
       />
     </component>
-    <gl-loading-icon
-      v-if="infiniteScrollLoading"
-      data-testid="listbox-infinite-scroll-loader"
-      size="md"
-      class="gl-my-3"
-    />
     <span
       v-if="announceSRSearchResults"
       data-testid="listbox-number-of-results"
