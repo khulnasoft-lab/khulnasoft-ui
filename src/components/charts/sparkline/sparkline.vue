@@ -73,7 +73,7 @@ export default {
       default: () => [],
     },
     /**
-     * Apply smoothing to the sparkline
+     * The smoothness of the line, valued from 0 to 1. A smaller value makes it less smooth.
      */
     smooth: {
       type: Number,
