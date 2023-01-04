@@ -72,6 +72,15 @@ export default {
       required: false,
       default: () => [],
     },
+    /**
+     * Apply smoothing to the sparkline
+     */
+    smooth: {
+      type: Number,
+      required: false,
+      default: 0,
+      validator: (x) => x >= 0 && x <= 1,
+    },
   },
   data() {
     return {
@@ -120,7 +129,21 @@ export default {
       return mergeSeriesToOptions(mergedOptions, this.series);
     },
     series() {
-      const { data } = this;
+      const { data, smooth, itemStyle, showLastYValue } = this;
+      const markPoint = showLastYValue
+        ? {
+            symbol: 'circle',
+            cursor: 'auto',
+            animation: false,
+            symbolSize,
+            data: [
+              {
+                xAxis: data.length - 1,
+                yAxis: data[data.length - 1][1],
+              },
+            ],
+          }
+        : undefined;
       return {
         type: 'line',
         symbol: 'circle',
@@ -128,20 +151,10 @@ export default {
         animation: true,
         cursor: 'auto',
         symbolSize,
-        markPoint: {
-          symbol: 'circle',
-          cursor: 'auto',
-          animation: false,
-          symbolSize,
-          data: [
-            {
-              xAxis: data.length - 1,
-              yAxis: data[data.length - 1][1],
-            },
-          ],
-        },
+        markPoint,
         data,
-        itemStyle: this.itemStyle,
+        smooth,
+        itemStyle,
       };
     },
     itemStyle() {

@@ -24,12 +24,14 @@ const generateProps = ({
   tooltipLabel = 'tooltipLabel',
   showLastYValue = true,
   gradient,
+  smooth,
 } = {}) => ({
   data,
   height,
   tooltipLabel,
   showLastYValue,
   gradient,
+  smooth,
 });
 
 const Template = (args) => ({
@@ -43,6 +45,7 @@ const Template = (args) => ({
         :tooltip-label="tooltipLabel"
         :show-last-y-value="showLastYValue"
         :gradient="gradient"
+        :smooth="smooth"
       />
     </div>`,
 });
@@ -52,6 +55,9 @@ Default.args = generateProps();
 
 export const WithChartColorGradient = Template.bind({});
 WithChartColorGradient.args = generateProps({ gradient: customGradient });
+
+export const WithSmoothing = Template.bind({});
+WithSmoothing.args = generateProps({ smooth: 0.5 });
 
 export default {
   title: 'charts/sparkline-chart',
