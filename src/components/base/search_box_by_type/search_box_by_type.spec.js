@@ -16,6 +16,20 @@ describe('search box by type component', () => {
   const findClearIcon = () => wrapper.findComponent(ClearIcon);
   const findInput = () => wrapper.findComponent({ ref: 'input' });
 
+  describe('borderless', () => {
+    it('renders default class on input when `borderless` prop is false', () => {
+      createComponent({ borderless: false });
+
+      expect(findInput().classes()).toContain('gl-search-box-by-type-input');
+    });
+
+    it('renders borderless class on input when `borderless` prop is true', () => {
+      createComponent({ borderless: true });
+
+      expect(findInput().classes()).toContain('gl-search-box-by-type-input-borderless');
+    });
+  });
+
   describe('clear icon component', () => {
     beforeEach(() => {
       createComponent({ value: 'somevalue' });
