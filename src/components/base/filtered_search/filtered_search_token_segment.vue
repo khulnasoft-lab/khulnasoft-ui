@@ -4,7 +4,6 @@ import { Portal } from 'portal-vue';
 import { COMMA, LEFT_MOUSE_BUTTON } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
-import { wrapTokenInQuotes } from './filtered_search_utils';
 
 // We need some helpers to ensure @vue/compat compatibility
 // @vue/compat will render comment nodes for v-if and comments in HTML
@@ -250,18 +249,16 @@ export default {
     },
 
     applySuggestion(suggestedValue) {
-      const formattedSuggestedValue = wrapTokenInQuotes(suggestedValue);
-
       /**
        * Emitted when autocomplete entry is selected.
        *
        * @type {string} value The selected value.
        */
-      this.$emit('select', formattedSuggestedValue);
+      this.$emit('select', suggestedValue);
 
       if (!this.multiSelect) {
-        this.$emit('input', formattedSuggestedValue);
-        this.$emit('complete', formattedSuggestedValue);
+        this.$emit('input', suggestedValue);
+        this.$emit('complete', suggestedValue);
       }
     },
 
