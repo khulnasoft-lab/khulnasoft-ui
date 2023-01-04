@@ -329,6 +329,23 @@ export const Default = () => ({
   template: `<gl-filtered-search :available-tokens="tokens" :value="value" />`,
 });
 
+export const WithTermsAsTokens = () => ({
+  data() {
+    return {
+      tokens,
+      value: [
+        { type: 'author', value: { data: 'beta', operator: '=' } },
+        { type: 'label', value: { data: 'Bug', operator: '=' } },
+        'raw text',
+      ],
+    };
+  },
+  components,
+  template: `
+    <gl-filtered-search :available-tokens="tokens" v-model="value" terms-as-tokens />
+  `,
+});
+
 export const ViewOnly = () => ({
   data() {
     return {

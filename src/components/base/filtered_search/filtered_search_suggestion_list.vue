@@ -6,7 +6,7 @@ const NO_ACTIVE_ITEM = -2;
 
 export default {
   name: 'GlFilteredSearchSuggestionList',
-  inject: ['suggestionsListClass'],
+  inject: ['suggestionsListClass', 'termsAsTokens'],
   provide() {
     return {
       filteredSearchSuggestionListInstance: this,
@@ -40,7 +40,7 @@ export default {
       return this.registeredItems[this.initialActiveIdx];
     },
     activeItem() {
-      if (this.activeIdx === NO_ACTIVE_ITEM) return null;
+      if (!this.termsAsTokens() && this.activeIdx === NO_ACTIVE_ITEM) return null;
       if (this.activeIdx === DEFER_TO_INITIAL_VALUE) return this.initialActiveItem;
       return this.registeredItems[this.activeIdx];
     },
@@ -76,15 +76,24 @@ export default {
       }
     },
     nextItem() {
-      this.stepItem(1, this.registeredItems.length - 1);
+      if (this.termsAsTokens()) {
+        this.stepItem(1);
+      } else {
+        this.stepItem(1, this.registeredItems.length - 1);
+      }
     },
     prevItem() {
-      this.stepItem(-1, 0);
+      if (this.termsAsTokens()) {
+        this.stepItem(-1);
+      } else {
+        this.stepItem(-1, 0);
+      }
     },
     stepItem(direction, endIdx) {
       if (
-        this.activeIdx === endIdx ||
-        (this.activeIdx === DEFER_TO_INITIAL_VALUE && this.initialActiveIdx === endIdx)
+        !this.termsAsTokens() &&
+        (this.activeIdx === endIdx ||
+          (this.activeIdx === DEFER_TO_INITIAL_VALUE && this.initialActiveIdx === endIdx))
       ) {
         // The user wants to move past the end of the list, so ensure nothing is selected.
         this.activeIdx = NO_ACTIVE_ITEM;

@@ -4,7 +4,7 @@ import { Portal } from 'portal-vue';
 import { COMMA, LEFT_MOUSE_BUTTON } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
-import { splitOnQuotes, wrapTokenInQuotes, match } from './filtered_search_utils';
+import { splitOnQuotes, wrapTokenInQuotes, match, TERM_TOKEN_TYPE } from './filtered_search_utils';
 
 // We need some helpers to ensure @vue/compat compatibility
 // @vue/compat will render comment nodes for v-if and comments in HTML
@@ -51,7 +51,7 @@ export default {
     GlFilteredSearchSuggestionList,
     GlFilteredSearchSuggestion,
   },
-  inject: ['portalName', 'alignSuggestions'],
+  inject: ['portalName', 'alignSuggestions', 'termsAsTokens'],
   inheritAttrs: false,
   props: {
     /**
@@ -140,6 +140,13 @@ export default {
   },
 
   computed: {
+    hasTermSuggestion() {
+      if (!this.termsAsTokens()) return false;
+      if (!this.options) return false;
+
+      return this.options.some(({ value }) => value === TERM_TOKEN_TYPE);
+    },
+
     matchingOption() {
       return this.options?.find((o) => o.value === this.value);
     },
@@ -182,7 +189,10 @@ export default {
         const option =
           this.getMatchingOptionForInputValue(this.inputValue) ||
           this.getMatchingOptionForInputValue(this.inputValue, { loose: true });
-        return option?.value;
+
+        if (option) return option.value;
+        if (this.hasTermSuggestion) return TERM_TOKEN_TYPE;
+        return null;
       }
 
       const defaultOption = this.options.find((op) => op.default);
@@ -216,6 +226,8 @@ export default {
     },
 
     inputValue(newValue) {
+      if (this.termsAsTokens()) return;
+
       const hasUnclosedQuote = newValue.split('"').length % 2 === 0;
       if (newValue.indexOf(' ') === -1 || hasUnclosedQuote) {
         return;
@@ -282,7 +294,9 @@ export default {
     },
 
     applySuggestion(suggestedValue) {
-      const formattedSuggestedValue = wrapTokenInQuotes(suggestedValue);
+      const formattedSuggestedValue = this.termsAsTokens()
+        ? suggestedValue
+        : wrapTokenInQuotes(suggestedValue);
 
       /**
        * Emitted when autocomplete entry is selected.
@@ -292,7 +306,10 @@ export default {
       this.$emit('select', formattedSuggestedValue);
 
       if (!this.multiSelect) {
-        this.$emit('input', formattedSuggestedValue);
+        this.$emit(
+          'input',
+          formattedSuggestedValue === TERM_TOKEN_TYPE ? this.inputValue : formattedSuggestedValue
+        );
         this.$emit('complete', formattedSuggestedValue);
       }
     },

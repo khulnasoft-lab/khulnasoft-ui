@@ -9,7 +9,7 @@ describe('Filtered search suggestion list component', () => {
   describe('suggestions API', () => {
     beforeEach(() => {
       wrapper = shallowMount(FilteredSearchSuggestionList, {
-        provide: { suggestionsListClass: () => 'custom-class' },
+        provide: { suggestionsListClass: () => 'custom-class', termsAsTokens: () => false },
       });
     });
 
@@ -101,7 +101,7 @@ describe('Filtered search suggestion list component', () => {
 
     beforeEach(() => {
       wrapper = mount(FilteredSearchSuggestionList, {
-        provide: { suggestionsListClass: () => 'custom-class' },
+        provide: { suggestionsListClass: () => 'custom-class', termsAsTokens: () => false },
         slots: {
           default: list,
         },

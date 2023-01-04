@@ -1,12 +1,23 @@
 <script>
+import GlToken from '../token/token.vue';
+import { stopEvent } from '../../../utils/utils';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
-import { INTENT_ACTIVATE_PREVIOUS, match, tokenToOption } from './filtered_search_utils';
+import {
+  INTENT_ACTIVATE_PREVIOUS,
+  TERM_TOKEN_TYPE,
+  TOKEN_CLOSE_SELECTOR,
+  match,
+  tokenToOption,
+  termTokenDefinition,
+} from './filtered_search_utils';
 
 export default {
   name: 'GlFilteredSearchTerm',
   components: {
     GlFilteredSearchTokenSegment,
+    GlToken,
   },
+  inject: ['termsAsTokens'],
   inheritAttrs: false,
   props: {
     /**
@@ -67,6 +78,14 @@ export default {
       default: 'end',
       validator: (value) => ['start', 'end'].includes(value),
     },
+    /**
+     * The title of the text search option. Ignored unless termsAsTokens is enabled.
+     */
+    searchTextOptionLabel: {
+      type: String,
+      required: false,
+      default: null,
+    },
     viewOnly: {
       type: Boolean,
       required: false,
@@ -74,10 +93,22 @@ export default {
     },
   },
   computed: {
+    showInput() {
+      return this.termsAsTokens() || Boolean(this.placeholder);
+    },
+    showToken() {
+      return this.termsAsTokens() && Boolean(this.value.data);
+    },
     suggestedTokens() {
-      return this.availableTokens
-        .filter((token) => match(token.title, this.value.data))
-        .map(tokenToOption);
+      const tokens = this.availableTokens.filter((token) => match(token.title, this.value.data));
+      if (this.termsAsTokens() && this.value.data) {
+        tokens.push({
+          ...termTokenDefinition,
+          title: this.searchTextOptionLabel,
+        });
+      }
+
+      return tokens.map(tokenToOption);
     },
     internalValue: {
       get() {
@@ -93,6 +124,9 @@ export default {
         this.$emit('input', { data });
       },
     },
+    eventListeners() {
+      return this.viewOnly ? {} : { mousedown: this.destroyByClose };
+    },
   },
   methods: {
     onBackspace() {
@@ -104,6 +138,21 @@ export default {
        * @type {object} details The user intent
        */
       this.$emit('destroy', { intent: INTENT_ACTIVATE_PREVIOUS });
+    },
+    destroyByClose(event) {
+      if (event.target.closest(TOKEN_CLOSE_SELECTOR)) {
+        stopEvent(event);
+        this.$emit('destroy');
+      }
+    },
+    onComplete(type) {
+      if (type === TERM_TOKEN_TYPE) {
+        // We've completed this term token
+        this.$emit('complete');
+      } else {
+        // We're changing the current token type
+        this.$emit('replace', { type });
+      }
     },
   },
 };
@@ -134,6 +183,7 @@ export default {
 
     <!--
       Emitted when Space is pressed in-between term text.
+      Not emitted when termsAsTokens is true.
       @event split
       @property {array} newTokens Token configurations
     -->
@@ -152,7 +202,7 @@ export default {
       :options="suggestedTokens"
       @activate="$emit('activate')"
       @deactivate="$emit('deactivate')"
-      @complete="$emit('replace', { type: $event })"
+      @complete="onComplete"
       @backspace="onBackspace"
       @submit="$emit('submit')"
       @split="$emit('split', $event)"
@@ -160,8 +210,16 @@ export default {
       @next="$emit('next')"
     >
       <template #view>
+        <gl-token
+          v-if="showToken"
+          :class="{ 'gl-cursor-pointer': !viewOnly }"
+          :view-only="viewOnly"
+          v-on="eventListeners"
+          >{{ value.data }}</gl-token
+        >
+
         <input
-          v-if="placeholder"
+          v-else-if="showInput"
           v-bind="searchInputAttributes"
           class="gl-filtered-search-term-input"
           :class="{ 'gl-bg-gray-10': viewOnly }"

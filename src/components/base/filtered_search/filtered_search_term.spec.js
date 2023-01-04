@@ -28,6 +28,9 @@ describe('Filtered search term', () => {
   const createComponent = (props) => {
     wrapper = shallowMount(FilteredSearchTerm, {
       propsData: { ...defaultProps, ...props },
+      provide: {
+        termsAsTokens: () => false,
+      },
       stubs: {
         'gl-filtered-search-token-segment': segmentStub,
       },
