@@ -1,3 +1,10 @@
+## [52.7.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.7.2...v52.7.3) (2023-01-04)
+
+
+### Bug Fixes
+
+* **GlListbox:** move loading icon to list container ([13fca59](https://gitlab.com/gitlab-org/gitlab-ui/commit/13fca596c30888e7bd7a010348c0f08f72d9ef3a))
+
 ## [52.7.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.7.1...v52.7.2) (2022-12-28)
 
 
