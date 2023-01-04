@@ -16,7 +16,7 @@ import { makeContainer } from '../../../../utils/story_decorators/container';
 import { disableControls } from '../../../../utils/stories_utils';
 import { setStoryTimeout } from '../../../../utils/test_utils';
 import readme from './listbox.md';
-import { mockOptions, mockGroups } from './mock_data';
+import { mockOptions, mockGroups, mockUsers } from './mock_data';
 import { flattenedOptions } from './utils';
 
 const defaultValue = (prop) => GlListbox.props[prop].default;
@@ -202,7 +202,7 @@ export const CustomListItem = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      selected: ['mikegreiling'],
+      selected: [mockUsers[0].value],
     };
   },
   components: {
@@ -229,15 +229,15 @@ export const CustomListItem = (args, { argTypes }) => ({
   },
   template: template(
     `<template #list-item="{ item }">
-          <span class="gl-display-flex gl-align-items-center">
-            <gl-avatar :size="32" class-="gl-mr-3"/>
-              <span class="gl-display-flex gl-flex-direction-column">
-                <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
-                <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
+              <span class="gl-display-flex gl-align-items-center">
+                <gl-avatar :size="32" :entity-name="item.value" class-="gl-mr-3"/>
+                  <span class="gl-display-flex gl-flex-direction-column">
+                    <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
+                    <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
+                  </span>
               </span>
-          </span>
-    </template>
-  `,
+            </template>
+        `,
     {
       bindingOverrides: {
         ':toggle-text': 'customToggleText',
@@ -248,22 +248,52 @@ export const CustomListItem = (args, { argTypes }) => ({
 });
 
 CustomListItem.args = generateProps({
-  items: [
-    {
-      value: 'mikegreiling',
-      text: 'Mike Greiling',
-      secondaryText: '@mikegreiling',
-      icon: 'foo',
-    },
-    { value: 'ohoral', text: 'Olena Horal-Koretska', secondaryText: '@ohoral', icon: 'bar' },
-    { value: 'markian', text: 'Mark Florian', secondaryText: '@markian', icon: 'bin' },
-  ],
+  items: mockUsers,
   multiple: true,
   isCheckCentered: true,
   headerText: 'Select assignees',
   resetButtonLabel: 'Unassign',
 });
 CustomListItem.decorators = [makeContainer({ height: '200px' })];
+
+export const CustomToggle = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlListbox,
+    GlAvatar,
+  },
+  data() {
+    return {
+      selected: mockUsers[1].value,
+    };
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  template: template(
+    `
+    <template #toggle>
+      <gl-avatar :size="32" :entity-name="selected"></gl-avatar>
+    </template>
+    <template #list-item="{ item }">
+      <span class="gl-display-flex gl-align-items-center">
+        <gl-avatar :size="32" :entity-name="item.value" class-="gl-mr-3"/>
+          <span class="gl-display-flex gl-flex-direction-column">
+            <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
+            <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
+          </span>
+      </span>
+    </template>
+  `
+  ),
+});
+CustomToggle.args = generateProps({
+  items: mockUsers,
+  isCheckCentered: true,
+});
+CustomToggle.decorators = [makeContainer({ height: '200px' })];
 
 const makeGroupedExample = (changes) => {
   const story = (args, { argTypes }) => ({
