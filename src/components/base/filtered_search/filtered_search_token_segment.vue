@@ -218,7 +218,7 @@ export default {
 
     getMatchingOptionForInputValue(v, { loose } = { loose: false }) {
       return this.options?.find((o) =>
-        loose ? o[this.optionTextField].startsWith(v) : [this.optionTextField] === v
+        loose ? o[this.optionTextField].startsWith(v) : o[this.optionTextField] === v
       );
     },
 
