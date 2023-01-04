@@ -18,6 +18,8 @@ export function normalizeTokens(tokens) {
     if (token.type !== TERM_TOKEN_TYPE) {
       result.push({ ...token });
     } else if (result.length > 0 && typeof result[result.length - 1] === 'string') {
+      // TODO: Consider concatenating _all_ free text terms, rather than just
+      // consecutive ones
       result[result.length - 1] += ` ${token.value.data}`;
     } else {
       result.push(token.value.data);
