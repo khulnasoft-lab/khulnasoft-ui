@@ -4,7 +4,7 @@ import { Portal } from 'portal-vue';
 import { COMMA, LEFT_MOUSE_BUTTON } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
-import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
+import { wrapTokenInQuotes } from './filtered_search_utils';
 
 // We need some helpers to ensure @vue/compat compatibility
 // @vue/compat will render comment nodes for v-if and comments in HTML
@@ -202,23 +202,7 @@ export default {
     },
 
     inputValue(newValue) {
-      const hasUnclosedQuote = newValue.split('"').length % 2 === 0;
-      if (newValue.indexOf(' ') === -1 || hasUnclosedQuote) {
-        return;
-      }
-
-      const [firstWord, ...otherWords] = splitOnQuotes(newValue).filter(
-        (w, idx, arr) => Boolean(w) || idx === arr.length - 1
-      );
-      this.$emit('input', this.getMatchingOptionForInputValue(firstWord)?.value ?? firstWord);
-
-      if (otherWords.length) {
-        /**
-         * Emitted when Space appears in token segment value
-         * @property {array|string} newStrings New strings to be converted into term tokens
-         */
-        this.$emit('split', otherWords);
-      }
+      this.$emit('input', this.getMatchingOptionForInputValue(newValue)?.value ?? newValue);
     },
   },
 

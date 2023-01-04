@@ -313,23 +313,6 @@ export default {
       this.activeTokenIdx = idx;
     },
 
-    createTokens(idx, newStrings = ['']) {
-      if (
-        this.activeTokenIdx !== this.lastTokenIdx &&
-        newStrings.length === 1 &&
-        newStrings[0] === ''
-      ) {
-        this.activeTokenIdx = this.lastTokenIdx;
-        return;
-      }
-
-      const newTokens = newStrings.map((data) => createTerm(data));
-
-      this.tokens.splice(idx + 1, 0, ...newTokens);
-
-      this.activeTokenIdx = idx + newStrings.length;
-    },
-
     completeToken() {
       if (this.activeTokenIdx === this.lastTokenIdx - 1) {
         this.activeTokenIdx = this.lastTokenIdx;
@@ -398,7 +381,6 @@ export default {
           @replace="replaceToken(idx, $event)"
           @complete="completeToken"
           @submit="submit"
-          @split="createTokens(idx, $event)"
           @previous="activatePreviousToken"
           @next="activateNextToken"
         />

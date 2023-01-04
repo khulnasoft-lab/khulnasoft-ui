@@ -390,12 +390,6 @@ export default {
       @type {string} value The value of the selected suggestion.
     -->
 
-    <!--
-      Emitted when Space is pressed in-between term text.
-      @event split
-      @property {array} newTokens Token configurations
-    -->
-
     <gl-filtered-search-token-segment
       v-if="hasDataOrDataSegmentIsCurrentlyActive"
       key="data-segment"
@@ -412,7 +406,6 @@ export default {
       @select="$emit('select', $event)"
       @submit="$emit('submit')"
       @deactivate="$emit('deactivate')"
-      @split="$emit('split', $event)"
       @previous="activatePreviousOperatorSegment"
       @next="$emit('next')"
     >

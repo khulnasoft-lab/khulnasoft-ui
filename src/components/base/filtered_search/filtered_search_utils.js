@@ -82,62 +82,16 @@ export function denormalizeTokens(inputTokens) {
 
   const tokens = Array.isArray(inputTokens) ? inputTokens : [inputTokens];
 
-  const result = [];
-  tokens.forEach((t) => {
+  return tokens.reduce((result, t) => {
     if (typeof t === 'string') {
-      const stringTokens = t.split(' ').filter(Boolean);
-      stringTokens.forEach((strToken) => result.push(createTerm(strToken)));
+      const trimmedText = t.trim();
+      if (trimmedText) result.push(createTerm(trimmedText));
     } else {
       result.push(ensureTokenId(t));
     }
-  });
-  return result;
-}
 
-export function splitOnQuotes(str) {
-  if (first(str) === "'" && last(str) === "'") {
-    return [str];
-  }
-
-  if (first(str) === '"' && last(str) === '"') {
-    return [str];
-  }
-
-  const queue = str.split(' ');
-  const result = [];
-  let waitingForMatchingQuote = false;
-  let quoteContent = '';
-
-  while (queue.length) {
-    const part = queue.shift();
-    const quoteIndex = part.indexOf('"');
-    if (quoteIndex === -1) {
-      if (waitingForMatchingQuote) {
-        quoteContent += ` ${part}`;
-      } else {
-        result.push(part);
-      }
-    } else {
-      const [firstPart, secondPart] = part.split('"', 2);
-
-      if (waitingForMatchingQuote) {
-        waitingForMatchingQuote = false;
-        quoteContent += ` ${firstPart}"`;
-        result.push(quoteContent);
-        quoteContent = '';
-        if (secondPart.length) {
-          queue.unshift(secondPart);
-        }
-      } else {
-        waitingForMatchingQuote = true;
-        if (firstPart.length) {
-          result.push(firstPart);
-        }
-        quoteContent = `"${secondPart}`;
-      }
-    }
-  }
-  return result;
+    return result;
+  }, []);
 }
 
 /**

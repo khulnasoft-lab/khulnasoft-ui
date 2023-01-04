@@ -134,12 +134,6 @@ export default {
       @event submit
     -->
 
-    <!--
-      Emitted when Space is pressed in-between term text.
-      @event split
-      @property {array} newTokens Token configurations
-    -->
-
     <gl-filtered-search-token-segment
       ref="segment"
       v-model="internalValue"
@@ -156,7 +150,6 @@ export default {
       @complete="$emit('replace', { type: $event })"
       @backspace="onBackspace"
       @submit="$emit('submit')"
-      @split="$emit('split', $event)"
       @previous="$emit('previous')"
       @next="$emit('next')"
     >
