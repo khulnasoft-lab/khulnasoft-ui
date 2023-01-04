@@ -323,6 +323,25 @@ export const Default = () => ({
   template: `<gl-filtered-search :available-tokens="tokens" :value="value" />`,
 });
 
+export const DefaultWithValueBinding = () => ({
+  data() {
+    return {
+      tokens,
+      value: [
+        { type: 'author', value: { data: 'beta', operator: '=' } },
+        { type: 'label', value: { data: 'Bug', operator: '=' } },
+        'raw text',
+      ],
+    };
+  },
+  components,
+  template: `
+    <div>
+      <gl-filtered-search :available-tokens="tokens" v-model="value" />
+      <pre style="margin-left: 50%">Current value: {{ JSON.stringify(value, null, 2) }}</pre>
+    </div>`,
+});
+
 export const ViewOnly = () => ({
   data() {
     return {
