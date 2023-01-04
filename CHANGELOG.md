@@ -1,3 +1,10 @@
+# [52.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.7.3...v52.8.0) (2023-01-04)
+
+
+### Features
+
+* **GlBaseDropdown:** Allow custom toggle for the new dropdowns ([0188e21](https://gitlab.com/gitlab-org/gitlab-ui/commit/0188e210b9e7d9090b41555886d44a1c7f49be3d))
+
 ## [52.7.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.7.2...v52.7.3) (2023-01-04)
 
 
