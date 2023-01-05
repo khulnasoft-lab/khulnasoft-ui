@@ -709,6 +709,19 @@ describe('Filtered search integration tests', () => {
     });
   });
 
+  it('sets the gl-filtered-search-last-item class only when no token is active', async () => {
+    mountComponent({ value: ['one', 'two'] });
+    await nextTick();
+
+    expect(wrapper.findAll('.gl-filtered-search-last-item')).toHaveLength(1);
+
+    activate(0);
+
+    await nextTick();
+
+    expect(wrapper.findAll('.gl-filtered-search-last-item')).toHaveLength(0);
+  });
+
   it('does not render unique token in suggestions list if it is already present', async () => {
     mountComponent({ value: ['token', { type: 'unique', value: { data: 'something' } }] });
     activate(0);
