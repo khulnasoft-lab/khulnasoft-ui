@@ -234,10 +234,6 @@ export default {
       return this.getTokenEntry(type)?.token || GlFilteredSearchTerm;
     },
 
-    getLastTokenClassList(idx) {
-      return this.isLastToken(idx) && !this.viewOnly ? 'gl-filtered-search-last-item' : '';
-    },
-
     activate(idx) {
       if (!this.viewOnly) {
         this.activeTokenIdx = idx;
