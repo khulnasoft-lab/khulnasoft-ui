@@ -218,7 +218,10 @@ export default {
 
     getMatchingOptionForInputValue(v, { loose } = { loose: false }) {
       return this.options?.find((o) =>
-        loose ? o[this.optionTextField].startsWith(v) : o[this.optionTextField] === v
+        loose
+          ? // TODO: Consider fuzzy matcher
+            o[this.optionTextField].toLowerCase().startsWith(v.toLowerCase())
+          : o[this.optionTextField] === v
       );
     },
 
