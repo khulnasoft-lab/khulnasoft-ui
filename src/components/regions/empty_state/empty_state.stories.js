@@ -14,6 +14,7 @@ const template = `
     :compact="compact"
     :primary-button-link="primaryButtonLink"
     :secondary-button-link="secondaryButtonLink"
+    :contentClass="contentClass"
   />`;
 
 const Template = (args) => ({
@@ -34,6 +35,7 @@ const generateProps = ({
   primaryButtonLink = '#',
   secondaryButtonLink = '#',
   compact = false,
+  contentClass = [],
 } = {}) => ({
   title,
   svgPath,
@@ -44,6 +46,7 @@ const generateProps = ({
   primaryButtonLink,
   secondaryButtonLink,
   compact,
+  contentClass,
 });
 
 export const Default = Template.bind({});
@@ -82,6 +85,7 @@ export const CustomActions = (args) => ({
       :compact="compact"
       :primary-button-link="primaryButtonLink"
       :secondary-button-link="secondaryButtonLink"
+      :contentClass="contentClass"
     >
       <template #actions>
         <gl-button
@@ -125,6 +129,7 @@ export const SlottedDescription = (args) => ({
       :compact="compact"
       :primary-button-link="primaryButtonLink"
       :secondary-button-link="secondaryButtonLink"
+      :contentClass="contentClass"
     >
       <template #description>
         <p>A slotted description allows you to use more custom HTML such as <a href="#">links</a>.</p>

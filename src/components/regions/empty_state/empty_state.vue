@@ -83,6 +83,14 @@ export default {
       required: false,
       default: true,
     },
+    /**
+     * CSS classes to add to the content container
+     */
+    contentClass: {
+      type: [Array, String, Object],
+      required: false,
+      default: () => [],
+    },
   },
   computed: {
     height() {
@@ -96,6 +104,12 @@ export default {
     },
     shouldRenderSecondaryButton() {
       return Boolean(this.secondaryButtonLink && this.secondaryButtonText);
+    },
+    contentClasses() {
+      return [
+        this.compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-max-w-full gl-m-auto',
+        this.contentClass,
+      ];
     },
   },
 };
@@ -123,7 +137,7 @@ export default {
         />
       </div>
     </div>
-    <div :class="compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-max-w-full gl-m-auto'">
+    <div :class="contentClasses" data-testid="gl-empty-state-content">
       <div class="gl-mx-auto gl-my-0" :class="{ 'gl-p-5': !compact }">
         <!--
             @slot Use this slot to customize the empty state's title area.
