@@ -219,7 +219,7 @@ export default {
     },
 
     isLastToken(idx) {
-      return !this.activeTokenIdx && idx === this.lastTokenIdx;
+      return idx === this.lastTokenIdx;
     },
 
     isLastTokenEmpty() {
