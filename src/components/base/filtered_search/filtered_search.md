@@ -21,7 +21,7 @@ Prepare array of available token configurations with the following fields:
 - `multiSelect`: (optional) when `true`, the suggestions list becomes multi-select instead of single-select.
   It is discouraged to use this together with `unique`, as `unique` is intended for single-select.
 - `options`: (optional) an array of options which the user can pick after the operator has been selected.
-  The option object can have the following properties defined: `value`, `icon`, `text`, and `default`
+  The option object can have the following properties defined: `value`, `icon`, `text` (TODO: As far as I can tell, `text` is completely ignored), and `default`
   all of which are expected be of type `string`. If the `default` is omitted, the `value` of the first
   option will be displayed as a suggestion
 - any additional fields required to configure your component
