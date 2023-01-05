@@ -1,13 +1,22 @@
 <script>
+import GlToken from '../token/token.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
-import { INTENT_ACTIVATE_PREVIOUS } from './filtered_search_utils';
+import {
+  INTENT_ACTIVATE_PREVIOUS,
+  TERM_TOKEN_TYPE,
+  termTokenDefinition,
+} from './filtered_search_utils';
+
+// TODO: extract these to constants file
+const TOKEN_CLOSE_SELECTOR = '.gl-token-close';
 
 export default {
   name: 'GlFilteredSearchTerm',
   components: {
     GlFilteredSearchTokenSegment,
     GlFilteredSearchSuggestion,
+    GlToken,
   },
   inheritAttrs: false,
   props: {
@@ -77,9 +86,12 @@ export default {
   },
   computed: {
     suggestedTokens() {
-      return this.availableTokens.filter((item) =>
+      const matchingTokens = this.availableTokens.filter((item) =>
         item.title.toLowerCase().includes(this.value.data.toLowerCase())
       );
+
+      // TODO: Only show termTokenDefinition when there's some text in the input
+      return [...matchingTokens, termTokenDefinition];
     },
     internalValue: {
       get() {
@@ -95,6 +107,9 @@ export default {
         this.$emit('input', { data });
       },
     },
+    eventListeners() {
+      return this.viewOnly ? {} : { mousedown: this.destroyByClose };
+    },
   },
   methods: {
     onBackspace() {
@@ -106,6 +121,22 @@ export default {
        * @type {object} details The user intent
        */
       this.$emit('destroy', { intent: INTENT_ACTIVATE_PREVIOUS });
+    },
+    destroyByClose(event) {
+      if (event.target.closest(TOKEN_CLOSE_SELECTOR)) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.$emit('destroy');
+      }
+    },
+    onComplete(type) {
+      if (type !== TERM_TOKEN_TYPE) {
+        // We're changing the current token type
+        this.$emit('replace', { type });
+      } else {
+        // We've completed this term token
+        this.$emit('complete');
+      }
     },
   },
 };
@@ -147,7 +178,7 @@ export default {
       :view-only="viewOnly"
       @activate="$emit('activate')"
       @deactivate="$emit('deactivate')"
-      @complete="$emit('replace', { type: $event })"
+      @complete="onComplete"
       @backspace="onBackspace"
       @submit="$emit('submit')"
       @previous="$emit('previous')"
@@ -165,6 +196,10 @@ export default {
       </template>
 
       <template #view>
+        <!--
+          This input was/is? ONLY displayed when there are no tokens (ignoring
+          the empty one always added at the end).
+        -->
         <input
           v-if="placeholder"
           v-bind="searchInputAttributes"
@@ -175,6 +210,17 @@ export default {
           :readonly="viewOnly"
           data-testid="filtered-search-term-input"
         />
+
+        <gl-token
+          v-else-if="!active || true"
+          class="gl-filtered-search-token-data"
+          :class="{ 'gl-cursor-pointer': !viewOnly }"
+          variant="search-value"
+          :view-only="viewOnly"
+          v-on="eventListeners"
+        >
+          <span class="gl-filtered-search-token-data-content">{{ value.data }}</span>
+        </gl-token>
 
         <template v-else>{{ value.data }}</template>
       </template>

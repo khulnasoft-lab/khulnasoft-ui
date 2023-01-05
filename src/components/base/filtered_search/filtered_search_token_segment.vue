@@ -4,6 +4,7 @@ import { Portal } from 'portal-vue';
 import { COMMA, LEFT_MOUSE_BUTTON } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
+import { TERM_TOKEN_TYPE } from './filtered_search_utils';
 
 // We need some helpers to ensure @vue/compat compatibility
 // @vue/compat will render comment nodes for v-if and comments in HTML
@@ -260,7 +261,10 @@ export default {
       this.$emit('select', suggestedValue);
 
       if (!this.multiSelect) {
-        this.$emit('input', suggestedValue);
+        const value = suggestedValue === TERM_TOKEN_TYPE ? this.inputValue : suggestedValue;
+        this.$emit('input', value);
+        // Somehow, this complete is changing the `type` of the token.
+        // If that goes nowhere, try deactivating instead.
         this.$emit('complete', suggestedValue);
       }
     },
@@ -301,6 +305,7 @@ export default {
             /**
              * Emitted when Enter is pressed and no suggestion is selected
              */
+            // Is this REALLY what we want...? I would have thought we only want to do this when the current value is not empty...
             this.$emit('submit');
           }
         },

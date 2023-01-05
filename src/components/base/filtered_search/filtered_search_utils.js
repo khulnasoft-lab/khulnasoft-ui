@@ -93,3 +93,9 @@ export function denormalizeTokens(inputTokens) {
     return result;
   }, []);
 }
+
+export const termTokenDefinition = {
+  type: TERM_TOKEN_TYPE,
+  icon: 'title',
+  title: 'Search for this text',
+};

@@ -158,6 +158,7 @@ export default {
     hasValue() {
       return this.tokens.length > 1 || this.tokens[0].value.data !== '';
     },
+    // TODO: Let Term decide whether or not to show a placeholder. Or, determine this some other way.
     termPlaceholder() {
       return this.hasValue ? null : this.placeholder;
     },

@@ -3,7 +3,7 @@ import { cloneDeep } from 'lodash';
 import { COMMA } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
-import { createTerm } from './filtered_search_utils';
+import { createTerm, termTokenDefinition } from './filtered_search_utils';
 
 const SEGMENT_TITLE = 'TYPE';
 const SEGMENT_OPERATOR = 'OPERATOR';
@@ -98,7 +98,9 @@ export default {
     },
 
     availableTokensWithSelf() {
-      return [this.config, ...this.availableTokens.filter((t) => t !== this.config)].map((t) => ({
+      const matchingTokens = this.availableTokens.filter((t) => t !== this.config);
+
+      return [this.config, ...matchingTokens, termTokenDefinition].map((t) => ({
         ...t,
         value: t.title,
       }));
