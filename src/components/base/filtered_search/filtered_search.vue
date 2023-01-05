@@ -280,6 +280,7 @@ export default {
     },
 
     destroyToken(idx, { intent } = {}) {
+      console.log(`[debug:destroyToken]`, { idx });
       if (this.tokens.length === 1) {
         return;
       }
@@ -305,11 +306,13 @@ export default {
     },
 
     replaceToken(idx, token) {
+      console.log(`[debug:replaceToken]`, { idx, token });
       this.$set(this.tokens, idx, ensureTokenId({ ...token, value: { data: '', ...token.value } }));
       this.activeTokenIdx = idx;
     },
 
     completeToken() {
+      console.log(`[debug:completeToken]`);
       if (this.activeTokenIdx === this.lastTokenIdx - 1) {
         this.activeTokenIdx = this.lastTokenIdx;
       } else {
