@@ -25,11 +25,11 @@
     max-height: $gl-max-dropdown-max-height;
 
     > :first-child {
-      @include gl-pt-3;
+      @include gl-pt-1;
     }
 
     > :last-child {
-      @include gl-pb-3;
+      @include gl-pb-1;
     }
   }
 
