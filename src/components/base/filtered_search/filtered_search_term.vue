@@ -95,7 +95,7 @@ export default {
       return ret;
     },
     showToken() {
-      const ret = !this.active && !this.isLastToken;
+      const ret = this.viewOnly || (!this.active && !this.isLastToken);
       return ret;
     },
     isEmptyLastToken() {
