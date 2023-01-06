@@ -86,12 +86,14 @@ export default {
   },
   computed: {
     suggestedTokens() {
-      const matchingTokens = this.availableTokens.filter((item) =>
-        item.title.toLowerCase().includes(this.value.data.toLowerCase())
-      );
+      const tokens = [...this.availableTokens];
+      if (this.value.data) tokens.push(termTokenDefinition);
 
-      // TODO: Only show termTokenDefinition when there's some text in the input
-      return [...matchingTokens, termTokenDefinition];
+      return tokens.map((token) => ({
+        icon: token.icon,
+        title: token.title,
+        value: token.type,
+      }));
     },
     internalValue: {
       get() {
@@ -176,6 +178,8 @@ export default {
       :is-last-token="isLastToken"
       :current-value="currentValue"
       :view-only="viewOnly"
+      :options="suggestedTokens"
+      option-text-field="title"
       @activate="$emit('activate')"
       @deactivate="$emit('deactivate')"
       @complete="onComplete"
@@ -184,17 +188,6 @@ export default {
       @previous="$emit('previous')"
       @next="$emit('next')"
     >
-      <template #suggestions>
-        <gl-filtered-search-suggestion
-          v-for="(item, idx) in suggestedTokens"
-          :key="idx"
-          :value="item.type"
-          :icon-name="item.icon"
-        >
-          {{ item.title }}
-        </gl-filtered-search-suggestion>
-      </template>
-
       <template #view>
         <!--
           This input was/is? ONLY displayed when there are no tokens (ignoring
