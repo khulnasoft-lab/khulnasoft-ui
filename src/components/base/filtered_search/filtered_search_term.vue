@@ -1,6 +1,5 @@
 <script>
 import GlToken from '../token/token.vue';
-import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import {
   INTENT_ACTIVATE_PREVIOUS,
@@ -15,7 +14,6 @@ export default {
   name: 'GlFilteredSearchTerm',
   components: {
     GlFilteredSearchTokenSegment,
-    GlFilteredSearchSuggestion,
     GlToken,
   },
   inheritAttrs: false,
