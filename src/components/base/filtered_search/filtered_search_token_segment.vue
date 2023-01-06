@@ -191,7 +191,7 @@ export default {
       }
 
       const defaultSuggestion = this.options.find((op) => op.default);
-      return (defaultSuggestion ?? this.options[0])?.value;
+      return defaultSuggestion?.value;
     },
     containerAttributes() {
       return (
