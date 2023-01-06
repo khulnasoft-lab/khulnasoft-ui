@@ -155,6 +155,7 @@ export default {
         data,
         smooth,
         itemStyle,
+        lineStyle: { cap: 'round' },
       };
     },
     itemStyle() {

@@ -53,6 +53,9 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
+export const WithoutLastYValue = Template.bind({});
+WithoutLastYValue.args = generateProps({ showLastYValue: false });
+
 export const WithChartColorGradient = Template.bind({});
 WithChartColorGradient.args = generateProps({ gradient: customGradient });
 

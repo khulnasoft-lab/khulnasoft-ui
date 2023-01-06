@@ -180,6 +180,7 @@ describe('sparkline chart component', () => {
 
     await wrapper.vm.$nextTick();
     expect(getLastYValue().exists()).toBe(false);
+    expect(getChartOptions().series[0].markPoint).toBe(undefined);
   });
 
   it('gradient will set the series itemStyle color', async () => {
