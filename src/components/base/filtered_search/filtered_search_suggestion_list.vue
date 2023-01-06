@@ -37,9 +37,13 @@ export default {
 
   watch: {
     initialValue(newValue) {
+      console.log('[debug:list:initialValue]', { newValue });
       this.activeIdx = this.registeredItems.findIndex((item) =>
         this.valuesMatch(item.value, newValue)
       );
+    },
+    activeIdx(newValue, oldValue) {
+      console.log('[debug:list:activeIdx]', { newValue, oldValue });
     },
   },
 
