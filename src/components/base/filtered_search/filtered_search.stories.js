@@ -349,10 +349,15 @@ export const DefaultWithValueBinding = () => ({
       ],
     };
   },
+  methods: {
+    onSubmit(e) {
+      console.log('[debug:story:submit]');
+    },
+  },
   components,
   template: `
     <div>
-      <gl-filtered-search :available-tokens="tokens" v-model="value" />
+      <gl-filtered-search :available-tokens="tokens" v-model="value" @submit="onSubmit" />
       <pre style="margin-left: 50%">Current value: {{ JSON.stringify(value, null, 2) }}</pre>
     </div>`,
 });
