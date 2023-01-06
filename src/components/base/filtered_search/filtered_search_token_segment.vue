@@ -135,6 +135,13 @@ export default {
   },
 
   computed: {
+    hasTermSuggestion() {
+      console.log('[debug:hasTermSuggestion]', this.options);
+      if (!this.options) return false;
+
+      return this.options.some(({ value }) => value === TERM_TOKEN_TYPE);
+    },
+
     matchingOption() {
       return this.options?.find((o) => o.value === this.value);
     },
@@ -167,13 +174,20 @@ export default {
 
     defaultSuggestedValue() {
       if (!this.options) {
+        // TODO: Under what circumstances is this branch hit? Is it only on term tokens?
+        // It's term tokens, and tokens which use suggestions slot.
+        // I've now changed it so that it should _only_ be the latter.
+        console.log('[debug:defaultSuggestedValue] no options');
         return this.nonMultipleValue;
       }
       if (this.value) {
         const match =
           this.getMatchingOptionForInputValue(this.inputValue) ||
           this.getMatchingOptionForInputValue(this.inputValue, { loose: true });
-        return match?.value;
+
+        if (match) return match.value;
+        if (this.hasTermSuggestion) return TERM_TOKEN_TYPE;
+        return null;
       }
 
       const defaultSuggestion = this.options.find((op) => op.default);
@@ -243,7 +257,7 @@ export default {
     },
 
     deactivate() {
-      if (!this.options) {
+      if (!this.options || this.hasTermSuggestion) {
         return;
       }
 
@@ -261,10 +275,10 @@ export default {
       this.$emit('select', suggestedValue);
 
       if (!this.multiSelect) {
+        // If we're choosing the term type, the value we want to use isn't the
+        // term _type_, but the text the user entered.
         const value = suggestedValue === TERM_TOKEN_TYPE ? this.inputValue : suggestedValue;
         this.$emit('input', value);
-        // Somehow, this complete is changing the `type` of the token.
-        // If that goes nowhere, try deactivating instead.
         this.$emit('complete', suggestedValue);
       }
     },
