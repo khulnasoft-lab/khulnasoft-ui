@@ -266,6 +266,7 @@ export default {
     },
 
     handleInputKeydown(e) {
+      console.log('[debug:handleInputKeydown]', e);
       const { key } = e;
       const { suggestions, input } = this.$refs;
       const suggestedValue = suggestions?.getValue();
