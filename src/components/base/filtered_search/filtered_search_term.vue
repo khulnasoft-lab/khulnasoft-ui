@@ -34,6 +34,13 @@ export default {
       default: false,
     },
     /**
+     * Whether any token is active.
+     */
+    anyActive: {
+      type: Boolean,
+      required: true,
+    },
+    /**
      * Current term value.
      */
     value: {
@@ -83,6 +90,17 @@ export default {
     },
   },
   computed: {
+    showInput() {
+      const ret = !this.anyActive && this.isEmptyLastToken;
+      return ret;
+    },
+    showToken() {
+      const ret = !this.active && !this.isLastToken;
+      return ret;
+    },
+    isEmptyLastToken() {
+      return this.isLastToken && this.value.data.trim() === '';
+    },
     suggestedTokens() {
       const tokens = [...this.availableTokens];
       if (this.value.data) tokens.push(termTokenDefinition);
@@ -187,11 +205,10 @@ export default {
     >
       <template #view>
         <!--
-          This input was/is? ONLY displayed when there are no tokens (ignoring
-          the empty one always added at the end).
+          This input was/is? ONLY displayed when there are no tokens. This should be ditched in favour of relying on Segment's input...
         -->
         <input
-          v-if="placeholder"
+          v-if="showInput"
           v-bind="searchInputAttributes"
           class="gl-filtered-search-term-input"
           :class="{ 'gl-bg-gray-10': viewOnly }"
@@ -202,7 +219,7 @@ export default {
         />
 
         <gl-token
-          v-else-if="!active || true"
+          v-else-if="showToken"
           class="gl-filtered-search-token-data"
           :class="{ 'gl-cursor-pointer': !viewOnly }"
           variant="search-value"
@@ -211,8 +228,6 @@ export default {
         >
           <span class="gl-filtered-search-token-data-content">{{ value.data }}</span>
         </gl-token>
-
-        <template v-else>{{ value.data }}</template>
       </template>
     </gl-filtered-search-token-segment>
   </div>

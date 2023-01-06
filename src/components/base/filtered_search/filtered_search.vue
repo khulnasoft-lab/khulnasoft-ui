@@ -158,10 +158,6 @@ export default {
     hasValue() {
       return this.tokens.length > 1 || this.tokens[0].value.data !== '';
     },
-    // TODO: Let Term decide whether or not to show a placeholder. Or, determine this some other way.
-    termPlaceholder() {
-      return this.hasValue ? null : this.placeholder;
-    },
     currentAvailableTokens() {
       return this.availableTokens.filter((token) => {
         if (token.disabled) {
@@ -364,11 +360,12 @@ export default {
           v-model="token.value"
           :config="getTokenEntry(token.type)"
           :active="activeTokenIdx === idx"
+          :any-active="activeTokenIdx != null"
           :cursor-position="intendedCursorPosition"
           :available-tokens="currentAvailableTokens"
           :current-value="tokens"
           :index="idx"
-          :placeholder="termPlaceholder"
+          :placeholder="placeholder"
           :show-friendly-text="showFriendlyText"
           :search-input-attributes="searchInputAttributes"
           :view-only="viewOnly"
