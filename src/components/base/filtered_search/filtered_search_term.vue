@@ -216,6 +216,7 @@ export default {
           :aria-label="placeholder"
           :readonly="viewOnly"
           data-testid="filtered-search-term-input"
+          @focusin="$emit('activate')"
         />
 
         <gl-token
