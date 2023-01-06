@@ -180,6 +180,8 @@ export default {
           :aria-label="placeholder"
           :readonly="viewOnly"
           data-testid="filtered-search-term-input"
+          @focusin="$emit('activate')"
+          @focusout="$emit('deactivate')"
         />
 
         <template v-else>{{ value.data }}</template>

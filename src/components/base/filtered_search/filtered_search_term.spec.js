@@ -145,6 +145,21 @@ describe('Filtered search term', () => {
     );
   });
 
+  it('activates and deactivates when the input is focused/blurred', async () => {
+    createComponent({ placeholder: 'placeholder-stub' });
+    await nextTick();
+
+    expect(wrapper.emitted()).toEqual({});
+
+    await findSearchInput().trigger('focusin');
+
+    expect(wrapper.emitted()).toEqual({ activate: [[]] });
+
+    await findSearchInput().trigger('focusout');
+
+    expect(wrapper.emitted()).toEqual({ activate: [[]], deactivate: [[]] });
+  });
+
   describe.each([true, false])('when `viewOnly` is %s', (viewOnly) => {
     beforeEach(() => {
       createComponent({ viewOnly, searchInputAttributes, placeholder: 'placeholder-stub' });
