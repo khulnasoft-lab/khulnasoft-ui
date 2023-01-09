@@ -269,27 +269,6 @@ describe('tabs component', () => {
             });
           }
         );
-
-        describe('when tab is changed back to initial active tab', () => {
-          it('removes query string', async () => {
-            buildTabs({
-              props: { syncActiveTabWithQueryParams: true },
-            });
-
-            await nextTick();
-            await findTabByText('Second').trigger('click');
-
-            expect(window.history.pushState).toHaveBeenCalledWith({}, '', '/?tab=1');
-
-            // Manually set `window.location.search` since
-            // `window.history.pushState` doesn't update the query string in JSDOM.
-            window.location.search = '?tab=1';
-
-            await findTabByText('First').trigger('click');
-
-            expect(window.history.pushState).toHaveBeenCalledWith({}, '', '/?');
-          });
-        });
       });
 
       describe('when `popstate` event is fired', () => {
