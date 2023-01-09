@@ -1,3 +1,10 @@
+## [52.9.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.9.1...v52.9.2) (2023-01-09)
+
+
+### Bug Fixes
+
+* **GlTabs:** set a query parameter for the first tab ([f2f4827](https://gitlab.com/gitlab-org/gitlab-ui/commit/f2f4827a5d9d1d1cd3f98c1c06f9bd7ed7a63abc))
+
 ## [52.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.9.0...v52.9.1) (2023-01-09)
 
 
