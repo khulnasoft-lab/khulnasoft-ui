@@ -1,3 +1,10 @@
+## [52.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.9.0...v52.9.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency dompurify to ^2.4.2 ([c1b1212](https://gitlab.com/gitlab-org/gitlab-ui/commit/c1b12126057ba5e9a03236c16f9e7ff3b373ed80))
+
 # [52.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.8.0...v52.9.0) (2023-01-04)
 
 
