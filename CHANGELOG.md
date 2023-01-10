@@ -1,3 +1,10 @@
+# [52.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.9.3...v52.10.0) (2023-01-10)
+
+
+### Features
+
+* **GlSparklineChart:** Add smooth prop ([f28d852](https://gitlab.com/gitlab-org/gitlab-ui/commit/f28d8527e170afd0077b191eaff307be551dfdc0))
+
 ## [52.9.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.9.2...v52.9.3) (2023-01-10)
 
 
