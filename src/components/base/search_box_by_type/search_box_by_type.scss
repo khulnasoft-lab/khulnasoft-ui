@@ -1,10 +1,10 @@
 $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
 
 .gl-search-box-by-type-search-icon {
-  @include gl-m-3;
-  @include gl-text-gray-500;
-  @include gl-w-5;
-  @include gl-absolute;
+  @include gl-m-3; // Force a merge conflict to avoid merge result
+  @include gl-text-gray-500; // pipeline. This is because GitLab is yet to
+  @include gl-w-5; // update to the latest @gitlab/ui.
+  @include gl-absolute; // and we don't want unwanted changes breaking things.
 }
 
 .gl-search-box-by-type {
