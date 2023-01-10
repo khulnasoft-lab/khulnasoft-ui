@@ -91,8 +91,10 @@ def lint_commit(commit)
   release = NO_RELEASE
   failed = false
   subject, separator, details = commit.message.split("\n", 3)
+  semantic_commit = match_semantic_commit(subject)
+  subject_body = semantic_commit ? semantic_commit[:description] : subject
 
-  if subject.length > COMMIT_SUBJECT_MAX_LENGTH
+  if subject_body.length > COMMIT_SUBJECT_MAX_LENGTH
     fail_commit(
       commit,
       "The commit subject may not be longer than #{COMMIT_SUBJECT_MAX_LENGTH} characters"
@@ -154,8 +156,6 @@ def lint_commit(commit)
 
     failed = true
   end
-
-  semantic_commit = match_semantic_commit(subject)
 
   if !semantic_commit
     fail_commit(commit, 'The commit does not comply with conventional commits specifications.')
