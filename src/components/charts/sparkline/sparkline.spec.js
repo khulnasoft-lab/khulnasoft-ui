@@ -63,6 +63,8 @@ describe('sparkline chart component', () => {
     return formatter;
   };
 
+  const validateSmooth = (smooth) => SparklineChart.props.smooth.validator(smooth);
+
   const emitChartCreated = () => getChart().vm.$emit('created', mockChartInstance);
 
   beforeEach(() => {
@@ -178,6 +180,7 @@ describe('sparkline chart component', () => {
 
     await wrapper.vm.$nextTick();
     expect(getLastYValue().exists()).toBe(false);
+    expect(getChartOptions().series[0].markPoint).toBe(undefined);
   });
 
   it('gradient will set the series itemStyle color', async () => {
@@ -186,5 +189,27 @@ describe('sparkline chart component', () => {
     await wrapper.vm.$nextTick();
 
     expect(getChartOptions().series[0].itemStyle.color).toBeDefined();
+  });
+
+  describe('smooth', () => {
+    it.each`
+      value  | expected
+      ${-1}  | ${false}
+      ${0}   | ${true}
+      ${0.5} | ${true}
+      ${1}   | ${true}
+      ${1.1} | ${false}
+    `(`validate $value`, ({ value, expected }) => {
+      expect(validateSmooth(value)).toBe(expected);
+    });
+
+    it('sets the series smoothing', async () => {
+      const smooth = 0.75;
+      wrapper.setProps({ smooth });
+
+      await wrapper.vm.$nextTick();
+
+      expect(getChartOptions().series[0].smooth).toBe(smooth);
+    });
   });
 });
