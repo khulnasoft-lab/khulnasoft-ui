@@ -64,7 +64,7 @@ module.exports = ({ config }) => {
       loader: 'file-loader',
     },
     {
-      test: /\/static\/img\//,
+      test: /\/static\/(img|fonts)\//,
       loader: 'file-loader',
       options: {
         outputPath: 'static',
