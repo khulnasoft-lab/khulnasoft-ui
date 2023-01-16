@@ -1,0 +1,6 @@
+// TODO: remove in scope of https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2111
+.gl-focusable-dropdown-item {
+  &:focus {
+    @include gl-focus($inset: true);
+  }
+}

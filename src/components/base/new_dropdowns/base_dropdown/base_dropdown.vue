@@ -1,11 +1,12 @@
 <script>
+import { uniqueId } from 'lodash';
 import { createPopper } from '@popperjs/core';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
-import { POPPER_CONFIG, GL_DROPDOWN_SHOWN, GL_DROPDOWN_HIDDEN } from '../constants';
+import { POPPER_CONFIG, GL_DROPDOWN_SHOWN, GL_DROPDOWN_HIDDEN, ENTER, SPACE } from '../constants';
 
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
@@ -107,6 +108,7 @@ export default {
   data() {
     return {
       visible: false,
+      baseDropdownId: uniqueId('base-dropdown-'),
     };
   },
   computed: {
@@ -145,13 +147,21 @@ export default {
           disabled: this.disabled,
           loading: this.loading,
           class: this.toggleButtonClasses,
+          listeners: {
+            click: () => this.toggle(),
+          },
         };
       }
 
       return {
         is: 'div',
+        role: 'button',
         class: 'gl-dropdown-custom-toggle gl-hover-cursor-pointer',
         tabindex: '0',
+        listeners: {
+          keydown: (event) => this.onKeydown(event),
+          click: () => this.toggle(),
+        },
       };
     },
     toggleElement() {
@@ -216,6 +226,13 @@ export default {
     focusToggle() {
       this.toggleElement.focus();
     },
+    onKeydown(event) {
+      const { code } = event;
+
+      if (code === ENTER || code === SPACE) {
+        this.toggle();
+      }
+    },
   },
 };
 </script>
@@ -234,8 +251,8 @@ export default {
       :aria-haspopup="ariaHaspopup"
       :aria-expanded="visible"
       :aria-labelledby="toggleLabelledBy"
-      @keydown.enter="toggle"
-      @click="toggle"
+      :aria-controls="baseDropdownId"
+      v-on="toggleOptions.listeners"
     >
       <!-- @slot Custom toggle button content -->
       <slot name="toggle">
@@ -247,6 +264,7 @@ export default {
     </component>
 
     <div
+      :id="baseDropdownId"
       ref="content"
       data-testid="base-dropdown-menu"
       class="dropdown-menu"
