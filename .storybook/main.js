@@ -12,4 +12,5 @@ module.exports = {
   features: {
     storyStoreV7: !IS_VISUAL_TEST,
   },
+  staticDirs: ['../static'],
 };
