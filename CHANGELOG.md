@@ -1,3 +1,10 @@
+# [52.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.10.0...v52.11.0) (2023-01-16)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Add GlDisclosureDropdown component ([e9bca59](https://gitlab.com/gitlab-org/gitlab-ui/commit/e9bca595b591846e892991611ea92f51fd4db055))
+
 # [52.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.9.3...v52.10.0) (2023-01-10)
 
 
