@@ -245,4 +245,39 @@ describe('empty state component', () => {
       expect(p.text()).not.toBe(props.description);
     });
   });
+
+  describe('with custom content class', () => {
+    const findContentContainer = () => component.find('[data-testid="gl-empty-state-content"]');
+    const customContentClass = 'gl-p-0';
+    const expectedDefaultContentClasses = ['gl-max-w-full', 'gl-m-auto', customContentClass];
+    const expectedCompactContentClasses = [
+      'gl-flex-grow-1',
+      'gl-flex-basis-0',
+      'gl-px-4',
+      customContentClass,
+    ];
+
+    it.each`
+      contentClass                      | compact  | expectedClasses
+      ${customContentClass}             | ${false} | ${expectedDefaultContentClasses}
+      ${[customContentClass]}           | ${false} | ${expectedDefaultContentClasses}
+      ${{ [customContentClass]: true }} | ${false} | ${expectedDefaultContentClasses}
+      ${customContentClass}             | ${true}  | ${expectedCompactContentClasses}
+      ${[customContentClass]}           | ${true}  | ${expectedCompactContentClasses}
+      ${{ [customContentClass]: true }} | ${true}  | ${expectedCompactContentClasses}
+    `(
+      'applies $contentClass class when compact is $compact',
+      ({ contentClass, compact, expectedClasses }) => {
+        component = shallowMount(EmptyState, {
+          propsData: {
+            ...props,
+            compact,
+            contentClass,
+          },
+        });
+
+        expect(findContentContainer().classes()).toEqual(expectedClasses);
+      }
+    );
+  });
 });
