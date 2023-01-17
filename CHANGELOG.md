@@ -1,3 +1,10 @@
+# [52.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.11.0...v52.12.0) (2023-01-17)
+
+
+### Features
+
+* **GlEmptyState:** Add content-class prop ([7f850d7](https://gitlab.com/gitlab-org/gitlab-ui/commit/7f850d7661ffcb6a2db1cccfaca87cd7d794e01b))
+
 # [52.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.10.0...v52.11.0) (2023-01-16)
 
 
