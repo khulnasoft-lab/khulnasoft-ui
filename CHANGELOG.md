@@ -1,3 +1,10 @@
+# [52.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.12.0...v52.13.0) (2023-01-18)
+
+
+### Features
+
+* **GlBaseDropdown:** Allow listbox to stretch in full-width ([83ab66c](https://gitlab.com/gitlab-org/gitlab-ui/commit/83ab66c2ae3a43d906398b286d784c129b0ef9d1))
+
 # [52.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.11.0...v52.12.0) (2023-01-17)
 
 
