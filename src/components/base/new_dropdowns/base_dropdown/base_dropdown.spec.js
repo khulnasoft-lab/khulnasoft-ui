@@ -44,6 +44,7 @@ describe('base dropdown', () => {
 
   const findDefaultDropdownToggle = () => wrapper.find('.btn.gl-dropdown-toggle');
   const findCustomDropdownToggle = () => wrapper.find('.gl-dropdown-custom-toggle');
+  const findDropdownToggleText = () => findDefaultDropdownToggle().find('.gl-button-text');
   const findDropdownMenu = () => wrapper.find('.dropdown-menu');
 
   describe('popper.js instance', () => {
@@ -129,6 +130,23 @@ describe('base dropdown', () => {
       expect(findDefaultDropdownToggle().classes().sort()).toEqual(
         expect.arrayContaining(expectedClasses.sort())
       );
+    });
+  });
+
+  describe('block prop', () => {
+    it('does not apply block style if false', () => {
+      buildWrapper({ block: false });
+
+      expect(wrapper.classes()).not.toContain('gl-w-full');
+      expect(findDropdownToggleText().classes()).not.toContain('gl-w-full');
+    });
+
+    it('applies block style if true', () => {
+      buildWrapper({ block: true });
+
+      expect(wrapper.classes()).toContain('gl-display-block');
+      expect(findDropdownToggleText().classes()).toContain('gl-w-full');
+      expect(findDefaultDropdownToggle().props('block')).toBe(true);
     });
   });
 

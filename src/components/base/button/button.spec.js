@@ -194,6 +194,21 @@ describe('button component', () => {
 
         expect(wrapper.attributes('href')).toBe(unsafeUrl);
       });
+
+      it.each`
+        description                                       | label    | expectedResult
+        ${'applies block styling'}                        | ${true}  | ${false}
+        ${'does not apply block styling when label=true'} | ${false} | ${true}
+      `('block prop $description', ({ label, expectedResult }) => {
+        buildWrapper({
+          propsData: {
+            label,
+            block: true,
+          },
+        });
+
+        expect(wrapper.classes().includes('btn-block')).toBe(expectedResult);
+      });
     });
   });
 });

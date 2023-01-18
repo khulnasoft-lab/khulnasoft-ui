@@ -27,6 +27,7 @@ const generateProps = ({
   variant = defaultValue('variant'),
   size = defaultValue('size'),
   disabled = defaultValue('disabled'),
+  block = defaultValue('block'),
   loading = defaultValue('loading'),
   searchable = defaultValue('searchable'),
   searching = defaultValue('searching'),
@@ -52,6 +53,7 @@ const generateProps = ({
   variant,
   size,
   disabled,
+  block,
   loading,
   searchable,
   searching,
@@ -78,6 +80,7 @@ const makeBindings = (overrides = {}) =>
     ':items': 'items',
     ':category': 'category',
     ':variant': 'variant',
+    ':block': 'block',
     ':size': 'size',
     ':disabled': 'disabled',
     ':loading': 'loading',
@@ -195,6 +198,7 @@ HeaderAndFooter.args = generateProps({
   headerText: 'Assign to department',
   resetButtonLabel: 'Unassign',
   multiple: true,
+  block: true,
 });
 HeaderAndFooter.decorators = [makeContainer({ height: '370px' })];
 
