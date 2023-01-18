@@ -28,7 +28,7 @@ import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
 const HEADER_ITEMS_BORDER_CLASSES = ['gl-border-b-1', 'gl-border-b-solid', 'gl-border-b-gray-200'];
-const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-pt-3', 'gl-mt-3'];
+const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-pt-1', 'gl-mt-2'];
 export const SEARCH_INPUT_SELECTOR = '.gl-listbox-search-input';
 
 export default {
@@ -625,7 +625,7 @@ export default {
       ref="list"
       :aria-labelledby="listAriaLabelledBy || headerId || toggleId"
       role="listbox"
-      class="gl-dropdown-contents gl-list-style-none gl-pl-0 gl-mb-0"
+      class="gl-new-dropdown-contents"
       tabindex="-1"
       @keydown="onKeydown"
     >
@@ -692,7 +692,7 @@ export default {
     <div
       v-else-if="showNoResultsText"
       aria-live="assertive"
-      class="gl-pl-7 gl-pr-5 gl-pt-3 gl-font-base gl-text-gray-600"
+      class="gl-pl-7 gl-pr-5 gl-py-3 gl-font-base gl-text-gray-600"
       data-testid="listbox-no-results-text"
     >
       {{ noResultsText }}

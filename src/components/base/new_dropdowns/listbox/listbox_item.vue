@@ -51,24 +51,24 @@ export default {
 
 <template>
   <li
-    class="gl-dropdown-item gl-focusable-dropdown-item"
+    class="gl-new-dropdown-item"
     role="option"
     :tabindex="isFocused ? 0 : -1"
     :aria-selected="isSelected"
     @click="toggleSelection"
     @keydown="onKeydown"
   >
-    <span class="dropdown-item">
+    <span class="gl-new-dropdown-item-content" :class="{ 'gl-bg-gray-50!': isSelected }">
       <gl-icon
         name="mobile-issue-close"
         data-testid="dropdown-item-checkbox"
         :class="[
-          'gl-dropdown-item-check-icon',
+          'gl-new-dropdown-item-check-icon',
           { 'gl-visibility-hidden': !isSelected },
           checkedClasses,
         ]"
       />
-      <span class="gl-dropdown-item-text-wrapper">
+      <span class="gl-new-dropdown-item-text-wrapper">
         <slot></slot>
       </span>
     </span>

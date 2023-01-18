@@ -119,18 +119,13 @@ export default {
     isIconOnly() {
       return Boolean(this.icon && (!this.toggleText?.length || this.textSrOnly));
     },
-    isIconWithText() {
-      return Boolean(this.icon && this.toggleText?.length && !this.textSrOnly);
-    },
     toggleButtonClasses() {
       return [
         this.toggleClass,
         {
-          'gl-dropdown-toggle': true,
-          'dropdown-toggle': true,
-          'dropdown-icon-only': this.isIconOnly,
-          'dropdown-icon-text': this.isIconWithText,
-          'dropdown-toggle-no-caret': this.noCaret,
+          'gl-new-dropdown-toggle': true,
+          'gl-new-dropdown-icon-only': this.isIconOnly,
+          'gl-new-dropdown-toggle-no-caret': this.noCaret,
         },
       ];
     },
@@ -165,7 +160,7 @@ export default {
       return {
         is: 'div',
         role: 'button',
-        class: 'gl-dropdown-custom-toggle gl-hover-cursor-pointer',
+        class: 'gl-new-dropdown-custom-toggle',
         tabindex: '0',
         listeners: {
           keydown: (event) => this.onKeydown(event),
@@ -247,11 +242,7 @@ export default {
 </script>
 
 <template>
-  <div
-    v-outside="close"
-    class="gl-dropdown dropdown gl-display-inline-flex gl-vertical-align-middle"
-    :class="{ 'gl-display-block': block }"
-  >
+  <div v-outside="close" class="gl-new-dropdown" :class="{ 'gl-display-block!': block }">
     <component
       :is="toggleOptions.is"
       v-bind="toggleOptions"
@@ -266,10 +257,14 @@ export default {
     >
       <!-- @slot Custom toggle button content -->
       <slot name="toggle">
-        <span class="gl-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
+        <span class="gl-new-dropdown-button-text" :class="{ 'gl-sr-only': textSrOnly }">
           {{ toggleText }}
         </span>
-        <gl-icon v-if="!noCaret" class="gl-button-icon dropdown-chevron" name="chevron-down" />
+        <gl-icon
+          v-if="!noCaret"
+          class="gl-button-icon gl-new-dropdown-chevron"
+          name="chevron-down"
+        />
       </slot>
     </component>
 
@@ -277,11 +272,11 @@ export default {
       :id="baseDropdownId"
       ref="content"
       data-testid="base-dropdown-menu"
-      class="dropdown-menu"
-      :class="{ show: visible }"
+      class="gl-new-dropdown-panel"
+      :class="{ 'gl-display-block!': visible }"
       @keydown.esc.stop.prevent="closeAndFocus"
     >
-      <div class="gl-dropdown-inner">
+      <div class="gl-new-dropdown-inner">
         <slot></slot>
       </div>
     </div>

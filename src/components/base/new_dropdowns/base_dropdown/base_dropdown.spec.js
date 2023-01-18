@@ -19,8 +19,7 @@ const DEFAULT_BTN_TOGGLE_CLASSES = [
   'btn-default',
   'btn-md',
   'gl-button',
-  'dropdown-toggle',
-  'gl-dropdown-toggle',
+  'gl-new-dropdown-toggle',
 ];
 
 describe('base dropdown', () => {
@@ -42,10 +41,10 @@ describe('base dropdown', () => {
     jest.clearAllMocks();
   });
 
-  const findDefaultDropdownToggle = () => wrapper.find('.btn.gl-dropdown-toggle');
-  const findCustomDropdownToggle = () => wrapper.find('.gl-dropdown-custom-toggle');
+  const findDefaultDropdownToggle = () => wrapper.find('.btn.gl-new-dropdown-toggle');
+  const findCustomDropdownToggle = () => wrapper.find('.gl-new-dropdown-custom-toggle');
   const findDropdownToggleText = () => findDefaultDropdownToggle().find('.gl-button-text');
-  const findDropdownMenu = () => wrapper.find('.dropdown-menu');
+  const findDropdownMenu = () => wrapper.find('.gl-new-dropdown-panel');
 
   describe('popper.js instance', () => {
     it('should initialize popper.js instance with toggle and menu elements and config for left-aligned menu', async () => {
@@ -95,7 +94,7 @@ describe('base dropdown', () => {
 
     it('renders the content', () => {
       buildWrapper({}, slots);
-      expect(wrapper.find('.gl-dropdown-inner').html()).toContain(defaultContent);
+      expect(wrapper.find('.gl-new-dropdown-inner').html()).toContain(defaultContent);
     });
   });
 
@@ -103,11 +102,10 @@ describe('base dropdown', () => {
     props                                                            | toggleClasses
     ${{}}                                                            | ${[]}
     ${{ toggleText: 'toggleText' }}                                  | ${[]}
-    ${{ toggleText: 'toggleText', icon: 'close' }}                   | ${['dropdown-icon-text']}
-    ${{ icon: 'close' }}                                             | ${['dropdown-icon-only']}
-    ${{ icon: 'close', toggleText: 'toggleText', textSrOnly: true }} | ${['dropdown-icon-only']}
-    ${{ icon: 'close', textSrOnly: true }}                           | ${['dropdown-icon-only']}
-    ${{ toggleText: 'toggleText', noCaret: true }}                   | ${['dropdown-toggle-no-caret']}
+    ${{ icon: 'close' }}                                             | ${['gl-new-dropdown-icon-only']}
+    ${{ icon: 'close', toggleText: 'toggleText', textSrOnly: true }} | ${['gl-new-dropdown-icon-only']}
+    ${{ icon: 'close', textSrOnly: true }}                           | ${['gl-new-dropdown-icon-only']}
+    ${{ toggleText: 'toggleText', noCaret: true }}                   | ${['gl-new-dropdown-toggle-no-caret']}
   `('dropdown with props $props', ({ props, toggleClasses }) => {
     beforeEach(async () => {
       buildWrapper(props);
@@ -153,7 +151,7 @@ describe('base dropdown', () => {
     it('applies block style if true', () => {
       buildWrapper({ block: true });
 
-      expect(wrapper.classes()).toContain('gl-display-block');
+      expect(wrapper.classes()).toContain('gl-display-block!');
       expect(findDropdownToggleText().classes()).toContain('gl-w-full');
       expect(findDefaultDropdownToggle().props('block')).toBe(true);
     });
@@ -170,14 +168,14 @@ describe('base dropdown', () => {
 
       // open menu clicking toggle btn
       await toggle.trigger('click');
-      expect(menu.classes('show')).toBe(true);
+      expect(menu.classes('gl-display-block!')).toBe(true);
       expect(toggle.attributes('aria-expanded')).toBe('true');
       await nextTick();
       expect(wrapper.emitted(GL_DROPDOWN_SHOWN).length).toBe(1);
 
       // close menu clicking toggle btn again
       await toggle.trigger('click');
-      expect(menu.classes('show')).toBe(false);
+      expect(menu.classes('gl-display-block!')).toBe(false);
       expect(toggle.attributes('aria-expanded')).toBeUndefined();
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
     });
@@ -188,11 +186,11 @@ describe('base dropdown', () => {
 
       // open menu clicking toggle btn
       await toggle.trigger('click');
-      expect(menu.classes('show')).toBe(true);
+      expect(menu.classes('gl-display-block!')).toBe(true);
 
       // close menu pressing ESC on it
       await menu.trigger('keydown.esc');
-      expect(menu.classes('show')).toBe(false);
+      expect(menu.classes('gl-display-block!')).toBe(false);
       expect(toggle.attributes('aria-expanded')).toBeUndefined();
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
       expect(toggle.element).toHaveFocus();
@@ -225,14 +223,14 @@ describe('base dropdown', () => {
         const menu = findDropdownMenu();
         // open menu clicking toggle btn
         await toggle.trigger('keydown', { code: ENTER });
-        expect(menu.classes('show')).toBe(true);
+        expect(menu.classes('gl-display-block!')).toBe(true);
         expect(toggle.attributes('aria-expanded')).toBe('true');
         await nextTick();
         expect(wrapper.emitted(GL_DROPDOWN_SHOWN).length).toBe(1);
 
         // close menu clicking toggle btn again
         await toggle.trigger('keydown', { code: ENTER });
-        expect(menu.classes('show')).toBe(false);
+        expect(menu.classes('gl-display-block!')).toBe(false);
         expect(toggle.attributes('aria-expanded')).toBeUndefined();
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
       });
@@ -242,11 +240,11 @@ describe('base dropdown', () => {
         const menu = findDropdownMenu();
         // open menu clicking toggle btn
         await toggle.trigger('click');
-        expect(menu.classes('show')).toBe(true);
+        expect(menu.classes('gl-display-block!')).toBe(true);
 
         // close menu pressing ESC on it
         await menu.trigger('keydown.esc');
-        expect(menu.classes('show')).toBe(false);
+        expect(menu.classes('gl-display-block!')).toBe(false);
         expect(toggle.attributes('aria-expanded')).toBeUndefined();
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
         expect(toggle.element).toHaveFocus();

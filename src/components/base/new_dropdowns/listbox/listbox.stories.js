@@ -175,8 +175,9 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
     }
   },
   methods: {
-    selectItem(index) {
-      this.selected.push(mockOptions[index].value);
+    selectAll() {
+      const allValues = mockOptions.map(({ value }) => value);
+      this.selected = [...allValues];
     },
     onReset() {
       this.selected = [];
@@ -185,12 +186,13 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
   template: template(
     `
     <template #footer>
-      <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-100 gl-display-flex gl-justify-content-center gl-p-3">
-        <gl-button-group :vertical="false">
-          <gl-button @click="selectItem(0)">1st</gl-button>
-          <gl-button @click="selectItem(1)">2nd</gl-button>
-          <gl-button @click="selectItem(2)">3rd</gl-button>
-        </gl-button-group>
+       <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-100 gl-display-flex gl-flex-direction-column gl-p-2! gl-pt-0!">
+        <gl-button  @click="selectAll" category="tertiary" block class="gl-justify-content-start! gl-mt-2!"">
+          Select all
+        </gl-button>
+        <gl-button category="tertiary" block class="gl-justify-content-start! gl-mt-2!">
+          Manage departments
+        </gl-button>
       </div>
     </template>
   `,
@@ -242,7 +244,7 @@ export const CustomListItem = (args, { argTypes }) => ({
   template: template(
     `<template #list-item="{ item }">
               <span class="gl-display-flex gl-align-items-center">
-                <gl-avatar :size="32" :entity-name="item.value" class-="gl-mr-3"/>
+                <gl-avatar :size="32" :entity-name="item.value" class="gl-mr-3"/>
                   <span class="gl-display-flex gl-flex-direction-column">
                     <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
                     <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
@@ -291,7 +293,7 @@ export const CustomToggle = (args, { argTypes }) => ({
     </template>
     <template #list-item="{ item }">
       <span class="gl-display-flex gl-align-items-center">
-        <gl-avatar :size="32" :entity-name="item.value" class-="gl-mr-3"/>
+        <gl-avatar :size="32" :entity-name="item.value" class="gl-mr-3"/>
           <span class="gl-display-flex gl-flex-direction-column">
             <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
             <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>

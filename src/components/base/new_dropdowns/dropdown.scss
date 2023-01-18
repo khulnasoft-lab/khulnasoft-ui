@@ -1,6 +1,97 @@
-// TODO: remove in scope of https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2111
-.gl-focusable-dropdown-item {
-  &:focus {
-    @include gl-focus($inset: true);
+.gl-new-dropdown {
+  @include gl-display-inline-flex;
+  @include gl-vertical-align-middle;
+
+  .gl-new-dropdown-custom-toggle {
+    @include gl-cursor-pointer;
+
+    &:focus {
+      @include gl-focus;
+    }
+  }
+
+  .gl-new-dropdown-panel {
+    @include gl-display-none;
+    @include gl-bg-white;
+    @include gl-border-1;
+    @include gl-border-solid;
+    @include gl-border-gray-200;
+    @include gl-rounded-lg;
+    @include gl-shadow-md;
+    width: $gl-new-dropdown-width;
+  }
+
+  .gl-new-dropdown-inner {
+    @include gl-display-flex;
+    @include gl-flex-direction-column;
+    max-height: $gl-max-dropdown-max-height;
+  }
+
+  .gl-new-dropdown-contents {
+    @include gl-flex-grow-1;
+    @include gl-overflow-y-auto;
+    @include gl-pl-0;
+    @include gl-mb-0;
+    @include gl-py-2;
+    @include gl-list-style-none;
+
+    ul {
+      @include gl-list-style-none;
+    }
+  }
+
+  .gl-new-dropdown-toggle {
+    &.gl-button {
+      @include gl-pr-3;
+
+      &.btn-sm {
+        @include gl-pr-2;
+      }
+    }
+
+    &.gl-new-dropdown-toggle-no-caret,
+    &.gl-new-dropdown-toggle-no-caret.btn-sm {
+      @include gl-p-3;
+
+      .gl-new-dropdown-chevron {
+        @include gl-display-none;
+      }
+    }
+  }
+
+  .gl-new-dropdown-toggle {
+    .gl-button-text {
+      @include gl-display-inline-flex;
+    }
+  }
+
+  .gl-new-dropdown-button-text {
+    @include gl-mr-auto;
+    @include gl-overflow-hidden;
+    @include gl-text-overflow-ellipsis;
+  }
+
+  &.btn-sm .gl-icon {
+    @include gl-my-0;
+
+    &.gl-new-dropdown-chevron {
+      @include gl-h-5;
+      @include gl-w-5;
+    }
+  }
+
+  .gl-button .gl-new-dropdown-chevron {
+    @include gl-ml-2;
+    @include gl-mr-0;
+  }
+
+  .gl-new-dropdown-icon-only {
+    .gl-button-icon.gl-button-icon {
+      @include gl-mr-0;
+    }
+
+    &.btn-sm .gl-new-dropdown-chevron {
+      @include gl-mx-0;
+    }
   }
 }
