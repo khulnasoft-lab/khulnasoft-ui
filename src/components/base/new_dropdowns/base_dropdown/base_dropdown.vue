@@ -29,6 +29,11 @@ export default {
       required: false,
       default: false,
     },
+    block: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     category: {
       type: String,
       required: false,
@@ -130,6 +135,9 @@ export default {
         },
       ];
     },
+    toggleButtonTextClasses() {
+      return this.block ? 'gl-w-full' : '';
+    },
     toggleLabelledBy() {
       return this.ariaLabelledby ? `${this.ariaLabelledby} ${this.toggleId}` : this.toggleId;
     },
@@ -141,6 +149,8 @@ export default {
         return {
           is: GlButton,
           icon: this.icon,
+          block: this.block,
+          buttonTextClasses: this.toggleButtonTextClasses,
           category: this.category,
           variant: this.variant,
           size: this.size,
@@ -241,6 +251,7 @@ export default {
   <div
     v-outside="close"
     class="gl-dropdown dropdown gl-display-inline-flex gl-vertical-align-middle"
+    :class="{ 'gl-display-block': block }"
   >
     <component
       :is="toggleOptions.is"

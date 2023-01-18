@@ -275,6 +275,14 @@ export default {
       required: false,
       default: '',
     },
+    /**
+     * Render the toggle button as a block element
+     */
+    block: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -546,6 +554,7 @@ export default {
     ref="baseDropdown"
     aria-haspopup="listbox"
     :aria-labelledby="toggleAriaLabelledBy"
+    :block="block"
     :toggle-id="toggleId"
     :toggle-text="listboxToggleText"
     :toggle-class="toggleClass"

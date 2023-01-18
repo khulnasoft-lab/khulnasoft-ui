@@ -62,6 +62,11 @@ export default {
       required: false,
       default: '',
     },
+    block: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     disabled: {
       type: Boolean,
       required: false,
@@ -109,6 +114,9 @@ export default {
     buttonSize() {
       return buttonSizeOptions[this.size];
     },
+    displayBlock() {
+      return !this.label && this.block;
+    },
   },
   mounted() {
     // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
@@ -123,6 +131,7 @@ export default {
     :is="label ? 'span' : 'b-button'"
     v-bind="$attrs"
     v-safe-link:[safeLinkConfig]
+    :block="displayBlock"
     :target="target"
     :variant="variant"
     :size="buttonSize"
