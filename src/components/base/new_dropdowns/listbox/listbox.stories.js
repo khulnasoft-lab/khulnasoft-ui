@@ -13,8 +13,15 @@ import {
   GlAvatar,
 } from '../../../../index';
 import { makeContainer } from '../../../../utils/story_decorators/container';
-import { disableControls } from '../../../../utils/stories_utils';
 import { setStoryTimeout } from '../../../../utils/test_utils';
+import { disableControls } from '../../../../utils/stories_utils';
+import {
+  ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+  ARG_TYPE_SUBCATEGORY_STATE,
+  ARG_TYPE_SUBCATEGORY_SEARCH,
+  ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
+  ARG_TYPE_SUBCATEGORY_INFINITE_SCROLL,
+} from '../../../../utils/stories_constants';
 import readme from './listbox.md';
 import { mockOptions, mockGroups, mockUsers } from './mock_data';
 import { flattenedOptions } from './utils';
@@ -396,17 +403,126 @@ export default {
         type: 'select',
         options: buttonCategoryOptions,
       },
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
     },
     variant: {
       control: {
         type: 'select',
         options: buttonVariantOptions,
       },
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
     },
     size: {
       control: {
         type: 'select',
         options: Object.keys(buttonSizeOptions),
+      },
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    noCaret: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    right: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    toggleText: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    icon: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    isCheckCentered: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    headerText: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    resetButtonLabel: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    toggleClass: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    disabled: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_STATE,
+      },
+    },
+    loading: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_STATE,
+      },
+    },
+    searchable: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_SEARCH,
+      },
+    },
+    searching: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_SEARCH,
+      },
+    },
+    noResultsText: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_SEARCH,
+      },
+    },
+    searchPlaceholder: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_SEARCH,
+      },
+    },
+    textSrOnly: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
+      },
+    },
+    toggleAriaLabelledBy: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
+      },
+    },
+    listAriaLabelledBy: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
+      },
+    },
+    infiniteScroll: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_INFINITE_SCROLL,
+      },
+    },
+    infiniteScrollLoading: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_INFINITE_SCROLL,
+      },
+    },
+    totalItems: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_INFINITE_SCROLL,
       },
     },
   },
