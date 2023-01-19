@@ -590,7 +590,7 @@ export default {
       <gl-button
         v-if="showResetButton"
         category="tertiary"
-        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2!"
+        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0!"
         data-testid="listbox-reset-button"
         @click="onResetButtonClicked"
       >
