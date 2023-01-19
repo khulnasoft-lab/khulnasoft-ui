@@ -429,6 +429,11 @@ export default {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
     },
+    block: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
     noCaret: {
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
