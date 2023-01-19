@@ -1,3 +1,10 @@
+## [52.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.13.0...v52.13.1) (2023-01-19)
+
+
+### Bug Fixes
+
+* **GlListBox:** allow item.value to be a number ([40173e4](https://gitlab.com/gitlab-org/gitlab-ui/commit/40173e494d447cfdb8fc0b438d6125011749b78e))
+
 # [52.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.12.0...v52.13.0) (2023-01-18)
 
 
