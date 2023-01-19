@@ -13,6 +13,7 @@ import {
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
+  dropdownPlacements,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
@@ -125,12 +126,13 @@ export default {
       default: false,
     },
     /**
-     * Right align disclosure dropdown with respect to the toggle button
+     * Align disclosure dropdown with respect to the toggle button
      */
-    right: {
-      type: Boolean,
+    placement: {
+      type: String,
       required: false,
-      default: false,
+      default: 'left',
+      validator: (value) => Object.keys(dropdownPlacements).includes(value),
     },
     /**
      * The `aria-labelledby` attribute value for the toggle button
@@ -281,7 +283,7 @@ export default {
     :disabled="disabled"
     :loading="loading"
     :no-caret="noCaret"
-    :right="right"
+    :placement="placement"
     class="gl-disclosure-dropdown"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"

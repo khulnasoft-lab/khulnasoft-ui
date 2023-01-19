@@ -122,6 +122,12 @@ export const dropdownVariantOptions = {
   link: 'link',
 };
 
+export const dropdownPlacements = {
+  left: 'bottom-start',
+  center: 'bottom',
+  right: 'bottom-end',
+};
+
 export const buttonSizeOptions = {
   small: 'sm',
   medium: 'md',

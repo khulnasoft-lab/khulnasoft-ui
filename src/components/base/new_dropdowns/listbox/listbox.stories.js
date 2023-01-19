@@ -2,6 +2,7 @@ import {
   buttonCategoryOptions,
   buttonSizeOptions,
   buttonVariantOptions,
+  dropdownPlacements,
 } from '../../../../utils/constants';
 import {
   GlIcon,
@@ -43,7 +44,7 @@ const generateProps = ({
   noResultsText = defaultValue('noResultsText'),
   searchPlaceholder = defaultValue('searchPlaceholder'),
   noCaret = defaultValue('noCaret'),
-  right = defaultValue('right'),
+  placement = defaultValue('placement'),
   toggleText,
   textSrOnly = defaultValue('textSrOnly'),
   headerText = defaultValue('headerText'),
@@ -69,7 +70,7 @@ const generateProps = ({
   noResultsText,
   searchPlaceholder,
   noCaret,
-  right,
+  placement,
   toggleText,
   textSrOnly,
   headerText,
@@ -98,7 +99,7 @@ const makeBindings = (overrides = {}) =>
     ':no-results-text': 'noResultsText',
     ':search-placeholder': 'searchPlaceholder',
     ':no-caret': 'noCaret',
-    ':right': 'right',
+    ':placement': 'placement',
     ':toggle-text': 'toggleText',
     ':text-sr-only': 'textSrOnly',
     ':header-text': 'headerText',
@@ -434,7 +435,11 @@ export default {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
     },
-    right: {
+    placement: {
+      control: {
+        type: 'select',
+        options: Object.keys(dropdownPlacements),
+      },
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
