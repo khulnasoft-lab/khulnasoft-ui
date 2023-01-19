@@ -1,6 +1,6 @@
-import { isString } from 'lodash';
+import { isString, isNumber } from 'lodash';
 
-const isOption = (item) => Boolean(item) && isString(item.value);
+const isOption = (item) => Boolean(item) && (isString(item.value) || isNumber(item.value));
 
 const isGroup = ({ options } = {}) => Array.isArray(options) && options.every(isOption);
 

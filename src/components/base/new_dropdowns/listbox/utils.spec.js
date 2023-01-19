@@ -9,12 +9,14 @@ describe('isOption', () => {
     }
   );
 
-  it.each([{ value: '' }, { value: 'foo', text: 'bar' }, { value: 'qux', foo: true }])(
-    'isOption(%p) === true',
-    (option) => {
-      expect(isOption(option)).toBe(true);
-    }
-  );
+  it.each([
+    { value: '' },
+    { value: 5.3 },
+    { value: 'foo', text: 'bar' },
+    { value: 'qux', foo: true },
+  ])('isOption(%p) === true', (option) => {
+    expect(isOption(option)).toBe(true);
+  });
 });
 
 describe('flattenedOptions', () => {
