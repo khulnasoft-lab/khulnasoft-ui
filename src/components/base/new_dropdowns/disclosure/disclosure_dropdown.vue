@@ -326,9 +326,15 @@ export default {
                 <slot name="group-label" :group="item"></slot>
               </template>
 
-              <template #list-item>
-                <!-- @slot Custom template of the disclosure dropdown item -->
-                <slot name="list-item"></slot>
+              <template v-if="$scopedSlots['list-item']">
+                <gl-disclosure-dropdown-item
+                  v-for="groupItem in item.items"
+                  :key="groupItem.text"
+                  @action="handleAction"
+                >
+                  <!-- @slot Custom template of the disclosure dropdown item -->
+                  <slot name="list-item" :item="groupItem"></slot>
+                </gl-disclosure-dropdown-item>
               </template>
             </gl-disclosure-dropdown-group>
           </template>

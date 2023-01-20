@@ -51,6 +51,24 @@ export const mockItemsCustomItem = [
   },
 ];
 
+export const mockGroupsCustomItem = [
+  {
+    name: 'Merge requests',
+    items: [
+      {
+        text: 'Assigned to you',
+        href: 'https://gitlab.com/dashboard/merge_requests?assignee_username=root',
+        count: 1,
+      },
+      {
+        text: 'Review requests from you',
+        href: 'https://gitlab.com/dashboard/merge_requests?reviewer_username=root',
+        count: 4,
+      },
+    ],
+  },
+];
+
 export const mockGroups = [
   {
     name: 'This project',
