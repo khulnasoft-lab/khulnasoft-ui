@@ -28,6 +28,7 @@ export default {
           is: 'button',
           attrs: {
             ...this.item.extraAttrs,
+            type: 'button',
           },
           listeners: {
             click: () => this.item.action(),
