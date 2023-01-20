@@ -13,6 +13,7 @@ import {
   GlAvatar,
   GlModal,
   GlIcon,
+  GlTooltip,
 } from '../../../../index';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import readme from './disclosure_dropdown.md';
@@ -29,6 +30,7 @@ const generateProps = ({
   loading = defaultValue('loading'),
   noCaret = defaultValue('noCaret'),
   placement = defaultValue('placement'),
+  toggleId = defaultValue('toggleId'),
   toggleText,
   textSrOnly = defaultValue('textSrOnly'),
   icon = '',
@@ -44,6 +46,7 @@ const generateProps = ({
   loading,
   noCaret,
   placement,
+  toggleId,
   toggleText,
   textSrOnly,
   icon,
@@ -62,6 +65,7 @@ const makeBindings = (overrides = {}) =>
     ':loading': 'loading',
     ':no-caret': 'noCaret',
     ':placement': 'placement',
+    ':toggle-id': 'toggleId',
     ':toggle-text': 'toggleText',
     ':text-sr-only': 'textSrOnly',
     ':icon': 'icon',
@@ -87,23 +91,34 @@ const template = (content, { bindingOverrides = {} } = {}) => `
     </gl-disclosure-dropdown>
 `;
 
+const TOGGLE_ID = 'custom-toggle-id';
 export const Default = (args, { argTypes }) => ({
+  toggleId: TOGGLE_ID,
   props: Object.keys(argTypes),
   components: {
     GlDisclosureDropdown,
+    GlTooltip,
   },
   mounted() {
     if (this.startOpened) {
       openDisclosure(this);
     }
   },
-  template: template(),
+  template: `
+    <div>
+      ${template()}
+      <gl-tooltip :target="$options.toggleId" placement="right">
+        This is a default disclosure
+      </gl-tooltip>
+    </div>
+  `,
 });
 Default.args = generateProps({
   icon: 'ellipsis_v',
   noCaret: true,
   toggleText: 'Disclosure',
   textSrOnly: true,
+  toggleId: TOGGLE_ID,
 });
 Default.decorators = [makeContainer({ height: '200px' })];
 
