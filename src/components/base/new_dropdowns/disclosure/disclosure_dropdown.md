@@ -45,7 +45,12 @@ After closing, `GlDisclosureDropdown` emits a `hidden` event.
 ### Setting disclosure dropdown items
 
 Use the `items` prop to provide actions/links to the disclosure dropdown. Each item can be
-either an item or a group. Below are the expected shapes of these objects:
+either an item or a group. For `Item`s, either the `href` or the `action` may be null, but not both.
+A <!-- markdownlint-disable-next-line line-length -->
+[validation error](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/6cbff4f908b429cc01f17a4cc2868e881db1aa31/src/components/base/new_dropdowns/disclosure/utils.js#L1)
+will be triggered if neither field is set.
+
+Below are the expected shapes of these objects:
 
 ```typescript
 type Item = {
