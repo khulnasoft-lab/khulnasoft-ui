@@ -1,3 +1,17 @@
+# [53.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.13.1...v53.0.0) (2023-01-20)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Add support for a placement prop ([06e789c](https://gitlab.com/gitlab-org/gitlab-ui/commit/06e789cdfd1f41a32c19a4ce19305cd4029777dd))
+
+
+### BREAKING CHANGES
+
+* **GlDisclosureDropdown:** `right` boolean prop replaced with `placement` string
+prop on base_dropdown.vue used by `GlCollapsibleListbox` and
+`GlDisclosureDropdown`
+
 ## [52.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.13.0...v52.13.1) (2023-01-19)
 
 
