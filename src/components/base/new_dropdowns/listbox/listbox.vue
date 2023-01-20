@@ -13,6 +13,7 @@ import {
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
+  dropdownPlacements,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import GlButton from '../../button/button.vue';
@@ -167,12 +168,13 @@ export default {
       default: false,
     },
     /**
-     * Right align listbox menu with respect to the toggle button
+     * Align listbox menu with respect to the toggle button
      */
-    right: {
-      type: Boolean,
+    placement: {
+      type: String,
       required: false,
-      default: false,
+      default: 'left',
+      validator: (value) => Object.keys(dropdownPlacements).includes(value),
     },
     /**
      * Center selected item checkmark
@@ -566,7 +568,7 @@ export default {
     :disabled="disabled"
     :loading="loading"
     :no-caret="noCaret"
-    :right="right"
+    :placement="placement"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
   >

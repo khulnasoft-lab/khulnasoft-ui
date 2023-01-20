@@ -57,8 +57,17 @@ describe('base dropdown', () => {
       );
     });
 
+    it('should initialize popper.js instance with toggle and menu elements and config for center-aligned menu', async () => {
+      await buildWrapper({ placement: 'center' });
+      expect(mockCreatePopper).toHaveBeenCalledWith(
+        findDefaultDropdownToggle().element,
+        findDropdownMenu().element,
+        { ...POPPER_CONFIG, placement: 'bottom' }
+      );
+    });
+
     it('should initialize popper.js instance with toggle and menu elements and config for right-aligned menu', async () => {
-      await buildWrapper({ right: true });
+      await buildWrapper({ placement: 'right' });
       expect(mockCreatePopper).toHaveBeenCalledWith(
         findDefaultDropdownToggle().element,
         findDropdownMenu().element,

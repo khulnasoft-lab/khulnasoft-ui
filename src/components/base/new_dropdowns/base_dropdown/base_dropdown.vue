@@ -4,6 +4,7 @@ import { createPopper } from '@popperjs/core';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
+  dropdownPlacements,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import { POPPER_CONFIG, GL_DROPDOWN_SHOWN, GL_DROPDOWN_HIDDEN, ENTER, SPACE } from '../constants';
@@ -77,13 +78,11 @@ export default {
       required: false,
       default: false,
     },
-    /**
-     * Right align dropdown menu with respect to the toggle button
-     */
-    right: {
-      type: Boolean,
+    placement: {
+      type: String,
       required: false,
-      default: false,
+      default: 'left',
+      validator: (value) => Object.keys(dropdownPlacements).includes(value),
     },
     // ARIA props
     ariaHaspopup: {
@@ -179,7 +178,7 @@ export default {
     },
     popperConfig() {
       return {
-        placement: this.right ? 'bottom-end' : 'bottom-start',
+        placement: dropdownPlacements[this.placement],
         ...POPPER_CONFIG,
       };
     },

@@ -2,6 +2,7 @@ import {
   buttonCategoryOptions,
   buttonSizeOptions,
   buttonVariantOptions,
+  dropdownPlacements,
 } from '../../../../utils/constants';
 import {
   GlDisclosureDropdown,
@@ -27,7 +28,7 @@ const generateProps = ({
   disabled = defaultValue('disabled'),
   loading = defaultValue('loading'),
   noCaret = defaultValue('noCaret'),
-  right = defaultValue('right'),
+  placement = defaultValue('placement'),
   toggleText,
   textSrOnly = defaultValue('textSrOnly'),
   icon = '',
@@ -42,7 +43,7 @@ const generateProps = ({
   disabled,
   loading,
   noCaret,
-  right,
+  placement,
   toggleText,
   textSrOnly,
   icon,
@@ -60,7 +61,7 @@ const makeBindings = (overrides = {}) =>
     ':disabled': 'disabled',
     ':loading': 'loading',
     ':no-caret': 'noCaret',
-    ':right': 'right',
+    ':placement': 'placement',
     ':toggle-text': 'toggleText',
     ':text-sr-only': 'textSrOnly',
     ':icon': 'icon',
@@ -127,19 +128,24 @@ export const CustomListItem = (args, { argTypes }) => ({
       <template #list-item="{ item }">
         <a ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
           {{item.text}}
-          <gl-badge pill variant="info" v-if="item.count">{{item.count}}</gl-badge>
+          <gl-badge v-if="item.count" pill size="sm">{{item.count}}</gl-badge>
         </a>
       </template>
     `,
     {
       bindingOverrides: {
         '@action': 'navigate',
+        class: 'gl-display-block gl-text-center',
       },
     }
   ),
 });
 
-CustomListItem.args = generateProps({ items: mockItemsCustomItem, toggleText: 'Merge requests' });
+CustomListItem.args = generateProps({
+  items: mockItemsCustomItem,
+  toggleText: 'Merge requests',
+  placement: 'center',
+});
 CustomListItem.decorators = [makeContainer({ height: '200px' })];
 
 const makeGroupedExample = (changes) => {
@@ -300,6 +306,12 @@ export default {
       control: {
         type: 'select',
         options: Object.keys(buttonSizeOptions),
+      },
+    },
+    placement: {
+      control: {
+        type: 'select',
+        options: Object.keys(dropdownPlacements),
       },
     },
   },
