@@ -1,3 +1,10 @@
+# [53.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.0.1...v53.1.0) (2023-01-23)
+
+
+### Features
+
+* **css:** add gl-w-30 ([4cf37cf](https://gitlab.com/gitlab-org/gitlab-ui/commit/4cf37cfb4e82d9101a6a2f4a4b3b4144eb1cffd6))
+
 ## [53.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.0.0...v53.0.1) (2023-01-23)
 
 
