@@ -10,6 +10,7 @@ describe('isItem', () => {
   );
 
   it.each([
+    { text: 'Action' },
     { text: 'Action', href: 'gitlab.com' },
     {
       text: 'Action',

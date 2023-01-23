@@ -16,8 +16,8 @@ export default {
     },
   },
   computed: {
-    isActionItem() {
-      return this.item?.action;
+    isLink() {
+      return typeof this.item?.href === 'string';
     },
     isCustomContent() {
       return Boolean(this.$scopedSlots.default);
@@ -25,25 +25,25 @@ export default {
     itemComponent() {
       const { item } = this;
 
-      if (this.isActionItem)
+      if (this.isLink)
         return {
-          is: 'button',
+          is: 'a',
           attrs: {
+            href: item.href,
             ...item.extraAttrs,
-            type: 'button',
           },
-          listeners: {
-            click: () => item.action?.call(undefined, item),
-          },
+          listeners: {},
         };
 
       return {
-        is: 'a',
+        is: 'button',
         attrs: {
-          href: item.href,
           ...item.extraAttrs,
+          type: 'button',
         },
-        listeners: {},
+        listeners: {
+          click: () => item.action?.call(undefined, item),
+        },
       };
     },
   },
