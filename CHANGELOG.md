@@ -1,3 +1,10 @@
+# [53.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.1.0...v53.2.0) (2023-01-23)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Allow to provide custom item template for groups ([c3034b8](https://gitlab.com/gitlab-org/gitlab-ui/commit/c3034b87ae093daae7b0817a2535abefa0a7dcad))
+
 # [53.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.0.1...v53.1.0) (2023-01-23)
 
 
