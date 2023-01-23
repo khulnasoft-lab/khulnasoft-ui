@@ -1,3 +1,10 @@
+## [53.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.0.0...v53.0.1) (2023-01-23)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Always set button type ([595d6a2](https://gitlab.com/gitlab-org/gitlab-ui/commit/595d6a25835a42425f3a3b68080d70dcf24fbd08))
+
 # [53.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v52.13.1...v53.0.0) (2023-01-20)
 
 
