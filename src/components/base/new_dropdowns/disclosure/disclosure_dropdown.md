@@ -79,15 +79,17 @@ template. If you want to render a custom template for items, use the
 
 ```html
 <gl-disclosure-dropdown :items="items">
-    <template #list-item="{ item }">
-        <a class="gl-hover-text-decoration-none gl-text-gray-900"
-           tabindex="-1"
-           :href="item.href"
-           v-bind="item.extraAttrs">
-            {{ item.text }}
-            <gl-badge pill variant="info" v-if="item.count">{{ item.count }}</gl-badge>
-        </a>
-    </template>
+  <template #list-item="{ item }">
+    <a
+      class="gl-hover-text-decoration-none gl-text-gray-900"
+      tabindex="-1"
+      :href="item.href"
+      v-bind="item.extraAttrs"
+    >
+      {{ item.text }}
+      <gl-badge v-if="item.count" pill variant="info">{{ item.count }}</gl-badge>
+    </a>
+  </template>
 </gl-disclosure-dropdown>
 ```
 
