@@ -16,7 +16,13 @@ import {
 } from '../../../../index';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import readme from './disclosure_dropdown.md';
-import { mockItems, mockItemsCustomItem, mockGroups, mockProfileGroups } from './mock_data';
+import {
+  mockItems,
+  mockItemsCustomItem,
+  mockGroups,
+  mockProfileGroups,
+  mockGroupsCustomItem,
+} from './mock_data';
 
 const defaultValue = (prop) => GlDisclosureDropdown.props[prop].default;
 
@@ -184,6 +190,51 @@ Groups.args = generateProps({
   toggleText: 'Create new',
   textSrOnly: true,
 });
+
+export const CustomGroupsAndItems = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlDisclosureDropdown,
+    GlBadge,
+  },
+  mounted() {
+    if (this.startOpened) {
+      openDisclosure(this);
+    }
+  },
+  methods: {
+    navigate() {
+      this.$refs.link.click();
+    },
+    getTotalMrs(items) {
+      return items.reduce((acc, item) => acc + item.count, 0);
+    },
+  },
+  template: template(
+    `
+      <template #group-label="{ group }">
+        {{ group.name }} <gl-badge size="sm">{{ getTotalMrs(group.items)  }}</gl-badge>
+      </template>
+      <template #list-item="{ item }">
+        <a ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
+          {{item.text}}
+          <gl-badge pill size="sm" v-if="item.count">{{item.count}}</gl-badge>
+        </a>
+       </template>
+    `,
+    {
+      bindingOverrides: {
+        '@action': 'navigate',
+      },
+    }
+  ),
+});
+
+CustomGroupsAndItems.args = generateProps({
+  items: mockGroupsCustomItem,
+  toggleText: 'Merge requests',
+});
+CustomGroupsAndItems.decorators = [makeContainer({ height: '200px' })];
 
 export const CustomGroupsItemsAndToggle = makeGroupedExample({
   template: template(`
