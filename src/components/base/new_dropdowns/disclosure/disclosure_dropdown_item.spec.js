@@ -18,8 +18,10 @@ describe('GlDisclosureDropdownItem', () => {
   describe('when default slot content provided', () => {
     const content = 'This is an item';
     const slots = { default: content };
+    const item = mockItems[1];
+
     beforeEach(() => {
-      buildWrapper({}, slots);
+      buildWrapper({ item }, slots);
     });
 
     it('renders it', () => {
@@ -33,7 +35,7 @@ describe('GlDisclosureDropdownItem', () => {
       ${() => findItem().trigger('keydown', { code: SPACE })} | ${'SPACE'}
     `(`$event should emit 'action' event`, ({ trigger }) => {
       trigger();
-      expect(wrapper.emitted('action')).toHaveLength(1);
+      expect(wrapper.emitted('action')).toEqual([[item]]);
     });
   });
 
@@ -55,10 +57,11 @@ describe('GlDisclosureDropdownItem', () => {
   });
 
   describe('when item has an `action`', () => {
-    const action = jest.spyOn(mockItems[1], 'action');
+    const item = mockItems[1];
+    const action = jest.spyOn(item, 'action');
 
     beforeEach(() => {
-      buildWrapper({ item: mockItems[1] });
+      buildWrapper({ item });
       action.mockClear();
     });
 
@@ -69,16 +72,23 @@ describe('GlDisclosureDropdownItem', () => {
     });
 
     it('should set correct attributes', () => {
-      const attrs = { ...mockItems[1].extraAttrs };
+      const attrs = { ...item.extraAttrs };
       delete attrs.class;
-      expect(findButton().classes()).toContain(mockItems[1].extraAttrs.class);
+      expect(findButton().classes()).toContain(item.extraAttrs.class);
       expect(findButton().attributes()).toMatchObject(attrs);
     });
 
     it('should call `action` on `click`', () => {
       findButton().trigger('click');
-      expect(action).toHaveBeenCalled();
-      expect(wrapper.emitted('action')).toHaveLength(1);
+      expect(action).toHaveBeenCalledTimes(1);
+
+      const actionThisArg = action.mock.contexts[0];
+      expect(actionThisArg).toBe(item);
+
+      const actionArgs = action.mock.calls[0];
+      expect(actionArgs).toEqual([]);
+
+      expect(wrapper.emitted('action')).toEqual([[item]]);
     });
 
     it.each`
@@ -88,7 +98,7 @@ describe('GlDisclosureDropdownItem', () => {
       ${() => findItem().trigger('keydown', { code: SPACE })} | ${'SPACE'}
     `(`$event will execute action and emit 'action' event`, ({ trigger }) => {
       trigger();
-      expect(wrapper.emitted('action')).toHaveLength(1);
+      expect(wrapper.emitted('action')).toEqual([[item]]);
     });
   });
 });
