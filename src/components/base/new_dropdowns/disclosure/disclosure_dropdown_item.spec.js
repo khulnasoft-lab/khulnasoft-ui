@@ -62,7 +62,7 @@ describe('GlDisclosureDropdownItem', () => {
       action.mockClear();
     });
 
-    const findButton = () => wrapper.find('button.dropdown-item');
+    const findButton = () => wrapper.find('button[type="button"].dropdown-item');
 
     it('should render a button', () => {
       expect(findButton().exists()).toBe(true);
