@@ -69,6 +69,10 @@
   width: $gl-spacing-scale-28;
 }
 
+@mixin gl-w-30 {
+  width: $gl-spacing-scale-30;
+}
+
 @mixin gl-w-eighth {
   width: 12.5%;
 }
