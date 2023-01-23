@@ -56,7 +56,7 @@ Below are the expected shapes of these objects:
 type Item = {
   text: string
   href?: string,
-  action?: function,
+  action?: (item: Item) => void,
 }
 
 type Group = {

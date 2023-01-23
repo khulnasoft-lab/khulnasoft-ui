@@ -83,10 +83,10 @@ describe('GlDisclosureDropdownItem', () => {
       expect(action).toHaveBeenCalledTimes(1);
 
       const actionThisArg = action.mock.contexts[0];
-      expect(actionThisArg).toBe(item);
+      expect(actionThisArg).toBe(undefined);
 
       const actionArgs = action.mock.calls[0];
-      expect(actionArgs).toEqual([]);
+      expect(actionArgs).toEqual([item]);
 
       expect(wrapper.emitted('action')).toEqual([[item]]);
     });

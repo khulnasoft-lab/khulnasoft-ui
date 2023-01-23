@@ -23,22 +23,25 @@ export default {
       return Boolean(this.$scopedSlots.default);
     },
     itemComponent() {
+      const { item } = this;
+
       if (this.isActionItem)
         return {
           is: 'button',
           attrs: {
-            ...this.item.extraAttrs,
+            ...item.extraAttrs,
             type: 'button',
           },
           listeners: {
-            click: () => this.item.action(),
+            click: () => item.action?.call(undefined, item),
           },
         };
+
       return {
         is: 'a',
         attrs: {
-          href: this.item.href,
-          ...this.item.extraAttrs,
+          href: item.href,
+          ...item.extraAttrs,
         },
         listeners: {},
       };
