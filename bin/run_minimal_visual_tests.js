@@ -83,7 +83,7 @@ const runVisualTests = (stories) => {
   return new Promise((resolve, reject) => {
     let ignoreChildFailureMessage;
 
-    const child = spawn(`yarn`, ['test:visual'], {
+    const child = spawn(`yarn`, ['test:old_visual'], {
       env: {
         ...process.env,
         ...(stories?.size

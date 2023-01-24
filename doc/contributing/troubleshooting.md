@@ -25,9 +25,9 @@ As long as these stay the same, we can cache even across branches!
 In the unlikely event we are seeing build errors, the cache can be manually
 [reset by maintainer](https://docs.gitlab.com/ee/ci/caching/#clearing-the-cache-manually).
 
-## I get an error when I run `yarn test:visual` locally
+## I get an error when I run `yarn test:old_visual` locally
 
-Running `yarn test:visual` (or `yarn test:visual:update`) locally will result in
+Running `yarn test:old_visual` (or `yarn test:old_visual:update`) locally will result in
 error messages like this (even if you have Storybook running):
 
 > Error when connecting to

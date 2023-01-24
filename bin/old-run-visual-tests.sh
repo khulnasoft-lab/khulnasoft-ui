@@ -2,7 +2,7 @@
 
 if [ "$CI" = true ]; then
   echo "Running in CI"
-  yarn test:visual:internal "${1}"
+  yarn test:old_visual:internal "${1}"
 else
   echo "Running locally"
   if which docker >/dev/null; then
@@ -12,7 +12,7 @@ else
       docker run \
         --cidfile $CID_FILE \
         -v "$(pwd)/tests":/tests gitlab-ui-storyshots \
-        yarn test:visual:internal "${1}"
+        yarn test:old_visual:internal "${1}"
 
     echo "Cleaning up..."
     docker rm $(cat $CID_FILE)

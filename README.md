@@ -104,7 +104,7 @@ layout changes on components. The tool we use is
 a storybook addon. Read the project documentation to understand how visual snapshots work.
 
 There is a visual snapshot of every component’s storybook story. To run the tests, use the
-`yarn test:visual` command. This command runs on the CI environment and will fail if the component
+`yarn test:old_visual` command. This command runs on the CI environment and will fail if the component
 visual appearance changes.
 
 #### Updating visual snapshot baseline images
@@ -131,7 +131,7 @@ is to run a percent-based diff, and to increase the failure threshold with the
 
 ```sh
 # Sets a 2% threshold
-FAILURE_THRESHOLD_TYPE='percent' FAILURE_THRESHOLD=.02 yarn test:visual
+FAILURE_THRESHOLD_TYPE='percent' FAILURE_THRESHOLD=.02 yarn test:old_visual
 ```
 
 `FAILURE_THRESHOLD_TYPE` defaults to `'pixel'` and `FAILURE_THRESHOLD` defaults to `1`. In the CI

@@ -22,6 +22,7 @@ variables:
   # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
   SAST_DEFAULT_ANALYZERS: 'nodejs-scan, eslint'
   CYPRESS_CACHE_FOLDER: $CI_PROJECT_DIR/.cypress_cache/Cypress
+  PLAYWRIGHT_CACHE_FOLDER: $CI_PROJECT_DIR/.playwright
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -102,6 +103,7 @@ container_scanning:
   paths:
     - node_modules/
     - .cypress_cache/Cypress
+    - .playwright/
   key:
     files:
       - .gitlab-ci.yml
@@ -245,7 +247,7 @@ generate_utility_classes:
   script:
     - yarn generate-utilities
 
-visual:
+visual_old:
   extends:
     - .puppeteer
     - .yarn_install
@@ -253,7 +255,7 @@ visual:
     - build_docker_image
   stage: test
   script:
-    - yarn test:visual
+    - yarn test:old_visual
   rules:
     - !reference ['.rules:gitlab-ui-default-branch', rules]
     - <<: *is-merge-train
@@ -266,13 +268,13 @@ visual:
     paths:
       - tests/__image_snapshots__/
 
-visual_minimal:
+visual_old_minimal:
   extends: [.puppeteer, .yarn_install]
   needs:
     - build_docker_image
   stage: test
   script:
-    - yarn test:visual:minimal
+    - yarn test:old_visual:minimal
   rules:
     - <<: *is-merged-result
       when: always
@@ -280,6 +282,33 @@ visual_minimal:
     when: always
     paths:
       - tests/__image_snapshots__/
+
+visual:
+  extends:
+    - .puppeteer
+    - .yarn_install
+  needs:
+    - build_docker_image
+  stage: test
+  parallel: 2
+  script:
+    - npx playwright install chromium # TODO: Solve this with better docker images
+    - yarn test:visual
+  artifacts:
+    when: always
+    paths:
+      - __snapshots__/
+
+update_screenshots:
+  extends:
+    - .puppeteer
+    - .yarn_install
+    - .rules:gitlab-ui-mr-manual
+  stage: manual
+  script:
+    - npx playwright install chromium # TODO: Solve this with better docker images
+    - yarn test:visual:update
+    - ./bin/update-screenshots.sh
 
 integration_tests:
   image: cypress/browsers:node16.14.0-chrome99-ff97
@@ -307,14 +336,14 @@ unit_tests_vue2:
 unit_tests_vue3:
   extends: [.unit_tests, .use_vue3]
 
-update_screenshots:
+update_screenshots_old:
   extends:
     - .puppeteer
     - .yarn_install
     - .rules:gitlab-ui-mr-manual
   stage: manual
   script:
-    - yarn test:visual:update
+    - yarn test:old_visual:update
     - ./bin/update-screenshots.sh
 
 review:
