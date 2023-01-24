@@ -98,7 +98,6 @@ export { default as GlAccordion } from './components/base/accordion/accordion.vu
 export { default as GlAccordionItem } from './components/base/accordion/accordion_item.vue';
 export { default as GlCarousel } from './components/base/carousel/carousel.vue';
 export { default as GlCarouselSlide } from './components/base/carousel/carousel_slide.vue';
-export { default as RichTextEditor } from './components/editors/rich_text_editor/rich_text_editor.vue';
 
 // Utilities
 export { default as GlAnimatedNumber } from './components/utilities/animated_number/animated_number.vue';
