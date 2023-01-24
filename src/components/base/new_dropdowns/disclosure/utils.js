@@ -1,5 +1,4 @@
-const itemValidator = ({ text, href, action }) =>
-  Boolean(text?.length && (href?.length || typeof action === 'function'));
+const itemValidator = (item) => item?.text?.length > 0 && !Array.isArray(item?.items);
 
 const isItem = (item) => Boolean(item) && itemValidator(item);
 

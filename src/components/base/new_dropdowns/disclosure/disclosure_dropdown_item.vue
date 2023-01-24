@@ -16,31 +16,34 @@ export default {
     },
   },
   computed: {
-    isActionItem() {
-      return this.item?.action;
+    isLink() {
+      return typeof this.item?.href === 'string';
     },
     isCustomContent() {
       return Boolean(this.$scopedSlots.default);
     },
     itemComponent() {
-      if (this.isActionItem)
+      const { item } = this;
+
+      if (this.isLink)
         return {
-          is: 'button',
+          is: 'a',
           attrs: {
-            ...this.item.extraAttrs,
-            type: 'button',
+            href: item.href,
+            ...item.extraAttrs,
           },
-          listeners: {
-            click: () => this.item.action(),
-          },
+          listeners: {},
         };
+
       return {
-        is: 'a',
+        is: 'button',
         attrs: {
-          href: this.item.href,
-          ...this.item.extraAttrs,
+          ...item.extraAttrs,
+          type: 'button',
         },
-        listeners: {},
+        listeners: {
+          click: () => item.action?.call(undefined, item),
+        },
       };
     },
   },
