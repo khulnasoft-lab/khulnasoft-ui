@@ -33,10 +33,18 @@ describe('GlDisclosureDropdown', () => {
   const findListItem = (index) => findDisclosureItems().at(index).findComponent(ITEM_SELECTOR);
 
   describe('toggle text', () => {
-    it('should pass toggle text to base dropdown', () => {
+    it('should pass toggle text to the base dropdown', () => {
       const toggleText = 'Merge requests';
       buildWrapper({ items: mockItems, toggleText });
       expect(findBaseDropdown().props('toggleText')).toBe(toggleText);
+    });
+  });
+
+  describe('custom toggle id', () => {
+    it('should pass toggle id to the base dropdown', () => {
+      const toggleId = 'custom-toggle';
+      buildWrapper({ items: mockItems, toggleId });
+      expect(findBaseDropdown().props('toggleId')).toBe(toggleId);
     });
   });
 
