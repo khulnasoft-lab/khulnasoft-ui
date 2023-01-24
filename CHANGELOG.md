@@ -1,3 +1,10 @@
+# [53.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.2.0...v53.3.0) (2023-01-24)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Allow to provide custom toggle id ([b696ea2](https://gitlab.com/gitlab-org/gitlab-ui/commit/b696ea2ef34a9efca894260cfa45b7ff36aefd56))
+
 # [53.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.1.0...v53.2.0) (2023-01-23)
 
 
