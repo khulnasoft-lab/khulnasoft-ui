@@ -297,7 +297,7 @@ visual:
   artifacts:
     when: always
     paths:
-      - __snapshots__/
+      - tests/__image_snapshots__/
 
 update_screenshots:
   extends:
