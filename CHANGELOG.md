@@ -1,3 +1,30 @@
+# [54.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.3.0...v54.0.0) (2023-01-24)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Loosen action item type ([bb2b308](https://gitlab.com/gitlab-org/gitlab-ui/commit/bb2b3087c6d322aa0b67b7343b854a0796d27fde))
+* **GlDisclosureDropdown:** Pass item to action ([8ac2cbf](https://gitlab.com/gitlab-org/gitlab-ui/commit/8ac2cbf80f81b4eff58e58a339b9fcad7bf40545))
+
+
+### BREAKING CHANGES
+
+* **GlDisclosureDropdown:** Action items are now determined by the *lack* of an
+href string. An item with an href string is rendered as a link item,
+whether or not it has an action callback.
+
+Before this change, if an item had *both* an href and an action, it
+would render as a button. Now, it would render as an anchor.
+* **GlDisclosureDropdown:** The `this` of the `GlDisclosureDropdown` action
+callback is now `undefined` rather than the item it's attached to. It
+now receives the item as a regular argument instead.
+
+This makes it more similar to the `action` event that's emitted by the
+component, such that the same function could be used in either way.
+
+This also means that the same callback can be attached to all items,
+instead of requiring a unique callback for each item.
+
 # [53.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.2.0...v53.3.0) (2023-01-24)
 
 
