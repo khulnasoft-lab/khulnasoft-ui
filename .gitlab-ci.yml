@@ -75,13 +75,17 @@ container_scanning:
   variables:
     CI_APPLICATION_REPOSITORY: $CI_REGISTRY_IMAGE/puppeteer
     CI_APPLICATION_TAG: $PUPPETEER_VERSION
-  needs: ['build_docker_image']
+  needs:
+    - job: build_docker_image
+      optional: true
   rules:
     - when: always
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
-  needs: ['build_docker_image']
+  needs:
+    - job: build_docker_image
+      optional: true
 
 .node:
   image: node:16-buster
@@ -157,6 +161,13 @@ build_docker_image:
     - docker info
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - ./bin/build-docker.sh
+  rules:
+    - changes:
+       paths:
+         - ./bin/build-docker.sh
+         - Dockerfile.puppeteer
+         - yarn.lock
+       compare_to: 'main'
 
 # As we are caching based on the contents of our CI config and dependency lock file
 # We only need to execute when these change. However, we give a manual job as an escape hatch
@@ -250,7 +261,8 @@ visual:
     - .puppeteer
     - .yarn_install
   needs:
-    - build_docker_image
+    - job: build_docker_image
+      optional: true
   stage: test
   script:
     - yarn test:visual
@@ -269,7 +281,8 @@ visual:
 visual_minimal:
   extends: [.puppeteer, .yarn_install]
   needs:
-    - build_docker_image
+    - job: build_docker_image
+      optional: true
   stage: test
   script:
     - yarn test:visual:minimal
