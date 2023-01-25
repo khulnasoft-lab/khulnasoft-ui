@@ -1,3 +1,10 @@
+# [54.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.0.0...v54.1.0) (2023-01-25)
+
+
+### Features
+
+* **CSS Gap Mixin:** Adds spacing scale 2 version of gap mixin ([1a3e049](https://gitlab.com/gitlab-org/gitlab-ui/commit/1a3e04918b9486fb957c1f191f78135998ff4cfa))
+
 # [54.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v53.3.0...v54.0.0) (2023-01-24)
 
 
