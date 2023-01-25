@@ -116,7 +116,7 @@ export default {
     toggleId: {
       type: String,
       required: false,
-      default: uniqueId('dropdown-toggle-btn-'),
+      default: () => uniqueId('dropdown-toggle-btn-'),
     },
     /**
      * Additional CSS classes to customize toggle appearance
