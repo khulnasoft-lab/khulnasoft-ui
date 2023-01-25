@@ -819,6 +819,10 @@
   }
 }
 
+@mixin gl-gap-2 {
+  gap: $gl-spacing-scale-2;
+}
+
 @mixin gl-gap-3 {
   gap: $gl-spacing-scale-3;
 }
