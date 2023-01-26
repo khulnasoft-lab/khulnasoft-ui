@@ -56,13 +56,16 @@ export default {
         /** Instead of simply navigating or calling the action, we want
          * the `a/button` to be the target of the event as it might have additional attributes.
          * E.g. `a` might have `target` attribute.
-         * `bubbles` is set to `true` as the parent `li` item has this event listener and thus we'll get a loop.
          */
-        this.$refs.item?.dispatchEvent(new MouseEvent('click', { bubbles: false }));
-        this.action();
+        this.$refs.item?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        this.action(null, true);
       }
     },
-    action() {
+
+    action(event, synthetic) {
+      if (synthetic && !this.isCustomContent) {
+        return;
+      }
       this.$emit('action', this.item);
     },
   },

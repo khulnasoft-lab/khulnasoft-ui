@@ -140,17 +140,17 @@ export const CustomListItem = (args, { argTypes }) => ({
     }
   },
   methods: {
-    navigate() {
-      this.$refs.link.click();
+    navigate(item) {
+      window.open(item.href, '_blank');
     },
   },
   template: template(
     `
       <template #list-item="{ item }">
-        <a ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
+        <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
           {{item.text}}
           <gl-badge v-if="item.count" pill size="sm">{{item.count}}</gl-badge>
-        </a>
+        </span>
       </template>
     `,
     {
