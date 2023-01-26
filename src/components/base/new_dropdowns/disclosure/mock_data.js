@@ -33,7 +33,7 @@ export const mockItems = [
 export const mockItemsCustomItem = [
   {
     text: 'Assigned to you',
-    href: 'https://gitlab.com/dashboard/merge_requests',
+    href: 'https://gitlab.com/dashboard/merge_requests?assignee_username=root',
     count: '2',
     extraAttrs: {
       target: '_blank',
@@ -42,7 +42,7 @@ export const mockItemsCustomItem = [
   },
   {
     text: 'Review requests from you',
-    href: 'https://gitlab.com/dashboard/merge_requests',
+    href: 'https://gitlab.com/dashboard/merge_requests?reviewer_username=root',
     count: 0,
     extraAttrs: {
       target: '_blank',
