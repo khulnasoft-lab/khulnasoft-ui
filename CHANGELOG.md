@@ -1,3 +1,10 @@
+## [54.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.1.1...v54.1.2) (2023-01-26)
+
+
+### Bug Fixes
+
+* **GlListbox:** Override reset button styles ([ec8cf77](https://gitlab.com/gitlab-org/gitlab-ui/commit/ec8cf771095b8c00ce423be438d4cb7d00aa8224))
+
 ## [54.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.1.0...v54.1.1) (2023-01-25)
 
 
