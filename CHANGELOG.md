@@ -1,3 +1,10 @@
+# [54.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.1.2...v54.2.0) (2023-01-27)
+
+
+### Features
+
+* **GlListbox,GlDisclosure:** Updates dropdown styles ([6c6ed0e](https://gitlab.com/gitlab-org/gitlab-ui/commit/6c6ed0e339a041fe596e594a24b061a740fdb8d5))
+
 ## [54.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.1.1...v54.1.2) (2023-01-26)
 
 
