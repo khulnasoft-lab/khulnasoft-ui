@@ -223,9 +223,7 @@ describe('datepicker component', () => {
         slots: { default: input.outerHTML },
       });
 
-      expect(pikadayConfig()).toMatchObject({
-        field: input,
-      });
+      expect(pikadayConfig().field).toEqual(input);
     });
   });
 
