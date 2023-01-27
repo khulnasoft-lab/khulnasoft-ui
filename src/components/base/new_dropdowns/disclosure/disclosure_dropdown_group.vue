@@ -3,7 +3,7 @@ import { uniqueId } from 'lodash';
 import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
 import { isGroup } from './utils';
 
-export const GROUP_TOP_BORDER_CLASSES = 'gl-border-t gl-pt-3 gl-mt-3';
+export const GROUP_TOP_BORDER_CLASSES = 'gl-border-t gl-pt-0';
 
 export default {
   components: {
@@ -57,7 +57,7 @@ export default {
       v-if="showHeader"
       :id="nameId"
       aria-hidden="true"
-      class="gl-pl-5 gl-py-2 gl-font-sm gl-font-weight-bold"
+      class="gl-pl-5 gl-pt-3 gl-pb-2 gl-font-sm gl-font-weight-bold"
     >
       <slot name="group-label">{{ group.name }}</slot>
     </div>
