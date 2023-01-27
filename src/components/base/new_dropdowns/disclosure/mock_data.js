@@ -67,11 +67,19 @@ export const mockGroupsCustomItem = [
         text: 'Assigned to you',
         href: 'https://gitlab.com/dashboard/merge_requests?assignee_username=root',
         count: 1,
+        extraAttrs: {
+          target: '_blank',
+          rel: 'nofollow',
+        },
       },
       {
         text: 'Review requests from you',
         href: 'https://gitlab.com/dashboard/merge_requests?reviewer_username=root',
         count: 4,
+        extraAttrs: {
+          target: '_blank',
+          rel: 'nofollow',
+        },
       },
     ],
   },
@@ -139,6 +147,17 @@ export const mockGroups = [
 ];
 
 export const mockProfileGroups = [
+  {
+    items: [
+      {
+        text: 'Orange Fox',
+        secondaryText: '@thefox',
+        action: () => {
+          window.open('https://gitlab.com/gitlab');
+        },
+      },
+    ],
+  },
   {
     items: [
       {

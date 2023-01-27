@@ -9,6 +9,7 @@ import {
   GlBadge,
   GlDisclosureDropdownGroup,
   GlDisclosureDropdownItem,
+  GlDisclosureDropdownContent,
   GlToggle,
   GlAvatar,
   GlModal,
@@ -133,29 +134,26 @@ export const CustomListItem = (args, { argTypes }) => ({
   components: {
     GlDisclosureDropdown,
     GlBadge,
+    GlDisclosureDropdownContent,
   },
   mounted() {
     if (this.startOpened) {
       openDisclosure(this);
     }
   },
-  methods: {
-    navigate() {
-      this.$refs.link.click();
-    },
-  },
   template: template(
     `
       <template #list-item="{ item }">
-        <a tabindex="-1" ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
-          {{ item.text }}
-          <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
-        </a>
+        <gl-disclosure-dropdown-content :item="item">
+          <span class="gl-display-flex gl-justify-content-space-between">
+            {{ item.text }}
+            <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
+          </span>
+        </gl-disclosure-dropdown-content>
       </template>
     `,
     {
       bindingOverrides: {
-        '@action': 'navigate',
         class: 'gl-display-block! gl-text-center',
       },
     }
@@ -210,6 +208,7 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
     GlDisclosureDropdown,
+    GlDisclosureDropdownContent,
     GlBadge,
   },
   mounted() {
@@ -218,9 +217,6 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
     }
   },
   methods: {
-    navigate() {
-      this.$refs.link.click();
-    },
     getTotalMrs(items) {
       return items.reduce((acc, item) => acc + item.count, 0);
     },
@@ -231,17 +227,14 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
         {{ group.name }} <gl-badge pill size="sm" variant="neutral">{{ getTotalMrs(group.items) }}</gl-badge>
       </template>
       <template #list-item="{ item }">
-        <a tabindex="-1" ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
-          {{ item.text }}
-          <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
-        </a>
+        <gl-disclosure-dropdown-content :item="item">
+          <span class="gl-display-flex gl-justify-content-space-between">
+            {{ item.text }}
+            <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
+          </span>
+        </gl-disclosure-dropdown-content>
       </template>
-    `,
-    {
-      bindingOverrides: {
-        '@action': 'navigate',
-      },
-    }
+    `
   ),
 });
 
@@ -252,6 +245,17 @@ CustomGroupsAndItems.args = generateProps({
 CustomGroupsAndItems.decorators = [makeContainer({ height: '200px' })];
 
 export const CustomGroupsItemsAndToggle = makeGroupedExample({
+  components: {
+    GlDisclosureDropdown,
+    GlDisclosureDropdownGroup,
+    GlDisclosureDropdownItem,
+    GlDisclosureDropdownContent,
+    GlToggle,
+    GlModal,
+    GlIcon,
+    GlAvatar,
+    GlBadge,
+  },
   template: template(`
     <template #toggle>
       <span class="gl-sr-only">
@@ -261,25 +265,24 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
     </template>
 
     <div role="group">
-      <gl-disclosure-dropdown-group>
-        <gl-disclosure-dropdown-item>
-          <span class="gl-display-flex gl-flex-direction-column">
-            <span class="gl-font-weight-bold gl-white-space-nowrap">Orange Fox</span>
-            <span class="gl-text-gray-400">@thefox</span>
-          </span>
-        </gl-disclosure-dropdown-item>
-      </gl-disclosure-dropdown-group>
-      <gl-disclosure-dropdown-group bordered :group="$options.groups[0]">
+      <gl-disclosure-dropdown-group :group="$options.groups[0]">
         <template #list-item="{ item }">
-          <a
-            class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900"
-            :href="item.href"
-            tabindex="-1"
-            v-bind="item.extraAttrs"
-          >
-            {{item.text}}
-            <gl-icon v-if="item.icon" :name="item.icon"/>
-          </a>
+          <gl-disclosure-dropdown-content :item="item">
+            <span class="gl-display-flex gl-flex-direction-column">
+              <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
+              <span class="gl-text-gray-400">{{ item.secondaryText }}</span>
+            </span>
+          </gl-disclosure-dropdown-content>
+        </template>
+      </gl-disclosure-dropdown-group>
+      <gl-disclosure-dropdown-group bordered :group="$options.groups[1]">
+        <template #list-item="{ item }">
+          <gl-disclosure-dropdown-content :item="item">
+            <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
+              {{ item.text }}
+              <gl-icon v-if="item.icon" :name="item.icon"/>
+            </span>
+          </gl-disclosure-dropdown-content>
         </template>
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group bordered>
@@ -287,14 +290,20 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
           <span class="gl-font-sm">Navigation redesign</span>
           <gl-badge size="sm" variant="info">Beta</gl-badge>
         </template>
-        <gl-disclosure-dropdown-item>
-          <gl-toggle label="New navigation" label-position="left" v-model="newNavigation"/>
+        <gl-disclosure-dropdown-item @action="toggleNewNavigation">
+          <div class="gl-new-dropdown-item-content">
+            <div class="gl-new-dropdown-item-text-wrapper">
+                <gl-toggle label="New navigation" label-position="left" :value="newNavigation" />
+            </div>
+          </div>
         </gl-disclosure-dropdown-item>
         <gl-disclosure-dropdown-item @action="toggleModalVisibility(true)">
-          <a>Provide feedback</a>
+          <gl-disclosure-dropdown-content>
+            Give feedback
+          </gl-disclosure-dropdown-content>
         </gl-disclosure-dropdown-item>
       </gl-disclosure-dropdown-group>
-      <gl-disclosure-dropdown-group bordered :group="$options.groups[1]"> </gl-disclosure-dropdown-group>
+      <gl-disclosure-dropdown-group bordered :group="$options.groups[2]"/>
       <gl-modal :visible="feedBackModalVisible" @change="toggleModalVisibility" modal-id="feedbackModal" size="sm">
         <textarea class="gl-w-full">Tell us what you think!</textarea>
       </gl-modal>
@@ -309,6 +318,9 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
   methods: {
     toggleModalVisibility(value) {
       this.feedBackModalVisible = value;
+    },
+    toggleNewNavigation() {
+      this.newNavigation = !this.newNavigation;
     },
   },
   groups: mockProfileGroups,

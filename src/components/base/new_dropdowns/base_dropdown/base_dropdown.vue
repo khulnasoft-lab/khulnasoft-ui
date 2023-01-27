@@ -97,7 +97,7 @@ export default {
      * Id that will be referenced by `aria-labelledby` attribute of the dropdown content`
      */
     toggleId: {
-      type: String,
+      type: [String, Function],
       required: true,
     },
     /**

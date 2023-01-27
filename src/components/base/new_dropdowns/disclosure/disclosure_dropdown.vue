@@ -114,7 +114,7 @@ export default {
      * Fot instance, it can be referenced by tooltip or popover
      */
     toggleId: {
-      type: String,
+      type: [String, Function],
       required: false,
       default: uniqueId('dropdown-toggle-btn-'),
     },
