@@ -148,15 +148,15 @@ export const CustomListItem = (args, { argTypes }) => ({
     `
       <template #list-item="{ item }">
         <a ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
-          {{item.text}}
-          <gl-badge v-if="item.count" pill size="sm">{{item.count}}</gl-badge>
+          {{ item.text }}
+          <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
         </a>
       </template>
     `,
     {
       bindingOverrides: {
         '@action': 'navigate',
-        class: 'gl-display-block gl-text-center',
+        class: 'gl-display-block! gl-text-center',
       },
     }
   ),
@@ -228,14 +228,14 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
   template: template(
     `
       <template #group-label="{ group }">
-        {{ group.name }} <gl-badge size="sm">{{ getTotalMrs(group.items)  }}</gl-badge>
+        {{ group.name }} <gl-badge pill size="sm" variant="neutral">{{ getTotalMrs(group.items) }}</gl-badge>
       </template>
       <template #list-item="{ item }">
-        <a ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
-          {{item.text}}
-          <gl-badge pill size="sm" v-if="item.count">{{item.count}}</gl-badge>
+        <a ref="link" tabindex="-1" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
+          {{ item.text }}
+          <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
         </a>
-       </template>
+      </template>
     `,
     {
       bindingOverrides: {
@@ -274,6 +274,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
           <a
             class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900"
             :href="item.href"
+            tabindex="-1"
             v-bind="item.extraAttrs"
           >
             {{item.text}}

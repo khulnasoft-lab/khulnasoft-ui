@@ -311,7 +311,7 @@ export default {
       :role="disclosureOptions.role"
       :aria-labelledby="listAriaLabelledBy || toggleId"
       data-testid="disclosure-content"
-      class="gl-dropdown-contents gl-list-style-none gl-pl-0 gl-mb-0"
+      class="gl-new-dropdown-contents"
       tabindex="-1"
       @keydown="onKeydown"
     >

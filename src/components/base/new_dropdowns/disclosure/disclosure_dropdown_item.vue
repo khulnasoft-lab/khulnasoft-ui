@@ -3,7 +3,7 @@ import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 import { isItem } from './utils';
 
-export const ITEM_CLASS = 'gl-dropdown-item';
+export const ITEM_CLASS = 'gl-new-dropdown-item';
 
 export default {
   ITEM_CLASS,
@@ -73,13 +73,13 @@ export default {
   <li
     tabindex="0"
     :class="$options.ITEM_CLASS"
-    class="gl-dropdown-item gl-focusable-dropdown-item"
+    class="gl-new-dropdown-item"
     data-testid="disclosure-dropdown-item"
     @click="action"
     @keydown="onKeydown"
   >
-    <div v-if="isCustomContent" class="dropdown-item">
-      <div class="gl-dropdown-item-text-wrapper">
+    <div v-if="isCustomContent" class="gl-new-dropdown-item-content">
+      <div class="gl-new-dropdown-item-text-wrapper">
         <slot></slot>
       </div>
     </div>
@@ -89,11 +89,11 @@ export default {
         :is="itemComponent.is"
         v-bind="itemComponent.attrs"
         ref="item"
-        class="dropdown-item"
+        class="gl-new-dropdown-item-content"
         tabindex="-1"
         v-on="itemComponent.listeners"
       >
-        <span class="gl-dropdown-item-text-wrapper">
+        <span class="gl-new-dropdown-item-text-wrapper">
           {{ item.text }}
         </span>
       </component>

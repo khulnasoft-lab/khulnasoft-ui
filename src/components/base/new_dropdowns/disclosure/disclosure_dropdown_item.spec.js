@@ -39,12 +39,12 @@ describe('GlDisclosureDropdownItem', () => {
     });
   });
 
-  describe('when item has an `href`', () => {
+  describe('when item has a `href`', () => {
     beforeEach(() => {
       buildWrapper({ item: mockItems[0] });
     });
 
-    const findLink = () => wrapper.find('a.dropdown-item');
+    const findLink = () => wrapper.find('a.gl-new-dropdown-item-content');
 
     it('should render a link', () => {
       expect(findLink().exists()).toBe(true);
@@ -65,7 +65,7 @@ describe('GlDisclosureDropdownItem', () => {
       action.mockClear();
     });
 
-    const findButton = () => wrapper.find('button[type="button"].dropdown-item');
+    const findButton = () => wrapper.find('button[type="button"].gl-new-dropdown-item-content');
 
     it('should render a button', () => {
       expect(findButton().exists()).toBe(true);
