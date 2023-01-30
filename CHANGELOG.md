@@ -1,3 +1,10 @@
+## [54.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.2.0...v54.2.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown/GlCollapsibleListbox:** set dropdown panel z-index ([05122bf](https://gitlab.com/gitlab-org/gitlab-ui/commit/05122bf127da7098a071e9cda10034382d0d6e51))
+
 # [54.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.1.2...v54.2.0) (2023-01-27)
 
 
