@@ -85,7 +85,7 @@
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@gitlab/eslint-plugin": "18.1.0",
-    "@gitlab/fonts": "^1.1.2",
+    "@gitlab/fonts": "^1.2.0",
     "@gitlab/stylelint-config": "4.1.0",
     "@gitlab/svgs": "3.17.0",
     "@rollup/plugin-commonjs": "^11.1.0",

@@ -1234,7 +1234,7 @@
     eslint-plugin-vue "^9.3.0"
     lodash "^4.17.21"
 
-"@gitlab/fonts@^1.1.2":
+"@gitlab/fonts@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@gitlab/fonts/-/fonts-1.2.0.tgz#140bea5316e71d9b20d084fb10030db4e4ae73bd"
   integrity sha512-9wn+xnMgzvs9EAwMU0kbkcX5IKLXDOVUf6oBOi0zrFpwtM0wY4pfXkswSMl1kfMyNn6nW2n35g7sbv/Uy/QezQ==
