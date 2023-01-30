@@ -19,6 +19,7 @@
     @include gl-rounded-lg;
     @include gl-shadow-md;
     width: $gl-new-dropdown-width;
+    z-index: 1000;
   }
 
   .gl-new-dropdown-inner {
