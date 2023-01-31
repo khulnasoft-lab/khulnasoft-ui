@@ -1,3 +1,10 @@
+## [54.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.2.2...v54.2.3) (2023-01-31)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** pass `item` object to the item component ([d393007](https://gitlab.com/gitlab-org/gitlab-ui/commit/d3930078bc4d407928d1a4c07092f7a3211fe8b9))
+
 ## [54.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.2.1...v54.2.2) (2023-01-31)
 
 
