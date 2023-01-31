@@ -1,3 +1,10 @@
+## [54.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.2.1...v54.2.2) (2023-01-31)
+
+
+### Bug Fixes
+
+* failing test ([12597ee](https://gitlab.com/gitlab-org/gitlab-ui/commit/12597ee074321dd112fde27be7dbfbe9536184cf))
+
 ## [54.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.2.0...v54.2.1) (2023-01-30)
 
 
