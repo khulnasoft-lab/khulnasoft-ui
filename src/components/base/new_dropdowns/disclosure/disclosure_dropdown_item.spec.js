@@ -7,6 +7,8 @@ import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
 describe('GlDisclosureDropdownItem', () => {
   let wrapper;
 
+  const clone = (i) => JSON.parse(JSON.stringify(i));
+
   const buildWrapper = (propsData, slots = {}) => {
     wrapper = mount(GlDisclosureDropdownItem, {
       propsData,
@@ -18,7 +20,7 @@ describe('GlDisclosureDropdownItem', () => {
   describe('when default slot content provided', () => {
     const content = 'This is an item';
     const slots = { default: content };
-    const item = mockItems[1];
+    const item = clone(mockItems[1]);
 
     beforeEach(() => {
       buildWrapper({ item }, slots);
@@ -41,7 +43,7 @@ describe('GlDisclosureDropdownItem', () => {
 
   describe('when item has a `href`', () => {
     beforeEach(() => {
-      buildWrapper({ item: mockItems[0] });
+      buildWrapper({ item: clone(mockItems[0]) });
     });
 
     const findLink = () => wrapper.find('a.gl-new-dropdown-item-content');
