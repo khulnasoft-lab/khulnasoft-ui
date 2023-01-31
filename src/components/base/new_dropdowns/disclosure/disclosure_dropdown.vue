@@ -340,6 +340,7 @@ export default {
                 <gl-disclosure-dropdown-item
                   v-for="groupItem in item.items"
                   :key="groupItem.text"
+                  :item="groupItem"
                   @action="handleAction"
                 >
                   <!-- @slot Custom template of the disclosure dropdown item -->

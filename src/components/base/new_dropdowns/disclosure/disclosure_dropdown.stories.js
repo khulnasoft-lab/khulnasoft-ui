@@ -147,7 +147,7 @@ export const CustomListItem = (args, { argTypes }) => ({
   template: template(
     `
       <template #list-item="{ item }">
-        <a ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
+        <a tabindex="-1" ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
           {{ item.text }}
           <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
         </a>
@@ -231,7 +231,7 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
         {{ group.name }} <gl-badge pill size="sm" variant="neutral">{{ getTotalMrs(group.items) }}</gl-badge>
       </template>
       <template #list-item="{ item }">
-        <a ref="link" tabindex="-1" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
+        <a tabindex="-1" ref="link" class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-hover-text-gray-900 gl-hover-text-decoration-none gl-text-gray-900" :href="item.href" v-bind="item.extraAttrs">
           {{ item.text }}
           <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
         </a>
