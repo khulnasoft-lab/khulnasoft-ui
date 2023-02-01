@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { clamp, uniqueId } from 'lodash';
-import { stopEvent } from '../../../../utils/utils';
+import { stopEvent, filterVisible } from '../../../../utils/utils';
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
@@ -116,7 +116,7 @@ export default {
     toggleId: {
       type: String,
       required: false,
-      default: () => uniqueId('dropdown-toggle-btn-'),
+      default: uniqueId('dropdown-toggle-btn-'),
     },
     /**
      * Additional CSS classes to customize toggle appearance
@@ -246,7 +246,7 @@ export default {
     },
     getFocusableListItemElements() {
       const items = this.$refs.content?.querySelectorAll(`.${ITEM_CLASS}`);
-      return Array.from(items || []);
+      return filterVisible(Array.from(items || []));
     },
     focusNextItem(event, elements, offset) {
       const { target } = event;

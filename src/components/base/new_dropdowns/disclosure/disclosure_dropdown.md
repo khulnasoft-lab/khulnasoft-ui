@@ -5,10 +5,7 @@ to make sure this is the right dropdown component for you.
 ### Basic usage
 
 ```html
-<gl-disclosure-dropdown-dropdown
-  toggle-text="Actions"
-  :items="items"
-/>
+<gl-disclosure-dropdown-dropdown toggle-text="Actions" :items="items" />
 ```
 
 ### Icon-only disclosure dropdown
@@ -58,17 +55,28 @@ Below are the expected shapes of these objects:
 
 ```typescript
 type Item = {
-  text: string
-  href?: string,
-  action?: (item: Item) => void,
-}
+  // The item text
+  text: string;
+  // href link
+  href?: string;
+  // Item action
+  action?: (item: Item) => void;
+  // Set of extra attributes applied directly to the element
+  extraAttrs?: Object;
+  // Additional class/classes applied to the item wrapper
+  wrapperClass?: string;
+};
 
 type Group = {
-  name?: string
-  items: Array<Item>
-}
+  // Name of the group, used as a header
+  name?: string;
+  // Items of the group
+  items: Array<Item>;
+  // Set of extra attributes applied directly to the element
+  extraAttrs?: Object;
+};
 
-type ItemsProp = Array<Item> | Array<Group>
+type ItemsProp = Array<Item> | Array<Group>;
 ```
 
 #### Actions/links

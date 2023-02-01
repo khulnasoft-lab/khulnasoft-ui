@@ -1,3 +1,4 @@
+import { isVisible } from 'bootstrap-vue/src/utils/dom';
 import { COMMA, labelColorOptions, focusableTags } from './constants';
 
 export function debounceByAnimationFrame(fn) {
@@ -139,4 +140,11 @@ export function stopEvent(
   if (stopImmediatePropagation) {
     event.stopImmediatePropagation();
   }
+}
+
+/**
+ * Return an Array of visible items
+ */
+export function filterVisible(els) {
+  return (els || []).filter(isVisible);
 }

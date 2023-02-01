@@ -49,6 +49,14 @@ export const mockItemsCustomItem = [
       rel: 'nofollow',
     },
   },
+  {
+    text: 'I am only visible on mobile!',
+    action: () => {
+      // eslint-disable-next-line no-console
+      console.log('clicked!');
+    },
+    wrapperClass: 'gl-sm-display-none!',
+  },
 ];
 
 export const mockGroupsCustomItem = [
