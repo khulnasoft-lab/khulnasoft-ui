@@ -83,20 +83,19 @@ type ItemsProp = Array<Item> | Array<Group>;
 
 The `text` property is used to render the default disclosure dropdown item
 template. If you want to render a custom template for items, use the
-`list-item` scoped slot:
+`list-item` scoped slot. To wrap custom  content in a default styled `button/a`
+element, place the content into `<gl-disclosure-dropdown-item-content/>` component.
+This should cover the majority of non-default cases.
 
 ```html
 <gl-disclosure-dropdown :items="items">
   <template #list-item="{ item }">
-    <a
-      class="gl-hover-text-decoration-none gl-text-gray-900"
-      tabindex="-1"
-      :href="item.href"
-      v-bind="item.extraAttrs"
-    >
-      {{ item.text }}
-      <gl-badge v-if="item.count" pill variant="info">{{ item.count }}</gl-badge>
-    </a>
+      <gl-disclosure-dropdown-item-content :item="item">
+          <span class="gl-display-flex gl-justify-content-space-between">
+            {{ item.text }}
+            <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
+          </span>
+      </gl-disclosure-dropdown-item-content>
   </template>
 </gl-disclosure-dropdown>
 ```

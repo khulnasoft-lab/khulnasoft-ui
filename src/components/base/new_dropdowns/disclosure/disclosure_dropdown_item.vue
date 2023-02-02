@@ -2,11 +2,16 @@
 import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 import { isItem } from './utils';
+import GlDisclosureDropdownItemContent from './disclosure_dropdown_item_content.vue';
 
 export const ITEM_CLASS = 'gl-new-dropdown-item';
+export const ITEM_CONTENT_CLASS = 'gl-new-dropdown-item-content';
 
 export default {
   ITEM_CLASS,
+  components: {
+    GlDisclosureDropdownItemContent,
+  },
   props: {
     item: {
       type: Object,
@@ -16,39 +21,11 @@ export default {
     },
   },
   computed: {
-    isLink() {
-      return typeof this.item?.href === 'string';
+    itemContentEl() {
+      return this.$el.querySelector(`.${ITEM_CONTENT_CLASS}`);
     },
-    isCustomContent() {
-      return Boolean(this.$scopedSlots.default);
-    },
-    itemComponent() {
-      const { item } = this;
-
-      if (!item) return null;
-
-      if (this.isLink)
-        return {
-          is: 'a',
-          attrs: {
-            href: item.href,
-            ...item.extraAttrs,
-          },
-          wrapperClass: item.wrapperClass,
-          listeners: {},
-        };
-
-      return {
-        is: 'button',
-        attrs: {
-          ...item.extraAttrs,
-          type: 'button',
-        },
-        listeners: {
-          click: () => item.action?.call(undefined, item),
-        },
-        wrapperClass: item.wrapperClass,
-      };
+    itemClass() {
+      return [this.$options.ITEM_CLASS, this.item?.wrapperClass];
     },
   },
   methods: {
@@ -62,8 +39,9 @@ export default {
          * E.g. `a` might have `target` attribute.
          * `bubbles` is set to `true` as the parent `li` item has this event listener and thus we'll get a loop.
          */
-        this.$refs.item?.dispatchEvent(new MouseEvent('click', { bubbles: false }));
-        this.action();
+        this.itemContentEl?.dispatchEvent(
+          new MouseEvent('click', { bubbles: true, cancelable: true })
+        );
       }
     },
     action() {
@@ -76,30 +54,14 @@ export default {
 <template>
   <li
     tabindex="0"
-    :class="[$options.ITEM_CLASS, itemComponent && itemComponent.wrapperClass]"
+    :class="itemClass"
     data-testid="disclosure-dropdown-item"
+    v-on="$listeners"
     @click="action"
     @keydown="onKeydown"
   >
-    <div v-if="isCustomContent" class="gl-new-dropdown-item-content">
-      <div class="gl-new-dropdown-item-text-wrapper">
-        <slot></slot>
-      </div>
-    </div>
-
-    <template v-else-if="itemComponent && item">
-      <component
-        :is="itemComponent.is"
-        v-bind="itemComponent.attrs"
-        ref="item"
-        class="gl-new-dropdown-item-content"
-        tabindex="-1"
-        v-on="itemComponent.listeners"
-      >
-        <span class="gl-new-dropdown-item-text-wrapper">
-          {{ item.text }}
-        </span>
-      </component>
-    </template>
+    <slot>
+      <gl-disclosure-dropdown-item-content :item="item" />
+    </slot>
   </li>
 </template>
