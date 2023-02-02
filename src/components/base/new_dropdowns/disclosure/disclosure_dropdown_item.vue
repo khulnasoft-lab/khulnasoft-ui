@@ -24,9 +24,9 @@ export default {
     itemContentEl() {
       return this.$el.querySelector(`.${ITEM_CONTENT_CLASS}`);
     },
-    itemClass(){
+    itemClass() {
       return [this.$options.ITEM_CLASS, this.item?.wrapperClass];
-    }
+    },
   },
   methods: {
     onKeydown(event) {
