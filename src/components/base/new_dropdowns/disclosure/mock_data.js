@@ -152,8 +152,10 @@ export const mockProfileGroups = [
       {
         text: 'Orange Fox',
         secondaryText: '@thefox',
-        action: () => {
-          window.open('https://gitlab.com/gitlab');
+        href: 'https://gitlab.com/gitlab',
+        extraAttrs: {
+          target: '_blank',
+          rel: 'nofollow',
         },
       },
     ],
