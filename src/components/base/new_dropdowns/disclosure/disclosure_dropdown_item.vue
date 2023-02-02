@@ -2,7 +2,7 @@
 import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 import { isItem } from './utils';
-import GlDisclosureDropdownContent from './disclosure_dropdown_content.vue';
+import GlDisclosureDropdownItemContent from './disclosure_dropdown_item_content.vue';
 
 export const ITEM_CLASS = 'gl-new-dropdown-item';
 export const ITEM_CONTENT_CLASS = 'gl-new-dropdown-item-content';
@@ -10,7 +10,7 @@ export const ITEM_CONTENT_CLASS = 'gl-new-dropdown-item-content';
 export default {
   ITEM_CLASS,
   components: {
-    GlDisclosureDropdownContent,
+    GlDisclosureDropdownItemContent,
   },
   props: {
     item: {
@@ -61,7 +61,7 @@ export default {
     @keydown="onKeydown"
   >
     <slot>
-      <gl-disclosure-dropdown-content :item="item" />
+      <gl-disclosure-dropdown-item-content :item="item" />
     </slot>
   </li>
 </template>

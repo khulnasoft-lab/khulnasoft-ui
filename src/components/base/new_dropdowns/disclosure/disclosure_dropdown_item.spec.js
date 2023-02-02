@@ -3,7 +3,7 @@ import { ENTER, SPACE } from '../constants';
 import { mockItems } from './mock_data';
 
 import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
-import GlDisclosureDropdownContent from './disclosure_dropdown_content.vue';
+import GlDisclosureDropdownItemContent from './disclosure_dropdown_item_content.vue';
 
 describe('GlDisclosureDropdownItem', () => {
   let wrapper;
@@ -40,7 +40,7 @@ describe('GlDisclosureDropdownItem', () => {
       });
 
       it('renders content wrapper component', () => {
-        const contentEl = wrapper.findComponent(GlDisclosureDropdownContent);
+        const contentEl = wrapper.findComponent(GlDisclosureDropdownItemContent);
         expect(contentEl.exists()).toBe(true);
         expect(contentEl.props('item')).toEqual(item);
       });

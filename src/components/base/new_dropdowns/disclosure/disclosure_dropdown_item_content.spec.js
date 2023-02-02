@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { mockItems } from './mock_data';
 
-import GlDisclosureDropdownContent from './disclosure_dropdown_content.vue';
+import GlDisclosureDropdownItemContent from './disclosure_dropdown_item_content.vue';
 
 describe('GlDisclosureDropdownItemContent', () => {
   let wrapper;
@@ -9,7 +9,7 @@ describe('GlDisclosureDropdownItemContent', () => {
   const clone = (i) => JSON.parse(JSON.stringify(i));
 
   const buildWrapper = (propsData, slots = {}) => {
-    wrapper = mount(GlDisclosureDropdownContent, {
+    wrapper = mount(GlDisclosureDropdownItemContent, {
       propsData,
       slots,
     });

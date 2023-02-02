@@ -9,7 +9,7 @@ import {
   GlBadge,
   GlDisclosureDropdownGroup,
   GlDisclosureDropdownItem,
-  GlDisclosureDropdownContent,
+  GlDisclosureDropdownItemContent,
   GlToggle,
   GlAvatar,
   GlModal,
@@ -134,7 +134,7 @@ export const CustomListItem = (args, { argTypes }) => ({
   components: {
     GlDisclosureDropdown,
     GlBadge,
-    GlDisclosureDropdownContent,
+    GlDisclosureDropdownItemContent,
   },
   mounted() {
     if (this.startOpened) {
@@ -144,12 +144,12 @@ export const CustomListItem = (args, { argTypes }) => ({
   template: template(
     `
       <template #list-item="{ item }">
-        <gl-disclosure-dropdown-content :item="item">
+        <gl-disclosure-dropdown-item-content :item="item">
           <span class="gl-display-flex gl-justify-content-space-between">
             {{ item.text }}
             <gl-badge v-if="item.count" pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
           </span>
-        </gl-disclosure-dropdown-content>
+        </gl-disclosure-dropdown-item-content>
       </template>
     `,
     {
@@ -208,7 +208,7 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
     GlDisclosureDropdown,
-    GlDisclosureDropdownContent,
+    GlDisclosureDropdownItemContent,
     GlBadge,
   },
   mounted() {
@@ -227,12 +227,12 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
         {{ group.name }} <gl-badge pill size="sm" variant="neutral">{{ getTotalMrs(group.items) }}</gl-badge>
       </template>
       <template #list-item="{ item }">
-        <gl-disclosure-dropdown-content :item="item">
+        <gl-disclosure-dropdown-item-content :item="item">
           <span class="gl-display-flex gl-justify-content-space-between">
             {{ item.text }}
             <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
           </span>
-        </gl-disclosure-dropdown-content>
+        </gl-disclosure-dropdown-item-content>
       </template>
     `
   ),
@@ -249,7 +249,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
     GlDisclosureDropdown,
     GlDisclosureDropdownGroup,
     GlDisclosureDropdownItem,
-    GlDisclosureDropdownContent,
+    GlDisclosureDropdownItemContent,
     GlToggle,
     GlModal,
     GlIcon,
@@ -267,22 +267,22 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
     <div role="group">
       <gl-disclosure-dropdown-group :group="$options.groups[0]">
         <template #list-item="{ item }">
-          <gl-disclosure-dropdown-content :item="item">
+          <gl-disclosure-dropdown-item-content :item="item">
             <span class="gl-display-flex gl-flex-direction-column">
               <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
               <span class="gl-text-gray-400">{{ item.secondaryText }}</span>
             </span>
-          </gl-disclosure-dropdown-content>
+          </gl-disclosure-dropdown-item-content>
         </template>
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group bordered :group="$options.groups[1]">
         <template #list-item="{ item }">
-          <gl-disclosure-dropdown-content :item="item">
+          <gl-disclosure-dropdown-item-content :item="item">
             <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
               {{ item.text }}
               <gl-icon v-if="item.icon" :name="item.icon"/>
             </span>
-          </gl-disclosure-dropdown-content>
+          </gl-disclosure-dropdown-item-content>
         </template>
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group bordered>
@@ -298,9 +298,9 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
           </div>
         </gl-disclosure-dropdown-item>
         <gl-disclosure-dropdown-item @action="toggleModalVisibility(true)">
-          <gl-disclosure-dropdown-content>
+          <gl-disclosure-dropdown-item-content>
             Give feedback
-          </gl-disclosure-dropdown-content>
+          </gl-disclosure-dropdown-item-content>
         </gl-disclosure-dropdown-item>
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group bordered :group="$options.groups[2]"/>
