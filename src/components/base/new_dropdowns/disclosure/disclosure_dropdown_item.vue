@@ -39,7 +39,9 @@ export default {
          * E.g. `a` might have `target` attribute.
          * `bubbles` is set to `true` as the parent `li` item has this event listener and thus we'll get a loop.
          */
-        this.itemContentEl?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        this.itemContentEl?.dispatchEvent(
+          new MouseEvent('click', { bubbles: true, cancelable: true })
+        );
       }
     },
     action() {
