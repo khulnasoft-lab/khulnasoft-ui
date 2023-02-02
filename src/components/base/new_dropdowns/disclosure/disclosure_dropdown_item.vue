@@ -25,6 +25,8 @@ export default {
     itemComponent() {
       const { item } = this;
 
+      if (!item) return null;
+
       if (this.isLink)
         return {
           is: 'a',
@@ -32,6 +34,7 @@ export default {
             href: item.href,
             ...item.extraAttrs,
           },
+          wrapperClass: item.wrapperClass,
           listeners: {},
         };
 
@@ -44,6 +47,7 @@ export default {
         listeners: {
           click: () => item.action?.call(undefined, item),
         },
+        wrapperClass: item.wrapperClass,
       };
     },
   },
@@ -72,8 +76,7 @@ export default {
 <template>
   <li
     tabindex="0"
-    :class="$options.ITEM_CLASS"
-    class="gl-new-dropdown-item"
+    :class="[$options.ITEM_CLASS, itemComponent && itemComponent.wrapperClass]"
     data-testid="disclosure-dropdown-item"
     @click="action"
     @keydown="onKeydown"
@@ -84,7 +87,7 @@ export default {
       </div>
     </div>
 
-    <template v-else>
+    <template v-else-if="itemComponent && item">
       <component
         :is="itemComponent.is"
         v-bind="itemComponent.attrs"

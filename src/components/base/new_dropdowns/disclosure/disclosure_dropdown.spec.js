@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import * as utils from '../../../../utils/utils';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import {
   GL_DROPDOWN_SHOWN,
@@ -31,6 +32,8 @@ describe('GlDisclosureDropdown', () => {
   const findDisclosureItems = (root = wrapper) => root.findAllComponents(GlDisclosureDropdownItem);
   const findDisclosureGroups = () => wrapper.findAllComponents(GlDisclosureDropdownGroup);
   const findListItem = (index) => findDisclosureItems().at(index).findComponent(ITEM_SELECTOR);
+
+  jest.spyOn(utils, 'filterVisible').mockImplementation((items) => items);
 
   describe('toggle text', () => {
     it('should pass toggle text to the base dropdown', () => {
@@ -146,6 +149,23 @@ describe('GlDisclosureDropdown', () => {
       expect(firstItem.element).toHaveFocus();
       await thirdItem.trigger('keydown', { code: HOME });
       expect(firstItem.element).toHaveFocus();
+    });
+
+    describe('when an element is hidden', () => {
+      beforeEach(() => {
+        jest.spyOn(utils, 'filterVisible').mockReturnValue([firstItem.element, thirdItem.element]);
+      });
+
+      it('should skip over it', async () => {
+        expect(firstItem.element).toHaveFocus();
+        await firstItem.trigger('keydown', { code: ARROW_DOWN });
+
+        expect(secondItem.element).not.toHaveFocus();
+        expect(thirdItem.element).toHaveFocus();
+
+        await thirdItem.trigger('keydown', { code: ARROW_UP });
+        expect(firstItem.element).toHaveFocus();
+      });
     });
   });
 

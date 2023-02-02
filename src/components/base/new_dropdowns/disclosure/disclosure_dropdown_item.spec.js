@@ -56,6 +56,26 @@ describe('GlDisclosureDropdownItem', () => {
       expect(findLink().attributes('href')).toBe(mockItems[0].href);
       expect(findLink().attributes()).toMatchObject(mockItems[0].extraAttrs);
     });
+
+    it('should apply the default classes to the item wrapper', () => {
+      expect(findItem().classes()).toEqual(['gl-new-dropdown-item']);
+    });
+
+    describe('when item has wrapperClass', () => {
+      const TEST_CLASS = 'just-a-test-class';
+      beforeEach(() => {
+        buildWrapper({
+          item: {
+            ...mockItems[0],
+            wrapperClass: TEST_CLASS,
+          },
+        });
+      });
+
+      it('should add the extra class to the item wrapper', () => {
+        expect(findItem().classes()).toContain(TEST_CLASS);
+      });
+    });
   });
 
   describe('when item has an `action`', () => {
@@ -101,6 +121,36 @@ describe('GlDisclosureDropdownItem', () => {
     `(`$event will execute action and emit 'action' event`, ({ trigger }) => {
       trigger();
       expect(wrapper.emitted('action')).toEqual([[item]]);
+    });
+
+    it('should apply the default classes to the item wrapper', () => {
+      expect(findItem().classes()).toEqual(['gl-new-dropdown-item']);
+    });
+
+    describe('when item has wrapperClass', () => {
+      const TEST_CLASS = 'just-a-test-class';
+      beforeEach(() => {
+        buildWrapper({
+          item: {
+            ...mockItems[1],
+            wrapperClass: TEST_CLASS,
+          },
+        });
+      });
+
+      it('should add the extra class to the item wrapper', () => {
+        expect(findItem().classes()).toContain(TEST_CLASS);
+      });
+    });
+  });
+
+  describe('when item is null', () => {
+    beforeEach(() => {
+      buildWrapper({ item: null });
+    });
+
+    it('should not render anything', () => {
+      expect(wrapper.text()).toBe('');
     });
   });
 });
