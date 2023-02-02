@@ -1,3 +1,10 @@
+# [54.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.2.3...v54.3.0) (2023-02-02)
+
+
+### Features
+
+* **css:** Add gl-min-h-5 class ([c5b52e8](https://gitlab.com/gitlab-org/gitlab-ui/commit/c5b52e8e4b0c7de74c55ea8c05c30f3c8b229bc1))
+
 ## [54.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.2.2...v54.2.3) (2023-01-31)
 
 
