@@ -24,6 +24,9 @@ export default {
     itemContentEl() {
       return this.$el.querySelector(`.${ITEM_CONTENT_CLASS}`);
     },
+    itemClass(){
+      return [this.$options.ITEM_CLASS, this.item?.wrapperClass];
+    }
   },
   methods: {
     onKeydown(event) {
@@ -49,8 +52,7 @@ export default {
 <template>
   <li
     tabindex="0"
-    :class="[$options.ITEM_CLASS, item?.wrapperClass]"
-    class="gl-new-dropdown-item"
+    :class="itemClass"
     data-testid="disclosure-dropdown-item"
     v-on="$listeners"
     @click="action"

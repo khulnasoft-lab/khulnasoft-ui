@@ -147,7 +147,7 @@ export const CustomListItem = (args, { argTypes }) => ({
         <gl-disclosure-dropdown-content :item="item">
           <span class="gl-display-flex gl-justify-content-space-between">
             {{ item.text }}
-            <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
+            <gl-badge v-if="item.count" pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
           </span>
         </gl-disclosure-dropdown-content>
       </template>

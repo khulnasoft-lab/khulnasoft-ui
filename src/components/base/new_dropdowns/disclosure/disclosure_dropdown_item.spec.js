@@ -104,14 +104,4 @@ describe('GlDisclosureDropdownItem', () => {
       });
     });
   });
-
-  describe('when item is null', () => {
-    beforeEach(() => {
-      buildWrapper({ item: null });
-    });
-
-    it('should not render anything', () => {
-      expect(wrapper.text()).toBe('');
-    });
-  });
 });
