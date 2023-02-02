@@ -1,3 +1,10 @@
+# [54.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.3.0...v54.4.0) (2023-02-02)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Add support for item wrapper class ([8b575af](https://gitlab.com/gitlab-org/gitlab-ui/commit/8b575af03dcdeb9206ef3caf65f2519b9628b1ae))
+
 # [54.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.2.3...v54.3.0) (2023-02-02)
 
 
