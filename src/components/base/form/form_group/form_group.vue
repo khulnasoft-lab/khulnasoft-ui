@@ -1,12 +1,10 @@
 <script>
 import { BFormGroup } from 'bootstrap-vue';
 import { isString, isArray, isPlainObject } from 'lodash';
-import GlFormText from '../form_text/form_text.vue';
 
 export default {
   components: {
     BFormGroup,
-    GlFormText,
   },
   inheritAttrs: false,
   props: {
@@ -63,9 +61,9 @@ export default {
           optionalText
         }}</span>
       </slot>
-      <gl-form-text v-if="hasLabelDescription" data-testid="label-description">
+      <div v-if="hasLabelDescription" data-testid="label-description" class="label-description">
         <slot name="label-description">{{ labelDescription }}</slot>
-      </gl-form-text>
+      </div>
     </template>
 
     <!-- eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots -->
