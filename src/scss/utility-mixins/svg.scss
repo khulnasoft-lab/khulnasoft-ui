@@ -10,6 +10,10 @@
   fill: currentColor;
 }
 
+@mixin gl-fill-blue-200 {
+  fill: $blue-200;
+}
+
 @mixin gl-fill-blue-500 {
   fill: $blue-500;
 }
@@ -40,6 +44,10 @@
 
 @mixin gl-stroke-trans {
   stroke: transparent;
+}
+
+@mixin gl-fill-gray-200 {
+  fill: $gray-200;
 }
 
 @mixin gl-fill-gray-400 {

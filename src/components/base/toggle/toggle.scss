@@ -24,11 +24,28 @@
   @include gl-display-inline-flex;
 
   &.is-disabled {
-    @include gl-opacity-4;
     @include gl-cursor-not-allowed;
 
     .gl-toggle {
       @include gl-cursor-not-allowed;
+      @include gl-bg-gray-200;
+
+      .toggle-icon > svg {
+        @include gl-fill-gray-200;
+      }
+    }
+
+    .gl-toggle.is-checked {
+      @include gl-bg-blue-200;
+
+      .toggle-icon > svg {
+        @include gl-fill-blue-200;
+      }
+    }
+
+    .gl-toggle-label,
+    .gl-help-label {
+      @include gl-text-gray-500;
     }
   }
 }
@@ -66,7 +83,7 @@
   @include gl-justify-content-center;
   @include gl-border-0;
   @include gl-cursor-pointer;
-  @include gl-bg-gray-400;
+  @include gl-bg-gray-600;
   @include gl-p-1;
   @include gl-relative;
   @include gl-w-9;
@@ -81,6 +98,13 @@
   &::before::selection,
   &::after::selection {
     @include gl-bg-none;
+  }
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus:active {
+    @include gl-bg-gray-700;
   }
 
   &:active,
@@ -115,6 +139,13 @@
 
   &.is-checked {
     @include gl-bg-blue-500;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-bg-blue-600;
+    }
 
     .toggle-icon {
       transform: translateX($gl-spacing-scale-6);
