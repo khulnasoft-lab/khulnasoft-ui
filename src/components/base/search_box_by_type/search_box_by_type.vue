@@ -81,9 +81,9 @@ export default {
     inputListeners() {
       return {
         ...this.$listeners,
-        input: (value) => {
-          this.$emit('input', value);
-        },
+        input: this.onInput,
+        focusin: this.onFocusin,
+        focusout: this.onFocusout,
       };
     },
     showClearButton() {
@@ -91,21 +91,36 @@ export default {
     },
   },
   methods: {
+    isInputOrClearButton(element) {
+      return element === this.$refs.input?.$el || element === this.$refs.clearButton?.$el;
+    },
     clearInput() {
-      this.$emit('input', '');
+      this.onInput('');
       this.focusInput();
     },
     focusInput() {
       this.$refs.input.$el.focus();
     },
-    onClearButtonFocus() {
-      this.$emit('clearButtonFocus');
+    onInput(value) {
+      this.$emit('input', value);
     },
-    onClearButtonBlur() {
-      this.$emit('clearButtonBlur');
+    onFocusout(event) {
+      const { relatedTarget } = event;
+
+      if (this.isInputOrClearButton(relatedTarget)) {
+        return;
+      }
+
+      this.$emit('focusout', event);
     },
-    onClearButtonRelease() {
-      this.$emit('clearButtonRelease');
+    onFocusin(event) {
+      const { relatedTarget } = event;
+
+      if (this.isInputOrClearButton(relatedTarget)) {
+        return;
+      }
+
+      this.$emit('focusin', event);
     },
   },
 };
@@ -129,13 +144,13 @@ export default {
       <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
       <gl-clear-icon-button
         v-if="showClearButton"
+        ref="clearButton"
         :title="clearButtonTitle"
         :tooltip-container="tooltipContainer"
         class="gl-search-box-by-type-clear gl-clear-icon-button"
         @click.stop="clearInput"
-        @focus="onClearButtonFocus"
-        @blur="onClearButtonBlur"
-        @release="onClearButtonRelease"
+        @focusin="onFocusin"
+        @focusout="onFocusout"
       />
     </div>
   </div>

@@ -57,22 +57,30 @@ describe('search box by type component', () => {
       expect(wrapper.emitted('input')).toEqual([['']]);
     });
 
-    it('emits clearButtonFocus when focused', () => {
-      findClearIcon().vm.$emit('focus', { stopPropagation: jest.fn() });
+    it('emits `focusin` event when focus inside the component', () => {
+      findInput().vm.$emit('focusin', { preventDefault: jest.fn() });
 
-      expect(wrapper.emitted('clearButtonFocus')).toHaveLength(1);
+      expect(wrapper.emitted('focus')).toBe(undefined);
+      expect(wrapper.emitted('focusin')).toHaveLength(1);
+    });
+    it('emits `focusout` event when focus moves outside the component', () => {
+      findInput().vm.$emit('focusout', { preventDefault: jest.fn() });
+      expect(wrapper.emitted('blur')).toBe(undefined);
+
+      expect(wrapper.emitted('focusout')).toHaveLength(1);
     });
 
-    it('emits clearButtonBlur when blur', () => {
-      findClearIcon().vm.$emit('blur', { stopPropagation: jest.fn() });
+    it('does NOT emit `focusout` event when tabbing inside the component back and forth', () => {
+      findInput().vm.$emit('focusout', {
+        preventDefault: jest.fn(),
+        relatedTarget: wrapper.vm.$refs.input.$el,
+      });
+      findClearIcon().vm.$emit('focusout', {
+        preventDefault: jest.fn(),
+        relatedTarget: wrapper.vm.$refs.clearButton.$el,
+      });
 
-      expect(wrapper.emitted('clearButtonBlur')).toHaveLength(1);
-    });
-
-    it('emits clearButtonRelease when released', () => {
-      findClearIcon().vm.$emit('release', { stopPropagation: jest.fn() });
-
-      expect(wrapper.emitted('clearButtonRelease')).toHaveLength(1);
+      expect(wrapper.emitted('focusout')).toBe(undefined);
     });
   });
 
