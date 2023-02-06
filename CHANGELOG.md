@@ -1,3 +1,10 @@
+## [54.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.4.0...v54.4.1) (2023-02-06)
+
+
+### Bug Fixes
+
+* **GlListbox:** Stop listbox ENTER event prop ([944b7f9](https://gitlab.com/gitlab-org/gitlab-ui/commit/944b7f9baf67fc71787d14d614fb51b722083820))
+
 # [54.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.3.0...v54.4.0) (2023-02-02)
 
 
