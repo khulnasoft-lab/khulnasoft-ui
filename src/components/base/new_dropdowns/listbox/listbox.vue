@@ -608,6 +608,7 @@ export default {
         data-testid="listbox-search-input"
         :placeholder="searchPlaceholder"
         @input="search"
+        @keydown.enter.prevent
         @keydown="onKeydown"
       />
       <gl-loading-icon

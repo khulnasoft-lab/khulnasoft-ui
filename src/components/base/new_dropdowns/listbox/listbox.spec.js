@@ -9,6 +9,7 @@ import {
   ARROW_UP,
   HOME,
   END,
+  ENTER,
 } from '../constants';
 import GlIntersectionObserver from '../../../utilities/intersection_observer/intersection_observer.vue';
 import GlListbox, { ITEM_SELECTOR } from './listbox.vue';
@@ -272,6 +273,27 @@ describe('GlListbox', () => {
         searchboxInput.trigger('keydown', { code: ARROW_DOWN });
         firstItem.trigger('keydown', { code: ARROW_UP });
         expect(searchboxInput.element).toHaveFocus();
+      });
+
+      describe('pressing Enter on the input', () => {
+        const keydownSpy = jest.fn();
+
+        beforeEach(() => {
+          keydownSpy.mockClear();
+          wrapper.element.addEventListener('keydown', keydownSpy);
+        });
+
+        afterEach(() => {
+          wrapper.element.removeEventListener('keydown', keydownSpy);
+        });
+
+        it('does not submit any ancestor form', async () => {
+          searchboxInput.trigger('keydown', { key: ENTER });
+
+          const [event] = keydownSpy.mock.calls[0];
+          expect(event.key).toBe(ENTER);
+          expect(event.defaultPrevented).toBe(true);
+        });
       });
     });
   });
