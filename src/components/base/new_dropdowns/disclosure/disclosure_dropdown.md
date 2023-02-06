@@ -88,24 +88,13 @@ template. If you want to render a custom template for items, use the
 ```html
 <gl-disclosure-dropdown :items="items">
   <template #list-item="{ item }">
-    <a
-      class="gl-hover-text-decoration-none gl-text-gray-900"
-      tabindex="-1"
-      :href="item.href"
-      v-bind="item.extraAttrs"
-    >
-      {{ item.text }}
-      <gl-badge v-if="item.count" pill variant="info">{{ item.count }}</gl-badge>
-    </a>
+    <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
+      {{item.text}}
+      <gl-icon v-if="item.icon" :name="item.icon"/>
+    </span>
   </template>
 </gl-disclosure-dropdown>
 ```
-
-**Note:** when providing custom content to the item, user should
-define the correct tab order inside the disclosure dropdown by setting
-the `tabindex` attribute on the elements.
-The `li` item will get the focus so you might want elements inside it
-not to be focused - this can be done by setting `tabindex="-1"` on them.
 
 #### Groups
 

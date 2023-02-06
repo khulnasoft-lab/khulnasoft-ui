@@ -37,13 +37,17 @@ describe('GlDisclosureDropdownItem', () => {
       ${() => findItem().trigger('keydown', { code: SPACE })} | ${'SPACE'}
     `(`$event should emit 'action' event`, ({ trigger }) => {
       trigger();
-      expect(wrapper.emitted('action')).toEqual([[item]]);
+      const emittedAction = wrapper.emitted('action');
+      expect(emittedAction).toHaveLength(1);
+      expect(emittedAction).toEqual([[item]]);
     });
   });
 
   describe('when item has a `href`', () => {
+    const item = mockItems[0];
+
     beforeEach(() => {
-      buildWrapper({ item: clone(mockItems[0]) });
+      buildWrapper({ item });
     });
 
     const findLink = () => wrapper.find('a.gl-new-dropdown-item-content');
@@ -53,28 +57,30 @@ describe('GlDisclosureDropdownItem', () => {
     });
 
     it('should set correct attributes', () => {
-      expect(findLink().attributes('href')).toBe(mockItems[0].href);
-      expect(findLink().attributes()).toMatchObject(mockItems[0].extraAttrs);
+      expect(findLink().attributes('href')).toBe(item.href);
+      expect(findLink().attributes()).toEqual(expect.objectContaining(item.extraAttrs));
     });
 
     it('should apply the default classes to the item wrapper', () => {
       expect(findItem().classes()).toEqual(['gl-new-dropdown-item']);
     });
 
-    describe('when item has wrapperClass', () => {
-      const TEST_CLASS = 'just-a-test-class';
-      beforeEach(() => {
-        buildWrapper({
-          item: {
-            ...mockItems[0],
-            wrapperClass: TEST_CLASS,
-          },
-        });
-      });
+    it('should emit `action` on `click`', () => {
+      findLink().trigger('click');
+      const emittedAction = wrapper.emitted('action');
+      expect(emittedAction).toHaveLength(1);
+      expect(emittedAction).toEqual([[item]]);
+    });
 
-      it('should add the extra class to the item wrapper', () => {
-        expect(findItem().classes()).toContain(TEST_CLASS);
-      });
+    it.each`
+      trigger                                                 | event
+      ${() => findItem().trigger('keydown', { code: ENTER })} | ${'ENTER'}
+      ${() => findItem().trigger('keydown', { code: SPACE })} | ${'SPACE'}
+    `(`$event on parent will execute 'action' event`, ({ trigger }) => {
+      trigger();
+      const emittedAction = wrapper.emitted('action');
+      expect(emittedAction).toHaveLength(1);
+      expect(emittedAction).toEqual([[item]]);
     });
   });
 
@@ -100,7 +106,7 @@ describe('GlDisclosureDropdownItem', () => {
       expect(findButton().attributes()).toMatchObject(attrs);
     });
 
-    it('should call `action` on `click`', () => {
+    it('should call `action` on `click` and emit `action` event', () => {
       findButton().trigger('click');
       expect(action).toHaveBeenCalledTimes(1);
 
@@ -110,47 +116,43 @@ describe('GlDisclosureDropdownItem', () => {
       const actionArgs = action.mock.calls[0];
       expect(actionArgs).toEqual([item]);
 
-      expect(wrapper.emitted('action')).toEqual([[item]]);
+      const emittedAction = wrapper.emitted('action');
+      expect(emittedAction).toHaveLength(1);
+      expect(emittedAction).toEqual([[item]]);
     });
 
     it.each`
       trigger                                                 | event
-      ${() => findItem().trigger('click')}                    | ${'click'}
       ${() => findItem().trigger('keydown', { code: ENTER })} | ${'ENTER'}
       ${() => findItem().trigger('keydown', { code: SPACE })} | ${'SPACE'}
-    `(`$event will execute action and emit 'action' event`, ({ trigger }) => {
+    `(`$event on parent will execute action and emit 'action' event`, ({ trigger }) => {
       trigger();
-      expect(wrapper.emitted('action')).toEqual([[item]]);
+      expect(action).toHaveBeenCalledTimes(1);
+      expect(action.mock.calls[0]).toEqual([item]);
+
+      const emittedAction = wrapper.emitted('action');
+      expect(emittedAction).toHaveLength(1);
+      expect(emittedAction).toEqual([[item]]);
     });
 
     it('should apply the default classes to the item wrapper', () => {
       expect(findItem().classes()).toEqual(['gl-new-dropdown-item']);
     });
-
-    describe('when item has wrapperClass', () => {
-      const TEST_CLASS = 'just-a-test-class';
-      beforeEach(() => {
-        buildWrapper({
-          item: {
-            ...mockItems[1],
-            wrapperClass: TEST_CLASS,
-          },
-        });
-      });
-
-      it('should add the extra class to the item wrapper', () => {
-        expect(findItem().classes()).toContain(TEST_CLASS);
-      });
-    });
   });
 
-  describe('when item is null', () => {
+  describe('when item has wrapperClass', () => {
+    const TEST_CLASS = 'just-a-test-class';
     beforeEach(() => {
-      buildWrapper({ item: null });
+      buildWrapper({
+        item: {
+          ...mockItems[0],
+          wrapperClass: TEST_CLASS,
+        },
+      });
     });
 
-    it('should not render anything', () => {
-      expect(wrapper.text()).toBe('');
+    it('should add the extra class to the item wrapper', () => {
+      expect(findItem().classes()).toContain(TEST_CLASS);
     });
   });
 });

@@ -71,7 +71,9 @@ export default {
           :item="item"
           @action="handleAction"
         >
-          <slot name="list-item" :item="item"> </slot>
+          <template #list-item>
+            <slot name="list-item" :item="item"></slot>
+          </template>
         </gl-disclosure-dropdown-item>
       </slot>
     </ul>

@@ -27,8 +27,6 @@ export default {
     itemComponent() {
       const { item } = this;
 
-      if (!item) return null;
-
       if (this.isLink)
         return {
           is: 'a',
@@ -37,20 +35,34 @@ export default {
             ...item.extraAttrs,
           },
           wrapperClass: item.wrapperClass,
-          listeners: {},
+          listeners: {
+            click: this.action,
+          },
         };
 
       return {
         is: 'button',
         attrs: {
-          ...item.extraAttrs,
+          ...item?.extraAttrs,
           type: 'button',
         },
         listeners: {
-          click: () => item.action?.call(undefined, item),
+          click: () => {
+            item?.action?.call(undefined, item);
+            this.action();
+          },
         },
-        wrapperClass: item.wrapperClass,
+        wrapperClass: item?.wrapperClass,
       };
+    },
+    wrapperListeners() {
+      const listeners = {
+        keydown: this.onKeydown,
+      };
+      if (this.isCustomContent) {
+        listeners.click = this.action;
+      }
+      return listeners;
     },
   },
   methods: {
@@ -59,13 +71,18 @@ export default {
 
       if (code === ENTER || code === SPACE) {
         stopEvent(event);
-        /** Instead of simply navigating or calling the action, we want
-         * the `a/button` to be the target of the event as it might have additional attributes.
-         * E.g. `a` might have `target` attribute.
-         * `bubbles` is set to `true` as the parent `li` item has this event listener and thus we'll get a loop.
-         */
-        this.$refs.item?.dispatchEvent(new MouseEvent('click', { bubbles: false }));
-        this.action();
+
+        if (this.isCustomContent) {
+          this.action();
+        } else {
+          /** Instead of simply navigating or calling the action, we want
+           * the `a/button` to be the target of the event as it might have additional attributes.
+           * E.g. `a` might have `target` attribute.
+           */
+          this.$refs.item?.dispatchEvent(
+            new MouseEvent('click', { bubbles: true, cancelable: true })
+          );
+        }
       }
     },
     action() {
@@ -78,18 +95,11 @@ export default {
 <template>
   <li
     tabindex="0"
-    :class="[$options.ITEM_CLASS, itemComponent && itemComponent.wrapperClass]"
+    :class="[$options.ITEM_CLASS, itemComponent.wrapperClass]"
     data-testid="disclosure-dropdown-item"
-    @click="action"
-    @keydown="onKeydown"
+    v-on="wrapperListeners"
   >
-    <div v-if="isCustomContent" class="gl-new-dropdown-item-content">
-      <div class="gl-new-dropdown-item-text-wrapper">
-        <slot></slot>
-      </div>
-    </div>
-
-    <template v-else-if="itemComponent && item">
+    <slot>
       <component
         :is="itemComponent.is"
         v-bind="itemComponent.attrs"
@@ -99,9 +109,11 @@ export default {
         v-on="itemComponent.listeners"
       >
         <span class="gl-new-dropdown-item-text-wrapper">
-          {{ item.text }}
+          <slot name="list-item">
+            {{ item.text }}
+          </slot>
         </span>
       </component>
-    </template>
+    </slot>
   </li>
 </template>
