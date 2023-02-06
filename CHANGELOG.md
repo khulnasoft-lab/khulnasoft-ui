@@ -1,3 +1,16 @@
+# [55.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.4.1...v55.0.0) (2023-02-06)
+
+
+### Features
+
+* **GlSearchBoxByType:** implemented component wide focusin focusout ([c202cde](https://gitlab.com/gitlab-org/gitlab-ui/commit/c202cde2374542c0b2b6608acc84f52390783e76))
+
+
+### BREAKING CHANGES
+
+* **GlSearchBoxByType:** removes `clearButtonFocus`, `clearButtonBlur`, and
+`clearButtonRelease` events.
+
 ## [54.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.4.0...v54.4.1) (2023-02-06)
 
 
