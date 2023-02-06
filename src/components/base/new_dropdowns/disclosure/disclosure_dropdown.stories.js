@@ -25,42 +25,6 @@ import {
   mockGroupsCustomItem,
 } from './mock_data';
 
-const defaultValue = (prop) => GlDisclosureDropdown.props[prop].default;
-
-const generateProps = ({
-  items = mockItems,
-  category = defaultValue('category'),
-  variant = defaultValue('variant'),
-  size = defaultValue('size'),
-  disabled = defaultValue('disabled'),
-  loading = defaultValue('loading'),
-  noCaret = defaultValue('noCaret'),
-  placement = defaultValue('placement'),
-  toggleId = defaultValue('toggleId')(),
-  toggleText,
-  textSrOnly = defaultValue('textSrOnly'),
-  icon = '',
-  toggleAriaLabelledBy,
-  listAriaLabelledBy,
-  startOpened = true,
-} = {}) => ({
-  items,
-  category,
-  variant,
-  size,
-  disabled,
-  loading,
-  noCaret,
-  placement,
-  toggleId,
-  toggleText,
-  textSrOnly,
-  icon,
-  toggleAriaLabelledBy,
-  listAriaLabelledBy,
-  startOpened,
-});
-
 const makeBindings = (overrides = {}) =>
   Object.entries({
     ':items': 'items',
@@ -119,13 +83,14 @@ export const Default = (args, { argTypes }) => ({
     </div>
   `,
 });
-Default.args = generateProps({
+Default.args = {
+  items: mockItems,
   icon: 'ellipsis_v',
   noCaret: true,
   toggleText: 'Disclosure',
   textSrOnly: true,
   toggleId: TOGGLE_ID,
-});
+};
 Default.decorators = [makeContainer({ height: '200px' })];
 
 export const CustomListItem = (args, { argTypes }) => ({
@@ -162,11 +127,11 @@ export const CustomListItem = (args, { argTypes }) => ({
   ),
 });
 
-CustomListItem.args = generateProps({
+CustomListItem.args = {
   items: mockItemsCustomItem,
   toggleText: 'Merge requests',
   placement: 'center',
-});
+};
 CustomListItem.decorators = [makeContainer({ height: '200px' })];
 
 const makeGroupedExample = (changes) => {
@@ -190,7 +155,7 @@ const makeGroupedExample = (changes) => {
     ...changes,
   });
 
-  story.args = generateProps({ items: mockGroups });
+  story.args = { items: mockGroups };
   story.decorators = [makeContainer({ height: '340px' })];
 
   return story;
@@ -199,12 +164,12 @@ const makeGroupedExample = (changes) => {
 export const Groups = makeGroupedExample({
   template: template(''),
 });
-Groups.args = generateProps({
+Groups.args = {
   icon: 'plus-square',
   items: mockGroups,
   toggleText: 'Create new',
   textSrOnly: true,
-});
+};
 
 export const CustomGroupsAndItems = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -245,10 +210,10 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
   ),
 });
 
-CustomGroupsAndItems.args = generateProps({
+CustomGroupsAndItems.args = {
   items: mockGroupsCustomItem,
   toggleText: 'Merge requests',
-});
+};
 CustomGroupsAndItems.decorators = [makeContainer({ height: '200px' })];
 
 export const CustomGroupsItemsAndToggle = makeGroupedExample({
@@ -313,12 +278,11 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
   },
   groups: mockProfileGroups,
 });
-CustomGroupsItemsAndToggle.args = generateProps({
+CustomGroupsItemsAndToggle.args = {
   icon: 'plus-square',
   toggleText: 'User profile menu',
   textSrOnly: true,
-  items: null,
-});
+};
 CustomGroupsItemsAndToggle.decorators = [makeContainer({ height: '400px' })];
 
 export const MiscellaneousContent = (args, { argTypes }) => ({
@@ -338,12 +302,11 @@ export const MiscellaneousContent = (args, { argTypes }) => ({
   ),
 });
 
-MiscellaneousContent.args = generateProps({
+MiscellaneousContent.args = {
   icon: 'doc-text',
   toggleText: 'Miscellaneous content',
   textSrOnly: true,
-  items: null,
-});
+};
 MiscellaneousContent.decorators = [makeContainer({ height: '200px' })];
 
 export default {
@@ -381,5 +344,8 @@ export default {
         options: Object.keys(dropdownPlacements),
       },
     },
+  },
+  args: {
+    startOpened: true,
   },
 };
