@@ -209,10 +209,12 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
   template: template(
     `
       <template #toggle>
+     <button class="gl-rounded-base gl-border-none gl-p-2 gl-bg-gray-50 ">
         <span class="gl-sr-only">
           Orange Fox user's menu
         </span>
-        <gl-avatar :size="32" entity-name="Orange Fox" aria-hidden="true"></gl-avatar>
+        <gl-avatar :size="32" entity-name="Orange Fox" aria-hidden="true"/>
+      </button>
       </template>
       <gl-disclosure-dropdown-group>
         <gl-disclosure-dropdown-item>

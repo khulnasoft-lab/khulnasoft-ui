@@ -3,10 +3,12 @@
   @include gl-vertical-align-middle;
 
   .gl-new-dropdown-custom-toggle {
-    @include gl-cursor-pointer;
+    *:first-child {
+      @include gl-cursor-pointer;
 
-    &:focus {
-      @include gl-focus;
+      &:focus {
+        @include gl-focus;
+      }
     }
   }
 

@@ -289,7 +289,12 @@ export const CustomToggle = (args, { argTypes }) => ({
   template: template(
     `
     <template #toggle>
-      <gl-avatar :size="32" :entity-name="selected"></gl-avatar>
+     <button class="gl-rounded-base gl-border-none gl-p-2 gl-bg-gray-50 ">
+       <span class="gl-sr-only">
+          {{selected}}
+       </span>
+       <gl-avatar :size="32" :entity-name="selected" aria-hidden="true"/>
+     </button>
     </template>
     <template #list-item="{ item }">
       <span class="gl-display-flex gl-align-items-center">

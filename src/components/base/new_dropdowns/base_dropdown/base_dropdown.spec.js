@@ -198,7 +198,10 @@ describe('base dropdown', () => {
   });
 
   describe('Custom toggle', () => {
-    const toggleContent = '<div>Custom toggle</div>';
+    const customToggleTestId = 'custom-toggle';
+    const toggleContent = `<button data-testid="${customToggleTestId}">Custom toggle</button>`;
+    const findFirstToggleElement = () =>
+      findCustomDropdownToggle().find(`[data-testid="${customToggleTestId}"]`);
 
     beforeEach(() => {
       const slots = { toggle: toggleContent };
@@ -220,23 +223,25 @@ describe('base dropdown', () => {
     describe('toggle visibility', () => {
       it('should toggle menu visibility on toggle button ENTER', async () => {
         const toggle = findCustomDropdownToggle();
+        const firstToggleChild = findFirstToggleElement();
         const menu = findDropdownMenu();
         // open menu clicking toggle btn
         await toggle.trigger('keydown', { code: ENTER });
         expect(menu.classes('gl-display-block!')).toBe(true);
-        expect(toggle.attributes('aria-expanded')).toBe('true');
+        expect(firstToggleChild.attributes('aria-expanded')).toBe('true');
         await nextTick();
         expect(wrapper.emitted(GL_DROPDOWN_SHOWN).length).toBe(1);
 
         // close menu clicking toggle btn again
         await toggle.trigger('keydown', { code: ENTER });
         expect(menu.classes('gl-display-block!')).toBe(false);
-        expect(toggle.attributes('aria-expanded')).toBeUndefined();
+        expect(firstToggleChild.attributes('aria-expanded')).toBe('false');
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
       });
 
-      it('should close the menu when Escape is pressed inside menu and focus toggle', async () => {
+      it('should close the menu when Escape is pressed inside menu and focus first child in the toggle', async () => {
         const toggle = findCustomDropdownToggle();
+        const firstToggleChild = findFirstToggleElement();
         const menu = findDropdownMenu();
         // open menu clicking toggle btn
         await toggle.trigger('click');
@@ -245,9 +250,9 @@ describe('base dropdown', () => {
         // close menu pressing ESC on it
         await menu.trigger('keydown.esc');
         expect(menu.classes('gl-display-block!')).toBe(false);
-        expect(toggle.attributes('aria-expanded')).toBeUndefined();
+        expect(firstToggleChild.attributes('aria-expanded')).toBe('false');
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN).length).toBe(1);
-        expect(toggle.element).toHaveFocus();
+        expect(toggle.find(`[data-testid="${customToggleTestId}"]`).element).toHaveFocus();
       });
     });
   });
