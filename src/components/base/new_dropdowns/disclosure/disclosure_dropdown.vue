@@ -111,12 +111,12 @@ export default {
     },
     /**
      * Custom toggle id.
-     * Fot instance, it can be referenced by tooltip or popover
+     * For instance, it can be referenced by tooltip or popover
      */
     toggleId: {
       type: String,
       required: false,
-      default: uniqueId('dropdown-toggle-btn-'),
+      default: () => uniqueId('dropdown-toggle-btn-'),
     },
     /**
      * Additional CSS classes to customize toggle appearance

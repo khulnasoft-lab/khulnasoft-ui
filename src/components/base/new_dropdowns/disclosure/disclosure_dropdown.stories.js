@@ -36,7 +36,7 @@ const generateProps = ({
   loading = defaultValue('loading'),
   noCaret = defaultValue('noCaret'),
   placement = defaultValue('placement'),
-  toggleId = defaultValue('toggleId'),
+  toggleId = defaultValue('toggleId')(),
   toggleText,
   textSrOnly = defaultValue('textSrOnly'),
   icon = '',
