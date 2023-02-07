@@ -1,3 +1,10 @@
+## [55.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.0.0...v55.0.1) (2023-02-07)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Ensure default ID is unique ([06326e8](https://gitlab.com/gitlab-org/gitlab-ui/commit/06326e89003bb5c9f13e8b0511bee306fac6ffc7))
+
 # [55.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v54.4.1...v55.0.0) (2023-02-06)
 
 
