@@ -111,7 +111,7 @@ export default {
     },
     /**
      * Custom toggle id.
-     * Fot instance, it can be referenced by tooltip or popover
+     * For instance, it can be referenced by tooltip or popover
      */
     toggleId: {
       type: String,
