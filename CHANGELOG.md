@@ -1,3 +1,10 @@
+# [55.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.0.1...v55.1.0) (2023-02-08)
+
+
+### Features
+
+* **GlFilteredSearchToken:** added title slot to GlFilteredSearchToken ([8e1a6d6](https://gitlab.com/gitlab-org/gitlab-ui/commit/8e1a6d6d67b75356fb334053eb33c4a5d7047cbd))
+
 ## [55.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.0.0...v55.0.1) (2023-02-07)
 
 
