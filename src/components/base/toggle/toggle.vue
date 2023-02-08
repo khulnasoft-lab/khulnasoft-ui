@@ -91,11 +91,17 @@ export default {
   computed: {
     shouldRenderDescription() {
       // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
-      return Boolean(this.$slots.description || this.description) && this.isVerticalLayout;
+      return Boolean(this.$scopedSlots.description || this.description) && this.isVerticalLayout;
     },
     shouldRenderHelp() {
       // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.$slots.help || this.help) && this.isVerticalLayout;
+    },
+    toggleClasses() {
+      return [
+        { 'gl-sr-only': this.labelPosition === 'hidden' },
+        this.shouldRenderDescription ? 'gl-mb-2' : 'gl-mb-3',
+      ];
     },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
@@ -144,11 +150,7 @@ export default {
   >
     <span
       :id="labelId"
-      :class="{
-        'gl-sr-only': labelPosition === 'hidden',
-        'gl-mb-2': shouldRenderDescription,
-        'gl-mb-3': !shouldRenderDescription,
-      }"
+      :class="toggleClasses"
       class="gl-toggle-label gl-flex-shrink-0"
       data-testid="toggle-label"
     >

@@ -98,12 +98,15 @@ describe('toggle', () => {
       createWrapper(props, options);
     });
 
-    it(`${description ? 'shows' : 'does not show'} description`, () => {
-      expect(findDescriptionElement().exists()).toBe(Boolean(description));
-      if (description) {
+    if (description) {
+      it('shows description', () => {
         expect(findDescriptionElement().text()).toBe(description);
-      }
-    });
+      });
+    } else {
+      it('does not show description', () => {
+        expect(findDescriptionElement().exists()).toBe(false);
+      });
+    }
   });
 
   describe.each`

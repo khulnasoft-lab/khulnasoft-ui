@@ -5,7 +5,7 @@ import readme from './toggle.md';
 
 const defaultValue = (prop) => GlToggle.props[prop].default;
 
-const withDescription = 'Enable/disable dark mode';
+const withDescription = 'A dark color theme that is easier on the eyes.';
 
 const longHelp = `This is a toggle component with a long help message.
   You can notice how the text wraps when the width of the container
@@ -18,7 +18,7 @@ const generateProps = ({
   label = 'Dark mode',
   labelId = 'dark-mode-toggle',
   description = '',
-  help = 'Toggle dark mode for the website',
+  help = 'Toggle dark mode for the website.',
   labelPosition = defaultValue('labelPosition'),
 } = {}) => ({
   value,
