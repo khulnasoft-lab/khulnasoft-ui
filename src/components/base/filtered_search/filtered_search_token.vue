@@ -303,6 +303,10 @@ export default {
         this.$emit('destroy');
       }
     },
+
+    hasTitleOptionSlot() {
+      return Boolean(this.$scopedSlots['title-option']);
+    },
   },
 };
 </script>
@@ -345,6 +349,9 @@ export default {
         >
           {{ inputValue }}
         </gl-token>
+      </template>
+      <template v-if="hasTitleOptionSlot()" #option>
+        <slot name="title-option"></slot>
       </template>
     </gl-filtered-search-token-segment>
 
