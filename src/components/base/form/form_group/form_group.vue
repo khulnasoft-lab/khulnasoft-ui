@@ -28,6 +28,11 @@ export default {
       required: false,
       default: '(optional)',
     },
+    helpText: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
     actualLabelClass() {
@@ -65,10 +70,15 @@ export default {
         <slot name="label-description">{{ labelDescription }}</slot>
       </div>
     </template>
-
-    <!-- eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots -->
-    <template v-for="slot in Object.keys($slots)" #[slot]>
-      <slot :name="slot"></slot>
+    <template v-for="slot in Object.keys($scopedSlots)" #[slot]="scope">
+      <slot :name="slot" v-bind="scope"></slot>
+    </template>
+    <template #default>
+      <slot></slot>
+      <div v-if="$scopedSlots['help-text'] || helpText" class="gl-form-group-help-text">
+        <!-- @slot Help text, provides contextual examples, formatting information, details about the input field state. -->
+        <slot name="help-text">{{ helpText }}</slot>
+      </div>
     </template>
   </b-form-group>
 </template>

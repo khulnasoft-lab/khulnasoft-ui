@@ -9,7 +9,8 @@ const components = {
 const generateProps = ({
   id = 'group-1',
   label = 'Label Name',
-  description = 'form group description',
+  description = '',
+  helpText = 'form group help text',
   labelDescription = '',
   optional = GlFormGroup.props.optional.default,
   optionalText = GlFormGroup.props.optionalText.default,
@@ -20,6 +21,7 @@ const generateProps = ({
   optional,
   optionalText,
   description,
+  helpText,
 });
 
 const wrap = (template, bindings = '') => `
@@ -30,6 +32,7 @@ const wrap = (template, bindings = '') => `
     :optional="optional"
     :optional-text="optionalText"
     :description="description"
+    :help-text="helpText"
     ${bindings}
     :label-for="id">
     ${template}
@@ -41,6 +44,7 @@ export const Default = (_args, { argTypes }) => ({
   components: { ...components, GlFormInput },
   template: wrap('<gl-form-input :id="id" />'),
 });
+
 Default.args = generateProps();
 
 export const Disabled = (_args, { argTypes }) => ({

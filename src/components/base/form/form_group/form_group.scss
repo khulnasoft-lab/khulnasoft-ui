@@ -40,6 +40,11 @@
     @include gl-text-gray-500;
   }
 
+  .gl-form-group-help-text {
+    @include gl-font-base;
+    @include gl-text-gray-500;
+  }
+
   legend {
     border-bottom: 0;
   }
