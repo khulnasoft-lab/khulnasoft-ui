@@ -5,7 +5,9 @@ import readme from './toggle.md';
 
 const defaultValue = (prop) => GlToggle.props[prop].default;
 
-const longHelp = `This is a toggle component with a long help message. 
+const withDescription = 'Enable/disable dark mode';
+
+const longHelp = `This is a toggle component with a long help message.
   You can notice how the text wraps when the width of the container
   is not enough to fix the entire text.`;
 
@@ -15,6 +17,7 @@ const generateProps = ({
   isLoading = defaultValue('isLoading'),
   label = 'Dark mode',
   labelId = 'dark-mode-toggle',
+  description = '',
   help = 'Toggle dark mode for the website',
   labelPosition = defaultValue('labelPosition'),
 } = {}) => ({
@@ -23,6 +26,7 @@ const generateProps = ({
   isLoading,
   label,
   labelId,
+  description,
   help,
   labelPosition,
 });
@@ -35,6 +39,7 @@ const Template = (args, { argTypes }) => ({
     <gl-toggle
       v-model="value"
       :disabled="disabled"
+      :description="description"
       :help="help"
       :label-id="labelId"
       :is-loading="isLoading"
@@ -47,9 +52,19 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
+export const WithDescription = Template.bind({});
+WithDescription.args = generateProps({
+  description: withDescription,
+});
+
 export const WithLongHelp = Template.bind({});
 WithLongHelp.args = generateProps({
   help: longHelp,
+});
+
+export const LabelPositionLeft = Template.bind({});
+LabelPositionLeft.args = generateProps({
+  labelPosition: 'left',
 });
 
 export default {
@@ -69,6 +84,9 @@ export default {
       control: 'select',
     },
     label: {
+      control: 'text',
+    },
+    description: {
       control: 'text',
     },
     help: {
