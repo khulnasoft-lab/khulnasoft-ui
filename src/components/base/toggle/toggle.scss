@@ -44,7 +44,7 @@
     }
 
     .gl-toggle-label,
-    .gl-help-label {
+    .gl-description-label {
       @include gl-text-gray-500;
     }
   }
@@ -73,7 +73,6 @@
 }
 
 .gl-toggle-label {
-  @include gl-mb-3;
   @include gl-font-weight-bold;
 }
 
