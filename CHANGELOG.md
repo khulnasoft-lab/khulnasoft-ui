@@ -1,3 +1,11 @@
+# [55.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.1.0...v55.2.0) (2023-02-09)
+
+
+### Features
+
+* **GlCollapsibleListbox:** fix keyboard navigation when selected is `null` ([dd18e2b](https://gitlab.com/gitlab-org/gitlab-ui/commit/dd18e2bca1ba74255c990c0afec4627becbc9b00))
+* **toggle:** Add missing states, update disabled state ([00123d1](https://gitlab.com/gitlab-org/gitlab-ui/commit/00123d1f11dc7d1f9a31e7d6a08e8650ac47c01c))
+
 # [55.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.0.1...v55.1.0) (2023-02-08)
 
 
