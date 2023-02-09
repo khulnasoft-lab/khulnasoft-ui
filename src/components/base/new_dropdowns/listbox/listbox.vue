@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { clamp, uniqueId } from 'lodash';
+import { clamp, uniqueId, isNil } from 'lodash';
 import { stopEvent } from '../../../../utils/utils';
 import {
   GL_DROPDOWN_SHOWN,
@@ -358,7 +358,7 @@ export default {
           }
           this.selectedValues = [...newSelected];
         } else {
-          this.selectedValues = [newSelected];
+          this.selectedValues = isNil(newSelected) ? [] : [newSelected];
         }
       },
     },
