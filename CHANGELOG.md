@@ -1,3 +1,10 @@
+## [55.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.2.0...v55.2.1) (2023-02-13)
+
+
+### Bug Fixes
+
+* **GlFormGroup:** Change color of form group description ([96dc484](https://gitlab.com/gitlab-org/gitlab-ui/commit/96dc4847e7d6adfa9bd03440454d886867cbad91))
+
 # [55.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.1.0...v55.2.0) (2023-02-09)
 
 
