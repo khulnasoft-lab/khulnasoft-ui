@@ -2,10 +2,12 @@
 import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 import { isItem } from './utils';
+import { DISCLOSURE_DROPDOWN_ITEM_NAME } from './constants';
 
 export const ITEM_CLASS = 'gl-new-dropdown-item';
 
 export default {
+  name: DISCLOSURE_DROPDOWN_ITEM_NAME,
   ITEM_CLASS,
   props: {
     item: {

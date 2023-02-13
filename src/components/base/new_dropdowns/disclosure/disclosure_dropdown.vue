@@ -19,7 +19,7 @@ import {
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import GlDisclosureDropdownItem, { ITEM_CLASS } from './disclosure_dropdown_item.vue';
 import GlDisclosureDropdownGroup from './disclosure_dropdown_group.vue';
-import { itemsValidator, isItem, isAllItems, isAllGroups } from './utils';
+import { itemsValidator, isItem, hasOnlyListItems } from './utils';
 
 export default {
   events: {
@@ -169,22 +169,11 @@ export default {
     };
   },
   computed: {
-    disclosureOptions() {
-      if (this.items) {
-        if (isAllItems(this.items)) {
-          return {
-            tag: 'ul',
-          };
-        }
-
-        if (isAllGroups(this.items))
-          return {
-            tag: 'div',
-            role: 'group',
-          };
+    disclosureTag() {
+      if (this.items?.length || hasOnlyListItems(this.$scopedSlots)) {
+        return 'ul';
       }
-
-      return { tag: 'div' };
+      return 'div';
     },
     hasCustomToggle() {
       return Boolean(this.$scopedSlots.toggle);
@@ -305,10 +294,9 @@ export default {
     <slot name="header"></slot>
 
     <component
-      :is="disclosureOptions.tag"
+      :is="disclosureTag"
       :id="disclosureId"
       ref="content"
-      :role="disclosureOptions.role"
       :aria-labelledby="listAriaLabelledBy || toggleId"
       data-testid="disclosure-content"
       class="gl-new-dropdown-contents"
