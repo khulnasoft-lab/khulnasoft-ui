@@ -8,12 +8,13 @@
     @include gl-pt-0;
     @include gl-pb-3;
 
-    > .form-text {
+    > .label-description {
       @include gl-mt-3;
     }
   }
 
-  .optional-label {
+  .optional-label,
+  .label-description {
     @include gl-font-weight-normal;
   }
 
