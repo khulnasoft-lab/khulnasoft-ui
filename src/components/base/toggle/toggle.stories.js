@@ -35,7 +35,7 @@ const Template = (args, { argTypes }) => ({
   components: { GlToggle },
   props: Object.keys(argTypes),
   template: `
-  <div class="gl-font-base">
+  <div class="gl-font-size">
     <gl-toggle
       v-model="value"
       :disabled="disabled"

@@ -4,11 +4,11 @@
 
   &-label,
   &-value {
-    @include gl-font-sm;
+    @include gl-font-size-sm;
   }
 
   &-label {
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
     @include gl-mr-7;
   }
 

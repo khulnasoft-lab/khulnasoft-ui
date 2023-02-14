@@ -43,10 +43,10 @@
     @include gl-border-b-solid;
     @include gl-border-gray-200;
     @include gl-display-flex;
-    @include gl-font-base;
+    @include gl-font-size;
     @include gl-font-weight-bold;
     @include gl-justify-content-center;
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
     @include gl-m-0;
     @include gl-mb-3;
     @include gl-pb-3;

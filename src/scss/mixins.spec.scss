@@ -2,34 +2,6 @@
 @import './variables';
 @import 'true';
 
-@include describe('gl-fluid-font-size') {
-  @include it('returns fluid font-size') {
-    @include assert {
-      @include output {
-        @include gl-fluid-font-size(2rem, 3.5rem);
-      }
-      @include expect {
-        // prettier-ignore
-        font-size: clamp(2rem, #{calc(#{-0.6666666667rem} + #{5.5555555556vw})}, 3.5rem);
-      }
-    }
-  }
-}
-
-@include describe('gl-fluid-line-height') {
-  @include it('returns fluid line-height') {
-    @include assert {
-      @include output {
-        @include gl-fluid-line-height(2rem, 3.5rem);
-      }
-      @include expect {
-        // prettier-ignore
-        line-height: clamp(2rem, #{calc(#{-0.6666666667rem} + #{5.5555555556vw})}, 3.5rem);
-      }
-    }
-  }
-}
-
 @include describe('gl-media-breakpoint-up') {
   @include it('returns no media query for xs') {
     @include assert {

@@ -206,7 +206,7 @@ export default {
     <template #modal-header>
       <!-- @slot Entire modal header container contents (including the close button on the top right corner) -->
       <slot name="modal-header">
-        <h4 class="modal-title">
+        <h4 class="modal-title gl-mt-0">
           <!-- @slot Modal title. If modal-header slot is used, this slot will not be shown. -->
           <slot name="modal-title">{{ title }}</slot>
         </h4>

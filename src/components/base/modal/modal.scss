@@ -57,9 +57,9 @@ body.modal-open {
     @include gl-border-none;
 
     .modal-title {
-      @include gl-font-lg;
+      @include gl-font-size-lg;
       @include gl-font-weight-bold;
-      @include gl-line-height-24;
+      @include gl-line-height-lg;
     }
   }
 
@@ -72,8 +72,8 @@ body.modal-open {
     @include gl-py-3;
     @include gl-text-left;
     @include gl-white-space-normal;
-    @include gl-font-base;
-    @include gl-line-height-20;
+    @include gl-font-size;
+    @include gl-line-height-normal;
   }
 
   .modal-footer {

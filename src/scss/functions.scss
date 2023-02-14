@@ -62,3 +62,23 @@
   // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2972
   @return clamp(#{$min}, calc(#{$intersection} + #{$slope * 100vw}), #{$max});
 }
+
+@function power($number, $exponent) {
+  $value: 1;
+  $factor: 1;
+  @if $exponent < 0 {
+    $factor: -1;
+  }
+
+  @if $exponent != 0 {
+    @for $i from 1 through ($exponent * $factor) {
+      @if $exponent < 0 {
+        $value: $value / $number;
+      } @else {
+        $value: $value * $number;
+      }
+    }
+  }
+
+  @return $value;
+}

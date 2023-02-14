@@ -9,8 +9,8 @@
   @include gl-text-gray-900;
   @include gl-px-4;
   @include gl-py-5;
-  @include gl-line-height-normal;
-  @include gl-font-base;
+  @include gl-line-height-label;
+  @include gl-font-size;
   @include gl-display-flex;
   @include gl-justify-content-center;
   @include gl-overflow-hidden;
@@ -43,8 +43,8 @@
 
 .gl-tab-content {
   @include gl-py-3;
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @include gl-font-size;
+  @include gl-line-height-label;
   @include gl-text-gray-900;
 }
 

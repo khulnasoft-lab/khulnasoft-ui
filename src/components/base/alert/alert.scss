@@ -1,5 +1,5 @@
 .gl-alert {
-  @include gl-font-base;
+  @include gl-font-size;
   @include gl-relative;
   @include gl-px-9;
   @include gl-py-5;
@@ -28,9 +28,9 @@
 }
 
 .gl-alert-title {
-  @include gl-font-base;
+  @include gl-font-size;
   @include gl-font-weight-bold;
-  @include gl-line-height-normal;
+  @include gl-line-height-label;
   @include gl-mt-0;
   @include gl-mb-3;
 }
@@ -49,7 +49,7 @@
 }
 
 .gl-alert-body {
-  @include gl-line-height-20;
+  @include gl-line-height-normal;
 }
 
 .gl-alert-actions {
@@ -59,8 +59,8 @@
 
 .gl-alert-action {
   @include gl-mr-3;
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @include gl-font-size;
+  @include gl-line-height-label;
 }
 
 // This is the replacement for .gl-alert-dismiss

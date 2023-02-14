@@ -25,8 +25,8 @@
 }
 
 .gl-token-content {
-  @include gl-font-sm;
-  @include gl-line-height-normal;
+  @include gl-font-size-sm;
+  @include gl-line-height-label;
   @include gl-display-flex;
   @include gl-align-items-center;
   @include gl-reset-color;

@@ -621,7 +621,7 @@ export default {
     >
       <div
         :id="headerId"
-        class="gl-flex-grow-1 gl-font-weight-bold gl-font-sm gl-pr-2"
+        class="gl-flex-grow-1 gl-font-weight-bold gl-font-size-sm gl-pr-2"
         data-testid="listbox-header-text"
       >
         {{ headerText }}
@@ -629,7 +629,7 @@ export default {
       <gl-button
         v-if="showResetButton"
         category="tertiary"
-        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0!"
+        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-size-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0!"
         data-testid="listbox-reset-button"
         @click="onResetButtonClicked"
       >
@@ -730,7 +730,7 @@ export default {
     <div
       v-else-if="showNoResultsText"
       aria-live="assertive"
-      class="gl-pl-7 gl-pr-5 gl-py-3 gl-font-base gl-text-gray-600"
+      class="gl-pl-7 gl-pr-5 gl-py-3 gl-font-size gl-text-gray-600"
       data-testid="listbox-no-results-text"
     >
       {{ noResultsText }}

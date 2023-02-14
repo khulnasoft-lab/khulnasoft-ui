@@ -7,30 +7,6 @@
   max-width: $max-width;
 }
 
-@mixin gl-fluid-font-size($min, $max) {
-  @include gl-responsive-property('font-size', $min, $max);
-}
-
-@mixin gl-fluid-line-height($min, $max) {
-  @include gl-responsive-property('line-height', $min, $max);
-}
-
-/**
-* Declares a property with a fluid value that decreases or
-* rises depending on the viewport’s size. The property type
-* should be numeric.
-*
-* Values are expected in rem units.
-* Fluid range: between 48rem (768px) – 75rem (1200px).
-*
-* @param $property Property name, i.e. line-height, font-size, width, height, etc.
-* @param $min Property value lower bound.
-* @param $max Property value upper bound.
-*/
-@mixin gl-responsive-property($property, $min, $max) {
-  #{$property}: clamp-between($min, $max);
-}
-
 /**
 * Helper function for :focus
 *
@@ -121,4 +97,63 @@
   @media (max-width: $max - $breakpoint-max-range-precision) {
     @content;
   }
+}
+
+/**
+ * @include gl-typescale-base(
+ *  $base, // base font-size, optional
+ *  $small-factor, // factor for small screens (start), optional
+ *  $factor, // factor for big screens (end), optional
+ *  $custom // custom size overrides, optional
+ * )
+ */
+@mixin gl-typescale-base(
+  $base: $gl-typescale-base-font-size,
+  $small-factor: $gl-typescale-small-factor,
+  $factor: $gl-typescale-factor,
+  $custom-sizes: ()
+) {
+  $sizes: map-merge($gl-typescale-sizes, $custom-sizes);
+  @each $name, $weight in $sizes {
+    @if (str-index($name, '.')) {
+      $name: str-slice($name, 2, -1);
+    }
+
+    @if not $weight {
+      // ignore; do nothing.
+    } @else if index('px', unit($weight)) != null {
+      --gl-font-size-#{$name}: #{px-to-rem($weight)};
+    } @else if $weight < 1 or $small-factor == $factor or not $small-factor {
+      --gl-font-size-#{$name}: #{px-to-rem(round($base * power($factor, $weight)) + 0)};
+    } @else {
+      $min: px-to-rem($base * power($small-factor, $weight) + 0);
+      $max: px-to-rem($base * power($factor, $weight) + 0);
+      --gl-font-size-#{$name}: #{clamp-between($min, $max)};
+    }
+
+    @if $weight and index('px', unit($weight)) == null {
+      --gl-font-weight-#{$name}: #{round(
+          $gl-typescale-base-font-weight + ($gl-typescale-font-weight-step * $weight)
+        )};
+    }
+  }
+}
+
+@mixin gl-typescale() {
+  @include gl-typescale-base;
+}
+
+@mixin gl-typescale-fixed() {
+  @include gl-typescale-base(
+    $small-factor: false,
+    $factor: 1.067,
+    $custom-sizes: (
+      // Override h1 factor.
+      h1: 8,
+      // Override h2 factor.
+      h2: 6,
+      // Remove h-display.
+      'h-display': false,
+    )
+  );
 }

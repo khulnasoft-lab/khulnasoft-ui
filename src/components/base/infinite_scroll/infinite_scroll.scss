@@ -1,11 +1,11 @@
 .gl-infinite-scroll-container {
   @include gl-overflow-x-hidden;
   @include gl-overflow-y-auto;
-  @include gl-font-base;
+  @include gl-font-size;
 }
 
 .gl-infinite-scroll-legend {
   @include gl-text-center;
-  @include gl-font-sm;
+  @include gl-font-size-sm;
   @include gl-text-gray-900;
 }

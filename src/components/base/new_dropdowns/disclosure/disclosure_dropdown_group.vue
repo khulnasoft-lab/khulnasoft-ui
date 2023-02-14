@@ -62,7 +62,7 @@ export default {
       v-if="showHeader"
       :id="nameId"
       aria-hidden="true"
-      class="gl-pl-4 gl-py-2 gl-font-sm gl-font-weight-bold"
+      class="gl-pl-4 gl-py-2 gl-font-size-sm gl-font-weight-bold"
     >
       <slot name="group-label">{{ group.name }}</slot>
     </div>

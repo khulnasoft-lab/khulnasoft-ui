@@ -3,15 +3,11 @@
   @include gl-border-gray-100;
   @include gl-border-solid;
   @include gl-display-flex;
-  @include gl-font-base;
+  @include gl-font-size;
   @include gl-px-8;
   @include gl-py-6;
   @include gl-rounded-base;
   @include gl-relative;
-
-  p {
-    @include gl-line-height-20;
-  }
 }
 
 .gl-banner-illustration {
@@ -28,11 +24,11 @@
 }
 
 .gl-banner-title {
-  @include gl-font-base;
+  @include gl-font-size;
   @include gl-font-weight-bold;
   @include gl-mt-0;
   @include gl-mb-3;
-  @include gl-line-height-20;
+  @include gl-line-height-normal;
 }
 
 .gl-banner-close {
@@ -47,7 +43,6 @@
   @include gl-border-blue-300;
 
   .gl-banner-title {
-    @include gl-font-size-h-display;
-    @include gl-line-height-28;
+    @include gl-text-style-h1;
   }
 }

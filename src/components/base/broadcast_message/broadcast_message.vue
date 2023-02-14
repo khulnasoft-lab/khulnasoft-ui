@@ -77,7 +77,7 @@ export default {
 <template>
   <div class="gl-broadcast-message" :class="`${theme} ${type}`">
     <div class="gl-broadcast-message-content">
-      <div class="gl-broadcast-message-icon gl-line-height-normal">
+      <div class="gl-broadcast-message-icon gl-line-height-label">
         <gl-icon :name="iconName" />
       </div>
       <div class="gl-my-n1">

@@ -21,7 +21,7 @@ $pd-week-color: $gray-500;
 @import 'pikaday/scss/pikaday';
 
 .gl-datepicker-actions {
-  @include gl-font-sm;
+  @include gl-font-size-sm;
   @include gl-absolute;
   @include gl-top-0;
   @include gl-bottom-0;
@@ -57,7 +57,7 @@ $pd-week-color: $gray-500;
   }
 
   .pika-title {
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
     @include gl-mb-5;
     @include gl-h-5;
   }
@@ -89,7 +89,7 @@ $pd-week-color: $gray-500;
   }
 
   .pika-label {
-    @include gl-font-base;
+    @include gl-font-size;
     @include gl-py-0;
 
     &:hover {
@@ -106,7 +106,7 @@ $pd-week-color: $gray-500;
   th {
     @include gl-pb-3;
     @include gl-font-weight-bold;
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
   }
 
   abbr[title] {
@@ -119,9 +119,9 @@ $pd-week-color: $gray-500;
     @include gl-rounded-base;
     @include gl-py-3;
     @include gl-text-center;
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
     @include gl-w-7;
-    @include gl-font-base;
+    @include gl-font-size;
 
     &.is-past-date {
       @include gl-text-gray-400;

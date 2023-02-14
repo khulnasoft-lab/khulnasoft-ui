@@ -4,7 +4,7 @@ import uiTypescaleDemoContent from './typescale_demo.html';
 import uiTypescaleDemoStyles from './typescale_demo.scss';
 import uiTypefaceContent from './typeface_demo.html';
 
-const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent) => {
+const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent, className) => {
   if (!has(window, 'customElements') || customElements.get(componentName)) {
     return;
   }
@@ -18,6 +18,7 @@ const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent) 
 
       style.textContent = typescaleCSS;
       wrapper.innerHTML = demoContent;
+      wrapper.classList.add(className);
 
       shadow.appendChild(style);
       shadow.appendChild(wrapper);
@@ -27,11 +28,26 @@ const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent) 
   customElements.define(componentName, TypescaleDemo);
 };
 
-createTypescaleDemoComponent('ui-typescale-demo', uiTypescaleDemoStyles, uiTypescaleDemoContent);
+createTypescaleDemoComponent(
+  'ui-typescale-demo',
+  uiTypescaleDemoStyles,
+  uiTypescaleDemoContent,
+  'gl-typescale'
+);
+createTypescaleDemoComponent(
+  'ui-typescale-fixed-demo',
+  uiTypescaleDemoStyles,
+  uiTypescaleDemoContent,
+  'gl-typescale-fixed'
+);
 createTypescaleDemoComponent('ui-typeface-demo', uiTypescaleDemoStyles, uiTypefaceContent);
 
 const component = {
   template: '<ui-typescale-demo />',
+};
+
+const componentFixed = {
+  template: '<ui-typescale-fixed-demo />',
 };
 
 const typefaceComponent = {
@@ -39,10 +55,10 @@ const typefaceComponent = {
 };
 
 export const Default = () => component;
-Default.parameters = {
-  viewport: {
-    defaultViewport: 'breakpointExtraLarge',
-  },
+
+export const Fixed = () => componentFixed;
+Fixed.parameters = {
+  className: 'gl-typescale-fixed',
 };
 
 export const Typefaces = () => typefaceComponent;

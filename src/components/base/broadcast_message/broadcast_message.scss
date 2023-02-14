@@ -2,8 +2,8 @@
   @include gl-display-flex;
   @include gl-justify-content-space-between;
   @include gl-align-items-flex-start;
-  @include gl-font-base;
-  @include gl-line-height-20;
+  @include gl-font-size;
+  @include gl-line-height-normal;
   @include gl-pl-5;
   @include gl-pr-4;
   @include gl-py-5;

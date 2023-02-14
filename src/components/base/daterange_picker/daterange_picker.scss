@@ -1,6 +1,6 @@
 .gl-daterange-picker {
-  @include gl-line-height-normal;
-  @include gl-font-base;
+  @include gl-line-height-label;
+  @include gl-font-size;
   @include gl-font-regular;
 
   label {

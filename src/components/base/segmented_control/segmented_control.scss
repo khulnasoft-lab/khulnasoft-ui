@@ -33,8 +33,8 @@
   }
 
   .btn-gl-segmented-button {
-    @include gl-font-base;
-    @include gl-line-height-normal;
+    @include gl-font-size;
+    @include gl-line-height-label;
     @include gl-text-gray-900;
     @include gl-fill-current-color;
     @include gl-bg-gray-10;

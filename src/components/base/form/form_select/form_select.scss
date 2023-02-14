@@ -9,11 +9,11 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
 
 /* stylelint-disable property-no-vendor-prefix */
 .gl-form-select {
-  @include gl-font-base;
+  @include gl-font-size;
   @include gl-font-regular;
   @include gl-text-gray-900;
   @include gl-opacity-10;
-  @include gl-line-height-normal;
+  @include gl-line-height-label;
   @include gl-py-3;
   @include gl-pl-4;
   padding-right: $gl-spacing-scale-2 + $gl-spacing-scale-6;

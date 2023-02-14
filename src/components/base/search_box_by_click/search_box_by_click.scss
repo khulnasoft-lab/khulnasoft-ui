@@ -1,5 +1,5 @@
 .gl-search-box-by-click {
-  @include gl-font-base;
+  @include gl-font-size;
 
   .gl-search-box-by-click-history {
     > button {
@@ -70,7 +70,7 @@
   }
 
   .gl-search-box-by-click-menu {
-    @include gl-font-base;
+    @include gl-font-size;
     width: $gl-dropdown-width-wide;
   }
 }

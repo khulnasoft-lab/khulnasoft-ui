@@ -2,8 +2,8 @@
 .gl-form-input.form-control {
   @include gl-bg-white;
   @include gl-font-regular;
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @include gl-font-size;
+  @include gl-line-height-label;
   @include gl-py-3;
   @include gl-px-4;
   @include gl-h-auto;

@@ -2,9 +2,9 @@
   @include gl-mb-5;
 
   .col-form-label {
-    @include gl-font-base;
+    @include gl-font-size;
     @include gl-font-weight-bold;
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
     @include gl-pt-0;
     @include gl-pb-3;
 
@@ -21,8 +21,8 @@
   .invalid-feedback,
   .valid-feedback,
   .text-gl-muted {
-    @include gl-font-base;
-    @include gl-line-height-normal;
+    @include gl-font-size;
+    @include gl-line-height-label;
   }
 
   .form-control {

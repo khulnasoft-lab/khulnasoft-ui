@@ -9,7 +9,7 @@ $label-close-button: '.gl-label-close.gl-button';
   @include gl-rounded-pill;
   @include gl-relative;
   @include gl-max-w-full;
-  @include gl-font-base;
+  @include gl-font-size;
   box-shadow: var(--label-inset-border) !important;
 
   &:not(.gl-label-scoped) {
@@ -21,9 +21,9 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   .gl-label-link {
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
     @include gl-display-flex;
-    @include gl-font-sm;
+    @include gl-font-size-sm;
     @include gl-font-weight-normal;
     @include gl-overflow-hidden;
     @include gl-reset-color;

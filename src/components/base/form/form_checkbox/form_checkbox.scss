@@ -8,13 +8,13 @@
 }
 
 .gl-form-checkbox-group {
-  @include gl-line-height-normal;
+  @include gl-line-height-label;
 }
 
 .gl-form-checkbox,
 .gl-form-radio {
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @include gl-font-size;
+  @include gl-line-height-label;
   @include gl-text-gray-900;
 
   &.form-check {
@@ -39,7 +39,7 @@
 
   .form-check-label {
     @include gl-pl-3;
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
   }
 
   .form-check-input:disabled,
@@ -154,8 +154,8 @@
   .help-text {
     @include gl-mt-2;
     @include gl-text-gray-500;
-    @include gl-mb-0;
-    @include gl-font-base;
-    @include gl-line-height-normal;
+    @include gl-mb-3;
+    @include gl-font-size;
+    @include gl-line-height-label;
   }
 }

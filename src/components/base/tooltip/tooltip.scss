@@ -1,10 +1,10 @@
 .gl-tooltip {
-  @include gl-font-sm;
+  @include gl-font-size-sm;
   @include gl-p-2;
 
   .tooltip-inner {
     @include gl-rounded-base;
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
     @include gl-font-weight-normal;
     @include gl-py-3;
     @include gl-px-4;

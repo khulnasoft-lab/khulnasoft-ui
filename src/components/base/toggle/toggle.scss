@@ -19,7 +19,7 @@
 */
 
 .gl-toggle-wrapper {
-  @include gl-line-height-normal;
+  @include gl-line-height-label;
   @include gl-font-weight-normal;
   @include gl-display-inline-flex;
 
@@ -91,7 +91,7 @@
   @include gl-user-select-none;
   @include gl-rounded-pill;
   @include gl-transition-slow;
-  @include gl-line-height-normal;
+  @include gl-line-height-label;
 
   &::selection,
   &::before::selection,

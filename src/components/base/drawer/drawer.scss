@@ -10,8 +10,8 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
   @include gl-w-full;
   @include gl-overflow-y-auto;
   @include gl-shadow-drawer;
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @include gl-font-size;
+  @include gl-line-height-label;
   @include gl-display-flex;
   @include gl-flex-direction-column;
 

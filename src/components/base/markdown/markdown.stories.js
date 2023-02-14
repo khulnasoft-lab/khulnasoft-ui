@@ -24,6 +24,7 @@ export default {
   title: 'base/markdown',
   component: GlMarkdown,
   parameters: {
+    grid: { cellSize: 8 },
     docs: {
       description: {
         component: readme,

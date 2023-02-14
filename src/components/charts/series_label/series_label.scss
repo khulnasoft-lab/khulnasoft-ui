@@ -1,6 +1,6 @@
 .gl-series-label-container {
   @include gl-display-flex;
-  @include gl-font-base;
+  @include gl-font-size;
   @include gl-overflow-hidden;
   @include gl-overflow-wrap-break;
 }

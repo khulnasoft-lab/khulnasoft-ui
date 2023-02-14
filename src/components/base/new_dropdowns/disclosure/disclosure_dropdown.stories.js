@@ -235,7 +235,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group bordered>
         <template #group-label>
-          <span class="gl-font-sm">Navigation redesign</span>
+          <span class="gl-font-size-sm">Navigation redesign</span>
           <gl-badge size="sm" variant="info">Beta</gl-badge>
         </template>
         <gl-disclosure-dropdown-item @action="toggleNewNavigation">

@@ -66,9 +66,9 @@
 .gl-badge {
   @include gl-display-inline-flex;
   @include gl-align-items-center;
-  @include gl-font-sm;
+  @include gl-font-size-sm;
   @include gl-font-weight-normal;
-  @include gl-line-height-normal;
+  @include gl-line-height-label;
   @include gl-py-2;
   @include gl-px-3;
 
@@ -82,7 +82,7 @@
 
   &.lg {
     @include gl-py-3;
-    @include gl-font-base;
+    @include gl-font-size;
   }
 
   .gl-badge-icon {

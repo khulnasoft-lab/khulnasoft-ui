@@ -51,7 +51,7 @@
 
   .gl-legend-tabular-header-cell {
     @include gl-font-weight-bold;
-    @include gl-line-height-24;
+    @include gl-line-height-lg;
     @include gl-px-3;
   }
 
@@ -72,7 +72,7 @@
 
   .gl-legend-tabular-title-cell,
   .gl-legend-tabular-details-cell {
-    @include gl-line-height-24;
+    @include gl-line-height-lg;
     @include gl-px-3;
   }
 

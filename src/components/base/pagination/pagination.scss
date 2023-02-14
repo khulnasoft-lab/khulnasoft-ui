@@ -1,5 +1,5 @@
 .gl-pagination {
-  @include gl-font-base;
+  @include gl-font-size;
 
   a {
     @include gl-text-gray-900;
@@ -7,7 +7,7 @@
 
   .page-link {
     @include gl-border-gray-200;
-    @include gl-line-height-normal;
+    @include gl-line-height-label;
     @include gl-px-4;
     @include gl-py-3;
 

@@ -9,8 +9,8 @@ table.gl-table {
       @include gl-border-gray-100;
       @include gl-p-5;
       @include gl-bg-transparent;
-      @include gl-line-height-normal;
-      @include gl-font-base;
+      @include gl-line-height-label;
+      @include gl-font-size;
       @include gl-vertical-align-top;
     }
 

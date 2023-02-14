@@ -145,7 +145,7 @@ export default {
             Overrides the `title` prop.
           -->
         <slot ref="title" name="title">
-          <h1 class="gl-font-size-h-display gl-line-height-36" :class="compact ? 'h5' : 'h4'">
+          <h1 class="gl-text-style-h1 gl-mt-0" :class="compact ? 'h5' : 'h4'">
             {{ title }}
           </h1>
         </slot>

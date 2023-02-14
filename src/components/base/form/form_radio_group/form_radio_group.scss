@@ -1,4 +1,4 @@
 .gl-form-radio-group {
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @include gl-font-size;
+  @include gl-line-height-label;
 }

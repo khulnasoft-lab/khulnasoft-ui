@@ -1,5 +1,5 @@
 /**
-* Font family utility
+* Font family utilities.
 *
 * naming convention: gl-font-{family-name}
 * Notes:
@@ -15,7 +15,7 @@
 }
 
 /**
-* Font style utility
+* Font style utilities.
 *
 * naming convention: gl-font-style-{family-name}
 */
@@ -28,83 +28,72 @@
 }
 
 /**
-* Font size utility
+* Font size utilities.
 *
-* naming convention: gl-font-{type-scale-size}
+* naming convention: gl-font-size-{type}
 * Notes:
 * - Strictly based on design system type scale. See
-* $gl-type-scale for further references.
+* $gl-typescale for further references.
 */
-@mixin gl-font-xs {
-  font-size: $gl-font-size-xs;
+@mixin gl-font-size-sm {
+  font-size: var(--gl-font-size-sm);
 }
 
-@mixin gl-font-sm {
-  font-size: $gl-font-size-sm;
+@mixin gl-font-size {
+  font-size: var(--gl-font-size-p);
 }
 
-@mixin gl-font-base {
-  font-size: $gl-font-size;
-}
-
-@mixin gl-font-lg {
-  font-size: $gl-font-size-lg;
+@mixin gl-font-size-lg {
+  font-size: var(--gl-font-size-lg);
 }
 
 @mixin gl-font-size-h-display {
-  font-size: $gl-font-size-h-display;
+  font-size: var(--gl-font-size-h-display);
 }
 
 @mixin gl-font-size-h1 {
-  font-size: $gl-font-size-h1;
+  font-size: var(--gl-font-size-h1);
 }
 
 @mixin gl-font-size-h2 {
-  font-size: $gl-font-size-h2;
+  font-size: var(--gl-font-size-h2);
 }
 
-@mixin gl-font-size-h-display-xl {
-  font-size: $gl-font-size-h-display-xl;
+@mixin gl-font-size-h3 {
+  font-size: var(--gl-font-size-h3);
 }
 
-@mixin gl-font-size-h1-xl {
-  font-size: $gl-font-size-h1-xl;
+@mixin gl-font-size-h4 {
+  font-size: var(--gl-font-size-h4);
 }
 
-@mixin gl-font-size-h2-xl {
-  font-size: $gl-font-size-h2-xl;
+@mixin gl-font-size-h5 {
+  font-size: var(--gl-font-size-h5);
+}
+
+@mixin gl-font-size-h6 {
+  font-size: var(--gl-font-size-h6);
 }
 
 @mixin gl-font-icon-size {
   font-size: $default-icon-size;
 }
 
-@mixin gl-font-size-markdown-sm {
-  font-size: $gl-font-size-markdown-sm;
-}
-
-@mixin gl-font-size-markdown {
-  font-size: $gl-font-size-markdown;
-}
-
-@mixin gl-font-size-markdown-h1 {
-  font-size: $gl-font-size-markdown-h1;
-}
-
-@mixin gl-font-size-markdown-h2 {
-  font-size: $gl-font-size-markdown-h2;
-}
-
-@mixin gl-font-size-markdown-h3 {
-  font-size: $gl-font-size-markdown-h3;
-}
-
-@mixin gl-font-size-compact-markdown-h1 {
-  font-size: $gl-font-size-compact-markdown-h1;
-}
-
 @mixin gl-reset-font-size {
   font-size: inherit;
+}
+
+// Legacy
+@mixin gl-font-sm {
+  @include gl-font-size-sm;
+}
+
+@mixin gl-font-base {
+  @include gl-font-size;
+}
+
+@mixin gl-font-lg {
+  @include gl-font-size-lg;
 }
 
 /**
@@ -122,7 +111,7 @@
 }
 
 @mixin gl-font-weight-normal {
-  font-weight: $gl-font-weight-normal;
+  font-weight: var(--gl-font-weight-normal);
 }
 
 @mixin gl-font-weight-semibold {
@@ -130,7 +119,7 @@
 }
 
 @mixin gl-font-weight-bold {
-  font-weight: $gl-font-weight-bold;
+  font-weight: var(--gl-font-weight-bold);
 }
 
 @mixin gl-sm-font-weight-bold {
@@ -154,40 +143,28 @@
   line-height: 1;
 }
 
+@mixin gl-line-height-label-sm {
+  line-height: var(--gl-line-height-label-sm);
+}
+
+@mixin gl-line-height-label {
+  line-height: var(--gl-line-height-label);
+}
+
+@mixin gl-line-height-sm {
+  line-height: var(--gl-line-height-sm);
+}
+
 @mixin gl-line-height-normal {
-  line-height: $gl-line-height-16;
+  line-height: var(--gl-line-height-p);
 }
 
-@mixin gl-line-height-12 {
-  line-height: $gl-line-height-12;
+@mixin gl-line-height-lg {
+  line-height: var(--gl-line-height-lg);
 }
 
-@mixin gl-line-height-20 {
-  line-height: $gl-line-height-20;
-}
-
-@mixin gl-line-height-24 {
-  line-height: $gl-line-height-24;
-}
-
-@mixin gl-line-height-28 {
-  line-height: $gl-line-height-28;
-}
-
-@mixin gl-line-height-32 {
-  line-height: $gl-line-height-32;
-}
-
-@mixin gl-line-height-36 {
-  line-height: $gl-line-height-36;
-}
-
-@mixin gl-line-height-42 {
-  line-height: $gl-line-height-42;
-}
-
-@mixin gl-line-height-52 {
-  line-height: $gl-line-height-52;
+@mixin gl-line-height-heading {
+  line-height: var(--gl-line-height-heading);
 }
 
 @mixin gl-reset-line-height {
@@ -195,10 +172,66 @@
 }
 
 /**
-* Letter spacing utilities.
+* Text style utilities.
 *
-* naming convention: gl-letter-spacing-{letter-spacing}{unit}
+* naming convention: gl-text-style-[name]-[size]
 */
-@mixin gl-letter-spacing-06em {
-  letter-spacing: 0.06em;
+@mixin gl-text-style-h-display {
+  @include gl-font-size-h-display;
+  @include gl-line-height-heading;
+}
+
+@mixin gl-text-style-h1 {
+  @include gl-font-size-h1;
+  @include gl-line-height-heading;
+}
+
+@mixin gl-text-style-h2 {
+  @include gl-font-size-h2;
+  @include gl-line-height-heading;
+}
+
+@mixin gl-text-style-h3 {
+  @include gl-font-size-h3;
+  @include gl-line-height-heading;
+}
+
+@mixin gl-text-style-h4 {
+  @include gl-font-size-h4;
+  @include gl-line-height-heading;
+}
+
+@mixin gl-text-style-h5 {
+  @include gl-font-size-h5;
+  @include gl-line-height-heading;
+}
+
+@mixin gl-text-style-h6 {
+  @include gl-font-size-h6;
+  @include gl-line-height-heading;
+}
+
+@mixin gl-text-style-p-lg {
+  @include gl-font-size-lg;
+  @include gl-line-height-lg;
+}
+
+@mixin gl-text-style-p {
+  @include gl-font-size;
+  @include gl-line-height-normal;
+}
+
+@mixin gl-text-style-p-sm {
+  @include gl-font-size-sm;
+  @include gl-line-height-sm;
+}
+
+@mixin gl-text-style-label {
+  @include gl-font-size;
+  @include gl-line-height-label;
+}
+
+@mixin gl-text-style-label-sm {
+  @include gl-font-size-sm;
+  @include gl-line-height-label-sm;
 }

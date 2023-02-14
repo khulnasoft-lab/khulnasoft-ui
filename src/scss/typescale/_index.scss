@@ -1,72 +1,102 @@
-@mixin gl-typescale-ui($selector: 'body') {
-  #{$selector} {
-    @include gl-font-base;
-    @include gl-text-gray-900;
-    @include gl-font-regular;
-    @include gl-font-weight-normal;
-    @include gl-line-height-normal;
-  }
+// Assign utility classes
+body,
+.gl-typescale {
+  @include gl-typescale;
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .h-display,
-  .gl-h1,
-  .gl-h2,
-  .gl-h3,
-  .gl-h4,
-  .gl-h5,
-  .gl-h6 {
-    @include gl-font-weight-bold;
-    @include gl-mt-0;
-    @include gl-mb-0;
-  }
+.gl-compact-markdown,
+.gl-typescale-fixed,
+.md {
+  @include gl-typescale-fixed;
+}
 
-  .h-display {
-    @include gl-fluid-font-size($min: $gl-font-size-h-display, $max: $gl-font-size-h-display-xl);
-    @include gl-fluid-line-height($min: $gl-line-height-32, $max: $gl-line-height-52);
-  }
+// Generate font classes
+@each $name, $weight in $gl-typescale-sizes {
+  #{$name} {
+    @if (str-index($name, '.')) {
+      $name: str-slice($name, 2, -1);
+    }
+    font-size: var(--gl-font-size-#{$name});
 
-  h1,
-  .gl-h1 {
-    @include gl-fluid-font-size($min: $gl-font-size-h1, $max: $gl-font-size-h1-xl);
-    @include gl-fluid-line-height($min: $gl-line-height-28, $max: $gl-line-height-36);
-  }
+    @if $weight and index('px', unit($weight)) == null {
+      font-weight: var(--gl-font-weight-#{$name});
+    }
 
-  h2,
-  .gl-h2 {
-    @include gl-fluid-font-size($min: $gl-font-size-h2, $max: $gl-font-size-h2-xl);
-    @include gl-fluid-line-height($min: $gl-line-height-24, $max: $gl-line-height-28);
+    line-height: var(--gl-line-height-#{$name});
   }
+}
 
-  h3,
-  .gl-h3 {
-    @include gl-font-lg;
-    @include gl-line-height-20;
+body {
+  // Enable antialiased font rendering
+  -webkit-font-smoothing: antialiased;
+
+  // Default font weights
+  --gl-font-size: var(--gl-font-size-p);
+  --gl-font-weight-normal: #{$gl-font-weight-normal};
+  --gl-font-weight-bold: #{$gl-font-weight-bold};
+
+  // Line heights
+  --gl-line-height-h-display: #{$gl-line-height-heading};
+  --gl-line-height-h1: #{$gl-line-height-heading};
+  --gl-line-height-h2: #{$gl-line-height-heading};
+  --gl-line-height-h3: #{$gl-line-height-heading};
+  --gl-line-height-h4: #{$gl-line-height-heading};
+  --gl-line-height-h5: #{$gl-line-height-heading};
+  --gl-line-height-h6: #{$gl-line-height-heading};
+  --gl-line-height-label-sm: #{$gl-line-height-label-sm};
+  --gl-line-height-label: #{$gl-line-height-label};
+  --gl-line-height-sm: #{$gl-line-height-sm};
+  --gl-line-height-p: #{$gl-line-height-normal};
+  --gl-line-height-lg: #{$gl-line-height-lg};
+  --gl-line-height-heading: #{$gl-line-height-heading};
+}
+
+.h-display,
+h1,
+.gl-h1 {
+  @include gl-mt-0;
+  @include gl-mb-5;
+
+  ~ h1 {
+    @include gl-mt-6;
   }
+}
 
-  h4,
-  .gl-h4 {
-    @include gl-font-base;
-    @include gl-line-height-20;
-  }
+h2,
+.gl-h2,
+h3,
+.gl-h3 {
+  @include gl-mt-6;
+  @include gl-mb-5;
+}
 
-  h5,
-  .gl-h5,
-  h6,
-  .gl-h6 {
-    @include gl-font-base;
-    @include gl-line-height-20;
-    @include gl-text-gray-700;
-  }
+h4,
+.gl-h4,
+h5,
+.gl-h5,
+h6,
+.gl-h6 {
+  @include gl-mt-6;
+  @include gl-mb-3;
+}
 
+.gl-paragraph,
+ul,
+ol,
+table {
+  @include gl-text-style-p;
+}
+
+p,
+.gl-paragraph {
+  @include gl-mt-0;
+  @include gl-mb-5;
+}
+
+.gl-typescale,
+.gl-typescale-fixed {
   p,
   .gl-paragraph {
-    @include gl-font-base;
-    @include gl-line-height-20;
     @include gl-mt-0;
     @include gl-mb-0;
 
@@ -74,30 +104,24 @@
     + .gl-paragraph {
       @include gl-mt-5;
     }
-
-    &.lg {
-      @include gl-line-height-24;
-    }
   }
+}
 
-  .sm {
-    @include gl-font-sm;
-  }
+b,
+strong {
+  @include gl-font-weight-bold;
+}
 
-  .lg {
-    @include gl-font-lg;
-  }
+.monospace,
+code {
+  @include gl-font-monospace;
+}
 
-  .monospace {
-    @include gl-font-monospace;
-  }
-
-  blockquote {
-    @include gl-text-gray-700;
-    @include gl-py-3;
-    @include gl-pl-6;
-    @include gl-my-3;
-    @include gl-mx-0;
-    @include gl-inset-border-l-4-gray-100;
-  }
+blockquote {
+  @include gl-text-gray-700;
+  @include gl-py-3;
+  @include gl-pl-6;
+  @include gl-my-3;
+  @include gl-mx-0;
+  @include gl-inset-border-l-4-gray-100;
 }

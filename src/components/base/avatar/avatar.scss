@@ -13,48 +13,45 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
 @mixin gl-avatar-s16 {
   @include gl-w-5;
   @include gl-h-5;
-  @include gl-font-sm;
-  @include gl-line-height-normal;
+  @include gl-font-size-sm;
+  @include gl-line-height-label;
   @include gl-rounded-small;
 }
 
 @mixin gl-avatar-s24 {
   @include gl-w-6;
   @include gl-h-6;
-  @include gl-font-sm;
-  @include gl-line-height-normal;
+  @include gl-font-size-sm;
+  @include gl-line-height-label;
   @include gl-rounded-base;
 }
 
 @mixin gl-avatar-s32 {
   @include gl-w-7;
   @include gl-h-7;
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @include gl-font-size;
+  @include gl-line-height-label;
   @include gl-rounded-base;
 }
 
 @mixin gl-avatar-s48 {
   @include gl-w-9;
   @include gl-h-9;
-  @include gl-font-size-h2;
-  @include gl-line-height-24;
+  @include gl-text-style-h3;
   @include gl-rounded-lg;
 }
 
 @mixin gl-avatar-s64 {
   @include gl-w-11;
   @include gl-h-11;
-  @include gl-font-size-h-display;
-  @include gl-line-height-32;
+  @include gl-text-style-h1;
   @include gl-rounded-lg;
 }
 
 @mixin gl-avatar-s96 {
   @include gl-w-13;
   @include gl-h-13;
-  @include gl-font-size-h-display-xl;
-  @include gl-line-height-52;
+  @include gl-text-style-h-display;
   @include gl-rounded-lg;
 }
 

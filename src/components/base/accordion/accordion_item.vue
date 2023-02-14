@@ -112,7 +112,7 @@ export default {
       v-model="isVisible"
       :visible="isVisible"
       :accordion="accordion"
-      class="gl-mt-3 gl-font-base"
+      class="gl-mt-3 gl-font-size"
       :data-testid="`accordion-item-collapse-${accordionItemId}`"
     >
       <!-- @slot Item content -->

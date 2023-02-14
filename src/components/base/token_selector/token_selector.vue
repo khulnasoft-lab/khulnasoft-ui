@@ -415,7 +415,7 @@ export default {
           <input
             ref="textInput"
             type="text"
-            class="gl-token-selector-input gl-bg-none gl-font-regular gl-font-base gl-line-height-normal gl-px-1 gl-h-auto gl-text-gray-900 gl-border-none gl-outline-none gl-flex-grow-1 gl-w-40p"
+            class="gl-token-selector-input gl-bg-none gl-font-regular gl-font-size gl-line-height-label gl-px-1 gl-h-auto gl-text-gray-900 gl-border-none gl-outline-none gl-flex-grow-1 gl-w-40p"
             :value="inputText"
             :autocomplete="autocomplete"
             :aria-labelledby="ariaLabelledby"

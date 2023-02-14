@@ -1,5 +1,5 @@
 .gl-link {
-  @include gl-font-base;
+  @include gl-font-size;
   @include gl-text-blue-500;
 
   &:hover {

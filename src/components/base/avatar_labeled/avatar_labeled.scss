@@ -6,8 +6,8 @@
     @include gl-display-flex;
     @include gl-flex-direction-column;
     @include gl-justify-content-center;
-    @include gl-font-base;
-    @include gl-line-height-normal;
+    @include gl-font-size;
+    @include gl-line-height-label;
     @include gl-text-gray-900;
   }
 
