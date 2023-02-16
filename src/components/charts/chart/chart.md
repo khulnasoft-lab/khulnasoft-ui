@@ -1,13 +1,13 @@
 ### ECharts Wrapper
 
-The chart component is a Vue component wrapper around
-[Apache ECharts](https://echarts.apache.org/en/api.html#echarts). The chart component accepts width
-and height props in order to allow the user to make it responsive, but it is not responsive
-by default.
+The chart component is a Vue component wrapper around [Apache ECharts](https://echarts.apache.org/en/api.html#echarts).
+The chart component accepts width and height props in order to allow the user to make it responsive,
+but it is not responsive by default.
 
-> Note: In every case there should be a specific component for each type of chart
-(i.e. Line, Area, Bar, etc.). This component should only need to be used by chart type components
-within GitLab UI as opposed to being used directly within any other codebase.
+> Note: When implementing a chart type that does not already have a GitLab UI component, you can use
+> this component alonside the [ECharts options](https://echarts.apache.org/en/api.html#echarts) to
+> build your chart. Each type of chart should still follow the general guidelines in the
+> [pajamas documentation](https://design.gitlab.com/data-visualization/charts).
 
 ### EChart Lifecycle
 
