@@ -307,8 +307,10 @@ export default {
         <template v-for="(item, index) in items">
           <template v-if="isItem(item)">
             <gl-disclosure-dropdown-item :key="item.text" :item="item" @action="handleAction">
-              <!-- @slot Custom template of the disclosure dropdown item -->
-              <slot name="list-item" :item="item"></slot>
+              <template #list-item>
+                <!-- @slot Custom template of the disclosure dropdown item -->
+                <slot name="list-item" :item="item"></slot>
+              </template>
             </gl-disclosure-dropdown-item>
           </template>
 
@@ -331,8 +333,10 @@ export default {
                   :item="groupItem"
                   @action="handleAction"
                 >
-                  <!-- @slot Custom template of the disclosure dropdown item -->
-                  <slot name="list-item" :item="groupItem"></slot>
+                  <template #list-item>
+                    <!-- @slot Custom template of the disclosure dropdown item -->
+                    <slot name="list-item" :item="groupItem"></slot>
+                  </template>
                 </gl-disclosure-dropdown-item>
               </template>
             </gl-disclosure-dropdown-group>

@@ -14,6 +14,9 @@ describe('GlDisclosureDropdownGroup', () => {
         group: mockGroups[0],
         ...propsData,
       },
+      stubs: {
+        GlDisclosureDropdownItem,
+      },
       slots,
     });
   };
@@ -38,9 +41,9 @@ describe('GlDisclosureDropdownGroup', () => {
     expect(findItems()).toHaveLength(mockGroups[0].items.length);
   });
 
-  it('renders `list-item` content in a default slot of `GlDisclosureDropdownItem`', () => {
+  it('renders `list-item` content in a `list-item` slot of `GlDisclosureDropdownItem`', () => {
     buildWrapper({
-      slots: { 'list-item': '<li data-testid="list-item-content"></li>' },
+      slots: { 'list-item': '<span data-testid="list-item-content"></span>' },
     });
 
     expect(findItems()).toHaveLength(mockGroups[0].items.length);
