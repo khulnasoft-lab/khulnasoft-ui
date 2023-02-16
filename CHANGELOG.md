@@ -1,3 +1,11 @@
+# [55.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.2.1...v55.3.0) (2023-02-16)
+
+
+### Features
+
+* **toggle:** Add description text ([da0d5aa](https://gitlab.com/gitlab-org/gitlab-ui/commit/da0d5aae8f36e562824abf1fd286443988fa2e47))
+* **toggle:** Add description text and inline variant ([54a95f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/54a95f80375bdf3c70c355b3d7b943c6f37f1984)), closes [#2148](https://gitlab.com/gitlab-org/gitlab-ui/issues/2148)
+
 ## [55.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.2.0...v55.2.1) (2023-02-13)
 
 
