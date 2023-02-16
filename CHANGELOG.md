@@ -1,3 +1,10 @@
+## [55.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.3.0...v55.3.1) (2023-02-16)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Improve markup semantics of dropdown wrapper ([79b1922](https://gitlab.com/gitlab-org/gitlab-ui/commit/79b19229c617904cc300a58d54c6ff04b742bb53))
+
 # [55.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.2.1...v55.3.0) (2023-02-16)
 
 
