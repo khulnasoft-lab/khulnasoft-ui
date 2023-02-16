@@ -1,3 +1,18 @@
+# [56.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.3.1...v56.0.0) (2023-02-16)
+
+
+### Features
+
+* **GlDisclosureDropdown:** wrap custom item content in `button` or `link` ([684386d](https://gitlab.com/gitlab-org/gitlab-ui/commit/684386d4dd66c4ce85538faec1b35b9c5c370926))
+
+
+### BREAKING CHANGES
+
+* **GlDisclosureDropdown:** It will cause styling and semantic issues
+in the downstream project.
+Wherever the `list-item` slot is used with a `button` or `a` inside
+it wrapping the content, this wrapper `button/a` needs to be removed.
+
 ## [55.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v55.3.0...v55.3.1) (2023-02-16)
 
 
