@@ -8,6 +8,7 @@ describe('toggle', () => {
   let wrapper;
 
   const label = 'toggle label';
+  const descriptionText = 'description text';
   const helpText = 'help text';
 
   const createWrapper = (props = {}, options = {}) => {
@@ -21,6 +22,7 @@ describe('toggle', () => {
   };
 
   const findButton = () => wrapper.find('button');
+  const findDescriptionElement = () => wrapper.find('[data-testid="toggle-description"]');
   const findHelpElement = () => wrapper.find('[data-testid="toggle-help"]');
 
   it('has role=switch', () => {
@@ -83,6 +85,28 @@ describe('toggle', () => {
     it(`${isLoading ? 'does not show' : 'shows'} toggle icon`, () => {
       expect(wrapper.findComponent(Icon).exists()).toBe(!isLoading);
     });
+  });
+
+  describe.each`
+    state                                        | description        | props                                                                       | options
+    ${'with description'}                        | ${descriptionText} | ${{ description: descriptionText }}                                         | ${undefined}
+    ${'with description in slot'}                | ${descriptionText} | ${undefined}                                                                | ${{ slots: { description: descriptionText } }}
+    ${'without description'}                     | ${undefined}       | ${undefined}                                                                | ${undefined}
+    ${'with description and labelPosition left'} | ${undefined}       | ${{ desciption: descriptionText, labelPosition: toggleLabelPosition.left }} | ${undefined}
+  `('$state', ({ description, props, options }) => {
+    beforeEach(() => {
+      createWrapper(props, options);
+    });
+
+    if (description) {
+      it('shows description', () => {
+        expect(findDescriptionElement().text()).toBe(description);
+      });
+    } else {
+      it('does not show description', () => {
+        expect(findDescriptionElement().exists()).toBe(false);
+      });
+    }
   });
 
   describe.each`

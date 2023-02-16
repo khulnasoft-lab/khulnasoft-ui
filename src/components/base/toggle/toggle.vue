@@ -56,6 +56,14 @@ export default {
       required: true,
     },
     /**
+     * The toggle's description.
+     */
+    description: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    /**
      * A help text to be shown below the toggle.
      */
     help: {
@@ -81,9 +89,19 @@ export default {
     };
   },
   computed: {
+    shouldRenderDescription() {
+      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
+      return Boolean(this.$scopedSlots.description || this.description) && this.isVerticalLayout;
+    },
     shouldRenderHelp() {
       // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.$slots.help || this.help) && this.isVerticalLayout;
+    },
+    toggleClasses() {
+      return [
+        { 'gl-sr-only': this.labelPosition === 'hidden' },
+        this.shouldRenderDescription ? 'gl-mb-2' : 'gl-mb-3',
+      ];
     },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
@@ -132,12 +150,20 @@ export default {
   >
     <span
       :id="labelId"
-      :class="{ 'gl-sr-only': labelPosition === 'hidden' }"
+      :class="toggleClasses"
       class="gl-toggle-label gl-flex-shrink-0"
       data-testid="toggle-label"
     >
       <!-- @slot The toggle's label. -->
       <slot name="label">{{ label }}</slot>
+    </span>
+    <span
+      v-if="shouldRenderDescription"
+      class="gl-description-label gl-mb-3"
+      data-testid="toggle-description"
+    >
+      <!-- @slot A description text to be shown below the label. -->
+      <slot name="description">{{ description }}</slot>
     </span>
     <input v-if="name" :name="name" :value="value" type="hidden" />
     <button
