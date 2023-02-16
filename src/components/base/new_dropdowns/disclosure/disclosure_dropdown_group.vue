@@ -2,10 +2,12 @@
 import { uniqueId } from 'lodash';
 import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
 import { isGroup } from './utils';
+import { DISCLOSURE_DROPDOWN_GROUP_NAME } from './constants';
 
 export const GROUP_TOP_BORDER_CLASSES = 'gl-border-t gl-pt-2 gl-mt-2';
 
 export default {
+  name: DISCLOSURE_DROPDOWN_GROUP_NAME,
   components: {
     GlDisclosureDropdownItem,
   },
@@ -52,7 +54,7 @@ export default {
 </script>
 
 <template>
-  <div :class="borderClass">
+  <li :class="borderClass">
     <div
       v-if="showHeader"
       :id="nameId"
@@ -73,5 +75,5 @@ export default {
         </gl-disclosure-dropdown-item>
       </slot>
     </ul>
-  </div>
+  </li>
 </template>

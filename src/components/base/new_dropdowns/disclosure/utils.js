@@ -1,3 +1,6 @@
+import { isFunction } from 'lodash';
+import { DISCLOSURE_DROPDOWN_ITEM_NAME, DISCLOSURE_DROPDOWN_GROUP_NAME } from './constants';
+
 const itemValidator = (item) => item?.text?.length > 0 && !Array.isArray(item?.items);
 
 const isItem = (item) => Boolean(item) && itemValidator(item);
@@ -10,8 +13,30 @@ const isGroup = (group) =>
 
 const itemsValidator = (items) => items.every(isItem) || items.every(isGroup);
 
-const isAllItems = (items) => items.every(isItem);
+const isListItem = (tag) =>
+  ['gl-disclosure-dropdown-group', 'gl-disclosure-dropdown-item', 'li'].includes(tag);
 
-const isAllGroups = (items) => items.every(isGroup);
+const isValidSlotTagVue2 = (vNode) =>
+  Boolean(vNode) && isListItem(vNode.componentOptions?.tag || vNode.tag);
 
-export { itemsValidator, isItem, isGroup, isAllItems, isAllGroups };
+const isValidSlotTag = (vNode) => {
+  return (
+    [DISCLOSURE_DROPDOWN_ITEM_NAME, DISCLOSURE_DROPDOWN_GROUP_NAME].includes(vNode.type?.name) ||
+    vNode.type === 'li'
+  );
+};
+
+const hasOnlyListItems = ({ default: defaultSlot }) => {
+  if (!isFunction(defaultSlot)) {
+    return false;
+  }
+  const nodes = defaultSlot();
+  return (
+    Array.isArray(nodes) &&
+    nodes.filter((vNode) => vNode.tag).length &&
+    (nodes.filter((vNode) => vNode.tag).every(isValidSlotTagVue2) ||
+      nodes.filter((vNode) => vNode.tag).every(isValidSlotTag))
+  );
+};
+
+export { itemsValidator, isItem, isGroup, hasOnlyListItems };

@@ -22,6 +22,7 @@ describe('GlDisclosureDropdown', () => {
   const buildWrapper = (propsData, slots = {}) => {
     wrapper = mount(GlDisclosureDropdown, {
       propsData,
+      components: { GlDisclosureDropdownItem, GlDisclosureDropdownGroup },
       slots,
       attachTo: document.body,
     });
@@ -216,23 +217,65 @@ describe('GlDisclosureDropdown', () => {
     });
   });
 
-  describe('disclosure options', () => {
-    it('should render the `ul` as content tag and not add `role` attribute when it is a list of items only', () => {
+  describe('disclosure tag', () => {
+    it('should render `ul` as content tag when items is a list of items', () => {
       buildWrapper({ items: mockItems });
       expect(findDisclosureContent().element.tagName).toBe('UL');
-      expect(findDisclosureContent().attributes('role')).toBeUndefined();
     });
 
-    it('should render the `div` as content tag and add `role` attribute when it is a list of groups', () => {
+    it('should render `ul` as content tag when items is a list of groups', () => {
       buildWrapper({ items: mockGroups });
-      expect(findDisclosureContent().element.tagName).toBe('DIV');
-      expect(findDisclosureContent().attributes('role')).toBe('group');
+      expect(findDisclosureContent().element.tagName).toBe('UL');
     });
 
-    it('should render the `div` as content tag and NOT add `role` otherwise', () => {
-      buildWrapper({ items: null }, { default: 'Some other content' });
+    it('should render `ul` as content tag when default slot contains only groups', () => {
+      const slots = {
+        default: `
+          <gl-disclosure-dropdown-group>
+            <gl-disclosure-dropdown-item>Item</gl-disclosure-dropdown-item>
+            <gl-disclosure-dropdown-item>Item</gl-disclosure-dropdown-item>
+          </gl-disclosure-dropdown-group>
+          <gl-disclosure-dropdown-group>
+            <gl-disclosure-dropdown-item>Item</gl-disclosure-dropdown-item>
+          </gl-disclosure-dropdown-group>
+        `,
+      };
+
+      buildWrapper({}, slots);
+      expect(findDisclosureContent().element.tagName).toBe('UL');
+    });
+
+    it('should render `ul` as content tag when default slot contains only items', () => {
+      const slots = {
+        default: `
+          <gl-disclosure-dropdown-item>Item</gl-disclosure-dropdown-item>
+          <gl-disclosure-dropdown-item>Item</gl-disclosure-dropdown-item>
+          <gl-disclosure-dropdown-item>Item</gl-disclosure-dropdown-item>
+        `,
+      };
+
+      buildWrapper({}, slots);
+      expect(findDisclosureContent().element.tagName).toBe('UL');
+    });
+
+    it('should render `div` as content tag when default slot does not contain valid list item', () => {
+      const slots = {
+        default: `
+          <div>Item</div>
+          <gl-disclosure-dropdown-group>
+            <gl-disclosure-dropdown-item>Item</gl-disclosure-dropdown-item>
+            <gl-disclosure-dropdown-item>Item</gl-disclosure-dropdown-item>
+          </gl-disclosure-dropdown-group>
+        `,
+      };
+
+      buildWrapper({}, slots);
       expect(findDisclosureContent().element.tagName).toBe('DIV');
-      expect(findDisclosureContent().attributes('role')).toBeUndefined();
+    });
+
+    it('should render `div` as content tag when slot is not a list item', () => {
+      buildWrapper({}, { default: 'Some other content' });
+      expect(findDisclosureContent().element.tagName).toBe('DIV');
     });
   });
 });

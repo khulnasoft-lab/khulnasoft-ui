@@ -52,13 +52,16 @@ function openDisclosure(component) {
   });
 }
 
-const template = (content, { bindingOverrides = {} } = {}) => `
+const template = (content, { bindingOverrides = {} } = {}, after) => `
+  <div>
     <gl-disclosure-dropdown
       ref="disclosure"
       ${makeBindings(bindingOverrides)}
     >
       ${content || ''}
     </gl-disclosure-dropdown>
+    ${after || ''}
+  </div>
 `;
 
 const TOGGLE_ID = 'custom-toggle-id';
@@ -217,15 +220,14 @@ CustomGroupsAndItems.args = {
 CustomGroupsAndItems.decorators = [makeContainer({ height: '200px' })];
 
 export const CustomGroupsItemsAndToggle = makeGroupedExample({
-  template: template(`
-    <template #toggle>
-      <span class="gl-sr-only">
-        Orange Fox user's menu
-      </span>
-      <gl-avatar :size="32" entity-name="Orange Fox" aria-hidden="true"></gl-avatar>
-    </template>
-
-    <div role="group">
+  template: template(
+    `
+      <template #toggle>
+        <span class="gl-sr-only">
+          Orange Fox user's menu
+        </span>
+        <gl-avatar :size="32" entity-name="Orange Fox" aria-hidden="true"></gl-avatar>
+      </template>
       <gl-disclosure-dropdown-group>
         <gl-disclosure-dropdown-item>
           <span class="gl-display-flex gl-flex-direction-column">
@@ -256,15 +258,18 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
           <gl-toggle label="New navigation" label-position="left" v-model="newNavigation"/>
         </gl-disclosure-dropdown-item>
         <gl-disclosure-dropdown-item @action="toggleModalVisibility(true)">
-          <a>Provide feedback</a>
+          Provide feedback
         </gl-disclosure-dropdown-item>
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group bordered :group="$options.groups[1]"> </gl-disclosure-dropdown-group>
+    `,
+    {},
+    `
       <gl-modal :visible="feedBackModalVisible" @change="toggleModalVisibility" modal-id="feedbackModal" size="sm">
         <textarea class="gl-w-full">Tell us what you think!</textarea>
       </gl-modal>
-    </div>
-  `),
+    `
+  ),
   data() {
     return {
       newNavigation: true,
