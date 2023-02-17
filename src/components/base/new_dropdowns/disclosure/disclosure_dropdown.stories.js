@@ -52,15 +52,15 @@ function openDisclosure(component) {
   });
 }
 
-const template = (content, { bindingOverrides = {} } = {}, after) => `
+const template = (content = '', { bindingOverrides = {}, after = '' } = {}) => `
   <div>
     <gl-disclosure-dropdown
       ref="disclosure"
       ${makeBindings(bindingOverrides)}
     >
-      ${content || ''}
+      ${content}
     </gl-disclosure-dropdown>
-    ${after || ''}
+    ${after}
   </div>
 `;
 
@@ -250,12 +250,13 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group bordered :group="$options.groups[1]"/>
     `,
-    {},
-    `
+    {
+      after: `
       <gl-modal :visible="feedBackModalVisible" @change="toggleModalVisibility" modal-id="feedbackModal" size="sm">
         <textarea class="gl-w-full">Tell us what you think!</textarea>
       </gl-modal>
-    `
+    `,
+    }
   ),
   data() {
     return {
