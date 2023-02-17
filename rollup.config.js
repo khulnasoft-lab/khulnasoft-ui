@@ -122,6 +122,10 @@ export default glob
           minimize: true,
           sourceMap: true,
           use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
+          plugins: {
+            tailwindcss: {},
+            autoprefixer: {},
+          },
         }),
         string({
           include: '**/*.md',

@@ -1,5 +1,6 @@
 .gl-accordion-item {
-  @include gl-mb-5;
+  // @include gl-mb-5;
+  @apply mb-4;
 
   .gl-accordion-item-header {
     @include gl-m-0;
