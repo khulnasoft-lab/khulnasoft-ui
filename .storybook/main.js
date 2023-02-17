@@ -13,4 +13,7 @@ module.exports = {
     storyStoreV7: !IS_VISUAL_TEST,
   },
   staticDirs: ['../static'],
+  core: {
+    builder: 'webpack5',
+  },
 };
