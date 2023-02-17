@@ -80,7 +80,8 @@
   },
   "resolutions": {
     "chokidar": "^3.5.2",
-    "sane": "^5.0.1"
+    "sane": "^5.0.1",
+    "@storybook/{app}/webpack": "^5.9.0"
   },
   "devDependencies": {
     "@arkweid/lefthook": "0.7.7",
@@ -159,6 +160,7 @@
     "stylelint-config-prettier": "9.0.4",
     "stylelint-prettier": "2.0.0",
     "vue": "2.7.14",
+    "vue-docgen-loader": "^2.0.0",
     "vue-loader": "^15.8.3",
     "vue-loader-vue3": "npm:vue-loader@17",
     "vue-template-compiler": "2.7.14",
