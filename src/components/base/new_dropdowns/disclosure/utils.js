@@ -31,12 +31,14 @@ const hasOnlyListItems = ({ default: defaultSlot }) => {
     return false;
   }
   const nodes = defaultSlot();
-  return (
-    Array.isArray(nodes) &&
-    nodes.filter((vNode) => vNode.tag).length &&
-    (nodes.filter((vNode) => vNode.tag).every(isValidSlotTagVue2) ||
-      nodes.filter((vNode) => vNode.tag).every(isValidSlotTag))
-  );
+
+  if (!Array.isArray(nodes)) {
+    return false;
+  }
+
+  const tags = nodes.filter((vNode) => vNode.tag);
+
+  return tags.length && tags.every((tag) => isValidSlotTag(tag) || isValidSlotTagVue2(tag));
 };
 
 export { itemsValidator, isItem, isGroup, hasOnlyListItems };
