@@ -277,5 +277,20 @@ describe('GlDisclosureDropdown', () => {
       buildWrapper({}, { default: 'Some other content' });
       expect(findDisclosureContent().element.tagName).toBe('DIV');
     });
+
+    describe('discouraged usage', () => {
+      it('should render `ul` as content tag when default slot contains LI tags', () => {
+        const slots = {
+          default: `
+            <li>Item</li>
+            <li>Item</li>
+            <li>Item</li>
+          `,
+        };
+
+        buildWrapper({}, slots);
+        expect(findDisclosureContent().element.tagName).toBe('UL');
+      });
+    });
   });
 });
