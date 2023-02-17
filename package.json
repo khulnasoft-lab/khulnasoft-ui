@@ -78,7 +78,8 @@
   },
   "resolutions": {
     "chokidar": "^3.5.2",
-    "sane": "^5.0.1"
+    "sane": "^5.0.1",
+    "@storybook/{app}/webpack": "^5.9.0"
   },
   "devDependencies": {
     "@arkweid/lefthook": "0.7.7",
@@ -97,6 +98,8 @@
     "@storybook/addon-storyshots": "6.5.16",
     "@storybook/addon-storyshots-puppeteer": "6.5.16",
     "@storybook/addon-viewport": "6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/theming": "6.5.16",
     "@storybook/vue": "6.5.16",
     "@vue/compat": "^3.2.40",
@@ -153,9 +156,11 @@
     "stylelint-config-prettier": "9.0.4",
     "stylelint-prettier": "2.0.0",
     "vue": "2.7.14",
+    "vue-docgen-loader": "^2.0.0",
     "vue-loader": "^15.8.3",
     "vue-template-compiler": "2.7.14",
-    "vue-test-utils-compat": "^0.0.10"
+    "vue-test-utils-compat": "^0.0.10",
+    "webpack": "^5.9.0"
   },
   "release": {
     "branches": [

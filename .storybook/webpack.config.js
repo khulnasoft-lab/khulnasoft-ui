@@ -15,6 +15,10 @@ const sassLoaderOptions = {
 module.exports = ({ config }) => {
   config.module.rules = [
     {
+      test: /\.vue$/,
+      loader: 'vue-loader',
+    },
+    {
       test: /src\/components\/.*\.vue$/,
       loader: 'vue-docgen-loader',
       enforce: 'post',
@@ -29,7 +33,7 @@ module.exports = ({ config }) => {
        * in a isolated shadow root
        */
       test: /typescale\/\w+_demo\.scss$/,
-      loaders: [
+      use: [
         'raw-loader',
         {
           loader: 'sass-loader',
@@ -40,7 +44,7 @@ module.exports = ({ config }) => {
     {
       test: /\.s?css$/,
       exclude: /typescale\/\w+_demo\.scss$/, // skip typescale demo stylesheets
-      loaders: [
+      use: [
         {
           loader: 'style-loader',
           options: {
@@ -56,10 +60,6 @@ module.exports = ({ config }) => {
           options: sassLoaderOptions,
         },
       ],
-    },
-    {
-      test: /\.vue$/,
-      loader: 'vue-loader',
     },
     {
       test: /@gitlab\/svgs\/dist\/(icons|illustrations\/.+)\.svg$/,
@@ -112,7 +112,11 @@ module.exports = ({ config }) => {
     );
   }
 
-  config.plugins.push(new webpack.IgnorePlugin(/moment/, /pikaday/));
+  config.plugins.push(
+    new webpack.IgnorePlugin({
+      resourceRegExp: /moment|pikaday/,
+    })
+  );
 
   return config;
 };
