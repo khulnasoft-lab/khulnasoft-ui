@@ -1,3 +1,10 @@
+## [56.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.1.0...v56.1.1) (2023-02-20)
+
+
+### Performance Improvements
+
+* **GlCollapsibleDropdown:** avoid unnecessary loop ([2d13b6e](https://gitlab.com/gitlab-org/gitlab-ui/commit/2d13b6ecc80154e70a4d637974b8434d50e53928))
+
 # [56.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.0.1...v56.1.0) (2023-02-20)
 
 
