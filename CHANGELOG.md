@@ -1,3 +1,10 @@
+# [56.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.0.1...v56.1.0) (2023-02-20)
+
+
+### Features
+
+* **GlDisclosureDropdown, GlCollapsibleListbox:** Set focus on the first custom toggle's child ([2a86c03](https://gitlab.com/gitlab-org/gitlab-ui/commit/2a86c035d0b92ead9bc15017521a205977ad6d2e))
+
 ## [56.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.0.0...v56.0.1) (2023-02-17)
 
 
