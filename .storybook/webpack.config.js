@@ -112,11 +112,5 @@ module.exports = ({ config }) => {
     );
   }
 
-  config.plugins.push(
-    new webpack.IgnorePlugin({
-      resourceRegExp: /moment|pikaday/,
-    })
-  );
-
   return config;
 };
