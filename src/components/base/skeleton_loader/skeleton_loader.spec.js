@@ -4,7 +4,7 @@ import GlSkeletonLoader from './skeleton_loader.vue';
 describe('GlSkeletonLoader', () => {
   let wrapper;
 
-  const findDefaultLines = () => wrapper.findAll('clipPath rect');
+  const findDefaultLines = () => wrapper.element.querySelectorAll('defs rect');
   const findSvg = () => wrapper.find('svg');
 
   const createComponent = (options = {}) => {
@@ -40,11 +40,11 @@ describe('GlSkeletonLoader', () => {
     it('spaces the lines out evenly', () => {
       createComponent();
 
-      const lines = findDefaultLines().wrappers;
+      const lines = findDefaultLines();
 
-      expect(lines[0].attributes('y')).toBe('0');
-      expect(lines[1].attributes('y')).toBe('14');
-      expect(lines[2].attributes('y')).toBe('28');
+      expect(lines[0].getAttribute('y')).toBe('0');
+      expect(lines[1].getAttribute('y')).toBe('14');
+      expect(lines[2].getAttribute('y')).toBe('28');
     });
 
     it('sets svg viewBox to the combined size of the lines', () => {
@@ -65,8 +65,8 @@ describe('GlSkeletonLoader', () => {
           },
         });
 
-        findDefaultLines().wrappers.forEach((defaultLine) => {
-          expect(defaultLine.attributes('width')).toBe('100%');
+        findDefaultLines().forEach((defaultLine) => {
+          expect(defaultLine.getAttribute('width')).toBe('100%');
         });
       });
     });
