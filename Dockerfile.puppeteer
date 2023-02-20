@@ -1,6 +1,6 @@
 ARG CHROME_FOLDER=/usr/local/share/puppeteer-chromium
 
-FROM node:18.14.0 AS download
+FROM node:18.14.1 AS download
 
 ARG PUPPETEER_VERSION
 ARG CHROME_FOLDER
@@ -9,7 +9,7 @@ RUN yarn global add puppeteer@$PUPPETEER_VERSION \
   && mv $(yarn global dir)/node_modules/puppeteer/.local-chromium/linux-*/chrome-linux "$CHROME_FOLDER" \
   && test -d "$CHROME_FOLDER"
 
-FROM node:18.14.0
+FROM node:18.14.1
 
 # Workaround for https://github.com/GoogleChrome/puppeteer/issues/290
 RUN apt-get update \
