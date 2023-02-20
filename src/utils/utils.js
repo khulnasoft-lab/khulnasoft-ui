@@ -93,6 +93,19 @@ export function isElementFocusable(elt) {
 }
 
 /**
+ * Receives an element and validates that it is reachable via sequential keyboard navigation
+ * @param { HTMLElement } The element to validate
+ * @return { boolean } Is the element focusable in a sequential tab order
+ */
+
+export function isElementTabbable(el) {
+  if (!el) return false;
+
+  const tabindex = parseInt(el.getAttribute('tabindex'), 10);
+  return tabindex > -1;
+}
+
+/**
  * Receives an array of HTML elements and focus the first one possible
  * @param { Array.<HTMLElement> } An array of element to potentially focus
  * @return { undefined }

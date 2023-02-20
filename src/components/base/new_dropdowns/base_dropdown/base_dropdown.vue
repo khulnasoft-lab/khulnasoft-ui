@@ -8,6 +8,7 @@ import {
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import { POPPER_CONFIG, GL_DROPDOWN_SHOWN, GL_DROPDOWN_HIDDEN, ENTER, SPACE } from '../constants';
+import { logWarning, isElementTabbable, isElementFocusable } from '../../../../utils/utils';
 
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
@@ -119,6 +120,14 @@ export default {
     isIconOnly() {
       return Boolean(this.icon && (!this.toggleText?.length || this.textSrOnly));
     },
+    ariaAttributes() {
+      return {
+        'aria-haspopup': this.ariaHaspopup,
+        'aria-expanded': this.visible,
+        'aria-controls': this.baseDropdownId,
+        'aria-labelledby': this.toggleLabelledBy,
+      };
+    },
     toggleButtonClasses() {
       return [
         this.toggleClass,
@@ -151,6 +160,7 @@ export default {
           disabled: this.disabled,
           loading: this.loading,
           class: this.toggleButtonClasses,
+          ...this.ariaAttributes,
           listeners: {
             click: () => this.toggle(),
           },
@@ -159,9 +169,7 @@ export default {
 
       return {
         is: 'div',
-        role: 'button',
         class: 'gl-new-dropdown-custom-toggle',
-        tabindex: '0',
         listeners: {
           keydown: (event) => this.onKeydown(event),
           click: () => this.toggle(),
@@ -169,7 +177,7 @@ export default {
       };
     },
     toggleElement() {
-      return this.$refs.toggle.$el || this.$refs.toggle;
+      return this.$refs.toggle.$el || this.$refs.toggle?.firstElementChild;
     },
     popperConfig() {
       return {
@@ -178,15 +186,36 @@ export default {
       };
     },
   },
+  watch: {
+    ariaAttributes: {
+      deep: true,
+      handler(ariaAttributes) {
+        if (this.$scopedSlots.toggle) {
+          Object.keys(ariaAttributes).forEach((key) => {
+            this.toggleElement.setAttribute(key, ariaAttributes[key]);
+          });
+        }
+      },
+    },
+  },
   mounted() {
     this.$nextTick(() => {
       this.popper = createPopper(this.toggleElement, this.$refs.content, this.popperConfig);
     });
+    this.checkToggleFocusable();
   },
   beforeDestroy() {
     this.popper.destroy();
   },
   methods: {
+    checkToggleFocusable() {
+      if (!isElementFocusable(this.toggleElement) && !isElementTabbable(this.toggleElement)) {
+        logWarning(
+          `GlDisclosureDropdown/GlCollapsibleListbox: Toggle is missing a 'tabindex' and cannot be focused.
+          Use 'a' or 'button' element instead or make sure to add 'role="button"' along with 'tabindex' otherwise.`
+        );
+      }
+    },
     async toggle() {
       this.visible = !this.visible;
 
@@ -249,10 +278,6 @@ export default {
       :id="toggleId"
       ref="toggle"
       data-testid="base-dropdown-toggle"
-      :aria-haspopup="ariaHaspopup"
-      :aria-expanded="visible"
-      :aria-labelledby="toggleLabelledBy"
-      :aria-controls="baseDropdownId"
       v-on="toggleOptions.listeners"
     >
       <!-- @slot Custom toggle button content -->

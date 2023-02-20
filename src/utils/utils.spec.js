@@ -1,4 +1,9 @@
-import { isElementFocusable, focusFirstFocusableElement, stopEvent } from './utils';
+import {
+  isElementFocusable,
+  isElementTabbable,
+  focusFirstFocusableElement,
+  stopEvent,
+} from './utils';
 
 describe('isElementFocusable', () => {
   const myBtn = () => document.querySelector('button');
@@ -50,6 +55,38 @@ describe('isElementFocusable', () => {
     const myAnchor = document.querySelector('a');
 
     expect(isElementFocusable(myAnchor)).toBe(false);
+  });
+});
+
+describe('isElementTabbable', () => {
+  const myDiv = () => document.querySelector('div');
+
+  beforeEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('should return false for a div without tabindex', () => {
+    document.body.innerHTML = '<div> Fake button </div>';
+
+    expect(isElementTabbable(myDiv())).toBe(false);
+  });
+
+  it('should return false for a div with a tabindex less than 0', () => {
+    document.body.innerHTML = '<div tabindex="-1"> Fake button </div>';
+
+    expect(isElementTabbable(myDiv())).toBe(false);
+  });
+
+  it('should return true for a div with a tabindex equal to 0', () => {
+    document.body.innerHTML = '<div tabindex="0"> Fake button </div>';
+
+    expect(isElementTabbable(myDiv())).toBe(true);
+  });
+
+  it('should return true for a div with a tabindex greater than 0', () => {
+    document.body.innerHTML = '<div tabindex="0"> Fake button </div>';
+
+    expect(isElementTabbable(myDiv())).toBe(true);
   });
 });
 
