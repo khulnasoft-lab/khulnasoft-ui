@@ -3,6 +3,7 @@ require('./patched_crypto');
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const tailwindcss = require('tailwindcss');
 const sass = require('sass');
 const { USE_VUE_3 } = require('../use_vue3');
 
@@ -71,7 +72,10 @@ module.exports = ({ config }) => {
           },
         },
         'css-loader',
-        { loader: 'postcss-loader', options: { postcssOptions: { plugins: [autoprefixer] } } },
+        {
+          loader: 'postcss-loader',
+          options: { postcssOptions: { plugins: [tailwindcss, autoprefixer] } },
+        },
         {
           loader: 'sass-loader',
           options: sassLoaderOptions,
