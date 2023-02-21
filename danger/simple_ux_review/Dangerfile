@@ -4,9 +4,10 @@
 # https://gitlab.com/gitlab-org/ruby/gems/gitlab-dangerfiles/-/issues/31
 FOUNDATION_UX_REVIEWERS = %w[
   tauriedavis
+  chrismicek
   aregnery
   jeldergl
-  seggenberger
+  danmh
 ].freeze
 
 COMPONENT_UX_MAP = {
@@ -26,7 +27,7 @@ COMPONENT_UX_MAP = {
   drawer: %w[andyvolpe],
   dropdown: %w[jeldergl],
   'file-uploader': %w[aregnery],
-  filter: %w[matejlatin],
+  filter: %w[jeldergl],
   form: %w[tauriedavis],
   icon: %w[jeldergl],
   'infinite-scroll': %w[beckalippert],
