@@ -2,16 +2,18 @@
 <script>
 import { labelColorOptions } from '../../../utils/constants';
 import { colorFromBackground } from '../../../utils/utils';
-import CloseButton from '../../shared_components/close_button/close_button.vue';
+import GlButton from '../button/button.vue';
+import GlIcon from '../icon/icon.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
 
 export default {
   name: 'GlLabel',
   components: {
+    GlButton,
+    GlIcon,
     GlLink,
     GlTooltip,
-    CloseButton,
   },
   props: {
     backgroundColor: {
@@ -25,11 +27,6 @@ export default {
       default: '',
     },
     description: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    size: {
       type: String,
       required: false,
       default: '',
@@ -69,7 +66,6 @@ export default {
     cssClasses() {
       const textColorVariant = colorFromBackground(this.backgroundColor);
       return {
-        'gl-label-sm': this.size === 'sm',
         'gl-label-scoped': this.scoped,
         'gl-label-text-dark': textColorVariant === labelColorOptions.dark,
         'gl-label-text-light': textColorVariant === labelColorOptions.light,
@@ -78,9 +74,7 @@ export default {
     cssVariables() {
       return {
         '--label-background-color': this.backgroundColor,
-        '--label-inset-border': `inset 0 0 0 ${this.size === 'sm' ? '1px' : '2px'} ${
-          this.backgroundColor
-        }`,
+        '--label-inset-border': `inset 0 0 0 2px ${this.backgroundColor}`,
       };
     },
     scopedKey() {
@@ -88,9 +82,6 @@ export default {
     },
     scopedValue() {
       return this.title.slice(this.splitScopedLabelIndex + 2);
-    },
-    closeIconSize() {
-      return this.size === 'sm' ? 12 : 16;
     },
     labelComponent() {
       return this.target ? GlLink : 'span';
@@ -143,14 +134,18 @@ export default {
         {{ scopedValue }}
       </span>
     </component>
-    <close-button
+    <gl-button
       v-if="showCloseButton"
       class="gl-label-close gl-p-0!"
-      label="Remove label"
+      category="tertiary"
+      size="small"
       variant="reset"
+      aria-label="Remove label"
       :disabled="disabled"
       @click="onClose"
-    />
+    >
+      <gl-icon name="close-xs" :size="12" />
+    </gl-button>
     <gl-tooltip
       v-if="description"
       :target="() => tooltipTarget"
