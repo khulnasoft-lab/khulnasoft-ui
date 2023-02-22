@@ -49,7 +49,7 @@ export default {
     backgroundColor: {
       type: String,
       required: false,
-      default: 'white',
+      default: 'rgba(0,0,0,0)',
     },
   },
   data() {
