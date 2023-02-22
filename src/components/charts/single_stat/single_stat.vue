@@ -35,6 +35,14 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * Additional CSS class(es) to be applied to the title icon.
+     */
+    titleIconClass: {
+      type: [Array, Object, String],
+      required: false,
+      default: '',
+    },
     metaIcon: {
       type: String,
       required: false,
@@ -93,7 +101,12 @@ export default {
     v-on="$listeners"
   >
     <div class="gl-display-flex gl-align-items-center gl-text-gray-700 gl-mb-2">
-      <gl-icon v-if="showTitleIcon" :name="titleIcon" class="gl-mr-2" data-testid="title-icon" />
+      <gl-icon
+        v-if="showTitleIcon"
+        :name="titleIcon"
+        :class="['gl-mr-2', titleIconClass]"
+        data-testid="title-icon"
+      />
       <span class="gl-font-base gl-font-weight-normal" data-testid="title-text">{{ title }}</span>
     </div>
     <div class="gl-display-flex gl-align-items-baseline gl-font-weight-bold gl-text-gray-900">

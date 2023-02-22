@@ -7,6 +7,7 @@ const title = 'Singe stat title';
 const value = '100';
 const unit = '%';
 const titleIcon = 'hourglass';
+const titleIconClass = 'title-icon-class';
 const metaIcon = 'heart';
 const metaText = 'Success';
 const variant = 'info';
@@ -144,6 +145,27 @@ describe('GlSingleStat', () => {
 
         expect(el.exists()).toBe(true);
       });
+    });
+
+    describe('`titleIconClass` Prop', () => {
+      it.each`
+        classes
+        ${titleIconClass}
+        ${[titleIconClass]}
+        ${{ [titleIconClass]: true }}
+      `(
+        'correctly adds classes to title icon when `titleIconClass` prop is $classes',
+        ({ classes }) => {
+          createWrapper({
+            titleIcon,
+            titleIconClass: classes,
+          });
+
+          expect(findIemByTestId('title-icon').classes()).toEqual(
+            expect.arrayContaining(['title-icon-class'])
+          );
+        }
+      );
     });
   });
 });

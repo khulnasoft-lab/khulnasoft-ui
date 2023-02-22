@@ -13,6 +13,7 @@ const generateProps = ({
   titleIcon = null,
   shouldAnimate = false,
   animationDecimalPlaces = 0,
+  titleIconClass = '',
 } = {}) => ({
   variant,
   title,
@@ -23,6 +24,7 @@ const generateProps = ({
   titleIcon,
   shouldAnimate,
   animationDecimalPlaces,
+  titleIconClass,
 });
 
 const metaText = 'Super fast';
@@ -45,6 +47,7 @@ const Template = (args, { argTypes }) => ({
       :title-icon="titleIcon"
       :should-animate="shouldAnimate"
       :animation-decimal-places="animationDecimalPlaces"
+      :title-icon-class="titleIconClass"
     />`,
 });
 
