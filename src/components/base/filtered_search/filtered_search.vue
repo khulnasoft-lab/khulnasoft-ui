@@ -1,5 +1,6 @@
 <script>
-import { cloneDeep, isEqual } from 'lodash';
+import isEqual from 'lodash/isEqual';
+import cloneDeep from 'lodash/cloneDeep';
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';

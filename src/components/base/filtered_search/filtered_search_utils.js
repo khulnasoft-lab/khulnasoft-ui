@@ -1,4 +1,6 @@
-import { first, last, isString } from 'lodash';
+import first from 'lodash/first';
+import last from 'lodash/last';
+import isString from 'lodash/isString';
 
 export const TERM_TOKEN_TYPE = 'filtered-search-term';
 

@@ -1,5 +1,5 @@
 <script>
-import { last } from 'lodash';
+import last from 'lodash/last';
 import { Portal } from 'portal-vue';
 import { COMMA, LEFT_MOUSE_BUTTON } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';

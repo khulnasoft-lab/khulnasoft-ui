@@ -3,7 +3,7 @@
 import Vue from 'vue';
 import { BDropdown } from 'bootstrap-vue';
 import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,

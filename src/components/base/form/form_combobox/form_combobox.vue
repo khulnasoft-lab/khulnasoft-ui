@@ -1,5 +1,5 @@
 <script>
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import GlDropdownDivider from '../../dropdown/dropdown_divider.vue';

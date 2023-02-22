@@ -1,5 +1,5 @@
 import Vue, { nextTick } from 'vue';
-import { omit } from 'lodash';
+import omit from 'lodash/omit';
 import { shallowMount, mount } from '@vue/test-utils';
 import GlFilteredSearch from './filtered_search.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';

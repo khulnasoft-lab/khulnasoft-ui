@@ -1,5 +1,5 @@
 <script>
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import { COMMA } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';

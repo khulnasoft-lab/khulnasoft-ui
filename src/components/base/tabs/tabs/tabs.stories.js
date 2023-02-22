@@ -1,4 +1,4 @@
-import { range } from 'lodash';
+import range from 'lodash/range';
 import { GlTabs, GlTab, GlScrollableTabs, GlBadge } from '../../../../index';
 import { badgeVariantOptions } from '../../../../utils/constants';
 import readme from './tabs.md';

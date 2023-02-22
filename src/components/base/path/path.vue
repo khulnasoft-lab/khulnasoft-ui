@@ -1,7 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { uniqueId, findLast } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
+import findLast from 'lodash/findLast';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import { glThemes } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';

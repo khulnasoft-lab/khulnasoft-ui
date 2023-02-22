@@ -1,4 +1,5 @@
-import { isString, isNumber } from 'lodash';
+import isNumber from 'lodash/isNumber';
+import isString from 'lodash/isString';
 
 const isOption = (item) => Boolean(item) && (isString(item.value) || isNumber(item.value));
 

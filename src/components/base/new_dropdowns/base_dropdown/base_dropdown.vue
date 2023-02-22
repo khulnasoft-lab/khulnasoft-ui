@@ -1,5 +1,5 @@
 <script>
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 import { createPopper } from '@popperjs/core';
 import {
   buttonCategoryOptions,

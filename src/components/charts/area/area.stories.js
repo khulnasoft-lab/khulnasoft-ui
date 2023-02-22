@@ -1,4 +1,4 @@
-import { times } from 'lodash';
+import times from 'lodash/times';
 import { GlAreaChart } from '../../../charts';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';

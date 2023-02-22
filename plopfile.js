@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 const path = require('path');
 const promptDirectory = require('inquirer-select-directory');
-const { snakeCase } = require('lodash');
+const snakeCase = require('lodash/snakeCase');
 
 const componentsPath = path.join('src', 'components');
 const baseComponentsPath = path.join(componentsPath, 'base');

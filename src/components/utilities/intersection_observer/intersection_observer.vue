@@ -1,5 +1,5 @@
 <script>
-import { memoize } from 'lodash';
+import memoize from 'lodash/memoize';
 
 const getObserver = memoize(
   (options) =>

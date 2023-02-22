@@ -1,5 +1,5 @@
 <script>
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
 import { isGroup } from './utils';
 import { DISCLOSURE_DROPDOWN_GROUP_NAME } from './constants';

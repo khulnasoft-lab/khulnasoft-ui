@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { isNumber } from 'lodash';
+import isNumber from 'lodash/isNumber';
 import { avatarShapeOptions, avatarSizeOptions } from '../../../utils/constants';
 import { getAvatarChar } from '../../../utils/string_utils';
 

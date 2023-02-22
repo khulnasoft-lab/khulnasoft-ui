@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 
 import { toggleLabelPosition } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
