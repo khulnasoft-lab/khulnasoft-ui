@@ -151,7 +151,7 @@ export const WithCounterBadges = (_args, { argTypes }) => ({
     >
       <template #title>
         <span>Tab</span>
-        <gl-badge size="sm" class="gl-tab-counter-badge" :variant="variant">500</gl-badge>
+        <gl-badge class="gl-tab-counter-badge" :variant="variant">500</gl-badge>
         <span class="sr-only">items</span>
       </template>
       Tab panel {{ variant }}

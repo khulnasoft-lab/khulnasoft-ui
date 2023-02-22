@@ -142,7 +142,7 @@ export default {
         <code class="gl-font-base gl-text-strong">
           {{ name }}
         </code>
-        <gl-badge v-if="deprecated" size="sm" variant="danger">Deprecated</gl-badge>
+        <gl-badge v-if="deprecated" variant="danger">Deprecated</gl-badge>
         <div v-if="description" class="gl-mt-3 gl-text-subtle">
           {{ description }}
         </div>

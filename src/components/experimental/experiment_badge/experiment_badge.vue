@@ -80,7 +80,7 @@ export default {
 </script>
 
 <template>
-  <gl-badge :id="triggerId" class="gl-mx-4 gl-hover-cursor-pointer" variant="neutral" size="md">
+  <gl-badge :id="triggerId" class="gl-mx-4 gl-hover-cursor-pointer" variant="neutral">
     <span>{{ activeType.BADGE }}</span>
     <gl-popover
       triggers="click"

@@ -1,5 +1,7 @@
 $label-max-width: 100%;
 $label-close-button: '.gl-label-close.gl-button';
+$label-padding-horizontal: 0.75 * $grid-size;
+$label-padding-horizontal-half: 0.375 * $grid-size;
 
 .gl-label {
   @include gl-align-items-center;
@@ -45,7 +47,7 @@ $label-close-button: '.gl-label-close.gl-button';
   .gl-label-text,
   .gl-label-text-scoped {
     @include gl-display-block;
-    padding: $gl-spacing-scale-1 #{$gl-spacing-scale-3 - $gl-spacing-scale-1};
+    padding: $gl-spacing-scale-1 $label-padding-horizontal;
     @include str-truncated($label-max-width);
   }
 
@@ -54,8 +56,8 @@ $label-close-button: '.gl-label-close.gl-button';
     @include gl-display-flex;
     width: px-to-rem(14px);
     height: px-to-rem(14px);
-    margin-left: calc(#{-$gl-spacing-scale-1} - (#{$gl-spacing-scale-1} / 2));
-    margin-right: calc(#{$gl-spacing-scale-2} - (#{$gl-spacing-scale-1} / 2));
+    margin-left: -$label-padding-horizontal-half;
+    margin-right: $label-padding-horizontal-half;
     @include gl-p-0;
     @include gl-rounded-full;
     @include gl-shadow-none;
@@ -152,7 +154,7 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   #{$label-close-button} {
-    margin-left: #{-$gl-spacing-scale-2 - $gl-spacing-scale-1};
+    margin-left: #{-$label-padding-horizontal};
 
     &:focus,
     &:hover {
@@ -172,7 +174,7 @@ $label-close-button: '.gl-label-close.gl-button';
 
   .gl-label-text-scoped {
     @include gl-text-gray-950;
-    padding-left: #{$gl-spacing-scale-3 - $gl-spacing-scale-2};
+    padding-left: $gl-spacing-scale-2;
     padding-right: $gl-spacing-scale-3;
   }
 }

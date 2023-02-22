@@ -63,9 +63,7 @@ describe('GlExperimentBadge', () => {
 
     it('sets correct props on the badge', () => {
       const badgeVariant = 'neutral';
-      const badgeSize = 'md';
       expect(findBadge().props('variant')).toBe(badgeVariant);
-      expect(findBadge().props('size')).toBe(badgeSize);
       expect(findBadge().find('span').text()).toBe(i18n[expectedType].BADGE);
     });
 

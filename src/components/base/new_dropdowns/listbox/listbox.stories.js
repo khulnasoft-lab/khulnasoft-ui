@@ -419,10 +419,10 @@ Groups.args = generateProps({ multiple: true });
 export const CustomGroupsAndItems = makeGroupedExample({
   template: template(`
     <template #group-label="{ group }">
-      {{ group.text }} <gl-badge size="sm">{{ group.options.length }}</gl-badge>
+      {{ group.text }} <gl-badge>{{ group.options.length }}</gl-badge>
     </template>
     <template #list-item="{ item }">
-      {{ item.text }} <gl-badge v-if="item.value === 'main'" size="sm">default</gl-badge>
+      {{ item.text }} <gl-badge v-if="item.value === 'main'">default</gl-badge>
     </template>
   `),
 });
@@ -440,7 +440,7 @@ export const GroupWithoutLabel = (args, { argTypes }) => ({
   },
   template: template(`
     <template #list-item="{ item }">
-      {{ item.text }} <gl-badge v-if="item.value === 'main'" size="sm">default</gl-badge>
+      {{ item.text }} <gl-badge v-if="item.value === 'main'">default</gl-badge>
     </template>
   `),
 });
