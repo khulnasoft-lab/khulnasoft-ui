@@ -8,7 +8,6 @@ module.exports = (api) => {
       '@babel/plugin-proposal-optional-chaining',
       // See: https://gitlab.com/gitlab-org/gitlab/-/issues/336216
       '@babel/plugin-proposal-nullish-coalescing-operator',
-      'lodash',
     ],
   };
 
