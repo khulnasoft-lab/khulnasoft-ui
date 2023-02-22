@@ -4,7 +4,7 @@ exports[`Path matches the snapshot 1`] = `
 <div
   class="gl-path-nav"
   data-testid="gl-path-nav"
-  style="--path-bg-color: white;"
+  style="--path-bg-color: rgba(0,0,0,0);"
 >
   <span
     class="gl-path-fade gl-path-fade-left"
@@ -197,7 +197,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
 <div
   class="gl-path-nav"
   data-testid="gl-path-nav"
-  style="--path-bg-color: white;"
+  style="--path-bg-color: rgba(0,0,0,0);"
 >
   <span
     class="gl-path-fade gl-path-fade-left"
@@ -396,7 +396,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
 <div
   class="gl-path-nav"
   data-testid="gl-path-nav"
-  style="--path-bg-color: white;"
+  style="--path-bg-color: rgba(0,0,0,0);"
 >
   <span
     class="gl-path-fade gl-path-fade-left"
