@@ -1,6 +1,6 @@
 <script>
 import { BCollapse } from 'bootstrap-vue';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 import { GlCollapseToggleDirective } from '../../../directives/collapse_toggle';
 import GlButton from '../button/button.vue';
 

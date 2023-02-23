@@ -1,6 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { clamp, uniqueId, isNil } from 'lodash';
+import clamp from 'lodash/clamp';
+import uniqueId from 'lodash/uniqueId';
+import isNil from 'lodash/isNil';
 import { stopEvent } from '../../../../utils/utils';
 import {
   GL_DROPDOWN_SHOWN,

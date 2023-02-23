@@ -1,6 +1,7 @@
 /* global jest, beforeEach, afterEach */
 /* eslint-disable class-methods-use-this, max-classes-per-file, camelcase */
-import { isMatch, isArray } from 'lodash';
+import isMatch from 'lodash/isMatch';
+import isArray from 'lodash/isArray';
 
 /**
  * This class gives us a JSDom friendly DOM observer which we can manually trigger in tests

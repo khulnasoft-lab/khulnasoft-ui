@@ -1,5 +1,6 @@
 <script>
-import { debounce, isArray } from 'lodash';
+import debounce from 'lodash/debounce';
+import isArray from 'lodash/isArray';
 import { GlResizeObserverDirective } from '../../../../directives/resize_observer/resize_observer';
 import GlIcon from '../../icon/icon.vue';
 import GlTabs from './tabs.vue';

@@ -1,5 +1,5 @@
 <script>
-import { isObject } from 'lodash';
+import isObject from 'lodash/isObject';
 import { BFormInput } from 'bootstrap-vue';
 
 import { formInputSizes } from '../../../../utils/constants';

@@ -1,6 +1,6 @@
 <script>
 import { BFormSelect } from 'bootstrap-vue';
-import { isObject } from 'lodash';
+import isObject from 'lodash/isObject';
 import { formInputSizes } from '../../../../utils/constants';
 
 export default {

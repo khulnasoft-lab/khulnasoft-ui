@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { range, mapValues } from 'lodash';
+import range from 'lodash/range';
+import mapValues from 'lodash/mapValues';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 import GlTab from '../tab/tab.vue';
 import GlScrollableTabs from './scrollable_tabs.vue';

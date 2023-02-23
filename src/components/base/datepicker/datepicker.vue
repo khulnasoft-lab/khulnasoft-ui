@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { isString } from 'lodash';
+import isString from 'lodash/isString';
 import Pikaday from 'pikaday';
 import { defaultDateFormat, datepickerSizeOptionsMap } from '../../../utils/constants';
 import { areDatesEqual } from '../../../utils/datetime_utility';

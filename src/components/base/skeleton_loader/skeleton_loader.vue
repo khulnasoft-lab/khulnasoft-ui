@@ -1,5 +1,5 @@
 <script>
-import { range } from 'lodash';
+import range from 'lodash/range';
 import { uid } from '../../../utils/utils';
 
 const DEFAULT_LINE_MAX_WIDTH = 235;

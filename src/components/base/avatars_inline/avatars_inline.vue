@@ -1,5 +1,6 @@
 <script>
-import { get, truncate } from 'lodash';
+import truncate from 'lodash/truncate';
+import get from 'lodash/get';
 import { avatarsInlineSizeOptions } from '../../../utils/constants';
 import GlAvatar from '../avatar/avatar.vue';
 import GlTooltip from '../tooltip/tooltip.vue';

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { BModal } from 'bootstrap-vue';
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 import { modalButtonDefaults } from '~/utils/constants';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import Button from '../button/button.vue';

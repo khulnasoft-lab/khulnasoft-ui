@@ -1,7 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 /* eslint-disable no-continue */
-import { has, isString } from 'lodash';
+import has from 'lodash/has';
+import isString from 'lodash/isString';
 
 const PREFIX = '%{';
 const SUFFIX = '}';

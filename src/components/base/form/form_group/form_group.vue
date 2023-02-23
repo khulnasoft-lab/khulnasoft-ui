@@ -1,6 +1,8 @@
 <script>
 import { BFormGroup } from 'bootstrap-vue';
-import { isString, isArray, isPlainObject } from 'lodash';
+import isString from 'lodash/isString';
+import isArray from 'lodash/isArray';
+import isPlainObject from 'lodash/isPlainObject';
 
 export default {
   components: {

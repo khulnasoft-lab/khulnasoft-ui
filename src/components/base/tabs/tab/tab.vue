@@ -1,7 +1,8 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BTab } from 'bootstrap-vue';
-import { isArray, isPlainObject } from 'lodash';
+import isArray from 'lodash/isArray';
+import isPlainObject from 'lodash/isPlainObject';
 
 import { DEFAULT_TAB_TITLE_LINK_CLASS } from '../constants';
 

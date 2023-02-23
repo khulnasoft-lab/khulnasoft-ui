@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 import { OutsideDirective } from './outside';
 
 describe('outside directive', () => {

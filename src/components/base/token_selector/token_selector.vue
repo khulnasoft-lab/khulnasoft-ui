@@ -1,5 +1,5 @@
 <script>
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 import { tokensValidator } from './helpers';
 import GlTokenContainer from './token_container.vue';
 import GlTokenSelectorDropdown from './token_selector_dropdown.vue';

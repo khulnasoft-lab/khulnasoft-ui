@@ -1,6 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { merge, isFinite, uniq, sortBy } from 'lodash';
+import merge from 'lodash/merge';
+import isFinite from 'lodash/isFinite';
+import uniq from 'lodash/uniq';
+import sortBy from 'lodash/sortBy';
 import { gaugeNeutralHues, gaugeSafeHues, gaugeWarningHue } from '../../../utils/charts/theme';
 import Chart from '../chart/chart.vue';
 

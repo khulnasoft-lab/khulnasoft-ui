@@ -1,5 +1,5 @@
 <script>
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 import GlFormInput from '../form_input/form_input.vue';
 
 export default {

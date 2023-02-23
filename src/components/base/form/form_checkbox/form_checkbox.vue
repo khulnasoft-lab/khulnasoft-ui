@@ -1,6 +1,6 @@
 <script>
 import { BFormCheckbox } from 'bootstrap-vue';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash/uniqueId';
 
 export default {
   name: 'GlFormCheckbox',
