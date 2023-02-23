@@ -5,7 +5,7 @@ import GlPath from './path.vue';
 
 const SELECTED_CLASS_INDIGO = 'gl-path-active-item-indigo';
 const SELECTED_CLASS_GREEN = 'gl-path-active-item-green';
-const BACKGROUND_COLOR_WHITE = 'white';
+const BACKGROUND_COLOR_DEFAULT = 'rgba(0,0,0,0)';
 const BACKGROUND_COLOR_LIGHT_GRAY = '#f0f0f0';
 
 describe('Path', () => {
@@ -70,7 +70,7 @@ describe('Path', () => {
   describe('background color selection', () => {
     describe('with no background color specified', () => {
       it('displays the default background color', () => {
-        expect(pathNav().style.getPropertyValue('--path-bg-color')).toBe(BACKGROUND_COLOR_WHITE);
+        expect(pathNav().style.getPropertyValue('--path-bg-color')).toBe(BACKGROUND_COLOR_DEFAULT);
       });
     });
 
