@@ -1,7 +1,6 @@
 /* global jest, beforeEach, afterEach */
 /* eslint-disable class-methods-use-this, max-classes-per-file, camelcase */
 import isMatch from 'lodash/isMatch';
-import isArray from 'lodash/isArray';
 
 /**
  * This class gives us a JSDom friendly DOM observer which we can manually trigger in tests
@@ -50,7 +49,7 @@ class MockObserver {
     if (!nodeParam) {
       return this.$_observers.map(([node]) => node);
     }
-    if (!isArray(nodeParam)) {
+    if (!Array.isArray(nodeParam)) {
       return [nodeParam];
     }
 
