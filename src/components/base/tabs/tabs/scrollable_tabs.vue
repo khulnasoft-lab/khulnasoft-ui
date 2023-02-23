@@ -1,6 +1,5 @@
 <script>
 import debounce from 'lodash/debounce';
-import isArray from 'lodash/isArray';
 import { GlResizeObserverDirective } from '../../../../directives/resize_observer/resize_observer';
 import GlIcon from '../../icon/icon.vue';
 import GlTabs from './tabs.vue';
@@ -32,7 +31,7 @@ export default {
       if (!attrsNavClass) {
         return [NAV_CLASS];
       }
-      if (isArray(attrsNavClass)) {
+      if (Array.isArray(attrsNavClass)) {
         return [NAV_CLASS, ...attrsNavClass];
       }
 

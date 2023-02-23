@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BTab } from 'bootstrap-vue';
-import isArray from 'lodash/isArray';
 import isPlainObject from 'lodash/isPlainObject';
 
 import { DEFAULT_TAB_TITLE_LINK_CLASS } from '../constants';
@@ -30,7 +29,7 @@ export default {
     linkClass() {
       const { titleLinkClass } = this;
 
-      if (isArray(titleLinkClass)) {
+      if (Array.isArray(titleLinkClass)) {
         return [...titleLinkClass, DEFAULT_TAB_TITLE_LINK_CLASS];
       }
       if (isPlainObject(titleLinkClass)) {

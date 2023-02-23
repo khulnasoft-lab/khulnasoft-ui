@@ -1,7 +1,6 @@
 <script>
 import { BFormGroup } from 'bootstrap-vue';
 import isString from 'lodash/isString';
-import isArray from 'lodash/isArray';
 import isPlainObject from 'lodash/isPlainObject';
 
 export default {
@@ -39,7 +38,7 @@ export default {
       if (isString(labelClass)) {
         return `${labelClass} ${defaultClass}`;
       }
-      if (isArray(labelClass)) {
+      if (Array.isArray(labelClass)) {
         return [...labelClass, defaultClass];
       }
       if (isPlainObject(labelClass)) {

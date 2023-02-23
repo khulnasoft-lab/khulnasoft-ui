@@ -1,5 +1,4 @@
 import castArray from 'lodash/castArray';
-import isArray from 'lodash/isArray';
 import merge from 'lodash/merge';
 import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
 import { GlBreakpointInstance } from '../breakpoints';
@@ -155,7 +154,7 @@ export const mergeAnnotationAxisToOptions = (options, hasAnnotations = false) =>
 
 export const dataZoomAdjustments = (dataZoom) => {
   // handle cases where dataZoom is array and object.
-  const useSlider = dataZoom && isArray(dataZoom) ? dataZoom.length : Boolean(dataZoom);
+  const useSlider = dataZoom && Array.isArray(dataZoom) ? dataZoom.length : Boolean(dataZoom);
 
   return useSlider ? getDataZoomConfig({ filterMode: 'weakFilter' }) : [];
 };

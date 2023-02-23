@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import merge from 'lodash/merge';
-import isFinite from 'lodash/isFinite';
 import uniq from 'lodash/uniq';
 import sortBy from 'lodash/sortBy';
 import { gaugeNeutralHues, gaugeSafeHues, gaugeWarningHue } from '../../../utils/charts/theme';
@@ -22,7 +21,7 @@ const gaugeChartSeries = ({ value, text, min, max, splitNumber, axisColor }) => 
     detail: {
       show: true,
       formatter: () => {
-        const currentValue = isFinite(value) ? value : null;
+        const currentValue = Number.isFinite(value) ? value : null;
 
         return text || (currentValue ?? '--');
       },
@@ -34,7 +33,7 @@ const gaugeChartSeries = ({ value, text, min, max, splitNumber, axisColor }) => 
     axisLabel: {
       show: true,
       fontSize: AXIS_LABEL_FONT_SIZE_PX,
-      formatter: (theValue) => (isFinite(theValue) ? theValue : '--'),
+      formatter: (theValue) => (Number.isFinite(theValue) ? theValue : '--'),
       color: `${gaugeNeutralHues[1]}`,
     },
     axisLine: {
@@ -75,7 +74,7 @@ export default {
       required: false,
       default: () => [],
       validator: (value) => {
-        return value?.length ? value.every((item) => isFinite(item)) : true;
+        return value?.length ? value.every((item) => Number.isFinite(item)) : true;
       },
     },
     text: {
@@ -120,7 +119,7 @@ export default {
 
       const uniqueThresholds = uniq(thresholds);
       const filteredThresholds = uniqueThresholds.filter((threshold) => {
-        return isFinite(threshold) && threshold > min && threshold < max;
+        return Number.isFinite(threshold) && threshold > min && threshold < max;
       });
       /**
        * Only the first two thresholds will be used
