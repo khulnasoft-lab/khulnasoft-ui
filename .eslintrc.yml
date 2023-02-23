@@ -14,6 +14,10 @@ rules:
     paths:
     - name: "lodash"
       message: Import <function> from lodash/<function> instead for better tree-shaking.
+    - name: "lodash/isArray"
+      message: Prefer native Array.isArray method.
+    - name: "lodash/isFinite"
+      message: Prefer native Number.isFinite method.
   vue/no-v-html: error
 # test-specific configuration
 overrides:
