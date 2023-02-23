@@ -11,6 +11,9 @@ rules:
       - "bootstrap-vue/*"
       - "!bootstrap-vue/src"
       - "!bootstrap-vue/package.json"
+    paths:
+    - name: "lodash"
+      message: Import <function> from lodash/<function> instead for better tree-shaking.
   vue/no-v-html: error
 # test-specific configuration
 overrides:
