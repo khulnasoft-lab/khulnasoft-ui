@@ -1,4 +1,4 @@
-describe('GlListbox', () => {
+describe('GlCollapsibleListbox', () => {
   const toggleSelector = 'button[aria-haspopup="listbox"]';
   const dropdownMenuSelector = '[role="listbox"]';
   const listItemSelector = '[role="option"]';
