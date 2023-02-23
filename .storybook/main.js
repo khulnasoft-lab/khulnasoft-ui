@@ -15,5 +15,6 @@ module.exports = {
   staticDirs: ['../static'],
   core: {
     builder: 'webpack5',
+    disableTelemetry: Boolean(process.env.CI),
   },
 };
