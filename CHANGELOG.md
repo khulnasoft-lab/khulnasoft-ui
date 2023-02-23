@@ -1,3 +1,10 @@
+## [56.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.1.1...v56.1.2) (2023-02-23)
+
+
+### Bug Fixes
+
+* **GlPath:** Keep path text white in dark mode ([6fb2654](https://gitlab.com/gitlab-org/gitlab-ui/commit/6fb2654804ce75944cbd73f7acf300c66740b434))
+
 ## [56.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.1.0...v56.1.1) (2023-02-20)
 
 
