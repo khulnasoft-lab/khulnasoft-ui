@@ -1,3 +1,10 @@
+# [56.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.1.2...v56.2.0) (2023-02-25)
+
+
+### Features
+
+* **GlSingleStat:** add titleIconClass prop ([df18efb](https://gitlab.com/gitlab-org/gitlab-ui/commit/df18efb2e22bb2bcb03edd1e8442e3eb1fcdca76))
+
 ## [56.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.1.1...v56.1.2) (2023-02-23)
 
 
