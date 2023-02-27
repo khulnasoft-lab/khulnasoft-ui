@@ -26,17 +26,35 @@ describe('Filtered search term', () => {
     props: ['searchInputAttributes', 'isLastToken', 'currentValue', 'viewOnly'],
   };
 
-  const createComponent = (props) => {
+  const createComponent = (props, options = {}) => {
     wrapper = shallowMount(FilteredSearchTerm, {
       propsData: { ...defaultProps, ...props },
       stubs: {
         'gl-filtered-search-token-segment': segmentStub,
       },
+      ...options,
     });
   };
 
   const findSearchInput = () => wrapper.find('input');
   const findTokenSegmentComponent = () => wrapper.findComponent(segmentStub);
+
+  it('renders title slot', async () => {
+    createComponent(
+      { availableTokens, active: true, value: { data: 'test1' } },
+      {
+        scopedSlots: {
+          title: '<div slot-scope="{ value }">New {{value}}</div>',
+        },
+      }
+    );
+
+    await nextTick();
+
+    expect(wrapper.findAllComponents(GlFilteredSearchSuggestion).at(0).text()).toBe(
+      'New test1-foo'
+    );
+  });
 
   it('renders value in inactive mode', () => {
     createComponent({ value: { data: 'test-value' } });
