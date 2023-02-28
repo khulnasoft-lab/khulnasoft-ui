@@ -34,6 +34,7 @@ const template = `<gl-area-chart
   :thresholds="thresholds"
   :annotations="annotations"
   :includeLegendAvgMax="includeLegendAvgMax"
+  :height="height"
 />`;
 
 const generateProps = ({
@@ -42,12 +43,14 @@ const generateProps = ({
   thresholds = [],
   annotations = [],
   includeLegendAvgMax = true,
+  height = null,
 } = {}) => ({
   data,
   option,
   thresholds,
   annotations,
   includeLegendAvgMax,
+  height,
 });
 
 const Template = (args, { argTypes }) => ({

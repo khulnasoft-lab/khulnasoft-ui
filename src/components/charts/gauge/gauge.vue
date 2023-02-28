@@ -173,7 +173,5 @@ export default {
 </script>
 
 <template>
-  <div>
-    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" />
-  </div>
+  <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" />
 </template>

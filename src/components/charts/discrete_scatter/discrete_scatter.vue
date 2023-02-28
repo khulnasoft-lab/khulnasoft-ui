@@ -8,6 +8,7 @@ import {
 } from '../../../utils/charts/config';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { debounceByAnimationFrame } from '../../../utils/utils';
+import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
@@ -44,6 +45,14 @@ export default {
     },
     formatTooltipText: {
       type: Function,
+      required: false,
+      default: null,
+    },
+    /**
+     * Sets the chart's height in pixels. Set to `"auto"` to use the height of the container.
+     */
+    height: {
+      type: [Number, String],
       required: false,
       default: null,
     },
@@ -121,6 +130,9 @@ export default {
       // needs to be handled specially
       return mergeSeriesToOptions(mergedOptions, this.series);
     },
+    autoHeight() {
+      return this.height === 'auto';
+    },
   },
   methods: {
     defaultFormatTooltipText(params) {
@@ -160,11 +172,19 @@ export default {
       }
     },
   },
+  HEIGHT_AUTO_CLASSES,
 };
 </script>
 <template>
-  <div class="position-relative">
-    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" />
+  <div class="position-relative" :class="{ [$options.HEIGHT_AUTO_CLASSES]: autoHeight }">
+    <chart
+      v-bind="$attrs"
+      :class="{ 'gl-flex-grow-1': autoHeight }"
+      :height="height"
+      :options="options"
+      v-on="$listeners"
+      @created="onCreated"
+    />
     <chart-tooltip
       v-if="chart"
       :show="showTooltip"

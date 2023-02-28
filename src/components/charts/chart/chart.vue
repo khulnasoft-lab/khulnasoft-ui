@@ -55,6 +55,9 @@ export default {
       default: null,
       validator: sizeValidator,
     },
+    /**
+     * Sets the chart's height in pixels. Set to `"auto"` to use the height of the container.
+     */
     height: {
       type: [Number, String],
       required: false,

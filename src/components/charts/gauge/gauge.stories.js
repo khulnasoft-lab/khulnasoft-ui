@@ -3,14 +3,15 @@ import readme from './gauge.md';
 import GlGauge from './gauge.vue';
 
 const template = `
-  <gl-gauge 
+  <gl-gauge
     :value="value"
     :min="min"
     :max="max"
     :thresholds="thresholds"
     :text="text"
     :splitNumber="splitNumber"
-    :option="option" 
+    :option="option"
+    :height="height"
   />
 `;
 
@@ -22,6 +23,7 @@ const generateProps = ({
   option = {},
   thresholds = [38, 82],
   splitNumber = 10,
+  height = null,
 } = {}) => ({
   option,
   value,
@@ -30,6 +32,7 @@ const generateProps = ({
   thresholds,
   text,
   splitNumber,
+  height,
 });
 
 const Template = (args, { argTypes }) => ({

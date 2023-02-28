@@ -1,6 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 import { waitForAnimationFrame } from '~/utils/test_utils';
+import { HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES } from '~/utils/charts/constants';
 import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import SparklineChart from './sparkline.vue';
 
@@ -25,11 +27,12 @@ jest.mock('~/directives/resize_observer/resize_observer', () => ({
 describe('sparkline chart component', () => {
   let wrapper;
   let componentOptions;
-  const factory = () => {
+  const factory = (props = {}) => {
     componentOptions = {
       propsData: {
         data: [[]],
         variant: null,
+        ...props,
       },
       scopedSlots: { latestSeriesEntry: jest.fn() },
       stubs: {
@@ -43,6 +46,7 @@ describe('sparkline chart component', () => {
   // helpers
   const getByTestId = (id) => wrapper.find(`[data-testid="${id}"]`);
   const getChart = () => wrapper.findComponent(Chart);
+  const getChartContainer = () => getByTestId('chart-container');
 
   const getTooltip = () => wrapper.findComponent(ChartTooltipStub);
   const getTooltipTitle = () => getByTestId('tooltip-title');
@@ -210,6 +214,29 @@ describe('sparkline chart component', () => {
       await wrapper.vm.$nextTick();
 
       expect(getChartOptions().series[0].smooth).toBe(smooth);
+    });
+  });
+
+  describe('height', () => {
+    expectHeightAutoClasses({
+      createComponent: factory,
+      findContainer: getChartContainer,
+      findChart: getChart,
+      classes: HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES,
+    });
+
+    describe('sparkline root element style', () => {
+      it('does not set the root element style to height full', () => {
+        factory();
+
+        expect(wrapper.element.classList.value).not.toContain('gl-h-full');
+      });
+
+      it('set the root element style to height full when height is "auto"', () => {
+        factory({ height: 'auto' });
+
+        expect(wrapper.element.classList.value).toContain('gl-h-full');
+      });
     });
   });
 });

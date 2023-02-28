@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
 import { createMockChartInstance } from '~helpers/chart_stubs';
+import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import BarChart from './bar.vue';
 
@@ -29,9 +30,9 @@ describe('Bar chart component', () => {
   const getOptions = () => findChart().props('options');
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  const createComponent = () => {
+  const createComponent = (props = {}) => {
     wrapper = shallowMount(BarChart, {
-      propsData: defaultChartProps,
+      propsData: { ...defaultChartProps, ...props },
       stubs: {
         'tooltip-default-format': TooltipDefaultFormat,
       },
@@ -114,6 +115,14 @@ describe('Bar chart component', () => {
           );
         });
       });
+    });
+  });
+
+  describe('height', () => {
+    expectHeightAutoClasses({
+      createComponent,
+      findContainer: () => wrapper,
+      findChart,
     });
   });
 });

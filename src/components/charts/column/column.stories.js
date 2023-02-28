@@ -17,6 +17,7 @@ const template = `
     :secondary-data-title="secondaryDataTitle"
     :x-axis-title="xAxisTitle"
     :x-axis-type="xAxisType"
+    :height="height"
   />
   `;
 
@@ -29,6 +30,7 @@ const generateProps = ({
   xAxisType = 'category',
   secondaryData = [],
   secondaryDataTitle = '',
+  height = null,
 } = {}) => ({
   bars,
   lines,
@@ -38,6 +40,7 @@ const generateProps = ({
   xAxisType,
   secondaryData,
   secondaryDataTitle,
+  height,
 });
 
 const Template = (args, { argTypes }) => ({

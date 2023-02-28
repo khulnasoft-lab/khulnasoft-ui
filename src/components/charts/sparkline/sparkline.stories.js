@@ -1,5 +1,6 @@
 import { GlSparklineChart } from '../../../charts';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
+import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './sparkline.md';
 
 const chartData = [
@@ -38,16 +39,15 @@ const Template = (args) => ({
   components: { GlSparklineChart },
   props: Object.keys(args),
   template: `
-    <div>
-      <gl-sparkline-chart
-        :data="data"
-        :height="height"
-        :tooltip-label="tooltipLabel"
-        :show-last-y-value="showLastYValue"
-        :gradient="gradient"
-        :smooth="smooth"
-      />
-    </div>`,
+    <gl-sparkline-chart
+      :data="data"
+      :height="height"
+      :tooltip-label="tooltipLabel"
+      :show-last-y-value="showLastYValue"
+      :gradient="gradient"
+      :smooth="smooth"
+    />
+  `,
 });
 
 export const Default = Template.bind({});
@@ -61,6 +61,14 @@ WithChartColorGradient.args = generateProps({ gradient: customGradient });
 
 export const WithSmoothing = Template.bind({});
 WithSmoothing.args = generateProps({ smooth: 0.5 });
+
+export const AutoHeight = Template.bind({});
+Object.assign(AutoHeight, {
+  args: generateProps({
+    height: 'auto',
+  }),
+  decorators: [makeContainer({ height: '300px' })],
+});
 
 export default {
   title: 'charts/sparkline-chart',

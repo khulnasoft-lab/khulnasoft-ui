@@ -1,16 +1,20 @@
 import { GlBarChart } from '../../../charts';
+import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './bar.md';
 
 const Template = (args, { argTypes }) => ({
   components: { GlBarChart },
   props: Object.keys(argTypes),
-  template: `<gl-bar-chart
-  :data="data"
-  :option="option"
-  :y-axis-title="yAxisTitle"
-  :x-axis-title="xAxisTitle"
-  :x-axis-type="xAxisType"
-/>`,
+  template: `
+    <gl-bar-chart
+      :data="data"
+      :option="option"
+      :y-axis-title="yAxisTitle"
+      :x-axis-title="xAxisTitle"
+      :x-axis-type="xAxisType"
+      :height="height"
+    />
+  `,
 });
 
 const mockData = {
@@ -34,16 +38,26 @@ const generateProps = ({
   xAxisTitle = 'Pushes per day',
   yAxisTitle = 'User',
   xAxisType = 'value',
+  height = null,
 } = {}) => ({
   data,
   option,
   xAxisTitle,
   yAxisTitle,
   xAxisType,
+  height,
 });
 
 export const Default = Template.bind({});
 Default.args = generateProps();
+
+export const AutoHeight = Template.bind({});
+Object.assign(AutoHeight, {
+  args: generateProps({
+    height: 'auto',
+  }),
+  decorators: [makeContainer({ height: '600px' })],
+});
 
 export default {
   title: 'charts/bar-chart',
