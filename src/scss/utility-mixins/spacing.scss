@@ -6,7 +6,8 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 @mixin gl-p-0 {
-  padding: 0;
+  @apply p-0;
+  @apply bg-red-500;
 }
 
 @mixin gl-p-1 {

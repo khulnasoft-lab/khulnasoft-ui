@@ -7,6 +7,7 @@ import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import { string } from 'rollup-plugin-string';
 import vue from 'rollup-plugin-vue';
+import tailwindcss from 'tailwindcss';
 
 /**
  * Returns true if an import is not considered for inlining into the current file.
@@ -122,6 +123,7 @@ export default glob
           minimize: true,
           sourceMap: true,
           use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
+          plugins: [tailwindcss()],
         }),
         string({
           include: '**/*.md',
