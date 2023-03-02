@@ -121,6 +121,10 @@
   font-weight: $gl-font-weight-normal;
 }
 
+@mixin gl-font-weight-semibold {
+  font-weight: $gl-font-weight-semibold;
+}
+
 @mixin gl-font-weight-bold {
   font-weight: $gl-font-weight-bold;
 }
