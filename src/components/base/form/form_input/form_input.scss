@@ -31,15 +31,10 @@
 
   &.is-invalid {
     @include gl-inset-border-1-red-500;
-    background-image: none;
 
     &:focus {
       @include gl-focus($color: $red-500);
     }
-  }
-
-  &.is-valid {
-    background-image: none;
   }
 
   &::placeholder {
