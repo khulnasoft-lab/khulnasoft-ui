@@ -253,6 +253,10 @@
   flex-basis: 50%;
 }
 
+@mixin gl-flex-basis-full {
+  flex-basis: 100%;
+}
+
 @mixin gl-justify-content-center {
   justify-content: center;
 }
