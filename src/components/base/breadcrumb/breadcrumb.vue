@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BBreadcrumb } from 'bootstrap-vue';
-import GlIcon from '../icon/icon.vue';
 import GlButton from '../button/button.vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
@@ -11,7 +10,6 @@ export const COLLAPSE_AT_SIZE = 4;
 export default {
   components: {
     BBreadcrumb,
-    GlIcon,
     GlButton,
     GlBreadcrumbItem,
   },
@@ -88,49 +86,29 @@ export default {
     <slot name="avatar"></slot>
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
       <template v-for="(item, index) in items">
-        <!-- eslint-disable-next-line vue/valid-v-for -->
+        <!-- eslint-disable-next-line vue/valid-v-for (for @vue/compat) -->
         <gl-breadcrumb-item
+          v-show="!isItemCollapsed(index)"
           :ref="isFirstItem(index) ? 'firstItem' : null"
           :text="item.text"
           :href="item.href"
           :to="item.to"
-          :class="{ 'gl-display-none': isItemCollapsed(index) }"
           :aria-current="getAriaCurrentAttr(index)"
+          >{{ item.text }}</gl-breadcrumb-item
         >
-          <span>{{ item.text }}</span>
-          <span
-            v-if="!isLastItem(index)"
-            :key="`${index} ${item.text}`"
-            class="gl-breadcrumb-separator"
-            data-testid="separator"
-          >
-            <!-- @slot The separator to display. -->
-            <slot name="separator">
-              <gl-icon name="chevron-right" />
-            </slot>
-          </span>
-        </gl-breadcrumb-item>
 
         <template v-if="showCollapsedBreadcrumbsExpander(index)">
-          <!-- eslint-disable-next-line vue/valid-v-for -->
-          <gl-button
-            v-gl-tooltip.hover="'Show all breadcrumbs'"
-            aria-label="Show all breadcrumbs"
-            data-testid="collapsed-expander"
-            icon="ellipsis_h"
-            category="primary"
-            @click="expandBreadcrumbs"
-          />
-          <!-- eslint-disable-next-line vue/require-v-for-key -->
-          <span
-            key="expander"
-            class="gl-display-inline-flex gl-text-gray-500"
-            data-testid="expander-separator"
-          >
-            <slot name="separator">
-              <gl-icon name="chevron-right" />
-            </slot>
-          </span>
+          <!-- eslint-disable-next-line vue/require-v-for-key (for @vue/compat) -->
+          <li class="gl-breadcrumb-item">
+            <gl-button
+              v-gl-tooltip.hover="'Show all breadcrumbs'"
+              aria-label="Show all breadcrumbs"
+              data-testid="collapsed-expander"
+              icon="ellipsis_h"
+              category="primary"
+              @click="expandBreadcrumbs"
+            />
+          </li>
         </template>
       </template>
     </b-breadcrumb>
