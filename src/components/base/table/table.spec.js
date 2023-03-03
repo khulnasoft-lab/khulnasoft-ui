@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { BTable } from 'bootstrap-vue';
 import { logWarning } from '../../../utils/utils';
 import { waitForAnimationFrame } from '../../../utils/test_utils';
 import { glTableLiteWarning } from './constants';
@@ -10,17 +11,21 @@ jest.mock('../../../utils/utils', () => ({
 }));
 
 describe('GlTable', () => {
+  let wrapper;
+
   const slotsTemplate = {
     empty: `
       <p>Placeholder empty text</p>`,
   };
 
   const factory = ({ props = {}, scopedSlots = {} } = {}) => {
-    shallowMount(Table, {
+    wrapper = shallowMount(Table, {
       scopedSlots,
       propsData: props,
     });
   };
+
+  const findBTable = () => wrapper.findComponent(BTable);
 
   afterEach(() => {
     logWarning.mockClear();
@@ -45,5 +50,11 @@ describe('GlTable', () => {
     await waitForAnimationFrame();
 
     expect(logWarning).not.toHaveBeenCalled();
+  });
+
+  it('adds gl-table class to tableClass prop', () => {
+    factory({ props: { tableClass: 'test-class' } });
+
+    expect(findBTable().props().tableClass).toEqual(['gl-table', 'test-class']);
   });
 });

@@ -11,11 +11,21 @@ const shouldUseFullTable = ({ $attrs, $scopedSlots }) => {
   );
 };
 
+const { tableClass } = BTable.options.props;
+
 export default {
   components: {
     BTable,
   },
   inheritAttrs: false,
+  props: {
+    tableClass,
+  },
+  computed: {
+    localTableClass() {
+      return ['gl-table', this.tableClass];
+    },
+  },
   mounted() {
     // logWarning will call isDev before logging any message
     // this additional call to isDev is being made to exit the condition early when run in production
@@ -27,7 +37,7 @@ export default {
 </script>
 
 <template>
-  <b-table class="gl-table" v-bind="$attrs" v-on="$listeners">
+  <b-table :table-class="localTableClass" v-bind="$attrs" v-on="$listeners">
     <template v-for="slot in Object.keys($scopedSlots)" #[slot]="scope">
       <slot :name="slot" v-bind="scope"></slot>
     </template>
