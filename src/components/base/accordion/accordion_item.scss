@@ -1,16 +1,16 @@
 .gl-accordion-item {
-  @include gl-mb-5;
+  @apply tw-mb-4;
 
   .gl-accordion-item-header {
-    @include gl-m-0;
-    @include gl-line-height-normal;
+    @apply tw-m-0;
+    @apply tw-leading-4;
   }
 
   &:last-child {
-    @include gl-mb-0;
+    @apply tw-mb-0;
   }
 
   .collapse {
-    margin-left: $gl-spacing-scale-5 + $gl-spacing-scale-2;
+    @apply tw-ml-5;
   }
 }
