@@ -99,8 +99,24 @@
   border-color: $white;
 }
 
+@mixin gl-border-transparent {
+  border-color: transparent;
+}
+
 @mixin gl-border-t-transparent {
   border-top-color: transparent;
+}
+
+@mixin gl-border-r-transparent {
+  border-right-color: transparent;
+}
+
+@mixin gl-border-b-transparent {
+  border-bottom-color: transparent;
+}
+
+@mixin gl-border-l-transparent {
+  border-left-color: transparent;
 }
 
 @mixin gl-border-gray-50 {
