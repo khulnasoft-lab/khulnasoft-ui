@@ -1,3 +1,16 @@
+# [56.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.2.1...v56.3.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **GlFormDate:** fix feedback text size ([02a6b18](https://gitlab.com/gitlab-org/gitlab-ui/commit/02a6b187e6f78e1144a15395cd9d4be45e5acc67)), closes [/gitlab.com/gitlab-org/gitlab-ui/blob/v56.2.0/src/components/base/form/form_group/form_group.scss#L24](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/blob/v56.2.0/src/components/base/form/form_group/form_group.scss/issues/L24) [/gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3115#note_1152044321](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3115/issues/note_1152044321)
+* **GlTable:** ensure gl-table class on table element ([5edfc06](https://gitlab.com/gitlab-org/gitlab-ui/commit/5edfc069570eb61b3f02299e1a8d569d03bf21cb))
+
+
+### Features
+
+* **deps:** upgrade bootstrap-vue to v2.23.1 ([5fa1033](https://gitlab.com/gitlab-org/gitlab-ui/commit/5fa10330f92cbfa0c8be81b67f44d8a3f2f988b1))
+
 ## [56.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.2.0...v56.2.1) (2023-03-08)
 
 
