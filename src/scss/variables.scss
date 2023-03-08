@@ -484,6 +484,7 @@ $modal-backdrop-opacity: 0.64;
 // these should ideally be moved further up in the file to the compoent-relevant sections
 // but they can wait here for now
 $body-color: $gl-text-color !default;
+$enable-validation-icons: false;
 
 $secondary: $gray-50;
 $success: $green-500;
