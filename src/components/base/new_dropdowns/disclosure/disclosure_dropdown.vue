@@ -6,6 +6,7 @@ import { stopEvent, filterVisible } from '../../../../utils/utils';
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
+  GL_DROPDOWN_FOCUS_CONTENT,
   HOME,
   END,
   ARROW_DOWN,
@@ -26,6 +27,7 @@ export default {
   events: {
     GL_DROPDOWN_SHOWN,
     GL_DROPDOWN_HIDDEN,
+    GL_DROPDOWN_FOCUS_CONTENT,
   },
   components: {
     GlBaseDropdown,
@@ -188,12 +190,6 @@ export default {
       this.$refs.baseDropdown.close();
     },
     onShow() {
-      const items = this.getFocusableListItemElements();
-
-      if (items.length) {
-        this.focusItem(0, items);
-      }
-
       /**
        * Emitted when dropdown is shown
        *
@@ -285,6 +281,7 @@ export default {
     class="gl-disclosure-dropdown"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
+    @[$options.events.GL_DROPDOWN_FOCUS_CONTENT]="onKeydown"
   >
     <template v-if="hasCustomToggle" #toggle>
       <!-- @slot Custom toggle content -->

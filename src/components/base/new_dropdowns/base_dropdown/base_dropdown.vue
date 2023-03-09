@@ -7,7 +7,15 @@ import {
   dropdownPlacements,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
-import { POPPER_CONFIG, GL_DROPDOWN_SHOWN, GL_DROPDOWN_HIDDEN, ENTER, SPACE } from '../constants';
+import {
+  POPPER_CONFIG,
+  GL_DROPDOWN_SHOWN,
+  GL_DROPDOWN_HIDDEN,
+  GL_DROPDOWN_FOCUS_CONTENT,
+  ENTER,
+  SPACE,
+  ARROW_DOWN,
+} from '../constants';
 import { logWarning, isElementTabbable, isElementFocusable } from '../../../../utils/utils';
 
 import GlButton from '../../button/button.vue';
@@ -162,6 +170,7 @@ export default {
           class: this.toggleButtonClasses,
           ...this.ariaAttributes,
           listeners: {
+            keydown: (event) => this.onKeydown(event),
             click: () => this.toggle(),
           },
         };
@@ -260,10 +269,27 @@ export default {
       this.toggleElement.focus();
     },
     onKeydown(event) {
-      const { code } = event;
+      const {
+        code,
+        target: { tagName },
+      } = event;
 
-      if (code === ENTER || code === SPACE) {
+      let toggleOnEnter = true;
+      let toggleOnSpace = true;
+
+      if (tagName === 'BUTTON') {
+        toggleOnEnter = false;
+        toggleOnSpace = false;
+      } else if (tagName === 'A') {
+        toggleOnEnter = false;
+      }
+
+      if ((code === ENTER && toggleOnEnter) || (code === SPACE && toggleOnSpace)) {
         this.toggle();
+      }
+
+      if (code === ARROW_DOWN) {
+        this.$emit(GL_DROPDOWN_FOCUS_CONTENT, event);
       }
     },
   },
