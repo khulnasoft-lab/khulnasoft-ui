@@ -1,13 +1,20 @@
 import first from 'lodash/first';
 import last from 'lodash/last';
+import isEqual from 'lodash/isEqual';
 import isString from 'lodash/isString';
+
+const emptyList = [''];
 
 export const TERM_TOKEN_TYPE = 'filtered-search-term';
 
 export const INTENT_ACTIVATE_PREVIOUS = 'intent-activate-previous';
 
-export function isEmptyTerm(token) {
-  return token.type === TERM_TOKEN_TYPE && token.value.data.trim() === '';
+export function isEmptyData(data, multiSelect) {
+  return multiSelect ? isEqual(data, emptyList) || isEqual(data, []) || !data : data === '';
+}
+
+export function isEmptyTerm(token, multiSelect) {
+  return token.type === TERM_TOKEN_TYPE && isEmptyData(token.value.data, multiSelect);
 }
 
 export function normalizeTokens(tokens) {
@@ -71,15 +78,21 @@ export function ensureTokenId(token) {
   return token;
 }
 
-export function createTerm(data = '') {
+export function createEmptyData(multiSelect) {
+  return multiSelect ? emptyList : '';
+}
+
+export function createTerm({ data = '', multiSelect } = {}) {
   return {
     id: getTokenId(),
     type: TERM_TOKEN_TYPE,
-    value: { data },
+    value: {
+      data: multiSelect ? [data] : data,
+    },
   };
 }
 
-export function denormalizeTokens(inputTokens) {
+export function denormalizeTokens(inputTokens, multiSelect) {
   assertValidTokens(inputTokens);
 
   const tokens = Array.isArray(inputTokens) ? inputTokens : [inputTokens];
@@ -88,7 +101,7 @@ export function denormalizeTokens(inputTokens) {
   tokens.forEach((t) => {
     if (typeof t === 'string') {
       const stringTokens = t.split(' ').filter(Boolean);
-      stringTokens.forEach((strToken) => result.push(createTerm(strToken)));
+      stringTokens.forEach((strToken) => result.push(createTerm({ data: strToken, multiSelect })));
     } else {
       result.push(ensureTokenId(t));
     }

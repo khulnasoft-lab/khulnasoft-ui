@@ -1,3 +1,4 @@
+import last from 'lodash/last';
 import {
   GlFilteredSearch,
   GlFilteredSearchToken,
@@ -426,7 +427,7 @@ export const WithFriendlyText = () => ({
 
 export const WithMultiSelect = () => {
   const MultiUserToken = {
-    props: ['value', 'active', 'config'],
+    props: ['value', 'active', 'multiSelect'],
     components: {
       GlFilteredSearchToken,
       GlFilteredSearchSuggestion,
@@ -438,16 +439,16 @@ export const WithMultiSelect = () => {
     data() {
       return {
         users: fakeUsers,
-        selectedUsernames: this.value.data ? this.value.data.split(',') : [],
+        selectedUsernames: this.value.data,
         activeUser: null,
       };
     },
     computed: {
       filteredUsers() {
-        return this.users.filter((user) => user.username.includes(this.value.data));
+        return this.users.filter((user) => user.username.includes(last(this.value.data)));
       },
       selectedUsers() {
-        return this.config.multiSelect
+        return this.multiSelect
           ? this.users.filter((user) => this.selectedUsernames.includes(user.username))
           : this.users.filter((user) => user.username === this.activeUser);
       },
@@ -460,7 +461,7 @@ export const WithMultiSelect = () => {
         this.users = fakeUsers;
       },
       handleSelect(username) {
-        if (!this.config.multiSelect) {
+        if (!this.multiSelect) {
           return;
         }
 
@@ -510,7 +511,7 @@ export const WithMultiSelect = () => {
       <gl-filtered-search-suggestion :key="user.id" v-for="user in filteredUsers" :value="user.username">
         <div class="gl-display-flex gl-align-items-center">
           <gl-icon
-            v-if="config.multiSelect"
+            v-if="multiSelect"
             name="check"
             class="gl-mr-3 gl-text-gray-700"
             :class="{ 'gl-visibility-hidden': !selectedUsernames.includes(user.username) }"
@@ -545,11 +546,11 @@ export const WithMultiSelect = () => {
             multiSelect: true,
           },
         ],
-        value: [{ type: 'assignee', value: { data: 'alpha,beta', operator: '=' } }],
+        value: [{ type: 'assignee', value: { data: ['alpha', 'beta'], operator: '=' } }],
       };
     },
     template: `
-      <gl-filtered-search v-model="value" :available-tokens="tokens" />
+      <gl-filtered-search v-model="value" :available-tokens="tokens" multi-select />
     `,
   };
 };

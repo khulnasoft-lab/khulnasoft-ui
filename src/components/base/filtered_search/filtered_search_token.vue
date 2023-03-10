@@ -1,9 +1,9 @@
 <script>
+import isEqual from 'lodash/isEqual';
 import cloneDeep from 'lodash/cloneDeep';
-import { COMMA } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
-import { createTerm } from './filtered_search_utils';
+import { createEmptyData, createTerm, isEmptyData } from './filtered_search_utils';
 
 const SEGMENT_TITLE = 'TYPE';
 const SEGMENT_OPERATOR = 'OPERATOR';
@@ -47,6 +47,11 @@ export default {
       required: false,
       default: false,
     },
+    multiSelect: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     multiSelectValues: {
       type: Array,
       required: false,
@@ -58,7 +63,7 @@ export default {
     value: {
       type: Object,
       required: false,
-      default: () => ({ operator: '', data: '' }),
+      default: () => ({ operator: '', data: createEmptyData(this.multiSelect) }),
     },
     /**
      * Display operators' descriptions instead of their values (e.g., "is" instead of "=").
@@ -94,7 +99,7 @@ export default {
     },
 
     hasDataOrDataSegmentIsCurrentlyActive() {
-      return this.tokenValue.data !== '' || this.isSegmentActive(SEGMENT_DATA);
+      return !isEmptyData(this.tokenValue.data) || this.isSegmentActive(SEGMENT_DATA);
     },
 
     availableTokensWithSelf() {
@@ -134,7 +139,7 @@ export default {
 
     value: {
       handler(newValue, oldValue) {
-        if (newValue?.data === oldValue?.data && newValue?.operator === oldValue?.operator) {
+        if (isEqual(newValue?.data, oldValue?.data) && newValue?.operator === oldValue?.operator) {
           return;
         }
 
@@ -148,9 +153,11 @@ export default {
         if (newValue) {
           this.intendedCursorPosition = this.cursorPosition;
           if (!this.activeSegment) {
-            this.activateSegment(this.tokenValue.data !== '' ? SEGMENT_DATA : SEGMENT_OPERATOR);
+            this.activateSegment(
+              !isEmptyData(this.tokenValue.data) ? SEGMENT_DATA : SEGMENT_OPERATOR
+            );
           }
-        } else if (this.tokenValue.data === '') {
+        } else if (isEmptyData(this.tokenValue.data)) {
           this.activeSegment = null;
           /**
            * Emitted when token is about to be destroyed.
@@ -203,12 +210,15 @@ export default {
     },
 
     replaceWithTermIfEmpty() {
-      if (this.tokenValue.operator === '' && this.tokenValue.data === '') {
+      if (this.tokenValue.operator === '' && isEmptyData(this.tokenValue.data)) {
         /**
          * Emitted when this token is converted to another type
          * @property {object} token Replacement token configuration
          */
-        this.$emit('replace', createTerm(this.config.title));
+        this.$emit(
+          'replace',
+          createTerm({ data: this.config.title, multiSelect: this.multiSelect })
+        );
       }
     },
 
@@ -232,7 +242,7 @@ export default {
           this.config.dataType && this.config.dataType === newTokenConfig.dataType;
         this.$emit('replace', {
           type: newTokenConfig.type,
-          value: isCompatible ? this.tokenValue : { data: '' },
+          value: isCompatible ? this.tokenValue : { data: createEmptyData(this.multiSelect) },
         });
       }
     },
@@ -249,7 +259,7 @@ export default {
         key.length === 1 &&
         !this.operators.find(({ value }) => value.startsWith(potentialValue))
       ) {
-        if (this.tokenValue.data === '') {
+        if (isEmptyData(this.tokenValue.data)) {
           applySuggestion(suggestedValue);
         } else {
           evt.preventDefault();
@@ -258,8 +268,8 @@ export default {
     },
 
     activateDataSegment() {
-      if (this.config.multiSelect) {
-        this.$emit('input', { ...this.tokenValue, data: '' });
+      if (this.multiSelect) {
+        this.$emit('input', { ...this.tokenValue, data: createEmptyData(this.multiSelect) });
       }
       this.activateSegment(this.$options.segments.SEGMENT_DATA);
     },
@@ -285,8 +295,8 @@ export default {
     },
 
     handleComplete() {
-      if (this.config.multiSelect) {
-        this.$emit('input', { ...this.tokenValue, data: this.multiSelectValues.join(COMMA) });
+      if (this.multiSelect) {
+        this.$emit('input', { ...this.tokenValue, data: this.multiSelectValues });
       }
       /**
        * Emitted when the token entry has been completed.
@@ -294,6 +304,14 @@ export default {
        * @event complete
        */
       this.$emit('complete');
+    },
+
+    handleDataInput(value) {
+      if (this.multiSelect) {
+        this.tokenValue.data[this.tokenValue.data.length - 1] = value;
+      } else {
+        this.tokenValue.data = value;
+      }
     },
 
     destroyByClose(event) {
@@ -406,7 +424,7 @@ export default {
     <gl-filtered-search-token-segment
       v-if="hasDataOrDataSegmentIsCurrentlyActive"
       key="data-segment"
-      v-model="tokenValue.data"
+      :value="tokenValue.data"
       :active="isSegmentActive($options.segments.SEGMENT_DATA)"
       :cursor-position="intendedCursorPosition"
       :multi-select="config.multiSelect"
@@ -416,6 +434,7 @@ export default {
       @activate="activateDataSegment"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @complete="handleComplete"
+      @input="handleDataInput"
       @select="$emit('select', $event)"
       @submit="$emit('submit')"
       @deactivate="$emit('deactivate')"

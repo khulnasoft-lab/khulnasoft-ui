@@ -1,4 +1,5 @@
 <script>
+import last from 'lodash/last';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import { INTENT_ACTIVATE_PREVIOUS } from './filtered_search_utils';
@@ -69,6 +70,11 @@ export default {
       default: 'end',
       validator: (value) => ['start', 'end'].includes(value),
     },
+    multiSelect: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     viewOnly: {
       type: Boolean,
       required: false,
@@ -77,8 +83,9 @@ export default {
   },
   computed: {
     suggestedTokens() {
+      const data = this.multiSelect ? last(this.value.data) : this.value.data;
       return this.availableTokens.filter((item) =>
-        item.title.toLowerCase().includes(this.value.data.toLowerCase())
+        item.title.toLowerCase().includes(data?.toLowerCase())
       );
     },
     internalValue: {

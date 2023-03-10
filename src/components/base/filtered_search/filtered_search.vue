@@ -10,8 +10,10 @@ import GlFilteredSearchTerm from './filtered_search_term.vue';
 import {
   isEmptyTerm,
   INTENT_ACTIVATE_PREVIOUS,
+  createEmptyData,
   createTerm,
   ensureTokenId,
+  isEmptyData,
   normalizeTokens,
   denormalizeTokens,
   needDenormalization,
@@ -21,8 +23,8 @@ Vue.use(PortalVue);
 
 let portalUuid = 0;
 
-function initialState() {
-  return [createTerm()];
+function initialState(multiSelect) {
+  return [createTerm({ multiSelect })];
 }
 
 export default {
@@ -99,6 +101,11 @@ export default {
       required: false,
       default: null,
     },
+    multiSelect: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     /**
      * Additional classes to add to the suggestion list menu. NOTE: this not reactive, and the value
      * must be available and fixed when the component is instantiated
@@ -140,7 +147,7 @@ export default {
   },
   data() {
     return {
-      tokens: initialState(),
+      tokens: initialState(this.multiSelect),
       activeTokenIdx: null,
       suggestionsStyle: {},
       intendedCursorPosition: 'end',
@@ -157,7 +164,7 @@ export default {
       return this.activeTokenIdx === this.lastTokenIdx;
     },
     hasValue() {
-      return this.tokens.length > 1 || this.tokens[0].value.data !== '';
+      return this.tokens.length > 1 || !isEmptyData(this.tokens[0].value.data);
     },
     termPlaceholder() {
       return this.hasValue ? null : this.placeholder;
@@ -188,6 +195,7 @@ export default {
 
         if ((this.tokens.length === 0 || !this.isLastTokenEmpty()) && !this.viewOnly) {
           this.tokens.push(createTerm());
+          // this.tokens.push(createTerm({ multiSelect: this.multiSelect }));
         }
 
         /**
@@ -212,7 +220,9 @@ export default {
 
   methods: {
     applyNewValue(newValue) {
-      this.tokens = needDenormalization(newValue) ? denormalizeTokens(newValue) : newValue;
+      this.tokens = needDenormalization(newValue)
+        ? denormalizeTokens(newValue, this.multiSelect)
+        : newValue;
     },
 
     isActiveToken(idx) {
@@ -274,7 +284,7 @@ export default {
       }
 
       if (!this.isLastTokenEmpty()) {
-        this.tokens.push(createTerm());
+        this.tokens.push(createTerm({ multiSelect: this.multiSelect }));
       }
 
       if (!this.isLastTokenActive && isEmptyTerm(this.activeToken)) {
@@ -310,7 +320,14 @@ export default {
     },
 
     replaceToken(idx, token) {
-      this.$set(this.tokens, idx, ensureTokenId({ ...token, value: { data: '', ...token.value } }));
+      this.$set(
+        this.tokens,
+        idx,
+        ensureTokenId({
+          ...token,
+          value: { data: createEmptyData(this.multiSelect), ...token.value },
+        })
+      );
       this.activeTokenIdx = idx;
     },
 
@@ -324,7 +341,9 @@ export default {
         return;
       }
 
-      const newTokens = newStrings.map((data) => createTerm(data));
+      const newTokens = newStrings.map((data) =>
+        createTerm({ data, multiSelect: this.multiSelect })
+      );
 
       this.tokens.splice(idx + 1, 0, ...newTokens);
 
@@ -386,6 +405,7 @@ export default {
           :available-tokens="currentAvailableTokens"
           :current-value="tokens"
           :index="idx"
+          :multi-select="multiSelect"
           :placeholder="termPlaceholder"
           :show-friendly-text="showFriendlyText"
           :search-input-attributes="searchInputAttributes"

@@ -1,7 +1,7 @@
 <script>
 import last from 'lodash/last';
 import { Portal } from 'portal-vue';
-import { COMMA, LEFT_MOUSE_BUTTON } from '../../../utils/constants';
+import { LEFT_MOUSE_BUTTON } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
@@ -140,7 +140,7 @@ export default {
     },
 
     nonMultipleValue() {
-      return this.multiSelect ? last(this.value.split(COMMA)) : this.value;
+      return this.multiSelect ? last(this.value) : this.value;
     },
 
     inputValue: {
