@@ -1,3 +1,10 @@
+# [56.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.3.0...v56.4.0) (2023-03-13)
+
+
+### Features
+
+* **charts:** fill to container height when height is "auto" ([dab39d8](https://gitlab.com/gitlab-org/gitlab-ui/commit/dab39d8116f97ef5c459e8872bfa97058dae65d4))
+
 # [56.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.2.1...v56.3.0) (2023-03-08)
 
 
