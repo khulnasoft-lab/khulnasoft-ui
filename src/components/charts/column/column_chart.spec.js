@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { expectHeightAutoClasses } from '~helpers/chart_height';
 import {
   mockDefaultLineData,
   mockDefaultBarData,
@@ -118,6 +119,14 @@ describe('column chart component', () => {
       const expectedTooltipTitle = `${params.seriesData[0].value[0]} (${defaultChartProps.xAxisTitle})`;
 
       expect(findTooltip().text()).toContain(expectedTooltipTitle);
+    });
+  });
+
+  describe('height', () => {
+    expectHeightAutoClasses({
+      createComponent: (props) => factory({ ...defaultChartProps, ...props }),
+      findContainer: () => wrapper,
+      findChart,
     });
   });
 });

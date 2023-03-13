@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import AreaChart from './area.vue';
@@ -181,6 +182,14 @@ describe('area component', () => {
       await wrapper.vm.$nextTick();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
+    });
+  });
+
+  describe('height', () => {
+    expectHeightAutoClasses({
+      createComponent: createShallowWrapper,
+      findContainer: () => wrapper,
+      findChart,
     });
   });
 });

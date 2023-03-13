@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import LineChart from './line.vue';
@@ -203,6 +204,14 @@ describe('line component', () => {
       await wrapper.vm.$nextTick();
 
       expect(findLegend().exists()).toBe(false);
+    });
+  });
+
+  describe('height', () => {
+    expectHeightAutoClasses({
+      createComponent: createShallowWrapper,
+      findContainer: () => wrapper,
+      findChart,
     });
   });
 });

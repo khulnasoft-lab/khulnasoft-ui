@@ -10,6 +10,7 @@ const Template = (args, { argTypes }) => ({
     :y-axis-title="yAxisTitle"
     :x-axis-title="xAxisTitle"
     data-testid="discrete-scatter-chart"
+    :height="height"
   />
 `,
 });
@@ -32,11 +33,13 @@ const generateProps = ({
   option = {},
   yAxisTitle = 'Pushes per day',
   xAxisTitle = 'Date',
+  height = null,
 } = {}) => ({
   data,
   option,
   yAxisTitle,
   xAxisTitle,
+  height,
 });
 
 export const Default = Template.bind({});

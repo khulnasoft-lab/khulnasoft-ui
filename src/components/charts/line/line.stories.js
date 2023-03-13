@@ -63,6 +63,7 @@ const template = `<gl-line-chart
   :annotations="annotations"
   :includeLegendAvgMax="includeLegendAvgMax"
   :showLegend="showLegend"
+  :height="height"
 />`;
 
 const generateProps = ({
@@ -72,6 +73,7 @@ const generateProps = ({
   annotations = [],
   includeLegendAvgMax = true,
   showLegend = true,
+  height = null,
 } = {}) => ({
   showLegend,
   includeLegendAvgMax,
@@ -79,6 +81,7 @@ const generateProps = ({
   thresholds,
   annotations,
   data,
+  height,
 });
 
 const Template = (_args, { argTypes }) => ({

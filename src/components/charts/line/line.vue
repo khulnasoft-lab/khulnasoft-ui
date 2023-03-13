@@ -41,6 +41,7 @@ import {
   LEGEND_CURRENT_TEXT,
   LEGEND_MIN_TEXT,
   LEGEND_MAX_TEXT,
+  HEIGHT_AUTO_CLASSES,
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
@@ -120,6 +121,14 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    /**
+     * Sets the chart's height in pixels. Set to `"auto"` to use the height of the container.
+     */
+    height: {
+      type: [Number, String],
+      required: false,
+      default: null,
     },
   },
   data() {
@@ -249,6 +258,9 @@ export default {
         return acc;
       }, []);
     },
+    autoHeight() {
+      return this.height === 'auto';
+    },
   },
   beforeDestroy() {
     this.chart.getDom().removeEventListener('mousemove', this.debouncedShowHideTooltip);
@@ -330,12 +342,20 @@ export default {
       this.selectedFormatTooltipText(params);
     },
   },
+  HEIGHT_AUTO_CLASSES,
 };
 </script>
 
 <template>
-  <div class="position-relative">
-    <chart v-bind="$attrs" :options="options" v-on="$listeners" @created="onCreated" />
+  <div class="position-relative" :class="{ [$options.HEIGHT_AUTO_CLASSES]: autoHeight }">
+    <chart
+      v-bind="$attrs"
+      :class="{ 'gl-flex-grow-1': autoHeight }"
+      :height="height"
+      :options="options"
+      v-on="$listeners"
+      @created="onCreated"
+    />
     <chart-tooltip
       v-if="shouldShowAnnotationsTooltip"
       id="annotationsTooltip"

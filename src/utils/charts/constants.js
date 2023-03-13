@@ -63,3 +63,7 @@ export const arrowSymbol = 'path://m5 229 5 8h-10z';
 // Constants for the type property of charts
 export const CHART_TYPE_BAR = 'bar';
 export const CHART_TYPE_LINE = 'line';
+
+// Constants for height "auto"
+export const HEIGHT_AUTO_CLASSES = 'gl-display-flex gl-flex-direction-column gl-h-full';
+export const HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES = 'gl-display-flex gl-h-full';

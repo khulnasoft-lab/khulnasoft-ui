@@ -8,6 +8,7 @@ import {
   mergeSeriesToOptions,
   symbolSize,
 } from '../../../utils/charts/config';
+import { HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES } from '../../../utils/charts/constants';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 
@@ -49,10 +50,10 @@ export default {
       default: '',
     },
     /**
-     * Sets the chart's height in pixel.
+     * Sets the chart's height in pixels. Set to `"auto"` to use the height of the container.
      */
     height: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: 50,
     },
@@ -169,6 +170,9 @@ export default {
 
       return latestEntry[1];
     },
+    autoHeight() {
+      return this.height === 'auto';
+    },
   },
   methods: {
     onChartCreated(chartInstance) {
@@ -215,6 +219,7 @@ export default {
       }
     },
   },
+  HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES,
 };
 </script>
 
@@ -222,12 +227,18 @@ export default {
   <div
     v-resize-observer="handleResize"
     class="gl-display-flex gl-align-items-center"
+    :class="{ 'gl-h-full': autoHeight }"
     @mouseleave="hideTooltip"
   >
     <slot name="default"></slot>
-    <div class="gl-flex-grow-1 gl-relative">
+    <div
+      data-testid="chart-container"
+      class="gl-flex-grow-1 gl-relative"
+      :class="{ [$options.HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES]: autoHeight }"
+    >
       <chart
         v-bind="$attrs"
+        :class="{ 'gl-flex-grow-1': autoHeight }"
         :height="height"
         :options="options"
         @created="onChartCreated"

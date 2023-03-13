@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import { TOOLTIP_LEFT_OFFSET } from '~/utils/charts/constants';
 import { createMockChartInstance } from '~helpers/chart_stubs';
+import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import HeatMapChart from './heatmap.vue';
@@ -21,23 +22,34 @@ describe('heatmap component', () => {
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  beforeEach(() => {
-    mockChartInstance = createMockChartInstance();
-
+  const createComponent = (props = {}) => {
     wrapper = shallowMount(HeatMapChart, {
-      propsData: { options: { series: [] }, dataSeries: [] },
+      propsData: {
+        options: { series: [] },
+        dataSeries: [],
+        ...props,
+      },
     });
-    emitChartCreated();
 
-    return wrapper.vm.$nextTick();
+    emitChartCreated();
+  };
+
+  beforeEach(async () => {
+    mockChartInstance = createMockChartInstance();
   });
 
   it('emits `created`, with the chart instance', () => {
+    createComponent();
+
     expect(wrapper.emitted('created').length).toBe(1);
     expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
   });
 
   describe('tooltip position', () => {
+    beforeEach(() => {
+      createComponent();
+    });
+
     it('is initialized', () => {
       expect(findChartTooltip().props('left')).toBe('0');
       expect(findChartTooltip().props('top')).toBe('0');
@@ -62,6 +74,14 @@ describe('heatmap component', () => {
         expect(findChartTooltip().props('left')).toBe(`${pixel[0] + TOOLTIP_LEFT_OFFSET}px`);
         expect(findChartTooltip().props('top')).toBe(`${pixel[1]}px`);
       });
+    });
+  });
+
+  describe('height', () => {
+    expectHeightAutoClasses({
+      createComponent,
+      findContainer: () => wrapper,
+      findChart,
     });
   });
 });

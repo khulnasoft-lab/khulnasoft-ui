@@ -3,7 +3,7 @@
 import merge from 'lodash/merge';
 import { white, gray100 } from '../../../../scss_to_js/scss_variables';
 import { getDefaultTooltipContent } from '../../../utils/charts/config';
-import { TOOLTIP_LEFT_OFFSET } from '../../../utils/charts/constants';
+import { TOOLTIP_LEFT_OFFSET, HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
 import { debounceByAnimationFrame } from '../../../utils/utils';
@@ -97,6 +97,14 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    /**
+     * Sets the chart's height in pixels. Set to `"auto"` to use the height of the container.
+     */
+    height: {
+      type: [Number, String],
+      required: false,
+      default: null,
     },
   },
   data() {
@@ -210,6 +218,9 @@ export default {
         };
       });
     },
+    autoHeight() {
+      return this.height === 'auto';
+    },
   },
   beforeDestroy() {
     this.chart.getDom().removeEventListener('mousemove', this.debouncedShowHideTooltip);
@@ -249,12 +260,20 @@ export default {
       }
     },
   },
+  HEIGHT_AUTO_CLASSES,
 };
 </script>
 
 <template>
-  <div class="gl-heatmap">
-    <chart v-bind="$attrs" :options="computedOptions" @created="onCreated" v-on="$listeners" />
+  <div class="gl-heatmap" :class="{ [$options.HEIGHT_AUTO_CLASSES]: autoHeight }">
+    <chart
+      v-bind="$attrs"
+      :class="{ 'gl-flex-grow-1': autoHeight }"
+      :height="height"
+      :options="computedOptions"
+      @created="onCreated"
+      v-on="$listeners"
+    />
     <chart-tooltip
       v-if="chart"
       :show="tooltip.show"

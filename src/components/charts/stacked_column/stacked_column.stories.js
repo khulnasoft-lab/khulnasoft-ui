@@ -20,6 +20,7 @@ const template = `
     :y-axis-title="yAxisTitle"
     :secondary-data="secondaryData"
     :secondary-data-title="secondaryDataTitle"
+    :height="height"
   />
 `;
 
@@ -36,6 +37,7 @@ const generateProps = ({
   presentation = columnOptions.stacked,
   secondaryData = [],
   secondaryDataTitle = '',
+  height = null,
 } = {}) => ({
   bars,
   lines,
@@ -47,6 +49,7 @@ const generateProps = ({
   yAxisTitle,
   secondaryDataTitle,
   secondaryData,
+  height,
 });
 
 const Template = (args, { argTypes }) => ({

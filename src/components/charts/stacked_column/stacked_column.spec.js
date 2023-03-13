@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
 import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { expectHeightAutoClasses } from '~helpers/chart_height';
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import {
   mockDefaultStackedLineData,
@@ -277,6 +278,14 @@ describe('stacked column chart component', () => {
 
         expect(chart.props('options')).toMatchSnapshot();
       });
+    });
+  });
+
+  describe('height', () => {
+    expectHeightAutoClasses({
+      createComponent: (props) => createShallowWrapper({ props }),
+      findContainer: () => wrapper,
+      findChart,
     });
   });
 });
