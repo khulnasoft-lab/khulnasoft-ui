@@ -1,3 +1,10 @@
+## [56.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.4.0...v56.4.1) (2023-03-14)
+
+
+### Bug Fixes
+
+* Limit drawer component width to 100% on small devices ([767acd9](https://gitlab.com/gitlab-org/gitlab-ui/commit/767acd944b65ab9680ef612fc62a9b815db7d12f))
+
 # [56.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.3.0...v56.4.0) (2023-03-13)
 
 
