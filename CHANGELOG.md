@@ -1,3 +1,16 @@
+# [58.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v57.0.0...v58.0.0) (2023-03-15)
+
+
+### Features
+
+* **GlCollapsibleListbox:** Remove deprecated GlListbox export ([baaade2](https://gitlab.com/gitlab-org/gitlab-ui/commit/baaade289126b05e47b015644448d7cbb0e98a21))
+
+
+### BREAKING CHANGES
+
+* **GlCollapsibleListbox:** The deprecated GlListbox alias for GlCollapsibleListbox
+has been removed.
+
 # [57.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.4.1...v57.0.0) (2023-03-15)
 
 
