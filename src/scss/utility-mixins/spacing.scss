@@ -1097,8 +1097,7 @@
 }
 
 @mixin gl-sm-pl-0 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
+  @include gl-media-breakpoint-up(sm) {
     @include gl-pl-0;
   }
 }
@@ -1107,6 +1106,12 @@
   // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
     @include gl-pl-5;
+  }
+}
+
+@mixin gl-sm-pl-6 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-pl-6;
   }
 }
 
