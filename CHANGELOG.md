@@ -1,3 +1,18 @@
+# [57.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.4.1...v57.0.0) (2023-03-15)
+
+
+### Bug Fixes
+
+* **css:** convert gl-sm-pl-0 util to mobile-first ([7d0d4e9](https://gitlab.com/gitlab-org/gitlab-ui/commit/7d0d4e90a8720dcd150f73c8e01caf3f30428550))
+* **labels:** Fix small label text ([b1c3988](https://gitlab.com/gitlab-org/gitlab-ui/commit/b1c3988e46f51723a2e6ff1b7ad1ba93514b4371))
+
+
+### BREAKING CHANGES
+
+* **css:** Usages of gl-sm-pl-0 need to be adjusted to account for
+the fact it now removes left padding on viewports larger than sm, while
+it used to do the opposite.
+
 ## [56.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v56.4.0...v56.4.1) (2023-03-14)
 
 
