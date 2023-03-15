@@ -170,6 +170,8 @@ $label-close-button: '.gl-label-close.gl-button';
   .gl-label-text,
   .gl-label-text-scoped {
     @include gl-py-0;
+    @include gl-line-height-normal;
+    @include gl-font-sm;
   }
 
   #{$label-close-button} {
