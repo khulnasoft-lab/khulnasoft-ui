@@ -1,3 +1,10 @@
+# [58.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.0.0...v58.1.0) (2023-03-16)
+
+
+### Features
+
+* **GlFilteredSearch:** added title slot to GlFilteredSearch ([88d82d7](https://gitlab.com/gitlab-org/gitlab-ui/commit/88d82d77c5e93a180b97b1cd702af80452863ff2))
+
 # [58.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v57.0.0...v58.0.0) (2023-03-15)
 
 
