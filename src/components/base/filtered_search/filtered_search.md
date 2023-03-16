@@ -29,7 +29,7 @@ Prepare array of available token configurations with the following fields:
 Each token for filtered search is a Vue component with the following props:
 
 - `value`: an object with a `data` property containing the current value, and optionally an
-`operator` value containing the operator value
+  `operator` value containing the operator value
 - `active`: indicates if the token is currently active. It's the token's responsibility
   to render proper control for editing (for example input).
 - `current-value`: current tokens of the filtered search.
@@ -60,6 +60,5 @@ Pass the list of tokens to the search component. Optionally, you can use `v-mode
 realtime updates:
 
 ```html
-
 <gl-filtered-search :available-tokens="tokens" v-model="value" />
 ```

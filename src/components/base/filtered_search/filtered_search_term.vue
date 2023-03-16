@@ -167,7 +167,7 @@ export default {
           :value="item.type"
           :icon-name="item.icon"
         >
-          {{ item.title }}
+          <slot name="title" v-bind="{ value: item.title }"> {{ item.title }} </slot>
         </gl-filtered-search-suggestion>
       </template>
 
