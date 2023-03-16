@@ -35,5 +35,15 @@
     .gl-new-dropdown-inner {
       max-height: none;
     }
+
+    .gl-new-dropdown-item-content {
+      &:disabled,
+      &[disabled] {
+        @include gl-text-gray-500;
+        cursor: not-allowed;
+        background: none;
+        text-decoration: none;
+      }
+    }
   }
 }

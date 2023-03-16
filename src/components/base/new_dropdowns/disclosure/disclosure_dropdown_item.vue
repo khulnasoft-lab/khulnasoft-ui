@@ -55,6 +55,12 @@ export default {
         wrapperClass: item?.wrapperClass,
       };
     },
+    listIndex() {
+      return this.item?.extraAttrs?.disabled ? null : 0;
+    },
+    componentIndex() {
+      return this.item?.extraAttrs?.disabled ? null : -1;
+    },
     wrapperListeners() {
       const listeners = {
         keydown: this.onKeydown,
@@ -94,7 +100,7 @@ export default {
 
 <template>
   <li
-    tabindex="0"
+    :tabindex="listIndex"
     :class="[$options.ITEM_CLASS, itemComponent.wrapperClass]"
     data-testid="disclosure-dropdown-item"
     v-on="wrapperListeners"
@@ -105,7 +111,7 @@ export default {
         v-bind="itemComponent.attrs"
         ref="item"
         class="gl-new-dropdown-item-content"
-        tabindex="-1"
+        :tabindex="componentIndex"
         v-on="itemComponent.listeners"
       >
         <span class="gl-new-dropdown-item-text-wrapper">
