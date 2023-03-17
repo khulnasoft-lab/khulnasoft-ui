@@ -276,7 +276,7 @@ visual_minimal:
     - <<: *is-merged-result
       when: always
 
-integration_tests:
+.integration_tests:
   image: cypress/browsers:node16.14.0-chrome99-ff97
   extends: [.node, .yarn_install]
   needs: []
@@ -288,6 +288,12 @@ integration_tests:
     expire_in: 1 week
     paths:
       - cypress
+
+integration_tests:
+  extends: [.integration_tests]
+
+integration_tests_vue3:
+  extends: [.integration_tests, .use_vue3]
 
 .unit_tests:
   extends: [.node, .yarn_install]
