@@ -245,7 +245,7 @@ generate_utility_classes:
   script:
     - yarn generate-utilities
 
-visual:
+.visual:
   extends:
     - .puppeteer
     - .yarn_install
@@ -266,20 +266,16 @@ visual:
     paths:
       - tests/__image_snapshots__/
 
+visual:
+  extends: [.visual]
+
 visual_minimal:
-  extends: [.puppeteer, .yarn_install]
-  needs:
-    - build_docker_image
-  stage: test
+  extends: [.visual]
   script:
     - yarn test:visual:minimal
   rules:
     - <<: *is-merged-result
       when: always
-  artifacts:
-    when: always
-    paths:
-      - tests/__image_snapshots__/
 
 integration_tests:
   image: cypress/browsers:node16.14.0-chrome99-ff97
