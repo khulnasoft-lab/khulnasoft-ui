@@ -7,7 +7,12 @@ describe('GlFilteredSearch', () => {
   const activeClass = '.gl-filtered-search-token-segment-active';
 
   const testId = (id) => `[data-testid="${id}"]`;
-  const typeInInput = (text) => cy.get(testId('filtered-search-term-input')).click().type(text);
+  const typeInInput = (text) => {
+    // We type into a different input than the one we click on since activating
+    // a segment creates a different input element.
+    cy.get(testId('filtered-search-term-input')).click();
+    return cy.get(testId('filtered-search-token-segment-input')).type(text);
+  };
   const findTokenSegment = (text) => cy.contains(testId(filteredTokenSegment), text);
   const clickSuggestion = (text) => cy.contains(testId(suggestion), text).click();
   const findActiveToken = () => cy.get(activeClass);
