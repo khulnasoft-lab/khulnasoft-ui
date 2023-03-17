@@ -74,7 +74,6 @@ export default {
 </script>
 
 <template>
-  <!-- START  -->
   <span
     v-if="position === $options.POSITION.START"
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
@@ -87,7 +86,6 @@ export default {
     >
   </span>
 
-  <!-- MIDDLE  -->
   <span
     v-else-if="position === $options.POSITION.MIDDLE"
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
@@ -99,7 +97,6 @@ export default {
     ><span class="gl-truncate-start">&lrm;{{ last }}&lrm;</span>
   </span>
 
-  <!-- END  -->
   <span
     v-else
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
