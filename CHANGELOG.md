@@ -1,3 +1,10 @@
+# [58.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.1.0...v58.2.0) (2023-03-17)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Update btn group style ([503f65c](https://gitlab.com/gitlab-org/gitlab-ui/commit/503f65c21692d3a770f766505d2c567afabc8744))
+
 # [58.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.0.0...v58.1.0) (2023-03-16)
 
 
