@@ -71,15 +71,6 @@ export const Compact = (args, { argTypes }) => ({
   components,
   props: Object.keys(argTypes),
   ...defaults(args),
-  computed: {
-    prevPage() {
-      return Math.max(this.page - 1, 0);
-    },
-    nextPage() {
-      const nextPage = this.page + 1;
-      return nextPage > 3 ? 0 : nextPage;
-    },
-  },
   template: `
     <div class="text-center gl-font-base">
       ${template}
@@ -87,7 +78,13 @@ export const Compact = (args, { argTypes }) => ({
     </div>
   `,
 });
-Compact.args = generateProps({ page: 1, totalItems: 0, align: alignOptions.center });
+Compact.args = generateProps({
+  page: 1,
+  prevPage: 0,
+  nextPage: 2,
+  totalItems: 0,
+  align: alignOptions.center,
+});
 
 export const LinkBased = (args, { argTypes }) => ({
   components,
