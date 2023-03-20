@@ -63,6 +63,36 @@ describe('GlCollapsibleListbox', () => {
     });
   });
 
+  describe('toggle classes', () => {
+    describe.each`
+      toggleClass              | multiple | selected                  | expectedToggleClasses
+      ${'customClass'}         | ${false} | ${mockOptions[0].value}   | ${['customClass']}
+      ${{ customClass: true }} | ${false} | ${mockOptions[0].value}   | ${[{ customClass: true }]}
+      ${['customClass']}       | ${false} | ${mockOptions[0].value}   | ${[['customClass']]}
+      ${'customClass'}         | ${false} | ${null}                   | ${['customClass', 'gl-text-gray-500!']}
+      ${{ customClass: true }} | ${false} | ${undefined}              | ${[{ customClass: true }, 'gl-text-gray-500!']}
+      ${['customClass']}       | ${false} | ${null}                   | ${[['customClass'], 'gl-text-gray-500!']}
+      ${'customClass'}         | ${true}  | ${[mockOptions[0].value]} | ${['customClass']}
+      ${{ customClass: true }} | ${true}  | ${[mockOptions[0].value]} | ${[{ customClass: true }]}
+      ${['customClass']}       | ${true}  | ${[mockOptions[0].value]} | ${[['customClass']]}
+      ${'customClass'}         | ${true}  | ${null}                   | ${['customClass', 'gl-text-gray-500!']}
+      ${{ customClass: true }} | ${true}  | ${undefined}              | ${[{ customClass: true }, 'gl-text-gray-500!']}
+      ${['customClass']}       | ${true}  | ${null}                   | ${[['customClass'], 'gl-text-gray-500!']}
+    `('when listbox', ({ toggleClass, multiple, selected, expectedToggleClasses }) => {
+      beforeEach(() => {
+        buildWrapper({ items: mockOptions, toggleClass, multiple, selected });
+      });
+
+      it(`is ${multiple ? 'multi' : 'single'}-select and ${
+        selected
+          ? 'has selected - does not set non-selected styles'
+          : 'does not have selected - sets the non-selected styles'
+      }`, () => {
+        expect(findBaseDropdown().props('toggleClass')).toEqual(expectedToggleClasses);
+      });
+    });
+  });
+
   describe('ARIA attributes', () => {
     it('should provide `toggleId` to the base dropdown and reference it in`aria-labelledby` attribute of the list container`', async () => {
       await buildWrapper({ items: mockOptions });
