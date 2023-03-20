@@ -349,6 +349,17 @@ export default {
     hasCustomToggle() {
       return Boolean(this.$scopedSlots.toggle);
     },
+    hasSelection() {
+      return Boolean(this.selectedValues.length);
+    },
+    toggleButtonClasses() {
+      const toggleClasses = [this.toggleClass];
+
+      if (!this.hasSelection) {
+        toggleClasses.push('gl-text-gray-500!');
+      }
+      return toggleClasses;
+    },
   },
   watch: {
     selected: {
@@ -561,7 +572,7 @@ export default {
     :block="block"
     :toggle-id="toggleId"
     :toggle-text="listboxToggleText"
-    :toggle-class="toggleClass"
+    :toggle-class="toggleButtonClasses"
     :text-sr-only="textSrOnly"
     :category="category"
     :variant="variant"
