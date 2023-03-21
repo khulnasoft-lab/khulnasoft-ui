@@ -4,6 +4,7 @@ import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
+  GL_DROPDOWN_FOCUS_CONTENT,
   ARROW_DOWN,
   ARROW_UP,
   HOME,
@@ -82,10 +83,6 @@ describe('GlDisclosureDropdown', () => {
     it('should re-emit the event', () => {
       expect(wrapper.emitted(GL_DROPDOWN_SHOWN)).toHaveLength(1);
     });
-
-    it('should focus the first item', () => {
-      expect(findDisclosureItems().at(0).find(ITEM_SELECTOR).element).toHaveFocus();
-    });
   });
 
   describe('onHide', () => {
@@ -112,7 +109,11 @@ describe('GlDisclosureDropdown', () => {
       thirdItem = findListItem(2);
     });
 
-    it('should move the focus down the list of items on `ARROW_DOWN` and stop on the last item', async () => {
+    it('should move the focus from toggle and down the list of items on `ARROW_DOWN` and stop on the last item', async () => {
+      findBaseDropdown().vm.$emit(
+        GL_DROPDOWN_FOCUS_CONTENT,
+        new KeyboardEvent('keydown', { code: ARROW_DOWN })
+      );
       expect(firstItem.element).toHaveFocus();
       await firstItem.trigger('keydown', { code: ARROW_DOWN });
       expect(secondItem.element).toHaveFocus();
@@ -135,6 +136,10 @@ describe('GlDisclosureDropdown', () => {
     });
 
     it('should move focus to the last item on `END` keydown', async () => {
+      findBaseDropdown().vm.$emit(
+        GL_DROPDOWN_FOCUS_CONTENT,
+        new KeyboardEvent('keydown', { code: ARROW_DOWN })
+      );
       expect(firstItem.element).toHaveFocus();
       await firstItem.trigger('keydown', { code: END });
       expect(thirdItem.element).toHaveFocus();
@@ -158,6 +163,10 @@ describe('GlDisclosureDropdown', () => {
       });
 
       it('should skip over it', async () => {
+        findBaseDropdown().vm.$emit(
+          GL_DROPDOWN_FOCUS_CONTENT,
+          new KeyboardEvent('keydown', { code: ARROW_DOWN })
+        );
         expect(firstItem.element).toHaveFocus();
         await firstItem.trigger('keydown', { code: ARROW_DOWN });
 
