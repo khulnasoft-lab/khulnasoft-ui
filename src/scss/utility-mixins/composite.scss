@@ -18,3 +18,7 @@
   @include gl-align-items-center;
   @include gl-justify-content-center;
 }
+
+@mixin gl--focus($focus: true) {
+  @include gl-focus;
+}

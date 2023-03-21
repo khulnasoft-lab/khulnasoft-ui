@@ -344,6 +344,11 @@
   padding-bottom: $gl-spacing-scale-7;
 }
 
+@mixin gl-py-8 {
+  padding-top: $gl-spacing-scale-8;
+  padding-bottom: $gl-spacing-scale-8;
+}
+
 @mixin gl-py-13 {
   padding-top: $gl-spacing-scale-13;
   padding-bottom: $gl-spacing-scale-13;
@@ -400,6 +405,10 @@
   margin-top: -$gl-spacing-scale-1;
 }
 
+@mixin gl-mt-n5 {
+  margin-top: -$gl-spacing-scale-5;
+}
+
 @mixin gl-md-mt-n2 {
   @include gl-media-breakpoint-up(md) {
     margin-top: -$gl-spacing-scale-2;
@@ -450,6 +459,12 @@
   margin-top: $gl-spacing-scale-11;
 }
 
+@mixin gl-md-mt-11 {
+  @include gl-media-breakpoint-up(md) {
+    margin-top: $gl-spacing-scale-11;
+  }
+}
+
 @mixin gl-mr-auto {
   margin-right: auto;
 }
@@ -464,6 +479,10 @@
 
 @mixin gl-mr-n1 {
   margin-right: -$gl-spacing-scale-1;
+}
+
+@mixin gl-mr-n2 {
+  margin-right: -$gl-spacing-scale-2;
 }
 
 @mixin gl-mr-2 {
@@ -496,6 +515,12 @@
 
 @mixin gl-mr-7 {
   margin-right: $gl-spacing-scale-7;
+}
+
+@mixin gl-sm-mr-3 {
+  @include gl-media-breakpoint-up(sm) {
+    margin-right: $gl-spacing-scale-3;
+  }
 }
 
 @mixin gl-mb-auto {
@@ -556,6 +581,10 @@
 
 @mixin gl-mb-11 {
   margin-bottom: $gl-spacing-scale-11;
+}
+
+@mixin gl-mb-12 {
+  margin-bottom: $gl-spacing-scale-12;
 }
 
 @mixin gl-ml-auto {
@@ -935,9 +964,33 @@
   }
 }
 
+@mixin gl-md-mt-5 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-mt-5;
+  }
+}
+
 @mixin gl-md-mb-0 {
   @include gl-media-breakpoint-up(md) {
     @include gl-mb-0;
+  }
+}
+
+@mixin gl-md-mb-3 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-mb-3;
+  }
+}
+
+@mixin gl-md-mb-6 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-mb-6;
+  }
+}
+
+@mixin gl-md-mb-12 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-mb-12;
   }
 }
 
@@ -1028,6 +1081,12 @@
 @mixin gl-lg-ml-12 {
   @include gl-media-breakpoint-up(lg) {
     margin-left: $gl-spacing-scale-12;
+  }
+}
+
+@mixin gl-xl-ml-3 {
+  @include gl-media-breakpoint-up(xl) {
+    margin-left: $gl-spacing-scale-3;
   }
 }
 
@@ -1148,6 +1207,12 @@
 @mixin gl-md-pt-5 {
   @include gl-media-breakpoint-up(md) {
     @include gl-pt-5;
+  }
+}
+
+@mixin gl-md-pt-11 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-pt-11;
   }
 }
 

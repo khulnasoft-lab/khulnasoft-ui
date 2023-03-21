@@ -126,6 +126,14 @@
   width: 100%;
 }
 
+@mixin gl-w-grid-size-30 {
+  width: $grid-size * 30;
+}
+
+@mixin gl-w-grid-size-40 {
+  width: $grid-size * 40;
+}
+
 @mixin gl-xs-w-full {
   // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
   @include gl-media-breakpoint-down(sm) {
@@ -378,8 +386,16 @@
   max-width: $gl-spacing-scale-34;
 }
 
+@mixin gl-max-w-48 {
+  max-width: $gl-spacing-scale-48;
+}
+
 @mixin gl-max-w-62 {
   max-width: $gl-spacing-scale-62;
+}
+
+@mixin gl-max-w-75 {
+  max-width: $gl-spacing-scale-75;
 }
 
 @mixin gl-max-w-80 {
@@ -408,6 +424,10 @@
 
 @mixin gl-max-w-100vw {
   max-width: 100vw;
+}
+
+@mixin gl-max-w-50p {
+  max-width: 50%;
 }
 
 /**

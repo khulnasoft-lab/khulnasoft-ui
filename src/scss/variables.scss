@@ -22,7 +22,9 @@ $gl-spacing-scale-26: 26 * $grid-size;
 $gl-spacing-scale-28: 28 * $grid-size;
 $gl-spacing-scale-30: 30 * $grid-size;
 $gl-spacing-scale-34: 34 * $grid-size;
+$gl-spacing-scale-48: 48 * $grid-size;
 $gl-spacing-scale-62: 62 * $grid-size;
+$gl-spacing-scale-75: 75 * $grid-size;
 $gl-spacing-scale-80: 80 * $grid-size;
 
 // Responsive breakpoints
@@ -328,6 +330,7 @@ $gl-font-weights: (
 );
 
 // Line height
+$gl-line-height-12: px-to-rem(12px);
 $gl-line-height-16: px-to-rem(16px);
 $gl-line-height-20: px-to-rem(20px);
 $gl-line-height-24: px-to-rem(24px);
@@ -342,6 +345,7 @@ $gl-line-height-52: px-to-rem(52px);
 
 // default (min-width: 0)
 $gl-font-size: px-to-rem(14px);
+$gl-font-size-xs: px-to-rem(10px);
 $gl-font-size-sm: px-to-rem(12px);
 $gl-font-size-lg: px-to-rem(16px);
 
