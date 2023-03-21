@@ -1,3 +1,10 @@
+## [58.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.2.0...v58.2.1) (2023-03-21)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Keep focus on toggle on open ([8dd3172](https://gitlab.com/gitlab-org/gitlab-ui/commit/8dd3172aaf304bad3b7a606dc6732af6a7390acf))
+
 # [58.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.1.0...v58.2.0) (2023-03-17)
 
 
