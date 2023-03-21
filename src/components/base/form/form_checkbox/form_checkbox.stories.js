@@ -1,4 +1,5 @@
-import { GlFormCheckbox, GlFormCheckboxGroup } from '../../../../index';
+import GlFormCheckbox from './form_checkbox.vue';
+import GlFormCheckboxGroup from './form_checkbox_group.vue';
 import readme from './form_checkbox.md';
 
 const components = {

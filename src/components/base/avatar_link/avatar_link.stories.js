@@ -1,6 +1,8 @@
-import { GlAvatarLink, GlAvatar, GlAvatarLabeled } from '../../../index';
+import GlAvatar from '../avatar/avatar.vue';
+import GlAvatarLabeled from '../avatar_labeled/avatar_labeled.vue';
 import { avatarSizeOptions, avatarShapeOptions } from '../../../utils/constants';
 import avatarPath from '../../../../static/img/avatar.png';
+import GlAvatarLink from './avatar_link.vue';
 import readme from './avatar_link.md';
 
 const components = { GlAvatarLink, GlAvatar, GlAvatarLabeled };

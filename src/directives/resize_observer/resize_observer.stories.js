@@ -1,4 +1,4 @@
-import { GlResizeObserverDirective as GlResizeObserver } from '../../index';
+import GlResizeObserver from './resize_observer';
 import readme from './resize_observer.md';
 
 const generateProps = ({ elementWidth = '100%', elementHeight = '100%' } = {}) => ({

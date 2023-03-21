@@ -1,6 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlDropdownItem } from '../../../index';
 import { variantCssColorMap } from '../../../utils/constants';
+import GlDropdownItem from './dropdown_item.vue';
 import readme from './dropdown_item.md';
 
 const components = {

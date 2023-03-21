@@ -1,6 +1,6 @@
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
-import { GlIcon } from '../../../index';
+import GlIcon from '../icon/icon.vue';
 import { provide } from './common_story_options';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import readme from './filtered_search_token.md';

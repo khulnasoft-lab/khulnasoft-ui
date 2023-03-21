@@ -1,6 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlBroadcastMessage } from '../../../index';
 import { colorThemes } from '../../../utils/constants';
+import GlBroadcastMessage from './broadcast_message.vue';
 import { TYPE_LIST, TYPE_NOTIFICATION } from './constants';
 import readme from './broadcast_message.md';
 

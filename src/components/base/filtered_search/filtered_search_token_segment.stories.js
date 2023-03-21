@@ -1,6 +1,6 @@
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
-import { GlFilteredSearchSuggestion } from '../../../index';
+import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import { provide } from './common_story_options';
 import readme from './filtered_search_token_segment.md';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';

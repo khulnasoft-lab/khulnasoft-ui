@@ -1,5 +1,6 @@
 import { setStoryTimeout } from '../../../utils/test_utils';
-import { GlInfiniteScroll, GlLoadingIcon } from '../../../index';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import GlInfiniteScroll from './infinite_scroll.vue';
 import readme from './infinite_scroll.md';
 
 const ITEMS_BATCH_SIZE = 20;

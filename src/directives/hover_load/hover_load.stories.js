@@ -1,4 +1,4 @@
-import { GlHoverLoadDirective } from '../../index';
+import GlHoverLoadDirective from './hover_load';
 import readme from './hover_load.md';
 
 const directives = {

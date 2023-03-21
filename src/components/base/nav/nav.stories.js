@@ -1,11 +1,9 @@
-import {
-  GlNav,
-  GlNavItem,
-  GlNavItemDropdown,
-  GlDropdownItem,
-  GlDropdownDivider,
-  GlIcon,
-} from '../../../index';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
+import GlDropdownDivider from '../dropdown/dropdown_divider.vue';
+import GlIcon from '../icon/icon.vue';
+import GlNavItemDropdown from './nav_item_dropdown.vue';
+import GlNavItem from './nav_item.vue';
+import GlNav from './nav.vue';
 import readme from './nav.md';
 
 export const Default = (_args, { argTypes }) => ({

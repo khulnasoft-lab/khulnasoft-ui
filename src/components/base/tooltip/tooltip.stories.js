@@ -1,4 +1,6 @@
-import { GlTooltip, GlTooltipDirective, GlButton } from '../../../index';
+import { GlTooltipDirective } from '../../../directives/tooltip';
+import GlButton from '../button/button.vue';
+import GlTooltip from './tooltip.vue';
 import readme from './tooltip.md';
 
 function makeTooltip(modifier = '') {

@@ -1,5 +1,6 @@
-import { GlFormInputGroup, GlInputGroupText } from '../../../../index';
+import GlInputGroupText from '../input_group_text/input_group_text.vue';
 import { disableControls } from '../../../../utils/stories_utils';
+import GlFormInputGroup from './form_input_group.vue';
 import readme from './form_input_group.md';
 
 const template = `

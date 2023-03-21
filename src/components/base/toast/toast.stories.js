@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import { GlToast, GlButton } from '../../../index';
+import GlButton from '../button/button.vue';
+import GlToast from './toast';
 import readme from './toast.md';
 
 Vue.use(GlToast);

@@ -1,5 +1,5 @@
 import { BNavbarBrand } from 'bootstrap-vue';
-import { GlNavbar } from '../../../index';
+import GlNavbar from './navbar.vue';
 import readme from './navbar.md';
 
 const Template = (args, { argTypes }) => ({

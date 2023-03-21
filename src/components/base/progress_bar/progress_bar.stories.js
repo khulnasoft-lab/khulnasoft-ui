@@ -1,5 +1,5 @@
-import { GlProgressBar } from '../../../index';
 import { variantOptions } from '../../../utils/constants';
+import GlProgressBar from './progress_bar.vue';
 
 const generateProps = ({ value = 30, variant = variantOptions.primary } = {}) => ({
   value,

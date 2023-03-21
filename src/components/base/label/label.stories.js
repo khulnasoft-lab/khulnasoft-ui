@@ -1,5 +1,5 @@
-import { GlLabel } from '../../../index';
 import { labelSizeOptions, tooltipPlacements } from '../../../utils/constants';
+import GlLabel from './label.vue';
 import readme from './label.md';
 
 const template = `

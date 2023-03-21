@@ -1,4 +1,6 @@
-import { GlButton, GlCard, GlCollapse } from '../../../index';
+import GlButton from '../button/button.vue';
+import GlCard from '../card/card.vue';
+import GlCollapse from './collapse.vue';
 import readme from './collapse.md';
 
 const generateProps = ({ visible = false } = {}) => ({ visible });

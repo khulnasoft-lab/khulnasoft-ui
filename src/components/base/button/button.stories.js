@@ -1,12 +1,7 @@
-import {
-  GlButton,
-  GlButtonGroup,
-  GlBadge,
-  GlDropdown,
-  GlDropdownItem,
-  GlSorting,
-  GlSortingItem,
-} from '../../../index';
+import GlDropdown from '../dropdown/dropdown.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
+import GlSorting from '../sorting/sorting.vue';
+import GlSortingItem from '../sorting/sorting_item.vue';
 import {
   buttonCategoryOptions,
   buttonVariantOptions,
@@ -14,6 +9,9 @@ import {
   buttonSizeOptions,
   targetOptions,
 } from '../../../utils/constants';
+import GlBadge from '../badge/badge.vue';
+import GlButtonGroup from '../button_group/button_group.vue';
+import GlButton from './button.vue';
 import readme from './button.md';
 
 const components = { GlButton };

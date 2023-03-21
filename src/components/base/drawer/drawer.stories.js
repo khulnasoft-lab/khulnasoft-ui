@@ -1,5 +1,7 @@
-import { GlDrawer, GlButton, GlMarkdown } from '../../../index';
+import GlButton from '../button/button.vue';
+import GlMarkdown from '../markdown/markdown.vue';
 import { drawerVariants } from '../../../utils/constants';
+import GlDrawer from './drawer.vue';
 import readme from './drawer.md';
 
 const components = { GlDrawer, GlButton, GlMarkdown };

@@ -1,5 +1,5 @@
-import { GlSearchBoxByType } from '../../../index';
 import { disableControls } from '../../../utils/stories_utils';
+import GlSearchBoxByType from './search_box_by_type.vue';
 import readme from './search_box_by_type.md';
 
 const template = `

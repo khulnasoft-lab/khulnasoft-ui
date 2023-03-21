@@ -1,5 +1,6 @@
-import { GlChart } from '../../../charts';
-import { GlTabs, GlTab } from '../../../index';
+import GlTabs from '../../base/tabs/tabs/tabs.vue';
+import GlTab from '../../base/tabs/tab/tab.vue';
+import GlChart from './chart.vue';
 import readme from './chart.md';
 
 const Template = (args, { argTypes = {} }) => ({

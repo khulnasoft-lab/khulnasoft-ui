@@ -1,4 +1,4 @@
-import { GlTruncate } from '../../../index';
+import GlTruncate from './truncate.vue';
 import { POSITION } from './constants';
 import readme from './truncate.md';
 

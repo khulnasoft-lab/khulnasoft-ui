@@ -1,7 +1,7 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlIcon } from '../../../index';
 import { iconSizeOptions } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
+import GlIcon from './icon.vue';
 import readme from './icon.md';
 
 const components = {

@@ -1,5 +1,5 @@
-import { GlLoadingIcon } from '../../../index';
 import { viewModeOptions, loadingIconSizes } from '../../../utils/constants';
+import GlLoadingIcon from './loading_icon.vue';
 import readme from './loading_icon.md';
 
 const template = `

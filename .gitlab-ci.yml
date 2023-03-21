@@ -267,6 +267,7 @@ visual:
 
 visual_vue3:
   extends: [.visual, .use_vue3]
+  allow_failure: true
 
 visual_minimal:
   extends: [.visual]

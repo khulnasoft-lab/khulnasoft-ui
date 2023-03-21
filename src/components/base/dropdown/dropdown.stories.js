@@ -1,21 +1,19 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import {
-  GlAvatar,
-  GlIcon,
-  GlDropdown,
-  GlDropdownDivider,
-  GlDropdownSectionHeader,
-  GlDropdownItem,
-  GlDropdownText,
-  GlDropdownForm,
-  GlButton,
-  GlSearchBoxByType,
-} from '../../../index';
+import GlAvatar from '../avatar/avatar.vue';
+import GlIcon from '../icon/icon.vue';
+import GlButton from '../button/button.vue';
+import GlSearchBoxByType from '../search_box_by_type/search_box_by_type.vue';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../utils/constants';
+import GlDropdownDivider from './dropdown_divider.vue';
+import GlDropdownSectionHeader from './dropdown_section_header.vue';
+import GlDropdownItem from './dropdown_item.vue';
+import GlDropdownText from './dropdown_text.vue';
+import GlDropdownForm from './dropdown_form.vue';
+import GlDropdown from './dropdown.vue';
 import readme from './dropdown.md';
 
 const components = {

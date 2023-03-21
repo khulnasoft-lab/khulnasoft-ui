@@ -1,5 +1,5 @@
-import { GlOutsideDirective } from '../../index';
 import GlButton from '../../components/base/button/button.vue';
+import GlOutsideDirective from './outside';
 import readme from './outside.md';
 
 export const Default = () => ({

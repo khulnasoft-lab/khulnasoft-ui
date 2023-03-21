@@ -1,6 +1,9 @@
 import range from 'lodash/range';
-import { GlTabs, GlTab, GlScrollableTabs, GlBadge } from '../../../../index';
+import GlBadge from '../../badge/badge.vue';
 import { badgeVariantOptions } from '../../../../utils/constants';
+import GlTab from '../tab/tab.vue';
+import GlScrollableTabs from './scrollable_tabs.vue';
+import GlTabs from './tabs.vue';
 import readme from './tabs.md';
 
 const components = {
@@ -153,7 +156,7 @@ export const WithCounterBadges = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { ...components, GlBadge },
   template: wrap(`
-    <gl-tab 
+    <gl-tab
       v-for="variant in $options.badgeVariantOptions"
       :key="variant"
     >

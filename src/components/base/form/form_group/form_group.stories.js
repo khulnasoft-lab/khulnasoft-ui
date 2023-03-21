@@ -1,5 +1,7 @@
-import { GlFormGroup, GlFormInput, GlFormTextarea } from '../../../../index';
+import GlFormInput from '../form_input/form_input.vue';
+import GlFormTextarea from '../form_textarea/form_textarea.vue';
 import { disableControls } from '../../../../utils/stories_utils';
+import GlFormGroup from './form_group.vue';
 import readme from './form_group.md';
 
 const components = {

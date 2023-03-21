@@ -4,15 +4,12 @@ import {
   buttonVariantOptions,
   dropdownPlacements,
 } from '../../../../utils/constants';
-import {
-  GlIcon,
-  GlCollapsibleListbox,
-  GlSearchBoxByType,
-  GlButtonGroup,
-  GlButton,
-  GlBadge,
-  GlAvatar,
-} from '../../../../index';
+import GlIcon from '../../icon/icon.vue';
+import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
+import GlButtonGroup from '../../button_group/button_group.vue';
+import GlButton from '../../button/button.vue';
+import GlBadge from '../../badge/badge.vue';
+import GlAvatar from '../../avatar/avatar.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import { setStoryTimeout } from '../../../../utils/test_utils';
 import { disableControls } from '../../../../utils/stories_utils';
@@ -26,6 +23,7 @@ import {
 import readme from './listbox.md';
 import { mockOptions, mockGroups, mockUsers } from './mock_data';
 import { flattenedOptions } from './utils';
+import GlCollapsibleListbox from './listbox.vue';
 
 const defaultValue = (prop) => GlCollapsibleListbox.props[prop].default;
 

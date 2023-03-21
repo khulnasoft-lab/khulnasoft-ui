@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import { GlAvatar } from '../../../index';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
+import GlAvatar from './avatar.vue';
 import readme from './avatar.md';
 
 Vue.directive('gl-tooltip', GlTooltipDirective);

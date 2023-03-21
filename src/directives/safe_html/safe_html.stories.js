@@ -1,5 +1,5 @@
 import DOMPurify from 'dompurify';
-import { GlSafeHtmlDirective as GlSafeHtml } from '../../index';
+import GlSafeHtml from './safe_html';
 import readme from './safe_html.md';
 
 const { sanitize } = DOMPurify;

@@ -1,7 +1,8 @@
-import { GlFormGroup, GlDatepicker } from '../../../index';
+import GlFormGroup from '../form/form_group/form_group.vue';
 import { disableControls } from '../../../utils/stories_utils';
 import { useFakeDate } from '../../../utils/use_fake_date';
 import { makeContainer } from '../../../utils/story_decorators/container';
+import GlDatepicker from './datepicker.vue';
 import readme from './datepicker.md';
 
 const defaults = {

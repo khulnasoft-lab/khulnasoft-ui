@@ -1,4 +1,4 @@
-import { GlFormRadio } from '../../../../index';
+import GlFormRadio from './form_radio.vue';
 import readme from './form_radio.md';
 
 const defaultOptions = [
