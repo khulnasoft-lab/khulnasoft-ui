@@ -421,6 +421,11 @@
   border-bottom-right-radius: 0;
 }
 
+@mixin gl-rounded-bottom-base {
+  border-bottom-left-radius: $gl-border-radius-base;
+  border-bottom-right-radius: $gl-border-radius-base;
+}
+
 @mixin gl-rounded-top-left-small {
   border-top-left-radius: $gl-border-radius-small;
 }
