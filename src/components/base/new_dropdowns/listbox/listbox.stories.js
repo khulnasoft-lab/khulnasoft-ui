@@ -45,6 +45,7 @@ const generateProps = ({
   searchPlaceholder = defaultValue('searchPlaceholder'),
   noCaret = defaultValue('noCaret'),
   placement = defaultValue('placement'),
+  toggleClass,
   toggleText,
   textSrOnly = defaultValue('textSrOnly'),
   headerText = defaultValue('headerText'),
@@ -71,6 +72,7 @@ const generateProps = ({
   searchPlaceholder,
   noCaret,
   placement,
+  toggleClass,
   toggleText,
   textSrOnly,
   headerText,
@@ -100,6 +102,7 @@ const makeBindings = (overrides = {}) =>
     ':search-placeholder': 'searchPlaceholder',
     ':no-caret': 'noCaret',
     ':placement': 'placement',
+    ':toggle-class': 'toggleClass',
     ':toggle-text': 'toggleText',
     ':text-sr-only': 'textSrOnly',
     ':header-text': 'headerText',
@@ -231,9 +234,10 @@ export const CustomListItem = (args, { argTypes }) => ({
   },
   computed: {
     customToggleText() {
-      return this.selected.length !== 1
-        ? `${this.selected.length} assignees`
-        : this.items.find(({ value }) => value === this.selected[0]).text;
+      if (this.selected.length === 0) return 'Select assignee(s)';
+      if (this.selected.length === 1)
+        return this.items.find(({ value }) => value === this.selected[0]).text;
+      return `${this.selected.length} assignees`;
     },
   },
   methods: {
