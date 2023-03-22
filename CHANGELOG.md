@@ -1,3 +1,10 @@
+# [58.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.2.1...v58.3.0) (2023-03-22)
+
+
+### Features
+
+* **GlCollapsibleListbox:** Add non-selected toggle styles ([cb60321](https://gitlab.com/gitlab-org/gitlab-ui/commit/cb60321570be25441211410c0a3a42bafd836a80))
+
 ## [58.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.2.0...v58.2.1) (2023-03-21)
 
 
