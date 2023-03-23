@@ -11,6 +11,14 @@
   transition-property: width;
 }
 
+@mixin gl-transition-property-stroke {
+  transition-property: stroke;
+}
+
+@mixin gl-transition-property-stroke-opacity {
+  transition-property: stroke-opacity;
+}
+
 @mixin gl-transition-duration-slow {
   transition-duration: $gl-transition-duration-slow;
 }

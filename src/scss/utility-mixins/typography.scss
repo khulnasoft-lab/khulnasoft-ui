@@ -35,6 +35,10 @@
 * - Strictly based on design system type scale. See
 * $gl-type-scale for further references.
 */
+@mixin gl-font-xs {
+  font-size: $gl-font-size-xs;
+}
+
 @mixin gl-font-sm {
   font-size: $gl-font-size-sm;
 }
@@ -146,8 +150,16 @@
   line-height: 0;
 }
 
+@mixin gl-line-height-1 {
+  line-height: 1;
+}
+
 @mixin gl-line-height-normal {
   line-height: $gl-line-height-16;
+}
+
+@mixin gl-line-height-12 {
+  line-height: $gl-line-height-12;
 }
 
 @mixin gl-line-height-20 {
@@ -180,4 +192,13 @@
 
 @mixin gl-reset-line-height {
   line-height: inherit;
+}
+
+/**
+* Letter spacing utilities.
+*
+* naming convention: gl-letter-spacing-{letter-spacing}{unit}
+*/
+@mixin gl-letter-spacing-06em {
+  letter-spacing: 0.06em;
 }

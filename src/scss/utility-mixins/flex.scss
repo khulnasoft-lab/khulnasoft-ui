@@ -241,6 +241,10 @@
   flex-basis: 0;
 }
 
+@mixin gl-flex-basis-quarter {
+  flex-basis: 25%;
+}
+
 @mixin gl-flex-basis-third {
   flex-basis: 33%;
 }
@@ -255,6 +259,10 @@
 
 @mixin gl-flex-basis-full {
   flex-basis: 100%;
+}
+
+@mixin gl-flex-flow-row-wrap {
+  flex-flow: row wrap;
 }
 
 @mixin gl-justify-content-center {
@@ -285,6 +293,12 @@
 
 @mixin gl-justify-content-space-between {
   justify-content: space-between;
+}
+
+@mixin gl-md-justify-content-space-between {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-justify-content-space-between;
+  }
 }
 
 @mixin gl-justify-content-start {
