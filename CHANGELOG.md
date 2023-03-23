@@ -1,3 +1,10 @@
+# [58.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.3.0...v58.4.0) (2023-03-23)
+
+
+### Features
+
+* **css:** migrate CSS utils from GitLab ([c2b8982](https://gitlab.com/gitlab-org/gitlab-ui/commit/c2b8982f0d8ca06c5c17ca028b7607615d318c84))
+
 # [58.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.2.1...v58.3.0) (2023-03-22)
 
 
