@@ -2656,6 +2656,32 @@
     regenerator-runtime "^0.13.7"
     resolve-from "^5.0.0"
 
+"@storybook/vue3@6.5.16":
+  version "6.5.16"
+  resolved "https://registry.yarnpkg.com/@storybook/vue3/-/vue3-6.5.16.tgz#b70346a445b26820f689401f81c4327a068aff9c"
+  integrity sha512-bKUxNlzv2a1V8mGIDgI77uBbZ9GI2ydhQ2TQA/Hd3pCycm/3YEISsetPkhieS+M5Kmh2lum250c+2UyBRmnrZQ==
+  dependencies:
+    "@storybook/addons" "6.5.16"
+    "@storybook/core" "6.5.16"
+    "@storybook/core-common" "6.5.16"
+    "@storybook/csf" "0.0.2--canary.4566f4d.1"
+    "@storybook/docs-tools" "6.5.16"
+    "@storybook/store" "6.5.16"
+    "@types/node" "^14.14.20 || ^16.0.0"
+    "@types/webpack-env" "^1.16.0"
+    core-js "^3.8.2"
+    global "^4.4.0"
+    react "16.14.0"
+    react-dom "16.14.0"
+    read-pkg-up "^7.0.1"
+    regenerator-runtime "^0.13.7"
+    ts-dedent "^2.0.0"
+    ts-loader "^8.0.14"
+    vue-docgen-api "^4.44.15"
+    vue-docgen-loader "^1.5.0"
+    vue-loader "^16.4.1"
+    webpack ">=4.0.0 <6.0.0"
+
 "@storybook/vue@6.5.16":
   version "6.5.16"
   resolved "https://registry.yarnpkg.com/@storybook/vue/-/vue-6.5.16.tgz#e548995f468e1503a00c324814e3ab76cfee2c82"
@@ -4419,7 +4445,7 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-"bootstrap-vue-vue3@npm:bootstrap-vue@2.23.1", bootstrap-vue@2.23.1:
+bootstrap-vue@2.23.1:
   version "2.23.1"
   resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.23.1.tgz#8f866f7cda27eb0e7e13a0bea8d55d8fc7a82199"
   integrity sha512-SEWkG4LzmMuWjQdSYmAQk1G/oOKm37dtNfjB5kxq0YafnL2W6qUAmeDTcIZVbPiQd2OQlIkWOMPBRGySk/zGsg==
@@ -8115,6 +8141,11 @@ hash-sum@^1.0.2:
   resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-1.0.2.tgz#33b40777754c6432573c120cc3808bbd10d47f04"
   integrity sha1-M7QHd3VMZDJXPBIMw4CLvRDUfwQ=
 
+hash-sum@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-2.0.0.tgz#81d01bb5de8ea4a214ad5d6ead1b523460b0b45a"
+  integrity sha512-WdZTbAByD+pHfl/g9QSsBIIwy8IT+EsPiKDs0KNX+zSHhdDLFKdZu0BQHljvO+0QI/BasbMSUa8wYNCZTvhslg==
+
 hash.js@^1.0.0, hash.js@^1.0.3:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/hash.js/-/hash.js-1.1.5.tgz#e38ab4b85dfb1e0c40fe9265c0e9b54854c23812"
@@ -10991,6 +11022,11 @@ mockdate@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/mockdate/-/mockdate-2.0.5.tgz#70c6abf9ed4b2dae65c81dfc170dd1a5cec53620"
   integrity sha512-ST0PnThzWKcgSLyc+ugLVql45PvESt3Ul/wrdV/OPc/6Pr8dbLAIJsN1cIp41FLzbN+srVTNIRn+5Cju0nyV6A==
+
+module-alias@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/module-alias/-/module-alias-2.2.2.tgz#151cdcecc24e25739ff0aa6e51e1c5716974c0e0"
+  integrity sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -15869,6 +15905,15 @@ vue-inbrowser-compiler-utils@^4.44.23:
   dependencies:
     camelcase "^5.3.1"
     vue-inbrowser-compiler-demi "^4.44.23"
+
+"vue-loader-vue3@npm:vue-loader@17", vue-loader@^16.4.1, vue-loader@^17.0.0:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-17.0.1.tgz#c0ee8875e0610a0c2d13ba9b4d50a9c8442e7a3a"
+  integrity sha512-/OOyugJnImKCkAKrAvdsWMuwoCqGxWT5USLsjohzWbMgOwpA5wQmzQiLMzZd7DjhIfunzAGIApTOgIylz/kwcg==
+  dependencies:
+    chalk "^4.1.0"
+    hash-sum "^2.0.0"
+    loader-utils "^2.0.0"
 
 vue-loader@^15.8.3:
   version "15.9.8"

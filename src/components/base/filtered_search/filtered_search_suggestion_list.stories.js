@@ -1,4 +1,5 @@
-import { GlFilteredSearchSuggestionList, GlFilteredSearchSuggestion } from '../../../index';
+import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
+import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import { provide } from './common_story_options';
 import readme from './filtered_search_suggestion_list.md';
 

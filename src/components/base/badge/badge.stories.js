@@ -1,11 +1,11 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { GlBadge } from '../../../index';
 import {
   badgeSizeOptions,
   badgeVariantOptions,
   badgeIconSizeOptions,
 } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
+import GlBadge from './badge.vue';
 import readme from './badge.md';
 
 const template = `

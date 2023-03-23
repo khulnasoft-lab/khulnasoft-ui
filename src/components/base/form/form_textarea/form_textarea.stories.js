@@ -1,4 +1,4 @@
-import { GlFormTextarea } from '../../../../index';
+import GlFormTextarea from './form_textarea.vue';
 import readme from './form_textarea.md';
 
 const template = `

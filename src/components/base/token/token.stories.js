@@ -1,5 +1,6 @@
-import { GlToken, GlAvatar } from '../../../index';
+import GlAvatar from '../avatar/avatar.vue';
 import { tokenVariants } from '../../../utils/constants';
+import GlToken from './token.vue';
 
 import readme from './token.md';
 

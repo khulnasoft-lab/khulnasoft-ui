@@ -1,18 +1,16 @@
-import {
-  GlFilteredSearch,
-  GlFilteredSearchToken,
-  GlFilteredSearchSuggestion,
-  GlFilteredSearchSuggestionList,
-  GlFilteredSearchTerm,
-  GlFilteredSearchTokenSegment,
-  GlLoadingIcon,
-  GlIcon,
-  GlToken,
-  GlAvatar,
-  GlDropdownDivider,
-} from '../../../index';
+import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import GlIcon from '../icon/icon.vue';
+import GlToken from '../token/token.vue';
+import GlAvatar from '../avatar/avatar.vue';
+import GlDropdownDivider from '../dropdown/dropdown_divider.vue';
 import { setStoryTimeout } from '../../../utils/test_utils';
 import { makeContainer } from '../../../utils/story_decorators/container';
+import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
+import GlFilteredSearchTerm from './filtered_search_term.vue';
+import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
+import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
+import GlFilteredSearchToken from './filtered_search_token.vue';
+import GlFilteredSearch from './filtered_search.vue';
 import readme from './filtered_search.md';
 
 const fakeUsers = [
@@ -41,6 +39,7 @@ const fakeLabels = [
 
 const UserToken = {
   name: 'UserToken',
+  __v_skip: true /* temporary workaround for @vue/compat */,
   components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon, GlAvatar },
   props: ['value', 'active'],
   inheritAttrs: false,
@@ -118,6 +117,7 @@ const UserToken = {
 
 const MilestoneToken = {
   name: 'MilestoneToken',
+  __v_skip: true /* temporary workaround for @vue/compat */,
   components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon },
   props: ['value', 'active'],
   inheritAttrs: false,
@@ -179,6 +179,7 @@ const MilestoneToken = {
 
 const LabelToken = {
   name: 'LabelToken',
+  __v_skip: true /* temporary workaround for @vue/compat */,
   components: {
     GlFilteredSearchToken,
     GlFilteredSearchSuggestion,
@@ -426,6 +427,7 @@ export const WithFriendlyText = () => ({
 
 export const WithMultiSelect = () => {
   const MultiUserToken = {
+    __v_skip: true /* temporary workaround for @vue/compat */,
     props: ['value', 'active', 'config'],
     components: {
       GlFilteredSearchToken,

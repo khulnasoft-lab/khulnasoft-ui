@@ -4,18 +4,16 @@ import {
   buttonVariantOptions,
   dropdownPlacements,
 } from '../../../../utils/constants';
-import {
-  GlDisclosureDropdown,
-  GlBadge,
-  GlDisclosureDropdownGroup,
-  GlDisclosureDropdownItem,
-  GlToggle,
-  GlAvatar,
-  GlModal,
-  GlIcon,
-  GlTooltip,
-} from '../../../../index';
+import GlBadge from '../../badge/badge.vue';
+import GlToggle from '../../toggle/toggle.vue';
+import GlAvatar from '../../avatar/avatar.vue';
+import GlModal from '../../modal/modal.vue';
+import GlIcon from '../../icon/icon.vue';
+import GlTooltip from '../../tooltip/tooltip.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
+import GlDisclosureDropdown from './disclosure_dropdown.vue';
+import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
+import GlDisclosureDropdownGroup from './disclosure_dropdown_group.vue';
 import readme from './disclosure_dropdown.md';
 import {
   mockItems,

@@ -1,4 +1,5 @@
-import { GlPaginatedList, GlButton } from '../../../index';
+import GlButton from '../button/button.vue';
+import GlPaginatedList from './paginated_list.vue';
 import readme from './paginated_list.md';
 
 const sampleList = [

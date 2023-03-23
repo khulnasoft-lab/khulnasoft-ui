@@ -1,5 +1,5 @@
-import { GlSkeletonLoader } from '../../../index';
 import { makeContainer } from '../../../utils/story_decorators/container';
+import GlSkeletonLoader from './skeleton_loader.vue';
 import readme from './skeleton_loader.md';
 
 const defaultValue = (prop) => GlSkeletonLoader.props[prop].default;

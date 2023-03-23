@@ -1,8 +1,7 @@
+const { USE_VUE_3, JEST_VUE_TRANSFORMER } = require('./use_vue3');
+
 const reporters = ['default'];
 const setupFilesAfterEnv = ['<rootDir>/tests/jest_setup.js'];
-
-const USE_VUE_3 = process.env.VUE_VERSION === '3';
-const VUE_JEST_TRANSFORMER = USE_VUE_3 ? '@vue/vue3-jest' : '@vue/vue2-jest';
 
 const customModuleNameMappers = {};
 const extraJestConfig = {};
@@ -14,7 +13,6 @@ if (USE_VUE_3) {
   Object.assign(customModuleNameMappers, {
     '^vue$': '@vue/compat',
     '^@vue/test-utils$': '@vue/test-utils-vue3',
-    '^bootstrap-vue$': 'bootstrap-vue-vue3',
   });
   Object.assign(extraJestConfig, {
     globals: {
@@ -47,7 +45,7 @@ module.exports = {
   modulePathIgnorePatterns: ['cypress/integration', '.cypress_cache'],
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '.*\\.(vue)$': VUE_JEST_TRANSFORMER,
+    '.*\\.(vue)$': JEST_VUE_TRANSFORMER,
     '\\.(svg|html|md|png)$': '<rootDir>/tests/transformers/file_transformer.js',
   },
   transformIgnorePatterns: [

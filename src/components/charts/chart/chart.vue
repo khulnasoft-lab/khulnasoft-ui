@@ -124,11 +124,15 @@ export default {
   async mounted() {
     await this.$nextTick();
 
-    this.chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
+    const chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
       renderer: this.renderer,
       width: defaultWidth,
       height: defaultHeight,
     });
+    // FIXME: temporary workaround to ensure compatibility with @vue/compat
+    // eslint-disable-next-line no-underscore-dangle
+    chart.__v_skip = true;
+    this.chart = chart;
 
     if (this.groupId.length) {
       this.chart.group = this.groupId;

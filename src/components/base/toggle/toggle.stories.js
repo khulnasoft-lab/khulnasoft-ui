@@ -1,6 +1,6 @@
-import { GlToggle } from '../../../index';
 import { toggleLabelPosition } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
+import GlToggle from './toggle.vue';
 import readme from './toggle.md';
 
 const defaultValue = (prop) => GlToggle.props[prop].default;

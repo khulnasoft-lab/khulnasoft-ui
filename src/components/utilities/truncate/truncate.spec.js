@@ -16,9 +16,12 @@ describe('Truncate component', () => {
     text: 'ee/app/assets/javascripts/vue_shared/src/utils_reports/components/utils/index.js',
   };
 
-  const createComponent = (props) => {
+  const createComponent = ({ classes, ...props } = {}) => {
     wrapper = shallowMount(Truncate, {
       propsData: { ...defaultProps, ...props },
+      attrs: {
+        class: classes,
+      },
     });
   };
 
@@ -105,6 +108,18 @@ describe('Truncate component', () => {
 
     it('should have the truncate-end class', () => {
       expect(wrapper.find('.gl-truncate-end').exists()).toBe(true);
+    });
+  });
+
+  // This tests a workaround for a subtle Vue 2/3 compiler difference.
+  // See https://github.com/vuejs/core/issues/7909.
+  describe('parent classes', () => {
+    beforeEach(() => {
+      createComponent({ classes: 'test-class' });
+    });
+
+    it('applies classes from parent', () => {
+      expect(wrapper.classes()).toContain('test-class');
     });
   });
 });

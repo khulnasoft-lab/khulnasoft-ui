@@ -1,8 +1,10 @@
 import Vue from 'vue';
-import { GlAvatarLabeled, GlBadge, GlButton } from '../../../index';
+import GlBadge from '../badge/badge.vue';
+import GlButton from '../button/button.vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import avatarPath from '../../../../static/img/avatar.png';
+import GlAvatarLabeled from './avatar_labeled.vue';
 import readme from './avatar_labeled.md';
 
 Vue.directive('gl-tooltip', GlTooltipDirective);

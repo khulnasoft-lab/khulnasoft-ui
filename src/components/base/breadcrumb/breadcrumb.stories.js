@@ -1,5 +1,5 @@
-import { GlBreadcrumb } from '../../../index';
 import avatarPath from '../../../../static/img/avatar.png';
+import GlBreadcrumb from './breadcrumb.vue';
 import readme from './breadcrumb.md';
 
 const template = `

@@ -1,5 +1,5 @@
-import { GlLink } from '../../../index';
 import { targetOptions } from '../../../utils/constants';
+import GlLink from './link.vue';
 import readme from './link.md';
 
 const generateProps = ({ href = '#', target = null } = {}) => ({

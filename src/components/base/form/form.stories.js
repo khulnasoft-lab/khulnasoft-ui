@@ -1,13 +1,11 @@
-import {
-  GlForm,
-  GlFormGroup,
-  GlFormInput,
-  GlFormSelect,
-  GlFormCheckbox,
-  GlFormCheckboxGroup,
-  GlButton,
-} from '../../../index';
+import GlButton from '../button/button.vue';
 import { setStoryTimeout } from '../../../utils/test_utils';
+import GlFormCheckboxGroup from './form_checkbox/form_checkbox_group.vue';
+import GlForm from './form.vue';
+import GlFormGroup from './form_group/form_group.vue';
+import GlFormInput from './form_input/form_input.vue';
+import GlFormSelect from './form_select/form_select.vue';
+import GlFormCheckbox from './form_checkbox/form_checkbox.vue';
 import readme from './form.md';
 
 export const Default = (args) => ({

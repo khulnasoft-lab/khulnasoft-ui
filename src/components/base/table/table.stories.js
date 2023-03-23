@@ -1,4 +1,5 @@
-import { GlTable, GlFormInput } from '../../../index';
+import GlFormInput from '../form/form_input/form_input.vue';
+import GlTable from './table.vue';
 import readme from './table.md';
 
 const components = { GlTable };

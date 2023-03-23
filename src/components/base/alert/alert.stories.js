@@ -1,5 +1,6 @@
-import { GlAlert, GlToggle } from '../../../index';
+import GlToggle from '../toggle/toggle.vue';
 import { alertVariantOptions } from '../../../utils/constants';
+import GlAlert from './alert.vue';
 import readme from './alert.md';
 
 const template = `

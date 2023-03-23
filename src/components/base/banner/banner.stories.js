@@ -1,7 +1,8 @@
 import clusterPopoverSvg from '@gitlab/svgs/dist/illustrations/cluster_popover.svg';
 import serviceDeskCalloutSvg from '@gitlab/svgs/dist/illustrations/service_desk_callout.svg';
-import { GlBanner, GlButton } from '../../../index';
+import GlButton from '../button/button.vue';
 import { bannerVariants } from '../../../utils/constants';
+import GlBanner from './banner.vue';
 import readme from './banner.md';
 
 const template = `

@@ -1,4 +1,4 @@
-import { GlDeprecatedSkeletonLoading } from '../../../index';
+import GlDeprecatedSkeletonLoading from './skeleton_loading.vue';
 import readme from './skeleton_loading.md';
 
 const components = {

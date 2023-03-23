@@ -1,5 +1,6 @@
-import { GlPopover, GlButton } from '../../../index';
+import GlButton from '../button/button.vue';
 import { popoverPlacements } from '../../../utils/constants';
+import GlPopover from './popover.vue';
 
 const defaultValue = (prop) => GlPopover.props[prop].default;
 

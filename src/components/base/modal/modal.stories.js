@@ -1,5 +1,7 @@
-import { GlModal, GlModalDirective, GlButton } from '../../../index';
+import { GlModalDirective } from '../../../directives/modal';
+import GlButton from '../button/button.vue';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
+import GlModal from './modal.vue';
 import readme from './modal.md';
 
 const generateTemplate = ({ props = {}, slots = {} } = {}) => {

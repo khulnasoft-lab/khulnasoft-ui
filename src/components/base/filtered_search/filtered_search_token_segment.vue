@@ -388,6 +388,7 @@ export default {
         v-bind="searchInputAttributes"
         v-model="inputValue"
         class="gl-filtered-search-token-segment-input"
+        data-testid="filtered-search-token-segment-input"
         :aria-label="label"
         :readonly="viewOnly"
         @keydown="handleInputKeydown"

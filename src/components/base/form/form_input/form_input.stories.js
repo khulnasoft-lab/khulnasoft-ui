@@ -1,5 +1,5 @@
-import { GlFormInput } from '../../../../index';
 import { formInputSizes } from '../../../../utils/constants';
+import GlFormInput from './form_input.vue';
 import readme from './form_input.md';
 
 const template = `

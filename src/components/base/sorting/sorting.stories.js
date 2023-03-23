@@ -1,5 +1,6 @@
-import { GlSorting, GlSortingItem } from '../../../index';
 import { makeContainer } from '../../../utils/story_decorators/container';
+import GlSortingItem from './sorting_item.vue';
+import GlSorting from './sorting.vue';
 import readme from './sorting.md';
 
 const components = {

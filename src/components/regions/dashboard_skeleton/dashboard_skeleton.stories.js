@@ -1,4 +1,4 @@
-import { GlDashboardSkeleton } from '../../../index';
+import GlDashboardSkeleton from './dashboard_skeleton.vue';
 import readme from './dashboard_skeleton.md';
 
 const defaultValue = (prop) => GlDashboardSkeleton.props[prop].default;

@@ -202,25 +202,21 @@ build_package:
       - scss_to_js/scss_variables.*
       - $TAR_ARCHIVE_NAME
 
-build_storybook:
+.build_storybook:
   extends: [.node, .yarn_install]
   needs: []
   stage: build
   script:
-    - apt-get update
-    - apt-get install -y brotli gzip
-    - echo "Building storybook..."
-    - yarn storybook-static
-    - mkdir public
-    - mv storybook/* public
-    # See: https://docs.gitlab.com/ee/user/project/pages/introduction.html#serving-compressed-assets
-    - echo "Compressing assets..."
-    - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|json\|css\|svg\|xml\)$' -exec gzip -f -k {} \;
-    - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|json\|css\|svg\|xml\)$' -exec brotli -f -k {} \;
-    - ls -alth public/
+    - bin/build-storybook-static.sh
   artifacts:
     paths:
       - public
+
+build_storybook:
+  extends: [.build_storybook]
+
+build_storybook_vue3:
+  extends: [.build_storybook, .use_vue3]
 
 lint:
   extends: [.node, .yarn_install]
@@ -245,7 +241,7 @@ generate_utility_classes:
   script:
     - yarn generate-utilities
 
-visual:
+.visual:
   extends:
     - .puppeteer
     - .yarn_install
@@ -266,22 +262,22 @@ visual:
     paths:
       - tests/__image_snapshots__/
 
+visual:
+  extends: [.visual]
+
+visual_vue3:
+  extends: [.visual, .use_vue3]
+  allow_failure: true
+
 visual_minimal:
-  extends: [.puppeteer, .yarn_install]
-  needs:
-    - build_docker_image
-  stage: test
+  extends: [.visual]
   script:
     - yarn test:visual:minimal
   rules:
     - <<: *is-merged-result
       when: always
-  artifacts:
-    when: always
-    paths:
-      - tests/__image_snapshots__/
 
-integration_tests:
+.integration_tests:
   image: cypress/browsers:node16.14.0-chrome99-ff97
   extends: [.node, .yarn_install]
   needs: []
@@ -293,6 +289,12 @@ integration_tests:
     expire_in: 1 week
     paths:
       - cypress
+
+integration_tests:
+  extends: [.integration_tests]
+
+integration_tests_vue3:
+  extends: [.integration_tests, .use_vue3]
 
 .unit_tests:
   extends: [.node, .yarn_install]
@@ -356,6 +358,7 @@ pages:
   stage: deploy
   needs:
     - build_storybook
+    - build_storybook_vue3
   script:
     - echo "Deploying to Pages"
   artifacts:

@@ -1,4 +1,4 @@
-import { GlFilteredSearchSuggestion } from '../../../index';
+import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import readme from './filtered_search_suggestion.md';
 
 const noop = () => {};

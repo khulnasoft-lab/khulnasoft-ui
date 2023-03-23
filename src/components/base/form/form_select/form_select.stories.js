@@ -1,5 +1,5 @@
-import { GlFormSelect } from '../../../../index';
 import { formStateOptions, formInputSizes } from '../../../../utils/constants';
+import GlFormSelect from './form_select.vue';
 import { formSelectOptions } from './constants';
 import readme from './form_select.md';
 
@@ -8,7 +8,7 @@ const data = () => ({
 });
 
 const template = `
-<gl-form-select 
+<gl-form-select
   v-model="selected"
   :size="size"
   :disabled="disabled"

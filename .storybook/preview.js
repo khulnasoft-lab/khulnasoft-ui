@@ -1,7 +1,18 @@
+import Vue from 'vue';
+import { h } from '@vue/compat';
+
 import 'iframe-resizer/js/iframeResizer.contentWindow.min.js';
 import setConfigs from '../src/config';
 import logoWithBlackText from '../static/img/_logo_with_black_text.svg';
 import logoWithWhiteText from '../static/img/_logo_with_white_text.svg';
+
+export const decorators = Vue.version.startsWith('3')
+  ? [
+      function passArgsCorrectlyForVueCompat(storyFn, storyContext) {
+        return h(storyContext.undecoratedStoryFn(storyContext), storyContext.args);
+      },
+    ]
+  : [];
 
 setConfigs();
 

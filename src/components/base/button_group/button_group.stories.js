@@ -1,4 +1,7 @@
-import { GlButton, GlButtonGroup, GlDropdown, GlDropdownItem } from '../../../index';
+import GlButton from '../button/button.vue';
+import GlDropdown from '../dropdown/dropdown.vue';
+import GlDropdownItem from '../dropdown/dropdown_item.vue';
+import GlButtonGroup from './button_group.vue';
 import readme from './button_group.md';
 
 const generateProps = ({ vertical = false } = {}) => ({ vertical });

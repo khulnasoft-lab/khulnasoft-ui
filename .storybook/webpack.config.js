@@ -4,6 +4,23 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const sass = require('sass');
+const { USE_VUE_3 } = require('../use_vue3');
+
+const VUE_LOADER_OPTIONS = USE_VUE_3
+  ? {
+      loader: 'vue-loader-vue3',
+      options: {
+        compilerOptions: {
+          whitespace: 'preserve',
+          compatConfig: {
+            MODE: 2,
+          },
+        },
+      },
+    }
+  : {
+      loader: 'vue-loader',
+    };
 
 const sassLoaderOptions = {
   implementation: sass,
@@ -16,7 +33,7 @@ module.exports = ({ config }) => {
   config.module.rules = [
     {
       test: /\.vue$/,
-      loader: 'vue-loader',
+      ...VUE_LOADER_OPTIONS,
     },
     {
       test: /src\/components\/.*\.vue$/,

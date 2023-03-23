@@ -1,6 +1,7 @@
 import securityDashboardEmptyStateSvg from '@gitlab/svgs/dist/illustrations/security-dashboard-empty-state.svg';
 import issuesSvg from '@gitlab/svgs/dist/illustrations/issues.svg';
-import { GlButton, GlEmptyState } from '../../../index';
+import GlButton from '../../base/button/button.vue';
+import GlEmptyState from './empty_state.vue';
 import readme from './empty_state.md';
 
 const template = `

@@ -1,5 +1,6 @@
-import { GlPath, GlPopover } from '../../../index';
+import GlPopover from '../popover/popover.vue';
 import { glThemes } from '../../../utils/constants';
+import GlPath from './path.vue';
 import { mockPathItems } from './data';
 import readme from './path.md';
 
