@@ -118,7 +118,12 @@ const UserToken = {
 const MilestoneToken = {
   name: 'MilestoneToken',
   __v_skip: true /* temporary workaround for @vue/compat */,
-  components: { GlFilteredSearchToken, GlFilteredSearchSuggestion, GlLoadingIcon },
+  components: {
+    GlFilteredSearchToken,
+    GlFilteredSearchSuggestion,
+    GlLoadingIcon,
+    GlDropdownDivider,
+  },
   props: ['value', 'active'],
   inheritAttrs: false,
   data() {
