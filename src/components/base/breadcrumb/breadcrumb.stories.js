@@ -1,24 +1,19 @@
-import avatarPath from '../../../../static/img/avatar.png';
+import avatarPath1 from '../../../../static/img/avatar_1.png';
+import avatarPath2 from '../../../../static/img/avatar_2.png';
 import GlBreadcrumb from './breadcrumb.vue';
 import readme from './breadcrumb.md';
 
 const template = `
     <gl-breadcrumb
         :items="items"
-    >
-      <template #avatar>
-        <img alt=""
-            class="gl-breadcrumb-avatar-tile" src="${avatarPath}"
-            width="16"
-            height="16" />
-      </template>
-    </gl-breadcrumb>
+    />
   `;
 
 const defaultItems = [
   {
     text: 'First item',
     href: '#',
+    avatarPath: avatarPath1,
   },
   {
     text: 'Second item',
@@ -27,6 +22,7 @@ const defaultItems = [
   {
     text: 'Third item',
     href: '#',
+    avatarPath: avatarPath2,
   },
   {
     text: 'Fourth item',

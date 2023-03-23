@@ -2,6 +2,7 @@
 <script>
 import { BBreadcrumb } from 'bootstrap-vue';
 import GlButton from '../button/button.vue';
+import GlAvatar from '../avatar/avatar.vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
 
@@ -12,6 +13,7 @@ export default {
     BBreadcrumb,
     GlButton,
     GlBreadcrumbItem,
+    GlAvatar,
   },
   directives: {
     GlTooltip: GlTooltipDirective,
@@ -25,9 +27,9 @@ export default {
       type: Array,
       required: true,
       default: () => [{ text: '', href: '' }],
-      validator: (links) => {
-        return links.every((link) => {
-          const keys = Object.keys(link);
+      validator: (items) => {
+        return items.every((item) => {
+          const keys = Object.keys(item);
           return keys.includes('text') && (keys.includes('href') || keys.includes('to'));
         });
       },
@@ -82,8 +84,6 @@ export default {
 </script>
 <template>
   <nav class="gl-breadcrumbs" aria-label="Breadcrumb">
-    <!-- @slot The avatar to display. -->
-    <slot name="avatar"></slot>
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
       <template v-for="(item, index) in items">
         <!-- eslint-disable-next-line vue/valid-v-for (for @vue/compat) -->
@@ -94,8 +94,16 @@ export default {
           :href="item.href"
           :to="item.to"
           :aria-current="getAriaCurrentAttr(index)"
-          >{{ item.text }}</gl-breadcrumb-item
-        >
+          ><gl-avatar
+            v-if="item.avatarPath"
+            :src="item.avatarPath"
+            :size="16"
+            aria-hidden="true"
+            class="gl-breadcrumb-avatar-tile gl-border gl-mr-2 gl-rounded-base!"
+            shape="rect"
+            data-testid="avatar"
+          /><span>{{ item.text }}</span>
+        </gl-breadcrumb-item>
 
         <template v-if="showCollapsedBreadcrumbsExpander(index)">
           <!-- eslint-disable-next-line vue/require-v-for-key (for @vue/compat) -->

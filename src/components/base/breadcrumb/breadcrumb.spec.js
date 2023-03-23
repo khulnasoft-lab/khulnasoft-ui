@@ -1,5 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
+import avatarPath1 from '../../../../static/img/avatar.png';
+import avatarPath3 from '../../../../static/img/avatar_1.png';
 import Breadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
 
@@ -7,23 +9,27 @@ describe('Breadcrumb component', () => {
   let wrapper;
 
   const items = [
-    { text: 'first_breadcrumb', href: 'http://gitlab.com' },
+    { text: 'first_breadcrumb', href: 'https://gitlab.com', avatarPath: avatarPath1 },
     {
       text: 'second_breadcrumb',
       to: 'to_value',
     },
-    { text: 'third_breadcrumb', href: 'http://about.gitlab.com' },
+    {
+      text: 'third_breadcrumb',
+      href: 'https://about.gitlab.com',
+      avatarPath: avatarPath3,
+    },
   ];
 
   const extraItems = [
-    { text: 'fourth_breadcrumb', href: 'http://gitlab.com' },
+    { text: 'fourth_breadcrumb', href: 'https://gitlab.com' },
     {
       text: 'fifth_breadcrumb',
       to: 'to_value',
     },
   ];
 
-  const findAvatarSlot = () => wrapper.find('[data-testid="avatar-slot"]');
+  const findAllAvatars = () => wrapper.findAll('[data-testid="avatar"]');
   const findBreadcrumbItems = () => wrapper.findAllComponents(GlBreadcrumbItem);
   const findCollapsedListExpander = () => wrapper.find('[data-testid="collapsed-expander"]');
 
@@ -35,9 +41,6 @@ describe('Breadcrumb component', () => {
   const createComponent = (propsData = { items }) => {
     wrapper = shallowMount(Breadcrumb, {
       propsData,
-      slots: {
-        avatar: '<div data-testid="avatar-slot"></div>',
-      },
       stubs: {
         GlBreadcrumbItem,
       },
@@ -50,19 +53,19 @@ describe('Breadcrumb component', () => {
     ];
   };
 
-  describe('slots', () => {
-    it('has an avatar slot', () => {
-      createComponent();
-
-      expect(findAvatarSlot().exists()).toBe(true);
-    });
-  });
-
   describe('items', () => {
     it('has one breadcrumb-item for each item in the items props', () => {
       createComponent();
 
       expect(findBreadcrumbItems()).toHaveLength(items.length);
+    });
+  });
+
+  describe('avatars', () => {
+    it('renders 2 avatars when 2 avatarPaths are passed', () => {
+      createComponent();
+
+      expect(findAllAvatars()).toHaveLength(2);
     });
   });
 
