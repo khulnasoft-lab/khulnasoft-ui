@@ -79,6 +79,7 @@
   },
   "resolutions": {
     "@storybook/vue/webpack": "^5.9.0",
+    "@storybook/vue3/vue-loader": "^17.0.0",
     "chokidar": "^3.5.2",
     "sane": "^5.0.1"
   },
