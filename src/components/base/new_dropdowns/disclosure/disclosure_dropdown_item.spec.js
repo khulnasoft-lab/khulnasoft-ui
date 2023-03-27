@@ -41,6 +41,10 @@ describe('GlDisclosureDropdownItem', () => {
       expect(emittedAction).toHaveLength(1);
       expect(emittedAction).toEqual([[item]]);
     });
+
+    it('sets tabIndex on li element', () => {
+      expect(findItem().attributes('tabindex')).toBe('0');
+    });
   });
 
   describe('when item has a `href`', () => {
@@ -81,6 +85,10 @@ describe('GlDisclosureDropdownItem', () => {
       const emittedAction = wrapper.emitted('action');
       expect(emittedAction).toHaveLength(1);
       expect(emittedAction).toEqual([[item]]);
+    });
+
+    it('sets tabIndex on link element', () => {
+      expect(findLink().attributes('tabindex')).toBe('-1');
     });
   });
 
@@ -138,6 +146,10 @@ describe('GlDisclosureDropdownItem', () => {
     it('should apply the default classes to the item wrapper', () => {
       expect(findItem().classes()).toEqual(['gl-new-dropdown-item']);
     });
+
+    it('sets tabIndex on link element', () => {
+      expect(findButton().attributes('tabindex')).toBe('-1');
+    });
   });
 
   describe('when item has wrapperClass', () => {
@@ -153,6 +165,27 @@ describe('GlDisclosureDropdownItem', () => {
 
     it('should add the extra class to the item wrapper', () => {
       expect(findItem().classes()).toContain(TEST_CLASS);
+    });
+  });
+
+  describe('when item has disabled attribute', () => {
+    const extraAttrs = {
+      disabled: true,
+    };
+    beforeEach(() => {
+      buildWrapper({
+        item: {
+          ...mockItems[1],
+          extraAttrs,
+        },
+      });
+    });
+
+    it('should not set tabIndex to elements', () => {
+      const findButton = () => wrapper.find('button[type="button"].gl-new-dropdown-item-content');
+
+      expect(findItem().attributes('tabindex')).toBeUndefined();
+      expect(findButton().attributes('tabindex')).toBeUndefined();
     });
   });
 });
