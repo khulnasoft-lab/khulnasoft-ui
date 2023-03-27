@@ -1,3 +1,10 @@
+# [58.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.4.0...v58.5.0) (2023-03-27)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Add disabled state ([8d3de9e](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d3de9ee5216b6fd3e2f3430272d9e6ed8ff70bf))
+
 # [58.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.3.0...v58.4.0) (2023-03-23)
 
 
