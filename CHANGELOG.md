@@ -1,3 +1,10 @@
+## [58.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.5.0...v58.5.1) (2023-03-27)
+
+
+### Bug Fixes
+
+* **css:** rename gl-text-uppercase util ([59cbf4e](https://gitlab.com/gitlab-org/gitlab-ui/commit/59cbf4e9b11935d65a0b46943cb031a390fd37ad))
+
 # [58.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.4.0...v58.5.0) (2023-03-27)
 
 
