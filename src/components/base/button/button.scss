@@ -76,7 +76,7 @@
       }
     }
 
-    &:focus {
+    &:focus-visible {
       @include gl-focus($color: $gray-400);
       @include gl-bg-gray-50;
 
@@ -87,14 +87,13 @@
 
     &:active,
     &.active {
-      @include gl-focus($color: $gray-600);
       @include gl-bg-gray-100;
 
       .gl-icon {
         @include gl-text-gray-900;
       }
 
-      &:focus {
+      &:focus-visible {
         @include gl-focus($color: $gray-600);
       }
 
