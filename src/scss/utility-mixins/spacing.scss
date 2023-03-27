@@ -870,6 +870,10 @@
   gap: $gl-spacing-scale-6;
 }
 
+@mixin gl-gap-7 {
+  gap: $gl-spacing-scale-7;
+}
+
 /**
 * Column gap utilities
 *
