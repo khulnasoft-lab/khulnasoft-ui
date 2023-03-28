@@ -1,3 +1,10 @@
+# [58.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.6.0...v58.7.0) (2023-03-28)
+
+
+### Features
+
+* **css:** Add .gl-gap-4 class ([967986c](https://gitlab.com/gitlab-org/gitlab-ui/commit/967986cace6b2d01dd5a09fd91f2e45b4909895f))
+
 # [58.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.5.1...v58.6.0) (2023-03-28)
 
 
