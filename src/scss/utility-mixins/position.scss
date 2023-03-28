@@ -194,6 +194,10 @@
   left: $gl-spacing-scale-7;
 }
 
+@mixin gl-left-n5 {
+  left: -$gl-spacing-scale-5;
+}
+
 @mixin gl-left-50p {
   left: 50%;
 }
