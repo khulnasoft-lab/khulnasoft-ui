@@ -1,3 +1,10 @@
+# [58.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.5.1...v58.6.0) (2023-03-28)
+
+
+### Features
+
+* **css:** add 2 CSS utils ([9f210bb](https://gitlab.com/gitlab-org/gitlab-ui/commit/9f210bba0ee65403ee2b66afbff3b69820a0e044))
+
 ## [58.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.5.0...v58.5.1) (2023-03-27)
 
 
