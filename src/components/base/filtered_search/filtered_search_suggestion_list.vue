@@ -45,9 +45,9 @@ export default {
 
   methods: {
     valuesMatch(firstValue, secondValue) {
-      if (!firstValue || !secondValue) return false;
+      if (firstValue == null || secondValue == null) return false;
 
-      return typeof firstValue === 'string'
+      return typeof firstValue === 'string' && typeof secondValue === 'string'
         ? firstValue.toLowerCase() === secondValue.toLowerCase()
         : firstValue === secondValue;
     },

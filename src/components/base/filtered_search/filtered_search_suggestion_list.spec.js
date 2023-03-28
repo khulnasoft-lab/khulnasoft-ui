@@ -79,6 +79,7 @@ describe('Filtered search suggestion list component', () => {
         <div>
           <gl-filtered-search-suggestion value="One">One</gl-filtered-search-suggestion>
           <gl-filtered-search-suggestion value="Two">Two</gl-filtered-search-suggestion>
+          <gl-filtered-search-suggestion :value="false">Three</gl-filtered-search-suggestion>
         </div>
       `,
     };
@@ -123,6 +124,7 @@ describe('Filtered search suggestion list component', () => {
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
+      wrapper.vm.nextItem();
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.vm.getValue()).toBe(null);
       });
@@ -141,11 +143,12 @@ describe('Filtered search suggestion list component', () => {
       wrapper.vm.prevItem();
       wrapper.vm.prevItem();
       return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe('Two');
+        expect(wrapper.vm.getValue()).toBe(false);
       });
     });
 
     it('selects first suggestion in circle when selecting next item', () => {
+      wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
@@ -166,6 +169,13 @@ describe('Filtered search suggestion list component', () => {
       wrapper.setProps({ initialValue: 'two' });
       return wrapper.vm.$nextTick().then(() => {
         expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Two');
+      });
+    });
+
+    it('highlights suggestion if initial-value is provided, regardless of falsiness', async () => {
+      wrapper.setProps({ initialValue: false });
+      return wrapper.vm.$nextTick().then(() => {
+        expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Three');
       });
     });
 
