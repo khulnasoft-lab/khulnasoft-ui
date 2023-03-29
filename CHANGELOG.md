@@ -1,3 +1,10 @@
+# [58.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.7.0...v58.8.0) (2023-03-29)
+
+
+### Features
+
+* **GlFormCheckbox:** Make gap clickable ([a4c9be3](https://gitlab.com/gitlab-org/gitlab-ui/commit/a4c9be358dd5d48d5777d397f156dc62d476bb12))
+
 # [58.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.6.0...v58.7.0) (2023-03-28)
 
 
