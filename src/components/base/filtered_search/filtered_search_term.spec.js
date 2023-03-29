@@ -1,6 +1,5 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
-import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import FilteredSearchTerm from './filtered_search_term.vue';
 import { INTENT_ACTIVATE_PREVIOUS } from './filtered_search_utils';
 
@@ -23,38 +22,20 @@ describe('Filtered search term', () => {
   const segmentStub = {
     name: 'gl-filtered-search-token-segment-stub',
     template: '<div><slot name="view"></slot><slot name="suggestions"></slot></div>',
-    props: ['searchInputAttributes', 'isLastToken', 'currentValue', 'viewOnly'],
+    props: ['searchInputAttributes', 'isLastToken', 'currentValue', 'viewOnly', 'options'],
   };
 
-  const createComponent = (props, options = {}) => {
+  const createComponent = (props) => {
     wrapper = shallowMount(FilteredSearchTerm, {
       propsData: { ...defaultProps, ...props },
       stubs: {
         'gl-filtered-search-token-segment': segmentStub,
       },
-      ...options,
     });
   };
 
   const findSearchInput = () => wrapper.find('input');
   const findTokenSegmentComponent = () => wrapper.findComponent(segmentStub);
-
-  it('renders title slot', async () => {
-    createComponent(
-      { availableTokens, active: true, value: { data: 'test1' } },
-      {
-        scopedSlots: {
-          title: '<div slot-scope="{ value }">New {{value}}</div>',
-        },
-      }
-    );
-
-    await nextTick();
-
-    expect(wrapper.findAllComponents(GlFilteredSearchSuggestion).at(0).text()).toBe(
-      'New test1-foo'
-    );
-  });
 
   it('renders value in inactive mode', () => {
     createComponent({ value: { data: 'test-value' } });
@@ -76,7 +57,7 @@ describe('Filtered search term', () => {
 
     await nextTick();
 
-    expect(wrapper.findAllComponents(GlFilteredSearchSuggestion)).toHaveLength(2);
+    expect(findTokenSegmentComponent().props('options')).toHaveLength(2);
   });
 
   it.each`
@@ -120,12 +101,14 @@ describe('Filtered search term', () => {
       viewOnly,
     });
 
-    expect(findTokenSegmentComponent().props()).toEqual({
-      searchInputAttributes,
-      isLastToken,
-      currentValue,
-      viewOnly,
-    });
+    expect(findTokenSegmentComponent().props()).toEqual(
+      expect.objectContaining({
+        searchInputAttributes,
+        isLastToken,
+        currentValue,
+        viewOnly,
+      })
+    );
   });
 
   it('by default sets `viewOnly` to false on `GlFilteredSearchTokenSegment`', () => {

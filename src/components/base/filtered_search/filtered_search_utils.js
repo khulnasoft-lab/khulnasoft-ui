@@ -88,6 +88,18 @@ export function stepIndexAndWrap(index, step, length) {
   return modulo(start + step, length);
 }
 
+/**
+ * Transforms a given token definition to an option definition.
+ *
+ * @param {Object} token A token definition (see GlFilteredSearch's
+ *     availableTokens prop).
+ * @returns {Object} A option definition (see GlFilteredSearchTokenSegment's
+ *     options prop).
+ */
+export function tokenToOption({ icon, title, type, optionComponent }) {
+  return { icon, title, value: type, component: optionComponent };
+}
+
 let tokenIdCounter = 0;
 const getTokenId = () => {
   const tokenId = `token-${tokenIdCounter}`;
@@ -138,6 +150,19 @@ export function denormalizeTokens(inputTokens) {
     }
   });
   return result;
+}
+
+/**
+ * Returns `true` if `text` contains `query` (case insensitive).
+ *
+ * This is used in `filter` and `find` array methods for token segment options.
+ *
+ * @param {string} text The string to look within.
+ * @param {string} query The string to find inside the text.
+ * @returns {boolean}
+ */
+export function match(text, query) {
+  return text.toLowerCase().includes(query.toLowerCase());
 }
 
 export function splitOnQuotes(str) {

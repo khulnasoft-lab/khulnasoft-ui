@@ -345,9 +345,6 @@ export default {
        */
       this.$emit('submit', normalizeTokens(cloneDeep(this.tokens)));
     },
-    hasTitleSlot() {
-      return Boolean(this.$scopedSlots.title);
-    },
   },
 };
 </script>
@@ -403,14 +400,7 @@ export default {
           @split="createTokens(idx, $event)"
           @previous="activatePreviousToken"
           @next="activateNextToken"
-        >
-          <template
-            v-if="hasTitleSlot() && getTokenComponent(token.type).name === 'GlFilteredSearchTerm'"
-            #title="title"
-          >
-            <slot name="title" v-bind="title"></slot>
-          </template>
-        </component>
+        />
       </div>
       <portal-target
         ref="menu"

@@ -3,7 +3,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import { COMMA } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
-import { createTerm } from './filtered_search_utils';
+import { createTerm, tokenToOption } from './filtered_search_utils';
 
 const SEGMENT_TITLE = 'TYPE';
 const SEGMENT_OPERATOR = 'OPERATOR';
@@ -98,10 +98,9 @@ export default {
     },
 
     availableTokensWithSelf() {
-      return [this.config, ...this.availableTokens.filter((t) => t !== this.config)].map((t) => ({
-        ...t,
-        value: t.title,
-      }));
+      return [this.config, ...this.availableTokens.filter((token) => token !== this.config)].map(
+        tokenToOption
+      );
     },
 
     operatorDescription() {
@@ -212,8 +211,8 @@ export default {
       }
     },
 
-    replaceToken(newTitle) {
-      const newTokenConfig = this.availableTokens.find((t) => t.title === newTitle);
+    replaceToken(newType) {
+      const newTokenConfig = this.availableTokens.find(({ type }) => type === newType);
 
       if (newTokenConfig === this.config) {
         this.$nextTick(() => {
@@ -303,10 +302,6 @@ export default {
         this.$emit('destroy');
       }
     },
-
-    hasTitleOptionSlot() {
-      return Boolean(this.$scopedSlots['title-option']);
-    },
   },
 };
 </script>
@@ -350,9 +345,6 @@ export default {
           {{ inputValue }}
         </gl-token>
       </template>
-      <template v-if="hasTitleOptionSlot()" #option>
-        <slot name="title-option"></slot>
-      </template>
     </gl-filtered-search-token-segment>
 
     <gl-filtered-search-token-segment
@@ -361,6 +353,7 @@ export default {
       :active="isSegmentActive($options.segments.SEGMENT_OPERATOR)"
       :cursor-position="intendedCursorPosition"
       :options="operators"
+      option-text-field="value"
       :custom-input-keydown-handler="handleOperatorKeydown"
       :view-only="viewOnly"
       @activate="activateSegment($options.segments.SEGMENT_OPERATOR)"
@@ -412,7 +405,6 @@ export default {
       :multi-select="config.multiSelect"
       :options="config.options"
       :view-only="viewOnly"
-      option-text-field="title"
       @activate="activateDataSegment"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @complete="handleComplete"

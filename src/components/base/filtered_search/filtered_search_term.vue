@@ -1,13 +1,11 @@
 <script>
-import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
-import { INTENT_ACTIVATE_PREVIOUS } from './filtered_search_utils';
+import { INTENT_ACTIVATE_PREVIOUS, match, tokenToOption } from './filtered_search_utils';
 
 export default {
   name: 'GlFilteredSearchTerm',
   components: {
     GlFilteredSearchTokenSegment,
-    GlFilteredSearchSuggestion,
   },
   inheritAttrs: false,
   props: {
@@ -77,9 +75,9 @@ export default {
   },
   computed: {
     suggestedTokens() {
-      return this.availableTokens.filter((item) =>
-        item.title.toLowerCase().includes(this.value.data.toLowerCase())
-      );
+      return this.availableTokens
+        .filter((token) => match(token.title, this.value.data))
+        .map(tokenToOption);
     },
     internalValue: {
       get() {
@@ -143,6 +141,7 @@ export default {
     <gl-filtered-search-token-segment
       ref="segment"
       v-model="internalValue"
+      is-term
       class="gl-filtered-search-term-token"
       :active="active"
       :cursor-position="cursorPosition"
@@ -150,6 +149,7 @@ export default {
       :is-last-token="isLastToken"
       :current-value="currentValue"
       :view-only="viewOnly"
+      :options="suggestedTokens"
       @activate="$emit('activate')"
       @deactivate="$emit('deactivate')"
       @complete="$emit('replace', { type: $event })"
@@ -159,17 +159,6 @@ export default {
       @previous="$emit('previous')"
       @next="$emit('next')"
     >
-      <template #suggestions>
-        <gl-filtered-search-suggestion
-          v-for="(item, idx) in suggestedTokens"
-          :key="idx"
-          :value="item.type"
-          :icon-name="item.icon"
-        >
-          <slot name="title" v-bind="{ value: item.title }"> {{ item.title }} </slot>
-        </gl-filtered-search-suggestion>
-      </template>
-
       <template #view>
         <input
           v-if="placeholder"

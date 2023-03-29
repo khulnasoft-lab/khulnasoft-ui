@@ -3,6 +3,7 @@ describe('GlFilteredSearch', () => {
   const filteredTokenSegment = 'filtered-search-token-segment';
   const suggestion = 'filtered-search-suggestion';
   const filterSearchTerm = 'filtered-search-term';
+  const selectedSuggestionClass = '.gl-filtered-search-suggestion-active';
 
   const testId = (id) => `[data-testid="${id}"]`;
   const typeInInput = (text) => {
@@ -14,7 +15,9 @@ describe('GlFilteredSearch', () => {
   const getTokenSegment = (text) => cy.contains(testId(filteredTokenSegment), text);
   const getSearchTerm = (text) => cy.contains(testId(filterSearchTerm), text);
   const getSuggestion = (text) => cy.contains(testId(suggestion), text);
+  const getSelectedSuggestion = () => cy.get(`${selectedSuggestionClass} ${testId(suggestion)}`);
   const clickSuggestion = (text) => getSuggestion(text).click();
+  const expectSelectedSuggestion = (text) => getSelectedSuggestion().should('contain.text', text);
 
   beforeEach(() => {
     cy.visitStory('base/filtered-search');
@@ -84,5 +87,29 @@ describe('GlFilteredSearch', () => {
     getTokenSegment('Feature').should('be.visible');
     getSearchTerm(words[0]).should('be.visible');
     getSearchTerm(words[1]).should('be.visible');
+  });
+
+  it('selects appropriate suggestions', () => {
+    cy.get('input').click();
+    getSuggestion('Author').should('be.visible');
+    getSelectedSuggestion().should('not.exist');
+
+    typeInInput('c');
+    expectSelectedSuggestion('Confidential');
+
+    clickSuggestion('Confidential');
+    expectSelectedSuggestion('=');
+
+    clickSuggestion('=');
+    expectSelectedSuggestion('Yes');
+
+    typeInInput('n');
+    expectSelectedSuggestion('No');
+  });
+
+  it('does not transform term text to matching token title', () => {
+    typeInInput('author');
+
+    cy.get('input').should('have.value', 'author');
   });
 });

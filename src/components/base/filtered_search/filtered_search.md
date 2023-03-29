@@ -22,9 +22,11 @@ Prepare array of available token configurations with the following fields:
   It is discouraged to use this together with `unique`, as `unique` is intended for single-select.
 - `options`: (optional) an array of options which the user can pick after the
   operator has been selected. The option object can have the following
-  properties defined: `value: string`, `icon: string`, `title: string` and
-  `default: boolean`. If the `default` is omitted, the `value` of the first
-  option will be displayed as a suggestion
+  properties defined: `value: string`, `icon: string`, `title: string`,
+  `component: Object` and `default: boolean`. If `component` is provided, it is
+  is used to render the option in the suggestions list.
+- `optionComponent`: (optional) A component used to render the token option
+  itself when adding a new token or replacing an existing one
 - any additional fields required to configure your component
 
 Each token for filtered search is a Vue component with the following props:

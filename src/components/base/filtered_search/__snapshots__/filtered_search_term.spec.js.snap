@@ -9,6 +9,7 @@ exports[`Filtered search term renders input with value in active mode 1`] = `
     active="true"
     class="gl-filtered-search-term-token"
     cursor-position="end"
+    is-term=""
     value="test-value"
   >
     test-value
@@ -24,6 +25,7 @@ exports[`Filtered search term renders value in inactive mode 1`] = `
   <div
     class="gl-filtered-search-term-token"
     cursor-position="end"
+    is-term=""
     value="test-value"
   >
     test-value
