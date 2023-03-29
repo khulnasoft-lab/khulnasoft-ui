@@ -318,11 +318,7 @@ export default {
     },
 
     createTokens(idx, newStrings = ['']) {
-      if (
-        this.activeTokenIdx !== this.lastTokenIdx &&
-        newStrings.length === 1 &&
-        newStrings[0] === ''
-      ) {
+      if (!this.isLastTokenActive && newStrings.length === 1 && newStrings[0] === '') {
         this.activeTokenIdx = this.lastTokenIdx;
         return;
       }
