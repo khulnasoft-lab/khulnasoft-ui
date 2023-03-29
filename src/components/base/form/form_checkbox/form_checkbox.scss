@@ -51,12 +51,16 @@
   }
 
   &.custom-control {
+    @include gl-pl-5;
+
     .custom-control-input ~ .custom-control-label {
       @include gl-cursor-pointer;
+      @include gl-pl-3;
 
       &::before,
       &::after {
         @include gl-top-0;
+        @include gl-left-n5;
       }
 
       &::before {
