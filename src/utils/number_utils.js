@@ -18,6 +18,27 @@ export const sum = (...numbers) => numbers.reduce(addition);
 export const average = (...numbers) => sum(...numbers) / numbers.length;
 
 /**
+ * Returns the modulo of n for a divisor.
+ *
+ * Maps the integer n into the range [0, divisor) when the divisor is positive,
+ * and (divisor, 0] when the divisor is negative.
+ *
+ * This is useful when indexing into an array, to ensure you always stay within
+ * the array bounds.
+ *
+ * See https://2ality.com/2019/08/remainder-vs-modulo.html.
+ *
+ * @param {number} n The number to mod.
+ * @param {number} divisor The divisor (e.g., the length of an array).
+ * @returns {number}
+ */
+export function modulo(n, divisor) {
+  const result = ((n % divisor) + divisor) % divisor;
+  // Never return -0.
+  return result === 0 ? 0 : result;
+}
+
+/**
  * Convert number to engineering format, using SI suffix
  * @param {Number|String} value - Number or Number-convertible String
  * @param {Number} precision

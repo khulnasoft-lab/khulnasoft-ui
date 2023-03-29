@@ -1,4 +1,4 @@
-import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
+import { splitOnQuotes, wrapTokenInQuotes, stepIndexAndWrap } from './filtered_search_utils';
 
 describe('FilteredSearchUtils', () => {
   describe('splitOnQuotes', () => {
@@ -46,6 +46,37 @@ describe('FilteredSearchUtils', () => {
       const token = 'foo bar';
 
       expect(wrapTokenInQuotes(token)).toEqual(`"${token}"`);
+    });
+  });
+
+  describe('stepIndexAndWrap', () => {
+    it.each`
+      index  | step   | length | result
+      ${0}   | ${0}   | ${5}   | ${0}
+      ${0}   | ${1}   | ${5}   | ${1}
+      ${0}   | ${-1}  | ${5}   | ${4}
+      ${0}   | ${6}   | ${5}   | ${1}
+      ${0}   | ${-6}  | ${5}   | ${4}
+      ${1}   | ${0}   | ${5}   | ${1}
+      ${1}   | ${1}   | ${5}   | ${2}
+      ${1}   | ${-2}  | ${5}   | ${4}
+      ${1}   | ${-5}  | ${5}   | ${1}
+      ${-1}  | ${0}   | ${5}   | ${-1}
+      ${6}   | ${0}   | ${5}   | ${6}
+      ${6}   | ${1}   | ${5}   | ${0}
+      ${6}   | ${-1}  | ${5}   | ${4}
+      ${-1}  | ${1}   | ${5}   | ${0}
+      ${-1}  | ${-1}  | ${5}   | ${4}
+      ${-1}  | ${-5}  | ${5}   | ${0}
+      ${-1}  | ${5}   | ${5}   | ${4}
+      ${4}   | ${1}   | ${5}   | ${0}
+      ${4}   | ${2}   | ${5}   | ${1}
+      ${NaN} | ${1}   | ${1}   | ${0}
+      ${0}   | ${NaN} | ${1}   | ${NaN}
+      ${0}   | ${1}   | ${NaN} | ${NaN}
+      ${0}   | ${1}   | ${0}   | ${NaN}
+    `('stepIndex($index, $step, $length) === $result', ({ index, step, length, result }) => {
+      expect(stepIndexAndWrap(index, step, length, result)).toBe(result);
     });
   });
 });

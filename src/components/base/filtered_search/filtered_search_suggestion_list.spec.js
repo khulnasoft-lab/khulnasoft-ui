@@ -60,6 +60,16 @@ describe('Filtered search suggestion list component', () => {
         await nextTick();
         expect(wrapper.vm.getValue()).toBe(null);
       });
+
+      it('selects correct suggestion when item (un)registration is late', async () => {
+        // Initially stub2 is at index 1.
+        await wrapper.setProps({ initialValue: 'stub2' });
+        // Remove item at index 0, so stub2 moves to index 0
+        wrapper.vm.unregister(stubs[0]);
+        await nextTick();
+        // stub2 should still be selected
+        expect(wrapper.vm.getValue()).toBe('stub2');
+      });
     });
   });
 
@@ -158,6 +168,14 @@ describe('Filtered search suggestion list component', () => {
     it('highlights suggestion if initial-value is provided, regardless of falsiness', async () => {
       await wrapper.setProps({ initialValue: false });
       expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Three');
+    });
+
+    it('highlights first suggestion if initial-value is provided, deselected then selected', async () => {
+      await wrapper.setProps({ initialValue: 'One' });
+      wrapper.vm.prevItem();
+      wrapper.vm.nextItem();
+      await nextTick();
+      expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('One');
     });
 
     it('does not highlight anything if initial-value matches nothing', async () => {

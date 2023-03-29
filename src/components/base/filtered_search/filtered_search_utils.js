@@ -1,6 +1,7 @@
 import first from 'lodash/first';
 import last from 'lodash/last';
 import isString from 'lodash/isString';
+import { modulo } from '../../../utils/number_utils';
 
 export const TERM_TOKEN_TYPE = 'filtered-search-term';
 
@@ -42,6 +43,49 @@ export function needDenormalization(tokens) {
   assertValidTokens(tokens);
 
   return tokens.some((t) => typeof t === 'string' || !t.id);
+}
+
+/**
+ * Given an initial index, step size and array length, returns an index that is
+ * within the array bounds (unless step is 0; see † below).
+ *
+ * The step can be any positive or negative integer, including zero.
+ *
+ * An out-of-bounds index is considered 'uninitialised', and is handled
+ * specially. For instance, the 'next' index of 'uninitialised' is the first
+ * index:
+ *
+ *     stepIndexAndWrap(-1, 1, 5) === 0
+ *
+ * The 'previous' index of 'uninitialised' is the last index:
+ *
+ *     stepIndexAndWrap(-1, -1, 5) === 4
+ *
+ * †: If step is 0, the index is returned as-is, which may be out-of-bounds.
+ *
+ * @param {number} index The initial index.
+ * @param {number} step The amount to step by (positive or negative).
+ * @param {number} length The length of the array.
+ * @returns {number}
+ */
+export function stepIndexAndWrap(index, step, length) {
+  if (step === 0) return index;
+
+  let start;
+  const indexInRange = index >= 0 && index < length;
+
+  if (indexInRange) {
+    // Step from the valid index.
+    start = index;
+  } else if (step > 0) {
+    // Step forwards from the beginning of the array.
+    start = -1;
+  } else {
+    // Step backwards from the end of the array.
+    start = length;
+  }
+
+  return modulo(start + step, length);
 }
 
 let tokenIdCounter = 0;
