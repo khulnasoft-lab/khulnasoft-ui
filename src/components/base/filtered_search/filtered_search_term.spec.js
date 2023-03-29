@@ -68,7 +68,7 @@ describe('Filtered search term', () => {
 
   it('renders input with placeholder if placeholder prop is provided', () => {
     createComponent({ placeholder: 'placeholder-stub' });
-    expect(wrapper.find('input').attributes('placeholder')).toBe('placeholder-stub');
+    expect(findSearchInput().attributes('placeholder')).toBe('placeholder-stub');
   });
 
   it('filters suggestions by input', async () => {
