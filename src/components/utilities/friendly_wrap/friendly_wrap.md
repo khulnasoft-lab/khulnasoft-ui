@@ -21,13 +21,17 @@ wbr {
 By default, `GlFriendlyWrap` wraps text with slashes (`/`) as the break-symbol, which is especially
 useful when displaying paths or URLs:
 
+<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
+
 <gl-friendly-wrap text="/some/file/path" />
 ```
 
 The code above renders to the following HTML:
 
+<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
+
 <span class="text-break">/<wbr>some/<wbr>file/<wbr>path</span>
 ```
 
@@ -44,7 +48,9 @@ Multiple custom break-symbols can be defined via the `GlFriendlyWrap` prop:
 
 Which renders to:
 
+<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
+
 <span class="text-break">some;<wbr>text-<wbr>that.<wbr>needs;<wbr>to-<wbr>be.<wbr>wrapped</span>
 ```
 
@@ -61,6 +67,8 @@ Symbols can be words too:
 
 Which renders to:
 
+<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
+
 <span class="text-break">it goes on and<wbr> on and<wbr> on and<wbr> on</span>
 ```

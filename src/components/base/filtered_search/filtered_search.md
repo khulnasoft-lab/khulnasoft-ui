@@ -59,6 +59,8 @@ const availableTokens = [
 Pass the list of tokens to the search component. Optionally, you can use `v-model` to receive
 realtime updates:
 
+<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
+
 <gl-filtered-search :available-tokens="tokens" v-model="value" />
 ```
