@@ -16,10 +16,12 @@ describe('GlPopover', () => {
   it('closes popover when clicking on close button', () => {
     cy.visitStory('base/popover', { story: 'with-close-button' });
 
-    cy.findByTestId('popover-with-close-button').should('exist').should('be.visible');
+    const popoverCloseButton = 'popover-with-close-button';
+
+    cy.findByTestId(popoverCloseButton).should('exist').should('be.visible');
 
     cy.findByTestId('close-button').click();
 
-    cy.findByTestId('popover-with-close-button').should('not.exist');
+    cy.get(`[data-testid="${popoverCloseButton}"`).should('not.exist');
   });
 });
