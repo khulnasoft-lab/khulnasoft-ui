@@ -1,3 +1,4 @@
+import * as Vue from 'vue';
 import initStoryshots from '@storybook/addon-storyshots';
 import { imageSnapshot } from '@storybook/addon-storyshots-puppeteer';
 import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
@@ -34,6 +35,7 @@ const getMatchOptions = () => ({
 });
 
 initStoryshots({
+  framework: Vue.version.startsWith('3') ? 'vue3' : 'vue',
   suite: 'Image storyshots',
   test: imageSnapshot({
     storybookUrl: 'http://localhost:9001',
