@@ -1,3 +1,10 @@
+# [59.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.0.0...v59.1.0) (2023-03-30)
+
+
+### Features
+
+* **css:** add gl-focus-bg-t-gray-a-08 class ([f4664ef](https://gitlab.com/gitlab-org/gitlab-ui/commit/f4664ef79b50c06b7b37daa8add1502475985875))
+
 # [59.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.8.0...v59.0.0) (2023-03-30)
 
 
