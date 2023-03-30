@@ -2,7 +2,7 @@ describe('GlDiscreteScatterChart', () => {
   beforeEach(() => {
     cy.visitStory('charts/discrete-scatter-chart');
 
-    cy.findByTestId('discrete-scatter-chart').get('path').last().trigger('mousemove');
+    cy.getByTestId('discrete-scatter-chart').first().get('path').last().trigger('mousemove');
   });
 
   it('tooltip title should render', () => {

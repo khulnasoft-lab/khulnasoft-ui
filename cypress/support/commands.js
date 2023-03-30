@@ -47,6 +47,6 @@ Cypress.Commands.add('visitStory', (title, { story = 'default', args = null } = 
   cy.visit('iframe.html', { qs: query });
 });
 
-Cypress.Commands.add('findByTestId', (testId) => {
-  cy.get(`[data-testid="${testId}"]`).first();
+Cypress.Commands.add('getByTestId', (testId) => {
+  cy.get(`[data-testid="${testId}"]`);
 });
