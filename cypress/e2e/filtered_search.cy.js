@@ -19,7 +19,7 @@ describe('GlFilteredSearch', () => {
 
   beforeEach(() => {
     cy.visitStory('base/filtered-search');
-    cy.findByTestId(clearButton).click();
+    cy.getByTestId(clearButton).click();
   });
 
   it('typing Colon when suggestion is active selects suggestion', () => {

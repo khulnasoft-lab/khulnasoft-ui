@@ -15,7 +15,7 @@ describe('GlTruncate', () => {
 
   it('shows a tooltip only when text is being truncated', () => {
     // Click on the truncated text to reveal the tooltip
-    cy.findByTestId('truncate-end-container').click();
+    cy.getByTestId('truncate-end-container').click();
     cy.get('[role="tooltip"]').first().should('exist').contains(text);
 
     // Click outside of the text to hide the tooltip
@@ -26,7 +26,7 @@ describe('GlTruncate', () => {
     cy.viewport(1500, 800);
 
     // Click on the text again, the tooltip should not show up anymore
-    cy.findByTestId('truncate-end-container').click();
+    cy.getByTestId('truncate-end-container').click();
     cy.get('[role="tooltip"]').should('not.exist');
   });
 });
