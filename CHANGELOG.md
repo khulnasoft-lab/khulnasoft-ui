@@ -1,3 +1,16 @@
+# [59.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.8.0...v59.0.0) (2023-03-30)
+
+
+### Features
+
+* **Breadcrumb:** Update design to match specs ([cfa9122](https://gitlab.com/gitlab-org/gitlab-ui/commit/cfa91223f072b647892f776312cca8f75b510d11))
+
+
+### BREAKING CHANGES
+
+* **Breadcrumb:** Update styles and remove unnecessary ones,
+remove separator slot, update placeholder avatar
+
 # [58.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v58.7.0...v58.8.0) (2023-03-29)
 
 
