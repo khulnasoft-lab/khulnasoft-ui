@@ -127,6 +127,11 @@ export default {
       required: false,
       default: null,
     },
+    legendSeriesInfo: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   data() {
     // Part of the tooltip related data can be
@@ -244,6 +249,8 @@ export default {
       return { paddingLeft: `${grid.left}px` };
     },
     seriesInfo() {
+      if (this.legendSeriesInfo.length > 0) return this.legendSeriesInfo;
+
       return this.compiledOptions.series.reduce((acc, series, index) => {
         if (series.type === 'line') {
           acc.push({

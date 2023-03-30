@@ -23,12 +23,13 @@ describe('area component', () => {
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  const createShallowWrapper = (props = {}) => {
+  const createShallowWrapper = ({ props = {}, slots = {} } = {}) => {
     wrapper = shallowMount(AreaChart, {
       propsData: { option: { series: [] }, data: [], ...props },
       stubs: {
         'chart-tooltip': ChartTooltipStub,
       },
+      slots,
     });
     emitChartCreated();
   };
@@ -57,12 +58,14 @@ describe('area component', () => {
 
     it('are displayed if passed via annotations props', async () => {
       createShallowWrapper({
-        annotations: [
-          {
-            min: '',
-            max: '',
-          },
-        ],
+        props: {
+          annotations: [
+            {
+              min: '',
+              max: '',
+            },
+          ],
+        },
       });
 
       await wrapper.vm.$nextTick();
@@ -72,20 +75,22 @@ describe('area component', () => {
 
     it('are displayed if passed via option props', async () => {
       createShallowWrapper({
-        option: {
-          series: [
-            {
-              name: 'annotations',
-              markPoint: {
-                data: [
-                  {
-                    xAxis: 10,
-                  },
-                ],
+        props: {
+          option: {
+            series: [
+              {
+                name: 'annotations',
+                markPoint: {
+                  data: [
+                    {
+                      xAxis: 10,
+                    },
+                  ],
+                },
+                data: [],
               },
-              data: [],
-            },
-          ],
+            ],
+          },
         },
       });
 
@@ -111,12 +116,14 @@ describe('area component', () => {
       };
 
       createShallowWrapper({
-        annotations: [
-          {
-            min: '',
-            max: '',
-          },
-        ],
+        props: {
+          annotations: [
+            {
+              min: '',
+              max: '',
+            },
+          ],
+        },
       });
 
       wrapper.vm.onChartDataPointMouseOver(params);
@@ -166,7 +173,9 @@ describe('area component', () => {
 
     it('is inline if correct prop value is set', async () => {
       createShallowWrapper({
-        legendLayout: LEGEND_LAYOUT_INLINE,
+        props: {
+          legendLayout: LEGEND_LAYOUT_INLINE,
+        },
       });
 
       await wrapper.vm.$nextTick();
@@ -176,18 +185,41 @@ describe('area component', () => {
 
     it('is tabular if correct prop value is set', async () => {
       createShallowWrapper({
-        legendLayout: LEGEND_LAYOUT_TABLE,
+        props: {
+          legendLayout: LEGEND_LAYOUT_TABLE,
+        },
       });
 
       await wrapper.vm.$nextTick();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
     });
+
+    it('displays custom series info when prop is set', async () => {
+      const legendSeriesInfo = [
+        {
+          name: 'Custom Legend Item',
+          type: 'solid',
+          color: '#000',
+          data: [10, 20, 30],
+        },
+      ];
+
+      createShallowWrapper({
+        props: {
+          legendSeriesInfo,
+        },
+      });
+
+      await wrapper.vm.$nextTick();
+
+      expect(findLegend().props('seriesInfo')).toEqual(expect.arrayContaining(legendSeriesInfo));
+    });
   });
 
   describe('height', () => {
     expectHeightAutoClasses({
-      createComponent: createShallowWrapper,
+      createComponent: (props) => createShallowWrapper({ props: { ...props } }),
       findContainer: () => wrapper,
       findChart,
     });
