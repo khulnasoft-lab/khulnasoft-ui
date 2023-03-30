@@ -480,6 +480,9 @@ export const WithMultiSelect = () => {
       isLastUser(index) {
         return index === this.selectedUsers.length - 1;
       },
+      key(user, index) {
+        return `${user.id}-${index}`;
+      },
     },
     watch: {
       // eslint-disable-next-line func-names
@@ -514,7 +517,7 @@ export const WithMultiSelect = () => {
       </template>
     </template>
     <template #suggestions>
-      <gl-filtered-search-suggestion :key="user.id" v-for="user in filteredUsers" :value="user.username">
+      <gl-filtered-search-suggestion :key="key(user, index)" v-for="(user, index) in filteredUsers" :value="user.username">
         <div class="gl-display-flex gl-align-items-center">
           <gl-icon
             v-if="config.multiSelect"
