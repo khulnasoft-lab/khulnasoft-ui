@@ -46,7 +46,9 @@ const config = { ALLOWED_TAGS: ['b'] };
 const config = { ALLOWED_TAGS: [] };
 ```
 
+<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
+
 <div v-safe-html:[config]="rawHtml"></div>
 ```
 

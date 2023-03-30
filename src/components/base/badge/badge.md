@@ -4,7 +4,9 @@ indicate an issue’s status, a member’s role, or if a branch is protected.
 
 ## Usage
 
+<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
+
 <gl-badge>Hello, world!</gl-badge>
 ```
 
