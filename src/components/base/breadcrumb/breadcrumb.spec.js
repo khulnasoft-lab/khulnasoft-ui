@@ -24,22 +24,19 @@ describe('Breadcrumb component', () => {
   ];
 
   const findAvatarSlot = () => wrapper.find('[data-testid="avatar-slot"]');
-  const findSeparatorSlot = () => wrapper.find('[data-testid="separator-slot"]');
   const findBreadcrumbItems = () => wrapper.findAllComponents(GlBreadcrumbItem);
-  const findAllSeparators = () => wrapper.findAll('[data-testid="separator"]');
   const findCollapsedListExpander = () => wrapper.find('[data-testid="collapsed-expander"]');
-  const findExpanderSeparator = () => wrapper.find('[data-testid="expander-separator"]');
 
   const findVisibleBreadcrumbItems = () =>
-    wrapper.findAll('.gl-breadcrumb-item:not(.gl-display-none)');
-  const findHiddenBreadcrumbItems = () => wrapper.findAll('.gl-breadcrumb-item.gl-display-none');
+    findBreadcrumbItems().wrappers.filter((item) => item.isVisible());
+  const findHiddenBreadcrumbItems = () =>
+    findBreadcrumbItems().wrappers.filter((item) => !item.isVisible());
 
   const createComponent = (propsData = { items }) => {
     wrapper = shallowMount(Breadcrumb, {
       propsData,
       slots: {
         avatar: '<div data-testid="avatar-slot"></div>',
-        separator: '<div data-testid="separator-slot"></div>',
       },
       stubs: {
         GlBreadcrumbItem,
@@ -59,18 +56,6 @@ describe('Breadcrumb component', () => {
 
       expect(findAvatarSlot().exists()).toBe(true);
     });
-
-    it('has a separator slot', () => {
-      createComponent();
-
-      expect(findSeparatorSlot().exists()).toBe(true);
-    });
-
-    it('separator slot is shown only with more than one item', () => {
-      createComponent({ items: [items[0]] });
-
-      expect(findSeparatorSlot().exists()).toBe(false);
-    });
   });
 
   describe('items', () => {
@@ -78,12 +63,6 @@ describe('Breadcrumb component', () => {
       createComponent();
 
       expect(findBreadcrumbItems()).toHaveLength(items.length);
-    });
-
-    it(`with ${items.length} items has ${items.length - 1} separators`, () => {
-      createComponent();
-
-      expect(findAllSeparators()).toHaveLength(items.length - 1);
     });
   });
 
@@ -122,9 +101,8 @@ describe('Breadcrumb component', () => {
       beforeEach(() => {
         createComponent();
       });
-      it('should not display collapsed list expander && separator', () => {
+      it('should not display collapsed list expander', () => {
         expect(findCollapsedListExpander().exists()).toBe(false);
-        expect(findExpanderSeparator().exists()).toBe(false);
       });
 
       it('should display all items visible', () => {
@@ -136,9 +114,8 @@ describe('Breadcrumb component', () => {
       beforeEach(() => {
         createComponent({ items: [...items, ...extraItems] });
       });
-      it('should display collapsed list expander && separator', () => {
+      it('should display collapsed list expander', () => {
         expect(findCollapsedListExpander().exists()).toBe(true);
-        expect(findExpanderSeparator().exists()).toBe(true);
       });
 
       it('should display only first && 2 last items and the rest as hidden', () => {

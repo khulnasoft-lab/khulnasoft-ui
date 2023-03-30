@@ -3,9 +3,6 @@ $breadcrumb-max-width: $grid-size * 16;
 
 .gl-breadcrumbs {
   @include gl-display-flex;
-  @include gl-border-0;
-  @include gl-inset-border-b-1-gray-200;
-  @include gl-py-5;
 }
 
 .gl-breadcrumb-list {
@@ -19,25 +16,11 @@ $breadcrumb-max-width: $grid-size * 16;
   }
 }
 
-.gl-breadcrumb-separator {
-  @include gl-display-inline-flex;
-  @include gl-absolute;
-  right: 0;
-
-  > svg {
-    @include gl-my-auto;
-    @include gl-mx-2;
-    @include gl-w-3;
-    @include gl-text-gray-500;
-    @include gl-fill-current-color;
-  }
-}
-
 .gl-breadcrumb-avatar-tile {
-  @include gl-mr-3;
+  @include gl-mr-2;
   @include gl-border-1;
   @include gl-border-solid;
-  @include gl-border-gray-200;
+  @include gl-border-gray-a-08;
   @include gl-rounded-base;
 }
 
@@ -45,22 +28,15 @@ $breadcrumb-max-width: $grid-size * 16;
 .gl-breadcrumb-item {
   @include gl-font-sm;
   @include gl-line-height-normal;
-  @include gl-relative;
-  @include gl-pr-6;
 
-  + .gl-breadcrumb-item {
-    @include gl-pl-0;
-
-    &::before {
-      content: '';
-      @include gl-display-none;
-    }
+  &:not(:last-child)::after {
+    @include gl-text-gray-200;
+    @include gl-px-3;
+    content: '/';
   }
 
   > a {
-    @include gl-display-flex;
-    @include gl-align-items-center;
-    @include gl-text-gray-500;
+    @include gl-text-gray-700;
     @include media-breakpoint-down(xs) {
       @include str-truncated($breadcrumb-max-width);
     }
@@ -74,6 +50,6 @@ $breadcrumb-max-width: $grid-size * 16;
 }
 
 .gl-breadcrumb-item:last-child > a {
-  @include gl-text-gray-950;
+  @include gl-text-gray-900;
   @include gl-font-weight-bold;
 }
