@@ -2,20 +2,19 @@ describe('GlFilteredSearch', () => {
   const clearButton = 'filtered-search-clear-button';
   const filteredTokenSegment = 'filtered-search-token-segment';
   const suggestion = 'filtered-search-suggestion';
-  const filteredToken = 'filtered-search-token';
   const filterSearchTerm = 'filtered-search-term';
-  const activeClass = '.gl-filtered-search-token-segment-active';
 
   const testId = (id) => `[data-testid="${id}"]`;
   const typeInInput = (text) => {
     // We type into a different input than the one we click on since activating
     // a segment creates a different input element.
-    cy.get(testId('filtered-search-term-input')).click();
-    return cy.get(testId('filtered-search-token-segment-input')).type(text);
+    cy.get('input').click();
+    return cy.get('input').type(text);
   };
-  const findTokenSegment = (text) => cy.contains(testId(filteredTokenSegment), text);
-  const clickSuggestion = (text) => cy.contains(testId(suggestion), text).click();
-  const findActiveToken = () => cy.get(activeClass);
+  const getTokenSegment = (text) => cy.contains(testId(filteredTokenSegment), text);
+  const getSearchTerm = (text) => cy.contains(testId(filterSearchTerm), text);
+  const getSuggestion = (text) => cy.contains(testId(suggestion), text);
+  const clickSuggestion = (text) => getSuggestion(text).click();
 
   beforeEach(() => {
     cy.visitStory('base/filtered-search');
@@ -23,9 +22,9 @@ describe('GlFilteredSearch', () => {
   });
 
   it('typing Colon when suggestion is active selects suggestion', () => {
-    findTokenSegment('Label').should('not.exist');
+    getTokenSegment('Label').should('not.exist');
     typeInInput('label:');
-    findTokenSegment('Label').should('exist');
+    getTokenSegment('Label').should('exist');
   });
 
   it('typing Colon when no suggestion is active types Colon', () => {
@@ -44,53 +43,46 @@ describe('GlFilteredSearch', () => {
     clickSuggestion('=');
     clickSuggestion('Bug');
 
-    findTokenSegment('Feature').find('.gl-token-close').click();
+    getTokenSegment('Feature').find('.gl-token-close').click();
 
-    findTokenSegment('Feature').should('not.exist');
-    findTokenSegment('Bug').should('be.visible');
+    getTokenSegment('Feature').should('not.exist');
+    getTokenSegment('Bug').should('be.visible');
   });
 
   it('allows navigation between tokens using left and right arrows', () => {
+    const words = ['aardvark', 'bee'];
+
     typeInInput('label');
     clickSuggestion('Label');
     clickSuggestion('=');
     clickSuggestion('Feature');
 
-    cy.get('input').type('free text');
+    typeInInput(words.join(' '));
+    getTokenSegment('Label').should('be.visible');
+    getTokenSegment('=').should('be.visible');
+    getTokenSegment('Feature').should('be.visible');
+    getSearchTerm(words[0]).should('be.visible');
+    cy.get('input').should('have.value', words[1]);
 
-    // We cannot find input value within active segment so we test siblings of active element
-    findActiveToken().parent().siblings(testId(filteredToken)).should('contain', 'Label');
-    findActiveToken().parent().siblings(testId(filteredToken)).should('contain', 'Feature');
-    findActiveToken().parent().siblings(testId(filterSearchTerm)).should('contain', 'free');
-    findActiveToken().parent().siblings(testId(filterSearchTerm)).should('not.contain', 'text');
+    typeInInput('{leftArrow}'.repeat(words[1].length + 1));
+    getTokenSegment('Label').should('be.visible');
+    getTokenSegment('=').should('be.visible');
+    getTokenSegment('Feature').should('be.visible');
+    cy.get('input').should('have.value', words[0]);
+    getSearchTerm(words[1]).should('be.visible');
 
-    cy.get('input').type('{leftArrow}{leftArrow}{leftArrow}{leftArrow}{leftArrow}');
-    findActiveToken()
-      .parent()
-      .within(() => {
-        cy.root().siblings(testId(filteredToken)).should('contain', 'Label');
-        cy.root().siblings(testId(filterSearchTerm)).should('contain', 'text');
-        cy.root().siblings(testId(filterSearchTerm)).should('not.contain', 'free');
-      });
+    typeInInput('{leftArrow}'.repeat(words[0].length + 1));
+    getTokenSegment('Label').should('be.visible');
+    getTokenSegment('=').should('be.visible');
+    cy.get('input').should('have.value', 'Feature');
+    getSearchTerm(words[0]).should('be.visible');
+    getSearchTerm(words[1]).should('be.visible');
 
-    cy.get('input').type('{leftArrow}{leftArrow}{leftArrow}{leftArrow}{leftArrow}');
-    findActiveToken().within(() => {
-      cy.root()
-        .siblings(`[data-testid="${filteredTokenSegment}"]`)
-        .should('contain', 'Label')
-        .and('contain', '=');
-      cy.root()
-        .siblings(`[data-testid="${filteredTokenSegment}"]`)
-        .should('not.contain', 'Feature');
-    });
-
-    cy.get('input').type('{rightArrow}{rightArrow}{rightArrow}{rightArrow}{rightArrow}');
-    findActiveToken()
-      .parent()
-      .within(() => {
-        cy.root().siblings(testId(filteredToken)).should('contain', 'Label');
-        cy.root().siblings(testId(filterSearchTerm)).should('contain', 'text');
-        cy.root().siblings(testId(filterSearchTerm)).should('not.contain', 'free');
-      });
+    typeInInput('{rightArrow}'.repeat(words[0].length + words[1].length + 3));
+    getTokenSegment('Label').should('be.visible');
+    getTokenSegment('=').should('be.visible');
+    getTokenSegment('Feature').should('be.visible');
+    getSearchTerm(words[0]).should('be.visible');
+    getSearchTerm(words[1]).should('be.visible');
   });
 });
