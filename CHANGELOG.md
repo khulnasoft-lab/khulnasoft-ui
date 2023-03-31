@@ -1,3 +1,19 @@
+# [59.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.1.1...v59.2.0) (2023-03-31)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Avoid rare scroll method error ([6001fb4](https://gitlab.com/gitlab-org/gitlab-ui/commit/6001fb48f338486823a427345f0969783eb477d4))
+* **GlFilteredSearch:** Improve activeTokenIdx check in isLastToken ([f5114c0](https://gitlab.com/gitlab-org/gitlab-ui/commit/f5114c07863d149ea8f1f49ed0da70734c9126ac))
+* **GlFilteredSearch:** Improve handling of some falsey values ([8dd22f7](https://gitlab.com/gitlab-org/gitlab-ui/commit/8dd22f7e1941e9820a2db9ba50e87cf9b81540e9)), closes [/gitlab.com/gitlab-org/gitlab/-/blob/2dcb4f37a26ffff6b2cebc6b1f55f1294b1b545d/ee/app/assets/javascripts/roadmap/mixins/filtered_search_mixin.js#L179-180](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/blob/2dcb4f37a26ffff6b2cebc6b1f55f1294b1b545d/ee/app/assets/javascripts/roadmap/mixins/filtered_search_mixin.js/issues/L179-180)
+* **GlFilteredSearch:** Improve keyboard accessibility ([0798e43](https://gitlab.com/gitlab-org/gitlab-ui/commit/0798e433c7ac8c22300c579613b9f3aa5bc4b929))
+* **GlFilteredSearch:** Remove conditional class ([6854cb9](https://gitlab.com/gitlab-org/gitlab-ui/commit/6854cb993b7534b6d37c4b85a1bc020870ce9d04))
+
+
+### Features
+
+* **buttons:** tertiary button selected state ([6654ebb](https://gitlab.com/gitlab-org/gitlab-ui/commit/6654ebbff06a1f8d479bdb5885f816a54d5f2c5e))
+
 ## [59.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.1.0...v59.1.1) (2023-03-31)
 
 
