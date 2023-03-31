@@ -68,7 +68,7 @@ describe('Filtered search term', () => {
 
   it('renders input with placeholder if placeholder prop is provided', () => {
     createComponent({ placeholder: 'placeholder-stub' });
-    expect(wrapper.find('input').attributes('placeholder')).toBe('placeholder-stub');
+    expect(findSearchInput().attributes('placeholder')).toBe('placeholder-stub');
   });
 
   it('filters suggestions by input', async () => {
@@ -143,6 +143,21 @@ describe('Filtered search term', () => {
     expect(findSearchInput().attributes('data-qa-selector')).toBe(
       searchInputAttributes['data-qa-selector']
     );
+  });
+
+  it('activates and deactivates when the input is focused/blurred', async () => {
+    createComponent({ placeholder: 'placeholder-stub' });
+    await nextTick();
+
+    expect(wrapper.emitted()).toEqual({});
+
+    await findSearchInput().trigger('focusin');
+
+    expect(wrapper.emitted()).toEqual({ activate: [[]] });
+
+    await findSearchInput().trigger('focusout');
+
+    expect(wrapper.emitted()).toEqual({ activate: [[]], deactivate: [[]] });
   });
 
   describe.each([true, false])('when `viewOnly` is %s', (viewOnly) => {

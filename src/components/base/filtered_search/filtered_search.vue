@@ -220,7 +220,7 @@ export default {
     },
 
     isLastToken(idx) {
-      return !this.activeTokenIdx && idx === this.lastTokenIdx;
+      return this.activeTokenIdx === null && idx === this.lastTokenIdx;
     },
 
     isLastTokenEmpty() {
@@ -235,8 +235,11 @@ export default {
       return this.getTokenEntry(type)?.token || GlFilteredSearchTerm;
     },
 
-    getLastTokenClassList(idx) {
-      return this.isLastToken(idx) && !this.viewOnly ? 'gl-filtered-search-last-item' : '';
+    getTokenClassList(idx) {
+      return {
+        'gl-filtered-search-item': true,
+        'gl-filtered-search-last-item': this.isLastToken(idx) && !this.viewOnly,
+      };
     },
 
     activate(idx) {
@@ -315,11 +318,7 @@ export default {
     },
 
     createTokens(idx, newStrings = ['']) {
-      if (
-        this.activeTokenIdx !== this.lastTokenIdx &&
-        newStrings.length === 1 &&
-        newStrings[0] === ''
-      ) {
+      if (!this.isLastTokenActive && newStrings.length === 1 && newStrings[0] === '') {
         this.activeTokenIdx = this.lastTokenIdx;
         return;
       }
@@ -394,8 +393,7 @@ export default {
           :search-input-attributes="searchInputAttributes"
           :view-only="viewOnly"
           :is-last-token="isLastToken(idx)"
-          class="gl-filtered-search-item"
-          :class="{ 'gl-filtered-search-last-item': isLastToken(idx) && !viewOnly }"
+          :class="getTokenClassList(idx)"
           @activate="activate(idx)"
           @deactivate="deactivate(token)"
           @destroy="destroyToken(idx, $event)"

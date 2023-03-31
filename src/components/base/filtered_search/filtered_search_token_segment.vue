@@ -170,10 +170,10 @@ export default {
         return this.nonMultipleValue;
       }
       if (this.value) {
-        const match =
+        const option =
           this.getMatchingOptionForInputValue(this.inputValue) ||
           this.getMatchingOptionForInputValue(this.inputValue, { loose: true });
-        return match?.value;
+        return option?.value;
       }
 
       const defaultSuggestion = this.options.find((op) => op.default);

@@ -146,7 +146,6 @@ export default {
       class="gl-filtered-search-term-token"
       :active="active"
       :cursor-position="cursorPosition"
-      :class="{ 'gl-w-full': placeholder }"
       :search-input-attributes="searchInputAttributes"
       :is-last-token="isLastToken"
       :current-value="currentValue"
@@ -181,6 +180,8 @@ export default {
           :aria-label="placeholder"
           :readonly="viewOnly"
           data-testid="filtered-search-term-input"
+          @focusin="$emit('activate')"
+          @focusout="$emit('deactivate')"
         />
 
         <template v-else>{{ value.data }}</template>

@@ -26,7 +26,7 @@ export default {
     isActive(newValue) {
       if (newValue) {
         window.requestAnimationFrame(() => {
-          this.$refs.item.$el.scrollIntoView({ block: 'nearest', inline: 'end' });
+          this.$refs.item?.$el?.scrollIntoView({ block: 'nearest', inline: 'end' });
         });
       }
     },
