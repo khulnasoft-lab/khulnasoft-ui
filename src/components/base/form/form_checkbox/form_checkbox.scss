@@ -56,6 +56,7 @@
     .custom-control-input ~ .custom-control-label {
       @include gl-cursor-pointer;
       @include gl-pl-3;
+      @include gl-mb-3;
 
       &::before,
       &::after {
@@ -153,7 +154,7 @@
   .help-text {
     @include gl-mt-2;
     @include gl-text-gray-500;
-    @include gl-mb-3;
+    @include gl-mb-0;
     @include gl-font-base;
     @include gl-line-height-normal;
   }
