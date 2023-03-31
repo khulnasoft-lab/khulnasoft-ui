@@ -304,8 +304,8 @@ const tokens = [
     unique: true,
     token: GlFilteredSearchToken,
     options: [
-      { icon: 'eye-slash', value: 'Yes', title: 'Yes' },
-      { icon: 'eye', value: 'No', title: 'No' },
+      { icon: 'eye-slash', value: 'true', title: 'Yes' },
+      { icon: 'eye', value: 'false', title: 'No' },
     ],
   },
 ];
@@ -410,8 +410,8 @@ export const WithFriendlyText = () => ({
           unique: true,
           token: GlFilteredSearchToken,
           options: [
-            { icon: 'eye-slash', value: 'Yes', title: 'Yes' },
-            { icon: 'eye', value: 'No', title: 'No' },
+            { icon: 'eye-slash', value: 'true', title: 'Yes' },
+            { icon: 'eye', value: 'false', title: 'No' },
           ],
         },
       ],
