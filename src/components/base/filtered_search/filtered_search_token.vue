@@ -11,7 +11,7 @@ const SEGMENT_DATA = 'DATA';
 const TOKEN_CLOSE_SELECTOR = '.gl-token-close';
 
 const DEFAULT_OPERATORS = [
-  { value: '=', description: 'is', default: 'true' },
+  { value: '=', description: 'is', default: true },
   { value: '!=', description: 'is not' },
 ];
 
