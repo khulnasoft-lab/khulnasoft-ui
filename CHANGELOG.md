@@ -1,3 +1,10 @@
+## [59.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.1.0...v59.1.1) (2023-03-31)
+
+
+### Bug Fixes
+
+* **Checkbox:** fix touch target when there is help text ([a8d2578](https://gitlab.com/gitlab-org/gitlab-ui/commit/a8d257810ac010c2dea563fbe15a69cdd7026f55))
+
 # [59.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.0.0...v59.1.0) (2023-03-30)
 
 
