@@ -53,6 +53,7 @@ export default {
     class="gl-filtered-search-suggestion"
     data-testid="filtered-search-suggestion"
     :class="{ 'gl-filtered-search-suggestion-active': isActive }"
+    tabindex="-1"
     v-bind="$attrs"
     href="#"
     @mousedown.native.prevent="emitValue"
