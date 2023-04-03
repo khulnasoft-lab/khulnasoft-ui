@@ -87,7 +87,7 @@
     "@arkweid/lefthook": "0.7.7",
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
-    "@gitlab/eslint-plugin": "18.2.0",
+    "@gitlab/eslint-plugin": "18.3.0",
     "@gitlab/fonts": "^1.2.0",
     "@gitlab/stylelint-config": "4.1.0",
     "@gitlab/svgs": "3.36.0",
