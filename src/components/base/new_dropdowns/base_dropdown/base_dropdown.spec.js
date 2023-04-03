@@ -92,6 +92,13 @@ describe('base dropdown', () => {
       wrapper.destroy();
       expect(destroyPopper).toHaveBeenCalled();
     });
+
+    it('should not destroy popper instance when component is not initiated', async () => {
+      buildWrapper();
+      wrapper.destroy();
+      await nextTick();
+      expect(destroyPopper).not.toHaveBeenCalled();
+    });
   });
 
   describe('renders content to the default slot', () => {
