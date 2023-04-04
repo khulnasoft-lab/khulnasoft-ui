@@ -35,7 +35,7 @@ export const LinkToSource = (props) => {
   // There is a context.parameters.component.__file property that points to the
   // source file if it's a component, but it does not exist for directives and isn't available
   // in the production bundle.
-  const storyFileName = context?.parameters?.fileName;
+  const storyFileName = context?.attachedCSFFile?.meta?.parameters?.fileName;
   if (!storyFileName) {
     return null;
   }

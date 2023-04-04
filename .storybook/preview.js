@@ -6,7 +6,7 @@ import setConfigs from '../src/config';
 import logoWithBlackText from '../static/img/_logo_with_black_text.svg';
 import logoWithWhiteText from '../static/img/_logo_with_white_text.svg';
 
-export const decorators = Vue.version.startsWith('3')
+const decorators = Vue.version.startsWith('3')
   ? [
       function passArgsCorrectlyForVueCompat(storyFn, storyContext) {
         return h(storyContext.undecoratedStoryFn(storyContext), storyContext.args);
@@ -27,7 +27,7 @@ const theme = {
   brandUrl: 'https://gitlab.com/gitlab-org/gitlab-ui',
 };
 
-export const parameters = {
+const parameters = {
   options: {
     storySort: {
       method: 'alphabetical',
@@ -93,3 +93,5 @@ if (process.env.IS_VISUAL_TEST) {
   const { page } = require('./docs/page');
   parameters.docs = { page };
 }
+
+export default { decorators, parameters };
