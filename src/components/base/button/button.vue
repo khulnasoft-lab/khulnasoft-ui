@@ -121,7 +121,10 @@ export default {
   mounted() {
     // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
     if (!this.$slots.default && !this.$attrs['aria-label'] && !this.$props.label) {
-      logWarning('[gl-button]: Accessible name missing. Please add inner text or aria-label.');
+      logWarning(
+        '[gl-button]: Accessible name missing. Please add inner text or aria-label.',
+        this.$el
+      );
     }
   },
 };

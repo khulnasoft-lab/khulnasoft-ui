@@ -221,7 +221,8 @@ export default {
       if (!isElementFocusable(this.toggleElement) && !isElementTabbable(this.toggleElement)) {
         logWarning(
           `GlDisclosureDropdown/GlCollapsibleListbox: Toggle is missing a 'tabindex' and cannot be focused.
-          Use 'a' or 'button' element instead or make sure to add 'role="button"' along with 'tabindex' otherwise.`
+          Use 'a' or 'button' element instead or make sure to add 'role="button"' along with 'tabindex' otherwise.`,
+          this.$el
         );
       }
     },

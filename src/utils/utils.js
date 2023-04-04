@@ -130,10 +130,11 @@ export function isDev() {
 /**
  * Prints a warning message to the console in non-test and non-production environments.
  * @param {string} message message to print to the console
+ * @param {HTMLElement} element component that triggered the warning
  */
-export function logWarning(message = '') {
+export function logWarning(message = '', element = '') {
   if (message.length && isDev()) {
-    console.warn(message); // eslint-disable-line no-console
+    console.warn(message, element); // eslint-disable-line no-console
   }
 }
 
