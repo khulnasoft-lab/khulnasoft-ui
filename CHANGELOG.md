@@ -1,3 +1,10 @@
+# [59.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.2.0...v59.3.0) (2023-04-04)
+
+
+### Features
+
+* **css:** added missing width utility mixins ([2b545cb](https://gitlab.com/gitlab-org/gitlab-ui/commit/2b545cb9bdae51ef8bab7dc16ce4f56dea116e6a))
+
 # [59.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.1.1...v59.2.0) (2023-03-31)
 
 
