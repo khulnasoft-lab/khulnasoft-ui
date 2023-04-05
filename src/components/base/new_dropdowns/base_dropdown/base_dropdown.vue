@@ -214,7 +214,7 @@ export default {
     this.checkToggleFocusable();
   },
   beforeDestroy() {
-    this.popper.destroy();
+    this.popper?.destroy();
   },
   methods: {
     checkToggleFocusable() {
