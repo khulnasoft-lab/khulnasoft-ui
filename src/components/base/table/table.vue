@@ -30,7 +30,7 @@ export default {
     // logWarning will call isDev before logging any message
     // this additional call to isDev is being made to exit the condition early when run in production
     if (isDev() && !shouldUseFullTable(this)) {
-      logWarning(glTableLiteWarning);
+      logWarning(glTableLiteWarning, this.$el);
     }
   },
 };
