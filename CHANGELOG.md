@@ -1,3 +1,10 @@
+# [59.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.3.2...v59.4.0) (2023-04-05)
+
+
+### Features
+
+* **GlAreaChart:** add legend-series-info prop ([6e855cc](https://gitlab.com/gitlab-org/gitlab-ui/commit/6e855cc1260c00a4a5821003b2dd0ec8d082d7bd))
+
 ## [59.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.3.1...v59.3.2) (2023-04-05)
 
 
