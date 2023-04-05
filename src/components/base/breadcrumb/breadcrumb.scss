@@ -16,14 +16,6 @@ $breadcrumb-max-width: $grid-size * 16;
   }
 }
 
-.gl-breadcrumb-avatar-tile {
-  @include gl-mr-2;
-  @include gl-border-1;
-  @include gl-border-solid;
-  @include gl-border-gray-a-08;
-  @include gl-rounded-base;
-}
-
 // bootstrap overrides
 .gl-breadcrumb-item {
   @include gl-font-sm;

@@ -1,22 +1,23 @@
 ## Usage
 
-This component provides a `<slot #avatar>` so an avatar can appear before the first breadcrumb.
+This component also allows for optional avatars on each item.
+
+`avatarPath` should passed along with `text` and `href` in `items`.
+Here is an example of how an item with an avatar should look:
 
 **note:** the component supports passing the property `to` in the list items to enable navigation
 through `vue-router`
 
 ### Example
 
-```html
-<gl-breadcrumb :items="items">
-  <template #avatar>
-    <img 
-      alt=""
-      class="gl-breadcrumb-avatar-tile"
-      src="/path/to/image.png"
-      width="16"
-      height="16"
-    />
-  </template>
-</gl-breadcrumb>
+```js
+items = [
+  {
+    text: 'First item',
+    href: '#',
+    avatarPath: '/avatar.png',
+  },
+];
+
+<gl-breadcrumb :items="items" />
 ```
