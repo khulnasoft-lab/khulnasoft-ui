@@ -2,6 +2,7 @@ import times from 'lodash/times';
 import { GlAreaChart } from '../../../charts';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';
+import { dataVizAqua500, dataVizOrange600 } from '../../../../scss_to_js/scss_variables';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
 import { disableControls } from '../../../utils/stories_utils';
@@ -35,6 +36,7 @@ const template = `<gl-area-chart
   :annotations="annotations"
   :includeLegendAvgMax="includeLegendAvgMax"
   :height="height"
+  :legendSeriesInfo="legendSeriesInfo"
 />`;
 
 const generateProps = ({
@@ -44,6 +46,7 @@ const generateProps = ({
   annotations = [],
   includeLegendAvgMax = true,
   height = null,
+  legendSeriesInfo = [],
 } = {}) => ({
   data,
   option,
@@ -51,6 +54,7 @@ const generateProps = ({
   annotations,
   includeLegendAvgMax,
   height,
+  legendSeriesInfo,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -151,6 +155,24 @@ MultSeries.args = generateProps({
     name: index,
     data: defaultData[0].data.map(([label, value]) => [label, value * index]),
   })),
+});
+
+export const WithCustomLegendItems = Template.bind({});
+WithCustomLegendItems.args = generateProps({
+  legendSeriesInfo: [
+    {
+      name: 'Custom Legend Item 1',
+      type: 'solid',
+      color: dataVizOrange600,
+      data: [10, 20],
+    },
+    {
+      name: 'Custom Legend Item 2',
+      type: 'solid',
+      color: dataVizAqua500,
+      data: [30, 50],
+    },
+  ],
 });
 
 export default {
