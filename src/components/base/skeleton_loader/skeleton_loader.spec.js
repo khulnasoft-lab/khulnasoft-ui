@@ -7,8 +7,15 @@ describe('GlSkeletonLoader', () => {
   const findDefaultLines = () => wrapper.findAll('clipPath rect');
   const findSvg = () => wrapper.find('svg');
 
-  const createComponent = (options = {}) => {
-    wrapper = shallowMount(GlSkeletonLoader, options);
+  const createComponent = ({ propsData, slots, reducedMotion } = {}) => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation(() => ({
+        matches: reducedMotion,
+      })),
+    });
+
+    wrapper = shallowMount(GlSkeletonLoader, { propsData, slots });
   };
 
   describe('when default skeleton is used', () => {
@@ -126,4 +133,19 @@ describe('GlSkeletonLoader', () => {
       });
     });
   });
+
+  it.each`
+    reducedMotion | hasLinearGradient
+    ${false}      | ${'has'}
+    ${true}       | ${'does not have'}
+  `(
+    '$hasLinearGradient linear-gradient when reduced motion is $reducedMotion',
+    ({ reducedMotion }) => {
+      createComponent({ reducedMotion });
+
+      const gradient = wrapper.find('linearGradient');
+
+      expect(gradient.exists()).toBe(!reducedMotion);
+    }
+  );
 });

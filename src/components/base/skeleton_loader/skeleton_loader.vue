@@ -106,6 +106,8 @@ export default {
       return `${DEFAULT_LINE_WIDTH_PERCENTAGES[index % DEFAULT_LINE_WIDTH_PERCENTAGES.length]}%`;
     };
 
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     const svg = createElement(
       'svg',
       {
@@ -122,13 +124,15 @@ export default {
       [
         createElement('title', {}, ['Loading']),
         createElement('rect', {
-          style: { fill: `url(${props.baseUrl}#${props.uniqueKey}-idGradient)` },
           attrs: {
             'clip-path': `url(${props.baseUrl}#${props.uniqueKey}-idClip)`,
             x: 0,
             y: 0,
             width: width(),
             height: height(),
+            ...(reducedMotion
+              ? { class: 'gl-fill-gray-100' }
+              : { fill: `url(${props.baseUrl}#${props.uniqueKey}-idGradient)` }),
           },
         }),
         createElement('defs', {}, [
@@ -153,73 +157,74 @@ export default {
                   })
                 )
           ),
-          createElement(
-            'linearGradient',
-            {
-              attrs: {
-                id: `${props.uniqueKey}-idGradient`,
+          !reducedMotion &&
+            createElement(
+              'linearGradient',
+              {
+                attrs: {
+                  id: `${props.uniqueKey}-idGradient`,
+                },
               },
-            },
-            [
-              createElement(
-                'stop',
-                {
-                  class: 'primary-stop',
-                  attrs: {
-                    offset: '0%',
-                  },
-                },
-                [
-                  createElement('animate', {
+              [
+                createElement(
+                  'stop',
+                  {
+                    class: 'primary-stop',
                     attrs: {
-                      attributeName: 'offset',
-                      values: '-2; 1',
-                      dur: '1s',
-                      repeatCount: 'indefinite',
+                      offset: '0%',
                     },
-                  }),
-                ]
-              ),
-              createElement(
-                'stop',
-                {
-                  class: 'secondary-stop',
-                  attrs: {
-                    offset: '50%',
                   },
-                },
-                [
-                  createElement('animate', {
+                  [
+                    createElement('animate', {
+                      attrs: {
+                        attributeName: 'offset',
+                        values: '-2; 1',
+                        dur: '1s',
+                        repeatCount: 'indefinite',
+                      },
+                    }),
+                  ]
+                ),
+                createElement(
+                  'stop',
+                  {
+                    class: 'secondary-stop',
                     attrs: {
-                      attributeName: 'offset',
-                      values: '-1.5; 1.5',
-                      dur: '1s',
-                      repeatCount: 'indefinite',
+                      offset: '50%',
                     },
-                  }),
-                ]
-              ),
-              createElement(
-                'stop',
-                {
-                  class: 'primary-stop',
-                  attrs: {
-                    offset: '100%',
                   },
-                },
-                [
-                  createElement('animate', {
+                  [
+                    createElement('animate', {
+                      attrs: {
+                        attributeName: 'offset',
+                        values: '-1.5; 1.5',
+                        dur: '1s',
+                        repeatCount: 'indefinite',
+                      },
+                    }),
+                  ]
+                ),
+                createElement(
+                  'stop',
+                  {
+                    class: 'primary-stop',
                     attrs: {
-                      attributeName: 'offset',
-                      values: '-1; 2',
-                      dur: '1s',
-                      repeatCount: 'indefinite',
+                      offset: '100%',
                     },
-                  }),
-                ]
-              ),
-            ]
-          ),
+                  },
+                  [
+                    createElement('animate', {
+                      attrs: {
+                        attributeName: 'offset',
+                        values: '-1; 2',
+                        dur: '1s',
+                        repeatCount: 'indefinite',
+                      },
+                    }),
+                  ]
+                ),
+              ]
+            ),
         ]),
       ]
     );

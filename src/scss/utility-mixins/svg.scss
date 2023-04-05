@@ -46,6 +46,10 @@
   stroke: transparent;
 }
 
+@mixin gl-fill-gray-100 {
+  fill: $gray-100;
+}
+
 @mixin gl-fill-gray-200 {
   fill: $gray-200;
 }
