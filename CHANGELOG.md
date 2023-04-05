@@ -1,3 +1,10 @@
+## [59.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.3.1...v59.3.2) (2023-04-05)
+
+
+### Bug Fixes
+
+* **GlSkeletonLoader:** Disable animation for reduced motion ([a70e810](https://gitlab.com/gitlab-org/gitlab-ui/commit/a70e8104361a4f51f36076d4466989df2de53f94))
+
 ## [59.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.3.0...v59.3.1) (2023-04-05)
 
 
