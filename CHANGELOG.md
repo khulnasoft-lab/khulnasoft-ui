@@ -1,3 +1,10 @@
+## [59.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.3.0...v59.3.1) (2023-04-05)
+
+
+### Bug Fixes
+
+* **base_dropdown:** conditional chaining to destroy popper ([05cf79e](https://gitlab.com/gitlab-org/gitlab-ui/commit/05cf79e0fdaf55d9403fcdaba062d416294b3815))
+
 # [59.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.2.0...v59.3.0) (2023-04-04)
 
 
