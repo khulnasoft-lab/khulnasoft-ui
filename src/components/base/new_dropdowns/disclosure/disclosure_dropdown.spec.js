@@ -37,6 +37,13 @@ describe('GlDisclosureDropdown', () => {
 
   jest.spyOn(utils, 'filterVisible').mockImplementation((items) => items);
 
+  it('passes custom popper.js options to the base dropdown', () => {
+    const popperOptions = { foo: 'bar' };
+    buildWrapper({ popperOptions });
+
+    expect(findBaseDropdown().props('popperOptions')).toEqual(popperOptions);
+  });
+
   describe('toggle text', () => {
     it('should pass toggle text to the base dropdown', () => {
       const toggleText = 'Merge requests';

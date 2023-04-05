@@ -117,6 +117,11 @@ export default {
       required: false,
       default: null,
     },
+    popperOptions: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -192,6 +197,7 @@ export default {
       return {
         placement: dropdownPlacements[this.placement],
         ...POPPER_CONFIG,
+        ...this.popperOptions,
       };
     },
   },

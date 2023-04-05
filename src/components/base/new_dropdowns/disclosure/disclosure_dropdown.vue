@@ -164,6 +164,15 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * Options to be passed to the underlying Popper.js instance.
+     * Overrides built-in options.
+     */
+    popperOptions: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -278,6 +287,7 @@ export default {
     :loading="loading"
     :no-caret="noCaret"
     :placement="placement"
+    :popper-options="popperOptions"
     class="gl-disclosure-dropdown"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
