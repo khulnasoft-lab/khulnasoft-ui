@@ -1,3 +1,26 @@
+# [60.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.5.0...v60.0.0) (2023-04-06)
+
+
+### Features
+
+* **Breadcrumb:** Add opt in multiple avatars ([67f1e3e](https://gitlab.com/gitlab-org/gitlab-ui/commit/67f1e3eac7899568052730d0135cb471e2d0e474))
+
+
+### BREAKING CHANGES
+
+* **Breadcrumb:** Deprecated avatar slot
+Added avatar option in items prop
+
+chore(breadcrumbs)
+
+fix css rules on avatar
+
+chore(breadcrumbs)
+
+fix story template
+
+Add review suggestions
+
 # [59.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.4.0...v59.5.0) (2023-04-06)
 
 
