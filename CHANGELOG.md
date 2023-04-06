@@ -1,3 +1,10 @@
+# [59.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.4.0...v59.5.0) (2023-04-06)
+
+
+### Features
+
+* add gl-sm-flex-nowrap, gl-flex-wrap-reverse ([7acd006](https://gitlab.com/gitlab-org/gitlab-ui/commit/7acd006d285bfe7eb51f9bcb1edc81b20b934b8a))
+
 # [59.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.3.2...v59.4.0) (2023-04-05)
 
 
