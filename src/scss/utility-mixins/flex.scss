@@ -65,11 +65,6 @@
   }
 }
 
-/**
-* `gl-*flex-wrap` is deprecated; use `gl-*flex-wrap-wrap` instead.
-* TODO: delete `gl-*flex-wrap` utilities classes, see
-* https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1951
-*/
 @mixin gl-flex-wrap {
   flex-wrap: wrap;
 }
@@ -92,6 +87,25 @@
   }
 }
 
+@mixin gl-flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+@mixin gl-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+@mixin gl-sm-flex-nowrap {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-flex-nowrap;
+  }
+}
+
+/**
+* `gl-*flex-wrap-wrap` is deprecated; use `gl-*flex-wrap` instead.
+* TODO: delete `gl-*flex-wrap-wrap` utilities classes, see
+* https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2204
+*/
 @mixin gl-flex-wrap-wrap {
   flex-wrap: wrap;
 }
@@ -126,15 +140,6 @@
   @include gl-media-breakpoint-up(sm) {
     @include gl-flex-wrap-nowrap;
   }
-}
-
-/**
-* `gl-flex-nowrap` is deprecated; use `gl-flex-wrap-nowrap` instead.
-* TODO: delete `gl-flex-wrap-nowrap` utility class, see
-* https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1951
-*/
-@mixin gl-flex-nowrap {
-  flex-wrap: nowrap;
 }
 
 @mixin gl-flex-direction-column {
