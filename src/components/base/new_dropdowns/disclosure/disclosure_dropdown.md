@@ -4,9 +4,7 @@ to make sure this is the right dropdown component for you.
 
 ### Basic usage
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <gl-disclosure-dropdown-dropdown toggle-text="Actions" :items="items" />
 ```
 

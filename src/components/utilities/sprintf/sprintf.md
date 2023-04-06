@@ -130,9 +130,7 @@ export default {
 
 The example above renders to this HTML:
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <div>Written by <span>Some author</span></div>
 ```
 
