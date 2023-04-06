@@ -84,7 +84,7 @@ export default {
     searchTextOptionLabel: {
       type: String,
       required: false,
-      default: null,
+      default: termTokenDefinition.title,
     },
     viewOnly: {
       type: Boolean,

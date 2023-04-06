@@ -95,7 +95,7 @@ describe('Filtered search', () => {
       });
       await nextTick();
 
-      const inputEventArgs = wrapper.emitted().input[1][0];
+      const [inputEventArgs] = wrapper.emitted().input.at(-1);
       expect(inputEventArgs.every((t) => t.type === TERM_TOKEN_TYPE)).toBe(true);
       expect(inputEventArgs.map((t) => t.value.data)).toStrictEqual(['one', 'two', '']);
     });
@@ -106,9 +106,21 @@ describe('Filtered search', () => {
       });
       await nextTick();
 
-      const inputEventArgs = wrapper.emitted().input[1][0];
+      const [inputEventArgs] = wrapper.emitted().input.at(-1);
       expect(inputEventArgs.every((t) => t.type === TERM_TOKEN_TYPE)).toBe(true);
       expect(inputEventArgs.map((t) => t.value.data)).toStrictEqual(['one', 'two', '']);
+    });
+
+    it('does not split strings with termsAsTokens', async () => {
+      createComponent({
+        termsAsTokens: true,
+        value: ['one two'],
+      });
+      await nextTick();
+
+      const [inputEventArgs] = wrapper.emitted().input.at(-1);
+      expect(inputEventArgs.every((t) => t.type === TERM_TOKEN_TYPE)).toBe(true);
+      expect(inputEventArgs.map((t) => t.value.data)).toStrictEqual(['one two', '']);
     });
   });
 
