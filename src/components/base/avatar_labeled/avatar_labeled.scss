@@ -14,6 +14,7 @@
   &-label {
     @include gl-font-weight-bold;
     @include gl-p-1;
+    @include gl-text-gray-900;
   }
 
   &-sublabel {
