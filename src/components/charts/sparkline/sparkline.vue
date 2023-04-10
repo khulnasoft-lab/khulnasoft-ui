@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import merge from 'lodash/merge';
+import isNil from 'lodash/isNil';
 import { graphic } from 'echarts';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import {
@@ -116,7 +117,7 @@ export default {
             show: true,
             type: 'none',
             label: {
-              formatter: this.xAxisLabelFormatter,
+              formatter: this.generateTooltip,
             },
           },
         },
@@ -191,10 +192,6 @@ export default {
     hideTooltip() {
       this.tooltip.show = false;
     },
-    formatTooltipText([xValue, yValue]) {
-      this.tooltip.title = xValue;
-      this.tooltip.content = yValue;
-    },
     setTooltipPosition(data) {
       const [left, top] = this.chartInstance.convertToPixel('grid', data);
       this.tooltip.position = {
@@ -205,18 +202,21 @@ export default {
     // This function is called any time the axis pointer is changed (the black bubble showing which
     // point on the line is selected). Note that it will not trigger if the axis pointer is removed,
     // only when it changes from one point to another or is shown for the first time.
-    xAxisLabelFormatter({ seriesData = [] }) {
+    generateTooltip({ seriesData = [] }) {
       // seriesData is an array of nearby data point coordinates
       // seriesData[0] is the nearest point at which the tooltip is displayed
       // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
       const [firstEntry = {}] = seriesData;
       const { data } = firstEntry;
+      if (!data) return;
 
-      if (data) {
-        this.tooltip.show = true;
-        this.formatTooltipText(data);
-        this.setTooltipPosition(data);
-      }
+      const [title, content] = data;
+      if (isNil(title) || isNil(content)) return;
+
+      this.tooltip.show = true;
+      this.tooltip.title = title;
+      this.tooltip.content = content;
+      this.setTooltipPosition(data);
     },
   },
   HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES,

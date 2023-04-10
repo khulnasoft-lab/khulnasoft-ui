@@ -149,6 +149,22 @@ describe('sparkline chart component', () => {
     expect(getTooltip().attributes('show')).toBe(undefined);
   });
 
+  it.each`
+    label        | content
+    ${null}      | ${5}
+    ${5}         | ${null}
+    ${undefined} | ${0}
+    ${-10}       | ${undefined}
+  `(`hides the tooltip when seriesData = ($label, $content)`, async ({ label, content }) => {
+    expect(getTooltip().attributes('show')).toBe(undefined);
+
+    const mockData = { seriesData: [{ data: [label, content] }] };
+    getXAxisLabelFormatter()(mockData);
+
+    await wrapper.vm.$nextTick();
+    expect(getTooltip().attributes('show')).toBe(undefined);
+  });
+
   it('adds the right content to the tooltip', async () => {
     const xValue = 'foo';
     const yValue = 'bar';
