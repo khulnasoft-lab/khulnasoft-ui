@@ -1,11 +1,13 @@
 <script>
 import { bannerVariants } from '../../../utils/constants';
+import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlButton from '../button/button.vue';
 import GlCard from '../card/card.vue';
 
 export default {
   name: 'GlBanner',
   components: {
+    CloseButton,
     GlButton,
     GlCard,
   },
@@ -50,6 +52,14 @@ export default {
       validator(value) {
         return bannerVariants.includes(value);
       },
+    },
+    /**
+     * Dismiss button's aria-label.
+     */
+    dismissLabel: {
+      type: String,
+      required: false,
+      default: 'Dismiss',
     },
     /**
      * Removes the border for banners embedded in content.
@@ -112,14 +122,6 @@ export default {
       <!-- @slot The banner actions to display -->
       <slot name="actions"></slot>
     </div>
-    <gl-button
-      :variant="isIntroducing ? 'confirm' : 'default'"
-      category="tertiary"
-      size="small"
-      icon="close"
-      aria-label="Close banner"
-      class="gl-banner-close"
-      @click="handleClose"
-    />
+    <close-button class="gl-banner-close" :label="dismissLabel" @click="handleClose" />
   </gl-card>
 </template>
