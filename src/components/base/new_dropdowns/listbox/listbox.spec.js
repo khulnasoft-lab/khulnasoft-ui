@@ -43,6 +43,13 @@ describe('GlCollapsibleListbox', () => {
   const findResetButton = () => wrapper.find("[data-testid='listbox-reset-button']");
   const findIntersectionObserver = () => wrapper.findComponent(GlIntersectionObserver);
 
+  it('passes custom popper.js options to the base dropdown', () => {
+    const popperOptions = { foo: 'bar' };
+    buildWrapper({ popperOptions });
+
+    expect(findBaseDropdown().props('popperOptions')).toEqual(popperOptions);
+  });
+
   describe('toggle text', () => {
     describe.each`
       toggleText          | multiple | selected                  | expectedToggleText

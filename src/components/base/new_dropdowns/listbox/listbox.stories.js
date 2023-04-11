@@ -10,6 +10,7 @@ import GlButtonGroup from '../../button_group/button_group.vue';
 import GlButton from '../../button/button.vue';
 import GlBadge from '../../badge/badge.vue';
 import GlAvatar from '../../avatar/avatar.vue';
+import GlTruncate from '../../../utilities/truncate/truncate.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import { setStoryTimeout } from '../../../../utils/test_utils';
 import { disableControls } from '../../../../utils/stories_utils';
@@ -20,6 +21,7 @@ import {
   ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
   ARG_TYPE_SUBCATEGORY_INFINITE_SCROLL,
 } from '../../../../utils/stories_constants';
+import { POSITION } from '../../../utilities/truncate/constants';
 import readme from './listbox.md';
 import { mockOptions, mockGroups, mockUsers } from './mock_data';
 import { flattenedOptions } from './utils';
@@ -755,7 +757,6 @@ export const InfiniteScroll = (
     },
   }),
 });
-
 InfiniteScroll.argTypes = {
   ...disableControls(['infiniteScroll', 'infiniteScrollLoading', 'items']),
 };
@@ -764,3 +765,59 @@ InfiniteScroll.parameters = {
 };
 InfiniteScroll.args = generateProps();
 InfiniteScroll.decorators = [makeContainer({ height: '370px' })];
+
+export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlCollapsibleListbox,
+    GlButton,
+    GlTruncate,
+  },
+  data() {
+    const positions = Object.values(POSITION);
+    const longItems = Array.from({ length: positions.length }).map((_, index) => ({
+      value: `long_value_${index}`,
+      text: `${
+        index + 1
+      }. This is a super long option. Its text is so long that it overflows the max content width. Thankfully, we are truncating it!`,
+      truncatePosition: positions[index],
+    }));
+
+    return {
+      selected: longItems[0].value,
+      items: longItems,
+    };
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  computed: {
+    customToggleText() {
+      return this.items.find(({ value }) => value === this.selected).text;
+    },
+    numberOfSearchResults() {
+      return this.filteredItems.length === 1 ? '1 result' : `${this.filteredItems.length} results`;
+    },
+  },
+  template: template(
+    `
+    <template #toggle>
+      <gl-button class="gl-w-30">
+        <gl-truncate :text="customToggleText" />
+      </gl-button>
+    </template>
+    <template #list-item="{ item }">
+      <gl-truncate :text="item.text" :position="item.truncatePosition" />
+    </template>
+  `,
+    {
+      label: `<span class="gl-my-0" id="listbox-label">Select the longest option</span>`,
+      bindingOverrides: {
+        ':items': 'items',
+      },
+    }
+  ),
+});
+WithLongContent.args = generateProps();

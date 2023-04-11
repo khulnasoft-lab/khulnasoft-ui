@@ -80,6 +80,15 @@ describe('base dropdown', () => {
       );
     });
 
+    it('should pass custom options to popper.js, overriding built-in ones', async () => {
+      await buildWrapper({ placement: 'right', popperOptions: { placement: 'auto-start' } });
+      expect(mockCreatePopper).toHaveBeenCalledWith(
+        findDefaultDropdownToggle().element,
+        findDropdownMenu().element,
+        { ...POPPER_CONFIG, placement: 'auto-start' }
+      );
+    });
+
     it('should update popper instance when component is updated', async () => {
       await buildWrapper();
       await findDefaultDropdownToggle().trigger('click');

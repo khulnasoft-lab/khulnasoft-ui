@@ -122,3 +122,11 @@ To render custom group labels, use the `group-label` scoped slot:
 
 Besides default components, disclosure dropdown can render miscellaneous content inside it.
 In this case the user is responsible for handling all events and navigation inside the disclosure.
+
+#### Dealing with long option texts
+
+- Some options might have long non-wrapping text that would overflow the dropdown maximum width. In
+such cases, it's recommended to override the `#list-item` slot and to truncate the option text using
+`GlTruncate`.
+- If the toggle text reflects the selected option text, it might be necessary to truncate
+it too by overriding the `#toggle` slot.

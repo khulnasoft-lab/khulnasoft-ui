@@ -141,3 +141,11 @@ Screen reader will announce this text when the list is updated.
   </template>
 </gl-collapsible-listbox>
 ```
+
+#### Dealing with long option texts
+
+- Some options might have long non-wrapping text that would overflow the dropdown maximum width. In
+such cases, it's recommended to override the `#list-item` slot and to truncate the option text using
+`GlTruncate`.
+- If the toggle text reflects the selected option text, it might be necessary to truncate
+it too by overriding the `#toggle` slot.
