@@ -1,3 +1,12 @@
+# [60.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v60.0.0...v60.1.0) (2023-04-11)
+
+
+### Features
+
+* **Banner:** Remove redundant role ([304b8d1](https://gitlab.com/gitlab-org/gitlab-ui/commit/304b8d1323afafe950b4f2c2a5c187df3ff432db))
+* **dropdowns:** allow custom Popper.js options ([ec95a9c](https://gitlab.com/gitlab-org/gitlab-ui/commit/ec95a9cff513763f7560bcf7a7d6f22399ca0a6c))
+* **dropdowns:** make content width more flexible ([55712fa](https://gitlab.com/gitlab-org/gitlab-ui/commit/55712fac6095b185ea2b175b1e6c462deb2a449f))
+
 # [60.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v59.5.0...v60.0.0) (2023-04-06)
 
 
