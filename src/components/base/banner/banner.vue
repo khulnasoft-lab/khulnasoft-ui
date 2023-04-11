@@ -95,7 +95,7 @@ export default {
     body-class="gl-display-flex gl-p-0!"
   >
     <div v-if="svgPath" class="gl-banner-illustration">
-      <img :src="svgPath" alt="" role="presentation" />
+      <img :src="svgPath" alt="" />
     </div>
     <div class="gl-banner-content">
       <h2 class="gl-banner-title">{{ title }}</h2>
