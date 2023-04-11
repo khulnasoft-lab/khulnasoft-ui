@@ -122,10 +122,6 @@ export default {
       <!-- @slot The banner actions to display -->
       <slot name="actions"></slot>
     </div>
-    <close-button
-      class="gl-banner-close"
-      :label="dismissLabel"
-      @click="handleClose"
-    />
+    <close-button class="gl-banner-close" :label="dismissLabel" @click="handleClose" />
   </gl-card>
 </template>
