@@ -33,10 +33,9 @@ describe('Filtered search token', () => {
     cursorPosition: 'end',
   };
 
-  const createComponent = (props, options = {}) => {
+  const createComponent = (props) => {
     wrapper = shallowMount(GlFilteredSearchToken, {
       propsData: { ...defaultProps, ...props },
-      ...options,
     });
   };
 
@@ -190,7 +189,7 @@ describe('Filtered search token', () => {
       config: availableTokens[0],
     });
 
-    findTitleSegment().vm.$emit('complete', availableTokens[1].title);
+    findTitleSegment().vm.$emit('complete', availableTokens[1].type);
 
     expect(wrapper.emitted('replace')).toHaveLength(1);
     expect(wrapper.emitted().replace[0][0].value).toStrictEqual(originalValue);
@@ -204,7 +203,7 @@ describe('Filtered search token', () => {
       config: availableTokens[0],
     });
 
-    findTitleSegment().vm.$emit('complete', availableTokens[2].title);
+    findTitleSegment().vm.$emit('complete', availableTokens[2].type);
 
     expect(wrapper.emitted('replace')).toHaveLength(1);
     expect(wrapper.emitted().replace[0][0].value).toStrictEqual({ data: '' });
@@ -372,23 +371,5 @@ describe('Filtered search token', () => {
         expect(findOperatorSegment().text()).toBe(text);
       }
     );
-  });
-
-  it('renders title options passed via slot', async () => {
-    createComponent(
-      {},
-      {
-        slots: {
-          'title-option': '<div>new title</div>',
-        },
-        stubs: {
-          GlFilteredSearchTokenSegment: {
-            template: `<div><slot name="option" v-bind='{ option: { value: "default title"} }'></slot></div>`,
-          },
-        },
-      }
-    );
-
-    expect(findTitleSegment().text()).toBe('new title');
   });
 });

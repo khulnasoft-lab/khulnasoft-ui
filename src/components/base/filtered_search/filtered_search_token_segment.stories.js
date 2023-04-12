@@ -10,6 +10,15 @@ Vue.use(PortalVue);
 const staticOptions = [
   { icon: 'eye-slash', value: true, title: 'Yes' },
   { icon: 'eye', value: false, title: 'No' },
+  {
+    icon: 'pencil',
+    value: 'custom',
+    title: 'Custom',
+    component: {
+      props: ['option'],
+      template: '<span>{{ option.title }} <b class="gl-text-red-500">component</b></span>',
+    },
+  },
 ];
 
 const generateProps = ({ active = true } = {}) => ({

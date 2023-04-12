@@ -4,7 +4,7 @@ import { Portal } from 'portal-vue';
 import { COMMA, LEFT_MOUSE_BUTTON } from '../../../utils/constants';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
-import { splitOnQuotes, wrapTokenInQuotes } from './filtered_search_utils';
+import { splitOnQuotes, wrapTokenInQuotes, match } from './filtered_search_utils';
 
 // We need some helpers to ensure @vue/compat compatibility
 // @vue/compat will render comment nodes for v-if and comments in HTML
@@ -62,6 +62,11 @@ export default {
       required: false,
       default: false,
     },
+    isTerm: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     label: {
       type: String,
       required: false,
@@ -80,7 +85,7 @@ export default {
     optionTextField: {
       type: String,
       required: false,
-      default: 'value',
+      default: 'title',
     },
     customInputKeydownHandler: {
       type: Function,
@@ -145,18 +150,22 @@ export default {
 
     inputValue: {
       get() {
+        if (this.isTerm) {
+          return this.nonMultipleValue;
+        }
+
         return this.matchingOption
           ? this.matchingOption[this.optionTextField]
           : this.nonMultipleValue;
       },
 
-      set(v) {
+      set(inputValue) {
         /**
          * Emitted when this token segment's value changes.
          *
          * @type {object} option The current option.
          */
-        this.$emit('input', this.getMatchingOptionForInputValue(v)?.value ?? v);
+        this.$emit('input', inputValue);
       },
     },
 
@@ -176,8 +185,13 @@ export default {
         return option?.value;
       }
 
-      const defaultSuggestion = this.options.find((op) => op.default);
-      return (defaultSuggestion ?? this.options[0])?.value;
+      const defaultOption = this.options.find((op) => op.default);
+
+      if (defaultOption) {
+        return defaultOption.value;
+      }
+
+      return this.isTerm ? undefined : this.options[0]?.value;
     },
     containerAttributes() {
       return (
@@ -210,7 +224,7 @@ export default {
       const [firstWord, ...otherWords] = splitOnQuotes(newValue).filter(
         (w, idx, arr) => Boolean(w) || idx === arr.length - 1
       );
-      this.$emit('input', this.getMatchingOptionForInputValue(firstWord)?.value ?? firstWord);
+      this.$emit('input', firstWord);
 
       if (otherWords.length) {
         /**
@@ -233,9 +247,11 @@ export default {
       }
     },
 
-    getMatchingOptionForInputValue(v, { loose } = { loose: false }) {
-      return this.options?.find((o) =>
-        loose ? o[this.optionTextField].startsWith(v) : [this.optionTextField] === v
+    getMatchingOptionForInputValue(inputValue, { loose } = { loose: false }) {
+      return this.options?.find((option) =>
+        loose
+          ? match(option[this.optionTextField], inputValue)
+          : option[this.optionTextField] === inputValue
       );
     },
 
@@ -256,7 +272,7 @@ export default {
     },
 
     deactivate() {
-      if (!this.options) {
+      if (!this.options || this.isTerm) {
         return;
       }
 
@@ -410,7 +426,14 @@ export default {
               :value="option.value"
               :icon-name="option.icon"
             >
-              <slot name="option" v-bind="{ option }"> {{ option[optionTextField] }} </slot>
+              <slot name="option" v-bind="{ option }">
+                <template v-if="option.component">
+                  <component :is="option.component" :option="option" />
+                </template>
+                <template v-else>
+                  {{ option[optionTextField] }}
+                </template>
+              </slot>
             </gl-filtered-search-suggestion>
           </template>
 

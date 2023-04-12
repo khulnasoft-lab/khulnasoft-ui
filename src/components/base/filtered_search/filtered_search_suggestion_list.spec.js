@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { shallowMount, mount } from '@vue/test-utils';
 import FilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import FilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
@@ -32,40 +33,42 @@ describe('Filtered search suggestion list component', () => {
         expect(wrapper.vm.getValue()).toBe(null);
       });
 
-      it('selects first item on nextItem call', () => {
+      it('selects first item on nextItem call', async () => {
         wrapper.vm.nextItem();
-        return wrapper.vm.$nextTick().then(() => {
-          expect(wrapper.vm.getValue()).toBe(stubs[0].value);
-        });
+        await nextTick();
+        expect(wrapper.vm.getValue()).toBe(stubs[0].value);
       });
 
-      it('deselects first item on prevItem call', () => {
+      it('deselects first item on prevItem call', async () => {
         wrapper.vm.nextItem();
         wrapper.vm.prevItem();
-        return wrapper.vm.$nextTick().then(() => {
-          expect(wrapper.vm.getValue()).toBe(null);
-        });
+        await nextTick();
+        expect(wrapper.vm.getValue()).toBe(null);
       });
 
-      it('deselects last item on nextItem call', () => {
+      it('deselects last item on nextItem call', async () => {
         stubs.forEach(() => wrapper.vm.nextItem());
         wrapper.vm.nextItem();
-        return wrapper.vm.$nextTick().then(() => {
-          expect(wrapper.vm.getValue()).toBe(null);
-        });
+        await nextTick();
+        expect(wrapper.vm.getValue()).toBe(null);
       });
 
-      it('remove selection if suggestion is unregistered', () => {
+      it('remove selection if suggestion is unregistered', async () => {
         wrapper.vm.nextItem();
-        return wrapper.vm
-          .$nextTick()
-          .then(() => {
-            wrapper.vm.unregister(stubs[0]);
-            return wrapper.vm.$nextTick();
-          })
-          .then(() => {
-            expect(wrapper.vm.getValue()).toBe(null);
-          });
+        await nextTick();
+        wrapper.vm.unregister(stubs[0]);
+        await nextTick();
+        expect(wrapper.vm.getValue()).toBe(null);
+      });
+
+      it('selects correct suggestion when item (un)registration is late', async () => {
+        // Initially stub2 is at index 1.
+        await wrapper.setProps({ initialValue: 'stub2' });
+        // Remove item at index 0, so stub2 moves to index 0
+        wrapper.vm.unregister(stubs[0]);
+        await nextTick();
+        // stub2 should still be selected
+        expect(wrapper.vm.getValue()).toBe('stub2');
       });
     });
   });
@@ -105,85 +108,79 @@ describe('Filtered search suggestion list component', () => {
       });
     });
 
-    it('selects first suggestion', () => {
+    it('selects first suggestion', async () => {
       wrapper.vm.nextItem();
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe('One');
-      });
+      await nextTick();
+      expect(wrapper.vm.getValue()).toBe('One');
     });
 
-    it('selects second suggestion', () => {
+    it('selects second suggestion', async () => {
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe('Two');
-      });
+      await nextTick();
+      expect(wrapper.vm.getValue()).toBe('Two');
     });
 
-    it('deselects first suggestion after list end', () => {
+    it('deselects first suggestion after list end', async () => {
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe(null);
-      });
+      await nextTick();
+      expect(wrapper.vm.getValue()).toBe(null);
     });
 
-    it('deselects first suggestion after list start', () => {
+    it('deselects first suggestion after list start', async () => {
       wrapper.vm.nextItem();
       wrapper.vm.prevItem();
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe(null);
-      });
+      await nextTick();
+      expect(wrapper.vm.getValue()).toBe(null);
     });
 
-    it('selects last suggestion in circle when selecting previous item', () => {
+    it('selects last suggestion in circle when selecting previous item', async () => {
       wrapper.vm.nextItem();
       wrapper.vm.prevItem();
       wrapper.vm.prevItem();
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe(false);
-      });
+      await nextTick();
+      expect(wrapper.vm.getValue()).toBe(false);
     });
 
-    it('selects first suggestion in circle when selecting next item', () => {
+    it('selects first suggestion in circle when selecting next item', async () => {
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
       wrapper.vm.nextItem();
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.vm.getValue()).toBe('One');
-      });
+      await nextTick();
+      expect(wrapper.vm.getValue()).toBe('One');
     });
 
-    it('highlights suggestion if initial-value is provided', () => {
-      wrapper.setProps({ initialValue: 'Two' });
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Two');
-      });
+    it('highlights suggestion if initial-value is provided', async () => {
+      await wrapper.setProps({ initialValue: 'Two' });
+      expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Two');
     });
 
     it('highlights suggestion if initial-value is provided, regardless of case sensitivity', async () => {
-      wrapper.setProps({ initialValue: 'two' });
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Two');
-      });
+      await wrapper.setProps({ initialValue: 'two' });
+      expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Two');
     });
 
     it('highlights suggestion if initial-value is provided, regardless of falsiness', async () => {
-      wrapper.setProps({ initialValue: false });
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Three');
-      });
+      await wrapper.setProps({ initialValue: false });
+      expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('Three');
     });
 
-    it('does not highlight anything if initial-value matches nothing', () => {
-      wrapper.setProps({ initialValue: 'missing' });
-      return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper.find('.gl-filtered-search-suggestion-active').exists()).toBe(false);
-      });
+    it('highlights first suggestion if initial-value is provided, deselected then selected', async () => {
+      await wrapper.setProps({ initialValue: 'One' });
+      wrapper.vm.prevItem();
+      wrapper.vm.nextItem();
+      await nextTick();
+      expect(wrapper.find('.gl-filtered-search-suggestion-active').text()).toBe('One');
+    });
+
+    it('does not highlight anything if initial-value matches nothing', async () => {
+      await wrapper.setProps({ initialValue: 'missing' });
+      expect(wrapper.find('.gl-filtered-search-suggestion-active').exists()).toBe(false);
     });
 
     it('applies the injected suggestion-list-class to the dropdown', () => {

@@ -1,7 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 
-const OPTIONS = [{ value: '=' }, { value: '!=' }];
+const OPTIONS = [
+  { value: '=', title: 'is' },
+  { value: '!=', title: 'is not' },
+];
 
 describe('Filtered search token segment', () => {
   let wrapper;
@@ -330,5 +333,19 @@ describe('Filtered search token segment', () => {
       createWrappedComponent({ value: 'test', active: true, viewOnly: false });
       expect(wrapper.find('input').attributes('readonly')).toBeUndefined();
     });
+
+    it.each`
+      context       | isTerm   | eventPayloads
+      ${'does'}     | ${false} | ${[['!=']]}
+      ${'does not'} | ${true}  | ${undefined}
+    `(
+      '$context revert to fallback value on deactivation when no-fallback is $isTerm',
+      async ({ isTerm, eventPayloads }) => {
+        createComponent({ value: '!=', active: true, options: OPTIONS, isTerm });
+
+        await wrapper.setProps({ value: 'foo', active: false });
+        expect(wrapper.emitted('input')).toEqual(eventPayloads);
+      }
+    );
   });
 });

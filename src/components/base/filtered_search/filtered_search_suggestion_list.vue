@@ -1,4 +1,9 @@
 <script>
+import { stepIndexAndWrap } from './filtered_search_utils';
+
+const DEFER_TO_INITIAL_VALUE = -1;
+const NO_ACTIVE_ITEM = -2;
+
 export default {
   name: 'GlFilteredSearchSuggestionList',
   inject: ['suggestionsListClass'],
@@ -17,18 +22,27 @@ export default {
       default: null,
     },
   },
+
   data() {
     return {
-      activeIdx: -1,
+      activeIdx: DEFER_TO_INITIAL_VALUE,
       registeredItems: [],
     };
   },
 
   computed: {
+    initialActiveIdx() {
+      return this.registeredItems.findIndex((item) =>
+        this.valuesMatch(item.value, this.initialValue)
+      );
+    },
+    initialActiveItem() {
+      return this.registeredItems[this.initialActiveIdx];
+    },
     activeItem() {
-      return this.activeIdx > -1 && this.activeIdx < this.registeredItems.length
-        ? this.registeredItems[this.activeIdx]
-        : null;
+      if (this.activeIdx === NO_ACTIVE_ITEM) return null;
+      if (this.activeIdx === DEFER_TO_INITIAL_VALUE) return this.initialActiveItem;
+      return this.registeredItems[this.activeIdx];
     },
     listClasses() {
       return [this.suggestionsListClass(), 'dropdown-menu gl-filtered-search-suggestion-list'];
@@ -36,10 +50,8 @@ export default {
   },
 
   watch: {
-    initialValue(newValue) {
-      this.activeIdx = this.registeredItems.findIndex((item) =>
-        this.valuesMatch(item.value, newValue)
-      );
+    initialValue() {
+      this.activeIdx = DEFER_TO_INITIAL_VALUE;
     },
   },
 
@@ -53,31 +65,38 @@ export default {
     },
     register(item) {
       this.registeredItems.push(item);
-      if (this.valuesMatch(item.value, this.initialValue)) {
-        this.activeIdx = this.registeredItems.length - 1;
-      }
     },
     unregister(item) {
       const idx = this.registeredItems.indexOf(item);
       if (idx !== -1) {
         this.registeredItems.splice(idx, 1);
         if (idx === this.activeIdx) {
-          this.activeIdx = -1;
+          this.activeIdx = DEFER_TO_INITIAL_VALUE;
         }
       }
     },
     nextItem() {
-      if (this.activeIdx < this.registeredItems.length) {
-        this.activeIdx += 1;
-      } else {
-        this.activeIdx = 0;
-      }
+      this.stepItem(1, this.registeredItems.length - 1);
     },
     prevItem() {
-      if (this.activeIdx >= 0) {
-        this.activeIdx -= 1;
+      this.stepItem(-1, 0);
+    },
+    stepItem(direction, endIdx) {
+      if (
+        this.activeIdx === endIdx ||
+        (this.activeIdx === DEFER_TO_INITIAL_VALUE && this.initialActiveIdx === endIdx)
+      ) {
+        // The user wants to move past the end of the list, so ensure nothing is selected.
+        this.activeIdx = NO_ACTIVE_ITEM;
       } else {
-        this.activeIdx = this.registeredItems.length - 1;
+        const index =
+          this.activeIdx === DEFER_TO_INITIAL_VALUE
+            ? // Currently active item is set by initialValue (i.e., text input matching),
+              // so step relative to that.
+              this.initialActiveIdx
+            : // Otherwise, step relative to the explicitly (via up/down arrows) activated item.
+              this.activeIdx;
+        this.activeIdx = stepIndexAndWrap(index, direction, this.registeredItems.length);
       }
     },
     getValue() {
