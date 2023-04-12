@@ -74,7 +74,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-broadcast-message" :class="`${theme} ${type}`" role="alert">
+  <div class="gl-broadcast-message" :class="`${theme} ${type}`">
     <div class="gl-broadcast-message-content">
       <div class="gl-broadcast-message-icon gl-line-height-normal">
         <gl-icon :name="iconName" />
