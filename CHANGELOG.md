@@ -1,3 +1,10 @@
+# [60.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v60.1.0...v60.2.0) (2023-04-12)
+
+
+### Features
+
+* **BroadcastMessage:** Remove alert role ([1652e81](https://gitlab.com/gitlab-org/gitlab-ui/commit/1652e81f50c600226d8b1a82d1a3fe9dc79f3d5e))
+
 # [60.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v60.0.0...v60.1.0) (2023-04-11)
 
 
