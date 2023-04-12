@@ -1,3 +1,26 @@
+# [61.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v60.2.0...v61.0.0) (2023-04-12)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Don't prevent tabbing past component ([27cdbf3](https://gitlab.com/gitlab-org/gitlab-ui/commit/27cdbf3d67cebebc9b6a2177d3ed664ac44ddee7))
+
+
+### Features
+
+* **GlFilteredSearch:** Improve option interactions ([d2ada9d](https://gitlab.com/gitlab-org/gitlab-ui/commit/d2ada9d7c179d255e4845e7b237740d1471166b4))
+
+
+### BREAKING CHANGES
+
+* **GlFilteredSearch:** `GlFilteredSearch`/`GlFilteredSearchTerm`'s `title`
+slot and `GlFilteredSearchToken`'s `title-option` slot have been
+removed. Similar functionality is available by setting the
+`optionComponent` property on the given token object passed to
+`GlFilteredSearch`'s `available-tokens` prop. The component will be
+given an `option` prop, which will be the option object representing the
+token.
+
 # [60.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v60.1.0...v60.2.0) (2023-04-12)
 
 
