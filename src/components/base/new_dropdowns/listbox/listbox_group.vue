@@ -2,6 +2,7 @@
 import uniqueId from 'lodash/uniqueId';
 
 export default {
+  name: 'GlListboxGroup',
   props: {
     name: {
       type: String,

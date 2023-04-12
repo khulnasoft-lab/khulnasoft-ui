@@ -27,6 +27,7 @@ const Selector = {
 
 // see https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/130#note_126406721
 const ExtendedBDropdown = Vue.extend(BDropdown, {
+  name: 'ExtendedBDropdown',
   methods: {
     getItems() {
       return filterVisible(selectAll(Selector.ITEM_SELECTOR, this.$refs.menu));
@@ -44,6 +45,7 @@ export const DefaultPopperOptions = {
 };
 
 export default {
+  name: 'GlDropdown',
   components: {
     BDropdown: ExtendedBDropdown,
     GlButton,

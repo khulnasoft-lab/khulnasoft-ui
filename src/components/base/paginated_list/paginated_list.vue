@@ -3,6 +3,7 @@ import GlPagination from '../pagination/pagination.vue';
 import GlSearchBoxByType from '../search_box_by_type/search_box_by_type.vue';
 
 export default {
+  name: 'GlPaginatedList',
   components: {
     GlSearchBoxByType,
     GlPagination,

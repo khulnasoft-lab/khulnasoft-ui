@@ -7,6 +7,7 @@ import GlTabs from './tabs.vue';
 const NAV_CLASS = 'gl-scrollable-tabs-nav';
 
 export default {
+  name: 'GlScrollableTabs',
   components: {
     GlTabs,
     GlIcon,

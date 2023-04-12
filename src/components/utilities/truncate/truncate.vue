@@ -5,6 +5,7 @@ import { GlResizeObserverDirective } from '../../../directives/resize_observer/r
 import { POSITION } from './constants';
 
 export default {
+  name: 'GlTruncate',
   POSITION,
   directives: {
     GlTooltip: GlTooltipDirective,

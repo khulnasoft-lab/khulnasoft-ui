@@ -51,6 +51,7 @@ const gaugeChartSeries = ({ value, text, min, max, splitNumber, axisColor }) => 
 ];
 
 export default {
+  name: 'GlGaugeChart',
   components: {
     Chart,
   },

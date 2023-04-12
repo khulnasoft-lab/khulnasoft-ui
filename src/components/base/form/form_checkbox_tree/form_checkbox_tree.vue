@@ -6,6 +6,7 @@ import { V_MODEL } from './models/constants';
 import { Tree } from './models/tree';
 
 export default {
+  name: 'GlFormCheckboxTree',
   components: {
     GlFormGroup,
     GlFormCheckbox,

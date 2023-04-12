@@ -23,6 +23,7 @@ import GlIcon from '../../icon/icon.vue';
 import { OutsideDirective } from '../../../../directives/outside/outside';
 
 export default {
+  name: 'BaseDropdown',
   components: {
     GlButton,
     GlIcon,

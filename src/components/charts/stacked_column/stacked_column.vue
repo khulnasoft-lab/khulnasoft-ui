@@ -38,6 +38,7 @@ const yAxisDefaults = {
 };
 
 export default {
+  name: 'GlStackedColumnChart',
   components: {
     Chart,
     ChartTooltip,

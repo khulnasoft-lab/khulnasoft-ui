@@ -2,6 +2,7 @@
 import { BCarouselSlide } from 'bootstrap-vue';
 
 export default {
+  name: 'GlCarouselSlide',
   components: {
     BCarouselSlide,
   },

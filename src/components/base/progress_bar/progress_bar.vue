@@ -2,6 +2,7 @@
 import { BProgress } from 'bootstrap-vue';
 
 export default {
+  name: 'GlProgressBar',
   components: {
     BProgress,
   },

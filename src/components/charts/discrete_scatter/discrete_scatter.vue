@@ -14,6 +14,7 @@ import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 
 export default {
+  name: 'GlDiscreteScatterChart',
   components: {
     Chart,
     ChartTooltip,

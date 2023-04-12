@@ -5,6 +5,7 @@ import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
 export default {
+  name: 'GlSearchboxByType',
   components: {
     GlClearIconButton,
     GlIcon,

@@ -29,6 +29,7 @@ const generateGradient = (colors) => {
 };
 
 export default {
+  name: 'GlSparklineChart',
   components: { Chart, ChartTooltip },
   directives: {
     resizeObserver: GlResizeObserverDirective,

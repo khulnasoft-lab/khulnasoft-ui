@@ -5,6 +5,7 @@ import { maxZIndex, drawerVariants } from '../../../utils/constants';
 import GlButton from '../button/button.vue';
 
 export default {
+  name: 'GlDrawer',
   components: {
     GlButton,
   },

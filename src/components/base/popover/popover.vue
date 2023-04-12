@@ -8,6 +8,7 @@ import { popoverPlacements } from '../../../utils/constants';
 const popoverRefName = 'bPopover';
 
 export default {
+  name: 'GlPopover',
   components: {
     BPopover,
     CloseButton,

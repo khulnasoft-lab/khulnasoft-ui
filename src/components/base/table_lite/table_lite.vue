@@ -4,6 +4,7 @@ import { BTableLite } from 'bootstrap-vue';
 const { tableClass } = BTableLite.options.props;
 
 export default {
+  name: 'GlTableLite',
   components: {
     BTableLite,
   },

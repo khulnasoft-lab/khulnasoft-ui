@@ -4,6 +4,7 @@ import isObject from 'lodash/isObject';
 import { formInputSizes } from '../../../../utils/constants';
 
 export default {
+  name: 'GlFormSelect',
   components: {
     BFormSelect,
   },

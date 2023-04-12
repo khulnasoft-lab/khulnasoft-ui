@@ -3,6 +3,7 @@ import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlButton from '../../base/button/button.vue';
 
 export default {
+  name: 'ClearIconButton',
   components: {
     GlButton,
   },

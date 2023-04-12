@@ -2,6 +2,7 @@
 import GlButton from '../../base/button/button.vue';
 
 export default {
+  name: 'GlEmptyState',
   components: {
     GlButton,
   },

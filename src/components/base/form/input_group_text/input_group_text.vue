@@ -2,6 +2,7 @@
 import { BInputGroupText } from 'bootstrap-vue';
 
 export default {
+  name: 'GlInputGroupText',
   components: {
     BInputGroupText,
   },

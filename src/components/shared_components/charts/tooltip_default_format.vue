@@ -2,6 +2,7 @@
 import SeriesLabel from '../../charts/series_label/series_label.vue';
 
 export default {
+  name: 'TooltipDefaultFormat',
   components: {
     SeriesLabel,
   },

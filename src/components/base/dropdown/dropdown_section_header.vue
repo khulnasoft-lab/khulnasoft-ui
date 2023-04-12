@@ -2,6 +2,7 @@
 import { BDropdownHeader } from 'bootstrap-vue';
 
 export default {
+  name: 'GlDropdownHeader',
   components: {
     BDropdownHeader,
   },

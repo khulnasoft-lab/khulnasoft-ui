@@ -9,6 +9,7 @@ import {
 import GlIcon from '../icon/icon.vue';
 
 export default {
+  name: 'GlBadge',
   components: {
     BBadge,
     GlIcon,

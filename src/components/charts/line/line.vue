@@ -52,6 +52,7 @@ import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 
 export default {
+  name: 'GlLineChart',
   components: {
     Chart,
     ChartLegend,

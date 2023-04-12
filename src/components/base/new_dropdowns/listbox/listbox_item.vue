@@ -4,6 +4,7 @@ import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 
 export default {
+  name: 'GlListboxItem',
   components: {
     GlIcon,
   },

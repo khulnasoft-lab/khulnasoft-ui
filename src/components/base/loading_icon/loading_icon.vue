@@ -14,6 +14,7 @@ const defaultColor = colors.dark;
 const baseCssClass = 'gl-spinner';
 
 export default {
+  name: 'GlLoadingIcon',
   props: {
     /**
      * Aria-label.

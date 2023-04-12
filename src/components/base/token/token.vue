@@ -4,6 +4,7 @@ import { tokenVariants } from '../../../utils/constants';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 
 export default {
+  name: 'GlToken',
   components: {
     CloseButton,
   },

@@ -4,6 +4,7 @@ import { BLink } from 'bootstrap-vue';
 import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
 
 export default {
+  name: 'GlLink',
   components: {
     BLink,
   },

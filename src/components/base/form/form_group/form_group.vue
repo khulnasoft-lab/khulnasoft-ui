@@ -4,6 +4,7 @@ import isString from 'lodash/isString';
 import isPlainObject from 'lodash/isPlainObject';
 
 export default {
+  name: 'GlFormGroup',
   components: {
     BFormGroup,
   },

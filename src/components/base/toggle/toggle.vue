@@ -9,6 +9,7 @@ import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 let uuid = 0;
 
 export default {
+  name: 'GlToggle',
   components: {
     GlIcon,
     GlLoadingIcon,

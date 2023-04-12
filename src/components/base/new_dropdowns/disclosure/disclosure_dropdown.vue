@@ -24,6 +24,7 @@ import GlDisclosureDropdownGroup from './disclosure_dropdown_group.vue';
 import { itemsValidator, isItem, hasOnlyListItems } from './utils';
 
 export default {
+  name: 'GlDisclosureDropdown',
   events: {
     GL_DROPDOWN_SHOWN,
     GL_DROPDOWN_HIDDEN,

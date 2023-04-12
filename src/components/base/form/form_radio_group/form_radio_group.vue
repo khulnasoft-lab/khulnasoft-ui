@@ -7,6 +7,7 @@ import GlFormRadio from '../form_radio/form_radio.vue';
 const { model } = BFormRadioGroup.options;
 
 export default {
+  name: 'GlFormRadioGroup',
   components: {
     BFormRadioGroup,
     GlFormRadio,

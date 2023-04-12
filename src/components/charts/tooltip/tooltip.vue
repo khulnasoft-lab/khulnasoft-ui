@@ -6,6 +6,7 @@ import GlPopover from '../../base/popover/popover.vue';
 import { popoverPlacements } from '../../../utils/constants';
 
 export default {
+  name: 'GlChartTooltip',
   components: {
     GlPopover,
   },

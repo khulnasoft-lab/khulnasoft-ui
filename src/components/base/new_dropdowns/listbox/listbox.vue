@@ -34,6 +34,7 @@ const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-pt-1', 'gl-mt-2'];
 export const SEARCH_INPUT_SELECTOR = '.gl-listbox-search-input';
 
 export default {
+  name: 'GlCollapsibleListbox',
   HEADER_ITEMS_BORDER_CLASSES,
   events: {
     GL_DROPDOWN_SHOWN,

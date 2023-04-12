@@ -10,6 +10,7 @@ export const adjustScrollGap = 5;
 const THRESHOLD = 1;
 
 export default {
+  name: 'GlInfiniteScroll',
   props: {
     /**
      * Total number of items available

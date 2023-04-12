@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 export default {
+  name: 'GlCard',
   props: {
     /**
      * Additional CSS class(es) to be applied to the header.

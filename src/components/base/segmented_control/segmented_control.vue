@@ -4,6 +4,7 @@ import { BFormRadioGroup } from 'bootstrap-vue';
 const genericErrorMessage = 'Segmented button should always have valid option selected';
 
 export default {
+  name: 'GlSegmentedControl',
   components: {
     BFormRadioGroup,
   },

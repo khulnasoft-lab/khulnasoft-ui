@@ -9,6 +9,7 @@ import GlBreadcrumbItem from './breadcrumb_item.vue';
 export const COLLAPSE_AT_SIZE = 4;
 
 export default {
+  name: 'GlBreadcrumb',
   components: {
     BBreadcrumb,
     GlButton,

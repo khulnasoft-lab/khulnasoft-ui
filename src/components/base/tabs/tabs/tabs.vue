@@ -8,6 +8,7 @@ const validatorHelper = (obj) =>
   Object.keys(obj).every((val) => val === 'text' || val === 'attributes');
 
 export default {
+  name: 'GlTabs',
   components: {
     BTabs,
     GlButton,

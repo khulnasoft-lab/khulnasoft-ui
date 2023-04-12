@@ -47,6 +47,7 @@ function getPlaceholderDefinition(chunk, placeholdersByStartTag) {
 }
 
 export default {
+  name: 'GlSprintf',
   functional: true,
   props: {
     /**

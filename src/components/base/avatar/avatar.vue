@@ -7,6 +7,7 @@ import { getAvatarChar } from '../../../utils/string_utils';
 const IDENTICON_BG_COUNT = 7;
 
 export default {
+  name: 'GlAvatar',
   props: {
     entityId: {
       type: Number,
