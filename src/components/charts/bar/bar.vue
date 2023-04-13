@@ -56,6 +56,7 @@ const defaultOptions = {
 };
 
 export default {
+  name: 'GlBarChart',
   components: {
     Chart,
     ChartTooltip,

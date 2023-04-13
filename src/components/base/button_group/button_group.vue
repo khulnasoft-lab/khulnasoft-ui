@@ -2,6 +2,7 @@
 import { BButtonGroup } from 'bootstrap-vue';
 
 export default {
+  name: 'GlButtonGroup',
   components: {
     BButtonGroup,
   },

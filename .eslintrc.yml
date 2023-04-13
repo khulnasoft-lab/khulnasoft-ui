@@ -19,9 +19,8 @@ rules:
     - name: "lodash/isFinite"
       message: Prefer native Number.isFinite method.
   vue/no-v-html: error
-# test-specific configuration
 overrides:
-- files:
+- files: # test-specific configuration
   - "**/*.spec.js"
   - "tests/jest_setup.js"
   - "tests/__helpers__/*.js"
@@ -62,3 +61,7 @@ overrides:
   - "**/*.stories.js"
   rules:
     import/no-default-export: off
+- files:
+  - '**/*.vue'
+  rules:
+    vue/require-name-property: error

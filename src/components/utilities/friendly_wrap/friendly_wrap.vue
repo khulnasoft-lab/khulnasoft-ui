@@ -3,6 +3,7 @@ import { intersperse } from '../../../utils/data_utils';
 import { splitAfterSymbols } from '../../../utils/string_utils';
 
 export default {
+  name: 'GlFriendlyWrap',
   functional: true,
   props: {
     /**

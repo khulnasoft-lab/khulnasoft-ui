@@ -16,6 +16,7 @@ import GlTruncate from '../../utilities/truncate/truncate.vue';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
 
 export default {
+  name: 'GlChartLegend',
   components: {
     GlChartSeriesLabel,
     GlTruncate,

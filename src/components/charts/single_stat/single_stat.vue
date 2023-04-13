@@ -5,6 +5,7 @@ import GlIcon from '../../base/icon/icon.vue';
 import GlAnimatedNumber from '../../utilities/animated_number/animated_number.vue';
 
 export default {
+  name: 'GlSingleStat',
   components: {
     GlIcon,
     GlBadge,

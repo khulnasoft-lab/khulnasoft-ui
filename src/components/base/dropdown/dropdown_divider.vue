@@ -2,6 +2,7 @@
 import { BDropdownDivider } from 'bootstrap-vue';
 
 export default {
+  name: 'GlDropdownDivider',
   components: {
     BDropdownDivider,
   },

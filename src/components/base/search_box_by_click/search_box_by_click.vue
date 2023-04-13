@@ -11,6 +11,7 @@ import GlFormInputGroup from '../form/form_input_group/form_input_group.vue';
 import GlIcon from '../icon/icon.vue';
 
 export default {
+  name: 'GlSearchboxByClick',
   components: {
     GlClearIconButton,
     GlIcon,

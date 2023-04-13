@@ -6,6 +6,7 @@ import isPlainObject from 'lodash/isPlainObject';
 import { DEFAULT_TAB_TITLE_LINK_CLASS } from '../constants';
 
 export default {
+  name: 'GlTab',
   components: {
     BTab,
   },

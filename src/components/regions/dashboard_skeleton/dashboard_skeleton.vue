@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: 'GlDashboardSkeleton',
   props: {
     /**
      * Number of cards to be shown

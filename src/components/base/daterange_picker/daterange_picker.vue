@@ -13,6 +13,7 @@ const CONTAINER_CLASSES = [
 ];
 
 export default {
+  name: 'GlDaterangePicker',
   components: {
     GlDatepicker,
     GlIcon,

@@ -49,6 +49,7 @@ import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 
 export default {
+  name: 'GlAreaChart',
   components: {
     Chart,
     ChartLegend,

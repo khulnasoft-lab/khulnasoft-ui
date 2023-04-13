@@ -5,6 +5,7 @@ import GlIcon from '../icon/icon.vue';
 import { TYPE_BANNER, TYPE_NOTIFICATION, TYPE_LIST } from './constants';
 
 export default {
+  name: 'GlBroadcastMessage',
   components: {
     CloseButton,
     GlIcon,

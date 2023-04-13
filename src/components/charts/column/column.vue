@@ -33,6 +33,7 @@ const yAxisDefaults = {
 };
 
 export default {
+  name: 'GlColumnChart',
   components: {
     Chart,
     ChartTooltip,

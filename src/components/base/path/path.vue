@@ -12,6 +12,7 @@ const PATH_ITEM_CLASS = 'gl-path-button';
 const PATH_ACTIVE_ITEM_PREFIX = 'gl-path-active-item';
 
 export default {
+  name: 'GlPath',
   components: {
     GlIcon,
   },

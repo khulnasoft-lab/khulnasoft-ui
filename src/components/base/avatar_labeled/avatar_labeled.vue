@@ -3,6 +3,7 @@ import GlAvatar from '../avatar/avatar.vue';
 import GlLink from '../link/link.vue';
 
 export default {
+  name: 'GlAvatarLabeled',
   components: {
     GlAvatar,
     GlLink,

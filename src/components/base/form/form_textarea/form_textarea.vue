@@ -7,6 +7,7 @@ const model = {
 };
 
 export default {
+  name: 'GlFormTextarea',
   components: {
     BFormTextarea,
   },

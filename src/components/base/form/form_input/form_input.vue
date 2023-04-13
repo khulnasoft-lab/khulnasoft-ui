@@ -8,6 +8,7 @@ const MODEL_PROP = 'value';
 const MODEL_EVENT = 'input';
 
 export default {
+  name: 'GlFormInput',
   components: {
     BFormInput,
   },

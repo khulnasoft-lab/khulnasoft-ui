@@ -7,6 +7,7 @@ import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
 
 export default {
+  name: 'GlLabel',
   components: {
     GlLink,
     GlTooltip,

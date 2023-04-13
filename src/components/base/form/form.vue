@@ -3,6 +3,7 @@
 import { BForm } from 'bootstrap-vue/src/components/form';
 
 export default {
+  name: 'GlForm',
   components: {
     BForm,
   },

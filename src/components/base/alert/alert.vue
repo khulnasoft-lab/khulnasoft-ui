@@ -10,6 +10,7 @@ import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 
 export default {
+  name: 'GlAlert',
   components: {
     GlIcon,
     CloseButton,

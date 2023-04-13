@@ -16,6 +16,7 @@ function validatorHelper(obj) {
 }
 
 export default {
+  name: 'GlModal',
   components: {
     BModal,
     GlButton,

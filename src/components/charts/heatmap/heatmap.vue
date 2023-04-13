@@ -42,6 +42,7 @@ function getRange(series) {
 }
 
 export default {
+  name: 'GlHeatmap',
   components: {
     Chart,
     ChartLegend,

@@ -27,6 +27,7 @@ const increaseChartGridTop = (options, increaseBy) => ({
 });
 
 export default {
+  name: 'GlChart',
   directives: {
     resizeObserver: GlResizeObserverDirective,
   },

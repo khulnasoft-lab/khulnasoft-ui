@@ -6,6 +6,7 @@ import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 
 export default {
+  name: 'GlDropdownItem',
   components: {
     GlIcon,
     GlAvatar,

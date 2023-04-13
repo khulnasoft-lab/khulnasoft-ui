@@ -14,6 +14,7 @@ const shouldUseFullTable = ({ $attrs, $scopedSlots }) => {
 const { tableClass } = BTable.options.props;
 
 export default {
+  name: 'GlTable',
   components: {
     BTable,
   },

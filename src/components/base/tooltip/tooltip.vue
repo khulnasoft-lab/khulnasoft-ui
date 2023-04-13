@@ -7,6 +7,7 @@ import tooltipMixin from '../../mixins/tooltip_mixin';
 const tooltipRefName = 'bvTooltip';
 
 export default {
+  name: 'GlTooltip',
   tooltipDelay,
   components: {
     BTooltip,

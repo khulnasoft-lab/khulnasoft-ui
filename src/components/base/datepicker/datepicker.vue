@@ -40,6 +40,7 @@ const highlightPastDates = (pikaday) => {
 };
 
 export default {
+  name: 'GlDatepicker',
   components: {
     GlFormInput,
     GlIcon,

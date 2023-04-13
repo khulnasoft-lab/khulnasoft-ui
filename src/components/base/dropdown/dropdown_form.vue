@@ -2,6 +2,7 @@
 import { BDropdownForm } from 'bootstrap-vue';
 
 export default {
+  name: 'GlDropdownForm',
   components: {
     BDropdownForm,
   },

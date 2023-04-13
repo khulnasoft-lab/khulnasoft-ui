@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: 'GlSkeletonLoading',
   props: {
     /**
      * Controls the number of lines.

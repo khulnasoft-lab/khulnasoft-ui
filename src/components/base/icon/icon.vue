@@ -31,6 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
  *  />
  */
 export default {
+  name: 'GlIcon',
   props: {
     /**
      * Accessible icon name used by screen readers and other assistive technologies.

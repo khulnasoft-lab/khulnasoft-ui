@@ -3,6 +3,7 @@
 import { BCollapse } from 'bootstrap-vue';
 
 export default {
+  name: 'GlCollapse',
   components: {
     BCollapse,
   },

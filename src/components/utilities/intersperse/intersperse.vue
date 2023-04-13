@@ -27,6 +27,7 @@ const addLastSeparator = (lastSeparator) => (items) => {
 };
 
 export default {
+  name: 'GlIntersperse',
   functional: true,
   props: {
     separator: {

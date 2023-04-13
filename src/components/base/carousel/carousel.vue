@@ -3,6 +3,7 @@
 import { BCarousel } from 'bootstrap-vue';
 
 export default {
+  name: 'GlCarousel',
   components: {
     BCarousel,
   },

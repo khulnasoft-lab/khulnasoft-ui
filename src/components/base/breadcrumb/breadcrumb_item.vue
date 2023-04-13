@@ -2,6 +2,7 @@
 import { BLink } from 'bootstrap-vue';
 
 export default {
+  name: 'GlBreadcrumbItem',
   components: {
     BLink,
   },

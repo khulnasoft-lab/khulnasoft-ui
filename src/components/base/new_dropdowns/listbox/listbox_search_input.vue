@@ -3,6 +3,7 @@ import GlClearIconButton from '../../../shared_components/clear_icon_button/clea
 import GlIcon from '../../icon/icon.vue';
 
 export default {
+  name: 'GlListboxSearchInput',
   components: {
     GlClearIconButton,
     GlIcon,
