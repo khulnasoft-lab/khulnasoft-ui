@@ -1,3 +1,10 @@
+## [61.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.1.0...v61.1.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* **GlAvatar:** Fix width of 404ing avatar images ([94d8413](https://gitlab.com/gitlab-org/gitlab-ui/commit/94d84137771a452c45d753082308d44fbfffae16))
+
 # [61.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.0.0...v61.1.0) (2023-04-13)
 
 
