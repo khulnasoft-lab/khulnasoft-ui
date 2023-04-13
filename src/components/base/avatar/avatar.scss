@@ -2,6 +2,7 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   $gray-50;
 
 @mixin gl-avatar {
+  @include gl-display-inline-flex;
   @include gl-border-1;
   @include gl-border-solid;
   @include gl-border-gray-a-08;
@@ -201,7 +202,6 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-text-center;
   @include gl-vertical-align-top;
   @include gl-text-gray-900;
-  @include gl-display-flex;
   @include gl-justify-content-center;
   @include gl-align-items-center;
 }
