@@ -1,3 +1,11 @@
+# [61.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.0.0...v61.1.0) (2023-04-13)
+
+
+### Features
+
+* **Banner:** Use CloseButton ([f4ddd66](https://gitlab.com/gitlab-org/gitlab-ui/commit/f4ddd66771f46607ff657f2bf4bc268f666c51ec))
+* **Banner:** Use CloseButton ([d173aed](https://gitlab.com/gitlab-org/gitlab-ui/commit/d173aed03b4400196aa9711e118b57047e707a14))
+
 # [61.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v60.2.0...v61.0.0) (2023-04-12)
 
 
