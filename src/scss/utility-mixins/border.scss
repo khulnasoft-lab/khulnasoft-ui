@@ -405,16 +405,32 @@
   border-top-right-radius: $gl-border-radius-base;
 }
 
+@mixin gl-rounded-bottom-left-small {
+  border-bottom-left-radius: $gl-border-radius-small;
+}
+
 @mixin gl-rounded-bottom-left-base {
   border-bottom-left-radius: $gl-border-radius-base;
+}
+
+@mixin gl-rounded-bottom-left-large {
+  border-bottom-left-radius: $gl-border-radius-large;
 }
 
 @mixin gl-rounded-bottom-left-none {
   border-bottom-left-radius: 0;
 }
 
+@mixin gl-rounded-bottom-right-small {
+  border-bottom-right-radius: $gl-border-radius-small;
+}
+
 @mixin gl-rounded-bottom-right-base {
   border-bottom-right-radius: $gl-border-radius-base;
+}
+
+@mixin gl-rounded-bottom-right-large {
+  border-bottom-right-radius: $gl-border-radius-large;
 }
 
 @mixin gl-rounded-bottom-right-none {
@@ -432,14 +448,6 @@
 
 @mixin gl-rounded-top-right-small {
   border-top-right-radius: $gl-border-radius-small;
-}
-
-@mixin gl-rounded-bottom-left-small {
-  border-bottom-left-radius: $gl-border-radius-small;
-}
-
-@mixin gl-rounded-bottom-right-small {
-  border-bottom-right-radius: $gl-border-radius-small;
 }
 
 @mixin gl-rounded-bottom-left-6 {
