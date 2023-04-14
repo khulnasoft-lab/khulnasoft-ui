@@ -267,6 +267,9 @@ export default {
        */
       this.$emit('action', action);
     },
+    uniqueItemId() {
+      return uniqueId(`disclosure-item-`);
+    },
     isItem,
   },
 };
@@ -315,7 +318,8 @@ export default {
       <slot>
         <template v-for="(item, index) in items">
           <template v-if="isItem(item)">
-            <gl-disclosure-dropdown-item :key="item.text" :item="item" @action="handleAction">
+            <!-- eslint-disable-next-line vue/valid-v-for -->
+            <gl-disclosure-dropdown-item :key="uniqueItemId()" :item="item" @action="handleAction">
               <template #list-item>
                 <!-- @slot Custom template of the disclosure dropdown item -->
                 <slot name="list-item" :item="item"></slot>
@@ -336,9 +340,10 @@ export default {
               </template>
 
               <template v-if="$scopedSlots['list-item']">
+                <!-- eslint-disable vue/valid-v-for -->
                 <gl-disclosure-dropdown-item
                   v-for="groupItem in item.items"
-                  :key="groupItem.text"
+                  :key="uniqueItemId()"
                   :item="groupItem"
                   @action="handleAction"
                 >
@@ -347,6 +352,7 @@ export default {
                     <slot name="list-item" :item="groupItem"></slot>
                   </template>
                 </gl-disclosure-dropdown-item>
+                <!-- eslint-enable vue/valid-v-for -->
               </template>
             </gl-disclosure-dropdown-group>
           </template>

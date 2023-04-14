@@ -49,6 +49,9 @@ export default {
     handleAction(action) {
       this.$emit('action', action);
     },
+    uniqueItemId() {
+      return uniqueId(`disclosure-item-`);
+    },
   },
 };
 </script>
@@ -65,9 +68,10 @@ export default {
     </div>
     <ul role="group" :aria-labelledby="groupLabeledBy" class="gl-mb-0 gl-pl-0 gl-list-style-none">
       <slot>
+        <!-- eslint-disable vue/valid-v-for -->
         <gl-disclosure-dropdown-item
           v-for="item in group.items"
-          :key="item.text"
+          :key="uniqueItemId()"
           :item="item"
           @action="handleAction"
         >
