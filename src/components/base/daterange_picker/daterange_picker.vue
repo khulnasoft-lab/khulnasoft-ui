@@ -8,7 +8,7 @@ const CONTAINER_CLASSES = [
   'gl-display-flex',
   'gl-align-items-baseline',
   'gl-flex-wrap',
-  'gl-sm-flex-wrap-nowrap',
+  'gl-sm-flex-nowrap',
   'gl-sm-gap-3',
 ];
 
