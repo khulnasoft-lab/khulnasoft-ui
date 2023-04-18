@@ -1,3 +1,10 @@
+## [61.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.1.2...v61.1.3) (2023-04-18)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Set unique key id for items ([e3f90f4](https://gitlab.com/gitlab-org/gitlab-ui/commit/e3f90f4fc05e2c3fdc4119177816307948700f74))
+
 ## [61.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.1.1...v61.1.2) (2023-04-18)
 
 
