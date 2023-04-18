@@ -2,7 +2,7 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
 
-import { toggleLabelPosition } from '../../../utils/constants';
+import { toggleLabelPosition, toggleSizeOptions } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 
@@ -32,6 +32,15 @@ export default {
       type: Boolean,
       required: false,
       default: null,
+    },
+    /**
+     * Size of the toggle.
+     */
+    size: {
+      type: String,
+      required: false,
+      default: 'medium',
+      validator: (value) => Object.keys(toggleSizeOptions).includes(value),
     },
     /**
      * Whether the toggle should be disabled.
@@ -104,8 +113,14 @@ export default {
         this.shouldRenderDescription ? 'gl-mb-2' : 'gl-mb-3',
       ];
     },
+    toggleSize() {
+      return toggleSizeOptions[this.size];
+    },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
+    },
+    iconSize() {
+      return this.size === 'sm' ? 12 : 16;
     },
     helpId() {
       return this.shouldRenderHelp ? `toggle-help-${this.uuid}` : undefined;
@@ -146,6 +161,7 @@ export default {
       'gl-flex-direction-column': isVerticalLayout,
       'gl-toggle-label-inline': !isVerticalLayout,
       'is-disabled': disabled,
+      'gl-toggle-sm': size === 'sm',
     }"
     data-testid="toggle-wrapper"
   >
@@ -183,7 +199,7 @@ export default {
     >
       <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
       <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
-        <gl-icon :name="icon" :size="16" />
+        <gl-icon :name="icon" :size="iconSize" />
       </span>
     </button>
     <span v-if="shouldRenderHelp" :id="helpId" class="gl-help-label" data-testid="toggle-help">
