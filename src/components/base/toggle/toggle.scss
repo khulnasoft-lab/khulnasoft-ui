@@ -123,14 +123,11 @@
     @include gl-display-inline-flex;
     @include gl-align-items-center;
     @include gl-left-1;
-    @include gl-top-1;
     @include gl-transition-medium;
     @include gl-justify-content-center;
     @include gl-p-1;
 
     > svg {
-      @include gl-w-5;
-      @include gl-h-5;
       @include gl-fill-gray-400;
       @include gl-vertical-align-baseline;
     }
@@ -151,6 +148,30 @@
 
       > svg {
         @include gl-fill-blue-500;
+      }
+    }
+  }
+}
+
+.gl-toggle-sm {
+  .gl-toggle {
+    width: $gl-spacing-scale-7;
+    height: $gl-spacing-scale-5 * 1.25;
+
+    &.is-checked .toggle-icon {
+      transform: translateX($gl-spacing-scale-4);
+    }
+
+    &:not(.is-checked) {
+      @include gl-bg-gray-500;
+
+      .toggle-icon {
+        min-height: $gl-spacing-scale-5;
+        min-width: $gl-spacing-scale-5;
+
+        > svg {
+          display: none;
+        }
       }
     }
   }

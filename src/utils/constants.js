@@ -133,6 +133,11 @@ export const buttonSizeOptions = {
   medium: 'md',
 };
 
+export const toggleSizeOptions = {
+  small: 'sm',
+  medium: 'md',
+};
+
 export const datepickerSizeOptionsMap = {
   small: 'sm',
   medium: 'md',
