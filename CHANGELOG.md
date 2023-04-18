@@ -1,3 +1,10 @@
+# [61.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.1.3...v61.2.0) (2023-04-18)
+
+
+### Features
+
+* adds bottom large rounded classes ([b0b5bd5](https://gitlab.com/gitlab-org/gitlab-ui/commit/b0b5bd53c1fc6a15e049e343a652c5d4aceb278c))
+
 ## [61.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.1.2...v61.1.3) (2023-04-18)
 
 
