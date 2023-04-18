@@ -1,3 +1,10 @@
+## [61.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.1.1...v61.1.2) (2023-04-18)
+
+
+### Bug Fixes
+
+* **GlSparklineChart:** Hide tooltip for blank data in the series ([54ea2c7](https://gitlab.com/gitlab-org/gitlab-ui/commit/54ea2c7adb64527b2ee7e23dd9783b77df283bad))
+
 ## [61.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.1.0...v61.1.1) (2023-04-13)
 
 
