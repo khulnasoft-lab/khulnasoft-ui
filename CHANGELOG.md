@@ -1,3 +1,21 @@
+# [62.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.3.0...v62.0.0) (2023-04-19)
+
+
+### Code Refactoring
+
+* remove gl-*flex-wrap-wrap classes ([fc405cc](https://gitlab.com/gitlab-org/gitlab-ui/commit/fc405cc59dc743209c0ea00a583b31cb77fc1218))
+
+
+### BREAKING CHANGES
+
+* remove deprecated `gl-[breakpoint?]-flex-wrap-wrap`,
+`gl-[breakpoint?]-flex-wrap-nowrap`, and
+`gl-[breakpoint?]-flex-wrap-wrap-reverse` classes.
+
+Instead, use these classes: `gl-[breakpoint?]-flex-wrap`,
+`gl-[breakpoint?]-flex-nowrap`, and
+`gl-[breakpoint?]-flex-wrap-reverse`.
+
 # [61.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.2.0...v61.3.0) (2023-04-19)
 
 
