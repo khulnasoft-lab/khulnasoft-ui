@@ -21,6 +21,7 @@ import { logWarning, isElementTabbable, isElementFocusable } from '../../../../u
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
 import { OutsideDirective } from '../../../../directives/outside/outside';
+import { FIXED_WIDTH_CLASS } from './constants';
 
 export default {
   name: 'BaseDropdown',
@@ -123,6 +124,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    fluidWidth: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -193,6 +199,12 @@ export default {
     },
     toggleElement() {
       return this.$refs.toggle.$el || this.$refs.toggle?.firstElementChild;
+    },
+    panelClasses() {
+      return {
+        'gl-display-block!': this.visible,
+        [FIXED_WIDTH_CLASS]: !this.fluidWidth,
+      };
     },
     popperConfig() {
       return {
@@ -332,7 +344,7 @@ export default {
       ref="content"
       data-testid="base-dropdown-menu"
       class="gl-new-dropdown-panel"
-      :class="{ 'gl-display-block!': visible }"
+      :class="panelClasses"
       @keydown.esc.stop.prevent="closeAndFocus"
     >
       <div class="gl-new-dropdown-inner">
