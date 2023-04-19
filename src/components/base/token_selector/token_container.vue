@@ -128,7 +128,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-display-flex gl-flex-wrap-nowrap gl-align-items-flex-start gl-w-full">
+  <div class="gl-display-flex gl-flex-nowrap gl-align-items-flex-start gl-w-full">
     <div
       ref="tokenContainer"
       class="gl-display-flex gl-flex-wrap gl-align-items-center gl-my-n1 gl-mx-n1 gl-w-full"
