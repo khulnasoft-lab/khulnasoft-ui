@@ -7,6 +7,8 @@ export const TERM_TOKEN_TYPE = 'filtered-search-term';
 
 export const INTENT_ACTIVATE_PREVIOUS = 'intent-activate-previous';
 
+export const TOKEN_CLOSE_SELECTOR = '.gl-token-close';
+
 export function isEmptyTerm(token) {
   return token.type === TERM_TOKEN_TYPE && token.value.data.trim() === '';
 }
@@ -135,21 +137,26 @@ export function createTerm(data = '') {
   };
 }
 
-export function denormalizeTokens(inputTokens) {
+export function denormalizeTokens(inputTokens, termsAsTokens = false) {
   assertValidTokens(inputTokens);
 
   const tokens = Array.isArray(inputTokens) ? inputTokens : [inputTokens];
 
-  const result = [];
-  tokens.forEach((t) => {
+  return tokens.reduce((result, t) => {
     if (typeof t === 'string') {
-      const stringTokens = t.split(' ').filter(Boolean);
-      stringTokens.forEach((strToken) => result.push(createTerm(strToken)));
+      if (termsAsTokens) {
+        const trimmedText = t.trim();
+        if (trimmedText) result.push(createTerm(trimmedText));
+      } else {
+        const stringTokens = t.split(' ').filter(Boolean);
+        stringTokens.forEach((strToken) => result.push(createTerm(strToken)));
+      }
     } else {
       result.push(ensureTokenId(t));
     }
-  });
-  return result;
+
+    return result;
+  }, []);
 }
 
 /**
@@ -164,6 +171,12 @@ export function denormalizeTokens(inputTokens) {
 export function match(text, query) {
   return text.toLowerCase().includes(query.toLowerCase());
 }
+
+export const termTokenDefinition = {
+  type: TERM_TOKEN_TYPE,
+  icon: 'title',
+  title: 'Search for this text',
+};
 
 export function splitOnQuotes(str) {
   if (first(str) === "'" && last(str) === "'") {

@@ -48,6 +48,15 @@ The token should emit the following events:
 - `split`: token requests adding string values after the current token.
 - `complete`: token indicates its editing is completed.
 
+### Improve space handling
+
+Set the `terms-as-tokens` prop to `true` to enable new term rendering and
+interaction behavior. This makes it easier to input/edit free text tokens, and
+removes the need for quoting values with spaces and other workarounds.
+
+In future, this prop will be enabled by default and eventually removed. Opt in
+to this earlier rather than later to ease migration.
+
 ## Examples
 
 Define a list of available tokens:
@@ -65,5 +74,5 @@ realtime updates:
 <!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
 
-<gl-filtered-search :available-tokens="tokens" v-model="value" />
+<gl-filtered-search :available-tokens="tokens" v-model="value" terms-as-tokens />
 ```

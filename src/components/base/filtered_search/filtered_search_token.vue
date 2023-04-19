@@ -3,12 +3,11 @@ import cloneDeep from 'lodash/cloneDeep';
 import { COMMA } from '../../../utils/constants';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
-import { createTerm, tokenToOption } from './filtered_search_utils';
+import { createTerm, tokenToOption, TOKEN_CLOSE_SELECTOR } from './filtered_search_utils';
 
 const SEGMENT_TITLE = 'TYPE';
 const SEGMENT_OPERATOR = 'OPERATOR';
 const SEGMENT_DATA = 'DATA';
-const TOKEN_CLOSE_SELECTOR = '.gl-token-close';
 
 const DEFAULT_OPERATORS = [
   { value: '=', description: 'is', default: true },
@@ -392,6 +391,7 @@ export default {
 
     <!--
       Emitted when Space is pressed in-between term text.
+      Not emitted when termsAsTokens is true.
       @event split
       @property {array} newTokens Token configurations
     -->

@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
+import { TERM_TOKEN_TYPE } from './filtered_search_utils';
 
 const OPTIONS = [
   { value: '=', title: 'is' },
@@ -26,7 +27,7 @@ describe('Filtered search token segment', () => {
   let alignSuggestionsMock;
   let suggestionsMock;
 
-  const createComponent = (props) => {
+  const createComponent = ({ termsAsTokens = false, ...props } = {}) => {
     alignSuggestionsMock = jest.fn();
     suggestionsMock = {
       methods: {
@@ -42,6 +43,7 @@ describe('Filtered search token segment', () => {
       provide: {
         portalName: 'fakePortal',
         alignSuggestions: alignSuggestionsMock,
+        termsAsTokens: () => termsAsTokens,
       },
       stubs: {
         Portal: { template: '<div><slot></slot></div>' },
@@ -50,7 +52,7 @@ describe('Filtered search token segment', () => {
     });
   };
 
-  const createWrappedComponent = ({ value, ...otherProps } = {}) => {
+  const createWrappedComponent = ({ value, termsAsTokens = false, ...otherProps } = {}) => {
     // We need to create fake parent due to https://github.com/vuejs/vue-test-utils/issues/1140
     const fakeParent = {
       inheritAttrs: false,
@@ -68,6 +70,9 @@ describe('Filtered search token segment', () => {
 
     wrapper = shallowMount(fakeParent, {
       propsData: { ...otherProps, cursorPosition: 'end' },
+      provide: {
+        termsAsTokens: () => termsAsTokens,
+      },
       stubs: { GlFilteredSearchTokenSegment },
     });
   };
@@ -184,6 +189,22 @@ describe('Filtered search token segment', () => {
     );
   });
 
+  it('leaves value as-is if options are provided and isTerm=true', async () => {
+    const originalValue = '!=';
+    createWrappedComponent({
+      value: originalValue,
+      title: 'Test',
+      options: OPTIONS,
+      isTerm: true,
+      active: true,
+    });
+
+    await wrapper.setData({ value: 'invalid' });
+    await wrapper.setProps({ active: false });
+
+    expect(wrapper.findComponent(GlFilteredSearchTokenSegment).emitted().input).toBe(undefined);
+  });
+
   describe('applySuggestion', () => {
     it('emits original token when no spaces are present', () => {
       createComponent({ value: '' });
@@ -207,6 +228,29 @@ describe('Filtered search token segment', () => {
       expect(wrapper.emitted('input')[0][0]).toBe(formattedToken);
       expect(wrapper.emitted('select')[0][0]).toBe(formattedToken);
       expect(wrapper.emitted('complete')[0][0]).toBe(formattedToken);
+    });
+
+    it('emits token as-is when spaces are present and termsAsTokens=true', () => {
+      createComponent({ value: '', termsAsTokens: true });
+
+      const token = 'token with spaces';
+
+      wrapper.vm.applySuggestion(token);
+
+      expect(wrapper.emitted('input')[0][0]).toBe(token);
+      expect(wrapper.emitted('select')[0][0]).toBe(token);
+      expect(wrapper.emitted('complete')[0][0]).toBe(token);
+    });
+
+    it('emits input value when term token suggestion is chosen and termsAsTokens=true', () => {
+      const value = `some text with 'spaces and' "quotes"`;
+      createComponent({ value, termsAsTokens: true });
+
+      wrapper.vm.applySuggestion(TERM_TOKEN_TYPE);
+
+      expect(wrapper.emitted('input')[0][0]).toBe(value);
+      expect(wrapper.emitted('select')[0][0]).toBe(TERM_TOKEN_TYPE);
+      expect(wrapper.emitted('complete')[0][0]).toBe(TERM_TOKEN_TYPE);
     });
 
     it('selects suggestion on press Enter', () => {

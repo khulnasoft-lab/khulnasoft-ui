@@ -8,4 +8,5 @@ export const provide = () => ({
   portalName: 'portal',
   alignSuggestions: noop,
   suggestionsListClass: noop,
+  termsAsTokens: () => false,
 });

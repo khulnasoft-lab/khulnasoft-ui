@@ -1,19 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Filtered search term renders input with value in active mode 1`] = `
+exports[`Filtered search term renders nothing with value in active mode (delegates to segment) 1`] = `
 <div
   class="gl-h-auto gl-filtered-search-term"
   data-testid="filtered-search-term"
 >
   <div
-    active="true"
     class="gl-filtered-search-term-token"
     cursor-position="end"
     is-term=""
     value="test-value"
-  >
-    test-value
-  </div>
+  />
 </div>
 `;
 

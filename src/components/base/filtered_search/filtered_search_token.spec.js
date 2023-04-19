@@ -44,6 +44,7 @@ describe('Filtered search token', () => {
       provide: {
         portalName: 'fake target',
         alignSuggestions: function fakeAlignSuggestions() {},
+        termsAsTokens: () => false,
       },
       stubs: {
         Portal: {

@@ -15,6 +15,7 @@ import {
   normalizeTokens,
   denormalizeTokens,
   needDenormalization,
+  termTokenDefinition,
 } from './filtered_search_utils';
 
 Vue.use(PortalVue);
@@ -43,6 +44,7 @@ export default {
       // TODO: This can be reverted once https://github.com/vuejs/vue-apollo/pull/1153
       // has been merged and we consume it, or we upgrade to vue-apollo@4.
       suggestionsListClass: () => this.suggestionsListClass,
+      termsAsTokens: () => this.termsAsTokens,
     };
   },
   inheritAttrs: false,
@@ -137,6 +139,28 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Render search terms as GlTokens. Ideally, this prop will be as
+     * short-lived as possible, and this behavior will become the default and
+     * only behavior.
+     *
+     * This prop is *not* reactive.
+     *
+     * See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2159.
+     */
+    termsAsTokens: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
+     * The title of the text search option. Ignored unless termsAsTokens is enabled.
+     */
+    searchTextOptionLabel: {
+      type: String,
+      required: false,
+      default: termTokenDefinition.title,
+    },
   },
   data() {
     return {
@@ -212,7 +236,9 @@ export default {
 
   methods: {
     applyNewValue(newValue) {
-      this.tokens = needDenormalization(newValue) ? denormalizeTokens(newValue) : newValue;
+      this.tokens = needDenormalization(newValue)
+        ? denormalizeTokens(newValue, this.termsAsTokens)
+        : newValue;
     },
 
     isActiveToken(idx) {
@@ -317,6 +343,7 @@ export default {
       this.activeTokenIdx = idx;
     },
 
+    // This method can be deleted once termsAsTokens behavior is the default.
     createTokens(idx, newStrings = ['']) {
       if (!this.isLastTokenActive && newStrings.length === 1 && newStrings[0] === '') {
         this.activeTokenIdx = this.lastTokenIdx;
@@ -391,6 +418,7 @@ export default {
           :view-only="viewOnly"
           :is-last-token="isLastToken(idx)"
           :class="getTokenClassList(idx)"
+          :search-text-option-label="searchTextOptionLabel"
           @activate="activate(idx)"
           @deactivate="deactivate(token)"
           @destroy="destroyToken(idx, $event)"
