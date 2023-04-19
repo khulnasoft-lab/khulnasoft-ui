@@ -170,13 +170,13 @@ export default {
       default: null,
     },
     /**
-     * Options to be passed to the underlying Popper.js instance.
-     * Overrides built-in options.
+     * Custom offset to be applied to Floating UI's offset middleware.
+     * https://floating-ui.com/docs/offset
      */
-    popperOptions: {
-      type: Object,
+    dropdownOffset: {
+      type: [Number, Object],
       required: false,
-      default: () => ({}),
+      default: undefined,
     },
     /**
      * Lets the dropdown extend to match its content's width, up to a maximum width
@@ -319,7 +319,7 @@ export default {
     :loading="loading"
     :no-caret="noCaret"
     :placement="placement"
-    :popper-options="popperOptions"
+    :offset="dropdownOffset"
     :fluid-width="fluidWidth"
     class="gl-disclosure-dropdown"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"

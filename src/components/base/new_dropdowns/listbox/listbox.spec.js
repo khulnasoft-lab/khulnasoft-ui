@@ -44,11 +44,11 @@ describe('GlCollapsibleListbox', () => {
   const findSelectAllButton = () => wrapper.find("[data-testid='listbox-select-all-button']");
   const findIntersectionObserver = () => wrapper.findComponent(GlIntersectionObserver);
 
-  it('passes custom popper.js options to the base dropdown', () => {
-    const popperOptions = { foo: 'bar' };
-    buildWrapper({ popperOptions });
+  it('passes custom offset to the base dropdown', () => {
+    const dropdownOffset = { mainAxis: 10, crossAxis: 40 };
+    buildWrapper({ dropdownOffset });
 
-    expect(findBaseDropdown().props('popperOptions')).toEqual(popperOptions);
+    expect(findBaseDropdown().props('offset')).toEqual(dropdownOffset);
   });
 
   describe('toggle text', () => {

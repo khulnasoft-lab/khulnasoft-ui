@@ -20,6 +20,9 @@
     @include gl-border-gray-200;
     @include gl-rounded-lg;
     @include gl-shadow-md;
+    position: absolute;
+    top: 0;
+    left: 0;
     min-width: $gl-new-dropdown-min-width;
     max-width: $gl-new-dropdown-max-width;
     z-index: 1000;

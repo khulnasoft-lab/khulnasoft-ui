@@ -1,6 +1,6 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { createPopper } from '@popperjs/core';
+import { computePosition, autoUpdate, offset } from '@floating-ui/dom';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
@@ -8,7 +8,6 @@ import {
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import {
-  POPPER_CONFIG,
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
   GL_DROPDOWN_FOCUS_CONTENT,
@@ -21,7 +20,7 @@ import { logWarning, isElementTabbable, isElementFocusable } from '../../../../u
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
 import { OutsideDirective } from '../../../../directives/outside/outside';
-import { FIXED_WIDTH_CLASS } from './constants';
+import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
 
 export default {
   name: 'BaseDropdown',
@@ -119,10 +118,14 @@ export default {
       required: false,
       default: null,
     },
-    popperOptions: {
-      type: Object,
+    /**
+     * Custom value to be passed to the offset middleware.
+     * https://floating-ui.com/docs/offset
+     */
+    offset: {
+      type: [Number, Object],
       required: false,
-      default: () => ({}),
+      default: () => ({ mainAxis: DEFAULT_OFFSET }),
     },
     fluidWidth: {
       type: Boolean,
@@ -206,11 +209,10 @@ export default {
         [FIXED_WIDTH_CLASS]: !this.fluidWidth,
       };
     },
-    popperConfig() {
+    floatingUIConfig() {
       return {
         placement: dropdownPlacements[this.placement],
-        ...POPPER_CONFIG,
-        ...this.popperOptions,
+        middleware: [offset(this.offset)],
       };
     },
   },
@@ -227,13 +229,29 @@ export default {
     },
   },
   mounted() {
-    this.$nextTick(() => {
-      this.popper = createPopper(this.toggleElement, this.$refs.content, this.popperConfig);
+    this.stopAutoUpdate = autoUpdate(this.toggleElement, this.$refs.content, async () => {
+      const { x, y } = await computePosition(
+        this.toggleElement,
+        this.$refs.content,
+        this.floatingUIConfig
+      );
+
+      /**
+       * Due to the asynchronous nature of computePosition, it's technically possible for the
+       * component to have been destroyed by the time the promise resolves. In such case, we exit
+       * early to prevent a TypeError.
+       */
+      if (!this.$refs.content) return;
+
+      Object.assign(this.$refs.content.style, {
+        left: `${x}px`,
+        top: `${y}px`,
+      });
     });
     this.checkToggleFocusable();
   },
   beforeDestroy() {
-    this.popper?.destroy();
+    this.stopAutoUpdate();
   },
   methods: {
     checkToggleFocusable() {
@@ -249,18 +267,12 @@ export default {
       this.visible = !this.visible;
 
       if (this.visible) {
-        /* Initially dropdown is hidden with `display="none"`.
-          When `visible` prop is toggled ON, with the `nextTick` we wait for the DOM update -
-          dropdown's `display="block"` is set (adding CSS class `show`).
-          After that we can recalculate its position (calling `popper.update()`).
-          https://github.com/floating-ui/floating-ui/issues/630:
-          "Unfortunately there's not any way to compute the position of an element not rendered in the document".
-          Then we `await` while the new dropdown position is calculated and DOM updated accordingly.
-          After we can  emit the `GL_DROPDOWN_SHOWN` event to the parent which might interact with updated  dropdown,
-          e.g. set focus.
+        /**
+         * We need to delay the `GL_DROPDOWN_SHOWN` event's emission by one tick to ensure that the
+         * floating element actually is visible. Otherwise, logic that depends on the panel being
+         * visible in the parent might not work properly (i.e. `GlListbox`'s auto-focus behavior').
          */
         await this.$nextTick();
-        await this.popper?.update();
         this.$emit(GL_DROPDOWN_SHOWN);
       } else {
         this.$emit(GL_DROPDOWN_HIDDEN);
