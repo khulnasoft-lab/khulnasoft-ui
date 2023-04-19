@@ -101,47 +101,6 @@
   }
 }
 
-/**
-* `gl-*flex-wrap-wrap` is deprecated; use `gl-*flex-wrap` instead.
-* TODO: delete `gl-*flex-wrap-wrap` utilities classes, see
-* https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2204
-*/
-@mixin gl-flex-wrap-wrap {
-  flex-wrap: wrap;
-}
-
-@mixin gl-lg-flex-wrap-wrap {
-  @include gl-media-breakpoint-up(lg) {
-    @include gl-flex-wrap-wrap;
-  }
-}
-
-@mixin gl-xl-flex-wrap-wrap {
-  @include gl-media-breakpoint-up(xl) {
-    @include gl-flex-wrap-wrap;
-  }
-}
-
-@mixin gl-sm-flex-wrap-wrap {
-  @include gl-media-breakpoint-up(sm) {
-    @include gl-flex-wrap-wrap;
-  }
-}
-
-@mixin gl-flex-wrap-wrap-reverse {
-  flex-wrap: wrap-reverse;
-}
-
-@mixin gl-flex-wrap-nowrap {
-  flex-wrap: nowrap;
-}
-
-@mixin gl-sm-flex-wrap-nowrap {
-  @include gl-media-breakpoint-up(sm) {
-    @include gl-flex-wrap-nowrap;
-  }
-}
-
 @mixin gl-flex-direction-column {
   flex-direction: column;
 }
