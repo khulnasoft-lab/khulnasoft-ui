@@ -1,3 +1,10 @@
+# [61.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.2.0...v61.3.0) (2023-04-19)
+
+
+### Features
+
+* **GlFilteredSearch:** Terms as tokens ([7149a54](https://gitlab.com/gitlab-org/gitlab-ui/commit/7149a541f4dc29d7f364ee1ab02a1c88be3824ed))
+
 # [61.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.1.3...v61.2.0) (2023-04-18)
 
 
