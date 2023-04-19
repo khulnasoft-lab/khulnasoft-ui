@@ -56,6 +56,7 @@ const generateProps = ({
   listAriaLabelledBy,
   resetButtonLabel = defaultValue('resetButtonLabel'),
   startOpened = true,
+  fluidWidth,
 } = {}) => ({
   items,
   category,
@@ -83,6 +84,7 @@ const generateProps = ({
   listAriaLabelledBy,
   resetButtonLabel,
   startOpened,
+  fluidWidth,
 });
 
 const makeBindings = (overrides = {}) =>
@@ -112,6 +114,7 @@ const makeBindings = (overrides = {}) =>
     ':toggle-aria-labelled-by': 'toggleAriaLabelledBy',
     ':list-aria-labelled-by': 'listAriaLabelledBy',
     ':reset-button-label': 'resetButtonLabel',
+    ':fluid-width': 'fluidWidth',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
@@ -490,6 +493,11 @@ export default {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
     },
+    fluidWidth: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
     disabled: {
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_STATE,
@@ -820,4 +828,6 @@ export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => (
     }
   ),
 });
-WithLongContent.args = generateProps();
+WithLongContent.args = generateProps({
+  fluidWidth: true,
+});

@@ -7,6 +7,7 @@ import {
   GL_DROPDOWN_SHOWN,
   POPPER_CONFIG,
 } from '../constants';
+import { FIXED_WIDTH_CLASS } from './constants';
 import GlBaseDropdown from './base_dropdown.vue';
 
 const destroyPopper = jest.fn();
@@ -290,6 +291,20 @@ describe('base dropdown', () => {
       const toggle = findCustomDropdownToggle();
       toggle.trigger('keydown', { code: ARROW_DOWN });
       expect(wrapper.emitted(GL_DROPDOWN_FOCUS_CONTENT)).toHaveLength(1);
+    });
+  });
+
+  describe('fluid width', () => {
+    it('uses a fixed width by default', () => {
+      buildWrapper();
+
+      expect(findDropdownMenu().classes()).toContain(FIXED_WIDTH_CLASS);
+    });
+
+    it('drops the fixed width when `fluidWidth` is `true`', () => {
+      buildWrapper({ fluidWidth: true });
+
+      expect(findDropdownMenu().classes()).not.toContain(FIXED_WIDTH_CLASS);
     });
   });
 });
