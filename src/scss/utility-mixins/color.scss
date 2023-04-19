@@ -137,6 +137,10 @@
   color: $theme-green-800;
 }
 
+@mixin gl-text-orange-200 {
+  color: $orange-200;
+}
+
 @mixin gl-text-orange-300 {
   color: $orange-300;
 }
