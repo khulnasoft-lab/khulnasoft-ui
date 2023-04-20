@@ -1,4 +1,4 @@
-import { toggleLabelPosition } from '../../../utils/constants';
+import { toggleSizeOptions, toggleLabelPosition } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
 import GlToggle from './toggle.vue';
 import readme from './toggle.md';
@@ -14,6 +14,7 @@ const longHelp = `This is a toggle component with a long help message.
 const generateProps = ({
   value = true,
   disabled = defaultValue('disabled'),
+  size = toggleSizeOptions.default,
   isLoading = defaultValue('isLoading'),
   label = 'Dark mode',
   labelId = 'dark-mode-toggle',
@@ -23,6 +24,7 @@ const generateProps = ({
 } = {}) => ({
   value,
   disabled,
+  size,
   isLoading,
   label,
   labelId,
@@ -39,6 +41,7 @@ const Template = (args, { argTypes }) => ({
     <gl-toggle
       v-model="value"
       :disabled="disabled"
+      :size="size"
       :description="description"
       :help="help"
       :label-id="labelId"
@@ -67,6 +70,11 @@ LabelPositionLeft.args = generateProps({
   labelPosition: 'left',
 });
 
+export const Small = Template.bind({});
+Small.args = generateProps({
+  size: 'sm',
+});
+
 export default {
   title: 'base/toggle',
   component: GlToggle,
@@ -88,6 +96,10 @@ export default {
     },
     description: {
       control: 'text',
+    },
+    size: {
+      options: toggleSizeOptions,
+      control: 'select',
     },
     help: {
       control: 'text',
