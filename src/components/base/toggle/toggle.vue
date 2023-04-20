@@ -113,9 +113,6 @@ export default {
         this.shouldRenderDescription ? 'gl-mb-2' : 'gl-mb-3',
       ];
     },
-    toggleSize() {
-      return toggleSizeOptions[this.size];
-    },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
     },
