@@ -1,3 +1,10 @@
+# [62.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.0.0...v62.1.0) (2023-04-20)
+
+
+### Features
+
+* **GlAvatar:** Add image load error fallback support ([9960d86](https://gitlab.com/gitlab-org/gitlab-ui/commit/9960d86ccda15d7afe08528cba1892fbfd7cca25))
+
 # [62.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v61.3.0...v62.0.0) (2023-04-19)
 
 
