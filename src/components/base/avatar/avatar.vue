@@ -24,6 +24,14 @@ export default {
       required: false,
       default: '',
     },
+    /**
+     * Show fallback identicon when image fails to load
+     */
+    fallbackOnError: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     alt: {
       type: String,
       required: false,
@@ -56,6 +64,11 @@ export default {
       default: avatarShapeOptions.circle,
     },
   },
+  data() {
+    return {
+      imageLoadError: false,
+    };
+  },
   computed: {
     sizeClasses() {
       if (isNumber(this.size)) {
@@ -85,15 +98,38 @@ export default {
     identiconText() {
       return getAvatarChar(this.entityName);
     },
+    showImage() {
+      // Don't show when image is not present
+      if (!this.src) {
+        return false;
+      }
+      // Don't show when fallbackOnError is true and there was failure to load image
+      if (this.src && this.fallbackOnError && this.imageLoadError) {
+        return false;
+      }
+      return true;
+    },
+  },
+  watch: {
+    src(newSrc, oldSrc) {
+      if (newSrc !== oldSrc) this.imageLoadError = false;
+    },
+  },
+  methods: {
+    handleLoadError(event) {
+      this.imageLoadError = true;
+      this.$emit('load-error', event);
+    },
   },
 };
 </script>
 <template>
   <img
-    v-if="src"
+    v-if="showImage"
     :src="src"
     :alt="alt"
     :class="['gl-avatar', { 'gl-avatar-circle': isCircle }, sizeClasses]"
+    @error="handleLoadError"
   />
   <div
     v-else
