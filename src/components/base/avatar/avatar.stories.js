@@ -104,6 +104,22 @@ export const WithTooltip = (args, { argTypes }) => ({
 });
 WithTooltip.args = { ...generateImageProps(), ...generateTooltipProps() };
 
+export const FallbackOnAvatarLoadFailure = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
+      <gl-avatar
+        :entity-name="entityName"
+        :entity-id="entityId"
+        :size="size"
+        :fallback-on-error="true"
+        src="someproject.jpg"
+        alt="Some Project"
+      />
+    `,
+});
+FallbackOnAvatarLoadFailure.args = { ...generateProjectFallbackProps(), ...generateImageProps() };
+
 export default {
   title: 'base/avatar',
   component: GlAvatar,

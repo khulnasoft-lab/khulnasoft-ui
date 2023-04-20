@@ -56,4 +56,36 @@ describe('GlAvatar', () => {
       });
     });
   });
+
+  describe('fallbackOnError property', () => {
+    const findImage = () => wrapper.find('img');
+
+    beforeEach(() => {
+      createWrapper({ fallbackOnError: true, src: 'someproject.jpg' });
+    });
+
+    it('shows fallback identicon when image fails to load', async () => {
+      await findImage().trigger('error');
+
+      expect(findImage().exists()).toBe(false);
+      expect(wrapper.find('.gl-avatar-identicon').exists()).toBe(true);
+    });
+
+    it('emits load-error event when image fails to load', async () => {
+      await findImage().trigger('error');
+
+      expect(wrapper.emitted('load-error')).toHaveLength(1);
+    });
+
+    it('allows changing the source when initially provided image fails to load', async () => {
+      await findImage().trigger('error');
+
+      expect(findImage().exists()).toBe(false);
+
+      await wrapper.setProps({ src: 'foo.jpg' });
+
+      expect(findImage().exists()).toBe(true);
+      expect(wrapper.find('.gl-avatar-identicon').exists()).toBe(false);
+    });
+  });
 });
