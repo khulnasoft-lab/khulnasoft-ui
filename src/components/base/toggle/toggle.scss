@@ -155,24 +155,19 @@
 
 .gl-toggle-sm {
   .gl-toggle {
-    width: $gl-spacing-scale-7;
-    height: $gl-spacing-scale-5 * 1.25;
+    width: $gl-spacing-scale-5 * 1.75;
+    height: $gl-spacing-scale-5;
 
     &.is-checked .toggle-icon {
-      transform: translateX($gl-spacing-scale-4);
+      transform: translateX($gl-spacing-scale-3 * 1.4);
+    }
+
+    .toggle-icon {
+      padding: 0.5px;
     }
 
     &:not(.is-checked) {
       @include gl-bg-gray-500;
-
-      .toggle-icon {
-        min-height: $gl-spacing-scale-5;
-        min-width: $gl-spacing-scale-5;
-
-        > svg {
-          display: none;
-        }
-      }
     }
   }
 }
