@@ -84,7 +84,7 @@ container_scanning:
   needs: ['build_docker_image']
 
 .node:
-  image: node:18.15.0-buster
+  image: node:18.16.0-buster
   variables:
     PUPPETEER_SKIP_DOWNLOAD: 'true'
 
