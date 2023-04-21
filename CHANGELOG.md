@@ -1,3 +1,10 @@
+# [62.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.2.0...v62.3.0) (2023-04-21)
+
+
+### Features
+
+* **dropdowns:** make the fluid width an opt-in option ([d507eff](https://gitlab.com/gitlab-org/gitlab-ui/commit/d507effdd12861e2919f58a01d338b5a96c71d36))
+
 # [62.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.1.0...v62.2.0) (2023-04-21)
 
 
