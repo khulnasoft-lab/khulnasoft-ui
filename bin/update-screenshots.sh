@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if [ -z ${CI_MERGE_REQUEST_SOURCE_PROJECT_PATH+x} ]; then
+if [ -z "${CI_MERGE_REQUEST_SOURCE_PROJECT_PATH}" ]; then
   echo "ERROR: CI_MERGE_REQUEST_SOURCE_PROJECT_PATH is not set"
   echo "This is supposed to run in a merge request in CI and not locally"
   exit 1
@@ -9,6 +9,10 @@ fi
 echo "Setting commit author to GitLab Bot..."
 git config --global user.email "gitlab-bot@gitlab.com"
 git config --global user.name "GitLab Bot"
+
+# Get back onto the source branch, since we might be on a merged result commit.
+echo "Checkout out $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME..."
+git checkout "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME"
 
 echo "Creating chore commit..."
 git add .
