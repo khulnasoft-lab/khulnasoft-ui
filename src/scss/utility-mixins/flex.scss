@@ -95,6 +95,12 @@
   flex-wrap: nowrap;
 }
 
+@mixin gl-md-flex-nowrap {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-flex-nowrap;
+  }
+}
+
 @mixin gl-sm-flex-nowrap {
   @include gl-media-breakpoint-up(sm) {
     @include gl-flex-nowrap;
