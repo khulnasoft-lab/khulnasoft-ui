@@ -39,6 +39,7 @@ const makeBindings = (overrides = {}) =>
     ':icon': 'icon',
     ':toggle-aria-labelled-by': 'toggleAriaLabelledBy',
     ':list-aria-labelled-by': 'listAriaLabelledBy',
+    ':fluid-width': 'fluidWidth',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
@@ -302,6 +303,7 @@ MiscellaneousContent.args = {
   icon: 'doc-text',
   toggleText: 'Miscellaneous content',
   textSrOnly: true,
+  fluidWidth: true,
 };
 MiscellaneousContent.decorators = [makeContainer({ height: '200px' })];
 

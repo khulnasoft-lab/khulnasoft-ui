@@ -647,4 +647,18 @@ describe('GlCollapsibleListbox', () => {
       }
     );
   });
+
+  describe('fluid width', () => {
+    it('is disabled by default', () => {
+      buildWrapper();
+
+      expect(findBaseDropdown().props('fluidWidth')).toBe(false);
+    });
+
+    it('is enabled when `fluidWidth` is `true`', () => {
+      buildWrapper({ fluidWidth: true });
+
+      expect(findBaseDropdown().props('fluidWidth')).toBe(true);
+    });
+  });
 });

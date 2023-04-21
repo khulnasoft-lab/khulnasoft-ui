@@ -174,6 +174,15 @@ export default {
       required: false,
       default: () => ({}),
     },
+    /**
+     * Lets the dropdown extend to match its content's width, up to a maximum width
+     * defined by the `$gl-new-dropdown-max-width` variable.
+     */
+    fluidWidth: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -292,6 +301,7 @@ export default {
     :no-caret="noCaret"
     :placement="placement"
     :popper-options="popperOptions"
+    :fluid-width="fluidWidth"
     class="gl-disclosure-dropdown"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
