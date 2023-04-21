@@ -1,3 +1,10 @@
+# [62.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.1.0...v62.2.0) (2023-04-21)
+
+
+### Features
+
+* **flex-wrap:** add gl-md-flex-nowrap ([6345e45](https://gitlab.com/gitlab-org/gitlab-ui/commit/6345e45f7d29ca57c33af259218593f4541d3dc4)), closes [/gitlab.com/gitlab-org/gitlab/-/blob/1bcaa1506f1372615bb64351a30a90d2e3f0b0b7/app/assets/stylesheets/pages/settings.scss#L79](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/blob/1bcaa1506f1372615bb64351a30a90d2e3f0b0b7/app/assets/stylesheets/pages/settings.scss/issues/L79)
+
 # [62.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.0.0...v62.1.0) (2023-04-20)
 
 
