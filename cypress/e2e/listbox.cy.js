@@ -11,15 +11,13 @@ describe('GlCollapsibleListbox', () => {
   const ensureMenuIsClosed = () => cy.get('body').click(0, 0);
 
   describe('flat items', () => {
-    before(() => {
+    beforeEach(() => {
       cy.visitStory('base/new-dropdowns/listbox', {
         args: {
           startOpened: false,
         },
       });
     });
-
-    beforeEach(ensureMenuIsClosed);
 
     const dropdownItemAtIndex = (i) =>
       getDropdownItem(['Product', 'People', 'Finance', 'Support'][i]);
@@ -106,8 +104,6 @@ describe('GlCollapsibleListbox', () => {
         },
       });
     });
-
-    beforeEach(ensureMenuIsClosed);
 
     const dropdownItemAtIndex = (i) =>
       getDropdownItem(['Product', 'People', 'Finance', 'Support'][i]);
