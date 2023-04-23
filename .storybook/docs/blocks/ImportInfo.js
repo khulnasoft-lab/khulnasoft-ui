@@ -10,7 +10,7 @@ export const ImportInfo = () => {
   }
   const importStatement = `import { ${componentName} } from '@gitlab/ui';`;
   return (
-    <SyntaxHighlighter copyable bordered>
+    <SyntaxHighlighter data-testid="import-info" copyable bordered>
       {importStatement}
     </SyntaxHighlighter>
   );

@@ -45,7 +45,15 @@ export const LinkToSource = (props) => {
   }
   const href = `${BASE_URL}/${sourcePath.replace(/^\.\//, '')}`;
   return (
-    <Button href={href} rel="noopener" target="_blank" isLink small {...props}>
+    <Button
+      data-testid="link-to-source"
+      href={href}
+      rel="noopener"
+      target="_blank"
+      isLink
+      small
+      {...props}
+    >
       View source
     </Button>
   );

@@ -17,7 +17,7 @@ export const BootstrapComponent = () => {
       <h3 id="under-the-hood">BootstrapVue component</h3>
       <p>
         This component uses{' '}
-        <a href={bootstrapComponentLink} target="blank">
+        <a data-testid="bv-component-link" href={bootstrapComponentLink} target="blank">
           <code>&lt;{bootstrapComponentName}&gt;</code>
         </a>{' '}
         from BootstrapVue internally. So please take a look also there at their extensive
