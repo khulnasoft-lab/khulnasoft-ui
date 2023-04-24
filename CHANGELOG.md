@@ -1,3 +1,10 @@
+# [62.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.3.0...v62.4.0) (2023-04-24)
+
+
+### Features
+
+* add utility class for min-height 100vh ([425f747](https://gitlab.com/gitlab-org/gitlab-ui/commit/425f747a88beb7b039d9eb43c0d5c36e3819176a))
+
 # [62.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.2.0...v62.3.0) (2023-04-21)
 
 
