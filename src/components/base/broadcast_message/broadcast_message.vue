@@ -81,6 +81,7 @@ export default {
         <gl-icon :name="iconName" />
       </div>
       <div class="gl-my-n1">
+        <h2 class="gl-sr-only">Admin message</h2>
         <!-- @slot The broadcast message's text -->
         <slot></slot>
       </div>
