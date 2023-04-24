@@ -159,11 +159,11 @@
     height: $gl-spacing-scale-5;
 
     &.is-checked .toggle-icon {
-      transform: translateX($gl-spacing-scale-3 * 1.4);
+      transform: translateX($gl-spacing-scale-4);
     }
 
     .toggle-icon {
-      padding: 0.5px;
+      padding: 0;
     }
 
     &:not(.is-checked) {
