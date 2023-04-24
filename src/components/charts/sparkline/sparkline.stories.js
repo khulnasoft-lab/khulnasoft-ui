@@ -55,14 +55,12 @@ Default.args = generateProps();
 
 export const WithoutLastYValue = Template.bind({});
 WithoutLastYValue.args = generateProps({ showLastYValue: false });
-WithoutLastYValue.parameters = { storyshots: { disable: true } };
 
 export const WithChartColorGradient = Template.bind({});
 WithChartColorGradient.args = generateProps({ gradient: customGradient });
 
 export const WithSmoothing = Template.bind({});
 WithSmoothing.args = generateProps({ smooth: 0.5 });
-WithSmoothing.parameters = { storyshots: { disable: true } };
 
 export const AutoHeight = Template.bind({});
 Object.assign(AutoHeight, {
@@ -76,6 +74,7 @@ export default {
   title: 'charts/sparkline-chart',
   component: GlSparklineChart,
   parameters: {
+    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,
