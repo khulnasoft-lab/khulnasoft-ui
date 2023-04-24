@@ -1,4 +1,4 @@
-describe('GlAccordion', () => {
+describe('GlAccordion', { testIsolation: false }, () => {
   before(() => {
     cy.visitStory('base/accordion');
   });

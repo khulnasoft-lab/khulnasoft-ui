@@ -50,3 +50,11 @@ Cypress.Commands.add('visitStory', (title, { story = 'default', args = null } = 
 Cypress.Commands.add('getByTestId', (testId) => {
   cy.get(`[data-testid="${testId}"]`);
 });
+
+Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe) => {
+  return new Cypress.Promise((resolve) => {
+    $iframe.on('load', () => {
+      resolve($iframe.contents().find('body'));
+    });
+  });
+});

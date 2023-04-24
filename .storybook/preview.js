@@ -87,10 +87,9 @@ export const parameters = {
  * - Skip DocsPage settings to prevent JSX errors.
  * - Set the layout to fullscreen to ensure stories are full-width.
  */
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.IS_VISUAL_TEST) {
+  parameters.layout = 'fullscreen';
+} else {
   const { page } = require('./docs/page');
   parameters.docs = { page };
-}
-if (process.env.NODE_ENV === 'test') {
-  parameters.layout = 'fullscreen';
 }
