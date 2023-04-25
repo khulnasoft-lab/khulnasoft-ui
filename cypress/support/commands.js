@@ -64,3 +64,7 @@ Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe) => {
     }
   });
 });
+
+Cypress.Commands.add('getStoryPreviewIframe', () => {
+  return cy.get('iframe[title="storybook-preview-iframe"]').iframe();
+});

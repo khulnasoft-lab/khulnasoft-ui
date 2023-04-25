@@ -37,8 +37,7 @@ describe('Storybook', () => {
     });
 
     it('shows the import info block in the docs page', () => {
-      cy.get('iframe[title="storybook-preview-iframe"]')
-        .iframe()
+      cy.getStoryPreviewIframe()
         .find('[data-testid="import-info"]')
         .invoke('text')
         .should('equal', "import { GlAlert } from '@gitlab/ui';");
@@ -51,8 +50,7 @@ describe('Storybook', () => {
     });
 
     it('shows the import info block in the docs page', () => {
-      cy.get('iframe[title="storybook-preview-iframe"]')
-        .iframe()
+      cy.getStoryPreviewIframe()
         .find('[data-testid="link-to-source"]')
         .should('have.attr', 'href')
         .and('include', '/main/src/components/base/alert/alert.vue');
@@ -65,11 +63,30 @@ describe('Storybook', () => {
     });
 
     it('shows the import info block in the docs page', () => {
-      cy.get('iframe[title="storybook-preview-iframe"]')
-        .iframe()
+      cy.getStoryPreviewIframe()
         .find('[data-testid="bv-component-link"]')
         .should('have.attr', 'href')
         .and('eq', 'https://bootstrap-vue.org/docs/components/button');
+    });
+  });
+
+  describe('stories code blocks', () => {
+    const interactWithStoryCodeBlock = (storyId) => {
+      cy.getStoryPreviewIframe().find(`#anchor--${storyId} button`).contains('Show code').click();
+      cy.getStoryPreviewIframe().find(`#anchor--${storyId} button`).contains('Copy').click();
+      cy.getStoryPreviewIframe().find(`#anchor--${storyId} button`).contains('Hide code').click();
+    };
+
+    beforeEach(() => {
+      cy.visit('/?path=/docs/base-alert--docs');
+    });
+
+    it('toggles the code of the default story', () => {
+      interactWithStoryCodeBlock('base-alert--default');
+    });
+
+    it('toggles the code of a non-default story', () => {
+      interactWithStoryCodeBlock('base-alert--variants');
     });
   });
 });
