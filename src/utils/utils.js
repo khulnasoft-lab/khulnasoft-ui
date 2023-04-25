@@ -49,23 +49,45 @@ export function hexToRgba(hex, opacity = 1) {
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
 
+export function toSrgb(value) {
+  const normalized = value / 255;
+  return normalized <= 0.03928 ? normalized / 12.92 : ((normalized + 0.055) / 1.055) ** 2.4;
+}
+
+export function relativeLuminance(rgb) {
+  // WCAG 2.1 formula: https://www.w3.org/TR/WCAG21/#dfn-relative-luminance
+  // -
+  // WCAG 3.0 will use APAC
+  // Using APAC would be the ultimate goal, but was dismissed by engineering as of now
+  // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3418#note_1370107090
+  return 0.2126 * toSrgb(rgb[0]) + 0.7152 * toSrgb(rgb[1]) + 0.0722 * toSrgb(rgb[2]);
+}
+
 export function colorFromBackground(backgroundColor) {
-  let r;
-  let g;
-  let b;
+  let color;
+  const lightColor = rgbFromHex('#FFFFFF');
+  const darkColor = rgbFromHex('#1f1e24');
 
   if (backgroundColor.startsWith('#')) {
-    [r, g, b] = rgbFromHex(backgroundColor);
+    color = rgbFromHex(backgroundColor);
   } else if (backgroundColor.startsWith('rgba(')) {
-    [r, g, b] = rgbFromString(backgroundColor, 5);
+    color = rgbFromString(backgroundColor, 5);
   } else if (backgroundColor.startsWith('rgb(')) {
-    [r, g, b] = rgbFromString(backgroundColor, 4);
+    color = rgbFromString(backgroundColor, 4);
   }
 
-  if (r + g + b <= 500) {
-    return labelColorOptions.light;
-  }
-  return labelColorOptions.dark;
+  const luminance = relativeLuminance(color);
+  const lightLuminance = relativeLuminance(lightColor);
+  const darkLuminance = relativeLuminance(darkColor);
+
+  const contrastLight = (lightLuminance + 0.05) / (luminance + 0.05);
+  const contrastDark = (luminance + 0.05) / (darkLuminance + 0.05);
+
+  // Using a threshold contrast of 2.4 instead of 3
+  // as this will solve weird color combinations in the mid tones
+  return contrastLight >= 2.4 || contrastLight > contrastDark
+    ? labelColorOptions.light
+    : labelColorOptions.dark;
 }
 
 export function uid() {
