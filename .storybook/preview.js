@@ -28,11 +28,6 @@ const theme = {
 };
 
 const parameters = {
-  options: {
-    storySort: {
-      method: 'alphabetical',
-    },
-  },
   actions: { disable: true },
   darkMode: {
     current: 'light',
