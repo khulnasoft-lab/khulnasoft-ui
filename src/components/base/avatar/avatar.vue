@@ -130,6 +130,7 @@ export default {
     :alt="alt"
     :class="['gl-avatar', { 'gl-avatar-circle': isCircle }, sizeClasses]"
     @error="handleLoadError"
+    v-on="$listeners"
   />
   <div
     v-else
@@ -139,6 +140,7 @@ export default {
       sizeClasses,
       identiconBackgroundClass,
     ]"
+    v-on="$listeners"
   >
     {{ identiconText }}
   </div>

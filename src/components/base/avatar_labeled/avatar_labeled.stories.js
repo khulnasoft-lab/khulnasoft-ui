@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import GlBadge from '../badge/badge.vue';
 import GlButton from '../button/button.vue';
+import GlIcon from '../icon/icon.vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import avatarPath from '../../../../static/img/avatar.png';
@@ -17,12 +18,14 @@ const generateProps = ({
   size = 32,
   shape = 'circle',
   src = avatarPath,
+  labelLink,
 } = {}) => ({
   label,
   subLabel,
   size,
   shape,
   src,
+  labelLink,
 });
 
 const generateTooltipProps = ({ tooltipText = 'Avatar tooltip', placement = 'top' } = {}) => ({
@@ -110,6 +113,38 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
     `,
 });
 WithDefaultSlot.args = generateProps({ size: 64 });
+
+export const WithLinks = (args, { argTypes }) => ({
+  components: { GlAvatarLabeled, GlBadge, GlIcon },
+  props: Object.keys(argTypes),
+  template: `
+      <gl-avatar-labeled
+        :shape="shape"
+        :size="size"
+        :label-link="labelLink"
+        :src="src"
+        :label="label"
+      >
+        <template #meta>
+          <gl-icon
+            v-gl-tooltip="'Public - The project can be accessed without any authentication.'"
+            name="earth"
+            class="gl-text-secondary gl-ml-2"
+          />
+        </template>
+        <div class="gl-max-w-75">
+          <p class="gl-mb-0 gl-mt-2 gl-font-sm">GitLab is an open source end-to-end software development platform with built-in version control, issue tracking, code review, CI/CD, and more. Self-host GitLab on your own servers, in a container, or on a cloud provider.</p>
+        </div>
+      </gl-avatar-labeled>
+    `,
+});
+WithLinks.args = generateProps({
+  size: 48,
+  shape: 'rect',
+  label: 'GitLab.org / GitLab',
+  subLabel: '',
+  labelLink: 'https://gitlab.com/gitlab-org/gitlab',
+});
 
 export default {
   title: 'base/avatar/labeled',

@@ -36,17 +36,37 @@ export default {
     hasSubLabelLink() {
       return Boolean(this.subLabelLink);
     },
+    avatarListeners() {
+      if (this.hasLabelLink) {
+        return {
+          ...this.$listeners,
+          click: this.onAvatarClick,
+        };
+      }
+
+      return this.$listeners;
+    },
+    avatarCssClasses() {
+      return {
+        'gl-cursor-pointer': this.hasLabelLink,
+      };
+    },
+  },
+  methods: {
+    onAvatarClick() {
+      this.$refs.labelLink.$el.click();
+    },
   },
 };
 </script>
 <template>
   <div class="gl-avatar-labeled">
-    <gl-avatar v-bind="$attrs" alt v-on="$listeners" />
+    <gl-avatar v-bind="$attrs" :class="avatarCssClasses" alt v-on="avatarListeners" />
     <div class="gl-avatar-labeled-labels gl-text-left!">
       <div
         class="gl-display-flex gl-flex-wrap gl-align-items-center gl-text-left! gl-mx-n1 gl-my-n1"
       >
-        <gl-link v-if="hasLabelLink" :href="labelLink" class="gl-avatar-link">
+        <gl-link v-if="hasLabelLink" ref="labelLink" :href="labelLink" class="gl-avatar-link">
           <span class="gl-avatar-labeled-label">{{ label }}</span>
         </gl-link>
         <span v-else class="gl-avatar-labeled-label">{{ label }}</span>

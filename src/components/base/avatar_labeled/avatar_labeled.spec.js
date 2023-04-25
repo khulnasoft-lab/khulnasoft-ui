@@ -63,13 +63,26 @@ describe('avatar labeled', () => {
       buildWrapper({ label, subLabel, labelLink: 'http://label', subLabelLink: 'http://subLabel' });
     });
 
-    it('displays the avatar label link', () => {
-      const labelLink = wrapper.findAllComponents(GlLink).at(0);
-      expect(labelLink.text()).toBe(label);
-      expect(labelLink.attributes('href')).toBe('http://label');
+    describe('with label link', () => {
+      const findLabelLink = () => wrapper.findAllComponents(GlLink).at(0);
+
+      it('displays the label link', () => {
+        const labelLink = findLabelLink();
+        expect(labelLink.text()).toBe(label);
+        expect(labelLink.attributes('href')).toBe('http://label');
+      });
+
+      it('navigates to label link when avatar is clicked', () => {
+        const labelLink = findLabelLink();
+        const labelLinkClickSpy = jest.spyOn(labelLink.element, 'click');
+
+        wrapper.findComponent(Avatar).vm.$emit('click');
+
+        expect(labelLinkClickSpy).toHaveBeenCalled();
+      });
     });
 
-    it('displays the avatar sub-label link', () => {
+    it('displays the sub-label link', () => {
       const subLabelLink = wrapper.findAllComponents(GlLink).at(1);
       expect(subLabelLink.text()).toBe(subLabel);
       expect(subLabelLink.attributes('href')).toBe('http://subLabel');
