@@ -1,3 +1,10 @@
+# [62.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.4.0...v62.5.0) (2023-04-25)
+
+
+### Features
+
+* **GlAvatarLabeled:** link avatar to avatar label link ([35bf39d](https://gitlab.com/gitlab-org/gitlab-ui/commit/35bf39d3baec4f3d84b4fa2c0bc8148f37194a3c))
+
 # [62.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.3.0...v62.4.0) (2023-04-24)
 
 
