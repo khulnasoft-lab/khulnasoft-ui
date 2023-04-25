@@ -7,13 +7,14 @@ describe('Storybook', () => {
     beforeEach(() => {
       cy.visit('/');
 
-      // Loads whatever is the first story
-      cy.url().should('include', '?path=/story');
+      // Loads whatever is the first docs page
+      cy.url().should('include', '?path=/docs');
 
       cy.get('button.sidebar-item').contains('alert').click();
     });
 
     it('sets the correct path for a default story', () => {
+      cy.get('a#base-alert--default').contains('Default').click();
       cy.url().should('include', '?path=/story/base-alert--default');
     });
 
@@ -24,15 +25,15 @@ describe('Storybook', () => {
     });
 
     it('sets the correct path for a docs page', () => {
-      cy.get('button').contains('Docs').click();
+      cy.get('a#base-alert--docs').contains('Docs').click();
 
-      cy.url().should('include', '?path=/docs/base-alert--default');
+      cy.url().should('include', '?path=/docs/base-alert--docs');
     });
   });
 
   describe('import info blocks', () => {
     beforeEach(() => {
-      cy.visit('/?path=/docs/base-alert--default');
+      cy.visit('/?path=/docs/base-alert--docs');
     });
 
     it('shows the import info block in the docs page', () => {
@@ -46,7 +47,7 @@ describe('Storybook', () => {
 
   describe('"View source" links', () => {
     beforeEach(() => {
-      cy.visit('/?path=/docs/base-alert--default');
+      cy.visit('/?path=/docs/base-alert--docs');
     });
 
     it('shows the import info block in the docs page', () => {
@@ -60,7 +61,7 @@ describe('Storybook', () => {
 
   describe('BootstrapVue component info', () => {
     beforeEach(() => {
-      cy.visit('/?path=/docs/base-button--default');
+      cy.visit('/?path=/docs/base-button--docs');
     });
 
     it('shows the import info block in the docs page', () => {
