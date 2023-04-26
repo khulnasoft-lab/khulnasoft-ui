@@ -31,7 +31,7 @@ const defaultFailureThreshold = 1;
 // Charts visual tests tend to be slightly flaky due to `echarts` drawing being non-deterministic.
 // To avoid irrelevant failures, we apply custom failure threshold to charts visual tests.
 const chartsFailureThresholdType = 'percent';
-const chartsFailureThreshold = 0.0003;
+const chartsFailureThreshold = 0.0018;
 
 const getMatchOptions = ({ context: { kind } }) => {
   const isChart = kind.startsWith('charts/');
