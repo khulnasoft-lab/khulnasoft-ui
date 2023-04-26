@@ -80,7 +80,7 @@ module.exports = ({ config }) => {
     },
     {
       test: /@gitlab\/svgs\/dist\/(icons|illustrations\/.+)\.svg$/,
-      loader: 'file-loader',
+      type: 'asset/resource',
     },
     {
       test: /\/static\/(img|fonts)\//,
