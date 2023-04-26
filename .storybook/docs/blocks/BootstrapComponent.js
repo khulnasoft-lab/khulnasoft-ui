@@ -3,7 +3,7 @@ import { DocsContext } from '@storybook/addon-docs';
 
 export const BootstrapComponent = () => {
   const context = useContext(DocsContext);
-  const bootstrapComponentName = context.parameters?.bootstrapComponent;
+  const bootstrapComponentName = context?.attachedCSFFile?.meta.parameters?.bootstrapComponent;
   if (!bootstrapComponentName) {
     return null;
   }

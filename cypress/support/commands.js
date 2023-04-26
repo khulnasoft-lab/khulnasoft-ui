@@ -53,8 +53,18 @@ Cypress.Commands.add('getByTestId', (testId) => {
 
 Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe) => {
   return new Cypress.Promise((resolve) => {
-    $iframe.on('load', () => {
+    const callback = () => {
       resolve($iframe.contents().find('body'));
-    });
+    };
+
+    if ($iframe[0]?.contentWindow?.document?.readyState === 'complete') {
+      callback();
+    } else {
+      $iframe.on('load', callback);
+    }
   });
+});
+
+Cypress.Commands.add('getStoryPreviewIframe', () => {
+  return cy.get('iframe[title="storybook-preview-iframe"]').iframe();
 });

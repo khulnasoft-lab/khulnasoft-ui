@@ -40,9 +40,7 @@ selector to the root element that contains the markdown-generated HTML.
 
 Set the `compact` property to true in `GlMarkdown` to apply the compact markdown styles.
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <gl-markdown compact></gl-compact>
 ```
 

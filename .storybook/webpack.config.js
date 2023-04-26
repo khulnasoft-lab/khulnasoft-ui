@@ -84,10 +84,7 @@ module.exports = ({ config }) => {
     },
     {
       test: /\/static\/(img|fonts)\//,
-      loader: 'file-loader',
-      options: {
-        outputPath: 'static',
-      },
+      type: 'asset/resource',
     },
     {
       test: /\.js$/,

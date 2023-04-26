@@ -18,3 +18,9 @@ import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+Cypress.on('uncaught:exception', (err) => {
+  // Since Storybook 7, we are seeing ResizeObserver errors when running Cypress. Those can be
+  // ignored as they do not seem to affect the actual tests.
+  return !/ResizeObserver loop completed/.test(err.message);
+});

@@ -9,8 +9,15 @@ if (USE_VUE_3) {
   moduleAlias.addAlias('vue/compiler-sfc', '@vue/compiler-sfc');
 }
 
-module.exports = {
-  framework: STORYBOOK_VUE_FRAMEWORK,
+export default {
+  framework: {
+    name: STORYBOOK_VUE_FRAMEWORK,
+    options: {
+      builder: {
+        disableTelemetry: Boolean(process.env.CI),
+      },
+    },
+  },
   stories: STORIES ? STORIES.split(',') : ['../src/**/*.stories.js'],
   addons: [
     '@storybook/addon-docs',
@@ -23,8 +30,7 @@ module.exports = {
     storyStoreV7: !IS_VISUAL_TEST,
   },
   staticDirs: ['../static'],
-  core: {
-    builder: 'webpack5',
-    disableTelemetry: Boolean(process.env.CI),
+  docs: {
+    autodocs: true,
   },
 };

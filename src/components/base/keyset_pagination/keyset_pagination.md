@@ -10,9 +10,7 @@ is to `v-bind` to the
 [`PageInfo`](https://docs.gitlab.com/ee/api/graphql/reference/#pageinfo) type
 returned by the endpoint:
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <gl-keyset-pagination v-bind="pageInfo" />
 ```
 
@@ -27,9 +25,7 @@ can't be translated.
 
 Example:
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <gl-keyset-pagination v-bind="pageInfo" :prev-text="__('Prev')" :next-text="__('Next')" />
 ```
 

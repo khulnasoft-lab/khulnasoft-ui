@@ -34,9 +34,7 @@ consistent formatting.
 
 This renders to the following HTML:
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <span><span>Item 1</span>, <span>Item 2</span>, <span>Item 3</span></span>
 ```
 
@@ -54,9 +52,7 @@ A custom separator can be defined via the `separator` prop:
 
 This renders to the following HTML:
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <span><span>Item 1</span>/<span>Item 2</span>/<span>Item 3</span></span>
 ```
 
@@ -74,9 +70,7 @@ A custom last separator can be defined via the `lastSeparator` prop:
 
 This renders to the following HTML:
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <span><span>Item 1</span>, <span>Item 2</span>, and <span>Item 3</span></span>
 ```
 
@@ -91,8 +85,6 @@ A custom last separator used on two items will only place `lastSeparator` betwee
 
 This renders to the following HTML:
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <span><span>Item 1</span> and <span>Item 2</span></span>
 ```

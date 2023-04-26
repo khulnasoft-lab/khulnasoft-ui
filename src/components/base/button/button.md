@@ -19,9 +19,7 @@ with the necessary classes added to make it look like a button, it shares the sa
 Icon-only buttons must have an accessible name.
 You can provide one with the `aria-label` attribute, which is read out by screen readers.
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <gl-button icon="close" aria-label="Close" />
 ```
 

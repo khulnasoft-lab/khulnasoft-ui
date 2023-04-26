@@ -4,9 +4,7 @@ The `GlTruncate` component lets you truncate the long texts with ellipsis.
 
 ## Usage
 
-<!-- Empty initial line is a workaround for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2102 -->
 ```html
-
 <gl-truncate :text="text" :position="position" />
 ```
 
