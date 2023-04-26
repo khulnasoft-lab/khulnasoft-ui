@@ -35,14 +35,8 @@ const chartsFailureThreshold = 0.0003;
 
 const getMatchOptions = ({ context: { kind } }) => {
   const isChart = kind.startsWith('charts/');
-  const failureThresholdType =
-    process.env.FAILURE_THRESHOLD_TYPE ||
-    (isChart ? chartsFailureThresholdType : defaultFailureThresholdType);
-  let failureThreshold =
-    'FAILURE_THRESHOLD' in process.env ? parseFloat(process.env.FAILURE_THRESHOLD) : undefined;
-  if (failureThreshold === undefined) {
-    failureThreshold = isChart ? chartsFailureThreshold : defaultFailureThreshold;
-  }
+  const failureThresholdType = isChart ? chartsFailureThresholdType : defaultFailureThresholdType;
+  const failureThreshold = isChart ? chartsFailureThreshold : defaultFailureThreshold;
 
   return {
     failureThreshold,
