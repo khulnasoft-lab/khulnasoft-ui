@@ -157,7 +157,7 @@
     "storybook-dark-mode": "3.0.0",
     "stylelint": "14.9.1",
     "stylelint-config-prettier": "9.0.4",
-    "stylelint-prettier": "2.0.0",
+    "stylelint-prettier": "3.0.0",
     "vue": "2.7.14",
     "vue-loader": "^15.8.3",
     "vue-loader-vue3": "npm:vue-loader@17",
