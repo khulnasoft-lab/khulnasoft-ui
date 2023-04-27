@@ -121,25 +121,6 @@ should conform with the design system specs, and they should look correct in the
 the GitLab product. Please see [Debugging GitLab UI issues with GitLab product CSS](doc/debugging-gitlab-ui-with-gitlab-css.md)
 for information on how to debug issues with GitLab product CSS in GitLab UI.
 
-#### Running visual regression tests locally
-
-Visual difference tests form part of the test suite. Rendered output can vary
-from host to host (e.g., due to available fonts and how each platform renders
-them), so these can fail when run locally. The easiest way to work around this
-is to run a percent-based diff, and to increase the failure threshold with the
-`FAILURE_THRESHOLD_TYPE` and `FAILURE_THRESHOLD` environment variables:
-
-```sh
-# Sets a 2% threshold
-FAILURE_THRESHOLD_TYPE='percent' FAILURE_THRESHOLD=.02 yarn test:visual
-```
-
-`FAILURE_THRESHOLD_TYPE` defaults to `'pixel'` and `FAILURE_THRESHOLD` defaults to `1`. In the CI
-environment, we consider a 1 pixel difference as a false negative that should not fail the test.
-
-Under the hood, those variables are passed to
-[`jest-image-snapshot`](https://github.com/americanexpress/jest-image-snapshot)'s config
-
 ### End to end tests
 
 Components’ end to end tests live in the `cypress/e2e` folder. See our

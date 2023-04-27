@@ -25,14 +25,24 @@ const getGotoOptions = () => ({
   waitUntil: 'networkidle0',
 });
 
-const failureThresholdType = process.env.FAILURE_THRESHOLD_TYPE || 'pixel';
-const failureThreshold =
-  'FAILURE_THRESHOLD' in process.env ? parseFloat(process.env.FAILURE_THRESHOLD) : 1;
+const defaultFailureThresholdType = 'pixel';
+const defaultFailureThreshold = 1;
 
-const getMatchOptions = () => ({
-  failureThreshold,
-  failureThresholdType,
-});
+// Charts visual tests tend to be slightly flaky due to `echarts` drawing being non-deterministic.
+// To avoid irrelevant failures, we apply custom failure threshold to charts visual tests.
+const chartsFailureThresholdType = 'percent';
+const chartsFailureThreshold = 0.0018;
+
+const getMatchOptions = ({ context: { kind } }) => {
+  const isChart = kind.startsWith('charts/');
+  const failureThresholdType = isChart ? chartsFailureThresholdType : defaultFailureThresholdType;
+  const failureThreshold = isChart ? chartsFailureThreshold : defaultFailureThreshold;
+
+  return {
+    failureThreshold,
+    failureThresholdType,
+  };
+};
 
 initStoryshots({
   framework: Vue.version.startsWith('3') ? 'vue3' : 'vue',
