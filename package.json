@@ -118,7 +118,7 @@
     "bootstrap": "4.6.2",
     "cypress": "12.10.0",
     "emoji-regex": "^10.0.0",
-    "eslint": "8.38.0",
+    "eslint": "8.39.0",
     "eslint-import-resolver-jest": "3.0.2",
     "eslint-plugin-cypress": "2.13.2",
     "eslint-plugin-storybook": "0.6.11",
