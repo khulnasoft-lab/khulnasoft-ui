@@ -6,7 +6,9 @@ import {
   GL_DROPDOWN_FOCUS_CONTENT,
   GL_DROPDOWN_HIDDEN,
   GL_DROPDOWN_SHOWN,
+  GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
+import { waitForAnimationFrame } from '../../../../utils/test_utils';
 import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
 import GlBaseDropdown from './base_dropdown.vue';
 
@@ -31,7 +33,10 @@ describe('base dropdown', () => {
         toggleId: 'dropdown-toggle-btn-1',
         ...propsData,
       },
-      slots,
+      slots: {
+        default: `<div class="${GL_DROPDOWN_CONTENTS_CLASS}" />`,
+        ...slots,
+      },
       attachTo: document.body,
     });
   };
@@ -50,14 +55,35 @@ describe('base dropdown', () => {
   const findDropdownMenu = () => wrapper.find('.gl-new-dropdown-panel');
 
   describe('Floating UI instance', () => {
-    it("starts Floating UI's auto updates on mount", () => {
+    it("starts Floating UI's when opening the dropdown", async () => {
       buildWrapper();
+      await findDefaultDropdownToggle().trigger('click');
 
-      expect(autoUpdate).toHaveBeenCalled();
+      expect(autoUpdate).toHaveBeenCalledTimes(1);
     });
 
-    it("stops Floating UI's auto updates on destroy", () => {
+    it("stops Floating UI's when closing the dropdown", async () => {
       buildWrapper();
+      await findDefaultDropdownToggle().trigger('click');
+      await findDefaultDropdownToggle().trigger('click');
+
+      expect(autoUpdate).toHaveBeenCalledTimes(1);
+      expect(mockStopAutoUpdate).toHaveBeenCalledTimes(1);
+    });
+
+    it("restarts Floating UI's when reopening the dropdown", async () => {
+      buildWrapper();
+      await findDefaultDropdownToggle().trigger('click');
+      await findDefaultDropdownToggle().trigger('click');
+      await findDefaultDropdownToggle().trigger('click');
+
+      expect(autoUpdate).toHaveBeenCalledTimes(2);
+      expect(mockStopAutoUpdate).toHaveBeenCalledTimes(1);
+    });
+
+    it("stops Floating UI's auto updates on destroy", async () => {
+      buildWrapper();
+      await findDefaultDropdownToggle().trigger('click');
       wrapper.destroy();
 
       expect(mockStopAutoUpdate).toHaveBeenCalled();
@@ -68,45 +94,49 @@ describe('base dropdown', () => {
         autoUpdate.mockImplementation(jest.requireActual('@floating-ui/dom').autoUpdate);
       });
 
-      it('initializes Floating UI with reference and floating elements and config for left-aligned menu', () => {
+      it('initializes Floating UI with reference and floating elements and config for left-aligned menu', async () => {
         buildWrapper();
+        await findDefaultDropdownToggle().trigger('click');
 
         expect(computePosition).toHaveBeenCalledWith(
           findDefaultDropdownToggle().element,
           findDropdownMenu().element,
           {
             placement: 'bottom-start',
-            middleware: [offset(DEFAULT_OFFSET)],
+            middleware: [offset({ mainAxis: DEFAULT_OFFSET })],
           }
         );
       });
 
-      it('initializes Floating UI with reference and floating elements and config for center-aligned menu', () => {
+      it('initializes Floating UI with reference and floating elements and config for center-aligned menu', async () => {
         buildWrapper({ placement: 'center' });
+        await findDefaultDropdownToggle().trigger('click');
 
         expect(computePosition).toHaveBeenCalledWith(
           findDefaultDropdownToggle().element,
           findDropdownMenu().element,
-          { placement: 'bottom', middleware: [offset(DEFAULT_OFFSET)] }
+          { placement: 'bottom', middleware: [offset({ mainAxis: DEFAULT_OFFSET })] }
         );
       });
 
-      it('initializes Floating UI with reference and floating elements and config for right-aligned menu', () => {
+      it('initializes Floating UI with reference and floating elements and config for right-aligned menu', async () => {
         buildWrapper({ placement: 'right' });
+        await findDefaultDropdownToggle().trigger('click');
 
         expect(computePosition).toHaveBeenCalledWith(
           findDefaultDropdownToggle().element,
           findDropdownMenu().element,
-          { placement: 'bottom-end', middleware: [offset(DEFAULT_OFFSET)] }
+          { placement: 'bottom-end', middleware: [offset({ mainAxis: DEFAULT_OFFSET })] }
         );
       });
 
-      it("passes custom offset to Floating UI's middleware", () => {
+      it("passes custom offset to Floating UI's middleware", async () => {
         const customOffset = { mainAxis: 10, crossAxis: 40 };
         buildWrapper({
           placement: 'right',
           offset: customOffset,
         });
+        await findDefaultDropdownToggle().trigger('click');
 
         expect(computePosition).toHaveBeenCalledWith(
           findDefaultDropdownToggle().element,
@@ -269,7 +299,7 @@ describe('base dropdown', () => {
         await toggle.trigger('click');
         expect(menu.classes('gl-display-block!')).toBe(true);
         expect(firstToggleChild.attributes('aria-expanded')).toBe('true');
-        await nextTick();
+        await waitForAnimationFrame();
         expect(wrapper.emitted(GL_DROPDOWN_SHOWN)).toHaveLength(1);
 
         // close menu clicking toggle btn again

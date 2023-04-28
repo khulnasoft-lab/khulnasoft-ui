@@ -11,6 +11,7 @@ import {
   END,
   ARROW_DOWN,
   ARROW_UP,
+  GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
 import {
   buttonCategoryOptions,
@@ -338,6 +339,7 @@ export default {
       return {
         'top-scrim-visible': !this.topBoundaryVisible,
         'bottom-scrim-visible': !this.bottomBoundaryVisible,
+        [GL_DROPDOWN_CONTENTS_CLASS]: true,
       };
     },
     itemTag() {

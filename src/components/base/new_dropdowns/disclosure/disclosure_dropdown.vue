@@ -13,6 +13,7 @@ import {
   END,
   ARROW_DOWN,
   ARROW_UP,
+  GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
 import {
   buttonCategoryOptions,
@@ -300,6 +301,7 @@ export default {
     },
     isItem,
   },
+  GL_DROPDOWN_CONTENTS_CLASS,
 };
 </script>
 
@@ -340,7 +342,7 @@ export default {
       ref="content"
       :aria-labelledby="listAriaLabelledBy || toggleId"
       data-testid="disclosure-content"
-      class="gl-new-dropdown-contents"
+      :class="$options.GL_DROPDOWN_CONTENTS_CLASS"
       tabindex="-1"
       @keydown="onKeydown"
       @click="handleAutoClose"

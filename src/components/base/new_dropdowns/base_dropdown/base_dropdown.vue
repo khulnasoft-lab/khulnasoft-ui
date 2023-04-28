@@ -1,6 +1,6 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { computePosition, autoUpdate, offset } from '@floating-ui/dom';
+import { computePosition, autoUpdate, offset, size, flip } from '@floating-ui/dom';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
@@ -14,6 +14,7 @@ import {
   ENTER,
   SPACE,
   ARROW_DOWN,
+  GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
 import { logWarning, isElementTabbable, isElementFocusable } from '../../../../utils/utils';
 
@@ -136,6 +137,7 @@ export default {
   data() {
     return {
       visible: false,
+      openedYet: false,
       baseDropdownId: uniqueId('base-dropdown-'),
     };
   },
@@ -212,7 +214,24 @@ export default {
     floatingUIConfig() {
       return {
         placement: dropdownPlacements[this.placement],
-        middleware: [offset(this.offset)],
+        middleware: [
+          offset(this.offset),
+          flip(),
+          size({
+            apply: ({ availableHeight, elements }) => {
+              const contentsEl = elements.floating.querySelector(`.${GL_DROPDOWN_CONTENTS_CLASS}`);
+              if (!contentsEl) {
+                return;
+              }
+
+              const contentsAvailableHeight =
+                availableHeight - (this.nonScrollableContentHeight ?? 0) - DEFAULT_OFFSET;
+              Object.assign(contentsEl.style, {
+                maxHeight: `${Math.max(contentsAvailableHeight, 0)}px`,
+              });
+            },
+          }),
+        ],
       };
     },
   },
@@ -229,29 +248,10 @@ export default {
     },
   },
   mounted() {
-    this.stopAutoUpdate = autoUpdate(this.toggleElement, this.$refs.content, async () => {
-      const { x, y } = await computePosition(
-        this.toggleElement,
-        this.$refs.content,
-        this.floatingUIConfig
-      );
-
-      /**
-       * Due to the asynchronous nature of computePosition, it's technically possible for the
-       * component to have been destroyed by the time the promise resolves. In such case, we exit
-       * early to prevent a TypeError.
-       */
-      if (!this.$refs.content) return;
-
-      Object.assign(this.$refs.content.style, {
-        left: `${x}px`,
-        top: `${y}px`,
-      });
-    });
     this.checkToggleFocusable();
   },
   beforeDestroy() {
-    this.stopAutoUpdate();
+    this.stopFloating();
   },
   methods: {
     checkToggleFocusable() {
@@ -263,18 +263,52 @@ export default {
         );
       }
     },
+    startFloating() {
+      this.calculateNonScrollableAreaHeight();
+      this.observer = new MutationObserver(this.calculateNonScrollableAreaHeight);
+      this.observer.observe(this.$refs.content, {
+        attributes: false,
+        childList: true,
+        subtree: true,
+      });
+
+      this.stopAutoUpdate = autoUpdate(this.toggleElement, this.$refs.content, async () => {
+        const { x, y } = await computePosition(
+          this.toggleElement,
+          this.$refs.content,
+          this.floatingUIConfig
+        );
+
+        /**
+         * Due to the asynchronous nature of computePosition, it's technically possible for the
+         * component to have been destroyed by the time the promise resolves. In such case, we exit
+         * early to prevent a TypeError.
+         */
+        if (!this.$refs.content) return;
+
+        Object.assign(this.$refs.content.style, {
+          left: `${x}px`,
+          top: `${y}px`,
+        });
+      });
+    },
+    stopFloating() {
+      this.observer?.disconnect();
+      this.stopAutoUpdate?.();
+    },
     async toggle() {
       this.visible = !this.visible;
 
       if (this.visible) {
         /**
-         * We need to delay the `GL_DROPDOWN_SHOWN` event's emission by one tick to ensure that the
-         * floating element actually is visible. Otherwise, logic that depends on the panel being
-         * visible in the parent might not work properly (i.e. `GlListbox`'s auto-focus behavior').
+         * We defer the following logic to the next tick as all that comes next relies on the
+         * dropdown actually being visible.
          */
         await this.$nextTick();
+        this.startFloating();
         this.$emit(GL_DROPDOWN_SHOWN);
       } else {
+        this.stopFloating();
         this.$emit(GL_DROPDOWN_HIDDEN);
       }
     },
@@ -323,6 +357,15 @@ export default {
       if (code === ARROW_DOWN) {
         this.$emit(GL_DROPDOWN_FOCUS_CONTENT, event);
       }
+    },
+    calculateNonScrollableAreaHeight() {
+      const scrollableArea = this.$refs.content?.querySelector(`.${GL_DROPDOWN_CONTENTS_CLASS}`);
+      if (!scrollableArea) return;
+
+      const floatingElementBoundingBox = this.$refs.content.getBoundingClientRect();
+      const scrollableAreaBoundingBox = scrollableArea.getBoundingClientRect();
+      this.nonScrollableContentHeight =
+        floatingElementBoundingBox.height - scrollableAreaBoundingBox.height;
     },
   },
 };

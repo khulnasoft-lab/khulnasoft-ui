@@ -10,3 +10,5 @@ export const END = 'End';
 export const ENTER = 'Enter';
 export const HOME = 'Home';
 export const SPACE = 'Space';
+
+export const GL_DROPDOWN_CONTENTS_CLASS = 'gl-new-dropdown-contents';
