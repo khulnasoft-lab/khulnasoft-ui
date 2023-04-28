@@ -1,3 +1,10 @@
+## [62.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.5.0...v62.5.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* **utils:** Change color util to use relative luminance ([6245128](https://gitlab.com/gitlab-org/gitlab-ui/commit/6245128c7256e3d8db164b92e9580c79d47e9183))
+
 # [62.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.4.0...v62.5.0) (2023-04-25)
 
 
