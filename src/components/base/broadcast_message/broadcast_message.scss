@@ -9,56 +9,65 @@
   @include gl-py-5;
 
   &.indigo {
-    @include gl-bg-theme-indigo-700;
+    --gl-broadcast-message-bg-color: #{$theme-indigo-700};
+    --gl-broadcast-message-border-color: #{$theme-indigo-900};
   }
 
   &.light-indigo {
-    @include gl-bg-theme-indigo-500;
+    --gl-broadcast-message-bg-color: #{$theme-indigo-500};
+    --gl-broadcast-message-border-color: #{$theme-indigo-700};
   }
 
   &.blue {
-    @include gl-bg-theme-blue-700;
+    --gl-broadcast-message-bg-color: #{$theme-blue-700};
+    --gl-broadcast-message-border-color: #{$theme-blue-900};
   }
 
   &.light-blue {
-    @include gl-bg-theme-blue-500;
+    --gl-broadcast-message-bg-color: #{$theme-blue-500};
+    --gl-broadcast-message-border-color: #{$theme-blue-700};
   }
 
   &.green {
-    @include gl-bg-theme-green-700;
+    --gl-broadcast-message-bg-color: #{$theme-green-700};
+    --gl-broadcast-message-border-color: #{$theme-green-900};
   }
 
   &.light-green {
-    @include gl-bg-theme-green-500;
+    --gl-broadcast-message-bg-color: #{$theme-green-500};
+    --gl-broadcast-message-border-color: #{$theme-green-700};
   }
 
   &.red {
-    @include gl-bg-theme-red-700;
+    --gl-broadcast-message-bg-color: #{$theme-red-700};
+    --gl-broadcast-message-border-color: #{$theme-red-900};
   }
 
   &.light-red {
-    @include gl-bg-theme-red-500;
+    --gl-broadcast-message-bg-color: #{$theme-red-500};
+    --gl-broadcast-message-border-color: #{$theme-red-700};
   }
 
   &.dark {
-    @include gl-bg-gray-500;
+    --gl-broadcast-message-bg-color: #{$gray-500};
+    --gl-broadcast-message-border-color: #{$gray-700};
   }
 
   &.light {
-    @include gl-bg-gray-300;
+    --gl-broadcast-message-bg-color: #{$gray-300};
+    --gl-broadcast-message-border-color: #{$gray-500};
   }
 
   &.banner {
     @include gl-text-contrast-light;
-    @include gl-inset-border-b-1-gray-900;
+    background-color: var(--gl-broadcast-message-bg-color);
+    box-shadow: inset 0 -#{$gl-border-size-1} 0 0 var(--gl-broadcast-message-border-color);
   }
 
   &.notification {
     @include gl-rounded-base;
     @include gl-bg-white;
-    @include gl-border-solid;
-    @include gl-border-gray-100;
-    @include gl-border-1;
+    @include gl-border;
     @include gl-shadow-x0-y2-b4-s0;
     max-width: $gl-broadcast-message-notification-max-width;
   }
