@@ -50,10 +50,10 @@ describe('toggle', () => {
   });
 
   describe.each`
-    state         | disabled | disabledClassExpected | changeEventPayload
-    ${'enabled'}  | ${false} | ${false}              | ${[[true]]}
-    ${'disabled'} | ${true}  | ${true}               | ${undefined}
-  `('when $state', ({ disabled, disabledClassExpected, changeEventPayload }) => {
+    state         | disabled | disabledClassExpected | changeEventPayload | ariaDisabledValue
+    ${'enabled'}  | ${false} | ${false}              | ${[[true]]}        | ${undefined}
+    ${'disabled'} | ${true}  | ${true}               | ${undefined}       | ${'true'}
+  `('when $state', ({ disabled, disabledClassExpected, changeEventPayload, ariaDisabledValue }) => {
     beforeEach(() => {
       createWrapper({ disabled });
     });
@@ -66,6 +66,10 @@ describe('toggle', () => {
       findButton().trigger('click');
 
       expect(wrapper.emitted('change')).toEqual(changeEventPayload);
+    });
+
+    it(`sets aria-disabled attribute to ${ariaDisabledValue}`, () => {
+      expect(findButton().attributes('aria-disabled')).toBe(ariaDisabledValue);
     });
   });
 
