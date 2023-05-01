@@ -172,6 +172,7 @@ export default {
       :aria-checked="isChecked"
       :aria-labelledby="labelId"
       :aria-describedby="helpId"
+      :aria-disabled="disabled"
       :class="{
         'gl-toggle': true,
         'is-checked': value,
