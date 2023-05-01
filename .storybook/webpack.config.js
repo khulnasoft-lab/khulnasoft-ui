@@ -42,7 +42,7 @@ module.exports = ({ config }) => {
     },
     {
       test: /\.(md|html)$/,
-      loader: 'raw-loader',
+      type: 'asset/source',
     },
     {
       /*
@@ -50,8 +50,8 @@ module.exports = ({ config }) => {
        * in a isolated shadow root
        */
       test: /typescale\/\w+_demo\.scss$/,
+      type: 'asset/source',
       use: [
-        'raw-loader',
         {
           loader: 'sass-loader',
           options: sassLoaderOptions,
