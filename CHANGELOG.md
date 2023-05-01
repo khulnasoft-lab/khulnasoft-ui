@@ -1,3 +1,10 @@
+## [62.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.5.1...v62.5.2) (2023-05-01)
+
+
+### Bug Fixes
+
+* **GlToggle:** set aria-disabled attribute ([a899eb7](https://gitlab.com/gitlab-org/gitlab-ui/commit/a899eb7acd23d089ddb43c3bcd66a0aae7fe3c6f))
+
 ## [62.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.5.0...v62.5.1) (2023-04-28)
 
 
