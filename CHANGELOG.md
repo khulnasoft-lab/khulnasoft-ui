@@ -1,3 +1,10 @@
+# [62.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.5.2...v62.6.0) (2023-05-02)
+
+
+### Features
+
+* Add gl-form-fields component ([a17bcb6](https://gitlab.com/gitlab-org/gitlab-ui/commit/a17bcb6c8db0444dcd7f5bd799fe681891dbdcc9))
+
 ## [62.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.5.1...v62.5.2) (2023-05-01)
 
 
