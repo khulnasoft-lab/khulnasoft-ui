@@ -44,6 +44,7 @@ export { default as GlFormRadioGroup } from './components/base/form/form_radio_g
 export { default as GlFormSelect } from './components/base/form/form_select/form_select.vue';
 export { default as GlFormTextarea } from './components/base/form/form_textarea/form_textarea.vue';
 export { default as GlFormGroup } from './components/base/form/form_group/form_group.vue';
+export { default as GlFormFields } from './components/base/form/form_fields/form_fields.vue';
 export { default as GlSearchBoxByType } from './components/base/search_box_by_type/search_box_by_type.vue';
 export { default as GlSearchBoxByClick } from './components/base/search_box_by_click/search_box_by_click.vue';
 export { default as GlDropdownItem } from './components/base/dropdown/dropdown_item.vue';
