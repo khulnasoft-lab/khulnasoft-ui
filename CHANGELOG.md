@@ -1,3 +1,10 @@
+# [62.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.6.0...v62.7.0) (2023-05-03)
+
+
+### Features
+
+* Add row-gap utility class ([9b913ff](https://gitlab.com/gitlab-org/gitlab-ui/commit/9b913ff56590d0c077fdb886c4696309fa165236))
+
 # [62.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.5.2...v62.6.0) (2023-05-02)
 
 
