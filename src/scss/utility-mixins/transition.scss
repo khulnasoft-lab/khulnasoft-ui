@@ -27,6 +27,10 @@
   transition-duration: $gl-transition-duration-medium;
 }
 
+@mixin gl-transition-duration-fast {
+  transition-duration: $gl-transition-duration-fast;
+}
+
 @mixin gl-transition-timing-function-ease {
   transition-timing-function: ease;
 }
