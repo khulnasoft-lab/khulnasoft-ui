@@ -1,3 +1,10 @@
+# [62.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.7.0...v62.8.0) (2023-05-03)
+
+
+### Features
+
+* Add transition duration fast class ([81ea2d9](https://gitlab.com/gitlab-org/gitlab-ui/commit/81ea2d9fdd521dc5a959705e46554d0aa2959d32))
+
 # [62.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.6.0...v62.7.0) (2023-05-03)
 
 
