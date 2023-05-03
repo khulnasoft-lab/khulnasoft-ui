@@ -891,6 +891,18 @@
 }
 
 /**
+* Row gap utilities
+*
+* naming convention: gl-row-gap-{spacing-scale-index}
+* notes:
+* - Utilities should strictly follow $gl-spacing-scale
+*/
+
+@mixin gl-row-gap-6 {
+  row-gap: $gl-spacing-scale-6;
+}
+
+/**
 * Responsive margin utilities.
 *
 * naming convention: gl-{breakpoint}-m{position}-{spacing-scale-index}
