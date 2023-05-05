@@ -1,3 +1,10 @@
+# [62.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.8.0...v62.9.0) (2023-05-05)
+
+
+### Features
+
+* **GlBroadcastMessage:** Add hardcoded sr-only heading ([9cae3b1](https://gitlab.com/gitlab-org/gitlab-ui/commit/9cae3b19a54068197809cd28010fec85f93ed945))
+
 # [62.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.7.0...v62.8.0) (2023-05-03)
 
 
