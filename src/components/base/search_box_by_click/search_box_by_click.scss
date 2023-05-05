@@ -61,12 +61,9 @@
     }
   }
 
-  .gl-search-box-by-click-clear-button {
-    @include gl-absolute;
-    @include gl-top-2;
-    @include gl-right-7;
-    @include gl-mr-2;
-    @include gl-z-index-3;
+  .gl-search-box-by-click-clear-button-container {
+    @include gl-p-2;
+    @include gl-inset-border-y-1-gray-400;
   }
 
   .gl-search-box-by-click-menu {
