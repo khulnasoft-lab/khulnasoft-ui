@@ -82,6 +82,7 @@ export default {
   data() {
     return {
       disabledSeries: {},
+      lastActiveSeriesLabel: null,
     };
   },
   computed: {
@@ -91,6 +92,15 @@ export default {
         fontSize: `${this.textStyle.fontSize || defaultFontSize}px`,
       };
     },
+    hasOneSeriesElement() {
+      return this.seriesInfo.length === 1;
+    },
+  },
+  created() {
+    this.chart.on('legendselectchanged', this.suppressLastActiveSeriesLabelToggle);
+  },
+  beforeDestroy() {
+    this.chart.off('legendselectchanged', this.suppressLastActiveSeriesLabelToggle);
   },
   methods: {
     sanitizeSeriesData(seriesData) {
@@ -115,7 +125,9 @@ export default {
     seriesNameIsLong(seriesName) {
       return seriesName.length > 120;
     },
-    handleClick(name, key) {
+    handleClick({ name, disabled }, key) {
+      if (this.hasOneSeriesElement || this.isToggleDisabled(name, disabled)) return;
+
       this.chart.dispatchAction({ type: 'legendToggleSelect', name });
       this.disabledSeries = { ...this.disabledSeries, [key]: !this.disabledSeries[key] };
     },
@@ -128,6 +140,29 @@ export default {
     getColor(color, key) {
       return this.disabledSeries[key] ? gray200 : color;
     },
+    suppressLastActiveSeriesLabelToggle({ selected }) {
+      const selectedSeriesLabels = Object.entries(selected).filter(([, isSelected]) =>
+        Boolean(isSelected)
+      );
+
+      this.lastActiveSeriesLabel = null;
+
+      if (selectedSeriesLabels.length === 1) {
+        const [lastActiveSeriesLabelName] = selectedSeriesLabels[0];
+
+        this.lastActiveSeriesLabel = lastActiveSeriesLabelName;
+      }
+    },
+    /**
+     * Disables toggling legend if it is the last active one or if its data series
+     * has a disabled property set to true
+     * @param {String} name Series name
+     * @param {Boolean} isDisabled Value of the series element's disabled property
+     * @returns {boolean}
+     */
+    isToggleDisabled(name, isDisabled) {
+      return name === this.lastActiveSeriesLabel || isDisabled;
+    },
   },
   legendLayoutTypes: {
     LEGEND_LAYOUT_INLINE,
@@ -137,17 +172,23 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div data-testid="gl-chart-legend">
     <template v-if="layout === $options.legendLayoutTypes.LEGEND_LAYOUT_INLINE">
       <div class="gl-legend-inline">
         <div
           v-for="(series, key) in seriesInfo"
           :key="key"
-          :class="{ 'text-muted': disabledSeries[key], 'w-100': seriesNameIsLong(series.name) }"
+          :class="{
+            'text-muted': disabledSeries[key],
+            'w-100': seriesNameIsLong(series.name),
+            'gl-hover-cursor-not-allowed!':
+              hasOneSeriesElement || isToggleDisabled(series.name, series.disabled),
+          }"
           class="gl-legend-inline-series"
           :style="fontStyle"
+          :aria-disabled="hasOneSeriesElement || isToggleDisabled(series.name, series.disabled)"
           role="button"
-          @click="handleClick(series.name, key)"
+          @click="handleClick(series, key)"
           @mouseenter="handleMouseEnter(series.name)"
           @mouseleave="handleMouseLeave(series.name)"
         >
@@ -182,11 +223,16 @@ export default {
           <div
             v-for="(series, key) in seriesInfo"
             :key="key"
-            :class="{ 'text-muted': disabledSeries[key] }"
+            :class="{
+              'text-muted': disabledSeries[key],
+              'gl-hover-cursor-not-allowed!':
+                hasOneSeriesElement || isToggleDisabled(series.name, series.disabled),
+            }"
             class="gl-legend-tabular-row"
             :style="fontStyle"
+            :aria-disabled="isToggleDisabled(series.name, series.disabled)"
             role="button"
-            @click="handleClick(series.name, key)"
+            @click="handleClick(series, key)"
             @mouseenter="handleMouseEnter(series.name)"
             @mouseleave="handleMouseLeave(series.name)"
           >

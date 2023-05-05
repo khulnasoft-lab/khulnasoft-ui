@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
@@ -41,7 +42,7 @@ describe('area component', () => {
   it('emits `created`, with the chart instance', async () => {
     createShallowWrapper();
 
-    await wrapper.vm.$nextTick();
+    await nextTick();
 
     expect(wrapper.emitted('created').length).toBe(1);
     expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
@@ -51,7 +52,7 @@ describe('area component', () => {
     it('are hidden by default', async () => {
       createShallowWrapper();
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findAnnotationsTooltip().exists()).toBe(false);
     });
@@ -68,7 +69,7 @@ describe('area component', () => {
         },
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findAnnotationsTooltip().exists()).toBe(true);
     });
@@ -94,7 +95,7 @@ describe('area component', () => {
         },
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findAnnotationsTooltip().exists()).toBe(true);
     });
@@ -128,7 +129,7 @@ describe('area component', () => {
 
       wrapper.vm.onChartDataPointMouseOver(params);
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findAnnotationsTooltip().html()).toContain(params.data.xAxis);
       expect(findAnnotationsTooltip().html()).toContain(params.data.tooltipData.content);
@@ -154,7 +155,7 @@ describe('area component', () => {
 
       wrapper.setData({ dataTooltipPosition: { left, top }, dataTooltipTitle });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findDataTooltip().props('left')).toBe(`${left}`);
       expect(findDataTooltip().props('top')).toBe(`${top}`);
@@ -166,7 +167,7 @@ describe('area component', () => {
     it('is inline by default', async () => {
       createShallowWrapper();
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
@@ -178,7 +179,7 @@ describe('area component', () => {
         },
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
@@ -190,7 +191,7 @@ describe('area component', () => {
         },
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
     });
@@ -211,7 +212,7 @@ describe('area component', () => {
         },
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findLegend().props('seriesInfo')).toEqual(expect.arrayContaining(legendSeriesInfo));
     });
