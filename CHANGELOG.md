@@ -1,3 +1,10 @@
+## [62.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.9.0...v62.9.1) (2023-05-08)
+
+
+### Bug Fixes
+
+* make parameters for listbox configurable ([5dcd29b](https://gitlab.com/gitlab-org/gitlab-ui/commit/5dcd29b69a49a063ce4fbe0f1b63f8acd3e63469))
+
 # [62.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.8.0...v62.9.0) (2023-05-05)
 
 
