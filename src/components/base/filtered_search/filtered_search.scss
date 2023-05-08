@@ -1,16 +1,22 @@
-.gl-filtered-search-scrollable {
+.gl-filtered-search-scrollable-container {
   @include gl-bg-white;
   @include gl-display-flex;
   @include gl-flex-grow-1;
   @include gl-flex-basis-0;
-  @include gl-overflow-y-auto;
+  @include gl-overflow-hidden;
   @include gl-align-items-center;
-  @include gl-p-2;
+  @include gl-py-2;
   @include gl-pl-4;
+  @include gl-pr-7;
   @include gl-inset-border-1-gray-400;
   @include gl-border-none;
   @include gl-rounded-top-left-base;
   @include gl-rounded-bottom-left-base;
+}
+
+.gl-filtered-search-scrollable {
+  @include gl-display-flex;
+  @include gl-overflow-y-auto;
 }
 
 .gl-filtered-search-item {

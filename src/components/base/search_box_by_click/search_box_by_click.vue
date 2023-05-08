@@ -262,19 +262,15 @@ export default {
         @keydown.enter.native="search(currentValue)"
       />
     </slot>
+    <gl-clear-icon-button
+      v-if="clearable && hasValue && !disabled"
+      :title="clearButtonTitle"
+      :tooltip-container="tooltipContainer"
+      class="gl-search-box-by-click-icon-button gl-search-box-by-click-clear-button gl-clear-icon-button"
+      data-testid="filtered-search-clear-button"
+      @click="clearInput"
+    />
     <template #append>
-      <div
-        v-if="clearable && hasValue && !disabled"
-        class="gl-search-box-by-click-clear-button-container"
-      >
-        <gl-clear-icon-button
-          :title="clearButtonTitle"
-          :tooltip-container="tooltipContainer"
-          class="gl-search-box-by-click-icon-button gl-clear-icon-button"
-          data-testid="filtered-search-clear-button"
-          @click="clearInput"
-        />
-      </div>
       <gl-button
         v-bind="searchButtonAttributes"
         ref="searchButton"
