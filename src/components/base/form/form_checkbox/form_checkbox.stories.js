@@ -32,7 +32,8 @@ const template = `
 </div>
 `;
 
-const Template = () => ({
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components,
   data,
   template,

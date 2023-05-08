@@ -18,7 +18,8 @@ const template = `
   </template>
 </gl-card>`;
 
-const Template = () => ({
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components,
   template,
 });

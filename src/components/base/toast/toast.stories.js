@@ -7,7 +7,8 @@ Vue.use(GlToast);
 
 const components = { GlToast, GlButton };
 
-const Template = () => ({
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components,
   template: `
   <gl-button @click="showToast()">
