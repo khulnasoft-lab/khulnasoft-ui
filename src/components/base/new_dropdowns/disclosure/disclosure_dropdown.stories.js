@@ -40,6 +40,7 @@ const makeBindings = (overrides = {}) =>
     ':toggle-aria-labelled-by': 'toggleAriaLabelledBy',
     ':list-aria-labelled-by': 'listAriaLabelledBy',
     ':fluid-width': 'fluidWidth',
+    ':auto-close': 'autoClose',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
@@ -216,7 +217,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
       </button>
       </template>
       <gl-disclosure-dropdown-group>
-        <gl-disclosure-dropdown-item>
+        <gl-disclosure-dropdown-item @action="closeDropdown">
           <template #list-item>
             <span class="gl-display-flex gl-flex-direction-column">
               <span class="gl-font-weight-bold gl-white-space-nowrap">Orange Fox</span>
@@ -225,7 +226,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
           </template>
         </gl-disclosure-dropdown-item>
       </gl-disclosure-dropdown-group>
-      <gl-disclosure-dropdown-group bordered :group="$options.groups[0]">
+      <gl-disclosure-dropdown-group bordered :group="$options.groups[0]" @action="closeDropdown">
         <template #list-item="{ item }">
           <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
             {{item.text}}
@@ -249,7 +250,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
           <template #list-item>Provide feedback</template>
         </gl-disclosure-dropdown-item>
       </gl-disclosure-dropdown-group>
-      <gl-disclosure-dropdown-group bordered :group="$options.groups[1]"/>
+      <gl-disclosure-dropdown-group bordered :group="$options.groups[1]" @action="closeDropdown"/>
     `,
     {
       after: `
@@ -266,11 +267,19 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
     };
   },
   methods: {
+    closeDropdown() {
+      this.$refs.disclosure.closeAndFocus();
+    },
     toggleModalVisibility(value) {
       this.feedBackModalVisible = value;
+      this.closeDropdown();
     },
     toggleNewNavigation() {
       this.newNavigation = !this.newNavigation;
+      // eslint-disable-next-line no-restricted-globals
+      setTimeout(() => {
+        this.closeDropdown();
+      }, 500);
     },
   },
   groups: mockProfileGroups,
@@ -279,6 +288,7 @@ CustomGroupsItemsAndToggle.args = {
   icon: 'plus-square',
   toggleText: 'User profile menu',
   textSrOnly: true,
+  autoClose: false,
 };
 CustomGroupsItemsAndToggle.decorators = [makeContainer({ height: '400px' })];
 

@@ -36,6 +36,7 @@ The disclosure dropdown is closed by any of the following:
 
 - pressing <kbd>Esc</kbd>
 - clicking anywhere outside the component
+- clicking the action or link inside the dropdown
 
 After closing, `GlDisclosureDropdown` emits a `hidden` event.
 

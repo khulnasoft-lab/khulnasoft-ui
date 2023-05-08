@@ -7,6 +7,8 @@ import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
   GL_DROPDOWN_FOCUS_CONTENT,
+  ENTER,
+  SPACE,
   HOME,
   END,
   ARROW_DOWN,
@@ -22,6 +24,8 @@ import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import GlDisclosureDropdownItem, { ITEM_CLASS } from './disclosure_dropdown_item.vue';
 import GlDisclosureDropdownGroup from './disclosure_dropdown_group.vue';
 import { itemsValidator, isItem, hasOnlyListItems } from './utils';
+
+export const ITEM_SELECTOR = `.${ITEM_CLASS}`;
 
 export default {
   name: 'GlDisclosureDropdown',
@@ -183,6 +187,14 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Close the dropdown on item click (action)
+     */
+    autoClose: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -241,6 +253,8 @@ export default {
         this.focusNextItem(event, elements, -1);
       } else if (code === ARROW_DOWN) {
         this.focusNextItem(event, elements, 1);
+      } else if (code === ENTER || code === SPACE) {
+        this.handleAutoClose(event);
       } else {
         stop = false;
       }
@@ -250,7 +264,7 @@ export default {
       }
     },
     getFocusableListItemElements() {
-      const items = this.$refs.content?.querySelectorAll(`.${ITEM_CLASS}`);
+      const items = this.$refs.content?.querySelectorAll(ITEM_SELECTOR);
       return filterVisible(Array.from(items || []));
     },
     focusNextItem(event, elements, offset) {
@@ -275,6 +289,11 @@ export default {
        * @event action
        */
       this.$emit('action', action);
+    },
+    handleAutoClose(e) {
+      if (this.autoClose && e.target.closest(ITEM_SELECTOR)) {
+        this.closeAndFocus();
+      }
     },
     uniqueItemId() {
       return uniqueId(`disclosure-item-`);
@@ -324,6 +343,7 @@ export default {
       class="gl-new-dropdown-contents"
       tabindex="-1"
       @keydown="onKeydown"
+      @click="handleAutoClose"
     >
       <slot>
         <template v-for="(item, index) in items">
