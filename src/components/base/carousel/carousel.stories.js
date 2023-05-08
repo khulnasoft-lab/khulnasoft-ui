@@ -29,7 +29,8 @@ const template = `
     </gl-carousel> 
   `;
 
-const Template = () => ({
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components: { GlCarousel, GlCarouselSlide },
   template,
 });
