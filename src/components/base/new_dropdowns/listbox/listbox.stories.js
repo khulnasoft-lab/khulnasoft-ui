@@ -418,28 +418,22 @@ export default {
   },
   argTypes: {
     category: {
-      control: {
-        type: 'select',
-        options: buttonCategoryOptions,
-      },
+      control: 'select',
+      options: buttonCategoryOptions,
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
     },
     variant: {
-      control: {
-        type: 'select',
-        options: buttonVariantOptions,
-      },
+      control: 'select',
+      options: buttonVariantOptions,
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
     },
     size: {
-      control: {
-        type: 'select',
-        options: Object.keys(buttonSizeOptions),
-      },
+      control: 'select',
+      options: Object.keys(buttonSizeOptions),
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
@@ -455,10 +449,8 @@ export default {
       },
     },
     placement: {
-      control: {
-        type: 'select',
-        options: Object.keys(dropdownPlacements),
-      },
+      control: 'select',
+      options: Object.keys(dropdownPlacements),
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
