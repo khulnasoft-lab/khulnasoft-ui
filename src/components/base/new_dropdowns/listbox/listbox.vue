@@ -314,12 +314,23 @@ export default {
       listboxId: uniqueId('listbox-'),
       nextFocusedItemIndex: null,
       searchStr: '',
+      topBoundaryVisible: true,
+      bottomBoundaryVisible: true,
     };
   },
   computed: {
     listboxTag() {
       if (this.items.length === 0 || isOption(this.items[0])) return 'ul';
       return 'div';
+    },
+    listboxClasses() {
+      return {
+        'top-scrim-visible': !this.topBoundaryVisible,
+        'bottom-scrim-visible': !this.bottomBoundaryVisible,
+      };
+    },
+    itemTag() {
+      return this.listboxTag === 'ul' ? 'li' : 'div';
     },
     flattenedOptions() {
       return flattenedOptions(this.items);
@@ -379,6 +390,12 @@ export default {
       }
       return toggleClasses;
     },
+    hasHeader() {
+      return this.headerText || this.searchable;
+    },
+    hasFooter() {
+      return Boolean(this.$scopedSlots.footer);
+    },
   },
   watch: {
     selected: {
@@ -392,6 +409,15 @@ export default {
         } else {
           this.selectedValues = isNil(newSelected) ? [] : [newSelected];
         }
+      },
+    },
+    items: {
+      handler() {
+        this.$nextTick(() => {
+          /* Every time the list of items changes (on search),
+           * the observed elements are recreated, thus we need to start obesrving them again */
+          this.observeScroll();
+        });
       },
     },
     ...(process.env.NODE_ENV !== 'production'
@@ -418,6 +444,12 @@ export default {
           },
         }
       : {}),
+  },
+  mounted() {
+    this.observeScroll();
+  },
+  beforeDestroy() {
+    this.scrollObserver?.disconnect();
   },
   methods: {
     open() {
@@ -581,6 +613,35 @@ export default {
         'aria-posinset': index + 1,
       };
     },
+    observeScroll() {
+      const root = this.$refs.list;
+
+      const options = {
+        rootMargin: '8px',
+        root,
+        threshold: 1.0,
+      };
+
+      this.scrollObserver?.disconnect();
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          this[entry.target?.$__visibilityProp] = entry.isIntersecting;
+        });
+      }, options);
+
+      const topBoundary = this.$refs['top-boundary'];
+      const bottomBoundary = this.$refs['bottom-boundary'];
+      if (topBoundary) {
+        topBoundary.$__visibilityProp = 'topBoundaryVisible';
+        observer.observe(topBoundary);
+      }
+      if (bottomBoundary) {
+        bottomBoundary.$__visibilityProp = 'bottomBoundaryVisible';
+        observer.observe(bottomBoundary);
+      }
+      this.scrollObserver = observer;
+    },
     isOption,
   },
 };
@@ -663,10 +724,18 @@ export default {
       ref="list"
       :aria-labelledby="listAriaLabelledBy || headerId || toggleId"
       role="listbox"
-      class="gl-new-dropdown-contents"
+      class="gl-new-dropdown-contents gl-new-dropdown-contents-with-scrim-overlay"
+      :class="listboxClasses"
       tabindex="-1"
       @keydown="onKeydown"
     >
+      <component :is="itemTag" class="top-scrim-wrapper" aria-hidden="true" data-testid="top-scrim">
+        <div
+          class="top-scrim"
+          :class="{ 'top-scrim-light': !hasHeader, 'top-scrim-dark': hasHeader }"
+        ></div>
+      </component>
+      <component :is="itemTag" ref="top-boundary" aria-hidden="true" />
       <template v-for="(item, index) in items">
         <template v-if="isOption(item)">
           <gl-listbox-item
@@ -714,13 +783,22 @@ export default {
           </gl-listbox-group>
         </template>
       </template>
-      <component :is="listboxTag === 'ul' ? 'li' : 'div'" v-if="infiniteScrollLoading">
+      <component :is="itemTag" v-if="infiniteScrollLoading">
         <gl-loading-icon data-testid="listbox-infinite-scroll-loader" size="md" class="gl-my-3" />
       </component>
       <gl-intersection-observer
         v-if="showIntersectionObserver"
         @appear="onIntersectionObserverAppear"
       />
+      <component :is="itemTag" ref="bottom-boundary" aria-hidden="true" />
+      <component
+        :is="itemTag"
+        class="bottom-scrim-wrapper"
+        aria-hidden="true"
+        data-testid="bottom-scrim"
+      >
+        <div class="bottom-scrim" :class="{ 'gl-rounded-0!': hasFooter }"></div>
+      </component>
     </component>
     <span
       v-if="announceSRSearchResults"
