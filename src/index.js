@@ -103,6 +103,7 @@ export { default as GlFriendlyWrap } from './components/utilities/friendly_wrap/
 export { default as GlIntersperse } from './components/utilities/intersperse/intersperse.vue';
 export { default as GlSprintf } from './components/utilities/sprintf/sprintf.vue';
 export { default as GlTruncate } from './components/utilities/truncate/truncate.vue';
+export { default as GlTruncateText } from './components/utilities/truncate_text/truncate_text.vue';
 
 // Directives
 export { GlModalDirective } from './directives/modal';
