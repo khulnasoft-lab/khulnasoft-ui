@@ -222,8 +222,7 @@ export default {
   },
   methods: {
     hasSlotContents(slotName) {
-      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
-      return Boolean(this.$slots[slotName]);
+      return Boolean(this.$scopedSlots[slotName]?.());
     },
     show(...args) {
       this.$refs.dropdown.show(...args);
