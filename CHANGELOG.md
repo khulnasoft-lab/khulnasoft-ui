@@ -1,3 +1,10 @@
+## [62.9.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.9.1...v62.9.2) (2023-05-10)
+
+
+### Bug Fixes
+
+* Correct size for no-caret small listbox ([56799cc](https://gitlab.com/gitlab-org/gitlab-ui/commit/56799ccba992807626b3f230bf8d0545bd750382))
+
 ## [62.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.9.0...v62.9.1) (2023-05-08)
 
 
