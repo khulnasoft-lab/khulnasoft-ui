@@ -53,13 +53,16 @@
       }
     }
 
-    &.gl-new-dropdown-toggle-no-caret,
-    &.gl-new-dropdown-toggle-no-caret.btn-sm {
+    &.gl-new-dropdown-toggle-no-caret {
       @include gl-p-3;
 
       .gl-new-dropdown-chevron {
         @include gl-display-none;
       }
+    }
+
+    &.gl-new-dropdown-toggle-no-caret.btn-sm {
+      @include gl-p-2;
     }
   }
 
