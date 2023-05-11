@@ -19,7 +19,7 @@
   cursor: grabbing;
 }
 
-@mixin gl-cursor-not-allowed {
+@mixin gl-cursor-not-allowed($hover: true) {
   cursor: not-allowed;
 }
 

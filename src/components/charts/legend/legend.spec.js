@@ -12,7 +12,7 @@ jest.mock('echarts', () => ({
   registerTheme: jest.fn(),
 }));
 
-const seriesInfo = [
+const mockSeriesInfo = [
   {
     type: 'solid',
     name: 'Example Title 1',
@@ -51,7 +51,7 @@ describe('chart legend component', () => {
     },
   ];
 
-  const buildLegend = (propsData = {}) => {
+  const buildLegend = ({ propsData = {}, seriesInfo = mockSeriesInfo } = {}) => {
     legendWrapper = shallowMount(Legend, {
       propsData: {
         ...propsData,
@@ -79,13 +79,21 @@ describe('chart legend component', () => {
   });
 
   it('allows user to override max value label text using props', () => {
-    buildLegend({ maxText: 'maxText' });
+    buildLegend({
+      propsData: {
+        maxText: 'maxText',
+      },
+    });
 
     expect(legendWrapper.text()).toMatch('maxText');
   });
 
   it('allows user to override average value label text using props', () => {
-    buildLegend({ averageText: 'averageText' });
+    buildLegend({
+      propsData: {
+        averageText: 'averageText',
+      },
+    });
 
     expect(legendWrapper.text()).toMatch('averageText');
   });
@@ -111,6 +119,36 @@ describe('chart legend component', () => {
       legendWrapper.findComponent(GlChartSeriesLabel).trigger('click');
       expect(chart.dispatchAction).toHaveBeenCalled();
     });
+
+    it('does not dispatch a `legendToggleSelect` action when there is only one active series', () => {
+      buildLegend({ seriesInfo: [mockSeriesInfo[0]] });
+
+      legendWrapper.findComponent(GlChartSeriesLabel).trigger('click');
+
+      expect(chart.dispatchAction).toHaveBeenCalledTimes(0);
+    });
+
+    it('does not dispatch a `legendToggleSelect` action on the chart when disabled=true', () => {
+      const disabledLegendItem = {
+        type: 'solid',
+        name: 'Example Title 4',
+        color: 'red',
+        data: [1, 2, 3, 4, 5],
+        disabled: true,
+      };
+
+      const seriesInfo = [...mockSeriesInfo, disabledLegendItem];
+      const disabledLegendItemIndex = seriesInfo.length - 1;
+
+      buildLegend({ seriesInfo });
+
+      legendWrapper
+        .findAllComponents(GlChartSeriesLabel)
+        .at(disabledLegendItemIndex)
+        .trigger('click');
+
+      expect(chart.dispatchAction).toHaveBeenCalledTimes(0);
+    });
   });
 
   it('renders the inline layout by default', () => {
@@ -121,7 +159,11 @@ describe('chart legend component', () => {
 
   describe('when setting the layout prop to table', () => {
     beforeEach(() => {
-      buildLegend({ layout: 'table' });
+      buildLegend({
+        propsData: {
+          layout: 'table',
+        },
+      });
       legendWrapper.vm.$nextTick();
     });
 

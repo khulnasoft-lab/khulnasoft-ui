@@ -6,6 +6,7 @@ import {
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
 } from '../../../utils/stories_constants';
+import { gray200 } from '../../../../scss_to_js/scss_variables';
 
 const generateOptions = (seriesLength, seriesNameType) => {
   return {
@@ -79,6 +80,13 @@ const baseStoryOptions = {
   },
 };
 
+const disabledLegendItem = {
+  type: 'solid',
+  name: 'Disabled Item',
+  color: gray200,
+  disabled: true,
+};
+
 const getStoryOptions = (seriesLength, seriesNameType, legendLayoutType) => {
   return {
     ...baseStoryOptions,
@@ -89,16 +97,28 @@ const getStoryOptions = (seriesLength, seriesNameType, legendLayoutType) => {
 };
 
 export const Default = () => getStoryOptions(10, SERIES_NAME_SHORT);
+export const DefaultWithDisabledLegendItem = () => {
+  const storyOptions = getStoryOptions(10, SERIES_NAME_SHORT);
 
+  storyOptions.seriesInfo = [...storyOptions.seriesInfo, disabledLegendItem];
+
+  return storyOptions;
+};
 export const DefaultWithLongSeriesNames = () => getStoryOptions(10, SERIES_NAME_LONG);
 
 export const DefaultWithLongSeriesNamesAndNoSpaces = () =>
   getStoryOptions(10, SERIES_NAME_LONG_WITHOUT_SPACES);
 
 export const WithTabularLayout = () => getStoryOptions(10, SERIES_NAME_SHORT, LEGEND_LAYOUT_TABLE);
+export const WithTabularLayoutAndDisabledLegendItem = () => {
+  const storyOptions = getStoryOptions(10, SERIES_NAME_SHORT, LEGEND_LAYOUT_TABLE);
+
+  storyOptions.seriesInfo = [...storyOptions.seriesInfo, disabledLegendItem];
+
+  return storyOptions;
+};
 export const WithTabularLayoutAndLongSeriesNames = () =>
   getStoryOptions(10, SERIES_NAME_LONG, LEGEND_LAYOUT_TABLE);
-
 export const WithTabularLayoutAndLongSeriesNamesWithNoSpaces = () =>
   getStoryOptions(10, SERIES_NAME_LONG_WITHOUT_SPACES, LEGEND_LAYOUT_TABLE);
 
