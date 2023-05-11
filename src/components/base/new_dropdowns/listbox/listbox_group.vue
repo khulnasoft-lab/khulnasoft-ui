@@ -8,6 +8,11 @@ export default {
       type: String,
       required: true,
     },
+    textSrOnly: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   created() {
     this.nameId = uniqueId('gl-listbox-group-');
@@ -21,6 +26,7 @@ export default {
       :id="nameId"
       role="presentation"
       class="gl-pl-4 gl-pt-3 gl-pb-2 gl-font-sm gl-font-weight-bold"
+      :class="{ 'gl-sr-only': textSrOnly }"
     >
       <slot name="group-label">{{ name }}</slot>
     </li>
