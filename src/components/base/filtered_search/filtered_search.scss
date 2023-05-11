@@ -22,6 +22,10 @@
 .gl-filtered-search-item {
   @include gl-display-flex;
   @include gl-px-1;
+
+  &:first-child {
+    @include gl-pl-0;
+  }
 }
 
 .gl-filtered-search-last-item {
