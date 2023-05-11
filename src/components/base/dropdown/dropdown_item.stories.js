@@ -10,6 +10,7 @@ const components = {
 const wrap = (template) => `
   <ul class="gl-list-style-none gl-pl-0">
     <gl-dropdown-item
+      href="javascript:alert(document.domain)"
       :avatar-url="avatarUrl"
       :icon-color="iconColor"
       :icon-name="iconName"

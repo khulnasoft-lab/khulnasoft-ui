@@ -1,9 +1,5 @@
 import Vue from 'vue';
-
-const getBaseURL = () => {
-  const { protocol, host } = window.location;
-  return `${protocol}//${host}`;
-};
+import { isSafeURL } from '../../utils/url_utils';
 
 const isExternalURL = (target, hostname) => {
   return target === '_blank' && hostname !== window.location.hostname;
@@ -19,15 +15,6 @@ const secureRel = (rel) => {
     rels.push('noreferrer');
   }
   return rels.join(' ');
-};
-
-const isSafeURL = (url) => {
-  try {
-    const parsedURL = new URL(url, getBaseURL());
-    return ['http:', 'https:', 'mailto:', 'ftp:'].includes(parsedURL.protocol);
-  } catch (e) {
-    return false;
-  }
 };
 
 const transform = (el, { arg: { skipSanitization = false } = {} } = {}) => {

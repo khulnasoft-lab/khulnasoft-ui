@@ -4,6 +4,7 @@ import { variantCssColorMap } from '../../../utils/constants';
 import GlAvatar from '../avatar/avatar.vue';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
+import { sanitizeUrl } from '../../../utils/url_utils';
 
 export default {
   name: 'GlDropdownItem',
@@ -78,6 +79,14 @@ export default {
       }
 
       return 'gl-mt-3 gl-align-self-start';
+    },
+    sanitizedHref() {
+      const { href } = this.$attrs;
+      return sanitizeUrl(href);
+    },
+    sanitizedTo() {
+      const { to } = this.$attrs;
+      return sanitizeUrl(to);
     },
   },
   methods: {
