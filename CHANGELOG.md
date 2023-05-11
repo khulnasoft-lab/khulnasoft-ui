@@ -1,3 +1,10 @@
+## [62.9.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.9.2...v62.9.3) (2023-05-11)
+
+
+### Bug Fixes
+
+* **dropdown:** Use $scopedSlots instead of $slots ([4ad73f5](https://gitlab.com/gitlab-org/gitlab-ui/commit/4ad73f58197d3e65fedd10464592cfc3fd7984ce))
+
 ## [62.9.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.9.1...v62.9.2) (2023-05-10)
 
 
