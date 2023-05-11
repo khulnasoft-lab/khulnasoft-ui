@@ -1,3 +1,11 @@
+# [62.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.9.3...v62.10.0) (2023-05-11)
+
+
+### Features
+
+* **GlChartLegend:** Prevent toggling off all legends ([b036385](https://gitlab.com/gitlab-org/gitlab-ui/commit/b036385448b95003368a22e1533304d6b8097050))
+* add hover state to gl-cursor-notallowed mixin ([4a122c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/4a122c2be93d4e5da505d3390ccea116353524f1))
+
 ## [62.9.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.9.2...v62.9.3) (2023-05-11)
 
 
