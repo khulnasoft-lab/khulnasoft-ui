@@ -383,6 +383,10 @@
 @mixin gl-rounded-pill {
   border-radius: $gl-spacing-scale-4;
 }
+@mixin gl-rounded-left-base {
+  border-top-left-radius: $gl-border-radius-base;
+  border-bottom-left-radius: $gl-border-radius-base;
+}
 
 @mixin gl-rounded-top-left-base {
   border-top-left-radius: $gl-border-radius-base;
