@@ -323,4 +323,20 @@ describe('GlDisclosureDropdown', () => {
       expect(findBaseDropdown().props('fluidWidth')).toBe(true);
     });
   });
+
+  describe('auto closing', () => {
+    it('closes the dropdown when `autoClose` is set on item click', () => {
+      buildWrapper({ items: mockItems });
+      const closeSpy = jest.spyOn(wrapper.vm.$refs.baseDropdown, 'closeAndFocus');
+      findListItem(0).trigger('click');
+      expect(closeSpy).toHaveBeenCalled();
+    });
+
+    it('does not close the dropdown  on item click when `autoClose` is set to `false`', () => {
+      buildWrapper({ items: mockItems, autoClose: false });
+      const closeSpy = jest.spyOn(wrapper.vm.$refs.baseDropdown, 'closeAndFocus');
+      findListItem(0).trigger('click');
+      expect(closeSpy).not.toHaveBeenCalled();
+    });
+  });
 });

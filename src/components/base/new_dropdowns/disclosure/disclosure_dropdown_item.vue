@@ -76,11 +76,10 @@ export default {
       const { code } = event;
 
       if (code === ENTER || code === SPACE) {
-        stopEvent(event);
-
         if (this.isCustomContent) {
           this.action();
         } else {
+          stopEvent(event);
           /** Instead of simply navigating or calling the action, we want
            * the `a/button` to be the target of the event as it might have additional attributes.
            * E.g. `a` might have `target` attribute.
