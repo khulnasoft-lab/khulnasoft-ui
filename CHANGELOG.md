@@ -1,3 +1,10 @@
+# [62.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.10.0...v62.11.0) (2023-05-12)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Close the disclosure dropdown on item click ([f4c2208](https://gitlab.com/gitlab-org/gitlab-ui/commit/f4c2208af8f11b5aa96faa6bdb88898f67b4edcc))
+
 # [62.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.9.3...v62.10.0) (2023-05-11)
 
 
