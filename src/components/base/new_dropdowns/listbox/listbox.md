@@ -71,6 +71,7 @@ type Option = {
 type Group = {
   text: string
   options: Array<Option>
+  textSrOnly?: boolean
 }
 
 type ItemsProp = Array<Option> | Array<Group>
@@ -104,7 +105,9 @@ template. If you want to render a custom template for items, use the
 Options can be contained within groups. A group has a required `text`
 property, which must be unique across all groups within the listbox, as
 it's used as a primary key. It also has a required property `items` that
-must be an array of options.
+must be an array of options. Optionally, you can hide the group heading
+by setting `textSrOnly` to `true`. In this case the `text` is only used
+for accessibility purposes.
 
 Groups can be at most one level deep: a group can only contain options.
 Options and groups _cannot_ be siblings. Either all items are options,

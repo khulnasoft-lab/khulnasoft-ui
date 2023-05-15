@@ -44,4 +44,18 @@ describe('GlListboxGroup', () => {
 
     expect(findByTestId('custom-name', findLabelElement()).exists()).toBe(true);
   });
+
+  describe('`textSrOnly` is true', () => {
+    beforeEach(() => {
+      buildWrapper({
+        propsData: {
+          textSrOnly: true,
+        },
+      });
+    });
+
+    it('adds `gl-sr-only` class', () => {
+      expect(findLabelElement().classes('gl-sr-only')).toBe(true);
+    });
+  });
 });

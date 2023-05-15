@@ -387,6 +387,20 @@ describe('GlCollapsibleListbox', () => {
         expect(findListboxItems(groups.at(i))).toHaveLength(group.options.length);
       });
     });
+
+    it('passes the `textSrOnly` prop', () => {
+      const mockGroupsWithTextSrOnly = JSON.parse(JSON.stringify(mockGroups));
+      mockGroupsWithTextSrOnly[0].textSrOnly = true;
+      mockGroupsWithTextSrOnly[1].textSrOnly = false;
+      buildWrapper({ items: mockGroupsWithTextSrOnly });
+
+      const groups = findListboxGroups();
+
+      const expectedTextSrOnlyProps = mockGroupsWithTextSrOnly.map((group) => group.textSrOnly);
+      const actualTextSrOnlyProps = groups.wrappers.map((group) => group.props('textSrOnly'));
+
+      expect(actualTextSrOnlyProps).toEqual(expectedTextSrOnlyProps);
+    });
   });
 
   describe('when `searchable` is enabled', () => {

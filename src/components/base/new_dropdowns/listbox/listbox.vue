@@ -686,7 +686,12 @@ export default {
         </template>
 
         <template v-else>
-          <gl-listbox-group :key="item.text" :name="item.text" :class="groupClasses(index)">
+          <gl-listbox-group
+            :key="item.text"
+            :name="item.text"
+            :text-sr-only="item.textSrOnly"
+            :class="groupClasses(index)"
+          >
             <template v-if="$scopedSlots['group-label']" #group-label>
               <!-- @slot Custom template for group names -->
               <slot name="group-label" :group="item"></slot>
