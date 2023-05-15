@@ -917,13 +917,6 @@
   }
 }
 
-@mixin gl-xs-mb-4 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-mb-4;
-  }
-}
-
 @mixin gl-sm-ml-3 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-ml-3;
@@ -1161,30 +1154,9 @@
   }
 }
 
-@mixin gl-sm-pr-3 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pr-3;
-  }
-}
-
-@mixin gl-sm-pr-5 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pr-5;
-  }
-}
-
 @mixin gl-sm-pl-0 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-pl-0;
-  }
-}
-
-@mixin gl-sm-pl-5 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-pl-5;
   }
 }
 
