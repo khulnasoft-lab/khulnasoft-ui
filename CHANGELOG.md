@@ -1,3 +1,10 @@
+# [62.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.11.0...v62.12.0) (2023-05-15)
+
+
+### Features
+
+* **GlCollapsibleListbox:** allow groups with no text ([01e709d](https://gitlab.com/gitlab-org/gitlab-ui/commit/01e709d807f49286412939f3ad0c6c75b2ebb40c))
+
 # [62.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.10.0...v62.11.0) (2023-05-12)
 
 
