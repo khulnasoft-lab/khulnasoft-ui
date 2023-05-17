@@ -1,3 +1,23 @@
+# [63.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.12.1...v63.0.0) (2023-05-17)
+
+
+### Bug Fixes
+
+* remove desktop-first CSS utils ([34f70fc](https://gitlab.com/gitlab-org/gitlab-ui/commit/34f70fc71dedde3405f07392f51ab9157f079567))
+
+
+### BREAKING CHANGES
+
+* This removes a few desktop-first CSS utils. If you were
+relying on the following utils, make sure you migrate to mobile-first
+alternatives:
+
+* `gl-xs-display-none`
+* `gl-xs-mb-4`
+* `gl-sm-pr-3`
+* `gl-sm-pr-5`
+* `gl-sm-pl-5`
+
 ## [62.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.12.0...v62.12.1) (2023-05-17)
 
 
