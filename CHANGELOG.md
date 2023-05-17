@@ -1,3 +1,12 @@
+## [62.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.12.0...v62.12.1) (2023-05-17)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Adjust left padding ([1c2804d](https://gitlab.com/gitlab-org/gitlab-ui/commit/1c2804d522d98ea0da85ca04b77510c208df7cd5))
+* **GlFilteredSearch:** Fix clear button overlapping long text & input ([eb689b4](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb689b47f924bbcee08ec4febd0cf034d375223e))
+* **GlFilteredSearch:** Fix clear button overlapping long text & input ([472fa67](https://gitlab.com/gitlab-org/gitlab-ui/commit/472fa674d12eb342d72cc20ad196c8d94f40129f))
+
 # [62.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.11.0...v62.12.0) (2023-05-15)
 
 
