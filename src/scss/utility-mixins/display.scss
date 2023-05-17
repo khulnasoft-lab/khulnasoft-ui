@@ -7,13 +7,6 @@
   display: none;
 }
 
-@mixin gl-xs-display-none {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-display-none;
-  }
-}
-
 @mixin gl-sm-display-none {
   @include gl-media-breakpoint-up(sm) {
     @include gl-display-none;
