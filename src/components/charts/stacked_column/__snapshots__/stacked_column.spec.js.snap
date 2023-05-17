@@ -418,13 +418,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(54, 104, 0, 0.4)",
+          "color": "rgba(78, 127, 14, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#366800",
+        "borderColor": "#4e7f0e",
         "borderWidth": 1,
-        "color": "rgba(54, 104, 0, 0.2)",
+        "color": "rgba(78, 127, 14, 0.2)",
       },
       "name": "Fun 4",
       "stack": Array [
@@ -779,13 +779,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(54, 104, 0, 0.4)",
+          "color": "rgba(78, 127, 14, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#366800",
+        "borderColor": "#4e7f0e",
         "borderWidth": 1,
-        "color": "rgba(54, 104, 0, 0.2)",
+        "color": "rgba(78, 127, 14, 0.2)",
       },
       "name": "Fun 4",
       "stack": Array [
@@ -823,13 +823,13 @@ Object {
       ],
       "emphasis": Object {
         "itemStyle": Object {
-          "color": "rgba(124, 33, 79, 0.4)",
+          "color": "rgba(207, 77, 129, 0.4)",
         },
       },
       "itemStyle": Object {
-        "borderColor": "#7c214f",
+        "borderColor": "#cf4d81",
         "borderWidth": 1,
-        "color": "rgba(124, 33, 79, 0.2)",
+        "color": "rgba(207, 77, 129, 0.2)",
       },
       "name": "Secondary 1",
       "stack": "tiled",
