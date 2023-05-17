@@ -50,6 +50,10 @@
 
       &.btn-sm {
         @include gl-pr-2;
+
+        &.gl-new-dropdown-icon-only {
+          @include gl-pl-2;
+        }
       }
     }
 
