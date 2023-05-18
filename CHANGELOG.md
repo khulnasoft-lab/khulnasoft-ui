@@ -1,3 +1,10 @@
+# [63.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.0.0...v63.1.0) (2023-05-18)
+
+
+### Features
+
+* **GlCollapsibleListbox:** Add overflow scrim ([55ef395](https://gitlab.com/gitlab-org/gitlab-ui/commit/55ef395c7f0c6960cee9b51bc436a0c3b339d2cc))
+
 # [63.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v62.12.1...v63.0.0) (2023-05-17)
 
 
