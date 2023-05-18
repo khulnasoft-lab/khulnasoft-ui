@@ -3,11 +3,16 @@
   @include gl-px-2;
   @include gl-my-1;
 
-  &:first-child {
+  /* when there is a scrim `li` items inside the list, the first and last real items
+  do not match the selector `:first-child` and `:last-child`,
+  that's why we have to target them with a different selector */
+  &:first-child,
+  .gl-new-dropdown-contents-with-scrim-overlay > &:nth-child(3):not(:last-child) {
     @include gl-mt-0;
   }
 
-  &:last-child {
+  &:last-child,
+  .gl-new-dropdown-contents-with-scrim-overlay > &:nth-last-child(3):not(:first-child) {
     @include gl-mb-0;
   }
 

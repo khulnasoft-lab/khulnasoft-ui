@@ -3,12 +3,16 @@ describe('GlCollapsibleListbox', () => {
   const dropdownMenuSelector = '[role="listbox"]';
   const listItemSelector = '[role="option"]';
   const searchInputSelector = '[data-testid="listbox-search-input"] input';
+  const topScrimSelector = '[data-testid="top-scrim"]';
+  const bottomScrimSelector = '[data-testid="bottom-scrim"]';
 
   const toggleBtn = () => cy.get(toggleSelector);
   const dropdownMenu = () => cy.get(dropdownMenuSelector);
   const searchInput = () => cy.get(searchInputSelector);
   const getDropdownItem = (text) => cy.contains(listItemSelector, text);
   const ensureMenuIsClosed = () => cy.get('body').click(0, 0);
+  const topScrim = () => cy.get(topScrimSelector);
+  const bottomScrim = () => cy.get(bottomScrimSelector);
 
   describe('flat items', () => {
     beforeEach(() => {
@@ -118,6 +122,43 @@ describe('GlCollapsibleListbox', () => {
       dropdownItemAtIndex(0).should('be.focused').type('{upArrow}');
       searchInput().should('be.focused').type('{upArrow}');
       searchInput().should('be.focused');
+    });
+  });
+
+  describe('overflow scrim', () => {
+    it('should display overflow scrim when content is overflowing', () => {
+      cy.visitStory('base/new-dropdowns/listbox', {
+        args: {
+          startOpened: true,
+        },
+      });
+
+      topScrim().should('have.css', 'opacity', '0');
+      bottomScrim().should('have.css', 'opacity', '1');
+      dropdownMenu().scrollTo('bottom');
+      topScrim().should('have.css', 'opacity', '1');
+      bottomScrim().should('have.css', 'opacity', '0');
+      dropdownMenu().scrollTo('top');
+      topScrim().should('have.css', 'opacity', '0');
+      bottomScrim().should('have.css', 'opacity', '1');
+    });
+
+    it('should not display overflow scrim when content is not overflowing', () => {
+      cy.visitStory('base/new-dropdowns/listbox', {
+        story: 'custom-list-item',
+        args: {
+          startOpened: true,
+        },
+      });
+      dropdownMenu().should('be.visible');
+      topScrim().should('have.css', 'opacity', '0');
+      bottomScrim().should('have.css', 'opacity', '0');
+      dropdownMenu().scrollTo('bottom', { ensureScrollable: false });
+      topScrim().should('have.css', 'opacity', '0');
+      bottomScrim().should('have.css', 'opacity', '0');
+      dropdownMenu().scrollTo('top', { ensureScrollable: false });
+      topScrim().should('have.css', 'opacity', '0');
+      bottomScrim().should('have.css', 'opacity', '0');
     });
   });
 });
