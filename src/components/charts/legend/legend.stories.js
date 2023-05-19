@@ -7,6 +7,7 @@ import {
   SERIES_NAME_LONG_WITHOUT_SPACES,
 } from '../../../utils/stories_constants';
 import { gray200 } from '../../../../scss_to_js/scss_variables';
+import readme from './legend.md';
 
 const generateOptions = (seriesLength, seriesNameType) => {
   return {
@@ -127,5 +128,10 @@ export default {
   component: GlChartLegend,
   parameters: {
     controls: { disable: true },
+    docs: {
+      description: {
+        component: readme,
+      },
+    },
   },
 };
