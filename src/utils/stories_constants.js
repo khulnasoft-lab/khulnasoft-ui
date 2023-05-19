@@ -22,3 +22,9 @@ export const SERIES_NAME = {
   [SERIES_NAME_LONG_WITHOUT_SPACES]:
     'Series_name_long._Lorem_ipsum_dolor_sit_amet,_consectetur_adipiscing_elit._Sed_tincidunt_interdum_sapien_ut_blandit._Nulla_fermentum_nisi_id_euismod_vulputate._END',
 };
+
+/**
+ * Reused constants for ListBox
+ */
+
+export const LISTBOX_CONTAINER_HEIGHT = '370px';

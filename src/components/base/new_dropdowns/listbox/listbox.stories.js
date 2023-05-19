@@ -20,6 +20,7 @@ import {
   ARG_TYPE_SUBCATEGORY_SEARCH,
   ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
   ARG_TYPE_SUBCATEGORY_INFINITE_SCROLL,
+  LISTBOX_CONTAINER_HEIGHT,
 } from '../../../../utils/stories_constants';
 import { POSITION } from '../../../utilities/truncate/constants';
 import readme from './listbox.md';
@@ -55,6 +56,7 @@ const generateProps = ({
   toggleAriaLabelledBy,
   listAriaLabelledBy,
   resetButtonLabel = defaultValue('resetButtonLabel'),
+  showSelectAllButtonLabel = defaultValue('showSelectAllButtonLabel'),
   startOpened = true,
   fluidWidth,
 } = {}) => ({
@@ -83,6 +85,7 @@ const generateProps = ({
   toggleAriaLabelledBy,
   listAriaLabelledBy,
   resetButtonLabel,
+  showSelectAllButtonLabel,
   startOpened,
   fluidWidth,
 });
@@ -114,6 +117,7 @@ const makeBindings = (overrides = {}) =>
     ':toggle-aria-labelled-by': 'toggleAriaLabelledBy',
     ':list-aria-labelled-by': 'listAriaLabelledBy',
     ':reset-button-label': 'resetButtonLabel',
+    ':show-select-all-button-label': 'showSelectAllButtonLabel',
     ':fluid-width': 'fluidWidth',
     ...overrides,
   })
@@ -160,7 +164,7 @@ export const Default = (args, { argTypes }) => ({
   }),
 });
 Default.args = generateProps({ toggleAriaLabelledBy: 'listbox-label' });
-Default.decorators = [makeContainer({ height: '370px' })];
+Default.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
 export const HeaderAndFooter = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -181,7 +185,7 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
     }
   },
   methods: {
-    selectAll() {
+    selectAllItems() {
       const allValues = mockOptions.map(({ value }) => value);
       this.selected = [...allValues];
     },
@@ -193,7 +197,7 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
     `
     <template #footer>
        <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-100 gl-display-flex gl-flex-direction-column gl-p-2! gl-pt-0!">
-        <gl-button  @click="selectAll" category="tertiary" block class="gl-justify-content-start! gl-mt-2!"">
+        <gl-button  @click="selectAllItems" category="tertiary" block class="gl-justify-content-start! gl-mt-2!"">
           Select all
         </gl-button>
         <gl-button category="tertiary" block class="gl-justify-content-start! gl-mt-2!">
@@ -216,7 +220,56 @@ HeaderAndFooter.args = generateProps({
   multiple: true,
   block: true,
 });
-HeaderAndFooter.decorators = [makeContainer({ height: '370px' })];
+HeaderAndFooter.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
+
+export const HeaderActions = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlCollapsibleListbox,
+    GlSearchBoxByType,
+    GlButtonGroup,
+    GlButton,
+  },
+  data() {
+    return {
+      selected: [],
+    };
+  },
+  computed: {
+    allValues() {
+      return mockOptions.map(({ value }) => value);
+    },
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  methods: {
+    selectAllItems() {
+      this.selected = [...this.allValues];
+    },
+    onReset() {
+      this.selected = [];
+    },
+  },
+  template: template('', {
+    bindingOverrides: {
+      '@reset': 'onReset',
+      '@select-all': 'selectAllItems',
+    },
+  }),
+});
+
+HeaderActions.args = generateProps({
+  toggleText: 'Header actions',
+  headerText: 'Assign to department',
+  resetButtonLabel: 'Unassign',
+  showSelectAllButtonLabel: 'Select All',
+  multiple: true,
+  block: true,
+});
+HeaderActions.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
 export const CustomListItem = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -624,7 +677,7 @@ Searchable.args = generateProps({
   searchable: true,
   searchPlaceholder: 'Find department',
 });
-Searchable.decorators = [makeContainer({ height: '370px' })];
+Searchable.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
 export const SearchableGroups = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -712,7 +765,7 @@ SearchableGroups.args = generateProps({
   searchable: true,
   items: mockGroups,
 });
-SearchableGroups.decorators = [makeContainer({ height: '370px' })];
+SearchableGroups.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
 export const InfiniteScroll = (
   args,
@@ -764,7 +817,7 @@ InfiniteScroll.parameters = {
   storyshots: { disable: true },
 };
 InfiniteScroll.args = generateProps();
-InfiniteScroll.decorators = [makeContainer({ height: '370px' })];
+InfiniteScroll.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
 export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => ({
   props: Object.keys(argTypes),

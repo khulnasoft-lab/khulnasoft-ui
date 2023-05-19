@@ -41,6 +41,7 @@ describe('GlCollapsibleListbox', () => {
   const findLoadingIcon = () => wrapper.find("[data-testid='listbox-search-loader']");
   const findSRNumberOfResultsText = () => wrapper.find("[data-testid='listbox-number-of-results']");
   const findResetButton = () => wrapper.find("[data-testid='listbox-reset-button']");
+  const findSelectAllButton = () => wrapper.find("[data-testid='listbox-select-all-button']");
   const findIntersectionObserver = () => wrapper.findComponent(GlIntersectionObserver);
 
   it('passes custom popper.js options to the base dropdown', () => {
@@ -511,6 +512,68 @@ describe('GlCollapsibleListbox', () => {
 
       expect(wrapper.emitted('reset')).toHaveLength(1);
       expect(wrapper.vm.closeAndFocus).toHaveBeenCalled();
+    });
+  });
+
+  describe('with select all action', () => {
+    it('throws an error when enabling the select action without a header', () => {
+      expect(() => {
+        buildWrapper({ showSelectAllButtonLabel: 'Select All' });
+      }).toThrow(
+        'The select all button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the showSelectAllButtonLabel prop.'
+      );
+      expect(wrapper).toHaveLoggedVueErrors();
+    });
+
+    it.each`
+      multiple | expectedResult
+      ${false} | ${false}
+      ${true}  | ${true}
+    `(
+      'shows the select all button if the label is provided and the selection is empty and multiple option is $multiple',
+      ({ multiple, expectedResult }) => {
+        buildWrapper({
+          headerText: 'Select assignee',
+          resetButtonLabel: 'Unassign',
+          showSelectAllButtonLabel: 'Select All',
+          selected: [],
+          items: mockOptions,
+          multiple,
+        });
+
+        expect(findResetButton().exists()).toBe(!expectedResult);
+        expect(findSelectAllButton().exists()).toBe(expectedResult);
+      }
+    );
+
+    it('has the label text "Select All" if the label is provided and the selection is empty', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        showSelectAllButtonLabel: 'Select All',
+        selected: [],
+        items: mockOptions,
+        multiple: true,
+      });
+
+      expect(findSelectAllButton().text()).toBe('Select All');
+    });
+
+    it('on click, emits the select-all event and calls closeAndFocus()', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        showSelectAllButtonLabel: 'Select All',
+        selected: [],
+        items: mockOptions,
+        multiple: true,
+      });
+
+      expect(wrapper.emitted('select-all')).toBe(undefined);
+
+      findSelectAllButton().trigger('click');
+
+      expect(wrapper.emitted('select-all')).toHaveLength(1);
     });
   });
 
