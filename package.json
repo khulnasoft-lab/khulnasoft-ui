@@ -152,7 +152,7 @@
     "sass-loader": "^10.2.0",
     "sass-true": "^6.1.0",
     "start-server-and-test": "^1.10.6",
-    "storybook": "7.0.7",
+    "storybook": "7.0.12",
     "storybook-dark-mode": "3.0.0",
     "stylelint": "14.9.1",
     "stylelint-config-prettier": "9.0.4",
