@@ -1,3 +1,10 @@
+## [63.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.1.2...v63.1.3) (2023-05-22)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Prevent height change from scrollbar ([2f02df7](https://gitlab.com/gitlab-org/gitlab-ui/commit/2f02df7531c89d4eb533b077985469ca4d013490))
+
 ## [63.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.1.1...v63.1.2) (2023-05-22)
 
 
