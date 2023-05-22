@@ -15,6 +15,17 @@ const template = `
     </gl-broadcast-message>
   `;
 
+const templateWithTheme = (theme) => `
+  <gl-broadcast-message
+    :icon-name="iconName"
+    :dismissible="dismissible"
+    :dismiss-label="dismissLabel"
+    theme="${theme}"
+    :type="type">
+    {{ text }}
+  </gl-broadcast-message>
+`;
+
 const defaultValue = (prop) => GlBroadcastMessage.props[prop].default;
 
 const generateProps = ({
@@ -58,7 +69,7 @@ const StackedStory = (args, { argTypes }) => ({
     GlBroadcastMessage,
   },
   props: Object.keys(argTypes),
-  template: `<div>${template}${template}</div>`,
+  template: `<div>${Object.keys(colorThemes).map(templateWithTheme).join('')}</div>`,
 });
 export const Stacked = StackedStory.bind({});
 Stacked.args = generateProps();
