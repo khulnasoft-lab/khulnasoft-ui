@@ -1,3 +1,10 @@
+## [63.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.1.0...v63.1.1) (2023-05-22)
+
+
+### Bug Fixes
+
+* **CSS:** update categorical data palette to be Pajamas compliant ([31e0bb9](https://gitlab.com/gitlab-org/gitlab-ui/commit/31e0bb9f604777e9dc30dfa5648f47a187bc37ce))
+
 # [63.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.0.0...v63.1.0) (2023-05-18)
 
 
