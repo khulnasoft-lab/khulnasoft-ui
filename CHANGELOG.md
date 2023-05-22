@@ -1,3 +1,10 @@
+## [63.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.1.1...v63.1.2) (2023-05-22)
+
+
+### Bug Fixes
+
+* **BroadcastMessage:** dark border in dark mode ([c4db519](https://gitlab.com/gitlab-org/gitlab-ui/commit/c4db5192c31ac982df99f124788689eaa25a522a))
+
 ## [63.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.1.0...v63.1.1) (2023-05-22)
 
 
