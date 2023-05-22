@@ -280,7 +280,7 @@ export default {
       elements[index]?.focus();
     },
     closeAndFocus() {
-      this.$refs.baseDropdown.closeAndFocus();
+      this.$refs.baseDropdown?.closeAndFocus();
     },
     handleAction(action) {
       /**
