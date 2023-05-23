@@ -22,6 +22,12 @@ export const createMockChartInstance = () => ({
       series: [],
     };
   },
+  getZr: () => {
+    return {
+      on: jest.fn(),
+      off: jest.fn(),
+    };
+  },
 });
 
 export const ChartTooltipStub = {

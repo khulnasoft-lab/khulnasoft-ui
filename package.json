@@ -27,6 +27,7 @@
     "copy-fonts": "make copy-fonts",
     "build-scss-variables": "make scss_to_js/scss_variables.js",
     "clean": "rm -r dist storybook scss_to_js/scss_variables.* src/scss/utilities.scss",
+    "cy:edge": "cypress run --browser edge",
     "cy:run": "cypress run --browser firefox",
     "start": "yarn storybook",
     "storybook": "yarn storybook-prep && storybook dev --ci --host localhost --port 9001 -c .storybook",

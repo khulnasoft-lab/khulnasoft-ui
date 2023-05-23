@@ -269,8 +269,8 @@ export default {
     },
   },
   beforeDestroy() {
-    this.chart.getDom().removeEventListener('mousemove', this.debouncedShowHideTooltip);
-    this.chart.getDom().removeEventListener('mouseout', this.debouncedShowHideTooltip);
+    this.chart.getZr().off('mousemove', this.debouncedShowHideTooltip);
+    this.chart.getZr().off('mouseout', this.debouncedShowHideTooltip);
 
     this.chart.off('mouseout', this.hideAnnotationsTooltip);
     this.chart.off('mouseover', this.onChartMouseOver);
@@ -293,8 +293,8 @@ export default {
       // when the mouse is hovered over the parent container
       // of echarts' svg element. This works only for data points
       // and not markPoints.
-      chart.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
-      chart.getDom().addEventListener('mouseout', this.debouncedShowHideTooltip);
+      chart.getZr().on('mousemove', this.debouncedShowHideTooltip);
+      chart.getZr().on('mouseout', this.debouncedShowHideTooltip);
 
       // eCharts inbuild mouse events
       // https://echarts.apache.org/en/api.html#events.Mouse%20events
@@ -314,7 +314,7 @@ export default {
       this.chart = chart;
       this.$emit('created', chart);
     },
-    showHideTooltip(mouseEvent) {
+    showHideTooltip({ event: mouseEvent }) {
       this.showDataTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
 
       this.dataTooltipPosition = {
