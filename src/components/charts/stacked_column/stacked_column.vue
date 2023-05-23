@@ -261,14 +261,14 @@ export default {
     },
   },
   beforeDestroy() {
-    this.chart.getDom().removeEventListener('mousemove', this.debouncedMoveShowTooltip);
-    this.chart.getDom().removeEventListener('mouseout', this.debouncedMoveShowTooltip);
+    this.chart.getZr().off('mousemove', this.debouncedMoveShowTooltip);
+    this.chart.getZr().off('mouseout', this.debouncedMoveShowTooltip);
   },
   methods: {
     getColor(index) {
       return this.customPalette ? this.customPalette?.[index] : colorFromDefaultPalette(index);
     },
-    moveShowTooltip(mouseEvent) {
+    moveShowTooltip({ event: mouseEvent }) {
       this.tooltipPosition = {
         left: `${mouseEvent.zrX}px`,
         top: `${mouseEvent.zrY + ANNOTATION_TOOLTIP_TOP_OFFSET}px`,
@@ -276,8 +276,8 @@ export default {
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
     onCreated(chart) {
-      chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
-      chart.getDom().addEventListener('mouseout', this.debouncedMoveShowTooltip);
+      chart.getZr().on('mousemove', this.debouncedMoveShowTooltip);
+      chart.getZr().on('mouseout', this.debouncedMoveShowTooltip);
       this.chart = chart;
       this.$emit('created', chart);
     },
