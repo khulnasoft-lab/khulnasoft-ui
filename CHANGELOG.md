@@ -1,3 +1,10 @@
+## [63.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.2.0...v63.2.1) (2023-05-23)
+
+
+### Bug Fixes
+
+* **GlAreaChart:** Replace the getDom to getZr for supporting edge ([2a5bef8](https://gitlab.com/gitlab-org/gitlab-ui/commit/2a5bef897dcd54422cb1163e497461558a8f06ac))
+
 # [63.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.1.3...v63.2.0) (2023-05-23)
 
 
