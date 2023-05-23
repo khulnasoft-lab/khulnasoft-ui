@@ -1,3 +1,10 @@
+# [63.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.1.3...v63.2.0) (2023-05-23)
+
+
+### Features
+
+* Add TruncateText component ([5539662](https://gitlab.com/gitlab-org/gitlab-ui/commit/553966208df8fc23736080619b68f73a56e41a48))
+
 ## [63.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.1.2...v63.1.3) (2023-05-22)
 
 
