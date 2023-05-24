@@ -886,8 +886,32 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 
+@mixin gl-column-gap-1 {
+  column-gap: $gl-spacing-scale-1;
+}
+
+@mixin gl-column-gap-2 {
+  column-gap: $gl-spacing-scale-2;
+}
+
+@mixin gl-column-gap-3 {
+  column-gap: $gl-spacing-scale-3;
+}
+
+@mixin gl-column-gap-4 {
+  column-gap: $gl-spacing-scale-4;
+}
+
+@mixin gl-column-gap-5 {
+  column-gap: $gl-spacing-scale-5;
+}
+
 @mixin gl-column-gap-6 {
   column-gap: $gl-spacing-scale-6;
+}
+
+@mixin gl-column-gap-7 {
+  column-gap: $gl-spacing-scale-7;
 }
 
 /**
@@ -898,8 +922,32 @@
 * - Utilities should strictly follow $gl-spacing-scale
 */
 
+@mixin gl-row-gap-1 {
+  row-gap: $gl-spacing-scale-1;
+}
+
+@mixin gl-row-gap-2 {
+  row-gap: $gl-spacing-scale-2;
+}
+
+@mixin gl-row-gap-3 {
+  row-gap: $gl-spacing-scale-3;
+}
+
+@mixin gl-row-gap-4 {
+  row-gap: $gl-spacing-scale-4;
+}
+
+@mixin gl-row-gap-5 {
+  row-gap: $gl-spacing-scale-5;
+}
+
 @mixin gl-row-gap-6 {
   row-gap: $gl-spacing-scale-6;
+}
+
+@mixin gl-row-gap-7 {
+  row-gap: $gl-spacing-scale-7;
 }
 
 /**
