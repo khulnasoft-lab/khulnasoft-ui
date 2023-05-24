@@ -281,6 +281,17 @@ export default {
       default: '',
     },
     /**
+     * The select all button's label, to be rendered in the header. If this is omitted, the button is not
+     * rendered.
+     * The select all button requires a header to be set, so this prop should be used in conjunction with
+     * headerText.
+     */
+    showSelectAllButtonLabel: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    /**
      * Render the toggle button as a block element
      */
     block: {
@@ -373,6 +384,17 @@ export default {
       }
       return Boolean(this.selected);
     },
+    showSelectAllButton() {
+      if (!this.showSelectAllButtonLabel) {
+        return false;
+      }
+
+      if (!this.multiple) {
+        return false;
+      }
+
+      return this.selected.length === 0;
+    },
     showIntersectionObserver() {
       return this.infiniteScroll && !this.infiniteScrollLoading && !this.loading && !this.searching;
     },
@@ -428,6 +450,16 @@ export default {
               if (newResetButtonLabel && !this.headerText) {
                 throw new Error(
                   'The reset button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the resetButtonLabel prop.'
+                );
+              }
+            },
+          },
+          showSelectAllButtonLabel: {
+            immediate: true,
+            handler(showSelectAllButtonLabel) {
+              if (showSelectAllButtonLabel && !this.headerText) {
+                throw new Error(
+                  'The select all button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the showSelectAllButtonLabel prop.'
                 );
               }
             },
@@ -591,6 +623,14 @@ export default {
       this.$emit('reset');
       this.closeAndFocus();
     },
+    onSelectAllButtonClicked() {
+      /**
+       * Emitted when the select all button is clicked
+       *
+       * @event select-all
+       */
+      this.$emit('select-all');
+    },
     closeAndFocus() {
       this.$refs.baseDropdown.closeAndFocus();
     },
@@ -690,11 +730,20 @@ export default {
       <gl-button
         v-if="showResetButton"
         category="tertiary"
-        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0!"
+        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0! gl-max-w-50p gl-text-overflow-ellipsis"
         data-testid="listbox-reset-button"
         @click="onResetButtonClicked"
       >
         {{ resetButtonLabel }}
+      </gl-button>
+      <gl-button
+        v-if="showSelectAllButton"
+        category="tertiary"
+        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0! gl-max-w-50p gl-text-overflow-ellipsis"
+        data-testid="listbox-select-all-button"
+        @click="onSelectAllButtonClicked"
+      >
+        {{ showSelectAllButtonLabel }}
       </gl-button>
     </div>
 
