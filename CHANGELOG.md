@@ -1,3 +1,10 @@
+# [63.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.2.1...v63.3.0) (2023-05-24)
+
+
+### Features
+
+* **GlCollapsibleListbox:** Add select all button in header ([eb74768](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb74768163939bdb1b08a168d58e800b440705c2))
+
 ## [63.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.2.0...v63.2.1) (2023-05-23)
 
 
