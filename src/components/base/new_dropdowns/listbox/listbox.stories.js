@@ -23,7 +23,7 @@ import {
 } from '../../../../utils/stories_constants';
 import { POSITION } from '../../../utilities/truncate/constants';
 import readme from './listbox.md';
-import { mockOptions, mockGroups, mockUsers } from './mock_data';
+import { mockOptions, mockGroups, mockGroupsWithTextSrOnly, mockUsers } from './mock_data';
 import { flattenedOptions } from './utils';
 import GlCollapsibleListbox from './listbox.vue';
 
@@ -822,4 +822,26 @@ export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => (
 });
 WithLongContent.args = generateProps({
   fluidWidth: true,
+});
+
+export const GroupWithoutLabel = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlCollapsibleListbox,
+  },
+  data() {
+    return {
+      selected: mockGroupsWithTextSrOnly[1].options[1].value,
+    };
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  template: template(''),
+});
+GroupWithoutLabel.args = generateProps({
+  items: mockGroupsWithTextSrOnly,
+  headerText: 'Select branch',
 });

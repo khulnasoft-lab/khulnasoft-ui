@@ -15,7 +15,7 @@ import GlIntersectionObserver from '../../../utilities/intersection_observer/int
 import GlCollapsibleListbox, { ITEM_SELECTOR } from './listbox.vue';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxGroup from './listbox_group.vue';
-import { mockOptions, mockGroups } from './mock_data';
+import { mockOptions, mockGroups, mockGroupsWithTextSrOnly } from './mock_data';
 
 describe('GlCollapsibleListbox', () => {
   let wrapper;
@@ -389,14 +389,13 @@ describe('GlCollapsibleListbox', () => {
     });
 
     it('passes the `textSrOnly` prop', () => {
-      const mockGroupsWithTextSrOnly = JSON.parse(JSON.stringify(mockGroups));
-      mockGroupsWithTextSrOnly[0].textSrOnly = true;
-      mockGroupsWithTextSrOnly[1].textSrOnly = false;
       buildWrapper({ items: mockGroupsWithTextSrOnly });
 
       const groups = findListboxGroups();
 
-      const expectedTextSrOnlyProps = mockGroupsWithTextSrOnly.map((group) => group.textSrOnly);
+      const expectedTextSrOnlyProps = mockGroupsWithTextSrOnly.map(
+        (group) => group.textSrOnly ?? false
+      );
       const actualTextSrOnlyProps = groups.wrappers.map((group) => group.props('textSrOnly'));
 
       expect(actualTextSrOnlyProps).toEqual(expectedTextSrOnlyProps);
