@@ -1,3 +1,10 @@
+# [63.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.3.0...v63.4.0) (2023-05-25)
+
+
+### Features
+
+* Add more row and column gaps ([39ddece](https://gitlab.com/gitlab-org/gitlab-ui/commit/39ddecedd6feb9157d3006dce7cf9a6c5f0a6fe7))
+
 # [63.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.2.1...v63.3.0) (2023-05-24)
 
 
