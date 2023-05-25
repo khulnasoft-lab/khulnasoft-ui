@@ -827,6 +827,7 @@ WithLongContent.args = generateProps({
 export const GroupWithoutLabel = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
+    GlBadge,
     GlCollapsibleListbox,
   },
   data() {
@@ -839,7 +840,11 @@ export const GroupWithoutLabel = (args, { argTypes }) => ({
       openListbox(this);
     }
   },
-  template: template(''),
+  template: template(`
+    <template #list-item="{ item }">
+      {{ item.text }} <gl-badge v-if="item.value === 'main'" size="sm">default</gl-badge>
+    </template>
+  `),
 });
 GroupWithoutLabel.args = generateProps({
   items: mockGroupsWithTextSrOnly,
