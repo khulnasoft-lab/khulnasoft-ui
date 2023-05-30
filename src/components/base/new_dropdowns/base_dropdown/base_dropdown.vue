@@ -1,6 +1,6 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { createPopper } from '@popperjs/core';
+import { computePosition, autoUpdate, offset, size, flip } from '@floating-ui/dom';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
@@ -8,20 +8,20 @@ import {
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import {
-  POPPER_CONFIG,
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
   GL_DROPDOWN_FOCUS_CONTENT,
   ENTER,
   SPACE,
   ARROW_DOWN,
+  GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
 import { logWarning, isElementTabbable, isElementFocusable } from '../../../../utils/utils';
 
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
 import { OutsideDirective } from '../../../../directives/outside/outside';
-import { FIXED_WIDTH_CLASS } from './constants';
+import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
 
 export default {
   name: 'BaseDropdown',
@@ -119,10 +119,14 @@ export default {
       required: false,
       default: null,
     },
-    popperOptions: {
-      type: Object,
+    /**
+     * Custom value to be passed to the offset middleware.
+     * https://floating-ui.com/docs/offset
+     */
+    offset: {
+      type: [Number, Object],
       required: false,
-      default: () => ({}),
+      default: () => ({ mainAxis: DEFAULT_OFFSET }),
     },
     fluidWidth: {
       type: Boolean,
@@ -133,6 +137,7 @@ export default {
   data() {
     return {
       visible: false,
+      openedYet: false,
       baseDropdownId: uniqueId('base-dropdown-'),
     };
   },
@@ -206,11 +211,27 @@ export default {
         [FIXED_WIDTH_CLASS]: !this.fluidWidth,
       };
     },
-    popperConfig() {
+    floatingUIConfig() {
       return {
         placement: dropdownPlacements[this.placement],
-        ...POPPER_CONFIG,
-        ...this.popperOptions,
+        middleware: [
+          offset(this.offset),
+          flip(),
+          size({
+            apply: ({ availableHeight, elements }) => {
+              const contentsEl = elements.floating.querySelector(`.${GL_DROPDOWN_CONTENTS_CLASS}`);
+              if (!contentsEl) {
+                return;
+              }
+
+              const contentsAvailableHeight =
+                availableHeight - (this.nonScrollableContentHeight ?? 0) - DEFAULT_OFFSET;
+              Object.assign(contentsEl.style, {
+                maxHeight: `${Math.max(contentsAvailableHeight, 0)}px`,
+              });
+            },
+          }),
+        ],
       };
     },
   },
@@ -227,13 +248,10 @@ export default {
     },
   },
   mounted() {
-    this.$nextTick(() => {
-      this.popper = createPopper(this.toggleElement, this.$refs.content, this.popperConfig);
-    });
     this.checkToggleFocusable();
   },
   beforeDestroy() {
-    this.popper?.destroy();
+    this.stopFloating();
   },
   methods: {
     checkToggleFocusable() {
@@ -245,24 +263,52 @@ export default {
         );
       }
     },
+    startFloating() {
+      this.calculateNonScrollableAreaHeight();
+      this.observer = new MutationObserver(this.calculateNonScrollableAreaHeight);
+      this.observer.observe(this.$refs.content, {
+        attributes: false,
+        childList: true,
+        subtree: true,
+      });
+
+      this.stopAutoUpdate = autoUpdate(this.toggleElement, this.$refs.content, async () => {
+        const { x, y } = await computePosition(
+          this.toggleElement,
+          this.$refs.content,
+          this.floatingUIConfig
+        );
+
+        /**
+         * Due to the asynchronous nature of computePosition, it's technically possible for the
+         * component to have been destroyed by the time the promise resolves. In such case, we exit
+         * early to prevent a TypeError.
+         */
+        if (!this.$refs.content) return;
+
+        Object.assign(this.$refs.content.style, {
+          left: `${x}px`,
+          top: `${y}px`,
+        });
+      });
+    },
+    stopFloating() {
+      this.observer?.disconnect();
+      this.stopAutoUpdate?.();
+    },
     async toggle() {
       this.visible = !this.visible;
 
       if (this.visible) {
-        /* Initially dropdown is hidden with `display="none"`.
-          When `visible` prop is toggled ON, with the `nextTick` we wait for the DOM update -
-          dropdown's `display="block"` is set (adding CSS class `show`).
-          After that we can recalculate its position (calling `popper.update()`).
-          https://github.com/floating-ui/floating-ui/issues/630:
-          "Unfortunately there's not any way to compute the position of an element not rendered in the document".
-          Then we `await` while the new dropdown position is calculated and DOM updated accordingly.
-          After we can  emit the `GL_DROPDOWN_SHOWN` event to the parent which might interact with updated  dropdown,
-          e.g. set focus.
+        /**
+         * We defer the following logic to the next tick as all that comes next relies on the
+         * dropdown actually being visible.
          */
         await this.$nextTick();
-        await this.popper?.update();
+        this.startFloating();
         this.$emit(GL_DROPDOWN_SHOWN);
       } else {
+        this.stopFloating();
         this.$emit(GL_DROPDOWN_HIDDEN);
       }
     },
@@ -311,6 +357,15 @@ export default {
       if (code === ARROW_DOWN) {
         this.$emit(GL_DROPDOWN_FOCUS_CONTENT, event);
       }
+    },
+    calculateNonScrollableAreaHeight() {
+      const scrollableArea = this.$refs.content?.querySelector(`.${GL_DROPDOWN_CONTENTS_CLASS}`);
+      if (!scrollableArea) return;
+
+      const floatingElementBoundingBox = this.$refs.content.getBoundingClientRect();
+      const scrollableAreaBoundingBox = scrollableArea.getBoundingClientRect();
+      this.nonScrollableContentHeight =
+        floatingElementBoundingBox.height - scrollableAreaBoundingBox.height;
     },
   },
 };

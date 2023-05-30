@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
+import { autoUpdate } from '@floating-ui/dom';
 import { useMockIntersectionObserver } from '~/utils/use_mock_intersection_observer';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import {
@@ -16,6 +17,11 @@ import GlCollapsibleListbox, { ITEM_SELECTOR } from './listbox.vue';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxGroup from './listbox_group.vue';
 import { mockOptions, mockGroups } from './mock_data';
+
+jest.mock('@floating-ui/dom');
+autoUpdate.mockImplementation(() => {
+  return () => {};
+});
 
 describe('GlCollapsibleListbox', () => {
   let wrapper;
@@ -44,11 +50,11 @@ describe('GlCollapsibleListbox', () => {
   const findSelectAllButton = () => wrapper.find("[data-testid='listbox-select-all-button']");
   const findIntersectionObserver = () => wrapper.findComponent(GlIntersectionObserver);
 
-  it('passes custom popper.js options to the base dropdown', () => {
-    const popperOptions = { foo: 'bar' };
-    buildWrapper({ popperOptions });
+  it('passes custom offset to the base dropdown', () => {
+    const dropdownOffset = { mainAxis: 10, crossAxis: 40 };
+    buildWrapper({ dropdownOffset });
 
-    expect(findBaseDropdown().props('popperOptions')).toEqual(popperOptions);
+    expect(findBaseDropdown().props('offset')).toEqual(dropdownOffset);
   });
 
   describe('toggle text', () => {

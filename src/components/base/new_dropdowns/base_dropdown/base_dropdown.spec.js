@@ -1,25 +1,20 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
+import { computePosition, autoUpdate, offset } from '@floating-ui/dom';
 import {
   ARROW_DOWN,
   GL_DROPDOWN_FOCUS_CONTENT,
   GL_DROPDOWN_HIDDEN,
   GL_DROPDOWN_SHOWN,
-  POPPER_CONFIG,
+  GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
-import { FIXED_WIDTH_CLASS } from './constants';
+import { waitForAnimationFrame } from '../../../../utils/test_utils';
+import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
 import GlBaseDropdown from './base_dropdown.vue';
 
-const destroyPopper = jest.fn();
-const updatePopper = jest.fn();
-const mockCreatePopper = jest.fn().mockImplementation(() => ({
-  destroy: destroyPopper,
-  update: updatePopper,
-}));
-
-jest.mock('@popperjs/core', () => ({
-  createPopper: (...args) => mockCreatePopper(...args),
-}));
+jest.mock('@floating-ui/dom');
+const mockStopAutoUpdate = jest.fn();
+offset.mockImplementation((options) => options);
 
 const DEFAULT_BTN_TOGGLE_CLASSES = [
   'btn',
@@ -38,14 +33,20 @@ describe('base dropdown', () => {
         toggleId: 'dropdown-toggle-btn-1',
         ...propsData,
       },
-      slots,
+      slots: {
+        default: `<div class="${GL_DROPDOWN_CONTENTS_CLASS}" />`,
+        ...slots,
+      },
       attachTo: document.body,
     });
-    return nextTick();
   };
 
   beforeEach(() => {
     jest.clearAllMocks();
+    autoUpdate.mockImplementation(() => {
+      return mockStopAutoUpdate;
+    });
+    computePosition.mockImplementation(() => new Promise(() => {}));
   });
 
   const findDefaultDropdownToggle = () => wrapper.find('.btn.gl-new-dropdown-toggle');
@@ -53,61 +54,99 @@ describe('base dropdown', () => {
   const findDropdownToggleText = () => findDefaultDropdownToggle().find('.gl-button-text');
   const findDropdownMenu = () => wrapper.find('.gl-new-dropdown-panel');
 
-  describe('popper.js instance', () => {
-    it('should initialize popper.js instance with toggle and menu elements and config for left-aligned menu', async () => {
-      await buildWrapper();
-      expect(mockCreatePopper).toHaveBeenCalledWith(
-        findDefaultDropdownToggle().element,
-        findDropdownMenu().element,
-        { ...POPPER_CONFIG, placement: 'bottom-start' }
-      );
-    });
-
-    it('should initialize popper.js instance with toggle and menu elements and config for center-aligned menu', async () => {
-      await buildWrapper({ placement: 'center' });
-      expect(mockCreatePopper).toHaveBeenCalledWith(
-        findDefaultDropdownToggle().element,
-        findDropdownMenu().element,
-        { ...POPPER_CONFIG, placement: 'bottom' }
-      );
-    });
-
-    it('should initialize popper.js instance with toggle and menu elements and config for right-aligned menu', async () => {
-      await buildWrapper({ placement: 'right' });
-      expect(mockCreatePopper).toHaveBeenCalledWith(
-        findDefaultDropdownToggle().element,
-        findDropdownMenu().element,
-        { ...POPPER_CONFIG, placement: 'bottom-end' }
-      );
-    });
-
-    it('should pass custom options to popper.js, overriding built-in ones', async () => {
-      await buildWrapper({ placement: 'right', popperOptions: { placement: 'auto-start' } });
-      expect(mockCreatePopper).toHaveBeenCalledWith(
-        findDefaultDropdownToggle().element,
-        findDropdownMenu().element,
-        { ...POPPER_CONFIG, placement: 'auto-start' }
-      );
-    });
-
-    it('should update popper instance when component is updated', async () => {
-      await buildWrapper();
-      await findDefaultDropdownToggle().trigger('click');
-      await wrapper.setProps({ category: 'tertiary' });
-      expect(updatePopper).toHaveBeenCalled();
-    });
-
-    it('should destroy popper instance when component is destroyed', async () => {
-      await buildWrapper();
-      wrapper.destroy();
-      expect(destroyPopper).toHaveBeenCalled();
-    });
-
-    it('should not destroy popper instance when component is not initiated', async () => {
+  describe('Floating UI instance', () => {
+    it("starts Floating UI's when opening the dropdown", async () => {
       buildWrapper();
+      await findDefaultDropdownToggle().trigger('click');
+
+      expect(autoUpdate).toHaveBeenCalledTimes(1);
+    });
+
+    it("stops Floating UI's when closing the dropdown", async () => {
+      buildWrapper();
+      await findDefaultDropdownToggle().trigger('click');
+      await findDefaultDropdownToggle().trigger('click');
+
+      expect(autoUpdate).toHaveBeenCalledTimes(1);
+      expect(mockStopAutoUpdate).toHaveBeenCalledTimes(1);
+    });
+
+    it("restarts Floating UI's when reopening the dropdown", async () => {
+      buildWrapper();
+      await findDefaultDropdownToggle().trigger('click');
+      await findDefaultDropdownToggle().trigger('click');
+      await findDefaultDropdownToggle().trigger('click');
+
+      expect(autoUpdate).toHaveBeenCalledTimes(2);
+      expect(mockStopAutoUpdate).toHaveBeenCalledTimes(1);
+    });
+
+    it("stops Floating UI's auto updates on destroy", async () => {
+      buildWrapper();
+      await findDefaultDropdownToggle().trigger('click');
       wrapper.destroy();
-      await nextTick();
-      expect(destroyPopper).not.toHaveBeenCalled();
+
+      expect(mockStopAutoUpdate).toHaveBeenCalled();
+    });
+
+    describe('computePosition', () => {
+      beforeEach(() => {
+        autoUpdate.mockImplementation(jest.requireActual('@floating-ui/dom').autoUpdate);
+      });
+
+      it('initializes Floating UI with reference and floating elements and config for left-aligned menu', async () => {
+        buildWrapper();
+        await findDefaultDropdownToggle().trigger('click');
+
+        expect(computePosition).toHaveBeenCalledWith(
+          findDefaultDropdownToggle().element,
+          findDropdownMenu().element,
+          {
+            placement: 'bottom-start',
+            middleware: [offset({ mainAxis: DEFAULT_OFFSET })],
+          }
+        );
+      });
+
+      it('initializes Floating UI with reference and floating elements and config for center-aligned menu', async () => {
+        buildWrapper({ placement: 'center' });
+        await findDefaultDropdownToggle().trigger('click');
+
+        expect(computePosition).toHaveBeenCalledWith(
+          findDefaultDropdownToggle().element,
+          findDropdownMenu().element,
+          { placement: 'bottom', middleware: [offset({ mainAxis: DEFAULT_OFFSET })] }
+        );
+      });
+
+      it('initializes Floating UI with reference and floating elements and config for right-aligned menu', async () => {
+        buildWrapper({ placement: 'right' });
+        await findDefaultDropdownToggle().trigger('click');
+
+        expect(computePosition).toHaveBeenCalledWith(
+          findDefaultDropdownToggle().element,
+          findDropdownMenu().element,
+          { placement: 'bottom-end', middleware: [offset({ mainAxis: DEFAULT_OFFSET })] }
+        );
+      });
+
+      it("passes custom offset to Floating UI's middleware", async () => {
+        const customOffset = { mainAxis: 10, crossAxis: 40 };
+        buildWrapper({
+          placement: 'right',
+          offset: customOffset,
+        });
+        await findDefaultDropdownToggle().trigger('click');
+
+        expect(computePosition).toHaveBeenCalledWith(
+          findDefaultDropdownToggle().element,
+          findDropdownMenu().element,
+          {
+            placement: 'bottom-end',
+            middleware: [offset(customOffset)],
+          }
+        );
+      });
     });
   });
 
@@ -260,7 +299,7 @@ describe('base dropdown', () => {
         await toggle.trigger('click');
         expect(menu.classes('gl-display-block!')).toBe(true);
         expect(firstToggleChild.attributes('aria-expanded')).toBe('true');
-        await nextTick();
+        await waitForAnimationFrame();
         expect(wrapper.emitted(GL_DROPDOWN_SHOWN)).toHaveLength(1);
 
         // close menu clicking toggle btn again

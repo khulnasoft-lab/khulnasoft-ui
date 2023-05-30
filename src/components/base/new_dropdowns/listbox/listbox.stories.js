@@ -197,10 +197,10 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
     `
     <template #footer>
        <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-100 gl-display-flex gl-flex-direction-column gl-p-2! gl-pt-0!">
-        <gl-button  @click="selectAllItems" category="tertiary" block class="gl-justify-content-start! gl-mt-2!"">
+        <gl-button @click="selectAllItems" category="tertiary" block class="gl-justify-content-start! gl-mt-2!">
           Select all
         </gl-button>
-        <gl-button category="tertiary" block class="gl-justify-content-start! gl-mt-2!">
+        <gl-button category="tertiary" block class="gl-justify-content-start! gl-mt-2!" data-testid="footer-bottom-button">
           Manage departments
         </gl-button>
       </div>

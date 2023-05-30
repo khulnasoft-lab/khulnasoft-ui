@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { autoUpdate } from '@floating-ui/dom';
 import * as utils from '../../../../utils/utils';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import {
@@ -14,6 +15,11 @@ import GlDisclosureDropdown from './disclosure_dropdown.vue';
 import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
 import GlDisclosureDropdownGroup from './disclosure_dropdown_group.vue';
 import { mockItems, mockGroups } from './mock_data';
+
+jest.mock('@floating-ui/dom');
+autoUpdate.mockImplementation(() => {
+  return () => {};
+});
 
 const ITEM_SELECTOR = '[data-testid="disclosure-dropdown-item"]';
 
@@ -37,11 +43,11 @@ describe('GlDisclosureDropdown', () => {
 
   jest.spyOn(utils, 'filterVisible').mockImplementation((items) => items);
 
-  it('passes custom popper.js options to the base dropdown', () => {
-    const popperOptions = { foo: 'bar' };
-    buildWrapper({ popperOptions });
+  it('passes custom offset to the base dropdown', () => {
+    const dropdownOffset = { mainAxis: 10, crossAxis: 40 };
+    buildWrapper({ dropdownOffset });
 
-    expect(findBaseDropdown().props('popperOptions')).toEqual(popperOptions);
+    expect(findBaseDropdown().props('offset')).toEqual(dropdownOffset);
   });
 
   describe('toggle text', () => {

@@ -13,6 +13,7 @@ import {
   END,
   ARROW_DOWN,
   ARROW_UP,
+  GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
 import {
   buttonCategoryOptions,
@@ -170,13 +171,13 @@ export default {
       default: null,
     },
     /**
-     * Options to be passed to the underlying Popper.js instance.
-     * Overrides built-in options.
+     * Custom offset to be applied to Floating UI's offset middleware.
+     * https://floating-ui.com/docs/offset
      */
-    popperOptions: {
-      type: Object,
+    dropdownOffset: {
+      type: [Number, Object],
       required: false,
-      default: () => ({}),
+      default: undefined,
     },
     /**
      * Lets the dropdown extend to match its content's width, up to a maximum width
@@ -300,6 +301,7 @@ export default {
     },
     isItem,
   },
+  GL_DROPDOWN_CONTENTS_CLASS,
 };
 </script>
 
@@ -319,7 +321,7 @@ export default {
     :loading="loading"
     :no-caret="noCaret"
     :placement="placement"
-    :popper-options="popperOptions"
+    :offset="dropdownOffset"
     :fluid-width="fluidWidth"
     class="gl-disclosure-dropdown"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
@@ -340,7 +342,7 @@ export default {
       ref="content"
       :aria-labelledby="listAriaLabelledBy || toggleId"
       data-testid="disclosure-content"
-      class="gl-new-dropdown-contents"
+      :class="$options.GL_DROPDOWN_CONTENTS_CLASS"
       tabindex="-1"
       @keydown="onKeydown"
       @click="handleAutoClose"

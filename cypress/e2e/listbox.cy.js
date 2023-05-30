@@ -14,6 +14,11 @@ describe('GlCollapsibleListbox', () => {
   const topScrim = () => cy.get(topScrimSelector);
   const bottomScrim = () => cy.get(bottomScrimSelector);
 
+  const elementDoesNotOverflowVertically = (element, viewportHeight) => {
+    const elementRect = element.getBoundingClientRect();
+    expect(elementRect.bottom).to.be.lessThan(viewportHeight);
+  };
+
   describe('flat items', () => {
     beforeEach(() => {
       cy.visitStory('base/new-dropdowns/listbox', {
@@ -161,4 +166,36 @@ describe('GlCollapsibleListbox', () => {
       bottomScrim().should('have.css', 'opacity', '0');
     });
   });
+
+  describe(
+    'content height',
+    {
+      viewportHeight: 400,
+    },
+    () => {
+      before(() => {
+        cy.visitStory('base/new-dropdowns/listbox', {
+          story: 'header-and-footer',
+          args: {
+            startOpened: true,
+          },
+        });
+      });
+
+      it('sets the content height dynamically to avoid viewport overflow', () => {
+        const { viewportHeight, viewportWidth } = Cypress.config();
+
+        cy.get('[data-testid="base-dropdown-menu"]').should(($el) => {
+          elementDoesNotOverflowVertically($el[0], viewportHeight);
+        });
+
+        const newHeight = 200;
+        cy.viewport(viewportWidth, newHeight);
+
+        cy.get('[data-testid="base-dropdown-menu"]').should(($el) => {
+          elementDoesNotOverflowVertically($el[0], newHeight);
+        });
+      });
+    }
+  );
 });

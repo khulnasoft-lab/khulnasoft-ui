@@ -1,14 +1,3 @@
-export const POPPER_CONFIG = {
-  modifiers: [
-    {
-      name: 'offset',
-      options: {
-        offset: [0, 4],
-      },
-    },
-  ],
-};
-
 // base dropdown events
 export const GL_DROPDOWN_SHOWN = 'shown';
 export const GL_DROPDOWN_HIDDEN = 'hidden';
@@ -21,3 +10,5 @@ export const END = 'End';
 export const ENTER = 'Enter';
 export const HOME = 'Home';
 export const SPACE = 'Space';
+
+export const GL_DROPDOWN_CONTENTS_CLASS = 'gl-new-dropdown-contents';
