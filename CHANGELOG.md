@@ -1,3 +1,10 @@
+## [64.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.0.1...v64.0.2) (2023-05-30)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Restore previous scroll behavior ([2c1b0e2](https://gitlab.com/gitlab-org/gitlab-ui/commit/2c1b0e26b3ed74df25377ba0f8b297852c008929))
+
 ## [64.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.0.0...v64.0.1) (2023-05-30)
 
 
