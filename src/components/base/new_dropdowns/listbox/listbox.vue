@@ -12,6 +12,8 @@ import {
   ARROW_DOWN,
   ARROW_UP,
   GL_DROPDOWN_CONTENTS_CLASS,
+  POSITION_ABSOLUTE,
+  POSITION_FIXED,
 } from '../constants';
 import {
   buttonCategoryOptions,
@@ -317,6 +319,17 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    /**
+     * Strategy to be applied by computePosition. If the dropdown's container is too short for it to
+     * fit in, setting this to fixed will let it position itself above its container.
+     * https://floating-ui.com/docs/computePosition#strategy
+     */
+    positioningStrategy: {
+      type: String,
+      required: false,
+      default: POSITION_ABSOLUTE,
+      validator: (strategy) => [POSITION_ABSOLUTE, POSITION_FIXED].includes(strategy),
     },
   },
   data() {
@@ -709,6 +722,7 @@ export default {
     :placement="placement"
     :offset="dropdownOffset"
     :fluid-width="fluidWidth"
+    :positioning-strategy="positioningStrategy"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
   >

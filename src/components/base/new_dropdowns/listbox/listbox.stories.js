@@ -59,6 +59,7 @@ const generateProps = ({
   showSelectAllButtonLabel = defaultValue('showSelectAllButtonLabel'),
   startOpened = true,
   fluidWidth,
+  positioningStrategy,
 } = {}) => ({
   items,
   category,
@@ -88,6 +89,7 @@ const generateProps = ({
   showSelectAllButtonLabel,
   startOpened,
   fluidWidth,
+  positioningStrategy,
 });
 
 const makeBindings = (overrides = {}) =>
@@ -119,6 +121,7 @@ const makeBindings = (overrides = {}) =>
     ':reset-button-label': 'resetButtonLabel',
     ':show-select-all-button-label': 'showSelectAllButtonLabel',
     ':fluid-width': 'fluidWidth',
+    ':positioning-strategy': 'positioningStrategy',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)

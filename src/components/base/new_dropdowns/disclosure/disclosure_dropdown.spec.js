@@ -10,6 +10,8 @@ import {
   ARROW_UP,
   HOME,
   END,
+  POSITION_ABSOLUTE,
+  POSITION_FIXED,
 } from '../constants';
 import GlDisclosureDropdown from './disclosure_dropdown.vue';
 import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
@@ -344,5 +346,16 @@ describe('GlDisclosureDropdown', () => {
       findListItem(0).trigger('click');
       expect(closeSpy).not.toHaveBeenCalled();
     });
+  });
+
+  describe('positioningStrategy', () => {
+    it.each([POSITION_ABSOLUTE, POSITION_FIXED])(
+      'passes the %s positioning strategy to the base dropdown',
+      (positioningStrategy) => {
+        buildWrapper({ positioningStrategy });
+
+        expect(findBaseDropdown().props('positioningStrategy')).toBe(positioningStrategy);
+      }
+    );
   });
 });
