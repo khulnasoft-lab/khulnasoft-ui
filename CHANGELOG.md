@@ -1,3 +1,11 @@
+## [64.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.0.0...v64.0.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* **GlBarChart:** Replace the getDom to getZr for supporting edge ([5b43cda](https://gitlab.com/gitlab-org/gitlab-ui/commit/5b43cdaafc21287c5efb92482076fa3bbf9aa975))
+* **GlFilteredSearch:** Prevent filtered search token overflow ([3fb3f6c](https://gitlab.com/gitlab-org/gitlab-ui/commit/3fb3f6c621dfd0a70d7d780719c7a1744b748ea0))
+
 # [64.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.4.0...v64.0.0) (2023-05-30)
 
 
