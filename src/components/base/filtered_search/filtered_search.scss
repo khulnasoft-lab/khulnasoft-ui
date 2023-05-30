@@ -4,6 +4,10 @@
   @include gl-rounded-left-base;
   position: relative;
   flex-grow: 1;
+
+  .input-group-prepend + & {
+    @include gl-rounded-left-none;
+  }
 }
 
 .gl-filtered-search-scrollable {
@@ -14,9 +18,8 @@
   @include gl-py-2;
   @include gl-pl-4;
   @include gl-border-none;
-  @include gl-rounded-left-base;
   position: absolute;
-  max-width: calc(100% - $gl-spacing-scale-7);
+  max-width: calc(100% - #{$gl-spacing-scale-7});
   overflow: hidden;
   overflow-x: auto;
 
