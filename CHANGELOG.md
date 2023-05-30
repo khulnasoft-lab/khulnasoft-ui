@@ -1,3 +1,24 @@
+# [64.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.4.0...v64.0.0) (2023-05-30)
+
+
+### Features
+
+* **dropdowns:** avoid overflowing the viewport on the vertical axis ([21cd402](https://gitlab.com/gitlab-org/gitlab-ui/commit/21cd402f9598556de4d9fa68b8fe996fc9d554f2))
+* **dropdowns:** migrate to Floating UI ([69b6192](https://gitlab.com/gitlab-org/gitlab-ui/commit/69b619274ea8a4bf70b23d60961d09dbd80f6e79))
+
+
+### BREAKING CHANGES
+
+* **dropdowns:** While Floating UI is similar to Popper.js, its API
+changed slightly. It might be worth reading the migration guide over at
+https://floating-ui.com/docs/migration.
+
+`GlDisclosureDropdown` and `GlListbox` previously exposed a way to
+customize Popper.js' config through the `popperOptions` prop. This has
+been deprecated in favor of a `dropdownOffset` prop which accepts the
+same values as Floating UI's `offset` middleware.
+https://floating-ui.com/docs/offset
+
 # [63.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v63.3.0...v63.4.0) (2023-05-25)
 
 
