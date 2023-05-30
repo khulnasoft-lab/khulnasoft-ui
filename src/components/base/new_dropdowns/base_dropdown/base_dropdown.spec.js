@@ -103,6 +103,7 @@ describe('base dropdown', () => {
           findDropdownMenu().element,
           {
             placement: 'bottom-start',
+            strategy: 'absolute',
             middleware: [offset({ mainAxis: DEFAULT_OFFSET })],
           }
         );
@@ -115,7 +116,11 @@ describe('base dropdown', () => {
         expect(computePosition).toHaveBeenCalledWith(
           findDefaultDropdownToggle().element,
           findDropdownMenu().element,
-          { placement: 'bottom', middleware: [offset({ mainAxis: DEFAULT_OFFSET })] }
+          {
+            placement: 'bottom',
+            strategy: 'absolute',
+            middleware: [offset({ mainAxis: DEFAULT_OFFSET })],
+          }
         );
       });
 
@@ -126,7 +131,11 @@ describe('base dropdown', () => {
         expect(computePosition).toHaveBeenCalledWith(
           findDefaultDropdownToggle().element,
           findDropdownMenu().element,
-          { placement: 'bottom-end', middleware: [offset({ mainAxis: DEFAULT_OFFSET })] }
+          {
+            placement: 'bottom-end',
+            strategy: 'absolute',
+            middleware: [offset({ mainAxis: DEFAULT_OFFSET })],
+          }
         );
       });
 
@@ -143,9 +152,44 @@ describe('base dropdown', () => {
           findDropdownMenu().element,
           {
             placement: 'bottom-end',
+            strategy: 'absolute',
             middleware: [offset(customOffset)],
           }
         );
+      });
+
+      describe('positioningStrategy', () => {
+        it('uses the absolute positioning strategy by default', async () => {
+          buildWrapper();
+
+          await findDefaultDropdownToggle().trigger('click');
+
+          expect(computePosition).toHaveBeenCalledWith(
+            findDefaultDropdownToggle().element,
+            findDropdownMenu().element,
+            expect.objectContaining({
+              strategy: 'absolute',
+            })
+          );
+          expect(findDropdownMenu().classes()).toContain('gl-absolute');
+        });
+
+        it('applies the fixed positioning strategy properly', async () => {
+          buildWrapper({
+            positioningStrategy: 'fixed',
+          });
+
+          await findDefaultDropdownToggle().trigger('click');
+
+          expect(computePosition).toHaveBeenCalledWith(
+            findDefaultDropdownToggle().element,
+            findDropdownMenu().element,
+            expect.objectContaining({
+              strategy: 'fixed',
+            })
+          );
+          expect(findDropdownMenu().classes()).toContain('gl-fixed');
+        });
       });
     });
   });

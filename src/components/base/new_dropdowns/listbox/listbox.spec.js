@@ -11,6 +11,8 @@ import {
   HOME,
   END,
   ENTER,
+  POSITION_ABSOLUTE,
+  POSITION_FIXED,
 } from '../constants';
 import GlIntersectionObserver from '../../../utilities/intersection_observer/intersection_observer.vue';
 import GlCollapsibleListbox, { ITEM_SELECTOR } from './listbox.vue';
@@ -743,5 +745,16 @@ describe('GlCollapsibleListbox', () => {
 
       expect(findBaseDropdown().props('fluidWidth')).toBe(true);
     });
+  });
+
+  describe('positioningStrategy', () => {
+    it.each([POSITION_ABSOLUTE, POSITION_FIXED])(
+      'passes the %s positioning strategy to the base dropdown',
+      (positioningStrategy) => {
+        buildWrapper({ positioningStrategy });
+
+        expect(findBaseDropdown().props('positioningStrategy')).toBe(positioningStrategy);
+      }
+    );
   });
 });

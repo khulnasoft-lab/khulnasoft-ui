@@ -41,6 +41,7 @@ const makeBindings = (overrides = {}) =>
     ':list-aria-labelled-by': 'listAriaLabelledBy',
     ':fluid-width': 'fluidWidth',
     ':auto-close': 'autoClose',
+    ':positioning-strategy': 'positioningStrategy',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)

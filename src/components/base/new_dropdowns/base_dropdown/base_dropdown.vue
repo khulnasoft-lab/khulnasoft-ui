@@ -15,6 +15,8 @@ import {
   SPACE,
   ARROW_DOWN,
   GL_DROPDOWN_CONTENTS_CLASS,
+  POSITION_ABSOLUTE,
+  POSITION_FIXED,
 } from '../constants';
 import { logWarning, isElementTabbable, isElementFocusable } from '../../../../utils/utils';
 
@@ -133,6 +135,17 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Strategy to be applied by computePosition. If this is set to fixed, the dropdown's position
+     * needs to be set to fixed in CSS as well.
+     * https://floating-ui.com/docs/computePosition#strategy
+     */
+    positioningStrategy: {
+      type: String,
+      required: false,
+      default: POSITION_ABSOLUTE,
+      validator: (strategy) => [POSITION_ABSOLUTE, POSITION_FIXED].includes(strategy),
+    },
   },
   data() {
     return {
@@ -209,11 +222,17 @@ export default {
       return {
         'gl-display-block!': this.visible,
         [FIXED_WIDTH_CLASS]: !this.fluidWidth,
+        'gl-fixed': this.isFixed,
+        'gl-absolute': !this.isFixed,
       };
+    },
+    isFixed() {
+      return this.positioningStrategy === POSITION_FIXED;
     },
     floatingUIConfig() {
       return {
         placement: dropdownPlacements[this.placement],
+        strategy: this.positioningStrategy,
         middleware: [
           offset(this.offset),
           flip(),
