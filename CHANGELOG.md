@@ -1,3 +1,10 @@
+# [64.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.0.2...v64.1.0) (2023-05-30)
+
+
+### Features
+
+* **dropdowns:** adds support for fixed positioning strategy ([ac2287a](https://gitlab.com/gitlab-org/gitlab-ui/commit/ac2287a35a88795f2987ba63c2c15e35def50087))
+
 ## [64.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.0.1...v64.0.2) (2023-05-30)
 
 
