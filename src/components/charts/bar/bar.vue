@@ -175,12 +175,12 @@ export default {
   },
   beforeDestroy() {
     if (this.chart) {
-      this.chart.getDom().removeEventListener('mousemove', this.debouncedMoveShowTooltip);
-      this.chart.getDom().removeEventListener('mouseout', this.debouncedMoveShowTooltip);
+      this.chart.getZr().off('mousemove', this.debouncedMoveShowTooltip);
+      this.chart.getZr().off('mouseout', this.debouncedMoveShowTooltip);
     }
   },
   methods: {
-    moveShowTooltip(mouseEvent) {
+    moveShowTooltip({ event: mouseEvent }) {
       this.tooltipPosition = {
         left: `${mouseEvent.zrX + TOOLTIP_LEFT_OFFSET}px`,
         top: `${mouseEvent.zrY}px`,
@@ -190,8 +190,8 @@ export default {
     onCreated(chart) {
       this.chart = chart;
       this.$emit('created', chart);
-      chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
-      chart.getDom().addEventListener('mouseout', this.debouncedMoveShowTooltip);
+      chart.getZr().on('mousemove', this.debouncedMoveShowTooltip);
+      chart.getZr().on('mouseout', this.debouncedMoveShowTooltip);
     },
     onLabelChange(params) {
       const { yLabels, tooltipContent } = this.getDefaultTooltipContent(params, this.xAxisTitle);

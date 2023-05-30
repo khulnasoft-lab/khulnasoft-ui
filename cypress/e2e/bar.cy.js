@@ -2,7 +2,13 @@ describe('GlBarChart', () => {
   beforeEach(() => {
     cy.visitStory('charts/bar-chart');
 
-    cy.get('path').last().trigger('mousemove');
+    if (Cypress.browser.name === 'edge') {
+      // cy edge environment, mousemove do not trigger zr.mousemove event
+      // use click to mock the event
+      cy.get('path').last().click();
+    } else {
+      cy.get('path').last().trigger('mousemove');
+    }
   });
 
   it('tooltip title should render', () => {
