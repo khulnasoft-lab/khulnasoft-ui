@@ -406,6 +406,33 @@ export const CustomGroupsAndItems = makeGroupedExample({
   `),
 });
 
+export const GroupWithoutLabel = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlBadge,
+    GlCollapsibleListbox,
+  },
+  data() {
+    return {
+      selected: mockGroupsWithTextSrOnly[1].options[1].value,
+    };
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  template: template(`
+    <template #list-item="{ item }">
+      {{ item.text }} <gl-badge v-if="item.value === 'main'" size="sm">default</gl-badge>
+    </template>
+  `),
+});
+GroupWithoutLabel.args = generateProps({
+  items: mockGroupsWithTextSrOnly,
+  headerText: 'Select branch',
+});
+
 export default {
   title: 'base/new-dropdowns/listbox',
   component: GlCollapsibleListbox,
@@ -822,31 +849,4 @@ export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => (
 });
 WithLongContent.args = generateProps({
   fluidWidth: true,
-});
-
-export const GroupWithoutLabel = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: {
-    GlBadge,
-    GlCollapsibleListbox,
-  },
-  data() {
-    return {
-      selected: mockGroupsWithTextSrOnly[1].options[1].value,
-    };
-  },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
-  },
-  template: template(`
-    <template #list-item="{ item }">
-      {{ item.text }} <gl-badge v-if="item.value === 'main'" size="sm">default</gl-badge>
-    </template>
-  `),
-});
-GroupWithoutLabel.args = generateProps({
-  items: mockGroupsWithTextSrOnly,
-  headerText: 'Select branch',
 });
