@@ -1,6 +1,7 @@
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import GlIcon from '../icon/icon.vue';
+import GlDatepicker from '../datepicker/datepicker.vue';
 import { provide } from './common_story_options';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import readme from './filtered_search_token.md';
@@ -152,6 +153,53 @@ export const WithStaticOptions = (args, { argTypes }) => ({
   `,
 });
 WithStaticOptions.args = generateProps();
+
+// eslint-disable-next-line no-unused-vars
+export const WithDataSegmentInputAttributes = (args, { argTypes }) => ({
+  components: {
+    GlFilteredSearchToken,
+    GlDatepicker,
+  },
+  provide,
+  props: ['active'],
+  data() {
+    return {
+      value: { operator: '<', data: null },
+      config: {
+        title: 'Date',
+        operators: [
+          { value: '<', description: 'before' },
+          { value: '>', description: 'after' },
+        ],
+      },
+      dataSegmentInputAttributes: {
+        placeholder: 'YYYY-MM-DD',
+        id: 'this-id',
+      },
+    };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      document.activeElement.blur();
+    });
+  },
+  template: `
+    <div>
+      <div> {{ value }} </div>
+      <div class="gl-border-1 gl-border-solid gl-border-gray-200">
+        <gl-filtered-search-token
+          v-model="value"
+          class="gl-h-full"
+          :config="config"
+          :active="active"
+          :data-segment-input-attributes="dataSegmentInputAttributes"
+        />
+        <gl-datepicker target='#this-id' />
+      </div>
+    </div>
+  `,
+});
+WithDataSegmentInputAttributes.args = generateProps();
 
 export default {
   title: 'base/filtered-search/token',

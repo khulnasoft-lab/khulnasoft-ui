@@ -210,6 +210,21 @@ describe('Filtered search token', () => {
     expect(wrapper.emitted().replace[0][0].value).toStrictEqual({ data: '' });
   });
 
+  it('sets input attributes on data segment when provided', () => {
+    const dataSegmentInputAttributes = {
+      placeholder: 'YYYY-MM-DD',
+      id: 'this-id',
+    };
+    createComponent({
+      active: true,
+      dataSegmentInputAttributes,
+      value: { operator: '=', data: 'something' },
+    });
+    expect(findDataSegment().props().searchInputAttributes).toStrictEqual(
+      dataSegmentInputAttributes
+    );
+  });
+
   describe('integration tests', () => {
     beforeAll(() => {
       if (!HTMLElement.prototype.scrollIntoView) {

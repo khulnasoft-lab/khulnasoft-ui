@@ -78,6 +78,11 @@ export default {
       required: false,
       default: false,
     },
+    dataSegmentInputAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
   },
   data() {
     return {
@@ -405,6 +410,7 @@ export default {
       :multi-select="config.multiSelect"
       :options="config.options"
       :view-only="viewOnly"
+      :search-input-attributes="dataSegmentInputAttributes"
       @activate="activateDataSegment"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @complete="handleComplete"
