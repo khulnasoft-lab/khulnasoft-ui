@@ -345,7 +345,7 @@ export default {
   },
   computed: {
     listboxTag() {
-      if (this.items.length === 0 || isOption(this.items[0])) return 'ul';
+      if (!this.hasItems || isOption(this.items[0])) return 'ul';
       return 'div';
     },
     listboxClasses() {
@@ -360,6 +360,9 @@ export default {
     },
     flattenedOptions() {
       return flattenedOptions(this.items);
+    },
+    hasItems() {
+      return this.items.length > 0;
     },
     listboxToggleText() {
       if (!this.toggleText) {
@@ -394,6 +397,19 @@ export default {
       if (!this.resetButtonLabel) {
         return false;
       }
+
+      if (!this.multiple) {
+        return false;
+      }
+
+      /**
+       * if dropdown has no items
+       * reset all should be hidden
+       */
+      if (!this.hasItems) {
+        return false;
+      }
+
       if (this.multiple) {
         return this.selected.length > 0;
       }
@@ -405,6 +421,14 @@ export default {
       }
 
       if (!this.multiple) {
+        return false;
+      }
+
+      /**
+       * if dropdown has no items
+       * select all should be hidden
+       */
+      if (!this.hasItems) {
         return false;
       }
 
@@ -636,7 +660,6 @@ export default {
        * @event reset
        */
       this.$emit('reset');
-      this.closeAndFocus();
     },
     onSelectAllButtonClicked() {
       /**

@@ -179,6 +179,15 @@ describe('GlCollapsibleListbox', () => {
         await nextTick();
         expect(wrapper.emitted('select')[0][0]).toEqual(mockOptions[2].value);
       });
+
+      it('close dropdown for single selection', () => {
+        jest.spyOn(wrapper.vm, 'closeAndFocus');
+        expect(wrapper.vm.closeAndFocus).not.toHaveBeenCalled();
+
+        findListboxItems().at(2).vm.$emit('select', true);
+
+        expect(wrapper.vm.closeAndFocus).toHaveBeenCalled();
+      });
     });
 
     describe('with groups', () => {
@@ -475,17 +484,47 @@ describe('GlCollapsibleListbox', () => {
       expect(wrapper).toHaveLoggedVueErrors();
     });
 
+    it.each`
+      multiple
+      ${true}
+      ${false}
+    `(
+      'shows the reset button if the label is provided and the selection is not empty and mode if multiple mode is $multiple',
+      ({ multiple }) => {
+        buildWrapper({
+          headerText: 'Select assignee',
+          resetButtonLabel: 'Unassign',
+          selected: mockOptions[1].value,
+          items: mockOptions,
+          multiple,
+        });
+
+        expect(findResetButton().exists()).toBe(multiple);
+      }
+    );
+
     it('shows the reset button if the label is provided and the selection is not empty', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
         selected: mockOptions[1].value,
         items: mockOptions,
+        multiple: true,
       });
-      const button = findResetButton();
 
-      expect(button.exists()).toBe(true);
-      expect(button.text()).toBe('Unassign');
+      expect(findResetButton().text()).toBe('Unassign');
+    });
+
+    it('hides reset button if dropdown has no items', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        selected: mockOptions[1].value,
+        items: [],
+        multiple: true,
+      });
+
+      expect(findResetButton().exists()).toBe(false);
     });
 
     it.each`
@@ -503,12 +542,13 @@ describe('GlCollapsibleListbox', () => {
       expect(findResetButton().exists()).toBe(false);
     });
 
-    it('on click, emits the reset event and calls closeAndFocus()', () => {
+    it('on click, emits the reset event does not and call closeAndFocus() for multiple mode', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
         selected: mockOptions[1].value,
         items: mockOptions,
+        multiple: true,
       });
       jest.spyOn(wrapper.vm, 'closeAndFocus');
 
@@ -518,7 +558,7 @@ describe('GlCollapsibleListbox', () => {
       findResetButton().trigger('click');
 
       expect(wrapper.emitted('reset')).toHaveLength(1);
-      expect(wrapper.vm.closeAndFocus).toHaveBeenCalled();
+      expect(wrapper.vm.closeAndFocus).not.toHaveBeenCalled();
     });
   });
 
@@ -533,12 +573,12 @@ describe('GlCollapsibleListbox', () => {
     });
 
     it.each`
-      multiple | expectedResult
-      ${false} | ${false}
-      ${true}  | ${true}
+      multiple | resetVisible | selectAllVisible
+      ${false} | ${false}     | ${false}
+      ${true}  | ${false}     | ${true}
     `(
       'shows the select all button if the label is provided and the selection is empty and multiple option is $multiple',
-      ({ multiple, expectedResult }) => {
+      ({ multiple, resetVisible, selectAllVisible }) => {
         buildWrapper({
           headerText: 'Select assignee',
           resetButtonLabel: 'Unassign',
@@ -548,10 +588,22 @@ describe('GlCollapsibleListbox', () => {
           multiple,
         });
 
-        expect(findResetButton().exists()).toBe(!expectedResult);
-        expect(findSelectAllButton().exists()).toBe(expectedResult);
+        expect(findResetButton().exists()).toBe(resetVisible);
+        expect(findSelectAllButton().exists()).toBe(selectAllVisible);
       }
     );
+
+    it('hides select all button if dropdown has no items', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        showSelectAllButtonLabel: 'Select All',
+        items: [],
+        multiple: true,
+      });
+
+      expect(findSelectAllButton().exists()).toBe(false);
+    });
 
     it('has the label text "Select All" if the label is provided and the selection is empty', () => {
       buildWrapper({
