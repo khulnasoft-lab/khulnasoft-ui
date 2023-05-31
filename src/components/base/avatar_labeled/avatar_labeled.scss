@@ -11,6 +11,12 @@
     @include gl-text-gray-900;
   }
 
+  &-labels.inline-labels {
+    @include gl-flex-direction-row;
+    @include gl-align-items-center;
+    @include gl-gap-2;
+  }
+
   &-label {
     @include gl-font-weight-bold;
     @include gl-p-1;
