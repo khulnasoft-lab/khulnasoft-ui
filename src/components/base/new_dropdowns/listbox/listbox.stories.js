@@ -24,7 +24,7 @@ import {
 } from '../../../../utils/stories_constants';
 import { POSITION } from '../../../utilities/truncate/constants';
 import readme from './listbox.md';
-import { mockOptions, mockGroups, mockUsers } from './mock_data';
+import { mockOptions, mockGroups, mockGroupsWithTextSrOnly, mockUsers } from './mock_data';
 import { flattenedOptions } from './utils';
 import GlCollapsibleListbox from './listbox.vue';
 
@@ -460,6 +460,33 @@ export const CustomGroupsAndItems = makeGroupedExample({
       {{ item.text }} <gl-badge v-if="item.value === 'main'" size="sm">default</gl-badge>
     </template>
   `),
+});
+
+export const GroupWithoutLabel = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlBadge,
+    GlCollapsibleListbox,
+  },
+  data() {
+    return {
+      selected: mockGroupsWithTextSrOnly[1].options[1].value,
+    };
+  },
+  mounted() {
+    if (this.startOpened) {
+      openListbox(this);
+    }
+  },
+  template: template(`
+    <template #list-item="{ item }">
+      {{ item.text }} <gl-badge v-if="item.value === 'main'" size="sm">default</gl-badge>
+    </template>
+  `),
+});
+GroupWithoutLabel.args = generateProps({
+  items: mockGroupsWithTextSrOnly,
+  headerText: 'Select branch',
 });
 
 export default {

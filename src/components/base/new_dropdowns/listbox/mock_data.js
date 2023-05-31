@@ -67,6 +67,49 @@ export const mockGroups = [
   },
 ];
 
+export const mockGroupsWithTextSrOnly = [
+  {
+    text: 'Default',
+    options: [
+      {
+        text: 'main',
+        value: 'main',
+      },
+      {
+        text: 'development',
+        value: 'development',
+      },
+    ],
+    textSrOnly: true,
+  },
+  {
+    text: 'Feature branches',
+    options: [
+      {
+        text: 'feature/add-avatar',
+        value: 'add',
+      },
+      {
+        text: 'feature/improve-panel',
+        value: 'improve',
+      },
+    ],
+  },
+  {
+    text: 'Bugfix branches',
+    options: [
+      {
+        text: 'fix/border-of-avatar',
+        value: 'fix-border',
+      },
+      {
+        text: 'fix/radius-panel',
+        value: 'fix-radius',
+      },
+    ],
+  },
+];
+
 export const mockUsers = [
   {
     value: 'mikegreiling',
