@@ -1,3 +1,10 @@
+## [64.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.1.0...v64.1.1) (2023-06-01)
+
+
+### Bug Fixes
+
+* **dropdowns:** auto-focus only once dropdown is properly positioned ([fe6c39d](https://gitlab.com/gitlab-org/gitlab-ui/commit/fe6c39dee065cbbc35dd225ea0e565dba368af14))
+
 # [64.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.0.2...v64.1.0) (2023-05-30)
 
 
