@@ -62,7 +62,7 @@ describe('base dropdown', () => {
       expect(autoUpdate).toHaveBeenCalledTimes(1);
     });
 
-    it("stops Floating UI's when closing the dropdown", async () => {
+    it('stops Floating UI when closing the dropdown', async () => {
       buildWrapper();
       await findDefaultDropdownToggle().trigger('click');
       await findDefaultDropdownToggle().trigger('click');
@@ -71,7 +71,7 @@ describe('base dropdown', () => {
       expect(mockStopAutoUpdate).toHaveBeenCalledTimes(1);
     });
 
-    it("restarts Floating UI's when reopening the dropdown", async () => {
+    it('restarts Floating UI when reopening the dropdown', async () => {
       buildWrapper();
       await findDefaultDropdownToggle().trigger('click');
       await findDefaultDropdownToggle().trigger('click');
@@ -335,6 +335,11 @@ describe('base dropdown', () => {
     });
 
     describe('toggle visibility', () => {
+      beforeEach(() => {
+        autoUpdate.mockImplementation(jest.requireActual('@floating-ui/dom').autoUpdate);
+        computePosition.mockImplementation(() => Promise.resolve);
+      });
+
       it('should toggle menu visibility on toggle click', async () => {
         const toggle = findCustomDropdownToggle();
         const firstToggleChild = findFirstToggleElement();

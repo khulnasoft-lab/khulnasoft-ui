@@ -150,7 +150,6 @@ export default {
   data() {
     return {
       visible: false,
-      openedYet: false,
       baseDropdownId: uniqueId('base-dropdown-'),
     };
   },
@@ -282,7 +281,7 @@ export default {
         );
       }
     },
-    startFloating() {
+    async startFloating() {
       this.calculateNonScrollableAreaHeight();
       this.observer = new MutationObserver(this.calculateNonScrollableAreaHeight);
       this.observer.observe(this.$refs.content, {
@@ -291,24 +290,29 @@ export default {
         subtree: true,
       });
 
-      this.stopAutoUpdate = autoUpdate(this.toggleElement, this.$refs.content, async () => {
-        const { x, y } = await computePosition(
-          this.toggleElement,
-          this.$refs.content,
-          this.floatingUIConfig
-        );
+      await new Promise((resolve) => {
+        const stopAutoUpdate = autoUpdate(this.toggleElement, this.$refs.content, async () => {
+          const { x, y } = await computePosition(
+            this.toggleElement,
+            this.$refs.content,
+            this.floatingUIConfig
+          );
 
-        /**
-         * Due to the asynchronous nature of computePosition, it's technically possible for the
-         * component to have been destroyed by the time the promise resolves. In such case, we exit
-         * early to prevent a TypeError.
-         */
-        if (!this.$refs.content) return;
+          /**
+           * Due to the asynchronous nature of computePosition, it's technically possible for the
+           * component to have been destroyed by the time the promise resolves. In such case, we exit
+           * early to prevent a TypeError.
+           */
+          if (!this.$refs.content) return;
 
-        Object.assign(this.$refs.content.style, {
-          left: `${x}px`,
-          top: `${y}px`,
+          Object.assign(this.$refs.content.style, {
+            left: `${x}px`,
+            top: `${y}px`,
+          });
+
+          resolve(stopAutoUpdate);
         });
+        this.stopAutoUpdate = stopAutoUpdate;
       });
     },
     stopFloating() {
@@ -319,12 +323,16 @@ export default {
       this.visible = !this.visible;
 
       if (this.visible) {
-        /**
-         * We defer the following logic to the next tick as all that comes next relies on the
-         * dropdown actually being visible.
-         */
+        // The dropdown needs to be actually visible before we compute its position with Floating UI.
         await this.$nextTick();
-        this.startFloating();
+
+        /**
+         * We wait until the dropdown's position has been computed before emitting the `shown` event.
+         * This ensures that, if the parent component attempts to focus an inner element, the dropdown
+         * is already properly placed in the page. Otherwise, the page would scroll back to the top.
+         */
+        await this.startFloating();
+
         this.$emit(GL_DROPDOWN_SHOWN);
       } else {
         this.stopFloating();
