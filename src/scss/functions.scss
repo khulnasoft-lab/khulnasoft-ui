@@ -21,7 +21,7 @@
     @return $value;
   }
 
-  $converted: $value / $font-size-base;
+  $converted: calc($value / $font-size-base);
 
   @return strip-unit($converted) * 1rem;
 }
@@ -54,7 +54,7 @@
   $min-width: px-to-rem($min-width);
   $max-width: px-to-rem($max-width);
 
-  $slope: ($max - $min) / ($max-width - $min-width);
+  $slope: calc(($max - $min) / ($max-width - $min-width));
   $intersection: (-$min-width * $slope) + $min;
 
   // Use calc() inside of clamp() function to work around SassC
