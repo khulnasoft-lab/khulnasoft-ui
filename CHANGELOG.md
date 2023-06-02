@@ -1,3 +1,10 @@
+# [64.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.1.1...v64.2.0) (2023-06-02)
+
+
+### Features
+
+* **GlFilteredSearchToken:** Pass input attributes to data segment ([e8dcc5f](https://gitlab.com/gitlab-org/gitlab-ui/commit/e8dcc5f8fb8ff4b6fa78f1e46b899a18990d39c8))
+
 ## [64.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.1.0...v64.1.1) (2023-06-01)
 
 
