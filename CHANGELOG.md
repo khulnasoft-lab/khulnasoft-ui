@@ -1,3 +1,10 @@
+## [64.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.2.0...v64.2.1) (2023-06-02)
+
+
+### Bug Fixes
+
+* **GlStackedColumnChart:** Replace the getDom to getZr for supporting edge ([8412f24](https://gitlab.com/gitlab-org/gitlab-ui/commit/8412f2456c56ea58c68ef8f78ff753ec4701388d))
+
 # [64.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.1.1...v64.2.0) (2023-06-02)
 
 
