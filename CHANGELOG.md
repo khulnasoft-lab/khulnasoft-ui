@@ -1,3 +1,10 @@
+## [64.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.2.1...v64.2.2) (2023-06-02)
+
+
+### Bug Fixes
+
+* **sass:** revert migration from `/` operator to `calc()` ([5b5fc0b](https://gitlab.com/gitlab-org/gitlab-ui/commit/5b5fc0beaa7f90fdbe4c1b4bd4d583cf2de9b2be))
+
 ## [64.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.2.0...v64.2.1) (2023-06-02)
 
 
