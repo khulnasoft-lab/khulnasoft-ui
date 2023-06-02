@@ -58,8 +58,8 @@ const Template = (args, { argTypes }) => ({
   template,
 });
 
-export const Stacked = Template.bind({});
-Stacked.args = generateProps();
+export const Default = Template.bind({});
+Default.args = generateProps();
 
 export const Tiled = Template.bind({});
 Tiled.args = generateProps({ presentation: columnOptions.tiled });
