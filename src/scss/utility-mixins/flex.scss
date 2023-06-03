@@ -59,6 +59,12 @@
   }
 }
 
+@mixin gl-lg-align-items-flex-start {
+  @include gl-media-breakpoint-up(lg) {
+    @include gl-align-items-flex-start;
+  }
+}
+
 @mixin gl-lg-align-items-flex-end {
   @include gl-media-breakpoint-up(lg) {
     @include gl-align-items-flex-end;
