@@ -1,3 +1,10 @@
+## [64.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.2.2...v64.2.3) (2023-06-05)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Makes clickable area full width ([832a798](https://gitlab.com/gitlab-org/gitlab-ui/commit/832a79881dab6eb55b7ea4a7f8156645958a29b8))
+
 ## [64.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.2.1...v64.2.2) (2023-06-02)
 
 
