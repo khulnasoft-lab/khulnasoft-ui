@@ -20,6 +20,7 @@
 .gl-filtered-search-scrollable {
   @include gl-display-flex;
   @include gl-overflow-y-auto;
+  @include gl-w-full;
 }
 
 .gl-filtered-search-item {
