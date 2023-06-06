@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import * as echarts from 'echarts';
 import { toolboxHeight } from '~/utils/charts/config';
 import { createTheme } from '~/utils/charts/theme';
+import { waitForAnimationFrame } from '~/utils/test_utils';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
 import Chart from './chart.vue';
 
@@ -47,15 +48,19 @@ describe('chart component', () => {
     expect(wrapper.vm.chart.resize).toHaveBeenCalledTimes(1);
 
     triggerResize(wrapper.element);
+    await waitForAnimationFrame();
+
     expect(wrapper.vm.chart.resize).toHaveBeenCalledTimes(1);
   });
 
-  it('resizes the chart when responsive = true', async () => {
+  it('resizes the chart only once per animation frame when responsive = true', async () => {
     wrapper = shallowMount(Chart, { propsData: { options: {}, responsive: true } });
     await wrapper.vm.$nextTick();
     expect(wrapper.vm.chart.resize).toHaveBeenCalledTimes(1);
 
     triggerResize(wrapper.element);
+    triggerResize(wrapper.element);
+    await waitForAnimationFrame();
 
     expect(wrapper.vm.chart.resize).toHaveBeenCalledTimes(2);
   });
