@@ -186,10 +186,6 @@
   box-shadow: 0 0 4px 2px $blue-200;
 }
 
-@mixin gl-shadow-drawer {
-  box-shadow: -4px 0 8px $gray-200;
-}
-
 @mixin gl-shadow-x0-y0-b3-s1-blue-500 {
   box-shadow: inset 0 0 3px 1px $blue-500;
 }
