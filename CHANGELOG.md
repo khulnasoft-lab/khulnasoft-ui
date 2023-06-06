@@ -1,3 +1,10 @@
+# [64.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.2.3...v64.3.0) (2023-06-06)
+
+
+### Features
+
+* **css:** Added gl-lg-align-items-flex-start mixin ([adf826f](https://gitlab.com/gitlab-org/gitlab-ui/commit/adf826f7ee11fbfdbc2434daa950906e6003c903))
+
 ## [64.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.2.2...v64.2.3) (2023-06-05)
 
 
