@@ -1,3 +1,10 @@
+# [64.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.3.0...v64.4.0) (2023-06-06)
+
+
+### Features
+
+* **GlAvatarLabeled:** Display label as row ([44b4dd2](https://gitlab.com/gitlab-org/gitlab-ui/commit/44b4dd2e9da672102973fe0d56b48332a1483a3f))
+
 # [64.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.2.3...v64.3.0) (2023-06-06)
 
 
