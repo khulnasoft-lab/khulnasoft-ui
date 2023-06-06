@@ -28,6 +28,11 @@ export default {
       required: false,
       default: '',
     },
+    inlineLabels: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     hasLabelLink() {
@@ -51,6 +56,11 @@ export default {
         'gl-cursor-pointer': this.hasLabelLink,
       };
     },
+    avatarRowLayoutClass() {
+      return {
+        'inline-labels': this.inlineLabels,
+      };
+    },
   },
   methods: {
     onAvatarClick() {
@@ -62,7 +72,7 @@ export default {
 <template>
   <div class="gl-avatar-labeled">
     <gl-avatar v-bind="$attrs" :class="avatarCssClasses" alt v-on="avatarListeners" />
-    <div class="gl-avatar-labeled-labels gl-text-left!">
+    <div class="gl-avatar-labeled-labels gl-text-left!" :class="avatarRowLayoutClass">
       <div
         class="gl-display-flex gl-flex-wrap gl-align-items-center gl-text-left! gl-mx-n1 gl-my-n1"
       >

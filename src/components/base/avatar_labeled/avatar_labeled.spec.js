@@ -58,6 +58,14 @@ describe('avatar labeled', () => {
     expect(wrapper.find('[data-testid="default-slot"]').exists()).toBe(true);
   });
 
+  describe('with labels as rows', () => {
+    it('adds the correct css classes', () => {
+      buildWrapper({ label, subLabel, inlineLabels: true });
+
+      expect(wrapper.find('.gl-avatar-labeled-labels').classes('inline-labels')).toBe(true);
+    });
+  });
+
   describe('with label links', () => {
     beforeEach(() => {
       buildWrapper({ label, subLabel, labelLink: 'http://label', subLabelLink: 'http://subLabel' });

@@ -18,6 +18,7 @@ const generateProps = ({
   size = 32,
   shape = 'circle',
   src = avatarPath,
+  inlineLabels = false,
   labelLink,
 } = {}) => ({
   label,
@@ -25,6 +26,7 @@ const generateProps = ({
   size,
   shape,
   src,
+  inlineLabels,
   labelLink,
 });
 
@@ -47,6 +49,22 @@ export const Default = (args, { argTypes }) => ({
     `,
 });
 Default.args = generateProps();
+
+export const WithInlineLabels = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
+      <gl-avatar-labeled
+        :shape="shape"
+        :size="size"
+        :src="src"
+        :label="label"
+        :sub-label="subLabel"
+        :inline-labels="inlineLabels"
+      />
+    `,
+});
+WithInlineLabels.args = generateProps({ inlineLabels: true });
 
 export const WithTooltip = (args, { argTypes }) => ({
   components,
