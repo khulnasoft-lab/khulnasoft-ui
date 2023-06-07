@@ -173,6 +173,14 @@ export default {
       default: null,
     },
     /**
+     * Render the toggle button as a block element
+     */
+    block: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
      * Custom offset to be applied to Floating UI's offset middleware.
      * https://floating-ui.com/docs/offset
      */
@@ -334,6 +342,7 @@ export default {
     :loading="loading"
     :no-caret="noCaret"
     :placement="placement"
+    :block="block"
     :offset="dropdownOffset"
     :fluid-width="fluidWidth"
     :positioning-strategy="positioningStrategy"

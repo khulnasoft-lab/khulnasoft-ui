@@ -39,6 +39,7 @@ const makeBindings = (overrides = {}) =>
     ':icon': 'icon',
     ':toggle-aria-labelled-by': 'toggleAriaLabelledBy',
     ':list-aria-labelled-by': 'listAriaLabelledBy',
+    ':block': 'block',
     ':fluid-width': 'fluidWidth',
     ':auto-close': 'autoClose',
     ':positioning-strategy': 'positioningStrategy',
@@ -203,6 +204,7 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
 CustomGroupsAndItems.args = {
   items: mockGroupsCustomItem,
   toggleText: 'Merge requests',
+  block: true,
 };
 CustomGroupsAndItems.decorators = [makeContainer({ height: '200px' })];
 
