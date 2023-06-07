@@ -1,3 +1,10 @@
+# [64.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.4.0...v64.5.0) (2023-06-07)
+
+
+### Features
+
+* **css:** Use gl-shadow-lg for drawer drop shadow ([d57f305](https://gitlab.com/gitlab-org/gitlab-ui/commit/d57f3052889e8c66de24de73f63351abf79d5423))
+
 # [64.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.3.0...v64.4.0) (2023-06-06)
 
 
