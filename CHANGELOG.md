@@ -1,3 +1,10 @@
+# [64.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.5.0...v64.6.0) (2023-06-08)
+
+
+### Features
+
+* **GlDisclosureDropdown:** add `block` prop ([39f3a3d](https://gitlab.com/gitlab-org/gitlab-ui/commit/39f3a3db2892fe10bcc91819727ef2da59bcdd45))
+
 # [64.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.4.0...v64.5.0) (2023-06-07)
 
 
