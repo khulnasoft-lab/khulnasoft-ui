@@ -1,3 +1,10 @@
+## [64.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.6.0...v64.6.1) (2023-06-08)
+
+
+### Bug Fixes
+
+* **GlChart:** ResizeObserver loop limit exceeded on responsive charts ([7952ae8](https://gitlab.com/gitlab-org/gitlab-ui/commit/7952ae86a22e200ff2bc4f9f8cf172de8e30b6f2))
+
 # [64.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.5.0...v64.6.0) (2023-06-08)
 
 
