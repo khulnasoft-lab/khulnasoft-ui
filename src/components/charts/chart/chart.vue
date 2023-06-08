@@ -9,6 +9,7 @@ import {
 } from '../../../utils/charts/config';
 import { createTheme, themeName } from '../../../utils/charts/theme';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
+import { debounceByAnimationFrame } from '../../../utils/utils';
 
 /**
  * Allowed values by eCharts
@@ -95,6 +96,7 @@ export default {
   data() {
     return {
       chart: null,
+      debouncedHandleResize: debounceByAnimationFrame(this.handleResize),
     };
   },
   computed: {
@@ -175,12 +177,12 @@ export default {
       this.$emit('chartItemClicked', { chart: this.chart, params });
     },
     handleResize() {
-      if (this.responsive) this.chart.resize();
+      this.chart.resize();
     },
   },
 };
 </script>
 
 <template>
-  <div ref="chart" v-resize-observer="handleResize"></div>
+  <div ref="chart" v-resize-observer:[responsive]="debouncedHandleResize"></div>
 </template>
