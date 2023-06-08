@@ -18,18 +18,18 @@ Usage:
 }
 
 /* -------------------------------------------------------
-Monospaced font: JetBrains Mono.
+Monospaced font: GitLab Mono.
 
 Usage:
-  html { font-family: 'JetBrains Mono', sans-serif; }
+  html { font-family: 'GitLab Mono', sans-serif; }
 */
 @font-face {
-  font-family: 'JetBrains Mono';
+  font-family: 'GitLab Mono';
   /**
    * Applications should use a less aggressive font-display value than this.
    * This is done to make sure Storybook Previews load the font.
    */
   font-display: block;
   font-style: normal;
-  src: url('../../static/fonts/JetBrainsMono.woff2') format('woff2');
+  src: url('../../static/fonts/GitLabMono.woff2') format('woff2');
 }
