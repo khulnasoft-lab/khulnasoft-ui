@@ -318,6 +318,20 @@ describe('GlDisclosureDropdown', () => {
     });
   });
 
+  describe('block prop', () => {
+    it('is disabled by default', () => {
+      buildWrapper();
+
+      expect(findBaseDropdown().props('block')).toBe(false);
+    });
+
+    it('is enabled when `block` is `true`', () => {
+      buildWrapper({ block: true });
+
+      expect(findBaseDropdown().props('block')).toBe(true);
+    });
+  });
+
   describe('fluid width', () => {
     it('is disabled by default', () => {
       buildWrapper();
