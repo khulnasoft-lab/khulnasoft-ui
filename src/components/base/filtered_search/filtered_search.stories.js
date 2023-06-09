@@ -2,6 +2,7 @@ import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlIcon from '../icon/icon.vue';
 import GlToken from '../token/token.vue';
 import GlAvatar from '../avatar/avatar.vue';
+import GlDatepicker from '../datepicker/datepicker.vue';
 import GlDropdownDivider from '../dropdown/dropdown_divider.vue';
 import { setStoryTimeout } from '../../../utils/test_utils';
 import { makeContainer } from '../../../utils/story_decorators/container';
@@ -284,6 +285,58 @@ const LabelToken = {
   `,
 };
 
+const DateToken = {
+  name: 'DateToken',
+  __v_skip: true /* temporary workaround for @vue/compat */,
+  components: {
+    GlIcon,
+    GlDatepicker,
+    GlFilteredSearchToken,
+  },
+  props: ['value', 'active', 'viewOnly'],
+  inheritAttrs: false,
+  data() {
+    return {
+      dataSegmentInputAttributes: {
+        id: 'this-id',
+        placeholder: 'YYYY-MM-DD',
+        style: 'padding-left: 23px;',
+      },
+    };
+  },
+  methods: {
+    selectValue(value, submitValue) {
+      const date = new Date(value);
+      const offset = date.getTimezoneOffset();
+      const offsetDdate = new Date(date.getTime() - offset * 60 * 1000);
+      const dateString = offsetDdate.toISOString().split('T')[0];
+      submitValue(dateString);
+    },
+  },
+  template: `
+    <div>
+      <gl-filtered-search-token
+        :data-segment-input-attributes="dataSegmentInputAttributes"
+        v-bind="{ ...this.$props, ...this.$attrs }"
+        v-on="$listeners"
+      >
+        <template #before-data-segment-input="{ submitValue }">
+          <gl-icon
+            class="gl-text-gray-500"
+            name="calendar"
+            style="margin-right: -20px; z-index: 1; pointer-events: none;"
+          />
+          <gl-datepicker
+            class="gl-display-none!"
+            target='#this-id'
+            :container="null"
+            @input="selectValue($event, submitValue)" />
+        </template>
+      </gl-filtered-search-token>
+    </div>
+  `,
+};
+
 const tokens = [
   {
     type: 'author',
@@ -306,6 +359,16 @@ const tokens = [
     options: [
       { icon: 'eye-slash', value: 'true', title: 'Yes' },
       { icon: 'eye', value: 'false', title: 'No' },
+    ],
+  },
+  {
+    type: 'date',
+    icon: 'history',
+    title: 'Created',
+    token: DateToken,
+    operators: [
+      { value: '<', description: 'before' },
+      { value: '>', description: 'after' },
     ],
   },
 ];

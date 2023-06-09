@@ -421,6 +421,9 @@ export default {
       @previous="activatePreviousOperatorSegment"
       @next="$emit('next')"
     >
+      <template #before-input="scope">
+        <slot name="before-data-segment-input" v-bind="scope"></slot>
+      </template>
       <template #suggestions>
         <!-- @slot The suggestions (implemented with GlFilteredSearchSuggestion). -->
 
