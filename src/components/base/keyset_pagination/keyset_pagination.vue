@@ -10,6 +10,7 @@ export default {
     GlButton,
     GlIcon,
   },
+  inheritAttrs: false,
   props: {
     // The following 4 properties match the default names of the
     // [PageInfo](https://docs.gitlab.com/ee/api/graphql/reference/index.html#pageinfo)
@@ -69,6 +70,15 @@ export default {
       default: null,
     },
     /**
+     * The aria-label that needs to be set for the
+     * pagination landmark region.
+     */
+    navigationLabel: {
+      type: String,
+      required: false,
+      default: 'Pagination',
+    },
+    /**
      * The text that will be rendered inside the "Next" button.
      * It\'s important to provide this parameter since the default text is not translatable.
      */
@@ -99,34 +109,36 @@ export default {
 </script>
 
 <template>
-  <gl-button-group class="gl-keyset-pagination" v-bind="$attrs" v-on="$listeners">
-    <gl-button
-      :href="prevButtonLink"
-      :disabled="disabled || !hasPreviousPage"
-      data-testid="prevButton"
-      @click="$emit('prev', startCursor)"
-    >
-      <!-- @slot Used to customize the appearance of the "Prev" button -->
-      <slot name="previous-button-content">
-        <div class="gl-display-flex gl-align-center">
-          <gl-icon name="chevron-left" />
-          {{ prevText }}
-        </div>
-      </slot>
-    </gl-button>
-    <gl-button
-      :href="nextButtonLink"
-      :disabled="disabled || !hasNextPage"
-      data-testid="nextButton"
-      @click="$emit('next', endCursor)"
-    >
-      <!-- @slot Used to customize the appearance of the "Next" button -->
-      <slot name="next-button-content">
-        <div class="gl-display-flex gl-align-center">
-          {{ nextText }}
-          <gl-icon name="chevron-right" />
-        </div>
-      </slot>
-    </gl-button>
-  </gl-button-group>
+  <nav class="gl-pagination" :aria-label="navigationLabel">
+    <gl-button-group class="gl-keyset-pagination" v-bind="$attrs" v-on="$listeners">
+      <gl-button
+        :href="prevButtonLink"
+        :disabled="disabled || !hasPreviousPage"
+        data-testid="prevButton"
+        @click="$emit('prev', startCursor)"
+      >
+        <!-- @slot Used to customize the appearance of the "Prev" button -->
+        <slot name="previous-button-content">
+          <div class="gl-display-flex gl-align-center">
+            <gl-icon name="chevron-left" />
+            {{ prevText }}
+          </div>
+        </slot>
+      </gl-button>
+      <gl-button
+        :href="nextButtonLink"
+        :disabled="disabled || !hasNextPage"
+        data-testid="nextButton"
+        @click="$emit('next', endCursor)"
+      >
+        <!-- @slot Used to customize the appearance of the "Next" button -->
+        <slot name="next-button-content">
+          <div class="gl-display-flex gl-align-center">
+            {{ nextText }}
+            <gl-icon name="chevron-right" />
+          </div>
+        </slot>
+      </gl-button>
+    </gl-button-group>
+  </nav>
 </template>
