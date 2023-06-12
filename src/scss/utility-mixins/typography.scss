@@ -142,16 +142,37 @@
 /**
 * Line height utilities.
 *
-* naming convention: gl-line-height-{line-height-in-pixels}
+* naming convention: 
+* - gl-line-height-ratio-{ratio-multiplied-by-1000}
+* - gl-line-height-{line-height-in-pixels}
 * notes:
 * - Strictly based in gl-line-height-{n} variables
 */
+
+// TODO: Remove after migration
 @mixin gl-line-height-0 {
   line-height: 0;
 }
 
+// TODO: Remove after migration
 @mixin gl-line-height-1 {
   line-height: 1;
+}
+
+@mixin gl-line-height-ratio-0000 {
+  line-height: 0;
+}
+
+@mixin gl-line-height-ratio-1000 {
+  line-height: 1;
+}
+
+@mixin gl-line-height-ratio-1125 {
+  line-height: 1.125;
+}
+
+@mixin gl-line-height-ratio-1250 {
+  line-height: 1.25;
 }
 
 @mixin gl-line-height-normal {
@@ -201,4 +222,8 @@
 */
 @mixin gl-letter-spacing-06em {
   letter-spacing: 0.06em;
+}
+
+@mixin gl-letter-spacing-n01em {
+  letter-spacing: -0.01em;
 }
