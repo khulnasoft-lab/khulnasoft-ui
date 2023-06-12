@@ -91,7 +91,7 @@ template. If you want to render a custom template for items, use the
   <template #list-item="{ item }">
     <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
       {{item.text}}
-      <gl-icon v-if="item.icon" :name="item.icon"/>
+      <gl-icon v-if="item.icon" :name="item.icon" />
     </span>
   </template>
 </gl-disclosure-dropdown>
@@ -117,6 +117,16 @@ To render custom group labels, use the `group-label` scoped slot:
 </gl-disclosure-dropdown>
 ```
 
+To draw a horizontal line that separates two groups, set the `bordered` property.
+By default, the border appears above the group. You can change the border position
+using the `border-position` property:
+
+```html
+<gl-disclosure-dropdown>
+  <gl-disclosure-dropdown-group bordered border-position="bottom" :group="group" />
+</gl-disclosure-dropdown>
+```
+
 #### Miscellaneous content
 
 Besides default components, disclosure dropdown can render miscellaneous content inside it.
@@ -125,7 +135,7 @@ In this case the user is responsible for handling all events and navigation insi
 #### Dealing with long option texts
 
 - Some options might have long non-wrapping text that would overflow the dropdown maximum width. In
-such cases, it's recommended to override the `#list-item` slot and to truncate the option text using
-`GlTruncate`.
+  such cases, it's recommended to override the `#list-item` slot and to truncate the option text using
+  `GlTruncate`.
 - If the toggle text reflects the selected option text, it might be necessary to truncate
-it too by overriding the `#toggle` slot.
+  it too by overriding the `#toggle` slot.
