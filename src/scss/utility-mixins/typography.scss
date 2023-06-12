@@ -75,6 +75,10 @@
   font-size: $gl-font-size-h2-xl;
 }
 
+@mixin gl-font-size-h5-xl {
+  font-size: $gl-font-size-h5-xl;
+}
+
 @mixin gl-font-icon-size {
   font-size: $default-icon-size;
 }
