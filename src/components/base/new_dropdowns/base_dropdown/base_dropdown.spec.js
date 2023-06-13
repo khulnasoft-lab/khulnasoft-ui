@@ -163,6 +163,7 @@ describe('base dropdown', () => {
           buildWrapper();
 
           await findDefaultDropdownToggle().trigger('click');
+          await nextTick();
 
           expect(computePosition).toHaveBeenCalledWith(
             findDefaultDropdownToggle().element,
@@ -180,6 +181,7 @@ describe('base dropdown', () => {
           });
 
           await findDefaultDropdownToggle().trigger('click');
+          await nextTick();
 
           expect(computePosition).toHaveBeenCalledWith(
             findDefaultDropdownToggle().element,
