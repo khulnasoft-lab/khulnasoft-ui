@@ -1,3 +1,10 @@
+## [64.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.6.1...v64.6.2) (2023-06-13)
+
+
+### Bug Fixes
+
+* **dropdowns:** fix ResizeObserver loop error ([a4797a5](https://gitlab.com/gitlab-org/gitlab-ui/commit/a4797a5624505d6d4aa2d539fd589bbd2b610aee))
+
 ## [64.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.6.0...v64.6.1) (2023-06-08)
 
 
