@@ -156,7 +156,7 @@
     "storybook": "7.0.20",
     "storybook-dark-mode": "3.0.0",
     "stylelint": "14.9.1",
-    "stylelint-config-prettier": "9.0.4",
+    "stylelint-config-prettier": "^9.0.5",
     "stylelint-prettier": "3.0.0",
     "vue": "2.7.14",
     "vue-loader": "^15.8.3",
