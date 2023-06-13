@@ -21,6 +21,9 @@
     @return $value;
   }
 
+  // Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0
+  // We can't update this yet since GitLab uses SassC, which doesn't support math.div
+  // See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1954#note_1078281533
   $converted: $value / $font-size-base;
 
   @return strip-unit($converted) * 1rem;
@@ -54,6 +57,9 @@
   $min-width: px-to-rem($min-width);
   $max-width: px-to-rem($max-width);
 
+  // Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0
+  // We can't update this yet since GitLab uses SassC, which doesn't support math.div
+  // See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1954#note_1078281533
   $slope: ($max - $min) / ($max-width - $min-width);
   $intersection: (-$min-width * $slope) + $min;
 
