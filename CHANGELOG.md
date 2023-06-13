@@ -1,3 +1,10 @@
+# [64.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.7.0...v64.8.0) (2023-06-13)
+
+
+### Features
+
+* Prefer GitLab Mono over JetBrains Mono ([eb3354b](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb3354b648a7b1563f3446a7fd7a176ebc0c4cfc))
+
 # [64.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.6.2...v64.7.0) (2023-06-13)
 
 
