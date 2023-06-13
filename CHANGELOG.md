@@ -1,3 +1,10 @@
+# [64.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.6.2...v64.7.0) (2023-06-13)
+
+
+### Features
+
+* **Type:** add line-height and letter-spacing mixins for headings ([ae1fef5](https://gitlab.com/gitlab-org/gitlab-ui/commit/ae1fef5d70c78f869b56297cd36e9861e123507a))
+
 ## [64.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.6.1...v64.6.2) (2023-06-13)
 
 
