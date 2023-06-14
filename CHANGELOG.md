@@ -1,3 +1,11 @@
+# [64.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.9.0...v64.10.0) (2023-06-14)
+
+
+### Features
+
+* **DisclosureDropdown:** borderPosition property ([ea7822e](https://gitlab.com/gitlab-org/gitlab-ui/commit/ea7822e20992c6a0fc074f8ab3766b3145c09c00))
+* **GlKeysetPagination:** add navigation landmark ([3ffd2f7](https://gitlab.com/gitlab-org/gitlab-ui/commit/3ffd2f79b3029504a6e1b831df23904ca8473d06))
+
 # [64.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.8.0...v64.9.0) (2023-06-14)
 
 
