@@ -1,9 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-import GlDisclosureDropdownGroup, {
-  GROUP_TOP_BORDER_CLASSES,
-} from './disclosure_dropdown_group.vue';
+import GlDisclosureDropdownGroup, { BORDER_CLASSES } from './disclosure_dropdown_group.vue';
 import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
 import { mockGroups, mockProfileGroups } from './mock_data';
+import { DISCLOSURE_DROPDOWN_GROUP_BORDER_POSITIONS as borderPositions } from './constants';
 
 describe('GlDisclosureDropdownGroup', () => {
   let wrapper;
@@ -69,17 +68,17 @@ describe('GlDisclosureDropdownGroup', () => {
     });
   });
 
-  describe('separator', () => {
-    const topBorderClasses = GROUP_TOP_BORDER_CLASSES.split(' ');
-
-    it('should not add top border by default', () => {
-      buildWrapper();
-      expect(wrapper.classes()).not.toEqual(expect.arrayContaining(topBorderClasses));
-    });
-
-    it('should add top border classes when `bordered` props is set to `true`', () => {
-      buildWrapper({ propsData: { bordered: true } });
-      expect(wrapper.classes()).toEqual(expect.arrayContaining(topBorderClasses));
-    });
-  });
+  it.each`
+    bordered | borderPosition            | classes
+    ${true}  | ${borderPositions.top}    | ${BORDER_CLASSES[borderPositions.top].split(' ')}
+    ${true}  | ${borderPositions.bottom} | ${BORDER_CLASSES[borderPositions.bottom].split(' ')}
+    ${false} | ${borderPositions.top}    | ${[]}
+    ${false} | ${borderPositions.bottom} | ${[]}
+  `(
+    'adds border classes `$classes` when bordered=$bordered and borderPosition=$borderPosition',
+    ({ bordered, borderPosition, classes }) => {
+      buildWrapper({ propsData: { bordered, borderPosition } });
+      expect(wrapper.classes()).toEqual(classes);
+    }
+  );
 });
