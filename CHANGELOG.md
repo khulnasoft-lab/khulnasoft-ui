@@ -1,3 +1,10 @@
+# [64.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.8.0...v64.9.0) (2023-06-14)
+
+
+### Features
+
+* **css:** Added gl-md-justify-content-end mixin ([4fa88fa](https://gitlab.com/gitlab-org/gitlab-ui/commit/4fa88fac40b2bc34eca9058a406b1d649bb67ba4))
+
 # [64.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.7.0...v64.8.0) (2023-06-13)
 
 
