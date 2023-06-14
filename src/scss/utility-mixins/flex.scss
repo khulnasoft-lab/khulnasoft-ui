@@ -225,6 +225,12 @@
   flex-basis: 33%;
 }
 
+@mixin gl-md-flex-basis-third {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-flex-basis-third;
+  }
+}
+
 @mixin gl-flex-basis-two-thirds {
   flex-basis: 66%;
 }
