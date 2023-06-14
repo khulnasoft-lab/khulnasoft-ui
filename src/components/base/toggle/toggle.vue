@@ -91,18 +91,37 @@ export default {
   },
   computed: {
     shouldRenderDescription() {
-      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
-      return Boolean(this.$scopedSlots.description || this.description) && this.isVerticalLayout;
+      return (
+        Boolean(this.$scopedSlots.description || this.description) &&
+        (this.isVerticalLayout || this.isBlockLayout)
+      );
     },
     shouldRenderHelp() {
-      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
-      return Boolean(this.$slots.help || this.help) && this.isVerticalLayout;
+      return (
+        Boolean(this.$scopedSlots.help || this.help) &&
+        (this.isVerticalLayout || this.isBlockLayout)
+      );
     },
-    toggleClasses() {
-      return [
-        { 'gl-sr-only': this.labelPosition === 'hidden' },
-        this.shouldRenderDescription ? 'gl-mb-2' : 'gl-mb-3',
-      ];
+    labelContainerClasses() {
+      return {
+        'gl-gap-2': this.isBlockLayout,
+        'gl-mb-3': this.isVerticalLayout,
+      };
+    },
+    labelClasses() {
+      return {
+        'gl-sr-only': this.labelPosition === 'hidden',
+        'gl-mb-2': this.shouldRenderDescription,
+        'gl-mb-3': !this.shouldRenderDescription && !this.isVerticalLayout,
+      };
+    },
+    wrapperClasses() {
+      return {
+        'gl-flex-direction-column': this.isVerticalLayout,
+        'gl-toggle-label-inline': !this.isVerticalLayout,
+        'is-disabled': this.disabled,
+        'gl-justify-content-space-between gl-align-items-center gl-w-full': this.isBlockLayout,
+      };
     },
     icon() {
       return this.value ? 'mobile-issue-close' : 'close';
@@ -115,6 +134,9 @@ export default {
     },
     isVerticalLayout() {
       return this.labelPosition === 'top' || this.labelPosition === 'hidden';
+    },
+    isBlockLayout() {
+      return this.labelPosition === 'block';
     },
   },
 
@@ -142,54 +164,55 @@ export default {
 <template>
   <div
     class="gl-toggle-wrapper gl-display-flex gl-mb-0"
-    :class="{
-      'gl-flex-direction-column': isVerticalLayout,
-      'gl-toggle-label-inline': !isVerticalLayout,
-      'is-disabled': disabled,
-    }"
+    :class="wrapperClasses"
     data-testid="toggle-wrapper"
   >
     <span
-      :id="labelId"
-      :class="toggleClasses"
-      class="gl-toggle-label gl-flex-shrink-0"
-      data-testid="toggle-label"
+      :class="labelContainerClasses"
+      class="gl-flex-shrink-0 gl-display-flex gl-flex-direction-column"
     >
-      <!-- @slot The toggle's label. -->
-      <slot name="label">{{ label }}</slot>
+      <span :id="labelId" :class="labelClasses" class="gl-toggle-label" data-testid="toggle-label">
+        <!-- @slot The toggle's label. -->
+        <slot name="label">{{ label }}</slot>
+      </span>
+      <span
+        v-if="shouldRenderDescription"
+        class="gl-description-label"
+        data-testid="toggle-description"
+      >
+        <!-- @slot A description text to be shown below the label. -->
+        <slot name="description">{{ description }}</slot>
+      </span>
     </span>
     <span
-      v-if="shouldRenderDescription"
-      class="gl-description-label gl-mb-3"
-      data-testid="toggle-description"
+      class="gl-display-flex gl-flex-direction-column"
+      :class="{ 'gl-align-items-flex-end gl-gap-2': isBlockLayout }"
     >
-      <!-- @slot A description text to be shown below the label. -->
-      <slot name="description">{{ description }}</slot>
-    </span>
-    <input v-if="name" :name="name" :value="value" type="hidden" />
-    <button
-      role="switch"
-      :aria-checked="isChecked"
-      :aria-labelledby="labelId"
-      :aria-describedby="helpId"
-      :aria-disabled="disabled"
-      :class="{
-        'gl-toggle': true,
-        'is-checked': value,
-        'is-disabled': disabled,
-      }"
-      class="gl-flex-shrink-0"
-      type="button"
-      @click.prevent="toggleFeature"
-    >
-      <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
-      <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
-        <gl-icon :name="icon" :size="16" />
+      <input v-if="name" :name="name" :value="value" type="hidden" />
+      <button
+        role="switch"
+        :aria-checked="isChecked"
+        :aria-labelledby="labelId"
+        :aria-describedby="helpId"
+        :aria-disabled="disabled"
+        :class="{
+          'gl-toggle': true,
+          'is-checked': value,
+          'is-disabled': disabled,
+        }"
+        class="gl-flex-shrink-0"
+        type="button"
+        @click.prevent="toggleFeature"
+      >
+        <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
+        <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
+          <gl-icon :name="icon" :size="16" />
+        </span>
+      </button>
+      <span v-if="shouldRenderHelp" :id="helpId" class="gl-help-label" data-testid="toggle-help">
+        <!-- @slot A help text to be shown below the toggle. -->
+        <slot name="help">{{ help }}</slot>
       </span>
-    </button>
-    <span v-if="shouldRenderHelp" :id="helpId" class="gl-help-label" data-testid="toggle-help">
-      <!-- @slot A help text to be shown below the toggle. -->
-      <slot name="help">{{ help }}</slot>
     </span>
   </div>
 </template>
