@@ -1,3 +1,10 @@
+## [64.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.10.0...v64.10.1) (2023-06-14)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** listbox stays open ([a83355d](https://gitlab.com/gitlab-org/gitlab-ui/commit/a83355d527c483ca6bd6587da64f565ef118b8da))
+
 # [64.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.9.0...v64.10.0) (2023-06-14)
 
 
