@@ -90,21 +90,22 @@ export default {
     };
   },
   computed: {
+    layoutAllowsDescription() {
+      return this.isVerticalLayout || this.isBlockLayout;
+    },
     shouldRenderDescription() {
       return (
-        Boolean(this.$scopedSlots.description || this.description) &&
-        (this.isVerticalLayout || this.isBlockLayout)
+        Boolean(this.$scopedSlots.description || this.description) && this.layoutAllowsDescription
       );
     },
+    layoutAllowsHelp() {
+      return this.isVerticalLayout || this.isBlockLayout;
+    },
     shouldRenderHelp() {
-      return (
-        Boolean(this.$scopedSlots.help || this.help) &&
-        (this.isVerticalLayout || this.isBlockLayout)
-      );
+      return Boolean(this.$scopedSlots.help || this.help) && this.layoutAllowsHelp;
     },
     labelContainerClasses() {
       return {
-        'gl-gap-2': this.isBlockLayout,
         'gl-mb-3': this.isVerticalLayout,
       };
     },
@@ -120,7 +121,7 @@ export default {
         'gl-flex-direction-column': this.isVerticalLayout,
         'gl-toggle-label-inline': !this.isVerticalLayout,
         'is-disabled': this.disabled,
-        'gl-justify-content-space-between gl-align-items-center gl-w-full': this.isBlockLayout,
+        'gl-toggle-label-position-block': this.isBlockLayout,
       };
     },
     icon() {
@@ -167,10 +168,7 @@ export default {
     :class="wrapperClasses"
     data-testid="toggle-wrapper"
   >
-    <span
-      :class="labelContainerClasses"
-      class="gl-flex-shrink-0 gl-display-flex gl-flex-direction-column"
-    >
+    <span :class="labelContainerClasses" class="gl-toggle-label-container">
       <span :id="labelId" :class="labelClasses" class="gl-toggle-label" data-testid="toggle-label">
         <!-- @slot The toggle's label. -->
         <slot name="label">{{ label }}</slot>
@@ -184,10 +182,7 @@ export default {
         <slot name="description">{{ description }}</slot>
       </span>
     </span>
-    <span
-      class="gl-display-flex gl-flex-direction-column"
-      :class="{ 'gl-align-items-flex-end gl-gap-2': isBlockLayout }"
-    >
+    <span class="gl-toggle-switch-container">
       <input v-if="name" :name="name" :value="value" type="hidden" />
       <button
         role="switch"

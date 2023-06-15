@@ -153,7 +153,7 @@ describe('toggle', () => {
         it(`${flexDirection} class is added to the label`, () => {
           const cssClasses = wrapper.find('[data-testid="toggle-wrapper"]').classes();
 
-          return expect(cssClasses).toContain(flexDirection);
+          expect(cssClasses).toContain(flexDirection);
         });
 
         it(`${hasGlSrOnlyClass ? 'adds' : 'does not add'} 'gl-sr-only' class to the label`, () => {
