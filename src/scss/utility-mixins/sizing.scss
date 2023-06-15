@@ -344,6 +344,30 @@
   min-width: 0;
 }
 
+@mixin gl-min-w-1 {
+  min-width: $gl-spacing-scale-1;
+}
+
+@mixin gl-min-w-2 {
+  min-width: $gl-spacing-scale-2;
+}
+
+@mixin gl-min-w-3 {
+  min-width: $gl-spacing-scale-3;
+}
+
+@mixin gl-min-w-4 {
+  min-width: $gl-spacing-scale-4;
+}
+
+@mixin gl-min-w-5 {
+  min-width: $gl-spacing-scale-5;
+}
+
+@mixin gl-min-w-6 {
+  min-width: $gl-spacing-scale-6;
+}
+
 @mixin gl-min-w-7 {
   min-width: $gl-spacing-scale-7;
 }
