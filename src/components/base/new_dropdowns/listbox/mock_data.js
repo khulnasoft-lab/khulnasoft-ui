@@ -49,6 +49,8 @@ export const mockOptions = [
   },
 ];
 
+export const mockOptionsValues = mockOptions.map(({ value }) => value);
+
 export const mockGroups = [
   {
     text: 'Branches',
