@@ -1,3 +1,10 @@
+## [64.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.10.1...v64.10.2) (2023-06-16)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** reverse clear all logic ([270777b](https://gitlab.com/gitlab-org/gitlab-ui/commit/270777bd74cfa2e76eff594ec1612ea408b4372f))
+
 ## [64.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.10.0...v64.10.1) (2023-06-14)
 
 
