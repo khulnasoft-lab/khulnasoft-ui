@@ -18,7 +18,7 @@ import GlIntersectionObserver from '../../../utilities/intersection_observer/int
 import GlCollapsibleListbox, { ITEM_SELECTOR } from './listbox.vue';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxGroup from './listbox_group.vue';
-import { mockOptions, mockGroups, mockGroupsWithTextSrOnly } from './mock_data';
+import { mockOptions, mockOptionsValues, mockGroups, mockGroupsWithTextSrOnly } from './mock_data';
 
 jest.mock('@floating-ui/dom');
 autoUpdate.mockImplementation(() => {
@@ -485,16 +485,16 @@ describe('GlCollapsibleListbox', () => {
     });
 
     it.each`
-      multiple
-      ${true}
-      ${false}
+      title      | multiple | selected
+      ${'shows'} | ${true}  | ${mockOptionsValues}
+      ${'hides'} | ${false} | ${mockOptions[1].value}
     `(
-      'shows the reset button if the label is provided and the selection is not empty and mode if multiple mode is $multiple',
-      ({ multiple }) => {
+      '$title the reset button if the label is provided and the selection is complete and mode if multiple mode is $multiple',
+      ({ multiple, selected }) => {
         buildWrapper({
           headerText: 'Select assignee',
           resetButtonLabel: 'Unassign',
-          selected: mockOptions[1].value,
+          selected,
           items: mockOptions,
           multiple,
         });
@@ -503,7 +503,7 @@ describe('GlCollapsibleListbox', () => {
       }
     );
 
-    it('shows the reset button if the label is provided and the selection is not empty', () => {
+    it('hides reset button if the label is provided and the selection is not complete', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
@@ -512,7 +512,7 @@ describe('GlCollapsibleListbox', () => {
         multiple: true,
       });
 
-      expect(findResetButton().text()).toBe('Unassign');
+      expect(findResetButton().exists()).toBe(false);
     });
 
     it('hides reset button if dropdown has no items', () => {
@@ -546,7 +546,7 @@ describe('GlCollapsibleListbox', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
-        selected: mockOptions[1].value,
+        selected: mockOptionsValues,
         items: mockOptions,
         multiple: true,
       });
@@ -603,6 +603,32 @@ describe('GlCollapsibleListbox', () => {
       });
 
       expect(findSelectAllButton().exists()).toBe(false);
+    });
+
+    it('hides select all button if all items are selected', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        showSelectAllButtonLabel: 'Select All',
+        selected: mockOptionsValues,
+        items: mockOptions,
+        multiple: true,
+      });
+
+      expect(findSelectAllButton().exists()).toBe(false);
+    });
+
+    it('has the label text "Select All" if the label is provided and some items are selected', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        showSelectAllButtonLabel: 'Select All',
+        selected: [mockOptions[1].value],
+        items: mockOptions,
+        multiple: true,
+      });
+
+      expect(findSelectAllButton().text()).toBe('Select All');
     });
 
     it('has the label text "Select All" if the label is provided and the selection is empty', () => {
