@@ -1,3 +1,10 @@
+# [64.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.10.2...v64.11.0) (2023-06-16)
+
+
+### Features
+
+* **Typography:** add text size scale variables ([355c159](https://gitlab.com/gitlab-org/gitlab-ui/commit/355c159d5d1753273a65d6ff98c598c7d6b130c3))
+
 ## [64.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.10.1...v64.10.2) (2023-06-16)
 
 
