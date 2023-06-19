@@ -1,3 +1,10 @@
+# [64.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.12.0...v64.13.0) (2023-06-19)
+
+
+### Features
+
+* **GlKeysetPagination:** hides component when hasPreviousPage & hasNextPage is falsy ([93dbdfc](https://gitlab.com/gitlab-org/gitlab-ui/commit/93dbdfc3f94cfdd407e17316c3c329d1180786a0))
+
 # [64.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.11.1...v64.12.0) (2023-06-19)
 
 
