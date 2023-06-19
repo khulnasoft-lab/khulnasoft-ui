@@ -7,6 +7,8 @@ const bFormTextGlobalConfig = {
 };
 
 const tooltipGlobalConfig = {
+  // Work around for https://github.com/bootstrap-vue/bootstrap-vue/issues/6507
+  boundaryPadding: 5,
   customClass: 'gl-tooltip',
   delay: tooltipDelay,
 };
