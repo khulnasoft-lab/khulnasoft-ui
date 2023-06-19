@@ -306,3 +306,8 @@ export const loadingIconSizes = {
   'lg (32x32)': 'lg',
   'xl (64x64)': 'xl',
 };
+
+export const loadingIconVariants = {
+  spinner: 'spinner',
+  dots: 'dots',
+};

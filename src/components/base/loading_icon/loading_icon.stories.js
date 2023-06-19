@@ -1,4 +1,4 @@
-import { viewModeOptions, loadingIconSizes } from '../../../utils/constants';
+import { viewModeOptions, loadingIconSizes, loadingIconVariants } from '../../../utils/constants';
 import GlLoadingIcon from './loading_icon.vue';
 import readme from './loading_icon.md';
 
@@ -9,6 +9,7 @@ const template = `
       :size="size"
       :inline="inline"
       :color="color"
+      :variant="variant"
     />Loading
   </div>
 `;
@@ -20,6 +21,7 @@ const generateProps = () => ({
   size: defaultValue('size'),
   color: defaultValue('color'),
   inline: defaultValue('inline'),
+  variant: defaultValue('variant'),
 });
 
 const Template = (args) => ({
@@ -48,6 +50,10 @@ export default {
     },
     size: {
       options: loadingIconSizes,
+      control: 'select',
+    },
+    variant: {
+      options: loadingIconVariants,
       control: 'select',
     },
   },
