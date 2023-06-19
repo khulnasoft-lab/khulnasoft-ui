@@ -1,3 +1,15 @@
+# [64.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.11.1...v64.12.0) (2023-06-19)
+
+
+### Bug Fixes
+
+* **GlTooltip:** Reduce component boundary padding ([dcefc8c](https://gitlab.com/gitlab-org/gitlab-ui/commit/dcefc8c3a16299b98d45269e675dfc4dd3f6b825))
+
+
+### Features
+
+* add min-weight options ([8635a9c](https://gitlab.com/gitlab-org/gitlab-ui/commit/8635a9c78690dea3f177adf9df31b4de7bdb41a7))
+
 ## [64.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.11.0...v64.11.1) (2023-06-19)
 
 
