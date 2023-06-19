@@ -411,7 +411,7 @@ export default {
       }
 
       if (this.multiple) {
-        return this.selected.length === this.items.length;
+        return this.selected.length > 0;
       }
       return Boolean(this.selected);
     },
@@ -432,7 +432,7 @@ export default {
         return false;
       }
 
-      return this.selected.length !== this.items.length;
+      return this.selected.length === 0;
     },
     showIntersectionObserver() {
       return this.infiniteScroll && !this.infiniteScrollLoading && !this.loading && !this.searching;
