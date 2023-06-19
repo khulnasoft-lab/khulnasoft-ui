@@ -26,13 +26,14 @@ ${utilities_scss}: ${utilities_mixin_scss} ${generate_utilities_script}
 
 .PHONY: copy-fonts
 
-copy-fonts: static/fonts/GitLabSans.woff2 static/fonts/GitLabMono.woff2
+copy-fonts: static/fonts/GitLabSans.woff2 static/fonts/GitLabSans-Italic.woff2 \
+	static/fonts/GitLabMono.woff2 static/fonts/GitLabMono-Italic.woff2
 
-static/fonts/GitLabSans.woff2: static/fonts
-	cp node_modules/@gitlab/fonts/gitlab-sans/GitLabSans.woff2 $@
+static/fonts/GitLabSans%: static/fonts
+	cp node_modules/@gitlab/fonts/gitlab-sans/$(notdir $@) $@
 
-static/fonts/GitLabMono.woff2: static/fonts
-	cp node_modules/@gitlab/fonts/gitlab-mono/GitLabMono.woff2 $@
+static/fonts/GitLabMono%: static/fonts
+	cp node_modules/@gitlab/fonts/gitlab-mono/$(notdir $@) $@
 
 static/fonts:
 	mkdir -p static/fonts
