@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { computePosition, autoUpdate, offset } from '@floating-ui/dom';
+import { computePosition, autoUpdate, offset, autoPlacement } from '@floating-ui/dom';
 import {
   ARROW_DOWN,
   GL_DROPDOWN_FOCUS_CONTENT,
@@ -15,6 +15,7 @@ import GlBaseDropdown from './base_dropdown.vue';
 jest.mock('@floating-ui/dom');
 const mockStopAutoUpdate = jest.fn();
 offset.mockImplementation((options) => options);
+autoPlacement.mockImplementation((options) => options);
 
 const DEFAULT_BTN_TOGGLE_CLASSES = [
   'btn',
@@ -104,7 +105,12 @@ describe('base dropdown', () => {
           {
             placement: 'bottom-start',
             strategy: 'absolute',
-            middleware: [offset({ mainAxis: DEFAULT_OFFSET })],
+            middleware: [
+              offset({ mainAxis: DEFAULT_OFFSET }),
+              autoPlacement({
+                allowedPlacements: ['bottom-start', 'top-start'],
+              }),
+            ],
           }
         );
       });
@@ -119,7 +125,12 @@ describe('base dropdown', () => {
           {
             placement: 'bottom',
             strategy: 'absolute',
-            middleware: [offset({ mainAxis: DEFAULT_OFFSET })],
+            middleware: [
+              offset({ mainAxis: DEFAULT_OFFSET }),
+              autoPlacement({
+                allowedPlacements: ['bottom', 'top'],
+              }),
+            ],
           }
         );
       });
@@ -134,7 +145,12 @@ describe('base dropdown', () => {
           {
             placement: 'bottom-end',
             strategy: 'absolute',
-            middleware: [offset({ mainAxis: DEFAULT_OFFSET })],
+            middleware: [
+              offset({ mainAxis: DEFAULT_OFFSET }),
+              autoPlacement({
+                allowedPlacements: ['bottom-end', 'top-end'],
+              }),
+            ],
           }
         );
       });
@@ -153,7 +169,7 @@ describe('base dropdown', () => {
           {
             placement: 'bottom-end',
             strategy: 'absolute',
-            middleware: [offset(customOffset)],
+            middleware: [offset(customOffset), autoPlacement(expect.any(Object))],
           }
         );
       });
