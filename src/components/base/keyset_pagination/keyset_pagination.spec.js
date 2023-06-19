@@ -12,7 +12,11 @@ describe('GlKeysetPagination', () => {
 
   const createComponent = (props = {}, scopedSlots = {}) => {
     wrapper = mount(GlKeysetPagination, {
-      propsData: props,
+      propsData: {
+        hasPreviousPage: true,
+        hasNextPage: true,
+        ...props,
+      },
       scopedSlots,
     });
   };
@@ -56,14 +60,14 @@ describe('GlKeysetPagination', () => {
     });
   });
 
-  describe('without any props', () => {
+  describe('when both hasNextPage & hasPreviousPage is false', () => {
     beforeEach(() => {
-      createComponent();
+      createComponent({ hasNextPage: false, hasPreviousPage: false });
     });
 
-    it('renders with two disabled buttons', () => {
-      expectPrevButtonToBeDisabled();
-      expectNextButtonToBeDisabled();
+    it('does not render pagination', () => {
+      expect(findPrevButton().exists()).toBe(false);
+      expect(findNextButton().exists()).toBe(false);
     });
   });
 
