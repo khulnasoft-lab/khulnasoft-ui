@@ -1,3 +1,10 @@
+## [64.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.0...v64.13.1) (2023-06-21)
+
+
+### Bug Fixes
+
+* **css:** Allow overriding gray-a variables ([04cc50e](https://gitlab.com/gitlab-org/gitlab-ui/commit/04cc50e4cb742f42029ea2ad7882d05991afc74d))
+
 # [64.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.12.0...v64.13.0) (2023-06-19)
 
 
