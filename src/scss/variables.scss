@@ -303,17 +303,12 @@ $data-viz-orange-800: #6f3500;
 $data-viz-orange-900: #5e2f05;
 $data-viz-orange-950: #4b2707;
 
-$darken-normal-factor: 7%;
-$darken-dark-factor: 10%;
-$darken-border-factor: 5%;
-$darken-border-dashed-factor: 25%;
-
-$t-gray-a-02: rgba($gray-950, 0.02);
-$t-gray-a-04: rgba($gray-950, 0.04);
-$t-gray-a-06: rgba($gray-950, 0.06);
-$t-gray-a-08: rgba($gray-950, 0.08);
-$t-gray-a-16: rgba($gray-950, 0.16);
-$t-gray-a-24: rgba($gray-950, 0.24);
+$t-gray-a-02: rgba($gray-950, 0.02) !default;
+$t-gray-a-04: rgba($gray-950, 0.04) !default;
+$t-gray-a-06: rgba($gray-950, 0.06) !default;
+$t-gray-a-08: rgba($gray-950, 0.08) !default;
+$t-gray-a-16: rgba($gray-950, 0.16) !default;
+$t-gray-a-24: rgba($gray-950, 0.24) !default;
 
 // Text
 $gl-text-color: $gray-900 !default;
