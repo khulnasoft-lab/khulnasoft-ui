@@ -1,10 +1,11 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { computePosition, autoUpdate, offset, size, flip } from '@floating-ui/dom';
+import { computePosition, autoUpdate, offset, size, autoPlacement } from '@floating-ui/dom';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
   dropdownPlacements,
+  dropdownAllowedAutoPlacements,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import {
@@ -235,7 +236,9 @@ export default {
         strategy: this.positioningStrategy,
         middleware: [
           offset(this.offset),
-          flip(),
+          autoPlacement({
+            allowedPlacements: dropdownAllowedAutoPlacements[this.placement],
+          }),
           size({
             apply: ({ availableHeight, elements }) => {
               const contentsEl = elements.floating.querySelector(`.${GL_DROPDOWN_CONTENTS_CLASS}`);
