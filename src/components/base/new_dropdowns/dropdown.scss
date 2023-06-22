@@ -137,12 +137,12 @@
         &.top-scrim-light {
           height: 2.25rem;
           border-radius: 0.375rem 0.375rem 0 0;
-          background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0));
+          background: linear-gradient(180deg, $white 0%, $transparent-rgba);
         }
 
         &.top-scrim-dark {
           height: 0.25rem;
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
+          background: linear-gradient(180deg, $t-gray-a-16 0%, $transparent-rgba 100%);
         }
       }
     }
@@ -156,7 +156,7 @@
         position: relative;
         top: calc(-2.25rem + #{$dropdown-content-padding});
         border-radius: 0 0 0.375rem 0.375rem;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1));
+        background: linear-gradient(180deg, $transparent-rgba 0%, $white);
       }
     }
 
