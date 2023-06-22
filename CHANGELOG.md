@@ -1,3 +1,10 @@
+## [64.13.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.1...v64.13.2) (2023-06-22)
+
+
+### Bug Fixes
+
+* **dropdowns:** replace flip middleware with autoPlacement ([23b44e8](https://gitlab.com/gitlab-org/gitlab-ui/commit/23b44e8a0c96aaa2a462e28d2f2f9cb2ab855431))
+
 ## [64.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.0...v64.13.1) (2023-06-21)
 
 
