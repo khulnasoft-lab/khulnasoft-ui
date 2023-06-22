@@ -1,3 +1,10 @@
+## [64.13.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.2...v64.13.3) (2023-06-22)
+
+
+### Bug Fixes
+
+* **GlListbox:** Dark scrim in dark mode ([2672dbb](https://gitlab.com/gitlab-org/gitlab-ui/commit/2672dbb03dec67cf5da218c22732f2cc30c56328))
+
 ## [64.13.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.1...v64.13.2) (2023-06-22)
 
 
