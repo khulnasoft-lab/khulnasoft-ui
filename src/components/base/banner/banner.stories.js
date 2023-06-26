@@ -8,6 +8,7 @@ import readme from './banner.md';
 const template = `
     <gl-banner
       :title="title"
+      :button-attributes="buttonAttributes"
       :button-text="buttonText"
       :button-link="buttonLink"
       :svg-path="svgPath"
@@ -20,6 +21,7 @@ const template = `
 
 const generateProps = ({
   title = 'Upgrade your plan to activate Service Desk',
+  buttonAttributes = { target: '_blank' },
   buttonText = 'Upgrade your plan',
   buttonLink = 'https://gitlab.com',
   svgPath = serviceDeskCalloutSvg,
@@ -27,6 +29,7 @@ const generateProps = ({
   embedded = false,
 } = {}) => ({
   title,
+  buttonAttributes,
   buttonText,
   buttonLink,
   svgPath,
@@ -69,6 +72,7 @@ export const WithActions = (args, { argTypes }) => ({
   template: `
     <gl-banner
       :title="title"
+      :button-attributes="buttonAttributes"
       :button-text="buttonText"
       :button-link="buttonLink"
       :svg-path="svgPath"
