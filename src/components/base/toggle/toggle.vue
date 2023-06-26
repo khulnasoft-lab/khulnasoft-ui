@@ -98,6 +98,9 @@ export default {
         Boolean(this.$scopedSlots.description || this.description) && this.layoutAllowsDescription
       );
     },
+    labelIsSrOnly() {
+      return this.labelPosition === 'hidden';
+    },
     layoutAllowsHelp() {
       return this.isVerticalLayout || this.isBlockLayout;
     },
@@ -106,12 +109,12 @@ export default {
     },
     labelContainerClasses() {
       return {
-        'gl-mb-3': this.isVerticalLayout,
+        'gl-mb-3': this.isVerticalLayout && !this.labelIsSrOnly,
       };
     },
     labelClasses() {
+      if (this.labelIsSrOnly) return 'gl-sr-only';
       return {
-        'gl-sr-only': this.labelPosition === 'hidden',
         'gl-mb-2': this.shouldRenderDescription,
         'gl-mb-3': !this.shouldRenderDescription && !this.isVerticalLayout,
       };
