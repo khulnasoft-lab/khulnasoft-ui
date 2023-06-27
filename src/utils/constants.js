@@ -128,10 +128,17 @@ export const dropdownPlacements = {
   right: 'bottom-end',
 };
 
+const dropdownAnyCornerPlacement = [
+  dropdownPlacements.left,
+  'top-start',
+  dropdownPlacements.right,
+  'top-end',
+];
+
 export const dropdownAllowedAutoPlacements = {
-  left: [dropdownPlacements.left, 'top-start'],
+  left: dropdownAnyCornerPlacement,
   center: [dropdownPlacements.center, 'top'],
-  right: [dropdownPlacements.right, 'top-end'],
+  right: dropdownAnyCornerPlacement,
 };
 
 export const buttonSizeOptions = {
