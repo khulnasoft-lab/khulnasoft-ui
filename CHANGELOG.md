@@ -1,3 +1,10 @@
+# [64.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.4...v64.14.0) (2023-06-28)
+
+
+### Features
+
+* **GlToggle:** Add a block level toggle ([41af6fd](https://gitlab.com/gitlab-org/gitlab-ui/commit/41af6fdb48f5a6f7ee2762405e91244981c216fd))
+
 ## [64.13.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.3...v64.13.4) (2023-06-28)
 
 
