@@ -398,4 +398,158 @@ describe('pagination component', () => {
       expect(nextButton.attributes('aria-label')).toBeUndefined();
     });
   });
+
+  describe('non-click (indeterminate) events', () => {
+    beforeEach(() => {
+      createComponent({
+        totalItems: 0,
+        prevPage: 1,
+        nextPage: 3,
+      });
+    });
+
+    it.each`
+      button        | btnIdx
+      ${'previous'} | ${0}
+      ${'next'}     | ${1}
+    `('emits a `hover` event when the $button button is hovered', ({ btnIdx }) => {
+      const evt = new MouseEvent('mouseenter');
+      const button = findButtons().at(btnIdx).element;
+
+      button.dispatchEvent(evt);
+
+      expect(wrapper.emitted('hover')).toEqual([[button]]);
+    });
+
+    it.each`
+      button        | btnIdx
+      ${'previous'} | ${0}
+      ${'next'}     | ${1}
+    `('emits a `focus` event when the $button button is focused', ({ btnIdx }) => {
+      const evt = new Event('focus');
+      const button = findButtons().at(btnIdx).element;
+
+      button.dispatchEvent(evt);
+
+      expect(wrapper.emitted('focus')).toEqual([[button]]);
+    });
+
+    it.each`
+      button        | btnIdx
+      ${'previous'} | ${0}
+      ${'next'}     | ${1}
+    `('does not emit a `focus` event when the $button button is clicked', ({ btnIdx }) => {
+      const button = findButtons().at(btnIdx);
+
+      button.trigger('click');
+
+      expect(wrapper.emitted()).not.toHaveProperty('focus');
+    });
+
+    it.each`
+      button        | btnIdx | page
+      ${'previous'} | ${0}   | ${1}
+      ${'next'}     | ${1}   | ${3}
+    `(
+      'calls the provided `preload` prop with the appropriate value for the $button button',
+      ({ btnIdx, page }) => {
+        const preload = jest.fn();
+        const prev = 1;
+        const next = 3;
+
+        createComponent({
+          totalItems: 0,
+          prevPage: prev,
+          nextPage: next,
+          preload,
+        });
+        const evt = new MouseEvent('mouseenter');
+        const button = findButtons().at(btnIdx).element;
+
+        button.dispatchEvent(evt);
+
+        expect(preload).toHaveBeenCalledWith(page);
+      }
+    );
+
+    it.each`
+      button        | btnIdx | callValue
+      ${'previous'} | ${0}   | ${10}
+      ${'next'}     | ${5}   | ${12}
+    `(
+      'calls the provided `preload` prop with the appropriate value for the $button button in non-compact navigation',
+      ({ btnIdx, callValue }) => {
+        const preload = jest.fn();
+
+        createComponent({
+          totalItems: 60,
+          perPage: 10,
+          value: 11,
+          preload,
+        });
+        const evt = new MouseEvent('mouseenter');
+        const button = findButtons().at(btnIdx).element;
+
+        button.dispatchEvent(evt);
+
+        expect(preload).toHaveBeenCalledWith(callValue);
+      }
+    );
+
+    it.each`
+      evt        | trigger
+      ${'hover'} | ${() => new MouseEvent('mouseenter')}
+      ${'focus'} | ${() => new Event('focus')}
+    `(
+      'emits the $evt event on a number button in non-compact navigation mode',
+      async ({ evt, trigger }) => {
+        createComponent({
+          totalItems: 60,
+          perPage: 10,
+          value: 11,
+        });
+        const button = findButtons().at(1).element;
+
+        button.dispatchEvent(trigger());
+
+        expect(wrapper.emitted(evt)).toEqual([[button]]);
+      }
+    );
+
+    it('calls preload with the correct page value on a number button in non-compact navigation mode', () => {
+      const preload = jest.fn();
+
+      createComponent({
+        totalItems: 60,
+        perPage: 10,
+        value: 11,
+        preload,
+      });
+      const evt = new MouseEvent('mouseenter');
+      const button = findButtons().at(1).element;
+
+      button.dispatchEvent(evt);
+
+      expect(preload).toHaveBeenCalledWith(1);
+    });
+
+    it('does not call preload or emit any events on an ellipsis button', () => {
+      const preload = jest.fn();
+
+      createComponent({
+        totalItems: 200,
+        perPage: 10,
+        value: 11,
+        preload,
+      });
+      const button = findButtons().at(2).element;
+
+      button.dispatchEvent(new MouseEvent('mouseenter'));
+      button.dispatchEvent(new Event('focus'));
+
+      expect(wrapper.emitted()).not.toHaveProperty('hover');
+      expect(wrapper.emitted()).not.toHaveProperty('focus');
+      expect(preload).not.toHaveBeenCalled();
+    });
+  });
 });

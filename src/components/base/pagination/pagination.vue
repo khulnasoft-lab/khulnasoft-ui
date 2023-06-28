@@ -70,6 +70,14 @@ export default {
       default: null,
     },
     /**
+     * A function that is called when an indeterminate action happens on a button, like hover or focus
+     */
+    preload: {
+      type: Function,
+      required: false,
+      default: null,
+    },
+    /**
      * When using the compact pagination, use this prop to pass the previous page number
      */
     prevPage: {
@@ -256,6 +264,12 @@ export default {
     isCompactPagination() {
       return Boolean(!this.totalItems && (this.prevPage || this.nextPage));
     },
+    prevValue() {
+      return this.isCompactPagination ? this.prevPage : this.value - 1;
+    },
+    nextValue() {
+      return this.isCompactPagination ? this.nextPage : this.value + 1;
+    },
     prevPageIsDisabled() {
       return this.pageIsDisabled(this.value - 1);
     },
@@ -317,6 +331,7 @@ export default {
         attrs.href = this.linkGen(page);
       }
       listeners.click = (e) => this.handleClick(e, page);
+
       return {
         content: page,
         component: isDisabled ? 'span' : GlLink,
@@ -328,6 +343,7 @@ export default {
           active: isActivePage,
           disabled: isDisabled,
         },
+        preload: (e) => this.handleIndeterminate(e, page),
         attrs,
         listeners,
       };
@@ -340,6 +356,7 @@ export default {
         component: 'span',
         disabled: true,
         slotData: {},
+        preload: () => {},
         listeners: {},
       };
     },
@@ -370,6 +387,28 @@ export default {
        */
       this.$emit('next');
     },
+    handleIndeterminate(event, value) {
+      const emitEvents = {
+        /**
+         * Emitted when the previous or next buttons are hovered
+         * @event hover
+         */
+        mouseenter: 'hover',
+        /**
+         * Emitted when the previous or next buttons are focused
+         * @event focus
+         */
+        focus: 'focus',
+      };
+
+      if (value) {
+        if (emitEvents[event.type]) {
+          this.$emit(emitEvents[event.type], event.target);
+        }
+
+        this.preload?.(value);
+      }
+    },
   },
 };
 </script>
@@ -390,7 +429,10 @@ export default {
           class="gl-link page-link prev-page-item gl-display-flex"
           :aria-label="prevPageAriaLabel"
           :href="prevPageHref"
-          @click="handlePrevious($event, value - 1)"
+          @click="handlePrevious($event, prevValue)"
+          @focus="handleIndeterminate($event, prevValue)"
+          @mouseenter="handleIndeterminate($event, prevValue)"
+          @mousedown.prevent
         >
           <!--
             @slot Content for the "previous" button. Overrides the "prevText" prop.
@@ -419,6 +461,9 @@ export default {
           :aria-disabled="item.disabled"
           class="page-link"
           v-bind="item.attrs"
+          @focus="handleIndeterminate($event, item.slotData.page)"
+          @mouseenter="handleIndeterminate($event, item.slotData.page)"
+          @mousedown.prevent
           v-on="item.listeners"
         >
           <!--
@@ -453,7 +498,10 @@ export default {
           class="gl-link page-link next-page-item gl-display-flex"
           :aria-label="nextPageAriaLabel"
           :href="nextPageHref"
-          @click="handleNext($event, value + 1)"
+          @click="handleNext($event, nextValue)"
+          @focus="handleIndeterminate($event, nextValue)"
+          @mouseenter="handleIndeterminate($event, nextValue)"
+          @mousedown.prevent
         >
           <!--
             @slot Content for the "next" button. Overrides the "nextText" prop.
