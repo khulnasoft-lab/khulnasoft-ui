@@ -29,24 +29,50 @@
     .gl-toggle {
       @include gl-cursor-not-allowed;
       @include gl-bg-gray-200;
+    }
 
-      .toggle-icon > svg {
-        @include gl-fill-gray-200;
-      }
+    .toggle-icon > svg {
+      @include gl-fill-gray-200;
     }
 
     .gl-toggle.is-checked {
       @include gl-bg-blue-200;
+    }
 
-      .toggle-icon > svg {
-        @include gl-fill-blue-200;
-      }
+    .toggle-icon > svg {
+      @include gl-fill-blue-200;
     }
 
     .gl-toggle-label,
     .gl-description-label {
       @include gl-text-gray-500;
     }
+  }
+}
+
+.gl-toggle-label-container {
+  @include gl-flex-shrink-0;
+  @include gl-display-flex;
+  @include gl-flex-direction-column;
+}
+
+.gl-toggle-switch-container {
+  @include gl-display-flex;
+  @include gl-flex-direction-column;
+}
+
+.gl-toggle-label-position-block {
+  @include gl-justify-content-space-between;
+  @include gl-align-items-center;
+  @include gl-w-full;
+
+  .gl-toggle-label-container {
+    @include gl-gap-2;
+  }
+
+  .gl-toggle-switch-container {
+    @include gl-align-items-flex-end;
+    @include gl-gap-2;
   }
 }
 
