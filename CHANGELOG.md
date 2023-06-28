@@ -1,3 +1,10 @@
+## [64.13.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.3...v64.13.4) (2023-06-28)
+
+
+### Bug Fixes
+
+* **dropdowns:** loosen up auto-placement settings ([3c1366a](https://gitlab.com/gitlab-org/gitlab-ui/commit/3c1366af5c9e70f4e3b0828c5b0933820e379dd1))
+
 ## [64.13.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.2...v64.13.3) (2023-06-22)
 
 
