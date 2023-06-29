@@ -1,3 +1,10 @@
+# [64.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.14.0...v64.15.0) (2023-06-29)
+
+
+### Features
+
+* **GlBanner:** add button attributes to banner ([932dc36](https://gitlab.com/gitlab-org/gitlab-ui/commit/932dc36bd97441ab208ff4691c15526caf133d8f))
+
 # [64.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.13.4...v64.14.0) (2023-06-28)
 
 
