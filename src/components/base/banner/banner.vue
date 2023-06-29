@@ -20,6 +20,14 @@ export default {
       required: true,
     },
     /**
+     * HTML attributes to add to the submit button.
+     */
+    buttonAttributes: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    /**
      * Text for the submit button.
      */
     buttonText: {
@@ -116,6 +124,7 @@ export default {
         category="primary"
         data-testid="gl-banner-primary-button"
         :href="buttonLink"
+        v-bind="buttonAttributes"
         @click="primaryButtonClicked"
         >{{ buttonText }}</gl-button
       >

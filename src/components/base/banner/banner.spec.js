@@ -18,6 +18,8 @@ describe('banner component', () => {
     });
   };
 
+  const findButton = () => wrapper.findComponent(GlButton);
+
   describe('Promotion', () => {
     describe('with only the required props', () => {
       beforeEach(() => {
@@ -29,7 +31,7 @@ describe('banner component', () => {
       });
 
       it('should render the button', () => {
-        const button = wrapper.findComponent(GlButton);
+        const button = findButton();
 
         expect(button.text()).toEqual(propsData.buttonText);
         expect(button.attributes('href')).toEqual(propsData.buttonLink);
@@ -61,6 +63,22 @@ describe('banner component', () => {
 
       it('should render the illustration', () => {
         expect(wrapper.find('img').exists()).toBe(true);
+      });
+    });
+
+    describe('with buttonAttributes', () => {
+      beforeEach(() => {
+        createWrapper({
+          props: {
+            buttonAttributes: {
+              target: '_blank',
+            },
+          },
+        });
+      });
+
+      it('should pass the attributes to the button', () => {
+        expect(findButton().attributes('target')).toBe('_blank');
       });
     });
   });
