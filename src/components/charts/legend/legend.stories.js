@@ -6,7 +6,7 @@ import {
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
 } from '../../../utils/stories_constants';
-import { gray200 } from '../../../../scss_to_js/scss_variables';
+import { GRAY_200 } from '../../../../dist/tokens/js/tokens';
 import readme from './legend.md';
 
 const generateOptions = (seriesLength, seriesNameType) => {
@@ -84,7 +84,7 @@ const baseStoryOptions = {
 const disabledLegendItem = {
   type: 'solid',
   name: 'Disabled Item',
-  color: gray200,
+  color: GRAY_200,
   disabled: true,
 };
 

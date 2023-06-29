@@ -1,6 +1,6 @@
 <script>
 import merge from 'lodash/merge';
-import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { GRAY_200 } from '../../../../dist/tokens/js/tokens';
 import {
   defaultChartOptions,
   dataZoomAdjustments,
@@ -108,7 +108,7 @@ export default {
               alignWithLabel: true,
               show: true,
               lineStyle: {
-                color: gray200,
+                color: GRAY_200,
               },
             },
             axisLabel: {

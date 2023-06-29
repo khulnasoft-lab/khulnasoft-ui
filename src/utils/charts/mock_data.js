@@ -1,4 +1,4 @@
-import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { BLUE_500 } from '../../../dist/tokens/js/tokens';
 import { hexToRgba } from '../utils';
 import { colorFromDefaultPalette } from './theme';
 
@@ -74,7 +74,7 @@ export const mockAnnotationsSeries = {
       data: [],
       markLine: {
         lineStyle: {
-          color: blue500,
+          color: BLUE_500,
         },
         data: [
           { xAxis: '2018-01-25T01:00:00.000Z' },
@@ -87,7 +87,7 @@ export const mockAnnotationsSeries = {
         symbolSize: '8',
         symbolOffset: [0, ' 60%'],
         itemStyle: {
-          color: blue500,
+          color: BLUE_500,
         },
         data: [
           {
