@@ -11,8 +11,6 @@ const colors = {
 };
 const defaultColor = colors.dark;
 
-const baseCssClass = 'gl-spinner';
-
 export default {
   name: 'GlLoadingIcon',
   props: {
@@ -40,6 +38,14 @@ export default {
         return Object.keys(colors).includes(value);
       },
     },
+    variant: {
+      type: String,
+      required: false,
+      default: 'spinner',
+      validator(value) {
+        return ['spinner', 'dots'].includes(value);
+      },
+    },
     /**
      * Wrap in a span or div.
      */
@@ -53,7 +59,18 @@ export default {
     rootElementType() {
       return this.inline ? 'span' : 'div';
     },
-    cssClasses() {
+    spinnerCssClasses() {
+      const baseCssClass = 'gl-spinner';
+
+      return [
+        baseCssClass,
+        `${baseCssClass}-${colors[this.color]}`,
+        `${baseCssClass}-${this.size}`,
+      ];
+    },
+    dotsCssClasses() {
+      const baseCssClass = 'gl-dots-loader';
+
       return [
         baseCssClass,
         `${baseCssClass}-${colors[this.color]}`,
@@ -64,7 +81,19 @@ export default {
 };
 </script>
 <template>
-  <component :is="rootElementType" class="gl-spinner-container" role="status">
-    <span :class="cssClasses" class="gl-vertical-align-text-bottom!" :aria-label="label"></span>
+  <component
+    :is="rootElementType"
+    v-if="variant === 'spinner'"
+    class="gl-spinner-container"
+    role="status"
+  >
+    <span
+      class="gl-vertical-align-text-bottom!"
+      :class="spinnerCssClasses"
+      :aria-label="label"
+    ></span>
+  </component>
+  <component :is="rootElementType" v-else :class="dotsCssClasses" role="status" :aria-label="label">
+    <span></span>
   </component>
 </template>

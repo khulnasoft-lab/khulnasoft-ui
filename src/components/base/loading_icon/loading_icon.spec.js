@@ -7,95 +7,105 @@ describe('loading icon component', () => {
     wrapper = shallowMount(LoadingIcon, { propsData, attrs });
   };
 
-  const baseCssClass = 'gl-spinner';
-  const findSpinnerEl = () => wrapper.find(`.${baseCssClass}`);
+  const spinnerBaseCssClass = 'gl-spinner';
+  const findSpinnerEl = () => wrapper.find(`.${spinnerBaseCssClass}`);
   const getSpinnerClasses = () => findSpinnerEl().classes();
 
-  describe('display', () => {
-    it('should render as a block by default', () => {
-      createComponent();
-      expect(wrapper.element.tagName).toBe('DIV');
+  const dotsLoaderBaseCssClass = 'gl-dots-loader';
+  const findDotsLoaderEl = () => wrapper.find(`.${dotsLoaderBaseCssClass}`);
+  const getDotsLoaderClasses = () => findDotsLoaderEl().classes();
+
+  describe.each`
+    variant      | baseCssClass              | findLoaderEl        | getLoaderClasses
+    ${'spinner'} | ${spinnerBaseCssClass}    | ${findSpinnerEl}    | ${getSpinnerClasses}
+    ${'dots'}    | ${dotsLoaderBaseCssClass} | ${findDotsLoaderEl} | ${getDotsLoaderClasses}
+  `('variant $variant', ({ variant, baseCssClass, findLoaderEl, getLoaderClasses }) => {
+    describe('display', () => {
+      it('should render as a block by default', () => {
+        createComponent({ variant });
+        expect(wrapper.element.tagName).toBe('DIV');
+      });
+
+      it('should render inline using prop', () => {
+        createComponent({ variant, inline: true });
+        expect(wrapper.element.tagName).toBe('SPAN');
+      });
     });
 
-    it('should render inline using prop', () => {
-      createComponent({ inline: true });
-      expect(wrapper.element.tagName).toBe('SPAN');
-    });
-  });
+    describe('css class', () => {
+      const supportedSizes = ['sm', 'md', 'lg'];
+      const supportedColors = ['dark', 'light'];
+      const sizeColorCombinations = supportedSizes.reduce(
+        (combinations, size) => combinations.concat(supportedColors.map((color) => [size, color])),
+        []
+      );
 
-  describe('css class', () => {
-    const supportedSizes = ['sm', 'md', 'lg'];
-    const supportedColors = ['dark', 'light'];
-    const sizeColorCombinations = supportedSizes.reduce(
-      (combinations, size) => combinations.concat(supportedColors.map((color) => [size, color])),
-      []
-    );
+      it('should render the loader css class by default', () => {
+        createComponent({ variant });
+        const loaderClasses = getLoaderClasses();
 
-    it('should render the spinner css class by default', () => {
-      createComponent();
-      const spinnerClasses = getSpinnerClasses();
+        expect(loaderClasses).toContain(baseCssClass);
+      });
 
-      expect(spinnerClasses).toContain(baseCssClass);
-    });
+      it.each(supportedSizes)('should render loader properly for size %s', (size) => {
+        createComponent({ variant, size });
+        const loaderClasses = getLoaderClasses();
 
-    it.each(supportedSizes)('should render spinner properly for size %s', (size) => {
-      createComponent({ size });
-      const spinnerClasses = getSpinnerClasses();
+        expect(loaderClasses).toContain(baseCssClass);
+        expect(loaderClasses).toContain(`${baseCssClass}-${size}`);
+      });
 
-      expect(spinnerClasses).toContain(baseCssClass);
-      expect(spinnerClasses).toContain(`${baseCssClass}-${size}`);
-    });
+      it.each(supportedColors)('should render loader properly for color %s', (color) => {
+        createComponent({ variant, color });
+        const loaderClasses = getLoaderClasses();
 
-    it.each(supportedColors)('should render spinner properly for color %s', (color) => {
-      createComponent({ color });
-      const spinnerClasses = getSpinnerClasses();
+        expect(loaderClasses).toContain(baseCssClass);
+        expect(loaderClasses).toContain(`${baseCssClass}-${color}`);
+      });
 
-      expect(spinnerClasses).toContain(baseCssClass);
-      expect(spinnerClasses).toContain(`${baseCssClass}-${color}`);
-    });
+      it.each(sizeColorCombinations)(
+        'should render loader properly for combination of size: "%s" and color: "%s"',
+        (size, color) => {
+          createComponent({ variant, size, color });
+          const loaderClasses = getLoaderClasses();
 
-    it.each(sizeColorCombinations)(
-      'should render spinner properly for combination of size: "%s" and color: "%s"',
-      (size, color) => {
-        createComponent({ size, color });
-        const spinnerClasses = getSpinnerClasses();
-
-        expect(spinnerClasses).toContain(baseCssClass);
-        expect(spinnerClasses).toContain(`${baseCssClass}-${size}`);
-        expect(spinnerClasses).toContain(`${baseCssClass}-${color}`);
-      }
-    );
-  });
-
-  describe('aria label', () => {
-    it('should default to loading', () => {
-      createComponent();
-      const spinnerEl = findSpinnerEl();
-
-      expect(spinnerEl.attributes('aria-label')).toBe('Loading');
+          expect(loaderClasses).toContain(baseCssClass);
+          expect(loaderClasses).toContain(`${baseCssClass}-${size}`);
+          expect(loaderClasses).toContain(`${baseCssClass}-${color}`);
+        }
+      );
     });
 
-    it('should change using prop', () => {
-      const label = 'label';
-      createComponent({ label });
-      const spinnerEl = findSpinnerEl();
+    describe('aria label', () => {
+      it('should default to loading', () => {
+        createComponent({ variant });
+        const loaderEl = findLoaderEl();
 
-      expect(spinnerEl.attributes('aria-label')).toBe(label);
+        expect(loaderEl.attributes('aria-label')).toBe('Loading');
+      });
+
+      it('should change using prop', () => {
+        const label = 'label';
+        createComponent({ variant, label });
+        const loaderEl = findLoaderEl();
+
+        expect(loaderEl.attributes('aria-label')).toBe(label);
+      });
     });
-  });
 
-  describe('role', () => {
-    it('should have default role value as status', () => {
-      createComponent();
+    describe('role', () => {
+      it('should have default role value as status', () => {
+        createComponent({ variant });
 
-      expect(wrapper.attributes('role')).toBe('status');
-    });
+        expect(wrapper.attributes('role')).toBe('status');
+      });
 
-    it('should have role value as custom value passed', () => {
-      const role = 'dialog';
-      createComponent({ attrs: { role } });
+      it('should have role value as custom value passed', () => {
+        const role = 'dialog';
+        createComponent({ variant, attrs: { role } });
 
-      expect(wrapper.attributes('role')).toBe(role);
+        expect(wrapper.attributes('role')).toBe(role);
+      });
     });
   });
 });
