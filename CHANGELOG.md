@@ -1,3 +1,15 @@
+# [64.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.15.0...v64.16.0) (2023-06-29)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** reverse clear all logic ([badfcad](https://gitlab.com/gitlab-org/gitlab-ui/commit/badfcadf9def43b640ea3b89faa71c1cd2b61b11))
+
+
+### Features
+
+* **LoadingIcon:** Add a dots loading variant ([0567bce](https://gitlab.com/gitlab-org/gitlab-ui/commit/0567bcec7800f9b3c67b76ace7f0177af164fa86))
+
 # [64.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.14.0...v64.15.0) (2023-06-29)
 
 
