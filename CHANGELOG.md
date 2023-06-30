@@ -1,3 +1,10 @@
+# [64.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.16.0...v64.17.0) (2023-06-30)
+
+
+### Features
+
+* **Tokens:** add initial color design tokens ([c4f43f5](https://gitlab.com/gitlab-org/gitlab-ui/commit/c4f43f55e7c548233a9d6622115f525187b98601))
+
 # [64.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.15.0...v64.16.0) (2023-06-29)
 
 
