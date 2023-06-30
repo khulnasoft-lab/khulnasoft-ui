@@ -65,14 +65,17 @@
   @include gl-justify-content-space-between;
   @include gl-align-items-center;
   @include gl-w-full;
+  @include gl-gap-3;
 
   .gl-toggle-label-container {
     @include gl-gap-2;
+    @include gl-flex-shrink-1;
   }
 
   .gl-toggle-switch-container {
     @include gl-align-items-flex-end;
     @include gl-gap-2;
+    @include gl-flex-shrink-1;
   }
 }
 
