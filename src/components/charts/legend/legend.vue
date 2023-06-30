@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import * as echarts from 'echarts';
-import { gray200 } from '../../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { GRAY_200 } from '../../../../dist/tokens/js/tokens';
 import { defaultFontSize } from '../../../utils/charts/config';
 import {
   LEGEND_LAYOUT_INLINE,
@@ -138,7 +138,7 @@ export default {
       this.chart.dispatchAction({ type: 'downplay', seriesName: name });
     },
     getColor(color, key) {
-      return this.disabledSeries[key] ? gray200 : color;
+      return this.disabledSeries[key] ? GRAY_200 : color;
     },
     suppressLastActiveSeriesLabelToggle({ selected }) {
       const selectedSeriesLabels = Object.entries(selected).filter(([, isSelected]) =>

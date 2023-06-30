@@ -1,6 +1,6 @@
 import castArray from 'lodash/castArray';
 import merge from 'lodash/merge';
-import { blue500 } from '../../../scss_to_js/scss_variables'; // eslint-disable-line import/no-unresolved
+import { BLUE_500 } from '../../../dist/tokens/js/tokens';
 import { GlBreakpointInstance } from '../breakpoints';
 import { columnOptions } from '../constants';
 import { areDatesEqual } from '../datetime_utility';
@@ -335,14 +335,14 @@ export const getAnnotationsConfig = (annotations) => {
   return {
     markLine: {
       lineStyle: {
-        color: blue500,
+        color: BLUE_500,
       },
       silent: true,
       data: lines,
     },
     markPoint: {
       itemStyle: {
-        color: blue500,
+        color: BLUE_500,
       },
       symbol: arrowSymbol,
       symbolSize: '8',

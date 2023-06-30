@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import merge from 'lodash/merge';
-import { white, gray100 } from '../../../../scss_to_js/scss_variables';
+import { WHITE, GRAY_100 } from '../../../../dist/tokens/js/tokens';
 import { getDefaultTooltipContent } from '../../../utils/charts/config';
 import { TOOLTIP_LEFT_OFFSET, HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';
@@ -138,7 +138,7 @@ export default {
             right: '32px',
             show: true,
             borderWidth: 0,
-            backgroundColor: gray100,
+            backgroundColor: GRAY_100,
           },
           visualMap: {
             min,
@@ -162,7 +162,7 @@ export default {
               show: true,
               interval: 0,
               lineStyle: {
-                color: white,
+                color: WHITE,
                 width: 2,
               },
             },
@@ -189,7 +189,7 @@ export default {
               show: true,
               interval: 0,
               lineStyle: {
-                color: white,
+                color: WHITE,
                 width: 2,
               },
             },
