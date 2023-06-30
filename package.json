@@ -118,7 +118,7 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-require-context-hook": "^1.0.0",
     "bootstrap": "4.6.2",
-    "cypress": "12.14.0",
+    "cypress": "12.16.0",
     "emoji-regex": "^10.0.0",
     "eslint": "8.42.0",
     "eslint-import-resolver-jest": "3.0.2",
