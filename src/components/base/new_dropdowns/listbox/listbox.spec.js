@@ -485,31 +485,33 @@ describe('GlCollapsibleListbox', () => {
     });
 
     it.each`
-      title      | multiple | selected
-      ${'shows'} | ${true}  | ${mockOptionsValues}
-      ${'hides'} | ${false} | ${mockOptions[1].value}
+      description        | props
+      ${'multi-select'}  | ${{ multiple: true, selected: mockOptionsValues }}
+      ${'single-select'} | ${{ multiple: false, selected: mockOptions[1].value }}
     `(
-      '$title the reset button if the label is provided and the selection is complete and mode if multiple mode is $multiple',
-      ({ multiple, selected }) => {
+      'shows the button if the label is provided and the selection is complete in $description mode',
+      ({ props }) => {
         buildWrapper({
           headerText: 'Select assignee',
           resetButtonLabel: 'Unassign',
-          selected,
           items: mockOptions,
-          multiple,
+          ...props,
         });
 
         expect(findResetButton().exists()).toBe(true);
       }
     );
 
-    it('hides reset button if the label is provided and the selection is not complete', () => {
+    it.each`
+      description        | props
+      ${'multi-select'}  | ${{ multiple: true, selected: [] }}
+      ${'single-select'} | ${{ multiple: false, selected: [] }}
+    `('hides the button if the selection is empty in $description mode', ({ props }) => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
-        selected: mockOptions[1].value,
         items: mockOptions,
-        multiple: true,
+        ...props,
       });
 
       expect(findResetButton().exists()).toBe(false);
@@ -522,21 +524,6 @@ describe('GlCollapsibleListbox', () => {
         selected: mockOptions[1].value,
         items: [],
         multiple: true,
-      });
-
-      expect(findResetButton().exists()).toBe(false);
-    });
-
-    it.each`
-      description        | props
-      ${'multi-select'}  | ${{ multiple: true, selected: [] }}
-      ${'single-select'} | ${{ multiple: false, selected: null }}
-    `('hides the button if the selection is empty in $description mode', ({ props }) => {
-      buildWrapper({
-        headerText: 'Select assignee',
-        resetButtonLabel: 'Unassign',
-        items: mockOptions,
-        ...props,
       });
 
       expect(findResetButton().exists()).toBe(false);
@@ -574,7 +561,7 @@ describe('GlCollapsibleListbox', () => {
 
     describe.each`
       multiple | resetVisible | selectAllVisible | selected
-      ${false} | ${false}     | ${false}         | ${null}
+      ${false} | ${false}     | ${false}         | ${[]}
       ${true}  | ${false}     | ${true}          | ${[]}
     `(
       'when label is provided, selection is empty and multiple option is $multiple',
