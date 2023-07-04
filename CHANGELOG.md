@@ -1,3 +1,10 @@
+## [64.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.18.0...v64.18.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* **listbox:** Allow use of reset button on single select ([cff7777](https://gitlab.com/gitlab-org/gitlab-ui/commit/cff7777e5eff36de54d4f628f818fc44284d1de1))
+
 # [64.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.17.0...v64.18.0) (2023-07-04)
 
 
