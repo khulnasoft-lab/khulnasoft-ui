@@ -67,12 +67,6 @@ LabelPositionLeft.args = generateProps({
   labelPosition: 'left',
 });
 
-export const LabelPositionBlock = Template.bind({});
-LabelPositionBlock.args = generateProps({
-  labelPosition: 'block',
-  description: withDescription,
-});
-
 export default {
   title: 'base/toggle',
   component: GlToggle,
