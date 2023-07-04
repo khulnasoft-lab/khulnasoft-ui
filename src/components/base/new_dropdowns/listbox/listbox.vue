@@ -398,15 +398,18 @@ export default {
         return false;
       }
 
-      if (!this.multiple) {
-        return false;
-      }
-
       /**
        * if dropdown has no items
        * reset all should be hidden
        */
       if (!this.hasItems) {
+        return false;
+      }
+
+      /**
+       * hide if no selection
+       */
+      if (this.selected.length === 0) {
         return false;
       }
 
