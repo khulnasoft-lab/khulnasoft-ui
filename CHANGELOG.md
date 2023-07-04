@@ -1,3 +1,10 @@
+# [64.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.17.0...v64.18.0) (2023-07-04)
+
+
+### Features
+
+* Add border-gray-10 to mixins ([a02780c](https://gitlab.com/gitlab-org/gitlab-ui/commit/a02780c969c40aa82c8a29517a2df776c40e6e17))
+
 # [64.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.16.0...v64.17.0) (2023-06-30)
 
 
