@@ -1,3 +1,10 @@
+## [64.18.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.18.1...v64.18.2) (2023-07-05)
+
+
+### Bug Fixes
+
+* revert block level toggle ([78179da](https://gitlab.com/gitlab-org/gitlab-ui/commit/78179dac12a70fa76180facc88c4426c999d95b3))
+
 ## [64.18.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.18.0...v64.18.1) (2023-07-04)
 
 
