@@ -485,33 +485,31 @@ describe('GlCollapsibleListbox', () => {
     });
 
     it.each`
-      description        | props
-      ${'multi-select'}  | ${{ multiple: true, selected: mockOptionsValues }}
-      ${'single-select'} | ${{ multiple: false, selected: mockOptions[1].value }}
+      title      | multiple | selected
+      ${'shows'} | ${true}  | ${mockOptionsValues}
+      ${'hides'} | ${false} | ${mockOptions[1].value}
     `(
-      'shows the button if the label is provided and the selection is complete in $description mode',
-      ({ props }) => {
+      '$title the reset button if the label is provided and the selection is complete and mode if multiple mode is $multiple',
+      ({ multiple, selected }) => {
         buildWrapper({
           headerText: 'Select assignee',
           resetButtonLabel: 'Unassign',
+          selected,
           items: mockOptions,
-          ...props,
+          multiple,
         });
 
-        expect(findResetButton().exists()).toBe(true);
+        expect(findResetButton().exists()).toBe(multiple);
       }
     );
 
-    it.each`
-      description        | props
-      ${'multi-select'}  | ${{ multiple: true, selected: [] }}
-      ${'single-select'} | ${{ multiple: false, selected: [] }}
-    `('hides the button if the selection is empty in $description mode', ({ props }) => {
+    it('hides reset button if the label is provided and the selection is not complete', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
+        selected: mockOptions[1].value,
         items: mockOptions,
-        ...props,
+        multiple: true,
       });
 
       expect(findResetButton().exists()).toBe(false);
@@ -529,7 +527,22 @@ describe('GlCollapsibleListbox', () => {
       expect(findResetButton().exists()).toBe(false);
     });
 
-    it('on click, emits the `reset` event but does not call `closeAndFocus`', () => {
+    it.each`
+      description        | props
+      ${'multi-select'}  | ${{ multiple: true, selected: [] }}
+      ${'single-select'} | ${{ multiple: false, selected: null }}
+    `('hides the button if the selection is empty in $description mode', ({ props }) => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        items: mockOptions,
+        ...props,
+      });
+
+      expect(findResetButton().exists()).toBe(false);
+    });
+
+    it('on click, emits the reset event does not and call closeAndFocus() for multiple mode', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
@@ -559,31 +572,24 @@ describe('GlCollapsibleListbox', () => {
       expect(wrapper).toHaveLoggedVueErrors();
     });
 
-    describe.each`
-      multiple | resetVisible | selectAllVisible | selected
-      ${false} | ${false}     | ${false}         | ${[]}
-      ${true}  | ${false}     | ${true}          | ${[]}
+    it.each`
+      multiple | resetVisible | selectAllVisible
+      ${false} | ${false}     | ${false}
+      ${true}  | ${false}     | ${true}
     `(
-      'when label is provided, selection is empty and multiple option is $multiple',
-      ({ multiple, resetVisible, selectAllVisible, selected }) => {
-        beforeEach(() => {
-          buildWrapper({
-            headerText: 'Select assignee',
-            resetButtonLabel: 'Unassign',
-            showSelectAllButtonLabel: 'Select All',
-            items: mockOptions,
-            selected,
-            multiple,
-          });
+      'shows the select all button if the label is provided and the selection is empty and multiple option is $multiple',
+      ({ multiple, resetVisible, selectAllVisible }) => {
+        buildWrapper({
+          headerText: 'Select assignee',
+          resetButtonLabel: 'Unassign',
+          showSelectAllButtonLabel: 'Select All',
+          selected: [],
+          items: mockOptions,
+          multiple,
         });
 
-        it(`${selectAllVisible ? 'shows' : 'does not show'} the Select all button`, () => {
-          expect(findSelectAllButton().exists()).toBe(selectAllVisible);
-        });
-
-        it(`${resetVisible ? 'shows' : 'does not show'} the Reset button`, () => {
-          expect(findResetButton().exists()).toBe(resetVisible);
-        });
+        expect(findResetButton().exists()).toBe(resetVisible);
+        expect(findSelectAllButton().exists()).toBe(selectAllVisible);
       }
     );
 
@@ -638,7 +644,7 @@ describe('GlCollapsibleListbox', () => {
       expect(findSelectAllButton().text()).toBe('Select All');
     });
 
-    it('on click, emits the `select-all` event and calls `closeAndFocus`', () => {
+    it('on click, emits the select-all event and calls closeAndFocus()', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
