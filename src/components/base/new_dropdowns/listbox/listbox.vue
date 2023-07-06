@@ -406,10 +406,8 @@ export default {
         return false;
       }
 
-      /**
-       * hide if no selection
-       */
-      if (this.selected.length === 0) {
+      // hide if no selection
+      if (!this.selected || this.selected.length === 0) {
         return false;
       }
 
