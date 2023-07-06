@@ -506,6 +506,7 @@ describe('GlCollapsibleListbox', () => {
       description        | props
       ${'multi-select'}  | ${{ multiple: true, selected: [] }}
       ${'single-select'} | ${{ multiple: false, selected: [] }}
+      ${'single-select'} | ${{ multiple: false, selected: undefined }}
     `('hides the button if the selection is empty in $description mode', ({ props }) => {
       buildWrapper({
         headerText: 'Select assignee',
