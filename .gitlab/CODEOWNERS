@@ -9,3 +9,6 @@ src/components/charts @svedova
 
 [Technical Writing]
 doc/ @rdickenson
+
+[UX]
+/tests/__image_snapshots__/ @gitlab-com/gitlab-ux/designers
