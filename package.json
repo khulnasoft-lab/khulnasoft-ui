@@ -85,8 +85,8 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "0.7.7",
-    "@babel/core": "^7.22.5",
-    "@babel/preset-env": "^7.22.5",
+    "@babel/core": "^7.22.8",
+    "@babel/preset-env": "^7.22.7",
     "@babel/preset-react": "^7.22.5",
     "@gitlab/eslint-plugin": "19.0.0",
     "@gitlab/fonts": "^1.2.0",
