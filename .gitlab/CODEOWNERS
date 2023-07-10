@@ -1,13 +1,13 @@
 [GitLab UI]
 * @gitlab-org/maintainers/gitlab-ui
 
-[Charts]
+^[Charts]
 src/components/charts @svedova
 
 [CSS]
 *.scss @rayana @tauriedavis @gitlab-org/maintainers/gitlab-ui
 
-[Technical Writing]
+^[Technical Writing]
 doc/ @rdickenson
 
 [UX]
