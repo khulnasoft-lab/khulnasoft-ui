@@ -416,6 +416,7 @@ export default {
     v-on="viewOnly ? {} : { mousedown: emitIfInactive }"
   >
     <template v-if="active">
+      <slot name="before-input" v-bind="{ submitValue: applySuggestion }"></slot>
       <input
         ref="input"
         v-bind="searchInputAttributes"
@@ -427,7 +428,6 @@ export default {
         @keydown="handleInputKeydown"
         @blur="handleBlur"
       />
-
       <portal :key="`operator-${_uid}`" :to="portalName">
         <gl-filtered-search-suggestion-list
           v-if="hasOptionsOrSuggestions"

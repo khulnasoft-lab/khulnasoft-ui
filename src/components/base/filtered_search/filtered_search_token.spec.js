@@ -1,7 +1,11 @@
+import * as Vue from 'vue';
 import { shallowMount, mount } from '@vue/test-utils';
-import { observable, nextTick } from 'vue';
+import { observable, nextTick, h } from 'vue';
 import GlFilteredSearchToken from './filtered_search_token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
+
+const TEST_ID_BEFORE_DATA_SEGMENT_INPUT_BUTTON = 'before-data-input-button';
+const TEST_APPLY_VALUE = 'Lorem-ipsum-apply';
 
 describe('Filtered search token', () => {
   let wrapper;
@@ -39,6 +43,23 @@ describe('Filtered search token', () => {
     });
   };
 
+  const createSlot = (testId, onClick) => {
+    // why: Vue3 has a different format for creating VNodes
+    return Vue.version.startsWith('3')
+      ? h('button', {
+          'data-testid': testId,
+          onClick,
+        })
+      : h('button', {
+          attrs: {
+            'data-testid': testId,
+          },
+          on: {
+            click: onClick,
+          },
+        });
+  };
+
   const mountComponent = (props) => {
     wrapper = mount(GlFilteredSearchToken, {
       provide: {
@@ -58,6 +79,10 @@ describe('Filtered search token', () => {
         },
       },
       propsData: { ...defaultProps, ...props },
+      scopedSlots: {
+        'before-data-segment-input': ({ submitValue }) =>
+          createSlot(TEST_ID_BEFORE_DATA_SEGMENT_INPUT_BUTTON, () => submitValue(TEST_APPLY_VALUE)),
+      },
     });
   };
 
@@ -281,6 +306,25 @@ describe('Filtered search token', () => {
       await wrapper.find('input').trigger('keydown', { key: 'q' });
 
       expect(value).toEqual(originalValue());
+    });
+
+    it('renders before-data-segment-input scoped slot which can submitValue', async () => {
+      mountComponent({ active: true, value: observable({ operator: '=', data: '' }) });
+
+      // what: Activate data segment
+      await wrapper.find('input').trigger('keydown', { key: ' ' });
+
+      expect(wrapper.emitted()).toEqual({});
+
+      const beforeDataInputButton = wrapper.find(
+        `[data-testid="${TEST_ID_BEFORE_DATA_SEGMENT_INPUT_BUTTON}"]`
+      );
+      beforeDataInputButton.trigger('click');
+
+      expect(wrapper.emitted()).toEqual({
+        complete: [[]],
+        select: [[TEST_APPLY_VALUE]],
+      });
     });
   });
 
