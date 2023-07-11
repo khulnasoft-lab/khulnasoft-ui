@@ -167,7 +167,7 @@ export default {
 
 <template>
   <div
-    class="gl-toggle-wrapper gl-display-flex gl-mb-0"
+    class="gl-toggle-wrapper gl-display-flex gl-mb-0 flex-grow-1"
     :class="wrapperClasses"
     data-testid="toggle-wrapper"
   >
