@@ -1,3 +1,10 @@
+# [64.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.18.3...v64.19.0) (2023-07-11)
+
+
+### Features
+
+* **GlFilteredSearchToken:** Expose applySuggestion via scoped slot ([91333fd](https://gitlab.com/gitlab-org/gitlab-ui/commit/91333fd72a99fa2ccbe9be79df008c4c90dc4f4b))
+
 ## [64.18.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.18.2...v64.18.3) (2023-07-06)
 
 
