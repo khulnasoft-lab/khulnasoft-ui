@@ -29,7 +29,7 @@ export default {
     svgHeight: {
       type: Number,
       required: false,
-      default: null,
+      default: 144,
     },
     /**
      * The desciption/body text of the empty state.
@@ -108,7 +108,7 @@ export default {
     },
     contentClasses() {
       return [
-        this.compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-max-w-full gl-m-auto',
+        this.compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-max-w-88 gl-m-auto',
         this.contentClass,
       ];
     },
@@ -120,14 +120,14 @@ export default {
   <section
     class="gl-display-flex"
     :class="{
-      'empty-state gl-text-center gl-flex-direction-column': !compact,
+      'gl-empty-state gl-text-center gl-flex-direction-column': !compact,
       'gl-flex-direction-row': compact,
     }"
   >
     <div
       :class="{ 'gl-display-none gl-sm-display-block gl-px-4': compact, 'gl-max-w-full': !compact }"
     >
-      <div v-if="svgPath" :class="{ 'svg-content': !compact }" class="svg-250">
+      <div v-if="svgPath">
         <img
           :src="svgPath"
           alt=""
@@ -145,11 +145,14 @@ export default {
             Overrides the `title` prop.
           -->
         <slot ref="title" name="title">
-          <h1 class="gl-font-size-h-display gl-line-height-36" :class="compact ? 'h5' : 'h4'">
+          <h1
+            class="gl-font-size-h-display gl-line-height-36 gl-mt-0 gl-mb-0"
+            :class="compact ? 'h5' : 'h4'"
+          >
             {{ title }}
           </h1>
         </slot>
-        <p v-if="description || $scopedSlots.description" ref="description" class="gl-mt-3">
+        <p v-if="description || $scopedSlots.description" ref="description" class="gl-mt-4 gl-mb-0">
           <!--
             @slot Use this slot to customize the empty state's description
             area. Overrides the `description` prop.
@@ -159,7 +162,7 @@ export default {
           </slot>
         </p>
         <div
-          class="gl-display-flex gl-flex-wrap"
+          class="gl-display-flex gl-flex-wrap gl-mt-5"
           :class="{ 'gl-justify-content-center': !compact }"
         >
           <!--
