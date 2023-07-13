@@ -9,6 +9,7 @@ $clear-button-size: 24px;
     @include gl-line-height-normal;
     @include gl-h-auto;
     @include gl-border-none;
+    @include gl-rounded-0;
     padding-left: calc(#{$gl-spacing-scale-7} + #{$gl-spacing-scale-2});
     padding-right: calc(#{$gl-spacing-scale-6} + #{$gl-spacing-scale-2});
     @include gl-py-4;
