@@ -1,3 +1,10 @@
+# [64.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.19.0...v64.20.0) (2023-07-13)
+
+
+### Features
+
+* Add border-purple-300 to mixins ([f8251d0](https://gitlab.com/gitlab-org/gitlab-ui/commit/f8251d0bef776da6f0970fc0c3641d7e6360bc01))
+
 # [64.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.18.3...v64.19.0) (2023-07-11)
 
 
