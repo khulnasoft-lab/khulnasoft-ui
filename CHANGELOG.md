@@ -1,3 +1,10 @@
+## [64.20.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.20.0...v64.20.1) (2023-07-13)
+
+
+### Bug Fixes
+
+* **listbox:** Sets the border-radius to 0 ([d120e09](https://gitlab.com/gitlab-org/gitlab-ui/commit/d120e09dfa033a6bd404f6afde215f98fce86404))
+
 # [64.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.19.0...v64.20.0) (2023-07-13)
 
 
