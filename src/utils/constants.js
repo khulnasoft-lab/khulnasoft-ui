@@ -318,3 +318,8 @@ export const loadingIconVariants = {
   spinner: 'spinner',
   dots: 'dots',
 };
+
+export const blockVariants = {
+  default: 'default',
+  alternate: 'alternate',
+};
