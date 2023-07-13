@@ -179,6 +179,10 @@
   border-color: $blue-700;
 }
 
+@mixin gl-border-purple-300 {
+  border-color: $purple-300;
+}
+
 @mixin gl-border-purple-700 {
   border-color: $purple-700;
 }
