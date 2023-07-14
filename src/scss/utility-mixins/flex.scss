@@ -183,6 +183,10 @@
   flex-shrink: 0;
 }
 
+@mixin gl-flex-shrink-1 {
+  flex-shrink: 1;
+}
+
 @mixin gl-flex-grow-0 {
   flex-grow: 0;
 }
