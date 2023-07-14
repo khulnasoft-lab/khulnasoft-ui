@@ -1,3 +1,17 @@
+# [64.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.20.1...v64.21.0) (2023-07-14)
+
+
+### Bug Fixes
+
+* **GlToggle:** Enable flex-grow-1 to ensure backwards compatibility ([dfd6554](https://gitlab.com/gitlab-org/gitlab-ui/commit/dfd655420bd8aef33a3af0d5ea3144ac59934ee0))
+* **GlToggle:** Remove vertical padding if label is sr-only ([697a597](https://gitlab.com/gitlab-org/gitlab-ui/commit/697a5979ceae6f6e46c877c8baea58051741f732))
+* **GlToggle:** Wrap long texts when using block-layout for toggle ([a487517](https://gitlab.com/gitlab-org/gitlab-ui/commit/a4875170a207018b605833b022d6fce6ca3803e4))
+
+
+### Features
+
+* **GlToggle:** Add a block level toggle ([0b73ddb](https://gitlab.com/gitlab-org/gitlab-ui/commit/0b73ddb0acfdad3d81501cb360e857de4089247e))
+
 ## [64.20.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.20.0...v64.20.1) (2023-07-13)
 
 
