@@ -3,7 +3,6 @@
 # We could get these easily if the team was exposed on the roulette object
 # https://gitlab.com/gitlab-org/ruby/gems/gitlab-dangerfiles/-/issues/31
 FOUNDATION_UX_REVIEWERS = %w[
-  tauriedavis
   chrismicek
   aregnery
   jeldergl
@@ -13,7 +12,6 @@ FOUNDATION_UX_REVIEWERS = %w[
 COMPONENT_UX_MAP = {
   accordion: %w[kcomoli rayana],
   alert: %w[andyvolpe],
-  avatar: %w[tauriedavis],
   badge: %w[pedroms],
   banner: %w[andyvolpe],
   breadcrumb: %w[ameliabauerly],
@@ -23,30 +21,24 @@ COMPONENT_UX_MAP = {
   chart: %w[ameliabauerly],
   checkbox: %w[pedroms],
   'data-visualization': %w[ameliabauerly],
-  'date-picker': %w[tauriedavis],
   drawer: %w[andyvolpe],
   dropdown: %w[jeldergl],
   'file-uploader': %w[aregnery],
   filter: %w[jeldergl],
-  form: %w[tauriedavis],
   icon: %w[jeldergl],
   'infinite-scroll': %w[beckalippert],
   label: %w[annabeldunstone],
   link: %w[jeldergl],
-  list: %w[tauriedavis],
   modal: %w[aregnery],
   pagination: %w[andyvolpe],
-  popover: %w[tauriedavis],
   'progress-bar': %w[aregnery],
   radio: %w[pedroms],
   search: %w[matejlatin],
   'segmented-control': %w[andyvolpe],
-  'skeleton-loader': %w[tauriedavis],
   sorting: %w[ameliabauerly],
   spinner: %w[jeldergl],
   tab: %w[aregnery],
   table: %w[lvanc],
-  toast: %w[tauriedavis],
   toggle: %w[pedroms],
   token: %w[annabeldunstone],
   tooltip: %w[rayana],
