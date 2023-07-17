@@ -5,7 +5,7 @@ to make sure this is the right dropdown component for you.
 ### Basic usage
 
 ```html
-<gl-disclosure-dropdown-dropdown toggle-text="Actions" :items="items" />
+<gl-disclosure-dropdown toggle-text="Actions" :items="items" />
 ```
 
 ### Icon-only disclosure dropdown
