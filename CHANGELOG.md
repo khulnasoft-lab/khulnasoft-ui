@@ -1,3 +1,10 @@
+## [64.21.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.21.0...v64.21.1) (2023-07-18)
+
+
+### Bug Fixes
+
+* **GlFormInput:** set height of form input ([7c3870a](https://gitlab.com/gitlab-org/gitlab-ui/commit/7c3870a30338d91d08a219046671ff293929e76f))
+
 # [64.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.20.1...v64.21.0) (2023-07-14)
 
 
