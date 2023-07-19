@@ -1,3 +1,10 @@
+## [64.21.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.21.1...v64.21.2) (2023-07-19)
+
+
+### Bug Fixes
+
+* **GlEmoji:** Fix alignment of icon in button ([cccb2ae](https://gitlab.com/gitlab-org/gitlab-ui/commit/cccb2aec5cb45663a777cad034ce59cc98be602a))
+
 ## [64.21.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.21.0...v64.21.1) (2023-07-18)
 
 
