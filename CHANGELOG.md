@@ -1,3 +1,10 @@
+# [64.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.21.2...v64.22.0) (2023-07-20)
+
+
+### Features
+
+* **GlInputGroupText:** add default styling for GlInputGroupText ([5efbd12](https://gitlab.com/gitlab-org/gitlab-ui/commit/5efbd12693e1a4b8a7eac51e322ffb7334e5d4ba))
+
 ## [64.21.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.21.1...v64.21.2) (2023-07-19)
 
 
