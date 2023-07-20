@@ -25,6 +25,7 @@ export default {
      * @typedef {object} FieldDefinition
      * @template TValue=string
      * @property {string} label - Label text to show for this field.
+     * @property {undefined | Object} groupAttrs - Properties that are passed to the group wrapping this field.
      * @property {undefined | Object} inputAttrs - Properties that are passed to the actual input for this field.
      * @property {undefined | function(string): TValue} mapValue - Function that maps the inputted string value to the field's actual value (e.g. a Number).
      * @property {undefined | Array<function(TValue): string | undefined>=} validators - Collection of validator functions.
@@ -188,6 +189,7 @@ export default {
   <div>
     <gl-form-group
       v-for="(field, fieldName) in fieldsToRender"
+      v-bind="field.groupAttrs"
       :key="fieldName"
       :label="field.label"
       :label-for="field.id"

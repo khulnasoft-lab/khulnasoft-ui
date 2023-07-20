@@ -24,8 +24,9 @@ const Template = () => ({
           validators: [required('NAME IS REQUIRED!!!')],
         },
         password: {
-          label: 'Password',
+          label: 'Password with group styling',
           inputAttrs: { type: 'password' },
+          groupAttrs: { class: 'gl-bg-purple-50 gl-w-20' },
           validators: [required('Password is required')],
         },
         confirmPassword: {

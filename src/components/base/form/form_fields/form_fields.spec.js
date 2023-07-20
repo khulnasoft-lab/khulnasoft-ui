@@ -24,6 +24,7 @@ const TEST_FIELDS = {
       (val) => (val % 2 === 1 ? 'Count must be even' : ''),
     ],
     inputAttrs: { size: 'xs', type: 'number' },
+    groupAttrs: { class: 'unique-class' },
   },
   allCaps: {
     label: 'All caps (optional)',
@@ -68,6 +69,7 @@ describe('GlFormFields', () => {
       label: formGroup.attributes('label'),
       state: formGroup.attributes('state'),
       invalidFeedback: formGroup.attributes('invalid-feedback'),
+      class: formGroup.attributes('class'),
       input: {
         // Ensure that "value" is present even if undefined
         value: input.attributes('value'),
@@ -110,6 +112,7 @@ describe('GlFormFields', () => {
           label: TEST_FIELDS.username.label,
           state: undefined,
           invalidFeedback: '',
+          class: undefined,
           input: {
             id: 'gl-form-field-testunique',
             value: undefined,
@@ -119,6 +122,7 @@ describe('GlFormFields', () => {
           label: TEST_FIELDS.evenCount.label,
           state: undefined,
           invalidFeedback: '',
+          class: TEST_FIELDS.evenCount.groupAttrs.class,
           input: {
             id: 'gl-form-field-testunique',
             value: '0',
@@ -129,6 +133,7 @@ describe('GlFormFields', () => {
           label: TEST_FIELDS.allCaps.label,
           state: undefined,
           invalidFeedback: '',
+          class: undefined,
           input: {
             id: 'gl-form-field-testunique',
             value: undefined,
@@ -222,6 +227,7 @@ describe('GlFormFields', () => {
             label: TEST_FIELDS.username.label,
             invalidFeedback: 'User name is required',
             state: undefined,
+            class: undefined,
             input: {
               value: undefined,
               id: 'gl-form-field-testunique',
@@ -231,6 +237,7 @@ describe('GlFormFields', () => {
             label: TEST_FIELDS.evenCount.label,
             invalidFeedback: 'Count is required',
             state: undefined,
+            class: TEST_FIELDS.evenCount.groupAttrs.class,
             input: expect.objectContaining({
               value: '0',
               id: 'gl-form-field-testunique',
@@ -240,6 +247,7 @@ describe('GlFormFields', () => {
             label: TEST_FIELDS.allCaps.label,
             invalidFeedback: '',
             state: undefined,
+            class: undefined,
             input: {
               value: undefined,
               id: 'gl-form-field-testunique',
@@ -274,6 +282,7 @@ describe('GlFormFields', () => {
         label: TEST_FIELDS.evenCount.label,
         invalidFeedback: 'Count must be even',
         state: undefined,
+        class: TEST_FIELDS.evenCount.groupAttrs.class,
         input: {
           ...TEST_FIELDS.evenCount.inputAttrs,
           id: 'gl-form-field-testunique',
