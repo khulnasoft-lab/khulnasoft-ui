@@ -227,3 +227,30 @@
 @mixin gl-letter-spacing-n01em {
   letter-spacing: -0.01em;
 }
+
+/**
+* Line length utilities.
+*
+* naming convention: gl-line-length-{letter-spacing}{unit}
+* Notes: these gl-line-length-* classes are overrided on gitlab.com for container-fluid layout
+* if you add another gl-line-length-* class, you should override it too
+*/
+@mixin gl-line-length-40ch {
+  max-width: 40ch;
+}
+
+@mixin gl-line-length-50ch {
+  max-width: 50ch;
+}
+
+@mixin gl-line-length-60ch {
+  max-width: 60ch;
+}
+
+@mixin gl-line-length-70ch {
+  max-width: 70ch;
+}
+
+@mixin gl-line-length-80ch {
+  max-width: 80ch;
+}
