@@ -101,7 +101,7 @@ export default {
 </script>
 
 <template>
-  <gl-form-group :label="label" :label-sr-only="labelSrOnly">
+  <gl-form-group class="gl-form-checkbox-group" :label="label" :label-sr-only="labelSrOnly">
     <gl-form-checkbox
       v-if="!hideToggleAll"
       class="gl-form-checkbox-tree-toggle-all"

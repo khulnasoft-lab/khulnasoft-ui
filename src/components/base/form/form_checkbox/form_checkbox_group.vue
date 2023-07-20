@@ -20,25 +20,23 @@ export default {
 </script>
 
 <template>
-  <div>
-    <b-form-checkbox-group
-      v-bind="$attrs"
-      class="gl-form-checkbox-group"
-      stacked
-      @change="$emit('change', $event)"
-      @input="$emit('input', $event)"
+  <b-form-checkbox-group
+    v-bind="$attrs"
+    class="gl-form-checkbox-group"
+    stacked
+    @change="$emit('change', $event)"
+    @input="$emit('input', $event)"
+  >
+    <slot name="first"></slot>
+    <gl-form-checkbox
+      v-for="(option, idx) in formOptions"
+      :key="idx"
+      :value="option.value"
+      :disabled="option.disabled"
     >
-      <slot name="first"></slot>
-      <gl-form-checkbox
-        v-for="(option, idx) in formOptions"
-        :key="idx"
-        :value="option.value"
-        :disabled="option.disabled"
-      >
-        <span v-if="option.html" v-safe-html="option.html"></span>
-        <span v-else>{{ option.text }}</span>
-      </gl-form-checkbox>
-      <slot></slot>
-    </b-form-checkbox-group>
-  </div>
+      <span v-if="option.html" v-safe-html="option.html"></span>
+      <span v-else>{{ option.text }}</span>
+    </gl-form-checkbox>
+    <slot></slot>
+  </b-form-checkbox-group>
 </template>

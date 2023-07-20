@@ -9,6 +9,10 @@
 
 .gl-form-checkbox-group {
   @include gl-line-height-normal;
+
+  &:not(:last-of-type) {
+    @include gl-mb-3;
+  }
 }
 
 .gl-form-checkbox,
@@ -16,6 +20,11 @@
   @include gl-font-base;
   @include gl-line-height-normal;
   @include gl-text-gray-900;
+  min-height: initial;
+
+  &:not(:last-of-type) {
+    @include gl-mb-3;
+  }
 
   &.form-check {
     @include gl-display-flex;
@@ -37,6 +46,11 @@
     }
   }
 
+  .custom-control-input[type='checkbox'],
+  .custom-control-input[type='radio'] {
+    height: 1rem;
+  }
+
   .form-check-label {
     @include gl-pl-3;
     @include gl-line-height-normal;
@@ -56,7 +70,6 @@
     .custom-control-input ~ .custom-control-label {
       @include gl-cursor-pointer;
       @include gl-pl-3;
-      @include gl-mb-3;
 
       &::before,
       &::after {
