@@ -86,4 +86,25 @@ describe('number utils', () => {
       expect(numberUtils.modulo(n, divisor)).toBe(result);
     });
   });
+
+  describe('formatNumberToLocale', () => {
+    it('should format the provided string of either an integer or float', () => {
+      expect(numberUtils.formatNumberToLocale('1234')).toEqual('1,234');
+      expect(numberUtils.formatNumberToLocale('222222.233')).toEqual('222,222.233');
+    });
+
+    it('should not format the provided string if it contains no numbers', () => {
+      expect(numberUtils.formatNumberToLocale('aaaa')).toEqual('aaaa');
+    });
+
+    it('should use the options if they are provided', () => {
+      expect(numberUtils.formatNumberToLocale('222222.233', { minimumFractionDigits: 4 })).toEqual(
+        '222,222.2330'
+      );
+    });
+
+    it('should override the locale if one is provided', () => {
+      expect(numberUtils.formatNumberToLocale('222222.233', {}, 'de-de')).toEqual('222.222,233');
+    });
+  });
 });

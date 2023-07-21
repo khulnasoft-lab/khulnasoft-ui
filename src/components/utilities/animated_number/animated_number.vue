@@ -1,4 +1,6 @@
 <script>
+import { formatNumberToLocale } from '../../../utils/number_utils';
+
 export default {
   name: 'AnimatedNumber',
   props: {
@@ -22,6 +24,11 @@ export default {
       required: false,
       default: 0,
     },
+    useDelimiters: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     animateOnMount: {
       type: Boolean,
       required: false,
@@ -36,7 +43,13 @@ export default {
   },
   computed: {
     animatedNumber() {
-      return this.displayNumber.toFixed(this.decimalPlaces);
+      const number = this.displayNumber.toFixed(this.decimalPlaces);
+
+      if (this.useDelimiters) {
+        return formatNumberToLocale(number, { minimumFractionDigits: this.decimalPlaces });
+      }
+
+      return number;
     },
   },
   ready() {

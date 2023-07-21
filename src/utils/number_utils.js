@@ -94,3 +94,27 @@ export const engineeringNotation = (value, precision = 2) => {
 
   return `${scaledMantissa}${allYourBase[scaledPower]}`;
 };
+
+/**
+ * Formats a number as a locale-based string using `Intl.NumberFormat`.
+ *
+ * 2333 -> 2,333
+ * 232324 -> 232,324
+ *
+ * @param {Number|string} value - number to be converted
+ * @param {{}?} options - options to be passed to
+ * `Intl.NumberFormat` such as `unit` and `style`.
+ * @param {String|String[]} locales - If set, forces a different
+ * language code from the one currently in the document.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat
+ *
+ * @returns {String}
+ */
+export const formatNumberToLocale = (value, options = {}, locales = undefined) => {
+  if (Number.isNaN(Number(value))) {
+    return value;
+  }
+
+  return new Intl.NumberFormat(locales, options).format(value);
+};

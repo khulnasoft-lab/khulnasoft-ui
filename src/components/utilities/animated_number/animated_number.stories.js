@@ -4,7 +4,7 @@ import GlAnimatedNumber from './animated_number.vue';
 
 const template = `
   <div>
-    <gl-animated-number :number="updatedNumber" :decimalPlaces="decimalPlaces" :duration="duration" :animateOnMount="animateOnMount"/>
+    <gl-animated-number :number="updatedNumber" :decimalPlaces="decimalPlaces" :use-delimiters="useDelimiters" :duration="duration" :animateOnMount="animateOnMount"/>
     <button @click="updateNumber">Update number</button>
   </div>
 `;
@@ -14,11 +14,13 @@ const defaultValue = (prop) => GlAnimatedNumber.props[prop].default;
 const generateProps = ({
   initialNumber = 100,
   decimalPlaces = defaultValue('decimalPlaces'),
+  useDelimiters = false,
   duration = 1000,
   animateOnMount = defaultValue('animateOnMount'),
 } = {}) => ({
   initialNumber,
   decimalPlaces,
+  useDelimiters,
   duration,
   animateOnMount,
 });

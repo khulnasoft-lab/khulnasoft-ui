@@ -25,7 +25,8 @@ describe('GlSingleStat', () => {
     });
   };
 
-  const findIemByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
+  const findItemByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
+  const findAnimatedNumber = () => wrapper.findComponent(GlAnimatedNumber);
 
   describe('displays the correct default data', () => {
     beforeEach(() => createWrapper());
@@ -41,7 +42,7 @@ describe('GlSingleStat', () => {
       ${'meta badge'}         | ${'meta-badge'}         | ${false}      | ${null}
     `('for the $element', ({ shouldDisplay, testId, expected, element }) => {
       it(`${shouldDisplay ? 'displays' : "doesn't display"} the ${element}`, () => {
-        const el = findIemByTestId(testId);
+        const el = findItemByTestId(testId);
 
         expect(el.exists()).toBe(shouldDisplay);
 
@@ -60,7 +61,7 @@ describe('GlSingleStat', () => {
       ({ propValue, shouldUseAnimatedComponent }) => {
         createWrapper({ value: propValue, shouldAnimate: true });
 
-        const el = wrapper.findComponent(GlAnimatedNumber);
+        const el = findAnimatedNumber();
         expect(el.exists()).toBe(shouldUseAnimatedComponent);
       }
     );
@@ -73,11 +74,11 @@ describe('GlSingleStat', () => {
       `('$display the units when $event', async ({ event, expected }) => {
         createWrapper({ unit, shouldAnimate: true });
 
-        wrapper.findComponent(GlAnimatedNumber).vm.$emit(event);
+        findAnimatedNumber().vm.$emit(event);
 
         await wrapper.vm.$nextTick();
 
-        expect(findIemByTestId('unit').classes('gl-opacity-0!')).toBe(expected);
+        expect(findItemByTestId('unit').classes('gl-opacity-0!')).toBe(expected);
       });
     });
   });
@@ -92,7 +93,7 @@ describe('GlSingleStat', () => {
         beforeEach(() => createWrapper(mockData));
 
         it('displays a standalone icon', () => {
-          const el = findIemByTestId('meta-icon');
+          const el = findItemByTestId('meta-icon');
           const variantSpecified = Object.keys(mockData).includes('variant');
 
           expect(el.exists()).toBe(true);
@@ -103,7 +104,7 @@ describe('GlSingleStat', () => {
         });
 
         it('does not display a badge', () => {
-          expect(findIemByTestId('meta-badge').exists()).toBe(false);
+          expect(findItemByTestId('meta-badge').exists()).toBe(false);
         });
       });
 
@@ -117,11 +118,11 @@ describe('GlSingleStat', () => {
         beforeEach(() => createWrapper(mockData));
 
         it("doesn't display a standalone icon", () => {
-          expect(findIemByTestId('meta-icon').exists()).toBe(false);
+          expect(findItemByTestId('meta-icon').exists()).toBe(false);
         });
 
         it('displays a badge', () => {
-          const badge = findIemByTestId('meta-badge');
+          const badge = findItemByTestId('meta-badge');
           const iconSpecified = Object.keys(mockData).includes('metaIcon');
           const variantSpecified = Object.keys(mockData).includes('variant');
 
@@ -141,7 +142,7 @@ describe('GlSingleStat', () => {
       beforeEach(() => createWrapper(mockData));
 
       it('displays when specified', () => {
-        const el = findIemByTestId(testId);
+        const el = findItemByTestId(testId);
 
         expect(el.exists()).toBe(true);
       });
@@ -161,11 +162,56 @@ describe('GlSingleStat', () => {
             titleIconClass: classes,
           });
 
-          expect(findIemByTestId('title-icon').classes()).toEqual(
+          expect(findItemByTestId('title-icon').classes()).toEqual(
             expect.arrayContaining(['title-icon-class'])
           );
         }
       );
+    });
+
+    describe.each([true, false])(`when the \`useDelimiters\` prop is %s`, (useDelimiters) => {
+      const initialValue = '100000.12';
+
+      it('should render the value as expected when not animated', () => {
+        createWrapper({
+          value: initialValue,
+          shouldAnimate: false,
+          useDelimiters,
+        });
+
+        const displayValue = useDelimiters ? '100,000.12' : initialValue;
+
+        expect(findItemByTestId('non-animated-value').text()).toBe(displayValue);
+      });
+
+      it('should pass the value and delimiter setting to `GlAnimatedNumber`', () => {
+        createWrapper({
+          value: initialValue,
+          shouldAnimate: true,
+          animationDecimalPlaces: 2,
+          useDelimiters,
+        });
+
+        expect(findAnimatedNumber().props()).toMatchObject({
+          number: Number(initialValue),
+          decimalPlaces: 2,
+          useDelimiters,
+        });
+      });
+
+      it('should keep all the decimal points defined by the value', () => {
+        const decimalValue = '100000.000';
+
+        createWrapper({
+          value: decimalValue,
+          shouldAnimate: false,
+          useDelimiters,
+        });
+
+        const displayValue = useDelimiters ? '100,000.000' : decimalValue;
+
+        expect(findItemByTestId('non-animated-value').text()).toBe(displayValue);
+      });
     });
   });
 });
