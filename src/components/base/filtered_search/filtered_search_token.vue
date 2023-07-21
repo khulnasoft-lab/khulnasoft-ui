@@ -83,6 +83,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    hideTitleAndOperator: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -326,6 +331,7 @@ export default {
     -->
 
     <gl-filtered-search-token-segment
+      v-if="!hideTitleAndOperator || active"
       key="title-segment"
       :value="config.title"
       :active="isSegmentActive($options.segments.SEGMENT_TITLE)"
@@ -352,6 +358,7 @@ export default {
     </gl-filtered-search-token-segment>
 
     <gl-filtered-search-token-segment
+      v-if="!hideTitleAndOperator || active"
       key="operator-segment"
       v-model="tokenValue.operator"
       :active="isSegmentActive($options.segments.SEGMENT_OPERATOR)"

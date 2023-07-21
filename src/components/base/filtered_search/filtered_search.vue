@@ -372,6 +372,18 @@ export default {
        */
       this.$emit('submit', normalizeTokens(cloneDeep(this.tokens)));
     },
+
+    hideTitleAndOperator(token, idx) {
+      if (idx === 0) {
+        return false;
+      }
+      const prevToken = this.tokens[idx - 1];
+      if (prevToken.type === token.type && prevToken.value.operator === token.value.operator) {
+        return true;
+      }
+
+      return false;
+    },
   },
 };
 </script>
@@ -407,6 +419,7 @@ export default {
             ref="tokens"
             :key="token.id"
             v-model="token.value"
+            :hide-title-and-operator="hideTitleAndOperator(token, idx)"
             :config="getTokenEntry(token.type)"
             :active="activeTokenIdx === idx"
             :cursor-position="intendedCursorPosition"

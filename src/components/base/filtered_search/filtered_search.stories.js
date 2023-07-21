@@ -510,6 +510,22 @@ export const WithFriendlyText = () => ({
   `,
 });
 
+export const WithGroupedMultiSelect = () => ({
+  data() {
+    return {
+      tokens,
+      value: [
+        { type: 'user', value: { data: 'alpha', operator: '=' } },
+        { type: 'user', value: { data: 'beta', operator: '=' } },
+      ],
+    };
+  },
+  components,
+  template: `
+    <gl-filtered-search :available-tokens="tokens" v-model="value" terms-as-tokens />
+  `,
+});
+
 export const WithMultiSelect = () => {
   const MultiUserToken = {
     __v_skip: true /* temporary workaround for @vue/compat */,
