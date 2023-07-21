@@ -1,3 +1,5 @@
+@import 'src/scss/mixins';
+
 /**
 * Font family utility
 *
@@ -28,6 +30,79 @@
 }
 
 /**
+* Font heading utility
+* 
+* naming convention (TBC): gl-heading-{number}
+*/
+
+@mixin gl-heading-6 {
+  @include gl-heading(200);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-6-fixed {
+  @include gl-heading(200, $fixed: true);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-5 {
+  @include gl-heading(300);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-5-fixed {
+  @include gl-heading(300, $fixed: true);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-4 {
+  @include gl-heading(400);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-4-fixed {
+  @include gl-heading(400, $fixed: true);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-3 {
+  @include gl-heading(500);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-3-fixed {
+  @include gl-heading(500, $fixed: true);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-2 {
+  @include gl-heading(600);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-2-fixed {
+  @include gl-heading(600, $fixed: true);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-1 {
+  @include gl-heading(700);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-1-fixed {
+  @include gl-heading(700, $fixed: true);
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-0 {
+  @include gl-heading(800);
+  margin-bottom: $gl-mb-heading-display;
+}
+
+/**
+* DEPRECATED
+* TODO: migrate all of these away
 * Font size utility
 *
 * naming convention: gl-font-{type-scale-size}
@@ -108,6 +183,7 @@
 }
 
 /**
+* TODO: rethink this
 * Font-weight utilities.
 *
 * naming convention: gl-font-weight-[bold|normal|number]

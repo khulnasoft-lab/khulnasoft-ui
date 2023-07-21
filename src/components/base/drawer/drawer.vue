@@ -100,7 +100,9 @@ export default {
         :class="{ 'gl-drawer-header-sticky': headerSticky }"
       >
         <div class="gl-drawer-title">
-          <slot name="title"></slot>
+          <h2>
+            <slot name="title"></slot>
+          </h2>
           <gl-button
             category="tertiary"
             size="small"

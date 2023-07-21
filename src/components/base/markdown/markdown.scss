@@ -1,94 +1,44 @@
 .gl-markdown {
-  @include gl-font-size-markdown;
-  @include gl-line-height-24;
   @include gl-text-gray-900;
-  @include gl-font-regular;
-  @include gl-font-weight-normal;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .gl-h1,
-  .gl-h2,
-  .gl-h3,
-  .gl-h4,
-  .gl-h5,
-  .gl-h6 {
-    @include gl-font-weight-bold;
-  }
-
-  h1,
-  .gl-h1,
-  h2,
-  .gl-h2 {
-    @include gl-pb-5;
-    @include gl-border-b-solid;
-    @include gl-border-b-1;
-    @include gl-border-b-gray-200;
-    @include gl-mb-5;
-  }
-
-  h3,
-  h4,
-  h5,
-  h6,
-  .gl-h3,
-  .gl-h4,
-  .gl-h5,
-  .gl-h6 {
-    @include gl-mt-6;
-    @include gl-mb-3;
+  :first-child {
+    @include gl-mt-0;
   }
 
   h1,
   .gl-h1 {
-    @include gl-fluid-font-size(
-      $min: $gl-font-size-markdown-h1,
-      $max: $gl-font-size-markdown-h1-xl
-    );
-    @include gl-fluid-line-height($min: $gl-line-height-32, $max: $gl-line-height-52);
-    @include gl-mt-0;
+    @include gl-heading-1;
+    @include gl-mt-7;
   }
 
   h2,
   .gl-h2 {
-    @include gl-fluid-font-size(
-      $min: $gl-font-size-markdown-h2,
-      $max: $gl-font-size-markdown-h2-xl
-    );
-    @include gl-fluid-line-height($min: $gl-line-height-28, $max: $gl-line-height-36);
+    @include gl-heading-2;
     @include gl-mt-6;
   }
 
   h3,
   .gl-h3 {
-    @include gl-fluid-font-size(
-      $min: $gl-font-size-markdown-h3,
-      $max: $gl-font-size-markdown-h3-xl
-    );
-    @include gl-fluid-line-height($min: $gl-line-height-24, $max: $gl-line-height-28);
+    @include gl-heading-3;
+    @include gl-mt-6;
   }
 
   h4,
   .gl-h4 {
-    @include gl-font-size-markdown;
-    @include gl-line-height-20;
+    @include gl-heading-4;
+    @include gl-mt-5;
   }
 
   h5,
-  .gl-h5,
-  h6,
-  .gl-h6 {
-    @include gl-font-size-markdown-sm;
-    @include gl-line-height-20;
+  .gl-h5 {
+    @include gl-heading-5;
+    @include gl-mt-5;
   }
 
   h6,
   .gl-h6 {
-    @include gl-text-gray-700;
+    @include gl-heading-6;
+    @include gl-mt-5;
   }
 
   p,
@@ -212,66 +162,44 @@
 }
 
 .gl-compact-markdown {
-  @include gl-font-base;
-  @include gl-line-height-20;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  .gl-h1,
-  .gl-h2,
-  .gl-h3,
-  .gl-h4,
-  .gl-h5,
-  .gl-h6 {
-    @include gl-mt-6;
-    @include gl-mb-3;
-    @include gl-line-height-20;
-  }
-
-  h1,
-  .gl-h1,
-  h2,
-  .gl-h2 {
-    @include gl-pb-0;
-    @include gl-border-none;
+  :first-child {
+    @include gl-mt-0;
   }
 
   h1,
   .gl-h1 {
-    @include gl-fluid-font-size(
-      $min: $gl-font-size-compact-markdown-h1,
-      $max: $gl-font-size-compact-markdown-h1-xl
-    );
-    @include gl-fluid-line-height($min: $gl-line-height-24, $max: $gl-line-height-28);
+    @include gl-heading-1-fixed;
+    @include gl-mt-7;
   }
 
   h2,
   .gl-h2 {
-    @include gl-font-lg;
+    @include gl-heading-2-fixed;
+    @include gl-mt-6;
   }
 
   h3,
-  .gl-h3,
-  h4,
-  .gl-h4,
-  h5,
-  .gl-h5,
-  h6,
-  .gl-h6 {
-    @include gl-font-base;
+  .gl-h3 {
+    @include gl-heading-3-fixed;
+    @include gl-mt-6;
   }
 
   h4,
-  .gl-h4,
+  .gl-h4 {
+    @include gl-heading-4-fixed;
+    @include gl-mt-5;
+  }
+
   h5,
-  .gl-h5,
+  .gl-h5 {
+    @include gl-heading-5-fixed;
+    @include gl-mt-5;
+  }
+
   h6,
   .gl-h6 {
-    @include gl-text-gray-700;
+    @include gl-heading-6-fixed;
+    @include gl-mt-5;
   }
 
   .sm {

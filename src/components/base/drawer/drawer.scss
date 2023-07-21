@@ -92,6 +92,12 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
   @include gl-align-items-center;
   @include gl-justify-content-space-between;
 
+  h2 {
+    @include gl-heading(500);
+    // override bootstrap default
+    @include gl-mb-0;
+  }
+
   svg {
     @include gl-w-5;
     @include gl-h-5;

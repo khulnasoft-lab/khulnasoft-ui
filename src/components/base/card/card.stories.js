@@ -8,7 +8,7 @@ const components = {
 const template = `
 <gl-card>
   <template #header>
-    <h3 class="gl-my-0 gl-font-weight-bold gl-font-lg">This is a custom header</h3>
+    <h3 class="gl-heading-5 gl-mb-0!">This is a custom header</h3>
   </template>
   <template #default>
     Hello World

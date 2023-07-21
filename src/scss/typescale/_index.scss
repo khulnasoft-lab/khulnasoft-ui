@@ -1,3 +1,5 @@
+// Question: Is this used anywhere?
+
 @mixin gl-typescale-ui($selector: 'body') {
   #{$selector} {
     @include gl-font-base;

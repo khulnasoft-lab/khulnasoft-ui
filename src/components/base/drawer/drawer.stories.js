@@ -124,7 +124,7 @@ export const WithActions = (_args, { viewMode }) => ({
       <gl-button @click="toggle">Toggle Drawer</gl-button>
       ${createSidebarTemplate(`
           <template #title>
-          <h3>custom-network-policy</h3>
+          custom-network-policy
         </template>
         <template #header>
             <div class="gl-mt-5">
@@ -197,7 +197,7 @@ export const SidebarVariant = (_args, { viewMode }) => ({
       <gl-button @click="toggle">Toggle Drawer</gl-button>
       ${createSidebarTemplate(`
         <template #title>
-          <h3>Sidebar</h3>
+          Sidebar
         </template>
         <template #header>
           <div class="gl-mt-5">

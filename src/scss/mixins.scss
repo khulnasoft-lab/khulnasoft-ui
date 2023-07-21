@@ -122,3 +122,74 @@
     @content;
   }
 }
+
+// Helper functions to aid maintainance of heading styles
+
+// Because we can't interpolate into a variable name we have to do some stuff
+
+@function get-heading-size-variable-name($size, $fixed) {
+  @if $fixed == true {
+    @if $size == 200 {
+      @return $gl-font-size-200-fixed;
+    } @else if $size == 300 {
+      @return $gl-font-size-300-fixed;
+    } @else if $size == 400 {
+      @return $gl-font-size-400-fixed;
+    } @else if $size == 500 {
+      @return $gl-font-size-500-fixed;
+    } @else if $size == 600 {
+      @return $gl-font-size-600-fixed;
+    } @else if $size == 700 {
+      @return $gl-font-size-700-fixed;
+    } @else {
+      @error "#{$size} is not a valid fixed heading size";
+      @return null;
+    }
+  } @else {
+    @if $size == 200 {
+      @return $gl-font-size-200;
+    } @else if $size == 300 {
+      @return $gl-font-size-300;
+    } @else if $size == 400 {
+      @return $gl-font-size-400;
+    } @else if $size == 500 {
+      @return $gl-font-size-500;
+    } @else if $size == 600 {
+      @return $gl-font-size-600;
+    } @else if $size == 700 {
+      @return $gl-font-size-700;
+    } @else if $size == 800 {
+      @return $gl-font-size-800;
+    } @else {
+      @error "#{$size} is not a valid heading size";
+      @return null;
+    }
+  }
+}
+
+// Set fixed as false by default, matching desired usage in the product
+// No margin bottom, as margin set by usage not fact it is a heading
+@mixin gl-heading($size, $fixed: false) {
+  // Because we can't interpolate into a variable name we have to do some stuff
+  font-size: get-heading-size-variable-name($size, $fixed);
+
+  // Larger headings have less letter spacing
+  @if ($size <= 500) {
+    letter-spacing: $gl-letter-spacing-heading;
+  } @else {
+    letter-spacing: $gl-letter-spacing-heading-reduced;
+  }
+
+  // Display heading has different line height
+  @if ($size == 800) {
+    line-height: $gl-line-height-heading-display;
+  } @else {
+    line-height: $gl-line-height-heading;
+  }
+
+  // These settings apply to all headings
+  font-family: $gl-font-heading;
+  font-weight: $gl-font-weight-heading;
+  -webkit-font-smoothing: $gl-antialising-heading;
+  text-balance: $gl-text-balance-heading; /* stylelint-disable-line property-no-unknown*/
+}

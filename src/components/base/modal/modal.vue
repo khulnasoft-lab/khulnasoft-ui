@@ -206,10 +206,10 @@ export default {
     <template #modal-header>
       <!-- @slot Entire modal header container contents (including the close button on the top right corner) -->
       <slot name="modal-header">
-        <h4 class="modal-title">
+        <h2 class="modal-title">
           <!-- @slot Modal title. If modal-header slot is used, this slot will not be shown. -->
           <slot name="modal-title">{{ title }}</slot>
-        </h4>
+        </h2>
       </slot>
       <!-- @slot Content of Modal header close button. If modal-header slot is used, this slot will not be shown. -->
       <close-button ref="close-button" :label="dismissLabel" @click="close" />

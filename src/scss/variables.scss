@@ -337,6 +337,18 @@ $gl-line-height-42: px-to-rem(42px);
 $gl-line-height-44: px-to-rem(44px);
 $gl-line-height-52: px-to-rem(52px);
 
+// Fonts
+$gl-monospace-font: 'GitLab Mono', 'JetBrains Mono', 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono',
+  'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace !default;
+$gl-regular-font: 'GitLab Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans',
+  Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji' !default;
+
+$gl-fonts: (
+  'monospace': $gl-monospace-font,
+  'regular': $gl-regular-font,
+);
+
 // New UI type scale
 // Implements the type scale from https://gitlab.com/groups/gitlab-org/gitlab-services/-/epics/15
 // Old variables and styles need to be removed after intergration
@@ -362,6 +374,30 @@ $gl-font-size-500: #{clamp-between($gl-font-size-500-fixed, px-to-rem(20px))};
 $gl-font-size-600: #{clamp-between($gl-font-size-600-fixed, px-to-rem(25px))};
 $gl-font-size-700: #{clamp-between($gl-font-size-700-fixed, px-to-rem(30px))};
 $gl-font-size-800: #{clamp-between($gl-font-size-800-fixed, px-to-rem(36px))};
+
+// Heading variables
+
+$gl-font-heading: $gl-regular-font;
+
+$gl-line-height-heading: 1.25;
+$gl-line-height-heading-display: 1.125;
+
+$gl-mb-heading: $gl-spacing-scale-5;
+$gl-mb-heading-display: $gl-spacing-scale-6;
+
+$gl-font-weight-heading: 600;
+
+$gl-letter-spacing-heading: inherit;
+$gl-letter-spacing-heading-reduced: -0.01em;
+
+$gl-text-color-heading: $gl-text-color;
+
+// macos only
+$gl-antialising-heading: antialiased;
+
+$gl-text-balance-heading: pretty;
+
+// END New UI type scale
 
 // UI typescale
 
@@ -415,18 +451,6 @@ $gl-font-size-compact-markdown-h1-md: px-to-rem(20px);
 
 // media xl (min-width: 1200px)
 $gl-font-size-compact-markdown-h1-xl: px-to-rem(23px);
-
-// Fonts
-$gl-monospace-font: 'GitLab Mono', 'JetBrains Mono', 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono',
-  'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace !default;
-$gl-regular-font: 'GitLab Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans',
-  Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-  'Segoe UI Symbol', 'Noto Color Emoji' !default;
-
-$gl-fonts: (
-  'monospace': $gl-monospace-font,
-  'regular': $gl-regular-font,
-);
 
 $border-color: $gray-100 !default;
 

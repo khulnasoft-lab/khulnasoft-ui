@@ -56,10 +56,10 @@ body.modal-open {
     @include gl-pb-3;
     @include gl-border-none;
 
-    .modal-title {
-      @include gl-font-lg;
-      @include gl-font-weight-bold;
-      @include gl-line-height-24;
+    h2.modal-title {
+      @include gl-heading(500);
+      // override bootstrap default
+      @include gl-mb-0;
     }
   }
 
