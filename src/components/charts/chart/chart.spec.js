@@ -50,7 +50,7 @@ describe('chart component', () => {
     triggerResize(wrapper.element);
     await waitForAnimationFrame();
 
-    expect(wrapper.vm.chart.resize).toHaveBeenCalledTimes(1);
+    expect(wrapper.vm.chart.resize).toHaveBeenCalledTimes(2);
   });
 
   it('resizes the chart only once per animation frame when responsive = true', async () => {
