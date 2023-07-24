@@ -191,5 +191,6 @@
   font-family: $gl-font-heading;
   font-weight: $gl-font-weight-heading;
   -webkit-font-smoothing: $gl-antialising-heading;
-  text-balance: $gl-text-balance-heading; /* stylelint-disable-line property-no-unknown*/
+  text-wrap: $gl-text-wrap-heading; /* stylelint-disable-line property-no-unknown*/
+  margin-top: 0; // override bootstrap reset in GitLab
 }
