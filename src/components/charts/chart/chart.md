@@ -1,8 +1,7 @@
 ### ECharts Wrapper
 
 The chart component is a Vue component wrapper around [Apache ECharts](https://echarts.apache.org/en/api.html#echarts).
-The chart component accepts width and height props in order to allow the user to make it responsive,
-but it is not responsive by default.
+The chart component accepts width and height props in order to allow the user to make it responsive.
 
 > Note: When implementing a chart type that does not already have a GitLab UI component, you can use
 > this component alonside the [ECharts options](https://echarts.apache.org/en/api.html#echarts) to
