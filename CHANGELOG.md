@@ -1,3 +1,10 @@
+# [64.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.22.0...v64.23.0) (2023-07-25)
+
+
+### Features
+
+* **GlFormField:** Allow form field groups to receive attributes ([de5fafc](https://gitlab.com/gitlab-org/gitlab-ui/commit/de5fafc70ef52ec993cec434934c1a84bb64167a))
+
 # [64.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.21.2...v64.22.0) (2023-07-20)
 
 
