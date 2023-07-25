@@ -216,6 +216,18 @@ export default {
         },
       };
     },
+    toggleListeners() {
+      return this.toggleOptions.listeners;
+    },
+
+    toggleAttributes() {
+      const { listeners, is, ...attributes } = this.toggleOptions;
+
+      return attributes;
+    },
+    toggleComponent() {
+      return this.toggleOptions.is;
+    },
     toggleElement() {
       return this.$refs.toggle.$el || this.$refs.toggle?.firstElementChild;
     },
@@ -400,12 +412,12 @@ export default {
 <template>
   <div v-outside="close" class="gl-new-dropdown" :class="{ 'gl-display-block!': block }">
     <component
-      :is="toggleOptions.is"
-      v-bind="toggleOptions"
+      :is="toggleComponent"
+      v-bind="toggleAttributes"
       :id="toggleId"
       ref="toggle"
       data-testid="base-dropdown-toggle"
-      v-on="toggleOptions.listeners"
+      v-on="toggleListeners"
     >
       <!-- @slot Custom toggle button content -->
       <slot name="toggle">
