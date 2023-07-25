@@ -57,7 +57,7 @@ body.modal-open {
     @include gl-border-none;
 
     h2.modal-title {
-      @include gl-heading(500);
+      @include gl-heading-500;
       // override bootstrap default
       @include gl-mb-0;
     }

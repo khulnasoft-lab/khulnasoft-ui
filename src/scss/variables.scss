@@ -356,24 +356,28 @@ $gl-fonts: (
 // Font size scale
 
 // fixed scale (compact markdown)
-$gl-font-size-100-fixed: px-to-rem(12px);
-$gl-font-size-200-fixed: px-to-rem(13px);
-$gl-font-size-300-fixed: px-to-rem(14px);
-$gl-font-size-400-fixed: px-to-rem(16px);
-$gl-font-size-500-fixed: px-to-rem(18px);
-$gl-font-size-600-fixed: px-to-rem(21px);
-$gl-font-size-700-fixed: px-to-rem(24px);
-$gl-font-size-800-fixed: px-to-rem(28px);
+$gl-font-sizes-fixed: (
+  100: px-to-rem(12px),
+  200: px-to-rem(13px),
+  300: px-to-rem(14px),
+  400: px-to-rem(16px),
+  500: px-to-rem(18px),
+  600: px-to-rem(21px),
+  700: px-to-rem(24px),
+  800: px-to-rem(28px),
+);
 
 // dynamic scale (default) resizes based on viewport width
-$gl-font-size-100: $gl-font-size-100-fixed;
-$gl-font-size-200: $gl-font-size-200-fixed;
-$gl-font-size-300: $gl-font-size-300-fixed;
-$gl-font-size-400: $gl-font-size-400-fixed;
-$gl-font-size-500: #{clamp-between($gl-font-size-500-fixed, px-to-rem(20px))};
-$gl-font-size-600: #{clamp-between($gl-font-size-600-fixed, px-to-rem(25px))};
-$gl-font-size-700: #{clamp-between($gl-font-size-700-fixed, px-to-rem(30px))};
-$gl-font-size-800: #{clamp-between($gl-font-size-800-fixed, px-to-rem(36px))};
+$gl-font-sizes: (
+  100: map-get($gl-font-sizes-fixed, 100),
+  200: map-get($gl-font-sizes-fixed, 200),
+  300: map-get($gl-font-sizes-fixed, 300),
+  400: map-get($gl-font-sizes-fixed, 400),
+  500: clamp-between(map-get($gl-font-sizes-fixed, 500), px-to-rem(20px)),
+  600: clamp-between(map-get($gl-font-sizes-fixed, 600), px-to-rem(25px)),
+  700: clamp-between(map-get($gl-font-sizes-fixed, 700), px-to-rem(30px)),
+  800: clamp-between(map-get($gl-font-sizes-fixed, 800), px-to-rem(36px)),
+);
 
 // Heading variables
 

@@ -28,7 +28,7 @@
 }
 
 .gl-banner-title {
-  @include gl-heading(500);
+  @include gl-heading-500;
   @include gl-mb-3;
 }
 

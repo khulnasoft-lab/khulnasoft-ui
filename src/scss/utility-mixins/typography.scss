@@ -31,73 +31,143 @@
 
 /**
 * Font heading utility
-* 
+*
 * naming convention (TBC): gl-heading-{number}
 */
 
 @mixin gl-heading-6 {
-  @include gl-heading(200);
+  @include gl-heading-200;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-6-fixed {
-  @include gl-heading(200, $fixed: true);
+  @include gl-heading-200-fixed;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-5 {
-  @include gl-heading(300);
+  @include gl-heading-300;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-5-fixed {
-  @include gl-heading(300, $fixed: true);
+  @include gl-heading-300-fixed;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-4 {
-  @include gl-heading(400);
+  @include gl-heading-400;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-4-fixed {
-  @include gl-heading(400, $fixed: true);
+  @include gl-heading-400-fixed;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-3 {
-  @include gl-heading(500);
+  @include gl-heading-500;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-3-fixed {
-  @include gl-heading(500, $fixed: true);
+  @include gl-heading-500-fixed;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-2 {
-  @include gl-heading(600);
+  @include gl-heading-600;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-2-fixed {
-  @include gl-heading(600, $fixed: true);
+  @include gl-heading-600-fixed;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-1 {
-  @include gl-heading(700);
+  @include gl-heading-700;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-1-fixed {
-  @include gl-heading(700, $fixed: true);
+  @include gl-heading-700-fixed;
   margin-bottom: $gl-mb-heading;
 }
 
 @mixin gl-heading-0 {
-  @include gl-heading(800);
+  @include gl-heading-800;
   margin-bottom: $gl-mb-heading-display;
+}
+
+/**
+* Font heading utility
+*
+* naming convention (TBC): gl-heading-{number}
+*/
+
+@mixin gl-heading-100 {
+  @include gl-heading(100);
+}
+
+@mixin gl-heading-100-fixed {
+  @include gl-heading(100, $fixed: true);
+}
+
+@mixin gl-heading-200 {
+  @include gl-heading(200);
+}
+
+@mixin gl-heading-200-fixed {
+  @include gl-heading(200, $fixed: true);
+}
+
+@mixin gl-heading-300 {
+  @include gl-heading(300);
+}
+
+@mixin gl-heading-300-fixed {
+  @include gl-heading(300, $fixed: true);
+}
+
+@mixin gl-heading-400 {
+  @include gl-heading(400);
+}
+
+@mixin gl-heading-400-fixed {
+  @include gl-heading(400, $fixed: true);
+}
+
+@mixin gl-heading-500 {
+  @include gl-heading(500);
+}
+
+@mixin gl-heading-500-fixed {
+  @include gl-heading(500, $fixed: true);
+}
+
+@mixin gl-heading-600 {
+  @include gl-heading(600);
+}
+
+@mixin gl-heading-600-fixed {
+  @include gl-heading(600, $fixed: true);
+}
+
+@mixin gl-heading-700 {
+  @include gl-heading(700);
+}
+
+@mixin gl-heading-700-fixed {
+  @include gl-heading(700, $fixed: true);
+}
+
+@mixin gl-heading-800 {
+  @include gl-heading(800);
+}
+
+@mixin gl-heading-800-fixed {
+  @include gl-heading(800, $fixed: true);
 }
 
 /**
@@ -218,7 +288,7 @@
 /**
 * Line height utilities.
 *
-* naming convention: 
+* naming convention:
 * - gl-line-height-ratio-{ratio-multiplied-by-1000}
 * - gl-line-height-{line-height-in-pixels}
 * notes:

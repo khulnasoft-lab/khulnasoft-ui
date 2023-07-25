@@ -126,40 +126,17 @@
 // Helper functions to aid maintainance of heading styles
 
 // Because we can't interpolate into a variable name we have to do some stuff
-
 @function get-heading-size-variable-name($size, $fixed) {
   @if $fixed == true {
-    @if $size == 200 {
-      @return $gl-font-size-200-fixed;
-    } @else if $size == 300 {
-      @return $gl-font-size-300-fixed;
-    } @else if $size == 400 {
-      @return $gl-font-size-400-fixed;
-    } @else if $size == 500 {
-      @return $gl-font-size-500-fixed;
-    } @else if $size == 600 {
-      @return $gl-font-size-600-fixed;
-    } @else if $size == 700 {
-      @return $gl-font-size-700-fixed;
+    @if map-has-key($gl-font-sizes-fixed, $size) {
+      @return map-get($gl-font-sizes-fixed, $size);
     } @else {
       @error "#{$size} is not a valid fixed heading size";
       @return null;
     }
   } @else {
-    @if $size == 200 {
-      @return $gl-font-size-200;
-    } @else if $size == 300 {
-      @return $gl-font-size-300;
-    } @else if $size == 400 {
-      @return $gl-font-size-400;
-    } @else if $size == 500 {
-      @return $gl-font-size-500;
-    } @else if $size == 600 {
-      @return $gl-font-size-600;
-    } @else if $size == 700 {
-      @return $gl-font-size-700;
-    } @else if $size == 800 {
-      @return $gl-font-size-800;
+    @if map-has-key($gl-font-sizes, $size) {
+      @return map-get($gl-font-sizes, $size);
     } @else {
       @error "#{$size} is not a valid heading size";
       @return null;
