@@ -24,5 +24,8 @@ interface FieldDefinition<TValue> {
 
   // Properties that are passed to the actual input for this field.
   inputAttrs?: {};
+
+  // Properties that are passed to the group wrapping this field.
+  groupAttrs?: {};
 }
 ```
