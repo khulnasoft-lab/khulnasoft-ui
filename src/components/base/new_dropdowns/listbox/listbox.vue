@@ -174,6 +174,14 @@ export default {
       default: false,
     },
     /**
+     * Show checkbox Icon when element selected
+     */
+    showCheckboxIcon: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
+    /**
      * Align listbox menu with respect to the toggle button
      */
     placement: {
@@ -829,6 +837,7 @@ export default {
         <template v-if="isOption(item)">
           <gl-listbox-item
             :key="item.value"
+            :show-checkbox-icon="showCheckboxIcon"
             :data-testid="`listbox-item-${item.value}`"
             :is-selected="isSelected(item)"
             :is-focused="isFocused(item)"
@@ -858,6 +867,7 @@ export default {
             <gl-listbox-item
               v-for="option in item.options"
               :key="option.value"
+              :show-checkbox-icon="showCheckboxIcon"
               :data-testid="`listbox-item-${option.value}`"
               :is-selected="isSelected(option)"
               :is-focused="isFocused(option)"

@@ -45,6 +45,7 @@ const generateProps = ({
   noResultsText = defaultValue('noResultsText'),
   searchPlaceholder = defaultValue('searchPlaceholder'),
   noCaret = defaultValue('noCaret'),
+  showCheckboxIcon = defaultValue('showCheckboxIcon'),
   placement = defaultValue('placement'),
   toggleClass,
   toggleText,
@@ -75,6 +76,7 @@ const generateProps = ({
   noResultsText,
   searchPlaceholder,
   noCaret,
+  showCheckboxIcon,
   placement,
   toggleClass,
   toggleText,
@@ -108,6 +110,7 @@ const makeBindings = (overrides = {}) =>
     ':no-results-text': 'noResultsText',
     ':search-placeholder': 'searchPlaceholder',
     ':no-caret': 'noCaret',
+    ':show-checkbox-icon': 'showCheckboxIcon',
     ':placement': 'placement',
     ':toggle-class': 'toggleClass',
     ':toggle-text': 'toggleText',
@@ -527,6 +530,11 @@ export default {
       },
     },
     noCaret: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    showCheckboxIcon: {
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },

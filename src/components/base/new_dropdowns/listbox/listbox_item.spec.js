@@ -103,6 +103,25 @@ describe('GlListboxItem', () => {
         );
       });
     });
+
+    describe('showCheckboxIcon prop is true', () => {
+      beforeEach(() => {
+        buildWrapper({ showCheckboxIcon: true });
+      });
+      it('should display Icon', () => {
+        expect(findCheckIcon().exists()).toBe(true);
+      });
+    });
+
+    describe('showCheckboxIcon prop is false', () => {
+      beforeEach(() => {
+        buildWrapper({ showCheckboxIcon: false });
+      });
+
+      it('should not display Icon', () => {
+        expect(findCheckIcon().exists()).toBe(false);
+      });
+    });
   });
 
   describe('tabindex', () => {

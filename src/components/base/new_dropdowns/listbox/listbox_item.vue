@@ -24,6 +24,11 @@ export default {
       required: false,
       default: false,
     },
+    showCheckboxIcon: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   computed: {
     checkedClasses() {
@@ -61,6 +66,7 @@ export default {
   >
     <span class="gl-new-dropdown-item-content" :class="{ 'gl-bg-gray-50!': isSelected }">
       <gl-icon
+        v-if="showCheckboxIcon"
         name="mobile-issue-close"
         data-testid="dropdown-item-checkbox"
         :class="[
