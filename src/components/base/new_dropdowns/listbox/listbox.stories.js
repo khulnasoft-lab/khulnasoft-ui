@@ -3,6 +3,7 @@ import {
   buttonSizeOptions,
   buttonVariantOptions,
   dropdownPlacements,
+  dropdownWidthOptions,
 } from '../../../../utils/constants';
 import GlIcon from '../../icon/icon.vue';
 import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
@@ -45,6 +46,7 @@ const generateProps = ({
   noResultsText = defaultValue('noResultsText'),
   searchPlaceholder = defaultValue('searchPlaceholder'),
   noCaret = defaultValue('noCaret'),
+  width = defaultValue('width'),
   placement = defaultValue('placement'),
   toggleClass,
   toggleText,
@@ -75,6 +77,7 @@ const generateProps = ({
   noResultsText,
   searchPlaceholder,
   noCaret,
+  width,
   placement,
   toggleClass,
   toggleText,
@@ -108,6 +111,7 @@ const makeBindings = (overrides = {}) =>
     ':no-results-text': 'noResultsText',
     ':search-placeholder': 'searchPlaceholder',
     ':no-caret': 'noCaret',
+    ':width': 'width',
     ':placement': 'placement',
     ':toggle-class': 'toggleClass',
     ':toggle-text': 'toggleText',
@@ -527,6 +531,13 @@ export default {
       },
     },
     noCaret: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
+      },
+    },
+    width: {
+      control: 'select',
+      options: Object.keys(dropdownWidthOptions),
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },

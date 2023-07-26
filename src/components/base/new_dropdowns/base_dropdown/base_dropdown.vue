@@ -4,6 +4,7 @@ import { computePosition, autoUpdate, offset, size, autoPlacement } from '@float
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
+  dropdownWidthOptions,
   dropdownPlacements,
   dropdownAllowedAutoPlacements,
   dropdownVariantOptions,
@@ -24,7 +25,7 @@ import { logWarning, isElementTabbable, isElementFocusable } from '../../../../u
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
 import { OutsideDirective } from '../../../../directives/outside/outside';
-import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
+import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS_SMALL, FIXED_WIDTH_CLASS_LARGE } from './constants';
 
 export default {
   name: 'BaseDropdown',
@@ -61,6 +62,13 @@ export default {
       default: dropdownVariantOptions.default,
       validator: (value) => Object.keys(dropdownVariantOptions).includes(value),
     },
+    width: {
+      type: String,
+      required: false,
+      default: dropdownWidthOptions.sm,
+      validator: (value) => Object.keys(dropdownWidthOptions).includes(value),
+    },
+
     size: {
       type: String,
       required: false,
@@ -222,7 +230,8 @@ export default {
     panelClasses() {
       return {
         'gl-display-block!': this.visible,
-        [FIXED_WIDTH_CLASS]: !this.fluidWidth,
+        [FIXED_WIDTH_CLASS_SMALL]: !this.fluidWidth && this.width === dropdownWidthOptions.sm,
+        [FIXED_WIDTH_CLASS_LARGE]: !this.fluidWidth && this.width === dropdownWidthOptions.lg,
         'gl-fixed': this.openedYet && this.isFixed,
         'gl-absolute': this.openedYet && !this.isFixed,
       };

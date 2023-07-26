@@ -9,7 +9,7 @@ import {
   GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
 import { waitForAnimationFrame } from '../../../../utils/test_utils';
-import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
+import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS_SMALL, FIXED_WIDTH_CLASS_LARGE } from './constants';
 import GlBaseDropdown from './base_dropdown.vue';
 
 jest.mock('@floating-ui/dom');
@@ -404,13 +404,29 @@ describe('base dropdown', () => {
     it('uses a fixed width by default', () => {
       buildWrapper();
 
-      expect(findDropdownMenu().classes()).toContain(FIXED_WIDTH_CLASS);
+      expect(findDropdownMenu().classes()).toContain(FIXED_WIDTH_CLASS_SMALL);
     });
 
     it('drops the fixed width when `fluidWidth` is `true`', () => {
       buildWrapper({ fluidWidth: true });
 
-      expect(findDropdownMenu().classes()).not.toContain(FIXED_WIDTH_CLASS);
+      expect(findDropdownMenu().classes()).not.toContain(FIXED_WIDTH_CLASS_SMALL);
+    });
+  });
+
+  describe('width prop', () => {
+    it('adds the FIXED_WIDTH_CLASS_SMALL when not set', () => {
+      buildWrapper();
+
+      expect(findDropdownMenu().classes()).toContain(FIXED_WIDTH_CLASS_SMALL);
+      expect(findDropdownMenu().classes()).not.toContain(FIXED_WIDTH_CLASS_LARGE);
+    });
+
+    it('adds the FIXED_WIDTH_CLASS_LARGE when set to large', () => {
+      buildWrapper({ width: 'lg' });
+
+      expect(findDropdownMenu().classes()).toContain(FIXED_WIDTH_CLASS_LARGE);
+      expect(findDropdownMenu().classes()).not.toContain(FIXED_WIDTH_CLASS_SMALL);
     });
   });
 });

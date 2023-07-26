@@ -90,6 +90,11 @@ export const buttonCategoryOptions = {
   tertiary: 'tertiary',
 };
 
+export const dropdownWidthOptions = {
+  sm: 'sm',
+  lg: 'lg',
+};
+
 export const buttonVariantOptions = {
   default: 'default',
   confirm: 'confirm',

@@ -18,6 +18,7 @@ import {
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
+  dropdownWidthOptions,
   dropdownPlacements,
   dropdownVariantOptions,
 } from '../../../../utils/constants';
@@ -113,6 +114,15 @@ export default {
       required: false,
       default: buttonCategoryOptions.primary,
       validator: (value) => value in buttonCategoryOptions,
+    },
+    /**
+     * Styling option - dropdown width
+     */
+    width: {
+      type: String,
+      required: false,
+      default: dropdownWidthOptions.sm,
+      validator: (value) => value in dropdownWidthOptions,
     },
     /**
      * Styling option - dropdown's toggle variant
@@ -741,6 +751,7 @@ export default {
     :size="size"
     :icon="icon"
     :disabled="disabled"
+    :width="width"
     :loading="loading"
     :no-caret="noCaret"
     :placement="placement"
