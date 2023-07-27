@@ -1,3 +1,4 @@
+import last from 'lodash/last';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlIcon from '../icon/icon.vue';
 import GlToken from '../token/token.vue';
@@ -525,13 +526,19 @@ export const WithMultiSelect = () => {
     data() {
       return {
         users: fakeUsers,
-        selectedUsernames: this.value.data ? this.value.data.split(',') : [],
+        selectedUsernames: this.value.data || [],
         activeUser: null,
       };
     },
     computed: {
       filteredUsers() {
-        return this.users.filter((user) => user.username.includes(this.value.data));
+        let term = this.value.data;
+
+        if (Array.isArray(this.value.data) && this.value.data.length > 1) {
+          term = last(this.value.data);
+        }
+
+        return this.users.filter((user) => user.username.includes(term));
       },
       selectedUsers() {
         return this.config.multiSelect
@@ -593,7 +600,7 @@ export const WithMultiSelect = () => {
       <template v-for="(user, index) in selectedUsers">
         <gl-avatar :size="16" :entity-name="user.username" shape="circle" />
         {{ user.name }}
-        <span v-if="!isLastUser(index)" class="gl-mx-2">,&nbsp;</span>
+        <span v-if="!isLastUser(index)">,&nbsp;</span>
       </template>
     </template>
     <template #suggestions>
@@ -635,7 +642,7 @@ export const WithMultiSelect = () => {
             multiSelect: true,
           },
         ],
-        value: [{ type: 'assignee', value: { data: 'alpha,beta', operator: '=' } }],
+        value: [{ type: 'assignee', value: { data: ['alpha', 'beta'], operator: '=' } }],
       };
     },
     template: `

@@ -1,6 +1,6 @@
 <script>
 import cloneDeep from 'lodash/cloneDeep';
-import { COMMA } from '../../../utils/constants';
+import isEqual from 'lodash/isEqual';
 import GlToken from '../token/token.vue';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import { createTerm, tokenToOption, TOKEN_CLOSE_SELECTOR } from './filtered_search_utils';
@@ -97,8 +97,13 @@ export default {
       return this.config.operators || DEFAULT_OPERATORS;
     },
 
+    tokenEmpty() {
+      return this.tokenValue.data?.length === 0;
+    },
+
     hasDataOrDataSegmentIsCurrentlyActive() {
-      return this.tokenValue.data !== '' || this.isSegmentActive(SEGMENT_DATA);
+      const hasData = !this.tokenEmpty;
+      return hasData || this.isSegmentActive(SEGMENT_DATA);
     },
 
     availableTokensWithSelf() {
@@ -137,7 +142,7 @@ export default {
 
     value: {
       handler(newValue, oldValue) {
-        if (newValue?.data === oldValue?.data && newValue?.operator === oldValue?.operator) {
+        if (isEqual(newValue?.data, oldValue?.data) && newValue?.operator === oldValue?.operator) {
           return;
         }
 
@@ -147,20 +152,29 @@ export default {
 
     active: {
       immediate: true,
-      handler(newValue) {
-        if (newValue) {
+      handler(tokenIsActive) {
+        if (tokenIsActive) {
           this.intendedCursorPosition = this.cursorPosition;
           if (!this.activeSegment) {
-            this.activateSegment(this.tokenValue.data !== '' ? SEGMENT_DATA : SEGMENT_OPERATOR);
+            this.activateSegment(this.tokenEmpty ? SEGMENT_OPERATOR : SEGMENT_DATA);
           }
-        } else if (this.tokenValue.data === '') {
+        } else {
           this.activeSegment = null;
-          /**
-           * Emitted when token is about to be destroyed.
-           *
-           * @event destroy
-           */
-          this.$emit('destroy');
+
+          // restore multi select values if we have them
+          // otherwise destroy the token
+          if (this.config.multiSelect) {
+            this.$emit('input', { ...this.tokenValue, data: this.multiSelectValues || '' });
+          }
+
+          if (this.tokenEmpty && this.multiSelectValues.length === 0) {
+            /**
+             * Emitted when token is about to be destroyed.
+             *
+             * @event destroy
+             */
+            this.$emit('destroy');
+          }
         }
       },
     },
@@ -206,7 +220,7 @@ export default {
     },
 
     replaceWithTermIfEmpty() {
-      if (this.tokenValue.operator === '' && this.tokenValue.data === '') {
+      if (this.tokenValue.operator === '' && this.tokenEmpty) {
         /**
          * Emitted when this token is converted to another type
          * @property {object} token Replacement token configuration
@@ -252,7 +266,7 @@ export default {
         key.length === 1 &&
         !this.operators.find(({ value }) => value.startsWith(potentialValue))
       ) {
-        if (this.tokenValue.data === '') {
+        if (this.tokenEmpty) {
           applySuggestion(suggestedValue);
         } else {
           evt.preventDefault();
@@ -288,9 +302,6 @@ export default {
     },
 
     handleComplete() {
-      if (this.config.multiSelect) {
-        this.$emit('input', { ...this.tokenValue, data: this.multiSelectValues.join(COMMA) });
-      }
       /**
        * Emitted when the token entry has been completed.
        *
