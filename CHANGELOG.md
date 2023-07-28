@@ -1,3 +1,10 @@
+# [64.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.23.0...v64.24.0) (2023-07-28)
+
+
+### Features
+
+* **tabs:** Remove theme color ([8fadce7](https://gitlab.com/gitlab-org/gitlab-ui/commit/8fadce789cb6a9ec0b8b30eb20f5b11dfa45e41a))
+
 # [64.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.22.0...v64.23.0) (2023-07-25)
 
 
