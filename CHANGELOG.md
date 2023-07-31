@@ -1,3 +1,10 @@
+## [64.24.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.24.0...v64.24.1) (2023-07-31)
+
+
+### Bug Fixes
+
+* **GlCarousel:** Change focus border size ([36afd9c](https://gitlab.com/gitlab-org/gitlab-ui/commit/36afd9c4c1ee78d7d3d9ee9ba82dad4e5e9085a2))
+
 # [64.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.23.0...v64.24.0) (2023-07-28)
 
 
