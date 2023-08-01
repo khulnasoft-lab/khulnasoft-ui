@@ -1,3 +1,15 @@
+# [65.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.24.1...v65.0.0) (2023-08-01)
+
+
+### chore
+
+* move dompurify to peer & dev dependency ([f87d3e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/f87d3e6924e9f7e81affc38b913c87a1ec45a59f))
+
+
+### BREAKING CHANGES
+
+* please upgrade to latest dompurify release
+
 ## [64.24.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.24.0...v64.24.1) (2023-07-31)
 
 
