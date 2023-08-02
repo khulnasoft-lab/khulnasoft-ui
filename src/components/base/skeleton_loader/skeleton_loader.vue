@@ -73,7 +73,7 @@ export default {
       required: false,
     },
   },
-  render(createElement, { props, slots }) {
+  render(createElement, { props, slots, data }) {
     const slotIsSet = () => slots().default;
 
     const propValueOrDefault = (name, defaultValue) =>
@@ -236,7 +236,7 @@ export default {
     return createElement(
       'div',
       {
-        class: 'gl-skeleton-loader-default-container gl-max-w-full',
+        class: ['gl-skeleton-loader-default-container gl-max-w-full', data.attrs.class],
         style: {
           width: props.width !== null ? `${props.width}px` : null,
           height: props.height !== null ? `${props.height}px` : null,

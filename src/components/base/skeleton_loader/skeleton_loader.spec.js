@@ -5,6 +5,7 @@ describe('GlSkeletonLoader', () => {
   let wrapper;
 
   const findDefaultLines = () => wrapper.findAll('clipPath rect');
+  const findDiv = () => wrapper.find('div');
   const findSvg = () => wrapper.find('svg');
 
   const createComponent = ({ propsData, slots, reducedMotion } = {}) => {
@@ -26,6 +27,15 @@ describe('GlSkeletonLoader', () => {
 
       expect(svgClasses).toContain('gl-w-full');
       expect(svgClasses).toContain('gl-h-full');
+    });
+
+    it('adds extra CSS classes', () => {
+      createComponent({ propsData: { class: 'gl-mt-3' } });
+
+      const divClasses = findDiv().classes();
+
+      expect(divClasses).toContain('gl-skeleton-loader-default-container');
+      expect(divClasses).toContain('gl-mt-3');
     });
 
     it('renders 3 lines by default', () => {
