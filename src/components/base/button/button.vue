@@ -7,6 +7,7 @@ import {
   buttonSizeOptions,
 } from '../../../utils/constants';
 import { logWarning } from '../../../utils/utils';
+import { isSlotEmpty } from '../../../utils/is_slot_empty';
 import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
@@ -79,8 +80,7 @@ export default {
       return this.icon !== '';
     },
     hasIconOnly() {
-      // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
-      return Object.keys(this.$slots).length === 0 && this.hasIcon;
+      return isSlotEmpty(this, 'default') && this.hasIcon;
     },
     isButtonDisabled() {
       return this.disabled || this.loading;

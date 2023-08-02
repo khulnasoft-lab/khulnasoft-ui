@@ -211,4 +211,15 @@ describe('button component', () => {
       });
     });
   });
+
+  it('should correctly detect empty content for icon only mode', () => {
+    const DemoComponent = {
+      components: { GlButton },
+      template: `<gl-button icon="ellipsis_h"><slot><span v-if="false">not-rendered</span></slot></gl-button>`,
+    };
+
+    wrapper = mount(DemoComponent);
+
+    expect(wrapper.classes()).toContain('btn-icon');
+  });
 });
