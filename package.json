@@ -121,7 +121,7 @@
     "cypress": "12.17.2",
     "dompurify": "^2.4.7",
     "emoji-regex": "^10.0.0",
-    "eslint": "8.45.0",
+    "eslint": "8.46.0",
     "eslint-import-resolver-jest": "3.0.2",
     "eslint-plugin-cypress": "2.13.3",
     "eslint-plugin-storybook": "0.6.12",
