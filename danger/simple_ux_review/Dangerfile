@@ -10,7 +10,7 @@ FOUNDATION_UX_REVIEWERS = %w[
 ].freeze
 
 COMPONENT_UX_MAP = {
-  accordion: %w[kcomoli rayana],
+  accordion: %w[rayana],
   alert: %w[andyvolpe],
   badge: %w[pedroms],
   banner: %w[andyvolpe],
@@ -42,7 +42,7 @@ COMPONENT_UX_MAP = {
   toggle: %w[pedroms],
   token: %w[annabeldunstone],
   tooltip: %w[rayana],
-  tree: %w[kcomoli rayana]
+  tree: %w[rayana]
 }.freeze
 
 def ux_reviewers_for_label(label)
