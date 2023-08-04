@@ -53,4 +53,21 @@ describe('is slot empty', () => {
 
     expect(isSlotEmpty(wrapper.findComponent(TestComponent).vm, 'default')).toBe(false);
   });
+
+  it.each([true, false])(
+    'should return %s for conditional slot contents based on slot-scope',
+    (shouldRender) => {
+      const PassesComment = {
+        components: { TestComponent },
+        template:
+          '<test-component><template #default="{ shouldRender }"><span v-if="shouldRender">empty</span></template></test-component>',
+      };
+
+      const wrapper = mount(PassesComment);
+
+      expect(
+        isSlotEmpty(wrapper.findComponent(TestComponent).vm, 'default', { shouldRender })
+      ).toBe(!shouldRender);
+    }
+  );
 });

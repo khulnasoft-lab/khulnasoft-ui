@@ -3,8 +3,8 @@ import Vue from 'vue';
 // Fragment will be available only in Vue.js 3
 const { Fragment, Comment } = Vue;
 
-function callIfNeeded(fnOrResult) {
-  return fnOrResult instanceof Function ? fnOrResult() : fnOrResult;
+function callIfNeeded(fnOrResult, args) {
+  return fnOrResult instanceof Function ? fnOrResult(args) : fnOrResult;
 }
 
 function isEmpty(vnode) {
@@ -24,14 +24,14 @@ function isEmpty(vnode) {
   return false;
 }
 
-export function isSlotEmpty(vueInstance, slot) {
+export function isSlotEmpty(vueInstance, slot, slotArgs) {
   const isVue3 = Boolean(Fragment);
 
   const slotContent = isVue3
     ? // we need to check both $slots and $scopedSlots due to https://github.com/vuejs/core/issues/8869
       // additionally, in @vue/compat $slot might be a function instead of array of vnodes (sigh)
-      callIfNeeded(vueInstance.$slots[slot] || vueInstance.$scopedSlots[slot])
-    : vueInstance.$scopedSlots[slot]?.();
+      callIfNeeded(vueInstance.$slots[slot] || vueInstance.$scopedSlots[slot], slotArgs)
+    : vueInstance.$scopedSlots[slot]?.(slotArgs);
 
   return isEmpty(slotContent);
 }
