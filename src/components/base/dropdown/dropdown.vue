@@ -54,6 +54,7 @@ export default {
     GlLoadingIcon,
   },
   mixins: [ButtonMixin],
+  inheritAttrs: false,
   props: {
     headerText: {
       type: String,
@@ -163,6 +164,16 @@ export default {
       required: false,
       default: null,
     },
+    noFlip: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    splitHref: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   computed: {
     renderCaret() {
@@ -247,6 +258,8 @@ export default {
     :disabled="disabled || loading"
     :right="right"
     :popper-opts="popperOptions"
+    :no-flip="noFlip"
+    :split-href="splitHref"
     v-on="$listeners"
   >
     <div class="gl-dropdown-inner">
