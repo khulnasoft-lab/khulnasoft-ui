@@ -1,3 +1,10 @@
+## [65.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.0.0...v65.0.1) (2023-08-05)
+
+
+### Bug Fixes
+
+* **button:** correctly detect empty slot for icon only ([bbbc03e](https://gitlab.com/gitlab-org/gitlab-ui/commit/bbbc03ef43139bf023573706894cd9ba60cfce0a))
+
 # [65.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v64.24.1...v65.0.0) (2023-08-01)
 
 
