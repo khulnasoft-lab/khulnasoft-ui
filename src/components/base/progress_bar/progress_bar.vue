@@ -6,6 +6,7 @@ export default {
   components: {
     BProgress,
   },
+  inheritAttrs: false,
 };
 </script>
 
