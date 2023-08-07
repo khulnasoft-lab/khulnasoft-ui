@@ -2,7 +2,11 @@
 <script>
 import isString from 'lodash/isString';
 import Pikaday from 'pikaday';
-import { defaultDateFormat, datepickerSizeOptionsMap } from '../../../utils/constants';
+import {
+  defaultDateFormat,
+  datepickerWidthOptionsMap,
+  datepickerSizeOptionsMap,
+} from '../../../utils/constants';
 import { areDatesEqual } from '../../../utils/datetime_utility';
 import GlButton from '../button/button.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
@@ -172,10 +176,27 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * Maximum width of the Datepicker
+     */
+    width: {
+      type: String,
+      required: false,
+      default: null,
+      validator: (value) => Object.keys(datepickerWidthOptionsMap).includes(value),
+    },
+    /**
+     * ⚠️ DEPRECATED:
+     *
+     * Will be replaced by the
+     * property width
+     *
+     * Maximum width of the Datepicker
+     */
     size: {
       type: String,
       required: false,
-      default: 'medium',
+      default: null,
       validator: (value) => Object.keys(datepickerSizeOptionsMap).includes(value),
     },
   },
@@ -216,11 +237,18 @@ export default {
         'gl-datepicker',
         'd-inline-block',
         'gl-w-full',
-        `gl-form-input-${this.datepickerSize}`,
+        `gl-form-input-${this.computedWidth}`,
       ];
     },
-    datepickerSize() {
-      return datepickerSizeOptionsMap[this.size];
+    computedWidth() {
+      if (this.width) {
+        return this.width;
+        // eslint-disable-next-line no-else-return
+      } else if (this.size) {
+        return datepickerSizeOptionsMap[this.size];
+      }
+
+      return 'md';
     },
   },
   watch: {

@@ -426,4 +426,21 @@ describe('datepicker component', () => {
 
     expect(wrapper.classes()).toContain(expectedClass);
   });
+
+  it.each`
+    width        | expectedClass
+    ${undefined} | ${'gl-form-input-md'}
+    ${'sm'}      | ${'gl-form-input-sm'}
+    ${'md'}      | ${'gl-form-input-md'}
+    ${'lg'}      | ${'gl-form-input-lg'}
+    ${'xl'}      | ${'gl-form-input-xl'}
+  `('applies $expectedClass class when width is $width', ({ width, expectedClass }) => {
+    const wrapper = mountWithOptions({
+      propsData: {
+        width,
+      },
+    });
+
+    expect(wrapper.classes()).toContain(expectedClass);
+  });
 });

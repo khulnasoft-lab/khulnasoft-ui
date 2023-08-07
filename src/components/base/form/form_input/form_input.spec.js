@@ -66,6 +66,58 @@ describe('GlFormInput', () => {
     });
   });
 
+  describe('width prop', () => {
+    describe('when number is passed', () => {
+      // Exclude the default null value
+      const widths = Object.values(formInputSizes).filter(Boolean);
+
+      it.each(widths)('adds correct class for width %s', (width) => {
+        createComponent({ width });
+
+        expect(wrapper.classes()).toEqual(['gl-form-input', `gl-form-input-${width}`]);
+      });
+
+      it('does not add a width class if not given the width prop', () => {
+        createComponent();
+
+        expect(wrapper.classes()).toEqual(['gl-form-input']);
+      });
+
+      it('does not add a width class if passed null', () => {
+        createComponent({ width: null });
+
+        expect(wrapper.classes()).toEqual(['gl-form-input']);
+      });
+    });
+
+    describe('when object is passed', () => {
+      describe('when `default` key is provided', () => {
+        it('adds responsive CSS classes and base class', () => {
+          createComponent({ width: { default: 'md', md: 'lg', lg: 'xl' } });
+
+          expect(wrapper.classes()).toEqual([
+            'gl-form-input',
+            'gl-form-input-md',
+            'gl-md-form-input-lg',
+            'gl-lg-form-input-xl',
+          ]);
+        });
+      });
+
+      describe('when `default` key is not provided', () => {
+        it('adds responsive CSS classes', () => {
+          createComponent({ width: { md: 'lg', lg: 'xl' } });
+
+          expect(wrapper.classes()).toEqual([
+            'gl-form-input',
+            'gl-md-form-input-lg',
+            'gl-lg-form-input-xl',
+          ]);
+        });
+      });
+    });
+  });
+
   describe('v-model', () => {
     beforeEach(() => {
       createComponent({}, mount);

@@ -8,15 +8,18 @@ const template = `
     :readonly="readonly"
     :disabled="disabled"
     :value="value"
+    :width="width"
     :size="size"
   />`;
 
 const generateProps = ({
+  width = GlFormInput.props.size.default,
   size = GlFormInput.props.size.default,
   value = '',
   disabled = false,
   readonly = false,
 } = {}) => ({
+  width,
   size,
   value,
   disabled,
@@ -49,6 +52,7 @@ export const Sizes = (args, { argTypes }) => ({
         <gl-form-input
           v-for="(size, name) in formInputSizes"
           :key="size"
+          :width="width"
           :size="size"
           :value="name"
         />
@@ -63,11 +67,13 @@ export const ResponsiveSizes = (args, { argTypes }) => ({
   template: `
       <div>
         <gl-form-input
+          :width="{ default: 'md', md: 'lg', lg: 'xl' }"
           :size="{ default: 'md', md: 'lg', lg: 'xl' }"
           value="With \`default\` key"
         />
         <gl-form-input
           class="gl-mt-4"
+          :width="{ md: 'lg', lg: 'xl' }"
           :size="{ md: 'lg', lg: 'xl' }"
           value="Without \`default\` key"
         />
@@ -88,6 +94,10 @@ export default {
     },
   },
   argTypes: {
+    width: {
+      options: formInputSizes,
+      control: 'select',
+    },
     size: {
       options: formInputSizes,
       control: 'select',

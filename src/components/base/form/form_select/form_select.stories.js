@@ -10,6 +10,7 @@ const data = () => ({
 const template = `
 <gl-form-select
   v-model="selected"
+  :width="width"
   :size="size"
   :disabled="disabled"
   :state="state"
@@ -20,6 +21,7 @@ const template = `
 `;
 
 const generateProps = ({
+  width = null,
   size = null,
   state = null,
   disabled = false,
@@ -27,6 +29,7 @@ const generateProps = ({
   selectSize = 1,
   options = formSelectOptions,
 } = {}) => ({
+  width,
   size,
   disabled,
   state,
@@ -89,6 +92,10 @@ export default {
     },
   },
   argTypes: {
+    width: {
+      options: formInputSizes,
+      control: 'select',
+    },
     size: {
       options: formInputSizes,
       control: 'select',
