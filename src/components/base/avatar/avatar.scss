@@ -8,54 +8,49 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-border-gray-a-08;
   @include gl-overflow-hidden;
   @include gl-flex-shrink-0;
+  @include gl-line-height-ratio-1000;
 }
 
 @mixin gl-avatar-s16 {
   @include gl-w-5;
   @include gl-h-5;
-  @include gl-font-sm;
-  @include gl-line-height-normal;
   @include gl-rounded-small;
+  font-size: map-get($gl-font-sizes, 100);
 }
 
 @mixin gl-avatar-s24 {
   @include gl-w-6;
   @include gl-h-6;
-  @include gl-font-sm;
-  @include gl-line-height-normal;
   @include gl-rounded-base;
+  font-size: map-get($gl-font-sizes, 400);
 }
 
 @mixin gl-avatar-s32 {
   @include gl-w-7;
   @include gl-h-7;
-  @include gl-font-base;
-  @include gl-line-height-normal;
   @include gl-rounded-base;
+  font-size: map-get($gl-font-sizes, 500);
 }
 
 @mixin gl-avatar-s48 {
   @include gl-w-9;
   @include gl-h-9;
-  @include gl-font-size-h2;
-  @include gl-line-height-24;
   @include gl-rounded-lg;
+  font-size: map-get($gl-font-sizes, 600);
 }
 
 @mixin gl-avatar-s64 {
   @include gl-w-11;
   @include gl-h-11;
-  @include gl-font-size-h-display;
-  @include gl-line-height-32;
   @include gl-rounded-lg;
+  font-size: map-get($gl-font-sizes, 700);
 }
 
 @mixin gl-avatar-s96 {
   @include gl-w-13;
   @include gl-h-13;
-  @include gl-font-size-h-display-xl;
-  @include gl-line-height-52;
   @include gl-rounded-lg;
+  font-size: map-get($gl-font-sizes, 800);
 }
 
 .gl-avatar {
