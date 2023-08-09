@@ -1,3 +1,10 @@
+# [65.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.0.1...v65.1.0) (2023-08-09)
+
+
+### Features
+
+* **GlFormFields:** Add validator for emojis ([7f5b9aa](https://gitlab.com/gitlab-org/gitlab-ui/commit/7f5b9aa195b3a62a83b5b395aec2e49d08b87bcb))
+
 ## [65.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.0.0...v65.0.1) (2023-08-05)
 
 
