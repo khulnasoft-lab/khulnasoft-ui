@@ -565,8 +565,14 @@ export default {
       const isSearchInput = target.matches(SEARCH_INPUT_SELECTOR);
 
       if (code === HOME) {
+        if (isSearchInput) {
+          return;
+        }
         this.focusItem(0, elements);
       } else if (code === END) {
+        if (isSearchInput) {
+          return;
+        }
         this.focusItem(elements.length - 1, elements);
       } else if (code === ARROW_UP) {
         if (isSearchInput) {
