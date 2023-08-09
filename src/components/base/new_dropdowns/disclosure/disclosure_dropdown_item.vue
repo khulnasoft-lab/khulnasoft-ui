@@ -34,7 +34,6 @@ export default {
             href: item.href,
             ...item.extraAttrs,
           },
-          wrapperClass: item.wrapperClass,
           listeners: {
             click: this.action,
           },
@@ -52,7 +51,6 @@ export default {
             this.action();
           },
         },
-        wrapperClass: item?.wrapperClass,
       };
     },
     listIndex() {
@@ -60,6 +58,9 @@ export default {
     },
     componentIndex() {
       return this.item?.extraAttrs?.disabled ? null : -1;
+    },
+    wrapperClass() {
+      return this.item?.wrapperClass ?? '';
     },
     wrapperListeners() {
       const listeners = {
@@ -100,7 +101,7 @@ export default {
 <template>
   <li
     :tabindex="listIndex"
-    :class="[$options.ITEM_CLASS, itemComponent.wrapperClass]"
+    :class="[$options.ITEM_CLASS, wrapperClass]"
     data-testid="disclosure-dropdown-item"
     v-on="wrapperListeners"
   >
