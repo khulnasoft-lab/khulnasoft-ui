@@ -330,6 +330,14 @@ describe('GlCollapsibleListbox', () => {
         expect(searchboxInput.element).toHaveFocus();
       });
 
+      it('should not move focus away from the input on `HOME` and `END`', async () => {
+        expect(searchboxInput.element).toHaveFocus();
+        await searchboxInput.trigger('keydown', { code: HOME });
+        expect(searchboxInput.element).toHaveFocus();
+        await searchboxInput.trigger('keydown', { code: END });
+        expect(searchboxInput.element).toHaveFocus();
+      });
+
       describe('pressing Enter on the input', () => {
         const keydownSpy = jest.fn();
 

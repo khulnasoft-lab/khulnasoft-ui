@@ -105,7 +105,7 @@ describe('GlCollapsibleListbox', () => {
   });
 
   describe('search', () => {
-    before(() => {
+    beforeEach(() => {
       cy.visitStory('base/new-dropdowns/listbox', {
         story: 'searchable',
         args: {
@@ -126,6 +126,15 @@ describe('GlCollapsibleListbox', () => {
       dropdownItemAtIndex(1).should('be.focused').type('{upArrow}');
       dropdownItemAtIndex(0).should('be.focused').type('{upArrow}');
       searchInput().should('be.focused').type('{upArrow}');
+      searchInput().should('be.focused');
+    });
+
+    it('does NOT navigate from sthe earch input on Home and End', () => {
+      toggleBtn().click();
+      dropdownMenu().should('be.visible');
+      toggleBtn().should('not.be.focused');
+      searchInput().should('be.focused').type('{end}');
+      searchInput().should('be.focused').type('{home}');
       searchInput().should('be.focused');
     });
   });
