@@ -1,3 +1,10 @@
+## [65.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.1.0...v65.1.1) (2023-08-10)
+
+
+### Bug Fixes
+
+* **GlCollpasibleListbox:** correctly handle Home and End ([596127d](https://gitlab.com/gitlab-org/gitlab-ui/commit/596127d79c05f190746109ec9776ee7460672237))
+
 # [65.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.0.1...v65.1.0) (2023-08-09)
 
 
