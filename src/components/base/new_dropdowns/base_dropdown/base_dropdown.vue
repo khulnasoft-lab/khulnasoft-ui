@@ -243,12 +243,15 @@ export default {
       return this.positioningStrategy === POSITION_FIXED;
     },
     floatingUIConfig() {
+      const placement = dropdownPlacements[this.placement];
+      const [, alignment] = placement.split('-');
       return {
-        placement: dropdownPlacements[this.placement],
+        placement,
         strategy: this.positioningStrategy,
         middleware: [
           offset(this.offset),
           autoPlacement({
+            alignment,
             allowedPlacements: dropdownAllowedAutoPlacements[this.placement],
           }),
           size({
