@@ -1,3 +1,10 @@
+## [65.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.1.1...v65.1.2) (2023-08-11)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** sets alignment to fix right placement ([02c966a](https://gitlab.com/gitlab-org/gitlab-ui/commit/02c966aa2d990a514134e376f33ee47864f6cc76)), closes [#L69-L70](https://gitlab.com/gitlab-org/gitlab-ui/issues/L69-L70)
+
 ## [65.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.1.0...v65.1.1) (2023-08-10)
 
 
