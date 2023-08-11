@@ -108,6 +108,7 @@ describe('base dropdown', () => {
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
               autoPlacement({
+                alignment: 'start',
                 allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
               }),
             ],
@@ -128,6 +129,7 @@ describe('base dropdown', () => {
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
               autoPlacement({
+                alignment: undefined,
                 allowedPlacements: ['bottom', 'top'],
               }),
             ],
@@ -148,6 +150,7 @@ describe('base dropdown', () => {
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
               autoPlacement({
+                alignment: 'end',
                 allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
               }),
             ],
