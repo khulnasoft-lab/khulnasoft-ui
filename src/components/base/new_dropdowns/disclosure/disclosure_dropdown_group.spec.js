@@ -20,7 +20,7 @@ describe('GlDisclosureDropdownGroup', () => {
     });
   };
 
-  const findGroup = () => wrapper.find('ul[role="group"]');
+  const findGroup = () => wrapper.find('ul');
   const findItems = () => wrapper.findAllComponents(GlDisclosureDropdownItem);
   const findByTestId = (testid, root = wrapper) => root.find(`[data-testid="${testid}"]`);
   const findLabelElement = () => {

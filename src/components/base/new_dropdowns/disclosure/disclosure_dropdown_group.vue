@@ -85,7 +85,7 @@ export default {
     >
       <slot name="group-label">{{ group.name }}</slot>
     </div>
-    <ul role="group" :aria-labelledby="groupLabeledBy" class="gl-mb-0 gl-pl-0 gl-list-style-none">
+    <ul :aria-labelledby="groupLabeledBy" class="gl-mb-0 gl-pl-0 gl-list-style-none">
       <slot>
         <!-- eslint-disable vue/valid-v-for -->
         <gl-disclosure-dropdown-item
