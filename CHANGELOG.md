@@ -1,3 +1,11 @@
+## [65.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.1.2...v65.1.3) (2023-08-15)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Removes the group role from disclosure groups ([c79c93f](https://gitlab.com/gitlab-org/gitlab-ui/commit/c79c93f75a88b2051ea4bfdfa21251c4a311ba70))
+* **GlProgress:** remove double-passing of props ([3ec1277](https://gitlab.com/gitlab-org/gitlab-ui/commit/3ec1277e2a5ef2d8c391686f280fe018ce71fb17))
+
 ## [65.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.1.1...v65.1.2) (2023-08-11)
 
 
