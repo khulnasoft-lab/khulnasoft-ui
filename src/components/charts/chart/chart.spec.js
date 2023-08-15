@@ -42,7 +42,7 @@ describe('chart component', () => {
   });
 
   it('does not resize the chart when responsive = false', async () => {
-    wrapper = shallowMount(...mountArgs);
+    wrapper = shallowMount(Chart, { propsData: { options: {}, responsive: false } });
     await wrapper.vm.$nextTick();
     // initial call when chart gets created
     expect(wrapper.vm.chart.resize).toHaveBeenCalledTimes(1);
@@ -54,7 +54,7 @@ describe('chart component', () => {
   });
 
   it('resizes the chart only once per animation frame when responsive = true', async () => {
-    wrapper = shallowMount(Chart, { propsData: { options: {}, responsive: true } });
+    wrapper = shallowMount(...mountArgs);
     await wrapper.vm.$nextTick();
     expect(wrapper.vm.chart.resize).toHaveBeenCalledTimes(1);
 
