@@ -1,4 +1,30 @@
 describe('GlPopover', () => {
+  describe('stories', () => {
+    function checkA11yPopover() {
+      cy.visitStory('base/popover');
+
+      cy.glCheckA11y();
+    }
+
+    function checkA11yPopoverOnClick() {
+      cy.visitStory('base/popover', { story: 'on-click' });
+
+      cy.glCheckA11y();
+    }
+
+    function checkA11yPopoverWithCloseButton() {
+      cy.visitStory('base/popover', { story: 'with-close-button' });
+
+      cy.glCheckA11y();
+    }
+
+    it('passes axe accessbility audits', () => {
+      checkA11yPopover();
+      checkA11yPopoverOnClick();
+      checkA11yPopoverWithCloseButton();
+    });
+  });
+
   it('popover title should be visible when using props', () => {
     cy.visitStory('base/popover');
 

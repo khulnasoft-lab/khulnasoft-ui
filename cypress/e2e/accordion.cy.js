@@ -6,6 +6,10 @@ describe('GlAccordion', { testIsolation: false }, () => {
   const accordionContentId = '[data-testid^="accordion-item-collapse-accordion-item-"]';
   const getFirstAccordionItemContent = () => cy.get(accordionContentId).first();
 
+  it('passes axe accessibility audits', () => {
+    cy.glCheckA11y({ exclude: ['code'] });
+  });
+
   it('clicking on collapsed chevron icon expands accordion item then collapses when clicked again', () => {
     getFirstAccordionItemContent().should('not.be.visible');
     cy.contains('Item 1').click();

@@ -72,7 +72,7 @@ describe('GlCollapsibleListbox', () => {
   });
 
   describe('groups', () => {
-    before(() => {
+    beforeEach(() => {
       cy.visitStory('base/new-dropdowns/listbox', {
         story: 'groups',
         args: {
@@ -129,7 +129,7 @@ describe('GlCollapsibleListbox', () => {
       searchInput().should('be.focused');
     });
 
-    it('does NOT navigate from sthe earch input on Home and End', () => {
+    it('does NOT navigate from the search input on Home and End', () => {
       toggleBtn().click();
       dropdownMenu().should('be.visible');
       toggleBtn().should('not.be.focused');

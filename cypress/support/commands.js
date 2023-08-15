@@ -45,6 +45,8 @@ Cypress.Commands.add('visitStory', (title, { story = 'default', args = null } = 
   }
 
   cy.visit('iframe.html', { qs: query });
+  cy.injectAxe();
+  cy.get('.vue-component-mounted').should('exist');
 });
 
 Cypress.Commands.add('getByTestId', (testId) => {
@@ -67,4 +69,26 @@ Cypress.Commands.add('iframe', { prevSubject: 'element' }, ($iframe) => {
 
 Cypress.Commands.add('getStoryPreviewIframe', () => {
   return cy.get('iframe[title="storybook-preview-iframe"]').iframe();
+});
+
+const terminalLog = (violations) => {
+  cy.task(
+    'log',
+    `${violations.length} accessibility violation${violations.length === 1 ? '' : 's'} ${
+      violations.length === 1 ? 'was' : 'were'
+    } detected`
+  );
+  // pluck specific keys to keep the table readable
+  const violationData = violations.map(({ id, impact, description, nodes }) => ({
+    id,
+    impact,
+    description,
+    nodes: nodes.length,
+  }));
+
+  cy.task('table', violationData);
+};
+
+Cypress.Commands.add('glCheckA11y', (context = {}) => {
+  cy.checkA11y({ include: ['#storybook-root'], ...context }, null, terminalLog);
 });
