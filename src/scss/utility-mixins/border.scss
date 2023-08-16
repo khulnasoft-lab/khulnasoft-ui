@@ -259,6 +259,10 @@
   border-left-color: $blue-600;
 }
 
+@mixin gl-border-t-red-500 {
+  border-top-color: $red-500;
+}
+
 /**
 * Border width utilities.
 *
