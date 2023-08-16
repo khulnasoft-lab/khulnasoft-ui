@@ -88,22 +88,25 @@
     .custom-control-input[type='checkbox']:indeterminate ~ .custom-control-label,
     .custom-control-input[type='radio']:checked ~ .custom-control-label {
       &::after {
-        @include gl-bg-none;
         @include gl-bg-white;
+        background: 50% 50% no-repeat;
         mask-repeat: no-repeat;
         mask-position: center center;
       }
     }
 
     .custom-control-input[type='checkbox']:checked ~ .custom-control-label::after {
+      background-image: url('#{$gl-icon-check}');
       mask-image: url('#{$gl-icon-check}');
     }
 
     .custom-control-input[type='checkbox']:indeterminate ~ .custom-control-label::after {
+      background-image: url('#{$gl-icon-indeterminate}');
       mask-image: url('#{$gl-icon-indeterminate}');
     }
 
     .custom-control-input[type='radio']:checked ~ .custom-control-label::after {
+      background-image: url('#{$gl-icon-radio}');
       mask-image: url('#{$gl-icon-radio}');
     }
 
@@ -146,7 +149,21 @@
       }
 
       &::after {
+        background-image: none;
         @include gl-bg-gray-500;
+
+        /* Ensure state indicators (like the checkmark for checked or
+           the dash for indeterminate) are visible in Windows High
+           Contrast Mode.
+        */
+        @media screen and (forced-colors: active) {
+          forced-color-adjust: none;
+          /* system color reference for disabled text applied to 
+             background here.
+          */
+          // stylelint-disable-next-line
+          background-color: GrayText;
+        }
       }
     }
   }
