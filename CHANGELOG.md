@@ -1,3 +1,12 @@
+# [65.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.1.3...v65.2.0) (2023-08-16)
+
+
+### Features
+
+* Changing chart responsive prop to true ([6400e0e](https://gitlab.com/gitlab-org/gitlab-ui/commit/6400e0eeb084619587de69ab54bc85bd4717c0d8))
+* **Checkbox:** Fix high contrast mode ([bf36b8d](https://gitlab.com/gitlab-org/gitlab-ui/commit/bf36b8d63eb2e1ca8bec09e96de355053cf3e425))
+* **Checkbox:** Reset background ([93ad593](https://gitlab.com/gitlab-org/gitlab-ui/commit/93ad593955f2551bbf7ff5c6d7a7ed399849ed7b))
+
 ## [65.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.1.2...v65.1.3) (2023-08-15)
 
 
