@@ -1,3 +1,15 @@
+## [65.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.3.0...v65.3.1) (2023-08-17)
+
+
+### Bug Fixes
+
+* revert setting fixed height on form control ([29fe576](https://gitlab.com/gitlab-org/gitlab-ui/commit/29fe576a79984e7c844c448e67aa0729fd6627e4))
+
+
+### Reverts
+
+* add default styling for GlInputGroupText ([ace959e](https://gitlab.com/gitlab-org/gitlab-ui/commit/ace959e4d8e0fe427a1260ffd0adbaab135f89ee))
+
 # [65.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.2.0...v65.3.0) (2023-08-17)
 
 
