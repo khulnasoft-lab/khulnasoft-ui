@@ -1,5 +1,11 @@
 import { isVisible } from 'bootstrap-vue/src/utils/dom';
-import { COMMA, labelColorOptions, focusableTags } from './constants';
+import {
+  COMMA,
+  labelColorOptions,
+  focusableTags,
+  viewModeOptions,
+  DARK_MODE_CLASS,
+} from './constants';
 
 export function debounceByAnimationFrame(fn) {
   let requestId;
@@ -158,6 +164,12 @@ export function logWarning(message = '', element = '') {
   if (message.length && isDev()) {
     console.warn(message, element); // eslint-disable-line no-console
   }
+}
+
+export function getViewMode() {
+  return document.body.classList.contains(DARK_MODE_CLASS)
+    ? viewModeOptions.dark
+    : viewModeOptions.light;
 }
 
 /**

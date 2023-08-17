@@ -3,7 +3,9 @@ import {
   isElementTabbable,
   focusFirstFocusableElement,
   stopEvent,
+  getViewMode,
 } from './utils';
+import { viewModeOptions } from './constants';
 
 describe('isElementFocusable', () => {
   const myBtn = () => document.querySelector('button');
@@ -152,5 +154,19 @@ describe('stopEvent', () => {
     expect(event.preventDefault).not.toHaveBeenCalled();
     expect(event.stopPropagation).not.toHaveBeenCalled();
     expect(event.stopImmediatePropagation).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('getViewMode', () => {
+  it('should return "dark" when body has "gl-dark" class', () => {
+    document.body.className = 'gl-dark';
+
+    expect(getViewMode()).toBe(viewModeOptions.dark);
+  });
+
+  it('should return "light" when body does not have "gl-dark" class', () => {
+    document.body.className = '';
+
+    expect(getViewMode()).toBe(viewModeOptions.light);
   });
 });
