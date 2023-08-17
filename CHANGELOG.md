@@ -1,3 +1,10 @@
+# [65.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.2.0...v65.3.0) (2023-08-17)
+
+
+### Features
+
+* **CSS:** Add new utility CSS class ([13b3b30](https://gitlab.com/gitlab-org/gitlab-ui/commit/13b3b30d42a6cacbf7a5886e978d7ceaef5d7d4f))
+
 # [65.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.1.3...v65.2.0) (2023-08-16)
 
 
