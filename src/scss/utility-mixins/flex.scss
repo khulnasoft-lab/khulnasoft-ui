@@ -291,6 +291,12 @@
   justify-content: flex-start;
 }
 
+@mixin gl-sm-justify-content-start {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-justify-content-start;
+  }
+}
+
 @mixin gl-md-justify-content-start {
   @include gl-media-breakpoint-up(md) {
     @include gl-justify-content-start;
