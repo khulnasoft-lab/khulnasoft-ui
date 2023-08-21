@@ -1,3 +1,10 @@
+# [65.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.3.1...v65.4.0) (2023-08-21)
+
+
+### Features
+
+* **CSS:** add `gl-sm-justify-content-start` utility CSS class ([4f7e923](https://gitlab.com/gitlab-org/gitlab-ui/commit/4f7e92322933af8902587ed76a45ad415e458bc0))
+
 ## [65.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.3.0...v65.3.1) (2023-08-17)
 
 
