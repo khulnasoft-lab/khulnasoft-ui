@@ -1,5 +1,9 @@
 # Frequently asked questions
 
+## Does GitLab UI work with Vue 3?
+
+Not yet.
+
 ## What icons library do we use in GitLab UI?
 
 GitLab has its own SVG icons library, explore it here: <https://gitlab-org.gitlab.io/gitlab-svgs/>
