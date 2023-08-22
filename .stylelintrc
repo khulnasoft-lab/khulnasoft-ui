@@ -1,13 +1,11 @@
 {
-   "extends": [
-      "@gitlab/stylelint-config",
-      "stylelint-prettier/recommended",
-      "stylelint-config-prettier"
-   ],
-   "plugins": [
-      "./stylelint/no_gl_media_breakpoint_down.js"
-   ],
-   "rules": {
-      "@gitlab/no-gl-media-breakpoint-down": true
-   }
+  "extends": [
+    "@gitlab/stylelint-config"
+  ],
+  "plugins": [
+    "./stylelint/no_gl_media_breakpoint_down.js"
+  ],
+  "rules": {
+    "@gitlab/no-gl-media-breakpoint-down": true
+  }
 }
