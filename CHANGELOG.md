@@ -1,3 +1,16 @@
+# [66.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.4.0...v66.0.0) (2023-08-24)
+
+
+### Code Refactoring
+
+* Remove `GlSkeletonLoading` component ([a2cf859](https://gitlab.com/gitlab-org/gitlab-ui/commit/a2cf859afb63887f847aa88822aeedd51d5c141c))
+
+
+### BREAKING CHANGES
+
+* `GlSkeletonLoading` has been deprecated
+since `v20.10.0`.
+
 # [65.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.3.1...v65.4.0) (2023-08-21)
 
 
