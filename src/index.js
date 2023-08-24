@@ -28,7 +28,6 @@ export { default as GlPaginatedList } from './components/base/paginated_list/pag
 export { default as GlPopover } from './components/base/popover/popover.vue';
 export { default as GlProgressBar } from './components/base/progress_bar/progress_bar.vue';
 export { default as GlToken } from './components/base/token/token.vue';
-export { default as GlDeprecatedSkeletonLoading } from './components/base/skeleton_loading/skeleton_loading.vue';
 export { default as GlBadge } from './components/base/badge/badge.vue';
 export { default as GlBanner } from './components/base/banner/banner.vue';
 export { default as GlButton } from './components/base/button/button.vue';
