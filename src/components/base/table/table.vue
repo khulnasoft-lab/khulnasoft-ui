@@ -26,10 +26,18 @@ export default {
       required: false,
       default: null,
     },
+    stickyHeader: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
   },
   computed: {
+    stickyHeaderClass() {
+      return this.stickyHeader ? 'gl-table--sticky-header' : null;
+    },
     localTableClass() {
-      return ['gl-table', this.tableClass];
+      return ['gl-table', this.tableClass, this.stickyHeaderClass];
     },
   },
   mounted() {

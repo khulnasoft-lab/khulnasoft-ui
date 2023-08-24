@@ -31,7 +31,12 @@ const tableItemsMock = [
   },
 ];
 
-const generateProps = ({ items = tableItemsMock, fields = fieldsMock } = {}) => ({
+const generateProps = ({
+  stickyHeader = false,
+  items = tableItemsMock,
+  fields = fieldsMock,
+} = {}) => ({
+  stickyHeader,
   items,
   fields,
 });
@@ -40,7 +45,8 @@ const Template = (args, { argTypes }) => ({
   components: { GlTableLite },
   props: Object.keys(argTypes),
   template: `
-    <gl-table-lite  
+    <gl-table-lite
+    :sticky-header="stickyHeader"
     :items="items"
     :fields="fields" />
   `,
@@ -59,5 +65,10 @@ export default {
       },
     },
   },
-  argTypes: {},
+  argTypes: {
+    stickyHeader: {
+      options: [false, true],
+      control: 'boolean',
+    },
+  },
 };
