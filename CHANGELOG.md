@@ -1,3 +1,10 @@
+## [66.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.0.0...v66.0.1) (2023-08-24)
+
+
+### Reverts
+
+* feat(GlToggle): Add a block level toggle ([c092403](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0924031044b00711eceb8f3f63e4a5d2351c4e4))
+
 # [66.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v65.4.0...v66.0.0) (2023-08-24)
 
 
