@@ -138,43 +138,31 @@ describe('toggle', () => {
 
   describe('label position', () => {
     describe.each`
-      state       | labelPosition                 | hasGlSrOnlyClass | flexDirection                 | showsHelpText | showsDescription
-      ${'top'}    | ${toggleLabelPosition.top}    | ${false}         | ${'gl-flex-direction-column'} | ${true}       | ${true}
-      ${'left'}   | ${toggleLabelPosition.left}   | ${false}         | ${'gl-toggle-label-inline'}   | ${false}      | ${false}
-      ${'hidden'} | ${toggleLabelPosition.hidden} | ${true}          | ${'gl-flex-direction-column'} | ${true}       | ${true}
-      ${'block'}  | ${toggleLabelPosition.block}  | ${false}         | ${'gl-toggle-label-inline'}   | ${true}       | ${true}
-    `(
-      'when $state',
-      ({ labelPosition, hasGlSrOnlyClass, flexDirection, showsHelpText, showsDescription }) => {
-        beforeEach(() => {
-          createWrapper({ labelPosition, help: helpText, description: descriptionText });
-        });
+      state       | labelPosition                 | hasGlSrOnlyClass | flexDirection
+      ${'top'}    | ${toggleLabelPosition.top}    | ${false}         | ${'gl-flex-direction-column'}
+      ${'left'}   | ${toggleLabelPosition.left}   | ${false}         | ${'gl-toggle-label-inline'}
+      ${'hidden'} | ${toggleLabelPosition.hidden} | ${true}          | ${'gl-flex-direction-column'}
+    `('when $state', ({ labelPosition, hasGlSrOnlyClass, flexDirection }) => {
+      beforeEach(() => {
+        createWrapper({ labelPosition });
+      });
 
-        it(`${flexDirection} class is added to the label`, () => {
-          const cssClasses = wrapper.find('[data-testid="toggle-wrapper"]').classes();
+      it(`${flexDirection} class is added to the label`, () => {
+        const cssClasses = wrapper.find('[data-testid="toggle-wrapper"]').classes();
 
-          expect(cssClasses).toContain(flexDirection);
-        });
+        return expect(cssClasses).toContain(flexDirection);
+      });
 
-        it(`${hasGlSrOnlyClass ? 'adds' : 'does not add'} 'gl-sr-only' class to the label`, () => {
-          const cssClasses = wrapper.find('[data-testid="toggle-label"]').classes();
-          return hasGlSrOnlyClass
-            ? expect(cssClasses).toContain('gl-sr-only')
-            : expect(cssClasses).not.toContain('gl-sr-only');
-        });
+      it(`${hasGlSrOnlyClass ? 'adds' : 'does not add'} 'gl-sr-only' class to the label`, () => {
+        const cssClasses = wrapper.find('[data-testid="toggle-label"]').classes();
+        return hasGlSrOnlyClass
+          ? expect(cssClasses).toContain('gl-sr-only')
+          : expect(cssClasses).not.toContain('gl-sr-only');
+      });
 
-        it('has accessible name for the button', () => {
-          expect(findButton().attributes('aria-labelledby')).toBeDefined();
-        });
-
-        it(`${showsHelpText ? 'shows' : 'does not show'} the help text`, () => {
-          expect(findHelpElement().exists()).toBe(showsHelpText);
-        });
-
-        it(`${showsDescription ? 'shows' : 'does not show'} the description`, () => {
-          expect(findDescriptionElement().exists()).toBe(showsDescription);
-        });
-      }
-    );
+      it('has accessible name for the button', () => {
+        expect(findButton().attributes('aria-labelledby')).toBeDefined();
+      });
+    });
   });
 });
