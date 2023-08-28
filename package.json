@@ -122,7 +122,7 @@
     "cypress": "12.17.4",
     "dompurify": "^2.4.7",
     "emoji-regex": "^10.0.0",
-    "eslint": "8.47.0",
+    "eslint": "8.48.0",
     "eslint-import-resolver-jest": "3.0.2",
     "eslint-plugin-cypress": "2.14.0",
     "eslint-plugin-storybook": "0.6.13",
