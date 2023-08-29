@@ -1,3 +1,10 @@
+# [66.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.0.1...v66.1.0) (2023-08-29)
+
+
+### Features
+
+* **css:** Add gl-mb-n* util classes ([12fd76f](https://gitlab.com/gitlab-org/gitlab-ui/commit/12fd76f3841823aed4a411b03e0b7bbaa151e897))
+
 ## [66.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.0.0...v66.0.1) (2023-08-24)
 
 
