@@ -69,6 +69,11 @@ export const mockGroups = [
   },
 ];
 
+export const mockGroupOptionsValues = mockGroups
+  .map((group) => group.options)
+  .flat()
+  .map(({ value }) => value);
+
 export const mockGroupsWithTextSrOnly = [
   {
     text: 'Default',
