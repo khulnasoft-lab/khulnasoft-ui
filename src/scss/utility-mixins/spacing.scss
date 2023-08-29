@@ -559,16 +559,32 @@
   margin-bottom: $gl-spacing-scale-4;
 }
 
+@mixin gl-mb-n4 {
+  margin-bottom: -$gl-spacing-scale-4;
+}
+
 @mixin gl-mb-5 {
   margin-bottom: $gl-spacing-scale-5;
+}
+
+@mixin gl-mb-n5 {
+  margin-bottom: -$gl-spacing-scale-5;
 }
 
 @mixin gl-mb-6 {
   margin-bottom: $gl-spacing-scale-6;
 }
 
+@mixin gl-mb-n6 {
+  margin-bottom: -$gl-spacing-scale-6;
+}
+
 @mixin gl-mb-7 {
   margin-bottom: $gl-spacing-scale-7;
+}
+
+@mixin gl-mb-n7 {
+  margin-bottom: -$gl-spacing-scale-7;
 }
 
 @mixin gl-mb-8 {
