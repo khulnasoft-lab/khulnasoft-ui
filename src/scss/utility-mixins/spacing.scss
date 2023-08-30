@@ -591,6 +591,10 @@
   margin-bottom: $gl-spacing-scale-8;
 }
 
+@mixin gl-mb-n8 {
+  margin-bottom: -$gl-spacing-scale-8;
+}
+
 @mixin gl-mb-9 {
   margin-bottom: $gl-spacing-scale-9;
 }
