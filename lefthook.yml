@@ -1,5 +1,3 @@
-# Lefthook guide:
-# https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md
 pre-push:
   parallel: true
   commands:
@@ -18,3 +16,9 @@ pre-push:
     markdown-lint:
       glob: "*.md"
       run: yarn markdownlint
+pre-commit:
+  commands:
+    generate_translations:
+      files: git diff --name-only --staged
+      glob: "*.{js,vue}"
+      run: node ./bin/collect_translations.js && git add ./translations.json

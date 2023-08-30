@@ -1,8 +1,3 @@
-// Add config files
-import setConfigs from './config';
-
-setConfigs();
-
 export { default as GlChart } from './components/charts/chart/chart.vue';
 export { default as GlAreaChart } from './components/charts/area/area.vue';
 export { default as GlBarChart } from './components/charts/bar/bar.vue';

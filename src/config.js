@@ -1,5 +1,6 @@
 import { BVConfigPlugin } from 'bootstrap-vue';
 import Vue from 'vue';
+import translationKeys from '../translations.json';
 import { tooltipDelay } from './utils/constants';
 
 const bFormTextGlobalConfig = {
@@ -31,11 +32,53 @@ try {
   // localStorage doesn't exist (or the value is not properly formatted)
 }
 
-const setConfigs = () => {
+export const i18n = translationKeys;
+
+let configured = false;
+
+/**
+ * Set GitLab UI configuration.
+ *
+ * @typedef {object} GitLabUIConfiguration
+ * @template TValue=string
+ * @property {undefined | Object} translations Generic translations for component labels to fall back to.
+ * @property {boolean} disableTranslations Whether translation capabilities should be disabled. Suppresses the warning about missing translations.
+ */
+const setConfigs = ({ translations } = {}) => {
+  if (configured) {
+    if (process.env.NODE_ENV === 'development') {
+      throw new Error('GitLab UI can only be configured once!');
+    }
+
+    return;
+  }
+  configured = true;
+
   Vue.use(BVConfigPlugin, {
     BFormText: bFormTextGlobalConfig,
     BTooltip: tooltipGlobalConfig,
   });
+
+  if (typeof translations === 'object') {
+    if (process.env.NODE_ENV === 'development') {
+      const undefinedTranslationKeys = Object.keys(i18n).reduce((acc, current) => {
+        if (!(current in translations)) {
+          acc.push(current);
+        }
+        return acc;
+      }, []);
+      if (undefinedTranslationKeys.length) {
+        /* eslint-disable no-console */
+        console.warn(
+          '[@gitlab/ui] The following translations have not been given, so will fall back to their default US English strings:'
+        );
+        console.table(undefinedTranslationKeys);
+        /* eslint-enable no-console */
+      }
+    }
+
+    Object.assign(i18n, translations);
+  }
 };
 
 export default setConfigs;

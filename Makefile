@@ -36,3 +36,11 @@ static/fonts/GitLabMono.woff2: static/fonts
 
 static/fonts:
 	mkdir -p static/fonts
+
+# Translations
+translations_file = translations.json
+collect_translations_script = ${bin_dir}/collect_translations.js
+js_vue_files = $(shell find src/ -type f \( -iname \*.js -o -iname \*.vue \))
+
+${translations_file}: ${collect_translations_script} ${js_vue_files}
+	node ${collect_translations_script}

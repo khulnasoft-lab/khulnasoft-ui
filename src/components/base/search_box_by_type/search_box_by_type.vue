@@ -3,6 +3,7 @@ import GlClearIconButton from '../../shared_components/clear_icon_button/clear_i
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import { translate } from '../../../utils/i18n';
 
 export default {
   name: 'GlSearchboxByType',
@@ -34,7 +35,7 @@ export default {
     clearButtonTitle: {
       type: String,
       required: false,
-      default: 'Clear',
+      default: () => translate('GlSearchBoxByType.clearButtonTitle', 'Clear'),
     },
     /**
      * If provided and true, disables the input and controls
@@ -66,7 +67,7 @@ export default {
     inputAttributes() {
       const attributes = {
         type: 'search',
-        placeholder: 'Search',
+        placeholder: translate('GlSearchBoxByType.input.placeholder', 'Search'),
         ...this.$attrs,
       };
 

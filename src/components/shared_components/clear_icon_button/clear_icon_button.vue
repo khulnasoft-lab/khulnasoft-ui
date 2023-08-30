@@ -1,6 +1,7 @@
 <script>
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlButton from '../../base/button/button.vue';
+import { translate } from '../../../utils/i18n';
 
 export default {
   name: 'ClearIconButton',
@@ -14,7 +15,7 @@ export default {
     title: {
       type: String,
       required: false,
-      default: 'Clear',
+      default: () => translate('ClearIconButton.title', 'Clear'),
     },
     tooltipContainer: {
       required: false,
