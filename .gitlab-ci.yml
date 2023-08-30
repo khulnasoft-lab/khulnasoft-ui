@@ -241,6 +241,12 @@ generate_utility_classes:
   script:
     - yarn generate-utilities
 
+check_translations_dictionary:
+  extends: [.node, '.yarn_install']
+  needs: []
+  script:
+    - ./bin/check_translations_dict.sh
+
 .visual:
   extends:
     - .puppeteer

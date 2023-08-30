@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const path = require('path');
 const { spawn, spawnSync } = require('child_process');
-const glob = require('glob');
+const { glob } = require('glob');
 
 const MESSAGE_RUNNING_FULL_SUITE =
   'Running full test suite as changes to the following file might far-reaching:';
