@@ -127,7 +127,7 @@ const makeBindings = (overrides = {}) =>
     .map(([key, value]) => `${key}="${value}"`)
     .join('\n');
 
-function openListbox(component) {
+const openListbox = (component) =>{
   component.$nextTick(() => {
     component.$refs.listbox.open();
   });
@@ -147,6 +147,25 @@ const template = (content, { label = '', bindingOverrides = {} } = {}) => `
   </div>
 `;
 
+const toggleTextMixin = (defaultLabel, selectedLabel) => {
+  debugger
+  return {
+    computed: {
+      customToggleText() {
+        debugger
+        if (Array.isArray(this.selected)) {
+          if (this.selected.length === 0) return defaultLabel;
+          if (this.selected.length === 1)
+            return this.items.find(({ value }) => value === this.selected[0]).text;
+          return `${this.selected.length} ${selectedLabel}`;
+        }
+
+        return this.items.find(({ value }) => value === this.selected).text;
+      },
+    },
+  };
+};
+
 export const Default = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
@@ -157,6 +176,7 @@ export const Default = (args, { argTypes }) => ({
       selected: mockOptions[1].value,
     };
   },
+  mixins: [toggleTextMixin('Select department(s)', 'departments')],
   mounted() {
     if (this.startOpened) {
       openListbox(this);
@@ -164,6 +184,9 @@ export const Default = (args, { argTypes }) => ({
   },
   template: template('', {
     label: `<span class="gl-my-0" id="listbox-label">Select a department</span>`,
+    bindingOverrides: {
+      ':toggle-text': 'customToggleText',
+    },
   }),
 });
 Default.args = generateProps({ toggleAriaLabelledBy: 'listbox-label' });
@@ -415,10 +438,8 @@ export const Groups = makeGroupedExample({
       selected: ['v1.0'],
     };
   },
+  mixin: [toggleTextMixin('Select ref(s)', 'refs selected')],
   computed: {
-    customToggleText() {
-      return this.selected.length ? `${this.selected.length} refs selected` : 'Select refs';
-    },
     computedItems() {
       const isSelected = (option) => this.selected.includes(option.value);
       const notSelected = (option) => !isSelected(option);
@@ -468,6 +489,7 @@ export const GroupWithoutLabel = (args, { argTypes }) => ({
     GlBadge,
     GlCollapsibleListbox,
   },
+  mixin: [toggleTextMixin('Select ref(s)', 'refs selected')],
   data() {
     return {
       selected: mockGroupsWithTextSrOnly[1].options[1].value,
@@ -481,8 +503,12 @@ export const GroupWithoutLabel = (args, { argTypes }) => ({
   template: template(`
     <template #list-item="{ item }">
       {{ item.text }} <gl-badge v-if="item.value === 'main'" size="sm">default</gl-badge>
-    </template>
-  `),
+    </template>`, {
+      bindingOverrides: {
+        ':toggle-text': 'customToggleText',
+      },
+    },
+  ),
 });
 GroupWithoutLabel.args = generateProps({
   items: mockGroupsWithTextSrOnly,
