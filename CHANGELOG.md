@@ -1,3 +1,10 @@
+# [66.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.2.0...v66.3.0) (2023-08-30)
+
+
+### Features
+
+* accept generic translations at configuration time ([c3e04c7](https://gitlab.com/gitlab-org/gitlab-ui/commit/c3e04c7b72db211bcf3b34c9c47dc42214d1b3db))
+
 # [66.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.1.0...v66.2.0) (2023-08-30)
 
 
