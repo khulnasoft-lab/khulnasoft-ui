@@ -1,3 +1,10 @@
+## [66.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.3.0...v66.3.1) (2023-09-01)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** show/hide select all and reset buttons for groups ([867e9c5](https://gitlab.com/gitlab-org/gitlab-ui/commit/867e9c5948f21a1bfb94502ac56f6248c6ab0b4a))
+
 # [66.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.2.0...v66.3.0) (2023-08-30)
 
 
