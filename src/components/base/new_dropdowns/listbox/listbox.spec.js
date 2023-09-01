@@ -18,7 +18,13 @@ import GlIntersectionObserver from '../../../utilities/intersection_observer/int
 import GlCollapsibleListbox, { ITEM_SELECTOR } from './listbox.vue';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxGroup from './listbox_group.vue';
-import { mockOptions, mockOptionsValues, mockGroups, mockGroupsWithTextSrOnly } from './mock_data';
+import {
+  mockOptions,
+  mockOptionsValues,
+  mockGroups,
+  mockGroupOptionsValues,
+  mockGroupsWithTextSrOnly,
+} from './mock_data';
 
 jest.mock('@floating-ui/dom');
 autoUpdate.mockImplementation(() => {
@@ -556,6 +562,26 @@ describe('GlCollapsibleListbox', () => {
       expect(wrapper.emitted('reset')).toHaveLength(1);
       expect(wrapper.vm.closeAndFocus).not.toHaveBeenCalled();
     });
+
+    describe('with groups', () => {
+      it.each`
+        description        | props
+        ${'multi-select'}  | ${{ multiple: true, selected: mockGroupOptionsValues }}
+        ${'single-select'} | ${{ multiple: false, selected: mockGroups[0].options[0].value }}
+      `(
+        'shows the button if the label is provided and the selection is complete in $description mode',
+        ({ props }) => {
+          buildWrapper({
+            headerText: 'Select assignee',
+            resetButtonLabel: 'Unassign',
+            items: mockGroups,
+            ...props,
+          });
+
+          expect(findResetButton().exists()).toBe(true);
+        }
+      );
+    });
   });
 
   describe('with select all action', () => {
@@ -662,6 +688,21 @@ describe('GlCollapsibleListbox', () => {
       findSelectAllButton().trigger('click');
 
       expect(wrapper.emitted('select-all')).toHaveLength(1);
+    });
+
+    describe('with groups', () => {
+      it('hides select all button if all items are selected', () => {
+        buildWrapper({
+          headerText: 'Select assignee',
+          resetButtonLabel: 'Unassign',
+          showSelectAllButtonLabel: 'Select All',
+          selected: mockGroupOptionsValues,
+          items: mockGroups,
+          multiple: true,
+        });
+
+        expect(findSelectAllButton().exists()).toBe(false);
+      });
     });
   });
 
