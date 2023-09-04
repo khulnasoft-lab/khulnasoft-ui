@@ -21,6 +21,11 @@ export default {
   inheritAttrs: false,
   props: {
     tableClass,
+    fields: {
+      type: Array,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     localTableClass() {
@@ -38,7 +43,7 @@ export default {
 </script>
 
 <template>
-  <b-table :table-class="localTableClass" v-bind="$attrs" v-on="$listeners">
+  <b-table :table-class="localTableClass" :fields="fields" v-bind="$attrs" v-on="$listeners">
     <template v-for="slot in Object.keys($scopedSlots)" #[slot]="scope">
       <slot :name="slot" v-bind="scope"></slot>
     </template>

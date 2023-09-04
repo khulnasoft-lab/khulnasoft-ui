@@ -18,4 +18,13 @@ describe('GlTableLite', () => {
 
     expect(findBTableLite().props().tableClass).toEqual(['gl-table', 'test-class']);
   });
+
+  it('adds gl-table fields to table prop', () => {
+    const fields = ['name', 'age'];
+
+    factory({ fields });
+
+    expect(wrapper.props('fields')).toEqual(fields);
+    expect(findBTableLite().props('fields')).toEqual(fields);
+  });
 });

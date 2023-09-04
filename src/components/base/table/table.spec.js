@@ -57,4 +57,13 @@ describe('GlTable', () => {
 
     expect(findBTable().props().tableClass).toEqual(['gl-table', 'test-class']);
   });
+
+  it('adds gl-table fields to table prop', () => {
+    const fields = ['name', 'age'];
+
+    factory({ props: { fields } });
+
+    expect(wrapper.props('fields')).toEqual(fields);
+    expect(findBTable().props('fields')).toEqual(fields);
+  });
 });
