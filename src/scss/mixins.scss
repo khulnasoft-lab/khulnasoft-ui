@@ -126,7 +126,7 @@
 // Helper functions to aid maintenance of heading styles
 
 // Because we can't interpolate into a variable name we have to do some stuff
-@function get-heading-size-variable-name($size, $fixed) {
+@function get-font-size-variable($size, $fixed) {
   @if $fixed == true {
     @if map-has-key($gl-font-sizes-fixed, $size) {
       @return map-get($gl-font-sizes-fixed, $size);
@@ -148,7 +148,7 @@
 // No margin bottom, as margin set by usage not fact it is a heading
 @mixin gl-heading($size, $fixed: false) {
   // Because we can't interpolate into a variable name we have to do some stuff
-  font-size: get-heading-size-variable-name($size, $fixed);
+  font-size: get-font-size-variable($size, $fixed);
 
   // Larger headings have less letter spacing
   @if ($size <= 500) {
