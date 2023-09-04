@@ -167,7 +167,6 @@
   // These settings apply to all headings
   font-family: $gl-font-heading;
   font-weight: $gl-font-weight-heading;
-  -webkit-font-smoothing: $gl-antialising-heading;
   text-wrap: $gl-text-wrap-heading; /* stylelint-disable-line property-no-unknown*/
   margin-top: 0; // override bootstrap reset in GitLab
 }
