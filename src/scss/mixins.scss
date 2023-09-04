@@ -123,7 +123,7 @@
   }
 }
 
-// Helper functions to aid maintainance of heading styles
+// Helper functions to aid maintenance of heading styles
 
 // Because we can't interpolate into a variable name we have to do some stuff
 @function get-heading-size-variable-name($size, $fixed) {
@@ -131,14 +131,14 @@
     @if map-has-key($gl-font-sizes-fixed, $size) {
       @return map-get($gl-font-sizes-fixed, $size);
     } @else {
-      @error "#{$size} is not a valid fixed heading size";
+      @error "#{$size} is not a valid fixed font size property";
       @return null;
     }
   } @else {
     @if map-has-key($gl-font-sizes, $size) {
       @return map-get($gl-font-sizes, $size);
     } @else {
-      @error "#{$size} is not a valid heading size";
+      @error "#{$size} is not a valid font size property";
       @return null;
     }
   }
