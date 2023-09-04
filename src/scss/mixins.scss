@@ -147,6 +147,12 @@
 // Set fixed as false by default, matching desired usage in the product
 // No margin bottom, as margin set by usage not fact it is a heading
 @mixin gl-heading($size, $fixed: false) {
+  // These settings apply to all headings
+  font-family: $gl-font-heading;
+  font-weight: $gl-font-weight-heading;
+  text-wrap: $gl-text-wrap-heading; /* stylelint-disable-line property-no-unknown*/
+  margin-top: 0; // override bootstrap reset in GitLab
+
   // Because we can't interpolate into a variable name we have to do some stuff
   font-size: get-font-size-variable($size, $fixed);
 
@@ -163,10 +169,4 @@
   } @else {
     line-height: $gl-line-height-heading;
   }
-
-  // These settings apply to all headings
-  font-family: $gl-font-heading;
-  font-weight: $gl-font-weight-heading;
-  text-wrap: $gl-text-wrap-heading; /* stylelint-disable-line property-no-unknown*/
-  margin-top: 0; // override bootstrap reset in GitLab
 }
