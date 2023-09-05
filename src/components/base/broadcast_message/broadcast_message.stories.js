@@ -77,6 +77,15 @@ Stacked.parameters = {
   storyshots: { disable: true },
 };
 
+export const IncreasedSpacing = (args, { argTypes }) => ({
+  components: {
+    GlBroadcastMessage,
+  },
+  props: Object.keys(argTypes),
+  template: `<div style="--gl-broadcast-message-padding-x: 0.5rem;">${template}</div>`,
+});
+IncreasedSpacing.args = generateProps();
+
 export default {
   title: 'base/broadcast message',
   component: GlBroadcastMessage,

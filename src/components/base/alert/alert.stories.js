@@ -143,6 +143,18 @@ export const Sticky = () => ({
   </div>`,
 });
 
+export const IncreasedSpacing = (args, { argTypes }) => ({
+  components: { GlAlert },
+  props: Object.keys(argTypes),
+  template: `
+    <div style="--gl-alert-padding-x: 0.5rem;">
+      <gl-alert>
+        Lorem ipsum dolor sit <a class="gl-link" href="#">text link</a> amet
+      </gl-alert>
+    </div>`,
+});
+IncreasedSpacing.args = generateProps();
+
 export default {
   title: 'base/alert',
   component: GlAlert,
