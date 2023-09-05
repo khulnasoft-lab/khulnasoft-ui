@@ -97,3 +97,13 @@
     @include gl-ml-5;
   }
 }
+
+// Use increased spacing to match new
+// container spacing
+// https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124325
+.gl-broadcast-message--container-spacing {
+  @include media-breakpoint-up(lg) {
+    @include gl-pl-6;
+    @include gl-pr-5;
+  }
+}

@@ -10,7 +10,8 @@ const template = `
       :dismissible="dismissible"
       :dismiss-label="dismissLabel"
       :theme="theme"
-      :type="type">
+      :type="type"
+      :use-container-spacing="useContainerSpacing">
       {{ text }}
     </gl-broadcast-message>
   `;
@@ -21,7 +22,8 @@ const templateWithTheme = (theme) => `
     :dismissible="dismissible"
     :dismiss-label="dismissLabel"
     theme="${theme}"
-    :type="type">
+    :type="type"
+    :use-container-spacing="useContainerSpacing">
     {{ text }}
   </gl-broadcast-message>
 `;
@@ -35,6 +37,7 @@ const generateProps = ({
   dismissLabel = defaultValue('dismissLabel'),
   theme = defaultValue('theme'),
   type = defaultValue('type'),
+  useContainerSpacing = defaultValue('useContainerSpacing'),
 } = {}) => ({
   text,
   iconName,
@@ -42,6 +45,7 @@ const generateProps = ({
   dismissLabel,
   theme,
   type,
+  useContainerSpacing,
 });
 
 const DefaultStory = (args, { argTypes }) => ({
@@ -76,6 +80,16 @@ Stacked.args = generateProps();
 Stacked.parameters = {
   storyshots: { disable: true },
 };
+
+const ContainerStory = (args, { argTypes }) => ({
+  components: {
+    GlBroadcastMessage,
+  },
+  props: Object.keys(argTypes),
+  template: `<div>${template}</div>`,
+});
+export const useContainerSpacing = ContainerStory.bind({});
+useContainerSpacing.args = generateProps({ useContainerSpacing: true });
 
 export default {
   title: 'base/broadcast message',

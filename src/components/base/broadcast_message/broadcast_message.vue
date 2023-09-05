@@ -54,10 +54,22 @@ export default {
       default: TYPE_BANNER,
       validator: (value) => TYPE_LIST.includes(value),
     },
+    /**
+     * Use increased spacing to match the increased container spacing.
+     * https://gitlab.com/gitlab-org/gitlab/-/merge_requests/124325
+     */
+    useContainerSpacing: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     showDismissButton() {
       return this.dismissible || this.type === TYPE_NOTIFICATION;
+    },
+    useContainerSpacingClass() {
+      return this.useContainerSpacing ? 'gl-broadcast-message--container-spacing' : '';
     },
   },
   methods: {
@@ -75,7 +87,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-broadcast-message" :class="`${theme} ${type}`">
+  <div class="gl-broadcast-message" :class="`${theme} ${type} ${useContainerSpacingClass}`">
     <div class="gl-broadcast-message-content">
       <div class="gl-broadcast-message-icon">
         <gl-icon :name="iconName" />
