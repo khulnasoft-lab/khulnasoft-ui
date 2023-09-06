@@ -25,6 +25,7 @@ stylesheetsRequireCtx('./storybook.scss');
 const theme = {
   brandTitle: 'GitLab UI',
   brandUrl: 'https://gitlab.com/gitlab-org/gitlab-ui',
+  fontBase: '"GitLabSans", sans-serif',
 };
 
 const parameters = {
