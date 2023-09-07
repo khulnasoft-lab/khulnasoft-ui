@@ -9,11 +9,17 @@ const ACTION_ANIMATING = 'animating';
 describe('GlAnimatedNumber', () => {
   let wrapper;
 
-  const createComponent = ({ number = 100, decimalPlaces = 0, animateOnMount = false } = {}) => {
+  const createComponent = ({
+    number = 100,
+    decimalPlaces = 0,
+    useDelimiters = false,
+    animateOnMount = false,
+  } = {}) => {
     wrapper = shallowMount(GlAnimatedNumber, {
       propsData: {
         number,
         decimalPlaces,
+        useDelimiters,
         duration,
         animateOnMount,
       },
@@ -40,20 +46,22 @@ describe('GlAnimatedNumber', () => {
 
   describe('when animateOnMount is false', () => {
     describe.each`
-      withDecimal | number   | updatedNumber | decimalPlaces | expectedInitialOnMount | expectedInitialOnUpdate
-      ${false}    | ${100}   | ${200}        | ${0}          | ${'100'}               | ${'200'}
-      ${true}     | ${100.2} | ${200.2}      | ${1}          | ${'100.2'}             | ${'200.2'}
+      withDecimal | number      | updatedNumber | decimalPlaces | useDelimiters | expectedInitialOnMount | expectedInitialOnUpdate
+      ${false}    | ${100}      | ${200}        | ${0}          | ${false}      | ${'100'}               | ${'200'}
+      ${true}     | ${100.2}    | ${200.2}      | ${1}          | ${false}      | ${'100.2'}             | ${'200.2'}
+      ${true}     | ${100000.2} | ${200000.2}   | ${1}          | ${true}       | ${'100,000.2'}         | ${'200,000.2'}
     `(
-      'withDecimal === $withDecimal',
+      'when withDecimal = $withDecimal, useDelimiters = $useDelimiters',
       ({
         number,
         updatedNumber,
         decimalPlaces,
+        useDelimiters,
         expectedInitialOnMount,
         expectedInitialOnUpdate,
       }) => {
         beforeEach(() => {
-          createComponent({ number, decimalPlaces });
+          createComponent({ number, decimalPlaces, useDelimiters });
         });
 
         it('displays the correct number on mount', async () => {
@@ -77,24 +85,28 @@ describe('GlAnimatedNumber', () => {
 
   describe('when animateOnMount is true', () => {
     describe.each`
-      withDecimal | number   | decimalPlaces | expectedInitial
-      ${false}    | ${100}   | ${0}          | ${'0'}
-      ${true}     | ${100.2} | ${1}          | ${'0.0'}
-    `('withDecimal === $withDecimal', ({ number, decimalPlaces, expectedInitial }) => {
-      beforeEach(() => {
-        createComponent({ number, decimalPlaces, animateOnMount: true });
-      });
+      withDecimal | number      | decimalPlaces | useDelimiters | expectedInitial | expectedEnd
+      ${false}    | ${100}      | ${0}          | ${false}      | ${'0'}          | ${'100'}
+      ${true}     | ${100.2}    | ${1}          | ${false}      | ${'0.0'}        | ${'100.2'}
+      ${true}     | ${100000.2} | ${1}          | ${true}       | ${'0.0'}        | ${'100,000.2'}
+    `(
+      'when withDecimal = $withDecimal, useDelimiters = $useDelimiters',
+      ({ number, decimalPlaces, useDelimiters, expectedInitial, expectedEnd }) => {
+        beforeEach(() => {
+          createComponent({ number, decimalPlaces, useDelimiters, animateOnMount: true });
+        });
 
-      it('displays the correct intial number', () => {
-        expect(wrapper.text()).toBe(expectedInitial);
-      });
+        it('displays the correct initial number', () => {
+          expect(wrapper.text()).toBe(expectedInitial);
+        });
 
-      it('displays the correct end number', async () => {
-        await runOutAnimationTimer();
+        it('displays the correct end number', async () => {
+          await runOutAnimationTimer();
 
-        expect(wrapper.text()).toBe(`${number}`);
-      });
-    });
+          expect(wrapper.text()).toBe(expectedEnd);
+        });
+      }
+    );
   });
 
   describe('animation event emissions', () => {

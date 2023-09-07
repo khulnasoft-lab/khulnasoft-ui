@@ -3,6 +3,7 @@ import { badgeVariantOptions, variantCssColorMap } from '../../../utils/constant
 import GlBadge from '../../base/badge/badge.vue';
 import GlIcon from '../../base/icon/icon.vue';
 import GlAnimatedNumber from '../../utilities/animated_number/animated_number.vue';
+import { formatNumberToLocale } from '../../../utils/number_utils';
 
 export default {
   name: 'GlSingleStat',
@@ -24,6 +25,14 @@ export default {
       type: String,
       required: false,
       default: null,
+    },
+    /**
+     * Requires the `value` property to be a valid Number or convertible to one
+     */
+    useDelimiters: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     variant: {
       type: String,
@@ -86,6 +95,17 @@ export default {
     canAnimate() {
       return this.shouldAnimate && !Number.isNaN(Number(this.value));
     },
+    statValue() {
+      if (this.useDelimiters) {
+        const minimumFractionDigits = this.value.toString().split('.')[1]?.length || 0;
+
+        return formatNumberToLocale(this.value, {
+          minimumFractionDigits,
+        });
+      }
+
+      return this.value;
+    },
   },
   methods: {
     setHideUnits(flag) {
@@ -116,10 +136,11 @@ export default {
           v-if="canAnimate"
           :number="Number(value)"
           :decimal-places="animationDecimalPlaces"
+          :use-delimiters="useDelimiters"
           @animating="setHideUnits(true)"
           @animated="setHideUnits(false)"
         />
-        <span v-else data-testid="non-animated-value">{{ value }}</span></span
+        <span v-else data-testid="non-animated-value">{{ statValue }}</span></span
       >
       <span
         v-if="unit"

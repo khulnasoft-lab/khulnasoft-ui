@@ -8,6 +8,7 @@ const generateProps = ({
   title = 'Single stat',
   value = '100',
   unit = '',
+  useDelimiters = false,
   metaText = '',
   metaIcon = null,
   titleIcon = null,
@@ -19,6 +20,7 @@ const generateProps = ({
   title,
   value,
   unit,
+  useDelimiters,
   metaText,
   metaIcon,
   titleIcon,
@@ -41,6 +43,7 @@ const Template = (args, { argTypes }) => ({
       :title="title"
       :value="value"
       :unit="unit"
+      :use-delimiters="useDelimiters"
       :variant="variant"
       :meta-text="metaText"
       :meta-icon="metaIcon"
@@ -62,6 +65,9 @@ WithMetaIcon.args = generateProps({ metaIcon });
 
 export const WithTitleIcon = Template.bind({});
 WithTitleIcon.args = generateProps({ titleIcon });
+
+export const WithDelimiters = Template.bind({});
+WithDelimiters.args = generateProps({ value: '10000', useDelimiters: true });
 
 export default {
   title: 'charts/single-stat',
@@ -88,6 +94,10 @@ export default {
     },
     unit: {
       control: 'text',
+    },
+    useDelimiters: {
+      control: 'boolean',
+      description: 'Requires the `value` property to be a valid Number or convertable to one',
     },
   },
 };
