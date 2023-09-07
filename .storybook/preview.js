@@ -6,13 +6,23 @@ import setConfigs from '../src/config';
 import logoWithBlackText from '../static/img/_logo_with_black_text.svg';
 import logoWithWhiteText from '../static/img/_logo_with_white_text.svg';
 
-const decorators = Vue.version.startsWith('3')
-  ? [
-      function passArgsCorrectlyForVueCompat(storyFn, storyContext) {
-        return h(storyContext.undecoratedStoryFn(storyContext), storyContext.args);
-      },
-    ]
-  : [];
+let decorators = [
+  (story) => ({
+    components: { story },
+    template: '<story />',
+    mounted() {
+      this.$nextTick().then(() => {
+        this.$el.parentElement.classList.add('vue-component-mounted');
+      });
+    },
+  }),
+];
+
+if (Vue.version.startsWith('3')) {
+  decorators.unshift(function passArgsCorrectlyForVueCompat(storyFn, storyContext) {
+    return h(storyContext.undecoratedStoryFn(storyContext), storyContext.args);
+  });
+}
 
 setConfigs();
 
