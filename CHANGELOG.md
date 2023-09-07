@@ -1,3 +1,10 @@
+# [66.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.4.0...v66.5.0) (2023-09-07)
+
+
+### Features
+
+* **GlSingleStat:** Format the displayed number based on locale ([b6a845d](https://gitlab.com/gitlab-org/gitlab-ui/commit/b6a845d4344ad1ecef83738b6ef1b82a45d786a5))
+
 # [66.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.3.1...v66.4.0) (2023-09-04)
 
 
