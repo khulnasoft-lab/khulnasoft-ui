@@ -53,7 +53,7 @@ export const Image = (args, { argTypes }) => ({
       <gl-avatar
         :size="size"
         :shape="shape"
-        src="./img/gitlab-summit-south-africa.jpg"
+        src="./img/avatar_1.png"
       />
     `,
 });
@@ -66,7 +66,7 @@ export const ResponsiveImage = (args, { argTypes }) => ({
       <gl-avatar
         :size="size"
         :shape="shape"
-        src="./img/gitlab-summit-south-africa.jpg"
+        src="./img/avatar_1.png"
       />
     `,
 });
@@ -97,7 +97,7 @@ export const WithTooltip = (args, { argTypes }) => ({
         :size="size"
         :shape="shape"
         :title="tooltipText"
-        src="./img/gitlab-summit-south-africa.jpg"
+        src="./img/avatar_1.png"
         v-gl-tooltip="{ placement }"
       />
     `,
