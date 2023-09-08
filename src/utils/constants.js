@@ -141,6 +141,11 @@ export const dropdownAllowedAutoPlacements = {
   right: dropdownAnyCornerPlacement,
 };
 
+export const newDropdownVariantOptions = {
+  default: 'default',
+  danger: 'danger',
+};
+
 export const buttonSizeOptions = {
   small: 'sm',
   medium: 'md',

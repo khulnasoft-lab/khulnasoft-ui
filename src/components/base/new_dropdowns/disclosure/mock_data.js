@@ -9,15 +9,18 @@ export const mockItems = [
     },
   },
   {
-    text: 'Close merge request',
-    action: () => {
-      // eslint-disable-next-line no-console
-      console.log('CLOSED');
-    },
-    extraAttrs: {
-      class: 'gl-text-red-500!',
-      rel: 'nofollow',
-      'data-method': 'put',
+    // variant: 'danger',
+    item: {
+      text: 'Close merge request',
+      action: () => {
+        // eslint-disable-next-line no-console
+        console.log('CLOSED');
+      },
+      extraAttrs: {
+        // class: 'gl-text-red-500!',
+        rel: 'nofollow',
+        'data-method': 'put',
+      },
     },
   },
   {

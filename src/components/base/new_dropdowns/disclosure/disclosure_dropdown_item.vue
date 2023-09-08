@@ -3,6 +3,7 @@ import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 import { isItem } from './utils';
 import { DISCLOSURE_DROPDOWN_ITEM_NAME } from './constants';
+import { newDropdownVariantOptions } from '../../../../utils/constants';
 
 export const ITEM_CLASS = 'gl-new-dropdown-item';
 
@@ -16,6 +17,14 @@ export default {
       default: null,
       validator: isItem,
     },
+    variant: {
+      type: String,
+      default: newDropdownVariantOptions.default,
+      validator(value) {
+        return newDropdownVariantOptions[value] !== undefined;
+      },
+      required: false,
+    },
   },
   computed: {
     isLink() {
@@ -23,6 +32,9 @@ export default {
     },
     isCustomContent() {
       return Boolean(this.$scopedSlots.default);
+    },
+    isDanger() {
+      return this.variant === newDropdownVariantOptions.danger;
     },
     itemComponent() {
       const { item } = this;
@@ -101,7 +113,7 @@ export default {
 <template>
   <li
     :tabindex="listIndex"
-    :class="[$options.ITEM_CLASS, wrapperClass]"
+    :class="{ 'gl-danger': isDanger }"
     data-testid="disclosure-dropdown-item"
     v-on="wrapperListeners"
   >
