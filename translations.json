@@ -4,5 +4,6 @@
   "GlSorting.sortDescending": "Sort direction: descending",
   "GlSearchBoxByType.clearButtonTitle": "Clear",
   "GlSearchBoxByType.input.placeholder": "Search",
+  "GlBreadcrumb.showMoreLabel": "Show more breadcrumbs",
   "GlCollapsibleListbox.srOnlyResultsLabel": "Results count"
 }

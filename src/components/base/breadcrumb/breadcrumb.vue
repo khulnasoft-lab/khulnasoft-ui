@@ -1,20 +1,20 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BBreadcrumb } from 'bootstrap-vue';
-import GlButton from '../button/button.vue';
+import debounce from 'lodash/debounce';
+import { translate } from '../../../utils/i18n';
 import GlAvatar from '../avatar/avatar.vue';
+import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
-
-export const COLLAPSE_AT_SIZE = 4;
 
 export default {
   name: 'GlBreadcrumb',
   components: {
     BBreadcrumb,
-    GlButton,
     GlBreadcrumbItem,
     GlAvatar,
+    GlDisclosureDropdown,
   },
   directives: {
     GlTooltip: GlTooltipDirective,
@@ -40,47 +40,118 @@ export default {
       required: false,
       default: 'Breadcrumb',
     },
+    /**
+     * The label for the collapsed dropdown toggle. Screen-reader only.
+     */
+    showMoreLabel: {
+      type: String,
+      required: false,
+      default: () => translate('GlBreadcrumb.showMoreLabel', 'Show more breadcrumbs'),
+    },
   },
   data() {
     return {
-      isListCollapsed: true,
+      fittingItems: [...this.items], // array of items that fit on the screen
+      overflowingItems: [], // array of items that didn't fit and were put in a dropdown instead
+      totalBreadcrumbsWidth: 0, // the total width of all breadcrumb items combined
+      widthPerItem: [], // array with the indivudal widths of each breadcrumb item
+      resizeDone: false, // to apply some CSS only during/after resizing
     };
   },
   computed: {
-    breadcrumbsSize() {
-      return this.items.length;
-    },
     hasCollapsible() {
-      return this.breadcrumbsSize > COLLAPSE_AT_SIZE;
+      return this.overflowingItems.length > 0;
     },
-    nonCollapsibleIndices() {
-      return [0, this.breadcrumbsSize - 1, this.breadcrumbsSize - 2];
+    breadcrumbStyle() {
+      return this.resizeDone ? {} : { opacity: 0 };
+    },
+    itemStyle() {
+      /**
+       * If the last/only item, which is always visible, has a very long title,
+       * it could overflow the breadcrumb component. This CSS makes sure it
+       * shows an ellipsis instead.
+       * But this CSS cannot be active while we do the size calculation, as that
+       * would then not take the real unshrunk width of that item into account.
+       */
+      if (this.resizeDone && this.fittingItems.length === 1) {
+        return {
+          'flex-shrink': 1,
+          'text-overflow': 'ellipsis',
+          'overflow-x': 'hidden',
+          'text-wrap': 'nowrap',
+        };
+      }
+      return {};
     },
   },
+  watch: {
+    items: {
+      handler: 'measureAndMakeBreadcrumbsFit',
+      deep: true,
+    },
+  },
+  created() {
+    this.debounceMakeBreadcrumbsFit = debounce(this.makeBreadcrumbsFit, 25);
+  },
+  mounted() {
+    window.addEventListener('resize', this.debounceMakeBreadcrumbsFit);
+    this.measureAndMakeBreadcrumbsFit();
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.debounceMakeBreadcrumbsFit);
+  },
   methods: {
-    isFirstItem(index) {
-      return index === 0;
+    resetItems() {
+      this.fittingItems = [...this.items];
+      this.overflowingItems = [];
+    },
+    async measureAndMakeBreadcrumbsFit() {
+      this.resizeDone = false;
+      this.resetItems();
+
+      // Wait for DOM update so all items get rendered and can be measured.
+      await this.$nextTick();
+
+      this.totalBreadcrumbsWidth = 0;
+      this.$refs.breadcrumbs.forEach((b, index) => {
+        const width = b.$el.clientWidth;
+        this.totalBreadcrumbsWidth += width;
+        this.widthPerItem[index] = width;
+      });
+
+      this.makeBreadcrumbsFit();
+    },
+    makeBreadcrumbsFit() {
+      this.resizeDone = false;
+      this.resetItems();
+
+      const containerWidth = this.$el.clientWidth;
+      const buttonWidth = 50; // px
+
+      if (this.totalBreadcrumbsWidth + buttonWidth > containerWidth) {
+        // Not all breadcrumb items fit. Start moving items over to the dropdown.
+        const startSlicingAt = 0;
+
+        // The last item will never be moved into the dropdown.
+        const stopSlicingAt = this.items.length - 1;
+
+        let widthNeeded = this.totalBreadcrumbsWidth;
+        for (let index = startSlicingAt; index < stopSlicingAt; index += 1) {
+          // Move one breadcrumb item into the dropdown
+          this.overflowingItems.push(this.fittingItems[startSlicingAt]);
+          this.fittingItems.splice(startSlicingAt, 1);
+
+          widthNeeded -= this.widthPerItem[index];
+
+          // Does it fit now? Then stop.
+          if (widthNeeded + buttonWidth < containerWidth) break;
+        }
+      }
+
+      this.resizeDone = true;
     },
     isLastItem(index) {
-      return index === this.breadcrumbsSize - 1;
-    },
-    expandBreadcrumbs() {
-      this.isListCollapsed = false;
-
-      try {
-        this.$refs.firstItem[0].querySelector('a').focus();
-      } catch (e) {
-        /* eslint-disable-next-line no-console */
-        console.error(`Failed to set focus on the first breadcrumb item.`);
-      }
-    },
-    showCollapsedBreadcrumbsExpander(index) {
-      return index === 0 && this.hasCollapsible && this.isListCollapsed;
-    },
-    isItemCollapsed(index) {
-      return (
-        this.hasCollapsible && this.isListCollapsed && !this.nonCollapsibleIndices.includes(index)
-      );
+      return index === this.fittingItems.length - 1;
     },
     getAriaCurrentAttr(index) {
       return this.isLastItem(index) ? 'page' : false;
@@ -89,42 +160,41 @@ export default {
 };
 </script>
 <template>
-  <nav class="gl-breadcrumbs" :aria-label="ariaLabel">
+  <nav class="gl-breadcrumbs" :aria-label="ariaLabel" :style="breadcrumbStyle">
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
-      <template v-for="(item, index) in items">
-        <!-- eslint-disable-next-line vue/valid-v-for (for @vue/compat) -->
-        <gl-breadcrumb-item
-          v-show="!isItemCollapsed(index)"
-          :ref="isFirstItem(index) ? 'firstItem' : null"
-          :text="item.text"
-          :href="item.href"
-          :to="item.to"
-          :aria-current="getAriaCurrentAttr(index)"
-          ><gl-avatar
-            v-if="item.avatarPath"
-            :src="item.avatarPath"
-            :size="16"
-            aria-hidden="true"
-            class="gl-breadcrumb-avatar-tile gl-border gl-mr-2 gl-rounded-base!"
-            shape="rect"
-            data-testid="avatar"
-          /><span>{{ item.text }}</span>
-        </gl-breadcrumb-item>
+      <li v-if="hasCollapsible" class="gl-breadcrumb-item">
+        <gl-disclosure-dropdown
+          :items="overflowingItems"
+          :toggle-text="showMoreLabel"
+          fluid-width
+          text-sr-only
+          no-caret
+          icon="ellipsis_h"
+          size="small"
+          style="height: 16px"
+          placement="left"
+        />
+      </li>
 
-        <template v-if="showCollapsedBreadcrumbsExpander(index)">
-          <!-- eslint-disable-next-line vue/require-v-for-key (for @vue/compat) -->
-          <li class="gl-breadcrumb-item">
-            <gl-button
-              v-gl-tooltip.hover="'Show all breadcrumbs'"
-              aria-label="Show all breadcrumbs"
-              data-testid="collapsed-expander"
-              icon="ellipsis_h"
-              category="primary"
-              @click="expandBreadcrumbs"
-            />
-          </li>
-        </template>
-      </template>
+      <!-- eslint-disable-next-line vue/valid-v-for (for @vue/compat) -->
+      <gl-breadcrumb-item
+        v-for="(item, index) in fittingItems"
+        ref="breadcrumbs"
+        :text="item.text"
+        :href="item.href"
+        :style="itemStyle"
+        :to="item.to"
+        :aria-current="getAriaCurrentAttr(index)"
+        ><gl-avatar
+          v-if="item.avatarPath"
+          :src="item.avatarPath"
+          :size="16"
+          aria-hidden="true"
+          class="gl-breadcrumb-avatar-tile gl-border gl-mr-2 gl-rounded-base!"
+          shape="rect"
+          data-testid="avatar"
+        /><span>{{ item.text }}</span>
+      </gl-breadcrumb-item>
     </b-breadcrumb>
   </nav>
 </template>

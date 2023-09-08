@@ -1,15 +1,20 @@
-import { shallowMount } from '@vue/test-utils';
-import { nextTick } from 'vue';
+import { mount } from '@vue/test-utils';
 import avatarPath1 from '../../../../static/img/avatar.png';
 import avatarPath3 from '../../../../static/img/avatar_1.png';
-import GlBreadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
+import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
+import GlDisclosureDropdownItem from '../new_dropdowns/disclosure/disclosure_dropdown_item.vue';
+import GlBreadcrumb from './breadcrumb.vue';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
 
 describe('Breadcrumb component', () => {
   let wrapper;
 
   const items = [
-    { text: 'first_breadcrumb', href: 'https://gitlab.com', avatarPath: avatarPath1 },
+    {
+      text: 'first_breadcrumb',
+      href: 'https://gitlab.com',
+      avatarPath: avatarPath1,
+    },
     {
       text: 'second_breadcrumb',
       to: 'to_value',
@@ -21,41 +26,44 @@ describe('Breadcrumb component', () => {
     },
   ];
 
-  const extraItems = [
-    { text: 'fourth_breadcrumb', href: 'https://gitlab.com' },
-    {
-      text: 'fifth_breadcrumb',
-      to: 'to_value',
-    },
-  ];
-
   const findAllAvatars = () => wrapper.findAll('[data-testid="avatar"]');
   const findBreadcrumbItems = () => wrapper.findAllComponents(GlBreadcrumbItem);
-  const findCollapsedListExpander = () => wrapper.find('[data-testid="collapsed-expander"]');
+  const findOverflowDropdown = () => wrapper.findComponent(GlDisclosureDropdown);
 
   const findVisibleBreadcrumbItems = () =>
     findBreadcrumbItems().wrappers.filter((item) => item.isVisible());
-  const findHiddenBreadcrumbItems = () =>
-    findBreadcrumbItems().wrappers.filter((item) => !item.isVisible());
 
   const createComponent = (propsData = { items }) => {
-    wrapper = shallowMount(GlBreadcrumb, {
+    wrapper = mount(GlBreadcrumb, {
       propsData,
       stubs: {
         GlBreadcrumbItem,
+        GlDisclosureDropdown,
       },
     });
+  };
 
-    wrapper.vm.$refs.firstItem = [
-      {
-        querySelector: () => ({ focus: jest.fn() }),
-      },
-    ];
+  const mockWrapperWidth = (widthInPx) => {
+    wrapper.element.style.width = `${widthInPx}px`;
+
+    Object.defineProperty(wrapper.element, 'clientWidth', {
+      get: () => widthInPx,
+      configurable: true,
+    });
+  };
+
+  const mockWideWrapperWidth = () => {
+    mockWrapperWidth(1000);
+  };
+
+  const mockSmallWrapperWidth = () => {
+    mockWrapperWidth(1);
   };
 
   describe('items', () => {
-    it('has one breadcrumb-item for each item in the items props', () => {
+    it('has one breadcrumb-item for each item in the items props', async () => {
       createComponent();
+      await wrapper.vm.$nextTick();
 
       expect(findBreadcrumbItems()).toHaveLength(items.length);
     });
@@ -75,9 +83,36 @@ describe('Breadcrumb component', () => {
     });
   });
 
+  describe('showMoreLabel', () => {
+    describe('when provided', () => {
+      beforeEach(async () => {
+        createComponent({ items, showMoreLabel: 'More...' });
+        mockSmallWrapperWidth();
+        await wrapper.vm.$nextTick();
+      });
+
+      it('uses prop', () => {
+        expect(findOverflowDropdown().props('toggleText')).toBe('More...');
+      });
+    });
+
+    describe('when not provided', () => {
+      beforeEach(async () => {
+        createComponent();
+        mockSmallWrapperWidth();
+        await wrapper.vm.$nextTick();
+      });
+
+      it('uses default', () => {
+        expect(findOverflowDropdown().props('toggleText')).toBe('Show more breadcrumbs');
+      });
+    });
+  });
+
   describe('avatars', () => {
-    it('renders 2 avatars when 2 avatarPaths are passed', () => {
+    it('renders 2 avatars when 2 avatarPaths are passed', async () => {
       createComponent();
+      await wrapper.vm.$nextTick();
 
       expect(findAllAvatars()).toHaveLength(2);
     });
@@ -86,6 +121,7 @@ describe('Breadcrumb component', () => {
   describe('bindings', () => {
     beforeEach(() => {
       createComponent();
+      mockWideWrapperWidth();
     });
 
     it('first breadcrumb has text, href && ariaCurrent=`false` bound', () => {
@@ -114,12 +150,14 @@ describe('Breadcrumb component', () => {
   });
 
   describe('collapsible', () => {
-    describe(`when breadcrumbs list size is NOT larger than ${COLLAPSE_AT_SIZE}`, () => {
+    describe(`when there is enough room to fit all items`, () => {
       beforeEach(() => {
         createComponent();
+        mockWideWrapperWidth();
       });
+
       it('should not display collapsed list expander', () => {
-        expect(findCollapsedListExpander().exists()).toBe(false);
+        expect(findOverflowDropdown().exists()).toBe(false);
       });
 
       it('should display all items visible', () => {
@@ -127,27 +165,21 @@ describe('Breadcrumb component', () => {
       });
     });
 
-    describe(`when breadcrumbs list size is larger than ${COLLAPSE_AT_SIZE}`, () => {
-      beforeEach(() => {
-        createComponent({ items: [...items, ...extraItems] });
-      });
-      it('should display collapsed list expander', () => {
-        expect(findCollapsedListExpander().exists()).toBe(true);
-      });
-
-      it('should display only first && 2 last items and the rest as hidden', () => {
-        const alwaysVisibleNum = 3;
-        expect(findVisibleBreadcrumbItems()).toHaveLength(alwaysVisibleNum);
-        expect(findHiddenBreadcrumbItems()).toHaveLength(
-          items.length + extraItems.length - alwaysVisibleNum
-        );
+    describe(`when there is NOT enough room to fit all items`, () => {
+      beforeEach(async () => {
+        createComponent();
+        mockSmallWrapperWidth();
+        await wrapper.vm.$nextTick();
       });
 
-      it('should expand the list on expander click', async () => {
-        findCollapsedListExpander().vm.$emit('click');
-        await nextTick();
-        expect(findHiddenBreadcrumbItems()).toHaveLength(0);
-        expect(findVisibleBreadcrumbItems()).toHaveLength(items.length + extraItems.length);
+      it('should display overflow dropdown', () => {
+        expect(findOverflowDropdown().exists()).toBe(true);
+      });
+
+      it('moves the overflowing items into the dropdown', () => {
+        const fittingItems = findBreadcrumbItems().length;
+        const overflowingItems = wrapper.findAllComponents(GlDisclosureDropdownItem).length;
+        expect(fittingItems + overflowingItems).toEqual(items.length);
       });
     });
   });
