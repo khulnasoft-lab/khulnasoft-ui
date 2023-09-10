@@ -127,7 +127,7 @@
   border-color: $gray-50;
 }
 
-@mixin gl-border-gray-100 {
+@mixin gl-border-gray-100($hover: true) {
   border-color: $gray-100;
 }
 
