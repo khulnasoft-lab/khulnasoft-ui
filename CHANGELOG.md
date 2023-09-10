@@ -1,3 +1,10 @@
+# [66.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.5.0...v66.6.0) (2023-09-10)
+
+
+### Features
+
+* **mixin:** Add hover for gl-border-gray-10 mixin ([ffe4522](https://gitlab.com/gitlab-org/gitlab-ui/commit/ffe4522dfa788d166ac98b34fe49045cdfac6e25))
+
 # [66.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.4.0...v66.5.0) (2023-09-07)
 
 
