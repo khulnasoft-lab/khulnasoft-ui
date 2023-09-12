@@ -37,6 +37,12 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
+@mixin gl-md-grid-template-columns-4 {
+  @include gl-media-breakpoint-up(md) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @mixin gl-lg-grid-template-columns-4 {
   @include gl-media-breakpoint-up(lg) {
     grid-template-columns: repeat(4, 1fr);
