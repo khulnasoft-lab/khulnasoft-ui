@@ -1,3 +1,15 @@
+# [66.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.6.0...v66.7.0) (2023-09-12)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** update styling to be Pajamas compliant ([35862a2](https://gitlab.com/gitlab-org/gitlab-ui/commit/35862a2e5e052227b162ad85e02cb87581b354d2))
+
+
+### Features
+
+* **CSS:** add `gl-md-grid-template-columns-4` CSS utility class ([2e7fe9b](https://gitlab.com/gitlab-org/gitlab-ui/commit/2e7fe9b7fda8c402712ee0a617767e3181d648b5))
+
 # [66.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.5.0...v66.6.0) (2023-09-10)
 
 
