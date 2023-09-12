@@ -16,18 +16,14 @@ default:
 variables:
   PUPPETEER_VERSION: '15.5.0'
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
-  # We want to utilize the faster SAST and Dependency Scanning which are not docker in docker
-  SAST_DISABLE_DIND: 'true'
-  # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
-  SAST_DEFAULT_ANALYZERS: 'nodejs-scan, eslint'
   CYPRESS_CACHE_FOLDER: $CI_PROJECT_DIR/.cypress_cache/Cypress
 
 include:
-  - template: Code-Quality.gitlab-ci.yml
+  - template: Jobs/Code-Quality.gitlab-ci.yml
   - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
-  - template: Container-Scanning.gitlab-ci.yml
-  - template: SAST.gitlab-ci.yml
-  - template: Secret-Detection.gitlab-ci.yml
+  - template: Jobs/Container-Scanning.latest.gitlab-ci.yml
+  - template: Jobs/SAST.latest.gitlab-ci.yml
+  - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
   - project: gitlab-org/frontend/frontend-build-images
     file: /semantic-release/.gitlab-ci-template.rules.yml
   - project: gitlab-org/frontend/untamper-my-lockfile
@@ -35,44 +31,39 @@ include:
   - project: 'gitlab-org/quality/pipeline-common'
     file: '/ci/danger-review.yml'
 
-# Ensure that the scanning is only executed on MRs and the default branch
-# This potentially can be made obsolete once:
-# https://gitlab.com/gitlab-org/gitlab/-/issues/217668 lands
-.secure-jobs-config: &secure-jobs-config
-  needs: []
-  rules:
-    - when: always
-
 .is-merge-train: &is-merge-train
   if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merge_train"'
 
 .is-merged-result: &is-merged-result
   if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merged_result"'
 
-gemnasium-dependency_scanning:
-  <<: *secure-jobs-config
-
 code_quality:
-  <<: *secure-jobs-config
+  needs: []
+  # Code quality scanning doesn't work otherwise on MR pipelines
+  rules:
+    - when: always
+  # It's running docker-in-docker, so we want to set the correct tag
   tags:
     - gitlab-org-docker
-
-semgrep-sast:
-  <<: *secure-jobs-config
-
-nodejs-scan-sast:
-  <<: *secure-jobs-config
-
-secret_detection:
-  <<: *secure-jobs-config
 
 container_scanning:
   variables:
     CI_APPLICATION_REPOSITORY: $CI_REGISTRY_IMAGE/puppeteer
     CI_APPLICATION_TAG: $PUPPETEER_VERSION
   needs: ['build_docker_image']
-  rules:
-    - when: always
+
+# Execute the security scanners immediately
+gemnasium-dependency_scanning:
+  needs: []
+
+semgrep-sast:
+  needs: []
+
+nodejs-scan-sast:
+  needs: []
+
+secret_detection:
+  needs: []
 
 .puppeteer:
   image: $PUPPETEER_IMAGE
