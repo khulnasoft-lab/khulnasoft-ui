@@ -18,15 +18,13 @@ variables:
   PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer:$PUPPETEER_VERSION
   # We want to utilize the faster SAST and Dependency Scanning which are not docker in docker
   SAST_DISABLE_DIND: 'true'
-  DS_DISABLE_DIND: 'true'
   # We only need javascript scanning, unfortunately our Danger code would lead to execution of ruby analysis as well
   SAST_DEFAULT_ANALYZERS: 'nodejs-scan, eslint'
   CYPRESS_CACHE_FOLDER: $CI_PROJECT_DIR/.cypress_cache/Cypress
 
 include:
   - template: Code-Quality.gitlab-ci.yml
-  - template: Dependency-Scanning.gitlab-ci.yml
-  - template: License-Scanning.gitlab-ci.yml
+  - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
   - template: Container-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
   - template: Secret-Detection.gitlab-ci.yml
@@ -58,9 +56,6 @@ code_quality:
   <<: *secure-jobs-config
   tags:
     - gitlab-org-docker
-
-license_scanning:
-  <<: *secure-jobs-config
 
 semgrep-sast:
   <<: *secure-jobs-config
