@@ -87,7 +87,7 @@ container_scanning:
   image: node:18.17.0-buster
   variables:
     PUPPETEER_SKIP_DOWNLOAD: 'true'
-
+    CYPRESS_INSTALL_BINARY: 0
 
 .use_vue3:
   variables:
@@ -110,7 +110,7 @@ container_scanning:
 
 .yarn_install:
   before_script:
-    - apt-get install -y make
+    - apt-get update && apt-get install -y make
     - yarn install --frozen-lockfile
   cache:
     <<: *cache-template
@@ -284,11 +284,15 @@ visual_minimal:
       when: always
 
 .integration_tests:
+  extends: [.yarn_install]
   image: cypress/browsers:node16.14.0-chrome99-ff97
-  extends: [.node, .yarn_install]
+  variables:
+    DEBUG: "cypress:cli"
+    PUPPETEER_SKIP_DOWNLOAD: 'true'
   needs: []
   stage: test
   script:
+    - apt-get update
     - yarn test:integration
   artifacts:
     when: on_failure
