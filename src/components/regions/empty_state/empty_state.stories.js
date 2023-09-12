@@ -29,7 +29,7 @@ const Template = (args) => ({
 const generateProps = ({
   title = 'This state is empty',
   svgPath = securityDashboardEmptyStateSvg,
-  svgHeight = 145,
+  svgHeight = 144,
   description = 'The title and message should be clear, concise, and explain why the user is seeing this screen.',
   primaryButtonText = 'Something actionable',
   secondaryButtonText = 'Something else',

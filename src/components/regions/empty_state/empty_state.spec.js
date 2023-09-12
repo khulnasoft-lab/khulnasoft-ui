@@ -8,7 +8,7 @@ describe('empty state component', () => {
     title: 'Empty State Title',
     description: 'Empty state description.',
     svgPath: 'https://www.example.com/test.jpg',
-    svgHeight: 150,
+    svgHeight: 144,
     primaryButtonText: 'Primary Button',
     primaryButtonLink: 'http://example.com/primary',
     secondaryButtonText: 'Secondary Button',
@@ -249,7 +249,7 @@ describe('empty state component', () => {
   describe('with custom content class', () => {
     const findContentContainer = () => component.find('[data-testid="gl-empty-state-content"]');
     const customContentClass = 'gl-p-0';
-    const expectedDefaultContentClasses = ['gl-max-w-full', 'gl-m-auto', customContentClass];
+    const expectedDefaultContentClasses = ['gl-max-w-88', 'gl-m-auto', customContentClass];
     const expectedCompactContentClasses = [
       'gl-flex-grow-1',
       'gl-flex-basis-0',
