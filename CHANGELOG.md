@@ -1,3 +1,10 @@
+# [66.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.8.0...v66.9.0) (2023-09-13)
+
+
+### Features
+
+* adds css-based skeleton loader ([445fc09](https://gitlab.com/gitlab-org/gitlab-ui/commit/445fc09e7e42b53f79142a79a1a48604f39429be))
+
 # [66.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.7.1...v66.8.0) (2023-09-13)
 
 
