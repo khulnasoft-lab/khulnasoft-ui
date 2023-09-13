@@ -59,7 +59,7 @@ export default {
     @click="toggleSelection"
     @keydown="onKeydown"
   >
-    <span class="gl-new-dropdown-item-content" :class="{ 'gl-bg-gray-50!': isSelected }">
+    <span class="gl-new-dropdown-item-content">
       <gl-icon
         name="mobile-issue-close"
         data-testid="dropdown-item-checkbox"
