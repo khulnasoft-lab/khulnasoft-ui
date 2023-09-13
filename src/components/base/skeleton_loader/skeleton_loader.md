@@ -9,6 +9,29 @@ loading animation. Any skeleton state components should be created with
 `<gl-skeleton-loader></gl-skeleton-loader>`. If no shape is passed via the slot the default skeleton
 will be used. See "Default" and "Default With Custom Props" examples.
 
+**NOTE:** Skeleton loaders can also be composed with a `.gl-animate-skeleton-loader`
+CSS class. This CSS-based approach is easier to make responsive and match mocked elements.
+Feel free to use this approach if it suits your use case and please leave your
+feedback in this [Feedback for css-based skeleton loading
+indicator](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2319) issue.
+To improve developer experience and simplify matching Pajamas styles we're considering
+several improvements in the future, including adding more CSS util classes for
+this animation, or creating a dedicated component.  Here is an example of how
+you could replicate the default `<gl-skeleton-loader />` behavior with the
+CSS-based approach:
+
+```html
+<div>
+  <div class="gl-animate-skeleton-loader gl-h-4 gl-rounded-base gl-my-3 gl-max-w-20!"></div>
+  <div class="gl-animate-skeleton-loader gl-h-4 gl-rounded-base gl-my-3 gl-max-w-30!"></div>
+  <div class="gl-animate-skeleton-loader gl-h-4 gl-rounded-base gl-my-3 gl-max-w-26!"></div>
+</div>
+```
+
+See
+[animation.scss](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/src/scss/utility-mixins/animation.scss#L17)
+to learn more.
+
 ## Progressive Loading
 
 Determine if progressive loading is available, if it is break apart the skeleton to load data as it
