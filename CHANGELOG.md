@@ -1,3 +1,10 @@
+## [66.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.7.0...v66.7.1) (2023-09-13)
+
+
+### Bug Fixes
+
+* **NewListboxItem:** Update interactive styles to design spec ([17f773f](https://gitlab.com/gitlab-org/gitlab-ui/commit/17f773f60d4cbe1eb89542c2c3cf63d5311f1a96))
+
 # [66.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.6.0...v66.7.0) (2023-09-12)
 
 
