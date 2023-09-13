@@ -1,3 +1,10 @@
+# [66.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.7.1...v66.8.0) (2023-09-13)
+
+
+### Features
+
+* **css:** add gl-lg-max-w-50p utility ([0139a72](https://gitlab.com/gitlab-org/gitlab-ui/commit/0139a7293106af0c743211735e60433c0ee9c132))
+
 ## [66.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.7.0...v66.7.1) (2023-09-13)
 
 
