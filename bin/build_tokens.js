@@ -5,19 +5,37 @@ const StyleDictionary = require('style-dictionary');
 const srcDir = path.join(__dirname, '..', 'src', 'tokens');
 const distDir = path.join(__dirname, '..', 'dist', 'tokens');
 
+const prefix = 'gl';
 const modes = ['dark'];
+
+/**
+ * Transforms
+ */
+
+StyleDictionary.registerTransform({
+  name: 'name/prefix',
+  type: 'name',
+  matcher: (token) => {
+    // Prefix is added by `name/cti/*` transform.
+    // If token has `prefix` explicitly set to `false` then we remove the prefix.
+    return token.prefix === false;
+  },
+  transformer: (token) => {
+    return token.name.slice(prefix.length + 1);
+  },
+});
 
 /**
  * Transform Groups
  */
 StyleDictionary.registerTransformGroup({
   name: 'css',
-  transforms: ['name/cti/kebab'],
+  transforms: ['name/cti/kebab', 'size/pxToRem', 'name/prefix'],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js',
-  transforms: ['name/cti/constant'],
+  transforms: ['name/cti/constant', 'size/pxToRem', 'name/prefix'],
 });
 
 /**
@@ -102,6 +120,7 @@ const getStyleDictionaryConfig = (mode, filter) => {
     source: [`${srcDir}/**/*.${mode}.tokens.json`],
     platforms: {
       css: {
+        prefix,
         buildPath: `${distDir}/css/`,
         transformGroup: 'css',
         files: [
@@ -116,6 +135,7 @@ const getStyleDictionaryConfig = (mode, filter) => {
         ],
       },
       js: {
+        prefix,
         buildPath: `${distDir}/js/`,
         transformGroup: 'js',
         files: [
@@ -141,6 +161,7 @@ const getStyleDictionaryConfig = (mode, filter) => {
         ],
       },
       scss: {
+        prefix,
         buildPath: `${distDir}/scss/`,
         transformGroup: 'css',
         files: [

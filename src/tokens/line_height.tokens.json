@@ -1,0 +1,74 @@
+{
+  "line-height": {
+    "12": {
+      "$value": "12px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "16": {
+      "$value": "16px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "20": {
+      "$value": "20px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "24": {
+      "$value": "24px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "28": {
+      "$value": "28px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "32": {
+      "$value": "32px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "36": {
+      "$value": "36px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "42": {
+      "$value": "42px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "44": {
+      "$value": "44px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    },
+    "52": {
+      "$value": "52px",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      }
+    }
+  }
+}
