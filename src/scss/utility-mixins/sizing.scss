@@ -527,3 +527,9 @@
     max-width: 80%;
   }
 }
+
+@mixin gl-lg-max-w-50p {
+  @include gl-media-breakpoint-up(lg) {
+    max-width: 50%;
+  }
+}
