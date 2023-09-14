@@ -21,9 +21,9 @@ const generateProps = ({
   maxDateRange = 0,
   sameDaySelection = false,
   tooltip = '',
-  startPickerClass = 'gl-text-blue-500',
-  endPickerClass = 'gl-text-red-500',
-  labelClass = 'gl-font-style-italic',
+  startPickerClass,
+  endPickerClass,
+  labelClass,
   theme = defaultValue('theme'),
 } = {}) => ({
   defaultMinDate: new Date(defaultMinDate),
