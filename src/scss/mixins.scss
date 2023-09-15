@@ -148,7 +148,6 @@
 // No margin bottom, as margin set by usage not fact it is a heading
 @mixin gl-heading($size, $fixed: false) {
   // These settings apply to all headings
-  font-family: $gl-font-heading;
   font-weight: $gl-font-weight-heading;
   text-wrap: $gl-text-wrap-heading; /* stylelint-disable-line property-no-unknown*/
   margin-top: 0; // override bootstrap reset in GitLab
