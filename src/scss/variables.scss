@@ -338,6 +338,18 @@ $gl-line-height-42: px-to-rem(42px);
 $gl-line-height-44: px-to-rem(44px);
 $gl-line-height-52: px-to-rem(52px);
 
+// Fonts
+$gl-monospace-font: 'GitLab Mono', 'JetBrains Mono', 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono',
+  'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace !default;
+$gl-regular-font: 'GitLab Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans',
+  Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji' !default;
+
+$gl-fonts: (
+  'monospace': $gl-monospace-font,
+  'regular': $gl-regular-font,
+);
+
 // New UI type scale
 // Implements the type scale from https://gitlab.com/groups/gitlab-org/gitlab-services/-/epics/15
 // Old variables and styles need to be removed after intergration
@@ -345,24 +357,44 @@ $gl-line-height-52: px-to-rem(52px);
 // Font size scale
 
 // fixed scale (compact markdown)
-$gl-font-size-100-fixed: px-to-rem(12px);
-$gl-font-size-200-fixed: px-to-rem(13px);
-$gl-font-size-300-fixed: px-to-rem(14px);
-$gl-font-size-400-fixed: px-to-rem(16px);
-$gl-font-size-500-fixed: px-to-rem(18px);
-$gl-font-size-600-fixed: px-to-rem(21px);
-$gl-font-size-700-fixed: px-to-rem(24px);
-$gl-font-size-800-fixed: px-to-rem(28px);
+$gl-font-sizes-fixed: (
+  100: px-to-rem(12px),
+  200: px-to-rem(13px),
+  300: px-to-rem(14px),
+  400: px-to-rem(16px),
+  500: px-to-rem(18px),
+  600: px-to-rem(21px),
+  700: px-to-rem(24px),
+  800: px-to-rem(28px),
+);
 
 // dynamic scale (default) resizes based on viewport width
-$gl-font-size-100: $gl-font-size-100-fixed;
-$gl-font-size-200: $gl-font-size-200-fixed;
-$gl-font-size-300: $gl-font-size-300-fixed;
-$gl-font-size-400: $gl-font-size-400-fixed;
-$gl-font-size-500: #{clamp-between($gl-font-size-500-fixed, px-to-rem(20px))};
-$gl-font-size-600: #{clamp-between($gl-font-size-600-fixed, px-to-rem(25px))};
-$gl-font-size-700: #{clamp-between($gl-font-size-700-fixed, px-to-rem(30px))};
-$gl-font-size-800: #{clamp-between($gl-font-size-800-fixed, px-to-rem(36px))};
+$gl-font-sizes: (
+  100: map-get($gl-font-sizes-fixed, 100),
+  200: map-get($gl-font-sizes-fixed, 200),
+  300: map-get($gl-font-sizes-fixed, 300),
+  400: map-get($gl-font-sizes-fixed, 400),
+  500: clamp-between(map-get($gl-font-sizes-fixed, 500), px-to-rem(20px)),
+  600: clamp-between(map-get($gl-font-sizes-fixed, 600), px-to-rem(25px)),
+  700: clamp-between(map-get($gl-font-sizes-fixed, 700), px-to-rem(30px)),
+  800: clamp-between(map-get($gl-font-sizes-fixed, 800), px-to-rem(36px)),
+);
+
+// Heading variables
+// Not all are currently used, but documented here to capture intent
+$gl-font-heading: $gl-regular-font;
+$gl-font-weight-heading: 600;
+$gl-letter-spacing-heading: inherit;
+$gl-letter-spacing-heading-reduced: -0.01em;
+$gl-line-height-heading: 1.25;
+$gl-line-height-heading-display: 1.125;
+$gl-mb-heading: $gl-spacing-scale-5;
+$gl-mb-heading-display: $gl-spacing-scale-6;
+$gl-text-color-heading: $gl-text-color;
+// Not yet supported, but we'll be ready
+$gl-text-wrap-heading: pretty;
+
+// END New UI type scale
 
 // UI typescale
 
@@ -416,18 +448,6 @@ $gl-font-size-compact-markdown-h1-md: px-to-rem(20px);
 
 // media xl (min-width: 1200px)
 $gl-font-size-compact-markdown-h1-xl: px-to-rem(23px);
-
-// Fonts
-$gl-monospace-font: 'GitLab Mono', 'JetBrains Mono', 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono',
-  'Consolas', 'Ubuntu Mono', 'Courier New', 'andale mono', 'lucida console', monospace !default;
-$gl-regular-font: 'GitLab Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans',
-  Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-  'Segoe UI Symbol', 'Noto Color Emoji' !default;
-
-$gl-fonts: (
-  'monospace': $gl-monospace-font,
-  'regular': $gl-regular-font,
-);
 
 $border-color: $gray-100 !default;
 
