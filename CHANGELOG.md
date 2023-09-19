@@ -1,3 +1,12 @@
+## [66.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.10.0...v66.10.1) (2023-09-19)
+
+
+### Bug Fixes
+
+* adjust dark mode preview text color ([2196116](https://gitlab.com/gitlab-org/gitlab-ui/commit/2196116088f4d5100ae8095f4716f04417eac75f))
+* use CSS variables instead of JS literals for axis color ([6bc13ca](https://gitlab.com/gitlab-org/gitlab-ui/commit/6bc13ca9eb0d901feb71a263a4b6107cf3f82e15))
+* **GlChart:** make chart legend text visible in dark mode ([0ec9e7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/0ec9e7cfbc387d5bcdbf490ebd3e51ff6fa666ef))
+
 # [66.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.9.0...v66.10.0) (2023-09-19)
 
 
