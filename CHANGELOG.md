@@ -1,3 +1,10 @@
+# [66.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.9.0...v66.10.0) (2023-09-19)
+
+
+### Features
+
+* **Typography:** Add font-size variable map and heading mixins ([c412fe8](https://gitlab.com/gitlab-org/gitlab-ui/commit/c412fe834011683df677d78dbd793cdd65339783))
+
 # [66.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.8.0...v66.9.0) (2023-09-13)
 
 
