@@ -162,7 +162,7 @@ const axes = {
   axisLabel: {
     margin: 8,
     show: true,
-    color: GRAY_600,
+    color: `var(--gray-600, ${GRAY_600})`,
     hideOverlap: true,
   },
   axisLine: {
@@ -209,7 +209,7 @@ export const createTheme = (options = {}) => ({
   color: colorPaletteDefault,
   backgroundColor: 'transparent',
   textStyle: {
-    color: GRAY_900,
+    color: `var(--gl-text-color, ${GRAY_900})`,
   },
   markLine: {
     silent: true,
