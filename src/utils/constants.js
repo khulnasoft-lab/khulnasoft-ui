@@ -60,8 +60,6 @@ export const labelSizeOptions = {
   sm: 'sm',
 };
 
-export const DARK_MODE_CLASS = 'gl-dark';
-
 export const viewModeOptions = {
   dark: 'dark',
   light: 'light',

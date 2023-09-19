@@ -66,8 +66,7 @@ import {
   DATA_VIZ_ORANGE_900,
 } from '../../../dist/tokens/js/tokens';
 import { scrollHandleSvgPath } from '../svgs/svg_paths';
-import { getViewMode, hexToRgba } from '../utils';
-import { viewModeOptions } from '../constants';
+import { hexToRgba } from '../utils';
 
 export const themeName = 'gitlab';
 
@@ -163,7 +162,7 @@ const axes = {
   axisLabel: {
     margin: 8,
     show: true,
-    color: getViewMode() === viewModeOptions.dark ? GRAY_200 : GRAY_600,
+    color: `var(--gray-600, ${GRAY_600})`,
     hideOverlap: true,
   },
   axisLine: {
