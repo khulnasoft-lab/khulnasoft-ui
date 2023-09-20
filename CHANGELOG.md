@@ -1,3 +1,10 @@
+# [66.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.10.1...v66.11.0) (2023-09-20)
+
+
+### Features
+
+* **Avatar:** Use font size scale ([9b64e96](https://gitlab.com/gitlab-org/gitlab-ui/commit/9b64e96c2d283d73330c89f91a6066886dd3c4cf))
+
 ## [66.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.10.0...v66.10.1) (2023-09-19)
 
 
