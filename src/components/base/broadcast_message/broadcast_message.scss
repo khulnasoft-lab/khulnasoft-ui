@@ -79,10 +79,17 @@
 
   &-icon {
     @include gl-mr-5;
+    line-height: $gl-line-height-16;
 
     > svg {
       @include gl-vertical-align-bottom;
     }
+  }
+
+  &-text {
+    margin-top: -$gl-spacing-scale-1;
+    margin-bottom: -$gl-spacing-scale-1;
+    @include gl-overflow-break-word;
   }
 
   &-dismiss {
