@@ -18,13 +18,17 @@ describe('GlTable', () => {
       <p>Placeholder empty text</p>`,
   };
 
-  const factory = ({ props = {}, scopedSlots = {} } = {}) => {
-    wrapper = shallowMount(Table, {
-      scopedSlots,
-      propsData: props,
+  const factory = ({ props } = {}) => {
+    const wrapper = shallowMount(Table, {
+      propsData: props 
     });
-  };
-
+  
+    return {
+      wrapper,
+      findHeaders: () => wrapper.findAll('th')
+    }
+  }
+  
   const findBTable = () => wrapper.findComponent(BTable);
 
   afterEach(() => {
@@ -78,19 +82,17 @@ describe('GlTable', () => {
   });
 
   it('should render column headers using generic labels', () => {
-
+  
     const columns = [
-      {label: 'Column 1'},
+      {label: 'Column 1'}, 
       {label: 'Column 2'}
     ];
-  
-    const wrapper = shallowMount(Table, {
-      propsData: {
-        columns 
-      }
+    
+    const { findHeaders } = factory({
+      props: { columns }
     });
   
-    const headers = wrapper.findAll('th');
+    const headers = findHeaders();
   
     expect(headers[0].text()).toBe('Column 1');
     expect(headers[1].text()).toBe('Column 2');
