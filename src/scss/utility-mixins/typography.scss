@@ -28,6 +28,158 @@
 }
 
 /**
+* Heading utility
+*
+* naming convention: gl-heading-{level}
+* Notes:
+* - Includes a default margin bottom
+* - Fixed sizes have limited use, check
+* https://design.gitlab.com/product-foundations/type-fundamentals
+*/
+
+@mixin gl-heading-scale-6 {
+  @include gl-heading-scale-200;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-scale-6-fixed {
+  @include gl-heading-scale-200-fixed;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-scale-5 {
+  @include gl-heading-scale-300;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-scale-5-fixed {
+  @include gl-heading-scale-300-fixed;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-4 {
+  @include gl-heading-scale-400;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-4-fixed {
+  @include gl-heading-scale-400-fixed;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-3 {
+  @include gl-heading-scale-500;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-3-fixed {
+  @include gl-heading-scale-500-fixed;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-2 {
+  @include gl-heading-scale-600;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-2-fixed {
+  @include gl-heading-scale-600-fixed;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-1 {
+  @include gl-heading-scale-700;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-1-fixed {
+  @include gl-heading-scale-700-fixed;
+  margin-bottom: $gl-mb-heading;
+}
+
+@mixin gl-heading-0 {
+  @include gl-heading-scale-800;
+  margin-bottom: $gl-mb-heading-display;
+}
+
+/**
+* Heading scale utility
+*
+* naming convention: gl-heading-scale-{size-variable-value}
+*
+* Notes:
+* - For contextual heading size adjustments only, check
+* https://design.gitlab.com/product-foundations/type-fundamentals
+* - See variables.scss for font-size default and fixed scales.
+*/
+
+@mixin gl-heading-scale-100 {
+  @include gl-heading-scale(100);
+}
+
+@mixin gl-heading-scale-100-fixed {
+  @include gl-heading-scale(100, $fixed: true);
+}
+
+@mixin gl-heading-scale-200 {
+  @include gl-heading-scale(200);
+}
+
+@mixin gl-heading-scale-200-fixed {
+  @include gl-heading-scale(200, $fixed: true);
+}
+
+@mixin gl-heading-scale-300 {
+  @include gl-heading-scale(300);
+}
+
+@mixin gl-heading-scale-300-fixed {
+  @include gl-heading-scale(300, $fixed: true);
+}
+
+@mixin gl-heading-scale-400 {
+  @include gl-heading-scale(400);
+}
+
+@mixin gl-heading-scale-400-fixed {
+  @include gl-heading-scale(400, $fixed: true);
+}
+
+@mixin gl-heading-scale-500 {
+  @include gl-heading-scale(500);
+}
+
+@mixin gl-heading-scale-500-fixed {
+  @include gl-heading-scale(500, $fixed: true);
+}
+
+@mixin gl-heading-scale-600 {
+  @include gl-heading-scale(600);
+}
+
+@mixin gl-heading-scale-600-fixed {
+  @include gl-heading-scale(600, $fixed: true);
+}
+
+@mixin gl-heading-scale-700 {
+  @include gl-heading-scale(700);
+}
+
+@mixin gl-heading-scale-700-fixed {
+  @include gl-heading-scale(700, $fixed: true);
+}
+
+@mixin gl-heading-scale-800 {
+  @include gl-heading-scale(800);
+}
+
+@mixin gl-heading-scale-800-fixed {
+  @include gl-heading-scale(800, $fixed: true);
+}
+
+/**
+* DEPRECATED
+* TODO: migrate all of these away
 * Font size utility
 *
 * naming convention: gl-font-{type-scale-size}
@@ -142,7 +294,7 @@
 /**
 * Line height utilities.
 *
-* naming convention: 
+* naming convention:
 * - gl-line-height-ratio-{ratio-multiplied-by-1000}
 * - gl-line-height-{line-height-in-pixels}
 * notes:
