@@ -19,7 +19,7 @@ describe('GlTable', () => {
   };
 
   const factory = ({ props } = {}) => {
-    const wrapper = shallowMount(Table, {
+    wrapper = shallowMount(Table, {
       propsData: props 
     });
   
