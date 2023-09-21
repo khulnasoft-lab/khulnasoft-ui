@@ -20,11 +20,13 @@ const tableItems = [
 ];
 
 const generateProps = ({
+  stickyHeader = false,
   fixed = false,
   footClone = false,
   stacked = false,
   caption = '',
 } = {}) => ({
+  stickyHeader,
   fixed,
   footClone,
   stacked,
@@ -36,6 +38,7 @@ export const Default = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <gl-table
+    :sticky-header="stickyHeader"
     :items="$options.items"
     :fields="$options.fields"
     :fixed="fixed"
@@ -84,6 +87,7 @@ export const WithFilter = (args, { argTypes }) => ({
       <gl-form-input v-model="filter" placeholder="Type to search" />
       <br />
       <gl-table
+              :sticky-header="stickyHeader"
               :items="$options.items"
               :fields="$options.fields"
               :filter=filter
@@ -104,6 +108,45 @@ export const WithFilter = (args, { argTypes }) => ({
 });
 WithFilter.args = generateProps();
 
+export const WithStickyHeader = (args, { argTypes }) => ({
+  components: { ...components, GlFormInput },
+  props: Object.keys(argTypes),
+  template: `<div class="gl-line-height-normal">
+      <gl-form-input v-model="filter" placeholder="Type to search" />
+      <br />
+      <gl-table
+              :sticky-header="stickyHeader"
+              :items="$options.items"
+              :fields="$options.fields"
+              :filter=filter
+              :fixed="fixed"
+              :stacked="stacked"
+              :foot-clone="footClone"
+              hover
+              selectable
+              selected-variant="primary"
+          />
+      </div>`,
+  items: [
+    ...tableItems,
+    ...tableItems,
+    ...tableItems,
+    ...tableItems,
+    ...tableItems,
+    ...tableItems,
+    ...tableItems,
+    ...tableItems,
+    ...tableItems,
+    ...tableItems,
+  ],
+  data() {
+    return {
+      filter: null,
+    };
+  },
+});
+WithStickyHeader.args = generateProps({ stickyHeader: true });
+
 export default {
   title: 'base/table/table',
   component: GlTable,
@@ -119,6 +162,10 @@ export default {
     stacked: {
       options: ['sm', 'md', 'lg', 'xl', true, false],
       control: 'select',
+    },
+    stickyHeader: {
+      options: [false, true],
+      control: 'boolean',
     },
   },
 };

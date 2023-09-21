@@ -16,7 +16,17 @@ describe('GlTableLite', () => {
   it('adds gl-table class to tableClass prop', () => {
     factory({ tableClass: 'test-class' });
 
-    expect(findBTableLite().props().tableClass).toEqual(['gl-table', 'test-class']);
+    expect(findBTableLite().props().tableClass).toEqual(['gl-table', 'test-class', null]);
+  });
+
+  it('adds sticky header class to tableClass prop', () => {
+    factory({ stickyHeader: true });
+
+    expect(findBTableLite().props().tableClass).toEqual([
+      'gl-table',
+      undefined,
+      'gl-table--sticky-header',
+    ]);
   });
 
   it('adds gl-table fields to table prop', () => {
