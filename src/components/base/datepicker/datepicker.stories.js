@@ -1,4 +1,5 @@
 import GlFormGroup from '../form/form_group/form_group.vue';
+import { datepickerWidthOptionsMap, datepickerSizeOptionsMap } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
 import { useFakeDate } from '../../../utils/use_fake_date';
 import { makeContainer } from '../../../utils/story_decorators/container';
@@ -69,16 +70,23 @@ export const DifferentSizes = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
+      datepickerWidthOptionsMap,
       pickerValue: defaultDate,
     };
   },
   template: `
     <div class="gl-display-flex gl-flex-direction-column gl-gap-3">
-      <gl-form-group label="Size: sm">
-        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" size="small" />
+      <gl-form-group label="Width: sm">
+        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" width="sm" />
       </gl-form-group>
-      <gl-form-group label="Size: md (default)">
-        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" size="medium" />
+      <gl-form-group label="Width: md (default)">
+        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" width="md" />
+      </gl-form-group>
+      <gl-form-group label="Width: lg">
+        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" width="lg" />
+      </gl-form-group>
+      <gl-form-group label="Width: xl">
+        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" width="xl" />
       </gl-form-group>
     </div>
   `,
@@ -124,6 +132,14 @@ export default {
     },
     maxDate: {
       control: 'date',
+    },
+    width: {
+      options: datepickerWidthOptionsMap,
+      control: 'select',
+    },
+    size: {
+      options: datepickerSizeOptionsMap,
+      control: 'select',
     },
   },
 };

@@ -56,6 +56,31 @@ describe('GlFormSelect', () => {
     });
   });
 
+  describe('width prop', () => {
+    // Exclude the default null value
+    const nonNullSizes = excludeDefaultNull(formInputSizes);
+
+    it.each(nonNullSizes)('adds correct class for width %s', (width) => {
+      createComponent({ width });
+
+      expect(wrapper.classes().sort()).toEqual(
+        [...DEFAULT_SELECT_CLASSES, `gl-form-select-${width}`].sort()
+      );
+    });
+
+    it('does not add a width class if not given the width prop', () => {
+      createComponent();
+
+      expect(wrapper.classes().sort()).toEqual([...DEFAULT_SELECT_CLASSES].sort());
+    });
+
+    it('does not add a width class if passed null', () => {
+      createComponent({ width: null });
+
+      expect(wrapper.classes().sort()).toEqual([...DEFAULT_SELECT_CLASSES].sort());
+    });
+  });
+
   describe('v-model', () => {
     it('should select an option element and update the v-model bound data', async () => {
       createComponent({ options: formSelectOptions });

@@ -21,6 +21,24 @@ export default {
     /**
      * Maximum width of the input
      */
+    width: {
+      type: [String, Object],
+      required: false,
+      default: null,
+      validator: (value) => {
+        const widths = isObject(value) ? Object.values(value) : [value];
+
+        return widths.every((width) => Object.values(formInputSizes).includes(width));
+      },
+    },
+    /**
+     * ⚠️ DEPRECATED:
+     *
+     * Will be replaced by the
+     * property width
+     *
+     * Maximum width of the input
+     */
     size: {
       type: [String, Object],
       required: false,
@@ -33,13 +51,16 @@ export default {
     },
   },
   computed: {
+    computedWidth() {
+      return this.width ? this.width : this.size;
+    },
     cssClasses() {
-      if (this.size === null) {
+      if (this.computedWidth === null) {
         return [];
       }
 
-      if (isObject(this.size)) {
-        const { default: defaultSize, ...nonDefaultSizes } = this.size;
+      if (isObject(this.computedWidth)) {
+        const { default: defaultSize, ...nonDefaultSizes } = this.computedWidth;
 
         return [
           ...(defaultSize ? [`gl-form-input-${defaultSize}`] : []),
@@ -49,7 +70,7 @@ export default {
         ];
       }
 
-      return [`gl-form-input-${this.size}`];
+      return [`gl-form-input-${this.computedWidth}`];
     },
     listeners() {
       return {
