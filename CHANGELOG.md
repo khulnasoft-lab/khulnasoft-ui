@@ -1,3 +1,10 @@
+# [66.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.12.0...v66.13.0) (2023-09-21)
+
+
+### Features
+
+* **GlFormInut, GlFormSelect, GlDatepicker:** Add prop width, deprecate prop size ([6de322c](https://gitlab.com/gitlab-org/gitlab-ui/commit/6de322c20f7fb2f2f7922392da513167f3bd2530))
+
 # [66.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.11.0...v66.12.0) (2023-09-21)
 
 
