@@ -1,3 +1,10 @@
+# [66.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.11.0...v66.12.0) (2023-09-21)
+
+
+### Features
+
+* **GlTable:** Add option for sticky table headers ([68f814d](https://gitlab.com/gitlab-org/gitlab-ui/commit/68f814da649d7d353232bd7ca0900614ccb41325))
+
 # [66.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.10.1...v66.11.0) (2023-09-20)
 
 
