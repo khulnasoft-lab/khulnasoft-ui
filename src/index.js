@@ -99,6 +99,7 @@ export { default as GlCarouselSlide } from './components/base/carousel/carousel_
 // Experimental
 export { default as GlExperimentBadge } from './components/experimental/experiment_badge/experiment_badge.vue';
 export { default as GlDuoUserFeedback } from './components/experimental/duo/user_feedback/user_feedback.vue';
+export { default as GlDuoChat } from './components/experimental/duo/chat/duo_chat.vue';
 
 // Utilities
 export { default as GlAnimatedNumber } from './components/utilities/animated_number/animated_number.vue';

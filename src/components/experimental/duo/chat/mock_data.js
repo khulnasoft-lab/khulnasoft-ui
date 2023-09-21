@@ -65,6 +65,25 @@ export const MOCK_RESPONSE_MESSAGE_FOR_STREAMING = {
   timestamp: '2021-04-21T12:00:00.000Z',
 };
 
+export const generateMockResponseChunks = (requestId) => {
+  const chunks = [];
+  const chunkSize = 5;
+  const chunkCount = Math.ceil(MOCK_RESPONSE_MESSAGE_FOR_STREAMING.content.length / chunkSize);
+  for (let i = 0; i < chunkCount; i += 1) {
+    const chunk = {
+      ...MOCK_RESPONSE_MESSAGE_FOR_STREAMING,
+      requestId,
+      content: MOCK_RESPONSE_MESSAGE_FOR_STREAMING.content.substring(
+        i * chunkSize,
+        (i + 1) * chunkSize
+      ),
+      chunkId: i,
+    };
+    chunks.push(chunk);
+  }
+  return chunks;
+};
+
 export const MOCK_USER_PROMPT_MESSAGE = {
   id: '456',
   content: 'How to create a new template?',
