@@ -76,4 +76,24 @@ describe('GlTable', () => {
     expect(wrapper.props('fields')).toEqual(fields);
     expect(findBTable().props('fields')).toEqual(fields);
   });
+
+  it('should render column headers using generic labels', () => {
+
+    const columns = [
+      {label: 'Column 1'},
+      {label: 'Column 2'}
+    ];
+  
+    const wrapper = shallowMount(Table, {
+      propsData: {
+        columns 
+      }
+    });
+  
+    const headers = wrapper.findAll('th');
+  
+    expect(headers[0].text()).toBe('Column 1');
+    expect(headers[1].text()).toBe('Column 2');
+  
+  });
 });

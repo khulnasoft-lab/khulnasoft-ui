@@ -55,15 +55,15 @@ export const Default = (args, { argTypes }) => ({
 `,
   fields: [
     {
-      key: 'column_one',
-      label: 'Column One',
+      key: 'col_1',  
+      label: 'Column 1',
       variant: 'secondary',
       sortable: false,
       isRowHeader: false,
     },
     {
       key: 'col_2',
-      label: 'Column 2',
+      label: 'Column 2',  
       formatter: (value) => value,
     },
   ],
