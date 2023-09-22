@@ -1,0 +1,76 @@
+<script>
+import { GlButton } from '../../../../index';
+import FeedbackModal from './user_feedback_modal.vue';
+
+export const i18n = {
+  FEEDBACK_LINK_TEXT: 'Give feedback to improve this answer.',
+  FEEDBACK_THANKS: 'Thank you for your feedback.',
+};
+
+export default {
+  name: 'GlDuoUserFeedback',
+  components: {
+    GlButton,
+    FeedbackModal,
+  },
+  props: {
+    /**
+     * The text to be displayed as the feedback link/button.
+     */
+    feedbackLinkText: {
+      type: String,
+      required: false,
+      default: i18n.FEEDBACK_LINK_TEXT,
+    },
+    /**
+     * The URL of a page to provide more explanations on the experiment. If provided, clicking
+     * the feedback link will open a new tab with the URL instead of showing the feedback modal.
+     */
+    feedbackLinkUrl: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
+  data() {
+    return {
+      feedbackReceived: false,
+    };
+  },
+  computed: {
+    shouldRenderModal() {
+      return !this.feedbackReceived && !this.feedbackLinkUrl;
+    },
+  },
+  methods: {
+    notify(event) {
+      /**
+       * Notify listeners about the feedback form submission.
+       * @param {*} event An event, containing the feedback choices and the extended feedback text.
+       */
+      this.$emit('feedback', event);
+      this.feedbackReceived = true;
+    },
+  },
+  i18n,
+};
+</script>
+
+<template>
+  <div class="gl-pt-4">
+    <div>
+      <gl-button
+        v-if="!feedbackReceived"
+        variant="link"
+        target="_blank"
+        :href="feedbackLinkUrl"
+        @click="shouldRenderModal && $refs.feedbackModal.show()"
+        >{{ feedbackLinkText }}</gl-button
+      >
+      <span v-else class="gl-text-gray-500">
+        {{ $options.i18n.FEEDBACK_THANKS }}
+      </span>
+    </div>
+    <feedback-modal v-if="shouldRenderModal" ref="feedbackModal" @feedback-submitted="notify" />
+  </div>
+</template>
