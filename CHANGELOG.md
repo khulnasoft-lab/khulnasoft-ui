@@ -1,3 +1,10 @@
+# [66.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.13.1...v66.14.0) (2023-09-25)
+
+
+### Features
+
+* **GlExperimentBadge:** Implement component ([de360ee](https://gitlab.com/gitlab-org/gitlab-ui/commit/de360eec00fb772cb3c10258f246975832d68f34))
+
 ## [66.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.13.0...v66.13.1) (2023-09-25)
 
 
