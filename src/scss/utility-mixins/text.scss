@@ -129,8 +129,8 @@
 
 @mixin gl-overflow-break-word {
   overflow-wrap: break-word;
-  word-wrap: break-word;
   hyphens: auto;
+  -webkit-hyphens: auto; // stylelint-disable-line
 }
 
 // Deprecated, prefer `gl-text-truncate`
