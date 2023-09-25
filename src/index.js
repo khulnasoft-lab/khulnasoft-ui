@@ -96,6 +96,9 @@ export { default as GlAccordionItem } from './components/base/accordion/accordio
 export { default as GlCarousel } from './components/base/carousel/carousel.vue';
 export { default as GlCarouselSlide } from './components/base/carousel/carousel_slide.vue';
 
+// Experimental
+export { default as GlExperimentBadge } from './components/experimental/experiment_badge/experiment_badge.vue';
+
 // Utilities
 export { default as GlAnimatedNumber } from './components/utilities/animated_number/animated_number.vue';
 export { default as GlFriendlyWrap } from './components/utilities/friendly_wrap/friendly_wrap.vue';
