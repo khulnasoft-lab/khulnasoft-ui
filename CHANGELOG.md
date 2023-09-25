@@ -1,3 +1,11 @@
+## [66.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.13.0...v66.13.1) (2023-09-25)
+
+
+### Bug Fixes
+
+* **css:** update gl-overflow-break-word mixin ([5280a70](https://gitlab.com/gitlab-org/gitlab-ui/commit/5280a70c13a9cd00887d9844b705d64a5675eadc))
+* **GlBroadcastMessage:** Fix broadcast message word break issue ([83363ff](https://gitlab.com/gitlab-org/gitlab-ui/commit/83363ff8a8d7e2ede363dcd137d231611a4722f0))
+
 # [66.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.12.0...v66.13.0) (2023-09-21)
 
 
