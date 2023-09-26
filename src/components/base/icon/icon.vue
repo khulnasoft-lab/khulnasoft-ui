@@ -9,17 +9,21 @@ let iconValidator = () => true;
  During development/tests we want to validate that we are just using icons that are actually defined
 */
 if (process.env.NODE_ENV !== 'production') {
-  // eslint-disable-next-line global-require
-  const data = require('@gitlab/svgs/dist/icons.json');
-  const { icons } = data;
-  iconValidator = (value) => {
-    if (icons.includes(value)) {
-      return true;
+  (async function setup() {
+    try {
+      const { icons } = await import('@gitlab/svgs/dist/icons.json');
+      iconValidator = (value) => {
+        if (icons.includes(value)) {
+          return true;
+        }
+        // eslint-disable-next-line no-console
+        console.warn(`Icon '${value}' is not a known icon of @gitlab/svgs`);
+        return false;
+      };
+    } catch {
+      /* empty */
     }
-    // eslint-disable-next-line no-console
-    console.warn(`Icon '${value}' is not a known icon of @gitlab/svgs`);
-    return false;
-  };
+  })();
 }
 
 /** This is a re-usable vue component for rendering a svg sprite icon
@@ -48,7 +52,7 @@ export default {
     name: {
       type: String,
       required: true,
-      validator: iconValidator,
+      validator: (value) => iconValidator(value),
     },
     /**
      * Icon size
