@@ -1,3 +1,10 @@
+# [66.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.14.0...v66.15.0) (2023-09-26)
+
+
+### Features
+
+* **GLFilteredSearch:** Allow commas in multiSelect values ([160781a](https://gitlab.com/gitlab-org/gitlab-ui/commit/160781ad70105069163bc56631fb333a75764163))
+
 # [66.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.13.1...v66.14.0) (2023-09-25)
 
 
