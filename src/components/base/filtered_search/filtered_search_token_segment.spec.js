@@ -275,7 +275,7 @@ describe('Filtered search token segment', () => {
       createComponent({
         active: true,
         multiSelect: true,
-        value: 'beta',
+        value: ['alpha', 'beta'],
       });
     });
 

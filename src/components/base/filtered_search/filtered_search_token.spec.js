@@ -334,14 +334,32 @@ describe('Filtered search token', () => {
         active: true,
         config: { multiSelect: true },
         multiSelectValues: ['alpha', 'beta'],
-        value: { operator: '=', data: 'alpha' },
+        value: { operator: '=', data: ['alpha', 'beta'] },
       });
     });
 
-    it('emits input event when data segment is completed', () => {
-      findDataSegment().vm.$emit('complete');
+    it('emits input event when active is false', async () => {
+      wrapper.setProps({ value: { data: 'user', operator: '=' } });
+      wrapper.setProps({ active: false });
 
-      expect(wrapper.emitted('input')).toEqual([[{ data: 'alpha,beta', operator: '=' }]]);
+      await nextTick();
+
+      expect(wrapper.emitted('input')).toEqual([
+        [{ data: 'user', operator: '=' }],
+        [{ data: ['alpha', 'beta'], operator: '=' }],
+      ]);
+    });
+
+    it('emits input event when active is false and search term empty', async () => {
+      wrapper.setProps({ value: { data: '', operator: '=' } });
+      wrapper.setProps({ active: false });
+
+      await nextTick();
+
+      expect(wrapper.emitted('input')).toEqual([
+        [{ data: '', operator: '=' }],
+        [{ data: ['alpha', 'beta'], operator: '=' }],
+      ]);
     });
 
     it('emits empty input event when data segment is activated, so blank text input shows all suggestions', () => {
@@ -352,14 +370,14 @@ describe('Filtered search token', () => {
 
     it('passes down the value prop to the data segment if it changes', async () => {
       createComponent({
-        value: { operator: '=', data: 'alpha' },
+        value: { operator: '=', data: ['alpha'] },
       });
 
       await wrapper.setProps({
-        value: { operator: '=', data: 'gamma' },
+        value: { operator: '=', data: ['gamma'] },
       });
 
-      expect(findDataSegment().props('value')).toEqual('gamma');
+      expect(findDataSegment().props('value')).toEqual(['gamma']);
     });
   });
 
