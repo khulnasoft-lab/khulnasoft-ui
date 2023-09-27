@@ -57,9 +57,7 @@ body.modal-open {
     @include gl-border-none;
 
     .modal-title {
-      @include gl-font-lg;
-      @include gl-font-weight-bold;
-      @include gl-line-height-24;
+      @include gl-heading-scale-500;
     }
   }
 

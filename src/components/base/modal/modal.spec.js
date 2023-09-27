@@ -85,7 +85,7 @@ describe('Modal component', () => {
       createComponent({
         slots: { 'modal-header': slot },
       });
-      const defaultHeader = wrapper.find('h4.modal-title');
+      const defaultHeader = wrapper.find('h2.modal-title');
       const customHeader = wrapper.find('h4.custom-title');
 
       expect(defaultHeader.exists()).toBe(false);
@@ -98,7 +98,7 @@ describe('Modal component', () => {
       createComponent({
         slots: { 'modal-title': slot },
       });
-      const defaultHeader = wrapper.find('h4.modal-title');
+      const defaultHeader = wrapper.find('h2.modal-title');
       const customTitle = defaultHeader.find('h4.custom-title');
 
       expect(defaultHeader.exists()).toBe(true);
