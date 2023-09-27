@@ -249,8 +249,18 @@ describe('empty state component', () => {
   describe('with custom content class', () => {
     const findContentContainer = () => component.find('[data-testid="gl-empty-state-content"]');
     const customContentClass = 'gl-p-0';
-    const expectedDefaultContentClasses = ['gl-max-w-88', 'gl-m-auto', customContentClass];
+    const expectedDefaultContentClasses = [
+      'gl-empty-state-content',
+      'gl-mx-auto',
+      'gl-my-0',
+      'gl-m-auto',
+      'gl-p-5',
+      customContentClass,
+    ];
     const expectedCompactContentClasses = [
+      'gl-empty-state-content',
+      'gl-mx-auto',
+      'gl-my-0',
       'gl-flex-grow-1',
       'gl-flex-basis-0',
       'gl-px-4',
