@@ -1,3 +1,10 @@
+# [66.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.17.0...v66.18.0) (2023-09-27)
+
+
+### Features
+
+* **GlEmptyState:** Add line length limit ([7e03303](https://gitlab.com/gitlab-org/gitlab-ui/commit/7e03303da94d39c062c61fa6882cc94f1da928c4))
+
 # [66.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.16.0...v66.17.0) (2023-09-27)
 
 
