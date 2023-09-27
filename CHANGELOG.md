@@ -1,3 +1,10 @@
+# [66.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.16.0...v66.17.0) (2023-09-27)
+
+
+### Features
+
+* **Modal:** Use current styles and h2 for heading ([21abaf1](https://gitlab.com/gitlab-org/gitlab-ui/commit/21abaf1c5c64df650feb3702c14f3ad2f0022a65))
+
 # [66.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.15.0...v66.16.0) (2023-09-27)
 
 
