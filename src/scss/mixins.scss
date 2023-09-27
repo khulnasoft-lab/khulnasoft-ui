@@ -123,9 +123,14 @@
   }
 }
 
-// Helper functions to aid maintenance of heading styles
 
-// Because we can't interpolate into a variable name we have to do some stuff
+/**
+* Helper function to resolve font-size value from $gl-font-sizes and
+* $gl-font-sizes-fixed maps.
+*
+* @param $size Number font-size scale
+* @param $fixed Boolean toggle default and fixed font size scales
+*/
 @function get-font-size-variable($size, $fixed) {
   @if $fixed == true {
     @if map-has-key($gl-font-sizes-fixed, $size) {
@@ -144,17 +149,22 @@
   }
 }
 
-// Set fixed as false by default, matching desired usage in the product
-// Headings do not have margin included, margin is determined by the context
-@mixin gl-heading($size, $fixed: false) {
-  // These settings apply to all headings
+/**
+* Defines default properties for heading typography based on font-size
+* scale value and default or fixed sizing.
+*
+* Note: overrides Bootstrap margin-top, other margin is determined by
+* individual context
+*
+* @param $size Number font-size scale
+* @param $fixed Boolean toggle default and fixed font size scales
+*/
+@mixin gl-heading-scale($size, $fixed: false) {
   font-weight: $gl-font-weight-heading;
   margin-top: 0; // override bootstrap reset in GitLab
-
-  // Because we can't interpolate into a variable name we have to do some stuff
   font-size: get-font-size-variable($size, $fixed);
 
-  // Larger headings have less letter spacing
+  // Larger headings have reduced letter spacing
   @if ($size <= 500) {
     letter-spacing: $gl-letter-spacing-heading;
   } @else {
