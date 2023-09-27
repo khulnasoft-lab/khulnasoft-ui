@@ -35,7 +35,7 @@ export const WithPopovers = (args, { argTypes }) => ({
     <template #default="{ pathItem, pathId }">
       <gl-popover triggers="hover" placement="bottom" :target="pathId">
         <template #title>
-          <strong>{{ pathItem.title }}</strong>
+          {{ pathItem.title }}
         </template>
         {{ pathItem.metric }}
       </gl-popover>
