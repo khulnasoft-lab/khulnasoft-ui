@@ -1,3 +1,10 @@
+# [66.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.15.0...v66.16.0) (2023-09-27)
+
+
+### Features
+
+* **Typography:** Add heading scale classes ([4bfa950](https://gitlab.com/gitlab-org/gitlab-ui/commit/4bfa9505db2cfeb12009a0a4f0ea69a9f1c234ef))
+
 # [66.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.14.0...v66.15.0) (2023-09-26)
 
 
