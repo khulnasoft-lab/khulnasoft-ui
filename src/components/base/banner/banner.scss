@@ -28,11 +28,8 @@
 }
 
 .gl-banner-title {
-  @include gl-font-base;
-  @include gl-font-weight-bold;
-  @include gl-mt-0;
+  @include gl-heading-scale-500;
   @include gl-mb-3;
-  @include gl-line-height-20;
 }
 
 .gl-banner-close {
@@ -45,9 +42,4 @@
 .gl-banner-introduction {
   @include gl-bg-blue-50;
   @include gl-border-blue-300;
-
-  .gl-banner-title {
-    @include gl-font-size-h-display;
-    @include gl-line-height-28;
-  }
 }
