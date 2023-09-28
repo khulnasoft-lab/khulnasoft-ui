@@ -1,8 +1,37 @@
+// shorter height by half a line, so table body is cut off,
+// suggesting there's more to scroll
+$legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
+
+.gl-legend {
+  @include gl-relative;
+}
+
+.gl-chart-h-auto {
+  .gl-legend-inline {
+      // match the height of gl-legend-tabular (header + body)
+      max-height: $gl-line-height-24 + $legend-body-h;
+      @include gl-overflow-auto;
+  }
+}
+
+.gl-legend-tabular,
+.gl-chart-h-auto .gl-legend-inline {
+  &::after {
+    background-image: linear-gradient(to bottom, $transparent-rgba, $white);
+    @include gl-bottom-0;
+    @include gl-content-empty;
+    @include gl-display-block;
+    @include gl-h-4;
+    @include gl-absolute;
+    @include gl-w-full;
+  }
+}
+
 .gl-legend-inline {
-  @include gl-display-flex;
-  @include gl-flex-wrap;
-  @include gl-flex-shrink-0;
-  @include gl-text-gray-900;
+    @include gl-display-flex;
+    @include gl-flex-wrap;
+    @include gl-flex-shrink-0;
+    @include gl-text-gray-900;
 
   .gl-legend-inline-series {
     @include gl-display-flex;
@@ -23,18 +52,6 @@
 }
 
 .gl-legend-tabular {
-  @include gl-relative;
-
-  &::after {
-    background-image: linear-gradient(to bottom, $transparent-rgba, $white);
-    @include gl-bottom-0;
-    @include gl-content-empty;
-    @include gl-display-block;
-    @include gl-h-4;
-    @include gl-absolute;
-    @include gl-w-full;
-  }
-
   .gl-legend-tabular-header {
     @include gl-display-flex;
     @include gl-justify-content-end;
@@ -56,9 +73,7 @@
   }
 
   .gl-legend-tabular-body {
-    // shorter height by half a line, so table body is cut off,
-    // suggesting there's more to scroll
-    height: $gl-spacing-scale-13 - $gl-spacing-scale-4;
+    height: $legend-body-h;
     @include gl-overflow-y-auto;
 
     > *:nth-child(odd) {
