@@ -1,4 +1,4 @@
-The main entry point component for gathering the user feedback for the AI features.
+The main entry point component for gathering the user feedback for AI features.
 
 The component consists of a textual button and a connected modal with the actual form, emitting
 the form data on submission.
@@ -8,7 +8,7 @@ the form data on submission.
 The component allows to customize the button text, presented to the user.
 
 ```html
-<gl-user-feedback feedback-link-text="Leave your custom feedback" />
+<gl-duo-user-feedback feedback-link-text="Leave your custom feedback" />
 ```
 
 ## Linking to a separate feedback form
@@ -18,7 +18,7 @@ be necessary for all consumers. In such a case, the component allows to bypass t
 form and link to an external feedback page/form.
 
 ```html
-<gl-user-feedback feedback-link-url="https://gitlab.com" />
+<gl-duo-user-feedback feedback-link-url="https://gitlab.com" />
 ```
 
 ## Listening to the feedback form submission
@@ -26,7 +26,7 @@ form and link to an external feedback page/form.
 This component emits the `feedback` event with all the options selected in the feedback form.
 
 ```html
-<gl-user-feedback @feedback="myEventTracker" />
+<gl-duo-user-feedback @feedback="myEventTracker" />
 ```
 
 The returned event contains two props (`feedbackChoices` and `extendedTextFeedback`) coming from
