@@ -1,3 +1,10 @@
+# [66.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.18.0...v66.19.0) (2023-09-29)
+
+
+### Features
+
+* **GlDuoUserFeedback:** Added the component ([f9a6f93](https://gitlab.com/gitlab-org/gitlab-ui/commit/f9a6f93fe0b46ba5638d9ad711e062afb7898636))
+
 # [66.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.17.0...v66.18.0) (2023-09-27)
 
 
