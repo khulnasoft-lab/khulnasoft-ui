@@ -117,10 +117,22 @@ describe('outside directive', () => {
     it('throws if not passed a callback', async () => {
       await expect(
         createComponent({
-          data: () => ({ foo: null }),
+          data: () => ({ foo: 'foo' }),
           template: '<div v-outside="foo"></div>',
         })
-      ).rejects.toThrow('must be a function');
+      ).rejects.toThrow('must be a function or a non-empty object');
+
+      expect(global.console).toHaveLoggedVueErrors();
+      expect(document.addEventListener).not.toHaveBeenCalled();
+    });
+
+    it('throws if not passed a callback with object config', async () => {
+      await expect(
+        createComponent({
+          data: () => ({ foo: {} }),
+          template: '<div v-outside="foo"></div>',
+        })
+      ).rejects.toThrow("Missing 'handler' property in an object config");
 
       expect(global.console).toHaveLoggedVueErrors();
       expect(document.addEventListener).not.toHaveBeenCalled();
@@ -191,6 +203,18 @@ describe('outside directive', () => {
     it('works with click', async () => {
       await createComponent({
         template: templateWithArg('click'),
+      });
+
+      find('outside').trigger('click');
+
+      expect(onClick.mock.calls).toEqual([[expect.any(MouseEvent)]]);
+    });
+
+    it('works with click object notation', async () => {
+      await createComponent({
+        template: `<div data-testid="outside">
+          <div v-outside:click="{ handler: onClick }" data-testid="bound"></div>
+        </div>`,
       });
 
       find('outside').trigger('click');
@@ -339,6 +363,29 @@ describe('outside directive', () => {
 
       const thrownError = onClickThrow.mock.results[0].value;
       expect(global.console.error.mock.calls).toEqual([[thrownError]]);
+    });
+  });
+
+  describe('ignore option', () => {
+    beforeEach(async () => {
+      document.body.insertAdjacentHTML('beforeend', `<div class="ignore"></div>`);
+      await createComponent({
+        data() {
+          return {
+            ignore: [() => document.querySelector('.ignore')],
+          };
+        },
+        template: `
+          <div data-testid="outside">
+            <div v-outside="{ handler: onClick, ignore }" data-testid="sibling"></div>
+          </div>
+        `,
+      });
+    });
+
+    it('skips ignored elements', () => {
+      document.querySelector('.ignore').dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      expect(onClick.mock.calls).toEqual([]);
     });
   });
 });

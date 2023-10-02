@@ -11,12 +11,16 @@ const callbacks = new Map();
 let listening = false;
 
 const globalListener = (event) => {
-  callbacks.forEach(({ bindTimeStamp, callback }, element) => {
+  callbacks.forEach(({ bindTimeStamp, value }, element) => {
+    const isObjectValue = typeof value !== 'function';
+    const checkIgnored = isObjectValue && value.ignore && value.ignore.length;
+    const callback = isObjectValue ? value.handler : value;
     if (
       // Ignore events that aren't targeted outside the element
       element.contains(event.target) ||
       // Only consider events triggered after the directive was bound
-      event.timeStamp <= bindTimeStamp
+      event.timeStamp <= bindTimeStamp ||
+      (checkIgnored && value.ignore.some((cb) => cb().contains(event.target)))
     ) {
       return;
     }
@@ -51,8 +55,14 @@ const stopListening = () => {
 };
 
 const bind = (el, { value, arg = 'click' }) => {
-  if (typeof value !== 'function') {
-    throw new Error(`[GlOutsideDirective] Value must be a function; got ${typeof value}!`);
+  if (typeof value !== 'function' && typeof value !== 'object' && value) {
+    throw new Error(
+      `[GlOutsideDirective] Value must be a function or a non-empty object; got ${typeof value}!`
+    );
+  }
+
+  if (typeof value === 'object' && !value.handler) {
+    throw new Error(`[GlOutsideDirective] Missing 'handler' property in an object config`);
   }
 
   if (arg !== 'click') {
@@ -80,7 +90,7 @@ const bind = (el, { value, arg = 'click' }) => {
 
   callbacks.set(el, {
     bindTimeStamp: getEventLikeTimeStamp(),
-    callback: value,
+    value,
   });
 };
 
