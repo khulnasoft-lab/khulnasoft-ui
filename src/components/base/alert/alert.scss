@@ -28,24 +28,26 @@
 }
 
 .gl-alert-title {
-  @include gl-font-base;
-  @include gl-font-weight-bold;
-  @include gl-line-height-normal;
-  @include gl-mt-0;
+  @include gl-heading-scale-500;
   @include gl-mb-3;
 }
 
-.gl-alert-icon {
+.gl-alert-icon-container {
   @include gl-absolute;
   @include gl-top-5;
   @include gl-left-5;
-  @include gl-w-5;
-  @include gl-h-5;
-  @include gl-fill-current-color;
+  @include gl-display-flex;
+  @include gl-align-items-center;
+  height: $gl-line-height-20;
+
+  .gl-alert-has-title & {
+    @include gl-heading-scale-500; // get dynamic font-size
+    height: $gl-line-height-heading * 1em; // give unit to unitless relative line-height (1.25) 
+  }
 }
 
-.gl-alert-icon-no-title {
-  @include gl-mt-1;
+.gl-alert-icon {
+  @include gl-fill-current-color;
 }
 
 .gl-alert-body {
