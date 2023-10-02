@@ -1,3 +1,15 @@
+# [66.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.19.0...v66.20.0) (2023-10-02)
+
+
+### Bug Fixes
+
+* **Banner:** Make banner match design spec ([3e73557](https://gitlab.com/gitlab-org/gitlab-ui/commit/3e73557aba7cdcf3bbf21a3a92f100c66762b3b6))
+
+
+### Features
+
+* **Banner:** Update heading to use heading scale ([4757149](https://gitlab.com/gitlab-org/gitlab-ui/commit/47571493f27b7fda9566a84f1b16a7b7c8335914))
+
 # [66.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.18.0...v66.19.0) (2023-09-29)
 
 
