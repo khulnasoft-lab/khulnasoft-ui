@@ -11,6 +11,7 @@ import {
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
+  GL_DROPDOWN_BEFORE_CLOSE,
   GL_DROPDOWN_FOCUS_CONTENT,
   ENTER,
   SPACE,
@@ -202,7 +203,7 @@ export default {
           ...this.ariaAttributes,
           listeners: {
             keydown: (event) => this.onKeydown(event),
-            click: () => this.toggle(),
+            click: (event) => this.toggle(event),
           },
         };
       }
@@ -212,7 +213,7 @@ export default {
         class: 'gl-new-dropdown-custom-toggle',
         listeners: {
           keydown: (event) => this.onKeydown(event),
-          click: () => this.toggle(),
+          click: (event) => this.toggle(event),
         },
       };
     },
@@ -333,7 +334,17 @@ export default {
       this.observer?.disconnect();
       this.stopAutoUpdate?.();
     },
-    async toggle() {
+    async toggle(event) {
+      if (event && this.visible) {
+        let prevented = false;
+        this.$emit(GL_DROPDOWN_BEFORE_CLOSE, {
+          originalEvent: event,
+          preventDefault() {
+            prevented = true;
+          },
+        });
+        if (prevented) return false;
+      }
       this.visible = !this.visible;
 
       if (this.visible) {
@@ -352,6 +363,9 @@ export default {
         this.stopFloating();
         this.$emit(GL_DROPDOWN_HIDDEN);
       }
+
+      // this is to check whether `toggle` was prevented or not
+      return true;
     },
     open() {
       if (this.visible) {
@@ -359,18 +373,20 @@ export default {
       }
       this.toggle();
     },
-    close() {
+    close(event) {
       if (!this.visible) {
         return;
       }
-      this.toggle();
+      this.toggle(event);
     },
-    closeAndFocus() {
+    async closeAndFocus(event) {
       if (!this.visible) {
         return;
       }
-      this.toggle();
-      this.focusToggle();
+      const hasToggled = await this.toggle(event);
+      if (hasToggled) {
+        this.focusToggle();
+      }
     },
     focusToggle() {
       this.toggleElement.focus();
@@ -392,7 +408,7 @@ export default {
       }
 
       if ((code === ENTER && toggleOnEnter) || (code === SPACE && toggleOnSpace)) {
-        this.toggle();
+        this.toggle(event);
       }
 
       if (code === ARROW_DOWN) {
