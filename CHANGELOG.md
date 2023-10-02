@@ -1,3 +1,10 @@
+# [66.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.20.0...v66.21.0) (2023-10-02)
+
+
+### Features
+
+* **Popover:** Use heading scale ([7375d5e](https://gitlab.com/gitlab-org/gitlab-ui/commit/7375d5e20863543f62c82e26fc7dd45806401e19))
+
 # [66.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.19.0...v66.20.0) (2023-10-02)
 
 
