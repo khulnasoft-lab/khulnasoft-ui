@@ -13,6 +13,7 @@ let listening = false;
 const globalListener = (event) => {
   callbacks.forEach(({ bindTimeStamp, callback }, element) => {
     if (
+      !event.isTrusted ||
       // Ignore events that aren't targeted outside the element
       element.contains(event.target) ||
       // Only consider events triggered after the directive was bound
