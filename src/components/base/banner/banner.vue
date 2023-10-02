@@ -108,7 +108,7 @@ export default {
 
 <template>
   <gl-card
-    class="gl-px-8 gl-py-6 gl-line-height-20"
+    class="gl-pl-6 gl-pr-8 gl-py-6"
     :class="{ 'gl-banner-introduction': isIntroducing, 'gl-border-none!': embedded }"
     body-class="gl-display-flex gl-p-0!"
   >
