@@ -1,3 +1,10 @@
+# [66.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.22.0...v66.23.0) (2023-10-03)
+
+
+### Features
+
+* **GlDuoChatPredefinedPrompts:** new component ([c3e2347](https://gitlab.com/gitlab-org/gitlab-ui/commit/c3e234717b9c33ab8bb3d3f66e13387efe235fd7))
+
 # [66.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.21.0...v66.22.0) (2023-10-03)
 
 
