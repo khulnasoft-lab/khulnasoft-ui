@@ -8,8 +8,8 @@ import {
 } from './constants';
 
 export const BORDER_CLASSES = {
-  [borderPositions.top]: 'gl-border-t gl-pt-2 gl-mt-2',
-  [borderPositions.bottom]: 'gl-border-b gl-pb-2 gl-mb-2',
+  [borderPositions.top]: 'gl-border-t gl-border-t-gray-200 gl-pt-2 gl-mt-2',
+  [borderPositions.bottom]: 'gl-border-b gl-border-b-gray-200 gl-pb-2 gl-mb-2',
 };
 
 export default {
