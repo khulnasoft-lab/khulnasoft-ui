@@ -1,3 +1,10 @@
+# [66.22.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.21.0...v66.22.0) (2023-10-03)
+
+
+### Features
+
+* **GlDuoChatMessageSources:** Implemented component ([8066320](https://gitlab.com/gitlab-org/gitlab-ui/commit/8066320214e88a8b75279eec1d82029bf8c3e9db))
+
 # [66.21.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.20.0...v66.21.0) (2023-10-02)
 
 
