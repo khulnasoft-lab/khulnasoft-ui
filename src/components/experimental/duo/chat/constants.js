@@ -1,0 +1,20 @@
+export const DOCUMENTATION_SOURCE_TYPES = {
+  HANDBOOK: {
+    value: 'handbook',
+    icon: 'book',
+  },
+  DOC: {
+    value: 'doc',
+    icon: 'documents',
+  },
+  BLOG: {
+    value: 'blog',
+    icon: 'list-bulleted',
+  },
+};
+
+export const MESSAGE_MODEL_ROLES = {
+  user: 'user',
+  system: 'system',
+  assistant: 'assistant',
+};
