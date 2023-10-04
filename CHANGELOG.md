@@ -1,3 +1,10 @@
+## [66.23.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.23.0...v66.23.1) (2023-10-04)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox, GlDisclosureDropdown:** Update group border color ([6dc4bf2](https://gitlab.com/gitlab-org/gitlab-ui/commit/6dc4bf25af9fcd85f7de70f3919e5152b0979de0))
+
 # [66.23.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.22.0...v66.23.0) (2023-10-03)
 
 
