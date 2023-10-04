@@ -64,6 +64,7 @@ export default {
         variant="link"
         target="_blank"
         :href="feedbackLinkUrl"
+        button-text-classes="gl-white-space-normal! gl-text-left"
         @click="shouldRenderModal && $refs.feedbackModal.show()"
         >{{ feedbackLinkText }}</gl-button
       >
