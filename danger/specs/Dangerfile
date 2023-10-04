@@ -6,7 +6,7 @@ SPECS_MESSAGE = <<~MSG
   consider adding/updating tests.
 MSG
 
-IGNORED_SUFFIXES = ['.spec.js', '.stories.js', 'mock_data.js']
+IGNORED_SUFFIXES = ['.spec.js', '.stories.js', 'constants.js', 'mock_data.js']
 
 def component?(path)
   path.start_with?('src/components/') &&
