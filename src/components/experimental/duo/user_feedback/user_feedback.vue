@@ -72,6 +72,11 @@ export default {
         {{ $options.i18n.FEEDBACK_THANKS }}
       </span>
     </div>
-    <feedback-modal v-if="shouldRenderModal" ref="feedbackModal" @feedback-submitted="notify" />
+    <feedback-modal v-if="shouldRenderModal" ref="feedbackModal" @feedback-submitted="notify">
+      <template #feedback-extra-fields>
+        <!-- @slot The addition Feedback form fields. -->
+        <slot name="feedback-extra-fields"></slot>
+      </template>
+    </feedback-modal>
   </div>
 </template>

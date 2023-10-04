@@ -1,14 +1,18 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import { GlButton } from '../../../../index';
-import DuoChatFeedbackModal from './user_feedback_modal.vue';
+import FeedbackModal from './user_feedback_modal.vue';
 import UserFeedback, { i18n } from './user_feedback.vue';
+
+const DummyComponent = {
+  template: '<p>dummy</p>',
+};
 
 describe('UserFeedback', () => {
   let wrapper;
   const eventName = 'test_event_name';
 
-  const createComponent = ({ props, data = {} } = {}) => {
+  const createComponent = ({ props, data = {}, slots = {} } = {}) => {
     wrapper = shallowMount(UserFeedback, {
       data() {
         return data;
@@ -17,11 +21,15 @@ describe('UserFeedback', () => {
         eventName,
         ...props,
       },
+      stubs: {
+        FeedbackModal,
+      },
+      slots,
     });
   };
 
   const findButton = () => wrapper.findComponent(GlButton);
-  const findModal = () => wrapper.findComponent(DuoChatFeedbackModal);
+  const findModal = () => wrapper.findComponent(FeedbackModal);
 
   beforeEach(() => {
     createComponent();
@@ -75,6 +83,15 @@ describe('UserFeedback', () => {
       findModal().vm.$emit('feedback-submitted', passedFeedback);
       await nextTick();
       expect(findModal().exists()).toBe(false);
+    });
+  });
+
+  describe('slots', () => {
+    it('renders the `feedback-extra-fields` slot', () => {
+      expect(wrapper.findComponent(DummyComponent).exists()).toBe(false);
+      wrapper.destroy();
+      createComponent({ slots: { 'feedback-extra-fields': DummyComponent } });
+      expect(wrapper.findComponent(DummyComponent).exists()).toBe(true);
     });
   });
 });

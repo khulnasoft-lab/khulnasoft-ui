@@ -114,11 +114,15 @@ export default {
         :options="$options.feedbackOptions"
       />
     </gl-form-group>
-    <gl-form-group :label="$options.i18n.MODAL_MORE_LABEL" optional>
-      <gl-form-textarea
-        v-model="extendedFeedback"
-        :placeholder="$options.i18n.MODAL_MORE_PLACEHOLDER"
-      />
-    </gl-form-group>
+
+    <!-- @slot The addition Feedback form fields. -->
+    <slot name="feedback-extra-fields">
+      <gl-form-group :label="$options.i18n.MODAL_MORE_LABEL" optional>
+        <gl-form-textarea
+          v-model="extendedFeedback"
+          :placeholder="$options.i18n.MODAL_MORE_PLACEHOLDER"
+        />
+      </gl-form-group>
+    </slot>
   </gl-modal>
 </template>
