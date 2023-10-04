@@ -33,7 +33,7 @@ import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
 const HEADER_ITEMS_BORDER_CLASSES = ['gl-border-b-1', 'gl-border-b-solid', 'gl-border-b-gray-200'];
-const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-pt-1', 'gl-mt-2'];
+const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-border-t-gray-200', 'gl-pt-1', 'gl-mt-2'];
 export const SEARCH_INPUT_SELECTOR = '.gl-listbox-search-input';
 
 export default {
