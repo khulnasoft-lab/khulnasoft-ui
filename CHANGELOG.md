@@ -1,3 +1,10 @@
+# [66.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.24.0...v66.25.0) (2023-10-05)
+
+
+### Features
+
+* **GlDuoUserFeedback:** introduced new slots ([d771a0f](https://gitlab.com/gitlab-org/gitlab-ui/commit/d771a0f3466e1391f106650eb08130b7853717d9))
+
 # [66.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.23.1...v66.24.0) (2023-10-05)
 
 
