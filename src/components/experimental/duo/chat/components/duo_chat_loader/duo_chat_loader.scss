@@ -1,0 +1,67 @@
+.duo-chat-loader {
+  @include gl-py-3;
+  @include gl-px-4;
+  @include gl-mb-4;
+  @include gl-rounded-lg;
+  @include gl-rounded-bottom-left-none;
+  @include gl-display-flex;
+  @include gl-text-gray-500;
+
+  .transition {
+    transition: width 0.5s ease;
+  }
+
+  .text-enter {
+    @include gl-opacity-0;
+  }
+
+  .text-enter-active {
+    transition: opacity 1s ease-in; // we intentionally overlap this transition with .text-leave-active by 200ms
+  }
+
+  .text-enter-to {
+    @include gl-opacity-10;
+  }
+
+  .text-leave {
+    @include gl-opacity-10;
+  }
+
+  .text-leave-active {
+    transition: opacity 0.7s linear;
+  }
+
+  .text-leave-to {
+    @include gl-opacity-0;
+  }
+
+  &__dot {
+    display: inline-block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background-color: $gray-200;
+    border-radius: 100%;
+    animation: DuoChatLoading 1400ms ease-in-out infinite;
+    animation-fill-mode: both;
+  }
+
+  &__dot--1 {
+    animation-delay: -0.3s;
+  }
+
+  &__dot--2 {
+    animation-delay: -0.15s;
+  }
+}
+
+@keyframes DuoChatLoading {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
