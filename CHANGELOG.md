@@ -1,3 +1,10 @@
+# [66.24.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.23.1...v66.24.0) (2023-10-05)
+
+
+### Features
+
+* **DuoChatLoader:** added component ([658ca9e](https://gitlab.com/gitlab-org/gitlab-ui/commit/658ca9e4eecf3311f110311f483123271432897d))
+
 ## [66.23.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.23.0...v66.23.1) (2023-10-04)
 
 
