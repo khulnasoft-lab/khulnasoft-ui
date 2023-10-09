@@ -1,3 +1,10 @@
+## [66.25.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.25.0...v66.25.1) (2023-10-09)
+
+
+### Bug Fixes
+
+* **charts:** prevent long legends overflowing chart ([873edcf](https://gitlab.com/gitlab-org/gitlab-ui/commit/873edcf60afbd275f466a0ef200d5eb01c81eda1))
+
 # [66.25.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.24.0...v66.25.0) (2023-10-05)
 
 
