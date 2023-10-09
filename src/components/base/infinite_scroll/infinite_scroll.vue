@@ -107,9 +107,18 @@ export default {
      *
      * @param params.top - Number of pixels along Y axis to
      * scroll the list container.
+     * @param params.behavior - Determines whether scrolling
+     *  is instant or animates smoothly.
+     *  - 'smooth': scrolling should animate smoothly
+     *  - 'instant': scrolling should happen instantly in a
+     *     single jump
+     *  - 'auto': scroll behavior is determined by the computed
+     *     value of scroll-behavior
+     *
+     * See MDN spec (https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo)
      */
-    scrollTo({ top }) {
-      this.$refs.infiniteContainer.scrollTo({ top });
+    scrollTo({ top, behavior }) {
+      this.$refs.infiniteContainer.scrollTo({ top, behavior });
     },
 
     topReached: throttle(function topReachedThrottled() {
