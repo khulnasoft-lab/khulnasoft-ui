@@ -1,4 +1,5 @@
 @import 'variables';
+@import '../../dist/tokens/css/tokens.dark';
 
 // conditional overrides for dark mode for use in storybook.
 // Because we only use application.css from gitlab (and not
@@ -15,7 +16,6 @@
   // Note that we are assigning variables with different values due to the way GitLab inverts variables in dark mode.
   // e.g. text color is usually $gray-900, but in dark mode $gray-900 variable gets inverted to $gray-50
   --gl-text-color: #{$gray-50};
-  --gray-600: #{$gray-300};
 
   color-scheme: dark;
 

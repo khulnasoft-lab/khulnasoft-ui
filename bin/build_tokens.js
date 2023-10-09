@@ -7,6 +7,9 @@ const distDir = path.join(__dirname, '..', 'dist', 'tokens');
 
 const prefix = 'gl';
 const modes = ['dark'];
+const cssSelector = {
+  dark: ':root.gl-dark',
+};
 
 /**
  * Transforms
@@ -130,6 +133,7 @@ const getStyleDictionaryConfig = (mode, filter) => {
             filter,
             options: {
               outputReferences: true,
+              selector: cssSelector[mode],
             },
           },
         ],

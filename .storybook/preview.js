@@ -42,6 +42,7 @@ const parameters = {
   darkMode: {
     current: 'light',
     stylePreview: true,
+    classTarget: 'html',
     darkClass: 'gl-dark',
     dark: {
       ...theme,
