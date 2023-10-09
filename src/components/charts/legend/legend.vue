@@ -172,7 +172,7 @@ export default {
 </script>
 
 <template>
-  <div data-testid="gl-chart-legend">
+  <div class="gl-legend" data-testid="gl-chart-legend">
     <template v-if="layout === $options.legendLayoutTypes.LEGEND_LAYOUT_INLINE">
       <div class="gl-legend-inline">
         <div
