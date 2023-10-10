@@ -3,14 +3,13 @@
   @include gl-display-flex;
   @include gl-flex-grow-1;
   @include gl-flex-basis-0;
-  @include gl-overflow-hidden;
   @include gl-align-items-center;
-  @include gl-py-2;
-  @include gl-pl-4;
   @include gl-pr-7;
   @include gl-inset-border-1-gray-400;
   @include gl-border-none;
   @include gl-rounded-base;
+
+  position: relative;
 
   .input-group-prepend + & {
     @include gl-rounded-left-none;
@@ -24,7 +23,14 @@
 .gl-filtered-search-scrollable {
   @include gl-display-flex;
   @include gl-overflow-y-auto;
-  @include gl-w-full;
+  @include gl-py-2;
+
+  position: absolute;
+  top: 0;
+  // offset to not overlap with side border when scrolling content
+  left: $gl-spacing-scale-4;
+  // offset on right side for Clear input button
+  right: $gl-spacing-scale-7;
 }
 
 .gl-filtered-search-item {
