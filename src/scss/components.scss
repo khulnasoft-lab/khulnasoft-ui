@@ -3,6 +3,7 @@
 // @import '../components/base/dropdown/dropdown'
 //
 // ADD COMPONENT IMPORTS - needed for yarn generate:component. Do not remove
+@import '../components/experimental/duo/chat/components/duo_chat_message/duo_chat_message';
 @import '../components/experimental/duo/chat/components/duo_chat_loader/duo_chat_loader';
 @import '../components/base/new_dropdowns/disclosure/disclosure_dropdown';
 @import '../components/base/keyset_pagination/keyset_pagination';
