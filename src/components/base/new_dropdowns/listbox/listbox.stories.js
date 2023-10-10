@@ -122,16 +122,11 @@ const makeBindings = (overrides = {}) =>
     ':show-select-all-button-label': 'showSelectAllButtonLabel',
     ':fluid-width': 'fluidWidth',
     ':positioning-strategy': 'positioningStrategy',
+    ':startOpened': 'startOpened',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
     .join('\n');
-
-function openListbox(component) {
-  component.$nextTick(() => {
-    component.$refs.listbox.open();
-  });
-}
 
 const template = (content, { label = '', bindingOverrides = {} } = {}) => `
   <div>
@@ -157,11 +152,6 @@ export const Default = (args, { argTypes }) => ({
       selected: mockOptions[1].value,
     };
   },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
-  },
   template: template('', {
     label: `<span class="gl-my-0" id="listbox-label">Select a department</span>`,
   }),
@@ -181,11 +171,6 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
     return {
       selected: [],
     };
-  },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
   },
   methods: {
     selectAllItems() {
@@ -243,11 +228,6 @@ export const HeaderActions = (args, { argTypes }) => ({
       return mockOptions.map(({ value }) => value);
     },
   },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
-  },
   methods: {
     selectAllItems() {
       this.selected = [...this.allValues];
@@ -285,11 +265,6 @@ export const CustomListItem = (args, { argTypes }) => ({
     GlCollapsibleListbox,
     GlIcon,
     GlAvatar,
-  },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
   },
   computed: {
     customToggleText() {
@@ -344,11 +319,6 @@ export const CustomToggle = (args, { argTypes }) => ({
       selected: mockUsers[1].value,
     };
   },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
-  },
   template: template(
     `
     <template #toggle>
@@ -388,11 +358,6 @@ const makeGroupedExample = (changes) => {
       return {
         selected: 'v1.0',
       };
-    },
-    mounted() {
-      if (this.startOpened) {
-        openListbox(this);
-      }
     },
     ...changes,
   });
@@ -472,11 +437,6 @@ export const GroupWithoutLabel = (args, { argTypes }) => ({
     return {
       selected: mockGroupsWithTextSrOnly[1].options[1].value,
     };
-  },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
   },
   template: template(`
     <template #list-item="{ item }">
@@ -649,11 +609,6 @@ export const Searchable = (args, { argTypes }) => ({
       timeoutId: null,
     };
   },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
-  },
   methods: {
     filterList(searchTerm) {
       if (this.timeoutId) {
@@ -721,11 +676,6 @@ export const SearchableGroups = (args, { argTypes }) => ({
       searchInProgress: false,
       timeoutId: null,
     };
-  },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
   },
   computed: {
     flattenedOptions() {
@@ -813,11 +763,6 @@ export const InfiniteScroll = (
       infiniteScroll: true,
     };
   },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
-  },
   methods: {
     onBottomReached() {
       this.infiniteScrollLoading = true;
@@ -870,11 +815,6 @@ export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => (
       selected: longItems[0].value,
       items: longItems,
     };
-  },
-  mounted() {
-    if (this.startOpened) {
-      openListbox(this);
-    }
   },
   computed: {
     customToggleText() {
