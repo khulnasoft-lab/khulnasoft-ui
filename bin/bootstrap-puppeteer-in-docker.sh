@@ -10,6 +10,12 @@ apt-get install -yq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups
     libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
     ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
 
+# Install all security updates for current debian version
+apt-get install -yq debsecan
+source /etc/os-release
+apt-get install -yq $(debsecan --suite $VERSION_CODENAME --format packages --only-fixed)
+apt-get remove -yq debsecan
+
 # Cleanup after apt
 apt-get autoremove -yq
 apt-get clean -yqq
@@ -34,4 +40,4 @@ chmod 644 "/usr/local/share/fonts/${FONT_FILE}"
 ls -la /usr/local/share/fonts/
 
 fc-cache -fv
-fc-match -s noto
+fc-match --sort
