@@ -1,3 +1,10 @@
+# [66.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.26.0...v66.27.0) (2023-10-11)
+
+
+### Features
+
+* **GlAlert:** Use heading scale ([b9ae701](https://gitlab.com/gitlab-org/gitlab-ui/commit/b9ae70178ba748e63a6b3e6f939bbcb889778556))
+
 # [66.26.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.25.1...v66.26.0) (2023-10-10)
 
 
