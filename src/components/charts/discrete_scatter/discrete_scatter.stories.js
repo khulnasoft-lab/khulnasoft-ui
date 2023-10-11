@@ -35,14 +35,12 @@ const generateProps = ({
   yAxisTitle = 'Pushes per day',
   xAxisTitle = 'Date',
   height = null,
-  disableTooltip = false,
 } = {}) => ({
   data,
   option,
   yAxisTitle,
   xAxisTitle,
   height,
-  disableTooltip,
 });
 
 export const Default = Template.bind({});
@@ -58,11 +56,6 @@ WithZoomAndScroll.args = generateProps({
       },
     ],
   },
-});
-
-export const WithDisabledTooltip = Template.bind({});
-WithDisabledTooltip.args = generateProps({
-  disableTooltip: true,
 });
 
 export default {
