@@ -197,15 +197,13 @@ export default {
       { 'gl-alert-sticky': sticky },
       { 'gl-alert-not-dismissible': !dismissible },
       { 'gl-alert-no-icon': !showIcon },
+      { 'gl-alert-has-title': !!title },
       variantClass,
     ]"
   >
-    <gl-icon
-      v-if="showIcon"
-      :name="iconName"
-      :class="{ 'gl-alert-icon': true, 'gl-alert-icon-no-title': !title }"
-    />
-
+    <div v-if="showIcon" class="gl-alert-icon-container">
+      <gl-icon :name="iconName" class="gl-alert-icon" />
+    </div>
     <div class="gl-alert-content" :role="role" :aria-live="ariaLive">
       <h2 v-if="title" class="gl-alert-title">{{ title }}</h2>
 

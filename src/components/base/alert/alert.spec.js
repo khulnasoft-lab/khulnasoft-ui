@@ -190,6 +190,22 @@ describe('Alert component', () => {
         expect(wrapper.classes()).not.toContain(cssClass);
       });
     });
+
+    it('adds the `gl-alert-has-title` class if there is a title', () => {
+      createComponent({
+        propsData: {
+          title: 'title',
+        },
+      });
+
+      expect(wrapper.classes()).toContain('gl-alert-has-title');
+    });
+
+    it('does not add the `gl-alert-has-title` class if there is no title', () => {
+      createComponent();
+
+      expect(wrapper.classes()).not.toContain('gl-alert-has-title');
+    });
   });
 
   describe('role and aria-live', () => {
