@@ -1,3 +1,10 @@
+# [66.29.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.28.0...v66.29.0) (2023-10-12)
+
+
+### Features
+
+* **Listbox:** Add startOpened prop ([5bb3d17](https://gitlab.com/gitlab-org/gitlab-ui/commit/5bb3d173f78f5a53d67430bbaf15c8a5366983be))
+
 # [66.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.27.0...v66.28.0) (2023-10-12)
 
 
