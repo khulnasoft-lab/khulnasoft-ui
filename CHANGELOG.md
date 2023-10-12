@@ -1,3 +1,10 @@
+# [66.28.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.27.0...v66.28.0) (2023-10-12)
+
+
+### Features
+
+* **GlDiscreteScatterChart:** Add disableTooltip prop ([cd430c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/cd430c2ca17749af3c2fca21164141d80d1edd3a))
+
 # [66.27.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.26.0...v66.27.0) (2023-10-11)
 
 
