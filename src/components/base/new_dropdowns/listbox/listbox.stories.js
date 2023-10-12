@@ -450,7 +450,7 @@ GroupWithoutLabel.args = generateProps({
 });
 
 export default {
-  title: 'base/new-dropdowns/listbox',
+  title: 'base/dropdown/collapsible-listbox',
   component: GlCollapsibleListbox,
   parameters: {
     docs: {

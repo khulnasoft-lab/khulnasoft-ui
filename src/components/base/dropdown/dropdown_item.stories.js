@@ -90,7 +90,7 @@ CheckedWithSecondaryText.args = generateProps({
 });
 
 export default {
-  title: 'base/dropdown/dropdown-item',
+  title: 'base/dropdown/deprecated/dropdown-item',
   component: GlDropdownItem,
   parameters: {
     bootstrapComponent: 'b-dropdown-item',

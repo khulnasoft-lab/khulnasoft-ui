@@ -21,7 +21,7 @@ describe('GlCollapsibleListbox', () => {
 
   describe('flat items', () => {
     beforeEach(() => {
-      cy.visitStory('base/new-dropdowns/listbox', {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
         args: {
           startOpened: false,
         },
@@ -73,7 +73,7 @@ describe('GlCollapsibleListbox', () => {
 
   describe('groups', () => {
     beforeEach(() => {
-      cy.visitStory('base/new-dropdowns/listbox', {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
         story: 'groups',
         args: {
           startOpened: false,
@@ -106,7 +106,7 @@ describe('GlCollapsibleListbox', () => {
 
   describe('search', () => {
     beforeEach(() => {
-      cy.visitStory('base/new-dropdowns/listbox', {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
         story: 'searchable',
         args: {
           startOpened: false,
@@ -141,7 +141,7 @@ describe('GlCollapsibleListbox', () => {
 
   describe('overflow scrim', () => {
     it('should display overflow scrim when content is overflowing', () => {
-      cy.visitStory('base/new-dropdowns/listbox', {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
         args: {
           startOpened: true,
         },
@@ -158,7 +158,7 @@ describe('GlCollapsibleListbox', () => {
     });
 
     it('should not display overflow scrim when content is not overflowing', () => {
-      cy.visitStory('base/new-dropdowns/listbox', {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
         story: 'custom-list-item',
         args: {
           startOpened: true,
@@ -183,7 +183,7 @@ describe('GlCollapsibleListbox', () => {
     },
     () => {
       before(() => {
-        cy.visitStory('base/new-dropdowns/listbox', {
+        cy.visitStory('base/dropdown/collapsible-listbox', {
           story: 'header-and-footer',
           args: {
             startOpened: true,

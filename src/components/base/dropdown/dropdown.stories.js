@@ -536,7 +536,7 @@ export const OnRightEdge = (args, { argTypes }) => ({
 OnRightEdge.args = generateProps({ text: 'Some dropdown' });
 
 export default {
-  title: 'base/dropdown',
+  title: 'base/dropdown/deprecated',
   component: GlDropdown,
   subcomponents: {
     GlDropdownDivider,
