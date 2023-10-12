@@ -1,5 +1,8 @@
 <script>
-import { GlModal, GlFormCheckboxGroup, GlFormGroup, GlFormTextarea } from '../../../../index';
+import GlModal from '../../../base/modal/modal.vue';
+import GlFormGroup from '../../../base/form/form_group/form_group.vue';
+import GlFormTextarea from '../../../base/form/form_textarea/form_textarea.vue';
+import GlFormCheckboxGroup from '../../../base/form/form_checkbox/form_checkbox_group.vue';
 
 export const i18n = {
   MODAL_TITLE: 'Give feedback on AI content',

@@ -1,5 +1,5 @@
 <script>
-import { GlButton } from '../../../../../../index';
+import GlButton from '../../../../../base/button/button.vue';
 
 export default {
   name: 'GlDuoChatPredefinedPrompts',

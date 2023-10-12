@@ -1,5 +1,5 @@
 <script>
-import { GlButton } from '../../../../index';
+import GlButton from '../../../base/button/button.vue';
 import FeedbackModal from './user_feedback_modal.vue';
 
 export const i18n = {
