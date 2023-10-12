@@ -11,6 +11,7 @@ const Template = (args, { argTypes }) => ({
     :x-axis-title="xAxisTitle"
     data-testid="discrete-scatter-chart"
     :height="height"
+    :disableTooltip="disableTooltip"
   />
 `,
 });

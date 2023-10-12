@@ -49,6 +49,11 @@ export default {
       required: false,
       default: null,
     },
+    disableTooltip: {
+      type: Boolean,
+      required: false,
+      default: () => false,
+    },
     /**
      * Sets the chart's height in pixels. Set to `"auto"` to use the height of the container.
      */
@@ -187,7 +192,7 @@ export default {
       @created="onCreated"
     />
     <chart-tooltip
-      v-if="chart"
+      v-if="!disableTooltip && chart"
       :show="showTooltip"
       :chart="chart"
       :top="tooltipPosition.top"
