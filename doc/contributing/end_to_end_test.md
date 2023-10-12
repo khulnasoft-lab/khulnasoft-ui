@@ -54,13 +54,13 @@ These can be translated into axe accesibility tests for `GlDisclosureDropdown` c
 ```js
 describe('stories', () => {
   function checkA11yDropdownOpened() {
-    cy.visitStory('base/new-dropdowns/disclosure');
+    cy.visitStory('base/dropdown/disclosure-dropdown');
 
     cy.glCheckA11y();
   }
 
   function checkA11yDropdownClosed() {
-    cy.visitStory('base/new-dropdowns/disclosure', {
+    cy.visitStory('base/dropdown/disclosure-dropdown', {
       args: {
         startOpened: false,
       },
@@ -70,7 +70,7 @@ describe('stories', () => {
   }
 
   function checkA11yDropdownWithGroupsOpened() {
-    cy.visitStory('base/new-dropdowns/disclosure', {
+    cy.visitStory('base/dropdown/disclosure-dropdown', {
       story: 'groups',
     });
 
@@ -78,7 +78,7 @@ describe('stories', () => {
   }
 
   function checkA11yDropdownWithGroupsClosed() {
-    cy.visitStory('base/new-dropdowns/disclosure', {
+    cy.visitStory('base/dropdown/disclosure-dropdown', {
       story: 'groups',
       args: {
         startOpened: false,

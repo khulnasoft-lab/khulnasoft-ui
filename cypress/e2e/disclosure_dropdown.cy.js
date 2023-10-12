@@ -1,7 +1,7 @@
 describe('Disclosure dropdown', () => {
   describe('stories', () => {
     function checkA11yDropdownWithGroupsOpened() {
-      cy.visitStory('base/new-dropdowns/disclosure', {
+      cy.visitStory('base/dropdown/disclosure-dropdown', {
         story: 'groups',
       });
 
@@ -9,7 +9,7 @@ describe('Disclosure dropdown', () => {
     }
 
     function checkA11yDropdownWithGroupsClosed() {
-      cy.visitStory('base/new-dropdowns/disclosure', {
+      cy.visitStory('base/dropdown/disclosure-dropdown', {
         story: 'groups',
         args: {
           startOpened: false,

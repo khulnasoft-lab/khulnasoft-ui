@@ -333,7 +333,7 @@ MiscellaneousContent.args = {
 MiscellaneousContent.decorators = [makeContainer({ height: '200px' })];
 
 export default {
-  title: 'base/new-dropdowns/disclosure',
+  title: 'base/dropdown/disclosure-dropdown',
   component: GlDisclosureDropdown,
   parameters: {
     docs: {
