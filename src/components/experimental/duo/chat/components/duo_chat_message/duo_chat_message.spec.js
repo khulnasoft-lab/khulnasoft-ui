@@ -1,6 +1,6 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
-import { GlDuoUserFeedback } from '../../../../../../index';
+import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import {
   MOCK_USER_PROMPT_MESSAGE,
   MOCK_RESPONSE_MESSAGE,

@@ -1,6 +1,6 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
-import { GlButton } from '../../../../index';
+import GlButton from '../../../base/button/button.vue';
 import FeedbackModal from './user_feedback_modal.vue';
 import UserFeedback, { i18n } from './user_feedback.vue';
 

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { GlButton } from '../../../../../../index';
+import GlButton from '../../../../../base/button/button.vue';
 import GlDuoChatPredefinedPrompts from './duo_chat_predefined_prompts.vue';
 
 describe('GlDuoChatPredefinedPrompts', () => {

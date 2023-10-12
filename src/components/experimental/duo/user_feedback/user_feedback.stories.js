@@ -1,4 +1,6 @@
-import { GlAlert, GlFormGroup, GlFormTextarea } from '../../../../index';
+import GlAlert from '../../../base/alert/alert.vue';
+import GlFormGroup from '../../../base/form/form_group/form_group.vue';
+import GlFormTextarea from '../../../base/form/form_textarea/form_textarea.vue';
 import GlDuoUserFeedback from './user_feedback.vue';
 import readme from './user_feedback.md';
 

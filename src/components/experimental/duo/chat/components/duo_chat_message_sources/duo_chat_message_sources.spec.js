@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import { GlIcon, GlLink } from '../../../../../../index';
+import GlIcon from '../../../../../base/icon/icon.vue';
+import GlLink from '../../../../../base/link/link.vue';
 import { DOCUMENTATION_SOURCE_TYPES } from '../../constants';
 import GlDuoChatMessageSources from './duo_chat_message_sources.vue';
 
