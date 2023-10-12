@@ -57,6 +57,7 @@ describe('GlCollapsibleListbox', () => {
   const findResetButton = () => wrapper.find("[data-testid='listbox-reset-button']");
   const findSelectAllButton = () => wrapper.find("[data-testid='listbox-select-all-button']");
   const findIntersectionObserver = () => wrapper.findComponent(GlIntersectionObserver);
+  const findDropdownMenu = () => wrapper.find("[data-testid='base-dropdown-menu']");
 
   it('passes custom offset to the base dropdown', () => {
     const dropdownOffset = { mainAxis: 10, crossAxis: 40 };
@@ -877,5 +878,19 @@ describe('GlCollapsibleListbox', () => {
         expect(findBaseDropdown().props('positioningStrategy')).toBe(positioningStrategy);
       }
     );
+  });
+
+  describe('startOpened', () => {
+    it('should open dropdown on render when startOpened is true', async () => {
+      buildWrapper({ items: mockOptions, startOpened: true });
+      await nextTick();
+      expect(findDropdownMenu().classes()).toContain('gl-display-block!');
+    });
+
+    it('should not open dropdown on render as default', async () => {
+      buildWrapper({ items: mockOptions });
+      await nextTick();
+      expect(findDropdownMenu().classes()).not.toContain('gl-display-block!');
+    });
   });
 });
