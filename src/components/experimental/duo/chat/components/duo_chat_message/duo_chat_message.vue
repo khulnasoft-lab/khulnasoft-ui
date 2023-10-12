@@ -1,5 +1,5 @@
 <script>
-import { GlDuoUserFeedback } from '../../../../../../index';
+import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
 import { MESSAGE_MODEL_ROLES } from '../../constants';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';

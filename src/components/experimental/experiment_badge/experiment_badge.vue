@@ -1,6 +1,8 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { GlBadge, GlLink, GlPopover } from '../../../index';
+import GlBadge from '../../base/badge/badge.vue';
+import GlLink from '../../base/link/link.vue';
+import GlPopover from '../../base/popover/popover.vue';
 import GlSprintf from '../../utilities/sprintf/sprintf.vue';
 
 export const i18n = {
