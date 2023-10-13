@@ -1,3 +1,10 @@
+# [66.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.30.0...v66.31.0) (2023-10-13)
+
+
+### Features
+
+* **InfiniteScroll:** Add support for scrolling behavior ([ca91a07](https://gitlab.com/gitlab-org/gitlab-ui/commit/ca91a07706107652d4b659e8bece8b5bfea31d89))
+
 # [66.30.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.29.0...v66.30.0) (2023-10-12)
 
 
