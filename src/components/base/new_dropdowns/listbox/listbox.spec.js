@@ -517,6 +517,18 @@ describe('GlCollapsibleListbox', () => {
       }
     );
 
+    it('shows the button if the label is provided and only one option is selected in multi select', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        items: mockOptions,
+        multiple: true,
+        selected: mockOptionsValues.slice(0, 1),
+      });
+
+      expect(findResetButton().exists()).toBe(true);
+    });
+
     it.each`
       description        | props
       ${'multi-select'}  | ${{ multiple: true, selected: [] }}
@@ -598,6 +610,7 @@ describe('GlCollapsibleListbox', () => {
     describe.each`
       multiple | resetVisible | selectAllVisible | selected
       ${false} | ${false}     | ${false}         | ${[]}
+      ${false} | ${false}     | ${false}         | ${undefined}
       ${true}  | ${false}     | ${true}          | ${[]}
     `(
       'when label is provided, selection is empty and multiple option is $multiple',
@@ -622,6 +635,20 @@ describe('GlCollapsibleListbox', () => {
         });
       }
     );
+
+    it('when label is provided and one option is selected in multiselect', () => {
+      buildWrapper({
+        headerText: 'Select assignee',
+        resetButtonLabel: 'Unassign',
+        showSelectAllButtonLabel: 'Select All',
+        items: mockOptions,
+        selected: mockOptionsValues.slice(0, 1),
+        multiple: true,
+      });
+
+      expect(findSelectAllButton().exists()).toBe(true);
+      expect(findResetButton().exists()).toBe(false);
+    });
 
     it('hides select all button if dropdown has no items', () => {
       buildWrapper({
