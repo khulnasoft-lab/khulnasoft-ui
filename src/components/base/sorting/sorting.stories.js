@@ -12,6 +12,8 @@ const propDefault = (prop) => GlSorting.props[prop].default;
 
 const generateProps = ({
   text = 'Sorting options',
+  sortOptions = propDefault('sortOptions'),
+  sortBy = propDefault('sortBy'),
   isAscending = propDefault('isAscending'),
   sortDirectionToolTip = propDefault('sortDirectionToolTip'),
   dropdownClass = propDefault('dropdownClass'),
@@ -19,6 +21,8 @@ const generateProps = ({
   sortDirectionToggleClass = propDefault('sortDirectionToggleClass'),
 } = {}) => ({
   text,
+  sortOptions,
+  sortBy,
   isAscending,
   sortDirectionToolTip,
   dropdownClass,
@@ -50,12 +54,75 @@ const Template = (args) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = generateProps();
+Object.assign(Default, {
+  args: generateProps(),
+  parameters: {
+    controls: {
+      // These props/events only apply when using the listbox form, so don't
+      // show their controls.
+      exclude: ['sortBy', 'sortOptions', 'sortByChange'],
+    },
+  },
+});
+
+export const UsingListbox = (args) => ({
+  components,
+  props: Object.keys(args),
+  mounted() {
+    // The first button is the dropdown trigger.
+    this.$nextTick(() => this.$el.querySelector('button').click());
+  },
+  template: `
+    <gl-sorting
+      :text="text"
+      :sort-options="sortOptions"
+      :sort-by="sortBy"
+      :is-ascending="isAscending"
+      :sort-direction-tool-tip="sortDirectionToolTip"
+      :dropdown-class="dropdownClass"
+      :dropdown-toggle-class="dropdownToggleClass"
+      :sort-direction-toggle-class="sortDirectionToggleClass"
+    />
+  `,
+});
+Object.assign(UsingListbox, {
+  args: generateProps({
+    text: '',
+    sortOptions: [
+      {
+        value: 'first',
+        text: 'First item',
+      },
+      {
+        value: 'second',
+        text: 'Second item',
+      },
+      {
+        value: 'third',
+        text: 'Third item',
+      },
+    ],
+    sortBy: 'first',
+  }),
+  parameters: {
+    controls: {
+      // The default slot is deprecated, so don't show it in the controls.
+      exclude: ['default'],
+    },
+  },
+});
 
 export default {
   title: 'base/sorting',
   component: GlSorting,
-  decorators: [makeContainer({ height: '100px', paddingLeft: '100px' })],
+  decorators: [
+    makeContainer({
+      height: '150px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'flex-start',
+    }),
+  ],
   parameters: {
     docs: {
       description: {
