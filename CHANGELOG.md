@@ -1,3 +1,10 @@
+## [66.31.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.31.0...v66.31.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** Visibility of Reset button ([f71f767](https://gitlab.com/gitlab-org/gitlab-ui/commit/f71f767553a93237167c65772479e990c8913f93))
+
 # [66.31.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.30.0...v66.31.0) (2023-10-13)
 
 
