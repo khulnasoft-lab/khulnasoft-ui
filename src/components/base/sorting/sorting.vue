@@ -5,6 +5,7 @@ import GlButtonGroup from '../button_group/button_group.vue';
 import GlCollapsibleListbox from '../new_dropdowns/listbox/listbox.vue';
 import { isOption } from '../new_dropdowns/listbox/utils';
 import GlDropdown from '../dropdown/dropdown.vue';
+import { translate } from '../../../utils/i18n';
 
 export default {
   name: 'GlSorting',
@@ -53,12 +54,13 @@ export default {
       default: false,
     },
     /**
-     * The text of the tool tip for the sort direction toggle button.
+     * The text for the tooltip and aria-label of the sort direction toggle
+     * button instead of the defaults for ascending/descending.
      */
     sortDirectionToolTip: {
       type: String,
       required: false,
-      default: 'Sort direction',
+      default: null,
     },
     /**
      * Additional class(es) to apply to the root element of the GlDropdown.
@@ -89,8 +91,12 @@ export default {
     localSortDirection() {
       return this.isAscending ? 'sort-lowest' : 'sort-highest';
     },
-    sortDirectionAriaLabel() {
-      return this.isAscending ? 'Sorting Direction: Ascending' : 'Sorting Direction: Descending';
+    sortDirectionText() {
+      if (this.sortDirectionToolTip) return this.sortDirectionToolTip;
+
+      return this.isAscending
+        ? translate('GlSorting.sortAscending', 'Sort direction: ascending')
+        : translate('GlSorting.sortDescending', 'Sort direction: descending');
     },
     useListbox() {
       return Boolean(this.sortOptions);
@@ -160,9 +166,9 @@ export default {
     </gl-dropdown>
     <gl-button
       v-gl-tooltip
-      :title="sortDirectionToolTip"
+      :title="sortDirectionText"
       :icon="localSortDirection"
-      :aria-label="sortDirectionAriaLabel"
+      :aria-label="sortDirectionText"
       :class="['sorting-direction-button', sortDirectionToggleClass]"
       @click="toggleSortDirection"
     />

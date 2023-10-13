@@ -73,7 +73,7 @@ describe('sorting component', () => {
     expect(wrapper.emitted('sortDirectionChange')[0]).toEqual([true]);
   });
 
-  it('should allow custom sort tooltip to be applied', () => {
+  it('should allow custom sort direction text to be applied', () => {
     const newDirectionTooltip = 'New tooltip text';
 
     createComponent({
@@ -81,6 +81,7 @@ describe('sorting component', () => {
     });
 
     expect(selectDirectionButton().attributes('title')).toBe(newDirectionTooltip);
+    expect(selectDirectionButton().attributes('aria-label')).toBe(newDirectionTooltip);
   });
 
   it('adds classes passed in `dropdownClass` prop to dropdown', () => {
@@ -107,6 +108,16 @@ describe('sorting component', () => {
     expect(selectDirectionButton().classes()).toEqual(
       expect.arrayContaining(['sorting-direction-button', 'foo-bar'])
     );
+  });
+
+  it('sets aria-label of sort direction button', async () => {
+    createComponent();
+
+    expect(selectDirectionButton().attributes('aria-label')).toBe('Sort direction: descending');
+
+    await wrapper.setProps({ isAscending: true });
+
+    expect(selectDirectionButton().attributes('aria-label')).toBe('Sort direction: ascending');
   });
 
   describe('using listbox', () => {
@@ -212,6 +223,16 @@ describe('sorting component', () => {
       expect(selectDirectionButton().classes()).toEqual(
         expect.arrayContaining(['sorting-direction-button', 'foo-bar'])
       );
+    });
+
+    it('sets aria-label of sort direction button', async () => {
+      createComponent({ sortOptions: [] });
+
+      expect(selectDirectionButton().attributes('aria-label')).toBe('Sort direction: descending');
+
+      await wrapper.setProps({ isAscending: true });
+
+      expect(selectDirectionButton().attributes('aria-label')).toBe('Sort direction: ascending');
     });
   });
 });
