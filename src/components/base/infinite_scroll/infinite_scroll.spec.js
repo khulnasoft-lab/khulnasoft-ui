@@ -174,9 +174,9 @@ describe('Infinite Scroll component', () => {
 
     it('scrollTo', () => {
       createComponent();
-      wrapper.vm.scrollTo({ top: 250 });
+      wrapper.vm.scrollTo({ top: 250, behavior: 'instant' });
 
-      expect(mockScrollTo).toHaveBeenCalledWith({ top: 250 });
+      expect(mockScrollTo).toHaveBeenCalledWith({ top: 250, behavior: 'instant' });
     });
   });
 });

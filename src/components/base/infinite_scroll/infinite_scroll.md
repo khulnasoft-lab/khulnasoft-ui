@@ -15,7 +15,9 @@ Useful public methods you can call via `$refs`:
 
 - `.scrollUp()`: Scrolls to the top of the container.
 - `.scrollDown()`: Scrolls to the bottom of the container.
-- `.scrollTo({ top })`: Scrolls to a number of pixels along the Y axis of the container.
+- `.scrollTo({ top, behavior })`: Scrolls to a number of pixels
+  along the Y axis of the container. The scrolling behavior can also be specified,
+  as per MDN spec (<https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo>)
 
 ## Implementation Example
 
