@@ -28,6 +28,16 @@ $clear-button-size: 24px;
     }
   }
 
+  // top container radius minus its border size to avoid the small gap between the focus ring and container
+  $input-focus-ring-border-radius: calc($gl-border-radius-large - $gl-border-size-1);
+
+  &.gl-listbox-topmost {
+    .gl-listbox-search-input {
+      border-top-left-radius: $input-focus-ring-border-radius;
+      border-top-right-radius: $input-focus-ring-border-radius;
+    }
+  }
+
   .gl-listbox-search-icon {
     @include gl-absolute;
     top: calc(50% - #{$search-icon-size} / 2);
