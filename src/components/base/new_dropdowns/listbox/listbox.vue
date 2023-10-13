@@ -419,10 +419,8 @@ export default {
         return false;
       }
 
-      if (this.multiple) {
-        return this.selected.length === this.flattenedOptions.length;
-      }
-      return Boolean(this.selected);
+      // only show reset button if show all button is not there
+      return !this.showSelectAllButton;
     },
     showSelectAllButton() {
       if (!this.showSelectAllButtonLabel) {
