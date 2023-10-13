@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { GlButton } from '../../../../index';
+import GlButton from '../../button/button.vue';
 import { tabsButtonDefaults } from '../../../../utils/constants';
 import GlTab from '../tab/tab.vue';
 import GlTabs from './tabs.vue';

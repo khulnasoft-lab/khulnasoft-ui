@@ -6,11 +6,15 @@ rules:
   import/no-extraneous-dependencies: off
   no-restricted-imports:
   - error
-  # We only should be consuming bootstrap-vue components from `src/`
   - patterns:
-      - "bootstrap-vue/*"
-      - "!bootstrap-vue/src"
-      - "!bootstrap-vue/package.json"
+      - group:
+        - "bootstrap-vue/*"
+        - "!bootstrap-vue/src"
+        - "!bootstrap-vue/package.json"
+        message: Import only from bootstrap-vue or bootstrap-vue/src.
+      - group:
+        - '**/index'
+        message: Import components and directives directly rather than via the top-level barrel file.
     paths:
     - name: "lodash"
       message: Import <function> from lodash/<function> instead for better tree-shaking.
@@ -47,6 +51,10 @@ overrides:
         importNames:
         - createLocalVue
         message: createLocalVue should be avoided. Perform operations on global Vue instance instead
+      patterns:
+      - group:
+        - '**/index'
+        message: Import components and directives directly rather than via the top-level barrel file.
 - files:
     - '**/*.stories.js'
   rules:

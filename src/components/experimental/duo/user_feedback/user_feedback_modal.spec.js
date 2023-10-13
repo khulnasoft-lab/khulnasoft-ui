@@ -1,5 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-import { GlModal, GlFormCheckboxGroup, GlFormCheckbox, GlFormTextarea } from '../../../../index';
+import GlModal from '../../../base/modal/modal.vue';
+import GlFormCheckbox from '../../../base/form/form_checkbox/form_checkbox.vue';
+import GlFormCheckboxGroup from '../../../base/form/form_checkbox/form_checkbox_group.vue';
+import GlFormTextarea from '../../../base/form/form_textarea/form_textarea.vue';
 import FeedbackModal, { feedbackOptions } from './user_feedback_modal.vue';
 
 const DummyComponent = {
