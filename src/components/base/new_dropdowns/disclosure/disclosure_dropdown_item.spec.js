@@ -9,10 +9,11 @@ describe('GlDisclosureDropdownItem', () => {
 
   const clone = (i) => JSON.parse(JSON.stringify(i));
 
-  const buildWrapper = (propsData, slots = {}) => {
+  const buildWrapper = (propsData, slots = {}, listeners = {}) => {
     wrapper = mount(GlDisclosureDropdownItem, {
       propsData,
       slots,
+      listeners,
     });
   };
   const findItem = () => wrapper.find('[data-testid="disclosure-dropdown-item"]');
@@ -186,6 +187,44 @@ describe('GlDisclosureDropdownItem', () => {
 
       expect(findItem().attributes('tabindex')).toBeUndefined();
       expect(findButton().attributes('tabindex')).toBeUndefined();
+    });
+  });
+
+  describe('when custom event listeners are provided', () => {
+    const mouseoverSpy = jest.fn();
+    const clickSpy = jest.fn();
+
+    beforeEach(() => {
+      buildWrapper(
+        {
+          item: {
+            ...mockItems[1],
+          },
+        },
+        { default: 'custom content' },
+        {
+          mouseover: mouseoverSpy,
+          click: clickSpy,
+        }
+      );
+    });
+
+    afterEach(() => {
+      mouseoverSpy.mockClear();
+      clickSpy.mockClear();
+    });
+
+    it('calls custom event listener', () => {
+      findItem().trigger('mouseover');
+
+      expect(mouseoverSpy).toHaveBeenCalled();
+    });
+
+    it('overrides built-in listeners', () => {
+      findItem().trigger('click');
+
+      expect(wrapper.emitted('action')).toBeUndefined();
+      expect(clickSpy).toHaveBeenCalled();
     });
   });
 });

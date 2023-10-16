@@ -69,7 +69,10 @@ export default {
       if (this.isCustomContent) {
         listeners.click = this.action;
       }
-      return listeners;
+      return {
+        ...listeners,
+        ...this.$listeners,
+      };
     },
   },
   methods: {
