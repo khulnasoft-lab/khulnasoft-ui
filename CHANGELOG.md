@@ -1,3 +1,10 @@
+# [66.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.31.1...v66.32.0) (2023-10-16)
+
+
+### Features
+
+* **GlDisclosureDropdown:** add a beforeClose event ([cb4fdb1](https://gitlab.com/gitlab-org/gitlab-ui/commit/cb4fdb10f3669e80c688ea8e442f6dd9cb7ce973))
+
 ## [66.31.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.31.0...v66.31.1) (2023-10-13)
 
 
