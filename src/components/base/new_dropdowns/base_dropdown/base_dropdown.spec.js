@@ -6,6 +6,7 @@ import {
   GL_DROPDOWN_FOCUS_CONTENT,
   GL_DROPDOWN_HIDDEN,
   GL_DROPDOWN_SHOWN,
+  GL_DROPDOWN_BEFORE_CLOSE,
   GL_DROPDOWN_CONTENTS_CLASS,
 } from '../constants';
 import { waitForAnimationFrame } from '../../../../utils/test_utils';
@@ -28,7 +29,7 @@ const DEFAULT_BTN_TOGGLE_CLASSES = [
 describe('base dropdown', () => {
   let wrapper;
 
-  const buildWrapper = (propsData, slots = {}) => {
+  const buildWrapper = (propsData, slots = {}, listeners = {}) => {
     wrapper = mount(GlBaseDropdown, {
       propsData: {
         toggleId: 'dropdown-toggle-btn-1',
@@ -39,6 +40,7 @@ describe('base dropdown', () => {
         ...slots,
       },
       attachTo: document.body,
+      listeners,
     });
   };
 
@@ -329,6 +331,60 @@ describe('base dropdown', () => {
       expect(toggle.attributes('aria-expanded')).toBeUndefined();
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
       expect(toggle.element).toHaveFocus();
+    });
+  });
+
+  describe('beforeClose event', () => {
+    let event;
+
+    beforeEach(() => {
+      event = undefined;
+      buildWrapper(undefined, undefined, {
+        [GL_DROPDOWN_BEFORE_CLOSE]({ originalEvent, preventDefault }) {
+          event = originalEvent;
+          preventDefault();
+        },
+      });
+    });
+
+    it('should prevent closing', async () => {
+      const toggle = findDefaultDropdownToggle();
+      const menu = findDropdownMenu();
+
+      await toggle.trigger('click');
+
+      menu.element.focus();
+      await menu.trigger('keydown.esc');
+      expect(menu.classes('gl-display-block!')).toBe(true);
+      expect(toggle.attributes('aria-expanded')).toBeDefined();
+      expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toBeUndefined();
+      expect(toggle.element).not.toHaveFocus();
+    });
+
+    it('should contain original keyboard event', async () => {
+      const toggle = findDefaultDropdownToggle();
+      const menu = findDropdownMenu();
+      await toggle.trigger('click');
+      await menu.trigger('keydown.esc');
+      expect(event.type).toBe('keydown');
+    });
+
+    it('should contain original toggle click event', async () => {
+      const toggle = findDefaultDropdownToggle();
+      await toggle.trigger('click');
+      await toggle.trigger('click');
+      expect(event.type).toBe('click');
+    });
+
+    it('should contain original outside click event', async () => {
+      const outsideElement = document.createElement('div');
+      document.body.appendChild(outsideElement);
+
+      const toggle = findDefaultDropdownToggle();
+      await toggle.trigger('click');
+      const click = new MouseEvent('click', { bubbles: true });
+      outsideElement.dispatchEvent(click);
+      expect(event).toBe(click);
     });
   });
 

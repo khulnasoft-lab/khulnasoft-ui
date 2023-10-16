@@ -1,6 +1,7 @@
 // base dropdown events
 export const GL_DROPDOWN_SHOWN = 'shown';
 export const GL_DROPDOWN_HIDDEN = 'hidden';
+export const GL_DROPDOWN_BEFORE_CLOSE = 'beforeClose';
 export const GL_DROPDOWN_FOCUS_CONTENT = 'focusContent';
 
 // KEY Codes

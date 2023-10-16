@@ -6,6 +6,7 @@ import { stopEvent, filterVisible } from '../../../../utils/utils';
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
+  GL_DROPDOWN_BEFORE_CLOSE,
   GL_DROPDOWN_FOCUS_CONTENT,
   ENTER,
   SPACE,
@@ -35,6 +36,7 @@ export default {
   events: {
     GL_DROPDOWN_SHOWN,
     GL_DROPDOWN_HIDDEN,
+    GL_DROPDOWN_BEFORE_CLOSE,
     GL_DROPDOWN_FOCUS_CONTENT,
   },
   components: {
@@ -250,6 +252,14 @@ export default {
        */
       this.$emit(GL_DROPDOWN_SHOWN);
     },
+    onBeforeClose(event) {
+      /**
+       * Emitted when dropdown is about to be closed
+       *
+       * @event beforeClose
+       */
+      this.$emit(GL_DROPDOWN_BEFORE_CLOSE, event);
+    },
     onHide() {
       /**
        * Emitted when dropdown is hidden
@@ -349,6 +359,7 @@ export default {
     class="gl-disclosure-dropdown"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
+    @[$options.events.GL_DROPDOWN_BEFORE_CLOSE]="onBeforeClose"
     @[$options.events.GL_DROPDOWN_FOCUS_CONTENT]="onKeydown"
   >
     <template v-if="hasCustomToggle" #toggle>

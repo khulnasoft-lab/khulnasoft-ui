@@ -5,6 +5,7 @@ import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
+  GL_DROPDOWN_BEFORE_CLOSE,
   GL_DROPDOWN_FOCUS_CONTENT,
   ARROW_DOWN,
   ARROW_UP,
@@ -97,6 +98,20 @@ describe('GlDisclosureDropdown', () => {
 
     it('should re-emit the event', () => {
       expect(wrapper.emitted(GL_DROPDOWN_SHOWN)).toHaveLength(1);
+    });
+  });
+
+  describe('onClose', () => {
+    let data;
+
+    beforeEach(() => {
+      buildWrapper();
+      data = { event: {}, preventDefault() {} };
+      findBaseDropdown().vm.$emit(GL_DROPDOWN_BEFORE_CLOSE, data);
+    });
+
+    it('should re-emit the event', () => {
+      expect(wrapper.emitted(GL_DROPDOWN_BEFORE_CLOSE)).toStrictEqual([[data]]);
     });
   });
 

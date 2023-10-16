@@ -38,6 +38,27 @@ The disclosure dropdown is closed by any of the following:
 - clicking anywhere outside the component
 - clicking the action or link inside the dropdown
 
+Before closing, `GlDisclosureDropdown` emits a `beforeClose` event with these properties:
+
+1. `originalEvent` – the event that triggered closing of the dropdown
+2. `preventDefault` – a method which will prevent closing of the dropdown
+
+An example of using this event to prevent the dropdown from closing:
+
+```html
+<gl-disclosure-dropdown @beforeClose="$event.preventDefault()" />
+```
+
+Note that this method will also prevent the dropdown from closing even if the trigger button is clicked.
+
+You can use the `preventDefault` to filter out events that are causing undesired dropdown closing:
+
+```html
+<gl-disclosure-dropdown
+  @beforeClose="(e) => { ignoreElement.contains(e.originalEvent.target) && e.preventDefault() }"
+/>
+```
+
 After closing, `GlDisclosureDropdown` emits a `hidden` event.
 
 ### Setting disclosure dropdown items
