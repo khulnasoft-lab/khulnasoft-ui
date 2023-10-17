@@ -1,3 +1,10 @@
+## [66.32.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.32.0...v66.32.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** Make the search input rounded ([23705b2](https://gitlab.com/gitlab-org/gitlab-ui/commit/23705b276853da5622cdae2484f38ce8f22a9ba5))
+
 # [66.32.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.31.1...v66.32.0) (2023-10-16)
 
 
