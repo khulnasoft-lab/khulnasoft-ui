@@ -1,3 +1,5 @@
+export const CHAT_RESET_MESSAGE = '/reset';
+
 export const LOADING_TRANSITION_DURATION = 7500;
 
 export const DOCUMENTATION_SOURCE_TYPES = {
