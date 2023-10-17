@@ -109,7 +109,11 @@ export default {
 <template>
   <gl-card
     class="gl-pl-6 gl-pr-8 gl-py-6"
-    :class="{ 'gl-banner-introduction': isIntroducing, 'gl-border-none!': embedded }"
+    :class="{
+      'gl-banner-introduction': isIntroducing,
+      'gl-border-none!': embedded,
+      'gl-bg-gray-10!': !isIntroducing,
+    }"
     body-class="gl-display-flex gl-p-0!"
   >
     <div v-if="svgPath" class="gl-banner-illustration">
