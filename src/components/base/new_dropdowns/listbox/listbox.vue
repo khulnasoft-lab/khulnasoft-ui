@@ -809,6 +809,7 @@ export default {
         :aria-owns="listboxId"
         data-testid="listbox-search-input"
         :placeholder="searchPlaceholder"
+        :class="{ 'gl-listbox-topmost': !headerText }"
         @input="search"
         @keydown.enter.prevent
         @keydown="onKeydown"
