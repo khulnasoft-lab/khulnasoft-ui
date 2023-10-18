@@ -1,3 +1,10 @@
+# [66.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.33.0...v66.34.0) (2023-10-18)
+
+
+### Features
+
+* **css:** added gl-z-index-999 utility ([f297430](https://gitlab.com/gitlab-org/gitlab-ui/commit/f2974305522a9a3e2b9d00a4590df332826817e6))
+
 # [66.33.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.32.1...v66.33.0) (2023-10-17)
 
 
