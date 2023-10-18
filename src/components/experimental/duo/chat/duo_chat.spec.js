@@ -9,6 +9,11 @@ import GlDuoChat from './duo_chat.vue';
 
 import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
 
+jest.mock(
+  '@gitlab/svgs/dist/illustrations/empty-state/empty-activity-md.svg?url',
+  () => '/path/to/empty.svg'
+);
+
 describe('GlDuoChat', () => {
   let wrapper;
 

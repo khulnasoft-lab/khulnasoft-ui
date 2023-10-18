@@ -1,6 +1,7 @@
 <script>
 import throttle from 'lodash/throttle';
-import emptySvg from '@gitlab/svgs/dist/illustrations/empty-state/empty-activity-md.svg';
+// eslint-disable-next-line import/no-unresolved
+import emptySvg from '@gitlab/svgs/dist/illustrations/empty-state/empty-activity-md.svg?url';
 import GlEmptyState from '../../../regions/empty_state/empty_state.vue';
 import GlButton from '../../../base/button/button.vue';
 import GlAlert from '../../../base/alert/alert.vue';
