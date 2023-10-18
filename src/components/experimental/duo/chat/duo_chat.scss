@@ -1,5 +1,5 @@
 .duo-chat {
-  z-index: 999;
+  @include gl-z-index-999;
 
   .message-enter-active,
   .message-leave-active {
