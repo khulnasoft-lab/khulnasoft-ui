@@ -109,8 +109,9 @@ describe('DuoChatMessage', () => {
   });
 
   describe('message output', () => {
-    it('hydrates the message with GLFM when mounting the component', () => {
+    it('hydrates the message with GLFM when mounting the component', async () => {
       createComponent();
+      await nextTick();
       expect(renderGFM).toHaveBeenCalled();
     });
 
@@ -327,6 +328,7 @@ describe('DuoChatMessage', () => {
           message: chunk1,
         },
       });
+      await nextTick();
       renderGFM.mockClear();
       expect(renderGFM).not.toHaveBeenCalled();
 

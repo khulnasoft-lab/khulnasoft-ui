@@ -1,10 +1,13 @@
-import { MOCK_USER_PROMPT_MESSAGE, MOCK_RESPONSE_MESSAGE } from '../../mock_data';
+import {
+  MOCK_USER_PROMPT_MESSAGE,
+  MOCK_RESPONSE_MESSAGE,
+  renderGFM,
+  renderMarkdown,
+} from '../../mock_data';
 import GlDuoChatConversation from './duo_chat_conversation.vue';
 import readme from './duo_chat_conversation.md';
 
 const defaultValue = (prop) => GlDuoChatConversation.props[prop].default;
-const renderMarkdown = (content) => content;
-const renderGFM = () => {};
 
 const generateProps = ({ messages = [], showDelimiter = defaultValue('showDelimiter') } = {}) => ({
   messages,

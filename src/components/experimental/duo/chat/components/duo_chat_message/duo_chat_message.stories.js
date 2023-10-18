@@ -1,9 +1,11 @@
-import { MOCK_RESPONSE_MESSAGE, MOCK_USER_PROMPT_MESSAGE } from '../../mock_data';
+import {
+  MOCK_RESPONSE_MESSAGE,
+  MOCK_USER_PROMPT_MESSAGE,
+  renderGFM,
+  renderMarkdown,
+} from '../../mock_data';
 import GlDuoChatMessage from './duo_chat_message.vue';
 import readme from './duo_chat_message.md';
-
-const renderMarkdown = (content) => content;
-const renderGFM = () => {};
 
 const generateProps = ({ message = MOCK_RESPONSE_MESSAGE } = {}) => ({
   message,
