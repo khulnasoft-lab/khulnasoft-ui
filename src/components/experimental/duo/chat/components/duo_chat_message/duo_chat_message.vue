@@ -15,6 +15,9 @@ const concatIndicesUntilEmpty = (arr) => {
 
 export default {
   name: 'GlDuoChatMessage',
+  safeHtmlConfigExtension: {
+    ADD_TAGS: ['copy-code'],
+  },
   components: {
     DocumentationSources,
     GlDuoUserFeedback,
@@ -102,7 +105,7 @@ export default {
         isAssistantMessage,
     }"
   >
-    <div ref="content" v-safe-html="messageContent"></div>
+    <div ref="content" v-safe-html:[$options.safeHtmlConfigExtension]="messageContent"></div>
 
     <template v-if="isAssistantMessage">
       <documentation-sources v-if="sources" :sources="sources" />
