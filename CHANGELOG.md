@@ -1,3 +1,10 @@
+# [66.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.34.0...v66.35.0) (2023-10-20)
+
+
+### Features
+
+* **DisclosureDropdown:** Add startOpened prop ([4896b9c](https://gitlab.com/gitlab-org/gitlab-ui/commit/4896b9c3a6f9075a76fa71ea275f2153de111249))
+
 # [66.34.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.33.0...v66.34.0) (2023-10-18)
 
 
