@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { autoUpdate } from '@floating-ui/dom';
+import { nextTick } from 'vue';
 import * as utils from '../../../../utils/utils';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import {
@@ -43,6 +44,7 @@ describe('GlDisclosureDropdown', () => {
   const findDisclosureItems = (root = wrapper) => root.findAllComponents(GlDisclosureDropdownItem);
   const findDisclosureGroups = () => wrapper.findAllComponents(GlDisclosureDropdownGroup);
   const findListItem = (index) => findDisclosureItems().at(index).findComponent(ITEM_SELECTOR);
+  const findDropdownMenu = () => wrapper.find("[data-testid='base-dropdown-menu']");
 
   jest.spyOn(utils, 'filterVisible').mockImplementation((items) => items);
 
@@ -386,5 +388,18 @@ describe('GlDisclosureDropdown', () => {
         expect(findBaseDropdown().props('positioningStrategy')).toBe(positioningStrategy);
       }
     );
+  });
+  describe('startOpened', () => {
+    it('should open dropdown on render when startOpened is true', async () => {
+      buildWrapper({ items: mockItems, startOpened: true });
+      await nextTick();
+      expect(findDropdownMenu().classes()).toContain('gl-display-block!');
+    });
+
+    it('should not open dropdown on render as default', async () => {
+      buildWrapper({ items: mockItems });
+      await nextTick();
+      expect(findDropdownMenu().classes()).not.toContain('gl-display-block!');
+    });
   });
 });

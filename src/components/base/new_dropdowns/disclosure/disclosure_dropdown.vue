@@ -219,6 +219,14 @@ export default {
       default: POSITION_ABSOLUTE,
       validator: (strategy) => [POSITION_ABSOLUTE, POSITION_FIXED].includes(strategy),
     },
+    /**
+     * Opens dropdown on render
+     */
+    startOpened: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -236,6 +244,11 @@ export default {
     hasCustomToggle() {
       return Boolean(this.$scopedSlots.toggle);
     },
+  },
+  mounted() {
+    if (this.startOpened) {
+      this.open();
+    }
   },
   methods: {
     open() {

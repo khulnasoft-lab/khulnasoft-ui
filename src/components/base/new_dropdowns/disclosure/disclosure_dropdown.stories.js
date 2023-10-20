@@ -44,16 +44,12 @@ const makeBindings = (overrides = {}) =>
     ':fluid-width': 'fluidWidth',
     ':auto-close': 'autoClose',
     ':positioning-strategy': 'positioningStrategy',
+    ':start-opened': 'startOpened',
+
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
     .join('\n');
-
-function openDisclosure(component) {
-  component.$nextTick(() => {
-    component.$refs.disclosure.open();
-  });
-}
 
 const template = (content = '', { bindingOverrides = {}, after = '' } = {}) => `
   <div>
@@ -74,11 +70,6 @@ export const Default = (args, { argTypes }) => ({
   components: {
     GlDisclosureDropdown,
     GlTooltip,
-  },
-  mounted() {
-    if (this.startOpened) {
-      openDisclosure(this);
-    }
   },
   template: `
     <div>
@@ -104,11 +95,6 @@ export const CustomListItem = (args, { argTypes }) => ({
   components: {
     GlDisclosureDropdown,
     GlBadge,
-  },
-  mounted() {
-    if (this.startOpened) {
-      openDisclosure(this);
-    }
   },
   template: template(
     `
@@ -147,11 +133,6 @@ const makeGroupedExample = (changes) => {
       GlModal,
       GlIcon,
     },
-    mounted() {
-      if (this.startOpened) {
-        openDisclosure(this);
-      }
-    },
     ...changes,
   });
 
@@ -176,11 +157,6 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
   components: {
     GlDisclosureDropdown,
     GlBadge,
-  },
-  mounted() {
-    if (this.startOpened) {
-      openDisclosure(this);
-    }
   },
   methods: {
     getTotalMrs(items) {
@@ -311,11 +287,6 @@ export const MiscellaneousContent = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
     GlDisclosureDropdown,
-  },
-  mounted() {
-    if (this.startOpened) {
-      openDisclosure(this);
-    }
   },
   template: template(
     `
