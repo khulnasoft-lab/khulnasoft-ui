@@ -1,4 +1,5 @@
 <script>
+import { nextTick } from 'vue';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
 import { MESSAGE_MODEL_ROLES } from '../../constants';
@@ -60,7 +61,7 @@ export default {
         if (!chunkId) {
           this.messageChunks = [];
           this.messageContent = this.content;
-          this.renderGFM(this.$refs.content);
+          this.hydrateContentWithGFM();
         } else {
           this.messageChunks[chunkId] = content;
           this.messageContent = this.renderMarkdown(concatIndicesUntilEmpty(this.messageChunks));
@@ -81,7 +82,13 @@ export default {
     if (this.message.chunkId) {
       this.messageChunks[this.message.chunkId] = this.message.content;
     }
-    this.renderGFM(this.$refs.content);
+    this.hydrateContentWithGFM();
+  },
+  methods: {
+    async hydrateContentWithGFM() {
+      await nextTick();
+      this.renderGFM(this.$refs.content);
+    },
   },
 };
 </script>

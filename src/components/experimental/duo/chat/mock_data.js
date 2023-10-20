@@ -94,3 +94,11 @@ export const MOCK_USER_PROMPT_MESSAGE = {
   timestamp: '2021-04-21T12:00:00.000Z',
   extras: null,
 };
+
+export const renderMarkdown = (content) => content;
+export const renderGFM = (el) => {
+  const codeBlock = el.querySelectorAll('.markdown-code-block');
+  codeBlock.forEach((block) => {
+    block?.classList.add('gl-bg-purple-50', 'gl-p-3', 'gl-mb-3');
+  });
+};

@@ -8,10 +8,9 @@ import {
   MOCK_RESPONSE_MESSAGE,
   MOCK_USER_PROMPT_MESSAGE,
   generateMockResponseChunks,
+  renderGFM,
+  renderMarkdown,
 } from './mock_data';
-
-const renderMarkdown = (content) => content;
-const renderGFM = () => {};
 
 const defaultValue = (prop) =>
   typeof GlDuoChat.props[prop].default === 'function'
