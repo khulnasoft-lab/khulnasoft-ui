@@ -1,3 +1,10 @@
+## [66.35.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.35.0...v66.35.1) (2023-10-20)
+
+
+### Bug Fixes
+
+* **GlDuoChatMessage:** nextTick() when rendering GFM ([835900c](https://gitlab.com/gitlab-org/gitlab-ui/commit/835900cb9cf01e26b4e24120be3abc6f48c3c371))
+
 # [66.35.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.34.0...v66.35.0) (2023-10-20)
 
 
