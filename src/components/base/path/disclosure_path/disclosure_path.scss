@@ -1,0 +1,134 @@
+$disclosure-path-chevron-dimension: px-to-rem(19px);
+$disclosure-path-chevron-top: px-to-rem(6px);
+$disclosure-path-chevron-right: px-to-rem(-9px);
+$disclosure-path-button-right-padding: 1.5 * $grid-size;
+
+@mixin gl-disclosure-path-chevron {
+  content: '';
+  @include gl-absolute;
+  @include gl-reset-bg;
+  top: $disclosure-path-chevron-top;
+  right: $disclosure-path-chevron-right;
+  width: $disclosure-path-chevron-dimension;
+  height: $disclosure-path-chevron-dimension;
+  transform: $path-chevron-transformation;
+}
+
+.gl-disclosure-path {
+  @include gl-relative;
+  @include gl-display-flex;
+
+  .gl-disclosure-path-list {
+    @include gl-p-0;
+    @include gl-m-0;
+    @include gl-relative;
+    @include gl-list-style-none;
+    @include gl-display-inline-flex;
+  }
+}
+
+.gl-disclosure-path-button {
+  @include gl-pl-6;
+  @include gl-py-3;
+  @include gl-display-flex;
+  @include gl-relative;
+  @include gl-font-base;
+  @include gl-border;
+  @include gl-border-r-none;
+  @include gl-border-l-none;
+  @include gl-text-gray-500;
+  @include gl-font-weight-bold;
+  @include gl-line-height-normal;
+  background-color: transparent;
+  padding-right: $disclosure-path-button-right-padding;
+  border-radius: 0%;
+  box-shadow: none;
+  transition: none;
+
+  &::before,
+  &::after {
+    @include gl-disclosure-path-chevron;
+    @include gl-border;
+    border-color: inherit;
+    @include gl-border-b-transparent;
+    @include gl-border-l-transparent;
+    background-color: inherit;
+  }
+
+  &::before {
+    background-color: $body-bg;
+    left: -10px;
+  }
+
+  &::after {
+    z-index: 1;
+  }
+
+  .gl-path-disclosure-list-item:first-child & {
+    @include gl-pl-5;
+    @include gl-border-l;
+    @include gl-rounded-top-left-base;
+    @include gl-rounded-bottom-left-base;
+
+    &::before {
+      @include gl-display-none;
+    }
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      // Custom focus
+      box-shadow: 2px 1px 0 1px $blue-400, 2px -1px 0 1px $blue-400, -1px 1px 0 1px $blue-400, -1px -1px 0 1px $blue-400 !important;
+    }
+  }
+
+  .gl-path-disclosure-list-item:last-child & {
+    @include gl-border-r;
+    @include gl-rounded-top-right-base;
+    @include gl-rounded-bottom-right-base;
+
+    &::after {
+      @include gl-display-none;
+    }
+  }
+
+  &[disabled] {
+    color: $gl-text-color-disabled;
+    @include gl-cursor-not-allowed;
+  }
+
+  &:not([disabled]):hover {
+    @include gl-border-gray-200;
+    @include gl-path-active-item-color($gray-100);
+    color: $gl-text-color;
+
+    &::after {
+      @include gl-border-b-gray-100;
+      @include gl-border-l-gray-100;
+    }
+  }
+
+  &:active,
+  &:focus,
+  &:focus:active {
+    // Custom focus
+    box-shadow: 2px 1px 0 1px $blue-400, 2px -1px 0 1px $blue-400 !important;
+    border-color: $blue-400;
+    outline: none;
+    @include gl-rounded-small;
+
+    &::before, &::after {
+      border-top-left-radius: 1px;
+      border-bottom-right-radius: 1px;
+      box-shadow: 2px -2px 0 1px $blue-400;
+      border-top-color: $blue-400;
+      border-right-color: $blue-400;
+    }
+  }
+}
+
+.gl-disclosure-path-ellipsis-list {
+  @include gl-m-0;
+  @include gl-p-0;  
+  @include gl-list-style-none;
+}

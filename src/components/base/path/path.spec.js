@@ -1,6 +1,6 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
-import { mockPathItems } from './data';
+import { mockPathItems } from './mock_data';
 import GlPath from './path.vue';
 
 const SELECTED_CLASS_INDIGO = 'gl-path-active-item-indigo';

@@ -346,8 +346,9 @@ $modal-backdrop-bg: #000;
 $modal-backdrop-opacity: 0.64;
 
 // Bootstrap overrides
-// these should ideally be moved further up in the file to the compoent-relevant sections
+// these should ideally be moved further up in the file to the component-relevant sections
 // but they can wait here for now
+$body-bg: $white !default;
 $body-color: $gl-text-color !default;
 $enable-validation-icons: false;
 

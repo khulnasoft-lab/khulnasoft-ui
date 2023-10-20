@@ -59,6 +59,7 @@ export { default as GlDisclosureDropdownItem } from './components/base/new_dropd
 export { default as GlDisclosureDropdownGroup } from './components/base/new_dropdowns/disclosure/disclosure_dropdown_group.vue';
 // new components aiming to replace GlDropdown  - end
 export { default as GlPath } from './components/base/path/path.vue';
+export { default as GlDisclosurePath } from './components/base/path/disclosure_path/disclosure_path.vue';
 export { default as GlTable } from './components/base/table/table.vue';
 export { default as GlBreadcrumb } from './components/base/breadcrumb/breadcrumb.vue';
 export { default as GlScrollableTabs } from './components/base/tabs/tabs/scrollable_tabs.vue';

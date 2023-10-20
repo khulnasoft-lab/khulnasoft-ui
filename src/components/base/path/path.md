@@ -5,7 +5,7 @@ Like tabs, paths let users focus in on specific content at each stage
 whilst still keeping all the other stages in view. Only one stage can
 be active at a given time.
 
-### Implemetation
+### Implementation
 
 The component should be initialized with an array of data objects. By
 default, the first item in the array will be selected. This can be

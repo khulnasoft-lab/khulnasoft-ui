@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisclosurePathItem renders the item matches the snapshot 1`] = `
+<li
+  class="gl-path-disclosure-list-item"
+>
+  <button
+    class="gl-disclosure-path-button"
+  >
+    <gl-icon-stub
+      class="gl-mr-2"
+      data-testid="gl-disclosure-path-item-icon"
+      name="epic"
+      size="16"
+    />
+    <span>
+      First
+    </span>
+  </button>
+</li>
+`;
