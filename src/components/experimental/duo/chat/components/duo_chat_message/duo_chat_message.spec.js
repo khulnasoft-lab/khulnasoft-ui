@@ -342,6 +342,33 @@ describe('DuoChatMessage', () => {
       expect(renderGFM).not.toHaveBeenCalled();
     });
 
+    it('does not re-render when chunk is received after final message', async () => {
+      const finalMessageContent = content1 + content2;
+
+      // setProps is justified here because we are testing the component's
+      // reactive behavior which consistutes an exception
+      // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
+      await wrapper.setProps({
+        message: chunk1,
+      });
+      expect(findContent().text()).toBe(content1);
+
+      await wrapper.setProps({
+        message: {
+          ...MOCK_RESPONSE_MESSAGE,
+          content: finalMessageContent,
+          contentHtml: finalMessageContent,
+          chunkId: null,
+        },
+      });
+      expect(findContent().text()).toBe(finalMessageContent);
+
+      await wrapper.setProps({
+        message: chunk2,
+      });
+      expect(findContent().text()).toBe(finalMessageContent);
+    });
+
     it.each`
       content    | contentHtml | errors            | expectedContent
       ${'alpha'} | ${'beta'}   | ${['foo', 'bar']} | ${'beta'}

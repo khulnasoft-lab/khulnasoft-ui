@@ -35,6 +35,7 @@ export default {
   data() {
     return {
       messageContent: '',
+      messageWatcher: null,
     };
   },
   computed: {
@@ -54,21 +55,8 @@ export default {
       );
     },
   },
-  watch: {
-    message: {
-      handler() {
-        const { chunkId, content } = this.message;
-        if (!chunkId) {
-          this.messageChunks = [];
-          this.messageContent = this.content;
-          this.hydrateContentWithGFM();
-        } else {
-          this.messageChunks[chunkId] = content;
-          this.messageContent = this.renderMarkdown(concatIndicesUntilEmpty(this.messageChunks));
-        }
-      },
-      deep: true,
-    },
+  created() {
+    this.messageWatcher = this.$watch('message', this.messageUpdateHandler, { deep: true });
   },
   beforeCreate() {
     /**
@@ -88,6 +76,19 @@ export default {
     async hydrateContentWithGFM() {
       await nextTick();
       this.renderGFM(this.$refs.content);
+    },
+    async messageUpdateHandler() {
+      const { chunkId, content } = this.message;
+      if (!chunkId) {
+        this.messageChunks = [];
+        this.messageContent = this.content;
+
+        this.messageWatcher();
+        this.hydrateContentWithGFM();
+      } else {
+        this.messageChunks[chunkId] = content;
+        this.messageContent = this.renderMarkdown(concatIndicesUntilEmpty(this.messageChunks));
+      }
     },
   },
 };
