@@ -52,7 +52,7 @@ export default {
     disableTooltip: {
       type: Boolean,
       required: false,
-      default: () => false,
+      default: false,
     },
     /**
      * Sets the chart's height in pixels. Set to `"auto"` to use the height of the container.
@@ -103,9 +103,11 @@ export default {
         {},
         defaultChartOptions,
         {
-          tooltip: {
-            formatter: this.onLabelChange,
-          },
+          tooltip: this.disableTooltip
+            ? undefined
+            : {
+                formatter: this.onLabelChange,
+              },
           xAxis: {
             type: 'category',
             name: this.xAxisTitle,
@@ -142,7 +144,7 @@ export default {
   },
   methods: {
     defaultFormatTooltipText(params) {
-      const { data } = params;
+      const data = this.getChartData(params);
       const [title, content] = data;
       this.tooltipTitle = title;
       const seriesName = this.yAxisTitle;
@@ -166,7 +168,7 @@ export default {
     onLabelChange(params) {
       this.selectedFormatTooltipText(params);
 
-      const { data = [] } = params;
+      const data = this.getChartData(params);
 
       if (data.length) {
         const [left, top] = this.chart.convertToPixel('grid', data);
@@ -176,6 +178,10 @@ export default {
           top: `${top}px`,
         };
       }
+    },
+    getChartData({ data }) {
+      const chartData = data?.value || data;
+      return Array.isArray(chartData) ? chartData : [];
     },
   },
   HEIGHT_AUTO_CLASSES,
