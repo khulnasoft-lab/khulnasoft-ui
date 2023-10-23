@@ -23,9 +23,9 @@ const MOCK_SOURCES = [
 export const MOCK_RESPONSE_MESSAGE = {
   id: '123',
   content:
-    'To create a new template:\n\n1. Create a new Markdown (`.md`) file inside the `.gitlab/issue_templates/` or `.gitlab/merge_request_templates/` directory in your repository.\n2. Commit the template file to your default branch.\n\nTo check if this has worked correctly, create a new issue or merge request and see if you can find your template in the **Choose a template** dropdown list.',
+    'Here is a simple JavaScript function to sum two numbers:\n\n  ```js\n  function sum(a, b) {\n    return a + b;\n  }\n  ```\n  \n  To use it:\n  \n  ```js\n  const result = sum(5, 3); // result = 8\n  ```\n  \n  This function takes two number parameters, a and b. It returns the sum of adding them together.\n',
   contentHtml:
-    '\u003cp data-sourcepos="1:1-1:25" dir="auto"\u003eTo create a new template:\u003c/p\u003e\n\u003col data-sourcepos="3:1-5:0" dir="auto"\u003e\n\u003cli data-sourcepos="3:1-3:143"\u003eCreate a new Markdown (\u003ccode\u003e.md\u003c/code\u003e) file inside the \u003ccode\u003e.gitlab/issue_templates/\u003c/code\u003e or \u003ccode\u003e.gitlab/merge_request_templates/\u003c/code\u003e directory in your repository.\u003c/li\u003e\n\u003cli data-sourcepos="4:1-5:0"\u003eCommit the template file to your default branch.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp data-sourcepos="6:1-6:156" dir="auto"\u003eTo check if this has worked correctly, create a new issue or merge request and see if you can find your template in the \u003cstrong\u003eChoose a template\u003c/strong\u003e dropdown list.\u003c/p\u003e',
+    '<p data-sourcepos="1:1-1:56" dir="auto">Here is a simple JavaScript function to sum two numbers:</p>\n<div class="gl-relative markdown-code-block js-markdown-code">\n<pre data-sourcepos="3:1-7:3" data-canonical-lang="js" class="code highlight js-syntax-highlight language-javascript" lang="javascript" v-pre="true"><code><span id="LC1" class="line" lang="javascript"><span class="kd">function</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span></span>\n<span id="LC2" class="line" lang="javascript">  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span></span>\n<span id="LC3" class="line" lang="javascript"><span class="p">}</span></span></code></pre>\n<copy-code></copy-code>\n</div>\n<p data-sourcepos="9:1-9:10" dir="auto">To use it:</p>\n<div class="gl-relative markdown-code-block js-markdown-code">\n<pre data-sourcepos="11:1-13:3" data-canonical-lang="js" class="code highlight js-syntax-highlight language-javascript" lang="javascript" v-pre="true"><code><span id="LC1" class="line" lang="javascript"><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// result = 8</span></span></code></pre>\n<copy-code></copy-code>\n</div>\n<p data-sourcepos="15:1-15:95" dir="auto">This function takes two number parameters, a and b. It returns the sum of adding them together.</p>',
   role: MESSAGE_MODEL_ROLES.assistant,
   extras: {
     sources: MOCK_SOURCES,
@@ -99,6 +99,6 @@ export const renderMarkdown = (content) => content;
 export const renderGFM = (el) => {
   const codeBlock = el.querySelectorAll('.markdown-code-block');
   codeBlock.forEach((block) => {
-    block?.classList.add('gl-bg-purple-50', 'gl-p-3', 'gl-mb-3');
+    block?.classList.add('gl-markdown', 'gl-compact-markdown');
   });
 };
