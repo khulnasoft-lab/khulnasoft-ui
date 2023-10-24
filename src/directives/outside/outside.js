@@ -9,12 +9,14 @@ const callbacks = new Map();
  * Is a global listener already set up?
  */
 let listening = false;
+let lastMousedown = null;
 
 const globalListener = (event) => {
   callbacks.forEach(({ bindTimeStamp, callback }, element) => {
+    const originalEvent = lastMousedown || event;
     if (
       // Ignore events that aren't targeted outside the element
-      element.contains(event.target) ||
+      element.contains(originalEvent.target) ||
       // Only consider events triggered after the directive was bound
       event.timeStamp <= bindTimeStamp
     ) {
@@ -30,6 +32,14 @@ const globalListener = (event) => {
       }
     }
   });
+  lastMousedown = null;
+};
+
+// We need to listen for mouse events because text selection fires click event only when selection ends.
+// This means that the click event target could differ from the element where it originally started.
+// As example: if we use mouse events we could guarantee that selecting text within a dropdown won't close it.
+const onMousedown = (event) => {
+  lastMousedown = event;
 };
 
 const startListening = () => {
@@ -37,8 +47,10 @@ const startListening = () => {
     return;
   }
 
+  document.addEventListener('mousedown', onMousedown);
   document.addEventListener('click', globalListener, { capture: true });
   listening = true;
+  lastMousedown = null;
 };
 
 const stopListening = () => {
@@ -46,6 +58,7 @@ const stopListening = () => {
     return;
   }
 
+  document.removeEventListener('mousedown', onMousedown);
   document.removeEventListener('click', globalListener);
   listening = false;
 };
