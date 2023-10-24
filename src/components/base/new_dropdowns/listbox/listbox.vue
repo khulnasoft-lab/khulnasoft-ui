@@ -737,6 +737,10 @@ export default {
       this.scrollObserver = observer;
     },
     isOption,
+    onPaste(event) {
+      event.preventDefault();
+      this.$emit('paste', event.clipboardData.getData('text'));
+    },
   },
 };
 </script>
@@ -813,6 +817,9 @@ export default {
         @input="search"
         @keydown.enter.prevent
         @keydown="onKeydown"
+        @paste="onPaste"
+        @keyup.ctrl.v="onPaste"
+        @keyup.meta.v="onPaste"
       />
       <gl-loading-icon
         v-if="searching"
