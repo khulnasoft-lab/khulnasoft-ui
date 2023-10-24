@@ -1,3 +1,10 @@
+## [66.36.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.36.0...v66.36.1) (2023-10-24)
+
+
+### Bug Fixes
+
+* **Dropdown:** correct dropdown chevron position when block ([d7b7075](https://gitlab.com/gitlab-org/gitlab-ui/commit/d7b70757a6c96e6de7d472910f93f75b909c92e9))
+
 # [66.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.35.2...v66.36.0) (2023-10-24)
 
 
