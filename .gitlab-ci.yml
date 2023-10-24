@@ -161,11 +161,6 @@ populate_npm_cache:
       when: always
     - when: never
 
-danger-review:
-  variables:
-    DANGER_GITLAB_API_TOKEN: $GITLAB_TOKEN
-    GITLAB_DANGERFILES_VERSION: 3.5.1
-
 build_package:
   extends: [.node, .yarn_install]
   variables:
