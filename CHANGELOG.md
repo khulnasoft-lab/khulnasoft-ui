@@ -1,3 +1,11 @@
+## [66.35.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.35.1...v66.35.2) (2023-10-24)
+
+
+### Bug Fixes
+
+* rendering chunks after the final message ([b745c98](https://gitlab.com/gitlab-org/gitlab-ui/commit/b745c98cce77355e3efef2ec08867cb2e2cacb2a))
+* **GlDiscreteChatter:** Fix popover handling ([3a9deb0](https://gitlab.com/gitlab-org/gitlab-ui/commit/3a9deb05e7fd9fd6f63ae18c4bed565170735038))
+
 ## [66.35.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.35.0...v66.35.1) (2023-10-20)
 
 
