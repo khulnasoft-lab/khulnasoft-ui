@@ -1,8 +1,7 @@
 <script>
 import isEqual from 'lodash/isEqual';
 import cloneDeep from 'lodash/cloneDeep';
-import PortalVue from 'portal-vue';
-import Vue from 'vue';
+import { PortalTarget } from 'portal-vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlIcon from '../icon/icon.vue';
 import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
@@ -18,8 +17,6 @@ import {
   termTokenDefinition,
 } from './filtered_search_utils';
 
-Vue.use(PortalVue);
-
 let portalUuid = 0;
 
 function initialState() {
@@ -31,6 +28,7 @@ export default {
   components: {
     GlSearchBoxByClick,
     GlIcon,
+    PortalTarget,
   },
   directives: { GlTooltip: GlTooltipDirective },
   provide() {
