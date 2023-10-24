@@ -1,3 +1,10 @@
+# [66.36.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.35.2...v66.36.0) (2023-10-24)
+
+
+### Features
+
+* **GlLink:** Removes text size override in gl-link ([ff9d6fa](https://gitlab.com/gitlab-org/gitlab-ui/commit/ff9d6fab70bdcfc903238c9f3f5a9da5924e9a36))
+
 ## [66.35.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.35.1...v66.35.2) (2023-10-24)
 
 
