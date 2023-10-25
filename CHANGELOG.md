@@ -1,3 +1,10 @@
+# [66.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.36.1...v66.37.0) (2023-10-25)
+
+
+### Features
+
+* **GlDuoChatMessage:** do not strip out copy-code ([14782a5](https://gitlab.com/gitlab-org/gitlab-ui/commit/14782a5d60a8e48dffb60fa120bddc61285d950a))
+
 ## [66.36.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.36.0...v66.36.1) (2023-10-24)
 
 
