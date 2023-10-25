@@ -15,6 +15,7 @@ describe('DuoChatMessage', () => {
   const findContent = () => wrapper.findComponent({ ref: 'content' });
   const findDocumentSources = () => wrapper.findComponent(DocumentationSources);
   const findUserFeedback = () => wrapper.findComponent(GlDuoUserFeedback);
+  const findCopyCodeButton = () => wrapper.find('copy-code');
   const mockMarkdownContent = 'foo **bar**';
 
   let renderMarkdown;
@@ -105,6 +106,10 @@ describe('DuoChatMessage', () => {
     it('proxies the emitted event from the User Feedback component', () => {
       findUserFeedback().vm.$emit('feedback', 'foo');
       expect(wrapper.emitted('track-feedback')).toEqual([['foo']]);
+    });
+
+    it('does not strip out the <copy-code/> element from HTML output', () => {
+      expect(findCopyCodeButton().exists()).toBe(true);
     });
   });
 
