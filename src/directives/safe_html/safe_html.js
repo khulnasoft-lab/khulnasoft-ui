@@ -1,5 +1,5 @@
 import DOMPurify from 'dompurify';
-import { forbiddenDataAttrs } from './constants';
+import { forbiddenDataAttrs, forbiddenTags } from './constants';
 
 const { sanitize } = DOMPurify;
 
@@ -11,7 +11,8 @@ const { sanitize } = DOMPurify;
 const DEFAULT_CONFIG = {
   RETURN_DOM_FRAGMENT: true,
   ALLOW_UNKNOWN_PROTOCOLS: true,
-  FORBID_ATTR: [...forbiddenDataAttrs],
+  FORBID_ATTR: forbiddenDataAttrs,
+  FORBID_TAGS: forbiddenTags,
 };
 
 const transform = (el, binding) => {

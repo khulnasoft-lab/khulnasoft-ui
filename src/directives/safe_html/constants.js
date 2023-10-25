@@ -10,3 +10,5 @@ export const forbiddenDataAttrs = [
   'data-disable',
   'data-turbo',
 ];
+
+export const forbiddenTags = ['style', 'mstyle', 'form'];
