@@ -62,33 +62,35 @@ export default {
 
 <template>
   <div class="duo-chat-loader">
-    <div class="gl-display-flex gl-align-items-center gl-mr-3">
+    <div class="gl-display-flex gl-align-items-flex-start gl-mr-3 gl-pt-3">
       <div class="duo-chat-loader__dot duo-chat-loader__dot--1"></div>
       <div class="duo-chat-loader__dot duo-chat-loader__dot--2"></div>
       <div class="duo-chat-loader__dot duo-chat-loader__dot--3"></div>
     </div>
-    <gl-sprintf :message="$options.i18n.LOADER_LOADING_MESSAGE">
-      <template #tool>
-        <strong class="gl-mr-2" data-testid="tool">{{ toolName }}</strong>
-      </template>
-      <template #transition>
-        <transition-group
-          ref="transition"
-          name="text"
-          class="transition gl-display-inline-block gl-mx-2"
-          @after-leave="computeTransitionWidth"
-        >
-          <span
-            v-for="(message, index) in $options.i18n.LOADER_LOADING_TRANSITIONS"
-            v-show="isCurrentTransition(index)"
-            :ref="isCurrentTransition(index) ? 'currentTransition' : ''"
-            :key="message"
-            :data-testid="isCurrentTransition(index) ? 'current-transition' : ''"
-            class="gl-white-space-nowrap"
-            >{{ message }}</span
+    <div class="gl-line-height-24">
+      <gl-sprintf :message="$options.i18n.LOADER_LOADING_MESSAGE">
+        <template #tool>
+          <strong data-testid="tool">{{ toolName }}</strong>
+        </template>
+        <template #transition>
+          <transition-group
+            ref="transition"
+            name="text"
+            class="transition gl-display-inline-block gl-relative gl-vertical-align-bottom"
+            @after-leave="computeTransitionWidth"
           >
-        </transition-group>
-      </template>
-    </gl-sprintf>
+            <span
+              v-for="(message, index) in $options.i18n.LOADER_LOADING_TRANSITIONS"
+              v-show="isCurrentTransition(index)"
+              :ref="isCurrentTransition(index) ? 'currentTransition' : ''"
+              :key="message"
+              :data-testid="isCurrentTransition(index) ? 'current-transition' : ''"
+              class="gl-white-space-nowrap gl-absolute gl-bottom-0 gl-left-0"
+              >{{ message }}</span
+            >
+          </transition-group>
+        </template>
+      </gl-sprintf>
+    </div>
   </div>
 </template>
