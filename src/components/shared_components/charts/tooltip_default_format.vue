@@ -25,7 +25,7 @@ export default {
         {{ label }}
       </series-label>
       <div class="gl-charts-tooltip-default-format-series-value">
-        {{ value.value }}
+        <slot name="tooltip-value" :value="value.value">{{ value.value }}</slot>
       </div>
     </div>
   </div>

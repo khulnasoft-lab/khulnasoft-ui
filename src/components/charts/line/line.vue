@@ -390,7 +390,12 @@ export default {
         </div>
       </template>
       <slot v-if="formatTooltipText" name="tooltip-content"></slot>
-      <tooltip-default-format v-else :tooltip-content="dataTooltipContent" />
+      <tooltip-default-format v-else :tooltip-content="dataTooltipContent">
+        <template v-if="$scopedSlots['tooltip-value']" #tooltip-value="scope">
+          <!-- @slot Tooltip value formatter -->
+          <slot name="tooltip-value" v-bind="scope"></slot>
+        </template>
+      </tooltip-default-format>
     </chart-tooltip>
     <chart-legend
       v-if="hasLegend"

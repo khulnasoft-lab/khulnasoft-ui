@@ -1,10 +1,14 @@
+import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
+
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+
 import LineChart from './line.vue';
 
 let mockChartInstance;
@@ -39,7 +43,7 @@ describe('line component', () => {
   it('emits `created`, with the chart instance', async () => {
     createShallowWrapper();
 
-    await wrapper.vm.$nextTick();
+    await nextTick();
 
     expect(wrapper.emitted('created').length).toBe(1);
     expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
@@ -49,7 +53,7 @@ describe('line component', () => {
     it('are hidden by default', async () => {
       createShallowWrapper();
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findAnnotationsTooltip().exists()).toBe(false);
     });
@@ -64,7 +68,7 @@ describe('line component', () => {
         ],
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findAnnotationsTooltip().exists()).toBe(true);
     });
@@ -88,7 +92,7 @@ describe('line component', () => {
         },
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findAnnotationsTooltip().exists()).toBe(true);
     });
@@ -127,10 +131,62 @@ describe('line component', () => {
 
       wrapper.vm.onChartDataPointMouseOver(params);
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findAnnotationsTooltip().html()).toContain(params.data.xAxis);
       expect(findAnnotationsTooltip().html()).toContain(params.data.tooltipData.content);
+    });
+  });
+
+  describe('tooltip', () => {
+    const tooltipParams = {
+      seriesData: [
+        {
+          seriesName: 'Series 1',
+          value: ['x', 1000],
+          color: '#fff',
+        },
+        {
+          seriesName: 'Series 2',
+          value: ['x', 1001],
+          color: '#fff',
+        },
+      ],
+    };
+
+    it('renders tooltip', async () => {
+      createShallowWrapper(
+        {},
+        {
+          stubs: { TooltipDefaultFormat },
+        }
+      );
+
+      wrapper.vm.defaultFormatTooltipText(tooltipParams); // force render of a tooltip
+      await nextTick();
+
+      const tooltipText = findDataTooltip().text();
+      expect(tooltipText).toContain('1000');
+      expect(tooltipText).toContain('1001');
+    });
+
+    it('renders formatted tooltip values', async () => {
+      createShallowWrapper(
+        {},
+        {
+          stubs: { TooltipDefaultFormat },
+          scopedSlots: {
+            'tooltip-value': ({ value }) => `$ ${value.toLocaleString()}`,
+          },
+        }
+      );
+
+      wrapper.vm.defaultFormatTooltipText(tooltipParams); // force render of a tooltip
+      await nextTick();
+
+      const tooltipText = findDataTooltip().text();
+      expect(tooltipText).toContain('$ 1,000');
+      expect(tooltipText).toContain('$ 1,001');
     });
   });
 
@@ -160,7 +216,7 @@ describe('line component', () => {
 
       wrapper.setData({ dataTooltipPosition: { left, top }, dataTooltipTitle });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findDataTooltip().props('left')).toBe(`${left}`);
       expect(findDataTooltip().props('top')).toBe(`${top}`);
@@ -172,7 +228,7 @@ describe('line component', () => {
     it('is inline by default', async () => {
       createShallowWrapper();
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
@@ -182,7 +238,7 @@ describe('line component', () => {
         legendLayout: LEGEND_LAYOUT_INLINE,
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
@@ -192,7 +248,7 @@ describe('line component', () => {
         legendLayout: LEGEND_LAYOUT_TABLE,
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
     });
@@ -201,7 +257,7 @@ describe('line component', () => {
         showLegend: false,
       });
 
-      await wrapper.vm.$nextTick();
+      await nextTick();
 
       expect(findLegend().exists()).toBe(false);
     });
