@@ -135,6 +135,13 @@ describe('GlFilteredSearch', () => {
       getTokenSegment(text).should('not.exist');
     });
 
+    it('deletes term tokens when the enter key is pressed', () => {
+      const text = 'foo';
+      typeInInput(text).blur();
+      getTokenSegment(text).find(tokenCloseSelector).should('be.visible').focus().type('{enter}');
+      getTokenSegment(text).should('not.exist');
+    });
+
     // Regression test for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1761.
     it('handles token destruction with consecutive tokens of the same type', () => {
       typeInInput('label');
