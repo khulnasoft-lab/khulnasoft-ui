@@ -89,7 +89,7 @@
   &-text {
     margin-top: -$gl-spacing-scale-1;
     margin-bottom: -$gl-spacing-scale-1;
-    @include gl-overflow-break-word;
+    @include gl-overflow-anywhere;
   }
 
   &-dismiss {

@@ -128,9 +128,9 @@
 }
 
 @mixin gl-overflow-break-word {
-  overflow-wrap: anywhere;
-  word-break: normal;
+  overflow-wrap: break-word;
   hyphens: auto;
+  -webkit-hyphens: auto; // stylelint-disable-line
 }
 
 @mixin gl-overflow-anywhere {
