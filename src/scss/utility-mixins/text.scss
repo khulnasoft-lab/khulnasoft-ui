@@ -128,8 +128,8 @@
 }
 
 @mixin gl-overflow-break-word {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-wrap: normal;
   hyphens: auto;
 }
 
