@@ -49,6 +49,21 @@ describe('safe html directive', () => {
       expect(wrapper.html()).toEqual('<div><a>click here</a></div>');
     });
 
+    it('should remove style tags', () => {
+      createComponent({ html: '<style>p {width:50%;}</style>' });
+      expect(wrapper.html()).toEqual('<div></div>');
+    });
+
+    it('should remove mstyle tags', () => {
+      createComponent({ html: '<math><mstyle displaystyle="true"></mstyle></math>' });
+      expect(wrapper.html()).toEqual('<div><math></math></div>');
+    });
+
+    it('should remove form tags', () => {
+      createComponent({ html: '<form method="post" action="path"></form>' });
+      expect(wrapper.html()).toEqual('<div></div>');
+    });
+
     it('should remove any existing children', () => {
       createComponent({
         template: `<div v-safe-html="rawHtml">foo <i>bar</i></div>`,
