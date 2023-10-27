@@ -75,6 +75,7 @@
   &-content {
     @include gl-display-flex;
     @include gl-justify-content-center;
+    @include gl-overflow-break-word;
   }
 
   &-icon {

@@ -129,7 +129,7 @@
 
 @mixin gl-overflow-break-word {
   overflow-wrap: anywhere;
-  word-wrap: normal;
+  word-break: normal;
   hyphens: auto;
 }
 
