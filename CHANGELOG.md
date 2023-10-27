@@ -1,3 +1,10 @@
+# [67.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.0.0...v67.1.0) (2023-10-27)
+
+
+### Features
+
+* **color:** Add utility classes used in top header ([6d3e4cf](https://gitlab.com/gitlab-org/gitlab-ui/commit/6d3e4cfab9f78dfbfd81b1678fde6d0733fb769e))
+
 # [67.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.37.0...v67.0.0) (2023-10-27)
 
 
