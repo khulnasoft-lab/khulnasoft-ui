@@ -1,3 +1,17 @@
+# [67.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.37.0...v67.0.0) (2023-10-27)
+
+
+### Features
+
+* **SafeHtml:** disallow potentially dangerous tags ([25926ab](https://gitlab.com/gitlab-org/gitlab-ui/commit/25926ab418ffbbbe657a6a1485d01c13368e2a67))
+
+
+### BREAKING CHANGES
+
+* **SafeHtml:** This change improves safe-html defense
+by adding style, mystlye and form tags to the forbidden
+list.
+
 # [66.37.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v66.36.1...v66.37.0) (2023-10-25)
 
 
