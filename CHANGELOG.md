@@ -1,3 +1,10 @@
+# [67.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.1.0...v67.2.0) (2023-10-30)
+
+
+### Features
+
+* **GlOutsideDirective:** respect mousedown events before click ([e2d72d5](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2d72d5cc4d90c57fea3eb54f43d68338cab5ab4))
+
 # [67.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.0.0...v67.1.0) (2023-10-27)
 
 
