@@ -126,35 +126,14 @@ describe('outside directive', () => {
       expect(document.addEventListener).not.toHaveBeenCalled();
     });
 
-    it('attaches the global listener on first initialisation', async () => {
-      await createComponent();
-
-      expect(document.addEventListener.mock.calls).toEqual([
-        ['click', expect.any(Function), { capture: true }],
-      ]);
-    });
-
     it('detaches the global listener when last binding is removed', async () => {
       await createComponent();
 
       wrapper.destroy();
 
-      expect(document.removeEventListener.mock.calls).toEqual([['click', expect.any(Function)]]);
-    });
+      document.body.dispatchEvent(new MouseEvent('click'));
 
-    it('only binds once, even with multiple instances', async () => {
-      await createComponent({
-        template: `
-          <div>
-            <div v-outside="onClick"></div>
-            <div v-outside="onClick"></div>
-          </div>
-        `,
-      });
-
-      expect(document.addEventListener.mock.calls).toEqual([
-        ['click', expect.any(Function), { capture: true }],
-      ]);
+      expect(onClick).not.toHaveBeenCalled();
     });
 
     it('only unbinds once there are no instances', async () => {
@@ -173,12 +152,16 @@ describe('outside directive', () => {
       wrapper.setData({ instances: 1 });
       await wrapper.vm.$nextTick();
 
-      expect(document.removeEventListener).not.toHaveBeenCalled();
+      document.body.dispatchEvent(new MouseEvent('click'));
+
+      expect(onClick).toHaveBeenCalledTimes(1);
 
       wrapper.setData({ instances: 0 });
       await wrapper.vm.$nextTick();
 
-      expect(document.removeEventListener.mock.calls).toEqual([['click', expect.any(Function)]]);
+      document.body.dispatchEvent(new MouseEvent('click'));
+
+      expect(onClick).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -339,6 +322,17 @@ describe('outside directive', () => {
 
       const thrownError = onClickThrow.mock.results[0].value;
       expect(global.console.error.mock.calls).toEqual([[thrownError]]);
+    });
+  });
+
+  describe('mousedown before click', () => {
+    it('respects mousedown event before click', async () => {
+      await createComponent();
+
+      find('inside').trigger('mousedown');
+      find('outside').trigger('click');
+
+      expect(onClick).not.toHaveBeenCalled();
     });
   });
 });
