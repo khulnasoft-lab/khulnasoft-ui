@@ -5,6 +5,7 @@ import {
   mockDefaultLineData,
   mockDefaultBarData,
   mockSecondaryData,
+  mockDefaultStackedBarData,
 } from '../../../utils/charts/mock_data';
 import Chart from '../chart/chart.vue';
 import ColumnChart from './column.vue';
@@ -103,6 +104,24 @@ describe('column chart component', () => {
       const chart = findChart();
 
       expect(chart.props('options').yAxis[1].name).toEqual(secondaryDataTitle);
+    });
+  });
+
+  describe('with multiple series data provided', () => {
+    it('should pass through custom stack series property', () => {
+      factory({
+        ...defaultChartProps,
+        bars: mockDefaultStackedBarData.map((series) => ({
+          ...series,
+          stack: 'some-custom-stack',
+        })),
+      });
+
+      const hasExpectedStackProperty = findChart()
+        .props('options')
+        .series.every((series) => series.stack === 'some-custom-stack');
+
+      expect(hasExpectedStackProperty).toBe(true);
     });
   });
 
