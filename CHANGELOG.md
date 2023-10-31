@@ -1,3 +1,10 @@
+# [67.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.2.0...v67.3.0) (2023-10-31)
+
+
+### Features
+
+* **GlLineChart:** Defines a #tooltip-value slot ([4624919](https://gitlab.com/gitlab-org/gitlab-ui/commit/462491952e19832c9abd257b54130ed93244fd88))
+
 # [67.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.1.0...v67.2.0) (2023-10-30)
 
 
