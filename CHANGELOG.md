@@ -1,3 +1,10 @@
+## [67.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.3.0...v67.3.1) (2023-10-31)
+
+
+### Bug Fixes
+
+* **GlDuoChatLoader:** correctly wrap loader's text ([00ae4cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/00ae4cda32d01c558556ec580fc1fe59b7b07fb0))
+
 # [67.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.2.0...v67.3.0) (2023-10-31)
 
 
