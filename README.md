@@ -168,8 +168,8 @@ You have two options to include those stylesheets:
 
 ## Releases
 
-Please see [Updating Gitlab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how
-updated packages are included in Gitlab and Pajamas.
+See [Updating GitLab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how the
+`@gitlab/ui` package is kept up to date in various projects.
 
 ## Contributing guide
 

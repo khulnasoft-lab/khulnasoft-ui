@@ -6,6 +6,9 @@ they properly integrate in GitLab before they are released in a new `@gitlab/ui`
 This can be done either by building the `@gitlab/ui` package locally, or by using the package that
 is built everytime a pipeline runs against your branch.
 
+See [Updating GitLab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how the
+`@gitlab/ui` package is kept up to date in various other projects.
+
 ## Testing your changes in a local GitLab instance
 
 During development, you can link your local `@gitlab/ui` package changes to the GitLab project.
