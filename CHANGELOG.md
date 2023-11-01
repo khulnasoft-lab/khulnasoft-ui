@@ -1,3 +1,10 @@
+## [67.3.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.3.2...v67.3.3) (2023-11-01)
+
+
+### Bug Fixes
+
+* **GlDuoChat:** 100% height for chat ([bfad98d](https://gitlab.com/gitlab-org/gitlab-ui/commit/bfad98d392b1db6dea00705178dbb3cb6b2d10fe))
+
 ## [67.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.3.1...v67.3.2) (2023-11-01)
 
 
