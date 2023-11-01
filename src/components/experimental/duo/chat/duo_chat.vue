@@ -225,7 +225,7 @@ export default {
     v-if="!isHidden"
     id="chat-component"
     ref="drawer"
-    class="markdown-code-block gl-drawer gl-drawer-default gl-max-h-full gl-bottom-0 gl-shadow-none gl-border-l gl-border-t duo-chat gl-h-auto"
+    class="markdown-code-block gl-drawer gl-drawer-default gl-max-h-full gl-bottom-0 gl-shadow-none gl-border-l gl-border-t duo-chat"
     role="complementary"
     data-testid="chat-component"
     @scroll="handleScrollingTrottled"
@@ -322,7 +322,7 @@ export default {
           </template>
         </transition-group>
         <transition name="loader">
-          <gl-duo-chat-loader v-if="isLoading" :tool-name="toolName" />
+          <gl-duo-chat-loader v-if="isLoading" :tool-name="toolName" class="gl-px-0!" />
         </transition>
       </section>
     </div>
