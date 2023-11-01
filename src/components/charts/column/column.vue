@@ -106,9 +106,9 @@ export default {
       return Boolean(this.secondaryData.length);
     },
     barSeries() {
-      return this.bars.map(({ name, data }, index) => {
+      return this.bars.map(({ name, data, stack }, index) => {
         const color = colorFromDefaultPalette(index);
-        return generateBarSeries({ name, data, color });
+        return generateBarSeries({ name, data, color, stack });
       });
     },
     lineSeries() {
