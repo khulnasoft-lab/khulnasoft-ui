@@ -1,3 +1,10 @@
+## [67.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.3.1...v67.3.2) (2023-11-01)
+
+
+### Bug Fixes
+
+* **GlDuoChat:** multi-line prompt support ([99216fe](https://gitlab.com/gitlab-org/gitlab-ui/commit/99216fe46e2c51afd5a607c2acd27d24f559f21c))
+
 ## [67.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.3.0...v67.3.1) (2023-10-31)
 
 
