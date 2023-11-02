@@ -1,3 +1,10 @@
+# [67.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.3.3...v67.4.0) (2023-11-02)
+
+
+### Features
+
+* **GlColumnChart:** allow setting `stack` series property ([1ec54d9](https://gitlab.com/gitlab-org/gitlab-ui/commit/1ec54d9285bdda447575f31689ccc417389a6a96))
+
 ## [67.3.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.3.2...v67.3.3) (2023-11-01)
 
 
