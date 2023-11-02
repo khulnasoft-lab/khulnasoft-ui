@@ -1,3 +1,12 @@
+# [67.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.4.0...v67.5.0) (2023-11-02)
+
+
+### Features
+
+* **css:** Add focus variant for gl-z-index-1 ([8c08f01](https://gitlab.com/gitlab-org/gitlab-ui/commit/8c08f01a7877dd2836fb1eb024a9bfc8ad37cc44))
+* **GlSorting:** Add opt-in for new dropdown design ([b4eb476](https://gitlab.com/gitlab-org/gitlab-ui/commit/b4eb476976ca488b89641404acd19c2029a5d27d))
+* **GlSorting:** Make strings translatable ([2964d55](https://gitlab.com/gitlab-org/gitlab-ui/commit/2964d55864b17022d62c294ebf6c7babab611407))
+
 # [67.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.3.3...v67.4.0) (2023-11-02)
 
 
