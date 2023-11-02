@@ -1,17 +1,19 @@
 bin_dir = bin
 
 scss_dir = src/scss
+tokens_dir = dist/tokens
 scss_js_dir = scss_to_js
 
 # SCSS variables to JavaScript
 scss_variables = ${scss_dir}/variables.scss
+scss_tokens_variables = ${tokens_dir}/scss/_tokens.scss
 scss_json = ${scss_js_dir}/scss_variables.json
 scss_js = ${scss_js_dir}/scss_variables.js
 scss_js_export_script = ${bin_dir}/export_scss.js
 
-${scss_json}: ${scss_variables}
+${scss_json}: ${scss_variables} ${scss_tokens_variables}
 	mkdir -p ${scss_js_dir}
-	yarn sass-export ${scss_variables} -d "${scss_dir}" -o ${scss_json}
+	yarn sass-export ${scss_variables} ${scss_tokens_variables} -d "${scss_dir}" -o ${scss_json}
 
 ${scss_js}: ${scss_json} ${scss_js_export_script}
 	node ${scss_js_export_script}
