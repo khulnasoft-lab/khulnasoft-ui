@@ -1,5 +1,7 @@
 {
   "ClearIconButton.title": "Clear",
+  "GlSorting.sortAscending": "Sort direction: ascending",
+  "GlSorting.sortDescending": "Sort direction: descending",
   "GlSearchBoxByType.clearButtonTitle": "Clear",
   "GlSearchBoxByType.input.placeholder": "Search"
 }

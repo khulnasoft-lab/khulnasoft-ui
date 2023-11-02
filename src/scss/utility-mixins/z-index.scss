@@ -8,7 +8,7 @@
   z-index: 0;
 }
 
-@mixin gl-z-index-1 {
+@mixin gl-z-index-1($focus: true) {
   z-index: 1;
 }
 

@@ -5,6 +5,9 @@ import GlIcon from '../icon/icon.vue';
 /**
  * Sorting Item
  *
+ * NOTE: This component is deprecated. Instead, use the `sortOptions` prop of
+ * `GlSorting`.
+ *
  * This is written as a functional component because it is a simple wrapper over
  * the GlDropdownItem component and does not use internal state. Functional
  * components are cheaper to render and often used as wrappers like this. We're
