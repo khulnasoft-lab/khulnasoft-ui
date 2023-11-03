@@ -1,5 +1,4 @@
 <script>
-import { nextTick } from 'vue';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
 import { MESSAGE_MODEL_ROLES } from '../../constants';
@@ -77,7 +76,7 @@ export default {
   },
   methods: {
     async hydrateContentWithGFM() {
-      await nextTick();
+      await this.$nextTick();
       this.renderGFM(this.$refs.content);
     },
     async messageUpdateHandler() {
