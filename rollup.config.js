@@ -24,12 +24,6 @@ const isExternalModule = (moduleId) => {
      */
     moduleId.endsWith('.md') ||
     /**
-     * scss_to_js/ contains generated variables from our scss.
-     * All of the variables would blow up the build size, so inlining only the
-     * variables actually used in our JavaScript
-     */
-    moduleId.includes('scss_to_js/') ||
-    /**
      * We want to inline the `<script>` portion of our Vue Single File components
      * Those are added as `modules` with an url like filename:
      * `component.js?rollup-plugin-vue=script.js`

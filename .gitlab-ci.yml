@@ -180,7 +180,6 @@ build_package:
     paths:
       - dist
       - src/scss/utilities.scss
-      - scss_to_js/scss_variables.*
       - $TAR_ARCHIVE_NAME
 
 .build_storybook:
@@ -204,7 +203,6 @@ lint:
   needs: []
   stage: test
   script:
-    - yarn build-scss-variables
     - yarn eslint
     - yarn prettier
     - yarn stylelint
