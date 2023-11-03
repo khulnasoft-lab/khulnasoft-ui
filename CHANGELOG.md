@@ -1,3 +1,10 @@
+## [67.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.5.0...v67.5.1) (2023-11-03)
+
+
+### Bug Fixes
+
+* **GlDuoChatMessage:** Use nextTick from component instance ([4e39ab6](https://gitlab.com/gitlab-org/gitlab-ui/commit/4e39ab6ec0a9c9e162f4342030b67b257c2b09e4))
+
 # [67.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.4.0...v67.5.0) (2023-11-02)
 
 
