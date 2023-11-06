@@ -15,6 +15,9 @@
   // Note that we are assigning variables with different values due to the way GitLab inverts variables in dark mode.
   // e.g. text color is usually $gray-900, but in dark mode $gray-900 variable gets inverted to $gray-50
   --gl-text-color: #{$gray-50};
+  --white: #{$gray-900}; // define mapping between the colours in dark mode. I have used the values from GitLab for consistency: https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/stylesheets/themes/_dark.scss
+  --gray-10: #{$gray-950};
+  --gray-600: #{$gray-300};
 
   color-scheme: dark;
 
