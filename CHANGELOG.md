@@ -1,3 +1,10 @@
+## [67.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.5.1...v67.5.2) (2023-11-06)
+
+
+### Bug Fixes
+
+* **css:** chart legend display issue in dark mode ([ce60a9f](https://gitlab.com/gitlab-org/gitlab-ui/commit/ce60a9f8e921c51c5a33c4fea2f3adad20772b43))
+
 ## [67.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.5.0...v67.5.1) (2023-11-03)
 
 
