@@ -24,7 +24,8 @@ const generateProps = ({
   isLoading = defaultValue('isLoading'),
   isChatAvailable = defaultValue('isChatAvailable'),
   predefinedPrompts = defaultValue('predefinedPrompts'),
-  experimentHelpPageUrl = defaultValue('experimentHelpPageUrl'),
+  badgeHelpPageUrl = defaultValue('badgeHelpPageUrl'),
+  badgeType = defaultValue('badgeType'),
   toolName = defaultValue('toolName'),
 } = {}) => ({
   title,
@@ -33,7 +34,8 @@ const generateProps = ({
   isLoading,
   isChatAvailable,
   predefinedPrompts,
-  experimentHelpPageUrl,
+  badgeHelpPageUrl,
+  badgeType,
   toolName,
 });
 
@@ -52,7 +54,8 @@ export const Default = (args, { argTypes }) => ({
       :is-loading="isLoading"
       :is-chat-available="isChatAvailable"
       :predefined-prompts="predefinedPrompts"
-      :experiment-help-page-url="experimentHelpPageUrl"
+      :badge-help-page-url="badgeHelpPageUrl"
+      :badge-type="badgeType"
       :tool-name="toolName"
     />`,
 });
@@ -145,7 +148,8 @@ export const Interactive = (args, { argTypes }) => ({
       :is-loading="promptInFlight"
       :is-chat-available="isChatAvailable"
       :predefined-prompts="predefinedPrompts"
-      :experiment-help-page-url="experimentHelpPageUrl"
+      :badge-help-page-url="badgeHelpPageUrl"
+      :badge-type="badgeType"
       :tool-name="toolName"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
@@ -170,7 +174,8 @@ export const Slots = (args, { argTypes }) => ({
         :is-loading="isLoading"
         :is-chat-available="isChatAvailable"
         :predefined-prompts="predefinedPrompts"
-        :experiment-help-page-url="experimentHelpPageUrl"
+        :badge-help-page-url="badgeHelpPageUrl"
+        :badge-type="badgeType"
         :tool-name="toolName">
 
         <template #hero>

@@ -9,6 +9,7 @@ import GlFormTextarea from '../../../base/form/form_textarea/form_textarea.vue';
 import GlForm from '../../../base/form/form.vue';
 import GlFormText from '../../../base/form/form_text/form_text.vue';
 import GlExperimentBadge from '../../experiment_badge/experiment_badge.vue';
+import { badgeTypes, badgeTypeValidator } from '../../experiment_badge/constants';
 import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/safe_html';
 import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
@@ -106,12 +107,21 @@ export default {
       default: () => i18n.CHAT_DEFAULT_PREDEFINED_PROMPTS,
     },
     /**
-     * URL to the experiment help page. This is passed down to the `GlExperimentBadge` component. Refer that component for more information.
+     * URL to the experiment/beta help page. This is passed down to the `GlExperimentBadge` component. Refer that component for more information.
      */
-    experimentHelpPageUrl: {
+    badgeHelpPageUrl: {
       type: String,
       required: false,
       default: '',
+    },
+    /**
+     * The type of the badge. This is passed down to the `GlExperimentBadge` component. Refer that component for more information.
+     */
+    badgeType: {
+      type: String,
+      required: false,
+      default: badgeTypes[0],
+      validator: badgeTypeValidator,
     },
     /**
      * The current tool's name to display in the loading message while waiting for a response from AI. Refer the `GlDuoChatLoader` component for more information.
@@ -236,7 +246,8 @@ export default {
       >
         <h3 class="gl-my-0 gl-font-size-h2">{{ title }}</h3>
         <gl-experiment-badge
-          :experiment-help-page-url="experimentHelpPageUrl"
+          :help-page-url="badgeHelpPageUrl"
+          :type="badgeType"
           container-id="chat-component"
         />
         <gl-button
