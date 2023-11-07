@@ -12,3 +12,6 @@ doc/ @rdickenson
 
 [UX]
 /tests/__image_snapshots__/ @gitlab-com/gitlab-ux/designers
+
+[Duo Chat]
+src/components/experimental/duo @dmishunov @nicolasdular 
