@@ -160,12 +160,25 @@ describe('GlDuoChat', () => {
     });
 
     it('sets correct props on the Experiment badge', () => {
-      const experimentHelpPageUrl = 'https://foo.bar';
+      const badgeHelpPageUrl = 'https://foo.bar';
       const containerId = 'chat-component';
-      createComponent({ propsData: { experimentHelpPageUrl } });
-      expect(findBadge().props('experimentHelpPageUrl')).toBe(experimentHelpPageUrl);
+      createComponent({ propsData: { badgeHelpPageUrl } });
+      expect(findBadge().props('helpPageUrl')).toBe(badgeHelpPageUrl);
       expect(findBadge().attributes('container-id')).toBe(containerId);
     });
+
+    it.each`
+      badgeType       | expectedProp
+      ${'experiment'} | ${'experiment'}
+      ${'beta'}       | ${'beta'}
+      ${undefined}    | ${'experiment'}
+    `(
+      'sets correct props on the Experiment badge when badgeType is "$badgeType"',
+      ({ badgeType, expectedProp }) => {
+        createComponent({ propsData: { badgeType } });
+        expect(findBadge().props('type')).toBe(expectedProp);
+      }
+    );
   });
 
   describe('chat', () => {

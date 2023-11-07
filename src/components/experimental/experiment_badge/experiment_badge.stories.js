@@ -4,11 +4,13 @@ import readme from './experiment_badge.md';
 const defaultValue = (prop) => GlExperimentBadge.props[prop].default;
 
 const generateProps = ({
-  experimentHelpPageUrl = defaultValue('experimentHelpPageUrl'),
+  helpPageUrl = defaultValue('helpPageUrl'),
   popoverPlacement = defaultValue('popoverPlacement'),
+  type = defaultValue('type'),
 } = {}) => ({
-  experimentHelpPageUrl,
+  helpPageUrl,
   popoverPlacement,
+  type,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -17,8 +19,9 @@ const Template = (args, { argTypes }) => ({
   template: `
     <div class='gl-h-13'>
       <gl-experiment-badge
-        :experiment-help-page-url='experimentHelpPageUrl'
-        :popover-placement='popoverPlacement' />
+        :help-page-url='helpPageUrl'
+        :popover-placement='popoverPlacement'
+        :type='type' />
     </div>
   `,
 });
