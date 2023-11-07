@@ -1226,6 +1226,12 @@
   }
 }
 
+@mixin gl-sm-pr-4 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-pr-4;
+  }
+}
+
 @mixin gl-sm-pl-0 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-pl-0;
