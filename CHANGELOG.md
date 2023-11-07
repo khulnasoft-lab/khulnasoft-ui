@@ -1,3 +1,18 @@
+# [68.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.5.2...v68.0.0) (2023-11-07)
+
+
+### Features
+
+* **GlExperimentBadge:** support 'beta' type ([927f830](https://gitlab.com/gitlab-org/gitlab-ui/commit/927f8302be7bcf471650228b25ee526332b2ff16))
+
+
+### BREAKING CHANGES
+
+* **GlExperimentBadge:** To extend the capabilities of the
+badge, now it suports not only experiments, but
+also allows to move features to beta state
+using the same component
+
 ## [67.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.5.1...v67.5.2) (2023-11-06)
 
 
