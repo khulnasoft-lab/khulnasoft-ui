@@ -1,3 +1,15 @@
+# [68.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.0.0...v68.1.0) (2023-11-08)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** nested dropdown click closes a parent one ([896ca20](https://gitlab.com/gitlab-org/gitlab-ui/commit/896ca202424d1f5adcca352101c8cd56d007a4df))
+
+
+### Features
+
+* **css:** Add gl-sm-pr-4 utility ([a763496](https://gitlab.com/gitlab-org/gitlab-ui/commit/a7634968fe7a2771796df73d74dd1a9f8ece0012))
+
 # [68.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v67.5.2...v68.0.0) (2023-11-07)
 
 
