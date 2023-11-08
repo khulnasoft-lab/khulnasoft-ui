@@ -2,12 +2,22 @@ import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import GlEmptyState from '../../../regions/empty_state/empty_state.vue';
 import GlExperimentBadge from '../../experiment_badge/experiment_badge.vue';
+import GlCard from '../../../base/card/card.vue';
+import GlDropdownItem from '../../../base/dropdown/dropdown_item.vue';
 import DuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import DuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import DuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
-import GlDuoChat from './duo_chat.vue';
+import GlDuoChat, { slashCommands } from './duo_chat.vue';
 
 import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
+
+const generatePartialSlashCommands = () => {
+  const res = [];
+  slashCommands.forEach((command) => {
+    res.push(command.name.slice(0, command.name.length - 1));
+  });
+  return res;
+};
 
 describe('GlDuoChat', () => {
   let wrapper;
@@ -43,6 +53,9 @@ describe('GlDuoChat', () => {
   const findChatInput = () => wrapper.find('[data-testid="chat-prompt-input"]');
   const findCloseChatButton = () => wrapper.find('[data-testid="chat-close-button"]');
   const findLegalDisclaimer = () => wrapper.find('[data-testid="chat-legal-disclaimer"]');
+  const findSlashCommandsCard = () => wrapper.findComponent(GlCard);
+  const findSlashCommands = () => wrapper.findAllComponents(GlDropdownItem);
+  const findSelectedSlashCommand = () => wrapper.find('.active-command');
 
   beforeEach(() => {
     createComponent();
@@ -207,13 +220,13 @@ describe('GlDuoChat', () => {
       const ENTER = 'Enter';
 
       it.each`
-        trigger                                                                            | event                         | action          | expectEmitted
-        ${() => clickSubmit()}                                                             | ${'Submit button click'}      | ${'submit'}     | ${[[promptStr]]}
-        ${() => findChatInput().trigger('keydown.enter', { code: ENTER })}                 | ${`Clicking ${ENTER}`}        | ${'submit'}     | ${[[promptStr]]}
-        ${() => findChatInput().trigger('keydown.enter', { code: ENTER, metaKey: true })}  | ${`Clicking ${ENTER} + ⌘`}    | ${'not submit'} | ${undefined}
-        ${() => findChatInput().trigger('keydown.enter', { code: ENTER, altKey: true })}   | ${`Clicking ${ENTER} + ⎇`}    | ${'not submit'} | ${undefined}
-        ${() => findChatInput().trigger('keydown.enter', { code: ENTER, shiftKey: true })} | ${`Clicking ${ENTER} + ⬆︎`}   | ${'not submit'} | ${undefined}
-        ${() => findChatInput().trigger('keydown.enter', { code: ENTER, ctrlKey: true })}  | ${`Clicking ${ENTER} + CTRL`} | ${'not submit'} | ${undefined}
+        trigger                                                                   | event                         | action          | expectEmitted
+        ${() => clickSubmit()}                                                    | ${'Submit button click'}      | ${'submit'}     | ${[[promptStr]]}
+        ${() => findChatInput().trigger('keyup', { key: ENTER })}                 | ${`Clicking ${ENTER}`}        | ${'submit'}     | ${[[promptStr]]}
+        ${() => findChatInput().trigger('keyup', { key: ENTER, metaKey: true })}  | ${`Clicking ${ENTER} + ⌘`}    | ${'not submit'} | ${undefined}
+        ${() => findChatInput().trigger('keyup', { key: ENTER, altKey: true })}   | ${`Clicking ${ENTER} + ⎇`}    | ${'not submit'} | ${undefined}
+        ${() => findChatInput().trigger('keyup', { key: ENTER, shiftKey: true })} | ${`Clicking ${ENTER} + ⬆︎`}   | ${'not submit'} | ${undefined}
+        ${() => findChatInput().trigger('keyup', { key: ENTER, ctrlKey: true })}  | ${`Clicking ${ENTER} + CTRL`} | ${'not submit'} | ${undefined}
       `('$event should $action the prompt form', ({ trigger, expectEmitted } = {}) => {
         createComponent({
           propsData: { messages: [], isChatAvailable: true },
@@ -398,6 +411,290 @@ describe('GlDuoChat', () => {
         await nextTick();
 
         expect(wrapper.emitted('send-chat-prompt')).toEqual([[prompts[0]]]);
+      });
+    });
+  });
+
+  describe('slash commands', () => {
+    const slashCommandsNames = slashCommands.map((command) => command.name);
+    const slashCommandsOnly = (commands = []) =>
+      slashCommandsNames.filter((name) => commands.includes(name));
+
+    describe('rendering', () => {
+      describe('without the `withSlashCommands` enabled', () => {
+        it('does not render slash commands by default', () => {
+          createComponent({
+            propsData: {
+              withSlashCommands: false,
+            },
+          });
+          expect(findSlashCommandsCard().exists()).toBe(false);
+        });
+
+        it('does not render slash commands when prompt is "/"', async () => {
+          createComponent({
+            propsData: {
+              withSlashCommands: false,
+            },
+            data: {
+              prompt: '/',
+            },
+          });
+
+          await nextTick();
+          expect(findSlashCommandsCard().exists()).toBe(false);
+        });
+      });
+
+      describe('with the `withSlashCommands` enabled', () => {
+        it('does not render slash commands by default', async () => {
+          createComponent({
+            propsData: {
+              withSlashCommands: true,
+            },
+          });
+
+          await nextTick();
+          expect(findSlashCommandsCard().exists()).toBe(false);
+        });
+
+        it('renders all slash commands when prompt is "/"', async () => {
+          createComponent({
+            propsData: {
+              withSlashCommands: true,
+            },
+            data: {
+              prompt: '/',
+            },
+          });
+
+          await nextTick();
+          expect(findSlashCommandsCard().exists()).toBe(true);
+          expect(findSlashCommands()).toHaveLength(slashCommands.length);
+
+          slashCommands.forEach((command, index) => {
+            expect(findSlashCommands().at(index).text()).toContain(command.name);
+            expect(findSlashCommands().at(index).text()).toContain(command.description);
+          });
+        });
+
+        describe('when the prompt includes the "/" character or no characters', () => {
+          it.each(['', '//', '\\', 'foo', '/foo'])(
+            'does not render the slash commands if prompt is "$prompt"',
+            async (prompt) => {
+              createComponent({
+                propsData: {
+                  withSlashCommands: true,
+                },
+                data: {
+                  prompt,
+                },
+              });
+
+              await nextTick();
+              expect(findSlashCommandsCard().exists()).toBe(false);
+            }
+          );
+        });
+
+        describe('when prompt presents a partial match to an existing slash command', () => {
+          it.each(generatePartialSlashCommands())(
+            'renders the slash commands when prompt is "%s" and is a partial match',
+            async (prompt) => {
+              createComponent({
+                propsData: {
+                  withSlashCommands: true,
+                },
+                data: {
+                  prompt,
+                },
+              });
+
+              await nextTick();
+              expect(findSlashCommandsCard().exists()).toBe(true);
+            }
+          );
+        });
+
+        describe('when the prompt matches a complete slash command', () => {
+          it.each(slashCommands.map((command) => command.name))(
+            'does not render the slash commands when prompt is "%s"',
+            async (prompt) => {
+              createComponent({
+                propsData: {
+                  withSlashCommands: true,
+                },
+                data: {
+                  prompt,
+                },
+              });
+
+              await nextTick();
+              expect(findSlashCommandsCard().exists()).toBe(false);
+            }
+          );
+        });
+      });
+    });
+
+    describe('interaction', () => {
+      describe('filtering when user types in partial slash command', () => {
+        it.each`
+          prompt       | expectedCommands
+          ${'/'}       | ${slashCommandsNames}
+          ${'/t'}      | ${slashCommandsOnly(['/test'])}
+          ${'/tes'}    | ${slashCommandsOnly(['/test'])}
+          ${'/e'}      | ${slashCommandsOnly(['/explain'])}
+          ${'/explai'} | ${slashCommandsOnly(['/explain'])}
+          ${'/r'}      | ${slashCommandsOnly(['/reset', '/refactor'])}
+          ${'/re'}     | ${slashCommandsOnly(['/reset', '/refactor'])}
+          ${'/res'}    | ${slashCommandsOnly(['/reset'])}
+          ${'/ref'}    | ${slashCommandsOnly(['/refactor'])}
+          ${'/foo'}    | ${[]}
+        `(
+          'shows $expectedCommands when prompt is $prompt',
+          async ({ prompt, expectedCommands } = {}) => {
+            createComponent({
+              propsData: {
+                withSlashCommands: true,
+              },
+              data: {
+                prompt,
+              },
+            });
+
+            await nextTick();
+            expect(findSlashCommands()).toHaveLength(expectedCommands.length);
+            expectedCommands.forEach((command) => {
+              expect(findSlashCommandsCard().text()).toContain(command);
+            });
+          }
+        );
+      });
+
+      describe('keyboard navigation', () => {
+        beforeEach(() => {
+          createComponent({
+            propsData: {
+              withSlashCommands: true,
+              messages,
+            },
+            data: {
+              prompt: '/',
+            },
+          });
+        });
+
+        it('toggles through commands on ArrowDown', async () => {
+          for (const command of slashCommandsNames) {
+            expect(findSelectedSlashCommand().text()).toContain(command);
+            findChatInput().trigger('keyup', { key: 'ArrowDown' });
+            // eslint-disable-next-line no-await-in-loop
+            await nextTick();
+          }
+        });
+
+        it('toggles through commands on ArrowUp', async () => {
+          const arr = [...slashCommandsNames].reverse();
+          arr.unshift(slashCommandsNames[0]); // it still has the top most command selected on the first run
+          for (const command of arr) {
+            expect(findSelectedSlashCommand().text()).toContain(command);
+            findChatInput().trigger('keyup', { key: 'ArrowUp' });
+            // eslint-disable-next-line no-await-in-loop
+            await nextTick();
+          }
+        });
+
+        describe('on Enter', () => {
+          const navigateToCommand = async (index) => {
+            const command = slashCommandsNames[index];
+            if (index) {
+              for (let i = 0; i < index; i += 1) {
+                findChatInput().trigger('keyup', { key: 'ArrowDown' });
+              }
+            }
+            await nextTick();
+            return command;
+          };
+
+          it('selects correct command and updates input if command should not submit right away', async () => {
+            const commandIndex = slashCommands.findIndex((cmd) => !cmd.shouldSubmit);
+            const command = await navigateToCommand(commandIndex);
+
+            expect(findSelectedSlashCommand().text()).toContain(command);
+            findChatInput().trigger('keyup', { key: 'Enter' });
+            await nextTick();
+            expect(findChatInput().props('value')).toBe(`${command} `);
+            expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
+          });
+
+          it('selects correct command and submits the prompt if command should submit right away', async () => {
+            const commandIndex = slashCommands.findIndex((cmd) => cmd.shouldSubmit);
+            const command = await navigateToCommand(commandIndex);
+
+            expect(findSelectedSlashCommand().text()).toContain(command);
+            findChatInput().trigger('keyup', { key: 'Enter' });
+            await nextTick();
+            expect(findChatInput().props('value')).toBe(`${command}`);
+            expect(wrapper.emitted('send-chat-prompt')).toEqual([[command]]);
+          });
+        });
+      });
+
+      describe('mouse navigation', () => {
+        beforeEach(() => {
+          createComponent({
+            propsData: {
+              withSlashCommands: true,
+              messages,
+            },
+            data: {
+              prompt: '/',
+            },
+          });
+        });
+
+        it('updates the selected command when hovering over it', async () => {
+          expect(findSelectedSlashCommand().text()).toContain(slashCommandsNames[0]);
+          findSlashCommands().at(2).trigger('mouseenter');
+          await nextTick();
+          expect(findSelectedSlashCommand().text()).toContain(slashCommandsNames[2]);
+          expect(findSelectedSlashCommand().text()).not.toContain(slashCommandsNames[0]);
+        });
+
+        describe('click', () => {
+          it('selects correct command and updates input if command should not submit right away', async () => {
+            const commandIndex = slashCommands.findIndex((cmd) => !cmd.shouldSubmit);
+
+            findSlashCommands().at(commandIndex).trigger('mouseenter');
+            await nextTick();
+
+            expect(findSelectedSlashCommand().text()).toContain(slashCommandsNames[commandIndex]);
+
+            findSelectedSlashCommand().vm.$emit('click');
+            await nextTick();
+
+            expect(findChatInput().props('value')).toBe(`${slashCommandsNames[commandIndex]} `);
+            expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
+          });
+
+          it('selects correct command and submits the prompt if command should submit right away', async () => {
+            const commandIndex = slashCommands.findIndex((cmd) => cmd.shouldSubmit);
+
+            findSlashCommands().at(commandIndex).trigger('mouseenter');
+            await nextTick();
+
+            expect(findSelectedSlashCommand().text()).toContain(slashCommandsNames[commandIndex]);
+
+            findSelectedSlashCommand().vm.$emit('click');
+            await nextTick();
+
+            expect(findChatInput().props('value')).toBe(slashCommandsNames[commandIndex]);
+            expect(wrapper.emitted('send-chat-prompt')).toEqual([
+              [slashCommandsNames[commandIndex]],
+            ]);
+          });
+        });
       });
     });
   });

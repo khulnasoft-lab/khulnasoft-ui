@@ -27,6 +27,7 @@ const generateProps = ({
   badgeHelpPageUrl = defaultValue('badgeHelpPageUrl'),
   badgeType = defaultValue('badgeType'),
   toolName = defaultValue('toolName'),
+  withSlashCommands = defaultValue('withSlashCommands'),
 } = {}) => ({
   title,
   messages,
@@ -37,6 +38,7 @@ const generateProps = ({
   badgeHelpPageUrl,
   badgeType,
   toolName,
+  withSlashCommands,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -57,6 +59,7 @@ export const Default = (args, { argTypes }) => ({
       :badge-help-page-url="badgeHelpPageUrl"
       :badge-type="badgeType"
       :tool-name="toolName"
+      :with-slash-commands="withSlashCommands"
     />`,
 });
 Default.args = generateProps({
@@ -151,6 +154,7 @@ export const Interactive = (args, { argTypes }) => ({
       :badge-help-page-url="badgeHelpPageUrl"
       :badge-type="badgeType"
       :tool-name="toolName"
+      :with-slash-commands="withSlashCommands"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
     />
@@ -176,7 +180,8 @@ export const Slots = (args, { argTypes }) => ({
         :predefined-prompts="predefinedPrompts"
         :badge-help-page-url="badgeHelpPageUrl"
         :badge-type="badgeType"
-        :tool-name="toolName">
+        :tool-name="toolName"
+        :with-slash-commands="withSlashCommands">
 
         <template #hero>
 <pre class="code-block rounded code highlight gl-border-b gl-rounded-0! gl-mb-0 gl-overflow-y-auto solarized-light" style="max-height: 20rem; overflow-y: auto;">
