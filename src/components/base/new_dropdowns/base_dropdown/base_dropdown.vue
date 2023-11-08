@@ -27,8 +27,11 @@ import GlIcon from '../../icon/icon.vue';
 import { OutsideDirective } from '../../../../directives/outside/outside';
 import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
 
+export const BASE_DROPDOWN_CLASS = 'gl-new-dropdown';
+
 export default {
   name: 'BaseDropdown',
+  BASE_DROPDOWN_CLASS,
   components: {
     GlButton,
     GlIcon,
@@ -429,7 +432,7 @@ export default {
 </script>
 
 <template>
-  <div v-outside="close" class="gl-new-dropdown" :class="{ 'gl-display-block!': block }">
+  <div v-outside="close" :class="[$options.BASE_DROPDOWN_CLASS, { 'gl-display-block!': block }]">
     <component
       :is="toggleComponent"
       v-bind="toggleAttributes"

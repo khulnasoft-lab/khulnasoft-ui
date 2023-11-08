@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import { autoUpdate } from '@floating-ui/dom';
 import { nextTick } from 'vue';
 import * as utils from '../../../../utils/utils';
+import { useMockIntersectionObserver } from '../../../../utils/use_mock_intersection_observer';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
 import {
   GL_DROPDOWN_SHOWN,
@@ -15,6 +16,7 @@ import {
   POSITION_ABSOLUTE,
   POSITION_FIXED,
 } from '../constants';
+import GlCollapsibleListbox from '../listbox/listbox.vue';
 import GlDisclosureDropdown from './disclosure_dropdown.vue';
 import GlDisclosureDropdownItem from './disclosure_dropdown_item.vue';
 import GlDisclosureDropdownGroup from './disclosure_dropdown_group.vue';
@@ -33,7 +35,12 @@ describe('GlDisclosureDropdown', () => {
   const buildWrapper = (propsData, slots = {}) => {
     wrapper = mount(GlDisclosureDropdown, {
       propsData,
-      components: { GlDisclosureDropdownItem, GlDisclosureDropdownGroup },
+      components: {
+        GlDisclosureDropdown,
+        GlDisclosureDropdownItem,
+        GlDisclosureDropdownGroup,
+        GlCollapsibleListbox,
+      },
       slots,
       attachTo: document.body,
     });
@@ -43,8 +50,9 @@ describe('GlDisclosureDropdown', () => {
   const findDisclosureContent = () => wrapper.find('[data-testid="disclosure-content"]');
   const findDisclosureItems = (root = wrapper) => root.findAllComponents(GlDisclosureDropdownItem);
   const findDisclosureGroups = () => wrapper.findAllComponents(GlDisclosureDropdownGroup);
-  const findListItem = (index) => findDisclosureItems().at(index).findComponent(ITEM_SELECTOR);
-  const findDropdownMenu = () => wrapper.find("[data-testid='base-dropdown-menu']");
+  const findListItem = (index, root = wrapper) =>
+    findDisclosureItems(root).at(index).findComponent(ITEM_SELECTOR);
+  const findDropdownMenu = (root = wrapper) => root.find("[data-testid='base-dropdown-menu']");
 
   jest.spyOn(utils, 'filterVisible').mockImplementation((items) => items);
 
@@ -400,6 +408,35 @@ describe('GlDisclosureDropdown', () => {
       buildWrapper({ items: mockItems });
       await nextTick();
       expect(findDropdownMenu().classes()).not.toContain('gl-display-block!');
+    });
+  });
+
+  describe('nested dropdowns', () => {
+    useMockIntersectionObserver();
+
+    it.each`
+      dropdown                    | getClickItem
+      ${'gl-disclosure-dropdown'} | ${(nestedWrapper) => findListItem(0, nestedWrapper)}
+      ${'gl-collapsible-listbox'} | ${(nestedWrapper) => nestedWrapper.find('[data-testid="listbox-item-1"]')}
+    `('should only close the target $dropdown', async ({ dropdown, getClickItem }) => {
+      const slots = {
+        default: `
+          <${dropdown}
+            :items="[{ text: 'First', action: () => {}, value: '1' }]"
+            start-opened
+            data-testid="nested"
+          />
+        `,
+      };
+      buildWrapper({ startOpened: true }, slots);
+      const isOpened = (root) => findDropdownMenu(root).classes('gl-display-block!');
+      const nestedWrapper = wrapper.findComponent("[data-testid='nested']");
+
+      getClickItem(nestedWrapper).trigger('click');
+      await nextTick();
+
+      expect(isOpened(wrapper)).toBe(true);
+      expect(isOpened(nestedWrapper)).toBe(false);
     });
   });
 });
