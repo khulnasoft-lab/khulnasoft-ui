@@ -28,6 +28,7 @@ export const WithPopovers = (args, { argTypes }) => ({
         <template #title>
           {{ pathItem.title }}
         </template>
+        Description
       </gl-popover>
     </template>`),
 });

@@ -82,10 +82,13 @@ export default {
           <slot :path-item="firstItem" :path-id="pathId(0)"></slot>
         </gl-disclosure-path-item>
         <li class="gl-path-disclosure-list-item">
-          <gl-disclosure-dropdown id="disclosure-path-ellipsis" :items="middleItems">
+          <gl-disclosure-dropdown :items="middleItems">
             <template #toggle>
-              <button class="gl-disclosure-path-button">
-                <gl-icon name="ellipsis_h" />
+              <button id="disclosure-path-ellipsis-button" class="gl-disclosure-path-button">
+                <gl-icon
+                  name="ellipsis_h"
+                  class="gl-disclosure-path-button-content gl-ml-3 gl-text-gray-600"
+                />
               </button>
             </template>
             <template #list-item="{ item }">
@@ -100,7 +103,11 @@ export default {
             </template>
           </gl-disclosure-dropdown>
         </li>
-        <gl-tooltip v-if="ellipsisTooltipLabel" target="disclosure-path-ellipsis">
+        <gl-tooltip
+          v-if="ellipsisTooltipLabel"
+          target="disclosure-path-ellipsis-button"
+          triggers="hover"
+        >
           {{ ellipsisTooltipLabel }}
         </gl-tooltip>
         <gl-disclosure-path-item :item="lastItem" :path-id="pathId(lastItemIndex)">

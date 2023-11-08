@@ -1,7 +1,7 @@
-$disclosure-path-chevron-dimension: px-to-rem(19px);
-$disclosure-path-chevron-top: px-to-rem(6px);
+$disclosure-path-chevron-dimension: 1.2rem;
+$disclosure-path-chevron-top: 0.39rem;
 $disclosure-path-chevron-right: px-to-rem(-9px);
-$disclosure-path-button-right-padding: 1.5 * $grid-size;
+$disclosure-path-button-right-padding: 1 * $grid-size;
 
 @mixin gl-disclosure-path-chevron {
   content: '';
@@ -28,7 +28,7 @@ $disclosure-path-button-right-padding: 1.5 * $grid-size;
 }
 
 .gl-disclosure-path-button {
-  @include gl-pl-6;
+  @include gl-pl-4;
   @include gl-py-3;
   @include gl-display-flex;
   @include gl-relative;
@@ -36,14 +36,10 @@ $disclosure-path-button-right-padding: 1.5 * $grid-size;
   @include gl-border;
   @include gl-border-r-none;
   @include gl-border-l-none;
-  @include gl-text-gray-500;
-  @include gl-font-weight-bold;
+  @include gl-text-gray-900;
   @include gl-line-height-normal;
-  background-color: transparent;
+  background-color: $body-bg;
   padding-right: $disclosure-path-button-right-padding;
-  border-radius: 0%;
-  box-shadow: none;
-  transition: none;
 
   &::before,
   &::after {
@@ -52,7 +48,9 @@ $disclosure-path-button-right-padding: 1.5 * $grid-size;
     border-color: inherit;
     @include gl-border-b-transparent;
     @include gl-border-l-transparent;
-    background-color: inherit;
+    @include gl-reset-bg;
+    @include gl-rounded-top-left-small;
+    @include gl-rounded-bottom-right-small;
   }
 
   &::before {
@@ -61,11 +59,11 @@ $disclosure-path-button-right-padding: 1.5 * $grid-size;
   }
 
   &::after {
-    z-index: 1;
+    @include gl-z-index-1;
   }
 
   .gl-path-disclosure-list-item:first-child & {
-    @include gl-pl-5;
+    @include gl-pl-3;
     @include gl-border-l;
     @include gl-rounded-top-left-base;
     @include gl-rounded-bottom-left-base;
@@ -78,11 +76,12 @@ $disclosure-path-button-right-padding: 1.5 * $grid-size;
     &:focus,
     &:focus:active {
       // Custom focus
-      box-shadow: 2px 1px 0 1px $blue-400, 2px -1px 0 1px $blue-400, -1px 1px 0 1px $blue-400, -1px -1px 0 1px $blue-400 !important;
+      box-shadow: 1px 1px 0 1px $blue-400, 2px -1px 0 1px $blue-400, -1px 1px 0 1px $blue-400, -1px -1px 0 1px $blue-400 !important;
     }
   }
 
   .gl-path-disclosure-list-item:last-child & {
+    @include gl-pr-4;
     @include gl-border-r;
     @include gl-rounded-top-right-base;
     @include gl-rounded-bottom-right-base;
@@ -102,9 +101,14 @@ $disclosure-path-button-right-padding: 1.5 * $grid-size;
     @include gl-path-active-item-color($gray-100);
     color: $gl-text-color;
 
+    &::before {
+      @include gl-z-index-2;
+    }
+
     &::after {
       @include gl-border-b-gray-100;
       @include gl-border-l-gray-100;
+      z-index: 4;
     }
   }
 
@@ -112,19 +116,19 @@ $disclosure-path-button-right-padding: 1.5 * $grid-size;
   &:focus,
   &:focus:active {
     // Custom focus
-    box-shadow: 2px 1px 0 1px $blue-400, 2px -1px 0 1px $blue-400 !important;
-    border-color: $blue-400;
+    box-shadow: 1px 1px 0 1px $blue-400, 2px -1px 0 1px $blue-400 !important;
     outline: none;
+    @include gl-z-index-3;
     @include gl-rounded-small;
 
     &::before, &::after {
-      border-top-left-radius: 1px;
-      border-bottom-right-radius: 1px;
       box-shadow: 2px -2px 0 1px $blue-400;
-      border-top-color: $blue-400;
-      border-right-color: $blue-400;
     }
   }
+}
+
+.gl-disclosure-path-button-content {
+  z-index: 6;
 }
 
 .gl-disclosure-path-ellipsis-list {

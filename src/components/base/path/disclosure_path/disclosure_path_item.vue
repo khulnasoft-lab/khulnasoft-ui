@@ -49,10 +49,10 @@ export default {
       <gl-icon
         v-if="shouldDisplayIcon(item.icon)"
         :name="item.icon"
-        class="gl-mr-2"
+        class="gl-disclosure-path-item-icon gl-mx-2 gl-text-gray-600"
         data-testid="gl-disclosure-path-item-icon"
       />
-      <span>{{ item.title }}</span>
+      <span class="gl-disclosure-path-button-content">{{ item.title }}</span>
     </button>
     <!--
       @slot Additional content to be displayed in a path item.

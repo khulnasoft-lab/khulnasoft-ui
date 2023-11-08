@@ -8,12 +8,14 @@ exports[`DisclosurePathItem renders the item matches the snapshot 1`] = `
     class="gl-disclosure-path-button"
   >
     <gl-icon-stub
-      class="gl-mr-2"
+      class="gl-disclosure-path-item-icon gl-mx-2 gl-text-gray-600"
       data-testid="gl-disclosure-path-item-icon"
       name="epic"
       size="16"
     />
-    <span>
+    <span
+      class="gl-disclosure-path-button-content"
+    >
       First
     </span>
   </button>
