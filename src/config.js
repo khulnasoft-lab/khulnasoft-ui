@@ -14,6 +14,11 @@ const tooltipGlobalConfig = {
   delay: tooltipDelay,
 };
 
+const popoverDelayConfig = {
+  show: 50, // BootstrapVue's default delay on show.
+  hide: 150, // Increased hide delay so that it doesn't disappear to quickly when user attempts to interact with the content.
+};
+
 /**
  * Guard against nonexistent localStorage,
  * or corrupted localStorage
@@ -57,6 +62,9 @@ const setConfigs = ({ translations } = {}) => {
   Vue.use(BVConfigPlugin, {
     BFormText: bFormTextGlobalConfig,
     BTooltip: tooltipGlobalConfig,
+    BPopover: {
+      delay: popoverDelayConfig,
+    },
   });
 
   if (typeof translations === 'object') {
