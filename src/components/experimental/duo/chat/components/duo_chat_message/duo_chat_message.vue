@@ -37,7 +37,6 @@ export default {
   data() {
     return {
       messageContent: '',
-      messageWatcher: null,
     };
   },
   computed: {
@@ -57,8 +56,11 @@ export default {
       );
     },
   },
-  created() {
-    this.messageWatcher = this.$watch('message', this.messageUpdateHandler, { deep: true });
+  watch: {
+    message(){
+      debugger
+      return this.messageUpdateHandler();
+    }
   },
   beforeCreate() {
     /**
@@ -84,8 +86,6 @@ export default {
       if (!chunkId) {
         this.messageChunks = [];
         this.messageContent = this.content;
-
-        this.messageWatcher();
         this.hydrateContentWithGFM();
       } else {
         this.messageChunks[chunkId] = content;
