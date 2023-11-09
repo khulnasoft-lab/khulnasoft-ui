@@ -130,7 +130,12 @@
 @mixin gl-overflow-break-word {
   overflow-wrap: break-word;
   hyphens: auto;
-  -webkit-hyphens: auto; // stylelint-disable-line
+}
+
+@mixin gl-overflow-anywhere {
+  hyphens: auto;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 // Deprecated, prefer `gl-text-truncate`
