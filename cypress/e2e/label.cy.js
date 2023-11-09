@@ -49,7 +49,7 @@ describe('GlLabel', () => {
     cy.glCheckA11y();
   }
 
-  it('passes axe accessibility audits', () => {
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     checkA11YDefaultState();
     checkA11YFocusedLabelState();
     checkA11YDarkBackgroundColors();

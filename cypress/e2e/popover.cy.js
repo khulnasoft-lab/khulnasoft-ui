@@ -18,7 +18,7 @@ describe('GlPopover', () => {
       cy.glCheckA11y();
     }
 
-    it('passes axe accessbility audits', () => {
+    it('passes axe accessbility audits', { tags: 'a11y' }, () => {
       checkA11yPopover();
       checkA11yPopoverOnClick();
       checkA11yPopoverWithCloseButton();
