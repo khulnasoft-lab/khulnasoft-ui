@@ -1,3 +1,16 @@
+# [68.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.1.0...v68.2.0) (2023-11-09)
+
+
+### Bug Fixes
+
+* **css:** remove vendor-prefixed property ([de23bf4](https://gitlab.com/gitlab-org/gitlab-ui/commit/de23bf41b816c32996342ee3bb69e45f914cc8b8))
+* **GlBroadcastMessage:** wrap long words ([25ad510](https://gitlab.com/gitlab-org/gitlab-ui/commit/25ad510d79ec6e5ffddd9dd81139a3bbafc96502))
+
+
+### Features
+
+* **css:** add gl-overflow-anywhere utility ([3b26c8c](https://gitlab.com/gitlab-org/gitlab-ui/commit/3b26c8c628dc724c7238e3aa95a14d0ad610a6dd))
+
 # [68.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.0.0...v68.1.0) (2023-11-08)
 
 
