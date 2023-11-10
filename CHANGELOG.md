@@ -1,3 +1,10 @@
+## [68.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.2.0...v68.2.1) (2023-11-10)
+
+
+### Bug Fixes
+
+* **GlPopover:** increase hide delay ([7fb02fa](https://gitlab.com/gitlab-org/gitlab-ui/commit/7fb02fafb467847d4eff1dab98ee14db94464044))
+
 # [68.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.1.0...v68.2.0) (2023-11-09)
 
 
