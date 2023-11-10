@@ -1,6 +1,8 @@
 <script>
 import throttle from 'lodash/throttle';
 import emptySvg from '@gitlab/svgs/dist/illustrations/empty-state/empty-activity-md.svg';
+import GlDropdownItem from '../../../base/dropdown/dropdown_item.vue';
+import GlCard from '../../../base/card/card.vue';
 import GlEmptyState from '../../../regions/empty_state/empty_state.vue';
 import GlButton from '../../../base/button/button.vue';
 import GlAlert from '../../../base/alert/alert.vue';
@@ -34,6 +36,29 @@ export const i18n = {
   ],
 };
 
+export const slashCommands = [
+  {
+    name: '/reset',
+    shouldSubmit: true,
+    description: 'Reset conversation, ignore the previous messages.',
+  },
+  {
+    name: '/test',
+    shouldSubmit: false,
+    description: 'Write tests for the code snippet.',
+  },
+  {
+    name: '/refactor',
+    shouldSubmit: false,
+    description: 'Refactor the code snippet.',
+  },
+  {
+    name: '/explain',
+    shouldSubmit: false,
+    description: 'Explain the code snippet.',
+  },
+];
+
 const isMessage = (item) => Boolean(item) && item?.role;
 
 const itemsValidator = (items) => items.every(isMessage);
@@ -52,6 +77,8 @@ export default {
     GlDuoChatLoader,
     GlDuoChatPredefinedPrompts,
     GlDuoChatConversation,
+    GlCard,
+    GlDropdownItem,
   },
   directives: {
     SafeHtml,
@@ -131,12 +158,21 @@ export default {
       required: false,
       default: i18n.CHAT_DEFAULT_TITLE,
     },
+    /**
+     * Whether the slash commands should be available to user when typing the prompt.
+     */
+    withSlashCommands: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
       isHidden: false,
       prompt: '',
       scrolledToBottom: true,
+      activeCommandIndex: 0,
     };
   },
   computed: {
@@ -165,6 +201,19 @@ export default {
 
       const lastMessage = this.messages[this.messages.length - 1];
       return lastMessage.content === CHAT_RESET_MESSAGE;
+    },
+    filteredSlashCommands() {
+      const caseInsensitivePrompt = this.prompt.toLowerCase();
+      return slashCommands.filter((c) => c.name.toLowerCase().startsWith(caseInsensitivePrompt));
+    },
+    shouldShowSlashCommands() {
+      if (!this.withSlashCommands) return false;
+      const caseInsensitivePrompt = this.prompt.toLowerCase();
+      const startsWithSlash = caseInsensitivePrompt.startsWith('/');
+      const startsWithSlashCommand = slashCommands.some((c) =>
+        caseInsensitivePrompt.startsWith(c.name)
+      );
+      return startsWithSlash && this.filteredSlashCommands.length && !startsWithSlashCommand;
     },
   },
   watch: {
@@ -224,6 +273,51 @@ export default {
        * @param {*} event An event, containing the feedback choices and the extended feedback text.
        */
       this.$emit('track-feedback', event);
+    },
+    onInputKeyup(e) {
+      const { metaKey, ctrlKey, altKey, shiftKey } = e;
+
+      if (this.shouldShowSlashCommands) {
+        e.preventDefault();
+
+        if (e.key === 'Enter') {
+          this.selectSlashCommand(this.activeCommandIndex);
+        } else if (e.key === 'ArrowUp') {
+          this.prevCommand();
+        } else if (e.key === 'ArrowDown') {
+          this.nextCommand();
+        } else {
+          this.activeCommandIndex = 0;
+        }
+      } else if (e.key === 'Enter' && !(metaKey || ctrlKey || altKey || shiftKey)) {
+        e.preventDefault();
+        this.sendChatPrompt();
+      }
+    },
+    prevCommand() {
+      this.activeCommandIndex -= 1;
+      this.wrapCommandIndex();
+    },
+    nextCommand() {
+      this.activeCommandIndex += 1;
+      this.wrapCommandIndex();
+    },
+    wrapCommandIndex() {
+      if (this.activeCommandIndex < 0) {
+        this.activeCommandIndex = this.filteredSlashCommands.length - 1;
+      } else if (this.activeCommandIndex >= this.filteredSlashCommands.length) {
+        this.activeCommandIndex = 0;
+      }
+    },
+    selectSlashCommand(index) {
+      const command = this.filteredSlashCommands[index];
+      if (command.shouldSubmit) {
+        this.prompt = command.name;
+        this.sendChatPrompt();
+      } else {
+        this.prompt = `${command.name} `;
+        this.$refs.prompt.$el.focus();
+      }
     },
   },
   i18n,
@@ -349,7 +443,30 @@ export default {
             class="duo-chat-input gl-flex-grow-1 gl-vertical-align-top gl-max-w-full gl-min-h-8 gl-inset-border-1-gray-400 gl-rounded-base gl-bg-white"
             :data-value="prompt"
           >
+            <gl-card
+              v-if="shouldShowSlashCommands"
+              ref="commands"
+              class="slash-commands gl-absolute! gl-translate-y-n100 gl-list-style-none gl-pl-0 gl-w-full gl-shadow-md"
+              body-class="gl-p-2!"
+            >
+              <gl-dropdown-item
+                v-for="(command, index) in filteredSlashCommands"
+                :key="command.name"
+                :class="{ 'active-command': index === activeCommandIndex }"
+                @mouseenter.native="activeCommandIndex = index"
+                @click="selectSlashCommand(index)"
+              >
+                <span class="gl-display-flex gl-justify-content-space-between">
+                  <span class="gl-display-block">{{ command.name }}</span>
+                  <small class="gl-text-gray-500 gl-font-style-italic">{{
+                    command.description
+                  }}</small>
+                </span>
+              </gl-dropdown-item>
+            </gl-card>
+
             <gl-form-textarea
+              ref="prompt"
               v-model="prompt"
               data-testid="chat-prompt-input"
               class="gl-absolute gl-h-full! gl-py-4! gl-bg-transparent! gl-rounded-top-right-none gl-rounded-bottom-right-none gl-shadow-none!"
@@ -357,7 +474,8 @@ export default {
               :placeholder="$options.i18n.CHAT_PROMPT_PLACEHOLDER"
               :disabled="isLoading"
               autofocus
-              @keydown.enter.exact.native.prevent="sendChatPrompt"
+              @keydown.enter.exact.native.prevent
+              @keyup.native="onInputKeyup"
             />
           </div>
           <template #append>

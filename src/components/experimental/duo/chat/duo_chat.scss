@@ -55,3 +55,22 @@
     @include gl-py-4;
   }
 }
+
+.slash-commands {
+  @include gl-mt-n2;
+
+  .active-command{
+    @include gl-bg-gray-50;
+    @include gl-rounded-base;
+  }
+
+  .gl-dropdown-item button.dropdown-item {
+    @include gl-font-sm;
+    @include gl-px-3;
+    @include gl-bg-none;
+
+    &:hover {
+      @include gl-bg-none;
+    }
+  }
+}
