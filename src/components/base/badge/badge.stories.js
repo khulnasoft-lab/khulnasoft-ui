@@ -27,6 +27,7 @@ const generateProps = ({
   content = 'TestBadge',
   icon = '',
   iconSize = defaultValue('iconSize'),
+  roundIcon = false,
 } = {}) => ({
   variant,
   size,
@@ -34,6 +35,7 @@ const generateProps = ({
   content,
   icon,
   iconSize,
+  roundIcon,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -155,6 +157,52 @@ IconOnly.args = generateProps({
   variant: badgeVariantOptions.success,
   icon: 'calendar',
 });
+
+export const AllVariantsAndCategories = (args, { argTypes }) => ({
+  components: { GlBadge },
+  props: Object.keys(argTypes),
+  template: `
+  <div>
+    <div class="gl-display-flex gl-gap-3">
+      <gl-badge variant="info" size="sm" icon="terminal" iconSize="sm" />
+      <gl-badge variant="info" size="sm" icon="cancel" :roundIcon="true" iconSize="sm" />
+      <gl-badge variant="info" size="sm" icon="terminal" iconSize="sm">Small</gl-badge>
+      <gl-badge variant="info" size="sm" icon="cancel" :roundIcon="true" iconSize="sm">Small</gl-badge>
+      <gl-badge variant="info" size="sm">Small</gl-badge>
+      <gl-badge variant="info" size="sm">5</gl-badge>
+    </div>
+    <div class="gl-display-flex gl-gap-3 gl-mt-6">
+      <gl-badge variant="info" size="md" icon="terminal" iconSize="sm" />
+      <gl-badge variant="info" size="md" icon="cancel" :roundIcon="true" iconSize="sm" />
+      <gl-badge variant="info" size="md" icon="terminal" iconSize="sm">Medium</gl-badge>
+      <gl-badge variant="info" size="md" icon="cancel" :roundIcon="true" iconSize="sm">Medium</gl-badge>
+      <gl-badge variant="info" size="md">Medium</gl-badge>
+    </div>
+    <div class="gl-display-flex gl-gap-3 gl-mt-3">
+      <gl-badge variant="info" size="md" icon="terminal" iconSize="md" />
+      <gl-badge variant="info" size="md" icon="cancel" :roundIcon="true" iconSize="md" />
+      <gl-badge variant="info" size="md" icon="terminal" iconSize="md">Medium</gl-badge>
+      <gl-badge variant="info" size="md" icon="cancel" :roundIcon="true" iconSize="md">Medium</gl-badge>
+      <gl-badge variant="info" size="md">5</gl-badge>
+    </div>
+    <div class="gl-display-flex gl-gap-3 gl-mt-6">
+      <gl-badge variant="info" size="lg" icon="terminal" iconSize="md" />
+      <gl-badge variant="info" size="lg" icon="cancel" :roundIcon="true" iconSize="md" />
+      <gl-badge variant="info" size="lg" icon="terminal" iconSize="md">Large</gl-badge>
+      <gl-badge variant="info" size="lg" icon="cancel" :roundIcon="true" iconSize="md">Large</gl-badge>
+      <gl-badge variant="info" size="lg">5</gl-badge>
+      <gl-badge variant="info" size="lg">Large</gl-badge>
+    </div>
+  </div>
+  `,
+});
+AllVariantsAndCategories.argTypes = disableControls([
+  'iconSize',
+  'icon',
+  'variant',
+  'size',
+  'roundIcon',
+]);
 
 export default {
   title: 'base/badge',

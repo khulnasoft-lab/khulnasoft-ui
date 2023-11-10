@@ -66,23 +66,38 @@
 .gl-badge {
   @include gl-display-inline-flex;
   @include gl-align-items-center;
-  @include gl-font-sm;
+  @include gl-justify-content-center;
   @include gl-font-weight-normal;
   @include gl-line-height-normal;
-  @include gl-py-2;
-  @include gl-px-3;
 
   &.sm {
     @include gl-py-0;
+    @include gl-px-3;
+    @include gl-gap-2;
+    @include gl-font-sm;
+
+    min-height: 1rem;
+    min-width: 1rem;
   }
 
   &.md {
     @include gl-py-2;
+    @include gl-px-3;
+    @include gl-gap-2;
+    @include gl-font-sm;
+
+    min-height: 1.5rem;
+    min-width: 1.5rem;
   }
 
   &.lg {
     @include gl-py-3;
+    @include gl-px-4;
+    @include gl-gap-2;
     @include gl-font-base;
+
+    min-height: 2rem;
+    min-width: 2rem;
   }
 
   .gl-badge-icon {
@@ -90,6 +105,28 @@
     @include gl-w-5;
     @include gl-flex-shrink-0;
     @include gl-top-auto;
+  }
+
+  &.gl-badge-round-icon.gl-badge-icon-only {
+    @include gl-px-0;
+  }
+
+  &.sm.gl-badge-round-icon:not(.gl-badge-icon-only) {
+    @include gl-pl-1;
+  }
+
+  &.md.gl-badge-round-icon:not(.gl-badge-icon-only) {
+    .gl-badge-icon.s12 {
+      @include gl-ml-n1;
+    }
+
+    .gl-badge-icon.s16 {
+      @include gl-ml-n2;
+    }
+  }
+
+  &.lg.gl-badge-round-icon:not(.gl-badge-icon-only) {
+    @include gl-pl-3;
   }
 }
 
