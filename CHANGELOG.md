@@ -1,3 +1,10 @@
+# [68.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.2.1...v68.3.0) (2023-11-10)
+
+
+### Features
+
+* **GlDuoChat:** support for slash commands ([2d3eee1](https://gitlab.com/gitlab-org/gitlab-ui/commit/2d3eee10dd2b1d183111729c0484deb125847c0d))
+
 ## [68.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.2.0...v68.2.1) (2023-11-10)
 
 
