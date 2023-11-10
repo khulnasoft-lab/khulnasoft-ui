@@ -49,7 +49,15 @@ describe('GlLabel', () => {
     cy.glCheckA11y();
   }
 
-  it('passes axe accessibility audits', () => {
+  function checkA11YLabelHoverState() {
+    cy.visitStory('base/label');
+
+    cy.get('.gl-label a').realHover();
+    cy.glCheckA11y();
+  }
+
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
+    checkA11YLabelHoverState();
     checkA11YDefaultState();
     checkA11YFocusedLabelState();
     checkA11YDarkBackgroundColors();

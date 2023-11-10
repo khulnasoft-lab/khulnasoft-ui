@@ -6,7 +6,7 @@ describe('GlAccordion', { testIsolation: false }, () => {
   const accordionContentId = '[data-testid^="accordion-item-collapse-accordion-item-"]';
   const getFirstAccordionItemContent = () => cy.get(accordionContentId).first();
 
-  it('passes axe accessibility audits', () => {
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     cy.glCheckA11y({ exclude: ['code'] });
   });
 
