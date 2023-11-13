@@ -18,24 +18,16 @@ export const ANNOTATIONS_SERIES_NAME = 'annotations';
 export const ANNOTATIONS_COMPONENT_TYPE = 'markPoint';
 
 /**
- * This is so that the mouse doesn't go over the
- * tooltip and call mouseout which will hide the
- * tooltip.
- */
-export const ANNOTATION_TOOLTIP_TOP_OFFSET = 10;
-
-/**
  * This is a slight offset that gets applied to the left
  * of the chart tooltips to ensure a correct position.
  */
 export const TOOLTIP_LEFT_OFFSET = 2;
 
 /**
- * This is an offset that gets applied between the mouse
- * cursor and the left of the chart data tooltips to provide
- * some spacing.
+ * This is a slight offset that gets applied to the left
+ * of the chart tooltips to ensure a correct position.
  */
-export const DATA_TOOLTIP_LEFT_OFFSET = 10;
+export const TOOLTIP_TOP_OFFSET = 10;
 
 /**
  * These are the accepted values for the layout prop

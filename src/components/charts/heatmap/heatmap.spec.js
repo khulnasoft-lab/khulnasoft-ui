@@ -1,6 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
 
-import { TOOLTIP_LEFT_OFFSET } from '~/utils/charts/constants';
 import { createMockChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
@@ -71,7 +70,7 @@ describe('heatmap component', () => {
       return wrapper.vm.$nextTick(() => {
         expect(mockChartInstance.convertToPixel).toHaveBeenCalledWith({ seriesId }, value);
 
-        expect(findChartTooltip().props('left')).toBe(`${pixel[0] + TOOLTIP_LEFT_OFFSET}px`);
+        expect(findChartTooltip().props('left')).toBe(`${pixel[0]}px`);
         expect(findChartTooltip().props('top')).toBe(`${pixel[1]}px`);
       });
     });

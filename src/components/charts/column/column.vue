@@ -12,11 +12,7 @@ import {
   generateBarSeries,
   generateLineSeries,
 } from '../../../utils/charts/config';
-import {
-  TOOLTIP_LEFT_OFFSET,
-  CHART_TYPE_LINE,
-  HEIGHT_AUTO_CLASSES,
-} from '../../../utils/charts/constants';
+import { CHART_TYPE_LINE, HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
 import { debounceByAnimationFrame } from '../../../utils/utils';
@@ -192,7 +188,7 @@ export default {
   methods: {
     moveShowTooltip(mouseEvent) {
       this.tooltipPosition = {
-        left: `${mouseEvent.zrX + TOOLTIP_LEFT_OFFSET}px`,
+        left: `${mouseEvent.zrX}px`,
         top: `${mouseEvent.zrY}px`,
       };
       this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
