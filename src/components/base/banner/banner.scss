@@ -3,7 +3,7 @@
   @include gl-mr-6;
 
   img {
-    width: $grid-size * 15;
+    max-width: $grid-size * 15;
   }
 
   @include media-breakpoint-down(sm) {
