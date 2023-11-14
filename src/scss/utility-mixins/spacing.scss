@@ -1025,6 +1025,12 @@
   }
 }
 
+@mixin gl-sm-mb-0 {
+  @include gl-media-breakpoint-up(sm) {
+    margin-bottom: 0;
+  }
+}
+
 @mixin gl-sm-mb-7 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-mb-7;
