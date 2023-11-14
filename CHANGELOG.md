@@ -1,3 +1,10 @@
+# [68.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.4.0...v68.5.0) (2023-11-14)
+
+
+### Features
+
+* **GlBanner:** change illustration size ([720c057](https://gitlab.com/gitlab-org/gitlab-ui/commit/720c057fd973cfecb563cb4eba2e5a6de593c1c5))
+
 # [68.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.3.0...v68.4.0) (2023-11-14)
 
 
