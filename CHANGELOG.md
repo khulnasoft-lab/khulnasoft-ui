@@ -1,3 +1,10 @@
+# [68.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.3.0...v68.4.0) (2023-11-14)
+
+
+### Features
+
+* **GlAlert, GlBroadcastMessage:** Add CSS variable overrides ([ed2754f](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed2754f2711cdd1eb9d2fd0f5b903a4d77aeff85))
+
 # [68.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.2.1...v68.3.0) (2023-11-10)
 
 
