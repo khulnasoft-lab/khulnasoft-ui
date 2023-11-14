@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { formStateOptions, formInputSizes } from '../../../../utils/constants';
+import { formStateOptions, formInputWidths } from '../../../../utils/constants';
 import { formSelectOptions } from './constants';
 import GlFormSelect from './form_select.vue';
 
@@ -31,36 +31,11 @@ describe('GlFormSelect', () => {
     });
   });
 
-  describe('size prop', () => {
-    // Exclude the default null value
-    const nonNullSizes = excludeDefaultNull(formInputSizes);
-
-    it.each(nonNullSizes)('adds correct class for size %s', (size) => {
-      createComponent({ size });
-
-      expect(wrapper.classes().sort()).toEqual(
-        [...DEFAULT_SELECT_CLASSES, `gl-form-select-${size}`].sort()
-      );
-    });
-
-    it('does not add a size class if not given the size prop', () => {
-      createComponent();
-
-      expect(wrapper.classes().sort()).toEqual([...DEFAULT_SELECT_CLASSES].sort());
-    });
-
-    it('does not add a size class if passed null', () => {
-      createComponent({ size: null });
-
-      expect(wrapper.classes().sort()).toEqual([...DEFAULT_SELECT_CLASSES].sort());
-    });
-  });
-
   describe('width prop', () => {
     // Exclude the default null value
-    const nonNullSizes = excludeDefaultNull(formInputSizes);
+    const nonNullWidths = excludeDefaultNull(formInputWidths);
 
-    it.each(nonNullSizes)('adds correct class for width %s', (width) => {
+    it.each(nonNullWidths)('adds correct class for width %s', (width) => {
       createComponent({ width });
 
       expect(wrapper.classes().sort()).toEqual(

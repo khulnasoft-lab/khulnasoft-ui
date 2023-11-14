@@ -2,7 +2,7 @@
 import isObject from 'lodash/isObject';
 import { BFormInput } from 'bootstrap-vue';
 
-import { formInputSizes } from '../../../../utils/constants';
+import { formInputWidths } from '../../../../utils/constants';
 
 const MODEL_PROP = 'value';
 const MODEL_EVENT = 'input';
@@ -28,49 +28,28 @@ export default {
       validator: (value) => {
         const widths = isObject(value) ? Object.values(value) : [value];
 
-        return widths.every((width) => Object.values(formInputSizes).includes(width));
-      },
-    },
-    /**
-     * ⚠️ DEPRECATED:
-     *
-     * Will be replaced by the
-     * property width
-     *
-     * Maximum width of the input
-     */
-    size: {
-      type: [String, Object],
-      required: false,
-      default: null,
-      validator: (value) => {
-        const sizes = isObject(value) ? Object.values(value) : [value];
-
-        return sizes.every((size) => Object.values(formInputSizes).includes(size));
+        return widths.every((width) => Object.values(formInputWidths).includes(width));
       },
     },
   },
   computed: {
-    computedWidth() {
-      return this.width ? this.width : this.size;
-    },
     cssClasses() {
-      if (this.computedWidth === null) {
+      if (this.width === null) {
         return [];
       }
 
-      if (isObject(this.computedWidth)) {
-        const { default: defaultSize, ...nonDefaultSizes } = this.computedWidth;
+      if (isObject(this.width)) {
+        const { default: defaultWidth, ...nonDefaultWidths } = this.width;
 
         return [
-          ...(defaultSize ? [`gl-form-input-${defaultSize}`] : []),
-          ...Object.entries(nonDefaultSizes).map(
-            ([breakpoint, size]) => `gl-${breakpoint}-form-input-${size}`
+          ...(defaultWidth ? [`gl-form-input-${defaultWidth}`] : []),
+          ...Object.entries(nonDefaultWidths).map(
+            ([breakpoint, width]) => `gl-${breakpoint}-form-input-${width}`
           ),
         ];
       }
 
-      return [`gl-form-input-${this.computedWidth}`];
+      return [`gl-form-input-${this.width}`];
     },
     listeners() {
       return {

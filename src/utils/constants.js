@@ -146,11 +146,6 @@ export const buttonSizeOptions = {
   medium: 'md',
 };
 
-export const datepickerSizeOptionsMap = {
-  small: 'sm',
-  medium: 'md',
-};
-
 export const datepickerWidthOptionsMap = {
   sm: 'sm',
   md: 'md',
@@ -292,7 +287,7 @@ export const keyboard = {
 
 export const truncateOptions = POSITION;
 
-export const formInputSizes = {
+export const formInputWidths = {
   xs: 'xs',
   sm: 'sm',
   md: 'md',

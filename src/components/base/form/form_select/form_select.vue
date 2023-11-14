@@ -1,7 +1,7 @@
 <script>
 import { BFormSelect } from 'bootstrap-vue';
 import isObject from 'lodash/isObject';
-import { formInputSizes } from '../../../../utils/constants';
+import { formInputWidths } from '../../../../utils/constants';
 
 export default {
   name: 'GlFormSelect',
@@ -20,49 +20,28 @@ export default {
       validator: (value) => {
         const widths = isObject(value) ? Object.values(value) : [value];
 
-        return widths.every((width) => Object.values(formInputSizes).includes(width));
-      },
-    },
-    /**
-     * ⚠️ DEPRECATED:
-     *
-     * Will be replaced by the
-     * property width
-     *
-     * Maximum width of the Select
-     */
-    size: {
-      type: [String, Object],
-      required: false,
-      default: null,
-      validator: (value) => {
-        const sizes = isObject(value) ? Object.values(value) : [value];
-
-        return sizes.every((size) => Object.values(formInputSizes).includes(size));
+        return widths.every((width) => Object.values(formInputWidths).includes(width));
       },
     },
   },
   computed: {
-    computedWidth() {
-      return this.width ? this.width : this.size;
-    },
     cssClasses() {
-      if (this.computedWidth === null) {
+      if (this.width === null) {
         return [];
       }
 
-      if (isObject(this.computedWidth)) {
-        const { default: defaultSize, ...nonDefaultSizes } = this.computedWidth;
+      if (isObject(this.width)) {
+        const { default: defaultWidth, ...nonDefaultWidths } = this.width;
 
         return [
-          ...(defaultSize ? [`gl-form-select-${defaultSize}`] : []),
-          ...Object.entries(nonDefaultSizes).map(
-            ([breakpoint, size]) => `gl-${breakpoint}-form-select-${size}`
+          ...(defaultWidth ? [`gl-form-select-${defaultWidth}`] : []),
+          ...Object.entries(nonDefaultWidths).map(
+            ([breakpoint, width]) => `gl-${breakpoint}-form-select-${width}`
           ),
         ];
       }
 
-      return [`gl-form-select-${this.computedWidth}`];
+      return [`gl-form-select-${this.width}`];
     },
   },
 };

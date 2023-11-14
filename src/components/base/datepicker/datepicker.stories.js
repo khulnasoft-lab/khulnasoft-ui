@@ -1,5 +1,5 @@
 import GlFormGroup from '../form/form_group/form_group.vue';
-import { datepickerWidthOptionsMap, datepickerSizeOptionsMap } from '../../../utils/constants';
+import { datepickerWidthOptionsMap } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
 import { useFakeDate } from '../../../utils/use_fake_date';
 import { makeContainer } from '../../../utils/story_decorators/container';
@@ -65,7 +65,7 @@ export const WithClearButton = (_args, { argTypes }) => ({
 });
 WithClearButton.args = generateProps();
 
-export const DifferentSizes = (_args, { argTypes }) => ({
+export const Widths = (_args, { argTypes }) => ({
   ...defaults,
   props: Object.keys(argTypes),
   data() {
@@ -91,7 +91,7 @@ export const DifferentSizes = (_args, { argTypes }) => ({
     </div>
   `,
 });
-DifferentSizes.args = generateProps();
+Widths.args = generateProps();
 
 export default {
   title: 'base/datepicker',
@@ -135,10 +135,6 @@ export default {
     },
     width: {
       options: datepickerWidthOptionsMap,
-      control: 'select',
-    },
-    size: {
-      options: datepickerSizeOptionsMap,
       control: 'select',
     },
   },

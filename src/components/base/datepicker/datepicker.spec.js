@@ -413,21 +413,6 @@ describe('datepicker component', () => {
   });
 
   it.each`
-    size         | expectedClass
-    ${undefined} | ${'gl-form-input-md'}
-    ${'small'}   | ${'gl-form-input-sm'}
-    ${'medium'}  | ${'gl-form-input-md'}
-  `('applies $expectedClass class when size is $size', ({ size, expectedClass }) => {
-    const wrapper = mountWithOptions({
-      propsData: {
-        size,
-      },
-    });
-
-    expect(wrapper.classes()).toContain(expectedClass);
-  });
-
-  it.each`
     width        | expectedClass
     ${undefined} | ${'gl-form-input-md'}
     ${'sm'}      | ${'gl-form-input-sm'}
