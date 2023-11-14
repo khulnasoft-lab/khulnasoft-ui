@@ -1,15 +1,25 @@
+/*
+ * --gl-alert-padding-x
+ *
+ * Way to hook into spacing of gl-alert.
+ * This is used e.g. for page wide containers
+ * in GitLab.
+ */
+// stylelint-disable length-zero-no-unit
+$gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
+
 .gl-alert {
   @include gl-font-base;
   @include gl-relative;
-  @include gl-px-9;
+  padding-inline: calc(#{$gl-spacing-scale-9} + #{$gl-alert-padding-x});
   @include gl-py-5;
 
   &-not-dismissible {
-    @include gl-pr-5;
+    padding-right: calc(#{$gl-spacing-scale-5} + #{$gl-alert-padding-x});
   }
 
   &-no-icon {
-    @include gl-pl-5;
+    padding-left: calc(#{$gl-spacing-scale-5} + #{$gl-alert-padding-x});
   }
 
   .gl-link:not(.gl-label-link) {
@@ -35,14 +45,14 @@
 .gl-alert-icon-container {
   @include gl-absolute;
   @include gl-top-5;
-  @include gl-left-5;
+  left: calc(#{$gl-spacing-scale-5} + #{$gl-alert-padding-x});
   @include gl-display-flex;
   @include gl-align-items-center;
   height: $gl-line-height-20;
 
   .gl-alert-has-title & {
     @include gl-heading-scale-500; // get dynamic font-size
-    height: $gl-line-height-heading * 1em; // give unit to unitless relative line-height (1.25) 
+    height: $gl-line-height-heading * 1em; // give unit to unitless relative line-height (1.25)
   }
 }
 
@@ -69,7 +79,7 @@
 .gl-dismiss-btn {
   @include gl-absolute;
   @include gl-top-4;
-  @include gl-right-4;
+  right: calc(#{$gl-spacing-scale-4} + #{$gl-alert-padding-x});
 }
 
 .gl-alert-danger {

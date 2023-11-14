@@ -1,11 +1,21 @@
+/*
+ * --gl-broadcast-message-padding-x
+ *
+ * Way to hook into spacing of gl-alert.
+ * This is used e.g. for page wide containers
+ * in GitLab.
+ */
+// stylelint-disable length-zero-no-unit
+$gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
+
 .gl-broadcast-message {
   @include gl-display-flex;
   @include gl-justify-content-space-between;
   @include gl-align-items-flex-start;
   @include gl-font-base;
   @include gl-line-height-20;
-  @include gl-pl-5;
-  @include gl-pr-4;
+  padding-left: calc(#{$gl-spacing-scale-5} + #{$gl-broadcast-message-padding-x});
+  padding-right: calc(#{$gl-spacing-scale-4} + #{$gl-broadcast-message-padding-x});
   @include gl-py-5;
 
   &.indigo {
