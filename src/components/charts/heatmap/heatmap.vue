@@ -6,7 +6,6 @@ import { getDefaultTooltipContent } from '../../../utils/charts/config';
 import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
-import { debounceByAnimationFrame } from '../../../utils/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
@@ -112,13 +111,11 @@ export default {
     return {
       chart: null,
       tooltip: {
-        show: false,
         title: '',
         content: {},
         left: '0',
         top: '0',
       },
-      debouncedShowHideTooltip: debounceByAnimationFrame(this.showHideTooltip),
       selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
@@ -223,10 +220,6 @@ export default {
       return this.height === 'auto';
     },
   },
-  beforeDestroy() {
-    this.chart.getDom().removeEventListener('mousemove', this.debouncedShowHideTooltip);
-    this.chart.getDom().removeEventListener('mouseout', this.debouncedShowHideTooltip);
-  },
   methods: {
     defaultFormatTooltipText(params) {
       const { xLabels, tooltipContent } = getDefaultTooltipContent(
@@ -238,13 +231,8 @@ export default {
       this.tooltip.title = xLabels.join(', ');
     },
     onCreated(chart) {
-      chart.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
-      chart.getDom().addEventListener('mouseout', this.debouncedShowHideTooltip);
       this.chart = chart;
       this.$emit('created', chart);
-    },
-    showHideTooltip(mouseEvent) {
-      this.tooltip.show = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
     },
     onLabelChange(params) {
       this.selectedFormatTooltipText(params);
@@ -275,13 +263,7 @@ export default {
       @created="onCreated"
       v-on="$listeners"
     />
-    <chart-tooltip
-      v-if="chart"
-      :show="tooltip.show"
-      :chart="chart"
-      :top="tooltip.top"
-      :left="tooltip.left"
-    >
+    <chart-tooltip v-if="chart" :chart="chart" :top="tooltip.top" :left="tooltip.left">
       <template #title>
         <slot v-if="formatTooltipText" name="tooltip-title"></slot>
         <div v-else>

@@ -142,7 +142,7 @@ describe('area component', () => {
     });
 
     it('is initialized', () => {
-      expect(findDataTooltip().exists()).toBe(true);
+      expect(findDataTooltip().props('chart')).toBe(mockChartInstance);
     });
   });
 

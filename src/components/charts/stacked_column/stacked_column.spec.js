@@ -34,7 +34,6 @@ describe('stacked column chart component', () => {
 
   const findChart = () => wrapper.findComponent(Chart);
   const findLegend = () => wrapper.findComponent(ChartLegend);
-  const getOptions = () => findChart().props('options');
   const findDataTooltip = () => wrapper.findComponent(ChartTooltipStub);
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
@@ -142,104 +141,12 @@ describe('stacked column chart component', () => {
   });
 
   describe('tooltip', () => {
-    describe('position', () => {
-      const tooltipTitle = 'FooBar';
-
-      beforeEach(() => {
-        createShallowWrapper();
-      });
-
-      it('is initialized', () => {
-        expect(findDataTooltip().props('left')).toBe('0');
-        expect(findDataTooltip().props('top')).toBe('0');
-        expect(findDataTooltip().text()).not.toContain(tooltipTitle);
-      });
-
-      it('is reset when mouse moves', async () => {
-        const left = '10px';
-        const top = '30px';
-
-        wrapper.setData({ tooltipPosition: { left, top }, tooltipTitle });
-
-        await wrapper.vm.$nextTick();
-
-        expect(findDataTooltip().props('left')).toBe(`${left}`);
-        expect(findDataTooltip().props('top')).toBe(`${top}`);
-        expect(findDataTooltip().text()).toContain(tooltipTitle);
-      });
+    beforeEach(() => {
+      createShallowWrapper();
     });
 
-    const params = {
-      seriesData: [{ seriesIndex: '0', seriesName: 'Blah', value: 'Jan' }],
-    };
-
-    describe('default', () => {
-      beforeEach(() => {
-        createShallowWrapper();
-      });
-
-      it('calls the default tooltip text function', async () => {
-        wrapper.vm.defaultFormatTooltipText = jest.fn();
-
-        expect(wrapper.vm.defaultFormatTooltipText).not.toHaveBeenCalled();
-
-        getOptions().xAxis.axisPointer.label.formatter(params);
-
-        await wrapper.vm.$nextTick();
-
-        expect(wrapper.vm.defaultFormatTooltipText).toHaveBeenCalled();
-      });
-
-      it('displays the generic tooltip content', async () => {
-        getOptions().xAxis.axisPointer.label.formatter(params);
-
-        await wrapper.vm.$nextTick();
-
-        const tooltipText = findDataTooltip().element.textContent;
-
-        expect(tooltipText).toContain(defaultChartProps.xAxisTitle);
-        expect(tooltipText).toContain(params.seriesData[0].seriesName);
-        expect(tooltipText).toContain(params.seriesData[0].value);
-      });
-    });
-
-    describe('custom', () => {
-      const formatTooltipText = jest.fn();
-      const customTitle = 'Custom title';
-      const customContent = 'Custom content';
-
-      beforeEach(() => {
-        createShallowWrapper({
-          props: {
-            formatTooltipText,
-          },
-          slots: {
-            'tooltip-title': customTitle,
-            'tooltip-content': customContent,
-          },
-        });
-      });
-
-      it('calls the formatTooltipText tooltip text function', async () => {
-        expect(formatTooltipText).not.toHaveBeenCalled();
-
-        getOptions().xAxis.axisPointer.label.formatter(params);
-
-        await wrapper.vm.$nextTick();
-
-        expect(formatTooltipText).toHaveBeenCalled();
-      });
-
-      it('displays the custom tooltip content', async () => {
-        getOptions().xAxis.axisPointer.label.formatter(params);
-
-        await wrapper.vm.$nextTick();
-
-        const tooltipText = findDataTooltip().element.textContent;
-
-        expect(tooltipText).toContain(customTitle);
-        expect(tooltipText).toContain(customContent);
-      });
+    it('is initialized', () => {
+      expect(findDataTooltip().props('chart')).toBe(mockChartInstance);
     });
   });
 

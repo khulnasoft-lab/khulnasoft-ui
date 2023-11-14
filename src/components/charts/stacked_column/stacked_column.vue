@@ -22,7 +22,6 @@ import {
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
-import { debounceByAnimationFrame } from '../../../utils/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
@@ -149,14 +148,8 @@ export default {
   data() {
     return {
       chart: null,
-      showTooltip: false,
       tooltipTitle: '',
       tooltipContent: {},
-      tooltipPosition: {
-        left: '0',
-        top: '0',
-      },
-      debouncedMoveShowTooltip: debounceByAnimationFrame(this.moveShowTooltip),
     };
   },
   computed: {
@@ -259,24 +252,11 @@ export default {
       return this.height === 'auto';
     },
   },
-  beforeDestroy() {
-    this.chart.getZr().off('mousemove', this.debouncedMoveShowTooltip);
-    this.chart.getZr().off('mouseout', this.debouncedMoveShowTooltip);
-  },
   methods: {
     getColor(index) {
       return this.customPalette ? this.customPalette?.[index] : colorFromDefaultPalette(index);
     },
-    moveShowTooltip({ event: mouseEvent }) {
-      this.tooltipPosition = {
-        left: `${mouseEvent.zrX}px`,
-        top: `${mouseEvent.zrY}px`,
-      };
-      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
-    },
     onCreated(chart) {
-      chart.getZr().on('mousemove', this.debouncedMoveShowTooltip);
-      chart.getZr().on('mouseout', this.debouncedMoveShowTooltip);
       this.chart = chart;
       this.$emit('created', chart);
     },
@@ -320,13 +300,7 @@ export default {
       v-on="$listeners"
       @created="onCreated"
     />
-    <chart-tooltip
-      v-if="chart"
-      :show="showTooltip"
-      :chart="chart"
-      :top="tooltipPosition.top"
-      :left="tooltipPosition.left"
-    >
+    <chart-tooltip v-if="chart" :chart="chart">
       <template #title>
         <slot name="tooltip-title">{{ tooltipTitle }} ({{ xAxisTitle }})</slot>
       </template>

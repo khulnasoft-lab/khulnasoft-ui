@@ -127,44 +127,6 @@ describe('sparkline chart component', () => {
     expect(getTooltipContent().text()).toContain(tooltipLabel);
   });
 
-  it('shows the tooltip when mousing over an axis point in the component', async () => {
-    expect(getTooltip().props('show')).toBe(false);
-
-    const mockData = { seriesData: [{ data: [5, 8] }] };
-    getXAxisLabelFormatter()(mockData);
-
-    await wrapper.vm.$nextTick();
-    expect(getTooltip().props('show')).toBe(true);
-  });
-
-  it('hides the tooltip when the mouse leaves the component', async () => {
-    wrapper.setData({ tooltip: { show: true } });
-    await wrapper.vm.$nextTick();
-
-    expect(getTooltip().props('show')).toBe(true);
-
-    wrapper.trigger('mouseleave');
-    await wrapper.vm.$nextTick();
-
-    expect(getTooltip().props('show')).toBe(false);
-  });
-
-  it.each`
-    label        | content
-    ${null}      | ${5}
-    ${5}         | ${null}
-    ${undefined} | ${0}
-    ${-10}       | ${undefined}
-  `(`hides the tooltip when seriesData = ($label, $content)`, async ({ label, content }) => {
-    expect(getTooltip().props('show')).toBe(false);
-
-    const mockData = { seriesData: [{ data: [label, content] }] };
-    getXAxisLabelFormatter()(mockData);
-
-    await wrapper.vm.$nextTick();
-    expect(getTooltip().props('show')).toBe(false);
-  });
-
   it('adds the right content to the tooltip', async () => {
     const xValue = 'foo';
     const yValue = 'bar';

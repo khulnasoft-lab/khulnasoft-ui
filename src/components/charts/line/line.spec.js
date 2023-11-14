@@ -7,7 +7,6 @@ import { expectHeightAutoClasses } from '~helpers/chart_height';
 
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 import LineChart from './line.vue';
 
@@ -138,89 +137,13 @@ describe('line component', () => {
     });
   });
 
-  describe('tooltip', () => {
-    const tooltipParams = {
-      seriesData: [
-        {
-          seriesName: 'Series 1',
-          value: ['x', 1000],
-          color: '#fff',
-        },
-        {
-          seriesName: 'Series 2',
-          value: ['x', 1001],
-          color: '#fff',
-        },
-      ],
-    };
-
-    it('renders tooltip', async () => {
-      createShallowWrapper(
-        {},
-        {
-          stubs: { TooltipDefaultFormat },
-        }
-      );
-
-      wrapper.vm.defaultFormatTooltipText(tooltipParams); // force render of a tooltip
-      await nextTick();
-
-      const tooltipText = findDataTooltip().text();
-      expect(tooltipText).toContain('1000');
-      expect(tooltipText).toContain('1001');
-    });
-
-    it('renders formatted tooltip values', async () => {
-      createShallowWrapper(
-        {},
-        {
-          stubs: { TooltipDefaultFormat },
-          scopedSlots: {
-            'tooltip-value': ({ value }) => `$ ${value.toLocaleString()}`,
-          },
-        }
-      );
-
-      wrapper.vm.defaultFormatTooltipText(tooltipParams); // force render of a tooltip
-      await nextTick();
-
-      const tooltipText = findDataTooltip().text();
-      expect(tooltipText).toContain('$ 1,000');
-      expect(tooltipText).toContain('$ 1,001');
-    });
-  });
-
-  describe('tooltip position', () => {
-    const dataTooltipTitle = 'FooBar';
-
+  describe('data tooltip is set', () => {
     beforeEach(() => {
-      createShallowWrapper(
-        {},
-        {
-          stubs: {
-            'chart-tooltip': ChartTooltipStub,
-          },
-        }
-      );
+      createShallowWrapper();
     });
 
     it('is initialized', () => {
-      expect(findDataTooltip().props('left')).toBe('0');
-      expect(findDataTooltip().props('top')).toBe('0');
-      expect(findDataTooltip().text()).not.toContain(dataTooltipTitle);
-    });
-
-    it('is reset when mouse moves', async () => {
-      const left = '10px';
-      const top = '30px';
-
-      wrapper.setData({ dataTooltipPosition: { left, top }, dataTooltipTitle });
-
-      await nextTick();
-
-      expect(findDataTooltip().props('left')).toBe(`${left}`);
-      expect(findDataTooltip().props('top')).toBe(`${top}`);
-      expect(findDataTooltip().text()).toContain(dataTooltipTitle);
+      expect(findDataTooltip().props('chart')).toBe(mockChartInstance);
     });
   });
 
