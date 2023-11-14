@@ -47,6 +47,12 @@ describe('DuoChatMessage', () => {
     jest.clearAllMocks();
   });
 
+  it('registers the custom `copy-code` element', () => {
+    expect(customElements.get('copy-code')).toBeUndefined();
+    createComponent();
+    expect(customElements.get('copy-code')).toBeDefined();
+  });
+
   describe('rendering', () => {
     beforeEach(() => {
       renderMarkdown.mockImplementation(() => mockMarkdownContent);
@@ -79,6 +85,10 @@ describe('DuoChatMessage', () => {
       });
     });
 
+    it('renders the `copy-code` button for the code snippet', () => {
+      expect(findCopyCodeButton().exists()).toBe(true);
+    });
+
     it('renders the documentation sources component by default', () => {
       expect(findDocumentSources().exists()).toBe(true);
       expect(findDocumentSources().props('sources')).toEqual(MOCK_RESPONSE_MESSAGE.extras.sources);
@@ -106,10 +116,6 @@ describe('DuoChatMessage', () => {
     it('proxies the emitted event from the User Feedback component', () => {
       findUserFeedback().vm.$emit('feedback', 'foo');
       expect(wrapper.emitted('track-feedback')).toEqual([['foo']]);
-    });
-
-    it('does not strip out the <copy-code/> element from HTML output', () => {
-      expect(findCopyCodeButton().exists()).toBe(true);
     });
   });
 
