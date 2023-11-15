@@ -1,3 +1,10 @@
+# [68.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.6.0...v68.7.0) (2023-11-15)
+
+
+### Features
+
+* **GlDuoChatMessage:** added copy-code button ([3133d60](https://gitlab.com/gitlab-org/gitlab-ui/commit/3133d60d6004db689b4315fcc034774a4b53dac0))
+
 # [68.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.5.0...v68.6.0) (2023-11-15)
 
 
