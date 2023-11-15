@@ -3,6 +3,7 @@ import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
 import { MESSAGE_MODEL_ROLES } from '../../constants';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';
+import { CopyCodeElement } from './copy_code_element';
 
 const concatIndicesUntilEmpty = (arr) => {
   const start = arr.findIndex((el) => el);
@@ -66,6 +67,9 @@ export default {
      * Is intentionally non-reactive
      */
     this.messageChunks = [];
+    if (!customElements.get('copy-code')) {
+      customElements.define('copy-code', CopyCodeElement);
+    }
   },
   mounted() {
     this.messageContent = this.content;

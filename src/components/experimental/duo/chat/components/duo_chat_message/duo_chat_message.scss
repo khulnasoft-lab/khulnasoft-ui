@@ -15,4 +15,19 @@
   p:last-of-type {
     @include gl-mb-0;
   }
+
+  copy-code {
+    @include gl-absolute;
+    @include gl-transition-medium;
+    @include gl-opacity-0;
+    @include gl-right-4;
+    @include gl-top-3;
+  }
+
+  .js-markdown-code.markdown-code-block:hover {
+    copy-code,
+    copy-code:focus-within {
+      @include gl-opacity-10;
+    }
+  }
 }
