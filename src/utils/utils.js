@@ -63,7 +63,7 @@ export function relativeLuminance(rgb) {
   return 0.2126 * toSrgb(rgb[0]) + 0.7152 * toSrgb(rgb[1]) + 0.0722 * toSrgb(rgb[2]);
 }
 
-export function colorFromBackground(backgroundColor) {
+export function colorFromBackground(backgroundColor, contrastRatio = 2.4) {
   let color;
   const lightColor = rgbFromHex('#FFFFFF');
   const darkColor = rgbFromHex('#1f1e24');
@@ -83,9 +83,9 @@ export function colorFromBackground(backgroundColor) {
   const contrastLight = (lightLuminance + 0.05) / (luminance + 0.05);
   const contrastDark = (luminance + 0.05) / (darkLuminance + 0.05);
 
-  // Using a threshold contrast of 2.4 instead of 3
+  // Using a default threshold contrast of 2.4 instead of 3
   // as this will solve weird color combinations in the mid tones
-  return contrastLight >= 2.4 || contrastLight > contrastDark
+  return contrastLight >= contrastRatio || contrastLight > contrastDark
     ? labelColorOptions.light
     : labelColorOptions.dark;
 }
