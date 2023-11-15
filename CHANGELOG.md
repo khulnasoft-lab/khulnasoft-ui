@@ -1,3 +1,10 @@
+# [68.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.5.0...v68.6.0) (2023-11-15)
+
+
+### Features
+
+* **Tokens:** add theme color design tokens ([97405b4](https://gitlab.com/gitlab-org/gitlab-ui/commit/97405b483f44b60f8e24fa9dbb1a40dc080efd43))
+
 # [68.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.4.0...v68.5.0) (2023-11-14)
 
 
