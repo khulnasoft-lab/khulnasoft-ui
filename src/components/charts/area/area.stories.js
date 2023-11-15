@@ -7,6 +7,10 @@ import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
 import { disableControls } from '../../../utils/stories_utils';
 
+const components = {
+  GlAreaChart,
+};
+
 const defaultData = [
   {
     name: 'First Series',
@@ -29,7 +33,7 @@ const defaultOptions = {
   },
 };
 
-const template = `<gl-area-chart
+const template = (content = '') => `<gl-area-chart
   :data="data"
   :option="option"
   :thresholds="thresholds"
@@ -37,7 +41,7 @@ const template = `<gl-area-chart
   :includeLegendAvgMax="includeLegendAvgMax"
   :height="height"
   :legendSeriesInfo="legendSeriesInfo"
-/>`;
+>${content}</gl-area-chart>`;
 
 const generateProps = ({
   data = defaultData,
@@ -58,11 +62,9 @@ const generateProps = ({
 });
 
 const Template = (args, { argTypes }) => ({
-  components: {
-    GlAreaChart,
-  },
+  components,
   props: Object.keys(argTypes),
-  template,
+  template: template(),
 });
 
 export const Default = Template.bind({});
@@ -93,6 +95,18 @@ WithAnnotationsAsProps.args = generateProps({
     },
   },
 });
+
+export const WithCustomTooltip = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: template(`
+    <template #tooltip-title="{title}">{{title}} (custom title)</template>
+    <template #tooltip-content="{content}">
+      <ul class="gl-m-0"><li v-for="(v, k) in content">{{k}} is {{v.value}}</li></ul>
+    </template>
+  `),
+});
+WithCustomTooltip.args = generateProps({});
 
 export const WithAnnotationsAsOptionSeries = Template.bind({});
 WithAnnotationsAsOptionSeries.args = generateProps({

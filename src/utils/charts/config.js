@@ -469,3 +469,54 @@ export const getDefaultTooltipContent = (params, yAxisTitle = null) => {
 
   return { xLabels, tooltipContent };
 };
+
+export const getTooltipTitle = (params = null, xAxisName = null) => {
+  if (!params) {
+    return '';
+  }
+  const title = params.seriesData
+    .reduce((acc, point) => {
+      const [key] = point.value || [];
+      if (!acc.includes(key)) {
+        acc.push(key);
+      }
+      return acc;
+    }, [])
+    .join(', ');
+
+  if (xAxisName) {
+    return `${title} (${xAxisName})`;
+  }
+  return title;
+};
+
+export const getTooltipContent = (params = null, yAxisTitle = null) => {
+  if (!params) {
+    return {};
+  }
+
+  const { seriesData } = params;
+
+  if (seriesData.length === 1) {
+    const [point] = seriesData;
+    const [, value] = point.value || [];
+    return {
+      [yAxisTitle || point.seriesName]: {
+        value,
+        color: '',
+      },
+    };
+  }
+
+  return seriesData.reduce((acc, point) => {
+    const [, value] = point.value || [];
+    // Let's use the y axis title as series name when only one series exists
+    // This way, TooltipDefaultFormat will display the y axis title as label
+    const { seriesName, color } = point;
+    acc[seriesName] = {
+      value,
+      color,
+    };
+    return acc;
+  }, {});
+};

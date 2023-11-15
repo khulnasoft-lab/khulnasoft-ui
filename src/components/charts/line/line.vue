@@ -30,7 +30,8 @@ import {
   mergeSeriesToOptions,
   mergeAnnotationAxisToOptions,
   lineStyle,
-  getDefaultTooltipContent,
+  getTooltipTitle,
+  getTooltipContent,
 } from '../../../utils/charts/config';
 import {
   LEGEND_LAYOUT_INLINE,
@@ -82,6 +83,12 @@ export default {
       required: false,
       default: true,
     },
+    /**
+     * Runs when showing or refreshing a tooltip to update it.
+     * **Deprecated:** Use slots `#tooltip-title`, `#tooltip-content` or `#tooltip-value`.
+     *
+     * @deprecated Use slots `#tooltip-title`, `#tooltip-content` or `#tooltip-value`.
+     */
     formatTooltipText: {
       type: Function,
       required: false,
@@ -130,14 +137,9 @@ export default {
     },
   },
   data() {
-    // Part of the tooltip related data can be
-    // moved into the tooltip component.
-    // Tracking that progress in
-    // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/618
     return {
       chart: null,
-      dataTooltipTitle: '',
-      dataTooltipContent: {},
+      dataTooltipParams: null,
       showAnnotationsTooltip: false,
       annotationsTooltipTitle: '',
       annotationsTooltipContent: '',
@@ -145,7 +147,6 @@ export default {
         left: '0',
         top: '0',
       },
-      selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
   computed: {
@@ -253,18 +254,18 @@ export default {
     autoHeight() {
       return this.height === 'auto';
     },
+    dataTooltipTitle() {
+      return getTooltipTitle(this.dataTooltipParams, this.options.xAxis.name);
+    },
+    dataTooltipContent() {
+      return getTooltipContent(this.dataTooltipParams, this.options.yAxis.name);
+    },
   },
   beforeDestroy() {
     this.chart.off('mouseout', this.onChartDataPointMouseOut);
     this.chart.off('mouseover', this.onChartDataPointMouseOver);
   },
   methods: {
-    defaultFormatTooltipText(params) {
-      const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.options.yAxis.name);
-
-      this.$set(this, 'dataTooltipContent', tooltipContent);
-      this.dataTooltipTitle = xLabels.join(', ');
-    },
     defaultAnnotationTooltipText(params) {
       return {
         title: params.data.xAxis,
@@ -313,7 +314,12 @@ export default {
       }
     },
     onLabelChange(params) {
-      this.selectedFormatTooltipText(params);
+      this.dataTooltipParams = params || null;
+
+      // Run `formatTooltipText` if present, although is deprecated
+      if (this.formatTooltipText) {
+        this.formatTooltipText(params);
+      }
     },
   },
   HEIGHT_AUTO_CLASSES,
@@ -347,19 +353,34 @@ export default {
     </chart-tooltip>
     <chart-tooltip v-if="chart" ref="dataTooltip" :chart="chart">
       <template #title>
-        <slot v-if="formatTooltipText" name="tooltip-title"></slot>
-        <div v-else>
+        <!--
+          @slot Tooltip title
+          @binding {string} title - Default title
+          @binding {object} params - Full list of params from `onLabelChange`. Can be null before no tooltip is shown.
+        -->
+        <slot name="tooltip-title" v-bind="{ title: dataTooltipTitle, params: dataTooltipParams }">
           {{ dataTooltipTitle }}
-          <template v-if="options.xAxis.name">({{ options.xAxis.name }})</template>
-        </div>
+        </slot>
       </template>
-      <slot v-if="formatTooltipText" name="tooltip-content"></slot>
-      <tooltip-default-format v-else :tooltip-content="dataTooltipContent">
-        <template v-if="$scopedSlots['tooltip-value']" #tooltip-value="scope">
-          <!-- @slot Tooltip value formatter -->
-          <slot name="tooltip-value" v-bind="scope"></slot>
-        </template>
-      </tooltip-default-format>
+      <!--
+        @slot Tooltip content
+        @binding {object} content - Key-value pairs of series information
+        @binding {object} params - Full list of params from `onLabelChange`. Can be null before tooltip is shown
+       -->
+      <slot
+        name="tooltip-content"
+        v-bind="{ content: dataTooltipContent, params: dataTooltipParams }"
+      >
+        <tooltip-default-format :tooltip-content="dataTooltipContent">
+          <template v-if="$scopedSlots['tooltip-value']" #tooltip-value="scope">
+            <!--
+              @slot Tooltip value formatter
+              @binding {number} Selected value shown in the tooltip for a given series
+            -->
+            <slot name="tooltip-value" v-bind="scope"></slot>
+          </template>
+        </tooltip-default-format>
+      </slot>
     </chart-tooltip>
     <chart-legend
       v-if="hasLegend"

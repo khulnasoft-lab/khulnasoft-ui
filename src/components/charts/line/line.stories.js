@@ -56,7 +56,7 @@ const defaultOptions = {
   },
 };
 
-const template = `<gl-line-chart
+const template = (content = '') => `<gl-line-chart
   :data="data"
   :option="option"
   :thresholds="thresholds"
@@ -64,7 +64,7 @@ const template = `<gl-line-chart
   :includeLegendAvgMax="includeLegendAvgMax"
   :showLegend="showLegend"
   :height="height"
-/>`;
+>${content}</gl-line-chart>`;
 
 const generateProps = ({
   data = defaultData,
@@ -87,7 +87,7 @@ const generateProps = ({
 const Template = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components,
-  template,
+  template: template(),
 });
 
 export const Default = Template.bind({});
@@ -99,7 +99,7 @@ WithThreshold.args = generateProps({
 });
 
 export const WithAnnotationsAsProps = Template.bind({});
-WithAnnotationsAsProps.storyNane = 'with annotations as props (recommended)';
+WithAnnotationsAsProps.storyName = 'With Annotations As Props (recommended)';
 WithAnnotationsAsProps.args = generateProps({
   ...mockAnnotationsConfigs,
   data: [
@@ -119,6 +119,18 @@ WithAnnotationsAsProps.args = generateProps({
     },
   },
 });
+
+export const WithCustomTooltip = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: template(`
+    <template #tooltip-title="{title}">{{title}} (custom title)</template>
+    <template #tooltip-content="{content}">
+      <ul class="gl-m-0"><li v-for="(v, k) in content">{{k}} is {{v.value}}</li></ul>
+    </template>
+  `),
+});
+WithCustomTooltip.args = generateProps({});
 
 export const WithAnnotationsAsOptionSeries = Template.bind({});
 WithAnnotationsAsOptionSeries.args = generateProps({

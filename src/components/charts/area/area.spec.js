@@ -3,9 +3,13 @@ import { shallowMount } from '@vue/test-utils';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { textContentWithSpaces } from '~helpers/html_string_with_spaces';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
+
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+
 import AreaChart from './area.vue';
 
 let mockChartInstance;
@@ -24,13 +28,10 @@ describe('area component', () => {
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  const createShallowWrapper = ({ props = {}, slots = {} } = {}) => {
+  const createShallowWrapper = ({ props = {}, ...mountOptions } = {}) => {
     wrapper = shallowMount(AreaChart, {
       propsData: { option: { series: [] }, data: [], ...props },
-      stubs: {
-        'chart-tooltip': ChartTooltipStub,
-      },
-      slots,
+      ...mountOptions,
     });
     emitChartCreated();
   };
@@ -125,6 +126,9 @@ describe('area component', () => {
             },
           ],
         },
+        stubs: {
+          'chart-tooltip': ChartTooltipStub,
+        },
       });
 
       wrapper.vm.onChartDataPointMouseOver(params);
@@ -136,16 +140,70 @@ describe('area component', () => {
     });
   });
 
-  describe('data tooltip is set', () => {
+  describe('data tooltip', () => {
+    const mockDataTooltipParams = {
+      seriesData: [
+        {
+          name: 'Thu',
+          value: ['Thu', 934],
+        },
+      ],
+    };
+
     beforeEach(() => {
-      createShallowWrapper();
+      createShallowWrapper({
+        stubs: {
+          'chart-tooltip': ChartTooltipStub,
+          TooltipDefaultFormat,
+        },
+      });
     });
 
     it('is initialized', () => {
       expect(findDataTooltip().props('chart')).toBe(mockChartInstance);
     });
-  });
 
+    it('shows default tooltip', async () => {
+      findChart().props('options').xAxis.axisPointer.label.formatter(mockDataTooltipParams); // trigger tooltip with given params
+      await nextTick();
+
+      expect(textContentWithSpaces(findDataTooltip().html())).toBe('Thu (Value) Value 934');
+    });
+
+    it('shows custom tooltip', async () => {
+      const tooltipTitleSlot = jest.fn().mockReturnValue('Tooltip Title:');
+      const tooltipContentSlot = jest.fn().mockReturnValue('Tooltip Content');
+
+      createShallowWrapper({
+        stubs: {
+          'chart-tooltip': ChartTooltipStub,
+          TooltipDefaultFormat,
+        },
+        scopedSlots: {
+          'tooltip-title': tooltipTitleSlot,
+          'tooltip-content': tooltipContentSlot,
+        },
+      });
+
+      findChart().props('options').xAxis.axisPointer.label.formatter(mockDataTooltipParams); // trigger tooltip with given params
+      await nextTick();
+
+      expect(tooltipTitleSlot).toHaveBeenCalledWith({
+        title: 'Thu (Value)',
+        params: mockDataTooltipParams,
+      });
+      expect(tooltipContentSlot).toHaveBeenCalledWith({
+        content: {
+          Value: { value: 934, color: '' },
+        },
+        params: mockDataTooltipParams,
+      });
+
+      expect(textContentWithSpaces(findDataTooltip().html())).toBe(
+        'Tooltip Title: Tooltip Content'
+      );
+    });
+  });
   describe('legend', () => {
     it('is inline by default', async () => {
       createShallowWrapper();

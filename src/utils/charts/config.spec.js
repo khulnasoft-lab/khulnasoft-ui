@@ -9,6 +9,8 @@ import {
   parseAnnotations,
   generateBarSeries,
   generateLineSeries,
+  getTooltipTitle,
+  getTooltipContent,
 } from './config';
 import {
   mockDefaultDataZoomConfig,
@@ -380,6 +382,115 @@ describe('chart config helpers', () => {
           [param]: value,
         })
       ).toMatchObject(result);
+    });
+  });
+
+  describe('getTooltipTitle', () => {
+    it('when no tooltip is shown, returns empty string', () => {
+      expect(getTooltipTitle()).toBe('');
+    });
+
+    it('with a missing value', () => {
+      expect(
+        getTooltipTitle({
+          seriesData: [{ value: [] }],
+        })
+      ).toBe('');
+    });
+
+    it('with a single series', () => {
+      expect(
+        getTooltipTitle({
+          seriesData: [{ value: ['Series 1', 100] }],
+        })
+      ).toBe('Series 1');
+    });
+
+    it('with multiple series', () => {
+      expect(
+        getTooltipTitle({
+          seriesData: [{ value: ['Series 1', 100] }, { value: ['Series 2', 101] }],
+        })
+      ).toBe('Series 1, Series 2');
+    });
+
+    it('with multiple, repeated series', () => {
+      expect(
+        getTooltipTitle({
+          seriesData: [
+            { value: ['Series 1', 100] },
+            { value: ['Series 2', 101] },
+            { value: ['Series 2', 101] },
+          ],
+        })
+      ).toBe('Series 1, Series 2');
+    });
+
+    it('with a multiple series and an series name', () => {
+      expect(
+        getTooltipTitle(
+          {
+            seriesData: [{ value: ['Series 1', 100] }, { value: ['Series 2', 101] }],
+          },
+          'Axis Name'
+        )
+      ).toBe('Series 1, Series 2 (Axis Name)');
+    });
+  });
+
+  describe('getTooltipContent', () => {
+    it('when no tooltip is shown, returns empty object', () => {
+      expect(getTooltipContent()).toEqual({});
+    });
+
+    it('with a single series, ignores color', () => {
+      expect(
+        getTooltipContent({
+          seriesData: [{ seriesName: 'Series 1', color: '#aaa', value: ['Series 1', 100] }],
+        })
+      ).toEqual({ 'Series 1': { color: '', value: 100 } });
+    });
+
+    it('with a single series and an axis name, ignores series name', () => {
+      expect(
+        getTooltipContent(
+          {
+            seriesData: [{ seriesName: 'Series 1', color: '#aaa', value: ['Value 1', 100] }],
+          },
+          'Axis Name'
+        )
+      ).toEqual({ 'Axis Name': { color: '', value: 100 } });
+    });
+
+    it('with multiple series', () => {
+      expect(
+        getTooltipContent({
+          seriesData: [
+            { seriesName: 'Series 1', color: '#aaa', value: ['Value 1', 100] },
+            { seriesName: 'Series 2', color: '#bbb', value: ['Value 1', 100] },
+          ],
+        })
+      ).toEqual({
+        'Series 1': { color: '#aaa', value: 100 },
+        'Series 2': { color: '#bbb', value: 100 },
+      });
+    });
+
+    it('with a multiple series and an axis name, ignores axis name', () => {
+      expect(
+        getTooltipContent(
+          {
+            seriesData: [
+              { seriesName: 'Series 1', color: '#aaa', value: ['Value 1', 100] },
+              { seriesName: 'Series 2', color: '#bbb', value: ['Value 1', 100] },
+            ],
+          },
+          'Axis Name'
+        )
+      ).toEqual({
+        'Series 1': { color: '#aaa', value: 100 },
+        'Series 2': { color: '#bbb', value: 100 },
+      });
     });
   });
 });
