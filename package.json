@@ -167,10 +167,10 @@
     "storybook-dark-mode": "3.0.1",
     "style-dictionary": "^3.8.0",
     "stylelint": "15.10.2",
-    "vue": "2.7.14",
+    "vue": "2.7.15",
     "vue-loader": "^15.8.3",
     "vue-loader-vue3": "npm:vue-loader@17",
-    "vue-template-compiler": "2.7.14",
+    "vue-template-compiler": "2.7.15",
     "vue-test-utils-compat": "^0.0.10",
     "webpack": "^5.9.0"
   },
