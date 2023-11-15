@@ -1,3 +1,10 @@
+# [68.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.7.0...v68.8.0) (2023-11-15)
+
+
+### Features
+
+* **GlBanner:** Add gray background ([5103460](https://gitlab.com/gitlab-org/gitlab-ui/commit/5103460b8601edd25e1af69f38612cea0a847f1a))
+
 # [68.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.6.0...v68.7.0) (2023-11-15)
 
 
