@@ -981,14 +981,6 @@
 * notes:
 * - Utilities should strictly follow $gl-spacing-scale
 */
-
-@mixin gl-xs-mb-3 {
-  // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
-  @include gl-media-breakpoint-down(sm) {
-    @include gl-mb-3;
-  }
-}
-
 @mixin gl-sm-ml-3 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-ml-3;
@@ -1022,6 +1014,12 @@
 @mixin gl-sm-mt-6 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-mt-6;
+  }
+}
+
+@mixin gl-sm-mb-0 {
+  @include gl-media-breakpoint-up(sm) {
+    margin-bottom: 0;
   }
 }
 
