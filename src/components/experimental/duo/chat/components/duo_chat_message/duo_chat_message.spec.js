@@ -1,6 +1,7 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
+import GlIcon from '../../../../../base/icon/icon.vue';
 import {
   MOCK_USER_PROMPT_MESSAGE,
   MOCK_RESPONSE_MESSAGE,
@@ -12,10 +13,13 @@ import GlDuoChatMessage from './duo_chat_message.vue';
 describe('DuoChatMessage', () => {
   let wrapper;
 
+  const findContentWrapper = () => wrapper.findComponent({ ref: 'content-wrapper' });
   const findContent = () => wrapper.findComponent({ ref: 'content' });
+  const findErrorMessage = () => wrapper.findComponent({ ref: 'error-message' });
   const findDocumentSources = () => wrapper.findComponent(DocumentationSources);
   const findUserFeedback = () => wrapper.findComponent(GlDuoUserFeedback);
   const findCopyCodeButton = () => wrapper.find('copy-code');
+  const findErrorIcon = () => wrapper.findComponent(GlIcon);
   const mockMarkdownContent = 'foo **bar**';
 
   let renderMarkdown;
@@ -82,6 +86,10 @@ describe('DuoChatMessage', () => {
     it('does not render the user feedback component', () => {
       expect(findUserFeedback().exists()).toBe(false);
     });
+
+    it('does not render the error icon', () => {
+      expect(findErrorIcon().exists()).toBe(false);
+    });
   });
 
   describe('rendering with assistant message', () => {
@@ -98,6 +106,10 @@ describe('DuoChatMessage', () => {
     it('renders the documentation sources component by default', () => {
       expect(findDocumentSources().exists()).toBe(true);
       expect(findDocumentSources().props('sources')).toEqual(MOCK_RESPONSE_MESSAGE.extras.sources);
+    });
+
+    it('does not render the error icon', () => {
+      expect(findErrorIcon().exists()).toBe(false);
     });
 
     it.each([null, undefined, ''])(
@@ -139,7 +151,19 @@ describe('DuoChatMessage', () => {
   });
 
   describe('message output', () => {
-    it('outputs errors if they are present', async () => {
+    it('renders the warning icon when message has errors', () => {
+      createComponent({
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors: ['foo'],
+        },
+      });
+      expect(findErrorIcon().exists()).toBe(true);
+      expect(findErrorMessage().text()).toBe('foo');
+      expect(findContentWrapper().classes()).toContain('has-error');
+    });
+
+    it('outputs errors as icon if they are present', async () => {
       const errors = ['error1', 'error2', 'error3'];
 
       createComponent({
@@ -147,15 +171,30 @@ describe('DuoChatMessage', () => {
           ...MOCK_USER_PROMPT_MESSAGE,
           errors,
           contentHtml: 'fooHtml barHtml',
+          content: 'foo bar',
+          chunks: ['a', 'b', 'c'],
         },
       });
 
       await nextTick();
 
-      const contentText = findContent().text();
-      expect(contentText).toContain(errors[0]);
-      expect(contentText).toContain(errors[1]);
-      expect(contentText).toContain(errors[2]);
+      const errorMessage = findErrorMessage().text();
+      expect(errorMessage).toContain(errors[0]);
+      expect(errorMessage).toContain(errors[1]);
+      expect(errorMessage).toContain(errors[2]);
+    });
+
+    it('outputs errors if message has no content', async () => {
+      createComponent({
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          contentHtml: '',
+          content: '',
+          errors: ['error'],
+        },
+      });
+      await nextTick();
+      expect(findErrorMessage().text()).toBe('error');
     });
 
     it('outputs contentHtml if it is present', async () => {
@@ -214,23 +253,6 @@ describe('DuoChatMessage', () => {
         },
       });
       expect(renderGFM).toHaveBeenCalled();
-    });
-
-    it('sanitizes html produced by errors', async () => {
-      createComponent({
-        options: {
-          provide: null,
-        },
-        message: {
-          ...MOCK_USER_PROMPT_MESSAGE,
-          errors: ['[click here](javascript:prompt(1))'],
-          contentHtml: undefined,
-          content: '',
-        },
-      });
-
-      await nextTick();
-      expect(findContent().html()).toContain('<p><a>click here</a></p>');
     });
 
     it('sanitizes html produced by content', async () => {
@@ -339,27 +361,11 @@ describe('DuoChatMessage', () => {
             errors: ['error'],
           },
         });
-        expect(findContent().text()).not.toContain(newContent);
-        expect(findContent().text()).not.toContain(MOCK_USER_PROMPT_MESSAGE.content);
-        expect(findContent().text()).toContain('error');
-      });
+        await nextTick();
+        expect(findContent().exists()).toBe(false);
 
-      it('merges all the errors for output', async () => {
-        const errors = ['foo', 'bar', 'baz'];
-        // setProps is justified here because we are testing the component's
-        // reactive behavior which consistutes an exception
-        // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
-        await wrapper.setProps({
-          message: {
-            ...MOCK_USER_PROMPT_MESSAGE,
-            contentHtml: '',
-            content: '',
-            errors,
-          },
-        });
-        expect(findContent().text()).toContain(errors[0]);
-        expect(findContent().text()).toContain(errors[1]);
-        expect(findContent().text()).toContain(errors[2]);
+        expect(findErrorMessage().text()).toBe('error');
+        expect(findErrorIcon().exists()).toBe(true);
       });
 
       it('hydrates the output message with GLFM if its not a chunk', async () => {
@@ -479,7 +485,7 @@ describe('DuoChatMessage', () => {
 
         // setProps is justified here because we are testing the component's
         // reactive behavior which consistutes an exception
-        // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
+        // See https://docs.gitlab.com/ee/devoutputs errors if message has no contentelopment/fe_guide/style/vue.html#setting-component-state
         await wrapper.setProps({
           message: CHUNK2,
         });
@@ -519,8 +525,8 @@ describe('DuoChatMessage', () => {
               errors,
             },
           });
-          expect(renderGFM).toHaveBeenCalled();
-          expect(findContent().text()).toBe(expectedContent);
+
+          expect(findContentWrapper().text()).toBe(expectedContent);
         }
       );
     });
