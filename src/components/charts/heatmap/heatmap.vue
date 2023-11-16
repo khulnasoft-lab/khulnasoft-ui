@@ -3,7 +3,7 @@
 import merge from 'lodash/merge';
 import { WHITE, GRAY_100 } from '../../../../dist/tokens/js/tokens';
 import { getDefaultTooltipContent } from '../../../utils/charts/config';
-import { TOOLTIP_LEFT_OFFSET, HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
+import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
 import { debounceByAnimationFrame } from '../../../utils/utils';
@@ -255,7 +255,7 @@ export default {
 
         this.tooltip = {
           ...this.tooltip,
-          left: `${left + TOOLTIP_LEFT_OFFSET}px`,
+          left: `${left}px`,
           top: `${top}px`,
         };
       }

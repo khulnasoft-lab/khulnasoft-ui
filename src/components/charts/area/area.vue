@@ -30,8 +30,6 @@ import {
   getDefaultTooltipContent,
 } from '../../../utils/charts/config';
 import {
-  ANNOTATION_TOOLTIP_TOP_OFFSET,
-  DATA_TOOLTIP_LEFT_OFFSET,
   LEGEND_LAYOUT_INLINE,
   LEGEND_LAYOUT_TABLE,
   LEGEND_AVERAGE_TEXT,
@@ -42,7 +40,6 @@ import {
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
-import { debounceByAnimationFrame } from '../../../utils/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
@@ -141,13 +138,8 @@ export default {
     // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/618
     return {
       chart: null,
-      showDataTooltip: false,
       dataTooltipTitle: '',
       dataTooltipContent: {},
-      dataTooltipPosition: {
-        left: '0',
-        top: '0',
-      },
       showAnnotationsTooltip: false,
       annotationsTooltipTitle: '',
       annotationsTooltipContent: '',
@@ -155,7 +147,6 @@ export default {
         left: '0',
         top: '0',
       },
-      debouncedShowHideTooltip: debounceByAnimationFrame(this.showHideTooltip),
       selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
@@ -269,9 +260,6 @@ export default {
     },
   },
   beforeDestroy() {
-    this.chart.getZr().off('mousemove', this.debouncedShowHideTooltip);
-    this.chart.getZr().off('mouseout', this.debouncedShowHideTooltip);
-
     this.chart.off('mouseout', this.hideAnnotationsTooltip);
     this.chart.off('mouseover', this.onChartMouseOver);
   },
@@ -289,13 +277,6 @@ export default {
       };
     },
     onCreated(chart) {
-      // These listeners are used to show/hide data tooltips
-      // when the mouse is hovered over the parent container
-      // of echarts' svg element. This works only for data points
-      // and not markPoints.
-      chart.getZr().on('mousemove', this.debouncedShowHideTooltip);
-      chart.getZr().on('mouseout', this.debouncedShowHideTooltip);
-
       // eCharts inbuild mouse events
       // https://echarts.apache.org/en/api.html#events.Mouse%20events
       // is used to attach listeners to markPoints. These listeners
@@ -305,7 +286,6 @@ export default {
       // sections of the charts with their own mouseovers and mouseouts,
       // there shouldn't be an overlapping situation where both tooltips
       // are visible.
-
       if (this.hasAnnotations) {
         chart.on('mouseout', this.onChartDataPointMouseOut);
         chart.on('mouseover', this.onChartDataPointMouseOver);
@@ -313,14 +293,6 @@ export default {
 
       this.chart = chart;
       this.$emit('created', chart);
-    },
-    showHideTooltip({ event: mouseEvent }) {
-      this.showDataTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
-
-      this.dataTooltipPosition = {
-        left: `${mouseEvent.zrX + DATA_TOOLTIP_LEFT_OFFSET}px`,
-        top: `${mouseEvent.zrY}px`,
-      };
     },
     onChartDataPointMouseOut() {
       this.showAnnotationsTooltip = false;
@@ -340,7 +312,7 @@ export default {
         this.annotationsTooltipContent = content;
         this.annotationsTooltipPosition = {
           left: `${event.event.zrX}px`,
-          top: `${event.event.zrY + ANNOTATION_TOOLTIP_TOP_OFFSET}px`,
+          top: `${event.event.zrY}px`,
         };
       }
     },
@@ -367,9 +339,9 @@ export default {
       id="annotationsTooltip"
       ref="annotationsTooltip"
       :show="showAnnotationsTooltip"
-      :chart="chart"
       :top="annotationsTooltipPosition.top"
       :left="annotationsTooltipPosition.left"
+      :chart="chart"
       placement="bottom"
     >
       <template #title>
@@ -377,16 +349,7 @@ export default {
       </template>
       <div>{{ annotationsTooltipContent }}</div>
     </chart-tooltip>
-    <chart-tooltip
-      v-if="chart"
-      id="dataTooltip"
-      ref="dataTooltip"
-      class="gl-pointer-events-none"
-      :show="showDataTooltip"
-      :chart="chart"
-      :top="dataTooltipPosition.top"
-      :left="dataTooltipPosition.left"
-    >
+    <chart-tooltip v-if="chart" ref="dataTooltip" :chart="chart">
       <template #title>
         <slot v-if="formatTooltipText" name="tooltip-title"></slot>
         <template v-else>

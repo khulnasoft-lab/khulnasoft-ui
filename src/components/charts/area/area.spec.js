@@ -136,30 +136,13 @@ describe('area component', () => {
     });
   });
 
-  describe('tooltip position', () => {
-    const dataTooltipTitle = 'FooBar';
-
+  describe('data tooltip is set', () => {
     beforeEach(() => {
       createShallowWrapper();
     });
 
     it('is initialized', () => {
-      expect(findDataTooltip().props('left')).toBe('0');
-      expect(findDataTooltip().props('top')).toBe('0');
-      expect(findDataTooltip().text()).not.toContain(dataTooltipTitle);
-    });
-
-    it('is reset when mouse moves', async () => {
-      const left = '10px';
-      const top = '30px';
-
-      wrapper.setData({ dataTooltipPosition: { left, top }, dataTooltipTitle });
-
-      await nextTick();
-
-      expect(findDataTooltip().props('left')).toBe(`${left}`);
-      expect(findDataTooltip().props('top')).toBe(`${top}`);
-      expect(findDataTooltip().text()).toContain(dataTooltipTitle);
+      expect(findDataTooltip().exists()).toBe(true);
     });
   });
 

@@ -33,8 +33,6 @@ import {
   getDefaultTooltipContent,
 } from '../../../utils/charts/config';
 import {
-  ANNOTATION_TOOLTIP_TOP_OFFSET,
-  DATA_TOOLTIP_LEFT_OFFSET,
   LEGEND_LAYOUT_INLINE,
   LEGEND_LAYOUT_TABLE,
   LEGEND_AVERAGE_TEXT,
@@ -313,7 +311,7 @@ export default {
       this.showDataTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
 
       this.dataTooltipPosition = {
-        left: `${mouseEvent.zrX + DATA_TOOLTIP_LEFT_OFFSET}px`,
+        left: `${mouseEvent.zrX}px`,
         top: `${mouseEvent.zrY}px`,
       };
     },
@@ -335,7 +333,7 @@ export default {
         this.annotationsTooltipContent = content;
         this.annotationsTooltipPosition = {
           left: `${event.event.zrX}px`,
-          top: `${event.event.zrY + ANNOTATION_TOOLTIP_TOP_OFFSET}px`,
+          top: `${event.event.zrY}px`,
         };
       }
     },

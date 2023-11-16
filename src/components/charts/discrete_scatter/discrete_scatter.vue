@@ -173,6 +173,7 @@ export default {
       if (data.length) {
         const [left, top] = this.chart.convertToPixel('grid', data);
 
+        this.showTooltip = true;
         this.tooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
