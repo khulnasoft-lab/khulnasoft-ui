@@ -27,5 +27,5 @@ registerCypressGrep();
 Cypress.on('uncaught:exception', (err) => {
   // Since Storybook 7, we are seeing ResizeObserver errors when running Cypress. Those can be
   // ignored as they do not seem to affect the actual tests.
-  return !/ResizeObserver loop completed/.test(err.message);
+  return !/ResizeObserver loop (completed|limit exceeded)/.test(err.message);
 });

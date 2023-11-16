@@ -265,7 +265,7 @@ visual_minimal:
       when: always
 
 .integration_tests:
-  image: cypress/browsers:node16.14.0-chrome99-ff97
+  image: cypress/browsers:node16.18.0-chrome107-ff106-edge
   extends: [.node, .yarn_install]
   needs: []
   stage: test

@@ -39,7 +39,7 @@
     "storybook-static": "yarn storybook-prep && storybook build -c .storybook -o storybook",
     "pretest:unit": "yarn build-tokens build-scss-variables",
     "test": "run-s test:unit test:visual",
-    "test:integration": "NODE_ENV=test start-server-and-test start http://${STORYBOOK_HOST:-localhost}:9001/iframe.html 'yarn cy:run && yarn cy:a11y'",
+    "test:integration": "NODE_ENV=test start-server-and-test start http://${STORYBOOK_HOST:-localhost}:9001/iframe.html 'yarn cy:run && yarn cy:edge && yarn cy:a11y'",
     "test:unit": "NODE_ENV=test jest --testPathIgnorePatterns storyshots.spec.js",
     "test:unit:watch": "yarn test:unit --watch",
     "test:unit:debug": "NODE_ENV=test node --inspect node_modules/.bin/jest --testPathIgnorePatterns storyshot.spec.js --watch --runInBand",
