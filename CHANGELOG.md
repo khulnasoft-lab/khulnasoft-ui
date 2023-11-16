@@ -1,3 +1,36 @@
+# [69.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.8.0...v69.0.0) (2023-11-16)
+
+
+### Bug Fixes
+
+* **css:** remove desktop-first CSS utils ([797f198](https://gitlab.com/gitlab-org/gitlab-ui/commit/797f19868bf6cd4d10e1c7775744391e82aa81e1))
+
+
+### Features
+
+* **css:** add responsive CSS utils ([ca0d144](https://gitlab.com/gitlab-org/gitlab-ui/commit/ca0d1440f861fa0b83f0446d34c66661f329450d))
+
+
+### BREAKING CHANGES
+
+* **css:** This removes the remaining desktop-first CSS utilities
+form the library. Any usages of those should be replaced with
+mobile-first alternatives. See below for replacement suggestions. Note
+that the proposed replacements should work in the most simple cases.
+Some use cases might require using different utils combinations.
+
+* `gl-sm-flex-direction-column`
+Replace with `gl-flex-direction-column gl-md-flex-direction-row`.
+
+* `gl-xs-flex-direction-column`
+Replace with `gl-flex-direction-column gl-sm-flex-direction-row`.
+
+* `gl-xs-w-full`
+Replace with `gl-w-full gl-sm-w-auto`.
+
+* `gl-xs-mb-3`
+Replace with `gl-mb-3 gl-sm-mb-0`.
+
 # [68.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.7.0...v68.8.0) (2023-11-15)
 
 
