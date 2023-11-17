@@ -999,6 +999,12 @@
   }
 }
 
+@mixin gl-sm-mr-0 {
+  @include gl-media-breakpoint-up(sm) {
+    @include gl-mr-0;
+  }
+}
+
 @mixin gl-sm-mt-0 {
   @include gl-media-breakpoint-up(sm) {
     @include gl-mt-0;
@@ -1104,6 +1110,12 @@
 @mixin gl-md-ml-3 {
   @include gl-media-breakpoint-up(md) {
     @include gl-ml-3;
+  }
+}
+
+@mixin gl-md-mr-0 {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-mr-0;
   }
 }
 
