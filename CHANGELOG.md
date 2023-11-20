@@ -1,3 +1,10 @@
+# [69.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v69.0.0...v69.1.0) (2023-11-20)
+
+
+### Features
+
+* **css:** Add gl-{size}-mr-0 utility classes ([4ce256c](https://gitlab.com/gitlab-org/gitlab-ui/commit/4ce256c8eba06c8ecdbddb67c92b2a097e415518))
+
 # [69.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v68.8.0...v69.0.0) (2023-11-16)
 
 
