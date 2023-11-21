@@ -1,3 +1,10 @@
+## [70.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v70.0.0...v70.0.1) (2023-11-21)
+
+
+### Bug Fixes
+
+* **GlChart:** Tooltip fix on MS Edge ([5eab629](https://gitlab.com/gitlab-org/gitlab-ui/commit/5eab629cff921370f60717b5460b0d33e2188714))
+
 # [70.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v69.1.0...v70.0.0) (2023-11-21)
 
 
