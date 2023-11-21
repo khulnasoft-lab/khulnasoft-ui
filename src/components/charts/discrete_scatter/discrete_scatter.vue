@@ -7,7 +7,6 @@ import {
   mergeSeriesToOptions,
 } from '../../../utils/charts/config';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
-import { debounceByAnimationFrame } from '../../../utils/utils';
 import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
@@ -66,14 +65,12 @@ export default {
   data() {
     return {
       chart: null,
-      showTooltip: false,
       tooltipTitle: '',
       tooltipContent: {},
       tooltipPosition: {
         left: '0',
         top: '0',
       },
-      debouncedShowHideTooltip: debounceByAnimationFrame(this.showHideTooltip),
       selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
@@ -156,12 +153,7 @@ export default {
       };
       this.$set(this, 'tooltipContent', tooltipContent);
     },
-    showHideTooltip(mouseEvent) {
-      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
-    },
     onCreated(chart) {
-      chart.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
-      chart.getDom().addEventListener('mouseout', this.debouncedShowHideTooltip);
       this.chart = chart;
       this.$emit('created', chart);
     },
@@ -173,7 +165,6 @@ export default {
       if (data.length) {
         const [left, top] = this.chart.convertToPixel('grid', data);
 
-        this.showTooltip = true;
         this.tooltipPosition = {
           left: `${left}px`,
           top: `${top}px`,
@@ -200,7 +191,6 @@ export default {
     />
     <chart-tooltip
       v-if="!disableTooltip && chart"
-      :show="showTooltip"
       :chart="chart"
       :top="tooltipPosition.top"
       :left="tooltipPosition.left"

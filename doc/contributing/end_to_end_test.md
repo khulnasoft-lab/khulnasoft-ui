@@ -9,7 +9,7 @@ Tests should be added in the `cypress/e2e` folder when testing a component
 in isolation through unit tests is not enough to provide thorough test coverage.
 
 For every story within `src/components/**/*.stories.js`,
-a corresponding axe accessbililty check should be added.
+a corresponding axe accessibility check should be added.
 
 ## Running Cypress tests
 
@@ -49,7 +49,7 @@ Implement a11y tests to cover the following GlDisclosureDropdown states
 - ...
 ```
 
-These can be translated into axe accesibility tests for `GlDisclosureDropdown` component:
+These can be translated into axe accessibility tests for `GlDisclosureDropdown` component:
 
 ```js
 describe('stories', () => {
@@ -88,7 +88,7 @@ describe('stories', () => {
     cy.glCheckA11y();
   }
 
-  it('passes axe accessbility audits', { tags: '@a11y' }, () => {
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     checkA11yDropdownOpened();
     checkA11yDropdownClosed();
     checkA11yDropdownWithGroupsOpened();

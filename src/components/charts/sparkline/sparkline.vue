@@ -89,7 +89,6 @@ export default {
     return {
       chartInstance: null,
       tooltip: {
-        show: false,
         title: '',
         content: '',
         position: {
@@ -190,9 +189,6 @@ export default {
     handleResize() {
       this.chartInstance.resize();
     },
-    hideTooltip() {
-      this.tooltip.show = false;
-    },
     setTooltipPosition(data) {
       const [left, top] = this.chartInstance.convertToPixel('grid', data);
       this.tooltip.position = {
@@ -214,7 +210,6 @@ export default {
       const [title, content] = data;
       if (isNil(title) || isNil(content)) return;
 
-      this.tooltip.show = true;
       this.tooltip.title = title;
       this.tooltip.content = content;
       this.setTooltipPosition(data);
@@ -229,7 +224,6 @@ export default {
     v-resize-observer="handleResize"
     class="gl-display-flex gl-align-items-center"
     :class="{ 'gl-h-full': autoHeight }"
-    @mouseleave="hideTooltip"
   >
     <slot name="default"></slot>
     <div
@@ -247,11 +241,9 @@ export default {
       />
       <chart-tooltip
         v-if="chartInstance"
-        :show="tooltip.show"
         :chart="chartInstance"
         :top="tooltip.position.top"
         :left="tooltip.position.left"
-        :style="{ pointerEvents: 'none' }"
         placement="top"
       >
         <template #title>

@@ -6,7 +6,7 @@ import { grid, dataZoomAdjustments, mergeSeriesToOptions } from '../../../utils/
 import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
-import { hexToRgba, debounceByAnimationFrame } from '../../../utils/utils';
+import { hexToRgba } from '../../../utils/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
@@ -98,14 +98,8 @@ export default {
   data() {
     return {
       chart: null,
-      showTooltip: false,
       tooltipTitle: '',
       tooltipContent: {},
-      tooltipPosition: {
-        left: '0',
-        top: '0',
-      },
-      debouncedMoveShowTooltip: debounceByAnimationFrame(this.moveShowTooltip),
     };
   },
   computed: {
@@ -173,25 +167,10 @@ export default {
       return this.height === 'auto';
     },
   },
-  beforeDestroy() {
-    if (this.chart) {
-      this.chart.getZr().off('mousemove', this.debouncedMoveShowTooltip);
-      this.chart.getZr().off('mouseout', this.debouncedMoveShowTooltip);
-    }
-  },
   methods: {
-    moveShowTooltip({ event: mouseEvent }) {
-      this.tooltipPosition = {
-        left: `${mouseEvent.zrX}px`,
-        top: `${mouseEvent.zrY}px`,
-      };
-      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
-    },
     onCreated(chart) {
       this.chart = chart;
       this.$emit('created', chart);
-      chart.getZr().on('mousemove', this.debouncedMoveShowTooltip);
-      chart.getZr().on('mouseout', this.debouncedMoveShowTooltip);
     },
     onLabelChange(params) {
       const { yLabels, tooltipContent } = this.getDefaultTooltipContent(params, this.xAxisTitle);
@@ -249,13 +228,7 @@ export default {
       v-on="$listeners"
       @created="onCreated"
     />
-    <chart-tooltip
-      v-if="chart"
-      :show="showTooltip"
-      :chart="chart"
-      :top="tooltipPosition.top"
-      :left="tooltipPosition.left"
-    >
+    <chart-tooltip v-if="chart" :chart="chart">
       <template #title>
         <div>{{ tooltipTitle }} ({{ yAxisTitle }})</div>
       </template>

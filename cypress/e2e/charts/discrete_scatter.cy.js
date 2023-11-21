@@ -2,7 +2,13 @@ describe('GlDiscreteScatterChart', () => {
   beforeEach(() => {
     cy.visitStory('charts/discrete-scatter-chart');
 
-    cy.getByTestId('discrete-scatter-chart').find('path').last().trigger('mousemove');
+    if (Cypress.browser.name === 'edge') {
+      // cy edge environment, mousemove do not trigger zr.mousemove event
+      // use click to mock the event
+      cy.getByTestId('discrete-scatter-chart').find('path').last().click();
+    } else {
+      cy.getByTestId('discrete-scatter-chart').find('path').last().trigger('mousemove');
+    }
   });
 
   it('tooltip title should render', () => {

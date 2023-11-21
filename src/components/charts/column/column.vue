@@ -15,7 +15,6 @@ import {
 import { CHART_TYPE_LINE, HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
-import { debounceByAnimationFrame } from '../../../utils/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
@@ -87,14 +86,8 @@ export default {
   data() {
     return {
       chart: null,
-      showTooltip: false,
       tooltipTitle: '',
       tooltipContent: {},
-      tooltipPosition: {
-        left: '0',
-        top: '0',
-      },
-      debouncedMoveShowTooltip: debounceByAnimationFrame(this.moveShowTooltip),
     };
   },
   computed: {
@@ -181,21 +174,8 @@ export default {
       return this.height === 'auto';
     },
   },
-  beforeDestroy() {
-    this.chart.getDom().removeEventListener('mousemove', this.debouncedMoveShowTooltip);
-    this.chart.getDom().removeEventListener('mouseout', this.debouncedMoveShowTooltip);
-  },
   methods: {
-    moveShowTooltip(mouseEvent) {
-      this.tooltipPosition = {
-        left: `${mouseEvent.zrX}px`,
-        top: `${mouseEvent.zrY}px`,
-      };
-      this.showTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
-    },
     onCreated(chart) {
-      chart.getDom().addEventListener('mousemove', this.debouncedMoveShowTooltip);
-      chart.getDom().addEventListener('mouseout', this.debouncedMoveShowTooltip);
       this.chart = chart;
       this.$emit('created', chart);
     },
@@ -219,13 +199,7 @@ export default {
       v-on="$listeners"
       @created="onCreated"
     />
-    <chart-tooltip
-      v-if="chart"
-      :show="showTooltip"
-      :chart="chart"
-      :top="tooltipPosition.top"
-      :left="tooltipPosition.left"
-    >
+    <chart-tooltip v-if="chart" :chart="chart">
       <template #title>
         <div>{{ tooltipTitle }} ({{ xAxisTitle }})</div>
       </template>

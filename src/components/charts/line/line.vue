@@ -43,7 +43,6 @@ import {
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
-import { debounceByAnimationFrame } from '../../../utils/utils';
 import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
@@ -137,13 +136,8 @@ export default {
     // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/618
     return {
       chart: null,
-      showDataTooltip: false,
       dataTooltipTitle: '',
       dataTooltipContent: {},
-      dataTooltipPosition: {
-        left: '0',
-        top: '0',
-      },
       showAnnotationsTooltip: false,
       annotationsTooltipTitle: '',
       annotationsTooltipContent: '',
@@ -151,7 +145,6 @@ export default {
         left: '0',
         top: '0',
       },
-      debouncedShowHideTooltip: debounceByAnimationFrame(this.showHideTooltip),
       selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
@@ -262,9 +255,6 @@ export default {
     },
   },
   beforeDestroy() {
-    this.chart.getDom().removeEventListener('mousemove', this.debouncedShowHideTooltip);
-    this.chart.getDom().removeEventListener('mouseout', this.debouncedShowHideTooltip);
-
     this.chart.off('mouseout', this.onChartDataPointMouseOut);
     this.chart.off('mouseover', this.onChartDataPointMouseOver);
   },
@@ -282,13 +272,6 @@ export default {
       };
     },
     onCreated(chart) {
-      // These listeners are used to show/hide data tooltips
-      // when the mouse is hovered over the parent container
-      // of echarts' svg element. This works only for data points
-      // and not markPoints.
-      chart.getDom().addEventListener('mousemove', this.debouncedShowHideTooltip);
-      chart.getDom().addEventListener('mouseout', this.debouncedShowHideTooltip);
-
       // eCharts inbuild mouse events
       // https://echarts.apache.org/en/api.html#events.Mouse%20events
       // is used to attach listeners to markPoints. These listeners
@@ -306,14 +289,6 @@ export default {
 
       this.chart = chart;
       this.$emit('created', chart);
-    },
-    showHideTooltip(mouseEvent) {
-      this.showDataTooltip = this.chart.containPixel('grid', [mouseEvent.zrX, mouseEvent.zrY]);
-
-      this.dataTooltipPosition = {
-        left: `${mouseEvent.zrX}px`,
-        top: `${mouseEvent.zrY}px`,
-      };
     },
     onChartDataPointMouseOut() {
       this.showAnnotationsTooltip = false;
@@ -370,16 +345,7 @@ export default {
       </template>
       <div>{{ annotationsTooltipContent }}</div>
     </chart-tooltip>
-    <chart-tooltip
-      v-if="chart"
-      id="dataTooltip"
-      ref="dataTooltip"
-      class="gl-pointer-events-none"
-      :show="showDataTooltip"
-      :chart="chart"
-      :top="dataTooltipPosition.top"
-      :left="dataTooltipPosition.left"
-    >
+    <chart-tooltip v-if="chart" ref="dataTooltip" :chart="chart">
       <template #title>
         <slot v-if="formatTooltipText" name="tooltip-title"></slot>
         <div v-else>
