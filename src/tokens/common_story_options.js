@@ -5,6 +5,7 @@ export const methods = {
     return [name, key].filter(Boolean).join('.');
   },
   getTextColorClass(value) {
+    if (value.startsWith('rgba(')) return '';
     const textColorVariant = colorFromBackground(value, 4.5);
     return {
       'gl-text-gray-950': textColorVariant === 'dark',
