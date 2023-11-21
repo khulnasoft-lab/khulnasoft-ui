@@ -1,3 +1,16 @@
+# [70.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v69.1.0...v70.0.0) (2023-11-21)
+
+
+### Performance Improvements
+
+* remove exported scss_to_js scripts and usages ([b198d8b](https://gitlab.com/gitlab-org/gitlab-ui/commit/b198d8ba2813b96126c65310ba52065abd845a5e))
+
+
+### BREAKING CHANGES
+
+* Remove scss_to_js export. Prefer use of
+/dist/tokens/js/tokens.js for importing generated token variables.
+
 # [69.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v69.0.0...v69.1.0) (2023-11-20)
 
 
