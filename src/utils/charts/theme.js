@@ -1,4 +1,3 @@
-import { glBorderRadiusBase } from '../../../scss_to_js/scss_variables';
 import {
   WHITE,
   GRAY_50,
@@ -67,6 +66,8 @@ import {
 } from '../../../dist/tokens/js/tokens';
 import { scrollHandleSvgPath } from '../svgs/svg_paths';
 import { hexToRgba } from '../utils';
+
+const GL_BORDER_RADIUS_BASE = '0.25rem';
 
 export const themeName = 'gitlab';
 
@@ -269,7 +270,7 @@ export const createTheme = (options = {}) => ({
         borderWidth: 0,
         color: GRAY_900,
         textBackgroundColor: WHITE,
-        textBorderRadius: glBorderRadiusBase,
+        textBorderRadius: GL_BORDER_RADIUS_BASE,
         textPadding: [8, 12],
       },
     },
