@@ -64,7 +64,7 @@
     "translations:collect": "make translations.json"
   },
   "dependencies": {
-    "@floating-ui/dom": "1.2.9",
+    "@floating-ui/dom": "1.5.3",
     "bootstrap-vue": "2.23.1",
     "echarts": "^5.3.2",
     "iframe-resizer": "^4.3.2",
