@@ -1,3 +1,16 @@
+# [71.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v70.0.1...v71.0.0) (2023-11-22)
+
+
+### Features
+
+* **GlFormInput, GlFormSelect, GlDatepicker:** remove deprecated props ([72ff245](https://gitlab.com/gitlab-org/gitlab-ui/commit/72ff245417250b78514b60fb0a85fbde64a5d7c7))
+
+
+### BREAKING CHANGES
+
+* **GlFormInput, GlFormSelect, GlDatepicker:** Removes the legacy property "size" from GlFormInput,
+GlFormSelect & GlDatepicker.
+
 ## [70.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v70.0.0...v70.0.1) (2023-11-21)
 
 
