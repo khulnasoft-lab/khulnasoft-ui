@@ -1,5 +1,5 @@
 import { methods, template } from './common_story_options';
-import colorTokens from './color.data_viz.tokens.json';
+import colorTokens from './color.data_viz.dark.tokens.json';
 
 const generateProps = ({ name = '', tokens = colorTokens } = {}) => ({
   name,
@@ -52,5 +52,5 @@ DataVizOrange.args = generateProps({
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/color/data-viz/light',
+  title: 'tokens/color/data-viz/dark',
 };
