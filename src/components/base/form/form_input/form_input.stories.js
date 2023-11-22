@@ -1,4 +1,4 @@
-import { formInputSizes } from '../../../../utils/constants';
+import { formInputWidths } from '../../../../utils/constants';
 import GlFormInput from './form_input.vue';
 import readme from './form_input.md';
 
@@ -9,18 +9,15 @@ const template = `
     :disabled="disabled"
     :value="value"
     :width="width"
-    :size="size"
   />`;
 
 const generateProps = ({
-  width = GlFormInput.props.size.default,
-  size = GlFormInput.props.size.default,
+  width = GlFormInput.props.width.default,
   value = '',
   disabled = false,
   readonly = false,
 } = {}) => ({
   width,
-  size,
   value,
   disabled,
   readonly,
@@ -41,46 +38,44 @@ Disabled.args = generateProps({ value: 'some text', disabled: true });
 export const Readonly = Template.bind({});
 Readonly.args = generateProps({ value: 'readonly text', readonly: true });
 
-export const Sizes = (args, { argTypes }) => ({
+export const Widths = (args, { argTypes }) => ({
   components: { GlFormInput },
   props: Object.keys(argTypes),
   data: () => ({
-    formInputSizes,
+    formInputWidths,
   }),
   template: `
       <div>
         <gl-form-input
-          v-for="(size, name) in formInputSizes"
-          :key="size"
+          v-for="(width, name) in formInputWidths"
+          :key="width"
           :width="width"
-          :size="size"
           :value="name"
+          class="gl-mb-4"
         />
       </div>
     `,
 });
-Sizes.args = {};
+Widths.args = {};
 
-export const ResponsiveSizes = (args, { argTypes }) => ({
+export const ResponsiveWidths = (args, { argTypes }) => ({
   components: { GlFormInput },
   props: Object.keys(argTypes),
   template: `
       <div>
         <gl-form-input
           :width="{ default: 'md', md: 'lg', lg: 'xl' }"
-          :size="{ default: 'md', md: 'lg', lg: 'xl' }"
           value="With \`default\` key"
+          class="gl-mb-4"
         />
         <gl-form-input
-          class="gl-mt-4"
           :width="{ md: 'lg', lg: 'xl' }"
-          :size="{ md: 'lg', lg: 'xl' }"
           value="Without \`default\` key"
         />
       </div>
     `,
 });
-ResponsiveSizes.args = {};
+ResponsiveWidths.args = {};
 
 export default {
   title: 'base/form/form-input',
@@ -95,11 +90,7 @@ export default {
   },
   argTypes: {
     width: {
-      options: formInputSizes,
-      control: 'select',
-    },
-    size: {
-      options: formInputSizes,
+      options: formInputWidths,
       control: 'select',
     },
   },

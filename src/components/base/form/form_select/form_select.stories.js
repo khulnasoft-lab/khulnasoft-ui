@@ -1,4 +1,4 @@
-import { formStateOptions, formInputSizes } from '../../../../utils/constants';
+import { formStateOptions, formInputWidths } from '../../../../utils/constants';
 import GlFormSelect from './form_select.vue';
 import { formSelectOptions } from './constants';
 import readme from './form_select.md';
@@ -11,7 +11,6 @@ const template = `
 <gl-form-select
   v-model="selected"
   :width="width"
-  :size="size"
   :disabled="disabled"
   :state="state"
   :multiple="multiple"
@@ -22,7 +21,6 @@ const template = `
 
 const generateProps = ({
   width = null,
-  size = null,
   state = null,
   disabled = false,
   multiple = false,
@@ -30,7 +28,6 @@ const generateProps = ({
   options = formSelectOptions,
 } = {}) => ({
   width,
-  size,
   disabled,
   state,
   multiple,
@@ -80,6 +77,27 @@ WithTruncation.args = generateProps({
   ],
 });
 
+export const Widths = (args, { argTypes }) => ({
+  components: { GlFormSelect },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      formInputWidths,
+    };
+  },
+  template: `
+      <div>
+        <div v-for="(width, name) in formInputWidths" :key="width" class="gl-mb-4">
+          <gl-form-select
+            v-model="name"
+            :width="width"
+            :options="[{ value: name, text: name }]">
+          </gl-form-select>
+        </div>
+      </div>`,
+});
+Widths.args = generateProps();
+
 export default {
   title: 'base/form/form-select',
   component: GlFormSelect,
@@ -93,11 +111,7 @@ export default {
   },
   argTypes: {
     width: {
-      options: formInputSizes,
-      control: 'select',
-    },
-    size: {
-      options: formInputSizes,
+      options: formInputWidths,
       control: 'select',
     },
     state: {
