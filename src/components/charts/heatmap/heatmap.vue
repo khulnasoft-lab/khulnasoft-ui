@@ -2,7 +2,7 @@
 <script>
 import merge from 'lodash/merge';
 import { WHITE, GRAY_100 } from '../../../../dist/tokens/js/tokens';
-import { getDefaultTooltipContent } from '../../../utils/charts/config';
+import { getTooltipTitle, getTooltipContent } from '../../../utils/charts/config';
 import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';
 import { engineeringNotation } from '../../../utils/number_utils';
@@ -222,13 +222,8 @@ export default {
   },
   methods: {
     defaultFormatTooltipText(params) {
-      const { xLabels, tooltipContent } = getDefaultTooltipContent(
-        params,
-        this.computedOptions.yAxis.name
-      );
-
-      this.$set(this.tooltip, 'content', tooltipContent);
-      this.tooltip.title = xLabels.join(', ');
+      this.tooltip.title = getTooltipTitle(params, this.computedOptions.xAxis.name);
+      this.tooltip.content = getTooltipContent(params, this.computedOptions.yAxis.name);
     },
     onCreated(chart) {
       this.chart = chart;
@@ -266,10 +261,7 @@ export default {
     <chart-tooltip v-if="chart" :chart="chart" :top="tooltip.top" :left="tooltip.left">
       <template #title>
         <slot v-if="formatTooltipText" name="tooltip-title"></slot>
-        <div v-else>
-          {{ tooltip.title }}
-          <template v-if="computedOptions.xAxis.name">({{ computedOptions.xAxis.name }})</template>
-        </div>
+        <div v-else>{{ tooltip.title }}</div>
       </template>
       <slot v-if="formatTooltipText" name="tooltip-content"></slot>
       <tooltip-default-format v-else :tooltip-content="tooltip.content" />

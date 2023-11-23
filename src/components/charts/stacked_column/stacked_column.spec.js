@@ -1,7 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
-import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { createMockChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import {
@@ -11,6 +10,7 @@ import {
 } from '../../../utils/charts/mock_data';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
 import * as themeUtils from '../../../utils/charts/theme';
 import StackedColumnChart from './stacked_column.vue';
 
@@ -34,17 +34,13 @@ describe('stacked column chart component', () => {
 
   const findChart = () => wrapper.findComponent(Chart);
   const findLegend = () => wrapper.findComponent(ChartLegend);
-  const findDataTooltip = () => wrapper.findComponent(ChartTooltipStub);
+  const findDataTooltip = () => wrapper.findComponent(ChartTooltip);
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
   const createShallowWrapper = ({ props = {}, slots = {} } = {}) => {
     wrapper = shallowMount(StackedColumnChart, {
       propsData: { ...defaultChartProps, ...props },
-      stubs: {
-        'tooltip-default-format': TooltipDefaultFormat,
-        ChartTooltip: ChartTooltipStub,
-      },
       slots,
     });
     emitChartCreated();

@@ -1,8 +1,10 @@
+import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import { createMockChartInstance } from '~helpers/chart_stubs';
 import GlPopover from '../../base/popover/popover.vue';
 import { popoverPlacements } from '../../../utils/constants';
 import { waitForAnimationFrame } from '../../../utils/test_utils';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 import ChartTooltip from './tooltip.vue';
 
@@ -17,6 +19,7 @@ describe('ChartTooltip', () => {
   let mockContainPixel;
 
   const findPopover = () => wrapper.findComponent(GlPopover);
+  const findTooltipDefaultFormat = () => wrapper.findComponent(TooltipDefaultFormat);
   const findPopoverTarget = () => wrapper.find(`#${findPopover().attributes('target')}`);
   const getPopoverTargetStyle = (name) => findPopoverTarget().element.style.getPropertyValue(name);
 
@@ -26,11 +29,12 @@ describe('ChartTooltip', () => {
     await waitForAnimationFrame();
   };
 
-  const createWrapper = (props = {}, ...options) => {
+  const createWrapper = (props = {}, options) => {
     mockChartInstance = {
       ...createMockChartInstance(),
       containPixel: mockContainPixel,
     };
+
     wrapper = shallowMount(ChartTooltip, {
       propsData: {
         chart: mockChartInstance,
@@ -183,6 +187,101 @@ describe('ChartTooltip', () => {
         expect(getPopoverTargetStyle('top')).toBe('');
         expect(getPopoverTargetStyle('right')).toBe('50px');
         expect(getPopoverTargetStyle('bottom')).toBe('100px');
+      });
+    });
+  });
+
+  describe('is customized via slots', () => {
+    const triggerFormatter = (params) => {
+      const { formatter } = mockChartInstance.setOption.mock.calls[0][0].xAxis.axisPointer.label;
+      formatter(params);
+    };
+
+    describe('formats tooltip', () => {
+      beforeEach(() => {
+        createWrapper(
+          {
+            useDefaultTooltipFormatter: true,
+          },
+          {
+            stubs: {
+              GlPopover: {
+                template: `<div>
+                  <slot name="title"></slot>
+                    <slot></slot>
+                  </div>`,
+              },
+            },
+          }
+        );
+      });
+
+      it('sets tooltip formatter function', () => {
+        expect(mockChartInstance.setOption).toHaveBeenCalledWith({
+          xAxis: {
+            axisPointer: {
+              label: {
+                formatter: expect.any(Function),
+              },
+              show: true,
+            },
+          },
+        });
+      });
+
+      it('formats tooltip', async () => {
+        expect(findTooltipDefaultFormat().props()).toEqual({
+          tooltipContent: {},
+        });
+
+        triggerFormatter({
+          seriesData: [
+            {
+              seriesName: 'Series 1',
+              value: ['Value', 1],
+              color: '#aaa',
+            },
+            {
+              seriesName: 'Series 2',
+              value: ['Value', 2],
+              color: '#bbb',
+            },
+          ],
+        });
+        await nextTick();
+
+        expect(findPopover().text()).toBe('Value');
+        expect(findTooltipDefaultFormat().props()).toEqual({
+          tooltipContent: {
+            'Series 1': { color: '#aaa', value: 1 },
+            'Series 2': { color: '#bbb', value: 2 },
+          },
+        });
+      });
+
+      it('formats tooltip with axis names', async () => {
+        mockChartInstance.getOption.mockReturnValueOnce({
+          xAxis: [{ name: 'Time' }],
+          yAxis: [{ name: 'Amount' }],
+        });
+
+        triggerFormatter({
+          seriesData: [
+            {
+              seriesName: 'Series 1',
+              value: ['Value', 1],
+              color: '#aaa',
+            },
+          ],
+        });
+        await nextTick();
+
+        expect(findPopover().text()).toBe('Value (Time)');
+        expect(findTooltipDefaultFormat().props()).toEqual({
+          tooltipContent: {
+            Amount: { color: '', value: 1 },
+          },
+        });
       });
     });
   });

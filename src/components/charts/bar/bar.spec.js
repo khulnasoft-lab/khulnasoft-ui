@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-import TooltipDefaultFormat from '~/components/shared_components/charts/tooltip_default_format.vue';
 import { createMockChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
 import BarChart from './bar.vue';
 
 let mockChartInstance;
@@ -27,15 +27,14 @@ describe('Bar chart component', () => {
   let wrapper;
 
   const findChart = () => wrapper.findComponent(Chart);
+  const findChartTooltip = () => wrapper.findComponent(ChartTooltip);
+
   const getOptions = () => findChart().props('options');
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
   const createComponent = (props = {}) => {
     wrapper = shallowMount(BarChart, {
       propsData: { ...defaultChartProps, ...props },
-      stubs: {
-        'tooltip-default-format': TooltipDefaultFormat,
-      },
     });
   };
 
@@ -75,45 +74,10 @@ describe('Bar chart component', () => {
       defaultChartProps.data.Office.map(([, name]) => expect(formatter(name)).toMatchSnapshot());
     });
 
-    describe('Tooltip', () => {
-      const labelParams = {
-        value: 'Jim',
-        seriesName: 'Office',
-        seriesData: [
-          {
-            seriesId: 'Office',
-            data: [100, 'Jim'],
-            value: [100, 'Jim'],
-          },
-        ],
-      };
-
-      it('calls custom method and returns title with y labels', () => {
-        const getDefaultTooltipContentReturnVal = { yLabels: [], tooltipContent: {} };
-
-        // stub the method
-        wrapper.vm.getDefaultTooltipContent = jest
-          .fn()
-          .mockReturnValue(getDefaultTooltipContentReturnVal);
-
-        // label formatter is triggered here which should eventually call
-        // getDefaultTooltipContent
-        getOptions().yAxis.axisPointer.label.formatter(labelParams);
-
-        return wrapper.vm.$nextTick(() => {
-          expect(wrapper.vm.getDefaultTooltipContent).toHaveBeenCalled();
-        });
-      });
-
-      it('sets accurate tooltip title and content state', () => {
-        getOptions().yAxis.axisPointer.label.formatter(labelParams);
-
-        return wrapper.vm.$nextTick(() => {
-          expect(wrapper.vm.tooltipTitle).toBe(labelParams.value);
-          expect(wrapper.vm.tooltipContent[defaultChartProps.xAxisTitle].value).toBe(
-            labelParams.seriesData[0].data[0]
-          );
-        });
+    it('configures chart tooltip', () => {
+      expect(findChartTooltip().props()).toMatchObject({
+        chart: mockChartInstance,
+        useDefaultTooltipFormatter: false,
       });
     });
   });
