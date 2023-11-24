@@ -1,3 +1,10 @@
+# [71.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.0.0...v71.1.0) (2023-11-24)
+
+
+### Features
+
+* **css:** Add gl-line-clamp-{value} utility class ([304a508](https://gitlab.com/gitlab-org/gitlab-ui/commit/304a508af5933ebe33de9f30f7e0aca4c871654a))
+
 # [71.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v70.0.1...v71.0.0) (2023-11-22)
 
 
