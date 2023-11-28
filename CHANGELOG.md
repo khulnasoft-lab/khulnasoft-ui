@@ -1,3 +1,10 @@
+## [71.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.1.0...v71.1.1) (2023-11-28)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** Make close button keyboard accessible ([78d809c](https://gitlab.com/gitlab-org/gitlab-ui/commit/78d809ccd7065ee61c90e09f48daa014f697557a))
+
 # [71.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.0.0...v71.1.0) (2023-11-24)
 
 
