@@ -2,6 +2,7 @@
 import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
 import GlToken from '../token/token.vue';
+import { stopEvent } from '../../../utils/utils';
 import GlFilteredSearchTokenSegment from './filtered_search_token_segment.vue';
 import { createTerm, tokenToOption, TOKEN_CLOSE_SELECTOR } from './filtered_search_utils';
 
@@ -118,7 +119,9 @@ export default {
     },
 
     eventListeners() {
-      return this.viewOnly ? {} : { mousedown: this.destroyByClose };
+      return this.viewOnly
+        ? {}
+        : { mousedown: this.stopMousedownOnCloseButton, close: this.destroyByClose };
     },
   },
   segments: {
@@ -310,12 +313,14 @@ export default {
       this.$emit('complete');
     },
 
-    destroyByClose(event) {
+    stopMousedownOnCloseButton(event) {
       if (event.target.closest(TOKEN_CLOSE_SELECTOR)) {
-        event.preventDefault();
-        event.stopPropagation();
-        this.$emit('destroy');
+        stopEvent(event);
       }
+    },
+
+    destroyByClose() {
+      this.$emit('destroy');
     },
   },
 };

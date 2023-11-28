@@ -274,6 +274,7 @@ describe('Filtered search token', () => {
         preventDefault: preventDefaultSpy,
         stopPropagation: stopPropagationSpy,
       });
+      closeWrapper.trigger('click');
 
       expect(preventDefaultSpy).toHaveBeenCalled();
       expect(stopPropagationSpy).toHaveBeenCalled();

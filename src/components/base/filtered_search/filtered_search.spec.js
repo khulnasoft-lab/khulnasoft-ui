@@ -809,7 +809,7 @@ describe('Filtered search integration tests', () => {
       wrapper.findAllComponents(GlFilteredSearchToken).wrappers.map((cmp) => cmp.props('active'))
     ).toEqual([false, false, false]);
 
-    await wrapper.find('.gl-token-close').trigger('mousedown');
+    await wrapper.find('.gl-token-close').trigger('click');
 
     expect(
       wrapper.findAllComponents(GlFilteredSearchToken).wrappers.map((cmp) => cmp.props('active'))

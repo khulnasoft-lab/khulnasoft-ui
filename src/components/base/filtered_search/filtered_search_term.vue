@@ -125,7 +125,9 @@ export default {
       },
     },
     eventListeners() {
-      return this.viewOnly ? {} : { mousedown: this.destroyByClose };
+      return this.viewOnly
+        ? {}
+        : { mousedown: this.stopMousedownOnCloseButton, close: this.destroyByClose };
     },
   },
   methods: {
@@ -139,11 +141,13 @@ export default {
        */
       this.$emit('destroy', { intent: INTENT_ACTIVATE_PREVIOUS });
     },
-    destroyByClose(event) {
+    stopMousedownOnCloseButton(event) {
       if (event.target.closest(TOKEN_CLOSE_SELECTOR)) {
         stopEvent(event);
-        this.$emit('destroy');
       }
+    },
+    destroyByClose() {
+      this.$emit('destroy');
     },
     onComplete(type) {
       if (type === TERM_TOKEN_TYPE) {
