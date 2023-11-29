@@ -1,16 +1,17 @@
-.gl-link {
+// .form-text a, a.form-text, .gl-form-group a {
+a:not(.gl-button, .gl-tab-nav-item, .dropdown-menu a, .gl-badge, .gl-label-link), .btn-link {
   @include gl-text-blue-500;
   border-radius: $gl-border-size-2;
-  text-decoration-color: transparent;
+  text-decoration-color: transparent !important;
   text-decoration-thickness: 2px !important;
-  text-decoration-line: underline;
+  text-decoration-line: underline !important;
   transition: box-shadow $gl-timing-fast $gl-easing-default,
               color $gl-timing-fast $gl-easing-default,
               text-decoration-color $gl-timing-fast $gl-easing-default;
 
   &:hover {
     @include gl-text-blue-500;
-    text-decoration-color: $blue-200;
+    text-decoration-color: $blue-200 !important;
   }
 
   &:active {

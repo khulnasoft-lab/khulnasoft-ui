@@ -71,6 +71,35 @@
   }
 }
 
+@mixin gl-focus-keyboard {
+  box-shadow: 0 0 0 1px $white,
+								0 0 0 3px $blue-400;
+  animation: none !important;
+  outline: none !important;
+}
+
+@mixin gl-focus-mouse {
+  box-shadow: 0 0 0 0 $white,
+              0 0 0 0 rgba($blue-400, 0.3),
+              0 0 0 0 rgba($blue-200, 0.3);
+  outline: none !important;
+  animation: gl-focus-mouse-animation $gl-timing-slow $gl-easing-accelerate;
+}
+
+@keyframes gl-focus-mouse-animation {
+  60% {
+    box-shadow: 0 0 0 1px $white,
+								0 0 0 2px rgba($blue-400, 1),
+                0 0 0 4px rgba($blue-200, 1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 1px $white,
+								0 0 0 3px rgba($blue-400, 0),
+                0 0 0 6px rgba($blue-200, 0);
+  }
+}
+
 @mixin gl-bg-gradient-blur($direction, $color) {
   background-image: linear-gradient(to $direction, $transparent-rgba, $color 33%);
 }

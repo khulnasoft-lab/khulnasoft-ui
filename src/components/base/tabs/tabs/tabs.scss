@@ -7,21 +7,25 @@
 
 .gl-tab-nav-item {
   @include gl-text-gray-900;
-  @include gl-px-4;
-  @include gl-py-5;
   @include gl-line-height-normal;
   @include gl-font-base;
   @include gl-display-flex;
   @include gl-justify-content-center;
   @include gl-overflow-hidden;
-
-  transition: box-shadow 100ms linear;
+  padding: $gl-spacing-scale-5 $gl-spacing-scale-4 calc($gl-spacing-scale-5 - 2px);
+  border-radius: $gl-border-size-2 $gl-border-size-2 0 0;
+  border-bottom: 2px solid transparent;
+  transition: box-shadow $gl-timing-fast $gl-easing-default,
+              background-color $gl-timing-fast $gl-easing-default,
+              color $gl-timing-fast $gl-easing-default,
+              fill $gl-timing-fast $gl-easing-default,
+              border-color $gl-timing-fast $gl-easing-default;
 
   &:hover {
     @include gl-text-gray-900;
 
     &:not(.gl-tab-nav-item-active) {
-      @include gl-inset-border-b-2-gray-200;
+      border-bottom-color: $gray-200;
     }
   }
 
@@ -51,13 +55,22 @@
 .gl-tab-nav-item-active {
   @include gl-font-weight-bold;
   @include gl-text-gray-900;
-  @include gl-inset-border-b-2-blue-500;
+  border-bottom-color: $blue-500;
 
-  &:active,
   &:focus,
-  &:focus:active {
-    box-shadow: inset 0 -#{$gl-border-size-2} 0 0 $blue-500, $focus-ring;
-    @include gl-outline-none;
+  &.focus {
+    @include gl-focus-mouse;
+  }
+
+  &:focus-visible {
+    @include gl-focus-keyboard;
+  }
+
+  &:focus:active,
+  &.focus:active {
+    outline: none;
+    box-shadow: none !important;
+    animation: none;
   }
 }
 
@@ -122,4 +135,37 @@
   @include gl-overflow-hidden;
   @include gl-relative;
   @include gl-flex-nowrap;
+}
+
+// add hovers
+// add microinteraction
+.inner-page-scroll-tabs .fade-left:hover,
+.inner-page-scroll-tabs .fade-right:hover {
+  box-shadow: none !important;
+}
+
+.inner-page-scroll-tabs .fade-right svg,
+.inner-page-scroll-tabs .fade-left svg {
+  top: 7px;
+  padding: 5px;
+  box-sizing: content-box;
+  border-radius: 99em;
+}
+
+.inner-page-scroll-tabs .fade-right svg {
+  right: 0;
+}
+
+.inner-page-scroll-tabs .fade-left svg {
+  left: 0;
+}
+
+.inner-page-scroll-tabs .fade-left:focus-visible,
+.inner-page-scroll-tabs .fade-right:focus-visible {
+  outline: none;
+}
+
+.inner-page-scroll-tabs .fade-left:focus-visible svg,
+.inner-page-scroll-tabs .fade-right:focus-visible svg {
+  @include gl-focus-keyboard;
 }

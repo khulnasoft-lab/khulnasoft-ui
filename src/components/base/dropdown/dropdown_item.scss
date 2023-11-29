@@ -21,6 +21,8 @@
   .dropdown-item {
     @include gl-tmp-dropdown-item-style;
     @include gl-cursor-pointer;
+    text-decoration: none !important;
+    transition: background-color $gl-timing-fast $gl-easing-default;
 
     .gl-avatar {
       @include gl-flex-shrink-0;
@@ -79,10 +81,7 @@
       }
     }
 
-    &:not(.disable-hover):hover,
-    &:active,
-    &:focus,
-    &.is-focused {
+    &:not(.disable-hover):hover {
       @include gl-bg-gray-50;
       @include gl-text-decoration-none;
       @include gl-text-gray-900;
@@ -97,10 +96,13 @@
       }
     }
 
-    &:active,
     &:focus,
-    &:focus:active {
-      @include gl-focus($inset: true);
+    &.is-focused {
+      @include gl-focus-mouse;
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
     }
   }
 }

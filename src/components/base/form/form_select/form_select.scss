@@ -14,38 +14,38 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   @include gl-text-gray-900;
   @include gl-opacity-10;
   @include gl-line-height-normal;
-  @include gl-py-3;
-  @include gl-pl-4;
-  padding-right: $gl-spacing-scale-2 + $gl-spacing-scale-6;
   @include gl-h-auto;
-  @include gl-inset-border-1-gray-400;
-  @include gl-border-none;
   @include gl-appearance-none;
   @include gl-text-truncate;
   @include gl-bg-no-repeat;
+  padding: calc($gl-spacing-scale-3 - 1px) calc($gl-spacing-scale-4 - 1px);
+  padding-right: $gl-spacing-scale-2 + $gl-spacing-scale-6;
+  border: 1px solid $gray-400;
   background-image: url($gl-icon-select-chevron-down);
 
   &:focus,
   &:focus:active {
-    @include gl-focus($color: $gray-900, $important: true);
+    @include gl-focus-mouse;
+  }
+
+  &:focus:active {
+    outline: none;
+    box-shadow: none !important;
+    animation: none;
   }
 
   &:disabled {
     @include gl-bg-gray-10;
-    @include gl-inset-border-1-gray-100;
     @include gl-text-gray-500;
     @include gl-cursor-not-allowed;
+    border-color: $gray-100;
   }
 
   &.is-invalid:not(:disabled) {
-    @include gl-inset-border-1-red-400;
-
-    &:focus {
-      @include gl-focus($color: $red-500, $important: true);
-    }
+    border-color: $red-400;
 
     &:hover {
-      @include gl-inset-border-1-red-500;
+      border-color: $red-500;
     }
   }
 }

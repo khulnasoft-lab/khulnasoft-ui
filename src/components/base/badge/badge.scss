@@ -53,10 +53,20 @@
       }
     }
 
-    &:active,
     &:focus,
-    &:focus:active {
-      @include gl-focus;
+    &.focus {
+      @include gl-focus-mouse;
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
+    }
+
+    &:focus:active,
+    &.focus:active {
+      outline: none;
+      box-shadow: none !important;
+      animation: none;
     }
   }
 }

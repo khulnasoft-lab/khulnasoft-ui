@@ -50,7 +50,7 @@
 
   .gl-search-box-by-click-search-button {
     @include gl-text-gray-500;
-    @include gl-inset-border-1-gray-400;
+    border-color: $gray-400;
   }
 
   .gl-search-box-by-click-input {

@@ -16,17 +16,24 @@
     @include gl-mb-0;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     .gl-new-dropdown-item-content {
       @include gl-bg-gray-50;
     }
   }
 
-  &:active,
-  &:focus:active {
+  &:focus {
     .gl-new-dropdown-item-content {
       @include gl-bg-gray-100;
+      @include gl-focus-mouse;
+    }
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    .gl-new-dropdown-item-content {
+      @include gl-focus-keyboard;
     }
   }
 
@@ -35,8 +42,7 @@
       @include gl-bg-gray-50;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
       .gl-new-dropdown-item-content {
         @include gl-bg-gray-100;
       }
@@ -45,28 +51,29 @@
         @include gl-text-blue-600
       }
     }
-    
-    &:active,
-    &:focus:active {
+
+    &:focus {
       .gl-new-dropdown-item-content {
+        @include gl-focus-mouse;
         @include gl-bg-gray-200;
       }
-      
+
       .gl-new-dropdown-item-check-icon {
+        @include gl-focus-mouse;
         @include gl-text-blue-700
       }
     }
-  }
 
-  &:focus-visible {
-    outline: none;
-  }
+    &:focus-visible {
+      .gl-new-dropdown-item-content {
+        @include gl-focus-keyboard;
+        outline: none;
+      }
 
-  &:active,
-  &:focus,
-  &:focus:active {
-    .gl-new-dropdown-item-content {
-      @include gl-focus($inset: true);
+      .gl-new-dropdown-item-check-icon {
+        @include gl-focus-keyboard;
+        outline: none;
+      }
     }
   }
 

@@ -1,21 +1,3 @@
-/*
- * Segmented-control-specific utilities
- */
-
-@mixin gl-btn-gl-segmented-button-first {
-  box-shadow: inset 0 #{$gl-border-size-1} 0 0 $gray-200,
-    inset 0 -#{$gl-border-size-1} 0 0 $gray-200, inset #{$gl-border-size-1} 0 0 0 $gray-200;
-}
-
-@mixin gl-btn-gl-segmented-button-last {
-  box-shadow: inset 0 #{$gl-border-size-1} 0 0 $gray-200,
-    inset 0 -#{$gl-border-size-1} 0 0 $gray-200, inset -#{$gl-border-size-1} 0 0 0 $gray-200;
-}
-
-@mixin gl-btn-gl-segmented-button-focus($color) {
-  box-shadow: $focus-ring, inset 0 0 0 $gl-border-size-2 $color;
-}
-
 .btn-group.gl-segmented-control {
   .btn:not(:first-child),
   .btn:not(:last-child) {
@@ -38,46 +20,47 @@
     @include gl-text-gray-900;
     @include gl-fill-current-color;
     @include gl-bg-gray-10;
-    @include gl-inset-border-y-1-gray-200;
+    border: 1px solid $gray-200;
 
     &:first-child {
-      @include gl-btn-gl-segmented-button-first;
+      border-right-color: transparent;
     }
 
     &:last-child {
-      @include gl-btn-gl-segmented-button-last;
+      border-left-color: transparent;
     }
 
     &:hover {
-      @include gl-inset-border-2-gray-400;
-      @include gl-bg-gray-50;
-    }
-
-    &.focus {
-      @include gl-z-index-1;
-      @include gl-btn-gl-segmented-button-focus($gray-400);
+      border-color: $gray-400;
       @include gl-bg-gray-50;
     }
 
     &.active {
       @include gl-z-index-2;
-      @include gl-inset-border-2-gray-300;
+      border-color: $gray-300;
       @include gl-bg-white;
 
       &:hover {
-        @include gl-inset-border-2-gray-400;
-        @include gl-bg-gray-50;
-      }
-
-      &.focus,
-      &.focus:hover {
-        @include gl-btn-gl-segmented-button-focus($gray-400);
+        border-color: $gray-400;
         @include gl-bg-gray-50;
       }
     }
 
-    &:focus-within {
-      @include gl-focus;
+    &:focus {
+      @include gl-focus-mouse;
+      @include gl-z-index-1;
+      @include gl-bg-gray-50;
+    }
+
+    &:focus-visible,
+    &.focus {
+      @include gl-focus-keyboard;
+    }
+
+    &:focus:active {
+      outline: none;
+      box-shadow: none !important;
+      animation: none;
     }
 
     &.disabled,
@@ -85,16 +68,16 @@
     &.disabled:hover,
     &[disabled]:hover {
       @include gl-text-gray-400;
-      @include gl-inset-border-y-1-gray-200;
       @include gl-z-index-0;
       @include gl-cursor-not-allowed;
+      border: 1px solid $gray-200;
 
       &:first-child {
-        @include gl-btn-gl-segmented-button-first;
+        border-right-color: transparent;
       }
 
       &:last-child {
-        @include gl-btn-gl-segmented-button-last;
+        border-left-color: transparent;
       }
     }
   }

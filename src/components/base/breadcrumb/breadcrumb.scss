@@ -32,11 +32,31 @@ $breadcrumb-max-width: $grid-size * 16;
     @include media-breakpoint-down(xs) {
       @include str-truncated($breadcrumb-max-width);
     }
+    border-radius: $gl-border-size-2;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px !important;
+    text-decoration-line: underline;
+    transition: text-decoration-color $gl-timing-fast $gl-easing-default,
+                box-shadow $gl-timing-fast $gl-easing-default;
 
-    &:active,
+    &:hover {
+      text-decoration-color: $gray-200;
+    }
+
     &:focus,
-    &:focus:active {
-      @include gl-focus($outline: true);
+    &.focus {
+      @include gl-focus-mouse;
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
+    }
+
+    &:focus:active,
+    &.focus:active {
+      outline: none;
+      box-shadow: none !important;
+      animation: none;
     }
   }
 }
