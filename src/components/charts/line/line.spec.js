@@ -2,7 +2,11 @@ import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
-import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import {
+  createMockChartInstance,
+  ChartTooltipStub,
+  chartTooltipStubData,
+} from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 
 import Chart from '../chart/chart.vue';
@@ -27,10 +31,13 @@ describe('line component', () => {
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  const createShallowWrapper = (props = {}, mountOptions = {}) => {
+  const createShallowWrapper = ({ props = {}, ...options } = {}) => {
     wrapper = shallowMount(LineChart, {
       propsData: { option, data: [], ...props },
-      ...mountOptions,
+      stubs: {
+        'chart-tooltip': ChartTooltipStub,
+      },
+      ...options,
     });
     emitChartCreated();
   };
@@ -59,12 +66,14 @@ describe('line component', () => {
 
     it('are displayed if passed via annotations props', async () => {
       createShallowWrapper({
-        annotations: [
-          {
-            min: '',
-            max: '',
-          },
-        ],
+        props: {
+          annotations: [
+            {
+              min: '',
+              max: '',
+            },
+          ],
+        },
       });
 
       await nextTick();
@@ -74,20 +83,22 @@ describe('line component', () => {
 
     it('are displayed if passed via option props', async () => {
       createShallowWrapper({
-        option: {
-          series: [
-            {
-              name: 'annotations',
-              markPoint: {
-                data: [
-                  {
-                    xAxis: 10,
-                  },
-                ],
+        props: {
+          option: {
+            series: [
+              {
+                name: 'annotations',
+                markPoint: {
+                  data: [
+                    {
+                      xAxis: 10,
+                    },
+                  ],
+                },
+                data: [],
               },
-              data: [],
-            },
-          ],
+            ],
+          },
         },
       });
 
@@ -112,8 +123,8 @@ describe('line component', () => {
         },
       };
 
-      createShallowWrapper(
-        {
+      createShallowWrapper({
+        props: {
           annotations: [
             {
               min: '',
@@ -121,12 +132,7 @@ describe('line component', () => {
             },
           ],
         },
-        {
-          stubs: {
-            'chart-tooltip': ChartTooltipStub,
-          },
-        }
-      );
+      });
 
       wrapper.vm.onChartDataPointMouseOver(params);
 
@@ -137,13 +143,83 @@ describe('line component', () => {
     });
   });
 
-  describe('data tooltip is set', () => {
-    beforeEach(() => {
+  describe('data tooltip', () => {
+    it('is initialized', async () => {
       createShallowWrapper();
+
+      await nextTick();
+
+      expect(findDataTooltip().props()).toMatchObject({
+        useDefaultTooltipFormatter: true,
+        chart: mockChartInstance,
+      });
     });
 
-    it('is initialized', () => {
-      expect(findDataTooltip().props('chart')).toBe(mockChartInstance);
+    describe('is customized via slots', () => {
+      const { params, title, content } = chartTooltipStubData;
+
+      it('customizes tooltip value', async () => {
+        const tooltipValueSlot = jest.fn().mockReturnValue('Value');
+
+        createShallowWrapper({
+          scopedSlots: {
+            'tooltip-value': tooltipValueSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipValueSlot).toHaveBeenCalledWith({ value: 9 });
+        expect(findDataTooltip().text()).toBe('Value');
+      });
+
+      it('customizes title', async () => {
+        const tooltipTitleSlot = jest.fn().mockReturnValue('Title');
+
+        createShallowWrapper({
+          scopedSlots: {
+            'tooltip-title': tooltipTitleSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipTitleSlot).toHaveBeenCalledWith({
+          params,
+          title,
+        });
+        expect(findDataTooltip().text()).toBe('Title');
+      });
+
+      it('customizes content', async () => {
+        const tooltipContentSlot = jest.fn().mockReturnValue('Title');
+
+        createShallowWrapper({
+          scopedSlots: {
+            'tooltip-content': tooltipContentSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipContentSlot).toHaveBeenCalledWith({
+          params,
+          content,
+        });
+        expect(findDataTooltip().text()).toBe('Title');
+      });
+    });
+
+    it('is customized via formatting function', async () => {
+      createShallowWrapper({
+        props: {
+          formatTooltipText: jest.fn(),
+        },
+      });
+
+      await nextTick();
+
+      expect(findDataTooltip().props()).toMatchObject({
+        useDefaultTooltipFormatter: false,
+        chart: mockChartInstance,
+      });
     });
   });
 
@@ -158,7 +234,9 @@ describe('line component', () => {
 
     it('is inline if correct prop value is set', async () => {
       createShallowWrapper({
-        legendLayout: LEGEND_LAYOUT_INLINE,
+        props: {
+          legendLayout: LEGEND_LAYOUT_INLINE,
+        },
       });
 
       await nextTick();
@@ -168,7 +246,9 @@ describe('line component', () => {
 
     it('is tabular if correct prop value is set', async () => {
       createShallowWrapper({
-        legendLayout: LEGEND_LAYOUT_TABLE,
+        props: {
+          legendLayout: LEGEND_LAYOUT_TABLE,
+        },
       });
 
       await nextTick();
@@ -177,7 +257,9 @@ describe('line component', () => {
     });
     it('can be hidden', async () => {
       createShallowWrapper({
-        showLegend: false,
+        props: {
+          showLegend: false,
+        },
       });
 
       await nextTick();
@@ -188,7 +270,7 @@ describe('line component', () => {
 
   describe('height', () => {
     expectHeightAutoClasses({
-      createComponent: createShallowWrapper,
+      createComponent: (props) => createShallowWrapper({ props }),
       findContainer: () => wrapper,
       findChart,
     });

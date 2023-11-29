@@ -7,6 +7,9 @@ import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
 import { disableControls } from '../../../utils/stories_utils';
 
+const components = {
+  GlAreaChart,
+};
 const defaultData = [
   {
     name: 'First Series',
@@ -29,7 +32,7 @@ const defaultOptions = {
   },
 };
 
-const template = `<gl-area-chart
+const template = (content) => `<gl-area-chart
   :data="data"
   :option="option"
   :thresholds="thresholds"
@@ -37,7 +40,9 @@ const template = `<gl-area-chart
   :includeLegendAvgMax="includeLegendAvgMax"
   :height="height"
   :legendSeriesInfo="legendSeriesInfo"
-/>`;
+  >
+    ${content}
+  </gl-area-chart>`;
 
 const generateProps = ({
   data = defaultData,
@@ -58,11 +63,9 @@ const generateProps = ({
 });
 
 const Template = (args, { argTypes }) => ({
-  components: {
-    GlAreaChart,
-  },
+  components,
   props: Object.keys(argTypes),
-  template,
+  template: template(),
 });
 
 export const Default = Template.bind({});
@@ -174,6 +177,21 @@ WithCustomLegendItems.args = generateProps({
     },
   ],
 });
+
+export const WithCustomTooltip = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: template(`
+    <template #tooltip-title="{ params }">{{params && params.value}}</template>
+    <template #tooltip-content="{ params }">
+      <div v-if="params">{{params.seriesData[0].seriesName}}: {{params.seriesData[0].value[1]}}</div>
+    </template>
+  `),
+});
+WithCustomTooltip.args = generateProps();
+WithCustomTooltip.parameters = {
+  storyshots: { disable: true },
+};
 
 export default {
   title: 'charts/area-chart',

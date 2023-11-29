@@ -27,8 +27,6 @@ import {
   mergeSeriesToOptions,
   mergeAnnotationAxisToOptions,
   lineStyle,
-  // eslint-disable-next-line import/no-deprecated
-  getDefaultTooltipContent,
 } from '../../../utils/charts/config';
 import {
   LEGEND_LAYOUT_INLINE,
@@ -41,7 +39,6 @@ import {
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
@@ -52,7 +49,6 @@ export default {
     Chart,
     ChartLegend,
     ChartTooltip,
-    TooltipDefaultFormat,
   },
   inheritAttrs: false,
   props: {
@@ -85,6 +81,12 @@ export default {
       required: false,
       default: null,
     },
+    /**
+     * Callback called when showing or refreshing a tooltip.
+     * **Deprecated:** Use slots `#tooltip-title`, `#tooltip-content` or `#tooltip-value`.
+     *
+     * @deprecated Use slots `#tooltip-title`, `#tooltip-content` or `#tooltip-value`.
+     */
     formatTooltipText: {
       type: Function,
       required: false,
@@ -139,8 +141,6 @@ export default {
     // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/618
     return {
       chart: null,
-      dataTooltipTitle: '',
-      dataTooltipContent: {},
       showAnnotationsTooltip: false,
       annotationsTooltipTitle: '',
       annotationsTooltipContent: '',
@@ -148,7 +148,6 @@ export default {
         left: '0',
         top: '0',
       },
-      selectedFormatTooltipText: this.formatTooltipText || this.defaultFormatTooltipText,
     };
   },
   computed: {
@@ -195,7 +194,7 @@ export default {
               type: 'solid',
             },
             label: {
-              formatter: this.onLabelChange,
+              formatter: this.formatTooltipText,
             },
           },
         },
@@ -265,13 +264,6 @@ export default {
     this.chart.off('mouseover', this.onChartMouseOver);
   },
   methods: {
-    defaultFormatTooltipText(params) {
-      // eslint-disable-next-line import/no-deprecated
-      const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.options.yAxis.name);
-
-      this.$set(this, 'dataTooltipContent', tooltipContent);
-      this.dataTooltipTitle = xLabels.join(', ');
-    },
     defaultAnnotationTooltipText(params) {
       return {
         title: params.data.xAxis,
@@ -318,9 +310,6 @@ export default {
         };
       }
     },
-    onLabelChange(params) {
-      this.selectedFormatTooltipText(params);
-    },
   },
   HEIGHT_AUTO_CLASSES,
 };
@@ -351,16 +340,21 @@ export default {
       </template>
       <div>{{ annotationsTooltipContent }}</div>
     </chart-tooltip>
-    <chart-tooltip v-if="chart" ref="dataTooltip" :chart="chart">
-      <template #title>
-        <slot v-if="formatTooltipText" name="tooltip-title"></slot>
-        <template v-else>
-          {{ dataTooltipTitle }}
-          <template v-if="options.xAxis.name">({{ options.xAxis.name }})</template>
-        </template>
+    <chart-tooltip
+      v-if="chart"
+      ref="dataTooltip"
+      :chart="chart"
+      :use-default-tooltip-formatter="!formatTooltipText"
+    >
+      <template v-if="$scopedSlots['tooltip-title']" #title="scope">
+        <slot name="tooltip-title" v-bind="scope"></slot>
       </template>
-      <slot v-if="formatTooltipText" name="tooltip-content"></slot>
-      <tooltip-default-format v-else :tooltip-content="dataTooltipContent" />
+      <template v-if="$scopedSlots['tooltip-content']" #default="scope">
+        <slot name="tooltip-content" v-bind="scope"></slot>
+      </template>
+      <template v-if="$scopedSlots['tooltip-value']" #tooltip-value="scope">
+        <slot name="tooltip-value" v-bind="scope"></slot>
+      </template>
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"
