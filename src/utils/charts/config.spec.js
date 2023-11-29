@@ -9,6 +9,8 @@ import {
   parseAnnotations,
   generateBarSeries,
   generateLineSeries,
+  getTooltipTitle,
+  getTooltipContent,
 } from './config';
 import {
   mockDefaultDataZoomConfig,
@@ -380,6 +382,97 @@ describe('chart config helpers', () => {
           [param]: value,
         })
       ).toMatchObject(result);
+    });
+  });
+
+  describe('getTooltipTitle', () => {
+    it('returns an empty value', () => {
+      expect(getTooltipTitle()).toBe('');
+    });
+
+    it('returns title for single series', () => {
+      expect(
+        getTooltipTitle({
+          seriesData: [{ value: ['Value 1', 99] }],
+        })
+      ).toBe('Value 1');
+    });
+
+    it('returns title for multiple series', () => {
+      expect(
+        getTooltipTitle({
+          seriesData: [{ value: ['Value 1', 99] }, { value: ['Value 2', 100] }],
+        })
+      ).toBe('Value 1, Value 2');
+    });
+
+    it('returns title for multiple repeated series', () => {
+      expect(
+        getTooltipTitle({
+          seriesData: [{ value: ['Value 1', 99] }, { value: ['Value 1', 99] }],
+        })
+      ).toBe('Value 1');
+    });
+
+    it('returns title for multiple series with an axis name', () => {
+      expect(
+        getTooltipTitle(
+          {
+            seriesData: [{ value: ['Value 1', 99] }, { value: ['Value 2', 100] }],
+          },
+          'Time'
+        )
+      ).toBe('Value 1, Value 2 (Time)');
+    });
+  });
+
+  describe('getTooltipContent', () => {
+    it('returns an empty value', () => {
+      expect(getTooltipContent()).toEqual({});
+    });
+
+    it('returns content for single series', () => {
+      expect(
+        getTooltipContent({
+          seriesData: [{ value: ['Value 1', 99], seriesName: 'Series 1', color: '#aaa' }],
+        })
+      ).toEqual({ 'Series 1': { color: '', value: 99 } });
+    });
+
+    it('returns content for single series with an axis name', () => {
+      expect(
+        getTooltipContent(
+          {
+            seriesData: [{ value: ['Value 1', 99], seriesName: 'Series 1', color: '#aaa' }],
+          },
+          'Amount'
+        )
+      ).toEqual({ Amount: { color: '', value: 99 } });
+    });
+
+    it('returns content for multiple series', () => {
+      expect(
+        getTooltipContent({
+          seriesData: [
+            { value: ['Value 1', 99], seriesName: 'Series 1', color: '#aaa' },
+            { value: ['Value 2', 99], seriesName: 'Series 2', color: '#bbb' },
+          ],
+        })
+      ).toEqual({
+        'Series 1': { color: '#aaa', value: 99 },
+        'Series 2': { color: '#bbb', value: 99 },
+      });
+    });
+
+    it('returns content for multiple repeated series', () => {
+      expect(
+        getTooltipContent({
+          seriesData: [
+            { value: ['Value 1', 99], seriesName: 'Series 1', color: '#aaa' },
+            { value: ['Value 1', 99], seriesName: 'Series 1', color: '#aaa' },
+          ],
+        })
+      ).toEqual({ 'Series 1': { color: '#aaa', value: 99 } });
     });
   });
 });

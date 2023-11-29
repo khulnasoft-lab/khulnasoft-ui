@@ -75,29 +75,6 @@ export const WithLongSeriesLabelWithNoSpaces = (args, { argTypes }) => ({
       `),
 });
 
-export const TitleProp = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  ...baseStoryOptions,
-  template: `
-        <div class="position-relative">
-          <gl-chart
-            :options="options"
-            :height="100"
-            @created="onCreated"
-          />
-          <gl-chart-tooltip
-            v-if="chart"
-            :chart="chart"
-            :show="showTooltip"
-            :top="top"
-            :left="left"
-            title="Title from prop"
-          >
-            Example content
-          </gl-chart-tooltip>
-        </div>`,
-});
-
 export default {
   title: 'charts/chart-tooltip',
   component: GlChartTooltip,

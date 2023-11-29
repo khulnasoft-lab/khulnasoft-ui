@@ -21,11 +21,9 @@ export const createMockChartInstance = () => {
     off: jest.fn(),
     resize: jest.fn(),
     convertToPixel: jest.fn().mockReturnValue([]),
-    getOption: () => {
-      return {
-        series: [],
-      };
-    },
+    getOption: jest.fn().mockReturnValue({
+      series: [],
+    }),
     getDom: () => {
       return dom;
     },

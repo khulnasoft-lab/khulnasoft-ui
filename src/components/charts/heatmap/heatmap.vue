@@ -2,6 +2,7 @@
 <script>
 import merge from 'lodash/merge';
 import { WHITE, GRAY_100 } from '../../../../dist/tokens/js/tokens';
+// eslint-disable-next-line import/no-deprecated
 import { getDefaultTooltipContent } from '../../../utils/charts/config';
 import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';
@@ -222,6 +223,7 @@ export default {
   },
   methods: {
     defaultFormatTooltipText(params) {
+      // eslint-disable-next-line import/no-deprecated
       const { xLabels, tooltipContent } = getDefaultTooltipContent(
         params,
         this.computedOptions.yAxis.name
