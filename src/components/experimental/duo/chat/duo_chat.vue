@@ -134,7 +134,7 @@ export default {
       default: () => i18n.CHAT_DEFAULT_PREDEFINED_PROMPTS,
     },
     /**
-     * URL to the experiment/beta help page. This is passed down to the `GlExperimentBadge` component. Refer that component for more information.
+     * URL to the help page. This is passed down to the `GlExperimentBadge` component.
      */
     badgeHelpPageUrl: {
       type: String,
@@ -366,7 +366,7 @@ export default {
         >{{ $options.i18n.CHAT_LEGAL_GENERATED_BY_AI }}</gl-alert
       >
 
-      <!-- 
+      <!--
         @slot Subheader to be rendered right after the title. It is sticky and stays on top of the chat no matter the number of messages.
       -->
       <slot name="subheader"></slot>

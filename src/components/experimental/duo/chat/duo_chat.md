@@ -16,7 +16,7 @@ consumer component.
   :is-loading="isLoading"
   :is-chat-available="isChatAvailable"
   :predefined-prompts="predefinedPrompts"
-  :experiment-help-page-url="experimentHelpPageUrl"
+  :badge-help-page-url="badgeHelpPageUrl"
   :tool-name="toolName"
   @chat-hidden="onChatHidden"
   @send-chat-prompt="onSendChatPrompt"
@@ -69,7 +69,7 @@ be necessarily reactive in the consumer component. The properties that might be 
   questions. Usually, this decision stays the same during the component's lifecycle.
 - `predefinedPrompts`. The `Array` of strings that represents the possible questions to ask when
   there are no messages in the chat.
-- `experimentHelpPageUrl`. The link to an external page explaining the meaning of an "experiment".
+- `badgeHelpPageUrl`. The link to an external page explaining the meaning of an "experiment".
   The prop is passed down to the [`GlExperimentBadge` component](?path=/docs/experimental-experiment-badge--docs).
 
 ### Set up communication with consumer
@@ -100,7 +100,7 @@ export default {
     this.title = 'Foo Bar';
     this.isChatAvailable = true; // this is just an example. `true` is the default value
     this.predefinedPrompts = ['How to …?', 'Where do I …?'];
-    this.experimentHelpPageUrl = 'https://dev.null';
+    this.badgeHelpPageUrl = 'https://dev.null';
   }
   methods: {
     onChatHidden() {

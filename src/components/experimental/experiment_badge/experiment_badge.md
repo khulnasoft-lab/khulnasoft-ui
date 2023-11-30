@@ -5,5 +5,5 @@ what experiment means.
 ## Usage
 
 ```html
-<gl-experiment-badge experiment-help-page-url="https://gitlab.com" popover-placement="bottom" />
+<gl-experiment-badge help-page-url="https://gitlab.com" popover-placement="bottom" />
 ```

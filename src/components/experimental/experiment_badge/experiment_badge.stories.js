@@ -32,8 +32,7 @@ Default.args = generateProps();
 export const WithHelpPageUrl = Template.bind({});
 WithHelpPageUrl.args = {
   ...generateProps({
-    experimentHelpPageUrl:
-      'https://docs.gitlab.com/ee/policy/experiment-beta-support.html#experiment',
+    helpPageUrl: 'https://docs.gitlab.com/ee/policy/experiment-beta-support.html#experiment',
   }),
 };
 
