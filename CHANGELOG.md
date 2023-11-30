@@ -1,3 +1,10 @@
+# [71.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.1.1...v71.2.0) (2023-11-30)
+
+
+### Features
+
+* **GlBadge:** change spaces ([4f54265](https://gitlab.com/gitlab-org/gitlab-ui/commit/4f54265f2c6b02a8873d107c0fb5cc78ac048f6c))
+
 ## [71.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.1.0...v71.1.1) (2023-11-28)
 
 
