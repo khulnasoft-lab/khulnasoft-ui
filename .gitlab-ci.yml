@@ -363,7 +363,7 @@ create_integration_branch:
     - git config --global user.name "GitLab UI Integration Test"
     - git clone https://gitlab.com/gitlab-org/gitlab.git gitlab --depth=1
     - cd gitlab
-    - (git remote set-branches origin '*' && git fetch origin $INTEGRATION_BRANCH && git checkout $INTEGRATION_BRANCH) || git checkout -b $INTEGRATION_BRANCH
+    - (git remote set-branches origin '*' && git fetch origin $INTEGRATION_BRANCH --depth=1 && git checkout $INTEGRATION_BRANCH) || git checkout -b $INTEGRATION_BRANCH
     - yarn add @gitlab/ui@$DEPENDENCY_URL
     - git add package.json yarn.lock
     - 'git commit -m "GitLab UI integration branch for $CI_COMMIT_REF_NAME"'
