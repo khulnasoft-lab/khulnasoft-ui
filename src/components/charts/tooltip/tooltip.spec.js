@@ -230,9 +230,7 @@ describe('ChartTooltip', () => {
       });
 
       it('formats tooltip', async () => {
-        expect(findTooltipDefaultFormat().props()).toEqual({
-          tooltipContent: {},
-        });
+        expect(findTooltipDefaultFormat().props('tooltipContent')).toEqual({});
 
         triggerFormatter({
           seriesData: [
@@ -251,11 +249,9 @@ describe('ChartTooltip', () => {
         await nextTick();
 
         expect(findPopover().text()).toBe('Value');
-        expect(findTooltipDefaultFormat().props()).toEqual({
-          tooltipContent: {
-            'Series 1': { color: '#aaa', value: 1 },
-            'Series 2': { color: '#bbb', value: 2 },
-          },
+        expect(findTooltipDefaultFormat().props('tooltipContent')).toEqual({
+          'Series 1': { color: '#aaa', value: 1 },
+          'Series 2': { color: '#bbb', value: 2 },
         });
       });
 
@@ -277,10 +273,8 @@ describe('ChartTooltip', () => {
         await nextTick();
 
         expect(findPopover().text()).toBe('Value (Time)');
-        expect(findTooltipDefaultFormat().props()).toEqual({
-          tooltipContent: {
-            Amount: { color: '', value: 1 },
-          },
+        expect(findTooltipDefaultFormat().props('tooltipContent')).toEqual({
+          Amount: { color: '', value: 1 },
         });
       });
     });

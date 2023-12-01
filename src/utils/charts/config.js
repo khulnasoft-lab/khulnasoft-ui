@@ -434,23 +434,18 @@ export const generateLineSeries = ({ name, color, data = [], yAxisIndex = 0 }) =
 });
 
 export const getTooltipTitle = (params = null, titleAxisName = null) => {
-  if (!params) {
-    return '';
-  }
+  if (!params) return '';
 
   const title = params.seriesData
     .reduce((acc, { value }) => {
-      if (!acc.includes(value[0])) {
-        acc.push(value[0]);
+      if (acc.includes(value[0])) {
+        return acc;
       }
-      return acc;
+      return [...acc, value[0]];
     }, [])
     .join(', ');
 
-  if (titleAxisName) {
-    return `${title} (${titleAxisName})`;
-  }
-  return title;
+  return titleAxisName ? `${title} (${titleAxisName})` : title;
 };
 
 export const getTooltipContent = (params = null, valueAxisName = null) => {
@@ -461,25 +456,21 @@ export const getTooltipContent = (params = null, valueAxisName = null) => {
   const { seriesData } = params;
 
   if (seriesData.length === 1) {
-    const [point] = seriesData;
-    const value = point.value[1];
+    const {
+      value: [, yValue],
+      seriesName,
+    } = seriesData[0];
 
-    // ignore color when showing a single series
     return {
-      [valueAxisName || point.seriesName]: {
-        value,
-        color: '',
+      [valueAxisName || seriesName]: {
+        value: yValue,
+        color: '', // ignore color when showing a single series
       },
     };
   }
 
-  return seriesData.reduce((acc, point) => {
-    const yValue = point.value[1];
-    const { seriesName, color } = point;
-    acc[seriesName] = {
-      value: yValue,
-      color,
-    };
+  return seriesData.reduce((acc, { value: [, yValue], seriesName, color }) => {
+    acc[seriesName] = { value: yValue, color };
     return acc;
   }, {});
 };
