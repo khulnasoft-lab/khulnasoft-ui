@@ -44,6 +44,16 @@ export default {
       required: false,
       default: 10,
     },
+    /**
+     * Props that are passed to the toggle button
+     */
+    toggleButtonProps: {
+      type: Object,
+      required: false,
+      default() {
+        return {};
+      },
+    },
   },
   data() {
     return {
@@ -103,8 +113,12 @@ export default {
       <!-- @slot Text content -->
       <slot></slot>
     </article>
-    <gl-button v-if="showTruncationToggle" variant="link" @click="toggleTruncation">{{
-      truncationToggleText
-    }}</gl-button>
+    <gl-button
+      v-if="showTruncationToggle"
+      v-bind="toggleButtonProps"
+      variant="link"
+      @click="toggleTruncation"
+      >{{ truncationToggleText }}</gl-button
+    >
   </section>
 </template>
