@@ -6,11 +6,13 @@ const generateProps = ({
   showLessText = 'Show less',
   lines = 3,
   mobileLines = 10,
+  toggleButtonProps = {},
 } = {}) => ({
   showMoreText,
   showLessText,
   lines,
   mobileLines,
+  toggleButtonProps,
 });
 
 const content = () => [...Array(15)].map((_, i) => `line ${i + 1}`).join('\n');

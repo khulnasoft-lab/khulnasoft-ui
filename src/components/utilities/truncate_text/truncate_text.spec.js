@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
 import { createMockDirective, getBinding } from '~helpers/vue_mock_directive';
 import GlButton from '../../base/button/button.vue';
@@ -132,5 +133,18 @@ describe('GlTruncateText', () => {
         expect(findContent().attributes('aria-expanded')).toBe('true');
       });
     });
+  });
+
+  it('passes `toggleButtonProps` to toggle button', async () => {
+    const buttonTextClasses = 'foo-bar';
+
+    createComponent({ toggleButtonProps: { buttonTextClasses } });
+
+    getBinding(findContentEl(), 'gl-resize-observer').value({
+      target: { scrollHeight: 20, offsetHeight: 10 },
+    });
+    await nextTick();
+
+    expect(findButton().props('buttonTextClasses')).toBe(buttonTextClasses);
   });
 });
