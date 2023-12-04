@@ -1,5 +1,5 @@
 import { methods, template } from './common_story_options';
-import colorTokens from './color.theme.tokens.json';
+import colorTokens from './color.theme.dark.tokens.json';
 
 const generateProps = ({ name = '', tokens = colorTokens } = {}) => ({
   name,
@@ -56,5 +56,5 @@ ThemeLightRed.args = generateProps({
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/color/themes/light',
+  title: 'tokens/color/themes/dark',
 };
