@@ -1,3 +1,10 @@
+# [71.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.2.0...v71.3.0) (2023-12-04)
+
+
+### Features
+
+* **DesignTokens:** add dark mode colors for data-viz and theme colors ([7488ded](https://gitlab.com/gitlab-org/gitlab-ui/commit/7488ded96b1d33ee7b040cc2c6aff2f190202b02))
+
 # [71.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.1.1...v71.2.0) (2023-11-30)
 
 
