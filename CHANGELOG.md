@@ -1,3 +1,10 @@
+# [71.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.3.0...v71.4.0) (2023-12-04)
+
+
+### Features
+
+* **GlTruncateText:** add `toggleButtonProps` prop ([25a6577](https://gitlab.com/gitlab-org/gitlab-ui/commit/25a6577ba7061ce82d040ad5cda6977477e04f41))
+
 # [71.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.2.0...v71.3.0) (2023-12-04)
 
 
