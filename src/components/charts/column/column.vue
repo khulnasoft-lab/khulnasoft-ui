@@ -8,6 +8,7 @@ import {
   yAxis,
   dataZoomAdjustments,
   mergeSeriesToOptions,
+  // eslint-disable-next-line import/no-deprecated
   getDefaultTooltipContent,
   generateBarSeries,
   generateLineSeries,
@@ -180,6 +181,7 @@ export default {
       this.$emit('created', chart);
     },
     onLabelChange(params) {
+      // eslint-disable-next-line import/no-deprecated
       const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.yAxisTitle);
 
       this.$set(this, 'tooltipContent', tooltipContent);

@@ -27,6 +27,7 @@ import {
   mergeSeriesToOptions,
   mergeAnnotationAxisToOptions,
   lineStyle,
+  // eslint-disable-next-line import/no-deprecated
   getDefaultTooltipContent,
 } from '../../../utils/charts/config';
 import {
@@ -265,6 +266,7 @@ export default {
   },
   methods: {
     defaultFormatTooltipText(params) {
+      // eslint-disable-next-line import/no-deprecated
       const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.options.yAxis.name);
 
       this.$set(this, 'dataTooltipContent', tooltipContent);

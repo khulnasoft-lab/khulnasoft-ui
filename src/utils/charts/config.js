@@ -433,6 +433,48 @@ export const generateLineSeries = ({ name, color, data = [], yAxisIndex = 0 }) =
   itemStyle: { color },
 });
 
+export const getTooltipTitle = (params = null, titleAxisName = null) => {
+  if (!params) return '';
+
+  const title = params.seriesData
+    .reduce((acc, { value }) => {
+      if (acc.includes(value[0])) {
+        return acc;
+      }
+      return [...acc, value[0]];
+    }, [])
+    .join(', ');
+
+  return titleAxisName ? `${title} (${titleAxisName})` : title;
+};
+
+export const getTooltipContent = (params = null, valueAxisName = null) => {
+  if (!params) {
+    return {};
+  }
+
+  const { seriesData } = params;
+
+  if (seriesData.length === 1) {
+    const {
+      value: [, yValue],
+      seriesName,
+    } = seriesData[0];
+
+    return {
+      [valueAxisName || seriesName]: {
+        value: yValue,
+        color: '', // ignore color when showing a single series
+      },
+    };
+  }
+
+  return seriesData.reduce((acc, { value: [, yValue], seriesName, color }) => {
+    acc[seriesName] = { value: yValue, color };
+    return acc;
+  }, {});
+};
+
 /**
  * The method works well if tooltip content should be against y-axis values.
  * However, for bar charts, the tooltip should be against x-axis values.
@@ -442,6 +484,7 @@ export const generateLineSeries = ({ name, color, data = [], yAxisIndex = 0 }) =
  * @param {Object} params series data
  * @param {String} yAxisTitle y-axis title
  * @returns {Object} tooltip title and content
+ * @deprecated Use getTooltipContent and getTooltipContent to obtain the tooltip
  */
 export const getDefaultTooltipContent = (params, yAxisTitle = null) => {
   const seriesDataLength = params.seriesData.length;

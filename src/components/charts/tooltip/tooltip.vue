@@ -5,11 +5,14 @@ import { uid, debounceByAnimationFrame } from '../../../utils/utils';
 import GlPopover from '../../base/popover/popover.vue';
 import { popoverPlacements } from '../../../utils/constants';
 import { TOOLTIP_LEFT_OFFSET, TOOLTIP_TOP_OFFSET } from '../../../utils/charts/constants';
+import { getTooltipTitle, getTooltipContent } from '../../../utils/charts/config';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 export default {
   name: 'GlChartTooltip',
   components: {
     GlPopover,
+    TooltipDefaultFormat,
   },
   inheritAttrs: false,
   props: {
@@ -104,6 +107,15 @@ export default {
         return value >= 1;
       },
     },
+
+    /**
+     * Set to true to use the default tooltip formatter.
+     */
+    useDefaultTooltipFormatter: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -111,6 +123,10 @@ export default {
       isPointerInChart: false,
 
       debouncedMouseHandler: debounceByAnimationFrame(this.mouseHandler),
+
+      title: null,
+      content: {},
+      params: null,
     };
   },
   computed: {
@@ -146,7 +162,29 @@ export default {
   created() {
     this.chart.getZr().on('mousemove', this.debouncedMouseHandler);
     this.chart.getZr().on('mouseout', this.debouncedMouseHandler);
+
+    if (this.useDefaultTooltipFormatter) {
+      this.chart.setOption({
+        xAxis: {
+          axisPointer: {
+            show: true,
+            label: {
+              formatter: (params) => {
+                const options = this.chart.getOption();
+                const titleAxisName = options.xAxis?.[0]?.name;
+                const valueAxisName = options.yAxis?.[0]?.name;
+
+                this.title = getTooltipTitle(params, titleAxisName);
+                this.content = getTooltipContent(params, valueAxisName);
+                this.params = params;
+              },
+            },
+          },
+        },
+      });
+    }
   },
+
   beforeDestroy() {
     this.chart.getZr().off('mousemove', this.debouncedMouseHandler);
     this.chart.getZr().off('mouseout', this.debouncedMouseHandler);
@@ -189,10 +227,27 @@ export default {
       :placement="placement"
       triggers=""
     >
-      <template v-if="$scopedSlots.title" #title>
-        <slot name="title"></slot>
+      <template #title>
+        <!--
+          @slot Tooltip title
+          @binding {string} title - Default title
+          @binding {object} params
+        -->
+        <slot name="title" v-bind="{ title, params }">{{ title }}</slot>
       </template>
-      <slot></slot>
+      <!--
+        @slot Tooltip content
+        @binding {object} content - Key-value pairs of series information
+        @binding {object} params - Full list of params from `onLabelChange`. Can be null before tooltip is shown
+       -->
+      <slot v-bind="{ content, params }">
+        <tooltip-default-format :tooltip-content="content">
+          <template v-if="$scopedSlots['tooltip-value']" #tooltip-value="scope">
+            <!-- @slot Tooltip value formatter -->
+            <slot name="tooltip-value" v-bind="scope"></slot>
+          </template>
+        </tooltip-default-format>
+      </slot>
     </gl-popover>
   </div>
 </template>
