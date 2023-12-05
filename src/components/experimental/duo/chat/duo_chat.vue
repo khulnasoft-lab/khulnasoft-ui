@@ -43,7 +43,7 @@ export const slashCommands = [
     description: 'Reset conversation, ignore the previous messages.',
   },
   {
-    name: '/test',
+    name: '/tests',
     shouldSubmit: false,
     description: 'Write tests for the code snippet.',
   },
