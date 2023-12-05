@@ -1,3 +1,10 @@
+# [71.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.5.0...v71.6.0) (2023-12-05)
+
+
+### Features
+
+* **GlDuoChat:** switched /test to /tests command ([5045d5d](https://gitlab.com/gitlab-org/gitlab-ui/commit/5045d5daaaeaa10094ad75e4cf6b11da3a73bcd4))
+
 # [71.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.4.0...v71.5.0) (2023-12-05)
 
 
