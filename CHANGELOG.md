@@ -1,3 +1,10 @@
+# [71.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.4.0...v71.5.0) (2023-12-05)
+
+
+### Features
+
+* **GlChartTooltip:** Add slot API for chart tooltip ([572b33e](https://gitlab.com/gitlab-org/gitlab-ui/commit/572b33e5151f2d0508bca07d895f3cd444f4af54))
+
 # [71.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.3.0...v71.4.0) (2023-12-04)
 
 
