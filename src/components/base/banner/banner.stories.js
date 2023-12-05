@@ -13,7 +13,6 @@ const template = `
       :button-link="buttonLink"
       :svg-path="svgPath"
       :variant="variant"
-      :embedded="embedded"
     >
       <p>GitLab Service Desk is a simple way to allow people to create issues in your GitLab instance without needing their own user account. It provides a unique email address for end users to create issues in a project, and replies can be sent either though the GitLab interface or by email. End users will only see the thread though email.</p>
     </gl-banner>
@@ -26,7 +25,6 @@ const generateProps = ({
   buttonLink = 'https://gitlab.com',
   svgPath = serviceDeskCalloutSvg,
   variant = GlBanner.props.variant.default,
-  embedded = false,
 } = {}) => ({
   title,
   buttonAttributes,
@@ -34,7 +32,6 @@ const generateProps = ({
   buttonLink,
   svgPath,
   variant,
-  embedded,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -56,11 +53,6 @@ export const Introduction = Template.bind({});
 Introduction.args = generateProps({
   svgPath: clusterPopoverSvg,
   variant: bannerVariants[1],
-});
-
-export const Embedded = Template.bind({});
-Embedded.args = generateProps({
-  embedded: true,
 });
 
 export const WithActions = (args, { argTypes }) => ({

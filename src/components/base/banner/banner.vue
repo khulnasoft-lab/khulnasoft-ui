@@ -69,14 +69,6 @@ export default {
       required: false,
       default: 'Dismiss',
     },
-    /**
-     * Removes the border for banners embedded in content.
-     */
-    embedded: {
-      type: Boolean,
-      required: false,
-      default: null,
-    },
   },
   computed: {
     isIntroducing() {
@@ -111,7 +103,6 @@ export default {
     class="gl-pl-6 gl-pr-8 gl-py-6"
     :class="{
       'gl-banner-introduction': isIntroducing,
-      'gl-border-none!': embedded,
       'gl-bg-gray-10!': !isIntroducing,
     }"
     body-class="gl-display-flex gl-p-0!"
