@@ -84,14 +84,11 @@ export default {
   <component
     :is="rootElementType"
     v-if="variant === 'spinner'"
+    :aria-label="label"
     class="gl-spinner-container"
     role="status"
   >
-    <span
-      class="gl-vertical-align-text-bottom!"
-      :class="spinnerCssClasses"
-      :aria-label="label"
-    ></span>
+    <span class="gl-vertical-align-text-bottom!" :class="spinnerCssClasses"></span>
   </component>
   <component :is="rootElementType" v-else :class="dotsCssClasses" role="status" :aria-label="label">
     <span></span>
