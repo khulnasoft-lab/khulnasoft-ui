@@ -231,9 +231,9 @@ describe('base dropdown', () => {
     props                                                            | toggleClasses
     ${{}}                                                            | ${[]}
     ${{ toggleText: 'toggleText' }}                                  | ${[]}
-    ${{ icon: 'close' }}                                             | ${['gl-new-dropdown-icon-only']}
-    ${{ icon: 'close', toggleText: 'toggleText', textSrOnly: true }} | ${['gl-new-dropdown-icon-only']}
-    ${{ icon: 'close', textSrOnly: true }}                           | ${['gl-new-dropdown-icon-only']}
+    ${{ icon: 'close' }}                                             | ${['gl-new-dropdown-icon-only', 'btn-icon']}
+    ${{ icon: 'close', toggleText: 'toggleText', textSrOnly: true }} | ${['gl-new-dropdown-icon-only', 'btn-icon']}
+    ${{ icon: 'close', textSrOnly: true }}                           | ${['gl-new-dropdown-icon-only', 'btn-icon']}
     ${{ toggleText: 'toggleText', noCaret: true }}                   | ${['gl-new-dropdown-toggle-no-caret']}
   `('dropdown with props $props', ({ props, toggleClasses }) => {
     beforeEach(async () => {

@@ -48,7 +48,8 @@
   }
 
   .gl-new-dropdown-toggle {
-    &.gl-button {
+    // optically align the caret
+    &.gl-button:not(.gl-new-dropdown-toggle-no-caret) {
       @include gl-pr-3;
 
       &.btn-sm {
@@ -56,17 +57,10 @@
       }
     }
 
-    &.gl-new-dropdown-toggle-no-caret {
-      @include gl-p-3;
-
-      .gl-new-dropdown-chevron {
-        @include gl-display-none;
-      }
+    &.gl-new-dropdown-toggle-no-caret .gl-new-dropdown-chevron {
+      @include gl-display-none;
     }
 
-    &.gl-new-dropdown-toggle-no-caret.btn-sm {
-      @include gl-p-2;
-    }
   }
 
   .gl-new-dropdown-toggle {
@@ -96,6 +90,15 @@
   }
 
   .gl-new-dropdown-icon-only {
+    // optically align the caret
+    &.gl-button:not(.gl-new-dropdown-toggle-no-caret) {
+      @include gl-pr-2;
+
+      &.btn-sm {
+        @include gl-pr-0;
+      }
+    }
+
     .gl-button-icon.gl-button-icon {
       @include gl-mr-0;
     }
@@ -103,6 +106,7 @@
     &.btn-sm .gl-new-dropdown-chevron {
       @include gl-mx-0;
     }
+    
   }
 
   $dropdown-content-padding: 0.25rem;

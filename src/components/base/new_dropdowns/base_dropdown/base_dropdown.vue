@@ -176,7 +176,7 @@ export default {
         this.toggleClass,
         {
           'gl-new-dropdown-toggle': true,
-          'gl-new-dropdown-icon-only': this.isIconOnly,
+          'gl-new-dropdown-icon-only btn-icon': this.isIconOnly,
           'gl-new-dropdown-toggle-no-caret': this.noCaret,
         },
       ];
