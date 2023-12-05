@@ -542,8 +542,9 @@ describe('GlDuoChat', () => {
         it.each`
           prompt       | expectedCommands
           ${'/'}       | ${slashCommandsNames}
-          ${'/t'}      | ${slashCommandsOnly(['/test'])}
-          ${'/tes'}    | ${slashCommandsOnly(['/test'])}
+          ${'/t'}      | ${slashCommandsOnly(['/tests'])}
+          ${'/tes'}    | ${slashCommandsOnly(['/tests'])}
+          ${'/test'}   | ${slashCommandsOnly(['/tests'])}
           ${'/e'}      | ${slashCommandsOnly(['/explain'])}
           ${'/explai'} | ${slashCommandsOnly(['/explain'])}
           ${'/r'}      | ${slashCommandsOnly(['/reset', '/refactor'])}
