@@ -16,10 +16,10 @@ describe('loading icon component', () => {
   const getDotsLoaderClasses = () => findDotsLoaderEl().classes();
 
   describe.each`
-    variant      | baseCssClass              | findLoaderEl        | getLoaderClasses
-    ${'spinner'} | ${spinnerBaseCssClass}    | ${findSpinnerEl}    | ${getSpinnerClasses}
-    ${'dots'}    | ${dotsLoaderBaseCssClass} | ${findDotsLoaderEl} | ${getDotsLoaderClasses}
-  `('variant $variant', ({ variant, baseCssClass, findLoaderEl, getLoaderClasses }) => {
+    variant      | baseCssClass              | getLoaderClasses
+    ${'spinner'} | ${spinnerBaseCssClass}    | ${getSpinnerClasses}
+    ${'dots'}    | ${dotsLoaderBaseCssClass} | ${getDotsLoaderClasses}
+  `('variant $variant', ({ variant, baseCssClass, getLoaderClasses }) => {
     describe('display', () => {
       it('should render as a block by default', () => {
         createComponent({ variant });
@@ -79,17 +79,15 @@ describe('loading icon component', () => {
     describe('aria label', () => {
       it('should default to loading', () => {
         createComponent({ variant });
-        const loaderEl = findLoaderEl();
 
-        expect(loaderEl.attributes('aria-label')).toBe('Loading');
+        expect(wrapper.attributes('aria-label')).toBe('Loading');
       });
 
       it('should change using prop', () => {
         const label = 'label';
         createComponent({ variant, label });
-        const loaderEl = findLoaderEl();
 
-        expect(loaderEl.attributes('aria-label')).toBe(label);
+        expect(wrapper.attributes('aria-label')).toBe(label);
       });
     });
 
