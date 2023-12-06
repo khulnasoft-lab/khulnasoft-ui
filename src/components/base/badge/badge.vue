@@ -55,14 +55,6 @@ export default {
       validator: (value) => Object.keys(badgeIconSizeOptions).includes(value),
       required: false,
     },
-    /**
-     * Whether the `icon` is round. Affects padding around the icon.
-     */
-    roundIcon: {
-      type: Boolean,
-      default: false,
-      required: false,
-    },
   },
   computed: {
     hasIconOnly() {
@@ -80,18 +72,14 @@ export default {
 </script>
 
 <template>
-  <b-badge
-    v-bind="$attrs"
-    :variant="variant"
-    :class="[
-      'gl-badge',
-      size,
-      { 'gl-badge-icon-only': hasIconOnly, 'gl-badge-round-icon': roundIcon },
-    ]"
-    :role="role"
-    pill
-  >
-    <gl-icon v-if="icon" class="gl-badge-icon" :size="iconSizeComputed" :name="icon" />
+  <b-badge v-bind="$attrs" :variant="variant" :class="['gl-badge', size]" :role="role" pill>
+    <gl-icon
+      v-if="icon"
+      class="gl-badge-icon"
+      :size="iconSizeComputed"
+      :class="{ 'gl-mr-2': !hasIconOnly }"
+      :name="icon"
+    />
     <!-- @slot The badge content to display. -->
     <slot></slot>
   </b-badge>

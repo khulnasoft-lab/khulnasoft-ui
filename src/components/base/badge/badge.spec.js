@@ -39,23 +39,15 @@ describe('badge', () => {
         });
 
         it('with correct class', () => {
-          expect(wrapper.classes('gl-badge-icon-only')).toBe(!hasSlot);
+          const icon = findIcon();
+
+          expect(icon.classes('gl-mr-2')).toBe(hasSlot);
         });
 
         it('with correct size', () => {
           expect(findIcon().props('size')).toBe(expectedIconSize);
         });
       });
-    });
-  });
-
-  describe('with "roundIcon" prop', () => {
-    beforeEach(() => {
-      createComponent({ propsData: { icon: 'warning', roundIcon: true } });
-    });
-
-    it('has `gl-badge-round-icon` class', () => {
-      expect(wrapper.classes()).toContain('gl-badge-round-icon');
     });
   });
 
