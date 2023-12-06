@@ -1,3 +1,15 @@
+## [71.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.6.0...v71.6.1) (2023-12-06)
+
+
+### Bug Fixes
+
+* **GlLoadingIcon:** aria-label for GlLoadingIcon ([09e9768](https://gitlab.com/gitlab-org/gitlab-ui/commit/09e9768d08a104712ebc240881fc7a6c45fc0b4f))
+
+
+### Reverts
+
+* feat(GlBadge): change spaces ([6556551](https://gitlab.com/gitlab-org/gitlab-ui/commit/6556551fdebe634e2ce8be1e15b838bce7168445))
+
 # [71.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.5.0...v71.6.0) (2023-12-05)
 
 
