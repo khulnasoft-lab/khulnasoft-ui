@@ -6,6 +6,7 @@ import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
 
+const linkRegex = /(https?:\/\/[^\s]+[^\s.,?;:])/gi;
 export default {
   name: 'GlLabel',
   components: {
@@ -98,6 +99,25 @@ export default {
     tooltipTarget() {
       return this.target ? this.$refs.labelTitle.$el : this.$refs.labelTitle;
     },
+    descriptionWithLinks() {
+      if (this.description?.length > 0) {
+        const descriptionSeparatedByLinks = this.description.split(linkRegex);
+        const textFragmentData = descriptionSeparatedByLinks.map((text) => {
+          const isLink = linkRegex.test(text);
+          return {
+            text,
+            class: isLink ? 'gl-reset-color! gl-text-decoration-underline' : undefined,
+            href: isLink ? text : undefined,
+            is: isLink ? GlLink : 'span',
+          };
+        });
+        return textFragmentData;
+      }
+      return this.description;
+    },
+    displayTitle() {
+      return this.scoped ? `${this.scopedKey}::${this.scopedValue}` : this.title;
+    },
   },
   watch: {
     title() {
@@ -157,8 +177,15 @@ export default {
       :placement="tooltipPlacement"
       boundary="viewport"
     >
-      <span v-if="scoped" class="gl-label-tooltip-title">Scoped label</span>
-      {{ description }}
+      <span class="gl-label-tooltip-title">{{ displayTitle }}</span>
+      <component
+        :is="fragment.is"
+        v-for="fragment in descriptionWithLinks"
+        :key="fragment.text"
+        :href="fragment.href"
+        :class="fragment.class"
+        >{{ fragment.text }}</component
+      >
     </gl-tooltip>
   </span>
 </template>

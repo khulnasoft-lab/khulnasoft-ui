@@ -69,13 +69,27 @@ describe('Label component', () => {
       expect(wrapper.classes()).toContain('gl-label-text-light');
     });
 
-    it('renders the label description without "Scoped label"', () => {
+    it('renders the label description with the label title in the tooltip', () => {
       const props = { ...defaultProps, description: 'lorem ipsum' };
 
       createComponent(props);
 
       expect(findTooltipText()).toContain(props.description);
-      expect(findTooltipText()).not.toContain('Scoped label');
+      expect(findTooltipText()).toContain(defaultProps.title);
+    });
+
+    it('renders links in the description when a link is detected', () => {
+      let props = { ...defaultProps, description: 'lorem ipsum' };
+
+      createComponent(props);
+
+      expect(findTooltip().findComponent(GlLink).exists()).toBe(false);
+
+      props = { ...defaultProps, description: 'lorem ipsum https://gitlab.com' };
+
+      createComponent(props);
+
+      expect(findTooltip().findComponent(GlLink).exists()).toBe(true);
     });
 
     it('supports short hex for background color to infer text color', () => {
@@ -183,13 +197,13 @@ describe('Label component', () => {
       expect(wrapper.classes()).toContain('gl-label-text-light');
     });
 
-    it('renders the label description with "Scoped label"', () => {
+    it('renders the label description with label title in the tooltip', () => {
       const props = { ...scopedProps, description: 'lorem ipsum' };
 
       createComponent(props);
 
       expect(findTooltipText()).toContain(props.description);
-      expect(findTooltipText()).toContain('Scoped label');
+      expect(findTooltipText()).toContain(scopedProps.title);
     });
 
     it('links to label target', () => {
