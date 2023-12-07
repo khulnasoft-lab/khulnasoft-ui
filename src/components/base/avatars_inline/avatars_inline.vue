@@ -55,12 +55,6 @@ export default {
     visibleAvatars() {
       return this.collapsed ? this.avatars.slice(0, this.maxVisible) : this.avatars;
     },
-    containerSizeStyles() {
-      return {
-        width: `${this.avatarSize * this.visibleAvatars.length}px`,
-        height: `${this.avatarSize}px`,
-      };
-    },
     badgeSize() {
       return this.avatarSize === 24 ? 'md' : 'lg';
     },
@@ -86,10 +80,13 @@ export default {
   methods: {
     calcAvatarPosition(avatarIndex) {
       // According to pajamas, overlap is 25% of the avatar height
-      const overlapDistance = this.avatarSize * 0.75;
+      const overlap = this.avatarSize * 0.25;
+
+      const marginRight =
+        avatarIndex === this.maxVisible || !this.collapsed ? undefined : `-${overlap}px`;
 
       return {
-        left: `${overlapDistance * avatarIndex}px`,
+        marginRight,
         zIndex: this.maxVisible + (avatarIndex - 1),
       };
     },
@@ -97,7 +94,7 @@ export default {
 };
 </script>
 <template>
-  <div :class="['gl-avatars-inline', { collapsed: collapsed }]" :style="containerSizeStyles">
+  <div class="gl-avatars-inline">
     <div
       v-for="(avatar, index) in visibleAvatars"
       :key="index"

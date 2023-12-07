@@ -3,15 +3,9 @@
 
   &-child {
     @include gl-display-inline-flex;
-    @include gl-mr-3;
-  }
 
-  &.collapsed {
-    @include gl-relative;
-
-    .gl-avatars-inline-child {
-      @include gl-absolute;
-      @include gl-mr-0;
+    &:not(:last-child) {
+      @include gl-mr-3;
     }
   }
 
