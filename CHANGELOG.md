@@ -1,3 +1,15 @@
+# [71.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.6.1...v71.7.0) (2023-12-07)
+
+
+### Bug Fixes
+
+* **Dropdown:** Polish trigger spacing ([9e60b07](https://gitlab.com/gitlab-org/gitlab-ui/commit/9e60b07b4c248350028d151840cb1c2899229be6))
+
+
+### Features
+
+* **GlAvatarLabeled:** Wrap subLabel ([aa773e2](https://gitlab.com/gitlab-org/gitlab-ui/commit/aa773e28400568119a6c72d7106a3db63aa4e85c))
+
 ## [71.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.6.0...v71.6.1) (2023-12-06)
 
 
