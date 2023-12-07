@@ -340,7 +340,8 @@ export default {
       if (
         this.autoClose &&
         e.target.closest(ITEM_SELECTOR) &&
-        e.target.closest(DROPDOWN_SELECTOR) === this.$refs.baseDropdown.$el
+        e.target.closest(DROPDOWN_SELECTOR) === this.$refs.baseDropdown.$el &&
+        document.activeElement.closest(DROPDOWN_SELECTOR) === this.$refs.baseDropdown.$el
       ) {
         this.closeAndFocus();
       }
