@@ -458,7 +458,7 @@ export default {
               >
                 <span class="gl-display-flex gl-justify-content-space-between">
                   <span class="gl-display-block">{{ command.name }}</span>
-                  <small class="gl-text-gray-500 gl-font-style-italic">{{
+                  <small class="gl-text-gray-500 gl-font-style-italic gl-text-right gl-pl-3">{{
                     command.description
                   }}</small>
                 </span>
