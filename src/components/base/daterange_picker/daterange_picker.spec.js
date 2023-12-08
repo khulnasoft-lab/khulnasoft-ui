@@ -286,4 +286,22 @@ describe('Daterange Picker', () => {
 
     expect(wrapper.find(`[data-testid="${testid}"]`).classes()).toContain(value);
   });
+
+  describe('startOpened', () => {
+    beforeEach(() => {
+      factory({ startOpened: true });
+    });
+    it('sets start-opened on the from date picker', () => {
+      expect(findStartPicker().props('startOpened')).toBe(true);
+    });
+
+    it('defaults to false', () => {
+      factory();
+      expect(findStartPicker().props('startOpened')).toBe(false);
+    });
+
+    it('does not set start-opened on the end date picker', () => {
+      expect(findEndPicker().props('startOpened')).toBe(false);
+    });
+  });
 });

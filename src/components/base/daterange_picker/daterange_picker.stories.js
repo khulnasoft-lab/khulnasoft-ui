@@ -25,6 +25,7 @@ const generateProps = ({
   endPickerClass,
   labelClass,
   theme = defaultValue('theme'),
+  startOpened = false,
 } = {}) => ({
   defaultMinDate: new Date(defaultMinDate),
   defaultMaxDate: new Date(defaultMaxDate),
@@ -39,6 +40,7 @@ const generateProps = ({
   endPickerClass,
   labelClass,
   theme,
+  startOpened,
 });
 
 const Template = (template, props) => ({
@@ -79,6 +81,7 @@ const defaultTemplate = `
           :end-picker-class="endPickerClass"
           :label-class="labelClass"
           :theme="theme"
+          :start-opened="startOpened"
         /> `;
 export const Default = Template.bind({}, defaultTemplate);
 Default.args = generateProps();
@@ -97,6 +100,7 @@ const withDatesSelectedAndTooltipTemplate = `<gl-daterange-picker
                                                 :start-picker-class="startPickerClass"
                                                 :end-picker-class="endPickerClass"
                                                 :label-class="labelClass"
+                                                :start-opened="startOpened"
                                                 :theme="theme">
                                                     <template #default="{ daysSelected }">
                                                       <span v-if="daysSelected === 1">{{ daysSelected }} day selected</span>
