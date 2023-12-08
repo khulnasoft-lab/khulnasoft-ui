@@ -342,17 +342,24 @@ const DateToken = {
         this.hideDatePicker();
       }
     },
-    customApplySuggestion(value, defaultApplySuggestion) {
+    handleComplete(value) {
       if (value === 'custom') {
         this.showDatePicker();
-      } else {
-        defaultApplySuggestion(value);
       }
     },
   },
   computed: {
     isActive() {
       return this.showPicker || this.active;
+    },
+    getValue() {
+      if (this.showPicker) {
+        return {
+          ...this.value,
+          data: '',
+        };
+      }
+      return this.value;
     },
   },
   mounted() {
@@ -370,7 +377,8 @@ const DateToken = {
         v-on="$listeners"
         :view-only="showPicker"
         :active="isActive"
-        :custom-apply-suggestion="customApplySuggestion"
+        :value="getValue"
+        @complete="handleComplete"
       >
         <template #before-data-segment-input="{ submitValue }">
           <gl-icon

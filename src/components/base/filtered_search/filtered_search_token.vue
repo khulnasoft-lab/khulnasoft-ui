@@ -84,11 +84,6 @@ export default {
       required: false,
       default: () => ({}),
     },
-    customApplySuggestion: {
-      type: Function,
-      required: false,
-      default: null,
-    },
   },
   data() {
     return {
@@ -309,13 +304,13 @@ export default {
       this.intendedCursorPosition = 'start';
     },
 
-    handleComplete() {
+    handleComplete(value) {
       /**
        * Emitted when the token entry has been completed.
        *
        * @event complete
        */
-      this.$emit('complete');
+      this.$emit('complete', value);
     },
 
     stopMousedownOnCloseButton(event) {
@@ -432,7 +427,6 @@ export default {
       :options="config.options"
       :view-only="viewOnly"
       :search-input-attributes="dataSegmentInputAttributes"
-      :custom-apply-suggestion="customApplySuggestion"
       @activate="activateDataSegment"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @complete="handleComplete"
