@@ -1,3 +1,10 @@
+## [71.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.7.0...v71.7.1) (2023-12-08)
+
+
+### Bug Fixes
+
+* **GlDuoChat:** better align slash commands ([e171560](https://gitlab.com/gitlab-org/gitlab-ui/commit/e171560b638e39b3315c32514442ffb5786d2a6c))
+
 # [71.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.6.1...v71.7.0) (2023-12-07)
 
 
