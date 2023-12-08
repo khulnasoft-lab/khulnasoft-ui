@@ -84,6 +84,11 @@ export default {
       required: false,
       default: () => ({}),
     },
+    customApplySuggestion: {
+      type: Function,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -427,6 +432,7 @@ export default {
       :options="config.options"
       :view-only="viewOnly"
       :search-input-attributes="dataSegmentInputAttributes"
+      :custom-apply-suggestion="customApplySuggestion"
       @activate="activateDataSegment"
       @backspace="activateSegment($options.segments.SEGMENT_OPERATOR)"
       @complete="handleComplete"

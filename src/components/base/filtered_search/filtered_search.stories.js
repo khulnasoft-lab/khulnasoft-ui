@@ -4,6 +4,7 @@ import GlIcon from '../icon/icon.vue';
 import GlToken from '../token/token.vue';
 import GlAvatar from '../avatar/avatar.vue';
 import GlDatepicker from '../datepicker/datepicker.vue';
+import GlDaterangePicker from '../daterange_picker/daterange_picker.vue';
 import GlDropdownDivider from '../dropdown/dropdown_divider.vue';
 import { setStoryTimeout } from '../../../utils/test_utils';
 import { makeContainer } from '../../../utils/story_decorators/container';
@@ -292,7 +293,9 @@ const DateToken = {
   components: {
     GlIcon,
     GlDatepicker,
+    GlDaterangePicker,
     GlFilteredSearchToken,
+    GlFilteredSearchSuggestion,
   },
   props: ['value', 'active', 'viewOnly'],
   inheritAttrs: false,
@@ -300,38 +303,101 @@ const DateToken = {
     return {
       dataSegmentInputAttributes: {
         id: 'this-id',
-        placeholder: 'YYYY-MM-DD',
-        style: 'padding-left: 23px;',
       },
+      showPicker: false,
+      availableDefaultSuggestions: [
+        { value: '5m', text: '5 minutes ago' },
+        {
+          value: 'custom',
+          text: 'Custom',
+        },
+      ],
     };
   },
   methods: {
+    hideDatePicker() {
+      this.showPicker = false;
+      this.dataSegmentInputAttributes = {
+        id: 'this-id',
+      };
+    },
+    showDatePicker() {
+      this.dataSegmentInputAttributes = {
+        id: 'this-id',
+        placeholder: 'YYYY-MM-DD',
+        style: 'padding-left: 23px;',
+      };
+      this.showPicker = true;
+    },
     selectValue(value, submitValue) {
-      const date = new Date(value);
-      const offset = date.getTimezoneOffset();
-      const offsetDdate = new Date(date.getTime() - offset * 60 * 1000);
-      const dateString = offsetDdate.toISOString().split('T')[0];
-      submitValue(dateString);
+      // const date = new Date(value);
+      // const offset = date.getTimezoneOffset();
+      // const offsetDdate = new Date(date.getTime() - offset * 60 * 1000);
+      // const dateString = offsetDdate.toISOString().split('T')[0];
+      submitValue(`${value.startDate} - ${value.endDate}`);
+      this.hideDatePicker();
+    },
+    handleClickOutside(event) {
+      if (this.$refs.datePicker && !this.$refs.datePicker.contains(event.target)) {
+        this.hideDatePicker();
+      }
+    },
+    customApplySuggestion(value, defaultApplySuggestion) {
+      if (value === 'custom') {
+        this.showDatePicker();
+      } else {
+        defaultApplySuggestion(value);
+      }
     },
   },
+  computed: {
+    isActive() {
+      return this.showPicker || this.active;
+    },
+  },
+  mounted() {
+    document.addEventListener('click', this.handleClickOutside);
+  },
+  destroyed() {
+    document.removeEventListener('click', this.handleClickOutside);
+  },
+
   template: `
     <div>
       <gl-filtered-search-token
         :data-segment-input-attributes="dataSegmentInputAttributes"
         v-bind="{ ...this.$props, ...this.$attrs }"
         v-on="$listeners"
+        :view-only="showPicker"
+        :active="isActive"
+        :custom-apply-suggestion="customApplySuggestion"
       >
         <template #before-data-segment-input="{ submitValue }">
           <gl-icon
+            v-if="showPicker" 
             class="gl-text-gray-500"
             name="calendar"
             style="margin-right: -20px; z-index: 1; pointer-events: none;"
           />
-          <gl-datepicker
-            class="gl-display-none!"
-            target='#this-id'
-            :container="null"
-            @input="selectValue($event, submitValue)" />
+          <!-- TODO reuse classes? -->
+          <div v-if="showPicker" 
+            class="gl-absolute gl-z-index-9999 gl-p-4 gl-bg-white gl-border-1 gl-border-gray-200 gl-mt-2 gl-mb-2 gl-p-0 gl-rounded-base gl-shadow-x0-y2-b4-s0" style="top: 100%" 
+            ref="datePicker"
+          >
+            <gl-daterange-picker @input="selectValue($event, submitValue)" /> 
+          </div> 
+        </template>
+
+        <template #suggestions>
+          <div  v-if="!showPicker">
+            <gl-filtered-search-suggestion
+              v-for="token in availableDefaultSuggestions"
+              :key="token.value"
+              :value="token.value"
+            >
+              {{ token.text }}
+            </gl-filtered-search-suggestion>
+          </div>
         </template>
       </gl-filtered-search-token>
     </div>
@@ -367,10 +433,7 @@ const tokens = [
     icon: 'history',
     title: 'Created',
     token: DateToken,
-    operators: [
-      { value: '<', description: 'before' },
-      { value: '>', description: 'after' },
-    ],
+    operators: [{ value: '=', description: 'is' }],
   },
 ];
 
@@ -382,11 +445,7 @@ export const Default = () => ({
   data() {
     return {
       tokens,
-      value: [
-        { type: 'author', value: { data: 'beta', operator: '=' } },
-        { type: 'label', value: { data: 'Bug', operator: '=' } },
-        'raw text',
-      ],
+      value: [],
     };
   },
   components,

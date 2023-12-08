@@ -259,6 +259,7 @@ export default {
         :end-range="fromCalendarMaxDate"
         :theme="theme"
         :i18n="i18n"
+        start-opened
         :target="startPickerTarget"
         :container="startPickerContainer"
         @input="onStartDateSelected"

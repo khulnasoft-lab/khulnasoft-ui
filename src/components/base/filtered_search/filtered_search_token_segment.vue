@@ -92,6 +92,11 @@ export default {
       required: false,
       default: () => () => false,
     },
+    customApplySuggestion: {
+      type: Function,
+      required: false,
+      default: null,
+    },
     /**
      * Current term value
      */
@@ -296,6 +301,14 @@ export default {
     },
 
     applySuggestion(suggestedValue) {
+      if (this.customApplySuggestion) {
+        this.customApplySuggestion(suggestedValue, (val) => this.doApplySuggestion(val));
+        return;
+      }
+      this.doApplySuggestion(suggestedValue);
+    },
+
+    doApplySuggestion(suggestedValue) {
       const formattedSuggestedValue = this.termsAsTokens()
         ? suggestedValue
         : wrapTokenInQuotes(suggestedValue);
