@@ -342,8 +342,8 @@ const DateToken = {
         this.hideDatePicker();
       }
     },
-    handleComplete() {
-      if (this.value.data === 'custom') {
+    handleComplete(value) {
+      if (value === 'custom') {
         this.showDatePicker();
       }
     },
