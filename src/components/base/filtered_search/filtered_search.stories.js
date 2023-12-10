@@ -342,8 +342,8 @@ const DateToken = {
         this.hideDatePicker();
       }
     },
-    handleComplete(value) {
-      if (value === 'custom') {
+    handleComplete() {
+      if (this.value.data === 'custom') {
         this.showDatePicker();
       }
     },
@@ -352,7 +352,7 @@ const DateToken = {
     isActive() {
       return this.showPicker || this.active;
     },
-    getValue() {
+    computedValue() {
       if (this.showPicker) {
         return {
           ...this.value,
@@ -377,7 +377,7 @@ const DateToken = {
         v-on="$listeners"
         :view-only="showPicker"
         :active="isActive"
-        :value="getValue"
+        :value="computedValue"
         @complete="handleComplete"
       >
         <template #before-data-segment-input="{ submitValue }">

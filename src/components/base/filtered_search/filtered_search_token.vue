@@ -304,13 +304,13 @@ export default {
       this.intendedCursorPosition = 'start';
     },
 
-    handleComplete(value) {
+    handleComplete() {
       /**
        * Emitted when the token entry has been completed.
        *
        * @event complete
        */
-      this.$emit('complete', value);
+      this.$emit('complete');
     },
 
     stopMousedownOnCloseButton(event) {
