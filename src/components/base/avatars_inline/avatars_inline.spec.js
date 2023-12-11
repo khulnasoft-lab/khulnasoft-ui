@@ -33,12 +33,6 @@ describe('avatars inline', () => {
     expect(wrapper.findAllComponents(Avatar).length).toBe(avatars.length);
   });
 
-  it('adds collapsed class selector when collapsed=true', () => {
-    buildWrapper({ avatars, maxVisible: 2, avatarSize: 24, collapsed: true });
-
-    expect(wrapper.classes()).toContain('collapsed');
-  });
-
   describe('when component is collapsed and maxVisible is the number of avatars', () => {
     beforeEach(() => {
       buildWrapper({ avatars, maxVisible: avatars.length, avatarSize: 24, collapsed: true });
