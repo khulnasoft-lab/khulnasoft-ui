@@ -51,16 +51,28 @@ export default {
       type: String,
       required: true,
     },
+    /**
+     * Disable submit button when there have been no changes to the form.
+     */
+    autoDisableSubmitButton: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
       fieldDirtyStatuses: {},
       fieldValidations: {},
+      initialFieldValues: {},
     };
   },
   computed: {
     formElement() {
       return document.getElementById(this.formId);
+    },
+    submitButton() {
+      return this.formElement?.querySelector('button[type="submit"]');
     },
     fieldValidationProps() {
       return mapValues(this.fields, (_, fieldName) => {
@@ -108,11 +120,41 @@ export default {
       });
     },
   },
+  watch: {
+    values(newValues) {
+      if (!this.submitButton) {
+        return;
+      }
+
+      if (
+        Object.entries(newValues).some(([fieldName, newValue]) => {
+          if (this.initialFieldValues[fieldName] === undefined && newValue === '') {
+            return false;
+          }
+
+          return this.initialFieldValues[fieldName] !== newValue;
+        })
+      ) {
+        this.enableSubmitButton();
+      } else {
+        this.disableSubmitButton();
+      }
+    },
+  },
   mounted() {
     // why: We emit initial values as a convenience so that `v-model="values"` can be easily initialized.
     this.$emit('input', this.fieldValues);
+    this.initialFieldValues = this.fieldValues;
 
     this.formElement?.addEventListener('submit', this.onFormSubmission);
+
+    if (this.submitButton) {
+      // This class is used in `gitlab-org/gitlab` to disable legacy
+      // jQuery functionality that conflicts with this component.
+      // See https://gitlab.com/gitlab-org/gitlab/-/blob/6e4783d030359f88fc215b6a4973823c6ec88ac8/app/assets/javascripts/main.js#L177
+      this.submitButton?.classList?.add('js-gl-form-fields-submit');
+      this.disableSubmitButton();
+    }
   },
   destroyed() {
     this.formElement?.removeEventListener('submit', this.onFormSubmission);
@@ -180,6 +222,20 @@ export default {
          */
         this.$emit('submit', e);
       }
+    },
+    disableSubmitButton() {
+      if (!this.autoDisableSubmitButton) {
+        return;
+      }
+
+      this.submitButton.disabled = true;
+    },
+    enableSubmitButton() {
+      if (!this.autoDisableSubmitButton) {
+        return;
+      }
+
+      this.submitButton.disabled = false;
     },
   },
 };

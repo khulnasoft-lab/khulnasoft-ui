@@ -30,11 +30,20 @@ const TEST_FIELDS = {
     label: 'All caps (optional)',
     mapValue: (x) => x?.toUpperCase(),
   },
+  firstName: {
+    label: 'First name',
+  },
+  avatar: {
+    label: 'Avatar',
+  },
 };
 const TEST_VALUES = {
   username: 'root',
   evenCount: 8,
   allCaps: '',
+  avatar: new File(['avatar'], 'avatar.jpg', {
+    type: 'text/plain',
+  }),
 };
 
 const TEST_FORM_ID = 'test-form-id';
@@ -84,6 +93,7 @@ describe('GlFormFields', () => {
   const findInputFromLabel = (label) => findFormGroupFromLabel(label).findComponent(GlInput);
   const findCustomInputFromLabel = (label) =>
     findFormGroupFromLabel(label).find('[data-testid="test-custom-input"]');
+  const findSubmitButton = () => document.querySelector('[data-testid="submit-button"]');
 
   // region: actions ---------------------------------------------------
   const submitForm = async () => {
@@ -97,7 +107,7 @@ describe('GlFormFields', () => {
 
   // region: setup -----------------------------------------------------
   beforeEach(() => {
-    document.body.innerHTML = `<form id="${TEST_FORM_ID}"></form>`;
+    document.body.innerHTML = `<form id="${TEST_FORM_ID}"><button type="submit" data-testid="submit-button">Submit</button></form>`;
   });
 
   // region: tests -----------------------------------------------------
@@ -131,6 +141,26 @@ describe('GlFormFields', () => {
         },
         {
           label: TEST_FIELDS.allCaps.label,
+          state: undefined,
+          invalidFeedback: '',
+          class: undefined,
+          input: {
+            id: 'gl-form-field-testunique',
+            value: undefined,
+          },
+        },
+        {
+          label: TEST_FIELDS.firstName.label,
+          state: undefined,
+          invalidFeedback: '',
+          class: undefined,
+          input: {
+            id: 'gl-form-field-testunique',
+            value: undefined,
+          },
+        },
+        {
+          label: TEST_FIELDS.avatar.label,
           state: undefined,
           invalidFeedback: '',
           class: undefined,
@@ -180,6 +210,14 @@ describe('GlFormFields', () => {
         },
         {
           label: TEST_FIELDS.allCaps.label,
+          invalidFeedback: '',
+        },
+        {
+          label: TEST_FIELDS.firstName.label,
+          invalidFeedback: '',
+        },
+        {
+          label: TEST_FIELDS.avatar.label,
           invalidFeedback: '',
         },
       ]);
@@ -253,12 +291,43 @@ describe('GlFormFields', () => {
               id: 'gl-form-field-testunique',
             },
           },
+          {
+            label: TEST_FIELDS.firstName.label,
+            invalidFeedback: '',
+            state: undefined,
+            class: undefined,
+            input: {
+              value: undefined,
+              id: 'gl-form-field-testunique',
+            },
+          },
+          {
+            label: TEST_FIELDS.avatar.label,
+            invalidFeedback: '',
+            state: undefined,
+            class: undefined,
+            input: {
+              value: undefined,
+              id: 'gl-form-field-testunique',
+            },
+          },
         ]);
       });
 
       it('does not emit submit', () => {
         expect(wrapper.emitted('submit')).toBeUndefined();
       });
+    });
+
+    it('does not disable submit button', () => {
+      expect(findSubmitButton().disabled).toBe(false);
+    });
+
+    // This class is used in `gitlab-org/gitlab` to disable legacy
+    // jQuery functionality that conflicts with `GlFormFields`.
+    // See https://gitlab.com/gitlab-org/gitlab/-/blob/6e4783d030359f88fc215b6a4973823c6ec88ac8/app/assets/javascripts/main.js#L177
+    it('adds `js-gl-form-fields-submit` CSS class to submit button', () => {
+      expect(findSubmitButton().classList).toContain('js-gl-form-fields-submit');
     });
   });
 
@@ -428,6 +497,88 @@ describe('GlFormFields', () => {
 
       expect(validationSpy).toHaveBeenCalledTimes(1);
       expect(validationSpy).toHaveBeenCalledWith('root');
+    });
+  });
+
+  describe('when `autoDisableSubmitButton` prop is set to `true`', () => {
+    beforeEach(async () => {
+      const values = cloneDeep(TEST_VALUES);
+
+      createComponent({
+        values,
+        autoDisableSubmitButton: true,
+      });
+    });
+
+    it('disables submit button when component is mounted', () => {
+      expect(findSubmitButton().disabled).toBe(true);
+    });
+
+    describe('when a field with an initial value is changed', () => {
+      beforeEach(() => {
+        wrapper.setProps({ values: { ...TEST_VALUES, username: 'foo' } });
+      });
+
+      it('enables the submit button', async () => {
+        expect(findSubmitButton().disabled).toBe(false);
+      });
+
+      describe('when the field is changed back to its original value', () => {
+        beforeEach(() => {
+          wrapper.setProps({ values: TEST_VALUES });
+        });
+
+        it('disables submit button', () => {
+          expect(findSubmitButton().disabled).toBe(true);
+        });
+      });
+    });
+
+    describe('when a field without an initial value is changed', () => {
+      beforeEach(() => {
+        wrapper.setProps({ values: { ...TEST_VALUES, firstName: 'foo' } });
+      });
+
+      it('enables the submit button', async () => {
+        expect(findSubmitButton().disabled).toBe(false);
+      });
+
+      describe('when the field is cleared', () => {
+        beforeEach(() => {
+          wrapper.setProps({ values: { ...TEST_VALUES, firstName: '' } });
+        });
+
+        it('disables submit button', () => {
+          expect(findSubmitButton().disabled).toBe(true);
+        });
+      });
+    });
+
+    describe('when a field with an object value is changed', () => {
+      beforeEach(() => {
+        wrapper.setProps({
+          values: {
+            ...TEST_VALUES,
+            avatar: new File(['avatar-changed'], 'avatar-changed.jpg', {
+              type: 'text/plain',
+            }),
+          },
+        });
+      });
+
+      it('enables the submit button', async () => {
+        expect(findSubmitButton().disabled).toBe(false);
+      });
+
+      describe('when the field is changed back to its original value', () => {
+        beforeEach(() => {
+          wrapper.setProps({ values: TEST_VALUES });
+        });
+
+        it('disables submit button', () => {
+          expect(findSubmitButton().disabled).toBe(true);
+        });
+      });
     });
   });
 });

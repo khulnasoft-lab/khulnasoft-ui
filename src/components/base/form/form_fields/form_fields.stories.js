@@ -69,7 +69,7 @@ const Template = () => ({
     <div>
       <h3>Fields</h3>
       <form :id="testFormId" @submit.prevent>
-        <gl-form-fields :fields="fields" v-model="formValues" :form-id="testFormId" @submit="onSubmit">
+        <gl-form-fields :fields="fields" v-model="formValues" :form-id="testFormId" auto-disable-submit-button @submit="onSubmit">
           <template #input(custom)="{ id, value, input, blur }">
             <button :id="id" @click="input(value + 1)" @blur="blur" type="button">{{value}}</button>
           </template>
