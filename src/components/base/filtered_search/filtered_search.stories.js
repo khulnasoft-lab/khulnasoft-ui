@@ -379,19 +379,20 @@ const DateToken = {
       :value="computedValue"
       @complete="handleComplete"
     >
-      <template #before-data-segment-input="{ submitValue }" v-if="showPicker" >
-        <gl-icon
-          class="gl-text-gray-500"
-          name="calendar"
-          style="margin-right: -20px; z-index: 1; pointer-events: none;"
-        />
-        <!-- TODO reuse classes? -->
-        <div
-          class="gl-absolute gl-bg-white gl-border-1 gl-border-gray-200 gl-my-2 gl-p-4 gl-rounded-base gl-shadow-x0-y2-b4-s0" style="top: 100%" 
-          ref="datePicker"
-        >
-          <gl-daterange-picker @input="selectValue($event, submitValue)" /> 
-        </div> 
+      <template #before-data-segment-input="{ submitValue }">
+          <gl-icon
+            v-if="showPicker"
+            class="gl-text-gray-500"
+            name="calendar"
+            style="margin-right: -20px; z-index: 1; pointer-events: none;"
+          />
+          <div
+            v-if="showPicker"
+            class="gl-absolute gl-bg-white gl-border-1 gl-border-gray-200 gl-my-2 gl-p-4 gl-rounded-base gl-shadow-x0-y2-b4-s0" style="top: 100%" 
+            ref="datePicker"
+          >
+            <gl-daterange-picker @input="selectValue($event, submitValue)" /> 
+          </div>
       </template>
 
       <template #suggestions>
