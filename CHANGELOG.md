@@ -1,3 +1,10 @@
+# [71.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.7.1...v71.8.0) (2023-12-11)
+
+
+### Features
+
+* **GlBanner:** remove embedded property ([b024100](https://gitlab.com/gitlab-org/gitlab-ui/commit/b02410025fbb4efa7704081e0c0c2a9bd01e3216))
+
 ## [71.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.7.0...v71.7.1) (2023-12-08)
 
 
