@@ -1,3 +1,11 @@
+## [71.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.8.0...v71.8.1) (2023-12-11)
+
+
+### Bug Fixes
+
+* **GlAvatarInline:** Address MR feedback ([c139beb](https://gitlab.com/gitlab-org/gitlab-ui/commit/c139beb921af6de88c01ca3daab52022fe3ee1dc))
+* **GlAvatarInline:** Fix spacing in GlAvatarInlne ([4801ecd](https://gitlab.com/gitlab-org/gitlab-ui/commit/4801ecdf895ba47a7bf8a8b29bb31c5fc5027044))
+
 # [71.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.7.1...v71.8.0) (2023-12-11)
 
 
