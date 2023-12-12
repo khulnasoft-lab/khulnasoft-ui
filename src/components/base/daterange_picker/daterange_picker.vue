@@ -128,6 +128,11 @@ export default {
       required: false,
       default: '',
     },
+    startOpened: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -261,6 +266,7 @@ export default {
         :i18n="i18n"
         :target="startPickerTarget"
         :container="startPickerContainer"
+        :start-opened="startOpened"
         @input="onStartDateSelected"
         @open="onStartPickerOpen"
         @close="onStartPickerClose"

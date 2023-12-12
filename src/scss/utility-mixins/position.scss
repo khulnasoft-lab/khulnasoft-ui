@@ -90,6 +90,10 @@
   top: 66vh;
 }
 
+@mixin gl-top-full {
+  top: 100%;
+}
+
 @mixin gl-right-auto {
   right: auto;
 }

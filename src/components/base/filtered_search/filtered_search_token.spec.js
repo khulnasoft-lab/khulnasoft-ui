@@ -196,16 +196,23 @@ describe('Filtered search token', () => {
     expect(findOperatorSegment().props().active).toBe(true);
   });
 
-  it.each(['complete', 'split', 'submit', 'select'])(
-    'passes-through %s event when data segment emits it',
-    (event) => {
-      createComponent({ active: true, value: { operator: '=', data: 'something' } });
+  it.each([
+    ['complete', true],
+    ['split', true],
+    ['submit', false],
+    ['select', true],
+  ])('passes-through %s event when data segment emits it', (event, shouldIncludeValue) => {
+    createComponent({ active: true, value: { operator: '=', data: 'something' } });
 
-      findDataSegment().vm.$emit(event);
+    findDataSegment().vm.$emit(event, 'value');
 
-      expect(wrapper.emitted(event)).toHaveLength(1);
+    expect(wrapper.emitted(event)).toHaveLength(1);
+    if (shouldIncludeValue) {
+      expect(wrapper.emitted(event)[0][0]).toBe('value');
+    } else {
+      expect(wrapper.emitted(event)[0][0]).toBeUndefined();
     }
-  );
+  });
 
   it('keeps value when replaced by compatible token', () => {
     const originalValue = { operator: '=', data: 'something' };
@@ -323,7 +330,7 @@ describe('Filtered search token', () => {
       beforeDataInputButton.trigger('click');
 
       expect(wrapper.emitted()).toEqual({
-        complete: [[]],
+        complete: [[TEST_APPLY_VALUE]],
         select: [[TEST_APPLY_VALUE]],
       });
     });
