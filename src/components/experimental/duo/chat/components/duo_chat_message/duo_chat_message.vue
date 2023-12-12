@@ -7,9 +7,10 @@ import { CopyCodeElement } from './copy_code_element';
 
 const concatIndicesUntilEmpty = (arr) => {
   const start = arr.findIndex((el) => el);
-  if (start === -1 || start !== 1) return ''; // If there are no non-empty elements
+  const end = arr.findIndex((el) => !el);
 
-  const end = arr.slice(start).findIndex((el) => !el);
+  if (start !== 0) return ''; // We don't yet have the first chunk
+
   return end > 0 ? arr.slice(start, end).join('') : arr.slice(start).join('');
 };
 
@@ -51,7 +52,13 @@ export default {
     sources() {
       return this.message.extras?.sources;
     },
+    hasChunks() {
+      return this.message.chunks && Array.isArray(this.message.chunks);
+    },
     content() {
+      if (this.message.chunkId && this.hasChunks) {
+        return this.getMessageContentFromChunks();
+      }
       return (
         this.message.contentHtml ||
         this.renderMarkdown(this.message.content || this.message.errors.join('; '))
@@ -62,20 +69,12 @@ export default {
     this.messageWatcher = this.$watch('message', this.messageUpdateHandler, { deep: true });
   },
   beforeCreate() {
-    /**
-     * Keeps cache of previous chunks used for rerendering the AI response when streaming.
-     * Is intentionally non-reactive
-     */
-    this.messageChunks = [];
     if (!customElements.get('copy-code')) {
       customElements.define('copy-code', CopyCodeElement);
     }
   },
   mounted() {
     this.messageContent = this.content;
-    if (this.message.chunkId) {
-      this.messageChunks[this.message.chunkId] = this.message.content;
-    }
     this.hydrateContentWithGFM();
   },
   methods: {
@@ -84,17 +83,16 @@ export default {
       this.renderGFM(this.$refs.content);
     },
     async messageUpdateHandler() {
-      const { chunkId, content } = this.message;
-      if (!chunkId) {
-        this.messageChunks = [];
-        this.messageContent = this.content;
+      const { chunkId } = this.message;
+      this.messageContent = this.content;
 
+      if (!chunkId) {
         this.messageWatcher();
         this.hydrateContentWithGFM();
-      } else {
-        this.messageChunks[chunkId] = content;
-        this.messageContent = this.renderMarkdown(concatIndicesUntilEmpty(this.messageChunks));
       }
+    },
+    getMessageContentFromChunks() {
+      return this.hasChunks && this.renderMarkdown(concatIndicesUntilEmpty(this.message.chunks));
     },
   },
 };

@@ -260,38 +260,67 @@ describe('DuoChatMessage', () => {
       createComponent();
     });
 
-    it('does not fail if the message has no chunkId', async () => {
+    it.each`
+      content      | chunkId | chunks       | expectedContent
+      ${undefined} | ${null} | ${undefined} | ${''}
+      ${undefined} | ${null} | ${[]}        | ${''}
+      ${undefined} | ${1}    | ${undefined} | ${''}
+      ${undefined} | ${1}    | ${[]}        | ${''}
+      ${content1}  | ${null} | ${undefined} | ${content1}
+      ${content1}  | ${null} | ${[]}        | ${content1}
+      ${content1}  | ${1}    | ${undefined} | ${content1}
+      ${content1}  | ${1}    | ${[]}        | ${''}
+      ${undefined} | ${null} | ${['foo']}   | ${''}
+      ${undefined} | ${1}    | ${['foo']}   | ${'foo'}
+      ${content1}  | ${null} | ${['foo']}   | ${content1}
+      ${content1}  | ${1}    | ${['foo']}   | ${'foo'}
+    `(
+      'renders "$expectedContent" for a message with chunkId="$chunkId" and chunks="$chunks"',
+      async ({ content, chunkId, chunks, expectedContent } = {}) => {
+        // setProps is justified here because we are testing the component's
+        // reactive behavior which consistutes an exception
+        // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
+        wrapper.setProps({
+          message: {
+            ...MOCK_CHUNK_RESPONSE_MESSAGE,
+            chunkId,
+            chunks,
+            content,
+          },
+        });
+        await nextTick();
+        expect(findContent().text()).toBe(expectedContent);
+      }
+    );
+
+    it('renders chunks correctly when the chunk messages arrive out of order', async () => {
       // setProps is justified here because we are testing the component's
       // reactive behavior which consistutes an exception
       // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
       wrapper.setProps({
         message: {
-          ...MOCK_CHUNK_RESPONSE_MESSAGE,
-          content: content1,
+          ...chunk2,
+          // eslint-disable-next-line no-sparse-arrays
+          chunks: [, chunk2.content],
         },
-      });
-      await nextTick();
-      expect(findContent().text()).toBe(content1);
-    });
-
-    it('renders chunks correctly when the chunks arrive out of order', async () => {
-      // setProps is justified here because we are testing the component's
-      // reactive behavior which consistutes an exception
-      // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
-      wrapper.setProps({
-        message: chunk2,
       });
       await nextTick();
       expect(findContent().text()).toBe('');
 
       wrapper.setProps({
-        message: chunk1,
+        message: {
+          ...chunk1,
+          chunks: [chunk1.content, chunk2.content],
+        },
       });
       await nextTick();
       expect(findContent().text()).toBe(content1 + content2);
 
       wrapper.setProps({
-        message: chunk3,
+        message: {
+          ...chunk3,
+          chunks: [chunk1.content, chunk2.content, chunk3.content],
+        },
       });
       await nextTick();
       expect(findContent().text()).toBe(content1 + content2 + content3);
@@ -304,33 +333,22 @@ describe('DuoChatMessage', () => {
       // reactive behavior which consistutes an exception
       // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
       wrapper.setProps({
-        message: chunk1,
+        message: {
+          ...chunk1,
+          chunks: [chunk1.content],
+        },
       });
       await nextTick();
       expect(findContent().text()).toBe(content1);
 
       wrapper.setProps({
-        message: chunk2,
+        message: {
+          ...chunk2,
+          chunks: [chunk1.content, chunk2.content],
+        },
       });
       await nextTick();
       expect(findContent().text()).toBe(consolidatedContent);
-    });
-
-    it('treats the initial message content as chunk if message has chunkId', async () => {
-      createComponent({
-        message: chunk1,
-      });
-      await nextTick();
-      expect(findContent().text()).toBe(content1);
-
-      // setProps is justified here because we are testing the component's
-      // reactive behavior which consistutes an exception
-      // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
-      wrapper.setProps({
-        message: chunk2,
-      });
-      await nextTick();
-      expect(findContent().text()).toBe(content1 + content2);
     });
 
     it('does not hydrate the chunk messages with GLFM', async () => {
