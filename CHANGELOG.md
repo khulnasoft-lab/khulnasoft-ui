@@ -1,3 +1,12 @@
+# [71.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.8.1...v71.9.0) (2023-12-12)
+
+
+### Features
+
+* **css:** Add gl-top-full mixin ([0c8dfe6](https://gitlab.com/gitlab-org/gitlab-ui/commit/0c8dfe6f4def49d3eb78341d19abd8fdadaab89d))
+* **GlDateRangePicker:** Add start-opened to GlDateRangePicker ([ea07ccd](https://gitlab.com/gitlab-org/gitlab-ui/commit/ea07ccd51fd6a6568edbf39f1305bb5465afcced))
+* **GlFilteredSearchToken:** Add value argument to complete event ([40590dc](https://gitlab.com/gitlab-org/gitlab-ui/commit/40590dc0f4724fd86845695ea662f74a3bfe3618))
+
 ## [71.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.8.0...v71.8.1) (2023-12-11)
 
 
