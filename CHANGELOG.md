@@ -1,3 +1,10 @@
+# [71.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.9.1...v71.10.0) (2023-12-13)
+
+
+### Features
+
+* **GlLineChart, GlAreaChart:** Simplify chart tooltip API ([3658fb6](https://gitlab.com/gitlab-org/gitlab-ui/commit/3658fb6b3efb4a396703e7697d415541ec3aa417))
+
 ## [71.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.9.0...v71.9.1) (2023-12-13)
 
 
