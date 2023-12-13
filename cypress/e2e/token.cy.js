@@ -1,14 +1,18 @@
 describe('GlToken', () => {
   function checkA11yDefaultState() {
-    cy.visitStory('base/gl-token--default');
+    cy.visitStory('base/token');
     cy.glCheckA11y();
   }
   function checkA11yWithViewOnly() {
-    cy.visitStory('base/gl-token--view-only');
+    cy.visitStory('base/token', {
+      story: 'view-only',
+    });
     cy.glCheckA11y();
   }
   function checkA11yWithAvatar() {
-    cy.visitStory('base/gl-token--with-avatar');
+    cy.visitStory('base/token', {
+      story: 'with-avatar',
+    });
     cy.glCheckA11y();
   }
   it('passes axe accessibility checks', () => {
