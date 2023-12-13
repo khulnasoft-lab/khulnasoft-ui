@@ -1,3 +1,10 @@
+## [71.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.9.0...v71.9.1) (2023-12-13)
+
+
+### Bug Fixes
+
+* **DesignTokens:** fix themeable typo in theme design tokens ([89c975f](https://gitlab.com/gitlab-org/gitlab-ui/commit/89c975fe5596dff978950dd45950982b229f4856))
+
 # [71.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.8.1...v71.9.0) (2023-12-12)
 
 
