@@ -33,12 +33,23 @@ export const createMockChartInstance = () => {
   };
 };
 
+export const chartTooltipStubData = {
+  title: 'Stub tooltip title',
+  content: 'Stub tooltip content',
+  params: { value: 'Stub tooltip value', seriesData: [{ value: ['Stub tooltip value', 9] }] },
+};
+
 export const ChartTooltipStub = {
   props: ChartTooltip.props,
   name: 'chart-tooltip',
+  data() {
+    return chartTooltipStubData;
+  },
   template: `
      <div>
-       <slot name="title" />
-       <slot />
+       <slot name="title" v-bind="{ title, params }" />
+       <slot v-bind="{ content, params }">
+         <slot name="tooltip-value" :value="params.seriesData[0].value[1]"></slot>
+       </slot>
      </div>`,
 };

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { createMockChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import {
   mockDefaultLineData,
@@ -8,6 +8,7 @@ import {
   mockDefaultStackedBarData,
 } from '../../../utils/charts/mock_data';
 import Chart from '../chart/chart.vue';
+import ChartTooltip from '../tooltip/tooltip.vue';
 import ColumnChart from './column.vue';
 
 let mockChartInstance;
@@ -27,36 +28,28 @@ describe('column chart component', () => {
 
   const chartItemClickedSpy = jest.fn();
   const findChart = () => wrapper.findComponent(Chart);
-  const findTooltip = () => wrapper.findComponent(ChartTooltipStub);
-  const getChartOptions = () => findChart().props('options');
+  const findChartTooltip = () => wrapper.findComponent(ChartTooltip);
+
+  const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
   const factory = (props = defaultChartProps, slots = {}) => {
     wrapper = shallowMount(ColumnChart, {
       propsData: { ...props },
-      stubs: {
-        'chart-tooltip': ChartTooltipStub,
-      },
       listeners: {
         chartItemClicked: chartItemClickedSpy,
-      },
-      data() {
-        return {
-          chart: mockChartInstance,
-        };
       },
       slots,
     });
   };
 
   beforeEach(() => {
-    mockChartInstance = createMockChartInstance();
-
     factory();
+
+    mockChartInstance = createMockChartInstance();
+    emitChartCreated();
   });
 
   it('emits "created" when onCreated is called', () => {
-    wrapper.vm.onCreated(wrapper.vm.chart);
-
     expect(wrapper.emitted('created')).toHaveLength(1);
   });
 
@@ -126,18 +119,11 @@ describe('column chart component', () => {
   });
 
   describe('tooltip', () => {
-    it('displays the generic tooltip content', async () => {
-      const params = {
-        seriesData: [{ seriesIndex: '0', seriesName: 'Full', value: ['Mary', 934] }],
-      };
-
-      getChartOptions().xAxis.axisPointer.label.formatter(params);
-
-      await wrapper.vm.$nextTick();
-
-      const expectedTooltipTitle = `${params.seriesData[0].value[0]} (${defaultChartProps.xAxisTitle})`;
-
-      expect(findTooltip().text()).toContain(expectedTooltipTitle);
+    it('configures chart tooltip', async () => {
+      expect(findChartTooltip().props()).toMatchObject({
+        chart: mockChartInstance,
+        useDefaultTooltipFormatter: true,
+      });
     });
   });
 

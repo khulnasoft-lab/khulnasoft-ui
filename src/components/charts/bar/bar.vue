@@ -173,21 +173,20 @@ export default {
       this.$emit('created', chart);
     },
     onLabelChange(params) {
-      const { yLabels, tooltipContent } = this.getDefaultTooltipContent(params, this.xAxisTitle);
+      const { yLabels, tooltipContent } = this.getTooltipContent(params, this.xAxisTitle);
 
       this.$set(this, 'tooltipContent', tooltipContent);
       this.tooltipTitle = yLabels.join(', ');
     },
     /**
-     * The existing getDefaultTooltipContent in utils works against the y-axis value.
-     * However, for bar charts, the tooltip should be against x-axis values.
+     * For bar charts, the tooltip should be against x-axis values.
      * This method will be removed after https://gitlab.com/gitlab-org/gitlab-ui/-/issues/674
      *
      * @param {Object} params series data
      * @param {String} xAxisTitle x-axis title
      * @returns {Object} tooltip title and content
      */
-    getDefaultTooltipContent(params, xAxisTitle = null) {
+    getTooltipContent(params, xAxisTitle = null) {
       const seriesDataLength = params.seriesData.length;
       const { yLabels, tooltipContent } = params.seriesData.reduce(
         (acc, chartItem) => {

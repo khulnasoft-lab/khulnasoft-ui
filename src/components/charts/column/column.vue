@@ -8,15 +8,12 @@ import {
   yAxis,
   dataZoomAdjustments,
   mergeSeriesToOptions,
-  // eslint-disable-next-line import/no-deprecated
-  getDefaultTooltipContent,
   generateBarSeries,
   generateLineSeries,
 } from '../../../utils/charts/config';
 import { CHART_TYPE_LINE, HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 
@@ -33,7 +30,6 @@ export default {
   components: {
     Chart,
     ChartTooltip,
-    TooltipDefaultFormat,
   },
   inheritAttrs: false,
   props: {
@@ -87,8 +83,6 @@ export default {
   data() {
     return {
       chart: null,
-      tooltipTitle: '',
-      tooltipContent: {},
     };
   },
   computed: {
@@ -141,11 +135,7 @@ export default {
               show: false,
             },
             axisPointer: {
-              show: true,
               type: 'none',
-              label: {
-                formatter: this.onLabelChange,
-              },
             },
             name: this.xAxisTitle,
             type: this.xAxisType,
@@ -180,13 +170,6 @@ export default {
       this.chart = chart;
       this.$emit('created', chart);
     },
-    onLabelChange(params) {
-      // eslint-disable-next-line import/no-deprecated
-      const { xLabels, tooltipContent } = getDefaultTooltipContent(params, this.yAxisTitle);
-
-      this.$set(this, 'tooltipContent', tooltipContent);
-      this.tooltipTitle = xLabels.join(', ');
-    },
   },
   HEIGHT_AUTO_CLASSES,
 };
@@ -201,11 +184,6 @@ export default {
       v-on="$listeners"
       @created="onCreated"
     />
-    <chart-tooltip v-if="chart" :chart="chart">
-      <template #title>
-        <div>{{ tooltipTitle }} ({{ xAxisTitle }})</div>
-      </template>
-      <tooltip-default-format :tooltip-content="tooltipContent" />
-    </chart-tooltip>
+    <chart-tooltip v-if="chart" :chart="chart" :use-default-tooltip-formatter="true" />
   </div>
 </template>

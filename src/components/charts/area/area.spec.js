@@ -2,7 +2,11 @@ import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
-import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import {
+  createMockChartInstance,
+  ChartTooltipStub,
+  chartTooltipStubData,
+} from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
@@ -24,13 +28,13 @@ describe('area component', () => {
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  const createShallowWrapper = ({ props = {}, slots = {} } = {}) => {
+  const createShallowWrapper = ({ props = {}, ...options } = {}) => {
     wrapper = shallowMount(AreaChart, {
       propsData: { option: { series: [] }, data: [], ...props },
       stubs: {
         'chart-tooltip': ChartTooltipStub,
       },
-      slots,
+      ...options,
     });
     emitChartCreated();
   };
@@ -136,13 +140,84 @@ describe('area component', () => {
     });
   });
 
-  describe('data tooltip is set', () => {
-    beforeEach(() => {
+  describe('data tooltip', () => {
+    it('is initialized', async () => {
       createShallowWrapper();
+
+      await nextTick();
+
+      expect(findDataTooltip().props()).toMatchObject({
+        useDefaultTooltipFormatter: true,
+        chart: mockChartInstance,
+      });
     });
 
-    it('is initialized', () => {
-      expect(findDataTooltip().props('chart')).toBe(mockChartInstance);
+    describe('is customized via slots', () => {
+      const { params, title, content } = chartTooltipStubData;
+      const value = params.seriesData[0].value[1];
+
+      it('customizes tooltip value', async () => {
+        const tooltipValueSlot = jest.fn().mockReturnValue('Value');
+
+        createShallowWrapper({
+          scopedSlots: {
+            'tooltip-value': tooltipValueSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipValueSlot).toHaveBeenCalledWith({ value });
+        expect(findDataTooltip().text()).toBe('Value');
+      });
+
+      it('customizes title', async () => {
+        const tooltipTitleSlot = jest.fn().mockReturnValue('Title');
+
+        createShallowWrapper({
+          scopedSlots: {
+            'tooltip-title': tooltipTitleSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipTitleSlot).toHaveBeenCalledWith({
+          params,
+          title,
+        });
+        expect(findDataTooltip().text()).toBe('Title');
+      });
+
+      it('customizes content', async () => {
+        const tooltipContentSlot = jest.fn().mockReturnValue('Title');
+
+        createShallowWrapper({
+          scopedSlots: {
+            'tooltip-content': tooltipContentSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipContentSlot).toHaveBeenCalledWith({
+          params,
+          content,
+        });
+        expect(findDataTooltip().text()).toBe('Title');
+      });
+    });
+
+    it('is customized via formatting function', async () => {
+      createShallowWrapper({
+        props: {
+          formatTooltipText: jest.fn(),
+        },
+      });
+
+      await nextTick();
+
+      expect(findDataTooltip().props()).toMatchObject({
+        useDefaultTooltipFormatter: false,
+        chart: mockChartInstance,
+      });
     });
   });
 
