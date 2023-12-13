@@ -122,23 +122,19 @@ export default {
   },
   watch: {
     values(newValues) {
-      if (!this.submitButton) {
+      if (!this.submitButton || !this.autoDisableSubmitButton) {
         return;
       }
 
-      if (
-        Object.entries(newValues).some(([fieldName, newValue]) => {
-          if (this.initialFieldValues[fieldName] === undefined && newValue === '') {
-            return false;
-          }
+      const haveFieldsBeenChanged = Object.entries(newValues).some(([fieldName, newValue]) => {
+        if (this.initialFieldValues[fieldName] === undefined && newValue === '') {
+          return false;
+        }
 
-          return this.initialFieldValues[fieldName] !== newValue;
-        })
-      ) {
-        this.enableSubmitButton();
-      } else {
-        this.disableSubmitButton();
-      }
+        return this.initialFieldValues[fieldName] !== newValue;
+      });
+
+      this.submitButton.disabled = !haveFieldsBeenChanged;
     },
   },
   mounted() {
@@ -153,7 +149,10 @@ export default {
       // jQuery functionality that conflicts with this component.
       // See https://gitlab.com/gitlab-org/gitlab/-/blob/6e4783d030359f88fc215b6a4973823c6ec88ac8/app/assets/javascripts/main.js#L177
       this.submitButton?.classList?.add('js-gl-form-fields-submit');
-      this.disableSubmitButton();
+
+      if (this.autoDisableSubmitButton) {
+        this.submitButton.disabled = true;
+      }
     }
   },
   destroyed() {
@@ -224,17 +223,9 @@ export default {
       }
     },
     disableSubmitButton() {
-      if (!this.autoDisableSubmitButton) {
-        return;
-      }
-
       this.submitButton.disabled = true;
     },
     enableSubmitButton() {
-      if (!this.autoDisableSubmitButton) {
-        return;
-      }
-
       this.submitButton.disabled = false;
     },
   },
