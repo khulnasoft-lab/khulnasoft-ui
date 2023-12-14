@@ -35,15 +35,6 @@ export const MOCK_RESPONSE_MESSAGE = {
   timestamp: '2021-04-21T12:00:00.000Z',
 };
 
-export const MOCK_CHUNK_RESPONSE_MESSAGE = {
-  chunkId: 1,
-  content: 'chunk',
-  role: MESSAGE_MODEL_ROLES.assistant,
-  requestId: '987',
-  errors: [],
-  timestamp: '2021-04-21T12:00:00.000Z',
-};
-
 export const MOCK_RESPONSE_MESSAGE_FOR_STREAMING = {
   id: '123',
   content: `To change your password in GitLab:
