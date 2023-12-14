@@ -1,0 +1,84 @@
+{
+  "t-gray-a": {
+    "02": {
+      "$value": "rgba(31, 30, 36, 0.02)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "04": {
+      "$value": "rgba(31, 30, 36, 0.04)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "06": {
+      "$value": "rgba(31, 30, 36, 0.06)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "08": {
+      "$value": "rgba(31, 30, 36, 0.08)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "16": {
+      "$value": "rgba(31, 30, 36, 0.16)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "24": {
+      "$value": "rgba(31, 30, 36, 0.24)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    }
+  },
+  "t-white-a": {
+    "02": {
+      "$value": "rgba(255, 255, 255, 0.02)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "04": {
+      "$value": "rgba(255, 255, 255, 0.04)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "06": {
+      "$value": "rgba(255, 255, 255, 0.06)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "08": {
+      "$value": "rgba(255, 255, 255, 0.08)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "16": {
+      "$value": "rgba(255, 255, 255, 0.16)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "24": {
+      "$value": "rgba(255, 255, 255, 0.24)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    },
+    "36": {
+      "$value": "rgba(255, 255, 255, 0.36)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false
+    }
+  }
+}
