@@ -444,6 +444,15 @@ describe('GlDuoChat', () => {
           await nextTick();
           expect(findSlashCommandsCard().exists()).toBe(false);
         });
+
+        it('shows default placeholder in the chat input', () => {
+          createComponent({
+            propsData: {
+              withSlashCommands: false,
+            },
+          });
+          expect(findChatInput().attributes('placeholder')).toBe('GitLab Duo Chat');
+        });
       });
 
       describe('with the `withSlashCommands` enabled', () => {
@@ -476,6 +485,15 @@ describe('GlDuoChat', () => {
             expect(findSlashCommands().at(index).text()).toContain(command.name);
             expect(findSlashCommands().at(index).text()).toContain(command.description);
           });
+        });
+
+        it('shows the correct placeholder in the chat input', () => {
+          createComponent({
+            propsData: {
+              withSlashCommands: true,
+            },
+          });
+          expect(findChatInput().attributes('placeholder')).toBe('Type "/" for slash commands');
         });
 
         describe('when the prompt includes the "/" character or no characters', () => {
