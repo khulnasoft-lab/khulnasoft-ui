@@ -1,3 +1,11 @@
+# [71.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.10.0...v71.11.0) (2023-12-14)
+
+
+### Features
+
+* **DesignTokens:** add transparency values as design tokens ([c4f5232](https://gitlab.com/gitlab-org/gitlab-ui/commit/c4f523206e3c4cbc607bea6445c16e4069c835f0))
+* **GlDuoChat:** promote "/" commands ([8d3239b](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d3239b85b0dd68a79ee4e7e61162ddad15f5e72))
+
 # [71.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.9.1...v71.10.0) (2023-12-13)
 
 
