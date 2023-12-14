@@ -59,6 +59,19 @@ export const Image = (args, { argTypes }) => ({
 });
 Image.args = generateImageProps();
 
+export const NonSquareImage = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `
+      <gl-avatar
+        :size="size"
+        shape="rect"
+        src="./img/avatar_non_square.jpg"
+      />
+    `,
+});
+NonSquareImage.args = generateImageProps();
+
 export const ResponsiveImage = (args, { argTypes }) => ({
   components,
   props: Object.keys(argTypes),
