@@ -169,6 +169,10 @@
   color: $orange-900;
 }
 
+@mixin gl-text-red-300 {
+  color: $red-300;
+}
+
 @mixin gl-text-red-500 {
   color: $red-500;
 }
