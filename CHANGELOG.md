@@ -1,3 +1,10 @@
+## [71.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.11.0...v71.11.1) (2023-12-15)
+
+
+### Bug Fixes
+
+* **Collapse:** explicitly pass visible prop ([afcae2b](https://gitlab.com/gitlab-org/gitlab-ui/commit/afcae2b257c44003a1776b6e403fe35c97638626))
+
 # [71.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.10.0...v71.11.0) (2023-12-14)
 
 
