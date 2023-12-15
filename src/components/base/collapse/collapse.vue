@@ -11,11 +11,18 @@ export default {
     prop: 'visible',
     event: 'input',
   },
+  props: {
+    visible: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
+  },
 };
 </script>
 
 <template>
-  <b-collapse v-bind="$attrs" v-on="$listeners">
+  <b-collapse :visible="visible" v-bind="$attrs" v-on="$listeners">
     <!-- @slot The content to show/hide. -->
     <slot></slot>
   </b-collapse>
