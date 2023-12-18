@@ -208,6 +208,10 @@
   height: $gl-spacing-scale-9;
 }
 
+@mixin gl-h-10 {
+  height: $gl-spacing-scale-10;
+}
+
 @mixin gl-h-11 {
   height: $gl-spacing-scale-11;
 }
