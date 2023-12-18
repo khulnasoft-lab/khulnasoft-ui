@@ -1,3 +1,24 @@
+# [72.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.11.1...v72.0.0) (2023-12-18)
+
+
+* Merge branch 'force-release' into 'main' ([7df9bbe](https://gitlab.com/gitlab-org/gitlab-ui/commit/7df9bbececf3e79513be7d022269fc84864cc7a2))
+
+
+### Bug Fixes
+
+* Force a release ([090865a](https://gitlab.com/gitlab-org/gitlab-ui/commit/090865a92acbefa8b1891331651bfb27e430e0d8))
+
+
+### BREAKING CHANGES
+
+* This changes the API the GitLab duo chat component expects
+
+See merge request https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3868
+
+Merged-by: Lukas 'Eipi' Eipert <leipert@gitlab.com>
+Approved-by: Lukas 'Eipi' Eipert <leipert@gitlab.com>
+Co-authored-by: Pavel Shutsin <pshutsin@gitlab.com>
+
 ## [71.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.11.0...v71.11.1) (2023-12-15)
 
 
