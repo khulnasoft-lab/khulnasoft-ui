@@ -321,6 +321,10 @@
   }
 }
 
+@mixin gl-align-self-baseline {
+  align-self: baseline;
+}
+
 /**
  * Order utilities
  *
