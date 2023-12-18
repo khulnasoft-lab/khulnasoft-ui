@@ -1,3 +1,11 @@
+# [72.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.0.0...v72.1.0) (2023-12-18)
+
+
+### Features
+
+* **css:** Add gl-align-self-baseline utility class ([7291f50](https://gitlab.com/gitlab-org/gitlab-ui/commit/7291f50cac7a4f9a2ca5e43390fad6896906022a))
+* **CSS:** add `gl-h-10` utility CSS class ([75c253a](https://gitlab.com/gitlab-org/gitlab-ui/commit/75c253abc389a126e9ffa37ec4d64a6c87ffc807))
+
 # [72.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v71.11.1...v72.0.0) (2023-12-18)
 
 
