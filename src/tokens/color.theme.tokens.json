@@ -1,6 +1,12 @@
 {
   "theme": {
     "indigo": {
+      "10": {
+        "$value": "#f8f8ff",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
       "50": {
         "$value": "#f1f1ff",
         "$type": "color",
@@ -69,6 +75,12 @@
       }
     },
     "blue": {
+      "10": {
+        "$value": "#e6ecf0",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
       "50": {
         "$value": "#cdd8e3",
         "$type": "color",
@@ -137,6 +149,12 @@
       }
     },
     "light-blue": {
+      "10": {
+        "$value": "#eef3f7",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
       "50": {
         "$value": "#dde6ee",
         "$type": "color",
@@ -205,6 +223,12 @@
       }
     },
     "green": {
+      "10": {
+        "$value": "#eef4ef",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
       "50": {
         "$value": "#dde9de",
         "$type": "color",
@@ -273,6 +297,12 @@
       }
     },
     "red": {
+      "10": {
+        "$value": "#faf4f3",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
       "50": {
         "$value": "#f4e9e7",
         "$type": "color",
@@ -341,6 +371,12 @@
       }
     },
     "light-red": {
+      "10": {
+        "$value": "#fdf9f8",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
       "50": {
         "$value": "#faf2f1",
         "$type": "color",
