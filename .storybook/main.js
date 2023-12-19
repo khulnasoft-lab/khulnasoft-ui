@@ -15,6 +15,7 @@ export default {
     options: {
       builder: {
         disableTelemetry: Boolean(process.env.CI),
+        useSWC: true,
       },
     },
   },
