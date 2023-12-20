@@ -14,6 +14,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
   }
 }
 
+/*
 .gl-legend-tabular,
 .gl-chart-h-auto .gl-legend-inline {
   &::after {
@@ -25,7 +26,8 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     @include gl-absolute;
     @include gl-w-full;
   }
-}
+} 
+*/
 
 .gl-legend-inline {
     @include gl-display-flex;
