@@ -15,6 +15,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 }
 
 .gl-legend-tabular[style*="overflow: auto"],
+.gl-legend-tabular-body[style*="overflow: auto"],
 .gl-chart-h-auto[style*="overflow: auto"], 
 .gl-legend-inline[style*="overflow: auto"] {
   &::after {
