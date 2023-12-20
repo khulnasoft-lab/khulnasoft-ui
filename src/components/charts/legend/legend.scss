@@ -14,9 +14,9 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
   }
 }
 
-/*
-.gl-legend-tabular,
-.gl-chart-h-auto .gl-legend-inline {
+.gl-legend-tabular[style*="overflow: auto"],
+.gl-chart-h-auto[style*="overflow: auto"], 
+.gl-legend-inline[style*="overflow: auto"] {
   &::after {
     background-image: linear-gradient(to bottom, $transparent-rgba, var(--white, #{$white}));
     @include gl-bottom-0;
@@ -26,8 +26,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     @include gl-absolute;
     @include gl-w-full;
   }
-} 
-*/
+}
 
 .gl-legend-inline {
     @include gl-display-flex;
