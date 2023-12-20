@@ -125,8 +125,6 @@ property, which will be used as the group header if present.
 It also has a required property `items` that must be an array of links/actions.
 
 Groups can be at most one level deep: a group can only contain actions/links.
-Items and groups _cannot_ be siblings. Either all items are actions/links,
-or they are all groups.
 
 To render custom group labels, use the `group-label` scoped slot:
 

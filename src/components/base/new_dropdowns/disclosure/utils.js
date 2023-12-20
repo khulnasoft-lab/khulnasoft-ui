@@ -11,7 +11,9 @@ const isGroup = (group) =>
   Boolean(group.items.length) &&
   group.items.every(isItem);
 
-const itemsValidator = (items) => items.every(isItem) || items.every(isGroup);
+const isItemOrGroup = (item) => isItem(item) || isGroup(item);
+
+const itemsValidator = (items) => items.every(isItemOrGroup);
 
 const isListItem = (tag) =>
   ['gl-disclosure-dropdown-group', 'gl-disclosure-dropdown-item', 'li'].includes(tag);

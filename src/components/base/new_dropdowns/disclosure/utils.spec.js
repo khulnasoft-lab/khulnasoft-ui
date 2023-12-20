@@ -67,7 +67,7 @@ describe('itemsValidator', () => {
     ${'empty list'}               | ${[]}                                        | ${true}
     ${'invalid items'}            | ${[{ foo: true }]}                           | ${false}
     ${'group with invalid items'} | ${[{ name: 'foo', items: [{ foo: true }] }]} | ${false}
-    ${'sibling groups and items'} | ${[...mockItems, ...mockGroups]}             | ${false}
+    ${'sibling groups and items'} | ${[...mockItems, ...mockGroups]}             | ${true}
   `('returns $expected given $description', ({ value, expected }) => {
     expect(itemsValidator(value)).toBe(expected);
   });
