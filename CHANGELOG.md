@@ -1,3 +1,10 @@
+# [72.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.1.0...v72.2.0) (2023-12-21)
+
+
+### Features
+
+* **DesignTokens:** add color contrast score and level to stories ([f75751b](https://gitlab.com/gitlab-org/gitlab-ui/commit/f75751ba1bcfd0da6c5672483678f598d14b4041))
+
 # [72.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.0.0...v72.1.0) (2023-12-18)
 
 
