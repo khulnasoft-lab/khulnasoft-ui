@@ -1,3 +1,11 @@
+# [72.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.2.0...v72.3.0) (2023-12-22)
+
+
+### Features
+
+* **css:** Add grid utility classes ([b9cec45](https://gitlab.com/gitlab-org/gitlab-ui/commit/b9cec45bb311a6907a7b4dc2dde0e4575fa2dadd))
+* **DesignTokens:** add 10 scale to theme colors ([b27d520](https://gitlab.com/gitlab-org/gitlab-ui/commit/b27d520d6ff3e5c5d9c65226703b8a57e6103b4c))
+
 # [72.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.1.0...v72.2.0) (2023-12-21)
 
 
