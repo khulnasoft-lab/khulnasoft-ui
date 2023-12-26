@@ -140,7 +140,7 @@ The example above renders to this HTML:
 
 `GlSprintf` does not handle white space in scoped slots specially; it is passed
 through and rendered just like regular text. This means that white space in the
-scoped slot templates *themselves*, including newlines and indentation, are
+scoped slot templates _themselves_, including newlines and indentation, are
 passed through untouched (assuming the template compiler you're using doesn't
 trim text nodes at compile time; `vue-template-compiler` preserves white space
 by default, for instance).

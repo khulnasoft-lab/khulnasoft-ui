@@ -25,7 +25,7 @@ and mixins.
 
 ### Overriding variables
 
-Variables are imported as part of the [base SCSS file](#Usage-with-a-SCSS-preprocessor).
+Variables are imported as part of the [base SCSS file](#usage-with-a-scss-preprocessor).
 
 To use a variable without including GitLab UI components’ styles, import the variable file and its
 functions directly:
