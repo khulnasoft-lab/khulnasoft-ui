@@ -78,7 +78,7 @@
     "dompurify": "^2.4.7 || ^3.0.5",
     "emoji-regex": ">=10.0.0",
     "pikaday": "^1.8.0",
-    "vue": "^2.6.10"
+    "vue": "^2.7.16"
   },
   "resolutions": {
     "chokidar": "^3.5.2",
@@ -165,10 +165,10 @@
     "storybook-dark-mode": "3.0.3",
     "style-dictionary": "^3.8.0",
     "stylelint": "15.10.2",
-    "vue": "2.7.15",
+    "vue": "2.7.16",
     "vue-loader": "^15.8.3",
     "vue-loader-vue3": "npm:vue-loader@17",
-    "vue-template-compiler": "2.7.15",
+    "vue-template-compiler": "2.7.16",
     "vue-test-utils-compat": "^0.0.10",
     "webpack": "^5.9.0"
   },
