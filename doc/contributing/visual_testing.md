@@ -1,12 +1,12 @@
 # Visual regressions testing
 
-We use the [storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core)
+We use the [Storybook Test Runner](https://github.com/storybookjs/test-runner)
 addon to generate and compare image snapshots based on [storybook](https://github.com/storybookjs/storybook)
-stories. `storyshots` runs in every pipeline in either of the following jobs:
+stories. `Storybook Test Runner` runs in every pipeline in either of the following jobs:
 
-* The `visual` job runs visual regression tests against all components. It always runs on the
-  default branch and can be run manually in other branches. This job can take a while to complete
-  and should only be run when absolutely needed.
+* The `visual` job runs visual regression tests against all stories. It always runs on the
+  default branch, in merge trains, and can be run manually in other branches.
+  This job can take a while to complete and should only be run when absolutely needed.
 * The `visual_minimal` job runs in MR pipelines and only tests the components that actually changed
   in the branch to avoid a time-consuming full visual regression testing suite.
   Note that if the changes affect a component that wasn't actually touched, `visual_minimal`
@@ -30,8 +30,8 @@ manual CI job `update_screenshots` to regenerate the snapshots.
 ## Excluding stories from visual testing
 
 If your story doesn't showcase any relevant UI components, you may want to exclude it from visual
-regressions tests. For that use case, storyshots lets you skip visual tests for specific stories,
-or for a whole component, using the `storyshots` parameter.
+regressions tests. Do so by adding the `skip-visual-test` tag to individual stories. You may add the
+tag to a `.stories.js` file's default export to exclude all of the component's stories at once.
 
 > **Note:** While skipping visual tests on given stories is a possibility, it is not meant to skip
 > non-deterministic tests. If a story contains random elements, or any other variable that could
@@ -45,9 +45,7 @@ To exclude a whole component from visual tests, define the parameter in the defa
 export default {
   title: 'base/accordion/accordion-item',
   component: GlAccordionItem,
-  parameters: {
-    storyshots: { disable: true },
-  },
+  tags: ['skip-visual-test'],
 };
 ```
 
@@ -59,7 +57,5 @@ To exclude a single story from visual tests, set the parameter in the story modu
 export const CustomActions = () => ({
   // ...
 });
-CustomActions.parameters = {
-  storyshots: { disable: true },
-};
+CustomActions.tags = ['skip-visual-test'];
 ```

@@ -88,7 +88,7 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-Default.parameters = { storyshots: { disable: true } };
+Default.tags = ['skip-visual-test'];
 Default.args = generateProps();
 
 export default {

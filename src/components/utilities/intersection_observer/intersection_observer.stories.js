@@ -151,8 +151,8 @@ export const InfiniteScrolling = () => ({
 export default {
   title: 'utilities/intersection-observer',
   component: GlIntersectionObserver,
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,

@@ -14,14 +14,11 @@ default:
     - gitlab-org
 
 variables:
-  PUPPETEER_VERSION: '15.5.0'
-  PUPPETEER_IMAGE: $CI_REGISTRY_IMAGE/puppeteer-v2:$PUPPETEER_VERSION
   CYPRESS_CACHE_FOLDER: $CI_PROJECT_DIR/.cypress_cache/Cypress
 
 include:
   - template: Jobs/Code-Quality.gitlab-ci.yml
   - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
-  - template: Jobs/Container-Scanning.latest.gitlab-ci.yml
   - template: Jobs/SAST.latest.gitlab-ci.yml
   - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
   - project: gitlab-org/frontend/frontend-build-images
@@ -46,12 +43,6 @@ code_quality:
   tags:
     - gitlab-org-docker
 
-container_scanning:
-  variables:
-    CI_APPLICATION_REPOSITORY: $CI_REGISTRY_IMAGE/puppeteer
-    CI_APPLICATION_TAG: $PUPPETEER_VERSION
-  needs: ['build_docker_image']
-
 # Execute the security scanners immediately
 gemnasium-dependency_scanning:
   needs: []
@@ -65,15 +56,11 @@ nodejs-scan-sast:
 secret_detection:
   needs: []
 
-.puppeteer:
-  image: $PUPPETEER_IMAGE
-  needs: ['build_docker_image']
+.playwright:
+  image: mcr.microsoft.com/playwright:v1.40.0-jammy
 
 .node:
   image: node:20.10.0-buster
-  variables:
-    PUPPETEER_SKIP_DOWNLOAD: 'true'
-
 
 .use_vue3:
   variables:
@@ -96,6 +83,7 @@ secret_detection:
 
 .yarn_install:
   before_script:
+    - apt-get update
     - apt-get install -y make
     - yarn install --frozen-lockfile
   cache:
@@ -129,20 +117,6 @@ workflow:
     - if: !reference [.if-gitlab-ui-mr]
       when: manual
       allow_failure: true
-
-build_docker_image:
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-  tags:
-    - gitlab-org-docker
-  image: docker:20.10.16
-  services:
-    - docker:20.10.16-dind
-  stage: pre-build
-  script:
-    - docker info
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - ./bin/build-docker.sh
 
 # As we are caching based on the contents of our CI config and dependency lock file
 # We only need to execute when these change. However, we give a manual job as an escape hatch
@@ -228,10 +202,8 @@ check_translations_dictionary:
 
 .visual:
   extends:
-    - .puppeteer
+    - .playwright
     - .yarn_install
-  needs:
-    - build_docker_image
   stage: test
   script:
     - yarn test:visual
@@ -296,9 +268,10 @@ unit_tests_vue3:
 
 update_screenshots:
   extends:
-    - .puppeteer
+    - .playwright
     - .yarn_install
     - .rules:gitlab-ui-mr-manual
+  needs: []
   stage: manual
   script:
     - yarn test:visual:update

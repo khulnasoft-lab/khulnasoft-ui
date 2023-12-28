@@ -1,6 +1,6 @@
 const { USE_VUE_3, STORYBOOK_VUE_FRAMEWORK } = require('../use_vue3');
 
-const { IS_VISUAL_TEST, STORIES } = process.env;
+const { STORIES } = process.env;
 
 if (USE_VUE_3) {
   console.log('[!!!] Using Vue.js 3');
@@ -32,9 +32,6 @@ export default {
     },
     'storybook-dark-mode',
   ],
-  features: {
-    storyStoreV7: !IS_VISUAL_TEST,
-  },
   staticDirs: ['../static'],
   docs: {
     autodocs: true,

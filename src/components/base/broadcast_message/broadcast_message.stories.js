@@ -73,9 +73,7 @@ const StackedStory = (args, { argTypes }) => ({
 });
 export const Stacked = StackedStory.bind({});
 Stacked.args = generateProps();
-Stacked.parameters = {
-  storyshots: { disable: true },
-};
+Stacked.tags = ['skip-visual-test'];
 
 export const IncreasedSpacing = (args, { argTypes }) => ({
   components: {

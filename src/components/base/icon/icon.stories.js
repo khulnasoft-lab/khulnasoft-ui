@@ -32,13 +32,13 @@ Default.args = generateProps();
 export default {
   title: 'base/icon',
   component: GlIcon,
+  tags: ['skip-visual-test'],
   parameters: {
     docs: {
       description: {
         component: readme,
       },
     },
-    storyshots: { disable: true },
   },
   argTypes: {
     ...disableControls(['useDeprecatedSizes']),

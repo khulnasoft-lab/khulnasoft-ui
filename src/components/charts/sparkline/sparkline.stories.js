@@ -55,14 +55,14 @@ Default.args = generateProps();
 
 export const WithoutLastYValue = Template.bind({});
 WithoutLastYValue.args = generateProps({ showLastYValue: false });
-WithoutLastYValue.parameters = { storyshots: { disable: true } };
+WithoutLastYValue.tags = ['skip-visual-test'];
 
 export const WithChartColorGradient = Template.bind({});
 WithChartColorGradient.args = generateProps({ gradient: customGradient });
 
 export const WithSmoothing = Template.bind({});
 WithSmoothing.args = generateProps({ smooth: 0.5 });
-WithSmoothing.parameters = { storyshots: { disable: true } };
+WithSmoothing.tags = ['skip-visual-test'];
 
 export const AutoHeight = Template.bind({});
 Object.assign(AutoHeight, {

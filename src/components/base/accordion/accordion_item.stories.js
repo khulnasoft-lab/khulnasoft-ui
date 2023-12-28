@@ -40,8 +40,8 @@ export default {
   title: 'base/accordion/accordion-item',
   component: GlAccordionItem,
   bootstrapComponent: 'b-collapse',
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,

@@ -788,9 +788,7 @@ export const InfiniteScroll = (
 InfiniteScroll.argTypes = {
   ...disableControls(['infiniteScroll', 'infiniteScrollLoading', 'items']),
 };
-InfiniteScroll.parameters = {
-  storyshots: { disable: true },
-};
+InfiniteScroll.tags = ['skip-visual-test'];
 InfiniteScroll.args = generateProps();
 InfiniteScroll.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 

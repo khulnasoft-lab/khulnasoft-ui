@@ -61,8 +61,8 @@ const makeControl = () => ({
 export default {
   title: 'directives/resize-observer-directive',
   component: GlResizeObserver,
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,

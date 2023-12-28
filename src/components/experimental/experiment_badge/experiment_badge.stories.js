@@ -46,8 +46,8 @@ CustomPlacement.args = {
 export default {
   title: 'experimental/experiment_badge',
   component: GlExperimentBadge,
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,

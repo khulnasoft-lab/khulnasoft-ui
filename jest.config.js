@@ -27,10 +27,6 @@ if (USE_VUE_3) {
   });
 }
 
-if (process.env.JEST_IMAGE_SNAPSHOT_TRACK_OBSOLETE) {
-  reporters.push('jest-image-snapshot/src/outdated-snapshot-reporter.js');
-}
-
 module.exports = {
   ...extraJestConfig,
   verbose: true,

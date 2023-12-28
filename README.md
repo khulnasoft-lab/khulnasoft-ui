@@ -98,20 +98,8 @@ jest run them.
 
 ### Visual regression tests
 
-GitLab UI uses visual snapshot tests to prevent introducing unexpected regressions with CSS and
-layout changes on components. The tool we use is
-[storyshots](https://github.com/storybookjs/storybook/tree/master/addons/storyshots/storyshots-core),
-a storybook addon. Read the project documentation to understand how visual snapshots work.
-
-There is a visual snapshot of every component’s storybook story. To run the tests, use the
-`yarn test:visual` command. This command runs on the CI environment and will fail if the component
-visual appearance changes.
-
-#### Updating visual snapshot baseline images
-
-In some occasions, the changes in a component’s appearance are justified. In those cases, we have to
-update the baseline images to match the new look. See our
-[visual testing documentation](doc/contributing/visual_testing.md) for how to do that.
+GitLab UI uses visual snapshot tests to prevent introducing regressions with CSS and
+layout changes on components. Read more on this in the [visual testing documentation](doc/contributing/visual_testing.md).
 
 #### GitLab visual regression tests
 
