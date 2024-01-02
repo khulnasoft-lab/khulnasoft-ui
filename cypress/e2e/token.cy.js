@@ -15,7 +15,7 @@ describe('GlToken', () => {
     });
     cy.glCheckA11y();
   }
-  it('passes axe accessibility checks', () => {
+  it('passes axe accessibility checks', { tags: '@a11y' }, () => {
     checkA11yDefaultState();
     checkA11yWithViewOnly();
     checkA11yWithAvatar();
