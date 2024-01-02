@@ -2,8 +2,8 @@
  * Button-specific utilities
  */
 @mixin gl-tmp-button-hover($border-color, $background-color) {
-  box-shadow: inset 0 0 0 $gl-border-size-2 $border-color,
-    0 $gl-border-size-2 $gl-border-size-2 0 rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 0 0 $gl-border-size-1 $border-color,
+    0 $gl-border-size-1 $gl-border-size-1 0 rgba(0, 0, 0, 0.08);
   background: $background-color;
 }
 
@@ -33,6 +33,21 @@
   @include gl-align-items-center;
   @include gl-font-base;
   @include gl-rounded-base;
+  transition-timing-function: $gl-easing-out-cubic;
+  transition-duration: $gl-timing-200;
+  transition-property: outline, color, box-shadow, background-color;
+
+  &:not(.btn-danger, .btn-reset):focus {
+    @include gl-focus-mouse;
+  }
+
+  &:is(.btn-danger):not(.btn-reset):focus {
+    @include gl-focus-mouse($color: $red-600);
+  }
+
+  &:focus-visible {
+    @include gl-focus-keyboard;
+  }
 
   .gl-button-text {
     @include gl-overflow-hidden;
@@ -76,7 +91,6 @@
     }
 
     &:focus {
-      @include gl-focus($color: $gray-400);
       @include gl-bg-gray-50;
 
       .gl-icon {
@@ -86,15 +100,10 @@
 
     &:active,
     &.active {
-      @include gl-focus($color: $gray-600);
       @include gl-bg-gray-100;
 
       .gl-icon {
         @include gl-text-gray-900;
-      }
-
-      &:focus {
-        @include gl-focus($color: $gray-600);
       }
 
       &:focus .gl-icon {
@@ -148,18 +157,12 @@
     }
 
     &:focus {
-      @include gl-focus($color: $blue-800);
       @include gl-bg-blue-600;
     }
 
     &:active,
     &.active {
-      @include gl-focus($color: $blue-900);
       @include gl-bg-blue-700;
-
-      &:focus {
-        @include gl-focus($color: $blue-900);
-      }
     }
   }
 
@@ -179,19 +182,13 @@
 
     &:focus {
       @include gl-text-blue-700;
-      @include gl-focus($color: $blue-700);
       @include gl-bg-blue-50;
     }
 
     &:active,
     &.active {
       @include gl-text-blue-900;
-      @include gl-focus($color: $blue-900);
       @include gl-bg-blue-100;
-
-      &:focus {
-        @include gl-focus($color: $blue-900);
-      }
     }
   }
 
@@ -204,18 +201,12 @@
     }
 
     &:focus {
-      @include gl-focus($color: $green-800);
       @include gl-bg-green-600;
     }
 
     &:active,
     &.active {
-      @include gl-focus($color: $green-900);
       @include gl-bg-green-700;
-
-      &:focus {
-        @include gl-focus($color: $green-900);
-      }
     }
   }
 
@@ -233,19 +224,13 @@
 
     &:focus {
       @include gl-text-green-700;
-      @include gl-focus($color: $green-700);
       @include gl-bg-green-50;
     }
 
     &:active,
     &.active {
       @include gl-text-green-900;
-      @include gl-focus($color: $green-900);
       @include gl-bg-green-100;
-
-      &:focus {
-        @include gl-focus($color: $green-900);
-      }
     }
   }
 
@@ -258,18 +243,12 @@
     }
 
     &:focus {
-      @include gl-focus($color: $red-800);
       @include gl-bg-red-600;
     }
 
     &:active,
     &.active {
-      @include gl-focus($color: $red-900);
       @include gl-bg-red-700;
-
-      &:focus {
-        @include gl-focus($color: $red-900);
-      }
     }
   }
 
@@ -287,19 +266,13 @@
 
     &:focus {
       @include gl-text-red-700;
-      @include gl-focus($color: $red-700);
       @include gl-bg-red-50;
     }
 
     &:active,
     &.active {
       @include gl-text-red-900;
-      @include gl-focus($color: $red-900);
       @include gl-bg-red-100;
-
-      &:focus {
-        @include gl-focus($color: $red-900);
-      }
     }
   }
 
@@ -327,12 +300,6 @@
       &:hover {
         @include gl-shadow-none;
       }
-
-      &:active,
-      &:focus,
-      &:focus:active {
-        @include gl-focus;
-      }
     }
   }
 
@@ -353,34 +320,18 @@
 
   &.btn-dashed,
   &.btn-dashed-tertiary {
-    @include gl-inset-border-1-gray-400;
     @include gl-bg-white;
-    outline: 3px dotted $white;
-    outline-offset: (-$gl-border-size-1);
+    border: 1px dashed $gray-400;
+    box-shadow: none;
 
     &:hover {
-      @include gl-inset-border-1-gray-400;
       @include gl-bg-gray-50;
-    }
-
-    &:focus {
-      @include gl-focus($color: $gray-400);
-      outline: 3px dotted $gray-50;
-      outline-offset: (-$gl-border-size-1);
+      box-shadow: none;
     }
 
     &:active,
     &.active {
-      @include gl-focus($color: $gray-600);
-      outline: 3px dotted $gray-100;
-      outline-offset: (-$gl-border-size-1);
       @include gl-bg-gray-100;
-
-      &:focus {
-        @include gl-focus($color: $gray-600);
-        outline: 3px dotted $gray-100;
-        outline-offset: (-$gl-border-size-1);
-      }
     }
   }
 
@@ -445,7 +396,6 @@
     &:focus,
     &:focus:active {
       @include gl-bg-transparent;
-      @include gl-focus;
     }
 
     &.disabled,

@@ -18,6 +18,7 @@ $breadcrumb-max-width: $grid-size * 16;
 
 // bootstrap overrides
 .gl-breadcrumb-item {
+  @include gl-display-inline-flex;
   @include gl-font-sm;
   @include gl-line-height-normal;
 
@@ -28,15 +29,32 @@ $breadcrumb-max-width: $grid-size * 16;
   }
 
   > a {
+    border-radius: $gl-border-size-5;
+    padding: $gl-spacing-scale-1 $gl-spacing-scale-2;
+    margin: -#{$gl-spacing-scale-1} -#{$gl-spacing-scale-2};
+
+    transition-timing-function: $gl-easing-out-cubic;
+    transition-duration: $gl-timing-200;
+    transition-property: color, background-color, outline;
+
+    @include gl-display-inline-flex;
+    @include gl-gap-2;
     @include gl-text-gray-700;
     @include media-breakpoint-down(xs) {
       @include str-truncated($breadcrumb-max-width);
     }
 
-    &:active,
-    &:focus,
-    &:focus:active {
-      @include gl-focus($outline: true);
+    &:hover {
+      @include gl-text-decoration-none;
+      background-color: $gray-50;
+    }
+
+    &:focus {
+      @include gl-focus-mouse($small: true);
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
     }
   }
 }

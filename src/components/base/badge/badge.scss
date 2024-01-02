@@ -37,10 +37,16 @@
       color: $hover-color;
       // Needed to override bootstrap's badge variant background
       background-color: $bg;
+      box-shadow: none;
+      @include gl-focus-mouse($color: $bg);
 
       .gl-badge-icon {
         color: $hover-icon-color;
       }
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
     }
 
     &.active,
@@ -51,12 +57,6 @@
       .gl-badge-icon {
         color: $active-icon-color;
       }
-    }
-
-    &:active,
-    &:focus,
-    &:focus:active {
-      @include gl-focus;
     }
   }
 }
@@ -71,6 +71,10 @@
   @include gl-line-height-normal;
   @include gl-py-2;
   @include gl-px-3;
+
+  transition-timing-function: $gl-easing-out-cubic;
+  transition-duration: $gl-timing-200;
+  transition-property: outline, color, box-shadow, background-color;
 
   &.sm {
     @include gl-py-0;

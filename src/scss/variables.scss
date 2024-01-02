@@ -321,3 +321,14 @@ $popover-arrow-color: $popover-bg;
 $popover-arrow-outer-color: $gray-100;
 
 $tooltip-opacity: 1;
+
+// Animation timings
+$gl-timing-200: 200ms;
+$gl-timing-300: 300ms;
+$gl-timing-400: 400ms;
+$gl-timing-500: 500ms;
+$gl-timing-600: 600ms;
+
+// Animation easings
+$gl-easing-default: ease;
+$gl-easing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);

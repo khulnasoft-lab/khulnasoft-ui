@@ -75,6 +75,46 @@
   background-image: linear-gradient(to $direction, $transparent-rgba, $color 33%);
 }
 
+@mixin gl-focus-mouse(
+  $color: false,
+  $small: false
+) {
+  @if $color {
+    outline-color: $color;
+  } @else {
+    outline-color: rgba($blue-400, 0.4);
+  }
+
+  @if $small {
+    animation: gl-focus-mouse-animation $gl-timing-500 $gl-easing-out-cubic;
+    --size: 5px;
+  } @else {
+    animation: gl-focus-mouse-animation $gl-timing-600 $gl-easing-out-cubic;
+    --size: 8px;
+  }
+
+  outline-style: solid;
+  outline-width: 0;
+  outline-offset: 0;
+}
+
+@keyframes gl-focus-mouse-animation {
+  to {
+    outline-color: transparent;
+		outline-style: solid;
+		outline-width: var(--size, 8px);
+		outline-offset: 0;
+  }
+}
+
+@mixin gl-focus-keyboard {
+  outline-color: $blue-400 !important;
+	outline-style: solid !important;
+	outline-width: 2px !important;
+	outline-offset: 2px !important;
+	animation: none !important;
+}
+
 /**
 * Helper function for @media of at least the minimum
 * breakpoint width.

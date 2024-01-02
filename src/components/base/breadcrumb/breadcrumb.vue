@@ -100,7 +100,7 @@ export default {
             :src="item.avatarPath"
             :size="16"
             aria-hidden="true"
-            class="gl-breadcrumb-avatar-tile gl-border gl-mr-2 gl-rounded-base!"
+            class="gl-breadcrumb-avatar-tile gl-border gl-ml-n1 gl-rounded-base!"
             shape="rect"
             data-testid="avatar"
           /><span>{{ item.text }}</span>
