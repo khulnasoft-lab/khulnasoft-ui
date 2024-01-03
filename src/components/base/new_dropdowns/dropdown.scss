@@ -18,12 +18,12 @@
     @include gl-border-1;
     @include gl-border-solid;
     @include gl-border-gray-200;
-    @include gl-rounded-lg;
     @include gl-shadow-md;
     top: 0;
     left: 0;
     min-width: $gl-new-dropdown-min-width;
     max-width: $gl-new-dropdown-max-width;
+    border-radius: calc($gl-border-radius-base + 5px);
     z-index: 1000;
   }
 
@@ -106,7 +106,7 @@
     &.btn-sm .gl-new-dropdown-chevron {
       @include gl-mx-0;
     }
-    
+
   }
 
   $dropdown-content-padding: 0.25rem;

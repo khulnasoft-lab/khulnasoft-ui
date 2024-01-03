@@ -45,13 +45,13 @@
         @include gl-text-blue-600
       }
     }
-    
+
     &:active,
     &:focus:active {
       .gl-new-dropdown-item-content {
         @include gl-bg-gray-200;
       }
-      
+
       .gl-new-dropdown-item-check-icon {
         @include gl-text-blue-700
       }
@@ -62,11 +62,15 @@
     outline: none;
   }
 
-  &:active,
-  &:focus,
-  &:focus:active {
+  &:focus {
     .gl-new-dropdown-item-content {
-      @include gl-focus($inset: true);
+      @include gl-focus-mouse;
+    }
+  }
+
+  &:focus-visible {
+    .gl-new-dropdown-item-content {
+      @include gl-focus-keyboard;
     }
   }
 
@@ -87,6 +91,9 @@
     @include gl-text-gray-900;
     @include gl-text-left;
     @include gl-white-space-normal;
+    transition-timing-function: $gl-easing-out-cubic;
+    transition-duration: $gl-timing-200;
+    transition-property: outline, color, box-shadow, background-color;
 
     .gl-new-dropdown-item-check-icon {
       @include gl-flex-shrink-0;

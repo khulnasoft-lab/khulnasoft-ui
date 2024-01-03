@@ -6,10 +6,10 @@
   @include gl-font-base;
   @include gl-font-weight-normal;
   @include gl-line-height-normal;
-  @include gl-px-5;
+  @include gl-px-4;
   @include gl-py-0;
   @include gl-relative;
-  @include gl-rounded-0;
+  @include gl-rounded-small;
   @include gl-shadow-none;
   @include gl-text-gray-900;
   @include gl-text-left;
@@ -21,6 +21,9 @@
   .dropdown-item {
     @include gl-tmp-dropdown-item-style;
     @include gl-cursor-pointer;
+    transition-timing-function: $gl-easing-out-cubic;
+    transition-duration: $gl-timing-200;
+    transition-property: outline, color, background-color;
 
     .gl-avatar {
       @include gl-flex-shrink-0;
@@ -97,10 +100,12 @@
       }
     }
 
-    &:active,
-    &:focus,
-    &:focus:active {
-      @include gl-focus($inset: true);
+    &:focus {
+      @include gl-focus-mouse;
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
     }
   }
 }

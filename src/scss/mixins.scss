@@ -82,7 +82,7 @@
   @if $color {
     outline-color: $color;
   } @else {
-    outline-color: rgba($blue-400, 0.4);
+    outline-color: rgba($blue-400, 0.5);
   }
 
   @if $small {

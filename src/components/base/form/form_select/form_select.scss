@@ -24,10 +24,13 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   @include gl-text-truncate;
   @include gl-bg-no-repeat;
   background-image: url($gl-icon-select-chevron-down);
+  transition-timing-function: $gl-easing-out-cubic;
+  transition-duration: $gl-timing-200;
+  transition-property: outline, color, box-shadow, background-color;
 
-  &:focus,
-  &:focus:active {
-    @include gl-focus($color: $gray-900, $important: true);
+  &:focus {
+    @include gl-focus-mouse;
+    @include gl-inset-border-1-blue-500;
   }
 
   &:disabled {
@@ -41,11 +44,23 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
     @include gl-inset-border-1-red-400;
 
     &:focus {
-      @include gl-focus($color: $red-500, $important: true);
+      @include gl-focus-mouse($color: $red-500);
     }
 
     &:hover {
       @include gl-inset-border-1-red-500;
+    }
+  }
+
+  &.is-valid:not(:disabled) {
+    @include gl-inset-border-1-green-500;
+
+    &:focus {
+      @include gl-focus-mouse($color: $green-500);
+    }
+
+    &:hover {
+      @include gl-inset-border-1-green-600;
     }
   }
 }

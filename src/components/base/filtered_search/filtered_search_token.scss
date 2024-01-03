@@ -24,6 +24,9 @@
 
 .gl-token {
   @include gl-rounded-0;
+  transition-timing-function: $gl-easing-out-cubic;
+  transition-duration: $gl-timing-200;
+  transition-property: outline, color, box-shadow, background-color;
 
   &.gl-filtered-search-token-type {
     @include gl-h-6;

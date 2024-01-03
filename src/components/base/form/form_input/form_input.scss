@@ -25,15 +25,19 @@
   }
 
   &:not(.form-control-plaintext):focus {
-    @include gl-focus($color: $gray-900);
     @include gl-text-gray-900;
+  }
+
+  &:focus {
+    @include gl-focus-mouse;
+    @include gl-inset-border-1-blue-500;
   }
 
   &.is-invalid {
     @include gl-inset-border-1-red-500;
 
     &:focus {
-      @include gl-focus($color: $red-500);
+      @include gl-focus-mouse($color: $red-500);
     }
   }
 

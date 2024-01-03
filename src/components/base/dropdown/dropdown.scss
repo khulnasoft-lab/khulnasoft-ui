@@ -6,8 +6,8 @@
     @include gl-mt-2;
     @include gl-mb-2;
     @include gl-p-0;
-    @include gl-rounded-base;
     @include gl-shadow-x0-y2-b4-s0;
+    border-radius: calc($gl-border-radius-base + 3px);
     width: $gl-dropdown-width;
 
     .gl-search-box-by-type {
@@ -22,20 +22,22 @@
   .gl-dropdown-inner {
     @include gl-display-flex;
     @include gl-flex-direction-column;
+    @include gl-pl-2;
+    @include gl-pr-2;
     max-height: $gl-max-dropdown-max-height;
 
     > :first-child {
-      @include gl-pt-3;
+      @include gl-pt-2;
     }
 
     > :last-child {
-      @include gl-pb-3;
+      @include gl-pb-2;
     }
   }
 
   .gl-dropdown-contents {
     @include gl-flex-grow-1;
-    overflow-y: auto;
+    // overflow-y: auto;
   }
 
   .gl-dropdown-header-top {
