@@ -1,0 +1,8 @@
+/**
+* Object fit utilities.
+*
+* naming convention: gl-object-fit-{value}
+*/
+@mixin gl-object-fit-contain {
+  object-fit: contain;
+}

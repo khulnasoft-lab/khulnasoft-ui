@@ -9,6 +9,7 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-overflow-hidden;
   @include gl-flex-shrink-0;
   @include gl-line-height-ratio-1000;
+  @include gl-object-fit-contain;
 }
 
 @mixin gl-avatar-s16 {
