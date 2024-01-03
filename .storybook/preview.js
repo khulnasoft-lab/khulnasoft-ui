@@ -38,7 +38,6 @@ const theme = {
 };
 
 const parameters = {
-  actions: { disable: true },
   darkMode: {
     current: 'light',
     stylePreview: true,

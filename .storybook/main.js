@@ -22,9 +22,14 @@ export default {
   stories: STORIES ? STORIES.split(',') : ['../src/**/*.stories.js'],
   addons: [
     '@storybook/addon-docs',
-    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/addon-viewport/register',
+    '@storybook/addon-viewport',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        actions: false,
+      },
+    },
     'storybook-dark-mode',
   ],
   features: {
