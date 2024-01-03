@@ -24,6 +24,7 @@ export default {
     '@storybook/addon-docs',
     '@storybook/addon-a11y',
     '@storybook/addon-viewport',
+    '@storybook/addon-interactions',
     {
       name: '@storybook/addon-essentials',
       options: {

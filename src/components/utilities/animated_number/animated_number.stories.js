@@ -1,4 +1,3 @@
-import { setStoryTimeout } from '../../../utils/test_utils';
 import readme from './animated_number.md';
 import GlAnimatedNumber from './animated_number.vue';
 
@@ -31,25 +30,13 @@ const Template = (args, { argTypes }) => ({
   template,
   data() {
     return {
-      isLoading: false,
-      loadTimer: null,
       updatedNumber: this.initialNumber,
     };
   },
   methods: {
-    loadView() {
-      clearTimeout(this.loadTimer);
-      this.isLoading = true;
-      this.loadTimer = setStoryTimeout(() => {
-        this.isLoading = false;
-      }, 1500);
-    },
     updateNumber() {
       this.updatedNumber = Math.floor(Math.random() * 100);
     },
-  },
-  mounted() {
-    this.loadView();
   },
 });
 

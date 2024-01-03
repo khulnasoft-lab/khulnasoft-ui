@@ -1,4 +1,6 @@
 import last from 'lodash/last';
+import { userEvent, within, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlIcon from '../icon/icon.vue';
 import GlToken from '../token/token.vue';
@@ -451,9 +453,6 @@ export const WithHistoryItems = () => ({
       return typeof val === 'string';
     },
   },
-  mounted() {
-    this.$nextTick(() => this.$el.querySelector('.gl-dropdown-toggle').click());
-  },
   template: `
     <div>
       {{ value }}
@@ -471,6 +470,14 @@ export const WithHistoryItems = () => ({
     </div>
   `,
 });
+WithHistoryItems.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button', { name: 'Toggle history' });
+  await userEvent.click(button);
+  await waitFor(() =>
+    expect(within(document).getByRole('menu', { name: 'Toggle history' })).toBeVisible()
+  );
+};
 
 export const WithFriendlyText = () => ({
   components,

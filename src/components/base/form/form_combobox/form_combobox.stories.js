@@ -1,3 +1,5 @@
+import { userEvent, within, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import { stringTokenList, labelText, objectTokenList, actionsList } from './constants';
 import readme from './form_combobox.md';
@@ -41,12 +43,9 @@ Default.args = generateProps();
 export const WithObjectValue = (args, { argTypes }) => ({
   components: { GlFormCombobox },
   props: Object.keys(argTypes),
-  mounted() {
-    this.$nextTick(() => this.$refs.combobox.openSuggestions(objectTokenList));
-  },
   data: () => {
     return {
-      value: ' ',
+      value: '',
     };
   },
   template: `
@@ -68,25 +67,40 @@ export const WithObjectValue = (args, { argTypes }) => ({
 });
 WithObjectValue.args = generateProps({ tokenList: objectTokenList, matchValueToAttr: 'title' });
 WithObjectValue.decorators = [makeContainer({ height: '370px' })];
+WithObjectValue.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const searchbox = canvas.getByRole('searchbox');
+  userEvent.type(searchbox, 'g');
+
+  await waitFor(() =>
+    expect(within(document).getByRole('menuitem', { name: '1 giraffe' })).toBeVisible()
+  );
+};
 
 export const WithActions = (args, { argTypes }) => ({
   components: { GlFormCombobox },
   props: Object.keys(argTypes),
-  mounted() {
-    this.$nextTick(() => this.$refs.combobox.openSuggestions(['dog']));
-  },
+  template,
   data: () => {
     return {
-      value: 'dog',
+      value: '',
     };
   },
-  template,
 });
 WithActions.args = generateProps({
   tokenList: stringTokenList,
   actionList: actionsList,
 });
 WithActions.decorators = [makeContainer({ height: '180px' })];
+WithActions.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const searchbox = canvas.getByRole('searchbox');
+  userEvent.type(searchbox, 'dog');
+
+  await waitFor(() =>
+    expect(within(document).getByRole('menuitem', { name: 'dog' })).toBeVisible()
+  );
+};
 
 export default {
   title: 'base/form/form-combobox',

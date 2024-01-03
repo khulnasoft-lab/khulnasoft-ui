@@ -1,3 +1,5 @@
+import { userEvent, within, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import readme from './token_selector.md';
 import GlTokenSelector from './token_selector.vue';
 
@@ -45,9 +47,6 @@ const Template = (args, { argTypes }) => ({
   components: { GlTokenSelector },
   props: Object.keys(argTypes),
   template,
-  mounted() {
-    document.querySelector('.gl-token-selector input[type="text"]').focus();
-  },
   data() {
     return {
       filteredDropdownItems: [],
@@ -90,6 +89,12 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.tags = ['skip-visual-test'];
 Default.args = generateProps();
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('textbox');
+  await userEvent.click(button);
+  await waitFor(() => expect(canvas.getByRole('menu')).toBeVisible());
+};
 
 export default {
   title: 'base/token_selector',

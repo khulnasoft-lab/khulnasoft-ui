@@ -1,5 +1,6 @@
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
+import { triggerBlurEvent } from '../../../utils/play_utils';
 import { provide } from './common_story_options';
 import readme from './filtered_search_term.md';
 import GlFilteredSearchTerm from './filtered_search_term.vue';
@@ -26,9 +27,6 @@ export const Default = (_args, { argTypes }) => ({
       availableTokens,
     };
   },
-  mounted() {
-    this.$nextTick(() => document.activeElement.blur());
-  },
   template: `
       <div>
         <div> {{ value.data }} </div>
@@ -47,6 +45,7 @@ export const Default = (_args, { argTypes }) => ({
     `,
 });
 Default.args = generateProps();
+Default.play = triggerBlurEvent;
 
 export default {
   title: 'base/filtered-search/term',

@@ -1,5 +1,6 @@
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
+import { triggerBlurEvent } from '../../../utils/play_utils';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import { provide } from './common_story_options';
 import readme from './filtered_search_token_segment.md';
@@ -38,9 +39,6 @@ export const Default = (args, { argTypes }) => ({
       value: 'demo1',
     };
   },
-  mounted() {
-    this.$nextTick(() => document.activeElement.blur());
-  },
   template: `
     <div>
       <div>v-model value: {{ value }} </div>
@@ -63,6 +61,7 @@ export const Default = (args, { argTypes }) => ({
   `,
 });
 Default.args = generateProps();
+Default.play = triggerBlurEvent;
 
 // eslint-disable-next-line no-unused-vars
 export const WithStaticOptions = (args, { argTypes }) => ({
@@ -76,9 +75,6 @@ export const WithStaticOptions = (args, { argTypes }) => ({
       value: true,
       staticOptions,
     };
-  },
-  mounted() {
-    this.$nextTick(() => document.activeElement.blur());
   },
   template: `
     <div>
@@ -99,6 +95,7 @@ export const WithStaticOptions = (args, { argTypes }) => ({
   `,
 });
 WithStaticOptions.args = generateProps();
+WithStaticOptions.play = triggerBlurEvent;
 
 export default {
   title: 'base/filtered-search/token-segment',
