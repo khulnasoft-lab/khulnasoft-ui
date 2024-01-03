@@ -1,3 +1,10 @@
+## [72.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.3.0...v72.3.1) (2024-01-03)
+
+
+### Bug Fixes
+
+* **GlAvatar:** Properly display non-square images ([a6f1a5e](https://gitlab.com/gitlab-org/gitlab-ui/commit/a6f1a5e44f1806ad2ae55656965dc69b06048313))
+
 # [72.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.2.0...v72.3.0) (2023-12-22)
 
 
