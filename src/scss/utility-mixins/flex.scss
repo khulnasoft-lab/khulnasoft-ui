@@ -171,6 +171,12 @@
   }
 }
 
+@mixin gl-md-flex-direction-row-reverse {
+  @include gl-media-breakpoint-up(md) {
+    flex-direction: row-reverse;
+  }
+}
+
 @mixin gl-flex-shrink-0 {
   flex-shrink: 0;
 }
