@@ -39,6 +39,9 @@
     @include gl-fill-current-color;
     @include gl-bg-gray-10;
     @include gl-inset-border-y-1-gray-200;
+    transition-timing-function: $gl-easing-out-cubic;
+    transition-duration: $gl-timing-200;
+    transition-property: outline, color, box-shadow, background-color;
 
     &:first-child {
       @include gl-btn-gl-segmented-button-first;
@@ -49,35 +52,35 @@
     }
 
     &:hover {
-      @include gl-inset-border-2-gray-400;
+      @include gl-inset-border-1-gray-400;
       @include gl-bg-gray-50;
     }
 
     &.focus {
       @include gl-z-index-1;
-      @include gl-btn-gl-segmented-button-focus($gray-400);
+      @include gl-focus-mouse;
       @include gl-bg-gray-50;
     }
 
     &.active {
       @include gl-z-index-2;
-      @include gl-inset-border-2-gray-300;
+      @include gl-inset-border-1-gray-300;
       @include gl-bg-white;
 
       &:hover {
-        @include gl-inset-border-2-gray-400;
+        @include gl-inset-border-1-gray-400;
         @include gl-bg-gray-50;
       }
 
       &.focus,
       &.focus:hover {
-        @include gl-btn-gl-segmented-button-focus($gray-400);
+        @include gl-focus-mouse;
         @include gl-bg-gray-50;
       }
     }
 
-    &:focus-within {
-      @include gl-focus;
+    &:has(input:focus-visible) {
+      @include gl-focus-keyboard;
     }
 
     &.disabled,

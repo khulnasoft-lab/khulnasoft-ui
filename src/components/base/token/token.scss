@@ -44,6 +44,9 @@
   opacity: 0.8;
   color: inherit !important;
   background-color: transparent !important;
+  transition-timing-function: $gl-easing-out-cubic;
+  transition-duration: $gl-timing-200;
+  transition-property: transform, background-color;
 
   svg {
     color: inherit !important;
@@ -55,8 +58,11 @@
     @include gl-opacity-10;
   }
 
-  &:focus,
-  &:hover:focus {
-    @include gl-focus($important: true);
+  &:focus {
+    @include gl-focus-mouse;
+  }
+
+  &:focus-visible {
+    @include gl-focus-keyboard;
   }
 }

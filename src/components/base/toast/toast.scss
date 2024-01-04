@@ -38,6 +38,7 @@
 
   .toast-header {
     @include gl-display-flex;
+    align-items: center;
     order: 2;
   }
 
@@ -51,6 +52,28 @@
     @include gl-white-space-nowrap;
     @include gl-font-weight-bold;
     @include gl-cursor-pointer;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 3px;
+    text-decoration-style: solid;
+    border-radius: 2px;
+    transition-timing-function: $gl-easing-default;
+    transition-duration: $gl-timing-200;
+    transition-property: outline, color, text-decoration-color;
+
+    &:hover {
+      @include gl-text-blue-200;
+      text-decoration-color: $blue-500;
+      text-decoration-thickness: 3px;
+      text-decoration-style: solid;
+    }
+
+    &:focus {
+      @include gl-focus-mouse;
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
+    }
   }
 
   .gl-toast-close-button {

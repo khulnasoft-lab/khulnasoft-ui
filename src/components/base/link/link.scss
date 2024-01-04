@@ -1,18 +1,29 @@
 .gl-link {
   @include gl-text-blue-500;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 3px;
+  text-decoration-style: solid;
+  border-radius: 2px;
+  transition-timing-function: $gl-easing-default;
+  transition-duration: $gl-timing-200;
+  transition-property: outline, color, text-decoration-color;
 
   &:hover {
     @include gl-text-blue-500;
+    text-decoration-color: $blue-200;
+    text-decoration-thickness: 3px;
+    text-decoration-style: solid;
   }
 
   &:active {
     @include gl-text-blue-700;
   }
 
-  &:active,
-  &:focus,
-  &:focus:active {
-    @include gl-text-decoration-underline;
-    @include gl-focus($outline: true, $outline-offset: $outline-width);
+  &:focus {
+    @include gl-focus-mouse;
+  }
+
+  &:focus-visible {
+    @include gl-focus-keyboard;
   }
 }

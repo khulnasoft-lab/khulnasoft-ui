@@ -44,7 +44,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
     @include gl-inset-border-1-red-400;
 
     &:focus {
-      @include gl-focus-mouse($color: $red-500);
+      @include gl-focus-mouse($color: rgba($red-500, 0.5));
     }
 
     &:hover {
@@ -56,7 +56,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
     @include gl-inset-border-1-green-500;
 
     &:focus {
-      @include gl-focus-mouse($color: $green-500);
+      @include gl-focus-mouse($color: rgba($green-500, 0.5));
     }
 
     &:hover {

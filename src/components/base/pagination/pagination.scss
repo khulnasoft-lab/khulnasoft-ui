@@ -5,11 +5,28 @@
     @include gl-text-gray-900;
   }
 
+  li:first-child .page-link {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  li:last-child .page-link {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  li:not(:last-child, :first-child) .page-link {
+    border-radius: 0;
+  }
+
   .page-link {
     @include gl-border-gray-200;
     @include gl-line-height-normal;
     @include gl-px-4;
     @include gl-py-3;
+    transition-timing-function: $gl-easing-out-cubic;
+    transition-duration: $gl-timing-200;
+    transition-property: outline, color, box-shadow, background-color;
 
     &.prev-page-item,
     &.next-page-item {
@@ -18,13 +35,13 @@
 
     &:not(.active):hover {
       @include gl-text-gray-900;
-      box-shadow: inset 0 0 0 1px $gray-400;
       border-color: $gray-400;
       background: $gray-50;
       @include gl-z-index-1;
     }
 
     &:not(.active):focus {
+      box-shadow: none;
       @include gl-bg-gray-50;
     }
 
@@ -33,10 +50,12 @@
       @include gl-bg-gray-100;
     }
 
-    &:not(.active):focus,
-    &:not(.active):active,
-    &:not(.active).active {
-      @include gl-focus();
+    &:not(.active):focus {
+      @include gl-focus-mouse;
+    }
+
+    &:not(.active):focus-visible {
+      @include gl-focus-keyboard;
     }
 
     &,
@@ -54,7 +73,12 @@
       @include gl-shadow-none;
 
       &:focus {
-        @include gl-focus();
+        @include gl-focus-mouse;
+        box-shadow: none;
+      }
+
+      &:focus-visible {
+        @include gl-focus-keyboard;
       }
     }
 

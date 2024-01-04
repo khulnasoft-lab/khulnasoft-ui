@@ -42,7 +42,7 @@
   }
 
   &:is(.btn-danger):not(.btn-reset):focus {
-    @include gl-focus-mouse($color: $red-600);
+    @include gl-focus-mouse($color: rgba($red-600, 0.5));
   }
 
   &:focus-visible {
