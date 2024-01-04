@@ -1,3 +1,10 @@
+# [72.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.3.1...v72.4.0) (2024-01-04)
+
+
+### Features
+
+* **css:** Add md row-reverse utility class ([b1c1c1c](https://gitlab.com/gitlab-org/gitlab-ui/commit/b1c1c1ca67a5bf45672497ebd1084b6e94ae7043))
+
 ## [72.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.3.0...v72.3.1) (2024-01-03)
 
 
