@@ -2,8 +2,7 @@
  * Button-specific utilities
  */
 @mixin gl-tmp-button-hover($border-color, $background-color) {
-  box-shadow: inset 0 0 0 $gl-border-size-1 $border-color,
-    0 $gl-border-size-1 $gl-border-size-1 0 rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 0 0 $gl-border-size-1 $border-color;
   background: $background-color;
 }
 
