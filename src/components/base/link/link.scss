@@ -1,7 +1,7 @@
 .gl-link {
   @include gl-text-blue-500;
   text-decoration-color: transparent;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
   text-decoration-style: solid;
   border-radius: 2px;
   transition-timing-function: $gl-easing-default;
@@ -11,7 +11,7 @@
   &:hover {
     @include gl-text-blue-500;
     text-decoration-color: $blue-200;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 2px;
     text-decoration-style: solid;
   }
 
