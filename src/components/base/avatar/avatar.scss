@@ -3,13 +3,12 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
 
 @mixin gl-avatar {
   @include gl-display-inline-flex;
-  @include gl-border-1;
-  @include gl-border-solid;
-  @include gl-border-gray-a-08;
   @include gl-overflow-hidden;
   @include gl-flex-shrink-0;
   @include gl-line-height-ratio-1000;
   @include gl-object-fit-contain;
+  outline: 1px solid var(--t-gray-a-08, #{$t-gray-a-08});
+  outline-offset: -1px;
 }
 
 @mixin gl-avatar-s16 {

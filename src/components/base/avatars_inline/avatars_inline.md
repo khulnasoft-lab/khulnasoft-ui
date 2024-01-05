@@ -35,4 +35,4 @@ when avatars are collapsed for screen reader users.
 
 ### Supported sizes
 
-`<avatars-inline>` only supports avatars with `24` or `32` size.
+`<avatars-inline>` supports avatars with `16`, `24`, or `32` size.
