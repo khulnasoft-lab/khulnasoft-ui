@@ -4,36 +4,49 @@ $label-close-button: '.gl-label-close.gl-button';
 .gl-label {
   @include gl-align-items-center;
   @include gl-bg-white;
-  @include gl-overflow-hidden;
   @include gl-display-inline-flex;
   @include gl-rounded-pill;
   @include gl-relative;
   @include gl-max-w-full;
   @include gl-font-base;
-  box-shadow: var(--label-inset-border) !important;
+  transition-timing-function: $gl-easing-out-cubic;
+  transition-duration: $gl-timing-200;
+  transition-property: outline, color, box-shadow, background-color;
+
+  &:hover {
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--label-background-color), black 16%);
+  }
 
   &:not(.gl-label-scoped) {
     background-color: var(--label-background-color);
   }
 
   &:focus-within {
-    @include gl-focus($color: var(--label-background-color), $important: true);
+    @include gl-focus-mouse($color: var(--label-background-color));
   }
 
   .gl-label-link {
     @include gl-line-height-normal;
     @include gl-display-flex;
     @include gl-font-sm;
+    @include gl-rounded-pill;
     @include gl-font-weight-normal;
     @include gl-overflow-hidden;
     @include gl-reset-color;
     @include gl-max-w-full;
+    transition-timing-function: $gl-easing-out-cubic;
+    transition-duration: $gl-timing-200;
+    transition-property: outline, color, box-shadow, background-color;
 
     &:focus,
     &:hover {
       @include gl-reset-color;
       @include gl-shadow-none;
-      @include gl-outline-none;
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
     }
   }
 
@@ -66,9 +79,12 @@ $label-close-button: '.gl-label-close.gl-button';
       }
     }
 
-    &:focus,
-    &:active {
-      @include gl-focus;
+    &:focus {
+      @include gl-focus-mouse;
+    }
+
+    &:focus-visible {
+      @include gl-focus-keyboard;
     }
 
     .gl-icon {
