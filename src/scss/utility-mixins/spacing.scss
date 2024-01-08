@@ -198,6 +198,10 @@
   padding-left: $gl-spacing-scale-11-5;
 }
 
+@mixin gl-pl-12 {
+  padding-left: $gl-spacing-scale-12;
+}
+
 @mixin gl-pt-0 {
   padding-top: 0;
 }
