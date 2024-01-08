@@ -81,6 +81,8 @@
 ) {
   @if $color {
     outline-color: $color;
+  } @else if $small {
+    outline-color: rgba($blue-400, 1);
   } @else {
     outline-color: rgba($blue-400, 0.5);
   }

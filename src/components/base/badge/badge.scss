@@ -38,7 +38,7 @@
       // Needed to override bootstrap's badge variant background
       background-color: $bg;
       box-shadow: none;
-      @include gl-focus-mouse($color: $bg);
+      @include gl-focus-mouse($color: $border-color, $small: true);
 
       .gl-badge-icon {
         color: $hover-icon-color;

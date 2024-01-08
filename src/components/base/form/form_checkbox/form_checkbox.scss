@@ -69,7 +69,7 @@
 
     .custom-control-input:not(:disabled):focus ~ .custom-control-label {
       &::before {
-        @include gl-focus-mouse;
+        @include gl-focus-mouse($small: true);
         box-shadow: none;
       }
     }
