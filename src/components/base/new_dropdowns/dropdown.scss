@@ -42,6 +42,10 @@
     @include gl-py-2;
     @include gl-list-style-none;
 
+    &:focus-visible {
+      @include gl-focus;
+    }
+
     ul {
       @include gl-list-style-none;
     }

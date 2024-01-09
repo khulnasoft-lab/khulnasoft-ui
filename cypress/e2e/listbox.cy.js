@@ -207,4 +207,30 @@ describe('GlCollapsibleListbox', () => {
       });
     }
   );
+
+  describe('stories', () => {
+    function checkA11ySearchableListboxOpened() {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
+        story: 'searchable',
+      });
+
+      cy.glCheckA11y();
+    }
+
+    function checkA11ySearchableListboxClosed() {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
+        story: 'searchable',
+        args: {
+          startOpened: false,
+        },
+      });
+
+      cy.glCheckA11y();
+    }
+
+    it('passes axe accessbility audits', { tags: '@a11y' }, () => {
+      checkA11ySearchableListboxOpened();
+      checkA11ySearchableListboxClosed();
+    });
+  });
 });
