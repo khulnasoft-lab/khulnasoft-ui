@@ -290,9 +290,11 @@ export default {
   },
   mounted() {
     this.checkToggleFocusable();
+    window.addEventListener('keydown', this.handleKeyDown);
   },
   beforeDestroy() {
     this.stopFloating();
+    window.removeEventListener('keydown', this.handleKeyDown);
   },
   methods: {
     checkToggleFocusable() {
@@ -426,6 +428,12 @@ export default {
       const scrollableAreaBoundingBox = scrollableArea.getBoundingClientRect();
       this.nonScrollableContentHeight =
         floatingElementBoundingBox.height - scrollableAreaBoundingBox.height;
+    },
+    handleKeyDown(e) {
+      console.log('element contains event:', this.$el.contains(e.target));
+      if (!this.$el.contains(e.target)) {
+        this.close(e);
+      }
     },
   },
 };
