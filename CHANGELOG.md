@@ -1,3 +1,15 @@
+# [72.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.4.0...v72.5.0) (2024-01-09)
+
+
+### Bug Fixes
+
+* **deps:** upgrade `@floating-ui/dom` to v1.4.3 ([e04286a](https://gitlab.com/gitlab-org/gitlab-ui/commit/e04286a6783591247f4ea4f75d73a54cb6d2bfd0))
+
+
+### Features
+
+* **CSS:** add `gl-md-h-9` and `gl-pl-12` utility CSS classes ([c98b325](https://gitlab.com/gitlab-org/gitlab-ui/commit/c98b325805ae96a60032a7f46333d081ad4dc5a4))
+
 # [72.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.3.1...v72.4.0) (2024-01-04)
 
 
