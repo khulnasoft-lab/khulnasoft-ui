@@ -89,14 +89,6 @@
       }
     }
 
-    &:focus {
-      @include gl-bg-gray-50;
-
-      .gl-icon {
-        @include gl-text-gray-700;
-      }
-    }
-
     &:active,
     &.active {
       @include gl-bg-gray-100;
@@ -155,10 +147,6 @@
       @include gl-tmp-button-hover($blue-800, $blue-600);
     }
 
-    &:focus {
-      @include gl-bg-blue-600;
-    }
-
     &:active,
     &.active {
       @include gl-bg-blue-700;
@@ -179,11 +167,6 @@
       @include gl-tmp-button-hover($blue-700, $blue-50);
     }
 
-    &:focus {
-      @include gl-text-blue-700;
-      @include gl-bg-blue-50;
-    }
-
     &:active,
     &.active {
       @include gl-text-blue-900;
@@ -197,10 +180,6 @@
 
     &:hover {
       @include gl-tmp-button-hover($green-800, $green-600);
-    }
-
-    &:focus {
-      @include gl-bg-green-600;
     }
 
     &:active,
@@ -221,11 +200,6 @@
       @include gl-tmp-button-hover($green-700, $green-50);
     }
 
-    &:focus {
-      @include gl-text-green-700;
-      @include gl-bg-green-50;
-    }
-
     &:active,
     &.active {
       @include gl-text-green-900;
@@ -239,10 +213,6 @@
 
     &:hover {
       @include gl-tmp-button-hover($red-800, $red-600);
-    }
-
-    &:focus {
-      @include gl-bg-red-600;
     }
 
     &:active,
@@ -261,11 +231,6 @@
     &:hover {
       @include gl-text-red-700;
       @include gl-tmp-button-hover($red-700, $red-50);
-    }
-
-    &:focus {
-      @include gl-text-red-700;
-      @include gl-bg-red-50;
     }
 
     &:active,
@@ -360,9 +325,7 @@
   }
 
   &.btn-label,
-  &.btn-label:hover,
-  &.btn-label:focus,
-  &.btn-label:active {
+  &.btn-label:hover {
     @include gl-bg-gray-10;
     @include gl-text-gray-900;
     @include gl-fill-current-color;
@@ -380,10 +343,19 @@
     @include gl-py-0;
     @include gl-px-0;
     @include gl-shadow-none;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-decoration-style: solid;
+    border-radius: 2px;
+    transition-timing-function: $gl-easing-default;
+    transition-duration: $gl-timing-200;
+    transition-property: outline, color, text-decoration-color;
 
-    &:hover {
-      @include gl-bg-transparent;
+    &:hover, &:hover:focus {
       @include gl-text-blue-500;
+      text-decoration-color: $blue-200;
+      text-decoration-thickness: 2px;
+      text-decoration-style: solid;
     }
 
     &:active {
@@ -391,6 +363,7 @@
       @include gl-text-decoration-underline;
     }
 
+    &:hover,
     &:active,
     &:focus,
     &:focus:active {

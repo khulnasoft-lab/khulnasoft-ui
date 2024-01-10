@@ -67,6 +67,12 @@
       }
     }
 
+    .custom-control-input:not(:disabled):hover ~ .custom-control-label {
+      &::before {
+        @include gl-border-blue-500;
+      }
+    }
+
     .custom-control-input:not(:disabled):focus ~ .custom-control-label {
       &::before {
         @include gl-focus-mouse($small: true);

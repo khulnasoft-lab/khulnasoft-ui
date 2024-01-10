@@ -15,7 +15,7 @@
   transition-duration: $gl-timing-200;
   transition-property: box-shadow;
 
-  &:focus-within {
+  &:focus-within, &:hover {
     @include gl-inset-border-1-blue-500;
   }
 

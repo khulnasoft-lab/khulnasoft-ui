@@ -28,6 +28,10 @@
     @include gl-text-gray-900;
   }
 
+  &:hover {
+    @include gl-inset-border-1-blue-600;
+  }
+
   &:focus {
     @include gl-focus-mouse;
     @include gl-inset-border-1-blue-500;
