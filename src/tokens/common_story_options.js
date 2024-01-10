@@ -89,7 +89,7 @@ export const template = `
         <code class="gl-reset-color">{{ token.$value }}</code>
         <code
           v-if="!isAlpha(token.$value)"
-          class="gl-w-10 gl-text-center gl-rounded-base gl-font-xs gl-p-2 gl-bg-gray-900"
+          class="gl-w-10 gl-text-center gl-rounded-base gl-font-xs gl-p-2 gl-bg-gray-950"
           :class="getColorContrastClass('dark', token.$value)"
         >
           {{ getColorContrast('dark', token.$value).level.grade }}
