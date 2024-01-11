@@ -831,7 +831,7 @@ export default {
       role="listbox"
       class="gl-new-dropdown-contents gl-new-dropdown-contents-with-scrim-overlay"
       :class="listboxClasses"
-      tabindex="-1"
+      tabindex="0"
       @keydown="onKeydown"
     >
       <component :is="itemTag" class="top-scrim-wrapper" aria-hidden="true" data-testid="top-scrim">
