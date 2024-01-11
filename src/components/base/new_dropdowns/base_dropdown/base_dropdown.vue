@@ -382,11 +382,23 @@ export default {
       }
       this.toggle(event);
     },
+    /**
+     * Closes the dropdown and returns the focus to the toggle unless it has has moved outside
+     * of the dropdown, meaning that the consumer needed to put some other element in focus.
+     *
+     * @param {KeyboardEvent?} event The keyboard event that caused the dropdown to close.
+     */
     async closeAndFocus(event) {
       if (!this.visible) {
         return;
       }
+
       const hasToggled = await this.toggle(event);
+
+      if (!this.$el.contains(document.activeElement)) {
+        return;
+      }
+
       if (hasToggled) {
         this.focusToggle();
       }
