@@ -100,6 +100,7 @@ export default {
     <component :is="headerComponent" class="gl-accordion-item-header" :class="headerClass">
       <gl-button
         v-gl-collapse-toggle="accordionItemId"
+        aria-controls="accordionItemId"
         variant="link"
         button-text-classes="gl-display-flex"
         :icon="icon"
@@ -110,9 +111,10 @@ export default {
     <b-collapse
       :id="accordionItemId"
       v-model="isVisible"
+      :aria-expanded="isVisible"
       :visible="isVisible"
       :accordion="accordion"
-      class="gl-accordion-item-body"
+      class="gl-mt-0 gl-font-base"
       :data-testid="`accordion-item-collapse-${accordionItemId}`"
     >
       <!-- @slot Item content -->

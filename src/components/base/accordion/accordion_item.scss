@@ -4,11 +4,6 @@
     @include gl-line-height-normal;
   }
 
-  .gl-accordion-item-body {
-    @include gl-mt-0;
-    @include gl-font-base;
-  }
-
   .collapse {
     margin-left: $gl-spacing-scale-5 + $gl-spacing-scale-2;
   }
