@@ -91,7 +91,7 @@ export default {
       default: null,
     },
     /**
-     * HTML attributes to add to the text input. Helpful for adding `data-testid` and `data-qa-selector` attributes
+     * HTML attributes to add to the text input. Helpful for adding `data-testid` attributes
      */
     textInputAttrs: {
       type: Object,

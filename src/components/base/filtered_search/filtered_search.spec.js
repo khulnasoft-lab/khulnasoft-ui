@@ -466,7 +466,7 @@ describe('Filtered search', () => {
   });
 
   it('passes `searchButtonAttributes` prop to `GlSearchBoxByClick`', () => {
-    const searchButtonAttributes = { 'data-qa-selector': 'foo-bar' };
+    const searchButtonAttributes = { 'data-prop': 'foo-bar' };
 
     createComponent({ searchButtonAttributes });
 
@@ -474,7 +474,7 @@ describe('Filtered search', () => {
   });
 
   it('passes `searchInputAttributes` prop to search term', async () => {
-    const searchInputAttributes = { 'data-qa-selector': 'foo-bar' };
+    const searchInputAttributes = { 'data-prop': 'foo-bar' };
 
     createComponent({
       value: ['one'],

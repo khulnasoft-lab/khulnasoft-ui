@@ -15,7 +15,7 @@ const pointerClass = 'gl-cursor-pointer';
 describe('Filtered search term', () => {
   let wrapper;
 
-  const searchInputAttributes = { 'data-qa-selector': 'foo-bar' };
+  const searchInputAttributes = { 'data-testid': 'foo-bar', 'data-prop': 'foo-property' };
 
   const defaultProps = {
     availableTokens: [],
@@ -182,9 +182,7 @@ describe('Filtered search term', () => {
       searchInputAttributes,
     });
 
-    expect(findSearchInput().attributes('data-qa-selector')).toBe(
-      searchInputAttributes['data-qa-selector']
-    );
+    expect(findSearchInput().attributes('data-prop')).toBe(searchInputAttributes['data-prop']);
   });
 
   it('activates and deactivates when the input is focused/blurred', async () => {

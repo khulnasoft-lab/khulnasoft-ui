@@ -87,7 +87,7 @@ describe('GlFormCheckboxTree', () => {
   const findCheckboxes = (el = wrapper) => el.findAllComponents(GlFormCheckbox);
   const countIndeterminate = () => wrapper.findAll('.js-is-indeterminate').length || 0;
   const countChecked = () => wrapper.findAll('.js-is-checked').length || 0;
-  const findCheckboxByValue = (value) => wrapper.find(`[data-qa-selector="${QA_PREFIX}${value}"]`);
+  const findCheckboxByValue = (value) => wrapper.find(`[data-testid="${QA_PREFIX}${value}"]`);
   const getCheckboxesCount = (el) => findCheckboxes(el).length;
   const findCheckboxInput = (checkbox) => checkbox.find('input[type="checkbox"]');
   const expectCheckboxUnchecked = (checkbox) => {
@@ -152,7 +152,7 @@ describe('GlFormCheckboxTree', () => {
 
     beforeEach(async () => {
       createWrapper({ options: getOptions(shape) });
-      checkbox = wrapper.find(`[data-qa-selector="${QA_PREFIX}${boxToCheck}"]`);
+      checkbox = wrapper.find(`[data-testid="${QA_PREFIX}${boxToCheck}"]`);
       await checkbox.find('input').setChecked();
     });
 
