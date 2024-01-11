@@ -1,3 +1,10 @@
+# [72.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.5.2...v72.6.0) (2024-01-11)
+
+
+### Features
+
+* **Avatar:** Update design and stacks ([cd50241](https://gitlab.com/gitlab-org/gitlab-ui/commit/cd5024198711608554a78eb918604ab72735367b))
+
 ## [72.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.5.1...v72.5.2) (2024-01-11)
 
 
