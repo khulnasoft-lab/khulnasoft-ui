@@ -1,3 +1,10 @@
+## [72.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.5.0...v72.5.1) (2024-01-11)
+
+
+### Bug Fixes
+
+* **DesignTokens:** use gray-950 for dark color contrast background ([58dc59c](https://gitlab.com/gitlab-org/gitlab-ui/commit/58dc59c59ab5e49f5d84b2fb69d9ae0594ff5b31))
+
 # [72.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.4.0...v72.5.0) (2024-01-09)
 
 
