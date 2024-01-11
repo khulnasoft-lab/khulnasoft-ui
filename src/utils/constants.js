@@ -69,7 +69,7 @@ export const labelColorOptions = {
 
 export const avatarSizeOptions = [96, 64, 48, 32, 24, 16];
 
-export const avatarsInlineSizeOptions = [32, 24];
+export const avatarsInlineSizeOptions = [32, 24, 16];
 
 export const avatarShapeOptions = {
   circle: 'circle',

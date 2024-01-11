@@ -1,28 +1,64 @@
 .gl-avatars-inline {
+  // Set a default and get the radius
+  --avatar-size: 24px;
+  --avatar-radius: calc(var(--avatar-size) * 0.5);
+  // Position the mask
+  --mask-offset: calc(var(--avatar-size) * -0.25);
+  // Mask size plus border cutout effect
+  --mask-cutout: calc(var(--avatar-radius) + 1.5px);
+
+  @include gl-display-inline-flex;
+}
+
+.gl-avatars-inline-sm {
+  --avatar-size: 16px;
+}
+
+.gl-avatars-inline-md {
+  --avatar-size: 24px;
+}
+
+.gl-avatars-inline-lg {
+  --avatar-size: 32px;
+}
+
+.gl-avatars-inline-child {
   @include gl-display-inline-flex;
 
-  &-child {
-    @include gl-display-inline-flex;
+  // Don't include the badge
+  &:not(:last-child) {
+    margin-right: var(--mask-offset);
+    mask: radial-gradient(circle at calc(var(--avatar-size) * 1.25) center, transparent var(--mask-cutout), white 0);
 
-    &:not(:last-child) {
-      @include gl-mr-3;
+    &:hover+.gl-avatars-inline-child>.gl-avatar-link,
+    &:hover+.gl-avatars-inline-child>.gl-avatars-inline-badge {
+      mask: radial-gradient(circle at var(--mask-offset) center, transparent var(--mask-cutout), white 0);
     }
   }
 
-  &-badge {
-    @include gl-bg-gray-100;
-    @include gl-text-gray-900;
-    @include gl-font-sm;
-    @include gl-py-2;
-    @include gl-px-3;
-    @include gl-line-height-normal;
-    @include gl-rounded-pill;
-    @include gl-font-weight-bold;
+  // Remove mask on hovered or focused avatar and bring it forward
+  &:not(:last-child):hover,
+  &:not(:last-child):focus-within {
+    @include gl-z-index-1;
+    mask: none;
+  }
+}
 
-    &.lg {
-      @include gl-font-base;
-      @include gl-p-3;
-      @include gl-rounded-full;
-    }
+.gl-avatars-inline-badge {
+  @include gl-display-inline-flex;
+  @include gl-align-items-center;
+  @include gl-justify-content-center;
+  @include gl-bg-gray-100;
+  @include gl-text-gray-900;
+  @include gl-font-sm;
+  @include gl-px-2;
+  @include gl-line-height-normal;
+  @include gl-rounded-pill;
+  height: var(--avatar-size);
+  min-width: var(--avatar-size);
+  
+  &.lg {
+    @include gl-font-base;
+    @include gl-rounded-6;
   }
 }

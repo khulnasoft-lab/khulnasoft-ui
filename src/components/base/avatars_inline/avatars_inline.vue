@@ -56,7 +56,13 @@ export default {
       return this.collapsed ? this.avatars.slice(0, this.maxVisible) : this.avatars;
     },
     badgeSize() {
-      return this.avatarSize === 24 ? 'md' : 'lg';
+      return (
+        {
+          16: 'sm',
+          24: 'md',
+          32: 'lg',
+        }[this.avatarSize] || 'lg'
+      );
     },
     badgeLabel() {
       return `+${this.hiddenAvatars.length}`;
@@ -77,42 +83,16 @@ export default {
         : tooltipTitle;
     },
   },
-  methods: {
-    calcAvatarStyles(avatarIndex) {
-      // According to pajamas, overlap is 25% of the avatar height
-      const overlap = this.avatarSize * 0.25;
-
-      const marginRight =
-        avatarIndex === this.maxVisible ||
-        avatarIndex === this.avatars.length - 1 ||
-        !this.collapsed
-          ? undefined
-          : `-${overlap}px`;
-
-      return {
-        marginRight,
-      };
-    },
-  },
 };
 </script>
 <template>
-  <div class="gl-avatars-inline">
-    <div
-      v-for="(avatar, index) in visibleAvatars"
-      :key="index"
-      class="gl-avatars-inline-child"
-      :style="calcAvatarStyles(index)"
-    >
+  <div class="gl-avatars-inline" :class="`gl-avatars-inline-${badgeSize}`">
+    <div v-for="(avatar, index) in visibleAvatars" :key="index" class="gl-avatars-inline-child">
       <slot name="avatar" :avatar="avatar">
         <gl-avatar v-bind="avatar" :size="avatarSize" />
       </slot>
     </div>
-    <div
-      v-if="collapsed && collapsable"
-      class="gl-avatars-inline-child"
-      :style="calcAvatarStyles(visibleAvatars.length)"
-    >
+    <div v-if="collapsed && collapsable" class="gl-avatars-inline-child">
       <gl-tooltip v-if="badgeTooltipProp" :target="() => $refs.badge">
         {{ badgeTooltipTitle }}
       </gl-tooltip>
