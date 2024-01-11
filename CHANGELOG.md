@@ -1,3 +1,10 @@
+## [72.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.5.1...v72.5.2) (2024-01-11)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** Makes scrollable region focusable ([1fdbb47](https://gitlab.com/gitlab-org/gitlab-ui/commit/1fdbb475c23013b6f0acf44ef9442247bb9ec164))
+
 ## [72.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.5.0...v72.5.1) (2024-01-11)
 
 
