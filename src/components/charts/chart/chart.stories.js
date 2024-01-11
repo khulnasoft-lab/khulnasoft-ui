@@ -95,9 +95,7 @@ export const Connected = Template.bind(
       `,
   }
 );
-Connected.parameters = {
-  storyshots: { disable: true },
-};
+Connected.tags = ['skip-visual-test'];
 
 export default {
   title: 'charts/chart',

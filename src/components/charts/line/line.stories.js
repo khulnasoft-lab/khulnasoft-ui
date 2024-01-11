@@ -213,9 +213,7 @@ export const WithCustomTooltip = (_args, { argTypes }) => ({
   `),
 });
 WithCustomTooltip.args = generateProps();
-WithCustomTooltip.parameters = {
-  storyshots: { disable: true },
-};
+WithCustomTooltip.tags = ['skip-visual-test'];
 
 export default {
   title: 'charts/line-chart',

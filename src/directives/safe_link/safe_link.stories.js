@@ -28,8 +28,8 @@ Default.args = generateProps();
 export default {
   title: 'directives/safe-link-directive',
   component: SafeLink,
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,

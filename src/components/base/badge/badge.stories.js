@@ -44,9 +44,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = generateProps();
-Default.parameters = {
-  storyshots: { disable: true },
-};
+Default.tags = ['skip-visual-test'];
 
 export const Variants = (args, { argTypes }) => ({
   components: { GlBadge },
@@ -95,9 +93,7 @@ Actionable.args = generateProps({
   href: '#foo',
   variant: badgeVariantOptions.warning,
 });
-Actionable.parameters = {
-  storyshots: { disable: true },
-};
+Actionable.tags = ['skip-visual-test'];
 Actionable.argTypes = disableControls(['content', 'variant']);
 
 export const Sizes = (args, { argTypes }) => ({

@@ -225,9 +225,7 @@ export const WithScrollAndGrowing = (_args, { argTypes }) => ({
   },
   template: '<scrollable-tabs-generator :count="count" />',
 });
-WithScrollAndGrowing.parameters = {
-  storyshots: { disable: true },
-};
+WithScrollAndGrowing.tags = ['skip-visual-test'];
 
 export default {
   title: 'base/tabs',

@@ -98,8 +98,8 @@ Slots.parameters = { controls: { disable: true } };
 export default {
   title: 'experimental/duo/duo-user-feedback',
   component: GlDuoUserFeedback,
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,

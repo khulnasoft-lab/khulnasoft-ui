@@ -20,9 +20,7 @@ export const Default = () => ({
   template: `<gl-button v-outside="onClick">Clicks outside me: {{ clicks }}</gl-button>`,
 });
 
-Default.parameters = {
-  storyshots: { disable: true },
-};
+Default.tags = ['skip-visual-test'];
 
 export default {
   title: 'directives/outside-directive',

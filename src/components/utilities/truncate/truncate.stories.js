@@ -27,8 +27,8 @@ Default.args = generateProps();
 export default {
   title: 'utilities/truncate',
   component: GlTruncate,
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,

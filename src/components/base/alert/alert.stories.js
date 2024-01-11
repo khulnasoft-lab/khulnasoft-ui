@@ -81,9 +81,7 @@ export const CustomActions = () => ({
       </template>
     </gl-alert>`,
 });
-CustomActions.parameters = {
-  storyshots: { disable: true },
-};
+CustomActions.tags = ['skip-visual-test'];
 
 export const TextLinks = () => ({
   components: { GlAlert },
@@ -92,9 +90,7 @@ export const TextLinks = () => ({
       Lorem ipsum dolor sit <a class="gl-link" href="#">text link</a> amet
     </gl-alert>`,
 });
-TextLinks.parameters = {
-  storyshots: { disable: true },
-};
+TextLinks.tags = ['skip-visual-test'];
 
 export const NoIcon = () => ({
   components: { GlAlert },
@@ -103,9 +99,7 @@ export const NoIcon = () => ({
       Lorem ipsum dolor sit amet
     </gl-alert>`,
 });
-NoIcon.parameters = {
-  storyshots: { disable: true },
-};
+NoIcon.tags = ['skip-visual-test'];
 
 export const Variants = () => ({
   components: { GlAlert },
@@ -126,9 +120,7 @@ export const Variants = () => ({
     </gl-alert>
   </div>`,
 });
-Variants.parameters = {
-  storyshots: { disable: true },
-};
+Variants.tags = ['skip-visual-test'];
 
 export const Sticky = () => ({
   components: { GlAlert },

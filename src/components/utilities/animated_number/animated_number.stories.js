@@ -72,4 +72,5 @@ export default {
     },
   },
   argTypes: {},
+  tags: ['skip-visual-test'],
 };

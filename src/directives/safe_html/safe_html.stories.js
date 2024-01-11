@@ -49,8 +49,8 @@ Default.args = generateProps();
 export default {
   title: 'directives/safe-html-directive',
   component: GlSafeHtml,
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,

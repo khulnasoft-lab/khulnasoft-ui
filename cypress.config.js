@@ -2,6 +2,7 @@ const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   defaultCommandTimeout: 10000,
+  exclude: ['**/test-runner.ts'],
   env: {
     // Use by the @cypress/grep package
     // https://github.com/cypress-io/cypress/tree/develop/npm/grep#pre-filter-specs-grepfilterspecs

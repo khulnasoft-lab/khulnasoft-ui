@@ -35,7 +35,7 @@ Object.assign(SentenceWithLink, {
   args: generateProps({
     message: 'Click %{linkStart}here%{linkEnd} to reticulate splines.',
   }),
-  parameters: { storyshots: { disable: true } },
+  tags: ['skip-visual-test'],
 });
 
 export const SentenceWithLinkWithCustomPlaceholders = makeStory({
@@ -54,7 +54,7 @@ Object.assign(SentenceWithLinkWithCustomPlaceholders, {
     message: 'Click %{my_custom_start}here%{my_custom_end} to reticulate splines.',
     placeholders: { link: ['my_custom_start', 'my_custom_end'] },
   }),
-  parameters: { storyshots: { disable: true } },
+  tags: ['skip-visual-test'],
 });
 
 export const BasicPlaceholder = makeStory({
@@ -71,7 +71,7 @@ export const BasicPlaceholder = makeStory({
 });
 Object.assign(BasicPlaceholder, {
   args: generateProps(),
-  parameters: { storyshots: { disable: true } },
+  tags: ['skip-visual-test'],
 });
 
 export const BasicButtonPlaceholder = makeStory({
@@ -88,7 +88,7 @@ export const BasicButtonPlaceholder = makeStory({
 });
 Object.assign(BasicButtonPlaceholder, {
   args: generateProps(),
-  parameters: { storyshots: { disable: true } },
+  tags: ['skip-visual-test'],
 });
 
 export default {

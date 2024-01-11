@@ -74,9 +74,7 @@ export const OnClick = (_args, { viewMode, argTypes }) => ({
 OnClick.args = generateProps({
   triggers: 'click',
 });
-OnClick.parameters = {
-  storyshots: { disable: true },
-};
+OnClick.tags = ['skip-visual-test'];
 
 export default {
   title: 'base/popover',

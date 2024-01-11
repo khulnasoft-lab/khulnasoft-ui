@@ -40,8 +40,8 @@ Default.args = generateProps();
 export default {
   title: 'directives/hover-load-directive',
   component: GlHoverLoadDirective,
+  tags: ['skip-visual-test'],
   parameters: {
-    storyshots: { disable: true },
     docs: {
       description: {
         component: readme,
