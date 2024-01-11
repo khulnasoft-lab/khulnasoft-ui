@@ -36,7 +36,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="gl-accordion">
     <!-- @slot `GLAccordionItem`s list -->
     <slot></slot>
   </div>
