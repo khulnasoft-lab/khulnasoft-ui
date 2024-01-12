@@ -131,7 +131,6 @@ export default {
         v-if="svgPath"
         :src="svgPath"
         alt=""
-        role="img"
         :class="{ 'gl-dark-invert-keep-hue': invertInDarkMode }"
         class="gl-max-w-full"
         :height="height"
