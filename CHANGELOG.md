@@ -1,3 +1,15 @@
+# [72.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.6.0...v72.7.0) (2024-01-14)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** remove incorrect role from img ([9e5d86f](https://gitlab.com/gitlab-org/gitlab-ui/commit/9e5d86f9c9cbeaae2f7c179f56dbbbab633890e1))
+
+
+### Features
+
+* **css:** adds gl-max-w-12 utility class ([58254e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/58254e6458e2efc8e0f9c74a80bc9d90396b5404))
+
 # [72.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.5.2...v72.6.0) (2024-01-11)
 
 
