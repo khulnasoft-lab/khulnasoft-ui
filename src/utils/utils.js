@@ -182,5 +182,5 @@ export function stopEvent(
  * Return an Array of visible items
  */
 export function filterVisible(els) {
-  return (els || []).filter(isVisible);
+  return (els || []).filter((el) => isVisible(el));
 }

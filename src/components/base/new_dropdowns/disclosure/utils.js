@@ -9,8 +9,10 @@ const isGroup = (group) =>
   Boolean(group) &&
   Array.isArray(group.items) &&
   Boolean(group.items.length) &&
+  // eslint-disable-next-line unicorn/no-array-callback-reference
   group.items.every(isItem);
 
+// eslint-disable-next-line unicorn/no-array-callback-reference
 const itemsValidator = (items) => items.every(isItem) || items.every(isGroup);
 
 const isListItem = (tag) =>

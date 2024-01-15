@@ -59,6 +59,7 @@ describe('Filtered search', () => {
   describe('value manipulation', () => {
     it('creates term when empty', () => {
       createComponent();
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input[0][0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
       ]);
@@ -202,6 +203,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: 'faketoken', value: { data: '' } },
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
@@ -220,6 +222,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
@@ -335,6 +338,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
       ]);
@@ -348,6 +352,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: 'faketoken', value: { data: 'test' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
@@ -369,6 +374,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: 'faketoken', value: { data: 'test' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
@@ -382,6 +388,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: '' } },
@@ -398,6 +405,7 @@ describe('Filtered search', () => {
       await nextTick();
 
       expect(wrapper.findAllComponents(GlFilteredSearchTerm).at(2).props('active')).toBe(true);
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: 'two' } },
@@ -415,6 +423,7 @@ describe('Filtered search', () => {
 
       await nextTick();
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(wrapper.emitted().input.pop()[0].map(stripId)).toStrictEqual([
         { type: TERM_TOKEN_TYPE, value: { data: 'one' } },
         { type: TERM_TOKEN_TYPE, value: { data: 'foo' } },
@@ -445,6 +454,7 @@ describe('Filtered search', () => {
     });
     wrapper.findComponent(GlFilteredSearchTerm).vm.$emit('submit');
     expect(wrapper.emitted('submit')).toBeDefined();
+    // eslint-disable-next-line unicorn/no-array-callback-reference
     expect(wrapper.emitted().submit[0][0].map(stripId)).toStrictEqual([
       'one two',
       { type: 'faketoken', value: { data: 'smth' } },
@@ -505,6 +515,7 @@ describe('Filtered search', () => {
     });
     await nextTick();
 
+    // eslint-disable-next-line unicorn/no-array-callback-reference
     expect(wrapper.findComponent(GlFilteredSearchTerm).props('currentValue').map(stripId)).toEqual([
       { type: 'filtered-search-term', value: { data: 'one' } },
       { type: 'filtered-search-term', value: { data: '' } },

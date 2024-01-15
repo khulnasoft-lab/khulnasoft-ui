@@ -108,6 +108,7 @@ export default {
         });
       }
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       return tokens.map(tokenToOption);
     },
     internalValue: {

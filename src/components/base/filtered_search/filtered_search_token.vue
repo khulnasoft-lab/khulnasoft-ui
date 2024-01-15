@@ -109,6 +109,7 @@ export default {
 
     availableTokensWithSelf() {
       return [this.config, ...this.availableTokens.filter((token) => token !== this.config)].map(
+        // eslint-disable-next-line unicorn/no-array-callback-reference
         tokenToOption
       );
     },
