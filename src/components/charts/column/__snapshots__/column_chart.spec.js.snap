@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`column chart component should correctly render the chart 1`] = `
+exports[`column chart component mounted should correctly render the chart 1`] = `
 Object {
   "grid": Object {
     "bottom": 44,

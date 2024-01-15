@@ -184,6 +184,21 @@ export default {
       v-on="$listeners"
       @created="onCreated"
     />
-    <chart-tooltip v-if="chart" :chart="chart" :use-default-tooltip-formatter="true" />
+    <chart-tooltip
+      v-if="chart"
+      ref="dataTooltip"
+      :chart="chart"
+      :use-default-tooltip-formatter="true"
+    >
+      <template v-if="$scopedSlots['tooltip-title']" #title="scope">
+        <slot name="tooltip-title" v-bind="scope"></slot>
+      </template>
+      <template v-if="$scopedSlots['tooltip-content']" #default="scope">
+        <slot name="tooltip-content" v-bind="scope"></slot>
+      </template>
+      <template v-if="$scopedSlots['tooltip-value']" #tooltip-value="scope">
+        <slot name="tooltip-value" v-bind="scope"></slot>
+      </template>
+    </chart-tooltip>
   </div>
 </template>
