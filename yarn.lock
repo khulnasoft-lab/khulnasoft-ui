@@ -1368,10 +1368,10 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.6.tgz#22958c042e10b67463997bd6ea7115fe28cbcaf9"
   integrity sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==
 
-"@gitlab/eslint-plugin@19.2.0":
-  version "19.2.0"
-  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-19.2.0.tgz#05f07a873af18c85b5668316409cd39256dc141f"
-  integrity sha512-6cTJoBHWZriOknaWwLzIpYKVX4ivCzO3MXKfXm310zHmtt1UK7tmq3JsyaS7Niw6/M19C2csgL+LedRJ88uZ0w==
+"@gitlab/eslint-plugin@19.4.0":
+  version "19.4.0"
+  resolved "https://registry.yarnpkg.com/@gitlab/eslint-plugin/-/eslint-plugin-19.4.0.tgz#cffabc4a41a3e15491eaee87f282fef05d244b87"
+  integrity sha512-hFchl6UdzoOTFFiTx8myoJxe5SZ43LeC/+Er9tmIZ8HX3OZ6SFHTHaz61g2g4vvcwVHDMaAd5ncB6RCshlgv2A==
   dependencies:
     eslint-config-airbnb-base "^15.0.0"
     eslint-config-prettier "^6.10.0"

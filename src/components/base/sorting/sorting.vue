@@ -34,6 +34,7 @@ export default {
       type: Array,
       required: false,
       default: null,
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       validator: (sortOptions) => sortOptions.every(isOption),
     },
     /**

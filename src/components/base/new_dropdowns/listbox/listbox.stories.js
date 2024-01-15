@@ -388,9 +388,13 @@ export const Groups = makeGroupedExample({
       const isSelected = (option) => this.selected.includes(option.value);
       const notSelected = (option) => !isSelected(option);
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       const selectedBranches = mockGroups[0].options.filter(isSelected);
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       const availableBranches = mockGroups[0].options.filter(notSelected);
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       const selectedTags = mockGroups[1].options.filter(isSelected);
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       const availableTags = mockGroups[1].options.filter(notSelected);
 
       return [

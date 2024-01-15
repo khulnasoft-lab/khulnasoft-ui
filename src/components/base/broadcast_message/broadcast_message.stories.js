@@ -69,6 +69,7 @@ const StackedStory = (args, { argTypes }) => ({
     GlBroadcastMessage,
   },
   props: Object.keys(argTypes),
+  // eslint-disable-next-line unicorn/no-array-callback-reference
   template: `<div>${Object.keys(colorThemes).map(templateWithTheme).join('')}</div>`,
 });
 export const Stacked = StackedStory.bind({});

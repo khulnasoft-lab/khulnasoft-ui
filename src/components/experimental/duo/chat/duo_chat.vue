@@ -62,6 +62,7 @@ export const slashCommands = [
 
 const isMessage = (item) => Boolean(item) && item?.role;
 
+// eslint-disable-next-line unicorn/no-array-callback-reference
 const itemsValidator = (items) => items.every(isMessage);
 
 export default {

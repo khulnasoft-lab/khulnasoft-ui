@@ -78,6 +78,7 @@ describe('GlFormFields', () => {
     };
   };
   const findFormGroups = () => wrapper.findAllComponents(GlFormGroup).wrappers;
+  // eslint-disable-next-line unicorn/no-array-callback-reference
   const findFormGroupsAsData = () => findFormGroups().map(mapFormGroupToData);
   const findFormGroupFromLabel = (label) =>
     wrapper.findAllComponents(GlFormGroup).wrappers.find((x) => x.attributes('label') === label);

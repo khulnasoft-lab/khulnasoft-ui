@@ -2,23 +2,19 @@
 <script>
 import Vue from 'vue';
 import { BDropdown } from 'bootstrap-vue';
-import { isVisible, selectAll } from 'bootstrap-vue/src/utils/dom';
+import { selectAll } from 'bootstrap-vue/src/utils/dom';
 import merge from 'lodash/merge';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../utils/constants';
+import { filterVisible } from '../../../utils/utils';
 import { ButtonMixin } from '../../mixins/button_mixin';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlDropdownDivider from './dropdown_divider.vue';
-
-// Return an Array of visible items
-function filterVisible(els) {
-  return (els || []).filter(isVisible);
-}
 
 const Selector = {
   ITEM_SELECTOR:
