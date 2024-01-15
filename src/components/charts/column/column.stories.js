@@ -7,7 +7,7 @@ import {
 } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';
 
-const template = `
+const template = (content = '') => `
   <gl-column-chart
     :bars="bars"
     :lines="lines"
@@ -18,7 +18,9 @@ const template = `
     :x-axis-title="xAxisTitle"
     :x-axis-type="xAxisType"
     :height="height"
-  />
+  >
+    ${content}
+  </gl-column-chart>
   `;
 
 const generateProps = ({
@@ -46,7 +48,7 @@ const generateProps = ({
 const Template = (args, { argTypes }) => ({
   components: { GlColumnChart },
   props: Object.keys(argTypes),
-  template,
+  template: template(),
 });
 
 export const Default = Template.bind({});
@@ -89,6 +91,19 @@ SecondaryYAxisLine.args = generateProps({
   secondaryData: mockSecondaryTrendlineData,
   secondaryDataTitle: 'New line data',
 });
+
+export const WithCustomTooltip = (args, { argTypes }) => ({
+  components: { GlColumnChart },
+  props: Object.keys(argTypes),
+  template: template(`
+    <template #tooltip-title="{ params }">Custom tooltip title: {{params && params.value}}</template>
+    <template #tooltip-content="{ params }">
+      <div v-for="p in params && params.seriesData">Wow so custom: {{p.seriesName}}: {{p.value[1]}}</div>
+    </template>
+  `),
+});
+WithCustomTooltip.args = generateProps();
+WithCustomTooltip.tags = ['skip-visual-test'];
 
 export default {
   title: 'charts/column-chart',
