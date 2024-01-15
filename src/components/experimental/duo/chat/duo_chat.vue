@@ -157,6 +157,30 @@ export default {
       required: false,
       default: true,
     },
+    /**
+     * Override the default empty state title text.
+     */
+    emptyStateTitle: {
+      type: String,
+      required: false,
+      default: i18n.CHAT_EMPTY_STATE_TITLE,
+    },
+    /**
+     * Override the default empty state description text.
+     */
+    emptyStateDescription: {
+      type: String,
+      required: false,
+      default: i18n.CHAT_EMPTY_STATE_DESC,
+    },
+    /**
+     * Override the default chat prompt placeholder text.
+     */
+    chatPromptPlaceholder: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -212,6 +236,10 @@ export default {
       return startsWithSlash && this.filteredSlashCommands.length && !startsWithSlashCommand;
     },
     inputPlaceholder() {
+      if (this.chatPromptPlaceholder) {
+        return this.chatPromptPlaceholder;
+      }
+
       return this.withSlashCommands
         ? i18n.CHAT_PROMPT_PLACEHOLDER_WITH_COMMANDS
         : i18n.CHAT_PROMPT_PLACEHOLDER_DEFAULT;
@@ -419,8 +447,8 @@ export default {
               <gl-empty-state
                 :svg-path="$options.emptySvg"
                 :svg-height="145"
-                :title="$options.i18n.CHAT_EMPTY_STATE_TITLE"
-                :description="$options.i18n.CHAT_EMPTY_STATE_DESC"
+                :title="emptyStateTitle"
+                :description="emptyStateDescription"
                 class="gl-align-self-center"
               />
             </div>

@@ -48,6 +48,9 @@ const generateProps = ({
   badgeType = defaultValue('badgeType'),
   toolName = defaultValue('toolName'),
   showHeader = defaultValue('showHeader'),
+  emptyStateTitle = defaultValue('emptyStateTitle'),
+  emptyStateDescription = defaultValue('emptyStateDescription'),
+  chatPromptPlaceholder = defaultValue('chatPromptPlaceholder'),
 } = {}) => ({
   title,
   messages,
@@ -60,6 +63,9 @@ const generateProps = ({
   toolName,
   slashCommands,
   showHeader,
+  emptyStateTitle,
+  emptyStateDescription,
+  chatPromptPlaceholder,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -81,6 +87,9 @@ export const Default = (args, { argTypes }) => ({
       :badge-type="badgeType"
       :tool-name="toolName"
       :show-header="showHeader"
+      :empty-state-title="emptyStateTitle"
+      :empty-state-description="emptyStateDescription"
+      :chat-prompt-placeholder="chatPromptPlaceholder"
     />`,
 });
 Default.args = generateProps({
@@ -176,6 +185,9 @@ export const Interactive = (args, { argTypes }) => ({
       :badge-type="badgeType"
       :tool-name="toolName"
       :show-header="showHeader"
+      :empty-state-title="emptyStateTitle"
+      :empty-state-description="emptyStateDescription"
+      :chat-prompt-placeholder="chatPromptPlaceholder"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
     />
@@ -202,7 +214,10 @@ export const Slots = (args, { argTypes }) => ({
         :badge-help-page-url="badgeHelpPageUrl"
         :badge-type="badgeType"
         :tool-name="toolName"
-        :show-header="showHeader">
+        :show-header="showHeader"
+        :empty-state-title="emptyStateTitle"
+        :empty-state-description="emptyStateDescription"
+        :chat-prompt-placeholder="chatPromptPlaceholder">
 
         <template #hero>
 <pre class="code-block rounded code highlight gl-border-b gl-rounded-0! gl-mb-0 gl-overflow-y-auto solarized-light" style="max-height: 20rem; overflow-y: auto;">

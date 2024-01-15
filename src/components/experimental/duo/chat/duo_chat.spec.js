@@ -237,6 +237,57 @@ describe('GlDuoChat', () => {
         expect(findHeader().exists()).toBe(shouldRender);
       });
     });
+
+    describe('emptyStateTitle', () => {
+      it.each`
+        emptyStateTitle   | expectedTitle
+        ${undefined}      | ${'Ask a question'}
+        ${''}             | ${''}
+        ${'custom title'} | ${'custom title'}
+      `(
+        'displays "$expectedTitle" when emptyStateTitle is "$emptyStateTitle"',
+        ({ emptyStateTitle, expectedTitle }) => {
+          createComponent({ propsData: { emptyStateTitle } });
+          expect(findEmptyState().props('title')).toBe(expectedTitle);
+        }
+      );
+    });
+
+    describe('emptyStateDescription', () => {
+      it.each`
+        emptyStateDescription   | expectedDescription
+        ${undefined}            | ${'AI generated explanations will appear here.'}
+        ${''}                   | ${''}
+        ${'custom description'} | ${'custom description'}
+      `(
+        'displays "$expectedDescription" when emptyStateDescription is "$emptyStateDescription"',
+        ({ emptyStateDescription, expectedDescription }) => {
+          createComponent({ propsData: { emptyStateDescription } });
+          expect(findEmptyState().props('description')).toBe(expectedDescription);
+        }
+      );
+    });
+
+    describe('prompt placeholder', () => {
+      it.each`
+        chatPromptPlaceholder   | commands         | expectedPlaceholder
+        ${undefined}            | ${undefined}     | ${'GitLab Duo Chat'}
+        ${''}                   | ${undefined}     | ${'GitLab Duo Chat'}
+        ${'custom placeholder'} | ${undefined}     | ${'custom placeholder'}
+        ${undefined}            | ${[]}            | ${'GitLab Duo Chat'}
+        ${''}                   | ${[]}            | ${'GitLab Duo Chat'}
+        ${'custom placeholder'} | ${[]}            | ${'custom placeholder'}
+        ${undefined}            | ${slashCommands} | ${'Type "/" for slash commands'}
+        ${''}                   | ${slashCommands} | ${'Type "/" for slash commands'}
+        ${'custom placeholder'} | ${slashCommands} | ${'custom placeholder'}
+      `(
+        'displays "$expectedPlaceholder" when chatPromptPlaceholder is "$chatPromptPlaceholder", and slashCommands are "$commands"',
+        ({ chatPromptPlaceholder, commands, expectedPlaceholder }) => {
+          createComponent({ propsData: { chatPromptPlaceholder, slashCommands: commands } });
+          expect(findChatInput().attributes('placeholder')).toBe(expectedPlaceholder);
+        }
+      );
+    });
   });
 
   describe('chat', () => {
@@ -482,11 +533,6 @@ describe('GlDuoChat', () => {
           await nextTick();
           expect(findSlashCommandsCard().exists()).toBe(false);
         });
-
-        it('shows default placeholder in the chat input', () => {
-          createComponent();
-          expect(findChatInput().attributes('placeholder')).toBe('GitLab Duo Chat');
-        });
       });
 
       describe('with slash commands', () => {
@@ -519,15 +565,6 @@ describe('GlDuoChat', () => {
             expect(findSlashCommands().at(index).text()).toContain(command.name);
             expect(findSlashCommands().at(index).text()).toContain(command.description);
           });
-        });
-
-        it('shows the correct placeholder in the chat input', () => {
-          createComponent({
-            propsData: {
-              slashCommands,
-            },
-          });
-          expect(findChatInput().attributes('placeholder')).toBe('Type "/" for slash commands');
         });
 
         it('prevents passing down invalid slash commands', () => {
