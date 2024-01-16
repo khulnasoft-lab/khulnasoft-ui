@@ -23,7 +23,7 @@ export const methods = {
   },
 };
 
-export const template = (lightBackground = WHITE, darkBackground = GRAY_950) => `
+export const colorTemplate = (lightBackground = WHITE, darkBackground = GRAY_950) => `
   <ul
     class="gl-list-style-none gl-m-0 gl-p-0"
   >
@@ -44,8 +44,34 @@ export const template = (lightBackground = WHITE, darkBackground = GRAY_950) => 
   </ul>
 `;
 
+export const colorTextTemplate = (lightBackground = WHITE, darkBackground = GRAY_950) => `
+  <ul
+    class="gl-list-style-none gl-m-0 gl-p-0"
+  >
+    <li
+      v-for="token in tokens"
+      :key="token.name"
+      class="gl-display-flex gl-flex-wrap gl-align-items-center gl-justify-content-space-between gl-gap-3 gl-p-3"
+      :style="{ color: token.value }"
+    >
+      <code class="gl-reset-color">{{ getTokenName(token) }}</code>
+      <div class="gl-display-flex gl-align-items-center gl-gap-3">
+        <code class="gl-reset-color">{{ token.value }}</code>
+        <gl-color-contrast v-if="!isAlpha(token.value)" :foreground="token.value" background="${darkBackground}" />
+        <gl-color-contrast v-if="!isAlpha(token.value)" :foreground="token.value" background="${lightBackground}" />
+      </div>
+    </li>
+  </ul>
+`;
+
 export const colorTokenStoryOptions = {
   components,
   methods,
-  template: template(),
+  template: colorTemplate(),
+};
+
+export const colorTextTokenStoryOptions = {
+  components,
+  methods,
+  template: colorTextTemplate(),
 };
