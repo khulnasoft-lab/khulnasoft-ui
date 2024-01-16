@@ -162,12 +162,10 @@ describe('search box by click component', () => {
   });
 
   it('adds `searchButtonAttributes` prop to search button', () => {
-    const searchButtonAttributes = { 'data-qa-selector': 'foo-bar' };
+    const searchButtonAttributes = { 'data-prop': 'foo-bar' };
 
     createComponent({ searchButtonAttributes });
 
-    expect(findSearchButton().attributes('data-qa-selector')).toBe(
-      searchButtonAttributes['data-qa-selector']
-    );
+    expect(findSearchButton().attributes('data-prop')).toBe(searchButtonAttributes['data-prop']);
   });
 });

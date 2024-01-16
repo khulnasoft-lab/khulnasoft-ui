@@ -51,7 +51,7 @@ For example, in the following instance the button text is `New file`.
   category="primary"
   :title="__('New file')"
   :aria-label="__('New file')"
-  data-qa-selector="first_file_button"
+  data-testid="first_file_button"
   @click="createNewFile()"
 >
   {{ __('New file') }}
