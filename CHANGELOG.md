@@ -1,3 +1,10 @@
+# [72.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.7.0...v72.8.0) (2024-01-16)
+
+
+### Features
+
+* **GlColumnChart:** allow customising chart tooltip ([ed6ee9e](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed6ee9e3139cba2793d90d955c39c41f6ab2b5af))
+
 # [72.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.6.0...v72.7.0) (2024-01-14)
 
 
