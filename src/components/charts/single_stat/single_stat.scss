@@ -1,10 +1,16 @@
-$line-height: 1;
-
 .gl-single-stat {
-  line-height: $line-height;
+  @include gl-line-height-1;
 
   &:hover[tabindex='0'] {
     @include gl-bg-gray-50;
     @include gl-rounded-base;
+  }
+
+  .gl-single-stat-content {
+    .gl-badge,
+    .gl-icon:not(.gl-badge-icon) {
+      position: relative;
+      top: -2px;
+    }
   }
 }
