@@ -12,13 +12,15 @@ const generateProps = ({
   name = 'check-circle',
   size = 32,
   ariaLabel = 'This is an icon',
+  iconClass = 'example-class',
 } = {}) => ({
   name,
   size,
   ariaLabel,
+  iconClass,
 });
 
-const template = `<gl-icon :name="name" :size="size" :aria-label="ariaLabel"/>`;
+const template = `<gl-icon :name="name" :size="size" :aria-label="ariaLabel" :icon-class="iconClass"/>`;
 
 const Template = (args) => ({
   components,

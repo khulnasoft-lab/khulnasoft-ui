@@ -89,4 +89,12 @@ describe('Icon component', () => {
       expect(wrapper.attributes('aria-hidden')).toBeUndefined();
     });
   });
+
+  describe('icon-class', () => {
+    it('is passed use to <use>', () => {
+      createComponent({ 'icon-class': 'example-class' });
+
+      expect(wrapper.find('use').attributes('class')).toBe('example-class');
+    });
+  });
 });

@@ -59,6 +59,14 @@ export default {
       default: 16,
       validator: (value) => iconSizeOptions.includes(value),
     },
+    /**
+     * Icon class
+     */
+    iconClass: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     spriteHref() {
@@ -79,8 +87,9 @@ export default {
     role="img"
     :aria-hidden="!ariaLabel"
     :aria-label="ariaLabel"
+    :href="spriteHref"
     v-on="$listeners"
   >
-    <use :href="spriteHref" />
+    <use :href="spriteHref" :class="iconClass" />
   </svg>
 </template>

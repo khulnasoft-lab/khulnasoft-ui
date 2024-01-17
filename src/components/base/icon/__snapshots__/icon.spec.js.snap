@@ -5,6 +5,7 @@ exports[`Icon component when created shows svg class "s8" and path "/path/to/ico
   aria-hidden="true"
   class="gl-icon s8"
   data-testid="check-circle-icon"
+  href="/path/to/icons.svg#check-circle"
   role="img"
 >
   <use
