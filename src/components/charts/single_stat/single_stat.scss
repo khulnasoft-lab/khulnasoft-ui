@@ -6,11 +6,12 @@
     @include gl-rounded-base;
   }
 
-  .gl-single-stat-content {
-    .gl-badge,
-    .gl-icon:not(.gl-badge-icon) {
-      position: relative;
-      top: -2px;
-    }
+  .gl-single-stat-number {
+    font-size: map-get($gl-font-sizes, 700);
+  }
+
+  .gl-single-stat-content .gl-badge {
+    position: relative;
+    top: -2px;
   }
 }

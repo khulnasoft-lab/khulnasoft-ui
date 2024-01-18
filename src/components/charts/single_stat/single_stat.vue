@@ -134,7 +134,7 @@ export default {
       class="gl-single-stat-content gl-display-flex gl-align-items-baseline gl-font-weight-bold gl-text-gray-900"
     >
       <span
-        class="gl-heading-1 gl-line-height-1"
+        class="gl-single-stat-number gl-line-height-1"
         :class="{ 'gl-mr-2': !unit }"
         data-testid="displayValue"
       >
