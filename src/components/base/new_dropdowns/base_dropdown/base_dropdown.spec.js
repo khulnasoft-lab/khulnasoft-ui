@@ -36,7 +36,7 @@ describe('base dropdown', () => {
         ...propsData,
       },
       slots: {
-        default: `<div class="${GL_DROPDOWN_CONTENTS_CLASS}" />`,
+        default: `<div class="${GL_DROPDOWN_CONTENTS_CLASS}"><button /></div>`,
         ...slots,
       },
       attachTo: document.body,
@@ -56,6 +56,8 @@ describe('base dropdown', () => {
   const findCustomDropdownToggle = () => wrapper.find('.gl-new-dropdown-custom-toggle');
   const findDropdownToggleText = () => findDefaultDropdownToggle().find('.gl-button-text');
   const findDropdownMenu = () => wrapper.find('.gl-new-dropdown-panel');
+
+  const moveFocusWithinDropdown = () => findDropdownMenu().find('button').element.focus();
 
   describe('Floating UI instance', () => {
     it("starts Floating UI's when opening the dropdown", async () => {
@@ -324,13 +326,46 @@ describe('base dropdown', () => {
       expect(menu.classes('gl-display-block!')).toBe(true);
       expect(toggle.attributes('aria-expanded')).toBe('true');
 
-      // close menu clicking toggle btn
-      menu.element.focus();
+      moveFocusWithinDropdown();
+
+      // close menu by pressing ESC key
       await menu.trigger('keydown.esc');
+
       expect(menu.classes('gl-display-block!')).toBe(false);
       expect(toggle.attributes('aria-expanded')).toBeUndefined();
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
       expect(toggle.element).toHaveFocus();
+    });
+
+    describe('when the consumer takes over the focus', () => {
+      let consumerButton;
+
+      beforeEach(() => {
+        consumerButton = document.createElement('button');
+        document.body.appendChild(consumerButton);
+      });
+
+      afterEach(() => {
+        consumerButton.remove();
+      });
+
+      it('does not steal the focus back from the consumer when closing the dropdown', async () => {
+        const toggle = findDefaultDropdownToggle();
+        const menu = findDropdownMenu();
+
+        // open menu clicking toggle btn
+        await toggle.trigger('click');
+
+        moveFocusWithinDropdown();
+
+        // consumer focuses some element
+        consumerButton.focus();
+
+        // close menu by pressing ESC key
+        await menu.trigger('keydown.esc');
+
+        expect(consumerButton).toHaveFocus();
+      });
     });
   });
 
@@ -353,7 +388,7 @@ describe('base dropdown', () => {
 
       await toggle.trigger('click');
 
-      menu.element.focus();
+      moveFocusWithinDropdown();
       await menu.trigger('keydown.esc');
       expect(menu.classes('gl-display-block!')).toBe(true);
       expect(toggle.attributes('aria-expanded')).toBeDefined();
@@ -365,6 +400,7 @@ describe('base dropdown', () => {
       const toggle = findDefaultDropdownToggle();
       const menu = findDropdownMenu();
       await toggle.trigger('click');
+      moveFocusWithinDropdown();
       await menu.trigger('keydown.esc');
       expect(event.type).toBe('keydown');
     });
@@ -444,6 +480,7 @@ describe('base dropdown', () => {
         expect(menu.classes('gl-display-block!')).toBe(true);
 
         // close menu pressing ESC on it
+        moveFocusWithinDropdown();
         await menu.trigger('keydown.esc');
         expect(menu.classes('gl-display-block!')).toBe(false);
         expect(firstToggleChild.attributes('aria-expanded')).toBe('false');
