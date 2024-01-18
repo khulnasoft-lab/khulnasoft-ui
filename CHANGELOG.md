@@ -1,3 +1,10 @@
+## [72.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.8.0...v72.8.1) (2024-01-18)
+
+
+### Bug Fixes
+
+* **dropdowns:** do not steal focus back from the consumer ([69295fa](https://gitlab.com/gitlab-org/gitlab-ui/commit/69295faa28dfe48b90e75ab86c9d3ba615760c96))
+
 # [72.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.7.0...v72.8.0) (2024-01-16)
 
 
