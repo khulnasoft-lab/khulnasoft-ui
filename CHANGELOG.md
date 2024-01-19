@@ -1,3 +1,10 @@
+# [72.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.8.1...v72.9.0) (2024-01-19)
+
+
+### Features
+
+* **css:** adds gl-md-mr-auto utility class ([c0884cb](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0884cbbc497023cc567ed59bf6793ce01c5ff45))
+
 ## [72.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.8.0...v72.8.1) (2024-01-18)
 
 
