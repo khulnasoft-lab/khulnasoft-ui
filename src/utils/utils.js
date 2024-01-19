@@ -1,5 +1,5 @@
 import { isVisible } from 'bootstrap-vue/src/utils/dom';
-import { COMMA, labelColorOptions, focusableTags } from './constants';
+import { COMMA, CONTRAST_LEVELS, labelColorOptions, focusableTags } from './constants';
 
 export function debounceByAnimationFrame(fn) {
   let requestId;
@@ -88,6 +88,26 @@ export function colorFromBackground(backgroundColor, contrastRatio = 2.4) {
   return contrastLight >= contrastRatio || contrastLight > contrastDark
     ? labelColorOptions.light
     : labelColorOptions.dark;
+}
+
+export function getColorContrast(foreground, background) {
+  // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
+  const backgroundLuminance = relativeLuminance(rgbFromHex(background)) + 0.05;
+  const foregroundLuminance = relativeLuminance(rgbFromHex(foreground)) + 0.05;
+
+  let score = backgroundLuminance / foregroundLuminance;
+  if (foregroundLuminance > backgroundLuminance) {
+    score = 1 / score;
+  }
+
+  const level = CONTRAST_LEVELS.find(({ min, max }) => {
+    return score >= min && score < max;
+  });
+
+  return {
+    score: (Math.round(score * 10) / 10).toFixed(1),
+    level,
+  };
 }
 
 export function uid() {

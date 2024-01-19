@@ -1,54 +1,37 @@
-import { methods, template } from './common_story_options';
-import colorTokens from './color.data_viz.dark.tokens.json';
+import COMPILED_TOKENS from '../../dist/tokens/json/tokens.dark.json';
+import { colorTokenStoryOptions } from './common_story_options';
 
-const generateProps = ({ name = '', tokens = colorTokens } = {}) => ({
-  name,
-  tokens,
-});
+const generateProps = ({ tokens = {} } = {}) => ({ tokens });
 
 export const DataVizGreen = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-DataVizGreen.args = generateProps({
-  name: 'data-viz.green',
-  tokens: colorTokens['data-viz'].green,
-});
+DataVizGreen.args = generateProps({ tokens: COMPILED_TOKENS['data-viz'].green });
 
 export const DataVizAqua = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-DataVizAqua.args = generateProps({ name: 'data-viz.aqua', tokens: colorTokens['data-viz'].aqua });
+DataVizAqua.args = generateProps({ tokens: COMPILED_TOKENS['data-viz'].aqua });
 
 export const DataVizBlue = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-DataVizBlue.args = generateProps({ name: 'data-viz.blue', tokens: colorTokens['data-viz'].blue });
+DataVizBlue.args = generateProps({ tokens: COMPILED_TOKENS['data-viz'].blue });
 
 export const DataVizMagenta = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-DataVizMagenta.args = generateProps({
-  name: 'data-viz.magenta',
-  tokens: colorTokens['data-viz'].magenta,
-});
+DataVizMagenta.args = generateProps({ tokens: COMPILED_TOKENS['data-viz'].magenta });
 
 export const DataVizOrange = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-DataVizOrange.args = generateProps({
-  name: 'data-viz.orange',
-  tokens: colorTokens['data-viz'].orange,
-});
+DataVizOrange.args = generateProps({ tokens: COMPILED_TOKENS['data-viz'].orange });
 
 // eslint-disable-next-line storybook/csf-component
 export default {

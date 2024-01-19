@@ -1,24 +1,21 @@
-import { methods, template } from './common_story_options';
-import colorTokens from './color.transparency.tokens.json';
+import COMPILED_TOKENS from '../../dist/tokens/json/tokens.json';
+import { colorTokenStoryOptions } from './common_story_options';
 
-const generateProps = ({ name = '', tokens = colorTokens } = {}) => ({
-  name,
-  tokens,
-});
+const generateProps = ({ tokens = {} } = {}) => ({ tokens });
 
 export const Gray = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-Gray.args = generateProps({ name: 't-gray-a', tokens: colorTokens['t-gray-a'] });
+Gray.args = generateProps({ tokens: COMPILED_TOKENS['t-gray-a'] });
 
 export const White = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template: `<div class="gl-bg-gray-900 gl-text-white">${template}</div>`,
+  components: colorTokenStoryOptions.components,
+  methods: colorTokenStoryOptions.methods,
+  template: `<div class="gl-bg-gray-900 gl-text-white">${colorTokenStoryOptions.template}</div>`,
 });
-White.args = generateProps({ name: 't-white-a', tokens: colorTokens['t-white-a'] });
+White.args = generateProps({ tokens: COMPILED_TOKENS['t-white-a'] });
 
 // eslint-disable-next-line storybook/csf-component
 export default {
