@@ -26,6 +26,7 @@ import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
 import GlIntersectionObserver from '../../../utilities/intersection_observer/intersection_observer.vue';
 import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
+import { translate } from '../../../../utils/i18n';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxSearchInput from './listbox_search_input.vue';
 import GlListboxGroup from './listbox_group.vue';
@@ -339,6 +340,17 @@ export default {
       required: false,
       default: false,
     },
+    srOnlyResultsLabel: {
+      type: Function,
+      required: false,
+      default: (count) => {
+        const fn = translate('GlCollapsibleListbox.srOnlyResultsLabel', 'Results count');
+        if (typeof fn === 'function') {
+          return fn(count);
+        }
+        return `${count} result${count > 1 ? 's' : ''}`;
+      },
+    },
   },
   data() {
     return {
@@ -394,9 +406,7 @@ export default {
       return !this.flattenedOptions.length && !this.searching;
     },
     announceSRSearchResults() {
-      return (
-        this.searchable && !this.showNoResultsText && this.$scopedSlots['search-summary-sr-only']
-      );
+      return this.searchable && !this.showNoResultsText;
     },
     headerId() {
       return this.headerText && uniqueId('listbox-header-');
@@ -912,7 +922,9 @@ export default {
       aria-live="assertive"
     >
       <!-- @slot Text read by screen reader announcing a number of search results -->
-      <slot name="search-summary-sr-only"></slot>
+      <slot name="search-summary-sr-only">
+        {{ srOnlyResultsLabel(flattenedOptions.length) }}
+      </slot>
     </span>
 
     <div

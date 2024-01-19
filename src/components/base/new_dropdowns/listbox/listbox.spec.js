@@ -477,6 +477,11 @@ describe('GlCollapsibleListbox', () => {
     });
 
     describe('Screen reader text with number of search results', () => {
+      it('when the #search-summary-sr-only slot content is empty', () => {
+        buildWrapper({ items: mockOptions, searchable: true, searching: false });
+        expect(findSRNumberOfResultsText().text()).toBe('12 results');
+      });
+
       it('when the #search-summary-sr-only slot content is provided', () => {
         const searchResultsContent = 'Found 5 results';
         const slots = { 'search-summary-sr-only': searchResultsContent };
