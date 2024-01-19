@@ -17,13 +17,15 @@
   "files": [
     "src",
     "dist",
-    "translations.json"
+    "translations.json",
+    "tailwind.defaults.js"
   ],
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
     "prebuild": "run-s build-tokens generate-utilities",
     "prepare": "run-s build-tokens generate-utilities",
     "generate-utilities": "make src/scss/utilities.scss",
+    "deprecate-gl-utils": "./bin/deprecate_utils.js",
     "copy-fonts": "make copy-fonts",
     "build-tokens": "node ./bin/build_tokens.js",
     "clean": "rm -r dist storybook src/scss/utilities.scss",
@@ -61,7 +63,8 @@
     "lint": "run-p prettier eslint stylelint markdownlint",
     "lint:fix": "run-s prettier:fix eslint:fix stylelint:fix markdownlint:fix",
     "generate:component": "plop",
-    "translations:collect": "make translations.json"
+    "translations:collect": "make translations.json",
+    "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
   "dependencies": {
     "@floating-ui/dom": "1.4.3",
@@ -78,6 +81,7 @@
     "dompurify": "^2.4.7 || ^3.0.5",
     "emoji-regex": ">=10.0.0",
     "pikaday": "^1.8.0",
+    "tailwindcss": "3^",
     "vue": "^2.7.16"
   },
   "resolutions": {
@@ -154,7 +158,7 @@
     "react-dom": "^18.2.0",
     "rollup": "^2.53.1",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-postcss": "^3.1.1",
+    "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-string": "^3.0.0",
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-vue": "^5.1.6",
@@ -167,6 +171,8 @@
     "storybook-dark-mode": "3.0.3",
     "style-dictionary": "^3.8.0",
     "stylelint": "15.10.2",
+    "tailwind-config-viewer": "1.7.3",
+    "tailwindcss": "3.4.1",
     "vue": "2.7.16",
     "vue-loader": "^15.8.3",
     "vue-loader-vue3": "npm:vue-loader@17",
