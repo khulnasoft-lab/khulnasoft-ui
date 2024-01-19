@@ -16,11 +16,13 @@ const generateProps = ({
   value = '',
   disabled = false,
   readonly = false,
+  type = 'text',
 } = {}) => ({
   width,
   value,
   disabled,
   readonly,
+  type,
 });
 
 const Template = (args) => ({
@@ -37,6 +39,20 @@ Disabled.args = generateProps({ value: 'some text', disabled: true });
 
 export const Readonly = Template.bind({});
 Readonly.args = generateProps({ value: 'readonly text', readonly: true });
+
+export const NumberInput = (args, { argTypes }) => ({
+  components: { GlFormInput },
+  props: Object.keys(argTypes),
+  data: () => ({
+    formInputWidths,
+  }),
+  template: `
+      <gl-form-input
+        type="number"
+      />
+    `,
+});
+NumberInput.tags = ['skip-visual-test'];
 
 export const Widths = (args, { argTypes }) => ({
   components: { GlFormInput },

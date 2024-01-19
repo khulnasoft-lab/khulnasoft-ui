@@ -82,5 +82,11 @@ export default {
 </script>
 
 <template>
-  <b-form-input class="gl-form-input" :class="cssClasses" v-bind="$attrs" v-on="listeners" />
+  <b-form-input
+    class="gl-form-input"
+    :class="cssClasses"
+    no-wheel
+    v-bind="$attrs"
+    v-on="listeners"
+  />
 </template>
