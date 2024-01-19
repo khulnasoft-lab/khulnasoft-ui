@@ -1,3 +1,10 @@
+# [72.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.9.0...v72.10.0) (2024-01-19)
+
+
+### Features
+
+* **GlListbox:** add default SR search results ([92642c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/92642c881813aaab65800312f28d74efd7be772a))
+
 # [72.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.8.1...v72.9.0) (2024-01-19)
 
 
