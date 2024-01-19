@@ -3,5 +3,6 @@
   "GlSorting.sortAscending": "Sort direction: ascending",
   "GlSorting.sortDescending": "Sort direction: descending",
   "GlSearchBoxByType.clearButtonTitle": "Clear",
-  "GlSearchBoxByType.input.placeholder": "Search"
+  "GlSearchBoxByType.input.placeholder": "Search",
+  "GlCollapsibleListbox.srOnlyResultsLabel": "Results count"
 }

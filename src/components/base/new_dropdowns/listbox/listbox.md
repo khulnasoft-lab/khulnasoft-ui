@@ -134,7 +134,8 @@ To update content of the listbox, toggle the `searching` property
 and update the `items` property with a new array. Be sure to debounce (or
 similar) the `search` event handler to avoid rendering stale results.
 To improve the accessibility, provide the `search-summary-sr-only` scoped slot
-with a number of found search results text.
+with a number of found search results text, alternately, you can pass a plural translate function.
+An example of the plural translate function can be found [the GitLab Docs internationalization section](https://docs.gitlab.com/ee/development/i18n/externalization.html#plurals)
 Screen reader will announce this text when the list is updated.
 
 ```html

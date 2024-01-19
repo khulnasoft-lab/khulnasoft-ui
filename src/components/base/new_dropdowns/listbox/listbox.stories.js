@@ -60,6 +60,7 @@ const generateProps = ({
   startOpened = true,
   fluidWidth,
   positioningStrategy,
+  srOnlyResultsLabel,
 } = {}) => ({
   items,
   category,
@@ -90,6 +91,7 @@ const generateProps = ({
   startOpened,
   fluidWidth,
   positioningStrategy,
+  srOnlyResultsLabel,
 });
 
 const makeBindings = (overrides = {}) =>
@@ -123,6 +125,7 @@ const makeBindings = (overrides = {}) =>
     ':fluid-width': 'fluidWidth',
     ':positioning-strategy': 'positioningStrategy',
     ':startOpened': 'startOpened',
+    ':sr-only-results-label': 'srOnlyResultsLabel',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
@@ -577,6 +580,11 @@ export default {
         subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
       },
     },
+    srOnlyResultsLabel: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
+      },
+    },
     listAriaLabelledBy: {
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
@@ -644,7 +652,7 @@ export const Searchable = (args, { argTypes }) => ({
       return toggleText;
     },
     numberOfSearchResults() {
-      return this.filteredItems.length === 1 ? '1 result' : `${this.filteredItems.length} results`;
+      return `${this.filteredItems.length} department${this.filteredItems.length > 1 ? 's' : ''}`;
     },
   },
   template: template(
@@ -700,11 +708,6 @@ export const SearchableGroups = (args, { argTypes }) => ({
 
       return toggleText;
     },
-    numberOfSearchResults() {
-      return this.flattenedFilteredOptions.length === 1
-        ? '1 result'
-        : `${this.flattenedFilteredOptions.length} results`;
-    },
   },
   methods: {
     filterList(searchTerm) {
@@ -729,20 +732,19 @@ export const SearchableGroups = (args, { argTypes }) => ({
         this.searchInProgress = false;
       }, 2000);
     },
+    srOnlyResultsLabel(count) {
+      return `${count} branch${count > 1 ? 'es' : ''} or tag${count > 1 ? 's' : ''}`;
+    },
   },
-  template: template(
-    `<template #search-summary-sr-only>
-      {{ numberOfSearchResults }}
-    </template>`,
-    {
-      bindingOverrides: {
-        ':items': 'filteredGroupOptions',
-        ':toggle-text': 'customToggleText',
-        ':searching': 'searchInProgress',
-        '@search': 'filterList',
-      },
-    }
-  ),
+  template: template('', {
+    bindingOverrides: {
+      ':items': 'filteredGroupOptions',
+      ':toggle-text': 'customToggleText',
+      ':searching': 'searchInProgress',
+      ':sr-only-results-label': 'srOnlyResultsLabel',
+      '@search': 'filterList',
+    },
+  }),
 });
 SearchableGroups.args = generateProps({
   headerText: 'Select ref',
