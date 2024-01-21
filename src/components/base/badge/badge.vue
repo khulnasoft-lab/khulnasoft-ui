@@ -64,6 +64,9 @@ export default {
     role() {
       return this.hasIconOnly ? 'img' : undefined;
     },
+    ariaLabel() {
+      return this.role === 'img' ? this.icon : undefined;
+    },
     iconSizeComputed() {
       return badgeIconSizeOptions[this.iconSize];
     },
@@ -72,7 +75,7 @@ export default {
 </script>
 
 <template>
-  <b-badge v-bind="$attrs" :variant="variant" :class="['gl-badge', size]" :role="role" pill>
+  <b-badge v-bind="$attrs" :variant="variant" :class="['gl-badge', size]" :role="role" :aria-label="ariaLabel" pill>
     <gl-icon
       v-if="icon"
       class="gl-badge-icon"
