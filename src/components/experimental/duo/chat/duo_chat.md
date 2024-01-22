@@ -18,6 +18,7 @@ consumer component.
   :predefined-prompts="predefinedPrompts"
   :badge-help-page-url="badgeHelpPageUrl"
   :tool-name="toolName"
+  :slash-commands="slashCommands"
   @chat-hidden="onChatHidden"
   @send-chat-prompt="onSendChatPrompt"
   @track-feedback="onTrackFeedback"
@@ -141,3 +142,34 @@ With this template in place, consumer is left with the following things to imple
 
 - Send the new user's prompt. For Duo Chat, we rely on GraphQL mutation for this purpose.
 - Send user feedback to the telemetry of your choice when `track-feedback` event arrives.
+
+## Slash commands
+
+One of the props accepted by the component is the `slashCommands`. This is an `Array` of
+the commands, shown to user when they start typing the prompt with a slash (`/`)
+character.
+
+```javascript
+<script>
+  const slashCommands = [
+    {
+      name: '/mycommand', // This is the exact name of my command as it will be submitted
+      shouldSubmit: true, // If the command should be submitted right away without free text
+      description: 'The description of my super-duper command.',
+    },
+    ...
+  ];
+  export default {
+    ...
+    options: {
+      slashCommands
+    }
+  }
+<script>
+<template>
+  <gl-duo-chat
+    ...
+    :slash-commands="slashCommands"
+  />
+</template>
+```

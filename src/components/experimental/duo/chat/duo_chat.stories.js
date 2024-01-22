@@ -12,6 +12,26 @@ import {
   renderMarkdown,
 } from './mock_data';
 
+const slashCommands = [
+  {
+    name: '/reset',
+    shouldSubmit: true,
+    description: 'Reset conversation, ignore the previous messages.',
+  },
+  {
+    name: '/tests',
+    description: 'Write tests for the selected snippet.',
+  },
+  {
+    name: '/refactor',
+    description: 'Refactor the selected snippet.',
+  },
+  {
+    name: '/explain',
+    description: 'Explain the selected snippet.',
+  },
+];
+
 const defaultValue = (prop) =>
   typeof GlDuoChat.props[prop].default === 'function'
     ? GlDuoChat.props[prop].default()
@@ -27,7 +47,6 @@ const generateProps = ({
   badgeHelpPageUrl = defaultValue('badgeHelpPageUrl'),
   badgeType = defaultValue('badgeType'),
   toolName = defaultValue('toolName'),
-  withSlashCommands = defaultValue('withSlashCommands'),
 } = {}) => ({
   title,
   messages,
@@ -38,7 +57,7 @@ const generateProps = ({
   badgeHelpPageUrl,
   badgeType,
   toolName,
-  withSlashCommands,
+  slashCommands,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -59,7 +78,6 @@ export const Default = (args, { argTypes }) => ({
       :badge-help-page-url="badgeHelpPageUrl"
       :badge-type="badgeType"
       :tool-name="toolName"
-      :with-slash-commands="withSlashCommands"
     />`,
 });
 Default.args = generateProps({
@@ -154,7 +172,6 @@ export const Interactive = (args, { argTypes }) => ({
       :badge-help-page-url="badgeHelpPageUrl"
       :badge-type="badgeType"
       :tool-name="toolName"
-      :with-slash-commands="withSlashCommands"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
     />
@@ -180,8 +197,7 @@ export const Slots = (args, { argTypes }) => ({
         :predefined-prompts="predefinedPrompts"
         :badge-help-page-url="badgeHelpPageUrl"
         :badge-type="badgeType"
-        :tool-name="toolName"
-        :with-slash-commands="withSlashCommands">
+        :tool-name="toolName">
 
         <template #hero>
 <pre class="code-block rounded code highlight gl-border-b gl-rounded-0! gl-mb-0 gl-overflow-y-auto solarized-light" style="max-height: 20rem; overflow-y: auto;">
