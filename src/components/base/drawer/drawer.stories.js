@@ -69,6 +69,7 @@ const createSidebarTemplate = (content) => `
     :header-sticky="headerSticky"
     :z-index="zIndex"
     :variant="variant"
+    :show-header="showHeader"
     @close="close">${content}</gl-drawer>
   `;
 
@@ -79,11 +80,13 @@ const generateProps = ({
   headerSticky = defaultValue('headerSticky'),
   zIndex = defaultValue('zIndex'),
   variant = defaultValue('variant'),
+  showHeader = defaultValue('showHeader'),
 } = {}) => ({
   headerHeight,
   headerSticky,
   zIndex,
   variant,
+  showHeader,
 });
 
 const storyOptions = (viewMode) => ({
@@ -228,6 +231,21 @@ export const StickyHeaderFooter = (_args, { viewMode }) => ({
 });
 StickyHeaderFooter.args = generateProps({
   headerSticky: true,
+});
+
+export const HideHeader = (_args, { viewMode }) => ({
+  ...storyOptions(viewMode),
+  template: `
+  <div>
+    <gl-button @click="toggle">Toggle Drawer</gl-button>
+    ${createSidebarTemplate(`
+      <template #title>List Settings</template>
+      ${drawerContent}
+    `)}
+  </div>`,
+});
+HideHeader.args = generateProps({
+  showHeader: false,
 });
 
 export default {

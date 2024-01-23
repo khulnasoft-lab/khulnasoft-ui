@@ -35,6 +35,11 @@ export default {
       default: drawerVariants.default,
       validator: (value) => Object.keys(drawerVariants).includes(value),
     },
+    showHeader: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   computed: {
     positionFromTop() {
@@ -95,6 +100,7 @@ export default {
   <transition name="gl-drawer">
     <aside v-if="open" :style="drawerStyles" class="gl-drawer" :class="variantClass">
       <div
+        v-if="showHeader"
         class="gl-drawer-header"
         :style="drawerHeaderStyles"
         :class="{ 'gl-drawer-header-sticky': headerSticky }"

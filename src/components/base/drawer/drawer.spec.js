@@ -133,4 +133,13 @@ describe('drawer component', () => {
 
     expect(wrapper.find('.gl-drawer').classes()).toContain(variantClass);
   });
+
+  describe('when show header is false', () => {
+    it('does not render header', () => {
+      mountWithOpts({ props: { open: true, showHeader: false } });
+
+      expect(wrapper.find('.gl-drawer-header').exists()).toBe(false);
+      expect(wrapper.find('.gl-drawer-close-button').exists()).toBe(false);
+    });
+  });
 });
