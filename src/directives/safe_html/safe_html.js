@@ -24,7 +24,12 @@ const transform = (el, binding) => {
   }
 };
 
+const clear = (el) => {
+  el.textContent = '';
+};
+
 export const SafeHtmlDirective = {
   bind: transform,
   update: transform,
+  unbind: clear,
 };
