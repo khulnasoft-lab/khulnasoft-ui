@@ -130,8 +130,14 @@ export default {
       />
       <span class="gl-font-base gl-font-weight-normal" data-testid="title-text">{{ title }}</span>
     </div>
-    <div class="gl-display-flex gl-align-items-baseline gl-font-weight-bold gl-text-gray-900">
-      <span class="gl-font-size-h-display" :class="{ 'gl-mr-2': !unit }" data-testid="displayValue">
+    <div
+      class="gl-single-stat-content gl-display-flex gl-align-items-baseline gl-font-weight-bold gl-text-gray-900"
+    >
+      <span
+        class="gl-single-stat-number gl-line-height-1"
+        :class="{ 'gl-mr-2': !unit }"
+        data-testid="displayValue"
+      >
         <gl-animated-number
           v-if="canAnimate"
           :number="Number(value)"
