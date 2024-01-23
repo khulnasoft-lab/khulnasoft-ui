@@ -1,3 +1,10 @@
+## [72.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.11.0...v72.11.1) (2024-01-23)
+
+
+### Performance Improvements
+
+* **SafeHtml:** Add unbind hook to the directive ([2b428b1](https://gitlab.com/gitlab-org/gitlab-ui/commit/2b428b1d19c57a8ebd4d92d318a3abb2461745f7))
+
 # [72.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.10.0...v72.11.0) (2024-01-23)
 
 
