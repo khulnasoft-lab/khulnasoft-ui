@@ -1,3 +1,12 @@
+# [72.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.10.0...v72.11.0) (2024-01-23)
+
+
+### Features
+
+* **GlSingleStat:** Change px to rem ([8bc10ba](https://gitlab.com/gitlab-org/gitlab-ui/commit/8bc10ba30e691a9b9a273fce7dbe5636dfdd5228))
+* **GlSingleStat:** Update heading ([1f0925a](https://gitlab.com/gitlab-org/gitlab-ui/commit/1f0925ac41e0086eaff2de48ef9942c5ad856811))
+* **GlSingleStat:** Use typescale headline ([643e45c](https://gitlab.com/gitlab-org/gitlab-ui/commit/643e45cc066b2f5cffd30fafbb90112c0c62ce0f))
+
 # [72.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.9.0...v72.10.0) (2024-01-19)
 
 
