@@ -75,7 +75,14 @@ export default {
 </script>
 
 <template>
-  <b-badge v-bind="$attrs" :variant="variant" :class="['gl-badge', size]" :role="role" :aria-label="ariaLabel" pill>
+  <b-badge
+    v-bind="$attrs"
+    :variant="variant"
+    :class="['gl-badge', size]"
+    :role="role"
+    :aria-label="ariaLabel"
+    pill
+  >
     <gl-icon
       v-if="icon"
       class="gl-badge-icon"

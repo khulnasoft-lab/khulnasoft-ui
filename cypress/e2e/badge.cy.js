@@ -1,24 +1,18 @@
 describe('GlBadge', () => {
   function checkA11YDefaultState() {
     cy.visitStory('base/badge');
-
-    cy.glCheckA11y();
   }
 
   function checkA11yIconOnlyState() {
     cy.visitStory('base/badge', {
       story: 'icon-only',
     });
-
-    cy.glCheckA11y();
   }
 
   function checkA11yTextOnlyState() {
     cy.visitStory('base/badge', {
       story: 'sizes',
     });
-
-    cy.glCheckA11y();
   }
 
   function checkA11yBadgeHoverState() {
@@ -27,8 +21,6 @@ describe('GlBadge', () => {
     });
 
     cy.get('.gl-badge:first').realHover();
-
-    cy.glCheckA11y();
   }
 
   function checkA11yBadgeSelectedState() {
@@ -37,24 +29,22 @@ describe('GlBadge', () => {
     });
 
     cy.get('.gl-badge:first').click();
-
-    cy.glCheckA11y();
   }
 
   function checkA11yIconWithTextState() {
     cy.visitStory('base/badge', {
       story: 'badge-icon',
     });
-
-    cy.glCheckA11y();
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
-    checkA11YDefaultState();
-    checkA11yIconOnlyState();
-    checkA11yTextOnlyState();
-    checkA11yBadgeHoverState();
-    checkA11yBadgeSelectedState();
-    checkA11yIconWithTextState();
+    cy.glRunA11yTests({
+      checkA11YDefaultState,
+      checkA11yIconOnlyState,
+      checkA11yTextOnlyState,
+      checkA11yBadgeHoverState,
+      checkA11yBadgeSelectedState,
+      checkA11yIconWithTextState,
+    });
   });
 });
