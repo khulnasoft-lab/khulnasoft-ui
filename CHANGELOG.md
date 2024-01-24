@@ -1,3 +1,10 @@
+# [72.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.11.1...v72.12.0) (2024-01-24)
+
+
+### Features
+
+* **DesignTokens:** create GlColorContrast component ([17dfa56](https://gitlab.com/gitlab-org/gitlab-ui/commit/17dfa56d0839681a741195910a86debeaede491b))
+
 ## [72.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.11.0...v72.11.1) (2024-01-23)
 
 
