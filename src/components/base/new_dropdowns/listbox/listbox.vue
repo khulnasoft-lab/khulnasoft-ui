@@ -816,7 +816,6 @@ export default {
       <gl-listbox-search-input
         ref="searchBox"
         v-model="searchStr"
-        :aria-owns="listboxId"
         data-testid="listbox-search-input"
         :placeholder="searchPlaceholder"
         :class="{ 'gl-listbox-topmost': !headerText }"
