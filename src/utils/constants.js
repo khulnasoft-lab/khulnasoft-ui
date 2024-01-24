@@ -6,6 +6,31 @@ function appendDefaultOption(options) {
 
 export const COMMA = ',';
 
+export const CONTRAST_LEVELS = [
+  {
+    grade: 'F',
+    min: 0,
+    max: 3,
+  },
+  {
+    grade: 'AA+',
+    min: 3,
+    max: 4.5,
+  },
+  {
+    grade: 'AA',
+    min: 4.5,
+    max: 7,
+  },
+  {
+    grade: 'AAA',
+    min: 7,
+    max: 22,
+  },
+];
+
+export const HEX_REGEX = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
+
 export const LEFT_MOUSE_BUTTON = 0;
 
 export const glThemes = ['indigo', 'blue', 'light-blue', 'green', 'red', 'light-red'];
