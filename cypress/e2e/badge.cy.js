@@ -26,7 +26,7 @@ describe('GlBadge', () => {
       story: 'actionable',
     });
 
-    cy.first('.gl-badge').realHover();
+    cy.get('.gl-badge:first').realHover();
 
     cy.glCheckA11y();
   }
@@ -36,7 +36,7 @@ describe('GlBadge', () => {
       story: 'actionable',
     });
 
-    cy.first('.gl-badge').click();
+    cy.get('.gl-badge:first').click();
 
     cy.glCheckA11y();
   }
