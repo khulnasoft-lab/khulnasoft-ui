@@ -1,3 +1,10 @@
+## [72.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.0...v72.12.1) (2024-01-24)
+
+
+### Bug Fixes
+
+* Building of `dist/` folder ([6592727](https://gitlab.com/gitlab-org/gitlab-ui/commit/6592727b7b2de66a5d40111d37fd331ca65e2411))
+
 # [72.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.11.1...v72.12.0) (2024-01-24)
 
 
