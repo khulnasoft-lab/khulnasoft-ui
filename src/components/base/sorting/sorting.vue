@@ -4,7 +4,6 @@ import GlButton from '../button/button.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
 import GlCollapsibleListbox from '../new_dropdowns/listbox/listbox.vue';
 import { isOption } from '../new_dropdowns/listbox/utils';
-import GlDropdown from '../dropdown/dropdown.vue';
 import { translate } from '../../../utils/i18n';
 
 export default {
@@ -13,7 +12,6 @@ export default {
     GlButton,
     GlButtonGroup,
     GlCollapsibleListbox,
-    GlDropdown,
   },
   directives: {
     GlTooltip: GlTooltipDirective,
@@ -33,7 +31,7 @@ export default {
     sortOptions: {
       type: Array,
       required: false,
-      default: null,
+      default: () => [],
       // eslint-disable-next-line unicorn/no-array-callback-reference
       validator: (sortOptions) => sortOptions.every(isOption),
     },
@@ -64,7 +62,7 @@ export default {
       default: null,
     },
     /**
-     * Additional class(es) to apply to the root element of the GlDropdown.
+     * Additional class(es) to apply to the root element of the GlCollapsibleListbox.
      */
     dropdownClass: {
       type: String,
@@ -98,9 +96,6 @@ export default {
       return this.isAscending
         ? translate('GlSorting.sortAscending', 'Sort direction: ascending')
         : translate('GlSorting.sortDescending', 'Sort direction: descending');
-    },
-    useListbox() {
-      return Boolean(this.sortOptions);
     },
     listboxToggleClass() {
       return [
@@ -144,7 +139,6 @@ export default {
 <template>
   <gl-button-group class="gl-sorting">
     <gl-collapsible-listbox
-      v-if="useListbox"
       :toggle-text="text"
       :items="sortOptions"
       :selected="sortBy"
@@ -153,18 +147,6 @@ export default {
       placement="right"
       @select="onSortByChanged"
     />
-    <gl-dropdown
-      v-else
-      v-bind="$props"
-      :text="text"
-      category="secondary"
-      :class="dropdownClass"
-      :toggle-class="dropdownToggleClass"
-      right
-    >
-      <!-- @slot Deprecated slot to place the dropdown items, works best with a gl-sorting-item component. -->
-      <slot></slot>
-    </gl-dropdown>
     <gl-button
       v-gl-tooltip
       :title="sortDirectionText"
