@@ -37,22 +37,22 @@
 * https://design.gitlab.com/product-foundations/type-fundamentals
 */
 
-@mixin gl-heading-scale-6 {
+@mixin gl-heading-6 {
   @include gl-heading-scale-200;
   margin-bottom: $gl-mb-heading;
 }
 
-@mixin gl-heading-scale-6-fixed {
+@mixin gl-heading-6-fixed {
   @include gl-heading-scale-200-fixed;
   margin-bottom: $gl-mb-heading;
 }
 
-@mixin gl-heading-scale-5 {
+@mixin gl-heading-5 {
   @include gl-heading-scale-300;
   margin-bottom: $gl-mb-heading;
 }
 
-@mixin gl-heading-scale-5-fixed {
+@mixin gl-heading-5-fixed {
   @include gl-heading-scale-300-fixed;
   margin-bottom: $gl-mb-heading;
 }
