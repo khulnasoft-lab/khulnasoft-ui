@@ -98,6 +98,7 @@ describe('IntersectionObserver', () => {
       triggerIntersectionObserver(entry);
 
       expect(allWrappers).toHaveLength(2);
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(allWrappers.map((x) => x.emitted())).toEqual(allWrappers.map(createExpectation));
     });
   });

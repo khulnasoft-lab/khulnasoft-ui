@@ -254,12 +254,12 @@ describe('GlTokenSelector', () => {
         createComponent({
           propsData: {
             textInputAttrs: {
-              'data-qa-selector': 'foo_bar',
+              'data-prop': 'foo_bar',
             },
           },
         });
 
-        expect(findTextInput().attributes('data-qa-selector')).toBe('foo_bar');
+        expect(findTextInput().attributes('data-prop')).toBe('foo_bar');
       });
     });
 

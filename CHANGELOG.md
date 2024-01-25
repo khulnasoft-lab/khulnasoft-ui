@@ -1,3 +1,88 @@
+## [72.12.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.2...v72.12.3) (2024-01-25)
+
+
+### Bug Fixes
+
+* Change caret position for tailwind package ([e2887d7](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2887d750f78683dd63544269155f1ad52286b55))
+
+## [72.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.1...v72.12.2) (2024-01-25)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** remove aria-owns attribute from search ([c9520a6](https://gitlab.com/gitlab-org/gitlab-ui/commit/c9520a6e6006234c184085ea87b8421eacf36191))
+* **Typography:** remove scale from gl-heading-5 and gl-heading-6 classes ([2630e31](https://gitlab.com/gitlab-org/gitlab-ui/commit/2630e310c4a96fed1439b8d21ad99931ab3dbfb1))
+
+## [72.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.0...v72.12.1) (2024-01-24)
+
+
+### Bug Fixes
+
+* Building of `dist/` folder ([6592727](https://gitlab.com/gitlab-org/gitlab-ui/commit/6592727b7b2de66a5d40111d37fd331ca65e2411))
+
+# [72.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.11.1...v72.12.0) (2024-01-24)
+
+
+### Features
+
+* **DesignTokens:** create GlColorContrast component ([17dfa56](https://gitlab.com/gitlab-org/gitlab-ui/commit/17dfa56d0839681a741195910a86debeaede491b))
+
+## [72.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.11.0...v72.11.1) (2024-01-23)
+
+
+### Performance Improvements
+
+* **SafeHtml:** Add unbind hook to the directive ([2b428b1](https://gitlab.com/gitlab-org/gitlab-ui/commit/2b428b1d19c57a8ebd4d92d318a3abb2461745f7))
+
+# [72.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.10.0...v72.11.0) (2024-01-23)
+
+
+### Features
+
+* **GlSingleStat:** Change px to rem ([8bc10ba](https://gitlab.com/gitlab-org/gitlab-ui/commit/8bc10ba30e691a9b9a273fce7dbe5636dfdd5228))
+* **GlSingleStat:** Update heading ([1f0925a](https://gitlab.com/gitlab-org/gitlab-ui/commit/1f0925ac41e0086eaff2de48ef9942c5ad856811))
+* **GlSingleStat:** Use typescale headline ([643e45c](https://gitlab.com/gitlab-org/gitlab-ui/commit/643e45cc066b2f5cffd30fafbb90112c0c62ce0f))
+
+# [72.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.9.0...v72.10.0) (2024-01-19)
+
+
+### Features
+
+* **GlListbox:** add default SR search results ([92642c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/92642c881813aaab65800312f28d74efd7be772a))
+
+# [72.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.8.1...v72.9.0) (2024-01-19)
+
+
+### Features
+
+* **css:** adds gl-md-mr-auto utility class ([c0884cb](https://gitlab.com/gitlab-org/gitlab-ui/commit/c0884cbbc497023cc567ed59bf6793ce01c5ff45))
+
+## [72.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.8.0...v72.8.1) (2024-01-18)
+
+
+### Bug Fixes
+
+* **dropdowns:** do not steal focus back from the consumer ([69295fa](https://gitlab.com/gitlab-org/gitlab-ui/commit/69295faa28dfe48b90e75ab86c9d3ba615760c96))
+
+# [72.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.7.0...v72.8.0) (2024-01-16)
+
+
+### Features
+
+* **GlColumnChart:** allow customising chart tooltip ([ed6ee9e](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed6ee9e3139cba2793d90d955c39c41f6ab2b5af))
+
+# [72.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.6.0...v72.7.0) (2024-01-14)
+
+
+### Bug Fixes
+
+* **GlEmptyState:** remove incorrect role from img ([9e5d86f](https://gitlab.com/gitlab-org/gitlab-ui/commit/9e5d86f9c9cbeaae2f7c179f56dbbbab633890e1))
+
+
+### Features
+
+* **css:** adds gl-max-w-12 utility class ([58254e6](https://gitlab.com/gitlab-org/gitlab-ui/commit/58254e6458e2efc8e0f9c74a80bc9d90396b5404))
+
 # [72.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.5.2...v72.6.0) (2024-01-11)
 
 

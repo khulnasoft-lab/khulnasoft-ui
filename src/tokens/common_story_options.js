@@ -1,35 +1,17 @@
-import { colorFromBackground, relativeLuminance, rgbFromHex } from '../utils/utils';
 import { WHITE, GRAY_950 } from '../../dist/tokens/js/tokens';
+import { colorFromBackground } from '../utils/utils';
+import GlColorContrast from '../internal/color_contrast/color_contrast.vue';
 
-const CONTRAST_LEVELS = [
-  {
-    grade: 'F',
-    min: 0,
-    max: 3,
-  },
-  {
-    grade: 'AA+',
-    min: 3,
-    max: 4.5,
-  },
-  {
-    grade: 'AA',
-    min: 4.5,
-    max: 7,
-  },
-  {
-    grade: 'AAA',
-    min: 7,
-    max: 22,
-  },
-];
+export const components = {
+  GlColorContrast,
+};
 
 export const methods = {
   isAlpha(value) {
     return value.startsWith('rgba(');
   },
-  getTokenName(name, key) {
-    return [name, key].filter(Boolean).join('.');
+  getTokenName(token) {
+    return token.path.filter(Boolean).join('.');
   },
   getTextColorClass(value) {
     if (this.isAlpha(value)) return '';
@@ -39,71 +21,31 @@ export const methods = {
       'gl-text-white': textColorVariant === 'light',
     };
   },
-  getColorContrast(foreground = 'light', background) {
-    const foregroundColor = {
-      light: WHITE,
-      dark: GRAY_950,
-    };
-    // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
-    const foregroundLuminance = relativeLuminance(rgbFromHex(foregroundColor[foreground])) + 0.05;
-    const backgroundLuminance = relativeLuminance(rgbFromHex(background)) + 0.05;
-
-    let score = foregroundLuminance / backgroundLuminance;
-    if (backgroundLuminance > foregroundLuminance) {
-      score = 1 / score;
-    }
-
-    const level = CONTRAST_LEVELS.find(({ min, max }) => {
-      return score >= min && score < max;
-    });
-
-    return {
-      score: (Math.round(score * 10) / 10).toFixed(1),
-      level,
-    };
-  },
-  getColorContrastClass(foreground, background) {
-    const { grade } = this.getColorContrast(foreground, background).level;
-    const isFail = grade === 'F';
-    const classes = {
-      light: isFail ? 'gl-inset-border-1-red-500 gl-text-red-500' : 'gl-text-gray-950',
-      dark: isFail ? 'gl-inset-border-1-red-300 gl-text-red-300' : 'gl-text-white',
-    };
-    return classes[foreground];
-  },
 };
 
-export const template = `
+export const template = (lightBackground = WHITE, darkBackground = GRAY_950) => `
   <ul
     class="gl-list-style-none gl-m-0 gl-p-0"
   >
     <li
-      v-for="(token, key) in tokens"
-      :key="key"
+      v-for="token in tokens"
+      :key="token.name"
       class="gl-display-flex gl-flex-wrap gl-align-items-center gl-justify-content-space-between gl-gap-3 gl-p-3"
-      :class="getTextColorClass(token.$value)"
-      :style="{ backgroundColor: token.$value }"
+      :class="getTextColorClass(token.value)"
+      :style="{ backgroundColor: token.value }"
     >
-      <code class="gl-reset-color">{{ getTokenName(name, key) }}</code>
+      <code class="gl-reset-color">{{ getTokenName(token) }}</code>
       <div class="gl-display-flex gl-align-items-center gl-gap-3">
-        <code class="gl-reset-color">{{ token.$value }}</code>
-        <code
-          v-if="!isAlpha(token.$value)"
-          class="gl-w-10 gl-text-center gl-rounded-base gl-font-xs gl-p-2 gl-bg-gray-950"
-          :class="getColorContrastClass('dark', token.$value)"
-        >
-          {{ getColorContrast('dark', token.$value).level.grade }}
-          {{ getColorContrast('dark', token.$value).score }}
-        </code>
-        <code
-          v-if="!isAlpha(token.$value)"
-          class="gl-w-10 gl-text-center gl-rounded-base gl-font-xs gl-p-2 gl-bg-white"
-          :class="getColorContrastClass('light', token.$value)"
-        >
-          {{ getColorContrast('light', token.$value).level.grade }}
-          {{ getColorContrast('light', token.$value).score }}
-        </code>
+        <code class="gl-reset-color">{{ token.value }}</code>
+        <gl-color-contrast v-if="!isAlpha(token.value)" :foreground="token.value" background="${darkBackground}" />
+        <gl-color-contrast v-if="!isAlpha(token.value)" :foreground="token.value" background="${lightBackground}" />
       </div>
     </li>
   </ul>
 `;
+
+export const colorTokenStoryOptions = {
+  components,
+  methods,
+  template: template(),
+};

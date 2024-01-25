@@ -48,6 +48,7 @@ describe('GlFilteredSearch', () => {
       clickSuggestion('=');
       clickSuggestion('Bug');
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       getTokenSegment('Feature').find(tokenCloseSelector).click();
 
       getTokenSegment('Feature').should('not.exist');
@@ -131,6 +132,7 @@ describe('GlFilteredSearch', () => {
     it('deletes term tokens when their close button is clicked', () => {
       const text = 'foo';
       typeInInput(text).blur();
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       getTokenSegment(text).should('exist').find(tokenCloseSelector).click();
       getTokenSegment(text).should('not.exist');
     });
@@ -138,6 +140,7 @@ describe('GlFilteredSearch', () => {
     it('deletes term tokens when the enter key is pressed', () => {
       const text = 'foo';
       typeInInput(text).blur();
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       getTokenSegment(text).find(tokenCloseSelector).should('be.visible').focus().type('{enter}');
       getTokenSegment(text).should('not.exist');
     });
@@ -153,6 +156,7 @@ describe('GlFilteredSearch', () => {
       clickSuggestion('=');
       clickSuggestion('Bug');
 
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       getTokenSegment('Feature').find(tokenCloseSelector).click();
 
       getTokenSegment('Feature').should('not.exist');

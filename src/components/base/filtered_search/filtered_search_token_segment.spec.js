@@ -10,7 +10,7 @@ const OPTIONS = [
 describe('Filtered search token segment', () => {
   let wrapper;
 
-  const searchInputAttributes = { 'data-qa-selector': 'foo-bar' };
+  const searchInputAttributes = { 'data-prop': 'foo-bar' };
 
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
@@ -336,7 +336,7 @@ describe('Filtered search token segment', () => {
       });
 
       it('does not add `searchInputAttributes` prop to search token segment', () => {
-        expect(wrapper.attributes('data-qa-selector')).toBe(undefined);
+        expect(wrapper.attributes('data-prop')).toBe(undefined);
       });
     }
   );
@@ -353,9 +353,7 @@ describe('Filtered search token segment', () => {
     });
 
     it('adds `searchInputAttributes` prop to search token segment', () => {
-      expect(wrapper.attributes('data-qa-selector')).toBe(
-        searchInputAttributes['data-qa-selector']
-      );
+      expect(wrapper.attributes('data-prop')).toBe(searchInputAttributes['data-prop']);
     });
   });
 
@@ -363,8 +361,8 @@ describe('Filtered search token segment', () => {
     it('adds `searchInputAttributes` prop to search token segment input', () => {
       createComponent({ active: true, value: 'something', searchInputAttributes });
 
-      expect(wrapper.find('input').attributes('data-qa-selector')).toBe(
-        searchInputAttributes['data-qa-selector']
+      expect(wrapper.find('input').attributes('data-prop')).toBe(
+        searchInputAttributes['data-prop']
       );
     });
 

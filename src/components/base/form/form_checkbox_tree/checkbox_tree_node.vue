@@ -39,7 +39,7 @@ export default {
 </script>
 
 <template>
-  <div :class="rootClass" :data-qa-selector="`${$options.qaPrefix}${option.value}`">
+  <div :class="rootClass" :data-testid="`${$options.qaPrefix}${option.value}`">
     <gl-form-checkbox
       :checked="node.isChecked"
       :indeterminate="node.isIndeterminate"

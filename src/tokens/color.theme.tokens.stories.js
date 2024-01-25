@@ -1,58 +1,43 @@
-import { methods, template } from './common_story_options';
-import colorTokens from './color.theme.tokens.json';
+import COMPILED_TOKENS from '../../dist/tokens/json/tokens.json';
+import { colorTokenStoryOptions } from './common_story_options';
 
-const generateProps = ({ name = '', tokens = colorTokens } = {}) => ({
-  name,
-  tokens,
-});
+const generateProps = ({ tokens = {} } = {}) => ({ tokens });
 
 export const ThemeIndigo = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-ThemeIndigo.args = generateProps({ name: 'theme.indigo', tokens: colorTokens.theme.indigo });
+ThemeIndigo.args = generateProps({ tokens: COMPILED_TOKENS.theme.indigo });
 
 export const ThemeBlue = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-ThemeBlue.args = generateProps({ name: 'theme.blue', tokens: colorTokens.theme.blue });
+ThemeBlue.args = generateProps({ tokens: COMPILED_TOKENS.theme.blue });
 
 export const ThemeLightBlue = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-ThemeLightBlue.args = generateProps({
-  name: 'theme.light-blue',
-  tokens: colorTokens.theme['light-blue'],
-});
+ThemeLightBlue.args = generateProps({ tokens: COMPILED_TOKENS.theme['light-blue'] });
 
 export const ThemeGreen = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-ThemeGreen.args = generateProps({ name: 'theme.green', tokens: colorTokens.theme.green });
+ThemeGreen.args = generateProps({ tokens: COMPILED_TOKENS.theme.green });
 
 export const ThemeRed = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-ThemeRed.args = generateProps({ name: 'theme.red', tokens: colorTokens.theme.red });
+ThemeRed.args = generateProps({ tokens: COMPILED_TOKENS.theme.red });
 
 export const ThemeLightRed = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
-ThemeLightRed.args = generateProps({
-  name: 'theme.light-red',
-  tokens: colorTokens.theme['light-red'],
-});
+ThemeLightRed.args = generateProps({ tokens: COMPILED_TOKENS.theme['light-red'] });
 
 // eslint-disable-next-line storybook/csf-component
 export default {

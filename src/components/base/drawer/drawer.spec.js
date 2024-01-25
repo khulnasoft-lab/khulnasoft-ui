@@ -98,6 +98,7 @@ describe('drawer component', () => {
       },
     });
 
+    // eslint-disable-next-line unicorn/no-array-callback-reference
     expect(wrapper.find(parentSelector).find(`[data-testid="${slot}"]`).exists()).toBe(true);
   });
 

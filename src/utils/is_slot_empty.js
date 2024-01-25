@@ -13,11 +13,13 @@ function isEmpty(vnode) {
   }
 
   if (Array.isArray(vnode)) {
+    // eslint-disable-next-line unicorn/no-array-callback-reference
     return vnode.every(isEmpty);
   }
 
   if (Fragment && vnode.type === Fragment) {
     // Vue.js 3 fragment, check children
+    // eslint-disable-next-line unicorn/no-array-callback-reference
     return vnode.children.every(isEmpty);
   }
 
@@ -33,5 +35,6 @@ export function isSlotEmpty(vueInstance, slot, slotArgs) {
       callIfNeeded(vueInstance.$slots[slot] || vueInstance.$scopedSlots[slot], slotArgs)
     : vueInstance.$scopedSlots[slot]?.(slotArgs);
 
+  // eslint-disable-next-line unicorn/no-array-callback-reference
   return isEmpty(slotContent);
 }

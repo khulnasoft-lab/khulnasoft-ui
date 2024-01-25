@@ -48,6 +48,7 @@ describe('GlCollapsibleListbox', () => {
   const findListContainer = () => wrapper.find('[role="listbox"]');
   const findListboxItems = (root = wrapper) => root.findAllComponents(GlListboxItem);
   const findListboxGroups = () => wrapper.findAllComponents(GlListboxGroup);
+  // eslint-disable-next-line unicorn/no-array-callback-reference
   const findListItem = (index) => findListboxItems().at(index).find(ITEM_SELECTOR);
   const findHeaderText = () => wrapper.find("[data-testid='listbox-header-text']");
   const findSearchBox = () => wrapper.find("[data-testid='listbox-search-input']");
@@ -241,6 +242,7 @@ describe('GlCollapsibleListbox', () => {
 
     it('should focus the first selected item', async () => {
       await showDropdown();
+      // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(findListboxItems().at(1).find(ITEM_SELECTOR).element).toHaveFocus();
     });
 
@@ -475,6 +477,11 @@ describe('GlCollapsibleListbox', () => {
     });
 
     describe('Screen reader text with number of search results', () => {
+      it('when the #search-summary-sr-only slot content is empty', () => {
+        buildWrapper({ items: mockOptions, searchable: true, searching: false });
+        expect(findSRNumberOfResultsText().text()).toBe('12 results');
+      });
+
       it('when the #search-summary-sr-only slot content is provided', () => {
         const searchResultsContent = 'Found 5 results';
         const slots = { 'search-summary-sr-only': searchResultsContent };

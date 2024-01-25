@@ -1,40 +1,54 @@
-import { methods, template } from './common_story_options';
-import colorTokens from './color.dark.tokens.json';
+import COMPILED_TOKENS from '../../dist/tokens/json/tokens.dark.json';
+import { colorTokenStoryOptions } from './common_story_options';
 
-const generateProps = ({ name = '', tokens = colorTokens } = {}) => ({
-  name,
-  tokens,
-});
+const generateProps = ({ tokens = {} } = {}) => ({ tokens });
 
 export const Default = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  methods,
-  template,
+  ...colorTokenStoryOptions,
 });
 Default.args = generateProps({
   tokens: {
-    white: colorTokens.white,
-    black: colorTokens.black,
+    white: COMPILED_TOKENS.white,
+    black: COMPILED_TOKENS.black,
   },
 });
 
-export const Gray = (args, { argTypes }) => ({ props: Object.keys(argTypes), methods, template });
-Gray.args = generateProps({ name: 'gray', tokens: colorTokens.gray });
+export const Gray = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...colorTokenStoryOptions,
+});
+Gray.args = generateProps({ tokens: COMPILED_TOKENS.gray });
 
-export const Blue = (args, { argTypes }) => ({ props: Object.keys(argTypes), methods, template });
-Blue.args = generateProps({ name: 'blue', tokens: colorTokens.blue });
+export const Blue = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...colorTokenStoryOptions,
+});
+Blue.args = generateProps({ tokens: COMPILED_TOKENS.blue });
 
-export const Green = (args, { argTypes }) => ({ props: Object.keys(argTypes), methods, template });
-Green.args = generateProps({ name: 'green', tokens: colorTokens.green });
+export const Green = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...colorTokenStoryOptions,
+});
+Green.args = generateProps({ tokens: COMPILED_TOKENS.green });
 
-export const Orange = (args, { argTypes }) => ({ props: Object.keys(argTypes), methods, template });
-Orange.args = generateProps({ name: 'orange', tokens: colorTokens.orange });
+export const Orange = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...colorTokenStoryOptions,
+});
+Orange.args = generateProps({ tokens: COMPILED_TOKENS.orange });
 
-export const Red = (args, { argTypes }) => ({ props: Object.keys(argTypes), methods, template });
-Red.args = generateProps({ name: 'red', tokens: colorTokens.red });
+export const Red = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...colorTokenStoryOptions,
+});
+Red.args = generateProps({ tokens: COMPILED_TOKENS.red });
 
-export const Purple = (args, { argTypes }) => ({ props: Object.keys(argTypes), methods, template });
-Purple.args = generateProps({ name: 'purple', tokens: colorTokens.purple });
+export const Purple = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  ...colorTokenStoryOptions,
+});
+Purple.args = generateProps({ tokens: COMPILED_TOKENS.purple });
 
 // eslint-disable-next-line storybook/csf-component
 export default {

@@ -23,6 +23,7 @@ describe('Intersperse Component', () => {
       createComponent(defaultSlotContent);
 
       selectorsToCheck.forEach((selector) => {
+        // eslint-disable-next-line unicorn/no-array-callback-reference
         expect(wrapper.find(selector).exists()).toBe(true);
       });
     }

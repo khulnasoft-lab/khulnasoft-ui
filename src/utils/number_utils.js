@@ -9,7 +9,7 @@ export const addition = (a, b) => a + b;
  * Returns the sum of all arguments
  * @param  {...Number} numbers
  */
-export const sum = (...numbers) => numbers.reduce(addition);
+export const sum = (...numbers) => numbers.reduce(addition); // eslint-disable-line unicorn/no-array-callback-reference
 
 /**
  * Returns the average of all arguments

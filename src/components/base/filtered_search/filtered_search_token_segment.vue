@@ -24,7 +24,8 @@ const isVNodeEmpty = (vnode) => {
   if (isVue3Fragment(vnode)) {
     // vnode.children might be an array or single node in edge cases
     return Array.isArray(vnode.children)
-      ? vnode.children.every(isVNodeEmpty)
+      ? // eslint-disable-next-line unicorn/no-array-callback-reference
+        vnode.children.every(isVNodeEmpty)
       : isVNodeEmpty(vnode.children);
   }
 
@@ -41,6 +42,7 @@ const isSlotNotEmpty = (slot) => {
   }
 
   const vnodes = typeof slot === 'function' ? slot() : slot;
+  // eslint-disable-next-line unicorn/no-array-callback-reference
   return !(Array.isArray(vnodes) ? vnodes.every(isVNodeEmpty) : isVNodeEmpty(vnodes));
 };
 

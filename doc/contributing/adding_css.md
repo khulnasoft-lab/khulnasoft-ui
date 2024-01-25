@@ -1,5 +1,14 @@
 # Adding CSS
 
+## Please read this first
+
+As of GitLab 16.9, we are in the process of migrating our CSS utilities library to [Tailwind CSS](https://tailwindcss.com/).
+We will be updating this document as the migration progresses. For the time being, existing CSS
+utilities can still be used. However, when a Tailwind CSS equivalent is available, please consider
+using it instead.
+
+Read more about this migration in the [blueprint](https://docs.gitlab.com/ee/architecture/blueprints/tailwindcss/).
+
 ## Writing components styles
 
 From GitLab 12.2 on, we are moving components styles into GitLab UI, as
