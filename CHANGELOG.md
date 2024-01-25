@@ -1,3 +1,11 @@
+## [72.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.1...v72.12.2) (2024-01-25)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** remove aria-owns attribute from search ([c9520a6](https://gitlab.com/gitlab-org/gitlab-ui/commit/c9520a6e6006234c184085ea87b8421eacf36191))
+* **Typography:** remove scale from gl-heading-5 and gl-heading-6 classes ([2630e31](https://gitlab.com/gitlab-org/gitlab-ui/commit/2630e310c4a96fed1439b8d21ad99931ab3dbfb1))
+
 ## [72.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.0...v72.12.1) (2024-01-24)
 
 
