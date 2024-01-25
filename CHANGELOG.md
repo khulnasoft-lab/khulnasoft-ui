@@ -1,3 +1,10 @@
+## [72.12.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.2...v72.12.3) (2024-01-25)
+
+
+### Bug Fixes
+
+* Change caret position for tailwind package ([e2887d7](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2887d750f78683dd63544269155f1ad52286b55))
+
 ## [72.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.1...v72.12.2) (2024-01-25)
 
 
