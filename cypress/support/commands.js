@@ -92,3 +92,13 @@ const terminalLog = (violations) => {
 Cypress.Commands.add('glCheckA11y', (context = {}) => {
   cy.checkA11y({ include: ['#storybook-root'], ...context }, null, terminalLog);
 });
+
+Cypress.Commands.add('glRunA11yTests', (tests) => {
+  Object.entries(tests).forEach(([name, fn]) => {
+    cy.task('log', `start a11y test: ${name} -----------`);
+
+    fn();
+
+    cy.glCheckA11y();
+  });
+});
