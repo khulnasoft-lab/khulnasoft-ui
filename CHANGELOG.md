@@ -1,3 +1,10 @@
+## [72.12.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.3...v72.12.4) (2024-01-26)
+
+
+### Bug Fixes
+
+* **GlBadge:** add `aria-label` atrribute to fix a11y violation ([b5c0c4e](https://gitlab.com/gitlab-org/gitlab-ui/commit/b5c0c4eae223c984ac2e9d8691d77cdec949aada))
+
 ## [72.12.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.2...v72.12.3) (2024-01-25)
 
 
