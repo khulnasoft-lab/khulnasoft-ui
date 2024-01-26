@@ -213,8 +213,6 @@ describe('GlCollapsibleListbox', () => {
       cy.visitStory('base/dropdown/collapsible-listbox', {
         story: 'searchable',
       });
-
-      cy.glCheckA11y();
     }
 
     function checkA11ySearchableListboxClosed() {
@@ -224,13 +222,39 @@ describe('GlCollapsibleListbox', () => {
           startOpened: false,
         },
       });
+    }
 
-      cy.glCheckA11y();
+    function checkA11yListboxFocusSearchBox() {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
+        story: 'searchable',
+        args: {
+          startOpened: true,
+        },
+      });
+
+      cy.get('.gl-listbox-search-input').eq(0).focus();
+    }
+
+    function checkA11yFocusedItemState() {
+      cy.visitStory('base/dropdown/collapsible-listbox');
+
+      cy.get('.gl-new-dropdown-item').eq(0).focus();
+    }
+
+    function checkA11yListboxHeaderFooter() {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
+        story: 'header-and-footer',
+      });
     }
 
     it('passes axe accessbility audits', { tags: '@a11y' }, () => {
-      checkA11ySearchableListboxOpened();
-      checkA11ySearchableListboxClosed();
+      cy.glRunA11yTests({
+        checkA11ySearchableListboxOpened,
+        checkA11yListboxFocusSearchBox,
+        checkA11ySearchableListboxClosed,
+        checkA11yFocusedItemState,
+        checkA11yListboxHeaderFooter,
+      });
     });
   });
 });
