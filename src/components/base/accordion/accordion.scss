@@ -1,0 +1,5 @@
+.gl-accordion {
+  @include gl-display-flex;
+  @include gl-flex-direction-column;
+  gap: $gl-spacing-scale-3;
+}
