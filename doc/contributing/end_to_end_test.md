@@ -55,8 +55,6 @@ These can be translated into axe accessibility tests for `GlDisclosureDropdown` 
 describe('stories', () => {
   function checkA11yDropdownOpened() {
     cy.visitStory('base/dropdown/disclosure-dropdown');
-
-    cy.glCheckA11y();
   }
 
   function checkA11yDropdownClosed() {
@@ -65,16 +63,12 @@ describe('stories', () => {
         startOpened: false,
       },
     });
-
-    cy.glCheckA11y();
   }
 
   function checkA11yDropdownWithGroupsOpened() {
     cy.visitStory('base/dropdown/disclosure-dropdown', {
       story: 'groups',
     });
-
-    cy.glCheckA11y();
   }
 
   function checkA11yDropdownWithGroupsClosed() {
@@ -84,18 +78,22 @@ describe('stories', () => {
         startOpened: false,
       },
     });
-
-    cy.glCheckA11y();
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
-    checkA11yDropdownOpened();
-    checkA11yDropdownClosed();
-    checkA11yDropdownWithGroupsOpened();
-    checkA11yDropdownWithGroupsClosed();
+    cy.glRunA11yTests({
+      checkA11yDropdownOpened,
+      checkA11yDropdownClosed,
+      checkA11yDropdownWithGroupsOpened,
+      checkA11yDropdownWithGroupsClosed,
+    });
   });
 });
 ```
+
+The `glRunA11yTests` helper runs each test, logging the name of the given test
+and calling `glCheckA11y` at the end of each test. This is needed to help
+improve maintainability while working uder a single `it` (see [below remarks](#remarks)).
 
 ### Testing hover state by firing native events
 
@@ -107,7 +105,6 @@ function checkA11YLabelHoverState() {
   cy.visitStory('base/label');
 
   cy.get('.gl-label a').realHover();
-  cy.glCheckA11y();
 }
 ```
 
