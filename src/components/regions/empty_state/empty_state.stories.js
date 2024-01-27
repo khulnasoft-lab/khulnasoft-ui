@@ -1,4 +1,4 @@
-import securityDashboardEmptyStateSvg from '@gitlab/svgs/dist/illustrations/security-dashboard-empty-state.svg';
+import productivityAnalyticsEmptyStateSvg from '@gitlab/svgs/dist/illustrations/productivity-analytics-empty-state.svg';
 import issuesSvg from '@gitlab/svgs/dist/illustrations/rocket-launch-md.svg';
 import GlButton from '../../base/button/button.vue';
 import GlEmptyState from './empty_state.vue';
@@ -28,7 +28,7 @@ const Template = (args) => ({
 
 const generateProps = ({
   title = 'This state is empty',
-  svgPath = securityDashboardEmptyStateSvg,
+  svgPath = productivityAnalyticsEmptyStateSvg,
   svgHeight = 144,
   description = 'The title and message should be clear, concise, and explain why the user is seeing this screen.',
   primaryButtonText = 'Something actionable',
