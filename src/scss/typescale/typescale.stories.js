@@ -3,6 +3,7 @@ import typescaleDocs from './typescale.md';
 import uiTypescaleDemoContent from './typescale_demo.html';
 import uiTypescaleDemoStyles from './typescale_demo.scss';
 import uiTypefaceContent from './typeface_demo.html';
+import uiHeadingContent from './heading_demo.html';
 
 const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent) => {
   if (!has(window, 'customElements') || customElements.get(componentName)) {
@@ -29,9 +30,14 @@ const createTypescaleDemoComponent = (componentName, typescaleCSS, demoContent) 
 
 createTypescaleDemoComponent('ui-typescale-demo', uiTypescaleDemoStyles, uiTypescaleDemoContent);
 createTypescaleDemoComponent('ui-typeface-demo', uiTypescaleDemoStyles, uiTypefaceContent);
+createTypescaleDemoComponent('ui-heading-demo', uiTypescaleDemoStyles, uiHeadingContent);
 
 const component = {
   template: '<ui-typescale-demo />',
+};
+
+const headingComponent = {
+  template: '<ui-heading-demo />',
 };
 
 const typefaceComponent = {
@@ -46,6 +52,9 @@ Default.parameters = {
 };
 
 export const Typefaces = () => typefaceComponent;
+Typefaces.parameters = Default.parameters;
+
+export const Headings = () => headingComponent;
 Typefaces.parameters = Default.parameters;
 
 // eslint-disable-next-line storybook/csf-component
