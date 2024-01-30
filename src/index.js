@@ -76,7 +76,6 @@ export { default as GlDatepicker } from './components/base/datepicker/datepicker
 export { default as GlDaterangePicker } from './components/base/daterange_picker/daterange_picker.vue';
 export { default as GlToggle } from './components/base/toggle/toggle.vue';
 export { default as GlSorting } from './components/base/sorting/sorting.vue';
-export { default as GlSortingItem } from './components/base/sorting/sorting_item.vue';
 export { default as GlInfiniteScroll } from './components/base/infinite_scroll/infinite_scroll.vue';
 export { default as GlAlert } from './components/base/alert/alert.vue';
 export { default as GlSegmentedControl } from './components/base/segmented_control/segmented_control.vue';
