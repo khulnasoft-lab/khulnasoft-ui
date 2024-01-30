@@ -2,7 +2,7 @@
  * This spec tests a few built-in and custom Storybook behaviors to make `@storybook/*` packages
  * upgrades smoother.
  */
-describe('Storybook', () => {
+describe('Storybook', { tags: '@storybook' }, () => {
   describe('location paths', () => {
     beforeEach(() => {
       cy.visit('/');
