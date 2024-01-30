@@ -97,7 +97,7 @@
   margin-bottom: $gl-mb-heading;
 }
 
-@mixin gl-heading-0 {
+@mixin gl-heading-display {
   @include gl-heading-scale-800;
   margin-bottom: $gl-mb-heading-display;
 }
