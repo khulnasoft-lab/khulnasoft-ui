@@ -1,3 +1,10 @@
+# [72.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.13.0...v72.14.0) (2024-01-30)
+
+
+### Features
+
+* **tailwindcss:** extend config with colors and spacing scale ([2c7a006](https://gitlab.com/gitlab-org/gitlab-ui/commit/2c7a006e4c605c58a753d8bfbc8ceb0bdc101cf8))
+
 # [72.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.4...v72.13.0) (2024-01-30)
 
 
