@@ -1,3 +1,16 @@
+# [73.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.14.0...v73.0.0) (2024-01-30)
+
+
+### Features
+
+* remove deprecated GlDropdown usage from GlSorting ([9621e68](https://gitlab.com/gitlab-org/gitlab-ui/commit/9621e6872f650570a106a5534ed007c1b76c40f3))
+
+
+### BREAKING CHANGES
+
+* Remove `GlSortingItem` component and deprecated API
+from GlSorting
+
 # [72.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.13.0...v72.14.0) (2024-01-30)
 
 
