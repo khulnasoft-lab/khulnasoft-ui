@@ -1,3 +1,10 @@
+## [73.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.0.0...v73.0.1) (2024-01-30)
+
+
+### Bug Fixes
+
+* **Typography:** Change name of display heading ([e00a243](https://gitlab.com/gitlab-org/gitlab-ui/commit/e00a2439b797fb92b6ee2d248e7c0b11afb91181)), closes [/gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/merge_requests/3707#note_1749912712](https://gitlab.com//gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/merge_requests/3707/issues/note_1749912712)
+
 # [73.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.14.0...v73.0.0) (2024-01-30)
 
 
