@@ -1,3 +1,5 @@
+import { userEvent, within, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import { makeContainer } from '../../../utils/story_decorators/container';
 import GlSorting from './sorting.vue';
 import readme from './sorting.md';
@@ -44,9 +46,6 @@ const template = `
 const Template = (args) => ({
   components,
   props: Object.keys(args),
-  mounted() {
-    this.$nextTick(() => this.$el.querySelector('button').click());
-  },
   template,
 });
 
@@ -72,6 +71,12 @@ Object.assign(Default, {
   }),
   parameters: {},
 });
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByTestId('base-dropdown-toggle');
+  await userEvent.click(button);
+  await waitFor(() => expect(canvas.getByRole('listbox')).toBeVisible());
+};
 
 export default {
   title: 'base/sorting',

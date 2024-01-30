@@ -1,3 +1,5 @@
+import { userEvent, within, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import Vue from 'vue';
 import GlButton from '../button/button.vue';
 import GlToast from './toast';
@@ -6,6 +8,13 @@ import readme from './toast.md';
 Vue.use(GlToast);
 
 const components = { GlToast, GlButton };
+
+const play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button');
+  await userEvent.click(button);
+  await waitFor(() => expect(within(document).getByRole('status')).toBeVisible());
+};
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -19,12 +28,10 @@ const Template = (args, { argTypes }) => ({
       this.$toast.show('This is the default toast.');
     },
   },
-  mounted() {
-    this.showToast();
-  },
 });
 
 export const Default = Template.bind({});
+Default.play = play;
 
 export const WithActions = () => ({
   components,
@@ -42,10 +49,8 @@ export const WithActions = () => ({
       });
     },
   },
-  mounted() {
-    this.showToast();
-  },
 });
+WithActions.play = play;
 
 export const WithLongContent = () => ({
   components,
@@ -66,10 +71,8 @@ export const WithLongContent = () => ({
       );
     },
   },
-  mounted() {
-    this.showToast();
-  },
 });
+WithLongContent.play = play;
 
 export default {
   title: 'base/toast',

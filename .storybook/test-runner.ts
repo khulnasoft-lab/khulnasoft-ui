@@ -1,4 +1,4 @@
-import { TestRunnerConfig } from '@storybook/test-runner';
+import { TestRunnerConfig, waitForPageReady } from '@storybook/test-runner';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { getResetAnimationsCSS } from '../src/utils/test_utils';
 
@@ -43,6 +43,15 @@ const config: TestRunnerConfig = {
   },
   async preVisit(page) {
     page.setViewportSize(DEFAULT_VIEWPORT_SIZE);
+
+    // Wait until assets have finished loading. It is worth noting that we ran into several timing
+    // issues while setting up Test Runner that were eventually addressed by the addition of an
+    // arbitrary timeout below in the `postVisit` hook. That works around the fact that
+    // `waitForPageReady` does not seem to work as expected as some screenshots were sometimes
+    // captured before images or fonts had finished loading. To reduce the risk of flakiness, we are
+    // therefore relying on several waits that should eventually be consolidated, which may require
+    // a fix in the upstream project.
+    await waitForPageReady(page);
   },
   async postVisit(page, context) {
     // Reset SVG animations
@@ -53,13 +62,20 @@ const config: TestRunnerConfig = {
       });
     });
 
-    // Fixing the Animation by inlining, previous approach with external file was flaky for the animation
+    // Reset CSS animations
     await page.addStyleTag({
       content: getResetAnimationsCSS(),
     });
 
-    // We wait for an arbitrary amount of time to make sure all elements are visible following
-    // programmatically-triggered events when the story loads (tooltips, toasts, etc.).
+    // Wait until the component is mounted
+    await page.waitForSelector('#storybook-root.vue-component-mounted');
+
+    // Wait until assets have finished loading again (useful if some play function caused new assets to be requested)
+    await waitForPageReady(page);
+
+    // We wait for an arbitrary amount of time to make sure assets have actually finished loading and
+    // elements are properly positioned. For the time being, this is required as `waitForPageReady`
+    // isn't 100% reliable.
     await page.waitForTimeout(500);
 
     const image = await page.screenshot();

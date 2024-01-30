@@ -1,3 +1,5 @@
+import { userEvent, within, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlButton from '../button/button.vue';
 import GlTooltip from './tooltip.vue';
@@ -19,31 +21,39 @@ function makeTooltip(modifier = '') {
       </gl-button>
     </div>
   `,
-    mounted() {
-      this.$nextTick(() => this.$el.querySelector('button').focus());
-    },
   };
 }
+
+const play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button');
+  await userEvent.click(button);
+  await waitFor(() => expect(within(document).getByRole('tooltip')).toBeVisible());
+};
 
 export const TopDefault = (args, argTypes) => ({
   ...makeTooltip(),
   props: Object.keys(argTypes),
 });
+TopDefault.play = play;
 
 export const Right = (args, argTypes) => ({
   ...makeTooltip('.right'),
   props: Object.keys(argTypes),
 });
+Right.play = play;
 
 export const Bottom = (args, argTypes) => ({
   ...makeTooltip('.bottom'),
   props: Object.keys(argTypes),
 });
+Bottom.play = play;
 
 export const Left = (args, argTypes) => ({
   ...makeTooltip('.left'),
   props: Object.keys(argTypes),
 });
+Left.play = play;
 
 // A default export contains higher-level info about the component and the stories' settings.
 export default {

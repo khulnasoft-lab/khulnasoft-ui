@@ -59,3 +59,37 @@ export const CustomActions = () => ({
 });
 CustomActions.tags = ['skip-visual-test'];
 ```
+
+## Simulating user interactions
+
+Some stories might not showcase relevant states by only mounting components. It is sometimes
+necessary to trigger simulated user interactions when stories load so that the component's purpose
+is surfaced initially, and for visual regression tests to cover as much ground as possible.
+
+For example, `GlTooltip` requires the toggle to be interacted with so that the tooltip actually
+shows up.
+
+In such cases, use Storybook's `play` functions:
+
+```js
+import { userEvent, within, waitFor } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
+
+Tooltip.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  // Click on the tooltip's toggle
+  const button = canvas.getByRole("button");
+  await userEvent.click(button);
+
+  // Make sure the tooltip actually is visible
+  await waitFor(() =>
+    expect(within(document).getByRole("tooltip")).toBeVisible()
+  );
+};
+```
+
+When applicable, make sure to check that the toggled element(s) is visible at the end of the `play`
+function as this helps prevent flakiness in visual regression tests.
+
+Read more on `play` functions in [Storybook's documentation](https://storybook.js.org/docs/writing-stories/play-function).

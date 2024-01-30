@@ -1,5 +1,6 @@
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
+import { triggerBlurEvent } from '../../../utils/play_utils';
 import GlIcon from '../icon/icon.vue';
 import GlDatepicker from '../datepicker/datepicker.vue';
 import { provide } from './common_story_options';
@@ -30,11 +31,6 @@ export const Default = (args, { argTypes }) => ({
       },
     };
   },
-  mounted() {
-    this.$nextTick(() => {
-      document.activeElement.blur();
-    });
-  },
   template: `
     <div>
       <div> {{ value }} </div>
@@ -58,6 +54,7 @@ export const Default = (args, { argTypes }) => ({
   `,
 });
 Default.args = generateProps();
+Default.play = triggerBlurEvent;
 
 // eslint-disable-next-line no-unused-vars
 export const WithCustomOperatorsOptions = (args, { argTypes }) => ({
@@ -79,11 +76,6 @@ export const WithCustomOperatorsOptions = (args, { argTypes }) => ({
         ],
       },
     };
-  },
-  mounted() {
-    this.$nextTick(() => {
-      document.activeElement.blur();
-    });
   },
   template: `
     <div>
@@ -108,6 +100,7 @@ export const WithCustomOperatorsOptions = (args, { argTypes }) => ({
   `,
 });
 WithCustomOperatorsOptions.args = generateProps();
+WithCustomOperatorsOptions.play = triggerBlurEvent;
 
 // eslint-disable-next-line no-unused-vars
 export const WithStaticOptions = (args, { argTypes }) => ({
@@ -130,11 +123,6 @@ export const WithStaticOptions = (args, { argTypes }) => ({
       },
     };
   },
-  mounted() {
-    this.$nextTick(() => {
-      document.activeElement.blur();
-    });
-  },
   template: `
     <div>
       <div> {{ value }} </div>
@@ -153,6 +141,7 @@ export const WithStaticOptions = (args, { argTypes }) => ({
   `,
 });
 WithStaticOptions.args = generateProps();
+WithStaticOptions.play = triggerBlurEvent;
 
 // eslint-disable-next-line no-unused-vars
 export const WithDataSegmentInputAttributes = (args, { argTypes }) => ({
@@ -178,11 +167,6 @@ export const WithDataSegmentInputAttributes = (args, { argTypes }) => ({
       },
     };
   },
-  mounted() {
-    this.$nextTick(() => {
-      document.activeElement.blur();
-    });
-  },
   template: `
     <div>
       <div> {{ value }} </div>
@@ -200,6 +184,7 @@ export const WithDataSegmentInputAttributes = (args, { argTypes }) => ({
   `,
 });
 WithDataSegmentInputAttributes.args = generateProps();
+WithDataSegmentInputAttributes.play = triggerBlurEvent;
 
 export default {
   title: 'base/filtered-search/token',
