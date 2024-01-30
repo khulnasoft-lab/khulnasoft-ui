@@ -37,33 +37,13 @@ export const i18n = {
   ],
 };
 
-export const slashCommands = [
-  {
-    name: '/reset',
-    shouldSubmit: true,
-    description: 'Reset conversation, ignore the previous messages.',
-  },
-  {
-    name: '/tests',
-    shouldSubmit: false,
-    description: 'Write tests for the selected snippet.',
-  },
-  {
-    name: '/refactor',
-    shouldSubmit: false,
-    description: 'Refactor the selected snippet.',
-  },
-  {
-    name: '/explain',
-    shouldSubmit: false,
-    description: 'Explain the selected snippet.',
-  },
-];
-
 const isMessage = (item) => Boolean(item) && item?.role;
+const isSlashCommand = (command) => Boolean(command) && command?.name && command.description;
 
 // eslint-disable-next-line unicorn/no-array-callback-reference
 const itemsValidator = (items) => items.every(isMessage);
+// eslint-disable-next-line unicorn/no-array-callback-reference
+const slashCommandsValidator = (commands) => commands.every(isSlashCommand);
 
 export default {
   name: 'GlDuoChat',
@@ -161,12 +141,13 @@ export default {
       default: i18n.CHAT_DEFAULT_TITLE,
     },
     /**
-     * Whether the slash commands should be available to user when typing the prompt.
+     * Array of slash commands to display in the chat.
      */
-    withSlashCommands: {
-      type: Boolean,
+    slashCommands: {
+      type: Array,
       required: false,
-      default: false,
+      default: () => [],
+      validator: slashCommandsValidator,
     },
   },
   data() {
@@ -178,6 +159,9 @@ export default {
     };
   },
   computed: {
+    withSlashCommands() {
+      return this.slashCommands.length > 0;
+    },
     hasMessages() {
       return this.messages?.length > 0;
     },
@@ -206,13 +190,15 @@ export default {
     },
     filteredSlashCommands() {
       const caseInsensitivePrompt = this.prompt.toLowerCase();
-      return slashCommands.filter((c) => c.name.toLowerCase().startsWith(caseInsensitivePrompt));
+      return this.slashCommands.filter((c) =>
+        c.name.toLowerCase().startsWith(caseInsensitivePrompt)
+      );
     },
     shouldShowSlashCommands() {
       if (!this.withSlashCommands) return false;
       const caseInsensitivePrompt = this.prompt.toLowerCase();
       const startsWithSlash = caseInsensitivePrompt.startsWith('/');
-      const startsWithSlashCommand = slashCommands.some((c) =>
+      const startsWithSlashCommand = this.slashCommands.some((c) =>
         caseInsensitivePrompt.startsWith(c.name)
       );
       return startsWithSlash && this.filteredSlashCommands.length && !startsWithSlashCommand;

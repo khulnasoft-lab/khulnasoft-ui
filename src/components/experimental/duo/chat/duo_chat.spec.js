@@ -7,9 +7,41 @@ import GlDropdownItem from '../../../base/dropdown/dropdown_item.vue';
 import DuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import DuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import DuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
-import GlDuoChat, { slashCommands } from './duo_chat.vue';
+import GlDuoChat from './duo_chat.vue';
 
 import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
+
+const slashCommands = [
+  {
+    name: '/reset',
+    shouldSubmit: true,
+    description: 'Reset conversation, ignore the previous messages.',
+  },
+  {
+    name: '/tests',
+    description: 'Write tests for the selected snippet.',
+  },
+  {
+    name: '/refactor',
+    description: 'Refactor the selected snippet.',
+  },
+  {
+    name: '/explain',
+    description: 'Explain the selected snippet.',
+  },
+];
+
+const invalidSlashCommands = [
+  {
+    name: '/foo',
+  },
+  {
+    description: '/bar',
+  },
+  {
+    shouldSubmit: true,
+  },
+];
 
 const generatePartialSlashCommands = () => {
   const res = [];
@@ -421,21 +453,14 @@ describe('GlDuoChat', () => {
       slashCommandsNames.filter((name) => commands.includes(name));
 
     describe('rendering', () => {
-      describe('without the `withSlashCommands` enabled', () => {
+      describe('without slash commands', () => {
         it('does not render slash commands by default', () => {
-          createComponent({
-            propsData: {
-              withSlashCommands: false,
-            },
-          });
+          createComponent();
           expect(findSlashCommandsCard().exists()).toBe(false);
         });
 
         it('does not render slash commands when prompt is "/"', async () => {
           createComponent({
-            propsData: {
-              withSlashCommands: false,
-            },
             data: {
               prompt: '/',
             },
@@ -446,20 +471,16 @@ describe('GlDuoChat', () => {
         });
 
         it('shows default placeholder in the chat input', () => {
-          createComponent({
-            propsData: {
-              withSlashCommands: false,
-            },
-          });
+          createComponent();
           expect(findChatInput().attributes('placeholder')).toBe('GitLab Duo Chat');
         });
       });
 
-      describe('with the `withSlashCommands` enabled', () => {
+      describe('with slash commands', () => {
         it('does not render slash commands by default', async () => {
           createComponent({
             propsData: {
-              withSlashCommands: true,
+              slashCommands,
             },
           });
 
@@ -470,7 +491,7 @@ describe('GlDuoChat', () => {
         it('renders all slash commands when prompt is "/"', async () => {
           createComponent({
             propsData: {
-              withSlashCommands: true,
+              slashCommands,
             },
             data: {
               prompt: '/',
@@ -490,10 +511,20 @@ describe('GlDuoChat', () => {
         it('shows the correct placeholder in the chat input', () => {
           createComponent({
             propsData: {
-              withSlashCommands: true,
+              slashCommands,
             },
           });
           expect(findChatInput().attributes('placeholder')).toBe('Type "/" for slash commands');
+        });
+
+        it('prevents passing down invalid slash commands', () => {
+          expect(() => {
+            wrapper = shallowMount(GlDuoChat, {
+              propsData: {
+                slashCommands: [...slashCommands, ...invalidSlashCommands],
+              },
+            });
+          }).toHaveLength(0);
         });
 
         describe('when the prompt includes the "/" character or no characters', () => {
@@ -502,7 +533,7 @@ describe('GlDuoChat', () => {
             async (prompt) => {
               createComponent({
                 propsData: {
-                  withSlashCommands: true,
+                  slashCommands,
                 },
                 data: {
                   prompt,
@@ -521,7 +552,7 @@ describe('GlDuoChat', () => {
             async (prompt) => {
               createComponent({
                 propsData: {
-                  withSlashCommands: true,
+                  slashCommands,
                 },
                 data: {
                   prompt,
@@ -540,7 +571,7 @@ describe('GlDuoChat', () => {
             async (prompt) => {
               createComponent({
                 propsData: {
-                  withSlashCommands: true,
+                  slashCommands,
                 },
                 data: {
                   prompt,
@@ -575,7 +606,7 @@ describe('GlDuoChat', () => {
           async ({ prompt, expectedCommands } = {}) => {
             createComponent({
               propsData: {
-                withSlashCommands: true,
+                slashCommands,
               },
               data: {
                 prompt,
@@ -595,7 +626,7 @@ describe('GlDuoChat', () => {
         beforeEach(() => {
           createComponent({
             propsData: {
-              withSlashCommands: true,
+              slashCommands,
               messages,
             },
             data: {
@@ -664,7 +695,7 @@ describe('GlDuoChat', () => {
         beforeEach(() => {
           createComponent({
             propsData: {
-              withSlashCommands: true,
+              slashCommands,
               messages,
             },
             data: {
