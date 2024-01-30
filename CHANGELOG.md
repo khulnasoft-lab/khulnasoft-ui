@@ -1,3 +1,10 @@
+# [72.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.4...v72.13.0) (2024-01-30)
+
+
+### Features
+
+* **GlDuoChat:** slash commands for chat as a prop ([af86eb8](https://gitlab.com/gitlab-org/gitlab-ui/commit/af86eb883fad3b63b012c25fbe19f4cfa773f8ba))
+
 ## [72.12.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v72.12.3...v72.12.4) (2024-01-26)
 
 
