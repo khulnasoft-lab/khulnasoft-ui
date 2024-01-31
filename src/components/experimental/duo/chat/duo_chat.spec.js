@@ -76,6 +76,7 @@ describe('GlDuoChat', () => {
   const findChatConversations = () => wrapper.findAllComponents(DuoChatConversation);
   const findCustomLoader = () => wrapper.findComponent(DuoChatLoader);
   const findError = () => wrapper.find('[data-testid="chat-error"]');
+  const findHeader = () => wrapper.find('[data-testid="chat-header"]');
   const findFooter = () => wrapper.find('[data-testid="chat-footer"]');
   const findPromptForm = () => wrapper.find('[data-testid="chat-prompt-form"]');
   const findGeneratedByAI = () => wrapper.find('[data-testid="chat-legal-warning"]');
@@ -224,6 +225,18 @@ describe('GlDuoChat', () => {
         expect(findBadge().props('type')).toBe(expectedProp);
       }
     );
+
+    describe('showHeader', () => {
+      it.each`
+        desc                 | showHeader   | shouldRender
+        ${'renders'}         | ${undefined} | ${true}
+        ${'does not render'} | ${false}     | ${false}
+        ${'renders'}         | ${true}      | ${true}
+      `('$desc the header when  showHeader is "$showHeader"', ({ showHeader, shouldRender }) => {
+        createComponent({ propsData: { showHeader } });
+        expect(findHeader().exists()).toBe(shouldRender);
+      });
+    });
   });
 
   describe('chat', () => {

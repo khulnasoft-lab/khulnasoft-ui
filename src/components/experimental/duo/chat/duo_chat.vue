@@ -149,6 +149,14 @@ export default {
       default: () => [],
       validator: slashCommandsValidator,
     },
+    /**
+     * Whether the header should be displayed.
+     */
+    showHeader: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -327,7 +335,11 @@ export default {
     data-testid="chat-component"
     @scroll="handleScrollingTrottled"
   >
-    <header class="gl-drawer-header gl-drawer-header-sticky gl-z-index-200 gl-p-0! gl-border-b-0">
+    <header
+      v-if="showHeader"
+      data-testid="chat-header"
+      class="gl-drawer-header gl-drawer-header-sticky gl-z-index-200 gl-p-0! gl-border-b-0"
+    >
       <div
         class="drawer-title gl-display-flex gl-justify-content-start gl-align-items-center gl-p-5"
       >
