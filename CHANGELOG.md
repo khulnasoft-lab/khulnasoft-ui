@@ -1,3 +1,10 @@
+# [73.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.0.1...v73.1.0) (2024-01-31)
+
+
+### Features
+
+* **GlDuoChat:** Adds showHeader prop ([694f75f](https://gitlab.com/gitlab-org/gitlab-ui/commit/694f75fe5480416eef5ffd08ab32f6ed76da22ee))
+
 ## [73.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.0.0...v73.0.1) (2024-01-30)
 
 
