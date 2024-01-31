@@ -4,7 +4,7 @@ const themeColorTokens = require('./src/tokens/color.theme.tokens.json');
 const baseColors = ['blue', 'gray', 'green', 'orange', 'purple', 'red'].reduce((acc, color) => {
   acc[color] = {};
   Object.entries(baseColorTokens[color]).forEach(([shade, { $value }]) => {
-    acc[color][shade] = $value;
+    acc[color][shade] = `var(--${color}-${shade}, ${$value})`;
   });
   return acc;
 }, {});
@@ -13,7 +13,7 @@ const themeColors = Object.entries(themeColorTokens.theme).reduce((acc, [color, 
   const colorKey = `theme-${color}`;
   acc[colorKey] = {};
   Object.entries(shades).forEach(([shade, { $value }]) => {
-    acc[colorKey][shade] = $value;
+    acc[colorKey][shade] = `var(--${colorKey}-${shade}, ${$value})`;
   });
   return acc;
 }, {});
@@ -58,8 +58,8 @@ module.exports = {
   prefix: 'gl-',
   theme: {
     colors: {
-      white: baseColorTokens.white.$value,
-      black: baseColorTokens.black.$value,
+      white: `var(--white, ${baseColorTokens.white.$value})`,
+      black: `var(--black, ${baseColorTokens.black.$value})`,
       ...baseColors,
       ...themeColors,
     },
