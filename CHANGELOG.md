@@ -1,3 +1,10 @@
+## [73.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.1.0...v73.1.1) (2024-02-01)
+
+
+### Bug Fixes
+
+* **GlBadge:** Pass aria label through if any ([5f3d8ec](https://gitlab.com/gitlab-org/gitlab-ui/commit/5f3d8ec5a09bc0963ea3282da758ba3c7469935c))
+
 # [73.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.0.1...v73.1.0) (2024-01-31)
 
 
