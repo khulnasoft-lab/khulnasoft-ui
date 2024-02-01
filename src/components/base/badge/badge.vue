@@ -65,6 +65,10 @@ export default {
       return this.hasIconOnly ? 'img' : undefined;
     },
     ariaLabel() {
+      if (this.$attrs['aria-label']) {
+        return this.$attrs['aria-label'];
+      }
+
       return this.role === 'img' ? this.icon : undefined;
     },
     iconSizeComputed() {
