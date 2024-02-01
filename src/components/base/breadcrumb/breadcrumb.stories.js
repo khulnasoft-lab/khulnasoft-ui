@@ -6,6 +6,7 @@ import readme from './breadcrumb.md';
 const template = `
     <gl-breadcrumb
         :items="items"
+        :aria-label="ariaLabel"
     />
   `;
 

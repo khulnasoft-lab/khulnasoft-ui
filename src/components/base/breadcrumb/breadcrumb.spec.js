@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import avatarPath1 from '../../../../static/img/avatar.png';
 import avatarPath3 from '../../../../static/img/avatar_1.png';
-import Breadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
+import GlBreadcrumb, { COLLAPSE_AT_SIZE } from './breadcrumb.vue';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
 
 describe('Breadcrumb component', () => {
@@ -39,7 +39,7 @@ describe('Breadcrumb component', () => {
     findBreadcrumbItems().wrappers.filter((item) => !item.isVisible());
 
   const createComponent = (propsData = { items }) => {
-    wrapper = shallowMount(Breadcrumb, {
+    wrapper = shallowMount(GlBreadcrumb, {
       propsData,
       stubs: {
         GlBreadcrumbItem,
@@ -58,6 +58,20 @@ describe('Breadcrumb component', () => {
       createComponent();
 
       expect(findBreadcrumbItems()).toHaveLength(items.length);
+    });
+  });
+
+  describe('ariaLabel', () => {
+    it('uses prop if provided', () => {
+      createComponent({ items, ariaLabel: 'Folder breadcrumbs' });
+
+      expect(wrapper.attributes('aria-label')).toBe('Folder breadcrumbs');
+    });
+
+    it('uses default if prop not provided', () => {
+      createComponent();
+
+      expect(wrapper.attributes('aria-label')).toBe('Breadcrumb');
     });
   });
 
