@@ -1,3 +1,10 @@
+# [73.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.2.0...v73.3.0) (2024-02-02)
+
+
+### Features
+
+* **GlBreadcrumb:** Add ariaLabel prop ([5527740](https://gitlab.com/gitlab-org/gitlab-ui/commit/5527740d8b6399224b6bd4acbfd672b9786a3c91))
+
 # [73.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.1.1...v73.2.0) (2024-02-02)
 
 
