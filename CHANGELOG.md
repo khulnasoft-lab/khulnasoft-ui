@@ -1,3 +1,10 @@
+## [73.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.3.0...v73.3.1) (2024-02-02)
+
+
+### Bug Fixes
+
+* **DuoChat:** Handle large text in chat input ([df6578d](https://gitlab.com/gitlab-org/gitlab-ui/commit/df6578d9ddda20175302b91adfcf85d89ba52675))
+
 # [73.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.2.0...v73.3.0) (2024-02-02)
 
 
