@@ -36,6 +36,8 @@
 .duo-chat-input {
   @include gl-display-flex;
   @include gl-flex-direction-column;
+  max-height: 240px;
+  overflow: hidden;
 
   &:focus-within {
     @include gl-focus($color: $gray-900);
@@ -45,7 +47,7 @@
     flex: 1;
     resize: none;
     max-height: 240px;
-    width: calc(100% - 40px);
+    padding-right: 40px;
   }
 
   &::after {
