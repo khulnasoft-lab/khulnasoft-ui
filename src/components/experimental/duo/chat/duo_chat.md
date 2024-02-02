@@ -18,6 +18,9 @@ consumer component.
   :predefined-prompts="predefinedPrompts"
   :badge-help-page-url="badgeHelpPageUrl"
   :tool-name="toolName"
+  :empty-state-title="emptyStateTitle"
+  :empty-state-description="emptyStateDescription"
+  :chat-prompt-placeholder="chatPromptPlaceholder"
   :slash-commands="slashCommands"
   @chat-hidden="onChatHidden"
   @send-chat-prompt="onSendChatPrompt"
@@ -72,6 +75,9 @@ be necessarily reactive in the consumer component. The properties that might be 
   there are no messages in the chat.
 - `badgeHelpPageUrl`. The link to an external page explaining the meaning of an "experiment".
   The prop is passed down to the [`GlExperimentBadge` component](?path=/docs/experimental-experiment-badge--docs).
+- `emptyStateTitle`. Title of the empty state component. Visible when there are no messages.
+- `emptyStateDescription`. Description text of the empty state component. Visible when there are no messages.
+- `chatPromptPlaceholder`. Placeholder text for the chat prompt input.
 
 ### Set up communication with consumer
 
@@ -102,6 +108,9 @@ export default {
     this.isChatAvailable = true; // this is just an example. `true` is the default value
     this.predefinedPrompts = ['How to …?', 'Where do I …?'];
     this.badgeHelpPageUrl = 'https://dev.null';
+    this.emptyStateTitle = 'Ask anything';
+    this.emptyStateDescription = 'You will see the answers below';
+    this.chatPromptPlaceholder = 'Type your question here';
   }
   methods: {
     onChatHidden() {
