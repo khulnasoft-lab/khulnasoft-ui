@@ -1,3 +1,10 @@
+# [73.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.1.1...v73.2.0) (2024-02-02)
+
+
+### Features
+
+* **GlDuoChat:** Adds empty state and prompt input placeholder props ([6d0b8d0](https://gitlab.com/gitlab-org/gitlab-ui/commit/6d0b8d08dd6158883b0b35efb0cc1d5ebd3222ed))
+
 ## [73.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.1.0...v73.1.1) (2024-02-01)
 
 
