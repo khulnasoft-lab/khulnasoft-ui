@@ -33,6 +33,33 @@
   }
 }
 
+.duo-chat-history {
+  scroll-behavior: smooth;
+
+  /*
+  Browsers a are pretty good at keeping the focus on an element while
+  the parent element grows in size. With this we mark all child elements
+  of the chat history as "non" anchors.
+  https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor
+  */
+  * {
+    overflow-anchor: none;
+  }
+
+  /*
+  Right at the bottom of the chat history we add a scroll-anchor element.
+  This scroll-anchor element is the only "possible" anchor. The beauty of it:
+  It only will be used as an anchor _if_ it is currently inside the view port.
+  So if the user manually scrolls up while a chunked message is coming in,
+  it won't stick to the bottom while the message still loads.
+  */
+  .scroll-anchor {
+    overflow-anchor: auto;
+    height: 1px;
+    margin-top: -1px; // In order to not add 1px vertically, we add a negative margin
+  }
+}
+
 .duo-chat-input {
   @include gl-display-flex;
   @include gl-flex-direction-column;
@@ -59,7 +86,7 @@
 .slash-commands {
   @include gl-mt-n2;
 
-  .active-command{
+  .active-command {
     @include gl-bg-gray-50;
     @include gl-rounded-base;
   }

@@ -127,13 +127,15 @@ describe('GlDuoChat', () => {
 
     describe('when messages exist', () => {
       it('scrolls to the bottom on load', async () => {
+        const scrollIntoViewMock = jest.fn();
+        window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
+
         createComponent({ propsData: { messages } });
-        const { element } = findChatComponent();
-        jest.spyOn(element, 'scrollHeight', 'get').mockReturnValue(200);
 
         await nextTick();
 
-        expect(element.scrollTop).toEqual(200);
+        expect(scrollIntoViewMock).toHaveBeenCalledTimes(1);
+        window.HTMLElement.prototype.scrollIntoView = undefined;
       });
     });
 
