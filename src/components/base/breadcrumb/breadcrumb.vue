@@ -35,6 +35,11 @@ export default {
         });
       },
     },
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: 'Breadcrumb',
+    },
   },
   data() {
     return {
@@ -84,7 +89,7 @@ export default {
 };
 </script>
 <template>
-  <nav class="gl-breadcrumbs" aria-label="Breadcrumb">
+  <nav class="gl-breadcrumbs" :aria-label="ariaLabel">
     <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
       <template v-for="(item, index) in items">
         <!-- eslint-disable-next-line vue/valid-v-for (for @vue/compat) -->
