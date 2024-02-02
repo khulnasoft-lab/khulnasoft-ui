@@ -78,44 +78,4 @@ $gl-popover-max-width: $grid-size * 35;
       @include gl-mx-0;
     }
   }
-
-  /**
-  * Blue popover variation
-  */
-  &.blue {
-    @include gl-bg-blue-600;
-    @include gl-border-blue-600;
-
-    .popover-body {
-      @include gl-text-white;
-    }
-
-    &.bs-popover-bottom {
-      .arrow::before,
-      .arrow::after {
-        @include gl-border-b-blue-600;
-      }
-    }
-
-    &.bs-popover-top {
-      .arrow::before,
-      .arrow::after {
-        @include gl-border-t-blue-600;
-      }
-    }
-
-    &.bs-popover-right {
-      .arrow::after,
-      .arrow::before {
-        @include gl-border-r-blue-600;
-      }
-    }
-
-    &.bs-popover-left {
-      .arrow::before,
-      .arrow::after {
-        @include gl-border-l-blue-600;
-      }
-    }
-  }
 }
