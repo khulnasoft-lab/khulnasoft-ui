@@ -51,6 +51,16 @@ export default {
       type: String,
       required: true,
     },
+    /**
+     * Validation errors from the server. Generally passed to the component after making an API call.
+     */
+    serverValidations: {
+      type: Object,
+      required: false,
+      default() {
+        return {};
+      },
+    },
   },
   data() {
     return {
@@ -64,7 +74,8 @@ export default {
     },
     fieldValidationProps() {
       return mapValues(this.fields, (_, fieldName) => {
-        const invalidFeedback = this.fieldValidations[fieldName] || '';
+        const invalidFeedback =
+          this.serverValidations[fieldName] || this.fieldValidations[fieldName] || '';
 
         return {
           invalidFeedback,
