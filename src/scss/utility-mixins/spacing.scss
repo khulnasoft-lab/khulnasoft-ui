@@ -882,12 +882,6 @@
   }
 }
 
-@mixin gl-gap-y-6 {
-  > * + * {
-    margin-top: #{$gl-spacing-scale-6};
-  }
-}
-
 @mixin gl-gap-1 {
   gap: $gl-spacing-scale-1;
 }
