@@ -247,6 +247,12 @@ describe('GlCollapsibleListbox', () => {
       });
     }
 
+    function checkA11yHoverItemState() {
+      cy.visitStory('base/dropdown/collapsible-listbox');
+
+      cy.get('.gl-new-dropdown-item').realHover();
+    }
+
     it('passes axe accessbility audits', { tags: '@a11y' }, () => {
       cy.glRunA11yTests({
         checkA11ySearchableListboxOpened,
@@ -254,6 +260,7 @@ describe('GlCollapsibleListbox', () => {
         checkA11ySearchableListboxClosed,
         checkA11yFocusedItemState,
         checkA11yListboxHeaderFooter,
+        checkA11yHoverItemState,
       });
     });
   });
