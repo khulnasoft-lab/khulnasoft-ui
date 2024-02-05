@@ -1,3 +1,16 @@
+# [74.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.3.1...v74.0.0) (2024-02-05)
+
+
+### Features
+
+* Disable colored tooltip and popover variants ([0278dc4](https://gitlab.com/gitlab-org/gitlab-ui/commit/0278dc4bfb6296cdb82b8544467b77914a4311a5))
+
+
+### BREAKING CHANGES
+
+* Remove Pajamas non-compliant Tooltip and Popover
+coloring options.
+
 ## [73.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.3.0...v73.3.1) (2024-02-02)
 
 
