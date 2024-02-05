@@ -3,6 +3,10 @@
 // imports from https://github.com/bootstrap-vue/bootstrap-vue/blob/dev/src/index.scss
 
 @import 'bootstrap-vue/src/variables.scss';
+// Disabe Tooltip and Popover colored variants which we do not use / support.
+$bv-enable-tooltip-variants: false;
+$bv-enable-popover-variants: false;
+
 @import 'bootstrap-vue/src/utilities.scss';
 
 // Used by BFormSpinbutton, BFormDatepicker, BFormTimepicker, BTime, BCalendar
