@@ -178,7 +178,7 @@
   background-color: $red-700;
 }
 
-@mixin gl-bg-t-gray-a-08($hover: true, $focus: true) {
+@mixin gl-bg-t-gray-a-08($hover: true, $focus: true, $active: true) {
   background-color: $t-gray-a-08;
 }
 
