@@ -3,6 +3,8 @@ import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
 import { MESSAGE_MODEL_ROLES } from '../../constants';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';
+// eslint-disable-next-line no-restricted-imports
+import { renderDuoChatMarkdownPreview } from '../../markdown_renderer';
 import { CopyCodeElement } from './copy_code_element';
 
 const concatUntilEmpty = (arr) => {
@@ -27,7 +29,22 @@ export default {
   directives: {
     SafeHtml,
   },
-  inject: ['renderGFM', 'renderMarkdown'],
+  inject: {
+    // Note, we likely might move away from Provide/Inject for this
+    // and only ship the versions that are currently in the default
+    // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3953#note_1762834219
+    // for more context.
+    renderGFM: {
+      from: 'renderGFM',
+      default: () => (element) => {
+        element.classList.add('gl-markdown', 'gl-compact-markdown');
+      },
+    },
+    renderMarkdown: {
+      from: 'renderMarkdown',
+      default: () => renderDuoChatMarkdownPreview,
+    },
+  },
   props: {
     /**
      * A message object

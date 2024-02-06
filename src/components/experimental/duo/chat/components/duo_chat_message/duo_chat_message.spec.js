@@ -19,13 +19,13 @@ describe('DuoChatMessage', () => {
 
   const componentFactory = ({ message = MOCK_USER_PROMPT_MESSAGE, options = {} } = {}) => {
     return shallowMount(GlDuoChatMessage, {
-      ...options,
-      propsData: {
-        message,
-      },
       provide: {
         renderMarkdown,
         renderGFM,
+      },
+      ...options,
+      propsData: {
+        message,
       },
     });
   };
@@ -115,7 +115,7 @@ describe('DuoChatMessage', () => {
 
   describe('message output', () => {
     it('outputs errors if they are present', async () => {
-      const errors = ['foo', 'bar', 'baz'];
+      const errors = ['error1', 'error2', 'error3'];
 
       createComponent({
         message: {
@@ -129,9 +129,10 @@ describe('DuoChatMessage', () => {
 
       await nextTick();
 
-      expect(findContent().text()).toContain(errors[0]);
-      expect(findContent().text()).toContain(errors[1]);
-      expect(findContent().text()).toContain(errors[2]);
+      const contentText = findContent().text();
+      expect(contentText).toContain(errors[0]);
+      expect(contentText).toContain(errors[1]);
+      expect(contentText).toContain(errors[2]);
     });
 
     it('outputs contentHtml if it is present', async () => {
@@ -226,6 +227,169 @@ describe('DuoChatMessage', () => {
 
       await nextTick();
       expect(renderGFM).toHaveBeenCalled();
+    });
+  });
+
+  describe('default renderers', () => {
+    it('outputs errors if they are present', async () => {
+      const errors = ['error1', 'error2', 'error3'];
+
+      createComponent({
+        options: {
+          provide: null,
+        },
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors,
+          contentHtml: 'fooHtml barHtml',
+          content: 'foo bar',
+          chunks: ['a', 'b', 'c'],
+        },
+      });
+
+      await nextTick();
+
+      const contentText = findContent().text();
+      expect(contentText).toContain(errors[0]);
+      expect(contentText).toContain(errors[1]);
+      expect(contentText).toContain(errors[2]);
+    });
+
+    it('outputs contentHtml if it is present', async () => {
+      createComponent({
+        options: {
+          provide: null,
+        },
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors: [],
+          contentHtml: 'fooHtml barHtml',
+          content: 'foo bar',
+          chunks: ['a', 'b', 'c'],
+        },
+      });
+
+      await nextTick();
+
+      expect(findContent().html()).toBe(
+        '<div class="gl-markdown gl-compact-markdown">fooHtml barHtml</div>'
+      );
+    });
+
+    it('outputs markdown content if there is no contentHtml', async () => {
+      createComponent({
+        options: {
+          provide: null,
+        },
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors: [],
+          contentHtml: '',
+          content: 'foo bar',
+          chunks: ['a', 'b', 'c'],
+        },
+      });
+
+      await nextTick();
+
+      expect(findContent().html()).toBe('<div>\n  <p>foo bar</p>\n</div>');
+    });
+
+    it('outputs chunks if there is no content', async () => {
+      createComponent({
+        options: {
+          provide: null,
+        },
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors: [],
+          contentHtml: '',
+          content: '',
+          chunks: ['a', 'b', 'c'],
+        },
+      });
+
+      await nextTick();
+
+      expect(findContent().html()).toBe('<div>\n  <p>abc</p>\n</div>');
+    });
+
+    it('sanitizes html produced by errors', async () => {
+      createComponent({
+        options: {
+          provide: null,
+        },
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors: ['[click here](javascript:prompt(1))'],
+          contentHtml: '',
+          content: '',
+          chunks: [],
+        },
+      });
+
+      await nextTick();
+
+      expect(findContent().html()).toBe('<div>\n  <p><a>click here</a></p>\n</div>');
+    });
+
+    it('sanitizes html produced by content', async () => {
+      createComponent({
+        options: {
+          provide: null,
+        },
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors: [],
+          contentHtml: '',
+          content: '[click here](javascript:prompt(1))',
+          chunks: [],
+        },
+      });
+
+      await nextTick();
+
+      expect(findContent().html()).toBe('<div>\n  <p><a>click here</a></p>\n</div>');
+    });
+
+    it('sanitizes html produced by chunks', async () => {
+      createComponent({
+        options: {
+          provide: null,
+        },
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors: [],
+          contentHtml: '',
+          content: '',
+          chunks: ['[click here]', '(javascript:prompt(1))'],
+        },
+      });
+
+      await nextTick();
+
+      expect(findContent().html()).toBe('<div>\n  <p><a>click here</a></p>\n</div>');
+    });
+
+    it('sanitizes contentHtml', async () => {
+      createComponent({
+        options: {
+          provide: null,
+        },
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          errors: [],
+          contentHtml: `<a href="javascript:prompt(1)">click here</a>`,
+          content: '',
+          chunks: [],
+        },
+      });
+
+      await nextTick();
+
+      expect(findContent().html()).toBe(
+        '<div class="gl-markdown gl-compact-markdown"><a>click here</a></div>'
+      );
     });
   });
 });

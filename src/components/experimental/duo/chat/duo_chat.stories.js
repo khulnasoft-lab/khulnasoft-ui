@@ -9,7 +9,6 @@ import {
   MOCK_USER_PROMPT_MESSAGE,
   generateMockResponseChunks,
   renderGFM,
-  renderMarkdown,
 } from './mock_data';
 
 const slashCommands = [
@@ -72,7 +71,6 @@ export const Default = (args, { argTypes }) => ({
   components: { GlDuoChat },
   props: Object.keys(argTypes),
   provide: {
-    renderMarkdown,
     renderGFM,
   },
   template: `
@@ -101,7 +99,6 @@ export const Interactive = (args, { argTypes }) => ({
   components: { GlDuoChat, GlButton },
   props: Object.keys(argTypes),
   provide: {
-    renderMarkdown,
     renderGFM,
   },
   data() {
@@ -160,7 +157,7 @@ export const Interactive = (args, { argTypes }) => ({
         this.logerInfo += `New response: ${JSON.stringify(newResponse)}\n\n`;
         this.timeout = setStoryTimeout(() => {
           this.mockResponseFromAi();
-        }, Math.floor(Math.random() * 251) + 50);
+        }, Math.floor(Math.random() * 251) + 16);
       }
     },
   },
@@ -199,7 +196,7 @@ export const Slots = (args, { argTypes }) => ({
   components: { GlDuoChat, GlAlert },
   props: Object.keys(argTypes),
   provide: {
-    renderMarkdown,
+    renderMarkdown: (md) => `THIS IS ALTERED MARKDOWN: ${md}`,
     renderGFM,
   },
   template: `

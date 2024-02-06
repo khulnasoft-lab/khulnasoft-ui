@@ -11,7 +11,11 @@ The component represents a Duo Chat message.
 There are two ways of pretty-rendering a message's content in the component:
 
 - dependency injection, providing functions to convert raw markdown into HTML,
-- sending `contentHtml` prop as part of the `message` property,
+- sending `contentHtml` prop as part of the `message` property
+
+The component ships a default markdown renderer based on `marked`. It should produce
+reasonably well-looking results while streaming messages. The implementation can be found
+[here](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/src/components/experimental/duo/chat/markdown_renderer.js).
 
 ### Injecting functions
 
