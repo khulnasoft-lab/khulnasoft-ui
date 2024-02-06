@@ -1,3 +1,15 @@
+# [74.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.0.0...v74.1.0) (2024-02-06)
+
+
+### Bug Fixes
+
+* **Gap:** remove `gl-gap-y-6` addition ([7c04d9f](https://gitlab.com/gitlab-org/gitlab-ui/commit/7c04d9f9aa6329f770ac25fcabf8b16b5f907643))
+
+
+### Features
+
+* **utilities:** add styles from CustomersDot ([260b697](https://gitlab.com/gitlab-org/gitlab-ui/commit/260b6971146db2fca70c9ad6bb1a48218f851909))
+
 # [74.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v73.3.1...v74.0.0) (2024-02-05)
 
 
