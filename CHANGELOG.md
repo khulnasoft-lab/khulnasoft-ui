@@ -1,3 +1,10 @@
+# [74.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.1.0...v74.2.0) (2024-02-06)
+
+
+### Features
+
+* **GlSorting:** add `block` prop ([8d76bea](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d76bea901fd7944670fdc9925c0a80c17d7595d))
+
 # [74.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.0.0...v74.1.0) (2024-02-06)
 
 
