@@ -149,6 +149,14 @@ describe('sorting component', () => {
       );
     });
 
+    it('passes `block` prop to listbox', () => {
+      createComponent({
+        block: true,
+      });
+
+      expect(findListbox().props('block')).toBe(true);
+    });
+
     it('sets aria-label of sort direction button', async () => {
       createComponent({ sortOptions: [] });
 

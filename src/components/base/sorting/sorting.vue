@@ -85,6 +85,14 @@ export default {
       required: false,
       default: '',
     },
+    /**
+     * Render the dropdown toggle button as a block element
+     */
+    block: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     localSortDirection() {
@@ -145,6 +153,7 @@ export default {
       :toggle-class="listboxToggleClass"
       :class="dropdownClass"
       placement="right"
+      :block="block"
       @select="onSortByChanged"
     />
     <gl-button
