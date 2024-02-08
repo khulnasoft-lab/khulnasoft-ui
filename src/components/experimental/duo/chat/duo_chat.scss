@@ -31,6 +31,10 @@
 .duo-chat-history {
   scroll-behavior: smooth;
 
+  &.force-scroll-bar {
+    min-height: calc(100% + 1rem);
+  }
+
   /*
   Browsers a are pretty good at keeping the focus on an element while
   the parent element grows in size. With this we mark all child elements

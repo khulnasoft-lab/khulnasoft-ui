@@ -422,7 +422,7 @@ export default {
         :class="[
           {
             'gl-h-full': !hasMessages,
-            'gl-h-auto': hasMessages,
+            'force-scroll-bar': hasMessages,
           },
         ]"
       >
