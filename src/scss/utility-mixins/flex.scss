@@ -223,6 +223,12 @@
   flex-basis: 33%;
 }
 
+@mixin gl-md-flex-basis-13 {
+  @include gl-media-breakpoint-up(md) {
+    flex-basis: $gl-spacing-scale-13;
+  }
+}
+
 @mixin gl-md-flex-basis-third {
   @include gl-media-breakpoint-up(md) {
     @include gl-flex-basis-third;
