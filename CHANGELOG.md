@@ -1,3 +1,10 @@
+## [74.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.3.0...v74.3.1) (2024-02-08)
+
+
+### Bug Fixes
+
+* **DuoChat:** Stick to bottom of history while streaming answers ([647442a](https://gitlab.com/gitlab-org/gitlab-ui/commit/647442a497987618f603ff7dc81e734ce7508511))
+
 # [74.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.2.0...v74.3.0) (2024-02-08)
 
 
