@@ -72,6 +72,7 @@ describe('GlDuoChat', () => {
   };
 
   const findChatComponent = () => wrapper.find('[data-testid="chat-component"]');
+  const findChatHistoryComponent = () => wrapper.find('[data-testid="chat-history"]');
   const findCloseButton = () => wrapper.find('[data-testid="chat-close-button"]');
   const findChatConversations = () => wrapper.findAllComponents(DuoChatConversation);
   const findCustomLoader = () => wrapper.findComponent(DuoChatLoader);
@@ -462,7 +463,7 @@ describe('GlDuoChat', () => {
 
       beforeEach(() => {
         createComponent({ propsData: { messages, isChatAvailable: true } });
-        element = findChatComponent().element;
+        element = findChatHistoryComponent().element;
       });
 
       it('when scrolling to the bottom it removes the scrim class', async () => {
@@ -470,7 +471,7 @@ describe('GlDuoChat', () => {
         jest.spyOn(element, 'offsetHeight', 'get').mockReturnValue(100);
         jest.spyOn(element, 'scrollHeight', 'get').mockReturnValue(200);
 
-        findChatComponent().trigger('scroll');
+        findChatHistoryComponent().trigger('scroll');
 
         await nextTick();
 
@@ -482,7 +483,7 @@ describe('GlDuoChat', () => {
         jest.spyOn(element, 'offsetHeight', 'get').mockReturnValue(100);
         jest.spyOn(element, 'scrollHeight', 'get').mockReturnValue(200);
 
-        findChatComponent().trigger('scroll');
+        findChatHistoryComponent().trigger('scroll');
 
         await nextTick();
 
