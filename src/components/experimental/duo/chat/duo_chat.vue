@@ -292,9 +292,7 @@ export default {
     async scrollToBottom() {
       await this.$nextTick();
 
-      if (this.$refs.drawer) {
-        this.$refs.drawer.scrollTop = this.$refs.drawer.scrollHeight;
-      }
+      this.$refs.anchor?.scrollIntoView?.();
     },
     onTrackFeedback(event) {
       /**
@@ -422,7 +420,7 @@ export default {
       ></gl-alert>
 
       <section
-        class="gl-display-flex gl-flex-direction-column gl-justify-content-end gl-flex-grow-1 gl-border-b-0 gl-bg-gray-10"
+        class="duo-chat-history gl-display-flex gl-flex-direction-column gl-justify-content-end gl-flex-grow-1 gl-border-b-0 gl-bg-gray-10"
       >
         <transition-group
           tag="div"
@@ -462,6 +460,7 @@ export default {
         <transition name="loader">
           <gl-duo-chat-loader v-if="isLoading" :tool-name="toolName" class="gl-px-0!" />
         </transition>
+        <div ref="anchor" class="scroll-anchor"></div>
       </section>
     </div>
     <footer
