@@ -401,20 +401,22 @@ export default {
         @slot Subheader to be rendered right after the title. It is sticky and stays on top of the chat no matter the number of messages.
       -->
       <slot name="subheader"></slot>
-    </header>
 
-    <div class="gl-drawer-body gl-display-flex gl-flex-direction-column">
+      <!-- Ensure that the global error is not scrolled away -->
       <gl-alert
         v-if="error"
         key="error"
         :dismissible="false"
         variant="danger"
-        class="gl-mb-0 gl-pl-9!"
+        class="gl-pl-9!"
         role="alert"
         data-testid="chat-error"
-        ><span v-safe-html="error"></span
-      ></gl-alert>
+      >
+        <span v-safe-html="error"></span>
+      </gl-alert>
+    </header>
 
+    <div class="gl-drawer-body gl-display-flex gl-flex-direction-column">
       <section
         class="duo-chat-history gl-display-flex gl-flex-direction-column gl-justify-content-end gl-flex-grow-1 gl-border-b-0 gl-bg-gray-10"
       >
