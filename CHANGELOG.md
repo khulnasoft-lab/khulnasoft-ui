@@ -1,3 +1,10 @@
+# [74.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.2.0...v74.3.0) (2024-02-08)
+
+
+### Features
+
+* **css:** adds gl-md-flex-basis-13 utility class ([9bfde57](https://gitlab.com/gitlab-org/gitlab-ui/commit/9bfde57d475b4e937c84f121c7b35af10c72491d))
+
 # [74.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.1.0...v74.2.0) (2024-02-06)
 
 
