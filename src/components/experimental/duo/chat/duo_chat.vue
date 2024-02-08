@@ -404,10 +404,6 @@ export default {
     </header>
 
     <div class="gl-drawer-body gl-display-flex gl-flex-direction-column">
-      <!-- @slot 'Hero' information to be rendered at the top of the chat before any message. It gets pushed away from the view by incomming messages
-      -->
-      <slot name="hero"></slot>
-
       <gl-alert
         v-if="error"
         key="error"

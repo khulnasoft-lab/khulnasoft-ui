@@ -218,15 +218,6 @@ export const Slots = (args, { argTypes }) => ({
         :empty-state-title="emptyStateTitle"
         :empty-state-description="emptyStateDescription"
         :chat-prompt-placeholder="chatPromptPlaceholder">
-
-        <template #hero>
-<pre class="code-block rounded code highlight gl-border-b gl-rounded-0! gl-mb-0 gl-overflow-y-auto solarized-light" style="max-height: 20rem; overflow-y: auto;">
-if (firstUserPromptIndex >= 0 && lastUserPromptIndex > firstUserPromptIndex) {
-  messages.splice(firstUserPromptIndex, 1);
-  return truncateChatPrompt(messages);
-}
-</pre>
-        </template>
         <template #subheader>
           <gl-alert
             :dismissible="false"

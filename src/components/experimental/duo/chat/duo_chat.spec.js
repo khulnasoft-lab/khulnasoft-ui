@@ -191,8 +191,6 @@ describe('GlDuoChat', () => {
 
       it.each`
         slot           | content        | isChatAvailable
-        ${'hero'}      | ${slotContent} | ${true}
-        ${'hero'}      | ${slotContent} | ${false}
         ${'subheader'} | ${slotContent} | ${false}
         ${'subheader'} | ${slotContent} | ${true}
       `(
