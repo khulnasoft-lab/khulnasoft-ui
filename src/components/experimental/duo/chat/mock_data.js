@@ -39,15 +39,25 @@ export const MOCK_RESPONSE_MESSAGE_FOR_STREAMING = {
   id: '123',
   content: `To change your password in GitLab:
 
-  Log in to your GitLab account.
-  Select your avatar in the top right corner and choose Edit profile.
-  On the left sidebar, select Password.
-  Enter your current password in the Current password field.
-  Enter your new password in the New password and Password confirmation fields.
-  Select Save password.
-  If you don't know your current password, select the I forgot my password link to reset it.
-  
-  GitLab enforces password requirements when you choose a new password.`,
+  1. Log in to your GitLab account.
+  2. Select your avatar in the top right corner and choose Edit profile.
+  3. On the left sidebar, select Password.
+  4. Enter your current password in the Current password field.
+  5. Enter your new password in the New password and Password confirmation fields.
+  6. Select Save password.
+  7. If you don't know your current password, select the I forgot my password link to reset it.
+
+  GitLab enforces password requirements when you choose a new password.
+
+  ~~~yaml
+  # And here is a
+  # code block
+  everyone:
+    likes:
+      yaml: true
+  ~~~
+  which is rendered while streaming.
+  `,
   contentHtml: '',
   role: 'assistant',
   extras: {},
