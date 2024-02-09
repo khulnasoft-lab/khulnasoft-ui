@@ -1,0 +1,26 @@
+.gl-mention {
+  padding: 0 2px;
+  border-radius: 4px;
+  @include gl-bg-blue-100;
+  @include gl-text-decoration-none;
+  @include gl-text-blue-700;
+
+  &:hover {
+    @include gl-text-blue-700;
+  }
+
+  &:active {
+    @include gl-text-blue-800;
+  }
+  
+  &:active,
+  &:focus,
+  &:focus:active {
+    @include gl-text-decoration-underline;
+    @include gl-focus;
+  }
+}
+
+.gl-mention-is-current-user {
+  @include gl-bg-orange-100;
+}
