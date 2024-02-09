@@ -1,3 +1,10 @@
+# [74.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.3.1...v74.4.0) (2024-02-09)
+
+
+### Features
+
+* **DuoChat:** Add default markdown renderer for streaming messages ([07fea1c](https://gitlab.com/gitlab-org/gitlab-ui/commit/07fea1ce41a0a42be2860b5652e5e8b35330ae83))
+
 ## [74.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.3.0...v74.3.1) (2024-02-08)
 
 
