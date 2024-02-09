@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     mentionClasses() {
-      const classes = ['gl-mention gl-link'];
+      const classes = ['gl-mention'];
 
       if (this.isCurrentUser) classes.push('gl-mention-is-current-user');
 
