@@ -1,5 +1,4 @@
-import { userEvent, within, waitFor } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { userEvent, within, waitFor, expect } from '@storybook/test';
 import Vue from 'vue';
 import GlButton from '../button/button.vue';
 import GlToast from './toast';

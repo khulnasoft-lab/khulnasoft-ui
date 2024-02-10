@@ -1,6 +1,5 @@
 import last from 'lodash/last';
-import { userEvent, within, waitFor } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { userEvent, within, waitFor, expect } from '@storybook/test';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlIcon from '../icon/icon.vue';
 import GlToken from '../token/token.vue';
