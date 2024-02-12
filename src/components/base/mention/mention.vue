@@ -29,7 +29,6 @@ export default {
 </script>
 <template>
   <b-link
-    v-bind="$attrs"
     :class="mentionClasses"
     v-on="$listeners"
   >
