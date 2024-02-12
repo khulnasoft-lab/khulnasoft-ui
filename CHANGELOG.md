@@ -1,3 +1,15 @@
+# [74.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.4.0...v74.5.0) (2024-02-12)
+
+
+### Bug Fixes
+
+* **DuoChat:** Move global error to header ([7d026ef](https://gitlab.com/gitlab-org/gitlab-ui/commit/7d026effca6cf9fb9a352e09784da401936285c5))
+
+
+### Features
+
+* **DuoChat:** Remove unused hero header ([30ab50c](https://gitlab.com/gitlab-org/gitlab-ui/commit/30ab50c30e72f10cca8600d21b5f71238a4dd2c4))
+
 # [74.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.3.1...v74.4.0) (2024-02-09)
 
 
