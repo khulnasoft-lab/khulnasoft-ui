@@ -14,22 +14,14 @@ export default {
       default: false,
     },
   },
-  computed: {
-    mentionClasses() {
-      const classes = ['gl-mention'];
-
-      if (this.isCurrentUser) classes.push('gl-mention-is-current-user');
-
-      if (this.$attrs.class) classes.push(this.$attrs.class);
-
-      return classes;
-    },
-  },
 };
 </script>
 <template>
   <b-link
-    :class="mentionClasses"
+    :class="[
+      'gl-mention',
+      { 'gl-mention-is-current-user': isCurrentUser },
+    ]"
     v-on="$listeners"
   >
     <!-- @slot The mention to display. -->
