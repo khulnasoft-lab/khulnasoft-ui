@@ -111,7 +111,6 @@ export default {
     <b-collapse
       :id="accordionItemId"
       v-model="isVisible"
-      :aria-expanded="isVisible"
       :visible="isVisible"
       :accordion="accordion"
       class="gl-mt-0 gl-font-base"
