@@ -72,8 +72,7 @@ shows up.
 In such cases, use Storybook's `play` functions:
 
 ```js
-import { userEvent, within, waitFor } from "@storybook/testing-library";
-import { expect } from "@storybook/jest";
+import { userEvent, within, waitFor, expect } from "@storybook/test";
 
 Tooltip.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);

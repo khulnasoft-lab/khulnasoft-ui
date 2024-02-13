@@ -1,5 +1,4 @@
-import { userEvent, within, waitFor } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { userEvent, within, waitFor, expect } from '@storybook/test';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import { stringTokenList, labelText, objectTokenList, actionsList } from './constants';
 import readme from './form_combobox.md';

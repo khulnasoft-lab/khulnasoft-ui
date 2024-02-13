@@ -1,4 +1,4 @@
-import { userEvent } from '@storybook/testing-library';
+import { userEvent } from '@storybook/test';
 
 export const triggerBlurEvent = async () =>
   userEvent.pointer([

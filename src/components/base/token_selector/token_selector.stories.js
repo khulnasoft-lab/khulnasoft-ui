@@ -1,5 +1,4 @@
-import { userEvent, within, waitFor } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { userEvent, within, waitFor, expect } from '@storybook/test';
 import readme from './token_selector.md';
 import GlTokenSelector from './token_selector.vue';
 

@@ -1,5 +1,4 @@
-import { userEvent, within, waitFor } from '@storybook/testing-library';
-import { expect } from '@storybook/jest';
+import { userEvent, within, waitFor, expect } from '@storybook/test';
 import { makeContainer } from '../../../utils/story_decorators/container';
 import GlSorting from './sorting.vue';
 import readme from './sorting.md';
