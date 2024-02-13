@@ -107,7 +107,7 @@ export default {
         />
         <div
           v-if="isSortable(scope) && !getSortingIcon(scope)"
-          class="gl-display-inline-block gl-w-5 gl-h-5 gl-ml-3 gl-min-w-5"
+          class="gl-display-inline-block gl-w-5 gl-h-5 gl-ml-2 gl-min-w-5"
         ></div>
       </div>
     </template>
