@@ -44,6 +44,8 @@ export const Default = (args, { argTypes }) => ({
     :fixed="fixed"
     :stacked="stacked"
     :foot-clone="footClone"
+    sort-by="col_2"
+    sort-desc
     hover
     selectable
     selected-variant="primary"
@@ -58,11 +60,12 @@ export const Default = (args, { argTypes }) => ({
       key: 'column_one',
       label: 'Column One',
       variant: 'secondary',
-      sortable: false,
+      sortable: true,
       isRowHeader: false,
     },
     {
       key: 'col_2',
+      sortable: true,
       label: 'Column 2',
       formatter: (value) => value,
     },
