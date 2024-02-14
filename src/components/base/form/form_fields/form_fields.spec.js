@@ -345,6 +345,22 @@ describe('GlFormFields', () => {
         });
       }
     );
+
+    describe('when there is a server validation message', () => {
+      beforeEach(async () => {
+        await submitForm();
+
+        wrapper.setProps({
+          serverValidations: { username: 'Username has already been taken.' },
+        });
+      });
+
+      it('renders error message', () => {
+        expect(
+          findFormGroupFromLabel(TEST_FIELDS.username.label).attributes('invalid-feedback')
+        ).toBe('Username has already been taken.');
+      });
+    });
   });
 
   describe('with scoped slot', () => {

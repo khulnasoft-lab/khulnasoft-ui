@@ -3,6 +3,7 @@ import omit from 'lodash/omit';
 import GlModal from '../../modal/modal.vue';
 import GlButton from '../../button/button.vue';
 import GlListbox from '../../new_dropdowns/listbox/listbox.vue';
+import { setStoryTimeout } from '../../../../utils/test_utils';
 import GlFormFields from './form_fields.vue';
 import readme from './form_fields.md';
 import { required } from './validators';
@@ -49,6 +50,8 @@ const Template = () => ({
       },
       formValues: {},
       testFormId: uniqueId('form_fields_story_'),
+      serverValidations: {},
+      loading: false,
     };
   },
   computed: {
@@ -61,7 +64,27 @@ const Template = () => ({
     },
   },
   methods: {
-    onSubmit() {
+    onInputField({ name }) {
+      this.$delete(this.serverValidations, name);
+    },
+    async onSubmit() {
+      this.loading = true;
+
+      // Simulate waiting for API request to resolve
+      await new Promise((resolve) => {
+        setStoryTimeout(resolve, 1000);
+      });
+
+      this.loading = false;
+
+      // Manually checking field and validating for this example.
+      // In practice this error message would come from the API response.
+      if (this.formValues.USERNAME === 'FOO') {
+        this.$set(this.serverValidations, 'USERNAME', 'Username has already been taken.');
+
+        return;
+      }
+
       this.$refs.modal.show();
     },
   },
@@ -69,7 +92,7 @@ const Template = () => ({
     <div>
       <h3>Fields</h3>
       <form :id="testFormId" @submit.prevent>
-        <gl-form-fields :fields="fields" v-model="formValues" :form-id="testFormId" @submit="onSubmit">
+        <gl-form-fields :fields="fields" v-model="formValues" :form-id="testFormId" :server-validations="serverValidations" @input-field="onInputField" @submit="onSubmit">
           <template #input(custom)="{ id, value, input, blur }">
             <button :id="id" @click="input(value + 1)" @blur="blur" type="button">{{value}}</button>
           </template>
@@ -77,7 +100,7 @@ const Template = () => ({
             <gl-listbox :id="id" :items="$options.ITEMS" :selected="value" @select="input" @hidden="blur" />
           </template>
         </gl-form-fields>
-        <gl-button type="submit" category="primary">Submit</gl-button>
+        <gl-button type="submit" category="primary" :loading="loading">Submit</gl-button>
       </form>
       <gl-modal ref="modal" modal-id="submission-modal" title="Form submission"><pre>{{ valuesJSON }}</pre></gl-modal>
     </div>
