@@ -1,3 +1,10 @@
+# [74.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.5.0...v74.6.0) (2024-02-14)
+
+
+### Features
+
+* **GlFormFields:** Add prop for server field validations ([6c23b37](https://gitlab.com/gitlab-org/gitlab-ui/commit/6c23b37773d0944953d9068de2bcec00a0e74a8f))
+
 # [74.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.4.0...v74.5.0) (2024-02-12)
 
 
