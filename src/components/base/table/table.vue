@@ -103,7 +103,7 @@ export default {
         ><gl-icon
           v-if="isSortable(scope) && getSortingIcon(scope)"
           :name="getSortingIcon(scope)"
-          class="gl-ml-3 gl-min-w-5 gl-text-gray-500"
+          class="gl-ml-3 gl-min-w-5 gl-text-gray-900"
         />
         <div
           v-if="isSortable(scope) && !getSortingIcon(scope)"

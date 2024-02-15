@@ -115,10 +115,6 @@ table.gl-table {
   &.table-hover td.table-secondary:hover {
     background-color: $gray-10;
   }
-
-  &.table-hover thead th.table-secondary:hover svg.gl-text-gray-500 {
-    color: $gray-900;
-  }
 }
 
 .table.b-table > thead > tr > th,
