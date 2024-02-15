@@ -159,7 +159,7 @@ build_package:
 .build_storybook:
   extends: [.node, .yarn_install]
   needs: []
-  stage: build
+  stage: pre-build
   script:
     - bin/build-storybook-static.sh
   artifacts:
@@ -240,7 +240,11 @@ visual_minimal:
   needs: []
   stage: test
   script:
-    - yarn test:integration
+    - yarn global add http-server
+    - yarn start-server-and-test 'http-server -p 9001 --silent ./public' 9001 'yarn cy:${TARGET}'
+  parallel:
+    matrix:
+      - TARGET: [a11y, edge, firefox]
   artifacts:
     when: on_failure
     expire_in: 1 week
@@ -249,9 +253,11 @@ visual_minimal:
 
 integration_tests:
   extends: [.integration_tests]
+  needs: [build_storybook]
 
 integration_tests_vue3:
   extends: [.integration_tests, .use_vue3]
+  needs: [build_storybook_vue3]
 
 .unit_tests:
   extends: [.node, .yarn_install]
