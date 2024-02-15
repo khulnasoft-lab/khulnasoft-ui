@@ -1,3 +1,10 @@
+# [74.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.6.0...v74.7.0) (2024-02-15)
+
+
+### Features
+
+* **add purple-500 class:** Add utility classes for purple-500 ([8a02d5a](https://gitlab.com/gitlab-org/gitlab-ui/commit/8a02d5a03eee42c0014bc9b9ca29b75269ba351e))
+
 # [74.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.5.0...v74.6.0) (2024-02-14)
 
 
