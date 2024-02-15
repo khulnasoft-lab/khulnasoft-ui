@@ -105,14 +105,6 @@ export default {
         ? translate('GlSorting.sortAscending', 'Sort direction: ascending')
         : translate('GlSorting.sortDescending', 'Sort direction: descending');
     },
-    listboxToggleClass() {
-      return [
-        this.dropdownToggleClass,
-        'gl-rounded-top-right-none!',
-        'gl-rounded-bottom-right-none!',
-        'gl-focus-z-index-1',
-      ];
-    },
   },
   methods: {
     toggleSortDirection() {
@@ -150,7 +142,7 @@ export default {
       :toggle-text="text"
       :items="sortOptions"
       :selected="sortBy"
-      :toggle-class="listboxToggleClass"
+      :toggle-class="dropdownToggleClass"
       :class="dropdownClass"
       placement="right"
       :block="block"
