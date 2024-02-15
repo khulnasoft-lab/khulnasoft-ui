@@ -160,3 +160,7 @@ In this case the user is responsible for handling all events and navigation insi
   `GlTruncate`.
 - If the toggle text reflects the selected option text, it might be necessary to truncate
   it too by overriding the `#toggle` slot.
+
+## Split dropdown
+
+See [button group documentation](/docs/base-button-group--docs#split-dropdowns).

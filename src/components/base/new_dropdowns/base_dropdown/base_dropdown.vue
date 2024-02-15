@@ -160,8 +160,14 @@ export default {
     };
   },
   computed: {
+    hasNoVisibleToggleText() {
+      return !this.toggleText?.length || this.textSrOnly;
+    },
     isIconOnly() {
-      return Boolean(this.icon && (!this.toggleText?.length || this.textSrOnly));
+      return Boolean(this.icon && this.hasNoVisibleToggleText);
+    },
+    isCaretOnly() {
+      return !this.noCaret && !this.icon && this.hasNoVisibleToggleText;
     },
     ariaAttributes() {
       return {
@@ -178,6 +184,7 @@ export default {
           'gl-new-dropdown-toggle': true,
           'gl-new-dropdown-icon-only btn-icon': this.isIconOnly,
           'gl-new-dropdown-toggle-no-caret': this.noCaret,
+          'gl-new-dropdown-caret-only': this.isCaretOnly,
         },
       ];
     },

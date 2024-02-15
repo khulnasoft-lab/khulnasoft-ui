@@ -154,3 +154,6 @@ Screen reader will announce this text when the list is updated.
 </gl-collapsible-listbox>
 ```
 
+## Split dropdown
+
+See [button group documentation](/docs/base-button-group--docs#split-dropdowns).
