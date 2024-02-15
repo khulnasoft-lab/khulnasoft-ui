@@ -193,6 +193,10 @@
   color: $red-900;
 }
 
+@mixin gl-text-purple-500 {
+  color: $purple-500;
+}
+
 @mixin gl-text-purple-600 {
   color: $purple-600;
 }
