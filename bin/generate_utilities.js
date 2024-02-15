@@ -19,15 +19,6 @@ const buildPlainUtilityClass = (name, important = false) => {
   return important ? `${name}\\!` : name;
 };
 
-const buildPlainStatefulClasses = (name, statefulFlags = [], important = false) => {
-  return statefulFlags.map((statefulFlag) => {
-    const baseSelector = `gl-${statefulFlag}-${name.replace('gl-', '')}$1`;
-    const selector = baseSelector.replace('$1', important ? '\\!' : '');
-
-    return selector;
-  });
-};
-
 const buildUtilityClass = (name, important = false) => {
   return postcss.rule({ selector: `.${buildPlainUtilityClass(name, important)}` });
 };
@@ -136,30 +127,13 @@ function writeUtilities(contents, file) {
 }
 
 async function processSingleFile(filePath) {
-  const scss = fs.readFileSync(filePath, { encoding: 'utf-8' });
+  const scss = fs.readFileSync(path.join(mixinsPath, filePath), { encoding: 'utf-8' });
 
-  const result = await postcss().process(scss, {
+  return postcss([generateUtilitiesPlugin]).process(scss, {
     from: filePath,
     to: utilitiesPath,
     syntax: postcssScss,
   });
-
-  const utilities = [];
-
-  result.root.walkAtRules('mixin', (rule) => {
-    const { params } = rule;
-    const mixinName = getRuleName(params);
-    const statefulFlags = getStatefulFlags(params);
-
-    utilities.push(
-      buildPlainUtilityClass(mixinName),
-      ...buildPlainStatefulClasses(mixinName, statefulFlags),
-      buildPlainUtilityClass(mixinName, true),
-      ...buildPlainStatefulClasses(mixinName, statefulFlags, true)
-    );
-  });
-
-  return utilities;
 }
 
 function main() {
