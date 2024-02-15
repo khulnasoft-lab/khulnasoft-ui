@@ -45,7 +45,7 @@ describe('Filtered search', () => {
       stubs: {
         GlSearchBoxByClick: {
           name: 'GlSearchBoxByClickStub',
-          props: ['clearable', 'searchButtonAttributes'],
+          props: ['clearable', 'searchButtonAttributes', 'showSearchButton'],
           template: '<div><slot name="input"></slot></div>',
         },
       },
@@ -564,6 +564,30 @@ describe('Filtered search', () => {
       it('does not apply the last token class', async () => {
         expect(wrapper.find('.gl-filtered-search-last-item').exists()).toBe(false);
       });
+    });
+  });
+
+  describe('showSearchButton', () => {
+    it('sets showSearchButton on the SearchBox component', () => {
+      createComponent({ showSearchButton: true });
+
+      expect(findSearchBox().props('showSearchButton')).toBe(true);
+    });
+
+    it('adds the *-with-search-button css modifier if true', () => {
+      createComponent({ showSearchButton: true });
+
+      expect(wrapper.find('.gl-filtered-search-scrollable-container').classes()).toContain(
+        'gl-filtered-search-scrollable-container-with-search-button'
+      );
+    });
+
+    it('does not add the *-with-search-button css modifier if false', () => {
+      createComponent({ showSearchButton: false });
+
+      expect(wrapper.find('.gl-filtered-search-scrollable-container').classes()).not.toContain(
+        'gl-filtered-search-scrollable-container-with-search-button'
+      );
     });
   });
 });
