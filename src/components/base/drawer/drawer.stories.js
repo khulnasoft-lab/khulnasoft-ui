@@ -69,6 +69,7 @@ const createSidebarTemplate = (content) => `
     :header-sticky="headerSticky"
     :z-index="zIndex"
     :variant="variant"
+    @opened="opened"
     @close="close">${content}</gl-drawer>
   `;
 
@@ -105,9 +106,23 @@ const storyOptions = (viewMode) => ({
 });
 
 export const Default = (_args, { viewMode }) => ({
+  mixins: [
+    {
+      data() {
+        return {
+          timesOpened: 0,
+        };
+      },
+      methods: {
+        opened() {
+          this.timesOpened += 1;
+        },
+      },
+    },
+  ],
   ...storyOptions(viewMode),
   template: `
-    <div>
+    <div :data-opened-count="timesOpened">
       <gl-button @click="toggle">Toggle Drawer</gl-button>
       ${createSidebarTemplate(`
         <template #title>List Settings</template>
