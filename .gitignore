@@ -11,3 +11,4 @@ yarn-error.log
 /static/gitlab/
 .cypress_cache
 /static/fonts/
+/bin/temp
