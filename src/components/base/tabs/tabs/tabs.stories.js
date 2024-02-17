@@ -13,22 +13,13 @@ const components = {
 
 const generateProps = ({
   justified,
-  actionPrimary = null,
-  actionSecondary = null,
-  actionTertiary = null,
 } = {}) => ({
   justified,
-  actionPrimary,
-  actionSecondary,
-  actionTertiary,
 });
 
 const wrap = (template) => `
   <gl-tabs
     :justified="justified"
-    :action-primary="actionPrimary"
-    :action-secondary="actionSecondary"
-    :action-tertiary="actionTertiary"
   >
     ${template}
   </gl-tabs>
@@ -168,35 +159,6 @@ export const WithCounterBadges = (_args, { argTypes }) => ({
       Tab panel {{ variant }}
     </gl-tab>`),
   badgeVariantOptions,
-});
-
-export const WithActions = (_args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components,
-  template: wrap(`
-    <gl-tab title="Tab 1">
-      Tab panel 1
-    </gl-tab>`),
-});
-WithActions.args = generateProps({
-  actionPrimary: {
-    attributes: {
-      variant: 'danger',
-    },
-    text: 'Primary action',
-  },
-  actionSecondary: {
-    attributes: {
-      variant: 'success',
-    },
-    text: 'Secondary action',
-  },
-  actionTertiary: {
-    attributes: {
-      variant: 'default',
-    },
-    text: 'Tertiary action',
-  },
 });
 
 export const WithScroll = (_args, { argTypes }) => ({
