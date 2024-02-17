@@ -11,9 +11,7 @@ const components = {
   GlTab,
 };
 
-const generateProps = ({
-  justified,
-} = {}) => ({
+const generateProps = ({ justified } = {}) => ({
   justified,
 });
 
