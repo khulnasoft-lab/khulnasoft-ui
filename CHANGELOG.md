@@ -1,3 +1,10 @@
+# [74.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.8.0...v74.9.0) (2024-02-19)
+
+
+### Features
+
+* **GlFilteredSearch:** Add showSearchButton to GlFilteredSearch ([cb119b1](https://gitlab.com/gitlab-org/gitlab-ui/commit/cb119b1d48749436ba2a055bee0d6e189d64026f))
+
 # [74.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.7.1...v74.8.0) (2024-02-19)
 
 
