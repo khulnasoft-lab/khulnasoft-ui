@@ -307,7 +307,7 @@ describe('base dropdown', () => {
       // close menu clicking toggle btn
       await toggle.trigger('click');
       expect(menu.classes('gl-display-block!')).toBe(false);
-      expect(toggle.attributes('aria-expanded')).toBeUndefined();
+      expect(toggle.attributes('aria-expanded')).toBe('false');
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
       expect(toggle.element).toHaveFocus();
     });
@@ -332,7 +332,7 @@ describe('base dropdown', () => {
       await menu.trigger('keydown.esc');
 
       expect(menu.classes('gl-display-block!')).toBe(false);
-      expect(toggle.attributes('aria-expanded')).toBeUndefined();
+      expect(toggle.attributes('aria-expanded')).toBe('false');
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
       expect(toggle.element).toHaveFocus();
     });
@@ -391,7 +391,7 @@ describe('base dropdown', () => {
       moveFocusWithinDropdown();
       await menu.trigger('keydown.esc');
       expect(menu.classes('gl-display-block!')).toBe(true);
-      expect(toggle.attributes('aria-expanded')).toBeDefined();
+      expect(toggle.attributes('aria-expanded')).toBe('true');
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toBeUndefined();
       expect(toggle.element).not.toHaveFocus();
     });
