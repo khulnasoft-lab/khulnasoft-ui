@@ -159,6 +159,17 @@ export default {
       required: false,
       default: termTokenDefinition.title,
     },
+    /**
+     * Display search button to perform a search.
+     *
+     * Note: it is required to ensure accessibility for WCAG 2.1 3.2.2: On Input.
+     * If the search button is hidden, a separate button should be provided for the same context.
+     */
+    showSearchButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -381,6 +392,7 @@ export default {
     :history-items="historyItems"
     :clearable="hasValue"
     :search-button-attributes="searchButtonAttributes"
+    :show-search-button="showSearchButton"
     :disabled="viewOnly"
     data-testid="filtered-search-input"
     @submit="submit"
@@ -396,7 +408,10 @@ export default {
     <template #input>
       <div
         class="gl-filtered-search-scrollable-container"
-        :class="{ 'gl-bg-gray-10! gl-inset-border-1-gray-100!': viewOnly }"
+        :class="{
+          'gl-filtered-search-scrollable-container-with-search-button': showSearchButton,
+          'gl-bg-gray-10! gl-inset-border-1-gray-100!': viewOnly,
+        }"
       >
         <div class="gl-filtered-search-scrollable">
           <component

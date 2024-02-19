@@ -168,4 +168,46 @@ describe('search box by click component', () => {
 
     expect(findSearchButton().attributes('data-prop')).toBe(searchButtonAttributes['data-prop']);
   });
+
+  describe('showSearchButton', () => {
+    describe('when false', () => {
+      beforeEach(() => {
+        createComponent({ showSearchButton: false, value: 'some-value' });
+      });
+
+      it('does not render the search button', () => {
+        expect(findSearchButton().exists()).toBe(false);
+      });
+
+      it('overrides the border style of the input', () => {
+        expect(wrapper.findComponent(GlFormInput).classes()).toContain('gl-rounded-base!');
+      });
+
+      it('does not add *-with-search-button css modifier', () => {
+        expect(wrapper.find('.gl-search-box-by-click').classes()).not.toContain(
+          'gl-search-box-by-click-with-search-button'
+        );
+      });
+    });
+
+    describe('when true', () => {
+      beforeEach(() => {
+        createComponent({ showSearchButton: true, value: 'some-value' });
+      });
+
+      it('does render the search button', () => {
+        expect(findSearchButton().exists()).toBe(true);
+      });
+
+      it('does not override the border style of the input', () => {
+        expect(wrapper.findComponent(GlFormInput).classes()).not.toContain('gl-rounded-base!');
+      });
+
+      it('adds *-with-search-button css modifier', () => {
+        expect(wrapper.find('.gl-search-box-by-click').classes()).toContain(
+          'gl-search-box-by-click-with-search-button'
+        );
+      });
+    });
+  });
 });

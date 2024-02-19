@@ -10,11 +10,15 @@
   @include gl-pr-7;
   @include gl-inset-border-1-gray-400;
   @include gl-border-none;
-  @include gl-rounded-left-base;
+  @include gl-rounded-base;
 
   .input-group-prepend + & {
     @include gl-rounded-left-none;
   }
+}
+
+.gl-filtered-search-scrollable-container-with-search-button {
+  @include gl-rounded-right-none;
 }
 
 .gl-filtered-search-scrollable {

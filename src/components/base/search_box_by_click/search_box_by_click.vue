@@ -120,6 +120,17 @@ export default {
       required: false,
       default: () => ({}),
     },
+    /**
+     * Display search button to perform a search.
+     *
+     * Note: it is required to ensure accessibility for WCAG 2.1 3.2.2: On Input.
+     * If the search button is hidden, a separate button should be provided for the same context.
+     */
+    showSearchButton: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -201,7 +212,10 @@ export default {
 </script>
 
 <template>
-  <gl-form-input-group class="gl-search-box-by-click">
+  <gl-form-input-group
+    class="gl-search-box-by-click"
+    :class="{ 'gl-search-box-by-click-with-search-button': showSearchButton }"
+  >
     <template v-if="historyItems" #prepend>
       <gl-dropdown
         ref="historyDropdown"
@@ -255,6 +269,7 @@ export default {
         ref="input"
         v-model="currentValue"
         class="gl-search-box-by-click-input"
+        :class="{ 'gl-rounded-base!': !showSearchButton }"
         v-bind="inputAttributes"
         :disabled="disabled"
         @focus="isFocused = true"
@@ -270,7 +285,8 @@ export default {
       data-testid="filtered-search-clear-button"
       @click="clearInput"
     />
-    <template #append>
+
+    <template v-if="showSearchButton" #append>
       <gl-button
         v-bind="searchButtonAttributes"
         ref="searchButton"

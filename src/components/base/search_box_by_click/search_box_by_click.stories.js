@@ -15,6 +15,7 @@ const template = `
     :clear-recent-searches-text="clearRecentSearchesText"
     :no-recent-searches-text="noRecentSearchesText"
     :search-button-attributes="searchButtonAttributes"
+    :show-search-button="showSearchButton"
     @clear-history="clearCurrentHistory"
   />
 `;
@@ -33,6 +34,7 @@ const generateProps = ({
   clearRecentSearchesText = defaultValue('clearRecentSearchesText'),
   noRecentSearchesText = defaultValue('noRecentSearchesText'),
   searchButtonAttributes = defaultValue('searchButtonAttributes')(),
+  showSearchButton = defaultValue('showSearchButton'),
 } = {}) => ({
   disabled,
   value,
@@ -45,6 +47,7 @@ const generateProps = ({
   clearRecentSearchesText,
   noRecentSearchesText,
   searchButtonAttributes,
+  showSearchButton,
 });
 
 const Template = (args, { argTypes }) => ({

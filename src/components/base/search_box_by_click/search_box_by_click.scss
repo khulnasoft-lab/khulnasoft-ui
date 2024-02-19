@@ -54,8 +54,6 @@
   }
 
   .gl-search-box-by-click-input {
-    @include gl-pr-7;
-
     &::-webkit-search-cancel-button {
       @include gl-display-none;
     }
@@ -64,7 +62,7 @@
   .gl-search-box-by-click-clear-button {
     @include gl-absolute;
     @include gl-top-2;
-    @include gl-right-7;
+    @include gl-right-2;
     @include gl-mr-2;
     @include gl-z-index-3;
   }
@@ -72,5 +70,15 @@
   .gl-search-box-by-click-menu {
     @include gl-font-base;
     width: $gl-dropdown-width-wide;
+  }
+}
+
+.gl-search-box-by-click-with-search-button {
+  .gl-search-box-by-click-input {
+    @include gl-pr-7;
+  }
+  
+  .gl-search-box-by-click-clear-button {
+    @include gl-right-7;
   }
 }
