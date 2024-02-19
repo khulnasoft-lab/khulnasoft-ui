@@ -1,3 +1,10 @@
+# [74.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.7.1...v74.8.0) (2024-02-19)
+
+
+### Features
+
+* Adds align-items: flex-start for md ([fc1a07b](https://gitlab.com/gitlab-org/gitlab-ui/commit/fc1a07b6e681f05680c618d8549ec4b3d269a8d0))
+
 ## [74.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.7.0...v74.7.1) (2024-02-19)
 
 
