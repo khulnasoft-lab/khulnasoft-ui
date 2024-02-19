@@ -1,3 +1,10 @@
+## [74.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.7.0...v74.7.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* run prettier ([0e78123](https://gitlab.com/gitlab-org/gitlab-ui/commit/0e7812316d2b0e1c7da14f61980e01040023985e))
+
 # [74.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.6.0...v74.7.0) (2024-02-15)
 
 
