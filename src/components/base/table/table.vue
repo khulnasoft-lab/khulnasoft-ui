@@ -100,15 +100,14 @@ export default {
     <template v-for="headSlotName in headSlots" #[headSlotName]="scope">
       <div :key="headSlotName" class="gl-display-flex gl-align-items-center">
         <slot :name="headSlotName" v-bind="scope">{{ scope.label }}</slot
-        ><gl-icon
-          v-if="isSortable(scope) && getSortingIcon(scope)"
-          :name="getSortingIcon(scope)"
-          class="gl-ml-3 gl-min-w-5 gl-text-gray-900"
-        />
-        <div
-          v-if="isSortable(scope) && !getSortingIcon(scope)"
-          class="gl-display-inline-block gl-w-5 gl-h-5 gl-ml-3 gl-min-w-5"
-        ></div>
+        ><template v-if="isSortable(scope)">
+          <gl-icon
+            v-if="getSortingIcon(scope)"
+            :name="getSortingIcon(scope)"
+            class="gl-ml-3 gl-min-w-5 gl-text-gray-900"
+          />
+          <div v-else class="gl-display-inline-block gl-w-5 gl-h-5 gl-ml-3"></div>
+        </template>
       </div>
     </template>
   </b-table>
