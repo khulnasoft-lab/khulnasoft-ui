@@ -285,8 +285,8 @@ export default {
       this.prompt = prompt;
       this.sendChatPrompt();
     },
-    handleScrolling() {
-      const { scrollTop, offsetHeight, scrollHeight } = this.$refs.drawer;
+    handleScrolling(event) {
+      const { scrollTop, offsetHeight, scrollHeight } = event.target;
       this.scrolledToBottom = scrollTop + offsetHeight >= scrollHeight;
     },
     async scrollToBottom() {
@@ -355,11 +355,9 @@ export default {
   <aside
     v-if="!isHidden"
     id="chat-component"
-    ref="drawer"
     class="markdown-code-block gl-drawer gl-drawer-default gl-max-h-full gl-bottom-0 gl-shadow-none gl-border-l gl-border-t duo-chat"
     role="complementary"
     data-testid="chat-component"
-    @scroll="handleScrollingTrottled"
   >
     <header
       v-if="showHeader"
@@ -416,50 +414,43 @@ export default {
       </gl-alert>
     </header>
 
-    <div class="gl-drawer-body gl-display-flex gl-flex-direction-column">
-      <section
-        class="duo-chat-history gl-display-flex gl-flex-direction-column gl-justify-content-end gl-flex-grow-1 gl-border-b-0 gl-bg-gray-10"
+    <div class="gl-drawer-body" data-testid="chat-history" @scroll="handleScrollingTrottled">
+      <transition-group
+        tag="section"
+        name="message"
+        class="duo-chat-history gl-display-flex gl-flex-direction-column gl-justify-content-end gl-bg-gray-10"
+        :class="[
+          {
+            'gl-h-full': !hasMessages,
+            'force-scroll-bar': hasMessages,
+          },
+        ]"
       >
-        <transition-group
-          tag="div"
-          name="message"
-          class="gl-display-flex gl-flex-direction-column gl-justify-content-end"
-          :class="[
-            {
-              'gl-h-full': !hasMessages,
-              'gl-h-auto': hasMessages,
-            },
-          ]"
-        >
-          <gl-duo-chat-conversation
-            v-for="(conversation, index) in conversations"
-            :key="`conversation-${index}`"
-            :messages="conversation"
-            :show-delimiter="index > 0"
-            @track-feedback="onTrackFeedback"
+        <gl-duo-chat-conversation
+          v-for="(conversation, index) in conversations"
+          :key="`conversation-${index}`"
+          :messages="conversation"
+          :show-delimiter="index > 0"
+          @track-feedback="onTrackFeedback"
+        />
+        <template v-if="!hasMessages && !isLoading">
+          <gl-empty-state
+            key="empty-state"
+            :svg-path="$options.emptySvg"
+            :svg-height="145"
+            :title="emptyStateTitle"
+            :description="emptyStateDescription"
+            class="gl-flex-grow gl-justify-content-center"
           />
-          <template v-if="!hasMessages && !isLoading">
-            <div key="empty-state" class="gl-display-flex gl-flex-grow-1 gl-mr-auto gl-ml-auto">
-              <gl-empty-state
-                :svg-path="$options.emptySvg"
-                :svg-height="145"
-                :title="emptyStateTitle"
-                :description="emptyStateDescription"
-                class="gl-align-self-center"
-              />
-            </div>
-            <gl-duo-chat-predefined-prompts
-              key="predefined-prompts"
-              :prompts="predefinedPrompts"
-              @click="sendPredefinedPrompt"
-            />
-          </template>
-        </transition-group>
-        <transition name="loader">
-          <gl-duo-chat-loader v-if="isLoading" :tool-name="toolName" class="gl-px-0!" />
-        </transition>
-        <div ref="anchor" class="scroll-anchor"></div>
-      </section>
+          <gl-duo-chat-predefined-prompts
+            key="predefined-prompts"
+            :prompts="predefinedPrompts"
+            @click="sendPredefinedPrompt"
+          />
+        </template>
+        <gl-duo-chat-loader v-if="isLoading" key="loader" :tool-name="toolName" />
+        <div key="anchor" ref="anchor" class="scroll-anchor"></div>
+      </transition-group>
     </div>
     <footer
       v-if="isChatAvailable"
