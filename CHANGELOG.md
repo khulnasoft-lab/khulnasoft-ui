@@ -1,3 +1,10 @@
+## [74.9.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.9.2...v74.9.3) (2024-02-20)
+
+
+### Bug Fixes
+
+* **DuoChat:** Force a scroll-bar if we have messages ([31f846a](https://gitlab.com/gitlab-org/gitlab-ui/commit/31f846a73604a7bcb094a140366a31aa53199869))
+
 ## [74.9.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.9.1...v74.9.2) (2024-02-20)
 
 
