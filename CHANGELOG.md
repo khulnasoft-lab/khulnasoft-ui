@@ -1,3 +1,10 @@
+## [74.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.9.0...v74.9.1) (2024-02-20)
+
+
+### Bug Fixes
+
+* **dropdown:** set aria-expanded to string ([8fbae07](https://gitlab.com/gitlab-org/gitlab-ui/commit/8fbae078b59eb2ec17c00b2fb288cb99017e1f2c))
+
 # [74.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.8.0...v74.9.0) (2024-02-19)
 
 
