@@ -1,7 +1,9 @@
-import { shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
+import { shallowMount, mount } from '@vue/test-utils';
 import { BTable } from 'bootstrap-vue';
 import { logWarning } from '../../../utils/utils';
 import { waitForAnimationFrame } from '../../../utils/test_utils';
+import Icon from '../icon/icon.vue';
 import { glTableLiteWarning } from './constants';
 import Table from './table.vue';
 
@@ -18,14 +20,15 @@ describe('GlTable', () => {
       <p>Placeholder empty text</p>`,
   };
 
-  const factory = ({ props = {}, scopedSlots = {} } = {}) => {
-    wrapper = shallowMount(Table, {
+  const factory = ({ mountFn = shallowMount, props = {}, scopedSlots = {} } = {}) => {
+    wrapper = mountFn(Table, {
       scopedSlots,
       propsData: props,
     });
   };
 
   const findBTable = () => wrapper.findComponent(BTable);
+  const findFirstColHeader = () => findBTable().find('thead').findAll('th').at(0);
 
   afterEach(() => {
     logWarning.mockClear();
@@ -75,5 +78,70 @@ describe('GlTable', () => {
 
     expect(wrapper.props('fields')).toEqual(fields);
     expect(findBTable().props('fields')).toEqual(fields);
+  });
+
+  describe('sortable columns', () => {
+    const field = {
+      key: 'name',
+      label: 'Name column',
+      sortable: true,
+    };
+
+    describe('without custom slots', () => {
+      beforeEach(() => {
+        factory({ mountFn: mount, props: { fields: [field] } });
+      });
+
+      it('sets the correct column label', () => {
+        expect(findFirstColHeader().text()).toMatch(field.label);
+      });
+
+      it('renders the ascending sort icon', async () => {
+        findFirstColHeader().trigger('click');
+        await nextTick();
+
+        const icon = findFirstColHeader().findComponent(Icon);
+
+        expect(icon.exists()).toBe(true);
+        expect(icon.props('name')).toBe('arrow-up');
+      });
+
+      it('renders the descending sort icon', async () => {
+        findFirstColHeader().trigger('click');
+        findFirstColHeader().trigger('click');
+        await nextTick();
+        const icon = findFirstColHeader().findComponent(Icon);
+
+        expect(icon.exists()).toBe(true);
+        expect(icon.props('name')).toBe('arrow-down');
+      });
+    });
+
+    describe('when headers are customized via slots', () => {
+      const customSlotContent = 'customSlotContent';
+
+      beforeEach(() => {
+        factory({
+          mountFn: mount,
+          props: {
+            fields: [field],
+          },
+          scopedSlots: {
+            'head(name)': `<div>${customSlotContent}</div>`,
+          },
+        });
+      });
+
+      it('renders the ascending sort icon alongside the custom slot content', async () => {
+        findFirstColHeader().trigger('click');
+        await nextTick();
+
+        const icon = findFirstColHeader().findComponent(Icon);
+
+        expect(icon.exists()).toBe(true);
+        expect(icon.props('name')).toBe('arrow-up');
+        expect(findFirstColHeader().text()).toContain(customSlotContent);
+      });
+    });
   });
 });

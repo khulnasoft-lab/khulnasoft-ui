@@ -110,4 +110,14 @@ table.gl-table {
       }
     }
   }
+
+  &.table-hover tbody tr:hover,
+  &.table-hover td.table-secondary:hover {
+    background-color: $gray-10;
+  }
+}
+
+.table.b-table > thead > tr > th,
+.table.b-table > tfoot > tr > th {
+  background-image: none !important;
 }
