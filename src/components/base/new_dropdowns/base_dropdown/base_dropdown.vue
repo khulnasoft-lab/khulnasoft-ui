@@ -166,7 +166,7 @@ export default {
     ariaAttributes() {
       return {
         'aria-haspopup': this.ariaHaspopup,
-        'aria-expanded': this.visible,
+        'aria-expanded': String(this.visible),
         'aria-controls': this.baseDropdownId,
         'aria-labelledby': this.toggleLabelledBy,
       };
