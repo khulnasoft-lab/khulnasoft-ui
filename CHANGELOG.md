@@ -1,3 +1,14 @@
+## [74.9.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.9.1...v74.9.2) (2024-02-20)
+
+
+### Bug Fixes
+
+* Align left margin for inactive state ([5e20544](https://gitlab.com/gitlab-org/gitlab-ui/commit/5e205440d96b613fdec9f324f70dfc8a0bb11692))
+* Decrease left margin for icon ([1b2e829](https://gitlab.com/gitlab-org/gitlab-ui/commit/1b2e829d1b810521b864ac23f878a88ca2fc6ff7))
+* Make icon darker again ([6350e75](https://gitlab.com/gitlab-org/gitlab-ui/commit/6350e7530835496fb3c68dba8e68b0251574a146))
+* Move icon sort position in table ([28f2599](https://gitlab.com/gitlab-org/gitlab-ui/commit/28f25991ec085bf3100d3b1bab380c50547995d2))
+* Simplify if statements and width ([21bc5b2](https://gitlab.com/gitlab-org/gitlab-ui/commit/21bc5b2d3bc4a9fcfc4bcfba512ca6a329f0c95f))
+
 ## [74.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.9.0...v74.9.1) (2024-02-20)
 
 
