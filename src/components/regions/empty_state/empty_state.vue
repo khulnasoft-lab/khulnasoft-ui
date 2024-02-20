@@ -163,7 +163,7 @@ export default {
         </slot>
       </p>
       <div
-        class="gl-display-flex gl-flex-wrap gl-mt-5"
+        class="gl-display-flex gl-flex-wrap gl-mt-5 gl-gap-3"
         :class="{ 'gl-justify-content-center': !compact }"
       >
         <!--
@@ -173,19 +173,10 @@ export default {
           `secondaryButtonText`.
         -->
         <slot name="actions">
-          <gl-button
-            v-if="shouldRenderPrimaryButton"
-            variant="confirm"
-            :class="compact ? 'gl-mr-3' : 'gl-mx-2'"
-            class="gl-mb-3"
-            :href="primaryButtonLink"
-            >{{ primaryButtonText }}</gl-button
-          >
-          <gl-button
-            v-if="shouldRenderSecondaryButton"
-            class="gl-mb-3 gl-mr-3"
-            :class="{ 'gl-mx-2!': !compact }"
-            :href="secondaryButtonLink"
+          <gl-button v-if="shouldRenderPrimaryButton" variant="confirm" :href="primaryButtonLink">{{
+            primaryButtonText
+          }}</gl-button>
+          <gl-button v-if="shouldRenderSecondaryButton" :href="secondaryButtonLink"
             >{{ secondaryButtonText }}
           </gl-button>
         </slot>
