@@ -59,9 +59,6 @@ you must copy the textarea field from the `DuoChatFeedbackModal` component into 
 >
   <template #feedback-extra-fields>
     <div class="gl-mb-5">
-      <gl-alert variant="info" :dismissible="false">
-        GitLab team members can not see your conversation. Please be as descriptive as possible.
-      </gl-alert>
     </div>
     <gl-form-group label="What were you doing?" optional>
       <gl-form-textarea

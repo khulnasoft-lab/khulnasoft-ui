@@ -4,13 +4,17 @@ import GlAlert from '../../../base/alert/alert.vue';
 import GlFormGroup from '../../../base/form/form_group/form_group.vue';
 import GlFormTextarea from '../../../base/form/form_textarea/form_textarea.vue';
 import GlFormCheckboxGroup from '../../../base/form/form_checkbox/form_checkbox_group.vue';
+import GlButton from '../../../base/button/button.vue';
 
 export const i18n = {
-  MODAL_TITLE: 'Give feedback on GitLab Duo Chat',
-  MODAL_DESCRIPTION: 'To help improve GitLab Duo, send your feeback to GitLab team members.',
+  MODAL_TITLE: 'Give feedback on AI content',
+  MODAL_DESCRIPTION:
+    'To help improve the quality of the content, send your feedback to GitLab team members.',
+  MODAL_OPTIONS_LABEL: 'How was the AI content?*',
+  MODAL_MORE_LABEL: 'More information',
+  MODAL_MORE_PLACEHOLDER: 'How could the content be improved?',
   MODAL_ALERT:
     'GitLab team members cannot view your conversation. Please be as descriptive as possible.',
-  MODAL_OPTIONS_LABEL: 'How was the AI content?',
   MODAL_SITUATION_DESCRIPTION_LABEL: 'What were you doing?',
   MODAL_SITUATION_DESCRIPTION_PLACEHOLDER:
     'The Situation in which you interacted with GitLab Duo Chat.',
@@ -62,16 +66,23 @@ export default {
   components: {
     GlModal,
     GlAlert,
+    GlButton,
     GlFormCheckboxGroup,
     GlFormGroup,
     GlFormTextarea,
   },
   data() {
     return {
+      submitDisabled: true,
       selectedFeedbackOptions: [],
       extendedFeedback: '',
       improvementSuggestion: '',
     };
+  },
+  computed: {
+    isSubmitDisabled() {
+      return this.selectedFeedbackOptions.length === 0;
+    },
   },
   methods: {
     show() {
@@ -89,13 +100,15 @@ export default {
     onFeedbackCanceled() {
       this.$refs.feedbackModal.hide();
     },
-  },
-  actions: {
-    primary: {
-      text: i18n.MODAL_ACTIONS.submit,
+    onFeedbackSubmit() {
+      this.$emit('feedback-submitted', {
+        feedbackChoices: this.selectedFeedbackOptions,
+        situationDescription: this.situationDescription,
+        improvementSuggestion: this.improvementSuggestion,
+      });
     },
-    cancel: {
-      text: i18n.MODAL_ACTIONS.cancel,
+    close() {
+      this.$refs.feedbackModal.hide();
     },
   },
   feedbackOptions,
@@ -107,12 +120,8 @@ export default {
     ref="feedbackModal"
     modal-id="feedbackModal"
     :title="$options.i18n.MODAL_TITLE"
-    :action-primary="$options.actions.primary"
-    :action-cancel="$options.actions.cancel"
     :visible="false"
     size="sm"
-    @primary="onFeedbackSubmit"
-    @canceled="onFeedbackCanceled"
   >
     <p>{{ $options.i18n.MODAL_DESCRIPTION }}</p>
     <gl-form-group
@@ -143,5 +152,20 @@ export default {
         />
       </gl-form-group>
     </slot>
+    <template #modal-footer>
+      <gl-button data-testid="cancel-button" @click="close">
+        {{ $options.i18n.MODAL_ACTIONS.cancel }}
+      </gl-button>
+
+      <gl-button
+        data-testid="submit-button"
+        category="primary"
+        variant="confirm"
+        @click="onFeedbackSubmit"
+        :disabled="isSubmitDisabled"
+      >
+        {{ $options.i18n.MODAL_ACTIONS.submit }}
+      </gl-button>
+    </template>
   </gl-modal>
 </template>

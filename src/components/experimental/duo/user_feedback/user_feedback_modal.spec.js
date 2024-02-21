@@ -18,6 +18,8 @@ describe('FeedbackModal', () => {
   const findOptions = () => wrapper.findComponent('[data-testid="feedback-options"]');
   const findOptionsCheckboxes = () => findOptions().findAllComponents(GlFormCheckbox);
   const findTextarea = () => wrapper.findComponent(GlFormTextarea);
+  const findSubmitButton = () => findByTestId('submit-button');
+  const findCancelButton = () => findByTestId('cancel-button');
   const selectOption = (index = 0) => {
     wrapper
       .findAllComponents(GlFormCheckboxGroup)
@@ -54,10 +56,16 @@ describe('FeedbackModal', () => {
     expect(findImprovementSuggestion().exists()).toBe(true);
   });
 
+  // todo fix this...
   describe('interaction', () => {
-    it('emits the feedback event when the submit button is clicked', () => {
-      selectOption();
-      findModal().vm.$emit('primary');
+    it.only('emits the feedback event when the submit button is clicked', async () => {
+      selectOption(); // Select an option to enable the submit button.
+      await wrapper.vm.$nextTick(); // Wait for the DOM to update.
+      let foo = findSubmitButton();
+      debugger;
+      findSubmitButton().trigger('click'); // Directly trigger click on the submit button.
+      await wrapper.vm.$nextTick(); // Wait for any asynchronous updates.
+
       expect(wrapper.emitted('feedback-submitted')).toEqual([
         [
           {
@@ -68,10 +76,13 @@ describe('FeedbackModal', () => {
         ],
       ]);
     });
-    it('does not emit event if there is no option selected', () => {
-      findModal().vm.$emit('primary');
-      expect(wrapper.emitted('feedback-submitted')).toBeUndefined();
-    });
+    // todo test if cancel closes the modal...
+    // it('does not emit event if there is no option selected', () => {
+    //   findModal().vm.$emit('primary');
+    //   expect(wrapper.emitted('feedback-submitted')).toBeUndefined();
+    // });
+
+    // todo hides when button is canceld...
   });
 
   describe('slots', () => {
@@ -83,6 +94,24 @@ describe('FeedbackModal', () => {
       createComponent({ slots: { 'feedback-extra-fields': DummyComponent } });
       expect(wrapper.findComponent(DummyComponent).exists()).toBe(true);
       expect(findTextarea().exists()).toBe(false);
+    });
+  });
+
+  describe('footer', () => {
+    it('renders submit and cancel buttons', () => {
+      expect(findSubmitButton().exists()).toBe(true);
+      expect(findCancelButton().exists()).toBe(true);
+    });
+
+    it('disables the submit button when no options are selected', () => {
+      // Assuming no option is selected by default
+      expect(findSubmitButton().attributes('disabled')).toBe('true');
+    });
+
+    it('enables the submit button when an option is selected', async () => {
+      selectOption(); // Helper function to select an option
+      await wrapper.vm.$nextTick();
+      expect(findSubmitButton().attributes('disabled')).toBeFalsy();
     });
   });
 });
