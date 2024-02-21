@@ -1,53 +1,61 @@
 <script>
 import GlModal from '../../../base/modal/modal.vue';
+import GlAlert from '../../../base/alert/alert.vue';
 import GlFormGroup from '../../../base/form/form_group/form_group.vue';
 import GlFormTextarea from '../../../base/form/form_textarea/form_textarea.vue';
 import GlFormCheckboxGroup from '../../../base/form/form_checkbox/form_checkbox_group.vue';
 
 export const i18n = {
-  MODAL_TITLE: 'Give feedback on AI content',
-  MODAL_DESCRIPTION:
-    'To help improve the quality of the content, send your feedback to GitLab team members.',
-  MODAL_OPTIONS_LABEL: 'How was the AI content?',
-  MODAL_MORE_LABEL: 'More information',
-  MODAL_MORE_PLACEHOLDER: 'How could the content be improved?',
-  MODAL_FEEDBACK_OPTIONS: {
-    helpful: 'Helpful',
-    unhelpful: 'Unhelpful or irrelevant',
-    incorrect: 'Factually incorrect',
-    long: 'Too long',
-    abuse: 'Abusive or offensive',
-    other: 'Something else',
-  },
-  MODAL_ACTIONS: {
-    submit: 'Submit',
-    cancel: 'Cancel',
+  MODAL: {
+    TITLE: 'Give feedback on GitLab Duo',
+    DESCRIPTION: 'To help improve GitLab Duo, send your feeback to GitLab team members.',
+    ALERT: 'GitLab team members cannot see the AI content. Please be as descriptive as possible.',
+    OPTIONS_LABEL: 'How could the AI content be improved?',
+    SITUATION_DESCRIPTION_LABEL: 'What were you doing?',
+    SITUATION_DESCRIPTION_PLACEHOLDER:
+      'The situation in which you interacted with GitLab Duo Chat.',
+    IMPROVEMENT_SUGGESTION_LABEL: 'How could the response be improved?',
+    IMPROVEMENT_SUGGESTION_PLACEHOLDER: 'How the response might better meet your needs.',
+    MORE_LABEL: 'More information',
+    MORE_PLACEHOLDER: 'How could the content be improved?',
+    FEEDBACK_OPTIONS: {
+      helpful: 'Helpful',
+      unhelpful: 'Unhelpful or irrelevant',
+      incorrect: 'Factually incorrect',
+      long: 'Too long',
+      abuse: 'Abusive or offensive',
+      other: 'Something else',
+    },
+    ACTIONS: {
+      submit: 'Submit',
+      cancel: 'Cancel',
+    },
   },
 };
 
 export const feedbackOptions = [
   {
-    text: i18n.MODAL_FEEDBACK_OPTIONS.helpful,
+    text: i18n.MODAL.FEEDBACK_OPTIONS.helpful,
     value: 'helpful',
   },
   {
-    text: i18n.MODAL_FEEDBACK_OPTIONS.unhelpful,
+    text: i18n.MODAL.FEEDBACK_OPTIONS.unhelpful,
     value: 'unhelpful',
   },
   {
-    text: i18n.MODAL_FEEDBACK_OPTIONS.incorrect,
+    text: i18n.MODAL.FEEDBACK_OPTIONS.incorrect,
     value: 'incorrect',
   },
   {
-    text: i18n.MODAL_FEEDBACK_OPTIONS.long,
+    text: i18n.MODAL.FEEDBACK_OPTIONS.long,
     value: 'long',
   },
   {
-    text: i18n.MODAL_FEEDBACK_OPTIONS.abuse,
+    text: i18n.MODAL.FEEDBACK_OPTIONS.abuse,
     value: 'abuse',
   },
   {
-    text: i18n.MODAL_FEEDBACK_OPTIONS.other,
+    text: i18n.MODAL.FEEDBACK_OPTIONS.other,
     value: 'other',
   },
 ];
@@ -56,9 +64,18 @@ export default {
   name: 'DuoChatFeedbackModal',
   components: {
     GlModal,
+    GlAlert,
     GlFormCheckboxGroup,
     GlFormGroup,
     GlFormTextarea,
+  },
+  inject: {
+    modalTitle: {
+      default: i18n.MODAL.TITLE,
+    },
+    modalAlert: {
+      default: i18n.MODAL.ALERT,
+    },
   },
   data() {
     return {
@@ -84,10 +101,10 @@ export default {
   },
   actions: {
     primary: {
-      text: i18n.MODAL_ACTIONS.submit,
+      text: i18n.MODAL.ACTIONS.submit,
     },
     cancel: {
-      text: i18n.MODAL_ACTIONS.cancel,
+      text: i18n.MODAL.ACTIONS.cancel,
     },
   },
   feedbackOptions,
@@ -98,7 +115,7 @@ export default {
   <gl-modal
     ref="feedbackModal"
     modal-id="feedbackModal"
-    :title="$options.i18n.MODAL_TITLE"
+    :title="modalTitle"
     :action-primary="$options.actions.primary"
     :action-cancel="$options.actions.cancel"
     :visible="false"
@@ -106,9 +123,9 @@ export default {
     @primary="onFeedbackSubmit"
     @canceled="onFeedbackCanceled"
   >
-    <p>{{ $options.i18n.MODAL_DESCRIPTION }}</p>
+    <p>{{ $options.i18n.MODAL.DESCRIPTION }}</p>
     <gl-form-group
-      :label="$options.i18n.MODAL_OPTIONS_LABEL"
+      :label="$options.i18n.MODAL.OPTIONS_LABEL"
       :optional="false"
       data-testid="feedback-options"
     >
@@ -117,13 +134,13 @@ export default {
         :options="$options.feedbackOptions"
       />
     </gl-form-group>
-
+    <gl-alert class="gl-mb-5" :dismissible="false">{{ modalAlert }}</gl-alert>
     <!-- @slot The addition Feedback form fields. -->
     <slot name="feedback-extra-fields">
-      <gl-form-group :label="$options.i18n.MODAL_MORE_LABEL" optional>
+      <gl-form-group :label="$options.i18n.MODAL.MORE_LABEL" optional>
         <gl-form-textarea
           v-model="extendedFeedback"
-          :placeholder="$options.i18n.MODAL_MORE_PLACEHOLDER"
+          :placeholder="$options.i18n.MODAL.MORE_PLACEHOLDER"
         />
       </gl-form-group>
     </slot>

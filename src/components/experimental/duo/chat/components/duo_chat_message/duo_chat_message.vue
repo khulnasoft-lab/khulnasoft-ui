@@ -1,11 +1,25 @@
 <script>
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
+import GlFormGroup from '../../../../../base/form/form_group/form_group.vue';
+import GlFormTextarea from '../../../../../base/form/form_textarea/form_textarea.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
 import { MESSAGE_MODEL_ROLES } from '../../constants';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';
 // eslint-disable-next-line no-restricted-imports
 import { renderDuoChatMarkdownPreview } from '../../markdown_renderer';
 import { CopyCodeElement } from './copy_code_element';
+
+export const i18n = {
+  MODAL: {
+    TITLE: 'Give feedback on GitLab Duo Chat',
+    ALERT_TEXT:
+      'GitLab team members cannot view your conversation. Please be as descriptive as possible.',
+    DID_WHAT: 'What were you doing?',
+    INTERACTION: 'The situation in which you interacted with GitLab Duo Chat.',
+    IMPROVE_WHAT: 'How could the response be improved?',
+    BETTER_RESPONSE: 'How the response might better meet your needs.',
+  },
+};
 
 const concatUntilEmpty = (arr) => {
   if (!arr) return '';
@@ -25,9 +39,17 @@ export default {
   components: {
     DocumentationSources,
     GlDuoUserFeedback,
+    GlFormGroup,
+    GlFormTextarea,
   },
   directives: {
     SafeHtml,
+  },
+  provide() {
+    return {
+      modalTitle: i18n.MODAL.TITLE,
+      modalAlertText: i18n.MODAL.ALERT_TEXT,
+    };
   },
   inject: {
     // Note, we likely might move away from Provide/Inject for this
@@ -53,6 +75,12 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      didWhat: '',
+      improveWhat: '',
+    };
   },
   computed: {
     isAssistantMessage() {
@@ -92,7 +120,15 @@ export default {
         this.renderGFM(this.$refs.content);
       }
     },
+    logEvent(e) {
+      this.$emit('track-feedback', {
+        ...e,
+        didWhat: this.didWhat,
+        improveWhat: this.improveWhat,
+      });
+    },
   },
+  i18n,
 };
 </script>
 <template>
@@ -110,7 +146,23 @@ export default {
       <documentation-sources v-if="sources" :sources="sources" />
 
       <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
-        <gl-duo-user-feedback @feedback="$emit('track-feedback', $event)" />
+        <gl-duo-user-feedback
+          :modal-title="$options.i18n.MODAL.TITLE"
+          :modal-alert="$options.i18n.MODAL.ALERT_TEXT"
+          @feedback="logEvent"
+        >
+          <template #feedback-extra-fields>
+            <gl-form-group :label="$options.i18n.MODAL.DID_WHAT" optional>
+              <gl-form-textarea v-model="didWhat" :placeholder="$options.i18n.MODAL.INTERACTION" />
+            </gl-form-group>
+            <gl-form-group :label="$options.i18n.MODAL.IMPROVE_WHAT" optional>
+              <gl-form-textarea
+                v-model="improveWhat"
+                :placeholder="$options.i18n.MODAL.BETTER_RESPONSE"
+              />
+            </gl-form-group>
+          </template>
+        </gl-duo-user-feedback>
       </div>
     </template>
   </div>
