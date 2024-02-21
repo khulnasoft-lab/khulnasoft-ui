@@ -98,6 +98,7 @@ export default {
   <gl-modal
     ref="feedbackModal"
     modal-id="feedbackModal"
+    modal-class="gl-z-index-9999!"
     :title="$options.i18n.MODAL_TITLE"
     :action-primary="$options.actions.primary"
     :action-cancel="$options.actions.cancel"
