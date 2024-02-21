@@ -1,3 +1,16 @@
+# [75.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.9.3...v75.0.0) (2024-02-21)
+
+
+### Bug Fixes
+
+* remove isolation utils ([cbc7cf2](https://gitlab.com/gitlab-org/gitlab-ui/commit/cbc7cf20134440e85d9bdc7a61a20b7cdfcdd714))
+
+
+### BREAKING CHANGES
+
+* This removes the isolation CSS utilities.
+Isolation should now be applied via Tailwind CSS utils instead.
+
 ## [74.9.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.9.2...v74.9.3) (2024-02-20)
 
 
