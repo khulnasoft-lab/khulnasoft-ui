@@ -11,7 +11,9 @@ const DummyComponent = {
 
 describe('FeedbackModal', () => {
   let wrapper;
-
+  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
+  const findExtendedText = () => findByTestId('extended-text-feedback-textarea');
+  const findImprovementSuggestion = () => findByTestId('improvement-suggestion-textarea');
   const findModal = () => wrapper.findComponent(GlModal);
   const findOptions = () => wrapper.findComponent('[data-testid="feedback-options"]');
   const findOptionsCheckboxes = () => findOptions().findAllComponents(GlFormCheckbox);
@@ -44,8 +46,12 @@ describe('FeedbackModal', () => {
     });
   });
 
-  it('renders the textarea field for additional feedback', () => {
-    expect(findTextarea().exists()).toBe(true);
+  it('renders the extendedFeedback textarea', () => {
+    expect(findExtendedText().exists()).toBe(true);
+  });
+
+  it('renders the improvementSuggestion textarea', () => {
+    expect(findImprovementSuggestion().exists()).toBe(true);
   });
 
   describe('interaction', () => {
@@ -57,6 +63,7 @@ describe('FeedbackModal', () => {
           {
             feedbackChoices: [feedbackOptions[0].value],
             extendedTextFeedback: '',
+            improvementSuggestion: '',
           },
         ],
       ]);
