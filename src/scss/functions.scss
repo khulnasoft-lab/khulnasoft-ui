@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /*
 * SASS preserves units in arithmetic operations. For example:
 * 12em * 0 = 0em. This function return the unit of a numeric value.
@@ -10,7 +12,7 @@
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / extract-unit($number);
+    @return math.div($number, extract-unit($number));
   }
 
   @return $number;
@@ -21,10 +23,7 @@
     @return $value;
   }
 
-  // Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0
-  // We can't update this yet since GitLab uses SassC, which doesn't support math.div
-  // See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1954#note_1078281533
-  $converted: $value / $font-size-base;
+  $converted: math.div($value, $font-size-base);
 
   @return strip-unit($converted) * 1rem;
 }
@@ -57,14 +56,8 @@
   $min-width: px-to-rem($min-width);
   $max-width: px-to-rem($max-width);
 
-  // Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0
-  // We can't update this yet since GitLab uses SassC, which doesn't support math.div
-  // See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1954#note_1078281533
-  $slope: ($max - $min) / ($max-width - $min-width);
+  $slope: math.div($max - $min, $max-width - $min-width);
   $intersection: (-$min-width * $slope) + $min;
 
-  // Use calc() inside of clamp() function to work around SassC
-  // compilation failure.
-  // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2972
-  @return clamp(#{$min}, calc(#{$intersection} + #{$slope * 100vw}), #{$max});
+  @return clamp(#{$min}, #{$intersection} + #{$slope * 100vw}, #{$max});
 }
