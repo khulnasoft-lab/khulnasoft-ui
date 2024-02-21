@@ -57,7 +57,7 @@ table.gl-table {
   @mixin gl-tmp-stacked-override {
     tbody > tr {
       &::after {
-        @include gl-content-empty;
+        content: '';
         @include gl-h-6;
         @include gl-w-full;
         @include gl-display-block;
