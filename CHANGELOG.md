@@ -1,3 +1,10 @@
+# [75.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v75.0.0...v75.1.0) (2024-02-22)
+
+
+### Features
+
+* **GlDrawer:** Emit "opened" event in transition after-enter hook ([f752b36](https://gitlab.com/gitlab-org/gitlab-ui/commit/f752b3675cf15597412fa28f89df699edcf56f57))
+
 # [75.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v74.9.3...v75.0.0) (2024-02-21)
 
 
