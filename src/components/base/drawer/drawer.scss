@@ -66,7 +66,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
     background: $gl-drawer-scrim-gradient;
     top: -$gl-border-size-1;
     @include gl-translate-y-n100;
-    @include gl-content-empty;
+    content: '';
     @include gl-left-0;
     @include gl-absolute;
     @include gl-pointer-events-none;
@@ -115,7 +115,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 .gl-drawer-body-scrim {
   &::after {
     background: $gl-drawer-scrim-gradient;
-    @include gl-content-empty;
+    content: '';
     @include gl-bottom-0;
     @include gl-pointer-events-none;
     @include gl-w-full;

@@ -11,7 +11,7 @@
   @include gl-inset-border-1-gray-400;
   @include gl-border-none;
   @include form-control-focus($ignore-warning: true);
-  @include gl-appearance-none;
+  appearance: none;
 
   &:disabled,
   &:not(.form-control-plaintext):not([type='color']):read-only {

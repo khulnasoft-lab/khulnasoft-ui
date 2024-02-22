@@ -1,10 +1,4 @@
 /* stylelint-disable property-no-vendor-prefix */
-@mixin gl-appearance-none {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
-
 @mixin gl-number-as-text-input {
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {

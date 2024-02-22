@@ -418,7 +418,7 @@
     @include gl-fill-current-color;
     @include gl-inset-border-1-gray-200;
     @include gl-cursor-default;
-    @include gl-user-select-text;
+    user-select: text;
   }
 
   &.btn-link {

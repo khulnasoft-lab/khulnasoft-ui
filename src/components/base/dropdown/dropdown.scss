@@ -94,12 +94,12 @@
   .dropdown-toggle-split {
     &::after {
       @include gl-border-0;
-      @include gl-content-empty;
+      content: '';
       @include gl-display-block;
       @include gl-w-5;
       @include gl-h-5;
       @include gl-bg-current-color;
-      @include gl-mask-chevron-down;
+      @include mask-chevron-down;
     }
 
     &.btn-default:not(:disabled)::after {

@@ -20,7 +20,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   @include gl-h-auto;
   @include gl-inset-border-1-gray-400;
   @include gl-border-none;
-  @include gl-appearance-none;
+  appearance: none;
   @include gl-text-truncate;
   @include gl-bg-no-repeat;
   background-image: url($gl-icon-select-chevron-down);
