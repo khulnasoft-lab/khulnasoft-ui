@@ -1,3 +1,10 @@
+# [75.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v75.1.0...v75.2.0) (2024-02-22)
+
+
+### Features
+
+* **GlMarkdown:** Use heading scale ([19c39b6](https://gitlab.com/gitlab-org/gitlab-ui/commit/19c39b6f7bd71624b2d9630fd62128a0fbe0c56a))
+
 # [75.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v75.0.0...v75.1.0) (2024-02-22)
 
 
