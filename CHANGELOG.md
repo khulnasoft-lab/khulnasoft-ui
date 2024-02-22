@@ -1,3 +1,30 @@
+# [76.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v75.2.0...v76.0.0) (2024-02-22)
+
+
+### Bug Fixes
+
+* make `gl-content-empty` mixin internal ([51195ac](https://gitlab.com/gitlab-org/gitlab-ui/commit/51195acf5782cef88542591b14b992698e61f0ab))
+* make `gl-mask-chevron-down` mixin internal ([d58d804](https://gitlab.com/gitlab-org/gitlab-ui/commit/d58d8048505dd604b19bf6e20e8c3094b3e96a7b))
+* remove legacy `gl-appearance-none` utility mixin ([000795e](https://gitlab.com/gitlab-org/gitlab-ui/commit/000795ed87b4a823c532a9bd14993c1effbf2a83))
+* remove mix blend mode utilities ([f3b6b2c](https://gitlab.com/gitlab-org/gitlab-ui/commit/f3b6b2ced8b452ed568a1a416979f34be267e434))
+* remove table layout utilities ([20f9027](https://gitlab.com/gitlab-org/gitlab-ui/commit/20f9027de4659b7b8e826dd14718dd7e2707ecc2))
+* remove user select utility mixins ([a9ee4bd](https://gitlab.com/gitlab-org/gitlab-ui/commit/a9ee4bdc377d6f4200774b3ef2717edc0923b9e6))
+
+
+### BREAKING CHANGES
+
+* The `gl-content-empty` utility has been removed. Consumer that need
+content utilities can enable the `content` Tailwind core plugin.
+* The table user select utilities have been removed. Consumer that need
+such utilities can enable the `userSelect` Tailwind core plugin.
+* The table layout utility has been removed. Consumer that need such
+utility can enable the `tableLayout` Tailwind core plugin.
+* The appearance utility has been removed. Consumer that need such
+utility can enable the `appearance` Tailwind core plugin.
+* The mix blend mode utility has been removed. Consumer that need such
+utility can enable the `mixBlendMode` Tailwind core plugin.
+* The `gl-mask-chevron-down` utility has been removed.
+
 # [75.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v75.1.0...v75.2.0) (2024-02-22)
 
 
