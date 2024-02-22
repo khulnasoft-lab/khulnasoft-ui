@@ -109,7 +109,7 @@ export default {
     <template v-if="isAssistantMessage">
       <documentation-sources v-if="sources" :sources="sources" />
 
-      <div class="gl-display-flex gl-align-items-flex-end gl-mt-4">
+      <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
         <gl-duo-user-feedback @feedback="$emit('track-feedback', $event)" />
       </div>
     </template>
