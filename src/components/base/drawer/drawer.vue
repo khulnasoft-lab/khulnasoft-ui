@@ -81,6 +81,13 @@ export default {
     document.removeEventListener('keydown', this.handleEscape);
   },
   methods: {
+    emitOpened() {
+      /**
+       * Emits when the opening animation has finished.
+       * @event opened
+       */
+      this.$emit('opened');
+    },
     handleEscape(e) {
       const ESC = 27;
 
@@ -92,7 +99,7 @@ export default {
 };
 </script>
 <template>
-  <transition name="gl-drawer">
+  <transition name="gl-drawer" @after-enter="emitOpened">
     <aside v-if="open" :style="drawerStyles" class="gl-drawer" :class="variantClass">
       <div
         class="gl-drawer-header"
