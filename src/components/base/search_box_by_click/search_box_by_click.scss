@@ -19,9 +19,9 @@
     }
 
     .gl-search-box-by-click-close-history-button {
-      @include gl-absolute;
-      @include gl-top-0;
-      @include gl-right-2;
+      position: absolute;
+      top: 0;
+      right: $gl-spacing-scale-2;
       @include gl-line-height-0;
       @include gl-shadow-none;
       @include gl-w-auto;
@@ -60,9 +60,9 @@
   }
 
   .gl-search-box-by-click-clear-button {
-    @include gl-absolute;
-    @include gl-top-2;
-    @include gl-right-2;
+    position: absolute;
+    top: $gl-spacing-scale-2;
+    right: $gl-spacing-scale-2;
     @include gl-mr-2;
     @include gl-z-index-3;
   }
@@ -79,6 +79,6 @@
   }
   
   .gl-search-box-by-click-clear-button {
-    @include gl-right-7;
+    right: $gl-spacing-scale-7;
   }
 }

@@ -1,5 +1,5 @@
 .gl-chart-tooltip {
-  @include gl-absolute;
+  position: absolute;
 
   > .popover {
     @include gl-min-w-0;

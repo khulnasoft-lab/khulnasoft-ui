@@ -3,7 +3,7 @@
 $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 
 .gl-legend {
-  @include gl-relative;
+  position: relative;
 }
 
 .gl-chart-h-auto {
@@ -18,11 +18,11 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 .gl-chart-h-auto .gl-legend-inline {
   &::after {
     background-image: linear-gradient(to bottom, $transparent-rgba, var(--white, #{$white}));
-    @include gl-bottom-0;
+    bottom: 0;
     content: '';
     @include gl-display-block;
     @include gl-h-4;
-    @include gl-absolute;
+    position: absolute;
     @include gl-w-full;
   }
 }

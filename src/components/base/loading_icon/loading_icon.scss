@@ -39,7 +39,7 @@ $gl-loader-dots-size-xl: 1rem;
 }
 
 .gl-spinner {
-  @include gl-relative;
+  position: relative;
   @include gl-display-inline-flex;
   @include gl-rounded-full;
   @include gl-border-solid;

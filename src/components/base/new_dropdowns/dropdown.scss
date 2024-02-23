@@ -34,7 +34,7 @@
   }
 
   .gl-new-dropdown-contents {
-    @include gl-relative;
+    position: relative;
     @include gl-flex-grow-1;
     @include gl-overflow-y-auto;
     @include gl-pl-0;

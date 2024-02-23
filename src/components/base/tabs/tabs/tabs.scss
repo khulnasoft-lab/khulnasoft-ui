@@ -94,19 +94,19 @@
 
 .gl-tabs-fade {
   @include gl-w-8;
-  @include gl-bottom-0;
-  @include gl-sticky;
+  bottom: 0;
+  position: sticky;
   @include gl-text-gray-500;
   @include gl-p-2;
 }
 
 .gl-tabs-fade-left {
-  @include gl-left-0;
+  left: 0;
   @include gl-bg-gradient-blur(left, $white);
 }
 
 .gl-tabs-fade-right {
-  @include gl-right-0;
+  right: 0;
   @include gl-bg-gradient-blur(right, $white);
 }
 
@@ -120,6 +120,6 @@
 
 .gl-scrollable-tabs-nav {
   @include gl-overflow-hidden;
-  @include gl-relative;
+  position: relative;
   @include gl-flex-nowrap;
 }

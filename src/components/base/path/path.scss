@@ -23,7 +23,7 @@ $path-chevron-right-margin: px-to-rem(14px);
 
 @mixin gl-path-chevron {
   content: '';
-  @include gl-absolute;
+  position: absolute;
   @include gl-reset-bg;
   top: $path-chevron-top;
   right: $path-chevron-right;
@@ -37,13 +37,13 @@ $path-chevron-right-margin: px-to-rem(14px);
 }
 
 .gl-path-nav {
-  @include gl-relative;
+  position: relative;
   @include gl-display-flex;
 
   .gl-path-nav-list {
     @include gl-p-1;
     @include gl-m-0;
-    @include gl-relative;
+    position: relative;
     @include gl-list-style-none;
     @include gl-display-inline-flex;
     @include gl-overflow-hidden;
@@ -65,7 +65,7 @@ $path-chevron-right-margin: px-to-rem(14px);
     @include gl-pl-5;
     @include gl-py-3;
     @include gl-display-flex;
-    @include gl-relative;
+    position: relative;
     @include gl-font-base;
     @include gl-z-index-0;
     @include gl-border-none;
@@ -122,18 +122,18 @@ $path-chevron-right-margin: px-to-rem(14px);
   .gl-path-fade {
     @include gl-w-8;
     @include gl-h-full;
-    @include gl-bottom-0;
-    @include gl-absolute;
+    bottom: 0;
+    position: absolute;
     @include gl-z-index-2;
     @include gl-text-gray-500;
 
     &-left {
-      @include gl-left-0;
+      left: 0;
       @include gl-bg-gradient-blur(left, var(--path-bg-color));
     }
 
     &-right {
-      @include gl-right-0;
+      right: 0;
       @include gl-text-right;
       @include gl-bg-gradient-blur(right, var(--path-bg-color));
     }

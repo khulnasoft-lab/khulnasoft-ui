@@ -2,7 +2,7 @@
   @include gl-mt-1;
   @include gl-ml-0;
   @include gl-align-self-start;
-  @include gl-static;
+  position: static;
   @include gl-h-auto;
   @include gl-mr-0;
 }
@@ -60,8 +60,8 @@
 
       &::before,
       &::after {
-        @include gl-top-0;
-        @include gl-left-n5;
+        top: 0;
+        left: -$gl-spacing-scale-5;
       }
 
       &::before {

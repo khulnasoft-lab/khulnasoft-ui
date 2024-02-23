@@ -3,9 +3,9 @@ $gl-sidebar-width: 290px;
 $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white);
 
 .gl-drawer {
-  @include gl-right-0;
+  right: 0;
   @include gl-transition-medium;
-  @include gl-fixed;
+  position: fixed;
   @include gl-h-full;
   @include gl-w-full;
   @include gl-overflow-y-auto;
@@ -17,8 +17,8 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 
   .gl-drawer-header-sticky {
     @include gl-bg-white;
-    @include gl-top-0;
-    @include gl-sticky;
+    top: 0;
+    position: sticky;
   }
 }
 
@@ -67,8 +67,8 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
     top: -$gl-border-size-1;
     @include gl-translate-y-n100;
     content: '';
-    @include gl-left-0;
-    @include gl-absolute;
+    left: 0;
+    position: absolute;
     @include gl-pointer-events-none;
     @include gl-w-full;
     @include gl-h-7;
@@ -77,8 +77,8 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 
 .gl-drawer-footer-sticky {
   @include gl-bg-white;
-  @include gl-bottom-0;
-  @include gl-sticky;
+  bottom: 0;
+  position: sticky;
 }
 
 .gl-drawer-header {
@@ -116,10 +116,10 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
   &::after {
     background: $gl-drawer-scrim-gradient;
     content: '';
-    @include gl-bottom-0;
+    bottom: 0;
     @include gl-pointer-events-none;
     @include gl-w-full;
-    @include gl-fixed;
+    position: fixed;
     @include gl-h-7;
   }
 }

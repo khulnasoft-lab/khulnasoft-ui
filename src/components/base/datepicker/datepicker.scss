@@ -22,10 +22,10 @@ $pd-week-color: $gray-500;
 
 .gl-datepicker-actions {
   @include gl-font-sm;
-  @include gl-absolute;
-  @include gl-top-0;
-  @include gl-bottom-0;
-  @include gl-right-0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
   @include gl-display-flex;
   @include gl-justify-content-center;
   @include gl-align-items-center;
@@ -99,7 +99,7 @@ $pd-week-color: $gray-500;
   }
 
   .pika-select {
-    @include gl-top-0;
+    top: 0;
     @include gl-h-5;
   }
 

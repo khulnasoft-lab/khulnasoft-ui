@@ -50,12 +50,12 @@
     @include gl-w-5;
     @include gl-flex-shrink-0;
     @include gl-mr-2;
-    @include gl-top-auto;
+    top: auto;
   }
 
   gl-emoji {
     @include gl-mr-2;
-    @include gl-relative;
+    position: relative;
     @include gl-font-lg;
   }
 
