@@ -33,7 +33,6 @@
 @import './outline';
 @import './overflow';
 @import './pointer-events';
-@import './position';
 @import './sizing';
 @import './spacing';
 @import './svg';
@@ -44,3 +43,6 @@
 @import './vertical-align';
 @import './visibility';
 @import './z-index';
+
+// Deprecated mixins that don't have a migration path yet
+@import './deprecated';
