@@ -66,5 +66,11 @@ module.exports = {
       ...themeColors,
     },
     spacing,
+    fontSize: {
+      xs: '0.625rem',
+      sm: '0.75rem',
+      base: '0.875rem',
+      lg: '1rem',
+    },
   },
 };
