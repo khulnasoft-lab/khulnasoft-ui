@@ -126,6 +126,29 @@ describe('GlDuoChat', () => {
       expect(component().exists()).toBe(shouldRender);
     });
 
+    describe('fullWidth prop', () => {
+      it.each`
+        fullWidth    | expectedClass          | shouldContain
+        ${true}      | ${'gl-drawer-default'} | ${false}
+        ${false}     | ${'gl-drawer-default'} | ${true}
+        ${undefined} | ${'gl-drawer-default'} | ${true}
+      `(
+        'applies "$expectedClass" class when fullWidth is $fullWidth',
+        async ({ fullWidth, expectedClass, shouldContain }) => {
+          createComponent({ propsData: { fullWidth } });
+
+          await nextTick();
+
+          const chatComponent = findChatComponent();
+          if (shouldContain) {
+            expect(chatComponent.classes()).toContain(expectedClass);
+          } else {
+            expect(chatComponent.classes()).not.toContain(expectedClass);
+          }
+        }
+      );
+    });
+
     describe('when messages exist', () => {
       it('scrolls to the bottom on load', async () => {
         const scrollIntoViewMock = jest.fn();

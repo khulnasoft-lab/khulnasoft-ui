@@ -50,6 +50,7 @@ const generateProps = ({
   emptyStateTitle = defaultValue('emptyStateTitle'),
   emptyStateDescription = defaultValue('emptyStateDescription'),
   chatPromptPlaceholder = defaultValue('chatPromptPlaceholder'),
+  fullWidth = defaultValue('fullWidth'),
 } = {}) => ({
   title,
   messages,
@@ -65,6 +66,7 @@ const generateProps = ({
   emptyStateTitle,
   emptyStateDescription,
   chatPromptPlaceholder,
+  fullWidth,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -88,6 +90,7 @@ export const Default = (args, { argTypes }) => ({
       :empty-state-title="emptyStateTitle"
       :empty-state-description="emptyStateDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
+      :full-width="fullWidth"
     />`,
 });
 Default.args = generateProps({
