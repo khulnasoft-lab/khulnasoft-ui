@@ -72,5 +72,12 @@ module.exports = {
       base: '0.875rem',
       lg: '1rem',
     },
+    fontWeight: {
+      100: 100,
+      300: 300,
+      normal: 400,
+      semibold: 500,
+      bold: 600,
+    },
   },
 };
