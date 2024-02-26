@@ -221,3 +221,9 @@
 @mixin gl-float-right {
   float: right;
 }
+
+@mixin gl-md-absolute {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-absolute;
+  }
+}

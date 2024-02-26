@@ -271,6 +271,12 @@
   }
 }
 
+@mixin gl-md-justify-content-center {
+  @include gl-media-breakpoint-up(md) {
+    @include gl-justify-content-center;
+  }
+}
+
 @mixin gl-md-justify-content-end {
   @include gl-media-breakpoint-up(md) {
     @include gl-justify-content-end;
