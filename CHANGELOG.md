@@ -1,3 +1,11 @@
+## [76.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v76.0.0...v76.0.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* **tailwind:** add font sizes to the preset ([02f26b3](https://gitlab.com/gitlab-org/gitlab-ui/commit/02f26b34c39bd0d84e86cec938eefa1f3a15e003))
+* **tailwind:** add font weights to the preset ([84fe175](https://gitlab.com/gitlab-org/gitlab-ui/commit/84fe175a0dfcaf704ab6041479444b58e3608a7e))
+
 # [76.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v75.2.0...v76.0.0) (2024-02-22)
 
 
