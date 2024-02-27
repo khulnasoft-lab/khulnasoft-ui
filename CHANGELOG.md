@@ -1,3 +1,20 @@
+# [77.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v76.1.0...v77.0.0) (2024-02-27)
+
+
+### Bug Fixes
+
+* migrate internal positioning utilities to Tailwind ([bc9ad6a](https://gitlab.com/gitlab-org/gitlab-ui/commit/bc9ad6a8ed21e7a7c673daa23bd8a2bbddeaf30a))
+* remove legacy positioning utilities ([8d0450a](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d0450a9077c19e3ae0a49f8e80cd0887ec8ee65))
+
+
+### BREAKING CHANGES
+
+* Positioning utilities have been removed. Consumers should enable the
+following Tailwind CSS core plugins:
+* `float`
+* `inset`
+* `position`
+
 # [76.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v76.0.1...v76.1.0) (2024-02-27)
 
 
