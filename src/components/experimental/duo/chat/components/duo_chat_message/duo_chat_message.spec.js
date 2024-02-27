@@ -107,9 +107,21 @@ describe('DuoChatMessage', () => {
       expect(findUserFeedback().exists()).toBe(true);
     });
 
-    it('proxies the emitted event from the User Feedback component', () => {
-      findUserFeedback().vm.$emit('feedback', 'foo');
-      expect(wrapper.emitted('track-feedback')).toEqual([['foo']]);
+    it('proxies and enhances the emitted event from the User Feedback component', () => {
+      findUserFeedback().vm.$emit('feedback', {
+        feedbackChoices: ['incorrect'],
+        extendedTextFeedback: 'exampleText',
+      });
+      expect(wrapper.emitted('track-feedback')).toEqual([
+        [
+          {
+            feedbackChoices: ['incorrect'],
+            extendedTextFeedback: 'exampleText',
+            didWhat: '',
+            improveWhat: '',
+          },
+        ],
+      ]);
     });
   });
 

@@ -31,11 +31,11 @@ describe('UserFeedback', () => {
   const findButton = () => wrapper.findComponent(GlButton);
   const findModal = () => wrapper.findComponent(FeedbackModal);
 
-  beforeEach(() => {
-    createComponent();
-  });
-
   describe('rendering with no feedback registered', () => {
+    beforeEach(() => {
+      createComponent();
+    });
+
     it('renders a button to provide feedback', () => {
       expect(findButton().exists()).toBe(true);
     });
@@ -65,6 +65,10 @@ describe('UserFeedback', () => {
   });
 
   describe('event handling', () => {
+    beforeEach(() => {
+      createComponent();
+    });
+
     const passedFeedback = { feedbackOptions: ['helpful'], extendedFeedback: 'Foo bar' };
 
     it('emits the event, containing the form data, when modal emits', () => {
@@ -87,6 +91,10 @@ describe('UserFeedback', () => {
   });
 
   describe('slots', () => {
+    beforeEach(() => {
+      createComponent();
+    });
+
     it('renders the `feedback-extra-fields` slot', () => {
       expect(wrapper.findComponent(DummyComponent).exists()).toBe(false);
       wrapper.destroy();
