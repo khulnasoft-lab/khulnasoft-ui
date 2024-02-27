@@ -65,7 +65,7 @@ body.modal-open {
     min-height: $modal-body-height;
     line-height: $modal-body-line-height;
     @include gl-bg-white;
-    @include gl-relative;
+    position: relative;
     @include gl-p-5;
     @include gl-py-3;
     @include gl-text-left;

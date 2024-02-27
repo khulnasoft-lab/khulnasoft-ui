@@ -7,7 +7,7 @@ $label-close-button: '.gl-label-close.gl-button';
   @include gl-overflow-hidden;
   @include gl-display-inline-flex;
   @include gl-rounded-pill;
-  @include gl-relative;
+  position: relative;
   @include gl-max-w-full;
   @include gl-font-base;
   box-shadow: var(--label-inset-border) !important;

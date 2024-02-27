@@ -5,15 +5,15 @@
 .b-toaster {
   &.b-toaster-bottom-left {
     .b-toaster-slot {
-      @include gl-bottom-6;
-      @include gl-left-6;
-      @include gl-right-auto;
+      bottom: $gl-spacing-scale-6;
+      left: $gl-spacing-scale-6;
+      right: auto;
       @include gl-w-auto;
 
       @include media-breakpoint-down(xs) {
         @include gl-w-full;
-        @include gl-left-0;
-        @include gl-right-0;
+        left: 0;
+        right: 0;
       }
     }
   }

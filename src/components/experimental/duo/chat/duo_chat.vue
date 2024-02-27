@@ -467,7 +467,7 @@ export default {
             <gl-card
               v-if="shouldShowSlashCommands"
               ref="commands"
-              class="slash-commands gl-absolute! gl-translate-y-n100 gl-list-style-none gl-pl-0 gl-w-full gl-shadow-md"
+              class="slash-commands !gl-absolute gl-translate-y-n100 gl-list-style-none gl-pl-0 gl-w-full gl-shadow-md"
               body-class="gl-p-2!"
             >
               <gl-dropdown-item
@@ -504,7 +504,7 @@ export default {
               icon="paper-airplane"
               category="primary"
               variant="confirm"
-              class="gl-absolute! gl-bottom-2 gl-right-2 gl-rounded-base!"
+              class="!gl-absolute gl-bottom-2 gl-right-2 gl-rounded-base!"
               type="submit"
               :aria-label="$options.i18n.CHAT_SUBMIT_LABEL"
               :disabled="isLoading"

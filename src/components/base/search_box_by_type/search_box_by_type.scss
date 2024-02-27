@@ -4,14 +4,14 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
 .gl-search-box-by-type-search-icon {
   @include gl-text-gray-500;
   @include gl-w-5;
-  @include gl-absolute;
-  @include gl-left-3;
+  position: absolute;
+  left: $gl-spacing-scale-3;
   top: calc(50% - #{$gl-search-box-by-type-search-icon-size} / 2);
 }
 
 .gl-search-box-by-type {
   @include gl-display-flex;
-  @include gl-relative;
+  position: relative;
 }
 
 .gl-search-box-by-type-loading-icon {
@@ -65,7 +65,7 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
   @include gl-display-flex;
   @include gl-align-items-center;
   @include gl-line-height-0;
-  @include gl-right-2;
-  @include gl-absolute;
+  right: $gl-spacing-scale-2;
+  position: absolute;
   @include gl-h-full;
 }

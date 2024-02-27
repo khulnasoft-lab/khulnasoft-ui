@@ -1,3 +1,12 @@
+/**
+* This file contains deprecated utility mixins that we don't have an immediate migration path for.
+* Please do not add any mixin in here unless you're actively working on migrating to Tailwind CSS.
+*/
+
+@mixin gl-deprecated-top-66vh {
+  top: 66vh;
+}
+
 /* stylelint-disable property-no-vendor-prefix */
 @mixin gl-number-as-text-input {
   &::-webkit-outer-spin-button,

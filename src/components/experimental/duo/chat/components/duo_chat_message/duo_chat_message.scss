@@ -17,11 +17,11 @@
   }
 
   copy-code {
-    @include gl-absolute;
+    position: absolute;
     @include gl-transition-medium;
     @include gl-opacity-0;
-    @include gl-right-4;
-    @include gl-top-3;
+    right: $gl-spacing-scale-4;
+    top: $gl-spacing-scale-3;
   }
 
   .js-markdown-code.markdown-code-block:hover {

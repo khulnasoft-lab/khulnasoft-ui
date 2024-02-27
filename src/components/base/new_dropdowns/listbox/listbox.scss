@@ -2,7 +2,7 @@ $search-icon-size: 12px;
 $clear-button-size: 24px;
 
 .gl-listbox-search {
-  @include gl-relative;
+  position: relative;
 
   .gl-listbox-search-input {
     @include gl-w-full;
@@ -39,14 +39,14 @@ $clear-button-size: 24px;
   }
 
   .gl-listbox-search-icon {
-    @include gl-absolute;
+    position: absolute;
     top: calc(50% - #{$search-icon-size} / 2);
     left: $gl-spacing-scale-4;
     @include gl-text-gray-500;
   }
 
   .gl-listbox-search-clear-button {
-    @include gl-absolute;
+    position: absolute;
     top: calc(50% - #{$clear-button-size} / 2);
     right: $gl-spacing-scale-3;
   }

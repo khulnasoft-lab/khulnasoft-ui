@@ -4,7 +4,7 @@
   @include gl-display-flex;
   @include gl-flex-direction-column;
   @include gl-overflow-wrap-break;
-  @include gl-relative;
+  position: relative;
   @include gl-rounded-base;
   @include gl-font-base;
 }

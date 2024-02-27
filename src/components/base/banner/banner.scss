@@ -17,9 +17,9 @@
 }
 
 .gl-banner-close {
-  @include gl-absolute;
-  @include gl-top-3;
-  @include gl-right-3;
+  position: absolute;
+  top: $gl-spacing-scale-3;
+  right: $gl-spacing-scale-3;
 }
 
 // Introduction variant

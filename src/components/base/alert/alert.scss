@@ -10,7 +10,7 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
 
 .gl-alert {
   @include gl-font-base;
-  @include gl-relative;
+  position: relative;
   padding-inline: calc(#{$gl-spacing-scale-9} + #{$gl-alert-padding-x});
   @include gl-py-5;
 
@@ -33,8 +33,8 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
 }
 
 .gl-alert-sticky {
-  @include gl-sticky;
-  @include gl-top-0;
+  position: sticky;
+  top: 0;
 }
 
 .gl-alert-title {
@@ -43,8 +43,8 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
 }
 
 .gl-alert-icon-container {
-  @include gl-absolute;
-  @include gl-top-5;
+  position: absolute;
+  top: $gl-spacing-scale-5;
   left: calc(#{$gl-spacing-scale-5} + #{$gl-alert-padding-x});
   @include gl-display-flex;
   @include gl-align-items-center;
@@ -77,8 +77,8 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
 
 // This is the replacement for .gl-alert-dismiss
 .gl-dismiss-btn {
-  @include gl-absolute;
-  @include gl-top-4;
+  position: absolute;
+  top: $gl-spacing-scale-4;
   right: calc(#{$gl-spacing-scale-4} + #{$gl-alert-padding-x});
 }
 
