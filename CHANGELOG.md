@@ -1,3 +1,10 @@
+# [77.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.0.0...v77.1.0) (2024-02-27)
+
+
+### Features
+
+* **DuoChat:** Improve the feedback mechanism in the DuoChat ([235077d](https://gitlab.com/gitlab-org/gitlab-ui/commit/235077d5a20a8a3848233450d8d1c9190008cc15))
+
 # [77.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v76.1.0...v77.0.0) (2024-02-27)
 
 
