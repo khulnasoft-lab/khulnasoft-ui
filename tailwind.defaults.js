@@ -59,6 +59,12 @@ const spacing = {
 module.exports = {
   prefix: 'gl-',
   theme: {
+    screens: {
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+    },
     colors: {
       white: `var(--white, ${baseColorTokens.white.$value})`,
       black: `var(--black, ${baseColorTokens.black.$value})`,
