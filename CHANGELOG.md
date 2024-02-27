@@ -1,3 +1,10 @@
+# [77.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.1.0...v77.2.0) (2024-02-27)
+
+
+### Features
+
+* **tailwind:** add screens to the preset ([d6835dd](https://gitlab.com/gitlab-org/gitlab-ui/commit/d6835ddac49021e38452eb36d647e4ae59bc4ac2))
+
 # [77.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.0.0...v77.1.0) (2024-02-27)
 
 
