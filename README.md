@@ -46,6 +46,11 @@ GitLab UI provides component styles, a utility-class library, and SCSS utilities
 
 ## Quick start - development
 
+**Note:** GitLab UI isn't designed to be built on Windows natively. Either
+[WSL](https://learn.microsoft.com/en-us/windows/wsl/) or
+[GitPod](https://www.gitpod.io/docs/configure/authentication/gitlab) can be used to set up a
+UNIX-like environment in which to build it.
+
 Make sure you have [Node](https://nodejs.org/en/) 16.x (LTS) and [Yarn](https://yarnpkg.com/) 1.22
 or newer.
 
