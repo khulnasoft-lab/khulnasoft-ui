@@ -10,20 +10,34 @@ export const methods = {
   isAlpha(value) {
     return value.startsWith('rgba(');
   },
+  isBackgroundColor(property) {
+    return property === 'backgroundColor';
+  },
   getTokenName(token) {
     return token.path.filter(Boolean).join('.');
   },
-  getTextColorClass(value) {
+  getClasses(property, value) {
     if (this.isAlpha(value)) return '';
+    if (!this.isBackgroundColor(property)) return '';
     const textColorVariant = colorFromBackground(value, 4.5);
     return {
       'gl-text-gray-950': textColorVariant === 'dark',
       'gl-text-white': textColorVariant === 'light',
     };
   },
+  getStyle(property, value) {
+    if (this.isBackgroundColor(property)) {
+      return { backgroundColor: value };
+    }
+    return { color: value };
+  },
 };
 
-export const template = (lightBackground = WHITE, darkBackground = GRAY_950) => `
+const colorTemplate = (
+  property = 'backgroundColor',
+  lightBackground = WHITE,
+  darkBackground = GRAY_950
+) => `
   <ul
     class="gl-list-style-none gl-m-0 gl-p-0"
   >
@@ -31,8 +45,8 @@ export const template = (lightBackground = WHITE, darkBackground = GRAY_950) => 
       v-for="token in tokens"
       :key="token.name"
       class="gl-display-flex gl-flex-wrap gl-align-items-center gl-justify-content-space-between gl-gap-3 gl-p-3"
-      :class="getTextColorClass(token.value)"
-      :style="{ backgroundColor: token.value }"
+      :class="getClasses('${property}', token.value)"
+      :style="getStyle('${property}', token.value)"
     >
       <code class="gl-reset-color">{{ getTokenName(token) }}</code>
       <div class="gl-display-flex gl-align-items-center gl-gap-3">
@@ -47,5 +61,11 @@ export const template = (lightBackground = WHITE, darkBackground = GRAY_950) => 
 export const colorTokenStoryOptions = {
   components,
   methods,
-  template: template(),
+  template: colorTemplate('backgroundColor'),
+};
+
+export const colorTextTokenStoryOptions = {
+  components,
+  methods,
+  template: colorTemplate('color'),
 };

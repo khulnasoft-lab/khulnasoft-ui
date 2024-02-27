@@ -1,0 +1,19 @@
+{
+  "text": {
+    "primary": {
+      "$value": "{gray.900}",
+      "$type": "color",
+      "themeable": true
+    },
+    "secondary": {
+      "$value": "{gray.500}",
+      "$type": "color",
+      "themeable": true
+    },
+    "tertiary": {
+      "$value": "{gray.400}",
+      "$type": "color",
+      "themeable": true
+    }
+  }
+}
