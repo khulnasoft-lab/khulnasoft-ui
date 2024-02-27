@@ -66,5 +66,18 @@ module.exports = {
       ...themeColors,
     },
     spacing,
+    fontSize: {
+      xs: '0.625rem',
+      sm: '0.75rem',
+      base: '0.875rem',
+      lg: '1rem',
+    },
+    fontWeight: {
+      100: 100,
+      300: 300,
+      normal: 400,
+      semibold: 500,
+      bold: 600,
+    },
   },
 };
