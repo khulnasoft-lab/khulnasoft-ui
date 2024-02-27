@@ -1,71 +1,25 @@
 import { WHITE, GRAY_950 } from '../../dist/tokens/js/tokens';
-import { colorFromBackground } from '../utils/utils';
-import GlColorContrast from '../internal/color_contrast/color_contrast.vue';
+import TokensStory from './tokens_story.vue';
 
-export const components = {
-  GlColorContrast,
-};
+export const createDesignTokenStory = ({
+  tokens = {},
+  isBackgroundColorStory = true,
+  containerClass = '',
+} = {}) => {
+  const Story = (args, { argTypes }) => ({
+    props: Object.keys(argTypes),
+    components: {
+      TokensStory,
+    },
+    provide: {
+      containerClass,
+      isBackgroundColorStory,
+      lightBackground: WHITE,
+      darkBackground: GRAY_950,
+    },
+    template: `<tokens-story v-bind="$props" />`,
+  });
+  Story.args = { tokens };
 
-export const methods = {
-  isAlpha(value) {
-    return value.startsWith('rgba(');
-  },
-  isBackgroundColor(property) {
-    return property === 'backgroundColor';
-  },
-  getTokenName(token) {
-    return token.path.filter(Boolean).join('.');
-  },
-  getClasses(property, value) {
-    if (this.isAlpha(value)) return '';
-    if (!this.isBackgroundColor(property)) return '';
-    const textColorVariant = colorFromBackground(value, 4.5);
-    return {
-      'gl-text-gray-950': textColorVariant === 'dark',
-      'gl-text-white': textColorVariant === 'light',
-    };
-  },
-  getStyle(property, value) {
-    if (this.isBackgroundColor(property)) {
-      return { backgroundColor: value };
-    }
-    return { color: value };
-  },
-};
-
-const colorTemplate = (
-  property = 'backgroundColor',
-  lightBackground = WHITE,
-  darkBackground = GRAY_950
-) => `
-  <ul
-    class="gl-list-style-none gl-m-0 gl-p-0"
-  >
-    <li
-      v-for="token in tokens"
-      :key="token.name"
-      class="gl-display-flex gl-flex-wrap gl-align-items-center gl-justify-content-space-between gl-gap-3 gl-p-3"
-      :class="getClasses('${property}', token.value)"
-      :style="getStyle('${property}', token.value)"
-    >
-      <code class="gl-reset-color">{{ getTokenName(token) }}</code>
-      <div class="gl-display-flex gl-align-items-center gl-gap-3">
-        <code class="gl-reset-color">{{ token.value }}</code>
-        <gl-color-contrast v-if="!isAlpha(token.value)" :foreground="token.value" background="${darkBackground}" />
-        <gl-color-contrast v-if="!isAlpha(token.value)" :foreground="token.value" background="${lightBackground}" />
-      </div>
-    </li>
-  </ul>
-`;
-
-export const colorTokenStoryOptions = {
-  components,
-  methods,
-  template: colorTemplate('backgroundColor'),
-};
-
-export const colorTextTokenStoryOptions = {
-  components,
-  methods,
-  template: colorTemplate('color'),
+  return Story;
 };
