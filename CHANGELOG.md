@@ -1,3 +1,10 @@
+# [76.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v76.0.1...v76.1.0) (2024-02-27)
+
+
+### Features
+
+* **DesignTokens:** add text design tokens ([7eb5a49](https://gitlab.com/gitlab-org/gitlab-ui/commit/7eb5a49ef97ba40a9d0c1ceb4e2d23b156dc7863))
+
 ## [76.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v76.0.0...v76.0.1) (2024-02-27)
 
 
