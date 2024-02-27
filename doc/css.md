@@ -46,6 +46,42 @@ To view a complete list of variables, see [variables.scss](/src/scss/variables.s
 GitLab utility classes and mixins are based on GitLab's
 [design system guidelines](https://design.gitlab.com/).
 
+## Tailwind CSS
+
+As of 16.9, we have started migrating GitLab UI CSS utitilies to [Tailwind CSS](https://tailwindcss.com/).
+Projects that consume `@gitlab/ui` should therefore set up Tailwind CSS on their end by following the
+relevant installation [instructions](https://tailwindcss.com/docs/installation).
+
+GitLab UI exposes a [Tailwind CSS preset](https://tailwindcss.com/docs/presets) that consumers need to
+inherit from for utilities to be Pajamas-compliant.
+
+Because some GitLab UI components use utility classes internally, you must configure the `content` option
+to scan `@gitlab/ui`'s compiled bundles.
+
+Here's an example Tailwind CSS configuration:
+
+```js
+const tailwindDefaults = require('@gitlab/ui/tailwind.defaults');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    // The consumer scans its own frontend assets
+    './{ee,}/app/assets/javascripts/**/*.{vue,js}',
+
+    // The consumer should also scan some backend resources if they might contain utility classes
+    './{ee,}/app/helpers/**/*.rb',
+    './{ee,}/app/components/**/*.{haml,rb}',
+    './{ee,}/app/views/**/*.haml',
+
+    // Scan GitLab UI's own assets
+    './node_modules/@gitlab/ui/dist/**/*.js',
+  ],
+  // Consume GitLab UI's Pajamas-compliant preset
+  presets: [tailwindDefaults],
+};
+```
+
 ## Utility class specifity
 
 GitLab UI utility classes are not marked as `!important` by default. If you have to use
