@@ -1,3 +1,11 @@
+# [77.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.3.0...v77.4.0) (2024-02-28)
+
+
+### Features
+
+* **css:** add two utils ([c1d2b05](https://gitlab.com/gitlab-org/gitlab-ui/commit/c1d2b05a5a829d43da01d735ab601e8a48b7d21e))
+* **css:** remove edits to position.scss ([306f0b4](https://gitlab.com/gitlab-org/gitlab-ui/commit/306f0b43c08e813b2bc618c1517183b4fa5a5413))
+
 # [77.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.2.0...v77.3.0) (2024-02-28)
 
 
