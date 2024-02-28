@@ -1,3 +1,10 @@
+# [77.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.2.0...v77.3.0) (2024-02-28)
+
+
+### Features
+
+* **GlCollapsibleListbox:** Render correctly in button group ([aa7b93a](https://gitlab.com/gitlab-org/gitlab-ui/commit/aa7b93abfa807f01b1353723a5f3af3d808a9506))
+
 # [77.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.1.0...v77.2.0) (2024-02-27)
 
 
