@@ -8,6 +8,7 @@ import DuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import DuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import DuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
 import GlDuoChat from './duo_chat.vue';
+import { MOCK_RESPONSE_MESSAGE, MOCK_USER_PROMPT_MESSAGE } from './mock_data';
 
 import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
 
@@ -330,11 +331,38 @@ describe('GlDuoChat', () => {
           data: { prompt: promptStr },
         });
         trigger();
-        if (expectEmitted) {
-          expect(wrapper.emitted('send-chat-prompt')).toEqual(expectEmitted);
-        } else {
-          expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
-        }
+        expect(wrapper.emitted('send-chat-prompt')).toEqual(expectEmitted);
+      });
+
+      it.each`
+        desc                                              | msgs
+        ${''}                                             | ${[]}
+        ${'with just a user message'}                     | ${[MOCK_USER_PROMPT_MESSAGE]}
+        ${'with a user message, and a complete response'} | ${[MOCK_USER_PROMPT_MESSAGE, MOCK_RESPONSE_MESSAGE]}
+      `('prevents submission when loading $desc', ({ msgs } = {}) => {
+        createComponent({
+          propsData: { isChatAvailable: true, isLoading: true, messages: msgs },
+          data: { prompt: promptStr },
+        });
+        clickSubmit();
+        expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
+      });
+
+      it.each([
+        [[{ ...MOCK_RESPONSE_MESSAGE, content: undefined, chunks: [''] }]],
+        [
+          [
+            MOCK_USER_PROMPT_MESSAGE,
+            { ...MOCK_RESPONSE_MESSAGE, content: undefined, chunks: [''] },
+          ],
+        ],
+      ])('prevents submission when streaming (messages = "%o")', (msgs = []) => {
+        createComponent({
+          propsData: { isChatAvailable: true, messages: msgs },
+          data: { prompt: promptStr },
+        });
+        clickSubmit();
+        expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
       });
     });
 
@@ -419,7 +447,7 @@ describe('GlDuoChat', () => {
       expect(findChatComponent().exists()).toBe(true);
     });
 
-    it('resets the prompt when new messages are added', async () => {
+    it('resets the prompt when a message is loaded', async () => {
       const prompt = 'foo';
       createComponent({ data: { prompt } });
       expect(findChatInput().props('value')).toBe(prompt);
@@ -427,7 +455,7 @@ describe('GlDuoChat', () => {
       // reactive behavior which consistutes an exception
       // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
       wrapper.setProps({
-        messages,
+        isLoading: true,
       });
       await nextTick();
       expect(findChatInput().props('value')).toBe('');

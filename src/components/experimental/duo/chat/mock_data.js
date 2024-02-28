@@ -1,3 +1,4 @@
+import { setStoryTimeout } from '../../../../utils/test_utils';
 import { DOCUMENTATION_SOURCE_TYPES, MESSAGE_MODEL_ROLES } from './constants';
 
 const MOCK_SOURCES = [
@@ -66,24 +67,39 @@ export const MOCK_RESPONSE_MESSAGE_FOR_STREAMING = {
   timestamp: '2021-04-21T12:00:00.000Z',
 };
 
-export const generateMockResponseChunks = (requestId) => {
-  const chunks = [];
+// Utility function for delay
+async function delayRandom(min = 16, max = 267) {
+  const delay = Math.floor(Math.random() * (max - min + 1)) + min;
+  // eslint-disable-next-line no-promise-executor-return
+  return new Promise((resolve) => setStoryTimeout(resolve, delay));
+}
+
+export async function* generateMockResponseChunks(requestId = 1) {
   const chunkSize = 5;
-  const chunkCount = Math.ceil(MOCK_RESPONSE_MESSAGE_FOR_STREAMING.content.length / chunkSize);
-  for (let i = 0; i < chunkCount; i += 1) {
+  const contentLength = MOCK_RESPONSE_MESSAGE_FOR_STREAMING.content.length;
+  const chunkCount = Math.ceil(contentLength / chunkSize);
+
+  for (let chunkId = 0; chunkId < chunkCount; chunkId += 1) {
+    const start = chunkId * chunkSize;
+    const end = Math.min((chunkId + 1) * chunkSize, contentLength);
     const chunk = {
       ...MOCK_RESPONSE_MESSAGE_FOR_STREAMING,
       requestId,
-      content: MOCK_RESPONSE_MESSAGE_FOR_STREAMING.content.substring(
-        i * chunkSize,
-        (i + 1) * chunkSize
-      ),
-      chunkId: i,
+      content: MOCK_RESPONSE_MESSAGE_FOR_STREAMING.content.substring(start, end),
+      chunkId,
     };
-    chunks.push(chunk);
+
+    // eslint-disable-next-line no-await-in-loop
+    await delayRandom();
+    yield chunk;
   }
-  return chunks;
-};
+  yield {
+    ...MOCK_RESPONSE_MESSAGE_FOR_STREAMING,
+    requestId,
+    content: MOCK_RESPONSE_MESSAGE_FOR_STREAMING.content,
+    chunkId: null,
+  };
+}
 
 export const MOCK_USER_PROMPT_MESSAGE = {
   id: '456',

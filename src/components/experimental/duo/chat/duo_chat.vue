@@ -212,13 +212,20 @@ export default {
         [[]]
       );
     },
+    lastMessage() {
+      return this.messages[this.messages.length - 1];
+    },
     resetDisabled() {
       if (this.isLoading || !this.hasMessages) {
         return true;
       }
-
-      const lastMessage = this.messages[this.messages.length - 1];
-      return lastMessage.content === CHAT_RESET_MESSAGE;
+      return this.lastMessage?.content === CHAT_RESET_MESSAGE;
+    },
+    submitDisabled() {
+      return this.isLoading || this.isStreaming;
+    },
+    isStreaming() {
+      return Boolean(this.lastMessage?.chunks?.length > 0 && !this.lastMessage?.content);
     },
     filteredSlashCommands() {
       const caseInsensitivePrompt = this.prompt.toLowerCase();
@@ -246,12 +253,13 @@ export default {
     },
   },
   watch: {
-    isLoading() {
+    isLoading(newVal) {
       this.isHidden = false;
       this.scrollToBottom();
-    },
-    messages() {
-      this.prompt = '';
+      if (newVal) {
+        // We reset the prompt when we start getting the response and focus in the prompt field
+        this.setPromptAndFocus();
+      }
     },
   },
   created() {
@@ -269,6 +277,9 @@ export default {
       this.$emit('chat-hidden');
     },
     sendChatPrompt() {
+      if (this.submitDisabled) {
+        return;
+      }
       if (this.prompt) {
         if (this.prompt === CHAT_RESET_MESSAGE && this.resetDisabled) {
           return;
@@ -336,14 +347,18 @@ export default {
         this.activeCommandIndex = 0;
       }
     },
+    async setPromptAndFocus(prompt = '') {
+      this.prompt = prompt;
+      await this.$nextTick();
+      this.$refs.prompt.$el.focus();
+    },
     selectSlashCommand(index) {
       const command = this.filteredSlashCommands[index];
       if (command.shouldSubmit) {
         this.prompt = command.name;
         this.sendChatPrompt();
       } else {
-        this.prompt = `${command.name} `;
-        this.$refs.prompt.$el.focus();
+        this.setPromptAndFocus(`${command.name} `);
       }
     },
   },
@@ -493,7 +508,6 @@ export default {
               class="gl-absolute gl-h-full! gl-py-4! gl-bg-transparent! gl-rounded-top-right-none gl-rounded-bottom-right-none gl-shadow-none!"
               :class="{ 'gl-text-truncate': !prompt }"
               :placeholder="inputPlaceholder"
-              :disabled="isLoading"
               autofocus
               @keydown.enter.exact.native.prevent
               @keyup.native="onInputKeyup"
@@ -506,8 +520,9 @@ export default {
               variant="confirm"
               class="!gl-absolute gl-bottom-2 gl-right-2 gl-rounded-base!"
               type="submit"
+              data-testid="chat-prompt-submit-button"
               :aria-label="$options.i18n.CHAT_SUBMIT_LABEL"
-              :disabled="isLoading"
+              :disabled="submitDisabled"
             />
           </template>
         </gl-form-input-group>
