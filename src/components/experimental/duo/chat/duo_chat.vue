@@ -355,7 +355,7 @@ export default {
   <aside
     v-if="!isHidden"
     id="chat-component"
-    class="markdown-code-block gl-drawer gl-drawer-default gl-max-h-full gl-bottom-0 gl-shadow-none gl-border-l gl-border-t duo-chat"
+    class="markdown-code-block gl-drawer gl-max-h-full gl-bottom-0 gl-shadow-none gl-border-l gl-border-t duo-chat"
     role="complementary"
     data-testid="chat-component"
   >
