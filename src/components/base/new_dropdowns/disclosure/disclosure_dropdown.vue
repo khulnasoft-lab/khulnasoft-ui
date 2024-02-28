@@ -404,7 +404,7 @@ export default {
           <template v-if="isItem(item)">
             <!-- eslint-disable-next-line vue/valid-v-for -->
             <gl-disclosure-dropdown-item :key="uniqueItemId()" :item="item" @action="handleAction">
-              <template #list-item>
+              <template v-if="'list-item' in $scopedSlots" #list-item>
                 <!-- @slot Custom template of the disclosure dropdown item -->
                 <slot name="list-item" :item="item"></slot>
               </template>
