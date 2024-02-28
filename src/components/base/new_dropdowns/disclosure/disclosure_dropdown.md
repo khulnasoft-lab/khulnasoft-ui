@@ -2,13 +2,13 @@ A disclosure dropdown is a button that toggles a panel containing a list of acti
 [this decision tree](https://design.gitlab.com/components/dropdown-overview#which-component-should-you-use)
 to make sure this is the right dropdown component for you.
 
-### Basic usage
+## Basic usage
 
 ```html
 <gl-disclosure-dropdown toggle-text="Actions" :items="items" />
 ```
 
-### Icon-only disclosure dropdown
+## Icon-only disclosure dropdown
 
 Icon-only disclosure dropdowns must have an accessible name.
 You can provide this with the combination of `toggleText` and `textSrOnly` props.
@@ -25,12 +25,12 @@ Optionally, you can use `no-caret` to remove the caret and `category="tertiary"`
 />
 ```
 
-### Opening the disclosure dropdown
+## Opening the disclosure dropdown
 
 Disclosure dropdown will open on toggle button click (if it was previously closed).
 On open, `GlDisclosureDropdown` will emit the `shown` event.
 
-### Closing the disclosure dropdown
+## Closing the disclosure dropdown
 
 The disclosure dropdown is closed by any of the following:
 
@@ -61,7 +61,7 @@ You can use the `preventDefault` to filter out events that are causing undesired
 
 After closing, `GlDisclosureDropdown` emits a `hidden` event.
 
-### Setting disclosure dropdown items
+## Setting disclosure dropdown items
 
 Use the `items` prop to provide actions/links to the disclosure dropdown. Each
 item can be either an item or a group. For `Item`s, provide an `href` string to
@@ -101,7 +101,7 @@ type Group = {
 type ItemsProp = Array<Item> | Array<Group>;
 ```
 
-#### Actions/links
+### Actions/links
 
 The `text` property is used to render the default disclosure dropdown item
 template. If you want to render a custom template for items, use the
@@ -118,7 +118,7 @@ template. If you want to render a custom template for items, use the
 </gl-disclosure-dropdown>
 ```
 
-#### Groups
+### Groups
 
 Actions/links can be contained within groups. A group can have a `name`
 property, which will be used as the group header if present.
@@ -148,15 +148,19 @@ using the `border-position` property:
 </gl-disclosure-dropdown>
 ```
 
-#### Miscellaneous content
+### Miscellaneous content
 
 Besides default components, disclosure dropdown can render miscellaneous content inside it.
 In this case the user is responsible for handling all events and navigation inside the disclosure.
 
-#### Dealing with long option texts
+### Dealing with long option texts
 
 - Some options might have long non-wrapping text that would overflow the dropdown maximum width. In
   such cases, it's recommended to override the `#list-item` slot and to truncate the option text using
   `GlTruncate`.
 - If the toggle text reflects the selected option text, it might be necessary to truncate
   it too by overriding the `#toggle` slot.
+
+## Split dropdown
+
+See [button group documentation](/docs/base-button-group--docs#split-dropdowns).

@@ -1,6 +1,5 @@
 import GlDropdown from '../dropdown/dropdown.vue';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
-import GlSorting from '../sorting/sorting.vue';
 import {
   buttonCategoryOptions,
   buttonVariantOptions,
@@ -497,35 +496,6 @@ export const BadgeWithSROnlyText = (args, { argTypes = {} }) => ({
   `,
 });
 BadgeWithSROnlyText.parameters = { controls: { disable: true } };
-
-export const SortingDropdownSplitButton = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { GlSorting },
-  template: `
-    <gl-sorting
-      text="Sorting options"
-      :sort-options="sortOptions"
-      sort-by="first"
-    />
-  `,
-});
-SortingDropdownSplitButton.args = {
-  sortOptions: [
-    {
-      value: 'first',
-      text: 'First item',
-    },
-    {
-      value: 'second',
-      text: 'Second item',
-    },
-    {
-      value: 'last',
-      text: 'Last item',
-    },
-  ],
-};
-SortingDropdownSplitButton.parameters = { controls: { disable: true } };
 
 export default {
   title: 'base/button',

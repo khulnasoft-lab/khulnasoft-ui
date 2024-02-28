@@ -64,7 +64,6 @@
     &.gl-new-dropdown-toggle-no-caret .gl-new-dropdown-chevron {
       @include gl-display-none;
     }
-
   }
 
   .gl-new-dropdown-toggle {
@@ -110,7 +109,15 @@
     &.btn-sm .gl-new-dropdown-chevron {
       @include gl-mx-0;
     }
-    
+  }
+
+  .gl-new-dropdown-caret-only {
+    // optically center the caret
+    @include gl-pl-2;
+
+    &.btn-sm {
+      @include gl-pl-0;
+    }
   }
 
   $dropdown-content-padding: 0.25rem;
@@ -175,6 +182,55 @@
 
     &.bottom-scrim-visible .bottom-scrim {
       height: 2.25rem;
+    }
+  }
+}
+
+.btn-group {
+  .gl-new-dropdown:not(:last-child) {
+    .gl-new-dropdown-toggle {
+      @include gl-rounded-top-right-none;
+      @include gl-rounded-bottom-right-none;
+    }
+  }
+
+  .gl-new-dropdown:not(:first-child) {
+    .gl-new-dropdown-toggle {
+      @include gl-rounded-top-left-none;
+      @include gl-rounded-bottom-left-none;
+
+      // Prevent double borders when buttons are next to each other
+      margin-left: -1px;
+    }
+  }
+
+  // The dropdown toggle of a "split" is by design supposed to be the last
+  // child of a button group, so only apply styles for that.
+  .gl-new-dropdown:last-child {
+    .gl-new-dropdown-caret-only {
+      &.btn-confirm,
+      &.btn-danger {
+        margin-left: 1px;
+      }
+
+      &:disabled,
+      &.disabled,
+      &[class*='-secondary'] {
+        margin-left: -1px;
+      }
+    }
+  }
+
+  .gl-new-dropdown:hover {
+    .gl-new-dropdown-toggle {
+      @include gl-z-index-1;
+    }
+  }
+
+  .gl-new-dropdown {
+    .gl-new-dropdown-toggle:focus,
+    .gl-new-dropdown-toggle:active {
+      @include gl-z-index-1;
     }
   }
 }
