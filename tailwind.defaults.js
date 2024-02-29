@@ -1,22 +1,35 @@
-const baseColorTokens = require('./src/tokens/color.tokens.json');
-const themeColorTokens = require('./src/tokens/color.theme.tokens.json');
+const compiledTokens = require('./dist/tokens/json/tokens.json');
+
+const cssCustomPropertyWithValue = (token) => {
+  const path = [token.prefix !== false ? 'gl' : false, ...token.path].filter(Boolean);
+  return `var(--${path.join('-')}, ${token.value})`;
+};
 
 const baseColors = ['blue', 'gray', 'green', 'orange', 'purple', 'red'].reduce((acc, color) => {
-  acc[color] = {};
-  Object.entries(baseColorTokens[color]).forEach(([shade, { $value }]) => {
-    acc[color][shade] = `var(--${color}-${shade}, ${$value})`;
+  Object.entries(compiledTokens[color]).forEach(([, token]) => {
+    acc[token.path.join('-')] = cssCustomPropertyWithValue(token);
   });
   return acc;
 }, {});
 
-const themeColors = Object.entries(themeColorTokens.theme).reduce((acc, [color, shades]) => {
-  const colorKey = `theme-${color}`;
-  acc[colorKey] = {};
-  Object.entries(shades).forEach(([shade, { $value }]) => {
-    acc[colorKey][shade] = `var(--${colorKey}-${shade}, ${$value})`;
+const themeColors = Object.entries(compiledTokens.theme).reduce((acc, [, scales]) => {
+  Object.entries(scales).forEach(([, token]) => {
+    acc[token.path.join('-')] = cssCustomPropertyWithValue(token);
   });
   return acc;
 }, {});
+
+const textColors = Object.entries(compiledTokens.text).reduce((acc, [scale, token]) => {
+  acc[scale] = cssCustomPropertyWithValue(token);
+  return acc;
+}, {});
+
+const colors = {
+  white: cssCustomPropertyWithValue(compiledTokens.white),
+  black: cssCustomPropertyWithValue(compiledTokens.black),
+  ...baseColors,
+  ...themeColors,
+};
 
 const gridSize = 0.5; // rem
 const spacing = {
@@ -65,12 +78,7 @@ module.exports = {
       lg: '992px',
       xl: '1200px',
     },
-    colors: {
-      white: `var(--white, ${baseColorTokens.white.$value})`,
-      black: `var(--black, ${baseColorTokens.black.$value})`,
-      ...baseColors,
-      ...themeColors,
-    },
+    colors,
     spacing,
     fontSize: {
       xs: '0.625rem',
@@ -84,6 +92,10 @@ module.exports = {
       normal: 400,
       semibold: 500,
       bold: 600,
+    },
+    textColor: {
+      ...colors,
+      ...textColors,
     },
   },
 };
