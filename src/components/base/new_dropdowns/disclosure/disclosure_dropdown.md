@@ -64,7 +64,7 @@ After closing, `GlDisclosureDropdown` emits a `hidden` event.
 ## Setting disclosure dropdown items
 
 Use the `items` prop to provide actions/links to the disclosure dropdown. Each
-item can be either an item or a group. For `Item`s, provide an `href` string to
+item can be either an item or a group. For `Item`s, provide an `href` or `to` string to
 make them render as links. Otherwise, they will be buttons. Provide an `action`
 function to items to be called when they are pressed, or, listen for the
 `action` event on the top-level component. Both will receive the given item as
@@ -81,6 +81,8 @@ type Item = {
   text: string;
   // href link
   href?: string;
+  // or, a Vue router link with `to`
+  to?: string;
   // Item action
   action?: (item: Item) => void;
   // Set of extra attributes applied directly to the element

@@ -28,6 +28,13 @@ export const mockItems = [
       target: '_blank',
     },
   },
+  {
+    text: 'Edit merge request',
+    to: '/edit',
+    extraAttrs: {
+      'data-uuid': '1234',
+    },
+  },
 ];
 
 export const mockItemsCustomItem = [

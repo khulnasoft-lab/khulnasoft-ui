@@ -1,4 +1,5 @@
 <script>
+import { BLink } from 'bootstrap-vue';
 import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 import { isItem } from './utils';
@@ -9,6 +10,7 @@ export const ITEM_CLASS = 'gl-new-dropdown-item';
 export default {
   name: DISCLOSURE_DROPDOWN_ITEM_NAME,
   ITEM_CLASS,
+  components: { BLink },
   props: {
     item: {
       type: Object,
@@ -19,7 +21,7 @@ export default {
   },
   computed: {
     isLink() {
-      return typeof this.item?.href === 'string';
+      return typeof this.item?.href === 'string' || typeof this.item?.to === 'string';
     },
     isCustomContent() {
       return Boolean(this.$scopedSlots.default);
@@ -29,9 +31,10 @@ export default {
 
       if (this.isLink)
         return {
-          is: 'a',
+          is: BLink,
           attrs: {
             href: item.href,
+            to: item.to,
             ...item.extraAttrs,
           },
           listeners: {
@@ -85,9 +88,12 @@ export default {
            * the `a/button` to be the target of the event as it might have additional attributes.
            * E.g. `a` might have `target` attribute.
            */
-          this.$refs.item?.dispatchEvent(
-            new MouseEvent('click', { bubbles: true, cancelable: true })
-          );
+          const e = new MouseEvent('click', { bubbles: true, cancelable: true });
+          if (this.isLink) {
+            this.$refs.item.$el.dispatchEvent(e);
+          } else {
+            this.$refs.item?.dispatchEvent(e);
+          }
         }
       }
     },
