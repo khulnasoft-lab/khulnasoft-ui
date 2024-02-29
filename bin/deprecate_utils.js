@@ -1,11 +1,21 @@
 /* eslint-disable no-console */
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
-const { execSync } = require('child_process');
 const postcss = require('postcss');
 const { isEqual, sortBy } = require('lodash');
 const { processSingleFile, mixinsPath } = require('./generate_utilities');
+
+// Check if required commands exists:
+try {
+  execSync('which rg');
+} catch {
+  console.error(
+    'Error: Deprecate utils depend on rg, please install it to proceed (e.g. brew install rg)'
+  );
+
+  process.exit(1);
+}
 
 const removePseudoClasses = (selector) =>
   selector.replace(':hover', '').replace(':active', '').replace(':focus', '');
@@ -197,15 +207,10 @@ const main = async () => {
   for (let i = 0; i < notMatched.length; i += 1) {
     const util = notMatched[i];
     const deprecatedName = util.replace(/^gl-/, 'gl-deprecated-');
-    // eslint-disable-next-line no-await-in-loop
-    await new Promise((resolve) => {
-      exec(
-        `rg -F "${util}" ${gitlabDir}/{./ee/,./}app/ --files-with-matches | xargs sed -i '' 's/${util}/${deprecatedName}/g'`,
-        () => {
-          resolve();
-        }
-      );
-    });
+
+    execSync(
+      `rg -F "${util}" ${gitlabDir}/{./ee/,./}app/ --files-with-matches | xargs sed -i '' 's/${util}/${deprecatedName}/g'`
+    );
   }
 
   // Move `!` to Tailwind format (e.g. !gl-text-gray-900)
@@ -215,15 +220,9 @@ const main = async () => {
     const utilWithoutImportant = util.replace('\\!', '');
     const tailwindUtil = `!${utilWithoutImportant}`;
 
-    // eslint-disable-next-line no-await-in-loop
-    await new Promise((resolve) => {
-      exec(
-        `rg -F "${utilWithoutEscape}" ${gitlabDir}/{./ee/,./}app/ --files-with-matches | xargs sed -i '' 's/${utilWithoutEscape}/${tailwindUtil}/g'`,
-        () => {
-          resolve();
-        }
-      );
-    });
+    execSync(
+      `rg -F "${utilWithoutEscape}" ${gitlabDir}/{./ee/,./}app/ --files-with-matches | xargs sed -i '' 's/${utilWithoutEscape}/${tailwindUtil}/g'`
+    );
   }
 
   // Move stateful modifier to Tailwind format (e.g. hover:gl-text-gray-900)
@@ -233,15 +232,9 @@ const main = async () => {
     const utilWithoutStatefulModifier = util.replace(fullMatch, 'gl-');
     const tailwindUtil = `${statefulModifier}:${utilWithoutStatefulModifier}`;
 
-    // eslint-disable-next-line no-await-in-loop
-    await new Promise((resolve) => {
-      exec(
-        `rg -F "${util}" ${gitlabDir}/{./ee/,./}app/ --files-with-matches | xargs sed -i '' 's/${util}/${tailwindUtil}/g'`,
-        () => {
-          resolve();
-        }
-      );
-    });
+    execSync(
+      `rg -F "${util}" ${gitlabDir}/{./ee/,./}app/ --files-with-matches | xargs sed -i '' 's/${util}/${tailwindUtil}/g'`
+    );
   }
 
   const mixinsFileWithMatchedRemoved = matched.reduce((accumulator, util) => {
