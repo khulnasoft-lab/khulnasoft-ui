@@ -1,6 +1,5 @@
 import { disableControls } from '../../../utils/stories_utils';
 import GlIcon from '../icon/icon.vue';
-import GlButton from '../button/button.vue';
 import GlSearchBoxByType from './search_box_by_type.vue';
 import readme from './search_box_by_type.md';
 
@@ -52,7 +51,6 @@ export const Slot = (args, { argTypes }) => ({
   components: {
     GlSearchBoxByType,
     GlIcon,
-    GlButton,
   },
   props: Object.keys(argTypes),
   data: () => ({ searchQuery: '' }),
@@ -65,25 +63,9 @@ export const Slot = (args, { argTypes }) => ({
       :is-loading="isLoading"
       :placeholder="placeholder"
     >
-      <template #right-icons><gl-button
-        variant="default"
-        category="tertiary"
-        class="gl-search-box-by-type-img-button"
-        size="small"
-        name="case-sensitive"
-      ><img src="./img/case-sensitive.svg" /></gl-button><gl-button
-        variant="default"
-        category="tertiary"
-        class="gl-search-box-by-type-img-button"
-        size="small"
-        name="whole-word"
-      ><img src="./img/whole-word.svg" /></gl-button><gl-button
-        variant="default"
-        category="tertiary"
-        class="gl-search-box-by-type-img-button"
-        size="small"
-        name="regular_expression"
-      ><img src="./img/regular-expression.svg" /></gl-button></template>
+      <template #right-icons>
+        <gl-Icon name="slight-smile" />
+      </template>
     </gl-search-box-by-type>
   `,
 });
