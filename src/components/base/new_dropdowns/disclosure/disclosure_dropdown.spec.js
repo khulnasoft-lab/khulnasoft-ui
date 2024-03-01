@@ -140,6 +140,7 @@ describe('GlDisclosureDropdown', () => {
     let firstItem;
     let secondItem;
     let thirdItem;
+    let fourthItem;
 
     beforeEach(() => {
       buildWrapper({ items: mockItems });
@@ -147,6 +148,7 @@ describe('GlDisclosureDropdown', () => {
       firstItem = findListItem(0);
       secondItem = findListItem(1);
       thirdItem = findListItem(2);
+      fourthItem = findListItem(3);
     });
 
     it('should move the focus from toggle and down the list of items on `ARROW_DOWN` and stop on the last item', async () => {
@@ -160,7 +162,9 @@ describe('GlDisclosureDropdown', () => {
       await secondItem.trigger('keydown', { code: ARROW_DOWN });
       expect(thirdItem.element).toHaveFocus();
       await thirdItem.trigger('keydown', { code: ARROW_DOWN });
-      expect(thirdItem.element).toHaveFocus();
+      expect(fourthItem.element).toHaveFocus();
+      await fourthItem.trigger('keydown', { code: ARROW_DOWN });
+      expect(fourthItem.element).toHaveFocus();
     });
 
     it('should move the focus up the list of items on `ARROW_UP` and stop on the first item', async () => {
@@ -182,9 +186,9 @@ describe('GlDisclosureDropdown', () => {
       );
       expect(firstItem.element).toHaveFocus();
       await firstItem.trigger('keydown', { code: END });
-      expect(thirdItem.element).toHaveFocus();
-      await thirdItem.trigger('keydown', { code: END });
-      expect(thirdItem.element).toHaveFocus();
+      expect(fourthItem.element).toHaveFocus();
+      await fourthItem.trigger('keydown', { code: END });
+      expect(fourthItem.element).toHaveFocus();
     });
 
     it('should move focus to the first item on `HOME` keydown', async () => {

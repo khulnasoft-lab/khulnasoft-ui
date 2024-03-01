@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { BLink } from 'bootstrap-vue';
 import { ENTER, SPACE } from '../constants';
 import { mockItems } from './mock_data';
 
@@ -47,21 +48,29 @@ describe('GlDisclosureDropdownItem', () => {
     });
   });
 
-  describe('when item has a `href`', () => {
-    const item = mockItems[0];
+  describe.each`
+    prop      | mockItem
+    ${'href'} | ${0}
+    ${'to'}   | ${3}
+  `('when item has a `$prop`', ({ prop, mockItem }) => {
+    const item = mockItems[mockItem];
 
     beforeEach(() => {
       buildWrapper({ item });
     });
 
-    const findLink = () => wrapper.find('a.gl-new-dropdown-item-content');
+    const findLink = () => wrapper.findComponent(BLink);
 
     it('should render a link', () => {
       expect(findLink().exists()).toBe(true);
     });
 
-    it('should set correct attributes', () => {
-      expect(findLink().attributes('href')).toBe(item.href);
+    it('should set correct class', () => {
+      expect(findLink().classes()).toContain('gl-new-dropdown-item-content');
+    });
+
+    it('should set correct props and attributes', () => {
+      expect(findLink().props(prop)).toBe(item[prop]);
       expect(findLink().attributes()).toEqual(expect.objectContaining(item.extraAttrs));
     });
 
