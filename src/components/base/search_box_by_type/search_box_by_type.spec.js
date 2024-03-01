@@ -9,8 +9,8 @@ const newValue = 'new value';
 describe('search box by type component', () => {
   let wrapper;
 
-  const createComponent = ({ listeners, ...propsData }, mountFn = shallowMount) => {
-    wrapper = mountFn(SearchBoxByType, { propsData, listeners });
+  const createComponent = ({ listeners, slots, ...propsData }, mountFn = shallowMount) => {
+    wrapper = mountFn(SearchBoxByType, { propsData, listeners, slots });
   };
 
   const findClearIcon = () => wrapper.findComponent(ClearIcon);
@@ -160,5 +160,22 @@ describe('search box by type component', () => {
     createComponent({ isLoading: true });
 
     expect(wrapper.findComponent(LoadingIcon).exists()).toBe(true);
+  });
+
+  describe('testing slots', () => {
+    beforeEach(() => {
+      createComponent(
+        {
+          slots: {
+            'right-icons': 'test',
+          },
+        },
+        mount
+      );
+    });
+
+    it('renders slot item', () => {
+      expect(wrapper.html()).toContain('test');
+    });
   });
 });

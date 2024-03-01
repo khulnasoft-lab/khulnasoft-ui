@@ -91,6 +91,9 @@ export default {
     showClearButton() {
       return this.hasValue && !this.disabled;
     },
+    hasRightIconsSlot() {
+      return Boolean(this.$scopedSlots['right-icons']);
+    },
   },
   methods: {
     isInputOrClearButton(element) {
@@ -142,18 +145,24 @@ export default {
       v-bind="inputAttributes"
       v-on="inputListeners"
     />
-    <div v-if="isLoading || showClearButton" class="gl-search-box-by-type-right-icons">
-      <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
-      <gl-clear-icon-button
-        v-if="showClearButton"
-        ref="clearButton"
-        :title="clearButtonTitle"
-        :tooltip-container="tooltipContainer"
-        class="gl-search-box-by-type-clear gl-clear-icon-button"
-        @click.stop="clearInput"
-        @focusin="onFocusin"
-        @focusout="onFocusout"
-      />
+    <div class="gl-search-box-by-type-right-icons">
+      <div v-if="isLoading || showClearButton">
+        <gl-loading-icon v-if="isLoading" class="gl-search-box-by-type-loading-icon" />
+        <gl-clear-icon-button
+          v-if="showClearButton"
+          ref="clearButton"
+          :title="clearButtonTitle"
+          :tooltip-container="tooltipContainer"
+          class="gl-search-box-by-type-clear gl-clear-icon-button"
+          @click.stop="clearInput"
+          @focusin="onFocusin"
+          @focusout="onFocusout"
+        />
+      </div>
+      <!-- @slot Items are placed between right edge and clear button. -->
+      <div v-if="hasRightIconsSlot" class="gl-mr-2 gl-ml-1">
+        <slot name="right-icons"></slot>
+      </div>
     </div>
   </div>
 </template>

@@ -69,3 +69,17 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
   @include gl-absolute;
   @include gl-h-full;
 }
+
+.gl-search-box-by-type-img-button {
+  padding-left: $gl-spacing-scale-2 !important;
+  padding-right: $gl-spacing-scale-2 !important;
+
+  &:not(:last-child),
+  &:not(:first-child) {
+    @include gl-mx-1;
+  }
+
+  &:first-child {
+    @include gl-mr-1;
+  }
+}
