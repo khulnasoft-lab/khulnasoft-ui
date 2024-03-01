@@ -1,4 +1,4 @@
-const compiledTokens = require('./dist/tokens/json/tokens.json');
+const COMPILED_TOKENS = require('./dist/tokens/json/tokens.json');
 
 const cssCustomPropertyWithValue = (token) => {
   const path = [token.prefix !== false ? 'gl' : false, ...token.path].filter(Boolean);
@@ -6,27 +6,27 @@ const cssCustomPropertyWithValue = (token) => {
 };
 
 const baseColors = ['blue', 'gray', 'green', 'orange', 'purple', 'red'].reduce((acc, color) => {
-  Object.entries(compiledTokens[color]).forEach(([, token]) => {
+  Object.entries(COMPILED_TOKENS[color]).forEach(([, token]) => {
     acc[token.path.join('-')] = cssCustomPropertyWithValue(token);
   });
   return acc;
 }, {});
 
-const themeColors = Object.entries(compiledTokens.theme).reduce((acc, [, scales]) => {
+const themeColors = Object.entries(COMPILED_TOKENS.theme).reduce((acc, [, scales]) => {
   Object.entries(scales).forEach(([, token]) => {
     acc[token.path.join('-')] = cssCustomPropertyWithValue(token);
   });
   return acc;
 }, {});
 
-const textColors = Object.entries(compiledTokens.text).reduce((acc, [scale, token]) => {
+const textColors = Object.entries(COMPILED_TOKENS.text).reduce((acc, [scale, token]) => {
   acc[scale] = cssCustomPropertyWithValue(token);
   return acc;
 }, {});
 
 const colors = {
-  white: cssCustomPropertyWithValue(compiledTokens.white),
-  black: cssCustomPropertyWithValue(compiledTokens.black),
+  white: cssCustomPropertyWithValue(COMPILED_TOKENS.white),
+  black: cssCustomPropertyWithValue(COMPILED_TOKENS.black),
   ...baseColors,
   ...themeColors,
 };
