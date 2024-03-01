@@ -1,3 +1,10 @@
+# [77.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.5.0...v77.6.0) (2024-03-01)
+
+
+### Features
+
+* **GlDisclosureDropdownItem:** Support Vue router links ([2bff76d](https://gitlab.com/gitlab-org/gitlab-ui/commit/2bff76de9f1c675eea407d92b646018395be0b2e))
+
 # [77.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.4.0...v77.5.0) (2024-03-01)
 
 
