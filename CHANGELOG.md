@@ -1,3 +1,11 @@
+# [77.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.4.0...v77.5.0) (2024-03-01)
+
+
+### Features
+
+* **DuoChat:** Make DuoChat fullWidth by default ([5c8c0ea](https://gitlab.com/gitlab-org/gitlab-ui/commit/5c8c0ea0266ea3bef347327a5f0bdbbd49885c37))
+* **tailwind:** add text color design tokens to the preset ([d3535f9](https://gitlab.com/gitlab-org/gitlab-ui/commit/d3535f9a2b65d3722dcd0033bfe97770583a8760))
+
 # [77.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.3.0...v77.4.0) (2024-02-28)
 
 
