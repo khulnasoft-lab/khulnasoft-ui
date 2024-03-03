@@ -110,7 +110,7 @@ const getDestination = ({ name = 'tokens', mode, extension = 'json' }) => {
 
 /**
  * Creates style-dictionary config by mode by matching token files in
- * tokens directory by filename e.g. `color.tokens.json` will
+ * tokens directory by filename e.g. `color.base.dark.tokens.json` will
  * only generate tokens for dark mode.
  *
  * @param {String} mode for source and destination filenames

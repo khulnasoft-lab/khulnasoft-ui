@@ -1,4 +1,4 @@
-import { WHITE, GRAY_950 } from '../../dist/tokens/js/tokens';
+import { GL_COLOR_WHITE, GL_COLOR_GRAY_950 } from '../../dist/tokens/js/tokens';
 import TokensStory from './tokens_story.vue';
 
 export const createDesignTokenStory = ({
@@ -14,8 +14,8 @@ export const createDesignTokenStory = ({
     provide: {
       containerClass,
       isBackgroundColorStory,
-      lightBackground: WHITE,
-      darkBackground: GRAY_950,
+      lightBackground: GL_COLOR_WHITE,
+      darkBackground: GL_COLOR_GRAY_950,
     },
     template: `<tokens-story v-bind="$props" />`,
   });

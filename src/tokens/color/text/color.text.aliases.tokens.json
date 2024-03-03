@@ -1,17 +1,17 @@
 {
   "text": {
     "primary": {
-      "$value": "#333238",
+      "$value": "{color.text.primary}",
       "$type": "color",
       "themeable": true
     },
     "secondary": {
-      "$value": "#737278",
+      "$value": "{color.text.secondary}",
       "$type": "color",
       "themeable": true
     },
     "tertiary": {
-      "$value": "#89888d",
+      "$value": "{color.text.tertiary}",
       "$type": "color",
       "themeable": true
     }

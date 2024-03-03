@@ -1,0 +1,21 @@
+{
+  "color": {
+    "text": {
+      "primary": {
+        "$value": "#ececef",
+        "$type": "color",
+        "themeable": true
+      },
+      "secondary": {
+        "$value": "#89888d",
+        "$type": "color",
+        "themeable": true
+      },
+      "tertiary": {
+        "$value": "#737278",
+        "$type": "color",
+        "themeable": true
+      }
+    }
+  }
+}
