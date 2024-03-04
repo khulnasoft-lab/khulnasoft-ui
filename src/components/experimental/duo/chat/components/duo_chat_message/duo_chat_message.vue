@@ -92,6 +92,9 @@ export default {
     sources() {
       return this.message.extras?.sources;
     },
+    hasFeedback() {
+      return this.message.extras?.hasFeedback;
+    },
     messageContent() {
       if (this.message.errors.length > 0)
         return this.renderMarkdown(this.message.errors.join('; '));
@@ -125,6 +128,7 @@ export default {
         ...e,
         didWhat: this.didWhat,
         improveWhat: this.improveWhat,
+        message: this.message,
       });
     },
   },
@@ -147,6 +151,7 @@ export default {
 
       <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
         <gl-duo-user-feedback
+          :feedback-received="hasFeedback"
           :modal-title="$options.i18n.MODAL.TITLE"
           :modal-alert="$options.i18n.MODAL.ALERT_TEXT"
           @feedback="logEvent"

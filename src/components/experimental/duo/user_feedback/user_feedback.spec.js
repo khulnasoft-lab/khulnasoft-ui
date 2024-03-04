@@ -1,4 +1,3 @@
-import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import GlButton from '../../../base/button/button.vue';
 import FeedbackModal from './user_feedback_modal.vue';
@@ -65,27 +64,23 @@ describe('UserFeedback', () => {
   });
 
   describe('event handling', () => {
-    beforeEach(() => {
-      createComponent();
-    });
-
     const passedFeedback = { feedbackOptions: ['helpful'], extendedFeedback: 'Foo bar' };
 
     it('emits the event, containing the form data, when modal emits', () => {
+      createComponent();
       findModal().vm.$emit('feedback-submitted', passedFeedback);
       expect(wrapper.emitted('feedback')).toHaveLength(1);
     });
 
     it('renders the thank you text instead of a button', async () => {
-      findModal().vm.$emit('feedback-submitted', passedFeedback);
-      await nextTick();
+      createComponent({ props: { feedbackReceived: true } });
+
       expect(findButton().exists()).toBe(false);
       expect(wrapper.text()).toContain(i18n.FEEDBACK_THANKS);
     });
 
     it('does not render the modal after feedback submitted', async () => {
-      findModal().vm.$emit('feedback-submitted', passedFeedback);
-      await nextTick();
+      createComponent({ props: { feedbackReceived: true } });
       expect(findModal().exists()).toBe(false);
     });
   });

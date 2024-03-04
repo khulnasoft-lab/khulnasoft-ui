@@ -15,6 +15,14 @@ export default {
   },
   props: {
     /**
+     * Whether the message already has gotten feedback
+     */
+    feedbackReceived: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
      * The text to be displayed as the feedback link/button.
      */
     feedbackLinkText: {
@@ -32,11 +40,6 @@ export default {
       default: '',
     },
   },
-  data() {
-    return {
-      feedbackReceived: false,
-    };
-  },
   computed: {
     shouldRenderModal() {
       return !this.feedbackReceived && !this.feedbackLinkUrl;
@@ -49,7 +52,6 @@ export default {
        * @param {*} event An event, containing the feedback choices and the extended feedback text.
        */
       this.$emit('feedback', event);
-      this.feedbackReceived = true;
     },
   },
   i18n,
