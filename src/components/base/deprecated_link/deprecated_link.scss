@@ -1,0 +1,18 @@
+.gl-link {
+  @include gl-text-blue-500;
+
+  &:hover {
+    @include gl-text-blue-500;
+  }
+
+  &:active {
+    @include gl-text-blue-700;
+  }
+
+  &:active,
+  &:focus,
+  &:focus:active {
+    @include gl-text-decoration-underline;
+    @include gl-focus($outline: true, $outline-offset: $outline-width);
+  }
+}

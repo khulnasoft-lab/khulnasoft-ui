@@ -308,6 +308,12 @@ export const keyboard = {
   tab: 'Tab',
 };
 
+export const linkVariantOptions = {
+  inline: 'inline',
+  ui: 'ui',
+  meta: 'meta',
+};
+
 export const truncateOptions = POSITION;
 
 export const formInputWidths = {

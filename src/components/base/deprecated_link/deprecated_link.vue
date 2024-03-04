@@ -2,7 +2,6 @@
 <script>
 import { BLink } from 'bootstrap-vue';
 import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
-import { linkVariantOptions } from '../../../utils/constants';
 
 export default {
   name: 'GlLink',
@@ -10,14 +9,6 @@ export default {
     BLink,
   },
   mixins: [SafeLinkMixin],
-  props: {
-    variant: {
-      type: String,
-      required: false,
-      default: linkVariantOptions.inline,
-      validator: (value) => Object.keys(linkVariantOptions).includes(value),
-    },
-  },
 };
 </script>
 <template>
@@ -25,7 +16,7 @@ export default {
     v-safe-link:[safeLinkConfig]
     v-bind="$attrs"
     :target="target"
-    :class="[`gl-link-${variant}`]"
+    class="gl-link"
     v-on="$listeners"
   >
     <!-- @slot The link to display. -->

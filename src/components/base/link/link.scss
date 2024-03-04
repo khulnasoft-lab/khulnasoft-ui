@@ -1,12 +1,6 @@
-.gl-link {
-  @include gl-text-blue-500;
-
+%gl-link-shared {
   &:hover {
-    @include gl-text-blue-500;
-  }
-
-  &:active {
-    @include gl-text-blue-700;
+    @include gl-text-decoration-underline;
   }
 
   &:active,
@@ -15,4 +9,37 @@
     @include gl-text-decoration-underline;
     @include gl-focus($outline: true, $outline-offset: $outline-width);
   }
+}
+
+.gl-link-inline {
+  @extend %gl-link-shared;
+  
+  @include gl-display-inline;
+  @include gl-text-decoration-underline;
+  @include gl-text-blue-700;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus:active {
+    @include gl-text-blue-900;
+  }
+}
+
+.gl-link-ui {
+  @extend %gl-link-shared;
+
+  @include gl-display-inline-block;
+  @include gl-text-blue-500;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus:active {
+    @include gl-text-blue-700;
+  }
+}
+
+.gl-link-meta {
+  @extend %gl-link-shared;
 }
