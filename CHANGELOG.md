@@ -1,3 +1,10 @@
+# [77.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.6.0...v77.7.0) (2024-03-04)
+
+
+### Features
+
+* **GlLink:** adding deprecated export for upcoming breaking changes ([4a633ce](https://gitlab.com/gitlab-org/gitlab-ui/commit/4a633ce456e7a6dd4675365fddf0df83216ffc30))
+
 # [77.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.5.0...v77.6.0) (2024-03-01)
 
 
