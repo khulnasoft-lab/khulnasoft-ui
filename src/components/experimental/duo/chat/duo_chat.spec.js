@@ -126,6 +126,15 @@ describe('GlDuoChat', () => {
       expect(component().exists()).toBe(shouldRender);
     });
 
+    it('does not render the experimental label if it is explicitely disabled', () => {
+      createComponent({
+        propsData: {
+          badgeType: null,
+        },
+      });
+      expect(findBadge().exists()).toBe(false);
+    });
+
     describe('when messages exist', () => {
       it('scrolls to the bottom on load', async () => {
         const scrollIntoViewMock = jest.fn();
