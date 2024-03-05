@@ -1,6 +1,5 @@
 import GlButton from '../../../base/button/button.vue';
 import GlAlert from '../../../base/alert/alert.vue';
-import { setStoryTimeout } from '../../../../utils/test_utils';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import GlDuoChat from './duo_chat.vue';
 import readme from './duo_chat.md';
@@ -132,32 +131,52 @@ export const Interactive = (args, { argTypes }) => ({
       this.isHidden = false;
       this.loggerInfo += `Chat opened\n\n`;
     },
-    onResponseRequested() {
+    async onResponseRequested() {
       this.timeout = null;
-      this.chunks = generateMockResponseChunks(this.requestId);
-      this.mockResponseFromAi();
+      await this.mockResponseFromAi();
       this.requestId += 1;
     },
-    mockResponseFromAi() {
-      this.promptInFlight = false;
-      if (this.chunks.length) {
-        const newResponse = this.chunks.shift();
+    async mockResponseFromAi() {
+      const generator = generateMockResponseChunks(this.requestId);
+
+      for await (const result of generator) {
+        const { chunkId, content, ...messageAttributes } = result;
         const existingMessageIndex = this.msgs.findIndex(
-          (msg) => msg.requestId === newResponse.requestId && msg.role === newResponse.role
+          (msg) => msg.requestId === result.requestId && msg.role === result.role
         );
-        const existingMessage = this.msgs[existingMessageIndex];
-        if (existingMessage) {
-          this.msgs.splice(existingMessageIndex, 1, {
-            ...existingMessage,
-            content: existingMessage.content + newResponse.content,
-          });
+
+        if (existingMessageIndex === -1) {
+          this.addNewMessage(messageAttributes, content);
         } else {
-          this.msgs.push(newResponse);
+          this.updateExistingMessage(existingMessageIndex, content, chunkId);
         }
-        this.logerInfo += `New response: ${JSON.stringify(newResponse)}\n\n`;
-        this.timeout = setStoryTimeout(() => {
-          this.mockResponseFromAi();
-        }, Math.floor(Math.random() * 251) + 16);
+      }
+    },
+    addNewMessage(messageAttributes, content) {
+      this.promptInFlight = false;
+      this.$set(this.msgs, this.msgs.length, {
+        ...messageAttributes,
+        chunks: [content],
+      });
+    },
+    updateExistingMessage(index, content, chunkId) {
+      const message = this.msgs[index];
+
+      if (chunkId != null) {
+        // Ensure the chunks array exists
+        if (!message.chunks) {
+          this.$set(message, 'chunks', []);
+        } else {
+          this.$set(message.chunks, chunkId, content);
+        }
+      } else {
+        // Update for final message
+        this.$set(message, 'content', content);
+
+        // Remove chunks if they are not needed anymore
+        if (message.chunks) {
+          this.$delete(message, 'chunks');
+        }
       }
     },
   },
