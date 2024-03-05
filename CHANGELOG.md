@@ -1,3 +1,10 @@
+## [78.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.1.0...v78.1.1) (2024-03-05)
+
+
+### Bug Fixes
+
+* **GlDuoChat:** allow typing prompt while streaming ([bc107bf](https://gitlab.com/gitlab-org/gitlab-ui/commit/bc107bf7b4e84ec787142ed5b43f299ec6c7ea0b))
+
 # [78.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.0.0...v78.1.0) (2024-03-05)
 
 
