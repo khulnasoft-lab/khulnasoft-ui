@@ -1,3 +1,18 @@
+# [78.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.7.0...v78.0.0) (2024-03-05)
+
+
+### Features
+
+* **GlDuoChat:** refactor hasFeedback to rely on props ([97d1664](https://gitlab.com/gitlab-org/gitlab-ui/commit/97d166494f7af33f36779863fedc8084ea3254fe))
+
+
+### BREAKING CHANGES
+
+* **GlDuoChat:** This commit refactors the
+GlDuoChat Feedback indicator on every message
+to use the information coming in from props
+not from localState.
+
 # [77.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.6.0...v77.7.0) (2024-03-04)
 
 
