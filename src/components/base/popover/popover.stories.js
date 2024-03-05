@@ -7,9 +7,7 @@ const defaultValue = (prop) => GlPopover.props[prop].default;
 const components = { GlPopover, GlButton };
 
 const contentString = `
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat a nisi non
-  pellentesque. Pellentesque efficitur vulputate rutrum. Fusce nisl magna, porttitor in
-  massa ac, porta condimentum libero. Ut id lacus tristique, egestas arcu non, molestie nisi.
+  A popover is used to provide supplemental, useful, unique information about an element.
 `;
 
 const getTemplate = (id, slots = '') => `
@@ -55,6 +53,23 @@ export const WithCloseButton = (_args, { viewMode, argTypes }) => ({
   template: getTemplate('popover-with-close-button'),
 });
 WithCloseButton.args = generateProps({
+  showCloseButton: true,
+});
+
+export const TextLinks = (_args, { viewMode, argTypes }) => ({
+  viewMode,
+  components,
+  props: Object.keys(argTypes),
+  template: getTemplate(
+    'popover-with-text-links',
+    `
+    <template>
+      A popover is used to provide supplemental, useful, unique information about an element. This one has a link to <a class="gl-link" href="https://design.gitlab.com/components/popover">learn more about popovers.</a>
+    </template>
+  `
+  ),
+});
+TextLinks.args = generateProps({
   showCloseButton: true,
 });
 
