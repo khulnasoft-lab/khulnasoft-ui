@@ -127,7 +127,7 @@ export default {
      * The type of the badge. This is passed down to the `GlExperimentBadge` component. Refer that component for more information.
      */
     badgeType: {
-      type: String,
+      type: String || null,
       required: false,
       default: badgeTypes[0],
       validator: badgeTypeValidator,
@@ -369,6 +369,7 @@ export default {
       >
         <h3 class="gl-my-0 gl-font-size-h2">{{ title }}</h3>
         <gl-experiment-badge
+          v-if="badgeType"
           :help-page-url="badgeHelpPageUrl"
           :type="badgeType"
           container-id="chat-component"
