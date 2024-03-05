@@ -119,6 +119,7 @@ describe('DuoChatMessage', () => {
             extendedTextFeedback: 'exampleText',
             didWhat: '',
             improveWhat: '',
+            message: MOCK_RESPONSE_MESSAGE,
           },
         ],
       ]);
