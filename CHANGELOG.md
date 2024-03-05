@@ -1,3 +1,10 @@
+# [78.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.0.0...v78.1.0) (2024-03-05)
+
+
+### Features
+
+* **GlDuoChat:** explicitly disable Experimental Badge ([d701cc9](https://gitlab.com/gitlab-org/gitlab-ui/commit/d701cc95e9af956ce17c3b4c75ea4d481cadde59))
+
 # [78.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v77.7.0...v78.0.0) (2024-03-05)
 
 
