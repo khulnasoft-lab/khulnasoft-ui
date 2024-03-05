@@ -33,7 +33,8 @@ component to receive the breaking changes is called `GlFoo`:
 
    This keeps the diff small and easy to review, since templates don't need to
    change, and no visual or behavioral changes need to be verified. It also
-   reduces the amount of work that needs to be done in later steps.
+   reduces the amount of work that needs to be done in later steps. For large replacement sets, this [script](https://gitlab.com/-/snippets/3683091) helps automate most of the work.
+
 1. Duplicate the existing `GlFoo` implementation, naming one copy
    `GlDeprecatedFoo`, and export it as `GlDeprecatedFoo`. This copy should
    receive _no further changes_.
@@ -44,7 +45,7 @@ component to receive the breaking changes is called `GlFoo`:
    new uses of `GlFoo` to import `GlDeprecatedFoo` instead. The amount of these
    should be significantly reduced thanks to step 2.
 1. Open an epic to iteratively upgrade each use of `GlDeprecatedFoo` to the new
-   `GlFoo`. There is a [script] that helps automate some of this.
+   `GlFoo`. There is a [script](https://gitlab.com/gitlab-org/frontend/playground/create-migrate-deprecated-component-issues) that helps automate some of this.
 1. Once all uses have been upgraded in the consuming projects, completely
    remove `GlDeprecatedFoo` from GitLab UI and release it as another major
    version, since it's another breaking change.
@@ -60,5 +61,4 @@ integration MR that bumps `@gitlab/ui` to the new major version.
 Remember to follow our [commit conventions](./commits.md) to ensure the major
 version number of GitLab UI is incremented with any breaking changes.
 
-[integration MRs]: ./gitlab_integration_test.md#using-the-remote-development-package
-[script]: https://gitlab.com/gitlab-org/frontend/playground/create-migrate-deprecated-component-issues
+[integration MRs]: ./gitlab_integration_test.md#using-the-remote-development-package[]
