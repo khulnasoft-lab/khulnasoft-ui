@@ -213,6 +213,11 @@ $gl-transition-duration-slow: 0.4s;
 $gl-transition-duration-medium: 0.2s;
 $gl-transition-duration-fast: 0.1s;
 
+// Animation easings
+$gl-easing-linear: linear;
+$gl-easing-default: ease;
+$gl-easing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
+
 // Focus ring
 $outline-offset: 1px;
 $outline-width: 2px;
