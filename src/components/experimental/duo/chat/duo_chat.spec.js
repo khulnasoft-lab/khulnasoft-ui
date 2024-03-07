@@ -373,6 +373,15 @@ describe('GlDuoChat', () => {
         clickSubmit();
         expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
       });
+
+      it('resets the prompt after form submission', async () => {
+        const prompt = 'foo';
+        createComponent({ data: { prompt } });
+        expect(findChatInput().props('value')).toBe(prompt);
+        clickSubmit();
+        await nextTick();
+        expect(findChatInput().props('value')).toBe('');
+      });
     });
 
     describe('reset', () => {
@@ -454,20 +463,6 @@ describe('GlDuoChat', () => {
       });
       await nextTick();
       expect(findChatComponent().exists()).toBe(true);
-    });
-
-    it('resets the prompt when a message is loaded', async () => {
-      const prompt = 'foo';
-      createComponent({ data: { prompt } });
-      expect(findChatInput().props('value')).toBe(prompt);
-      // setProps is justified here because we are testing the component's
-      // reactive behavior which consistutes an exception
-      // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
-      wrapper.setProps({
-        isLoading: true,
-      });
-      await nextTick();
-      expect(findChatInput().props('value')).toBe('');
     });
 
     it('renders custom loader when isLoading', () => {
@@ -773,7 +768,6 @@ describe('GlDuoChat', () => {
             expect(findSelectedSlashCommand().text()).toContain(command);
             findChatInput().trigger('keyup', { key: 'Enter' });
             await nextTick();
-            expect(findChatInput().props('value')).toBe(`${command}`);
             expect(wrapper.emitted('send-chat-prompt')).toEqual([[command]]);
           });
         });
@@ -827,7 +821,6 @@ describe('GlDuoChat', () => {
             findSelectedSlashCommand().vm.$emit('click');
             await nextTick();
 
-            expect(findChatInput().props('value')).toBe(slashCommandsNames[commandIndex]);
             expect(wrapper.emitted('send-chat-prompt')).toEqual([
               [slashCommandsNames[commandIndex]],
             ]);

@@ -120,8 +120,12 @@ export const Interactive = (args, { argTypes }) => ({
         requestId: this.requestId,
       };
       this.loggerInfo += `New prompt: ${JSON.stringify(newPrompt)}\n\n`;
-      this.msgs.push(newPrompt);
-      this.promptInFlight = true;
+      if (prompt !== '/clean') {
+        this.msgs.push(newPrompt);
+        this.promptInFlight = true;
+      } else {
+        this.msgs = [];
+      }
     },
     onChatHidden() {
       this.isHidden = true;
@@ -204,6 +208,7 @@ export const Interactive = (args, { argTypes }) => ({
       :empty-state-title="emptyStateTitle"
       :empty-state-description="emptyStateDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
+      class="gl-drawer-default"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
     />

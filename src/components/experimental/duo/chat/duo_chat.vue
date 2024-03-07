@@ -253,13 +253,9 @@ export default {
     },
   },
   watch: {
-    isLoading(newVal) {
+    isLoading() {
       this.isHidden = false;
       this.scrollToBottom();
-      if (newVal) {
-        // We reset the prompt when we start getting the response and focus in the prompt field
-        this.setPromptAndFocus();
-      }
     },
   },
   created() {
@@ -290,6 +286,7 @@ export default {
          * @param {String} prompt The user prompt to send.
          */
         this.$emit('send-chat-prompt', this.prompt);
+        this.setPromptAndFocus();
       }
     },
     sendPredefinedPrompt(prompt) {
