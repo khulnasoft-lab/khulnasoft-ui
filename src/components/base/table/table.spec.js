@@ -3,7 +3,6 @@ import { shallowMount, mount } from '@vue/test-utils';
 import { BTable } from 'bootstrap-vue';
 import { logWarning } from '../../../utils/utils';
 import { waitForAnimationFrame } from '../../../utils/test_utils';
-import Icon from '../icon/icon.vue';
 import { glTableLiteWarning } from './constants';
 import Table from './table.vue';
 
@@ -100,20 +99,18 @@ describe('GlTable', () => {
         findFirstColHeader().trigger('click');
         await nextTick();
 
-        const icon = findFirstColHeader().findComponent(Icon);
+        const headerText = findFirstColHeader().text();
 
-        expect(icon.exists()).toBe(true);
-        expect(icon.props('name')).toBe('arrow-up');
+        expect(headerText).toContain('↑');
       });
 
       it('renders the descending sort icon', async () => {
         findFirstColHeader().trigger('click');
         findFirstColHeader().trigger('click');
         await nextTick();
-        const icon = findFirstColHeader().findComponent(Icon);
+        const headerText = findFirstColHeader().text();
 
-        expect(icon.exists()).toBe(true);
-        expect(icon.props('name')).toBe('arrow-down');
+        expect(headerText).toContain('↓');
       });
     });
 
@@ -136,11 +133,10 @@ describe('GlTable', () => {
         findFirstColHeader().trigger('click');
         await nextTick();
 
-        const icon = findFirstColHeader().findComponent(Icon);
+        const headerText = findFirstColHeader().text();
 
-        expect(icon.exists()).toBe(true);
-        expect(icon.props('name')).toBe('arrow-up');
-        expect(findFirstColHeader().text()).toContain(customSlotContent);
+        expect(headerText).toContain('↑');
+        expect(headerText).toContain(customSlotContent);
       });
     });
   });

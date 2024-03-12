@@ -17,6 +17,25 @@ table.gl-table {
     th {
       @include gl-font-weight-bold;
       @include gl-text-gray-900;
+
+      &.gl-text-right > span {
+        @include gl-display-flex;
+        @include gl-justify-content-end;
+
+        span:first-of-type {
+          order: 1;
+        }
+
+        span:nth-of-type(2) {
+          order: 0;
+          @include gl-ml-0;
+          @include gl-mr-3;
+        }
+      }
+
+      [name='sort-icon'] {
+        user-select: none;
+      }
     }
 
     td {
@@ -120,4 +139,9 @@ table.gl-table {
 .table.b-table > thead > tr > th,
 .table.b-table > tfoot > tr > th {
   background-image: none !important;
+}
+
+.table.b-table > thead > tr > [aria-sort]:not(.b-table-sort-icon-left),
+.table.b-table > tfoot > tr > [aria-sort]:not(.b-table-sort-icon-left) {
+  padding-right: 1rem;
 }

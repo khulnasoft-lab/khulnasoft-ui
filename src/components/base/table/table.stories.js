@@ -7,15 +7,18 @@ const components = { GlTable };
 const tableItems = [
   {
     column_one: 'test',
-    col_2: 1234,
+    col_2: 'ABC',
+    col_three: 1234,
   },
   {
     column_one: 'test2',
-    col_2: 5678,
+    col_2: 'DEF',
+    col_three: 5678,
   },
   {
     column_one: 'test3',
-    col_2: 9101,
+    col_2: 'GHI',
+    col_three: 9101,
   },
 ];
 
@@ -44,8 +47,9 @@ export const Default = (args, { argTypes }) => ({
     :fixed="fixed"
     :stacked="stacked"
     :foot-clone="footClone"
-    sort-by="col_2"
+    sort-by="col_three"
     sort-desc
+    no-sort-reset
     hover
     selectable
     selected-variant="primary"
@@ -65,9 +69,16 @@ export const Default = (args, { argTypes }) => ({
     },
     {
       key: 'col_2',
+      label: 'Column 2',
+      formatter: (value) => value,
+    },
+    {
+      key: 'col_three',
       sortable: true,
       label: 'Column 2',
       formatter: (value) => value,
+      thClass: 'gl-text-right',
+      tdClass: 'gl-text-right',
     },
   ],
   items: tableItems,

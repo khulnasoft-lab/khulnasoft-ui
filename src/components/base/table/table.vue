@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BTable } from 'bootstrap-vue';
-import GlIcon from '../icon/icon.vue';
 import { logWarning, isDev } from '../../../utils/utils';
 import { tableFullSlots, tableFullProps, glTableLiteWarning } from './constants';
 
@@ -18,7 +17,6 @@ export default {
   name: 'GlTable',
   components: {
     BTable,
-    GlIcon,
   },
   inheritAttrs: false,
   props: {
@@ -98,17 +96,27 @@ export default {
       <slot :name="slotName" v-bind="scope"></slot>
     </template>
     <template v-for="headSlotName in headSlots" #[headSlotName]="scope">
-      <div :key="headSlotName" class="gl-display-flex gl-align-items-center">
-        <slot :name="headSlotName" v-bind="scope">{{ scope.label }}</slot
+      <span :key="headSlotName">
+        <slot :name="headSlotName" v-bind="scope"
+          ><span>{{ scope.label }}</span></slot
         ><template v-if="isSortable(scope)">
-          <gl-icon
-            v-if="getSortingIcon(scope)"
-            :name="getSortingIcon(scope)"
-            class="gl-ml-3 gl-min-w-5 gl-text-gray-900"
-          />
-          <div v-else class="gl-display-inline-block gl-w-5 gl-h-5 gl-ml-3"></div>
+          <span
+            v-if="getSortingIcon(scope) && getSortingIcon(scope) === 'arrow-up'"
+            class="gl-ml-3 gl-min-w-5 gl-text-gray-900 gl-text-center"
+            name="sort-icon"
+          >
+            ↑
+          </span>
+          <span
+            v-else-if="getSortingIcon(scope) && getSortingIcon(scope) === 'arrow-down'"
+            class="gl-ml-3 gl-min-w-5 gl-text-gray-900 gl-text-center"
+            name="sort-icon"
+          >
+            ↓
+          </span>
+          <span v-else class="gl-display-inline-block gl-w-5 gl-h-3 gl-ml-3"></span>
         </template>
-      </div>
+      </span>
     </template>
   </b-table>
 </template>
