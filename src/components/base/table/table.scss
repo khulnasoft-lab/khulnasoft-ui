@@ -20,14 +20,9 @@ table.gl-table {
 
       &.gl-text-right > span {
         @include gl-display-flex;
-        @include gl-justify-content-end;
-
-        span:first-of-type {
-          order: 1;
-        }
+        flex-direction: row-reverse;
 
         span:nth-of-type(2) {
-          order: 0;
           @include gl-ml-0;
           @include gl-mr-3;
         }
