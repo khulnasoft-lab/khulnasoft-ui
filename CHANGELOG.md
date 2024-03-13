@@ -1,3 +1,10 @@
+## [78.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.1.1...v78.1.2) (2024-03-13)
+
+
+### Bug Fixes
+
+* Repair right alignment for table header ([3051537](https://gitlab.com/gitlab-org/gitlab-ui/commit/30515372b8b6212cab60b0cf50671a7cd36a392a))
+
 ## [78.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.1.0...v78.1.1) (2024-03-05)
 
 
