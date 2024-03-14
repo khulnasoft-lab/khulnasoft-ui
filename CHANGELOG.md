@@ -1,3 +1,10 @@
+# [78.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.1.2...v78.2.0) (2024-03-14)
+
+
+### Features
+
+* **css:** Add easing variables ([33a3973](https://gitlab.com/gitlab-org/gitlab-ui/commit/33a39733abb383509ab70f88b8ecd26925a7aff3))
+
 ## [78.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.1.1...v78.1.2) (2024-03-13)
 
 
