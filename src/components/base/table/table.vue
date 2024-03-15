@@ -73,11 +73,11 @@ export default {
     isSortable({ field }) {
       return field?.sortable;
     },
-    getSortingIcon({ field }) {
+    iconHandler({ field }) {
       if (this.localSortBy !== field?.key) {
         return null;
       }
-      return this.localSortDesc ? 'arrow-down' : 'arrow-up';
+      return this.localSortDesc ? ' ↓' : ' ↑';
     },
   },
 };
@@ -101,18 +101,11 @@ export default {
           ><span>{{ scope.label }}</span></slot
         ><template v-if="isSortable(scope)">
           <span
-            v-if="getSortingIcon(scope) && getSortingIcon(scope) === 'arrow-up'"
+            v-if="iconHandler(scope)"
             class="gl-ml-3 gl-min-w-5 gl-text-gray-900 gl-text-center"
             name="sort-icon"
           >
-            ↑
-          </span>
-          <span
-            v-else-if="getSortingIcon(scope) && getSortingIcon(scope) === 'arrow-down'"
-            class="gl-ml-3 gl-min-w-5 gl-text-gray-900 gl-text-center"
-            name="sort-icon"
-          >
-            ↓
+            {{ iconHandler(scope) }}
           </span>
           <span v-else class="gl-display-inline-block gl-w-5 gl-h-3 gl-ml-3"></span>
         </template>
