@@ -6,29 +6,10 @@ import readme from './duo_chat.md';
 import {
   MOCK_RESPONSE_MESSAGE,
   MOCK_USER_PROMPT_MESSAGE,
+  SLASH_COMMANDS as slashCommands,
   generateMockResponseChunks,
   renderGFM,
 } from './mock_data';
-
-const slashCommands = [
-  {
-    name: '/reset',
-    shouldSubmit: true,
-    description: 'Reset conversation, ignore the previous messages.',
-  },
-  {
-    name: '/tests',
-    description: 'Write tests for the selected snippet.',
-  },
-  {
-    name: '/refactor',
-    description: 'Refactor the selected snippet.',
-  },
-  {
-    name: '/explain',
-    description: 'Explain the selected snippet.',
-  },
-];
 
 const defaultValue = (prop) =>
   typeof GlDuoChat.props[prop].default === 'function'
@@ -120,11 +101,11 @@ export const Interactive = (args, { argTypes }) => ({
         requestId: this.requestId,
       };
       this.loggerInfo += `New prompt: ${JSON.stringify(newPrompt)}\n\n`;
-      if (prompt !== '/clean') {
+      if (prompt === '/clean') {
+        this.msgs = [];
+      } else {
         this.msgs.push(newPrompt);
         this.promptInFlight = true;
-      } else {
-        this.msgs = [];
       }
     },
     onChatHidden() {
@@ -208,6 +189,7 @@ export const Interactive = (args, { argTypes }) => ({
       :empty-state-title="emptyStateTitle"
       :empty-state-description="emptyStateDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
+      :slash-commands="slashCommands"
       class="gl-drawer-default"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
@@ -258,6 +240,7 @@ export const Slots = (args, { argTypes }) => ({
     </div>
     `,
 });
+Slots.args = generateProps();
 Slots.decorators = [makeContainer({ height: '800px' })];
 
 export default {

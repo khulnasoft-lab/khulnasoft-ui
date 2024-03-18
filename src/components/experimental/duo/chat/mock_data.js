@@ -1,5 +1,5 @@
 import { setStoryTimeout } from '../../../../utils/test_utils';
-import { DOCUMENTATION_SOURCE_TYPES, MESSAGE_MODEL_ROLES } from './constants';
+import { DOCUMENTATION_SOURCE_TYPES, MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
 
 const MOCK_SOURCES = [
   {
@@ -119,3 +119,28 @@ export const renderGFM = (el) => {
     block?.classList.add('gl-markdown', 'gl-compact-markdown');
   });
 };
+
+export const SLASH_COMMANDS = [
+  {
+    name: CHAT_RESET_MESSAGE,
+    shouldSubmit: true,
+    description: 'Reset conversation, ignore the previous messages.',
+  },
+  {
+    name: '/clean',
+    shouldSubmit: true,
+    description: 'Delete all messages in this conversation.',
+  },
+  {
+    name: '/tests',
+    description: 'Write tests for the selected snippet.',
+  },
+  {
+    name: '/refactor',
+    description: 'Refactor the selected snippet.',
+  },
+  {
+    name: '/explain',
+    description: 'Explain the selected snippet.',
+  },
+];

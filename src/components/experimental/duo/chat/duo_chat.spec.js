@@ -8,29 +8,13 @@ import DuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import DuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import DuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
 import GlDuoChat from './duo_chat.vue';
-import { MOCK_RESPONSE_MESSAGE, MOCK_USER_PROMPT_MESSAGE } from './mock_data';
+import {
+  MOCK_RESPONSE_MESSAGE,
+  MOCK_USER_PROMPT_MESSAGE,
+  SLASH_COMMANDS as slashCommands,
+} from './mock_data';
 
 import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
-
-const slashCommands = [
-  {
-    name: '/reset',
-    shouldSubmit: true,
-    description: 'Reset conversation, ignore the previous messages.',
-  },
-  {
-    name: '/tests',
-    description: 'Write tests for the selected snippet.',
-  },
-  {
-    name: '/refactor',
-    description: 'Refactor the selected snippet.',
-  },
-  {
-    name: '/explain',
-    description: 'Explain the selected snippet.',
-  },
-];
 
 const invalidSlashCommands = [
   {
@@ -381,6 +365,19 @@ describe('GlDuoChat', () => {
         clickSubmit();
         await nextTick();
         expect(findChatInput().props('value')).toBe('');
+      });
+
+      it('focuses on prompt after form submission', async () => {
+        const focusSpy = jest.fn();
+        jest.spyOn(HTMLElement.prototype, 'focus').mockImplementation(function focusMockImpl() {
+          focusSpy(this);
+        });
+        createComponent({ data: { prompt: 'TEST!' } });
+
+        clickSubmit();
+        await nextTick();
+
+        expect(focusSpy).toHaveBeenCalledWith(findChatInput().element);
       });
     });
 
