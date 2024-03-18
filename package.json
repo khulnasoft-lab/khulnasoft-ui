@@ -113,7 +113,7 @@
     "@storybook/addon-viewport": "^7.6.17",
     "@storybook/builder-webpack5": "^7.6.17",
     "@storybook/test": "^7.6.17",
-    "@storybook/test-runner": "0.16.0",
+    "@storybook/test-runner": "0.17.0",
     "@storybook/theming": "^7.6.17",
     "@storybook/vue": "^7.6.17",
     "@storybook/vue-webpack5": "^7.6.17",
