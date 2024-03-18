@@ -1,5 +1,5 @@
-import clusterPopoverSvg from '@gitlab/svgs/dist/illustrations/cluster_popover.svg';
-import serviceDeskCalloutSvg from '@gitlab/svgs/dist/illustrations/service_desk_callout.svg';
+import emptyClusterPopoverSvg from '@gitlab/svgs/dist/illustrations/empty-state/empty-state-clusters.svg';
+import emptyServiceDeskCallout from '@gitlab/svgs/dist/illustrations/empty-state/empty-service-desk-md.svg';
 import GlButton from '../button/button.vue';
 import { bannerVariants } from '../../../utils/constants';
 import GlBanner from './banner.vue';
@@ -23,7 +23,7 @@ const generateProps = ({
   buttonAttributes = { target: '_blank' },
   buttonText = 'Upgrade your plan',
   buttonLink = 'https://gitlab.com',
-  svgPath = serviceDeskCalloutSvg,
+  svgPath = emptyServiceDeskCallout,
   variant = GlBanner.props.variant.default,
 } = {}) => ({
   title,
@@ -51,7 +51,7 @@ NoImage.args = generateProps({
 
 export const Introduction = Template.bind({});
 Introduction.args = generateProps({
-  svgPath: clusterPopoverSvg,
+  svgPath: emptyClusterPopoverSvg,
   variant: bannerVariants[1],
 });
 
