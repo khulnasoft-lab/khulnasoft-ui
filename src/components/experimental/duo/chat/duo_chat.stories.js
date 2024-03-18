@@ -3,6 +3,7 @@ import GlAlert from '../../../base/alert/alert.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import GlDuoChat from './duo_chat.vue';
 import readme from './duo_chat.md';
+import { CHAT_CLEAN_MESSAGE } from './constants';
 import {
   MOCK_RESPONSE_MESSAGE,
   MOCK_USER_PROMPT_MESSAGE,
@@ -101,7 +102,7 @@ export const Interactive = (args, { argTypes }) => ({
         requestId: this.requestId,
       };
       this.loggerInfo += `New prompt: ${JSON.stringify(newPrompt)}\n\n`;
-      if (prompt === '/clean') {
+      if (prompt === CHAT_CLEAN_MESSAGE) {
         this.msgs = [];
       } else {
         this.msgs.push(newPrompt);

@@ -1,5 +1,10 @@
 import { setStoryTimeout } from '../../../../utils/test_utils';
-import { DOCUMENTATION_SOURCE_TYPES, MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
+import {
+  DOCUMENTATION_SOURCE_TYPES,
+  MESSAGE_MODEL_ROLES,
+  CHAT_RESET_MESSAGE,
+  CHAT_CLEAN_MESSAGE,
+} from './constants';
 
 const MOCK_SOURCES = [
   {
@@ -127,7 +132,7 @@ export const SLASH_COMMANDS = [
     description: 'Reset conversation, ignore the previous messages.',
   },
   {
-    name: '/clean',
+    name: CHAT_CLEAN_MESSAGE,
     shouldSubmit: true,
     description: 'Delete all messages in this conversation.',
   },
