@@ -8,29 +8,13 @@ import DuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import DuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import DuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
 import GlDuoChat from './duo_chat.vue';
-import { MOCK_RESPONSE_MESSAGE, MOCK_USER_PROMPT_MESSAGE } from './mock_data';
+import {
+  MOCK_RESPONSE_MESSAGE,
+  MOCK_USER_PROMPT_MESSAGE,
+  SLASH_COMMANDS as slashCommands,
+} from './mock_data';
 
 import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
-
-const slashCommands = [
-  {
-    name: '/reset',
-    shouldSubmit: true,
-    description: 'Reset conversation, ignore the previous messages.',
-  },
-  {
-    name: '/tests',
-    description: 'Write tests for the selected snippet.',
-  },
-  {
-    name: '/refactor',
-    description: 'Refactor the selected snippet.',
-  },
-  {
-    name: '/explain',
-    description: 'Explain the selected snippet.',
-  },
-];
 
 const invalidSlashCommands = [
   {
@@ -373,6 +357,28 @@ describe('GlDuoChat', () => {
         clickSubmit();
         expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
       });
+
+      it('resets the prompt after form submission', async () => {
+        const prompt = 'foo';
+        createComponent({ data: { prompt } });
+        expect(findChatInput().props('value')).toBe(prompt);
+        clickSubmit();
+        await nextTick();
+        expect(findChatInput().props('value')).toBe('');
+      });
+
+      it('focuses on prompt after form submission', async () => {
+        const focusSpy = jest.fn();
+        jest.spyOn(HTMLElement.prototype, 'focus').mockImplementation(function focusMockImpl() {
+          focusSpy(this);
+        });
+        createComponent({ data: { prompt: 'TEST!' } });
+
+        clickSubmit();
+        await nextTick();
+
+        expect(focusSpy).toHaveBeenCalledWith(findChatInput().element);
+      });
     });
 
     describe('reset', () => {
@@ -454,20 +460,6 @@ describe('GlDuoChat', () => {
       });
       await nextTick();
       expect(findChatComponent().exists()).toBe(true);
-    });
-
-    it('resets the prompt when a message is loaded', async () => {
-      const prompt = 'foo';
-      createComponent({ data: { prompt } });
-      expect(findChatInput().props('value')).toBe(prompt);
-      // setProps is justified here because we are testing the component's
-      // reactive behavior which consistutes an exception
-      // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
-      wrapper.setProps({
-        isLoading: true,
-      });
-      await nextTick();
-      expect(findChatInput().props('value')).toBe('');
     });
 
     it('renders custom loader when isLoading', () => {
@@ -773,7 +765,6 @@ describe('GlDuoChat', () => {
             expect(findSelectedSlashCommand().text()).toContain(command);
             findChatInput().trigger('keyup', { key: 'Enter' });
             await nextTick();
-            expect(findChatInput().props('value')).toBe(`${command}`);
             expect(wrapper.emitted('send-chat-prompt')).toEqual([[command]]);
           });
         });
@@ -827,7 +818,6 @@ describe('GlDuoChat', () => {
             findSelectedSlashCommand().vm.$emit('click');
             await nextTick();
 
-            expect(findChatInput().props('value')).toBe(slashCommandsNames[commandIndex]);
             expect(wrapper.emitted('send-chat-prompt')).toEqual([
               [slashCommandsNames[commandIndex]],
             ]);
