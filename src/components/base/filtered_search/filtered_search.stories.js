@@ -349,7 +349,7 @@ const tokens = [
     token: UserToken,
   },
   { type: 'user', icon: 'user', title: 'Assignee', dataType: 'user', token: UserToken },
-  { type: 'milestone', icon: 'clock', title: 'Milestone', unique: true, token: MilestoneToken },
+  { type: 'milestone', icon: 'milestone', title: 'Milestone', unique: true, token: MilestoneToken },
   { type: 'label', icon: 'labels', title: 'Label', token: LabelToken },
   { type: 'weight', icon: 'weight', title: 'Weight', unique: true, token: GlFilteredSearchToken },
   {
