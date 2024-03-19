@@ -74,9 +74,7 @@ export const Slots = (args, { argTypes }) => ({
         @feedback="logEvent">
         <template #feedback-extra-fields>
           <div class="gl-mb-5">
-            <gl-alert variant="info" :dismissible="false">
-              GitLab team members can not see your conversation. Please be as descriptive as possible.
-            </gl-alert>
+              Example slot content: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
           <gl-form-group label="What were you doing?" optional>
             <gl-form-textarea placeholder="The situation in which you interacted with GitLab Duo Chat." v-model="didWhat" />

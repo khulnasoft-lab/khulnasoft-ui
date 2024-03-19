@@ -18,6 +18,7 @@ export const i18n = {
     IMPROVEMENT_SUGGESTION_PLACEHOLDER: 'How the response might better meet your needs.',
     MORE_LABEL: 'More information',
     MORE_PLACEHOLDER: 'How could the content be improved?',
+    REQUIRED_VALIDATION_ERROR: 'Select at least one option.',
     FEEDBACK_OPTIONS: {
       helpful: 'Helpful',
       unhelpful: 'Unhelpful or irrelevant',
@@ -81,22 +82,33 @@ export default {
     return {
       selectedFeedbackOptions: [],
       extendedFeedback: '',
+      isValid: null,
     };
   },
+  watch: {
+    selectedFeedbackOptions(options) {
+      this.isValid = options.length > 0;
+    },
+  },
   methods: {
+    close() {
+      this.$refs.feedbackModal.hide();
+    },
     show() {
       this.$refs.feedbackModal.show();
     },
-    onFeedbackSubmit() {
+    onFeedbackSubmit(e) {
       if (this.selectedFeedbackOptions.length) {
         this.$emit('feedback-submitted', {
           feedbackChoices: this.selectedFeedbackOptions,
           extendedTextFeedback: this.extendedFeedback,
         });
+        this.close();
+        this.isValid = null;
+      } else {
+        e?.preventDefault();
+        this.isValid = false;
       }
-    },
-    onFeedbackCanceled() {
-      this.$refs.feedbackModal.hide();
     },
   },
   actions: {
@@ -121,12 +133,13 @@ export default {
     :visible="false"
     size="sm"
     @primary="onFeedbackSubmit"
-    @canceled="onFeedbackCanceled"
+    @canceled="close"
   >
     <p>{{ $options.i18n.MODAL.DESCRIPTION }}</p>
     <gl-form-group
+      :invalid-feedback="$options.i18n.MODAL.REQUIRED_VALIDATION_ERROR"
+      :state="isValid"
       :label="$options.i18n.MODAL.OPTIONS_LABEL"
-      :optional="false"
       data-testid="feedback-options"
     >
       <gl-form-checkbox-group
