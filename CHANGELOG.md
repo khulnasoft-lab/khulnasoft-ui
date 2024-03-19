@@ -1,3 +1,10 @@
+## [78.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.2.0...v78.2.1) (2024-03-19)
+
+
+### Bug Fixes
+
+* **GlDuoChat:** clear prompt after /clean ([d3fcd9f](https://gitlab.com/gitlab-org/gitlab-ui/commit/d3fcd9f5aa20db65162cebf5ce0f52445725c87c))
+
 # [78.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.1.2...v78.2.0) (2024-03-14)
 
 
