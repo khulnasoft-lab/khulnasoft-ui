@@ -459,6 +459,7 @@ export default {
       ref="toggle"
       data-testid="base-dropdown-toggle"
       v-on="toggleListeners"
+      @keydown.esc.stop.prevent="close"
     >
       <!-- @slot Custom toggle button content -->
       <slot name="toggle">
