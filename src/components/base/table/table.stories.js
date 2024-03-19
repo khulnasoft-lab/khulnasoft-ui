@@ -50,6 +50,7 @@ export const Default = (args, { argTypes }) => ({
     sort-by="col_three"
     sort-desc
     no-sort-reset
+    sort-direction="desc"
     hover
     selectable
     selected-variant="primary"

@@ -73,11 +73,22 @@ export default {
     isSortable({ field }) {
       return field?.sortable;
     },
+    activeSortingColumn({ field }) {
+      return this.localSortBy === field?.key;
+    },
     getSortingIcon({ field }) {
-      if (this.localSortBy !== field?.key) {
-        return null;
+      if (this.activeSortingColumn({ field })) {
+        if (this.localSortDesc) {
+          return '↓';
+        }
+        return '↑';
       }
-      return this.localSortDesc ? 'arrow-down' : 'arrow-up';
+
+      if (this.$attrs['sort-direction'] === 'desc') {
+        return '↓';
+      }
+
+      return '↑';
     },
   },
 };
@@ -96,27 +107,21 @@ export default {
       <slot :name="slotName" v-bind="scope"></slot>
     </template>
     <template v-for="headSlotName in headSlots" #[headSlotName]="scope">
-      <span :key="headSlotName">
+      <div :key="headSlotName" class="gl-display-flex">
         <slot :name="headSlotName" v-bind="scope"
           ><span>{{ scope.label }}</span></slot
         ><template v-if="isSortable(scope)">
-          <span
-            v-if="getSortingIcon(scope) && getSortingIcon(scope) === 'arrow-up'"
-            class="gl-ml-3 gl-min-w-5 gl-text-gray-900 gl-text-center"
-            name="sort-icon"
-          >
-            ↑
-          </span>
-          <span
-            v-else-if="getSortingIcon(scope) && getSortingIcon(scope) === 'arrow-down'"
-            class="gl-ml-3 gl-min-w-5 gl-text-gray-900 gl-text-center"
-            name="sort-icon"
-          >
-            ↓
-          </span>
-          <span v-else class="gl-display-inline-block gl-w-5 gl-h-3 gl-ml-3"></span>
+          <div class="gl-ml-2 gl-w-5 gl-text-gray-900 gl-display-flex gl-justify-content-center">
+            <span
+              name="sort-icon"
+              data-testid="sort-icon"
+              :class="{ 'gl-display-none': !activeSortingColumn(scope) }"
+            >
+              {{ getSortingIcon(scope) }}
+            </span>
+          </div>
         </template>
-      </span>
+      </div>
     </template>
   </b-table>
 </template>

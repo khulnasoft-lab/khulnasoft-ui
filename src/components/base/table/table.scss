@@ -18,13 +18,12 @@ table.gl-table {
       @include gl-font-weight-bold;
       @include gl-text-gray-900;
 
-      &.gl-text-right > span {
-        @include gl-display-flex;
+      &.gl-text-right > div {
         flex-direction: row-reverse;
 
-        span:nth-of-type(2) {
+        div.gl-ml-2 {
           @include gl-ml-0;
-          @include gl-mr-3;
+          @include gl-mr-2;
         }
       }
 
@@ -128,6 +127,14 @@ table.gl-table {
   &.table-hover tbody tr:hover,
   &.table-hover td.table-secondary:hover {
     background-color: $gray-10;
+  }
+
+  thead th:hover {
+    background-color: transparent !important;
+
+    [name='sort-icon'] {
+      display: flex !important;
+    }
   }
 }
 
