@@ -27,7 +27,10 @@ describe('GlTable', () => {
   };
 
   const findBTable = () => wrapper.findComponent(BTable);
-  const findFirstColHeader = () => findBTable().find('thead').findAll('th').at(0);
+  const findColHeaderAt = (index) => findBTable().find('thead').findAll('th').at(index);
+  const findFirstColHeader = () => findColHeaderAt(0);
+  const findSortIconForHeaderAt = (index) =>
+    findColHeaderAt(index).find('[data-testid="sort-icon"]');
 
   afterEach(() => {
     logWarning.mockClear();
@@ -80,19 +83,31 @@ describe('GlTable', () => {
   });
 
   describe('sortable columns', () => {
-    const field = {
-      key: 'name',
-      label: 'Name column',
-      sortable: true,
-    };
+    const fields = [
+      {
+        key: 'name',
+        label: 'Name column',
+        sortable: true,
+      },
+      {
+        key: 'age',
+        label: 'Age column',
+        sortable: true,
+      },
+      {
+        key: 'email',
+        label: 'Email column',
+        sortable: false,
+      },
+    ];
 
     describe('without custom slots', () => {
       beforeEach(() => {
-        factory({ mountFn: mount, props: { fields: [field] } });
+        factory({ mountFn: mount, props: { fields } });
       });
 
       it('sets the correct column label', () => {
-        expect(findFirstColHeader().text()).toMatch(field.label);
+        expect(findFirstColHeader().text()).toMatch(fields[0].label);
       });
 
       it('renders the ascending sort icon', async () => {
@@ -112,6 +127,40 @@ describe('GlTable', () => {
 
         expect(headerText).toContain('↓');
       });
+
+      it('sets initial sorting column using the sortBy property', () => {
+        factory({ mountFn: mount, props: { fields, sortBy: 'age' } });
+
+        expect(findSortIconForHeaderAt(0).classes()).toContain('gl-display-none');
+        expect(findSortIconForHeaderAt(1).classes()).not.toContain('gl-display-none');
+      });
+
+      it('sets initial sorting direction using the sortDesc property', () => {
+        factory({
+          mountFn: mount,
+          props: { fields, sortBy: 'age', sortDesc: true },
+        });
+
+        expect(findColHeaderAt(1).text()).toContain('↓');
+      });
+
+      it('does not render sort icon for non-sortable columns', () => {
+        expect(findSortIconForHeaderAt(2).exists()).toBe(false);
+      });
+
+      describe('changing the active sort column', () => {
+        it('hides sorting icon in previous active sort column', async () => {
+          await findColHeaderAt(0).trigger('click');
+
+          expect(findSortIconForHeaderAt(0).classes()).not.toContain('gl-display-none');
+          expect(findSortIconForHeaderAt(1).classes()).toContain('gl-display-none');
+
+          await findColHeaderAt(1).trigger('click');
+
+          expect(findSortIconForHeaderAt(0).classes()).toContain('gl-display-none');
+          expect(findSortIconForHeaderAt(1).classes()).not.toContain('gl-display-none');
+        });
+      });
     });
 
     describe('when headers are customized via slots', () => {
@@ -121,7 +170,7 @@ describe('GlTable', () => {
         factory({
           mountFn: mount,
           props: {
-            fields: [field],
+            fields,
           },
           scopedSlots: {
             'head(name)': `<div>${customSlotContent}</div>`,
