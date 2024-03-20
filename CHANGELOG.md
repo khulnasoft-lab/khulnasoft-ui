@@ -1,3 +1,10 @@
+## [78.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.2.1...v78.2.2) (2024-03-20)
+
+
+### Bug Fixes
+
+* Show sort icon on hover in table header ([ab36e49](https://gitlab.com/gitlab-org/gitlab-ui/commit/ab36e4913769ac4fab2f96c667bd884f968f6893))
+
 ## [78.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.2.0...v78.2.1) (2024-03-19)
 
 
