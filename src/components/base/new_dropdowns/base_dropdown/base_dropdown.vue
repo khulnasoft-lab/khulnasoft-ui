@@ -400,9 +400,10 @@ export default {
         return;
       }
 
+      const hadFocusWithin = this.$el.contains(document.activeElement);
       const hasToggled = await this.toggle(event);
 
-      if (!this.$el.contains(document.activeElement)) {
+      if (!hadFocusWithin) {
         return;
       }
 
