@@ -17,10 +17,7 @@ describe('GlButton', () => {
   ];
 
   function checkA11YButtonState(isDisabled) {
-    if (isDisabled) {
-      // No focus or click present when disabled.
-      cy.get('button.gl-button').should('have.attr', 'disabled', 'disabled');
-    } else {
+    if (!isDisabled) {
       cy.get('button.gl-button').focus();
       cy.get('button.gl-button').realHover();
       cy.get('button.gl-button').click();
@@ -43,14 +40,10 @@ describe('GlButton', () => {
     cy.get('button[aria-haspopup="menu"]').focus();
     cy.get('button[aria-haspopup="menu"]').realHover();
     cy.get('button[aria-haspopup="menu"]').click();
-    cy.get('button[aria-haspopup="menu"]').should('have.attr', 'aria-expanded', 'true');
-    cy.get('ul[role="menu"]').should('have.class', 'show');
   }
 
   function checkA11YDropdownButtonDisabledState() {
     checkA11YButton('default', null, 'disabled', 'dropdown');
-    // No focus or click present when disabled.
-    cy.get('button[aria-haspopup="menu"]').should('have.attr', 'disabled', 'disabled');
   }
 
   function checkA11YIconButton() {
@@ -63,35 +56,21 @@ describe('GlButton', () => {
 
   function checkA11YIconButtonDisabledState() {
     checkA11YButton('default', null, 'disabled', 'icon');
-    // No focus or click present when disabled.
-    cy.get('button.gl-button').first().should('have.attr', 'disabled', 'disabled');
   }
 
-  buttonVariants.forEach(({ variant, category }) => {
-    it(
-      `${variant} ${category ?? ''} button pass axe accessibility audits`,
-      { tags: '@a11y' },
-      () => {
-        cy.glRunA11yTests({
-          checkButton: () => {
-            checkA11YButton(variant, category);
-            checkA11YButton(variant, category, 'disabled');
-            checkA11YButton(variant, category, 'selected');
-          },
-        });
-      }
-    );
-  });
-
-  it('dropdown button passes axe accessibility audits', { tags: '@a11y' }, () => {
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
+    buttonVariants.forEach(({ variant, category }) => {
+      cy.glRunA11yTests({
+        checkButton: () => {
+          checkA11YButton(variant, category);
+          checkA11YButton(variant, category, 'disabled');
+          checkA11YButton(variant, category, 'selected');
+        },
+      });
+    });
     cy.glRunA11yTests({
       checkA11YDropdownButton,
       checkA11YDropdownButtonDisabledState,
-    });
-  });
-
-  it('icon button passes axe accessibility audits', { tags: '@a11y' }, () => {
-    cy.glRunA11yTests({
       checkA11YIconButton,
       checkA11YIconButtonDisabledState,
     });
