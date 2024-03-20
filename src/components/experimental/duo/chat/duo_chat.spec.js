@@ -39,16 +39,11 @@ const generatePartialSlashCommands = () => {
 describe('GlDuoChat', () => {
   let wrapper;
 
-  const createComponent = ({ propsData = {}, data = {}, slots = {} } = {}) => {
+  const createComponent = ({ propsData = {}, slots = {} } = {}) => {
     jest.spyOn(DuoChatLoader.methods, 'computeTransitionWidth').mockImplementation();
 
     wrapper = shallowMount(GlDuoChat, {
       propsData,
-      data() {
-        return {
-          ...data,
-        };
-      },
       slots,
       stubs: {
         DuoChatLoader,
@@ -75,6 +70,8 @@ describe('GlDuoChat', () => {
   const findSlashCommandsCard = () => wrapper.findComponent(GlCard);
   const findSlashCommands = () => wrapper.findAllComponents(GlDropdownItem);
   const findSelectedSlashCommand = () => wrapper.find('.active-command');
+
+  const setPromptInput = (val) => findChatInput().vm.$emit('input', val);
 
   beforeEach(() => {
     createComponent();
@@ -321,8 +318,8 @@ describe('GlDuoChat', () => {
       `('$event should $action the prompt form', ({ trigger, expectEmitted } = {}) => {
         createComponent({
           propsData: { messages: [], isChatAvailable: true },
-          data: { prompt: promptStr },
         });
+        setPromptInput(promptStr);
         trigger();
         expect(wrapper.emitted('send-chat-prompt')).toEqual(expectEmitted);
       });
@@ -335,8 +332,8 @@ describe('GlDuoChat', () => {
       `('prevents submission when loading $desc', ({ msgs } = {}) => {
         createComponent({
           propsData: { isChatAvailable: true, isLoading: true, messages: msgs },
-          data: { prompt: promptStr },
         });
+        setPromptInput(promptStr);
         clickSubmit();
         expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
       });
@@ -352,18 +349,21 @@ describe('GlDuoChat', () => {
       ])('prevents submission when streaming (messages = "%o")', (msgs = []) => {
         createComponent({
           propsData: { isChatAvailable: true, messages: msgs },
-          data: { prompt: promptStr },
         });
+        setPromptInput(promptStr);
         clickSubmit();
         expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
       });
 
       it('resets the prompt after form submission', async () => {
         const prompt = 'foo';
-        createComponent({ data: { prompt } });
+        createComponent();
+        await setPromptInput(prompt);
         expect(findChatInput().props('value')).toBe(prompt);
+
         clickSubmit();
         await nextTick();
+
         expect(findChatInput().props('value')).toBe('');
       });
 
@@ -372,7 +372,8 @@ describe('GlDuoChat', () => {
         jest.spyOn(HTMLElement.prototype, 'focus').mockImplementation(function focusMockImpl() {
           focusSpy(this);
         });
-        createComponent({ data: { prompt: 'TEST!' } });
+        createComponent();
+        await setPromptInput('TEST!');
 
         clickSubmit();
         await nextTick();
@@ -385,8 +386,8 @@ describe('GlDuoChat', () => {
       it('emits the event with the reset prompt', () => {
         createComponent({
           propsData: { messages, isChatAvailable: true },
-          data: { prompt: CHAT_RESET_MESSAGE },
         });
+        setPromptInput(CHAT_RESET_MESSAGE);
         clickSubmit();
 
         expect(wrapper.emitted('send-chat-prompt')).toEqual([[CHAT_RESET_MESSAGE]]);
@@ -396,8 +397,8 @@ describe('GlDuoChat', () => {
       it('reset does nothing when chat is loading', () => {
         createComponent({
           propsData: { messages, isChatAvailable: true, isLoading: true },
-          data: { prompt: CHAT_RESET_MESSAGE },
         });
+        setPromptInput(CHAT_RESET_MESSAGE);
         clickSubmit();
 
         expect(wrapper.emitted('send-chat-prompt')).toBeUndefined();
@@ -407,8 +408,8 @@ describe('GlDuoChat', () => {
       it('reset does nothing when there are no messages', () => {
         createComponent({
           propsData: { messages: [], isChatAvailable: true },
-          data: { prompt: CHAT_RESET_MESSAGE },
         });
+        setPromptInput(CHAT_RESET_MESSAGE);
         clickSubmit();
 
         expect(wrapper.emitted('send-chat-prompt')).toBeUndefined();
@@ -429,8 +430,8 @@ describe('GlDuoChat', () => {
             messages: existingMessages,
             isChatAvailable: true,
           },
-          data: { prompt: CHAT_RESET_MESSAGE },
         });
+        setPromptInput(CHAT_RESET_MESSAGE);
         clickSubmit();
 
         expect(wrapper.emitted('send-chat-prompt')).toBeUndefined();
@@ -442,16 +443,17 @@ describe('GlDuoChat', () => {
     });
   });
 
-  describe('interaction', () => {
-    it('is hidden after the header button is clicked', async () => {
+  describe('when closed', () => {
+    beforeEach(async () => {
       findCloseButton().vm.$emit('click');
       await nextTick();
+    });
+
+    it('is hidden', () => {
       expect(findChatComponent().exists()).toBe(false);
     });
 
-    it('resets the hidden status of the component on loading', async () => {
-      createComponent({ data: { isHidden: true } });
-      expect(findChatComponent().exists()).toBe(false);
+    it('when starts loading, resets hidden status', async () => {
       // setProps is justified here because we are testing the component's
       // reactive behavior which consistutes an exception
       // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
@@ -461,7 +463,9 @@ describe('GlDuoChat', () => {
       await nextTick();
       expect(findChatComponent().exists()).toBe(true);
     });
+  });
 
+  describe('interaction', () => {
     it('renders custom loader when isLoading', () => {
       createComponent({ propsData: { isLoading: true } });
       expect(findCustomLoader().exists()).toBe(true);
@@ -554,11 +558,8 @@ describe('GlDuoChat', () => {
         });
 
         it('does not render slash commands when prompt is "/"', async () => {
-          createComponent({
-            data: {
-              prompt: '/',
-            },
-          });
+          createComponent();
+          setPromptInput('/');
 
           await nextTick();
           expect(findSlashCommandsCard().exists()).toBe(false);
@@ -582,10 +583,8 @@ describe('GlDuoChat', () => {
             propsData: {
               slashCommands,
             },
-            data: {
-              prompt: '/',
-            },
           });
+          setPromptInput('/');
 
           await nextTick();
           expect(findSlashCommandsCard().exists()).toBe(true);
@@ -615,10 +614,8 @@ describe('GlDuoChat', () => {
                 propsData: {
                   slashCommands,
                 },
-                data: {
-                  prompt,
-                },
               });
+              setPromptInput(prompt);
 
               await nextTick();
               expect(findSlashCommandsCard().exists()).toBe(false);
@@ -634,10 +631,8 @@ describe('GlDuoChat', () => {
                 propsData: {
                   slashCommands,
                 },
-                data: {
-                  prompt,
-                },
               });
+              setPromptInput(prompt);
 
               await nextTick();
               expect(findSlashCommandsCard().exists()).toBe(true);
@@ -653,10 +648,8 @@ describe('GlDuoChat', () => {
                 propsData: {
                   slashCommands,
                 },
-                data: {
-                  prompt,
-                },
               });
+              setPromptInput(prompt);
 
               await nextTick();
               expect(findSlashCommandsCard().exists()).toBe(false);
@@ -688,10 +681,8 @@ describe('GlDuoChat', () => {
               propsData: {
                 slashCommands,
               },
-              data: {
-                prompt,
-              },
             });
+            setPromptInput(prompt);
 
             await nextTick();
             expect(findSlashCommands()).toHaveLength(expectedCommands.length);
@@ -709,10 +700,8 @@ describe('GlDuoChat', () => {
               slashCommands,
               messages,
             },
-            data: {
-              prompt: '/',
-            },
           });
+          setPromptInput('/');
         });
 
         it('toggles through commands on ArrowDown', async () => {
@@ -777,10 +766,8 @@ describe('GlDuoChat', () => {
               slashCommands,
               messages,
             },
-            data: {
-              prompt: '/',
-            },
           });
+          setPromptInput('/');
         });
 
         it('updates the selected command when hovering over it', async () => {
