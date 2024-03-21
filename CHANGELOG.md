@@ -1,3 +1,11 @@
+## [78.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.2.2...v78.2.3) (2024-03-21)
+
+
+### Bug Fixes
+
+* **GlBaseDropdown:** Check focused element before closing the dropdown ([54948dd](https://gitlab.com/gitlab-org/gitlab-ui/commit/54948dd3d8848f5ac0fc8d3cb225745401fbe7ea))
+* **GlBaseDropdown:** Close menu with escape key on toggle ([990f65d](https://gitlab.com/gitlab-org/gitlab-ui/commit/990f65d07b831a784ddb8ec1c494e4e055d54c5c))
+
 ## [78.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.2.1...v78.2.2) (2024-03-20)
 
 
