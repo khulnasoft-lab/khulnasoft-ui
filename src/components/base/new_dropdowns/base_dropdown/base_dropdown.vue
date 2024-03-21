@@ -400,9 +400,10 @@ export default {
         return;
       }
 
+      const hadFocusWithin = this.$el.contains(document.activeElement);
       const hasToggled = await this.toggle(event);
 
-      if (!this.$el.contains(document.activeElement)) {
+      if (!hadFocusWithin) {
         return;
       }
 
@@ -459,6 +460,7 @@ export default {
       ref="toggle"
       data-testid="base-dropdown-toggle"
       v-on="toggleListeners"
+      @keydown.esc.stop.prevent="close"
     >
       <!-- @slot Custom toggle button content -->
       <slot name="toggle">

@@ -59,6 +59,7 @@ describe('GlCollapsibleListbox', () => {
   const findSelectAllButton = () => wrapper.find("[data-testid='listbox-select-all-button']");
   const findIntersectionObserver = () => wrapper.findComponent(GlIntersectionObserver);
   const findDropdownMenu = () => wrapper.find("[data-testid='base-dropdown-menu']");
+  const findDropdownToggle = () => wrapper.find("[data-testid='base-dropdown-toggle'");
 
   it('passes custom offset to the base dropdown', () => {
     const dropdownOffset = { mainAxis: 10, crossAxis: 40 };
@@ -926,5 +927,18 @@ describe('GlCollapsibleListbox', () => {
       await nextTick();
       expect(findDropdownMenu().classes()).not.toContain('gl-display-block!');
     });
+  });
+
+  it('focuses the toggle when closed by ESC key while item had focus', async () => {
+    buildWrapper({
+      selected: mockOptions[1].value,
+      items: mockOptions,
+      startOpened: true,
+    });
+
+    await nextTick();
+    findListItem(1).trigger('keydown.esc');
+    await nextTick();
+    expect(findDropdownToggle().element).toHaveFocus();
   });
 });
