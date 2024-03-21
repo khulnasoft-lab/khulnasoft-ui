@@ -25,7 +25,13 @@ To run tests as a headless browser, run the following command:
 yarn test:integration
 ```
 
-In both cases, the server needs to be running.
+In both cases, the server needs to be running on
+`http://localhost:9001`.  
+This can be done with the following command:  
+
+```shell
+yarn storybook
+```
 
 ## Axe accessibility tests
 
