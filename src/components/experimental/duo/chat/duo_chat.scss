@@ -1,3 +1,5 @@
+$duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10);
+
 .duo-chat {
   @include gl-z-index-999;
 
@@ -17,20 +19,80 @@
     transition: none;
   }
 
-  /* TODO: Avoid mixing duo-chat styles with other GitLab UI components not intended as utilities. Refactor and remove all `gl-drawer` instances out of this file. */
-  .gl-drawer-body-scrim-on-footer {
+  .duo-chat-drawer-body-scrim-on-footer {
     &::before {
-      background: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10);
+      background: $duo-chat-scrim-gradient;
     }
   }
 
-  .gl-drawer-body {
+  .duo-chat-drawer-body {
     overflow-y: auto;
   }
 
-  .gl-drawer-header,
-  .gl-drawer-body > * {
+  .duo-chat-drawer-header,
+  .duo-chat-drawer-body > * {
     @include gl-p-5;
+  }
+}
+
+.duo-chat-drawer {
+  right: 0;
+  @include gl-transition-medium;
+  position: fixed;
+  @include gl-h-full;
+  @include gl-w-full;
+  @include gl-overflow-y-auto;
+  @include gl-shadow-lg;
+  @include gl-font-base;
+  @include gl-line-height-normal;
+  @include gl-display-flex;
+  @include gl-flex-direction-column;
+}
+
+.duo-chat-drawer-header {
+  @include gl-border-b-solid;
+  @include gl-border-b-gray-100;
+  @include gl-border-b-1;
+}
+
+.duo-chat-drawer-header-sticky {
+  @include gl-bg-white;
+  top: 0;
+  position: sticky;
+}
+
+.duo-chat-drawer-body {
+  @include gl-flex-grow-1;
+  // prevent safari bug where box shadow is visible
+  // above the drawer when hovering interactive elements
+  // see https://gitlab.com/gitlab-org/gitlab/-/issues/366558
+  background-color: inherit;
+}
+
+.duo-chat-drawer-footer {
+  @include gl-border-t-solid;
+  @include gl-border-t-gray-100;
+  @include gl-border-t-1;
+  @include gl-p-5;
+}
+
+.duo-chat-drawer-footer-sticky {
+  @include gl-bg-white;
+  bottom: 0;
+  position: sticky;
+}
+
+.duo-chat-drawer-body-scrim-on-footer {
+  &::before {
+    background: $duo-chat-scrim-gradient;
+    top: -$gl-border-size-1;
+    @include gl-translate-y-n100;
+    content: '';
+    left: 0;
+    position: absolute;
+    @include gl-pointer-events-none;
+    @include gl-w-full;
+    @include gl-h-7;
   }
 }
 
