@@ -171,7 +171,7 @@
     "sass-true": "^6.1.0",
     "start-server-and-test": "^1.10.6",
     "storybook": "^7.6.17",
-    "storybook-dark-mode": "4.0.0",
+    "storybook-dark-mode": "4.0.1",
     "style-dictionary": "^3.8.0",
     "stylelint": "15.10.2",
     "tailwind-config-viewer": "1.7.3",
