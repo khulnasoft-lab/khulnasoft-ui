@@ -1,4 +1,3 @@
-import emptyClusterPopoverSvg from '@gitlab/svgs/dist/illustrations/empty-state/empty-state-clusters.svg';
 import emptyServiceDeskCallout from '@gitlab/svgs/dist/illustrations/empty-state/empty-service-desk-md.svg';
 import GlButton from '../button/button.vue';
 import { bannerVariants } from '../../../utils/constants';
@@ -51,7 +50,7 @@ NoImage.args = generateProps({
 
 export const Introduction = Template.bind({});
 Introduction.args = generateProps({
-  svgPath: emptyClusterPopoverSvg,
+  svgPath: emptyServiceDeskCallout,
   variant: bannerVariants[1],
 });
 
