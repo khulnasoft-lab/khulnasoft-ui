@@ -1,3 +1,15 @@
+# [78.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.2.3...v78.3.0) (2024-03-22)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Prevent unwanted slot overrides in Vue 3 ([6aef295](https://gitlab.com/gitlab-org/gitlab-ui/commit/6aef29519a86cbc187218ebe34437e98ddcdebd1))
+
+
+### Features
+
+* **GlBreadcrumb:** Always show as many breadcrumbs as possible ([b58ba76](https://gitlab.com/gitlab-org/gitlab-ui/commit/b58ba764e40ee70eace928f4ffa849eeafff0455))
+
 ## [78.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.2.2...v78.2.3) (2024-03-21)
 
 
