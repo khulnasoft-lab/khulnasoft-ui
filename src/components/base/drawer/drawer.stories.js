@@ -62,14 +62,16 @@ const drawerContent = generateDrawerContent([
 
 const drawerContentShortList = generateDrawerContent(['One', 'Two', 'Three']);
 
-const createSidebarTemplate = (content) => `
+const createSidebarTemplate = (content, { extraBindings = {} } = {}) => `
   <gl-drawer
     :open="open"
     :header-height="headerHeight"
     :header-sticky="headerSticky"
     :z-index="zIndex"
     :variant="variant"
-    @opened="opened"
+    ${Object.entries(extraBindings)
+      .map(([key, value]) => `${key}="${value}"`)
+      .join('\n')}
     @close="close">${content}</gl-drawer>
   `;
 
@@ -124,10 +126,13 @@ export const Default = (_args, { viewMode }) => ({
   template: `
     <div :data-opened-count="timesOpened">
       <gl-button @click="toggle">Toggle Drawer</gl-button>
-      ${createSidebarTemplate(`
+      ${createSidebarTemplate(
+        `
         <template #title>List Settings</template>
         ${drawerContent}
-      `)}
+      `,
+        { extraBindings: { '@opened': 'opened' } }
+      )}
     </div>`,
 });
 Default.args = generateProps();
