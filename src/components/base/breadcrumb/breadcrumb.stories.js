@@ -10,6 +10,15 @@ const template = `
     />
   `;
 
+const collapsedTemplate = `
+  <div style="max-width: 300px">
+    <gl-breadcrumb
+        :items="items"
+        :aria-label="ariaLabel"
+    />
+  </div>
+`;
+
 const defaultItems = [
   {
     text: 'First item',
@@ -45,6 +54,14 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
+const CollapsedTemplate = (args, { argTypes }) => ({
+  components: {
+    GlBreadcrumb,
+  },
+  props: Object.keys(argTypes),
+  template: collapsedTemplate,
+});
+
 export default {
   title: 'base/breadcrumb',
   component: GlBreadcrumb,
@@ -77,5 +94,5 @@ const extraItems = [
   },
 ];
 
-export const CollapsedItems = Template.bind({});
+export const CollapsedItems = CollapsedTemplate.bind({});
 CollapsedItems.args = generateProps({ items: [...defaultItems, ...extraItems] });

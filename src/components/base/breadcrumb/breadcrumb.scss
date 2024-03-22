@@ -11,15 +11,15 @@ $breadcrumb-max-width: $grid-size * 16;
   @include gl-align-items-center;
   @include gl-line-height-normal;
   @include gl-m-0;
-  @include media-breakpoint-down(xs) {
-    @include gl-flex-wrap;
-  }
+  @include gl-flex-nowrap;
+  @include gl-max-w-full;
 }
 
 // bootstrap overrides
 .gl-breadcrumb-item {
   @include gl-font-sm;
   @include gl-line-height-normal;
+  @include gl-flex-shrink-0;
 
   &:not(:last-child)::after {
     @include gl-text-gray-200;
@@ -29,9 +29,6 @@ $breadcrumb-max-width: $grid-size * 16;
 
   > a {
     @include gl-text-gray-700;
-    @include media-breakpoint-down(xs) {
-      @include str-truncated($breadcrumb-max-width);
-    }
 
     &:active,
     &:focus,
