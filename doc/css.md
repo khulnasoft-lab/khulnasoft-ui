@@ -4,13 +4,33 @@ GitLab UI provides component styles, a utility-class library and SCSS utilities.
 
 ## Quick Start
 
-To include GitLab UI base styles in your project, simple import the `@gitlab/ui` main css file:
+To include GitLab UI base styles in your project, import the `@gitlab/ui` main css file:
 
 ```css
 @import '@gitlab/ui/dist/index.css';
 ```
 
-This provides component styles and utility classes.
+This provides component styles and legacy utility classes.
+
+### Tailwind utilities
+
+We are currently in the process of transitioning our CSS utilities library to Tailwind CSS. As GitLab
+UI relies on certain CSS utilities internally, you have two options:
+
+* Configure Tailwind CSS in your repository. You want to do this if you will be consuming CSS
+  utilities in your project. This involves inheriting from GitLab UI's preset, which
+  can be found in `tailwind.defaults.js`. Additionally, ensure that your `content` option is
+  configured to scan the files of the `@gitlab/ui` module (`./node_modules/@gitlab/ui/dist/**/*.js`)
+  so that you generate the utilities you use, as well as the ones GitLab UI relies on.
+* If you only need GitLab UI components but do not require our CSS utilities, import the
+  `tailwind.css` stylesheet which includes all utilities GitLab UI uses internally:
+
+    ```css
+    @import '@gitlab/ui/dist/tailwind.css';
+    ```
+
+> **Note:** If you are switching from the second approach to the first, make sure to remove the
+> `tailwind.css` import(s) to avoid duplicate code.
 
 ## Usage with a SCSS preprocessor
 
