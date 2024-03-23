@@ -42,6 +42,13 @@ const isExternalModule = (moduleId) => {
   return true;
 };
 
+const postCssPlugin = postcss({
+  extract: true,
+  minimize: true,
+  sourceMap: true,
+  use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
+});
+
 /**
  * Fixes import files of compiled files
  *
@@ -83,7 +90,6 @@ export default glob
   .sync('src/**/*.{js,vue}', {
     ignore: ['**/*.spec.js', '**/*.stories.js', 'src/internal/**/*'],
   })
-  .concat('utility_classes.js')
   .map((input) => {
     const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
@@ -102,23 +108,8 @@ export default glob
             'auto-inject-styles': "import './scss/gitlab_ui.scss';",
           },
         }),
-        replace({
-          delimiters: ['/* ', ' */'],
-          include: 'src/scss/utilities.scss',
-          values: {
-            'auto-inject-scss-lib': `
-              @import './functions';
-              @import './variables';
-              @import './utility-mixins/index';
-            `,
-          },
-        }),
-        postcss({
-          extract: true,
-          minimize: true,
-          sourceMap: true,
-          use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
-        }),
+
+        postCssPlugin,
         string({
           include: '**/*.md',
         }),
@@ -153,4 +144,23 @@ export default glob
         },
       ],
     };
+  })
+  .concat({
+    input: './src/scss/utilities.scss',
+    output: {
+      file: 'dist/utility_classes.css',
+    },
+    plugins: [
+      replace({
+        delimiters: ['/* ', ' */'],
+        values: {
+          'auto-inject-scss-lib': `
+          @import './functions';
+          @import './variables';
+          @import './utility-mixins/index';
+        `,
+        },
+      }),
+      postCssPlugin,
+    ],
   });
