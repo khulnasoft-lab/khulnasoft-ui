@@ -42,12 +42,15 @@ const isExternalModule = (moduleId) => {
   return true;
 };
 
-const postCssPlugin = postcss({
-  extract: true,
-  minimize: true,
-  sourceMap: true,
-  use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]],
-});
+const postCssPlugin = ({ useSass = true } = {}) =>
+  postcss({
+    extract: true,
+    minimize: true,
+    sourceMap: true,
+    ...(useSass
+      ? { use: [['sass', { includePaths: [path.resolve(__dirname, 'node_modules')] }]] }
+      : {}),
+  });
 
 /**
  * Fixes import files of compiled files
@@ -108,8 +111,7 @@ export default glob
             'auto-inject-styles': "import './scss/gitlab_ui.scss';",
           },
         }),
-
-        postCssPlugin,
+        postCssPlugin(),
         string({
           include: '**/*.md',
         }),
@@ -161,6 +163,13 @@ export default glob
         `,
         },
       }),
-      postCssPlugin,
+      postCssPlugin(),
     ],
+  })
+  .concat({
+    input: './src/scss/tailwind.css',
+    output: {
+      file: 'dist/tailwind.css',
+    },
+    plugins: [postCssPlugin({ useSass: false })],
   });
