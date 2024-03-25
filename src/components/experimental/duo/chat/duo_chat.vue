@@ -285,7 +285,7 @@ export default {
          *
          * @param {String} prompt The user prompt to send.
          */
-        this.$emit('send-chat-prompt', this.prompt);
+        this.$emit('send-chat-prompt', this.prompt.trim());
         this.setPromptAndFocus();
       }
     },

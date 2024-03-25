@@ -307,6 +307,17 @@ describe('GlDuoChat', () => {
     describe('submit', () => {
       const ENTER = 'Enter';
 
+      it('trims the prompt', () => {
+        const question = ' foo bar ';
+        const expectedPrompt = 'foo bar';
+        createComponent({
+          propsData: { isChatAvailable: true, messages: [] },
+        });
+        setPromptInput(question);
+        clickSubmit();
+        expect(wrapper.emitted('send-chat-prompt')).toEqual([[expectedPrompt]]);
+      });
+
       it.each`
         trigger                                                                   | event                         | action          | expectEmitted
         ${() => clickSubmit()}                                                    | ${'Submit button click'}      | ${'submit'}     | ${[[promptStr]]}
