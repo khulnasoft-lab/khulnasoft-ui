@@ -1,3 +1,10 @@
+# [78.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.3.0...v78.4.0) (2024-03-25)
+
+
+### Features
+
+* **GlDuoChat:** trim the prompt ([89b1253](https://gitlab.com/gitlab-org/gitlab-ui/commit/89b125332b9674d97848cdb8586338147fa10b20))
+
 # [78.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.2.3...v78.3.0) (2024-03-22)
 
 
