@@ -1,3 +1,10 @@
+# [78.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.4.0...v78.5.0) (2024-03-25)
+
+
+### Features
+
+* publish internal Tailwind utils ([069353a](https://gitlab.com/gitlab-org/gitlab-ui/commit/069353a3c64e1add589db9dd776570e874d80067))
+
 # [78.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.3.0...v78.4.0) (2024-03-25)
 
 
