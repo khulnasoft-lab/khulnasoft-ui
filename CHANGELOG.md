@@ -1,3 +1,10 @@
+# [78.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.5.0...v78.6.0) (2024-03-25)
+
+
+### Features
+
+* **css:** Add gl-lg-display-grid css class ([9dfa9d9](https://gitlab.com/gitlab-org/gitlab-ui/commit/9dfa9d972f0a388843af3b4ec95c451072f06488))
+
 # [78.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.4.0...v78.5.0) (2024-03-25)
 
 
