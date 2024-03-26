@@ -1,6 +1,6 @@
 <script>
 import GlIcon from '../../../../../base/icon/icon.vue';
-import GlLink from '../../../../../base/link/link.vue';
+import GlLink from '../../../../../base/links/link/link.vue';
 import { DOCUMENTATION_SOURCE_TYPES } from '../../constants';
 
 export const i18n = {

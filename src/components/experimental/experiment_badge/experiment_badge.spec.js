@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import GlBadge from '../../base/badge/badge.vue';
 import GlPopover from '../../base/popover/popover.vue';
-import GlLink from '../../base/link/link.vue';
+import GlLink from '../../base/links/link/link.vue';
 import GlSprintf from '../../utilities/sprintf/sprintf.vue';
 import GlExperimentBadge, { i18n } from './experiment_badge.vue';
 

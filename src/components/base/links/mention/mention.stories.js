@@ -29,7 +29,7 @@ export const DefaultMention = makeStory({
 DefaultMention.args = generateProps();
 
 export default {
-  title: 'base/mention',
+  title: 'base/links/mention',
   component: GlMention,
   parameters: {
     bootstrapComponent: 'b-link',

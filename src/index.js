@@ -19,7 +19,8 @@ export { default as GlFormCheckboxTree } from './components/base/form/form_check
 export { default as GlMarkdown } from './components/base/markdown/markdown.vue';
 export { default as GlNavbar } from './components/base/navbar/navbar.vue';
 export { default as GlIntersectionObserver } from './components/utilities/intersection_observer/intersection_observer.vue';
-export { default as GlLink } from './components/base/link/link.vue';
+export { default as GlLink } from './components/base/links/link/link.vue';
+export { default as GlMention } from './components/base/links/mention/mention.vue';
 export { default as GlIcon } from './components/base/icon/icon.vue';
 export { default as GlLoadingIcon } from './components/base/loading_icon/loading_icon.vue';
 export { default as GlModal } from './components/base/modal/modal.vue';

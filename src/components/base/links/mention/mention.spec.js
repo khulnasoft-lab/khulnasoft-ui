@@ -25,4 +25,12 @@ describe('mention component', () => {
       expect(wrapper.attributes('href')).toBe('#');
     });
   });
+
+  describe('href', () => {
+    it('should correctly pass down href to anchor', () => {
+      const href = 'https://www.gitlab.com';
+      createWrapper({ propsData: { href } });
+      expect(wrapper.attributes('href')).toBe(href);
+    });
+  });
 });

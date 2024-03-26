@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import Vue from 'vue';
-import GlLink from '../../components/base/link/link.vue';
+import GlLink from '../../components/base/links/link/link.vue';
 import { absoluteUrls, javascriptUrls, encodedJavaScriptUrls, relativeUrls } from './mock_data';
 import { SafeLinkDirective } from './safe_link';
 

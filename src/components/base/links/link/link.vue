@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BLink } from 'bootstrap-vue';
-import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
+import { SafeLinkMixin } from '../../../mixins/safe_link_mixin';
 
 export default {
   name: 'GlLink',

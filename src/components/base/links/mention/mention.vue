@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BLink } from 'bootstrap-vue';
+import { GlBaseLink } from '../base_link/base_link.vue';
 
 export default {
   name: 'GlMention',
   components: {
-    BLink,
+    GlBaseLink,
   },
   props: {
     isCurrentUser: {
@@ -17,14 +17,13 @@ export default {
 };
 </script>
 <template>
-  <b-link
+  <gl-base-link
     :class="[
       'gl-mention',
       { 'gl-mention-is-current-user': isCurrentUser },
     ]"
-    v-on="$listeners"
   >
     <!-- @slot The mention to display. -->
     <slot></slot>
-  </b-link>
+  </gl-base-link>
 </template>
