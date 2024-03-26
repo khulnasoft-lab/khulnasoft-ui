@@ -6,6 +6,12 @@ import {
 } from '../../../utils/charts/mock_data';
 import { toolbox } from '../../../utils/charts/story_config';
 import { columnOptions } from '../../../utils/constants';
+import {
+  DATA_VIZ_ORANGE_600,
+  DATA_VIZ_AQUA_500,
+  DATA_VIZ_GREEN_600,
+  DATA_VIZ_MAGENTA_500,
+} from '../../../../dist/tokens/js/tokens';
 import readme from './stacked_column.md';
 
 const template = `
@@ -21,6 +27,7 @@ const template = `
     :secondary-data="secondaryData"
     :secondary-data-title="secondaryDataTitle"
     :height="height"
+    :custom-palette="customPalette"
   />
 `;
 
@@ -38,6 +45,7 @@ const generateProps = ({
   secondaryData = [],
   secondaryDataTitle = '',
   height = null,
+  customPalette,
 } = {}) => ({
   bars,
   lines,
@@ -50,6 +58,7 @@ const generateProps = ({
   secondaryDataTitle,
   secondaryData,
   height,
+  customPalette,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -101,6 +110,11 @@ export const SecondaryYAxisLine = Template.bind({});
 SecondaryYAxisLine.args = generateProps({
   secondaryData: [{ ...mockSecondaryData[0], type: 'line' }],
   secondaryDataTitle: mockSecondaryDataTitle,
+});
+
+export const WithCustomColorPalette = Template.bind({});
+WithCustomColorPalette.args = generateProps({
+  customPalette: [DATA_VIZ_ORANGE_600, DATA_VIZ_AQUA_500, DATA_VIZ_GREEN_600, DATA_VIZ_MAGENTA_500],
 });
 
 export default {
