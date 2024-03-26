@@ -1,4 +1,4 @@
-import { targetOptions } from '../../../utils/constants';
+import { targetOptions } from '../../../../utils/constants';
 import GlLink from './link.vue';
 import readme from './link.md';
 
