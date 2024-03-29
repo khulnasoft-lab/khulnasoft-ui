@@ -64,14 +64,18 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
   }
 
   &.light {
-    --gl-broadcast-message-bg-color: #{$gray-300};
-    --gl-broadcast-message-border-color: #{$gray-500};
+    --gl-broadcast-message-bg-color: #{$gray-50};
+    --gl-broadcast-message-border-color: #{$gray-100};
   }
 
   &.banner {
     @include gl-text-contrast-light;
     background-color: var(--gl-broadcast-message-bg-color);
     box-shadow: inset 0 -#{$gl-border-size-1} 0 0 var(--gl-broadcast-message-border-color);
+
+    &.light {
+      @include gl-text-black-normal;
+    }
   }
 
   &.notification {
