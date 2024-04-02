@@ -41,6 +41,21 @@ export const MOCK_RESPONSE_MESSAGE = {
   timestamp: '2021-04-21T12:00:00.000Z',
 };
 
+export const generateSeparateChunks = (n) => {
+  const res = [];
+  for (let i = 1; i <= n; i += 1) {
+    res.push({
+      chunkId: i,
+      content: `chunk #${i}`,
+      role: MESSAGE_MODEL_ROLES.assistant,
+      requestId: '987',
+      errors: [],
+      timestamp: '2021-04-21T12:00:00.000Z',
+    });
+  }
+  return res;
+};
+
 export const MOCK_RESPONSE_MESSAGE_FOR_STREAMING = {
   id: '123',
   content: `To change your password in GitLab:
@@ -64,7 +79,6 @@ export const MOCK_RESPONSE_MESSAGE_FOR_STREAMING = {
   ~~~
   which is rendered while streaming.
   `,
-  contentHtml: '',
   role: 'assistant',
   extras: {},
   requestId: '987',
@@ -91,7 +105,7 @@ export async function* generateMockResponseChunks(requestId = 1) {
       ...MOCK_RESPONSE_MESSAGE_FOR_STREAMING,
       requestId,
       content: MOCK_RESPONSE_MESSAGE_FOR_STREAMING.content.substring(start, end),
-      chunkId,
+      chunkId: chunkId + 1,
     };
 
     // eslint-disable-next-line no-await-in-loop
@@ -108,8 +122,9 @@ export async function* generateMockResponseChunks(requestId = 1) {
 
 export const MOCK_USER_PROMPT_MESSAGE = {
   id: '456',
+  chunkId: null,
   content: 'How to create a new template?',
-  contentHtml: '',
+  contentHtml: '<p>How to create a new template?</p>',
   role: MESSAGE_MODEL_ROLES.user,
   requestId: '987',
   errors: [],

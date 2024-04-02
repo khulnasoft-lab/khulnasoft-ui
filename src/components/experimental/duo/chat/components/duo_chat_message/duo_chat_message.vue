@@ -8,6 +8,7 @@ import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_s
 // eslint-disable-next-line no-restricted-imports
 import { renderDuoChatMarkdownPreview } from '../../markdown_renderer';
 import { CopyCodeElement } from './copy_code_element';
+import { concatUntilEmpty } from './utils';
 
 export const i18n = {
   MODAL: {
@@ -19,16 +20,6 @@ export const i18n = {
     IMPROVE_WHAT: 'How could the response be improved?',
     BETTER_RESPONSE: 'How the response might better meet your needs.',
   },
-};
-
-const concatUntilEmpty = (arr) => {
-  if (!arr) return '';
-
-  let end = arr.findIndex((el) => !el);
-
-  if (end < 0) end = arr.length;
-
-  return arr.slice(0, end).join('');
 };
 
 export default {
@@ -80,9 +71,14 @@ export default {
     return {
       didWhat: '',
       improveWhat: '',
+      messageWatcher: null, // imperatively set up watcher on message
+      messageChunks: [],
     };
   },
   computed: {
+    isChunk() {
+      return typeof this.message.chunkId === 'number';
+    },
     isAssistantMessage() {
       return this.message.role.toLowerCase() === MESSAGE_MODEL_ROLES.assistant;
     },
@@ -95,7 +91,7 @@ export default {
     hasFeedback() {
       return this.message.extras?.hasFeedback;
     },
-    messageContent() {
+    defaultContent() {
       if (this.message.errors.length > 0)
         return this.renderMarkdown(this.message.errors.join('; '));
 
@@ -103,7 +99,13 @@ export default {
         return this.message.contentHtml;
       }
 
-      return this.renderMarkdown(this.message.content || concatUntilEmpty(this.message.chunks));
+      return this.renderMarkdown(this.message.content);
+    },
+    messageContent() {
+      if (this.isAssistantMessage && this.isChunk) {
+        return this.renderMarkdown(concatUntilEmpty(this.messageChunks));
+      }
+      return this.defaultContent || this.renderMarkdown(concatUntilEmpty(this.message.chunks));
     },
   },
   beforeCreate() {
@@ -112,15 +114,36 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(this.hydrateContentWithGFM);
+    if (this.isAssistantMessage) {
+      // The watcher has to be created imperatively here
+      // to give an opportunity to remove it after
+      // the complete message has arrived
+      this.messageWatcher = this.$watch('message', this.manageMessageUpdate);
+    }
+    this.setChunks();
+    this.hydrateContentWithGFM();
   },
   updated() {
-    this.$nextTick(this.hydrateContentWithGFM);
+    this.hydrateContentWithGFM();
   },
   methods: {
-    async hydrateContentWithGFM() {
-      if (this.message.contentHtml) {
-        this.renderGFM(this.$refs.content);
+    setChunks() {
+      if (this.isChunk) {
+        const { chunkId, content } = this.message;
+        this.$set(this.messageChunks, chunkId - 1, content);
+      } else {
+        this.messageChunks = [];
+      }
+    },
+    stopWatchingMessage() {
+      if (this.messageWatcher) {
+        this.messageWatcher(); // Stop watching the message prop
+        this.messageWatcher = null; // Ensure the watcher can't be stopped multiple times
+      }
+    },
+    hydrateContentWithGFM() {
+      if (!this.isChunk) {
+        this.$nextTick(this.renderGFM(this.$refs.content));
       }
     },
     logEvent(e) {
@@ -130,6 +153,12 @@ export default {
         improveWhat: this.improveWhat,
         message: this.message,
       });
+    },
+    manageMessageUpdate() {
+      this.setChunks();
+      if (!this.isChunk) {
+        this.stopWatchingMessage();
+      }
     },
   },
   i18n,
