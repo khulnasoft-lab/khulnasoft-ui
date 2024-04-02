@@ -1,3 +1,10 @@
+## [78.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.6.0...v78.6.1) (2024-04-02)
+
+
+### Bug Fixes
+
+* update light theme colors for text and background ([a566158](https://gitlab.com/gitlab-org/gitlab-ui/commit/a566158555cacf3c0fbe8802daef342b4d6eaa57))
+
 # [78.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.5.0...v78.6.0) (2024-03-25)
 
 
