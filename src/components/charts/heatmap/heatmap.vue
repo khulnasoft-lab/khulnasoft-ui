@@ -106,6 +106,11 @@ export default {
       required: false,
       default: null,
     },
+    showTooltip: {
+      type: Boolean,
+      default: true,
+      required: false,
+    },
   },
   data() {
     return {
@@ -258,7 +263,13 @@ export default {
       @created="onCreated"
       v-on="$listeners"
     />
-    <chart-tooltip v-if="chart" :chart="chart" :top="tooltip.top" :left="tooltip.left">
+    <chart-tooltip
+      v-if="chart"
+      :chart="chart"
+      :top="tooltip.top"
+      :left="tooltip.left"
+      :show="showTooltip"
+    >
       <template #title>
         <slot v-if="formatTooltipText" name="tooltip-title"></slot>
         <div v-else>{{ tooltip.title }}</div>

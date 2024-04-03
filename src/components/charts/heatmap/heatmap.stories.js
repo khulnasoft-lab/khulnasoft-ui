@@ -25,6 +25,7 @@ const template = `
       :y-axis-name="yAxisName"
       :options="options"
       :height="height"
+      :show-tooltip="showTooltip"
     />
 `;
 
@@ -36,6 +37,7 @@ const generateProps = ({
   yAxisName = 'Day',
   options = {},
   height = null,
+  showTooltip = true,
 } = {}) => ({
   data,
   xAxisLabels,
@@ -44,6 +46,7 @@ const generateProps = ({
   yAxisName,
   options,
   height,
+  showTooltip,
 });
 
 const Template = (args, { argTypes }) => ({
