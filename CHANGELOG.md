@@ -1,3 +1,10 @@
+# [78.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.6.1...v78.7.0) (2024-04-03)
+
+
+### Features
+
+* **BaseDropdown:** Adds "right-start" placement ([c1c82d6](https://gitlab.com/gitlab-org/gitlab-ui/commit/c1c82d651dc1327e2f6d1404fa14b4509a4e80fa))
+
 ## [78.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.6.0...v78.6.1) (2024-04-02)
 
 
