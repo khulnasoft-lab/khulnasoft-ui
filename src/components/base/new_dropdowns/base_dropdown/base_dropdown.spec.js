@@ -162,6 +162,27 @@ describe('base dropdown', () => {
         );
       });
 
+      it('initializes Floating UI with reference and floating elements and config for `right-start` aligned menu', async () => {
+        buildWrapper({ placement: 'right-start' });
+        await findDefaultDropdownToggle().trigger('click');
+
+        expect(computePosition).toHaveBeenCalledWith(
+          findDefaultDropdownToggle().element,
+          findDropdownMenu().element,
+          {
+            placement: 'right-start',
+            strategy: 'absolute',
+            middleware: [
+              offset({ mainAxis: DEFAULT_OFFSET }),
+              autoPlacement({
+                alignment: 'start',
+                allowedPlacements: ['right-start', 'right-end', 'left-start', 'left-end'],
+              }),
+            ],
+          }
+        );
+      });
+
       it("passes custom offset to Floating UI's middleware", async () => {
         const customOffset = { mainAxis: 10, crossAxis: 40 };
         buildWrapper({

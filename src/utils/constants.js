@@ -146,6 +146,7 @@ export const dropdownVariantOptions = {
 };
 
 export const dropdownPlacements = {
+  'right-start': 'right-start',
   left: 'bottom-start',
   center: 'bottom',
   right: 'bottom-end',
@@ -159,6 +160,7 @@ const dropdownAnyCornerPlacement = [
 ];
 
 export const dropdownAllowedAutoPlacements = {
+  'right-start': ['right-start', 'right-end', 'left-start', 'left-end'],
   left: dropdownAnyCornerPlacement,
   center: [dropdownPlacements.center, 'top'],
   right: dropdownAnyCornerPlacement,
