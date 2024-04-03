@@ -216,6 +216,18 @@ describe('GlCollapsibleListbox', () => {
         expect(wrapper.emitted('select')[0][0]).toEqual(mockGroups[0].options[0].value);
       });
     });
+
+    it('exposes item interactions as a custom event alias', async () => {
+      buildWrapper({ items: mockOptions });
+
+      findListboxItems().at(0).vm.$emit('select', true);
+      await nextTick();
+
+      expect(wrapper.emitted('item-toggle')[0][0]).toEqual({
+        item: mockOptions[0].value,
+        selected: true,
+      });
+    });
   });
 
   describe('onShow', () => {

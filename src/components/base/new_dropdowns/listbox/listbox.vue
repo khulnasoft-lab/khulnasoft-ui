@@ -657,6 +657,15 @@ export default {
          */
         this.$emit('select', value);
       }
+      /**
+       * Emitted when a list item is toggled
+       *
+       * @event item-toggle
+       * @type {object}
+       * @property {string} item - Which item was selected/toggled.
+       * @property {boolean} selected - The new checked state of the item.
+       */
+      this.$emit('item-toggle', { item: value, selected: isSelected });
 
       this.closeAndFocus();
     },
@@ -669,6 +678,7 @@ export default {
           this.selectedValues.filter((selectedValue) => selectedValue !== value)
         );
       }
+      this.$emit('item-toggle', { item: value, selected: isSelected });
     },
     search(searchTerm) {
       /**
