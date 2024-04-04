@@ -1,3 +1,10 @@
+## [78.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.8.0...v78.8.1) (2024-04-04)
+
+
+### Bug Fixes
+
+* Vertical alignment of Duo loader ([b8cc06b](https://gitlab.com/gitlab-org/gitlab-ui/commit/b8cc06b77d15379a15a53269131115de540980d6))
+
 # [78.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.7.0...v78.8.0) (2024-04-04)
 
 
