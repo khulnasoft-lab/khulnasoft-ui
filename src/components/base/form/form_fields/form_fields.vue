@@ -99,22 +99,39 @@ export default {
       return mapValues(this.fields, (field, fieldName) => {
         const id = uniqueId('gl-form-field-');
 
-        const scopedSlotName = `input(${fieldName})`;
-        const hasScopedSlot = this.$scopedSlots[scopedSlotName];
-        const scopedSlotAttrs = hasScopedSlot && {
-          value: this.fieldValues[fieldName],
-          input: (val) => this.onFieldInput(fieldName, val),
-          blur: () => this.onFieldBlur(fieldName),
-          validation: this.fieldValidationProps[fieldName],
-          id,
+        const inputSlotName = `input(${fieldName})`;
+        const groupPassthroughSlotName = `group(${fieldName})-`;
+        const afterSlotName = `after(${fieldName})`;
+
+        const inputSlot = {
+          slotName: inputSlotName,
+          attrs: {
+            value: this.fieldValues[fieldName],
+            input: (val) => this.onFieldInput(fieldName, val),
+            blur: () => this.onFieldBlur(fieldName),
+            validation: this.fieldValidationProps[fieldName],
+            id,
+          },
         };
+
+        const groupPassthroughSlots = Object.keys(this.$scopedSlots)
+          .filter((slotName) => slotName.startsWith(groupPassthroughSlotName))
+          .map((slotName) => {
+            const childSlotName = slotName.replace(groupPassthroughSlotName, '');
+
+            return {
+              slotName,
+              childSlotName,
+            };
+          });
 
         return {
           ...field,
           id,
           label: field.label || fieldName,
-          scopedSlotName,
-          scopedSlotAttrs,
+          inputSlot,
+          groupPassthroughSlots,
+          afterSlotName,
         };
       });
     },
@@ -198,35 +215,43 @@ export default {
 
 <template>
   <div>
-    <gl-form-group
-      v-for="(field, fieldName) in fieldsToRender"
-      v-bind="field.groupAttrs"
-      :key="fieldName"
-      :label="field.label"
-      :label-for="field.id"
-      :invalid-feedback="fieldValidationProps[fieldName].invalidFeedback"
-      :state="fieldValidationProps[fieldName].state"
-    >
-      <gl-form-field-validator
-        :value="fieldValues[fieldName]"
-        :validators="field.validators"
-        :should-validate="fieldDirtyStatuses[fieldName]"
-        @update="onFieldValidationUpdate(fieldName, $event)"
-      />
-      <template v-if="field.scopedSlotAttrs">
-        <!-- @slot scoped slot that can be used for components other than `GlFormInput`. The name of the slot is `input(<fieldName>)`. -->
-        <slot :name="field.scopedSlotName" v-bind="field.scopedSlotAttrs"></slot>
-      </template>
-      <template v-else>
-        <gl-form-input
-          :id="field.id"
+    <template v-for="(field, fieldName) in fieldsToRender">
+      <!-- eslint-disable-next-line vue/valid-v-for -->
+      <gl-form-group
+        v-bind="field.groupAttrs"
+        :label="field.label"
+        :label-for="field.id"
+        :invalid-feedback="fieldValidationProps[fieldName].invalidFeedback"
+        :state="fieldValidationProps[fieldName].state"
+      >
+        <gl-form-field-validator
           :value="fieldValues[fieldName]"
-          :state="fieldValidationProps[fieldName].state"
-          v-bind="field.inputAttrs"
-          @input="onFieldInput(fieldName, $event)"
-          @blur="onFieldBlur(fieldName)"
+          :validators="field.validators"
+          :should-validate="fieldDirtyStatuses[fieldName]"
+          @update="onFieldValidationUpdate(fieldName, $event)"
         />
-      </template>
-    </gl-form-group>
+
+        <template
+          v-for="{ slotName, childSlotName } in field.groupPassthroughSlots"
+          #[childSlotName]
+        >
+          <!-- @slot Can be used to pass slots to `GlFormGroup`. -->
+          <slot :name="slotName"></slot>
+        </template>
+        <!-- @slot Scoped slot that can be used for components other than `GlFormInput`. The name of the slot is `input(<fieldName>)`. -->
+        <slot :name="field.inputSlot.slotName" v-bind="field.inputSlot.attrs">
+          <gl-form-input
+            :id="field.id"
+            :value="fieldValues[fieldName]"
+            :state="fieldValidationProps[fieldName].state"
+            v-bind="field.inputAttrs"
+            @input="onFieldInput(fieldName, $event)"
+            @blur="onFieldBlur(fieldName)"
+          />
+        </slot>
+      </gl-form-group>
+      <!-- @slot Can be used to add content the form group of a field. The name of the slot is `after(<fieldName>)`.-->
+      <slot :name="field.afterSlotName"></slot>
+    </template>
   </div>
 </template>
