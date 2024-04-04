@@ -93,9 +93,17 @@ secret_detection:
 # Only start pipelines on Merge Requests or the default branch
 workflow:
   rules:
+    # Commits on default branch
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
       when: always
+      variables:
+        PAGES_ENV_NAME: "pages"
+        PAGES_PREFIX: "" # no prefix
+    # MR-Pipelines
     - if: $CI_MERGE_REQUEST_IID
+      variables:
+        PAGES_ENV_NAME: "review/mr-$CI_MERGE_REQUEST_IID"
+        PAGES_PREFIX: '${CI_ENVIRONMENT_SLUG}'
       when: always
     - when: never
 
@@ -277,48 +285,23 @@ update_screenshots:
     - yarn test:visual:update
     - ./bin/update-screenshots.sh
 
-review:
+pages:
   extends:
+    - .rules:gitlab-ui-default-branch
     - .rules:gitlab-ui-mr
   stage: deploy
   needs:
     - build_storybook
-  script:
-    - rsync -av --delete public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
-  environment:
-    name: review/$CI_COMMIT_REF_SLUG
-    url: http://$CI_COMMIT_REF_SLUG.$APPS_DOMAIN
-    on_stop: review_stop
-  tags:
-    - nginx
-    - review-apps
-    - deploy
-
-review_stop:
-  extends:
-    - .rules:gitlab-ui-mr-manual
-  stage: manual
-  needs:
-    - review
-  script:
-    - rm -rf public /srv/nginx/pages/$CI_COMMIT_REF_SLUG
-  environment:
-    name: review/$CI_COMMIT_REF_SLUG
-    action: stop
-  tags:
-    - nginx
-    - review-apps
-    - deploy
-
-pages:
-  extends:
-    - .rules:gitlab-ui-default-branch
-  stage: deploy
-  needs:
-    - build_storybook
     - build_storybook_vue3
+  pages:
+    path_prefix: "${PAGES_PREFIX}"
   script:
     - echo "Deploying to Pages"
+    - echo "Pages accessible through ${CI_ENVIRONMENT_URL}"
+  environment:
+    name: "${PAGES_ENV_NAME}"
+    url: "${CI_PAGES_URL}/${PAGES_PREFIX}"
+  publish: public
   artifacts:
     paths:
       - public
