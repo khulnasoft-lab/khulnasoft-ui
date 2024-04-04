@@ -12,10 +12,12 @@ const DummyComponent = {
 
 describe('FeedbackModal', () => {
   let wrapper;
+  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
   const findModal = () => wrapper.findComponent(GlModal);
-  const findOptions = () => wrapper.findComponent('[data-testid="feedback-options"]');
+  const findOptions = () => findByTestId('feedback-options');
   const findOptionsCheckboxes = () => findOptions().findAllComponents(GlFormCheckbox);
   const findTextarea = () => wrapper.findComponent(GlFormTextarea);
+
   const selectOption = (index = 0) => {
     wrapper
       .findAllComponents(GlFormCheckboxGroup)
@@ -31,6 +33,9 @@ describe('FeedbackModal', () => {
       },
       provide: options.injections,
     });
+
+    wrapper.vm.close = jest.fn();
+    return wrapper;
   };
 
   describe('inputs', () => {
@@ -56,7 +61,7 @@ describe('FeedbackModal', () => {
       createComponent();
     });
 
-    it('emits the feedback event when the submit button is clicked', () => {
+    it('emits the feedback event when the submit button is clicked and closes the modal', () => {
       selectOption();
       findModal().vm.$emit('primary');
       expect(wrapper.emitted('feedback-submitted')).toEqual([
@@ -67,9 +72,20 @@ describe('FeedbackModal', () => {
           },
         ],
       ]);
+
+      expect(wrapper.vm.close).toHaveBeenCalledTimes(1);
     });
-    it('does not emit event if there is no option selected', () => {
+
+    it('does not render validation error by default', () => {
+      expect(findOptions().vm.$attrs.state).not.toBe(false);
+    });
+
+    it('renders validation error when submit was triggered without selected a required option', async () => {
       findModal().vm.$emit('primary');
+      await wrapper.vm.$nextTick();
+
+      expect(findOptions().vm.$attrs.state).toBe(false);
+      expect(findOptions().vm.$attrs['invalid-feedback']).toBe('Select at least one option.');
       expect(wrapper.emitted('feedback-submitted')).toBeUndefined();
     });
   });
