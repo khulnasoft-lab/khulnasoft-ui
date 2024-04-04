@@ -61,13 +61,13 @@ export default {
 </script>
 
 <template>
-  <div class="duo-chat-loader">
-    <div class="gl-display-flex gl-align-items-flex-start gl-mr-3 gl-pt-3">
+  <div class="duo-chat-loader gl-display-flex gl-align-items-center">
+    <div class="gl-display-flex gl-mr-3">
       <div class="duo-chat-loader__dot duo-chat-loader__dot--1"></div>
       <div class="duo-chat-loader__dot duo-chat-loader__dot--2"></div>
       <div class="duo-chat-loader__dot duo-chat-loader__dot--3"></div>
     </div>
-    <div class="gl-line-height-24">
+    <div>
       <gl-sprintf :message="$options.i18n.LOADER_LOADING_MESSAGE">
         <template #tool>
           <strong data-testid="tool">{{ toolName }}</strong>
