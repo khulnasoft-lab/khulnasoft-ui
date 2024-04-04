@@ -144,7 +144,7 @@ export default {
       :selected="sortBy"
       :toggle-class="dropdownToggleClass"
       :class="dropdownClass"
-      placement="right"
+      placement="bottom-end"
       :block="block"
       @select="onSortByChanged"
     />

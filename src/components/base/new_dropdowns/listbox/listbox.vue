@@ -180,7 +180,7 @@ export default {
     placement: {
       type: String,
       required: false,
-      default: 'left',
+      default: 'bottom-start',
       validator: (value) => Object.keys(dropdownPlacements).includes(value),
     },
     /**

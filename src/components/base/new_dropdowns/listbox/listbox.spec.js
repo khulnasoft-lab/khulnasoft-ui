@@ -68,6 +68,12 @@ describe('GlCollapsibleListbox', () => {
     expect(findBaseDropdown().props('offset')).toEqual(dropdownOffset);
   });
 
+  it('passes custom placement to the base dropdown', () => {
+    buildWrapper({ placement: 'bottom-end' });
+
+    expect(findBaseDropdown().props('placement')).toEqual('bottom-end');
+  });
+
   describe('toggle text', () => {
     describe.each`
       toggleText          | multiple | selected                  | expectedToggleText

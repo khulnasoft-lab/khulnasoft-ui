@@ -99,8 +99,17 @@ export default {
     placement: {
       type: String,
       required: false,
-      default: 'left',
-      validator: (value) => Object.keys(dropdownPlacements).includes(value),
+      default: 'bottom-start',
+      validator: (value) => {
+        if (['left', 'center', 'right'].includes(value)) {
+          logWarning(
+            `GlDisclosureDropdown/GlCollapsibleListbox: "${value}" placement is deprecated.
+            Use ${dropdownPlacements[value]} instead.`
+          );
+        }
+
+        return Object.keys(dropdownPlacements).includes(value);
+      },
     },
     // ARIA props
     ariaHaspopup: {

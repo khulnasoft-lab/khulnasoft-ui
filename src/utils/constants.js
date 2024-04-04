@@ -147,23 +147,27 @@ export const dropdownVariantOptions = {
 
 export const dropdownPlacements = {
   'right-start': 'right-start',
-  left: 'bottom-start',
-  center: 'bottom',
-  right: 'bottom-end',
+  'bottom-start': 'bottom-start',
+  'bottom-end': 'bottom-end',
+  bottom: 'bottom',
+
+  left: 'bottom-start', // deprecated, should be replaced with "bottom-start"
+  center: 'bottom', // deprecated, should be replaced with "bottom"
+  right: 'bottom-end', // deprecated, should be replaced with "bottom-end"
 };
 
-const dropdownAnyCornerPlacement = [
-  dropdownPlacements.left,
-  'top-start',
-  dropdownPlacements.right,
-  'top-end',
-];
+const dropdownHorizontalCornerPlacement = ['right-start', 'right-end', 'left-start', 'left-end'];
+const dropdownVerticalCornerPlacement = ['bottom-start', 'top-start', 'bottom-end', 'top-end'];
 
 export const dropdownAllowedAutoPlacements = {
-  'right-start': ['right-start', 'right-end', 'left-start', 'left-end'],
-  left: dropdownAnyCornerPlacement,
-  center: [dropdownPlacements.center, 'top'],
-  right: dropdownAnyCornerPlacement,
+  'right-start': dropdownHorizontalCornerPlacement,
+  'bottom-start': dropdownVerticalCornerPlacement,
+  'bottom-end': dropdownVerticalCornerPlacement,
+  bottom: ['bottom', 'top'],
+
+  left: dropdownVerticalCornerPlacement, // deprecated, should be replaced with "bottom-start"
+  center: ['bottom', 'top'], // deprecated, should be replaced with "bottom"
+  right: dropdownVerticalCornerPlacement, // deprecated, should be replaced with "bottom-end"
 };
 
 export const buttonSizeOptions = {
