@@ -1,7 +1,7 @@
 import cloneDeep from 'lodash/cloneDeep';
 import mapValues from 'lodash/mapValues';
 import { nextTick } from 'vue';
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import GlFormGroup from '../form_group/form_group.vue';
 import GlInput from '../form_input/form_input.vue';
 import GlFormFields from './form_fields.vue';
@@ -43,11 +43,11 @@ describe('GlFormFields', () => {
   let wrapper;
 
   // region: factory --------------------------------------------------
-  const createComponent = (props = {}, options = {}) => {
+  const createComponent = (props = {}, options = {}, mountFn = shallowMount) => {
     // why: Clone the constant so Vue doesn't turn it reactive
     const fields = cloneDeep(TEST_FIELDS);
 
-    wrapper = shallowMount(GlFormFields, {
+    wrapper = mountFn(GlFormFields, {
       propsData: {
         fields,
         values: {},
@@ -56,6 +56,7 @@ describe('GlFormFields', () => {
       },
       stubs: {
         GlFormFieldValidator,
+        ...options.stubs,
       },
       ...options,
     });
@@ -81,7 +82,7 @@ describe('GlFormFields', () => {
   // eslint-disable-next-line unicorn/no-array-callback-reference
   const findFormGroupsAsData = () => findFormGroups().map(mapFormGroupToData);
   const findFormGroupFromLabel = (label) =>
-    wrapper.findAllComponents(GlFormGroup).wrappers.find((x) => x.attributes('label') === label);
+    wrapper.findAllComponents(GlFormGroup).wrappers.find((x) => x.vm.$attrs.label === label);
   const findInputFromLabel = (label) => findFormGroupFromLabel(label).findComponent(GlInput);
   const findCustomInputFromLabel = (label) =>
     findFormGroupFromLabel(label).find('[data-testid="test-custom-input"]');
@@ -363,7 +364,7 @@ describe('GlFormFields', () => {
     });
   });
 
-  describe('with scoped slot', () => {
+  describe('with input scoped slot', () => {
     beforeEach(() => {
       createComponent(
         {
@@ -412,6 +413,86 @@ describe('GlFormFields', () => {
 
     it('passes down "value"', () => {
       expect(findCustomInputFromLabel(TEST_FIELDS.evenCount.label).text()).toEqual('5');
+    });
+  });
+
+  describe('with form group scoped slots', () => {
+    it('renders description slot', () => {
+      createComponent(
+        {},
+        {
+          scopedSlots: {
+            'group(username)-description': '<div data-testid="group-description-slot"></div>',
+          },
+        },
+        mount
+      );
+
+      expect(
+        findFormGroupFromLabel(TEST_FIELDS.username.label)
+          .find('[data-testid="group-description-slot"]')
+          .exists()
+      ).toBe(true);
+    });
+
+    it('renders label slot', () => {
+      createComponent(
+        {},
+        {
+          scopedSlots: {
+            'group(username)-label': `<div data-testid="group-label-slot">${TEST_FIELDS.username.label}</div>`,
+          },
+        },
+        mount
+      );
+
+      expect(
+        wrapper
+          .findAllComponents(GlFormGroup)
+          .wrappers.find((x) => x.text().includes(TEST_FIELDS.username.label))
+          .find('[data-testid="group-label-slot"]')
+          .exists()
+      ).toBe(true);
+    });
+
+    it('renders label description slot', () => {
+      createComponent(
+        {},
+        {
+          scopedSlots: {
+            'group(username)-label-description':
+              '<div data-testid="group-label-description-slot"></div>',
+          },
+        },
+        mount
+      );
+
+      expect(
+        findFormGroupFromLabel(TEST_FIELDS.username.label)
+          .find('[data-testid="group-label-description-slot"]')
+          .exists()
+      ).toBe(true);
+    });
+  });
+
+  describe('with after slot', () => {
+    beforeEach(() => {
+      createComponent(
+        {},
+        {
+          scopedSlots: {
+            'after(username)': '<div data-testid="after-slot"></div>',
+          },
+        }
+      );
+    });
+
+    it('renders after slot', () => {
+      expect(
+        findFormGroupFromLabel(TEST_FIELDS.username.label).element.nextElementSibling.getAttribute(
+          'data-testid'
+        )
+      ).toBe('after-slot');
     });
   });
 

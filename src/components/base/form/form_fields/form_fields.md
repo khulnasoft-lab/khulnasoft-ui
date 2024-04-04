@@ -29,3 +29,13 @@ interface FieldDefinition<TValue> {
   groupAttrs?: {};
 }
 ```
+
+## Slots
+
+| Name | Description |
+| ------ | ------ |
+| `input(<fieldName>)` | Used to render components other than `GlFormInput`. |
+| `group(<fieldName>)-label` | Used for `label` slot on `GlFormGroup` of a specific field. |
+| `group(<fieldName>)-description` | Used for `description` slot on `GlFormGroup` of a specific field. |
+| `group(<fieldName>)-label-description` | Used for `label-description` slot on `GlFormGroup` of a specific field. |
+| `after(<fieldName>)` | Used to render content after `GlFormGroup` of a specific field. |

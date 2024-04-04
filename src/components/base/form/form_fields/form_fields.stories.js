@@ -2,7 +2,9 @@ import uniqueId from 'lodash/uniqueId';
 import omit from 'lodash/omit';
 import GlModal from '../../modal/modal.vue';
 import GlButton from '../../button/button.vue';
+import GlAlert from '../../alert/alert.vue';
 import GlListbox from '../../new_dropdowns/listbox/listbox.vue';
+import GlIcon from '../../icon/icon.vue';
 import { setStoryTimeout } from '../../../../utils/test_utils';
 import GlFormFields from './form_fields.vue';
 import readme from './form_fields.md';
@@ -11,7 +13,7 @@ import { mapToNumber } from './mappers';
 
 const Template = () => ({
   ITEMS: ['Pizza', 'Keyboards', 'Guitars', 'Rocket ships'].map((text) => ({ text, value: text })),
-  components: { GlFormFields, GlButton, GlModal, GlListbox },
+  components: { GlFormFields, GlButton, GlModal, GlListbox, GlAlert, GlIcon },
   data() {
     return {
       // why: We declare fields here so that we can test what binding the
@@ -62,6 +64,13 @@ const Template = () => ({
       // JSON doesn't allow undefined values
       return JSON.stringify(this.values, (key, value) => (value === undefined ? null : value), 2);
     },
+    favoriteItemToggleText() {
+      if (!this.formValues.favoriteItem) {
+        return 'Select an item';
+      }
+
+      return null;
+    },
   },
   methods: {
     onInputField({ name }) {
@@ -93,11 +102,26 @@ const Template = () => ({
       <h3>Fields</h3>
       <form :id="testFormId" @submit.prevent>
         <gl-form-fields :fields="fields" v-model="formValues" :form-id="testFormId" :server-validations="serverValidations" @input-field="onInputField" @submit="onSubmit">
+          <template #group(confirmPassword)-label>
+            <div class="gl-display-flex gl-align-items-center gl-column-gap-3">
+              <span>Confirm Password</span>
+              <gl-icon name="information-o" />
+            </div>
+          </template>
+          <template #group(confirmPassword)-description>
+            Description using <code>group(confirmPassword)-description</code> slot
+          </template>
+          <template #after(confirmPassword)>
+            <gl-alert class="gl-mb-5" :dismissible="false">Custom content using <code>after(confirmPassword)</code> slot</gl-alert>
+          </template>
           <template #input(custom)="{ id, value, input, blur }">
             <button :id="id" @click="input(value + 1)" @blur="blur" type="button">{{value}}</button>
           </template>
           <template #input(favoriteItem)="{ id, value, input, blur }">
-            <gl-listbox :id="id" :items="$options.ITEMS" :selected="value" @select="input" @hidden="blur" />
+            <gl-listbox :id="id" :items="$options.ITEMS" :selected="value" :toggle-text="favoriteItemToggleText" @select="input" @hidden="blur" />
+          </template>
+          <template #group(favoriteItem)-label-description>
+            Label description using <code>group(favoriteItem)-label-description</code> slot
           </template>
         </gl-form-fields>
         <gl-button type="submit" category="primary" :loading="loading">Submit</gl-button>
