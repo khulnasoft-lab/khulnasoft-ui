@@ -1,3 +1,10 @@
+# [78.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.7.0...v78.8.0) (2024-04-04)
+
+
+### Features
+
+* **GlFormFields:** add support for additional slots ([6ff8a22](https://gitlab.com/gitlab-org/gitlab-ui/commit/6ff8a22adbbfa0df280482cf9681f7b751f11e43))
+
 # [78.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.6.1...v78.7.0) (2024-04-03)
 
 
