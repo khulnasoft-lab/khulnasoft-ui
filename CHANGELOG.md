@@ -1,3 +1,10 @@
+# [78.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.8.1...v78.9.0) (2024-04-04)
+
+
+### Features
+
+* **DuoChat:** add mandatory field indicator on DuoChat Feedback Modal ([df7d4a5](https://gitlab.com/gitlab-org/gitlab-ui/commit/df7d4a55e799695c9d972ba029758136c0892990))
+
 ## [78.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.8.0...v78.8.1) (2024-04-04)
 
 
