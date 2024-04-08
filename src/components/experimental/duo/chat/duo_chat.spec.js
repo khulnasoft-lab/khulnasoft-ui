@@ -357,6 +357,7 @@ describe('GlDuoChat', () => {
             { ...MOCK_RESPONSE_MESSAGE, content: undefined, chunks: [''] },
           ],
         ],
+        [[{ ...MOCK_RESPONSE_MESSAGE, chunkId: 1 }]],
       ])('prevents submission when streaming (messages = "%o")', (msgs = []) => {
         createComponent({
           propsData: { isChatAvailable: true, messages: msgs },

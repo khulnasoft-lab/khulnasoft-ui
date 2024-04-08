@@ -225,7 +225,10 @@ export default {
       return this.isLoading || this.isStreaming;
     },
     isStreaming() {
-      return Boolean(this.lastMessage?.chunks?.length > 0 && !this.lastMessage?.content);
+      return Boolean(
+        (this.lastMessage?.chunks?.length > 0 && !this.lastMessage?.content) ||
+          typeof this.lastMessage?.chunkId === 'number'
+      );
     },
     filteredSlashCommands() {
       const caseInsensitivePrompt = this.prompt.toLowerCase();

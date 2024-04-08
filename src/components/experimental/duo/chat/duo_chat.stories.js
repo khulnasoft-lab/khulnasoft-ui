@@ -125,45 +125,28 @@ export const Interactive = (args, { argTypes }) => ({
     async mockResponseFromAi() {
       const generator = generateMockResponseChunks(this.requestId);
 
-      for await (const result of generator) {
-        const { chunkId, content, ...messageAttributes } = result;
+      for await (const newResponse of generator) {
         const existingMessageIndex = this.msgs.findIndex(
-          (msg) => msg.requestId === result.requestId && msg.role === result.role
+          (msg) => msg.requestId === newResponse.requestId && msg.role === newResponse.role
         );
-
-        if (existingMessageIndex === -1) {
-          this.addNewMessage(messageAttributes, content);
+        const existingMessage = this.msgs[existingMessageIndex];
+        if (existingMessage) {
+          this.updateExistingMessage(newResponse, existingMessageIndex);
         } else {
-          this.updateExistingMessage(existingMessageIndex, content, chunkId);
+          this.addNewMessage(newResponse);
         }
       }
     },
-    addNewMessage(messageAttributes, content) {
+    addNewMessage(msg) {
       this.promptInFlight = false;
-      this.$set(this.msgs, this.msgs.length, {
-        ...messageAttributes,
-        chunks: [content],
-      });
+      this.$set(this.msgs, this.msgs.length, msg);
     },
-    updateExistingMessage(index, content, chunkId) {
-      const message = this.msgs[index];
-
-      if (chunkId != null) {
-        // Ensure the chunks array exists
-        if (!message.chunks) {
-          this.$set(message, 'chunks', []);
-        } else {
-          this.$set(message.chunks, chunkId, content);
-        }
-      } else {
-        // Update for final message
-        this.$set(message, 'content', content);
-
-        // Remove chunks if they are not needed anymore
-        if (message.chunks) {
-          this.$delete(message, 'chunks');
-        }
-      }
+    updateExistingMessage(newResponse, existingMessageIndex) {
+      const existingMessage = this.msgs[existingMessageIndex];
+      this.$set(this.msgs, existingMessageIndex, {
+        ...existingMessage,
+        ...newResponse,
+      });
     },
   },
   template: `
