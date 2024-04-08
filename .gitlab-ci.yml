@@ -60,7 +60,7 @@ secret_detection:
   image: mcr.microsoft.com/playwright:v1.40.0-jammy
 
 .node:
-  image: node:20.12.0-buster
+  image: node:20.12.1-buster
 
 .use_vue3:
   variables:
