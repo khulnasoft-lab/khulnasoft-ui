@@ -1,3 +1,11 @@
+# [78.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.9.0...v78.10.0) (2024-04-08)
+
+
+### Features
+
+* **GlDuoChat:** detect streaming based on chunkId ([6cdfe5c](https://gitlab.com/gitlab-org/gitlab-ui/commit/6cdfe5cd823ed0e832a5ec51870421ff4c532dbc))
+* **GlDuoChatMessage:** Handle streaming in the component ([082ab86](https://gitlab.com/gitlab-org/gitlab-ui/commit/082ab867597972bb18ba5287ac69126f38e17619))
+
 # [78.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.8.1...v78.9.0) (2024-04-04)
 
 
