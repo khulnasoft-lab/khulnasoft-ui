@@ -17,7 +17,7 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   &:focus-within {
-    @include gl-focus($color: var(--label-background-color), $important: true);
+    @include gl-focus($color: var(--label-background-color, $white), $important: true);
   }
 
   .gl-label-link {
