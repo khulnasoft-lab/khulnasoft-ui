@@ -1,3 +1,10 @@
+## [78.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.10.0...v78.10.1) (2024-04-09)
+
+
+### Bug Fixes
+
+* **GlLabel:** Add fallback value to focus ring CSS variable ([2f3c184](https://gitlab.com/gitlab-org/gitlab-ui/commit/2f3c184818c3c16cd825558ea69b92adfa90d640))
+
 # [78.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.9.0...v78.10.0) (2024-04-08)
 
 
