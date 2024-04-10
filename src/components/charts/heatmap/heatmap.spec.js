@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
+import { nextTick } from 'vue';
 import { createMockChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
@@ -73,6 +74,22 @@ describe('heatmap component', () => {
         expect(findChartTooltip().props('left')).toBe(`${pixel[0]}px`);
         expect(findChartTooltip().props('top')).toBe(`${pixel[1]}px`);
       });
+    });
+  });
+
+  describe('showTooltip', () => {
+    it('is true by default', async () => {
+      createComponent();
+      await nextTick();
+
+      expect(findChartTooltip().props('show')).toBe(true);
+    });
+
+    it('sets show prop on the tooltip component', async () => {
+      createComponent({ showTooltip: false });
+      await nextTick();
+
+      expect(findChartTooltip().props('show')).toBe(false);
     });
   });
 
