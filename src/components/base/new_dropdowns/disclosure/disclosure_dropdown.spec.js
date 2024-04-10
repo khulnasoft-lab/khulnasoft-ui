@@ -71,6 +71,12 @@ describe('GlDisclosureDropdown', () => {
     });
   });
 
+  it('passes custom placement to the base dropdown', () => {
+    buildWrapper({ placement: 'bottom-end' });
+
+    expect(findBaseDropdown().props('placement')).toEqual('bottom-end');
+  });
+
   describe('custom toggle id', () => {
     it('should pass toggle id to the base dropdown', () => {
       const toggleId = 'custom-toggle';

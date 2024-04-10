@@ -172,7 +172,6 @@ export default {
           icon="ellipsis_h"
           size="small"
           style="height: 16px"
-          placement="left"
         />
       </li>
 
