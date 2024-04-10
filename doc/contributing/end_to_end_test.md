@@ -13,7 +13,13 @@ a corresponding axe accessibility check should be added.
 
 ## Running Cypress tests
 
-Tests can be run locally with the following command, which opens the cypress dashboard:
+Tests can be run locally by starting Storybook
+on `http://localhost:9001` and opening the Cypress dashboard.  
+This can be done by running the following commands in separate shells:
+
+```shell
+yarn storybook
+```
 
 ```shell
 yarn run cypress open
