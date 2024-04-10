@@ -5,19 +5,21 @@ describe('GlFormCheckbox', () => {
 
   function checkA11yDefaultState(i) {
     const checkboxClass = 'input.custom-control-input';
+    const checkboxLabelClass = 'label.custom-control-label';
 
     cy.get(checkboxClass).eq(i).focus();
     cy.get(checkboxClass).eq(i).should('be.not.checked');
-    cy.get(checkboxClass).eq(i).check({ force: true });
+    cy.get(checkboxLabelClass).eq(i).click();
     cy.get(checkboxClass).eq(i).should('be.checked');
   }
 
   function checkA11yCheckedState() {
     const checkedOption = 'input[value="checked-option"]';
+    const checkedOptionLabel = 'input[value="checked-option"] + label';
 
     cy.get(checkedOption).should('be.checked');
     cy.get(checkedOption).focus();
-    cy.get(checkedOption).uncheck({ force: true });
+    cy.get(checkedOptionLabel).click();
     cy.get(checkedOption).should('be.not.checked');
   }
 
