@@ -48,6 +48,14 @@ export default {
       required: false,
       default: () => translate('GlBreadcrumb.showMoreLabel', 'Show more breadcrumbs'),
     },
+    /**
+     * Allows to disable auto-resize behavior. Items will then overflow their container instead of being collapsed into a dropdown.
+     */
+    autoResize: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -94,11 +102,17 @@ export default {
     this.debounceMakeBreadcrumbsFit = debounce(this.makeBreadcrumbsFit, 25);
   },
   mounted() {
-    window.addEventListener('resize', this.debounceMakeBreadcrumbsFit);
-    this.measureAndMakeBreadcrumbsFit();
+    if (this.autoResize) {
+      window.addEventListener('resize', this.debounceMakeBreadcrumbsFit);
+      this.measureAndMakeBreadcrumbsFit();
+    } else {
+      this.resizeDone = true;
+    }
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.debounceMakeBreadcrumbsFit);
+    if (this.autoResize) {
+      window.removeEventListener('resize', this.debounceMakeBreadcrumbsFit);
+    }
   },
   methods: {
     resetItems() {

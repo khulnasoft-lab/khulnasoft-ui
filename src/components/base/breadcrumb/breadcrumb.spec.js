@@ -43,21 +43,24 @@ describe('Breadcrumb component', () => {
     });
   };
 
-  const mockWrapperWidth = (widthInPx) => {
-    wrapper.element.style.width = `${widthInPx}px`;
-
-    Object.defineProperty(wrapper.element, 'clientWidth', {
+  const mockElementWidth = (element, widthInPx) => {
+    Object.defineProperty(element, 'clientWidth', {
       get: () => widthInPx,
-      configurable: true,
     });
   };
 
   const mockWideWrapperWidth = () => {
-    mockWrapperWidth(1000);
+    mockElementWidth(wrapper.element, 1000);
   };
 
   const mockSmallWrapperWidth = () => {
-    mockWrapperWidth(1);
+    mockElementWidth(wrapper.element, 1);
+  };
+
+  const mockItemsWidths = () => {
+    findBreadcrumbItems().wrappers.forEach((item) => {
+      mockElementWidth(item.element, 100);
+    });
   };
 
   describe('items', () => {
@@ -88,6 +91,7 @@ describe('Breadcrumb component', () => {
       beforeEach(async () => {
         createComponent({ items, showMoreLabel: 'More...' });
         mockSmallWrapperWidth();
+        mockItemsWidths();
         await wrapper.vm.$nextTick();
       });
 
@@ -100,11 +104,44 @@ describe('Breadcrumb component', () => {
       beforeEach(async () => {
         createComponent();
         mockSmallWrapperWidth();
+        mockItemsWidths();
         await wrapper.vm.$nextTick();
       });
 
       it('uses default', () => {
         expect(findOverflowDropdown().props('toggleText')).toBe('Show more breadcrumbs');
+      });
+    });
+  });
+
+  describe('autoResize', () => {
+    describe('by default', () => {
+      beforeEach(async () => {
+        createComponent();
+        mockSmallWrapperWidth();
+        mockItemsWidths();
+        await wrapper.vm.$nextTick();
+      });
+
+      it('moves overflowing items into dropdown', () => {
+        expect(findOverflowDropdown().exists()).toBe(true);
+        const overflowingItems = wrapper.findAllComponents(GlDisclosureDropdownItem).length;
+        expect(overflowingItems).toBeGreaterThan(0);
+      });
+    });
+
+    describe('when set to false', () => {
+      beforeEach(async () => {
+        createComponent({ items, autoResize: false });
+        mockSmallWrapperWidth();
+        mockItemsWidths();
+        await wrapper.vm.$nextTick();
+      });
+
+      it('keeps all items visible', () => {
+        expect(findOverflowDropdown().exists()).toBe(false);
+        const fittingItems = findBreadcrumbItems().length;
+        expect(fittingItems).toEqual(items.length);
       });
     });
   });
@@ -169,6 +206,7 @@ describe('Breadcrumb component', () => {
       beforeEach(async () => {
         createComponent();
         mockSmallWrapperWidth();
+        mockItemsWidths();
         await wrapper.vm.$nextTick();
       });
 
