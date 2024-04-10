@@ -1,3 +1,10 @@
+# [78.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.10.1...v78.11.0) (2024-04-10)
+
+
+### Features
+
+* **GlHeatmap:** Add prop to show/hide tooltip ([77a0484](https://gitlab.com/gitlab-org/gitlab-ui/commit/77a0484dcb95f19fb32aa30069465fd64a1dec9b))
+
 ## [78.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.10.0...v78.10.1) (2024-04-09)
 
 
