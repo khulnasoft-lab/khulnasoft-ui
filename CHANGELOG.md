@@ -1,3 +1,10 @@
+# [78.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.11.0...v78.12.0) (2024-04-10)
+
+
+### Features
+
+* **GlBaseDropdown:** Migrates "placement" values to match floating-ui placements ([a9f37b6](https://gitlab.com/gitlab-org/gitlab-ui/commit/a9f37b6bcca96a3c0cc8ab22f7664d4b2bfbe613))
+
 # [78.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.10.1...v78.11.0) (2024-04-10)
 
 
