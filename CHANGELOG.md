@@ -1,3 +1,10 @@
+# [78.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.12.0...v78.13.0) (2024-04-11)
+
+
+### Features
+
+* **tailwind:** add data-viz colors to the preset ([9b31bd0](https://gitlab.com/gitlab-org/gitlab-ui/commit/9b31bd063e8284921048729ed4f130dcf312de82))
+
 # [78.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.11.0...v78.12.0) (2024-04-10)
 
 
