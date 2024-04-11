@@ -103,7 +103,9 @@ export default {
   },
   mounted() {
     if (this.autoResize) {
-      window.addEventListener('resize', this.debounceMakeBreadcrumbsFit);
+      this.resizeObserver = new ResizeObserver(this.debounceMakeBreadcrumbsFit);
+      this.resizeObserver.observe(this.$el);
+
       this.measureAndMakeBreadcrumbsFit();
     } else {
       this.resizeDone = true;
@@ -111,7 +113,7 @@ export default {
   },
   beforeDestroy() {
     if (this.autoResize) {
-      window.removeEventListener('resize', this.debounceMakeBreadcrumbsFit);
+      this.resizeObserver.unobserve(this.$el);
     }
   },
   methods: {
