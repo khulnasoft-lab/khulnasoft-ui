@@ -25,6 +25,7 @@ const textColors = Object.entries(COMPILED_TOKENS.text).reduce((acc, [scale, tok
 }, {});
 
 const colors = {
+  transparent: 'transparent',
   white: cssCustomPropertyWithValue(COMPILED_TOKENS.white),
   black: cssCustomPropertyWithValue(COMPILED_TOKENS.black),
   ...baseColors,
