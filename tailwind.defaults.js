@@ -19,6 +19,13 @@ const themeColors = Object.entries(COMPILED_TOKENS.theme).reduce((acc, [, scales
   return acc;
 }, {});
 
+const dataVizColors = Object.entries(COMPILED_TOKENS['data-viz']).reduce((acc, [, scales]) => {
+  Object.entries(scales).forEach(([, token]) => {
+    acc[token.path.join('-')] = cssCustomPropertyWithValue(token);
+  });
+  return acc;
+}, {});
+
 const textColors = Object.entries(COMPILED_TOKENS.text).reduce((acc, [scale, token]) => {
   acc[scale] = cssCustomPropertyWithValue(token);
   return acc;
@@ -29,6 +36,7 @@ const colors = {
   black: cssCustomPropertyWithValue(COMPILED_TOKENS.black),
   ...baseColors,
   ...themeColors,
+  ...dataVizColors,
 };
 
 const gridSize = 0.5; // rem
