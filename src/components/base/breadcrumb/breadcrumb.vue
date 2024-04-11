@@ -142,9 +142,9 @@ export default {
       this.resetItems();
 
       const containerWidth = this.$el.clientWidth;
-      const buttonWidth = 50; // px
+      const buttonWidth = 40; // px
 
-      if (this.totalBreadcrumbsWidth + buttonWidth > containerWidth) {
+      if (this.totalBreadcrumbsWidth > containerWidth) {
         // Not all breadcrumb items fit. Start moving items over to the dropdown.
         const startSlicingAt = 0;
 
