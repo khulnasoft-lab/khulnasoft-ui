@@ -1,16 +1,19 @@
 describe('GlFormCheckbox', () => {
+  const checkboxSelector = 'input.custom-control-input';
+  const labelSelector = 'label.custom-control-label';
+
   before(() => {
     cy.visitStory('base/form/form-checkbox');
   });
 
-  function checkA11yDefaultState(i) {
-    const checkboxClass = 'input.custom-control-input';
-    const checkboxLabelClass = 'label.custom-control-label';
+  function checkA11yDefaultState() {
+    const getCheckbox = () => cy.get(checkboxSelector).first();
+    const getLabel = () => cy.get(labelSelector).first();
 
-    cy.get(checkboxClass).eq(i).focus();
-    cy.get(checkboxClass).eq(i).should('be.not.checked');
-    cy.get(checkboxLabelClass).eq(i).click();
-    cy.get(checkboxClass).eq(i).should('be.checked');
+    getCheckbox().focus();
+    getCheckbox().should('not.be.checked');
+    getLabel().click();
+    getCheckbox().should('be.checked');
   }
 
   function checkA11yCheckedState() {
@@ -20,13 +23,13 @@ describe('GlFormCheckbox', () => {
     cy.get(checkedOption).should('be.checked');
     cy.get(checkedOption).focus();
     cy.get(checkedOptionLabel).click();
-    cy.get(checkedOption).should('be.not.checked');
+    cy.get(checkedOption).should('not.be.checked');
   }
 
   function checkA11yDisabledState() {
     const disabledOption = 'input[value="disabled-option"]';
 
-    cy.get(disabledOption).should('be.not.checked');
+    cy.get(disabledOption).should('not.be.checked');
     cy.get(disabledOption).should('be.disabled');
   }
 
@@ -38,11 +41,8 @@ describe('GlFormCheckbox', () => {
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
-    for (let i = 0; i < 3; i += 1) {
-      cy.glRunA11yTests({ defaultState: () => checkA11yDefaultState(i) });
-    }
-
     cy.glRunA11yTests({
+      checkA11yDefaultState,
       checkA11yCheckedState,
       checkA11yDisabledState,
       checkA11yCheckedAndDisabled,
