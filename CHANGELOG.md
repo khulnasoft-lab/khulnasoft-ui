@@ -1,3 +1,10 @@
+# [78.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.13.0...v78.14.0) (2024-04-12)
+
+
+### Features
+
+* **tailwind:** add transparent to supported colors ([8b43228](https://gitlab.com/gitlab-org/gitlab-ui/commit/8b43228294ee2c0d5adf864e5281fe73e9f79cc0))
+
 # [78.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.12.0...v78.13.0) (2024-04-11)
 
 
