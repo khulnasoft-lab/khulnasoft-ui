@@ -16,6 +16,17 @@ describe('GlFormCheckbox', () => {
     getCheckbox().should('be.checked');
   }
 
+  function checkA11yWithHelpText() {
+    const getCheckbox = () => cy.get(checkboxSelector).eq(2);
+    const getLabel = () => cy.get(labelSelector).eq(2);
+
+    getCheckbox().focus();
+    getCheckbox().should('not.be.checked');
+    getLabel().click();
+    getCheckbox().should('be.checked');
+    getCheckbox().next().contains('help');
+  }
+
   function checkA11yCheckedState() {
     const checkedOption = 'input[value="checked-option"]';
     const checkedOptionLabel = 'input[value="checked-option"] + label';
@@ -49,6 +60,7 @@ describe('GlFormCheckbox', () => {
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     cy.glRunA11yTests({
       checkA11yDefaultState,
+      checkA11yWithHelpText,
       checkA11yCheckedState,
       checkA11yDisabledState,
       checkA11yCheckedAndDisabled,
