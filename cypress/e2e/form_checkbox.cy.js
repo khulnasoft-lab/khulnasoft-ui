@@ -28,16 +28,22 @@ describe('GlFormCheckbox', () => {
 
   function checkA11yDisabledState() {
     const disabledOption = 'input[value="disabled-option"]';
+    const disabledOptionLabel = 'input[value="disabled-option"] + label';
 
     cy.get(disabledOption).should('not.be.checked');
     cy.get(disabledOption).should('be.disabled');
+    cy.get(disabledOptionLabel).click();
+    cy.get(disabledOption).should('not.be.checked');
   }
 
   function checkA11yCheckedAndDisabled() {
     const checkedAndDisabledOption = 'input[value="checked-disabled-option"]';
+    const checkedAndDisabledOptionLabel = 'input[value="checked-disabled-option"] + label';
 
     cy.get(checkedAndDisabledOption).should('be.checked');
     cy.get(checkedAndDisabledOption).should('be.disabled');
+    cy.get(checkedAndDisabledOptionLabel).click();
+    cy.get(checkedAndDisabledOption).should('be.checked');
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
