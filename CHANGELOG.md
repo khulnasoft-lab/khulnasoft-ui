@@ -1,3 +1,10 @@
+## [78.14.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.14.0...v78.14.1) (2024-04-15)
+
+
+### Bug Fixes
+
+* Isolate DuoChat styles from GlDrawer component ([fa8bd24](https://gitlab.com/gitlab-org/gitlab-ui/commit/fa8bd2456c5ae783492f326deec87733878aa9f8))
+
 # [78.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.13.0...v78.14.0) (2024-04-12)
 
 
