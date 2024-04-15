@@ -2,6 +2,7 @@
 import GlButton from '../button/button.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
 import GlIcon from '../icon/icon.vue';
+import { translate } from '../../../utils/i18n';
 
 export default {
   name: 'GlKeysetPagination',
@@ -53,12 +54,12 @@ export default {
     },
     /**
      * The text that will be rendered inside the "Prev" button.
-     * It\'s important to provide this parameter since the default text is not translatable.
+     * It's important to provide this parameter since the default text is not translatable.
      */
     prevText: {
       type: String,
       required: false,
-      default: 'Prev',
+      default: () => translate('GlKeysetPagination.prevText', 'Prev'),
     },
     /**
      * A link that will be used as the "Prev" button\'s "href" attribute.
@@ -76,16 +77,16 @@ export default {
     navigationLabel: {
       type: String,
       required: false,
-      default: 'Pagination',
+      default: () => translate('GlKeysetPagination.navigationLabel', 'Pagination'),
     },
     /**
      * The text that will be rendered inside the "Next" button.
-     * It\'s important to provide this parameter since the default text is not translatable.
+     * It's important to provide this parameter since the default text is not translatable.
      */
     nextText: {
       type: String,
       required: false,
-      default: 'Next',
+      default: () => translate('GlKeysetPagination.nextText', 'Next'),
     },
     /**
      * A link that will be used as the "Next" button\'s "href" attribute.
