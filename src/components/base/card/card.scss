@@ -24,14 +24,14 @@
 
 .gl-card-header {
   @include gl-border-b-solid;
-  @include gl-rounded-top-left-base;
-  @include gl-rounded-top-right-base;
+  border-top-left-radius: calc($gl-border-radius-base - $gl-border-size-1);
+  border-top-right-radius: calc($gl-border-radius-base - $gl-border-size-1);
 }
 
 .gl-card-footer {
   @include gl-border-t-solid;
-  @include gl-rounded-bottom-left-base;
-  @include gl-rounded-bottom-right-base;
+  border-bottom-left-radius: calc($gl-border-radius-base - $gl-border-size-1);
+  border-bottom-right-radius: calc($gl-border-radius-base - $gl-border-size-1);
 }
 
 .gl-card-header,
