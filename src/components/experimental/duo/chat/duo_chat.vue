@@ -370,14 +370,14 @@ export default {
   <aside
     v-if="!isHidden"
     id="chat-component"
-    class="markdown-code-block gl-drawer gl-max-h-full gl-bottom-0 gl-shadow-none gl-border-l gl-border-t duo-chat"
+    class="markdown-code-block duo-chat-drawer gl-max-h-full gl-bottom-0 gl-shadow-none gl-border-l gl-border-t duo-chat"
     role="complementary"
     data-testid="chat-component"
   >
     <header
       v-if="showHeader"
       data-testid="chat-header"
-      class="gl-drawer-header gl-drawer-header-sticky gl-z-index-200 gl-p-0! gl-border-b-0"
+      class="duo-chat-drawer-header duo-chat-drawer-header-sticky gl-z-index-200 gl-p-0! gl-border-b-0"
     >
       <div
         class="drawer-title gl-display-flex gl-justify-content-start gl-align-items-center gl-p-5"
@@ -430,7 +430,7 @@ export default {
       </gl-alert>
     </header>
 
-    <div class="gl-drawer-body" data-testid="chat-history" @scroll="handleScrollingTrottled">
+    <div class="duo-chat-drawer-body" data-testid="chat-history" @scroll="handleScrollingTrottled">
       <transition-group
         tag="section"
         name="message"
@@ -471,8 +471,8 @@ export default {
     <footer
       v-if="isChatAvailable"
       data-testid="chat-footer"
-      class="gl-drawer-footer gl-drawer-footer-sticky gl-p-5 gl-border-t gl-bg-gray-10"
-      :class="{ 'gl-drawer-body-scrim-on-footer': !scrolledToBottom }"
+      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-p-5 gl-border-t gl-bg-gray-10"
+      :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
         <gl-form-input-group>

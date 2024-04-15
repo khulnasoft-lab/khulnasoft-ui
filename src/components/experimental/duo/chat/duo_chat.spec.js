@@ -520,7 +520,7 @@ describe('GlDuoChat', () => {
 
         await nextTick();
 
-        expect(findFooter().classes()).not.toContain('gl-drawer-body-scrim-on-footer');
+        expect(findFooter().classes()).not.toContain('duo-chat-drawer-body-scrim-on-footer');
       });
 
       it('when scrolling up it adds the scrim class', async () => {
@@ -532,7 +532,7 @@ describe('GlDuoChat', () => {
 
         await nextTick();
 
-        expect(findFooter().classes()).toContain('gl-drawer-body-scrim-on-footer');
+        expect(findFooter().classes()).toContain('duo-chat-drawer-body-scrim-on-footer');
       });
     });
 
