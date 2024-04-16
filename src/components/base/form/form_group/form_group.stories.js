@@ -1,8 +1,8 @@
+import { disableControls } from '../../../../utils/stories_utils';
 import GlFormInput from '../form_input/form_input.vue';
 import GlFormTextarea from '../form_textarea/form_textarea.vue';
-import { disableControls } from '../../../../utils/stories_utils';
-import GlFormGroup from './form_group.vue';
 import readme from './form_group.md';
+import GlFormGroup from './form_group.vue';
 
 const components = {
   GlFormGroup,
@@ -24,16 +24,24 @@ const generateProps = ({
   description,
 });
 
-const wrap = (template, bindings = '') => `
+const makeBindings = (overrides = {}) =>
+  Object.entries({
+    ':id': "id + '_group'",
+    ':label-for': 'id',
+    ':label': 'label',
+    ':label-description': 'labelDescription',
+    ':optional': 'optional',
+    ':optional-text': 'optionalText',
+    ':description': 'description',
+    ...overrides,
+  })
+    .map(([key, value]) => `${key}="${value}"`)
+    .join(' ');
+
+const wrap = (template, bindingsOverrides = {}) => `
   <gl-form-group
-    :id="id +  '_group'"
-    :label="label"
-    :label-description="labelDescription"
-    :optional="optional"
-    :optional-text="optionalText"
-    :description="description"
-    ${bindings}
-    :label-for="id">
+    ${makeBindings(bindingsOverrides)}
+    >
     ${template}
   </gl-form-group>
 `;
@@ -78,14 +86,15 @@ export const WithValidations = (_args, { argTypes }) => ({
   components: { ...components, GlFormInput },
   template: `
     <div>
-      ${wrap(
-        '<gl-form-input :id="id" :state="false" />',
-        'invalid-feedback="This field is required."'
-      )}
-      ${wrap(
-        '<gl-form-input :id="id" :state="true" value="Sidney Jones" />',
-        'valid-feedback="This field is valid."'
-      )}
+    ${wrap('<gl-form-input :id="id + \'-name1\'" :state="false" />', {
+      'invalid-feedback': 'This field is required.',
+      ':label-for': "id + '-name1'",
+    })}
+    ${wrap('<gl-form-input :id="id + \'-name2\'" :state="true" value="Sidney Jones" />', {
+      'valid-feedback': 'This field is valid.',
+      ':id': "'group2'",
+      ':label-for': "id + '-name2'",
+    })}
     </div>
   `,
 });
