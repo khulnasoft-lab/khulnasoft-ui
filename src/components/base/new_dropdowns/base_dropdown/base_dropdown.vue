@@ -1,6 +1,6 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { computePosition, autoUpdate, offset, size, autoPlacement } from '@floating-ui/dom';
+import { computePosition, autoUpdate, offset, size, autoPlacement, shift } from '@floating-ui/dom';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
@@ -9,6 +9,7 @@ import {
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import {
+  GL_DROPDOWN_BOUNDARY_SELECTOR,
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
   GL_DROPDOWN_BEFORE_CLOSE,
@@ -272,8 +273,10 @@ export default {
           offset(this.offset),
           autoPlacement({
             alignment,
+            boundary: this.$el.closest(GL_DROPDOWN_BOUNDARY_SELECTOR) || 'clippingAncestors',
             allowedPlacements: dropdownAllowedAutoPlacements[this.placement],
           }),
+          shift(),
           size({
             apply: ({ availableHeight, elements }) => {
               const contentsEl = elements.floating.querySelector(`.${GL_DROPDOWN_CONTENTS_CLASS}`);

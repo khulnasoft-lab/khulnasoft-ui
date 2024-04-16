@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { computePosition, autoUpdate, offset, autoPlacement } from '@floating-ui/dom';
+import { computePosition, autoUpdate, offset, autoPlacement, shift } from '@floating-ui/dom';
 import {
   ARROW_DOWN,
   GL_DROPDOWN_FOCUS_CONTENT,
@@ -15,8 +15,9 @@ import GlBaseDropdown from './base_dropdown.vue';
 
 jest.mock('@floating-ui/dom');
 const mockStopAutoUpdate = jest.fn();
-offset.mockImplementation((options) => options);
-autoPlacement.mockImplementation((options) => options);
+offset.mockImplementation((offsetOpts = {}) => ({ offsetOpts }));
+autoPlacement.mockImplementation((autoPlacementOpts = {}) => ({ autoPlacementOpts }));
+shift.mockImplementation((shiftOpts = {}) => ({ shiftOpts }));
 
 const DEFAULT_BTN_TOGGLE_CLASSES = [
   'btn',
@@ -29,7 +30,7 @@ const DEFAULT_BTN_TOGGLE_CLASSES = [
 describe('base dropdown', () => {
   let wrapper;
 
-  const buildWrapper = (propsData, slots = {}, listeners = {}) => {
+  const buildWrapper = (propsData, { slots = {}, ...options } = {}) => {
     wrapper = mount(GlBaseDropdown, {
       propsData: {
         toggleId: 'dropdown-toggle-btn-1',
@@ -40,7 +41,7 @@ describe('base dropdown', () => {
         ...slots,
       },
       attachTo: document.body,
-      listeners,
+      ...options,
     });
   };
 
@@ -99,6 +100,35 @@ describe('base dropdown', () => {
         autoUpdate.mockImplementation(jest.requireActual('@floating-ui/dom').autoUpdate);
       });
 
+      it('initializes Floating UI with a default boundary', async () => {
+        document.body.innerHTML = '<main><div></div></main>';
+
+        buildWrapper(undefined, {
+          attachTo: document.querySelector('main div'),
+        });
+        await findDefaultDropdownToggle().trigger('click');
+
+        expect(computePosition).toHaveBeenCalledWith(
+          findDefaultDropdownToggle().element,
+          findDropdownMenu().element,
+          {
+            placement: 'bottom-start',
+            strategy: 'absolute',
+            middleware: [
+              offset({ mainAxis: DEFAULT_OFFSET }),
+              autoPlacement({
+                alignment: 'start',
+                boundary: document.querySelector('main'),
+                allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
+              }),
+              shift(),
+            ],
+          }
+        );
+
+        document.body.innerHTML = '';
+      });
+
       it('initializes Floating UI with reference and floating elements and config for left-aligned menu', async () => {
         buildWrapper();
         await findDefaultDropdownToggle().trigger('click');
@@ -113,8 +143,10 @@ describe('base dropdown', () => {
               offset({ mainAxis: DEFAULT_OFFSET }),
               autoPlacement({
                 alignment: 'start',
+                boundary: 'clippingAncestors',
                 allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
               }),
+              shift(),
             ],
           }
         );
@@ -134,8 +166,10 @@ describe('base dropdown', () => {
               offset({ mainAxis: DEFAULT_OFFSET }),
               autoPlacement({
                 alignment: undefined,
+                boundary: 'clippingAncestors',
                 allowedPlacements: ['bottom', 'top'],
               }),
+              shift(),
             ],
           }
         );
@@ -155,8 +189,10 @@ describe('base dropdown', () => {
               offset({ mainAxis: DEFAULT_OFFSET }),
               autoPlacement({
                 alignment: 'end',
+                boundary: 'clippingAncestors',
                 allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
               }),
+              shift(),
             ],
           }
         );
@@ -176,8 +212,10 @@ describe('base dropdown', () => {
               offset({ mainAxis: DEFAULT_OFFSET }),
               autoPlacement({
                 alignment: 'start',
+                boundary: 'clippingAncestors',
                 allowedPlacements: ['right-start', 'right-end', 'left-start', 'left-end'],
               }),
+              shift(),
             ],
           }
         );
@@ -197,7 +235,7 @@ describe('base dropdown', () => {
           {
             placement: 'bottom-end',
             strategy: 'absolute',
-            middleware: [offset(customOffset), autoPlacement(expect.any(Object))],
+            middleware: [offset(customOffset), autoPlacement(expect.any(Object)), shift()],
           }
         );
       });
@@ -245,7 +283,7 @@ describe('base dropdown', () => {
     const slots = { default: defaultContent };
 
     it('renders the content', () => {
-      buildWrapper({}, slots);
+      buildWrapper({}, { slots });
       expect(wrapper.find('.gl-new-dropdown-inner').html()).toContain(defaultContent);
     });
   });
@@ -409,10 +447,12 @@ describe('base dropdown', () => {
 
     beforeEach(() => {
       event = undefined;
-      buildWrapper(undefined, undefined, {
-        [GL_DROPDOWN_BEFORE_CLOSE]({ originalEvent, preventDefault }) {
-          event = originalEvent;
-          preventDefault();
+      buildWrapper(undefined, {
+        listeners: {
+          [GL_DROPDOWN_BEFORE_CLOSE]({ originalEvent, preventDefault }) {
+            event = originalEvent;
+            preventDefault();
+          },
         },
       });
     });
@@ -467,7 +507,7 @@ describe('base dropdown', () => {
 
     beforeEach(() => {
       const slots = { toggle: toggleContent };
-      buildWrapper({}, slots);
+      buildWrapper({}, { slots });
     });
 
     it('does not render default toggle button', () => {
