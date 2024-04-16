@@ -1,5 +1,8 @@
 import { mount } from '@vue/test-utils';
+import lodashDebounce from 'lodash/debounce';
 import GlFormTextarea from './form_textarea.vue';
+
+jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
 
 const modelEvent = GlFormTextarea.model.event;
 const newValue = 'foo';
@@ -10,6 +13,25 @@ describe('GlFormTextArea', () => {
   const createComponent = (propsData = {}) => {
     wrapper = mount(GlFormTextarea, {
       propsData,
+      scopedSlots: {
+        'character-count-text': function characterCountText({ count }) {
+          return count === 1 ? `${count} character remaining` : `${count} characters remaining`;
+        },
+        'character-count-over-limit-text': function characterCountOverLimitText({ count }) {
+          return count === 1 ? `${count} character over limit` : `${count} characters over limit`;
+        },
+      },
+    });
+  };
+
+  const findTextarea = () => wrapper.find('textarea');
+
+  const itUpdatesDebouncedScreenReaderText = (expectedText) => {
+    it('updates debounced screen reader text', () => {
+      expect(lodashDebounce).toHaveBeenCalledWith(expect.any(Function), 1000);
+      expect(wrapper.find('[data-testid="character-count-text-sr-only"]').text()).toBe(
+        expectedText
+      );
     });
   };
 
@@ -20,7 +42,7 @@ describe('GlFormTextArea', () => {
       });
 
       it(`sets the textarea's value`, () => {
-        expect(wrapper.element.value).toBe('initial');
+        expect(findTextarea().element.value).toBe('initial');
       });
 
       describe('when the value prop changes', () => {
@@ -30,7 +52,7 @@ describe('GlFormTextArea', () => {
         });
 
         it(`updates the textarea's value`, () => {
-          expect(wrapper.element.value).toBe(newValue);
+          expect(findTextarea().element.value).toBe(newValue);
         });
       });
     });
@@ -39,7 +61,7 @@ describe('GlFormTextArea', () => {
       beforeEach(() => {
         createComponent();
 
-        wrapper.setValue(newValue);
+        findTextarea().setValue(newValue);
       });
 
       it('synchronously emits update event', () => {
@@ -59,7 +81,7 @@ describe('GlFormTextArea', () => {
 
         createComponent({ debounce });
 
-        wrapper.setValue(newValue);
+        findTextarea().setValue(newValue);
       });
 
       it('synchronously emits an update event', () => {
@@ -82,7 +104,7 @@ describe('GlFormTextArea', () => {
     beforeEach(() => {
       createComponent({ lazy: true });
 
-      wrapper.setValue(newValue);
+      findTextarea().setValue(newValue);
     });
 
     it('synchronously emits an update event', () => {
@@ -117,6 +139,67 @@ describe('GlFormTextArea', () => {
       });
 
       expect(wrapper.emitted('submit')).toEqual([[]]);
+    });
+  });
+
+  describe('when `characterCount` prop is set', () => {
+    const characterCount = 10;
+
+    describe('when textarea character count is under the max character count', () => {
+      const textareaCharacterCount = 5;
+      const expectedText = `${characterCount - textareaCharacterCount} characters remaining`;
+
+      beforeEach(() => {
+        createComponent({
+          value: 'a'.repeat(textareaCharacterCount),
+          characterCount,
+        });
+      });
+
+      it('displays remaining characters', () => {
+        expect(wrapper.text()).toContain(expectedText);
+      });
+
+      itUpdatesDebouncedScreenReaderText(expectedText);
+    });
+
+    describe('when textarea character count is over the max character count', () => {
+      const textareaCharacterCount = 15;
+      const expectedText = `${textareaCharacterCount - characterCount} characters over limit`;
+
+      beforeEach(() => {
+        createComponent({
+          value: 'a'.repeat(textareaCharacterCount),
+          characterCount,
+        });
+      });
+
+      it('displays number of characters over', () => {
+        expect(wrapper.text()).toContain(expectedText);
+      });
+
+      itUpdatesDebouncedScreenReaderText(expectedText);
+    });
+
+    describe('when textarea value is updated', () => {
+      const textareaCharacterCount = 5;
+      const newTextareaCharacterCount = textareaCharacterCount + 3;
+      const expectedText = `${characterCount - newTextareaCharacterCount} characters remaining`;
+
+      beforeEach(() => {
+        createComponent({
+          value: 'a'.repeat(textareaCharacterCount),
+          characterCount,
+        });
+
+        wrapper.setProps({ value: 'a'.repeat(newTextareaCharacterCount) });
+      });
+
+      it('updates character count text', () => {
+        expect(wrapper.text()).toContain(expectedText);
+      });
+
+      itUpdatesDebouncedScreenReaderText(expectedText);
     });
   });
 });

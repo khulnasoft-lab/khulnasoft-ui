@@ -1,5 +1,7 @@
 <script>
 import { BFormTextarea } from 'bootstrap-vue';
+import debounce from 'lodash/debounce';
+import uniqueId from 'lodash/uniqueId';
 
 const model = {
   prop: 'value',
@@ -31,6 +33,21 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Max character count for the textarea.
+     */
+    characterCount: {
+      type: Number,
+      required: false,
+      default: null,
+    },
+  },
+  data() {
+    return {
+      characterCountId: uniqueId('form-textarea-character-count-'),
+      remainingCharacterCount: this.initialRemainingCharacterCount(),
+      remainingCharacterCountSrOnly: this.initialRemainingCharacterCount(),
+    };
   },
   computed: {
     listeners() {
@@ -57,6 +74,41 @@ export default {
     keypressEvent() {
       return this.submitOnEnter ? 'keyup' : null;
     },
+    isCharacterCountOverLimit() {
+      return this.remainingCharacterCount < 0;
+    },
+    characterCountTextClass() {
+      return this.isCharacterCountOverLimit ? 'gl-text-red-500' : 'gl-text-gray-500';
+    },
+    showCharacterCount() {
+      return this.characterCount !== null;
+    },
+    bFormTextareaProps() {
+      return {
+        ...this.$attrs,
+        class: 'gl-form-input gl-form-textarea',
+        noResize: this.noResize,
+        value: this.value,
+      };
+    },
+  },
+  watch: {
+    value(newValue) {
+      if (!this.showCharacterCount) {
+        return;
+      }
+
+      this.remainingCharacterCount = this.characterCount - newValue.length;
+      this.debouncedUpdateRemainingCharacterCountSrOnly(newValue);
+    },
+  },
+  created() {
+    // Debounce updating the remaining character count for a second so
+    // screen readers announce the remaining text after the text in the textarea.
+    this.debouncedUpdateRemainingCharacterCountSrOnly = debounce(
+      this.updateRemainingCharacterCountSrOnly,
+      1000
+    );
   },
   methods: {
     handleKeyPress(e) {
@@ -64,16 +116,59 @@ export default {
         this.$emit('submit');
       }
     },
+    updateRemainingCharacterCountSrOnly(newValue) {
+      this.remainingCharacterCountSrOnly = this.characterCount - newValue.length;
+    },
+    initialRemainingCharacterCount() {
+      return this.characterCount - this.value.length;
+    },
   },
 };
 </script>
 
 <template>
+  <div v-if="showCharacterCount">
+    <b-form-textarea
+      :aria-describedby="characterCountId"
+      v-bind="bFormTextareaProps"
+      v-on="listeners"
+      @[keypressEvent].native="handleKeyPress"
+    />
+    <small :class="['form-text', characterCountTextClass]" aria-hidden="true">
+      <!-- 
+      @slot Internationalized over character count text. Example: `<template #character-count-over-limit-text="{ count }">{{ n__('%d character over limit', '%d characters over limit', count) }}</template>`
+      @binding {number} count
+      -->
+      <slot
+        v-if="isCharacterCountOverLimit"
+        name="character-count-over-limit-text"
+        :count="Math.abs(remainingCharacterCount)"
+      ></slot>
+      <!-- 
+      @slot Internationalized character count text. Example: `<template #character-count-text="{ count }">{{ n__('%d character remaining', '%d characters remaining', count) }}</template>`
+      @binding {number} count
+      -->
+
+      <slot v-else name="character-count-text" :count="remainingCharacterCount"></slot>
+    </small>
+    <div
+      :id="characterCountId"
+      class="gl-sr-only"
+      aria-live="polite"
+      data-testid="character-count-text-sr-only"
+    >
+      <slot
+        v-if="isCharacterCountOverLimit"
+        name="character-count-over-limit-text"
+        :count="Math.abs(remainingCharacterCount)"
+      ></slot>
+
+      <slot v-else name="character-count-text" :count="remainingCharacterCountSrOnly"></slot>
+    </div>
+  </div>
   <b-form-textarea
-    class="gl-form-input gl-form-textarea"
-    :no-resize="noResize"
-    v-bind="$attrs"
-    :value="value"
+    v-else
+    v-bind="bFormTextareaProps"
     v-on="listeners"
     @[keypressEvent].native="handleKeyPress"
   />
