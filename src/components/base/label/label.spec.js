@@ -1,5 +1,4 @@
 import { mount, shallowMount } from '@vue/test-utils';
-import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
 import Label from './label.vue';
@@ -41,7 +40,7 @@ describe('Label component', () => {
   const findSubTitle = () => wrapper.find('.gl-label-text-scoped');
   const findTooltip = () => wrapper.findComponent(GlTooltip);
   const findTooltipText = () => findTooltip().text();
-  const findCloseButton = () => wrapper.findComponent(CloseButton);
+  const findCloseButton = () => wrapper.find('.gl-label-close');
 
   describe('basic label', () => {
     it('renders the label title', () => {

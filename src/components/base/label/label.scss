@@ -16,7 +16,7 @@ $label-close-button: '.gl-label-close.gl-button';
     background-color: var(--label-background-color);
   }
 
-  &:focus-within {
+  &:has(*:first-child:focus) {
     @include gl-focus($color: var(--label-background-color, $white), $important: true);
   }
 
@@ -30,7 +30,8 @@ $label-close-button: '.gl-label-close.gl-button';
     @include gl-max-w-full;
 
     &:focus,
-    &:hover {
+    &:hover,
+    &:focus:active {
       @include gl-reset-color;
       @include gl-shadow-none;
       @include gl-outline-none;
@@ -40,16 +41,18 @@ $label-close-button: '.gl-label-close.gl-button';
   .gl-label-text,
   .gl-label-text-scoped {
     @include gl-display-block;
-    @include gl-px-3;
-    @include gl-py-2;
+    padding-block: $gl-spacing-scale-1;
+    padding-inline: calc(#{$gl-spacing-scale-3} - 2px);
     @include str-truncated($label-max-width);
   }
 
   > #{$label-close-button} {
     @include gl-border-0;
     @include gl-display-flex;
-    @include gl-ml-n2;
-    @include gl-mr-2;
+    width: px-to-rem(14px);
+    height: px-to-rem(14px);
+    margin-left: calc(#{-$gl-spacing-scale-1} - 1px);
+    margin-right: calc(#{$gl-spacing-scale-2} - 1px);
     @include gl-p-0;
     @include gl-rounded-full;
     @include gl-shadow-none;
@@ -72,7 +75,7 @@ $label-close-button: '.gl-label-close.gl-button';
     }
 
     .gl-icon {
-      @include gl-p-1;
+      vertical-align: -1px;
     }
   }
 }
@@ -146,6 +149,8 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   #{$label-close-button} {
+    margin-left: calc(#{-$gl-spacing-scale-2} - 2px);
+
     &:focus,
     &:hover {
       .gl-icon {
@@ -155,27 +160,13 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   .gl-label-text {
-    @include gl-pr-2;
     background-color: var(--label-background-color);
   }
 
   .gl-label-text-scoped {
     @include gl-text-gray-950;
-    @include gl-pl-2;
-    @include gl-pr-3;
-  }
-}
-
-.gl-label-sm {
-  .gl-label-text,
-  .gl-label-text-scoped {
-    @include gl-py-0;
-    @include gl-line-height-normal;
-    @include gl-font-sm;
-  }
-
-  #{$label-close-button} {
-    @include gl-mr-1;
+    padding-inline-start: calc($gl-spacing-scale-3 - 4px);
+    padding-inline-end: $gl-spacing-scale-3;
   }
 }
 

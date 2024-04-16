@@ -78,11 +78,6 @@ export const variantCssColorMap = {
 
 export const targetOptions = ['_self', '_blank', '_parent', '_top', null];
 
-export const labelSizeOptions = {
-  default: null,
-  sm: 'sm',
-};
-
 export const viewModeOptions = {
   dark: 'dark',
   light: 'light',
