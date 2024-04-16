@@ -1,3 +1,10 @@
+# [78.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.14.1...v78.15.0) (2024-04-16)
+
+
+### Features
+
+* **label:** Reduce label variants ([b411a2d](https://gitlab.com/gitlab-org/gitlab-ui/commit/b411a2d58309acbccfb56b78b8f5e8ce61eadf0e))
+
 ## [78.14.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.14.0...v78.14.1) (2024-04-15)
 
 
