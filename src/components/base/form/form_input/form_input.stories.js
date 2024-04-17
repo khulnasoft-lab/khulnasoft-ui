@@ -1,10 +1,10 @@
 import { formInputWidths } from '../../../../utils/constants';
+import GlFormGroup from '../form_group/form_group.vue';
 import readme from './form_input.md';
 import GlFormInput from './form_input.vue';
 
 const template = `
-<div>
-  <label :for="inputId">{{ labelText }}</label>
+<gl-form-group :label="labelText" :label-for="inputId">
   <gl-form-input
     :id="inputId"
     type="text"
@@ -13,7 +13,7 @@ const template = `
     :value="value"
     :width="width"
   />
-</div>`;
+</gl-form-group>`;
 
 const generateProps = ({
   inputId = 'input-id',
@@ -34,7 +34,7 @@ const generateProps = ({
 });
 
 const Template = (args) => ({
-  components: { GlFormInput },
+  components: { GlFormInput, GlFormGroup },
   props: Object.keys(args),
   template,
 });
@@ -64,47 +64,47 @@ NumberInput.args = generateProps({
 NumberInput.tags = ['skip-visual-test'];
 
 export const Widths = (args, { argTypes }) => ({
-  components: { GlFormInput },
+  components: { GlFormInput, GlFormGroup },
   props: Object.keys(argTypes),
   data: () => ({
     formInputWidths,
   }),
   template: `
   <div>
-      <div v-for="(width, name) in formInputWidths">
-      <label :for="'width-' + width">{{ name }}</label>
-        <gl-form-input
-            :id="'width-' + width"
-            :key="width"
-            :value="name"
-            :width="width"
-            class="gl-mb-4"
-        />
-      </div>
+    <gl-form-group v-for="(width, name) in formInputWidths" :key="width" :label="name" :label-for="'width-' + width">
+      <gl-form-input
+          :id="'width-' + width"
+          :value="name"
+          :width="width"
+          class="gl-mb-4"
+      />
+    </gl-form-group>
   </div>`,
 });
 Widths.args = {};
 
 export const ResponsiveWidths = (args, { argTypes }) => ({
-  components: { GlFormInput },
+  components: { GlFormInput, GlFormGroup },
   props: Object.keys(argTypes),
   template: `
       <div>
-        <label for="responsive-widths-1">Default</label>
-        <gl-form-input
-          id="responsive-widths-1"
-          :width="{ default: 'md', md: 'lg', lg: 'xl' }"
-          value="With \`default\` key"
-          class="gl-mb-4"
-        />
-        <label for="responsive-widths-2">Without default</label>
-        <gl-form-input
-          id="responsive-widths-2"
-          :width="{ md: 'lg', lg: 'xl' }"
-          value="Without \`default\` key"
-        />
-      </div>
-    `,
+        <gl-form-group label="Default" label-for="responsive-widths-1">
+          <gl-form-input
+            id="responsive-widths-1"
+            :width="{ default: 'md', md: 'lg', lg: 'xl' }"
+            value="With \`default\` key"
+            class="gl-mb-4"
+          />
+        </gl-form-group>
+
+        <gl-form-group label="Without default" label-for="responsive-widths-2">
+          <gl-form-input
+            id="responsive-widths-2"
+            :width="{ md: 'lg', lg: 'xl' }"
+            value="Without \`default\` key"
+          />
+        </gl-form-group>
+      </div>`,
 });
 ResponsiveWidths.args = {};
 
