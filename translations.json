@@ -4,6 +4,9 @@
   "GlSorting.sortDescending": "Sort direction: descending",
   "GlSearchBoxByType.clearButtonTitle": "Clear",
   "GlSearchBoxByType.input.placeholder": "Search",
+  "GlKeysetPagination.prevText": "Prev",
+  "GlKeysetPagination.navigationLabel": "Pagination",
+  "GlKeysetPagination.nextText": "Next",
   "GlBreadcrumb.showMoreLabel": "Show more breadcrumbs",
   "GlCollapsibleListbox.srOnlyResultsLabel": "Results count"
 }
