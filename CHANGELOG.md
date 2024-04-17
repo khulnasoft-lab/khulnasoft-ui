@@ -1,3 +1,10 @@
+## [78.15.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.15.0...v78.15.1) (2024-04-17)
+
+
+### Bug Fixes
+
+* **GlKeysetPagination:** externalize labels ([9057c19](https://gitlab.com/gitlab-org/gitlab-ui/commit/9057c1910477f1e5a9252900b3c67cd10c2eb2bf))
+
 # [78.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.14.1...v78.15.0) (2024-04-16)
 
 
