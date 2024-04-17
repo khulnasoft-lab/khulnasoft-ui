@@ -6,30 +6,21 @@ describe('GlBanner', () => {
 
   function checkA11YBannerWithoutImage() {
     cy.visitStory('base/banner', {
-      args: {
-        svgPath: null,
-      },
+      story: 'no-image',
     });
     cy.glCheckA11y();
   }
 
   function checkA11YIntroductionBanner() {
     cy.visitStory('base/banner', {
-      args: {
-        svgPath: 'emptyServiceDeskCallout',
-        variant: 'introduction',
-      },
+      story: 'introduction',
     });
     cy.glCheckA11y();
   }
 
   function checkA11YBannerWithActions() {
     cy.visitStory('base/banner', {
-      args: {
-        title: 'Button with actions banner',
-        buttonText: 'Primary Button',
-        svgPath: null,
-      },
+      story: 'with-actions',
     });
     cy.glCheckA11y();
   }
