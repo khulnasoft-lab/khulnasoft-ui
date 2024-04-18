@@ -7,6 +7,7 @@ const template = `
     <gl-breadcrumb
         :items="items"
         :aria-label="ariaLabel"
+        :auto-resize="autoResize"
     />
   `;
 
@@ -15,6 +16,7 @@ const collapsedTemplate = `
     <gl-breadcrumb
         :items="items"
         :aria-label="ariaLabel"
+        :auto-resize="autoResize"
     />
   </div>
 `;

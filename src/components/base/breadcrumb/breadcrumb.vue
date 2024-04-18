@@ -97,23 +97,24 @@ export default {
       handler: 'measureAndMakeBreadcrumbsFit',
       deep: true,
     },
+    autoResize(newValue) {
+      if (newValue) this.enableAutoResize();
+      else this.disableAutoResize();
+    },
   },
   created() {
     this.debounceMakeBreadcrumbsFit = debounce(this.makeBreadcrumbsFit, 25);
   },
   mounted() {
     if (this.autoResize) {
-      this.resizeObserver = new ResizeObserver(this.debounceMakeBreadcrumbsFit);
-      this.resizeObserver.observe(this.$el);
-
-      this.measureAndMakeBreadcrumbsFit();
+      this.enableAutoResize();
     } else {
       this.resizeDone = true;
     }
   },
   beforeDestroy() {
     if (this.autoResize) {
-      this.resizeObserver.unobserve(this.$el);
+      this.disableAutoResize();
     }
   },
   methods: {
@@ -171,6 +172,15 @@ export default {
     },
     getAriaCurrentAttr(index) {
       return this.isLastItem(index) ? 'page' : false;
+    },
+    enableAutoResize() {
+      this.resizeObserver = new ResizeObserver(this.debounceMakeBreadcrumbsFit);
+      this.resizeObserver.observe(this.$el);
+      this.measureAndMakeBreadcrumbsFit();
+    },
+    disableAutoResize() {
+      this.resizeObserver.unobserve(this.$el);
+      this.resetItems();
     },
   },
 };

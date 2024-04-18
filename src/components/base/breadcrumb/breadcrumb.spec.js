@@ -29,6 +29,7 @@ describe('Breadcrumb component', () => {
   const findAllAvatars = () => wrapper.findAll('[data-testid="avatar"]');
   const findBreadcrumbItems = () => wrapper.findAllComponents(GlBreadcrumbItem);
   const findOverflowDropdown = () => wrapper.findComponent(GlDisclosureDropdown);
+  const findOverflowingItems = () => wrapper.findAllComponents(GlDisclosureDropdownItem);
 
   const findVisibleBreadcrumbItems = () =>
     findBreadcrumbItems().wrappers.filter((item) => item.isVisible());
@@ -125,8 +126,15 @@ describe('Breadcrumb component', () => {
 
       it('moves overflowing items into dropdown', () => {
         expect(findOverflowDropdown().exists()).toBe(true);
-        const overflowingItems = wrapper.findAllComponents(GlDisclosureDropdownItem).length;
-        expect(overflowingItems).toBeGreaterThan(0);
+        expect(findOverflowingItems().length).toBeGreaterThan(0);
+      });
+
+      it('reacts to prop changing to false', async () => {
+        expect(findOverflowDropdown().exists()).toBe(true);
+        await wrapper.setProps({ autoResize: false });
+        await wrapper.vm.$nextTick();
+        expect(findOverflowDropdown().exists()).toBe(false);
+        expect(findBreadcrumbItems().length).toEqual(items.length);
       });
     });
 
@@ -140,8 +148,16 @@ describe('Breadcrumb component', () => {
 
       it('keeps all items visible', () => {
         expect(findOverflowDropdown().exists()).toBe(false);
-        const fittingItems = findBreadcrumbItems().length;
-        expect(fittingItems).toEqual(items.length);
+        expect(findBreadcrumbItems().length).toEqual(items.length);
+      });
+
+      it('reacts to prop changing to true', async () => {
+        expect(findOverflowDropdown().exists()).toBe(false);
+        await wrapper.setProps({ autoResize: true });
+        await wrapper.vm.$nextTick();
+        await wrapper.vm.$nextTick(); // otherwise test fails with VUE_VERSION=3
+        expect(findOverflowDropdown().exists()).toBe(true);
+        expect(findOverflowingItems().length).toBeGreaterThan(0);
       });
     });
   });
