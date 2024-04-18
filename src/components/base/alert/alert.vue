@@ -202,6 +202,7 @@ export default {
     ]"
   >
     <div v-if="showIcon" class="gl-alert-icon-container">
+      I really need the visual tests to fail!
       <gl-icon :name="iconName" class="gl-alert-icon" />
     </div>
     <div class="gl-alert-content" :role="role" :aria-live="ariaLive">
