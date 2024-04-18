@@ -1,3 +1,10 @@
+# [78.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.15.2...v78.16.0) (2024-04-18)
+
+
+### Features
+
+* **GlFormInput:** wrap `gl-form-input` in `gl-form-group` ([468ccac](https://gitlab.com/gitlab-org/gitlab-ui/commit/468ccacd8d3ec0c7dd5e89758ee70e330e7c1552))
+
 ## [78.15.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.15.1...v78.15.2) (2024-04-18)
 
 
