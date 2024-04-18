@@ -9,18 +9,6 @@ export const mockItems = [
     },
   },
   {
-    text: 'Close merge request',
-    action: () => {
-      // eslint-disable-next-line no-console
-      console.log('CLOSED');
-    },
-    extraAttrs: {
-      class: 'gl-text-red-500!',
-      rel: 'nofollow',
-      'data-method': 'put',
-    },
-  },
-  {
     text: 'Create new',
     href: 'https://gitlab.com/gitlab-org/gitlab/-/merge_requests/new',
     extraAttrs: {
@@ -33,6 +21,18 @@ export const mockItems = [
     to: '/edit',
     extraAttrs: {
       'data-uuid': '1234',
+    },
+  },
+  {
+    text: 'Close merge request',
+    action: () => {
+      // eslint-disable-next-line no-console
+      console.log('CLOSED');
+    },
+    extraAttrs: {
+      class: 'gl-text-red-500!',
+      rel: 'nofollow',
+      'data-method': 'put',
     },
   },
 ];
