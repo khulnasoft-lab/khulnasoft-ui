@@ -14,7 +14,7 @@ a corresponding axe accessibility check should be added.
 ## Running Cypress tests
 
 Tests can be run locally by starting Storybook
-on `http://localhost:9001` and opening the Cypress dashboard.  
+on `http://localhost:9001` and opening the Cypress dashboard.
 This can be done by running the following commands in separate shells:
 
 ```shell
@@ -97,9 +97,54 @@ describe('stories', () => {
 });
 ```
 
+### `glRunA11yTests` helper
+
 The `glRunA11yTests` helper runs each test, logging the name of the given test
 and calling `glCheckA11y` at the end of each test. This is needed to help
-improve maintainability while working uder a single `it` (see [below remarks](#remarks)).
+improve maintainability while working under a single `it` (see [below remarks](#remarks)).
+
+#### Best practices
+
+Don't loop over several stories in the function that you pass to `glRunA11yTests`.
+This helper will only run the A11Y checks in the last story that the
+function visited, for example:
+
+```javascript
+// BAD
+// Only the last item in the stories array will be tested by the
+// glRunA11yTests helper
+function checkA11YSearchBoxDisabled() {
+  stories.forEach((story) => {
+    cy.visitStory('base/search-box-by-type', {
+      story,
+    });
+  });
+}
+
+it('passes axe accessibility audits', { tags: '@a11y' }, () => {
+  cy.glRunA11yTests({
+    checkA11YSearchBoxDisabled,
+  });
+});
+
+// GOOD
+// We will run the A11y accessibility checks for each story
+// passed as a parameter to the checkA11YSearchBoxDisabled
+// function
+function checkA11YSearchBoxDisabled(story) {
+  cy.visitStory('base/search-box-by-type', {
+    story,
+  });
+}
+
+it('passes axe accessibility audits', { tags: '@a11y' }, () => {
+  stories.forEach((story) => {
+    cy.glRunA11yTests({
+      [`checkA11YSearchBoxDisabled-${story}`] checkA11YSearchBoxDisabled,
+    });
+  });
+});
+```
 
 ### Testing hover state by firing native events
 
