@@ -1,3 +1,10 @@
+## [78.15.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.15.1...v78.15.2) (2024-04-18)
+
+
+### Bug Fixes
+
+* **GlCard:** Fixing header and foter inner border radii ([1c28af7](https://gitlab.com/gitlab-org/gitlab-ui/commit/1c28af7aeabc3df2c13038fda97c42d294a0e476))
+
 ## [78.15.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.15.0...v78.15.1) (2024-04-17)
 
 
