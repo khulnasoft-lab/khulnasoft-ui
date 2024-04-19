@@ -1,0 +1,73 @@
+{
+  "buttons": {
+    "default-primary": {
+      "text": {
+        "color": {
+          "$type": "color",
+          "dark": {
+            "$value": "{text.primary.dark}"
+          },
+          "light": {
+            "$value": "{text.primary.light}"
+          }
+        },
+        "color-hover": {
+          "$type": "color",
+          "dark": {
+            "$value": "{black}"
+          },
+          "light": {
+            "$value": "{white}"
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "$type": "color",
+          "dark": {
+            "$value": "{white}"
+          },
+          "light": {
+            "$value": "{black}"
+          }
+        },
+        "color-hover": {
+          "$type": "color",
+          "dark": {
+            "$value": "{black}"
+          },
+          "light": {
+            "$value": "{white}"
+          }
+        }
+      }
+    },
+    "default-secondary/text/color": {
+      "$type": "color",
+      "$description": "The secondary button's text color",
+      "dark": {
+        "$value": "{black}"
+      },
+      "light": {
+        "$value": "{black}"
+      }
+    },
+    "default-secondary/background/color": {
+      "$type": "color",
+      "$description": "The secondary button's background color",
+      "dark": {
+        "$value": "{gray.500}"
+      },
+      "light": {
+        "$value": "{gray.500}"
+      }
+    },
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      }
+    }
+  }
+}

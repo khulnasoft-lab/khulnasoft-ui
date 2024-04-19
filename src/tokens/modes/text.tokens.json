@@ -1,0 +1,31 @@
+{
+  "text": {
+    "primary": {
+      "$type": "color",
+      "$description": "The primary text color",
+      "dark": {
+        "$value": "{gray.900}"
+      },
+      "light": {
+        "$value": "{gray.100}"
+      }
+    },
+    "secondary": {
+      "$type": "color",
+      "$description": "The secondary text color",
+      "dark": {
+        "$value": "{gray.500}"
+      },
+      "light": {
+        "$value": "{gray.500}"
+      }
+    },
+    "$extensions": {
+      "com.figma": {
+        "hiddenFromPublishing": false,
+        "scopes": ["ALL_SCOPES"],
+        "codeSyntax": {}
+      }
+    }
+  }
+}
