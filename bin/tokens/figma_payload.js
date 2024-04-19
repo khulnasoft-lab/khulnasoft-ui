@@ -310,19 +310,22 @@ const generatePostVariablesPayload = (tokensByFile, localVariables, collectionNa
         });
 
         postVariablesPayload.variableModes.push({
-          action: 'UPDATE',
+          action: 'CREATE',
           id: modeId,
           name: modeId,
           variableCollectionId,
         });
       }
 
-      // Add a new mode if it doesn't exist in the Figma file and it's not the initial mode in the collection
+      // Add a new mode if it doesn't exist in the Figma file,
+      // if it's not the initial mode in the collection,
+      // and if it doesn't already exist in the payload
       if (
         !variableMode &&
         !postVariablesPayload.variableCollections.find(
           (c) => c.id === variableCollectionId && c.initialModeId === modeId
-        )
+        ) &&
+        !postVariablesPayload.variableModes.find((m) => m.id === modeId)
       ) {
         postVariablesPayload.variableModes.push({
           action: 'CREATE',
