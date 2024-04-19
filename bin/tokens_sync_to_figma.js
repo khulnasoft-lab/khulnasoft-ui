@@ -3,7 +3,7 @@ const { getLocalFigmaVariables, postFigmaPayload } = require('./tokens/figma_api
 const { generatePostVariablesPayload, readTokenFiles } = require('./tokens/figma_payload');
 
 // TODOs:
-// - [ ] figure out aliasing
+// - [ ] figure out aliasing issues
 
 // MAYBEs:
 // - [ ] add a --skip flag to skip over listed files
