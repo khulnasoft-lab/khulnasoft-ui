@@ -42,24 +42,26 @@
         }
       }
     },
-    "default-secondary/text/color": {
-      "$type": "color",
-      "$description": "The secondary button's text color",
-      "dark": {
-        "$value": "{black}"
+    "default-secondary": {
+      "text/color": {
+        "$type": "color",
+        "$description": "The secondary button's text color",
+        "dark": {
+          "$value": "{black}"
+        },
+        "light": {
+          "$value": "{black}"
+        }
       },
-      "light": {
-        "$value": "{black}"
-      }
-    },
-    "default-secondary/background/color": {
-      "$type": "color",
-      "$description": "The secondary button's background color",
-      "dark": {
-        "$value": "{gray.500}"
-      },
-      "light": {
-        "$value": "{gray.500}"
+      "background/color": {
+        "$type": "color",
+        "$description": "The secondary button's background color",
+        "dark": {
+          "$value": "{gray.500}"
+        },
+        "light": {
+          "$value": "{gray.500}"
+        }
       }
     },
     "$extensions": {
