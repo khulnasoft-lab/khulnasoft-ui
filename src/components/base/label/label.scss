@@ -9,7 +9,8 @@ $label-close-button: '.gl-label-close.gl-button';
   @include gl-rounded-pill;
   position: relative;
   @include gl-max-w-full;
-  @include gl-font-base;
+  @include gl-font-sm;
+  @include gl-line-height-normal;
   box-shadow: var(--label-inset-border) !important;
 
   &:not(.gl-label-scoped) {
@@ -21,13 +22,12 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   .gl-label-link {
-    @include gl-line-height-normal;
     @include gl-display-flex;
-    @include gl-font-sm;
     @include gl-font-weight-normal;
     @include gl-overflow-hidden;
     @include gl-reset-color;
     @include gl-max-w-full;
+    @include gl-text-decoration-none;
 
     &:focus,
     &:hover,
@@ -41,8 +41,7 @@ $label-close-button: '.gl-label-close.gl-button';
   .gl-label-text,
   .gl-label-text-scoped {
     @include gl-display-block;
-    padding-block: $gl-spacing-scale-1;
-    padding-inline: calc(#{$gl-spacing-scale-3} - 2px);
+    padding: $gl-spacing-scale-1 #{$gl-spacing-scale-3 - $gl-spacing-scale-1};
     @include str-truncated($label-max-width);
   }
 
@@ -51,8 +50,8 @@ $label-close-button: '.gl-label-close.gl-button';
     @include gl-display-flex;
     width: px-to-rem(14px);
     height: px-to-rem(14px);
-    margin-left: calc(#{-$gl-spacing-scale-1} - 1px);
-    margin-right: calc(#{$gl-spacing-scale-2} - 1px);
+    margin-left: #{-$gl-spacing-scale-1 - ($gl-spacing-scale-1 / 2)};
+    margin-right: #{$gl-spacing-scale-2 - ($gl-spacing-scale-1 / 2)};
     @include gl-p-0;
     @include gl-rounded-full;
     @include gl-shadow-none;
@@ -149,7 +148,7 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   #{$label-close-button} {
-    margin-left: calc(#{-$gl-spacing-scale-2} - 2px);
+    margin-left: #{-$gl-spacing-scale-2 - $gl-spacing-scale-1};
 
     &:focus,
     &:hover {
@@ -165,8 +164,8 @@ $label-close-button: '.gl-label-close.gl-button';
 
   .gl-label-text-scoped {
     @include gl-text-gray-950;
-    padding-inline-start: calc($gl-spacing-scale-3 - 4px);
-    padding-inline-end: $gl-spacing-scale-3;
+    padding-left: #{$gl-spacing-scale-3 - $gl-spacing-scale-2};
+    padding-right: $gl-spacing-scale-3;
   }
 }
 
