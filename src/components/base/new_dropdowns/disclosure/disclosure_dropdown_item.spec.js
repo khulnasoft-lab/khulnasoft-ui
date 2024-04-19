@@ -51,7 +51,7 @@ describe('GlDisclosureDropdownItem', () => {
   describe.each`
     prop      | mockItem
     ${'href'} | ${0}
-    ${'to'}   | ${3}
+    ${'to'}   | ${2}
   `('when item has a `$prop`', ({ prop, mockItem }) => {
     const item = mockItems[mockItem];
 
@@ -102,7 +102,7 @@ describe('GlDisclosureDropdownItem', () => {
   });
 
   describe('when item has an `action`', () => {
-    const item = mockItems[1];
+    const item = mockItems[3];
     const action = jest.spyOn(item, 'action');
 
     beforeEach(() => {
@@ -184,7 +184,7 @@ describe('GlDisclosureDropdownItem', () => {
     beforeEach(() => {
       buildWrapper({
         item: {
-          ...mockItems[1],
+          ...mockItems[3],
           extraAttrs,
         },
       });
