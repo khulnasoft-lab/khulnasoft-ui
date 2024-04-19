@@ -1,3 +1,10 @@
+# [78.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.17.0...v78.18.0) (2024-04-19)
+
+
+### Features
+
+* **GlDisclosureDropdown:** Reorder dropdown items in example ([7145be6](https://gitlab.com/gitlab-org/gitlab-ui/commit/7145be686e16ae286e1189071a15e58403aaa635))
+
 # [78.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.16.0...v78.17.0) (2024-04-19)
 
 
