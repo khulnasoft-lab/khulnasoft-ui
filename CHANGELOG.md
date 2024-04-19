@@ -1,3 +1,10 @@
+# [78.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.16.0...v78.17.0) (2024-04-19)
+
+
+### Features
+
+* **GlLabel:** Fix size for legacy label implementations (HAML) ([56c497c](https://gitlab.com/gitlab-org/gitlab-ui/commit/56c497c2d0f49149707a6df8425eac26782f4d42))
+
 # [78.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.15.2...v78.16.0) (2024-04-18)
 
 
