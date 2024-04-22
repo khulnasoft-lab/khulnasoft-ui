@@ -4,6 +4,8 @@ describe('GlSorting', () => {
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
-    checkA11YSorting();
+    cy.glRunA11yTests({
+      checkA11YSorting,
+    });
   });
 });
