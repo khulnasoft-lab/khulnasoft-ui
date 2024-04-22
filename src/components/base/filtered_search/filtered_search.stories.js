@@ -33,9 +33,9 @@ const fakeMilestones = [
 ];
 
 const fakeLabels = [
-  { id: 1, title: 'Bug', color: '#D9534F', text_color: '#FFFFFF' },
+  { id: 1, title: 'Bug', color: '#D72104', text_color: '#FFFFFF' },
   { id: 2, title: 'Enhancement', color: '#F0AD4E', text_color: '#FFFFFF' },
-  { id: 3, title: 'Backlog', color: '#cccccc', text_color: '#333333' },
+  { id: 3, title: 'Backlog', color: '#CCCCCC', text_color: '#333333' },
   { id: 4, title: 'Feature', color: '#A8D695', text_color: '#333333' },
   { id: 5, title: 'Documentation', color: '#5CB85C', text_color: '#FFFFFF' },
 ];

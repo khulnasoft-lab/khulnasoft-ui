@@ -214,7 +214,7 @@ export default {
       @previous="$emit('previous')"
       @next="$emit('next')"
     >
-      <template #view>
+      <template #view="{ label }">
         <gl-token
           v-if="showToken"
           :class="{ 'gl-cursor-pointer': !viewOnly }"
@@ -229,7 +229,7 @@ export default {
           class="gl-filtered-search-term-input"
           :class="{ 'gl-bg-gray-10': viewOnly }"
           :placeholder="placeholder"
-          :aria-label="placeholder"
+          :aria-label="label"
           :readonly="viewOnly"
           data-testid="filtered-search-term-input"
           @focusin="$emit('activate')"
