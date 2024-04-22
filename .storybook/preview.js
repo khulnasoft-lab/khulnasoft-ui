@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { h } from '@vue/compat';
+import { useArgs } from '@storybook/preview-api';
 
 import 'iframe-resizer/js/iframeResizer.contentWindow.min.js';
 import setConfigs from '../src/config';
@@ -11,8 +12,11 @@ import '../src/scss/storybook.scss';
 import '../src/scss/tailwind.css';
 
 let decorators = [
-  (story) => ({
-    components: { story },
+  (story, context) => {
+    const [_, updateArgs] = useArgs();
+    return story({ ...context, updateArgs });
+  },
+  () => ({
     template: '<story />',
     mounted() {
       this.$nextTick().then(() => {
