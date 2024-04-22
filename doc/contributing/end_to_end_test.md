@@ -106,7 +106,7 @@ improve maintainability while working under a single `it` (see [below remarks](#
 #### Best practices
 
 Don't loop over several stories in the function that you pass to `glRunA11yTests`.
-This helper will only run the A11Y checks in the last story that the
+This helper will only run the accessibility checks in the last story that the
 function visited, for example:
 
 ```javascript
