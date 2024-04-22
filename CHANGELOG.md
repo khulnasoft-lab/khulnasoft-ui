@@ -1,3 +1,10 @@
+# [78.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.18.0...v78.19.0) (2024-04-22)
+
+
+### Features
+
+* **GlFormTextarea:** add support for character count ([1b359aa](https://gitlab.com/gitlab-org/gitlab-ui/commit/1b359aabb514831bddaeca108132427ecde4ae64))
+
 # [78.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.17.0...v78.18.0) (2024-04-19)
 
 
