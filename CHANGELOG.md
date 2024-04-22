@@ -1,3 +1,25 @@
+# [79.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.19.0...v79.0.0) (2024-04-22)
+
+
+### Features
+
+* **BaseDropdown:** Use a "main" element boundary when available ([ee0cd82](https://gitlab.com/gitlab-org/gitlab-ui/commit/ee0cd82b8b2ae6986052877250884ce9cd43df21))
+
+
+### BREAKING CHANGES
+
+* **BaseDropdown:** This change slightly alters the default positioning
+of GlDisclosureDropdown and GlListbox.
+
+If the dropdown is placed inside a <main> element: The disclosure
+will use main as a boundary to not overflow it. This change aims
+to smartly reduce the need to use custom "placement" ('right'
+and 'bottom-end') options, especially when the dropdown is placed
+on the right side, such as in contextual menus.
+
+If the dropdown is not placed in a <main> element, behavior does
+change.
+
 # [78.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.18.0...v78.19.0) (2024-04-22)
 
 
