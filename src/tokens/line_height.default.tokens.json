@@ -1,0 +1,144 @@
+{
+  "line-height": {
+    "12": {
+      "$value": 12,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "16": {
+      "$value": 16,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "20": {
+      "$value": 20,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "24": {
+      "$value": 24,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "28": {
+      "$value": 28,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "32": {
+      "$value": 32,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "36": {
+      "$value": 36,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "42": {
+      "$value": 42,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "44": {
+      "$value": 44,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    },
+    "52": {
+      "$value": 52,
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "$extensions": {
+        "com.figma": {
+          "scopes": [
+            "TEXT_CONTENT"
+          ]
+        }
+      }
+    }
+  }
+}
