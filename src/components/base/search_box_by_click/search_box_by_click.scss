@@ -1,55 +1,17 @@
 .gl-search-box-by-click {
   @include gl-font-base;
 
-  .gl-search-box-by-click-history {
-    > button {
-      @include gl-p-3;
-      @include gl-border-none;
-      @include gl-inset-border-1-gray-400;
-    }
-
-    .gl-search-box-by-click-history-icon {
-      @include gl-mr-2;
-      @include gl-text-gray-500;
-    }
-
-    .gl-search-box-by-click-history-icon-chevron {
-      @include gl-text-gray-500;
-      @include gl-mr-0;
-    }
-
-    .gl-search-box-by-click-close-history-button {
-      position: absolute;
-      top: 0;
-      right: $gl-spacing-scale-2;
-      @include gl-line-height-0;
-      @include gl-shadow-none;
-      @include gl-w-auto;
-    }
-
-    .gl-search-box-by-click-history-header {
-      @include gl-text-center;
-    }
-
-    .gl-search-box-by-click-history-no-searches {
-      @include gl-text-center;
-      @include gl-text-gray-500;
-
-      .gl-dropdown-text {
-        @include gl-font-weight-normal;
-      }
-    }
-  }
-
-  &.input-group {
-    > .input-group-prepend,
-    > .input-group-append {
-      @include gl-bg-white;
-    }
+  .gl-search-box-by-click-history > button {
+    padding-left: $gl-spacing-scale-4 !important;
+    padding-right: $gl-spacing-scale-3 !important;
+    @include gl-border-none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    @include gl-inset-border-1-gray-400;
   }
 
   .gl-search-box-by-click-search-button {
-    @include gl-text-gray-500;
+    @include gl-text-secondary;
     @include gl-inset-border-1-gray-400;
   }
 
@@ -66,18 +28,13 @@
     @include gl-mr-2;
     @include gl-z-index-3;
   }
-
-  .gl-search-box-by-click-menu {
-    @include gl-font-base;
-    width: $gl-dropdown-width-wide;
-  }
 }
 
 .gl-search-box-by-click-with-search-button {
   .gl-search-box-by-click-input {
     @include gl-pr-7;
   }
-  
+
   .gl-search-box-by-click-clear-button {
     right: $gl-spacing-scale-7;
   }
