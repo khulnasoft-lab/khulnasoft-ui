@@ -201,5 +201,42 @@ describe('GlFormTextArea', () => {
 
       itUpdatesDebouncedScreenReaderText(expectedText);
     });
+
+    describe('when `value` prop is `null`', () => {
+      const expectedText = `${characterCount} characters remaining`;
+
+      beforeEach(() => {
+        createComponent({
+          value: null,
+          characterCount,
+        });
+      });
+
+      it('displays remaining characters', () => {
+        expect(wrapper.text()).toContain(expectedText);
+      });
+
+      itUpdatesDebouncedScreenReaderText(expectedText);
+    });
+
+    describe('when `value` prop is updated to `null`', () => {
+      const textareaCharacterCount = 5;
+      const expectedText = `${characterCount} characters remaining`;
+
+      beforeEach(() => {
+        createComponent({
+          value: 'a'.repeat(textareaCharacterCount),
+          characterCount,
+        });
+
+        wrapper.setProps({ value: null });
+      });
+
+      it('updates character count text', () => {
+        expect(wrapper.text()).toContain(expectedText);
+      });
+
+      itUpdatesDebouncedScreenReaderText(expectedText);
+    });
   });
 });

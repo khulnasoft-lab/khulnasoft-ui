@@ -98,7 +98,7 @@ export default {
         return;
       }
 
-      this.remainingCharacterCount = this.characterCount - newValue.length;
+      this.remainingCharacterCount = this.characterCount - this.valueLength(newValue);
       this.debouncedUpdateRemainingCharacterCountSrOnly(newValue);
     },
   },
@@ -111,16 +111,19 @@ export default {
     );
   },
   methods: {
+    valueLength(value) {
+      return value?.length || 0;
+    },
     handleKeyPress(e) {
       if (e.keyCode === 13 && (e.metaKey || e.ctrlKey)) {
         this.$emit('submit');
       }
     },
     updateRemainingCharacterCountSrOnly(newValue) {
-      this.remainingCharacterCountSrOnly = this.characterCount - newValue.length;
+      this.remainingCharacterCountSrOnly = this.characterCount - this.valueLength(newValue);
     },
     initialRemainingCharacterCount() {
-      return this.characterCount - this.value.length;
+      return this.characterCount - this.valueLength(this.value);
     },
   },
 };
