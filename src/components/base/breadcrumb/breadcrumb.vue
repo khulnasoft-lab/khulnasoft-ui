@@ -113,9 +113,7 @@ export default {
     }
   },
   beforeDestroy() {
-    if (this.autoResize) {
-      this.disableAutoResize();
-    }
+    this.disableAutoResize();
   },
   methods: {
     resetItems() {
@@ -174,12 +172,15 @@ export default {
       return this.isLastItem(index) ? 'page' : false;
     },
     enableAutoResize() {
-      this.resizeObserver = new ResizeObserver(this.debounceMakeBreadcrumbsFit);
+      this.resizeObserver ||= new ResizeObserver(this.debounceMakeBreadcrumbsFit);
       this.resizeObserver.observe(this.$el);
       this.measureAndMakeBreadcrumbsFit();
     },
     disableAutoResize() {
-      this.resizeObserver.unobserve(this.$el);
+      if (this.resizeObserver) {
+        this.resizeObserver.unobserve(this.$el);
+        this.resizeObserver = null;
+      }
       this.resetItems();
     },
   },
