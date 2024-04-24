@@ -1,3 +1,15 @@
+# [79.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.1.1...v79.2.0) (2024-04-24)
+
+
+### Bug Fixes
+
+* **dropdowns:** ignore vertical boundaries ([3fec816](https://gitlab.com/gitlab-org/gitlab-ui/commit/3fec81641a0f625810a89a05129737767792df13))
+
+
+### Features
+
+* **GlDuoChatMessage:** output errors ([f4c804a](https://gitlab.com/gitlab-org/gitlab-ui/commit/f4c804abc033a7b23823366d2b1fa1e065abf056))
+
 ## [79.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.1.0...v79.1.1) (2024-04-24)
 
 
