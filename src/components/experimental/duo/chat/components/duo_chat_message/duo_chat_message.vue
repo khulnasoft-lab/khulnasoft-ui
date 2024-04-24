@@ -1,4 +1,6 @@
 <script>
+import GlIcon from '../../../../../base/icon/icon.vue';
+import { GlTooltipDirective } from '../../../../../../directives/tooltip';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import GlFormGroup from '../../../../../base/form/form_group/form_group.vue';
 import GlFormTextarea from '../../../../../base/form/form_textarea/form_textarea.vue';
@@ -19,11 +21,13 @@ export const i18n = {
     INTERACTION: 'The situation in which you interacted with GitLab Duo Chat.',
     IMPROVE_WHAT: 'How could the response be improved?',
     BETTER_RESPONSE: 'How the response might better meet your needs.',
+    MESSAGE_ERROR: 'Error sending the message',
   },
 };
 
 export default {
   name: 'GlDuoChatMessage',
+  i18n,
   safeHtmlConfigExtension: {
     ADD_TAGS: ['copy-code'],
   },
@@ -32,9 +36,11 @@ export default {
     GlDuoUserFeedback,
     GlFormGroup,
     GlFormTextarea,
+    GlIcon,
   },
   directives: {
     SafeHtml,
+    GlTooltip: GlTooltipDirective,
   },
   provide() {
     return {
@@ -92,9 +98,6 @@ export default {
       return this.message.extras?.hasFeedback;
     },
     defaultContent() {
-      if (this.message.errors.length > 0)
-        return this.renderMarkdown(this.message.errors.join('; '));
-
       if (this.message.contentHtml) {
         return this.message.contentHtml;
       }
@@ -105,7 +108,12 @@ export default {
       if (this.isAssistantMessage && this.isChunk) {
         return this.renderMarkdown(concatUntilEmpty(this.messageChunks));
       }
+
       return this.defaultContent || this.renderMarkdown(concatUntilEmpty(this.message.chunks));
+    },
+
+    error() {
+      return Boolean(this.message?.errors?.length) && this.message.errors.join('; ');
     },
   },
   beforeCreate() {
@@ -142,7 +150,7 @@ export default {
       }
     },
     hydrateContentWithGFM() {
-      if (!this.isChunk) {
+      if (!this.isChunk && this.$refs.content) {
         this.$nextTick(this.renderGFM(this.$refs.content));
       }
     },
@@ -161,7 +169,6 @@ export default {
       }
     },
   },
-  i18n,
 };
 </script>
 <template>
@@ -171,33 +178,50 @@ export default {
       'gl-ml-auto gl-bg-blue-100 gl-text-blue-900 gl-rounded-bottom-right-none': isUserMessage,
       'gl-rounded-bottom-left-none gl-text-gray-900 gl-bg-white gl-border-1 gl-border-solid gl-border-gray-50':
         isAssistantMessage,
+      'gl-bg-red-50 gl-border-none!': error,
     }"
   >
-    <div ref="content" v-safe-html:[$options.safeHtmlConfigExtension]="messageContent"></div>
+    <gl-icon
+      v-if="error"
+      :aria-label="$options.i18n.MESSAGE_ERROR"
+      name="status_warning_borderless"
+      :size="16"
+      class="gl-text-red-600 gl-border gl-border-red-500 gl-rounded-full gl-mr-3 gl-flex-shrink-0 error-icon"
+      data-testid="error"
+    />
+    <div ref="content-wrapper" :class="{ 'has-error': error }">
+      <div v-if="error" ref="error-message" class="error-message">{{ error }}</div>
+      <div v-else>
+        <div ref="content" v-safe-html:[$options.safeHtmlConfigExtension]="messageContent"></div>
 
-    <template v-if="isAssistantMessage">
-      <documentation-sources v-if="sources" :sources="sources" />
+        <template v-if="isAssistantMessage">
+          <documentation-sources v-if="sources" :sources="sources" />
 
-      <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
-        <gl-duo-user-feedback
-          :feedback-received="hasFeedback"
-          :modal-title="$options.i18n.MODAL.TITLE"
-          :modal-alert="$options.i18n.MODAL.ALERT_TEXT"
-          @feedback="logEvent"
-        >
-          <template #feedback-extra-fields>
-            <gl-form-group :label="$options.i18n.MODAL.DID_WHAT" optional>
-              <gl-form-textarea v-model="didWhat" :placeholder="$options.i18n.MODAL.INTERACTION" />
-            </gl-form-group>
-            <gl-form-group :label="$options.i18n.MODAL.IMPROVE_WHAT" optional>
-              <gl-form-textarea
-                v-model="improveWhat"
-                :placeholder="$options.i18n.MODAL.BETTER_RESPONSE"
-              />
-            </gl-form-group>
-          </template>
-        </gl-duo-user-feedback>
+          <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
+            <gl-duo-user-feedback
+              :feedback-received="hasFeedback"
+              :modal-title="$options.i18n.MODAL.TITLE"
+              :modal-alert="$options.i18n.MODAL.ALERT_TEXT"
+              @feedback="logEvent"
+            >
+              <template #feedback-extra-fields>
+                <gl-form-group :label="$options.i18n.MODAL.DID_WHAT" optional>
+                  <gl-form-textarea
+                    v-model="didWhat"
+                    :placeholder="$options.i18n.MODAL.INTERACTION"
+                  />
+                </gl-form-group>
+                <gl-form-group :label="$options.i18n.MODAL.IMPROVE_WHAT" optional>
+                  <gl-form-textarea
+                    v-model="improveWhat"
+                    :placeholder="$options.i18n.MODAL.BETTER_RESPONSE"
+                  />
+                </gl-form-group>
+              </template>
+            </gl-duo-user-feedback>
+          </div>
+        </template>
       </div>
-    </template>
+    </div>
   </div>
 </template>
