@@ -46,7 +46,7 @@ describe('GlFormRadio', () => {
     cy.get(checkedAndDisabledOption).should('be.checked');
   }
 
-  it('passes axe accessibility audits', { tags: 'a11y' }, () => {
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     cy.glRunA11yTests({
       checkA11yDefaultState,
       checkA11yWithHelpText,
