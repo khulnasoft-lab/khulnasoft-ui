@@ -1,3 +1,10 @@
+## [79.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.1.0...v79.1.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* **GlFormTextarea:** fix bug when `value` prop is `null` ([dffde58](https://gitlab.com/gitlab-org/gitlab-ui/commit/dffde58ea067b8b0a59cd4e4e264f5a1ee477541))
+
 # [79.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.0.0...v79.1.0) (2024-04-24)
 
 
