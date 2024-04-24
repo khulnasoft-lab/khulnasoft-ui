@@ -1,3 +1,11 @@
+# [79.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.0.0...v79.1.0) (2024-04-24)
+
+
+### Features
+
+* **GlFilteredSearch:** Improve dropdown styles ([ac13b05](https://gitlab.com/gitlab-org/gitlab-ui/commit/ac13b05b092e78e4c61bfd601d7b595c2bf8a04d))
+* **GlFilteredSearch:** Improve dropdown styles ([47ae89a](https://gitlab.com/gitlab-org/gitlab-ui/commit/47ae89a019cd33ae4582d61c08c6b48a677cc4f1))
+
 # [79.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.19.0...v79.0.0) (2024-04-22)
 
 
