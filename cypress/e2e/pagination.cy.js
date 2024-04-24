@@ -3,12 +3,6 @@ describe('GlPagination', () => {
     cy.visitStory('base/pagination');
   }
 
-  function checkA11YCompact() {
-    cy.visitStory('base/pagination', {
-      story: 'compact',
-    });
-  }
-
   function checkA11YNextPageIsDisabled() {
     cy.visitStory('base/pagination', {
       args: {
@@ -37,7 +31,6 @@ describe('GlPagination', () => {
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     cy.glRunA11yTests({
       checkA11YDefaultState,
-      checkA11YCompact,
       checkA11YHoveredState,
       checkA11YActiveHoveredState,
       checkA11YNextPageIsDisabled,

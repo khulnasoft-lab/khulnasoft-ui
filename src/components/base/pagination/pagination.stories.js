@@ -67,25 +67,6 @@ export const Default = (args, { argTypes }) => ({
 });
 Default.args = generateProps();
 
-export const Compact = (args, { argTypes }) => ({
-  components,
-  props: Object.keys(argTypes),
-  ...defaults(args),
-  template: `
-    <div class="text-center gl-font-base">
-      ${template}
-      Page {{ page }} of 3
-    </div>
-  `,
-});
-Compact.args = generateProps({
-  page: 1,
-  prevPage: 0,
-  nextPage: 2,
-  totalItems: 0,
-  align: alignOptions.center,
-});
-
 export const LinkBased = (args, { argTypes }) => ({
   components,
   props: Object.keys(argTypes),
