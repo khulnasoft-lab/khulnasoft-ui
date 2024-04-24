@@ -14,3 +14,5 @@ yarn-error.log
 .cypress_cache
 /static/fonts/
 bin/migrate_custom_utils_to_tw.bundled.mjs
+/bin/temp
+/tailwind-config-viewer-static/
