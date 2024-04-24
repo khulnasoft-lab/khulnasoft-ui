@@ -34,7 +34,7 @@ describe('GlPagination', () => {
     cy.get('[data-testid="page-item"]').eq(1).realHover();
   }
 
-  it('passes axe accessibility audits', { tags: 'a11y' }, () => {
+  it('passes axe accessibility audits', { tags: '@11y' }, () => {
     cy.glRunA11yTests({
       checkA11YDefaultState,
       checkA11YCompact,
