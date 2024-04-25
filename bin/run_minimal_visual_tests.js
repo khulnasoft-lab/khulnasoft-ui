@@ -31,6 +31,7 @@ const FILE_PATTERNS_OVERRIDES = [
   'lefthook.yml',
   'LICENSE',
   'plopfile.js',
+  /\.spec\.js$/,
 ];
 
 /**
