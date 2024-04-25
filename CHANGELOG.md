@@ -1,3 +1,10 @@
+# [79.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.2.0...v79.3.0) (2024-04-25)
+
+
+### Features
+
+* **DesignTokens:** add new text colors and deprecate pilot text colors ([818f109](https://gitlab.com/gitlab-org/gitlab-ui/commit/818f109b4151319a7d51025a8eae9bcf2a6e37e4))
+
 # [79.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.1.1...v79.2.0) (2024-04-24)
 
 
