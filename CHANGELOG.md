@@ -1,3 +1,10 @@
+## [79.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.4.0...v79.4.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* **GlKeysetPagination:** set default prev text to "Previous" ([e245aaa](https://gitlab.com/gitlab-org/gitlab-ui/commit/e245aaab8be4835c3ee01d4917d0499289e16a68))
+
 # [79.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.3.0...v79.4.0) (2024-04-25)
 
 
