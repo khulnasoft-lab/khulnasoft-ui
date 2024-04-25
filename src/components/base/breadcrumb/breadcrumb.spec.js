@@ -29,6 +29,7 @@ describe('Breadcrumb component', () => {
   const findAllAvatars = () => wrapper.findAll('[data-testid="avatar"]');
   const findBreadcrumbItems = () => wrapper.findAllComponents(GlBreadcrumbItem);
   const findOverflowDropdown = () => wrapper.findComponent(GlDisclosureDropdown);
+  const findOverflowingItems = () => wrapper.findAllComponents(GlDisclosureDropdownItem);
 
   const findVisibleBreadcrumbItems = () =>
     findBreadcrumbItems().wrappers.filter((item) => item.isVisible());
@@ -43,21 +44,24 @@ describe('Breadcrumb component', () => {
     });
   };
 
-  const mockWrapperWidth = (widthInPx) => {
-    wrapper.element.style.width = `${widthInPx}px`;
-
-    Object.defineProperty(wrapper.element, 'clientWidth', {
+  const mockElementWidth = (element, widthInPx) => {
+    Object.defineProperty(element, 'clientWidth', {
       get: () => widthInPx,
-      configurable: true,
     });
   };
 
   const mockWideWrapperWidth = () => {
-    mockWrapperWidth(1000);
+    mockElementWidth(wrapper.element, 1000);
   };
 
   const mockSmallWrapperWidth = () => {
-    mockWrapperWidth(1);
+    mockElementWidth(wrapper.element, 1);
+  };
+
+  const mockItemsWidths = () => {
+    findBreadcrumbItems().wrappers.forEach((item) => {
+      mockElementWidth(item.element, 100);
+    });
   };
 
   describe('items', () => {
@@ -88,6 +92,7 @@ describe('Breadcrumb component', () => {
       beforeEach(async () => {
         createComponent({ items, showMoreLabel: 'More...' });
         mockSmallWrapperWidth();
+        mockItemsWidths();
         await wrapper.vm.$nextTick();
       });
 
@@ -100,11 +105,59 @@ describe('Breadcrumb component', () => {
       beforeEach(async () => {
         createComponent();
         mockSmallWrapperWidth();
+        mockItemsWidths();
         await wrapper.vm.$nextTick();
       });
 
       it('uses default', () => {
         expect(findOverflowDropdown().props('toggleText')).toBe('Show more breadcrumbs');
+      });
+    });
+  });
+
+  describe('autoResize', () => {
+    describe('by default', () => {
+      beforeEach(async () => {
+        createComponent();
+        mockSmallWrapperWidth();
+        mockItemsWidths();
+        await wrapper.vm.$nextTick();
+      });
+
+      it('moves overflowing items into dropdown', () => {
+        expect(findOverflowDropdown().exists()).toBe(true);
+        expect(findOverflowingItems().length).toBeGreaterThan(0);
+      });
+
+      it('reacts to prop changing to false', async () => {
+        expect(findOverflowDropdown().exists()).toBe(true);
+        await wrapper.setProps({ autoResize: false });
+        await wrapper.vm.$nextTick();
+        expect(findOverflowDropdown().exists()).toBe(false);
+        expect(findBreadcrumbItems().length).toEqual(items.length);
+      });
+    });
+
+    describe('when set to false', () => {
+      beforeEach(async () => {
+        createComponent({ items, autoResize: false });
+        mockSmallWrapperWidth();
+        mockItemsWidths();
+        await wrapper.vm.$nextTick();
+      });
+
+      it('keeps all items visible', () => {
+        expect(findOverflowDropdown().exists()).toBe(false);
+        expect(findBreadcrumbItems().length).toEqual(items.length);
+      });
+
+      it('reacts to prop changing to true', async () => {
+        expect(findOverflowDropdown().exists()).toBe(false);
+        await wrapper.setProps({ autoResize: true });
+        await wrapper.vm.$nextTick();
+        await wrapper.vm.$nextTick(); // otherwise test fails with VUE_VERSION=3
+        expect(findOverflowDropdown().exists()).toBe(true);
+        expect(findOverflowingItems().length).toBeGreaterThan(0);
       });
     });
   });
@@ -169,6 +222,7 @@ describe('Breadcrumb component', () => {
       beforeEach(async () => {
         createComponent();
         mockSmallWrapperWidth();
+        mockItemsWidths();
         await wrapper.vm.$nextTick();
       });
 
