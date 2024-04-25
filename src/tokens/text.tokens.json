@@ -3,17 +3,73 @@
     "primary": {
       "$value": "#333238",
       "$type": "color",
+      "$description": "Use text.color.strong instead",
+      "deprecated": true,
       "themeable": true
     },
     "secondary": {
       "$value": "#737278",
       "$type": "color",
+      "$description": "Use text.color.subtle instead",
+      "deprecated": true,
       "themeable": true
     },
     "tertiary": {
       "$value": "#89888d",
       "$type": "color",
+      "$description": "Use text.color.disabled instead",
+      "deprecated": true,
       "themeable": true
+    },
+    "color": {
+      "default": {
+        "$value": "#434248",
+        "$type": "color",
+        "$description": "Used for the default text color.",
+        "themeable": true
+      },
+      "subtle": {
+        "$value": "#626168",
+        "$type": "color",
+        "$description": "Used for supplemental text that doesn't need to be as prominent as other text.",
+        "themeable": true
+      },
+      "strong": {
+        "$value": "#1f1e24",
+        "$type": "color",
+        "$description": "Used for text with the highest contrast.",
+        "themeable": true
+      },
+      "heading": {
+        "$value": "#1f1e24",
+        "$type": "color",
+        "$description": "Used for headings level 1-6.",
+        "themeable": true
+      },
+      "link": {
+        "$value": "#0b5cad",
+        "$type": "color",
+        "$description": "Used for default text links.",
+        "themeable": true
+      },
+      "danger": {
+        "$value": "#c91c00",
+        "$type": "color",
+        "$description": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.",
+        "themeable": true
+      },
+      "success": {
+        "$value": "#217645",
+        "$type": "color",
+        "$description": "Used for text indicating success or validity.",
+        "themeable": true
+      },
+      "disabled": {
+        "$value": "#89888d",
+        "$type": "color",
+        "$description": "Used for disabled text.",
+        "themeable": true
+      }
     }
   }
 }

@@ -1,11 +1,17 @@
 <script>
 import { colorFromBackground } from '../utils/utils';
+import { GlTooltipDirective } from '../directives/tooltip';
+import GlBadge from '../components/base/badge/badge.vue';
 import GlColorContrast from '../internal/color_contrast/color_contrast.vue';
 
 export default {
   name: 'TokensStory',
   components: {
+    GlBadge,
     GlColorContrast,
+  },
+  directives: {
+    GlTooltip: GlTooltipDirective,
   },
   inject: ['isBackgroundColorStory', 'lightBackground', 'darkBackground', 'containerClass'],
   props: {
@@ -53,8 +59,13 @@ export default {
         :class="getClasses(token.value)"
         :style="getStyle(token.value)"
       >
-        <code class="gl-reset-color">{{ getTokenName(token) }}</code>
+        <code v-gl-tooltip :title="token.comment" class="gl-reset-color">
+          {{ getTokenName(token) }}
+        </code>
         <div class="gl-display-flex gl-align-items-center gl-gap-3">
+          <gl-badge v-if="token.deprecated" v-gl-tooltip :title="token.comment" variant="danger">
+            Deprecated
+          </gl-badge>
           <code class="gl-reset-color">{{ token.value }}</code>
           <gl-color-contrast
             v-if="!isAlpha(token.value)"
