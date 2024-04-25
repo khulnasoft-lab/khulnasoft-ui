@@ -1,3 +1,17 @@
+# [79.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.3.0...v79.4.0) (2024-04-25)
+
+
+### Bug Fixes
+
+* **GlBreadcrumb:** Fix containerWidth calc with ResizeObserver ([daa8013](https://gitlab.com/gitlab-org/gitlab-ui/commit/daa80133e1e56383fb857c12cc9384c553a2b389))
+* **GlBreadcrumb:** Fix details in resize calc ([4025e2e](https://gitlab.com/gitlab-org/gitlab-ui/commit/4025e2e0af2a41aa843ccd7c6f1fae25fd2ac170))
+* **GlBreadcrumb:** Watch autoResize prop and react to change ([b4808bf](https://gitlab.com/gitlab-org/gitlab-ui/commit/b4808bfaa59646a6155b394d4c22d4a1c85c6cfb))
+
+
+### Features
+
+* **GlBreadcrumb:** Add boolean prop to disable auto-resize ([0dad528](https://gitlab.com/gitlab-org/gitlab-ui/commit/0dad528cb2774c3c7bd9ccdafb7f9c8b00a88c23))
+
 # [79.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.2.0...v79.3.0) (2024-04-25)
 
 
