@@ -100,6 +100,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 }
 
 .gl-drawer-close-button {
+  @include gl-align-self-start;
   @include gl-bg-none;
   @include gl-border-none;
 }
