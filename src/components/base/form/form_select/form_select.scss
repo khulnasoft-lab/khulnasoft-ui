@@ -25,6 +25,11 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   @include gl-bg-no-repeat;
   background-image: url($gl-icon-select-chevron-down);
 
+  @media (forced-colors: active) {
+    box-shadow: none;
+    border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
+  }
+
   &:focus,
   &:focus:active {
     @include gl-focus($color: $gray-900, $important: true);

@@ -72,6 +72,10 @@
   @include gl-py-2;
   @include gl-px-3;
 
+  @media (forced-colors: active) {
+    border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
+  }
+
   &.sm {
     @include gl-py-0;
   }

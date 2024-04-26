@@ -13,6 +13,11 @@
   @include form-control-focus($ignore-warning: true);
   appearance: none;
 
+  @media (forced-colors: active) {
+    box-shadow: none;
+    border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
+  }
+
   &:disabled,
   &:not(.form-control-plaintext):not([type='color']):read-only {
     @include gl-bg-gray-10;

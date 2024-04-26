@@ -34,6 +34,11 @@
   @include gl-font-base;
   @include gl-rounded-base;
 
+  @media (forced-colors: active) {
+    box-shadow: none;
+    border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
+  }
+
   .gl-button-text {
     @include gl-overflow-hidden;
     @include gl-text-overflow-ellipsis;
@@ -314,6 +319,20 @@
     }
   }
 
+  &.btn-default-secondary,
+  &.btn-dashed-secondary,
+  &.btn-confirm-secondary,
+  &.btn-info-secondary,
+  &.btn-success-secondary,
+  &.btn-danger-secondary,
+  &.btn-reset-secondary,
+  &.btn-reset-tertiary {
+    @media (forced-colors: active) {
+      color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
+      border: 1px solid LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
+    }
+  }
+
   &.btn-default,
   &.btn-dashed,
   &.btn-confirm,
@@ -324,6 +343,12 @@
       @include gl-shadow-none;
       mix-blend-mode: multiply;
 
+      @media (forced-colors: active) {
+        color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
+        mix-blend-mode: initial;
+        border: 0;
+      }
+
       &:hover {
         @include gl-shadow-none;
       }
@@ -333,6 +358,15 @@
       &:focus:active {
         @include gl-focus;
       }
+    }
+  }
+
+  &.btn-default-tertiary,
+  &.btn-confirm-tertiary,
+  &.btn-danger-tertiary {
+    @media (forced-colors: active) {
+      color: #000; // stylelint-disable-line scale-unlimited/declaration-strict-value
+      border: 0;
     }
   }
 
