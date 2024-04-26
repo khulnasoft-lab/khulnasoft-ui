@@ -1,6 +1,14 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { computePosition, autoUpdate, offset, size, autoPlacement, shift } from '@floating-ui/dom';
+import {
+  computePosition,
+  autoUpdate,
+  offset,
+  size,
+  flip,
+  autoPlacement,
+  shift,
+} from '@floating-ui/dom';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
@@ -270,22 +278,29 @@ export default {
     },
     floatingUIConfig() {
       const placement = dropdownPlacements[this.placement];
-      const [, alignment] = placement.split('-');
+      const [side, alignment] = placement.split('-');
+
+      // dropdowns that disclose vertically may contain dynamically changing content (and height):
+      // use a "most space" strategy to avoid surprising repositioning when content changes.
+      const useAutoPlacement = side === 'top' || side === 'bottom';
+
       return {
         placement,
         strategy: this.positioningStrategy,
         middleware: [
           offset(this.offset),
-          autoPlacement(() => {
-            const autoHorizontalBoundary = getHorizontalBoundingClientRect(
-              this.$el.closest(GL_DROPDOWN_HORIZONTAL_BOUNDARY_SELECTOR)
-            );
-            return {
-              alignment,
-              boundary: autoHorizontalBoundary || 'clippingAncestors',
-              allowedPlacements: dropdownAllowedAutoPlacements[this.placement],
-            };
-          }),
+          useAutoPlacement
+            ? autoPlacement(() => {
+                return {
+                  alignment,
+                  allowedPlacements: dropdownAllowedAutoPlacements[this.placement],
+                  boundary: this.getBoundary(),
+                };
+              })
+            : flip(() => ({
+                fallbackAxisSideDirection: alignment,
+                boundary: this.getBoundary(),
+              })),
           shift(),
           size({
             apply: ({ availableHeight, elements }) => {
@@ -332,6 +347,12 @@ export default {
           this.$el
         );
       }
+    },
+    getBoundary() {
+      const autoHorizontalBoundary = getHorizontalBoundingClientRect(
+        this.$el.closest(GL_DROPDOWN_HORIZONTAL_BOUNDARY_SELECTOR)
+      );
+      return autoHorizontalBoundary || 'clippingAncestors';
     },
     async startFloating() {
       this.calculateNonScrollableAreaHeight();

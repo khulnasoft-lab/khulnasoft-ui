@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { computePosition, autoUpdate, offset, autoPlacement, shift } from '@floating-ui/dom';
+import { computePosition, autoUpdate, offset, autoPlacement, flip, shift } from '@floating-ui/dom';
 import {
   ARROW_DOWN,
   GL_DROPDOWN_FOCUS_CONTENT,
@@ -16,7 +16,12 @@ import GlBaseDropdown from './base_dropdown.vue';
 jest.mock('@floating-ui/dom');
 const mockStopAutoUpdate = jest.fn();
 offset.mockImplementation((offsetOpts = {}) => ({ offsetOpts }));
-autoPlacement.mockImplementation((autoPlacementOpts = {}) => ({ autoPlacementOpts }));
+autoPlacement.mockImplementation((fn) => {
+  return fn((autoPlacementOpts = {}) => ({ autoPlacementOpts }));
+});
+flip.mockImplementation((fn) => {
+  return fn((flipOpts = {}) => ({ flipOpts }));
+});
 shift.mockImplementation((shiftOpts = {}) => ({ shiftOpts }));
 
 const DEFAULT_BTN_TOGGLE_CLASSES = [
@@ -116,16 +121,15 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              autoPlacement(() => ({
+                alignment: 'start',
+                allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
+                boundary: { x: 0, y: 0, width: 0, height: 0 },
+              })),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: 'start',
-          boundary: { x: 0, y: 0, width: 0, height: 0 },
-          allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
-        });
 
         document.body.innerHTML = '';
       });
@@ -142,16 +146,15 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              autoPlacement(() => ({
+                alignment: 'start',
+                allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
+                boundary: 'clippingAncestors',
+              })),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: 'start',
-          boundary: 'clippingAncestors',
-          allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
-        });
       });
 
       it('initializes Floating UI with reference and floating elements and config for center-aligned menu', async () => {
@@ -166,16 +169,15 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              autoPlacement(() => ({
+                alignment: undefined,
+                allowedPlacements: ['bottom', 'top'],
+                boundary: 'clippingAncestors',
+              })),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: undefined,
-          boundary: 'clippingAncestors',
-          allowedPlacements: ['bottom', 'top'],
-        });
       });
 
       it('initializes Floating UI with reference and floating elements and config for right-aligned menu', async () => {
@@ -190,16 +192,15 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              autoPlacement(() => ({
+                alignment: 'end',
+                allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
+                boundary: 'clippingAncestors',
+              })),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: 'end',
-          boundary: 'clippingAncestors',
-          allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
-        });
       });
 
       it('initializes Floating UI with reference and floating elements and config for `right-start` aligned menu', async () => {
@@ -214,16 +215,14 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              flip(() => ({
+                fallbackAxisSideDirection: 'start',
+                boundary: 'clippingAncestors',
+              })),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: 'start',
-          boundary: 'clippingAncestors',
-          allowedPlacements: ['right-start', 'right-end', 'left-start', 'left-end'],
-        });
       });
 
       it("passes custom offset to Floating UI's middleware", async () => {
@@ -240,7 +239,15 @@ describe('base dropdown', () => {
           {
             placement: 'bottom-end',
             strategy: 'absolute',
-            middleware: [offset(customOffset), autoPlacement(expect.any(Function)), shift()],
+            middleware: [
+              offset(customOffset),
+              autoPlacement(() => ({
+                alignment: 'end',
+                allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
+                boundary: 'clippingAncestors',
+              })),
+              shift(),
+            ],
           }
         );
       });
