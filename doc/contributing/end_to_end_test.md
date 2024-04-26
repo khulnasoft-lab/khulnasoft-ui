@@ -97,6 +97,14 @@ describe('stories', () => {
 });
 ```
 
+### `@a11y` test tag
+
+Every `it` block that runs accessibility tests should have the `@a11y` tag. This
+tag ensures that the accessibility test runs in the Chrome Web Browser. Running
+tests in Chrome is a requirement to fire native events. See the
+[Running accessibility tests](#running-accessibility-tests) section for more
+details.
+
 ### `glRunA11yTests` helper
 
 The `glRunA11yTests` helper runs each test, logging the name of the given test
