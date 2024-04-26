@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const path = require('path');
 const StyleDictionary = require('style-dictionary');
 
@@ -6,15 +5,18 @@ const srcDir = path.join(__dirname, '..', 'src', 'tokens');
 const distDir = path.join(__dirname, '..', 'dist', 'tokens');
 
 const prefix = 'gl';
-const modes = ['dark'];
-const cssSelector = {
-  dark: ':root.gl-dark',
-};
+
+/**
+ * Utils
+ */
+const hasDefaultValue = (token) => token.original.value.default;
+const hasDarkValue = (token) => token.original.value.dark;
+const hasDefaultAndDarkValues = (token) =>
+  typeof token.original.value === 'object' && hasDefaultValue(token) && hasDarkValue(token);
 
 /**
  * Transforms
  */
-
 StyleDictionary.registerTransform({
   name: 'name/prefix',
   type: 'name',
@@ -28,17 +30,49 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'value/defaultValue',
+  type: 'value',
+  matcher: (token) => {
+    return hasDefaultAndDarkValues(token);
+  },
+  transformer: ({ value }) => {
+    return value.default;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'value/darkValue',
+  type: 'value',
+  matcher: (token) => {
+    return hasDefaultAndDarkValues(token);
+  },
+  transformer: ({ value }) => {
+    return value.dark;
+  },
+});
+
 /**
  * Transform Groups
  */
 StyleDictionary.registerTransformGroup({
-  name: 'css',
-  transforms: ['name/cti/kebab', 'size/pxToRem', 'name/prefix'],
+  name: 'css/default',
+  transforms: ['value/defaultValue', 'name/cti/kebab', 'size/pxToRem', 'name/prefix'],
 });
 
 StyleDictionary.registerTransformGroup({
-  name: 'js',
-  transforms: ['name/cti/constant', 'size/pxToRem', 'name/prefix'],
+  name: 'css/dark',
+  transforms: ['value/darkValue', 'name/cti/kebab', 'size/pxToRem', 'name/prefix'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'js/default',
+  transforms: ['value/defaultValue', 'name/cti/constant', 'size/pxToRem', 'name/prefix'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'js/dark',
+  transforms: ['value/darkValue', 'name/cti/constant', 'size/pxToRem', 'name/prefix'],
 });
 
 /**
@@ -58,57 +92,6 @@ StyleDictionary.registerParser({
 });
 
 /**
- * Formats tokens by type and returns "name": "value" pairs
- * @param arguments [FormatterArguments](https://github.com/amzn/style-dictionary/blob/main/types/Format.d.ts)
- * @returns formatted json `string`
- */
-StyleDictionary.registerFormat({
-  name: 'json/grouped',
-  formatter({ dictionary }) {
-    const output = {};
-
-    function traverseObject(token, parentKey = '') {
-      const type = token.$type ? token.$type : parentKey;
-
-      if (token.value) {
-        const name = token.path.join('-');
-        output[type] = {
-          ...output[type],
-          [name]: token.value,
-        };
-      } else {
-        for (const key in token) {
-          if (Object.hasOwn(token, key)) {
-            traverseObject(token[key], key);
-          }
-        }
-      }
-    }
-
-    for (const key in dictionary) {
-      if (Object.hasOwn(dictionary, key)) {
-        traverseObject(dictionary[key]);
-      }
-    }
-
-    return JSON.stringify(output, null, '  ');
-  },
-});
-
-/**
- * Creates destination filename from options
- *
- * @param {Object} [options]
- * @param {String} [options.name] name e.g. tokens
- * @param {String} [options.mode] mode e.g. dark
- * @param {String} [options.extension] file extension e.g. .scss
- * @returns {String} destination filename e.g. tokens.dark.scss
- */
-const getDestination = ({ name = 'tokens', mode, extension = 'json' }) => {
-  return [name, mode, extension].filter(Boolean).join('.');
-};
-
-/**
  * Creates style-dictionary config by mode by matching token files in
  * tokens directory by filename e.g. `color.tokens.json` will
  * only generate tokens for dark mode.
@@ -117,23 +100,21 @@ const getDestination = ({ name = 'tokens', mode, extension = 'json' }) => {
  * @param {Function} filter get only matching token files
  * @returns {Object} style-dictionary config
  */
-const getStyleDictionaryConfig = (mode, filter) => {
+const getStyleDictionaryConfig = () => {
   return {
-    include: [`${srcDir}/**/!(*.${modes.join(`|*.`)}).tokens.json`],
-    source: [`${srcDir}/**/*.${mode}.tokens.json`],
+    include: [`${srcDir}/**/*.tokens.json`],
+    source: [`${srcDir}/**/*.tokens.json`],
     platforms: {
       css: {
         prefix,
         buildPath: `${distDir}/css/`,
-        transformGroup: 'css',
+        transformGroup: 'css/default',
         files: [
           {
-            destination: getDestination({ mode, extension: 'css' }),
+            destination: 'tokens.css',
             format: 'css/variables',
-            filter,
             options: {
               outputReferences: true,
-              selector: cssSelector[mode],
             },
           },
         ],
@@ -141,38 +122,96 @@ const getStyleDictionaryConfig = (mode, filter) => {
       js: {
         prefix,
         buildPath: `${distDir}/js/`,
-        transformGroup: 'js',
+        transformGroup: 'js/default',
         files: [
           {
-            destination: getDestination({ mode, extension: 'js' }),
+            destination: 'tokens.js',
             format: 'javascript/es6',
-            filter,
           },
         ],
       },
       json: {
         buildPath: `${distDir}/json/`,
-        transformGroup: 'js',
+        transformGroup: 'js/default',
         files: [
           {
-            destination: getDestination({ mode }),
+            destination: 'tokens.json',
             format: 'json',
-          },
-          {
-            destination: getDestination({ mode, extension: 'grouped.json' }),
-            format: 'json/grouped',
           },
         ],
       },
       scss: {
         prefix,
         buildPath: `${distDir}/scss/`,
-        transformGroup: 'css',
+        transformGroup: 'css/default',
         files: [
           {
-            destination: getDestination({ name: '_tokens', mode, extension: 'scss' }),
+            destination: '_tokens.scss',
             format: 'scss/variables',
-            filter,
+            options: {
+              outputReferences: true,
+            },
+          },
+        ],
+      },
+    },
+  };
+};
+
+const getStyleDictionaryDarkConfig = () => {
+  const darkModeFilter = (token) => hasDarkValue(token);
+  return {
+    include: [`${srcDir}/**/*.tokens.json`],
+    source: [`${srcDir}/**/*.tokens.json`],
+    platforms: {
+      css: {
+        prefix,
+        buildPath: `${distDir}/css/`,
+        transformGroup: 'css/dark',
+        files: [
+          {
+            destination: 'tokens.dark.css',
+            format: 'css/variables',
+            filter: darkModeFilter,
+            options: {
+              outputReferences: true,
+              selector: ':root.gl-dark',
+            },
+          },
+        ],
+      },
+      js: {
+        prefix,
+        buildPath: `${distDir}/js/`,
+        transformGroup: 'js/dark',
+        files: [
+          {
+            destination: 'tokens.dark.js',
+            format: 'javascript/es6',
+            filter: darkModeFilter,
+          },
+        ],
+      },
+      json: {
+        buildPath: `${distDir}/json/`,
+        transformGroup: 'js/dark',
+        files: [
+          {
+            destination: 'tokens.dark.json',
+            format: 'json',
+            filter: darkModeFilter,
+          },
+        ],
+      },
+      scss: {
+        prefix,
+        buildPath: `${distDir}/scss/`,
+        transformGroup: 'css/dark',
+        files: [
+          {
+            destination: '_tokens.dark.scss',
+            format: 'scss/variables',
+            filter: darkModeFilter,
             options: {
               outputReferences: true,
             },
@@ -184,12 +223,5 @@ const getStyleDictionaryConfig = (mode, filter) => {
 };
 
 // Build default tokens from config
-console.log('👷 Building default tokens');
 StyleDictionary.extend(getStyleDictionaryConfig()).buildAllPlatforms();
-
-// Build tokens for each mode
-modes.forEach((mode) => {
-  console.log(`\n👷 Building ${mode} tokens`);
-  const modeFilter = (token) => token.filePath.indexOf(mode) > -1;
-  StyleDictionary.extend(getStyleDictionaryConfig(mode, modeFilter)).buildAllPlatforms();
-});
+StyleDictionary.extend(getStyleDictionaryDarkConfig()).buildAllPlatforms();
