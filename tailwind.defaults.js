@@ -26,7 +26,7 @@ const dataVizColors = Object.entries(COMPILED_TOKENS['data-viz']).reduce((acc, [
   return acc;
 }, {});
 
-const textColors = Object.entries(COMPILED_TOKENS.text).reduce((acc, [scale, token]) => {
+const textColors = Object.entries(COMPILED_TOKENS.text.color).reduce((acc, [scale, token]) => {
   acc[scale] = cssCustomPropertyWithValue(token);
   return acc;
 }, {});
@@ -38,6 +38,14 @@ const colors = {
   ...baseColors,
   ...themeColors,
   ...dataVizColors,
+};
+
+const textColor = {
+  ...colors,
+  ...textColors,
+  primary: cssCustomPropertyWithValue(COMPILED_TOKENS.text.primary),
+  secondary: cssCustomPropertyWithValue(COMPILED_TOKENS.text.secondary),
+  tertiary: cssCustomPropertyWithValue(COMPILED_TOKENS.text.tertiary),
 };
 
 const gridSize = 0.5; // rem
@@ -102,9 +110,6 @@ module.exports = {
       semibold: 500,
       bold: 600,
     },
-    textColor: {
-      ...colors,
-      ...textColors,
-    },
+    textColor,
   },
 };

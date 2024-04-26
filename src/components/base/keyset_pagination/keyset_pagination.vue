@@ -53,13 +53,13 @@ export default {
       default: null,
     },
     /**
-     * The text that will be rendered inside the "Prev" button.
+     * The text that will be rendered inside the "Previous" button.
      * It's important to provide this parameter since the default text is not translatable.
      */
     prevText: {
       type: String,
       required: false,
-      default: () => translate('GlKeysetPagination.prevText', 'Prev'),
+      default: () => translate('GlKeysetPagination.prevText', 'Previous'),
     },
     /**
      * A link that will be used as the "Prev" button\'s "href" attribute.

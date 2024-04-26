@@ -13,7 +13,7 @@ describe('GlSkeletonLoader', () => {
     });
   }
 
-  it('passes axe accessibility audits', { tags: 'a11y' }, () => {
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     cy.glRunA11yTests({
       checkA11YDefaultState,
       checkA11YWithCustomShapes,

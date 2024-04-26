@@ -1,10 +1,13 @@
+import GlFormGroup from '../form_group/form_group.vue';
 import readme from './form_date.md';
 import GlFormDate from './form_date.vue';
 
 const defaultValue = (prop) => GlFormDate.props[prop].default;
 
 const template = `
+<gl-form-group :label="labelText" :label-for="inputId">
   <gl-form-date
+    :id="inputId"
     v-model="localValue"
     :disabled="disabled"
     :min="min"
@@ -13,9 +16,12 @@ const template = `
     :max-invalid-feedback="maxInvalidFeedback"
     :readonly="readonly"
     :value="value"
-  />`;
+  />
+</gl-form-group>`;
 
 const generateProps = ({
+  inputId = 'input-id',
+  labelText = 'Label',
   disabled = false,
   min = '',
   max = '',
@@ -24,6 +30,8 @@ const generateProps = ({
   readonly = false,
   value = '',
 } = {}) => ({
+  inputId,
+  labelText,
   disabled,
   min,
   max,
@@ -34,7 +42,7 @@ const generateProps = ({
 });
 
 const Template = (args) => ({
-  components: { GlFormDate },
+  components: { GlFormDate, GlFormGroup },
   props: Object.keys(args),
   watch: {
     value(newValue) {

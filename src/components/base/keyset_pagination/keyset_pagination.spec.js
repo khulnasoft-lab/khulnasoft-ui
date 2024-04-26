@@ -151,8 +151,8 @@ describe('GlKeysetPagination', () => {
         createComponent();
       });
 
-      it('renders the default text: "Prev"', () => {
-        expect(findPrevButton().text()).toBe('Prev');
+      it('renders the default text: "Previous"', () => {
+        expect(findPrevButton().text()).toBe('Previous');
       });
     });
 

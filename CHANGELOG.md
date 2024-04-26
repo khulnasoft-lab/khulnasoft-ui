@@ -1,3 +1,58 @@
+## [79.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.4.0...v79.4.1) (2024-04-25)
+
+
+### Bug Fixes
+
+* **GlKeysetPagination:** set default prev text to "Previous" ([e245aaa](https://gitlab.com/gitlab-org/gitlab-ui/commit/e245aaab8be4835c3ee01d4917d0499289e16a68))
+
+# [79.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.3.0...v79.4.0) (2024-04-25)
+
+
+### Bug Fixes
+
+* **GlBreadcrumb:** Fix containerWidth calc with ResizeObserver ([daa8013](https://gitlab.com/gitlab-org/gitlab-ui/commit/daa80133e1e56383fb857c12cc9384c553a2b389))
+* **GlBreadcrumb:** Fix details in resize calc ([4025e2e](https://gitlab.com/gitlab-org/gitlab-ui/commit/4025e2e0af2a41aa843ccd7c6f1fae25fd2ac170))
+* **GlBreadcrumb:** Watch autoResize prop and react to change ([b4808bf](https://gitlab.com/gitlab-org/gitlab-ui/commit/b4808bfaa59646a6155b394d4c22d4a1c85c6cfb))
+
+
+### Features
+
+* **GlBreadcrumb:** Add boolean prop to disable auto-resize ([0dad528](https://gitlab.com/gitlab-org/gitlab-ui/commit/0dad528cb2774c3c7bd9ccdafb7f9c8b00a88c23))
+
+# [79.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.2.0...v79.3.0) (2024-04-25)
+
+
+### Features
+
+* **DesignTokens:** add new text colors and deprecate pilot text colors ([818f109](https://gitlab.com/gitlab-org/gitlab-ui/commit/818f109b4151319a7d51025a8eae9bcf2a6e37e4))
+
+# [79.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.1.1...v79.2.0) (2024-04-24)
+
+
+### Bug Fixes
+
+* **dropdowns:** ignore vertical boundaries ([3fec816](https://gitlab.com/gitlab-org/gitlab-ui/commit/3fec81641a0f625810a89a05129737767792df13))
+
+
+### Features
+
+* **GlDuoChatMessage:** output errors ([f4c804a](https://gitlab.com/gitlab-org/gitlab-ui/commit/f4c804abc033a7b23823366d2b1fa1e065abf056))
+
+## [79.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.1.0...v79.1.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* **GlFormTextarea:** fix bug when `value` prop is `null` ([dffde58](https://gitlab.com/gitlab-org/gitlab-ui/commit/dffde58ea067b8b0a59cd4e4e264f5a1ee477541))
+
+# [79.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.0.0...v79.1.0) (2024-04-24)
+
+
+### Features
+
+* **GlFilteredSearch:** Improve dropdown styles ([ac13b05](https://gitlab.com/gitlab-org/gitlab-ui/commit/ac13b05b092e78e4c61bfd601d7b595c2bf8a04d))
+* **GlFilteredSearch:** Improve dropdown styles ([47ae89a](https://gitlab.com/gitlab-org/gitlab-ui/commit/47ae89a019cd33ae4582d61c08c6b48a677cc4f1))
+
 # [79.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v78.19.0...v79.0.0) (2024-04-22)
 
 

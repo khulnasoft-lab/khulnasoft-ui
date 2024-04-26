@@ -1,5 +1,5 @@
 // base dropdown events
-export const GL_DROPDOWN_BOUNDARY_SELECTOR = 'main';
+export const GL_DROPDOWN_HORIZONTAL_BOUNDARY_SELECTOR = 'main';
 export const GL_DROPDOWN_SHOWN = 'shown';
 export const GL_DROPDOWN_HIDDEN = 'hidden';
 export const GL_DROPDOWN_BEFORE_CLOSE = 'beforeClose';

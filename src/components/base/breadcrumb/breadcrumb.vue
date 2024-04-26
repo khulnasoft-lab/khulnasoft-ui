@@ -48,6 +48,14 @@ export default {
       required: false,
       default: () => translate('GlBreadcrumb.showMoreLabel', 'Show more breadcrumbs'),
     },
+    /**
+     * Allows to disable auto-resize behavior. Items will then overflow their container instead of being collapsed into a dropdown.
+     */
+    autoResize: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -89,16 +97,23 @@ export default {
       handler: 'measureAndMakeBreadcrumbsFit',
       deep: true,
     },
+    autoResize(newValue) {
+      if (newValue) this.enableAutoResize();
+      else this.disableAutoResize();
+    },
   },
   created() {
     this.debounceMakeBreadcrumbsFit = debounce(this.makeBreadcrumbsFit, 25);
   },
   mounted() {
-    window.addEventListener('resize', this.debounceMakeBreadcrumbsFit);
-    this.measureAndMakeBreadcrumbsFit();
+    if (this.autoResize) {
+      this.enableAutoResize();
+    } else {
+      this.resizeDone = true;
+    }
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.debounceMakeBreadcrumbsFit);
+    this.disableAutoResize();
   },
   methods: {
     resetItems() {
@@ -126,9 +141,9 @@ export default {
       this.resetItems();
 
       const containerWidth = this.$el.clientWidth;
-      const buttonWidth = 50; // px
+      const buttonWidth = 40; // px
 
-      if (this.totalBreadcrumbsWidth + buttonWidth > containerWidth) {
+      if (this.totalBreadcrumbsWidth > containerWidth) {
         // Not all breadcrumb items fit. Start moving items over to the dropdown.
         const startSlicingAt = 0;
 
@@ -155,6 +170,18 @@ export default {
     },
     getAriaCurrentAttr(index) {
       return this.isLastItem(index) ? 'page' : false;
+    },
+    enableAutoResize() {
+      this.resizeObserver ||= new ResizeObserver(this.debounceMakeBreadcrumbsFit);
+      this.resizeObserver.observe(this.$el);
+      this.measureAndMakeBreadcrumbsFit();
+    },
+    disableAutoResize() {
+      if (this.resizeObserver) {
+        this.resizeObserver.unobserve(this.$el);
+        this.resizeObserver = null;
+      }
+      this.resetItems();
     },
   },
 };

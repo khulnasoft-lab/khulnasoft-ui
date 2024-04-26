@@ -34,6 +34,12 @@ include:
 .is-merged-result: &is-merged-result
   if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merged_result"'
 
+# Only run on merge requests that come from GitLab UI or
+# from forks when a GitLab UI team member triggered a pipeline
+.is-gitlab-ui-mr: &is-gitlab-ui-mr
+  if: '$CI_MERGE_REQUEST_IID && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"'
+
+
 code_quality:
   needs: []
   # Code quality scanning doesn't work otherwise on MR pipelines
@@ -112,17 +118,13 @@ workflow:
   rules:
     - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"'
 
-# Only run on merge requests that come from GitLab UI or
-# from forks when a GitLab UI team member triggered a pipeline
-.if-gitlab-ui-mr: '$CI_MERGE_REQUEST_IID && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"'
-
 .rules:gitlab-ui-mr:
   rules:
-    - if: !reference [.if-gitlab-ui-mr]
+    - <<: *is-gitlab-ui-mr
 
 .rules:gitlab-ui-mr-manual:
   rules:
-    - if: !reference [.if-gitlab-ui-mr]
+    - <<: *is-gitlab-ui-mr
       when: manual
       allow_failure: true
 
@@ -286,9 +288,9 @@ update_screenshots:
     - ./bin/update-screenshots.sh
 
 pages:
-  extends:
-    - .rules:gitlab-ui-default-branch
-    - .rules:gitlab-ui-mr
+  rules:
+    - !reference ['.rules:gitlab-ui-default-branch', rules]
+    - !reference ['.rules:gitlab-ui-mr', rules]
   stage: deploy
   needs:
     - build_storybook

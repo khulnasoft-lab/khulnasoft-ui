@@ -1,7 +1,6 @@
-describe('GlFormText', () => {
+describe('GlSegmentedControl', () => {
   function checkA11YDefaultState() {
-    cy.visitStory('base/form/form-text');
-    cy.glCheckA11y();
+    cy.visitStory('base/segmented-control');
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {

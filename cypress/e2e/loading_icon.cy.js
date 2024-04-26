@@ -1,7 +1,6 @@
-describe('GlFormText', () => {
+describe('GlLoadingIcon', () => {
   function checkA11YDefaultState() {
-    cy.visitStory('base/form/form-text');
-    cy.glCheckA11y();
+    cy.visitStory('base/loading-icon');
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {

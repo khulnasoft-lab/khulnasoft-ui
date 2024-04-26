@@ -379,6 +379,7 @@ export default {
     <ul class="pagination" :class="wrapperClasses">
       <li
         class="page-item"
+        data-testid="page-item"
         :class="{
           disabled: prevPageIsDisabled,
           'flex-fill': isFillAlign,
@@ -387,6 +388,7 @@ export default {
       >
         <component
           :is="prevPageIsDisabled ? 'span' : 'a'"
+          data-testid="page-link"
           class="gl-link page-link prev-page-item gl-display-flex"
           :aria-label="prevPageAriaLabel"
           :href="prevPageHref"
@@ -408,6 +410,7 @@ export default {
         v-for="item in visibleItems"
         :key="item.key"
         class="page-item"
+        data-testid="page-item"
         :class="{
           disabled: item.disabled,
           'flex-fill': isFillAlign,
@@ -415,6 +418,7 @@ export default {
       >
         <component
           :is="item.component"
+          data-testid="page-link"
           size="md"
           :aria-disabled="item.disabled"
           class="page-link"
@@ -442,6 +446,7 @@ export default {
 
       <li
         class="page-item"
+        data-testid="page-item"
         :class="{
           disabled: nextPageIsDisabled,
           'flex-fill': isFillAlign,
@@ -450,6 +455,7 @@ export default {
       >
         <component
           :is="nextPageIsDisabled ? 'span' : 'a'"
+          data-testid="page-link"
           class="gl-link page-link next-page-item gl-display-flex"
           :aria-label="nextPageAriaLabel"
           :href="nextPageHref"

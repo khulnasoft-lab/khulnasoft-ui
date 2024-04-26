@@ -33,6 +33,14 @@ Response.args = generateProps({
   message: MOCK_RESPONSE_MESSAGE,
 });
 
+export const ErrorResponse = Template.bind({});
+ErrorResponse.args = generateProps({
+  message: {
+    ...MOCK_RESPONSE_MESSAGE,
+    errors: ['Error: Whatever you see is wrong'],
+  },
+});
+
 export default {
   title: 'experimental/duo/chat/duo-chat-message',
   component: GlDuoChatMessage,

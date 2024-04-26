@@ -7,4 +7,5 @@
   @include gl-text-decoration-none;
   @include gl-text-gray-900;
   @include gl-outline-0;
+  @include gl-focus($inset: true);
 }
