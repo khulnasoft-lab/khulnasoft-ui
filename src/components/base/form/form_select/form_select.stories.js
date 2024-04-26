@@ -1,25 +1,32 @@
-import { formStateOptions, formInputWidths } from '../../../../utils/constants';
-import GlFormSelect from './form_select.vue';
+import uniqueId from 'lodash/uniqueId';
+import { formInputWidths, formStateOptions } from '../../../../utils/constants';
+import GlFormGroup from '../form_group/form_group.vue';
 import { formSelectOptions } from './constants';
 import readme from './form_select.md';
+import GlFormSelect from './form_select.vue';
 
 const data = () => ({
   selected: 'Pizza',
 });
 
 const template = `
-<gl-form-select
-  v-model="selected"
-  :width="width"
-  :disabled="disabled"
-  :state="state"
-  :multiple="multiple"
-  :selectSize="selectSize"
-  :options="options">
-</gl-form-select>
+<gl-form-group :label="labelText" :label-for="inputId">
+  <gl-form-select
+    :id="inputId"
+    v-model="selected"
+    :width="width"
+    :disabled="disabled"
+    :state="state"
+    :multiple="multiple"
+    :selectSize="selectSize"
+    :options="options">
+  </gl-form-select>
+</gl-form-group>
 `;
 
 const generateProps = ({
+  inputId = uniqueId('input-'),
+  labelText = 'Label',
   width = null,
   state = null,
   disabled = false,
@@ -27,6 +34,8 @@ const generateProps = ({
   selectSize = 1,
   options = formSelectOptions,
 } = {}) => ({
+  inputId,
+  labelText,
   width,
   disabled,
   state,
@@ -36,7 +45,7 @@ const generateProps = ({
 });
 
 const Template = (args) => ({
-  components: { GlFormSelect },
+  components: { GlFormSelect, GlFormGroup },
   props: Object.keys(args),
   data,
   template,
@@ -55,7 +64,7 @@ export const InvalidState = Template.bind({});
 InvalidState.args = generateProps({ state: false });
 
 export const WithTruncation = (args, { argTypes }) => ({
-  components: { GlFormSelect },
+  components: { GlFormSelect, GlFormGroup },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -78,7 +87,7 @@ WithTruncation.args = generateProps({
 });
 
 export const Widths = (args, { argTypes }) => ({
-  components: { GlFormSelect },
+  components: { GlFormSelect, GlFormGroup },
   props: Object.keys(argTypes),
   data() {
     return {
@@ -87,13 +96,14 @@ export const Widths = (args, { argTypes }) => ({
   },
   template: `
       <div>
-        <div v-for="(width, name) in formInputWidths" :key="width" class="gl-mb-4">
+        <gl-form-group v-for="(width, name) in formInputWidths" :key="width" :label="name" :label-for="'width-' + width">
           <gl-form-select
+            :id="'width-' + width"
             v-model="name"
             :width="width"
             :options="[{ value: name, text: name }]">
           </gl-form-select>
-        </div>
+        </gl-form-group>
       </div>`,
 });
 Widths.args = generateProps();
