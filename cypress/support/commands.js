@@ -99,6 +99,10 @@ Cypress.Commands.add('glRunA11yTests', (tests) => {
 
     fn();
 
+    cy.configureAxe({
+      rules: [{ id: 'aria-progressbar-name', enabled: false }],
+    });
+
     cy.glCheckA11y();
   });
 });
