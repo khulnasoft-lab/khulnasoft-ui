@@ -1,4 +1,25 @@
 describe('GlModal', () => {
+  function checkA11YDefaultState() {
+    cy.visitStory('base/modal');
+
+    cy.contains('button', 'Cancel').focus();
+    cy.contains('button', 'Discard Changes').focus();
+    cy.contains('button', 'Okay').focus();
+  }
+
+  function checkA11YWithoutFocus() {
+    cy.visitStory('base/modal', {
+      story: 'without-focus',
+    });
+  }
+
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
+    cy.glRunA11yTests({
+      checkA11YDefaultState,
+      checkA11YWithoutFocus,
+    });
+  });
+
   it('Modal title should be visible using a scoped slot', () => {
     cy.visitStory('base/modal', { story: 'with-a-header' });
 
