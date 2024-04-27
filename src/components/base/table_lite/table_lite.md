@@ -43,7 +43,7 @@ export default {
     },
     {
       key: 'col_2',
-      label: __('Column 2'),
+      label: __('Column Two'),
       thClass: 'w-15p',
       tdClass: 'table-col d-flex'
     },

@@ -33,7 +33,7 @@ pagination, use `GlTableLite` which offers a subset of `GlTable` features.
       },
       {
         key: 'col_2',
-        label: __('Column 2'),
+        label: __('Column Two'),
         thClass: 'w-15p',
         tdClass: 'table-col d-flex'
       },

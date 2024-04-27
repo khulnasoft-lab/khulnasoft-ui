@@ -70,13 +70,13 @@ export const Default = (args, { argTypes }) => ({
     },
     {
       key: 'col_2',
-      label: 'Column 2',
+      label: 'Column Two',
       formatter: (value) => value,
     },
     {
       key: 'col_three',
       sortable: true,
-      label: 'Column 2',
+      label: 'Column Three',
       formatter: (value) => value,
       thClass: 'gl-text-right',
       tdClass: 'gl-text-right',
