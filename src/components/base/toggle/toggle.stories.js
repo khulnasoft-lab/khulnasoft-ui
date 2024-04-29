@@ -34,10 +34,20 @@ const generateProps = ({
 const Template = (args, { argTypes }) => ({
   components: { GlToggle },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      localValue: this.value,
+    };
+  },
+  watch: {
+    value(newValue) {
+      this.localValue = newValue;
+    },
+  },
   template: `
   <div class="gl-font-base">
     <gl-toggle
-      v-model="value"
+      v-model="localValue"
       :disabled="disabled"
       :description="description"
       :help="help"
