@@ -1,4 +1,6 @@
+import Vue from 'vue';
 import isFunction from 'lodash/isFunction';
+import isString from 'lodash/isString';
 import { DISCLOSURE_DROPDOWN_ITEM_NAME, DISCLOSURE_DROPDOWN_GROUP_NAME } from './constants';
 
 const itemValidator = (item) => item?.text?.length > 0 && !Array.isArray(item?.items);
@@ -21,17 +23,14 @@ const isListItem = (tag) =>
 const isValidSlotTagVue2 = (vNode) =>
   Boolean(vNode) && isListItem(vNode.componentOptions?.tag || vNode.tag);
 
-const isValidSlotTag = (vNode) => {
+const isValidSlotTagVue3 = (vNode) => {
   return (
     [DISCLOSURE_DROPDOWN_ITEM_NAME, DISCLOSURE_DROPDOWN_GROUP_NAME].includes(vNode.type?.name) ||
     vNode.type === 'li'
   );
 };
 
-const hasOnlyListItems = ({ default: defaultSlot }) => {
-  if (!isFunction(defaultSlot)) {
-    return false;
-  }
+const hasOnlyListItemsVue2 = (defaultSlot) => {
   const nodes = defaultSlot();
 
   if (!Array.isArray(nodes)) {
@@ -40,7 +39,32 @@ const hasOnlyListItems = ({ default: defaultSlot }) => {
 
   const tags = nodes.filter((vNode) => vNode.tag);
 
-  return tags.length && tags.every((tag) => isValidSlotTag(tag) || isValidSlotTagVue2(tag));
+  return tags.length && tags.every((tag) => isValidSlotTagVue2(tag));
+};
+
+const hasOnlyListItemsVue3 = (defaultSlot) => {
+  const nodes = defaultSlot();
+  const fragment = nodes.find((node) => Array.isArray(node.children) && node.children.length);
+  const targetNodes = fragment ? fragment.children : nodes;
+
+  return (
+    targetNodes
+      // Remove empty text vNodes
+      .filter((vNode) => !isString(vNode.text) || vNode.text.trim().length > 0)
+      .every((vNode) => isValidSlotTagVue3(vNode))
+  );
+};
+
+const hasOnlyListItems = (defaultSlot) => {
+  if (!isFunction(defaultSlot)) {
+    return false;
+  }
+
+  if (Vue.version.startsWith('3')) {
+    return hasOnlyListItemsVue3(defaultSlot);
+  }
+
+  return hasOnlyListItemsVue2(defaultSlot);
 };
 
 export { itemsValidator, isItem, isGroup, hasOnlyListItems };
