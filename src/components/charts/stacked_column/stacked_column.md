@@ -1,5 +1,5 @@
 The `presentation` property allows you to change between a stacked and tiled presentation style. It
-is only setup to accept `stacked` or `tiled` as values, the default value is `tiled`.
+is only setup to accept `stacked` or `tiled` as values, the default value is `stacked`.
 
 The `stacked` presentation allows to view multiple series of the same stack as a single column,
 while `tiled` presents the information in multiple columns for each series of a stack.
