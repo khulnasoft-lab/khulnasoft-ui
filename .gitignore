@@ -12,3 +12,4 @@ yarn-error.log
 .cypress_cache
 /static/fonts/
 /bin/temp
+.env
