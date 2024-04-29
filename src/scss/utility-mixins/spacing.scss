@@ -864,24 +864,6 @@
 * - Utilities should be refactored to use gap after dropping Safari 13.x support
 */
 
-@mixin gl-gap-x-3 {
-  > * + * {
-    margin-left: #{$gl-spacing-scale-3};
-  }
-}
-
-@mixin gl-gap-x-5 {
-  > * + * {
-    margin-left: #{$gl-spacing-scale-5};
-  }
-}
-
-@mixin gl-gap-y-3 {
-  > * + * {
-    margin-top: #{$gl-spacing-scale-3};
-  }
-}
-
 @mixin gl-gap-1 {
   gap: $gl-spacing-scale-1;
 }
