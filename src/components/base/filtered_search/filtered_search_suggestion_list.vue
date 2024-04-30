@@ -32,9 +32,10 @@ export default {
 
   computed: {
     initialActiveIdx() {
-      return this.registeredItems.findIndex((item) =>
+      const index = this.registeredItems.findIndex((item) =>
         this.valuesMatch(item.value, this.initialValue)
       );
+      return index === -1 ? 0 : index;
     },
     initialActiveItem() {
       return this.registeredItems[this.initialActiveIdx];

@@ -95,7 +95,7 @@ describe('GlFilteredSearch', () => {
     it('selects appropriate suggestions', () => {
       cy.get('input').click();
       getSuggestion('Author').should('be.visible');
-      getSelectedSuggestion().should('not.exist');
+      expectSelectedSuggestion('Author');
 
       typeInInput('c');
       expectSelectedSuggestion('Confidential');
@@ -193,7 +193,7 @@ describe('GlFilteredSearch', () => {
     it('selects appropriate suggestions', () => {
       cy.get('input').click();
       getSuggestion('Author').should('be.visible');
-      getSelectedSuggestion().should('not.exist');
+      expectSelectedSuggestion('Author');
 
       typeInInput('z');
       expectSelectedSuggestion('Search for this text');

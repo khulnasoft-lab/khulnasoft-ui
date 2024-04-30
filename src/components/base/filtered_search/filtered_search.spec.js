@@ -736,9 +736,6 @@ describe('Filtered search integration tests', () => {
 
     it('replaces term with token when suggestion is selected', async () => {
       const input = findInput();
-      input.trigger('keydown', { key: 'ArrowDown' });
-
-      await nextTick();
 
       input.trigger('keydown', { key: 'Enter' });
 
@@ -762,7 +759,6 @@ describe('Filtered search integration tests', () => {
 
     it('calls alignSuggestion for new tokens', async () => {
       const input = findInput();
-      input.trigger('keydown', { key: 'ArrowDown' });
       const alignSuggestionsSpy = jest.spyOn(wrapper.vm, 'alignSuggestions');
 
       await nextTick();

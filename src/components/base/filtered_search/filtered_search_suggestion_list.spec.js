@@ -31,18 +31,11 @@ describe('Filtered search suggestion list component', () => {
         });
       });
 
-      it('does not select item by default', () => {
-        expect(wrapper.vm.getValue()).toBe(null);
-      });
-
-      it('selects first item on nextItem call', async () => {
-        wrapper.vm.nextItem();
-        await nextTick();
+      it('selects first item automatically', () => {
         expect(wrapper.vm.getValue()).toBe(stubs[0].value);
       });
 
       it('deselects first item on prevItem call', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.prevItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe(null);
@@ -50,17 +43,15 @@ describe('Filtered search suggestion list component', () => {
 
       it('deselects last item on nextItem call', async () => {
         stubs.forEach(() => wrapper.vm.nextItem());
-        wrapper.vm.nextItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe(null);
       });
 
       it('remove selection if suggestion is unregistered', async () => {
-        wrapper.vm.nextItem();
-        await nextTick();
+        expect(wrapper.vm.getValue()).toBe('stub1');
         wrapper.vm.unregister(stubs[0]);
         await nextTick();
-        expect(wrapper.vm.getValue()).toBe(null);
+        expect(wrapper.vm.getValue()).toBe('stub2');
       });
 
       it('selects correct suggestion when item (un)registration is late', async () => {
@@ -83,18 +74,11 @@ describe('Filtered search suggestion list component', () => {
         });
       });
 
-      it('does not select item by default', () => {
-        expect(wrapper.vm.getValue()).toBe(null);
-      });
-
-      it('selects first item on nextItem call', async () => {
-        wrapper.vm.nextItem();
-        await nextTick();
+      it('selects first item automatically', () => {
         expect(wrapper.vm.getValue()).toBe(stubs[0].value);
       });
 
       it('wraps to last item on prevItem call', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.prevItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe(stubs[2].value);
@@ -102,17 +86,15 @@ describe('Filtered search suggestion list component', () => {
 
       it('wraps to first item on nextItem call', async () => {
         stubs.forEach(() => wrapper.vm.nextItem());
-        wrapper.vm.nextItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe(stubs[0].value);
       });
 
       it('remove selection if suggestion is unregistered', async () => {
-        wrapper.vm.nextItem();
-        await nextTick();
+        expect(wrapper.vm.getValue()).toBe('stub1');
         wrapper.vm.unregister(stubs[0]);
         await nextTick();
-        expect(wrapper.vm.getValue()).toBe(null);
+        expect(wrapper.vm.getValue()).toBe('stub2');
       });
 
       it('selects correct suggestion when item (un)registration is late', async () => {
@@ -169,14 +151,11 @@ describe('Filtered search suggestion list component', () => {
         createComponent();
       });
 
-      it('selects first suggestion', async () => {
-        wrapper.vm.nextItem();
-        await nextTick();
+      it('selects first suggestion by default', () => {
         expect(wrapper.vm.getValue()).toBe('One');
       });
 
       it('selects second suggestion', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.nextItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe('Two');
@@ -186,20 +165,17 @@ describe('Filtered search suggestion list component', () => {
         wrapper.vm.nextItem();
         wrapper.vm.nextItem();
         wrapper.vm.nextItem();
-        wrapper.vm.nextItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe(null);
       });
 
       it('deselects first suggestion after list start', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.prevItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe(null);
       });
 
       it('selects last suggestion in circle when selecting previous item', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.prevItem();
         wrapper.vm.prevItem();
         await nextTick();
@@ -207,7 +183,6 @@ describe('Filtered search suggestion list component', () => {
       });
 
       it('selects first suggestion in circle when selecting next item', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.nextItem();
         wrapper.vm.nextItem();
         wrapper.vm.nextItem();
@@ -239,9 +214,9 @@ describe('Filtered search suggestion list component', () => {
         expect(findActiveSuggestion().text()).toBe('One');
       });
 
-      it('does not highlight anything if initial-value matches nothing', async () => {
+      it('highlights first suggestion if initial-value matches nothing', async () => {
         await wrapper.setProps({ initialValue: 'missing' });
-        expect(findActiveSuggestion().exists()).toBe(false);
+        expect(findActiveSuggestion().exists()).toBe(true);
       });
 
       it('applies the injected suggestion-list-class to the dropdown', () => {
@@ -254,14 +229,11 @@ describe('Filtered search suggestion list component', () => {
         createComponent({ termsAsTokens: true });
       });
 
-      it('selects first suggestion', async () => {
-        wrapper.vm.nextItem();
-        await nextTick();
+      it('selects first suggestion by default', () => {
         expect(wrapper.vm.getValue()).toBe('One');
       });
 
       it('selects second suggestion', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.nextItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe('Two');
@@ -271,20 +243,17 @@ describe('Filtered search suggestion list component', () => {
         wrapper.vm.nextItem();
         wrapper.vm.nextItem();
         wrapper.vm.nextItem();
-        wrapper.vm.nextItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe('One');
       });
 
       it('wraps to last suggestion before list start', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.prevItem();
         await nextTick();
         expect(wrapper.vm.getValue()).toBe(false);
       });
 
       it('selects second-to-last suggestion in circle when selecting previous item', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.prevItem();
         wrapper.vm.prevItem();
         await nextTick();
@@ -292,7 +261,6 @@ describe('Filtered search suggestion list component', () => {
       });
 
       it('selects second suggestion in circle when selecting next item', async () => {
-        wrapper.vm.nextItem();
         wrapper.vm.nextItem();
         wrapper.vm.nextItem();
         wrapper.vm.nextItem();
@@ -324,9 +292,9 @@ describe('Filtered search suggestion list component', () => {
         expect(findActiveSuggestion().text()).toBe('One');
       });
 
-      it('does not highlight anything if initial-value matches nothing', async () => {
+      it('highlights first suggestion if initial-value matches nothing', async () => {
         await wrapper.setProps({ initialValue: 'missing' });
-        expect(findActiveSuggestion().exists()).toBe(false);
+        expect(findActiveSuggestion().exists()).toBe(true);
       });
 
       it('applies the injected suggestion-list-class to the dropdown', () => {
