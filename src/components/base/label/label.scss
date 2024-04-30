@@ -166,7 +166,7 @@ $label-close-button: '.gl-label-close.gl-button';
     background-color: var(--label-background-color);
 
     @media (forced-colors: active) {
-      border-right: 1px solid // stylelint-disable-line declaration-property-value-disallowed-list
+      border-right: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
     }
   }
 
