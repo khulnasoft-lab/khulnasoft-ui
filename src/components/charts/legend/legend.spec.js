@@ -33,6 +33,15 @@ const mockSeriesInfo = [
   },
 ];
 
+const mockElementHeight = (element, clientHeight, scrollHeight) => {
+  Object.defineProperty(element, 'clientHeight', {
+    get: () => clientHeight,
+  });
+  Object.defineProperty(element, 'scrollHeight', {
+    get: () => scrollHeight,
+  });
+};
+
 describe('chart legend component', () => {
   let chartWrapper;
   let legendWrapper;
@@ -155,6 +164,22 @@ describe('chart legend component', () => {
     expect(legendWrapper.props().layout).toMatch('inline');
     expect(legendWrapper.find('.gl-legend-inline').exists()).toBe(true);
     expect(legendWrapper.find('.gl-legend-tabular').exists()).toBe(false);
+  });
+
+  it('adds a fade when content scrolls', async () => {
+    const legendInlineEl = legendWrapper.find('.gl-legend-inline').element;
+    mockElementHeight(legendInlineEl, 200, 400);
+
+    // update component to force recalculation of fade class after we mock the heights
+    legendWrapper.setProps({
+      averageText: 'averaaaaage',
+    });
+
+    // Need to wait TWO ticks, as the component waits one tick on update then we need to check once the class has had a chance to render
+    await legendWrapper.vm.$nextTick();
+    await legendWrapper.vm.$nextTick();
+
+    expect(legendWrapper.find('.gl-legend-b-fade').exists()).toBe(true);
   });
 
   describe('when setting the layout prop to table', () => {
