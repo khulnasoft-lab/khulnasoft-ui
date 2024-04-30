@@ -91,6 +91,7 @@ export const Interactive = (args, { argTypes }) => ({
       chunks: [],
       timeout: null,
       requestId: 1,
+      canceledRequestIds: [],
     };
   },
   methods: {
@@ -113,6 +114,11 @@ export const Interactive = (args, { argTypes }) => ({
       this.isHidden = true;
       this.loggerInfo += `Chat closed\n\n`;
     },
+    onChatCancel() {
+      this.canceledRequestIds.push(this.requestId);
+      this.requestId += 1;
+      this.promptInFlight = false;
+    },
     showChat() {
       this.isHidden = false;
       this.loggerInfo += `Chat opened\n\n`;
@@ -126,14 +132,16 @@ export const Interactive = (args, { argTypes }) => ({
       const generator = generateMockResponseChunks(this.requestId);
 
       for await (const newResponse of generator) {
-        const existingMessageIndex = this.msgs.findIndex(
-          (msg) => msg.requestId === newResponse.requestId && msg.role === newResponse.role
-        );
-        const existingMessage = this.msgs[existingMessageIndex];
-        if (existingMessage) {
-          this.updateExistingMessage(newResponse, existingMessageIndex);
-        } else {
-          this.addNewMessage(newResponse);
+        if (!this.canceledRequestIds.includes(newResponse.requestId)) {
+          const existingMessageIndex = this.msgs.findIndex(
+            (msg) => msg.requestId === newResponse.requestId && msg.role === newResponse.role
+          );
+          const existingMessage = this.msgs[existingMessageIndex];
+          if (existingMessage) {
+            this.updateExistingMessage(newResponse, existingMessageIndex);
+          } else {
+            this.addNewMessage(newResponse);
+          }
         }
       }
     },
@@ -177,6 +185,7 @@ export const Interactive = (args, { argTypes }) => ({
       class="gl-drawer-default"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
+      @chat-cancel="onChatCancel"
     />
   </div>`,
 });
