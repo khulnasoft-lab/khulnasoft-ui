@@ -3,7 +3,7 @@
     "primary": {
       "$value": "#333238",
       "$type": "color",
-      "$description": "Use text.color.strong instead",
+      "$description": "Use text.color.default instead",
       "deprecated": true,
       "themeable": true
     },
