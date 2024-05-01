@@ -36,7 +36,7 @@
 
   @media (forced-colors: active) {
     box-shadow: none;
-    border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
+    border: 1px solid;
   }
 
   .gl-button-text {
@@ -365,7 +365,7 @@
   &.btn-confirm-tertiary,
   &.btn-danger-tertiary {
     @media (forced-colors: active) {
-      color: #000; // stylelint-disable-line scale-unlimited/declaration-strict-value
+      color: $black;
       border: 0;
     }
   }

@@ -27,7 +27,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
 
   @media (forced-colors: active) {
     box-shadow: none;
-    border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
+    border: 1px solid;
   }
 
   &:focus,
