@@ -23,7 +23,7 @@
     "$extensions": {
       "com.figma": {
         "hiddenFromPublishing": false,
-        "scopes": ["ALL_SCOPES"],
+        "scopes": ["TEXT_CONTENT"],
         "codeSyntax": {}
       }
     }
