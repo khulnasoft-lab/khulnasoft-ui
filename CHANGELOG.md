@@ -1,3 +1,19 @@
+# [80.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.4.1...v80.0.0) (2024-05-01)
+
+
+### Features
+
+* **CSS:** remove `gl-gap-x/y-*` CSS utility classes ([1ad137a](https://gitlab.com/gitlab-org/gitlab-ui/commit/1ad137a008249acc4983c133e8d3d5136f9b9288))
+* **DesignTokens:** Update to use default for deprecated text.primary ([24c8e3b](https://gitlab.com/gitlab-org/gitlab-ui/commit/24c8e3b8e2f0c753cedf8b37070c8145f8acc37f))
+
+
+### BREAKING CHANGES
+
+* **CSS:** these utility classes were using margin to adjust
+spacing and were causing a conflict with Tailwind utility classes.
+Usage of these utilities should be migrated to Tailwind `gap`
+utilities.
+
 ## [79.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.4.0...v79.4.1) (2024-04-25)
 
 
