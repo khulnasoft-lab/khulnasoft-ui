@@ -37,13 +37,13 @@ export default {
   fields: [
     {
       key: 'column_one',
-      label: __('Column One'),
+      label: __('First column'),
       thClass: 'w-60p',
       tdClass: 'table-col d-flex'
     },
     {
       key: 'col_2',
-      label: __('Column 2'),
+      label: __('Second column'),
       thClass: 'w-15p',
       tdClass: 'table-col d-flex'
     },
@@ -56,7 +56,7 @@ export default {
     :fields="$options.fields"
   >
     <template #head(column_one)>
-      <div>Column One</div><!-- This is the column head for the first object in `fields` -->
+      <div>First column</div><!-- This is the column head for the first object in `fields` -->
     </template>
 
     <template #cell(column_one)>

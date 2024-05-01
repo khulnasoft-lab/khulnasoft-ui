@@ -27,13 +27,13 @@ pagination, use `GlTableLite` which offers a subset of `GlTable` features.
     fields: [
       {
         key: 'column_one',
-        label: __('Column One'),
+        label: __('First column'),
         thClass: 'w-60p',
         tdClass: 'table-col d-flex'
       },
       {
         key: 'col_2',
-        label: __('Column 2'),
+        label: __('Second column'),
         thClass: 'w-15p',
         tdClass: 'table-col d-flex'
       },
@@ -43,7 +43,7 @@ pagination, use `GlTableLite` which offers a subset of `GlTable` features.
 <template>
   <gl-table :items="items" :fields="$options.fields">
     <template #head(column_one)>
-      <div>Column One</div>
+      <div>First column</div>
       <!-- This is the column head for the first object in `fields` -->
     </template>
 

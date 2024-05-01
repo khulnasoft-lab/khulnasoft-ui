@@ -4,13 +4,13 @@ import GlTableLite from './table_lite.vue';
 const fieldsMock = [
   {
     key: 'column_one',
-    label: 'Column One',
+    label: 'First column',
     thClass: 'w-60p',
     tdClass: 'table-col',
   },
   {
     key: 'column_two',
-    label: 'Column Two',
+    label: 'Second column',
     thClass: 'w-60p',
     tdClass: 'table-col',
   },
