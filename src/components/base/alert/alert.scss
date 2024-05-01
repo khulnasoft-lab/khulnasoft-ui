@@ -15,7 +15,7 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
   @include gl-py-5;
 
   @media (forced-colors: active) {
-    border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
+    border: 1px solid;
   }
 
   &-not-dismissible {
