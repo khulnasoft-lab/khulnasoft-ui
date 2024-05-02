@@ -1,4 +1,3 @@
-import { userEvent, within } from '@storybook/test';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import { provide } from './common_story_options';
@@ -34,11 +33,6 @@ export const Default = () => ({
       </div>
     `,
 });
-Default.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement);
-  const button = canvas.getByRole('button', { name: 'next' });
-  await userEvent.click(button);
-};
 
 export default {
   title: 'base/filtered-search/suggestion-list',
