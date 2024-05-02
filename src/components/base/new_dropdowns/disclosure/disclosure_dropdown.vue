@@ -237,7 +237,11 @@ export default {
   },
   computed: {
     disclosureTag() {
-      if (this.items?.length || hasOnlyListItems(this.$scopedSlots)) {
+      if (
+        this.items?.length ||
+        // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
+        hasOnlyListItems(this.$scopedSlots.default || this.$slots.default)
+      ) {
         return 'ul';
       }
       return 'div';
