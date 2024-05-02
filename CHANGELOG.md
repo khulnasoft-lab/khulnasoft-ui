@@ -1,3 +1,10 @@
+## [80.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.0.0...v80.0.1) (2024-05-02)
+
+
+### Bug Fixes
+
+* **Dropdown:** Fix disclosure dropdown a11y issues ([34d2c4d](https://gitlab.com/gitlab-org/gitlab-ui/commit/34d2c4d496f66c2c9e9129793e6a0c4189d77ec9))
+
 # [80.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v79.4.1...v80.0.0) (2024-05-01)
 
 
