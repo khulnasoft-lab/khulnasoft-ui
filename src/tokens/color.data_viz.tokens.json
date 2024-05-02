@@ -2,67 +2,100 @@
   "data-viz": {
     "green": {
       "50": {
-        "$value": "#ddfab7",
+        "$value": {
+          "default": "#ddfab7",
+          "dark": "#133a03"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "100": {
-        "$value": "#c6ed94",
+        "$value": {
+          "default": "#c6ed94",
+          "dark": "#1a4500"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "200": {
-        "$value": "#b0d97b",
+        "$value": {
+          "default": "#b0d97b",
+          "dark": "#275600"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "300": {
-        "$value": "#94c25e",
+        "$value": {
+          "default": "#94c25e",
+          "dark": "#366800"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "400": {
-        "$value": "#81ac41",
+        "$value": {
+          "default": "#81ac41",
+          "dark": "#4e7f0e"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "500": {
-        "$value": "#619025",
+        "$value": {
+          "default": "#619025",
+          "dark": "#619025"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "600": {
-        "$value": "#4e7f0e",
+        "$value": {
+          "default": "#4e7f0e",
+          "dark": "#81ac41"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "700": {
-        "$value": "#366800",
+        "$value": {
+          "default": "#366800",
+          "dark": "#94c25e"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "800": {
-        "$value": "#275600",
+        "$value": {
+          "default": "#275600",
+          "dark": "#b0d97b"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "900": {
-        "$value": "#1a4500",
+        "$value": {
+          "default": "#1a4500",
+          "dark": "#c6ed94"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "950": {
-        "$value": "#133a03",
+        "$value": {
+          "default": "#133a03",
+          "dark": "#ddfab7"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
@@ -70,67 +103,100 @@
     },
     "aqua": {
       "50": {
-        "$value": "#b5fefd",
+        "$value": {
+          "default": "#b5fefd",
+          "dark": "#00344b"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "100": {
-        "$value": "#93f2ef",
+        "$value": {
+          "default": "#93f2ef",
+          "dark": "#004059"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "200": {
-        "$value": "#5edee3",
+        "$value": {
+          "default": "#5edee3",
+          "dark": "#00516c"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "300": {
-        "$value": "#32c5d2",
+        "$value": {
+          "default": "#32c5d2",
+          "dark": "#006381"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "400": {
-        "$value": "#00acc4",
+        "$value": {
+          "default": "#00acc4",
+          "dark": "#007b9b"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "500": {
-        "$value": "#0090b1",
+        "$value": {
+          "default": "#0090b1",
+          "dark": "#0090b1"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "600": {
-        "$value": "#007b9b",
+        "$value": {
+          "default": "#007b9b",
+          "dark": "#00acc4"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "700": {
-        "$value": "#006381",
+        "$value": {
+          "default": "#006381",
+          "dark": "#32c5d2"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "800": {
-        "$value": "#00516c",
+        "$value": {
+          "default": "#00516c",
+          "dark": "#5edee3"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "900": {
-        "$value": "#004059",
+        "$value": {
+          "default": "#004059",
+          "dark": "#93f2ef"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "950": {
-        "$value": "#00344b",
+        "$value": {
+          "default": "#00344b",
+          "dark": "#b5fefd"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
@@ -138,67 +204,100 @@
     },
     "blue": {
       "50": {
-        "$value": "#e9ebff",
+        "$value": {
+          "default": "#e9ebff",
+          "dark": "#2a2b59"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "100": {
-        "$value": "#d2dcff",
+        "$value": {
+          "default": "#d2dcff",
+          "dark": "#303470"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "200": {
-        "$value": "#b7c6ff",
+        "$value": {
+          "default": "#b7c6ff",
+          "dark": "#374291"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "300": {
-        "$value": "#97acff",
+        "$value": {
+          "default": "#97acff",
+          "dark": "#3f51ae"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "400": {
-        "$value": "#7992f5",
+        "$value": {
+          "default": "#7992f5",
+          "dark": "#4e65cd"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "500": {
-        "$value": "#617ae2",
+        "$value": {
+          "default": "#617ae2",
+          "dark": "#617ae2"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "600": {
-        "$value": "#4e65cd",
+        "$value": {
+          "default": "#4e65cd",
+          "dark": "#7992f5"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "700": {
-        "$value": "#3f51ae",
+        "$value": {
+          "default": "#3f51ae",
+          "dark": "#97acff"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "800": {
-        "$value": "#374291",
+        "$value": {
+          "default": "#374291",
+          "dark": "#b7c6ff"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "900": {
-        "$value": "#303470",
+        "$value": {
+          "default": "#303470",
+          "dark": "#d2dcff"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "950": {
-        "$value": "#2a2b59",
+        "$value": {
+          "default": "#2a2b59",
+          "dark": "#e9ebff"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
@@ -206,67 +305,100 @@
     },
     "magenta": {
       "50": {
-        "$value": "#ffe3eb",
+        "$value": {
+          "default": "#ffe3eb",
+          "dark": "#541d31"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "100": {
-        "$value": "#ffccdb",
+        "$value": {
+          "default": "#ffccdb",
+          "dark": "#661e3a"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "200": {
-        "$value": "#fcacc5",
+        "$value": {
+          "default": "#fcacc5",
+          "dark": "#7c214f"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "300": {
-        "$value": "#f88aaf",
+        "$value": {
+          "default": "#f88aaf",
+          "dark": "#9a2e5d"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "400": {
-        "$value": "#e86e9a",
+        "$value": {
+          "default": "#e86e9a",
+          "dark": "#b93d71"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "500": {
-        "$value": "#cf4d81",
+        "$value": {
+          "default": "#cf4d81",
+          "dark": "#cf4d81"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "600": {
-        "$value": "#b93d71",
+        "$value": {
+          "default": "#b93d71",
+          "dark": "#e86e9a"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "700": {
-        "$value": "#9a2e5d",
+        "$value": {
+          "default": "#9a2e5d",
+          "dark": "#f88aaf"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "800": {
-        "$value": "#7c214f",
+        "$value": {
+          "default": "#7c214f",
+          "dark": "#fcacc5"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "900": {
-        "$value": "#661e3a",
+        "$value": {
+          "default": "#661e3a",
+          "dark": "#ffccdb"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "950": {
-        "$value": "#541d31",
+        "$value": {
+          "default": "#541d31",
+          "dark": "#ffe3eb"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
@@ -274,67 +406,100 @@
     },
     "orange": {
       "50": {
-        "$value": "#fae8d1",
+        "$value": {
+          "default": "#fae8d1",
+          "dark": "#4b2707"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "100": {
-        "$value": "#f5d6b3",
+        "$value": {
+          "default": "#f5d6b3",
+          "dark": "#5e2f05"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "200": {
-        "$value": "#eebd8c",
+        "$value": {
+          "default": "#eebd8c",
+          "dark": "#6f3500"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "300": {
-        "$value": "#e99b60",
+        "$value": {
+          "default": "#e99b60",
+          "dark": "#92430a"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "400": {
-        "$value": "#e07e41",
+        "$value": {
+          "default": "#e07e41",
+          "dark": "#b14f18"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "500": {
-        "$value": "#c95d2e",
+        "$value": {
+          "default": "#c95d2e",
+          "dark": "#c95d2e"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "600": {
-        "$value": "#b14f18",
+        "$value": {
+          "default": "#b14f18",
+          "dark": "#e07e41"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "700": {
-        "$value": "#92430a",
+        "$value": {
+          "default": "#92430a",
+          "dark": "#e99b60"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "800": {
-        "$value": "#6f3500",
+        "$value": {
+          "default": "#6f3500",
+          "dark": "#eebd8c"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "900": {
-        "$value": "#5e2f05",
+        "$value": {
+          "default": "#5e2f05",
+          "dark": "#f5d6b3"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
       },
       "950": {
-        "$value": "#4b2707",
+        "$value": {
+          "default": "#4b2707",
+          "dark": "#fae8d1"
+        },
         "$type": "color",
         "themeable": true,
         "prefix": false
