@@ -63,20 +63,20 @@ export const Default = (args, { argTypes }) => ({
   fields: [
     {
       key: 'column_one',
-      label: 'Column One',
+      label: 'First column',
       variant: 'secondary',
       sortable: true,
       isRowHeader: false,
     },
     {
       key: 'col_2',
-      label: 'Column 2',
+      label: 'Second column',
       formatter: (value) => value,
     },
     {
       key: 'col_three',
       sortable: true,
-      label: 'Column 2',
+      label: 'Third column',
       formatter: (value) => value,
       thClass: 'gl-text-right',
       tdClass: 'gl-text-right',
