@@ -144,7 +144,7 @@ export const WithActions = (_args, { viewMode }) => ({
       <gl-button @click="toggle">Toggle Drawer</gl-button>
       ${createSidebarTemplate(`
           <template #title>
-          <h3>custom-network-policy</h3>
+          <h3>custom-network-policy multiple lines headline</h3>
         </template>
         <template #header>
             <div class="gl-mt-5">
