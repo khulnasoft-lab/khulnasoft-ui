@@ -1,3 +1,10 @@
+# [80.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.1.0...v80.2.0) (2024-05-03)
+
+
+### Features
+
+* **GlFilteredSearch:** pass appliedTokens prop to nested token ([4eea90a](https://gitlab.com/gitlab-org/gitlab-ui/commit/4eea90a9358c0fa07e25878b515970d0f6bbf297))
+
 # [80.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.0.1...v80.1.0) (2024-05-03)
 
 
