@@ -319,14 +319,14 @@ describe('GlDuoChat', () => {
       });
 
       it.each`
-        trigger                                                                      | event                                | action          | expectEmitted
-        ${() => clickSubmit()}                                                       | ${'Submit button click'}             | ${'submit'}     | ${[[promptStr]]}
-        ${() => findChatInput().trigger('keyup', { key: ENTER })}                    | ${`Clicking ${ENTER}`}               | ${'submit'}     | ${[[promptStr]]}
-        ${() => findChatInput().trigger('keyup', { key: ENTER, metaKey: true })}     | ${`Clicking ${ENTER} + ⌘`}           | ${'not submit'} | ${undefined}
-        ${() => findChatInput().trigger('keyup', { key: ENTER, altKey: true })}      | ${`Clicking ${ENTER} + ⎇`}           | ${'not submit'} | ${undefined}
-        ${() => findChatInput().trigger('keyup', { key: ENTER, shiftKey: true })}    | ${`Clicking ${ENTER} + ⬆︎`}          | ${'not submit'} | ${undefined}
-        ${() => findChatInput().trigger('keyup', { key: ENTER, ctrlKey: true })}     | ${`Clicking ${ENTER} + CTRL`}        | ${'not submit'} | ${undefined}
-        ${() => findChatInput().trigger('keyup', { key: ENTER, isComposing: true })} | ${`Clicking ${ENTER} + isComposing`} | ${'not submit'} | ${undefined}
+        trigger                                                                        | event                                | action          | expectEmitted
+        ${() => clickSubmit()}                                                         | ${'Submit button click'}             | ${'submit'}     | ${[[promptStr]]}
+        ${() => findChatInput().trigger('keydown', { key: ENTER })}                    | ${`Clicking ${ENTER}`}               | ${'submit'}     | ${[[promptStr]]}
+        ${() => findChatInput().trigger('keydown', { key: ENTER, metaKey: true })}     | ${`Clicking ${ENTER} + ⌘`}           | ${'not submit'} | ${undefined}
+        ${() => findChatInput().trigger('keydown', { key: ENTER, altKey: true })}      | ${`Clicking ${ENTER} + ⎇`}           | ${'not submit'} | ${undefined}
+        ${() => findChatInput().trigger('keydown', { key: ENTER, shiftKey: true })}    | ${`Clicking ${ENTER} + ⬆︎`}          | ${'not submit'} | ${undefined}
+        ${() => findChatInput().trigger('keydown', { key: ENTER, ctrlKey: true })}     | ${`Clicking ${ENTER} + CTRL`}        | ${'not submit'} | ${undefined}
+        ${() => findChatInput().trigger('keydown', { key: ENTER, isComposing: true })} | ${`Clicking ${ENTER} + isComposing`} | ${'not submit'} | ${undefined}
       `('$event should $action the prompt form', ({ trigger, expectEmitted } = {}) => {
         createComponent({
           propsData: { messages: [], isChatAvailable: true },
@@ -720,7 +720,7 @@ describe('GlDuoChat', () => {
         it('toggles through commands on ArrowDown', async () => {
           for (const command of slashCommandsNames) {
             expect(findSelectedSlashCommand().text()).toContain(command);
-            findChatInput().trigger('keyup', { key: 'ArrowDown' });
+            findChatInput().trigger('keydown', { key: 'ArrowDown' });
             // eslint-disable-next-line no-await-in-loop
             await nextTick();
           }
@@ -731,7 +731,7 @@ describe('GlDuoChat', () => {
           arr.unshift(slashCommandsNames[0]); // it still has the top most command selected on the first run
           for (const command of arr) {
             expect(findSelectedSlashCommand().text()).toContain(command);
-            findChatInput().trigger('keyup', { key: 'ArrowUp' });
+            findChatInput().trigger('keydown', { key: 'ArrowUp' });
             // eslint-disable-next-line no-await-in-loop
             await nextTick();
           }
@@ -742,7 +742,7 @@ describe('GlDuoChat', () => {
             const command = slashCommandsNames[index];
             if (index) {
               for (let i = 0; i < index; i += 1) {
-                findChatInput().trigger('keyup', { key: 'ArrowDown' });
+                findChatInput().trigger('keydown', { key: 'ArrowDown' });
               }
             }
             await nextTick();
@@ -754,7 +754,7 @@ describe('GlDuoChat', () => {
             const command = await navigateToCommand(commandIndex);
 
             expect(findSelectedSlashCommand().text()).toContain(command);
-            findChatInput().trigger('keyup', { key: 'Enter' });
+            findChatInput().trigger('keydown', { key: 'Enter' });
             await nextTick();
             expect(findChatInput().props('value')).toBe(`${command} `);
             expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
@@ -765,7 +765,7 @@ describe('GlDuoChat', () => {
             const command = await navigateToCommand(commandIndex);
 
             expect(findSelectedSlashCommand().text()).toContain(command);
-            findChatInput().trigger('keyup', { key: 'Enter' });
+            findChatInput().trigger('keydown', { key: 'Enter' });
             await nextTick();
             expect(wrapper.emitted('send-chat-prompt')).toEqual([[command]]);
           });
@@ -824,6 +824,15 @@ describe('GlDuoChat', () => {
           });
         });
       });
+    });
+  });
+
+  describe('keyboard shortcuts', () => {
+    it('closes the chat when Alt + D is pressed', async () => {
+      createComponent();
+      const chatInput = wrapper.find('[data-testid="chat-prompt-input"]');
+      await chatInput.trigger('keydown', { altKey: true, code: 'KeyD' });
+      expect(wrapper.emitted('chat-hidden')).toEqual([[]]);
     });
   });
 });

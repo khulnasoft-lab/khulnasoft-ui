@@ -312,8 +312,15 @@ export default {
        */
       this.$emit('track-feedback', event);
     },
-    onInputKeyup(e) {
+    handleKeyEvents(e) {
       const { metaKey, ctrlKey, altKey, shiftKey, isComposing } = e;
+
+      // throw close event on alt/option + d
+      if (e.code === 'KeyD' && altKey && !(metaKey || ctrlKey || shiftKey)) {
+        e.preventDefault();
+        this.hideChat();
+        return;
+      }
 
       if (this.shouldShowSlashCommands) {
         e.preventDefault();
@@ -512,7 +519,7 @@ export default {
               :placeholder="inputPlaceholder"
               autofocus
               @keydown.enter.exact.native.prevent
-              @keyup.native="onInputKeyup"
+              @keydown.native="handleKeyEvents"
             />
           </div>
           <template #append>
