@@ -29,7 +29,6 @@ export const tableFullProps = [
   'no-provider-paging',
   'no-provider-sorting',
   'no-select-on-click',
-  'no-sort-reset',
   'per-page',
   'select-mode',
   'selectable',

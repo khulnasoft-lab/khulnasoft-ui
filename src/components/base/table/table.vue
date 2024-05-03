@@ -100,6 +100,7 @@ export default {
     :fields="fields"
     :sort-by.sync="localSortBy"
     :sort-desc.sync="localSortDesc"
+    no-sort-reset
     v-bind="$attrs"
     v-on="$listeners"
   >
