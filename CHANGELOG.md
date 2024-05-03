@@ -1,3 +1,10 @@
+# [80.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.0.1...v80.1.0) (2024-05-03)
+
+
+### Features
+
+* **GlDrawer:** Fix alignment of close button ([8bd418a](https://gitlab.com/gitlab-org/gitlab-ui/commit/8bd418ad69b7ca9588d8eeb0fe21ca290a730a7f))
+
 ## [80.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.0.0...v80.0.1) (2024-05-02)
 
 
