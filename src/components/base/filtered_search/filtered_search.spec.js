@@ -25,6 +25,11 @@ const FakeToken = avoidReactivity({
   render: (h) => h('div'),
 });
 
+const AppliedTokensTestFakeToken = avoidReactivity({
+  props: ['appliedTokens'],
+  render: (h) => h('div'),
+});
+
 Vue.directive('GlTooltip', () => {});
 
 let wrapper;
@@ -473,6 +478,20 @@ describe('Filtered search', () => {
     expect(Object.keys(fakeTokenInstance.attributes())).toEqual(
       expect.arrayContaining(['current-value', 'index', 'config', 'value'])
     );
+  });
+
+  it('passes appliedTokens prop to the token component', async () => {
+    const value = [{ type: 'faketoken', value: 'foo' }];
+    const expectedAppliedTokens = [{ type: 'faketoken', value: 'foo', id: expect.anything() }];
+    createComponent({
+      value,
+      availableTokens: [{ type: 'faketoken', token: AppliedTokensTestFakeToken }],
+    });
+    await nextTick();
+
+    const fakeTokenInstance = wrapper.findComponent(AppliedTokensTestFakeToken);
+    expect(fakeTokenInstance.exists()).toBe(true);
+    expect(fakeTokenInstance.props('appliedTokens')).toEqual(expectedAppliedTokens);
   });
 
   it('passes `searchButtonAttributes` prop to `GlSearchBoxByClick`', () => {

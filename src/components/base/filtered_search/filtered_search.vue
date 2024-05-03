@@ -183,6 +183,9 @@ export default {
     activeToken() {
       return this.tokens[this.activeTokenIdx];
     },
+    appliedTokens() {
+      return this.tokens.filter((token) => !isEmptyTerm(token));
+    },
     lastTokenIdx() {
       return this.tokens.length - 1;
     },
@@ -433,6 +436,7 @@ export default {
             :is-last-token="isLastToken(idx)"
             :class="getTokenClassList(idx)"
             :search-text-option-label="searchTextOptionLabel"
+            :applied-tokens="appliedTokens"
             @activate="activate(idx)"
             @deactivate="deactivate(token)"
             @destroy="destroyToken(idx, $event)"
