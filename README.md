@@ -159,6 +159,30 @@ You have two options to include those stylesheets:
 @import '@gitlab/ui/dist/utility_classes.css';
 ```
 
+### Design tokens
+
+GitLab UI uses design tokens to maintain a single source of truth that, through automation, 
+can be formatted for different uses.
+
+- See [Pajamas](https://design.gitlab.com/product-foundations/design-tokens) for an overview
+on design tokens.
+- See [GitLab Docs](https://docs.gitlab.com/ee/development/fe_guide/design_tokens.html) for
+in-depth guides on creating and using design tokens.
+
+Example design token inheritance and automation:
+
+```mermaid
+flowchart TD
+    A[#1f1e24] -->|Constant token| B[color.neutral.950]
+    B -->|Semantic token| C[text.color.default]
+    C --> D{Automation}
+    D -->|Figma| E[text/color/default]
+    D -->|CSS| F[--gl-text-color-default]
+    D -->|SCSS| G[$gl-text-color-default]
+    D -->|JavaScript| H[GL_TEXT_COLOR_DEFAULT]
+    D -->|Tailwind| I[gl-text-default]
+```
+
 ## Releases
 
 See [Updating GitLab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how the
