@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import ClearIcon from '~/components/shared_components/clear_icon_button/clear_icon_button.vue';
-import GlDropdownItem from '../dropdown/dropdown_item.vue';
+import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
+import GlDisclosureDropdownItem from '../new_dropdowns/disclosure/disclosure_dropdown_item.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import SearchBoxByClick from './search_box_by_click.vue';
 
@@ -20,7 +21,10 @@ describe('search box by click component', () => {
   const createComponent = (propsData) => {
     wrapper = shallowMount(SearchBoxByClick, {
       propsData,
-      stubs: { GlFormInputGroup: GlFormInputGroupStub },
+      stubs: {
+        GlDisclosureDropdown,
+        GlFormInputGroup: GlFormInputGroupStub,
+      },
     });
   };
 
@@ -91,14 +95,6 @@ describe('search box by click component', () => {
       expect(wrapper.findComponent({ ref: 'historyDropdown' }).exists()).toBe(true);
     });
 
-    it('hides dropdown when close buton is clicked', () => {
-      wrapper.vm.$refs.historyDropdown.hide = jest.fn();
-
-      wrapper.findComponent({ ref: 'closeHistory' }).vm.$emit('click');
-
-      expect(wrapper.vm.$refs.historyDropdown.hide).toHaveBeenCalled();
-    });
-
     it('emits clear-history event when clear button is clicked', () => {
       wrapper.findComponent({ ref: 'clearHistory' }).vm.$emit('click');
 
@@ -106,7 +102,7 @@ describe('search box by click component', () => {
     });
 
     it('emits proper events when history item is clicked', async () => {
-      wrapper.findComponent(GlDropdownItem).vm.$emit('click');
+      wrapper.findComponent(GlDisclosureDropdownItem).vm.$emit('action');
 
       await wrapper.vm.$nextTick();
       expect(wrapper.emitted('input')[0]).toEqual(['one']);

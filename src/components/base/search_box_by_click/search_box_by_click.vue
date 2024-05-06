@@ -2,25 +2,19 @@
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlButton from '../button/button.vue';
-import GlDropdown from '../dropdown/dropdown.vue';
-import GlDropdownDivider from '../dropdown/dropdown_divider.vue';
-import GlDropdownItem from '../dropdown/dropdown_item.vue';
-import GlDropdownText from '../dropdown/dropdown_text.vue';
+import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
+import GlDisclosureDropdownItem from '../new_dropdowns/disclosure/disclosure_dropdown_item.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlFormInputGroup from '../form/form_input_group/form_input_group.vue';
-import GlIcon from '../icon/icon.vue';
 
 export default {
   name: 'GlSearchboxByClick',
   components: {
     GlClearIconButton,
-    GlIcon,
     GlButton,
     GlFormInput,
-    GlDropdown,
-    GlDropdownText,
-    GlDropdownItem,
-    GlDropdownDivider,
+    GlDisclosureDropdown,
+    GlDisclosureDropdownItem,
     GlFormInputGroup,
   },
   directives: {
@@ -169,9 +163,6 @@ export default {
     },
   },
   methods: {
-    closeHistoryDropdown() {
-      this.$refs.historyDropdown.hide();
-    },
     search(value) {
       /**
        * Emitted when search is submitted
@@ -217,52 +208,55 @@ export default {
     :class="{ 'gl-search-box-by-click-with-search-button': showSearchButton }"
   >
     <template v-if="historyItems" #prepend>
-      <gl-dropdown
+      <gl-disclosure-dropdown
         ref="historyDropdown"
         class="gl-search-box-by-click-history"
-        menu-class="gl-search-box-by-click-menu"
-        category="secondary"
+        icon="history"
+        toggle-text="Toggle history"
+        text-sr-only
+        fluid-width
         :disabled="disabled"
       >
-        <template #button-content>
-          <gl-icon name="history" class="gl-search-box-by-click-history-icon" />
-          <gl-icon name="chevron-down" class="gl-search-box-by-click-history-icon-chevron" />
-          <span class="gl-sr-only">Toggle history</span>
+        <template #header>
+          <div
+            class="gl-search-box-by-click-history-header gl-display-flex gl-align-items-center gl-p-4! gl-min-h-8 gl-border-b-1 gl-border-b-solid gl-border-b-gray-200 gl-flex-grow-1 gl-font-weight-bold gl-font-sm"
+          >
+            {{ recentSearchesHeader }}
+          </div>
         </template>
-        <gl-dropdown-text class="gl-search-box-by-click-history-header">
-          {{ recentSearchesHeader }}
-          <gl-button
-            ref="closeHistory"
-            v-gl-tooltip.hover="{ container: tooltipContainer }"
-            :title="closeButtonTitle"
-            :aria-label="closeButtonTitle"
-            category="tertiary"
-            class="gl-search-box-by-click-close-history-button"
-            name="close"
-            icon="close"
-            @click="closeHistoryDropdown"
-          />
-        </gl-dropdown-text>
-        <gl-dropdown-divider />
+
         <template v-if="historyItems.length">
-          <gl-dropdown-item
+          <gl-disclosure-dropdown-item
             v-for="(item, idx) in historyItems"
             :key="idx"
             class="gl-search-box-by-click-history-item"
-            @click="selectHistoryItem(item)"
+            @action="selectHistoryItem(item)"
           >
-            <!-- @slot Slot to customize history item in history dropdown. Used only with history-items prop -->
-            <slot name="history-item" :history-item="item">{{ item }}</slot>
-          </gl-dropdown-item>
-          <gl-dropdown-divider />
-          <gl-dropdown-item ref="clearHistory" @click="emitClearHistory">{{
-            clearRecentSearchesText
-          }}</gl-dropdown-item>
+            <template #list-item>
+              <!-- @slot Slot to customize history item in history dropdown. Used only with history-items prop -->
+              <slot name="history-item" :history-item="item">{{ item }}</slot>
+            </template>
+          </gl-disclosure-dropdown-item>
         </template>
-        <gl-dropdown-text v-else class="gl-search-box-by-click-history-no-searches">{{
-          noRecentSearchesText
-        }}</gl-dropdown-text>
-      </gl-dropdown>
+        <div v-else class="gl-font-sm gl-text-secondary gl-py-2 gl-px-4">
+          {{ noRecentSearchesText }}
+        </div>
+
+        <template v-if="historyItems.length" #footer>
+          <div
+            class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-200 gl-display-flex gl-flex-direction-column gl-p-2"
+          >
+            <gl-button
+              ref="clearHistory"
+              category="tertiary"
+              class="gl-justify-content-start!"
+              @click="emitClearHistory"
+            >
+              {{ clearRecentSearchesText }}
+            </gl-button>
+          </div>
+        </template>
+      </gl-disclosure-dropdown>
     </template>
     <slot name="input">
       <gl-form-input

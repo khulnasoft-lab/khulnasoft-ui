@@ -471,11 +471,9 @@ export const WithHistoryItems = () => ({
 });
 WithHistoryItems.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const button = canvas.getByRole('button', { name: 'Toggle history' });
+  const button = canvas.getByTestId('base-dropdown-toggle');
   await userEvent.click(button);
-  await waitFor(() =>
-    expect(within(document).getByRole('menu', { name: 'Toggle history' })).toBeVisible()
-  );
+  await waitFor(() => expect(within(document).getByTestId('base-dropdown-menu')).toBeVisible());
 };
 
 export const WithFriendlyText = () => ({
