@@ -175,22 +175,10 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
       selected: [],
     };
   },
-  methods: {
-    selectAllItems() {
-      const allValues = mockOptions.map(({ value }) => value);
-      this.selected = [...allValues];
-    },
-    onReset() {
-      this.selected = [];
-    },
-  },
   template: template(
     `
     <template #footer>
        <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-200 gl-display-flex gl-flex-direction-column gl-p-2! gl-pt-0!">
-        <gl-button @click="selectAllItems" category="tertiary" block class="gl-justify-content-start! gl-mt-2!">
-          Select all
-        </gl-button>
         <gl-button category="tertiary" block class="gl-justify-content-start! gl-mt-2!" data-testid="footer-bottom-button">
           Manage departments
         </gl-button>
@@ -251,7 +239,7 @@ HeaderActions.args = generateProps({
   toggleText: 'Header actions',
   headerText: 'Assign to department',
   resetButtonLabel: 'Unassign',
-  showSelectAllButtonLabel: 'Select All',
+  showSelectAllButtonLabel: 'Select all',
   multiple: true,
   block: true,
 });
