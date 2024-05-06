@@ -161,7 +161,7 @@ You have two options to include those stylesheets:
 
 ### Design tokens
 
-GitLab UI uses design tokens to maintain a single source of truth that, through automation, 
+GitLab UI uses design tokens to maintain a single source of truth that, through automation,
 can be formatted for different uses.
 
 - See [Pajamas](https://design.gitlab.com/product-foundations/design-tokens) for an overview
