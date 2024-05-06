@@ -1,3 +1,10 @@
+# [80.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.2.0...v80.3.0) (2024-05-06)
+
+
+### Features
+
+* **GlSearchBoxByClick:** Migrate dropdown ([51de3bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/51de3bcc652017d7218839673c9579e6a22d1446))
+
 # [80.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.1.0...v80.2.0) (2024-05-03)
 
 
