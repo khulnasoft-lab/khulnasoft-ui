@@ -296,9 +296,7 @@ update_screenshots:
 pages:
   rules:
     - !reference ['.rules:gitlab-ui-default-branch', rules]
-    # Temporarily disable this job in merge requests.
-    # See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2621
-    # - !reference ['.rules:gitlab-ui-mr', rules]
+    - !reference ['.rules:gitlab-ui-mr', rules]
   stage: deploy
   needs:
     - build_storybook
