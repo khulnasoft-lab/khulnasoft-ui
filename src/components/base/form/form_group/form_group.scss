@@ -20,7 +20,8 @@
 
   .invalid-feedback,
   .valid-feedback,
-  .text-gl-muted {
+  .text-gl-muted,
+  .gl-text-secondary {
     @include gl-font-base;
     @include gl-line-height-normal;
   }
@@ -29,13 +30,16 @@
     + .invalid-feedback,
     + .valid-feedback,
     + .text-gl-muted,
-    &.is-valid + .invalid-feedback + .text-gl-muted {
+    &.is-valid + .invalid-feedback + .text-gl-muted,
+    + .gl-text-secondary,
+    &.is-valid + .invalid-feedback + .gl-text-secondary {
       // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2806
       // for the reasoning behind the "valid+invalid" selector above
       @include gl-mt-3;
     }
   }
 
+  // Deprecated, soon to be removed
   .text-gl-muted {
     @include gl-text-gray-500;
   }
