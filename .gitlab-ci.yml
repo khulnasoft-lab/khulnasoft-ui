@@ -210,6 +210,12 @@ check_translations_dictionary:
   script:
     - ./bin/check_translations_dict.sh
 
+check_tokens_build:
+  extends: [.node, '.yarn_install']
+  needs: []
+  script:
+    - ./bin/check_tokens_build.sh
+
 .visual:
   extends:
     - .playwright

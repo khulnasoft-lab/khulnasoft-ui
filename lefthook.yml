@@ -22,3 +22,7 @@ pre-commit:
       files: git diff --name-only --staged
       glob: "*.{js,vue}"
       run: node ./bin/collect_translations.js && git add ./translations.json
+    build_tokens:
+      files: git diff --name-only --staged
+      glob: '*.tokens.json'
+      run: node ./bin/build_tokens.js && git add ./src/tokens/build
