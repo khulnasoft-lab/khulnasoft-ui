@@ -1,21 +1,30 @@
 {
   "text": {
     "primary": {
-      "$value": "#333238",
+      "$value": {
+        "default": "#333238",
+        "dark": "#ececef"
+      },
       "$type": "color",
       "$description": "Use text.color.default instead",
       "deprecated": true,
       "themeable": true
     },
     "secondary": {
-      "$value": "#737278",
+      "$value": {
+        "default": "#737278",
+        "dark": "#89888d"
+      },
       "$type": "color",
       "$description": "Use text.color.subtle instead",
       "deprecated": true,
       "themeable": true
     },
     "tertiary": {
-      "$value": "#89888d",
+      "$value": {
+        "default": "#89888d",
+        "dark": "#737278"
+      },
       "$type": "color",
       "$description": "Use text.color.disabled instead",
       "deprecated": true,
@@ -23,31 +32,46 @@
     },
     "color": {
       "default": {
-        "$value": "#434248",
+        "$value": {
+          "default": "#434248",
+          "dark": "#ececef"
+        },
         "$type": "color",
         "$description": "Used for the default text color.",
         "themeable": true
       },
       "subtle": {
-        "$value": "#626168",
+        "$value": {
+          "default": "#626168",
+          "dark": "#bfbfc3"
+        },
         "$type": "color",
         "$description": "Used for supplemental text that doesn't need to be as prominent as other text.",
         "themeable": true
       },
       "strong": {
-        "$value": "#1f1e24",
+        "$value": {
+          "default": "#1f1e24",
+          "dark": "#fff"
+        },
         "$type": "color",
         "$description": "Used for text with the highest contrast.",
         "themeable": true
       },
       "heading": {
-        "$value": "#1f1e24",
+        "$value": {
+          "default": "#1f1e24",
+          "dark": "#fff"
+        },
         "$type": "color",
         "$description": "Used for headings level 1-6.",
         "themeable": true
       },
       "link": {
-        "$value": "#0b5cad",
+        "$value": {
+          "default": "#0b5cad",
+          "dark": "#63a6e9"
+        },
         "$type": "color",
         "$description": "Used for default text links.",
         "themeable": true
@@ -65,7 +89,10 @@
         "themeable": true
       },
       "disabled": {
-        "$value": "#89888d",
+        "$value": {
+          "default": "#89888d",
+          "dark": "#89888d"
+        },
         "$type": "color",
         "$description": "Used for disabled text.",
         "themeable": true

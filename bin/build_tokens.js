@@ -3,15 +3,25 @@
 const fs = require('fs');
 const prettier = require('prettier');
 const StyleDictionary = require('style-dictionary');
+const merge = require('lodash/merge');
 
-const prefix = 'gl';
-const modes = ['dark'];
-const cssSelector = {
-  dark: ':root.gl-dark',
-};
+/**
+ * Design tokens
+ * https://docs.gitlab.com/ee/development/fe_guide/design_tokens.html
+ */
+const PREFIX = 'gl';
+
+/**
+ * Utils
+ */
+const hasDefaultValue = (token) => token.original.value.default;
+const hasDarkValue = (token) => token.original.value.dark;
+const hasDefaultAndDarkValues = (token) =>
+  token.original.value && hasDefaultValue(token) && hasDarkValue(token);
 
 /**
  * Transforms
+ * https://amzn.github.io/style-dictionary/#/api?id=registertransform
  */
 StyleDictionary.registerTransform({
   name: 'name/prefix',
@@ -22,21 +32,54 @@ StyleDictionary.registerTransform({
     return token.prefix === false;
   },
   transformer: (token) => {
-    return token.name.slice(prefix.length + 1);
+    return token.name.slice(PREFIX.length + 1);
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'value/default',
+  type: 'value',
+  matcher: (token) => {
+    return hasDefaultAndDarkValues(token);
+  },
+  transformer: ({ value }) => {
+    return value.default;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'value/dark',
+  type: 'value',
+  matcher: (token) => {
+    return hasDefaultAndDarkValues(token);
+  },
+  transformer: ({ value }) => {
+    return value.dark;
   },
 });
 
 /**
  * Transform Groups
+ * https://amzn.github.io/style-dictionary/#/api?id=registertransformgroup
  */
 StyleDictionary.registerTransformGroup({
-  name: 'css',
-  transforms: ['name/cti/kebab', 'size/pxToRem', 'name/prefix'],
+  name: 'css/default',
+  transforms: ['value/default', 'name/cti/kebab', 'size/pxToRem', 'name/prefix'],
 });
 
 StyleDictionary.registerTransformGroup({
-  name: 'js',
-  transforms: ['name/cti/constant', 'size/pxToRem', 'name/prefix'],
+  name: 'js/default',
+  transforms: ['value/default', 'name/cti/constant', 'size/pxToRem', 'name/prefix'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'css/dark',
+  transforms: ['value/dark', 'name/cti/kebab', 'size/pxToRem', 'name/prefix'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'js/dark',
+  transforms: ['value/dark', 'name/cti/constant', 'size/pxToRem', 'name/prefix'],
 });
 
 /**
@@ -66,44 +109,6 @@ StyleDictionary.registerParser({
 });
 
 /**
- * Formats tokens by type and returns "name": "value" pairs
- * @param arguments [FormatterArguments](https://github.com/amzn/style-dictionary/blob/main/types/Format.d.ts)
- * @returns formatted json `string`
- */
-StyleDictionary.registerFormat({
-  name: 'json/grouped',
-  formatter({ dictionary }) {
-    const output = {};
-
-    function traverseObject(token, parentKey = '') {
-      const type = token.$type ? token.$type : parentKey;
-
-      if (token.value) {
-        const name = token.path.join('-');
-        output[type] = {
-          ...output[type],
-          [name]: token.value,
-        };
-      } else {
-        for (const key in token) {
-          if (Object.hasOwn(token, key)) {
-            traverseObject(token[key], key);
-          }
-        }
-      }
-    }
-
-    for (const key in dictionary) {
-      if (Object.hasOwn(dictionary, key)) {
-        traverseObject(dictionary[key]);
-      }
-    }
-
-    return JSON.stringify(output, null, '  ');
-  },
-});
-
-/**
  * Actions
  * https://amzn.github.io/style-dictionary/#/actions
  */
@@ -121,94 +126,73 @@ StyleDictionary.registerAction({
     // ignore clean function
   },
 });
-
 /**
- * Creates destination filename from options
- *
- * @param {Object} [options]
- * @param {String} [options.name] name e.g. tokens
- * @param {String} [options.mode] mode e.g. dark
- * @param {String} [options.extension] file extension e.g. .scss
- * @returns {String} destination filename e.g. tokens.dark.scss
- */
-const getDestination = ({ name = 'tokens', mode, extension = 'json' }) => {
-  return [name, mode, extension].filter(Boolean).join('.');
-};
-
-/**
- * Creates style-dictionary config by mode by matching token files in
- * tokens directory by filename e.g. `color.tokens.json` will
- * only generate tokens for dark mode.
+ * Creates style-dictionary config
+ * https://amzn.github.io/style-dictionary/#/config
  *
  * @param {String} buildPath for destination directory
- * @param {String} mode for source and destination filenames
- * @param {Function} filter get only matching token files
  * @returns {Object} style-dictionary config
  */
-const getStyleDictionaryConfig = (buildPath = 'dist/tokens', mode = '', filter) => {
+const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => {
   return {
-    include: [`src/tokens/**/!(*.${modes.join(`|*.`)}).tokens.json`],
-    source: [`src/tokens/**/*.${mode}.tokens.json`],
+    include: ['src/tokens/**/*.tokens.json'],
+    source: ['src/tokens/**/*.tokens.json'],
     platforms: {
       css: {
-        prefix,
+        prefix: PREFIX,
         buildPath: `${buildPath}/css/`,
-        transformGroup: 'css',
+        transformGroup: 'css/default',
         options: {
           outputReferences: true,
-          selector: cssSelector[mode],
           fileHeader: 'withoutTimestamp',
         },
         files: [
           {
-            destination: getDestination({ mode, extension: 'css' }),
+            destination: 'tokens.css',
             format: 'css/variables',
-            filter,
           },
         ],
       },
       js: {
-        prefix,
+        prefix: PREFIX,
         buildPath: `${buildPath}/js/`,
-        transformGroup: 'js',
+        transformGroup: 'js/default',
         actions: ['prettier'],
         options: {
           fileHeader: 'withoutTimestamp',
         },
         files: [
           {
-            destination: getDestination({ mode, extension: 'js' }),
+            destination: 'tokens.js',
             format: 'javascript/es6',
-            filter,
           },
         ],
       },
       json: {
         buildPath: `${buildPath}/json/`,
-        transformGroup: 'js',
+        transformGroup: 'js/default',
         options: {
           fileHeader: 'withoutTimestamp',
         },
         files: [
           {
-            destination: getDestination({ mode }),
+            destination: 'tokens.json',
             format: 'json',
           },
         ],
       },
       scss: {
-        prefix,
+        prefix: PREFIX,
         buildPath: `${buildPath}/scss/`,
-        transformGroup: 'css',
+        transformGroup: 'css/default',
         options: {
           outputReferences: true,
           fileHeader: 'withoutTimestamp',
         },
         files: [
           {
-            destination: getDestination({ name: '_tokens', mode, extension: 'scss' }),
+            destination: '_tokens.scss',
             format: 'scss/variables',
-            filter,
           },
         ],
       },
@@ -216,15 +200,63 @@ const getStyleDictionaryConfig = (buildPath = 'dist/tokens', mode = '', filter) 
   };
 };
 
-// Build default tokens from config
-StyleDictionary.extend(getStyleDictionaryConfig()).buildAllPlatforms();
-StyleDictionary.extend(getStyleDictionaryConfig('src/tokens/build')).buildAllPlatforms();
+/**
+ * Creates style-dictionary config
+ * https://amzn.github.io/style-dictionary/#/config
+ *
+ * @returns {Object} style-dictionary config
+ */
+const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
+  const filter = (token) => hasDefaultAndDarkValues(token);
+  return merge(getStyleDictionaryConfigDefault(buildPath), {
+    platforms: {
+      css: {
+        transformGroup: 'css/dark',
+        files: [
+          {
+            destination: 'tokens.dark.css',
+            filter,
+            options: {
+              selector: ':root.gl-dark',
+            },
+          },
+        ],
+      },
+      js: {
+        transformGroup: 'js/dark',
+        files: [
+          {
+            destination: 'tokens.dark.js',
+            filter,
+          },
+        ],
+      },
+      json: {
+        transformGroup: 'js/dark',
+        files: [
+          {
+            destination: 'tokens.dark.json',
+            filter,
+          },
+        ],
+      },
+      scss: {
+        transformGroup: 'css/dark',
+        files: [
+          {
+            destination: '_tokens.dark.scss',
+            filter,
+          },
+        ],
+      },
+    },
+  });
+};
 
-// Build tokens for each mode
-modes.forEach((mode) => {
-  const filter = (token) => token.filePath.indexOf(mode) > -1;
-  StyleDictionary.extend(getStyleDictionaryConfig('dist/tokens', mode, filter)).buildAllPlatforms();
-  StyleDictionary.extend(
-    getStyleDictionaryConfig('src/tokens/build', mode, filter)
-  ).buildAllPlatforms();
-});
+/**
+ * Build tokens from config
+ */
+StyleDictionary.extend(getStyleDictionaryConfigDefault()).buildAllPlatforms();
+StyleDictionary.extend(getStyleDictionaryConfigDefault('src/tokens/build')).buildAllPlatforms();
+StyleDictionary.extend(getStyleDictionaryConfigDarkMode()).buildAllPlatforms();
+StyleDictionary.extend(getStyleDictionaryConfigDarkMode('src/tokens/build')).buildAllPlatforms();
