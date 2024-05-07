@@ -1,3 +1,10 @@
+# [80.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.4.0...v80.5.0) (2024-05-07)
+
+
+### Features
+
+* **DesignTokens:** check in token build files ([4e92530](https://gitlab.com/gitlab-org/gitlab-ui/commit/4e9253008e12e7deaa8e8faa29e5c3fe0d618418))
+
 # [80.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.3.0...v80.4.0) (2024-05-07)
 
 
