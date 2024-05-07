@@ -1,3 +1,10 @@
+# [80.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.5.0...v80.6.0) (2024-05-07)
+
+
+### Features
+
+* **DesignTokens:** nest default and dark colors in same tokens files ([1c3d313](https://gitlab.com/gitlab-org/gitlab-ui/commit/1c3d3138d23d91328848b8370e83e811a4818aaa))
+
 # [80.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.4.0...v80.5.0) (2024-05-07)
 
 
