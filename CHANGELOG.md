@@ -1,3 +1,15 @@
+# [80.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.3.0...v80.4.0) (2024-05-07)
+
+
+### Bug Fixes
+
+* linting errors ([52938a5](https://gitlab.com/gitlab-org/gitlab-ui/commit/52938a58ec1b51a0544c44633c9f13949da0fc35))
+
+
+### Features
+
+* **README:** Add design tokens mention ([3ff1f07](https://gitlab.com/gitlab-org/gitlab-ui/commit/3ff1f0702af61ba1efc3592e5759c95e6111f110))
+
 # [80.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.2.0...v80.3.0) (2024-05-06)
 
 
