@@ -1,0 +1,5037 @@
+{
+  "data-viz": {
+    "green": {
+      "50": {
+        "value": "#133a03",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#133a03",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_50",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#1a4500",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#1a4500",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_100",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#275600",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#275600",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_200",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#366800",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#366800",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_300",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#4e7f0e",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#4e7f0e",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_400",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#619025",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#619025",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_500",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#81ac41",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#81ac41",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_600",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#94c25e",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#94c25e",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_700",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#b0d97b",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b0d97b",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_800",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#c6ed94",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c6ed94",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_900",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#ddfab7",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ddfab7",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_GREEN_950",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "green",
+          "950"
+        ]
+      }
+    },
+    "aqua": {
+      "50": {
+        "value": "#00344b",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#00344b",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_50",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#004059",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#004059",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_100",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#00516c",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#00516c",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_200",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#006381",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#006381",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_300",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#007b9b",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#007b9b",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_400",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#0090b1",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0090b1",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_500",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#00acc4",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#00acc4",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_600",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#32c5d2",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#32c5d2",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_700",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#5edee3",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#5edee3",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_800",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#93f2ef",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#93f2ef",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_900",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#b5fefd",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b5fefd",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_AQUA_950",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "aqua",
+          "950"
+        ]
+      }
+    },
+    "blue": {
+      "50": {
+        "value": "#2a2b59",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#2a2b59",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_50",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#303470",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#303470",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_100",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#374291",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#374291",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_200",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#3f51ae",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#3f51ae",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_300",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#4e65cd",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#4e65cd",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_400",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#617ae2",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#617ae2",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_500",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#7992f5",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#7992f5",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_600",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#97acff",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#97acff",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_700",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#b7c6ff",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b7c6ff",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_800",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#d2dcff",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#d2dcff",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_900",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#e9ebff",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e9ebff",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_BLUE_950",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "blue",
+          "950"
+        ]
+      }
+    },
+    "magenta": {
+      "50": {
+        "value": "#541d31",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#541d31",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_50",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#661e3a",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#661e3a",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_100",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#7c214f",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#7c214f",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_200",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#9a2e5d",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#9a2e5d",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_300",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#b93d71",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b93d71",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_400",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#cf4d81",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#cf4d81",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_500",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#e86e9a",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e86e9a",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_600",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#f88aaf",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f88aaf",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_700",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#fcacc5",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#fcacc5",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_800",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#ffccdb",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ffccdb",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_900",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#ffe3eb",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ffe3eb",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_MAGENTA_950",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "magenta",
+          "950"
+        ]
+      }
+    },
+    "orange": {
+      "50": {
+        "value": "#4b2707",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#4b2707",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_50",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#5e2f05",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#5e2f05",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_100",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#6f3500",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#6f3500",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_200",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#92430a",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#92430a",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_300",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#b14f18",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b14f18",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_400",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#c95d2e",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c95d2e",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_500",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#e07e41",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e07e41",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_600",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#e99b60",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e99b60",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_700",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#eebd8c",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#eebd8c",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_800",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#f5d6b3",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f5d6b3",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_900",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#fae8d1",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.data_viz.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#fae8d1",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "A_VIZ_ORANGE_950",
+        "attributes": {},
+        "path": [
+          "data-viz",
+          "orange",
+          "950"
+        ]
+      }
+    }
+  },
+  "theme": {
+    "indigo": {
+      "10": {
+        "value": "#14143d",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#14143d",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_10",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#222261",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#222261",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_50",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#303083",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#303083",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_100",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#41419f",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#41419f",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_200",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#5252b5",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#5252b5",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_300",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#6666c4",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#6666c4",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_400",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#8181d7",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8181d7",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_500",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#a2a2e6",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a2a2e6",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_600",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#c7c7f2",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c7c7f2",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_700",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#dbdbf8",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#dbdbf8",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_800",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#f1f1ff",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f1f1ff",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_900",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#f8f8ff",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f8f8ff",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_INDIGO_950",
+        "attributes": {},
+        "path": [
+          "theme",
+          "indigo",
+          "950"
+        ]
+      }
+    },
+    "blue": {
+      "10": {
+        "value": "#04101c",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#04101c",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_10",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#0b2640",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0b2640",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_50",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#153c63",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#153c63",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_100",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#235180",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#235180",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_200",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#346596",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#346596",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_300",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#4977a5",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#4977a5",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_400",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#628eb9",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#628eb9",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_500",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#81a5c9",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#81a5c9",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_600",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#a6bdd5",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a6bdd5",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_700",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#b9cadc",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b9cadc",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_800",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#cdd8e3",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#cdd8e3",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_900",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#e6ecf0",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e6ecf0",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_BLUE_950",
+        "attributes": {},
+        "path": [
+          "theme",
+          "blue",
+          "950"
+        ]
+      }
+    },
+    "light-blue": {
+      "10": {
+        "value": "#0a3764",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0a3764",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_10",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#0c4277",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0c4277",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_50",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#0e4d8d",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0e4d8d",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_100",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#145aa1",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#145aa1",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_200",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#2268ae",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#2268ae",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_300",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#3476b9",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#3476b9",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_400",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#4f8bc7",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#4f8bc7",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_500",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#74a3d3",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#74a3d3",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_600",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#a0bedc",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a0bedc",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_700",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#c1d4e6",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c1d4e6",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_800",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#dde6ee",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#dde6ee",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_900",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#eef3f7",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#eef3f7",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_BLUE_950",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-blue",
+          "950"
+        ]
+      }
+    },
+    "green": {
+      "10": {
+        "value": "#052e19",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#052e19",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_10",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#0e4328",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0e4328",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_50",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#155635",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#155635",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_100",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#1b653f",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#1b653f",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_200",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#25744c",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#25744c",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_300",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#308258",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#308258",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_400",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#499767",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#499767",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_500",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#69af7d",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#69af7d",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_600",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#8cc497",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8cc497",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_700",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#b1d6b5",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b1d6b5",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_800",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#dde9de",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#dde9de",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_900",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#eef4ef",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#eef4ef",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_GREEN_950",
+        "attributes": {},
+        "path": [
+          "theme",
+          "green",
+          "950"
+        ]
+      }
+    },
+    "red": {
+      "10": {
+        "value": "#380700",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#380700",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_10",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#580d02",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#580d02",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_50",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#761405",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#761405",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_100",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#8f2110",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8f2110",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_200",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#a13322",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a13322",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_300",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#ad4a3b",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ad4a3b",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_400",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#c66e60",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c66e60",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_500",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#d59086",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#d59086",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_600",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#e3bab5",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e3bab5",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_700",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#ecd3d0",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ecd3d0",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_800",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#f4e9e7",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f4e9e7",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_900",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#faf4f3",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#faf4f3",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_RED_950",
+        "attributes": {},
+        "path": [
+          "theme",
+          "red",
+          "950"
+        ]
+      }
+    },
+    "light-red": {
+      "10": {
+        "value": "#5c1105",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#5c1105",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_10",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#751709",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#751709",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_50",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#8b2212",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8b2212",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_100",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#a02e1c",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a02e1c",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_200",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#b53a26",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b53a26",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_300",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#c24b38",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c24b38",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_400",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#d36250",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#d36250",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_500",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#e07f6f",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e07f6f",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_600",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#ebada2",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ebada2",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_700",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#f6d9d5",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f6d9d5",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_800",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#faf2f1",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#faf2f1",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_900",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#fdf9f8",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false,
+        "filePath": "src/tokens/color.theme.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#fdf9f8",
+          "$type": "color",
+          "themeable": false,
+          "prefix": false
+        },
+        "name": "ME_LIGHT_RED_950",
+        "attributes": {},
+        "path": [
+          "theme",
+          "light-red",
+          "950"
+        ]
+      }
+    }
+  },
+  "black": {
+    "value": "#fff",
+    "$type": "color",
+    "themeable": false,
+    "prefix": false,
+    "filePath": "src/tokens/color.dark.tokens.json",
+    "isSource": true,
+    "original": {
+      "value": "#fff",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false
+    },
+    "name": "CK",
+    "attributes": {},
+    "path": [
+      "black"
+    ]
+  },
+  "white": {
+    "value": "#333238",
+    "$type": "color",
+    "themeable": false,
+    "prefix": false,
+    "filePath": "src/tokens/color.dark.tokens.json",
+    "isSource": true,
+    "original": {
+      "value": "#333238",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false
+    },
+    "name": "TE",
+    "attributes": {},
+    "path": [
+      "white"
+    ]
+  },
+  "blue": {
+    "50": {
+      "value": "#033464",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#033464",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_50",
+      "attributes": {},
+      "path": [
+        "blue",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#064787",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#064787",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_100",
+      "attributes": {},
+      "path": [
+        "blue",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#0b5cad",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#0b5cad",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_200",
+      "attributes": {},
+      "path": [
+        "blue",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#1068bf",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#1068bf",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_300",
+      "attributes": {},
+      "path": [
+        "blue",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#1f75cb",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#1f75cb",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_400",
+      "attributes": {},
+      "path": [
+        "blue",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#428fdc",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#428fdc",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_500",
+      "attributes": {},
+      "path": [
+        "blue",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#63a6e9",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#63a6e9",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_600",
+      "attributes": {},
+      "path": [
+        "blue",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#9dc7f1",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#9dc7f1",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_700",
+      "attributes": {},
+      "path": [
+        "blue",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#cbe2f9",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#cbe2f9",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_800",
+      "attributes": {},
+      "path": [
+        "blue",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#e9f3fc",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#e9f3fc",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_900",
+      "attributes": {},
+      "path": [
+        "blue",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#f2f9ff",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#f2f9ff",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "E_950",
+      "attributes": {},
+      "path": [
+        "blue",
+        "950"
+      ]
+    }
+  },
+  "gray": {
+    "10": {
+      "value": "#1f1e24",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#1f1e24",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_10",
+      "attributes": {},
+      "path": [
+        "gray",
+        "10"
+      ]
+    },
+    "50": {
+      "value": "#333238",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#333238",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_50",
+      "attributes": {},
+      "path": [
+        "gray",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#434248",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#434248",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_100",
+      "attributes": {},
+      "path": [
+        "gray",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#535158",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#535158",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_200",
+      "attributes": {},
+      "path": [
+        "gray",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#626168",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#626168",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_300",
+      "attributes": {},
+      "path": [
+        "gray",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#737278",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#737278",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_400",
+      "attributes": {},
+      "path": [
+        "gray",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#89888d",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#89888d",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_500",
+      "attributes": {},
+      "path": [
+        "gray",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#a4a3a8",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#a4a3a8",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_600",
+      "attributes": {},
+      "path": [
+        "gray",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#bfbfc3",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#bfbfc3",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_700",
+      "attributes": {},
+      "path": [
+        "gray",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#dcdcde",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#dcdcde",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_800",
+      "attributes": {},
+      "path": [
+        "gray",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#ececef",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#ececef",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_900",
+      "attributes": {},
+      "path": [
+        "gray",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#fbfafd",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#fbfafd",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "Y_950",
+      "attributes": {},
+      "path": [
+        "gray",
+        "950"
+      ]
+    }
+  },
+  "green": {
+    "50": {
+      "value": "#0a4020",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#0a4020",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_50",
+      "attributes": {},
+      "path": [
+        "green",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#0d532a",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#0d532a",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_100",
+      "attributes": {},
+      "path": [
+        "green",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#24663b",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#24663b",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_200",
+      "attributes": {},
+      "path": [
+        "green",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#217645",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#217645",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_300",
+      "attributes": {},
+      "path": [
+        "green",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#108548",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#108548",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_400",
+      "attributes": {},
+      "path": [
+        "green",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#2da160",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#2da160",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_500",
+      "attributes": {},
+      "path": [
+        "green",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#52b87a",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#52b87a",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_600",
+      "attributes": {},
+      "path": [
+        "green",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#91d4a8",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#91d4a8",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_700",
+      "attributes": {},
+      "path": [
+        "green",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#c3e6cd",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#c3e6cd",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_800",
+      "attributes": {},
+      "path": [
+        "green",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#ecf4ee",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#ecf4ee",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_900",
+      "attributes": {},
+      "path": [
+        "green",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#f1fdf6",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#f1fdf6",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "EN_950",
+      "attributes": {},
+      "path": [
+        "green",
+        "950"
+      ]
+    }
+  },
+  "orange": {
+    "50": {
+      "value": "#5c2900",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#5c2900",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_50",
+      "attributes": {},
+      "path": [
+        "orange",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#703800",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#703800",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_100",
+      "attributes": {},
+      "path": [
+        "orange",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#8f4700",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#8f4700",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_200",
+      "attributes": {},
+      "path": [
+        "orange",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#9e5400",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#9e5400",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_300",
+      "attributes": {},
+      "path": [
+        "orange",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#ab6100",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#ab6100",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_400",
+      "attributes": {},
+      "path": [
+        "orange",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#c17d10",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#c17d10",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_500",
+      "attributes": {},
+      "path": [
+        "orange",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#d99530",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#d99530",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_600",
+      "attributes": {},
+      "path": [
+        "orange",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#e9be74",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#e9be74",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_700",
+      "attributes": {},
+      "path": [
+        "orange",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#f5d9a8",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#f5d9a8",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_800",
+      "attributes": {},
+      "path": [
+        "orange",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#fdf1dd",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#fdf1dd",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_900",
+      "attributes": {},
+      "path": [
+        "orange",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#fff4e1",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#fff4e1",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "NGE_950",
+      "attributes": {},
+      "path": [
+        "orange",
+        "950"
+      ]
+    }
+  },
+  "purple": {
+    "50": {
+      "value": "#232150",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#232150",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_50",
+      "attributes": {},
+      "path": [
+        "purple",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#2f2a6b",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#2f2a6b",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_100",
+      "attributes": {},
+      "path": [
+        "purple",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#453894",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#453894",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_200",
+      "attributes": {},
+      "path": [
+        "purple",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#5943b6",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#5943b6",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_300",
+      "attributes": {},
+      "path": [
+        "purple",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#694cc0",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#694cc0",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_400",
+      "attributes": {},
+      "path": [
+        "purple",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#7b58cf",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#7b58cf",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_500",
+      "attributes": {},
+      "path": [
+        "purple",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#9475db",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#9475db",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_600",
+      "attributes": {},
+      "path": [
+        "purple",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#ac93e6",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#ac93e6",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_700",
+      "attributes": {},
+      "path": [
+        "purple",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#cbbbf2",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#cbbbf2",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_800",
+      "attributes": {},
+      "path": [
+        "purple",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#e1d8f9",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#e1d8f9",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_900",
+      "attributes": {},
+      "path": [
+        "purple",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#f4f0ff",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#f4f0ff",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "PLE_950",
+      "attributes": {},
+      "path": [
+        "purple",
+        "950"
+      ]
+    }
+  },
+  "red": {
+    "50": {
+      "value": "#660e00",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#660e00",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_50",
+      "attributes": {},
+      "path": [
+        "red",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#8d1300",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#8d1300",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_100",
+      "attributes": {},
+      "path": [
+        "red",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#ae1800",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#ae1800",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_200",
+      "attributes": {},
+      "path": [
+        "red",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#c91c00",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#c91c00",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_300",
+      "attributes": {},
+      "path": [
+        "red",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#dd2b0e",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#dd2b0e",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_400",
+      "attributes": {},
+      "path": [
+        "red",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#ec5941",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#ec5941",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_500",
+      "attributes": {},
+      "path": [
+        "red",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#f57f6c",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#f57f6c",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_600",
+      "attributes": {},
+      "path": [
+        "red",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#fcb5aa",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#fcb5aa",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_700",
+      "attributes": {},
+      "path": [
+        "red",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#fdd4cd",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#fdd4cd",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_800",
+      "attributes": {},
+      "path": [
+        "red",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#fcf1ef",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#fcf1ef",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_900",
+      "attributes": {},
+      "path": [
+        "red",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#fff4f3",
+      "$type": "color",
+      "themeable": false,
+      "prefix": false,
+      "filePath": "src/tokens/color.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#fff4f3",
+        "$type": "color",
+        "themeable": false,
+        "prefix": false
+      },
+      "name": "_950",
+      "attributes": {},
+      "path": [
+        "red",
+        "950"
+      ]
+    }
+  },
+  "brand": {
+    "charcoal": {
+      "value": "#171321",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "#171321",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "ND_CHARCOAL",
+      "attributes": {},
+      "path": [
+        "brand",
+        "charcoal"
+      ]
+    },
+    "orange": {
+      "01": {
+        "value": "#fca326",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#fca326",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_ORANGE_01",
+        "attributes": {},
+        "path": [
+          "brand",
+          "orange",
+          "01"
+        ]
+      },
+      "02": {
+        "value": "#fc6d26",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#fc6d26",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_ORANGE_02",
+        "attributes": {},
+        "path": [
+          "brand",
+          "orange",
+          "02"
+        ]
+      },
+      "03": {
+        "value": "#e24329",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#e24329",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_ORANGE_03",
+        "attributes": {},
+        "path": [
+          "brand",
+          "orange",
+          "03"
+        ]
+      }
+    },
+    "purple": {
+      "01": {
+        "value": "#a989f5",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#a989f5",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_PURPLE_01",
+        "attributes": {},
+        "path": [
+          "brand",
+          "purple",
+          "01"
+        ]
+      },
+      "02": {
+        "value": "#7759c2",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#7759c2",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_PURPLE_02",
+        "attributes": {},
+        "path": [
+          "brand",
+          "purple",
+          "02"
+        ]
+      }
+    },
+    "gray": {
+      "01": {
+        "value": "#d1d0d3",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#d1d0d3",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_GRAY_01",
+        "attributes": {},
+        "path": [
+          "brand",
+          "gray",
+          "01"
+        ]
+      },
+      "02": {
+        "value": "#a2a1a6",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#a2a1a6",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_GRAY_02",
+        "attributes": {},
+        "path": [
+          "brand",
+          "gray",
+          "02"
+        ]
+      },
+      "03": {
+        "value": "#74717a",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#74717a",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_GRAY_03",
+        "attributes": {},
+        "path": [
+          "brand",
+          "gray",
+          "03"
+        ]
+      },
+      "04": {
+        "value": "#45424d",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#45424d",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_GRAY_04",
+        "attributes": {},
+        "path": [
+          "brand",
+          "gray",
+          "04"
+        ]
+      },
+      "05": {
+        "value": "#2b2838",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "filePath": "src/tokens/color.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#2b2838",
+          "$type": "color",
+          "themeable": true,
+          "prefix": false
+        },
+        "name": "ND_GRAY_05",
+        "attributes": {},
+        "path": [
+          "brand",
+          "gray",
+          "05"
+        ]
+      }
+    }
+  },
+  "t-gray-a": {
+    "16": {
+      "value": "rgba(31, 30, 36, 0.16)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(31, 30, 36, 0.16)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "RAY_A_16",
+      "attributes": {},
+      "path": [
+        "t-gray-a",
+        "16"
+      ]
+    },
+    "24": {
+      "value": "rgba(31, 30, 36, 0.24)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(31, 30, 36, 0.24)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "RAY_A_24",
+      "attributes": {},
+      "path": [
+        "t-gray-a",
+        "24"
+      ]
+    },
+    "02": {
+      "value": "rgba(31, 30, 36, 0.02)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(31, 30, 36, 0.02)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "RAY_A_02",
+      "attributes": {},
+      "path": [
+        "t-gray-a",
+        "02"
+      ]
+    },
+    "04": {
+      "value": "rgba(31, 30, 36, 0.04)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(31, 30, 36, 0.04)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "RAY_A_04",
+      "attributes": {},
+      "path": [
+        "t-gray-a",
+        "04"
+      ]
+    },
+    "06": {
+      "value": "rgba(31, 30, 36, 0.06)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(31, 30, 36, 0.06)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "RAY_A_06",
+      "attributes": {},
+      "path": [
+        "t-gray-a",
+        "06"
+      ]
+    },
+    "08": {
+      "value": "rgba(31, 30, 36, 0.08)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(31, 30, 36, 0.08)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "RAY_A_08",
+      "attributes": {},
+      "path": [
+        "t-gray-a",
+        "08"
+      ]
+    }
+  },
+  "t-white-a": {
+    "16": {
+      "value": "rgba(255, 255, 255, 0.16)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(255, 255, 255, 0.16)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "HITE_A_16",
+      "attributes": {},
+      "path": [
+        "t-white-a",
+        "16"
+      ]
+    },
+    "24": {
+      "value": "rgba(255, 255, 255, 0.24)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(255, 255, 255, 0.24)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "HITE_A_24",
+      "attributes": {},
+      "path": [
+        "t-white-a",
+        "24"
+      ]
+    },
+    "36": {
+      "value": "rgba(255, 255, 255, 0.36)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(255, 255, 255, 0.36)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "HITE_A_36",
+      "attributes": {},
+      "path": [
+        "t-white-a",
+        "36"
+      ]
+    },
+    "02": {
+      "value": "rgba(255, 255, 255, 0.02)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(255, 255, 255, 0.02)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "HITE_A_02",
+      "attributes": {},
+      "path": [
+        "t-white-a",
+        "02"
+      ]
+    },
+    "04": {
+      "value": "rgba(255, 255, 255, 0.04)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(255, 255, 255, 0.04)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "HITE_A_04",
+      "attributes": {},
+      "path": [
+        "t-white-a",
+        "04"
+      ]
+    },
+    "06": {
+      "value": "rgba(255, 255, 255, 0.06)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(255, 255, 255, 0.06)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "HITE_A_06",
+      "attributes": {},
+      "path": [
+        "t-white-a",
+        "06"
+      ]
+    },
+    "08": {
+      "value": "rgba(255, 255, 255, 0.08)",
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/color.transparency.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "rgba(255, 255, 255, 0.08)",
+        "$type": "color",
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "HITE_A_08",
+      "attributes": {},
+      "path": [
+        "t-white-a",
+        "08"
+      ]
+    }
+  },
+  "line-height": {
+    "12": {
+      "value": "0.75rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "12px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_12",
+      "path": [
+        "line-height",
+        "12"
+      ]
+    },
+    "16": {
+      "value": "1rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "16px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_16",
+      "path": [
+        "line-height",
+        "16"
+      ]
+    },
+    "20": {
+      "value": "1.25rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "20px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_20",
+      "path": [
+        "line-height",
+        "20"
+      ]
+    },
+    "24": {
+      "value": "1.5rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "24px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_24",
+      "path": [
+        "line-height",
+        "24"
+      ]
+    },
+    "28": {
+      "value": "1.75rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "28px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_28",
+      "path": [
+        "line-height",
+        "28"
+      ]
+    },
+    "32": {
+      "value": "2rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "32px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_32",
+      "path": [
+        "line-height",
+        "32"
+      ]
+    },
+    "36": {
+      "value": "2.25rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "36px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_36",
+      "path": [
+        "line-height",
+        "36"
+      ]
+    },
+    "42": {
+      "value": "2.625rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "42px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_42",
+      "path": [
+        "line-height",
+        "42"
+      ]
+    },
+    "44": {
+      "value": "2.75rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "44px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_44",
+      "path": [
+        "line-height",
+        "44"
+      ]
+    },
+    "52": {
+      "value": "3.25rem",
+      "$type": "dimension",
+      "attributes": {
+        "category": "size"
+      },
+      "filePath": "src/tokens/line_height.tokens.json",
+      "isSource": false,
+      "original": {
+        "value": "52px",
+        "$type": "dimension",
+        "attributes": {
+          "category": "size"
+        }
+      },
+      "name": "LINE_HEIGHT_52",
+      "path": [
+        "line-height",
+        "52"
+      ]
+    }
+  },
+  "text": {
+    "primary": {
+      "value": "#ececef",
+      "$type": "color",
+      "comment": "Use text.color.default instead",
+      "deprecated": true,
+      "themeable": true,
+      "filePath": "src/tokens/text.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#ececef",
+        "$type": "color",
+        "comment": "Use text.color.default instead",
+        "deprecated": true,
+        "themeable": true
+      },
+      "name": "TEXT_PRIMARY",
+      "attributes": {},
+      "path": [
+        "text",
+        "primary"
+      ]
+    },
+    "secondary": {
+      "value": "#89888d",
+      "$type": "color",
+      "comment": "Use text.color.subtle instead",
+      "deprecated": true,
+      "themeable": true,
+      "filePath": "src/tokens/text.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#89888d",
+        "$type": "color",
+        "comment": "Use text.color.subtle instead",
+        "deprecated": true,
+        "themeable": true
+      },
+      "name": "TEXT_SECONDARY",
+      "attributes": {},
+      "path": [
+        "text",
+        "secondary"
+      ]
+    },
+    "tertiary": {
+      "value": "#737278",
+      "$type": "color",
+      "comment": "Use text.color.disabled instead",
+      "deprecated": true,
+      "themeable": true,
+      "filePath": "src/tokens/text.dark.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "#737278",
+        "$type": "color",
+        "comment": "Use text.color.disabled instead",
+        "deprecated": true,
+        "themeable": true
+      },
+      "name": "TEXT_TERTIARY",
+      "attributes": {},
+      "path": [
+        "text",
+        "tertiary"
+      ]
+    },
+    "color": {
+      "default": {
+        "value": "#ececef",
+        "$type": "color",
+        "comment": "Used for the default text color.",
+        "themeable": true,
+        "filePath": "src/tokens/text.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ececef",
+          "$type": "color",
+          "comment": "Used for the default text color.",
+          "themeable": true
+        },
+        "name": "TEXT_COLOR_DEFAULT",
+        "attributes": {},
+        "path": [
+          "text",
+          "color",
+          "default"
+        ]
+      },
+      "subtle": {
+        "value": "#bfbfc3",
+        "$type": "color",
+        "comment": "Used for supplemental text that doesn't need to be as prominent as other text.",
+        "themeable": true,
+        "filePath": "src/tokens/text.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#bfbfc3",
+          "$type": "color",
+          "comment": "Used for supplemental text that doesn't need to be as prominent as other text.",
+          "themeable": true
+        },
+        "name": "TEXT_COLOR_SUBTLE",
+        "attributes": {},
+        "path": [
+          "text",
+          "color",
+          "subtle"
+        ]
+      },
+      "strong": {
+        "value": "#fff",
+        "$type": "color",
+        "comment": "Used for text with the highest contrast.",
+        "themeable": true,
+        "filePath": "src/tokens/text.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#fff",
+          "$type": "color",
+          "comment": "Used for text with the highest contrast.",
+          "themeable": true
+        },
+        "name": "TEXT_COLOR_STRONG",
+        "attributes": {},
+        "path": [
+          "text",
+          "color",
+          "strong"
+        ]
+      },
+      "heading": {
+        "value": "#fff",
+        "$type": "color",
+        "comment": "Used for headings level 1-6.",
+        "themeable": true,
+        "filePath": "src/tokens/text.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#fff",
+          "$type": "color",
+          "comment": "Used for headings level 1-6.",
+          "themeable": true
+        },
+        "name": "TEXT_COLOR_HEADING",
+        "attributes": {},
+        "path": [
+          "text",
+          "color",
+          "heading"
+        ]
+      },
+      "link": {
+        "value": "#63a6e9",
+        "$type": "color",
+        "comment": "Used for default text links.",
+        "themeable": true,
+        "filePath": "src/tokens/text.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#63a6e9",
+          "$type": "color",
+          "comment": "Used for default text links.",
+          "themeable": true
+        },
+        "name": "TEXT_COLOR_LINK",
+        "attributes": {},
+        "path": [
+          "text",
+          "color",
+          "link"
+        ]
+      },
+      "danger": {
+        "value": "#c91c00",
+        "$type": "color",
+        "comment": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.",
+        "themeable": true,
+        "filePath": "src/tokens/text.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#c91c00",
+          "$type": "color",
+          "comment": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.",
+          "themeable": true
+        },
+        "name": "TEXT_COLOR_DANGER",
+        "attributes": {},
+        "path": [
+          "text",
+          "color",
+          "danger"
+        ]
+      },
+      "success": {
+        "value": "#217645",
+        "$type": "color",
+        "comment": "Used for text indicating success or validity.",
+        "themeable": true,
+        "filePath": "src/tokens/text.tokens.json",
+        "isSource": false,
+        "original": {
+          "value": "#217645",
+          "$type": "color",
+          "comment": "Used for text indicating success or validity.",
+          "themeable": true
+        },
+        "name": "TEXT_COLOR_SUCCESS",
+        "attributes": {},
+        "path": [
+          "text",
+          "color",
+          "success"
+        ]
+      },
+      "disabled": {
+        "value": "#89888d",
+        "$type": "color",
+        "comment": "Used for disabled text.",
+        "themeable": true,
+        "filePath": "src/tokens/text.dark.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#89888d",
+          "$type": "color",
+          "comment": "Used for disabled text.",
+          "themeable": true
+        },
+        "name": "TEXT_COLOR_DISABLED",
+        "attributes": {},
+        "path": [
+          "text",
+          "color",
+          "disabled"
+        ]
+      }
+    }
+  }
+}

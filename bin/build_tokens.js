@@ -1,9 +1,8 @@
-/* eslint-disable no-console */
-const path = require('path');
-const StyleDictionary = require('style-dictionary');
+#!/usr/bin/env node
 
-const srcDir = path.join(__dirname, '..', 'src', 'tokens');
-const distDir = path.join(__dirname, '..', 'dist', 'tokens');
+const fs = require('fs');
+const prettier = require('prettier');
+const StyleDictionary = require('style-dictionary');
 
 const prefix = 'gl';
 const modes = ['dark'];
@@ -14,7 +13,6 @@ const cssSelector = {
 /**
  * Transforms
  */
-
 StyleDictionary.registerTransform({
   name: 'name/prefix',
   type: 'name',
@@ -39,6 +37,16 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransformGroup({
   name: 'js',
   transforms: ['name/cti/constant', 'size/pxToRem', 'name/prefix'],
+});
+
+/**
+ * File header
+ */
+StyleDictionary.registerFileHeader({
+  name: 'withoutTimestamp',
+  fileHeader() {
+    return ['Automatically generated', 'Do not edit directly'];
+  },
 });
 
 /**
@@ -96,6 +104,25 @@ StyleDictionary.registerFormat({
 });
 
 /**
+ * Actions
+ * https://amzn.github.io/style-dictionary/#/actions
+ */
+StyleDictionary.registerAction({
+  name: 'prettier',
+  do(dictionary, config) {
+    config.files.forEach((file) => {
+      const filePath = `${config.buildPath}${file.destination}`;
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+      const formattedContent = prettier.format(fileContent, { singleQuote: true, parser: 'babel' });
+      fs.writeFileSync(filePath, formattedContent);
+    });
+  },
+  undo() {
+    // ignore clean function
+  },
+});
+
+/**
  * Creates destination filename from options
  *
  * @param {Object} [options]
@@ -113,35 +140,41 @@ const getDestination = ({ name = 'tokens', mode, extension = 'json' }) => {
  * tokens directory by filename e.g. `color.tokens.json` will
  * only generate tokens for dark mode.
  *
+ * @param {String} buildPath for destination directory
  * @param {String} mode for source and destination filenames
  * @param {Function} filter get only matching token files
  * @returns {Object} style-dictionary config
  */
-const getStyleDictionaryConfig = (mode, filter) => {
+const getStyleDictionaryConfig = (buildPath = 'dist/tokens', mode = '', filter) => {
   return {
-    include: [`${srcDir}/**/!(*.${modes.join(`|*.`)}).tokens.json`],
-    source: [`${srcDir}/**/*.${mode}.tokens.json`],
+    include: [`src/tokens/**/!(*.${modes.join(`|*.`)}).tokens.json`],
+    source: [`src/tokens/**/*.${mode}.tokens.json`],
     platforms: {
       css: {
         prefix,
-        buildPath: `${distDir}/css/`,
+        buildPath: `${buildPath}/css/`,
         transformGroup: 'css',
+        options: {
+          outputReferences: true,
+          selector: cssSelector[mode],
+          fileHeader: 'withoutTimestamp',
+        },
         files: [
           {
             destination: getDestination({ mode, extension: 'css' }),
             format: 'css/variables',
             filter,
-            options: {
-              outputReferences: true,
-              selector: cssSelector[mode],
-            },
           },
         ],
       },
       js: {
         prefix,
-        buildPath: `${distDir}/js/`,
+        buildPath: `${buildPath}/js/`,
         transformGroup: 'js',
+        actions: ['prettier'],
+        options: {
+          fileHeader: 'withoutTimestamp',
+        },
         files: [
           {
             destination: getDestination({ mode, extension: 'js' }),
@@ -151,31 +184,31 @@ const getStyleDictionaryConfig = (mode, filter) => {
         ],
       },
       json: {
-        buildPath: `${distDir}/json/`,
+        buildPath: `${buildPath}/json/`,
         transformGroup: 'js',
+        options: {
+          fileHeader: 'withoutTimestamp',
+        },
         files: [
           {
             destination: getDestination({ mode }),
             format: 'json',
           },
-          {
-            destination: getDestination({ mode, extension: 'grouped.json' }),
-            format: 'json/grouped',
-          },
         ],
       },
       scss: {
         prefix,
-        buildPath: `${distDir}/scss/`,
+        buildPath: `${buildPath}/scss/`,
         transformGroup: 'css',
+        options: {
+          outputReferences: true,
+          fileHeader: 'withoutTimestamp',
+        },
         files: [
           {
             destination: getDestination({ name: '_tokens', mode, extension: 'scss' }),
             format: 'scss/variables',
             filter,
-            options: {
-              outputReferences: true,
-            },
           },
         ],
       },
@@ -184,12 +217,14 @@ const getStyleDictionaryConfig = (mode, filter) => {
 };
 
 // Build default tokens from config
-console.log('👷 Building default tokens');
 StyleDictionary.extend(getStyleDictionaryConfig()).buildAllPlatforms();
+StyleDictionary.extend(getStyleDictionaryConfig('src/tokens/build')).buildAllPlatforms();
 
 // Build tokens for each mode
 modes.forEach((mode) => {
-  console.log(`\n👷 Building ${mode} tokens`);
-  const modeFilter = (token) => token.filePath.indexOf(mode) > -1;
-  StyleDictionary.extend(getStyleDictionaryConfig(mode, modeFilter)).buildAllPlatforms();
+  const filter = (token) => token.filePath.indexOf(mode) > -1;
+  StyleDictionary.extend(getStyleDictionaryConfig('dist/tokens', mode, filter)).buildAllPlatforms();
+  StyleDictionary.extend(
+    getStyleDictionaryConfig('src/tokens/build', mode, filter)
+  ).buildAllPlatforms();
 });
