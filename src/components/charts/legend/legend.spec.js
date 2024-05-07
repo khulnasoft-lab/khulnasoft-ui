@@ -175,9 +175,10 @@ describe('chart legend component', () => {
       averageText: 'averaaaaage',
     });
 
-    // Need to wait TWO ticks, as the component waits one tick on update then we need to check once the class has had a chance to render
-    await legendWrapper.vm.$nextTick();
-    await legendWrapper.vm.$nextTick();
+    // Why wait 3 ticks?
+    await legendWrapper.vm.$nextTick(); // 1. component waits a tick itself after update, before checking scrollHeight
+    await legendWrapper.vm.$nextTick(); // 2. so wait for next render, after component has applied class
+    await legendWrapper.vm.$nextTick(); // 3. ??? vue-3 pipeline fails without waiting an extra tick
 
     expect(legendWrapper.find('.gl-legend-b-fade').exists()).toBe(true);
   });
