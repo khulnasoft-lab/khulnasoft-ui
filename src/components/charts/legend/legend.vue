@@ -104,7 +104,6 @@ export default {
     this.applyFadeClass();
   },
   async updated() {
-    console.log('updated!!!!!!!');
     await this.$nextTick();
     this.applyFadeClass();
   },
