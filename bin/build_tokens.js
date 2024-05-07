@@ -192,10 +192,6 @@ const getStyleDictionaryConfig = (buildPath = 'dist/tokens', mode = '', filter) 
             destination: getDestination({ mode }),
             format: 'json',
           },
-          {
-            destination: getDestination({ mode, extension: 'grouped.json' }),
-            format: 'json/grouped',
-          },
         ],
       },
       scss: {
