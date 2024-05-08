@@ -1,3 +1,10 @@
+# [80.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.6.1...v80.7.0) (2024-05-08)
+
+
+### Features
+
+* **GlFormGroup:** Refactor text-gl-muted ([5c569d9](https://gitlab.com/gitlab-org/gitlab-ui/commit/5c569d9d2eac80683968274a1888e471f128d631))
+
 ## [80.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.6.0...v80.6.1) (2024-05-08)
 
 
