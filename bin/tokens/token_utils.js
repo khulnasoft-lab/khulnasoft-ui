@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
 const fs = require('fs');
-const path = require('path');
 const { colorApproximatelyEqual, parseColor } = require('./color_utils');
 
 const areSetsEqual = (a, b) => {
@@ -28,7 +27,7 @@ const isAlias = (value) => {
   return value.toString().trim().charAt(0) === '{';
 };
 
-const variableValueFromToken = (token, localVariablesByCollectionAndName) => {
+const variableValueFromToken = (modeName, token, localVariablesByCollectionAndName) => {
   if (typeof token.$value === 'string' && isAlias(token.$value)) {
     // Assume aliases are in the format {group.subgroup.token} with any number of optional groups/subgroups
     // The Figma syntax for variable names is: group/subgroup/token
@@ -52,6 +51,9 @@ const variableValueFromToken = (token, localVariablesByCollectionAndName) => {
       type: 'VARIABLE_ALIAS',
       id: value,
     };
+  }
+  if (typeof token.$value === 'object' && token.$type === 'color' && token.$value[modeName]) {
+    return parseColor(token.$value[modeName]);
   }
   if (typeof token.$value === 'string' && token.$type === 'color') {
     return parseColor(token.$value);
@@ -159,31 +161,22 @@ const tokenAndVariableDifferences = (token, variable) => {
   return differences;
 };
 
-function getModeFromFileName(fileName) {
-  const fileNameParts = fileName.split('.');
-  if (fileNameParts.length < 3) {
-    throw new Error(
-      `Invalid tokens file name: ${fileName}. File names must be in the format: ...{modeName}.tokens.json`
-    );
-  }
-  return fileNameParts.includes('dark') ? 'dark' : 'default';
-}
-
 const readJsonFiles = (files) => {
-  const tokensJsonByFile = {};
+  const tokensJsonByFile = [];
 
   files.forEach((file) => {
-    const baseFileName = path.basename(file);
     const fileContent = fs.readFileSync(file, { encoding: 'utf-8' });
 
     if (!fileContent) throw new Error(`Invalid tokens file: ${file}. File is empty.`);
 
     const tokensFile = JSON.parse(fileContent);
-    tokensJsonByFile[baseFileName] = flattenTokensFile(tokensFile);
+    tokensJsonByFile.push(...flattenTokensFile(tokensFile));
   });
 
   return tokensJsonByFile;
 };
+
+const modeVariants = new Set(['default', 'dark']);
 
 const generatePostVariablesPayload = (tokensJsonByFile, localVariables) => {
   const localVariableCollectionsByName = {};
@@ -217,61 +210,45 @@ const generatePostVariablesPayload = (tokensJsonByFile, localVariables) => {
     variableModeValues: [],
   };
 
-  const seenModes = new Set();
+  const collectionName = 'TokensCollection';
 
-  Object.entries(tokensJsonByFile).forEach(([fileName, tokens]) => {
-    const collectionName = 'BLAH';
-    const modeName = getModeFromFileName(fileName);
+  const variableCollection = localVariableCollectionsByName[collectionName];
+  const variableCollectionId = variableCollection ? variableCollection.id : collectionName;
 
-    const variableCollection = localVariableCollectionsByName[collectionName];
-    const variableCollectionId = variableCollection ? variableCollection.id : collectionName;
+  if (
+    !variableCollection &&
+    !postVariablesPayload.variableCollections.find((c) => c.id === variableCollectionId)
+  ) {
+    postVariablesPayload.variableCollections.push({
+      action: 'CREATE',
+      id: variableCollectionId,
+      name: variableCollectionId,
+      initialModeId: 'default', // Use the initial mode as the first mode
+    });
 
-    const variableMode = variableCollection?.modes.find((mode) => mode.name === modeName);
-    // Use the actual mode id or use the name as the temporary id
-    const modeId = variableMode ? variableMode.modeId : modeName;
+    // Rename the initial mode, since we're using it as our first mode in the collection
+    postVariablesPayload.variableModes.push({
+      action: 'UPDATE',
+      id: 'default',
+      name: 'default',
+      variableCollectionId,
+    });
 
-    if (
-      !variableCollection &&
-      !postVariablesPayload.variableCollections.find((c) => c.id === variableCollectionId)
-    ) {
-      postVariablesPayload.variableCollections.push({
-        action: 'CREATE',
-        id: variableCollectionId,
-        name: variableCollectionId,
-        initialModeId: modeId, // Use the initial mode as the first mode
-      });
+    postVariablesPayload.variableModes.push({
+      action: 'CREATE',
+      id: 'dark',
+      name: 'dark',
+      variableCollectionId,
+    });
+  }
 
-      // Rename the initial mode, since we're using it as our first mode in the collection
-      postVariablesPayload.variableModes.push({
-        action: 'UPDATE',
-        id: modeId,
-        name: modeId,
-        variableCollectionId,
-      });
-    }
+  const localVariablesByName = localVariablesByCollectionAndName[variableCollection?.id] || {};
 
-    // Add a new mode if it doesn't exist in the Figma file
-    // and it's not the initial mode in the collection
-    if (
-      !seenModes.has(modeName) &&
-      !variableMode &&
-      !postVariablesPayload.variableCollections.find(
-        (c) => c.id === variableCollectionId && 'initialModeId' in c && c.initialModeId === modeId
-      )
-    ) {
-      postVariablesPayload.variableModes.push({
-        action: 'CREATE',
-        id: modeId,
-        name: modeId,
-        variableCollectionId,
-      });
-    }
-
-    seenModes.add(modeName);
-
-    const localVariablesByName = localVariablesByCollectionAndName[variableCollection?.id] || {};
-
-    tokens.forEach((token) => {
+  tokensJsonByFile.forEach((token) => {
+    modeVariants.forEach((modeName) => {
+      const variableMode = variableCollection?.modes.find((mode) => mode.name === modeName);
+      // Use the actual mode id or use the name as the temporary id
+      const modeId = variableMode ? variableMode.modeId : modeName;
       const variable = localVariablesByName[token.name];
       const variableId = variable ? variable.id : token.name;
       const variableInPayload = postVariablesPayload.variables.find(
@@ -303,7 +280,11 @@ const generatePostVariablesPayload = (tokensJsonByFile, localVariables) => {
       }
 
       const existingVariableValue = variable && variableMode ? variable.valuesByMode[modeId] : null;
-      const newVariableValue = variableValueFromToken(token, localVariablesByCollectionAndName);
+      const newVariableValue = variableValueFromToken(
+        modeName,
+        token,
+        localVariablesByCollectionAndName
+      );
 
       // Only include the variable mode value in the payload if it's different from the existing value
       if (
