@@ -1,3 +1,10 @@
+## [80.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.6.0...v80.6.1) (2024-05-08)
+
+
+### Bug Fixes
+
+* Align with design and docs ([544c8fd](https://gitlab.com/gitlab-org/gitlab-ui/commit/544c8fd6fa871b6a0c03a1a9b5d65e0423fb80c9))
+
 # [80.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.5.0...v80.6.0) (2024-05-07)
 
 
