@@ -24,7 +24,7 @@ const hasDefaultAndDarkValues = (token) =>
  * https://amzn.github.io/style-dictionary/#/api?id=registertransform
  */
 StyleDictionary.registerTransform({
-  name: 'name/prefix',
+  name: 'name/stripPrefix',
   type: 'name',
   matcher: (token) => {
     // Prefix is added by `name/cti/*` transform.
@@ -64,22 +64,22 @@ StyleDictionary.registerTransform({
  */
 StyleDictionary.registerTransformGroup({
   name: 'css/default',
-  transforms: ['value/default', 'name/cti/kebab', 'size/pxToRem', 'name/prefix'],
+  transforms: ['value/default', 'name/cti/kebab', 'size/pxToRem', 'name/stripPrefix'],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js/default',
-  transforms: ['value/default', 'name/cti/constant', 'size/pxToRem', 'name/prefix'],
+  transforms: ['value/default', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'css/dark',
-  transforms: ['value/dark', 'name/cti/kebab', 'size/pxToRem', 'name/prefix'],
+  transforms: ['value/dark', 'name/cti/kebab', 'size/pxToRem', 'name/stripPrefix'],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js/dark',
-  transforms: ['value/dark', 'name/cti/constant', 'size/pxToRem', 'name/prefix'],
+  transforms: ['value/dark', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
 });
 
 /**
