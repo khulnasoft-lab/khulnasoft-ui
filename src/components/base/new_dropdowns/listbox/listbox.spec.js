@@ -614,7 +614,7 @@ describe('GlCollapsibleListbox', () => {
   describe('with select all action', () => {
     it('throws an error when enabling the select action without a header', () => {
       expect(() => {
-        buildWrapper({ showSelectAllButtonLabel: 'Select All' });
+        buildWrapper({ showSelectAllButtonLabel: 'Select all' });
       }).toThrow(
         'The select all button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the showSelectAllButtonLabel prop.'
       );
@@ -633,7 +633,7 @@ describe('GlCollapsibleListbox', () => {
           buildWrapper({
             headerText: 'Select assignee',
             resetButtonLabel: 'Unassign',
-            showSelectAllButtonLabel: 'Select All',
+            showSelectAllButtonLabel: 'Select all',
             items: mockOptions,
             selected,
             multiple,
@@ -654,7 +654,7 @@ describe('GlCollapsibleListbox', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
-        showSelectAllButtonLabel: 'Select All',
+        showSelectAllButtonLabel: 'Select all',
         items: mockOptions,
         selected: mockOptionsValues.slice(0, 1),
         multiple: true,
@@ -668,7 +668,7 @@ describe('GlCollapsibleListbox', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
-        showSelectAllButtonLabel: 'Select All',
+        showSelectAllButtonLabel: 'Select all',
         items: [],
         multiple: true,
       });
@@ -680,7 +680,7 @@ describe('GlCollapsibleListbox', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
-        showSelectAllButtonLabel: 'Select All',
+        showSelectAllButtonLabel: 'Select all',
         selected: mockOptionsValues,
         items: mockOptions,
         multiple: true,
@@ -689,37 +689,37 @@ describe('GlCollapsibleListbox', () => {
       expect(findSelectAllButton().exists()).toBe(false);
     });
 
-    it('has the label text "Select All" if the label is provided and some items are selected', () => {
+    it('has the label text "Select all" if the label is provided and some items are selected', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
-        showSelectAllButtonLabel: 'Select All',
+        showSelectAllButtonLabel: 'Select all',
         selected: [mockOptions[1].value],
         items: mockOptions,
         multiple: true,
       });
 
-      expect(findSelectAllButton().text()).toBe('Select All');
+      expect(findSelectAllButton().text()).toBe('Select all');
     });
 
-    it('has the label text "Select All" if the label is provided and the selection is empty', () => {
+    it('has the label text "Select all" if the label is provided and the selection is empty', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
-        showSelectAllButtonLabel: 'Select All',
+        showSelectAllButtonLabel: 'Select all',
         selected: [],
         items: mockOptions,
         multiple: true,
       });
 
-      expect(findSelectAllButton().text()).toBe('Select All');
+      expect(findSelectAllButton().text()).toBe('Select all');
     });
 
     it('on click, emits the `select-all` event and calls `closeAndFocus`', () => {
       buildWrapper({
         headerText: 'Select assignee',
         resetButtonLabel: 'Unassign',
-        showSelectAllButtonLabel: 'Select All',
+        showSelectAllButtonLabel: 'Select all',
         selected: [],
         items: mockOptions,
         multiple: true,
@@ -737,7 +737,7 @@ describe('GlCollapsibleListbox', () => {
         buildWrapper({
           headerText: 'Select assignee',
           resetButtonLabel: 'Unassign',
-          showSelectAllButtonLabel: 'Select All',
+          showSelectAllButtonLabel: 'Select all',
           selected: mockGroupOptionsValues,
           items: mockGroups,
           multiple: true,
