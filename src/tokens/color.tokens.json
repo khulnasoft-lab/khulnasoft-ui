@@ -361,73 +361,62 @@
       "charcoal": {
         "$value": "#171321",
         "$type": "color",
-        "themeable": true,
-        "prefix": false
+        "themeable": true
       },
       "orange": {
         "01": {
           "$value": "#fca326",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         },
         "02": {
           "$value": "#fc6d26",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         },
         "03": {
           "$value": "#e24329",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         }
       },
       "purple": {
         "01": {
           "$value": "#a989f5",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         },
         "02": {
           "$value": "#7759c2",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         }
       },
       "gray": {
         "01": {
           "$value": "#d1d0d3",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         },
         "02": {
           "$value": "#a2a1a6",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         },
         "03": {
           "$value": "#74717a",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         },
         "04": {
           "$value": "#45424d",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         },
         "05": {
           "$value": "#2b2838",
           "$type": "color",
-          "themeable": true,
-          "prefix": false
+          "themeable": true
         }
       }
     }

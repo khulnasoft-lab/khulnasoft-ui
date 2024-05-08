@@ -245,17 +245,17 @@
   --data-viz-green-200: #b0d97b; /* Use color.data.green.200 instead */
   --data-viz-green-100: #c6ed94; /* Use color.data.green.100 instead */
   --data-viz-green-50: #ddfab7; /* Use color.data.green.50 instead */
-  --color-brand-gray-05: #2b2838;
-  --color-brand-gray-04: #45424d;
-  --color-brand-gray-03: #74717a;
-  --color-brand-gray-02: #a2a1a6;
-  --color-brand-gray-01: #d1d0d3;
-  --color-brand-purple-02: #7759c2;
-  --color-brand-purple-01: #a989f5;
-  --color-brand-orange-03: #e24329;
-  --color-brand-orange-02: #fc6d26;
-  --color-brand-orange-01: #fca326;
-  --color-brand-charcoal: #171321;
+  --gl-color-brand-gray-05: #2b2838;
+  --gl-color-brand-gray-04: #45424d;
+  --gl-color-brand-gray-03: #74717a;
+  --gl-color-brand-gray-02: #a2a1a6;
+  --gl-color-brand-gray-01: #d1d0d3;
+  --gl-color-brand-purple-02: #7759c2;
+  --gl-color-brand-purple-01: #a989f5;
+  --gl-color-brand-orange-03: #e24329;
+  --gl-color-brand-orange-02: #fc6d26;
+  --gl-color-brand-orange-01: #fca326;
+  --gl-color-brand-charcoal: #171321;
   --gl-color-red-950: #4d0a00;
   --gl-color-red-900: #660e00;
   --gl-color-red-800: #8d1300;
