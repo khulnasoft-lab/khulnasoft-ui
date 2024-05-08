@@ -1,0 +1,75 @@
+{
+  "color": {
+    "alpha": {
+      "dark": {
+        "02": {
+          "$value": "rgba(31, 30, 36, 0.02)",
+          "$type": "color",
+          "themeable": true
+        },
+        "04": {
+          "$value": "rgba(31, 30, 36, 0.04)",
+          "$type": "color",
+          "themeable": true
+        },
+        "06": {
+          "$value": "rgba(31, 30, 36, 0.06)",
+          "$type": "color",
+          "themeable": true
+        },
+        "08": {
+          "$value": "rgba(31, 30, 36, 0.08)",
+          "$type": "color",
+          "themeable": true
+        },
+        "16": {
+          "$value": "rgba(31, 30, 36, 0.16)",
+          "$type": "color",
+          "themeable": true
+        },
+        "24": {
+          "$value": "rgba(31, 30, 36, 0.24)",
+          "$type": "color",
+          "themeable": true
+        }
+      },
+      "light": {
+        "02": {
+          "$value": "rgba(255, 255, 255, 0.02)",
+          "$type": "color",
+          "themeable": true
+        },
+        "04": {
+          "$value": "rgba(255, 255, 255, 0.04)",
+          "$type": "color",
+          "themeable": true
+        },
+        "06": {
+          "$value": "rgba(255, 255, 255, 0.06)",
+          "$type": "color",
+          "themeable": true
+        },
+        "08": {
+          "$value": "rgba(255, 255, 255, 0.08)",
+          "$type": "color",
+          "themeable": true
+        },
+        "16": {
+          "$value": "rgba(255, 255, 255, 0.16)",
+          "$type": "color",
+          "themeable": true
+        },
+        "24": {
+          "$value": "rgba(255, 255, 255, 0.24)",
+          "$type": "color",
+          "themeable": true
+        },
+        "36": {
+          "$value": "rgba(255, 255, 255, 0.36)",
+          "$type": "color",
+          "themeable": true
+        }
+      }
+    }
+  }
+}

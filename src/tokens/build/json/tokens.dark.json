@@ -4,9 +4,11 @@
       "50": {
         "value": "#133a03",
         "$type": "color",
+        "comment": "Use color.data.green.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -14,6 +16,8 @@
             "dark": "#133a03"
           },
           "$type": "color",
+          "comment": "Use color.data.green.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -28,9 +32,11 @@
       "100": {
         "value": "#1a4500",
         "$type": "color",
+        "comment": "Use color.data.green.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -38,6 +44,8 @@
             "dark": "#1a4500"
           },
           "$type": "color",
+          "comment": "Use color.data.green.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -52,9 +60,11 @@
       "200": {
         "value": "#275600",
         "$type": "color",
+        "comment": "Use color.data.green.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -62,6 +72,8 @@
             "dark": "#275600"
           },
           "$type": "color",
+          "comment": "Use color.data.green.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -76,9 +88,11 @@
       "300": {
         "value": "#366800",
         "$type": "color",
+        "comment": "Use color.data.green.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -86,6 +100,8 @@
             "dark": "#366800"
           },
           "$type": "color",
+          "comment": "Use color.data.green.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -100,9 +116,11 @@
       "400": {
         "value": "#4e7f0e",
         "$type": "color",
+        "comment": "Use color.data.green.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -110,6 +128,8 @@
             "dark": "#4e7f0e"
           },
           "$type": "color",
+          "comment": "Use color.data.green.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -124,9 +144,11 @@
       "500": {
         "value": "#619025",
         "$type": "color",
+        "comment": "Use color.data.green.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -134,6 +156,8 @@
             "dark": "#619025"
           },
           "$type": "color",
+          "comment": "Use color.data.green.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -148,9 +172,11 @@
       "600": {
         "value": "#81ac41",
         "$type": "color",
+        "comment": "Use color.data.green.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -158,6 +184,8 @@
             "dark": "#81ac41"
           },
           "$type": "color",
+          "comment": "Use color.data.green.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -172,9 +200,11 @@
       "700": {
         "value": "#94c25e",
         "$type": "color",
+        "comment": "Use color.data.green.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -182,6 +212,8 @@
             "dark": "#94c25e"
           },
           "$type": "color",
+          "comment": "Use color.data.green.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -196,9 +228,11 @@
       "800": {
         "value": "#b0d97b",
         "$type": "color",
+        "comment": "Use color.data.green.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -206,6 +240,8 @@
             "dark": "#b0d97b"
           },
           "$type": "color",
+          "comment": "Use color.data.green.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -220,9 +256,11 @@
       "900": {
         "value": "#c6ed94",
         "$type": "color",
+        "comment": "Use color.data.green.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -230,6 +268,8 @@
             "dark": "#c6ed94"
           },
           "$type": "color",
+          "comment": "Use color.data.green.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -244,9 +284,11 @@
       "950": {
         "value": "#ddfab7",
         "$type": "color",
+        "comment": "Use color.data.green.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -254,6 +296,8 @@
             "dark": "#ddfab7"
           },
           "$type": "color",
+          "comment": "Use color.data.green.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -270,9 +314,11 @@
       "50": {
         "value": "#00344b",
         "$type": "color",
+        "comment": "Use color.data.aqua.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -280,6 +326,8 @@
             "dark": "#00344b"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -294,9 +342,11 @@
       "100": {
         "value": "#004059",
         "$type": "color",
+        "comment": "Use color.data.aqua.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -304,6 +354,8 @@
             "dark": "#004059"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -318,9 +370,11 @@
       "200": {
         "value": "#00516c",
         "$type": "color",
+        "comment": "Use color.data.aqua.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -328,6 +382,8 @@
             "dark": "#00516c"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -342,9 +398,11 @@
       "300": {
         "value": "#006381",
         "$type": "color",
+        "comment": "Use color.data.aqua.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -352,6 +410,8 @@
             "dark": "#006381"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -366,9 +426,11 @@
       "400": {
         "value": "#007b9b",
         "$type": "color",
+        "comment": "Use color.data.aqua.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -376,6 +438,8 @@
             "dark": "#007b9b"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -390,9 +454,11 @@
       "500": {
         "value": "#0090b1",
         "$type": "color",
+        "comment": "Use color.data.aqua.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -400,6 +466,8 @@
             "dark": "#0090b1"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -414,9 +482,11 @@
       "600": {
         "value": "#00acc4",
         "$type": "color",
+        "comment": "Use color.data.aqua.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -424,6 +494,8 @@
             "dark": "#00acc4"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -438,9 +510,11 @@
       "700": {
         "value": "#32c5d2",
         "$type": "color",
+        "comment": "Use color.data.aqua.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -448,6 +522,8 @@
             "dark": "#32c5d2"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -462,9 +538,11 @@
       "800": {
         "value": "#5edee3",
         "$type": "color",
+        "comment": "Use color.data.aqua.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -472,6 +550,8 @@
             "dark": "#5edee3"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -486,9 +566,11 @@
       "900": {
         "value": "#93f2ef",
         "$type": "color",
+        "comment": "Use color.data.aqua.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -496,6 +578,8 @@
             "dark": "#93f2ef"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -510,9 +594,11 @@
       "950": {
         "value": "#b5fefd",
         "$type": "color",
+        "comment": "Use color.data.aqua.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -520,6 +606,8 @@
             "dark": "#b5fefd"
           },
           "$type": "color",
+          "comment": "Use color.data.aqua.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -536,9 +624,11 @@
       "50": {
         "value": "#2a2b59",
         "$type": "color",
+        "comment": "Use color.data.blue.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -546,6 +636,8 @@
             "dark": "#2a2b59"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -560,9 +652,11 @@
       "100": {
         "value": "#303470",
         "$type": "color",
+        "comment": "Use color.data.blue.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -570,6 +664,8 @@
             "dark": "#303470"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -584,9 +680,11 @@
       "200": {
         "value": "#374291",
         "$type": "color",
+        "comment": "Use color.data.blue.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -594,6 +692,8 @@
             "dark": "#374291"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -608,9 +708,11 @@
       "300": {
         "value": "#3f51ae",
         "$type": "color",
+        "comment": "Use color.data.blue.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -618,6 +720,8 @@
             "dark": "#3f51ae"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -632,9 +736,11 @@
       "400": {
         "value": "#4e65cd",
         "$type": "color",
+        "comment": "Use color.data.blue.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -642,6 +748,8 @@
             "dark": "#4e65cd"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -656,9 +764,11 @@
       "500": {
         "value": "#617ae2",
         "$type": "color",
+        "comment": "Use color.data.blue.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -666,6 +776,8 @@
             "dark": "#617ae2"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -680,9 +792,11 @@
       "600": {
         "value": "#7992f5",
         "$type": "color",
+        "comment": "Use color.data.blue.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -690,6 +804,8 @@
             "dark": "#7992f5"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -704,9 +820,11 @@
       "700": {
         "value": "#97acff",
         "$type": "color",
+        "comment": "Use color.data.blue.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -714,6 +832,8 @@
             "dark": "#97acff"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -728,9 +848,11 @@
       "800": {
         "value": "#b7c6ff",
         "$type": "color",
+        "comment": "Use color.data.blue.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -738,6 +860,8 @@
             "dark": "#b7c6ff"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -752,9 +876,11 @@
       "900": {
         "value": "#d2dcff",
         "$type": "color",
+        "comment": "Use color.data.blue.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -762,6 +888,8 @@
             "dark": "#d2dcff"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -776,9 +904,11 @@
       "950": {
         "value": "#e9ebff",
         "$type": "color",
+        "comment": "Use color.data.blue.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -786,6 +916,8 @@
             "dark": "#e9ebff"
           },
           "$type": "color",
+          "comment": "Use color.data.blue.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -802,9 +934,11 @@
       "50": {
         "value": "#541d31",
         "$type": "color",
+        "comment": "Use color.data.magenta.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -812,6 +946,8 @@
             "dark": "#541d31"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -826,9 +962,11 @@
       "100": {
         "value": "#661e3a",
         "$type": "color",
+        "comment": "Use color.data.magenta.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -836,6 +974,8 @@
             "dark": "#661e3a"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -850,9 +990,11 @@
       "200": {
         "value": "#7c214f",
         "$type": "color",
+        "comment": "Use color.data.magenta.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -860,6 +1002,8 @@
             "dark": "#7c214f"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -874,9 +1018,11 @@
       "300": {
         "value": "#9a2e5d",
         "$type": "color",
+        "comment": "Use color.data.magenta.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -884,6 +1030,8 @@
             "dark": "#9a2e5d"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -898,9 +1046,11 @@
       "400": {
         "value": "#b93d71",
         "$type": "color",
+        "comment": "Use color.data.magenta.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -908,6 +1058,8 @@
             "dark": "#b93d71"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -922,9 +1074,11 @@
       "500": {
         "value": "#cf4d81",
         "$type": "color",
+        "comment": "Use color.data.magenta.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -932,6 +1086,8 @@
             "dark": "#cf4d81"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -946,9 +1102,11 @@
       "600": {
         "value": "#e86e9a",
         "$type": "color",
+        "comment": "Use color.data.magenta.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -956,6 +1114,8 @@
             "dark": "#e86e9a"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -970,9 +1130,11 @@
       "700": {
         "value": "#f88aaf",
         "$type": "color",
+        "comment": "Use color.data.magenta.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -980,6 +1142,8 @@
             "dark": "#f88aaf"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -994,9 +1158,11 @@
       "800": {
         "value": "#fcacc5",
         "$type": "color",
+        "comment": "Use color.data.magenta.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1004,6 +1170,8 @@
             "dark": "#fcacc5"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1018,9 +1186,11 @@
       "900": {
         "value": "#ffccdb",
         "$type": "color",
+        "comment": "Use color.data.magenta.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1028,6 +1198,8 @@
             "dark": "#ffccdb"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1042,9 +1214,11 @@
       "950": {
         "value": "#ffe3eb",
         "$type": "color",
+        "comment": "Use color.data.magenta.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1052,6 +1226,8 @@
             "dark": "#ffe3eb"
           },
           "$type": "color",
+          "comment": "Use color.data.magenta.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1068,9 +1244,11 @@
       "50": {
         "value": "#4b2707",
         "$type": "color",
+        "comment": "Use color.data.orange.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1078,6 +1256,8 @@
             "dark": "#4b2707"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1092,9 +1272,11 @@
       "100": {
         "value": "#5e2f05",
         "$type": "color",
+        "comment": "Use color.data.orange.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1102,6 +1284,8 @@
             "dark": "#5e2f05"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1116,9 +1300,11 @@
       "200": {
         "value": "#6f3500",
         "$type": "color",
+        "comment": "Use color.data.orange.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1126,6 +1312,8 @@
             "dark": "#6f3500"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1140,9 +1328,11 @@
       "300": {
         "value": "#92430a",
         "$type": "color",
+        "comment": "Use color.data.orange.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1150,6 +1340,8 @@
             "dark": "#92430a"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1164,9 +1356,11 @@
       "400": {
         "value": "#b14f18",
         "$type": "color",
+        "comment": "Use color.data.orange.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1174,6 +1368,8 @@
             "dark": "#b14f18"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1188,9 +1384,11 @@
       "500": {
         "value": "#c95d2e",
         "$type": "color",
+        "comment": "Use color.data.orange.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1198,6 +1396,8 @@
             "dark": "#c95d2e"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1212,9 +1412,11 @@
       "600": {
         "value": "#e07e41",
         "$type": "color",
+        "comment": "Use color.data.orange.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1222,6 +1424,8 @@
             "dark": "#e07e41"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1236,9 +1440,11 @@
       "700": {
         "value": "#e99b60",
         "$type": "color",
+        "comment": "Use color.data.orange.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1246,6 +1452,8 @@
             "dark": "#e99b60"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1260,9 +1468,11 @@
       "800": {
         "value": "#eebd8c",
         "$type": "color",
+        "comment": "Use color.data.orange.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1270,6 +1480,8 @@
             "dark": "#eebd8c"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1284,9 +1496,11 @@
       "900": {
         "value": "#f5d6b3",
         "$type": "color",
+        "comment": "Use color.data.orange.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1294,6 +1508,8 @@
             "dark": "#f5d6b3"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1308,9 +1524,11 @@
       "950": {
         "value": "#fae8d1",
         "$type": "color",
+        "comment": "Use color.data.orange.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.data_viz.tokens.json",
+        "filePath": "src/tokens/deprecated/color.data_viz.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1318,6 +1536,8 @@
             "dark": "#fae8d1"
           },
           "$type": "color",
+          "comment": "Use color.data.orange.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1331,14 +1551,1889 @@
       }
     }
   },
+  "black": {
+    "value": "#fff",
+    "$type": "color",
+    "comment": "Use color.neutral.1000 instead",
+    "deprecated": true,
+    "themeable": true,
+    "prefix": false,
+    "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+    "isSource": true,
+    "original": {
+      "value": {
+        "default": "#000",
+        "dark": "#fff"
+      },
+      "$type": "color",
+      "comment": "Use color.neutral.1000 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false
+    },
+    "name": "CK",
+    "attributes": {},
+    "path": [
+      "black"
+    ]
+  },
+  "white": {
+    "value": "#333238",
+    "$type": "color",
+    "comment": "Use color.neutral.0 instead",
+    "deprecated": true,
+    "themeable": true,
+    "prefix": false,
+    "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+    "isSource": true,
+    "original": {
+      "value": {
+        "default": "#fff",
+        "dark": "#333238"
+      },
+      "$type": "color",
+      "comment": "Use color.neutral.0 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false
+    },
+    "name": "TE",
+    "attributes": {},
+    "path": [
+      "white"
+    ]
+  },
+  "blue": {
+    "50": {
+      "value": "#033464",
+      "$type": "color",
+      "comment": "Use color.blue.50 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#e9f3fc",
+          "dark": "#033464"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.50 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_50",
+      "attributes": {},
+      "path": [
+        "blue",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#064787",
+      "$type": "color",
+      "comment": "Use color.blue.100 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#cbe2f9",
+          "dark": "#064787"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.100 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_100",
+      "attributes": {},
+      "path": [
+        "blue",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#0b5cad",
+      "$type": "color",
+      "comment": "Use color.blue.200 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#9dc7f1",
+          "dark": "#0b5cad"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.200 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_200",
+      "attributes": {},
+      "path": [
+        "blue",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#1068bf",
+      "$type": "color",
+      "comment": "Use color.blue.300 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#63a6e9",
+          "dark": "#1068bf"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.300 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_300",
+      "attributes": {},
+      "path": [
+        "blue",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#1f75cb",
+      "$type": "color",
+      "comment": "Use color.blue.400 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#428fdc",
+          "dark": "#1f75cb"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.400 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_400",
+      "attributes": {},
+      "path": [
+        "blue",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#428fdc",
+      "$type": "color",
+      "comment": "Use color.blue.500 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#1f75cb",
+          "dark": "#428fdc"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.500 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_500",
+      "attributes": {},
+      "path": [
+        "blue",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#63a6e9",
+      "$type": "color",
+      "comment": "Use color.blue.600 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#1068bf",
+          "dark": "#63a6e9"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.600 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_600",
+      "attributes": {},
+      "path": [
+        "blue",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#9dc7f1",
+      "$type": "color",
+      "comment": "Use color.blue.700 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#0b5cad",
+          "dark": "#9dc7f1"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.700 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_700",
+      "attributes": {},
+      "path": [
+        "blue",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#cbe2f9",
+      "$type": "color",
+      "comment": "Use color.blue.800 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#064787",
+          "dark": "#cbe2f9"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.800 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_800",
+      "attributes": {},
+      "path": [
+        "blue",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#e9f3fc",
+      "$type": "color",
+      "comment": "Use color.blue.900 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#033464",
+          "dark": "#e9f3fc"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.900 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_900",
+      "attributes": {},
+      "path": [
+        "blue",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#f2f9ff",
+      "$type": "color",
+      "comment": "Use color.blue.950 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#002850",
+          "dark": "#f2f9ff"
+        },
+        "$type": "color",
+        "comment": "Use color.blue.950 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "E_950",
+      "attributes": {},
+      "path": [
+        "blue",
+        "950"
+      ]
+    }
+  },
+  "gray": {
+    "10": {
+      "value": "#1f1e24",
+      "$type": "color",
+      "comment": "Use color.neutral.10 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#fbfafd",
+          "dark": "#1f1e24"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.10 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_10",
+      "attributes": {},
+      "path": [
+        "gray",
+        "10"
+      ]
+    },
+    "50": {
+      "value": "#333238",
+      "$type": "color",
+      "comment": "Use color.neutral.50 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#ececef",
+          "dark": "#333238"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.50 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_50",
+      "attributes": {},
+      "path": [
+        "gray",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#434248",
+      "$type": "color",
+      "comment": "Use color.neutral.100 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#dcdcde",
+          "dark": "#434248"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.100 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_100",
+      "attributes": {},
+      "path": [
+        "gray",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#535158",
+      "$type": "color",
+      "comment": "Use color.neutral.200 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#bfbfc3",
+          "dark": "#535158"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.200 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_200",
+      "attributes": {},
+      "path": [
+        "gray",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#626168",
+      "$type": "color",
+      "comment": "Use color.neutral.300 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#a4a3a8",
+          "dark": "#626168"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.300 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_300",
+      "attributes": {},
+      "path": [
+        "gray",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#737278",
+      "$type": "color",
+      "comment": "Use color.neutral.400 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#89888d",
+          "dark": "#737278"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.400 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_400",
+      "attributes": {},
+      "path": [
+        "gray",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#89888d",
+      "$type": "color",
+      "comment": "Use color.neutral.500 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#737278",
+          "dark": "#89888d"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.500 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_500",
+      "attributes": {},
+      "path": [
+        "gray",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#a4a3a8",
+      "$type": "color",
+      "comment": "Use color.neutral.600 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#626168",
+          "dark": "#a4a3a8"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.600 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_600",
+      "attributes": {},
+      "path": [
+        "gray",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#bfbfc3",
+      "$type": "color",
+      "comment": "Use color.neutral.700 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#535158",
+          "dark": "#bfbfc3"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.700 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_700",
+      "attributes": {},
+      "path": [
+        "gray",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#dcdcde",
+      "$type": "color",
+      "comment": "Use color.neutral.800 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#434248",
+          "dark": "#dcdcde"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.800 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_800",
+      "attributes": {},
+      "path": [
+        "gray",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#ececef",
+      "$type": "color",
+      "comment": "Use color.neutral.900 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#333238",
+          "dark": "#ececef"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.900 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_900",
+      "attributes": {},
+      "path": [
+        "gray",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#fbfafd",
+      "$type": "color",
+      "comment": "Use color.neutral.950 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#1f1e24",
+          "dark": "#fbfafd"
+        },
+        "$type": "color",
+        "comment": "Use color.neutral.950 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "Y_950",
+      "attributes": {},
+      "path": [
+        "gray",
+        "950"
+      ]
+    }
+  },
+  "green": {
+    "50": {
+      "value": "#0a4020",
+      "$type": "color",
+      "comment": "Use color.green.50 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#ecf4ee",
+          "dark": "#0a4020"
+        },
+        "$type": "color",
+        "comment": "Use color.green.50 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_50",
+      "attributes": {},
+      "path": [
+        "green",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#0d532a",
+      "$type": "color",
+      "comment": "Use color.green.100 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#c3e6cd",
+          "dark": "#0d532a"
+        },
+        "$type": "color",
+        "comment": "Use color.green.100 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_100",
+      "attributes": {},
+      "path": [
+        "green",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#24663b",
+      "$type": "color",
+      "comment": "Use color.green.200 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#91d4a8",
+          "dark": "#24663b"
+        },
+        "$type": "color",
+        "comment": "Use color.green.200 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_200",
+      "attributes": {},
+      "path": [
+        "green",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#217645",
+      "$type": "color",
+      "comment": "Use color.green.300 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#52b87a",
+          "dark": "#217645"
+        },
+        "$type": "color",
+        "comment": "Use color.green.300 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_300",
+      "attributes": {},
+      "path": [
+        "green",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#108548",
+      "$type": "color",
+      "comment": "Use color.green.400 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#2da160",
+          "dark": "#108548"
+        },
+        "$type": "color",
+        "comment": "Use color.green.400 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_400",
+      "attributes": {},
+      "path": [
+        "green",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#2da160",
+      "$type": "color",
+      "comment": "Use color.green.500 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#108548",
+          "dark": "#2da160"
+        },
+        "$type": "color",
+        "comment": "Use color.green.500 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_500",
+      "attributes": {},
+      "path": [
+        "green",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#52b87a",
+      "$type": "color",
+      "comment": "Use color.green.600 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#217645",
+          "dark": "#52b87a"
+        },
+        "$type": "color",
+        "comment": "Use color.green.600 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_600",
+      "attributes": {},
+      "path": [
+        "green",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#91d4a8",
+      "$type": "color",
+      "comment": "Use color.green.700 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#24663b",
+          "dark": "#91d4a8"
+        },
+        "$type": "color",
+        "comment": "Use color.green.700 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_700",
+      "attributes": {},
+      "path": [
+        "green",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#c3e6cd",
+      "$type": "color",
+      "comment": "Use color.green.800 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#0d532a",
+          "dark": "#c3e6cd"
+        },
+        "$type": "color",
+        "comment": "Use color.green.800 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_800",
+      "attributes": {},
+      "path": [
+        "green",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#ecf4ee",
+      "$type": "color",
+      "comment": "Use color.green.900 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#0a4020",
+          "dark": "#ecf4ee"
+        },
+        "$type": "color",
+        "comment": "Use color.green.900 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_900",
+      "attributes": {},
+      "path": [
+        "green",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#f1fdf6",
+      "$type": "color",
+      "comment": "Use color.green.950 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#072b15",
+          "dark": "#f1fdf6"
+        },
+        "$type": "color",
+        "comment": "Use color.green.950 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "EN_950",
+      "attributes": {},
+      "path": [
+        "green",
+        "950"
+      ]
+    }
+  },
+  "orange": {
+    "50": {
+      "value": "#5c2900",
+      "$type": "color",
+      "comment": "Use color.orange.50 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#fdf1dd",
+          "dark": "#5c2900"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.50 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_50",
+      "attributes": {},
+      "path": [
+        "orange",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#703800",
+      "$type": "color",
+      "comment": "Use color.orange.100 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#f5d9a8",
+          "dark": "#703800"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.100 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_100",
+      "attributes": {},
+      "path": [
+        "orange",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#8f4700",
+      "$type": "color",
+      "comment": "Use color.orange.200 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#e9be74",
+          "dark": "#8f4700"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.200 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_200",
+      "attributes": {},
+      "path": [
+        "orange",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#9e5400",
+      "$type": "color",
+      "comment": "Use color.orange.300 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#d99530",
+          "dark": "#9e5400"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.300 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_300",
+      "attributes": {},
+      "path": [
+        "orange",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#ab6100",
+      "$type": "color",
+      "comment": "Use color.orange.400 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#c17d10",
+          "dark": "#ab6100"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.400 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_400",
+      "attributes": {},
+      "path": [
+        "orange",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#c17d10",
+      "$type": "color",
+      "comment": "Use color.orange.500 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#ab6100",
+          "dark": "#c17d10"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.500 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_500",
+      "attributes": {},
+      "path": [
+        "orange",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#d99530",
+      "$type": "color",
+      "comment": "Use color.orange.600 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#9e5400",
+          "dark": "#d99530"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.600 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_600",
+      "attributes": {},
+      "path": [
+        "orange",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#e9be74",
+      "$type": "color",
+      "comment": "Use color.orange.700 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#8f4700",
+          "dark": "#e9be74"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.700 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_700",
+      "attributes": {},
+      "path": [
+        "orange",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#f5d9a8",
+      "$type": "color",
+      "comment": "Use color.orange.800 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#703800",
+          "dark": "#f5d9a8"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.800 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_800",
+      "attributes": {},
+      "path": [
+        "orange",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#fdf1dd",
+      "$type": "color",
+      "comment": "Use color.orange.900 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#5c2900",
+          "dark": "#fdf1dd"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.900 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_900",
+      "attributes": {},
+      "path": [
+        "orange",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#fff4e1",
+      "$type": "color",
+      "comment": "Use color.orange.950 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#421f00",
+          "dark": "#fff4e1"
+        },
+        "$type": "color",
+        "comment": "Use color.orange.950 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "NGE_950",
+      "attributes": {},
+      "path": [
+        "orange",
+        "950"
+      ]
+    }
+  },
+  "purple": {
+    "50": {
+      "value": "#232150",
+      "$type": "color",
+      "comment": "Use color.purple.50 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#f4f0ff",
+          "dark": "#232150"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.50 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_50",
+      "attributes": {},
+      "path": [
+        "purple",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#2f2a6b",
+      "$type": "color",
+      "comment": "Use color.purple.100 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#e1d8f9",
+          "dark": "#2f2a6b"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.100 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_100",
+      "attributes": {},
+      "path": [
+        "purple",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#453894",
+      "$type": "color",
+      "comment": "Use color.purple.200 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#cbbbf2",
+          "dark": "#453894"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.200 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_200",
+      "attributes": {},
+      "path": [
+        "purple",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#5943b6",
+      "$type": "color",
+      "comment": "Use color.purple.300 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#ac93e6",
+          "dark": "#5943b6"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.300 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_300",
+      "attributes": {},
+      "path": [
+        "purple",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#694cc0",
+      "$type": "color",
+      "comment": "Use color.purple.400 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#9475db",
+          "dark": "#694cc0"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.400 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_400",
+      "attributes": {},
+      "path": [
+        "purple",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#7b58cf",
+      "$type": "color",
+      "comment": "Use color.purple.500 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#7b58cf",
+          "dark": "#7b58cf"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.500 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_500",
+      "attributes": {},
+      "path": [
+        "purple",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#9475db",
+      "$type": "color",
+      "comment": "Use color.purple.600 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#694cc0",
+          "dark": "#9475db"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.600 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_600",
+      "attributes": {},
+      "path": [
+        "purple",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#ac93e6",
+      "$type": "color",
+      "comment": "Use color.purple.700 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#5943b6",
+          "dark": "#ac93e6"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.700 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_700",
+      "attributes": {},
+      "path": [
+        "purple",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#cbbbf2",
+      "$type": "color",
+      "comment": "Use color.purple.800 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#453894",
+          "dark": "#cbbbf2"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.800 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_800",
+      "attributes": {},
+      "path": [
+        "purple",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#e1d8f9",
+      "$type": "color",
+      "comment": "Use color.purple.900 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#2f2a6b",
+          "dark": "#e1d8f9"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.900 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_900",
+      "attributes": {},
+      "path": [
+        "purple",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#f4f0ff",
+      "$type": "color",
+      "comment": "Use color.purple.950 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#232150",
+          "dark": "#f4f0ff"
+        },
+        "$type": "color",
+        "comment": "Use color.purple.950 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "PLE_950",
+      "attributes": {},
+      "path": [
+        "purple",
+        "950"
+      ]
+    }
+  },
+  "red": {
+    "50": {
+      "value": "#660e00",
+      "$type": "color",
+      "comment": "Use color.red.50 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#fcf1ef",
+          "dark": "#660e00"
+        },
+        "$type": "color",
+        "comment": "Use color.red.50 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_50",
+      "attributes": {},
+      "path": [
+        "red",
+        "50"
+      ]
+    },
+    "100": {
+      "value": "#8d1300",
+      "$type": "color",
+      "comment": "Use color.red.100 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#fdd4cd",
+          "dark": "#8d1300"
+        },
+        "$type": "color",
+        "comment": "Use color.red.100 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_100",
+      "attributes": {},
+      "path": [
+        "red",
+        "100"
+      ]
+    },
+    "200": {
+      "value": "#ae1800",
+      "$type": "color",
+      "comment": "Use color.red.200 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#fcb5aa",
+          "dark": "#ae1800"
+        },
+        "$type": "color",
+        "comment": "Use color.red.200 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_200",
+      "attributes": {},
+      "path": [
+        "red",
+        "200"
+      ]
+    },
+    "300": {
+      "value": "#c91c00",
+      "$type": "color",
+      "comment": "Use color.red.300 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#f57f6c",
+          "dark": "#c91c00"
+        },
+        "$type": "color",
+        "comment": "Use color.red.300 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_300",
+      "attributes": {},
+      "path": [
+        "red",
+        "300"
+      ]
+    },
+    "400": {
+      "value": "#dd2b0e",
+      "$type": "color",
+      "comment": "Use color.red.400 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#ec5941",
+          "dark": "#dd2b0e"
+        },
+        "$type": "color",
+        "comment": "Use color.red.400 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_400",
+      "attributes": {},
+      "path": [
+        "red",
+        "400"
+      ]
+    },
+    "500": {
+      "value": "#ec5941",
+      "$type": "color",
+      "comment": "Use color.red.500 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#dd2b0e",
+          "dark": "#ec5941"
+        },
+        "$type": "color",
+        "comment": "Use color.red.500 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_500",
+      "attributes": {},
+      "path": [
+        "red",
+        "500"
+      ]
+    },
+    "600": {
+      "value": "#f57f6c",
+      "$type": "color",
+      "comment": "Use color.red.600 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#c91c00",
+          "dark": "#f57f6c"
+        },
+        "$type": "color",
+        "comment": "Use color.red.600 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_600",
+      "attributes": {},
+      "path": [
+        "red",
+        "600"
+      ]
+    },
+    "700": {
+      "value": "#fcb5aa",
+      "$type": "color",
+      "comment": "Use color.red.700 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#ae1800",
+          "dark": "#fcb5aa"
+        },
+        "$type": "color",
+        "comment": "Use color.red.700 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_700",
+      "attributes": {},
+      "path": [
+        "red",
+        "700"
+      ]
+    },
+    "800": {
+      "value": "#fdd4cd",
+      "$type": "color",
+      "comment": "Use color.red.800 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#8d1300",
+          "dark": "#fdd4cd"
+        },
+        "$type": "color",
+        "comment": "Use color.red.800 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_800",
+      "attributes": {},
+      "path": [
+        "red",
+        "800"
+      ]
+    },
+    "900": {
+      "value": "#fcf1ef",
+      "$type": "color",
+      "comment": "Use color.red.900 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#660e00",
+          "dark": "#fcf1ef"
+        },
+        "$type": "color",
+        "comment": "Use color.red.900 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_900",
+      "attributes": {},
+      "path": [
+        "red",
+        "900"
+      ]
+    },
+    "950": {
+      "value": "#fff4f3",
+      "$type": "color",
+      "comment": "Use color.red.950 instead",
+      "deprecated": true,
+      "themeable": true,
+      "prefix": false,
+      "filePath": "src/tokens/deprecated/color.deprecated.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "default": "#4d0a00",
+          "dark": "#fff4f3"
+        },
+        "$type": "color",
+        "comment": "Use color.red.950 instead",
+        "deprecated": true,
+        "themeable": true,
+        "prefix": false
+      },
+      "name": "_950",
+      "attributes": {},
+      "path": [
+        "red",
+        "950"
+      ]
+    }
+  },
   "theme": {
     "indigo": {
       "10": {
         "value": "#14143d",
         "$type": "color",
+        "comment": "Use color.theme.indigo.10 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1346,6 +3441,8 @@
             "dark": "#14143d"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.10 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1360,9 +3457,11 @@
       "50": {
         "value": "#222261",
         "$type": "color",
+        "comment": "Use color.theme.indigo.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1370,6 +3469,8 @@
             "dark": "#222261"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1384,9 +3485,11 @@
       "100": {
         "value": "#303083",
         "$type": "color",
+        "comment": "Use color.theme.indigo.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1394,6 +3497,8 @@
             "dark": "#303083"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1408,9 +3513,11 @@
       "200": {
         "value": "#41419f",
         "$type": "color",
+        "comment": "Use color.theme.indigo.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1418,6 +3525,8 @@
             "dark": "#41419f"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1432,9 +3541,11 @@
       "300": {
         "value": "#5252b5",
         "$type": "color",
+        "comment": "Use color.theme.indigo.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1442,6 +3553,8 @@
             "dark": "#5252b5"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1456,9 +3569,11 @@
       "400": {
         "value": "#6666c4",
         "$type": "color",
+        "comment": "Use color.theme.indigo.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1466,6 +3581,8 @@
             "dark": "#6666c4"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1480,9 +3597,11 @@
       "500": {
         "value": "#8181d7",
         "$type": "color",
+        "comment": "Use color.theme.indigo.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1490,6 +3609,8 @@
             "dark": "#8181d7"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1504,9 +3625,11 @@
       "600": {
         "value": "#a2a2e6",
         "$type": "color",
+        "comment": "Use color.theme.indigo.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1514,6 +3637,8 @@
             "dark": "#a2a2e6"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1528,9 +3653,11 @@
       "700": {
         "value": "#c7c7f2",
         "$type": "color",
+        "comment": "Use color.theme.indigo.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1538,6 +3665,8 @@
             "dark": "#c7c7f2"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1552,9 +3681,11 @@
       "800": {
         "value": "#dbdbf8",
         "$type": "color",
+        "comment": "Use color.theme.indigo.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1562,6 +3693,8 @@
             "dark": "#dbdbf8"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1576,9 +3709,11 @@
       "900": {
         "value": "#f1f1ff",
         "$type": "color",
+        "comment": "Use color.theme.indigo.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1586,6 +3721,8 @@
             "dark": "#f1f1ff"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1600,9 +3737,11 @@
       "950": {
         "value": "#f8f8ff",
         "$type": "color",
+        "comment": "Use color.theme.indigo.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1610,6 +3749,8 @@
             "dark": "#f8f8ff"
           },
           "$type": "color",
+          "comment": "Use color.theme.indigo.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1626,9 +3767,11 @@
       "10": {
         "value": "#04101c",
         "$type": "color",
+        "comment": "Use color.theme.blue.10 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1636,6 +3779,8 @@
             "dark": "#04101c"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.10 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1650,9 +3795,11 @@
       "50": {
         "value": "#0b2640",
         "$type": "color",
+        "comment": "Use color.theme.blue.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1660,6 +3807,8 @@
             "dark": "#0b2640"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1674,9 +3823,11 @@
       "100": {
         "value": "#153c63",
         "$type": "color",
+        "comment": "Use color.theme.blue.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1684,6 +3835,8 @@
             "dark": "#153c63"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1698,9 +3851,11 @@
       "200": {
         "value": "#235180",
         "$type": "color",
+        "comment": "Use color.theme.blue.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1708,6 +3863,8 @@
             "dark": "#235180"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1722,9 +3879,11 @@
       "300": {
         "value": "#346596",
         "$type": "color",
+        "comment": "Use color.theme.blue.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1732,6 +3891,8 @@
             "dark": "#346596"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1746,9 +3907,11 @@
       "400": {
         "value": "#4977a5",
         "$type": "color",
+        "comment": "Use color.theme.blue.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1756,6 +3919,8 @@
             "dark": "#4977a5"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1770,9 +3935,11 @@
       "500": {
         "value": "#628eb9",
         "$type": "color",
+        "comment": "Use color.theme.blue.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1780,6 +3947,8 @@
             "dark": "#628eb9"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1794,9 +3963,11 @@
       "600": {
         "value": "#81a5c9",
         "$type": "color",
+        "comment": "Use color.theme.blue.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1804,6 +3975,8 @@
             "dark": "#81a5c9"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1818,9 +3991,11 @@
       "700": {
         "value": "#a6bdd5",
         "$type": "color",
+        "comment": "Use color.theme.blue.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1828,6 +4003,8 @@
             "dark": "#a6bdd5"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1842,9 +4019,11 @@
       "800": {
         "value": "#b9cadc",
         "$type": "color",
+        "comment": "Use color.theme.blue.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1852,6 +4031,8 @@
             "dark": "#b9cadc"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1866,9 +4047,11 @@
       "900": {
         "value": "#cdd8e3",
         "$type": "color",
+        "comment": "Use color.theme.blue.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1876,6 +4059,8 @@
             "dark": "#cdd8e3"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1890,9 +4075,11 @@
       "950": {
         "value": "#e6ecf0",
         "$type": "color",
+        "comment": "Use color.theme.blue.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1900,6 +4087,8 @@
             "dark": "#e6ecf0"
           },
           "$type": "color",
+          "comment": "Use color.theme.blue.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1916,9 +4105,11 @@
       "10": {
         "value": "#0a3764",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.10 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1926,6 +4117,8 @@
             "dark": "#0a3764"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.10 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1940,9 +4133,11 @@
       "50": {
         "value": "#0c4277",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1950,6 +4145,8 @@
             "dark": "#0c4277"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1964,9 +4161,11 @@
       "100": {
         "value": "#0e4d8d",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1974,6 +4173,8 @@
             "dark": "#0e4d8d"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -1988,9 +4189,11 @@
       "200": {
         "value": "#145aa1",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -1998,6 +4201,8 @@
             "dark": "#145aa1"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2012,9 +4217,11 @@
       "300": {
         "value": "#2268ae",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2022,6 +4229,8 @@
             "dark": "#2268ae"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2036,9 +4245,11 @@
       "400": {
         "value": "#3476b9",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2046,6 +4257,8 @@
             "dark": "#3476b9"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2060,9 +4273,11 @@
       "500": {
         "value": "#4f8bc7",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2070,6 +4285,8 @@
             "dark": "#4f8bc7"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2084,9 +4301,11 @@
       "600": {
         "value": "#74a3d3",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2094,6 +4313,8 @@
             "dark": "#74a3d3"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2108,9 +4329,11 @@
       "700": {
         "value": "#a0bedc",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2118,6 +4341,8 @@
             "dark": "#a0bedc"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2132,9 +4357,11 @@
       "800": {
         "value": "#c1d4e6",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2142,6 +4369,8 @@
             "dark": "#c1d4e6"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2156,9 +4385,11 @@
       "900": {
         "value": "#dde6ee",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2166,6 +4397,8 @@
             "dark": "#dde6ee"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2180,9 +4413,11 @@
       "950": {
         "value": "#eef3f7",
         "$type": "color",
+        "comment": "Use color.theme.light-blue.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2190,6 +4425,8 @@
             "dark": "#eef3f7"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-blue.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2206,9 +4443,11 @@
       "10": {
         "value": "#052e19",
         "$type": "color",
+        "comment": "Use color.theme.green.10 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2216,6 +4455,8 @@
             "dark": "#052e19"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.10 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2230,9 +4471,11 @@
       "50": {
         "value": "#0e4328",
         "$type": "color",
+        "comment": "Use color.theme.green.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2240,6 +4483,8 @@
             "dark": "#0e4328"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2254,9 +4499,11 @@
       "100": {
         "value": "#155635",
         "$type": "color",
+        "comment": "Use color.theme.green.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2264,6 +4511,8 @@
             "dark": "#155635"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2278,9 +4527,11 @@
       "200": {
         "value": "#1b653f",
         "$type": "color",
+        "comment": "Use color.theme.green.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2288,6 +4539,8 @@
             "dark": "#1b653f"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2302,9 +4555,11 @@
       "300": {
         "value": "#25744c",
         "$type": "color",
+        "comment": "Use color.theme.green.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2312,6 +4567,8 @@
             "dark": "#25744c"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2326,9 +4583,11 @@
       "400": {
         "value": "#308258",
         "$type": "color",
+        "comment": "Use color.theme.green.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2336,6 +4595,8 @@
             "dark": "#308258"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2350,9 +4611,11 @@
       "500": {
         "value": "#499767",
         "$type": "color",
+        "comment": "Use color.theme.green.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2360,6 +4623,8 @@
             "dark": "#499767"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2374,9 +4639,11 @@
       "600": {
         "value": "#69af7d",
         "$type": "color",
+        "comment": "Use color.theme.green.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2384,6 +4651,8 @@
             "dark": "#69af7d"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2398,9 +4667,11 @@
       "700": {
         "value": "#8cc497",
         "$type": "color",
+        "comment": "Use color.theme.green.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2408,6 +4679,8 @@
             "dark": "#8cc497"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2422,9 +4695,11 @@
       "800": {
         "value": "#b1d6b5",
         "$type": "color",
+        "comment": "Use color.theme.green.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2432,6 +4707,8 @@
             "dark": "#b1d6b5"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2446,9 +4723,11 @@
       "900": {
         "value": "#dde9de",
         "$type": "color",
+        "comment": "Use color.theme.green.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2456,6 +4735,8 @@
             "dark": "#dde9de"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2470,9 +4751,11 @@
       "950": {
         "value": "#eef4ef",
         "$type": "color",
+        "comment": "Use color.theme.green.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2480,6 +4763,8 @@
             "dark": "#eef4ef"
           },
           "$type": "color",
+          "comment": "Use color.theme.green.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2496,9 +4781,11 @@
       "10": {
         "value": "#380700",
         "$type": "color",
+        "comment": "Use color.theme.red.10 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2506,6 +4793,8 @@
             "dark": "#380700"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.10 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2520,9 +4809,11 @@
       "50": {
         "value": "#580d02",
         "$type": "color",
+        "comment": "Use color.theme.red.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2530,6 +4821,8 @@
             "dark": "#580d02"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2544,9 +4837,11 @@
       "100": {
         "value": "#761405",
         "$type": "color",
+        "comment": "Use color.theme.red.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2554,6 +4849,8 @@
             "dark": "#761405"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2568,9 +4865,11 @@
       "200": {
         "value": "#8f2110",
         "$type": "color",
+        "comment": "Use color.theme.red.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2578,6 +4877,8 @@
             "dark": "#8f2110"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2592,9 +4893,11 @@
       "300": {
         "value": "#a13322",
         "$type": "color",
+        "comment": "Use color.theme.red.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2602,6 +4905,8 @@
             "dark": "#a13322"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2616,9 +4921,11 @@
       "400": {
         "value": "#ad4a3b",
         "$type": "color",
+        "comment": "Use color.theme.red.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2626,6 +4933,8 @@
             "dark": "#ad4a3b"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2640,9 +4949,11 @@
       "500": {
         "value": "#c66e60",
         "$type": "color",
+        "comment": "Use color.theme.red.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2650,6 +4961,8 @@
             "dark": "#c66e60"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2664,9 +4977,11 @@
       "600": {
         "value": "#d59086",
         "$type": "color",
+        "comment": "Use color.theme.red.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2674,6 +4989,8 @@
             "dark": "#d59086"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2688,9 +5005,11 @@
       "700": {
         "value": "#e3bab5",
         "$type": "color",
+        "comment": "Use color.theme.red.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2698,6 +5017,8 @@
             "dark": "#e3bab5"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2712,9 +5033,11 @@
       "800": {
         "value": "#ecd3d0",
         "$type": "color",
+        "comment": "Use color.theme.red.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2722,6 +5045,8 @@
             "dark": "#ecd3d0"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2736,9 +5061,11 @@
       "900": {
         "value": "#f4e9e7",
         "$type": "color",
+        "comment": "Use color.theme.red.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2746,6 +5073,8 @@
             "dark": "#f4e9e7"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2760,9 +5089,11 @@
       "950": {
         "value": "#faf4f3",
         "$type": "color",
+        "comment": "Use color.theme.red.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2770,6 +5101,8 @@
             "dark": "#faf4f3"
           },
           "$type": "color",
+          "comment": "Use color.theme.red.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2786,9 +5119,11 @@
       "10": {
         "value": "#5c1105",
         "$type": "color",
+        "comment": "Use color.theme.light-red.10 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2796,6 +5131,8 @@
             "dark": "#5c1105"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.10 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2810,9 +5147,11 @@
       "50": {
         "value": "#751709",
         "$type": "color",
+        "comment": "Use color.theme.light-red.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2820,6 +5159,8 @@
             "dark": "#751709"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.50 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2834,9 +5175,11 @@
       "100": {
         "value": "#8b2212",
         "$type": "color",
+        "comment": "Use color.theme.light-red.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2844,6 +5187,8 @@
             "dark": "#8b2212"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.100 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2858,9 +5203,11 @@
       "200": {
         "value": "#a02e1c",
         "$type": "color",
+        "comment": "Use color.theme.light-red.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2868,6 +5215,8 @@
             "dark": "#a02e1c"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.200 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2882,9 +5231,11 @@
       "300": {
         "value": "#b53a26",
         "$type": "color",
+        "comment": "Use color.theme.light-red.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2892,6 +5243,8 @@
             "dark": "#b53a26"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.300 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2906,9 +5259,11 @@
       "400": {
         "value": "#c24b38",
         "$type": "color",
+        "comment": "Use color.theme.light-red.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2916,6 +5271,8 @@
             "dark": "#c24b38"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.400 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2930,9 +5287,11 @@
       "500": {
         "value": "#d36250",
         "$type": "color",
+        "comment": "Use color.theme.light-red.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2940,6 +5299,8 @@
             "dark": "#d36250"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.500 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2954,9 +5315,11 @@
       "600": {
         "value": "#e07f6f",
         "$type": "color",
+        "comment": "Use color.theme.light-red.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2964,6 +5327,8 @@
             "dark": "#e07f6f"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.600 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -2978,9 +5343,11 @@
       "700": {
         "value": "#ebada2",
         "$type": "color",
+        "comment": "Use color.theme.light-red.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -2988,6 +5355,8 @@
             "dark": "#ebada2"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.700 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -3002,9 +5371,11 @@
       "800": {
         "value": "#f6d9d5",
         "$type": "color",
+        "comment": "Use color.theme.light-red.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -3012,6 +5383,8 @@
             "dark": "#f6d9d5"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.800 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -3026,9 +5399,11 @@
       "900": {
         "value": "#faf2f1",
         "$type": "color",
+        "comment": "Use color.theme.light-red.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -3036,6 +5411,8 @@
             "dark": "#faf2f1"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.900 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -3050,9 +5427,11 @@
       "950": {
         "value": "#fdf9f8",
         "$type": "color",
+        "comment": "Use color.theme.light-red.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false,
-        "filePath": "src/tokens/color.theme.tokens.json",
+        "filePath": "src/tokens/deprecated/color.theme.deprecated.tokens.json",
         "isSource": true,
         "original": {
           "value": {
@@ -3060,6 +5439,8 @@
             "dark": "#fdf9f8"
           },
           "$type": "color",
+          "comment": "Use color.theme.light-red.950 instead",
+          "deprecated": true,
           "themeable": true,
           "prefix": false
         },
@@ -3071,1603 +5452,6 @@
           "950"
         ]
       }
-    }
-  },
-  "black": {
-    "value": "#fff",
-    "$type": "color",
-    "themeable": true,
-    "prefix": false,
-    "filePath": "src/tokens/color.tokens.json",
-    "isSource": true,
-    "original": {
-      "value": {
-        "default": "#000",
-        "dark": "#fff"
-      },
-      "$type": "color",
-      "themeable": true,
-      "prefix": false
-    },
-    "name": "CK",
-    "attributes": {},
-    "path": [
-      "black"
-    ]
-  },
-  "white": {
-    "value": "#333238",
-    "$type": "color",
-    "themeable": true,
-    "prefix": false,
-    "filePath": "src/tokens/color.tokens.json",
-    "isSource": true,
-    "original": {
-      "value": {
-        "default": "#fff",
-        "dark": "#333238"
-      },
-      "$type": "color",
-      "themeable": true,
-      "prefix": false
-    },
-    "name": "TE",
-    "attributes": {},
-    "path": [
-      "white"
-    ]
-  },
-  "blue": {
-    "50": {
-      "value": "#033464",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#e9f3fc",
-          "dark": "#033464"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_50",
-      "attributes": {},
-      "path": [
-        "blue",
-        "50"
-      ]
-    },
-    "100": {
-      "value": "#064787",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#cbe2f9",
-          "dark": "#064787"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_100",
-      "attributes": {},
-      "path": [
-        "blue",
-        "100"
-      ]
-    },
-    "200": {
-      "value": "#0b5cad",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#9dc7f1",
-          "dark": "#0b5cad"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_200",
-      "attributes": {},
-      "path": [
-        "blue",
-        "200"
-      ]
-    },
-    "300": {
-      "value": "#1068bf",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#63a6e9",
-          "dark": "#1068bf"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_300",
-      "attributes": {},
-      "path": [
-        "blue",
-        "300"
-      ]
-    },
-    "400": {
-      "value": "#1f75cb",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#428fdc",
-          "dark": "#1f75cb"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_400",
-      "attributes": {},
-      "path": [
-        "blue",
-        "400"
-      ]
-    },
-    "500": {
-      "value": "#428fdc",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#1f75cb",
-          "dark": "#428fdc"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_500",
-      "attributes": {},
-      "path": [
-        "blue",
-        "500"
-      ]
-    },
-    "600": {
-      "value": "#63a6e9",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#1068bf",
-          "dark": "#63a6e9"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_600",
-      "attributes": {},
-      "path": [
-        "blue",
-        "600"
-      ]
-    },
-    "700": {
-      "value": "#9dc7f1",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#0b5cad",
-          "dark": "#9dc7f1"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_700",
-      "attributes": {},
-      "path": [
-        "blue",
-        "700"
-      ]
-    },
-    "800": {
-      "value": "#cbe2f9",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#064787",
-          "dark": "#cbe2f9"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_800",
-      "attributes": {},
-      "path": [
-        "blue",
-        "800"
-      ]
-    },
-    "900": {
-      "value": "#e9f3fc",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#033464",
-          "dark": "#e9f3fc"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_900",
-      "attributes": {},
-      "path": [
-        "blue",
-        "900"
-      ]
-    },
-    "950": {
-      "value": "#f2f9ff",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#002850",
-          "dark": "#f2f9ff"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "E_950",
-      "attributes": {},
-      "path": [
-        "blue",
-        "950"
-      ]
-    }
-  },
-  "gray": {
-    "10": {
-      "value": "#1f1e24",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#fbfafd",
-          "dark": "#1f1e24"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_10",
-      "attributes": {},
-      "path": [
-        "gray",
-        "10"
-      ]
-    },
-    "50": {
-      "value": "#333238",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#ececef",
-          "dark": "#333238"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_50",
-      "attributes": {},
-      "path": [
-        "gray",
-        "50"
-      ]
-    },
-    "100": {
-      "value": "#434248",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#dcdcde",
-          "dark": "#434248"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_100",
-      "attributes": {},
-      "path": [
-        "gray",
-        "100"
-      ]
-    },
-    "200": {
-      "value": "#535158",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#bfbfc3",
-          "dark": "#535158"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_200",
-      "attributes": {},
-      "path": [
-        "gray",
-        "200"
-      ]
-    },
-    "300": {
-      "value": "#626168",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#a4a3a8",
-          "dark": "#626168"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_300",
-      "attributes": {},
-      "path": [
-        "gray",
-        "300"
-      ]
-    },
-    "400": {
-      "value": "#737278",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#89888d",
-          "dark": "#737278"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_400",
-      "attributes": {},
-      "path": [
-        "gray",
-        "400"
-      ]
-    },
-    "500": {
-      "value": "#89888d",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#737278",
-          "dark": "#89888d"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_500",
-      "attributes": {},
-      "path": [
-        "gray",
-        "500"
-      ]
-    },
-    "600": {
-      "value": "#a4a3a8",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#626168",
-          "dark": "#a4a3a8"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_600",
-      "attributes": {},
-      "path": [
-        "gray",
-        "600"
-      ]
-    },
-    "700": {
-      "value": "#bfbfc3",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#535158",
-          "dark": "#bfbfc3"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_700",
-      "attributes": {},
-      "path": [
-        "gray",
-        "700"
-      ]
-    },
-    "800": {
-      "value": "#dcdcde",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#434248",
-          "dark": "#dcdcde"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_800",
-      "attributes": {},
-      "path": [
-        "gray",
-        "800"
-      ]
-    },
-    "900": {
-      "value": "#ececef",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#333238",
-          "dark": "#ececef"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_900",
-      "attributes": {},
-      "path": [
-        "gray",
-        "900"
-      ]
-    },
-    "950": {
-      "value": "#fbfafd",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#1f1e24",
-          "dark": "#fbfafd"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "Y_950",
-      "attributes": {},
-      "path": [
-        "gray",
-        "950"
-      ]
-    }
-  },
-  "green": {
-    "50": {
-      "value": "#0a4020",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#ecf4ee",
-          "dark": "#0a4020"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_50",
-      "attributes": {},
-      "path": [
-        "green",
-        "50"
-      ]
-    },
-    "100": {
-      "value": "#0d532a",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#c3e6cd",
-          "dark": "#0d532a"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_100",
-      "attributes": {},
-      "path": [
-        "green",
-        "100"
-      ]
-    },
-    "200": {
-      "value": "#24663b",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#91d4a8",
-          "dark": "#24663b"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_200",
-      "attributes": {},
-      "path": [
-        "green",
-        "200"
-      ]
-    },
-    "300": {
-      "value": "#217645",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#52b87a",
-          "dark": "#217645"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_300",
-      "attributes": {},
-      "path": [
-        "green",
-        "300"
-      ]
-    },
-    "400": {
-      "value": "#108548",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#2da160",
-          "dark": "#108548"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_400",
-      "attributes": {},
-      "path": [
-        "green",
-        "400"
-      ]
-    },
-    "500": {
-      "value": "#2da160",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#108548",
-          "dark": "#2da160"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_500",
-      "attributes": {},
-      "path": [
-        "green",
-        "500"
-      ]
-    },
-    "600": {
-      "value": "#52b87a",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#217645",
-          "dark": "#52b87a"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_600",
-      "attributes": {},
-      "path": [
-        "green",
-        "600"
-      ]
-    },
-    "700": {
-      "value": "#91d4a8",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#24663b",
-          "dark": "#91d4a8"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_700",
-      "attributes": {},
-      "path": [
-        "green",
-        "700"
-      ]
-    },
-    "800": {
-      "value": "#c3e6cd",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#0d532a",
-          "dark": "#c3e6cd"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_800",
-      "attributes": {},
-      "path": [
-        "green",
-        "800"
-      ]
-    },
-    "900": {
-      "value": "#ecf4ee",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#0a4020",
-          "dark": "#ecf4ee"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_900",
-      "attributes": {},
-      "path": [
-        "green",
-        "900"
-      ]
-    },
-    "950": {
-      "value": "#f1fdf6",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#072b15",
-          "dark": "#f1fdf6"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "EN_950",
-      "attributes": {},
-      "path": [
-        "green",
-        "950"
-      ]
-    }
-  },
-  "orange": {
-    "50": {
-      "value": "#5c2900",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#fdf1dd",
-          "dark": "#5c2900"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_50",
-      "attributes": {},
-      "path": [
-        "orange",
-        "50"
-      ]
-    },
-    "100": {
-      "value": "#703800",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#f5d9a8",
-          "dark": "#703800"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_100",
-      "attributes": {},
-      "path": [
-        "orange",
-        "100"
-      ]
-    },
-    "200": {
-      "value": "#8f4700",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#e9be74",
-          "dark": "#8f4700"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_200",
-      "attributes": {},
-      "path": [
-        "orange",
-        "200"
-      ]
-    },
-    "300": {
-      "value": "#9e5400",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#d99530",
-          "dark": "#9e5400"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_300",
-      "attributes": {},
-      "path": [
-        "orange",
-        "300"
-      ]
-    },
-    "400": {
-      "value": "#ab6100",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#c17d10",
-          "dark": "#ab6100"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_400",
-      "attributes": {},
-      "path": [
-        "orange",
-        "400"
-      ]
-    },
-    "500": {
-      "value": "#c17d10",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#ab6100",
-          "dark": "#c17d10"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_500",
-      "attributes": {},
-      "path": [
-        "orange",
-        "500"
-      ]
-    },
-    "600": {
-      "value": "#d99530",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#9e5400",
-          "dark": "#d99530"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_600",
-      "attributes": {},
-      "path": [
-        "orange",
-        "600"
-      ]
-    },
-    "700": {
-      "value": "#e9be74",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#8f4700",
-          "dark": "#e9be74"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_700",
-      "attributes": {},
-      "path": [
-        "orange",
-        "700"
-      ]
-    },
-    "800": {
-      "value": "#f5d9a8",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#703800",
-          "dark": "#f5d9a8"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_800",
-      "attributes": {},
-      "path": [
-        "orange",
-        "800"
-      ]
-    },
-    "900": {
-      "value": "#fdf1dd",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#5c2900",
-          "dark": "#fdf1dd"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_900",
-      "attributes": {},
-      "path": [
-        "orange",
-        "900"
-      ]
-    },
-    "950": {
-      "value": "#fff4e1",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#421f00",
-          "dark": "#fff4e1"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "NGE_950",
-      "attributes": {},
-      "path": [
-        "orange",
-        "950"
-      ]
-    }
-  },
-  "purple": {
-    "50": {
-      "value": "#232150",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#f4f0ff",
-          "dark": "#232150"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_50",
-      "attributes": {},
-      "path": [
-        "purple",
-        "50"
-      ]
-    },
-    "100": {
-      "value": "#2f2a6b",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#e1d8f9",
-          "dark": "#2f2a6b"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_100",
-      "attributes": {},
-      "path": [
-        "purple",
-        "100"
-      ]
-    },
-    "200": {
-      "value": "#453894",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#cbbbf2",
-          "dark": "#453894"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_200",
-      "attributes": {},
-      "path": [
-        "purple",
-        "200"
-      ]
-    },
-    "300": {
-      "value": "#5943b6",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#ac93e6",
-          "dark": "#5943b6"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_300",
-      "attributes": {},
-      "path": [
-        "purple",
-        "300"
-      ]
-    },
-    "400": {
-      "value": "#694cc0",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#9475db",
-          "dark": "#694cc0"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_400",
-      "attributes": {},
-      "path": [
-        "purple",
-        "400"
-      ]
-    },
-    "500": {
-      "value": "#7b58cf",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#7b58cf",
-          "dark": "#7b58cf"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_500",
-      "attributes": {},
-      "path": [
-        "purple",
-        "500"
-      ]
-    },
-    "600": {
-      "value": "#9475db",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#694cc0",
-          "dark": "#9475db"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_600",
-      "attributes": {},
-      "path": [
-        "purple",
-        "600"
-      ]
-    },
-    "700": {
-      "value": "#ac93e6",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#5943b6",
-          "dark": "#ac93e6"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_700",
-      "attributes": {},
-      "path": [
-        "purple",
-        "700"
-      ]
-    },
-    "800": {
-      "value": "#cbbbf2",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#453894",
-          "dark": "#cbbbf2"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_800",
-      "attributes": {},
-      "path": [
-        "purple",
-        "800"
-      ]
-    },
-    "900": {
-      "value": "#e1d8f9",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#2f2a6b",
-          "dark": "#e1d8f9"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_900",
-      "attributes": {},
-      "path": [
-        "purple",
-        "900"
-      ]
-    },
-    "950": {
-      "value": "#f4f0ff",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#232150",
-          "dark": "#f4f0ff"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "PLE_950",
-      "attributes": {},
-      "path": [
-        "purple",
-        "950"
-      ]
-    }
-  },
-  "red": {
-    "50": {
-      "value": "#660e00",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#fcf1ef",
-          "dark": "#660e00"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_50",
-      "attributes": {},
-      "path": [
-        "red",
-        "50"
-      ]
-    },
-    "100": {
-      "value": "#8d1300",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#fdd4cd",
-          "dark": "#8d1300"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_100",
-      "attributes": {},
-      "path": [
-        "red",
-        "100"
-      ]
-    },
-    "200": {
-      "value": "#ae1800",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#fcb5aa",
-          "dark": "#ae1800"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_200",
-      "attributes": {},
-      "path": [
-        "red",
-        "200"
-      ]
-    },
-    "300": {
-      "value": "#c91c00",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#f57f6c",
-          "dark": "#c91c00"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_300",
-      "attributes": {},
-      "path": [
-        "red",
-        "300"
-      ]
-    },
-    "400": {
-      "value": "#dd2b0e",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#ec5941",
-          "dark": "#dd2b0e"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_400",
-      "attributes": {},
-      "path": [
-        "red",
-        "400"
-      ]
-    },
-    "500": {
-      "value": "#ec5941",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#dd2b0e",
-          "dark": "#ec5941"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_500",
-      "attributes": {},
-      "path": [
-        "red",
-        "500"
-      ]
-    },
-    "600": {
-      "value": "#f57f6c",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#c91c00",
-          "dark": "#f57f6c"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_600",
-      "attributes": {},
-      "path": [
-        "red",
-        "600"
-      ]
-    },
-    "700": {
-      "value": "#fcb5aa",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#ae1800",
-          "dark": "#fcb5aa"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_700",
-      "attributes": {},
-      "path": [
-        "red",
-        "700"
-      ]
-    },
-    "800": {
-      "value": "#fdd4cd",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#8d1300",
-          "dark": "#fdd4cd"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_800",
-      "attributes": {},
-      "path": [
-        "red",
-        "800"
-      ]
-    },
-    "900": {
-      "value": "#fcf1ef",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#660e00",
-          "dark": "#fcf1ef"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_900",
-      "attributes": {},
-      "path": [
-        "red",
-        "900"
-      ]
-    },
-    "950": {
-      "value": "#fff4f3",
-      "$type": "color",
-      "themeable": true,
-      "prefix": false,
-      "filePath": "src/tokens/color.tokens.json",
-      "isSource": true,
-      "original": {
-        "value": {
-          "default": "#4d0a00",
-          "dark": "#fff4f3"
-        },
-        "$type": "color",
-        "themeable": true,
-        "prefix": false
-      },
-      "name": "_950",
-      "attributes": {},
-      "path": [
-        "red",
-        "950"
-      ]
     }
   },
   "text": {

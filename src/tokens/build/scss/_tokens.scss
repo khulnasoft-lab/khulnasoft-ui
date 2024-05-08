@@ -23,223 +23,443 @@ $gl-line-height-24: 1.5rem;
 $gl-line-height-20: 1.25rem;
 $gl-line-height-16: 1rem;
 $gl-line-height-12: 0.75rem;
-$t-white-a-08: rgba(255, 255, 255, 0.08) !default;
-$t-white-a-06: rgba(255, 255, 255, 0.06) !default;
-$t-white-a-04: rgba(255, 255, 255, 0.04) !default;
-$t-white-a-02: rgba(255, 255, 255, 0.02) !default;
-$t-white-a-36: rgba(255, 255, 255, 0.36) !default;
-$t-white-a-24: rgba(255, 255, 255, 0.24) !default;
-$t-white-a-16: rgba(255, 255, 255, 0.16) !default;
-$t-gray-a-08: rgba(31, 30, 36, 0.08) !default;
-$t-gray-a-06: rgba(31, 30, 36, 0.06) !default;
-$t-gray-a-04: rgba(31, 30, 36, 0.04) !default;
-$t-gray-a-02: rgba(31, 30, 36, 0.02) !default;
-$t-gray-a-24: rgba(31, 30, 36, 0.24) !default;
-$t-gray-a-16: rgba(31, 30, 36, 0.16) !default;
-$brand-gray-05: #2b2838 !default;
-$brand-gray-04: #45424d !default;
-$brand-gray-03: #74717a !default;
-$brand-gray-02: #a2a1a6 !default;
-$brand-gray-01: #d1d0d3 !default;
-$brand-purple-02: #7759c2 !default;
-$brand-purple-01: #a989f5 !default;
-$brand-orange-03: #e24329 !default;
-$brand-orange-02: #fc6d26 !default;
-$brand-orange-01: #fca326 !default;
-$brand-charcoal: #171321 !default;
-$red-950: #4d0a00 !default;
-$red-900: #660e00 !default;
-$red-800: #8d1300 !default;
-$red-700: #ae1800 !default;
-$red-600: #c91c00 !default;
-$red-500: #dd2b0e !default;
-$red-400: #ec5941 !default;
-$red-300: #f57f6c !default;
-$red-200: #fcb5aa !default;
-$red-100: #fdd4cd !default;
-$red-50: #fcf1ef !default;
-$purple-950: #232150 !default;
-$purple-900: #2f2a6b !default;
-$purple-800: #453894 !default;
-$purple-700: #5943b6 !default;
-$purple-600: #694cc0 !default;
-$purple-500: #7b58cf !default;
-$purple-400: #9475db !default;
-$purple-300: #ac93e6 !default;
-$purple-200: #cbbbf2 !default;
-$purple-100: #e1d8f9 !default;
-$purple-50: #f4f0ff !default;
-$orange-950: #421f00 !default;
-$orange-900: #5c2900 !default;
-$orange-800: #703800 !default;
-$orange-700: #8f4700 !default;
-$orange-600: #9e5400 !default;
-$orange-500: #ab6100 !default;
-$orange-400: #c17d10 !default;
-$orange-300: #d99530 !default;
-$orange-200: #e9be74 !default;
-$orange-100: #f5d9a8 !default;
-$orange-50: #fdf1dd !default;
-$green-950: #072b15 !default;
-$green-900: #0a4020 !default;
-$green-800: #0d532a !default;
-$green-700: #24663b !default;
-$green-600: #217645 !default;
-$green-500: #108548 !default;
-$green-400: #2da160 !default;
-$green-300: #52b87a !default;
-$green-200: #91d4a8 !default;
-$green-100: #c3e6cd !default;
-$green-50: #ecf4ee !default;
-$gray-950: #1f1e24 !default;
-$gray-900: #333238 !default;
-$gray-800: #434248 !default;
-$gray-700: #535158 !default;
-$gray-600: #626168 !default;
-$gray-500: #737278 !default;
-$gray-400: #89888d !default;
-$gray-300: #a4a3a8 !default;
-$gray-200: #bfbfc3 !default;
-$gray-100: #dcdcde !default;
-$gray-50: #ececef !default;
-$gray-10: #fbfafd !default;
-$blue-950: #002850 !default;
-$blue-900: #033464 !default;
-$blue-800: #064787 !default;
-$blue-700: #0b5cad !default;
-$blue-600: #1068bf !default;
-$blue-500: #1f75cb !default;
-$blue-400: #428fdc !default;
-$blue-300: #63a6e9 !default;
-$blue-200: #9dc7f1 !default;
-$blue-100: #cbe2f9 !default;
-$blue-50: #e9f3fc !default;
-$white: #fff !default;
-$black: #000 !default;
-$theme-light-red-950: #5c1105 !default;
-$theme-light-red-900: #751709 !default;
-$theme-light-red-800: #8b2212 !default;
-$theme-light-red-700: #a02e1c !default;
-$theme-light-red-600: #b53a26 !default;
-$theme-light-red-500: #c24b38 !default;
-$theme-light-red-400: #d36250 !default;
-$theme-light-red-300: #e07f6f !default;
-$theme-light-red-200: #ebada2 !default;
-$theme-light-red-100: #f6d9d5 !default;
-$theme-light-red-50: #faf2f1 !default;
-$theme-light-red-10: #fdf9f8 !default;
-$theme-red-950: #380700 !default;
-$theme-red-900: #580d02 !default;
-$theme-red-800: #761405 !default;
-$theme-red-700: #8f2110 !default;
-$theme-red-600: #a13322 !default;
-$theme-red-500: #ad4a3b !default;
-$theme-red-400: #c66e60 !default;
-$theme-red-300: #d59086 !default;
-$theme-red-200: #e3bab5 !default;
-$theme-red-100: #ecd3d0 !default;
-$theme-red-50: #f4e9e7 !default;
-$theme-red-10: #faf4f3 !default;
-$theme-green-950: #052e19 !default;
-$theme-green-900: #0e4328 !default;
-$theme-green-800: #155635 !default;
-$theme-green-700: #1b653f !default;
-$theme-green-600: #25744c !default;
-$theme-green-500: #308258 !default;
-$theme-green-400: #499767 !default;
-$theme-green-300: #69af7d !default;
-$theme-green-200: #8cc497 !default;
-$theme-green-100: #b1d6b5 !default;
-$theme-green-50: #dde9de !default;
-$theme-green-10: #eef4ef !default;
-$theme-light-blue-950: #0a3764 !default;
-$theme-light-blue-900: #0c4277 !default;
-$theme-light-blue-800: #0e4d8d !default;
-$theme-light-blue-700: #145aa1 !default;
-$theme-light-blue-600: #2268ae !default;
-$theme-light-blue-500: #3476b9 !default;
-$theme-light-blue-400: #4f8bc7 !default;
-$theme-light-blue-300: #74a3d3 !default;
-$theme-light-blue-200: #a0bedc !default;
-$theme-light-blue-100: #c1d4e6 !default;
-$theme-light-blue-50: #dde6ee !default;
-$theme-light-blue-10: #eef3f7 !default;
-$theme-blue-950: #04101c !default;
-$theme-blue-900: #0b2640 !default;
-$theme-blue-800: #153c63 !default;
-$theme-blue-700: #235180 !default;
-$theme-blue-600: #346596 !default;
-$theme-blue-500: #4977a5 !default;
-$theme-blue-400: #628eb9 !default;
-$theme-blue-300: #81a5c9 !default;
-$theme-blue-200: #a6bdd5 !default;
-$theme-blue-100: #b9cadc !default;
-$theme-blue-50: #cdd8e3 !default;
-$theme-blue-10: #e6ecf0 !default;
-$theme-indigo-950: #14143d !default;
-$theme-indigo-900: #222261 !default;
-$theme-indigo-800: #303083 !default;
-$theme-indigo-700: #41419f !default;
-$theme-indigo-600: #5252b5 !default;
-$theme-indigo-500: #6666c4 !default;
-$theme-indigo-400: #8181d7 !default;
-$theme-indigo-300: #a2a2e6 !default;
-$theme-indigo-200: #c7c7f2 !default;
-$theme-indigo-100: #dbdbf8 !default;
-$theme-indigo-50: #f1f1ff !default;
-$theme-indigo-10: #f8f8ff !default;
-$data-viz-orange-950: #4b2707 !default;
-$data-viz-orange-900: #5e2f05 !default;
-$data-viz-orange-800: #6f3500 !default;
-$data-viz-orange-700: #92430a !default;
-$data-viz-orange-600: #b14f18 !default;
-$data-viz-orange-500: #c95d2e !default;
-$data-viz-orange-400: #e07e41 !default;
-$data-viz-orange-300: #e99b60 !default;
-$data-viz-orange-200: #eebd8c !default;
-$data-viz-orange-100: #f5d6b3 !default;
-$data-viz-orange-50: #fae8d1 !default;
-$data-viz-magenta-950: #541d31 !default;
-$data-viz-magenta-900: #661e3a !default;
-$data-viz-magenta-800: #7c214f !default;
-$data-viz-magenta-700: #9a2e5d !default;
-$data-viz-magenta-600: #b93d71 !default;
-$data-viz-magenta-500: #cf4d81 !default;
-$data-viz-magenta-400: #e86e9a !default;
-$data-viz-magenta-300: #f88aaf !default;
-$data-viz-magenta-200: #fcacc5 !default;
-$data-viz-magenta-100: #ffccdb !default;
-$data-viz-magenta-50: #ffe3eb !default;
-$data-viz-blue-950: #2a2b59 !default;
-$data-viz-blue-900: #303470 !default;
-$data-viz-blue-800: #374291 !default;
-$data-viz-blue-700: #3f51ae !default;
-$data-viz-blue-600: #4e65cd !default;
-$data-viz-blue-500: #617ae2 !default;
-$data-viz-blue-400: #7992f5 !default;
-$data-viz-blue-300: #97acff !default;
-$data-viz-blue-200: #b7c6ff !default;
-$data-viz-blue-100: #d2dcff !default;
-$data-viz-blue-50: #e9ebff !default;
-$data-viz-aqua-950: #00344b !default;
-$data-viz-aqua-900: #004059 !default;
-$data-viz-aqua-800: #00516c !default;
-$data-viz-aqua-700: #006381 !default;
-$data-viz-aqua-600: #007b9b !default;
-$data-viz-aqua-500: #0090b1 !default;
-$data-viz-aqua-400: #00acc4 !default;
-$data-viz-aqua-300: #32c5d2 !default;
-$data-viz-aqua-200: #5edee3 !default;
-$data-viz-aqua-100: #93f2ef !default;
-$data-viz-aqua-50: #b5fefd !default;
-$data-viz-green-950: #133a03 !default;
-$data-viz-green-900: #1a4500 !default;
-$data-viz-green-800: #275600 !default;
-$data-viz-green-700: #366800 !default;
-$data-viz-green-600: #4e7f0e !default;
-$data-viz-green-500: #619025 !default;
-$data-viz-green-400: #81ac41 !default;
-$data-viz-green-300: #94c25e !default;
-$data-viz-green-200: #b0d97b !default;
-$data-viz-green-100: #c6ed94 !default;
-$data-viz-green-50: #ddfab7 !default;
+$t-white-a-08: rgba(255, 255, 255, 0.08) !default; // Use color.alpha.light.08 instead
+$t-white-a-06: rgba(255, 255, 255, 0.06) !default; // Use color.alpha.light.06 instead
+$t-white-a-04: rgba(255, 255, 255, 0.04) !default; // Use color.alpha.light.04 instead
+$t-white-a-02: rgba(255, 255, 255, 0.02) !default; // Use color.alpha.light.02 instead
+$t-white-a-36: rgba(255, 255, 255, 0.36) !default; // Use color.alpha.light.36 instead
+$t-white-a-24: rgba(255, 255, 255, 0.24) !default; // Use color.alpha.light.24 instead
+$t-white-a-16: rgba(255, 255, 255, 0.16) !default; // Use color.alpha.light.16 instead
+$t-gray-a-08: rgba(31, 30, 36, 0.08) !default; // Use color.alpha.dark.08 instead
+$t-gray-a-06: rgba(31, 30, 36, 0.06) !default; // Use color.alpha.dark.06 instead
+$t-gray-a-04: rgba(31, 30, 36, 0.04) !default; // Use color.alpha.dark.04 instead
+$t-gray-a-02: rgba(31, 30, 36, 0.02) !default; // Use color.alpha.dark.02 instead
+$t-gray-a-24: rgba(31, 30, 36, 0.24) !default; // Use color.alpha.dark.24 instead
+$t-gray-a-16: rgba(31, 30, 36, 0.16) !default; // Use color.alpha.dark.16 instead
+$theme-light-red-950: #5c1105 !default; // Use color.theme.light-red.950 instead
+$theme-light-red-900: #751709 !default; // Use color.theme.light-red.900 instead
+$theme-light-red-800: #8b2212 !default; // Use color.theme.light-red.800 instead
+$theme-light-red-700: #a02e1c !default; // Use color.theme.light-red.700 instead
+$theme-light-red-600: #b53a26 !default; // Use color.theme.light-red.600 instead
+$theme-light-red-500: #c24b38 !default; // Use color.theme.light-red.500 instead
+$theme-light-red-400: #d36250 !default; // Use color.theme.light-red.400 instead
+$theme-light-red-300: #e07f6f !default; // Use color.theme.light-red.300 instead
+$theme-light-red-200: #ebada2 !default; // Use color.theme.light-red.200 instead
+$theme-light-red-100: #f6d9d5 !default; // Use color.theme.light-red.100 instead
+$theme-light-red-50: #faf2f1 !default; // Use color.theme.light-red.50 instead
+$theme-light-red-10: #fdf9f8 !default; // Use color.theme.light-red.10 instead
+$theme-red-950: #380700 !default; // Use color.theme.red.950 instead
+$theme-red-900: #580d02 !default; // Use color.theme.red.900 instead
+$theme-red-800: #761405 !default; // Use color.theme.red.800 instead
+$theme-red-700: #8f2110 !default; // Use color.theme.red.700 instead
+$theme-red-600: #a13322 !default; // Use color.theme.red.600 instead
+$theme-red-500: #ad4a3b !default; // Use color.theme.red.500 instead
+$theme-red-400: #c66e60 !default; // Use color.theme.red.400 instead
+$theme-red-300: #d59086 !default; // Use color.theme.red.300 instead
+$theme-red-200: #e3bab5 !default; // Use color.theme.red.200 instead
+$theme-red-100: #ecd3d0 !default; // Use color.theme.red.100 instead
+$theme-red-50: #f4e9e7 !default; // Use color.theme.red.50 instead
+$theme-red-10: #faf4f3 !default; // Use color.theme.red.10 instead
+$theme-green-950: #052e19 !default; // Use color.theme.green.950 instead
+$theme-green-900: #0e4328 !default; // Use color.theme.green.900 instead
+$theme-green-800: #155635 !default; // Use color.theme.green.800 instead
+$theme-green-700: #1b653f !default; // Use color.theme.green.700 instead
+$theme-green-600: #25744c !default; // Use color.theme.green.600 instead
+$theme-green-500: #308258 !default; // Use color.theme.green.500 instead
+$theme-green-400: #499767 !default; // Use color.theme.green.400 instead
+$theme-green-300: #69af7d !default; // Use color.theme.green.300 instead
+$theme-green-200: #8cc497 !default; // Use color.theme.green.200 instead
+$theme-green-100: #b1d6b5 !default; // Use color.theme.green.100 instead
+$theme-green-50: #dde9de !default; // Use color.theme.green.50 instead
+$theme-green-10: #eef4ef !default; // Use color.theme.green.10 instead
+$theme-light-blue-950: #0a3764 !default; // Use color.theme.light-blue.950 instead
+$theme-light-blue-900: #0c4277 !default; // Use color.theme.light-blue.900 instead
+$theme-light-blue-800: #0e4d8d !default; // Use color.theme.light-blue.800 instead
+$theme-light-blue-700: #145aa1 !default; // Use color.theme.light-blue.700 instead
+$theme-light-blue-600: #2268ae !default; // Use color.theme.light-blue.600 instead
+$theme-light-blue-500: #3476b9 !default; // Use color.theme.light-blue.500 instead
+$theme-light-blue-400: #4f8bc7 !default; // Use color.theme.light-blue.400 instead
+$theme-light-blue-300: #74a3d3 !default; // Use color.theme.light-blue.300 instead
+$theme-light-blue-200: #a0bedc !default; // Use color.theme.light-blue.200 instead
+$theme-light-blue-100: #c1d4e6 !default; // Use color.theme.light-blue.100 instead
+$theme-light-blue-50: #dde6ee !default; // Use color.theme.light-blue.50 instead
+$theme-light-blue-10: #eef3f7 !default; // Use color.theme.light-blue.10 instead
+$theme-blue-950: #04101c !default; // Use color.theme.blue.950 instead
+$theme-blue-900: #0b2640 !default; // Use color.theme.blue.900 instead
+$theme-blue-800: #153c63 !default; // Use color.theme.blue.800 instead
+$theme-blue-700: #235180 !default; // Use color.theme.blue.700 instead
+$theme-blue-600: #346596 !default; // Use color.theme.blue.600 instead
+$theme-blue-500: #4977a5 !default; // Use color.theme.blue.500 instead
+$theme-blue-400: #628eb9 !default; // Use color.theme.blue.400 instead
+$theme-blue-300: #81a5c9 !default; // Use color.theme.blue.300 instead
+$theme-blue-200: #a6bdd5 !default; // Use color.theme.blue.200 instead
+$theme-blue-100: #b9cadc !default; // Use color.theme.blue.100 instead
+$theme-blue-50: #cdd8e3 !default; // Use color.theme.blue.50 instead
+$theme-blue-10: #e6ecf0 !default; // Use color.theme.blue.10 instead
+$theme-indigo-950: #14143d !default; // Use color.theme.indigo.950 instead
+$theme-indigo-900: #222261 !default; // Use color.theme.indigo.900 instead
+$theme-indigo-800: #303083 !default; // Use color.theme.indigo.800 instead
+$theme-indigo-700: #41419f !default; // Use color.theme.indigo.700 instead
+$theme-indigo-600: #5252b5 !default; // Use color.theme.indigo.600 instead
+$theme-indigo-500: #6666c4 !default; // Use color.theme.indigo.500 instead
+$theme-indigo-400: #8181d7 !default; // Use color.theme.indigo.400 instead
+$theme-indigo-300: #a2a2e6 !default; // Use color.theme.indigo.300 instead
+$theme-indigo-200: #c7c7f2 !default; // Use color.theme.indigo.200 instead
+$theme-indigo-100: #dbdbf8 !default; // Use color.theme.indigo.100 instead
+$theme-indigo-50: #f1f1ff !default; // Use color.theme.indigo.50 instead
+$theme-indigo-10: #f8f8ff !default; // Use color.theme.indigo.10 instead
+$brand-gray-05: #2b2838 !default; // Use color.brand.gray.05 instead
+$brand-gray-04: #45424d !default; // Use color.brand.gray.04 instead
+$brand-gray-03: #74717a !default; // Use color.brand.gray.03 instead
+$brand-gray-02: #a2a1a6 !default; // Use color.brand.gray.02 instead
+$brand-gray-01: #d1d0d3 !default; // Use color.brand.gray.01 instead
+$brand-purple-02: #7759c2 !default; // Use color.brand.purple.02 instead
+$brand-purple-01: #a989f5 !default; // Use color.brand.purple.01 instead
+$brand-orange-03: #e24329 !default; // Use color.brand.orange.03 instead
+$brand-orange-02: #fc6d26 !default; // Use color.brand.orange.02 instead
+$brand-orange-01: #fca326 !default; // Use color.brand.orange.01 instead
+$brand-charcoal: #171321 !default; // Use color.brand.charcoal instead
+$red-950: #4d0a00 !default; // Use color.red.950 instead
+$red-900: #660e00 !default; // Use color.red.900 instead
+$red-800: #8d1300 !default; // Use color.red.800 instead
+$red-700: #ae1800 !default; // Use color.red.700 instead
+$red-600: #c91c00 !default; // Use color.red.600 instead
+$red-500: #dd2b0e !default; // Use color.red.500 instead
+$red-400: #ec5941 !default; // Use color.red.400 instead
+$red-300: #f57f6c !default; // Use color.red.300 instead
+$red-200: #fcb5aa !default; // Use color.red.200 instead
+$red-100: #fdd4cd !default; // Use color.red.100 instead
+$red-50: #fcf1ef !default; // Use color.red.50 instead
+$purple-950: #232150 !default; // Use color.purple.950 instead
+$purple-900: #2f2a6b !default; // Use color.purple.900 instead
+$purple-800: #453894 !default; // Use color.purple.800 instead
+$purple-700: #5943b6 !default; // Use color.purple.700 instead
+$purple-600: #694cc0 !default; // Use color.purple.600 instead
+$purple-500: #7b58cf !default; // Use color.purple.500 instead
+$purple-400: #9475db !default; // Use color.purple.400 instead
+$purple-300: #ac93e6 !default; // Use color.purple.300 instead
+$purple-200: #cbbbf2 !default; // Use color.purple.200 instead
+$purple-100: #e1d8f9 !default; // Use color.purple.100 instead
+$purple-50: #f4f0ff !default; // Use color.purple.50 instead
+$orange-950: #421f00 !default; // Use color.orange.950 instead
+$orange-900: #5c2900 !default; // Use color.orange.900 instead
+$orange-800: #703800 !default; // Use color.orange.800 instead
+$orange-700: #8f4700 !default; // Use color.orange.700 instead
+$orange-600: #9e5400 !default; // Use color.orange.600 instead
+$orange-500: #ab6100 !default; // Use color.orange.500 instead
+$orange-400: #c17d10 !default; // Use color.orange.400 instead
+$orange-300: #d99530 !default; // Use color.orange.300 instead
+$orange-200: #e9be74 !default; // Use color.orange.200 instead
+$orange-100: #f5d9a8 !default; // Use color.orange.100 instead
+$orange-50: #fdf1dd !default; // Use color.orange.50 instead
+$green-950: #072b15 !default; // Use color.green.950 instead
+$green-900: #0a4020 !default; // Use color.green.900 instead
+$green-800: #0d532a !default; // Use color.green.800 instead
+$green-700: #24663b !default; // Use color.green.700 instead
+$green-600: #217645 !default; // Use color.green.600 instead
+$green-500: #108548 !default; // Use color.green.500 instead
+$green-400: #2da160 !default; // Use color.green.400 instead
+$green-300: #52b87a !default; // Use color.green.300 instead
+$green-200: #91d4a8 !default; // Use color.green.200 instead
+$green-100: #c3e6cd !default; // Use color.green.100 instead
+$green-50: #ecf4ee !default; // Use color.green.50 instead
+$gray-950: #1f1e24 !default; // Use color.neutral.950 instead
+$gray-900: #333238 !default; // Use color.neutral.900 instead
+$gray-800: #434248 !default; // Use color.neutral.800 instead
+$gray-700: #535158 !default; // Use color.neutral.700 instead
+$gray-600: #626168 !default; // Use color.neutral.600 instead
+$gray-500: #737278 !default; // Use color.neutral.500 instead
+$gray-400: #89888d !default; // Use color.neutral.400 instead
+$gray-300: #a4a3a8 !default; // Use color.neutral.300 instead
+$gray-200: #bfbfc3 !default; // Use color.neutral.200 instead
+$gray-100: #dcdcde !default; // Use color.neutral.100 instead
+$gray-50: #ececef !default; // Use color.neutral.50 instead
+$gray-10: #fbfafd !default; // Use color.neutral.10 instead
+$blue-950: #002850 !default; // Use color.blue.950 instead
+$blue-900: #033464 !default; // Use color.blue.900 instead
+$blue-800: #064787 !default; // Use color.blue.800 instead
+$blue-700: #0b5cad !default; // Use color.blue.700 instead
+$blue-600: #1068bf !default; // Use color.blue.600 instead
+$blue-500: #1f75cb !default; // Use color.blue.500 instead
+$blue-400: #428fdc !default; // Use color.blue.400 instead
+$blue-300: #63a6e9 !default; // Use color.blue.300 instead
+$blue-200: #9dc7f1 !default; // Use color.blue.200 instead
+$blue-100: #cbe2f9 !default; // Use color.blue.100 instead
+$blue-50: #e9f3fc !default; // Use color.blue.50 instead
+$white: #fff !default; // Use color.neutral.0 instead
+$black: #000 !default; // Use color.neutral.1000 instead
+$data-viz-orange-950: #4b2707 !default; // Use color.data.orange.950 instead
+$data-viz-orange-900: #5e2f05 !default; // Use color.data.orange.900 instead
+$data-viz-orange-800: #6f3500 !default; // Use color.data.orange.800 instead
+$data-viz-orange-700: #92430a !default; // Use color.data.orange.700 instead
+$data-viz-orange-600: #b14f18 !default; // Use color.data.orange.600 instead
+$data-viz-orange-500: #c95d2e !default; // Use color.data.orange.500 instead
+$data-viz-orange-400: #e07e41 !default; // Use color.data.orange.400 instead
+$data-viz-orange-300: #e99b60 !default; // Use color.data.orange.300 instead
+$data-viz-orange-200: #eebd8c !default; // Use color.data.orange.200 instead
+$data-viz-orange-100: #f5d6b3 !default; // Use color.data.orange.100 instead
+$data-viz-orange-50: #fae8d1 !default; // Use color.data.orange.50 instead
+$data-viz-magenta-950: #541d31 !default; // Use color.data.magenta.950 instead
+$data-viz-magenta-900: #661e3a !default; // Use color.data.magenta.900 instead
+$data-viz-magenta-800: #7c214f !default; // Use color.data.magenta.800 instead
+$data-viz-magenta-700: #9a2e5d !default; // Use color.data.magenta.700 instead
+$data-viz-magenta-600: #b93d71 !default; // Use color.data.magenta.600 instead
+$data-viz-magenta-500: #cf4d81 !default; // Use color.data.magenta.500 instead
+$data-viz-magenta-400: #e86e9a !default; // Use color.data.magenta.400 instead
+$data-viz-magenta-300: #f88aaf !default; // Use color.data.magenta.300 instead
+$data-viz-magenta-200: #fcacc5 !default; // Use color.data.magenta.200 instead
+$data-viz-magenta-100: #ffccdb !default; // Use color.data.magenta.100 instead
+$data-viz-magenta-50: #ffe3eb !default; // Use color.data.magenta.50 instead
+$data-viz-blue-950: #2a2b59 !default; // Use color.data.blue.950 instead
+$data-viz-blue-900: #303470 !default; // Use color.data.blue.900 instead
+$data-viz-blue-800: #374291 !default; // Use color.data.blue.800 instead
+$data-viz-blue-700: #3f51ae !default; // Use color.data.blue.700 instead
+$data-viz-blue-600: #4e65cd !default; // Use color.data.blue.600 instead
+$data-viz-blue-500: #617ae2 !default; // Use color.data.blue.500 instead
+$data-viz-blue-400: #7992f5 !default; // Use color.data.blue.400 instead
+$data-viz-blue-300: #97acff !default; // Use color.data.blue.300 instead
+$data-viz-blue-200: #b7c6ff !default; // Use color.data.blue.200 instead
+$data-viz-blue-100: #d2dcff !default; // Use color.data.blue.100 instead
+$data-viz-blue-50: #e9ebff !default; // Use color.data.blue.50 instead
+$data-viz-aqua-950: #00344b !default; // Use color.data.aqua.950 instead
+$data-viz-aqua-900: #004059 !default; // Use color.data.aqua.900 instead
+$data-viz-aqua-800: #00516c !default; // Use color.data.aqua.800 instead
+$data-viz-aqua-700: #006381 !default; // Use color.data.aqua.700 instead
+$data-viz-aqua-600: #007b9b !default; // Use color.data.aqua.600 instead
+$data-viz-aqua-500: #0090b1 !default; // Use color.data.aqua.500 instead
+$data-viz-aqua-400: #00acc4 !default; // Use color.data.aqua.400 instead
+$data-viz-aqua-300: #32c5d2 !default; // Use color.data.aqua.300 instead
+$data-viz-aqua-200: #5edee3 !default; // Use color.data.aqua.200 instead
+$data-viz-aqua-100: #93f2ef !default; // Use color.data.aqua.100 instead
+$data-viz-aqua-50: #b5fefd !default; // Use color.data.aqua.50 instead
+$data-viz-green-950: #133a03 !default; // Use color.data.green.950 instead
+$data-viz-green-900: #1a4500 !default; // Use color.data.green.900 instead
+$data-viz-green-800: #275600 !default; // Use color.data.green.800 instead
+$data-viz-green-700: #366800 !default; // Use color.data.green.700 instead
+$data-viz-green-600: #4e7f0e !default; // Use color.data.green.600 instead
+$data-viz-green-500: #619025 !default; // Use color.data.green.500 instead
+$data-viz-green-400: #81ac41 !default; // Use color.data.green.400 instead
+$data-viz-green-300: #94c25e !default; // Use color.data.green.300 instead
+$data-viz-green-200: #b0d97b !default; // Use color.data.green.200 instead
+$data-viz-green-100: #c6ed94 !default; // Use color.data.green.100 instead
+$data-viz-green-50: #ddfab7 !default; // Use color.data.green.50 instead
+$color-brand-gray-05: #2b2838 !default;
+$color-brand-gray-04: #45424d !default;
+$color-brand-gray-03: #74717a !default;
+$color-brand-gray-02: #a2a1a6 !default;
+$color-brand-gray-01: #d1d0d3 !default;
+$color-brand-purple-02: #7759c2 !default;
+$color-brand-purple-01: #a989f5 !default;
+$color-brand-orange-03: #e24329 !default;
+$color-brand-orange-02: #fc6d26 !default;
+$color-brand-orange-01: #fca326 !default;
+$color-brand-charcoal: #171321 !default;
+$gl-color-red-950: #4d0a00 !default;
+$gl-color-red-900: #660e00 !default;
+$gl-color-red-800: #8d1300 !default;
+$gl-color-red-700: #ae1800 !default;
+$gl-color-red-600: #c91c00 !default;
+$gl-color-red-500: #dd2b0e !default;
+$gl-color-red-400: #ec5941 !default;
+$gl-color-red-300: #f57f6c !default;
+$gl-color-red-200: #fcb5aa !default;
+$gl-color-red-100: #fdd4cd !default;
+$gl-color-red-50: #fcf1ef !default;
+$gl-color-purple-950: #232150 !default;
+$gl-color-purple-900: #2f2a6b !default;
+$gl-color-purple-800: #453894 !default;
+$gl-color-purple-700: #5943b6 !default;
+$gl-color-purple-600: #694cc0 !default;
+$gl-color-purple-500: #7b58cf !default;
+$gl-color-purple-400: #9475db !default;
+$gl-color-purple-300: #ac93e6 !default;
+$gl-color-purple-200: #cbbbf2 !default;
+$gl-color-purple-100: #e1d8f9 !default;
+$gl-color-purple-50: #f4f0ff !default;
+$gl-color-orange-950: #421f00 !default;
+$gl-color-orange-900: #5c2900 !default;
+$gl-color-orange-800: #703800 !default;
+$gl-color-orange-700: #8f4700 !default;
+$gl-color-orange-600: #9e5400 !default;
+$gl-color-orange-500: #ab6100 !default;
+$gl-color-orange-400: #c17d10 !default;
+$gl-color-orange-300: #d99530 !default;
+$gl-color-orange-200: #e9be74 !default;
+$gl-color-orange-100: #f5d9a8 !default;
+$gl-color-orange-50: #fdf1dd !default;
+$gl-color-green-950: #072b15 !default;
+$gl-color-green-900: #0a4020 !default;
+$gl-color-green-800: #0d532a !default;
+$gl-color-green-700: #24663b !default;
+$gl-color-green-600: #217645 !default;
+$gl-color-green-500: #108548 !default;
+$gl-color-green-400: #2da160 !default;
+$gl-color-green-300: #52b87a !default;
+$gl-color-green-200: #91d4a8 !default;
+$gl-color-green-100: #c3e6cd !default;
+$gl-color-green-50: #ecf4ee !default;
+$gl-color-neutral-1000: #000 !default;
+$gl-color-neutral-950: #1f1e24 !default;
+$gl-color-neutral-900: #333238 !default;
+$gl-color-neutral-800: #434248 !default;
+$gl-color-neutral-700: #535158 !default;
+$gl-color-neutral-600: #626168 !default;
+$gl-color-neutral-500: #737278 !default;
+$gl-color-neutral-400: #89888d !default;
+$gl-color-neutral-300: #a4a3a8 !default;
+$gl-color-neutral-200: #bfbfc3 !default;
+$gl-color-neutral-100: #dcdcde !default;
+$gl-color-neutral-50: #ececef !default;
+$gl-color-neutral-10: #fbfafd !default;
+$gl-color-neutral-0: #fff !default;
+$gl-color-blue-950: #002850 !default;
+$gl-color-blue-900: #033464 !default;
+$gl-color-blue-800: #064787 !default;
+$gl-color-blue-700: #0b5cad !default;
+$gl-color-blue-600: #1068bf !default;
+$gl-color-blue-500: #1f75cb !default;
+$gl-color-blue-400: #428fdc !default;
+$gl-color-blue-300: #63a6e9 !default;
+$gl-color-blue-200: #9dc7f1 !default;
+$gl-color-blue-100: #cbe2f9 !default;
+$gl-color-blue-50: #e9f3fc !default;
+$gl-color-theme-light-red-950: #5c1105 !default;
+$gl-color-theme-light-red-900: #751709 !default;
+$gl-color-theme-light-red-800: #8b2212 !default;
+$gl-color-theme-light-red-700: #a02e1c !default;
+$gl-color-theme-light-red-600: #b53a26 !default;
+$gl-color-theme-light-red-500: #c24b38 !default;
+$gl-color-theme-light-red-400: #d36250 !default;
+$gl-color-theme-light-red-300: #e07f6f !default;
+$gl-color-theme-light-red-200: #ebada2 !default;
+$gl-color-theme-light-red-100: #f6d9d5 !default;
+$gl-color-theme-light-red-50: #faf2f1 !default;
+$gl-color-theme-light-red-10: #fdf9f8 !default;
+$gl-color-theme-red-950: #380700 !default;
+$gl-color-theme-red-900: #580d02 !default;
+$gl-color-theme-red-800: #761405 !default;
+$gl-color-theme-red-700: #8f2110 !default;
+$gl-color-theme-red-600: #a13322 !default;
+$gl-color-theme-red-500: #ad4a3b !default;
+$gl-color-theme-red-400: #c66e60 !default;
+$gl-color-theme-red-300: #d59086 !default;
+$gl-color-theme-red-200: #e3bab5 !default;
+$gl-color-theme-red-100: #ecd3d0 !default;
+$gl-color-theme-red-50: #f4e9e7 !default;
+$gl-color-theme-red-10: #faf4f3 !default;
+$gl-color-theme-green-950: #052e19 !default;
+$gl-color-theme-green-900: #0e4328 !default;
+$gl-color-theme-green-800: #155635 !default;
+$gl-color-theme-green-700: #1b653f !default;
+$gl-color-theme-green-600: #25744c !default;
+$gl-color-theme-green-500: #308258 !default;
+$gl-color-theme-green-400: #499767 !default;
+$gl-color-theme-green-300: #69af7d !default;
+$gl-color-theme-green-200: #8cc497 !default;
+$gl-color-theme-green-100: #b1d6b5 !default;
+$gl-color-theme-green-50: #dde9de !default;
+$gl-color-theme-green-10: #eef4ef !default;
+$gl-color-theme-light-blue-950: #0a3764 !default;
+$gl-color-theme-light-blue-900: #0c4277 !default;
+$gl-color-theme-light-blue-800: #0e4d8d !default;
+$gl-color-theme-light-blue-700: #145aa1 !default;
+$gl-color-theme-light-blue-600: #2268ae !default;
+$gl-color-theme-light-blue-500: #3476b9 !default;
+$gl-color-theme-light-blue-400: #4f8bc7 !default;
+$gl-color-theme-light-blue-300: #74a3d3 !default;
+$gl-color-theme-light-blue-200: #a0bedc !default;
+$gl-color-theme-light-blue-100: #c1d4e6 !default;
+$gl-color-theme-light-blue-50: #dde6ee !default;
+$gl-color-theme-light-blue-10: #eef3f7 !default;
+$gl-color-theme-blue-950: #04101c !default;
+$gl-color-theme-blue-900: #0b2640 !default;
+$gl-color-theme-blue-800: #153c63 !default;
+$gl-color-theme-blue-700: #235180 !default;
+$gl-color-theme-blue-600: #346596 !default;
+$gl-color-theme-blue-500: #4977a5 !default;
+$gl-color-theme-blue-400: #628eb9 !default;
+$gl-color-theme-blue-300: #81a5c9 !default;
+$gl-color-theme-blue-200: #a6bdd5 !default;
+$gl-color-theme-blue-100: #b9cadc !default;
+$gl-color-theme-blue-50: #cdd8e3 !default;
+$gl-color-theme-blue-10: #e6ecf0 !default;
+$gl-color-theme-indigo-950: #14143d !default;
+$gl-color-theme-indigo-900: #222261 !default;
+$gl-color-theme-indigo-800: #303083 !default;
+$gl-color-theme-indigo-700: #41419f !default;
+$gl-color-theme-indigo-600: #5252b5 !default;
+$gl-color-theme-indigo-500: #6666c4 !default;
+$gl-color-theme-indigo-400: #8181d7 !default;
+$gl-color-theme-indigo-300: #a2a2e6 !default;
+$gl-color-theme-indigo-200: #c7c7f2 !default;
+$gl-color-theme-indigo-100: #dbdbf8 !default;
+$gl-color-theme-indigo-50: #f1f1ff !default;
+$gl-color-theme-indigo-10: #f8f8ff !default;
+$gl-color-data-orange-950: #4b2707 !default;
+$gl-color-data-orange-900: #5e2f05 !default;
+$gl-color-data-orange-800: #6f3500 !default;
+$gl-color-data-orange-700: #92430a !default;
+$gl-color-data-orange-600: #b14f18 !default;
+$gl-color-data-orange-500: #c95d2e !default;
+$gl-color-data-orange-400: #e07e41 !default;
+$gl-color-data-orange-300: #e99b60 !default;
+$gl-color-data-orange-200: #eebd8c !default;
+$gl-color-data-orange-100: #f5d6b3 !default;
+$gl-color-data-orange-50: #fae8d1 !default;
+$gl-color-data-magenta-950: #541d31 !default;
+$gl-color-data-magenta-900: #661e3a !default;
+$gl-color-data-magenta-800: #7c214f !default;
+$gl-color-data-magenta-700: #9a2e5d !default;
+$gl-color-data-magenta-600: #b93d71 !default;
+$gl-color-data-magenta-500: #cf4d81 !default;
+$gl-color-data-magenta-400: #e86e9a !default;
+$gl-color-data-magenta-300: #f88aaf !default;
+$gl-color-data-magenta-200: #fcacc5 !default;
+$gl-color-data-magenta-100: #ffccdb !default;
+$gl-color-data-magenta-50: #ffe3eb !default;
+$gl-color-data-blue-950: #2a2b59 !default;
+$gl-color-data-blue-900: #303470 !default;
+$gl-color-data-blue-800: #374291 !default;
+$gl-color-data-blue-700: #3f51ae !default;
+$gl-color-data-blue-600: #4e65cd !default;
+$gl-color-data-blue-500: #617ae2 !default;
+$gl-color-data-blue-400: #7992f5 !default;
+$gl-color-data-blue-300: #97acff !default;
+$gl-color-data-blue-200: #b7c6ff !default;
+$gl-color-data-blue-100: #d2dcff !default;
+$gl-color-data-blue-50: #e9ebff !default;
+$gl-color-data-aqua-950: #00344b !default;
+$gl-color-data-aqua-900: #004059 !default;
+$gl-color-data-aqua-800: #00516c !default;
+$gl-color-data-aqua-700: #006381 !default;
+$gl-color-data-aqua-600: #007b9b !default;
+$gl-color-data-aqua-500: #0090b1 !default;
+$gl-color-data-aqua-400: #00acc4 !default;
+$gl-color-data-aqua-300: #32c5d2 !default;
+$gl-color-data-aqua-200: #5edee3 !default;
+$gl-color-data-aqua-100: #93f2ef !default;
+$gl-color-data-aqua-50: #b5fefd !default;
+$gl-color-data-green-950: #133a03 !default;
+$gl-color-data-green-900: #1a4500 !default;
+$gl-color-data-green-800: #275600 !default;
+$gl-color-data-green-700: #366800 !default;
+$gl-color-data-green-600: #4e7f0e !default;
+$gl-color-data-green-500: #619025 !default;
+$gl-color-data-green-400: #81ac41 !default;
+$gl-color-data-green-300: #94c25e !default;
+$gl-color-data-green-200: #b0d97b !default;
+$gl-color-data-green-100: #c6ed94 !default;
+$gl-color-data-green-50: #ddfab7 !default;
+$gl-color-alpha-light-08: rgba(255, 255, 255, 0.08) !default;
+$gl-color-alpha-light-06: rgba(255, 255, 255, 0.06) !default;
+$gl-color-alpha-light-04: rgba(255, 255, 255, 0.04) !default;
+$gl-color-alpha-light-02: rgba(255, 255, 255, 0.02) !default;
+$gl-color-alpha-light-36: rgba(255, 255, 255, 0.36) !default;
+$gl-color-alpha-light-24: rgba(255, 255, 255, 0.24) !default;
+$gl-color-alpha-light-16: rgba(255, 255, 255, 0.16) !default;
+$gl-color-alpha-dark-08: rgba(31, 30, 36, 0.08) !default;
+$gl-color-alpha-dark-06: rgba(31, 30, 36, 0.06) !default;
+$gl-color-alpha-dark-04: rgba(31, 30, 36, 0.04) !default;
+$gl-color-alpha-dark-02: rgba(31, 30, 36, 0.02) !default;
+$gl-color-alpha-dark-24: rgba(31, 30, 36, 0.24) !default;
+$gl-color-alpha-dark-16: rgba(31, 30, 36, 0.16) !default;

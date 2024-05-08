@@ -7,6 +7,8 @@
           "dark": "#133a03"
         },
         "$type": "color",
+        "$description": "Use color.data.green.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -16,6 +18,8 @@
           "dark": "#1a4500"
         },
         "$type": "color",
+        "$description": "Use color.data.green.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -25,6 +29,8 @@
           "dark": "#275600"
         },
         "$type": "color",
+        "$description": "Use color.data.green.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -34,6 +40,8 @@
           "dark": "#366800"
         },
         "$type": "color",
+        "$description": "Use color.data.green.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -43,6 +51,8 @@
           "dark": "#4e7f0e"
         },
         "$type": "color",
+        "$description": "Use color.data.green.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -52,6 +62,8 @@
           "dark": "#619025"
         },
         "$type": "color",
+        "$description": "Use color.data.green.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -61,6 +73,8 @@
           "dark": "#81ac41"
         },
         "$type": "color",
+        "$description": "Use color.data.green.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -70,6 +84,8 @@
           "dark": "#94c25e"
         },
         "$type": "color",
+        "$description": "Use color.data.green.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -79,6 +95,8 @@
           "dark": "#b0d97b"
         },
         "$type": "color",
+        "$description": "Use color.data.green.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -88,6 +106,8 @@
           "dark": "#c6ed94"
         },
         "$type": "color",
+        "$description": "Use color.data.green.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -97,6 +117,8 @@
           "dark": "#ddfab7"
         },
         "$type": "color",
+        "$description": "Use color.data.green.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       }
@@ -108,6 +130,8 @@
           "dark": "#00344b"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -117,6 +141,8 @@
           "dark": "#004059"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -126,6 +152,8 @@
           "dark": "#00516c"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -135,6 +163,8 @@
           "dark": "#006381"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -144,6 +174,8 @@
           "dark": "#007b9b"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -153,6 +185,8 @@
           "dark": "#0090b1"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -162,6 +196,8 @@
           "dark": "#00acc4"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -171,6 +207,8 @@
           "dark": "#32c5d2"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -180,6 +218,8 @@
           "dark": "#5edee3"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -189,6 +229,8 @@
           "dark": "#93f2ef"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -198,6 +240,8 @@
           "dark": "#b5fefd"
         },
         "$type": "color",
+        "$description": "Use color.data.aqua.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       }
@@ -209,6 +253,8 @@
           "dark": "#2a2b59"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -218,6 +264,8 @@
           "dark": "#303470"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -227,6 +275,8 @@
           "dark": "#374291"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -236,6 +286,8 @@
           "dark": "#3f51ae"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -245,6 +297,8 @@
           "dark": "#4e65cd"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -254,6 +308,8 @@
           "dark": "#617ae2"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -263,6 +319,8 @@
           "dark": "#7992f5"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -272,6 +330,8 @@
           "dark": "#97acff"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -281,6 +341,8 @@
           "dark": "#b7c6ff"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -290,6 +352,8 @@
           "dark": "#d2dcff"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -299,6 +363,8 @@
           "dark": "#e9ebff"
         },
         "$type": "color",
+        "$description": "Use color.data.blue.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       }
@@ -310,6 +376,8 @@
           "dark": "#541d31"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -319,6 +387,8 @@
           "dark": "#661e3a"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -328,6 +398,8 @@
           "dark": "#7c214f"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -337,6 +409,8 @@
           "dark": "#9a2e5d"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -346,6 +420,8 @@
           "dark": "#b93d71"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -355,6 +431,8 @@
           "dark": "#cf4d81"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -364,6 +442,8 @@
           "dark": "#e86e9a"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -373,6 +453,8 @@
           "dark": "#f88aaf"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -382,6 +464,8 @@
           "dark": "#fcacc5"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -391,6 +475,8 @@
           "dark": "#ffccdb"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -400,6 +486,8 @@
           "dark": "#ffe3eb"
         },
         "$type": "color",
+        "$description": "Use color.data.magenta.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       }
@@ -411,6 +499,8 @@
           "dark": "#4b2707"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.50 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -420,6 +510,8 @@
           "dark": "#5e2f05"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.100 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -429,6 +521,8 @@
           "dark": "#6f3500"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.200 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -438,6 +532,8 @@
           "dark": "#92430a"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.300 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -447,6 +543,8 @@
           "dark": "#b14f18"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.400 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -456,6 +554,8 @@
           "dark": "#c95d2e"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.500 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -465,6 +565,8 @@
           "dark": "#e07e41"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.600 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -474,6 +576,8 @@
           "dark": "#e99b60"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.700 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -483,6 +587,8 @@
           "dark": "#eebd8c"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.800 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -492,6 +598,8 @@
           "dark": "#f5d6b3"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.900 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       },
@@ -501,6 +609,8 @@
           "dark": "#fae8d1"
         },
         "$type": "color",
+        "$description": "Use color.data.orange.950 instead",
+        "deprecated": true,
         "themeable": true,
         "prefix": false
       }

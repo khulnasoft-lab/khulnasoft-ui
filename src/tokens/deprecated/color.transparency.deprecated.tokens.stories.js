@@ -1,5 +1,5 @@
-import COMPILED_TOKENS from '../../dist/tokens/json/tokens.json';
-import { createDesignTokenStory } from './common_story_options';
+import COMPILED_TOKENS from '../build/json/tokens.json';
+import { createDesignTokenStory } from '../common_story_options';
 
 export const Gray = createDesignTokenStory({ tokens: COMPILED_TOKENS['t-gray-a'] });
 
@@ -10,5 +10,5 @@ export const White = createDesignTokenStory({
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/color/transparency',
+  title: 'tokens/deprecated/color/transparency',
 };

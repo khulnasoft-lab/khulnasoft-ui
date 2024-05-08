@@ -1,5 +1,5 @@
-import COMPILED_TOKENS from '../../dist/tokens/json/tokens.dark.json';
-import { createDesignTokenStory } from './common_story_options';
+import COMPILED_TOKENS from '../build/json/tokens.json';
+import { createDesignTokenStory } from '../common_story_options';
 
 export const DataVizGreen = createDesignTokenStory({ tokens: COMPILED_TOKENS['data-viz'].green });
 
@@ -15,5 +15,5 @@ export const DataVizOrange = createDesignTokenStory({ tokens: COMPILED_TOKENS['d
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/color/data-viz/dark',
+  title: 'tokens/deprecated/color/data-viz/default',
 };

@@ -1,4 +1,4 @@
-import COMPILED_TOKENS from '../../dist/tokens/json/tokens.json';
+import COMPILED_TOKENS from './build/json/tokens.json';
 import { createDesignTokenStory } from './common_story_options';
 
 export const Default = createDesignTokenStory({
@@ -13,5 +13,5 @@ export const Default = createDesignTokenStory({
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/text/light',
+  title: 'tokens/text/default',
 };
