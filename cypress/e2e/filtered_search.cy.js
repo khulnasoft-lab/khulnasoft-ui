@@ -217,4 +217,35 @@ describe('GlFilteredSearch', () => {
       cy.get('input').should('have.value', 'author');
     });
   });
+
+  function checkA11yDefaultState() {
+    cy.visitStory('base/filtered-search');
+  }
+
+  function checkA11yWithViewOnly() {
+    cy.visitStory('base/filtered-search', {
+      story: 'view-only',
+    });
+  }
+
+  function checkA11yWithHistoryItems() {
+    cy.visitStory('base/filtered-search', {
+      story: 'with-history-items',
+    });
+  }
+
+  function checkA11yWithTermsAsTokens() {
+    cy.visitStory('base/filtered-search', {
+      story: 'with-terms-as-tokens',
+    });
+  }
+
+  it('passes axe accessibility audits', { tags: '@a11y' }, () => {
+    cy.glRunA11yTests({
+      checkA11yDefaultState,
+      checkA11yWithViewOnly,
+      checkA11yWithHistoryItems,
+      checkA11yWithTermsAsTokens,
+    });
+  });
 });
