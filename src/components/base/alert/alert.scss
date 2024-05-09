@@ -14,6 +14,10 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
   padding-inline: calc(#{$gl-spacing-scale-9} + #{$gl-alert-padding-x});
   @include gl-py-5;
 
+  @media (forced-colors: active) {
+    border: 1px solid;
+  }
+
   &-not-dismissible {
     padding-right: calc(#{$gl-spacing-scale-5} + #{$gl-alert-padding-x});
   }

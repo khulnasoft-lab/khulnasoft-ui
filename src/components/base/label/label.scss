@@ -13,6 +13,10 @@ $label-close-button: '.gl-label-close.gl-button';
   @include gl-line-height-normal;
   box-shadow: var(--label-inset-border) !important;
 
+  @media (forced-colors: active) {
+    border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
+  }
+
   &:not(.gl-label-scoped) {
     background-color: var(--label-background-color);
   }
@@ -160,6 +164,10 @@ $label-close-button: '.gl-label-close.gl-button';
 
   .gl-label-text {
     background-color: var(--label-background-color);
+
+    @media (forced-colors: active) {
+      border-right: 1px solid;
+    }
   }
 
   .gl-label-text-scoped {

@@ -13,6 +13,10 @@
   @include form-control-focus($ignore-warning: true);
   appearance: none;
 
+  @media (forced-colors: active) {
+    border: 1px solid;
+  }
+
   &:disabled,
   &:not(.form-control-plaintext):not([type='color']):read-only {
     @include gl-bg-gray-10;
