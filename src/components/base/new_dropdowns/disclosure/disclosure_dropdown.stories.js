@@ -201,7 +201,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
           <template #list-item>
             <span class="gl-display-flex gl-flex-direction-column">
               <span class="gl-font-weight-bold gl-white-space-nowrap">Orange Fox</span>
-              <span class="gl-text-gray-600">@thefox</span>
+              <span class="gl-text-subtle">@thefox</span>
             </span>
           </template>
         </gl-disclosure-dropdown-item>

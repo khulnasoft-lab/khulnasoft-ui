@@ -93,7 +93,7 @@ template. If you want to render a custom template for items, use the
       <gl-avatar :size="32" class-="gl-mr-3"/>
       <span class="gl-display-flex gl-flex-direction-column">
         <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
-        <span class="gl-text-gray-400"> {{ item.secondaryText }}</span>
+        <span class="gl-text-subtle"> {{ item.secondaryText }}</span>
       </span>
     </span>
   </template>

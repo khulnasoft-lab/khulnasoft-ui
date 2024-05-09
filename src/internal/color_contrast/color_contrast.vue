@@ -29,7 +29,7 @@ export default {
       const failClasses = contrastScore
         ? 'gl-inset-border-1-red-300 gl-text-red-300'
         : 'gl-inset-border-1-red-500 gl-text-red-500';
-      return [textClass, isFail ? failClasses : ''];
+      return [isFail ? failClasses : textClass];
     },
     contrast() {
       return getColorContrast(this.foreground, this.background);

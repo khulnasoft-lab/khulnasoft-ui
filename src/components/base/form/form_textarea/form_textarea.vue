@@ -78,7 +78,7 @@ export default {
       return this.remainingCharacterCount < 0;
     },
     characterCountTextClass() {
-      return this.isCharacterCountOverLimit ? 'gl-text-red-500' : 'gl-text-gray-500';
+      return this.isCharacterCountOverLimit ? 'gl-text-danger' : 'gl-text-subtle';
     },
     showCharacterCount() {
       return this.characterCount !== null;
@@ -138,7 +138,7 @@ export default {
       @[keypressEvent].native="handleKeyPress"
     />
     <small :class="['form-text', characterCountTextClass]" aria-hidden="true">
-      <!-- 
+      <!--
       @slot Internationalized over character count text. Example: `<template #character-count-over-limit-text="{ count }">{{ n__('%d character over limit', '%d characters over limit', count) }}</template>`
       @binding {number} count
       -->
@@ -147,7 +147,7 @@ export default {
         name="character-count-over-limit-text"
         :count="Math.abs(remainingCharacterCount)"
       ></slot>
-      <!-- 
+      <!--
       @slot Internationalized character count text. Example: `<template #character-count-text="{ count }">{{ n__('%d character remaining', '%d characters remaining', count) }}</template>`
       @binding {number} count
       -->

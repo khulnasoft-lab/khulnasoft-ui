@@ -13,6 +13,7 @@ module.exports = {
     'mixBlendMode',
     'position',
     'tableLayout',
+    'textColor',
     'userSelect',
   ],
 };

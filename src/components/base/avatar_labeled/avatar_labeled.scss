@@ -24,7 +24,7 @@
   }
 
   &-sublabel {
-    @include gl-text-gray-500;
+    color: $gl-text-color-subtle;
     overflow-wrap: anywhere;
   }
 }

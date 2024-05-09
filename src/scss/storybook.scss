@@ -1,7 +1,5 @@
 @import 'tokens';
 
-@tailwind utilities;
-
 @import 'functions';
 @import 'variables';
 
@@ -14,6 +12,8 @@
 @import 'mixins';
 @import 'utility-mixins/index';
 @import 'utilities';
+
+@tailwind utilities;
 
 @import 'fonts';
 

@@ -9,7 +9,6 @@ import logoWithWhiteText from '../static/img/_logo_with_white_text.svg';
 
 import '../src/scss/bootstrap.scss';
 import '../src/scss/storybook.scss';
-import '../src/scss/tailwind.css';
 
 let decorators = [
   (story, context) => {
