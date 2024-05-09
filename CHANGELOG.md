@@ -1,3 +1,12 @@
+## [80.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.7.0...v80.7.1) (2024-05-09)
+
+
+### Bug Fixes
+
+* **GlChartLegend:** Add additional nextTick for Vue3 pipeline ([4db605a](https://gitlab.com/gitlab-org/gitlab-ui/commit/4db605acc5678b22a059d75ab7cedf8bf50b36bb))
+* **GlChartLegend:** prevent bottom fade when not scrollable ([4df61b9](https://gitlab.com/gitlab-org/gitlab-ui/commit/4df61b933c60f3155bbc8493a636cab595141a3f))
+* **GlChartLegend:** remove console log ([5b030f7](https://gitlab.com/gitlab-org/gitlab-ui/commit/5b030f74b90e108f314a91daec0b7adc1e8e3646))
+
 # [80.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.6.1...v80.7.0) (2024-05-08)
 
 
