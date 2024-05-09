@@ -33,6 +33,15 @@ const mockSeriesInfo = [
   },
 ];
 
+const mockElementHeight = (element, clientHeight, scrollHeight) => {
+  Object.defineProperty(element, 'clientHeight', {
+    get: () => clientHeight,
+  });
+  Object.defineProperty(element, 'scrollHeight', {
+    get: () => scrollHeight,
+  });
+};
+
 describe('chart legend component', () => {
   let chartWrapper;
   let legendWrapper;
@@ -155,6 +164,23 @@ describe('chart legend component', () => {
     expect(legendWrapper.props().layout).toMatch('inline');
     expect(legendWrapper.find('.gl-legend-inline').exists()).toBe(true);
     expect(legendWrapper.find('.gl-legend-tabular').exists()).toBe(false);
+  });
+
+  it('adds a fade when content scrolls', async () => {
+    const legendInlineEl = legendWrapper.find('.gl-legend-inline').element;
+    mockElementHeight(legendInlineEl, 200, 400);
+
+    // update component to force recalculation of fade class after we mock the heights
+    legendWrapper.setProps({
+      averageText: 'averaaaaage',
+    });
+
+    // Why wait 3 ticks?
+    await legendWrapper.vm.$nextTick(); // 1. component waits a tick itself after update, before checking scrollHeight
+    await legendWrapper.vm.$nextTick(); // 2. so wait for next render, after component has applied class
+    await legendWrapper.vm.$nextTick(); // 3. ??? vue-3 pipeline fails without waiting an extra tick
+
+    expect(legendWrapper.find('.gl-legend-b-fade').exists()).toBe(true);
   });
 
   describe('when setting the layout prop to table', () => {

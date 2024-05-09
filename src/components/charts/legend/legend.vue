@@ -83,6 +83,7 @@ export default {
     return {
       disabledSeries: {},
       lastActiveSeriesLabel: null,
+      shouldApplyFadeClass: false,
     };
   },
   computed: {
@@ -98,6 +99,13 @@ export default {
   },
   created() {
     this.chart.on('legendselectchanged', this.suppressLastActiveSeriesLabelToggle);
+  },
+  mounted() {
+    this.applyFadeClass();
+  },
+  async updated() {
+    await this.$nextTick();
+    this.applyFadeClass();
   },
   beforeDestroy() {
     this.chart.off('legendselectchanged', this.suppressLastActiveSeriesLabelToggle);
@@ -163,6 +171,12 @@ export default {
     isToggleDisabled(name, isDisabled) {
       return name === this.lastActiveSeriesLabel || isDisabled;
     },
+    applyFadeClass() {
+      if (this.$refs.inlineLegendEl) {
+        const { scrollHeight, clientHeight } = this.$refs.inlineLegendEl;
+        this.shouldApplyFadeClass = scrollHeight > clientHeight;
+      }
+    },
   },
   legendLayoutTypes: {
     LEGEND_LAYOUT_INLINE,
@@ -174,7 +188,11 @@ export default {
 <template>
   <div class="gl-legend" data-testid="gl-chart-legend">
     <template v-if="layout === $options.legendLayoutTypes.LEGEND_LAYOUT_INLINE">
-      <div class="gl-legend-inline">
+      <div
+        ref="inlineLegendEl"
+        class="gl-legend-inline"
+        :class="{ 'gl-legend-b-fade': shouldApplyFadeClass }"
+      >
         <div
           v-for="(series, key) in seriesInfo"
           :key="key"
@@ -212,7 +230,7 @@ export default {
     </template>
 
     <template v-if="layout === $options.legendLayoutTypes.LEGEND_LAYOUT_TABLE">
-      <div class="gl-legend-tabular" :style="fontStyle">
+      <div class="gl-legend-tabular gl-legend-b-fade" :style="fontStyle">
         <header class="gl-legend-tabular-header">
           <div class="gl-legend-tabular-header-cell">{{ minText }}</div>
           <div class="gl-legend-tabular-header-cell">{{ maxText }}</div>
