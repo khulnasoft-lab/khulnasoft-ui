@@ -463,6 +463,6 @@ export default {
       </portal>
     </template>
 
-    <slot v-else name="view" v-bind="{ inputValue }">{{ inputValue }}</slot>
+    <slot v-else name="view" v-bind="{ label, inputValue }">{{ inputValue }}</slot>
   </div>
 </template>
