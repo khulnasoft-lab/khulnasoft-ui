@@ -1,3 +1,10 @@
+## [80.7.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.7.1...v80.7.2) (2024-05-09)
+
+
+### Bug Fixes
+
+* **DuoChat:** refactor error styles ([6f76567](https://gitlab.com/gitlab-org/gitlab-ui/commit/6f7656781c80a7919c9f38093012570f8b6a09b9))
+
 ## [80.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.7.0...v80.7.1) (2024-05-09)
 
 
