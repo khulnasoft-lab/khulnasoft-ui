@@ -1,3 +1,14 @@
+# [80.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.7.2...v80.8.0) (2024-05-09)
+
+
+### Features
+
+* **ForcedColorsMode:** Improve readability of components ([d968b6d](https://gitlab.com/gitlab-org/gitlab-ui/commit/d968b6db2ecb18eb5299ea1825d9699aacd3168d))
+* **ForcedColorsMode:** Improve readability of components ([3d918b7](https://gitlab.com/gitlab-org/gitlab-ui/commit/3d918b7965d859ca4864714f181026066c3c03fc))
+* **ForcedColorsMode:** Improve readability of components ([d00e2e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/d00e2e3470507ad127fb575a179b56834a7f78b1))
+* **ForcedColorsMode:** Improve readability of components ([65ed389](https://gitlab.com/gitlab-org/gitlab-ui/commit/65ed3898e7ce88d21b03024446024108c7beaaa1))
+* **ForcedColorsMode:** Improve readability of components ([69f82f7](https://gitlab.com/gitlab-org/gitlab-ui/commit/69f82f7adad75e43d5c0917813b9c59a61791aa1))
+
 ## [80.7.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.7.1...v80.7.2) (2024-05-09)
 
 
