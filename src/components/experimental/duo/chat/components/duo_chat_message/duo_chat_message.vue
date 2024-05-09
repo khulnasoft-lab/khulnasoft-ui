@@ -176,8 +176,9 @@ export default {
     class="gl-p-4 gl-mb-4 gl-rounded-lg gl-line-height-20 gl-word-break-word duo-chat-message"
     :class="{
       'gl-ml-auto gl-bg-blue-100 gl-text-blue-900 gl-rounded-bottom-right-none': isUserMessage,
-      'gl-rounded-bottom-left-none gl-text-gray-900 gl-bg-white gl-border-1 gl-border-solid gl-border-gray-50':
+      'gl-rounded-bottom-left-none gl-text-gray-900 gl-border-1 gl-border-solid gl-border-gray-50':
         isAssistantMessage,
+      'gl-bg-white': isAssistantMessage && !error,
       'gl-bg-red-50 gl-border-none!': error,
     }"
   >
@@ -190,7 +191,7 @@ export default {
       data-testid="error"
     />
     <div ref="content-wrapper" :class="{ 'has-error': error }">
-      <div v-if="error" ref="error-message" class="error-message">{{ error }}</div>
+      <div v-if="error" ref="error-message">{{ error }}</div>
       <div v-else>
         <div ref="content" v-safe-html:[$options.safeHtmlConfigExtension]="messageContent"></div>
 
