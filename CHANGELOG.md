@@ -1,3 +1,10 @@
+## [80.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.8.0...v80.8.1) (2024-05-10)
+
+
+### Bug Fixes
+
+* **GlDuoChat:** less specificity for code CSS ([6519f66](https://gitlab.com/gitlab-org/gitlab-ui/commit/6519f66ce0b38593578f65670838a394b4826ebf))
+
 # [80.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.7.2...v80.8.0) (2024-05-09)
 
 
