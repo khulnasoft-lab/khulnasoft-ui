@@ -4,6 +4,9 @@ const fs = require('fs');
 const prettier = require('prettier');
 const StyleDictionary = require('style-dictionary');
 const merge = require('lodash/merge');
+const { TailwindTokenFormatter } = require('./lib/tailwind_token_formatter');
+
+const { fileHeader } = StyleDictionary.formatHelpers;
 
 /**
  * Design tokens
@@ -84,11 +87,79 @@ StyleDictionary.registerTransformGroup({
 
 /**
  * File header
+ * https://amzn.github.io/style-dictionary/#/api?id=registerfileheader
  */
 StyleDictionary.registerFileHeader({
   name: 'withoutTimestamp',
   fileHeader() {
     return ['Automatically generated', 'Do not edit directly'];
+  },
+});
+
+/**
+ * Formats
+ * https://amzn.github.io/style-dictionary/#/api?id=registerformat
+ */
+StyleDictionary.registerFormat({
+  name: 'tailwind',
+  formatter: ({ dictionary, file }) => {
+    const f = new TailwindTokenFormatter(dictionary.tokens);
+    const COMPILED_TOKENS = dictionary.tokens;
+
+    const baseColors = ['blue', 'gray', 'green', 'orange', 'purple', 'red'].reduce((acc, color) => {
+      Object.entries(COMPILED_TOKENS[color]).forEach(([, token]) => {
+        acc[token.path.join('-')] = f.cssCustomPropertyWithValue(token);
+      });
+      return acc;
+    }, {});
+
+    const themeColors = Object.entries(COMPILED_TOKENS.theme).reduce((acc, [, scales]) => {
+      Object.entries(scales).forEach(([, token]) => {
+        acc[token.path.join('-')] = f.cssCustomPropertyWithValue(token);
+      });
+      return acc;
+    }, {});
+
+    const dataVizColors = Object.entries(COMPILED_TOKENS['data-viz']).reduce((acc, [, scales]) => {
+      Object.entries(scales).forEach(([, token]) => {
+        acc[token.path.join('-')] = f.cssCustomPropertyWithValue(token);
+      });
+      return acc;
+    }, {});
+
+    const textColors = Object.entries(COMPILED_TOKENS.text.color).reduce((acc, [scale, token]) => {
+      acc[scale] = f.cssCustomPropertyWithValue(token);
+      return acc;
+    }, {});
+
+    return `${fileHeader({ file })}
+    const baseColors = ${JSON.stringify(baseColors)};
+    const themeColors = ${JSON.stringify(themeColors)};
+    const dataVizColors = ${JSON.stringify(dataVizColors)};
+    const textColors = ${JSON.stringify(textColors)};
+
+    const colors = {
+      transparent: 'transparent',
+      white: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.white)}',
+      black: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.black)}',
+      ...baseColors,
+      ...themeColors,
+      ...dataVizColors,
+      };
+
+    const textColor = {
+      ...colors,
+      ...textColors,
+      primary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.primary)}',
+      secondary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.secondary)}',
+      tertiary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.tertiary)}',
+    };
+
+    module.exports = {
+      colors,
+      textColor,
+    }
+    `;
   },
 });
 
@@ -126,6 +197,7 @@ StyleDictionary.registerAction({
     // ignore clean function
   },
 });
+
 /**
  * Creates style-dictionary config
  * https://amzn.github.io/style-dictionary/#/config
@@ -178,6 +250,20 @@ const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => {
           {
             destination: 'tokens.json',
             format: 'json',
+          },
+        ],
+      },
+      tailwind: {
+        buildPath: `${buildPath}/tailwind/`,
+        transformGroup: 'js/default',
+        actions: ['prettier'],
+        options: {
+          fileHeader: 'withoutTimestamp',
+        },
+        files: [
+          {
+            destination: 'tokens.cjs',
+            format: 'tailwind',
           },
         ],
       },
