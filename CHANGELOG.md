@@ -1,3 +1,10 @@
+# [80.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.9.0...v80.10.0) (2024-05-15)
+
+
+### Features
+
+* **DesignTokens:** Create design token table Storybook story ([a7d97d1](https://gitlab.com/gitlab-org/gitlab-ui/commit/a7d97d11b6fee5e6e942f32785a1e4843ca3924b))
+
 # [80.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.8.1...v80.9.0) (2024-05-15)
 
 
