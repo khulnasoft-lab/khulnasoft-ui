@@ -1,4 +1,4 @@
-import COMPILED_TOKENS from '../../dist/tokens/json/tokens.dark.json';
+import COMPILED_TOKENS from './build/json/tokens.dark.json';
 import { createDesignTokenStory } from './common_story_options';
 
 export const Default = createDesignTokenStory({

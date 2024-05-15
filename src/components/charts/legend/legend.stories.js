@@ -6,7 +6,7 @@ import {
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
 } from '../../../utils/stories_constants';
-import { GRAY_200 } from '../../../../dist/tokens/js/tokens';
+import { GRAY_200 } from '../../../tokens/build/js/tokens';
 import readme from './legend.md';
 
 const generateOptions = (seriesLength, seriesNameType) => {

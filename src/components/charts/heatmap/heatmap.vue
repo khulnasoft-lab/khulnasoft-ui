@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import merge from 'lodash/merge';
-import { WHITE, GRAY_100 } from '../../../../dist/tokens/js/tokens';
+import { WHITE, GRAY_100 } from '../../../tokens/build/js/tokens';
 import { getTooltipTitle, getTooltipContent } from '../../../utils/charts/config';
 import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
 import { heatmapHues } from '../../../utils/charts/theme';

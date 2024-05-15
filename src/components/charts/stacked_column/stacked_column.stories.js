@@ -11,7 +11,7 @@ import {
   DATA_VIZ_AQUA_500,
   DATA_VIZ_GREEN_600,
   DATA_VIZ_MAGENTA_500,
-} from '../../../../dist/tokens/js/tokens';
+} from '../../../tokens/build/js/tokens';
 import readme from './stacked_column.md';
 
 const template = `

@@ -1,6 +1,6 @@
 <script>
 import merge from 'lodash/merge';
-import { GRAY_200 } from '../../../../dist/tokens/js/tokens';
+import { GRAY_200 } from '../../../tokens/build/js/tokens';
 import {
   defaultChartOptions,
   dataZoomAdjustments,
