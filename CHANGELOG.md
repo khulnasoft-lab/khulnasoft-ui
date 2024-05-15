@@ -1,3 +1,10 @@
+# [80.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.8.1...v80.9.0) (2024-05-15)
+
+
+### Features
+
+* generate list of tailwind color definitions statically ([6612eae](https://gitlab.com/gitlab-org/gitlab-ui/commit/6612eaee37cdb4dd0258468c9f415be28c1053f0))
+
 ## [80.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.8.0...v80.8.1) (2024-05-10)
 
 
