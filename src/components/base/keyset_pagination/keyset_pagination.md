@@ -29,10 +29,10 @@ Example:
 <gl-keyset-pagination v-bind="pageInfo" :prev-text="__('Prev')" :next-text="__('Next')" />
 ```
 
-**✅ Do** use this component for paginating GraphQL requests<sup>1</sup> (or any
+**✅ Do** use this component for paginating GraphQL requests[^1] (or any
 endpoint that uses keyset pagination).
 
-**❌ Don't** use this component for paginating REST requests<sup>1</sup> (or any
+**❌ Don't** use this component for paginating REST requests[^1] (or any
 endpoint that uses offset pagination).
 
 For offset pagination, use the [`GlPagination`
@@ -42,12 +42,7 @@ For more information on the difference between offset and keyset pagination see
 [our documentation on GraphQL
 pagination](https://docs.gitlab.com/ee/development/graphql_guide/pagination.html).
 
-<small><sup>1</sup>There's no intrinsic reason why GraphQL endpoints can't
-support offset pagination (in fact, [the official
-documentation](https://graphql.org/learn/pagination/#pagination-and-edges) shows
-an example offset pagination implementation) or why REST endpoints can't support
-keyset pagination. This is simply how we've chosen to implement our REST and
-GraphQL endpoints at GitLab.</small>
+[^1]: There's no intrinsic reason why GraphQL endpoints can't support offset pagination (in fact, [the official documentation](https://graphql.org/learn/pagination/#pagination-and-edges) shows an example offset pagination implementation) or why REST endpoints can't support keyset pagination. This is simply how we've chosen to implement our REST and GraphQL endpoints at GitLab.
 
 ## Pajamas reference
 
