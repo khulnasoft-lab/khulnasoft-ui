@@ -101,6 +101,17 @@ StyleDictionary.registerFileHeader({
  * https://amzn.github.io/style-dictionary/#/api?id=registerformat
  */
 StyleDictionary.registerFormat({
+  name: 'scss/customProperties',
+  formatter({ dictionary, file }) {
+    let output = [];
+    dictionary.allTokens.forEach((token) => {
+      output = output.concat(`$${token.name}: var(--${token.name});`);
+    });
+    return `${fileHeader({ file })}${output.join('\n')}\n`;
+  },
+});
+
+StyleDictionary.registerFormat({
   name: 'tailwind',
   formatter: ({ dictionary, file }) => {
     const f = new TailwindTokenFormatter(dictionary.tokens);
@@ -279,6 +290,10 @@ const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => {
           {
             destination: '_tokens.scss',
             format: 'scss/variables',
+          },
+          {
+            destination: '_tokens_custom_properties.scss',
+            format: 'scss/customProperties',
           },
         ],
       },
