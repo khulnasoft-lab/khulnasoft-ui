@@ -343,31 +343,3 @@ export default {
     startOpened: true,
   },
 };
-
-export const InMainWrapper = (args, { argTypes }) => ({
-  toggleId: TOGGLE_ID,
-  props: Object.keys(argTypes),
-  components: {
-    GlDisclosureDropdown,
-    GlTooltip,
-  },
-  template: `
-    <div>
-      ${template()}
-      <gl-tooltip :target="$options.toggleId" placement="right">
-        Automatic placement to stay inside &lt;main&gt; boundary
-      </gl-tooltip>
-    </div>
-  `,
-});
-InMainWrapper.args = {
-  items: mockItems,
-  icon: 'ellipsis_v',
-  noCaret: true,
-  toggleText: 'Disclosure',
-  textSrOnly: true,
-  toggleId: TOGGLE_ID,
-};
-InMainWrapper.decorators = [
-  makeContainer({ backgroundColor: '#efefef', textAlign: 'right', height: '200px' }, 'main'),
-];

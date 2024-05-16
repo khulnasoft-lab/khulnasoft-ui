@@ -9,7 +9,6 @@ import {
   dropdownVariantOptions,
 } from '../../../../utils/constants';
 import {
-  GL_DROPDOWN_HORIZONTAL_BOUNDARY_SELECTOR,
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
   GL_DROPDOWN_BEFORE_CLOSE,
@@ -21,12 +20,7 @@ import {
   POSITION_ABSOLUTE,
   POSITION_FIXED,
 } from '../constants';
-import {
-  logWarning,
-  isElementTabbable,
-  isElementFocusable,
-  getHorizontalBoundingClientRect,
-} from '../../../../utils/utils';
+import { logWarning, isElementTabbable, isElementFocusable } from '../../../../utils/utils';
 
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
@@ -276,15 +270,9 @@ export default {
         strategy: this.positioningStrategy,
         middleware: [
           offset(this.offset),
-          autoPlacement(() => {
-            const autoHorizontalBoundary = getHorizontalBoundingClientRect(
-              this.$el.closest(GL_DROPDOWN_HORIZONTAL_BOUNDARY_SELECTOR)
-            );
-            return {
-              alignment,
-              boundary: autoHorizontalBoundary || 'clippingAncestors',
-              allowedPlacements: dropdownAllowedAutoPlacements[this.placement],
-            };
+          autoPlacement({
+            alignment,
+            allowedPlacements: dropdownAllowedAutoPlacements[this.placement],
           }),
           shift(),
           size({

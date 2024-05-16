@@ -204,21 +204,3 @@ export function stopEvent(
 export function filterVisible(els) {
   return (els || []).filter((el) => isVisible(el));
 }
-
-/**
- * Given an element, returns a Rect object
- * with top and bottom boundaries removed.
- */
-export function getHorizontalBoundingClientRect(el) {
-  const rect = el?.getBoundingClientRect();
-
-  if (rect) {
-    return {
-      x: rect.x,
-      width: rect.width,
-      y: 0, // top of the document
-      height: document.documentElement.clientHeight, // bottom of the document
-    };
-  }
-  return null;
-}
