@@ -1,6 +1,6 @@
 import castArray from 'lodash/castArray';
 import merge from 'lodash/merge';
-import { BLUE_500 } from '../../../dist/tokens/js/tokens';
+import { BLUE_500 } from '../../tokens/build/js/tokens';
 import { GlBreakpointInstance } from '../breakpoints';
 import { columnOptions } from '../constants';
 import { areDatesEqual } from '../datetime_utility';

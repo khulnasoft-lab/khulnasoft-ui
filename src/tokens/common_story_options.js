@@ -1,4 +1,4 @@
-import { WHITE, GRAY_950 } from '../../dist/tokens/js/tokens';
+import { WHITE, GRAY_950 } from './build/js/tokens';
 import TokensStory from './tokens_story.vue';
 
 export const createDesignTokenStory = ({

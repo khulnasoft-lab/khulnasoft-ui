@@ -1,4 +1,4 @@
-import { BLUE_500 } from '../../../dist/tokens/js/tokens';
+import { BLUE_500 } from '../../tokens/build/js/tokens';
 import { hexToRgba } from '../utils';
 import { colorFromDefaultPalette } from './theme';
 

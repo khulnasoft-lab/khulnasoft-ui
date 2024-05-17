@@ -1,4 +1,4 @@
-import COMPILED_TOKENS from '../../dist/tokens/json/tokens.json';
+import COMPILED_TOKENS from './build/json/tokens.json';
 import { createDesignTokenStory } from './common_story_options';
 
 export const ThemeIndigo = createDesignTokenStory({ tokens: COMPILED_TOKENS.theme.indigo });

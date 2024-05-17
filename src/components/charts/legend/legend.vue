@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import * as echarts from 'echarts';
-import { GRAY_200 } from '../../../../dist/tokens/js/tokens';
+import { GRAY_200 } from '../../../tokens/build/js/tokens';
 import { defaultFontSize } from '../../../utils/charts/config';
 import {
   LEGEND_LAYOUT_INLINE,

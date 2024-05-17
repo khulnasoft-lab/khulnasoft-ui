@@ -63,7 +63,7 @@ import {
   DATA_VIZ_ORANGE_800,
   DATA_VIZ_ORANGE_950,
   DATA_VIZ_ORANGE_900,
-} from '../../../dist/tokens/js/tokens';
+} from '../../tokens/build/js/tokens';
 import { scrollHandleSvgPath } from '../svgs/svg_paths';
 import { hexToRgba } from '../utils';
 

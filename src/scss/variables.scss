@@ -1,5 +1,5 @@
 @import 'functions';
-@import '../../dist/tokens/scss/tokens';
+@import '../tokens/build/scss/tokens';
 
 // Layout
 $grid-size: px-to-rem(8px);
