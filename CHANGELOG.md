@@ -1,3 +1,10 @@
+# [80.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.10.0...v80.11.0) (2024-05-17)
+
+
+### Features
+
+* **DesignTokens:** Generate SCSS output with CSS custom property values ([3b92239](https://gitlab.com/gitlab-org/gitlab-ui/commit/3b92239aa7d916d4ee2ed64c7ef3220a5fafea08))
+
 # [80.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.9.0...v80.10.0) (2024-05-15)
 
 
