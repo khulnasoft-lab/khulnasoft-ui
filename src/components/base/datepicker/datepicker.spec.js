@@ -17,6 +17,7 @@ describe('datepicker component', () => {
   const findClearButton = (wrapper) => wrapper.find('[data-testid="clear-button"]');
   const findTriggerButton = (wrapper) => wrapper.findComponent({ ref: 'calendarTriggerBtn' });
   const findCalendarIcon = (wrapper) => wrapper.find('[data-testid="datepicker-calendar-icon"]');
+  const findTimeInput = (wrapper) => wrapper.find('[data-testid="time-input"]');
 
   const assertDefaultDates = () => {
     const { setDefaultDate, defaultDate } = pikadayConfig();
@@ -427,5 +428,93 @@ describe('datepicker component', () => {
     });
 
     expect(wrapper.classes()).toContain(expectedClass);
+  });
+
+  describe('time input', () => {
+    const dateWithTime = new Date(2021, 8, 27, 12, 34, 56);
+    const defaultDateWithTime = new Date(2021, 7, 7, 11, 20, 30);
+
+    let wrapper;
+    let timeInput;
+
+    const mountWithTimeInput = (otherProps) => {
+      wrapper = mountWithOptions({
+        shallow: false,
+        propsData: {
+          showTimeInput: true,
+          ...otherProps,
+        },
+      });
+      timeInput = findTimeInput(wrapper);
+    };
+    beforeEach(() => {
+      mountWithTimeInput();
+    });
+
+    it('renders time controls', () => {
+      expect(timeInput.exists()).toBe(true);
+      expect(timeInput.element.type).toBe('time');
+    });
+
+    it('sets the input value from the component value', () => {
+      mountWithTimeInput({ value: dateWithTime, defaultDate: defaultDateWithTime });
+
+      expect(timeInput.element.value).toBe('12:34');
+    });
+
+    it('sets the input value from the default date if value is missing', () => {
+      mountWithTimeInput({ defaultDate: defaultDateWithTime });
+
+      expect(timeInput.element.value).toBe('11:20');
+    });
+
+    it('emits input event with date and time, when time input is changed', async () => {
+      mountWithTimeInput();
+
+      Pikaday.prototype.getDate.mockReturnValue(currentDate);
+
+      const expectedDate = new Date(currentDate);
+      expectedDate.setHours(15);
+      expectedDate.setMinutes(30);
+
+      await timeInput.setValue(`${expectedDate.getHours()}:${expectedDate.getMinutes()}`);
+
+      expect(wrapper.emitted('input')[0]).toEqual([expectedDate]);
+    });
+
+    describe('showSecondsInTimeInput', () => {
+      beforeEach(() => {
+        mountWithTimeInput({ showSecondsInTimeInput: true, value: dateWithTime });
+      });
+      it('renders time controls with seconds', () => {
+        expect(timeInput.element.value).toBe('12:34:56');
+      });
+
+      it('emits input event with date and time (including seconds), when time input is changed', async () => {
+        Pikaday.prototype.getDate.mockReturnValue(currentDate);
+
+        const expectedDate = new Date(currentDate);
+        expectedDate.setHours(15);
+        expectedDate.setMinutes(30);
+        expectedDate.setSeconds(20);
+
+        await timeInput.setValue(
+          `${expectedDate.getHours()}:${expectedDate.getMinutes()}:${expectedDate.getSeconds()}`
+        );
+
+        expect(wrapper.emitted('input')[0]).toEqual([expectedDate]);
+      });
+    });
+
+    it('clears time control when clear button is pressed', async () => {
+      mountWithTimeInput({ showClearButton: true });
+
+      await findInput(wrapper).setValue('2020-01-15');
+      await findTimeInput(wrapper).setValue('12:34');
+
+      await findClearButton(wrapper).trigger('click');
+
+      expect(timeInput.element.value).toBe('');
+    });
   });
 });

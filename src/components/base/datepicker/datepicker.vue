@@ -10,6 +10,29 @@ import GlIcon from '../icon/icon.vue';
 
 export const pad = (val, len = 2) => `0${val}`.slice(-len);
 
+const formattedTimeFromDate = (date, showSecondsInTimeInput) => {
+  return [
+    pad(date?.getHours()),
+    pad(date?.getMinutes()),
+    showSecondsInTimeInput && pad(date?.getSeconds()),
+  ]
+    .filter(Boolean)
+    .join(':');
+};
+
+const addFormattedTimeToDate = (timeString, date) => {
+  const [hours, minutes, seconds] = timeString.split(':');
+  if (hours) {
+    date.setHours(parseInt(hours, 10));
+  }
+  if (minutes) {
+    date.setMinutes(parseInt(minutes, 10));
+  }
+  if (seconds) {
+    date.setSeconds(parseInt(seconds, 10));
+  }
+};
+
 /**
  * Used `onSelect` method in pickaday
  * @param {Date} date UTC format
@@ -181,10 +204,21 @@ export default {
       default: null,
       validator: (value) => Object.keys(datepickerWidthOptionsMap).includes(value),
     },
+    showTimeInput: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    showSecondsInTimeInput: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
       textInput: '',
+      timeInput: formattedTimeFromDate(this.value || this.defaultDate, this.showSecondsInTimeInput),
     };
   },
   computed: {
@@ -226,7 +260,7 @@ export default {
       if (this.width) {
         return this.width;
       }
-
+      if (this.showTimeInput) return 'lg';
       return 'md';
     },
   },
@@ -235,6 +269,9 @@ export default {
       if (!areDatesEqual(val, this.calendar.getDate())) {
         this.calendar.setDate(val, true);
       }
+    },
+    timeInput() {
+      this.selected(this.calendar.getDate());
     },
     minDate(minDate) {
       this.calendar.setMinDate(minDate);
@@ -318,8 +355,10 @@ export default {
     show() {
       this.calendar.show();
     },
-
     selected(date) {
+      if (this.showTimeInput) {
+        addFormattedTimeToDate(this.timeInput, date);
+      }
       /**
        * Emitted when a new date has been selected.
        * @property {Date} date The selected date
@@ -340,6 +379,7 @@ export default {
     },
     cleared() {
       this.textInput = '';
+      this.timeInput = '';
       /**
        * Emitted when the clear button is clicked.
        */
@@ -364,56 +404,64 @@ export default {
 
 <template>
   <div :class="datepickerClasses">
-    <div v-if="showDefaultField" class="gl-relative">
-      <!--
+    <div v-if="showDefaultField" class="gl-display-flex gl-align-items-start gl-gap-3">
+      <div class="gl-relative gl-display-flex gl-flex-grow-1">
+        <!--
       @slot (optional) Input to display and bind the datepicker to. Defaults to `<gl-form-input />`
       @binding {string} formattedDate
       -->
-      <slot :formatted-date="formattedDate">
-        <gl-form-input
-          :id="inputId"
-          v-model="textInput"
-          :name="inputName"
-          data-testid="gl-datepicker-input"
-          class="gl-w-full"
-          :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
-          :value="formattedDate"
-          :placeholder="placeholder"
-          :autocomplete="inputAutocomplete"
-          :disabled="disabled"
-          :aria-label="inputLabel"
-          @keydown.enter="onKeydown"
-        />
-      </slot>
-      <div class="gl-datepicker-actions">
-        <gl-button
-          v-if="renderClearButton"
-          data-testid="clear-button"
-          class="gl-pointer-events-auto"
-          aria-label="Clear date"
-          category="tertiary"
-          size="small"
-          icon="clear"
-          @click="cleared"
-        />
-        <span
-          v-if="triggerOnFocus || disabled"
-          data-testid="datepicker-calendar-icon"
-          class="gl-px-2"
-          :class="disabled ? 'gl-text-gray-400' : 'gl-text-gray-500'"
-        >
-          <gl-icon class="gl-display-block" name="calendar" :size="16" />
-        </span>
-        <gl-button
-          v-else
-          ref="calendarTriggerBtn"
-          class="gl-pointer-events-auto"
-          aria-label="Open datepicker"
-          category="tertiary"
-          size="small"
-          icon="calendar"
-        />
+        <slot :formatted-date="formattedDate">
+          <gl-form-input
+            :id="inputId"
+            v-model="textInput"
+            :name="inputName"
+            data-testid="gl-datepicker-input"
+            :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
+            :value="formattedDate"
+            :placeholder="placeholder"
+            :autocomplete="inputAutocomplete"
+            :disabled="disabled"
+            :aria-label="inputLabel"
+            @keydown.enter="onKeydown"
+          />
+        </slot>
+        <div class="gl-datepicker-actions">
+          <gl-button
+            v-if="renderClearButton"
+            data-testid="clear-button"
+            class="gl-pointer-events-auto"
+            aria-label="Clear date"
+            category="tertiary"
+            size="small"
+            icon="clear"
+            @click="cleared"
+          />
+          <span
+            v-if="triggerOnFocus || disabled"
+            data-testid="datepicker-calendar-icon"
+            class="gl-px-2"
+            :class="disabled ? 'gl-text-gray-400' : 'gl-text-gray-500'"
+          >
+            <gl-icon class="gl-display-block" name="calendar" :size="16" />
+          </span>
+          <gl-button
+            v-else
+            ref="calendarTriggerBtn"
+            class="gl-pointer-events-auto"
+            aria-label="Open datepicker"
+            category="tertiary"
+            size="small"
+            icon="calendar"
+          />
+        </div>
       </div>
+      <gl-form-input
+        v-if="showTimeInput"
+        v-model="timeInput"
+        data-testid="time-input"
+        class="gl-display-flex gl-align-items-center gl-justify-content-center gl-flex-basis-0 gl-py-2!"
+        type="time"
+      />
     </div>
     <slot v-else :formatted-date="formattedDate"> </slot>
   </div>

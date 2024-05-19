@@ -93,6 +93,35 @@ export const Widths = (_args, { argTypes }) => ({
 });
 Widths.args = generateProps();
 
+export const TimeInput = (_args, { argTypes }) => ({
+  ...defaults,
+  props: Object.keys(argTypes),
+  data() {
+    const date = new Date(defaultDate);
+    date.setHours(10);
+    date.setMinutes(20);
+    date.setSeconds(30);
+    return {
+      pickerValue: date,
+      pickerValueWithSeconds: date,
+    };
+  },
+
+  template: `
+    <div class="gl-display-flex gl-flex-direction-column gl-gap-3">
+      <div>
+        <p>{{ pickerValue }}</p>
+        <gl-datepicker v-model="pickerValue" showTimeInput />
+      </div>
+      <div>
+        <p>{{ pickerValueWithSeconds }}</p>
+        <gl-datepicker v-model="pickerValueWithSeconds" showTimeInput showSecondsInTimeInput />
+      </div>
+    </div>
+  `,
+});
+TimeInput.args = generateProps();
+
 export default {
   title: 'base/datepicker',
   component: GlDatepicker,
