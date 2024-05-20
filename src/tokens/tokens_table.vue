@@ -101,6 +101,17 @@ export default {
         }
       });
 
+      // Sort tokensArray so deprecated items are last
+      tokensArray.sort((a, b) => {
+        if (a.deprecated && !b.deprecated) {
+          return 1;
+        }
+        if (!a.deprecated && b.deprecated) {
+          return -1;
+        }
+        return 0;
+      });
+
       return tokensArray;
     },
   },
