@@ -1,3 +1,15 @@
+# [80.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.11.0...v80.12.0) (2024-05-20)
+
+
+### Bug Fixes
+
+* **dropdowns:** revert clipping changes ([57973f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/57973f8d76da6c2023b02d9b160e8a9dcbcd27b6))
+
+
+### Features
+
+* **DesignTokens:** add aliases for semantic text design tokens ([24a08b5](https://gitlab.com/gitlab-org/gitlab-ui/commit/24a08b50da6bd3d34fb3f8d24f84436d90d165f6))
+
 # [80.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.10.0...v80.11.0) (2024-05-17)
 
 
