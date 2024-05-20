@@ -204,14 +204,15 @@ const dataVizColors = {
   'data-viz-orange-950': 'var(--data-viz-orange-950, #4b2707)',
 };
 const textColors = {
-  default: 'var(--gl-text-color-default, #434248)',
-  subtle: 'var(--gl-text-color-subtle, #626168)',
-  strong: 'var(--gl-text-color-strong, #1f1e24)',
-  heading: 'var(--gl-text-color-heading, #1f1e24)',
-  link: 'var(--gl-text-color-link, #0b5cad)',
-  danger: 'var(--gl-text-color-danger, #c91c00)',
-  success: 'var(--gl-text-color-success, #217645)',
-  disabled: 'var(--gl-text-color-disabled, #89888d)',
+  default: 'var(--gl-text-color-default, var(--gl-color-neutral-800, #434248))',
+  subtle: 'var(--gl-text-color-subtle, var(--gl-color-neutral-600, #626168))',
+  strong: 'var(--gl-text-color-strong, var(--gl-color-neutral-950, #1f1e24))',
+  heading: 'var(--gl-text-color-heading, var(--gl-color-neutral-950, #1f1e24))',
+  link: 'var(--gl-text-color-link, var(--gl-color-blue-700, #0b5cad))',
+  danger: 'var(--gl-text-color-danger, var(--gl-color-red-600, #c91c00))',
+  success: 'var(--gl-text-color-success, var(--gl-color-green-600, #217645))',
+  disabled:
+    'var(--gl-text-color-disabled, var(--gl-color-neutral-400, #89888d))',
 };
 
 const colors = {

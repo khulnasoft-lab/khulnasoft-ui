@@ -42,6 +42,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'value/default',
   type: 'value',
+  transitive: true,
   matcher: (token) => {
     return hasDefaultAndDarkValues(token);
   },
@@ -53,6 +54,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'value/dark',
   type: 'value',
+  transitive: true,
   matcher: (token) => {
     return hasDefaultAndDarkValues(token);
   },
@@ -308,7 +310,6 @@ const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => {
  * @returns {Object} style-dictionary config
  */
 const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
-  const filter = (token) => hasDefaultAndDarkValues(token);
   return merge(getStyleDictionaryConfigDefault(buildPath), {
     platforms: {
       css: {
@@ -316,7 +317,6 @@ const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
         files: [
           {
             destination: 'tokens.dark.css',
-            filter,
             options: {
               selector: ':root.gl-dark',
             },
@@ -328,7 +328,6 @@ const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
         files: [
           {
             destination: 'tokens.dark.js',
-            filter,
           },
         ],
       },
@@ -337,7 +336,6 @@ const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
         files: [
           {
             destination: 'tokens.dark.json',
-            filter,
           },
         ],
       },
@@ -346,7 +344,6 @@ const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
         files: [
           {
             destination: '_tokens.dark.scss',
-            filter,
           },
         ],
       },

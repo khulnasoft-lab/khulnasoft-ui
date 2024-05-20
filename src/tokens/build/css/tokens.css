@@ -4,14 +4,6 @@
  */
 
 :root {
-  --gl-text-color-disabled: #89888d; /* Used for disabled text. */
-  --gl-text-color-success: #217645; /* Used for text indicating success or validity. */
-  --gl-text-color-danger: #c91c00; /* Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination. */
-  --gl-text-color-link: #0b5cad; /* Used for default text links. */
-  --gl-text-color-heading: #1f1e24; /* Used for headings level 1-6. */
-  --gl-text-color-strong: #1f1e24; /* Used for text with the highest contrast. */
-  --gl-text-color-subtle: #626168; /* Used for supplemental text that doesn't need to be as prominent as other text. */
-  --gl-text-color-default: #434248; /* Used for the default text color. */
   --gl-text-tertiary: #89888d; /* Use text.color.disabled instead */
   --gl-text-secondary: #737278; /* Use text.color.subtle instead */
   --gl-text-primary: #333238; /* Use text.color.default instead */
@@ -245,4 +237,81 @@
   --data-viz-green-200: #b0d97b;
   --data-viz-green-100: #c6ed94;
   --data-viz-green-50: #ddfab7;
+  --gl-color-red-950: #4d0a00;
+  --gl-color-red-900: #660e00;
+  --gl-color-red-800: #8d1300;
+  --gl-color-red-700: #ae1800;
+  --gl-color-red-600: #c91c00;
+  --gl-color-red-500: #dd2b0e;
+  --gl-color-red-400: #ec5941;
+  --gl-color-red-300: #f57f6c;
+  --gl-color-red-200: #fcb5aa;
+  --gl-color-red-100: #fdd4cd;
+  --gl-color-red-50: #fcf1ef;
+  --gl-color-purple-950: #232150;
+  --gl-color-purple-900: #2f2a6b;
+  --gl-color-purple-800: #453894;
+  --gl-color-purple-700: #5943b6;
+  --gl-color-purple-600: #694cc0;
+  --gl-color-purple-500: #7b58cf;
+  --gl-color-purple-400: #9475db;
+  --gl-color-purple-300: #ac93e6;
+  --gl-color-purple-200: #cbbbf2;
+  --gl-color-purple-100: #e1d8f9;
+  --gl-color-purple-50: #f4f0ff;
+  --gl-color-orange-950: #421f00;
+  --gl-color-orange-900: #5c2900;
+  --gl-color-orange-800: #703800;
+  --gl-color-orange-700: #8f4700;
+  --gl-color-orange-600: #9e5400;
+  --gl-color-orange-500: #ab6100;
+  --gl-color-orange-400: #c17d10;
+  --gl-color-orange-300: #d99530;
+  --gl-color-orange-200: #e9be74;
+  --gl-color-orange-100: #f5d9a8;
+  --gl-color-orange-50: #fdf1dd;
+  --gl-color-green-950: #072b15;
+  --gl-color-green-900: #0a4020;
+  --gl-color-green-800: #0d532a;
+  --gl-color-green-700: #24663b;
+  --gl-color-green-600: #217645;
+  --gl-color-green-500: #108548;
+  --gl-color-green-400: #2da160;
+  --gl-color-green-300: #52b87a;
+  --gl-color-green-200: #91d4a8;
+  --gl-color-green-100: #c3e6cd;
+  --gl-color-green-50: #ecf4ee;
+  --gl-color-neutral-1000: #000;
+  --gl-color-neutral-950: #1f1e24;
+  --gl-color-neutral-900: #333238;
+  --gl-color-neutral-800: #434248;
+  --gl-color-neutral-700: #535158;
+  --gl-color-neutral-600: #626168;
+  --gl-color-neutral-500: #737278;
+  --gl-color-neutral-400: #89888d;
+  --gl-color-neutral-300: #a4a3a8;
+  --gl-color-neutral-200: #bfbfc3;
+  --gl-color-neutral-100: #dcdcde;
+  --gl-color-neutral-50: #ececef;
+  --gl-color-neutral-10: #fbfafd;
+  --gl-color-neutral-0: #fff;
+  --gl-color-blue-950: #002850;
+  --gl-color-blue-900: #033464;
+  --gl-color-blue-800: #064787;
+  --gl-color-blue-700: #0b5cad;
+  --gl-color-blue-600: #1068bf;
+  --gl-color-blue-500: #1f75cb;
+  --gl-color-blue-400: #428fdc;
+  --gl-color-blue-300: #63a6e9;
+  --gl-color-blue-200: #9dc7f1;
+  --gl-color-blue-100: #cbe2f9;
+  --gl-color-blue-50: #e9f3fc;
+  --gl-text-color-disabled: var(--gl-color-neutral-400); /* Used for disabled text. */
+  --gl-text-color-success: var(--gl-color-green-600); /* Used for text indicating success or validity. */
+  --gl-text-color-danger: var(--gl-color-red-600); /* Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination. */
+  --gl-text-color-link: var(--gl-color-blue-700); /* Used for default text links. */
+  --gl-text-color-heading: var(--gl-color-neutral-950); /* Used for headings level 1-6. */
+  --gl-text-color-strong: var(--gl-color-neutral-950); /* Used for text with the highest contrast. */
+  --gl-text-color-subtle: var(--gl-color-neutral-600); /* Used for supplemental text that doesn't need to be as prominent as other text. */
+  --gl-text-color-default: var(--gl-color-neutral-800); /* Used for the default text color. */
 }
