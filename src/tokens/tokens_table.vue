@@ -130,8 +130,8 @@ export default {
       <template #cell(description)="{ item: { name, deprecated, description } }">
         <code class="gl-font-base gl-text-strong">
           {{ name }}
-          <gl-badge v-if="deprecated" size="sm" variant="neutral">Deprecated</gl-badge>
         </code>
+        <gl-badge v-if="deprecated" size="sm" variant="danger">Deprecated</gl-badge>
         <div v-if="description" class="gl-mt-3 gl-text-subtle">
           {{ description }}
         </div>
