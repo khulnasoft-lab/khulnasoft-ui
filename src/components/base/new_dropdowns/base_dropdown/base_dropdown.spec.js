@@ -100,36 +100,6 @@ describe('base dropdown', () => {
         autoUpdate.mockImplementation(jest.requireActual('@floating-ui/dom').autoUpdate);
       });
 
-      it('initializes Floating UI with a default boundary', async () => {
-        document.body.innerHTML = '<main><div></div></main>';
-
-        buildWrapper(undefined, {
-          attachTo: document.querySelector('main div'),
-        });
-        await findDefaultDropdownToggle().trigger('click');
-
-        expect(computePosition).toHaveBeenCalledWith(
-          findDefaultDropdownToggle().element,
-          findDropdownMenu().element,
-          {
-            placement: 'bottom-start',
-            strategy: 'absolute',
-            middleware: [
-              offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
-              shift(),
-            ],
-          }
-        );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: 'start',
-          boundary: { x: 0, y: 0, width: 0, height: 0 },
-          allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
-        });
-
-        document.body.innerHTML = '';
-      });
-
       it('initializes Floating UI with reference and floating elements and config for left-aligned menu', async () => {
         buildWrapper();
         await findDefaultDropdownToggle().trigger('click');
@@ -142,16 +112,14 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              autoPlacement({
+                alignment: 'start',
+                allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
+              }),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: 'start',
-          boundary: 'clippingAncestors',
-          allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
-        });
       });
 
       it('initializes Floating UI with reference and floating elements and config for center-aligned menu', async () => {
@@ -166,16 +134,14 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              autoPlacement({
+                alignment: undefined,
+                allowedPlacements: ['bottom', 'top'],
+              }),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: undefined,
-          boundary: 'clippingAncestors',
-          allowedPlacements: ['bottom', 'top'],
-        });
       });
 
       it('initializes Floating UI with reference and floating elements and config for right-aligned menu', async () => {
@@ -190,16 +156,14 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              autoPlacement({
+                alignment: 'end',
+                allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
+              }),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: 'end',
-          boundary: 'clippingAncestors',
-          allowedPlacements: ['bottom-start', 'top-start', 'bottom-end', 'top-end'],
-        });
       });
 
       it('initializes Floating UI with reference and floating elements and config for `right-start` aligned menu', async () => {
@@ -214,16 +178,14 @@ describe('base dropdown', () => {
             strategy: 'absolute',
             middleware: [
               offset({ mainAxis: DEFAULT_OFFSET }),
-              autoPlacement(expect.any(Function)),
+              autoPlacement({
+                alignment: 'start',
+                allowedPlacements: ['right-start', 'right-end', 'left-start', 'left-end'],
+              }),
               shift(),
             ],
           }
         );
-        expect(autoPlacement.mock.calls[0][0]()).toEqual({
-          alignment: 'start',
-          boundary: 'clippingAncestors',
-          allowedPlacements: ['right-start', 'right-end', 'left-start', 'left-end'],
-        });
       });
 
       it("passes custom offset to Floating UI's middleware", async () => {
@@ -240,7 +202,7 @@ describe('base dropdown', () => {
           {
             placement: 'bottom-end',
             strategy: 'absolute',
-            middleware: [offset(customOffset), autoPlacement(expect.any(Function)), shift()],
+            middleware: [offset(customOffset), autoPlacement(expect.any(Object)), shift()],
           }
         );
       });

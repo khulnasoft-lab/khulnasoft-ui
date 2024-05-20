@@ -3,7 +3,6 @@ import {
   isElementTabbable,
   focusFirstFocusableElement,
   stopEvent,
-  getHorizontalBoundingClientRect,
 } from './utils';
 
 describe('isElementFocusable', () => {
@@ -153,56 +152,5 @@ describe('stopEvent', () => {
     expect(event.preventDefault).not.toHaveBeenCalled();
     expect(event.stopPropagation).not.toHaveBeenCalled();
     expect(event.stopImmediatePropagation).toHaveBeenCalledTimes(1);
-  });
-
-  describe('getHorizontalBoundingClientRect', () => {
-    describe('when there is a reference element', () => {
-      let mainElement;
-
-      const [
-        MAIN_LEFT_BOUNDARY,
-        MAIN_WIDTH,
-        MAIN_TOP_BOUNDARY,
-        MAIN_HEIGHT,
-        DOCUMENT_TOP_BOUNDARY,
-        DOCUMENT_HEIGHT,
-      ] = [10, 20, 30, 40, 0, 50];
-
-      beforeEach(() => {
-        mainElement = document.createElement('main');
-        jest.spyOn(mainElement, 'getBoundingClientRect').mockImplementation(() => {
-          return {
-            x: MAIN_LEFT_BOUNDARY,
-            width: MAIN_WIDTH,
-            y: MAIN_TOP_BOUNDARY,
-            height: MAIN_HEIGHT,
-          };
-        });
-        Object.defineProperty(document.documentElement, 'clientHeight', {
-          get() {
-            return DOCUMENT_HEIGHT;
-          },
-        });
-      });
-
-      afterEach(() => {
-        mainElement = null;
-      });
-
-      it("returns the element's horizontal boundaries and the document's vertical boundaries", () => {
-        expect(getHorizontalBoundingClientRect(mainElement)).toEqual({
-          x: MAIN_LEFT_BOUNDARY,
-          width: MAIN_WIDTH,
-          y: DOCUMENT_TOP_BOUNDARY,
-          height: DOCUMENT_HEIGHT,
-        });
-      });
-    });
-
-    describe('when there is no reference element', () => {
-      it('returns `null`', () => {
-        expect(getHorizontalBoundingClientRect(null)).toEqual(null);
-      });
-    });
   });
 });
