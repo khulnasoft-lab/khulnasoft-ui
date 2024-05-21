@@ -7,8 +7,7 @@
       },
       "$type": "color",
       "$description": "Use text.color.default instead",
-      "deprecated": true,
-      "themeable": true
+      "deprecated": true
     },
     "secondary": {
       "$value": {
@@ -17,8 +16,7 @@
       },
       "$type": "color",
       "$description": "Use text.color.subtle instead",
-      "deprecated": true,
-      "themeable": true
+      "deprecated": true
     },
     "tertiary": {
       "$value": {
@@ -27,8 +25,7 @@
       },
       "$type": "color",
       "$description": "Use text.color.disabled instead",
-      "deprecated": true,
-      "themeable": true
+      "deprecated": true
     },
     "color": {
       "default": {
@@ -37,8 +34,7 @@
           "dark": "{color.neutral.50}"
         },
         "$type": "color",
-        "$description": "Used for the default text color.",
-        "themeable": true
+        "$description": "Used for the default text color."
       },
       "subtle": {
         "$value": {
@@ -46,8 +42,7 @@
           "dark": "{color.neutral.200}"
         },
         "$type": "color",
-        "$description": "Used for supplemental text that doesn't need to be as prominent as other text.",
-        "themeable": true
+        "$description": "Used for supplemental text that doesn't need to be as prominent as other text."
       },
       "strong": {
         "$value": {
@@ -55,8 +50,7 @@
           "dark": "{color.neutral.0}"
         },
         "$type": "color",
-        "$description": "Used for text with the highest contrast.",
-        "themeable": true
+        "$description": "Used for text with the highest contrast."
       },
       "heading": {
         "$value": {
@@ -64,8 +58,7 @@
           "dark": "{color.neutral.0}"
         },
         "$type": "color",
-        "$description": "Used for headings level 1-6.",
-        "themeable": true
+        "$description": "Used for headings level 1-6."
       },
       "link": {
         "$value": {
@@ -73,8 +66,7 @@
           "dark": "{color.blue.300}"
         },
         "$type": "color",
-        "$description": "Used for default text links.",
-        "themeable": true
+        "$description": "Used for default text links."
       },
       "danger": {
         "$value": {
@@ -82,8 +74,7 @@
           "dark": "{color.red.300}"
         },
         "$type": "color",
-        "$description": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.",
-        "themeable": true
+        "$description": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination."
       },
       "success": {
         "$value": {
@@ -91,8 +82,7 @@
           "dark": "{color.green.300}"
         },
         "$type": "color",
-        "$description": "Used for text indicating success or validity.",
-        "themeable": true
+        "$description": "Used for text indicating success or validity."
       },
       "disabled": {
         "$value": {
@@ -100,8 +90,7 @@
           "dark": "{color.neutral.400}"
         },
         "$type": "color",
-        "$description": "Used for disabled text.",
-        "themeable": true
+        "$description": "Used for disabled text."
       }
     }
   }
