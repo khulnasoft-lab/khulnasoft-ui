@@ -1,8 +1,18 @@
+import { userEvent, within, waitFor, expect } from '@storybook/test';
 import { GlModalDirective } from '../../../directives/modal';
 import GlButton from '../button/button.vue';
 import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import GlModal from './modal.vue';
 import readme from './modal.md';
+
+const play =
+  (expectFinalState = () => Promise.resolve()) =>
+  async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button');
+    await userEvent.click(button);
+    await expectFinalState();
+  };
 
 const generateTemplate = ({ props = {}, slots = {} } = {}) => {
   const extraProps = Object.entries(props)
@@ -27,7 +37,6 @@ const generateTemplate = ({ props = {}, slots = {} } = {}) => {
         :action-primary="{text: 'Okay'}"
         :action-secondary="{text: 'Discard Changes'}"
         :action-cancel="{text: 'Cancel'}"
-        :visible="$options.viewMode !== 'docs'"
         :scrollable="scrollable"
         :no-focus-on-show="noFocusOnShow"
         modal-id="test-modal-id"
@@ -74,12 +83,26 @@ const generateProps = ({
 
 export const Default = Template.bind({});
 Default.args = generateProps();
+Default.play = play(() =>
+  waitFor(() =>
+    expect(
+      within(within(document).getByRole('dialog')).getByRole('button', { name: 'Cancel' })
+    ).toHaveFocus()
+  )
+);
 
 export const WithScrollingContent = Template.bind({});
 WithScrollingContent.args = generateProps({
   contentPagraphs: 100,
   scrollable: true,
 });
+WithScrollingContent.play = play(() =>
+  waitFor(() =>
+    expect(
+      within(within(document).getByRole('dialog')).getByRole('button', { name: 'Cancel' })
+    ).toHaveFocus()
+  )
+);
 
 export const WithAHeader = (args, { argTypes, viewMode }) => ({
   components: { GlModal, GlButton },
@@ -93,6 +116,13 @@ export const WithAHeader = (args, { argTypes, viewMode }) => ({
   viewMode,
 });
 WithAHeader.args = generateProps();
+WithAHeader.play = play(() =>
+  waitFor(() =>
+    expect(
+      within(within(document).getByRole('dialog')).getByRole('button', { name: 'Cancel' })
+    ).toHaveFocus()
+  )
+);
 
 export const WithoutAFooter = (args, { argTypes, viewMode }) => ({
   components: { GlModal, GlButton },
@@ -104,11 +134,19 @@ export const WithoutAFooter = (args, { argTypes, viewMode }) => ({
   viewMode,
 });
 WithoutAFooter.args = generateProps();
+WithoutAFooter.play = play(() =>
+  waitFor(() =>
+    expect(
+      within(within(document).getByRole('dialog')).getByRole('button', { name: 'Close' })
+    ).toHaveFocus()
+  )
+);
 
 export const WithoutFocus = Template.bind({});
 WithoutFocus.args = generateProps({
   noFocusOnShow: true,
 });
+WithoutFocus.play = play();
 
 export default {
   title: 'base/modal',

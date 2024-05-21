@@ -1,3 +1,4 @@
+import { userEvent, within, waitFor, expect } from '@storybook/test';
 import GlFormGroup from '../form/form_group/form_group.vue';
 import { datepickerWidthOptionsMap } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
@@ -29,9 +30,16 @@ export const Default = (_args, { argTypes }) => ({
       pickerValue: defaultDate,
     };
   },
-  template: `<gl-datepicker :max-date="maxDate" :min-date="minDate" :start-opened="true" v-model="pickerValue" />`,
+  template: `<gl-datepicker :max-date="maxDate" :min-date="minDate" v-model="pickerValue" />`,
 });
 Default.args = generateProps();
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getByRole('button', { name: 'Open datepicker' });
+  await userEvent.click(button);
+  await waitFor(() => expect(button).toHaveFocus());
+  await waitFor(() => expect(within(canvasElement).getByRole('grid')).toBeVisible());
+};
 
 export const CustomTrigger = (_args, { argTypes }) => ({
   ...defaults,
