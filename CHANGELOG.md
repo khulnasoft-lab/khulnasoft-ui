@@ -1,3 +1,15 @@
+# [80.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.12.0...v80.13.0) (2024-05-22)
+
+
+### Bug Fixes
+
+* **DesignTokens:** fix styling of deprecated badge ([448f116](https://gitlab.com/gitlab-org/gitlab-ui/commit/448f116be0a935561a69f6d4c11436b2a1a394bc))
+
+
+### Features
+
+* **DesignTokens:** make deprecated items appear last in list ([39757f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/39757f82252e1169fd33aa320418a1dd58209b9d))
+
 # [80.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.11.0...v80.12.0) (2024-05-20)
 
 
