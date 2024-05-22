@@ -8,9 +8,11 @@ const components = {
   GlIcon,
 };
 
+const defaultValue = (prop) => GlIcon.props[prop].default;
+
 const generateProps = ({
   name = 'check-circle',
-  size = 32,
+  size = defaultValue('size'),
   ariaLabel = 'This is an icon',
 } = {}) => ({
   name,
