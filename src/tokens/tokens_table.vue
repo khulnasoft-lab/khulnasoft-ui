@@ -101,6 +101,17 @@ export default {
         }
       });
 
+      // Sort tokensArray so deprecated items are last
+      tokensArray.sort((a, b) => {
+        if (a.deprecated && !b.deprecated) {
+          return 1;
+        }
+        if (!a.deprecated && b.deprecated) {
+          return -1;
+        }
+        return 0;
+      });
+
       return tokensArray;
     },
   },
@@ -130,8 +141,8 @@ export default {
       <template #cell(description)="{ item: { name, deprecated, description } }">
         <code class="gl-font-base gl-text-strong">
           {{ name }}
-          <gl-badge v-if="deprecated" size="sm" variant="neutral">Deprecated</gl-badge>
         </code>
+        <gl-badge v-if="deprecated" size="sm" variant="danger">Deprecated</gl-badge>
         <div v-if="description" class="gl-mt-3 gl-text-subtle">
           {{ description }}
         </div>
