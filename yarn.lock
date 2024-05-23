@@ -3089,10 +3089,10 @@
     fs-extra "^11.1.0"
     read-pkg-up "^7.0.1"
 
-"@storybook/test-runner@0.18.0":
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.18.0.tgz#f87aba7f6f8183fe1751a5105318bbeb0372f9db"
-  integrity sha512-6IUQbRp78yNwAEpS8w9aIZaaNoaMV8g0r8PXCB+dooWywty9FOL1q6oDOTCUeUQKuziIPUfFX5er58UokSmlRQ==
+"@storybook/test-runner@0.18.1":
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.18.1.tgz#6f5adf53878b7fe246932042c261c37fdc72a49c"
+  integrity sha512-lNbrdruC8v2RP6r0CYdUzfjLIFP/VllajqyX73adhlj8LrJ8vNMRNNTy3e29Ah8fCSCS+1rhjYO97V5tYl25vg==
   dependencies:
     "@babel/core" "^7.22.5"
     "@babel/generator" "^7.22.5"
