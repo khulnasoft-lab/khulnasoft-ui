@@ -27,6 +27,7 @@ const play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const button = canvas.getByRole('button');
   await userEvent.click(button);
+  await waitFor(() => expect(button).toHaveFocus());
   await waitFor(() => expect(within(document).getByRole('tooltip')).toBeVisible());
 };
 
