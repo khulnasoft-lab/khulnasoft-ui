@@ -1,7 +1,7 @@
 /dist/
 /node_modules/
 /storybook/
-/tests/__image_snapshots__/__diff_output__/
+/tests/__image_snapshots__/__*
 /tests/results.json
 /scss_to_js/scss_variables.*
 .idea

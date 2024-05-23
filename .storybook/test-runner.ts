@@ -1,10 +1,19 @@
 import { TestRunnerConfig, waitForPageReady } from '@storybook/test-runner';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { getResetAnimationsCSS } from '../src/utils/test_utils';
+import { join, relative } from 'node:path';
+import { stat, copyFile, appendFile } from 'node:fs/promises';
 
 type Threshold = 'pixel' | 'percent';
 
-const customSnapshotsDir = `${process.cwd()}/tests/__image_snapshots__`;
+// @ts-ignore
+const ROOT_DIR = join(__dirname, '..');
+
+const customSnapshotsDir = join(ROOT_DIR, `/tests/__image_snapshots__`);
+const seenSnapshotsFile = join(
+  customSnapshotsDir,
+  `__seen_snapshots_${process.env.CI_NODE_INDEX ?? '0'}`
+);
 
 const defaultFailureThresholdType = 'pixel';
 const defaultFailureThreshold = 1;
@@ -27,6 +36,8 @@ const getMatchOptions = (context) => {
     failureThresholdType,
   };
 };
+
+const fileExists = async (path) => !!(await stat(path).catch((e) => false));
 
 // For now, we generate identifiers that match legacy storyshots-generated files so that Git
 // understands we are moving files, not creating new ones.
@@ -79,9 +90,22 @@ const config: TestRunnerConfig = {
     await page.waitForTimeout(500);
 
     const image = await page.screenshot();
+
+    const customSnapshotIdentifier = getSnapshotIdentified(context);
+
+    const targetFile = join(customSnapshotsDir, `${customSnapshotIdentifier}.png`);
+    if (!(await fileExists(targetFile))) {
+      await copyFile(join(`${ROOT_DIR}/tests/template.png`), targetFile);
+    }
+    await appendFile(seenSnapshotsFile, relative(ROOT_DIR, targetFile) + '\n');
+
     expect(image).toMatchImageSnapshot({
+      // Custom names for screenshots
       customSnapshotsDir,
-      customSnapshotIdentifier: getSnapshotIdentified(context),
+      customSnapshotIdentifier,
+      // Stores the "new" screenshot under customSnapshotsDir/__received_output__
+      customReceivedPostfix: '',
+      storeReceivedOnFailure: true,
       ...getMatchOptions(context),
     });
   },
