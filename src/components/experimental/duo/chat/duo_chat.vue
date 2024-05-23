@@ -380,7 +380,7 @@ export default {
       class="duo-chat-drawer-header duo-chat-drawer-header-sticky gl-z-index-200 gl-p-0! gl-border-b-0"
     >
       <div
-        class="drawer-title gl-display-flex gl-justify-content-start gl-align-items-center gl-p-5"
+        class="drawer-title gl-display-flex gl-justify-content-start gl-align-items-center gl-py-5 gl-pl-5 gl-pr-4"
       >
         <h3 class="gl-my-0 gl-font-size-h2">{{ title }}</h3>
         <gl-experiment-badge
@@ -394,7 +394,7 @@ export default {
           variant="default"
           icon="close"
           size="small"
-          class="gl-p-0! gl-ml-auto"
+          class="gl-ml-auto"
           data-testid="chat-close-button"
           :aria-label="$options.i18n.CHAT_CLOSE_LABEL"
           @click="hideChat"
