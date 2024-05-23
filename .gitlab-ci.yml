@@ -237,6 +237,7 @@ check_tokens_build:
     - .playwright
     - .yarn_install
   needs: [build_test_storybook]
+  parallel: 2
   stage: test
   script:
     - yarn test:visual
