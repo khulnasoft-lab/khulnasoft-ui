@@ -298,15 +298,32 @@ unit_tests_vue2:
 unit_tests_vue3:
   extends: [.unit_tests, .use_vue3]
 
+# Manual jobs cannot depend on failing jobs
+# So we need to introduce an intermediary job which re-exposes the artifacts
+# See also: https://gitlab.com/groups/gitlab-org/-/epics/6788
+screenshot_collector:
+  stage: manual
+  variables:
+    GIT_STRATEGY: none
+  when: always
+  script:
+    - find tests
+  needs:
+    - job: visual
+  artifacts:
+    when: always
+    paths:
+      - tests/
+
 update_screenshots:
   extends:
-    - .playwright
-    - .yarn_install
+    - .node
     - .rules:gitlab-ui-mr-manual
-  needs: []
+  when: manual
+  needs:
+    - job: screenshot_collector
   stage: manual
   script:
-    - yarn test:visual:update
     - ./bin/update-screenshots.sh
 
 pages:

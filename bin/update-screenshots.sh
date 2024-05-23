@@ -1,10 +1,6 @@
 #!/usr/bin/env sh
 
-if [ -z "${CI_MERGE_REQUEST_SOURCE_PROJECT_PATH}" ]; then
-  echo "ERROR: CI_MERGE_REQUEST_SOURCE_PROJECT_PATH is not set"
-  echo "This is supposed to run in a merge request in CI and not locally"
-  exit 1
-fi
+./bin/update_screenshots.mjs || exit 1
 
 echo "Setting commit author to GitLab Bot..."
 git config --global user.email "gitlab-bot@gitlab.com"
