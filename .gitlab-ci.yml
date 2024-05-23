@@ -145,6 +145,22 @@ populate_npm_cache:
       when: always
     - when: never
 
+.build_test_storybook:
+  extends: [.node, .yarn_install]
+  stage: pre-build
+  script:
+    - yarn storybook:build:test
+  artifacts:
+    when: always
+    paths:
+      - storybook/
+
+build_test_storybook:
+  extends: [.build_test_storybook]
+
+build_test_storybook_vue3:
+  extends: [.use_vue3, .build_test_storybook]
+
 build_package:
   extends: [.node, .yarn_install]
   variables:
@@ -220,6 +236,7 @@ check_tokens_build:
   extends:
     - .playwright
     - .yarn_install
+  needs: [build_test_storybook]
   stage: test
   script:
     - yarn test:visual
@@ -240,6 +257,7 @@ visual:
   extends: [.visual]
 
 visual_vue3:
+  needs: [build_test_storybook_vue3]
   extends: [.visual, .use_vue3]
   allow_failure: true
 
