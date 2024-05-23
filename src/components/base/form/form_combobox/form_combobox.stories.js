@@ -74,6 +74,7 @@ WithObjectValue.play = async ({ canvasElement }) => {
   await waitFor(() =>
     expect(within(document).getByRole('menuitem', { name: '1 giraffe' })).toBeVisible()
   );
+  await waitFor(() => expect(searchbox).toHaveFocus());
 };
 
 export const WithActions = (args, { argTypes }) => ({
@@ -99,6 +100,7 @@ WithActions.play = async ({ canvasElement }) => {
   await waitFor(() =>
     expect(within(document).getByRole('menuitem', { name: 'dog' })).toBeVisible()
   );
+  await waitFor(() => expect(searchbox).toHaveFocus());
 };
 
 export default {
