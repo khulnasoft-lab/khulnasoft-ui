@@ -234,6 +234,7 @@ check_tokens_build:
     when: always
     paths:
       - tests/__image_snapshots__/
+      - tests/results.json
 
 visual:
   extends: [.visual]
