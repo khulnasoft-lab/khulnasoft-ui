@@ -13,9 +13,6 @@ default:
   tags:
     - gitlab-org
 
-variables:
-  CYPRESS_CACHE_FOLDER: $CI_PROJECT_DIR/.cypress_cache/Cypress
-
 include:
   - template: Jobs/Code-Quality.gitlab-ci.yml
   - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
@@ -80,7 +77,6 @@ secret_detection:
 .cache-template: &cache-template
   paths:
     - node_modules/
-    - .cypress_cache/Cypress
   key:
     files:
       - .gitlab-ci.yml
@@ -88,6 +84,10 @@ secret_detection:
     prefix: node_modules
 
 .yarn_install:
+  variables:
+    # Per default we do not want to download cypress binaries, as this blows up the cache
+    # and makes all other jobs potentially slower, if no cache exists
+    CYPRESS_INSTALL_BINARY: 0
   before_script:
     - apt-get update
     - apt-get install -y make
@@ -272,12 +272,16 @@ visual_minimal:
 .integration_tests:
   image: cypress/browsers:node-20.5.0-chrome-114.0.5735.133-1-ff-114.0.2-edge-114.0.1823.51-1
   extends: [.node, .yarn_install]
+  variables:
+    # Allow these jobs to install cypress binaries
+    CYPRESS_INSTALL_BINARY: ""
   needs: [build_test_storybook]
   parallel:
     matrix:
       - SUITE: ['cy:a11y', 'cy:edge', 'cy:run']
   stage: test
   script:
+    - yarn cypress install --force
     - "yarn test:integration:server 'yarn run $SUITE'"
   artifacts:
     when: on_failure
