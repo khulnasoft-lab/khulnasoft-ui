@@ -18,7 +18,10 @@
     "src",
     "dist",
     "translations.json",
-    "tailwind.defaults.js"
+    "tailwind.defaults.js",
+    "!*.stories.js",
+    "!*.snap",
+    "!*.spec.{js,scss}"
   ],
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
