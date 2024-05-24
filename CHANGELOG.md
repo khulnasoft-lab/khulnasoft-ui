@@ -1,3 +1,10 @@
+## [80.13.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.13.1...v80.13.2) (2024-05-24)
+
+
+### Bug Fixes
+
+* **GlExperimentBadge:** Update language of experiment badges ([82a3335](https://gitlab.com/gitlab-org/gitlab-ui/commit/82a33353c122ac6f269856f4c7f1efe0b8b58f50))
+
 ## [80.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.13.0...v80.13.1) (2024-05-24)
 
 
