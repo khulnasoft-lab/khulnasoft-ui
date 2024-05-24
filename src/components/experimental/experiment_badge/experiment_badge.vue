@@ -9,25 +9,26 @@ import { badgeTypes, badgeTypeValidator } from './constants';
 export const i18n = {
   experiment: {
     BADGE: 'Experiment',
-    POPOVER_TITLE: "What's an Experiment?",
+    POPOVER_TITLE: "What's an experiment?",
     POPOVER_CONTENT:
-      "An %{linkStart}Experiment%{linkEnd} is a feature that's in the process of being developed. It's not production-ready. We encourage users to try Experimental features and provide feedback. An Experiment: %{bullets}",
+      'An %{linkStart}experiment%{linkEnd} is not yet production-ready, but is released for initial testing and feedback during development.\nExperiments: %{bullets}',
     POPOVER_BULLETS: [
-      'May be unstable',
-      'Has no support and might not be documented',
-      'Can be removed at any time',
+      'Might be unstable or cause data loss.',
+      'Are not supported and might not be documented.',
+      'Could be changed or removed at any time.',
+      'Are subject to the GitLab Testing Agreement.',
     ],
   },
   beta: {
     BADGE: 'Beta',
-    POPOVER_TITLE: "What's a Beta?",
+    POPOVER_TITLE: "What's a beta?",
     POPOVER_CONTENT:
-      "A %{linkStart}Beta%{linkEnd} feature is not production-ready, but is unlikely to change drastically before it's released. We encourage users to try Beta features and provide feedback.\nA Beta feature: %{bullets}",
+      "A %{linkStart}beta%{linkEnd} feature is not yet production-ready, but is ready for testing and unlikely to change significantly before it's released.\nBeta features: %{bullets}",
     POPOVER_BULLETS: [
-      'May be unstable',
-      'Should not cause data loss',
-      'Is supported by a commercially reasonable effort',
-      'Is complete or near completion',
+      'Have a low risk of data loss, but might still be unstable.',
+      'Are supported on a commercially-reasonable effort basis.',
+      'Have a near complete user experience.',
+      'Are subject to the GitLab Testing Agreement.',
     ],
   },
 };
