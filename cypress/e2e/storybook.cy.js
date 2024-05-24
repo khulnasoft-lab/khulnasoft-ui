@@ -1,6 +1,11 @@
 /**
  * This spec tests a few built-in and custom Storybook behaviors to make `@storybook/*` packages
  * upgrades smoother.
+ * We have disabled this spec as we have started running E2E tests against a test build of the
+ * Storybook. Such builds disable several features to speed things up, effectively breaking most of
+ * the tests below.
+ * If the need for these tests never arises again, we can delete this spec. Otherwise, we should
+ * find a way to run it against a full Storybook build (eg review apps).
  */
 describe('Storybook', { tags: '@storybook' }, () => {
   describe('location paths', () => {

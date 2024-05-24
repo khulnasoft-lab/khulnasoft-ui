@@ -145,6 +145,22 @@ populate_npm_cache:
       when: always
     - when: never
 
+.build_test_storybook:
+  extends: [.node, .yarn_install]
+  stage: pre-build
+  script:
+    - yarn storybook:build:test
+  artifacts:
+    when: always
+    paths:
+      - storybook/
+
+build_test_storybook:
+  extends: [.build_test_storybook]
+
+build_test_storybook_vue3:
+  extends: [.use_vue3, .build_test_storybook]
+
 build_package:
   extends: [.node, .yarn_install]
   variables:
@@ -220,6 +236,7 @@ check_tokens_build:
   extends:
     - .playwright
     - .yarn_install
+  needs: [build_test_storybook]
   stage: test
   script:
     - yarn test:visual
@@ -240,6 +257,7 @@ visual:
   extends: [.visual]
 
 visual_vue3:
+  needs: [build_test_storybook_vue3]
   extends: [.visual, .use_vue3]
   allow_failure: true
 
@@ -254,7 +272,7 @@ visual_minimal:
 .integration_tests:
   image: cypress/browsers:node-20.5.0-chrome-114.0.5735.133-1-ff-114.0.2-edge-114.0.1823.51-1
   extends: [.node, .yarn_install]
-  needs: []
+  needs: [build_test_storybook]
   parallel:
     matrix:
       - SUITE: ['cy:a11y', 'cy:edge', 'cy:run']
@@ -272,6 +290,7 @@ integration_tests:
 
 integration_tests_vue3:
   extends: [.integration_tests, .use_vue3]
+  needs: [build_test_storybook_vue3]
 
 .unit_tests:
   extends: [.node, .yarn_install]

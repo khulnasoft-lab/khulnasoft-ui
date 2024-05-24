@@ -16,7 +16,7 @@ mkdir -p "$DEST"
 apt-get update
 apt-get install -y brotli gzip
 echo "Building storybook..."
-yarn storybook-static
+yarn storybook:build:prod
 mv storybook/* "$DEST"
 # See: https://docs.gitlab.com/ee/user/project/pages/introduction.html#serving-compressed-assets
 echo "Compressing assets..."
