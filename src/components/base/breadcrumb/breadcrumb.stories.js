@@ -42,8 +42,9 @@ const defaultItems = [
   },
 ];
 
-const generateProps = ({ items = defaultItems } = {}) => ({
+const generateProps = ({ items = defaultItems, ariaLabel } = {}) => ({
   items,
+  ariaLabel,
 });
 
 const Template = (args, { argTypes }) => ({
