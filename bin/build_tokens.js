@@ -145,11 +145,20 @@ StyleDictionary.registerFormat({
       return acc;
     }, {});
 
+    const backgroundColors = Object.entries(COMPILED_TOKENS.background.color).reduce(
+      (acc, [scale, token]) => {
+        acc[scale] = f.cssCustomPropertyWithValue(token);
+        return acc;
+      },
+      {}
+    );
+
     return `${fileHeader({ file })}
     const baseColors = ${JSON.stringify(baseColors)};
     const themeColors = ${JSON.stringify(themeColors)};
     const dataVizColors = ${JSON.stringify(dataVizColors)};
     const textColors = ${JSON.stringify(textColors)};
+    const backgroundColors = ${JSON.stringify(backgroundColors)};
 
     const colors = {
       transparent: 'transparent',
@@ -159,6 +168,11 @@ StyleDictionary.registerFormat({
       ...themeColors,
       ...dataVizColors,
       };
+
+    const backgroundColor = {
+      ...colors,
+      ...backgroundColors,
+    };
 
     const textColor = {
       ...colors,
@@ -170,6 +184,7 @@ StyleDictionary.registerFormat({
 
     module.exports = {
       colors,
+      backgroundColor,
       textColor,
     }
     `;

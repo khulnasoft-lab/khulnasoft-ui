@@ -214,6 +214,16 @@ const textColors = {
   disabled:
     'var(--gl-text-color-disabled, var(--gl-color-neutral-400, #89888d))',
 };
+const backgroundColors = {
+  default:
+    'var(--gl-background-color-default, var(--gl-color-neutral-0, #fff))',
+  subtle:
+    'var(--gl-background-color-subtle, var(--gl-color-neutral-10, #fbfafd))',
+  strong:
+    'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
+  disabled:
+    'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
+};
 
 const colors = {
   transparent: 'transparent',
@@ -222,6 +232,11 @@ const colors = {
   ...baseColors,
   ...themeColors,
   ...dataVizColors,
+};
+
+const backgroundColor = {
+  ...colors,
+  ...backgroundColors,
 };
 
 const textColor = {
@@ -234,5 +249,6 @@ const textColor = {
 
 module.exports = {
   colors,
+  backgroundColor,
   textColor,
 };

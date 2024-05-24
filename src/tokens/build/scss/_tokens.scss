@@ -312,3 +312,7 @@ $gl-text-color-heading: $gl-color-neutral-950 !default; // Used for headings lev
 $gl-text-color-strong: $gl-color-neutral-950 !default; // Used for text with the highest contrast.
 $gl-text-color-subtle: $gl-color-neutral-600 !default; // Used for supplemental text that doesn't need to be as prominent as other text.
 $gl-text-color-default: $gl-color-neutral-800 !default; // Used for the default text color.
+$gl-background-color-disabled: $gl-color-neutral-10; // Used to identify a disabled section.
+$gl-background-color-strong: $gl-color-neutral-50; // Used to make the background easily stand out from the default.
+$gl-background-color-subtle: $gl-color-neutral-10; // Used to slightly differentiate the background from the default.
+$gl-background-color-default: $gl-color-neutral-0; // Used for the default background color.
