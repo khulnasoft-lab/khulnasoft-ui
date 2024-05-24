@@ -31,7 +31,7 @@
     "clean": "rm -r dist storybook src/scss/utilities.scss",
     "cy:a11y": "cypress run --browser chrome --env grepTags=@a11y",
     "cy:edge": "cypress run --browser edge --env grepTags=-@a11y+-@storybook",
-    "cy:run": "cypress run --browser firefox --env grepTags=-@a11y",
+    "cy:run": "cypress run --browser firefox --env grepTags=-@a11y+-@storybook",
     "start": "yarn storybook",
     "storybook": "yarn storybook:prepare && storybook dev --ci --host ${STORYBOOK_HOST:-localhost} --port 9001 -c .storybook",
     "storybook-vue3": "yarn storybook:prepare && VUE_VERSION=3 storybook dev --ci --host ${STORYBOOK_HOST:-localhost} --port 9001 -c .storybook",
