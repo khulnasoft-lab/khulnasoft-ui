@@ -237,8 +237,9 @@ export default {
     },
     value: {
       handler(newValue, oldValue) {
-        if (newValue.length && !isEqual(newValue, oldValue)) {
-          this.applyNewValue(cloneDeep(newValue));
+        if (!isEqual(newValue, oldValue)) {
+          const value = newValue.length ? newValue : initialState();
+          this.applyNewValue(cloneDeep(value));
         }
       },
       deep: true,
