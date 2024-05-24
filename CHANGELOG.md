@@ -1,3 +1,10 @@
+## [80.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.13.0...v80.13.1) (2024-05-24)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** set initial state when value is updated to empty array ([19eb8fa](https://gitlab.com/gitlab-org/gitlab-ui/commit/19eb8fa4fe075597a6b938d1f8f019ae9a10e70b))
+
 # [80.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.12.0...v80.13.0) (2024-05-22)
 
 
