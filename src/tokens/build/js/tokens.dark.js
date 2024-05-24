@@ -3,6 +3,10 @@
  * Do not edit directly
  */
 
+export const GL_BACKGROUND_COLOR_DEFAULT = '#1f1e24'; // Used for the default background color.
+export const GL_BACKGROUND_COLOR_SUBTLE = '#333238'; // Used to slightly differentiate the background from the default.
+export const GL_BACKGROUND_COLOR_STRONG = '#434248'; // Used to make the background easily stand out from the default.
+export const GL_BACKGROUND_COLOR_DISABLED = '#333238'; // Used to identify a disabled section.
 export const GL_COLOR_BLUE_50 = '#e9f3fc';
 export const GL_COLOR_BLUE_100 = '#cbe2f9';
 export const GL_COLOR_BLUE_200 = '#9dc7f1';

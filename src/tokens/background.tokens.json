@@ -1,0 +1,38 @@
+{
+  "background": {
+    "color": {
+      "default": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.950}"
+        },
+        "$type": "color",
+        "$description": "Used for the default background color."
+      },
+      "subtle": {
+        "$value": {
+          "default": "{color.neutral.10}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used to slightly differentiate the background from the default."
+      },
+      "strong": {
+        "$value": {
+          "default": "{color.neutral.50}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used to make the background easily stand out from the default."
+      },
+      "disabled": {
+        "$value": {
+          "default": "{color.neutral.10}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used to identify a disabled section."
+      }
+    }
+  }
+}
