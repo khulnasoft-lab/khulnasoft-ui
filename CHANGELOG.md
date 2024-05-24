@@ -1,3 +1,11 @@
+# [80.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.13.2...v80.14.0) (2024-05-24)
+
+
+### Features
+
+* **DesignTokens:** add background design tokens ([c98ff85](https://gitlab.com/gitlab-org/gitlab-ui/commit/c98ff85d8f022677677757412bc3c0f322bc85e6))
+* **Tailwind:** add background design tokens to tailwind classes ([c78d656](https://gitlab.com/gitlab-org/gitlab-ui/commit/c78d656fbc565fa238f24b2dd57c74d82eb830cd))
+
 ## [80.13.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.13.1...v80.13.2) (2024-05-24)
 
 
