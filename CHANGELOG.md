@@ -1,3 +1,10 @@
+## [80.14.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.14.0...v80.14.1) (2024-05-27)
+
+
+### Bug Fixes
+
+* **GlTruncate:** Fix Tailwind class name collision ([74a698d](https://gitlab.com/gitlab-org/gitlab-ui/commit/74a698dbf4e8f985e5bb117db42931950939e24f))
+
 # [80.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.13.2...v80.14.0) (2024-05-24)
 
 
