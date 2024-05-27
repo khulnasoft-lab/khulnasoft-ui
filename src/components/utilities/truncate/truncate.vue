@@ -79,7 +79,7 @@ export default {
     v-if="position === $options.POSITION.START"
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
-    class="gl-truncate"
+    class="gl-truncate-component"
     :title="text"
   >
     <span ref="text" class="gl-truncate-start gl-text-overflow-ellipsis!"
@@ -91,7 +91,7 @@ export default {
     v-else-if="position === $options.POSITION.MIDDLE"
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
-    class="gl-truncate"
+    class="gl-truncate-component"
     :title="text"
   >
     <span ref="text" class="gl-truncate-end">{{ first }}</span
@@ -102,7 +102,7 @@ export default {
     v-else
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
-    class="gl-truncate"
+    class="gl-truncate-component"
     data-testid="truncate-end-container"
     :title="text"
   >

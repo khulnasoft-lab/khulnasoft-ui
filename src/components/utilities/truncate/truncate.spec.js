@@ -36,7 +36,7 @@ describe('Truncate component', () => {
         createComponent({ position });
         const element = wrapper.find('span');
         expect(element.attributes('title')).toBe(defaultProps.text);
-        expect(element.attributes('class')).toBe('gl-truncate');
+        expect(element.attributes('class')).toBe('gl-truncate-component');
         expect(removeSpecialChar(wrapper.text())).toBe(defaultProps.text);
       }
     );
@@ -46,9 +46,9 @@ describe('Truncate component', () => {
     });
 
     it('disables the tooltip by default', () => {
-      expect(getBinding(wrapper.find('.gl-truncate').element, 'gl-tooltip').value.disabled).toBe(
-        true
-      );
+      expect(
+        getBinding(wrapper.find('.gl-truncate-component').element, 'gl-tooltip').value.disabled
+      ).toBe(true);
     });
   });
 
@@ -62,7 +62,7 @@ describe('Truncate component', () => {
     });
 
     it('should have the special char surrounded', () => {
-      const spanTag = wrapper.findAll('.gl-truncate span').at(0).text();
+      const spanTag = wrapper.findAll('.gl-truncate-component span').at(0).text();
 
       expect(spanTag.charAt(0)).toBe('\u200E');
       expect(spanTag.charAt(spanTag.length - 1)).toBe('\u200E');
@@ -75,8 +75,8 @@ describe('Truncate component', () => {
 
     beforeEach(() => {
       createComponent({ position: 'middle' });
-      firstSpan = wrapper.findAll('.gl-truncate span').at(0);
-      secondSpan = wrapper.findAll('.gl-truncate span').at(1);
+      firstSpan = wrapper.findAll('.gl-truncate-component span').at(0);
+      secondSpan = wrapper.findAll('.gl-truncate-component span').at(1);
     });
 
     it('should have appropriate classes applied', () => {
