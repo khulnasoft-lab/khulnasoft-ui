@@ -3,6 +3,7 @@ import { GlTooltipDirective } from '../../../directives/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils/datetime_utility';
 import GlDatepicker from '../datepicker/datepicker.vue';
 import GlIcon from '../icon/icon.vue';
+import { datepickerWidthOptionsMap } from '../../../utils/constants';
 
 const CONTAINER_CLASSES = [
   'gl-display-flex',
@@ -132,6 +133,15 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    /**
+     * Maximum width of the Datepicker
+     */
+    width: {
+      type: String,
+      required: false,
+      default: null,
+      validator: (value) => Object.keys(datepickerWidthOptionsMap).includes(value),
     },
   },
   data() {
@@ -267,6 +277,7 @@ export default {
         :target="startPickerTarget"
         :container="startPickerContainer"
         :start-opened="startOpened"
+        :width="width"
         @input="onStartDateSelected"
         @open="onStartPickerOpen"
         @close="onStartPickerClose"
@@ -287,6 +298,7 @@ export default {
         :container="endPickerContainer"
         :start-opened="openToCalendar"
         :default-date="toCalendarDefaultDate"
+        :width="width"
         @input="onEndDateSelected"
         @open="onEndPickerOpen"
         @close="onEndPickerClose"
