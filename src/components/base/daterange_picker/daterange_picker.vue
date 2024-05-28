@@ -281,7 +281,11 @@ export default {
         @input="onStartDateSelected"
         @open="onStartPickerOpen"
         @close="onStartPickerClose"
-      />
+      >
+        <template #after>
+          <slot name="after-start"></slot>
+        </template>
+      </gl-datepicker>
     </div>
     <div :class="endContainerClasses" data-testid="daterange-picker-end-container">
       <label :class="labelClass">{{ toLabel }}</label>
@@ -302,7 +306,11 @@ export default {
         @input="onEndDateSelected"
         @open="onEndPickerOpen"
         @close="onEndPickerClose"
-      />
+      >
+        <template #after>
+          <slot name="after-end"></slot>
+        </template>
+      </gl-datepicker>
     </div>
     <div
       v-if="showIndicator"
