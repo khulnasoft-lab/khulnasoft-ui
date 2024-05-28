@@ -11,7 +11,7 @@ export const i18n = {
     BADGE: 'Experiment',
     POPOVER_TITLE: "What's an experiment?",
     POPOVER_CONTENT:
-      'An %{linkStart}experiment%{linkEnd} is not yet production-ready, but is released for initial testing and feedback during development.\nExperiments: %{bullets}',
+      'An %{linkStart}experiment%{linkEnd} is not yet production-ready, but is released for initial testing and feedback during development.%{line-breakStart}Experiments:%{line-breakEnd} %{bullets}',
     POPOVER_BULLETS: [
       'Might be unstable or cause data loss.',
       'Are not supported and might not be documented.',
@@ -23,7 +23,7 @@ export const i18n = {
     BADGE: 'Beta',
     POPOVER_TITLE: "What's a beta?",
     POPOVER_CONTENT:
-      "A %{linkStart}beta%{linkEnd} feature is not yet production-ready, but is ready for testing and unlikely to change significantly before it's released.\nBeta features: %{bullets}",
+      "A %{linkStart}beta%{linkEnd} feature is not yet production-ready, but is ready for testing and unlikely to change significantly before it's released.%{line-breakStart}Beta features:%{line-breakEnd} %{bullets}",
     POPOVER_BULLETS: [
       'Have a low risk of data loss, but might still be unstable.',
       'Are supported on a commercially-reasonable effort basis.',
@@ -103,6 +103,9 @@ export default {
               {{ item }}
             </li>
           </ul>
+        </template>
+        <template #line-break="{ content }">
+          <span class="gl-mt-5 gl-mb-0 gl-display-block">{{ content }}</span>
         </template>
       </gl-sprintf>
     </gl-popover>
