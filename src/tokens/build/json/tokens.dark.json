@@ -6669,7 +6669,6 @@
       "$type": "color",
       "comment": "Use text.color.default instead",
       "deprecated": true,
-      "themeable": true,
       "filePath": "src/tokens/text.tokens.json",
       "isSource": true,
       "original": {
@@ -6679,8 +6678,7 @@
         },
         "$type": "color",
         "comment": "Use text.color.default instead",
-        "deprecated": true,
-        "themeable": true
+        "deprecated": true
       },
       "name": "TEXT_PRIMARY",
       "attributes": {},
@@ -6694,7 +6692,6 @@
       "$type": "color",
       "comment": "Use text.color.subtle instead",
       "deprecated": true,
-      "themeable": true,
       "filePath": "src/tokens/text.tokens.json",
       "isSource": true,
       "original": {
@@ -6704,8 +6701,7 @@
         },
         "$type": "color",
         "comment": "Use text.color.subtle instead",
-        "deprecated": true,
-        "themeable": true
+        "deprecated": true
       },
       "name": "TEXT_SECONDARY",
       "attributes": {},
@@ -6719,7 +6715,6 @@
       "$type": "color",
       "comment": "Use text.color.disabled instead",
       "deprecated": true,
-      "themeable": true,
       "filePath": "src/tokens/text.tokens.json",
       "isSource": true,
       "original": {
@@ -6729,8 +6724,7 @@
         },
         "$type": "color",
         "comment": "Use text.color.disabled instead",
-        "deprecated": true,
-        "themeable": true
+        "deprecated": true
       },
       "name": "TEXT_TERTIARY",
       "attributes": {},
@@ -6744,7 +6738,6 @@
         "value": "#ececef",
         "$type": "color",
         "comment": "Used for the default text color.",
-        "themeable": true,
         "filePath": "src/tokens/text.tokens.json",
         "isSource": true,
         "original": {
@@ -6753,8 +6746,7 @@
             "dark": "{color.neutral.50}"
           },
           "$type": "color",
-          "comment": "Used for the default text color.",
-          "themeable": true
+          "comment": "Used for the default text color."
         },
         "name": "TEXT_COLOR_DEFAULT",
         "attributes": {},
@@ -6768,7 +6760,6 @@
         "value": "#bfbfc3",
         "$type": "color",
         "comment": "Used for supplemental text that doesn't need to be as prominent as other text.",
-        "themeable": true,
         "filePath": "src/tokens/text.tokens.json",
         "isSource": true,
         "original": {
@@ -6777,8 +6768,7 @@
             "dark": "{color.neutral.200}"
           },
           "$type": "color",
-          "comment": "Used for supplemental text that doesn't need to be as prominent as other text.",
-          "themeable": true
+          "comment": "Used for supplemental text that doesn't need to be as prominent as other text."
         },
         "name": "TEXT_COLOR_SUBTLE",
         "attributes": {},
@@ -6792,7 +6782,6 @@
         "value": "#fff",
         "$type": "color",
         "comment": "Used for text with the highest contrast.",
-        "themeable": true,
         "filePath": "src/tokens/text.tokens.json",
         "isSource": true,
         "original": {
@@ -6801,8 +6790,7 @@
             "dark": "{color.neutral.0}"
           },
           "$type": "color",
-          "comment": "Used for text with the highest contrast.",
-          "themeable": true
+          "comment": "Used for text with the highest contrast."
         },
         "name": "TEXT_COLOR_STRONG",
         "attributes": {},
@@ -6816,7 +6804,6 @@
         "value": "#fff",
         "$type": "color",
         "comment": "Used for headings level 1-6.",
-        "themeable": true,
         "filePath": "src/tokens/text.tokens.json",
         "isSource": true,
         "original": {
@@ -6825,8 +6812,7 @@
             "dark": "{color.neutral.0}"
           },
           "$type": "color",
-          "comment": "Used for headings level 1-6.",
-          "themeable": true
+          "comment": "Used for headings level 1-6."
         },
         "name": "TEXT_COLOR_HEADING",
         "attributes": {},
@@ -6840,7 +6826,6 @@
         "value": "#63a6e9",
         "$type": "color",
         "comment": "Used for default text links.",
-        "themeable": true,
         "filePath": "src/tokens/text.tokens.json",
         "isSource": true,
         "original": {
@@ -6849,8 +6834,7 @@
             "dark": "{color.blue.300}"
           },
           "$type": "color",
-          "comment": "Used for default text links.",
-          "themeable": true
+          "comment": "Used for default text links."
         },
         "name": "TEXT_COLOR_LINK",
         "attributes": {},
@@ -6864,7 +6848,6 @@
         "value": "#f57f6c",
         "$type": "color",
         "comment": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.",
-        "themeable": true,
         "filePath": "src/tokens/text.tokens.json",
         "isSource": true,
         "original": {
@@ -6873,8 +6856,7 @@
             "dark": "{color.red.300}"
           },
           "$type": "color",
-          "comment": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.",
-          "themeable": true
+          "comment": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination."
         },
         "name": "TEXT_COLOR_DANGER",
         "attributes": {},
@@ -6888,7 +6870,6 @@
         "value": "#52b87a",
         "$type": "color",
         "comment": "Used for text indicating success or validity.",
-        "themeable": true,
         "filePath": "src/tokens/text.tokens.json",
         "isSource": true,
         "original": {
@@ -6897,8 +6878,7 @@
             "dark": "{color.green.300}"
           },
           "$type": "color",
-          "comment": "Used for text indicating success or validity.",
-          "themeable": true
+          "comment": "Used for text indicating success or validity."
         },
         "name": "TEXT_COLOR_SUCCESS",
         "attributes": {},
@@ -6912,7 +6892,6 @@
         "value": "#89888d",
         "$type": "color",
         "comment": "Used for disabled text.",
-        "themeable": true,
         "filePath": "src/tokens/text.tokens.json",
         "isSource": true,
         "original": {
@@ -6921,8 +6900,7 @@
             "dark": "{color.neutral.400}"
           },
           "$type": "color",
-          "comment": "Used for disabled text.",
-          "themeable": true
+          "comment": "Used for disabled text."
         },
         "name": "TEXT_COLOR_DISABLED",
         "attributes": {},
