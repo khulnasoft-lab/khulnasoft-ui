@@ -364,56 +364,58 @@ export default {
 
 <template>
   <div :class="datepickerClasses">
-    <div v-if="showDefaultField" class="gl-relative">
-      <!--
+    <div v-if="showDefaultField" class="gl-display-flex gl-align-items-start gl-gap-3">
+      <div class="gl-relative gl-display-flex gl-flex-grow-1">
+        <!--
       @slot (optional) Input to display and bind the datepicker to. Defaults to `<gl-form-input />`
       @binding {string} formattedDate
       -->
-      <slot :formatted-date="formattedDate">
-        <gl-form-input
-          :id="inputId"
-          v-model="textInput"
-          :name="inputName"
-          data-testid="gl-datepicker-input"
-          class="gl-w-full"
-          :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
-          :value="formattedDate"
-          :placeholder="placeholder"
-          :autocomplete="inputAutocomplete"
-          :disabled="disabled"
-          :aria-label="inputLabel"
-          @keydown.enter="onKeydown"
-        />
-      </slot>
-      <div class="gl-datepicker-actions">
-        <gl-button
-          v-if="renderClearButton"
-          data-testid="clear-button"
-          class="gl-pointer-events-auto"
-          aria-label="Clear date"
-          category="tertiary"
-          size="small"
-          icon="clear"
-          @click="cleared"
-        />
-        <span
-          v-if="triggerOnFocus || disabled"
-          data-testid="datepicker-calendar-icon"
-          class="gl-px-2"
-          :class="disabled ? 'gl-text-gray-400' : 'gl-text-gray-500'"
-        >
-          <gl-icon class="gl-display-block" name="calendar" :size="16" />
-        </span>
-        <gl-button
-          v-else
-          ref="calendarTriggerBtn"
-          class="gl-pointer-events-auto"
-          aria-label="Open datepicker"
-          category="tertiary"
-          size="small"
-          icon="calendar"
-        />
+        <slot :formatted-date="formattedDate">
+          <gl-form-input
+            :id="inputId"
+            v-model="textInput"
+            :name="inputName"
+            data-testid="gl-datepicker-input"
+            :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
+            :value="formattedDate"
+            :placeholder="placeholder"
+            :autocomplete="inputAutocomplete"
+            :disabled="disabled"
+            :aria-label="inputLabel"
+            @keydown.enter="onKeydown"
+          />
+        </slot>
+        <div class="gl-datepicker-actions">
+          <gl-button
+            v-if="renderClearButton"
+            data-testid="clear-button"
+            class="gl-pointer-events-auto"
+            aria-label="Clear date"
+            category="tertiary"
+            size="small"
+            icon="clear"
+            @click="cleared"
+          />
+          <span
+            v-if="triggerOnFocus || disabled"
+            data-testid="datepicker-calendar-icon"
+            class="gl-px-2"
+            :class="disabled ? 'gl-text-gray-400' : 'gl-text-gray-500'"
+          >
+            <gl-icon class="gl-display-block" name="calendar" :size="16" />
+          </span>
+          <gl-button
+            v-else
+            ref="calendarTriggerBtn"
+            class="gl-pointer-events-auto"
+            aria-label="Open datepicker"
+            category="tertiary"
+            size="small"
+            icon="calendar"
+          />
+        </div>
       </div>
+      <slot name="after"></slot>
     </div>
     <slot v-else :formatted-date="formattedDate"> </slot>
   </div>
