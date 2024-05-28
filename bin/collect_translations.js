@@ -1,43 +1,79 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const path = require('path');
 const { glob } = require('glob');
 const prettier = require('prettier');
+const acorn = require('acorn');
+const walk = require('acorn-walk');
 const sortBy = require('lodash/sortBy');
+
+const isTranslationHelperCall = (node) => node.callee.name === 'translate';
+
+const walkTranslationHelperCalls = (ast, handler) => {
+  walk.simple(ast, {
+    CallExpression(node) {
+      if (isTranslationHelperCall(node)) {
+        handler(node);
+      }
+    },
+  });
+};
+
+const getJavascript = (file) => {
+  const content = fs.readFileSync(file).toString();
+  if (file.endsWith('.vue')) {
+    const match = content.match(/<script>([\s\S]*)<\/script>/);
+    return match?.[1] ?? '';
+  }
+  return content;
+};
 
 const getFilesToParse = async () => {
   return glob('./src/**/*.{js,vue}', {
     nodir: true,
     ignore: {
-      ignored: (p) => /\.(stories|spec)\.js$/.test(p.name),
+      childrenIgnored: ({ name }) => name === 'vendor',
+      ignored: ({ name }) => name.endsWith('stories.js') || name.endsWith('spec.js'),
     },
   });
 };
 
-const getFindings = (files) => {
-  return files.reduce((findings, file) => {
-    const content = fs.readFileSync(file).toString();
-    const matches = [...content.matchAll(/translate\('(.*)', '(.*)'\)/g)];
-    if (matches.length) {
-      matches.forEach((match) => {
-        const [, translationKey, defaultTranslation] = match;
-        findings.push([translationKey, defaultTranslation]);
-      });
-    }
+const buildTranslationsObject = (files) => {
+  const unsortedLines = files.reduce((findings, file) => {
+    const javascript = getJavascript(file);
+
+    walkTranslationHelperCalls(
+      acorn.parse(javascript, { ecmaVersion: 'latest', sourceType: 'module' }),
+      (node) => {
+        const translationKey = node.arguments[0].value;
+        const defaultTranslation = javascript.slice(node.arguments[1].start, node.arguments[1].end);
+
+        // eslint-disable-next-line no-console
+        console.warn(
+          `Found translation key '${translationKey}' in ${path.relative(process.cwd(), file)}`
+        );
+
+        findings.push(`'${translationKey}': ${defaultTranslation},`);
+      }
+    );
+
     return findings;
   }, []);
-};
 
-const buildObject = (findings) => {
-  const translations = Object.fromEntries(sortBy(findings, (finding) => finding[0]));
-  return prettier.format(JSON.stringify(translations), { parser: 'json' });
+  const lines = sortBy(unsortedLines);
+  lines.unshift('/* eslint-disable import/no-default-export */', 'export default {');
+  lines.push('}');
+
+  return lines.join('\n');
 };
 
 const main = async () => {
   const filesToParse = await getFilesToParse();
-  const findings = await getFindings(filesToParse);
-  const translations = buildObject(findings);
-  fs.writeFileSync(`./translations.json`, translations);
+  const output = await buildTranslationsObject(filesToParse);
+  const options = await prettier.resolveConfig(path.join(__dirname, '../.prettierrc'));
+  const formattedOutput = prettier.format(output, { ...options, parser: 'babel' });
+  process.stdout.write(formattedOutput);
 };
 
 main();

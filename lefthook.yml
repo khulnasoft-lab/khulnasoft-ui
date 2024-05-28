@@ -21,7 +21,7 @@ pre-commit:
     generate_translations:
       files: git diff --name-only --staged
       glob: "*.{js,vue}"
-      run: node ./bin/collect_translations.js && git add ./translations.json
+      run: yarn translations:collect && git add ./translations.js
     build_tokens:
       files: git diff --name-only --staged
       glob: '*.tokens.json'

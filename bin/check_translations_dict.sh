@@ -1,9 +1,9 @@
 #!/bin/bash
 
-./bin/collect_translations.js
-git diff --exit-code ./translations.json
+yarn translations:collect
+git diff --exit-code ./translations.js
 if [ $? -ne 0 ]; then
-  echo "Translatable labels dictionary is outdated. Please run \`./bin/collect_translations.js\` and commit the changes"
+  echo "Translatable labels dictionary is outdated. Please run \`yarn translations:collect\` and commit the changes"
   exit 1
 else
   echo "Translatable labels dictionary is up-to-date."
