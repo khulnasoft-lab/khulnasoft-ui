@@ -1,3 +1,12 @@
+# [80.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.14.1...v80.15.0) (2024-05-29)
+
+
+### Features
+
+* **GlDatePicker:** Add #after slot ([719c43e](https://gitlab.com/gitlab-org/gitlab-ui/commit/719c43e5a6299aa63a53c6b202ac2c5b8334812c))
+* **GlDaterangePicker:** Add #after-start and #after-end slots ([554d0b3](https://gitlab.com/gitlab-org/gitlab-ui/commit/554d0b335af1b96c8325d2f121266ea0df19f75c))
+* **GlDaterangePicker:** Add width prop ([d55e8d0](https://gitlab.com/gitlab-org/gitlab-ui/commit/d55e8d0f8d7e0de629e0e8ffec4f05751aab0190))
+
 ## [80.14.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.14.0...v80.14.1) (2024-05-27)
 
 
