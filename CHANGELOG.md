@@ -1,3 +1,10 @@
+## [80.15.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.15.1...v80.15.2) (2024-05-29)
+
+
+### Bug Fixes
+
+* **GlExperimentBadge:** correct line-break in the text ([b55a2f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/b55a2f8968319edd6283c2e984bae9882f4c1431))
+
 ## [80.15.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.15.0...v80.15.1) (2024-05-29)
 
 
