@@ -3,6 +3,7 @@ import { GlTooltipDirective } from '../../../directives/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils/datetime_utility';
 import GlDatepicker from '../datepicker/datepicker.vue';
 import GlIcon from '../icon/icon.vue';
+import { datepickerWidthOptionsMap } from '../../../utils/constants';
 
 const CONTAINER_CLASSES = [
   'gl-display-flex',
@@ -132,6 +133,15 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    /**
+     * Maximum width of the Datepicker
+     */
+    width: {
+      type: String,
+      required: false,
+      default: null,
+      validator: (value) => Object.keys(datepickerWidthOptionsMap).includes(value),
     },
   },
   data() {
@@ -267,10 +277,15 @@ export default {
         :target="startPickerTarget"
         :container="startPickerContainer"
         :start-opened="startOpened"
+        :width="width"
         @input="onStartDateSelected"
         @open="onStartPickerOpen"
         @close="onStartPickerClose"
-      />
+      >
+        <template #after>
+          <slot name="after-start"></slot>
+        </template>
+      </gl-datepicker>
     </div>
     <div :class="endContainerClasses" data-testid="daterange-picker-end-container">
       <label :class="labelClass">{{ toLabel }}</label>
@@ -287,10 +302,15 @@ export default {
         :container="endPickerContainer"
         :start-opened="openToCalendar"
         :default-date="toCalendarDefaultDate"
+        :width="width"
         @input="onEndDateSelected"
         @open="onEndPickerOpen"
         @close="onEndPickerClose"
-      />
+      >
+        <template #after>
+          <slot name="after-end"></slot>
+        </template>
+      </gl-datepicker>
     </div>
     <div
       v-if="showIndicator"
