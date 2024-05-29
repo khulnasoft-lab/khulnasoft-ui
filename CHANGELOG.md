@@ -1,3 +1,10 @@
+## [80.15.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.15.0...v80.15.1) (2024-05-29)
+
+
+### Bug Fixes
+
+* **Tailwind:** restore inherit and current color classes ([3800ad2](https://gitlab.com/gitlab-org/gitlab-ui/commit/3800ad2763b53cc31ea44f6b36ca8da3c21a8e71))
+
 # [80.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.14.1...v80.15.0) (2024-05-29)
 
 
