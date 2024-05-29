@@ -161,6 +161,8 @@ StyleDictionary.registerFormat({
     const backgroundColors = ${JSON.stringify(backgroundColors)};
 
     const colors = {
+      inherit: 'inherit',
+      current: 'currentColor',
       transparent: 'transparent',
       white: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.white)}',
       black: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.black)}',

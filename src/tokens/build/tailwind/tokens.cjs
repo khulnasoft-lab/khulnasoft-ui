@@ -226,6 +226,8 @@ const backgroundColors = {
 };
 
 const colors = {
+  inherit: 'inherit',
+  current: 'currentColor',
   transparent: 'transparent',
   white: 'var(--white, #fff)',
   black: 'var(--black, #000)',
