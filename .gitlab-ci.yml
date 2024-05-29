@@ -366,6 +366,25 @@ create_integration_branch:
     - 'git commit -m "GitLab UI integration branch for $CI_COMMIT_REF_NAME"'
     - git push -u https://$GITLAB_INTEGRATION_USER:$GITLAB_INTEGRATION_TOKEN@gitlab.com/gitlab-org/gitlab.git HEAD
 
+update_deployments:
+  extends: [.node, .yarn_install]
+  stage: manual
+  allow_failure: true
+  needs:
+    - job: publish_to_npm
+      optional: true
+  script:
+    - bin/update_deployments.mjs
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: manual
+      changes:
+        paths:
+          - bin/update_deployments.mjs
+        compare_to: "refs/heads/main"
+
 publish_to_npm:
   extends:
     - .semantic-release
