@@ -1,3 +1,10 @@
+## [80.16.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.16.0...v80.16.1) (2024-05-30)
+
+
+### Bug Fixes
+
+* breadcrumbs refs breaks on vue3 ([e3feef3](https://gitlab.com/gitlab-org/gitlab-ui/commit/e3feef3640f68fe58eaed80f91cb8ba68e8c7ab1))
+
 # [80.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.15.2...v80.16.0) (2024-05-30)
 
 
