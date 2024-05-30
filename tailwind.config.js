@@ -8,6 +8,7 @@ module.exports = {
     'appearance',
     'content',
     'float',
+    'fill',
     'inset',
     'isolation',
     'mixBlendMode',

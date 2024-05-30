@@ -1,4 +1,9 @@
-const { colors, backgroundColor, textColor } = require('./src/tokens/build/tailwind/tokens.cjs');
+const {
+  colors,
+  backgroundColor,
+  fill,
+  textColor,
+} = require('./src/tokens/build/tailwind/tokens.cjs');
 
 const gridSize = 0.5; // rem
 const spacing = {
@@ -49,6 +54,7 @@ module.exports = {
     },
     colors,
     backgroundColor,
+    fill,
     spacing,
     fontSize: {
       xs: '0.625rem',
