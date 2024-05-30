@@ -24,6 +24,7 @@ describe('Icon component', () => {
 
   const validateSize = (size) => Icon.props.size.validator(size);
   const validateName = (name) => Icon.props.name.validator(name);
+  const validateVariant = (variant) => Icon.props.variant.validator(variant);
 
   afterEach(() => {
     if (consoleSpy) {
@@ -43,7 +44,8 @@ describe('Icon component', () => {
     });
 
     it(`shows svg class "s${TEST_SIZE}" and path "${ICONS_PATH}#${TEST_NAME}"`, () => {
-      expect(wrapper.html()).toMatchSnapshot();
+      expect(wrapper.classes()).toContain(`s${TEST_SIZE}`);
+      expect(wrapper.find('use').attributes('href')).toEqual(`${ICONS_PATH}#${TEST_NAME}`);
     });
   });
 
@@ -87,6 +89,30 @@ describe('Icon component', () => {
       createComponent({ 'aria-label': 'Icon label' });
 
       expect(wrapper.attributes('aria-hidden')).toBeUndefined();
+    });
+  });
+
+  describe('variant', () => {
+    describe('validator', () => {
+      it('fails with size outside options', () => {
+        expect(validateVariant('bogus')).toBe(false);
+      });
+
+      it('passes with size in options', () => {
+        expect(validateVariant('default')).toBe(true);
+      });
+    });
+
+    describe('classes', () => {
+      it('adds `gl-fill-current` class to svg element when variant is not provided', () => {
+        createComponent();
+        expect(wrapper.classes()).toContain('gl-fill-current');
+      });
+
+      it('adds fill class to svg element when variant is provided', () => {
+        createComponent({ variant: 'warning' });
+        expect(wrapper.classes()).toContain('gl-fill-icon-warning');
+      });
     });
   });
 });

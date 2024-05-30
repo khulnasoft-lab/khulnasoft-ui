@@ -119,6 +119,18 @@ StyleDictionary.registerFormat({
     const f = new TailwindTokenFormatter(dictionary.tokens);
     const COMPILED_TOKENS = dictionary.tokens;
 
+    /**
+     * Returns key/value pairs of token scales and CSS custom properties
+     * @param {object} tokens
+     * @returns {object} { example: 'var(--gl-token-example, #000)' }
+     */
+    const getScalesAndCSSCustomProperties = (tokens = {}) => {
+      return Object.entries(tokens).reduce((acc, [scale, token]) => {
+        acc[scale] = f.cssCustomPropertyWithValue(token);
+        return acc;
+      }, {});
+    };
+
     const baseColors = ['blue', 'gray', 'green', 'orange', 'purple', 'red'].reduce((acc, color) => {
       Object.entries(COMPILED_TOKENS[color]).forEach(([, token]) => {
         acc[token.path.join('-')] = f.cssCustomPropertyWithValue(token);
@@ -140,18 +152,9 @@ StyleDictionary.registerFormat({
       return acc;
     }, {});
 
-    const textColors = Object.entries(COMPILED_TOKENS.text.color).reduce((acc, [scale, token]) => {
-      acc[scale] = f.cssCustomPropertyWithValue(token);
-      return acc;
-    }, {});
-
-    const backgroundColors = Object.entries(COMPILED_TOKENS.background.color).reduce(
-      (acc, [scale, token]) => {
-        acc[scale] = f.cssCustomPropertyWithValue(token);
-        return acc;
-      },
-      {}
-    );
+    const textColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.text.color);
+    const backgroundColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.background.color);
+    const iconColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.icon.color);
 
     return `${fileHeader({ file })}
     const baseColors = ${JSON.stringify(baseColors)};
@@ -159,6 +162,7 @@ StyleDictionary.registerFormat({
     const dataVizColors = ${JSON.stringify(dataVizColors)};
     const textColors = ${JSON.stringify(textColors)};
     const backgroundColors = ${JSON.stringify(backgroundColors)};
+    const iconColors = ${JSON.stringify(iconColors)};
 
     const colors = {
       inherit: 'inherit',
@@ -176,6 +180,13 @@ StyleDictionary.registerFormat({
       ...backgroundColors,
     };
 
+    const fill = {
+      ...colors,
+      icon: {
+        ...iconColors,
+      },
+    };
+
     const textColor = {
       ...colors,
       ...textColors,
@@ -188,6 +199,7 @@ StyleDictionary.registerFormat({
       colors,
       backgroundColor,
       textColor,
+      fill,
     }
     `;
   },

@@ -6451,6 +6451,208 @@
       ]
     }
   },
+  "icon": {
+    "color": {
+      "default": {
+        "value": "#dcdcde",
+        "$type": "color",
+        "comment": "Used for the default icon color. Can be paired with default text.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.700}",
+            "dark": "{color.neutral.100}"
+          },
+          "$type": "color",
+          "comment": "Used for the default icon color. Can be paired with default text."
+        },
+        "name": "ICON_COLOR_DEFAULT",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "default"
+        ]
+      },
+      "subtle": {
+        "value": "#a4a3a8",
+        "$type": "color",
+        "comment": "Used for a static or decorational icon. Can be paired with subtle text.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.500}",
+            "dark": "{color.neutral.300}"
+          },
+          "$type": "color",
+          "comment": "Used for a static or decorational icon. Can be paired with subtle text."
+        },
+        "name": "ICON_COLOR_SUBTLE",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "subtle"
+        ]
+      },
+      "strong": {
+        "value": "#fbfafd",
+        "$type": "color",
+        "comment": "Used for an icon with the highest contrast.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.900}",
+            "dark": "{color.neutral.10}"
+          },
+          "$type": "color",
+          "comment": "Used for an icon with the highest contrast."
+        },
+        "name": "ICON_COLOR_STRONG",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "strong"
+        ]
+      },
+      "disabled": {
+        "value": "#737278",
+        "$type": "color",
+        "comment": "Used for an icon within a disabled section.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.300}",
+            "dark": "{color.neutral.500}"
+          },
+          "$type": "color",
+          "comment": "Used for an icon within a disabled section."
+        },
+        "name": "ICON_COLOR_DISABLED",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "disabled"
+        ]
+      },
+      "link": {
+        "value": "#63a6e9",
+        "$type": "color",
+        "comment": "Used for an icon within a link.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.blue.600}",
+            "dark": "{color.blue.300}"
+          },
+          "$type": "color",
+          "comment": "Used for an icon within a link."
+        },
+        "name": "ICON_COLOR_LINK",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "link"
+        ]
+      },
+      "info": {
+        "value": "#63a6e9",
+        "$type": "color",
+        "comment": "Used for an icon associated with information or help.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.blue.600}",
+            "dark": "{color.blue.300}"
+          },
+          "$type": "color",
+          "comment": "Used for an icon associated with information or help."
+        },
+        "name": "ICON_COLOR_INFO",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "info"
+        ]
+      },
+      "warning": {
+        "value": "#d99530",
+        "$type": "color",
+        "comment": "Used for an icon associated with a warning.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.orange.600}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "comment": "Used for an icon associated with a warning."
+        },
+        "name": "ICON_COLOR_WARNING",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "warning"
+        ]
+      },
+      "danger": {
+        "value": "#f57f6c",
+        "$type": "color",
+        "comment": "Used for an icon associated with an error or danger.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.red.600}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "comment": "Used for an icon associated with an error or danger."
+        },
+        "name": "ICON_COLOR_DANGER",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "danger"
+        ]
+      },
+      "success": {
+        "value": "#52b87a",
+        "$type": "color",
+        "comment": "Used for an icon associated with success or validity.",
+        "filePath": "src/tokens/icon.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.green.600}",
+            "dark": "{color.green.300}"
+          },
+          "$type": "color",
+          "comment": "Used for an icon associated with success or validity."
+        },
+        "name": "ICON_COLOR_SUCCESS",
+        "attributes": {},
+        "path": [
+          "icon",
+          "color",
+          "success"
+        ]
+      }
+    }
+  },
   "line-height": {
     "12": {
       "value": "0.75rem",

@@ -224,6 +224,18 @@ const backgroundColors = {
   disabled:
     'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
 };
+const iconColors = {
+  default: 'var(--gl-icon-color-default, var(--gl-color-neutral-700, #535158))',
+  subtle: 'var(--gl-icon-color-subtle, var(--gl-color-neutral-500, #737278))',
+  strong: 'var(--gl-icon-color-strong, var(--gl-color-neutral-900, #333238))',
+  disabled:
+    'var(--gl-icon-color-disabled, var(--gl-color-neutral-300, #a4a3a8))',
+  link: 'var(--gl-icon-color-link, var(--gl-color-blue-600, #1068bf))',
+  info: 'var(--gl-icon-color-info, var(--gl-color-blue-600, #1068bf))',
+  warning: 'var(--gl-icon-color-warning, var(--gl-color-orange-600, #9e5400))',
+  danger: 'var(--gl-icon-color-danger, var(--gl-color-red-600, #c91c00))',
+  success: 'var(--gl-icon-color-success, var(--gl-color-green-600, #217645))',
+};
 
 const colors = {
   inherit: 'inherit',
@@ -241,6 +253,13 @@ const backgroundColor = {
   ...backgroundColors,
 };
 
+const fill = {
+  ...colors,
+  icon: {
+    ...iconColors,
+  },
+};
+
 const textColor = {
   ...colors,
   ...textColors,
@@ -253,4 +272,5 @@ module.exports = {
   colors,
   backgroundColor,
   textColor,
+  fill,
 };

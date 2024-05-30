@@ -17,6 +17,7 @@ exports[`Path matches the snapshot 1`] = `
       <gl-icon-stub
         name="chevron-left"
         size="32"
+        variant="current"
       />
     </button>
   </span>
@@ -187,6 +188,7 @@ exports[`Path matches the snapshot 1`] = `
       <gl-icon-stub
         name="chevron-right"
         size="32"
+        variant="current"
       />
     </button>
   </span>
@@ -210,6 +212,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       <gl-icon-stub
         name="chevron-left"
         size="32"
+        variant="current"
       />
     </button>
   </span>
@@ -228,6 +231,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
           data-testid="gl-path-item-icon"
           name="home"
           size="16"
+          variant="current"
         />
         First
         <span
@@ -386,6 +390,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       <gl-icon-stub
         name="chevron-right"
         size="32"
+        variant="current"
       />
     </button>
   </span>
@@ -409,6 +414,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       <gl-icon-stub
         name="chevron-left"
         size="32"
+        variant="current"
       />
     </button>
   </span>
@@ -579,6 +585,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       <gl-icon-stub
         name="chevron-right"
         size="32"
+        variant="current"
       />
     </button>
   </span>

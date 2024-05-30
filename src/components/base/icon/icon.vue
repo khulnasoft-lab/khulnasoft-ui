@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import iconsPath from '@gitlab/svgs/dist/icons.svg';
-import { iconSizeOptions } from '../../../utils/constants';
+import { iconSizeOptions, iconVariantOptions } from '../../../utils/constants';
 
 let iconValidator = () => true;
 
@@ -59,6 +59,15 @@ export default {
       default: 16,
       validator: (value) => iconSizeOptions.includes(value),
     },
+    /**
+     * Icon variant
+     */
+    variant: {
+      type: String,
+      required: false,
+      default: 'current',
+      validator: (value) => Object.keys(iconVariantOptions).includes(value),
+    },
   },
   computed: {
     spriteHref() {
@@ -67,6 +76,9 @@ export default {
     iconSizeClass() {
       return this.size ? `s${this.size}` : '';
     },
+    iconVariantClass() {
+      return this.variant ? iconVariantOptions[this.variant] : '';
+    },
   },
 };
 </script>
@@ -74,7 +86,7 @@ export default {
 <template>
   <svg
     :key="spriteHref"
-    :class="['gl-icon', iconSizeClass]"
+    :class="['gl-icon', iconSizeClass, iconVariantClass]"
     :data-testid="`${name}-icon`"
     role="img"
     :aria-hidden="!ariaLabel"

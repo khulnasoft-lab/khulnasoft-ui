@@ -180,6 +180,19 @@ export const datepickerWidthOptionsMap = {
 // size options all have corresponding styles (e.g. .s12 defined in icon.scss)
 export const iconSizeOptions = [8, 12, 14, 16, 24, 32, 48, 72];
 
+export const iconVariantOptions = {
+  current: 'gl-fill-current',
+  default: 'gl-fill-icon-default',
+  subtle: 'gl-fill-icon-subtle',
+  strong: 'gl-fill-icon-strong',
+  disabled: 'gl-fill-icon-disabled',
+  link: 'gl-fill-icon-link',
+  info: 'gl-fill-icon-info',
+  warning: 'gl-fill-icon-warning',
+  danger: 'gl-fill-icon-danger',
+  success: 'gl-fill-icon-success',
+};
+
 export const triggerVariantOptions = {
   click: 'click',
   hover: 'hover',

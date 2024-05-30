@@ -1,5 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import { iconSizeOptions } from '../../../utils/constants';
+import { iconSizeOptions, iconVariantOptions } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
 import GlIcon from './icon.vue';
 import readme from './icon.md';
@@ -11,16 +11,18 @@ const components = {
 const defaultValue = (prop) => GlIcon.props[prop].default;
 
 const generateProps = ({
+  ariaLabel = 'This is an icon',
   name = 'check-circle',
   size = defaultValue('size'),
-  ariaLabel = 'This is an icon',
+  variant = defaultValue('variant'),
 } = {}) => ({
+  ariaLabel,
   name,
   size,
-  ariaLabel,
+  variant,
 });
 
-const template = `<gl-icon :name="name" :size="size" :aria-label="ariaLabel"/>`;
+const template = `<gl-icon :aria-label="ariaLabel" :name="name" :size="size" :variant="variant" />`;
 
 const Template = (args) => ({
   components,
@@ -50,6 +52,10 @@ export default {
     },
     size: {
       options: iconSizeOptions,
+      control: 'select',
+    },
+    variant: {
+      options: Object.keys(iconVariantOptions),
       control: 'select',
     },
   },
