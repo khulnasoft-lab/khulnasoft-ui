@@ -18,8 +18,8 @@ if [ "$CI" = true ]; then
     if [ -d tests/__image_snapshots__/__diff_output__ ]; then
       mv tests/__image_snapshots__/__diff_output__ tests/__image_snapshots__/__diff_output_before_retry__
     fi
-    if [ -d tests/__image_snapshots__/__received_output__ ]; then
-      mv tests/__image_snapshots__/__received_output__ tests/__image_snapshots__/__received_output_before_retry__
+    if [ -d tests/__image_snapshots__/__updated_screenshots__ ]; then
+      mv tests/__image_snapshots__/__updated_screenshots__ tests/__image_snapshots__/__updated_screenshots_before_retry__
     fi
     yarn test:visual:internal "${args}"
   fi
