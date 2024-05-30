@@ -1,3 +1,10 @@
+# [80.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.15.2...v80.16.0) (2024-05-30)
+
+
+### Features
+
+* **GlIcon:** Add semantic icon design tokens to GlIcon component ([2e17cab](https://gitlab.com/gitlab-org/gitlab-ui/commit/2e17cab58a6890b31efd8060bbf0ee617577172f))
+
 ## [80.15.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.15.1...v80.15.2) (2024-05-29)
 
 
