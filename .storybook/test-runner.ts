@@ -3,6 +3,7 @@ import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { getResetAnimationsCSS } from '../src/utils/test_utils';
 import { join, relative } from 'node:path';
 import { stat, copyFile, appendFile } from 'node:fs/promises';
+import { env } from 'node:process';
 
 type Threshold = 'pixel' | 'percent';
 
@@ -10,9 +11,10 @@ type Threshold = 'pixel' | 'percent';
 const ROOT_DIR = join(__dirname, '..');
 
 const customSnapshotsDir = join(ROOT_DIR, `/tests/__image_snapshots__`);
+const customReceivedDir = join(customSnapshotsDir, '__updated_screenshots__');
 const seenSnapshotsFile = join(
   customSnapshotsDir,
-  `__seen_snapshots_${process.env.CI_NODE_INDEX ?? '0'}`
+  `__used_screenshots_${env?.CI_NODE_INDEX ?? '0'}`
 );
 
 const defaultFailureThresholdType = 'pixel';
@@ -103,7 +105,8 @@ const config: TestRunnerConfig = {
       // Custom names for screenshots
       customSnapshotsDir,
       customSnapshotIdentifier,
-      // Stores the "new" screenshot under customSnapshotsDir/__received_output__
+      // Stores the "new" screenshot under customSnapshotsDir/__updated_screenshots__
+      customReceivedDir,
       customReceivedPostfix: '',
       storeReceivedOnFailure: true,
       ...getMatchOptions(context),
