@@ -71,6 +71,13 @@ describe('Breadcrumb component', () => {
 
       expect(findBreadcrumbItems()).toHaveLength(items.length);
     });
+
+    it('renders correctly when no items and autoresize', async () => {
+      createComponent({ items: [], autoResize: true });
+      await wrapper.vm.$nextTick();
+
+      expect(findBreadcrumbItems()).toHaveLength(0);
+    });
   });
 
   describe('ariaLabel', () => {

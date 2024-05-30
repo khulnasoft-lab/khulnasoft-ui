@@ -130,6 +130,7 @@ export default {
       this.totalBreadcrumbsWidth = 0;
 
       if (!this.$refs.breadcrumbs) return;
+
       this.$refs.breadcrumbs.forEach((b, index) => {
         const width = b.$el.clientWidth;
         this.totalBreadcrumbsWidth += width;
