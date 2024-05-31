@@ -1533,6 +1533,1242 @@
           "950"
         ]
       }
+    },
+    "theme-indigo": {
+      "10": {
+        "value": "#f8f8ff",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f8f8ff",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_10",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#f1f1ff",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f1f1ff",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_50",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#dbdbf8",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#dbdbf8",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_100",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#c7c7f2",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c7c7f2",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_200",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#a2a2e6",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a2a2e6",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_300",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#8181d7",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8181d7",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_400",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#6666c4",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#6666c4",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_500",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#5252b5",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#5252b5",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_600",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#41419f",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#41419f",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_700",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#303083",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#303083",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_800",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#222261",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#222261",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_900",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#14143d",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#14143d",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_INDIGO_950",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-indigo",
+          "950"
+        ]
+      }
+    },
+    "theme-blue": {
+      "10": {
+        "value": "#e6ecf0",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e6ecf0",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_10",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#cdd8e3",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#cdd8e3",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_50",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#b9cadc",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b9cadc",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_100",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#a6bdd5",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a6bdd5",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_200",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#81a5c9",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#81a5c9",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_300",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#628eb9",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#628eb9",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_400",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#4977a5",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#4977a5",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_500",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#346596",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#346596",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_600",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#235180",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#235180",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_700",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#153c63",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#153c63",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_800",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#0b2640",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0b2640",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_900",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#04101c",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#04101c",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_BLUE_950",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-blue",
+          "950"
+        ]
+      }
+    },
+    "theme-light-blue": {
+      "10": {
+        "value": "#eef3f7",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#eef3f7",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_10",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#dde6ee",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#dde6ee",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_50",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#c1d4e6",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c1d4e6",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_100",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#a0bedc",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a0bedc",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_200",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#74a3d3",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#74a3d3",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_300",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#4f8bc7",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#4f8bc7",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_400",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#3476b9",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#3476b9",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_500",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#2268ae",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#2268ae",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_600",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#145aa1",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#145aa1",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_700",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#0e4d8d",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0e4d8d",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_800",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#0c4277",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0c4277",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_900",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#0a3764",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0a3764",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_BLUE_950",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-blue",
+          "950"
+        ]
+      }
+    },
+    "theme-green": {
+      "10": {
+        "value": "#eef4ef",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#eef4ef",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_10",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#dde9de",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#dde9de",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_50",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#b1d6b5",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b1d6b5",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_100",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#8cc497",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8cc497",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_200",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#69af7d",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#69af7d",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_300",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#499767",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#499767",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_400",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#308258",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#308258",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_500",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#25744c",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#25744c",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_600",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#1b653f",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#1b653f",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_700",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#155635",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#155635",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_800",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#0e4328",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#0e4328",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_900",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#052e19",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#052e19",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_GREEN_950",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-green",
+          "950"
+        ]
+      }
+    },
+    "theme-red": {
+      "10": {
+        "value": "#faf4f3",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#faf4f3",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_10",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#f4e9e7",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f4e9e7",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_50",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#ecd3d0",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ecd3d0",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_100",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#e3bab5",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e3bab5",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_200",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#d59086",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#d59086",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_300",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#c66e60",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c66e60",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_400",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#ad4a3b",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ad4a3b",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_500",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#a13322",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a13322",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_600",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#8f2110",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8f2110",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_700",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#761405",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#761405",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_800",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#580d02",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#580d02",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_900",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#380700",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#380700",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_RED_950",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-red",
+          "950"
+        ]
+      }
+    },
+    "theme-light-red": {
+      "10": {
+        "value": "#fdf9f8",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#fdf9f8",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_10",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "10"
+        ]
+      },
+      "50": {
+        "value": "#faf2f1",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#faf2f1",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_50",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "50"
+        ]
+      },
+      "100": {
+        "value": "#f6d9d5",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#f6d9d5",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_100",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "100"
+        ]
+      },
+      "200": {
+        "value": "#ebada2",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#ebada2",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_200",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "200"
+        ]
+      },
+      "300": {
+        "value": "#e07f6f",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#e07f6f",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_300",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "300"
+        ]
+      },
+      "400": {
+        "value": "#d36250",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#d36250",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_400",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "400"
+        ]
+      },
+      "500": {
+        "value": "#c24b38",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#c24b38",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_500",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "500"
+        ]
+      },
+      "600": {
+        "value": "#b53a26",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#b53a26",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_600",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "600"
+        ]
+      },
+      "700": {
+        "value": "#a02e1c",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#a02e1c",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_700",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "700"
+        ]
+      },
+      "800": {
+        "value": "#8b2212",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#8b2212",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_800",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "800"
+        ]
+      },
+      "900": {
+        "value": "#751709",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#751709",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_900",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "900"
+        ]
+      },
+      "950": {
+        "value": "#5c1105",
+        "$type": "color",
+        "filePath": "src/tokens/color.constant.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "#5c1105",
+          "$type": "color"
+        },
+        "name": "COLOR_THEME_LIGHT_RED_950",
+        "attributes": {},
+        "path": [
+          "color",
+          "theme-light-red",
+          "950"
+        ]
+      }
     }
   },
   "data-viz": {
