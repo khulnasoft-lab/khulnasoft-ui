@@ -92,6 +92,263 @@
     }
   },
   "color": {
+    "alpha": {
+      "0": {
+        "value": "transparent",
+        "$type": "color",
+        "filePath": "src/tokens/color.alpha.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "transparent",
+          "$type": "color"
+        },
+        "name": "COLOR_ALPHA_0",
+        "attributes": {},
+        "path": [
+          "color",
+          "alpha",
+          "0"
+        ]
+      },
+      "dark": {
+        "2": {
+          "value": "rgba(31, 30, 36, 0.02)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(31, 30, 36, 0.02)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_DARK_2",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "dark",
+            "2"
+          ]
+        },
+        "4": {
+          "value": "rgba(31, 30, 36, 0.04)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(31, 30, 36, 0.04)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_DARK_4",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "dark",
+            "4"
+          ]
+        },
+        "6": {
+          "value": "rgba(31, 30, 36, 0.06)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(31, 30, 36, 0.06)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_DARK_6",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "dark",
+            "6"
+          ]
+        },
+        "8": {
+          "value": "rgba(31, 30, 36, 0.08)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(31, 30, 36, 0.08)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_DARK_8",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "dark",
+            "8"
+          ]
+        },
+        "16": {
+          "value": "rgba(31, 30, 36, 0.16)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(31, 30, 36, 0.16)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_DARK_16",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "dark",
+            "16"
+          ]
+        },
+        "24": {
+          "value": "rgba(31, 30, 36, 0.24)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(31, 30, 36, 0.24)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_DARK_24",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "dark",
+            "24"
+          ]
+        }
+      },
+      "light": {
+        "2": {
+          "value": "rgba(255, 255, 255, 0.02)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(255, 255, 255, 0.02)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_LIGHT_2",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "light",
+            "2"
+          ]
+        },
+        "4": {
+          "value": "rgba(255, 255, 255, 0.04)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(255, 255, 255, 0.04)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_LIGHT_4",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "light",
+            "4"
+          ]
+        },
+        "6": {
+          "value": "rgba(255, 255, 255, 0.06)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(255, 255, 255, 0.06)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_LIGHT_6",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "light",
+            "6"
+          ]
+        },
+        "8": {
+          "value": "rgba(255, 255, 255, 0.08)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(255, 255, 255, 0.08)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_LIGHT_8",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "light",
+            "8"
+          ]
+        },
+        "16": {
+          "value": "rgba(255, 255, 255, 0.16)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(255, 255, 255, 0.16)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_LIGHT_16",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "light",
+            "16"
+          ]
+        },
+        "24": {
+          "value": "rgba(255, 255, 255, 0.24)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(255, 255, 255, 0.24)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_LIGHT_24",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "light",
+            "24"
+          ]
+        },
+        "36": {
+          "value": "rgba(255, 255, 255, 0.36)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(255, 255, 255, 0.36)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_LIGHT_36",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "light",
+            "36"
+          ]
+        }
+      }
+    },
     "blue": {
       "50": {
         "value": "#e9f3fc",
@@ -6193,13 +6450,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(31, 30, 36, 0.16)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "RAY_A_16",
       "attributes": {},
@@ -6213,13 +6472,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(31, 30, 36, 0.24)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "RAY_A_24",
       "attributes": {},
@@ -6233,13 +6494,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(31, 30, 36, 0.02)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "RAY_A_02",
       "attributes": {},
@@ -6253,13 +6516,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(31, 30, 36, 0.04)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "RAY_A_04",
       "attributes": {},
@@ -6273,13 +6538,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(31, 30, 36, 0.06)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "RAY_A_06",
       "attributes": {},
@@ -6293,13 +6560,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(31, 30, 36, 0.08)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "RAY_A_08",
       "attributes": {},
@@ -6315,13 +6584,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(255, 255, 255, 0.16)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "HITE_A_16",
       "attributes": {},
@@ -6335,13 +6606,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(255, 255, 255, 0.24)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "HITE_A_24",
       "attributes": {},
@@ -6355,13 +6628,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(255, 255, 255, 0.36)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "HITE_A_36",
       "attributes": {},
@@ -6375,13 +6650,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(255, 255, 255, 0.02)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "HITE_A_02",
       "attributes": {},
@@ -6395,13 +6672,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(255, 255, 255, 0.04)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "HITE_A_04",
       "attributes": {},
@@ -6415,13 +6694,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(255, 255, 255, 0.06)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "HITE_A_06",
       "attributes": {},
@@ -6435,13 +6716,15 @@
       "$type": "color",
       "themeable": true,
       "prefix": false,
+      "deprecated": true,
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
         "value": "rgba(255, 255, 255, 0.08)",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "name": "HITE_A_08",
       "attributes": {},

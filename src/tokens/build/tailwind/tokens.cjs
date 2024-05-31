@@ -236,6 +236,23 @@ const iconColors = {
   danger: 'var(--gl-icon-color-danger, var(--gl-color-red-600, #c91c00))',
   success: 'var(--gl-icon-color-success, var(--gl-color-green-600, #217645))',
 };
+const alphaDarkColors = {
+  2: 'var(--gl-color-alpha-dark-2, rgba(31, 30, 36, 0.02))',
+  4: 'var(--gl-color-alpha-dark-4, rgba(31, 30, 36, 0.04))',
+  6: 'var(--gl-color-alpha-dark-6, rgba(31, 30, 36, 0.06))',
+  8: 'var(--gl-color-alpha-dark-8, rgba(31, 30, 36, 0.08))',
+  16: 'var(--gl-color-alpha-dark-16, rgba(31, 30, 36, 0.16))',
+  24: 'var(--gl-color-alpha-dark-24, rgba(31, 30, 36, 0.24))',
+};
+const alphaLightColors = {
+  2: 'var(--gl-color-alpha-light-2, rgba(255, 255, 255, 0.02))',
+  4: 'var(--gl-color-alpha-light-4, rgba(255, 255, 255, 0.04))',
+  6: 'var(--gl-color-alpha-light-6, rgba(255, 255, 255, 0.06))',
+  8: 'var(--gl-color-alpha-light-8, rgba(255, 255, 255, 0.08))',
+  16: 'var(--gl-color-alpha-light-16, rgba(255, 255, 255, 0.16))',
+  24: 'var(--gl-color-alpha-light-24, rgba(255, 255, 255, 0.24))',
+  36: 'var(--gl-color-alpha-light-36, rgba(255, 255, 255, 0.36))',
+};
 
 const colors = {
   inherit: 'inherit',
@@ -243,6 +260,10 @@ const colors = {
   transparent: 'transparent',
   white: 'var(--white, #fff)',
   black: 'var(--black, #000)',
+  alpha: {
+    dark: { ...alphaDarkColors },
+    light: { ...alphaLightColors },
+  },
   ...baseColors,
   ...themeColors,
   ...dataVizColors,
