@@ -1,3 +1,11 @@
+## [80.16.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.16.1...v80.16.2) (2024-05-31)
+
+
+### Bug Fixes
+
+* **Duo:** Adjust size of close button ([aa3e7f6](https://gitlab.com/gitlab-org/gitlab-ui/commit/aa3e7f66d8fe4cc022234406a951289a038ae2e2))
+* **Duo:** Make padding even ([767ec6a](https://gitlab.com/gitlab-org/gitlab-ui/commit/767ec6a8d765b665fe07bc850f7aa99803439154))
+
 ## [80.16.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.16.0...v80.16.1) (2024-05-30)
 
 
