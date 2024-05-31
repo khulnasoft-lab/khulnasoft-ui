@@ -304,6 +304,20 @@ $gl-color-blue-300: #63a6e9;
 $gl-color-blue-200: #9dc7f1;
 $gl-color-blue-100: #cbe2f9;
 $gl-color-blue-50: #e9f3fc;
+$gl-color-alpha-light-36: rgba(255, 255, 255, 0.36);
+$gl-color-alpha-light-24: rgba(255, 255, 255, 0.24);
+$gl-color-alpha-light-16: rgba(255, 255, 255, 0.16);
+$gl-color-alpha-light-8: rgba(255, 255, 255, 0.08);
+$gl-color-alpha-light-6: rgba(255, 255, 255, 0.06);
+$gl-color-alpha-light-4: rgba(255, 255, 255, 0.04);
+$gl-color-alpha-light-2: rgba(255, 255, 255, 0.02);
+$gl-color-alpha-dark-24: rgba(31, 30, 36, 0.24);
+$gl-color-alpha-dark-16: rgba(31, 30, 36, 0.16);
+$gl-color-alpha-dark-8: rgba(31, 30, 36, 0.08);
+$gl-color-alpha-dark-6: rgba(31, 30, 36, 0.06);
+$gl-color-alpha-dark-4: rgba(31, 30, 36, 0.04);
+$gl-color-alpha-dark-2: rgba(31, 30, 36, 0.02);
+$gl-color-alpha-0: transparent;
 $gl-text-color-disabled: $gl-color-neutral-400; // Used for disabled text.
 $gl-text-color-success: $gl-color-green-300; // Used for text indicating success or validity.
 $gl-text-color-danger: $gl-color-red-300; // Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.
