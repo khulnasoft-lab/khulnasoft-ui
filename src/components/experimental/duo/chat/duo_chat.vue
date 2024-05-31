@@ -394,7 +394,7 @@ export default {
           variant="default"
           icon="close"
           size="small"
-          class="gl-p-0! gl-ml-auto"
+          class="gl-ml-auto"
           data-testid="chat-close-button"
           :aria-label="$options.i18n.CHAT_CLOSE_LABEL"
           @click="hideChat"
