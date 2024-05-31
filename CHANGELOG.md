@@ -1,3 +1,10 @@
+# [80.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.16.2...v80.17.0) (2024-05-31)
+
+
+### Features
+
+* **DesignTokens:** add color alpha design tokens ([2568f9f](https://gitlab.com/gitlab-org/gitlab-ui/commit/2568f9f127e3e6c9bf5f84c2da4f86f5c7847787))
+
 ## [80.16.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.16.1...v80.16.2) (2024-05-31)
 
 
