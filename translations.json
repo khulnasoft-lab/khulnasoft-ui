@@ -1,12 +1,12 @@
 {
   "ClearIconButton.title": "Clear",
-  "GlSorting.sortAscending": "Sort direction: ascending",
-  "GlSorting.sortDescending": "Sort direction: descending",
-  "GlSearchBoxByType.clearButtonTitle": "Clear",
-  "GlSearchBoxByType.input.placeholder": "Search",
-  "GlKeysetPagination.prevText": "Previous",
+  "GlBreadcrumb.showMoreLabel": "Show more breadcrumbs",
+  "GlCollapsibleListbox.srOnlyResultsLabel": "Results count",
   "GlKeysetPagination.navigationLabel": "Pagination",
   "GlKeysetPagination.nextText": "Next",
-  "GlBreadcrumb.showMoreLabel": "Show more breadcrumbs",
-  "GlCollapsibleListbox.srOnlyResultsLabel": "Results count"
+  "GlKeysetPagination.prevText": "Previous",
+  "GlSearchBoxByType.clearButtonTitle": "Clear",
+  "GlSearchBoxByType.input.placeholder": "Search",
+  "GlSorting.sortAscending": "Sort direction: ascending",
+  "GlSorting.sortDescending": "Sort direction: descending"
 }
