@@ -3,6 +3,7 @@
 const fs = require('fs');
 const { glob } = require('glob');
 const prettier = require('prettier');
+const sortBy = require('lodash/sortBy');
 
 const getFilesToParse = async () => {
   return glob('./src/**/*.{js,vue}', {
@@ -28,7 +29,7 @@ const getFindings = (files) => {
 };
 
 const buildObject = (findings) => {
-  const translations = Object.fromEntries(findings);
+  const translations = Object.fromEntries(sortBy(findings, (finding) => finding[0]));
   return prettier.format(JSON.stringify(translations), { parser: 'json' });
 };
 
