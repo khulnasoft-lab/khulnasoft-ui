@@ -13,23 +13,3 @@ components:
           targetPort: 9001
           secure: true
           protocol: http
-
-commands:
-  - id: install-dependencies
-    exec:
-      component: gitlab-ui
-      commandLine: "yarn install"
-      workingDir: "/projects"
-  - id: start-storybook
-    exec:
-      component: gitlab-ui
-      commandLine: "yarn storybook"
-      workingDir: "/projects"
-      group:
-        kind: run
-        isDefault: true
-
-events:
-  postStart:
-    - install-dependencies
-    - start-storybook
