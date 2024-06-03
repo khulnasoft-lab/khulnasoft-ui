@@ -13,5 +13,3 @@ components:
           targetPort: 9001
           secure: true
           protocol: http
-      command: ["sh", "-c"]
-      args: ["yarn install && yarn storybook"]
