@@ -175,6 +175,11 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
       selected: [],
     };
   },
+  methods: {
+    onReset() {
+      this.selected = [];
+    },
+  },
   template: template(
     `
     <template #footer>
