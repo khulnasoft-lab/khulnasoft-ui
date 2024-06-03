@@ -22,14 +22,14 @@ export default {
     },
   },
   methods: {
-    isAlpha(value) {
-      return value.startsWith('rgba(');
+    isHex(value) {
+      return value.startsWith('#');
     },
     getTokenName(token) {
       return token.path.filter(Boolean).join('.');
     },
     getClasses(value) {
-      if (this.isAlpha(value)) return '';
+      if (!this.isHex(value)) return '';
       if (!this.isBackgroundColorStory) return '';
 
       const textColorVariant = colorFromBackground(value, 4.5);
@@ -68,12 +68,12 @@ export default {
           </gl-badge>
           <code class="gl-reset-color">{{ token.value }}</code>
           <gl-color-contrast
-            v-if="!isAlpha(token.value)"
+            v-if="isHex(token.value)"
             :foreground="token.value"
             :background="darkBackground"
           />
           <gl-color-contrast
-            v-if="!isAlpha(token.value)"
+            v-if="isHex(token.value)"
             :foreground="token.value"
             :background="lightBackground"
           />
