@@ -224,6 +224,14 @@ const backgroundColors = {
   disabled:
     'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
 };
+const borderColors = {
+  default:
+    'var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
+  subtle: 'var(--gl-border-color-subtle, var(--gl-color-neutral-50, #ececef))',
+  strong: 'var(--gl-border-color-strong, var(--gl-color-neutral-400, #89888d))',
+  transparent:
+    'var(--gl-border-color-transparent, var(--gl-color-alpha-0, transparent))',
+};
 const iconColors = {
   default: 'var(--gl-icon-color-default, var(--gl-color-neutral-700, #535158))',
   subtle: 'var(--gl-icon-color-subtle, var(--gl-color-neutral-500, #737278))',
@@ -274,6 +282,11 @@ const backgroundColor = {
   ...backgroundColors,
 };
 
+const borderColor = {
+  ...colors,
+  ...borderColors,
+};
+
 const fill = {
   ...colors,
   icon: {
@@ -292,6 +305,7 @@ const textColor = {
 module.exports = {
   colors,
   backgroundColor,
+  borderColor,
   textColor,
   fill,
 };

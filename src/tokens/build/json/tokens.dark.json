@@ -91,6 +91,95 @@
       }
     }
   },
+  "border": {
+    "color": {
+      "default": {
+        "value": "#434248",
+        "$type": "color",
+        "comment": "Used for the default border color.",
+        "filePath": "src/tokens/border.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "comment": "Used for the default border color."
+        },
+        "name": "BORDER_COLOR_DEFAULT",
+        "attributes": {},
+        "path": [
+          "border",
+          "color",
+          "default"
+        ]
+      },
+      "subtle": {
+        "value": "#333238",
+        "$type": "color",
+        "comment": "Used for a border that has a little more definition, or is used in combination with a subtle background.",
+        "filePath": "src/tokens/border.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.50}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "comment": "Used for a border that has a little more definition, or is used in combination with a subtle background."
+        },
+        "name": "BORDER_COLOR_SUBTLE",
+        "attributes": {},
+        "path": [
+          "border",
+          "color",
+          "subtle"
+        ]
+      },
+      "strong": {
+        "value": "#89888d",
+        "$type": "color",
+        "comment": "Used for a distinct border that emphasizes an edge or boundaries.",
+        "filePath": "src/tokens/border.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.400}",
+            "dark": "{color.neutral.400}"
+          },
+          "$type": "color",
+          "comment": "Used for a distinct border that emphasizes an edge or boundaries."
+        },
+        "name": "BORDER_COLOR_STRONG",
+        "attributes": {},
+        "path": [
+          "border",
+          "color",
+          "strong"
+        ]
+      },
+      "transparent": {
+        "value": "transparent",
+        "$type": "color",
+        "comment": "Used when a border needs to be present, but not visibly perceived.",
+        "filePath": "src/tokens/border.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "{color.alpha.0}",
+          "$type": "color",
+          "comment": "Used when a border needs to be present, but not visibly perceived."
+        },
+        "name": "BORDER_COLOR_TRANSPARENT",
+        "attributes": {},
+        "path": [
+          "border",
+          "color",
+          "transparent"
+        ]
+      }
+    }
+  },
   "color": {
     "alpha": {
       "0": {

@@ -337,6 +337,10 @@
   --gl-icon-color-strong: var(--gl-color-neutral-900); /* Used for an icon with the highest contrast. */
   --gl-icon-color-subtle: var(--gl-color-neutral-500); /* Used for a static or decorational icon. Can be paired with subtle text. */
   --gl-icon-color-default: var(--gl-color-neutral-700); /* Used for the default icon color. Can be paired with default text. */
+  --gl-border-color-transparent: var(--gl-color-alpha-0); /* Used when a border needs to be present, but not visibly perceived. */
+  --gl-border-color-strong: var(--gl-color-neutral-400); /* Used for a distinct border that emphasizes an edge or boundaries. */
+  --gl-border-color-subtle: var(--gl-color-neutral-50); /* Used for a border that has a little more definition, or is used in combination with a subtle background. */
+  --gl-border-color-default: var(--gl-color-neutral-100); /* Used for the default border color. */
   --gl-background-color-disabled: var(--gl-color-neutral-10); /* Used to identify a disabled section. */
   --gl-background-color-strong: var(--gl-color-neutral-50); /* Used to make the background easily stand out from the default. */
   --gl-background-color-subtle: var(--gl-color-neutral-10); /* Used to slightly differentiate the background from the default. */
