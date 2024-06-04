@@ -518,6 +518,18 @@ export const GL_LINE_HEIGHT_36 = '2.25rem';
 export const GL_LINE_HEIGHT_42 = '2.625rem';
 export const GL_LINE_HEIGHT_44 = '2.75rem';
 export const GL_LINE_HEIGHT_52 = '3.25rem';
+export const GL_SHADOW_COMPOSITE = {
+  color: 'rgba(31, 30, 36, 0.08)',
+  offsetX: '0',
+  offsetY: '1px',
+  blur: '2px',
+  spread: '0',
+};
+export const GL_SHADOW_DEFAULT =
+  '0 2px 8px rgba(31, 30, 36, 0.16), 0 0 2px rgba(31, 30, 36, 0.16)';
+export const GL_SHADOW_SUBTLE = '0 1px 2px rgba(31, 30, 36, 0.08)';
+export const GL_SHADOW_STRONG =
+  '0 4px 12px rgba(31, 30, 36, 0.16), 0 0 4px rgba(31, 30, 36, 0.16)';
 export const GL_STATUS_MUTED_BACKGROUND_COLOR_DEFAULT = '#333238'; // Used for the background of a subtle neutral status item when static or the default state when linked.
 export const GL_STATUS_MUTED_BACKGROUND_COLOR_ACTIVE = '#434248'; // Used for the background of a subtle neutral status item in the active state.
 export const GL_STATUS_MUTED_BORDER_COLOR_HOVER = '#535158'; // Used for the border of a subtle neutral status item in the hover state.

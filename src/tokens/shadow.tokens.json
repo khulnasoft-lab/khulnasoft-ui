@@ -1,0 +1,26 @@
+{
+  "shadow": {
+    "composite": {
+      "$value":  {
+        "color": "{color.alpha.dark.8}",
+        "offsetX": "0",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0"
+      },
+      "$type": "shadow"
+    },
+    "default": {
+      "$value": "0 2px 8px {color.alpha.dark.16}, 0 0 2px {color.alpha.dark.16}",
+      "$type": "shadow"
+    },
+    "subtle": {
+      "$value": "0 1px 2px {color.alpha.dark.8}",
+      "$type": "shadow"
+    },
+    "strong": {
+      "$value": "0 4px 12px {color.alpha.dark.16}, 0 0 4px {color.alpha.dark.16}",
+      "$type": "shadow"
+    }
+  }
+}

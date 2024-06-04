@@ -11322,6 +11322,84 @@
       ]
     }
   },
+  "shadow": {
+    "composite": {
+      "value": {
+        "color": "rgba(31, 30, 36, 0.08)",
+        "offsetX": "0",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0"
+      },
+      "$type": "shadow",
+      "filePath": "src/tokens/shadow.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": {
+          "color": "{color.alpha.dark.8}",
+          "offsetX": "0",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0"
+        },
+        "$type": "shadow"
+      },
+      "name": "SHADOW_COMPOSITE",
+      "attributes": {},
+      "path": [
+        "shadow",
+        "composite"
+      ]
+    },
+    "default": {
+      "value": "0 2px 8px rgba(31, 30, 36, 0.16), 0 0 2px rgba(31, 30, 36, 0.16)",
+      "$type": "shadow",
+      "filePath": "src/tokens/shadow.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "0 2px 8px {color.alpha.dark.16}, 0 0 2px {color.alpha.dark.16}",
+        "$type": "shadow"
+      },
+      "name": "SHADOW_DEFAULT",
+      "attributes": {},
+      "path": [
+        "shadow",
+        "default"
+      ]
+    },
+    "subtle": {
+      "value": "0 1px 2px rgba(31, 30, 36, 0.08)",
+      "$type": "shadow",
+      "filePath": "src/tokens/shadow.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "0 1px 2px {color.alpha.dark.8}",
+        "$type": "shadow"
+      },
+      "name": "SHADOW_SUBTLE",
+      "attributes": {},
+      "path": [
+        "shadow",
+        "subtle"
+      ]
+    },
+    "strong": {
+      "value": "0 4px 12px rgba(31, 30, 36, 0.16), 0 0 4px rgba(31, 30, 36, 0.16)",
+      "$type": "shadow",
+      "filePath": "src/tokens/shadow.tokens.json",
+      "isSource": true,
+      "original": {
+        "value": "0 4px 12px {color.alpha.dark.16}, 0 0 4px {color.alpha.dark.16}",
+        "$type": "shadow"
+      },
+      "name": "SHADOW_STRONG",
+      "attributes": {},
+      "path": [
+        "shadow",
+        "strong"
+      ]
+    }
+  },
   "status": {
     "muted": {
       "background": {

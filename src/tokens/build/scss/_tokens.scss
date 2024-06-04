@@ -475,6 +475,10 @@ $gl-status-muted-text-color-default: $gl-color-neutral-600; // Used for the text
 $gl-status-muted-border-color-hover: $gl-color-neutral-200; // Used for the border of a subtle neutral status item in the hover state.
 $gl-status-muted-background-color-active: $gl-color-neutral-100; // Used for the background of a subtle neutral status item in the active state.
 $gl-status-muted-background-color-default: $gl-color-neutral-50; // Used for the background of a subtle neutral status item when static or the default state when linked.
+$gl-shadow-strong: 0 4px 12px $gl-color-alpha-dark-16, 0 0 4px $gl-color-alpha-dark-16;
+$gl-shadow-subtle: 0 1px 2px $gl-color-alpha-dark-8;
+$gl-shadow-default: 0 2px 8px $gl-color-alpha-dark-16, 0 0 2px $gl-color-alpha-dark-16;
+$gl-shadow-composite: [object Object];
 $gl-icon-color-success: $gl-color-green-600; // Used for an icon associated with success or validity.
 $gl-icon-color-danger: $gl-color-red-600; // Used for an icon associated with an error or danger.
 $gl-icon-color-warning: $gl-color-orange-600; // Used for an icon associated with a warning.
