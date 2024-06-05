@@ -1,6 +1,7 @@
 const {
   colors,
   backgroundColor,
+  borderColor,
   fill,
   textColor,
 } = require('./src/tokens/build/tailwind/tokens.cjs');
@@ -54,6 +55,7 @@ module.exports = {
     },
     colors,
     backgroundColor,
+    borderColor,
     fill,
     spacing,
     fontSize: {

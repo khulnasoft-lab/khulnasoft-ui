@@ -157,6 +157,7 @@ StyleDictionary.registerFormat({
     const iconColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.icon.color);
     const alphaDarkColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.color.alpha.dark);
     const alphaLightColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.color.alpha.light);
+    const borderColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.border.color);
 
     return `${fileHeader({ file })}
     const baseColors = ${JSON.stringify(baseColors)};
@@ -164,6 +165,7 @@ StyleDictionary.registerFormat({
     const dataVizColors = ${JSON.stringify(dataVizColors)};
     const textColors = ${JSON.stringify(textColors)};
     const backgroundColors = ${JSON.stringify(backgroundColors)};
+    const borderColors = ${JSON.stringify(borderColors)};
     const iconColors = ${JSON.stringify(iconColors)};
     const alphaDarkColors = ${JSON.stringify(alphaDarkColors)};
     const alphaLightColors = ${JSON.stringify(alphaLightColors)};
@@ -188,6 +190,11 @@ StyleDictionary.registerFormat({
       ...backgroundColors,
     };
 
+    const borderColor  = {
+      ...colors,
+      ...borderColors,
+    };
+
     const fill = {
       ...colors,
       icon: {
@@ -206,6 +213,7 @@ StyleDictionary.registerFormat({
     module.exports = {
       colors,
       backgroundColor,
+      borderColor,
       textColor,
       fill,
     }
