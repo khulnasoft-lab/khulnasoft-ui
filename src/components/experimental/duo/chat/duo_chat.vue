@@ -464,7 +464,7 @@ export default {
             @click="sendPredefinedPrompt"
           />
         </template>
-        <gl-duo-chat-loader v-if="isLoading" key="loader" :tool-name="toolName" />
+        <gl-duo-chat-loader v-if="isLoading || isStreaming" key="loader" :tool-name="toolName" />
         <div key="anchor" ref="anchor" class="scroll-anchor"></div>
       </transition-group>
     </div>
