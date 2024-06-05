@@ -12,6 +12,7 @@ const template = `
     :disabled="disabled"
     :value="value"
     :width="width"
+    :state="state"
   />
 </gl-form-group>`;
 
@@ -23,6 +24,7 @@ const generateProps = ({
   readonly = false,
   labelText = 'Label',
   type = 'text',
+  state = true,
 } = {}) => ({
   labelText,
   inputId,
@@ -31,6 +33,7 @@ const generateProps = ({
   disabled,
   readonly,
   type,
+  state,
 });
 
 const Template = (args) => ({
