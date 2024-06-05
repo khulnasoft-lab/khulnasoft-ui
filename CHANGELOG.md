@@ -1,3 +1,10 @@
+# [80.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.18.0...v80.19.0) (2024-06-05)
+
+
+### Features
+
+* **DesignTokens:** add theme design tokens ([feab27d](https://gitlab.com/gitlab-org/gitlab-ui/commit/feab27d8b1e2f6f7a9dab9fb82aa92540822a1b6))
+
 # [80.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.17.0...v80.18.0) (2024-06-05)
 
 
