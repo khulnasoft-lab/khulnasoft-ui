@@ -1,3 +1,10 @@
+# [80.18.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.17.0...v80.18.0) (2024-06-05)
+
+
+### Features
+
+* **DesignTokens:** add border color design tokens ([b0dda57](https://gitlab.com/gitlab-org/gitlab-ui/commit/b0dda57203ac2b7996fe294078dd62971e5779d8))
+
 # [80.17.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.16.2...v80.17.0) (2024-05-31)
 
 
