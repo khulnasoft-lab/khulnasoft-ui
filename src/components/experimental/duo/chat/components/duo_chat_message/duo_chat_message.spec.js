@@ -2,6 +2,7 @@ import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import GlIcon from '../../../../../base/icon/icon.vue';
+import GlLoadingIcon from '../../../../../base/loading_icon/loading_icon.vue';
 import {
   MOCK_USER_PROMPT_MESSAGE,
   MOCK_RESPONSE_MESSAGE,
@@ -20,6 +21,7 @@ describe('DuoChatMessage', () => {
   const findUserFeedback = () => wrapper.findComponent(GlDuoUserFeedback);
   const findCopyCodeButton = () => wrapper.find('copy-code');
   const findErrorIcon = () => wrapper.findComponent(GlIcon);
+  const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
   const mockMarkdownContent = 'foo **bar**';
 
   let renderMarkdown;
@@ -87,6 +89,10 @@ describe('DuoChatMessage', () => {
       expect(findUserFeedback().exists()).toBe(false);
     });
 
+    it('does not render the loading icon', () => {
+      expect(findLoadingIcon().exists()).toBe(false);
+    });
+
     it('does not render the error icon', () => {
       expect(findErrorIcon().exists()).toBe(false);
     });
@@ -106,6 +112,10 @@ describe('DuoChatMessage', () => {
     it('renders the documentation sources component by default', () => {
       expect(findDocumentSources().exists()).toBe(true);
       expect(findDocumentSources().props('sources')).toEqual(MOCK_RESPONSE_MESSAGE.extras.sources);
+    });
+
+    it('does not render the loading icon', () => {
+      expect(findLoadingIcon().exists()).toBe(false);
     });
 
     it('does not render the error icon', () => {
