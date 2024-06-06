@@ -313,7 +313,7 @@ export default {
       this.$emit('track-feedback', event);
     },
     onInputKeyup(e) {
-      const { metaKey, ctrlKey, altKey, shiftKey } = e;
+      const { metaKey, ctrlKey, altKey, shiftKey, isComposing } = e;
 
       if (this.shouldShowSlashCommands) {
         e.preventDefault();
@@ -327,8 +327,9 @@ export default {
         } else {
           this.activeCommandIndex = 0;
         }
-      } else if (e.key === 'Enter' && !(metaKey || ctrlKey || altKey || shiftKey)) {
+      } else if (e.key === 'Enter' && !isComposing && !(metaKey || ctrlKey || altKey || shiftKey)) {
         e.preventDefault();
+
         this.sendChatPrompt();
       }
     },
