@@ -93,9 +93,6 @@ export default {
     isUserMessage() {
       return this.message.role.toLowerCase() === MESSAGE_MODEL_ROLES.user;
     },
-    isStreaming() {
-      return Boolean(typeof this.message?.chunkId === 'number');
-    },
     sources() {
       return this.message.extras?.sources;
     },
@@ -204,9 +201,9 @@ export default {
           <documentation-sources v-if="sources" :sources="sources" />
 
           <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
-            <gl-loading-icon v-if="isStreaming" class="gl-pt-4" variant="dots" inline />
+            <gl-loading-icon v-if="isChunk" class="gl-pt-4" variant="dots" inline />
             <gl-duo-user-feedback
-              v-if="!isStreaming"
+              v-if="!isChunk"
               :feedback-received="hasFeedback"
               :modal-title="$options.i18n.MODAL.TITLE"
               :modal-alert="$options.i18n.MODAL.ALERT_TEXT"
