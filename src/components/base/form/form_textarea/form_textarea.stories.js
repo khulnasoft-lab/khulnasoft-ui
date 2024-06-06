@@ -5,7 +5,7 @@ const template = `
   <gl-form-textarea
     :value="value"
     :placeholder="placeholder"
-    :rows="5"
+    :rows="rows"
     :no-resize="noResize"
     :character-count="characterCount"
     @input="onInput"
@@ -20,11 +20,13 @@ const generateProps = ({
   placeholder = 'hello',
   noResize = GlFormTextarea.props.noResize.default,
   characterCount = null,
+  rows = 4,
 } = {}) => ({
   value,
   placeholder,
   noResize,
   characterCount,
+  rows,
 });
 
 const Template = (args, { updateArgs }) => ({

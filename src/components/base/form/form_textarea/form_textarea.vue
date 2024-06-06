@@ -41,6 +41,11 @@ export default {
       required: false,
       default: null,
     },
+    rows: {
+      type: Number,
+      required: false,
+      default: 4,
+    },
   },
   data() {
     return {
@@ -89,6 +94,7 @@ export default {
         class: 'gl-form-input gl-form-textarea',
         noResize: this.noResize,
         value: this.value,
+        rows: this.rows,
       };
     },
   },

@@ -142,6 +142,15 @@ describe('GlFormTextArea', () => {
     });
   });
 
+  describe('rows prop', () => {
+    it('binds the rows prop to the internal textarea', () => {
+      const rows = 10;
+      createComponent({ rows });
+
+      expect(findTextarea().attributes('rows')).toBe(rows.toString());
+    });
+  });
+
   describe('when `characterCount` prop is set', () => {
     const characterCount = 10;
 
