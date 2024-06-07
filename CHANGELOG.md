@@ -1,3 +1,10 @@
+## [80.19.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.19.0...v80.19.1) (2024-06-07)
+
+
+### Bug Fixes
+
+* **duochat:** Don't submit on enter if composing in IME ([ef57dec](https://gitlab.com/gitlab-org/gitlab-ui/commit/ef57dece9dac129dc2cd77d23d2be5ac7e5d072e)), closes [/gitlab.com/gitlab-org/gitlab-ui/-/issues/2537#note_1938464119](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/issues/2537/issues/note_1938464119)
+
 # [80.19.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.18.0...v80.19.0) (2024-06-05)
 
 
