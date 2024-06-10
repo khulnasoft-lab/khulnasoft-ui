@@ -1,3 +1,10 @@
+# [80.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.19.1...v80.20.0) (2024-06-10)
+
+
+### Features
+
+* allow controlling GlFormTextArea rows ([074004d](https://gitlab.com/gitlab-org/gitlab-ui/commit/074004de5e98a6d12e7b3f1422afa2b1b3cf77af))
+
 ## [80.19.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.19.0...v80.19.1) (2024-06-07)
 
 
