@@ -22,6 +22,35 @@ export const Default = () => ({
 
 Default.tags = ['skip-visual-test'];
 
+export const ConditionalVisibility = () => ({
+  components: {
+    GlButton,
+  },
+  directives: {
+    outside: OutsideDirective,
+  },
+  data: () => ({
+    clicks: 0,
+    show: false,
+  }),
+  methods: {
+    onClick() {
+      this.clicks += 1;
+    },
+    showCounter() {
+      this.show = true;
+    },
+  },
+  template: `
+    <div>
+      <gl-button @click="showCounter">Show Button</gl-button>
+      <gl-button v-if="show" v-outside="onClick">Clicks outside me: {{ clicks }}</gl-button>
+    </div>
+  `,
+});
+
+ConditionalVisibility.tags = ['skip-visual-test'];
+
 export default {
   title: 'directives/outside-directive',
   component: OutsideDirective,
