@@ -1,5 +1,5 @@
 import GlButton from '../../components/base/button/button.vue';
-import GlOutsideDirective from './outside';
+import { OutsideDirective } from './outside';
 import readme from './outside.md';
 
 export const Default = () => ({
@@ -7,7 +7,7 @@ export const Default = () => ({
     GlButton,
   },
   directives: {
-    outside: GlOutsideDirective,
+    outside: OutsideDirective,
   },
   data: () => ({
     clicks: 0,
@@ -24,7 +24,7 @@ Default.tags = ['skip-visual-test'];
 
 export default {
   title: 'directives/outside-directive',
-  component: GlOutsideDirective,
+  component: OutsideDirective,
   parameters: {
     docs: {
       description: {
