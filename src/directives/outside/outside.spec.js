@@ -239,56 +239,6 @@ describe('outside directive', () => {
     });
   });
 
-  describe('click event fired before directive binding', () => {
-    // This *attempts* to simulate something like the following situation:
-    //
-    //     <button @click="show = true">Show</button>
-    //     <div v-if="show" v-outside="onClick"></div>
-    //
-    // Without checking event timestamps, clicking on the button the first time
-    // would actually call the `onClick` handler. This is because browsers fire
-    // microtask ticks *during* event propagation, which means that Vue binds
-    // the directive to and inserts the new element into the DOM *before* the
-    // click event propagates up to the document node. This is something Vue
-    // itself has to deal with:
-    // https://github.com/vuejs/vue/blob/v2.6.12/src/platforms/web/runtime/modules/events.js#L53-L58
-    //
-    // Unfortunately, that behaviour doesn't seem to happen in Jest/jsdom. The
-    // click event propagates to the document *before* the Vue binds the
-    // directive to and inserts the new element into the DOM. So, instead, we
-    // explicitly construct an event with a timeStamp guaranteed to be earlier
-    // than when the directive is bound, in order to test the logic.
-    let earlyEvent;
-
-    const createEvent = () => new MouseEvent('click', { bubbles: true });
-
-    beforeEach(async () => {
-      earlyEvent = createEvent();
-
-      // As jsdom uses low-resolution timestamps on events and to avoid a flaky
-      // test, we _must_ wait at least 1 millisecond to ensure the binding
-      // timestamp is strictly larger than the event's timestamp, which means
-      // waiting _before_ mounting our test component.
-      await delay();
-      await createComponent();
-    });
-
-    it('does not call the outside click handler', async () => {
-      find('outside').element.dispatchEvent(earlyEvent);
-
-      expect(onClick).not.toHaveBeenCalled();
-    });
-
-    it('does call the click handler with a later event', async () => {
-      // Use the same createEvent helper, rather than Wrapper#trigger, to give
-      // confidence that the previous test isn't a false positive
-      const lateEvent = createEvent();
-      find('outside').element.dispatchEvent(lateEvent);
-
-      expect(onClick.mock.calls).toEqual([[lateEvent]]);
-    });
-  });
-
   describe('given a callback that throws', () => {
     let onClickThrow;
 
