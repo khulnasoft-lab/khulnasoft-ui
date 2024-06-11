@@ -1,5 +1,5 @@
 /**
- * Map<HTMLElement, { callback: Function }>
+ * Map<HTMLElement, Function>
  */
 const callbacks = new Map();
 
@@ -10,7 +10,7 @@ let listening = false;
 let lastMousedown = null;
 
 const globalListener = (event) => {
-  callbacks.forEach(({ callback }, element) => {
+  callbacks.forEach((callback, element) => {
     const originalEvent = lastMousedown || event;
     if (
       // Ignore events that aren't targeted outside the element
@@ -87,9 +87,7 @@ const bind = (el, { value, arg = 'click' }) => {
     startListening();
   }
 
-  callbacks.set(el, {
-    callback: value,
-  });
+  callbacks.set(el, value);
 };
 
 const unbind = (el) => {
