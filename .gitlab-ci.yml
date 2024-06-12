@@ -370,6 +370,12 @@ publish_to_npm:
   extends:
     - .semantic-release
     - .rules:gitlab-ui-default-branch
+  before_script:
+    - git fetch origin orphaned-commit
+    # Replace bootstrap-vue@2.23.1 with orphaned commit
+    # This should prevent semantic-release from traversing bootstrap-vue's history
+    #             <bootstrap_vue_commit_sha>               <orphaned_commit_sha>
+    - git replace a1cebda1ef6e9579e742fdf3937a28643c8e31ec c705311d663f242fc6a36a9e89a73947fb019be4
   # We need to run `publish` after pages, so that pages will get deployed
   # properly, as the publish-to-npm step will create a new commit and this
   # could lead to a side-effect where pages don't get published because of
