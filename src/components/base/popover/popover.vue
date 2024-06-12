@@ -88,12 +88,9 @@ export default {
       <slot name="title">
         {{ title }}
       </slot>
-      <close-button
-        v-if="showCloseButton"
-        class="gl-float-right gl-mt-n2 gl-mr-n3"
-        data-testid="close-button"
-        @click="close"
-      />
+      <div v-if="showCloseButton" class="gl-mt-n2 gl-mr-n3 gl-ml-3 gl-h-0">
+        <close-button data-testid="close-button" @click="close" />
+      </div>
     </template>
     <slot></slot>
   </b-popover>
