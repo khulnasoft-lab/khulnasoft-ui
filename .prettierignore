@@ -4,3 +4,4 @@ templates/
 dist/
 scss_to_js/scss_variables.js
 .cypress_cache
+src/vendor/

@@ -91,7 +91,7 @@ const fixImports = (code) => {
 
 export default glob
   .sync('src/**/*.{js,vue}', {
-    ignore: ['**/*.spec.js', '**/*.stories.js', 'src/internal/**/*'],
+    ignore: ['**/*.spec.js', '**/*.stories.js', 'src/internal/**/*', 'src/vendor/**/*'],
   })
   .map((input) => {
     const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
