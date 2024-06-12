@@ -81,7 +81,9 @@
     "lodash": "^4.17.20",
     "marked": "^12.0.0",
     "marked-bidi": "^1.0.8",
-    "portal-vue": "^2.1.6",
+    "popper.js": "^1.16.1",
+    "portal-vue": "^2.1.7",
+    "vue-functional-data-merge": "^3.1.0",
     "vue-runtime-helpers": "^1.1.2"
   },
   "peerDependencies": {
