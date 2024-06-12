@@ -1,3 +1,10 @@
+## [80.20.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.20.0...v80.20.1) (2024-06-12)
+
+
+### Bug Fixes
+
+* **GlPopover:** properly align close button ([2e86876](https://gitlab.com/gitlab-org/gitlab-ui/commit/2e868768a36339219cdd554b8ef1a869b6475b57))
+
 # [80.20.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.19.1...v80.20.0) (2024-06-10)
 
 
