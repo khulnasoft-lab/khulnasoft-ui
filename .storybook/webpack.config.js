@@ -4,6 +4,9 @@ const path = require('path');
 const webpack = require('webpack');
 const sass = require('sass');
 const { USE_VUE_3 } = require('../use_vue3');
+const { sync } = require('glob');
+
+const ROOT_DIR = path.resolve(__dirname, '..');
 
 const VUE_LOADER_OPTIONS = USE_VUE_3
   ? {
@@ -24,9 +27,36 @@ const VUE_LOADER_OPTIONS = USE_VUE_3
 const sassLoaderOptions = {
   implementation: sass,
   sassOptions: {
-    includePaths: [require('path').resolve(__dirname, '..', 'node_modules')],
+    includePaths: [path.resolve(ROOT_DIR, 'node_modules')],
   },
 };
+
+function mapStoriesToSourceFile() {
+  // Find all source files
+  const allFiles = sync(path.resolve(ROOT_DIR, 'src/**/*.{js,json,vue}'))
+    .map((file) => path.relative(ROOT_DIR, file))
+    .sort();
+
+  const storyToSource = {};
+
+  for (const file of allFiles) {
+    // Find all stories
+    if (file.endsWith('.stories.js')) {
+      const base = file.replace(/\.stories\.js/, '');
+      // A story might be for a vue file, a js file or JSON (design token)
+      const match = allFiles.find(
+        (f) => f.endsWith(`${base}.vue`) || f.endsWith(`${base}.js`) || f.endsWith(`${base}.json`)
+      );
+      if (!match && !process.env.CI) {
+        console.warn(`Did not find source for ${file}`);
+      } else {
+        storyToSource[file] = match;
+      }
+    }
+  }
+
+  return storyToSource;
+}
 
 module.exports = ({ config }) => {
   config.module.rules = [
@@ -126,6 +156,12 @@ module.exports = ({ config }) => {
       (plugin) => plugin.constructor.name !== 'ProgressPlugin'
     );
   }
+
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      STORY_TO_SOURCE_MAP: JSON.stringify(mapStoriesToSourceFile()),
+    })
+  );
 
   return config;
 };
