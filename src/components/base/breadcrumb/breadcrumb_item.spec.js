@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { BLink } from 'bootstrap-vue';
+import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
 import BreadcrumbItem from './breadcrumb_item.vue';
 
 describe('Breadcrumb Item Component', () => {

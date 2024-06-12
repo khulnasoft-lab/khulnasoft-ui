@@ -1,6 +1,6 @@
-import { BVConfigPlugin } from 'bootstrap-vue';
 import Vue from 'vue';
 import translationKeys from '../translations';
+import { BVConfigPlugin } from './vendor/bootstrap-vue/src/bv-config';
 import { tooltipDelay } from './utils/constants';
 
 const bFormTextGlobalConfig = {

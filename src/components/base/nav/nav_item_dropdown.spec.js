@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { BNavItemDropdown } from 'bootstrap-vue';
+import { BNavItemDropdown } from '../../../vendor/bootstrap-vue/src/components/nav/nav-item-dropdown';
 import GlIcon from '../icon/icon.vue';
 import GlNavItemDropdown from './nav_item_dropdown.vue';
 

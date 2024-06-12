@@ -1,5 +1,5 @@
 <script>
-import { BNavbar } from 'bootstrap-vue';
+import { BNavbar } from '../../../vendor/bootstrap-vue/src/components/navbar/navbar';
 
 export default {
   name: 'GlNavbar',

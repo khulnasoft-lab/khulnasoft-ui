@@ -1,5 +1,5 @@
 <script>
-import { BCarouselSlide } from 'bootstrap-vue';
+import { BCarouselSlide } from '../../../vendor/bootstrap-vue/src/components/carousel/carousel-slide';
 
 export default {
   name: 'GlCarouselSlide',

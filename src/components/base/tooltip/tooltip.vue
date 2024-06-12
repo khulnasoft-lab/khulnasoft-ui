@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BTooltip } from 'bootstrap-vue';
+import { BTooltip } from '../../../vendor/bootstrap-vue/src/components/tooltip/tooltip';
 import { tooltipDelay } from '../../../utils/constants';
 import tooltipMixin from '../../mixins/tooltip_mixin';
 

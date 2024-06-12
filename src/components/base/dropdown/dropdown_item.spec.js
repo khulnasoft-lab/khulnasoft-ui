@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import { BDropdownItem, BDropdownItemButton } from 'bootstrap-vue';
+import { BDropdownItem } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown-item';
+import { BDropdownItemButton } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown-item-button';
 
 import GlDropdownItem from './dropdown_item.vue';
 

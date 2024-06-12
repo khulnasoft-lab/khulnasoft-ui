@@ -1,6 +1,6 @@
 <script>
-import { BFormCheckboxGroup } from 'bootstrap-vue';
-import { formOptionsMixin } from 'bootstrap-vue/src/mixins/form-options';
+import { formOptionsMixin } from '../../../../vendor/bootstrap-vue/src/mixins/form-options';
+import { BFormCheckboxGroup } from '../../../../vendor/bootstrap-vue/src/components/form-checkbox/form-checkbox-group';
 import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/safe_html';
 import GlFormCheckbox from './form_checkbox.vue';
 

@@ -1,5 +1,5 @@
 <script>
-import { BProgress } from 'bootstrap-vue';
+import { BProgress } from '../../../vendor/bootstrap-vue/src/components/progress/progress';
 
 export default {
   name: 'GlProgressBar',

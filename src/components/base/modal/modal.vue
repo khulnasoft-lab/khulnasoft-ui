@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BModal } from 'bootstrap-vue';
+import { BModal } from '../../../vendor/bootstrap-vue/src/components/modal/modal';
 import {
   COMMA,
   focusableTags,

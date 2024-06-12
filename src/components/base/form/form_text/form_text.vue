@@ -1,5 +1,5 @@
 <script>
-import { BFormText } from 'bootstrap-vue';
+import { BFormText } from '../../../../vendor/bootstrap-vue/src/components/form/form-text';
 
 export default {
   ...BFormText.options,

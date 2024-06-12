@@ -1,5 +1,5 @@
 <script>
-import { BTableLite } from 'bootstrap-vue';
+import { BTableLite } from '../../../vendor/bootstrap-vue/src/components/table/table-lite';
 
 const { tableClass } = BTableLite.options.props;
 

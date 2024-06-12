@@ -1,7 +1,7 @@
 <script>
-import { BFormGroup } from 'bootstrap-vue';
 import isString from 'lodash/isString';
 import isPlainObject from 'lodash/isPlainObject';
+import { BFormGroup } from '../../../../vendor/bootstrap-vue/src/components/form-group/form-group';
 
 export default {
   name: 'GlFormGroup',

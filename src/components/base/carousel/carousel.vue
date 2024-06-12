@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BCarousel } from 'bootstrap-vue';
+import { BCarousel } from '../../../vendor/bootstrap-vue/src/components/carousel/carousel';
 
 export default {
   name: 'GlCarousel',

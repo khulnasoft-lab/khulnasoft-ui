@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BCollapse } from 'bootstrap-vue';
+import { BCollapse } from '../../../vendor/bootstrap-vue/src/components/collapse/collapse';
 
 export default {
   name: 'GlCollapse',

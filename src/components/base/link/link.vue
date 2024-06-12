@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BLink } from 'bootstrap-vue';
+import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
 import { SafeLinkMixin } from '../../mixins/safe_link_mixin';
 
 export default {

@@ -1,5 +1,5 @@
 <script>
-import { BFormRadio } from 'bootstrap-vue';
+import { BFormRadio } from '../../../../vendor/bootstrap-vue/src/components/form-radio/form-radio';
 
 const { model } = BFormRadio.options;
 

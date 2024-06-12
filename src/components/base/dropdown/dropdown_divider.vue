@@ -1,5 +1,5 @@
 <script>
-import { BDropdownDivider } from 'bootstrap-vue';
+import { BDropdownDivider } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown-divider';
 
 export default {
   name: 'GlDropdownDivider',

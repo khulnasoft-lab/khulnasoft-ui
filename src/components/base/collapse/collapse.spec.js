@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { BCollapse } from 'bootstrap-vue';
+import { BCollapse } from '../../../vendor/bootstrap-vue/src/components/collapse/collapse';
 import Collapse from './collapse.vue';
 
 describe('Collapse component', () => {

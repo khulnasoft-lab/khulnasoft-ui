@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/multi-word-component-names vue/one-component-per-file -->
 <script>
 import Vue from 'vue';
-import { BDropdown } from 'bootstrap-vue';
-import { selectAll } from 'bootstrap-vue/src/utils/dom';
 import merge from 'lodash/merge';
+import { selectAll } from '../../../vendor/bootstrap-vue/src/utils/dom';
+import { BDropdown } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { BCollapse } from 'bootstrap-vue';
+import { BCollapse } from '../../../vendor/bootstrap-vue/src/components/collapse/collapse';
 import { GlCollapseToggleDirective } from '../../../directives/collapse_toggle';
 import { waitForAnimationFrame } from '../../../utils/test_utils';
 import GlButton from '../button/button.vue';

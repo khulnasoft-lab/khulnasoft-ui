@@ -1,5 +1,5 @@
 <script>
-import { BDropdownForm } from 'bootstrap-vue';
+import { BDropdownForm } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown-form';
 
 export default {
   name: 'GlDropdownForm',

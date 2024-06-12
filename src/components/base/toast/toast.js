@@ -1,6 +1,7 @@
 /* eslint-disable import/no-default-export */
-import { ToastPlugin } from 'bootstrap-vue';
 import isFunction from 'lodash/isFunction';
+// eslint-disable-next-line no-restricted-imports
+import { ToastPlugin } from '../../../vendor/bootstrap-vue/src/components/toast/index';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 
 const DEFAULT_OPTIONS = {

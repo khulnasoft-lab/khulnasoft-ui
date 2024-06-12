@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import { BInputGroup, BFormInput } from 'bootstrap-vue';
+import { BInputGroup } from '../../../../vendor/bootstrap-vue/src/components/input-group/input-group';
+import { BFormInput } from '../../../../vendor/bootstrap-vue/src/components/form-input/form-input';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import InputGroup from './form_input_group.vue';
 

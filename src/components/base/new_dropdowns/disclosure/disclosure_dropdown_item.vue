@@ -1,5 +1,5 @@
 <script>
-import { BLink } from 'bootstrap-vue';
+import { BLink } from '../../../../vendor/bootstrap-vue/src/components/link/link';
 import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 import { isItem } from './utils';
