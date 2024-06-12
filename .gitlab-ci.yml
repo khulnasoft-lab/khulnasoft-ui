@@ -285,6 +285,20 @@ integration_tests_vue3:
   extends: [.integration_tests, .use_vue3]
   needs: [build_test_storybook_vue3]
 
+bootstrap-vue:
+  extends: [.node]
+  needs: []
+  stage: test
+  script:
+    - cd src/vendor/bootstrap-vue
+    - yarn install --check-files --frozen-lockfile --non-interactive
+    - yarn run test
+
+bootstrap-vue_vue3:
+  extends: [bootstrap-vue]
+  variables:
+    USE_VUE3: '1'
+
 .unit_tests:
   extends: [.node, .yarn_install]
   needs: []
