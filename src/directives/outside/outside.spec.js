@@ -5,6 +5,7 @@ import { OutsideDirective } from './outside';
 describe('outside directive', () => {
   let wrapper;
   let onClick;
+  let onFocusin;
 
   const find = (testid) => wrapper.find(`[data-testid="${testid}"]`);
 
@@ -13,6 +14,9 @@ describe('outside directive', () => {
       <div v-outside="onClick" data-testid="bound">
         <div data-testid="inside"></div>
       </div>
+      <button v-outside.focusin="onFocusin" data-testid="bound-focusin">
+        <span data-testid="inside-focusin" tabindex="0"></span>
+      </button>
     </div>
   `;
 
@@ -25,6 +29,7 @@ describe('outside directive', () => {
           },
           methods: {
             onClick,
+            onFocusin,
           },
           template: defaultTemplate,
         },
@@ -39,9 +44,10 @@ describe('outside directive', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     onClick = jest.fn();
+    onFocusin = jest.fn();
   });
 
-  describe('given a callback', () => {
+  describe('given a callback for click', () => {
     it.each`
       target       | expectedCalls
       ${'outside'} | ${[[expect.any(MouseEvent)]]}
@@ -55,6 +61,24 @@ describe('outside directive', () => {
         find(target).trigger('click');
 
         expect(onClick.mock.calls).toEqual(expectedCalls);
+      }
+    );
+  });
+
+  describe('given a callback for focusin', () => {
+    it.each`
+      target              | expectedCalls
+      ${'outside'}        | ${[[expect.any(FocusEvent)]]}
+      ${'bound-focusin'}  | ${[]}
+      ${'inside-focusin'} | ${[]}
+    `(
+      'is called with $expectedCalls when focusing on $target element',
+      async ({ target, expectedCalls }) => {
+        await createComponent();
+
+        find(target).trigger('focusin');
+
+        expect(onFocusin.mock.calls).toEqual(expectedCalls);
       }
     );
   });
@@ -112,6 +136,26 @@ describe('outside directive', () => {
       expect(document.addEventListener).not.toHaveBeenCalled();
     });
 
+    it('throws if passed an argument', async () => {
+      await expect(
+        createComponent({
+          template: '<div v-outside:click="onFocusin"></div>',
+        })
+      ).rejects.toThrow('Arguments are not supported.');
+
+      expect(global.console).toHaveLoggedVueErrors();
+      expect(document.addEventListener).not.toHaveBeenCalled();
+    });
+
+    it('attaches the global listener when binding', async () => {
+      await createComponent();
+
+      expect(document.addEventListener).toHaveBeenCalledTimes(3);
+      expect(document.addEventListener.mock.calls[0][0]).toBe('mousedown');
+      expect(document.addEventListener.mock.calls[1][0]).toBe('click');
+      expect(document.addEventListener.mock.calls[2][0]).toBe('focusin');
+    });
+
     it('detaches the global listener when last binding is removed', async () => {
       await createComponent();
 
@@ -120,6 +164,11 @@ describe('outside directive', () => {
       document.body.dispatchEvent(new MouseEvent('click'));
 
       expect(onClick).not.toHaveBeenCalled();
+
+      expect(document.removeEventListener).toHaveBeenCalledTimes(3);
+      expect(document.removeEventListener.mock.calls[0][0]).toBe('click');
+      expect(document.removeEventListener.mock.calls[1][0]).toBe('mousedown');
+      expect(document.removeEventListener.mock.calls[2][0]).toBe('focusin');
     });
 
     it('only unbinds once there are no instances', async () => {
@@ -151,40 +200,52 @@ describe('outside directive', () => {
     });
   });
 
-  describe('given an arg', () => {
-    const templateWithArg = (eventType) => `
-      <div data-testid="outside">
-        <div v-outside:${eventType}="onClick" data-testid="bound"></div>
+  describe('given modifiers', () => {
+    beforeEach(() => {
+      jest.spyOn(document, 'addEventListener');
+    });
+
+    const templateWitModifiersForFocusIn = (eventTypes) => `
+      <div data-testid='outside' tabindex='0'>
+        <button v-outside.${eventTypes.join('.')}="onFocusin" data-testid='bound'>
+          <span data-testid='inside' tabindex='0'></span>
+        </button>
       </div>`;
 
-    it('works with click', async () => {
+    it('works with focusin', async () => {
       await createComponent({
-        template: templateWithArg('click'),
+        template: templateWitModifiersForFocusIn(['focusin'], onFocusin),
       });
 
+      find('outside').trigger('focusin');
+
+      expect(onFocusin.mock.calls).toEqual([[expect.any(FocusEvent)]]);
+    });
+
+    it('works with multiple event types', async () => {
+      await createComponent({
+        template: templateWitModifiersForFocusIn(['click', 'focusin']),
+      });
+
+      find('outside').trigger('focusin');
       find('outside').trigger('click');
 
-      expect(onClick.mock.calls).toEqual([[expect.any(MouseEvent)]]);
+      expect(onFocusin.mock.calls).toEqual([[expect.any(FocusEvent)], [expect.any(MouseEvent)]]);
     });
 
     it.each(['mousedown', 'keyup', 'foo'])(
       'does not work with any other event, like %s',
       async (eventType) => {
-        jest.spyOn(document, 'addEventListener');
-
         await expect(
           createComponent({
-            template: templateWithArg(eventType),
+            template: `<div data-testid="outside">
+              <div v-outside.${eventType}="onClick" data-testid="bound"></div>
+            </div>`,
           })
         ).rejects.toThrow(`Cannot bind ${eventType} events`);
 
         expect(global.console).toHaveLoggedVueErrors();
-
         expect(document.addEventListener).not.toHaveBeenCalled();
-
-        find('outside').trigger('click');
-
-        expect(onClick.mock.calls).toEqual([]);
       }
     );
   });

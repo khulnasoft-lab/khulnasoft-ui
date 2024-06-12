@@ -1,20 +1,29 @@
 /**
- * Map<HTMLElement, Function>
+ * Map<HTMLElement, { callback: Function, eventTypes: Array<string> }>
  */
 const callbacks = new Map();
+const click = 'click';
+const focusin = 'focusin';
+const supportedEventTypes = [click, focusin];
+const defaultEventType = click;
 
 /**
- * Is a global listener already set up?
+ * A Set to keep track of currently active event types.
+ * This ensures that event listeners are only added for the event types that are in use.
+ *
+ * @type {Set<string>}
  */
-let listening = false;
+const activeEventTypes = new Set();
 let lastMousedown = null;
 
 const globalListener = (event) => {
-  callbacks.forEach((callback, element) => {
-    const originalEvent = lastMousedown || event;
+  callbacks.forEach(({ callback, eventTypes }, element) => {
+    const originalEvent = event.type === click ? lastMousedown || event : event;
     if (
       // Ignore events that aren't targeted outside the element
-      element.contains(originalEvent.target)
+      element.contains(originalEvent.target) ||
+      // Ignore events that aren't the specified types for this element
+      !eventTypes.includes(event.type)
     ) {
       return;
     }
@@ -28,7 +37,9 @@ const globalListener = (event) => {
       }
     }
   });
-  lastMousedown = null;
+  if (event.type === click) {
+    lastMousedown = null;
+  }
 };
 
 // We need to listen for mouse events because text selection fires click event only when selection ends.
@@ -38,40 +49,72 @@ const onMousedown = (event) => {
   lastMousedown = event;
 };
 
-const startListening = () => {
-  if (listening) {
-    return;
-  }
+const startListening = (eventTypes) => {
+  eventTypes.forEach((eventType) => {
+    if (!activeEventTypes.has(eventType)) {
+      // Listening to mousedown events, ensures that a text selection doesn't trigger the
+      // GlOutsideDirective 'click' callback if the selection started within the target element.
+      if (eventType === click) {
+        document.addEventListener('mousedown', onMousedown);
+      }
 
-  document.addEventListener('mousedown', onMousedown);
-  // Added { capture: true } to prevent the behavior discussed in https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1686#note_412545027
-  // Ensures the event listener handles the event in the capturing phase, avoiding issues encountered previously.
-  // Cannot be tested with Jest or Cypress, but can be tested with Playwright in the future: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4272#note_1947425384
-  document.addEventListener('click', globalListener, { capture: true });
-  listening = true;
+      // Added { capture: true } to all event types to prevent the behavior discussed in https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1686#note_412545027
+      // Ensures the event listener handles the event in the capturing phase, avoiding issues encountered previously.
+      // Cannot be tested with Jest or Cypress, but can be tested with Playwright in the future: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4272#note_1947425384
+      document.addEventListener(eventType, globalListener, { capture: true });
+      activeEventTypes.add(eventType);
+    }
+  });
+
   lastMousedown = null;
 };
 
-const stopListening = () => {
-  if (!listening) {
-    return;
-  }
+const stopListening = (eventTypesToUnbind) => {
+  eventTypesToUnbind.forEach((eventType) => {
+    if (activeEventTypes.has(eventType)) {
+      if ([...callbacks.values()].every(({ eventTypes }) => !eventTypes.includes(eventType))) {
+        document.removeEventListener(eventType, globalListener);
+        activeEventTypes.delete(eventType);
+      }
+    }
+  });
 
-  document.removeEventListener('mousedown', onMousedown);
-  document.removeEventListener('click', globalListener);
-  listening = false;
+  if (eventTypesToUnbind.includes(click) && !activeEventTypes.has(click)) {
+    document.removeEventListener('mousedown', onMousedown);
+  }
 };
 
-const bind = (el, { value, arg = 'click' }) => {
-  if (typeof value !== 'function') {
-    throw new Error(`[GlOutsideDirective] Value must be a function; got ${typeof value}!`);
+function parseBinding({ arg, value, modifiers }) {
+  const modifiersList = Object.keys(modifiers);
+
+  if (process.env.NODE_ENV !== 'production') {
+    if (typeof value !== 'function') {
+      throw new Error(`[GlOutsideDirective] Value must be a function; got ${typeof value}!`);
+    }
+
+    if (typeof arg !== 'undefined') {
+      throw new Error(
+        `[GlOutsideDirective] Arguments are not supported. Consider using modifiers instead.`
+      );
+    }
+
+    if (modifiersList.some((modifier) => !supportedEventTypes.includes(modifier))) {
+      throw new Error(
+        `[GlOutsideDirective] Cannot bind ${modifiersList} events; supported event types are: ${supportedEventTypes.join(
+          ', '
+        )}`
+      );
+    }
   }
 
-  if (arg !== 'click') {
-    throw new Error(
-      `[GlOutsideDirective] Cannot bind ${arg} events; only click events are currently supported!`
-    );
-  }
+  return {
+    callback: value,
+    eventTypes: modifiersList.length > 0 ? modifiersList : [defaultEventType],
+  };
+}
+
+const bind = (el, bindings) => {
+  const { callback, eventTypes } = parseBinding(bindings);
 
   if (callbacks.has(el)) {
     // This element is already bound. This is possible if two components, which
@@ -86,18 +129,15 @@ const bind = (el, { value, arg = 'click' }) => {
     return;
   }
 
-  if (!listening) {
-    startListening();
-  }
-
-  callbacks.set(el, value);
+  callbacks.set(el, { callback, eventTypes });
+  startListening(eventTypes);
 };
 
 const unbind = (el) => {
-  callbacks.delete(el);
-
-  if (callbacks.size === 0) {
-    stopListening();
+  const entry = callbacks.get(el);
+  if (entry) {
+    callbacks.delete(el);
+    stopListening(entry.eventTypes);
   }
 };
 
