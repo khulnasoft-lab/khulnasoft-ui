@@ -1,13 +1,13 @@
 $label-max-width: 100%;
-$label-close-button: '.gl-label-close.gl-button';
 
 .gl-label {
   @include gl-align-items-center;
-  @include gl-bg-white;
+  background-color: var(--gl-background-color-default);
   @include gl-overflow-hidden;
   @include gl-display-inline-flex;
   @include gl-rounded-pill;
   position: relative;
+  gap: $gl-spacing-scale-1;
   @include gl-max-w-full;
   @include gl-font-sm;
   @include gl-line-height-normal;
@@ -22,7 +22,7 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   &:has(*:first-child:focus) {
-    @include gl-focus($color: var(--label-background-color, $white), $important: true);
+    @include gl-focus($color: var(--label-background-color, --gl-background-color-default), $important: true);
   }
 
   .gl-label-link {
@@ -49,32 +49,32 @@ $label-close-button: '.gl-label-close.gl-button';
     @include str-truncated($label-max-width);
   }
 
-  > #{$label-close-button} {
+  > .gl-label-close.gl-button {
     @include gl-border-0;
     @include gl-display-flex;
-    width: px-to-rem(14px);
-    height: px-to-rem(14px);
-    margin-left: #{-$gl-spacing-scale-1 - ($gl-spacing-scale-1 / 2)};
-    margin-right: #{$gl-spacing-scale-2 - ($gl-spacing-scale-1 / 2)};
-    @include gl-p-0;
-    @include gl-rounded-full;
+    width: px-to-rem(20px);
+    height: px-to-rem(20px);
+    padding: 0 !important;
+    border: 0;
     @include gl-shadow-none;
+    @include gl-rounded-full;
+
+    .gl-label-close-icon {
+      @include gl-rounded-full;
+    }
 
     &[disabled],
     &[disabled]:hover,
     &[disabled]:focus {
-      @include gl-opacity-5;
-      @include gl-reset-bg;
-      @include gl-shadow-none;
-
-      .gl-icon {
-        @include gl-fill-current-color;
+      .gl-label-close-icon {
+        color: var(--gl-text-color-disabled);
+        background-color: transparent;
       }
     }
 
     &:focus,
     &:active {
-      @include gl-focus;
+      @include gl-focus($inset: true);
     }
 
     .gl-icon {
@@ -84,84 +84,44 @@ $label-close-button: '.gl-label-close.gl-button';
 }
 
 .gl-label-text-dark {
-  @include gl-text-gray-950;
+  color: var(--gl-label-light-text-color);
 
-  #{$label-close-button} {
-    .gl-icon,
-    &[disabled] .gl-icon,
-    &[disabled]:hover .gl-icon,
-    &[disabled]:focus .gl-icon {
-      @include gl-text-black-normal;
+  .gl-label-close.gl-button {
+    .gl-label-close-icon {
+      color: var(--gl-label-light-button-icon-color-default);
+      background-color: var(--gl-label-light-button-icon-background-default);
     }
 
     &:focus,
     &:hover {
-      @include gl-bg-black;
-
-      .gl-icon {
-        color: var(--label-background-color);
+      .gl-label-close-icon {
+        color: var(--gl-label-light-button-icon-color-hover);
+        background-color: var(--gl-label-light-button-icon-background-hover);
       }
     }
   }
 }
 
 .gl-label-text-light {
-  @include gl-text-white;
+  color: var(--gl-label-dark-text-color);
 
-  #{$label-close-button} {
-    .gl-icon,
-    &[disabled] .gl-icon,
-    &[disabled]:hover .gl-icon,
-    &[disabled]:focus .gl-icon {
-      @include gl-text-white;
+  .gl-label-close.gl-button {
+    .gl-label-close-icon {
+      color: var(--gl-label-dark-button-icon-color-default);
+      background-color: var(--gl-label-dark-button-icon-background-default);
     }
 
     &:focus,
     &:hover {
-      @include gl-bg-white;
-
-      .gl-icon {
-        color: var(--label-background-color);
+      .gl-label-close-icon {
+        color: var(--gl-label-dark-button-icon-color-hover);
+        background-color: var(--gl-label-dark-button-icon-background-hover);
       }
     }
   }
 }
 
 .gl-label-scoped {
-  &.gl-label-text-light {
-    #{$label-close-button} .gl-icon,
-    #{$label-close-button}[disabled]:hover .gl-icon {
-      color: var(--label-background-color);
-    }
-
-    #{$label-close-button}:not(:disabled) {
-      &:focus,
-      &:hover {
-        background-color: var(--label-background-color);
-      }
-    }
-  }
-
-  &.gl-label-text-dark {
-    #{$label-close-button}:not(:disabled) {
-      &:focus,
-      &:hover {
-        @include gl-bg-black;
-      }
-    }
-  }
-
-  #{$label-close-button} {
-    margin-left: #{-$gl-spacing-scale-2 - $gl-spacing-scale-1};
-
-    &:focus,
-    &:hover {
-      .gl-icon {
-        @include gl-text-white;
-      }
-    }
-  }
-
   .gl-label-text {
     background-color: var(--label-background-color);
 
@@ -171,9 +131,22 @@ $label-close-button: '.gl-label-close.gl-button';
   }
 
   .gl-label-text-scoped {
-    @include gl-text-gray-950;
-    padding-left: #{$gl-spacing-scale-3 - $gl-spacing-scale-2};
-    padding-right: $gl-spacing-scale-3;
+    color: var(--gl-label-scoped-text-color);
+  }
+
+  .gl-label-close.gl-button {
+    .gl-label-close-icon {
+      color: var(--gl-label-scoped-button-icon-color-default);
+      background-color: var(--gl-label-scoped-button-icon-background-default);
+    }
+
+    &:focus,
+    &:hover {
+      .gl-label-close-icon {
+        color: var(--gl-label-scoped-button-icon-color-hover);
+        background-color: var(--gl-label-scoped-button-icon-background-hover);
+      }
+    }
   }
 }
 

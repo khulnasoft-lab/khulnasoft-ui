@@ -136,7 +136,7 @@ export default {
     </component>
     <gl-button
       v-if="showCloseButton"
-      class="gl-label-close gl-p-0!"
+      class="gl-label-close"
       category="tertiary"
       size="small"
       variant="reset"
@@ -144,7 +144,7 @@ export default {
       :disabled="disabled"
       @click="onClose"
     >
-      <gl-icon name="close-xs" :size="12" />
+      <gl-icon class="gl-label-close-icon" name="close-xs" :size="12" />
     </gl-button>
     <gl-tooltip
       v-if="description"
