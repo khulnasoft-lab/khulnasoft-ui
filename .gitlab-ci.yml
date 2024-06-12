@@ -379,3 +379,14 @@ publish_to_npm:
   # run in case another job in the previous stages fails
   dependencies:
     - build_package
+
+publish-to-npm-dry-run:
+  extends:
+    - publish_to_npm
+    - .rules:gitlab-ui-mr
+  stage: deploy
+  dependencies: []
+  needs:
+    - build_package
+  script:
+    - semantic-release --branches "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME" --dry-run --no-ci
