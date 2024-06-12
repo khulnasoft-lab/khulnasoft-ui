@@ -67,6 +67,10 @@ $gl-popover-max-width: $grid-size * 35;
     @include gl-bg-white;
     @include gl-border-bottom-0;
     @include gl-pb-0;
+    @include gl-overflow-anywhere;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
   .popover-body {

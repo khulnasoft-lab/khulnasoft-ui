@@ -54,6 +54,7 @@ export const WithCloseButton = (_args, { viewMode, argTypes }) => ({
 });
 WithCloseButton.args = generateProps({
   showCloseButton: true,
+  title: 'Compliance framework used with Ruby project',
 });
 
 export const TextLinks = (_args, { viewMode, argTypes }) => ({
