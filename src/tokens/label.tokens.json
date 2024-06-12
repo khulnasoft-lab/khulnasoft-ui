@@ -1,0 +1,109 @@
+{
+  "label": {
+    "light": {
+      "text": {
+        "color": {
+          "$value": "{color.neutral.950}",
+          "$type": "color"
+        }
+      },
+      "button": {
+        "icon": {
+          "color": {
+            "default": {
+              "$value": "{color.neutral.950}",
+              "$type": "color"
+            },
+            "hover": {
+              "$value": "{color.neutral.0}",
+              "$type": "color"
+            }
+          },
+          "background": {
+            "default": {
+              "$value": "transparent",
+              "$type": "color"
+            },
+            "hover": {
+              "$value": "{color.neutral.950}",
+              "$type": "color"
+            }
+          }
+        }
+      }
+    },
+    "dark": {
+      "text": {
+        "color": {
+          "$value": "{color.neutral.0}",
+          "$type": "color"
+        }
+      },
+      "button": {
+        "icon": {
+          "color": {
+            "default": {
+              "$value": "{color.neutral.0}",
+              "$type": "color"
+            },
+            "hover": {
+              "$value": "{color.neutral.950}",
+              "$type": "color"
+            }
+          },
+          "background": {
+            "default": {
+              "$value": "transparent",
+              "$type": "color"
+            },
+            "hover": {
+              "$value": "{color.neutral.0}",
+              "$type": "color"
+            }
+          }
+        }
+      }
+    },
+    "scoped": {
+      "text": {
+        "color": {
+          "$value": "{text.color.default}",
+          "$type": "color"
+        }
+      },
+      "button": {
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.950}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color"
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color"
+            }
+          },
+          "background": {
+            "default": {
+              "$value": "transparent",
+              "$type": "color"
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.950}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color"
+            }
+          }
+        }
+      }
+    }
+  }
+}

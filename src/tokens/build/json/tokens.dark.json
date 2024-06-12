@@ -8261,6 +8261,347 @@
       }
     }
   },
+  "label": {
+    "light": {
+      "text": {
+        "color": {
+          "value": "#1f1e24",
+          "$type": "color",
+          "filePath": "src/tokens/label.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.950}",
+            "$type": "color"
+          },
+          "name": "LABEL_LIGHT_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "label",
+            "light",
+            "text",
+            "color"
+          ]
+        }
+      },
+      "button": {
+        "icon": {
+          "color": {
+            "default": {
+              "value": "#1f1e24",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.950}",
+                "$type": "color"
+              },
+              "name": "LABEL_LIGHT_BUTTON_ICON_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "label",
+                "light",
+                "button",
+                "icon",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#fff",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.0}",
+                "$type": "color"
+              },
+              "name": "LABEL_LIGHT_BUTTON_ICON_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "label",
+                "light",
+                "button",
+                "icon",
+                "color",
+                "hover"
+              ]
+            }
+          },
+          "background": {
+            "default": {
+              "value": "transparent",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "transparent",
+                "$type": "color"
+              },
+              "name": "LABEL_LIGHT_BUTTON_ICON_BACKGROUND_DEFAULT",
+              "attributes": {},
+              "path": [
+                "label",
+                "light",
+                "button",
+                "icon",
+                "background",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#1f1e24",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.950}",
+                "$type": "color"
+              },
+              "name": "LABEL_LIGHT_BUTTON_ICON_BACKGROUND_HOVER",
+              "attributes": {},
+              "path": [
+                "label",
+                "light",
+                "button",
+                "icon",
+                "background",
+                "hover"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "dark": {
+      "text": {
+        "color": {
+          "value": "#fff",
+          "$type": "color",
+          "filePath": "src/tokens/label.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.0}",
+            "$type": "color"
+          },
+          "name": "LABEL_DARK_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "label",
+            "dark",
+            "text",
+            "color"
+          ]
+        }
+      },
+      "button": {
+        "icon": {
+          "color": {
+            "default": {
+              "value": "#fff",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.0}",
+                "$type": "color"
+              },
+              "name": "LABEL_DARK_BUTTON_ICON_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "label",
+                "dark",
+                "button",
+                "icon",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#1f1e24",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.950}",
+                "$type": "color"
+              },
+              "name": "LABEL_DARK_BUTTON_ICON_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "label",
+                "dark",
+                "button",
+                "icon",
+                "color",
+                "hover"
+              ]
+            }
+          },
+          "background": {
+            "default": {
+              "value": "transparent",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "transparent",
+                "$type": "color"
+              },
+              "name": "LABEL_DARK_BUTTON_ICON_BACKGROUND_DEFAULT",
+              "attributes": {},
+              "path": [
+                "label",
+                "dark",
+                "button",
+                "icon",
+                "background",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#fff",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.0}",
+                "$type": "color"
+              },
+              "name": "LABEL_DARK_BUTTON_ICON_BACKGROUND_HOVER",
+              "attributes": {},
+              "path": [
+                "label",
+                "dark",
+                "button",
+                "icon",
+                "background",
+                "hover"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "scoped": {
+      "text": {
+        "color": {
+          "value": "#ececef",
+          "$type": "color",
+          "filePath": "src/tokens/label.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{text.color.default}",
+            "$type": "color"
+          },
+          "name": "LABEL_SCOPED_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "label",
+            "scoped",
+            "text",
+            "color"
+          ]
+        }
+      },
+      "button": {
+        "icon": {
+          "color": {
+            "default": {
+              "value": "#fff",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.950}",
+                  "dark": "{color.neutral.0}"
+                },
+                "$type": "color"
+              },
+              "name": "LABEL_SCOPED_BUTTON_ICON_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "label",
+                "scoped",
+                "button",
+                "icon",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#1f1e24",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.0}",
+                  "dark": "{color.neutral.950}"
+                },
+                "$type": "color"
+              },
+              "name": "LABEL_SCOPED_BUTTON_ICON_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "label",
+                "scoped",
+                "button",
+                "icon",
+                "color",
+                "hover"
+              ]
+            }
+          },
+          "background": {
+            "default": {
+              "value": "transparent",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "transparent",
+                "$type": "color"
+              },
+              "name": "LABEL_SCOPED_BUTTON_ICON_BACKGROUND_DEFAULT",
+              "attributes": {},
+              "path": [
+                "label",
+                "scoped",
+                "button",
+                "icon",
+                "background",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#fff",
+              "$type": "color",
+              "filePath": "src/tokens/label.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.950}",
+                  "dark": "{color.neutral.0}"
+                },
+                "$type": "color"
+              },
+              "name": "LABEL_SCOPED_BUTTON_ICON_BACKGROUND_HOVER",
+              "attributes": {},
+              "path": [
+                "label",
+                "scoped",
+                "button",
+                "icon",
+                "background",
+                "hover"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
   "line-height": {
     "12": {
       "value": "0.75rem",

@@ -15,6 +15,9 @@ $gl-line-height-24: 1.5rem;
 $gl-line-height-20: 1.25rem;
 $gl-line-height-16: 1rem;
 $gl-line-height-12: 0.75rem;
+$gl-label-scoped-button-icon-background-default: transparent;
+$gl-label-dark-button-icon-background-default: transparent;
+$gl-label-light-button-icon-background-default: transparent;
 $t-white-a-08: rgba(255, 255, 255, 0.08) !default;
 $t-white-a-06: rgba(255, 255, 255, 0.06) !default;
 $t-white-a-04: rgba(255, 255, 255, 0.04) !default;
@@ -398,6 +401,17 @@ $gl-text-color-heading: $gl-color-neutral-0; // Used for headings level 1-6.
 $gl-text-color-strong: $gl-color-neutral-0; // Used for text with the highest contrast.
 $gl-text-color-subtle: $gl-color-neutral-200; // Used for supplemental text that doesn't need to be as prominent as other text.
 $gl-text-color-default: $gl-color-neutral-50; // Used for the default text color.
+$gl-label-scoped-button-icon-background-hover: $gl-color-neutral-0;
+$gl-label-scoped-button-icon-color-hover: $gl-color-neutral-950;
+$gl-label-scoped-button-icon-color-default: $gl-color-neutral-0;
+$gl-label-dark-button-icon-background-hover: $gl-color-neutral-0;
+$gl-label-dark-button-icon-color-hover: $gl-color-neutral-950;
+$gl-label-dark-button-icon-color-default: $gl-color-neutral-0;
+$gl-label-dark-text-color: $gl-color-neutral-0;
+$gl-label-light-button-icon-background-hover: $gl-color-neutral-950;
+$gl-label-light-button-icon-color-hover: $gl-color-neutral-0;
+$gl-label-light-button-icon-color-default: $gl-color-neutral-950;
+$gl-label-light-text-color: $gl-color-neutral-950;
 $gl-icon-color-success: $gl-color-green-300; // Used for an icon associated with success or validity.
 $gl-icon-color-danger: $gl-color-red-300; // Used for an icon associated with an error or danger.
 $gl-icon-color-warning: $gl-color-orange-300; // Used for an icon associated with a warning.
@@ -415,3 +429,4 @@ $gl-background-color-disabled: $gl-color-neutral-900; // Used to identify a disa
 $gl-background-color-strong: $gl-color-neutral-800; // Used to make the background easily stand out from the default.
 $gl-background-color-subtle: $gl-color-neutral-900; // Used to slightly differentiate the background from the default.
 $gl-background-color-default: $gl-color-neutral-950; // Used for the default background color.
+$gl-label-scoped-text-color: $gl-text-color-default;
