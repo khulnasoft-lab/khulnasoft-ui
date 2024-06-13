@@ -166,7 +166,8 @@ build_package:
   stage: build
   script:
     - yarn build
-    - yarn pack --filename $TAR_ARCHIVE_NAME
+    - npm pack
+    - mv *.tgz $TAR_ARCHIVE_NAME
     - DEPENDENCY_URL="$CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/$TAR_ARCHIVE_NAME"
     - echo "The package.json dependency URL is $DEPENDENCY_URL"
     - echo "DEPENDENCY_URL=$DEPENDENCY_URL" > build_package.env
