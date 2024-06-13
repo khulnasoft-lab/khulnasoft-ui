@@ -1,3 +1,16 @@
+# [81.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.20.1...v81.0.0) (2024-06-13)
+
+
+### Features
+
+* Add `GlFormCharacterCount` component ([c3ccb44](https://gitlab.com/gitlab-org/gitlab-ui/commit/c3ccb44479939d380707b979bee6bcbbedf22d9d))
+
+
+### BREAKING CHANGES
+
+* So you can add character count to standalone inputs
+Also renames character count related props and slots in `GlFormTextarea`
+
 ## [80.20.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.20.0...v80.20.1) (2024-06-12)
 
 
