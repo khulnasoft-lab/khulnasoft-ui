@@ -3,6 +3,7 @@ import {
   MOCK_USER_PROMPT_MESSAGE,
   renderGFM,
   renderMarkdown,
+  generateSeparateChunks,
 } from '../../mock_data';
 import GlDuoChatMessage from './duo_chat_message.vue';
 import readme from './duo_chat_message.md';
@@ -53,3 +54,9 @@ export default {
   },
   argTypes: {},
 };
+
+const [messageChunk] = generateSeparateChunks(1);
+export const LoadingMessageResponse = Template.bind({});
+LoadingMessageResponse.args = generateProps({
+  message: messageChunk,
+});
