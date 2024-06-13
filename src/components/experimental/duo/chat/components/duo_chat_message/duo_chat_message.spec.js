@@ -429,6 +429,14 @@ describe('DuoChatMessage', () => {
         expect(findContent().text()).toContain(CHUNK1.content);
       });
 
+      it('renders loading icon while loading chunked data', async () => {
+        await wrapper.setProps({ message: CHUNK1 });
+        expect(findLoadingIcon().exists()).toBe(true);
+
+        await wrapper.setProps({ message: { ...CHUNK2, chunkId: null } });
+        expect(findLoadingIcon().exists()).toBe(false);
+      });
+
       it('renders chunks correctly when the chunks arrive out of order', async () => {
         expect(CHUNK1.content).toBe('chunk #1');
         expect(CHUNK2.content).toBe('chunk #2');
