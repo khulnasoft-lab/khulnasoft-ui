@@ -20,6 +20,7 @@
     "translations.js",
     "tailwind.defaults.js",
     "!src/vendor",
+    "src/vendor/bootstrap-vue/src/**/*.{js,scss}",
     "!*.stories.js",
     "!*.snap",
     "!*.spec.{js,scss}"
