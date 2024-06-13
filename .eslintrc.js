@@ -11,11 +11,7 @@ module.exports = {
       {
         patterns: [
           {
-            group: ['bootstrap-vue/*', '!bootstrap-vue/src', '!bootstrap-vue/package.json'],
-            message: 'Import only from bootstrap-vue or bootstrap-vue/src.',
-          },
-          {
-            group: ['**/index', '!**/bootstrap-vue/src/index'],
+            group: ['**/index'],
             message:
               'Import components and directives directly rather than via the top-level barrel file.',
           },
@@ -90,7 +86,7 @@ module.exports = {
             ],
             patterns: [
               {
-                group: ['**/index', '!**/bootstrap-vue/src/index'],
+                group: ['**/index'],
                 message:
                   'Import components and directives directly rather than via the top-level barrel file.',
               },

@@ -35,7 +35,7 @@ const isExternalModule = (moduleId) => {
 
   /**
    * Everything else is an "external module", this means we do not roll up external
-   * dependencies (bootstrap-vue / lodash / ...) or internal imports (e.g. ./button)
+   * dependencies ( lodash / ...) or internal imports (e.g. ./button)
    *
    * This allows us to make @gitlab/ui treeshakeable.
    */
@@ -68,24 +68,6 @@ const fixImports = (code) => {
        * from './components/base/icon/icon';
        */
       .replace(/(from\s+(["']).+?)\.vue(\2)/g, '$1$3')
-      /**
-       * Replace direct imports from bootstrap-vue/src with bootstrap-vue/esm,
-       * as it is a pre-compiled, treeshakeable version we can use in GitLab
-       *
-       * from 'bootstrap-vue/src';
-       * =>
-       * from 'bootstrap-vue/esm/';
-       */
-      .replace(/(from\s+["'])bootstrap-vue\/src\//g, '$1bootstrap-vue/esm/')
-      /**
-       * Replace direct imports from bootstrap-vue with bootstrap-vue/esm,
-       * as it is a pre-compiled, treeshakeable version we can use in GitLab
-       *
-       * from 'bootstrap-vue';
-       * =>
-       * from 'bootstrap-vue/esm/index.js';
-       */
-      .replace(/(from\s+(["']))bootstrap-vue(\2)/g, '$1bootstrap-vue/esm/index.js$3')
   );
 };
 
@@ -93,6 +75,11 @@ export default glob
   .sync('src/**/*.{js,vue}', {
     ignore: ['**/*.spec.js', '**/*.stories.js', 'src/internal/**/*', 'src/vendor/**/*'],
   })
+  .concat(
+    glob.sync('src/vendor/bootstrap-vue/src/**/*.js', {
+      ignore: ['**/*.spec.js', '**/*.stories.js'],
+    })
+  )
   .map((input) => {
     const outputFilename = input.replace(/^src\//, '').replace(/\.(vue|js)$/, '');
 
