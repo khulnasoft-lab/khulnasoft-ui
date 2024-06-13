@@ -15,19 +15,14 @@ const BASE_URL = 'https://gitlab.com/gitlab-org/gitlab-ui/-/tree/main';
  * sourcePathFromStoryPath('./src/components/base/alert/alert.stories.js')
  * // => './src/components/base/alert/alert.vue'
  *
- * @param {string} Story file path, relative to the root directory of the repo.
+ * @param {string} storyPath file path, relative to the root directory of the repo.
  * @returns {string} Source file path for component or directive, relative to
  *     the root of the repo.
  */
 const sourcePathFromStoryPath = (storyPath) => {
-  const sourcePaths = require
-    .context('../../../src', true, /^(?!.*(?:(spec|documentation|stories).js$|utils)).*\.(vue|js)$/)
-    .keys()
-    .map((path) => path.replace(/^\.\//, './src/'));
+  const sourcePathNormalized = storyPath.replace(/^\.\//, '');
 
-  const sourcePathRegex = new RegExp(`${storyPath.replace(/\.stories\.js$/, '')}\.(vue|js)$`);
-
-  return sourcePaths.find((path, i, arr) => sourcePathRegex.test(path));
+  return (STORY_TO_SOURCE_MAP || {})[sourcePathNormalized];
 };
 
 export const LinkToSource = (props) => {
@@ -43,7 +38,7 @@ export const LinkToSource = (props) => {
   if (!sourcePath) {
     return null;
   }
-  const href = `${BASE_URL}/${sourcePath.replace(/^\.\//, '')}`;
+  const href = `${BASE_URL}/${sourcePath}`;
   return (
     <Button
       data-testid="link-to-source"
