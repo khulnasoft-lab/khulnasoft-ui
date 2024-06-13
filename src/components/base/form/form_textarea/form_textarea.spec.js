@@ -14,7 +14,7 @@ describe('GlFormTextArea', () => {
     wrapper = mount(GlFormTextarea, {
       propsData,
       scopedSlots: {
-        'character-count-text': function characterCountText({ count }) {
+        'remaining-character-count-text': function remainingCharacterCountText({ count }) {
           return count === 1 ? `${count} character remaining` : `${count} characters remaining`;
         },
         'character-count-over-limit-text': function characterCountOverLimitText({ count }) {
@@ -29,9 +29,7 @@ describe('GlFormTextArea', () => {
   const itUpdatesDebouncedScreenReaderText = (expectedText) => {
     it('updates debounced screen reader text', () => {
       expect(lodashDebounce).toHaveBeenCalledWith(expect.any(Function), 1000);
-      expect(wrapper.find('[data-testid="character-count-text-sr-only"]').text()).toBe(
-        expectedText
-      );
+      expect(wrapper.find('[data-testid="count-text-sr-only"]').text()).toBe(expectedText);
     });
   };
 
@@ -151,17 +149,17 @@ describe('GlFormTextArea', () => {
     });
   });
 
-  describe('when `characterCount` prop is set', () => {
-    const characterCount = 10;
+  describe('when `characterCountLimit` prop is set', () => {
+    const characterCountLimit = 10;
 
     describe('when textarea character count is under the max character count', () => {
       const textareaCharacterCount = 5;
-      const expectedText = `${characterCount - textareaCharacterCount} characters remaining`;
+      const expectedText = `${characterCountLimit - textareaCharacterCount} characters remaining`;
 
       beforeEach(() => {
         createComponent({
           value: 'a'.repeat(textareaCharacterCount),
-          characterCount,
+          characterCountLimit,
         });
       });
 
@@ -174,12 +172,12 @@ describe('GlFormTextArea', () => {
 
     describe('when textarea character count is over the max character count', () => {
       const textareaCharacterCount = 15;
-      const expectedText = `${textareaCharacterCount - characterCount} characters over limit`;
+      const expectedText = `${textareaCharacterCount - characterCountLimit} characters over limit`;
 
       beforeEach(() => {
         createComponent({
           value: 'a'.repeat(textareaCharacterCount),
-          characterCount,
+          characterCountLimit,
         });
       });
 
@@ -193,12 +191,14 @@ describe('GlFormTextArea', () => {
     describe('when textarea value is updated', () => {
       const textareaCharacterCount = 5;
       const newTextareaCharacterCount = textareaCharacterCount + 3;
-      const expectedText = `${characterCount - newTextareaCharacterCount} characters remaining`;
+      const expectedText = `${
+        characterCountLimit - newTextareaCharacterCount
+      } characters remaining`;
 
       beforeEach(() => {
         createComponent({
           value: 'a'.repeat(textareaCharacterCount),
-          characterCount,
+          characterCountLimit,
         });
 
         wrapper.setProps({ value: 'a'.repeat(newTextareaCharacterCount) });
@@ -212,12 +212,12 @@ describe('GlFormTextArea', () => {
     });
 
     describe('when `value` prop is `null`', () => {
-      const expectedText = `${characterCount} characters remaining`;
+      const expectedText = `${characterCountLimit} characters remaining`;
 
       beforeEach(() => {
         createComponent({
           value: null,
-          characterCount,
+          characterCountLimit,
         });
       });
 
@@ -230,12 +230,12 @@ describe('GlFormTextArea', () => {
 
     describe('when `value` prop is updated to `null`', () => {
       const textareaCharacterCount = 5;
-      const expectedText = `${characterCount} characters remaining`;
+      const expectedText = `${characterCountLimit} characters remaining`;
 
       beforeEach(() => {
         createComponent({
           value: 'a'.repeat(textareaCharacterCount),
-          characterCount,
+          characterCountLimit,
         });
 
         wrapper.setProps({ value: null });

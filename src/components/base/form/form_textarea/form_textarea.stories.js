@@ -7,10 +7,10 @@ const template = `
     :placeholder="placeholder"
     :rows="rows"
     :no-resize="noResize"
-    :character-count="characterCount"
+    :character-count-limit="characterCountLimit"
     @input="onInput"
   >
-    <template #character-count-text="{ count }">{{ characterCountText(count) }}</template>
+    <template #remaining-character-count-text="{ count }">{{ remainingCharacterCountText(count) }}</template>
     <template #character-count-over-limit-text="{ count }">{{ characterCountOverLimitText(count) }}</template>
   </gl-form-textarea>
 `;
@@ -19,13 +19,13 @@ const generateProps = ({
   value = 'We take inspiration from other companies, and we always go for the boring solutions. Just like the rest of our work, we continually adjust our values and strive always to make them better. We used to have more values, but it was difficult to remember them all, so we condensed them and gave sub-values and created an acronym. Everyone is welcome to suggest improvements.',
   placeholder = 'hello',
   noResize = GlFormTextarea.props.noResize.default,
-  characterCount = null,
+  characterCountLimit = null,
   rows = 4,
 } = {}) => ({
   value,
   placeholder,
   noResize,
-  characterCount,
+  characterCountLimit,
   rows,
 });
 
@@ -36,7 +36,7 @@ const Template = (args, { updateArgs }) => ({
     onInput(value) {
       updateArgs({ ...args, value });
     },
-    characterCountText(count) {
+    remainingCharacterCountText(count) {
       return count === 1 ? `${count} character remaining` : `${count} characters remaining`;
     },
     characterCountOverLimitText(count) {
@@ -53,7 +53,7 @@ export const WithCharacterCount = Template.bind({});
 WithCharacterCount.args = generateProps({
   value: '',
   placeholder: 'hello',
-  characterCount: 100,
+  characterCountLimit: 100,
 });
 
 export default {
