@@ -72,6 +72,7 @@ export const TextLinks = (_args, { viewMode, argTypes }) => ({
 });
 TextLinks.args = generateProps({
   showCloseButton: true,
+  title: '',
 });
 
 export const OnClick = (_args, { viewMode, argTypes }) => ({

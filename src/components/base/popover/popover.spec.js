@@ -25,6 +25,12 @@ describe('GlPopover', () => {
     expect(findBVPopover().emitted(event)).toHaveLength(1);
   });
 
+  it('does not have the `has-close-button` class where there is no close button', () => {
+    createWrapper();
+
+    expect(findBVPopover().props('customClass')).not.toContain('has-close-button');
+  });
+
   describe('triggers', () => {
     it('defaults to "hover focus" for triggers', () => {
       createWrapper();
@@ -66,39 +72,65 @@ describe('GlPopover', () => {
   describe('close button', () => {
     let doCloseMock;
 
-    beforeEach(() => {
-      doCloseMock = jest.fn();
+    const createWrapperWithCloseButton = (title = '') => {
       createWrapper(
-        { showCloseButton: true },
+        { showCloseButton: true, title },
         {
           BPopover: {
             template: `
-              <div>
-                <slot name="title" />
-              </div>
-            `,
+            <div>
+              <slot name="title" />
+            </div>
+          `,
             methods: {
               doClose: doCloseMock,
             },
+            props: ['customClass'],
           },
         }
       );
+    };
+
+    beforeEach(() => {
+      doCloseMock = jest.fn();
     });
 
-    it('renders a close button', () => {
-      expect(findCloseButton().exists()).toBe(true);
+    describe('when there is no title', () => {
+      beforeEach(() => {
+        createWrapperWithCloseButton();
+      });
+
+      it('renders a close button', () => {
+        expect(findCloseButton().exists()).toBe(true);
+      });
+
+      it('does not have the `has-title` class, and the button floats to the right', () => {
+        expect(findBVPopover().props('customClass')).toBe('gl-popover has-close-button');
+        expect(findCloseButton().classes()).toContain('gl-float-right');
+      });
+
+      it("calls BPopover's doClose method when clicking on the close button", () => {
+        findCloseButton().vm.$emit('click');
+
+        expect(doCloseMock).toHaveBeenCalled();
+      });
+
+      it('emits close-button-clicked event when clicking on the close button', () => {
+        findCloseButton().vm.$emit('click');
+
+        expect(wrapper.emitted('close-button-clicked')).toHaveLength(1);
+      });
     });
 
-    it("calls BPopover's doClose method when clicking on the close button", () => {
-      findCloseButton().vm.$emit('click');
+    describe('when there is a title', () => {
+      beforeEach(() => {
+        createWrapperWithCloseButton('Popover title');
+      });
 
-      expect(doCloseMock).toHaveBeenCalled();
-    });
-
-    it('emits close-button-clicked event when clicking on the close button', () => {
-      findCloseButton().vm.$emit('click');
-
-      expect(wrapper.emitted('close-button-clicked')).toHaveLength(1);
+      it('has the `has-title` class, and the button does not float to the right', () => {
+        expect(findBVPopover().props('customClass')).toBe('gl-popover has-title has-close-button');
+        expect(findCloseButton().classes()).not.toContain('gl-float-right');
+      });
     });
   });
 });
