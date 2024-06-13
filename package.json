@@ -19,6 +19,7 @@
     "dist",
     "translations.json",
     "tailwind.defaults.js",
+    "!src/vendor",
     "!*.stories.js",
     "!*.snap",
     "!*.spec.{js,scss}"
@@ -63,7 +64,7 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "prestylelint": "yarn generate-utilities",
     "stylelint:fix": "yarn stylelint --fix",
-    "markdownlint": "markdownlint '**/*.md' --ignore node_modules --ignore CHANGELOG.md",
+    "markdownlint": "markdownlint '**/*.md' --ignore node_modules --ignore CHANGELOG.md --ignore src/vendor",
     "markdownlint:fix": "yarn markdownlint --fix",
     "lint": "run-p prettier eslint stylelint markdownlint",
     "lint:fix": "run-s eslint:fix prettier:fix stylelint:fix markdownlint:fix",
