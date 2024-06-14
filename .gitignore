@@ -13,3 +13,7 @@ yarn-error.log
 .cypress_cache
 /static/fonts/
 /bin/temp
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

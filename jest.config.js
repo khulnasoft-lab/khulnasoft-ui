@@ -30,6 +30,7 @@ if (USE_VUE_3) {
 module.exports = {
   ...extraJestConfig,
   verbose: true,
+  roots: ['<rootDir>/src'],
   moduleFileExtensions: ['js', 'json', 'vue'],
   moduleNameMapper: {
     '^~helpers/(.*)$': '<rootDir>/tests/__helpers__/$1',
