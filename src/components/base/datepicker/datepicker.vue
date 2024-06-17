@@ -181,6 +181,11 @@ export default {
       default: null,
       validator: (value) => Object.keys(datepickerWidthOptionsMap).includes(value),
     },
+    state: {
+      type: Boolean,
+      required: false,
+      default: null,
+    },
   },
   data() {
     return {
@@ -382,6 +387,7 @@ export default {
             :autocomplete="inputAutocomplete"
             :disabled="disabled"
             :aria-label="inputLabel"
+            :state="state"
             @keydown.enter="onKeydown"
           />
         </slot>

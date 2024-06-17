@@ -26,6 +26,8 @@ const generateProps = ({
   labelClass,
   theme = defaultValue('theme'),
   startOpened = false,
+  startPickerState = true,
+  endPickerState = true,
 } = {}) => ({
   defaultMinDate: new Date(defaultMinDate),
   defaultMaxDate: new Date(defaultMaxDate),
@@ -41,6 +43,8 @@ const generateProps = ({
   labelClass,
   theme,
   startOpened,
+  startPickerState,
+  endPickerState,
 });
 
 const Template = (template, props) => ({
@@ -82,6 +86,8 @@ const defaultTemplate = `
           :label-class="labelClass"
           :theme="theme"
           :start-opened="startOpened"
+          :start-picker-state="startPickerState"
+          :end-picker-state="endPickerState"
         /> `;
 export const Default = Template.bind({}, defaultTemplate);
 Default.args = generateProps();

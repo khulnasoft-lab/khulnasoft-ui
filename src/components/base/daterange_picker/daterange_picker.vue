@@ -83,6 +83,11 @@ export default {
       required: false,
       default: '',
     },
+    startPickerState: {
+      type: Boolean,
+      required: false,
+      default: null,
+    },
     endPickerClass: {
       type: String,
       required: false,
@@ -97,6 +102,11 @@ export default {
       type: String,
       required: false,
       default: '',
+    },
+    endPickerState: {
+      type: Boolean,
+      required: false,
+      default: null,
     },
     labelClass: {
       type: String,
@@ -277,6 +287,7 @@ export default {
         :target="startPickerTarget"
         :container="startPickerContainer"
         :start-opened="startOpened"
+        :state="startPickerState"
         :width="width"
         @input="onStartDateSelected"
         @open="onStartPickerOpen"
@@ -303,6 +314,7 @@ export default {
         :start-opened="openToCalendar"
         :default-date="toCalendarDefaultDate"
         :width="width"
+        :state="endPickerState"
         @input="onEndDateSelected"
         @open="onEndPickerOpen"
         @close="onEndPickerClose"
