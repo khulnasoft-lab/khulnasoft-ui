@@ -133,6 +133,19 @@ export const FallbackOnAvatarLoadFailure = (args, { argTypes }) => ({
 });
 FallbackOnAvatarLoadFailure.args = { ...generateProjectFallbackProps(), ...generateImageProps() };
 
+export const AllIdenticons = () => ({
+  components,
+  template: `
+    <div class="gl-display-flex gl-gap-2">
+      <gl-avatar
+        v-for="i in [0,1,2,3,4,5,6]"
+        :entity-id="i"
+        :entity-name="i.toString()"
+      />
+    </div>
+  `,
+});
+
 export default {
   title: 'base/avatar',
   component: GlAvatar,

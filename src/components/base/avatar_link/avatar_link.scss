@@ -11,7 +11,7 @@
     @include gl-text-decoration-none;
 
     .gl-avatar {
-      @include gl-border-gray-a-24;
+      outline: 1px solid var(--gl-avatar-border-color-hover);
     }
 
     .gl-avatar-labeled {

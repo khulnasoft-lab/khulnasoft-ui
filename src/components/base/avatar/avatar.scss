@@ -1,5 +1,16 @@
-$gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $green-50, $orange-50,
-  $gray-50;
+// Available background colors for the identicon fallback for avatars
+//
+// Purple is duplicated on purpose. We have replaced indigo with it.
+// If we had simply removed it, the total number of colors would have
+// changed, resulting in changing the color of all identicons, because
+// we do a modulo division with the total number of colors on the
+// object's id to always give it the same "random" color.
+$gl-avatar-identicon-bgs: var(--gl-avatar-fallback-background-color-red),
+  var(--gl-avatar-fallback-background-color-purple),
+  var(--gl-avatar-fallback-background-color-purple), var(--gl-avatar-fallback-background-color-blue),
+  var(--gl-avatar-fallback-background-color-green),
+  var(--gl-avatar-fallback-background-color-orange),
+  var(--gl-avatar-fallback-background-color-neutral);
 
 @mixin gl-avatar {
   @include gl-display-inline-flex;
@@ -7,7 +18,7 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
   @include gl-flex-shrink-0;
   @include gl-line-height-ratio-1000;
   @include gl-object-fit-contain;
-  outline: 1px solid var(--t-gray-a-08, #{$t-gray-a-08});
+  outline: 1px solid var(--gl-avatar-border-color-default);
   outline-offset: -1px;
 }
 
@@ -196,9 +207,9 @@ $gl-avatar-identicon-bgs: $red-50, $purple-50, $theme-indigo-50, $blue-50, $gree
 .gl-avatar-identicon {
   @include gl-text-center;
   @include gl-vertical-align-top;
-  @include gl-text-gray-900;
   @include gl-justify-content-center;
   @include gl-align-items-center;
+  color: var(--gl-text-color-strong);
 }
 
 // Background colors
