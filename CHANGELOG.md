@@ -1,3 +1,10 @@
+# [81.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v81.0.0...v81.1.0) (2024-06-17)
+
+
+### Features
+
+* **GlDaterangePicker:**  Add valid prop to GlFormInput, GlDatepicker, GlDaterangePicker ([a872eef](https://gitlab.com/gitlab-org/gitlab-ui/commit/a872eefbe1923ec500c4e5fbb5a2fbdc0d33c9df))
+
 # [81.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v80.20.1...v81.0.0) (2024-06-13)
 
 
