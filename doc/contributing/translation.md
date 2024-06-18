@@ -107,7 +107,7 @@ To override a component label's translations in a specific context, provide the 
 
 ## Building the translations dictionary
 
-GitLab UI keeps tracks of translatable labels via the `translations.json` dictionary. When adding
+GitLab UI keeps tracks of translatable labels via the `translations.js` dictionary. When adding
 new translatable labels, make sure they are included in the dictionary by running
 `yarn translations:collect`, then commit the changes.
 If you have `lefthook` enabled, this is done automatically in the `pre-commit` hook.
