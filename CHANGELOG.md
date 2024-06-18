@@ -1,3 +1,26 @@
+# [82.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v81.1.0...v82.0.0) (2024-06-18)
+
+
+### chore
+
+* update deprecated division syntax to use math.div ([153c5ba](https://gitlab.com/gitlab-org/gitlab-ui/commit/153c5baea95f5fec7aba89c7061e7cdb7dec8870))
+
+
+### Features
+
+* **DuoChat:** Add check for loading icon in spec ([67fca11](https://gitlab.com/gitlab-org/gitlab-ui/commit/67fca116e7bb7f01a5cc37f0f715b0442673fdf3))
+* **DuoChat:** Add story for message population ([b94cbe1](https://gitlab.com/gitlab-org/gitlab-ui/commit/b94cbe1eda0dca1e0a6874f6ba29fca501c98a67))
+* **DuoChat:** Improve the message response while generating ([56a7852](https://gitlab.com/gitlab-org/gitlab-ui/commit/56a78520a760fd627720294bea9ceb58da4555be))
+* **DuoChat:** Remove computed streaming logic ([bfab065](https://gitlab.com/gitlab-org/gitlab-ui/commit/bfab065842d5a9829938d300794f8974b2c32fc9))
+* **DuoChat:** Update test for loading icon ([b986944](https://gitlab.com/gitlab-org/gitlab-ui/commit/b986944f08afe4a8ed11f277ec98bd187efb76de))
+
+
+### BREAKING CHANGES
+
+* This makes GitLab UI's stylesheets incompatible with
+`libsass` which does not support `math.div`. Consuming the stylesheets
+now requires `dart-sass`.
+
 # [81.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v81.0.0...v81.1.0) (2024-06-17)
 
 
