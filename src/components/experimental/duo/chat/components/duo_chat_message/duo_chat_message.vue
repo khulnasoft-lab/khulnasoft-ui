@@ -1,5 +1,6 @@
 <script>
 import GlIcon from '../../../../../base/icon/icon.vue';
+import GlLoadingIcon from '../../../../../base/loading_icon/loading_icon.vue';
 import { GlTooltipDirective } from '../../../../../../directives/tooltip';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import GlFormGroup from '../../../../../base/form/form_group/form_group.vue';
@@ -37,6 +38,7 @@ export default {
     GlFormGroup,
     GlFormTextarea,
     GlIcon,
+    GlLoadingIcon,
   },
   directives: {
     SafeHtml,
@@ -199,7 +201,9 @@ export default {
           <documentation-sources v-if="sources" :sources="sources" />
 
           <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
+            <gl-loading-icon v-if="isChunk" class="gl-pt-4" variant="dots" inline />
             <gl-duo-user-feedback
+              v-if="!isChunk"
               :feedback-received="hasFeedback"
               :modal-title="$options.i18n.MODAL.TITLE"
               :modal-alert="$options.i18n.MODAL.ALERT_TEXT"
