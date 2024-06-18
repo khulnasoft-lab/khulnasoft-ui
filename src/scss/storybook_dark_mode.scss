@@ -10,8 +10,6 @@
 // to use Custom Properties instead
 
 .gl-dark {
-  --color-body-bg: #1f1f1f;
-
   // Note that we are assigning variables with different values due to the way GitLab inverts variables in dark mode.
   // e.g. text color is usually $gray-900, but in dark mode $gray-900 variable gets inverted to $gray-50
   --gl-text-color: #{$gray-50};
@@ -23,9 +21,7 @@
 
   &,
   body {
-    // We can delete these once $body-bg and $body-color
-    // variables in variables.scss are updated to use CSS custom properties
-    background-color: var(--color-body-bg);
-    color: var(--gl-text-color);
+    background-color: var(--gl-background-color-default);
+    color: var(--gl-text-color-default);
   }
 }
