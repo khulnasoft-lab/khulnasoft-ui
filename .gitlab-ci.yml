@@ -420,7 +420,13 @@ publish_to_npm:
 publish-to-npm-dry-run:
   extends:
     - publish_to_npm
-    - .rules:gitlab-ui-mr
+  rules:
+    # semantic-release is not playing well with pipelines from forks.
+    # even if triggered by a project member. So let's not run it on
+    # e.g. renovate MRs which come from forks
+    - if: "$CI_MERGE_REQUEST_SOURCE_PROJECT_ID != $CI_MERGE_REQUEST_ID"
+      when: never
+    - !reference ['.rules:gitlab-ui-mr', rules]
   stage: deploy
   dependencies: []
   needs:
