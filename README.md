@@ -116,10 +116,10 @@ for information on how to debug issues with GitLab product CSS in GitLab UI.
 
 ### End to end tests
 
-Components’ end to end tests live in the `cypress/e2e` folder. See our
+Components’ end to end tests live in the `e2e` folder. See our
 [end to end testing documentation](doc/contributing/end_to_end_test.md) for more details.
 
-`yarn run cypress open` runs Cypress locally to run end to end tests.
+`yarn run test:e2e:ui` runs Playwright locally to run end to end tests.
 
 ## Installation
 
