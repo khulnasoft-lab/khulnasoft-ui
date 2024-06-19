@@ -237,6 +237,61 @@
   --data-viz-green-200: #275600;
   --data-viz-green-100: #1a4500;
   --data-viz-green-50: #133a03;
+  --gl-color-data-magenta-950: #541d31;
+  --gl-color-data-magenta-900: #661e3a;
+  --gl-color-data-magenta-800: #7c214f;
+  --gl-color-data-magenta-700: #9a2e5d;
+  --gl-color-data-magenta-600: #b93d71;
+  --gl-color-data-magenta-500: #cf4d81;
+  --gl-color-data-magenta-400: #e86e9a;
+  --gl-color-data-magenta-300: #f88aaf;
+  --gl-color-data-magenta-200: #fcacc5;
+  --gl-color-data-magenta-100: #ffccdb;
+  --gl-color-data-magenta-50: #ffe3eb;
+  --gl-color-data-green-950: #133a03;
+  --gl-color-data-green-900: #1a4500;
+  --gl-color-data-green-800: #275600;
+  --gl-color-data-green-700: #366800;
+  --gl-color-data-green-600: #4e7f0e;
+  --gl-color-data-green-500: #619025;
+  --gl-color-data-green-400: #81ac41;
+  --gl-color-data-green-300: #94c25e;
+  --gl-color-data-green-200: #b0d97b;
+  --gl-color-data-green-100: #c6ed94;
+  --gl-color-data-green-50: #ddfab7;
+  --gl-color-data-aqua-950: #00344b;
+  --gl-color-data-aqua-900: #004059;
+  --gl-color-data-aqua-800: #00516c;
+  --gl-color-data-aqua-700: #006381;
+  --gl-color-data-aqua-600: #007b9b;
+  --gl-color-data-aqua-500: #0090b1;
+  --gl-color-data-aqua-400: #00acc4;
+  --gl-color-data-aqua-300: #32c5d2;
+  --gl-color-data-aqua-200: #5edee3;
+  --gl-color-data-aqua-100: #93f2ef;
+  --gl-color-data-aqua-50: #b5fefd;
+  --gl-color-data-orange-950: #4b2707;
+  --gl-color-data-orange-900: #5e2f05;
+  --gl-color-data-orange-800: #6f3500;
+  --gl-color-data-orange-700: #92430a;
+  --gl-color-data-orange-600: #b14f18;
+  --gl-color-data-orange-500: #c95d2e;
+  --gl-color-data-orange-400: #e07e41;
+  --gl-color-data-orange-300: #e99b60;
+  --gl-color-data-orange-200: #eebd8c;
+  --gl-color-data-orange-100: #f5d6b3;
+  --gl-color-data-orange-50: #fae8d1;
+  --gl-color-data-blue-950: #2a2b59;
+  --gl-color-data-blue-900: #303470;
+  --gl-color-data-blue-800: #374291;
+  --gl-color-data-blue-700: #3f51ae;
+  --gl-color-data-blue-600: #4e65cd;
+  --gl-color-data-blue-500: #617ae2;
+  --gl-color-data-blue-400: #7992f5;
+  --gl-color-data-blue-300: #97acff;
+  --gl-color-data-blue-200: #b7c6ff;
+  --gl-color-data-blue-100: #d2dcff;
+  --gl-color-data-blue-50: #e9ebff;
   --gl-color-theme-light-red-950: #5c1105;
   --gl-color-theme-light-red-900: #751709;
   --gl-color-theme-light-red-800: #8b2212;
@@ -400,6 +455,101 @@
   --gl-text-color-strong: var(--gl-color-neutral-0); /* Used for text with the highest contrast. */
   --gl-text-color-subtle: var(--gl-color-neutral-200); /* Used for supplemental text that doesn't need to be as prominent as other text. */
   --gl-text-color-default: var(--gl-color-neutral-50); /* Used for the default text color. */
+  --gl-status-brand-icon-color-active: var(--gl-color-purple-300); /* Used for the icon of a brand related status item in the active state. */
+  --gl-status-brand-icon-color-focus: var(--gl-color-purple-400); /* Used for the icon of a brand related status item in the focus state. */
+  --gl-status-brand-icon-color-hover: var(--gl-color-purple-400); /* Used for the icon of a brand related status item in the hover state. */
+  --gl-status-brand-icon-color-default: var(--gl-color-purple-500); /* Used for the icon of a brand related status item when static or the default state when linked. */
+  --gl-status-brand-text-color-active: var(--gl-color-purple-100); /* Used for the text of a brand related status item in the active state. */
+  --gl-status-brand-text-color-focus: var(--gl-color-purple-200); /* Used for the text of a brand related status item in the focus state. */
+  --gl-status-brand-text-color-hover: var(--gl-color-purple-200); /* Used for the text of a brand related status item in the hover state. */
+  --gl-status-brand-text-color-default: var(--gl-color-purple-300); /* Used for the text of a brand related status item when static or the default state when linked. */
+  --gl-status-brand-border-color-hover: var(--gl-color-purple-800); /* Used for the border of a brand related status item in the hover state. */
+  --gl-status-brand-background-color-active: var(--gl-color-purple-800); /* Used for the background of a brand related status item in the active state. */
+  --gl-status-brand-background-color-default: var(--gl-color-purple-900); /* Used for the background of a brand related status item when static or the default state when linked. */
+  --gl-status-danger-icon-color-active: var(--gl-color-red-200); /* Used for the icon of a danger (critical) status item in the active state. */
+  --gl-status-danger-icon-color-focus: var(--gl-color-red-300); /* Used for the icon of a danger (critical) status item in the focus state. */
+  --gl-status-danger-icon-color-hover: var(--gl-color-red-300); /* Used for the icon of a danger (critical) status item in the hover state. */
+  --gl-status-danger-icon-color-default: var(--gl-color-red-400); /* Used for the icon of a danger (critical) status item when static or the default state when linked. */
+  --gl-status-danger-text-color-active: var(--gl-color-red-50); /* Used for the text of a danger (critical) status item in the active state. */
+  --gl-status-danger-text-color-focus: var(--gl-color-red-100); /* Used for the text of a danger (critical) status item in the focus state. */
+  --gl-status-danger-text-color-hover: var(--gl-color-red-100); /* Used for the text of a danger (critical) status item in the hover state. */
+  --gl-status-danger-text-color-default: var(--gl-color-red-200); /* Used for the text of a danger (critical) status item when static or the default state when linked. */
+  --gl-status-danger-border-color-hover: var(--gl-color-red-700); /* Used for the border of a danger (critical) status item in the hover state. */
+  --gl-status-danger-background-color-active: var(--gl-color-red-700); /* Used for the background of a danger (critical) status item in the active state. */
+  --gl-status-danger-background-color-default: var(--gl-color-red-800); /* Used for the background of a danger (critical) status item when static or the default state when linked. */
+  --gl-status-warning-icon-color-active: var(--gl-color-orange-200); /* Used for the icon of a warning status or confidential item in the active state. */
+  --gl-status-warning-icon-color-focus: var(--gl-color-orange-300); /* Used for the icon of a warning status or confidential item in the focus state. */
+  --gl-status-warning-icon-color-hover: var(--gl-color-orange-300); /* Used for the icon of a warning status or confidential item in the hover state. */
+  --gl-status-warning-icon-color-default: var(--gl-color-orange-400); /* Used for the icon of a warning status or confidential item when static or the default state when linked. */
+  --gl-status-warning-text-color-active: var(--gl-color-orange-50); /* Used for the text of a warning status or confidential item in the active state.N */
+  --gl-status-warning-text-color-focus: var(--gl-color-orange-100); /* Used for the text of a warning status or confidential item in the focus state. */
+  --gl-status-warning-text-color-hover: var(--gl-color-orange-100); /* Used for the text of a warning status or confidential item in the hover state. */
+  --gl-status-warning-text-color-default: var(--gl-color-orange-200); /* Used for the text of a warning status or confidential item when static or the default state when linked. */
+  --gl-status-warning-border-color-hover: var(--gl-color-orange-700); /* Used for the border of a warning status or confidential item in the hover state. */
+  --gl-status-warning-background-color-active: var(--gl-color-orange-700); /* Used for the background of a warning status or confidential item in the active state. */
+  --gl-status-warning-background-color-default: var(--gl-color-orange-800); /* Used for the background of a warning status or confidential item when static or the default state when linked. */
+  --gl-status-success-icon-color-active: var(--gl-color-green-200); /* Used for the icon of a success status item in the active state. */
+  --gl-status-success-icon-color-focus: var(--gl-color-green-300); /* Used for the icon of a success status item in the focus state. */
+  --gl-status-success-icon-color-hover: var(--gl-color-green-300); /* Used for the icon of a success status item in the hover state. */
+  --gl-status-success-icon-color-default: var(--gl-color-green-400); /* Used for the icon of a success status item when static or the default state when linked. */
+  --gl-status-success-text-color-active: var(--gl-color-green-50); /* Used for the text of a success status item in the active state. */
+  --gl-status-success-text-color-focus: var(--gl-color-green-100); /* Used for the text of a success status item in the focus state. */
+  --gl-status-success-text-color-hover: var(--gl-color-green-100); /* Used for the text of a success status item in the hover state. */
+  --gl-status-success-text-color-default: var(--gl-color-green-200); /* Used for the text of a success status item when static or the default state when linked. */
+  --gl-status-success-border-color-hover: var(--gl-color-green-700); /* Used for the border of a success status item in the hover state. */
+  --gl-status-success-background-color-active: var(--gl-color-green-700); /* Used for the background of a success status item in the active state. */
+  --gl-status-success-background-color-default: var(--gl-color-green-800); /* Used for the background of a success status item when static or the default state when linked. */
+  --gl-status-info-icon-color-active: var(--gl-color-blue-200); /* Used for the icon of an informational status item in the active state. */
+  --gl-status-info-icon-color-focus: var(--gl-color-blue-300); /* Used for the icon of an informational status item in the focus state. */
+  --gl-status-info-icon-color-hover: var(--gl-color-blue-300); /* Used for the icon of an informational status item in the hover state. */
+  --gl-status-info-icon-color-default: var(--gl-color-blue-400); /* Used for the icon of an informational status item when static or the default state when linked. */
+  --gl-status-info-text-color-active: var(--gl-color-blue-50); /* Used for the text of an informational status item in the active state. */
+  --gl-status-info-text-color-focus: var(--gl-color-blue-100); /* Used for the text of an informational status item in the focus state. */
+  --gl-status-info-text-color-hover: var(--gl-color-blue-100); /* Used for the text of an informational status item in the hover state. */
+  --gl-status-info-text-color-default: var(--gl-color-blue-200); /* Used for the text of an informational status item when static or the default state when linked. */
+  --gl-status-info-border-color-hover: var(--gl-color-blue-700); /* Used for the border of an informational status item in the hover state. */
+  --gl-status-info-background-color-active: var(--gl-color-blue-700); /* Used for the background of an informational status item in the active state. */
+  --gl-status-info-background-color-default: var(--gl-color-blue-800); /* Used for the background of an informational status item when static or the default state when linked. */
+  --gl-status-neutral-icon-color-active: var(--gl-color-neutral-200); /* Used for the icon of a neutral status item in the active state. */
+  --gl-status-neutral-icon-color-focus: var(--gl-color-neutral-300); /* Used for the icon of a neutral status item in the focus state. */
+  --gl-status-neutral-icon-color-hover: var(--gl-color-neutral-300); /* Used for the icon of a neutral status item in the hover state. */
+  --gl-status-neutral-icon-color-default: var(--gl-color-neutral-400); /* Used for the icon of a neutral status item when static or the default state when linked. */
+  --gl-status-neutral-text-color-active: var(--gl-color-neutral-50); /* Used for the text of a neutral status item in the active state. */
+  --gl-status-neutral-text-color-focus: var(--gl-color-neutral-100); /* Used for the text of a neutral status item in the focus state. */
+  --gl-status-neutral-text-color-hover: var(--gl-color-neutral-100); /* Used for the text of a neutral status item in the hover state. */
+  --gl-status-neutral-text-color-default: var(--gl-color-neutral-200); /* Used for the text of a neutral status item when static or the default state when linked. */
+  --gl-status-neutral-border-color-hover: var(--gl-color-neutral-700); /* Used for the border of a neutral status item in the hover state. */
+  --gl-status-neutral-background-color-active: var(--gl-color-neutral-700); /* Used for the background of a neutral status item in the active state. */
+  --gl-status-neutral-background-color-default: var(--gl-color-neutral-800); /* Used for the background of a neutral status item when static or the default state when linked. */
+  --gl-status-muted-icon-color-active: var(--gl-color-neutral-200); /* Used for the icon of a subtle neutral status item in the active state. */
+  --gl-status-muted-icon-color-focus: var(--gl-color-neutral-300); /* Used for the icon of a subtle neutral status item in the focus state. */
+  --gl-status-muted-icon-color-hover: var(--gl-color-neutral-300); /* Used for the icon of a subtle neutral status item in the hover state. */
+  --gl-status-muted-icon-color-default: var(--gl-color-neutral-400); /* Used for the icon of a subtle neutral status item when static or the default state when linked. */
+  --gl-status-muted-text-color-active: var(--gl-color-neutral-100); /* Used for the text of a subtle neutral status item in the active state. */
+  --gl-status-muted-text-color-focus: var(--gl-color-neutral-200); /* Used for the text of a subtle neutral status item in the focus state. */
+  --gl-status-muted-text-color-hover: var(--gl-color-neutral-200); /* Used for the text of a subtle neutral status item in the hover state. */
+  --gl-status-muted-text-color-default: var(--gl-color-neutral-300); /* Used for the text of a subtle neutral status item when static or the default state when linked. */
+  --gl-status-muted-border-color-hover: var(--gl-color-neutral-700); /* Used for the border of a subtle neutral status item in the hover state. */
+  --gl-status-muted-background-color-active: var(--gl-color-neutral-800); /* Used for the background of a subtle neutral status item in the active state. */
+  --gl-status-muted-background-color-default: var(--gl-color-neutral-900); /* Used for the background of a subtle neutral status item when static or the default state when linked. */
+  --gl-label-scoped-button-icon-color-hover: var(--gl-color-neutral-950); /* Used for the label close button icon when scoped in the hover state. */
+  --gl-label-scoped-button-icon-color-default: var(--gl-color-neutral-0); /* Used for the label close button icon when scoped in the default state. */
+  --gl-label-scoped-button-background-color-disabled: var(--gl-color-alpha-0); /* Used for the label close button background when scoped in the disabled state. */
+  --gl-label-scoped-button-background-color-hover: var(--gl-color-neutral-0); /* Used for the label close button background when scoped in the hover state. */
+  --gl-label-scoped-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label close button background when scoped in the default state. */
+  --gl-label-scoped-text-color: var(--gl-color-neutral-0); /* Used for the label text color when scoped. */
+  --gl-label-dark-button-icon-color-hover: var(--gl-color-neutral-950); /* Used for the label close button icon on a dark background color in the hover state. */
+  --gl-label-dark-button-icon-color-default: var(--gl-color-neutral-0); /* Used for the label close button icon on a dark background color in the default state. */
+  --gl-label-dark-button-background-color-disabled: var(--gl-color-alpha-0); /* Used for the label close button background on a dark background color in the disabled state. */
+  --gl-label-dark-button-background-color-hover: var(--gl-color-neutral-0); /* Used for the label close button background on a dark background color in the hover state. */
+  --gl-label-dark-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label close button background on a dark background color in the default state. */
+  --gl-label-dark-text-color: var(--gl-color-neutral-0); /* Used for the label text color on a dark background color. */
+  --gl-label-light-button-icon-color-hover: var(--gl-color-neutral-0); /* Used for the label close button icon on a light background color in the hover state. */
+  --gl-label-light-button-icon-color-default: var(--gl-color-neutral-950); /* Used for the label close button icon on a light background color in the default state. */
+  --gl-label-light-button-background-color-disabled: var(--gl-color-alpha-0); /* Used for the label close button background on a light background color in the disabled state. */
+  --gl-label-light-button-background-color-hover: var(--gl-color-neutral-950); /* Used for the label close button background on a light background color in the hover state. */
+  --gl-label-light-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label close button background on a light background color in the default state. */
+  --gl-label-light-text-color: var(--gl-color-neutral-950); /* Used for the label text color on a light background color. */
   --gl-icon-color-success: var(--gl-color-green-300); /* Used for an icon associated with success or validity. */
   --gl-icon-color-danger: var(--gl-color-red-300); /* Used for an icon associated with an error or danger. */
   --gl-icon-color-warning: var(--gl-color-orange-300); /* Used for an icon associated with a warning. */
@@ -409,6 +559,35 @@
   --gl-icon-color-strong: var(--gl-color-neutral-10); /* Used for an icon with the highest contrast. */
   --gl-icon-color-subtle: var(--gl-color-neutral-300); /* Used for a static or decorational icon. Can be paired with subtle text. */
   --gl-icon-color-default: var(--gl-color-neutral-100); /* Used for the default icon color. Can be paired with default text. */
+  --gl-feedback-danger-icon-color: var(--gl-color-red-300); /* Used for an icon associated with danger or critical feedback. */
+  --gl-feedback-danger-background-color: var(--gl-color-red-900); /* Used for a background associated with danger or critical feedback. */
+  --gl-feedback-warning-icon-color: var(--gl-color-orange-300); /* Used for an icon associated with warning feedback or confidential content. */
+  --gl-feedback-warning-background-color: var(--gl-color-orange-900); /* Used for a background associated with warning feedback or to let a user know about confidential content. */
+  --gl-feedback-success-icon-color: var(--gl-color-green-300); /* Used for an icon associated with successful feedback or a new section. */
+  --gl-feedback-success-background-color: var(--gl-color-green-900); /* Used for a background associated with successful feedback or a new section resulting from a user action. */
+  --gl-feedback-info-icon-color: var(--gl-color-blue-300); /* Used for an icon associated with informational feedback. */
+  --gl-feedback-info-background-color: var(--gl-color-blue-900); /* Used for a background associated with informational feedback or a highlighted section resulting from a user action. */
+  --gl-feedback-neutral-icon-color: var(--gl-color-neutral-300); /* Used for an icon associated with a neutral feedback section. */
+  --gl-feedback-neutral-background-color: var(--gl-color-neutral-900); /* Used for a background associated with neutral feedback. */
+  --gl-feedback-link-color-strong: var(--gl-color-blue-700); /* Used for a link on a strong feedback background. */
+  --gl-feedback-icon-color-strong: var(--gl-color-neutral-900); /* Used for an icon on a strong feedback background. */
+  --gl-feedback-text-color-strong: var(--gl-color-neutral-900); /* Used for text on a strong feedback background. */
+  --gl-feedback-background-color-strong: var(--gl-color-neutral-10); /* Used for a background associated with feedback like a tooltip or toast message. */
+  --gl-control-indicator-color-disabled: var(--gl-color-neutral-400); /* Used for disabled checkbox and radio button state indicators. */
+  --gl-control-indicator-color-selected: var(--gl-color-neutral-900); /* Used for checkbox and radio button state indicators. */
+  --gl-control-placeholder-color: var(--gl-color-neutral-500); /* Used for placeholder text within inputs. */
+  --gl-control-text-color-valid: var(--gl-color-green-400); /* Used for the helper text when the input is valid. */
+  --gl-control-text-color-error: var(--gl-color-red-400); /* Used for the helper text when the input is invalid. */
+  --gl-control-border-color-error: var(--gl-color-red-400); /* Used for invalid form control (input, textarea) border. */
+  --gl-control-border-color-disabled: var(--gl-color-neutral-800); /* Used for disabled form control (input, radio button, checkbox, textarea) border. */
+  --gl-control-border-color-focus: var(--gl-color-neutral-50); /* Used for form control (input, radio button, checkbox, textarea) border on focus. */
+  --gl-control-border-color-hover: var(--gl-color-neutral-300); /* Used for form control (input, radio button, checkbox, textarea) border on hover. */
+  --gl-control-border-color-default: var(--gl-color-neutral-500); /* Used for form control (input, radio button, checkbox, textarea) default border. */
+  --gl-control-background-color-selected-focus: var(--gl-color-blue-200); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover. */
+  --gl-control-background-color-selected-hover: var(--gl-color-blue-200); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover. */
+  --gl-control-background-color-selected: var(--gl-color-blue-400); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) background. */
+  --gl-control-background-color-disabled: var(--gl-color-neutral-950); /* Used for disabled form control (checkbox, input, radio button, textarea) background. */
+  --gl-control-background-color-default: var(--gl-color-neutral-900); /* Used for form control (input, radio button, checkbox, textarea) default background. */
   --gl-border-color-transparent: var(--gl-color-alpha-0); /* Used when a border needs to be present, but not visibly perceived. */
   --gl-border-color-strong: var(--gl-color-neutral-400); /* Used for a distinct border that emphasizes an edge or boundaries. */
   --gl-border-color-subtle: var(--gl-color-neutral-900); /* Used for a border that has a little more definition, or is used in combination with a subtle background. */
@@ -417,4 +596,100 @@
   --gl-background-color-strong: var(--gl-color-neutral-800); /* Used to make the background easily stand out from the default. */
   --gl-background-color-subtle: var(--gl-color-neutral-900); /* Used to slightly differentiate the background from the default. */
   --gl-background-color-default: var(--gl-color-neutral-950); /* Used for the default background color. */
+  --gl-action-danger-icon-color-strong: var(--gl-color-neutral-900); /* Used for the icon on a solid, strong danger (destructive) action background. */
+  --gl-action-danger-icon-color-active: var(--gl-color-red-50); /* Used for the icon of a danger (destructive) action in the active state. */
+  --gl-action-danger-icon-color-focus: var(--gl-color-red-200); /* Used for the icon of a danger (destructive) action in the focus state. */
+  --gl-action-danger-icon-color-hover: var(--gl-color-red-200); /* Used for the icon of a danger (destructive) action in the hover state. */
+  --gl-action-danger-icon-color-default: var(--gl-color-red-400); /* Used for the icon of a danger (destructive) action in the default state. */
+  --gl-action-danger-text-color-strong: var(--gl-color-neutral-900); /* Used for the text on a solid, strong danger (destructive) action background. */
+  --gl-action-danger-text-color-active: var(--gl-color-red-50); /* Used for the text of a danger (destructive) action in the active state. */
+  --gl-action-danger-text-color-focus: var(--gl-color-red-200); /* Used for the text of a danger (destructive) action in the focus state. */
+  --gl-action-danger-text-color-hover: var(--gl-color-red-200); /* Used for the text of a danger (destructive) action in the hover state. */
+  --gl-action-danger-text-color-default: var(--gl-color-red-400); /* Used for the text of a danger (destructive) action in the default state. */
+  --gl-action-danger-border-color-strong-active: var(--gl-color-red-50); /* Used for the border of a solid, strong danger (destructive) action in the active state. */
+  --gl-action-danger-border-color-strong-focus: var(--gl-color-red-100); /* Used for the border of a solid, strong danger (destructive) action in the focus state. */
+  --gl-action-danger-border-color-strong-hover: var(--gl-color-red-100); /* Used for the border of a solid, strong danger (destructive) action in the hover state. */
+  --gl-action-danger-border-color-strong-default: var(--gl-color-red-300); /* Used for the border of a solid, strong danger (destructive) action in the default state. */
+  --gl-action-danger-border-color-active: var(--gl-color-red-50); /* Used for the border of an outlined danger (destructive) action in the active state. */
+  --gl-action-danger-border-color-focus: var(--gl-color-red-200); /* Used for the border of an outlined danger (destructive) action in the focus state. */
+  --gl-action-danger-border-color-hover: var(--gl-color-red-200); /* Used for the border of an outlined danger (destructive) action in the hover state. */
+  --gl-action-danger-border-color-default: var(--gl-color-red-400); /* Used for the border of an outlined danger (destructive) action in the default state. */
+  --gl-action-danger-background-color-strong-active: var(--gl-color-red-100); /* Used for the background of a solid, strong danger (destructive) action in the active state. */
+  --gl-action-danger-background-color-strong-focus: var(--gl-color-red-300); /* Used for the background of a solid, strong danger (destructive) action in the focus state. */
+  --gl-action-danger-background-color-strong-hover: var(--gl-color-red-300); /* Used for the background of a solid, strong danger (destructive) action in the hover state. */
+  --gl-action-danger-background-color-strong-default: var(--gl-color-red-400); /* Used for the background of a solid, strong danger (destructive) action in the default state. */
+  --gl-action-danger-background-color-subtle-active: var(--gl-color-red-800); /* Used for the background of a borderless, subtle danger (destructive) action in the active state. */
+  --gl-action-danger-background-color-subtle-focus: var(--gl-color-red-900); /* Used for the background of a borderless, subtle danger (destructive) action in the focus state. */
+  --gl-action-danger-background-color-subtle-hover: var(--gl-color-red-900); /* Used for the background of a borderless, subtle danger (destructive) action in the hover state. */
+  --gl-action-danger-background-color-subtle-default: var(--gl-color-alpha-0); /* Used for the background of a borderless, subtle danger (destructive) action in the default state. */
+  --gl-action-danger-background-color-active: var(--gl-color-red-800); /* Used for the background of an outlined danger (destructive) action in the active state. */
+  --gl-action-danger-background-color-focus: var(--gl-color-red-900); /* Used for the background of an outlined danger (destructive) action in the focus state. */
+  --gl-action-danger-background-color-hover: var(--gl-color-red-900); /* Used for the background of an outlined danger (destructive) action in the hover state. */
+  --gl-action-danger-background-color-default: var(--gl-color-neutral-900); /* Used for the background of an outlined danger (destructive) action in the default state. */
+  --gl-action-confirm-icon-color-strong: var(--gl-color-neutral-900); /* Used for the icon on a solid, strong confirm (positive) action background. */
+  --gl-action-confirm-icon-color-active: var(--gl-color-blue-50); /* Used for the icon of a confirm (positive) action in the active state. */
+  --gl-action-confirm-icon-color-focus: var(--gl-color-blue-200); /* Used for the icon of a confirm (positive) action in the focus state. */
+  --gl-action-confirm-icon-color-hover: var(--gl-color-blue-200); /* Used for the icon of a confirm (positive) action in the hover state. */
+  --gl-action-confirm-icon-color-default: var(--gl-color-blue-400); /* Used for the icon of a confirm (positive) action in the default state. */
+  --gl-action-confirm-text-color-strong: var(--gl-color-neutral-900); /* Used for the text on a solid, strong confirm (positive) action background. */
+  --gl-action-confirm-text-color-active: var(--gl-color-blue-50); /* Used for the text of a confirm (positive) action in the active state. */
+  --gl-action-confirm-text-color-focus: var(--gl-color-blue-200); /* Used for the text of a confirm (positive) action in the focus state. */
+  --gl-action-confirm-text-color-hover: var(--gl-color-blue-200); /* Used for the text of a confirm (positive) action in the hover state. */
+  --gl-action-confirm-text-color-default: var(--gl-color-blue-400); /* Used for the text of a confirm (positive) action in the default state. */
+  --gl-action-confirm-border-color-strong-selected: var(--gl-color-blue-300); /* Used for the border of a solid, strong confirm (positive) action when in a selected or current state. */
+  --gl-action-confirm-border-color-strong-active: var(--gl-color-blue-50); /* Used for the border of a solid, strong confirm (positive) action in the active state. */
+  --gl-action-confirm-border-color-strong-focus: var(--gl-color-blue-100); /* Used for the border of a solid, strong confirm (positive) action in the focus state. */
+  --gl-action-confirm-border-color-strong-hover: var(--gl-color-blue-100); /* Used for the border of a solid, strong confirm (positive) action in the hover state. */
+  --gl-action-confirm-border-color-strong-default: var(--gl-color-blue-300); /* Used for the border of a solid, strong confirm (positive) action in the default state. */
+  --gl-action-confirm-border-color-active: var(--gl-color-blue-50); /* Used for the border of an outlined confirm (positive) action in the active state. */
+  --gl-action-confirm-border-color-focus: var(--gl-color-blue-200); /* Used for the border of an outlined confirm (positive) action in the focus state. */
+  --gl-action-confirm-border-color-hover: var(--gl-color-blue-200); /* Used for the border of an outlined confirm (positive) action in the hover state. */
+  --gl-action-confirm-border-color-default: var(--gl-color-blue-400); /* Used for the border of an outlined confirm (positive) action in the default state. */
+  --gl-action-confirm-background-color-strong-selected: var(--gl-color-blue-400); /* Used for the background of a solid, strong confirm (positive) action when in a selected or current state. */
+  --gl-action-confirm-background-color-strong-active: var(--gl-color-blue-200); /* Used for the background of a solid, strong confirm (positive) action in the active state. */
+  --gl-action-confirm-background-color-strong-focus: var(--gl-color-blue-300); /* Used for the background of a solid, strong confirm (positive) action in the focus state. */
+  --gl-action-confirm-background-color-strong-hover: var(--gl-color-blue-300); /* Used for the background of a solid, strong confirm (positive) action in the hover state. */
+  --gl-action-confirm-background-color-strong-default: var(--gl-color-blue-400); /* Used for the background of a solid, strong confirm (positive) action in the default state. */
+  --gl-action-confirm-background-color-subtle-active: var(--gl-color-blue-800); /* Used for the background of a borderless, subtle confirm (positive) action in the active state. */
+  --gl-action-confirm-background-color-subtle-focus: var(--gl-color-blue-900); /* Used for the background of a borderless, subtle confirm (positive) action in the focus state. */
+  --gl-action-confirm-background-color-subtle-hover: var(--gl-color-blue-900); /* Used for the background of a borderless, subtle confirm (positive) action in the hover state. */
+  --gl-action-confirm-background-color-subtle-default: var(--gl-color-alpha-0); /* Used for the background of a borderless, subtle confirm (positive) action in the default state. */
+  --gl-action-confirm-background-color-active: var(--gl-color-blue-800); /* Used for the background of an outlined confirm (positive) action in the active state. */
+  --gl-action-confirm-background-color-focus: var(--gl-color-blue-900); /* Used for the background of an outlined confirm (positive) action in the focus state. */
+  --gl-action-confirm-background-color-hover: var(--gl-color-blue-900); /* Used for the background of an outlined confirm (positive) action in the hover state. */
+  --gl-action-confirm-background-color-default: var(--gl-color-neutral-900); /* Used for the background of an outlined confirm (positive) action in the default state. */
+  --gl-action-neutral-icon-color-strong: var(--gl-color-neutral-900); /* Used for the icon on a solid, strong neutral action background. */
+  --gl-action-neutral-icon-color-active: var(--gl-color-neutral-50);
+  --gl-action-neutral-icon-color-focus: var(--gl-color-neutral-200);
+  --gl-action-neutral-icon-color-hover: var(--gl-color-neutral-200);
+  --gl-action-neutral-icon-color-default: var(--gl-color-neutral-400); /* Used for the icon of outlined and borderless neutral actions. */
+  --gl-action-neutral-text-color-strong: var(--gl-color-neutral-900); /* Used for the text on a solid, strong neutral action background. */
+  --gl-action-neutral-text-color-default: var(--gl-color-neutral-50); /* Used for the text of outlined and borderless neutral actions. */
+  --gl-action-neutral-border-color-strong-active: var(--gl-color-neutral-50); /* Used for the border of a solid, strong neutral action in the active state. */
+  --gl-action-neutral-border-color-strong-focus: var(--gl-color-neutral-100); /* Used for the border of a solid, strong neutral action in the focus state. */
+  --gl-action-neutral-border-color-strong-hover: var(--gl-color-neutral-100); /* Used for the border of a solid, strong neutral action in the hover state. */
+  --gl-action-neutral-border-color-strong-default: var(--gl-color-neutral-300); /* Used for the border of a solid, strong neutral action in the default state. */
+  --gl-action-neutral-border-color-active: var(--gl-color-neutral-300); /* Used for the border of an outlined neutral action in the active state. */
+  --gl-action-neutral-border-color-focus: var(--gl-color-neutral-500); /* Used for the border of an outlined neutral action in the focus state. */
+  --gl-action-neutral-border-color-hover: var(--gl-color-neutral-500); /* Used for the border of an outlined neutral action in the hover state. */
+  --gl-action-neutral-border-color-default: var(--gl-color-neutral-700); /* Used for the border of an outlined neutral action in the default state. */
+  --gl-action-neutral-background-color-strong-active: var(--gl-color-neutral-200); /* Used for the background of a solid, strong neutral action in the active state. */
+  --gl-action-neutral-background-color-strong-focus: var(--gl-color-neutral-300); /* Used for the background of a solid, strong neutral action in the focus state. */
+  --gl-action-neutral-background-color-strong-hover: var(--gl-color-neutral-300); /* Used for the background of a solid, strong neutral action in the hover state. */
+  --gl-action-neutral-background-color-strong-default: var(--gl-color-neutral-400); /* Used for the background of a solid, strong neutral action in the default state. */
+  --gl-action-neutral-background-color-subtle-active: var(--gl-color-neutral-800); /* Used for the background of a borderless, subtle neutral action in the active state. */
+  --gl-action-neutral-background-color-subtle-focus: var(--gl-color-neutral-900); /* Used for the background of a borderless, subtle neutral action in the focus state. */
+  --gl-action-neutral-background-color-subtle-hover: var(--gl-color-neutral-900); /* Used for the background of a borderless, subtle neutral action in the hover state. */
+  --gl-action-neutral-background-color-subtle-default: var(--gl-color-alpha-0); /* Used for the background of a borderless, subtle neutral action in the default state. */
+  --gl-action-neutral-background-color-active: var(--gl-color-neutral-800); /* Used for the background of an outlined neutral action in the active state. */
+  --gl-action-neutral-background-color-focus: var(--gl-color-neutral-900); /* Used for the background of an outlined neutral action in the focus state. */
+  --gl-action-neutral-background-color-hover: var(--gl-color-neutral-900); /* Used for the background of an outlined neutral action in the hover state. */
+  --gl-action-neutral-background-color-default: var(--gl-color-neutral-900); /* Used for the background of an outlined neutral action in the default state. */
+  --gl-action-icon-color-disabled: var(--gl-color-neutral-500); /* Used for the icon of a disabled action. */
+  --gl-action-text-color-disabled: var(--gl-color-neutral-400); /* Used for the text of a disabled action. */
+  --gl-action-border-color-disabled: var(--gl-color-neutral-800); /* Used for the border of a disabled action. */
+  --gl-action-background-color-disabled: var(--gl-color-neutral-900); /* Used for the background of a disabled action. */
+  --gl-label-scoped-button-icon-color-disabled: var(--gl-icon-color-disabled); /* Used for the label close button icon when scoped in the disabled state. */
+  --gl-label-dark-button-icon-color-disabled: var(--gl-icon-color-disabled); /* Used for the label close button icon on a dark background color in the disabled state. */
+  --gl-label-light-button-icon-color-disabled: var(--gl-icon-color-disabled); /* Used for the label close button icon on a light background color in the disabled state. */
 }
