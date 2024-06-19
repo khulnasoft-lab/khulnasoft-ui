@@ -1,3 +1,10 @@
+## [82.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v82.0.0...v82.0.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* **GlPopover:** properly align the close button without title ([e4f314f](https://gitlab.com/gitlab-org/gitlab-ui/commit/e4f314f1113058b12f3af65921bc4145b0a47155))
+
 # [82.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v81.1.0...v82.0.0) (2024-06-18)
 
 
