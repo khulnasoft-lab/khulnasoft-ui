@@ -126,6 +126,7 @@ const makeBindings = (overrides = {}) =>
     ':positioning-strategy': 'positioningStrategy',
     ':startOpened': 'startOpened',
     ':sr-only-results-label': 'srOnlyResultsLabel',
+    ':improved-hide-heuristics': 'improvedHideHeuristics',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
