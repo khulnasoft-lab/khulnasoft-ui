@@ -67,10 +67,17 @@ $gl-popover-max-width: $grid-size * 35;
     @include gl-bg-white;
     @include gl-border-bottom-0;
     @include gl-pb-0;
+  }
+
+  &.has-title .popover-header {
     @include gl-overflow-anywhere;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+  }
+
+  &.has-close-button:not(.has-title) .popover-header {
+    padding-top: $gl-spacing-scale-2;
   }
 
   .popover-body {

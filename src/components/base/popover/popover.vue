@@ -53,11 +53,21 @@ export default {
     },
   },
   computed: {
+    hasTitle() {
+      return this.$scopedSlots.title || this.title;
+    },
     customClass() {
-      return ['gl-popover', ...this.cssClasses].join(' ');
+      return [
+        'gl-popover',
+        this.hasTitle && 'has-title',
+        this.showCloseButton && 'has-close-button',
+        ...this.cssClasses,
+      ]
+        .filter(Boolean)
+        .join(' ');
     },
     shouldShowTitle() {
-      return this.$scopedSlots.title || this.title || this.showCloseButton;
+      return this.hasTitle || this.showCloseButton;
     },
   },
   methods: {
@@ -89,7 +99,11 @@ export default {
         {{ title }}
       </slot>
       <div v-if="showCloseButton" class="gl-mt-n2 gl-mr-n3 gl-ml-3 gl-h-0">
-        <close-button data-testid="close-button" @click="close" />
+        <close-button
+          :class="{ 'gl-float-right gl-mt-2': !hasTitle }"
+          data-testid="close-button"
+          @click="close"
+        />
       </div>
     </template>
     <slot></slot>
