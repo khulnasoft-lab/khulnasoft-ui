@@ -11,8 +11,12 @@ $gl-popover-max-width: $grid-size * 35;
   @include gl-font-sm;
 
   &,
+  .popover-header {
+    background-color: var(--gl-popover-background-color);
+  }
+
   .popover-body {
-    @include gl-text-gray-900;
+    color: var(--gl-text-color-default);
   }
 
   &.bs-popover-top {
@@ -21,50 +25,58 @@ $gl-popover-max-width: $grid-size * 35;
     */
     > .arrow::before {
       bottom: 1px;
+      border-top-color: var(--gl-popover-background-color);
     }
 
     > .arrow::after {
       bottom: 2px;
+      border-top-color: var(--gl-popover-background-color);
     }
   }
 
   &.bs-popover-bottom {
     > .arrow::before {
       top: 1px;
+      border-bottom-color: var(--gl-popover-background-color);
     }
 
     > .arrow::after {
       top: 2px;
+      border-bottom-color: var(--gl-popover-background-color);
     }
 
     > .popover-header::before {
-      @include gl-border-white;
+      border-color: var(--gl-popover-background-color);
     }
   }
 
   &.bs-popover-right {
     > .arrow::before {
       left: 1px;
+      border-right-color: var(--gl-popover-background-color);
     }
 
     > .arrow::after {
       left: 2px;
+      border-right-color: var(--gl-popover-background-color);
     }
   }
 
   &.bs-popover-left {
     > .arrow::before {
       right: 1px;
+      border-left-color: var(--gl-popover-background-color);
     }
 
     > .arrow::after {
       right: 2px;
+      border-left-color: var(--gl-popover-background-color);
     }
   }
 
   .popover-header {
+    color: var(--gl-text-color-heading);
     @include gl-heading-scale-200;
-    @include gl-bg-white;
     @include gl-border-bottom-0;
     @include gl-pb-0;
   }

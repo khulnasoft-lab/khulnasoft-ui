@@ -422,6 +422,7 @@ export const T_WHITE_A_04 = 'rgba(255, 255, 255, 0.04)';
 export const T_WHITE_A_06 = 'rgba(255, 255, 255, 0.06)';
 export const T_WHITE_A_08 = 'rgba(255, 255, 255, 0.08)';
 export const GL_BREADCRUMB_SEPARATOR_COLOR = '#535158'; // Used for the breadcrumb level separator.
+export const GL_POPOVER_BACKGROUND_COLOR = '#333238'; // Used for the background color of popover.
 export const GL_CONTROL_BACKGROUND_COLOR_DEFAULT = '#333238'; // Used for form control (input, radio button, checkbox, textarea) default background.
 export const GL_CONTROL_BACKGROUND_COLOR_DISABLED = '#1f1e24'; // Used for disabled form control (checkbox, input, radio button, textarea) background.
 export const GL_CONTROL_BACKGROUND_COLOR_SELECTED_DEFAULT = '#428fdc'; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background.
