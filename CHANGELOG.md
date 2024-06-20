@@ -1,3 +1,10 @@
+# [82.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v82.0.1...v82.1.0) (2024-06-20)
+
+
+### Features
+
+* **CSS:** include design token CSS custom properties in gitlab_ui.scss ([1a8db73](https://gitlab.com/gitlab-org/gitlab-ui/commit/1a8db73bde228ef91ee86660515c180984bdeebf))
+
 ## [82.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v82.0.0...v82.0.1) (2024-06-19)
 
 
