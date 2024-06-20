@@ -77,6 +77,14 @@ export default {
       default: () => [],
     },
     /**
+     * Show selected items at the top of the list
+     */
+    selectedAtTop: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
      * Allow multi-selection
      */
     multiple: {
@@ -355,6 +363,7 @@ export default {
   data() {
     return {
       selectedValues: [],
+      selectedValuesAtTop: [],
       toggleId: uniqueId('dropdown-toggle-btn-'),
       listboxId: uniqueId('listbox-'),
       nextFocusedItemIndex: null,
@@ -380,6 +389,20 @@ export default {
     },
     flattenedOptions() {
       return flattenedOptions(this.items);
+    },
+    sortedOptions() {
+      if (!this.selectedAtTop || this.searchStr) {
+        return this.items;
+      }
+      const unselected = this.items.filter(
+        ({ value }) => !this.selectedValuesAtTop.includes(value)
+      );
+      const selected = this.items.filter(({ value }) => this.selectedValuesAtTop.includes(value));
+
+      return [
+        { options: selected, text: 'Selected' },
+        { options: unselected, text: 'Unselected', textSrOnly: true },
+      ];
     },
     hasItems() {
       return this.items.length > 0;
@@ -557,6 +580,9 @@ export default {
         this.focusSearchInput();
       } else {
         this.focusItem(this.selectedIndices[0] ?? 0, this.getFocusableListItemElements());
+      }
+      if (this.selectedAtTop) {
+        this.selectedValuesAtTop = this.selectedValues;
       }
       /**
        * Emitted when dropdown is shown
@@ -850,7 +876,7 @@ export default {
         ></div>
       </component>
       <component :is="itemTag" ref="top-boundary" aria-hidden="true" />
-      <template v-for="(item, index) in items">
+      <template v-for="(item, index) in sortedOptions">
         <template v-if="isOption(item)">
           <gl-listbox-item
             :key="item.value"
