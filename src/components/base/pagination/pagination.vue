@@ -5,6 +5,7 @@ import isFunction from 'lodash/isFunction';
 import range from 'lodash/range';
 import { GlBreakpointInstance, breakpoints } from '../../../utils/breakpoints';
 import { alignOptions, resizeDebounceTime } from '../../../utils/constants';
+import { sprintf, translate } from '../../../utils/i18n';
 import GlIcon from '../icon/icon.vue';
 import GlLink from '../link/link.vue';
 
@@ -145,9 +146,10 @@ export default {
      * aria-label getter for numbered page items, defaults to "Go to page <page_number>"
      */
     labelPage: {
-      type: Function,
+      // note: `Function` support is for legacy reasons
+      type: [Function, String],
       required: false,
-      default: (page) => `Go to page ${page}`,
+      default: translate('GlPagination.labelPage', 'Go to page %{page}'),
     },
     /**
      * Controls the component\'s horizontal alignment, value should be one of "left", "center", "right" or "fill"
@@ -263,10 +265,14 @@ export default {
       return this.pageIsDisabled(this.value + 1);
     },
     prevPageAriaLabel() {
-      return this.prevPageIsDisabled ? false : this.labelPrevPage || this.labelPage(this.value - 1);
+      return this.prevPageIsDisabled
+        ? false
+        : this.labelPrevPage || this.labelForPage(this.value - 1);
     },
     nextPageAriaLabel() {
-      return this.nextPageIsDisabled ? false : this.labelNextPage || this.labelPage(this.value + 1);
+      return this.nextPageIsDisabled
+        ? false
+        : this.labelNextPage || this.labelForPage(this.value + 1);
     },
     prevPageHref() {
       if (this.prevPageIsDisabled) return false;
@@ -286,6 +292,13 @@ export default {
     window.removeEventListener('resize', debounce(this.setBreakpoint, resizeDebounceTime));
   },
   methods: {
+    labelForPage(page) {
+      if (isFunction(this.labelPage)) {
+        return this.labelPage(page);
+      }
+
+      return sprintf(this.labelPage, { page });
+    },
     setBreakpoint() {
       this.breakpoint = GlBreakpointInstance.getBreakpointSize();
     },
@@ -299,7 +312,7 @@ export default {
     },
     getPageItem(page, label = null) {
       const commonAttrs = {
-        'aria-label': label || this.labelPage(page),
+        'aria-label': label || this.labelForPage(page),
         href: '#',
         class: [],
       };

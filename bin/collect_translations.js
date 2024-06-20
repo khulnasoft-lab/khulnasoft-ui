@@ -10,14 +10,24 @@ const sortBy = require('lodash/sortBy');
 
 const isTranslationHelperCall = (node) => node.callee.name === 'translate';
 
+const isTranslationPluralHelperCall = (node) => node.callee.name === 'translatePlural';
+
 const walkTranslationHelperCalls = (ast, handler) => {
   walk.simple(ast, {
     CallExpression(node) {
-      if (isTranslationHelperCall(node)) {
+      if (isTranslationHelperCall(node) || isTranslationPluralHelperCall(node)) {
         handler(node);
       }
     },
   });
+};
+
+const getDefaultValueAsJavaScript = (node) => {
+  if (isTranslationHelperCall(node)) {
+    return node.arguments[1].raw;
+  }
+
+  return 'null';
 };
 
 const getJavascript = (file) => {
@@ -47,14 +57,12 @@ const buildTranslationsObject = (files) => {
       acorn.parse(javascript, { ecmaVersion: 'latest', sourceType: 'module' }),
       (node) => {
         const translationKey = node.arguments[0].value;
-        const defaultTranslation = javascript.slice(node.arguments[1].start, node.arguments[1].end);
-
+        const translationValue = getDefaultValueAsJavaScript(node);
+        findings.push(`'${translationKey}': ${translationValue},`);
         // eslint-disable-next-line no-console
         console.warn(
           `Found translation key '${translationKey}' in ${path.relative(process.cwd(), file)}`
         );
-
-        findings.push(`'${translationKey}': ${defaultTranslation},`);
       }
     );
 
