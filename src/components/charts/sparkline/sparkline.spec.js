@@ -127,19 +127,36 @@ describe('sparkline chart component', () => {
     expect(getTooltipContent().text()).toContain(tooltipLabel);
   });
 
-  it('adds the right content to the tooltip', async () => {
-    const xValue = 'foo';
-    const yValue = 'bar';
-    const mockData = { seriesData: [{ data: [xValue, yValue] }] };
+  describe.each`
+    title        | content      | show
+    ${'title'}   | ${'3'}       | ${null}
+    ${undefined} | ${'3'}       | ${false}
+    ${null}      | ${'3'}       | ${false}
+    ${''}        | ${'3'}       | ${false}
+    ${'   '}     | ${'3'}       | ${false}
+    ${'title'}   | ${undefined} | ${false}
+    ${'title'}   | ${null}      | ${false}
+    ${'title'}   | ${''}        | ${false}
+    ${'title'}   | ${'  '}      | ${false}
+  `('for a tooltip with title=`$title` and content=`$content`', ({ title, content, show }) => {
+    beforeEach(() => {
+      getXAxisLabelFormatter()({ seriesData: [{ data: [title, content] }] });
+      return waitForAnimationFrame();
+    });
 
-    getXAxisLabelFormatter()(mockData);
+    it('sets the correct value for tooltip.show', () => {
+      expect(getTooltip().props().show).toBe(show);
+    });
 
-    expect(getTooltipTitle().text()).toBe('');
-    expect(getTooltipContent().text()).toBe('');
+    if (show === null) {
+      it('displays the correct title', () => {
+        expect(getTooltipTitle().text()).toBe(title);
+      });
 
-    await waitForAnimationFrame();
-    expect(getTooltipTitle().text()).toBe(xValue);
-    expect(getTooltipContent().text()).toBe(yValue);
+      it('displays the correct content', () => {
+        expect(getTooltipContent().text()).toBe(content);
+      });
+    }
   });
 
   it(`shows the last entry's y-value per default`, async () => {

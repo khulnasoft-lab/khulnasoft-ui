@@ -89,6 +89,7 @@ export default {
     return {
       chartInstance: null,
       tooltip: {
+        show: false,
         title: '',
         content: '',
         position: {
@@ -178,6 +179,8 @@ export default {
   methods: {
     onChartCreated(chartInstance) {
       this.chartInstance = chartInstance;
+      this.tooltip.show = false;
+
       /**
        * Emitted when the chart is created.
        * The payload contains the echarts instance.
@@ -188,6 +191,9 @@ export default {
     },
     handleResize() {
       this.chartInstance.resize();
+    },
+    isNilOrBlank(text) {
+      return isNil(text) || (typeof text === 'string' && text.trim() === '');
     },
     setTooltipPosition(data) {
       const [left, top] = this.chartInstance.convertToPixel('grid', data);
@@ -200,6 +206,8 @@ export default {
     // point on the line is selected). Note that it will not trigger if the axis pointer is removed,
     // only when it changes from one point to another or is shown for the first time.
     generateTooltip({ seriesData = [] }) {
+      this.tooltip.show = false;
+
       // seriesData is an array of nearby data point coordinates
       // seriesData[0] is the nearest point at which the tooltip is displayed
       // https://echarts.apache.org/en/option.html#xAxis.axisPointer.label.formatter
@@ -208,11 +216,12 @@ export default {
       if (!data) return;
 
       const [title, content] = data;
-      if (isNil(title) || isNil(content)) return;
+      if (this.isNilOrBlank(title) || this.isNilOrBlank(content)) return;
 
       this.tooltip.title = title;
       this.tooltip.content = content;
       this.setTooltipPosition(data);
+      this.tooltip.show = null;
     },
   },
   HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES,
@@ -241,6 +250,7 @@ export default {
       />
       <chart-tooltip
         v-if="chartInstance"
+        :show="tooltip.show"
         :chart="chartInstance"
         :top="tooltip.position.top"
         :left="tooltip.position.left"
