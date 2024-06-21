@@ -1,3 +1,18 @@
+# [84.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v83.0.0...v84.0.0) (2024-06-21)
+
+
+### Features
+
+* **GlBadge:** One size fits all ([91f2129](https://gitlab.com/gitlab-org/gitlab-ui/commit/91f2129ed2fef3eb47c48cce2a5af1a38844f280))
+
+
+### BREAKING CHANGES
+
+* **GlBadge:** The `size` prop has been removed from `GlBadge`. This
+might affect test which check that the prop was provided, but more
+importantly this could affect layout for badges which were set small or
+large.
+
 # [83.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v82.1.0...v83.0.0) (2024-06-21)
 
 
