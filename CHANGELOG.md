@@ -1,3 +1,10 @@
+# [84.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v84.0.0...v84.1.0) (2024-06-21)
+
+
+### Features
+
+* **GlBreadcrumb:** Use design tokens for colors ([948ac03](https://gitlab.com/gitlab-org/gitlab-ui/commit/948ac03d6712b088a7a0b5ac4e2c92f337e39815))
+
 # [84.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v83.0.0...v84.0.0) (2024-06-21)
 
 
