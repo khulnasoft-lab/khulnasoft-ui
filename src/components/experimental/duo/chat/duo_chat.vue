@@ -16,7 +16,7 @@ import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/
 import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
-import { CHAT_RESET_MESSAGE } from './constants';
+import { CHAT_CLEAN_MESSAGE, CHAT_RESET_MESSAGE } from './constants';
 
 export const i18n = {
   CHAT_DEFAULT_TITLE: 'GitLab Duo Chat',
@@ -304,8 +304,12 @@ export default {
          *
          * @param {String} prompt The user prompt to send.
          */
+
+        if (![CHAT_RESET_MESSAGE, CHAT_CLEAN_MESSAGE].includes(this.prompt)) {
+          this.displaySubmitButton = false;
+        }
         this.$emit('send-chat-prompt', this.prompt.trim());
-        this.displaySubmitButton = false;
+
         this.setPromptAndFocus();
       }
     },
