@@ -1,3 +1,6 @@
+$badge-padding-horizontal: 0.75 * $grid-size;
+$badge-min-width: 2.5 * $grid-size;
+
 @mixin gl-badge-variant(
   $variant,
   $color,
@@ -15,7 +18,6 @@
     color: $color;
 
     .gl-badge-icon {
-      color: $icon-color;
       transition: inherit;
     }
   }
@@ -66,27 +68,16 @@
 .gl-badge {
   @include gl-display-inline-flex;
   @include gl-align-items-center;
+  @include gl-justify-content-center;
   @include gl-font-sm;
   @include gl-font-weight-normal;
   @include gl-line-height-normal;
-  @include gl-py-2;
-  @include gl-px-3;
+  gap: $gl-spacing-scale-2;
+  padding: $gl-spacing-scale-1 $badge-padding-horizontal;
+  min-width: $badge-min-width;
 
   @media (forced-colors: active) {
     border: 1px solid;
-  }
-
-  &.sm {
-    @include gl-py-0;
-  }
-
-  &.md {
-    @include gl-py-2;
-  }
-
-  &.lg {
-    @include gl-py-3;
-    @include gl-font-base;
   }
 
   .gl-badge-icon {
@@ -193,4 +184,11 @@
 // overriding Bootstap's `.btn .badge {top: -1px}` as the badge is not vertically centered otherwise
 .gl-button .gl-badge {
   top: 0;
+  @include gl-py-0;
+  @include gl-px-2;
+}
+
+.gl-new-dropdown-contents .gl-badge,
+.gl-tab-nav-item .gl-badge {
+  @include gl-my-n1;
 }

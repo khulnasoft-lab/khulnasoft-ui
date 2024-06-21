@@ -40,12 +40,6 @@ describe('badge', () => {
             expect(icon.props('name')).toBe(iconName);
           });
 
-          it('with correct class', () => {
-            const icon = findIcon();
-
-            expect(icon.classes('gl-mr-2')).toBe(hasSlot);
-          });
-
           it('with correct size', () => {
             expect(findIcon().props('size')).toBe(expectedIconSize);
           });

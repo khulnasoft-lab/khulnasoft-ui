@@ -1,11 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BBadge } from 'bootstrap-vue';
-import {
-  badgeSizeOptions,
-  badgeVariantOptions,
-  badgeIconSizeOptions,
-} from '../../../utils/constants';
+import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 
 export default {
@@ -16,17 +12,6 @@ export default {
   },
   inheritAttrs: false,
   props: {
-    /**
-     * The size of the badge.
-     */
-    size: {
-      type: String,
-      default: badgeSizeOptions.md,
-      validator(value) {
-        return badgeSizeOptions[value] !== undefined;
-      },
-      required: false,
-    },
     /**
      * The variant of the badge.
      */
@@ -61,6 +46,9 @@ export default {
       // eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots
       return Boolean(this.icon && Object.keys(this.$slots).length === 0);
     },
+    isCircularIcon() {
+      return ['issue-open-m', 'issue-close'].includes(this.icon);
+    },
     role() {
       return this.hasIconOnly ? 'img' : undefined;
     },
@@ -82,7 +70,8 @@ export default {
   <b-badge
     v-bind="$attrs"
     :variant="variant"
-    :class="['gl-badge', size]"
+    class="gl-badge"
+    :class="{ 'gl-px-2!': !$scopedSlots.default }"
     :role="role"
     :aria-label="ariaLabel"
     pill
@@ -91,7 +80,7 @@ export default {
       v-if="icon"
       class="gl-badge-icon"
       :size="iconSizeComputed"
-      :class="{ 'gl-mr-2': !hasIconOnly }"
+      :class="{ '-gl-ml-2 gl-ml-n2': isCircularIcon }"
       :name="icon"
     />
     <!-- @slot The badge content to display. -->

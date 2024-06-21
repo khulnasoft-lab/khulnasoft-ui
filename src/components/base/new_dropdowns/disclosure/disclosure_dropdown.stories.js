@@ -101,7 +101,7 @@ export const CustomListItem = (args, { argTypes }) => ({
       <template #list-item="{ item }">
         <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
           {{ item.text }}
-          <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
+          <gl-badge pill variant="neutral">{{ item.count }}</gl-badge>
         </span>
       </template>
     `,
@@ -166,12 +166,12 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
   template: template(
     `
       <template #group-label="{ group }">
-        {{ group.name }} <gl-badge pill size="sm" variant="neutral">{{ getTotalMrs(group.items) }}</gl-badge>
+        {{ group.name }} <gl-badge pill variant="neutral">{{ getTotalMrs(group.items) }}</gl-badge>
       </template>
       <template #list-item="{ item }">
         <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
           {{ item.text }}
-          <gl-badge pill size="sm" variant="neutral">{{ item.count }}</gl-badge>
+          <gl-badge pill variant="neutral">{{ item.count }}</gl-badge>
         </span>
       </template>
     `
@@ -217,7 +217,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
       <gl-disclosure-dropdown-group :bordered="bordered" :border-position="borderPosition">
         <template #group-label>
           <span class="gl-font-sm">Navigation redesign</span>
-          <gl-badge size="sm" variant="info">Beta</gl-badge>
+          <gl-badge variant="info">Beta</gl-badge>
         </template>
         <gl-disclosure-dropdown-item @action="toggleNewNavigation">
           <div  class="gl-new-dropdown-item-content">

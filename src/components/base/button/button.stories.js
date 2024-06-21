@@ -475,7 +475,7 @@ export const Badges = (args, { argTypes = {} }) => ({
               <div v-for="category in $options.categories" :key="variant + category">
                   <gl-button :key="category" :category="category" :variant="variant" buttonTextClasses="gl-display-flex gl-align-items-center">
                       {{ category }} {{ variant }}
-                      <gl-badge size="sm" :variant="getBadgeVariant(variant)" class="gl-ml-2">00</gl-badge>
+                      <gl-badge :variant="getBadgeVariant(variant)" class="gl-ml-2">00</gl-badge>
                   </gl-button>
               </div>
           </template>
@@ -490,7 +490,7 @@ export const BadgeWithSROnlyText = (args, { argTypes = {} }) => ({
   template: `
       <gl-button variant="confirm" buttonTextClasses="gl-display-flex gl-align-items-center">
           Submit review
-          <gl-badge size="sm" variant="info" class="gl-ml-2">2</gl-badge>
+          <gl-badge variant="info" class="gl-ml-2">2</gl-badge>
           <span class="sr-only">pending comments</span>
       </gl-button>
   `,

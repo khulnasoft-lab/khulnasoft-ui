@@ -1,9 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
-import {
-  badgeSizeOptions,
-  badgeVariantOptions,
-  badgeIconSizeOptions,
-} from '../../../utils/constants';
+import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
 import GlBadge from './badge.vue';
 import readme from './badge.md';
@@ -12,9 +8,8 @@ const template = `
     <gl-badge
       :href="href"
       :variant="variant"
-      :size="size"
       :icon="icon"
-      :iconSize="iconSize"
+      :icon-size="iconSize"
     >{{ content }}</gl-badge>
   `;
 
@@ -22,14 +17,12 @@ const defaultValue = (prop) => GlBadge.props[prop].default;
 
 const generateProps = ({
   variant = defaultValue('variant'),
-  size = defaultValue('size'),
   href = '',
   content = 'TestBadge',
   icon = '',
   iconSize = defaultValue('iconSize'),
 } = {}) => ({
   variant,
-  size,
   href,
   content,
   icon,
@@ -56,7 +49,6 @@ export const Variants = (args, { argTypes }) => ({
         :key="variant"
         :href="href"
         :variant="variant"
-        :size="size"
         :icon="icon"
         :iconSize="iconSize"
         class="gl-mr-3"
@@ -80,7 +72,6 @@ export const Actionable = (args, { argTypes }) => ({
         :key="variant"
         :href="href"
         :variant="variant"
-        :size="size"
         :icon="icon"
         :iconSize="iconSize"
         class="gl-mr-3"
@@ -96,37 +87,15 @@ Actionable.args = generateProps({
 Actionable.tags = ['skip-visual-test'];
 Actionable.argTypes = disableControls(['content', 'variant']);
 
-export const Sizes = (args, { argTypes }) => ({
-  components: { GlBadge },
-  props: Object.keys(argTypes),
-  template: `
-    <div>
-      <gl-badge
-        v-for="size in $options.badgeSizeOptions"
-        :key="size"
-        :href="href"
-        :variant="variant"
-        :size="size"
-        :icon="icon"
-        :iconSize="iconSize"
-        class="gl-mr-3"
-      >{{ size }}</gl-badge>
-    </div>
-  `,
-  badgeSizeOptions,
-});
-Sizes.args = generateProps({
-  variant: badgeVariantOptions.danger,
-});
-Sizes.argTypes = disableControls(['content', 'size']);
-
 export const BadgeIcon = (args, { argTypes }) => ({
   components: { GlBadge },
   props: Object.keys(argTypes),
   template: `
     <div class="gl-display-flex gl-gap-3">
-      <gl-badge variant="tier" icon="license">16px icon</gl-badge>
-      <gl-badge variant="tier" icon="license-sm" iconSize="sm">12px icon</gl-badge>
+      <gl-badge variant="tier" icon="license" iconSize="md">With icon</gl-badge>
+      <gl-badge variant="success" icon="issue-open-m" iconSize="md">With status open</gl-badge>
+      <gl-badge variant="info" icon="issue-close" iconSize="md">With status closed</gl-badge>
+      <gl-badge variant="warning" icon="status-alert" iconSize="sm">With sm icon</gl-badge>
     </div>
   `,
 });
@@ -140,7 +109,6 @@ export const IconOnly = (args, { argTypes }) => ({
       <gl-badge
         :href="href"
         :variant="variant"
-        :size="size"
         :icon="icon"
         :iconSize="iconSize"
       />
@@ -166,10 +134,6 @@ export default {
   argTypes: {
     variant: {
       options: Object.keys(badgeVariantOptions),
-      control: 'select',
-    },
-    size: {
-      options: Object.keys(badgeSizeOptions),
       control: 'select',
     },
     icon: {

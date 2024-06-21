@@ -9,12 +9,6 @@ describe('GlBadge', () => {
     });
   }
 
-  function checkA11yTextOnlyState() {
-    cy.visitStory('base/badge', {
-      story: 'sizes',
-    });
-  }
-
   function checkA11yBadgeHoverState() {
     cy.visitStory('base/badge', {
       story: 'actionable',
@@ -41,7 +35,6 @@ describe('GlBadge', () => {
     cy.glRunA11yTests({
       checkA11YDefaultState,
       checkA11yIconOnlyState,
-      checkA11yTextOnlyState,
       checkA11yBadgeHoverState,
       checkA11yBadgeSelectedState,
       checkA11yIconWithTextState,
