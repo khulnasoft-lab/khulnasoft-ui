@@ -43,7 +43,7 @@ export default {
       default: null,
     },
     rows: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: 4,
     },
@@ -115,7 +115,7 @@ export default {
       :count-text-id="characterCountTextId"
     >
       <template #over-limit-text="{ count }">
-        <!-- 
+        <!--
         @slot Internationalized over character count text. Example: `<template #character-count-over-limit-text="{ count }">{{ n__('%d character over limit', '%d characters over limit', count) }}</template>`
         @binding {number} count
         -->
@@ -123,7 +123,7 @@ export default {
       </template>
 
       <template #remaining-count-text="{ count }">
-        <!-- 
+        <!--
         @slot Internationalized character count text. Example: `<template #remaining-character-count-text="{ count }">{{ n__('%d character remaining', '%d characters remaining', count) }}</template>`
         @binding {number} count
         -->

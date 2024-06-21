@@ -147,6 +147,13 @@ describe('GlFormTextArea', () => {
 
       expect(findTextarea().attributes('rows')).toBe(rows.toString());
     });
+
+    it('works correctly with a string value', () => {
+      const rows = '10';
+      createComponent({ rows });
+
+      expect(findTextarea().attributes('rows')).toBe(rows);
+    });
   });
 
   describe('when `characterCountLimit` prop is set', () => {
