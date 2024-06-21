@@ -1,3 +1,18 @@
+# [83.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v82.1.0...v83.0.0) (2024-06-21)
+
+
+### Features
+
+* **DuoChat:** add propmpt abort functionality ([3792308](https://gitlab.com/gitlab-org/gitlab-ui/commit/3792308a7c086e9e3588a0793be10d41473f473f))
+
+
+### BREAKING CHANGES
+
+* **DuoChat:** This commit adds an abort button to the
+DuoChat textarea, it also introduces the
+chat-abort event that can be caught
+by the client.
+
 # [82.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v82.0.1...v82.1.0) (2024-06-20)
 
 
