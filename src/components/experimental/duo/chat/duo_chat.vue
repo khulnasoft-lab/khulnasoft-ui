@@ -27,6 +27,7 @@ export const i18n = {
   CHAT_PROMPT_PLACEHOLDER_DEFAULT: 'GitLab Duo Chat',
   CHAT_PROMPT_PLACEHOLDER_WITH_COMMANDS: 'Type "/" for slash commands',
   CHAT_SUBMIT_LABEL: 'Send chat message.',
+  CHAT_CANCEL_LABEL: 'Cancel',
   CHAT_LEGAL_DISCLAIMER:
     "May provide inappropriate responses not representative of GitLab's views. Do not input personal data.",
   CHAT_DEFAULT_PREDEFINED_PROMPTS: [
@@ -188,6 +189,7 @@ export default {
       prompt: '',
       scrolledToBottom: true,
       activeCommandIndex: 0,
+      displaySubmitButton: true,
     };
   },
   computed: {
@@ -213,16 +215,13 @@ export default {
       );
     },
     lastMessage() {
-      return this.messages[this.messages.length - 1];
+      return this.messages?.[this.messages.length - 1];
     },
     resetDisabled() {
       if (this.isLoading || !this.hasMessages) {
         return true;
       }
       return this.lastMessage?.content === CHAT_RESET_MESSAGE;
-    },
-    submitDisabled() {
-      return this.isLoading || this.isStreaming;
     },
     isStreaming() {
       return Boolean(
@@ -256,9 +255,17 @@ export default {
     },
   },
   watch: {
-    isLoading() {
+    isLoading(newVal) {
+      if (!newVal && !this.isStreaming) {
+        this.displaySubmitButton = true; // Re-enable submit button when loading stops
+      }
       this.isHidden = false;
       this.scrollToBottom();
+    },
+    isStreaming(newVal) {
+      if (!newVal && !this.isLoading) {
+        this.displaySubmitButton = true; // Re-enable submit button when streaming stops
+      }
     },
   },
   created() {
@@ -275,8 +282,17 @@ export default {
        */
       this.$emit('chat-hidden');
     },
+    cancelPrompt() {
+      /**
+       * Emitted when user clicks the stop button in the textarea
+       */
+
+      this.displaySubmitButton = true;
+      this.$emit('chat-cancel');
+      this.setPromptAndFocus();
+    },
     sendChatPrompt() {
-      if (this.submitDisabled) {
+      if (!this.displaySubmitButton) {
         return;
       }
       if (this.prompt) {
@@ -289,6 +305,7 @@ export default {
          * @param {String} prompt The user prompt to send.
          */
         this.$emit('send-chat-prompt', this.prompt.trim());
+        this.displaySubmitButton = false;
         this.setPromptAndFocus();
       }
     },
@@ -517,6 +534,7 @@ export default {
           </div>
           <template #append>
             <gl-button
+              v-if="displaySubmitButton"
               icon="paper-airplane"
               category="primary"
               variant="confirm"
@@ -524,7 +542,16 @@ export default {
               type="submit"
               data-testid="chat-prompt-submit-button"
               :aria-label="$options.i18n.CHAT_SUBMIT_LABEL"
-              :disabled="submitDisabled"
+            />
+            <gl-button
+              v-else
+              icon="stop"
+              category="primary"
+              variant="default"
+              class="!gl-absolute gl-bottom-2 gl-right-2 gl-rounded-base!"
+              data-testid="chat-prompt-cancel-button"
+              :aria-label="$options.i18n.CHAT_CANCEL_LABEL"
+              @click="cancelPrompt"
             />
           </template>
         </gl-form-input-group>

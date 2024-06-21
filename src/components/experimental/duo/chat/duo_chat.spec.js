@@ -1,5 +1,5 @@
 import { nextTick } from 'vue';
-import { shallowMount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import GlEmptyState from '../../../regions/empty_state/empty_state.vue';
 import GlExperimentBadge from '../../experiment_badge/experiment_badge.vue';
 import GlCard from '../../../base/card/card.vue';
@@ -39,10 +39,10 @@ const generatePartialSlashCommands = () => {
 describe('GlDuoChat', () => {
   let wrapper;
 
-  const createComponent = ({ propsData = {}, slots = {} } = {}) => {
+  const createComponent = ({ propsData = {}, slots = {}, mountFn = shallowMount } = {}) => {
     jest.spyOn(DuoChatLoader.methods, 'computeTransitionWidth').mockImplementation();
 
-    wrapper = shallowMount(GlDuoChat, {
+    wrapper = mountFn(GlDuoChat, {
       propsData,
       slots,
       stubs: {
@@ -70,6 +70,8 @@ describe('GlDuoChat', () => {
   const findSlashCommandsCard = () => wrapper.findComponent(GlCard);
   const findSlashCommands = () => wrapper.findAllComponents(GlDropdownItem);
   const findSelectedSlashCommand = () => wrapper.find('.active-command');
+  const findSubmitButton = () => wrapper.find('[data-testid="chat-prompt-submit-button"]');
+  const findCancelButton = () => wrapper.find('[data-testid="chat-prompt-cancel-button"]');
 
   const setPromptInput = (val) => findChatInput().vm.$emit('input', val);
 
@@ -304,6 +306,38 @@ describe('GlDuoChat', () => {
       expect(findLegalDisclaimer().exists()).toBe(true);
     });
 
+    describe('submit/cancel button', () => {
+      beforeEach(() => {
+        createComponent({ propsData: {}, mountFn: mount });
+      });
+
+      it('renders the submitButton initially', () => {
+        expect(findSubmitButton().exists()).toBe(true);
+        expect(findCancelButton().exists()).toBe(false);
+      });
+
+      it('renders the cancel button after prompt was submitted', async () => {
+        await setPromptInput('TEST!');
+        clickSubmit();
+        await nextTick();
+        expect(findSubmitButton().exists()).toBe(false);
+        expect(findCancelButton().exists()).toBe(true);
+      });
+
+      it('renders submit button after request was canceled', async () => {
+        await setPromptInput('TEST!');
+        clickSubmit();
+        await nextTick();
+
+        const cancelButton = findCancelButton();
+        await cancelButton.trigger('click');
+        await nextTick();
+
+        expect(findSubmitButton().exists()).toBe(true);
+        expect(findCancelButton().exists()).toBe(false);
+      });
+    });
+
     describe('submit', () => {
       const ENTER = 'Enter';
 
@@ -341,13 +375,22 @@ describe('GlDuoChat', () => {
         ${''}                                             | ${[]}
         ${'with just a user message'}                     | ${[MOCK_USER_PROMPT_MESSAGE]}
         ${'with a user message, and a complete response'} | ${[MOCK_USER_PROMPT_MESSAGE, MOCK_RESPONSE_MESSAGE]}
-      `('prevents submission when loading $desc', ({ msgs } = {}) => {
+      `('prevents submission when loading $desc', async ({ msgs } = {}) => {
         createComponent({
-          propsData: { isChatAvailable: true, isLoading: true, messages: msgs },
+          propsData: { isChatAvailable: true, messages: msgs },
         });
+
         setPromptInput(promptStr);
         clickSubmit();
-        expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
+        await nextTick();
+
+        expect(wrapper.emitted('send-chat-prompt')).toEqual([[promptStr]]);
+
+        setPromptInput(promptStr);
+        clickSubmit();
+        await nextTick();
+
+        expect(wrapper.emitted('send-chat-prompt').length).toBe(1);
       });
 
       it.each([
@@ -359,20 +402,28 @@ describe('GlDuoChat', () => {
           ],
         ],
         [[{ ...MOCK_RESPONSE_MESSAGE, chunkId: 1 }]],
-      ])('prevents submission when streaming (messages = "%o")', (msgs = []) => {
+      ])('prevents submission when streaming (messages = "%o")', async (msgs = []) => {
         createComponent({
           propsData: { isChatAvailable: true, messages: msgs },
         });
+
         setPromptInput(promptStr);
         clickSubmit();
-        expect(wrapper.emitted('send-chat-prompt')).toBe(undefined);
+        await nextTick();
+
+        expect(wrapper.emitted('send-chat-prompt')).toEqual([[promptStr]]);
+
+        setPromptInput(promptStr);
+        clickSubmit();
+        await nextTick();
+
+        expect(wrapper.emitted('send-chat-prompt').length).toBe(1);
       });
 
       it('resets the prompt after form submission', async () => {
-        const prompt = 'foo';
         createComponent();
-        await setPromptInput(prompt);
-        expect(findChatInput().props('value')).toBe(prompt);
+        await setPromptInput(promptStr);
+        expect(findChatInput().props('value')).toBe(promptStr);
 
         clickSubmit();
         await nextTick();
@@ -452,6 +503,19 @@ describe('GlDuoChat', () => {
         expect(findChatConversations().length).toEqual(2);
         expect(findChatConversations().at(0).props('messages')).toEqual(messages);
         expect(findChatConversations().at(1).props('messages')).toEqual([]);
+      });
+    });
+
+    describe('cancel', () => {
+      it('emits cancel event on cancel button click', async () => {
+        createComponent({ propsData: {}, mountFn: mount });
+        await setPromptInput('TEST!');
+        clickSubmit();
+        await nextTick();
+        const cancelButton = findCancelButton();
+        expect(cancelButton.exists()).toBe(true);
+        await cancelButton.trigger('click');
+        expect(wrapper.emitted('chat-cancel').length).toBe(1);
       });
     });
   });
