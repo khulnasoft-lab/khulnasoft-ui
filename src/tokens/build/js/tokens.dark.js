@@ -386,6 +386,7 @@ export const T_WHITE_A_02 = 'rgba(255, 255, 255, 0.02)';
 export const T_WHITE_A_04 = 'rgba(255, 255, 255, 0.04)';
 export const T_WHITE_A_06 = 'rgba(255, 255, 255, 0.06)';
 export const T_WHITE_A_08 = 'rgba(255, 255, 255, 0.08)';
+export const GL_BREADCRUMB_SEPARATOR_COLOR = '#535158'; // Used for the breadcrumb level separator.
 export const GL_ICON_COLOR_DEFAULT = '#dcdcde'; // Used for the default icon color. Can be paired with default text.
 export const GL_ICON_COLOR_SUBTLE = '#a4a3a8'; // Used for a static or decorational icon. Can be paired with subtle text.
 export const GL_ICON_COLOR_STRONG = '#fbfafd'; // Used for an icon with the highest contrast.

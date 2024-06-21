@@ -8059,6 +8059,32 @@
       ]
     }
   },
+  "breadcrumb": {
+    "separator": {
+      "color": {
+        "value": "#535158",
+        "$type": "color",
+        "comment": "Used for the breadcrumb level separator.",
+        "filePath": "src/tokens/contextual/breadcrumb.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.200}",
+            "dark": "{color.neutral.700}"
+          },
+          "$type": "color",
+          "comment": "Used for the breadcrumb level separator."
+        },
+        "name": "BREADCRUMB_SEPARATOR_COLOR",
+        "attributes": {},
+        "path": [
+          "breadcrumb",
+          "separator",
+          "color"
+        ]
+      }
+    }
+  },
   "icon": {
     "color": {
       "default": {
