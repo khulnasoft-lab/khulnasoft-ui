@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { BLink } from 'bootstrap-vue';
+import { BLink } from '../../../../vendor/bootstrap-vue/src/components/link/link';
 import { ENTER, SPACE } from '../constants';
 import { mockItems } from './mock_data';
 

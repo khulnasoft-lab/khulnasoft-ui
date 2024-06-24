@@ -1,1 +1,1 @@
-export { VBModal as GlModalDirective } from 'bootstrap-vue';
+export { VBModal as GlModalDirective } from '../vendor/bootstrap-vue/src/directives/modal/modal';

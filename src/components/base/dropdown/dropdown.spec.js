@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 
-import { BDropdown } from 'bootstrap-vue';
+import { BDropdown } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown';
 import { dropdownVariantOptions } from '../../../utils/constants';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlDropdown from './dropdown.vue';

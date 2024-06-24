@@ -1,5 +1,5 @@
 <script>
-import { BDropdownText } from 'bootstrap-vue';
+import { BDropdownText } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown-text';
 
 export default {
   name: 'GlDropdownText',

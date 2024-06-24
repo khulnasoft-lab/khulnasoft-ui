@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { BFormGroup } from 'bootstrap-vue';
+import { BFormGroup } from '../../../../vendor/bootstrap-vue/src/components/form-group/form-group';
 import GlFormGroup from './form_group.vue';
 
 describe('Form group component', () => {

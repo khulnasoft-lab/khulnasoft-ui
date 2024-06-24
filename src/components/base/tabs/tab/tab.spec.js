@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { BTab } from 'bootstrap-vue';
+import { BTab } from '../../../../vendor/bootstrap-vue/src/components/tabs/tab';
 import { DEFAULT_TAB_TITLE_LINK_CLASS } from '../constants';
 import GlTab from './tab.vue';
 

@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BBreadcrumb } from 'bootstrap-vue';
 import debounce from 'lodash/debounce';
+import { BBreadcrumb } from '../../../vendor/bootstrap-vue/src/components/breadcrumb/breadcrumb';
 import { translate } from '../../../utils/i18n';
 import GlAvatar from '../avatar/avatar.vue';
 import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';

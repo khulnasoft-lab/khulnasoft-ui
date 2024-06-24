@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { BTableLite } from 'bootstrap-vue';
+import { BTableLite } from '../../../vendor/bootstrap-vue/src/components/table/table-lite';
 import GlTableLite from './table_lite.vue';
 
 describe('GlTableLite', () => {

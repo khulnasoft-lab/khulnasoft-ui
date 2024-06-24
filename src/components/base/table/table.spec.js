@@ -1,6 +1,6 @@
 import { nextTick } from 'vue';
 import { shallowMount, mount } from '@vue/test-utils';
-import { BTable } from 'bootstrap-vue';
+import { BTable } from '../../../vendor/bootstrap-vue/src/components/table/table';
 import { logWarning } from '../../../utils/utils';
 import { waitForAnimationFrame } from '../../../utils/test_utils';
 import { glTableLiteWarning } from './constants';

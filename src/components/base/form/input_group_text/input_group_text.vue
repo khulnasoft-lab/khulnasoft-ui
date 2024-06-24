@@ -1,5 +1,5 @@
 <script>
-import { BInputGroupText } from 'bootstrap-vue';
+import { BInputGroupText } from '../../../../vendor/bootstrap-vue/src/components/input-group/input-group-text';
 
 export default {
   name: 'GlInputGroupText',

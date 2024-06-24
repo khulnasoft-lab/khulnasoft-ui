@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BBadge } from 'bootstrap-vue';
+import { BBadge } from '../../../vendor/bootstrap-vue/src/components/badge/badge';
 import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 

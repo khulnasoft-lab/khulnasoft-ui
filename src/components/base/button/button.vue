@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BButton } from 'bootstrap-vue';
+import { BButton } from '../../../vendor/bootstrap-vue/src/components/button/button';
 import {
   buttonCategoryOptions,
   buttonVariantOptions,

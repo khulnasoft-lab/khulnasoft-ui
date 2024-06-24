@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BTable } from 'bootstrap-vue';
+import { BTable } from '../../../vendor/bootstrap-vue/src/components/table/table';
 import { logWarning, isDev } from '../../../utils/utils';
 import { tableFullSlots, tableFullProps, glTableLiteWarning } from './constants';
 

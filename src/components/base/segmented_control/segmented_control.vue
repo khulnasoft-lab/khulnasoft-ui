@@ -1,5 +1,5 @@
 <script>
-import { BFormRadioGroup } from 'bootstrap-vue';
+import { BFormRadioGroup } from '../../../vendor/bootstrap-vue/src/components/form-radio/form-radio-group';
 
 const genericErrorMessage = 'Segmented button should always have valid option selected';
 

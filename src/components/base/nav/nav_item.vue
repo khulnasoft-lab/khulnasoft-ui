@@ -1,5 +1,5 @@
 <script>
-import { BNavItem } from 'bootstrap-vue';
+import { BNavItem } from '../../../vendor/bootstrap-vue/src/components/nav/nav-item';
 
 export default {
   name: 'GlNavItem',

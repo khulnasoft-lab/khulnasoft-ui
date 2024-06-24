@@ -1,4 +1,4 @@
-import { BNavbarBrand } from 'bootstrap-vue';
+import { BNavbarBrand } from '../../../vendor/bootstrap-vue/src/components/navbar/navbar-brand';
 import GlNavbar from './navbar.vue';
 import readme from './navbar.md';
 

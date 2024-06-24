@@ -1,5 +1,5 @@
 <script>
-import { BDropdownHeader } from 'bootstrap-vue';
+import { BDropdownHeader } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown-header';
 
 export default {
   name: 'GlDropdownHeader',

@@ -1,4 +1,4 @@
-import { isVisible } from 'bootstrap-vue/src/utils/dom';
+import { isVisible } from '../vendor/bootstrap-vue/src/utils/dom';
 import { COMMA, CONTRAST_LEVELS, labelColorOptions, focusableTags } from './constants';
 
 export function debounceByAnimationFrame(fn) {
