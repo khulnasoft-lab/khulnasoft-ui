@@ -1,3 +1,22 @@
+# [85.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v84.2.0...v85.0.0) (2024-06-24)
+
+
+### Bug Fixes
+
+* **DuoChat:** don't show cancel button on slash commands ([0c6ca4a](https://gitlab.com/gitlab-org/gitlab-ui/commit/0c6ca4a9c2ddd12081aba50593e5974167548dc0))
+
+
+### Features
+
+* Consume vendored bootstrap-vue ([8f885f0](https://gitlab.com/gitlab-org/gitlab-ui/commit/8f885f02075b133b7fb0b72095409ce090598b9a))
+
+
+### BREAKING CHANGES
+
+* @gitlab/ui doesn't rely on bootstrap-vue as a npm
+dependency because it vendors bootstrap-vue. If you are importing things
+directly from bootstrap-vue, you might need to adjust import paths
+
 # [84.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v84.1.0...v84.2.0) (2024-06-24)
 
 
