@@ -50,7 +50,5 @@ export default {
 
 ## Caveats
 
-- If a click event is stopped (e.g., via `event.stopPropagation()`) before it
-  bubbles up to the `document`, it cannot be detected by `GlOutsideDirective`.
 - Clicks cannot be detected across document boundaries (e.g., across an
   `iframe` boundary), in either direction.
