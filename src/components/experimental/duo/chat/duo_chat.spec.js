@@ -14,7 +14,7 @@ import {
   SLASH_COMMANDS as slashCommands,
 } from './mock_data';
 
-import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE } from './constants';
+import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE, CHAT_CLEAN_MESSAGE } from './constants';
 
 const invalidSlashCommands = [
   {
@@ -446,16 +446,35 @@ describe('GlDuoChat', () => {
       });
     });
 
-    describe('reset', () => {
-      it('emits the event with the reset prompt', () => {
+    describe('clean', () => {
+      it('does not render cancel button on clean', async () => {
         createComponent({
           propsData: { messages, isChatAvailable: true },
+          mountFn: mount,
+        });
+        setPromptInput(CHAT_CLEAN_MESSAGE);
+        clickSubmit();
+
+        await nextTick();
+        expect(findSubmitButton().exists()).toBe(true);
+        expect(findCancelButton().exists()).toBe(false);
+      });
+    });
+
+    describe('reset', () => {
+      it('emits the event with the reset prompt', async () => {
+        createComponent({
+          propsData: { messages, isChatAvailable: true },
+          mountFn: mount,
         });
         setPromptInput(CHAT_RESET_MESSAGE);
         clickSubmit();
 
         expect(wrapper.emitted('send-chat-prompt')).toEqual([[CHAT_RESET_MESSAGE]]);
         expect(findChatConversations().length).toEqual(1);
+        await nextTick();
+        expect(findSubmitButton().exists()).toBe(true);
+        expect(findCancelButton().exists()).toBe(false);
       });
 
       it('reset does nothing when chat is loading', () => {
