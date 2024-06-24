@@ -91,7 +91,7 @@ export const Interactive = (args, { argTypes }) => ({
       chunks: [],
       timeout: null,
       requestId: 1,
-      canceledRequestIds: [],
+      canceledMessageRequestIds: [],
     };
   },
   methods: {
@@ -115,7 +115,7 @@ export const Interactive = (args, { argTypes }) => ({
       this.loggerInfo += `Chat closed\n\n`;
     },
     onChatCancel() {
-      this.canceledRequestIds.push(this.requestId);
+      this.canceledMessageRequestIds.push(this.requestId);
       this.requestId += 1;
       this.promptInFlight = false;
     },
@@ -132,7 +132,7 @@ export const Interactive = (args, { argTypes }) => ({
       const generator = generateMockResponseChunks(this.requestId);
 
       for await (const newResponse of generator) {
-        if (!this.canceledRequestIds.includes(newResponse.requestId)) {
+        if (!this.canceledMessageRequestIds.includes(newResponse.requestId)) {
           const existingMessageIndex = this.msgs.findIndex(
             (msg) => msg.requestId === newResponse.requestId && msg.role === newResponse.role
           );
@@ -171,6 +171,7 @@ export const Interactive = (args, { argTypes }) => ({
       :title="title"
       :messages="msgs"
       :error="error"
+      :canceled-request-ids="canceledMessageRequestIds"
       :is-loading="promptInFlight"
       :is-chat-available="isChatAvailable"
       :predefined-prompts="predefinedPrompts"

@@ -84,6 +84,11 @@ export default {
       default: () => [],
       validator: itemsValidator,
     },
+    canceledRequestIds: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
     /**
      * A non-recoverable error message to display in the chat.
      */
@@ -468,6 +473,7 @@ export default {
           v-for="(conversation, index) in conversations"
           :key="`conversation-${index}`"
           :messages="conversation"
+          :canceled-request-ids="canceledRequestIds"
           :show-delimiter="index > 0"
           @track-feedback="onTrackFeedback"
         />

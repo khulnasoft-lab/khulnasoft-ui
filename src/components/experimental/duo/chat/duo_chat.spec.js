@@ -134,6 +134,26 @@ describe('GlDuoChat', () => {
     });
 
     describe('conversations', () => {
+      it('renders conversation with correct props', () => {
+        const newMessages = [
+          {
+            role: MESSAGE_MODEL_ROLES.user,
+            content: 'How are you?',
+          },
+          {
+            role: MESSAGE_MODEL_ROLES.assistant,
+            content: 'Great!',
+          },
+        ];
+        const canceledRequestIds = [1];
+        createComponent({ propsData: { messages: newMessages, canceledRequestIds } });
+        expect(findChatConversations().at(0).props('messages')).toEqual(newMessages);
+        expect(findChatConversations().at(0).props('canceledRequestIds')).toEqual(
+          canceledRequestIds
+        );
+        expect(findChatConversations().at(0).props('showDelimiter')).toEqual(false);
+      });
+
       it('renders one conversation when no reset message is present', () => {
         const newMessages = [
           {
