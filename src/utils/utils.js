@@ -66,7 +66,7 @@ export function relativeLuminance(rgb) {
 export function colorFromBackground(backgroundColor, contrastRatio = 2.4) {
   let color;
   const lightColor = rgbFromHex('#FFFFFF');
-  const darkColor = rgbFromHex('#1f1e24');
+  const darkColor = rgbFromHex('#18171d');
 
   if (backgroundColor.startsWith('#')) {
     color = rgbFromHex(backgroundColor);

@@ -4,8 +4,7 @@
 
 $gl-text-tertiary: #89888d; // Use text.color.disabled instead
 $gl-text-secondary: #737278; // Use text.color.subtle instead
-$gl-text-primary: #333238; // Use text.color.default instead
-$gl-shadow-color-default: rgba(5, 5, 6, 0.16); // Used for the default shadow color.
+$gl-text-primary: #28272d; // Use text.color.default instead
 $gl-line-height-52: 3.25rem;
 $gl-line-height-44: 2.75rem;
 $gl-line-height-42: 2.625rem;
@@ -84,10 +83,10 @@ $green-300: #52b87a !default;
 $green-200: #91d4a8 !default;
 $green-100: #c3e6cd !default;
 $green-50: #ecf4ee !default;
-$gray-950: #1f1e24 !default;
-$gray-900: #333238 !default;
-$gray-800: #434248 !default;
-$gray-700: #535158 !default;
+$gray-950: #18171d !default;
+$gray-900: #28272d !default;
+$gray-800: #3a383f !default;
+$gray-700: #4c4b51 !default;
 $gray-600: #626168 !default;
 $gray-500: #737278 !default;
 $gray-400: #89888d !default;
@@ -367,11 +366,11 @@ $gl-color-green-300: #52b87a;
 $gl-color-green-200: #91d4a8;
 $gl-color-green-100: #c3e6cd;
 $gl-color-green-50: #ecf4ee;
-$gl-color-neutral-1000: #000;
-$gl-color-neutral-950: #1f1e24;
-$gl-color-neutral-900: #333238;
-$gl-color-neutral-800: #434248;
-$gl-color-neutral-700: #535158;
+$gl-color-neutral-1000: #050506;
+$gl-color-neutral-950: #18171d;
+$gl-color-neutral-900: #28272d;
+$gl-color-neutral-800: #3a383f;
+$gl-color-neutral-700: #4c4b51;
 $gl-color-neutral-600: #626168;
 $gl-color-neutral-500: #737278;
 $gl-color-neutral-400: #89888d;

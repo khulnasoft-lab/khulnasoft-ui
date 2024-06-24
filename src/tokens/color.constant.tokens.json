@@ -84,23 +84,23 @@
         "$type": "color"
       },
       "700": {
-        "$value": "#535158",
+        "$value": "#4c4b51",
         "$type": "color"
       },
       "800": {
-        "$value": "#434248",
+        "$value": "#3a383f",
         "$type": "color"
       },
       "900": {
-        "$value": "#333238",
+        "$value": "#28272d",
         "$type": "color"
       },
       "950": {
-        "$value": "#1f1e24",
+        "$value": "#18171d",
         "$type": "color"
       },
       "1000": {
-        "$value": "#000",
+        "$value": "#050506",
         "$type": "color"
       }
     },

@@ -10,9 +10,9 @@
   },
   "white": {
     "$value": {
-      "default": "#fff",
-      "dark": "#333238"
-    },
+        "default": "#fff",
+        "dark": "#28272d"
+      },
     "$type": "color",
     "themeable": true,
     "prefix": false
@@ -122,7 +122,7 @@
     "10": {
       "$value": {
         "default": "#fbfafd",
-        "dark": "#1f1e24"
+        "dark": "#18171d"
       },
       "$type": "color",
       "themeable": true,
@@ -131,7 +131,7 @@
     "50": {
       "$value": {
         "default": "#ececef",
-        "dark": "#333238"
+        "dark": "#28272d"
       },
       "$type": "color",
       "themeable": true,
@@ -140,7 +140,7 @@
     "100": {
       "$value": {
         "default": "#dcdcde",
-        "dark": "#434248"
+        "dark": "#3a383f"
       },
       "$type": "color",
       "themeable": true,
@@ -149,7 +149,7 @@
     "200": {
       "$value": {
         "default": "#bfbfc3",
-        "dark": "#535158"
+        "dark": "#4c4b51"
       },
       "$type": "color",
       "themeable": true,
@@ -193,7 +193,7 @@
     },
     "700": {
       "$value": {
-        "default": "#535158",
+        "default": "#4c4b51",
         "dark": "#bfbfc3"
       },
       "$type": "color",
@@ -202,7 +202,7 @@
     },
     "800": {
       "$value": {
-        "default": "#434248",
+        "default": "#3a383f",
         "dark": "#dcdcde"
       },
       "$type": "color",
@@ -211,7 +211,7 @@
     },
     "900": {
       "$value": {
-        "default": "#333238",
+        "default": "#28272d",
         "dark": "#ececef"
       },
       "$type": "color",
@@ -220,7 +220,7 @@
     },
     "950": {
       "$value": {
-        "default": "#1f1e24",
+        "default": "#18171d",
         "dark": "#fbfafd"
       },
       "$type": "color",

@@ -3,7 +3,7 @@
     "background": {
       "color": {
         "disabled": {
-          "value": "#333238",
+          "value": "#28272d",
           "$type": "color",
           "comment": "Used for the background of a disabled action.",
           "filePath": "src/tokens/action.tokens.json",
@@ -30,7 +30,7 @@
     "border": {
       "color": {
         "disabled": {
-          "value": "#434248",
+          "value": "#3a383f",
           "$type": "color",
           "comment": "Used for the border of a disabled action.",
           "filePath": "src/tokens/action.tokens.json",
@@ -112,7 +112,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#333238",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the background of an outlined neutral action in the default state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -136,7 +136,7 @@
             ]
           },
           "hover": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the background of an outlined neutral action in the hover state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -160,7 +160,7 @@
             ]
           },
           "focus": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the background of an outlined neutral action in the focus state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -184,7 +184,7 @@
             ]
           },
           "active": {
-            "value": "#434248",
+            "value": "#3a383f",
             "$type": "color",
             "comment": "Used for the background of an outlined neutral action in the active state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -231,7 +231,7 @@
               ]
             },
             "hover": {
-              "value": "#333238",
+              "value": "#28272d",
               "$type": "color",
               "comment": "Used for the background of a borderless, subtle neutral action in the hover state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -256,7 +256,7 @@
               ]
             },
             "focus": {
-              "value": "#333238",
+              "value": "#28272d",
               "$type": "color",
               "comment": "Used for the background of a borderless, subtle neutral action in the focus state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -281,7 +281,7 @@
               ]
             },
             "active": {
-              "value": "#434248",
+              "value": "#3a383f",
               "$type": "color",
               "comment": "Used for the background of a borderless, subtle neutral action in the active state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -413,7 +413,7 @@
       "border": {
         "color": {
           "default": {
-            "value": "#535158",
+            "value": "#4c4b51",
             "$type": "color",
             "comment": "Used for the border of an outlined neutral action in the default state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -509,7 +509,7 @@
             ]
           },
           "selected": {
-            "value": "#535158",
+            "value": "#4c4b51",
             "$type": "color",
             "comment": "Used for the border of a outlined neutral action when in a selected or current state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -735,7 +735,7 @@
             ]
           },
           "strong": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the text on a solid, strong neutral action background.",
             "filePath": "src/tokens/action.tokens.json",
@@ -859,7 +859,7 @@
             ]
           },
           "strong": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the icon on a solid, strong neutral action background.",
             "filePath": "src/tokens/action.tokens.json",
@@ -889,7 +889,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the background of an outlined confirm (positive) action in the default state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -1538,7 +1538,7 @@
             ]
           },
           "strong": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the text on a solid, strong confirm (positive) action background.",
             "filePath": "src/tokens/action.tokens.json",
@@ -1662,7 +1662,7 @@
             ]
           },
           "strong": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the icon on a solid, strong confirm (positive) action background.",
             "filePath": "src/tokens/action.tokens.json",
@@ -1692,7 +1692,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the background of an outlined danger (destructive) action in the default state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -2291,7 +2291,7 @@
             ]
           },
           "strong": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the text on a solid, strong danger (destructive) action background.",
             "filePath": "src/tokens/action.tokens.json",
@@ -2415,7 +2415,7 @@
             ]
           },
           "strong": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the icon on a solid, strong danger (destructive) action background.",
             "filePath": "src/tokens/action.tokens.json",
@@ -2445,7 +2445,7 @@
   "background": {
     "color": {
       "default": {
-        "value": "#1f1e24",
+        "value": "#18171d",
         "$type": "color",
         "comment": "Used for the default background color.",
         "filePath": "src/tokens/background.tokens.json",
@@ -2467,7 +2467,7 @@
         ]
       },
       "subtle": {
-        "value": "#333238",
+        "value": "#28272d",
         "$type": "color",
         "comment": "Used to slightly differentiate the background from the default.",
         "filePath": "src/tokens/background.tokens.json",
@@ -2489,7 +2489,7 @@
         ]
       },
       "strong": {
-        "value": "#434248",
+        "value": "#3a383f",
         "$type": "color",
         "comment": "Used to make the background easily stand out from the default.",
         "filePath": "src/tokens/background.tokens.json",
@@ -2511,7 +2511,7 @@
         ]
       },
       "disabled": {
-        "value": "#333238",
+        "value": "#28272d",
         "$type": "color",
         "comment": "Used to identify a disabled section.",
         "filePath": "src/tokens/background.tokens.json",
@@ -2559,7 +2559,7 @@
   "border": {
     "color": {
       "default": {
-        "value": "#434248",
+        "value": "#3a383f",
         "$type": "color",
         "comment": "Used for the default border color.",
         "filePath": "src/tokens/border.tokens.json",
@@ -2581,7 +2581,7 @@
         ]
       },
       "subtle": {
-        "value": "#333238",
+        "value": "#28272d",
         "$type": "color",
         "comment": "Used for a subtle border in combination with the default background.",
         "filePath": "src/tokens/border.tokens.json",
@@ -3247,12 +3247,12 @@
         ]
       },
       "700": {
-        "value": "#535158",
+        "value": "#4c4b51",
         "$type": "color",
         "filePath": "src/tokens/color.constant.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#535158",
+          "value": "#4c4b51",
           "$type": "color"
         },
         "name": "COLOR_NEUTRAL_700",
@@ -3264,12 +3264,12 @@
         ]
       },
       "800": {
-        "value": "#434248",
+        "value": "#3a383f",
         "$type": "color",
         "filePath": "src/tokens/color.constant.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#434248",
+          "value": "#3a383f",
           "$type": "color"
         },
         "name": "COLOR_NEUTRAL_800",
@@ -3281,12 +3281,12 @@
         ]
       },
       "900": {
-        "value": "#333238",
+        "value": "#28272d",
         "$type": "color",
         "filePath": "src/tokens/color.constant.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#333238",
+          "value": "#28272d",
           "$type": "color"
         },
         "name": "COLOR_NEUTRAL_900",
@@ -3298,12 +3298,12 @@
         ]
       },
       "950": {
-        "value": "#1f1e24",
+        "value": "#18171d",
         "$type": "color",
         "filePath": "src/tokens/color.constant.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#1f1e24",
+          "value": "#18171d",
           "$type": "color"
         },
         "name": "COLOR_NEUTRAL_950",
@@ -3315,12 +3315,12 @@
         ]
       },
       "1000": {
-        "value": "#000",
+        "value": "#050506",
         "$type": "color",
         "filePath": "src/tokens/color.constant.tokens.json",
         "isSource": true,
         "original": {
-          "value": "#000",
+          "value": "#050506",
           "$type": "color"
         },
         "name": "COLOR_NEUTRAL_1000",
@@ -8683,7 +8683,7 @@
     ]
   },
   "white": {
-    "value": "#333238",
+    "value": "#28272d",
     "$type": "color",
     "themeable": true,
     "prefix": false,
@@ -8692,7 +8692,7 @@
     "original": {
       "value": {
         "default": "#fff",
-        "dark": "#333238"
+        "dark": "#28272d"
       },
       "$type": "color",
       "themeable": true,
@@ -8961,7 +8961,7 @@
   },
   "gray": {
     "10": {
-      "value": "#1f1e24",
+      "value": "#18171d",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -8970,7 +8970,7 @@
       "original": {
         "value": {
           "default": "#fbfafd",
-          "dark": "#1f1e24"
+          "dark": "#18171d"
         },
         "$type": "color",
         "themeable": true,
@@ -8984,7 +8984,7 @@
       ]
     },
     "50": {
-      "value": "#333238",
+      "value": "#28272d",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -8993,7 +8993,7 @@
       "original": {
         "value": {
           "default": "#ececef",
-          "dark": "#333238"
+          "dark": "#28272d"
         },
         "$type": "color",
         "themeable": true,
@@ -9007,7 +9007,7 @@
       ]
     },
     "100": {
-      "value": "#434248",
+      "value": "#3a383f",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -9016,7 +9016,7 @@
       "original": {
         "value": {
           "default": "#dcdcde",
-          "dark": "#434248"
+          "dark": "#3a383f"
         },
         "$type": "color",
         "themeable": true,
@@ -9030,7 +9030,7 @@
       ]
     },
     "200": {
-      "value": "#535158",
+      "value": "#4c4b51",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -9039,7 +9039,7 @@
       "original": {
         "value": {
           "default": "#bfbfc3",
-          "dark": "#535158"
+          "dark": "#4c4b51"
         },
         "$type": "color",
         "themeable": true,
@@ -9153,7 +9153,7 @@
       "isSource": true,
       "original": {
         "value": {
-          "default": "#535158",
+          "default": "#4c4b51",
           "dark": "#bfbfc3"
         },
         "$type": "color",
@@ -9176,7 +9176,7 @@
       "isSource": true,
       "original": {
         "value": {
-          "default": "#434248",
+          "default": "#3a383f",
           "dark": "#dcdcde"
         },
         "$type": "color",
@@ -9199,7 +9199,7 @@
       "isSource": true,
       "original": {
         "value": {
-          "default": "#333238",
+          "default": "#28272d",
           "dark": "#ececef"
         },
         "$type": "color",
@@ -9222,7 +9222,7 @@
       "isSource": true,
       "original": {
         "value": {
-          "default": "#1f1e24",
+          "default": "#18171d",
           "dark": "#fbfafd"
         },
         "$type": "color",
@@ -10976,7 +10976,7 @@
             ]
           },
           "neutral": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Neutral background for avatar fallback with no particular meaning.",
             "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -11034,7 +11034,7 @@
     "promo": {
       "background": {
         "color": {
-          "value": "#333238",
+          "value": "#28272d",
           "$type": "color",
           "comment": "Used as background for the default banner type.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
@@ -11062,7 +11062,7 @@
   "breadcrumb": {
     "separator": {
       "color": {
-        "value": "#535158",
+        "value": "#4c4b51",
         "$type": "color",
         "comment": "Used for the breadcrumb level separator.",
         "filePath": "src/tokens/contextual/breadcrumb.tokens.json",
@@ -11402,7 +11402,7 @@
   "popover": {
     "background": {
       "color": {
-        "value": "#333238",
+        "value": "#28272d",
         "$type": "color",
         "comment": "Used for the background color of popover.",
         "filePath": "src/tokens/contextual/popover.tokens.json",
@@ -11428,7 +11428,7 @@
   "skeleton-loader": {
     "background": {
       "color": {
-        "value": "#434248",
+        "value": "#3a383f",
         "$type": "color",
         "comment": "Used for the skeleton loader background color.",
         "filePath": "src/tokens/contextual/skeleton-loader.tokens.json",
@@ -11452,7 +11452,7 @@
     },
     "shimmer": {
       "color": {
-        "value": "#535158",
+        "value": "#4c4b51",
         "$type": "color",
         "comment": "Used for the animated shimmer effect in a skeleton loader.",
         "filePath": "src/tokens/contextual/skeleton-loader.tokens.json",
@@ -11628,7 +11628,7 @@
     "background": {
       "color": {
         "default": {
-          "value": "#333238",
+          "value": "#28272d",
           "$type": "color",
           "comment": "Used for form control (input, radio button, checkbox, textarea) default background.",
           "filePath": "src/tokens/control.tokens.json",
@@ -11651,7 +11651,7 @@
           ]
         },
         "disabled": {
-          "value": "#1f1e24",
+          "value": "#18171d",
           "$type": "color",
           "comment": "Used for disabled form control (checkbox, input, radio button, textarea) background.",
           "filePath": "src/tokens/control.tokens.json",
@@ -11821,7 +11821,7 @@
           ]
         },
         "disabled": {
-          "value": "#434248",
+          "value": "#3a383f",
           "$type": "color",
           "comment": "Used for disabled form control (input, radio button, checkbox, textarea) border.",
           "filePath": "src/tokens/control.tokens.json",
@@ -12019,7 +12019,7 @@
     "indicator": {
       "color": {
         "selected": {
-          "value": "#333238",
+          "value": "#28272d",
           "$type": "color",
           "comment": "Used for checkbox and radio button state indicators.",
           "filePath": "src/tokens/control.tokens.json",
@@ -12098,7 +12098,7 @@
     "text": {
       "color": {
         "strong": {
-          "value": "#333238",
+          "value": "#28272d",
           "$type": "color",
           "comment": "Used for text on a strong feedback background.",
           "filePath": "src/tokens/feedback.tokens.json",
@@ -12125,7 +12125,7 @@
     "icon": {
       "color": {
         "strong": {
-          "value": "#333238",
+          "value": "#28272d",
           "$type": "color",
           "comment": "Used for an icon on a strong feedback background.",
           "filePath": "src/tokens/feedback.tokens.json",
@@ -12179,7 +12179,7 @@
     "neutral": {
       "background": {
         "color": {
-          "value": "#333238",
+          "value": "#28272d",
           "$type": "color",
           "comment": "Used for a background associated with neutral feedback.",
           "filePath": "src/tokens/feedback.tokens.json",
@@ -12464,7 +12464,7 @@
     },
     "inner": {
       "color": {
-        "value": "#1f1e24",
+        "value": "#18171d",
         "$type": "color",
         "comment": "Used for the inner neutral portion of the focus ring.",
         "filePath": "src/tokens/focus-ring.tokens.json",
@@ -12929,7 +12929,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the background of a subtle neutral status item when static or the default state when linked.",
             "filePath": "src/tokens/status.tokens.json",
@@ -12953,7 +12953,7 @@
             ]
           },
           "active": {
-            "value": "#434248",
+            "value": "#3a383f",
             "$type": "color",
             "comment": "Used for the background of a subtle neutral status item in the active state.",
             "filePath": "src/tokens/status.tokens.json",
@@ -12981,7 +12981,7 @@
       "border": {
         "color": {
           "hover": {
-            "value": "#535158",
+            "value": "#4c4b51",
             "$type": "color",
             "comment": "Used for the border of a subtle neutral status item in the hover state.",
             "filePath": "src/tokens/status.tokens.json",
@@ -13211,7 +13211,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#434248",
+            "value": "#3a383f",
             "$type": "color",
             "comment": "Used for the background of a neutral status item when static or the default state when linked.",
             "filePath": "src/tokens/status.tokens.json",
@@ -13235,7 +13235,7 @@
             ]
           },
           "active": {
-            "value": "#535158",
+            "value": "#4c4b51",
             "$type": "color",
             "comment": "Used for the background of a neutral status item in the active state.",
             "filePath": "src/tokens/status.tokens.json",
@@ -13263,7 +13263,7 @@
       "border": {
         "color": {
           "hover": {
-            "value": "#535158",
+            "value": "#4c4b51",
             "$type": "color",
             "comment": "Used for the border of a neutral status item in the hover state.",
             "filePath": "src/tokens/status.tokens.json",
@@ -14910,7 +14910,7 @@
       "isSource": true,
       "original": {
         "value": {
-          "default": "#333238",
+          "default": "#28272d",
           "dark": "#ececef"
         },
         "$type": "color",

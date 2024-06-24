@@ -21,7 +21,7 @@ properties), JavaScript (ES6 Constants/JSON), and SCSS (variables), for example:
 @import '@gitlab/ui/src/tokens/build/css/tokens';
 
 h1 {
-  color: var(--gl-text-color-heading); /* #1f1e24 */
+  color: var(--gl-text-color-heading); /* #18171d */
 }
 ```
 
@@ -31,7 +31,7 @@ h1 {
 @import '@gitlab/ui/src/tokens/build/scss/tokens';
 
 h1 {
-  color: $gl-text-color-heading; /* #1f1e24 */
+  color: $gl-text-color-heading; /* #18171d */
 }
 ```
 
@@ -40,7 +40,7 @@ h1 {
 ```js
 import { GL_TEXT_COLOR_HEADING } from '@gitlab/ui/src/tokens/build/js/tokens';
 
-const color = GL_TEXT_COLOR_HEADING; // #1f1e24
+const color = GL_TEXT_COLOR_HEADING; // #18171d
 ```
 
 ### Dark mode
@@ -92,7 +92,7 @@ with a format that includes [a name and
 // text.color.tokens.json
 {
   "heading": {
-    "$value": "#1f1e24",
+    "$value": "#18171d",
     "$type": "color"
   }
 }
@@ -132,7 +132,7 @@ Example design token inheritance and automation:
 
 ```mermaid
 flowchart TD
-    A[#1f1e24] -->|Constant token| B[color.neutral.950]
+    A[#18171d] -->|Constant token| B[color.neutral.950]
     B -->|Semantic token| C[text.color.default]
     C --> D{Automation}
     D -->|Figma| E[text/color/default]
@@ -164,7 +164,7 @@ purpose, use the [`$type`](#type) property.
 {
   "color": {
     "heading": {
-      "$value": "#1f1e24",
+      "$value": "#18171d",
       "$type": "color"
     }
   }
@@ -178,7 +178,7 @@ Groups can also be nested for greater context setting:
   "text": {
     "color": {
       "heading": {
-        "$value": "#1f1e24",
+        "$value": "#18171d",
         "$type": "color"
       }
     }
@@ -192,20 +192,20 @@ CSS:
 
 ```css
 :root {
-  --gl-text-color-heading: #1f1e24;
+  --gl-text-color-heading: #18171d;
 }
 ```
 
 SCSS:
 
 ```scss
-$gl-text-color-heading: #1f1e24;
+$gl-text-color-heading: #18171d;
 ```
 
 JavaScript:
 
 ```javascript
-const GL_TEXT_COLOR_HEADING = '#1f1e24';
+const GL_TEXT_COLOR_HEADING = '#18171d';
 ```
 
 ### Values
@@ -225,7 +225,7 @@ A design token value can be a string or [alias](#aliases), for example:
 
 | Example       | Value             |
 | ------------- | ----------------- |
-| color         | `#1f1e24`         |
+| color         | `#18171d`         |
 | font weight   | `bold`            |
 | spacing scale | `16`              |
 | easing        | `ease-out`        |
