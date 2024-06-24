@@ -237,7 +237,8 @@ export const BModal = /*#__PURE__*/ extend({
       return [
         {
           fade: !this.noFade,
-          show: this.isShow
+          show: this.isShow,
+          'd-block': this.isBlock
         },
         this.modalClass
       ]
@@ -246,10 +247,7 @@ export const BModal = /*#__PURE__*/ extend({
       const sbWidth = `${this.scrollbarWidth}px`
       return {
         paddingLeft: !this.isBodyOverflowing && this.isModalOverflowing ? sbWidth : '',
-        paddingRight: this.isBodyOverflowing && !this.isModalOverflowing ? sbWidth : '',
-        // Needed to fix issue https://github.com/bootstrap-vue/bootstrap-vue/issues/3457
-        // Even though we are using v-show, we must ensure 'none' is restored in the styles
-        display: this.isBlock ? 'block' : 'none'
+        paddingRight: this.isBodyOverflowing && !this.isModalOverflowing ? sbWidth : ''
       }
     },
     dialogClasses() {
