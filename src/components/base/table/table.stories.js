@@ -49,7 +49,6 @@ export const Default = (args, { argTypes }) => ({
     :foot-clone="footClone"
     sort-by="col_three"
     sort-desc
-    no-sort-reset
     sort-direction="desc"
     hover
     selectable
