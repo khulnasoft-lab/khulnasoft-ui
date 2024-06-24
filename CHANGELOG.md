@@ -1,3 +1,10 @@
+## [85.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.0.1...v85.0.2) (2024-06-24)
+
+
+### Bug Fixes
+
+* Sets no-sort-reset for all tables ([02fd84e](https://gitlab.com/gitlab-org/gitlab-ui/commit/02fd84e74306b60efdd71b3e880737f4c063856d))
+
 ## [85.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.0.0...v85.0.1) (2024-06-24)
 
 
