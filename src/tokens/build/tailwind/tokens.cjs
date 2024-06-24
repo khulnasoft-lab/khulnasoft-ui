@@ -223,6 +223,8 @@ const backgroundColors = {
     'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
   disabled:
     'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
+  overlay:
+    'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, rgba(31, 30, 36, 0.24)))',
 };
 const borderColors = {
   default:

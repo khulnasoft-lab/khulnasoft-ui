@@ -42,6 +42,7 @@ export const GL_BACKGROUND_COLOR_DEFAULT = '#1f1e24'; // Used for the default ba
 export const GL_BACKGROUND_COLOR_SUBTLE = '#333238'; // Used to slightly differentiate the background from the default.
 export const GL_BACKGROUND_COLOR_STRONG = '#434248'; // Used to make the background easily stand out from the default.
 export const GL_BACKGROUND_COLOR_DISABLED = '#333238'; // Used to identify a disabled section.
+export const GL_BACKGROUND_COLOR_OVERLAY = 'rgba(0,0,0,0.64)'; // Used for an overlay that covers other content.
 export const GL_BORDER_COLOR_DEFAULT = '#434248'; // Used for the default border color.
 export const GL_BORDER_COLOR_SUBTLE = '#333238'; // Used for a border that has a little more definition, or is used in combination with a subtle background.
 export const GL_BORDER_COLOR_STRONG = '#89888d'; // Used for a distinct border that emphasizes an edge or boundaries.

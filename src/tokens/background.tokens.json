@@ -32,6 +32,14 @@
         },
         "$type": "color",
         "$description": "Used to identify a disabled section."
+      },
+      "overlay": {
+        "$value": {
+          "default": "{color.alpha.dark.24}",
+          "dark": "rgba(0,0,0,0.64)"
+        },
+        "$type": "color",
+        "$description": "Used for an overlay that covers other content."
       }
     }
   }

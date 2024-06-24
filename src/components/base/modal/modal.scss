@@ -39,6 +39,8 @@ body.modal-open {
     @include gl-rounded-base;
     @include gl-border-0;
     box-shadow: $modal-box-shadow;
+    background-color: var(--gl-background-color-default);
+    color: var(--gl-text-color-default);
 
     > :first-child {
       @include gl-rounded-top-left-base;
@@ -52,19 +54,18 @@ body.modal-open {
   }
 
   .modal-header {
-    @include gl-bg-white;
     @include gl-pb-3;
     @include gl-border-none;
 
     .modal-title {
       @include gl-heading-scale-500;
+      color: var(--gl-text-color-heading);
     }
   }
 
   .modal-body {
     min-height: $modal-body-height;
     line-height: $modal-body-line-height;
-    @include gl-bg-white;
     position: relative;
     @include gl-p-5;
     @include gl-py-3;
@@ -112,8 +113,9 @@ body.modal-open {
     }
   }
 
-  .modal-backdrop {
-    @include gl-opacity-5;
+  ~ .modal-backdrop {
+    background-color: var(--gl-background-color-overlay);
+    opacity: 1;
   }
 
   @include media-breakpoint-up(sm) {
