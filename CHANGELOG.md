@@ -1,3 +1,11 @@
+# [84.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v84.1.0...v84.2.0) (2024-06-24)
+
+
+### Features
+
+* **DesignTokens:** add status design tokens ([779d225](https://gitlab.com/gitlab-org/gitlab-ui/commit/779d2259b287c60b0dda996470e9f174495f276c))
+* **GlBadge:** add status design tokens to GlBadge ([3be9838](https://gitlab.com/gitlab-org/gitlab-ui/commit/3be9838f0229e3b8d5324640b04aea91333c439d))
+
 # [84.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v84.0.0...v84.1.0) (2024-06-21)
 
 
