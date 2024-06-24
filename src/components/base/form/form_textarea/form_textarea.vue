@@ -43,7 +43,7 @@ export default {
       default: null,
     },
     rows: {
-      type: Number,
+      type: [Number, String],
       required: false,
       default: 4,
     },
