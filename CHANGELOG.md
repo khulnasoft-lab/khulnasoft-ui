@@ -1,3 +1,10 @@
+## [85.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.0.0...v85.0.1) (2024-06-24)
+
+
+### Bug Fixes
+
+* textarea rows should accept strings ([691bb64](https://gitlab.com/gitlab-org/gitlab-ui/commit/691bb64f3797cdfbeec2c7924683f50e9ed83bc7))
+
 # [85.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v84.2.0...v85.0.0) (2024-06-24)
 
 
