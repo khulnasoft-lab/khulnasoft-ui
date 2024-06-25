@@ -22,7 +22,7 @@ include:
     file: /semantic-release/.gitlab-ci-template.rules.yml
   - project: gitlab-org/frontend/untamper-my-lockfile
     file: 'templates/merge_request_pipelines.yml'
-  - component: ${CI_SERVER_FQDN}/gitlab-org/components/danger-review/danger-review@1.2.0
+  - component: ${CI_SERVER_FQDN}/gitlab-org/components/danger-review/danger-review@1.4.0
 
 .is-merge-train: &is-merge-train
   if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merge_train"'
