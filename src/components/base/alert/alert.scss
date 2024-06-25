@@ -44,6 +44,7 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
 .gl-alert-title {
   @include gl-heading-scale-500;
   @include gl-mb-3;
+  color: var(--gl-text-color-heading);
 }
 
 .gl-alert-icon-container {
@@ -60,12 +61,9 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
   }
 }
 
-.gl-alert-icon {
-  @include gl-fill-current-color;
-}
-
 .gl-alert-body {
   @include gl-line-height-20;
+  color: var(--gl-text-color-default);
 }
 
 .gl-alert-actions {
@@ -87,41 +85,41 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
 }
 
 .gl-alert-danger {
-  @include gl-bg-red-50;
+  background-color: var(--gl-feedback-danger-background-color);
 
   .gl-alert-icon {
-    @include gl-text-red-600;
+    color: var(--gl-feedback-danger-icon-color);
   }
 }
 
 .gl-alert-warning {
-  @include gl-bg-orange-50;
+  background-color: var(--gl-feedback-warning-background-color);
 
   .gl-alert-icon {
-    @include gl-text-orange-600;
+    color: var(--gl-feedback-warning-icon-color);
   }
 }
 
 .gl-alert-tip {
-  @include gl-bg-gray-50;
+  background-color: var(--gl-feedback-neutral-background-color);
 
   .gl-alert-icon {
-    @include gl-text-gray-600;
+    color: var(--gl-feedback-neutral-icon-color);
   }
 }
 
 .gl-alert-info {
-  @include gl-bg-blue-50;
+  background-color: var(--gl-feedback-info-background-color);
 
   .gl-alert-icon {
-    @include gl-text-blue-600;
+    color: var(--gl-feedback-info-icon-color);
   }
 }
 
 .gl-alert-success {
-  @include gl-bg-green-50;
+  background-color: var(--gl-feedback-success-background-color);
 
   .gl-alert-icon {
-    @include gl-text-green-600;
+    color: var(--gl-feedback-success-icon-color);
   }
 }

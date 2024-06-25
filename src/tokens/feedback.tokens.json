@@ -1,0 +1,162 @@
+{
+  "feedback": {
+    "background": {
+      "color": {
+        "strong": {
+          "$value": {
+            "default": "{color.neutral.950}",
+            "dark": "{color.neutral.10}"
+          },
+          "$type": "color",
+          "$description": "Used for a background associated with feedback like a tooltip or toast message."
+        }
+      }
+    },
+    "text": {
+      "color": {
+        "strong": {
+          "$value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for text on a strong feedback background."
+        }
+      }
+    },
+    "icon": {
+      "color": {
+        "strong": {
+          "$value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for an icon on a strong feedback background."
+        }
+      }
+    },
+    "link": {
+      "color": {
+        "strong": {
+          "$value": {
+            "default": "{color.blue.300}",
+            "dark": "{color.blue.700}"
+          },
+          "$type": "color",
+          "$description": "Used for a link on a strong feedback background."
+        }
+      }
+    },
+    "neutral": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.50}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for a background associated with neutral feedback."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.600}",
+            "dark": "{color.neutral.300}"
+          },
+          "$type": "color",
+          "$description": "Used for an icon associated with a neutral feedback section."
+        }
+      }
+    },
+    "info": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.50}",
+            "dark": "{color.blue.900}"
+          },
+          "$type": "color",
+          "$description": "Used for a background associated with informational feedback or a highlighted section resulting from a user action."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.600}",
+            "dark": "{color.blue.300}"
+          },
+          "$type": "color",
+          "$description": "Used for an icon associated with informational feedback."
+        }
+      }
+    },
+    "success": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.green.50}",
+            "dark": "{color.green.900}"
+          },
+          "$type": "color",
+          "$description": "Used for a background associated with successful feedback or a new section resulting from a user action."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.green.600}",
+            "dark": "{color.green.300}"
+          },
+          "$type": "color",
+          "$description": "Used for an icon associated with successful feedback or a new section."
+        }
+      }
+    },
+    "warning": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.50}",
+            "dark": "{color.orange.900}"
+          },
+          "$type": "color",
+          "$description": "Used for a background associated with warning feedback or to let a user know about confidential content."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.600}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Used for an icon associated with warning feedback or confidential content."
+        }
+      }
+    },
+    "danger": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.red.50}",
+            "dark": "{color.red.900}"
+          },
+          "$type": "color",
+          "$description": "Used for a background associated with danger or critical feedback."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.red.600}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Used for an icon associated with danger or critical feedback."
+        }
+      }
+    }
+  }
+}
