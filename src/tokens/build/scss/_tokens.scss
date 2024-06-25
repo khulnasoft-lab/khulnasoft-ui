@@ -493,3 +493,38 @@ $gl-background-color-disabled: $gl-color-neutral-10; // Used to identify a disab
 $gl-background-color-strong: $gl-color-neutral-50; // Used to make the background easily stand out from the default.
 $gl-background-color-subtle: $gl-color-neutral-10; // Used to slightly differentiate the background from the default.
 $gl-background-color-default: $gl-color-neutral-0; // Used for the default background color.
+$gl-action-neutral-icon-color-strong: $gl-color-neutral-0; // Used for the icon on a solid, strong neutral action background.
+$gl-action-neutral-icon-color-active: $gl-color-neutral-900; // Used for the icon of outlined and borderless neutral actions in the active state.
+$gl-action-neutral-icon-color-focus: $gl-color-neutral-700; // Used for the icon of outlined and borderless neutral actions in the focus state.
+$gl-action-neutral-icon-color-hover: $gl-color-neutral-700; // Used for the icon of outlined and borderless neutral actions in the hover state.
+$gl-action-neutral-icon-color-default: $gl-color-neutral-500; // Used for the icon of outlined and borderless neutral actions.
+$gl-action-neutral-text-color-strong: $gl-color-neutral-0; // Used for the text on a solid, strong neutral action background.
+$gl-action-neutral-text-color-active: $gl-color-neutral-900; // Used for the text of a neutral action in the active state.
+$gl-action-neutral-text-color-focus: $gl-color-neutral-900; // Used for the text of a neutral action in the focus state.
+$gl-action-neutral-text-color-hover: $gl-color-neutral-900; // Used for the text of a neutral action in the hover state.
+$gl-action-neutral-text-color-default: $gl-color-neutral-900; // Used for the text of outlined and borderless neutral actions.
+$gl-action-neutral-border-color-strong-active: $gl-color-neutral-900; // Used for the border of a solid, strong neutral action in the active state.
+$gl-action-neutral-border-color-strong-focus: $gl-color-neutral-800; // Used for the border of a solid, strong neutral action in the focus state.
+$gl-action-neutral-border-color-strong-hover: $gl-color-neutral-800; // Used for the border of a solid, strong neutral action in the hover state.
+$gl-action-neutral-border-color-strong-default: $gl-color-neutral-600; // Used for the border of a solid, strong neutral action in the default state.
+$gl-action-neutral-border-color-selected: $gl-color-neutral-300; // Used for the border of a outlined neutral action when in a selected or current state.
+$gl-action-neutral-border-color-active: $gl-color-neutral-600; // Used for the border of an outlined neutral action in the active state.
+$gl-action-neutral-border-color-focus: $gl-color-neutral-400; // Used for the border of an outlined neutral action in the focus state.
+$gl-action-neutral-border-color-hover: $gl-color-neutral-400; // Used for the border of an outlined neutral action in the hover state.
+$gl-action-neutral-border-color-default: $gl-color-neutral-200; // Used for the border of an outlined neutral action in the default state.
+$gl-action-neutral-background-color-strong-active: $gl-color-neutral-700; // Used for the background of a solid, strong neutral action in the active state.
+$gl-action-neutral-background-color-strong-focus: $gl-color-neutral-600; // Used for the background of a solid, strong neutral action in the focus state.
+$gl-action-neutral-background-color-strong-hover: $gl-color-neutral-600; // Used for the background of a solid, strong neutral action in the hover state.
+$gl-action-neutral-background-color-strong-default: $gl-color-neutral-500; // Used for the background of a solid, strong neutral action in the default state.
+$gl-action-neutral-background-color-subtle-active: $gl-color-neutral-100; // Used for the background of a borderless, subtle neutral action in the active state.
+$gl-action-neutral-background-color-subtle-focus: $gl-color-neutral-50; // Used for the background of a borderless, subtle neutral action in the focus state.
+$gl-action-neutral-background-color-subtle-hover: $gl-color-neutral-50; // Used for the background of a borderless, subtle neutral action in the hover state.
+$gl-action-neutral-background-color-subtle-default: $gl-color-alpha-0; // Used for the background of a borderless, subtle neutral action in the default state.
+$gl-action-neutral-background-color-active: $gl-color-neutral-100; // Used for the background of an outlined neutral action in the active state.
+$gl-action-neutral-background-color-focus: $gl-color-neutral-50; // Used for the background of an outlined neutral action in the focus state.
+$gl-action-neutral-background-color-hover: $gl-color-neutral-50; // Used for the background of an outlined neutral action in the hover state.
+$gl-action-icon-color-disabled: $gl-color-neutral-400; // Used for the icon of a disabled action.
+$gl-action-text-color-disabled: $gl-color-neutral-500; // Used for the text of a disabled action.
+$gl-action-border-color-disabled: $gl-color-neutral-100; // Used for the border of a disabled action.
+$gl-action-background-color-disabled: $gl-color-neutral-50; // Used for the background of a disabled action.
+$gl-action-neutral-background-color-default: $gl-background-color-default; // Used for the background of an outlined neutral action in the default state.

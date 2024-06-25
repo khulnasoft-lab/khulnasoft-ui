@@ -1,4 +1,888 @@
 {
+  "action": {
+    "background": {
+      "color": {
+        "disabled": {
+          "value": "#333238",
+          "$type": "color",
+          "comment": "Used for the background of a disabled action.",
+          "filePath": "src/tokens/action.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "comment": "Used for the background of a disabled action."
+          },
+          "name": "ACTION_BACKGROUND_COLOR_DISABLED",
+          "attributes": {},
+          "path": [
+            "action",
+            "background",
+            "color",
+            "disabled"
+          ]
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "disabled": {
+          "value": "#434248",
+          "$type": "color",
+          "comment": "Used for the border of a disabled action.",
+          "filePath": "src/tokens/action.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.100}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "comment": "Used for the border of a disabled action."
+          },
+          "name": "ACTION_BORDER_COLOR_DISABLED",
+          "attributes": {},
+          "path": [
+            "action",
+            "border",
+            "color",
+            "disabled"
+          ]
+        }
+      }
+    },
+    "text": {
+      "color": {
+        "disabled": {
+          "value": "#89888d",
+          "$type": "color",
+          "comment": "Used for the text of a disabled action.",
+          "filePath": "src/tokens/action.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.500}",
+              "dark": "{color.neutral.400}"
+            },
+            "$type": "color",
+            "comment": "Used for the text of a disabled action."
+          },
+          "name": "ACTION_TEXT_COLOR_DISABLED",
+          "attributes": {},
+          "path": [
+            "action",
+            "text",
+            "color",
+            "disabled"
+          ]
+        }
+      }
+    },
+    "icon": {
+      "color": {
+        "disabled": {
+          "value": "#737278",
+          "$type": "color",
+          "comment": "Used for the icon of a disabled action.",
+          "filePath": "src/tokens/action.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.400}",
+              "dark": "{color.neutral.500}"
+            },
+            "$type": "color",
+            "comment": "Used for the icon of a disabled action."
+          },
+          "name": "ACTION_ICON_COLOR_DISABLED",
+          "attributes": {},
+          "path": [
+            "action",
+            "icon",
+            "color",
+            "disabled"
+          ]
+        }
+      }
+    },
+    "neutral": {
+      "background": {
+        "color": {
+          "default": {
+            "value": "#1f1e24",
+            "$type": "color",
+            "comment": "Used for the background of an outlined neutral action in the default state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{background.color.default}",
+              "$type": "color",
+              "comment": "Used for the background of an outlined neutral action in the default state."
+            },
+            "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "background",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#333238",
+            "$type": "color",
+            "comment": "Used for the background of an outlined neutral action in the hover state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "comment": "Used for the background of an outlined neutral action in the hover state."
+            },
+            "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "background",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#333238",
+            "$type": "color",
+            "comment": "Used for the background of an outlined neutral action in the focus state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "comment": "Used for the background of an outlined neutral action in the focus state."
+            },
+            "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "background",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#434248",
+            "$type": "color",
+            "comment": "Used for the background of an outlined neutral action in the active state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the background of an outlined neutral action in the active state."
+            },
+            "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "background",
+              "color",
+              "active"
+            ]
+          },
+          "subtle": {
+            "default": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the background of a borderless, subtle neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.alpha.0}",
+                "$type": "color",
+                "comment": "Used for the background of a borderless, subtle neutral action in the default state."
+              },
+              "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_SUBTLE_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "background",
+                "color",
+                "subtle",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#333238",
+              "$type": "color",
+              "comment": "Used for the background of a borderless, subtle neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.50}",
+                  "dark": "{color.neutral.900}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a borderless, subtle neutral action in the hover state."
+              },
+              "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_SUBTLE_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "background",
+                "color",
+                "subtle",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#333238",
+              "$type": "color",
+              "comment": "Used for the background of a borderless, subtle neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.50}",
+                  "dark": "{color.neutral.900}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a borderless, subtle neutral action in the focus state."
+              },
+              "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_SUBTLE_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "background",
+                "color",
+                "subtle",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#434248",
+              "$type": "color",
+              "comment": "Used for the background of a borderless, subtle neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.100}",
+                  "dark": "{color.neutral.800}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a borderless, subtle neutral action in the active state."
+              },
+              "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_SUBTLE_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "background",
+                "color",
+                "subtle",
+                "active"
+              ]
+            }
+          },
+          "strong": {
+            "default": {
+              "value": "#89888d",
+              "$type": "color",
+              "comment": "Used for the background of a solid, strong neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.500}",
+                  "dark": "{color.neutral.400}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a solid, strong neutral action in the default state."
+              },
+              "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_STRONG_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "background",
+                "color",
+                "strong",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#a4a3a8",
+              "$type": "color",
+              "comment": "Used for the background of a solid, strong neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.600}",
+                  "dark": "{color.neutral.300}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a solid, strong neutral action in the hover state."
+              },
+              "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_STRONG_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "background",
+                "color",
+                "strong",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#a4a3a8",
+              "$type": "color",
+              "comment": "Used for the background of a solid, strong neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.600}",
+                  "dark": "{color.neutral.300}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a solid, strong neutral action in the focus state."
+              },
+              "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_STRONG_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "background",
+                "color",
+                "strong",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#bfbfc3",
+              "$type": "color",
+              "comment": "Used for the background of a solid, strong neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.700}",
+                  "dark": "{color.neutral.200}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a solid, strong neutral action in the active state."
+              },
+              "name": "ACTION_NEUTRAL_BACKGROUND_COLOR_STRONG_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "background",
+                "color",
+                "strong",
+                "active"
+              ]
+            }
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "value": "#535158",
+            "$type": "color",
+            "comment": "Used for the border of an outlined neutral action in the default state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.200}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "comment": "Used for the border of an outlined neutral action in the default state."
+            },
+            "name": "ACTION_NEUTRAL_BORDER_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "border",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#737278",
+            "$type": "color",
+            "comment": "Used for the border of an outlined neutral action in the hover state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.400}",
+                "dark": "{color.neutral.500}"
+              },
+              "$type": "color",
+              "comment": "Used for the border of an outlined neutral action in the hover state."
+            },
+            "name": "ACTION_NEUTRAL_BORDER_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "border",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#737278",
+            "$type": "color",
+            "comment": "Used for the border of an outlined neutral action in the focus state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.400}",
+                "dark": "{color.neutral.500}"
+              },
+              "$type": "color",
+              "comment": "Used for the border of an outlined neutral action in the focus state."
+            },
+            "name": "ACTION_NEUTRAL_BORDER_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "border",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#a4a3a8",
+            "$type": "color",
+            "comment": "Used for the border of an outlined neutral action in the active state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.neutral.300}"
+              },
+              "$type": "color",
+              "comment": "Used for the border of an outlined neutral action in the active state."
+            },
+            "name": "ACTION_NEUTRAL_BORDER_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "border",
+              "color",
+              "active"
+            ]
+          },
+          "selected": {
+            "value": "#535158",
+            "$type": "color",
+            "comment": "Used for the border of a outlined neutral action when in a selected or current state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.300}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "comment": "Used for the border of a outlined neutral action when in a selected or current state."
+            },
+            "name": "ACTION_NEUTRAL_BORDER_COLOR_SELECTED",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "border",
+              "color",
+              "selected"
+            ]
+          },
+          "strong": {
+            "default": {
+              "value": "#a4a3a8",
+              "$type": "color",
+              "comment": "Used for the border of a solid, strong neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.600}",
+                  "dark": "{color.neutral.300}"
+                },
+                "$type": "color",
+                "comment": "Used for the border of a solid, strong neutral action in the default state."
+              },
+              "name": "ACTION_NEUTRAL_BORDER_COLOR_STRONG_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "border",
+                "color",
+                "strong",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#dcdcde",
+              "$type": "color",
+              "comment": "Used for the border of a solid, strong neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.800}",
+                  "dark": "{color.neutral.100}"
+                },
+                "$type": "color",
+                "comment": "Used for the border of a solid, strong neutral action in the hover state."
+              },
+              "name": "ACTION_NEUTRAL_BORDER_COLOR_STRONG_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "border",
+                "color",
+                "strong",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#dcdcde",
+              "$type": "color",
+              "comment": "Used for the border of a solid, strong neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.800}",
+                  "dark": "{color.neutral.100}"
+                },
+                "$type": "color",
+                "comment": "Used for the border of a solid, strong neutral action in the focus state."
+              },
+              "name": "ACTION_NEUTRAL_BORDER_COLOR_STRONG_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "border",
+                "color",
+                "strong",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#ececef",
+              "$type": "color",
+              "comment": "Used for the border of a solid, strong neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.900}",
+                  "dark": "{color.neutral.50}"
+                },
+                "$type": "color",
+                "comment": "Used for the border of a solid, strong neutral action in the active state."
+              },
+              "name": "ACTION_NEUTRAL_BORDER_COLOR_STRONG_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "neutral",
+                "border",
+                "color",
+                "strong",
+                "active"
+              ]
+            }
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the text of outlined and borderless neutral actions.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "comment": "Used for the text of outlined and borderless neutral actions."
+            },
+            "name": "ACTION_NEUTRAL_TEXT_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "text",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the text of a neutral action in the hover state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "comment": "Used for the text of a neutral action in the hover state."
+            },
+            "name": "ACTION_NEUTRAL_TEXT_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "text",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the text of a neutral action in the focus state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "comment": "Used for the text of a neutral action in the focus state."
+            },
+            "name": "ACTION_NEUTRAL_TEXT_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "text",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the text of a neutral action in the active state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "comment": "Used for the text of a neutral action in the active state."
+            },
+            "name": "ACTION_NEUTRAL_TEXT_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "text",
+              "color",
+              "active"
+            ]
+          },
+          "strong": {
+            "value": "#333238",
+            "$type": "color",
+            "comment": "Used for the text on a solid, strong neutral action background.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "comment": "Used for the text on a solid, strong neutral action background."
+            },
+            "name": "ACTION_NEUTRAL_TEXT_COLOR_STRONG",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "text",
+              "color",
+              "strong"
+            ]
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "value": "#89888d",
+            "$type": "color",
+            "comment": "Used for the icon of outlined and borderless neutral actions.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.500}",
+                "dark": "{color.neutral.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the icon of outlined and borderless neutral actions."
+            },
+            "name": "ACTION_NEUTRAL_ICON_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "icon",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#bfbfc3",
+            "$type": "color",
+            "comment": "Used for the icon of outlined and borderless neutral actions in the hover state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.700}",
+                "dark": "{color.neutral.200}"
+              },
+              "$type": "color",
+              "comment": "Used for the icon of outlined and borderless neutral actions in the hover state."
+            },
+            "name": "ACTION_NEUTRAL_ICON_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "icon",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#bfbfc3",
+            "$type": "color",
+            "comment": "Used for the icon of outlined and borderless neutral actions in the focus state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.700}",
+                "dark": "{color.neutral.200}"
+              },
+              "$type": "color",
+              "comment": "Used for the icon of outlined and borderless neutral actions in the focus state."
+            },
+            "name": "ACTION_NEUTRAL_ICON_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "icon",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the icon of outlined and borderless neutral actions in the active state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "comment": "Used for the icon of outlined and borderless neutral actions in the active state."
+            },
+            "name": "ACTION_NEUTRAL_ICON_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "icon",
+              "color",
+              "active"
+            ]
+          },
+          "strong": {
+            "value": "#333238",
+            "$type": "color",
+            "comment": "Used for the icon on a solid, strong neutral action background.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "comment": "Used for the icon on a solid, strong neutral action background."
+            },
+            "name": "ACTION_NEUTRAL_ICON_COLOR_STRONG",
+            "attributes": {},
+            "path": [
+              "action",
+              "neutral",
+              "icon",
+              "color",
+              "strong"
+            ]
+          }
+        }
+      }
+    }
+  },
   "background": {
     "color": {
       "default": {
