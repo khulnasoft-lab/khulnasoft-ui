@@ -74,6 +74,10 @@ export default {
       type: Object,
       required: true,
     },
+    isCancelled: {
+      type: Boolean,
+      required: true,
+    },
   },
   data() {
     return {
@@ -86,6 +90,12 @@ export default {
   computed: {
     isChunk() {
       return typeof this.message.chunkId === 'number';
+    },
+    isNotChunkOrCancelled() {
+      return !this.isChunk || this.isCancelled;
+    },
+    isChunkAndNotCancelled() {
+      return this.isChunk && !this.isCancelled;
     },
     isAssistantMessage() {
       return this.message.role.toLowerCase() === MESSAGE_MODEL_ROLES.assistant;
@@ -201,9 +211,9 @@ export default {
           <documentation-sources v-if="sources" :sources="sources" />
 
           <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
-            <gl-loading-icon v-if="isChunk" class="gl-pt-4" variant="dots" inline />
+            <gl-loading-icon v-if="isChunkAndNotCancelled" class="gl-pt-4" variant="dots" inline />
             <gl-duo-user-feedback
-              v-if="!isChunk"
+              v-if="isNotChunkOrCancelled"
               :feedback-received="hasFeedback"
               :modal-title="$options.i18n.MODAL.TITLE"
               :modal-alert="$options.i18n.MODAL.ALERT_TEXT"

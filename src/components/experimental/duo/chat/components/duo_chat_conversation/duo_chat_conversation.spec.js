@@ -8,7 +8,7 @@ describe('GlDuoChatConversation', () => {
 
   const findChatMessages = () => wrapper.findAllComponents(GlDuoChatMessage);
   const findDelimiter = () => wrapper.find('[data-testid="conversation-delimiter"]');
-  const createComponent = ({ propsData = {} } = {}) => {
+  const createComponent = ({ propsData = { canceledRequestIds: [] } } = {}) => {
     wrapper = shallowMount(GlDuoChatConversation, {
       propsData,
     });
@@ -33,14 +33,36 @@ describe('GlDuoChatConversation', () => {
 
     it('renders messages when messages are passed', () => {
       createComponent({
-        propsData: { messages },
+        propsData: { messages, canceledRequestIds: [] },
       });
       expect(findChatMessages().length).toBe(2);
     });
 
     it('does not render delimiter when showDelimiter = false', () => {
-      createComponent({ propsData: { messages, showDelimiter: false } });
+      createComponent({ propsData: { messages, showDelimiter: false, canceledRequestIds: [] } });
       expect(findDelimiter().exists()).toBe(false);
+    });
+
+    it('passes correct boolean to message when request is canceled', () => {
+      const canceledRequestIds = [MOCK_USER_PROMPT_MESSAGE.requestId];
+
+      createComponent({
+        propsData: { messages, canceledRequestIds },
+      });
+
+      const chatMessages = findChatMessages();
+      expect(chatMessages.at(0).props('isCancelled')).toBe(true);
+    });
+
+    it('passes correct boolean to message when request is not canceled', () => {
+      const canceledRequestIds = [];
+
+      createComponent({
+        propsData: { messages, canceledRequestIds },
+      });
+
+      const chatMessages = findChatMessages();
+      expect(chatMessages.at(0).props('isCancelled')).toBe(false);
     });
   });
 });

@@ -437,6 +437,22 @@ describe('DuoChatMessage', () => {
         expect(findLoadingIcon().exists()).toBe(false);
       });
 
+      it('does not render loading dots when data is chunk but request is cancelled', async () => {
+        // setProps is justified here because we are testing the component's
+        // reactive behavior which consistutes an exception
+        // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
+        await wrapper.setProps({ message: CHUNK1, isCancelled: true });
+        expect(findLoadingIcon().exists()).toBe(false);
+      });
+
+      it('does render feedback component when data is chunk but request is cancelled', async () => {
+        // setProps is justified here because we are testing the component's
+        // reactive behavior which consistutes an exception
+        // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
+        await wrapper.setProps({ message: CHUNK1, isCancelled: true });
+        expect(findUserFeedback().exists()).toBe(true);
+      });
+
       it('renders chunks correctly when the chunks arrive out of order', async () => {
         expect(CHUNK1.content).toBe('chunk #1');
         expect(CHUNK2.content).toBe('chunk #2');

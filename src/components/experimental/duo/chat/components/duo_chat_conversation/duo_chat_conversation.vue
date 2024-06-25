@@ -25,6 +25,10 @@ export default {
       default: () => [],
       validator: itemsValidator,
     },
+    canceledRequestIds: {
+      type: Array,
+      required: true,
+    },
     /**
      * Whether to show the delimiter before this conversation
      */
@@ -57,11 +61,11 @@ export default {
       <span>{{ $options.i18n.CONVERSATION_NEW_CHAT }}</span>
       <hr class="gl-flex-grow-1" />
     </div>
-
     <gl-duo-chat-message
       v-for="(msg, index) in messages"
       :key="`${msg.role}-${index}`"
       :message="msg"
+      :is-cancelled="canceledRequestIds.includes(msg.requestId)"
       @track-feedback="onTrackFeedback"
     />
   </div>
