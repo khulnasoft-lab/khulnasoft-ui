@@ -8,6 +8,8 @@
     @include gl-font-weight-normal;
     @include gl-py-3;
     @include gl-px-4;
+    background: var(--gl-feedback-background-color-strong);
+    color: var(--gl-feedback-text-color-strong);
   }
 
   .arrow {
@@ -30,16 +32,20 @@
 
 .gl-tooltip.bs-tooltip-top .arrow::before {
   @include gl-border-b-0;
+  border-top-color: var(--gl-feedback-background-color-strong);
 }
 
 .gl-tooltip.bs-tooltip-right .arrow::before {
   @include gl-border-l-0;
+  border-right-color: var(--gl-feedback-background-color-strong);
 }
 
 .gl-tooltip.bs-tooltip-bottom .arrow::before {
   @include gl-border-t-0;
+  border-bottom-color: var(--gl-feedback-background-color-strong);
 }
 
 .gl-tooltip.bs-tooltip-left .arrow::before {
   @include gl-border-r-0;
+  border-left-color: var(--gl-feedback-background-color-strong);
 }
