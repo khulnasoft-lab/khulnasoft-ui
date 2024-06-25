@@ -3,6 +3,41 @@
  * Do not edit directly
  */
 
+export const GL_ACTION_BACKGROUND_COLOR_DISABLED = '#ececef'; // Used for the background of a disabled action.
+export const GL_ACTION_BORDER_COLOR_DISABLED = '#dcdcde'; // Used for the border of a disabled action.
+export const GL_ACTION_TEXT_COLOR_DISABLED = '#737278'; // Used for the text of a disabled action.
+export const GL_ACTION_ICON_COLOR_DISABLED = '#89888d'; // Used for the icon of a disabled action.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_DEFAULT = '#fff'; // Used for the background of an outlined neutral action in the default state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_HOVER = '#ececef'; // Used for the background of an outlined neutral action in the hover state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_FOCUS = '#ececef'; // Used for the background of an outlined neutral action in the focus state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_ACTIVE = '#dcdcde'; // Used for the background of an outlined neutral action in the active state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_SUBTLE_DEFAULT = 'transparent'; // Used for the background of a borderless, subtle neutral action in the default state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_SUBTLE_HOVER = '#ececef'; // Used for the background of a borderless, subtle neutral action in the hover state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_SUBTLE_FOCUS = '#ececef'; // Used for the background of a borderless, subtle neutral action in the focus state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_SUBTLE_ACTIVE = '#dcdcde'; // Used for the background of a borderless, subtle neutral action in the active state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_STRONG_DEFAULT = '#737278'; // Used for the background of a solid, strong neutral action in the default state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_STRONG_HOVER = '#626168'; // Used for the background of a solid, strong neutral action in the hover state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_STRONG_FOCUS = '#626168'; // Used for the background of a solid, strong neutral action in the focus state.
+export const GL_ACTION_NEUTRAL_BACKGROUND_COLOR_STRONG_ACTIVE = '#535158'; // Used for the background of a solid, strong neutral action in the active state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_DEFAULT = '#bfbfc3'; // Used for the border of an outlined neutral action in the default state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_HOVER = '#89888d'; // Used for the border of an outlined neutral action in the hover state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_FOCUS = '#89888d'; // Used for the border of an outlined neutral action in the focus state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_ACTIVE = '#626168'; // Used for the border of an outlined neutral action in the active state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_SELECTED = '#a4a3a8'; // Used for the border of a outlined neutral action when in a selected or current state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_STRONG_DEFAULT = '#626168'; // Used for the border of a solid, strong neutral action in the default state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_STRONG_HOVER = '#434248'; // Used for the border of a solid, strong neutral action in the hover state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_STRONG_FOCUS = '#434248'; // Used for the border of a solid, strong neutral action in the focus state.
+export const GL_ACTION_NEUTRAL_BORDER_COLOR_STRONG_ACTIVE = '#333238'; // Used for the border of a solid, strong neutral action in the active state.
+export const GL_ACTION_NEUTRAL_TEXT_COLOR_DEFAULT = '#333238'; // Used for the text of outlined and borderless neutral actions.
+export const GL_ACTION_NEUTRAL_TEXT_COLOR_HOVER = '#333238'; // Used for the text of a neutral action in the hover state.
+export const GL_ACTION_NEUTRAL_TEXT_COLOR_FOCUS = '#333238'; // Used for the text of a neutral action in the focus state.
+export const GL_ACTION_NEUTRAL_TEXT_COLOR_ACTIVE = '#333238'; // Used for the text of a neutral action in the active state.
+export const GL_ACTION_NEUTRAL_TEXT_COLOR_STRONG = '#fff'; // Used for the text on a solid, strong neutral action background.
+export const GL_ACTION_NEUTRAL_ICON_COLOR_DEFAULT = '#737278'; // Used for the icon of outlined and borderless neutral actions.
+export const GL_ACTION_NEUTRAL_ICON_COLOR_HOVER = '#535158'; // Used for the icon of outlined and borderless neutral actions in the hover state.
+export const GL_ACTION_NEUTRAL_ICON_COLOR_FOCUS = '#535158'; // Used for the icon of outlined and borderless neutral actions in the focus state.
+export const GL_ACTION_NEUTRAL_ICON_COLOR_ACTIVE = '#333238'; // Used for the icon of outlined and borderless neutral actions in the active state.
+export const GL_ACTION_NEUTRAL_ICON_COLOR_STRONG = '#fff'; // Used for the icon on a solid, strong neutral action background.
 export const GL_BACKGROUND_COLOR_DEFAULT = '#fff'; // Used for the default background color.
 export const GL_BACKGROUND_COLOR_SUBTLE = '#fbfafd'; // Used to slightly differentiate the background from the default.
 export const GL_BACKGROUND_COLOR_STRONG = '#ececef'; // Used to make the background easily stand out from the default.

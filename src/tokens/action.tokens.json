@@ -1,0 +1,318 @@
+{
+  "action": {
+    "background": {
+      "color": {
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.50}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a disabled action."
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the border of a disabled action."
+        }
+      }
+    },
+    "text": {
+      "color": {
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.500}",
+            "dark": "{color.neutral.400}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a disabled action."
+        }
+      }
+    },
+    "icon": {
+      "color": {
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.400}",
+            "dark": "{color.neutral.500}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a disabled action."
+        }
+      }
+    },
+    "neutral": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": "{background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of an outlined neutral action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an outlined neutral action in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an outlined neutral action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.100}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an outlined neutral action in the active state."
+          },
+          "subtle": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, subtle neutral action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, subtle neutral action in the hover state."
+            },
+            "focus": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, subtle neutral action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, subtle neutral action in the active state."
+            }
+          },
+          "strong": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.500}",
+                "dark": "{color.neutral.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong neutral action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.neutral.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong neutral action in the hover state."
+            },
+            "focus": {
+              "$value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.neutral.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong neutral action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.700}",
+                "dark": "{color.neutral.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong neutral action in the active state."
+            }
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.200}",
+              "dark": "{color.neutral.700}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an outlined neutral action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.400}",
+              "dark": "{color.neutral.500}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an outlined neutral action in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.neutral.400}",
+              "dark": "{color.neutral.500}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an outlined neutral action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.600}",
+              "dark": "{color.neutral.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an outlined neutral action in the active state."
+          },
+          "selected": {
+            "$value": {
+              "default": "{color.neutral.300}",
+              "dark": "{color.neutral.700}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a outlined neutral action when in a selected or current state."
+          },
+          "strong": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.neutral.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong neutral action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.800}",
+                "dark": "{color.neutral.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong neutral action in the hover state."
+            },
+            "focus": {
+              "$value": {
+                "default": "{color.neutral.800}",
+                "dark": "{color.neutral.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong neutral action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong neutral action in the active state."
+            }
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of outlined and borderless neutral actions."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a neutral action in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a neutral action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a neutral action in the active state."
+          },
+          "strong": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the text on a solid, strong neutral action background."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.500}",
+              "dark": "{color.neutral.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of outlined and borderless neutral actions."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.700}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of outlined and borderless neutral actions in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.neutral.700}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of outlined and borderless neutral actions in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of outlined and borderless neutral actions in the active state."
+          },
+          "strong": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon on a solid, strong neutral action background."
+          }
+        }
+      }
+    }
+  }
+}
