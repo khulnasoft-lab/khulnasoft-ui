@@ -1,3 +1,10 @@
+# [85.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.0.2...v85.1.0) (2024-06-25)
+
+
+### Features
+
+* **GlCard:** Use design tokens for colors and border in GlCard ([3ecb2cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/3ecb2cdd22c93d3417f69d3ad06f60e3f7312402))
+
 ## [85.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.0.1...v85.0.2) (2024-06-24)
 
 
