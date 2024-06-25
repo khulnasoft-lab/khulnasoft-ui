@@ -314,14 +314,50 @@ bootstrap-vue_vue3:
   extends: [.node, .yarn_install]
   needs: []
   stage: test
+  variables:
+    ARTIFACT_NAME: "coverage"
+    COVERAGE_DIR: "coverage"
   script:
-    - yarn test:unit
+    - yarn test:unit:coverage --coverageReporters=cobertura --coverageDirectory=$COVERAGE_DIR
+  artifacts:
+    name: $ARTIFACT_NAME
+    expire_in: 7d
+    when: always
+    paths:
+      - $COVERAGE_DIR/
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: $COVERAGE_DIR/cobertura-coverage.xml
 
 unit_tests_vue2:
   extends: [.unit_tests]
+  variables:
+    ARTIFACT_NAME: "coverage-vue2"
+    COVERAGE_DIR: "coverage/vue2"
 
 unit_tests_vue3:
   extends: [.unit_tests, .use_vue3]
+  variables:
+    ARTIFACT_NAME: "coverage-vue3"
+    COVERAGE_DIR: "coverage/vue3"
+
+merge_coverage_reports:
+  extends: [.node, .yarn_install]
+  needs:
+    - unit_tests_vue2
+    - unit_tests_vue3
+  script:
+    - yarn run cobertura-merge -o coverage/cobertura-coverage.xml package1=coverage/vue2/cobertura-coverage.xml package2=coverage/vue3/cobertura-coverage.xml
+  artifacts:
+    name: coverage
+    when: always
+    paths:
+      - coverage/
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
 
 # Manual jobs cannot depend on failing jobs
 # So we need to introduce an intermediary job which re-exposes the artifacts
