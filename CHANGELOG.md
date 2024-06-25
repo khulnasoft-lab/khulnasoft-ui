@@ -1,3 +1,10 @@
+# [85.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.1.0...v85.2.0) (2024-06-25)
+
+
+### Features
+
+* **DesignTokens:** add feedback color design tokens ([9a389d9](https://gitlab.com/gitlab-org/gitlab-ui/commit/9a389d92d1903abcd5e89702611bef2531af872d))
+
 # [85.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.0.2...v85.1.0) (2024-06-25)
 
 
