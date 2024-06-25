@@ -8943,6 +8943,62 @@
       ]
     }
   },
+  "banner": {
+    "intro": {
+      "border": {
+        "color": {
+          "value": "#1068bf",
+          "$type": "color",
+          "comment": "Used to compliment the info banner.",
+          "filePath": "src/tokens/contextual/banner.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.blue.300}",
+              "dark": "{color.blue.600}"
+            },
+            "$type": "color",
+            "comment": "Used to compliment the info banner."
+          },
+          "name": "BANNER_INTRO_BORDER_COLOR",
+          "attributes": {},
+          "path": [
+            "banner",
+            "intro",
+            "border",
+            "color"
+          ]
+        }
+      }
+    },
+    "promo": {
+      "background": {
+        "color": {
+          "value": "#333238",
+          "$type": "color",
+          "comment": "Used as background for the default banner type.",
+          "filePath": "src/tokens/contextual/banner.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.10}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "comment": "Used as background for the default banner type."
+          },
+          "name": "BANNER_PROMO_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "banner",
+            "promo",
+            "background",
+            "color"
+          ]
+        }
+      }
+    }
+  },
   "breadcrumb": {
     "separator": {
       "color": {

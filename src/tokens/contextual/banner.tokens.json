@@ -1,0 +1,28 @@
+{
+  "banner": {
+    "intro": {
+      "border": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.300}",
+            "dark": "{color.blue.600}"
+          },
+          "$type": "color",
+          "$description": "Used to compliment the info banner."
+        }
+      }
+    },
+    "promo": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.10}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used as background for the default banner type."
+        }
+      }
+    }
+  }
+}

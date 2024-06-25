@@ -1,3 +1,8 @@
+.gl-banner {
+  background-color: var(--gl-banner-promo-background-color);
+  border-color: var(--gl-border-color-default);
+}
+
 .gl-banner-illustration {
   @include gl-flex-shrink-0;
   @include gl-mr-6;
@@ -14,6 +19,7 @@
 .gl-banner-title {
   @include gl-heading-scale-500;
   @include gl-mb-3;
+  color: var(--gl-text-color-heading);
 }
 
 .gl-banner-close {
@@ -24,6 +30,6 @@
 
 // Introduction variant
 .gl-banner-introduction {
-  @include gl-bg-blue-50;
-  @include gl-border-blue-300;
+  background-color: var(--gl-feedback-info-background-color);
+  border-color: var(--gl-banner-intro-border-color);
 }
