@@ -4,32 +4,16 @@ When introducing major, or potentially breaking changes in GitLab UI, you might 
 they properly integrate in GitLab before they are released in a new `@gitlab/ui` version.
 
 This can be done either by building the `@gitlab/ui` package locally, or by using the package that
-is built everytime a pipeline runs against your branch.
+is built every time a pipeline runs against your branch.
 
 See [Updating GitLab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how the
 `@gitlab/ui` package is kept up to date in various other projects.
 
 ## Testing your changes in a local GitLab instance
 
-During development, you can link your local `@gitlab/ui` package changes to the GitLab project.
+During development, you can use [yalc](https://github.com/wclr/yalc) to  link your local
+`@gitlab/ui` package changes to the GitLab project.
 This means you don't need to update `package.json`, and can easily test changes.
-
-Run the following commands to link the `@gitlab/ui` package:
-
-```shell
-yarn link
-yarn build -w
-```
-
-Then, run the following command in the `gitlab` project:
-
-```shell
-yarn link @gitlab/ui
-```
-
-Once you are done run `yarn unlink @gitlab/ui` within the `gitlab` project.
-
-Alternatively, [yalc](https://github.com/wclr/yalc) can be used instead to link projects.
 
 1. Install `yalc` with `yarn global add yalc`
 1. Navigate to the `@gitlab/ui` directory and publish the package with `yalc publish`.
