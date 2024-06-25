@@ -1,3 +1,10 @@
+## [85.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.2.0...v85.2.1) (2024-06-25)
+
+
+### Bug Fixes
+
+* **DuoChat:** don't show loading indicator on canceled messages ([4a3847b](https://gitlab.com/gitlab-org/gitlab-ui/commit/4a3847b3dad27300de170e8e2bdc42cfa937b8dd))
+
 # [85.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.1.0...v85.2.0) (2024-06-25)
 
 
