@@ -1,3 +1,10 @@
+## [85.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.3.0...v85.3.1) (2024-06-26)
+
+
+### Bug Fixes
+
+* **bootstrap-vue:** Revert IE11 specific modal fix ([d1cca1b](https://gitlab.com/gitlab-org/gitlab-ui/commit/d1cca1b02d7ac6f9dc7a66f0bda85f1c5d279b69)), closes [/gitlab.com/gitlab-org/gitlab/-/merge_requests/140612#note_1911015817](https://gitlab.com//gitlab.com/gitlab-org/gitlab/-/merge_requests/140612/issues/note_1911015817)
+
 # [85.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.2.2...v85.3.0) (2024-06-26)
 
 
