@@ -1,3 +1,10 @@
+## [85.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.4.0...v85.4.1) (2024-06-26)
+
+
+### Bug Fixes
+
+* **GlSparklineChart:** Prevent rendering blank or invalid tooltips ([e462352](https://gitlab.com/gitlab-org/gitlab-ui/commit/e46235217c576aaaed63ca38b30f3fdee3c54a63))
+
 # [85.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.3.1...v85.4.0) (2024-06-26)
 
 
