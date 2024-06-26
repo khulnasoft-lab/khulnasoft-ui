@@ -7,15 +7,25 @@
     @include gl-line-height-normal;
     @include gl-pt-0;
     @include gl-pb-3;
+    color: var(--gl-text-color-strong);
 
     > .label-description {
       @include gl-mt-3;
+      color: var(--gl-text-color-default);
     }
   }
 
   .optional-label,
   .label-description {
     @include gl-font-weight-normal;
+  }
+
+  .invalid-feedback {
+    color: var(--gl-control-text-color-error);
+  }
+
+  .valid-feedback {
+    color: var(--gl-control-text-color-valid);
   }
 
   .invalid-feedback,
@@ -41,7 +51,7 @@
 
   // Deprecated, soon to be removed
   .text-gl-muted {
-    @include gl-text-gray-500;
+    color: var(--gl-text-color-subtle);
   }
 
   legend {
