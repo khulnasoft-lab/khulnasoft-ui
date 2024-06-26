@@ -1,3 +1,10 @@
+# [85.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.3.1...v85.4.0) (2024-06-26)
+
+
+### Features
+
+* **DuoChat:** update user feedback response ([5c51a3f](https://gitlab.com/gitlab-org/gitlab-ui/commit/5c51a3f8c8c2d04aef7507c3032c3992681a4682))
+
 ## [85.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.3.0...v85.3.1) (2024-06-26)
 
 
