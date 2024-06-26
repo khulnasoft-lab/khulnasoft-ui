@@ -7,6 +7,7 @@ module.exports = {
     './src/**/*.{vue,js}',
     '!./src/**/*.spec.js',
     '!./src/vendor/bootstrap-vue/**',
+    '!./src/vendor/bootstrap/**',
     './src/vendor/bootstrap-vue/src/**/*.{js,vue}',
   ],
 };
