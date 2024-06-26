@@ -8969,6 +8969,375 @@
       }
     }
   },
+  "control": {
+    "background": {
+      "color": {
+        "default": {
+          "value": "#333238",
+          "$type": "color",
+          "comment": "Used for form control (input, radio button, checkbox, textarea) default background.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "comment": "Used for form control (input, radio button, checkbox, textarea) default background."
+          },
+          "name": "CONTROL_BACKGROUND_COLOR_DEFAULT",
+          "attributes": {},
+          "path": [
+            "control",
+            "background",
+            "color",
+            "default"
+          ]
+        },
+        "disabled": {
+          "value": "#1f1e24",
+          "$type": "color",
+          "comment": "Used for disabled form control (checkbox, input, radio button, textarea) background.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.10}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "comment": "Used for disabled form control (checkbox, input, radio button, textarea) background."
+          },
+          "name": "CONTROL_BACKGROUND_COLOR_DISABLED",
+          "attributes": {},
+          "path": [
+            "control",
+            "background",
+            "color",
+            "disabled"
+          ]
+        },
+        "selected": {
+          "default": {
+            "value": "#428fdc",
+            "$type": "color",
+            "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background.",
+            "filePath": "src/tokens/control.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background."
+            },
+            "name": "CONTROL_BACKGROUND_COLOR_SELECTED_DEFAULT",
+            "attributes": {},
+            "path": [
+              "control",
+              "background",
+              "color",
+              "selected",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#9dc7f1",
+            "$type": "color",
+            "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover.",
+            "filePath": "src/tokens/control.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover."
+            },
+            "name": "CONTROL_BACKGROUND_COLOR_SELECTED_HOVER",
+            "attributes": {},
+            "path": [
+              "control",
+              "background",
+              "color",
+              "selected",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#9dc7f1",
+            "$type": "color",
+            "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover.",
+            "filePath": "src/tokens/control.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover."
+            },
+            "name": "CONTROL_BACKGROUND_COLOR_SELECTED_FOCUS",
+            "attributes": {},
+            "path": [
+              "control",
+              "background",
+              "color",
+              "selected",
+              "focus"
+            ]
+          }
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "default": {
+          "value": "#737278",
+          "$type": "color",
+          "comment": "Used for form control (input, radio button, checkbox, textarea) default border.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.400}",
+              "dark": "{color.neutral.500}"
+            },
+            "$type": "color",
+            "comment": "Used for form control (input, radio button, checkbox, textarea) default border."
+          },
+          "name": "CONTROL_BORDER_COLOR_DEFAULT",
+          "attributes": {},
+          "path": [
+            "control",
+            "border",
+            "color",
+            "default"
+          ]
+        },
+        "hover": {
+          "value": "#a4a3a8",
+          "$type": "color",
+          "comment": "Used for form control (input, radio button, checkbox, textarea) border on hover.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.600}",
+              "dark": "{color.neutral.300}"
+            },
+            "$type": "color",
+            "comment": "Used for form control (input, radio button, checkbox, textarea) border on hover."
+          },
+          "name": "CONTROL_BORDER_COLOR_HOVER",
+          "attributes": {},
+          "path": [
+            "control",
+            "border",
+            "color",
+            "hover"
+          ]
+        },
+        "focus": {
+          "value": "#ececef",
+          "$type": "color",
+          "comment": "Used for form control (input, radio button, checkbox, textarea) border on focus.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.50}"
+            },
+            "$type": "color",
+            "comment": "Used for form control (input, radio button, checkbox, textarea) border on focus."
+          },
+          "name": "CONTROL_BORDER_COLOR_FOCUS",
+          "attributes": {},
+          "path": [
+            "control",
+            "border",
+            "color",
+            "focus"
+          ]
+        },
+        "disabled": {
+          "value": "#434248",
+          "$type": "color",
+          "comment": "Used for disabled form control (input, radio button, checkbox, textarea) border.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.100}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "comment": "Used for disabled form control (input, radio button, checkbox, textarea) border."
+          },
+          "name": "CONTROL_BORDER_COLOR_DISABLED",
+          "attributes": {},
+          "path": [
+            "control",
+            "border",
+            "color",
+            "disabled"
+          ]
+        },
+        "error": {
+          "value": "#ec5941",
+          "$type": "color",
+          "comment": "Used for invalid form control (input, textarea) border.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.red.500}",
+              "dark": "{color.red.400}"
+            },
+            "$type": "color",
+            "comment": "Used for invalid form control (input, textarea) border."
+          },
+          "name": "CONTROL_BORDER_COLOR_ERROR",
+          "attributes": {},
+          "path": [
+            "control",
+            "border",
+            "color",
+            "error"
+          ]
+        }
+      }
+    },
+    "text": {
+      "color": {
+        "error": {
+          "value": "#ec5941",
+          "$type": "color",
+          "comment": "Used for the helper text when the input is invalid.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.red.500}",
+              "dark": "{color.red.400}"
+            },
+            "$type": "color",
+            "comment": "Used for the helper text when the input is invalid."
+          },
+          "name": "CONTROL_TEXT_COLOR_ERROR",
+          "attributes": {},
+          "path": [
+            "control",
+            "text",
+            "color",
+            "error"
+          ]
+        },
+        "valid": {
+          "value": "#2da160",
+          "$type": "color",
+          "comment": "Used for the helper text when the input is valid.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.green.500}",
+              "dark": "{color.green.400}"
+            },
+            "$type": "color",
+            "comment": "Used for the helper text when the input is valid."
+          },
+          "name": "CONTROL_TEXT_COLOR_VALID",
+          "attributes": {},
+          "path": [
+            "control",
+            "text",
+            "color",
+            "valid"
+          ]
+        }
+      }
+    },
+    "placeholder": {
+      "color": {
+        "value": "#737278",
+        "$type": "color",
+        "comment": "Used for placeholder text within inputs.",
+        "filePath": "src/tokens/control.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.400}",
+            "dark": "{color.neutral.500}"
+          },
+          "$type": "color",
+          "comment": "Used for placeholder text within inputs."
+        },
+        "name": "CONTROL_PLACEHOLDER_COLOR",
+        "attributes": {},
+        "path": [
+          "control",
+          "placeholder",
+          "color"
+        ]
+      }
+    },
+    "indicator": {
+      "color": {
+        "selected": {
+          "value": "#333238",
+          "$type": "color",
+          "comment": "Used for checkbox and radio button state indicators.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "comment": "Used for checkbox and radio button state indicators."
+          },
+          "name": "CONTROL_INDICATOR_COLOR_SELECTED",
+          "attributes": {},
+          "path": [
+            "control",
+            "indicator",
+            "color",
+            "selected"
+          ]
+        },
+        "disabled": {
+          "value": "#89888d",
+          "$type": "color",
+          "comment": "Used for disabled checkbox and radio button state indicators.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.500}",
+              "dark": "{color.neutral.400}"
+            },
+            "$type": "color",
+            "comment": "Used for disabled checkbox and radio button state indicators."
+          },
+          "name": "CONTROL_INDICATOR_COLOR_DISABLED",
+          "attributes": {},
+          "path": [
+            "control",
+            "indicator",
+            "color",
+            "disabled"
+          ]
+        }
+      }
+    }
+  },
   "feedback": {
     "background": {
       "color": {
@@ -9336,6 +9705,53 @@
             "color"
           ]
         }
+      }
+    }
+  },
+  "focus-ring": {
+    "outer": {
+      "color": {
+        "value": "#428fdc",
+        "$type": "color",
+        "comment": "Used for the outer color portion of the focus ring.",
+        "filePath": "src/tokens/focus-ring.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.blue.500}",
+            "dark": "{color.blue.400}"
+          },
+          "$type": "color",
+          "comment": "Used for the outer color portion of the focus ring."
+        },
+        "name": "FOCUS_RING_OUTER_COLOR",
+        "attributes": {},
+        "path": [
+          "focus-ring",
+          "outer",
+          "color"
+        ]
+      }
+    },
+    "inner": {
+      "color": {
+        "value": "#1f1e24",
+        "$type": "color",
+        "comment": "Used for the inner neutral portion of the focus ring.",
+        "filePath": "src/tokens/focus-ring.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "{background.color.default}",
+          "$type": "color",
+          "comment": "Used for the inner neutral portion of the focus ring."
+        },
+        "name": "FOCUS_RING_INNER_COLOR",
+        "attributes": {},
+        "path": [
+          "focus-ring",
+          "inner",
+          "color"
+        ]
       }
     }
   },

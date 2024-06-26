@@ -484,6 +484,7 @@ $gl-icon-color-disabled: $gl-color-neutral-500; // Used for an icon within a dis
 $gl-icon-color-strong: $gl-color-neutral-10; // Used for an icon with the highest contrast.
 $gl-icon-color-subtle: $gl-color-neutral-300; // Used for a static or decorational icon. Can be paired with subtle text.
 $gl-icon-color-default: $gl-color-neutral-100; // Used for the default icon color. Can be paired with default text.
+$gl-focus-ring-outer-color: $gl-color-blue-400; // Used for the outer color portion of the focus ring.
 $gl-feedback-danger-icon-color: $gl-color-red-300; // Used for an icon associated with danger or critical feedback.
 $gl-feedback-danger-background-color: $gl-color-red-900; // Used for a background associated with danger or critical feedback.
 $gl-feedback-warning-icon-color: $gl-color-orange-300; // Used for an icon associated with warning feedback or confidential content.
@@ -498,6 +499,21 @@ $gl-feedback-link-color-strong: $gl-color-blue-700; // Used for a link on a stro
 $gl-feedback-icon-color-strong: $gl-color-neutral-900; // Used for an icon on a strong feedback background.
 $gl-feedback-text-color-strong: $gl-color-neutral-900; // Used for text on a strong feedback background.
 $gl-feedback-background-color-strong: $gl-color-neutral-10; // Used for a background associated with feedback like a tooltip or toast message.
+$gl-control-indicator-color-disabled: $gl-color-neutral-400; // Used for disabled checkbox and radio button state indicators.
+$gl-control-indicator-color-selected: $gl-color-neutral-900; // Used for checkbox and radio button state indicators.
+$gl-control-placeholder-color: $gl-color-neutral-500; // Used for placeholder text within inputs.
+$gl-control-text-color-valid: $gl-color-green-400; // Used for the helper text when the input is valid.
+$gl-control-text-color-error: $gl-color-red-400; // Used for the helper text when the input is invalid.
+$gl-control-border-color-error: $gl-color-red-400; // Used for invalid form control (input, textarea) border.
+$gl-control-border-color-disabled: $gl-color-neutral-800; // Used for disabled form control (input, radio button, checkbox, textarea) border.
+$gl-control-border-color-focus: $gl-color-neutral-50; // Used for form control (input, radio button, checkbox, textarea) border on focus.
+$gl-control-border-color-hover: $gl-color-neutral-300; // Used for form control (input, radio button, checkbox, textarea) border on hover.
+$gl-control-border-color-default: $gl-color-neutral-500; // Used for form control (input, radio button, checkbox, textarea) default border.
+$gl-control-background-color-selected-focus: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover.
+$gl-control-background-color-selected-hover: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover.
+$gl-control-background-color-selected-default: $gl-color-blue-400; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background.
+$gl-control-background-color-disabled: $gl-color-neutral-950; // Used for disabled form control (checkbox, input, radio button, textarea) background.
+$gl-control-background-color-default: $gl-color-neutral-900; // Used for form control (input, radio button, checkbox, textarea) default background.
 $gl-breadcrumb-separator-color: $gl-color-neutral-700; // Used for the breadcrumb level separator.
 $gl-border-color-transparent: $gl-color-alpha-0; // Used when a border needs to be present, but not visibly perceived.
 $gl-border-color-strong: $gl-color-neutral-400; // Used for a distinct border that emphasizes an edge or boundaries.
@@ -541,4 +557,5 @@ $gl-action-icon-color-disabled: $gl-color-neutral-500; // Used for the icon of a
 $gl-action-text-color-disabled: $gl-color-neutral-400; // Used for the text of a disabled action.
 $gl-action-border-color-disabled: $gl-color-neutral-800; // Used for the border of a disabled action.
 $gl-action-background-color-disabled: $gl-color-neutral-900; // Used for the background of a disabled action.
+$gl-focus-ring-inner-color: $gl-background-color-default; // Used for the inner neutral portion of the focus ring.
 $gl-action-neutral-background-color-default: $gl-background-color-default; // Used for the background of an outlined neutral action in the default state.
