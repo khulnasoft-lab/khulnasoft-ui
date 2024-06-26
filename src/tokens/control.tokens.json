@@ -111,7 +111,7 @@
               "dark": "{color.blue.200}"
             },
             "$type": "color",
-            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on hover."
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on focus."
           }
         }
       }
