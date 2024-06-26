@@ -1,3 +1,10 @@
+## [85.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.2.1...v85.2.2) (2024-06-26)
+
+
+### Bug Fixes
+
+* **duochat:** Wait for another enter to send on IME ([ed2a1e7](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed2a1e7694805a3e72e78b1e4e9a6feac7f22c8b))
+
 ## [85.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.2.0...v85.2.1) (2024-06-25)
 
 
