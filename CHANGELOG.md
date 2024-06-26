@@ -1,3 +1,10 @@
+# [85.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.2.2...v85.3.0) (2024-06-26)
+
+
+### Features
+
+* **DesignTokens:** add design tokens for control and focus-ring ([bcf24f2](https://gitlab.com/gitlab-org/gitlab-ui/commit/bcf24f2afabd5e25b62514c11579b4ea87ec579a))
+
 ## [85.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.2.1...v85.2.2) (2024-06-26)
 
 
