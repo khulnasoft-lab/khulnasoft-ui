@@ -1,4 +1,5 @@
 <script>
+import GlAlert from '../../../base/alert/alert.vue';
 import GlButton from '../../../base/button/button.vue';
 import FeedbackModal from './user_feedback_modal.vue';
 
@@ -10,6 +11,7 @@ export const i18n = {
 export default {
   name: 'GlDuoUserFeedback',
   components: {
+    GlAlert,
     GlButton,
     FeedbackModal,
   },
@@ -59,7 +61,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-pt-4">
+  <div class="gl-pt-4 gl-w-full">
     <div>
       <gl-button
         v-if="!feedbackReceived"
@@ -70,9 +72,9 @@ export default {
         @click="shouldRenderModal && $refs.feedbackModal.show()"
         >{{ feedbackLinkText }}</gl-button
       >
-      <span v-else class="gl-text-gray-500">
+      <gl-alert v-else variant="success" :dismissible="false">
         {{ $options.i18n.FEEDBACK_THANKS }}
-      </span>
+      </gl-alert>
     </div>
     <feedback-modal v-if="shouldRenderModal" ref="feedbackModal" @feedback-submitted="notify">
       <template #feedback-extra-fields>

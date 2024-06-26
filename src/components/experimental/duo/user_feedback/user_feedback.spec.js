@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import GlAlert from '../../../base/alert/alert.vue';
 import GlButton from '../../../base/button/button.vue';
 import FeedbackModal from './user_feedback_modal.vue';
 import UserFeedback, { i18n } from './user_feedback.vue';
@@ -27,6 +28,7 @@ describe('UserFeedback', () => {
     });
   };
 
+  const findAlert = () => wrapper.findComponent(GlAlert);
   const findButton = () => wrapper.findComponent(GlButton);
   const findModal = () => wrapper.findComponent(FeedbackModal);
 
@@ -72,11 +74,12 @@ describe('UserFeedback', () => {
       expect(wrapper.emitted('feedback')).toHaveLength(1);
     });
 
-    it('renders the thank you text instead of a button', async () => {
+    it('renders the thank you alert instead of a button', async () => {
       createComponent({ props: { feedbackReceived: true } });
 
       expect(findButton().exists()).toBe(false);
-      expect(wrapper.text()).toContain(i18n.FEEDBACK_THANKS);
+      expect(findAlert().exists()).toBe(true);
+      expect(findAlert().text()).toContain(i18n.FEEDBACK_THANKS);
     });
 
     it('does not render the modal after feedback submitted', async () => {
