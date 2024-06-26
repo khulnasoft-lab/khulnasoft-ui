@@ -486,6 +486,7 @@
   --gl-icon-color-strong: var(--gl-color-neutral-10); /* Used for an icon with the highest contrast. */
   --gl-icon-color-subtle: var(--gl-color-neutral-300); /* Used for a static or decorational icon. Can be paired with subtle text. */
   --gl-icon-color-default: var(--gl-color-neutral-100); /* Used for the default icon color. Can be paired with default text. */
+  --gl-focus-ring-outer-color: var(--gl-color-blue-400); /* Used for the outer color portion of the focus ring. */
   --gl-feedback-danger-icon-color: var(--gl-color-red-300); /* Used for an icon associated with danger or critical feedback. */
   --gl-feedback-danger-background-color: var(--gl-color-red-900); /* Used for a background associated with danger or critical feedback. */
   --gl-feedback-warning-icon-color: var(--gl-color-orange-300); /* Used for an icon associated with warning feedback or confidential content. */
@@ -500,6 +501,21 @@
   --gl-feedback-icon-color-strong: var(--gl-color-neutral-900); /* Used for an icon on a strong feedback background. */
   --gl-feedback-text-color-strong: var(--gl-color-neutral-900); /* Used for text on a strong feedback background. */
   --gl-feedback-background-color-strong: var(--gl-color-neutral-10); /* Used for a background associated with feedback like a tooltip or toast message. */
+  --gl-control-indicator-color-disabled: var(--gl-color-neutral-400); /* Used for disabled checkbox and radio button state indicators. */
+  --gl-control-indicator-color-selected: var(--gl-color-neutral-900); /* Used for checkbox and radio button state indicators. */
+  --gl-control-placeholder-color: var(--gl-color-neutral-500); /* Used for placeholder text within inputs. */
+  --gl-control-text-color-valid: var(--gl-color-green-400); /* Used for the helper text when the input is valid. */
+  --gl-control-text-color-error: var(--gl-color-red-400); /* Used for the helper text when the input is invalid. */
+  --gl-control-border-color-error: var(--gl-color-red-400); /* Used for invalid form control (input, textarea) border. */
+  --gl-control-border-color-disabled: var(--gl-color-neutral-800); /* Used for disabled form control (input, radio button, checkbox, textarea) border. */
+  --gl-control-border-color-focus: var(--gl-color-neutral-50); /* Used for form control (input, radio button, checkbox, textarea) border on focus. */
+  --gl-control-border-color-hover: var(--gl-color-neutral-300); /* Used for form control (input, radio button, checkbox, textarea) border on hover. */
+  --gl-control-border-color-default: var(--gl-color-neutral-500); /* Used for form control (input, radio button, checkbox, textarea) default border. */
+  --gl-control-background-color-selected-focus: var(--gl-color-blue-200); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover. */
+  --gl-control-background-color-selected-hover: var(--gl-color-blue-200); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover. */
+  --gl-control-background-color-selected-default: var(--gl-color-blue-400); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) background. */
+  --gl-control-background-color-disabled: var(--gl-color-neutral-950); /* Used for disabled form control (checkbox, input, radio button, textarea) background. */
+  --gl-control-background-color-default: var(--gl-color-neutral-900); /* Used for form control (input, radio button, checkbox, textarea) default background. */
   --gl-breadcrumb-separator-color: var(--gl-color-neutral-700); /* Used for the breadcrumb level separator. */
   --gl-border-color-transparent: var(--gl-color-alpha-0); /* Used when a border needs to be present, but not visibly perceived. */
   --gl-border-color-strong: var(--gl-color-neutral-400); /* Used for a distinct border that emphasizes an edge or boundaries. */
@@ -543,5 +559,6 @@
   --gl-action-text-color-disabled: var(--gl-color-neutral-400); /* Used for the text of a disabled action. */
   --gl-action-border-color-disabled: var(--gl-color-neutral-800); /* Used for the border of a disabled action. */
   --gl-action-background-color-disabled: var(--gl-color-neutral-900); /* Used for the background of a disabled action. */
+  --gl-focus-ring-inner-color: var(--gl-background-color-default); /* Used for the inner neutral portion of the focus ring. */
   --gl-action-neutral-background-color-default: var(--gl-background-color-default); /* Used for the background of an outlined neutral action in the default state. */
 }
