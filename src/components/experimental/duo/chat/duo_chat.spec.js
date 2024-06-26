@@ -92,6 +92,7 @@ describe('GlDuoChat', () => {
       createComponent({
         propsData: { messages: null },
       });
+
       expect(findChatConversations()).toHaveLength(0);
       expect(findEmptyState().exists()).toBe(true);
     });
@@ -388,6 +389,26 @@ describe('GlDuoChat', () => {
         setPromptInput(promptStr);
         trigger();
         expect(wrapper.emitted('send-chat-prompt')).toEqual(expectEmitted);
+      });
+
+      it('on composition, discards the first enter after composition has ended', async () => {
+        // IMEs allow the user to edit the composition after the composition has ended, which requires another press on
+        // enter to confirm the composition
+        createComponent({
+          propsData: { messages: [], isChatAvailable: true },
+        });
+
+        setPromptInput(promptStr);
+
+        await findChatInput().vm.$emit('compositionend');
+
+        await findChatInput().trigger('keyup', { key: ENTER });
+
+        expect(wrapper.emitted('send-chat-prompt')).toBeUndefined();
+
+        await findChatInput().trigger('keyup', { key: ENTER });
+
+        expect(wrapper.emitted('send-chat-prompt')).toEqual([[promptStr]]);
       });
 
       it.each`

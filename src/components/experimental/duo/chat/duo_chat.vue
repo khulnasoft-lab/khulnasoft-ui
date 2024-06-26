@@ -195,6 +195,7 @@ export default {
       scrolledToBottom: true,
       activeCommandIndex: 0,
       displaySubmitButton: true,
+      compositionJustEnded: false,
     };
   },
   computed: {
@@ -280,6 +281,9 @@ export default {
     this.scrollToBottom();
   },
   methods: {
+    compositionEnd() {
+      this.compositionJustEnded = true;
+    },
     hideChat() {
       this.isHidden = true;
       /**
@@ -338,26 +342,34 @@ export default {
        */
       this.$emit('track-feedback', event);
     },
-    onInputKeyup(e) {
+    sendChatPromptOnEnter(e) {
       const { metaKey, ctrlKey, altKey, shiftKey, isComposing } = e;
+      const isModifierKey = metaKey || ctrlKey || altKey || shiftKey;
+
+      return !(isModifierKey || isComposing || this.compositionJustEnded);
+    },
+    onInputKeyup(e) {
+      const { key } = e;
 
       if (this.shouldShowSlashCommands) {
         e.preventDefault();
 
-        if (e.key === 'Enter') {
+        if (key === 'Enter') {
           this.selectSlashCommand(this.activeCommandIndex);
-        } else if (e.key === 'ArrowUp') {
+        } else if (key === 'ArrowUp') {
           this.prevCommand();
-        } else if (e.key === 'ArrowDown') {
+        } else if (key === 'ArrowDown') {
           this.nextCommand();
         } else {
           this.activeCommandIndex = 0;
         }
-      } else if (e.key === 'Enter' && !isComposing && !(metaKey || ctrlKey || altKey || shiftKey)) {
+      } else if (key === 'Enter' && this.sendChatPromptOnEnter(e)) {
         e.preventDefault();
 
         this.sendChatPrompt();
       }
+
+      this.compositionJustEnded = false;
     },
     prevCommand() {
       this.activeCommandIndex -= 1;
@@ -540,6 +552,7 @@ export default {
               autofocus
               @keydown.enter.exact.native.prevent
               @keyup.native="onInputKeyup"
+              @compositionend="compositionEnd"
             />
           </div>
           <template #append>
