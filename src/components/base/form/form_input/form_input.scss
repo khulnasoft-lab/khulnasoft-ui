@@ -1,48 +1,53 @@
 .gl-form-input,
 .gl-form-input.form-control {
-  @include gl-bg-white;
   @include gl-font-regular;
   @include gl-font-base;
   @include gl-line-height-normal;
   @include gl-py-3;
   @include gl-px-4;
   @include gl-h-auto;
-  @include gl-text-gray-900;
-  @include gl-inset-border-1-gray-400;
   @include gl-border-none;
   @include form-control-focus($ignore-warning: true);
   appearance: none;
+  background: var(--gl-control-background-color-default);
+  color: var(--gl-text-color-default);
+  box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-default);
 
   @media (forced-colors: active) {
     border: 1px solid;
   }
 
+  &:hover {
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-hover);
+  }
+
   &:disabled,
   &:not(.form-control-plaintext):not([type='color']):read-only {
-    @include gl-bg-gray-10;
-    @include gl-inset-border-1-gray-100;
+    background: var(--gl-control-background-color-disabled);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-disabled);
   }
 
   &:disabled {
     @include gl-cursor-not-allowed;
-    @include gl-text-gray-500;
+    color: var(--gl-text-color-disabled);
   }
 
   &:not(.form-control-plaintext):focus {
-    @include gl-focus($color: $gray-900);
-    @include gl-text-gray-900;
+    @include gl-focus($color: var(--gl-control-border-color-focus));
+    background: var(--gl-control-background-color-default);
+    color: var(--gl-text-color-default);
   }
 
   &.is-invalid {
-    @include gl-inset-border-1-red-500;
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-error);
 
     &:focus {
-      @include gl-focus($color: $red-500);
+      @include gl-focus($color: var(--gl-control-border-color-error));
     }
   }
 
   &::placeholder {
-    @include gl-text-gray-400;
+    color: var(--gl-control-placeholder-color);
   }
 
   &.form-control-plaintext {
