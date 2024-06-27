@@ -244,10 +244,10 @@ StyleDictionary.registerParser({
 StyleDictionary.registerAction({
   name: 'prettier',
   do(dictionary, config) {
-    config.files.forEach((file) => {
+    config.files.forEach(async (file) => {
       const filePath = `${config.buildPath}${file.destination}`;
       const fileContent = fs.readFileSync(filePath, 'utf8');
-      const formattedContent = prettier.format(fileContent, { singleQuote: true, parser: 'babel' });
+      const formattedContent = await prettier.format(fileContent, { singleQuote: true, parser: 'babel' });
       fs.writeFileSync(filePath, formattedContent);
     });
   },
