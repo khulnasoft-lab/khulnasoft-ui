@@ -1,3 +1,10 @@
+# [85.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.7.0...v85.8.0) (2024-06-27)
+
+
+### Features
+
+* **GlAvatar:** Use color design tokens ([982f985](https://gitlab.com/gitlab-org/gitlab-ui/commit/982f9857fde7f526ab55fca2a9b82b4f6426aaae))
+
 # [85.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.6.0...v85.7.0) (2024-06-27)
 
 
