@@ -1,3 +1,10 @@
+# [85.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.5.0...v85.6.0) (2024-06-27)
+
+
+### Features
+
+* **GlBanner:** Use color design tokens ([aacd102](https://gitlab.com/gitlab-org/gitlab-ui/commit/aacd1023a8412d3fb03de41390c0f61c6c810a6b))
+
 # [85.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.4.1...v85.5.0) (2024-06-27)
 
 
