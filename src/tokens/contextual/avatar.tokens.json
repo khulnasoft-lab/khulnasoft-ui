@@ -1,0 +1,72 @@
+{
+  "avatar": {
+    "border": {
+      "color": {
+        "default": {
+          "$value": "{color.alpha.dark.8}",
+          "$type": "color",
+          "$description": "Used to define the edge of an avatar."
+        },
+        "hover": {
+          "$value": "{color.alpha.dark.24}",
+          "$type": "color",
+          "$description": "Used to increase the edge definition of an avatar in the hover state."
+        }
+      }
+    },
+    "fallback": {
+      "background": {
+        "color": {
+          "red": {
+            "$value": {
+              "default": "{color.red.50}",
+              "dark": "{color.red.900}"
+            },
+            "$type": "color",
+            "$description": "Red background for avatar fallback with no particular meaning."
+          },
+          "purple": {
+            "$value": {
+              "default": "{color.purple.50}",
+              "dark": "{color.purple.950}"
+            },
+            "$type": "color",
+            "$description": "Purple background for avatar fallback with no particular meaning."
+          },
+          "blue": {
+            "$value": {
+              "default": "{color.blue.50}",
+              "dark": "{color.blue.900}"
+            },
+            "$type": "color",
+            "$description": "Blue background for avatar fallback with no particular meaning."
+          },
+          "green": {
+            "$value": {
+              "default": "{color.green.50}",
+              "dark": "{color.green.900}"
+            },
+            "$type": "color",
+            "$description": "Green background for avatar fallback with no particular meaning."
+          },
+          "orange": {
+            "$value": {
+              "default": "{color.orange.50}",
+              "dark": "{color.orange.900}"
+            },
+            "$type": "color",
+            "$description": "Orange background for avatar fallback with no particular meaning."
+          },
+          "neutral": {
+            "$value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Neutral background for avatar fallback with no particular meaning."
+          }
+        }
+      }
+    }
+  }
+}
