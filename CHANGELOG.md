@@ -1,3 +1,10 @@
+# [85.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.6.0...v85.7.0) (2024-06-27)
+
+
+### Features
+
+* **GlFormGroup:** Use color design tokens ([5800d8c](https://gitlab.com/gitlab-org/gitlab-ui/commit/5800d8c2cc8be51719ed9c911184717c0f13b0de))
+
 # [85.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.5.0...v85.6.0) (2024-06-27)
 
 
