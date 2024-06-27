@@ -187,8 +187,8 @@ export default {
   <div
     class="gl-p-4 gl-mb-4 gl-rounded-lg gl-line-height-20 gl-word-break-word duo-chat-message"
     :class="{
-      'gl-ml-auto gl-bg-blue-100 gl-text-blue-900 gl-rounded-bottom-right-none': isUserMessage,
-      'gl-rounded-bottom-left-none gl-text-gray-900 gl-border-1 gl-border-solid gl-border-gray-50':
+      'gl-ml-auto gl-bg-blue-100 gl-rounded-bottom-right-none gl-text-blue-900': isUserMessage,
+      'gl-rounded-bottom-left-none gl-border-1 gl-border-solid gl-border-gray-50 gl-text-gray-900':
         isAssistantMessage,
       'gl-bg-white': isAssistantMessage && !error,
       'gl-bg-red-50 gl-border-none!': error,
@@ -199,7 +199,7 @@ export default {
       :aria-label="$options.i18n.MESSAGE_ERROR"
       name="status_warning_borderless"
       :size="16"
-      class="gl-text-red-600 gl-border gl-border-red-500 gl-rounded-full gl-mr-3 gl-flex-shrink-0 error-icon"
+      class="gl-border gl-border-red-500 gl-rounded-full gl-mr-3 gl-flex-shrink-0 error-icon gl-text-red-600"
       data-testid="error"
     />
     <div ref="content-wrapper" :class="{ 'has-error': error }">

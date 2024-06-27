@@ -76,7 +76,7 @@ export default {
           <transition-group
             ref="transition"
             name="text"
-            class="transition gl-display-inline-block gl-relative gl-vertical-align-bottom"
+            class="transition gl-display-inline-block gl-vertical-align-bottom gl-relative"
             @after-leave="computeTransitionWidth"
           >
             <span

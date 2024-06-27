@@ -112,7 +112,7 @@ export default {
         <slot :name="headSlotName" v-bind="scope"
           ><span>{{ scope.label }}</span></slot
         ><template v-if="isSortable(scope)">
-          <div class="gl-ml-2 gl-w-5 gl-text-gray-900 gl-display-flex gl-justify-content-center">
+          <div class="gl-ml-2 gl-w-5 gl-display-flex gl-justify-content-center gl-text-gray-900">
             <span
               name="sort-icon"
               data-testid="sort-icon"

@@ -54,7 +54,7 @@ export default {
   <div class="gl-display-flex gl-flex-direction-column gl-justify-content-end">
     <div
       v-if="showDelimiter"
-      class="gl-my-5 gl-display-flex gl-align-items-center gl-text-gray-500 gl-gap-4"
+      class="gl-my-5 gl-display-flex gl-align-items-center gl-gap-4 gl-text-gray-500"
       data-testid="conversation-delimiter"
     >
       <hr class="gl-flex-grow-1" />

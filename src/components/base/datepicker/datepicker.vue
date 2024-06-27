@@ -370,7 +370,7 @@ export default {
 <template>
   <div :class="datepickerClasses">
     <div v-if="showDefaultField" class="gl-display-flex gl-align-items-start gl-gap-3">
-      <div class="gl-relative gl-display-flex gl-flex-grow-1">
+      <div class="gl-display-flex gl-flex-grow-1 gl-relative">
         <!--
       @slot (optional) Input to display and bind the datepicker to. Defaults to `<gl-form-input />`
       @binding {string} formattedDate
