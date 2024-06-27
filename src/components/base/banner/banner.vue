@@ -100,10 +100,9 @@ export default {
 
 <template>
   <gl-card
-    class="gl-pl-6 gl-pr-8 gl-py-6"
+    class="gl-banner gl-pl-6 gl-pr-8 gl-py-6"
     :class="{
       'gl-banner-introduction': isIntroducing,
-      'gl-bg-gray-10!': !isIntroducing,
     }"
     body-class="gl-display-flex gl-p-0!"
   >

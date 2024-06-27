@@ -518,6 +518,8 @@
   --gl-control-background-color-default: var(--gl-color-neutral-0); /* Used for form control (input, radio button, checkbox, textarea) default background. */
   --gl-popover-background-color: var(--gl-color-neutral-0); /* Used for the background color of popover. */
   --gl-breadcrumb-separator-color: var(--gl-color-neutral-200); /* Used for the breadcrumb level separator. */
+  --gl-banner-promo-background-color: var(--gl-color-neutral-10); /* Used as background for the default banner type. */
+  --gl-banner-intro-border-color: var(--gl-color-blue-300); /* Used to compliment the info banner. */
   --gl-border-color-transparent: var(--gl-color-alpha-0); /* Used when a border needs to be present, but not visibly perceived. */
   --gl-border-color-strong: var(--gl-color-neutral-400); /* Used for a distinct border that emphasizes an edge or boundaries. */
   --gl-border-color-subtle: var(--gl-color-neutral-50); /* Used for a border that has a little more definition, or is used in combination with a subtle background. */
