@@ -75,6 +75,7 @@ $badge-min-width: 2.5 * $grid-size;
   gap: $gl-spacing-scale-2;
   padding: $gl-spacing-scale-1 $badge-padding-horizontal;
   min-width: $badge-min-width;
+  flex-shrink: 0;
 
   @media (forced-colors: active) {
     border: 1px solid;
