@@ -1,3 +1,10 @@
+# [85.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.4.1...v85.5.0) (2024-06-27)
+
+
+### Features
+
+* **GlTooltip:** Use color design tokens ([d62b0fc](https://gitlab.com/gitlab-org/gitlab-ui/commit/d62b0fcc07ccefc438e289cf84f5f9cbf6963c62))
+
 ## [85.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.4.0...v85.4.1) (2024-06-26)
 
 
