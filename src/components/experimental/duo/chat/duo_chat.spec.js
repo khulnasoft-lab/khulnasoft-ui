@@ -379,7 +379,7 @@ describe('GlDuoChat', () => {
         ${() => findChatInput().trigger('keyup', { key: ENTER })}                    | ${`Clicking ${ENTER}`}               | ${'submit'}     | ${[[promptStr]]}
         ${() => findChatInput().trigger('keyup', { key: ENTER, metaKey: true })}     | ${`Clicking ${ENTER} + ⌘`}           | ${'not submit'} | ${undefined}
         ${() => findChatInput().trigger('keyup', { key: ENTER, altKey: true })}      | ${`Clicking ${ENTER} + ⎇`}           | ${'not submit'} | ${undefined}
-        ${() => findChatInput().trigger('keyup', { key: ENTER, shiftKey: true })}    | ${`Clicking ${ENTER} + ⬆︎`}          | ${'not submit'} | ${undefined}
+        ${() => findChatInput().trigger('keyup', { key: ENTER, shiftKey: true })}    | ${`Clicking ${ENTER} + ⬆︎`}         | ${'not submit'} | ${undefined}
         ${() => findChatInput().trigger('keyup', { key: ENTER, ctrlKey: true })}     | ${`Clicking ${ENTER} + CTRL`}        | ${'not submit'} | ${undefined}
         ${() => findChatInput().trigger('keyup', { key: ENTER, isComposing: true })} | ${`Clicking ${ENTER} + isComposing`} | ${'not submit'} | ${undefined}
       `('$event should $action the prompt form', ({ trigger, expectEmitted } = {}) => {

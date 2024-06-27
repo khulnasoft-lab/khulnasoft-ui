@@ -14,7 +14,7 @@ const EMOJI_REGEX = emojiRegex();
 // // Bad
 // export const projectPathIsUnique = ...
 // ```
-export const factory = (failMessage, isValid) => (val) => !isValid(val) ? failMessage : '';
+export const factory = (failMessage, isValid) => (val) => (!isValid(val) ? failMessage : '');
 
 /**
  * Validator function to check if a string is present and non-empty.

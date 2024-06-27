@@ -247,7 +247,10 @@ StyleDictionary.registerAction({
     config.files.forEach(async (file) => {
       const filePath = `${config.buildPath}${file.destination}`;
       const fileContent = fs.readFileSync(filePath, 'utf8');
-      const formattedContent = await prettier.format(fileContent, { singleQuote: true, parser: 'babel' });
+      const formattedContent = await prettier.format(fileContent, {
+        singleQuote: true,
+        parser: 'babel',
+      });
       fs.writeFileSync(filePath, formattedContent);
     });
   },
