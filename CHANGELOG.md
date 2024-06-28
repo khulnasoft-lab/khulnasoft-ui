@@ -1,3 +1,10 @@
+# [85.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.8.0...v85.9.0) (2024-06-28)
+
+
+### Features
+
+* **GlFormInput:** Use color design tokens ([13c877d](https://gitlab.com/gitlab-org/gitlab-ui/commit/13c877d6e9297278cb3934395994f866a5952db7))
+
 # [85.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.7.0...v85.8.0) (2024-06-27)
 
 
