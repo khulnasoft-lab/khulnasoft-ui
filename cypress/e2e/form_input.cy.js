@@ -4,7 +4,7 @@ describe('GlFormInput', () => {
     cy.glCheckA11y();
   }
 
-  function checkA11YFormDisabledState() {
+  function checkA11YFormInputDisabledState() {
     cy.visitStory('base/form/form-input', {
       args: {
         disabled: true,
@@ -24,7 +24,7 @@ describe('GlFormInput', () => {
     cy.glCheckA11y();
   }
 
-  function checkA11YFormInputNumnerInput() {
+  function checkA11YFormInputNumberInput() {
     cy.visitStory('base/form/form-input', {
       args: {
         type: 'number',
@@ -56,13 +56,23 @@ describe('GlFormInput', () => {
     cy.glCheckA11y();
   }
 
+  function checkA11YFormInputPlaceholder() {
+    cy.visitStory('base/form/form-input', {
+      args: {
+        value: '',
+        placeholder: 'Test placeholder',
+      },
+    });
+  }
+
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     cy.glRunA11yTests({
       checkA11YDefaultState,
-      checkA11YFormDisabledState,
+      checkA11YFormInputDisabledState,
       checkA11YFormInputReadOnlyState,
-      checkA11YFormInputNumnerInput,
+      checkA11YFormInputNumberInput,
       checkA11YFormInputResponsiveWidth,
+      checkA11YFormInputPlaceholder,
     });
   });
 });
