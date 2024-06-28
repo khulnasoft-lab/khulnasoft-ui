@@ -1,5 +1,5 @@
 $badge-padding-horizontal: 0.75 * $grid-size;
-$badge-min-width: 2.5 * $grid-size;
+$badge-min-width: $gl-spacing-scale-3;
 
 @mixin gl-badge-variant(
   $variant,
@@ -74,7 +74,6 @@ $badge-min-width: 2.5 * $grid-size;
   @include gl-line-height-normal;
   gap: $gl-spacing-scale-2;
   padding: $gl-spacing-scale-1 $badge-padding-horizontal;
-  min-width: $badge-min-width;
 
   @media (forced-colors: active) {
     border: 1px solid;
@@ -85,6 +84,10 @@ $badge-min-width: 2.5 * $grid-size;
     @include gl-w-5;
     @include gl-flex-shrink-0;
     top: auto;
+  }
+
+  .gl-badge-content {
+    min-width: $badge-min-width;
   }
 }
 
