@@ -313,6 +313,283 @@
           }
         }
       }
+    },
+    "confirm": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an outlined confirm (positive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.50}",
+              "dark": "{color.blue.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an outlined confirm (positive) action in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.blue.50}",
+              "dark": "{color.blue.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an outlined confirm (positive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.100}",
+              "dark": "{color.blue.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an outlined confirm (positive) action in the active state."
+          },
+          "subtle": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, subtle confirm (positive) action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.50}",
+                "dark": "{color.blue.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, subtle confirm (positive) action in the hover state."
+            },
+            "focus": {
+              "$value": {
+                "default": "{color.blue.50}",
+                "dark": "{color.blue.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, subtle confirm (positive) action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.100}",
+                "dark": "{color.blue.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, subtle confirm (positive) action in the active state."
+            }
+          },
+          "strong": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong confirm (positive) action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong confirm (positive) action in the hover state."
+            },
+            "focus": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong confirm (positive) action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong confirm (positive) action in the active state."
+            },
+            "selected": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a solid, strong confirm (positive) action when in a selected or current state."
+            }
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an outlined confirm (positive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an outlined confirm (positive) action in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an outlined confirm (positive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.900}",
+              "dark": "{color.blue.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an outlined confirm (positive) action in the active state."
+          },
+          "strong": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong confirm (positive) action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.800}",
+                "dark": "{color.blue.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong confirm (positive) action in the hover state."
+            },
+            "focus": {
+              "$value": {
+                "default": "{color.blue.800}",
+                "dark": "{color.blue.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong confirm (positive) action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.blue.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong confirm (positive) action in the active state."
+            },
+            "selected": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a solid, strong confirm (positive) action when in a selected or current state."
+            }
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a confirm (positive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a confirm (positive) action in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a confirm (positive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.900}",
+              "dark": "{color.blue.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a confirm (positive) action in the active state."
+          },
+          "strong": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the text on a solid, strong confirm (positive) action background."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a confirm (positive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a confirm (positive) action in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a confirm (positive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.900}",
+              "dark": "{color.blue.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a confirm (positive) action in the active state."
+          },
+          "strong": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon on a solid, strong confirm (positive) action background."
+          }
+        }
+      }
     }
   }
 }

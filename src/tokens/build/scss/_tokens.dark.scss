@@ -534,6 +534,38 @@ $gl-background-color-disabled: $gl-color-neutral-900; // Used to identify a disa
 $gl-background-color-strong: $gl-color-neutral-800; // Used to make the background easily stand out from the default.
 $gl-background-color-subtle: $gl-color-neutral-900; // Used to slightly differentiate the background from the default.
 $gl-background-color-default: $gl-color-neutral-950; // Used for the default background color.
+$gl-action-confirm-icon-color-strong: $gl-color-neutral-900; // Used for the icon on a solid, strong confirm (positive) action background.
+$gl-action-confirm-icon-color-active: $gl-color-blue-50; // Used for the icon of a confirm (positive) action in the active state.
+$gl-action-confirm-icon-color-focus: $gl-color-blue-200; // Used for the icon of a confirm (positive) action in the focus state.
+$gl-action-confirm-icon-color-hover: $gl-color-blue-200; // Used for the icon of a confirm (positive) action in the hover state.
+$gl-action-confirm-icon-color-default: $gl-color-blue-400; // Used for the icon of a confirm (positive) action in the default state.
+$gl-action-confirm-text-color-strong: $gl-color-neutral-900; // Used for the text on a solid, strong confirm (positive) action background.
+$gl-action-confirm-text-color-active: $gl-color-blue-50; // Used for the text of a confirm (positive) action in the active state.
+$gl-action-confirm-text-color-focus: $gl-color-blue-200; // Used for the text of a confirm (positive) action in the focus state.
+$gl-action-confirm-text-color-hover: $gl-color-blue-200; // Used for the text of a confirm (positive) action in the hover state.
+$gl-action-confirm-text-color-default: $gl-color-blue-400; // Used for the text of a confirm (positive) action in the default state.
+$gl-action-confirm-border-color-strong-selected: $gl-color-blue-300; // Used for the border of a solid, strong confirm (positive) action when in a selected or current state.
+$gl-action-confirm-border-color-strong-active: $gl-color-blue-50; // Used for the border of a solid, strong confirm (positive) action in the active state.
+$gl-action-confirm-border-color-strong-focus: $gl-color-blue-100; // Used for the border of a solid, strong confirm (positive) action in the focus state.
+$gl-action-confirm-border-color-strong-hover: $gl-color-blue-100; // Used for the border of a solid, strong confirm (positive) action in the hover state.
+$gl-action-confirm-border-color-strong-default: $gl-color-blue-300; // Used for the border of a solid, strong confirm (positive) action in the default state.
+$gl-action-confirm-border-color-active: $gl-color-blue-50; // Used for the border of an outlined confirm (positive) action in the active state.
+$gl-action-confirm-border-color-focus: $gl-color-blue-200; // Used for the border of an outlined confirm (positive) action in the focus state.
+$gl-action-confirm-border-color-hover: $gl-color-blue-200; // Used for the border of an outlined confirm (positive) action in the hover state.
+$gl-action-confirm-border-color-default: $gl-color-blue-400; // Used for the border of an outlined confirm (positive) action in the default state.
+$gl-action-confirm-background-color-strong-selected: $gl-color-blue-400; // Used for the background of a solid, strong confirm (positive) action when in a selected or current state.
+$gl-action-confirm-background-color-strong-active: $gl-color-blue-200; // Used for the background of a solid, strong confirm (positive) action in the active state.
+$gl-action-confirm-background-color-strong-focus: $gl-color-blue-300; // Used for the background of a solid, strong confirm (positive) action in the focus state.
+$gl-action-confirm-background-color-strong-hover: $gl-color-blue-300; // Used for the background of a solid, strong confirm (positive) action in the hover state.
+$gl-action-confirm-background-color-strong-default: $gl-color-blue-400; // Used for the background of a solid, strong confirm (positive) action in the default state.
+$gl-action-confirm-background-color-subtle-active: $gl-color-blue-800; // Used for the background of a borderless, subtle confirm (positive) action in the active state.
+$gl-action-confirm-background-color-subtle-focus: $gl-color-blue-900; // Used for the background of a borderless, subtle confirm (positive) action in the focus state.
+$gl-action-confirm-background-color-subtle-hover: $gl-color-blue-900; // Used for the background of a borderless, subtle confirm (positive) action in the hover state.
+$gl-action-confirm-background-color-subtle-default: $gl-color-alpha-0; // Used for the background of a borderless, subtle confirm (positive) action in the default state.
+$gl-action-confirm-background-color-active: $gl-color-blue-800; // Used for the background of an outlined confirm (positive) action in the active state.
+$gl-action-confirm-background-color-focus: $gl-color-blue-900; // Used for the background of an outlined confirm (positive) action in the focus state.
+$gl-action-confirm-background-color-hover: $gl-color-blue-900; // Used for the background of an outlined confirm (positive) action in the hover state.
+$gl-action-confirm-background-color-default: $gl-color-neutral-900; // Used for the background of an outlined confirm (positive) action in the default state.
 $gl-action-neutral-icon-color-strong: $gl-color-neutral-900; // Used for the icon on a solid, strong neutral action background.
 $gl-action-neutral-icon-color-active: $gl-color-neutral-50; // Used for the icon of outlined and borderless neutral actions in the active state.
 $gl-action-neutral-icon-color-focus: $gl-color-neutral-200; // Used for the icon of outlined and borderless neutral actions in the focus state.
