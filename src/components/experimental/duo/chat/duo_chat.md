@@ -17,6 +17,7 @@ consumer component.
   :is-chat-available="isChatAvailable"
   :predefined-prompts="predefinedPrompts"
   :badge-help-page-url="badgeHelpPageUrl"
+  :canceled-request-ids="cancelledRequestIds"
   :tool-name="toolName"
   :empty-state-title="emptyStateTitle"
   :empty-state-description="emptyStateDescription"
@@ -92,6 +93,7 @@ export default {
       error: null,
       isLoading: false,
       toolName: '',
+      cancelledRequestIds: []
     }
   },
   provide: {
@@ -113,6 +115,11 @@ export default {
     this.chatPromptPlaceholder = 'Type your question here';
   }
   methods: {
+    onChatCancel() {
+       // pushing last requestId of messages to canceled Request Ids
+      this.cancelledRequestIds.push(this.messages[this.messages.length - 1].requestId);
+      this.isLoading = false;
+    },
     onChatHidden() {
       ...
     },
@@ -125,7 +132,10 @@ export default {
       ...
     },
     onAiResponse(data) {
-      this.messages = data
+      // check if requestId was not cancelled
+      if (requestId && !this.cancelledRequestIds.includes(data.requestId)) {
+        this.messages = data
+      }
       …
       this.isLoading = false;
     },
