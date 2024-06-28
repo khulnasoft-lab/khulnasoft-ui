@@ -237,9 +237,12 @@ const main = async () => {
     );
   }
 
-  const mixinsFileWithMatchedRemoved = matched.reduce((accumulator, util) => {
-    return accumulator.replace(new RegExp(`@mixin ${util}(\\([^\\)]+\\))* {\n[^}]+\n}`, 'g'), '');
-  }, fs.readFileSync(path.join(mixinsPath, mixinsFile), 'utf8'));
+  const mixinsFileWithMatchedRemoved = matched.reduce(
+    (accumulator, util) => {
+      return accumulator.replace(new RegExp(`@mixin ${util}(\\([^\\)]+\\))* {\n[^}]+\n}`, 'g'), '');
+    },
+    fs.readFileSync(path.join(mixinsPath, mixinsFile), 'utf8')
+  );
 
   const mixinsFileWithMatchedRemovedAndNotMatchedPrefixed = notMatched.reduce(
     (accumulator, util) => {

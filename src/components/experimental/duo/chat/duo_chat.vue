@@ -409,7 +409,7 @@ export default {
   <aside
     v-if="!isHidden"
     id="chat-component"
-    class="markdown-code-block duo-chat-drawer gl-max-h-full gl-bottom-0 gl-shadow-none gl-border-l gl-border-t duo-chat"
+    class="markdown-code-block duo-chat-drawer gl-max-h-full gl-shadow-none gl-border-l gl-border-t duo-chat gl-bottom-0"
     role="complementary"
     data-testid="chat-component"
   >
@@ -444,7 +444,7 @@ export default {
         :dismissible="false"
         variant="tip"
         :show-icon="false"
-        class="gl-text-center gl-border-t gl-p-4 gl-text-gray-700 gl-bg-gray-50 legal-warning gl-max-w-full"
+        class="gl-text-center gl-border-t gl-p-4 gl-bg-gray-50 legal-warning gl-max-w-full gl-text-gray-700"
         role="alert"
         data-testid="chat-legal-warning"
         >{{ $options.i18n.CHAT_LEGAL_GENERATED_BY_AI }}</gl-alert
@@ -523,7 +523,7 @@ export default {
             <gl-card
               v-if="shouldShowSlashCommands"
               ref="commands"
-              class="slash-commands !gl-absolute gl-translate-y-n100 gl-list-style-none gl-pl-0 gl-w-full gl-shadow-md"
+              class="slash-commands gl-translate-y-n100 gl-list-style-none gl-pl-0 gl-w-full gl-shadow-md !gl-absolute"
               body-class="gl-p-2!"
             >
               <gl-dropdown-item
@@ -535,7 +535,7 @@ export default {
               >
                 <span class="gl-display-flex gl-justify-content-space-between">
                   <span class="gl-display-block">{{ command.name }}</span>
-                  <small class="gl-text-gray-500 gl-font-style-italic gl-text-right gl-pl-3">{{
+                  <small class="gl-font-style-italic gl-text-right gl-pl-3 gl-text-gray-500">{{
                     command.description
                   }}</small>
                 </span>
@@ -546,7 +546,7 @@ export default {
               ref="prompt"
               v-model="prompt"
               data-testid="chat-prompt-input"
-              class="gl-absolute gl-h-full! gl-py-4! gl-bg-transparent! gl-rounded-top-right-none gl-rounded-bottom-right-none gl-shadow-none!"
+              class="gl-h-full! gl-py-4! gl-bg-transparent! gl-rounded-top-right-none gl-rounded-bottom-right-none gl-shadow-none! gl-absolute"
               :class="{ 'gl-text-truncate': !prompt }"
               :placeholder="inputPlaceholder"
               autofocus
@@ -561,7 +561,7 @@ export default {
               icon="paper-airplane"
               category="primary"
               variant="confirm"
-              class="!gl-absolute gl-bottom-2 gl-right-2 gl-rounded-base!"
+              class="gl-rounded-base! !gl-absolute gl-bottom-2 gl-right-2"
               type="submit"
               data-testid="chat-prompt-submit-button"
               :aria-label="$options.i18n.CHAT_SUBMIT_LABEL"
@@ -571,7 +571,7 @@ export default {
               icon="stop"
               category="primary"
               variant="default"
-              class="!gl-absolute gl-bottom-2 gl-right-2 gl-rounded-base!"
+              class="gl-rounded-base! !gl-absolute gl-bottom-2 gl-right-2"
               data-testid="chat-prompt-cancel-button"
               :aria-label="$options.i18n.CHAT_CANCEL_LABEL"
               @click="cancelPrompt"
@@ -579,7 +579,7 @@ export default {
           </template>
         </gl-form-input-group>
         <gl-form-text
-          class="gl-text-gray-400 gl-line-height-20 gl-mt-3"
+          class="gl-line-height-20 gl-mt-3 gl-text-gray-400"
           data-testid="chat-legal-disclaimer"
           >{{ $options.i18n.CHAT_LEGAL_DISCLAIMER }}</gl-form-text
         >

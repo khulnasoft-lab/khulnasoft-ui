@@ -72,7 +72,7 @@ const main = async () => {
   const filesToParse = await getFilesToParse();
   const output = await buildTranslationsObject(filesToParse);
   const options = await prettier.resolveConfig(path.join(__dirname, '../.prettierrc'));
-  const formattedOutput = prettier.format(output, { ...options, parser: 'babel' });
+  const formattedOutput = await prettier.format(output, { ...options, parser: 'babel' });
   process.stdout.write(formattedOutput);
 };
 

@@ -238,7 +238,7 @@ export default {
             </template>
           </gl-disclosure-dropdown-item>
         </template>
-        <div v-else class="gl-font-sm gl-text-secondary gl-py-2 gl-px-4">
+        <div v-else class="gl-font-sm gl-py-2 gl-px-4 gl-text-secondary">
           {{ noRecentSearchesText }}
         </div>
 

@@ -121,7 +121,7 @@ export default {
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <div class="gl-display-flex gl-align-items-center gl-text-gray-700 gl-mb-2">
+    <div class="gl-display-flex gl-align-items-center gl-mb-2 gl-text-gray-700">
       <gl-icon
         v-if="showTitleIcon"
         :name="titleIcon"
