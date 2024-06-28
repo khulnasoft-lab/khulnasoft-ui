@@ -534,6 +534,7 @@
   --gl-border-color-strong: var(--gl-color-neutral-400); /* Used for a distinct border that emphasizes an edge or boundaries. */
   --gl-border-color-subtle: var(--gl-color-neutral-50); /* Used for a border that has a little more definition, or is used in combination with a subtle background. */
   --gl-border-color-default: var(--gl-color-neutral-100); /* Used for the default border color. */
+  --gl-background-color-overlay: var(--gl-color-alpha-dark-24); /* Used for an overlay that covers other content. */
   --gl-background-color-disabled: var(--gl-color-neutral-10); /* Used to identify a disabled section. */
   --gl-background-color-strong: var(--gl-color-neutral-50); /* Used to make the background easily stand out from the default. */
   --gl-background-color-subtle: var(--gl-color-neutral-10); /* Used to slightly differentiate the background from the default. */
