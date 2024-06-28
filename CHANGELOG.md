@@ -1,3 +1,11 @@
+# [85.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.9.0...v85.10.0) (2024-06-28)
+
+
+### Features
+
+* **GlSkeletonLoader:** Create color design tokens ([029c30b](https://gitlab.com/gitlab-org/gitlab-ui/commit/029c30beb6fc33e191656d8871bfb4084627266a))
+* **GlSkeletonLoader:** Use color design tokens ([e03cc91](https://gitlab.com/gitlab-org/gitlab-ui/commit/e03cc91b8f67f135e6aff9683dbd64ea246ac1db))
+
 # [85.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.8.0...v85.9.0) (2024-06-28)
 
 
