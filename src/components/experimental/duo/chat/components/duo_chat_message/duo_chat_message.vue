@@ -199,7 +199,7 @@ export default {
       :aria-label="$options.i18n.MESSAGE_ERROR"
       name="status_warning_borderless"
       :size="16"
-      class="gl-border gl-border-red-500 gl-rounded-full gl-mr-3 gl-flex-shrink-0 error-icon gl-text-red-600"
+      class="gl-border-red-500 gl-rounded-full gl-mr-3 gl-flex-shrink-0 error-icon gl-border gl-text-red-600"
       data-testid="error"
     />
     <div ref="content-wrapper" :class="{ 'has-error': error }">
