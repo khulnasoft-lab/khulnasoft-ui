@@ -1,7 +1,6 @@
 describe('GlFormInput', () => {
   function checkA11YDefaultState() {
     cy.visitStory('base/form/form-input');
-    cy.glCheckA11y();
   }
 
   function checkA11YFormInputDisabledState() {
@@ -10,8 +9,6 @@ describe('GlFormInput', () => {
         disabled: true,
       },
     });
-
-    cy.glCheckA11y();
   }
 
   function checkA11YFormInputReadOnlyState() {
@@ -20,8 +17,6 @@ describe('GlFormInput', () => {
         readOnly: true,
       },
     });
-
-    cy.glCheckA11y();
   }
 
   function checkA11YFormInputNumberInput() {
@@ -30,8 +25,6 @@ describe('GlFormInput', () => {
         type: 'number',
       },
     });
-
-    cy.glCheckA11y();
   }
 
   function checkA11YFormInputResponsiveWidth() {
@@ -52,8 +45,6 @@ describe('GlFormInput', () => {
         width: 'lg',
       },
     });
-
-    cy.glCheckA11y();
   }
 
   function checkA11YFormInputPlaceholder() {

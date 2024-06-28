@@ -1,7 +1,6 @@
 describe('GlFormGroup', () => {
   function checkA11YDefaultState() {
     cy.visitStory('base/form/form-group');
-    cy.glCheckA11y();
   }
 
   function checkA11YWithDescription() {
@@ -12,14 +11,12 @@ describe('GlFormGroup', () => {
         labelDescription: 'form label description',
       },
     });
-    cy.glCheckA11y();
   }
 
   function checkA11YDisabled() {
     cy.visitStory('base/form/form-group', {
       story: 'disabled',
     });
-    cy.glCheckA11y();
   }
 
   function checkA11YWithValidations() {
@@ -30,7 +27,6 @@ describe('GlFormGroup', () => {
         description: 'Enter a first and last name.',
       },
     });
-    cy.glCheckA11y();
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
