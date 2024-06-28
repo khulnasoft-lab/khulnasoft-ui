@@ -506,6 +506,9 @@
   --gl-control-placeholder-color: var(--gl-color-neutral-500); /* Used for placeholder text within inputs. */
   --gl-control-text-color-valid: var(--gl-color-green-400); /* Used for the helper text when the input is valid. */
   --gl-control-text-color-error: var(--gl-color-red-400); /* Used for the helper text when the input is invalid. */
+  --gl-control-border-color-selected-focus: var(--gl-color-blue-200); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) border on focus. */
+  --gl-control-border-color-selected-hover: var(--gl-color-blue-200); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) border on hover. */
+  --gl-control-border-color-selected-default: var(--gl-color-blue-400); /* Used for checked and indeterminate (selected) form control (checkbox, radio button) border. */
   --gl-control-border-color-error: var(--gl-color-red-400); /* Used for invalid form control (input, textarea) border. */
   --gl-control-border-color-disabled: var(--gl-color-neutral-800); /* Used for disabled form control (input, radio button, checkbox, textarea) border. */
   --gl-control-border-color-focus: var(--gl-color-neutral-50); /* Used for form control (input, radio button, checkbox, textarea) border on focus. */
