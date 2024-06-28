@@ -2,26 +2,22 @@ describe('GlPopover', () => {
   describe('stories', () => {
     function checkA11yPopover() {
       cy.visitStory('base/popover');
-
-      cy.glCheckA11y();
     }
 
     function checkA11yPopoverOnClick() {
       cy.visitStory('base/popover', { story: 'on-click' });
-
-      cy.glCheckA11y();
     }
 
     function checkA11yPopoverWithCloseButton() {
       cy.visitStory('base/popover', { story: 'with-close-button' });
-
-      cy.glCheckA11y();
     }
 
     it('passes axe accessbility audits', { tags: '@a11y' }, () => {
-      checkA11yPopover();
-      checkA11yPopoverOnClick();
-      checkA11yPopoverWithCloseButton();
+      cy.glRunA11yTests({
+        checkA11yPopover,
+        checkA11yPopoverOnClick,
+        checkA11yPopoverWithCloseButton,
+      });
     });
   });
 
