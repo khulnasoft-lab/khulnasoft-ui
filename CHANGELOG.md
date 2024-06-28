@@ -1,3 +1,10 @@
+## [85.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.12.0...v85.12.1) (2024-06-28)
+
+
+### Bug Fixes
+
+* **GlBadge:** Fix shrinking in flex layout ([161aaa8](https://gitlab.com/gitlab-org/gitlab-ui/commit/161aaa88196825a84485e4e59347a4838be9b477))
+
 # [85.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.11.0...v85.12.0) (2024-06-28)
 
 
