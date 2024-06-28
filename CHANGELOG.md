@@ -1,3 +1,10 @@
+# [85.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.10.0...v85.11.0) (2024-06-28)
+
+
+### Features
+
+* **GlModal:** Use design tokens for colors ([f488f7d](https://gitlab.com/gitlab-org/gitlab-ui/commit/f488f7d8832ab5460e35fc187a2949fa5e75616f))
+
 # [85.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.9.0...v85.10.0) (2024-06-28)
 
 
