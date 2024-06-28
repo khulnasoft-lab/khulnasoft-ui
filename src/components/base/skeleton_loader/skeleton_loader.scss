@@ -8,10 +8,10 @@
   }
 
   .primary-stop {
-    @include gl-stop-color-gray-100;
+    stop-color: var(--gl-skeleton-loader-background-color);
   }
 
   .secondary-stop {
-    @include gl-stop-color-gray-50;
+    stop-color: var(--gl-skeleton-loader-shimmer-color);
   }
 }
