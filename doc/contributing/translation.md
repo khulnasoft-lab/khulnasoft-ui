@@ -11,7 +11,7 @@ setup:
 * All labels need to be exposed as component props to provide contextual overrides.
   Composite components need to re-expose their children label props so overrides
   can be passed down the components tree.
-* Prop default values should leverage the `translate` utility to extract generic
+* Prop default values should leverage the `translate` or `translatePlural` utility to extract generic
   translations from configuration.
 
 Here's how a translatable component might look like:
@@ -26,8 +26,21 @@ export default {
       type: String,
       required: false,
       // Always fallback on the configuration's generic translation for when no override is needed.
-      default: () => translate('GlBar.ariaLabel', 'Default ARIA label'),
-    }
+      default: translate('GlBar.ariaLabel', 'Default ARIA label'),
+    },
+    // Some labels have parameters that can be printed using sprintf.
+    parameterizedLabel: {
+      type: String,
+      required: false,
+      default: translate('GlBar.parameterizedLabel', 'This is a %{parameter}'),
+    },
+    // Pluralization is also supported using the `translatePlural` helper.
+    // In this case, the value is a Function that receives the number as its only argument.
+    pluralizedLabel: {
+      type: Function,
+      required: false,
+      default: translatePlural('GlBar.pluralizedLabel', '%d result', '%d results'),
+    },
   }
 };
 </script>
@@ -80,15 +93,31 @@ The `translate` helper is what we use to flag translatable labels. It accepts tw
    up with untranslated labels scattered across the app. In development, GitLab UI warns about
    missing generic translations to make this caveat more visible.
 
+## The `translatePlural` helper
+
+The `translatePlural` helper is similar to `translate` but is used to mark pluralizable labels for
+translation. This ones accepts the parameters:
+
+1. The translation key.
+2. The default, US English singular label.
+3. The default, US English plural label.
+
+`translatePlural` returns a function that receives a number as its only argument. The argument can
+be used to pick between the singular and plural label. By default, the singular label is picked if
+the argument is `1`. Otherwise, the plural label is used.
+
+Both labels can print the argument by including the `%d` placeholder.
+
 ## Setting generic translations
 
-Generic translations must be provided at configuration time. If a label has been setup with
-`translate('GlBar.ariaLabel', 'Default ARIA label')`, the generic translation can be provided as such:
+Generic translations must be provided at configuration time:
 
 ```js
 setConfigs({
   translations: {
     'GlBar.ariaLabel': __('GlBar generic ARIA label'),
+    'GlBar.parameterizedLabel': __('GlBar generic %{parameter}'),
+    'GlBar.pluralizedLabel': (n) => n__('merge request', 'merge requests', n),
   },
 });
 ```
