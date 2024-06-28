@@ -1,3 +1,10 @@
+# [85.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.11.0...v85.12.0) (2024-06-28)
+
+
+### Features
+
+* **i18n:** add support for parameterized/pluralized translations ([468e66d](https://gitlab.com/gitlab-org/gitlab-ui/commit/468e66d068913b392e0b4e5497650f57a8240f5c))
+
 # [85.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.10.0...v85.11.0) (2024-06-28)
 
 
