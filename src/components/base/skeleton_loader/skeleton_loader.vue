@@ -169,7 +169,7 @@ export default {
                 createElement(
                   'stop',
                   {
-                    class: 'primary-stop',
+                    class: 'background-stop',
                     attrs: {
                       offset: '0%',
                     },
@@ -188,7 +188,7 @@ export default {
                 createElement(
                   'stop',
                   {
-                    class: 'secondary-stop',
+                    class: 'shimmer-stop',
                     attrs: {
                       offset: '50%',
                     },
@@ -207,7 +207,7 @@ export default {
                 createElement(
                   'stop',
                   {
-                    class: 'primary-stop',
+                    class: 'background-stop',
                     attrs: {
                       offset: '100%',
                     },
