@@ -4,7 +4,6 @@ import {
   mockDefaultStackedBarData,
   mockSecondaryData,
 } from '../../../utils/charts/mock_data';
-import { toolbox } from '../../../utils/charts/story_config';
 import { columnOptions } from '../../../utils/constants';
 import {
   DATA_VIZ_ORANGE_600,
@@ -95,9 +94,7 @@ WithZoomAndScroll.args = generateProps({
 
 export const WithToolbox = Template.bind({});
 WithToolbox.args = generateProps({
-  option: {
-    toolbox,
-  },
+  option: { toolbox: { show: true } },
 });
 
 export const SecondaryYAxis = Template.bind({});

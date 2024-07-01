@@ -1,5 +1,4 @@
 import { GlHeatmap } from '../../../charts';
-import { toolbox } from '../../../utils/charts/story_config';
 import { disableControls } from '../../../utils/stories_utils';
 
 function generateData() {
@@ -61,7 +60,7 @@ export const Default = Template.bind({});
 Default.args = generateProps();
 
 export const WithToolbox = Template.bind({});
-WithToolbox.args = generateProps({ options: { toolbox } });
+WithToolbox.args = generateProps({ options: { toolbox: { show: true } } });
 
 export default {
   title: 'charts/heatmap',

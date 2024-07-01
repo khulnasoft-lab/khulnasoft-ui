@@ -1,30 +1,6 @@
 import times from 'lodash/times';
 import { SERIES_NAME, SERIES_NAME_SHORT } from '../stories_constants';
-
-import {
-  marqueeSelectionSvgPath,
-  redoSvgPath,
-  clearAllSvgPath,
-  downloadSvgPath,
-} from '../svgs/svg_paths';
 import { colorFromDefaultPalette } from './theme';
-
-export const toolbox = {
-  feature: {
-    dataZoom: {
-      icon: {
-        zoom: marqueeSelectionSvgPath,
-        back: redoSvgPath,
-      },
-    },
-    restore: {
-      icon: clearAllSvgPath,
-    },
-    saveAsImage: {
-      icon: downloadSvgPath,
-    },
-  },
-};
 
 /**
  * Generates series data for usage in chart examples

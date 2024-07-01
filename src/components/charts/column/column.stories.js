@@ -5,7 +5,6 @@ import {
   mockSecondaryBarData,
   mockSecondaryTrendlineData,
 } from '../../../utils/charts/mock_data';
-import { toolbox } from '../../../utils/charts/story_config';
 
 const template = (content = '') => `
   <gl-column-chart
@@ -73,9 +72,7 @@ WithZoomAndScroll.args = generateProps({
 
 export const WithToolbox = Template.bind({});
 WithToolbox.args = generateProps({
-  option: {
-    toolbox,
-  },
+  option: { toolbox: { show: true } },
 });
 
 export const SecondaryYAxis = Template.bind({});

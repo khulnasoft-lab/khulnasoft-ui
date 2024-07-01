@@ -64,7 +64,13 @@ import {
   DATA_VIZ_ORANGE_950,
   DATA_VIZ_ORANGE_900,
 } from '../../tokens/build/js/tokens';
-import { scrollHandleSvgPath } from '../svgs/svg_paths';
+import {
+  scrollHandleSvgPath,
+  marqueeSelectionSvgPath,
+  redoSvgPath,
+  clearAllSvgPath,
+  downloadSvgPath,
+} from '../svgs/svg_paths';
 import { hexToRgba } from '../utils';
 
 const GL_BORDER_RADIUS_BASE = '0.25rem';
@@ -285,13 +291,19 @@ export const createTheme = (options = {}) => ({
           zoom: 'Click to zoom in on a portion of the graph',
           back: 'Remove selection',
         },
+        icon: {
+          zoom: marqueeSelectionSvgPath,
+          back: redoSvgPath,
+        },
       },
       restore: {
         title: 'Remove all selections and return chart to default state',
+        icon: clearAllSvgPath,
       },
       saveAsImage: {
         title: 'Save chart as an image',
         name: 'graph',
+        icon: downloadSvgPath,
       },
     },
   },

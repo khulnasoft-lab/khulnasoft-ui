@@ -17,7 +17,7 @@ import { debounceByAnimationFrame } from '../../../utils/utils';
  */
 const sizeValidator = (size) => Number.isFinite(size) || size === 'auto' || size == null;
 
-const isChartWithToolbox = (options) => options?.toolbox !== undefined;
+const isChartWithToolbox = (options) => Boolean(options?.toolbox?.show);
 
 const increaseChartGridTop = (options, increaseBy) => ({
   ...options,

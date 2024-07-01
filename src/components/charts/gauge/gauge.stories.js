@@ -1,4 +1,3 @@
-import { toolbox } from '../../../utils/charts/story_config';
 import readme from './gauge.md';
 import GlGauge from './gauge.vue';
 
@@ -9,7 +8,7 @@ const template = `
     :max="max"
     :thresholds="thresholds"
     :text="text"
-    :splitNumber="splitNumber"
+    :split-number="splitNumber"
     :option="option"
     :height="height"
   />
@@ -79,9 +78,7 @@ WithNaNValues.args = generateProps({
 
 export const WithToolbox = Template.bind({});
 WithToolbox.args = generateProps({
-  option: {
-    toolbox,
-  },
+  option: { toolbox: { show: true } },
 });
 
 export default {

@@ -1,6 +1,5 @@
 import { GlLineChart } from '../../../charts';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
-import { toolbox } from '../../../utils/charts/story_config';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
 import { disableControls } from '../../../utils/stories_utils';
@@ -177,7 +176,7 @@ WithToolbox.args = generateProps({
       name: 'Time',
       type: 'category',
     },
-    toolbox,
+    toolbox: { show: true },
   },
 });
 
