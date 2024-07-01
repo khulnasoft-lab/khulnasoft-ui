@@ -240,12 +240,12 @@ const iconColors = {
   success: 'var(--gl-icon-color-success, var(--gl-color-green-600, #217645))',
 };
 const alphaDarkColors = {
-  2: 'var(--gl-color-alpha-dark-2, rgba(31, 30, 36, 0.02))',
-  4: 'var(--gl-color-alpha-dark-4, rgba(31, 30, 36, 0.04))',
-  6: 'var(--gl-color-alpha-dark-6, rgba(31, 30, 36, 0.06))',
-  8: 'var(--gl-color-alpha-dark-8, rgba(31, 30, 36, 0.08))',
-  16: 'var(--gl-color-alpha-dark-16, rgba(31, 30, 36, 0.16))',
-  24: 'var(--gl-color-alpha-dark-24, rgba(31, 30, 36, 0.24))',
+  2: 'var(--gl-color-alpha-dark-2, rgba(24, 23, 29, 0.02))',
+  4: 'var(--gl-color-alpha-dark-4, rgba(24, 23, 29, 0.04))',
+  6: 'var(--gl-color-alpha-dark-6, rgba(24, 23, 29, 0.06))',
+  8: 'var(--gl-color-alpha-dark-8, rgba(24, 23, 29, 0.08))',
+  16: 'var(--gl-color-alpha-dark-16, rgba(24, 23, 29, 0.16))',
+  24: 'var(--gl-color-alpha-dark-24, rgba(24, 23, 29, 0.24))',
 };
 const alphaLightColors = {
   2: 'var(--gl-color-alpha-light-2, rgba(255, 255, 255, 0.02))',
@@ -285,7 +285,7 @@ const colors = {
   current: 'currentColor',
   transparent: 'transparent',
   white: 'var(--white, #fff)',
-  black: 'var(--black, #000)',
+  black: 'var(--black, #050506)',
   alpha: {
     dark: { ...alphaDarkColors },
     light: { ...alphaLightColors },

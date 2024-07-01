@@ -2666,12 +2666,12 @@
       },
       "dark": {
         "2": {
-          "value": "rgba(31, 30, 36, 0.02)",
+          "value": "rgba(24, 23, 29, 0.02)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(31, 30, 36, 0.02)",
+            "value": "rgba(24, 23, 29, 0.02)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_2",
@@ -2684,12 +2684,12 @@
           ]
         },
         "4": {
-          "value": "rgba(31, 30, 36, 0.04)",
+          "value": "rgba(24, 23, 29, 0.04)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(31, 30, 36, 0.04)",
+            "value": "rgba(24, 23, 29, 0.04)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_4",
@@ -2702,12 +2702,12 @@
           ]
         },
         "6": {
-          "value": "rgba(31, 30, 36, 0.06)",
+          "value": "rgba(24, 23, 29, 0.06)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(31, 30, 36, 0.06)",
+            "value": "rgba(24, 23, 29, 0.06)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_6",
@@ -2720,12 +2720,12 @@
           ]
         },
         "8": {
-          "value": "rgba(31, 30, 36, 0.08)",
+          "value": "rgba(24, 23, 29, 0.08)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(31, 30, 36, 0.08)",
+            "value": "rgba(24, 23, 29, 0.08)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_8",
@@ -2738,12 +2738,12 @@
           ]
         },
         "16": {
-          "value": "rgba(31, 30, 36, 0.16)",
+          "value": "rgba(24, 23, 29, 0.16)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(31, 30, 36, 0.16)",
+            "value": "rgba(24, 23, 29, 0.16)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_16",
@@ -2756,12 +2756,12 @@
           ]
         },
         "24": {
-          "value": "rgba(31, 30, 36, 0.24)",
+          "value": "rgba(24, 23, 29, 0.24)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(31, 30, 36, 0.24)",
+            "value": "rgba(24, 23, 29, 0.24)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_24",
@@ -8669,7 +8669,7 @@
     "isSource": true,
     "original": {
       "value": {
-        "default": "#000",
+        "default": "#050506",
         "dark": "#fff"
       },
       "$type": "color",
@@ -10519,7 +10519,7 @@
   },
   "t-gray-a": {
     "16": {
-      "value": "rgba(31, 30, 36, 0.16)",
+      "value": "rgba(24, 23, 29, 0.16)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10527,7 +10527,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(31, 30, 36, 0.16)",
+        "value": "rgba(24, 23, 29, 0.16)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10541,7 +10541,7 @@
       ]
     },
     "24": {
-      "value": "rgba(31, 30, 36, 0.24)",
+      "value": "rgba(24, 23, 29, 0.24)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10549,7 +10549,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(31, 30, 36, 0.24)",
+        "value": "rgba(24, 23, 29, 0.24)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10563,7 +10563,7 @@
       ]
     },
     "02": {
-      "value": "rgba(31, 30, 36, 0.02)",
+      "value": "rgba(24, 23, 29, 0.02)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10571,7 +10571,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(31, 30, 36, 0.02)",
+        "value": "rgba(24, 23, 29, 0.02)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10585,7 +10585,7 @@
       ]
     },
     "04": {
-      "value": "rgba(31, 30, 36, 0.04)",
+      "value": "rgba(24, 23, 29, 0.04)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10593,7 +10593,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(31, 30, 36, 0.04)",
+        "value": "rgba(24, 23, 29, 0.04)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10607,7 +10607,7 @@
       ]
     },
     "06": {
-      "value": "rgba(31, 30, 36, 0.06)",
+      "value": "rgba(24, 23, 29, 0.06)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10615,7 +10615,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(31, 30, 36, 0.06)",
+        "value": "rgba(24, 23, 29, 0.06)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10629,7 +10629,7 @@
       ]
     },
     "08": {
-      "value": "rgba(31, 30, 36, 0.08)",
+      "value": "rgba(24, 23, 29, 0.08)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10637,7 +10637,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(31, 30, 36, 0.08)",
+        "value": "rgba(24, 23, 29, 0.08)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
