@@ -537,6 +537,36 @@ $gl-background-color-disabled: $gl-color-neutral-10; // Used to identify a disab
 $gl-background-color-strong: $gl-color-neutral-50; // Used to make the background easily stand out from the default.
 $gl-background-color-subtle: $gl-color-neutral-10; // Used to slightly differentiate the background from the default.
 $gl-background-color-default: $gl-color-neutral-0; // Used for the default background color.
+$gl-action-danger-icon-color-strong: $gl-color-neutral-0; // Used for the icon on a solid, strong danger (destructive) action background.
+$gl-action-danger-icon-color-active: $gl-color-red-900; // Used for the icon of a danger (destructive) action in the active state.
+$gl-action-danger-icon-color-focus: $gl-color-red-700; // Used for the icon of a danger (destructive) action in the focus state.
+$gl-action-danger-icon-color-hover: $gl-color-red-700; // Used for the icon of a danger (destructive) action in the hover state.
+$gl-action-danger-icon-color-default: $gl-color-red-500; // Used for the icon of a danger (destructive) action in the default state.
+$gl-action-danger-text-color-strong: $gl-color-neutral-0; // Used for the text on a solid, strong danger (destructive) action background.
+$gl-action-danger-text-color-active: $gl-color-red-900; // Used for the text of a danger (destructive) action in the active state.
+$gl-action-danger-text-color-focus: $gl-color-red-700; // Used for the text of a danger (destructive) action in the focus state.
+$gl-action-danger-text-color-hover: $gl-color-red-700; // Used for the text of a danger (destructive) action in the hover state.
+$gl-action-danger-text-color-default: $gl-color-red-500; // Used for the text of a danger (destructive) action in the default state.
+$gl-action-danger-border-color-strong-active: $gl-color-red-900; // Used for the border of a solid, strong danger (destructive) action in the active state.
+$gl-action-danger-border-color-strong-focus: $gl-color-red-800; // Used for the border of a solid, strong danger (destructive) action in the focus state.
+$gl-action-danger-border-color-strong-hover: $gl-color-red-800; // Used for the border of a solid, strong danger (destructive) action in the hover state.
+$gl-action-danger-border-color-strong-default: $gl-color-red-600; // Used for the border of a solid, strong danger (destructive) action in the default state.
+$gl-action-danger-border-color-active: $gl-color-red-900; // Used for the border of an outlined danger (destructive) action in the active state.
+$gl-action-danger-border-color-focus: $gl-color-red-700; // Used for the border of an outlined danger (destructive) action in the focus state.
+$gl-action-danger-border-color-hover: $gl-color-red-700; // Used for the border of an outlined danger (destructive) action in the hover state.
+$gl-action-danger-border-color-default: $gl-color-red-500; // Used for the border of an outlined danger (destructive) action in the default state.
+$gl-action-danger-background-color-strong-active: $gl-color-red-800; // Used for the background of a solid, strong danger (destructive) action in the active state.
+$gl-action-danger-background-color-strong-focus: $gl-color-red-600; // Used for the background of a solid, strong danger (destructive) action in the focus state.
+$gl-action-danger-background-color-strong-hover: $gl-color-red-600; // Used for the background of a solid, strong danger (destructive) action in the hover state.
+$gl-action-danger-background-color-strong-default: $gl-color-red-500; // Used for the background of a solid, strong danger (destructive) action in the default state.
+$gl-action-danger-background-color-subtle-active: $gl-color-red-100; // Used for the background of a borderless, subtle danger (destructive) action in the active state.
+$gl-action-danger-background-color-subtle-focus: $gl-color-red-50; // Used for the background of a borderless, subtle danger (destructive) action in the focus state.
+$gl-action-danger-background-color-subtle-hover: $gl-color-red-50; // Used for the background of a borderless, subtle danger (destructive) action in the hover state.
+$gl-action-danger-background-color-subtle-default: $gl-color-alpha-0; // Used for the background of a borderless, subtle danger (destructive) action in the default state.
+$gl-action-danger-background-color-active: $gl-color-red-100; // Used for the background of an outlined danger (destructive) action in the active state.
+$gl-action-danger-background-color-focus: $gl-color-red-50; // Used for the background of an outlined danger (destructive) action in the focus state.
+$gl-action-danger-background-color-hover: $gl-color-red-50; // Used for the background of an outlined danger (destructive) action in the hover state.
+$gl-action-danger-background-color-default: $gl-color-neutral-0; // Used for the background of an outlined danger (destructive) action in the default state.
 $gl-action-confirm-icon-color-strong: $gl-color-neutral-0; // Used for the icon on a solid, strong confirm (positive) action background.
 $gl-action-confirm-icon-color-active: $gl-color-blue-900; // Used for the icon of a confirm (positive) action in the active state.
 $gl-action-confirm-icon-color-focus: $gl-color-blue-700; // Used for the icon of a confirm (positive) action in the focus state.
