@@ -1,3 +1,10 @@
+## [85.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.12.1...v85.12.2) (2024-07-01)
+
+
+### Bug Fixes
+
+* **DuoChat:** don't show cancel button on clear command ([229f81c](https://gitlab.com/gitlab-org/gitlab-ui/commit/229f81c6ffc178a86304a5db76561c048dea6770))
+
 ## [85.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.12.0...v85.12.1) (2024-06-28)
 
 
