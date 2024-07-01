@@ -14,7 +14,12 @@ import {
   SLASH_COMMANDS as slashCommands,
 } from './mock_data';
 
-import { MESSAGE_MODEL_ROLES, CHAT_RESET_MESSAGE, CHAT_CLEAN_MESSAGE } from './constants';
+import {
+  MESSAGE_MODEL_ROLES,
+  CHAT_RESET_MESSAGE,
+  CHAT_CLEAN_MESSAGE,
+  CHAT_CLEAR_MESSAGE,
+} from './constants';
 
 const invalidSlashCommands = [
   {
@@ -487,13 +492,26 @@ describe('GlDuoChat', () => {
       });
     });
 
-    describe('clean', () => {
+    describe('clean / clear', () => {
       it('does not render cancel button on clean', async () => {
         createComponent({
           propsData: { messages, isChatAvailable: true },
           mountFn: mount,
         });
         setPromptInput(CHAT_CLEAN_MESSAGE);
+        clickSubmit();
+
+        await nextTick();
+        expect(findSubmitButton().exists()).toBe(true);
+        expect(findCancelButton().exists()).toBe(false);
+      });
+
+      it('does not render cancel button on clear', async () => {
+        createComponent({
+          propsData: { messages, isChatAvailable: true },
+          mountFn: mount,
+        });
+        setPromptInput(CHAT_CLEAR_MESSAGE);
         clickSubmit();
 
         await nextTick();
