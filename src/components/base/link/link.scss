@@ -1,8 +1,14 @@
 .gl-link {
   @include gl-text-blue-500;
+  border-radius: $gl-border-radius-base;
+  text-decoration: .12em underline rgba($blue-500, .5);
+  transition: color 200ms $gl-easing-out-cubic,
+              text-decoration 200ms $gl-easing-out-cubic,
+              outline 100ms $gl-easing-out-cubic;
 
   &:hover {
     @include gl-text-blue-500;
+    text-decoration: .12em underline $blue-500;
   }
 
   &:active {
@@ -12,7 +18,11 @@
   &:active,
   &:focus,
   &:focus:active {
-    @include gl-text-decoration-underline;
     @include gl-focus($outline: true, $outline-offset: $outline-width);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gl-link {
+      transition-duration: .01ms;
   }
 }
