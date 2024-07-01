@@ -18,18 +18,6 @@
   fill: $blue-500;
 }
 
-@mixin gl-stop-color-gray-50 {
-  stop-color: $gray-50;
-}
-
-@mixin gl-stop-color-gray-100 {
-  stop-color: $gray-100;
-}
-
-@mixin gl-stop-color-gray-200 {
-  stop-color: $gray-200;
-}
-
 @mixin gl-stroke-white {
   stroke: $white;
 }
