@@ -715,9 +715,6 @@ JavaScript files.
 <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
 <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
 
-<!-- Load polyfills to support older browsers -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
-
 <!-- Load Vue followed by BootstrapVue -->
 <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
 <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
@@ -840,10 +837,6 @@ import 'intersection-observer' // Optional
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 ```
-
-Alternatively, use [Polyfill.io](https://polyfill.io/) to dynamically serve browser specific
-polyfills via `<script>` tags in the HTML `<head>` section. See the [Browser](#browser) section
-above for an example.
 
 ## Tooling support
 
