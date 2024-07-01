@@ -60,7 +60,7 @@ export default {
       return this.dismissible || this.type === TYPE_NOTIFICATION;
     },
     isDismissButtonColorInherit() {
-      return this.theme !== 'light';
+      return this.theme !== 'light' && this.type !== TYPE_NOTIFICATION;
     },
     dismissButtonClasses() {
       return [
