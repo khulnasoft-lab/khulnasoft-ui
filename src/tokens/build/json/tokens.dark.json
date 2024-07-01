@@ -11228,6 +11228,160 @@
       }
     }
   },
+  "close-button": {
+    "background": {
+      "color": {
+        "default": {
+          "value": "transparent",
+          "$type": "color",
+          "filePath": "src/tokens/contextual/close_button.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.alpha.0}",
+            "$type": "color"
+          },
+          "name": "CLOSE_BUTTON_BACKGROUND_COLOR_DEFAULT",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "background",
+            "color",
+            "default"
+          ]
+        },
+        "hover": {
+          "value": "#ececef",
+          "$type": "color",
+          "filePath": "src/tokens/contextual/close_button.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.50}",
+            "$type": "color"
+          },
+          "name": "CLOSE_BUTTON_BACKGROUND_COLOR_HOVER",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "background",
+            "color",
+            "hover"
+          ]
+        },
+        "focus": {
+          "value": "#ececef",
+          "$type": "color",
+          "filePath": "src/tokens/contextual/close_button.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.50}",
+            "$type": "color"
+          },
+          "name": "CLOSE_BUTTON_BACKGROUND_COLOR_FOCUS",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "background",
+            "color",
+            "focus"
+          ]
+        },
+        "active": {
+          "value": "#dcdcde",
+          "$type": "color",
+          "filePath": "src/tokens/contextual/close_button.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.100}",
+            "$type": "color"
+          },
+          "name": "CLOSE_BUTTON_BACKGROUND_COLOR_ACTIVE",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "background",
+            "color",
+            "active"
+          ]
+        }
+      }
+    },
+    "icon": {
+      "color": {
+        "default": {
+          "value": "#fff",
+          "$type": "color",
+          "filePath": "src/tokens/contextual/close_button.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.0}",
+            "$type": "color"
+          },
+          "name": "CLOSE_BUTTON_ICON_COLOR_DEFAULT",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "icon",
+            "color",
+            "default"
+          ]
+        },
+        "hover": {
+          "value": "#18171d",
+          "$type": "color",
+          "filePath": "src/tokens/contextual/close_button.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.950}",
+            "$type": "color"
+          },
+          "name": "CLOSE_BUTTON_ICON_COLOR_HOVER",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "icon",
+            "color",
+            "hover"
+          ]
+        },
+        "focus": {
+          "value": "#18171d",
+          "$type": "color",
+          "filePath": "src/tokens/contextual/close_button.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.950}",
+            "$type": "color"
+          },
+          "name": "CLOSE_BUTTON_ICON_COLOR_FOCUS",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "icon",
+            "color",
+            "focus"
+          ]
+        },
+        "active": {
+          "value": "#18171d",
+          "$type": "color",
+          "filePath": "src/tokens/contextual/close_button.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{color.neutral.950}",
+            "$type": "color"
+          },
+          "name": "CLOSE_BUTTON_ICON_COLOR_ACTIVE",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "icon",
+            "color",
+            "active"
+          ]
+        }
+      }
+    }
+  },
   "datepicker": {
     "date": {
       "text": {

@@ -1,0 +1,44 @@
+{
+  "close-button": {
+    "background": {
+      "color": {
+        "default": {
+          "$value": "{color.alpha.0}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{color.neutral.50}",
+          "$type": "color"
+        },
+        "focus": {
+          "$value": "{color.neutral.50}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{color.neutral.100}",
+          "$type": "color"
+        }
+      }
+    },
+    "icon": {
+      "color": {
+        "default": {
+          "$value": "{color.neutral.0}",
+          "$type": "color"
+        },
+        "hover": {
+          "$value": "{color.neutral.950}",
+          "$type": "color"
+        },
+        "focus": {
+          "$value": "{color.neutral.950}",
+          "$type": "color"
+        },
+        "active": {
+          "$value": "{color.neutral.950}",
+          "$type": "color"
+        }
+      }
+    }
+  }
+}

@@ -509,6 +509,14 @@
   --gl-label-light-button-background-color-hover: var(--gl-color-neutral-950); /* Used for the label remove button background on a light background color in the hover state. */
   --gl-label-light-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label remove button background on a light background color in the default state. */
   --gl-label-light-text-color: var(--gl-color-neutral-950); /* Used for the label text color on a light background color. */
+  --gl-close-button-icon-color-active: var(--gl-color-neutral-950);
+  --gl-close-button-icon-color-focus: var(--gl-color-neutral-950);
+  --gl-close-button-icon-color-hover: var(--gl-color-neutral-950);
+  --gl-close-button-icon-color-default: var(--gl-color-neutral-0);
+  --gl-close-button-background-color-active: var(--gl-color-neutral-100);
+  --gl-close-button-background-color-focus: var(--gl-color-neutral-50);
+  --gl-close-button-background-color-hover: var(--gl-color-neutral-50);
+  --gl-close-button-background-color-default: var(--gl-color-alpha-0);
   --gl-button-disabled-border-color: var(--gl-color-neutral-800); /* Used for the border of a disabled button. */
   --gl-button-disabled-background-color: var(--gl-color-neutral-950); /* Used for the background of a disabled button. */
   --gl-button-disabled-foreground-color: var(--gl-color-neutral-400); /* Used for the foreground of a disabled button. */

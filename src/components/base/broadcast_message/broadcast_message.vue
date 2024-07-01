@@ -59,6 +59,15 @@ export default {
     showDismissButton() {
       return this.dismissible || this.type === TYPE_NOTIFICATION;
     },
+    isDismissButtonColorInherit() {
+      return this.theme !== 'light';
+    },
+    dismissButtonClasses() {
+      return [
+        this.isDismissButtonColorInherit && 'gl-close-btn-color-inherit',
+        'gl-broadcast-message-dismiss',
+      ];
+    },
   },
   methods: {
     onDismiss() {
@@ -89,7 +98,7 @@ export default {
     <close-button
       v-if="showDismissButton"
       ref="dismiss"
-      class="gl-close-btn-color-inherit gl-broadcast-message-dismiss"
+      :class="dismissButtonClasses"
       :label="dismissLabel"
       @click="onDismiss"
     />

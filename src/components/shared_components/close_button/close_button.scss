@@ -1,21 +1,24 @@
 .gl-close-btn-color-inherit {
-  mix-blend-mode: luminosity !important;
+  color: var(--gl-close-button-icon-color-default) !important;
+  background-color: var(--gl-close-button-background-color-default) !important;
+  mix-blend-mode: initial !important;
 
-  &,
-  &:focus .gl-icon,
-  &:not(:hover) .gl-icon {
+  .gl-icon {
     color: inherit !important;
   }
 
-  &:focus,
-  &:active,
-  &.active {
-    mix-blend-mode: initial !important;
-    @include gl-focus($important: true, $focus-ring: $focus-ring-dark);
+  &:hover {
+    color: var(--gl-close-button-icon-color-hover) !important;
+    background-color: var(--gl-close-button-background-color-hover) !important;
+  }
 
-    .gl-icon {
-      background-color: transparent;
-      mix-blend-mode: difference;
-    }
+  &:focus {
+    color: var(--gl-close-button-icon-color-focus) !important;
+    background-color: var(--gl-close-button-background-color-focus) !important;
+  }
+
+  &:active {
+    color: var(--gl-close-button-icon-color-active) !important;
+    background-color: var(--gl-close-button-background-color-active) !important;
   }
 }
