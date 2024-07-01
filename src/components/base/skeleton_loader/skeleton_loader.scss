@@ -7,11 +7,11 @@
     @include gl-opacity-10;
   }
 
-  .primary-stop {
+  .background-stop {
     stop-color: var(--gl-skeleton-loader-background-color);
   }
 
-  .secondary-stop {
+  .shimmer-stop {
     stop-color: var(--gl-skeleton-loader-shimmer-color);
   }
 }
