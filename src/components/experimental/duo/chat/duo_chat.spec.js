@@ -199,6 +199,13 @@ describe('GlDuoChat', () => {
         expect(findChatConversations().at(0).props('showDelimiter')).toEqual(false);
         expect(findChatConversations().at(1).props('showDelimiter')).toEqual(true);
       });
+
+      it('correctly passes payload when insert-code-snippet event is emitted from a conversation', () => {
+        createComponent({ propsData: { messages } });
+
+        findChatConversations().at(0).vm.$emit('insert-code-snippet', 'foo');
+        expect(wrapper.emitted()['insert-code-snippet'][0]).toEqual(['foo']);
+      });
     });
 
     describe('slots', () => {

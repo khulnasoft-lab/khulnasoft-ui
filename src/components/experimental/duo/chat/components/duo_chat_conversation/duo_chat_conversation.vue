@@ -30,6 +30,13 @@ export default {
       required: true,
     },
     /**
+     * Whether the insertCode feature should be available.
+     */
+    enableCodeInsertion: {
+      type: Boolean,
+      required: true,
+    },
+    /**
      * Whether to show the delimiter before this conversation
      */
     showDelimiter: {
@@ -46,12 +53,20 @@ export default {
        */
       this.$emit('track-feedback', event);
     },
+    onInsertCodeSnippet(e) {
+      this.$emit('insert-code-snippet', e);
+    },
   },
   i18n,
 };
 </script>
 <template>
-  <div class="gl-display-flex gl-flex-direction-column gl-justify-content-end">
+  <div
+    :class="[
+      'gl-display-flex gl-flex-direction-column gl-justify-content-end',
+      { 'insert-code-hidden': !enableCodeInsertion },
+    ]"
+  >
     <div
       v-if="showDelimiter"
       class="gl-my-5 gl-display-flex gl-align-items-center gl-gap-4 gl-text-gray-500"
@@ -67,6 +82,7 @@ export default {
       :message="msg"
       :is-cancelled="canceledRequestIds.includes(msg.requestId)"
       @track-feedback="onTrackFeedback"
+      @insert-code-snippet="onInsertCodeSnippet"
     />
   </div>
 </template>

@@ -21,7 +21,8 @@
     @include gl-mb-0;
   }
 
-  copy-code {
+  copy-code,
+  insert-code-snippet {
     position: absolute;
     @include gl-transition-medium;
     @include gl-opacity-0;
@@ -29,9 +30,15 @@
     top: $gl-spacing-scale-3;
   }
 
+  copy-code {
+    margin-right: $gl-spacing-scale-8;
+  }
+
   .js-markdown-code.markdown-code-block:hover {
     copy-code,
-    copy-code:focus-within {
+    copy-code:focus-within,
+    insert-code-snippet,
+    insert-code-snippet:focus-within {
       @include gl-opacity-10;
     }
   }
@@ -43,5 +50,15 @@
   .error-icon {
     top: 14px;
     position: absolute;
+  }
+}
+
+.insert-code-hidden {
+  insert-code-snippet {
+    display: none;
+  }
+
+  copy-code {
+    margin-right: 0;
   }
 }
