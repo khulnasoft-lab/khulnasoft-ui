@@ -30,7 +30,6 @@
     "prebuild": "run-s build-tokens generate-utilities",
     "prepare": "run-s build-tokens generate-utilities",
     "generate-utilities": "make src/scss/utilities.scss",
-    "deprecate-gl-utils": "node ./bin/deprecate_utils.js",
     "copy-fonts": "make copy-fonts",
     "build-tokens": "node ./bin/build_tokens.js",
     "clean": "rm -r dist storybook src/scss/utilities.scss",
