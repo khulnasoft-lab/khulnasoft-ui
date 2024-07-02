@@ -221,12 +221,13 @@ $gl-easing-out-cubic: cubic-bezier(0.22, 0.61, 0.36, 1);
 $outline-offset: 1px;
 $outline-width: 2px;
 $outline: #{$outline-offset + $outline-width};
-$focus-ring: 0 0 0 $outline-offset $white, 0 0 0 #{$outline-offset + $outline-width} $blue-400;
-$focus-ring-inset: inset 0 0 0 #{$outline-width + $outline-offset} $white,
-  inset 0 0 0 $outline-offset $white;
+$focus-ring: 0 0 0 $outline-offset var(--gl-focus-ring-inner-color),
+  0 0 0 #{$outline-offset + $outline-width} var(--gl-focus-ring-outer-color);
+$focus-ring-inset: inset 0 0 0 #{$outline-width + $outline-offset} var(--gl-focus-ring-inner-color),
+  inset 0 0 0 $outline-offset var(--gl-focus-ring-inner-color);
 $focus-ring-dark: 0 0 0 $outline-offset rgba($black, 0.6),
   0 0 0 #{$outline-offset + $outline-width} $blue-300;
-$focus-ring-outline: $outline-width solid $blue-400;
+$focus-ring-outline: $outline-width solid var(--gl-focus-ring-outer-color);
 
 // Toasts
 $toast-max-width: px-to-rem(586px);

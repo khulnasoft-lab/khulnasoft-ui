@@ -54,8 +54,8 @@
 ) {
   @if $inset == true {
     @if $color {
-      box-shadow: inset 0 0 0 $outline-width $blue-400,
-        inset 0 0 0 #{$outline-width + $outline-offset} $white,
+      box-shadow: inset 0 0 0 $outline-width var(--gl-focus-ring-outer-color),
+        inset 0 0 0 #{$outline-width + $outline-offset} var(--gl-focus-ring-inner-color),
         inset 0 0 0 #{$outline-width + $outline-offset + 1px} $color,
         $focus-ring-inset if-important($important);
       outline: none if-important($important);
@@ -66,7 +66,8 @@
       outline: $focus-ring-outline if-important($important);
       outline-offset: $outline-offset;
     } @else {
-      box-shadow: inset 0 0 0 $outline-width $blue-400, $focus-ring-inset if-important($important);
+      box-shadow: inset 0 0 0 $outline-width var(--gl-focus-ring-outer-color),
+        $focus-ring-inset if-important($important);
       outline: none if-important($important);
       @media (forced-colors: active) {
         outline: 2px solid LinkText if-important($important);
