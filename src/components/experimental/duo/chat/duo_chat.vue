@@ -84,6 +84,9 @@ export default {
       default: () => [],
       validator: itemsValidator,
     },
+    /**
+     * Array of RequestIds that have been canceled.
+     */
     canceledRequestIds: {
       type: Array,
       required: false,
