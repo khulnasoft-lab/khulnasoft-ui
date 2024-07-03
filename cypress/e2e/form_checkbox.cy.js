@@ -47,6 +47,17 @@ describe('GlFormCheckbox', () => {
     cy.get(disabledOption).should('not.be.checked');
   }
 
+  function checkA11yDisabledStateWithHelpText() {
+    const disabledOption = 'input[value="disabled-option-with-help-text"]';
+    const disabledOptionLabel = 'input[value="disabled-option-with-help-text"] + label';
+
+    cy.get(disabledOption).should('not.be.checked');
+    cy.get(disabledOption).should('be.disabled');
+    cy.get(disabledOptionLabel).click();
+    cy.get(disabledOption).should('not.be.checked');
+    cy.get(disabledOption).next().contains('help');
+  }
+
   function checkA11yCheckedAndDisabled() {
     const checkedAndDisabledOption = 'input[value="checked-disabled-option"]';
     const checkedAndDisabledOptionLabel = 'input[value="checked-disabled-option"] + label';
@@ -63,6 +74,7 @@ describe('GlFormCheckbox', () => {
       checkA11yWithHelpText,
       checkA11yCheckedState,
       checkA11yDisabledState,
+      checkA11yDisabledStateWithHelpText,
       checkA11yCheckedAndDisabled,
     });
   });

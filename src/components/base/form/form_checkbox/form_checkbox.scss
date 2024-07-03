@@ -15,7 +15,7 @@
 .gl-form-radio {
   @include gl-font-base;
   @include gl-line-height-normal;
-  @include gl-text-gray-900;
+  color: var(--gl-text-color-default);
 
   &.form-check {
     @include gl-display-flex;
@@ -45,9 +45,10 @@
   .form-check-input:disabled,
   .form-check-input:disabled ~ .form-check-label,
   .custom-control-input:disabled,
-  .custom-control-input:disabled ~ .custom-control-label {
+  .custom-control-input:disabled ~ .custom-control-label,
+  .custom-control-input:disabled ~ .custom-control-label > .help-text {
     @include gl-cursor-not-allowed;
-    @include gl-text-gray-400;
+    color: var(--gl-text-color-disabled);
   }
 
   &.custom-control {
@@ -65,27 +66,27 @@
       }
 
       &::before {
-        @include gl-bg-white;
-        @include gl-border-gray-400;
+        background-color: var(--gl-control-background-color-default);
+        border-color: var(--gl-control-border-color-default);
       }
     }
 
-    .custom-control-input:not(:disabled):focus ~ .custom-control-label {
-      &::before {
-        @include gl-border-gray-500;
-        @include gl-focus;
-      }
+    .custom-control-input:not(:disabled):hover ~ .custom-control-label::before {
+      border-color: var(--gl-control-border-color-hover);
     }
 
-    .custom-control-input:checked ~ .custom-control-label {
-      &::before {
-        @include gl-bg-blue-500;
-        @include gl-border-blue-500;
+    .custom-control-input:not(:disabled):focus ~ .custom-control-label::before {
+      @include gl-focus;
+      border-color: var(--gl-control-border-color-focus);
+    }
 
-        @media (forced-colors: active) {
-          background-color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
-          border-color: LinKText; // stylelint-disable-line scale-unlimited/declaration-strict-value
-        }
+    .custom-control-input:checked  ~ .custom-control-label::before {
+      background-color: var(--gl-control-background-color-selected-default);
+      border-color: var(--gl-control-border-color-selected-default);
+
+      @media (forced-colors: active) {
+        background-color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
+        border-color: LinKText; // stylelint-disable-line scale-unlimited/declaration-strict-value
       }
     }
 
@@ -93,8 +94,8 @@
     .custom-control-input[type='checkbox']:indeterminate ~ .custom-control-label,
     .custom-control-input[type='radio']:checked ~ .custom-control-label {
       &::after {
-        @include gl-bg-white;
         background: 50% 50% no-repeat;
+        background-color: var(--gl-control-indicator-color-selected);
         mask-repeat: no-repeat;
         mask-position: center center;
       }
@@ -116,11 +117,22 @@
     }
 
     .custom-control-input:not(:disabled):checked ~ .custom-control-label:hover,
+    .custom-control-input:not(:disabled):hover:checked ~ .custom-control-label {
+      &::before  {
+        background-color: var(--gl-control-background-color-selected-hover);
+        border-color: var(--gl-control-border-color-selected-hover);
+      }
+    }
+
+    .custom-control-input:not(:disabled):focus:checked ~ .custom-control-label::before {
+      background-color: var(--gl-control-background-color-selected-focus);
+      border-color: var(--gl-control-border-color-selected-focus);
+    }
+
+    .custom-control-input:not(:disabled):checked ~ .custom-control-label:hover,
+    .custom-control-input:not(:disabled):hover:checked ~ .custom-control-label,
     .custom-control-input:not(:disabled):focus:checked ~ .custom-control-label {
       &::before {
-        @include gl-bg-blue-700;
-        @include gl-border-blue-700;
-
         @media (forced-colors: active) {
           background-color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
           border-color: LinKText; // stylelint-disable-line scale-unlimited/declaration-strict-value
@@ -130,8 +142,8 @@
 
     &.custom-checkbox {
       .custom-control-input:indeterminate ~ .custom-control-label::before {
-        @include gl-bg-blue-500;
-        @include gl-border-blue-500;
+        background-color: var(--gl-control-background-color-selected-default);
+        border-color: var(--gl-control-border-color-selected-default);
 
         @media (forced-colors: active) {
           background-color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
@@ -139,11 +151,18 @@
         }
       }
 
+      .custom-control-input:not(:disabled):indeterminate ~ .custom-control-label:hover::before {
+        background-color: var(--gl-control-background-color-selected-hover);
+        border-color: var(--gl-control-border-color-selected-hover);
+      }
+
+      .custom-control-input:not(:disabled):focus:indeterminate ~ .custom-control-label::before {
+        background-color: var(--gl-control-background-color-selected-focus);
+        border-color: var(--gl-control-border-color-selected-focus);
+      }
+
       .custom-control-input:not(:disabled):indeterminate ~ .custom-control-label:hover::before,
       .custom-control-input:not(:disabled):focus:indeterminate ~ .custom-control-label::before {
-        @include gl-bg-blue-700;
-        @include gl-border-blue-700;
-
         @media (forced-colors: active) {
           background-color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
           border-color: LinKText; // stylelint-disable-line scale-unlimited/declaration-strict-value
@@ -155,9 +174,9 @@
       @include gl-cursor-not-allowed;
 
       &::before {
-        @include gl-bg-gray-50;
-        @include gl-border-gray-100;
         @include gl-pointer-events-auto;
+        background-color: var(--gl-control-background-color-disabled);
+        border-color: var(--gl-control-border-color-disabled);
 
         @media (forced-colors: active) {
           opacity: 0.5;
@@ -168,22 +187,22 @@
     .custom-control-input:checked:disabled ~ .custom-control-label,
     .custom-control-input[type='checkbox']:indeterminate:disabled ~ .custom-control-label {
       &::before {
-        @include gl-bg-gray-100;
-        @include gl-border-gray-100;
+        background-color: var(--gl-control-background-color-disabled);
+        border-color: var(--gl-control-border-color-disabled);
       }
 
       &::after {
         background-image: none;
-        @include gl-bg-gray-500;
+        background-color: var(--gl-control-indicator-color-disabled);
 
         /* Ensure state indicators (like the checkmark for checked or
-           the dash for indeterminate) are visible in Windows High
-           Contrast Mode.
+          the dash for indeterminate) are visible in Windows High
+          Contrast Mode.
         */
         @media screen and (forced-colors: active) {
           forced-color-adjust: none;
           /* system color reference for disabled text applied to
-             background here.
+            background here.
           */
           // stylelint-disable-next-line
           background-color: GrayText;
@@ -194,9 +213,9 @@
 
   .help-text {
     @include gl-mt-2;
-    @include gl-text-gray-500;
     @include gl-mb-0;
     @include gl-font-base;
     @include gl-line-height-normal;
+    color: var(--gl-text-color-subtle);
   }
 }

@@ -11116,6 +11116,80 @@
             "color",
             "error"
           ]
+        },
+        "selected": {
+          "default": {
+            "value": "#428fdc",
+            "$type": "color",
+            "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border.",
+            "filePath": "src/tokens/control.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border."
+            },
+            "name": "CONTROL_BORDER_COLOR_SELECTED_DEFAULT",
+            "attributes": {},
+            "path": [
+              "control",
+              "border",
+              "color",
+              "selected",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#9dc7f1",
+            "$type": "color",
+            "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on hover.",
+            "filePath": "src/tokens/control.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on hover."
+            },
+            "name": "CONTROL_BORDER_COLOR_SELECTED_HOVER",
+            "attributes": {},
+            "path": [
+              "control",
+              "border",
+              "color",
+              "selected",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#9dc7f1",
+            "$type": "color",
+            "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on focus.",
+            "filePath": "src/tokens/control.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on focus."
+            },
+            "name": "CONTROL_BORDER_COLOR_SELECTED_FOCUS",
+            "attributes": {},
+            "path": [
+              "control",
+              "border",
+              "color",
+              "selected",
+              "focus"
+            ]
+          }
         }
       }
     },

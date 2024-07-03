@@ -12,6 +12,12 @@ const defaultOptions = [
     checked: 'Checked disabled option',
   },
   { value: 'Disabled option', disabled: true, name: 'radio-group' },
+  {
+    value: 'Disabled option with help text',
+    disabled: true,
+    name: 'radio-group',
+    slot: 'With help text',
+  },
   { value: 'Indeterminate option', name: 'indeterminate-radio-group' },
   { value: 'Indeterminate disabled option', disabled: true, name: 'indeterminate-radio-group' },
 ];

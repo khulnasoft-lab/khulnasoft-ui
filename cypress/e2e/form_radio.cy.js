@@ -36,6 +36,17 @@ describe('GlFormRadio', () => {
     cy.get(disabledOption).should('not.be.checked');
   }
 
+  function checkA11yDisabledStateWithHelpText() {
+    const disabledOption = 'input[value="Disabled option with help text"]';
+    const disabledOptionLabel = 'input[value="Disabled option with help text"] + label';
+
+    cy.get(disabledOption).should('not.be.checked');
+    cy.get(disabledOption).should('be.disabled');
+    cy.get(disabledOptionLabel).click();
+    cy.get(disabledOption).should('not.be.checked');
+    cy.get(disabledOption).next().contains('help');
+  }
+
   function checkA11yCheckedAndDisabled() {
     const checkedAndDisabledOption = 'input[value="Checked disabled option"]';
     const checkedAndDisabledLabel = 'input[value="Checked disabled option"] + label';
@@ -51,6 +62,7 @@ describe('GlFormRadio', () => {
       checkA11yDefaultState,
       checkA11yWithHelpText,
       checkA11yDisabledState,
+      checkA11yDisabledStateWithHelpText,
       checkA11yCheckedAndDisabled,
     });
   });
