@@ -31,8 +31,11 @@ const getDefaultValueAsJavaScript = (node) => {
 };
 
 const getJavascript = (file) => {
-  const content = fs.readFileSync(file).toString();
-  if (file.endsWith('.vue')) {
+const path = require('path');
+const fs = require('fs');
+
+const file = path.resolve(file);
+const content = fs.readFileSync(file).toString();  if (file.endsWith('.vue')) {
     const match = content.match(/<script>([\s\S]*)<\/script>/);
     return match?.[1] ?? '';
   }
