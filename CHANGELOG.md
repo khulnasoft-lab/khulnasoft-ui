@@ -1,3 +1,11 @@
+# [85.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.12.2...v85.13.0) (2024-07-03)
+
+
+### Features
+
+* **GlFormRadio,GlFormCheckbox:** Use color design tokens ([62d3cdd](https://gitlab.com/gitlab-org/gitlab-ui/commit/62d3cdd421fdd7b978abe80c3600008ce7d984c9))
+* Add design tokens for control border color selected ([246b88e](https://gitlab.com/gitlab-org/gitlab-ui/commit/246b88ed7911269b473110da90bb8f64097cc8a2))
+
 ## [85.12.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.12.1...v85.12.2) (2024-07-01)
 
 
