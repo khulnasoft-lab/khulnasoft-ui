@@ -1,10 +1,116 @@
 /*
  * Button-specific utilities
  */
-@mixin gl-tmp-button-hover($border-color, $background-color) {
-  box-shadow: inset 0 0 0 $gl-border-size-2 $border-color,
-    0 $gl-border-size-2 $gl-border-size-2 0 rgba(0, 0, 0, 0.08);
-  background: $background-color;
+@mixin gl-button-border($color) {
+  box-shadow: inset 0 0 0 $gl-border-size-1 $color;
+}
+
+@mixin gl-button-selected-border($color, $focus-ring: false) {
+  @if $focus-ring {
+    box-shadow: inset 0 0 0 $gl-border-size-2 $color, $focus-ring;
+  } @else {
+    box-shadow: inset 0 0 0 $gl-border-size-2 $color;
+  }
+}
+
+@mixin gl-button-hover-border($color) {
+  box-shadow:
+    inset 0 0 0 $gl-border-size-2 $color,
+    0 $gl-border-size-2 $gl-border-size-2 0 var(--gl-color-alpha-dark-8);
+}
+
+@mixin gl-button-theme(
+  $color: false,
+  $background-color: false,
+  $border-color: false,
+  $icon-color: false,
+  $hover-color: false,
+  $hover-background-color: false,
+  $hover-border-color: false,
+  $hover-icon-color: false,
+  $focus-color: false,
+  $focus-background-color: false,
+  $focus-border-color: false,
+  $focus-icon-color: false,
+  $active-color: false,
+  $active-background-color: false,
+  $active-border-color: false,
+  $active-icon-color: false,
+  $selected-border-color: false,
+) {
+  color: $color;
+  background-color: $background-color;
+
+  @if $border-color {
+    @include gl-button-border($border-color);
+  }
+
+  .gl-icon {
+    color: $icon-color;
+  }
+
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-background-color;
+
+    @if $hover-border-color {
+      @include gl-button-hover-border($hover-border-color);
+    }
+
+    .gl-icon {
+      color: $hover-icon-color;
+    }
+  }
+
+  &:focus {
+    color: $focus-color;
+    background-color: $focus-background-color;
+
+    @if $focus-border-color {
+      @include gl-focus($color: $focus-border-color);
+    }
+
+    .gl-icon {
+      color: $focus-icon-color;
+    }
+  }
+
+  &:active,
+  &.active {
+    color: $active-color;
+    background-color: $active-background-color;
+
+    @if $active-border-color {
+      @include gl-focus($color: $active-border-color);
+
+      &:focus {
+        @include gl-focus($color: $active-border-color);
+      }
+    }
+
+    .gl-icon {
+      color: $active-icon-color;
+    }
+  }
+
+  @if $selected-border-color {
+    &.selected {
+      @include gl-button-selected-border($selected-border-color);
+
+      &:hover {
+        @include gl-button-selected-border($hover-border-color);
+      }
+
+      &:focus {
+        @include gl-button-selected-border($focus-border-color, $focus-ring);
+      }
+
+      &:active,
+      &:active:focus {
+        @include gl-button-selected-border($active-border-color, $focus-ring);
+      }
+    }
+  }
 }
 
 .gl-button {
@@ -24,11 +130,11 @@
   @include gl-border-0;
   @include gl-py-3;
   @include gl-px-4;
-  @include gl-bg-transparent;
+  background-color: var(--gl-action-neutral-background-color-default);
   @include gl-line-height-normal;
-  @include gl-text-gray-900;
+  color: var(--gl-action-neutral-text-color-default);
   @include gl-fill-current-color;
-  @include gl-inset-border-1-gray-200;
+  @include gl-button-border(var(--gl-action-neutral-border-color-default));
   @include gl-justify-content-center;
   @include gl-align-items-center;
   @include gl-font-base;
@@ -64,258 +170,166 @@
   }
 
   &.btn-default,
-  &.btn-dashed {
-    @include gl-bg-white;
-
-    &.btn-default-tertiary {
-      @include gl-bg-transparent;
-    }
-
-    &:hover {
-      @include gl-tmp-button-hover($gray-400, $gray-50);
-
-      .gl-icon {
-        @include gl-text-gray-700;
-      }
-    }
-
-    &:focus {
-      @include gl-focus($color: $gray-400);
-      @include gl-bg-gray-50;
-
-      .gl-icon {
-        @include gl-text-gray-700;
-      }
-    }
-
-    &:active,
-    &.active {
-      @include gl-focus($color: $gray-600);
-      @include gl-bg-gray-100;
-
-      .gl-icon {
-        @include gl-text-gray-900;
-      }
-
-      &:focus {
-        @include gl-focus($color: $gray-600);
-      }
-
-      &:focus .gl-icon {
-        @include gl-text-gray-900;
-      }
-    }
-
-    .gl-icon {
-      @include gl-text-gray-500;
-    }
+  &.btn-dashed,
+  .btn-default-secondary {
+    @include gl-button-theme(
+      $color: var(--gl-action-neutral-text-color-default),
+      $background-color: var(--gl-action-neutral-background-color-default),
+      $border-color: var(--gl-action-neutral-border-color-default),
+      $icon-color: var(--gl-action-neutral-icon-color-default),
+      $hover-color: var(--gl-action-neutral-text-color-hover),
+      $hover-background-color: var(--gl-action-neutral-background-color-hover),
+      $hover-border-color: var(--gl-action-neutral-border-color-hover),
+      $hover-icon-color: var(--gl-action-neutral-icon-color-hover),
+      $focus-color: var(--gl-action-neutral-text-color-focus),
+      $focus-background-color: var(--gl-action-neutral-background-color-focus),
+      $focus-border-color: var(--gl-action-neutral-border-color-focus),
+      $focus-icon-color: var(--gl-action-neutral-icon-color-focus),
+      $active-color: var(--gl-action-neutral-text-color-active),
+      $active-background-color: var(--gl-action-neutral-background-color-active),
+      $active-border-color: var(--gl-action-neutral-border-color-active),
+      $active-icon-color: var(--gl-action-neutral-icon-color-active),
+      $selected-border-color: var(--gl-action-neutral-border-color-selected),
+    );
   }
 
-  &.selected {
-    @include gl-bg-white;
-    box-shadow: inset 0 0 0 $gl-border-size-2 $gray-300;
-
-    &:hover,
-    &:focus {
-      @include gl-bg-gray-50;
-    }
-
-    &:hover {
-      box-shadow: inset 0 0 0 $gl-border-size-2 $gray-400;
-    }
-
-    &:focus {
-      box-shadow: inset 0 0 0 $gl-border-size-2 $gray-400, $focus-ring;
-    }
-
-    &:active,
-    &:active:focus {
-      @include gl-bg-gray-100;
-      box-shadow: inset 0 0 0 $gl-border-size-2 $gray-600, $focus-ring;
-    }
-  }
-
-  &.btn-confirm,
-  &.btn-info,
-  &.btn-success,
-  &.btn-danger {
-    @include gl-text-contrast-light;
+  &.btn-default-tertiary {
+    @include gl-button-theme(
+      $color: var(--gl-action-neutral-text-color-default),
+      $background-color: var(--gl-action-neutral-background-color-subtle-default),
+      $icon-color: var(--gl-action-neutral-icon-color-default),
+      $hover-color: var(--gl-action-neutral-text-color-hover),
+      $hover-background-color: var(--gl-action-neutral-background-color-subtle-hover),
+      $hover-icon-color: var(--gl-action-neutral-icon-color-hover),
+      $focus-color: var(--gl-action-neutral-text-color-focus),
+      $focus-background-color: var(--gl-action-neutral-background-color-subtle-focus),
+      $focus-icon-color: var(--gl-action-neutral-icon-color-focus),
+      $active-color: var(--gl-action-neutral-text-color-active),
+      $active-background-color: var(--gl-action-neutral-background-color-subtle-active),
+      $active-icon-color: var(--gl-action-neutral-icon-color-active),
+      $selected-border-color: var(--gl-action-neutral-border-color-selected),
+    );
   }
 
   &.btn-confirm,
   &.btn-info {
-    @include gl-bg-blue-500;
-    @include gl-inset-border-1-blue-600;
-
-    &:hover {
-      @include gl-tmp-button-hover($blue-800, $blue-600);
-    }
-
-    &:focus {
-      @include gl-focus($color: $blue-800);
-      @include gl-bg-blue-600;
-    }
-
-    &:active,
-    &.active {
-      @include gl-focus($color: $blue-900);
-      @include gl-bg-blue-700;
-
-      &:focus {
-        @include gl-focus($color: $blue-900);
-      }
-    }
+    @include gl-button-theme(
+      $color: var(--gl-action-confirm-text-color-strong),
+      $background-color: var(--gl-action-confirm-background-color-strong-default),
+      $border-color: var(--gl-action-confirm-border-color-strong-default),
+      $icon-color: var(--gl-action-confirm-icon-color-strong),
+      $hover-color: var(--gl-action-confirm-text-color-strong),
+      $hover-background-color: var(--gl-action-confirm-background-color-strong-hover),
+      $hover-border-color: var(--gl-action-confirm-border-color-strong-hover),
+      $hover-icon-color: var(--gl-action-confirm-icon-color-strong),
+      $focus-color: var(--gl-action-confirm-text-color-strong),
+      $focus-background-color: var(--gl-action-confirm-background-color-strong-focus),
+      $focus-border-color: var(--gl-action-confirm-border-color-strong-focus),
+      $focus-icon-color: var(--gl-action-confirm-icon-color-strong),
+      $active-color: var(--gl-action-confirm-text-color-strong),
+      $active-background-color: var(--gl-action-confirm-background-color-strong-active),
+      $active-border-color: var(--gl-action-confirm-border-color-strong-active),
+      $active-icon-color: var(--gl-action-confirm-icon-color-strong),
+    );
   }
 
   &.btn-confirm-secondary,
+  &.btn-info-secondary {
+    @include gl-button-theme(
+      $color: var(--gl-action-confirm-text-color-default),
+      $background-color: var(--gl-action-confirm-background-color-default),
+      $border-color: var(--gl-action-confirm-border-color-default),
+      $icon-color: var(--gl-action-confirm-icon-color-default),
+      $hover-color: var(--gl-action-confirm-text-color-hover),
+      $hover-background-color: var(--gl-action-confirm-background-color-hover),
+      $hover-border-color: var(--gl-action-confirm-border-color-hover),
+      $hover-icon-color: var(--gl-action-confirm-icon-color-hover),
+      $focus-color: var(--gl-action-confirm-text-color-focus),
+      $focus-background-color: var(--gl-action-confirm-background-color-focus),
+      $focus-border-color: var(--gl-action-confirm-border-color-focus),
+      $focus-icon-color: var(--gl-action-confirm-icon-color-focus),
+      $active-color: var(--gl-action-confirm-text-color-active),
+      $active-background-color: var(--gl-action-confirm-background-color-active),
+      $active-border-color: var(--gl-action-confirm-border-color-active),
+      $active-icon-color: var(--gl-action-confirm-icon-color-active),
+    );
+  }
+
   &.btn-confirm-tertiary,
-  &.btn-info-secondary,
   &.btn-info-tertiary {
-    @include gl-bg-transparent;
-    @include gl-text-blue-500;
-    @include gl-font-weight-normal;
-    @include gl-inset-border-1-blue-500;
-
-    &:hover {
-      @include gl-text-blue-700;
-      @include gl-tmp-button-hover($blue-700, $blue-50);
-    }
-
-    &:focus {
-      @include gl-text-blue-700;
-      @include gl-focus($color: $blue-700);
-      @include gl-bg-blue-50;
-    }
-
-    &:active,
-    &.active {
-      @include gl-text-blue-900;
-      @include gl-focus($color: $blue-900);
-      @include gl-bg-blue-100;
-
-      &:focus {
-        @include gl-focus($color: $blue-900);
-      }
-    }
-  }
-
-  &.btn-success {
-    @include gl-bg-green-500;
-    @include gl-inset-border-1-green-600;
-
-    &:hover {
-      @include gl-tmp-button-hover($green-800, $green-600);
-    }
-
-    &:focus {
-      @include gl-focus($color: $green-800);
-      @include gl-bg-green-600;
-    }
-
-    &:active,
-    &.active {
-      @include gl-focus($color: $green-900);
-      @include gl-bg-green-700;
-
-      &:focus {
-        @include gl-focus($color: $green-900);
-      }
-    }
-  }
-
-  &.btn-success-secondary,
-  &.btn-success-tertiary {
-    @include gl-bg-transparent;
-    @include gl-text-green-500;
-    @include gl-font-weight-normal;
-    @include gl-inset-border-1-green-500;
-
-    &:hover {
-      @include gl-text-green-700;
-      @include gl-tmp-button-hover($green-700, $green-50);
-    }
-
-    &:focus {
-      @include gl-text-green-700;
-      @include gl-focus($color: $green-700);
-      @include gl-bg-green-50;
-    }
-
-    &:active,
-    &.active {
-      @include gl-text-green-900;
-      @include gl-focus($color: $green-900);
-      @include gl-bg-green-100;
-
-      &:focus {
-        @include gl-focus($color: $green-900);
-      }
-    }
+    @include gl-button-theme(
+      $color: var(--gl-action-confirm-text-color-default),
+      $background-color: var(--gl-action-confirm-background-color-subtle-default),
+      $icon-color: var(--gl-action-confirm-icon-color-default),
+      $hover-color: var(--gl-action-confirm-text-color-hover),
+      $hover-background-color: var(--gl-action-confirm-background-color-subtle-hover),
+      $hover-icon-color: var(--gl-action-confirm-icon-color-hover),
+      $focus-color: var(--gl-action-confirm-text-color-focus),
+      $focus-background-color: var(--gl-action-confirm-background-color-subtle-focus),
+      $focus-icon-color: var(--gl-action-confirm-icon-color-focus),
+      $active-color: var(--gl-action-confirm-text-color-active),
+      $active-background-color: var(--gl-action-confirm-background-color-subtle-active),
+      $active-icon-color: var(--gl-action-confirm-icon-color-active),
+    );
   }
 
   &.btn-danger {
-    @include gl-bg-red-500;
-    @include gl-inset-border-1-red-600;
-
-    &:hover {
-      @include gl-tmp-button-hover($red-800, $red-600);
-    }
-
-    &:focus {
-      @include gl-focus($color: $red-800);
-      @include gl-bg-red-600;
-    }
-
-    &:active,
-    &.active {
-      @include gl-focus($color: $red-900);
-      @include gl-bg-red-700;
-
-      &:focus {
-        @include gl-focus($color: $red-900);
-      }
-    }
+    @include gl-button-theme(
+      $color: var(--gl-action-danger-text-color-strong),
+      $background-color: var(--gl-action-danger-background-color-strong-default),
+      $border-color: var(--gl-action-danger-border-color-strong-default),
+      $icon-color: var(--gl-action-danger-icon-color-strong),
+      $hover-color: var(--gl-action-danger-text-color-strong),
+      $hover-background-color: var(--gl-action-danger-background-color-strong-hover),
+      $hover-border-color: var(--gl-action-danger-border-color-strong-hover),
+      $hover-icon-color: var(--gl-action-danger-icon-color-strong),
+      $focus-color: var(--gl-action-danger-text-color-strong),
+      $focus-background-color: var(--gl-action-danger-background-color-strong-focus),
+      $focus-border-color: var(--gl-action-danger-border-color-strong-focus),
+      $focus-icon-color: var(--gl-action-danger-icon-color-strong),
+      $active-color: var(--gl-action-danger-text-color-strong),
+      $active-background-color: var(--gl-action-danger-background-color-strong-active),
+      $active-border-color: var(--gl-action-danger-border-color-strong-active),
+      $active-icon-color: var(--gl-action-danger-icon-color-strong),
+    );
   }
 
-  &.btn-danger-secondary,
+  &.btn-danger-secondary {
+    @include gl-button-theme(
+      $color: var(--gl-action-danger-text-color-default),
+      $background-color: var(--gl-action-danger-background-color-default),
+      $border-color: var(--gl-action-danger-border-color-default),
+      $icon-color: var(--gl-action-danger-icon-color-default),
+      $hover-color: var(--gl-action-danger-text-color-hover),
+      $hover-background-color: var(--gl-action-danger-background-color-hover),
+      $hover-border-color: var(--gl-action-danger-border-color-hover),
+      $hover-icon-color: var(--gl-action-danger-icon-color-hover),
+      $focus-color: var(--gl-action-danger-text-color-focus),
+      $focus-background-color: var(--gl-action-danger-background-color-focus),
+      $focus-border-color: var(--gl-action-danger-border-color-focus),
+      $focus-icon-color: var(--gl-action-danger-icon-color-focus),
+      $active-color: var(--gl-action-danger-text-color-active),
+      $active-background-color: var(--gl-action-danger-background-color-active),
+      $active-border-color: var(--gl-action-danger-border-color-active),
+      $active-icon-color: var(--gl-action-danger-icon-color-active),
+    );
+  }
+
   &.btn-danger-tertiary {
-    @include gl-bg-transparent;
-    @include gl-text-red-500;
-    @include gl-font-weight-normal;
-    @include gl-inset-border-1-red-500;
-
-    &:hover {
-      @include gl-text-red-700;
-      @include gl-tmp-button-hover($red-700, $red-50);
-    }
-
-    &:focus {
-      @include gl-text-red-700;
-      @include gl-focus($color: $red-700);
-      @include gl-bg-red-50;
-    }
-
-    &:active,
-    &.active {
-      @include gl-text-red-900;
-      @include gl-focus($color: $red-900);
-      @include gl-bg-red-100;
-
-      &:focus {
-        @include gl-focus($color: $red-900);
-      }
-    }
-  }
-
-  &.btn-default,
-  &.btn-dashed,
-  &.btn-confirm,
-  &.btn-info,
-  &.btn-success,
-  &.btn-danger {
-    &-secondary {
-      @include gl-bg-white;
-    }
+    @include gl-button-theme(
+      $color: var(--gl-action-danger-text-color-default),
+      $background-color: var(--gl-action-danger-background-color-subtle-default),
+      $icon-color: var(--gl-action-danger-icon-color-default),
+      $hover-color: var(--gl-action-danger-text-color-hover),
+      $hover-background-color: var(--gl-action-danger-background-color-subtle-hover),
+      $hover-icon-color: var(--gl-action-danger-icon-color-hover),
+      $focus-color: var(--gl-action-danger-text-color-focus),
+      $focus-background-color: var(--gl-action-danger-background-color-subtle-focus),
+      $focus-icon-color: var(--gl-action-danger-icon-color-focus),
+      $active-color: var(--gl-action-danger-text-color-active),
+      $active-background-color: var(--gl-action-danger-background-color-subtle-active),
+      $active-icon-color: var(--gl-action-danger-icon-color-active),
+    );
   }
 
   &.btn-default-secondary,
@@ -332,31 +346,28 @@
     }
   }
 
-  &.btn-default,
-  &.btn-dashed,
-  &.btn-confirm,
-  &.btn-info,
-  &.btn-success,
-  &.btn-danger {
-    &-tertiary {
+  &.btn-default-tertiary,
+  &.btn-dashed-tertiary,
+  &.btn-confirm-tertiary,
+  &.btn-info-tertiary,
+  &.btn-success-tertiary,
+  &.btn-danger-tertiary {
+    @include gl-shadow-none;
+
+    @media (forced-colors: active) {
+      color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
+      mix-blend-mode: initial;
+      border: 0;
+    }
+
+    &:hover {
       @include gl-shadow-none;
-      mix-blend-mode: multiply;
+    }
 
-      @media (forced-colors: active) {
-        color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
-        mix-blend-mode: initial;
-        border: 0;
-      }
-
-      &:hover {
-        @include gl-shadow-none;
-      }
-
-      &:active,
-      &:focus,
-      &:focus:active {
-        @include gl-focus;
-      }
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-focus;
     }
   }
 
@@ -367,10 +378,6 @@
       color: $black;
       border: 0;
     }
-  }
-
-  &.btn-default-tertiary.selected {
-    box-shadow: inset 0 0 0 $gl-border-size-2 $gray-300;
   }
 
   &.btn-sm {
@@ -386,32 +393,31 @@
 
   &.btn-dashed,
   &.btn-dashed-tertiary {
-    @include gl-inset-border-1-gray-400;
-    @include gl-bg-white;
-    outline: 3px dotted $white;
+    @include gl-button-border(var(--gl-border-color-strong));
+    outline: 3px dotted var(--gl-background-color-default);
     outline-offset: (-$gl-border-size-1);
 
     &:hover {
-      @include gl-inset-border-1-gray-400;
-      @include gl-bg-gray-50;
+      @include gl-focus($color: var(--gl-border-color-strong));
+      outline: 3px dotted var(--gl-background-color-default);
+      outline-offset: (-$gl-border-size-1);
     }
 
     &:focus {
-      @include gl-focus($color: $gray-400);
-      outline: 3px dotted $gray-50;
+      @include gl-focus($color: var(--gl-border-color-strong));
+      outline: 3px dotted var(--gl-background-color-default);
       outline-offset: (-$gl-border-size-1);
     }
 
     &:active,
     &.active {
       @include gl-focus($color: $gray-600);
-      outline: 3px dotted $gray-100;
+      outline: 3px dotted var(--gl-background-color-default);
       outline-offset: (-$gl-border-size-1);
-      @include gl-bg-gray-100;
 
       &:focus {
         @include gl-focus($color: $gray-600);
-        outline: 3px dotted $gray-100;
+        outline: 3px dotted var(--gl-background-color-default);
         outline-offset: (-$gl-border-size-1);
       }
     }
@@ -446,10 +452,7 @@
   &.btn-label:hover,
   &.btn-label:focus,
   &.btn-label:active {
-    @include gl-bg-gray-10;
-    @include gl-text-gray-900;
-    @include gl-fill-current-color;
-    @include gl-inset-border-1-gray-200;
+    background-color: var(--gl-background-color-subtle);
     @include gl-cursor-default;
     user-select: text;
   }
@@ -459,18 +462,18 @@
     @include gl-border-0;
     @include gl-font-base;
     @include gl-line-height-normal;
-    @include gl-text-blue-500;
+    color: var(--gl-text-color-link);
     @include gl-py-0;
     @include gl-px-0;
     @include gl-shadow-none;
 
     &:hover {
       @include gl-bg-transparent;
-      @include gl-text-blue-500;
+      color: var(--gl-text-color-link);
     }
 
     &:active {
-      @include gl-text-blue-700;
+      color: var(--gl-text-color-link);
       @include gl-text-decoration-underline;
     }
 
@@ -498,14 +501,14 @@
   &[disabled]:focus,
   &[disabled]:active,
   &[disabled].selected {
-    @include gl-bg-gray-10;
-    @include gl-text-gray-500;
-    @include gl-inset-border-1-gray-100;
-    @include gl-opacity-10;
+    background-color: var(--gl-action-background-color-disabled);
+    color: var(--gl-action-text-color-disabled);
+    @include gl-button-border(var(--gl-action-border-color-disabled));
+    opacity: 1;
     cursor: not-allowed !important;
 
     .gl-button-icon {
-      @include gl-fill-gray-400;
+      fill: var(--gl-action-icon-color-disabled);
     }
   }
 
