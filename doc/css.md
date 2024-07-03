@@ -1,36 +1,21 @@
 # GitLab UI CSS
 
-GitLab UI provides component styles, a utility-class library and SCSS utilities.
+GitLab UI provides component styles and a Pajamas-compliant Tailwind CSS preset.
 
 ## Quick Start
 
-To include GitLab UI base styles in your project, import the `@gitlab/ui` main css file:
+The fastest way to get GitLab UI components to render properly in your project is to import the main
+CSS bundle along with the internally-used CSS utilities:
 
 ```css
 @import '@gitlab/ui/dist/index.css';
+@import '@gitlab/ui/dist/tailwind.css';
 ```
 
-This provides component styles and legacy utility classes.
-
-### Tailwind utilities
-
-We are currently in the process of transitioning our CSS utilities library to Tailwind CSS. As GitLab
-UI relies on certain CSS utilities internally, you have two options:
-
-* Configure Tailwind CSS in your repository. You want to do this if you will be consuming CSS
-  utilities in your project. This involves inheriting from GitLab UI's preset, which
-  can be found in `tailwind.defaults.js`. Additionally, ensure that your `content` option is
-  configured to scan the files of the `@gitlab/ui` module (`./node_modules/@gitlab/ui/dist/**/*.js`)
-  so that you generate the utilities you use, as well as the ones GitLab UI relies on.
-* If you only need GitLab UI components but do not require our CSS utilities, import the
-  `tailwind.css` stylesheet which includes all utilities GitLab UI uses internally:
-
-    ```css
-    @import '@gitlab/ui/dist/tailwind.css';
-    ```
-
-> **Note:** If you are switching from the second approach to the first, make sure to remove the
-> `tailwind.css` import(s) to avoid duplicate code.
+> **Note:** If you wish to setup Tailwind CSS in your project, you _should not_ import the
+> `@gitlab/ui/dist/tailwind.css` stylesheet as that might result in duplicated CSS utilities being
+> included in your app. Instead, you should configure Tailwind to parse GitLab UI's files along with
+> your project's. See [Tailwind CSS](#tailwind-css) below.
 
 ## Usage with a SCSS preprocessor
 
@@ -40,12 +25,11 @@ If you use a SCSS preprocessor, you may include the base SCSS file instead of `i
 @import '@gitlab/ui/src/scss/gitlab_ui';
 ```
 
-In addition to component styling and utility classes, this provides various functions, variables
-and mixins.
+In addition to component styling, this provides various functions, variables and mixins.
 
 ### Overriding variables
 
-Variables are imported as part of the [base SCSS file](#Usage-with-a-SCSS-preprocessor).
+Variables are imported as part of the [base SCSS file](#usage-with-a-scss-preprocessor).
 
 To use a variable without including GitLab UI components’ styles, import the variable file and its
 functions directly:
@@ -61,65 +45,38 @@ functions directly:
 
 To view a complete list of variables, see [variables.scss](/src/scss/variables.scss).
 
-## Utilities
+## Tailwind CSS
 
-GitLab utility classes and mixins are based on GitLab's
-[design system guidelines](https://design.gitlab.com/).
+As of 16.9, we have started migrating GitLab UI CSS utilities to [Tailwind CSS](https://tailwindcss.com/).
+Projects that consume `@gitlab/ui` and that wish to use its Pajamas-compliant Tailwind preset should
+therefore set Tailwind CSS up on their end by following the relevant installation [instructions](https://tailwindcss.com/docs/installation).
 
-## Utility class specifity
+Because some GitLab UI components use utility classes internally, you must configure the `content` option
+to scan `@gitlab/ui`'s own compiled bundles:
 
-GitLab UI utility classes are not marked as `!important` by default. If you have to use
-a utility class to overwrite CSS with high specificity, we provide `!important` versions
-of every utility class. Those alternatives are suffixed with `!`, for example:
- `gl-display-flex` vs `gl-display-flex!`.
+```js
+const tailwindDefaults = require('@gitlab/ui/tailwind.defaults.js');
 
-### Utility classes CSS bundle
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // Consume GitLab UI's Pajamas-compliant preset
+  presets: [tailwindDefaults],
+  content: [
+    // The consumer scans its own frontend assets
+    './{ee,}/app/assets/javascripts/**/*.{vue,js}',
 
-To include all utility classes without including GitLab UI components’ styles, import the base
-`utilities.scss` file and its dependencies:
+    // The consumer should also scan some backend resources if they might contain utility classes
+    './{ee,}/app/helpers/**/*.rb',
+    './{ee,}/app/components/**/*.{haml,rb}',
+    './{ee,}/app/views/**/*.haml',
 
-```scss
-@import '@gitlab/ui/src/scss/functions';
-@import '@gitlab/ui/src/scss/variables';
-@import '@gitlab/ui/src/scss/utility-mixins/index';
-@import '@gitlab/ui/src/scss/utilities';
+    // Scan GitLab UI's own assets
+    './node_modules/@gitlab/ui/dist/**/*.js',
+  ],
+};
 ```
 
-Note: This is a generated file that includes all utility mixins as classes. To see this file in a
-local copy of GitLab UI, first generate it with the `yarn generate-utilities` script.
-
-### Utility mixins
-
-Utility mixins are included as part of the [base SCSS file](#usage-with-a-scss-preprocessor).
-
-To use a utility mixin without including GitLab UI components’ styles, import the mixin file and its
-dependencies directly:
-
-```scss
-@import '@gitlab/ui/src/scss/functions';
-@import '@gitlab/ui/src/scss/variables';
-@import '@gitlab/ui/src/scss/utility-mixins/border'
-
-.border {
-  @include gl-border-solid;
-  @include gl-border-gray-200;
-  @include gl-border-1;
-  @include gl-border-rounded-base;
-}
-```
-
-See [utility-mixins/index.scss](/src/scss/utility-mixins/index.scss) for a complete list of utility
-mixins available.
-
-You may include all mixins by using the following imports:
-
-```scss
-@import '@gitlab/ui/src/scss/functions';
-@import '@gitlab/ui/src/scss/variables';
-@import '@gitlab/ui/src/scss/utility-mixins/index'
-```
-
-### Theming
+## Theming
 
 Some components' styles can be adjusted to match the current theme. This is
 best done using CSS custom properties. Creating an explicit `theme` prop is
@@ -128,3 +85,8 @@ deprecated.
 For now, `--gl-theme-accent` is the only theme-related CSS custom property in
 use (see `GlTabs`). See [this epic](https://gitlab.com/groups/gitlab-org/-/epics/7401)
 for more details.
+
+## How does GitLab UI interact with GitLab CSS?
+
+Refer to the [relevant docs](./debugging-gitlab-ui-with-gitlab-css.md) to learn how GitLab UI and
+GitLab styles interact with each other.
