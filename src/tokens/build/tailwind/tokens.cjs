@@ -219,7 +219,7 @@ const backgroundColors = {
   strong: 'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
   disabled: 'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
   overlay:
-    'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, rgba(31, 30, 36, 0.24)))',
+    'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, rgba(05, 05, 06, 0.24)))',
 };
 const borderColors = {
   default: 'var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
@@ -231,8 +231,7 @@ const iconColors = {
   default: 'var(--gl-icon-color-default, var(--gl-color-neutral-700, #4c4b51))',
   subtle: 'var(--gl-icon-color-subtle, var(--gl-color-neutral-500, #737278))',
   strong: 'var(--gl-icon-color-strong, var(--gl-color-neutral-900, #28272d))',
-  disabled:
-    'var(--gl-icon-color-disabled, var(--gl-color-neutral-300, #a4a3a8))',
+  disabled: 'var(--gl-icon-color-disabled, var(--gl-color-neutral-300, #a4a3a8))',
   link: 'var(--gl-icon-color-link, var(--gl-color-blue-600, #1068bf))',
   info: 'var(--gl-icon-color-info, var(--gl-color-blue-600, #1068bf))',
   warning: 'var(--gl-icon-color-warning, var(--gl-color-orange-600, #9e5400))',
@@ -240,12 +239,12 @@ const iconColors = {
   success: 'var(--gl-icon-color-success, var(--gl-color-green-600, #217645))',
 };
 const alphaDarkColors = {
-  2: 'var(--gl-color-alpha-dark-2, rgba(24, 23, 29, 0.02))',
-  4: 'var(--gl-color-alpha-dark-4, rgba(24, 23, 29, 0.04))',
-  6: 'var(--gl-color-alpha-dark-6, rgba(24, 23, 29, 0.06))',
-  8: 'var(--gl-color-alpha-dark-8, rgba(24, 23, 29, 0.08))',
-  16: 'var(--gl-color-alpha-dark-16, rgba(24, 23, 29, 0.16))',
-  24: 'var(--gl-color-alpha-dark-24, rgba(24, 23, 29, 0.24))',
+  2: 'var(--gl-color-alpha-dark-2, rgba(05, 05, 06, 0.02))',
+  4: 'var(--gl-color-alpha-dark-4, rgba(05, 05, 06, 0.04))',
+  6: 'var(--gl-color-alpha-dark-6, rgba(05, 05, 06, 0.06))',
+  8: 'var(--gl-color-alpha-dark-8, rgba(05, 05, 06, 0.08))',
+  16: 'var(--gl-color-alpha-dark-16, rgba(05, 05, 06, 0.16))',
+  24: 'var(--gl-color-alpha-dark-24, rgba(05, 05, 06, 0.24))',
 };
 const alphaLightColors = {
   2: 'var(--gl-color-alpha-light-2, rgba(255, 255, 255, 0.02))',

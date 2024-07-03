@@ -112,7 +112,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#18171d",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the background of an outlined neutral action in the default state.",
             "filePath": "src/tokens/action.tokens.json",
@@ -2666,12 +2666,12 @@
       },
       "dark": {
         "2": {
-          "value": "rgba(24, 23, 29, 0.02)",
+          "value": "rgba(05, 05, 06, 0.02)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(24, 23, 29, 0.02)",
+            "value": "rgba(05, 05, 06, 0.02)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_2",
@@ -2684,12 +2684,12 @@
           ]
         },
         "4": {
-          "value": "rgba(24, 23, 29, 0.04)",
+          "value": "rgba(05, 05, 06, 0.04)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(24, 23, 29, 0.04)",
+            "value": "rgba(05, 05, 06, 0.04)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_4",
@@ -2702,12 +2702,12 @@
           ]
         },
         "6": {
-          "value": "rgba(24, 23, 29, 0.06)",
+          "value": "rgba(05, 05, 06, 0.06)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(24, 23, 29, 0.06)",
+            "value": "rgba(05, 05, 06, 0.06)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_6",
@@ -2720,12 +2720,12 @@
           ]
         },
         "8": {
-          "value": "rgba(24, 23, 29, 0.08)",
+          "value": "rgba(05, 05, 06, 0.08)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(24, 23, 29, 0.08)",
+            "value": "rgba(05, 05, 06, 0.08)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_8",
@@ -2738,12 +2738,12 @@
           ]
         },
         "16": {
-          "value": "rgba(24, 23, 29, 0.16)",
+          "value": "rgba(05, 05, 06, 0.16)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(24, 23, 29, 0.16)",
+            "value": "rgba(05, 05, 06, 0.16)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_16",
@@ -2756,12 +2756,12 @@
           ]
         },
         "24": {
-          "value": "rgba(24, 23, 29, 0.24)",
+          "value": "rgba(05, 05, 06, 0.24)",
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(24, 23, 29, 0.24)",
+            "value": "rgba(05, 05, 06, 0.24)",
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_24",
@@ -10519,7 +10519,7 @@
   },
   "t-gray-a": {
     "16": {
-      "value": "rgba(24, 23, 29, 0.16)",
+      "value": "rgba(05, 05, 06, 0.16)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10527,7 +10527,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(24, 23, 29, 0.16)",
+        "value": "rgba(05, 05, 06, 0.16)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10541,7 +10541,7 @@
       ]
     },
     "24": {
-      "value": "rgba(24, 23, 29, 0.24)",
+      "value": "rgba(05, 05, 06, 0.24)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10549,7 +10549,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(24, 23, 29, 0.24)",
+        "value": "rgba(05, 05, 06, 0.24)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10563,7 +10563,7 @@
       ]
     },
     "02": {
-      "value": "rgba(24, 23, 29, 0.02)",
+      "value": "rgba(05, 05, 06, 0.02)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10571,7 +10571,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(24, 23, 29, 0.02)",
+        "value": "rgba(05, 05, 06, 0.02)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10585,7 +10585,7 @@
       ]
     },
     "04": {
-      "value": "rgba(24, 23, 29, 0.04)",
+      "value": "rgba(05, 05, 06, 0.04)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10593,7 +10593,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(24, 23, 29, 0.04)",
+        "value": "rgba(05, 05, 06, 0.04)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10607,7 +10607,7 @@
       ]
     },
     "06": {
-      "value": "rgba(24, 23, 29, 0.06)",
+      "value": "rgba(05, 05, 06, 0.06)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10615,7 +10615,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(24, 23, 29, 0.06)",
+        "value": "rgba(05, 05, 06, 0.06)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10629,7 +10629,7 @@
       ]
     },
     "08": {
-      "value": "rgba(24, 23, 29, 0.08)",
+      "value": "rgba(05, 05, 06, 0.08)",
       "$type": "color",
       "themeable": true,
       "prefix": false,
@@ -10637,7 +10637,7 @@
       "filePath": "src/tokens/color.transparency.tokens.json",
       "isSource": true,
       "original": {
-        "value": "rgba(24, 23, 29, 0.08)",
+        "value": "rgba(05, 05, 06, 0.08)",
         "$type": "color",
         "themeable": true,
         "prefix": false,
@@ -10811,7 +10811,7 @@
     "border": {
       "color": {
         "default": {
-          "value": "rgba(31, 30, 36, 0.08)",
+          "value": "rgba(05, 05, 06, 0.08)",
           "$type": "color",
           "comment": "Used to define the edge of an avatar.",
           "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -10831,7 +10831,7 @@
           ]
         },
         "hover": {
-          "value": "rgba(31, 30, 36, 0.24)",
+          "value": "rgba(05, 05, 06, 0.24)",
           "$type": "color",
           "comment": "Used to increase the edge definition of an avatar in the hover state.",
           "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -11089,7 +11089,7 @@
     "light": {
       "text": {
         "color": {
-          "value": "#1f1e24",
+          "value": "#18171d",
           "$type": "color",
           "comment": "Used for the label text color on a light background color.",
           "filePath": "src/tokens/contextual/label.tokens.json",
@@ -11135,7 +11135,7 @@
               ]
             },
             "hover": {
-              "value": "#1f1e24",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the label remove button background on a light background color in the hover state.",
               "filePath": "src/tokens/contextual/label.tokens.json",
@@ -11161,7 +11161,7 @@
         "icon": {
           "color": {
             "default": {
-              "value": "#1f1e24",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the label remove button icon on a light background color in the default state.",
               "filePath": "src/tokens/contextual/label.tokens.json",
@@ -11370,7 +11370,7 @@
               ]
             },
             "hover": {
-              "value": "#1f1e24",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the scoped label remove button icon in the hover state.",
               "filePath": "src/tokens/contextual/label.tokens.json",
@@ -11479,7 +11479,7 @@
     "track": {
       "color": {
         "default": {
-          "value": "#434248",
+          "value": "#3a383f",
           "$type": "color",
           "comment": "Used for the static track (background) of a loading spinner.",
           "filePath": "src/tokens/contextual/spinner.tokens.json",
@@ -11502,7 +11502,7 @@
           ]
         },
         "light": {
-          "value": "#434248",
+          "value": "#3a383f",
           "$type": "color",
           "comment": "Used for the static track (background) of a loading spinner on a dark background.",
           "filePath": "src/tokens/contextual/spinner.tokens.json",
@@ -11576,7 +11576,7 @@
       "background": {
         "color": {
           "hover": {
-            "value": "#333238",
+            "value": "#28272d",
             "$type": "color",
             "comment": "Used for the background of a table row in hover state.",
             "filePath": "src/tokens/contextual/table.tokens.json",
@@ -12901,15 +12901,15 @@
   "shadow": {
     "color": {
       "default": {
-        "value": "rgba(5, 5, 6, 0.24)",
+        "value": "rgba(05, 05, 06, 0.24)",
         "$type": "color",
         "comment": "Used for the default shadow color.",
         "filePath": "src/tokens/shadow.tokens.json",
         "isSource": true,
         "original": {
           "value": {
-            "default": "rgba(5, 5, 6, 0.16)",
-            "dark": "rgba(5, 5, 6, 0.24)"
+            "default": "{color.alpha.dark.16}",
+            "dark": "{color.alpha.dark.24}"
           },
           "$type": "color",
           "comment": "Used for the default shadow color."

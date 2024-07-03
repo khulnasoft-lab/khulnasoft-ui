@@ -5,7 +5,6 @@
 $gl-text-tertiary: #737278; // Use text.color.disabled instead
 $gl-text-secondary: #89888d; // Use text.color.subtle instead
 $gl-text-primary: #ececef; // Use text.color.default instead
-$gl-shadow-color-default: rgba(5, 5, 6, 0.24); // Used for the default shadow color.
 $gl-line-height-52: 3.25rem;
 $gl-line-height-44: 2.75rem;
 $gl-line-height-42: 2.625rem;
@@ -23,12 +22,12 @@ $t-white-a-02: rgba(255, 255, 255, 0.02) !default;
 $t-white-a-36: rgba(255, 255, 255, 0.36) !default;
 $t-white-a-24: rgba(255, 255, 255, 0.24) !default;
 $t-white-a-16: rgba(255, 255, 255, 0.16) !default;
-$t-gray-a-08: rgba(24, 23, 29, 0.08) !default;
-$t-gray-a-06: rgba(24, 23, 29, 0.06) !default;
-$t-gray-a-04: rgba(24, 23, 29, 0.04) !default;
-$t-gray-a-02: rgba(24, 23, 29, 0.02) !default;
-$t-gray-a-24: rgba(24, 23, 29, 0.24) !default;
-$t-gray-a-16: rgba(24, 23, 29, 0.16) !default;
+$t-gray-a-08: rgba(05, 05, 06, 0.08) !default;
+$t-gray-a-06: rgba(05, 05, 06, 0.06) !default;
+$t-gray-a-04: rgba(05, 05, 06, 0.04) !default;
+$t-gray-a-02: rgba(05, 05, 06, 0.02) !default;
+$t-gray-a-24: rgba(05, 05, 06, 0.24) !default;
+$t-gray-a-16: rgba(05, 05, 06, 0.16) !default;
 $brand-gray-05: #2b2838 !default;
 $brand-gray-04: #45424d !default;
 $brand-gray-03: #74717a !default;
@@ -399,12 +398,12 @@ $gl-color-alpha-light-8: rgba(255, 255, 255, 0.08);
 $gl-color-alpha-light-6: rgba(255, 255, 255, 0.06);
 $gl-color-alpha-light-4: rgba(255, 255, 255, 0.04);
 $gl-color-alpha-light-2: rgba(255, 255, 255, 0.02);
-$gl-color-alpha-dark-24: rgba(24, 23, 29, 0.24);
-$gl-color-alpha-dark-16: rgba(24, 23, 29, 0.16);
-$gl-color-alpha-dark-8: rgba(24, 23, 29, 0.08);
-$gl-color-alpha-dark-6: rgba(24, 23, 29, 0.06);
-$gl-color-alpha-dark-4: rgba(24, 23, 29, 0.04);
-$gl-color-alpha-dark-2: rgba(24, 23, 29, 0.02);
+$gl-color-alpha-dark-24: rgba(05, 05, 06, 0.24);
+$gl-color-alpha-dark-16: rgba(05, 05, 06, 0.16);
+$gl-color-alpha-dark-8: rgba(05, 05, 06, 0.08);
+$gl-color-alpha-dark-6: rgba(05, 05, 06, 0.06);
+$gl-color-alpha-dark-4: rgba(05, 05, 06, 0.04);
+$gl-color-alpha-dark-2: rgba(05, 05, 06, 0.02);
 $gl-color-alpha-0: transparent;
 $gl-text-color-disabled: $gl-color-neutral-400; // Used for disabled text.
 $gl-text-color-success: $gl-color-green-300; // Used for text indicating success or validity.
@@ -491,6 +490,7 @@ $gl-status-muted-text-color-default: $gl-color-neutral-300; // Used for the text
 $gl-status-muted-border-color-hover: $gl-color-neutral-700; // Used for the border of a subtle neutral status item in the hover state.
 $gl-status-muted-background-color-active: $gl-color-neutral-800; // Used for the background of a subtle neutral status item in the active state.
 $gl-status-muted-background-color-default: $gl-color-neutral-900; // Used for the background of a subtle neutral status item when static or the default state when linked.
+$gl-shadow-color-default: $gl-color-alpha-dark-24; // Used for the default shadow color.
 $gl-icon-color-success: $gl-color-green-300; // Used for an icon associated with success or validity.
 $gl-icon-color-danger: $gl-color-red-300; // Used for an icon associated with an error or danger.
 $gl-icon-color-warning: $gl-color-orange-300; // Used for an icon associated with a warning.
