@@ -31,6 +31,29 @@ export const ThemeLightRed = createDesignTokenStory({
   tokens: COMPILED_TOKENS.color['theme-light-red'],
 });
 
+export const Brand = createDesignTokenStory({
+  tokens: {
+    white: COMPILED_TOKENS.color['brand-white'],
+    charcoal: COMPILED_TOKENS.color['brand-charcoal'],
+  },
+});
+
+export const BrandOrange = createDesignTokenStory({
+  tokens: COMPILED_TOKENS.color['brand-orange'],
+});
+
+export const BrandPurple = createDesignTokenStory({
+  tokens: COMPILED_TOKENS.color['brand-purple'],
+});
+
+export const BrandGray = createDesignTokenStory({
+  tokens: COMPILED_TOKENS.color['brand-gray'],
+});
+
+export const BrandPink = createDesignTokenStory({
+  tokens: COMPILED_TOKENS.color['brand-pink'],
+});
+
 // eslint-disable-next-line storybook/csf-component
 export default {
   title: 'tokens/color/constant',
