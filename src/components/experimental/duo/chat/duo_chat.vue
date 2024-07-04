@@ -412,7 +412,7 @@ export default {
   <aside
     v-if="!isHidden"
     id="chat-component"
-    class="markdown-code-block duo-chat-drawer gl-max-h-full gl-shadow-none gl-border-l gl-border-t duo-chat gl-bottom-0"
+    class="markdown-code-block duo-chat-drawer gl-max-h-full gl-shadow-none duo-chat gl-border-t gl-border-l gl-bottom-0"
     role="complementary"
     data-testid="chat-component"
   >
@@ -447,7 +447,7 @@ export default {
         :dismissible="false"
         variant="tip"
         :show-icon="false"
-        class="gl-text-center gl-border-t gl-p-4 gl-bg-gray-50 legal-warning gl-max-w-full gl-text-gray-700"
+        class="gl-text-center gl-p-4 gl-bg-gray-50 legal-warning gl-max-w-full gl-border-t gl-text-gray-700"
         role="alert"
         data-testid="chat-legal-warning"
         >{{ $options.i18n.CHAT_LEGAL_GENERATED_BY_AI }}</gl-alert
@@ -514,7 +514,7 @@ export default {
     <footer
       v-if="isChatAvailable"
       data-testid="chat-footer"
-      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-p-5 gl-border-t gl-bg-gray-10"
+      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-p-5 gl-bg-gray-10 gl-border-t"
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
