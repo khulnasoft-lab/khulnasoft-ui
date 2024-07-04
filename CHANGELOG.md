@@ -1,3 +1,17 @@
+# [86.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.14.0...v86.0.0) (2024-07-04)
+
+
+### Features
+
+* **tailwind:** add the custom configuration ([fafca85](https://gitlab.com/gitlab-org/gitlab-ui/commit/fafca856afe775f6b7f1442065de8b8a2af521e8))
+
+
+### BREAKING CHANGES
+
+* **tailwind:** This overrides several Tailwind configuration option.
+Consumers that were already using Tailwind with the GitLab UI preset
+should keep an eye out for utils that might behave differently.
+
 # [85.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.13.0...v85.14.0) (2024-07-04)
 
 
