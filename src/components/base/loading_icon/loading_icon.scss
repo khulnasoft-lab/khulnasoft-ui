@@ -3,11 +3,6 @@ $gl-loader-dots-size-md: 0.5rem;
 $gl-loader-dots-size-lg: 0.75rem;
 $gl-loader-dots-size-xl: 1rem;
 
-@mixin gl-tmp-spinner-color($color) {
-  border-color: rgba($color, 0.25);
-  border-top-color: $color;
-}
-
 @mixin gl-tmp-spinner-size($size, $border-width) {
   width: $size;
   height: $size;
@@ -54,8 +49,6 @@ $gl-loader-dots-size-xl: 1rem;
 
   // default size
   @include gl-tmp-spinner-size($gl-spacing-scale-5, $gl-border-size-2);
-  // default colour
-  @include gl-tmp-spinner-color($gray-700);
 
   &.gl-spinner-md {
     @include gl-tmp-spinner-size($gl-spacing-scale-6, $gl-border-size-3);
@@ -70,11 +63,17 @@ $gl-loader-dots-size-xl: 1rem;
   }
 
   &.gl-spinner-dark {
-    @include gl-tmp-spinner-color($gray-700);
+    // This is the default variant we use on normal (light) backgrounds.
+    // This variant changes its colors automatically for dark mode.
+    border-color: var(--gl-spinner-track-color-default);
+    border-top-color: var(--gl-spinner-segment-color-default);
   }
 
   &.gl-spinner-light {
-    @include gl-tmp-spinner-color($white);
+    // This is the variant we use on backgrounds that are dark even in light mode.
+    // This varient doesn't change its colors for dark mode.
+    border-color: var(--gl-spinner-track-color-light);
+    border-top-color: var(--gl-spinner-segment-color-light);
   }
 }
 
@@ -109,15 +108,9 @@ $gl-loader-dots-size-xl: 1rem;
 
   // default size
   @include gl-tmp-dots-size($gl-loader-dots-size-sm);
-  // default colour
-  @include gl-tmp-dots-color($gray-200);
 
-  &.gl-dots-loader-dark {
-    @include gl-tmp-dots-color($gray-200);
-  }
-
-  &.gl-dots-loader-light {
-    @include gl-tmp-dots-color($gray-500);
+  &.gl-dots-loader {
+    @include gl-tmp-dots-color(var(--gl-icon-color-subtle));
   }
 
   &.gl-dots-loader-md {

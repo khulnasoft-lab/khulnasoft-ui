@@ -3,7 +3,7 @@ import GlLoadingIcon from './loading_icon.vue';
 import readme from './loading_icon.md';
 
 const template = `
-  <div :class="['gl-p-3', 'gl-rounded-base', 'gl-text-center', { 'bg-dark' : color === 'light' } ]" >
+  <div :class="['gl-p-3', 'gl-rounded-base', 'gl-text-center', { 'gl-bg-gray-950' : color === 'light' } ]" >
     <gl-loading-icon
       :label="label"
       :size="size"
