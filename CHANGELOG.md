@@ -1,3 +1,10 @@
+## [86.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.0.0...v86.0.1) (2024-07-04)
+
+
+### Bug Fixes
+
+* Make sure npm release process has util migration script ([8f1ee46](https://gitlab.com/gitlab-org/gitlab-ui/commit/8f1ee46da69388a2ab9b2a14b4e1285d556f4366))
+
 # [86.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.14.0...v86.0.0) (2024-07-04)
 
 
