@@ -1,3 +1,10 @@
+# [85.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.13.0...v85.14.0) (2024-07-04)
+
+
+### Features
+
+* Add utility class migration script ([1207058](https://gitlab.com/gitlab-org/gitlab-ui/commit/12070583e28bef1a5dafc2fd504e92754f8337c3))
+
 # [85.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v85.12.2...v85.13.0) (2024-07-03)
 
 
