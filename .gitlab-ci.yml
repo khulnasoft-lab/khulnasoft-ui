@@ -175,6 +175,7 @@ build_package:
     reports:
       dotenv: build_package.env
     paths:
+      - bin/migrate_custom_utils_to_tw.bundled.mjs
       - dist
       - src/scss/utilities.scss
       - $TAR_ARCHIVE_NAME
