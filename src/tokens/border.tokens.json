@@ -15,7 +15,7 @@
           "dark": "{color.neutral.900}"
         },
         "$type": "color",
-        "$description": "Used for a border that has a little more definition, or is used in combination with a subtle background."
+        "$description": "Used for a subtle border in combination with the default background."
       },
       "strong": {
         "$value": {

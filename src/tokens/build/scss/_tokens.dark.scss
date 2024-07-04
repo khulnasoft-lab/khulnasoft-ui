@@ -533,7 +533,7 @@ $gl-avatar-border-color-hover: $gl-color-alpha-dark-24; // Used to increase the 
 $gl-avatar-border-color-default: $gl-color-alpha-dark-8; // Used to define the edge of an avatar.
 $gl-border-color-transparent: $gl-color-alpha-0; // Used when a border needs to be present, but not visibly perceived.
 $gl-border-color-strong: $gl-color-neutral-400; // Used for a distinct border that emphasizes an edge or boundaries.
-$gl-border-color-subtle: $gl-color-neutral-900; // Used for a border that has a little more definition, or is used in combination with a subtle background.
+$gl-border-color-subtle: $gl-color-neutral-900; // Used for a subtle border in combination with the default background.
 $gl-border-color-default: $gl-color-neutral-800; // Used for the default border color.
 $gl-background-color-overlay: rgba(0,0,0,0.64); // Used for an overlay that covers other content.
 $gl-background-color-disabled: $gl-color-neutral-900; // Used to identify a disabled section.
