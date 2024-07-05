@@ -255,6 +255,29 @@ const alphaLightColors = {
   24: 'var(--gl-color-alpha-light-24, rgba(255, 255, 255, 0.24))',
   36: 'var(--gl-color-alpha-light-36, rgba(255, 255, 255, 0.36))',
 };
+const brandColors = {
+  'brand-white': 'var(--gl-color-brand-white, #fff)',
+  'brand-charcoal': 'var(--gl-color-brand-charcoal, #171321)',
+  'brand-orange': {
+    '01g': 'var(--gl-color-brand-orange-01g, #ffd1bf)',
+    '01p': 'var(--gl-color-brand-orange-01p, #fca326)',
+    '02p': 'var(--gl-color-brand-orange-02p, #fc6d26)',
+    '03p': 'var(--gl-color-brand-orange-03p, #e24329)',
+  },
+  'brand-purple': {
+    '01g': 'var(--gl-color-brand-purple-01g, #ceb3ef)',
+    '01p': 'var(--gl-color-brand-purple-01p, #a989f5)',
+    '02p': 'var(--gl-color-brand-purple-02p, #7759c2)',
+  },
+  'brand-gray': {
+    '01': 'var(--gl-color-brand-gray-01, #d1d0d3)',
+    '02': 'var(--gl-color-brand-gray-02, #a2a1a6)',
+    '03': 'var(--gl-color-brand-gray-03, #74717a)',
+    '04': 'var(--gl-color-brand-gray-04, #45424d)',
+    '05': 'var(--gl-color-brand-gray-05, #2b2838)',
+  },
+  'brand-pink': { '01g': 'var(--gl-color-brand-pink-01g, #ffb9c9)' },
+};
 
 const colors = {
   inherit: 'inherit',
@@ -269,6 +292,7 @@ const colors = {
   ...baseColors,
   ...themeColors,
   ...dataVizColors,
+  ...brandColors,
 };
 
 const backgroundColor = {

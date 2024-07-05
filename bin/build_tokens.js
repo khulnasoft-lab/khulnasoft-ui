@@ -159,6 +159,14 @@ StyleDictionary.registerFormat({
     const alphaDarkColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.color.alpha.dark);
     const alphaLightColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.color.alpha.light);
     const borderColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.border.color);
+    const brandColors = {
+      'brand-white': f.cssCustomPropertyWithValue(COMPILED_TOKENS.color['brand-white']),
+      'brand-charcoal': f.cssCustomPropertyWithValue(COMPILED_TOKENS.color['brand-charcoal']),
+      'brand-orange': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-orange']),
+      'brand-purple': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-purple']),
+      'brand-gray': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-gray']),
+      'brand-pink': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-pink']),
+    };
 
     return `${fileHeader({ file })}
     const baseColors = ${JSON.stringify(baseColors)};
@@ -170,6 +178,7 @@ StyleDictionary.registerFormat({
     const iconColors = ${JSON.stringify(iconColors)};
     const alphaDarkColors = ${JSON.stringify(alphaDarkColors)};
     const alphaLightColors = ${JSON.stringify(alphaLightColors)};
+    const brandColors = ${JSON.stringify(brandColors)};
 
     const colors = {
       inherit: 'inherit',
@@ -184,7 +193,8 @@ StyleDictionary.registerFormat({
       ...baseColors,
       ...themeColors,
       ...dataVizColors,
-      };
+      ...brandColors,
+    };
 
     const backgroundColor = {
       ...colors,

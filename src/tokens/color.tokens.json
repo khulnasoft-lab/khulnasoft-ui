@@ -1,18 +1,18 @@
 {
   "black": {
     "$value": {
-        "default": "#000",
-        "dark": "#fff"
-      },
+      "default": "#000",
+      "dark": "#fff"
+    },
     "$type": "color",
     "themeable": true,
     "prefix": false
   },
   "white": {
     "$value": {
-        "default": "#fff",
-        "dark": "#333238"
-      },
+      "default": "#fff",
+      "dark": "#333238"
+    },
     "$type": "color",
     "themeable": true,
     "prefix": false
@@ -637,26 +637,30 @@
       "$value": "#171321",
       "$type": "color",
       "themeable": true,
-      "prefix": false
+      "prefix": false,
+      "deprecated": true
     },
     "orange": {
       "01": {
         "$value": "#fca326",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "02": {
         "$value": "#fc6d26",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "03": {
         "$value": "#e24329",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       }
     },
     "purple": {
@@ -664,13 +668,15 @@
         "$value": "#a989f5",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "02": {
         "$value": "#7759c2",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       }
     },
     "gray": {
@@ -678,31 +684,36 @@
         "$value": "#d1d0d3",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "02": {
         "$value": "#a2a1a6",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "03": {
         "$value": "#74717a",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "04": {
         "$value": "#45424d",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       },
       "05": {
         "$value": "#2b2838",
         "$type": "color",
         "themeable": true,
-        "prefix": false
+        "prefix": false,
+        "deprecated": true
       }
     }
   }
