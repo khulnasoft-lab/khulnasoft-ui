@@ -356,6 +356,7 @@
   &.btn-dashed-secondary,
   &.btn-confirm-secondary,
   &.btn-info-secondary,
+  &.btn-success-secondary,
   &.btn-danger-secondary,
   &.btn-reset-secondary,
   &.btn-reset-tertiary {
@@ -365,27 +366,30 @@
     }
   }
 
-  &.btn-default-tertiary,
-  &.btn-dashed-tertiary,
-  &.btn-confirm-tertiary,
-  &.btn-info-tertiary,
-  &.btn-danger-tertiary {
-    @include gl-shadow-none;
-
-    @media (forced-colors: active) {
-      color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
-      mix-blend-mode: initial;
-      border: 0;
-    }
-
-    &:hover {
+  &.btn-default,
+  &.btn-dashed,
+  &.btn-confirm,
+  &.btn-info,
+  &.btn-success,
+  &.btn-danger {
+    &-tertiary {
       @include gl-shadow-none;
-    }
 
-    &:active,
-    &:focus,
-    &:focus:active {
-      @include gl-focus;
+      @media (forced-colors: active) {
+        color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
+        mix-blend-mode: initial;
+        border: 0;
+      }
+
+      &:hover {
+        @include gl-shadow-none;
+      }
+
+      &:active,
+      &:focus,
+      &:focus:active {
+        @include gl-focus;
+      }
     }
   }
 
@@ -395,6 +399,68 @@
     @media (forced-colors: active) {
       color: $black;
       border: 0;
+    }
+  }
+
+
+  &.btn-success {
+    @include gl-text-contrast-light;
+    @include gl-bg-green-500;
+    @include gl-inset-border-1-green-600;
+
+    &:hover {
+      @include gl-button-hover-border($green-800);
+      background-color: $green-600;
+    }
+
+    &:focus {
+      @include gl-focus($color: $green-800);
+      @include gl-bg-green-600;
+    }
+
+    &:active,
+    &.active {
+      @include gl-focus($color: $green-900);
+      @include gl-bg-green-700;
+
+      &:focus {
+        @include gl-focus($color: $green-900);
+      }
+    }
+  }
+
+  &.btn-success-secondary {
+    @include gl-bg-white;
+  }
+
+  &.btn-success-secondary,
+  &.btn-success-tertiary {
+    @include gl-bg-transparent;
+    @include gl-text-green-500;
+    @include gl-font-weight-normal;
+    @include gl-inset-border-1-green-500;
+
+    &:hover {
+      @include gl-text-green-700;
+      @include gl-button-hover-border($green-700);
+      background-color: $green-50;
+    }
+
+    &:focus {
+      @include gl-text-green-700;
+      @include gl-focus($color: $green-700);
+      @include gl-bg-green-50;
+    }
+
+    &:active,
+    &.active {
+      @include gl-text-green-900;
+      @include gl-focus($color: $green-900);
+      @include gl-bg-green-100;
+
+      &:focus {
+        @include gl-focus($color: $green-900);
+      }
     }
   }
 
