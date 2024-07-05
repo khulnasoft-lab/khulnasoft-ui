@@ -10,7 +10,7 @@
     @include gl-inset-border-1-gray-400;
   }
 
-  .gl-search-box-by-click-search-button.gl-button {
+  .gl-search-box-by-click-search-button.gl-button:not(:disabled) {
     @include gl-text-secondary;
     @include gl-inset-border-1-gray-400;
   }
