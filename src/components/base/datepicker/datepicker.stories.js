@@ -35,7 +35,7 @@ export const Default = (_args, { argTypes }) => ({
       pickerValue: defaultDate,
     };
   },
-  template: `<gl-datepicker :max-date="maxDate" :min-date="minDate" v-model="pickerValue" :state="state"/>`,
+  template: `<gl-datepicker :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" :state="state"/>`,
 });
 Default.args = generateProps();
 Default.play = async ({ canvasElement }) => {
@@ -74,7 +74,7 @@ export const WithClearButton = (_args, { argTypes }) => ({
       pickerValue: defaultDate,
     };
   },
-  template: `<gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" />`,
+  template: `<gl-datepicker showClearButton :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" />`,
 });
 WithClearButton.args = generateProps();
 
@@ -90,16 +90,16 @@ export const Widths = (_args, { argTypes }) => ({
   template: `
     <div class="gl-display-flex gl-flex-direction-column gl-gap-3">
       <gl-form-group label="Width: sm">
-        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" width="sm" />
+        <gl-datepicker showClearButton :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" width="sm" />
       </gl-form-group>
       <gl-form-group label="Width: md (default)">
-        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" width="md" />
+        <gl-datepicker showClearButton :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" width="md" />
       </gl-form-group>
       <gl-form-group label="Width: lg">
-        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" width="lg" />
+        <gl-datepicker showClearButton :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" width="lg" />
       </gl-form-group>
       <gl-form-group label="Width: xl">
-        <gl-datepicker showClearButton :max-date="maxDate" :min-date="minDate" v-model="pickerValue" width="xl" />
+        <gl-datepicker showClearButton :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" width="xl" />
       </gl-form-group>
     </div>
   `,
