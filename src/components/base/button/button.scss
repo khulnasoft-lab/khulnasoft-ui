@@ -470,7 +470,7 @@
   &.btn-label:hover,
   &.btn-label:focus,
   &.btn-label:active {
-    background-color: var(--gl-background-color-tertiary);
+    background-color: var(--gl-background-color-subtle);
     @include gl-cursor-default;
     user-select: text;
   }
