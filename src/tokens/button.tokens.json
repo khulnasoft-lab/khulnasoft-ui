@@ -1105,8 +1105,8 @@
       "background": {
         "color": {
           "$value": {
-            "default": "{color.neutral.50}",
-            "dark": "{color.neutral.900}"
+            "default": "{color.neutral.10}",
+            "dark": "{color.neutral.950}"
           },
           "$type": "color",
           "$description": "Used for the background of a disabled button."

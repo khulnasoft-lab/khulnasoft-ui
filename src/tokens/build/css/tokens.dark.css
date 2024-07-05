@@ -577,7 +577,7 @@
   --gl-button-disabled-icon-color: var(--gl-color-neutral-500); /* Used for the icon of a disabled button. */
   --gl-button-disabled-text-color: var(--gl-color-neutral-400); /* Used for the text of a disabled button. */
   --gl-button-disabled-border-color: var(--gl-color-neutral-800); /* Used for the border of a disabled button. */
-  --gl-button-disabled-background-color: var(--gl-color-neutral-900); /* Used for the background of a disabled button. */
+  --gl-button-disabled-background-color: var(--gl-color-neutral-950); /* Used for the background of a disabled button. */
   --gl-button-link-text-color-default: var(--gl-color-blue-400); /* Used for the text of a link button in the default state. */
   --gl-button-danger-tertiary-icon-color-active: var(--gl-color-red-50); /* Used for the icon of a borderless, tertiary danger (destructive) button in the active state. */
   --gl-button-danger-tertiary-icon-color-hover: var(--gl-color-red-200); /* Used for the icon of a borderless, tertiary danger (destructive) button in the hover state. */
