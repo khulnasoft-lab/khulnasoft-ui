@@ -1,0 +1,1147 @@
+{
+  "button": {
+    "default": {
+      "primary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.primary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of an default primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default primary button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.200}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.400}",
+                "dark": "{color.neutral.500}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.primary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of an default primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.neutral.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default primary button in the active state."
+            },
+            "selected": {
+              "$value": {
+                "default": "{color.neutral.300}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a default primary button when in a selected or current state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a default primary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.default.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default primary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.default.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default primary button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.500}",
+                "dark": "{color.neutral.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.700}",
+                "dark": "{color.neutral.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.primary.icon.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a default primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default primary button in the active state."
+            }
+          }
+        }
+      },
+      "secondary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default secondary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default secondary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.secondary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of an default secondary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default secondary button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.200}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default secondary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.400}",
+                "dark": "{color.neutral.500}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default secondary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.secondary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of an default secondary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.neutral.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default secondary button in the active state."
+            },
+            "selected": {
+              "$value": {
+                "default": "{color.neutral.300}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a default secondary button when in a selected or current state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a default secondary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.default.secondary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default secondary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.secondary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default secondary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.default.secondary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default secondary button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.500}",
+                "dark": "{color.neutral.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default secondary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.700}",
+                "dark": "{color.neutral.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default secondary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.secondary.icon.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a default secondary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default secondary button in the active state."
+            }
+          }
+        }
+      },
+      "tertiary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the background of a default borderless, tertiary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a default borderless, tertiary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.tertiary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a default borderless, tertiary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a default borderless, tertiary button in the active state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a default borderless, tertiary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.default.tertiary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default borderless, tertiary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.tertiary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default borderless, tertiary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.default.tertiary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a default borderless, tertiary button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.500}",
+                "dark": "{color.neutral.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default borderless, tertiary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.700}",
+                "dark": "{color.neutral.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default borderless, tertiary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.tertiary.icon.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a default borderless, tertiary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.900}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a default borderless, tertiary button in the active state."
+            }
+          }
+        }
+      }
+    },
+    "confirm": {
+      "primary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a confirm (positive) primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a confirm (positive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.primary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a confirm (positive) primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a confirm (positive) primary button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a confirm (positive) primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.800}",
+                "dark": "{color.blue.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a confirm (positive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.primary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a confirm (positive) primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.blue.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a confirm (positive) primary button in the active state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a confirm (positive) primary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.confirm.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a confirm (positive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a confirm (positive) primary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.confirm.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a confirm (positive) primary button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": "{button.confirm.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the icon of a confirm (positive) primary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.confirm.primary.text.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a confirm (positive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.primary.text.color.focus}",
+              "$type": "color",
+              "$description": "Used for the icon of a confirm (positive) primary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.confirm.primary.text.color.active}",
+              "$type": "color",
+              "$description": "Used for the icon of a confirm (positive) primary button in the active state."
+            }
+          }
+        }
+      },
+      "secondary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.50}",
+                "dark": "{color.blue.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.secondary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of an outlined confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.100}",
+                "dark": "{color.blue.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined confirm (positive) button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.secondary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of an outlined confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.blue.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined confirm (positive) button in the active state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.secondary.text.color.hover}",
+              "$type": "color",
+              "$description": "Used for the text of a confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.blue.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a confirm (positive) button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.secondary.icon.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.blue.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a confirm (positive) button in the active state."
+            }
+          }
+        }
+      },
+      "tertiary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.50}",
+                "dark": "{color.blue.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.tertiary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.100}",
+                "dark": "{color.blue.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the active state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a borderless, tertiary confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a borderless, tertiary confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.tertiary.text.color.hover}",
+              "$type": "color",
+              "$description": "Used for the text of a borderless, tertiary confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.blue.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a borderless, tertiary confirm (positive) button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a borderless, tertiary confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a borderless, tertiary confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.tertiary.icon.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a borderless, tertiary confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.blue.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a borderless, tertiary confirm (positive) button in the active state."
+            }
+          }
+        }
+      }
+    },
+    "danger": {
+      "primary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a danger (destructive) primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.600}",
+                "dark": "{color.red.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a danger (destructive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.primary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a danger (destructive) primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.800}",
+                "dark": "{color.red.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a danger (destructive) primary button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.600}",
+                "dark": "{color.red.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a danger (destructive) primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.800}",
+                "dark": "{color.red.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a danger (destructive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.primary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a danger (destructive) primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.red.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a danger (destructive) primary button in the active state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a danger (destructive) primary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.danger.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a danger (destructive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a danger (destructive) primary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.danger.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the text of a danger (destructive) primary button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": "{button.danger.primary.text.color.default}",
+              "$type": "color",
+              "$description": "Used for the icon of a danger (destructive) primary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.danger.primary.text.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a danger (destructive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.primary.text.color.focus}",
+              "$type": "color",
+              "$description": "Used for the icon of a danger (destructive) primary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.danger.primary.text.color.active}",
+              "$type": "color",
+              "$description": "Used for the icon of a danger (destructive) primary button in the active state."
+            }
+          }
+        }
+      },
+      "secondary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.50}",
+                "dark": "{color.red.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.secondary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of an outlined danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.100}",
+                "dark": "{color.red.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined danger (destructive) button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.700}",
+                "dark": "{color.red.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.secondary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of an outlined danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.red.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined danger (destructive) button in the active state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.700}",
+                "dark": "{color.red.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.secondary.text.color.hover}",
+              "$type": "color",
+              "$description": "Used for the text of a danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.red.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a danger (destructive) button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.700}",
+                "dark": "{color.red.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.secondary.icon.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.red.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a danger (destructive) button in the active state."
+            }
+          }
+        }
+      },
+      "tertiary": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.50}",
+                "dark": "{color.red.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.tertiary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.100}",
+                "dark": "{color.red.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the active state."
+            }
+          }
+        },
+        "text": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a borderless, tertiary danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.700}",
+                "dark": "{color.red.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a borderless, tertiary danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.tertiary.text.color.hover}",
+              "$type": "color",
+              "$description": "Used for the text of a borderless, tertiary danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.red.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the text of a borderless, tertiary danger (destructive) button in the active state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a borderless, tertiary danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.700}",
+                "dark": "{color.red.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a borderless, tertiary danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.tertiary.icon.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon of a borderless, tertiary danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.red.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the icon of a borderless, tertiary danger (destructive) button in the active state."
+            }
+          }
+        }
+      }
+    },
+    "link": {
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a link button in the default state."
+          },
+          "hover": {
+            "$value": "{button.link.text.color.default}",
+            "$type": "color",
+            "$description": "Used for the text of a link button in the hover state."
+          },
+          "focus": {
+            "$value": "{button.link.text.color.default}",
+            "$type": "color",
+            "$description": "Used for the text of a link button in the focus state."
+          },
+          "active": {
+            "$value": "{button.link.text.color.default}",
+            "$type": "color",
+            "$description": "Used for the text of a link button in the active state."
+          }
+        }
+      }
+    },
+    "disabled": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.50}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a disabled button."
+        }
+      },
+      "border": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the border of a disabled button."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.500}",
+            "dark": "{color.neutral.400}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a disabled button."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.400}",
+            "dark": "{color.neutral.500}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a disabled button."
+        }
+      }
+    }
+  }
+}
