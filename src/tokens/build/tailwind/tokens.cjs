@@ -211,35 +211,27 @@ const textColors = {
   link: 'var(--gl-text-color-link, var(--gl-color-blue-700, #0b5cad))',
   danger: 'var(--gl-text-color-danger, var(--gl-color-red-600, #c91c00))',
   success: 'var(--gl-text-color-success, var(--gl-color-green-600, #217645))',
-  disabled:
-    'var(--gl-text-color-disabled, var(--gl-color-neutral-400, #89888d))',
+  disabled: 'var(--gl-text-color-disabled, var(--gl-color-neutral-400, #89888d))',
 };
 const backgroundColors = {
-  default:
-    'var(--gl-background-color-default, var(--gl-color-neutral-0, #fff))',
-  subtle:
-    'var(--gl-background-color-subtle, var(--gl-color-neutral-10, #fbfafd))',
-  strong:
-    'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
-  disabled:
-    'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
+  default: 'var(--gl-background-color-default, var(--gl-color-neutral-0, #fff))',
+  subtle: 'var(--gl-background-color-subtle, var(--gl-color-neutral-10, #fbfafd))',
+  strong: 'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
+  disabled: 'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
   overlay:
     'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, rgba(31, 30, 36, 0.24)))',
 };
 const borderColors = {
-  default:
-    'var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
+  default: 'var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
   subtle: 'var(--gl-border-color-subtle, var(--gl-color-neutral-50, #ececef))',
   strong: 'var(--gl-border-color-strong, var(--gl-color-neutral-400, #89888d))',
-  transparent:
-    'var(--gl-border-color-transparent, var(--gl-color-alpha-0, transparent))',
+  transparent: 'var(--gl-border-color-transparent, var(--gl-color-alpha-0, transparent))',
 };
 const iconColors = {
   default: 'var(--gl-icon-color-default, var(--gl-color-neutral-700, #535158))',
   subtle: 'var(--gl-icon-color-subtle, var(--gl-color-neutral-500, #737278))',
   strong: 'var(--gl-icon-color-strong, var(--gl-color-neutral-900, #333238))',
-  disabled:
-    'var(--gl-icon-color-disabled, var(--gl-color-neutral-300, #a4a3a8))',
+  disabled: 'var(--gl-icon-color-disabled, var(--gl-color-neutral-300, #a4a3a8))',
   link: 'var(--gl-icon-color-link, var(--gl-color-blue-600, #1068bf))',
   info: 'var(--gl-icon-color-info, var(--gl-color-blue-600, #1068bf))',
   warning: 'var(--gl-icon-color-warning, var(--gl-color-orange-600, #9e5400))',
