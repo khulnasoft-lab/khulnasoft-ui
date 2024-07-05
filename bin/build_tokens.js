@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const path = require('path');
 const prettier = require('prettier');
 const StyleDictionary = require('style-dictionary');
 const merge = require('lodash/merge');
@@ -247,11 +248,9 @@ StyleDictionary.registerAction({
     config.files.forEach(async (file) => {
       const filePath = `${config.buildPath}${file.destination}`;
       const fileContent = fs.readFileSync(filePath, 'utf8');
-      const formattedContent = await prettier.format(fileContent, {
-        singleQuote: true,
-        parser: 'babel',
-      });
-      fs.writeFileSync(filePath, formattedContent);
+      const options = await prettier.resolveConfig(path.join(__dirname, '../.prettierrc'));
+      const formattedOutput = await prettier.format(fileContent, { ...options, parser: 'babel' });
+      fs.writeFileSync(filePath, formattedOutput);
     });
   },
   undo() {
