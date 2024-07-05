@@ -1,0 +1,15 @@
+{
+  "datepicker": {
+    "date": {
+      "text": {
+        "color": {
+          "selected": {
+            "$value": "{control.indicator.color.selected}",
+            "$type": "color",
+            "$description": "Used for the datepicker date text color state indicators."
+          }
+        }
+      }
+    }
+  }
+}
