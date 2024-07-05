@@ -73,6 +73,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     @include gl-p-0;
     @include gl-rounded-full;
     @include gl-shadow-none;
+    @include gl-bg-transparent;
 
     &:focus,
     &:active {
