@@ -1,3 +1,10 @@
+## [86.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.0.1...v86.0.2) (2024-07-05)
+
+
+### Bug Fixes
+
+* use prettier config for style-dictionary prettier action ([46ae3a9](https://gitlab.com/gitlab-org/gitlab-ui/commit/46ae3a97531c31490b4b1fbad9ff9bfe6f214363))
+
 ## [86.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.0.0...v86.0.1) (2024-07-04)
 
 
