@@ -1,3 +1,10 @@
+# [86.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.0.2...v86.1.0) (2024-07-05)
+
+
+### Features
+
+* **Tailwind:** add brand colors to tailwind ([f8f864b](https://gitlab.com/gitlab-org/gitlab-ui/commit/f8f864be3e1bbc43d342644f155149e30901b5c3))
+
 ## [86.0.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.0.1...v86.0.2) (2024-07-05)
 
 
