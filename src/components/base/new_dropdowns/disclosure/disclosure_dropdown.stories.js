@@ -18,6 +18,7 @@ import { DISCLOSURE_DROPDOWN_GROUP_BORDER_POSITIONS } from './constants';
 import readme from './disclosure_dropdown.md';
 import {
   mockItems,
+  mockButtons,
   mockItemsCustomItem,
   mockGroups,
   mockProfileGroups,
@@ -281,7 +282,41 @@ CustomGroupsItemsAndToggle.argTypes = {
   },
 };
 
-CustomGroupsItemsAndToggle.decorators = [makeContainer({ height: '400px' })];
+export const WithDynamicWrapperText = (args, { argTypes }) => ({
+  toggleId: TOGGLE_ID,
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      currentToggleText: 'Group by',
+    };
+  },
+  components: {
+    GlDisclosureDropdown,
+    GlTooltip,
+  },
+  methods: {
+    handleAction(selectedItem) {
+      this.currentToggleText = selectedItem.text;
+    },
+  },
+
+  template: `
+    <div>
+      ${template('', { bindingOverrides: { ':toggle-text': 'currentToggleText', '@action': 'handleAction' } })}
+      <gl-tooltip :target="$options.toggleId" placement="right">
+        This is a default disclosure
+      </gl-tooltip>
+    </div>
+  `,
+});
+
+WithDynamicWrapperText.args = {
+  items: mockButtons,
+  noCaret: true,
+  toggleId: TOGGLE_ID,
+};
+WithDynamicWrapperText.decorators = [makeContainer({ height: '200px' })];
+WithDynamicWrapperText.tags = ['skip-visual-test'];
 
 export const MiscellaneousContent = (args, { argTypes }) => ({
   props: Object.keys(argTypes),

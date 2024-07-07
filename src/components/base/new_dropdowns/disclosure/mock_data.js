@@ -37,6 +37,18 @@ export const mockItems = [
   },
 ];
 
+export const mockButtons = [
+  {
+    text: 'Checks',
+  },
+  {
+    text: 'Projects',
+  },
+  {
+    text: 'Standards',
+  },
+];
+
 export const mockItemsCustomItem = [
   {
     text: 'Assigned to you',

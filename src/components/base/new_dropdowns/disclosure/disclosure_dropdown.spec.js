@@ -265,12 +265,14 @@ describe('GlDisclosureDropdown', () => {
   });
 
   describe('action', () => {
-    it('should re-emit the `action` event when it is emitted on the item for custom handling', () => {
+    it('should re-emit the `action` event when it is emitted on the item for custom handling', async () => {
       buildWrapper({
         items: mockItems,
       });
 
       findListItem(0).vm.$emit('action', mockItems[0]);
+      await new Promise(window.requestAnimationFrame);
+
       expect(wrapper.emitted('action')).toHaveLength(1);
       expect(wrapper.emitted('action')[0][0]).toEqual(mockItems[0]);
     });

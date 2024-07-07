@@ -342,12 +342,16 @@ export default {
       this.$refs.baseDropdown.closeAndFocus();
     },
     handleAction(action) {
-      /**
-       * Emitted when one of disclosure dropdown items is clicked
-       *
-       * @event action
-       */
-      this.$emit('action', action);
+      // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4376 for
+      // detailed explanation why we need requestAnimationFrame
+      window.requestAnimationFrame(() => {
+        /**
+         * Emitted when one of disclosure dropdown items is clicked
+         *
+         * @event action
+         */
+        this.$emit('action', action);
+      });
     },
     handleAutoClose(e) {
       if (
