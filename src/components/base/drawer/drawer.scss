@@ -1,8 +1,13 @@
 $gl-drawer-width: 400px;
 $gl-sidebar-width: 290px;
-$gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white);
+$gl-drawer-scrim-gradient: linear-gradient(
+  to bottom,
+  $transparent-rgba,
+  var(--drawer-variant-bg-color)
+);
 
 .gl-drawer {
+  background-color: var(--drawer-variant-bg-color);
   right: 0;
   @include gl-transition-medium;
   position: fixed;
@@ -16,14 +21,14 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
   @include gl-flex-direction-column;
 
   .gl-drawer-header-sticky {
-    @include gl-bg-white;
+    background-color: var(--drawer-variant-bg-color);
     top: 0;
     position: sticky;
   }
 }
 
 .gl-drawer-default {
-  @include gl-bg-white;
+  --drawer-variant-bg-color: var(--gl-background-color-default);
   @include media-breakpoint-up(md) {
     width: $gl-drawer-width;
   }
@@ -35,7 +40,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 }
 
 .gl-drawer-sidebar {
-  @include gl-bg-gray-10;
+  --drawer-variant-bg-color: var(--gl-background-color-subtle);
   @include media-breakpoint-up(md) {
     width: $gl-sidebar-width;
   }
@@ -56,7 +61,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 
 .gl-drawer-footer {
   @include gl-border-t-solid;
-  @include gl-border-t-gray-100;
+  border-top-color: var(--gl-border-color-default);
   @include gl-border-t-1;
   @include gl-p-5;
 }
@@ -76,18 +81,19 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 }
 
 .gl-drawer-footer-sticky {
-  @include gl-bg-white;
+  background-color: var(--drawer-variant-bg-color);
   bottom: 0;
   position: sticky;
 }
 
 .gl-drawer-header {
   @include gl-border-b-solid;
-  @include gl-border-b-gray-100;
+  border-bottom-color: var(--gl-border-color-default);
   @include gl-border-b-1;
 }
 
 .gl-drawer-title {
+  color: var(--gl-text-color-heading);
   @include gl-display-flex;
   @include gl-align-items-center;
   @include gl-justify-content-space-between;
@@ -127,7 +133,7 @@ $gl-drawer-scrim-gradient: linear-gradient(to bottom, $transparent-rgba, $white)
 
 .gl-drawer-body > * {
   @include gl-border-b-solid;
-  @include gl-border-b-gray-100;
+  border-bottom-color: var(--gl-border-color-default);
   @include gl-border-b-1;
 
   &:last-child {
