@@ -670,3 +670,5 @@ $gl-action-text-color-disabled: $gl-color-neutral-400; // Used for the text of a
 $gl-action-border-color-disabled: $gl-color-neutral-800; // Used for the border of a disabled action.
 $gl-action-background-color-disabled: $gl-color-neutral-900; // Used for the background of a disabled action.
 $gl-focus-ring-inner-color: $gl-background-color-default; // Used for the inner neutral portion of the focus ring.
+$gl-table-sorting-icon-color: $gl-text-color-heading; // Used for the color of the sorting icons in the column headers.
+$gl-table-row-background-color-hover: $gl-background-color-subtle; // Used for the background of a table row in hover state.
