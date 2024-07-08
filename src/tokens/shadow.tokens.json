@@ -1,0 +1,14 @@
+{
+  "shadow": {
+    "color": {
+      "default": {
+        "$value": {
+          "default": "rgba(5, 5, 6, 0.16)",
+          "dark": "rgba(5, 5, 6, 0.24)"
+        },
+        "$type": "color",
+        "$description": "Used for the default shadow color."
+      }
+    }
+  }
+}
