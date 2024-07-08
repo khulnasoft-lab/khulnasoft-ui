@@ -66,14 +66,24 @@ $badge-min-width: $gl-spacing-scale-3;
 /* Basic badge styles */
 
 .gl-badge {
-  @include gl-display-inline-flex;
-  @include gl-align-items-center;
-  @include gl-justify-content-center;
   @include gl-font-sm;
   @include gl-font-weight-normal;
   @include gl-line-height-normal;
+
+  /*
+    CSS Grid is used here to deal with 3 cases:
+      * Badge shouldn't shrink inside flex containers by default
+      * Content inside the badge should shrink when gl-text-truncate class is used on the contents
+      * Badge should have a minimal width of 20 pixels (for example when `1` is passed inside the slot)
+   */
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-template-columns: minmax($badge-min-width, auto);
+  align-items: center;
+  justify-content: center;
   gap: $gl-spacing-scale-2;
   padding: $gl-spacing-scale-1 $badge-padding-horizontal;
+  min-width: fit-content;
 
   @media (forced-colors: active) {
     border: 1px solid;
@@ -84,10 +94,6 @@ $badge-min-width: $gl-spacing-scale-3;
     @include gl-w-5;
     @include gl-flex-shrink-0;
     top: auto;
-  }
-
-  .gl-badge-content {
-    min-width: $badge-min-width;
   }
 }
 
