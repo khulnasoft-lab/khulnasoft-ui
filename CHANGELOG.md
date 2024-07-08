@@ -1,3 +1,10 @@
+# [86.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.2.0...v86.3.0) (2024-07-08)
+
+
+### Features
+
+* **GlDrawer:** Use color design tokens ([1be0995](https://gitlab.com/gitlab-org/gitlab-ui/commit/1be0995f368b21eeefb7e4c9c82e07569dedc0ba))
+
 # [86.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.1.0...v86.2.0) (2024-07-08)
 
 
