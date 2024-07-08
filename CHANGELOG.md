@@ -1,3 +1,10 @@
+# [86.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.1.0...v86.2.0) (2024-07-08)
+
+
+### Features
+
+* **DesignTokens:** add shadow color design tokens ([4a6e594](https://gitlab.com/gitlab-org/gitlab-ui/commit/4a6e5944334aef87b17831b09c9cf645eb94c3eb))
+
 # [86.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.0.2...v86.1.0) (2024-07-05)
 
 
