@@ -56,7 +56,7 @@ secret_detection:
   needs: []
 
 .playwright:
-  image: mcr.microsoft.com/playwright:v1.45.0-jammy
+  image: mcr.microsoft.com/playwright:v1.45.1-jammy
 
 .node:
   image: node:20.15.0-buster
