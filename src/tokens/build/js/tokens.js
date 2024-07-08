@@ -566,6 +566,7 @@ export const GL_LINE_HEIGHT_36 = '2.25rem';
 export const GL_LINE_HEIGHT_42 = '2.625rem';
 export const GL_LINE_HEIGHT_44 = '2.75rem';
 export const GL_LINE_HEIGHT_52 = '3.25rem';
+export const GL_SHADOW_COLOR_DEFAULT = 'rgba(5, 5, 6, 0.16)'; // Used for the default shadow color.
 export const GL_STATUS_MUTED_BACKGROUND_COLOR_DEFAULT = '#ececef'; // Used for the background of a subtle neutral status item when static or the default state when linked.
 export const GL_STATUS_MUTED_BACKGROUND_COLOR_ACTIVE = '#dcdcde'; // Used for the background of a subtle neutral status item in the active state.
 export const GL_STATUS_MUTED_BORDER_COLOR_HOVER = '#bfbfc3'; // Used for the border of a subtle neutral status item in the hover state.

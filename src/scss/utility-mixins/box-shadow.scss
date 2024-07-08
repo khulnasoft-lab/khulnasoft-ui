@@ -208,13 +208,13 @@
 */
 
 @mixin gl-shadow-sm {
-  box-shadow: 0 1px 2px $t-gray-a-08;
+  box-shadow: 0 1px 2px var(--gl-shadow-color-default);
 }
 
 @mixin gl-shadow-md {
-  box-shadow: 0 2px 8px $t-gray-a-16, 0 0 2px $t-gray-a-16;
+  box-shadow: 0 2px 8px var(--gl-shadow-color-default), 0 0 2px var(--gl-shadow-color-default);
 }
 
 @mixin gl-shadow-lg {
-  box-shadow: 0 4px 12px $t-gray-a-16, 0 0 4px $t-gray-a-16;
+  box-shadow: 0 4px 12px var(--gl-shadow-color-default), 0 0 4px var(--gl-shadow-color-default);
 }

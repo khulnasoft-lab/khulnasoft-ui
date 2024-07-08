@@ -7,7 +7,7 @@ $gl-popover-max-width: $grid-size * 35;
   @include gl-border-1;
   @include gl-border-solid;
   @include gl-border-none;
-  @include gl-shadow;
+  @include gl-shadow-md;
   @include gl-font-sm;
 
   &,

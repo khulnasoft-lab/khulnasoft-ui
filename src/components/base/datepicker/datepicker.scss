@@ -44,7 +44,7 @@ $pd-week-color: $gray-500;
   @include gl-mt-3;
 
   &.is-bound {
-    @include gl-shadow;
+    @include gl-shadow-md;
   }
 
   .pika-lendar {
