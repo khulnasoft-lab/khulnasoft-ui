@@ -74,7 +74,8 @@
     "lint:fix": "run-s eslint:fix prettier:fix stylelint:fix markdownlint:fix",
     "generate:component": "plop",
     "translations:collect": "make translations.js",
-    "tailwind-config-viewer": "tailwind-config-viewer -o"
+    "tailwind-config-viewer:start": "tailwind-config-viewer -o",
+    "tailwind-config-viewer:export": "tailwind-config-viewer export ./tailwind-config-viewer-static"
   },
   "dependencies": {
     "@floating-ui/dom": "1.4.3",

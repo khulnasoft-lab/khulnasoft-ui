@@ -196,6 +196,16 @@ build_storybook:
 build_storybook_vue3:
   extends: [.build_storybook, .use_vue3]
 
+build_tailwind_config_viewer:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: build
+  script:
+    - yarn tailwind-config-viewer:export
+  artifacts:
+    paths:
+      - tailwind-config-viewer-static/
+
 lint:
   extends: [.node, .yarn_install]
   needs: []
@@ -349,11 +359,13 @@ pages:
   needs:
     - build_storybook
     - build_storybook_vue3
+    - build_tailwind_config_viewer
   pages:
     path_prefix: "${PAGES_PREFIX}"
   script:
     - echo "Deploying to Pages"
     - echo "Pages accessible through ${CI_ENVIRONMENT_URL}"
+    - mv ./tailwind-config-viewer-static ./public/tailwind-config-viewer
   environment:
     name: "${PAGES_ENV_NAME}"
     url: "${CI_PAGES_URL}/${PAGES_PREFIX}"
