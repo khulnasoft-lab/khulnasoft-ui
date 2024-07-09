@@ -52,7 +52,10 @@
       "background": {
         "color": {
           "default": {
-            "$value": "{background.color.default}",
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
             "$type": "color",
             "$description": "Used for the background of an outlined neutral action in the default state."
           },

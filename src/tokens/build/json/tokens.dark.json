@@ -112,13 +112,16 @@
       "background": {
         "color": {
           "default": {
-            "value": "#1f1e24",
+            "value": "#333238",
             "$type": "color",
             "comment": "Used for the background of an outlined neutral action in the default state.",
             "filePath": "src/tokens/action.tokens.json",
             "isSource": true,
             "original": {
-              "value": "{background.color.default}",
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
               "$type": "color",
               "comment": "Used for the background of an outlined neutral action in the default state."
             },
