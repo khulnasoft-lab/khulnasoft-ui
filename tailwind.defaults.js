@@ -442,6 +442,7 @@ module.exports = {
       reset: 'inherit',
       0: '0',
       1: '1',
+      14: '.875rem',
       normal: '1rem',
       20: '1.25rem',
       24: '1.5rem',
