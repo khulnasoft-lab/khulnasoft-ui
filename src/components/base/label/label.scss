@@ -5,7 +5,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
 
 .gl-label {
   @include gl-align-items-center;
-  @include gl-bg-white;
+  background-color: var(--gl-background-color-default);
   @include gl-overflow-hidden;
   @include gl-display-inline-flex;
   @include gl-rounded-pill;
@@ -24,7 +24,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   }
 
   &:has(*:first-child:focus) {
-    @include gl-focus($color: var(--label-background-color, $white), $important: true);
+    @include gl-focus($color: var(--label-background-color, --gl-background-color-default), $important: true);
   }
 
   .gl-label-link {
@@ -62,18 +62,6 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     @include gl-rounded-full;
     @include gl-shadow-none;
 
-    &[disabled],
-    &[disabled]:hover,
-    &[disabled]:focus {
-      @include gl-opacity-5;
-      @include gl-reset-bg;
-      @include gl-shadow-none;
-
-      .gl-icon {
-        @include gl-fill-current-color;
-      }
-    }
-
     &:focus,
     &:active {
       @include gl-focus;
@@ -85,82 +73,47 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   }
 }
 
+// styles for the the light label variant (which uses dark text)
 .gl-label-text-dark {
-  @include gl-text-gray-950;
+  color: var(--gl-label-light-text-color);
 
   #{$label-close-button} {
-    .gl-icon,
-    &[disabled] .gl-icon,
-    &[disabled]:hover .gl-icon,
-    &[disabled]:focus .gl-icon {
-      @include gl-text-black-normal;
-    }
+    color: var(--gl-label-light-button-icon-color-default);
+    background-color: var(--gl-label-light-button-background-color-default);
 
     &:focus,
     &:hover {
-      @include gl-bg-black;
-
-      .gl-icon {
-        color: var(--label-background-color);
-      }
+      color: var(--label-background-color);
+      background-color: var(--gl-label-light-button-background-color-hover);
     }
   }
 }
 
+// styles for the the dark label variant (which uses light text)
 .gl-label-text-light {
-  @include gl-text-white;
+  color: var(--gl-label-dark-text-color);
 
   #{$label-close-button} {
-    .gl-icon,
-    &[disabled] .gl-icon,
-    &[disabled]:hover .gl-icon,
-    &[disabled]:focus .gl-icon {
-      @include gl-text-white;
-    }
+    color: var(--gl-label-dark-button-icon-color-default);
+    background-color: var(--gl-label-dark-button-background-color-default);
 
     &:focus,
     &:hover {
-      @include gl-bg-white;
-
-      .gl-icon {
-        color: var(--label-background-color);
-      }
+      color: var(--label-background-color);
+      background-color: var(--gl-label-dark-button-background-color-hover);
     }
   }
 }
 
 .gl-label-scoped {
-  &.gl-label-text-light {
-    #{$label-close-button} .gl-icon,
-    #{$label-close-button}[disabled]:hover .gl-icon {
-      color: var(--label-background-color);
-    }
-
-    #{$label-close-button}:not(:disabled) {
-      &:focus,
-      &:hover {
-        background-color: var(--label-background-color);
-      }
-    }
-  }
-
-  &.gl-label-text-dark {
-    #{$label-close-button}:not(:disabled) {
-      &:focus,
-      &:hover {
-        @include gl-bg-black;
-      }
-    }
-  }
-
   #{$label-close-button} {
     margin-left: #{-$label-padding-horizontal};
+    color: var(--gl-label-scoped-button-icon-color-default);
 
     &:focus,
     &:hover {
-      .gl-icon {
-        @include gl-text-white;
-      }
+      color: var(--gl-label-scoped-button-icon-color-hover);
+      background-color: var(--gl-label-scoped-button-background-color-hover);
     }
   }
 
@@ -173,7 +126,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   }
 
   .gl-label-text-scoped {
-    @include gl-text-gray-950;
+    color: var(--gl-label-scoped-text-color);
     padding-left: $gl-spacing-scale-2;
     padding-right: $gl-spacing-scale-3;
   }

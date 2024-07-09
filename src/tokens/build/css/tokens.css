@@ -538,6 +538,18 @@
   --gl-skeleton-loader-shimmer-color: var(--gl-color-neutral-50); /* Used for the animated shimmer effect in a skeleton loader. */
   --gl-skeleton-loader-background-color: var(--gl-color-neutral-100); /* Used for the skeleton loader background color. */
   --gl-popover-background-color: var(--gl-color-neutral-0); /* Used for the background color of popover. */
+  --gl-label-scoped-button-icon-color-hover: var(--gl-color-neutral-0); /* Used for the scoped label remove button icon in the hover state. */
+  --gl-label-scoped-button-icon-color-default: var(--gl-color-neutral-950); /* Used for the scoped label remove button icon in the default state. */
+  --gl-label-scoped-button-background-color-hover: var(--gl-color-neutral-950); /* Used for the scoped label remove button background in the hover state. */
+  --gl-label-scoped-text-color: var(--gl-color-neutral-950); /* Used for the scoped label text color. */
+  --gl-label-dark-button-icon-color-default: var(--gl-color-neutral-0); /* Used for the label remove button icon on a dark background color in the default state. */
+  --gl-label-dark-button-background-color-hover: var(--gl-color-neutral-0); /* Used for the label remove button background on a dark background color in the hover state. */
+  --gl-label-dark-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label remove button background on a dark background color in the default state. */
+  --gl-label-dark-text-color: var(--gl-color-neutral-0); /* Used for the label text color on a dark background color. */
+  --gl-label-light-button-icon-color-default: var(--gl-color-neutral-950); /* Used for the label remove button icon on a light background color in the default state. */
+  --gl-label-light-button-background-color-hover: var(--gl-color-neutral-950); /* Used for the label remove button background on a light background color in the hover state. */
+  --gl-label-light-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label remove button background on a light background color in the default state. */
+  --gl-label-light-text-color: var(--gl-color-neutral-950); /* Used for the label text color on a light background color. */
   --gl-breadcrumb-separator-color: var(--gl-color-neutral-200); /* Used for the breadcrumb level separator. */
   --gl-banner-promo-background-color: var(--gl-color-neutral-10); /* Used as background for the default banner type. */
   --gl-banner-intro-border-color: var(--gl-color-blue-300); /* Used to compliment the info banner. */
