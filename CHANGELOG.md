@@ -1,3 +1,10 @@
+## [86.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.3.0...v86.3.1) (2024-07-09)
+
+
+### Bug Fixes
+
+* use neutral colors for action neutral background default token ([16449f6](https://gitlab.com/gitlab-org/gitlab-ui/commit/16449f661a52dd762b33044d539c79e35b8e0f7d))
+
 # [86.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.2.0...v86.3.0) (2024-07-08)
 
 
