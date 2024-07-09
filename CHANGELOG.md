@@ -1,3 +1,11 @@
+# [86.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.3.1...v86.4.0) (2024-07-09)
+
+
+### Features
+
+* **DesignTokens:** add label design tokens ([0e1c838](https://gitlab.com/gitlab-org/gitlab-ui/commit/0e1c838e9a2ba0acf510defab030729862b2acb1))
+* **GlLabel:** add label design tokens to GlLabel ([dbf3369](https://gitlab.com/gitlab-org/gitlab-ui/commit/dbf33692a8621b77efcb532ab9c2050035cf05a8))
+
 ## [86.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.3.0...v86.3.1) (2024-07-09)
 
 
