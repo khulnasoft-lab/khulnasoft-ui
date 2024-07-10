@@ -1,3 +1,10 @@
+## [86.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.4.0...v86.4.1) (2024-07-10)
+
+
+### Bug Fixes
+
+* use CSS custom property syntax ([35979a1](https://gitlab.com/gitlab-org/gitlab-ui/commit/35979a128a4e33ad528d962f0c44feb283cdccd7))
+
 # [86.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.3.1...v86.4.0) (2024-07-09)
 
 
