@@ -141,6 +141,7 @@ export const AllIdenticons = () => ({
         v-for="i in [0,1,2,3,4,5,6]"
         :entity-id="i"
         :entity-name="i.toString()"
+        shape="rect"
       />
     </div>
   `,
