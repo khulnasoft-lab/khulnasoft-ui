@@ -1,3 +1,10 @@
+# [86.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.4.1...v86.5.0) (2024-07-10)
+
+
+### Features
+
+* **GlLoadingIcon:** Use color design tokens ([49eb57c](https://gitlab.com/gitlab-org/gitlab-ui/commit/49eb57cf86233afaa448ac8d84ee4f773553e63b))
+
 ## [86.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.4.0...v86.4.1) (2024-07-10)
 
 
