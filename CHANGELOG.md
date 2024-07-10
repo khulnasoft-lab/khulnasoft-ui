@@ -1,3 +1,10 @@
+## [86.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.5.0...v86.5.1) (2024-07-10)
+
+
+### Bug Fixes
+
+* **GlBadge:** remove content wrapper element ([275887c](https://gitlab.com/gitlab-org/gitlab-ui/commit/275887c30c25be2257a40a88cde2f62a1198fc7e))
+
 # [86.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.4.1...v86.5.0) (2024-07-10)
 
 
