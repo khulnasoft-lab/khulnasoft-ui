@@ -1,3 +1,10 @@
+# [86.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.5.1...v86.6.0) (2024-07-10)
+
+
+### Features
+
+* **OutsideDirective:** Add Event Listener for focusin ([aee99c5](https://gitlab.com/gitlab-org/gitlab-ui/commit/aee99c56b926d9468030774c4bd33eac01f4f601))
+
 ## [86.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.5.0...v86.5.1) (2024-07-10)
 
 
