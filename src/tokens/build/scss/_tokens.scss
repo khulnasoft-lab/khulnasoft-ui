@@ -533,6 +533,10 @@ $gl-control-background-color-selected-hover: $gl-color-blue-700; // Used for che
 $gl-control-background-color-selected-default: $gl-color-blue-500; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background.
 $gl-control-background-color-disabled: $gl-color-neutral-10; // Used for disabled form control (checkbox, input, radio button, textarea) background.
 $gl-control-background-color-default: $gl-color-neutral-0; // Used for form control (input, radio button, checkbox, textarea) default background.
+$gl-spinner-segment-color-light: $gl-color-neutral-200; // Used for the animated segment of a loading spinner on a dark background.
+$gl-spinner-segment-color-default: $gl-color-neutral-700; // Used for the animated segment of a loading spinner.
+$gl-spinner-track-color-light: $gl-color-neutral-800; // Used for the static track (background) of a loading spinner on a dark background.
+$gl-spinner-track-color-default: $gl-color-neutral-100; // Used for the static track (background) of a loading spinner.
 $gl-skeleton-loader-shimmer-color: $gl-color-neutral-50; // Used for the animated shimmer effect in a skeleton loader.
 $gl-skeleton-loader-background-color: $gl-color-neutral-100; // Used for the skeleton loader background color.
 $gl-popover-background-color: $gl-color-neutral-0; // Used for the background color of popover.
