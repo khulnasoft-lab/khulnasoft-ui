@@ -83,10 +83,6 @@ export default {
       :class="{ '-gl-ml-2 gl-ml-n2': isCircularIcon }"
       :name="icon"
     />
-    <!-- eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots -->
-    <span v-if="$slots.default" class="gl-badge-content">
-      <!-- @slot The badge content to display. -->
-      <slot></slot>
-    </span>
+    <slot></slot>
   </b-badge>
 </template>

@@ -120,6 +120,41 @@ IconOnly.args = generateProps({
   icon: 'calendar',
 });
 
+export const Truncated = (args, { argTypes }) => ({
+  components: { GlBadge },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+
+      <!-- Badges inside flexbox should not shrink by default -->
+      <div class="gl-display-flex gl-mb-5 gl-border gl-border-red-500" style="width: 200px">
+        <gl-badge>Regular text</gl-badge>
+        <gl-badge>Regular text</gl-badge>
+        <gl-badge>Regular text</gl-badge>
+        <gl-badge>Regular text</gl-badge>
+        <gl-badge>Regular text</gl-badge>
+      </div>
+
+      <!-- Content inside badge should shrink to container width when gl-text-truncate applied -->
+      <div class="gl-mb-5 gl-border gl-border-red-500" style="width: 80px">
+        <gl-badge><span class="gl-text-truncate">Truncated text</span></gl-badge>
+      </div>
+      <div class="gl-mb-5 gl-border gl-border-red-500" style="width: 80px">
+        <gl-badge icon="spinner"><span class="gl-text-truncate">Truncated text</span></gl-badge>
+      </div>
+
+      <!-- 1 and 2 should match in width (20px) -->
+      <div class="gl-mb-5 gl-border gl-border-red-500" style="width: 22px">
+        <gl-badge>1</gl-badge>
+      </div>
+      <div class="gl-mb-5 gl-border gl-border-red-500" style="width: 22px">
+        <gl-badge>2</gl-badge>
+      </div>
+
+    </div>
+  `,
+});
+
 export default {
   title: 'base/badge',
   component: GlBadge,
