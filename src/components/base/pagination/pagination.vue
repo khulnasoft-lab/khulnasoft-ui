@@ -84,7 +84,7 @@ export default {
     prevText: {
       type: String,
       required: false,
-      default: 'Previous',
+      default: translate('GlPagination.prevText', 'Previous'),
     },
     /**
      * When using the compact pagination, use this prop to pass the next page number
@@ -100,7 +100,7 @@ export default {
     nextText: {
       type: String,
       required: false,
-      default: 'Next',
+      default: translate('GlPagination.nextText', 'Next'),
     },
     /**
      * Text for the ellipsis (overridden by "ellipsis-left" and "ellipsis-right" slots)
@@ -116,7 +116,7 @@ export default {
     labelFirstPage: {
       type: String,
       required: false,
-      default: 'Go to first page',
+      default: translate('GlPagination.labelFirstPage', 'Go to first page'),
     },
     /**
      * aria-label for the previous page item
@@ -124,7 +124,7 @@ export default {
     labelPrevPage: {
       type: String,
       required: false,
-      default: 'Go to previous page',
+      default: translate('GlPagination.labelPrevPage', 'Go to previous page'),
     },
     /**
      * aria-label for the next page item
@@ -132,7 +132,7 @@ export default {
     labelNextPage: {
       type: String,
       required: false,
-      default: 'Go to next page',
+      default: translate('GlPagination.labelNextPage', 'Go to next page'),
     },
     /**
      * aria-label for the last page item
@@ -140,7 +140,7 @@ export default {
     labelLastPage: {
       type: String,
       required: false,
-      default: 'Go to last page',
+      default: translate('GlPagination.labelLastPage', 'Go to last page'),
     },
     /**
      * aria-label getter for numbered page items, defaults to "Go to page <page_number>"
