@@ -1,3 +1,10 @@
+## [86.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.9.0...v86.9.1) (2024-07-11)
+
+
+### Bug Fixes
+
+* **disclosure-dropdown:** correctly close on item selection ([9e21f53](https://gitlab.com/gitlab-org/gitlab-ui/commit/9e21f5385860862a520f8ae72d58721da6433d1c))
+
 # [86.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.8.0...v86.9.0) (2024-07-11)
 
 
