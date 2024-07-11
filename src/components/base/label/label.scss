@@ -33,14 +33,26 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     @include gl-overflow-hidden;
     @include gl-reset-color;
     @include gl-max-w-full;
-    @include gl-text-decoration-none;
 
-    &:focus,
     &:hover,
+    &:focus,
     &:focus:active {
       @include gl-reset-color;
       @include gl-shadow-none;
       @include gl-outline-none;
+    }
+  }
+
+  .gl-label-link-underline {
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:focus:active {
+      .gl-label-text,
+      .gl-label-text-scoped {
+        text-decoration: underline;
+      }
     }
   }
 

@@ -125,6 +125,7 @@ export default {
       ref="labelTitle"
       :href="target ? target : false"
       class="gl-label-link"
+      :class="{ 'gl-label-link-underline': target }"
       tabindex="0"
     >
       <span class="gl-label-text">
