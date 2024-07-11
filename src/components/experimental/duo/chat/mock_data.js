@@ -1,4 +1,5 @@
 import { setStoryTimeout } from '../../../../utils/test_utils';
+import { InsertCodeSnippetElement } from './components/duo_chat_message/insert_code_snippet_element';
 import {
   DOCUMENTATION_SOURCE_TYPES,
   MESSAGE_MODEL_ROLES,
@@ -31,7 +32,7 @@ export const MOCK_RESPONSE_MESSAGE = {
   content:
     'Here is a simple JavaScript function to sum two numbers:\n\n  ```js\n  function sum(a, b) {\n    return a + b;\n  }\n  ```\n  \n  To use it:\n  \n  ```js\n  const result = sum(5, 3); // result = 8\n  ```\n  \n  This function takes two number parameters, a and b. It returns the sum of adding them together.\n',
   contentHtml:
-    '<p data-sourcepos="1:1-1:56" dir="auto">Here is a simple JavaScript function to sum two numbers:</p>\n<div class="gl-relative markdown-code-block js-markdown-code">\n<pre data-sourcepos="3:1-7:3" data-canonical-lang="js" class="code highlight js-syntax-highlight language-javascript" lang="javascript" v-pre="true"><code><span id="LC1" class="line" lang="javascript"><span class="kd">function</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span></span>\n<span id="LC2" class="line" lang="javascript">  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span></span>\n<span id="LC3" class="line" lang="javascript"><span class="p">}</span></span></code></pre>\n<copy-code></copy-code>\n</div>\n<p data-sourcepos="9:1-9:10" dir="auto">To use it:</p>\n<div class="gl-relative markdown-code-block js-markdown-code">\n<pre data-sourcepos="11:1-13:3" data-canonical-lang="js" class="code highlight js-syntax-highlight language-javascript" lang="javascript" v-pre="true"><code><span id="LC1" class="line" lang="javascript"><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// result = 8</span></span></code></pre>\n<copy-code></copy-code>\n</div>\n<p data-sourcepos="15:1-15:95" dir="auto">This function takes two number parameters, a and b. It returns the sum of adding them together.</p>',
+    '<p data-sourcepos="1:1-1:56" dir="auto">Here is a simple JavaScript function to sum two numbers:</p>\n<div class="gl-relative markdown-code-block js-markdown-code">\n<pre data-sourcepos="3:1-7:3" data-canonical-lang="js" class="code highlight js-syntax-highlight language-javascript" lang="javascript" v-pre="true"><code><span id="LC1" class="line" lang="javascript"><span class="kd">function</span> <span class="nf">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span></span>\n<span id="LC2" class="line" lang="javascript">  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span></span>\n<span id="LC3" class="line" lang="javascript"><span class="p">}</span></span></code></pre>\n<copy-code></copy-code>\n<insert-code-snippet></insert-code-snippet>\n</div>\n<p data-sourcepos="9:1-9:10" dir="auto">To use it:</p>\n<div class="gl-relative markdown-code-block js-markdown-code">\n<pre data-sourcepos="11:1-13:3" data-canonical-lang="js" class="code highlight js-syntax-highlight language-javascript" lang="javascript" v-pre="true"><code><span id="LC1" class="line" lang="javascript"><span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// result = 8</span></span></code></pre>\n<copy-code></copy-code>\n</div>\n<p data-sourcepos="15:1-15:95" dir="auto">This function takes two number parameters, a and b. It returns the sum of adding them together.</p>',
   role: MESSAGE_MODEL_ROLES.assistant,
   extras: {
     sources: MOCK_SOURCES,
@@ -137,6 +138,7 @@ export const renderGFM = (el) => {
   const codeBlock = el.querySelectorAll('.markdown-code-block');
   codeBlock.forEach((block) => {
     block?.classList.add('gl-markdown', 'gl-compact-markdown');
+    block?.appendChild(new InsertCodeSnippetElement(block));
   });
 };
 

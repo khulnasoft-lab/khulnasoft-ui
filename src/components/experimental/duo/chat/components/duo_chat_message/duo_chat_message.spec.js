@@ -20,6 +20,7 @@ describe('DuoChatMessage', () => {
   const findDocumentSources = () => wrapper.findComponent(DocumentationSources);
   const findUserFeedback = () => wrapper.findComponent(GlDuoUserFeedback);
   const findCopyCodeButton = () => wrapper.find('copy-code');
+  const findInsertCodeSnippetButton = () => wrapper.find('insert-code-snippet');
   const findErrorIcon = () => wrapper.findComponent(GlIcon);
   const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
   const mockMarkdownContent = 'foo **bar**';
@@ -53,10 +54,12 @@ describe('DuoChatMessage', () => {
     jest.clearAllMocks();
   });
 
-  it('registers the custom `copy-code` element', () => {
+  it('registers the custom `copy-code` & `insert-code-snippet` element', () => {
     expect(customElements.get('copy-code')).toBeUndefined();
+    expect(customElements.get('insert-code-snippet')).toBeUndefined();
     createComponent();
     expect(customElements.get('copy-code')).toBeDefined();
+    expect(customElements.get('insert-code-snippet')).toBeDefined();
   });
 
   describe('rendering', () => {
@@ -107,6 +110,10 @@ describe('DuoChatMessage', () => {
 
     it('renders the `copy-code` button for the code snippet', () => {
       expect(findCopyCodeButton().exists()).toBe(true);
+    });
+
+    it('renders the `insert-code-snippet` button for the code snippet', () => {
+      expect(findInsertCodeSnippetButton().exists()).toBe(true);
     });
 
     it('renders the documentation sources component by default', () => {

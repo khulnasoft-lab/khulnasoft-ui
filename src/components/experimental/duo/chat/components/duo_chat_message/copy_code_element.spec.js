@@ -1,30 +1,33 @@
 import { CopyCodeElement } from './copy_code_element';
+import * as buttonUtils from './buttons_utils';
 
 describe('copy-code element', () => {
   customElements.define('copy-code', CopyCodeElement);
   const code = 'function sum(a, b) {\n  return a + b;\n}';
-  const findCustomElement = () => document.querySelector('copy-code');
   const findButton = () => document.querySelector('copy-code button');
   const findButtonIcon = () => document.querySelector('copy-code button svg use');
 
-  beforeEach(() => {
+  const setupDOM = () => {
     document.body.innerHTML = `<div><pre><code>${code}</code></pre><copy-code></copy-code></div>`;
+  };
+
+  beforeEach(() => {
+    setupDOM();
   });
 
   it('should create a button', () => {
     expect(customElements.get('copy-code')).toBeDefined();
   });
 
-  it('does not setup shadowDom on the custom element', () => {
-    expect(findCustomElement().shadowRoot).toBeNull();
-  });
-
-  it('adds a button to the DOM as a direct child', () => {
-    expect(findButton()).toBeDefined();
-  });
-
   it('adds the correct icon to the button', () => {
     expect(findButtonIcon().getAttribute('href')).toContain('#copy-to-clipboard');
+  });
+
+  it('calls createButton with the correct parameters', () => {
+    const createButtonSpy = jest.spyOn(buttonUtils, 'createButton');
+    setupDOM();
+
+    expect(createButtonSpy).toHaveBeenCalledWith('Copy to clipboard', 'copy-to-clipboard');
   });
 
   describe('interaction', () => {

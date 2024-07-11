@@ -117,6 +117,14 @@ export default {
       default: true,
     },
     /**
+     * Whether the insertCode feature should be available.
+     */
+    enableCodeInsertion: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
      * Array of predefined prompts to display in the chat to start a conversation.
      */
     predefinedPrompts: {
@@ -403,6 +411,9 @@ export default {
         this.setPromptAndFocus(`${command.name} `);
       }
     },
+    onInsertCodeSnippet(e) {
+      this.$emit('insert-code-snippet', e);
+    },
   },
   i18n,
   emptySvg,
@@ -487,10 +498,12 @@ export default {
         <gl-duo-chat-conversation
           v-for="(conversation, index) in conversations"
           :key="`conversation-${index}`"
+          :enable-code-insertion="enableCodeInsertion"
           :messages="conversation"
           :canceled-request-ids="canceledRequestIds"
           :show-delimiter="index > 0"
           @track-feedback="onTrackFeedback"
+          @insert-code-snippet="onInsertCodeSnippet"
         />
         <template v-if="!hasMessages && !isLoading">
           <gl-empty-state

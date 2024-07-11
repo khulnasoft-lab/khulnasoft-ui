@@ -11,6 +11,7 @@ import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_s
 // eslint-disable-next-line no-restricted-imports
 import { renderDuoChatMarkdownPreview } from '../../markdown_renderer';
 import { CopyCodeElement } from './copy_code_element';
+import { InsertCodeSnippetElement } from './insert_code_snippet_element';
 import { concatUntilEmpty } from './utils';
 
 export const i18n = {
@@ -30,7 +31,7 @@ export default {
   name: 'GlDuoChatMessage',
   i18n,
   safeHtmlConfigExtension: {
-    ADD_TAGS: ['copy-code'],
+    ADD_TAGS: ['copy-code', 'insert-code-snippet'],
   },
   components: {
     DocumentationSources,
@@ -132,6 +133,9 @@ export default {
     if (!customElements.get('copy-code')) {
       customElements.define('copy-code', CopyCodeElement);
     }
+    if (!customElements.get('insert-code-snippet')) {
+      customElements.define('insert-code-snippet', InsertCodeSnippetElement);
+    }
   },
   mounted() {
     if (this.isAssistantMessage) {
@@ -180,6 +184,9 @@ export default {
         this.stopWatchingMessage();
       }
     },
+    onInsertCodeSnippet(e) {
+      this.$emit('insert-code-snippet', e);
+    },
   },
 };
 </script>
@@ -193,6 +200,7 @@ export default {
       'gl-bg-white': isAssistantMessage && !error,
       'gl-bg-red-50 gl-border-none!': error,
     }"
+    @insert-code-snippet="onInsertCodeSnippet"
   >
     <gl-icon
       v-if="error"
