@@ -98,9 +98,13 @@ function parseBinding({ arg, value, modifiers }) {
       );
     }
 
-    if (modifiersList.some((modifier) => !supportedEventTypes.includes(modifier))) {
+    const unsupportedModifiers = modifiersList.filter(
+      (modifier) => !supportedEventTypes.includes(modifier)
+    );
+
+    if (unsupportedModifiers.length > 0) {
       throw new Error(
-        `[GlOutsideDirective] Cannot bind ${modifiersList} events; supported event types are: ${supportedEventTypes.join(
+        `[GlOutsideDirective] Cannot bind ${unsupportedModifiers.join(', ')} events; supported event types are: ${supportedEventTypes.join(
           ', '
         )}`
       );
