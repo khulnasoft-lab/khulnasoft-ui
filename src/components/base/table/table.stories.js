@@ -27,13 +27,15 @@ const generateProps = ({
   fixed = false,
   footClone = false,
   stacked = false,
-  caption = '',
+  caption = 'This is the table caption',
+  selectable = false,
 } = {}) => ({
   stickyHeader,
   fixed,
   footClone,
   stacked,
   caption,
+  selectable,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -47,11 +49,11 @@ export const Default = (args, { argTypes }) => ({
     :fixed="fixed"
     :stacked="stacked"
     :foot-clone="footClone"
+    :selectable="selectable"
     sort-by="col_three"
     sort-desc
     sort-direction="desc"
     hover
-    selectable
     selected-variant="primary"
   >
     <template v-if="caption" #table-caption>
@@ -63,7 +65,6 @@ export const Default = (args, { argTypes }) => ({
     {
       key: 'column_one',
       label: 'First column',
-      variant: 'secondary',
       sortable: true,
       isRowHeader: false,
     },

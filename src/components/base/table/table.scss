@@ -1,12 +1,13 @@
 table.gl-table {
-  @include gl-bg-transparent;
+  background-color: var(--gl-color-alpha-0);
+  color: var(--gl-text-color-default);
 
   tr {
     th,
     td {
       @include gl-border-b-solid;
+      border-color: var(--gl-border-color-default);
       @include gl-border-b-1;
-      @include gl-border-gray-100;
       @include gl-p-5;
       @include gl-bg-transparent;
       @include gl-line-height-normal;
@@ -16,7 +17,7 @@ table.gl-table {
 
     th {
       @include gl-font-weight-bold;
-      @include gl-text-gray-900;
+      color: var(--gl-text-color-heading);
 
       &.gl-text-right > div {
         flex-direction: row-reverse;
@@ -29,22 +30,18 @@ table.gl-table {
 
       [name='sort-icon'] {
         user-select: none;
+        color: var(--gl-table-sorting-icon-color);
       }
     }
 
     td {
-      @include gl-text-gray-700;
+      color: var(--gl-text-color-default);
     }
 
     &:focus-visible {
       @include gl-focus;
       position: relative;
       z-index: 1;
-      background: $white;
-
-      &:hover {
-        background: $gray-50;
-      }
     }
   }
 
@@ -52,19 +49,22 @@ table.gl-table {
   &--sticky-header thead tr {
     position: sticky;
     top: -1px;
-    background: $white;
-    box-shadow: inset 0 -1px 0 $gray-100;
+    background-color: var(--gl-background-color-default);
+    box-shadow: inset 0 -1px 0 var(--gl-border-color-default);
   }
 
   .table-primary,
   .table-primary:hover {
+    background-color: var(--gl-feedback-info-background-color);
+
     > td {
-      @include gl-bg-blue-50;
+      background-color: var(--gl-feedback-info-background-color);
     }
   }
 
   caption {
     @include gl-pt-2;
+    color: var(--gl-text-color-subtle);
   }
 
   @mixin gl-tmp-stacked-override {
@@ -126,7 +126,7 @@ table.gl-table {
 
   &.table-hover tbody tr:hover,
   &.table-hover td.table-secondary:hover {
-    background-color: $gray-10;
+    background-color: var(--gl-table-row-background-color-hover);
   }
 
   thead th:hover {
