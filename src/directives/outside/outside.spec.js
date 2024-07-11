@@ -248,6 +248,17 @@ describe('outside directive', () => {
         expect(document.addEventListener).not.toHaveBeenCalled();
       }
     );
+
+    it('only prints unsupported modifiers in the error message', async () => {
+      await expect(
+        createComponent({
+          template: templateWitModifiersForFocusIn(['focusin', 'mouseup', 'click', 'mousedown']),
+        })
+      ).rejects.toThrow(`Cannot bind mouseup, mousedown events`);
+
+      expect(global.console).toHaveLoggedVueErrors();
+      expect(document.addEventListener).not.toHaveBeenCalled();
+    });
   });
 
   describe('multiple instances on the same element', () => {
