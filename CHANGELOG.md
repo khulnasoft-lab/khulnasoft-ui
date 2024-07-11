@@ -1,3 +1,10 @@
+## [86.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.7.0...v86.7.1) (2024-07-11)
+
+
+### Bug Fixes
+
+* **GlLabel:** restore text-decoration underline on hover for labels ([a4e6f22](https://gitlab.com/gitlab-org/gitlab-ui/commit/a4e6f2248de143811040fc4f2e0fdcf46eb9778c))
+
 # [86.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.6.0...v86.7.0) (2024-07-11)
 
 
