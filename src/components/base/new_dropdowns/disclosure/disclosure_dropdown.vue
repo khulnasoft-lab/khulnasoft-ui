@@ -228,6 +228,15 @@ export default {
       required: false,
       default: false,
     },
+    /**
+     * Whether to use an improved hide
+     * functionality for the dropdown.
+     */
+    improvedHideHeuristics: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -378,6 +387,7 @@ export default {
     :offset="dropdownOffset"
     :fluid-width="fluidWidth"
     :positioning-strategy="positioningStrategy"
+    :improved-hide-heuristics="improvedHideHeuristics"
     class="gl-disclosure-dropdown"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"

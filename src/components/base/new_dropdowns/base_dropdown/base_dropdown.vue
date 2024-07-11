@@ -21,10 +21,10 @@ import {
   POSITION_FIXED,
 } from '../constants';
 import { logWarning, isElementTabbable, isElementFocusable } from '../../../../utils/utils';
-
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
-import { OutsideDirective } from '../../../../directives/outside/outside';
+import BaseDropdownDeprecatedWrapper from './base_dropdown_deprecated_wrapper.vue';
+import BaseDropdownImprovedWrapper from './base_dropdown_improved_wrapper.vue';
 import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
 
 export const BASE_DROPDOWN_CLASS = 'gl-new-dropdown';
@@ -35,8 +35,9 @@ export default {
   components: {
     GlButton,
     GlIcon,
+    BaseDropdownDeprecatedWrapper,
+    BaseDropdownImprovedWrapper,
   },
-  directives: { Outside: OutsideDirective },
   props: {
     toggleText: {
       type: String,
@@ -160,6 +161,14 @@ export default {
       default: POSITION_ABSOLUTE,
       validator: (strategy) => [POSITION_ABSOLUTE, POSITION_FIXED].includes(strategy),
     },
+    /**
+     * Whether to use the deprecated or improved wrapper
+     */
+    improvedHideHeuristics: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -169,6 +178,11 @@ export default {
     };
   },
   computed: {
+    wrapperComponent() {
+      return this.improvedHideHeuristics
+        ? BaseDropdownImprovedWrapper
+        : BaseDropdownDeprecatedWrapper;
+    },
     hasNoVisibleToggleText() {
       return !this.toggleText?.length || this.textSrOnly;
     },
@@ -462,7 +476,11 @@ export default {
 </script>
 
 <template>
-  <div v-outside="close" :class="[$options.BASE_DROPDOWN_CLASS, { 'gl-display-block!': block }]">
+  <component
+    :is="wrapperComponent"
+    :class="[$options.BASE_DROPDOWN_CLASS, { 'gl-display-block!': block }]"
+    @close="close"
+  >
     <component
       :is="toggleComponent"
       v-bind="toggleAttributes"
@@ -497,5 +515,5 @@ export default {
         <slot></slot>
       </div>
     </div>
-  </div>
+  </component>
 </template>
