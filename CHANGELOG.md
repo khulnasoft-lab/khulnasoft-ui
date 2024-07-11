@@ -1,3 +1,10 @@
+# [86.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.8.0...v86.9.0) (2024-07-11)
+
+
+### Features
+
+* **GlTabe:** Use color design tokens ([53db384](https://gitlab.com/gitlab-org/gitlab-ui/commit/53db38438c4223e4c54109857d53d5e5d1d45c4f))
+
 # [86.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.7.1...v86.8.0) (2024-07-11)
 
 
