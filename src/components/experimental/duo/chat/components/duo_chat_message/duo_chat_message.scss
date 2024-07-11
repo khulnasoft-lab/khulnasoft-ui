@@ -6,8 +6,8 @@
     @include gl-bg-gray-100;
   }
 
-  .code {
-    @include gl-bg-white;
+  pre {
+    @include gl-reset-color;
   }
 
   pre code {
