@@ -1,3 +1,10 @@
+# [86.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.7.1...v86.8.0) (2024-07-11)
+
+
+### Features
+
+* **GlDisclosureDropdown,GlCollapsibleListbox:** Improve hide mechanism ([475d1c7](https://gitlab.com/gitlab-org/gitlab-ui/commit/475d1c76163b0b04d0c62ddadcde40c93b656e6c))
+
 ## [86.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.7.0...v86.7.1) (2024-07-11)
 
 
