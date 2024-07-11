@@ -1,3 +1,10 @@
+# [86.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.6.0...v86.7.0) (2024-07-11)
+
+
+### Features
+
+* **DuoChat:** add insert code snippet button ([6b99777](https://gitlab.com/gitlab-org/gitlab-ui/commit/6b997772587c93d68e6f3e95e15150a9ad59e1b2))
+
 # [86.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.5.1...v86.6.0) (2024-07-10)
 
 
