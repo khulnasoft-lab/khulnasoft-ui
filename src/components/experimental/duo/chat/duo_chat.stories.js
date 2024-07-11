@@ -31,6 +31,7 @@ const generateProps = ({
   emptyStateTitle = defaultValue('emptyStateTitle'),
   emptyStateDescription = defaultValue('emptyStateDescription'),
   chatPromptPlaceholder = defaultValue('chatPromptPlaceholder'),
+  enableCodeInsertion = defaultValue('enableCodeInsertion'),
 } = {}) => ({
   title,
   messages,
@@ -46,6 +47,7 @@ const generateProps = ({
   emptyStateTitle,
   emptyStateDescription,
   chatPromptPlaceholder,
+  enableCodeInsertion,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -69,6 +71,7 @@ export const Default = (args, { argTypes }) => ({
       :empty-state-title="emptyStateTitle"
       :empty-state-description="emptyStateDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
+      :enable-code-insertion="enableCodeInsertion"
     />`,
 });
 Default.args = generateProps({
