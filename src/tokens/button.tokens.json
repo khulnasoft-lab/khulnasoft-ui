@@ -283,8 +283,8 @@
             },
             "hover": {
               "$value": {
-                "default": "{color.neutral.50}",
-                "dark": "{color.neutral.900}"
+                "default": "{color.alpha.dark.6}",
+                "dark": "{color.alpha.light.6}"
               },
               "$type": "color",
               "$description": "Used for the background of a default borderless, tertiary button in the hover state."
@@ -296,8 +296,8 @@
             },
             "active": {
               "$value": {
-                "default": "{color.neutral.100}",
-                "dark": "{color.neutral.800}"
+                "default": "{color.alpha.dark.16}",
+                "dark": "{color.alpha.light.16}"
               },
               "$type": "color",
               "$description": "Used for the background of a default borderless, tertiary button in the active state."
@@ -630,8 +630,8 @@
             },
             "hover": {
               "$value": {
-                "default": "{color.blue.50}",
-                "dark": "{color.blue.900}"
+                "default": "{color.alpha.blue.6}",
+                "dark": "{color.alpha.blue.6}"
               },
               "$type": "color",
               "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the hover state."
@@ -643,8 +643,8 @@
             },
             "active": {
               "$value": {
-                "default": "{color.blue.100}",
-                "dark": "{color.blue.800}"
+                "default": "{color.alpha.blue.16}",
+                "dark": "{color.alpha.blue.16}"
               },
               "$type": "color",
               "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the active state."
@@ -983,8 +983,8 @@
             },
             "hover": {
               "$value": {
-                "default": "{color.red.50}",
-                "dark": "{color.red.900}"
+                "default": "{color.alpha.red.6}",
+                "dark": "{color.alpha.red.6}"
               },
               "$type": "color",
               "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the hover state."
@@ -996,8 +996,8 @@
             },
             "active": {
               "$value": {
-                "default": "{color.red.100}",
-                "dark": "{color.red.800}"
+                "default": "{color.alpha.red.16}",
+                "dark": "{color.alpha.red.16}"
               },
               "$type": "color",
               "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the active state."
