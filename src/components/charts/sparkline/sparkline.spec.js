@@ -182,6 +182,15 @@ describe('sparkline chart component', () => {
     expect(getChartOptions().series[0].markPoint).toBe(undefined);
   });
 
+  it('enables connectNulls on the series when `connectNulls` is enabled', async () => {
+    expect(getChartOptions().series[0].connectNulls).toBe(false);
+
+    wrapper.setProps({ connectNulls: true });
+
+    await wrapper.vm.$nextTick();
+    expect(getChartOptions().series[0].connectNulls).toBe(true);
+  });
+
   it('gradient will set the series itemStyle color', async () => {
     wrapper.setProps({ gradient: ['red', 'green'] });
 

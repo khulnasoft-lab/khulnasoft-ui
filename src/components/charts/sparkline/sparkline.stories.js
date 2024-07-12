@@ -24,6 +24,7 @@ const generateProps = ({
   height = 50,
   tooltipLabel = 'tooltipLabel',
   showLastYValue = true,
+  connectNulls = false,
   gradient,
   smooth,
 } = {}) => ({
@@ -31,6 +32,7 @@ const generateProps = ({
   height,
   tooltipLabel,
   showLastYValue,
+  connectNulls,
   gradient,
   smooth,
 });
@@ -44,6 +46,7 @@ const Template = (args) => ({
       :height="height"
       :tooltip-label="tooltipLabel"
       :show-last-y-value="showLastYValue"
+      :connect-nulls="connectNulls"
       :gradient="gradient"
       :smooth="smooth"
     />
