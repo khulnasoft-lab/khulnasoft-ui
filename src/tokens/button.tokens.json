@@ -630,8 +630,8 @@
             },
             "hover": {
               "$value": {
-                "default": "{color.alpha.blue.6}",
-                "dark": "{color.alpha.blue.6}"
+                "default": "rgba(31, 117, 203, 0.06)",
+                "dark": "rgba(31, 117, 203, 0.24)"
               },
               "$type": "color",
               "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the hover state."
@@ -643,8 +643,8 @@
             },
             "active": {
               "$value": {
-                "default": "{color.alpha.blue.16}",
-                "dark": "{color.alpha.blue.16}"
+                "default": "rgba(31, 117, 203, 0.16)",
+                "dark": "rgba(31, 117, 203, 0.32)"
               },
               "$type": "color",
               "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the active state."
@@ -983,8 +983,8 @@
             },
             "hover": {
               "$value": {
-                "default": "{color.alpha.red.6}",
-                "dark": "{color.alpha.red.6}"
+                "default": "rgba(221, 43, 14, 0.06)",
+                "dark": "rgba(221, 43, 14, 0.24)"
               },
               "$type": "color",
               "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the hover state."
@@ -996,8 +996,8 @@
             },
             "active": {
               "$value": {
-                "default": "{color.alpha.red.16}",
-                "dark": "{color.alpha.red.16}"
+                "default": "rgba(221, 43, 14, 0.16)",
+                "dark": "rgba(221, 43, 14, 0.32)"
               },
               "$type": "color",
               "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the active state."

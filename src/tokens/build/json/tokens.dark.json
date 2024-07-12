@@ -3100,15 +3100,15 @@
               ]
             },
             "hover": {
-              "value": "rgba(31, 117, 203, 0.06)",
+              "value": "rgba(31, 117, 203, 0.24)",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the hover state.",
               "filePath": "src/tokens/button.tokens.json",
               "isSource": true,
               "original": {
                 "value": {
-                  "default": "{color.alpha.blue.6}",
-                  "dark": "{color.alpha.blue.6}"
+                  "default": "rgba(31, 117, 203, 0.06)",
+                  "dark": "rgba(31, 117, 203, 0.24)"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the hover state."
@@ -3125,7 +3125,7 @@
               ]
             },
             "focus": {
-              "value": "rgba(31, 117, 203, 0.06)",
+              "value": "rgba(31, 117, 203, 0.24)",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the focus state.",
               "filePath": "src/tokens/button.tokens.json",
@@ -3147,15 +3147,15 @@
               ]
             },
             "active": {
-              "value": "rgba(31, 117, 203, 0.16)",
+              "value": "rgba(31, 117, 203, 0.32)",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the active state.",
               "filePath": "src/tokens/button.tokens.json",
               "isSource": true,
               "original": {
                 "value": {
-                  "default": "{color.alpha.blue.16}",
-                  "dark": "{color.alpha.blue.16}"
+                  "default": "rgba(31, 117, 203, 0.16)",
+                  "dark": "rgba(31, 117, 203, 0.32)"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the active state."
@@ -4201,15 +4201,15 @@
               ]
             },
             "hover": {
-              "value": "rgba(221, 43, 14, 0.06)",
+              "value": "rgba(221, 43, 14, 0.24)",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the hover state.",
               "filePath": "src/tokens/button.tokens.json",
               "isSource": true,
               "original": {
                 "value": {
-                  "default": "{color.alpha.red.6}",
-                  "dark": "{color.alpha.red.6}"
+                  "default": "rgba(221, 43, 14, 0.06)",
+                  "dark": "rgba(221, 43, 14, 0.24)"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the hover state."
@@ -4226,7 +4226,7 @@
               ]
             },
             "focus": {
-              "value": "rgba(221, 43, 14, 0.06)",
+              "value": "rgba(221, 43, 14, 0.24)",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the focus state.",
               "filePath": "src/tokens/button.tokens.json",
@@ -4248,15 +4248,15 @@
               ]
             },
             "active": {
-              "value": "rgba(221, 43, 14, 0.16)",
+              "value": "rgba(221, 43, 14, 0.32)",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the active state.",
               "filePath": "src/tokens/button.tokens.json",
               "isSource": true,
               "original": {
                 "value": {
-                  "default": "{color.alpha.red.16}",
-                  "dark": "{color.alpha.red.16}"
+                  "default": "rgba(221, 43, 14, 0.16)",
+                  "dark": "rgba(221, 43, 14, 0.32)"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the active state."
@@ -4928,82 +4928,6 @@
             "alpha",
             "light",
             "36"
-          ]
-        }
-      },
-      "blue": {
-        "6": {
-          "value": "rgba(31, 117, 203, 0.06)",
-          "$type": "color",
-          "filePath": "src/tokens/color.alpha.tokens.json",
-          "isSource": true,
-          "original": {
-            "value": "rgba(31, 117, 203, 0.06)",
-            "$type": "color"
-          },
-          "name": "COLOR_ALPHA_BLUE_6",
-          "attributes": {},
-          "path": [
-            "color",
-            "alpha",
-            "blue",
-            "6"
-          ]
-        },
-        "16": {
-          "value": "rgba(31, 117, 203, 0.16)",
-          "$type": "color",
-          "filePath": "src/tokens/color.alpha.tokens.json",
-          "isSource": true,
-          "original": {
-            "value": "rgba(31, 117, 203, 0.16)",
-            "$type": "color"
-          },
-          "name": "COLOR_ALPHA_BLUE_16",
-          "attributes": {},
-          "path": [
-            "color",
-            "alpha",
-            "blue",
-            "16"
-          ]
-        }
-      },
-      "red": {
-        "6": {
-          "value": "rgba(221, 43, 14, 0.06)",
-          "$type": "color",
-          "filePath": "src/tokens/color.alpha.tokens.json",
-          "isSource": true,
-          "original": {
-            "value": "rgba(221, 43, 14, 0.06)",
-            "$type": "color"
-          },
-          "name": "COLOR_ALPHA_RED_6",
-          "attributes": {},
-          "path": [
-            "color",
-            "alpha",
-            "red",
-            "6"
-          ]
-        },
-        "16": {
-          "value": "rgba(221, 43, 14, 0.16)",
-          "$type": "color",
-          "filePath": "src/tokens/color.alpha.tokens.json",
-          "isSource": true,
-          "original": {
-            "value": "rgba(221, 43, 14, 0.16)",
-            "$type": "color"
-          },
-          "name": "COLOR_ALPHA_RED_16",
-          "attributes": {},
-          "path": [
-            "color",
-            "alpha",
-            "red",
-            "16"
           ]
         }
       }

@@ -391,10 +391,6 @@ $gl-color-blue-300: #63a6e9;
 $gl-color-blue-200: #9dc7f1;
 $gl-color-blue-100: #cbe2f9;
 $gl-color-blue-50: #e9f3fc;
-$gl-color-alpha-red-16: rgba(221, 43, 14, 0.16);
-$gl-color-alpha-red-6: rgba(221, 43, 14, 0.06);
-$gl-color-alpha-blue-16: rgba(31, 117, 203, 0.16);
-$gl-color-alpha-blue-6: rgba(31, 117, 203, 0.06);
 $gl-color-alpha-light-36: rgba(255, 255, 255, 0.36);
 $gl-color-alpha-light-24: rgba(255, 255, 255, 0.24);
 $gl-color-alpha-light-16: rgba(255, 255, 255, 0.16);
@@ -409,6 +405,10 @@ $gl-color-alpha-dark-6: rgba(05, 05, 06, 0.06);
 $gl-color-alpha-dark-4: rgba(05, 05, 06, 0.04);
 $gl-color-alpha-dark-2: rgba(05, 05, 06, 0.02);
 $gl-color-alpha-0: transparent;
+$gl-button-danger-tertiary-background-color-active: rgba(221, 43, 14, 0.16); // Used for the background of a borderless, tertiary danger (destructive) button in the active state.
+$gl-button-danger-tertiary-background-color-hover: rgba(221, 43, 14, 0.06); // Used for the background of a borderless, tertiary danger (destructive) button in the hover state.
+$gl-button-confirm-tertiary-background-color-active: rgba(31, 117, 203, 0.16); // Used for the background of a borderless, tertiary confirm (positive) button in the active state.
+$gl-button-confirm-tertiary-background-color-hover: rgba(31, 117, 203, 0.06); // Used for the background of a borderless, tertiary confirm (positive) button in the hover state.
 $gl-action-danger-background-color-active: rgba(174, 24, 0, 0.24); // Used for the background of a danger (destructive) action in the active state.
 $gl-action-danger-background-color-hover: rgba(245, 127, 108, 0.16); // Used for the background of a danger (destructive) action in the hover state.
 $gl-action-danger-background-color-default: rgba(245, 127, 108, 0.0); // Used for the background of a danger (destructive) action in the default state.
@@ -587,8 +587,7 @@ $gl-button-danger-tertiary-icon-color-default: $gl-color-red-500; // Used for th
 $gl-button-danger-tertiary-text-color-active: $gl-color-red-900; // Used for the text of a borderless, tertiary danger (destructive) button in the active state.
 $gl-button-danger-tertiary-text-color-hover: $gl-color-red-700; // Used for the text of a borderless, tertiary danger (destructive) button in the hover state.
 $gl-button-danger-tertiary-text-color-default: $gl-color-red-500; // Used for the text of a borderless, tertiary danger (destructive) button in the default state.
-$gl-button-danger-tertiary-background-color-active: $gl-color-alpha-red-16; // Used for the background of a borderless, tertiary danger (destructive) button in the active state.
-$gl-button-danger-tertiary-background-color-hover: $gl-color-alpha-red-6; // Used for the background of a borderless, tertiary danger (destructive) button in the hover state.
+$gl-button-danger-tertiary-background-color-focus: $gl-button-danger-tertiary-background-color-hover; // Used for the background of a borderless, tertiary danger (destructive) button in the focus state.
 $gl-button-danger-tertiary-background-color-default: $gl-color-alpha-0; // Used for the background of a borderless, tertiary danger (destructive) button in the default state.
 $gl-button-danger-secondary-icon-color-active: $gl-color-red-900; // Used for the icon of a danger (destructive) button in the active state.
 $gl-button-danger-secondary-icon-color-hover: $gl-color-red-700; // Used for the icon of a danger (destructive) button in the hover state.
@@ -615,8 +614,7 @@ $gl-button-confirm-tertiary-icon-color-default: $gl-color-blue-500; // Used for 
 $gl-button-confirm-tertiary-text-color-active: $gl-color-blue-900; // Used for the text of a borderless, tertiary confirm (positive) button in the active state.
 $gl-button-confirm-tertiary-text-color-hover: $gl-color-blue-700; // Used for the text of a borderless, tertiary confirm (positive) button in the hover state.
 $gl-button-confirm-tertiary-text-color-default: $gl-color-blue-500; // Used for the text of a borderless, tertiary confirm (positive) button in the default state.
-$gl-button-confirm-tertiary-background-color-active: $gl-color-alpha-blue-16; // Used for the background of a borderless, tertiary confirm (positive) button in the active state.
-$gl-button-confirm-tertiary-background-color-hover: $gl-color-alpha-blue-6; // Used for the background of a borderless, tertiary confirm (positive) button in the hover state.
+$gl-button-confirm-tertiary-background-color-focus: $gl-button-confirm-tertiary-background-color-hover; // Used for the background of a borderless, tertiary confirm (positive) button in the focus state.
 $gl-button-confirm-tertiary-background-color-default: $gl-color-alpha-0; // Used for the background of a borderless, tertiary confirm (positive) button in the default state.
 $gl-button-confirm-secondary-icon-color-active: $gl-color-blue-900; // Used for the icon of a confirm (positive) button in the active state.
 $gl-button-confirm-secondary-icon-color-hover: $gl-color-blue-700; // Used for the icon of a confirm (positive) button in the hover state.
@@ -699,7 +697,6 @@ $gl-button-link-text-color-focus: $gl-button-link-text-color-default; // Used fo
 $gl-button-link-text-color-hover: $gl-button-link-text-color-default; // Used for the text of a link button in the hover state.
 $gl-button-danger-tertiary-icon-color-focus: $gl-button-danger-tertiary-icon-color-hover; // Used for the icon of a borderless, tertiary danger (destructive) button in the focus state.
 $gl-button-danger-tertiary-text-color-focus: $gl-button-danger-tertiary-text-color-hover; // Used for the text of a borderless, tertiary danger (destructive) button in the focus state.
-$gl-button-danger-tertiary-background-color-focus: $gl-button-danger-tertiary-background-color-hover; // Used for the background of a borderless, tertiary danger (destructive) button in the focus state.
 $gl-button-danger-secondary-icon-color-focus: $gl-button-danger-secondary-icon-color-hover; // Used for the icon of a danger (destructive) button in the focus state.
 $gl-button-danger-secondary-text-color-focus: $gl-button-danger-secondary-text-color-hover; // Used for the text of a danger (destructive) button in the focus state.
 $gl-button-danger-secondary-border-color-focus: $gl-button-danger-secondary-border-color-hover; // Used for the border of an outlined danger (destructive) button in the focus state.
@@ -712,7 +709,6 @@ $gl-button-danger-primary-border-color-focus: $gl-button-danger-primary-border-c
 $gl-button-danger-primary-background-color-focus: $gl-button-danger-primary-background-color-hover; // Used for the background of a danger (destructive) primary button in the focus state.
 $gl-button-confirm-tertiary-icon-color-focus: $gl-button-confirm-tertiary-icon-color-hover; // Used for the icon of a borderless, tertiary confirm (positive) button in the focus state.
 $gl-button-confirm-tertiary-text-color-focus: $gl-button-confirm-tertiary-text-color-hover; // Used for the text of a borderless, tertiary confirm (positive) button in the focus state.
-$gl-button-confirm-tertiary-background-color-focus: $gl-button-confirm-tertiary-background-color-hover; // Used for the background of a borderless, tertiary confirm (positive) button in the focus state.
 $gl-button-confirm-secondary-icon-color-focus: $gl-button-confirm-secondary-icon-color-hover; // Used for the icon of a confirm (positive) button in the focus state.
 $gl-button-confirm-secondary-text-color-focus: $gl-button-confirm-secondary-text-color-hover; // Used for the text of a confirm (positive) button in the focus state.
 $gl-button-confirm-secondary-border-color-focus: $gl-button-confirm-secondary-border-color-hover; // Used for the border of an outlined confirm (positive) button in the focus state.
