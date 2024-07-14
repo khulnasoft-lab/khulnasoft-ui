@@ -85,6 +85,14 @@ $badge-min-width: $gl-spacing-scale-3;
   width: 100%;
   // Mitigate the effect of width: 100%
   max-width: max-content;
+  transition: color $gl-transition-duration-medium $gl-easing-out-cubic,
+              background-color $gl-transition-duration-medium $gl-easing-out-cubic,
+              border-color $gl-transition-duration-medium $gl-easing-out-cubic,
+              box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
+
+  @media (prefers-reduced-motion) {
+    transition-duration: .01ms !important;
+  }
 
   @media (forced-colors: active) {
     border: 1px solid;
