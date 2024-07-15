@@ -1,3 +1,10 @@
+## [86.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.10.0...v86.10.1) (2024-07-15)
+
+
+### Bug Fixes
+
+* **GlDuoChatMessage:** removed white bg from code snippets ([9a2aff5](https://gitlab.com/gitlab-org/gitlab-ui/commit/9a2aff5148ab79dc50f98c181d27cecb4ed7c1b9))
+
 # [86.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.9.1...v86.10.0) (2024-07-15)
 
 
