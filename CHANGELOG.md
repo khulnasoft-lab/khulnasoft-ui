@@ -1,3 +1,12 @@
+# [86.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.9.1...v86.10.0) (2024-07-15)
+
+
+### Features
+
+* **Color:** Update black and alpha ([98c8723](https://gitlab.com/gitlab-org/gitlab-ui/commit/98c87234ee4f6186c39695d1da8c046fa32296e7))
+* **Color:** Update neutral hex values ([664441d](https://gitlab.com/gitlab-org/gitlab-ui/commit/664441d8cd0a4e8baec31e1cfb2356c746f766e0))
+* **Color:** Use 1000 for alpha ([209f248](https://gitlab.com/gitlab-org/gitlab-ui/commit/209f248516bc7752a438f6ece876d6f00af7e877))
+
 ## [86.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.9.0...v86.9.1) (2024-07-11)
 
 
