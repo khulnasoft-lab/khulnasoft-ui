@@ -139,9 +139,12 @@ export default {
       const mergedOptions = merge({}, defaultChartOptions, sparkLineChartOptions);
       return mergeSeriesToOptions(mergedOptions, this.series);
     },
+    willShowLastYValue() {
+      return this.showLastYValue && this.data.length;
+    },
     series() {
-      const { data, smooth, itemStyle, showLastYValue, connectNulls } = this;
-      const markPoint = showLastYValue
+      const { data, smooth, itemStyle, willShowLastYValue, connectNulls } = this;
+      const markPoint = willShowLastYValue
         ? {
             symbol: 'circle',
             cursor: 'auto',
@@ -171,12 +174,29 @@ export default {
       };
     },
     itemStyle() {
-      if (this.gradient.length) {
+      if (this.applyGradient) {
         return { color: generateGradient(this.gradient) };
+      }
+      if (this.gradient.length) {
+        // If the gradient cannot be used, then apply
+        // the first colour to the entire line.
+        return { color: this.gradient[0] };
       }
       return {};
     },
+    applyGradient() {
+      if (this.gradient.length && this.data.length) {
+        // Applying a gradient a constant line will cause it to not render,
+        // so skip the gradient if all values are equal.
+        const [, firstValue] = this.data[0];
+        return this.data.some(([, value]) => firstValue !== value);
+      }
+
+      return false;
+    },
     lastYValue() {
+      if (!this.willShowLastYValue) return undefined;
+
       const latestEntry = this.data.slice(-1)[0];
 
       return latestEntry[1];

@@ -182,6 +182,13 @@ describe('sparkline chart component', () => {
     expect(getChartOptions().series[0].markPoint).toBe(undefined);
   });
 
+  it(`does not show the last entry's y-value if there is no data`, async () => {
+    wrapper.setProps({ data: [] });
+
+    await wrapper.vm.$nextTick();
+    expect(getChartOptions().series[0].markPoint).toBe(undefined);
+  });
+
   it('enables connectNulls on the series when `connectNulls` is enabled', async () => {
     expect(getChartOptions().series[0].connectNulls).toBe(false);
 
@@ -191,12 +198,19 @@ describe('sparkline chart component', () => {
     expect(getChartOptions().series[0].connectNulls).toBe(true);
   });
 
-  it('gradient will set the series itemStyle color', async () => {
-    wrapper.setProps({ gradient: ['red', 'green'] });
+  describe('gradient', () => {
+    it.each`
+      name                 | gradient            | data                    | color
+      ${'no gradient'}     | ${[]}               | ${[['1', 1], ['2', 2]]} | ${undefined}
+      ${'simple gradient'} | ${['red', 'green']} | ${[['1', 1], ['2', 2]]} | ${{}}
+      ${'flat line'}       | ${['red', 'green']} | ${[['1', 1], ['2', 1]]} | ${'red'}
+      ${'no data'}         | ${['red', 'green']} | ${[]}                   | ${'red'}
+    `('sets the chart color for $name', async ({ gradient, data, color }) => {
+      wrapper.setProps({ gradient, data });
 
-    await wrapper.vm.$nextTick();
-
-    expect(getChartOptions().series[0].itemStyle.color).toBeDefined();
+      await wrapper.vm.$nextTick();
+      expect(getChartOptions().series[0].itemStyle.color).toEqual(color);
+    });
   });
 
   describe('smooth', () => {
