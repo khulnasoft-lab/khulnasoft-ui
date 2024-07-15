@@ -84,6 +84,7 @@ secret_detection:
     # Per default we do not want to download cypress binaries, as this blows up the cache
     # and makes all other jobs potentially slower, if no cache exists
     CYPRESS_INSTALL_BINARY: 0
+    CC: gcc
   before_script:
     - apt-get update
     - apt-get install -y make
