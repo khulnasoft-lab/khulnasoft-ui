@@ -2,7 +2,7 @@
   "text": {
     "primary": {
       "$value": {
-        "default": "#333238",
+        "default": "#28272d",
         "dark": "#ececef"
       },
       "$type": "color",

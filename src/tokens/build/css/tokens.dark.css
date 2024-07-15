@@ -7,7 +7,6 @@
   --gl-text-tertiary: #737278; /* Use text.color.disabled instead */
   --gl-text-secondary: #89888d; /* Use text.color.subtle instead */
   --gl-text-primary: #ececef; /* Use text.color.default instead */
-  --gl-shadow-color-default: rgba(5, 5, 6, 0.24); /* Used for the default shadow color. */
   --gl-line-height-52: 3.25rem;
   --gl-line-height-44: 2.75rem;
   --gl-line-height-42: 2.625rem;
@@ -25,12 +24,12 @@
   --t-white-a-36: rgba(255, 255, 255, 0.36);
   --t-white-a-24: rgba(255, 255, 255, 0.24);
   --t-white-a-16: rgba(255, 255, 255, 0.16);
-  --t-gray-a-08: rgba(31, 30, 36, 0.08);
-  --t-gray-a-06: rgba(31, 30, 36, 0.06);
-  --t-gray-a-04: rgba(31, 30, 36, 0.04);
-  --t-gray-a-02: rgba(31, 30, 36, 0.02);
-  --t-gray-a-24: rgba(31, 30, 36, 0.24);
-  --t-gray-a-16: rgba(31, 30, 36, 0.16);
+  --t-gray-a-08: rgba(05, 05, 06, 0.08);
+  --t-gray-a-06: rgba(05, 05, 06, 0.06);
+  --t-gray-a-04: rgba(05, 05, 06, 0.04);
+  --t-gray-a-02: rgba(05, 05, 06, 0.02);
+  --t-gray-a-24: rgba(05, 05, 06, 0.24);
+  --t-gray-a-16: rgba(05, 05, 06, 0.16);
   --brand-gray-05: #2b2838;
   --brand-gray-04: #45424d;
   --brand-gray-03: #74717a;
@@ -94,10 +93,10 @@
   --gray-500: #89888d;
   --gray-400: #737278;
   --gray-300: #626168;
-  --gray-200: #535158;
-  --gray-100: #434248;
-  --gray-50: #333238;
-  --gray-10: #1f1e24;
+  --gray-200: #4c4b51;
+  --gray-100: #3a383f;
+  --gray-50: #28272d;
+  --gray-10: #18171d;
   --blue-950: #f2f9ff;
   --blue-900: #e9f3fc;
   --blue-800: #cbe2f9;
@@ -109,7 +108,7 @@
   --blue-200: #0b5cad;
   --blue-100: #064787;
   --blue-50: #033464;
-  --white: #333238;
+  --white: #28272d;
   --black: #fff;
   --theme-light-red-950: #fdf9f8;
   --theme-light-red-900: #faf2f1;
@@ -369,11 +368,11 @@
   --gl-color-green-200: #91d4a8;
   --gl-color-green-100: #c3e6cd;
   --gl-color-green-50: #ecf4ee;
-  --gl-color-neutral-1000: #000;
-  --gl-color-neutral-950: #1f1e24;
-  --gl-color-neutral-900: #333238;
-  --gl-color-neutral-800: #434248;
-  --gl-color-neutral-700: #535158;
+  --gl-color-neutral-1000: #050506;
+  --gl-color-neutral-950: #18171d;
+  --gl-color-neutral-900: #28272d;
+  --gl-color-neutral-800: #3a383f;
+  --gl-color-neutral-700: #4c4b51;
   --gl-color-neutral-600: #626168;
   --gl-color-neutral-500: #737278;
   --gl-color-neutral-400: #89888d;
@@ -401,12 +400,12 @@
   --gl-color-alpha-light-6: rgba(255, 255, 255, 0.06);
   --gl-color-alpha-light-4: rgba(255, 255, 255, 0.04);
   --gl-color-alpha-light-2: rgba(255, 255, 255, 0.02);
-  --gl-color-alpha-dark-24: rgba(31, 30, 36, 0.24);
-  --gl-color-alpha-dark-16: rgba(31, 30, 36, 0.16);
-  --gl-color-alpha-dark-8: rgba(31, 30, 36, 0.08);
-  --gl-color-alpha-dark-6: rgba(31, 30, 36, 0.06);
-  --gl-color-alpha-dark-4: rgba(31, 30, 36, 0.04);
-  --gl-color-alpha-dark-2: rgba(31, 30, 36, 0.02);
+  --gl-color-alpha-dark-24: rgba(05, 05, 06, 0.24);
+  --gl-color-alpha-dark-16: rgba(05, 05, 06, 0.16);
+  --gl-color-alpha-dark-8: rgba(05, 05, 06, 0.08);
+  --gl-color-alpha-dark-6: rgba(05, 05, 06, 0.06);
+  --gl-color-alpha-dark-4: rgba(05, 05, 06, 0.04);
+  --gl-color-alpha-dark-2: rgba(05, 05, 06, 0.02);
   --gl-color-alpha-0: transparent;
   --gl-text-color-disabled: var(--gl-color-neutral-400); /* Used for disabled text. */
   --gl-text-color-success: var(--gl-color-green-300); /* Used for text indicating success or validity. */
@@ -493,6 +492,7 @@
   --gl-status-muted-border-color-hover: var(--gl-color-neutral-700); /* Used for the border of a subtle neutral status item in the hover state. */
   --gl-status-muted-background-color-active: var(--gl-color-neutral-800); /* Used for the background of a subtle neutral status item in the active state. */
   --gl-status-muted-background-color-default: var(--gl-color-neutral-900); /* Used for the background of a subtle neutral status item when static or the default state when linked. */
+  --gl-shadow-color-default: var(--gl-color-alpha-dark-24); /* Used for the default shadow color. */
   --gl-icon-color-success: var(--gl-color-green-300); /* Used for an icon associated with success or validity. */
   --gl-icon-color-danger: var(--gl-color-red-300); /* Used for an icon associated with an error or danger. */
   --gl-icon-color-warning: var(--gl-color-orange-300); /* Used for an icon associated with a warning. */
