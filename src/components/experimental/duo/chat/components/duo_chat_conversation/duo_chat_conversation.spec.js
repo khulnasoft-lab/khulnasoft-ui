@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import { MOCK_USER_PROMPT_MESSAGE, MOCK_RESPONSE_MESSAGE } from '../../mock_data';
 import GlDuoChatMessage from '../duo_chat_message/duo_chat_message.vue';
@@ -25,6 +26,12 @@ describe('GlDuoChatConversation', () => {
   };
 
   describe('rendering', () => {
+    it('emits "conversation-mounted" event when mounted', async () => {
+      createComponent();
+      await nextTick();
+      expect(wrapper.emitted('conversation-mounted')).toHaveLength(1);
+    });
+
     describe('default state', () => {
       it('does not render messages by default', () => {
         createComponent({ messages: [] });

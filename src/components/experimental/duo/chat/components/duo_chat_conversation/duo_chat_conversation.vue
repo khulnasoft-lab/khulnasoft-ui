@@ -45,6 +45,10 @@ export default {
       default: true,
     },
   },
+  async mounted() {
+    await this.$nextTick();
+    this.$emit('conversation-mounted');
+  },
   methods: {
     onTrackFeedback(event) {
       /**

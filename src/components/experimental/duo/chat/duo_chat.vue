@@ -288,9 +288,6 @@ export default {
   created() {
     this.handleScrollingTrottled = throttle(this.handleScrolling, 200); // Assume a 200ms throttle for example
   },
-  mounted() {
-    this.scrollToBottom();
-  },
   methods: {
     compositionEnd() {
       this.compositionJustEnded = true;
@@ -504,6 +501,7 @@ export default {
           :show-delimiter="index > 0"
           @track-feedback="onTrackFeedback"
           @insert-code-snippet="onInsertCodeSnippet"
+          @conversation-mounted="scrollToBottom"
         />
         <template v-if="!hasMessages && !isLoading">
           <gl-empty-state

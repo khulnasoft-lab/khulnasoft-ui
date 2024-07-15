@@ -126,11 +126,14 @@ describe('GlDuoChat', () => {
     });
 
     describe('when messages exist', () => {
-      it('scrolls to the bottom on load', async () => {
+      it('scrolls to the bottom on conversation load', async () => {
         const scrollIntoViewMock = jest.fn();
         window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
 
         createComponent({ propsData: { messages } });
+
+        const conversations = findChatConversations();
+        conversations.at(0).vm.$emit('conversation-mounted');
 
         await nextTick();
 
