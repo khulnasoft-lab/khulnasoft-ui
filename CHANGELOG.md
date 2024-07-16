@@ -1,3 +1,10 @@
+## [86.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.11.0...v86.11.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* **GlBadge:** fix visual regressions ([3dae6e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/3dae6e32dd24b7eefcc21bcfa2386d8abf9c7872))
+
 # [86.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.10.1...v86.11.0) (2024-07-16)
 
 
