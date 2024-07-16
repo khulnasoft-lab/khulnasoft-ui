@@ -194,8 +194,8 @@ export default {
   <div
     class="gl-line-height-20 gl-word-break-word duo-chat-message gl-mb-4 gl-rounded-lg gl-p-4"
     :class="{
-      'gl-rounded-bottom-right-none gl-ml-auto gl-bg-blue-100 gl-text-blue-900': isUserMessage,
-      'gl-rounded-bottom-left-none gl-border-1 gl-border-solid gl-border-gray-50 gl-text-gray-900':
+      'gl-ml-auto gl-rounded-br-none gl-bg-blue-100 gl-text-blue-900': isUserMessage,
+      'gl-rounded-bl-none gl-border-1 gl-border-solid gl-border-gray-50 gl-text-gray-900':
         isAssistantMessage,
       'gl-bg-white': isAssistantMessage && !error,
       'gl-border-none! gl-bg-red-50': error,

@@ -562,7 +562,7 @@ export default {
               ref="prompt"
               v-model="prompt"
               data-testid="chat-prompt-input"
-              class="gl-h-full! gl-py-4! gl-bg-transparent! gl-rounded-top-right-none gl-rounded-bottom-right-none gl-shadow-none! gl-absolute"
+              class="gl-h-full! gl-py-4! gl-bg-transparent! gl-shadow-none! gl-absolute gl-rounded-br-none gl-rounded-tr-none"
               :class="{ 'gl-text-truncate': !prompt }"
               :placeholder="inputPlaceholder"
               autofocus
