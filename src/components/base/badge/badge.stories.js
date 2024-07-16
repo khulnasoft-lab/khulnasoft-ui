@@ -125,7 +125,6 @@ export const Truncated = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div>
-
       <!-- Badges inside flexbox should not shrink by default -->
       <div class="gl-display-flex gl-mb-5 gl-border gl-border-red-500" style="width: 200px">
         <gl-badge>Regular text</gl-badge>
@@ -133,6 +132,15 @@ export const Truncated = (args, { argTypes }) => ({
         <gl-badge>Regular text</gl-badge>
         <gl-badge>Regular text</gl-badge>
         <gl-badge>Regular text</gl-badge>
+      </div>
+
+      <!-- Edge case: wrapping elements and adjacent flex items should not cause shrinking -->
+      <div class="gl-display-flex gl-mb-5 gl-border gl-border-red-500" style="width: 200px">
+        <div class="gl-display-flex">
+          <button><gl-badge>Regular text</gl-badge></button>
+          <div class="gl-display-inline-flex" style="width: 100px"></div>
+        </div>
+        <div style="width: 100%"></div>
       </div>
 
       <!-- Content inside badge should shrink to container width when gl-text-truncate applied -->
