@@ -1,3 +1,10 @@
+# [86.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.10.1...v86.11.0) (2024-07-16)
+
+
+### Features
+
+* **GlSparklineChart:** Add `connectNulls` prop ([61d8a7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/61d8a7cb06f64a7f141ab3795a5e02c843a99a52))
+
 ## [86.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.10.0...v86.10.1) (2024-07-15)
 
 
