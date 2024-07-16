@@ -423,7 +423,7 @@ export default {
   <aside
     v-if="!isHidden"
     id="chat-component"
-    class="markdown-code-block duo-chat-drawer gl-max-h-full gl-shadow-none duo-chat gl-border-t gl-border-l gl-bottom-0"
+    class="markdown-code-block duo-chat-drawer duo-chat gl-border-t gl-border-l gl-bottom-0 gl-max-h-full gl-shadow-none"
     role="complementary"
     data-testid="chat-component"
   >
@@ -435,7 +435,7 @@ export default {
       <div
         class="drawer-title gl-display-flex gl-justify-content-start gl-align-items-center gl-p-5"
       >
-        <h3 class="gl-my-0 gl-font-size-h2">{{ title }}</h3>
+        <h3 class="gl-font-size-h2 gl-my-0">{{ title }}</h3>
         <gl-experiment-badge
           v-if="badgeType"
           :help-page-url="badgeHelpPageUrl"
@@ -458,7 +458,7 @@ export default {
         :dismissible="false"
         variant="tip"
         :show-icon="false"
-        class="gl-text-center gl-p-4 gl-bg-gray-50 legal-warning gl-max-w-full gl-border-t gl-text-gray-700"
+        class="legal-warning gl-border-t gl-max-w-full gl-bg-gray-50 gl-p-4 gl-text-center gl-text-gray-700"
         role="alert"
         data-testid="chat-legal-warning"
         >{{ $options.i18n.CHAT_LEGAL_GENERATED_BY_AI }}</gl-alert
@@ -512,7 +512,7 @@ export default {
             :svg-height="145"
             :title="emptyStateTitle"
             :description="emptyStateDescription"
-            class="gl-flex-grow gl-justify-content-center"
+            class="gl-justify-content-center gl-flex-grow"
           />
           <gl-duo-chat-predefined-prompts
             key="predefined-prompts"
@@ -527,19 +527,19 @@ export default {
     <footer
       v-if="isChatAvailable"
       data-testid="chat-footer"
-      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-p-5 gl-bg-gray-10 gl-border-t"
+      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-border-t gl-bg-gray-10 gl-p-5"
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
         <gl-form-input-group>
           <div
-            class="duo-chat-input gl-flex-grow-1 gl-vertical-align-top gl-max-w-full gl-min-h-8 gl-inset-border-1-gray-400 gl-rounded-base gl-bg-white"
+            class="duo-chat-input gl-flex-grow-1 gl-vertical-align-top gl-inset-border-1-gray-400 gl-min-h-8 gl-max-w-full gl-rounded-base gl-bg-white"
             :data-value="prompt"
           >
             <gl-card
               v-if="shouldShowSlashCommands"
               ref="commands"
-              class="slash-commands gl-translate-y-n100 gl-list-style-none gl-pl-0 gl-w-full gl-shadow-md !gl-absolute"
+              class="slash-commands gl-translate-y-n100 gl-list-style-none !gl-absolute gl-w-full gl-pl-0 gl-shadow-md"
               body-class="gl-p-2!"
             >
               <gl-dropdown-item
@@ -551,7 +551,7 @@ export default {
               >
                 <span class="gl-display-flex gl-justify-content-space-between">
                   <span class="gl-display-block">{{ command.name }}</span>
-                  <small class="gl-font-style-italic gl-text-right gl-pl-3 gl-text-gray-500">{{
+                  <small class="gl-font-style-italic gl-pl-3 gl-text-right gl-text-gray-500">{{
                     command.description
                   }}</small>
                 </span>

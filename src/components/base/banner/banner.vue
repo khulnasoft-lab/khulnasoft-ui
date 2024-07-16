@@ -100,7 +100,7 @@ export default {
 
 <template>
   <gl-card
-    class="gl-banner gl-pl-6 gl-pr-8 gl-py-6"
+    class="gl-banner gl-py-6 gl-pl-6 gl-pr-8"
     :class="{
       'gl-banner-introduction': isIntroducing,
     }"

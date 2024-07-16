@@ -40,7 +40,7 @@ export default {
 
 <template>
   <code
-    class="gl-w-10 gl-text-center gl-rounded-base gl-font-xs gl-p-2"
+    class="gl-font-xs gl-w-10 gl-rounded-base gl-p-2 gl-text-center"
     :class="classes"
     :style="{ backgroundColor: background }"
   >

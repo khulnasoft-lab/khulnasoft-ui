@@ -192,13 +192,13 @@ export default {
 </script>
 <template>
   <div
-    class="gl-p-4 gl-mb-4 gl-rounded-lg gl-line-height-20 gl-word-break-word duo-chat-message"
+    class="gl-line-height-20 gl-word-break-word duo-chat-message gl-mb-4 gl-rounded-lg gl-p-4"
     :class="{
-      'gl-ml-auto gl-bg-blue-100 gl-rounded-bottom-right-none gl-text-blue-900': isUserMessage,
+      'gl-rounded-bottom-right-none gl-ml-auto gl-bg-blue-100 gl-text-blue-900': isUserMessage,
       'gl-rounded-bottom-left-none gl-border-1 gl-border-solid gl-border-gray-50 gl-text-gray-900':
         isAssistantMessage,
       'gl-bg-white': isAssistantMessage && !error,
-      'gl-bg-red-50 gl-border-none!': error,
+      'gl-border-none! gl-bg-red-50': error,
     }"
     @insert-code-snippet="onInsertCodeSnippet"
   >
@@ -207,7 +207,7 @@ export default {
       :aria-label="$options.i18n.MESSAGE_ERROR"
       name="status_warning_borderless"
       :size="16"
-      class="gl-border-red-500 gl-rounded-full gl-mr-3 gl-flex-shrink-0 error-icon gl-border gl-text-red-600"
+      class="error-icon gl-border gl-mr-3 gl-flex-shrink-0 gl-rounded-full gl-border-red-500 gl-text-red-600"
       data-testid="error"
     />
     <div ref="content-wrapper" :class="{ 'has-error': error }">
@@ -218,7 +218,7 @@ export default {
         <template v-if="isAssistantMessage">
           <documentation-sources v-if="sources" :sources="sources" />
 
-          <div class="gl-display-flex gl-align-items-flex-end gl-mt-4 duo-chat-message-feedback">
+          <div class="gl-display-flex gl-align-items-flex-end duo-chat-message-feedback gl-mt-4">
             <gl-loading-icon v-if="isChunkAndNotCancelled" class="gl-pt-4" variant="dots" inline />
             <gl-duo-user-feedback
               v-if="isNotChunkOrCancelled"

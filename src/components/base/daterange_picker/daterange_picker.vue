@@ -272,7 +272,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-daterange-picker gl-gap-5 gl-display-flex">
+  <div class="gl-daterange-picker gl-display-flex gl-gap-5">
     <div :class="startContainerClasses" data-testid="daterange-picker-start-container">
       <label :class="labelClass">{{ fromLabel }}</label>
 

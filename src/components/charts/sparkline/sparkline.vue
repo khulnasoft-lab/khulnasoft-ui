@@ -272,7 +272,7 @@ export default {
         </template>
         <template #default>
           <div class="gl-display-flex" data-testid="tooltip-content">
-            <span v-if="tooltipLabel" class="gl-pr-6 gl-mr-auto">{{ tooltipLabel }}</span>
+            <span v-if="tooltipLabel" class="gl-mr-auto gl-pr-6">{{ tooltipLabel }}</span>
             <strong>{{ tooltip.content }}</strong>
           </div>
         </template>

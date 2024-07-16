@@ -803,7 +803,7 @@ export default {
       <gl-button
         v-if="showResetButton"
         category="tertiary"
-        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0! gl-max-w-50p gl-text-overflow-ellipsis"
+        class="gl-focus-inset-border-2-blue-400! gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0! gl-max-w-50p gl-text-overflow-ellipsis gl-flex-shrink-0"
         data-testid="listbox-reset-button"
         @click="onResetButtonClicked"
       >
@@ -812,7 +812,7 @@ export default {
       <gl-button
         v-if="showSelectAllButton"
         category="tertiary"
-        class="gl-focus-inset-border-2-blue-400! gl-flex-shrink-0 gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0! gl-max-w-50p gl-text-overflow-ellipsis"
+        class="gl-focus-inset-border-2-blue-400! gl-font-sm! gl-px-2! gl-py-2! gl-w-auto! gl-m-0! gl-max-w-50p gl-text-overflow-ellipsis gl-flex-shrink-0"
         data-testid="listbox-select-all-button"
         @click="onSelectAllButtonClicked"
       >
@@ -937,7 +937,7 @@ export default {
     <div
       v-else-if="showNoResultsText"
       aria-live="assertive"
-      class="gl-pl-7 gl-pr-5 gl-py-3 gl-font-base gl-text-gray-600"
+      class="gl-font-base gl-py-3 gl-pl-7 gl-pr-5 gl-text-gray-600"
       data-testid="listbox-no-results-text"
     >
       {{ noResultsText }}

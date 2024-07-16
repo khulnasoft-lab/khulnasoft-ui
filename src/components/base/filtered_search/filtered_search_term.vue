@@ -164,7 +164,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-h-auto gl-filtered-search-term" data-testid="filtered-search-term">
+  <div class="gl-filtered-search-term gl-h-auto" data-testid="filtered-search-term">
     <!--
       Emitted when this term token is clicked.
       @event activate

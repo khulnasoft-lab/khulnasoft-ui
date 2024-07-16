@@ -81,11 +81,11 @@ export default {
       v-if="showHeader"
       :id="nameId"
       aria-hidden="true"
-      class="gl-pl-4 gl-py-2 gl-font-sm gl-font-weight-bold"
+      class="gl-font-sm gl-font-weight-bold gl-py-2 gl-pl-4"
     >
       <slot name="group-label">{{ group.name }}</slot>
     </div>
-    <ul :aria-labelledby="groupLabeledBy" class="gl-mb-0 gl-pl-0 gl-list-style-none">
+    <ul :aria-labelledby="groupLabeledBy" class="gl-list-style-none gl-mb-0 gl-pl-0">
       <slot>
         <!-- eslint-disable vue/valid-v-for -->
         <gl-disclosure-dropdown-item

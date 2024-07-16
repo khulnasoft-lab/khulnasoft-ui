@@ -80,7 +80,7 @@ export default {
       v-if="icon"
       class="gl-badge-icon"
       :size="iconSizeComputed"
-      :class="{ '-gl-ml-2 gl-ml-n2': isCircularIcon }"
+      :class="{ 'gl-ml-n2 -gl-ml-2': isCircularIcon }"
       :name="icon"
     />
     <!-- eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots -->

@@ -69,7 +69,7 @@ export default {
   >
     <div
       v-if="showDelimiter"
-      class="gl-my-5 gl-display-flex gl-align-items-center gl-gap-4 gl-text-gray-500"
+      class="gl-display-flex gl-align-items-center gl-my-5 gl-gap-4 gl-text-gray-500"
       data-testid="conversation-delimiter"
     >
       <hr class="gl-flex-grow-1" />

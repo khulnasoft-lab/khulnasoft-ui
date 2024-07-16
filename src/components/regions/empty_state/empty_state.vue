@@ -120,7 +120,7 @@ export default {
   <section
     class="gl-display-flex"
     :class="{
-      'gl-empty-state gl-text-center gl-flex-direction-column': !compact,
+      'gl-empty-state gl-flex-direction-column gl-text-center': !compact,
       'gl-flex-direction-row': compact,
     }"
   >
@@ -147,13 +147,13 @@ export default {
         -->
       <slot ref="title" name="title">
         <h1
-          class="gl-font-size-h-display gl-line-height-36 gl-mt-0 gl-mb-0"
+          class="gl-font-size-h-display gl-line-height-36 gl-mb-0 gl-mt-0"
           :class="compact ? 'h5' : 'h4'"
         >
           {{ title }}
         </h1>
       </slot>
-      <p v-if="description || $scopedSlots.description" ref="description" class="gl-mt-4 gl-mb-0">
+      <p v-if="description || $scopedSlots.description" ref="description" class="gl-mb-0 gl-mt-4">
         <!--
           @slot Use this slot to customize the empty state's description
           area. Overrides the `description` prop.
@@ -163,7 +163,7 @@ export default {
         </slot>
       </p>
       <div
-        class="gl-display-flex gl-flex-wrap gl-mt-5"
+        class="gl-display-flex gl-mt-5 gl-flex-wrap"
         :class="{ 'gl-justify-content-center': !compact }"
       >
         <!--

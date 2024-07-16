@@ -55,7 +55,7 @@ export default {
       <li
         v-for="token in tokens"
         :key="token.name"
-        class="gl-display-flex gl-flex-wrap gl-align-items-center gl-justify-content-space-between gl-gap-3 gl-p-3"
+        class="gl-display-flex gl-align-items-center gl-justify-content-space-between gl-flex-wrap gl-gap-3 gl-p-3"
         :class="getClasses(token.value)"
         :style="getStyle(token.value)"
       >

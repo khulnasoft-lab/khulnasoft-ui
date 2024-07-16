@@ -80,7 +80,7 @@ export default {
 </script>
 
 <template>
-  <gl-badge :id="triggerId" class="gl-mx-4 gl-hover-cursor-pointer" variant="neutral">
+  <gl-badge :id="triggerId" class="gl-hover-cursor-pointer gl-mx-4" variant="neutral">
     <span>{{ activeType.BADGE }}</span>
     <gl-popover
       triggers="click"
@@ -105,7 +105,7 @@ export default {
           </ul>
         </template>
         <template #line-break="{ content }">
-          <span class="gl-mt-5 gl-mb-0 gl-display-block">{{ content }}</span>
+          <span class="gl-display-block gl-mb-0 gl-mt-5">{{ content }}</span>
         </template>
       </gl-sprintf>
     </gl-popover>

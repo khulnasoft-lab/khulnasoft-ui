@@ -2,7 +2,7 @@
 
 exports[`Filtered search term renders nothing with value in active mode (delegates to segment) 1`] = `
 <div
-  class="gl-h-auto gl-filtered-search-term"
+  class="gl-filtered-search-term gl-h-auto"
   data-testid="filtered-search-term"
 >
   <div
@@ -16,7 +16,7 @@ exports[`Filtered search term renders nothing with value in active mode (delegat
 
 exports[`Filtered search term renders value in inactive mode 1`] = `
 <div
-  class="gl-h-auto gl-filtered-search-term"
+  class="gl-filtered-search-term gl-h-auto"
   data-testid="filtered-search-term"
 >
   <div

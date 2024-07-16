@@ -59,20 +59,20 @@ export default {
 };
 </script>
 <template>
-  <div class="gl-mt-4 gl-mr-3 gl-text-gray-600" data-testid="duo-chat-message-sources">
+  <div class="gl-mr-3 gl-mt-4 gl-text-gray-600" data-testid="duo-chat-message-sources">
     <span v-if="sources.length">{{ sourceLabel }}:</span>
 
-    <ul class="gl-list-style-none gl-p-0 gl-m-0">
+    <ul class="gl-list-style-none gl-m-0 gl-p-0">
       <li
         v-for="(source, index) in sources"
         :key="index"
-        class="gl-display-flex gl-pt-3 gl-align-items-center"
+        class="gl-display-flex gl-align-items-center gl-pt-3"
         data-testid="source-list-item"
       >
         <gl-icon
           v-if="source.source_type"
           :name="getSourceIcon(source.source_type)"
-          class="gl-flex-shrink-0 gl-mr-2"
+          class="gl-mr-2 gl-flex-shrink-0"
         />
         <gl-link :href="source.source_url">{{ getSourceTitle(source) }}</gl-link>
       </li>

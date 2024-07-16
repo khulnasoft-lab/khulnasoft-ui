@@ -219,7 +219,7 @@ export default {
       >
         <template #header>
           <div
-            class="gl-search-box-by-click-history-header gl-display-flex gl-align-items-center gl-p-4! gl-min-h-8 gl-border-b-1 gl-border-b-gray-200 gl-flex-grow-1 gl-font-weight-bold gl-font-sm gl-border-b-solid"
+            class="gl-search-box-by-click-history-header gl-display-flex gl-align-items-center gl-p-4! gl-flex-grow-1 gl-font-weight-bold gl-font-sm gl-min-h-8 gl-border-b-1 gl-border-b-gray-200 gl-border-b-solid"
           >
             {{ recentSearchesHeader }}
           </div>
@@ -238,13 +238,13 @@ export default {
             </template>
           </gl-disclosure-dropdown-item>
         </template>
-        <div v-else class="gl-font-sm gl-py-2 gl-px-4 gl-text-secondary">
+        <div v-else class="gl-font-sm gl-px-4 gl-py-2 gl-text-secondary">
           {{ noRecentSearchesText }}
         </div>
 
         <template v-if="historyItems.length" #footer>
           <div
-            class="gl-border-t-1 gl-border-t-gray-200 gl-display-flex gl-flex-direction-column gl-p-2 gl-border-t-solid"
+            class="gl-display-flex gl-flex-direction-column gl-border-t-1 gl-border-t-gray-200 gl-p-2 gl-border-t-solid"
           >
             <gl-button
               ref="clearHistory"
