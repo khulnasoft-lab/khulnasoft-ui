@@ -154,7 +154,7 @@ describe('chart component', () => {
 
   describe('with toolbox in options', () => {
     it('increases grid top by `toolboxHeight`', async () => {
-      const optionsWithToolbox = { toolbox: {} };
+      const optionsWithToolbox = { toolbox: { show: true } };
       wrapper = shallowMount(Chart, { propsData: { options: optionsWithToolbox } });
       await wrapper.vm.$nextTick();
 
