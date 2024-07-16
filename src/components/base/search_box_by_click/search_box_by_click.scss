@@ -4,7 +4,7 @@
   .gl-search-box-by-click-history > button {
     padding-left: $gl-spacing-scale-4 !important;
     padding-right: $gl-spacing-scale-3 !important;
-    @include gl-border-none;
+    @apply gl-border-none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     @include gl-inset-border-1-gray-400;

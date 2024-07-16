@@ -19,7 +19,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   padding-right: $gl-spacing-scale-2 + $gl-spacing-scale-6;
   @include gl-h-auto;
   @include gl-inset-border-1-gray-400;
-  @include gl-border-none;
+  @apply gl-border-none;
   appearance: none;
   @include gl-text-truncate;
   @include gl-bg-no-repeat;

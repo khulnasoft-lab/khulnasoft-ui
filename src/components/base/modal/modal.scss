@@ -37,7 +37,7 @@ body.modal-open {
 
   .modal-content {
     @include gl-rounded-base;
-    @include gl-border-0;
+    @apply gl-border-0;
     box-shadow: $modal-box-shadow;
     background-color: var(--gl-background-color-default);
     color: var(--gl-text-color-default);
@@ -55,7 +55,7 @@ body.modal-open {
 
   .modal-header {
     @include gl-pb-3;
-    @include gl-border-none;
+    @apply gl-border-none;
 
     .modal-title {
       @include gl-heading-scale-500;
@@ -80,7 +80,7 @@ body.modal-open {
     @include gl-flex-direction-row;
     @include gl-p-5;
     @include gl-pt-3;
-    @include gl-border-none;
+    @apply gl-border-none;
 
     .btn {
       @include gl-m-0;

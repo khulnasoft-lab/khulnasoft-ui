@@ -21,7 +21,7 @@
 
 .gl-button.gl-button,
 .gl-button.gl-button.btn-block {
-  @include gl-border-0;
+  @apply gl-border-0;
   @include gl-py-3;
   @include gl-px-4;
   @include gl-bg-transparent;
@@ -456,7 +456,7 @@
 
   &.btn-link {
     @include gl-bg-transparent;
-    @include gl-border-0;
+    @apply gl-border-0;
     @include gl-font-base;
     @include gl-line-height-normal;
     @include gl-text-blue-500;

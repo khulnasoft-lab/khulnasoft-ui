@@ -80,7 +80,7 @@
   @include gl-display-inline-flex;
   @include gl-align-items-center;
   @include gl-justify-content-center;
-  @include gl-border-0;
+  @apply gl-border-0;
   @include gl-cursor-pointer;
   @include gl-bg-gray-600;
   @include gl-p-1;

@@ -1,8 +1,8 @@
 .gl-dropdown {
   .dropdown-menu {
     @include gl-bg-white;
-    @include gl-border-1;
-    @include gl-border-gray-200;
+    @apply gl-border-1;
+    @apply gl-border-gray-200;
     @include gl-mt-2;
     @include gl-mb-2;
     @include gl-p-0;
@@ -39,9 +39,9 @@
   }
 
   .gl-dropdown-header-top {
-    @include gl-border-1;
-    @include gl-border-b-solid;
-    @include gl-border-gray-200;
+    @apply gl-border-1;
+    @apply gl-border-b-solid;
+    @apply gl-border-gray-200;
     @include gl-display-flex;
     @include gl-font-base;
     @include gl-font-weight-bold;
@@ -54,15 +54,15 @@
   }
 
   .gl-dropdown-header {
-    @include gl-border-b-1;
-    @include gl-border-b-solid;
-    @include gl-border-b-gray-200;
+    @apply gl-border-b-1;
+    @apply gl-border-b-solid;
+    @apply gl-border-b-gray-200;
   }
 
   .gl-dropdown-footer {
-    @include gl-border-t-1;
-    @include gl-border-t-solid;
-    @include gl-border-t-gray-200;
+    @apply gl-border-t-1;
+    @apply gl-border-t-solid;
+    @apply gl-border-t-gray-200;
     @include gl-py-3;
   }
 
@@ -93,7 +93,7 @@
 
   .dropdown-toggle-split {
     &::after {
-      @include gl-border-0;
+      @apply gl-border-0;
       content: '';
       @include gl-display-block;
       @include gl-w-5;
@@ -103,7 +103,7 @@
     }
 
     &.btn-default:not(:disabled)::after {
-      @include gl-border-gray-500;
+      @apply gl-border-gray-500;
     }
 
     &.btn-confirm,

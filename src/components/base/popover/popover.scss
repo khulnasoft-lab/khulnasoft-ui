@@ -4,9 +4,7 @@ $gl-popover-max-width: $grid-size * 35;
 
 .gl-popover {
   max-width: $gl-popover-max-width;
-  @include gl-border-1;
-  @include gl-border-solid;
-  @include gl-border-none;
+  @apply gl-border-none;
   @include gl-shadow-md;
   @include gl-font-sm;
 
@@ -77,7 +75,7 @@ $gl-popover-max-width: $grid-size * 35;
   .popover-header {
     color: var(--gl-text-color-heading);
     @include gl-heading-scale-200;
-    @include gl-border-bottom-0;
+    @apply gl-border-b-0;
     @include gl-pb-0;
   }
 

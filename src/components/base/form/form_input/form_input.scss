@@ -6,7 +6,7 @@
   @include gl-py-3;
   @include gl-px-4;
   @include gl-h-auto;
-  @include gl-border-none;
+  @apply gl-border-none;
   @include form-control-focus($ignore-warning: true);
   appearance: none;
   background: var(--gl-control-background-color-default);
