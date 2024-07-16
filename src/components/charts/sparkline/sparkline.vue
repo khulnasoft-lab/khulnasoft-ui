@@ -84,6 +84,14 @@ export default {
       default: 0,
       validator: (x) => x >= 0 && x <= 1,
     },
+    /**
+     * Whether to connect the line across null points.
+     */
+    connectNulls: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -132,7 +140,7 @@ export default {
       return mergeSeriesToOptions(mergedOptions, this.series);
     },
     series() {
-      const { data, smooth, itemStyle, showLastYValue } = this;
+      const { data, smooth, itemStyle, showLastYValue, connectNulls } = this;
       const markPoint = showLastYValue
         ? {
             symbol: 'circle',
@@ -159,6 +167,7 @@ export default {
         smooth,
         itemStyle,
         lineStyle: { cap: 'round' },
+        connectNulls,
       };
     },
     itemStyle() {
