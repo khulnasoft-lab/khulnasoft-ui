@@ -8,7 +8,8 @@ import readline from 'node:readline/promises';
 import { format, resolveConfig } from 'prettier';
 import { sync as globbySync } from 'globby';
 import * as tailwindPlugin from 'prettier-plugin-tailwindcss';
-import { tailwindEquivalents } from './lib/tailwind_equivalents.js';
+import { tailwindEquivalents } from './lib/tailwind_equivalents.mjs';
+import { parseMigrations, runMigrations } from './lib/tailwind_migrations.mjs';
 
 function createRewriter(config, migrationsToDo) {
   const { tailwindConfig, dryRun } = config;
@@ -16,11 +17,7 @@ function createRewriter(config, migrationsToDo) {
   return async function rewrite(file) {
     const contents = await readFile(file, { encoding: 'utf8' });
 
-    let newContents = contents;
-
-    for (const { fromRegExp, to } of migrationsToDo) {
-      newContents = newContents.replaceAll(fromRegExp, to);
-    }
+    let newContents = runMigrations(contents, migrationsToDo);
 
     if (contents === newContents) {
       console.warn(`No changes to ${file}`);
@@ -111,64 +108,6 @@ function validateMigrations(processedMigrations) {
   }
 
   return true;
-}
-
-function legacyClassToImportant(klass) {
-  return klass.endsWith('!') ? klass : `${klass}!`;
-}
-
-function tailwindClassToImportant(klass) {
-  return klass.includes('!gl-') ? klass : klass.replace(/(^|:)(-?gl-)/, '$1!$2');
-}
-
-function filterOutNonStringValues(rawMigrations) {
-  return Object.entries(rawMigrations).filter(([, to]) => typeof to === 'string');
-}
-
-function addImportantVariants(rawMigrations) {
-  const map = rawMigrations.reduce((acc, [from, to]) => {
-    acc.set(from, to);
-
-    const importantFrom = legacyClassToImportant(from);
-
-    if (!Object.hasOwn(rawMigrations, importantFrom)) {
-      acc.set(importantFrom, tailwindClassToImportant(to));
-    }
-
-    return acc;
-  }, new Map());
-  return Array.from(map.entries()).map(([from, to]) => ({ from, to }));
-}
-
-function addFromRegExps(rawMigrations) {
-  const classChars = ['-', '\\w', '!', ':'].join('|');
-  return rawMigrations.map((migration) => ({
-    ...migration,
-    fromRegExp: new RegExp(`(?<!${classChars})${migration.from}(?!${classChars})`, 'g'),
-  }));
-}
-
-function sortMigrations(unsortedMigrations) {
-  return (
-    unsortedMigrations
-      .slice()
-      // Migrate "foobar" and "bar foo" before "foo" so we don't incorrectly
-      // migrate "foo".
-      .sort((a, b) => {
-        if (a.from.length < b.from.length) return 1;
-        if (a.from.length > b.from.length) return -1;
-        return 0;
-      })
-  );
-}
-
-async function parseMigrations(obj) {
-  try {
-    return sortMigrations(addFromRegExps(addImportantVariants(filterOutNonStringValues(obj))));
-  } catch (error) {
-    console.error(error.message);
-    return [];
-  }
 }
 
 async function getFilesAndDirectories(directories, dryRun) {

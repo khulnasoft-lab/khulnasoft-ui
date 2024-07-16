@@ -1,5 +1,11 @@
 export const tailwindEquivalents = {
+  /**
+   * These classes are mapping to multi-classes...
+   */
   'gl-sr-only-focusable': 'gl-sr-only focus:gl-not-sr-only',
+  'gl--flex-center': 'gl-flex gl-items-center gl-justify-center',
+  'gl-flex-flow-row-wrap': 'gl-flex-row gl-flex-wrap',
+  // Normal replacements below
   'gl-spin': 'gl-animate-spin',
   'gl-animate-skeleton-loader': null,
   'gl-hover-bg-transparent': 'hover:gl-bg-transparent',
@@ -115,7 +121,6 @@ export const tailwindEquivalents = {
   'gl-hover-text-blue-800': 'hover:gl-text-blue-800',
   'gl-hover-text-blue-800!': 'hover:!gl-text-blue-800',
   'gl-text-red-500!': '!gl-text-red-500',
-  'gl--flex-center': 'gl-flex gl-items-center gl-justify-center',
   'gl-focus--focus': 'focus:gl-focus',
   'gl-cursor-default!': '!gl-cursor-default',
   'gl-hover-cursor-pointer': 'hover:gl-cursor-pointer',
@@ -222,7 +227,6 @@ export const tailwindEquivalents = {
   'gl-flex-basis-half': 'gl-basis-1/2',
   'gl-flex-basis-full': 'gl-basis-full',
   'gl-flex-basis-full!': '!gl-basis-full',
-  'gl-flex-flow-row-wrap': 'gl-flex-row gl-flex-wrap',
   'gl-justify-content-center': 'gl-justify-center',
   'gl-justify-content-end': 'gl-justify-end',
   'gl-justify-content-end!': '!gl-justify-end',
@@ -526,6 +530,21 @@ export const tailwindEquivalents = {
   'gl-visibility-hidden': 'gl-invisible',
   'gl-z-index-200': 'gl-z-200',
   'gl-z-index-9999!': '!gl-z-9999',
+  /*
+   Items below have been found by analysing the following projects
+   - jh fork of GitLab
+   - https://gitlab-org.gitlab.io/frontend/playground/gitlab-code-scanner
+   - https://gitlab.com/gitlab-com/gl-infra/gitlab-dedicated/switchboard/
+   - https://gitlab.com/gitlab-org/customers-gitlab-com/
+   - https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin
+   - https://gitlab.com/gitlab-org/frontend/pajamas-adoption-scanner
+   - https://gitlab.com/gitlab-org/frontend/playground/vue-compat-scanner
+   - https://gitlab.com/gitlab-org/gitlab-docs/
+   - https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com
+   - https://gitlab.com/gitlab-org/gitlab-vscode-extension/
+   - https://gitlab.com/gitlab-org/status-page
+   - https://gitlab.com/gitlab-org/technical-writing-group/gitlab-docs-hugo
+   */
   'gl-active-bg-t-gray-a-08': 'active:gl-bg-alpha-dark-8',
   'gl-inset-border-b-1-gray-200': 'gl-shadow-inner-b-1-gray-100',
   'gl-justify-content-center!': '!gl-justify-center',
@@ -554,4 +573,9 @@ export const tailwindEquivalents = {
   'gl-z-index-2': 'gl-z-2',
   'gl-z-index-3': 'gl-z-3',
   'gl-z-index-4': 'gl-z-4',
+  'gl-bg-data-viz-green-700!': '!gl-bg-data-viz-green-700',
+  'gl-bg-data-viz-magenta-950!': '!gl-bg-data-viz-magenta-950',
+  'gl-inset-border-1-red-300': 'gl-shadow-inner-1-red-300',
+  'gl-inset-border-1-red-500': 'gl-shadow-inner-1-red-500',
+  'gl-column-gap-3': 'gl-gap-x-3',
 };

@@ -41,7 +41,7 @@ module.exports = {
   modulePathIgnorePatterns: ['cypress/integration', '.cypress_cache'],
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/vendor'],
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    '^.+\\.m?js$': 'babel-jest',
     '.*\\.(vue)$': JEST_VUE_TRANSFORMER,
     '\\.(svg|html|md|png)$': '<rootDir>/tests/transformers/file_transformer.js',
   },
