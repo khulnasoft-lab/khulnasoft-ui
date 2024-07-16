@@ -1,3 +1,10 @@
+# [86.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.11.1...v86.12.0) (2024-07-16)
+
+
+### Features
+
+* **Charts:** use options.toolbox.show to show/hide toolbox ([5e8c462](https://gitlab.com/gitlab-org/gitlab-ui/commit/5e8c4624274aa9612b7e7fcf73f0e500ea6446f9))
+
 ## [86.11.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.11.0...v86.11.1) (2024-07-16)
 
 
