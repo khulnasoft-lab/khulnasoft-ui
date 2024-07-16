@@ -122,7 +122,7 @@ export const DefaultWithOverflowingFixedContainerHeight = () => {
     },
     {
       height: 'auto',
-      class: 'gl-flex-grow-1', // line, area, heatmap etc charts all have gl-flex-grow-1 on the <gl-chart> element in auto height mode
+      class: 'gl-grow', // line, area, heatmap etc charts all have gl-grow on the <gl-chart> element in auto height mode
     }
   );
 
@@ -153,7 +153,7 @@ export const WithTabularOverflowingFixedContainerHeight = () => {
     },
     {
       height: 'auto',
-      class: 'gl-flex-grow-1', // line, area, heatmap etc charts all have gl-flex-grow-1 on the <gl-chart> element in auto height mode
+      class: 'gl-grow', // line, area, heatmap etc charts all have gl-grow on the <gl-chart> element in auto height mode
     }
   );
 

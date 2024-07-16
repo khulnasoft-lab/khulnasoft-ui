@@ -27,8 +27,8 @@ export default {
       const contrastScore = getColorContrast('#fff', this.background).score > 4.5;
       const textClass = contrastScore ? 'gl-text-white' : 'gl-text-gray-950';
       const failClasses = contrastScore
-        ? 'gl-inset-border-1-red-300 gl-text-red-300'
-        : 'gl-inset-border-1-red-500 gl-text-red-500';
+        ? 'gl-shadow-inner-1-red-300 gl-text-red-300'
+        : 'gl-shadow-inner-1-red-500 gl-text-red-500';
       return [isFail ? failClasses : textClass];
     },
     contrast() {
@@ -40,7 +40,7 @@ export default {
 
 <template>
   <code
-    class="gl-font-xs gl-w-10 gl-rounded-base gl-p-2 gl-text-center"
+    class="gl-w-10 gl-rounded-base gl-p-2 gl-text-center gl-text-xs"
     :class="classes"
     :style="{ backgroundColor: background }"
   >

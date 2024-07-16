@@ -19,7 +19,7 @@ const content = () => [...Array(15)].map((_, i) => `line ${i + 1}`).join('\n');
 
 const template = `
   <gl-truncate-text v-bind="$props">
-    <div class="gl-white-space-pre-line">${content()}</div>
+    <div class="gl-whitespace-pre-line">${content()}</div>
   </gl-truncate-text>`;
 
 const Template = (args, { argTypes }) => ({

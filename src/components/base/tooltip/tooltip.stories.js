@@ -11,7 +11,7 @@ function makeTooltip(modifier = '') {
       GlTooltip: GlTooltipDirective,
     },
     template: `
-    <div class="gl-display-flex gl-align-items-center gl-justify-content-center gl-p-7 gl-m-7">
+    <div class="gl-flex gl-items-center gl-justify-center gl-p-7 gl-m-7">
       <gl-button
         v-gl-tooltip${modifier}
         title="some tooltip text"

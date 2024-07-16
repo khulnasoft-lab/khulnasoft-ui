@@ -62,19 +62,16 @@ export default {
 </script>
 <template>
   <div
-    :class="[
-      'gl-display-flex gl-flex-direction-column gl-justify-content-end',
-      { 'insert-code-hidden': !enableCodeInsertion },
-    ]"
+    :class="['gl-flex gl-flex-col gl-justify-end', { 'insert-code-hidden': !enableCodeInsertion }]"
   >
     <div
       v-if="showDelimiter"
-      class="gl-display-flex gl-align-items-center gl-my-5 gl-gap-4 gl-text-gray-500"
+      class="gl-my-5 gl-flex gl-items-center gl-gap-4 gl-text-gray-500"
       data-testid="conversation-delimiter"
     >
-      <hr class="gl-flex-grow-1" />
+      <hr class="gl-grow" />
       <span>{{ $options.i18n.CONVERSATION_NEW_CHAT }}</span>
-      <hr class="gl-flex-grow-1" />
+      <hr class="gl-grow" />
     </div>
     <gl-duo-chat-message
       v-for="(msg, index) in messages"

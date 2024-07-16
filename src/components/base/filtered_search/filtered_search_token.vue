@@ -396,7 +396,7 @@ export default {
       </template>
 
       <template #option="{ option }">
-        <div class="gl-display-flex">
+        <div class="gl-flex">
           {{ showFriendlyText ? option.description : option.value }}
           <span v-if="option.description" class="gl-filtered-search-token-operator-description">
             {{ showFriendlyText ? option.value : option.description }}

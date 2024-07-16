@@ -128,10 +128,10 @@ export default {
 </script>
 
 <template>
-  <div class="gl-display-flex gl-align-items-flex-start gl-w-full gl-flex-nowrap">
+  <div class="gl-flex gl-w-full gl-flex-nowrap gl-items-start">
     <div
       ref="tokenContainer"
-      class="gl-display-flex gl-align-items-center gl-my-n1 gl-mx-n1 gl-w-full gl-flex-wrap"
+      class="-gl-mx-1 -gl-my-1 gl-flex gl-w-full gl-flex-wrap gl-items-center"
       role="listbox"
       aria-multiselectable="false"
       aria-orientation="horizontal"

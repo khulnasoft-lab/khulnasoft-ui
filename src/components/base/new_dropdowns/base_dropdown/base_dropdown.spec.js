@@ -308,7 +308,7 @@ describe('base dropdown', () => {
     it('applies block style if true', () => {
       buildWrapper({ block: true });
 
-      expect(wrapper.classes()).toContain('gl-display-block!');
+      expect(wrapper.classes()).toContain('!gl-block');
       expect(findDropdownToggleText().classes()).toContain('gl-w-full');
       expect(findDefaultDropdownToggle().props('block')).toBe(true);
     });
@@ -326,13 +326,13 @@ describe('base dropdown', () => {
       toggle.element.focus();
       // open menu clicking toggle btn
       await toggle.trigger('click');
-      expect(menu.classes('gl-display-block!')).toBe(true);
+      expect(menu.classes('!gl-block')).toBe(true);
       expect(toggle.attributes('aria-expanded')).toBe('true');
       expect(toggle.element).toHaveFocus();
 
       // close menu clicking toggle btn
       await toggle.trigger('click');
-      expect(menu.classes('gl-display-block!')).toBe(false);
+      expect(menu.classes('!gl-block')).toBe(false);
       expect(toggle.attributes('aria-expanded')).toBe('false');
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
       expect(toggle.element).toHaveFocus();
@@ -349,7 +349,7 @@ describe('base dropdown', () => {
 
       // open menu clicking toggle btn
       await toggle.trigger('click');
-      expect(menu.classes('gl-display-block!')).toBe(true);
+      expect(menu.classes('!gl-block')).toBe(true);
       expect(toggle.attributes('aria-expanded')).toBe('true');
 
       moveFocusWithinDropdown();
@@ -357,7 +357,7 @@ describe('base dropdown', () => {
       // close menu by pressing ESC key
       await menu.trigger('keydown.esc');
 
-      expect(menu.classes('gl-display-block!')).toBe(false);
+      expect(menu.classes('!gl-block')).toBe(false);
       expect(toggle.attributes('aria-expanded')).toBe('false');
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
       expect(toggle.element).toHaveFocus();
@@ -368,11 +368,11 @@ describe('base dropdown', () => {
       const menu = findDropdownMenu();
 
       await toggle.trigger('click');
-      expect(menu.classes('gl-display-block!')).toBe(true);
+      expect(menu.classes('!gl-block')).toBe(true);
       expect(toggle.attributes('aria-expanded')).toBe('true');
 
       await toggle.trigger('keydown.esc');
-      expect(menu.classes('gl-display-block!')).toBe(false);
+      expect(menu.classes('!gl-block')).toBe(false);
       expect(toggle.attributes('aria-expanded')).toBe('false');
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
     });
@@ -432,7 +432,7 @@ describe('base dropdown', () => {
 
       moveFocusWithinDropdown();
       await menu.trigger('keydown.esc');
-      expect(menu.classes('gl-display-block!')).toBe(true);
+      expect(menu.classes('!gl-block')).toBe(true);
       expect(toggle.attributes('aria-expanded')).toBe('true');
       expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toBeUndefined();
       expect(toggle.element).not.toHaveFocus();
@@ -501,14 +501,14 @@ describe('base dropdown', () => {
         const menu = findDropdownMenu();
         // open menu clicking toggle btn
         await toggle.trigger('click');
-        expect(menu.classes('gl-display-block!')).toBe(true);
+        expect(menu.classes('!gl-block')).toBe(true);
         expect(firstToggleChild.attributes('aria-expanded')).toBe('true');
         await waitForAnimationFrame();
         expect(wrapper.emitted(GL_DROPDOWN_SHOWN)).toHaveLength(1);
 
         // close menu clicking toggle btn again
         await toggle.trigger('click');
-        expect(menu.classes('gl-display-block!')).toBe(false);
+        expect(menu.classes('!gl-block')).toBe(false);
         expect(firstToggleChild.attributes('aria-expanded')).toBe('false');
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
       });
@@ -519,12 +519,12 @@ describe('base dropdown', () => {
         const menu = findDropdownMenu();
         // open menu clicking toggle btn
         await toggle.trigger('click');
-        expect(menu.classes('gl-display-block!')).toBe(true);
+        expect(menu.classes('!gl-block')).toBe(true);
 
         // close menu pressing ESC on it
         moveFocusWithinDropdown();
         await menu.trigger('keydown.esc');
-        expect(menu.classes('gl-display-block!')).toBe(false);
+        expect(menu.classes('!gl-block')).toBe(false);
         expect(firstToggleChild.attributes('aria-expanded')).toBe('false');
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
         expect(toggle.find(`[data-testid="${customToggleTestId}"]`).element).toHaveFocus();
@@ -535,10 +535,10 @@ describe('base dropdown', () => {
         const menu = findDropdownMenu();
 
         await toggle.trigger('click');
-        expect(menu.classes('gl-display-block!')).toBe(true);
+        expect(menu.classes('!gl-block')).toBe(true);
 
         await toggle.trigger('keydown.esc');
-        expect(menu.classes('gl-display-block!')).toBe(false);
+        expect(menu.classes('!gl-block')).toBe(false);
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
       });
     });

@@ -82,9 +82,7 @@ export default {
     class="gl-truncate-component"
     :title="text"
   >
-    <span ref="text" class="gl-truncate-start gl-text-overflow-ellipsis!"
-      >&lrm;{{ text }}&lrm;</span
-    >
+    <span ref="text" class="gl-truncate-start !gl-text-ellipsis">&lrm;{{ text }}&lrm;</span>
   </span>
 
   <span

@@ -261,8 +261,8 @@ describe('empty state component', () => {
       'gl-empty-state-content',
       'gl-mx-auto',
       'gl-my-0',
-      'gl-flex-grow-1',
-      'gl-flex-basis-0',
+      'gl-grow',
+      'gl-basis-0',
       'gl-px-4',
       customContentClass,
     ];

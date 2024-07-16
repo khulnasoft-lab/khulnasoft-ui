@@ -19,13 +19,13 @@ export const expectHeightAutoClasses = ({
     createComponent();
 
     expect(findContainer().classes()).not.toEqual(expect.arrayContaining(classes.split(' ')));
-    expect(findChart().classes()).not.toContain('gl-flex-grow-1');
+    expect(findChart().classes()).not.toContain('gl-grow');
   });
 
   it('sets the height classes when height is "auto"', () => {
     createComponent({ height: 'auto' });
 
     expect(findContainer().classes()).toEqual(expect.arrayContaining(classes.split(' ')));
-    expect(findChart().classes()).toContain('gl-flex-grow-1');
+    expect(findChart().classes()).toContain('gl-grow');
   });
 };

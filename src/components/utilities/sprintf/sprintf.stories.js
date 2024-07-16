@@ -22,7 +22,7 @@ const makeStory =
 
 export const SentenceWithLink = makeStory({
   template: `
-    <div class="gl-font-base">
+    <div class="gl-text-base">
       <gl-sprintf :message="message" :placeholders="placeholders">
         <template #link="{ content }">
           <gl-link href="#" target="_blank">{{ content }}</gl-link>
@@ -40,7 +40,7 @@ Object.assign(SentenceWithLink, {
 
 export const SentenceWithLinkWithCustomPlaceholders = makeStory({
   template: `
-    <div class="gl-font-base">
+    <div class="gl-text-base">
       <gl-sprintf :message="message" :placeholders="placeholders">
         <template #link="{ content }">
           <gl-link href="#" target="_blank">{{ content }}</gl-link>
@@ -60,10 +60,10 @@ Object.assign(SentenceWithLinkWithCustomPlaceholders, {
 export const BasicPlaceholder = makeStory({
   data: () => ({ authorName: 'Some author' }),
   template: `
-    <div class="gl-font-base">
+    <div class="gl-text-base">
       <gl-sprintf :message="message" :placeholders="placeholders">
         <template #author>
-          <span class="gl-font-weight-bold">{{ authorName }}</span>
+          <span class="gl-font-bold">{{ authorName }}</span>
         </template>
       </gl-sprintf>
     </div>
@@ -77,7 +77,7 @@ Object.assign(BasicPlaceholder, {
 export const BasicButtonPlaceholder = makeStory({
   data: () => ({ authorName: 'Some author' }),
   template: `
-    <div class="gl-font-base">
+    <div class="gl-text-base">
       <gl-sprintf :message="message" :placeholders="placeholders">
         <template #author>
           <gl-button>{{ authorName }}</gl-button>

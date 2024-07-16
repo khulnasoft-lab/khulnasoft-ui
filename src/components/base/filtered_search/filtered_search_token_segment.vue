@@ -414,7 +414,7 @@ export default {
     class="gl-filtered-search-token-segment"
     :class="{
       'gl-filtered-search-token-segment-active': active,
-      'gl-cursor-text!': viewOnly,
+      '!gl-cursor-text': viewOnly,
     }"
     data-testid="filtered-search-token-segment"
     v-on="viewOnly ? {} : { mousedown: emitIfInactive }"

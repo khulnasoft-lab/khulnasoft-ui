@@ -31,7 +31,7 @@ export default {
         return '';
       }
 
-      return 'gl-mt-3 gl-align-self-start';
+      return 'gl-mt-3 gl-self-start';
     },
   },
   methods: {
@@ -65,7 +65,7 @@ export default {
         data-testid="dropdown-item-checkbox"
         :class="[
           'gl-new-dropdown-item-check-icon',
-          { 'gl-visibility-hidden': !isSelected },
+          { 'gl-invisible': !isSelected },
           checkedClasses,
         ]"
       />

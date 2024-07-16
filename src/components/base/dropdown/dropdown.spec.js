@@ -191,9 +191,9 @@ describe('new dropdown', () => {
       expect(wrapper.html()).toContain('Header Content');
     });
 
-    it('has the "gl-border-b-0!" class when header border disabled', () => {
+    it('has the "!gl-border-b-0" class when header border disabled', () => {
       buildWrapper({ hideHeaderBorder: true }, slots);
-      expect(wrapper.find('.gl-dropdown-header').classes()).toContain('gl-border-b-0!');
+      expect(wrapper.find('.gl-dropdown-header').classes()).toContain('!gl-border-b-0');
     });
   });
 

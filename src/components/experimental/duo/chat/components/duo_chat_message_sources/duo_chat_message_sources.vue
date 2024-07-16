@@ -62,11 +62,11 @@ export default {
   <div class="gl-mr-3 gl-mt-4 gl-text-gray-600" data-testid="duo-chat-message-sources">
     <span v-if="sources.length">{{ sourceLabel }}:</span>
 
-    <ul class="gl-list-style-none gl-m-0 gl-p-0">
+    <ul class="gl-m-0 gl-list-none gl-p-0">
       <li
         v-for="(source, index) in sources"
         :key="index"
-        class="gl-display-flex gl-align-items-center gl-pt-3"
+        class="gl-flex gl-items-center gl-pt-3"
         data-testid="source-list-item"
       >
         <gl-icon

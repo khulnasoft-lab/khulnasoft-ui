@@ -80,19 +80,19 @@ export default {
 </script>
 
 <template>
-  <gl-badge :id="triggerId" class="gl-hover-cursor-pointer gl-mx-4" variant="neutral">
+  <gl-badge :id="triggerId" class="gl-mx-4 hover:gl-cursor-pointer" variant="neutral">
     <span>{{ activeType.BADGE }}</span>
     <gl-popover
       triggers="click"
       show-close-button
       :placement="popoverPlacement"
       :target="triggerId"
-      :css-classes="['gl-z-index-9999!']"
+      :css-classes="['!gl-z-9999']"
       :title="activeType.POPOVER_TITLE"
     >
       <gl-sprintf :message="activeType.POPOVER_CONTENT">
         <template #link="{ content }">
-          <gl-link v-if="helpPageUrl" :href="helpPageUrl" target="_blank" class="gl-font-sm!">
+          <gl-link v-if="helpPageUrl" :href="helpPageUrl" target="_blank" class="!gl-text-sm">
             {{ content }}
           </gl-link>
           <span v-else>{{ content }}</span>
@@ -105,7 +105,7 @@ export default {
           </ul>
         </template>
         <template #line-break="{ content }">
-          <span class="gl-display-block gl-mb-0 gl-mt-5">{{ content }}</span>
+          <span class="gl-mb-0 gl-mt-5 gl-block">{{ content }}</span>
         </template>
       </gl-sprintf>
     </gl-popover>

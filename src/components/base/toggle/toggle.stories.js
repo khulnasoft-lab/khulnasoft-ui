@@ -45,7 +45,7 @@ const Template = (args, { argTypes }) => ({
     },
   },
   template: `
-  <div class="gl-font-base">
+  <div class="gl-text-base">
     <gl-toggle
       v-model="localValue"
       :disabled="disabled"

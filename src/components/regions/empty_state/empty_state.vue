@@ -107,10 +107,7 @@ export default {
       return Boolean(this.secondaryButtonLink && this.secondaryButtonText);
     },
     contentClasses() {
-      return [
-        this.compact ? 'gl-flex-grow-1 gl-flex-basis-0 gl-px-4' : 'gl-m-auto gl-p-5',
-        this.contentClass,
-      ];
+      return [this.compact ? 'gl-grow gl-basis-0 gl-px-4' : 'gl-m-auto gl-p-5', this.contentClass];
     },
   },
 };
@@ -118,15 +115,13 @@ export default {
 
 <template>
   <section
-    class="gl-display-flex"
+    class="gl-flex"
     :class="{
-      'gl-empty-state gl-flex-direction-column gl-text-center': !compact,
-      'gl-flex-direction-row': compact,
+      'gl-empty-state gl-flex-col gl-text-center': !compact,
+      'gl-flex-row': compact,
     }"
   >
-    <div
-      :class="{ 'gl-display-none gl-sm-display-block gl-px-4': compact, 'gl-max-w-full': !compact }"
-    >
+    <div :class="{ 'gl-hidden gl-px-4 sm:gl-block': compact, 'gl-max-w-full': !compact }">
       <img
         v-if="svgPath"
         :src="svgPath"
@@ -147,7 +142,7 @@ export default {
         -->
       <slot ref="title" name="title">
         <h1
-          class="gl-font-size-h-display gl-line-height-36 gl-mb-0 gl-mt-0"
+          class="gl-mb-0 gl-mt-0 gl-text-size-h-display gl-leading-36"
           :class="compact ? 'h5' : 'h4'"
         >
           {{ title }}
@@ -162,10 +157,7 @@ export default {
           {{ description }}
         </slot>
       </p>
-      <div
-        class="gl-display-flex gl-mt-5 gl-flex-wrap"
-        :class="{ 'gl-justify-content-center': !compact }"
-      >
+      <div class="gl-mt-5 gl-flex gl-flex-wrap" :class="{ 'gl-justify-center': !compact }">
         <!--
           @slot Use this slot to customize the empty state's actions area,
           where the buttons are. Overrides button-related props:
@@ -184,7 +176,7 @@ export default {
           <gl-button
             v-if="shouldRenderSecondaryButton"
             class="gl-mb-3 gl-mr-3"
-            :class="{ 'gl-mx-2!': !compact }"
+            :class="{ '!gl-mx-2': !compact }"
             :href="secondaryButtonLink"
             >{{ secondaryButtonText }}
           </gl-button>

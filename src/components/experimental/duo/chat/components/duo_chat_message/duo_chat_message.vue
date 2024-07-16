@@ -192,13 +192,13 @@ export default {
 </script>
 <template>
   <div
-    class="gl-line-height-20 gl-word-break-word duo-chat-message gl-mb-4 gl-rounded-lg gl-p-4"
+    class="duo-chat-message gl-mb-4 gl-rounded-lg gl-p-4 gl-leading-20 gl-break-anywhere"
     :class="{
       'gl-ml-auto gl-rounded-br-none gl-bg-blue-100 gl-text-blue-900': isUserMessage,
       'gl-rounded-bl-none gl-border-1 gl-border-solid gl-border-gray-50 gl-text-gray-900':
         isAssistantMessage,
       'gl-bg-white': isAssistantMessage && !error,
-      'gl-border-none! gl-bg-red-50': error,
+      '!gl-border-none gl-bg-red-50': error,
     }"
     @insert-code-snippet="onInsertCodeSnippet"
   >
@@ -218,7 +218,7 @@ export default {
         <template v-if="isAssistantMessage">
           <documentation-sources v-if="sources" :sources="sources" />
 
-          <div class="gl-display-flex gl-align-items-flex-end duo-chat-message-feedback gl-mt-4">
+          <div class="duo-chat-message-feedback gl-mt-4 gl-flex gl-items-end">
             <gl-loading-icon v-if="isChunkAndNotCancelled" class="gl-pt-4" variant="dots" inline />
             <gl-duo-user-feedback
               v-if="isNotChunkOrCancelled"

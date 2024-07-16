@@ -53,7 +53,7 @@ export const SplitDropdowns = (args, { argTypes }) => ({
     };
   },
   template: `
-    <div class="gl-display-flex gl-flex-direction-column gl-gap-6 gl-align-items-flex-start">
+    <div class="gl-flex gl-flex-col gl-gap-6 gl-items-start">
       <gl-button-group>
         <gl-button
           :disabled="disabled"

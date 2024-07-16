@@ -104,7 +104,7 @@ export default {
     :class="{
       'gl-banner-introduction': isIntroducing,
     }"
-    body-class="gl-display-flex gl-p-0!"
+    body-class="gl-flex !gl-p-0"
   >
     <div v-if="svgPath" class="gl-banner-illustration">
       <img :src="svgPath" alt="" />

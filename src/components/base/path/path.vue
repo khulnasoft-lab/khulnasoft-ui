@@ -185,7 +185,7 @@ export default {
             class="gl-mr-2"
             data-testid="gl-path-item-icon"
           />{{ item.title
-          }}<span v-if="item.metric" class="gl-font-weight-normal gl-pl-2">{{ item.metric }}</span>
+          }}<span v-if="item.metric" class="gl-pl-2 gl-font-normal">{{ item.metric }}</span>
         </button>
         <!--
           @slot Additional content to be displayed in a path item.

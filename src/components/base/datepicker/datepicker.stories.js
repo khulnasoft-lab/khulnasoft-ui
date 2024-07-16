@@ -88,7 +88,7 @@ export const Widths = (_args, { argTypes }) => ({
     };
   },
   template: `
-    <div class="gl-display-flex gl-flex-direction-column gl-gap-3">
+    <div class="gl-flex gl-flex-col gl-gap-3">
       <gl-form-group label="Width: sm">
         <gl-datepicker showClearButton :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" width="sm" />
       </gl-form-group>

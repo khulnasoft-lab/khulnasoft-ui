@@ -30,7 +30,7 @@ export const mockItems = [
       console.log('CLOSED');
     },
     extraAttrs: {
-      class: 'gl-text-red-500!',
+      class: '!gl-text-red-500',
       rel: 'nofollow',
       'data-method': 'put',
     },
@@ -74,7 +74,7 @@ export const mockItemsCustomItem = [
       // eslint-disable-next-line no-console
       console.log('clicked!');
     },
-    wrapperClass: 'gl-sm-display-none!',
+    wrapperClass: 'sm:!gl-hidden',
   },
 ];
 

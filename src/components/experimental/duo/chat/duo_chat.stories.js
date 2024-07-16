@@ -162,8 +162,8 @@ export const Interactive = (args, { argTypes }) => ({
   },
   template: `
   <div style="height: 800px">
-    <div id="logger" class="gl-w-half">
-      <pre class="gl-font-sm" style="text-wrap: wrap">
+    <div id="logger" class="gl-w-1/2">
+      <pre class="gl-text-sm" style="text-wrap: wrap">
 <code>{{ loggerInfo }}</code>
       </pre>
       <gl-button v-if="promptInFlight" @click="onResponseRequested">Mock the response</gl-button>

@@ -89,10 +89,10 @@ template. If you want to render a custom template for items, use the
 ```html
 <gl-collapsible-listbox :items="items">
   <template #list-item="{ item }">
-    <span class="gl-display-flex gl-align-items-center">
+    <span class="gl-flex gl-items-center">
       <gl-avatar :size="32" class-="gl-mr-3"/>
-      <span class="gl-display-flex gl-flex-direction-column">
-        <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
+      <span class="gl-flex gl-flex-col">
+        <span class="gl-font-bold gl-whitespace-nowrap">{{ item.text }}</span>
         <span class="gl-text-subtle"> {{ item.secondaryText }}</span>
       </span>
     </span>

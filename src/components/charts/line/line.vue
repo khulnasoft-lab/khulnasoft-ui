@@ -315,7 +315,7 @@ export default {
   <div class="position-relative" :class="{ [$options.HEIGHT_AUTO_CLASSES]: autoHeight }">
     <chart
       v-bind="$attrs"
-      :class="{ 'gl-flex-grow-1': autoHeight }"
+      :class="{ 'gl-grow': autoHeight }"
       :height="height"
       :options="options"
       v-on="$listeners"

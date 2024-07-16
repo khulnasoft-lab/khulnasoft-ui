@@ -137,7 +137,7 @@ export default {
     </component>
     <gl-button
       v-if="showCloseButton"
-      class="gl-label-close gl-p-0!"
+      class="gl-label-close !gl-p-0"
       category="tertiary"
       size="small"
       variant="reset"

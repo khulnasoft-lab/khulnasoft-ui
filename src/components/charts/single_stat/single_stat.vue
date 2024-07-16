@@ -116,25 +116,19 @@ export default {
 </script>
 
 <template>
-  <div
-    class="gl-single-stat gl-display-flex gl-flex-direction-column gl-p-2"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
-    <div class="gl-display-flex gl-align-items-center gl-mb-2 gl-text-gray-700">
+  <div class="gl-single-stat gl-flex gl-flex-col gl-p-2" v-bind="$attrs" v-on="$listeners">
+    <div class="gl-mb-2 gl-flex gl-items-center gl-text-gray-700">
       <gl-icon
         v-if="showTitleIcon"
         :name="titleIcon"
         :class="['gl-mr-2', titleIconClass]"
         data-testid="title-icon"
       />
-      <span class="gl-font-base gl-font-weight-normal" data-testid="title-text">{{ title }}</span>
+      <span class="gl-text-base gl-font-normal" data-testid="title-text">{{ title }}</span>
     </div>
-    <div
-      class="gl-single-stat-content gl-display-flex gl-align-items-baseline gl-font-weight-bold gl-text-gray-900"
-    >
+    <div class="gl-single-stat-content gl-flex gl-items-baseline gl-font-bold gl-text-gray-900">
       <span
-        class="gl-single-stat-number gl-line-height-1"
+        class="gl-single-stat-number gl-leading-1"
         :class="{ 'gl-mr-2': !unit }"
         data-testid="displayValue"
       >
@@ -150,8 +144,8 @@ export default {
       >
       <span
         v-if="unit"
-        class="gl-font-sm gl-transition-medium gl-mx-2 gl-opacity-10"
-        :class="{ 'gl-opacity-0!': hideUnits }"
+        class="gl-mx-2 gl-text-sm gl-opacity-10 gl-transition-all"
+        :class="{ '!gl-opacity-0': hideUnits }"
         data-testid="unit"
         >{{ unit }}</span
       >

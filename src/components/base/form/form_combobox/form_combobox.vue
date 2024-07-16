@@ -235,13 +235,13 @@ export default {
       :id="suggestionsId"
       ref="suggestionsMenu"
       data-testid="combobox-dropdown"
-      class="dropdown-menu gl-form-combobox-inner gl-list-style-none gl-display-flex gl-flex-direction-column gl-mb-0 gl-w-full gl-pl-0"
+      class="dropdown-menu gl-form-combobox-inner gl-mb-0 gl-flex gl-w-full gl-list-none gl-flex-col gl-pl-0"
       @keydown.down="onArrowDown"
       @keydown.up="onArrowUp"
       @keydown.esc.stop="onEsc"
     >
       <li class="show-dropdown gl-overflow-y-auto">
-        <ul class="gl-list-style-none gl-mb-0 gl-pl-0">
+        <ul class="gl-mb-0 gl-list-none gl-pl-0">
           <gl-dropdown-item
             v-for="(result, i) in results"
             ref="results"
@@ -259,7 +259,7 @@ export default {
       </li>
       <gl-dropdown-divider v-if="resultsLength > 0 && actionList.length > 0" />
       <li>
-        <ul class="gl-list-style-none gl-mb-0 gl-pl-0">
+        <ul class="gl-mb-0 gl-list-none gl-pl-0">
           <gl-dropdown-item
             v-for="(action, i) in actionList"
             :key="i + resultsLength"

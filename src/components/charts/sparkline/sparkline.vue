@@ -240,18 +240,18 @@ export default {
 <template>
   <div
     v-resize-observer="handleResize"
-    class="gl-display-flex gl-align-items-center"
+    class="gl-flex gl-items-center"
     :class="{ 'gl-h-full': autoHeight }"
   >
     <slot name="default"></slot>
     <div
       data-testid="chart-container"
-      class="gl-flex-grow-1 gl-relative"
+      class="gl-relative gl-grow"
       :class="{ [$options.HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES]: autoHeight }"
     >
       <chart
         v-bind="$attrs"
-        :class="{ 'gl-flex-grow-1': autoHeight }"
+        :class="{ 'gl-grow': autoHeight }"
         :height="height"
         :options="options"
         @created="onChartCreated"
@@ -266,12 +266,12 @@ export default {
         placement="top"
       >
         <template #title>
-          <div data-testid="tooltip-title" class="gl-white-space-nowrap">
+          <div data-testid="tooltip-title" class="gl-whitespace-nowrap">
             {{ tooltip.title }}
           </div>
         </template>
         <template #default>
-          <div class="gl-display-flex" data-testid="tooltip-content">
+          <div class="gl-flex" data-testid="tooltip-content">
             <span v-if="tooltipLabel" class="gl-mr-auto gl-pr-6">{{ tooltipLabel }}</span>
             <strong>{{ tooltip.content }}</strong>
           </div>
@@ -280,7 +280,7 @@ export default {
     </div>
     <span
       v-if="showLastYValue"
-      class="gl-display-inline-flex gl-justify-content-center gl-ml-5"
+      class="gl-ml-5 gl-inline-flex gl-justify-center"
       data-testid="last-y-value"
     >
       {{ lastYValue }}

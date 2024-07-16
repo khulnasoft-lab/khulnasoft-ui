@@ -100,7 +100,7 @@ export const CustomListItem = (args, { argTypes }) => ({
   template: template(
     `
       <template #list-item="{ item }">
-        <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
+        <span class="gl-flex gl-items-center gl-justify-between">
           {{ item.text }}
           <gl-badge pill variant="neutral">{{ item.count }}</gl-badge>
         </span>
@@ -108,7 +108,7 @@ export const CustomListItem = (args, { argTypes }) => ({
     `,
     {
       bindingOverrides: {
-        class: 'gl-display-block! gl-text-center',
+        class: '!gl-block gl-text-center',
       },
     }
   ),
@@ -170,7 +170,7 @@ export const CustomGroupsAndItems = (args, { argTypes }) => ({
         {{ group.name }} <gl-badge pill variant="neutral">{{ getTotalMrs(group.items) }}</gl-badge>
       </template>
       <template #list-item="{ item }">
-        <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
+        <span class="gl-flex gl-items-center gl-justify-between">
           {{ item.text }}
           <gl-badge pill variant="neutral">{{ item.count }}</gl-badge>
         </span>
@@ -200,8 +200,8 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
       <gl-disclosure-dropdown-group>
         <gl-disclosure-dropdown-item @action="closeDropdown">
           <template #list-item>
-            <span class="gl-display-flex gl-flex-direction-column">
-              <span class="gl-font-weight-bold gl-white-space-nowrap">Orange Fox</span>
+            <span class="gl-flex gl-flex-col">
+              <span class="gl-font-bold gl-whitespace-nowrap">Orange Fox</span>
               <span class="gl-text-subtle">@thefox</span>
             </span>
           </template>
@@ -209,7 +209,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group :bordered="bordered" :border-position="borderPosition" :group="$options.groups[0]" @action="closeDropdown">
         <template #list-item="{ item }">
-          <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
+          <span class="gl-flex gl-items-center gl-justify-between">
             {{item.text}}
             <gl-icon v-if="item.icon" :name="item.icon"/>
           </span>
@@ -217,7 +217,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group :bordered="bordered" :border-position="borderPosition">
         <template #group-label>
-          <span class="gl-font-sm">Navigation redesign</span>
+          <span class="gl-text-sm">Navigation redesign</span>
           <gl-badge variant="info">Beta</gl-badge>
         </template>
         <gl-disclosure-dropdown-item @action="toggleNewNavigation">
