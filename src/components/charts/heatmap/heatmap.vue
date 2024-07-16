@@ -49,7 +49,7 @@ export default {
     TooltipDefaultFormat,
   },
   props: {
-    options: {
+    option: {
       type: Object,
       required: false,
       default: () => ({}),
@@ -197,7 +197,7 @@ export default {
             },
           },
         },
-        this.options
+        this.option
       );
     },
     legendStyle() {

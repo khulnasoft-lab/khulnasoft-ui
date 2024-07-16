@@ -22,7 +22,7 @@ const template = `
       :y-axis-labels="yAxisLabels"
       :x-axis-name="xAxisName"
       :y-axis-name="yAxisName"
-      :options="options"
+      :option="option"
       :height="height"
       :show-tooltip="showTooltip"
     />
@@ -34,7 +34,7 @@ const generateProps = ({
   yAxisLabels = ['Sat', 'Fri', 'Thu', 'Wed', 'Tue', 'Mon', 'Sun'],
   xAxisName = 'Hour',
   yAxisName = 'Day',
-  options = {},
+  option = {},
   height = null,
   showTooltip = true,
 } = {}) => ({
@@ -43,7 +43,7 @@ const generateProps = ({
   yAxisLabels,
   xAxisName,
   yAxisName,
-  options,
+  option,
   height,
   showTooltip,
 });
@@ -60,7 +60,7 @@ export const Default = Template.bind({});
 Default.args = generateProps();
 
 export const WithToolbox = Template.bind({});
-WithToolbox.args = generateProps({ options: { toolbox: { show: true } } });
+WithToolbox.args = generateProps({ option: { toolbox: { show: true } } });
 
 export default {
   title: 'charts/heatmap',
