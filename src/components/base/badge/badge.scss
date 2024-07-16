@@ -76,14 +76,15 @@ $badge-min-width: $gl-spacing-scale-3;
       * Content inside the badge should shrink when gl-text-truncate class is used on the contents
       * Badge should have a minimal width of 20 pixels (for example when `1` is passed inside the slot)
    */
-  display: inline-grid;
-  grid-auto-flow: column;
-  grid-template-columns: minmax($badge-min-width, auto);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: $gl-spacing-scale-2;
   padding: $gl-spacing-scale-1 $badge-padding-horizontal;
-  min-width: fit-content;
+  // Enable support for gl-text-truncate
+  width: 100%;
+  // Mitigate the effect of width: 100%
+  max-width: max-content;
 
   @media (forced-colors: active) {
     border: 1px solid;
@@ -94,6 +95,12 @@ $badge-min-width: $gl-spacing-scale-3;
     @include gl-w-5;
     @include gl-flex-shrink-0;
     top: auto;
+  }
+
+  .gl-badge-content {
+    display: flex;
+    justify-content: center;
+    min-width: $badge-min-width;
   }
 }
 
