@@ -10,39 +10,36 @@ See <https://gitlab-org.gitlab.io/gitlab-ui/> for documentation.
 
 ## Usage
 
-To use GitLab UI in your project, add it as a dependency:
+1. To use GitLab UI in your project, add it as a dependency:
 
-```sh
-yarn add @gitlab/ui
-```
+    ```sh
+    yarn add @gitlab/ui
+    ```
 
-> **Note:** Make sure to also install GitLab UI's peer dependencies. Refer to the
-> [`package.json`](./package.json) for the list of peer dependencies and their expected versions.
+    > **Note:** Make sure to also install GitLab UI's peer dependencies. Refer to the
+    > [`package.json`](./package.json) for the list of peer dependencies and their expected versions.
 
-In your main entrypoint **before** importing or using any component:
+1. In your main entrypoint **before** importing or using any component:
 
-```javascript
-import setConfigs from '@gitlab/ui/dist/config'
+    ```javascript
+    import setConfigs from '@gitlab/ui/dist/config'
 
-setConfigs()
-```
+    setConfigs()
+    ```
 
-This will set the global configs used by GitLab UI.
+    This will set the global configs used by GitLab UI.
 
-Import the components as desired:
+1. Include the required stylesheets in your app. Refer to the [CSS docs](/doc/css.md) for
+   installation options.
 
-```javascript
-import { GlButton } from '@gitlab/ui';
-```
+1. Import the components as desired:
 
-GitLab UI is compatible with tree-shaking, you may enable this in your project to reduce bundle sizes.
+    ```javascript
+    import { GlButton } from '@gitlab/ui';
+    ```
 
-### GitLab UI CSS
-
-GitLab UI provides component styles, a utility-class library, and SCSS utilities.
-
-- [How can I get started with GitLab UI CSS?](doc/css.md)
-- [How does GitLab UI interact with GitLab CSS?](doc/debugging-gitlab-ui-with-gitlab-css.md)
+    > **Note:** GitLab UI is compatible with tree-shaking, you may enable this in your project to
+    > reduce bundle sizes.
 
 ## Quick start - development
 
@@ -120,44 +117,6 @@ Components’ end to end tests live in the `cypress/e2e` folder. See our
 [end to end testing documentation](doc/contributing/end_to_end_test.md) for more details.
 
 `yarn run cypress open` runs Cypress locally to run end to end tests.
-
-## Installation
-
-Install with Yarn:
-
-```sh
-yarn add @gitlab/ui
-```
-
-Install with npm:
-
-```sh
-npm install @gitlab/ui
-```
-
-### Styles
-
-GitLab UI requires its styles to be imported to display components properly. We currently have 2
-separate stylesheets that both need to be included in your project. The main stylesheet
-(`gitlab_ui.scss`) contains component-specific styles, while the other one (`utilities.scss`)
-contains the utility classes library on which some components rely. You might find the utility
-classes useful to layout components in your own project.
-
-You have two options to include those stylesheets:
-
-- If you have a SCSS preprocessor setup, include the SCSS files in your own stylesheet:
-
-```scss
-@import '@gitlab/ui/src/scss/gitlab_ui.scss';
-@import '@gitlab/ui/src/scss/utilities.scss';
-```
-
-- If you don't have a SCSS preprocessor setup, you can import the compiled CSS files directly:
-
-```css
-@import '@gitlab/ui/dist/index.css';
-@import '@gitlab/ui/dist/utility_classes.css';
-```
 
 ### Design tokens
 
