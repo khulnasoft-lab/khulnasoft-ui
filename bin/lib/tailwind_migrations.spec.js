@@ -25,6 +25,12 @@ describe('runMigrations', () => {
 
   it.each([
     ['<div class="gl--flex-center">', '<div class="gl-flex gl-items-center gl-justify-center">'],
+    [
+      '<div class="gl--flex-center!">',
+      '<div class="!gl-flex !gl-items-center !gl-justify-center">',
+    ],
+    ['.gl--flex-center', '.gl-flex.gl-items-center.gl-justify-center'],
+    ['.gl--flex-center!', '.!gl-flex.!gl-items-center.!gl-justify-center'],
   ])('migrates gl--flex-center properly', (input, output) => {
     expect(runMigrations(input, migrationsToDo)).toBe(output);
   });

@@ -3,6 +3,13 @@ function legacyClassToImportant(klass) {
 }
 
 function tailwindClassToImportant(klass) {
+  // Handle classes which are replaced with multiple classes in HAML
+  if (klass.includes(' ')) {
+    return klass
+      .split(' ')
+      .map((k) => tailwindClassToImportant(k))
+      .join(' ');
+  }
   if (klass.includes('!gl-')) {
     return klass;
   } else {
@@ -17,11 +24,19 @@ function filterOutNonStringValues(rawMigrations) {
 function addImportantVariants(rawMigrations) {
   const map = rawMigrations.reduce((acc, [from, to]) => {
     acc.set(from, to);
+    // Handle classes which are replaced with multiple classes in HAML
+    if (to.includes(' ')) {
+      acc.set('\\.' + from, '.' + to.replace(/ /g, '.'));
+    }
+
     const importantFrom = legacyClassToImportant(from);
 
     if (!Object.hasOwn(rawMigrations, importantFrom)) {
       const importantTo = tailwindClassToImportant(to);
       acc.set(importantFrom, importantTo);
+      if (to.includes(' ')) {
+        acc.set('\\.' + importantFrom, '.' + importantTo.replace(/ /g, '.'));
+      }
     }
 
     return acc;
