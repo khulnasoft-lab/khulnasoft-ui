@@ -26,8 +26,6 @@
   padding-bottom: 0 !important;
 }
 
-@import 'utilities';
-
 // This imports the tailwind.css file.
 // Note that adding `.css` here would break the inline import.
 // These utilities are imported last, because that's
