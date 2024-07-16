@@ -393,19 +393,6 @@
   --gl-color-blue-200: #9dc7f1;
   --gl-color-blue-100: #cbe2f9;
   --gl-color-blue-50: #e9f3fc;
-  --gl-color-alpha-light-36: rgba(255, 255, 255, 0.36);
-  --gl-color-alpha-light-24: rgba(255, 255, 255, 0.24);
-  --gl-color-alpha-light-16: rgba(255, 255, 255, 0.16);
-  --gl-color-alpha-light-8: rgba(255, 255, 255, 0.08);
-  --gl-color-alpha-light-6: rgba(255, 255, 255, 0.06);
-  --gl-color-alpha-light-4: rgba(255, 255, 255, 0.04);
-  --gl-color-alpha-light-2: rgba(255, 255, 255, 0.02);
-  --gl-color-alpha-dark-24: rgba(05, 05, 06, 0.24);
-  --gl-color-alpha-dark-16: rgba(05, 05, 06, 0.16);
-  --gl-color-alpha-dark-8: rgba(05, 05, 06, 0.08);
-  --gl-color-alpha-dark-6: rgba(05, 05, 06, 0.06);
-  --gl-color-alpha-dark-4: rgba(05, 05, 06, 0.04);
-  --gl-color-alpha-dark-2: rgba(05, 05, 06, 0.02);
   --gl-color-alpha-0: transparent;
   --gl-text-color-disabled: var(--gl-color-neutral-400); /* Used for disabled text. */
   --gl-text-color-success: var(--gl-color-green-300); /* Used for text indicating success or validity. */
@@ -492,7 +479,6 @@
   --gl-status-muted-border-color-hover: var(--gl-color-neutral-700); /* Used for the border of a subtle neutral status item in the hover state. */
   --gl-status-muted-background-color-active: var(--gl-color-neutral-800); /* Used for the background of a subtle neutral status item in the active state. */
   --gl-status-muted-background-color-default: var(--gl-color-neutral-900); /* Used for the background of a subtle neutral status item when static or the default state when linked. */
-  --gl-shadow-color-default: var(--gl-color-alpha-dark-24); /* Used for the default shadow color. */
   --gl-icon-color-success: var(--gl-color-green-300); /* Used for an icon associated with success or validity. */
   --gl-icon-color-danger: var(--gl-color-red-300); /* Used for an icon associated with an error or danger. */
   --gl-icon-color-warning: var(--gl-color-orange-300); /* Used for an icon associated with a warning. */
@@ -563,13 +549,23 @@
   --gl-avatar-fallback-background-color-blue: var(--gl-color-blue-900); /* Blue background for avatar fallback with no particular meaning. */
   --gl-avatar-fallback-background-color-purple: var(--gl-color-purple-950); /* Purple background for avatar fallback with no particular meaning. */
   --gl-avatar-fallback-background-color-red: var(--gl-color-red-900); /* Red background for avatar fallback with no particular meaning. */
-  --gl-avatar-border-color-hover: var(--gl-color-alpha-dark-24); /* Used to increase the edge definition of an avatar in the hover state. */
-  --gl-avatar-border-color-default: var(--gl-color-alpha-dark-8); /* Used to define the edge of an avatar. */
+  --gl-color-alpha-light-36: var(--gl-color-neutral-0)5c;
+  --gl-color-alpha-light-24: var(--gl-color-neutral-0)3d;
+  --gl-color-alpha-light-16: var(--gl-color-neutral-0)29;
+  --gl-color-alpha-light-8: var(--gl-color-neutral-0)14;
+  --gl-color-alpha-light-6: var(--gl-color-neutral-0)0f;
+  --gl-color-alpha-light-4: var(--gl-color-neutral-0)0a;
+  --gl-color-alpha-light-2: var(--gl-color-neutral-0)05;
+  --gl-color-alpha-dark-24: var(--gl-color-neutral-1000)3d;
+  --gl-color-alpha-dark-16: var(--gl-color-neutral-1000)29;
+  --gl-color-alpha-dark-8: var(--gl-color-neutral-1000)14;
+  --gl-color-alpha-dark-6: var(--gl-color-neutral-1000)0f;
+  --gl-color-alpha-dark-4: var(--gl-color-neutral-1000)0a;
+  --gl-color-alpha-dark-2: var(--gl-color-neutral-1000)05;
   --gl-border-color-transparent: var(--gl-color-alpha-0); /* Used when a border needs to be present, but not visibly perceived. */
   --gl-border-color-strong: var(--gl-color-neutral-400); /* Used for a distinct border that emphasizes an edge or boundaries. */
   --gl-border-color-subtle: var(--gl-color-neutral-900); /* Used for a subtle border in combination with the default background. */
   --gl-border-color-default: var(--gl-color-neutral-800); /* Used for the default border color. */
-  --gl-background-color-overlay: rgba(0,0,0,0.64); /* Used for an overlay that covers other content. */
   --gl-background-color-disabled: var(--gl-color-neutral-900); /* Used to identify a disabled section. */
   --gl-background-color-strong: var(--gl-color-neutral-800); /* Used to make the background easily stand out from the default. */
   --gl-background-color-subtle: var(--gl-color-neutral-900); /* Used to slightly differentiate the background from the default. */
@@ -671,7 +667,11 @@
   --gl-action-text-color-disabled: var(--gl-color-neutral-400); /* Used for the text of a disabled action. */
   --gl-action-border-color-disabled: var(--gl-color-neutral-800); /* Used for the border of a disabled action. */
   --gl-action-background-color-disabled: var(--gl-color-neutral-900); /* Used for the background of a disabled action. */
+  --gl-shadow-color-default: var(--gl-color-alpha-dark-24); /* Used for the default shadow color. */
   --gl-focus-ring-inner-color: var(--gl-background-color-default); /* Used for the inner neutral portion of the focus ring. */
   --gl-table-sorting-icon-color: var(--gl-text-color-heading); /* Used for the color of the sorting icons in the column headers. */
   --gl-table-row-background-color-hover: var(--gl-background-color-subtle); /* Used for the background of a table row in hover state. */
+  --gl-avatar-border-color-hover: var(--gl-color-alpha-dark-24); /* Used to increase the edge definition of an avatar in the hover state. */
+  --gl-avatar-border-color-default: var(--gl-color-alpha-dark-8); /* Used to define the edge of an avatar. */
+  --gl-background-color-overlay: rgba(0,0,0,0.64); /* Used for an overlay that covers other content. */
 }

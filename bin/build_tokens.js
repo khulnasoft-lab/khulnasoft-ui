@@ -64,28 +64,66 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'color/hexWithAlpha',
+  type: 'value',
+  transitive: true,
+  matcher: (token) => token.alpha !== undefined,
+  transformer: (token) => {
+    const hex = token.value.replace('#', '');
+    const alpha = Math.round(token.alpha * 255)
+      .toString(16)
+      .padStart(2, '0');
+    return `#${hex}${alpha}`;
+  },
+});
+
 /**
  * Transform Groups
  * https://amzn.github.io/style-dictionary/#/api?id=registertransformgroup
  */
 StyleDictionary.registerTransformGroup({
   name: 'css/default',
-  transforms: ['value/default', 'name/cti/kebab', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: [
+    'value/default',
+    'name/cti/kebab',
+    'size/pxToRem',
+    'name/stripPrefix',
+    'color/hexWithAlpha',
+  ],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js/default',
-  transforms: ['value/default', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: [
+    'value/default',
+    'name/cti/constant',
+    'size/pxToRem',
+    'name/stripPrefix',
+    'color/hexWithAlpha',
+  ],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'css/dark',
-  transforms: ['value/dark', 'name/cti/kebab', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: [
+    'value/dark',
+    'name/cti/kebab',
+    'size/pxToRem',
+    'name/stripPrefix',
+    'color/hexWithAlpha',
+  ],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js/dark',
-  transforms: ['value/dark', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: [
+    'value/dark',
+    'name/cti/constant',
+    'size/pxToRem',
+    'name/stripPrefix',
+    'color/hexWithAlpha',
+  ],
 });
 
 /**

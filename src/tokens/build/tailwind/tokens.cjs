@@ -218,8 +218,7 @@ const backgroundColors = {
   subtle: 'var(--gl-background-color-subtle, var(--gl-color-neutral-10, #fbfafd))',
   strong: 'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
   disabled: 'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
-  overlay:
-    'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, rgba(05, 05, 06, 0.24)))',
+  overlay: 'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, #0505063d))',
 };
 const borderColors = {
   default: 'var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
@@ -239,21 +238,21 @@ const iconColors = {
   success: 'var(--gl-icon-color-success, var(--gl-color-green-600, #217645))',
 };
 const alphaDarkColors = {
-  2: 'var(--gl-color-alpha-dark-2, rgba(05, 05, 06, 0.02))',
-  4: 'var(--gl-color-alpha-dark-4, rgba(05, 05, 06, 0.04))',
-  6: 'var(--gl-color-alpha-dark-6, rgba(05, 05, 06, 0.06))',
-  8: 'var(--gl-color-alpha-dark-8, rgba(05, 05, 06, 0.08))',
-  16: 'var(--gl-color-alpha-dark-16, rgba(05, 05, 06, 0.16))',
-  24: 'var(--gl-color-alpha-dark-24, rgba(05, 05, 06, 0.24))',
+  2: 'var(--gl-color-alpha-dark-2, var(--gl-color-neutral-1000, #05050605))',
+  4: 'var(--gl-color-alpha-dark-4, var(--gl-color-neutral-1000, #0505060a))',
+  6: 'var(--gl-color-alpha-dark-6, var(--gl-color-neutral-1000, #0505060f))',
+  8: 'var(--gl-color-alpha-dark-8, var(--gl-color-neutral-1000, #05050614))',
+  16: 'var(--gl-color-alpha-dark-16, var(--gl-color-neutral-1000, #05050629))',
+  24: 'var(--gl-color-alpha-dark-24, var(--gl-color-neutral-1000, #0505063d))',
 };
 const alphaLightColors = {
-  2: 'var(--gl-color-alpha-light-2, rgba(255, 255, 255, 0.02))',
-  4: 'var(--gl-color-alpha-light-4, rgba(255, 255, 255, 0.04))',
-  6: 'var(--gl-color-alpha-light-6, rgba(255, 255, 255, 0.06))',
-  8: 'var(--gl-color-alpha-light-8, rgba(255, 255, 255, 0.08))',
-  16: 'var(--gl-color-alpha-light-16, rgba(255, 255, 255, 0.16))',
-  24: 'var(--gl-color-alpha-light-24, rgba(255, 255, 255, 0.24))',
-  36: 'var(--gl-color-alpha-light-36, rgba(255, 255, 255, 0.36))',
+  2: 'var(--gl-color-alpha-light-2, var(--gl-color-neutral-0, #fff05))',
+  4: 'var(--gl-color-alpha-light-4, var(--gl-color-neutral-0, #fff0a))',
+  6: 'var(--gl-color-alpha-light-6, var(--gl-color-neutral-0, #fff0f))',
+  8: 'var(--gl-color-alpha-light-8, var(--gl-color-neutral-0, #fff14))',
+  16: 'var(--gl-color-alpha-light-16, var(--gl-color-neutral-0, #fff29))',
+  24: 'var(--gl-color-alpha-light-24, var(--gl-color-neutral-0, #fff3d))',
+  36: 'var(--gl-color-alpha-light-36, var(--gl-color-neutral-0, #fff5c))',
 };
 const brandColors = {
   'brand-white': 'var(--gl-color-brand-white, #fff)',

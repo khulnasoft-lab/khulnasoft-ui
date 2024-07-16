@@ -2666,12 +2666,14 @@
       },
       "dark": {
         "2": {
-          "value": "rgba(05, 05, 06, 0.02)",
+          "value": "#05050605",
+          "alpha": 0.02,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(05, 05, 06, 0.02)",
+            "value": "{color.neutral.1000}",
+            "alpha": 0.02,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_2",
@@ -2684,12 +2686,14 @@
           ]
         },
         "4": {
-          "value": "rgba(05, 05, 06, 0.04)",
+          "value": "#0505060a",
+          "alpha": 0.04,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(05, 05, 06, 0.04)",
+            "value": "{color.neutral.1000}",
+            "alpha": 0.04,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_4",
@@ -2702,12 +2706,14 @@
           ]
         },
         "6": {
-          "value": "rgba(05, 05, 06, 0.06)",
+          "value": "#0505060f",
+          "alpha": 0.06,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(05, 05, 06, 0.06)",
+            "value": "{color.neutral.1000}",
+            "alpha": 0.06,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_6",
@@ -2720,12 +2726,14 @@
           ]
         },
         "8": {
-          "value": "rgba(05, 05, 06, 0.08)",
+          "value": "#05050614",
+          "alpha": 0.08,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(05, 05, 06, 0.08)",
+            "value": "{color.neutral.1000}",
+            "alpha": 0.08,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_8",
@@ -2738,12 +2746,14 @@
           ]
         },
         "16": {
-          "value": "rgba(05, 05, 06, 0.16)",
+          "value": "#05050629",
+          "alpha": 0.16,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(05, 05, 06, 0.16)",
+            "value": "{color.neutral.1000}",
+            "alpha": 0.16,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_16",
@@ -2756,12 +2766,14 @@
           ]
         },
         "24": {
-          "value": "rgba(05, 05, 06, 0.24)",
+          "value": "#0505063d",
+          "alpha": 0.24,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(05, 05, 06, 0.24)",
+            "value": "{color.neutral.1000}",
+            "alpha": 0.24,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_DARK_24",
@@ -2776,12 +2788,14 @@
       },
       "light": {
         "2": {
-          "value": "rgba(255, 255, 255, 0.02)",
+          "value": "#fff05",
+          "alpha": 0.02,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(255, 255, 255, 0.02)",
+            "value": "{color.neutral.0}",
+            "alpha": 0.02,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_LIGHT_2",
@@ -2794,12 +2808,14 @@
           ]
         },
         "4": {
-          "value": "rgba(255, 255, 255, 0.04)",
+          "value": "#fff0a",
+          "alpha": 0.04,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(255, 255, 255, 0.04)",
+            "value": "{color.neutral.0}",
+            "alpha": 0.04,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_LIGHT_4",
@@ -2812,12 +2828,14 @@
           ]
         },
         "6": {
-          "value": "rgba(255, 255, 255, 0.06)",
+          "value": "#fff0f",
+          "alpha": 0.06,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(255, 255, 255, 0.06)",
+            "value": "{color.neutral.0}",
+            "alpha": 0.06,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_LIGHT_6",
@@ -2830,12 +2848,14 @@
           ]
         },
         "8": {
-          "value": "rgba(255, 255, 255, 0.08)",
+          "value": "#fff14",
+          "alpha": 0.08,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(255, 255, 255, 0.08)",
+            "value": "{color.neutral.0}",
+            "alpha": 0.08,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_LIGHT_8",
@@ -2848,12 +2868,14 @@
           ]
         },
         "16": {
-          "value": "rgba(255, 255, 255, 0.16)",
+          "value": "#fff29",
+          "alpha": 0.16,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(255, 255, 255, 0.16)",
+            "value": "{color.neutral.0}",
+            "alpha": 0.16,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_LIGHT_16",
@@ -2866,12 +2888,14 @@
           ]
         },
         "24": {
-          "value": "rgba(255, 255, 255, 0.24)",
+          "value": "#fff3d",
+          "alpha": 0.24,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(255, 255, 255, 0.24)",
+            "value": "{color.neutral.0}",
+            "alpha": 0.24,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_LIGHT_24",
@@ -2884,12 +2908,14 @@
           ]
         },
         "36": {
-          "value": "rgba(255, 255, 255, 0.36)",
+          "value": "#fff5c",
+          "alpha": 0.36,
           "$type": "color",
           "filePath": "src/tokens/color.alpha.tokens.json",
           "isSource": true,
           "original": {
-            "value": "rgba(255, 255, 255, 0.36)",
+            "value": "{color.neutral.0}",
+            "alpha": 0.36,
             "$type": "color"
           },
           "name": "COLOR_ALPHA_LIGHT_36",
@@ -10811,7 +10837,7 @@
     "border": {
       "color": {
         "default": {
-          "value": "rgba(05, 05, 06, 0.08)",
+          "value": "#05050614",
           "$type": "color",
           "comment": "Used to define the edge of an avatar.",
           "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -10831,7 +10857,7 @@
           ]
         },
         "hover": {
-          "value": "rgba(05, 05, 06, 0.24)",
+          "value": "#0505063d",
           "$type": "color",
           "comment": "Used to increase the edge definition of an avatar in the hover state.",
           "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -12901,7 +12927,7 @@
   "shadow": {
     "color": {
       "default": {
-        "value": "rgba(05, 05, 06, 0.24)",
+        "value": "#0505063d",
         "$type": "color",
         "comment": "Used for the default shadow color.",
         "filePath": "src/tokens/shadow.tokens.json",
