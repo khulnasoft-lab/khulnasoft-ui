@@ -5,9 +5,8 @@ table.gl-table {
   tr {
     th,
     td {
-      @apply gl-border-b-solid;
+      @apply gl-border-b-solid gl-border-b-1;
       border-color: var(--gl-border-color-default);
-      @apply gl-border-b-1;
       @include gl-p-5;
       @include gl-bg-transparent;
       @include gl-line-height-normal;
@@ -77,18 +76,14 @@ table.gl-table {
       }
 
       > td[data-label] {
-        @apply gl-border-l-1;
-        @apply gl-border-r-1;
-        @apply gl-border-l-solid;
-        @apply gl-border-r-solid;
+        @apply gl-border-l-1 gl-border-r-1 gl-border-l-solid gl-border-r-solid;
 
         &::before {
           @include gl-text-left;
         }
 
         &:first-child {
-          @apply gl-border-t-solid;
-          @apply gl-border-t-1;
+          @apply gl-border-t-solid gl-border-t-1;
         }
 
         &:not(:first-child) {

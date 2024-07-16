@@ -60,9 +60,8 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-footer {
-  @apply gl-border-t-solid;
+  @apply gl-border-t-solid gl-border-t-1;
   border-top-color: var(--gl-border-color-default);
-  @apply gl-border-t-1;
   @include gl-p-5;
 }
 
@@ -87,9 +86,8 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-header {
-  @apply gl-border-b-solid;
+  @apply gl-border-b-solid gl-border-b-1;
   border-bottom-color: var(--gl-border-color-default);
-  @apply gl-border-b-1;
 }
 
 .gl-drawer-title {
@@ -132,9 +130,8 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-body > * {
-  @apply gl-border-b-solid;
+  @apply gl-border-b-solid gl-border-b-1;
   border-bottom-color: var(--gl-border-color-default);
-  @apply gl-border-b-1;
 
   &:last-child {
     @apply gl-border-none;

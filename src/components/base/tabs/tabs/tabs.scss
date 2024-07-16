@@ -1,8 +1,5 @@
 .gl-tabs-nav {
-  @apply gl-border-solid;
-  @apply gl-border-gray-100;
-  @apply gl-border-0;
-  @apply gl-border-b-1;
+  @apply gl-border-solid gl-border-gray-100 gl-border-0 gl-border-b-1;
 }
 
 .gl-tab-nav-item {

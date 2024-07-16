@@ -1,8 +1,7 @@
 .gl-dropdown {
   .dropdown-menu {
     @include gl-bg-white;
-    @apply gl-border-1;
-    @apply gl-border-gray-200;
+    @apply gl-border-1 gl-border-gray-200;
     @include gl-mt-2;
     @include gl-mb-2;
     @include gl-p-0;
@@ -39,9 +38,7 @@
   }
 
   .gl-dropdown-header-top {
-    @apply gl-border-1;
-    @apply gl-border-b-solid;
-    @apply gl-border-gray-200;
+    @apply gl-border-1 gl-border-b-solid gl-border-gray-200;
     @include gl-display-flex;
     @include gl-font-base;
     @include gl-font-weight-bold;
@@ -54,15 +51,11 @@
   }
 
   .gl-dropdown-header {
-    @apply gl-border-b-1;
-    @apply gl-border-b-solid;
-    @apply gl-border-b-gray-200;
+    @apply gl-border-b-1 gl-border-b-solid gl-border-b-gray-200;
   }
 
   .gl-dropdown-footer {
-    @apply gl-border-t-1;
-    @apply gl-border-t-solid;
-    @apply gl-border-t-gray-200;
+    @apply gl-border-t-1 gl-border-t-solid gl-border-t-gray-200;
     @include gl-py-3;
   }
 
