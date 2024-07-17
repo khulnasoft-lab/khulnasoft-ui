@@ -1,3 +1,10 @@
+## [86.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.12.0...v86.12.1) (2024-07-17)
+
+
+### Bug Fixes
+
+* Properly handle multi-class tailwind migration ([7131ebb](https://gitlab.com/gitlab-org/gitlab-ui/commit/7131ebb48501d1ac962c1b64d7fb45fc07f6fc37))
+
 # [86.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.11.1...v86.12.0) (2024-07-16)
 
 
