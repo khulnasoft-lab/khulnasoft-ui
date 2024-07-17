@@ -78,7 +78,7 @@ describe('GlSingleStat', () => {
 
         await wrapper.vm.$nextTick();
 
-        expect(findItemByTestId('unit').classes('gl-opacity-0!')).toBe(expected);
+        expect(findItemByTestId('unit').classes('!gl-opacity-0')).toBe(expected);
       });
     });
   });

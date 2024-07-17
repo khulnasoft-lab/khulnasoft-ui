@@ -141,9 +141,9 @@ export default {
 
 <template>
   <div
-    class="gl-toggle-wrapper gl-display-flex gl-mb-0"
+    class="gl-toggle-wrapper gl-mb-0 gl-flex"
     :class="{
-      'gl-flex-direction-column': isVerticalLayout,
+      'gl-flex-col': isVerticalLayout,
       'gl-toggle-label-inline': !isVerticalLayout,
       'is-disabled': disabled,
     }"

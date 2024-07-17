@@ -176,12 +176,12 @@ export default {
     },
     stateClass() {
       if (this.state === null) {
-        return 'gl-inset-border-1-gray-400!';
+        return '!gl-shadow-inner-1-gray-400';
       }
 
       return this.state
-        ? 'is-valid gl-inset-border-1-gray-400!'
-        : 'is-invalid gl-inset-border-1-red-500!';
+        ? 'is-valid !gl-shadow-inner-1-gray-400'
+        : 'is-invalid !gl-shadow-inner-1-red-500';
     },
     hasSelectedTokens() {
       return this.selectedTokens.length > 0;
@@ -385,7 +385,7 @@ export default {
   <div>
     <div
       ref="container"
-      class="gl-token-selector gl-form-input gl-display-flex gl-align-items-center form-control form-control-plaintext gl-cursor-text! gl-py-2! gl-px-3!"
+      class="gl-token-selector gl-form-input form-control form-control-plaintext gl-flex !gl-cursor-text gl-items-center !gl-px-3 !gl-py-2"
       :class="[inputFocused ? 'gl-token-selector-focus-glow' : '', containerClass, stateClass]"
       @click="handleContainerClick"
     >
@@ -415,7 +415,7 @@ export default {
           <input
             ref="textInput"
             type="text"
-            class="gl-token-selector-input gl-bg-none gl-font-regular gl-font-base gl-line-height-normal gl-px-1 gl-h-auto gl-border-none gl-outline-none gl-flex-grow-1 gl-w-40p gl-text-gray-900"
+            class="gl-token-selector-input gl-h-auto gl-w-4/10 gl-grow gl-border-none gl-bg-transparent gl-px-1 gl-font-regular gl-text-base gl-leading-normal gl-text-gray-900 gl-outline-none"
             :value="inputText"
             :autocomplete="autocomplete"
             :aria-labelledby="ariaLabelledby"

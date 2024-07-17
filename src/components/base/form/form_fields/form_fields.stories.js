@@ -103,7 +103,7 @@ const Template = () => ({
       <form :id="testFormId" @submit.prevent>
         <gl-form-fields :fields="fields" v-model="formValues" :form-id="testFormId" :server-validations="serverValidations" @input-field="onInputField" @submit="onSubmit">
           <template #group(confirmPassword)-label>
-            <div class="gl-display-flex gl-align-items-center gl-column-gap-3">
+            <div class="gl-flex gl-items-center gl-gap-x-3">
               <span>Confirm Password</span>
               <gl-icon name="information-o" />
             </div>

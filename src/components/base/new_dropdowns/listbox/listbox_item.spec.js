@@ -27,7 +27,7 @@ describe('GlListboxItem', () => {
       });
 
       it('should display check icon', () => {
-        expect(findCheckIcon().classes()).not.toContain('gl-visibility-hidden');
+        expect(findCheckIcon().classes()).not.toContain('gl-invisible');
       });
 
       it('should emit the `select` event when clicked', async () => {
@@ -58,7 +58,7 @@ describe('GlListboxItem', () => {
       });
 
       it('should not  display check icon', () => {
-        expect(findCheckIcon().classes()).toContain('gl-visibility-hidden');
+        expect(findCheckIcon().classes()).toContain('gl-invisible');
       });
 
       it('should emit the `select` event when clicked', async () => {
@@ -88,7 +88,7 @@ describe('GlListboxItem', () => {
 
       it('should not center check icon by default', () => {
         expect(findCheckIcon().classes()).toEqual(
-          expect.arrayContaining(['gl-mt-3', 'gl-align-self-start'])
+          expect.arrayContaining(['gl-mt-3', 'gl-self-start'])
         );
       });
     });
@@ -99,7 +99,7 @@ describe('GlListboxItem', () => {
       });
       it('should center the check icon', () => {
         expect(findCheckIcon().classes()).not.toEqual(
-          expect.arrayContaining(['gl-mt-3', 'gl-align-self-start'])
+          expect.arrayContaining(['gl-mt-3', 'gl-self-start'])
         );
       });
     });

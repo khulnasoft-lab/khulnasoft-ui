@@ -22,7 +22,7 @@ const generateProps = () => ({
     {
       id: 2,
       name: 'Ruby On Rails',
-      class: 'gl-text-white! gl-bg-data-viz-magenta-950!',
+      class: '!gl-text-white !gl-bg-data-viz-magenta-950',
     },
     {
       id: 3,
@@ -31,12 +31,12 @@ const generateProps = () => ({
     {
       id: 4,
       name: 'Redis',
-      class: 'gl-text-white! gl-bg-data-viz-green-700!',
+      class: '!gl-text-white !gl-bg-data-viz-green-700',
     },
     {
       id: 5,
       name: 'CSS',
-      class: 'gl-text-red-500!',
+      class: '!gl-text-red-500',
       style: { backgroundColor: '#97acff' },
     },
   ],

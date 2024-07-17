@@ -56,7 +56,7 @@ export const WithObjectValue = (args, { argTypes }) => ({
       :match-value-to-attr="matchValueToAttr"
     >
       <template #result="{ item }">
-        <div class="gl-display-flex">
+        <div class="gl-flex">
           <div class="gl-text-subtle gl-mr-4">{{ item.id }}</div>
           <div>{{ item.title }}</div>
         </div>

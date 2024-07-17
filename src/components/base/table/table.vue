@@ -108,15 +108,15 @@ export default {
       <slot :name="slotName" v-bind="scope"></slot>
     </template>
     <template v-for="headSlotName in headSlots" #[headSlotName]="scope">
-      <div :key="headSlotName" class="gl-display-flex">
+      <div :key="headSlotName" class="gl-flex">
         <slot :name="headSlotName" v-bind="scope"
           ><span>{{ scope.label }}</span></slot
         ><template v-if="isSortable(scope)">
-          <div class="gl-ml-2 gl-w-5 gl-display-flex gl-justify-content-center">
+          <div class="gl-ml-2 gl-flex gl-w-5 gl-justify-center">
             <span
               name="sort-icon"
               data-testid="sort-icon"
-              :class="{ 'gl-display-none': !activeSortingColumn(scope) }"
+              :class="{ 'gl-hidden': !activeSortingColumn(scope) }"
             >
               {{ getSortingIcon(scope) }}
             </span>

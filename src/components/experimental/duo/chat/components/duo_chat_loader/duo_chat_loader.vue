@@ -61,8 +61,8 @@ export default {
 </script>
 
 <template>
-  <div class="duo-chat-loader gl-display-flex gl-align-items-center">
-    <div class="gl-display-flex gl-mr-3">
+  <div class="duo-chat-loader gl-flex gl-items-center">
+    <div class="gl-mr-3 gl-flex">
       <div class="duo-chat-loader__dot duo-chat-loader__dot--1"></div>
       <div class="duo-chat-loader__dot duo-chat-loader__dot--2"></div>
       <div class="duo-chat-loader__dot duo-chat-loader__dot--3"></div>
@@ -76,7 +76,7 @@ export default {
           <transition-group
             ref="transition"
             name="text"
-            class="transition gl-display-inline-block gl-vertical-align-bottom gl-relative"
+            class="transition gl-relative gl-inline-block gl-align-bottom"
             @after-leave="computeTransitionWidth"
           >
             <span
@@ -85,7 +85,7 @@ export default {
               :ref="isCurrentTransition(index) ? 'currentTransition' : ''"
               :key="message"
               :data-testid="isCurrentTransition(index) ? 'current-transition' : ''"
-              class="gl-white-space-nowrap gl-absolute gl-bottom-0 gl-left-0"
+              class="gl-absolute gl-bottom-0 gl-left-0 gl-whitespace-nowrap"
               >{{ message }}</span
             >
           </transition-group>

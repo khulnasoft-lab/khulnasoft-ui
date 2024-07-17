@@ -8,7 +8,7 @@ const components = {
 };
 
 const wrap = (template) => `
-  <ul class="gl-list-style-none gl-pl-0">
+  <ul class="gl-list-none gl-pl-0">
     <gl-dropdown-item
       :avatar-url="avatarUrl"
       :icon-color="iconColor"

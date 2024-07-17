@@ -98,7 +98,7 @@ Empty.parameters = { controls: { disable: true } };
 export const WithFilter = (args, { argTypes }) => ({
   components: { ...components, GlFormInput },
   props: Object.keys(argTypes),
-  template: `<div class="gl-line-height-normal">
+  template: `<div class="gl-leading-normal">
       <gl-form-input v-model="filter" placeholder="Type to search" />
       <br />
       <gl-table
@@ -126,7 +126,7 @@ WithFilter.args = generateProps();
 export const WithStickyHeader = (args, { argTypes }) => ({
   components: { ...components, GlFormInput },
   props: Object.keys(argTypes),
-  template: `<div class="gl-line-height-normal">
+  template: `<div class="gl-leading-normal">
       <gl-form-input v-model="filter" placeholder="Type to search" />
       <br />
       <gl-table

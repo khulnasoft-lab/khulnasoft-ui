@@ -176,7 +176,7 @@ describe('search box by click component', () => {
       });
 
       it('overrides the border style of the input', () => {
-        expect(wrapper.findComponent(GlFormInput).classes()).toContain('gl-rounded-base!');
+        expect(wrapper.findComponent(GlFormInput).classes()).toContain('!gl-rounded-base');
       });
 
       it('does not add *-with-search-button css modifier', () => {
@@ -196,7 +196,7 @@ describe('search box by click component', () => {
       });
 
       it('does not override the border style of the input', () => {
-        expect(wrapper.findComponent(GlFormInput).classes()).not.toContain('gl-rounded-base!');
+        expect(wrapper.findComponent(GlFormInput).classes()).not.toContain('!gl-rounded-base');
       });
 
       it('adds *-with-search-button css modifier', () => {

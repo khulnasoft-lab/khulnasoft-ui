@@ -78,7 +78,7 @@ export default {
         return '';
       }
 
-      return 'gl-mt-3 gl-align-self-start';
+      return 'gl-mt-3 gl-self-start';
     },
   },
   methods: {
@@ -95,11 +95,7 @@ export default {
       v-if="shouldShowCheckIcon"
       name="mobile-issue-close"
       data-testid="dropdown-item-checkbox"
-      :class="[
-        'gl-dropdown-item-check-icon',
-        { 'gl-visibility-hidden': !isChecked },
-        checkedClasses,
-      ]"
+      :class="['gl-dropdown-item-check-icon', { 'gl-invisible': !isChecked }, checkedClasses]"
     />
     <gl-icon v-if="iconName" :name="iconName" :class="['gl-dropdown-item-icon', iconColorCss]" />
     <gl-avatar v-if="avatarUrl" :size="32" :src="avatarUrl" />

@@ -72,10 +72,8 @@ export default {
 <template>
   <div class="gl-avatar-labeled">
     <gl-avatar v-bind="$attrs" :class="avatarCssClasses" alt v-on="avatarListeners" />
-    <div class="gl-avatar-labeled-labels gl-text-left!" :class="avatarRowLayoutClass">
-      <div
-        class="gl-display-flex gl-flex-wrap gl-align-items-center gl-text-left! gl-mx-n1 gl-my-n1"
-      >
+    <div class="gl-avatar-labeled-labels !gl-text-left" :class="avatarRowLayoutClass">
+      <div class="-gl-mx-1 -gl-my-1 gl-flex gl-flex-wrap gl-items-center !gl-text-left">
         <gl-link v-if="hasLabelLink" ref="labelLink" :href="labelLink" class="gl-avatar-link">
           <span class="gl-avatar-labeled-label">{{ label }}</span>
         </gl-link>

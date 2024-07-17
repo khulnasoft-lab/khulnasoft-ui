@@ -267,7 +267,7 @@ export default {
     },
     panelClasses() {
       return {
-        'gl-display-block!': this.visible,
+        '!gl-block': this.visible,
         [FIXED_WIDTH_CLASS]: !this.fluidWidth,
         'gl-fixed': this.openedYet && this.isFixed,
         'gl-absolute': this.openedYet && !this.isFixed,
@@ -478,7 +478,7 @@ export default {
 <template>
   <component
     :is="wrapperComponent"
-    :class="[$options.BASE_DROPDOWN_CLASS, { 'gl-display-block!': block }]"
+    :class="[$options.BASE_DROPDOWN_CLASS, { '!gl-block': block }]"
     @close="close"
   >
     <component

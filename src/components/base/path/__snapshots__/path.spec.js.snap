@@ -33,7 +33,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         First
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           1d
         </span>
@@ -48,7 +48,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Second
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           2d
         </span>
@@ -63,7 +63,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Third
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           3d
         </span>
@@ -78,7 +78,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Fourth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           4d
         </span>
@@ -93,7 +93,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Fifth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           5d
         </span>
@@ -108,7 +108,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Sixth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           6d
         </span>
@@ -123,7 +123,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Seventh
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           7d
         </span>
@@ -140,7 +140,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Eighth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           8d
         </span>
@@ -155,7 +155,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Ninth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           9d
         </span>
@@ -170,7 +170,7 @@ exports[`Path matches the snapshot 1`] = `
       >
         Tenth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           10d
         </span>
@@ -235,7 +235,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
         />
         First
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           12d
         </span>
@@ -250,7 +250,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Second
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           2d
         </span>
@@ -265,7 +265,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Third
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           3d
         </span>
@@ -280,7 +280,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Fourth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           4d
         </span>
@@ -295,7 +295,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Fifth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           5d
         </span>
@@ -310,7 +310,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Sixth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           6d
         </span>
@@ -325,7 +325,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Seventh
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           7d
         </span>
@@ -342,7 +342,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Eighth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           8d
         </span>
@@ -357,7 +357,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Ninth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           9d
         </span>
@@ -372,7 +372,7 @@ exports[`Path renders the list of items with icons matches the snapshot 1`] = `
       >
         Tenth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           10d
         </span>
@@ -430,7 +430,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         First
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           12d
         </span>
@@ -445,7 +445,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Second
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           2d
         </span>
@@ -460,7 +460,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Third
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           3d
         </span>
@@ -475,7 +475,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Fourth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           4d
         </span>
@@ -490,7 +490,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Fifth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           5d
         </span>
@@ -505,7 +505,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Sixth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           6d
         </span>
@@ -520,7 +520,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Seventh
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           7d
         </span>
@@ -537,7 +537,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Eighth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           8d
         </span>
@@ -552,7 +552,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Ninth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           9d
         </span>
@@ -567,7 +567,7 @@ exports[`Path renders the list of items with metrics matches the snapshot 1`] = 
       >
         Tenth
         <span
-          class="gl-font-weight-normal gl-pl-2"
+          class="gl-pl-2 gl-font-normal"
         >
           10d
         </span>

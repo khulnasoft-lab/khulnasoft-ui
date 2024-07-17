@@ -104,7 +104,7 @@ const UserToken = {
         </template>
         <template v-else>
         <gl-filtered-search-suggestion :key="user.id" v-for="user in users" :value="user.username">
-          <div class="gl-display-flex">
+          <div class="gl-flex">
             <gl-avatar :size="32" :entity-name="user.username" />
             <div>
               <p class="gl-m-0">{{ user.name }}</p>
@@ -329,7 +329,7 @@ const DateToken = {
             style="margin-right: -20px; z-index: 1; pointer-events: none;"
           />
           <gl-datepicker
-            class="gl-display-none!"
+            class="!gl-hidden"
             target='#this-id'
             :container="null"
             @input="selectValue($event, submitValue)" />
@@ -609,12 +609,12 @@ export const WithMultiSelect = () => {
     </template>
     <template #suggestions>
       <gl-filtered-search-suggestion :key="key(user, index)" v-for="(user, index) in filteredUsers" :value="user.username">
-        <div class="gl-display-flex gl-align-items-center">
+        <div class="gl-flex gl-items-center">
           <gl-icon
             v-if="config.multiSelect"
             name="check"
             class="gl-mr-3 gl-text-gray-700"
-            :class="{ 'gl-visibility-hidden': !selectedUsernames.includes(user.username) }"
+            :class="{ 'gl-invisible': !selectedUsernames.includes(user.username) }"
           />
           <gl-avatar :size="32" :entity-name="user.username" />
           <div>

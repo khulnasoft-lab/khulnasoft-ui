@@ -266,9 +266,9 @@ describe('GlTokenSelector', () => {
     describe('state', () => {
       describe.each`
         value    | expectedClasses
-        ${true}  | ${['is-valid', 'gl-inset-border-1-gray-400!']}
-        ${false} | ${['is-invalid', 'gl-inset-border-1-red-500!']}
-        ${null}  | ${['gl-inset-border-1-gray-400!']}
+        ${true}  | ${['is-valid', '!gl-shadow-inner-1-gray-400']}
+        ${false} | ${['is-invalid', '!gl-shadow-inner-1-red-500']}
+        ${null}  | ${['!gl-shadow-inner-1-gray-400']}
       `('when `state` is `$value`', ({ value, expectedClasses }) => {
         it(`adds \`${expectedClasses}\` to CSS classes`, () => {
           createComponent({

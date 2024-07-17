@@ -29,7 +29,7 @@ export default {
   <div class="gl-text-right">
     <div v-for="(prompt, index) in prompts" :key="`question-${index}`" class="gl-mt-3">
       <gl-button category="secondary" variant="confirm" @click="handleClick(prompt)"
-        ><span class="gl-white-space-normal">{{ prompt }}</span></gl-button
+        ><span class="gl-whitespace-normal">{{ prompt }}</span></gl-button
       >
     </div>
   </div>

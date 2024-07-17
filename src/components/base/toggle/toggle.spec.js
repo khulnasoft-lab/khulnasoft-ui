@@ -139,9 +139,9 @@ describe('toggle', () => {
   describe('label position', () => {
     describe.each`
       state       | labelPosition                 | hasGlSrOnlyClass | flexDirection
-      ${'top'}    | ${toggleLabelPosition.top}    | ${false}         | ${'gl-flex-direction-column'}
+      ${'top'}    | ${toggleLabelPosition.top}    | ${false}         | ${'gl-flex-col'}
       ${'left'}   | ${toggleLabelPosition.left}   | ${false}         | ${'gl-toggle-label-inline'}
-      ${'hidden'} | ${toggleLabelPosition.hidden} | ${true}          | ${'gl-flex-direction-column'}
+      ${'hidden'} | ${toggleLabelPosition.hidden} | ${true}          | ${'gl-flex-col'}
     `('when $state', ({ labelPosition, hasGlSrOnlyClass, flexDirection }) => {
       beforeEach(() => {
         createWrapper({ labelPosition });

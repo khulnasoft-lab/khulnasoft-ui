@@ -18,7 +18,7 @@ const Template = (args, { argTypes }) => ({
   components: { GlToken },
   props: Object.keys(argTypes),
   template: `
-    <div class="gl-display-flex">
+    <div class="gl-flex">
       <gl-token :variant="variant" :view-only="viewOnly">Token</gl-token>
     </div>`,
 });
@@ -34,7 +34,7 @@ ViewOnly.args = generateProps({
 export const WithAvatar = () => ({
   components: { GlToken, GlAvatar },
   template: `
-    <div class="gl-display-flex">
+    <div class="gl-flex">
     <gl-token><gl-avatar src="./img/avatar.png" :size="16" />Token</gl-token>
     </div>`,
 });

@@ -100,15 +100,15 @@ describe('GlCollapsibleListbox', () => {
       ${'customClass'}         | ${false} | ${mockOptions[0].value}   | ${['customClass']}
       ${{ customClass: true }} | ${false} | ${mockOptions[0].value}   | ${[{ customClass: true }]}
       ${['customClass']}       | ${false} | ${mockOptions[0].value}   | ${[['customClass']]}
-      ${'customClass'}         | ${false} | ${null}                   | ${['customClass', 'gl-text-gray-500!']}
-      ${{ customClass: true }} | ${false} | ${undefined}              | ${[{ customClass: true }, 'gl-text-gray-500!']}
-      ${['customClass']}       | ${false} | ${null}                   | ${[['customClass'], 'gl-text-gray-500!']}
+      ${'customClass'}         | ${false} | ${null}                   | ${['customClass', '!gl-text-gray-500']}
+      ${{ customClass: true }} | ${false} | ${undefined}              | ${[{ customClass: true }, '!gl-text-gray-500']}
+      ${['customClass']}       | ${false} | ${null}                   | ${[['customClass'], '!gl-text-gray-500']}
       ${'customClass'}         | ${true}  | ${[mockOptions[0].value]} | ${['customClass']}
       ${{ customClass: true }} | ${true}  | ${[mockOptions[0].value]} | ${[{ customClass: true }]}
       ${['customClass']}       | ${true}  | ${[mockOptions[0].value]} | ${[['customClass']]}
-      ${'customClass'}         | ${true}  | ${null}                   | ${['customClass', 'gl-text-gray-500!']}
-      ${{ customClass: true }} | ${true}  | ${undefined}              | ${[{ customClass: true }, 'gl-text-gray-500!']}
-      ${['customClass']}       | ${true}  | ${null}                   | ${[['customClass'], 'gl-text-gray-500!']}
+      ${'customClass'}         | ${true}  | ${null}                   | ${['customClass', '!gl-text-gray-500']}
+      ${{ customClass: true }} | ${true}  | ${undefined}              | ${[{ customClass: true }, '!gl-text-gray-500']}
+      ${['customClass']}       | ${true}  | ${null}                   | ${[['customClass'], '!gl-text-gray-500']}
     `('when listbox', ({ toggleClass, multiple, selected, expectedToggleClasses }) => {
       beforeEach(() => {
         buildWrapper({ items: mockOptions, toggleClass, multiple, selected });
@@ -925,13 +925,13 @@ describe('GlCollapsibleListbox', () => {
     it('should open dropdown on render when startOpened is true', async () => {
       buildWrapper({ items: mockOptions, startOpened: true });
       await nextTick();
-      expect(findDropdownMenu().classes()).toContain('gl-display-block!');
+      expect(findDropdownMenu().classes()).toContain('!gl-block');
     });
 
     it('should not open dropdown on render as default', async () => {
       buildWrapper({ items: mockOptions });
       await nextTick();
-      expect(findDropdownMenu().classes()).not.toContain('gl-display-block!');
+      expect(findDropdownMenu().classes()).not.toContain('!gl-block');
     });
   });
 

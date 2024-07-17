@@ -57,6 +57,5 @@ export const CHART_TYPE_BAR = 'bar';
 export const CHART_TYPE_LINE = 'line';
 
 // Constants for height "auto"
-export const HEIGHT_AUTO_CLASSES =
-  'gl-chart-h-auto gl-display-flex gl-flex-direction-column gl-h-full';
-export const HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES = 'gl-display-flex gl-h-full';
+export const HEIGHT_AUTO_CLASSES = 'gl-chart-h-auto gl-flex gl-flex-col gl-h-full';
+export const HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES = 'gl-flex gl-h-full';

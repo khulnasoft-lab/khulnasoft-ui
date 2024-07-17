@@ -51,22 +51,22 @@ export default {
 
 <template>
   <div :class="containerClass">
-    <ul class="gl-list-style-none gl-m-0 gl-p-0">
+    <ul class="gl-m-0 gl-list-none gl-p-0">
       <li
         v-for="token in tokens"
         :key="token.name"
-        class="gl-display-flex gl-flex-wrap gl-align-items-center gl-justify-content-space-between gl-gap-3 gl-p-3"
+        class="gl-flex gl-flex-wrap gl-items-center gl-justify-between gl-gap-3 gl-p-3"
         :class="getClasses(token.value)"
         :style="getStyle(token.value)"
       >
-        <code v-gl-tooltip :title="token.comment" class="gl-reset-color">
+        <code v-gl-tooltip :title="token.comment" class="gl-text-inherit">
           {{ getTokenName(token) }}
         </code>
-        <div class="gl-display-flex gl-align-items-center gl-gap-3">
+        <div class="gl-flex gl-items-center gl-gap-3">
           <gl-badge v-if="token.deprecated" v-gl-tooltip :title="token.comment" variant="danger">
             Deprecated
           </gl-badge>
-          <code class="gl-reset-color">{{ token.value }}</code>
+          <code class="gl-text-inherit">{{ token.value }}</code>
           <gl-color-contrast
             v-if="isHex(token.value)"
             :foreground="token.value"

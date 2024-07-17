@@ -11,7 +11,7 @@ const contentString = `
 `;
 
 const getTemplate = (id, slots = '') => `
-  <div style="height:400px;" class="gl-display-flex gl-justify-content-center gl-align-items-center">
+  <div style="height:400px;" class="gl-flex gl-justify-center gl-items-center">
     <gl-button id="${id}">{{placement}}</gl-button>
     <gl-popover
       target="${id}"

@@ -136,7 +136,7 @@ FallbackOnAvatarLoadFailure.args = { ...generateProjectFallbackProps(), ...gener
 export const AllIdenticons = () => ({
   components,
   template: `
-    <div class="gl-display-flex gl-gap-2">
+    <div class="gl-flex gl-gap-2">
       <gl-avatar
         v-for="i in [0,1,2,3,4,5,6]"
         :entity-id="i"

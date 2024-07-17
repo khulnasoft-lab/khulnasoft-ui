@@ -6,11 +6,11 @@ import GlIcon from '../icon/icon.vue';
 import { datepickerWidthOptionsMap } from '../../../utils/constants';
 
 const CONTAINER_CLASSES = [
-  'gl-display-flex',
-  'gl-align-items-baseline',
+  'gl-flex',
+  'gl-items-baseline',
   'gl-flex-wrap',
-  'gl-sm-flex-nowrap',
-  'gl-sm-gap-3',
+  'sm:gl-flex-nowrap',
+  'sm:gl-gap-3',
 ];
 
 export default {
@@ -272,7 +272,7 @@ export default {
 </script>
 
 <template>
-  <div class="gl-daterange-picker gl-gap-5 gl-display-flex">
+  <div class="gl-daterange-picker gl-flex gl-gap-5">
     <div :class="startContainerClasses" data-testid="daterange-picker-start-container">
       <label :class="labelClass">{{ fromLabel }}</label>
 

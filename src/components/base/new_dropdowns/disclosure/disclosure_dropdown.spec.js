@@ -413,13 +413,13 @@ describe('GlDisclosureDropdown', () => {
     it('should open dropdown on render when startOpened is true', async () => {
       buildWrapper({ items: mockItems, startOpened: true });
       await nextTick();
-      expect(findDropdownMenu().classes()).toContain('gl-display-block!');
+      expect(findDropdownMenu().classes()).toContain('!gl-block');
     });
 
     it('should not open dropdown on render as default', async () => {
       buildWrapper({ items: mockItems });
       await nextTick();
-      expect(findDropdownMenu().classes()).not.toContain('gl-display-block!');
+      expect(findDropdownMenu().classes()).not.toContain('!gl-block');
     });
   });
 
@@ -441,7 +441,7 @@ describe('GlDisclosureDropdown', () => {
         `,
       };
       buildWrapper({ startOpened: true }, slots);
-      const isOpened = (root) => findDropdownMenu(root).classes('gl-display-block!');
+      const isOpened = (root) => findDropdownMenu(root).classes('!gl-block');
       const nestedWrapper = wrapper.findComponent("[data-testid='nested']");
 
       getClickItem(nestedWrapper).trigger('click');

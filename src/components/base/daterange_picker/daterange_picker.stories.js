@@ -71,7 +71,7 @@ const Template = (template, props) => ({
 
 const defaultTemplate = `
         <gl-daterange-picker
-          class="gl-display-flex"
+          class="gl-flex"
           :default-min-date="defaultMinDateVal"
           :default-max-date="defaultMaxDateVal"
           :default-start-date="defaultStartDate"
@@ -93,7 +93,7 @@ export const Default = Template.bind({}, defaultTemplate);
 Default.args = generateProps();
 
 const withDatesSelectedAndTooltipTemplate = `<gl-daterange-picker
-                                                class="gl-display-flex"
+                                                class="gl-flex"
                                                 :default-min-date="defaultMinDateVal"
                                                 :default-max-date="defaultMaxDateVal"
                                                 :default-start-date="defaultStartDate"

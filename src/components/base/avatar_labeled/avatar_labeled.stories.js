@@ -102,10 +102,10 @@ export const WithBadges = (args, { argTypes }) => ({
       >
         <template #meta>
           <div class="gl-p-1">
-            <gl-badge class="gl-display-flex!" variant="info">2FA</gl-badge>
+            <gl-badge class="!gl-flex" variant="info">2FA</gl-badge>
           </div>
           <div class="gl-p-1">
-            <gl-badge class="gl-display-flex!" variant="danger">Blocked</gl-badge>
+            <gl-badge class="!gl-flex" variant="danger">Blocked</gl-badge>
           </div>
         </template>
       </gl-avatar-labeled>
@@ -125,7 +125,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
         :sub-label="subLabel"
       >
         <template>
-          <gl-button class="gl-mt-3 gl-align-self-start" size="small">Follow</gl-button>
+          <gl-button class="gl-mt-3 gl-self-start" size="small">Follow</gl-button>
         </template>
       </gl-avatar-labeled>
     `,
@@ -151,7 +151,7 @@ export const WithLinks = (args, { argTypes }) => ({
           />
         </template>
         <div class="gl-max-w-75">
-          <p class="gl-mb-0 gl-mt-2 gl-font-sm">GitLab is an open source end-to-end software development platform with built-in version control, issue tracking, code review, CI/CD, and more. Self-host GitLab on your own servers, in a container, or on a cloud provider.</p>
+          <p class="gl-mb-0 gl-mt-2 gl-text-sm">GitLab is an open source end-to-end software development platform with built-in version control, issue tracking, code review, CI/CD, and more. Self-host GitLab on your own servers, in a container, or on a cloud provider.</p>
         </div>
       </gl-avatar-labeled>
     `,

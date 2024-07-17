@@ -36,7 +36,7 @@ const generateDrawerContent = (items) =>
     .map(
       (str) => `
     <div>
-      <label class="gl-font-weight-bold">${str}</label>
+      <label class="gl-font-bold">${str}</label>
       <div>None</div>
     </div>
     `

@@ -120,7 +120,7 @@ export default {
 
 <template>
   <div>
-    <div class="gl-display-flex gl-align-items-center gl-gap-3 gl-mb-5">
+    <div class="gl-mb-5 gl-flex gl-items-center gl-gap-3">
       <gl-form-input v-model="filter" placeholder="Type to search" />
       <gl-collapsible-listbox
         id="component-listbox"
@@ -139,7 +139,7 @@ export default {
       stacked="sm"
     >
       <template #cell(description)="{ item: { name, deprecated, description } }">
-        <code class="gl-font-base gl-text-strong">
+        <code class="gl-text-base gl-text-strong">
           {{ name }}
         </code>
         <gl-badge v-if="deprecated" variant="danger">Deprecated</gl-badge>
@@ -148,13 +148,13 @@ export default {
         </div>
       </template>
       <template #cell(value)="{ item: { type, value, valueLabel } }">
-        <div class="gl-display-flex gl-align-items-center gl-gap-3">
+        <div class="gl-flex gl-items-center gl-gap-3">
           <div
             v-if="isColor(type)"
-            class="gl-w-5 gl-h-5 gl-rounded-base"
+            class="gl-h-5 gl-w-5 gl-rounded-base"
             :style="{ 'background-color': value }"
           ></div>
-          <code class="gl-font-base gl-text-strong">{{ valueLabel }}</code>
+          <code class="gl-text-base gl-text-strong">{{ valueLabel }}</code>
         </div>
       </template>
     </gl-table>

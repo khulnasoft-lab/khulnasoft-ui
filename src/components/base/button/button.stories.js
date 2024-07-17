@@ -308,7 +308,7 @@ export const BorderlessTertiary = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components,
   template: `
-      <div class="gl-display-inline-flex">
+      <div class="gl-inline-flex">
         <gl-button
           :category="category"
           :size="size"
@@ -473,7 +473,7 @@ export const Badges = (args, { argTypes = {} }) => ({
       <div :style="$options.style">
           <template v-for="variant in $options.variants">
               <div v-for="category in $options.categories" :key="variant + category">
-                  <gl-button :key="category" :category="category" :variant="variant" buttonTextClasses="gl-display-flex gl-align-items-center">
+                  <gl-button :key="category" :category="category" :variant="variant" buttonTextClasses="gl-flex gl-items-center">
                       {{ category }} {{ variant }}
                       <gl-badge :variant="getBadgeVariant(variant)" class="gl-ml-2">00</gl-badge>
                   </gl-button>
@@ -488,7 +488,7 @@ export const BadgeWithSROnlyText = (args, { argTypes = {} }) => ({
   props: Object.keys(argTypes),
   components: { GlButton, GlBadge },
   template: `
-      <gl-button variant="confirm" buttonTextClasses="gl-display-flex gl-align-items-center">
+      <gl-button variant="confirm" buttonTextClasses="gl-flex gl-items-center">
           Submit review
           <gl-badge variant="info" class="gl-ml-2">2</gl-badge>
           <span class="sr-only">pending comments</span>

@@ -101,7 +101,7 @@ export default {
       <gl-button
         v-gl-collapse-toggle="accordionItemId"
         variant="link"
-        button-text-classes="gl-display-flex"
+        button-text-classes="gl-flex"
         :icon="icon"
       >
         {{ buttonTitle }}
@@ -112,7 +112,7 @@ export default {
       v-model="isVisible"
       :visible="isVisible"
       :accordion="accordion"
-      class="gl-mt-3 gl-font-base"
+      class="gl-mt-3 gl-text-base"
       :data-testid="`accordion-item-collapse-${accordionItemId}`"
     >
       <!-- @slot Item content -->

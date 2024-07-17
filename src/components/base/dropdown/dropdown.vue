@@ -262,7 +262,7 @@ export default {
       <div
         v-if="hasSlotContents('header') || headerText"
         class="gl-dropdown-header"
-        :class="{ 'gl-border-b-0!': hideHeaderBorder }"
+        :class="{ '!gl-border-b-0': hideHeaderBorder }"
       >
         <p v-if="headerText" class="gl-dropdown-header-top">
           {{ headerText }}
@@ -272,22 +272,18 @@ export default {
 
       <div
         v-if="hasHighlightedItemsOrClearAll"
-        class="gl-display-flex gl-flex-direction-row gl-justify-content-space-between gl-align-items-center"
+        class="gl-flex gl-flex-row gl-items-center gl-justify-between"
       >
         <div
           v-if="hasHighlightedItemsContent && showHighlightedItemsTitle"
-          class="gl-display-flex gl-flex-grow-1 gl-justify-content-flex-start"
+          class="gl-justify-content-flex-start gl-flex gl-grow"
           :class="highlightedItemsTitleClass"
         >
-          <span class="gl-font-weight-bold" data-testid="highlighted-items-title">{{
+          <span class="gl-font-bold" data-testid="highlighted-items-title">{{
             highlightedItemsTitle
           }}</span>
         </div>
-        <div
-          v-if="showClearAll"
-          class="gl-display-flex gl-flex-grow-1 gl-justify-content-end"
-          :class="clearAllTextClass"
-        >
+        <div v-if="showClearAll" class="gl-flex gl-grow gl-justify-end" :class="clearAllTextClass">
           <gl-button
             size="small"
             category="tertiary"

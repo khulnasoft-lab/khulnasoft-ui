@@ -369,8 +369,8 @@ export default {
 
 <template>
   <div :class="datepickerClasses">
-    <div v-if="showDefaultField" class="gl-display-flex gl-align-items-start gl-gap-3">
-      <div class="gl-display-flex gl-flex-grow-1 gl-relative">
+    <div v-if="showDefaultField" class="gl-align-items-start gl-flex gl-gap-3">
+      <div class="gl-relative gl-flex gl-grow">
         <!--
       @slot (optional) Input to display and bind the datepicker to. Defaults to `<gl-form-input />`
       @binding {string} formattedDate
@@ -381,7 +381,7 @@ export default {
             v-model="textInput"
             :name="inputName"
             data-testid="gl-datepicker-input"
-            :class="renderClearButton ? 'gl-pr-9!' : 'gl-pr-7!'"
+            :class="renderClearButton ? '!gl-pr-9' : '!gl-pr-7'"
             :value="formattedDate"
             :placeholder="placeholder"
             :autocomplete="inputAutocomplete"
@@ -408,7 +408,7 @@ export default {
             class="gl-px-2"
             :class="disabled ? 'gl-text-gray-400' : 'gl-text-gray-500'"
           >
-            <gl-icon class="gl-display-block" name="calendar" :size="16" />
+            <gl-icon class="gl-block" name="calendar" :size="16" />
           </span>
           <gl-button
             v-else

@@ -3,7 +3,7 @@ import GlLabel from './label.vue';
 import readme from './label.md';
 
 const template = `
-  <div class="gl-display-flex">
+  <div class="gl-flex">
     <gl-label
       :background-color="backgroundColor"
       :title="title"

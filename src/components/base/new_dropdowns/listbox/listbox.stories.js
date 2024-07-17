@@ -184,8 +184,8 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
   template: template(
     `
     <template #footer>
-       <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-200 gl-display-flex gl-flex-direction-column gl-p-2! gl-pt-0!">
-        <gl-button category="tertiary" block class="gl-justify-content-start! gl-mt-2!" data-testid="footer-bottom-button">
+       <div class="gl-border-t-solid gl-border-t-1 gl-border-t-gray-200 gl-flex gl-flex-col !gl-p-2 !gl-pt-0">
+        <gl-button category="tertiary" block class="!gl-justify-start !gl-mt-2" data-testid="footer-bottom-button">
           Manage departments
         </gl-button>
       </div>
@@ -278,10 +278,10 @@ export const CustomListItem = (args, { argTypes }) => ({
   },
   template: template(
     `<template #list-item="{ item }">
-              <span class="gl-display-flex gl-align-items-center">
+              <span class="gl-flex gl-items-center">
                 <gl-avatar :size="32" :entity-name="item.value" class="gl-mr-3"/>
-                  <span class="gl-display-flex gl-flex-direction-column">
-                    <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
+                  <span class="gl-flex gl-flex-col">
+                    <span class="gl-font-bold gl-whitespace-nowrap">{{ item.text }}</span>
                     <span class="gl-text-subtle"> {{ item.secondaryText }}</span>
                   </span>
               </span>
@@ -327,10 +327,10 @@ export const CustomToggle = (args, { argTypes }) => ({
      </button>
     </template>
     <template #list-item="{ item }">
-      <span class="gl-display-flex gl-align-items-center">
+      <span class="gl-flex gl-items-center">
         <gl-avatar :size="32" :entity-name="item.value" class="gl-mr-3"/>
-          <span class="gl-display-flex gl-flex-direction-column">
-            <span class="gl-font-weight-bold gl-white-space-nowrap">{{ item.text }}</span>
+          <span class="gl-flex gl-flex-col">
+            <span class="gl-font-bold gl-whitespace-nowrap">{{ item.text }}</span>
             <span class="gl-text-subtle"> {{ item.secondaryText }}</span>
           </span>
       </span>

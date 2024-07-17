@@ -71,7 +71,7 @@ export default {
     v-bind="$attrs"
     :variant="variant"
     class="gl-badge"
-    :class="{ 'gl-px-2!': !$scopedSlots.default }"
+    :class="{ '!gl-px-2': !$scopedSlots.default }"
     :role="role"
     :aria-label="ariaLabel"
     pill
@@ -80,7 +80,7 @@ export default {
       v-if="icon"
       class="gl-badge-icon"
       :size="iconSizeComputed"
-      :class="{ '-gl-ml-2 gl-ml-n2': isCircularIcon }"
+      :class="{ '-gl-ml-2': isCircularIcon }"
       :name="icon"
     />
     <!-- eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots -->

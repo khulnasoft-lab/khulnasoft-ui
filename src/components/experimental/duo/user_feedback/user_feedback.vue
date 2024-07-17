@@ -61,14 +61,14 @@ export default {
 </script>
 
 <template>
-  <div class="gl-pt-4 gl-w-full">
+  <div class="gl-w-full gl-pt-4">
     <div>
       <gl-button
         v-if="!feedbackReceived"
         variant="link"
         target="_blank"
         :href="feedbackLinkUrl"
-        button-text-classes="gl-white-space-normal! gl-text-left"
+        button-text-classes="!gl-whitespace-normal gl-text-left"
         @click="shouldRenderModal && $refs.feedbackModal.show()"
         >{{ feedbackLinkText }}</gl-button
       >

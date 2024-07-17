@@ -98,9 +98,9 @@ export default {
       <slot name="title">
         {{ title }}
       </slot>
-      <div v-if="showCloseButton" class="gl-mt-n2 gl-mr-n3 gl-ml-3 gl-h-0">
+      <div v-if="showCloseButton" class="-gl-mr-3 -gl-mt-2 gl-ml-3 gl-h-0">
         <close-button
-          :class="{ 'gl-mt-2 gl-float-right': !hasTitle }"
+          :class="{ 'gl-float-right gl-mt-2': !hasTitle }"
           data-testid="close-button"
           @click="close"
         />

@@ -402,7 +402,7 @@ export default {
         <component
           :is="prevPageIsDisabled ? 'span' : 'a'"
           data-testid="page-link"
-          class="gl-link page-link prev-page-item gl-display-flex"
+          class="gl-link page-link prev-page-item gl-flex"
           :aria-label="prevPageAriaLabel"
           :href="prevPageHref"
           @click="handlePrevious($event, value - 1)"
@@ -469,7 +469,7 @@ export default {
         <component
           :is="nextPageIsDisabled ? 'span' : 'a'"
           data-testid="page-link"
-          class="gl-link page-link next-page-item gl-display-flex"
+          class="gl-link page-link next-page-item gl-flex"
           :aria-label="nextPageAriaLabel"
           :href="nextPageHref"
           @click="handleNext($event, value + 1)"

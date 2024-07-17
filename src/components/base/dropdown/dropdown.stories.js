@@ -422,7 +422,7 @@ export const WithItemTextThatDoesNotWrap = (args, { argTypes }) => ({
       Normal item
     </gl-dropdown-item>
     <gl-dropdown-item icon-right-name="star" icon-right-aria-label="Some action">
-      <div class="gl-text-truncate">ellipsis/should/truncate/this/item</div>
+      <div class="gl-truncate">ellipsis/should/truncate/this/item</div>
     </gl-dropdown-item>`),
   mounted() {
     clickDropdown(this);
@@ -524,7 +524,7 @@ export const OnRightEdge = (args, { argTypes }) => ({
     <gl-dropdown-item>Fourth item</gl-dropdown-item>
     `,
     200,
-    'gl-display-block gl-text-right'
+    'gl-block gl-text-right'
   ),
   mounted() {
     clickDropdown(this);

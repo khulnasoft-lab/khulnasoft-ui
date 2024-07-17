@@ -112,7 +112,7 @@ template. If you want to render a custom template for items, use the
 ```html
 <gl-disclosure-dropdown :items="items">
   <template #list-item="{ item }">
-    <span class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
+    <span class="gl-flex gl-items-center gl-justify-between">
       {{item.text}}
       <gl-icon v-if="item.icon" :name="item.icon" />
     </span>

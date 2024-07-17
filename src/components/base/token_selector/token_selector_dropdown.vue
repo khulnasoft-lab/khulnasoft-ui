@@ -195,7 +195,7 @@ export default {
           tabindex="-1"
           @click="handleDropdownItemClick(dropdownItem)"
         >
-          <div class="gl-mx-n4 gl-my-n3 gl-px-4 gl-py-3" @mousedown="handleMousedown(dropdownItem)">
+          <div class="-gl-mx-4 -gl-my-3 gl-px-4 gl-py-3" @mousedown="handleMousedown(dropdownItem)">
             <slot name="dropdown-item-content" :dropdown-item="dropdownItem">
               {{ dropdownItem.name }}
             </slot>
@@ -210,7 +210,7 @@ export default {
           active-class="is-focused"
           @click="handleDropdownItemClick(null)"
         >
-          <div class="gl-mx-n4 gl-my-n3 gl-px-4 gl-py-3" @mousedown="handleMousedown(null)">
+          <div class="-gl-mx-4 -gl-my-3 gl-px-4 gl-py-3" @mousedown="handleMousedown(null)">
             <slot name="user-defined-token-content" :input-text="inputText">
               Add "{{ inputText }}"
             </slot>

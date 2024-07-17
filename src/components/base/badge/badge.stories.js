@@ -91,7 +91,7 @@ export const BadgeIcon = (args, { argTypes }) => ({
   components: { GlBadge },
   props: Object.keys(argTypes),
   template: `
-    <div class="gl-display-flex gl-gap-3">
+    <div class="gl-flex gl-gap-3">
       <gl-badge variant="tier" icon="license" iconSize="md">With icon</gl-badge>
       <gl-badge variant="success" icon="issue-open-m" iconSize="md">With status open</gl-badge>
       <gl-badge variant="info" icon="issue-close" iconSize="md">With status closed</gl-badge>
@@ -126,7 +126,7 @@ export const Truncated = (args, { argTypes }) => ({
   template: `
     <div>
       <!-- Badges inside flexbox should not shrink by default -->
-      <div class="gl-display-flex gl-mb-5 gl-border gl-border-red-500" style="width: 200px">
+      <div class="gl-flex gl-mb-5 gl-border gl-border-red-500" style="width: 200px">
         <gl-badge>Regular text</gl-badge>
         <gl-badge>Regular text</gl-badge>
         <gl-badge>Regular text</gl-badge>
@@ -135,20 +135,20 @@ export const Truncated = (args, { argTypes }) => ({
       </div>
 
       <!-- Edge case: wrapping elements and adjacent flex items should not cause shrinking -->
-      <div class="gl-display-flex gl-mb-5 gl-border gl-border-red-500" style="width: 200px">
-        <div class="gl-display-flex">
+      <div class="gl-flex gl-mb-5 gl-border gl-border-red-500" style="width: 200px">
+        <div class="gl-flex">
           <button><gl-badge>Regular text</gl-badge></button>
-          <div class="gl-display-inline-flex" style="width: 100px"></div>
+          <div class="gl-inline-flex" style="width: 100px"></div>
         </div>
         <div style="width: 100%"></div>
       </div>
 
-      <!-- Content inside badge should shrink to container width when gl-text-truncate applied -->
+      <!-- Content inside badge should shrink to container width when gl-truncate applied -->
       <div class="gl-mb-5 gl-border gl-border-red-500" style="width: 80px">
-        <gl-badge><span class="gl-text-truncate">Truncated text</span></gl-badge>
+        <gl-badge><span class="gl-truncate">Truncated text</span></gl-badge>
       </div>
       <div class="gl-mb-5 gl-border gl-border-red-500" style="width: 80px">
-        <gl-badge icon="spinner"><span class="gl-text-truncate">Truncated text</span></gl-badge>
+        <gl-badge icon="spinner"><span class="gl-truncate">Truncated text</span></gl-badge>
       </div>
 
       <!-- 1 and 2 should match in width (20px) -->

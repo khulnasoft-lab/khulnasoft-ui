@@ -88,7 +88,7 @@ export default {
     class="gl-spinner-container"
     role="status"
   >
-    <span class="gl-vertical-align-text-bottom!" :class="spinnerCssClasses"></span>
+    <span class="!gl-align-text-bottom" :class="spinnerCssClasses"></span>
   </component>
   <component :is="rootElementType" v-else :class="dotsCssClasses" role="status" :aria-label="label">
     <span></span>

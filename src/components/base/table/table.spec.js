@@ -131,8 +131,8 @@ describe('GlTable', () => {
       it('sets initial sorting column using the sortBy property', () => {
         factory({ mountFn: mount, props: { fields, sortBy: 'age' } });
 
-        expect(findSortIconForHeaderAt(0).classes()).toContain('gl-display-none');
-        expect(findSortIconForHeaderAt(1).classes()).not.toContain('gl-display-none');
+        expect(findSortIconForHeaderAt(0).classes()).toContain('gl-hidden');
+        expect(findSortIconForHeaderAt(1).classes()).not.toContain('gl-hidden');
       });
 
       it('sets initial sorting direction using the sortDesc property', () => {
@@ -152,13 +152,13 @@ describe('GlTable', () => {
         it('hides sorting icon in previous active sort column', async () => {
           await findColHeaderAt(0).trigger('click');
 
-          expect(findSortIconForHeaderAt(0).classes()).not.toContain('gl-display-none');
-          expect(findSortIconForHeaderAt(1).classes()).toContain('gl-display-none');
+          expect(findSortIconForHeaderAt(0).classes()).not.toContain('gl-hidden');
+          expect(findSortIconForHeaderAt(1).classes()).toContain('gl-hidden');
 
           await findColHeaderAt(1).trigger('click');
 
-          expect(findSortIconForHeaderAt(0).classes()).toContain('gl-display-none');
-          expect(findSortIconForHeaderAt(1).classes()).not.toContain('gl-display-none');
+          expect(findSortIconForHeaderAt(0).classes()).toContain('gl-hidden');
+          expect(findSortIconForHeaderAt(1).classes()).not.toContain('gl-hidden');
         });
       });
     });

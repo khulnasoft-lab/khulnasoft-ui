@@ -199,7 +199,7 @@ export default {
           :class="{
             'text-muted': disabledSeries[key],
             'w-100': seriesNameIsLong(series.name),
-            'gl-hover-cursor-not-allowed!':
+            'hover:!gl-cursor-not-allowed':
               hasOneSeriesElement || isToggleDisabled(series.name, series.disabled),
           }"
           class="gl-legend-inline-series"
@@ -216,11 +216,11 @@ export default {
             class="gl-legend-inline-series-label"
             :class="{ 'w-75': seriesNameIsLong(series.name) }"
           >
-            <gl-truncate class="gl-font-weight-bold" :text="series.name" />
+            <gl-truncate class="gl-font-bold" :text="series.name" />
           </gl-chart-series-label>
           <span
             v-if="series.data && series.data.length"
-            :class="{ 'gl-white-space-nowrap': seriesNameIsLong(series.name) }"
+            :class="{ 'gl-whitespace-nowrap': seriesNameIsLong(series.name) }"
           >
             {{ averageText }}: {{ seriesAverage(series.data) }} · {{ maxText }}:
             {{ seriesMax(series.data) }}
@@ -243,7 +243,7 @@ export default {
             :key="key"
             :class="{
               'text-muted': disabledSeries[key],
-              'gl-hover-cursor-not-allowed!':
+              'hover:!gl-cursor-not-allowed':
                 hasOneSeriesElement || isToggleDisabled(series.name, series.disabled),
             }"
             class="gl-legend-tabular-row"
@@ -260,7 +260,7 @@ export default {
                 :style="fontStyle"
                 :type="series.type"
               >
-                <gl-truncate class="gl-font-weight-bold" :text="series.name" />
+                <gl-truncate class="gl-font-bold" :text="series.name" />
               </gl-chart-series-label>
             </div>
 

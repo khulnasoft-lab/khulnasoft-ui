@@ -20,7 +20,7 @@ semantically be a button.
 <gl-icon name="eye-slash" :aria-label="__('Confidential issue')" />
 
 <!-- clickable icon, which is borderless and padding-less -->
-<gl-button icon="close" category="tertiary" class="gl-p-0!" aria-label="Close" />
+<gl-button icon="close" category="tertiary" class="!gl-p-0" aria-label="Close" />
 ```
 
 For more information about icons within GitLab, visit the
