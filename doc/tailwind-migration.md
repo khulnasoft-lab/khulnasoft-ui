@@ -38,3 +38,10 @@ classes to their Tailwind equivalents.
       --from-stdin \
       --tailwind-config tailwind.config.js # optional
     ```
+
+## Caveats
+
+- Some utilities (e.g. `gl-sr-only-focusable`, `gl--flex-center` or `gl-flex-flow-row-wrap`)
+  map to multiple classes. They might need extra adjustments depending on the file type.
+- HAML might not deal properly with important classes: `.!gl-*`.
+  It could mean rewriting class usage to: `%div{class: '!gl-flex' }`
