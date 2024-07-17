@@ -222,7 +222,7 @@ export const Slots = (args, { argTypes }) => ({
           <gl-alert
             :dismissible="false"
             variant="warning"
-            class="gl-font-sm gl-border-t"
+            class="gl-border-t"
             role="alert"
             data-testid="chat-legal-warning-gitlab-usage"
             primary-button-link="https://internal-handbook.gitlab.io/handbook/product/ai-strategy/ai-integration-effort/legal_restrictions/"
