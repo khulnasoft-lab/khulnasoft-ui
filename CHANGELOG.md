@@ -1,3 +1,10 @@
+# [86.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.12.1...v86.13.0) (2024-07-17)
+
+
+### Features
+
+* Migrate to tailwind utilities internally ([dc28dbc](https://gitlab.com/gitlab-org/gitlab-ui/commit/dc28dbc1969e9d423bef13682a56cf1d9674267b))
+
 ## [86.12.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.12.0...v86.12.1) (2024-07-17)
 
 
