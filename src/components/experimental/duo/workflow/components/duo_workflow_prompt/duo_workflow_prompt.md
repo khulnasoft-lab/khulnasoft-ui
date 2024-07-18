@@ -18,7 +18,7 @@ changed within the textarea
 * `confirm`: Emitted when the confirm button is clicked
 * `cancel`: Emitted when the cancel button is clicked
 
-Translations for the title of the panel, labels, and other strings can e set via
+Translations for the title of the panel, labels, and other strings can be set via
 the props as documented or via translation configuration:
 
 ```js
