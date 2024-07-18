@@ -17,7 +17,6 @@ import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
 import {
-  CHAT_CLEAN_MESSAGE,
   CHAT_RESET_MESSAGE,
   CHAT_CLEAR_MESSAGE,
   CHAT_INCLUDE_MESSAGE,
@@ -393,11 +392,7 @@ export default {
           return;
         }
 
-        if (
-          ![CHAT_RESET_MESSAGE, CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE].includes(
-            this.caseInsensitivePrompt
-          )
-        ) {
+        if (![CHAT_RESET_MESSAGE, CHAT_CLEAR_MESSAGE].includes(this.caseInsensitivePrompt)) {
           this.displaySubmitButton = false;
         }
 
