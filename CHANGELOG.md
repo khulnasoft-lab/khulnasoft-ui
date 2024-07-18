@@ -1,3 +1,10 @@
+## [86.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.13.0...v86.13.1) (2024-07-18)
+
+
+### Bug Fixes
+
+* **GlSparklineChart:** Render flat lines with gradient enabled ([a8ad20f](https://gitlab.com/gitlab-org/gitlab-ui/commit/a8ad20f3ffa3efeb7cc545a0e7183b54434a97d2))
+
 # [86.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.12.1...v86.13.0) (2024-07-17)
 
 
