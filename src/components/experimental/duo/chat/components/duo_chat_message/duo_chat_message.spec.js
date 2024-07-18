@@ -169,12 +169,14 @@ describe('DuoChatMessage', () => {
 
   describe('message output', () => {
     it('renders the warning icon when message has errors', () => {
+      const error = 'foo';
       createComponent({
         message: {
           ...MOCK_USER_PROMPT_MESSAGE,
-          errors: ['foo'],
+          errors: [error],
         },
       });
+      expect(renderMarkdown).toHaveBeenCalledWith(error);
       expect(findErrorIcon().exists()).toBe(true);
       expect(findErrorMessage().text()).toBe('foo');
       expect(findContentWrapper().classes()).toContain('has-error');
