@@ -517,6 +517,8 @@
   --gl-feedback-icon-color-strong: var(--gl-color-neutral-900); /* Used for an icon on a strong feedback background. */
   --gl-feedback-text-color-strong: var(--gl-color-neutral-900); /* Used for text on a strong feedback background. */
   --gl-feedback-background-color-strong: var(--gl-color-neutral-10); /* Used for a background associated with feedback like a tooltip or toast message. */
+  --gl-editor-media-selection-background-color: var(--gl-color-blue-700); /* Used for the background when a media element is selected in an editor. */
+  --gl-editor-text-selection-background-color: var(--gl-color-blue-800); /* Used for the background when text is selected in an editor. */
   --gl-control-indicator-color-disabled: var(--gl-color-neutral-400); /* Used for disabled checkbox and radio button state indicators. */
   --gl-control-indicator-color-selected: var(--gl-color-neutral-900); /* Used for checkbox and radio button state indicators. */
   --gl-control-placeholder-color: var(--gl-color-neutral-500); /* Used for placeholder text within inputs. */
