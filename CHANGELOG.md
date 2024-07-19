@@ -1,3 +1,10 @@
+## [86.14.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.0...v86.14.1) (2024-07-19)
+
+
+### Bug Fixes
+
+* **Heatmap:** rename `options` prop to `option` to be consistent ([8fcf7f6](https://gitlab.com/gitlab-org/gitlab-ui/commit/8fcf7f665adb0f5aefe954e90d28a0fbdaf1ea62))
+
 # [86.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.13.1...v86.14.0) (2024-07-19)
 
 
