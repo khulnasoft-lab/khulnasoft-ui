@@ -130,7 +130,7 @@ this will trigger a major version bump (e.g. `v1.2.3` -> `v2.0.0`)
 
 A changelog is genereated for each commit that has a
 type **feat:**, **fix:**, **perf:**. It is possible for a single MR
-to generate one release but mutliple changelog entries.
+to generate one release but multiple changelog entries.
 
 **Examples:**
 
