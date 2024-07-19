@@ -1,3 +1,10 @@
+# [86.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.13.1...v86.14.0) (2024-07-19)
+
+
+### Features
+
+* **GlBadge:** Add animation ([4d35e8f](https://gitlab.com/gitlab-org/gitlab-ui/commit/4d35e8f97df902c9b9c6689cb02cca9c1c1ce863))
+
 ## [86.13.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.13.0...v86.13.1) (2024-07-18)
 
 
