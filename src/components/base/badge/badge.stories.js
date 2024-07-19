@@ -125,6 +125,15 @@ export const Truncated = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div>
+      <!-- Badges inside normal flow should not shrink by default -->
+      <div class="gl-mb-5 gl-border gl-border-red-500" style="width: 50px">
+        <gl-badge>Regular text</gl-badge>
+      </div>
+
+      <div class="gl-mb-5 gl-border gl-border-red-500" style="width: 50px">
+        <gl-badge icon="spinner">Regular text</gl-badge>
+      </div>
+
       <!-- Badges inside flexbox should not shrink by default -->
       <div class="gl-flex gl-mb-5 gl-border gl-border-red-500" style="width: 200px">
         <gl-badge>Regular text</gl-badge>
