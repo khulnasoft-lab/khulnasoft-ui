@@ -650,6 +650,42 @@ describe('GlDuoChat', () => {
         expect(findCancelButton().exists()).toBe(true);
       });
     });
+
+    describe('methods called by external consumers', () => {
+      describe('focusChatInput', () => {
+        it('focuses on prompt', async () => {
+          const focusSpy = jest.fn();
+          jest.spyOn(HTMLElement.prototype, 'focus').mockImplementation(function focusMockImpl() {
+            focusSpy(this);
+          });
+          createComponent({ propsData: { messages } });
+
+          await wrapper.vm.focusChatInput();
+
+          await nextTick();
+
+          expect(focusSpy).toHaveBeenCalledWith(findChatInput().element);
+        });
+      });
+
+      describe('scrollToBottom', () => {
+        it('scrolls to bottom', async () => {
+          const scrollIntoViewMock = jest.fn();
+          window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
+
+          createComponent({ propsData: { messages } });
+          await nextTick();
+
+          expect(scrollIntoViewMock).toHaveBeenCalledTimes(1);
+
+          await wrapper.vm.scrollToBottom();
+
+          expect(scrollIntoViewMock).toHaveBeenCalledTimes(2);
+
+          window.HTMLElement.prototype.scrollIntoView = undefined;
+        });
+      });
+    });
   });
 
   describe('when closed', () => {
