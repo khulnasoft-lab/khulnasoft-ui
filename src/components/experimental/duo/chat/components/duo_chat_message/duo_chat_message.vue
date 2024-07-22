@@ -124,7 +124,9 @@ export default {
 
       return this.defaultContent || this.renderMarkdown(concatUntilEmpty(this.message.chunks));
     },
-
+    renderedError() {
+      return this.renderMarkdown(this.message.errors?.join('; ') || '');
+    },
     error() {
       return Boolean(this.message?.errors?.length) && this.message.errors.join('; ');
     },
@@ -211,7 +213,11 @@ export default {
       data-testid="error"
     />
     <div ref="content-wrapper" :class="{ 'has-error': error }">
-      <div v-if="error" ref="error-message">{{ error }}</div>
+      <div
+        v-if="error"
+        ref="error-message"
+        v-safe-html:[$options.safeHtmlConfigExtension]="renderedError"
+      ></div>
       <div v-else>
         <div ref="content" v-safe-html:[$options.safeHtmlConfigExtension]="messageContent"></div>
 
