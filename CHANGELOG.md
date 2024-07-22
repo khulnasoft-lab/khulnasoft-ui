@@ -1,3 +1,10 @@
+## [86.14.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.1...v86.14.2) (2024-07-22)
+
+
+### Bug Fixes
+
+* **DuoChat:** render Markdown in error messages ([ce32884](https://gitlab.com/gitlab-org/gitlab-ui/commit/ce32884e22b08cac5726c3004ccfcb19d036a038))
+
 ## [86.14.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.0...v86.14.1) (2024-07-19)
 
 
