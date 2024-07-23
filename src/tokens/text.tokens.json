@@ -82,7 +82,7 @@
           "dark": "{color.green.300}"
         },
         "$type": "color",
-        "$description": "Used for text indicating success or validity."
+        "$description": "Used for text indicating success, completion, approval, addition, or validity."
       },
       "disabled": {
         "$value": {

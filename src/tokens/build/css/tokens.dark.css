@@ -408,7 +408,7 @@
   --gl-color-alpha-dark-2: rgba(05, 05, 06, 0.02);
   --gl-color-alpha-0: transparent;
   --gl-text-color-disabled: var(--gl-color-neutral-400); /* Used for disabled text. */
-  --gl-text-color-success: var(--gl-color-green-300); /* Used for text indicating success or validity. */
+  --gl-text-color-success: var(--gl-color-green-300); /* Used for text indicating success, completion, approval, addition, or validity. */
   --gl-text-color-danger: var(--gl-color-red-300); /* Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination. */
   --gl-text-color-link: var(--gl-color-blue-300); /* Used for default text links. */
   --gl-text-color-heading: var(--gl-color-neutral-0); /* Used for headings level 1-6. */
