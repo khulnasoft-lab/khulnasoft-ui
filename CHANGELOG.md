@@ -1,3 +1,10 @@
+## [86.14.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.2...v86.14.3) (2024-07-23)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** full width input field ([ad520cc](https://gitlab.com/gitlab-org/gitlab-ui/commit/ad520ccd79389109b21ea4364210612908c53db7))
+
 ## [86.14.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.1...v86.14.2) (2024-07-22)
 
 
