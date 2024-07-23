@@ -11062,16 +11062,13 @@
   "breadcrumb": {
     "separator": {
       "color": {
-        "value": "#4c4b51",
+        "value": "#89888d",
         "$type": "color",
         "comment": "Used for the breadcrumb level separator.",
         "filePath": "src/tokens/contextual/breadcrumb.tokens.json",
         "isSource": true,
         "original": {
-          "value": {
-            "default": "{color.neutral.200}",
-            "dark": "{color.neutral.700}"
-          },
+          "value": "{color.neutral.400}",
           "$type": "color",
           "comment": "Used for the breadcrumb level separator."
         },
