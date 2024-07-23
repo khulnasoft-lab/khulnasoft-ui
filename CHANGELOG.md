@@ -1,3 +1,10 @@
+## [86.14.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.3...v86.14.4) (2024-07-23)
+
+
+### Bug Fixes
+
+* **GlBreadcrumb:** increase contrast ratio of breadcrumb separator ([646a106](https://gitlab.com/gitlab-org/gitlab-ui/commit/646a106a38537f3ed1c80a63b5cdcc932bd5159d))
+
 ## [86.14.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.2...v86.14.3) (2024-07-23)
 
 
