@@ -407,6 +407,15 @@
   --gl-color-alpha-dark-4: rgba(05, 05, 06, 0.04);
   --gl-color-alpha-dark-2: rgba(05, 05, 06, 0.02);
   --gl-color-alpha-0: transparent;
+  --gl-action-danger-background-color-active: rgba(236, 89, 65, 0.16); /* Used for the background of a danger (destructive) action in the active state. */
+  --gl-action-danger-background-color-hover: rgba(236, 89, 65, 0.4); /* Used for the background of a danger (destructive) action in the hover state. */
+  --gl-action-danger-background-color-default: rgba(236, 89, 65, 0.0); /* Used for the background of a danger (destructive) action in the default state. */
+  --gl-action-confirm-background-color-active: rgba(66, 143, 220, 0.16); /* Used for the background of a confirm (positive) action in the active state. */
+  --gl-action-confirm-background-color-hover: rgba(66, 143, 220, 0.4); /* Used for the background of a confirm (positive) action in the hover state. */
+  --gl-action-confirm-background-color-default: rgba(66, 143, 220, 0.0); /* Used for the background of a confirm (positive) action in the default state. */
+  --gl-action-neutral-background-color-active: rgba(137, 136, 141, 0.16); /* Used for the background of a neutral action in the active state. */
+  --gl-action-neutral-background-color-hover: rgba(137, 136, 141, 0.4); /* Used for the background of a neutral action in the hover state. */
+  --gl-action-neutral-background-color-default: rgba(137, 136, 141, 0.0); /* Used for the background of a neutral action in the default state. */
   --gl-text-color-disabled: var(--gl-color-neutral-400); /* Used for disabled text. */
   --gl-text-color-success: var(--gl-color-green-300); /* Used for text indicating success or validity. */
   --gl-text-color-danger: var(--gl-color-red-300); /* Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination. */
@@ -574,104 +583,37 @@
   --gl-background-color-strong: var(--gl-color-neutral-800); /* Used to make the background easily stand out from the default. */
   --gl-background-color-subtle: var(--gl-color-neutral-900); /* Used to slightly differentiate the background from the default. */
   --gl-background-color-default: var(--gl-color-neutral-950); /* Used for the default background color. */
-  --gl-action-danger-icon-color-strong: var(--gl-color-neutral-900); /* Used for the icon on a solid, strong danger (destructive) action background. */
-  --gl-action-danger-icon-color-active: var(--gl-color-red-50); /* Used for the icon of a danger (destructive) action in the active state. */
-  --gl-action-danger-icon-color-focus: var(--gl-color-red-200); /* Used for the icon of a danger (destructive) action in the focus state. */
-  --gl-action-danger-icon-color-hover: var(--gl-color-red-200); /* Used for the icon of a danger (destructive) action in the hover state. */
-  --gl-action-danger-icon-color-default: var(--gl-color-red-400); /* Used for the icon of a danger (destructive) action in the default state. */
-  --gl-action-danger-text-color-strong: var(--gl-color-neutral-900); /* Used for the text on a solid, strong danger (destructive) action background. */
-  --gl-action-danger-text-color-active: var(--gl-color-red-50); /* Used for the text of a danger (destructive) action in the active state. */
-  --gl-action-danger-text-color-focus: var(--gl-color-red-200); /* Used for the text of a danger (destructive) action in the focus state. */
-  --gl-action-danger-text-color-hover: var(--gl-color-red-200); /* Used for the text of a danger (destructive) action in the hover state. */
-  --gl-action-danger-text-color-default: var(--gl-color-red-400); /* Used for the text of a danger (destructive) action in the default state. */
-  --gl-action-danger-border-color-strong-active: var(--gl-color-red-50); /* Used for the border of a solid, strong danger (destructive) action in the active state. */
-  --gl-action-danger-border-color-strong-focus: var(--gl-color-red-100); /* Used for the border of a solid, strong danger (destructive) action in the focus state. */
-  --gl-action-danger-border-color-strong-hover: var(--gl-color-red-100); /* Used for the border of a solid, strong danger (destructive) action in the hover state. */
-  --gl-action-danger-border-color-strong-default: var(--gl-color-red-300); /* Used for the border of a solid, strong danger (destructive) action in the default state. */
-  --gl-action-danger-border-color-active: var(--gl-color-red-50); /* Used for the border of an outlined danger (destructive) action in the active state. */
-  --gl-action-danger-border-color-focus: var(--gl-color-red-200); /* Used for the border of an outlined danger (destructive) action in the focus state. */
-  --gl-action-danger-border-color-hover: var(--gl-color-red-200); /* Used for the border of an outlined danger (destructive) action in the hover state. */
-  --gl-action-danger-border-color-default: var(--gl-color-red-400); /* Used for the border of an outlined danger (destructive) action in the default state. */
-  --gl-action-danger-background-color-strong-active: var(--gl-color-red-100); /* Used for the background of a solid, strong danger (destructive) action in the active state. */
-  --gl-action-danger-background-color-strong-focus: var(--gl-color-red-300); /* Used for the background of a solid, strong danger (destructive) action in the focus state. */
-  --gl-action-danger-background-color-strong-hover: var(--gl-color-red-300); /* Used for the background of a solid, strong danger (destructive) action in the hover state. */
-  --gl-action-danger-background-color-strong-default: var(--gl-color-red-400); /* Used for the background of a solid, strong danger (destructive) action in the default state. */
-  --gl-action-danger-background-color-subtle-active: var(--gl-color-red-800); /* Used for the background of a borderless, subtle danger (destructive) action in the active state. */
-  --gl-action-danger-background-color-subtle-focus: var(--gl-color-red-900); /* Used for the background of a borderless, subtle danger (destructive) action in the focus state. */
-  --gl-action-danger-background-color-subtle-hover: var(--gl-color-red-900); /* Used for the background of a borderless, subtle danger (destructive) action in the hover state. */
-  --gl-action-danger-background-color-subtle-default: var(--gl-color-alpha-0); /* Used for the background of a borderless, subtle danger (destructive) action in the default state. */
-  --gl-action-danger-background-color-active: var(--gl-color-red-800); /* Used for the background of an outlined danger (destructive) action in the active state. */
-  --gl-action-danger-background-color-focus: var(--gl-color-red-900); /* Used for the background of an outlined danger (destructive) action in the focus state. */
-  --gl-action-danger-background-color-hover: var(--gl-color-red-900); /* Used for the background of an outlined danger (destructive) action in the hover state. */
-  --gl-action-danger-background-color-default: var(--gl-color-neutral-900); /* Used for the background of an outlined danger (destructive) action in the default state. */
-  --gl-action-confirm-icon-color-strong: var(--gl-color-neutral-900); /* Used for the icon on a solid, strong confirm (positive) action background. */
-  --gl-action-confirm-icon-color-active: var(--gl-color-blue-50); /* Used for the icon of a confirm (positive) action in the active state. */
-  --gl-action-confirm-icon-color-focus: var(--gl-color-blue-200); /* Used for the icon of a confirm (positive) action in the focus state. */
-  --gl-action-confirm-icon-color-hover: var(--gl-color-blue-200); /* Used for the icon of a confirm (positive) action in the hover state. */
-  --gl-action-confirm-icon-color-default: var(--gl-color-blue-400); /* Used for the icon of a confirm (positive) action in the default state. */
-  --gl-action-confirm-text-color-strong: var(--gl-color-neutral-900); /* Used for the text on a solid, strong confirm (positive) action background. */
-  --gl-action-confirm-text-color-active: var(--gl-color-blue-50); /* Used for the text of a confirm (positive) action in the active state. */
-  --gl-action-confirm-text-color-focus: var(--gl-color-blue-200); /* Used for the text of a confirm (positive) action in the focus state. */
-  --gl-action-confirm-text-color-hover: var(--gl-color-blue-200); /* Used for the text of a confirm (positive) action in the hover state. */
-  --gl-action-confirm-text-color-default: var(--gl-color-blue-400); /* Used for the text of a confirm (positive) action in the default state. */
-  --gl-action-confirm-border-color-strong-selected: var(--gl-color-blue-300); /* Used for the border of a solid, strong confirm (positive) action when in a selected or current state. */
-  --gl-action-confirm-border-color-strong-active: var(--gl-color-blue-50); /* Used for the border of a solid, strong confirm (positive) action in the active state. */
-  --gl-action-confirm-border-color-strong-focus: var(--gl-color-blue-100); /* Used for the border of a solid, strong confirm (positive) action in the focus state. */
-  --gl-action-confirm-border-color-strong-hover: var(--gl-color-blue-100); /* Used for the border of a solid, strong confirm (positive) action in the hover state. */
-  --gl-action-confirm-border-color-strong-default: var(--gl-color-blue-300); /* Used for the border of a solid, strong confirm (positive) action in the default state. */
-  --gl-action-confirm-border-color-active: var(--gl-color-blue-50); /* Used for the border of an outlined confirm (positive) action in the active state. */
-  --gl-action-confirm-border-color-focus: var(--gl-color-blue-200); /* Used for the border of an outlined confirm (positive) action in the focus state. */
-  --gl-action-confirm-border-color-hover: var(--gl-color-blue-200); /* Used for the border of an outlined confirm (positive) action in the hover state. */
-  --gl-action-confirm-border-color-default: var(--gl-color-blue-400); /* Used for the border of an outlined confirm (positive) action in the default state. */
-  --gl-action-confirm-background-color-strong-selected: var(--gl-color-blue-400); /* Used for the background of a solid, strong confirm (positive) action when in a selected or current state. */
-  --gl-action-confirm-background-color-strong-active: var(--gl-color-blue-200); /* Used for the background of a solid, strong confirm (positive) action in the active state. */
-  --gl-action-confirm-background-color-strong-focus: var(--gl-color-blue-300); /* Used for the background of a solid, strong confirm (positive) action in the focus state. */
-  --gl-action-confirm-background-color-strong-hover: var(--gl-color-blue-300); /* Used for the background of a solid, strong confirm (positive) action in the hover state. */
-  --gl-action-confirm-background-color-strong-default: var(--gl-color-blue-400); /* Used for the background of a solid, strong confirm (positive) action in the default state. */
-  --gl-action-confirm-background-color-subtle-active: var(--gl-color-blue-800); /* Used for the background of a borderless, subtle confirm (positive) action in the active state. */
-  --gl-action-confirm-background-color-subtle-focus: var(--gl-color-blue-900); /* Used for the background of a borderless, subtle confirm (positive) action in the focus state. */
-  --gl-action-confirm-background-color-subtle-hover: var(--gl-color-blue-900); /* Used for the background of a borderless, subtle confirm (positive) action in the hover state. */
-  --gl-action-confirm-background-color-subtle-default: var(--gl-color-alpha-0); /* Used for the background of a borderless, subtle confirm (positive) action in the default state. */
-  --gl-action-confirm-background-color-active: var(--gl-color-blue-800); /* Used for the background of an outlined confirm (positive) action in the active state. */
-  --gl-action-confirm-background-color-focus: var(--gl-color-blue-900); /* Used for the background of an outlined confirm (positive) action in the focus state. */
-  --gl-action-confirm-background-color-hover: var(--gl-color-blue-900); /* Used for the background of an outlined confirm (positive) action in the hover state. */
-  --gl-action-confirm-background-color-default: var(--gl-color-neutral-900); /* Used for the background of an outlined confirm (positive) action in the default state. */
-  --gl-action-neutral-icon-color-strong: var(--gl-color-neutral-900); /* Used for the icon on a solid, strong neutral action background. */
-  --gl-action-neutral-icon-color-active: var(--gl-color-neutral-50); /* Used for the icon of outlined and borderless neutral actions in the active state. */
-  --gl-action-neutral-icon-color-focus: var(--gl-color-neutral-200); /* Used for the icon of outlined and borderless neutral actions in the focus state. */
-  --gl-action-neutral-icon-color-hover: var(--gl-color-neutral-200); /* Used for the icon of outlined and borderless neutral actions in the hover state. */
-  --gl-action-neutral-icon-color-default: var(--gl-color-neutral-400); /* Used for the icon of outlined and borderless neutral actions. */
-  --gl-action-neutral-text-color-strong: var(--gl-color-neutral-900); /* Used for the text on a solid, strong neutral action background. */
-  --gl-action-neutral-text-color-active: var(--gl-color-neutral-50); /* Used for the text of a neutral action in the active state. */
-  --gl-action-neutral-text-color-focus: var(--gl-color-neutral-50); /* Used for the text of a neutral action in the focus state. */
-  --gl-action-neutral-text-color-hover: var(--gl-color-neutral-50); /* Used for the text of a neutral action in the hover state. */
-  --gl-action-neutral-text-color-default: var(--gl-color-neutral-50); /* Used for the text of outlined and borderless neutral actions. */
-  --gl-action-neutral-border-color-strong-active: var(--gl-color-neutral-50); /* Used for the border of a solid, strong neutral action in the active state. */
-  --gl-action-neutral-border-color-strong-focus: var(--gl-color-neutral-100); /* Used for the border of a solid, strong neutral action in the focus state. */
-  --gl-action-neutral-border-color-strong-hover: var(--gl-color-neutral-100); /* Used for the border of a solid, strong neutral action in the hover state. */
-  --gl-action-neutral-border-color-strong-default: var(--gl-color-neutral-300); /* Used for the border of a solid, strong neutral action in the default state. */
-  --gl-action-neutral-border-color-selected: var(--gl-color-neutral-700); /* Used for the border of a outlined neutral action when in a selected or current state. */
-  --gl-action-neutral-border-color-active: var(--gl-color-neutral-300); /* Used for the border of an outlined neutral action in the active state. */
-  --gl-action-neutral-border-color-focus: var(--gl-color-neutral-500); /* Used for the border of an outlined neutral action in the focus state. */
-  --gl-action-neutral-border-color-hover: var(--gl-color-neutral-500); /* Used for the border of an outlined neutral action in the hover state. */
-  --gl-action-neutral-border-color-default: var(--gl-color-neutral-700); /* Used for the border of an outlined neutral action in the default state. */
-  --gl-action-neutral-background-color-strong-active: var(--gl-color-neutral-200); /* Used for the background of a solid, strong neutral action in the active state. */
-  --gl-action-neutral-background-color-strong-focus: var(--gl-color-neutral-300); /* Used for the background of a solid, strong neutral action in the focus state. */
-  --gl-action-neutral-background-color-strong-hover: var(--gl-color-neutral-300); /* Used for the background of a solid, strong neutral action in the hover state. */
-  --gl-action-neutral-background-color-strong-default: var(--gl-color-neutral-400); /* Used for the background of a solid, strong neutral action in the default state. */
-  --gl-action-neutral-background-color-subtle-active: var(--gl-color-neutral-800); /* Used for the background of a borderless, subtle neutral action in the active state. */
-  --gl-action-neutral-background-color-subtle-focus: var(--gl-color-neutral-900); /* Used for the background of a borderless, subtle neutral action in the focus state. */
-  --gl-action-neutral-background-color-subtle-hover: var(--gl-color-neutral-900); /* Used for the background of a borderless, subtle neutral action in the hover state. */
-  --gl-action-neutral-background-color-subtle-default: var(--gl-color-alpha-0); /* Used for the background of a borderless, subtle neutral action in the default state. */
-  --gl-action-neutral-background-color-active: var(--gl-color-neutral-800); /* Used for the background of an outlined neutral action in the active state. */
-  --gl-action-neutral-background-color-focus: var(--gl-color-neutral-900); /* Used for the background of an outlined neutral action in the focus state. */
-  --gl-action-neutral-background-color-hover: var(--gl-color-neutral-900); /* Used for the background of an outlined neutral action in the hover state. */
-  --gl-action-neutral-background-color-default: var(--gl-color-neutral-900); /* Used for the background of an outlined neutral action in the default state. */
-  --gl-action-icon-color-disabled: var(--gl-color-neutral-500); /* Used for the icon of a disabled action. */
-  --gl-action-text-color-disabled: var(--gl-color-neutral-400); /* Used for the text of a disabled action. */
-  --gl-action-border-color-disabled: var(--gl-color-neutral-800); /* Used for the border of a disabled action. */
-  --gl-action-background-color-disabled: var(--gl-color-neutral-900); /* Used for the background of a disabled action. */
+  --gl-action-danger-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a danger action in the default state. */
+  --gl-action-danger-background-color-focus: var(--gl-action-danger-background-color-hover); /* Used for the background of a danger (destructive) action in the focus state. */
+  --gl-action-danger-foreground-color-active: var(--gl-color-red-50); /* Used for the foreground of a danger (destructive) action in the active state. */
+  --gl-action-danger-foreground-color-hover: var(--gl-color-red-200); /* Used for the foreground of a danger (destructive) action in the hover state. */
+  --gl-action-danger-foreground-color-default: var(--gl-color-red-400); /* Used for the foreground of a danger (destructive) action in the default state. */
+  --gl-action-confirm-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a confirm action in the default state. */
+  --gl-action-confirm-background-color-focus: var(--gl-action-confirm-background-color-hover); /* Used for the background of a confirm (positive) action in the focus state. */
+  --gl-action-confirm-foreground-color-active: var(--gl-color-blue-50); /* Used for the foreground of a confirm (positive) action in the active state. */
+  --gl-action-confirm-foreground-color-hover: var(--gl-color-blue-200); /* Used for the foreground of a confirm (positive) action in the hover state. */
+  --gl-action-confirm-foreground-color-default: var(--gl-color-blue-400); /* Used for the foreground of a confirm (positive) action in the default state. */
+  --gl-action-neutral-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a neutral action in the default state. */
+  --gl-action-neutral-background-color-focus: var(--gl-action-neutral-background-color-hover); /* Used for the background of a neutral action in the focus state. */
+  --gl-action-neutral-foreground-color-default: var(--gl-color-neutral-50); /* Used for the foreground of outlined and borderless neutral actions. */
+  --gl-action-disabled-border-color: var(--gl-color-neutral-800); /* Used for the border of a disabled action. */
+  --gl-action-disabled-background-color: var(--gl-color-neutral-900); /* Used for the background of a disabled action. */
+  --gl-action-disabled-foreground-color: var(--gl-color-neutral-500); /* Used for the foreground of a disabled action. */
   --gl-focus-ring-inner-color: var(--gl-background-color-default); /* Used for the inner neutral portion of the focus ring. */
   --gl-table-sorting-icon-color: var(--gl-text-color-heading); /* Used for the color of the sorting icons in the column headers. */
   --gl-table-row-background-color-hover: var(--gl-background-color-subtle); /* Used for the background of a table row in hover state. */
+  --gl-action-danger-border-color-active: var(--gl-action-danger-border-color-default); /* Used for the border of a danger action in the active state. */
+  --gl-action-danger-border-color-focus: var(--gl-action-danger-border-color-default); /* Used for the border of a danger action in the focus state. */
+  --gl-action-danger-border-color-hover: var(--gl-action-danger-border-color-default); /* Used for the border of a danger action in the hover state. */
+  --gl-action-danger-foreground-color-focus: var(--gl-action-danger-foreground-color-hover); /* Used for the foreground of a danger (destructive) action in the focus state. */
+  --gl-action-confirm-border-color-active: var(--gl-action-confirm-border-color-default); /* Used for the border of a confirm action in the active state. */
+  --gl-action-confirm-border-color-focus: var(--gl-action-confirm-border-color-default); /* Used for the border of a confirm action in the focus state. */
+  --gl-action-confirm-border-color-hover: var(--gl-action-confirm-border-color-default); /* Used for the border of a confirm action in the hover state. */
+  --gl-action-confirm-foreground-color-focus: var(--gl-action-confirm-foreground-color-hover); /* Used for the foreground of a confirm (positive) action in the focus state. */
+  --gl-action-neutral-border-color-active: var(--gl-action-neutral-border-color-default); /* Used for the border of a neutral action in the active state. */
+  --gl-action-neutral-border-color-focus: var(--gl-action-neutral-border-color-default); /* Used for the border of a neutral action in the focus state. */
+  --gl-action-neutral-border-color-hover: var(--gl-action-neutral-border-color-default); /* Used for the border of a neutral action in the hover state. */
+  --gl-action-neutral-foreground-color-active: var(--gl-action-neutral-foreground-color-default); /* Used for the foreground of a neutral action in the active state. */
+  --gl-action-neutral-foreground-color-focus: var(--gl-action-neutral-foreground-color-default); /* Used for the foreground of a neutral action in the focus state. */
+  --gl-action-neutral-foreground-color-hover: var(--gl-action-neutral-foreground-color-default); /* Used for the foreground of a neutral action in the hover state. */
 }
