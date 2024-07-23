@@ -417,7 +417,7 @@
   --gl-action-neutral-background-color-hover: rgba(164, 163, 168, 0.16); /* Used for the background of a neutral action in the hover state. */
   --gl-action-neutral-background-color-default: rgba(164, 163, 168, 0.0); /* Used for the background of a neutral action in the default state. */
   --gl-text-color-disabled: var(--gl-color-neutral-400); /* Used for disabled text. */
-  --gl-text-color-success: var(--gl-color-green-600); /* Used for text indicating success or validity. */
+  --gl-text-color-success: var(--gl-color-green-600); /* Used for text indicating success, completion, approval, addition, or validity. */
   --gl-text-color-danger: var(--gl-color-red-600); /* Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination. */
   --gl-text-color-link: var(--gl-color-blue-700); /* Used for default text links. */
   --gl-text-color-heading: var(--gl-color-neutral-950); /* Used for headings level 1-6. */
