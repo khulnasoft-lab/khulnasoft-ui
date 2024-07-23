@@ -9,6 +9,7 @@
   @include gl-border-none;
   @include gl-outline-none;
   @include gl-h-6;
+  @include gl-w-full;
   min-width: $gl-dropdown-width;
 }
 
