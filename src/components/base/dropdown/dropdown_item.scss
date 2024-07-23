@@ -1,7 +1,7 @@
 @mixin gl-tmp-dropdown-item-style {
   @include gl-align-items-center;
   @include gl-bg-transparent;
-  @include gl-border-0;
+  @apply gl-border-0;
   @include gl-display-flex;
   @include gl-font-base;
   @include gl-font-weight-normal;
@@ -93,7 +93,7 @@
       }
 
       .avatar {
-        @include gl-border-white;
+        @apply gl-border-white;
       }
     }
 

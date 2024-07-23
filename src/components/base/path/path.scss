@@ -68,7 +68,7 @@ $path-chevron-right-margin: px-to-rem(14px);
     position: relative;
     @include gl-font-base;
     @include gl-z-index-0;
-    @include gl-border-none;
+    @apply gl-border-none;
     @include gl-text-gray-500;
     @include gl-font-weight-bold;
     @include gl-line-height-normal;

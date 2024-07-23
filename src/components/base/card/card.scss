@@ -1,6 +1,6 @@
 .gl-card {
   background-color: var(--gl-background-color-default);
-  @include gl-border-solid;
+  @apply gl-border-solid;
   @include gl-display-flex;
   @include gl-flex-direction-column;
   @include gl-overflow-wrap-break;
@@ -12,7 +12,7 @@
 .gl-card,
 .gl-card-header,
 .gl-card-footer {
-  @include gl-border-1;
+  @apply gl-border-1;
   border-color: var(--gl-border-color-default);
 }
 
@@ -23,14 +23,14 @@
 }
 
 .gl-card-header {
-  @include gl-border-b-solid;
+  @apply gl-border-b-solid;
   border-top-left-radius: calc($gl-border-radius-base - $gl-border-size-1);
   border-top-right-radius: calc($gl-border-radius-base - $gl-border-size-1);
   color: var(--gl-text-color-heading);
 }
 
 .gl-card-footer {
-  @include gl-border-t-solid;
+  @apply gl-border-t-solid;
   border-bottom-left-radius: calc($gl-border-radius-base - $gl-border-size-1);
   border-bottom-right-radius: calc($gl-border-radius-base - $gl-border-size-1);
 }

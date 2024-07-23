@@ -8,8 +8,7 @@
 
 // Make size of focus border on indicator and prev/next button equal to themselves
 .carousel-indicators li {
-  @include gl-border-top-0;
-  @include gl-border-bottom-0;
+  @apply gl-border-t-0 gl-border-b-0;
   margin-bottom: 10px;
 }
 

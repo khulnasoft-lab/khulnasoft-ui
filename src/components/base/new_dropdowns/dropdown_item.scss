@@ -45,13 +45,13 @@
         @include gl-text-blue-600
       }
     }
-    
+
     &:active,
     &:focus:active {
       .gl-new-dropdown-item-content {
         @include gl-bg-gray-200;
       }
-      
+
       .gl-new-dropdown-item-check-icon {
         @include gl-text-blue-700
       }
@@ -74,7 +74,7 @@
     @include gl-w-full;
     @include gl-bg-transparent;
     @include gl-align-items-center;
-    @include gl-border-0;
+    @apply gl-border-0;
     @include gl-display-flex;
     @include gl-font-base;
     @include gl-font-weight-normal;

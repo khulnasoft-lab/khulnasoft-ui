@@ -14,7 +14,7 @@
 .gl-filtered-search-token-segment-input {
   @include gl-p-0;
   @include gl-h-full;
-  @include gl-border-none;
+  @apply gl-border-none;
   @include gl-outline-none;
   min-width: $gl-dropdown-width;
 }

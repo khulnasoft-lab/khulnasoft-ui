@@ -15,9 +15,7 @@
   .gl-new-dropdown-panel {
     @include gl-display-none;
     @include gl-bg-white;
-    @include gl-border-1;
-    @include gl-border-solid;
-    @include gl-border-gray-200;
+    @apply gl-border-1 gl-border-solid gl-border-gray-200;
     @include gl-rounded-lg;
     @include gl-shadow-md;
     top: 0;

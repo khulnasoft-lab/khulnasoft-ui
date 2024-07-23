@@ -37,7 +37,7 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
 
 .gl-search-box-by-type-input-borderless,
 .gl-search-box-by-type-input-borderless.gl-form-input {
-  @include gl-border-none;
+  @apply gl-border-none;
   @include gl-font-base;
   @include gl-h-auto;
   @include gl-line-height-normal;
