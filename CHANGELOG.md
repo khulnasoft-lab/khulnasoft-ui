@@ -1,3 +1,10 @@
+# [86.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.4...v86.15.0) (2024-07-23)
+
+
+### Features
+
+* **DesignTokens:** refine action design tokens ([1fe63f6](https://gitlab.com/gitlab-org/gitlab-ui/commit/1fe63f601a31217411850e59c598049478614b17))
+
 ## [86.14.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.3...v86.14.4) (2024-07-23)
 
 
