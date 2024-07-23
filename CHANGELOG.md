@@ -1,3 +1,20 @@
+# [87.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.15.0...v87.0.0) (2024-07-23)
+
+
+### Code Refactoring
+
+* migrate border mixin includes to apply ([5ebfb2c](https://gitlab.com/gitlab-org/gitlab-ui/commit/5ebfb2cb4e7fbbe81f2ccf443d0b083b245db7d5))
+
+
+### BREAKING CHANGES
+
+* This rewrite some styles to leverage Tailwind's
+`@apply` directive in stead of SASS mixins' `@include`.
+
+Consuming GitLab UI's stylesheets from the source therefore requires
+Tailwind to be set up on the consumer's end to properly compile those
+directives. An alternative is to consume the compiled CSS bundles.
+
 # [86.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.14.4...v86.15.0) (2024-07-23)
 
 
