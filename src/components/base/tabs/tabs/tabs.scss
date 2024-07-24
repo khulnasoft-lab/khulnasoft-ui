@@ -3,6 +3,7 @@
 }
 
 .gl-tab-nav-item {
+  position: relative;
   @include gl-text-gray-900;
   @include gl-px-4;
   @include gl-py-5;
@@ -11,15 +12,37 @@
   @include gl-display-flex;
   @include gl-justify-content-center;
   @include gl-overflow-hidden;
+  transition: box-shadow $gl-transition-duration-medium $gl-easing-out-cubic,
+              border-radius $gl-transition-duration-fast $gl-easing-out-cubic;
 
-  transition: box-shadow 100ms linear;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-bottom: $gl-border-size-2 solid transparent;
+    translate: 0 $gl-border-size-2;
+    transition: border-bottom $gl-transition-duration-medium $gl-easing-out-cubic,
+                translate $gl-transition-duration-medium $gl-easing-out-cubic;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &, &::before {
+      transition-duration: .01ms;
+    }
+  }
 
   &:hover {
     @include gl-text-gray-900;
+  }
 
-    &:not(.gl-tab-nav-item-active) {
-      @include gl-inset-border-b-2-gray-200;
-    }
+  &:hover:not(.gl-tab-nav-item-active)::before {
+    border-bottom-color: $gray-200;
+    translate: 0;
+  }
+
+  &:focus {
+    border-radius: $gl-border-radius-base;
   }
 
   &.disabled {
@@ -48,13 +71,18 @@
 .gl-tab-nav-item-active {
   @include gl-font-weight-bold;
   @include gl-text-gray-900;
-  @include gl-inset-border-b-2-blue-500;
+  z-index: 1;
 
   &:active,
   &:focus,
   &:focus:active {
-    box-shadow: inset 0 -#{$gl-border-size-2} 0 0 $blue-500, $focus-ring;
     @include gl-outline-none;
+    @include gl-focus;
+  }
+
+  &::before {
+    border-bottom-color: $blue-500;
+    translate: 0;
   }
 }
 
