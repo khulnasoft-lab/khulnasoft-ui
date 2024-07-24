@@ -21,9 +21,13 @@ component styles. For example, toggling an element's visibility is better done b
 a CSS utility rather than adding specific CSS classes and implementing the behavior in the
 component's stylesheet.
 
-When writing component styles, you may use Tailwind's `@apply` directive to apply Pajamas values
-such as colors, spacing, box shadows, etc.
-Use standard style definitions for everything else.
+When writing component styles, you may use Tailwind's `@apply` directive to apply any style definitions
+Tailwind CSS supports.
+
+`@apply` lets you write component styles the same way you apply CSS utilities as the naming is the same.
+Additionally, [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+reports any conflicting styles, letting you spot superfluous `@apply`s that might make your intention
+harder to understand.
 
 When running `yarn generate:component`, the component's SCSS file will be created in the right place
 and imported in the main `components.scss`. Read more about
@@ -36,7 +40,7 @@ Each component's stylesheet should contain its "modularized" style:
 
 .gl-button {
   // style
-  @include some-utility-mixin;
+  @apply gl-border-0 gl-py-3 gl-px-4;
 }
 ```
 
