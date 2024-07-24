@@ -7,13 +7,14 @@ const template = `
     <gl-token-selector
       v-model="selectedTokens"
       v-bind="$props"
+      :dropdown-items="filteredDropdownItems"
       @text-input="handleTextInput"
       @focus="handleFocus" />
     {{ selectedTokens }}
   </div>
 `;
 
-const generateProps = () => ({
+const generateProps = (props) => ({
   dropdownItems: [
     {
       id: 1,
@@ -40,6 +41,7 @@ const generateProps = () => ({
       style: { backgroundColor: '#97acff' },
     },
   ],
+  ...props,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -112,3 +114,28 @@ export default {
     },
   },
 };
+
+export const UserDefinedTokens = Template.bind({});
+UserDefinedTokens.tags = ['skip-visual-test'];
+UserDefinedTokens.parameters = {
+  docs: {
+    description: {
+      story: 'Allows users to add custom tokens when no results are found.',
+    },
+  },
+};
+UserDefinedTokens.args = generateProps({ allowUserDefinedTokens: true });
+
+export const UserDefinedTokensShowAddNewAlways = Template.bind({});
+UserDefinedTokensShowAddNewAlways.tags = ['skip-visual-test'];
+UserDefinedTokensShowAddNewAlways.parameters = {
+  docs: {
+    description: {
+      story: 'Allows users to add custom tokens regardless if results are found.',
+    },
+  },
+};
+UserDefinedTokensShowAddNewAlways.args = generateProps({
+  allowUserDefinedTokens: true,
+  showAddNewAlways: true,
+});
