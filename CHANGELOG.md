@@ -1,3 +1,10 @@
+# [87.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.0.0...v87.1.0) (2024-07-24)
+
+
+### Features
+
+* **GlTabs:** Add animation ([0622f6a](https://gitlab.com/gitlab-org/gitlab-ui/commit/0622f6a2dd07ddc6f5d89bf9f56a9fd9c528a4a6))
+
 # [87.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v86.15.0...v87.0.0) (2024-07-23)
 
 
