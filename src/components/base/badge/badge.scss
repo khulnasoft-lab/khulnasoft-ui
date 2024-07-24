@@ -81,14 +81,14 @@ $badge-min-width: $gl-spacing-scale-3;
   justify-content: center;
   gap: $gl-spacing-scale-2;
   padding: $gl-spacing-scale-1 $badge-padding-horizontal;
-  // Enable support for gl-text-truncate
-  width: 100%;
-  // Mitigate the effect of width: 100%
-  max-width: max-content;
   transition: color $gl-transition-duration-medium $gl-easing-out-cubic,
               background-color $gl-transition-duration-medium $gl-easing-out-cubic,
               border-color $gl-transition-duration-medium $gl-easing-out-cubic,
               box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
+
+  &:has(.gl-truncate, .gl-text-truncate) {
+    max-width: 100%;
+  }
 
   @media (prefers-reduced-motion) {
     transition-duration: .01ms !important;
