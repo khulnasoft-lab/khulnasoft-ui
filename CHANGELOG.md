@@ -1,3 +1,10 @@
+## [87.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.1.0...v87.1.1) (2024-07-24)
+
+
+### Bug Fixes
+
+* **GlBadge:** fix layout in normal flow ([1986f31](https://gitlab.com/gitlab-org/gitlab-ui/commit/1986f31dfb69d1cf872e771d348772c69600545d))
+
 # [87.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.0.0...v87.1.0) (2024-07-24)
 
 
