@@ -2,18 +2,8 @@
  * Segmented-control-specific utilities
  */
 
-@mixin gl-btn-gl-segmented-button-first {
-  box-shadow: inset 0 #{$gl-border-size-1} 0 0 $gray-200,
-    inset 0 -#{$gl-border-size-1} 0 0 $gray-200, inset #{$gl-border-size-1} 0 0 0 $gray-200;
-}
-
-@mixin gl-btn-gl-segmented-button-last {
-  box-shadow: inset 0 #{$gl-border-size-1} 0 0 $gray-200,
-    inset 0 -#{$gl-border-size-1} 0 0 $gray-200, inset -#{$gl-border-size-1} 0 0 0 $gray-200;
-}
-
 @mixin gl-btn-gl-segmented-button-focus($color) {
-  box-shadow: $focus-ring, inset 0 0 0 $gl-border-size-2 $color;
+  box-shadow: $focus-ring, inset 0 0 0 $gl-border-size-1 $color;
 }
 
 .btn-group.gl-segmented-control {
@@ -38,19 +28,20 @@
     @include gl-text-gray-900;
     @include gl-fill-current-color;
     @include gl-bg-gray-10;
-    @include gl-inset-border-y-1-gray-200;
+    border-color: $gray-100;
 
-    &:first-child {
-      @include gl-btn-gl-segmented-button-first;
+    &:first-child:not(:hover, :focus, :active, .active) {
+      border-right-color: transparent;
     }
 
-    &:last-child {
-      @include gl-btn-gl-segmented-button-last;
+    &:last-child:not(:hover, :focus, :active, .active) {
+      border-left-color: transparent;
     }
 
     &:hover {
-      @include gl-inset-border-2-gray-400;
+      @include gl-inset-border-1-gray-400;
       @include gl-bg-gray-50;
+      border-color: $gray-400;
     }
 
     &.focus {
@@ -61,12 +52,14 @@
 
     &.active {
       @include gl-z-index-2;
-      @include gl-inset-border-2-gray-300;
       @include gl-bg-white;
+      @include gl-inset-border-1-gray-300;
+      border-color: $gray-300;
 
       &:hover {
-        @include gl-inset-border-2-gray-400;
         @include gl-bg-gray-50;
+        @include gl-inset-border-1-gray-400;
+        border-color: $gray-400;
       }
 
       &.focus,
@@ -85,17 +78,10 @@
     &.disabled:hover,
     &[disabled]:hover {
       @include gl-text-gray-400;
-      @include gl-inset-border-y-1-gray-200;
       @include gl-z-index-0;
       @include gl-cursor-not-allowed;
-
-      &:first-child {
-        @include gl-btn-gl-segmented-button-first;
-      }
-
-      &:last-child {
-        @include gl-btn-gl-segmented-button-last;
-      }
+      border-color: $gray-200;
+      box-shadow: none;
     }
   }
 }

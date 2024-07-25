@@ -65,9 +65,11 @@
       @include gl-display-none;
     }
 
-    &.gl-button,
-    &.gl-button.btn-block {
-      @include gl-pr-3;
+    &.gl-button.gl-button,
+    &.gl-button.gl-button.btn-block {
+      &:not(.btn-sm) {
+        @include gl-pr-3;
+      }
 
       &.btn-sm {
         @include gl-pr-2;
@@ -112,12 +114,14 @@
       margin-left: -1px;
     }
 
-    &.gl-button {
-      @include gl-px-3;
+    &.gl-button.gl-button:not(.btn-sm) {
+      padding-left: calc($gl-spacing-scale-3 - $gl-border-size-1);
+      padding-right: calc($gl-spacing-scale-3 - $gl-border-size-1);
+    }
 
-      &.btn-sm {
-        @include gl-px-2;
-      }
+    &.gl-button.gl-button.btn-sm {
+      padding-left: calc($gl-spacing-scale-2 - $gl-border-size-1);
+      padding-right: calc($gl-spacing-scale-2 - $gl-border-size-1);
     }
   }
 

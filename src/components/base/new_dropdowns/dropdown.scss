@@ -109,13 +109,13 @@
     }
   }
 
-  .gl-new-dropdown-caret-only {
-    // optically center the caret
-    @include gl-pl-2;
+  // optically center the caret
+  .gl-new-dropdown-caret-only.gl-button:not(.btn-sm) {
+    padding-left: calc($gl-spacing-scale-2 - $gl-border-size-1);
+  }
 
-    &.btn-sm {
-      @include gl-pl-0;
-    }
+  .gl-new-dropdown-caret-only.gl-button.btn-sm {
+    @include gl-pl-0;
   }
 
   $dropdown-content-padding: 0.25rem;

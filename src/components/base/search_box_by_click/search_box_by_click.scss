@@ -10,9 +10,9 @@
     @include gl-inset-border-1-gray-400;
   }
 
-  .gl-search-box-by-click-search-button {
+  .gl-search-box-by-click-search-button.gl-button {
     @include gl-text-secondary;
-    @include gl-inset-border-1-gray-400;
+    border-color: $gray-400;
   }
 
   .gl-search-box-by-click-input {
