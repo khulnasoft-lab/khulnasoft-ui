@@ -1,3 +1,10 @@
+## [87.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.1.1...v87.1.2) (2024-07-26)
+
+
+### Bug Fixes
+
+* add cancel case to isStreaming state ([86e84bd](https://gitlab.com/gitlab-org/gitlab-ui/commit/86e84bd5db5782f603d0ca252420db792477bcd1))
+
 ## [87.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.1.0...v87.1.1) (2024-07-24)
 
 
