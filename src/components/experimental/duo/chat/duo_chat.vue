@@ -241,6 +241,9 @@ export default {
       return this.lastMessage?.content === CHAT_RESET_MESSAGE;
     },
     isStreaming() {
+      if (this.canceledRequestIds.includes(this.lastMessage?.requestId)) {
+        return false;
+      }
       return Boolean(
         (this.lastMessage?.chunks?.length > 0 && !this.lastMessage?.content) ||
           typeof this.lastMessage?.chunkId === 'number'

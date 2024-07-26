@@ -602,6 +602,53 @@ describe('GlDuoChat', () => {
         await cancelButton.trigger('click');
         expect(wrapper.emitted('chat-cancel').length).toBe(1);
       });
+
+      it('cancel button toggles correctly when last message contains incomplete stream chunks', async () => {
+        const unfinishedStreamMessage = { ...MOCK_RESPONSE_MESSAGE, chunkId: 1 };
+        const propsBase = () => ({
+          messages: [unfinishedStreamMessage],
+          canceledRequestIds: [MOCK_RESPONSE_MESSAGE.requestId],
+          isLoading: false,
+        });
+        createComponent({ propsData: propsBase(), mountFn: mount });
+
+        // Expect submit button
+        expect(findSubmitButton().exists()).toBe(true);
+        expect(findCancelButton().exists()).toBe(false);
+
+        // User submits a new prompt, which resets button state
+        await setPromptInput('TEST!');
+        clickSubmit();
+        await nextTick();
+
+        // Expect cancel button
+        expect(findSubmitButton().exists()).toBe(false);
+        expect(findCancelButton().exists()).toBe(true);
+
+        // User message is added
+        wrapper.setProps({
+          ...propsBase(),
+          messages: [unfinishedStreamMessage, MOCK_USER_PROMPT_MESSAGE],
+        });
+        await nextTick();
+
+        // This should not reset the button state
+        // Expect cancel button
+        expect(findSubmitButton().exists()).toBe(false);
+        expect(findCancelButton().exists()).toBe(true);
+
+        // Set isLoading to true
+        wrapper.setProps({
+          ...propsBase(),
+          messages: [unfinishedStreamMessage, MOCK_USER_PROMPT_MESSAGE],
+          isLoading: true,
+        });
+        await nextTick();
+
+        // Expect cancel button
+        expect(findSubmitButton().exists()).toBe(false);
+        expect(findCancelButton().exists()).toBe(true);
+      });
     });
   });
 
