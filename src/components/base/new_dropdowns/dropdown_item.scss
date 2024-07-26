@@ -71,10 +71,11 @@
   }
 
   .gl-new-dropdown-item-content {
+    @apply gl-rounded-base;
+    @apply gl-border-0;
     @include gl-w-full;
     @include gl-bg-transparent;
     @include gl-align-items-center;
-    @apply gl-border-0;
     @include gl-display-flex;
     @include gl-font-base;
     @include gl-font-weight-normal;
@@ -82,7 +83,6 @@
     @include gl-px-3;
     @include gl-py-0;
     position: relative;
-    @include gl-rounded-base;
     @include gl-text-decoration-none;
     @include gl-text-gray-900;
     @include gl-text-left;

@@ -40,7 +40,7 @@ $pd-week-color: $gray-500;
 .gl-datepicker-theme {
   @include gl-font-regular;
   @apply gl-border-none;
-  @include gl-rounded-base;
+  @apply gl-rounded-base;
   @include gl-mt-3;
 
   &.is-bound {
@@ -53,7 +53,7 @@ $pd-week-color: $gray-500;
     @include gl-px-3;
     @include gl-pb-3;
     @include gl-inset-border-1-gray-100;
-    @include gl-rounded-base;
+    @apply gl-rounded-base;
   }
 
   .pika-title {
@@ -115,8 +115,8 @@ $pd-week-color: $gray-500;
   }
 
   .pika-button {
+    @apply gl-rounded-base;
     @include gl-shadow-none;
-    @include gl-rounded-base;
     @include gl-py-3;
     @include gl-text-center;
     @include gl-line-height-normal;

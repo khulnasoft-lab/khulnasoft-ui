@@ -1,11 +1,11 @@
 .gl-dropdown {
   .dropdown-menu {
-    @include gl-bg-white;
     @apply gl-border-1 gl-border-gray-200;
+    @apply gl-rounded-base;
+    @include gl-bg-white;
     @include gl-mt-2;
     @include gl-mb-2;
     @include gl-p-0;
-    @include gl-rounded-base;
     @include gl-shadow-x0-y2-b4-s0;
     width: $gl-dropdown-width;
 

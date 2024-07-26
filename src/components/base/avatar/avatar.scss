@@ -33,14 +33,14 @@ $gl-avatar-identicon-bgs: var(--gl-avatar-fallback-background-color-red),
   @include gl-w-6;
   @include gl-h-6;
   font-size: map-get($gl-font-sizes, 400);
-  @include gl-rounded-base;
+  @apply gl-rounded-base;
 }
 
 @mixin gl-avatar-s32 {
   @include gl-w-7;
   @include gl-h-7;
   font-size: map-get($gl-font-sizes, 500);
-  @include gl-rounded-base;
+  @apply gl-rounded-base;
 }
 
 @mixin gl-avatar-s48 {

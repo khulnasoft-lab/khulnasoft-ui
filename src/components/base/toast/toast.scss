@@ -20,7 +20,7 @@
 
   .gl-toast {
     color: color-yiq($toast-background-color);
-    @include gl-rounded-base;
+    @apply gl-rounded-base;
     @include gl-font-base;
     @include gl-py-5;
     @include gl-px-6;

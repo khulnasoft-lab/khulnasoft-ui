@@ -22,7 +22,7 @@
     &.active,
     &.focus,
     &:hover:not(.disabled) {
-      @include gl-rounded-base;
+      @apply gl-rounded-base;
     }
   }
 }

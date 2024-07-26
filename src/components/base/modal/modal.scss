@@ -36,7 +36,7 @@ body.modal-open {
   }
 
   .modal-content {
-    @include gl-rounded-base;
+    @apply gl-rounded-base;
     @apply gl-border-0;
     box-shadow: $modal-box-shadow;
     background-color: var(--gl-background-color-default);

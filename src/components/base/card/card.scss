@@ -1,11 +1,11 @@
 .gl-card {
   background-color: var(--gl-background-color-default);
   @apply gl-border-solid;
+  @apply gl-rounded-base;
   @include gl-display-flex;
   @include gl-flex-direction-column;
   @include gl-overflow-wrap-break;
   position: relative;
-  @include gl-rounded-base;
   @include gl-font-base;
 }
 
