@@ -6,7 +6,7 @@
 export const GL_ACTION_DISABLED_FOREGROUND_COLOR = '#89888d'; // Used for the foreground of a disabled action.
 export const GL_ACTION_DISABLED_BACKGROUND_COLOR = '#ececef'; // Used for the background of a disabled action.
 export const GL_ACTION_DISABLED_BORDER_COLOR = '#dcdcde'; // Used for the border of a disabled action.
-export const GL_ACTION_NEUTRAL_FOREGROUND_COLOR_DEFAULT = '#28272d'; // Used for the foreground of outlined and borderless neutral actions.
+export const GL_ACTION_NEUTRAL_FOREGROUND_COLOR_DEFAULT = '#28272d'; // Used for the foreground of a neutral action in the default state.
 export const GL_ACTION_NEUTRAL_FOREGROUND_COLOR_HOVER = '#28272d'; // Used for the foreground of a neutral action in the hover state.
 export const GL_ACTION_NEUTRAL_FOREGROUND_COLOR_FOCUS = '#28272d'; // Used for the foreground of a neutral action in the focus state.
 export const GL_ACTION_NEUTRAL_FOREGROUND_COLOR_ACTIVE = '#28272d'; // Used for the foreground of a neutral action in the active state.
