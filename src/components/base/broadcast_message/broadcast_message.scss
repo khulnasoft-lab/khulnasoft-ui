@@ -79,9 +79,9 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
   }
 
   &.notification {
-    @include gl-rounded-base;
-    @include gl-bg-white;
+    @apply gl-rounded-base;
     @apply gl-border;
+    @include gl-bg-white;
     @include gl-shadow-x0-y2-b4-s0;
     max-width: $gl-broadcast-message-notification-max-width;
   }

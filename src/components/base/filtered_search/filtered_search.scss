@@ -10,7 +10,7 @@
   @include gl-pr-7;
   @include gl-inset-border-1-gray-400;
   @apply gl-border-none;
-  @include gl-rounded-base;
+  @apply gl-rounded-base;
 
   .input-group-prepend + & {
     @include gl-rounded-left-none;

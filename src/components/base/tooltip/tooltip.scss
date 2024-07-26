@@ -3,7 +3,7 @@
   @include gl-p-2;
 
   .tooltip-inner {
-    @include gl-rounded-base;
+    @apply gl-rounded-base;
     @include gl-line-height-normal;
     @include gl-font-weight-normal;
     @include gl-py-3;
