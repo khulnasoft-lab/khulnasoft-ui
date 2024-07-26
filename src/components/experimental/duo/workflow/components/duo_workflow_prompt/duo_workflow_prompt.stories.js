@@ -4,7 +4,7 @@ import readme from './duo_workflow_prompt.md';
 const defaultValue = (prop) => GlDuoWorkflowPrompt.props[prop].default;
 
 const generateProps = ({
-  header = defaultValue('header'),
+  title = defaultValue('title'),
   prompt = defaultValue('prompt'),
   loading = defaultValue('loading'),
   promptLabel = defaultValue('promptLabel'),
@@ -15,7 +15,7 @@ const generateProps = ({
   cancelButtonText = defaultValue('cancelButtonText'),
   summary = 'Fix my pipeline',
 } = {}) => ({
-  header,
+  title,
   promptLabel,
   promptLabelDescription,
   promptDescription,
@@ -32,7 +32,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <gl-duo-workflow-prompt
-      :header="header"
+      :title="title"
       :promptLabel="promptLabel"
       :promptLabelDescription="promptLabelDescription"
       :promptDescription="promptDescription"
