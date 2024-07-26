@@ -33,12 +33,12 @@ export default {
       default: '',
     },
     /**
-     * The text for the header of the panel
+     * The text for the title of the panel
      */
-    header: {
+    title: {
       type: String,
       required: false,
-      default: translate('GlDuoWorkflowPrompt.header', 'Goal'),
+      default: translate('GlDuoWorkflowPrompt.title', 'Goal'),
     },
     /**
      * The summary of the ongoing workflow plan
@@ -149,7 +149,7 @@ export default {
     confirmButtonText: {
       type: String,
       required: false,
-      default: translate('GlDuoWorkflowPrompt.confirmButtonText', 'Generate Plan'),
+      default: translate('GlDuoWorkflowPrompt.confirmButtonText', 'Generate plan'),
     },
     /**
      * The text for the cancellation button. This button emits a `cancel` event.
@@ -219,7 +219,7 @@ export default {
     :expand-panel-button-title="expandPanelButtonTitle"
     :collapse-panel-button-title="collapsePanelButtonTitle"
   >
-    <template #title>{{ header }}</template>
+    <template #title>{{ title }}</template>
     <template #subtitle>{{ summary }}</template>
     <template #content>
       <gl-form-group

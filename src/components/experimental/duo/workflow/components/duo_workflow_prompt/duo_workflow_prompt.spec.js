@@ -25,7 +25,7 @@ describe('GlDuoWorkflowPrompt', () => {
   it('sets the props accordingly', async () => {
     const prompt = 'Fix my pipeline!';
     const image = 'alpine';
-    const header = 'Plan';
+    const title = 'Plan';
     const summary = 'this is the plan';
     const promptLabel = 'Prompt';
     const promptLabelDescription = 'what do you want to do';
@@ -33,7 +33,7 @@ describe('GlDuoWorkflowPrompt', () => {
     const promptId = 'prompt';
     const imageLabel = 'Docker image';
     const imageLabelDescription = 'what is the context';
-    const imageDescription = 'Choose pythonQ';
+    const imageDescription = 'Choose python';
     const imageId = 'image';
     const confirmButtonText = 'yes';
     const cancelButtonText = 'no';
@@ -44,7 +44,7 @@ describe('GlDuoWorkflowPrompt', () => {
       propsData: {
         prompt,
         image,
-        header,
+        title,
         summary,
         promptLabel,
         promptLabelDescription,
@@ -66,7 +66,7 @@ describe('GlDuoWorkflowPrompt', () => {
       expandPanelButtonTitle,
       collapsePanelButtonTitle,
     });
-    expect(findDuoWorkflowPanel().text()).toMatch(header);
+    expect(findDuoWorkflowPanel().text()).toMatch(title);
     expect(findDuoWorkflowPanel().text()).toMatch(summary);
 
     expect(findPromptFormGroup().props()).toMatchObject({

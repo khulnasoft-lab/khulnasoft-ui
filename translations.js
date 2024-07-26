@@ -6,8 +6,7 @@ export default {
   'GlDuoWorkflowPanel.collapseButtonTitle': 'Collapse',
   'GlDuoWorkflowPanel.expandButtonTitle': 'Expand',
   'GlDuoWorkflowPrompt.cancelButtonText': 'Cancel',
-  'GlDuoWorkflowPrompt.confirmButtonText': 'Generate Plan',
-  'GlDuoWorkflowPrompt.header': 'Goal',
+  'GlDuoWorkflowPrompt.confirmButtonText': 'Generate plan',
   'GlDuoWorkflowPrompt.imageDescription':
     'It should have any tools necessary for the workflow installed.',
   'GlDuoWorkflowPrompt.imageLabel': 'Image',
@@ -15,6 +14,7 @@ export default {
   'GlDuoWorkflowPrompt.promptDescription': 'Be specific and include any requirements.',
   'GlDuoWorkflowPrompt.promptLabel': 'Description',
   'GlDuoWorkflowPrompt.promptLabelDescription': 'What would you like to do and how.',
+  'GlDuoWorkflowPrompt.title': 'Goal',
   'GlKeysetPagination.navigationLabel': 'Pagination',
   'GlKeysetPagination.nextText': 'Next',
   'GlKeysetPagination.prevText': 'Previous',
