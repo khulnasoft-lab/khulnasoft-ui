@@ -1,3 +1,10 @@
+# [87.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.1.2...v87.2.0) (2024-07-26)
+
+
+### Features
+
+* **DuoWorkflow:** add component to take prompt ([3b7617d](https://gitlab.com/gitlab-org/gitlab-ui/commit/3b7617dcb12f2254f8d7844a86da4b908a6a8178))
+
 ## [87.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.1.1...v87.1.2) (2024-07-26)
 
 
