@@ -102,7 +102,7 @@ describe('GlDuoWorkflowPrompt', () => {
 
     await findPromptTextarea().vm.$emit('input', prompt);
 
-    expect(wrapper.emitted().change).toStrictEqual([[prompt]]);
+    expect(wrapper.emitted('update:prompt')).toStrictEqual([[prompt]]);
   });
 
   it('emits an image event when the user types in an image', async () => {
@@ -112,7 +112,7 @@ describe('GlDuoWorkflowPrompt', () => {
 
     await findImageInput().vm.$emit('input', image);
 
-    expect(wrapper.emitted().image).toStrictEqual([[image]]);
+    expect(wrapper.emitted('update:image')).toStrictEqual([[image]]);
   });
 
   it('emits a confirm event when the user clicks the confirm button', async () => {

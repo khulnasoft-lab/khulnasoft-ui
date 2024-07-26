@@ -186,14 +186,14 @@ export default {
        * Notify listeners about prompt change
        * @param {string} prompt The newly entered prompt
        */
-      this.$emit('change', prompt);
+      this.$emit('update:prompt', prompt);
     },
     emitImage(image) {
       /**
        * Notify listeners about image change
        * @param {string} image The newly entered image
        */
-      this.$emit('image', image);
+      this.$emit('update:image', image);
     },
     clickConfirm(event) {
       /**

@@ -13,8 +13,10 @@ displayed adjacent to the title
 
 Also listen to the following events:
 
-* `change`: Emitted when the textarea's `input` event fires, when text is
-changed within the textarea
+* `update:prompt`: Emitted when the prompt textarea's `input` event fires, when
+  the text within the textarea is changed
+* `update:image`: Emitted when the image input's `input` event fires, when the
+    text within the input is changed
 * `confirm`: Emitted when the confirm button is clicked
 * `cancel`: Emitted when the cancel button is clicked
 
