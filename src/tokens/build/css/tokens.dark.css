@@ -595,7 +595,7 @@
   --gl-action-confirm-foreground-color-default: var(--gl-color-blue-400); /* Used for the foreground of a confirm (positive) action in the default state. */
   --gl-action-neutral-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a neutral action in the default state. */
   --gl-action-neutral-background-color-focus: var(--gl-action-neutral-background-color-hover); /* Used for the background of a neutral action in the focus state. */
-  --gl-action-neutral-foreground-color-default: var(--gl-color-neutral-50); /* Used for the foreground of outlined and borderless neutral actions. */
+  --gl-action-neutral-foreground-color-default: var(--gl-color-neutral-50); /* Used for the foreground of a neutral action in the default state. */
   --gl-action-disabled-border-color: var(--gl-color-neutral-800); /* Used for the border of a disabled action. */
   --gl-action-disabled-background-color: var(--gl-color-neutral-900); /* Used for the background of a disabled action. */
   --gl-action-disabled-foreground-color: var(--gl-color-neutral-500); /* Used for the foreground of a disabled action. */

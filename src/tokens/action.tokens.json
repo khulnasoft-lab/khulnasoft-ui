@@ -41,7 +41,7 @@
               "dark": "{color.neutral.50}"
             },
             "$type": "color",
-            "$description": "Used for the foreground of outlined and borderless neutral actions."
+            "$description": "Used for the foreground of a neutral action in the default state."
           },
           "hover": {
             "$value": "{action.neutral.foreground.color.default}",
