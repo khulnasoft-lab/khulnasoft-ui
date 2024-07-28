@@ -1,3 +1,10 @@
+## [87.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.2.0...v87.2.1) (2024-07-28)
+
+
+### Bug Fixes
+
+* action-neutral-foreground design token description ([55de73f](https://gitlab.com/gitlab-org/gitlab-ui/commit/55de73f3848651e7561718eab29036f3f0253338))
+
 # [87.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.1.2...v87.2.0) (2024-07-26)
 
 
