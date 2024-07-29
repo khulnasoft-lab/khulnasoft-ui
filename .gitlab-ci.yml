@@ -59,7 +59,7 @@ secret_detection:
   image: mcr.microsoft.com/playwright:v1.45.3-jammy
 
 .node:
-  image: node:20.15.1-bookworm
+  image: node:20.16.0-bookworm
 
 .use_vue3:
   variables:
