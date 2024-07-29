@@ -279,6 +279,49 @@ reliably interpret their value.
 }
 ```
 
+### Extensions
+
+The Design Tokens Format Module allows for  
+[extensions](https://tr.designtokens.org/format/#extensions),  
+which are custom properties that provide additional metadata or functionality.  
+Refer to the format module for authoring extensions.  
+
+#### com.gitlab.deprecated
+
+Indicates that a token is slated to be removed in the future and should
+no longer be used in new contexts.  
+It helps teams identify which tokens are outdated and plan for their eventual removal.
+
+```json
+{
+  "button": {
+    "$value": "#c0ffee",
+    "$type": "color",
+    "$extensions": {
+      "com.gitlab.deprecated": true,
+    }
+  }
+}
+```
+
+#### com.gitlab.locked
+
+Indicates that a token has a restricted scope of use and should not be
+used outside a single component.  
+This is useful for maintaining strict design consistency within specific components.
+
+```json
+{
+  "button": {
+    "$value": "#c0ffee",
+    "$type": "color",
+    "$extensions": {
+      "com.gitlab.locked": true,
+    }
+  }
+}
+```
+
 ## Modes
 
 Modes allow design tokens to update value for different use cases, for example, light and dark mode
@@ -351,7 +394,7 @@ export const TEXT_COLOR = '#fff';
 1. Create a new constant design token when there's a need for a reusable value that represents a
 specific design attribute across the system, otherwise keep new values limited to a specific
 context.
-   1. Follow exsting naming conventions.
+   1. Follow existing naming conventions.
    1. Keep in mind that a new constant design token encourages wider use while a contextual one has
    limited use.
 1. A new or edited token should be reviewed by ~"group::design system" to ensure it aligns with the
