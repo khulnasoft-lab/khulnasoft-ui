@@ -3,6 +3,7 @@
 import clamp from 'lodash/clamp';
 import uniqueId from 'lodash/uniqueId';
 import { stopEvent, filterVisible } from '../../../../utils/utils';
+import { glDropdownConfig } from '../../../../config';
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
@@ -235,7 +236,9 @@ export default {
     improvedHideHeuristics: {
       type: Boolean,
       required: false,
-      default: false,
+      default() {
+        return Boolean(glDropdownConfig.useImprovedHideHeuristics);
+      },
     },
   },
   data() {
