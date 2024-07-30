@@ -1,3 +1,10 @@
+## [87.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.3.0...v87.3.1) (2024-07-30)
+
+
+### Bug Fixes
+
+* add missing Tailwind equivalent for `gl-flex-shrink-0` ([5e20414](https://gitlab.com/gitlab-org/gitlab-ui/commit/5e20414a18ddd14247862baaf3eedc5390683e82))
+
 # [87.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.2.1...v87.3.0) (2024-07-30)
 
 
