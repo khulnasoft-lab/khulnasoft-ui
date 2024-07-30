@@ -144,7 +144,7 @@ describe('GlTokenSelector', () => {
         });
         it('passes correct prop to `gl-token-selector-dropdown` component', () => {
           expect(
-            wrapper.findComponent(GlTokenSelectorDropdown).vm.$props.userDefinedTokenCanBeAdded
+            wrapper.findComponent(GlTokenSelectorDropdown).props('userDefinedTokenCanBeAdded')
           ).toBe(expected);
         });
       }
@@ -154,7 +154,7 @@ describe('GlTokenSelector', () => {
       it('passes prop to `gl-token-selector-dropdown` component', () => {
         createComponent({ propsData: { loading: true } });
 
-        expect(wrapper.findComponent(GlTokenSelectorDropdown).vm.$props.loading).toBe(true);
+        expect(wrapper.findComponent(GlTokenSelectorDropdown).props('loading')).toBe(true);
       });
     });
 
@@ -584,7 +584,9 @@ describe('GlTokenSelector', () => {
           await textInput.trigger('keydown.down');
           await textInput.trigger('keydown.enter');
 
-          expect(wrapper.emitted('input')[0][0][0].name).toBe('foo bar');
+          expect(wrapper.emitted('input')[0]).toStrictEqual([
+            [expect.objectContaining({ name: 'foo bar' })],
+          ]);
         });
       });
 
@@ -600,7 +602,9 @@ describe('GlTokenSelector', () => {
           await textInput.setValue('foo bar');
           await textInput.trigger('keydown.enter');
 
-          expect(wrapper.emitted('input')[0][0][0].name).toBe('foo bar');
+          expect(wrapper.emitted('input')[0]).toStrictEqual([
+            [expect.objectContaining({ name: 'foo bar' })],
+          ]);
         });
 
         it('does not add a user defined token when `allowUserDefinedTokens` is false', async () => {
