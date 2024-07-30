@@ -1,3 +1,10 @@
+# [87.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.3.1...v87.4.0) (2024-07-30)
+
+
+### Features
+
+* make Tailwind migrations a 2-steps process ([b148f2b](https://gitlab.com/gitlab-org/gitlab-ui/commit/b148f2bae2064f199c285e1d55ec12bc7a651f8d))
+
 ## [87.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.3.0...v87.3.1) (2024-07-30)
 
 
