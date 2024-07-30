@@ -1,3 +1,10 @@
+# [87.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.2.1...v87.3.0) (2024-07-30)
+
+
+### Features
+
+* **GlTokenSelector:** Add `showAddNewAlways` prop ([89ae31c](https://gitlab.com/gitlab-org/gitlab-ui/commit/89ae31c903054f2b1866a692772799d94299e76c))
+
 ## [87.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.2.0...v87.2.1) (2024-07-28)
 
 
