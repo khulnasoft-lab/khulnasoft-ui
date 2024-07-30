@@ -11,36 +11,54 @@ import * as tailwindPlugin from 'prettier-plugin-tailwindcss';
 import { tailwindEquivalents } from './lib/tailwind_equivalents.mjs';
 import { parseMigrations, runMigrations } from './lib/tailwind_migrations.mjs';
 
-function createRewriter(config, migrationsToDo) {
-  const { tailwindConfig, dryRun } = config;
+function isFrontendFile(file) {
+  return file.endsWith('.js') || file.endsWith('.vue');
+}
 
+function isPositiveAnswer(answer) {
+  const a = answer.toLowerCase();
+  return ['y', 'yes', ''].includes(a);
+}
+
+function createRewriter(dryRun, migrationsToDo) {
   return async function rewrite(file) {
     const contents = await readFile(file, { encoding: 'utf8' });
 
-    let newContents = runMigrations(contents, migrationsToDo);
+    const newContents = runMigrations(contents, migrationsToDo);
 
     if (contents === newContents) {
       console.warn(`No changes to ${file}`);
-      return;
+      return false;
     }
 
     if (dryRun) {
       console.warn(`Would fix up ${file}`);
-      return;
+      return false;
     }
 
-    if (file.endsWith('.js') || file.endsWith('.vue')) {
-      const prettierConfig = (await resolveConfig(file)) || {};
-      newContents = await format(newContents, {
-        filepath: file,
-        ...prettierConfig,
-        plugins: [tailwindPlugin],
-        tailwindConfig,
-      });
-    }
     await writeFile(file, newContents, { encoding: 'utf8' });
     console.warn(`Fixed ${file}`);
+    return true;
   };
+}
+
+async function prettify(tailwindConfig, files) {
+  for (const file of files) {
+    const contents = await readFile(file, { encoding: 'utf8' });
+    const prettierConfig = (await resolveConfig(file)) || {};
+    const newContents = await format(contents, {
+      filepath: file,
+      ...prettierConfig,
+      plugins: [tailwindPlugin],
+      tailwindConfig,
+    });
+    if (contents === newContents) {
+      console.warn(`${file} did not need to be prettified`);
+    } else {
+      await writeFile(file, newContents, { encoding: 'utf8' });
+      console.warn(`Prettified ${file}`);
+    }
+  }
 }
 
 function validateMigrations(processedMigrations) {
@@ -178,6 +196,12 @@ function getArgsParser() {
       type: 'boolean',
       default: false,
     })
+    .option('single-step-migration', {
+      describe:
+        'Run the migration in a single step. This means that migrated files are prettified with the Tailwind plugin immediately. Leave this disabled to have a chance to commit migrate files before `prettier-plugin-tailwindcss` re-orders classes.',
+      type: 'boolean',
+      default: false,
+    })
     .help('help');
 }
 
@@ -203,37 +227,70 @@ async function main() {
     console.warn(migrations.map((m) => `\t${m.from} => ${m.to}`).join('\n'));
   }
 
-  const rewrite = createRewriter(program, migrations);
+  const rewrite = createRewriter(program.dryRun, migrations);
+  let files = [];
 
   if (program.fromStdin) {
     console.warn('Reading files from stdin:');
     for await (const file of readline.createInterface({ input: process.stdin })) {
       if (file.trim()) {
-        await rewrite(file);
+        files.push(file);
       }
     }
+  } else {
+    const filesAndDirectories = await getFilesAndDirectories(
+      program.directories ?? [],
+      program.dryRun
+    );
+    files = filesAndDirectories.files;
+    const { pattern, directories } = filesAndDirectories;
+    if (program.dryRun) {
+      console.warn(
+        [`Running on %d files across %d directories`, `(using pattern: %s).`].join('\n'),
+        files.length,
+        directories.length,
+        pattern
+      );
+
+      console.warn('Directories searched:');
+      console.warn(`\t${directories.join('\n\t')}`);
+    }
+  }
+
+  let migratedFilesCount = 0;
+  for (const file of files) {
+    if (await rewrite(file)) {
+      migratedFilesCount += 1;
+    }
+  }
+
+  if (migratedFilesCount === 0) {
+    console.warn('No files needed to be migrated');
     return;
   }
 
-  const { pattern, directories, files } = await getFilesAndDirectories(
-    program.directories ?? [],
-    program.dryRun
-  );
-
-  if (program.dryRun) {
-    console.warn(
-      [`Running on %d files across %d directories`, `(using pattern: %s).`].join('\n'),
-      files.length,
-      directories.length,
-      pattern
-    );
-
-    console.warn('Directories searched:');
-    console.warn(`\t${directories.join('\n\t')}`);
+  const filesToBePrettified = files.filter((file) => isFrontendFile(file));
+  if (filesToBePrettified.length === 0) {
+    console.warn('No files to be prettified');
+    return;
   }
 
-  for (const file of files) {
-    await rewrite(file);
+  if (!program.singleStepMigration) {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+    const answer = await rl.question(`
+Files have been migrated and will now be prettified.
+Make sure to commit the changes before proceeding if you would like to track
+the diff before CSS classes get re-ordered by the Tailwind Prettier plugin.
+Continue? (Y/n) `);
+    rl.close();
+    if (isPositiveAnswer(answer)) {
+      await prettify(program.tailwindConfig, filesToBePrettified);
+    }
+  } else {
+    await prettify(program.tailwindConfig, filesToBePrettified);
   }
 }
 
