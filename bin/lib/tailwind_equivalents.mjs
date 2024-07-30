@@ -218,6 +218,7 @@ export const tailwindEquivalents = {
   'gl-md-flex-direction-row-reverse': 'md:gl-flex-row-reverse',
   'gl-flex-grow-0!': '!gl-grow-0',
   'gl-flex-grow-1': 'gl-grow',
+  'gl-flex-shrink-0': 'gl-shrink-0',
   'gl-md-flex-grow-0': 'md:gl-grow-0',
   'gl-flex-basis-0': 'gl-basis-0',
   'gl-flex-basis-quarter': 'gl-basis-1/4',
