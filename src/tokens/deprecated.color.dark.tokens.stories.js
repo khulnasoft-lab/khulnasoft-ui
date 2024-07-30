@@ -1,4 +1,4 @@
-import COMPILED_TOKENS from './build/json/tokens.json';
+import COMPILED_TOKENS from './build/json/tokens.dark.json';
 import { createDesignTokenStory } from './common_story_options';
 
 export const Default = createDesignTokenStory({
@@ -22,5 +22,5 @@ export const Purple = createDesignTokenStory({ tokens: COMPILED_TOKENS.purple })
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/color/base/light',
+  title: 'tokens/color/deprecated/base/dark',
 };

@@ -17,5 +17,5 @@ export const ThemeLightRed = createDesignTokenStory({ tokens: COMPILED_TOKENS.th
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/color/themes/light',
+  title: 'tokens/color/deprecated/themes/light',
 };

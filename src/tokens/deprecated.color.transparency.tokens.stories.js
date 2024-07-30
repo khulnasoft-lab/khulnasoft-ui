@@ -10,5 +10,5 @@ export const White = createDesignTokenStory({
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/color/transparency',
+  title: 'tokens/color/deprecated/transparency',
 };
