@@ -26,7 +26,6 @@ export { default as GlIcon } from './components/base/icon/icon.vue';
 export { default as GlLoadingIcon } from './components/base/loading_icon/loading_icon.vue';
 export { default as GlModal } from './components/base/modal/modal.vue';
 export { default as GlPagination } from './components/base/pagination/pagination.vue';
-export { default as GlPaginatedList } from './components/base/paginated_list/paginated_list.vue';
 export { default as GlPopover } from './components/base/popover/popover.vue';
 export { default as GlProgressBar } from './components/base/progress_bar/progress_bar.vue';
 export { default as GlToken } from './components/base/token/token.vue';
