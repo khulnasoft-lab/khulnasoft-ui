@@ -35,6 +35,14 @@ export default {
       default: false,
     },
     /**
+     * Shows 'Add new token option' in dropdown even if results are present, requires allowUserDefinedTokens to be true
+     */
+    showAddNewAlways: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
      * Dropdown items are loading, can be used when requesting new dropdown items
      */
     loading: {
@@ -161,7 +169,11 @@ export default {
       return !this.filteredDropdownItems.length;
     },
     userDefinedTokenCanBeAdded() {
-      return this.allowUserDefinedTokens && this.dropdownHasNoItems && this.inputText !== '';
+      if (!this.allowUserDefinedTokens || !this.inputText) {
+        return false;
+      }
+
+      return this.showAddNewAlways || this.dropdownHasNoItems;
     },
     hideDropdown() {
       if (this.userDefinedTokenCanBeAdded) {
@@ -262,9 +274,7 @@ export default {
       });
     },
     handleEnter() {
-      if (this.userDefinedTokenCanBeAdded) {
-        this.addToken();
-      } else if (this.focusedDropdownItem && this.dropdownIsOpen) {
+      if (this.focusedDropdownItem && this.dropdownIsOpen) {
         this.addToken(this.focusedDropdownItem);
       }
     },
@@ -302,21 +312,13 @@ export default {
 
       this.focusTextInput();
     },
-    addToken(dropdownItem = null) {
-      const token =
-        dropdownItem !== null
-          ? dropdownItem
-          : {
-              id: uniqueId('user-defined-token'),
-              name: this.inputText,
-            };
-
+    addToken(dropdownItem) {
       /**
        * Fired when a token is added or removed
        *
        * @property {array} selectedTokens
        */
-      this.$emit('input', [...this.selectedTokens, token]);
+      this.$emit('input', [...this.selectedTokens, dropdownItem]);
 
       this.inputText = '';
       this.closeDropdown();
@@ -326,13 +328,13 @@ export default {
        *
        * @property {object} token
        */
-      this.$emit('token-add', token);
+      this.$emit('token-add', dropdownItem);
     },
     removeToken(token) {
       /**
-       * Fired when user types in the token selector
+       * Fired when a token is added or removed
        *
-       * @property {string} inputText
+       * @property {array} selectedTokens
        */
       this.$emit(
         'input',
@@ -446,7 +448,7 @@ export default {
       :dropdown-items="filteredDropdownItems"
       :selected-tokens="selectedTokens"
       :input-text="inputText"
-      :allow-user-defined-tokens="allowUserDefinedTokens"
+      :user-defined-token-can-be-added="userDefinedTokenCanBeAdded"
       :component-id="$options.componentId"
       :register-dropdown-event-handlers="registerDropdownEventHandlers"
       :register-reset-focused-dropdown-item="registerResetFocusedDropdownItem"
@@ -466,7 +468,7 @@ export default {
       </template>
       <template #no-results-content>
         <!-- @slot Content to display when `dropdown-items` is empty and
-          `allow-user-defined-tokens` is `false`. Default content is "No matches found". -->
+          both `allow-user-defined-tokens` and `show-add-new-always` is `false`. Default content is "No matches found". -->
         <slot name="no-results-content"></slot>
       </template>
       <template #dropdown-item-content="{ dropdownItem }">

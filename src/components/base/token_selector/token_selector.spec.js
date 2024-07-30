@@ -116,21 +116,45 @@ describe('GlTokenSelector', () => {
       });
     });
 
-    describe('allowUserDefinedTokens', () => {
-      it('passes prop to `gl-token-selector-dropdown` component', () => {
-        createComponent({ propsData: { allowUserDefinedTokens: true } });
-
-        expect(
-          wrapper.findComponent(GlTokenSelectorDropdown).vm.$props.allowUserDefinedTokens
-        ).toBe(true);
-      });
-    });
+    describe.each`
+      allowUserDefinedTokens | showAddNewAlways | text      | items            | expected
+      ${false}               | ${false}         | ${''}     | ${dropdownItems} | ${false}
+      ${false}               | ${false}         | ${'text'} | ${[]}            | ${false}
+      ${false}               | ${false}         | ${'text'} | ${dropdownItems} | ${false}
+      ${false}               | ${true}          | ${''}     | ${[]}            | ${false}
+      ${false}               | ${true}          | ${''}     | ${dropdownItems} | ${false}
+      ${false}               | ${true}          | ${'text'} | ${[]}            | ${false}
+      ${false}               | ${true}          | ${'text'} | ${dropdownItems} | ${false}
+      ${true}                | ${false}         | ${''}     | ${[]}            | ${false}
+      ${true}                | ${false}         | ${''}     | ${dropdownItems} | ${false}
+      ${true}                | ${false}         | ${'text'} | ${[]}            | ${true}
+      ${true}                | ${false}         | ${'text'} | ${dropdownItems} | ${false}
+      ${true}                | ${true}          | ${''}     | ${[]}            | ${false}
+      ${true}                | ${true}          | ${''}     | ${dropdownItems} | ${false}
+      ${true}                | ${true}          | ${'text'} | ${[]}            | ${true}
+      ${true}                | ${true}          | ${'text'} | ${dropdownItems} | ${true}
+    `(
+      'userDefinedTokenCanBeAdded',
+      ({ allowUserDefinedTokens, showAddNewAlways, text, items, expected }) => {
+        beforeEach(async () => {
+          createComponent({
+            propsData: { allowUserDefinedTokens, showAddNewAlways, dropdownItems: items },
+          });
+          await findTextInput().setValue(text);
+        });
+        it('passes correct prop to `gl-token-selector-dropdown` component', () => {
+          expect(
+            wrapper.findComponent(GlTokenSelectorDropdown).props('userDefinedTokenCanBeAdded')
+          ).toBe(expected);
+        });
+      }
+    );
 
     describe('loading', () => {
       it('passes prop to `gl-token-selector-dropdown` component', () => {
         createComponent({ propsData: { loading: true } });
 
-        expect(wrapper.findComponent(GlTokenSelectorDropdown).vm.$props.loading).toBe(true);
+        expect(wrapper.findComponent(GlTokenSelectorDropdown).props('loading')).toBe(true);
       });
     });
 
@@ -530,31 +554,72 @@ describe('GlTokenSelector', () => {
     });
 
     describe('when `enter` key is pressed', () => {
-      it('adds focused dropdown item as a token', async () => {
-        createComponent({
-          propsData: { dropdownItems },
+      describe('with dropdown items', () => {
+        it('adds focused dropdown item as a token', async () => {
+          createComponent({
+            propsData: { dropdownItems },
+          });
+
+          const textInput = findTextInput();
+
+          textInput.trigger('focus');
+          await textInput.trigger('keydown.enter');
+
+          expect(wrapper.emitted('input')[0]).toEqual([[dropdownItems[0]]]);
         });
 
-        const textInput = findTextInput();
+        it('adds a user defined token when `allowUserDefinedTokens` and `showAddNewAlways` are true', async () => {
+          createComponent({
+            propsData: {
+              dropdownItems: [dropdownItems[0]],
+              allowUserDefinedTokens: true,
+              showAddNewAlways: true,
+            },
+          });
 
-        textInput.trigger('focus');
-        await textInput.trigger('keydown.enter');
+          const textInput = findTextInput();
 
-        expect(wrapper.emitted('input')[0]).toEqual([[dropdownItems[0]]]);
+          textInput.trigger('focus');
+          await textInput.setValue('foo bar');
+          await textInput.trigger('keydown.down');
+          await textInput.trigger('keydown.enter');
+
+          expect(wrapper.emitted('input')[0]).toStrictEqual([
+            [expect.objectContaining({ name: 'foo bar' })],
+          ]);
+        });
       });
 
-      it('adds a user defined token', async () => {
-        createComponent({
-          propsData: { allowUserDefinedTokens: true },
+      describe('with no dropdown items', () => {
+        it('adds a user defined token when `allowUserDefinedTokens` is true', async () => {
+          createComponent({
+            propsData: { allowUserDefinedTokens: true },
+          });
+
+          const textInput = findTextInput();
+
+          textInput.trigger('focus');
+          await textInput.setValue('foo bar');
+          await textInput.trigger('keydown.enter');
+
+          expect(wrapper.emitted('input')[0]).toStrictEqual([
+            [expect.objectContaining({ name: 'foo bar' })],
+          ]);
         });
 
-        const textInput = findTextInput();
+        it('does not add a user defined token when `allowUserDefinedTokens` is false', async () => {
+          createComponent({
+            propsData: { allowUserDefinedTokens: false },
+          });
 
-        textInput.trigger('focus');
-        textInput.setValue('foo bar');
-        await textInput.trigger('keydown.enter');
+          const textInput = findTextInput();
 
-        expect(wrapper.emitted('input')[0][0][0].name).toBe('foo bar');
+          textInput.trigger('focus');
+          await textInput.setValue('foo bar');
+          await textInput.trigger('keydown.enter');
+
+          expect(wrapper.emitted('input')).toBeUndefined();
+        });
       });
     });
 

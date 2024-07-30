@@ -24,6 +24,10 @@ describe('GlTokenSelectorDropdown', () => {
     },
   ];
 
+  const firstDropdownItemIndex = 0;
+  const lastDropdownItemIndex = dropdownItems.length - 1;
+  const userDefinedTokenIndex = dropdownItems.length;
+
   const mockRegisterDropdownEventHandlers = jest.fn();
   const mockRegisterResetFocusedDropdownItem = jest.fn();
 
@@ -31,7 +35,7 @@ describe('GlTokenSelectorDropdown', () => {
     show: false,
     dropdownItems,
     inputText: '',
-    allowUserDefinedTokens: true,
+    userDefinedTokenCanBeAdded: true,
     componentId: 'token-selector1',
     registerDropdownEventHandlers: mockRegisterDropdownEventHandlers,
     registerResetFocusedDropdownItem: mockRegisterResetFocusedDropdownItem,
@@ -52,16 +56,6 @@ describe('GlTokenSelectorDropdown', () => {
   };
 
   const findDropdownMenu = () => wrapper.findComponent({ ref: 'dropdownMenu' });
-
-  const findDropdownItemByName = (name, findButton = true) => {
-    const dropdownItemWrappers = wrapper.findAllComponents(GlDropdownItem);
-
-    const dropdownItem = dropdownItemWrappers.wrappers.find(
-      (dropdownItemWrapper) => dropdownItemWrapper.text() === name
-    );
-
-    return findButton ? dropdownItem.find('button') : dropdownItem;
-  };
 
   beforeAll(() => {
     if (!HTMLElement.prototype.scrollIntoView) {
@@ -116,18 +110,28 @@ describe('GlTokenSelectorDropdown', () => {
 
     describe('dropdownItems', () => {
       describe('when dropdown items are provided', () => {
-        it('displays passed dropdown items', () => {
-          createComponent();
+        describe('with `userDefinedTokenCanBeAdded` is false', () => {
+          it('displays passed in dropdown items', () => {
+            createComponent({ propsData: { userDefinedTokenCanBeAdded: false, dropdownItems } });
 
-          expect(wrapper.findAllComponents(GlDropdownItem).length).toBe(4);
+            expect(wrapper.findAllComponents(GlDropdownItem).length).toBe(dropdownItems.length);
+          });
+        });
+
+        describe('with `userDefinedTokenCanBeAdded` is true', () => {
+          it('displays passed in dropdown items and the user defined token', () => {
+            createComponent({ propsData: { userDefinedTokenCanBeAdded: true, dropdownItems } });
+
+            expect(wrapper.findAllComponents(GlDropdownItem).length).toBe(dropdownItems.length + 1);
+          });
         });
       });
 
       describe('when dropdown items are not provided', () => {
-        it('displays add user defined token message when `allowUserDefinedTokens` is `true` and `inputText` is not empty', () => {
+        it('displays add user defined token message when `userDefinedTokenCanBeAdded` is `true` and `inputText` is not empty', () => {
           createComponent({
             propsData: {
-              allowUserDefinedTokens: true,
+              userDefinedTokenCanBeAdded: true,
               inputText: 'foo bar',
               dropdownItems: [],
             },
@@ -136,10 +140,10 @@ describe('GlTokenSelectorDropdown', () => {
           expect(wrapper.findComponent(GlDropdownItem).text()).toBe('Add "foo bar"');
         });
 
-        it('displays no results message when `allowUserDefinedTokens` is `false`', () => {
+        it('displays no results message when `userDefinedTokenCanBeAdded` is `false`', () => {
           createComponent({
             propsData: {
-              allowUserDefinedTokens: false,
+              userDefinedTokenCanBeAdded: false,
               inputText: 'foo bar',
               dropdownItems: [],
             },
@@ -151,7 +155,7 @@ describe('GlTokenSelectorDropdown', () => {
         it('displays no results message when `inputText` is empty', () => {
           createComponent({
             propsData: {
-              allowUserDefinedTokens: true,
+              userDefinedTokenCanBeAdded: false,
               inputText: '',
               dropdownItems: [],
             },
@@ -195,6 +199,10 @@ describe('GlTokenSelectorDropdown', () => {
 
     it('renders `dropdown-item-content` slot', () => {
       createComponent({
+        propsData: {
+          userDefinedTokenCanBeAdded: false,
+          inputText: 'example.com',
+        },
         scopedSlots: {
           'dropdown-item-content': '<span>Dropdown item id: {{ props.dropdownItem.id }}</span>',
         },
@@ -213,7 +221,7 @@ describe('GlTokenSelectorDropdown', () => {
     it('renders `user-defined-token-content` slot', () => {
       createComponent({
         propsData: {
-          allowUserDefinedTokens: true,
+          userDefinedTokenCanBeAdded: true,
           inputText: 'example.com',
           dropdownItems: [],
         },
@@ -231,7 +239,7 @@ describe('GlTokenSelectorDropdown', () => {
     it('renders `no-results-content` slot', () => {
       createComponent({
         propsData: {
-          allowUserDefinedTokens: false,
+          userDefinedTokenCanBeAdded: false,
           inputText: 'foo bar',
           dropdownItems: [],
         },
@@ -255,6 +263,8 @@ describe('GlTokenSelectorDropdown', () => {
   });
 
   describe('keyboard navigation', () => {
+    let expectedFocusedDropdownItem = null;
+
     let dropdownEventHandlers = {
       handleUpArrow: () => {},
       handleDownArrow: () => {},
@@ -266,82 +276,210 @@ describe('GlTokenSelectorDropdown', () => {
       dropdownEventHandlers = handlers;
     };
 
-    const setup = async (focusedDropdownItemIndex, handler, handlerArgs = null) => {
+    const setup = async ({
+      focusedDropdownItemIndex,
+      expectedFocusedDropdownItemIndex,
+      handler,
+      handlerArgs,
+    } = {}) => {
       wrapper.setData({ focusedDropdownItemIndex });
-
       dropdownEventHandlers[handler](handlerArgs);
 
+      expectedFocusedDropdownItem = wrapper
+        .findAllComponents(GlDropdownItem)
+        .at(expectedFocusedDropdownItemIndex);
       await nextTick();
     };
 
-    beforeEach(() => {
-      createComponent({ propsData: { registerDropdownEventHandlers, show: true } }, false);
-    });
+    describe.each`
+      testName                                                                                                  | userDefinedTokenCanBeAdded | focusedDropdownItemIndex  | expectedFocusedDropdownItemIndex
+      ${'starting at bottom, focuses on previous dropdown item'}                                                | ${false}                   | ${lastDropdownItemIndex}  | ${lastDropdownItemIndex - 1}
+      ${'does not change focus if there is no previous dropdown item'}                                          | ${false}                   | ${firstDropdownItemIndex} | ${firstDropdownItemIndex}
+      ${'starting on user defined dropdown item, focuses on the previous dropdown item'}                        | ${true}                    | ${userDefinedTokenIndex}  | ${lastDropdownItemIndex}
+      ${'with user defined dropdown item in list, does not change focus if there is no previous dropdown item'} | ${true}                    | ${firstDropdownItemIndex} | ${firstDropdownItemIndex}
+    `(
+      'when up arrow is pressed',
+      ({
+        userDefinedTokenCanBeAdded,
+        focusedDropdownItemIndex,
+        expectedFocusedDropdownItemIndex,
+        testName,
+      }) => {
+        beforeEach(async () => {
+          createComponent(
+            {
+              propsData: { registerDropdownEventHandlers, show: true, userDefinedTokenCanBeAdded },
+            },
+            false
+          );
 
-    describe('when up arrow is pressed', () => {
-      it.each`
-        focusedDropdownItemIndex | expectedFocusedDropdownItemIndex | testName
-        ${3}                     | ${2}                             | ${'focuses on previous dropdown item'}
-        ${0}                     | ${0}                             | ${'does not change focus if there is no previous dropdown item'}
-      `('$testName', async ({ focusedDropdownItemIndex, expectedFocusedDropdownItemIndex }) => {
-        await setup(focusedDropdownItemIndex, 'handleUpArrow');
+          await setup({
+            focusedDropdownItemIndex,
+            expectedFocusedDropdownItemIndex,
+            handler: 'handleUpArrow',
+          });
+        });
 
-        const expectedFocusedDropdownItem = findDropdownItemByName(
-          dropdownItems[expectedFocusedDropdownItemIndex].name
+        it(`${testName}`, () => {
+          expect(expectedFocusedDropdownItem.find('button').classes()).toContain('is-focused');
+        });
+
+        it('scrolls focused dropdown item into view', () => {
+          expect(expectedFocusedDropdownItem.vm.$el.scrollIntoView).toHaveBeenCalled();
+        });
+      }
+    );
+
+    describe.each`
+      testName                                                                                     | userDefinedTokenCanBeAdded | focusedDropdownItemIndex  | expectedFocusedDropdownItemIndex
+      ${'starting at top, focuses on next dropdown item'}                                          | ${false}                   | ${firstDropdownItemIndex} | ${1}
+      ${'does not change focus if there is no next dropdown item'}                                 | ${false}                   | ${lastDropdownItemIndex}  | ${lastDropdownItemIndex}
+      ${'with user defined dropdown item in list, starting at top, focuses on next dropdown item'} | ${true}                    | ${firstDropdownItemIndex} | ${1}
+      ${'starting on last created token, changes focus to the user defined dropdown item'}         | ${true}                    | ${lastDropdownItemIndex}  | ${userDefinedTokenIndex}
+    `(
+      'when down arrow is pressed',
+      ({
+        userDefinedTokenCanBeAdded,
+        focusedDropdownItemIndex,
+        expectedFocusedDropdownItemIndex,
+        testName,
+      }) => {
+        beforeEach(async () => {
+          createComponent(
+            {
+              propsData: { registerDropdownEventHandlers, show: true, userDefinedTokenCanBeAdded },
+            },
+            false
+          );
+
+          await setup({
+            focusedDropdownItemIndex,
+            expectedFocusedDropdownItemIndex,
+            handler: 'handleDownArrow',
+          });
+        });
+
+        it(`${testName}`, () => {
+          expect(expectedFocusedDropdownItem.find('button').classes()).toContain('is-focused');
+        });
+
+        it('scrolls focused dropdown item into view', () => {
+          expect(expectedFocusedDropdownItem.vm.$el.scrollIntoView).toHaveBeenCalled();
+        });
+      }
+    );
+
+    describe.each`
+      testName                                                                                     | userDefinedTokenCanBeAdded | focusedDropdownItemIndex  | expectedFocusedDropdownItemIndex
+      ${'starting at bottom, focuses on first dropdown item'}                                      | ${false}                   | ${lastDropdownItemIndex}  | ${firstDropdownItemIndex}
+      ${'does not change focus if already on first item'}                                          | ${false}                   | ${firstDropdownItemIndex} | ${firstDropdownItemIndex}
+      ${'starting on the user defined dropdown item, focuses on first dropdown item'}              | ${true}                    | ${userDefinedTokenIndex}  | ${firstDropdownItemIndex}
+      ${'with user defined dropdown item in list, does not change focus if already on first item'} | ${true}                    | ${firstDropdownItemIndex} | ${firstDropdownItemIndex}
+    `(
+      'when home key is pressed',
+      ({
+        userDefinedTokenCanBeAdded,
+        focusedDropdownItemIndex,
+        expectedFocusedDropdownItemIndex,
+        testName,
+      }) => {
+        beforeEach(async () => {
+          createComponent(
+            {
+              propsData: { registerDropdownEventHandlers, show: true, userDefinedTokenCanBeAdded },
+            },
+            false
+          );
+
+          await setup({
+            focusedDropdownItemIndex,
+            expectedFocusedDropdownItemIndex,
+            handler: 'handleHomeKey',
+            handlerArgs: { preventDefault: () => {} },
+          });
+        });
+
+        it(`${testName}`, () => {
+          expect(expectedFocusedDropdownItem.find('button').classes()).toContain('is-focused');
+        });
+
+        it('scrolls focused dropdown item into view', () => {
+          expect(expectedFocusedDropdownItem.vm.$el.scrollIntoView).toHaveBeenCalled();
+        });
+      }
+    );
+
+    describe.each`
+      testName                                                            | userDefinedTokenCanBeAdded | focusedDropdownItemIndex  | expectedFocusedDropdownItemIndex
+      ${'starting at top, focuses on last dropdown item'}                 | ${false}                   | ${firstDropdownItemIndex} | ${lastDropdownItemIndex}
+      ${'does not change focus if already on last item'}                  | ${false}                   | ${lastDropdownItemIndex}  | ${lastDropdownItemIndex}
+      ${'starting at top, focuses the user defined dropdown item'}        | ${true}                    | ${firstDropdownItemIndex} | ${userDefinedTokenIndex}
+      ${'does not change focus if already on user defined dropdown item'} | ${true}                    | ${userDefinedTokenIndex}  | ${userDefinedTokenIndex}
+    `(
+      'when end key is pressed',
+      ({
+        userDefinedTokenCanBeAdded,
+        focusedDropdownItemIndex,
+        expectedFocusedDropdownItemIndex,
+        testName,
+      }) => {
+        beforeEach(async () => {
+          createComponent(
+            {
+              propsData: { registerDropdownEventHandlers, show: true, userDefinedTokenCanBeAdded },
+            },
+            false
+          );
+
+          await setup({
+            focusedDropdownItemIndex,
+            expectedFocusedDropdownItemIndex,
+            handler: 'handleEndKey',
+            handlerArgs: { preventDefault: () => {} },
+          });
+        });
+
+        it(`${testName}`, () => {
+          expect(expectedFocusedDropdownItem.find('button').classes()).toContain('is-focused');
+        });
+
+        it('scrolls focused dropdown item into view', () => {
+          expect(expectedFocusedDropdownItem.vm.$el.scrollIntoView).toHaveBeenCalled();
+        });
+      }
+    );
+
+    describe('when show is false', () => {
+      beforeEach(() => {
+        createComponent(
+          {
+            propsData: { registerDropdownEventHandlers, show: false },
+          },
+          false
         );
-
-        expect(expectedFocusedDropdownItem.classes()).toContain('is-focused');
-      });
-    });
-
-    describe('when down arrow is pressed', () => {
-      it.each`
-        focusedDropdownItemIndex | expectedFocusedDropdownItemIndex | testName
-        ${0}                     | ${1}                             | ${'focuses on next dropdown item'}
-        ${3}                     | ${3}                             | ${'does not change focus if there is no next dropdown item'}
-      `('$testName', async ({ focusedDropdownItemIndex, expectedFocusedDropdownItemIndex }) => {
-        await setup(focusedDropdownItemIndex, 'handleDownArrow');
-
-        const expectedFocusedDropdownItem = findDropdownItemByName(
-          dropdownItems[expectedFocusedDropdownItemIndex].name
-        );
-
-        expect(expectedFocusedDropdownItem.classes()).toContain('is-focused');
       });
 
-      it('fires `open` event if `show` prop is `false`', () => {
-        createComponent({ propsData: { registerDropdownEventHandlers, show: false } });
-
-        dropdownEventHandlers.handleDownArrow();
+      it('emits `show` event and does not focus next dropdown item', async () => {
+        await setup({
+          focusedDropdownItemIndex: 2,
+          expectedFocusedDropdownItemIndex: 2,
+          handler: 'handleDownArrow',
+        });
 
         expect(wrapper.emitted('show')).toHaveLength(1);
+        expect(expectedFocusedDropdownItem.find('button').classes()).toContain('is-focused');
       });
-    });
 
-    it('focuses on the first token when home key is pressed', async () => {
-      await setup(3, 'handleHomeKey', { preventDefault: () => {} });
+      it('does not emit `show` event and does not focus next dropdown item', async () => {
+        await setup({
+          focusedDropdownItemIndex: 2,
+          expectedFocusedDropdownItemIndex: 2,
+          handler: 'handleUpArrow',
+        });
 
-      const expectedFocusedDropdownItem = findDropdownItemByName(dropdownItems[0].name);
-
-      expect(expectedFocusedDropdownItem.classes()).toContain('is-focused');
-    });
-
-    it('focuses on the last token when end key is pressed', async () => {
-      await setup(0, 'handleEndKey', { preventDefault: () => {} });
-
-      const expectedFocusedDropdownItem = findDropdownItemByName(dropdownItems[3].name);
-
-      expect(expectedFocusedDropdownItem.classes()).toContain('is-focused');
-    });
-
-    it('scrolls focused dropdown item into view', async () => {
-      createComponent();
-
-      await setup(0, 'handleEndKey', { preventDefault: () => {} });
-
-      const expectedFocusedDropdownItem = findDropdownItemByName(dropdownItems[3].name, false);
-
-      expect(expectedFocusedDropdownItem.vm.$el.scrollIntoView).toHaveBeenCalled();
+        expect(wrapper.emitted('show')).toBeUndefined();
+        expect(expectedFocusedDropdownItem.find('button').classes()).toContain('is-focused');
+      });
     });
   });
 });

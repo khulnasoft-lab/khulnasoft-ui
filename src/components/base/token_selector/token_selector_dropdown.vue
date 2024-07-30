@@ -1,4 +1,5 @@
 <script>
+import uniqueId from 'lodash/uniqueId';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import { tokensValidator } from './helpers';
 
@@ -30,7 +31,7 @@ export default {
       type: String,
       required: true,
     },
-    allowUserDefinedTokens: {
+    userDefinedTokenCanBeAdded: {
       type: Boolean,
       required: true,
     },
@@ -53,7 +54,30 @@ export default {
     };
   },
   computed: {
+    userDefinedToken() {
+      return {
+        id: uniqueId('user-defined-token'),
+        name: this.inputText,
+      };
+    },
+    dropdownLength() {
+      // Adds an additional dropdown item for the 'Add ... dropdown' item
+      return this.userDefinedTokenCanBeAdded
+        ? this.dropdownItems.length
+        : this.dropdownItems.length - 1;
+    },
+    focusedLastDropdownItem() {
+      return this.focusedDropdownItemIndex === this.dropdownLength;
+    },
+    focusedUserDefinedToken() {
+      // User defined tokens are always the last in the list
+      return this.userDefinedTokenCanBeAdded && this.focusedLastDropdownItem;
+    },
     focusedDropdownItem() {
+      if (this.focusedUserDefinedToken) {
+        return this.userDefinedToken;
+      }
+
       return this.dropdownItems[this.focusedDropdownItemIndex];
     },
   },
@@ -92,10 +116,7 @@ export default {
     handleMousedown(dropdownItem) {
       // `event.relatedTarget` returns `null` on Safari because buttons are not focused on click (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Clicking_and_focus)
       // Because of this we need to manually focus on the button. We do this in `mousedown` because it is fired before the `blur` event
-      const dropdownItemRef =
-        dropdownItem === null
-          ? this.$refs.userDefinedTokenDropdownItem
-          : this.getDropdownItemRef(dropdownItem);
+      const dropdownItemRef = this.getDropdownItemRef(dropdownItem);
 
       if (dropdownItemRef?.$el) {
         dropdownItemRef.$el.querySelector('button').focus();
@@ -121,7 +142,7 @@ export default {
       }
 
       // Last dropdown item has been reached
-      if (this.focusedDropdownItemIndex === this.dropdownItems.length - 1) {
+      if (this.focusedLastDropdownItem) {
         return;
       }
 
@@ -138,7 +159,7 @@ export default {
       this.focusLastDropdownItem();
     },
     focusLastDropdownItem() {
-      this.focusedDropdownItemIndex = this.dropdownItems.length - 1;
+      this.focusedDropdownItemIndex = this.dropdownLength;
     },
     focusFirstDropdownItem() {
       this.focusedDropdownItemIndex = 0;
@@ -160,6 +181,10 @@ export default {
       return dropdownItem.id === this.focusedDropdownItem.id;
     },
     getDropdownItemRef(dropdownItem) {
+      if (this.focusedUserDefinedToken) {
+        return this.$refs[this.userDefinedToken.id];
+      }
+
       return this.$refs.dropdownItems?.find(
         (ref) => ref.$attrs['data-dropdown-item-id'] === dropdownItem.id
       );
@@ -183,43 +208,49 @@ export default {
       <gl-dropdown-item v-if="loading" disabled>
         <slot name="loading-content">Searching...</slot>
       </gl-dropdown-item>
-      <template v-else-if="dropdownItems.length">
-        <gl-dropdown-item
-          v-for="dropdownItem in dropdownItems"
-          :id="dropdownItemIdAttribute(dropdownItem)"
-          ref="dropdownItems"
-          :key="dropdownItem.id"
-          :data-dropdown-item-id="dropdownItem.id"
-          :active="dropdownItemIsFocused(dropdownItem)"
-          active-class="is-focused"
-          tabindex="-1"
-          @click="handleDropdownItemClick(dropdownItem)"
+
+      <gl-dropdown-item
+        v-for="dropdownItem in dropdownItems"
+        :id="dropdownItemIdAttribute(dropdownItem)"
+        ref="dropdownItems"
+        :key="dropdownItem.id"
+        :data-dropdown-item-id="dropdownItem.id"
+        :active="dropdownItemIsFocused(dropdownItem)"
+        active-class="is-focused"
+        tabindex="-1"
+        @click="handleDropdownItemClick(dropdownItem)"
+      >
+        <div class="-gl-mx-4 -gl-my-3 gl-px-4 gl-py-3" @mousedown="handleMousedown(dropdownItem)">
+          <slot name="dropdown-item-content" :dropdown-item="dropdownItem">
+            {{ dropdownItem.name }}
+          </slot>
+        </div>
+      </gl-dropdown-item>
+
+      <gl-dropdown-item
+        v-if="userDefinedTokenCanBeAdded"
+        :id="dropdownItemIdAttribute(userDefinedToken)"
+        :ref="userDefinedToken.id"
+        :data-dropdown-item-id="userDefinedToken.id"
+        :active="dropdownItemIsFocused(userDefinedToken)"
+        active-class="is-focused"
+        tabindex="-1"
+        @click="handleDropdownItemClick(userDefinedToken)"
+      >
+        <div
+          class="-gl-mx-4 -gl-my-3 gl-px-4 gl-py-3"
+          @mousedown="handleMousedown(userDefinedToken)"
         >
-          <div class="-gl-mx-4 -gl-my-3 gl-px-4 gl-py-3" @mousedown="handleMousedown(dropdownItem)">
-            <slot name="dropdown-item-content" :dropdown-item="dropdownItem">
-              {{ dropdownItem.name }}
-            </slot>
-          </div>
-        </gl-dropdown-item>
-      </template>
-      <template v-else>
-        <gl-dropdown-item
-          v-if="allowUserDefinedTokens && inputText !== ''"
-          ref="userDefinedTokenDropdownItem"
-          active
-          active-class="is-focused"
-          @click="handleDropdownItemClick(null)"
-        >
-          <div class="-gl-mx-4 -gl-my-3 gl-px-4 gl-py-3" @mousedown="handleMousedown(null)">
-            <slot name="user-defined-token-content" :input-text="inputText">
-              Add "{{ inputText }}"
-            </slot>
-          </div>
-        </gl-dropdown-item>
-        <gl-dropdown-item v-else disabled>
-          <slot name="no-results-content">No matches found</slot>
-        </gl-dropdown-item>
-      </template>
+          <slot name="user-defined-token-content" :input-text="inputText">
+            Add "{{ inputText }}"
+          </slot>
+        </div>
+      </gl-dropdown-item>
+
+      <gl-dropdown-item v-else-if="!dropdownItems.length" disabled>
+        <slot name="no-results-content">No matches found</slot>
+      </gl-dropdown-item>
+
       <slot name="dropdown-footer"></slot>
     </ul>
   </div>
