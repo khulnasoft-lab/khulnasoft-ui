@@ -47,7 +47,6 @@ let configured = false;
  * @typedef {object} GitLabUIConfiguration
  * @template TValue=string
  * @property {undefined | Object} translations Generic translations for component labels to fall back to.
- * @property {boolean} disableTranslations Whether translation capabilities should be disabled. Suppresses the warning about missing translations.
  */
 const setConfigs = ({ translations } = {}) => {
   if (configured) {
