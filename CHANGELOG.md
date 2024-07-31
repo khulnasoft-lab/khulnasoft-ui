@@ -1,3 +1,10 @@
+# [87.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.4.0...v87.5.0) (2024-07-31)
+
+
+### Features
+
+* **GlListboxItem:** Add animation ([a76adcc](https://gitlab.com/gitlab-org/gitlab-ui/commit/a76adcc6cad98ac0228178f79d2f2215aed75d29))
+
 # [87.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.3.1...v87.4.0) (2024-07-30)
 
 
