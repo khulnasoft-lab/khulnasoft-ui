@@ -1,20 +1,18 @@
 {
   "feedback": {
-    "background": {
-      "color": {
-        "strong": {
+    "strong": {
+      "background": {
+        "color": {
           "$value": {
             "default": "{color.neutral.950}",
             "dark": "{color.neutral.10}"
           },
           "$type": "color",
-          "$description": "Used for a background associated with feedback like a tooltip or toast message."
+          "$description": "Used for a background associated with strong feedback like a tooltip or toast message."
         }
-      }
-    },
-    "text": {
-      "color": {
-        "strong": {
+      },
+      "text": {
+        "color": {
           "$value": {
             "default": "{color.neutral.0}",
             "dark": "{color.neutral.900}"
@@ -22,11 +20,9 @@
           "$type": "color",
           "$description": "Used for text on a strong feedback background."
         }
-      }
-    },
-    "icon": {
-      "color": {
-        "strong": {
+      },
+      "icon": {
+        "color": {
           "$value": {
             "default": "{color.neutral.0}",
             "dark": "{color.neutral.900}"
@@ -34,11 +30,9 @@
           "$type": "color",
           "$description": "Used for an icon on a strong feedback background."
         }
-      }
-    },
-    "link": {
-      "color": {
-        "strong": {
+      },
+      "link": {
+        "color": {
           "$value": {
             "default": "{color.blue.300}",
             "dark": "{color.blue.700}"

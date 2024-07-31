@@ -525,10 +525,10 @@ $gl-feedback-info-background-color: $gl-color-blue-900; // Used for the backgrou
 $gl-feedback-neutral-icon-color: $gl-color-neutral-300; // Used for the icon of a neutral feedback item when there isn't a specific meaning or urgency.
 $gl-feedback-neutral-text-color: $gl-color-neutral-200; // Used for the text of a neutral feedback item when there isn't a specific meaning or urgency.
 $gl-feedback-neutral-background-color: $gl-color-neutral-900; // Used for the background of a neutral feedback item when there isn't a specific meaning or urgency.
-$gl-feedback-link-color-strong: $gl-color-blue-700; // Used for a link on a strong feedback background.
-$gl-feedback-icon-color-strong: $gl-color-neutral-900; // Used for an icon on a strong feedback background.
-$gl-feedback-text-color-strong: $gl-color-neutral-900; // Used for text on a strong feedback background.
-$gl-feedback-background-color-strong: $gl-color-neutral-10; // Used for a background associated with feedback like a tooltip or toast message.
+$gl-feedback-strong-link-color: $gl-color-blue-700; // Used for a link on a strong feedback background.
+$gl-feedback-strong-icon-color: $gl-color-neutral-900; // Used for an icon on a strong feedback background.
+$gl-feedback-strong-text-color: $gl-color-neutral-900; // Used for text on a strong feedback background.
+$gl-feedback-strong-background-color: $gl-color-neutral-10; // Used for a background associated with strong feedback like a tooltip or toast message.
 $gl-control-indicator-color-disabled: $gl-color-neutral-400; // Used for disabled checkbox and radio button state indicators.
 $gl-control-indicator-color-selected: $gl-color-neutral-900; // Used for checkbox and radio button state indicators.
 $gl-control-placeholder-color: $gl-color-neutral-500; // Used for placeholder text within inputs.
