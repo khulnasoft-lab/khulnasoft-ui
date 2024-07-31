@@ -28,12 +28,24 @@ $breadcrumb-max-width: $grid-size * 16;
   }
 
   > a {
+    @include gl-display-inline-block;
+    border-radius: $gl-border-radius-base;
     color: var(--gl-text-color-subtle);
+    text-decoration-thickness: auto;
+    text-decoration-style: solid;
+    text-decoration-color: transparent;
+    @include gl-prefers-reduced-motion-transition;
+    transition: box-shadow $gl-transition-duration-medium $gl-easing-out-cubic,
+                text-decoration-color $gl-transition-duration-medium $gl-easing-out-cubic;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
 
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-focus($outline: true);
+      @include gl-focus;
     }
   }
 }
