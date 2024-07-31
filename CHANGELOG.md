@@ -1,3 +1,10 @@
+# [87.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.5.1...v87.6.0) (2024-07-31)
+
+
+### Features
+
+* **GlBreadcrumb:** Add animation ([108c6f2](https://gitlab.com/gitlab-org/gitlab-ui/commit/108c6f2b4d90c0120d0e5ff528c19d054b5cedca))
+
 ## [87.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.5.0...v87.5.1) (2024-07-31)
 
 
