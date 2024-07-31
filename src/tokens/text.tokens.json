@@ -6,7 +6,7 @@
         "dark": "#ececef"
       },
       "$type": "color",
-      "$description": "Use text.color.default instead",
+      "$description": "Use text.color.default instead.",
       "deprecated": true
     },
     "secondary": {
@@ -15,7 +15,7 @@
         "dark": "#89888d"
       },
       "$type": "color",
-      "$description": "Use text.color.subtle instead",
+      "$description": "Use text.color.subtle instead.",
       "deprecated": true
     },
     "tertiary": {
@@ -24,7 +24,7 @@
         "dark": "#737278"
       },
       "$type": "color",
-      "$description": "Use text.color.disabled instead",
+      "$description": "Use text.color.disabled instead.",
       "deprecated": true
     },
     "color": {
