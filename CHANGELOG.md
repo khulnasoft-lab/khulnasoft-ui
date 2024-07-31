@@ -1,3 +1,10 @@
+## [87.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.5.0...v87.5.1) (2024-07-31)
+
+
+### Bug Fixes
+
+* **Tailwind:** fix `gl-text-black-normal` Tailwind equivalent ([a7f6691](https://gitlab.com/gitlab-org/gitlab-ui/commit/a7f6691cafd158ca392091d5506cbba6edf51002))
+
 # [87.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.4.0...v87.5.0) (2024-07-31)
 
 
