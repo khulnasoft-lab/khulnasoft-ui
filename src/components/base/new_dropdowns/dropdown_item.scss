@@ -70,6 +70,12 @@
     }
   }
 
+  &:focus {
+    .gl-new-dropdown-item-content {
+      z-index: 1;
+    }
+  }
+
   .gl-new-dropdown-item-content {
     @apply gl-rounded-base;
     @apply gl-border-0;
@@ -87,6 +93,9 @@
     @include gl-text-gray-900;
     @include gl-text-left;
     @include gl-white-space-normal;
+    @include gl-prefers-reduced-motion-transition;
+    transition: background-color $gl-transition-duration-fast $gl-easing-out-cubic,
+                box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
 
     .gl-new-dropdown-item-check-icon {
       @include gl-flex-shrink-0;
