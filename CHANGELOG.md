@@ -1,3 +1,10 @@
+# [87.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.6.1...v87.7.0) (2024-08-01)
+
+
+### Features
+
+* Add boolean flag for improvedHideHeuristics in Config ([1fa7037](https://gitlab.com/gitlab-org/gitlab-ui/commit/1fa703735f10a3cfa3539c3c7d5d7950a6c6257e))
+
 ## [87.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.6.0...v87.6.1) (2024-08-01)
 
 
