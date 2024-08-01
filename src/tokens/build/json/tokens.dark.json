@@ -10990,7 +10990,7 @@
         "color": {
           "value": "#28272d",
           "$type": "color",
-          "comment": "Used for a background associated with neutral feedback.",
+          "comment": "Used for the background of a neutral feedback item when there isn't a specific meaning or urgency.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -10999,7 +10999,7 @@
               "dark": "{color.neutral.900}"
             },
             "$type": "color",
-            "comment": "Used for a background associated with neutral feedback."
+            "comment": "Used for the background of a neutral feedback item when there isn't a specific meaning or urgency."
           },
           "name": "FEEDBACK_NEUTRAL_BACKGROUND_COLOR",
           "attributes": {},
@@ -11011,11 +11011,36 @@
           ]
         }
       },
+      "text": {
+        "color": {
+          "value": "#bfbfc3",
+          "$type": "color",
+          "comment": "Used for the text of a neutral feedback item when there isn't a specific meaning or urgency.",
+          "filePath": "src/tokens/feedback.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.700}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "comment": "Used for the text of a neutral feedback item when there isn't a specific meaning or urgency."
+          },
+          "name": "FEEDBACK_NEUTRAL_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "feedback",
+            "neutral",
+            "text",
+            "color"
+          ]
+        }
+      },
       "icon": {
         "color": {
           "value": "#a4a3a8",
           "$type": "color",
-          "comment": "Used for an icon associated with a neutral feedback section.",
+          "comment": "Used for the icon of a neutral feedback item when there isn't a specific meaning or urgency.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11024,7 +11049,7 @@
               "dark": "{color.neutral.300}"
             },
             "$type": "color",
-            "comment": "Used for an icon associated with a neutral feedback section."
+            "comment": "Used for the icon of a neutral feedback item when there isn't a specific meaning or urgency."
           },
           "name": "FEEDBACK_NEUTRAL_ICON_COLOR",
           "attributes": {},
@@ -11042,7 +11067,7 @@
         "color": {
           "value": "#033464",
           "$type": "color",
-          "comment": "Used for a background associated with informational feedback or a highlighted section resulting from a user action.",
+          "comment": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11051,7 +11076,7 @@
               "dark": "{color.blue.900}"
             },
             "$type": "color",
-            "comment": "Used for a background associated with informational feedback or a highlighted section resulting from a user action."
+            "comment": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
           },
           "name": "FEEDBACK_INFO_BACKGROUND_COLOR",
           "attributes": {},
@@ -11063,11 +11088,36 @@
           ]
         }
       },
+      "text": {
+        "color": {
+          "value": "#9dc7f1",
+          "$type": "color",
+          "comment": "Used for the text of an informational feedback item when highlighting new information or a change that doesn't require immediate action.",
+          "filePath": "src/tokens/feedback.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "comment": "Used for the text of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
+          },
+          "name": "FEEDBACK_INFO_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "feedback",
+            "info",
+            "text",
+            "color"
+          ]
+        }
+      },
       "icon": {
         "color": {
           "value": "#63a6e9",
           "$type": "color",
-          "comment": "Used for an icon associated with informational feedback.",
+          "comment": "Used for the icon of an informational feedback item when highlighting new information or a change that doesn't require immediate action.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11076,7 +11126,7 @@
               "dark": "{color.blue.300}"
             },
             "$type": "color",
-            "comment": "Used for an icon associated with informational feedback."
+            "comment": "Used for the icon of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
           },
           "name": "FEEDBACK_INFO_ICON_COLOR",
           "attributes": {},
@@ -11094,7 +11144,7 @@
         "color": {
           "value": "#0a4020",
           "$type": "color",
-          "comment": "Used for a background associated with successful feedback or a new section resulting from a user action.",
+          "comment": "Used for the background of a success feedback item when confirming the successful completion of a user-initiated action.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11103,7 +11153,7 @@
               "dark": "{color.green.900}"
             },
             "$type": "color",
-            "comment": "Used for a background associated with successful feedback or a new section resulting from a user action."
+            "comment": "Used for the background of a success feedback item when confirming the successful completion of a user-initiated action."
           },
           "name": "FEEDBACK_SUCCESS_BACKGROUND_COLOR",
           "attributes": {},
@@ -11115,11 +11165,36 @@
           ]
         }
       },
+      "text": {
+        "color": {
+          "value": "#91d4a8",
+          "$type": "color",
+          "comment": "Used for the text of a success feedback item when confirming the successful completion of a user-initiated action.",
+          "filePath": "src/tokens/feedback.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.green.700}",
+              "dark": "{color.green.200}"
+            },
+            "$type": "color",
+            "comment": "Used for the text of a success feedback item when confirming the successful completion of a user-initiated action."
+          },
+          "name": "FEEDBACK_SUCCESS_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "feedback",
+            "success",
+            "text",
+            "color"
+          ]
+        }
+      },
       "icon": {
         "color": {
           "value": "#52b87a",
           "$type": "color",
-          "comment": "Used for an icon associated with successful feedback or a new section.",
+          "comment": "Used for the icon of a success feedback item when confirming the successful completion of a user-initiated action.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11128,7 +11203,7 @@
               "dark": "{color.green.300}"
             },
             "$type": "color",
-            "comment": "Used for an icon associated with successful feedback or a new section."
+            "comment": "Used for the icon of a success feedback item when confirming the successful completion of a user-initiated action."
           },
           "name": "FEEDBACK_SUCCESS_ICON_COLOR",
           "attributes": {},
@@ -11146,7 +11221,7 @@
         "color": {
           "value": "#5c2900",
           "$type": "color",
-          "comment": "Used for a background associated with warning feedback or to let a user know about confidential content.",
+          "comment": "Used for the background of a warning feedback item when notifying about a potential issue or sensitive information.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11155,7 +11230,7 @@
               "dark": "{color.orange.900}"
             },
             "$type": "color",
-            "comment": "Used for a background associated with warning feedback or to let a user know about confidential content."
+            "comment": "Used for the background of a warning feedback item when notifying about a potential issue or sensitive information."
           },
           "name": "FEEDBACK_WARNING_BACKGROUND_COLOR",
           "attributes": {},
@@ -11167,11 +11242,36 @@
           ]
         }
       },
+      "text": {
+        "color": {
+          "value": "#e9be74",
+          "$type": "color",
+          "comment": "Used for the text of a warning feedback item when notifying about a potential issue or sensitive information.",
+          "filePath": "src/tokens/feedback.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.orange.700}",
+              "dark": "{color.orange.200}"
+            },
+            "$type": "color",
+            "comment": "Used for the text of a warning feedback item when notifying about a potential issue or sensitive information."
+          },
+          "name": "FEEDBACK_WARNING_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "feedback",
+            "warning",
+            "text",
+            "color"
+          ]
+        }
+      },
       "icon": {
         "color": {
           "value": "#d99530",
           "$type": "color",
-          "comment": "Used for an icon associated with warning feedback or confidential content.",
+          "comment": "Used for the icon of a warning feedback item when notifying about a potential issue or sensitive information.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11180,7 +11280,7 @@
               "dark": "{color.orange.300}"
             },
             "$type": "color",
-            "comment": "Used for an icon associated with warning feedback or confidential content."
+            "comment": "Used for the icon of a warning feedback item when notifying about a potential issue or sensitive information."
           },
           "name": "FEEDBACK_WARNING_ICON_COLOR",
           "attributes": {},
@@ -11198,7 +11298,7 @@
         "color": {
           "value": "#660e00",
           "$type": "color",
-          "comment": "Used for a background associated with danger or critical feedback.",
+          "comment": "Used for the background of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11207,7 +11307,7 @@
               "dark": "{color.red.900}"
             },
             "$type": "color",
-            "comment": "Used for a background associated with danger or critical feedback."
+            "comment": "Used for the background of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
           },
           "name": "FEEDBACK_DANGER_BACKGROUND_COLOR",
           "attributes": {},
@@ -11219,11 +11319,36 @@
           ]
         }
       },
+      "text": {
+        "color": {
+          "value": "#fcb5aa",
+          "$type": "color",
+          "comment": "Used for the text of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention.",
+          "filePath": "src/tokens/feedback.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.red.700}",
+              "dark": "{color.red.200}"
+            },
+            "$type": "color",
+            "comment": "Used for the text of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
+          },
+          "name": "FEEDBACK_DANGER_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "feedback",
+            "danger",
+            "text",
+            "color"
+          ]
+        }
+      },
       "icon": {
         "color": {
           "value": "#f57f6c",
           "$type": "color",
-          "comment": "Used for an icon associated with danger or critical feedback.",
+          "comment": "Used for the icon of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -11232,7 +11357,7 @@
               "dark": "{color.red.300}"
             },
             "$type": "color",
-            "comment": "Used for an icon associated with danger or critical feedback."
+            "comment": "Used for the icon of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
           },
           "name": "FEEDBACK_DANGER_ICON_COLOR",
           "attributes": {},

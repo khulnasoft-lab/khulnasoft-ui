@@ -512,16 +512,21 @@
   --gl-icon-color-subtle: var(--gl-color-neutral-500); /* Used for a static or decorational icon. Can be paired with subtle text. */
   --gl-icon-color-default: var(--gl-color-neutral-700); /* Used for the default icon color. Can be paired with default text. */
   --gl-focus-ring-outer-color: var(--gl-color-blue-500); /* Used for the outer color portion of the focus ring. */
-  --gl-feedback-danger-icon-color: var(--gl-color-red-600); /* Used for an icon associated with danger or critical feedback. */
-  --gl-feedback-danger-background-color: var(--gl-color-red-50); /* Used for a background associated with danger or critical feedback. */
-  --gl-feedback-warning-icon-color: var(--gl-color-orange-600); /* Used for an icon associated with warning feedback or confidential content. */
-  --gl-feedback-warning-background-color: var(--gl-color-orange-50); /* Used for a background associated with warning feedback or to let a user know about confidential content. */
-  --gl-feedback-success-icon-color: var(--gl-color-green-600); /* Used for an icon associated with successful feedback or a new section. */
-  --gl-feedback-success-background-color: var(--gl-color-green-50); /* Used for a background associated with successful feedback or a new section resulting from a user action. */
-  --gl-feedback-info-icon-color: var(--gl-color-blue-600); /* Used for an icon associated with informational feedback. */
-  --gl-feedback-info-background-color: var(--gl-color-blue-50); /* Used for a background associated with informational feedback or a highlighted section resulting from a user action. */
-  --gl-feedback-neutral-icon-color: var(--gl-color-neutral-600); /* Used for an icon associated with a neutral feedback section. */
-  --gl-feedback-neutral-background-color: var(--gl-color-neutral-50); /* Used for a background associated with neutral feedback. */
+  --gl-feedback-danger-icon-color: var(--gl-color-red-600); /* Used for the icon of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention. */
+  --gl-feedback-danger-text-color: var(--gl-color-red-700); /* Used for the text of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention. */
+  --gl-feedback-danger-background-color: var(--gl-color-red-50); /* Used for the background of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention. */
+  --gl-feedback-warning-icon-color: var(--gl-color-orange-600); /* Used for the icon of a warning feedback item when notifying about a potential issue or sensitive information. */
+  --gl-feedback-warning-text-color: var(--gl-color-orange-700); /* Used for the text of a warning feedback item when notifying about a potential issue or sensitive information. */
+  --gl-feedback-warning-background-color: var(--gl-color-orange-50); /* Used for the background of a warning feedback item when notifying about a potential issue or sensitive information. */
+  --gl-feedback-success-icon-color: var(--gl-color-green-600); /* Used for the icon of a success feedback item when confirming the successful completion of a user-initiated action. */
+  --gl-feedback-success-text-color: var(--gl-color-green-700); /* Used for the text of a success feedback item when confirming the successful completion of a user-initiated action. */
+  --gl-feedback-success-background-color: var(--gl-color-green-50); /* Used for the background of a success feedback item when confirming the successful completion of a user-initiated action. */
+  --gl-feedback-info-icon-color: var(--gl-color-blue-600); /* Used for the icon of an informational feedback item when highlighting new information or a change that doesn't require immediate action. */
+  --gl-feedback-info-text-color: var(--gl-color-blue-700); /* Used for the text of an informational feedback item when highlighting new information or a change that doesn't require immediate action. */
+  --gl-feedback-info-background-color: var(--gl-color-blue-50); /* Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action. */
+  --gl-feedback-neutral-icon-color: var(--gl-color-neutral-600); /* Used for the icon of a neutral feedback item when there isn't a specific meaning or urgency. */
+  --gl-feedback-neutral-text-color: var(--gl-color-neutral-700); /* Used for the text of a neutral feedback item when there isn't a specific meaning or urgency. */
+  --gl-feedback-neutral-background-color: var(--gl-color-neutral-50); /* Used for the background of a neutral feedback item when there isn't a specific meaning or urgency. */
   --gl-feedback-link-color-strong: var(--gl-color-blue-300); /* Used for a link on a strong feedback background. */
   --gl-feedback-icon-color-strong: var(--gl-color-neutral-0); /* Used for an icon on a strong feedback background. */
   --gl-feedback-text-color-strong: var(--gl-color-neutral-0); /* Used for text on a strong feedback background. */
