@@ -3,10 +3,6 @@ import translationKeys from '../translations';
 import { BVConfigPlugin } from './vendor/bootstrap-vue/src/bv-config';
 import { tooltipDelay } from './utils/constants';
 
-const bFormTextGlobalConfig = {
-  textVariant: 'gl-muted',
-};
-
 const tooltipGlobalConfig = {
   // Work around for https://github.com/bootstrap-vue/bootstrap-vue/issues/6507
   boundaryPadding: 5,
@@ -62,7 +58,6 @@ const setConfigs = ({ translations, useImprovedHideHeuristics } = {}) => {
   configured = true;
 
   Vue.use(BVConfigPlugin, {
-    BFormText: bFormTextGlobalConfig,
     BTooltip: tooltipGlobalConfig,
     BPopover: {
       delay: popoverDelayConfig,

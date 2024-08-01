@@ -1,0 +1,7 @@
+.gl-form-text {
+  @apply gl-text-subtle;
+
+  &.gl-form-text-block {
+    @apply gl-block gl-mt-2;
+  }
+}
