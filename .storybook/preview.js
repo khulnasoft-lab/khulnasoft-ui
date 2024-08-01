@@ -31,7 +31,9 @@ if (Vue.version.startsWith('3')) {
   });
 }
 
-setConfigs();
+setConfigs({
+  useImprovedHideHeuristics: true,
+});
 
 const theme = {
   brandTitle: 'GitLab UI',
