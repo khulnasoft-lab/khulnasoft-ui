@@ -68,6 +68,12 @@
       &::before {
         background-color: var(--gl-control-background-color-default);
         border-color: var(--gl-control-border-color-default);
+        box-shadow: inset 0 0 0 0 var(--gl-control-background-color-selected-default),
+                    0 0 transparent, 0 0 transparent;
+        @include gl-prefers-reduced-motion-transition;
+        transition: background-color $gl-transition-duration-medium $gl-easing-in-cubic,
+                    border-color $gl-transition-duration-medium $gl-easing-in-cubic,
+                    box-shadow $gl-transition-duration-medium $gl-easing-in-cubic
       }
     }
 
@@ -76,12 +82,14 @@
     }
 
     .custom-control-input:not(:disabled):focus ~ .custom-control-label::before {
-      @include gl-focus;
+      box-shadow: inset 0 0 0 0 var(--gl-control-background-color-selected-default),
+                  $focus-ring;
       border-color: var(--gl-control-border-color-focus);
     }
 
     .custom-control-input:checked  ~ .custom-control-label::before {
-      background-color: var(--gl-control-background-color-selected-default);
+      box-shadow: inset 0 0 0 1em var(--gl-control-background-color-selected-default),
+                  0 0 transparent, 0 0 transparent;
       border-color: var(--gl-control-border-color-selected-default);
 
       @media (forced-colors: active) {
@@ -90,42 +98,46 @@
       }
     }
 
-    .custom-control-input[type='checkbox']:checked ~ .custom-control-label,
-    .custom-control-input[type='checkbox']:indeterminate ~ .custom-control-label,
-    .custom-control-input[type='radio']:checked ~ .custom-control-label {
-      &::after {
-        background: 50% 50% no-repeat;
-        background-color: var(--gl-control-indicator-color-selected);
-        mask-repeat: no-repeat;
-        mask-position: center center;
-      }
+    .custom-control-input[type='checkbox']:not(:indeterminate) ~ .custom-control-label::after,
+    .custom-control-input[type='radio'] ~ .custom-control-label::after {
+      scale: 0;
+      @include gl-prefers-reduced-motion-transition;
+      transition: scale $gl-transition-duration-medium $gl-easing-in-cubic,
+                  rotate $gl-transition-duration-medium $gl-easing-in-cubic;
     }
 
-    .custom-control-input[type='checkbox']:checked ~ .custom-control-label::after {
-      background-image: url('#{$gl-icon-check}');
-      mask-image: url('#{$gl-icon-check}');
+    .custom-control-input[type='checkbox']:checked ~ .custom-control-label::after,
+    .custom-control-input[type='radio']:checked ~ .custom-control-label::after {
+      scale: 1;
+    }
+
+    .custom-control-input[type='checkbox'] ~ .custom-control-label::after {
+      background: url('#{$gl-icon-check}') 50% 50% no-repeat, var(--gl-control-indicator-color-selected);
+      mask: url('#{$gl-icon-check}') center center no-repeat;
     }
 
     .custom-control-input[type='checkbox']:indeterminate ~ .custom-control-label::after {
-      background-image: url('#{$gl-icon-indeterminate}');
-      mask-image: url('#{$gl-icon-indeterminate}');
+      background: url('#{$gl-icon-indeterminate}') 50% 50% no-repeat, var(--gl-control-indicator-color-selected);
+      mask: url('#{$gl-icon-indeterminate}') center center no-repeat;
     }
 
-    .custom-control-input[type='radio']:checked ~ .custom-control-label::after {
-      background-image: url('#{$gl-icon-radio}');
-      mask-image: url('#{$gl-icon-radio}');
+    .custom-control-input[type='radio'] ~ .custom-control-label::after {
+      background: url('#{$gl-icon-radio}') 50% 50% no-repeat, var(--gl-control-indicator-color-selected);
+      mask: url('#{$gl-icon-radio}') center center no-repeat;
     }
 
     .custom-control-input:not(:disabled):checked ~ .custom-control-label:hover,
     .custom-control-input:not(:disabled):hover:checked ~ .custom-control-label {
       &::before  {
-        background-color: var(--gl-control-background-color-selected-hover);
+        box-shadow: inset 0 0 0 1em var(--gl-control-background-color-selected-hover),
+                    0 0 transparent, 0 0 transparent;
         border-color: var(--gl-control-border-color-selected-hover);
       }
     }
 
     .custom-control-input:not(:disabled):focus:checked ~ .custom-control-label::before {
-      background-color: var(--gl-control-background-color-selected-focus);
+      box-shadow: inset 0 0 0 1em var(--gl-control-background-color-selected-focus),
+                  $focus-ring;
       border-color: var(--gl-control-border-color-selected-focus);
     }
 
@@ -142,7 +154,8 @@
 
     &.custom-checkbox {
       .custom-control-input:indeterminate ~ .custom-control-label::before {
-        background-color: var(--gl-control-background-color-selected-default);
+        box-shadow: inset 0 0 0 1em var(--gl-control-background-color-selected-default),
+                    0 0 transparent, 0 0 transparent;
         border-color: var(--gl-control-border-color-selected-default);
 
         @media (forced-colors: active) {
@@ -152,12 +165,14 @@
       }
 
       .custom-control-input:not(:disabled):indeterminate ~ .custom-control-label:hover::before {
-        background-color: var(--gl-control-background-color-selected-hover);
+        box-shadow: inset 0 0 0 1em var(--gl-control-background-color-selected-hover),
+                    0 0 transparent, 0 0 transparent;
         border-color: var(--gl-control-border-color-selected-hover);
       }
 
       .custom-control-input:not(:disabled):focus:indeterminate ~ .custom-control-label::before {
-        background-color: var(--gl-control-background-color-selected-focus);
+        box-shadow: inset 0 0 0 1em var(--gl-control-background-color-selected-focus),
+                    $focus-ring;
         border-color: var(--gl-control-border-color-selected-focus);
       }
 
@@ -187,6 +202,7 @@
     .custom-control-input:checked:disabled ~ .custom-control-label,
     .custom-control-input[type='checkbox']:indeterminate:disabled ~ .custom-control-label {
       &::before {
+        box-shadow: none;
         background-color: var(--gl-control-background-color-disabled);
         border-color: var(--gl-control-border-color-disabled);
       }
