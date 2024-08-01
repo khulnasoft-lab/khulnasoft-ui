@@ -39,6 +39,7 @@ export { default as GlDashboardSkeleton } from './components/regions/dashboard_s
 export { default as GlEmptyState } from './components/regions/empty_state/empty_state.vue';
 export { default as GlForm } from './components/base/form/form.vue';
 export { default as GlFormCharacterCount } from './components/base/form/form_character_count/form_character_count.vue';
+export { default as GlFormDate } from './components/base/form/form_date/form_date.vue';
 export { default as GlFormInput } from './components/base/form/form_input/form_input.vue';
 export { default as GlFormInputGroup } from './components/base/form/form_input_group/form_input_group.vue';
 export { default as GlFormRadio } from './components/base/form/form_radio/form_radio.vue';
