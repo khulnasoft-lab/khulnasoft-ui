@@ -8,10 +8,6 @@
 			"presentation": {
 				"echo": true,
 				"reveal": "always"
-			},
-			"runOptions": {
-				"reevaluateOnRerun": true,
-				"runOn": "folderOpen"
 			}
 		}
 	]
