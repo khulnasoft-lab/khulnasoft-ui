@@ -8581,7 +8581,7 @@
         "background": {
           "color": {
             "default": {
-              "value": "#28272d",
+              "value": "#89888d66",
               "$type": "color",
               "comment": "Used for the background of an default primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -8589,7 +8589,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.0}",
-                  "dark": "{color.neutral.900}"
+                  "dark": "#89888d66"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an default primary button in the default state."
@@ -8606,7 +8606,7 @@
               ]
             },
             "hover": {
-              "value": "#28272d",
+              "value": "#89888da3",
               "$type": "color",
               "comment": "Used for the background of an default primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -8614,7 +8614,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.50}",
-                  "dark": "{color.neutral.900}"
+                  "dark": "#89888da3"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an default primary button in the hover state."
@@ -8631,7 +8631,7 @@
               ]
             },
             "focus": {
-              "value": "#28272d",
+              "value": "#89888da3",
               "$type": "color",
               "comment": "Used for the background of an default primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -8653,7 +8653,7 @@
               ]
             },
             "active": {
-              "value": "#3a383f",
+              "value": "#89888d51",
               "$type": "color",
               "comment": "Used for the background of an default primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -8661,7 +8661,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.100}",
-                  "dark": "{color.neutral.800}"
+                  "dark": "#89888d51"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an default primary button in the active state."
@@ -8682,7 +8682,7 @@
         "border": {
           "color": {
             "default": {
-              "value": "#4c4b51",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an default primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -8690,7 +8690,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.200}",
-                  "dark": "{color.neutral.700}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an default primary button in the default state."
@@ -8707,7 +8707,7 @@
               ]
             },
             "hover": {
-              "value": "#737278",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an default primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -8715,7 +8715,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.400}",
-                  "dark": "{color.neutral.500}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an default primary button in the hover state."
@@ -8732,7 +8732,7 @@
               ]
             },
             "focus": {
-              "value": "#737278",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an default primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -8754,7 +8754,7 @@
               ]
             },
             "active": {
-              "value": "#a4a3a8",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an default primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -8762,7 +8762,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.600}",
-                  "dark": "{color.neutral.300}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an default primary button in the active state."
@@ -9065,13 +9065,16 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{color.neutral.0}",
+                "value": {
+                  "default": "{color.neutral.0}",
+                  "dark": "{color.neutral.950}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the default state."
               },
@@ -9087,7 +9090,7 @@
               ]
             },
             "hover": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9109,7 +9112,7 @@
               ]
             },
             "focus": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9131,7 +9134,7 @@
               ]
             },
             "active": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9157,7 +9160,7 @@
         "background": {
           "color": {
             "default": {
-              "value": "#428fdc",
+              "value": "#63a6e9",
               "$type": "color",
               "comment": "Used for the background of a confirm (positive) primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9165,7 +9168,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.500}",
-                  "dark": "{color.blue.400}"
+                  "dark": "{color.blue.300}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the default state."
@@ -9182,7 +9185,7 @@
               ]
             },
             "hover": {
-              "value": "#63a6e9",
+              "value": "#9dc7f1",
               "$type": "color",
               "comment": "Used for the background of a confirm (positive) primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9190,7 +9193,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.600}",
-                  "dark": "{color.blue.300}"
+                  "dark": "{color.blue.200}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the hover state."
@@ -9207,7 +9210,7 @@
               ]
             },
             "focus": {
-              "value": "#63a6e9",
+              "value": "#9dc7f1",
               "$type": "color",
               "comment": "Used for the background of a confirm (positive) primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9229,7 +9232,7 @@
               ]
             },
             "active": {
-              "value": "#9dc7f1",
+              "value": "#428fdc",
               "$type": "color",
               "comment": "Used for the background of a confirm (positive) primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9237,7 +9240,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.700}",
-                  "dark": "{color.blue.200}"
+                  "dark": "{color.blue.400}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the active state."
@@ -9258,7 +9261,7 @@
         "border": {
           "color": {
             "default": {
-              "value": "#63a6e9",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of a confirm (positive) primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9266,7 +9269,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.600}",
-                  "dark": "{color.blue.300}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of a confirm (positive) primary button in the default state."
@@ -9283,7 +9286,7 @@
               ]
             },
             "hover": {
-              "value": "#cbe2f9",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of a confirm (positive) primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9291,7 +9294,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.800}",
-                  "dark": "{color.blue.100}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of a confirm (positive) primary button in the hover state."
@@ -9308,7 +9311,7 @@
               ]
             },
             "focus": {
-              "value": "#cbe2f9",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of a confirm (positive) primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9330,7 +9333,7 @@
               ]
             },
             "active": {
-              "value": "#e9f3fc",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of a confirm (positive) primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9338,7 +9341,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.900}",
-                  "dark": "{color.blue.50}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of a confirm (positive) primary button in the active state."
@@ -9361,7 +9364,7 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#428fdc",
+              "value": "#cbe2f9",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9369,7 +9372,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.500}",
-                  "dark": "{color.blue.400}"
+                  "dark": "{color.blue.100}"
                 },
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) button in the default state."
@@ -9386,7 +9389,7 @@
               ]
             },
             "hover": {
-              "value": "#9dc7f1",
+              "value": "#e9f3fc",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9394,7 +9397,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.700}",
-                  "dark": "{color.blue.200}"
+                  "dark": "{color.blue.50}"
                 },
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) button in the hover state."
@@ -9411,7 +9414,7 @@
               ]
             },
             "focus": {
-              "value": "#9dc7f1",
+              "value": "#e9f3fc",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9441,7 +9444,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.900}",
-                  "dark": "{color.blue.50}"
+                  "dark": "{button.confirm.secondary.foreground.color.hover}"
                 },
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) button in the active state."
@@ -9462,7 +9465,7 @@
         "background": {
           "color": {
             "default": {
-              "value": "#28272d",
+              "value": "#428fdc66",
               "$type": "color",
               "comment": "Used for the background of an outlined confirm (positive) button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9470,7 +9473,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.0}",
-                  "dark": "{color.neutral.900}"
+                  "dark": "#428fdc66"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an outlined confirm (positive) button in the default state."
@@ -9487,7 +9490,7 @@
               ]
             },
             "hover": {
-              "value": "#033464",
+              "value": "#428fdca3",
               "$type": "color",
               "comment": "Used for the background of an outlined confirm (positive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9495,7 +9498,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.50}",
-                  "dark": "{color.blue.900}"
+                  "dark": "#428fdca3"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an outlined confirm (positive) button in the hover state."
@@ -9512,7 +9515,7 @@
               ]
             },
             "focus": {
-              "value": "#033464",
+              "value": "#428fdca3",
               "$type": "color",
               "comment": "Used for the background of an outlined confirm (positive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9534,7 +9537,7 @@
               ]
             },
             "active": {
-              "value": "#064787",
+              "value": "#428fdc51",
               "$type": "color",
               "comment": "Used for the background of an outlined confirm (positive) button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9542,7 +9545,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.100}",
-                  "dark": "{color.blue.800}"
+                  "dark": "#428fdc51"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an outlined confirm (positive) button in the active state."
@@ -9563,7 +9566,7 @@
         "border": {
           "color": {
             "default": {
-              "value": "#428fdc",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an outlined confirm (positive) button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9571,7 +9574,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.500}",
-                  "dark": "{color.blue.400}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an outlined confirm (positive) button in the default state."
@@ -9588,7 +9591,7 @@
               ]
             },
             "hover": {
-              "value": "#9dc7f1",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an outlined confirm (positive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9596,7 +9599,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.700}",
-                  "dark": "{color.blue.200}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an outlined confirm (positive) button in the hover state."
@@ -9613,7 +9616,7 @@
               ]
             },
             "focus": {
-              "value": "#9dc7f1",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an outlined confirm (positive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9635,7 +9638,7 @@
               ]
             },
             "active": {
-              "value": "#e9f3fc",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an outlined confirm (positive) button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9643,7 +9646,7 @@
               "original": {
                 "value": {
                   "default": "{color.blue.900}",
-                  "dark": "{color.blue.50}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an outlined confirm (positive) button in the active state."
@@ -9666,13 +9669,16 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#428fdc",
+              "value": "#9dc7f1",
               "$type": "color",
               "comment": "Used for the foreground of a borderless, tertiary confirm (positive) button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.confirm.foreground.color.default}",
+                "value": {
+                  "default": "{action.confirm.foreground.color.default}",
+                  "dark": "{color.blue.200}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a borderless, tertiary confirm (positive) button in the default state."
               },
@@ -9688,13 +9694,16 @@
               ]
             },
             "hover": {
-              "value": "#9dc7f1",
+              "value": "#cbe2f9",
               "$type": "color",
               "comment": "Used for the foreground of a borderless, tertiary confirm (positive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.confirm.foreground.color.hover}",
+                "value": {
+                  "default": "{action.confirm.foreground.color.hover}",
+                  "dark": "{color.blue.100}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a borderless, tertiary confirm (positive) button in the hover state."
               },
@@ -9710,13 +9719,16 @@
               ]
             },
             "focus": {
-              "value": "#9dc7f1",
+              "value": "#cbe2f9",
               "$type": "color",
               "comment": "Used for the foreground of a borderless, tertiary confirm (positive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.confirm.foreground.color.focus}",
+                "value": {
+                  "default": "{action.confirm.foreground.color.focus}",
+                  "dark": "{button.confirm.tertiary.foreground.color.hover}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a borderless, tertiary confirm (positive) button in the focus state."
               },
@@ -9732,13 +9744,16 @@
               ]
             },
             "active": {
-              "value": "#e9f3fc",
+              "value": "#cbe2f9",
               "$type": "color",
               "comment": "Used for the foreground of a borderless, tertiary confirm (positive) button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.confirm.foreground.color.active}",
+                "value": {
+                  "default": "{action.confirm.foreground.color.active}",
+                  "dark": "{button.confirm.tertiary.foreground.color.hover}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a borderless, tertiary confirm (positive) button in the active state."
               },
@@ -9780,13 +9795,16 @@
               ]
             },
             "hover": {
-              "value": "rgba(66, 143, 220, 0.4)",
+              "value": "#428fdc66",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.confirm.background.color.hover}",
+                "value": {
+                  "default": "{action.confirm.background.color.hover}",
+                  "dark": "#428fdc66"
+                },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the hover state."
               },
@@ -9802,13 +9820,16 @@
               ]
             },
             "focus": {
-              "value": "rgba(66, 143, 220, 0.4)",
+              "value": "#428fdc66",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.confirm.background.color.focus}",
+                "value": {
+                  "default": "{action.confirm.background.color.focus}",
+                  "dark": "{button.confirm.tertiary.background.color.hover}"
+                },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the focus state."
               },
@@ -9824,13 +9845,16 @@
               ]
             },
             "active": {
-              "value": "rgba(66, 143, 220, 0.16)",
+              "value": "#428fdc29",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.confirm.background.color.active}",
+                "value": {
+                  "default": "{action.confirm.background.color.active}",
+                  "dark": "#428fdc29"
+                },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary confirm (positive) button in the active state."
               },
@@ -9946,13 +9970,16 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a danger (destructive) primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{color.neutral.0}",
+                "value": {
+                  "default": "{color.neutral.0}",
+                  "dark": "{color.neutral.950}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a danger (destructive) primary button in the default state."
               },
@@ -9968,7 +9995,7 @@
               ]
             },
             "hover": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a danger (destructive) primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -9990,7 +10017,7 @@
               ]
             },
             "focus": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a danger (destructive) primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10012,7 +10039,7 @@
               ]
             },
             "active": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a danger (destructive) primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10038,7 +10065,7 @@
         "background": {
           "color": {
             "default": {
-              "value": "#ec5941",
+              "value": "#f57f6c",
               "$type": "color",
               "comment": "Used for the background of a danger (destructive) primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10046,7 +10073,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.500}",
-                  "dark": "{color.red.400}"
+                  "dark": "{color.red.300}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a danger (destructive) primary button in the default state."
@@ -10063,7 +10090,7 @@
               ]
             },
             "hover": {
-              "value": "#f57f6c",
+              "value": "#fcb5aa",
               "$type": "color",
               "comment": "Used for the background of a danger (destructive) primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10071,7 +10098,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.600}",
-                  "dark": "{color.red.300}"
+                  "dark": "{color.red.200}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a danger (destructive) primary button in the hover state."
@@ -10088,7 +10115,7 @@
               ]
             },
             "focus": {
-              "value": "#f57f6c",
+              "value": "#fcb5aa",
               "$type": "color",
               "comment": "Used for the background of a danger (destructive) primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10110,7 +10137,7 @@
               ]
             },
             "active": {
-              "value": "#fdd4cd",
+              "value": "#ec5941",
               "$type": "color",
               "comment": "Used for the background of a danger (destructive) primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10118,7 +10145,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.800}",
-                  "dark": "{color.red.100}"
+                  "dark": "{color.red.400}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a danger (destructive) primary button in the active state."
@@ -10139,7 +10166,7 @@
         "border": {
           "color": {
             "default": {
-              "value": "#f57f6c",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of a danger (destructive) primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10147,7 +10174,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.600}",
-                  "dark": "{color.red.300}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of a danger (destructive) primary button in the default state."
@@ -10164,7 +10191,7 @@
               ]
             },
             "hover": {
-              "value": "#fdd4cd",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of a danger (destructive) primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10172,7 +10199,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.800}",
-                  "dark": "{color.red.100}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of a danger (destructive) primary button in the hover state."
@@ -10189,7 +10216,7 @@
               ]
             },
             "focus": {
-              "value": "#fdd4cd",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of a danger (destructive) primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10211,7 +10238,7 @@
               ]
             },
             "active": {
-              "value": "#fcf1ef",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of a danger (destructive) primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10219,7 +10246,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.900}",
-                  "dark": "{color.red.50}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of a danger (destructive) primary button in the active state."
@@ -10242,7 +10269,7 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#ec5941",
+              "value": "#fdd4cd",
               "$type": "color",
               "comment": "Used for the foreground of a danger (destructive) button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10250,7 +10277,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.500}",
-                  "dark": "{color.red.400}"
+                  "dark": "{color.red.100}"
                 },
                 "$type": "color",
                 "comment": "Used for the foreground of a danger (destructive) button in the default state."
@@ -10267,7 +10294,7 @@
               ]
             },
             "hover": {
-              "value": "#fcb5aa",
+              "value": "#fcf1ef",
               "$type": "color",
               "comment": "Used for the foreground of a danger (destructive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10275,7 +10302,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.700}",
-                  "dark": "{color.red.200}"
+                  "dark": "{color.red.50}"
                 },
                 "$type": "color",
                 "comment": "Used for the foreground of a danger (destructive) button in the hover state."
@@ -10292,7 +10319,7 @@
               ]
             },
             "focus": {
-              "value": "#fcb5aa",
+              "value": "#fcf1ef",
               "$type": "color",
               "comment": "Used for the foreground of a danger (destructive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10343,7 +10370,7 @@
         "background": {
           "color": {
             "default": {
-              "value": "#28272d",
+              "value": "#ec594166",
               "$type": "color",
               "comment": "Used for the background of an outlined danger (destructive) button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10351,7 +10378,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.0}",
-                  "dark": "{color.neutral.900}"
+                  "dark": "#ec594166"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an outlined danger (destructive) button in the default state."
@@ -10368,7 +10395,7 @@
               ]
             },
             "hover": {
-              "value": "#660e00",
+              "value": "#ec5941a3",
               "$type": "color",
               "comment": "Used for the background of an outlined danger (destructive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10376,7 +10403,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.50}",
-                  "dark": "{color.red.900}"
+                  "dark": "#ec5941a3"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an outlined danger (destructive) button in the hover state."
@@ -10393,7 +10420,7 @@
               ]
             },
             "focus": {
-              "value": "#660e00",
+              "value": "#ec5941a3",
               "$type": "color",
               "comment": "Used for the background of an outlined danger (destructive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10415,7 +10442,7 @@
               ]
             },
             "active": {
-              "value": "#8d1300",
+              "value": "#ec594151",
               "$type": "color",
               "comment": "Used for the background of an outlined danger (destructive) button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10423,7 +10450,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.100}",
-                  "dark": "{color.red.800}"
+                  "dark": "#ec594151"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an outlined danger (destructive) button in the active state."
@@ -10444,7 +10471,7 @@
         "border": {
           "color": {
             "default": {
-              "value": "#ec5941",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an outlined danger (destructive) button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10452,7 +10479,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.500}",
-                  "dark": "{color.red.400}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an outlined danger (destructive) button in the default state."
@@ -10469,7 +10496,7 @@
               ]
             },
             "hover": {
-              "value": "#fcb5aa",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an outlined danger (destructive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10477,7 +10504,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.700}",
-                  "dark": "{color.red.200}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an outlined danger (destructive) button in the hover state."
@@ -10494,7 +10521,7 @@
               ]
             },
             "focus": {
-              "value": "#fcb5aa",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an outlined danger (destructive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10516,7 +10543,7 @@
               ]
             },
             "active": {
-              "value": "#fcf1ef",
+              "value": "transparent",
               "$type": "color",
               "comment": "Used for the border of an outlined danger (destructive) button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -10524,7 +10551,7 @@
               "original": {
                 "value": {
                   "default": "{color.red.900}",
-                  "dark": "{color.red.50}"
+                  "dark": "{color.alpha.0}"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an outlined danger (destructive) button in the active state."
@@ -10547,13 +10574,16 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#ec5941",
+              "value": "#fcb5aa",
               "$type": "color",
               "comment": "Used for the foreground of a borderless, tertiary danger (destructive) button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.danger.foreground.color.default}",
+                "value": {
+                  "default": "{action.danger.foreground.color.default}",
+                  "dark": "{color.red.200}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a borderless, tertiary danger (destructive) button in the default state."
               },
@@ -10569,13 +10599,16 @@
               ]
             },
             "hover": {
-              "value": "#fcb5aa",
+              "value": "#fdd4cd",
               "$type": "color",
               "comment": "Used for the foreground of a borderless, tertiary danger (destructive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.danger.foreground.color.hover}",
+                "value": {
+                  "default": "{action.danger.foreground.color.hover}",
+                  "dark": "{color.red.100}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a borderless, tertiary danger (destructive) button in the hover state."
               },
@@ -10591,13 +10624,16 @@
               ]
             },
             "focus": {
-              "value": "#fcb5aa",
+              "value": "#fdd4cd",
               "$type": "color",
               "comment": "Used for the foreground of a borderless, tertiary danger (destructive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.danger.foreground.color.focus}",
+                "value": {
+                  "default": "{action.danger.foreground.color.focus}",
+                  "dark": "{color.red.100}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a borderless, tertiary danger (destructive) button in the focus state."
               },
@@ -10613,13 +10649,16 @@
               ]
             },
             "active": {
-              "value": "#fcf1ef",
+              "value": "#fdd4cd",
               "$type": "color",
               "comment": "Used for the foreground of a borderless, tertiary danger (destructive) button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.danger.foreground.color.active}",
+                "value": {
+                  "default": "{action.danger.foreground.color.active}",
+                  "dark": "{color.red.100}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a borderless, tertiary danger (destructive) button in the active state."
               },
@@ -10661,13 +10700,16 @@
               ]
             },
             "hover": {
-              "value": "rgba(236, 89, 65, 0.4)",
+              "value": "#ec594166",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.danger.background.color.hover}",
+                "value": {
+                  "default": "{action.danger.background.color.hover}",
+                  "dark": "#ec594166"
+                },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the hover state."
               },
@@ -10683,13 +10725,16 @@
               ]
             },
             "focus": {
-              "value": "rgba(236, 89, 65, 0.4)",
+              "value": "#ec594166",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.danger.background.color.focus}",
+                "value": {
+                  "default": "{action.danger.background.color.focus}",
+                  "dark": "{button.danger.tertiary.background.color.hover}"
+                },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the focus state."
               },
@@ -10705,13 +10750,16 @@
               ]
             },
             "active": {
-              "value": "rgba(236, 89, 65, 0.16)",
+              "value": "#ec594129",
               "$type": "color",
               "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{action.danger.background.color.active}",
+                "value": {
+                  "default": "{action.danger.background.color.active}",
+                  "dark": "#ec594129"
+                },
                 "$type": "color",
                 "comment": "Used for the background of a borderless, tertiary danger (destructive) button in the active state."
               },
@@ -11097,7 +11145,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#28272d",
+            "value": "#89888d66",
             "$type": "color",
             "comment": "Used for the background of a selected button in the default state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11118,7 +11166,7 @@
             ]
           },
           "hover": {
-            "value": "#28272d",
+            "value": "#89888da3",
             "$type": "color",
             "comment": "Used for the background of a selected button in the hover state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11139,7 +11187,7 @@
             ]
           },
           "focus": {
-            "value": "#28272d",
+            "value": "#89888da3",
             "$type": "color",
             "comment": "Used for the background of a selected button in the focus state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11160,7 +11208,7 @@
             ]
           },
           "active": {
-            "value": "#3a383f",
+            "value": "#89888d51",
             "$type": "color",
             "comment": "Used for the background of a selected button in the active state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11283,7 +11331,7 @@
     "disabled": {
       "foreground": {
         "color": {
-          "value": "#89888d",
+          "value": "rgba(255, 255, 255, 0.16)",
           "$type": "color",
           "comment": "Used for the foreground of a disabled button.",
           "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11291,7 +11339,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.500}",
-              "dark": "{color.neutral.400}"
+              "dark": "{color.alpha.light.16}"
             },
             "$type": "color",
             "comment": "Used for the foreground of a disabled button."
@@ -11308,7 +11356,7 @@
       },
       "background": {
         "color": {
-          "value": "#18171d",
+          "value": "rgba(255, 255, 255, 0.04)",
           "$type": "color",
           "comment": "Used for the background of a disabled button.",
           "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11316,7 +11364,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.10}",
-              "dark": "{color.neutral.950}"
+              "dark": "{color.alpha.light.4}"
             },
             "$type": "color",
             "comment": "Used for the background of a disabled button."
@@ -11333,7 +11381,7 @@
       },
       "border": {
         "color": {
-          "value": "#3a383f",
+          "value": "transparent",
           "$type": "color",
           "comment": "Used for the border of a disabled button.",
           "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11341,7 +11389,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.100}",
-              "dark": "{color.neutral.800}"
+              "dark": "{color.alpha.0}"
             },
             "$type": "color",
             "comment": "Used for the border of a disabled button."
