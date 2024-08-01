@@ -1,3 +1,10 @@
+## [87.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.6.0...v87.6.1) (2024-08-01)
+
+
+### Bug Fixes
+
+* **GlFormDate:** Add missing export ([314b172](https://gitlab.com/gitlab-org/gitlab-ui/commit/314b172513730e3c59a48e319a1f49f64c3eb5ef))
+
 # [87.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.5.1...v87.6.0) (2024-07-31)
 
 
