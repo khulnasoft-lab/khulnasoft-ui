@@ -1,3 +1,10 @@
+# [87.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.7.0...v87.8.0) (2024-08-02)
+
+
+### Features
+
+* **DesignTokens:** separate badge from status design tokens ([280f390](https://gitlab.com/gitlab-org/gitlab-ui/commit/280f390f9a978362c71871beea8b7400832828e8))
+
 # [87.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.6.1...v87.7.0) (2024-08-01)
 
 
