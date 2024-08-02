@@ -9,7 +9,17 @@
               "dark": "{color.neutral.900}"
             },
             "$type": "color",
-            "$description": "Used for the background of a subtle neutral badge when static or the default state when linked."
+            "$description": "Used for the background of a muted badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.muted.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a muted badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.muted.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a muted badge in the focus state."
           },
           "active": {
             "$value": {
@@ -17,19 +27,43 @@
               "dark": "{color.neutral.800}"
             },
             "$type": "color",
-            "$description": "Used for the background of a subtle neutral badge in the active state."
+            "$description": "Used for the background of a muted badge in the active state."
           }
         }
       },
       "border": {
         "color": {
+          "default": {
+            "$value": {
+              "default": "#bfbfc300",
+              "dark": "#4c4b5100"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a muted badge when static or the default state when linked."
+          },
           "hover": {
             "$value": {
               "default": "{color.neutral.200}",
               "dark": "{color.neutral.700}"
             },
             "$type": "color",
-            "$description": "Used for the border of a subtle neutral badge in the hover state."
+            "$description": "Used for the border of a muted badge in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "#bfbfc300",
+              "dark": "#4c4b5100"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a muted badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "#bfbfc300",
+              "dark": "#4c4b5100"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a muted badge in the active state."
           }
         }
       },
@@ -41,7 +75,7 @@
               "dark": "{color.neutral.300}"
             },
             "$type": "color",
-            "$description": "Used for the text of a subtle neutral badge when static or the default state when linked."
+            "$description": "Used for the text of a muted badge when static or the default state when linked."
           },
           "hover": {
             "$value": {
@@ -49,12 +83,12 @@
               "dark": "{color.neutral.200}"
             },
             "$type": "color",
-            "$description": "Used for the text of a subtle neutral badge in the hover state."
+            "$description": "Used for the text of a muted badge in the hover state."
           },
           "focus": {
             "$value": "{badge.muted.text.color.hover}",
             "$type": "color",
-            "$description": "Used for the text of a subtle neutral badge in the focus state."
+            "$description": "Used for the text of a muted badge in the focus state."
           },
           "active": {
             "$value": {
@@ -62,7 +96,7 @@
               "dark": "{color.neutral.100}"
             },
             "$type": "color",
-            "$description": "Used for the text of a subtle neutral badge in the active state."
+            "$description": "Used for the text of a muted badge in the active state."
           }
         }
       },
@@ -74,7 +108,7 @@
               "dark": "{color.neutral.400}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a subtle neutral badge when static or the default state when linked."
+            "$description": "Used for the icon of a muted badge when static or the default state when linked."
           },
           "hover": {
             "$value": {
@@ -82,12 +116,12 @@
               "dark": "{color.neutral.300}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a subtle neutral badge in the hover state."
+            "$description": "Used for the icon of a muted badge in the hover state."
           },
           "focus": {
             "$value": "{badge.muted.icon.color.hover}",
             "$type": "color",
-            "$description": "Used for the icon of a subtle neutral badge in the focus state."
+            "$description": "Used for the icon of a muted badge in the focus state."
           },
           "active": {
             "$value": {
@@ -95,7 +129,7 @@
               "dark": "{color.neutral.200}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a subtle neutral badge in the active state."
+            "$description": "Used for the icon of a muted badge in the active state."
           }
         }
       }
@@ -111,6 +145,16 @@
             "$type": "color",
             "$description": "Used for the background of a neutral badge when static or the default state when linked."
           },
+          "hover": {
+            "$value": "{badge.neutral.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a neutral badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.neutral.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a neutral badge in the focus state."
+          },
           "active": {
             "$value": {
               "default": "{color.neutral.200}",
@@ -123,6 +167,14 @@
       },
       "border": {
         "color": {
+          "default": {
+            "$value": {
+              "default": "#bfbfc300",
+              "dark": "#4c4b5100"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a neutral badge when static or the default state when linked."
+          },
           "hover": {
             "$value": {
               "default": "{color.neutral.200}",
@@ -130,6 +182,22 @@
             },
             "$type": "color",
             "$description": "Used for the border of a neutral badge in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "#bfbfc300",
+              "dark": "#4c4b5100"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a neutral badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "#bfbfc300",
+              "dark": "#4c4b5100"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a neutral badge in the active state."
           }
         }
       },
@@ -211,6 +279,16 @@
             "$type": "color",
             "$description": "Used for the background of an informational badge when static or the default state when linked."
           },
+          "hover": {
+            "$value": "{badge.info.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of an informational badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.info.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of an informational badge in the focus state."
+          },
           "active": {
             "$value": {
               "default": "{color.blue.200}",
@@ -223,6 +301,14 @@
       },
       "border": {
         "color": {
+          "default": {
+            "$value": {
+              "default": "#9dc7f100",
+              "dark": "#0b5cad00"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an informational badge when static or the default state when linked."
+          },
           "hover": {
             "$value": {
               "default": "{color.blue.200}",
@@ -230,6 +316,22 @@
             },
             "$type": "color",
             "$description": "Used for the border of an informational badge in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "#9dc7f100",
+              "dark": "#0b5cad00"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an informational badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "#9dc7f100",
+              "dark": "#0b5cad00"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an informational badge in the active state."
           }
         }
       },
@@ -311,6 +413,16 @@
             "$type": "color",
             "$description": "Used for the background of a success badge when static or the default state when linked."
           },
+          "hover": {
+            "$value": "{badge.success.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a success badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.success.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a success badge in the focus state."
+          },
           "active": {
             "$value": {
               "default": "{color.green.200}",
@@ -323,6 +435,14 @@
       },
       "border": {
         "color": {
+          "default": {
+            "$value": {
+              "default": "#91d4a800",
+              "dark": "#24663b00"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a success badge when static or the default state when linked."
+          },
           "hover": {
             "$value": {
               "default": "{color.green.200}",
@@ -330,6 +450,22 @@
             },
             "$type": "color",
             "$description": "Used for the border of a success badge in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "#91d4a800",
+              "dark": "#24663b00"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a success badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "#91d4a800",
+              "dark": "#24663b00"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a success badge in the active state."
           }
         }
       },
@@ -409,7 +545,17 @@
               "dark": "{color.orange.800}"
             },
             "$type": "color",
-            "$description": "Used for the background of a warning status or confidential item when static or the default state when linked."
+            "$description": "Used for the background of a warning badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.warning.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a warning badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.warning.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a warning badge in the focus state."
           },
           "active": {
             "$value": {
@@ -417,19 +563,43 @@
               "dark": "{color.orange.700}"
             },
             "$type": "color",
-            "$description": "Used for the background of a warning status or confidential item in the active state."
+            "$description": "Used for the background of a warning badge in the active state."
           }
         }
       },
       "border": {
         "color": {
+          "default": {
+            "$value": {
+              "default": "#e9be7400",
+              "dark": "#8f470000"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a warning badge when static or the default state when linked."
+          },
           "hover": {
             "$value": {
               "default": "{color.orange.200}",
               "dark": "{color.orange.700}"
             },
             "$type": "color",
-            "$description": "Used for the border of a warning status or confidential item in the hover state."
+            "$description": "Used for the border of a warning badge in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "#e9be7400",
+              "dark": "#8f470000"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a warning badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "#e9be7400",
+              "dark": "#8f470000"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a warning badge in the active state."
           }
         }
       },
@@ -441,7 +611,7 @@
               "dark": "{color.orange.200}"
             },
             "$type": "color",
-            "$description": "Used for the text of a warning status or confidential item when static or the default state when linked."
+            "$description": "Used for the text of a warning badge when static or the default state when linked."
           },
           "hover": {
             "$value": {
@@ -449,12 +619,12 @@
               "dark": "{color.orange.100}"
             },
             "$type": "color",
-            "$description": "Used for the text of a warning status or confidential item in the hover state."
+            "$description": "Used for the text of a warning badge in the hover state."
           },
           "focus": {
             "$value": "{badge.warning.text.color.hover}",
             "$type": "color",
-            "$description": "Used for the text of a warning status or confidential item in the focus state."
+            "$description": "Used for the text of a warning badge in the focus state."
           },
           "active": {
             "$value": {
@@ -462,7 +632,7 @@
               "dark": "{color.orange.50}"
             },
             "$type": "color",
-            "$description": "Used for the text of a warning status or confidential item in the active state.N"
+            "$description": "Used for the text of a warning badge in the active state."
           }
         }
       },
@@ -474,7 +644,7 @@
               "dark": "{color.orange.400}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a warning status or confidential item when static or the default state when linked."
+            "$description": "Used for the icon of a warning badge when static or the default state when linked."
           },
           "hover": {
             "$value": {
@@ -482,12 +652,12 @@
               "dark": "{color.orange.300}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a warning status or confidential item in the hover state."
+            "$description": "Used for the icon of a warning badge in the hover state."
           },
           "focus": {
             "$value": "{badge.warning.icon.color.hover}",
             "$type": "color",
-            "$description": "Used for the icon of a warning status or confidential item in the focus state."
+            "$description": "Used for the icon of a warning badge in the focus state."
           },
           "active": {
             "$value": {
@@ -495,7 +665,7 @@
               "dark": "{color.orange.200}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a warning status or confidential item in the active state."
+            "$description": "Used for the icon of a warning badge in the active state."
           }
         }
       }
@@ -509,7 +679,17 @@
               "dark": "{color.red.800}"
             },
             "$type": "color",
-            "$description": "Used for the background of a danger (critical) badge when static or the default state when linked."
+            "$description": "Used for the background of a danger badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.danger.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a danger badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.danger.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a danger badge in the focus state."
           },
           "active": {
             "$value": {
@@ -517,19 +697,43 @@
               "dark": "{color.red.700}"
             },
             "$type": "color",
-            "$description": "Used for the background of a danger (critical) badge in the active state."
+            "$description": "Used for the background of a danger badge in the active state."
           }
         }
       },
       "border": {
         "color": {
+          "default": {
+            "$value": {
+              "default": "#fcb5aa00",
+              "dark": "#ae180000"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a danger badge when static or the default state when linked."
+          },
           "hover": {
             "$value": {
               "default": "{color.red.200}",
               "dark": "{color.red.700}"
             },
             "$type": "color",
-            "$description": "Used for the border of a danger (critical) badge in the hover state."
+            "$description": "Used for the border of a danger badge in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "#fcb5aa00",
+              "dark": "#ae180000"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a danger badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "#fcb5aa00",
+              "dark": "#ae180000"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a danger badge in the active state."
           }
         }
       },
@@ -541,7 +745,7 @@
               "dark": "{color.red.200}"
             },
             "$type": "color",
-            "$description": "Used for the text of a danger (critical) badge when static or the default state when linked."
+            "$description": "Used for the text of a danger badge when static or the default state when linked."
           },
           "hover": {
             "$value": {
@@ -549,12 +753,12 @@
               "dark": "{color.red.100}"
             },
             "$type": "color",
-            "$description": "Used for the text of a danger (critical) badge in the hover state."
+            "$description": "Used for the text of a danger badge in the hover state."
           },
           "focus": {
             "$value": "{badge.danger.text.color.hover}",
             "$type": "color",
-            "$description": "Used for the text of a danger (critical) badge in the focus state."
+            "$description": "Used for the text of a danger badge in the focus state."
           },
           "active": {
             "$value": {
@@ -562,7 +766,7 @@
               "dark": "{color.red.50}"
             },
             "$type": "color",
-            "$description": "Used for the text of a danger (critical) badge in the active state."
+            "$description": "Used for the text of a danger badge in the active state."
           }
         }
       },
@@ -574,7 +778,7 @@
               "dark": "{color.red.400}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a danger (critical) badge when static or the default state when linked."
+            "$description": "Used for the icon of a danger badge when static or the default state when linked."
           },
           "hover": {
             "$value": {
@@ -582,12 +786,12 @@
               "dark": "{color.red.300}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a danger (critical) badge in the hover state."
+            "$description": "Used for the icon of a danger badge in the hover state."
           },
           "focus": {
             "$value": "{badge.danger.icon.color.hover}",
             "$type": "color",
-            "$description": "Used for the icon of a danger (critical) badge in the focus state."
+            "$description": "Used for the icon of a danger badge in the focus state."
           },
           "active": {
             "$value": {
@@ -595,7 +799,7 @@
               "dark": "{color.red.200}"
             },
             "$type": "color",
-            "$description": "Used for the icon of a danger (critical) badge in the active state."
+            "$description": "Used for the icon of a danger badge in the active state."
           }
         }
       }
@@ -611,6 +815,16 @@
             "$type": "color",
             "$description": "Used for the background of a tier related badge when static or the default state when linked."
           },
+          "hover": {
+            "$value": "{badge.tier.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a tier related badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.tier.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a tier related badge in the focus state."
+          },
           "active": {
             "$value": {
               "default": "{color.purple.200}",
@@ -623,6 +837,14 @@
       },
       "border": {
         "color": {
+          "default": {
+            "$value": {
+              "default": "#cbbbf200",
+              "dark": "#5943b600"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a tier related badge when static or the default state when linked."
+          },
           "hover": {
             "$value": {
               "default": "{color.purple.200}",
@@ -630,6 +852,22 @@
             },
             "$type": "color",
             "$description": "Used for the border of a tier related badge in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "#cbbbf200",
+              "dark": "#5943b600"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a tier related badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "#cbbbf200",
+              "dark": "#5943b600"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a tier related badge in the active state."
           }
         }
       },
