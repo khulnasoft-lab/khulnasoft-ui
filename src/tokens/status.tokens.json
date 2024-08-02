@@ -1,744 +1,194 @@
 {
   "status": {
-    "muted": {
-      "background": {
-        "color": {
-          "default": {
-            "$value": {
-              "default": "{color.neutral.50}",
-              "dark": "{color.neutral.900}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a subtle neutral status item when static or the default state when linked."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.neutral.100}",
-              "dark": "{color.neutral.800}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a subtle neutral status item in the active state."
-          }
-        }
-      },
-      "border": {
-        "color": {
-          "hover": {
-            "$value": {
-              "default": "{color.neutral.200}",
-              "dark": "{color.neutral.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the border of a subtle neutral status item in the hover state."
-          }
-        }
-      },
-      "text": {
-        "color": {
-          "default": {
-            "$value": {
-              "default": "{color.neutral.600}",
-              "dark": "{color.neutral.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a subtle neutral status item when static or the default state when linked."
-          },
-          "hover": {
-            "$value": {
-              "default": "{color.neutral.700}",
-              "dark": "{color.neutral.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a subtle neutral status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.neutral.700}",
-              "dark": "{color.neutral.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a subtle neutral status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.neutral.800}",
-              "dark": "{color.neutral.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a subtle neutral status item in the active state."
-          }
-        }
-      },
-      "icon": {
-        "color": {
-          "default": {
-            "$value": {
-              "default": "{color.neutral.500}",
-              "dark": "{color.neutral.400}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a subtle neutral status item when static or the default state when linked."
-          },
-          "hover": {
-            "$value": {
-              "default": "{color.neutral.600}",
-              "dark": "{color.neutral.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a subtle neutral status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.neutral.600}",
-              "dark": "{color.neutral.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a subtle neutral status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.neutral.700}",
-              "dark": "{color.neutral.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a subtle neutral status item in the active state."
-          }
-        }
-      }
-    },
     "neutral": {
       "background": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.neutral.100}",
-              "dark": "{color.neutral.800}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a neutral status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
           },
-          "active": {
-            "$value": {
-              "default": "{color.neutral.200}",
-              "dark": "{color.neutral.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a neutral status item in the active state."
-          }
-        }
-      },
-      "border": {
-        "color": {
-          "hover": {
-            "$value": {
-              "default": "{color.neutral.200}",
-              "dark": "{color.neutral.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the border of a neutral status item in the hover state."
-          }
+          "$type": "color",
+          "$description": "Used for the background of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state."
         }
       },
       "text": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.neutral.700}",
-              "dark": "{color.neutral.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a neutral status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.neutral.700}",
+            "dark": "{color.neutral.200}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.neutral.800}",
-              "dark": "{color.neutral.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a neutral status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.neutral.800}",
-              "dark": "{color.neutral.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a neutral status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.neutral.900}",
-              "dark": "{color.neutral.50}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a neutral status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the text of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state."
         }
       },
       "icon": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.neutral.500}",
-              "dark": "{color.neutral.400}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a neutral status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.neutral.500}",
+            "dark": "{color.neutral.400}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.neutral.600}",
-              "dark": "{color.neutral.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a neutral status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.neutral.600}",
-              "dark": "{color.neutral.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a neutral status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.neutral.700}",
-              "dark": "{color.neutral.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a neutral status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the icon of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state."
         }
       }
     },
     "info": {
       "background": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.blue.100}",
-              "dark": "{color.blue.800}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of an informational status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.blue.100}",
+            "dark": "{color.blue.800}"
           },
-          "active": {
-            "$value": {
-              "default": "{color.blue.200}",
-              "dark": "{color.blue.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of an informational status item in the active state."
-          }
-        }
-      },
-      "border": {
-        "color": {
-          "hover": {
-            "$value": {
-              "default": "{color.blue.200}",
-              "dark": "{color.blue.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the border of an informational status item in the hover state."
-          }
+          "$type": "color",
+          "$description": "Used for the background of an informational status item when indicating a noteworthy ongoing condition or a state of active progress."
         }
       },
       "text": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.blue.700}",
-              "dark": "{color.blue.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of an informational status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.blue.700}",
+            "dark": "{color.blue.200}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.blue.800}",
-              "dark": "{color.blue.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of an informational status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.blue.800}",
-              "dark": "{color.blue.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of an informational status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.blue.900}",
-              "dark": "{color.blue.50}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of an informational status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the text of an informational status item when indicating a noteworthy ongoing condition or a state of active progress."
         }
       },
       "icon": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.blue.500}",
-              "dark": "{color.blue.400}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of an informational status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.blue.500}",
+            "dark": "{color.blue.400}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.blue.600}",
-              "dark": "{color.blue.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of an informational status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.blue.600}",
-              "dark": "{color.blue.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of an informational status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.blue.700}",
-              "dark": "{color.blue.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of an informational status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the icon of an informational status item when indicating a noteworthy ongoing condition or a state of active progress."
         }
       }
     },
     "success": {
       "background": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.green.100}",
-              "dark": "{color.green.800}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a success status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.green.100}",
+            "dark": "{color.green.800}"
           },
-          "active": {
-            "$value": {
-              "default": "{color.green.200}",
-              "dark": "{color.green.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a success status item in the active state."
-          }
-        }
-      },
-      "border": {
-        "color": {
-          "hover": {
-            "$value": {
-              "default": "{color.green.200}",
-              "dark": "{color.green.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the border of a success status item in the hover state."
-          }
+          "$type": "color",
+          "$description": "Used for the background of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation."
         }
       },
       "text": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.green.700}",
-              "dark": "{color.green.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a success status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.green.700}",
+            "dark": "{color.green.200}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.green.800}",
-              "dark": "{color.green.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a success status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.green.800}",
-              "dark": "{color.green.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a success status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.green.900}",
-              "dark": "{color.green.50}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a success status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the text of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation."
         }
       },
       "icon": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.green.500}",
-              "dark": "{color.green.400}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a success status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.green.500}",
+            "dark": "{color.green.400}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.green.600}",
-              "dark": "{color.green.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a success status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.green.600}",
-              "dark": "{color.green.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a success status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.green.700}",
-              "dark": "{color.green.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a success status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the icon of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation."
         }
       }
     },
     "warning": {
       "background": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.orange.100}",
-              "dark": "{color.orange.800}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a warning status or confidential item when static or the default state when linked."
+          "$value": {
+            "default": "{color.orange.100}",
+            "dark": "{color.orange.800}"
           },
-          "active": {
-            "$value": {
-              "default": "{color.orange.200}",
-              "dark": "{color.orange.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a warning status or confidential item in the active state."
-          }
-        }
-      },
-      "border": {
-        "color": {
-          "hover": {
-            "$value": {
-              "default": "{color.orange.200}",
-              "dark": "{color.orange.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the border of a warning status or confidential item in the hover state."
-          }
+          "$type": "color",
+          "$description": "Used for the background of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item."
         }
       },
       "text": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.orange.700}",
-              "dark": "{color.orange.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a warning status or confidential item when static or the default state when linked."
+          "$value": {
+            "default": "{color.orange.700}",
+            "dark": "{color.orange.200}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.orange.800}",
-              "dark": "{color.orange.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a warning status or confidential item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.orange.800}",
-              "dark": "{color.orange.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a warning status or confidential item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.orange.900}",
-              "dark": "{color.orange.50}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a warning status or confidential item in the active state.N"
-          }
+          "$type": "color",
+          "$description": "Used for the text of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item."
         }
       },
       "icon": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.orange.500}",
-              "dark": "{color.orange.400}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a warning status or confidential item when static or the default state when linked."
+          "$value": {
+            "default": "{color.orange.500}",
+            "dark": "{color.orange.400}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.orange.600}",
-              "dark": "{color.orange.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a warning status or confidential item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.orange.600}",
-              "dark": "{color.orange.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a warning status or confidential item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.orange.700}",
-              "dark": "{color.orange.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a warning status or confidential item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the icon of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item."
         }
       }
     },
     "danger": {
       "background": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.red.100}",
-              "dark": "{color.red.800}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a danger (critical) status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.red.100}",
+            "dark": "{color.red.800}"
           },
-          "active": {
-            "$value": {
-              "default": "{color.red.200}",
-              "dark": "{color.red.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a danger (critical) status item in the active state."
-          }
-        }
-      },
-      "border": {
-        "color": {
-          "hover": {
-            "$value": {
-              "default": "{color.red.200}",
-              "dark": "{color.red.700}"
-            },
-            "$type": "color",
-            "$description": "Used for the border of a danger (critical) status item in the hover state."
-          }
+          "$type": "color",
+          "$description": "Used for the background of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition."
         }
       },
       "text": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.red.700}",
-              "dark": "{color.red.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a danger (critical) status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.red.700}",
+            "dark": "{color.red.200}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.red.800}",
-              "dark": "{color.red.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a danger (critical) status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.red.800}",
-              "dark": "{color.red.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a danger (critical) status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.red.900}",
-              "dark": "{color.red.50}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a danger (critical) status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the text of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition."
         }
       },
       "icon": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.red.500}",
-              "dark": "{color.red.400}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a danger (critical) status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.red.500}",
+            "dark": "{color.red.400}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.red.600}",
-              "dark": "{color.red.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a danger (critical) status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.red.600}",
-              "dark": "{color.red.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a danger (critical) status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.red.700}",
-              "dark": "{color.red.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a danger (critical) status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the icon of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition."
         }
       }
     },
     "brand": {
       "background": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.purple.100}",
-              "dark": "{color.purple.900}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a brand related status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.purple.100}",
+            "dark": "{color.purple.900}"
           },
-          "active": {
-            "$value": {
-              "default": "{color.purple.200}",
-              "dark": "{color.purple.800}"
-            },
-            "$type": "color",
-            "$description": "Used for the background of a brand related status item in the active state."
-          }
-        }
-      },
-      "border": {
-        "color": {
-          "hover": {
-            "$value": {
-              "default": "{color.purple.200}",
-              "dark": "{color.purple.800}"
-            },
-            "$type": "color",
-            "$description": "Used for the border of a brand related status item in the hover state."
-          }
+          "$type": "color",
+          "$description": "Used for the background of a brand-related status item when highlighting the state of unique features or elements specific to the GitLab brand identity. Helps distinguish and emphasize brand-specific elements within the interface."
         }
       },
       "text": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.purple.700}",
-              "dark": "{color.purple.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a brand related status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.purple.700}",
+            "dark": "{color.purple.300}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.purple.800}",
-              "dark": "{color.purple.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a brand related status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.purple.800}",
-              "dark": "{color.purple.200}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a brand related status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.purple.900}",
-              "dark": "{color.purple.100}"
-            },
-            "$type": "color",
-            "$description": "Used for the text of a brand related status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the text of a brand-related status item when highlighting the state of unique features or elements specific to the GitLab brand identity. Helps distinguish and emphasize brand-specific elements within the interface."
         }
       },
       "icon": {
         "color": {
-          "default": {
-            "$value": {
-              "default": "{color.purple.500}",
-              "dark": "{color.purple.500}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a brand related status item when static or the default state when linked."
+          "$value": {
+            "default": "{color.purple.500}",
+            "dark": "{color.purple.500}"
           },
-          "hover": {
-            "$value": {
-              "default": "{color.purple.600}",
-              "dark": "{color.purple.400}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a brand related status item in the hover state."
-          },
-          "focus": {
-            "$value": {
-              "default": "{color.purple.600}",
-              "dark": "{color.purple.400}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a brand related status item in the focus state."
-          },
-          "active": {
-            "$value": {
-              "default": "{color.purple.700}",
-              "dark": "{color.purple.300}"
-            },
-            "$type": "color",
-            "$description": "Used for the icon of a brand related status item in the active state."
-          }
+          "$type": "color",
+          "$description": "Used for the icon of a brand-related status item when highlighting the state of unique features or elements specific to the GitLab brand identity. Helps distinguish and emphasize brand-specific elements within the interface."
         }
       }
     }

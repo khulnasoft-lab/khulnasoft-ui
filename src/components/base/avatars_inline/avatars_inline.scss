@@ -52,8 +52,8 @@
   @include gl-px-2;
   @include gl-line-height-normal;
   @include gl-rounded-pill;
-  background-color: var(--gl-status-neutral-background-color-default);
-  color: var(--gl-status-neutral-text-color-default);
+  background-color: var(--gl-status-neutral-background-color);
+  color: var(--gl-status-neutral-text-color);
   height: var(--avatar-size);
   min-width: var(--avatar-size);
 
