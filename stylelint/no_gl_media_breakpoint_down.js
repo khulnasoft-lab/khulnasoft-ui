@@ -9,7 +9,7 @@ const messages = ruleMessages(ruleName, {
     `Usage of "${unfixed}" should be avoided, consider using "${fixed}" instead`,
 });
 
-module.exports = stylelint.createPlugin(ruleName, function getPlugin() {
+module.exports = stylelint.createPlugin(ruleName, () => {
   return function lint(postcssRoot, postcssResult) {
     postcssRoot.walkAtRules('include', (decl) => {
       const usesGlMediaBreakpointDown = decl.params.startsWith(MIXIN_NAME);
