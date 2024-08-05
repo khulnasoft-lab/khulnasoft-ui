@@ -5,7 +5,7 @@
         "default": {
           "$value": {
             "default": "{color.neutral.0}",
-            "dark": "{color.neutral.900}"
+            "dark": "{color.alpha.dark.40}"
           },
           "$type": "color",
           "$description": "Used for form control (input, radio button, checkbox, textarea) default background."
@@ -13,7 +13,7 @@
         "disabled": {
           "$value": {
             "default": "{color.neutral.10}",
-            "dark": "{color.neutral.950}"
+            "dark": "{color.alpha.light.4}"
           },
           "$type": "color",
           "$description": "Used for disabled form control (checkbox, input, radio button, textarea) background."
@@ -22,7 +22,7 @@
           "default": {
             "$value": {
               "default": "{color.blue.500}",
-              "dark": "{color.blue.400}"
+              "dark": "{color.blue.300}"
             },
             "$type": "color",
             "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background."
@@ -43,6 +43,14 @@
             "$type": "color",
             "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover."
           }
+        },
+        "concatenation": {
+          "$value": {
+            "default": "{color.neutral.10}",
+            "dark": "{color.alpha.light.4}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of static content that prepends or appends a text input."
         }
       }
     },
@@ -83,7 +91,7 @@
         "error": {
           "$value": {
             "default": "{color.red.500}",
-            "dark": "{color.red.400}"
+            "dark": "{color.red.300}"
           },
           "$type": "color",
           "$description": "Used for invalid form control (input, textarea) border."
@@ -121,7 +129,7 @@
         "error": {
           "$value": {
             "default": "{color.red.500}",
-            "dark": "{color.red.400}"
+            "dark": "{color.red.300}"
           },
           "$type": "color",
           "$description": "Used for the helper text when the input is invalid."
@@ -129,7 +137,7 @@
         "valid": {
           "$value": {
             "default": "{color.green.500}",
-            "dark": "{color.green.400}"
+            "dark": "{color.green.300}"
           },
           "$type": "color",
           "$description": "Used for the helper text when the input is valid."
@@ -140,7 +148,7 @@
       "color": {
         "$value": {
           "default": "{color.neutral.400}",
-          "dark": "{color.neutral.500}"
+          "dark": "{color.neutral.400}"
         },
         "$type": "color",
         "$description": "Used for placeholder text within inputs."
@@ -151,7 +159,7 @@
         "selected": {
           "$value": {
             "default": "{color.neutral.0}",
-            "dark": "{color.neutral.900}"
+            "dark": "{color.neutral.950}"
           },
           "$type": "color",
           "$description": "Used for checkbox and radio button state indicators."

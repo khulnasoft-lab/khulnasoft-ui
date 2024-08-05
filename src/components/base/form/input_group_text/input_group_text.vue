@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <b-input-group-text v-bind="$attrs" v-on="$listeners">
+  <b-input-group-text v-bind="$attrs" class="gl-form-input-group-text" v-on="$listeners">
     <slot></slot>
   </b-input-group-text>
 </template>
