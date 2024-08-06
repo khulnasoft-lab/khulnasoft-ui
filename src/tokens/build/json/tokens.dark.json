@@ -12811,12 +12811,12 @@
     }
   },
   "feedback": {
-    "background": {
-      "color": {
-        "strong": {
+    "strong": {
+      "background": {
+        "color": {
           "value": "#fbfafd",
           "$type": "color",
-          "comment": "Used for a background associated with feedback like a tooltip or toast message.",
+          "comment": "Used for a background associated with strong feedback like a tooltip or toast message.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
@@ -12825,22 +12825,20 @@
               "dark": "{color.neutral.10}"
             },
             "$type": "color",
-            "comment": "Used for a background associated with feedback like a tooltip or toast message."
+            "comment": "Used for a background associated with strong feedback like a tooltip or toast message."
           },
-          "name": "FEEDBACK_BACKGROUND_COLOR_STRONG",
+          "name": "FEEDBACK_STRONG_BACKGROUND_COLOR",
           "attributes": {},
           "path": [
             "feedback",
+            "strong",
             "background",
-            "color",
-            "strong"
+            "color"
           ]
         }
-      }
-    },
-    "text": {
-      "color": {
-        "strong": {
+      },
+      "text": {
+        "color": {
           "value": "#28272d",
           "$type": "color",
           "comment": "Used for text on a strong feedback background.",
@@ -12854,20 +12852,18 @@
             "$type": "color",
             "comment": "Used for text on a strong feedback background."
           },
-          "name": "FEEDBACK_TEXT_COLOR_STRONG",
+          "name": "FEEDBACK_STRONG_TEXT_COLOR",
           "attributes": {},
           "path": [
             "feedback",
+            "strong",
             "text",
-            "color",
-            "strong"
+            "color"
           ]
         }
-      }
-    },
-    "icon": {
-      "color": {
-        "strong": {
+      },
+      "icon": {
+        "color": {
           "value": "#28272d",
           "$type": "color",
           "comment": "Used for an icon on a strong feedback background.",
@@ -12881,20 +12877,18 @@
             "$type": "color",
             "comment": "Used for an icon on a strong feedback background."
           },
-          "name": "FEEDBACK_ICON_COLOR_STRONG",
+          "name": "FEEDBACK_STRONG_ICON_COLOR",
           "attributes": {},
           "path": [
             "feedback",
+            "strong",
             "icon",
-            "color",
-            "strong"
+            "color"
           ]
         }
-      }
-    },
-    "link": {
-      "color": {
-        "strong": {
+      },
+      "link": {
+        "color": {
           "value": "#0b5cad",
           "$type": "color",
           "comment": "Used for a link on a strong feedback background.",
@@ -12908,13 +12902,13 @@
             "$type": "color",
             "comment": "Used for a link on a strong feedback background."
           },
-          "name": "FEEDBACK_LINK_COLOR_STRONG",
+          "name": "FEEDBACK_STRONG_LINK_COLOR",
           "attributes": {},
           "path": [
             "feedback",
+            "strong",
             "link",
-            "color",
-            "strong"
+            "color"
           ]
         }
       }
