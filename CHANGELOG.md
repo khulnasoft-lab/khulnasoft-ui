@@ -1,3 +1,17 @@
+# [88.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.8.0...v88.0.0) (2024-08-06)
+
+
+### Features
+
+* **DesignTokens:** Restructure feedback tokens for improved clarity ([73e0a26](https://gitlab.com/gitlab-org/gitlab-ui/commit/73e0a26436094e703060f4b96889b7286cb3b7b5))
+
+
+### BREAKING CHANGES
+
+* **DesignTokens:** This commit introduces a new naming structure
+for feedback-related design tokens. The new structure improves
+clarity and reduces potential misuse of tokens.
+
 # [87.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.7.0...v87.8.0) (2024-08-02)
 
 
