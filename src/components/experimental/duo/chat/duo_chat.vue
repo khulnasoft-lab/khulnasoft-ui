@@ -16,6 +16,7 @@ import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/
 import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
+import GlDuoChatInclude from './duo_chat_include.vue';
 import { CHAT_CLEAN_MESSAGE, CHAT_RESET_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
 
 export const i18n = {
@@ -62,6 +63,7 @@ export default {
     GlDuoChatConversation,
     GlCard,
     GlDropdownItem,
+    GlDuoChatInclude,
   },
   directives: {
     SafeHtml,
@@ -207,6 +209,9 @@ export default {
       activeCommandIndex: 0,
       displaySubmitButton: true,
       compositionJustEnded: false,
+      showIncludeDropdown: false,
+      cursorPosition: 0,
+      selectedIncludes: []
     };
   },
   computed: {
@@ -363,6 +368,7 @@ export default {
       return !(isModifierKey || isComposing || this.compositionJustEnded);
     },
     onInputKeyup(e) {
+      console.log('shayon testing', e?.key);
       const { key } = e;
 
       if (this.shouldShowSlashCommands) {
@@ -412,10 +418,44 @@ export default {
         this.sendChatPrompt();
       } else {
         this.setPromptAndFocus(`${command.name} `);
+        if (command.name === '/include') {
+          console.log('including dropdown');
+          this.showIncludeDropdown = true;
+        }
       }
     },
     onInsertCodeSnippet(e) {
       this.$emit('insert-code-snippet', e);
+    },
+    handleFileSelected(file) {
+      // Handle the selected file (e.g., add to context, update UI, etc.)
+    },
+    handleIncludeRemoved(include) {
+      // Handle the removed include (e.g., remove from context, update UI, etc.)
+    },
+
+    updateCursorPosition() {
+      const textArea = this.$refs.prompt.$el;
+      const cursorPosition = textArea.selectionStart;
+      const textBeforeCursor = this.prompt.substring(0, cursorPosition);
+      const textWidth = this.getTextWidth(textBeforeCursor, getComputedStyle(textArea));
+      this.cursorPosition = textWidth;
+    },
+    getTextWidth(text, style) {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      context.font = `${style.fontSize} ${style.fontFamily}`;
+      return context.measureText(text).width;
+    },
+    handleItemSelected(item) {
+      this.selectedIncludes.push(item);
+      this.prompt = this.prompt.replace('/include', '').trim();
+      this.$nextTick(() => {
+        this.$refs.prompt.$el.focus();
+      });
+    },
+    removeInclude(include) {
+      this.selectedIncludes = this.selectedIncludes.filter((i) => i.id !== include.id);
     },
   },
   i18n,
@@ -532,6 +572,18 @@ export default {
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
+        <div v-if="selectedIncludes.length" class="gl-mb-2">
+          <span
+            v-for="include in selectedIncludes"
+            :key="include.id"
+            class="gl-rounded gl-mr-2 gl-bg-blue-100 gl-px-2 gl-py-1 gl-text-sm"
+          >
+            {{ include.name }}
+            <span class="gl-ml-1 gl-cursor-pointer" @click.stop="removeInclude(include)"
+              >&times;</span
+            >
+          </span>
+        </div>
         <gl-form-input-group>
           <div
             class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
@@ -558,19 +610,32 @@ export default {
                 </span>
               </gl-dropdown-item>
             </gl-card>
+            <div
+              class="duo-chat-input gl-display-flex gl-align-items-center gl-relative gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
+              :data-value="prompt"
+            >
+              <gl-form-textarea
+                ref="prompt"
+                v-model="prompt"
+                data-testid="chat-prompt-input"
+                class="!gl-h-full gl-rounded-br-none gl-rounded-tr-none !gl-bg-transparent !gl-py-4 !gl-shadow-none"
+                :class="{ 'gl-truncate': !prompt }"
+                :placeholder="inputPlaceholder"
+                autofocus
+                @keydown.enter.exact.native.prevent
+                @keyup.native="onInputKeyup"
+                @compositionend="compositionEnd"
+              />
 
-            <gl-form-textarea
-              ref="prompt"
-              v-model="prompt"
-              data-testid="chat-prompt-input"
-              class="gl-absolute !gl-h-full gl-rounded-br-none gl-rounded-tr-none !gl-bg-transparent !gl-py-4 !gl-shadow-none"
-              :class="{ 'gl-truncate': !prompt }"
-              :placeholder="inputPlaceholder"
-              autofocus
-              @keydown.enter.exact.native.prevent
-              @keyup.native="onInputKeyup"
-              @compositionend="compositionEnd"
-            />
+              <gl-duo-chat-include
+                :show-include-dropdown="showIncludeDropdown"
+                :cursor-position="cursorPosition"
+                class="gl-absolute"
+                style="top: 0; left: 0"
+                @update:showIncludeDropdown="showIncludeDropdown = $event"
+                @item-selected="handleItemSelected"
+              />
+            </div>
           </div>
           <template #append>
             <gl-button
@@ -604,3 +669,9 @@ export default {
     </footer>
   </aside>
 </template>
+<style scoped>
+/* ... (previous styles) ... */
+.duo-chat-input {
+  position: relative;
+}
+</style>

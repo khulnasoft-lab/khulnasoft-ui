@@ -165,4 +165,8 @@ export const SLASH_COMMANDS = [
     name: '/explain',
     description: 'Explain the selected snippet.',
   },
+  {
+    name: '/include',
+    description: 'Add context to your chat.'
+  }
 ];
