@@ -10,7 +10,7 @@ tokens.
 ## Usage
 
 We manage design tokens in this repository which is published on npm, and managed as a dependency
-with yarn. To upgrade to a new version run `yarn upgrade @gitlab/ui`.
+with yarn. To upgrade to a new version run `yarn upgrade @gitlab/ui`. To build tokens locally run `yarn build-tokens`.
 
 Design tokens are provided in different modes (default/dark) and file formats for use in CSS (custom
 properties), JavaScript (ES6 Constants/JSON), and SCSS (variables), for example:
@@ -344,3 +344,14 @@ export const TEXT_COLOR = '#000';
 ```javascript
 export const TEXT_COLOR = '#fff';
 ```
+
+## Adding and editing design tokens
+
+1. Create a new constant design token when there's a need for a reusable value that represents a specific design attribute across the system, otherwise keep new values limited to a specific context.
+   1. Follow exsting naming conventions.
+   1. Keep in mind that a new constant design token encourages wider use while a contextual one has limited use.
+1. A new or edited token should be reviewed by ~"group::design system" to ensure it aligns with the system.
+
+## Deprecation
+
+Add `"deprecated": true` to deprecated token JSON. When all tokens in a file are deprecated move to a `deprecated.*.json` file.
