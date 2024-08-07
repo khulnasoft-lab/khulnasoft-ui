@@ -1,3 +1,10 @@
+# [88.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.2.1...v88.3.0) (2024-08-07)
+
+
+### Features
+
+* **Avatar:** Avatar dark design tokens ([1cbdd7f](https://gitlab.com/gitlab-org/gitlab-ui/commit/1cbdd7f56a55d29485f3f7b1424db14c7c8c95be))
+
 ## [88.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.2.0...v88.2.1) (2024-08-07)
 
 
