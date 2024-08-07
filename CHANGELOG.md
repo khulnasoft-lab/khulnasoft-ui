@@ -1,3 +1,11 @@
+# [88.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.0.0...v88.1.0) (2024-08-07)
+
+
+### Features
+
+* **DesignTokens:** add button design tokens ([a23d383](https://gitlab.com/gitlab-org/gitlab-ui/commit/a23d3833c6426a26561b2a846bdee01adab49a3a))
+* **GlButton:** add design tokens to GlButton ([5bd4cd3](https://gitlab.com/gitlab-org/gitlab-ui/commit/5bd4cd3f2e0766663e0e907374603748e5511b1e))
+
 # [88.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v87.8.0...v88.0.0) (2024-08-06)
 
 
