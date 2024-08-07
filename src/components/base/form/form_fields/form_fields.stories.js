@@ -29,7 +29,7 @@ const Template = () => ({
         password: {
           label: 'Password with group styling',
           inputAttrs: { type: 'password' },
-          groupAttrs: { class: 'gl-bg-purple-50 gl-w-20' },
+          groupAttrs: { class: 'gl-p-3 gl-border gl-bg-subtle gl-rounded-base' },
           validators: [required('Password is required')],
         },
         confirmPassword: {
@@ -101,9 +101,16 @@ const Template = () => ({
     <div>
       <h3>Fields</h3>
       <form :id="testFormId" @submit.prevent>
-        <gl-form-fields :fields="fields" v-model="formValues" :form-id="testFormId" :server-validations="serverValidations" @input-field="onInputField" @submit="onSubmit">
+        <gl-form-fields
+          :fields="fields"
+          v-model="formValues"
+          :form-id="testFormId"
+          :server-validations="serverValidations"
+          @input-field="onInputField"
+          @submit="onSubmit"
+        >
           <template #group(confirmPassword)-label>
-            <div class="gl-flex gl-items-center gl-gap-x-3">
+            <div class="gl-flex gl-items-center gl-gap-3">
               <span>Confirm Password</span>
               <gl-icon name="information-o" />
             </div>
@@ -112,21 +119,37 @@ const Template = () => ({
             Description using <code>group(confirmPassword)-description</code> slot
           </template>
           <template #after(confirmPassword)>
-            <gl-alert class="gl-mb-5" :dismissible="false">Custom content using <code>after(confirmPassword)</code> slot</gl-alert>
+            <gl-alert class="gl-mb-5" :dismissible="false">
+              Custom content using <code>after(confirmPassword)</code> slot
+            </gl-alert>
           </template>
           <template #input(custom)="{ id, value, input, blur }">
-            <button :id="id" @click="input(value + 1)" @blur="blur" type="button">{{value}}</button>
+            <gl-button :id="id" @click="input(value + 1)" @blur="blur">
+              {{ value }}
+            </gl-button>
           </template>
           <template #input(favoriteItem)="{ id, value, input, blur }">
-            <gl-listbox :id="id" :items="$options.ITEMS" :selected="value" :toggle-text="favoriteItemToggleText" @select="input" @hidden="blur" />
+            <gl-listbox
+              :id="id"
+              :items="$options.ITEMS"
+              :selected="value"
+              :toggle-text="favoriteItemToggleText"
+              @select="input"
+              @hidden="blur"
+            />
           </template>
           <template #group(favoriteItem)-label-description>
-            Label description using <code>group(favoriteItem)-label-description</code> slot
+            Label description using
+            <code>group(favoriteItem)-label-description</code> slot
           </template>
         </gl-form-fields>
-        <gl-button type="submit" category="primary" :loading="loading">Submit</gl-button>
+        <gl-button type="submit" category="primary" :loading="loading">
+          Submit
+        </gl-button>
       </form>
-      <gl-modal ref="modal" modal-id="submission-modal" title="Form submission"><pre>{{ valuesJSON }}</pre></gl-modal>
+      <gl-modal ref="modal" modal-id="submission-modal" title="Form submission">
+        <pre>{{ valuesJSON }}</pre>
+      </gl-modal>
     </div>
   `,
 });
