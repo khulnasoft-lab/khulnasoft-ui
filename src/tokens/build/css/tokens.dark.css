@@ -468,10 +468,10 @@
   --gl-feedback-neutral-icon-color: var(--gl-color-neutral-300); /* Used for the icon of a neutral feedback item when there isn't a specific meaning or urgency. */
   --gl-feedback-neutral-text-color: var(--gl-color-neutral-200); /* Used for the text of a neutral feedback item when there isn't a specific meaning or urgency. */
   --gl-feedback-neutral-background-color: var(--gl-color-neutral-900); /* Used for the background of a neutral feedback item when there isn't a specific meaning or urgency. */
-  --gl-feedback-strong-link-color: var(--gl-color-blue-700); /* Used for a link on a strong feedback background. */
+  --gl-feedback-strong-link-color: var(--gl-color-blue-200); /* Used for a link on a strong feedback background. */
   --gl-feedback-strong-icon-color: var(--gl-color-neutral-900); /* Used for an icon on a strong feedback background. */
-  --gl-feedback-strong-text-color: var(--gl-color-neutral-900); /* Used for text on a strong feedback background. */
-  --gl-feedback-strong-background-color: var(--gl-color-neutral-10); /* Used for a background associated with strong feedback like a tooltip or toast message. */
+  --gl-feedback-strong-text-color: var(--gl-color-neutral-0); /* Used for text on a strong feedback background. */
+  --gl-feedback-strong-background-color: var(--gl-color-neutral-700); /* Used for a background associated with strong feedback like a tooltip or toast message. */
   --gl-control-indicator-color-disabled: var(--gl-color-neutral-400); /* Used for disabled checkbox and radio button state indicators. */
   --gl-control-indicator-color-selected: var(--gl-color-neutral-900); /* Used for checkbox and radio button state indicators. */
   --gl-control-placeholder-color: var(--gl-color-neutral-500); /* Used for placeholder text within inputs. */
@@ -496,7 +496,7 @@
   --gl-spinner-track-color-default: var(--gl-color-neutral-800); /* Used for the static track (background) of a loading spinner. */
   --gl-skeleton-loader-shimmer-color: var(--gl-color-neutral-700); /* Used for the animated shimmer effect in a skeleton loader. */
   --gl-skeleton-loader-background-color: var(--gl-color-neutral-800); /* Used for the skeleton loader background color. */
-  --gl-popover-background-color: var(--gl-color-neutral-900); /* Used for the background color of popover. */
+  --gl-popover-background-color: var(--gl-feedback-strong-background-color); /* Used for the background color of popover. */
   --gl-label-scoped-button-icon-color-hover: var(--gl-color-neutral-950); /* Used for the scoped label remove button icon in the hover state. */
   --gl-label-scoped-button-icon-color-default: var(--gl-color-neutral-0); /* Used for the scoped label remove button icon in the default state. */
   --gl-label-scoped-button-background-color-hover: var(--gl-color-neutral-0); /* Used for the scoped label remove button background in the hover state. */
@@ -687,6 +687,7 @@
   --gl-focus-ring-inner-color: var(--gl-background-color-default); /* Used for the inner neutral portion of the focus ring. */
   --gl-table-sorting-icon-color: var(--gl-text-color-heading); /* Used for the color of the sorting icons in the column headers. */
   --gl-table-row-background-color-hover: var(--gl-background-color-subtle); /* Used for the background of a table row in hover state. */
+  --gl-popover-link-color: var(--gl-feedback-strong-link-color); /* Used for the color of a link in a popover. */
   --gl-datepicker-date-text-color-selected: var(--gl-control-indicator-color-selected); /* Used for the datepicker date text color state indicators. */
   --gl-button-selected-border-color-focus: var(--gl-button-selected-border-color-hover); /* Used for the border of a selected button in the focus state. */
   --gl-button-selected-background-color-active: var(--gl-button-default-primary-background-color-active); /* Used for the background of a selected button in the active state. */

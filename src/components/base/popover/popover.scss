@@ -14,7 +14,19 @@ $gl-popover-max-width: $grid-size * 35;
   }
 
   .popover-body {
+    @include gl-py-3;
+    @include gl-px-4;
     color: var(--gl-text-color-default);
+    
+    >.popover-hr {
+      @include gl-my-5;
+      @include gl-mx-0;
+    }
+
+    .gl-link {
+      color: var(--gl-popover-link-color);
+      text-decoration: underline;
+    }
   }
 
   &.bs-popover-top {
@@ -88,15 +100,5 @@ $gl-popover-max-width: $grid-size * 35;
 
   &.has-close-button:not(.has-title) .popover-header {
     padding-top: $gl-spacing-scale-2;
-  }
-
-  .popover-body {
-    @include gl-py-3;
-    @include gl-px-4;
-
-    > .popover-hr {
-      @include gl-my-5;
-      @include gl-mx-0;
-    }
   }
 }

@@ -4,10 +4,20 @@
       "color": {
         "$value": {
           "default": "{color.neutral.0}",
-          "dark": "{color.neutral.900}"
+          "dark": "{feedback.strong.background.color}"
         },
         "$type": "color",
         "$description": "Used for the background color of popover."
+      }
+    },
+    "link": {
+      "color": {
+        "$value": {
+          "default": "{text.color.link}",
+          "dark": "{feedback.strong.link.color}"
+        },
+        "$type": "color",
+        "$description": "Used for the color of a link in a popover."
       }
     }
   }

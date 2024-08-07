@@ -19,7 +19,6 @@
   }
 
   .gl-toast {
-    color: color-yiq($toast-background-color);
     @apply gl-rounded-base;
     @include gl-font-base;
     @include gl-py-5;
@@ -28,6 +27,8 @@
     @include gl-display-flex;
     @include gl-align-items-center;
     @include gl-justify-content-space-between;
+    color: var(--gl-feedback-strong-text-color);
+    background-color: var(--gl-feedback-strong-background-color);
   }
 
   .toast-body {
@@ -42,7 +43,6 @@
   }
 
   .gl-toast-action {
-    @include gl-text-blue-300;
     @include gl-p-3;
     @include gl-m-0;
     @include gl-ml-5;
@@ -51,9 +51,11 @@
     @include gl-white-space-nowrap;
     @include gl-font-weight-bold;
     @include gl-cursor-pointer;
+    color: var(--gl-feedback-strong-link-color);
   }
 
   .gl-toast-close-button {
     @include gl-ml-5;
+    @include gl-align-self-center;
   }
 }

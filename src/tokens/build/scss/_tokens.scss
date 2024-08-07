@@ -469,7 +469,7 @@ $gl-feedback-neutral-background-color: $gl-color-neutral-50; // Used for the bac
 $gl-feedback-strong-link-color: $gl-color-blue-300; // Used for a link on a strong feedback background.
 $gl-feedback-strong-icon-color: $gl-color-neutral-0; // Used for an icon on a strong feedback background.
 $gl-feedback-strong-text-color: $gl-color-neutral-0; // Used for text on a strong feedback background.
-$gl-feedback-strong-background-color: $gl-color-neutral-950; // Used for a background associated with strong feedback like a tooltip or toast message.
+$gl-feedback-strong-background-color: $gl-color-neutral-900; // Used for a background associated with strong feedback like a tooltip or toast message.
 $gl-control-indicator-color-disabled: $gl-color-neutral-500; // Used for disabled checkbox and radio button state indicators.
 $gl-control-indicator-color-selected: $gl-color-neutral-0; // Used for checkbox and radio button state indicators.
 $gl-control-placeholder-color: $gl-color-neutral-400; // Used for placeholder text within inputs.
@@ -685,6 +685,7 @@ $gl-action-disabled-foreground-color: $gl-color-neutral-400; // Used for the for
 $gl-focus-ring-inner-color: $gl-background-color-default; // Used for the inner neutral portion of the focus ring.
 $gl-table-sorting-icon-color: $gl-text-color-heading; // Used for the color of the sorting icons in the column headers.
 $gl-table-row-background-color-hover: $gl-background-color-subtle; // Used for the background of a table row in hover state.
+$gl-popover-link-color: $gl-text-color-link; // Used for the color of a link in a popover.
 $gl-datepicker-date-text-color-selected: $gl-control-indicator-color-selected; // Used for the datepicker date text color state indicators.
 $gl-button-selected-border-color-focus: $gl-button-selected-border-color-hover; // Used for the border of a selected button in the focus state.
 $gl-button-selected-background-color-active: $gl-button-default-primary-background-color-active; // Used for the background of a selected button in the active state.

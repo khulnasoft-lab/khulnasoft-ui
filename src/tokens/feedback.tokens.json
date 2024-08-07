@@ -4,8 +4,8 @@
       "background": {
         "color": {
           "$value": {
-            "default": "{color.neutral.950}",
-            "dark": "{color.neutral.10}"
+            "default": "{color.neutral.900}",
+            "dark": "{color.neutral.700}"
           },
           "$type": "color",
           "$description": "Used for a background associated with strong feedback like a tooltip or toast message."
@@ -15,7 +15,7 @@
         "color": {
           "$value": {
             "default": "{color.neutral.0}",
-            "dark": "{color.neutral.900}"
+            "dark": "{color.neutral.0}"
           },
           "$type": "color",
           "$description": "Used for text on a strong feedback background."
@@ -35,7 +35,7 @@
         "color": {
           "$value": {
             "default": "{color.blue.300}",
-            "dark": "{color.blue.700}"
+            "dark": "{color.blue.200}"
           },
           "$type": "color",
           "$description": "Used for a link on a strong feedback background."
