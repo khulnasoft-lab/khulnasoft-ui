@@ -368,8 +368,12 @@ export default {
       return !(isModifierKey || isComposing || this.compositionJustEnded);
     },
     onInputKeyup(e) {
-      console.log('shayon testing', e?.key);
       const { key } = e;
+
+      if (this.showIncludeDropdown) {
+        this.compositionJustEnded = false
+        return;
+      }
 
       if (this.shouldShowSlashCommands) {
         e.preventDefault();
@@ -614,7 +618,7 @@ export default {
                 ref="prompt"
                 v-model="prompt"
                 data-testid="chat-prompt-input"
-                class="!gl-h-full gl-rounded-br-none gl-rounded-tr-none !gl-bg-transparent !gl-py-4 !gl-shadow-none"
+                class="gl-absolute !gl-h-full gl-rounded-br-none gl-rounded-tr-none !gl-bg-transparent !gl-py-4 !gl-shadow-none"
                 :class="{ 'gl-truncate': !prompt }"
                 :placeholder="inputPlaceholder"
                 autofocus

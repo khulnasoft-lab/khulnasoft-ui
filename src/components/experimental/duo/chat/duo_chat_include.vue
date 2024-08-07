@@ -22,6 +22,7 @@ export default {
     cursorPosition: {
       type: Number,
       default: 0,
+      required: true
     },
   },
   data() {
