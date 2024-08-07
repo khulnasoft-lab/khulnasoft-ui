@@ -1,3 +1,10 @@
+## [88.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.2.0...v88.2.1) (2024-08-07)
+
+
+### Bug Fixes
+
+* **GlSparklineChart:** Fix hoverAnimation deprecation warning ([97ae7d9](https://gitlab.com/gitlab-org/gitlab-ui/commit/97ae7d985efbb178011fd53d8ad26b7fe03e81b0))
+
 # [88.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.1.0...v88.2.0) (2024-08-07)
 
 
