@@ -21,53 +21,87 @@
       }
     },
     "fallback": {
-      "background": {
+      "text": {
         "color": {
           "red": {
             "$value": {
-              "default": "{color.red.50}",
-              "dark": "{color.red.950}"
+              "default": "{color.red.800}",
+              "dark": "{color.red.200}"
             },
+            "$type": "color",
+            "$description": "Red text color for avatar fallback with no particular meaning."
+          },
+          "purple": {
+            "$value": {
+              "default": "{color.purple.800}",
+              "dark": "{color.purple.200}"
+            },
+            "$type": "color",
+            "$description": "Purple text color for avatar fallback with no particular meaning."
+          },
+          "blue": {
+            "$value": {
+              "default": "{color.blue.800}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Blue text color for avatar fallback with no particular meaning."
+          },
+          "green": {
+            "$value": {
+              "default": "{color.green.800}",
+              "dark": "{color.green.200}"
+            },
+            "$type": "color",
+            "$description": "Green text color for avatar fallback with no particular meaning."
+          },
+          "orange": {
+            "$value": {
+              "default": "{color.orange.800}",
+              "dark": "{color.orange.200}"
+            },
+            "$type": "color",
+            "$description": "Orange text color for avatar fallback with no particular meaning."
+          },
+          "neutral": {
+            "$value": {
+              "default": "{color.neutral.800}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "$description": "Neutral text color for avatar fallback with no particular meaning."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "red": {
+            "$value": "#fcb5aa3d",
             "$type": "color",
             "$description": "Red background for avatar fallback with no particular meaning."
           },
           "purple": {
-            "$value": {
-              "default": "{color.purple.50}",
-              "dark": "{color.purple.950}"
-            },
+            "$value": "#cbbbf23d",
             "$type": "color",
             "$description": "Purple background for avatar fallback with no particular meaning."
           },
           "blue": {
-            "$value": {
-              "default": "{color.blue.50}",
-              "dark": "{color.blue.950}"
-            },
+            "$value": "#9dc7f13d",
             "$type": "color",
             "$description": "Blue background for avatar fallback with no particular meaning."
           },
           "green": {
-            "$value": {
-              "default": "{color.green.50}",
-              "dark": "{color.green.950}"
-            },
+            "$value": "#91d4a83d",
             "$type": "color",
             "$description": "Green background for avatar fallback with no particular meaning."
           },
           "orange": {
-            "$value": {
-              "default": "{color.orange.50}",
-              "dark": "{color.orange.950}"
-            },
+            "$value": "#e9be743d",
             "$type": "color",
             "$description": "Orange background for avatar fallback with no particular meaning."
           },
           "neutral": {
-            "$value": {
-              "default": "{color.neutral.50}",
-              "dark": "{color.neutral.900}"
-            },
+            "$value": "#bfbfc33d",
             "$type": "color",
             "$description": "Neutral background for avatar fallback with no particular meaning."
           }
