@@ -17,6 +17,7 @@ import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
 import GlDuoChatInclude from './duo_chat_include.vue';
+import GlDuoChatSelectedIncludes from './duo_chat_selected_include.vue';
 import { CHAT_CLEAN_MESSAGE, CHAT_RESET_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
 
 export const i18n = {
@@ -64,6 +65,7 @@ export default {
     GlCard,
     GlDropdownItem,
     GlDuoChatInclude,
+    GlDuoChatSelectedIncludes,
   },
   directives: {
     SafeHtml,
@@ -571,18 +573,7 @@ export default {
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
-        <div v-if="selectedIncludes.length" class="gl-mb-2">
-          <span
-            v-for="include in selectedIncludes"
-            :key="include.id"
-            class="gl-rounded gl-mr-2 gl-bg-blue-100 gl-px-2 gl-py-1 gl-text-sm"
-          >
-            {{ include.name }}
-            <span class="gl-ml-1 gl-cursor-pointer" @click.stop="removeInclude(include)"
-              >&times;</span
-            >
-          </span>
-        </div>
+        <gl-duo-chat-selected-includes :selected-includes="selectedIncludes" @remove="removeInclude" />
         <gl-form-input-group>
           <div
             class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"

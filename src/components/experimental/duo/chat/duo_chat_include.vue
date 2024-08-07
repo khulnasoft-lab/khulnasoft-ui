@@ -4,6 +4,8 @@ import GlDropdownItem from '../../../base/dropdown/dropdown_item.vue';
 import GlFormInput from '../../../base/form/form_input/form_input.vue';
 import GlCard from '../../../base/card/card.vue';
 import GlIcon from '../../../base/icon/icon.vue';
+import GlDuoChatItemPopover from './duo_chat_popover.vue';
+/// <reference path="./duo_chat_types" />
 
 export default {
   name: 'GlDuoChatInclude',
@@ -12,6 +14,7 @@ export default {
     GlFormInput,
     GlCard,
     GlIcon,
+    GlDuoChatItemPopover,
   },
   props: {
     showIncludeDropdown: {
@@ -28,9 +31,9 @@ export default {
   data() {
     return {
       categories: [
-        { label: 'Files', value: 'files', icon: 'document' },
-        { label: 'Issues', value: 'issues', icon: 'issues' },
-        { label: 'Merge Requests', value: 'merge_requests', icon: 'merge-request' },
+        { label: 'Files', value: 'file', icon: 'document' },
+        { label: 'Issues', value: 'issue', icon: 'issues' },
+        { label: 'Merge Requests', value: 'merge_request', icon: 'merge-request' },
       ],
       selectedCategory: null,
       searchQuery: '',
@@ -81,29 +84,91 @@ export default {
       this.debouncedSearch();
     },
     debouncedSearch: debounce(function () {
-      // Simulated API call - replace with actual API call in production
-      const mockData = {
-        files: [
-          { id: 1, name: 'index.js', path: '/src/index.js' },
-          { id: 2, name: 'app.vue', path: '/src/app.vue' },
-          { id: 3, name: 'styles.css', path: '/src/styles.css' },
-        ],
-        issues: [
-          { id: 1, title: 'Bug in login form', iid: 42 },
-          { id: 2, title: 'Improve performance', iid: 43 },
-          { id: 3, title: 'Update dependencies', iid: 44 },
-        ],
-        merge_requests: [
-          { id: 1, title: 'Add new feature', iid: 10 },
-          { id: 2, title: 'Fix typo in README', iid: 11 },
-          { id: 3, title: 'Refactor authentication', iid: 12 },
-        ],
-      };
-
-      this.filteredItems = mockData[this.selectedCategory.value].filter(
+      /** @type {DuoChatContextItem[]} */
+      const mockData = [
+        {
+          id: 'https://gitlab.com/gitlab-org/gitlab/issues/42',
+          name: 'Bug in login form',
+          isEnabled: true,
+          info: { project: 'gitlab-org/gitlab', iid: 42 },
+          type: 'issue',
+        },
+        {
+          id: 'https://gitlab.com/gitlab-org/gitlab-runner/issues/43',
+          name: 'Improve performance',
+          isEnabled: true,
+          info: { project: 'gitlab-org/gitlab-runner', iid: 43 },
+          type: 'issue',
+        },
+        {
+          id: 'https://gitlab.com/gitlab-org/charts/gitlab/issues/44',
+          name: 'Update dependencies',
+          isEnabled: false,
+          info: {
+            iid: 44,
+            project: 'gitlab-org/charts/gitlab',
+            disabledReason: 'Duo is not enabled for this project',
+          },
+          type: 'issue',
+        },
+        {
+          id: 'https://gitlab.com/gitlab-org/gitlab/merge_requests/10',
+          name: 'Add new feature',
+          isEnabled: true,
+          info: { project: 'gitlab-org/gitlab', iid: 10 },
+          type: 'merge_request',
+        },
+        {
+          id: 'https://gitlab.com/gitlab-org/gitlab-runner/merge_requests/11',
+          name: 'Fix typo in README',
+          isEnabled: true,
+          info: {
+            iid: 11,
+            project: 'gitlab-org/gitlab-runner',
+          },
+          type: 'merge_request',
+        },
+        {
+          id: 'https://gitlab.com/gitlab-org/charts/gitlab/merge_requests/12',
+          name: 'Refactor authentication',
+          isEnabled: false,
+          info: {
+            project: 'gitlab-org/charts/gitlab',
+            disabledReason: 'Duo is not enabled for this project',
+            iid: 12,
+          },
+          type: 'merge_request',
+        },
+        {
+          id: 'file:///Users/gitlab/gitlab/app/src/index.js',
+          name: 'index.js',
+          isEnabled: true,
+          info: { project: 'gitlab-org/gitlab', path: '/src/index.js' },
+          type: 'file',
+        },
+        {
+          id: 'file:///Users/gitlab/gitlab-runner/app/src/app.vue',
+          name: 'app.vue',
+          isEnabled: true,
+          info: { project: 'gitlab-org/gitlab-runner', path: '/src/app.vue' },
+          type: 'file',
+        },
+        {
+          id: 'file:///Users/gitlab/charts/gitlab/app/src/styles.css',
+          name: 'styles.css',
+          isEnabled: false,
+          info: {
+            project: 'gitlab-org/charts/gitlab',
+            disabledReason: 'Duo is not enabled for this project',
+            path: '/src/styles.css',
+          },
+          type: 'file',
+        },
+      ];
+      this.filteredItems = mockData.filter(
         (item) =>
-          item.name?.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          item.title?.toLowerCase().includes(this.searchQuery.toLowerCase())
+          item.name?.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
+          item.type === this.selectedCategory.value
       );
     }, 300),
     selectItem(item) {
@@ -137,6 +202,9 @@ export default {
           break;
         case 'Enter':
           e.preventDefault();
+          if (!this.currentItems.length) {
+            return;
+          }
           if (this.showCategorySelection) {
             this.selectCategory(this.currentItems[this.activeIndex]);
           } else {
@@ -187,19 +255,33 @@ export default {
           @input="debouncedSearch"
           @keydown="onSearchInputKeydown"
         />
-        <ul class="list-unstyled gl-mb-0">
+        <ul class="list-unstyled gl-mb1">
           <li v-for="(item, index) in filteredItems" :key="item.id">
             <gl-dropdown-item
-              :class="{ 'gl-bg-gray-50': index === activeIndex }"
-              @click="selectItem(item)"
+              :id="`dropdown-item-${index}`"
+              :class="[
+                { 'gl-bg-gray-50': index === activeIndex },
+                { 'disabled-item': !item.isEnabled },
+              ]"
+              @click="item.isEnabled && selectItem(item)"
             >
               <div class="gl-display-flex gl-align-items-center">
-                <gl-icon :name="selectedCategory.icon" class="gl-mr-2" />
-                <span>{{ item.name || item.title }}</span>
-                <span v-if="item.path" class="gl-ml-3 gl-text-gray-500">{{ item.path }}</span>
-                <span v-if="item.iid" class="gl-ml-3 gl-text-gray-500">#{{ item.iid }}</span>
+                <gl-icon
+                  name="document"
+                  class="gl-mr-2"
+                  :class="{ 'gl-text-gray-500': !item.isEnabled }"
+                />
+                <span :class="{ 'gl-text-gray-500': !item.isEnabled }">{{ item.name }}</span>
+                <span class="gl-ml-3 gl-text-gray-300">
+                  <template v-if="item.type === 'file'">{{ item.info.path }}</template>
+                  <template v-else-if="item.type === 'merge_request'"
+                    >!{{ item.info.iid }}</template
+                  >
+                  <template v-else-if="item.type === 'issue'">#{{ item.info.iid }}</template>
+                </span>
               </div>
             </gl-dropdown-item>
+            <gl-duo-chat-item-popover :item="item" :target="`dropdown-item-${index}`" placement="top" />
           </li>
         </ul>
       </template>
@@ -211,6 +293,7 @@ export default {
 .gl-duo-chat-include {
   display: inline-block;
 }
+
 .include-card {
   top: 100%;
   left: v-bind('cursorPosition + "px"');
@@ -219,5 +302,14 @@ export default {
   max-width: 400px;
   max-height: 300px;
   overflow-y: auto;
+}
+
+.disabled-item {
+  cursor: not-allowed;
+  background-color: #f9f9f9;
+}
+
+.disabled-item:hover {
+  background-color: #f9f9f9 !important;
 }
 </style>
