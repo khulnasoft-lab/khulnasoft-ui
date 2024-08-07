@@ -1,12 +1,12 @@
 <script>
-import GlPopover from '../../../base/popover/popover.vue';
 import GlIcon from '../../../base/icon/icon.vue';
+import GlDuoChatItemPopover from './duo_chat_popover.vue';
 
 export default {
   name: 'DuoChatSelectedIncludes',
   components: {
-    GlPopover,
     GlIcon,
+    GlDuoChatItemPopover,
   },
   props: {
     selectedIncludes: {
@@ -17,9 +17,9 @@ export default {
   methods: {
     getIconName(category) {
       const iconMap = {
-        files: 'document',
-        issues: 'issues',
-        merge_requests: 'merge-request',
+        file: 'document',
+        issue: 'issues',
+        merge_request: 'merge-request',
       };
       return iconMap[category] || 'document';
     },
@@ -30,29 +30,19 @@ export default {
 <template>
   <div class="gl-mb-2">
     <span
-      v-for="include in selectedIncludes"
-      :id="`selected-include-${include.id}`"
+      v-for="(include, index) in selectedIncludes"
+      :id="`selected-include-${index}`"
       :key="include.id"
-      class="gl-rounded gl-mr-2 gl-bg-blue-100 gl-px-2 gl-py-1 gl-text-sm gl-display-inline-flex gl-align-items-center"
+      class="gl-rounded gl-display-inline-flex gl-align-items-center gl-mr-2 gl-bg-blue-100 gl-px-2 gl-py-1 gl-text-sm"
     >
-      <gl-icon :name="getIconName(include.category)" class="gl-mr-1" />
+      <gl-icon :name="getIconName(include.type)" class="gl-mr-1" />
       {{ include.name }}
       <span class="gl-ml-1 gl-cursor-pointer" @click.stop="$emit('remove', include)">&times;</span>
-      <gl-popover
-        :target="`selected-include-${include.id}`"
-        triggers="hover focus"
+      <gl-duo-chat-item-popover
+        :item="include"
+        :target="`selected-include-${index}`"
         placement="top"
-        :show="false"
-      >
-        <template #title>
-          <span class="gl-font-weight-bold">{{ include.name }}</span>
-        </template>
-        <template #content>
-          <div v-if="include.path">Path: {{ include.path }}</div>
-          <div v-if="include.iid">ID: #{{ include.iid }}</div>
-          <div>Category: {{ include.category }}</div>
-        </template>
-      </gl-popover>
+      />
     </span>
   </div>
 </template>
