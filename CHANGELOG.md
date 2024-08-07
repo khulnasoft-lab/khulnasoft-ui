@@ -1,3 +1,10 @@
+# [88.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.1.0...v88.2.0) (2024-08-07)
+
+
+### Features
+
+* **GlDuoChat:** provide hooks for consumer to focus + scroll ([3bba19f](https://gitlab.com/gitlab-org/gitlab-ui/commit/3bba19fce1cab5eef641fc7b838fc207a0641275))
+
 # [88.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.0.0...v88.1.0) (2024-08-07)
 
 
