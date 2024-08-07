@@ -629,13 +629,13 @@ $gl-badge-muted-border-color-hover: $gl-color-neutral-700; // Used for the borde
 $gl-badge-muted-background-color-active: $gl-color-neutral-800; // Used for the background of a subtle neutral badge in the active state.
 $gl-badge-muted-background-color-default: $gl-color-neutral-900; // Used for the background of a subtle neutral badge when static or the default state when linked.
 $gl-avatar-fallback-background-color-neutral: $gl-color-neutral-900; // Neutral background for avatar fallback with no particular meaning.
-$gl-avatar-fallback-background-color-orange: $gl-color-orange-900; // Orange background for avatar fallback with no particular meaning.
-$gl-avatar-fallback-background-color-green: $gl-color-green-900; // Green background for avatar fallback with no particular meaning.
-$gl-avatar-fallback-background-color-blue: $gl-color-blue-900; // Blue background for avatar fallback with no particular meaning.
+$gl-avatar-fallback-background-color-orange: $gl-color-orange-950; // Orange background for avatar fallback with no particular meaning.
+$gl-avatar-fallback-background-color-green: $gl-color-green-950; // Green background for avatar fallback with no particular meaning.
+$gl-avatar-fallback-background-color-blue: $gl-color-blue-950; // Blue background for avatar fallback with no particular meaning.
 $gl-avatar-fallback-background-color-purple: $gl-color-purple-950; // Purple background for avatar fallback with no particular meaning.
-$gl-avatar-fallback-background-color-red: $gl-color-red-900; // Red background for avatar fallback with no particular meaning.
-$gl-avatar-border-color-hover: $gl-color-alpha-dark-24; // Used to increase the edge definition of an avatar in the hover state.
-$gl-avatar-border-color-default: $gl-color-alpha-dark-8; // Used to define the edge of an avatar.
+$gl-avatar-fallback-background-color-red: $gl-color-red-950; // Red background for avatar fallback with no particular meaning.
+$gl-avatar-border-color-hover: $gl-color-alpha-light-24; // Used to increase the edge definition of an avatar in the hover state.
+$gl-avatar-border-color-default: $gl-color-alpha-light-8; // Used to define the edge of an avatar.
 $gl-border-color-transparent: $gl-color-alpha-0; // Used when a border needs to be present, but not visibly perceived.
 $gl-border-color-strong: $gl-color-neutral-400; // Used for a distinct border that emphasizes an edge or boundaries.
 $gl-border-color-subtle: $gl-color-neutral-900; // Used for a subtle border in combination with the default background.

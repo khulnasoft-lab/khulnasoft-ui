@@ -3,12 +3,18 @@
     "border": {
       "color": {
         "default": {
-          "$value": "{color.alpha.dark.8}",
+          "$value": {
+            "default": "{color.alpha.dark.8}",
+            "dark": "{color.alpha.light.8}"
+          },
           "$type": "color",
           "$description": "Used to define the edge of an avatar."
         },
         "hover": {
-          "$value": "{color.alpha.dark.24}",
+          "$value": {
+            "default": "{color.alpha.dark.24}",
+            "dark": "{color.alpha.light.24}"
+          },
           "$type": "color",
           "$description": "Used to increase the edge definition of an avatar in the hover state."
         }
@@ -20,7 +26,7 @@
           "red": {
             "$value": {
               "default": "{color.red.50}",
-              "dark": "{color.red.900}"
+              "dark": "{color.red.950}"
             },
             "$type": "color",
             "$description": "Red background for avatar fallback with no particular meaning."
@@ -36,7 +42,7 @@
           "blue": {
             "$value": {
               "default": "{color.blue.50}",
-              "dark": "{color.blue.900}"
+              "dark": "{color.blue.950}"
             },
             "$type": "color",
             "$description": "Blue background for avatar fallback with no particular meaning."
@@ -44,7 +50,7 @@
           "green": {
             "$value": {
               "default": "{color.green.50}",
-              "dark": "{color.green.900}"
+              "dark": "{color.green.950}"
             },
             "$type": "color",
             "$description": "Green background for avatar fallback with no particular meaning."
@@ -52,7 +58,7 @@
           "orange": {
             "$value": {
               "default": "{color.orange.50}",
-              "dark": "{color.orange.900}"
+              "dark": "{color.orange.950}"
             },
             "$type": "color",
             "$description": "Orange background for avatar fallback with no particular meaning."
