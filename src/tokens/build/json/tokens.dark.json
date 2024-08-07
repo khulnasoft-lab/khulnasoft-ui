@@ -5404,13 +5404,16 @@
     "border": {
       "color": {
         "default": {
-          "value": "rgba(05, 05, 06, 0.08)",
+          "value": "rgba(255, 255, 255, 0.08)",
           "$type": "color",
           "comment": "Used to define the edge of an avatar.",
           "filePath": "src/tokens/contextual/avatar.tokens.json",
           "isSource": true,
           "original": {
-            "value": "{color.alpha.dark.8}",
+            "value": {
+              "default": "{color.alpha.dark.8}",
+              "dark": "{color.alpha.light.8}"
+            },
             "$type": "color",
             "comment": "Used to define the edge of an avatar."
           },
@@ -5424,13 +5427,16 @@
           ]
         },
         "hover": {
-          "value": "rgba(05, 05, 06, 0.24)",
+          "value": "rgba(255, 255, 255, 0.24)",
           "$type": "color",
           "comment": "Used to increase the edge definition of an avatar in the hover state.",
           "filePath": "src/tokens/contextual/avatar.tokens.json",
           "isSource": true,
           "original": {
-            "value": "{color.alpha.dark.24}",
+            "value": {
+              "default": "{color.alpha.dark.24}",
+              "dark": "{color.alpha.light.24}"
+            },
             "$type": "color",
             "comment": "Used to increase the edge definition of an avatar in the hover state."
           },
@@ -5449,7 +5455,7 @@
       "background": {
         "color": {
           "red": {
-            "value": "#660e00",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Red background for avatar fallback with no particular meaning.",
             "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -5457,7 +5463,7 @@
             "original": {
               "value": {
                 "default": "{color.red.50}",
-                "dark": "{color.red.900}"
+                "dark": "{color.red.950}"
               },
               "$type": "color",
               "comment": "Red background for avatar fallback with no particular meaning."
@@ -5497,7 +5503,7 @@
             ]
           },
           "blue": {
-            "value": "#033464",
+            "value": "#002850",
             "$type": "color",
             "comment": "Blue background for avatar fallback with no particular meaning.",
             "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -5505,7 +5511,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.50}",
-                "dark": "{color.blue.900}"
+                "dark": "{color.blue.950}"
               },
               "$type": "color",
               "comment": "Blue background for avatar fallback with no particular meaning."
@@ -5521,7 +5527,7 @@
             ]
           },
           "green": {
-            "value": "#0a4020",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Green background for avatar fallback with no particular meaning.",
             "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -5529,7 +5535,7 @@
             "original": {
               "value": {
                 "default": "{color.green.50}",
-                "dark": "{color.green.900}"
+                "dark": "{color.green.950}"
               },
               "$type": "color",
               "comment": "Green background for avatar fallback with no particular meaning."
@@ -5545,7 +5551,7 @@
             ]
           },
           "orange": {
-            "value": "#5c2900",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Orange background for avatar fallback with no particular meaning.",
             "filePath": "src/tokens/contextual/avatar.tokens.json",
@@ -5553,7 +5559,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.50}",
-                "dark": "{color.orange.900}"
+                "dark": "{color.orange.950}"
               },
               "$type": "color",
               "comment": "Orange background for avatar fallback with no particular meaning."
