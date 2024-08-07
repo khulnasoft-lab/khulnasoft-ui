@@ -5695,16 +5695,13 @@
       "border": {
         "color": {
           "default": {
-            "value": "#4c4b5100",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a muted badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#bfbfc300",
-                "dark": "#4c4b5100"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a muted badge when static or the default state when linked."
             },
@@ -5743,16 +5740,13 @@
             ]
           },
           "focus": {
-            "value": "#4c4b5100",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a muted badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#bfbfc300",
-                "dark": "#4c4b5100"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a muted badge in the focus state."
             },
@@ -5767,16 +5761,13 @@
             ]
           },
           "active": {
-            "value": "#4c4b5100",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a muted badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#bfbfc300",
-                "dark": "#4c4b5100"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a muted badge in the active state."
             },
@@ -6085,16 +6076,13 @@
       "border": {
         "color": {
           "default": {
-            "value": "#4c4b5100",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a neutral badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#bfbfc300",
-                "dark": "#4c4b5100"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a neutral badge when static or the default state when linked."
             },
@@ -6133,16 +6121,13 @@
             ]
           },
           "focus": {
-            "value": "#4c4b5100",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a neutral badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#bfbfc300",
-                "dark": "#4c4b5100"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a neutral badge in the focus state."
             },
@@ -6157,16 +6142,13 @@
             ]
           },
           "active": {
-            "value": "#4c4b5100",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a neutral badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#bfbfc300",
-                "dark": "#4c4b5100"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a neutral badge in the active state."
             },
@@ -6475,16 +6457,13 @@
       "border": {
         "color": {
           "default": {
-            "value": "#0b5cad00",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of an informational badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#9dc7f100",
-                "dark": "#0b5cad00"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of an informational badge when static or the default state when linked."
             },
@@ -6523,16 +6502,13 @@
             ]
           },
           "focus": {
-            "value": "#0b5cad00",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of an informational badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#9dc7f100",
-                "dark": "#0b5cad00"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of an informational badge in the focus state."
             },
@@ -6547,16 +6523,13 @@
             ]
           },
           "active": {
-            "value": "#0b5cad00",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of an informational badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#9dc7f100",
-                "dark": "#0b5cad00"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of an informational badge in the active state."
             },
@@ -6865,16 +6838,13 @@
       "border": {
         "color": {
           "default": {
-            "value": "#24663b00",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a success badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#91d4a800",
-                "dark": "#24663b00"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a success badge when static or the default state when linked."
             },
@@ -6913,16 +6883,13 @@
             ]
           },
           "focus": {
-            "value": "#24663b00",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a success badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#91d4a800",
-                "dark": "#24663b00"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a success badge in the focus state."
             },
@@ -6937,16 +6904,13 @@
             ]
           },
           "active": {
-            "value": "#24663b00",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a success badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#91d4a800",
-                "dark": "#24663b00"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a success badge in the active state."
             },
@@ -7255,16 +7219,13 @@
       "border": {
         "color": {
           "default": {
-            "value": "#8f470000",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a warning badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#e9be7400",
-                "dark": "#8f470000"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a warning badge when static or the default state when linked."
             },
@@ -7303,16 +7264,13 @@
             ]
           },
           "focus": {
-            "value": "#8f470000",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a warning badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#e9be7400",
-                "dark": "#8f470000"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a warning badge in the focus state."
             },
@@ -7327,16 +7285,13 @@
             ]
           },
           "active": {
-            "value": "#8f470000",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a warning badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#e9be7400",
-                "dark": "#8f470000"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a warning badge in the active state."
             },
@@ -7645,16 +7600,13 @@
       "border": {
         "color": {
           "default": {
-            "value": "#ae180000",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a danger badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#fcb5aa00",
-                "dark": "#ae180000"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a danger badge when static or the default state when linked."
             },
@@ -7693,16 +7645,13 @@
             ]
           },
           "focus": {
-            "value": "#ae180000",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a danger badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#fcb5aa00",
-                "dark": "#ae180000"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a danger badge in the focus state."
             },
@@ -7717,16 +7666,13 @@
             ]
           },
           "active": {
-            "value": "#ae180000",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a danger badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#fcb5aa00",
-                "dark": "#ae180000"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a danger badge in the active state."
             },
@@ -8035,16 +7981,13 @@
       "border": {
         "color": {
           "default": {
-            "value": "#5943b600",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a tier related badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#cbbbf200",
-                "dark": "#5943b600"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a tier related badge when static or the default state when linked."
             },
@@ -8083,16 +8026,13 @@
             ]
           },
           "focus": {
-            "value": "#5943b600",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a tier related badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#cbbbf200",
-                "dark": "#5943b600"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a tier related badge in the focus state."
             },
@@ -8107,16 +8047,13 @@
             ]
           },
           "active": {
-            "value": "#5943b600",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border of a tier related badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "#cbbbf200",
-                "dark": "#5943b600"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border of a tier related badge in the active state."
             },

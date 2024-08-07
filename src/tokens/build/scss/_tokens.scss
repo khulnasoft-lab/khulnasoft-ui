@@ -180,27 +180,6 @@ $theme-indigo-200: #c7c7f2 !default;
 $theme-indigo-100: #dbdbf8 !default;
 $theme-indigo-50: #f1f1ff !default;
 $theme-indigo-10: #f8f8ff !default;
-$gl-badge-tier-border-color-active: #cbbbf200; // Used for the border of a tier related badge in the active state.
-$gl-badge-tier-border-color-focus: #cbbbf200; // Used for the border of a tier related badge in the focus state.
-$gl-badge-tier-border-color-default: #cbbbf200; // Used for the border of a tier related badge when static or the default state when linked.
-$gl-badge-danger-border-color-active: #fcb5aa00; // Used for the border of a danger badge in the active state.
-$gl-badge-danger-border-color-focus: #fcb5aa00; // Used for the border of a danger badge in the focus state.
-$gl-badge-danger-border-color-default: #fcb5aa00; // Used for the border of a danger badge when static or the default state when linked.
-$gl-badge-warning-border-color-active: #e9be7400; // Used for the border of a warning badge in the active state.
-$gl-badge-warning-border-color-focus: #e9be7400; // Used for the border of a warning badge in the focus state.
-$gl-badge-warning-border-color-default: #e9be7400; // Used for the border of a warning badge when static or the default state when linked.
-$gl-badge-success-border-color-active: #91d4a800; // Used for the border of a success badge in the active state.
-$gl-badge-success-border-color-focus: #91d4a800; // Used for the border of a success badge in the focus state.
-$gl-badge-success-border-color-default: #91d4a800; // Used for the border of a success badge when static or the default state when linked.
-$gl-badge-info-border-color-active: #9dc7f100; // Used for the border of an informational badge in the active state.
-$gl-badge-info-border-color-focus: #9dc7f100; // Used for the border of an informational badge in the focus state.
-$gl-badge-info-border-color-default: #9dc7f100; // Used for the border of an informational badge when static or the default state when linked.
-$gl-badge-neutral-border-color-active: #bfbfc300; // Used for the border of a neutral badge in the active state.
-$gl-badge-neutral-border-color-focus: #bfbfc300; // Used for the border of a neutral badge in the focus state.
-$gl-badge-neutral-border-color-default: #bfbfc300; // Used for the border of a neutral badge when static or the default state when linked.
-$gl-badge-muted-border-color-active: #bfbfc300; // Used for the border of a muted badge in the active state.
-$gl-badge-muted-border-color-focus: #bfbfc300; // Used for the border of a muted badge in the focus state.
-$gl-badge-muted-border-color-default: #bfbfc300; // Used for the border of a muted badge when static or the default state when linked.
 $data-viz-orange-950: #4b2707 !default;
 $data-viz-orange-900: #5e2f05 !default;
 $data-viz-orange-800: #6f3500 !default;
@@ -592,7 +571,10 @@ $gl-badge-tier-icon-color-default: $gl-color-purple-500; // Used for the icon of
 $gl-badge-tier-text-color-active: $gl-color-purple-900; // Used for the text of a tier related badge in the active state.
 $gl-badge-tier-text-color-hover: $gl-color-purple-800; // Used for the text of a tier related badge in the hover state.
 $gl-badge-tier-text-color-default: $gl-color-purple-700; // Used for the text of a tier related badge when static or the default state when linked.
+$gl-badge-tier-border-color-active: $gl-color-alpha-0; // Used for the border of a tier related badge in the active state.
+$gl-badge-tier-border-color-focus: $gl-color-alpha-0; // Used for the border of a tier related badge in the focus state.
 $gl-badge-tier-border-color-hover: $gl-color-purple-200; // Used for the border of a tier related badge in the hover state.
+$gl-badge-tier-border-color-default: $gl-color-alpha-0; // Used for the border of a tier related badge when static or the default state when linked.
 $gl-badge-tier-background-color-active: $gl-color-purple-200; // Used for the background of a tier related badge in the active state.
 $gl-badge-tier-background-color-default: $gl-color-purple-100; // Used for the background of a tier related badge when static or the default state when linked.
 $gl-badge-danger-icon-color-active: $gl-color-red-700; // Used for the icon of a danger badge in the active state.
@@ -601,7 +583,10 @@ $gl-badge-danger-icon-color-default: $gl-color-red-500; // Used for the icon of 
 $gl-badge-danger-text-color-active: $gl-color-red-900; // Used for the text of a danger badge in the active state.
 $gl-badge-danger-text-color-hover: $gl-color-red-800; // Used for the text of a danger badge in the hover state.
 $gl-badge-danger-text-color-default: $gl-color-red-700; // Used for the text of a danger badge when static or the default state when linked.
+$gl-badge-danger-border-color-active: $gl-color-alpha-0; // Used for the border of a danger badge in the active state.
+$gl-badge-danger-border-color-focus: $gl-color-alpha-0; // Used for the border of a danger badge in the focus state.
 $gl-badge-danger-border-color-hover: $gl-color-red-200; // Used for the border of a danger badge in the hover state.
+$gl-badge-danger-border-color-default: $gl-color-alpha-0; // Used for the border of a danger badge when static or the default state when linked.
 $gl-badge-danger-background-color-active: $gl-color-red-200; // Used for the background of a danger badge in the active state.
 $gl-badge-danger-background-color-default: $gl-color-red-100; // Used for the background of a danger badge when static or the default state when linked.
 $gl-badge-warning-icon-color-active: $gl-color-orange-700; // Used for the icon of a warning badge in the active state.
@@ -610,7 +595,10 @@ $gl-badge-warning-icon-color-default: $gl-color-orange-500; // Used for the icon
 $gl-badge-warning-text-color-active: $gl-color-orange-900; // Used for the text of a warning badge in the active state.
 $gl-badge-warning-text-color-hover: $gl-color-orange-800; // Used for the text of a warning badge in the hover state.
 $gl-badge-warning-text-color-default: $gl-color-orange-700; // Used for the text of a warning badge when static or the default state when linked.
+$gl-badge-warning-border-color-active: $gl-color-alpha-0; // Used for the border of a warning badge in the active state.
+$gl-badge-warning-border-color-focus: $gl-color-alpha-0; // Used for the border of a warning badge in the focus state.
 $gl-badge-warning-border-color-hover: $gl-color-orange-200; // Used for the border of a warning badge in the hover state.
+$gl-badge-warning-border-color-default: $gl-color-alpha-0; // Used for the border of a warning badge when static or the default state when linked.
 $gl-badge-warning-background-color-active: $gl-color-orange-200; // Used for the background of a warning badge in the active state.
 $gl-badge-warning-background-color-default: $gl-color-orange-100; // Used for the background of a warning badge when static or the default state when linked.
 $gl-badge-success-icon-color-active: $gl-color-green-700; // Used for the icon of a success badge in the active state.
@@ -619,7 +607,10 @@ $gl-badge-success-icon-color-default: $gl-color-green-500; // Used for the icon 
 $gl-badge-success-text-color-active: $gl-color-green-900; // Used for the text of a success badge in the active state.
 $gl-badge-success-text-color-hover: $gl-color-green-800; // Used for the text of a success badge in the hover state.
 $gl-badge-success-text-color-default: $gl-color-green-700; // Used for the text of a success badge when static or the default state when linked.
+$gl-badge-success-border-color-active: $gl-color-alpha-0; // Used for the border of a success badge in the active state.
+$gl-badge-success-border-color-focus: $gl-color-alpha-0; // Used for the border of a success badge in the focus state.
 $gl-badge-success-border-color-hover: $gl-color-green-200; // Used for the border of a success badge in the hover state.
+$gl-badge-success-border-color-default: $gl-color-alpha-0; // Used for the border of a success badge when static or the default state when linked.
 $gl-badge-success-background-color-active: $gl-color-green-200; // Used for the background of a success badge in the active state.
 $gl-badge-success-background-color-default: $gl-color-green-100; // Used for the background of a success badge when static or the default state when linked.
 $gl-badge-info-icon-color-active: $gl-color-blue-700; // Used for the icon of an informational badge in the active state.
@@ -628,7 +619,10 @@ $gl-badge-info-icon-color-default: $gl-color-blue-500; // Used for the icon of a
 $gl-badge-info-text-color-active: $gl-color-blue-900; // Used for the text of an informational badge in the active state.
 $gl-badge-info-text-color-hover: $gl-color-blue-800; // Used for the text of an informational badge in the hover state.
 $gl-badge-info-text-color-default: $gl-color-blue-700; // Used for the text of an informational badge when static or the default state when linked.
+$gl-badge-info-border-color-active: $gl-color-alpha-0; // Used for the border of an informational badge in the active state.
+$gl-badge-info-border-color-focus: $gl-color-alpha-0; // Used for the border of an informational badge in the focus state.
 $gl-badge-info-border-color-hover: $gl-color-blue-200; // Used for the border of an informational badge in the hover state.
+$gl-badge-info-border-color-default: $gl-color-alpha-0; // Used for the border of an informational badge when static or the default state when linked.
 $gl-badge-info-background-color-active: $gl-color-blue-200; // Used for the background of an informational badge in the active state.
 $gl-badge-info-background-color-default: $gl-color-blue-100; // Used for the background of an informational badge when static or the default state when linked.
 $gl-badge-neutral-icon-color-active: $gl-color-neutral-700; // Used for the icon of a neutral badge in the active state.
@@ -637,7 +631,10 @@ $gl-badge-neutral-icon-color-default: $gl-color-neutral-500; // Used for the ico
 $gl-badge-neutral-text-color-active: $gl-color-neutral-900; // Used for the text of a neutral badge in the active state.
 $gl-badge-neutral-text-color-hover: $gl-color-neutral-800; // Used for the text of a neutral badge in the hover state.
 $gl-badge-neutral-text-color-default: $gl-color-neutral-700; // Used for the text of a neutral badge when static or the default state when linked.
+$gl-badge-neutral-border-color-active: $gl-color-alpha-0; // Used for the border of a neutral badge in the active state.
+$gl-badge-neutral-border-color-focus: $gl-color-alpha-0; // Used for the border of a neutral badge in the focus state.
 $gl-badge-neutral-border-color-hover: $gl-color-neutral-200; // Used for the border of a neutral badge in the hover state.
+$gl-badge-neutral-border-color-default: $gl-color-alpha-0; // Used for the border of a neutral badge when static or the default state when linked.
 $gl-badge-neutral-background-color-active: $gl-color-neutral-200; // Used for the background of a neutral badge in the active state.
 $gl-badge-neutral-background-color-default: $gl-color-neutral-100; // Used for the background of a neutral badge when static or the default state when linked.
 $gl-badge-muted-icon-color-active: $gl-color-neutral-700; // Used for the icon of a muted badge in the active state.
@@ -646,7 +643,10 @@ $gl-badge-muted-icon-color-default: $gl-color-neutral-500; // Used for the icon 
 $gl-badge-muted-text-color-active: $gl-color-neutral-800; // Used for the text of a muted badge in the active state.
 $gl-badge-muted-text-color-hover: $gl-color-neutral-700; // Used for the text of a muted badge in the hover state.
 $gl-badge-muted-text-color-default: $gl-color-neutral-600; // Used for the text of a muted badge when static or the default state when linked.
+$gl-badge-muted-border-color-active: $gl-color-alpha-0; // Used for the border of a muted badge in the active state.
+$gl-badge-muted-border-color-focus: $gl-color-alpha-0; // Used for the border of a muted badge in the focus state.
 $gl-badge-muted-border-color-hover: $gl-color-neutral-200; // Used for the border of a muted badge in the hover state.
+$gl-badge-muted-border-color-default: $gl-color-alpha-0; // Used for the border of a muted badge when static or the default state when linked.
 $gl-badge-muted-background-color-active: $gl-color-neutral-100; // Used for the background of a muted badge in the active state.
 $gl-badge-muted-background-color-default: $gl-color-neutral-50; // Used for the background of a muted badge when static or the default state when linked.
 $gl-avatar-fallback-background-color-neutral: $gl-color-neutral-50; // Neutral background for avatar fallback with no particular meaning.
