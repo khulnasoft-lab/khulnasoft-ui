@@ -610,10 +610,6 @@ export default {
                 </span>
               </gl-dropdown-item>
             </gl-card>
-            <div
-              class="duo-chat-input gl-display-flex gl-align-items-center gl-relative gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
-              :data-value="prompt"
-            >
               <gl-form-textarea
                 ref="prompt"
                 v-model="prompt"
@@ -635,7 +631,6 @@ export default {
                 @update:showIncludeDropdown="showIncludeDropdown = $event"
                 @item-selected="handleItemSelected"
               />
-            </div>
           </div>
           <template #append>
             <gl-button
