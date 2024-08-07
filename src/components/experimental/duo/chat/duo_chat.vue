@@ -211,7 +211,7 @@ export default {
       compositionJustEnded: false,
       showIncludeDropdown: false,
       cursorPosition: 0,
-      selectedIncludes: []
+      selectedIncludes: [],
     };
   },
   computed: {
@@ -371,7 +371,8 @@ export default {
       const { key } = e;
 
       if (this.showIncludeDropdown) {
-        this.compositionJustEnded = false
+        this.$refs.includeComponent.handleKeydown(e);
+        this.compositionJustEnded = false;
         return;
       }
 
@@ -430,12 +431,6 @@ export default {
     },
     onInsertCodeSnippet(e) {
       this.$emit('insert-code-snippet', e);
-    },
-    handleFileSelected(file) {
-      // Handle the selected file (e.g., add to context, update UI, etc.)
-    },
-    handleIncludeRemoved(include) {
-      // Handle the removed include (e.g., remove from context, update UI, etc.)
     },
 
     updateCursorPosition() {
@@ -614,27 +609,28 @@ export default {
                 </span>
               </gl-dropdown-item>
             </gl-card>
-              <gl-form-textarea
-                ref="prompt"
-                v-model="prompt"
-                data-testid="chat-prompt-input"
-                class="gl-absolute !gl-h-full gl-rounded-br-none gl-rounded-tr-none !gl-bg-transparent !gl-py-4 !gl-shadow-none"
-                :class="{ 'gl-truncate': !prompt }"
-                :placeholder="inputPlaceholder"
-                autofocus
-                @keydown.enter.exact.native.prevent
-                @keyup.native="onInputKeyup"
-                @compositionend="compositionEnd"
-              />
+            <gl-form-textarea
+              ref="prompt"
+              v-model="prompt"
+              data-testid="chat-prompt-input"
+              class="gl-absolute !gl-h-full gl-rounded-br-none gl-rounded-tr-none !gl-bg-transparent !gl-py-4 !gl-shadow-none"
+              :class="{ 'gl-truncate': !prompt }"
+              :placeholder="inputPlaceholder"
+              autofocus
+              @keydown.enter.exact.native.prevent
+              @keyup.native="onInputKeyup"
+              @compositionend="compositionEnd"
+            />
 
-              <gl-duo-chat-include
-                :show-include-dropdown="showIncludeDropdown"
-                :cursor-position="cursorPosition"
-                class="gl-absolute"
-                style="top: 0; left: 0"
-                @update:showIncludeDropdown="showIncludeDropdown = $event"
-                @item-selected="handleItemSelected"
-              />
+            <gl-duo-chat-include
+              ref="includeComponent"
+              :show-include-dropdown="showIncludeDropdown"
+              :cursor-position="cursorPosition"
+              class="gl-absolute"
+              style="top: 0; left: 0"
+              @update:showIncludeDropdown="showIncludeDropdown = $event"
+              @item-selected="handleItemSelected"
+            />
           </div>
           <template #append>
             <gl-button

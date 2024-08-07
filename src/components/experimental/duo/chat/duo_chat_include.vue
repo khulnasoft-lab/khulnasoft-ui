@@ -17,12 +17,12 @@ export default {
     showIncludeDropdown: {
       type: Boolean,
       default: false,
-      required: true
+      required: true,
     },
     cursorPosition: {
       type: Number,
       default: 0,
-      required: true
+      required: true,
     },
   },
   data() {
@@ -35,6 +35,7 @@ export default {
       selectedCategory: null,
       searchQuery: '',
       filteredItems: [],
+      activeIndex: 0,
     };
   },
   computed: {
@@ -44,15 +45,42 @@ export default {
     showItemSearch() {
       return this.showIncludeDropdown && this.selectedCategory;
     },
+    currentItems() {
+      return this.showCategorySelection ? this.categories : this.filteredItems;
+    },
+  },
+  watch: {
+    showIncludeDropdown(newVal) {
+      if (newVal) {
+        this.activeIndex = 0;
+        this.$nextTick(() => {
+          this.focusSearchInput();
+        });
+      }
+    },
+    selectedCategory() {
+      this.activeIndex = 0;
+      this.$nextTick(() => {
+        this.focusSearchInput();
+      });
+    },
+    filteredItems() {
+      this.activeIndex = 0;
+    },
   },
   methods: {
+    focusSearchInput() {
+      if (this.showItemSearch && this.$refs.searchInput && this.$refs.searchInput.$el) {
+        this.$refs.searchInput.$el.focus();
+      }
+    },
     selectCategory(category) {
       this.selectedCategory = category;
       this.searchQuery = '';
       this.filteredItems = [];
       this.debouncedSearch();
     },
-    debouncedSearch: debounce(function() {
+    debouncedSearch: debounce(function () {
       // Simulated API call - replace with actual API call in production
       const mockData = {
         files: [
@@ -72,13 +100,14 @@ export default {
         ],
       };
 
-      this.filteredItems = mockData[this.selectedCategory.value].filter(item =>
-        item.name?.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        item.title?.toLowerCase().includes(this.searchQuery.toLowerCase())
+      this.filteredItems = mockData[this.selectedCategory.value].filter(
+        (item) =>
+          item.name?.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+          item.title?.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }, 300),
     selectItem(item) {
-      this.$emit('item-selected', { ...item, category: this.selectedCategory.value });
+      this.$emit('item-selected', { ...item, category: this.selectedCategory?.value });
       this.$emit('update:showIncludeDropdown', false);
       this.resetSelection();
     },
@@ -86,6 +115,46 @@ export default {
       this.selectedCategory = null;
       this.searchQuery = '';
       this.filteredItems = [];
+      this.activeIndex = 0;
+    },
+    handleKeydown(e) {
+      if (!this.showIncludeDropdown) return;
+
+      if (this.showItemSearch && !['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
+        this.focusSearchInput();
+        return;
+      }
+
+      switch (e.key) {
+        case 'ArrowDown':
+          e.preventDefault();
+          this.activeIndex = (this.activeIndex + 1) % this.currentItems.length;
+          break;
+        case 'ArrowUp':
+          e.preventDefault();
+          this.activeIndex =
+            (this.activeIndex - 1 + this.currentItems.length) % this.currentItems.length;
+          break;
+        case 'Enter':
+          e.preventDefault();
+          if (this.showCategorySelection) {
+            this.selectCategory(this.currentItems[this.activeIndex]);
+          } else {
+            this.selectItem(this.currentItems[this.activeIndex]);
+          }
+          break;
+        case 'Escape':
+          e.preventDefault();
+          this.$emit('update:showIncludeDropdown', false);
+          break;
+        default:
+          break;
+      }
+    },
+    onSearchInputKeydown(e) {
+      if (['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
+        this.handleKeydown(e);
+      }
     },
   },
 };
@@ -96,8 +165,11 @@ export default {
     <gl-card v-if="showIncludeDropdown" class="include-card gl-position-absolute">
       <template v-if="showCategorySelection">
         <ul class="list-unstyled gl-mb-0">
-          <li v-for="category in categories" :key="category.value">
-            <gl-dropdown-item @click="selectCategory(category)">
+          <li v-for="(category, index) in categories" :key="category.value">
+            <gl-dropdown-item
+              :class="{ 'gl-bg-gray-50': index === activeIndex }"
+              @click="selectCategory(category)"
+            >
               <div class="gl-display-flex gl-align-items-center">
                 <gl-icon :name="category.icon" class="gl-mr-2" />
                 {{ category.label }}
@@ -108,14 +180,19 @@ export default {
       </template>
       <template v-else-if="showItemSearch">
         <gl-form-input
+          ref="searchInput"
           v-model="searchQuery"
           :placeholder="`Search ${selectedCategory.label.toLowerCase()}...`"
-          @input="debouncedSearch"
           class="gl-mb-3"
+          @input="debouncedSearch"
+          @keydown="onSearchInputKeydown"
         />
         <ul class="list-unstyled gl-mb-0">
-          <li v-for="item in filteredItems" :key="item.id">
-            <gl-dropdown-item @click="selectItem(item)">
+          <li v-for="(item, index) in filteredItems" :key="item.id">
+            <gl-dropdown-item
+              :class="{ 'gl-bg-gray-50': index === activeIndex }"
+              @click="selectItem(item)"
+            >
               <div class="gl-display-flex gl-align-items-center">
                 <gl-icon :name="selectedCategory.icon" class="gl-mr-2" />
                 <span>{{ item.name || item.title }}</span>
