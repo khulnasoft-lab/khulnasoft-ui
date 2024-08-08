@@ -665,3 +665,427 @@ index 000000000..9a602becb
 +  }
 +}
 +
+diff --git a/src/components/experimental/duo/chat/duo_chat.stories.js b/src/components/experimental/duo/chat/duo_chat.stories.js
+index 5410b18f4..8876fdf2c 100644
+--- a/src/components/experimental/duo/chat/duo_chat.stories.js
++++ b/src/components/experimental/duo/chat/duo_chat.stories.js
+@@ -95,15 +95,17 @@ export const Interactive = (args, { argTypes }) => ({
+       timeout: null,
+       requestId: 1,
+       canceledMessageRequestIds: [],
++      selectedIncludes: [],
+     };
+   },
+   methods: {
+-    onSendChatPrompt(prompt) {
++    onSendChatPrompt(prompt, includes) {
+       const newPrompt = {
+         ...MOCK_USER_PROMPT_MESSAGE,
+         contentHtml: '',
+         content: prompt,
+         requestId: this.requestId,
++        extras: { selectedIncludes: includes },
+       };
+       this.loggerInfo += `New prompt: ${JSON.stringify(newPrompt)}\n\n`;
+       if ([CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE].includes(prompt)) {
+@@ -112,7 +114,20 @@ export const Interactive = (args, { argTypes }) => ({
+         this.msgs.push(newPrompt);
+         this.promptInFlight = true;
+       }
++      this.selectedIncludes = []; // Clear selected includes after sending
+     },
++
++    onAddSelectedItem(item) {
++      console.log('added item', item)
++      this.selectedIncludes.push(item);
++      this.loggerInfo += `Added selected item: ${JSON.stringify(item)}\n\n`;
++    },
++
++    onRemoveSelectedItem(item) {
++      this.selectedIncludes = this.selectedIncludes.filter((i) => i.id !== item.id);
++      this.loggerInfo += `Removed selected item: ${JSON.stringify(item)}\n\n`;
++    },
++
+     onChatHidden() {
+       this.isHidden = true;
+       this.loggerInfo += `Chat closed\n\n`;
+@@ -159,39 +174,133 @@ export const Interactive = (args, { argTypes }) => ({
+         ...newResponse,
+       });
+     },
++
++    async handleSearch(category, query) {
++      console.log('handling Search', category, query);
++
++      const mockData = [
++        {
++          id: 'https://gitlab.com/gitlab-org/gitlab/issues/42',
++          name: 'Bug in login form',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab', iid: 42 },
++          type: 'issue',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/gitlab-runner/issues/43',
++          name: 'Improve performance',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab-runner', iid: 43 },
++          type: 'issue',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/charts/gitlab/issues/44',
++          name: 'Update dependencies',
++          isEnabled: false,
++          info: {
++            iid: 44,
++            project: 'gitlab-org/charts/gitlab',
++            disabledReason: 'Duo is not enabled for this project',
++          },
++          type: 'issue',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/gitlab/merge_requests/10',
++          name: 'Add new feature',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab', iid: 10 },
++          type: 'merge_request',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/gitlab-runner/merge_requests/11',
++          name: 'Fix typo in README',
++          isEnabled: true,
++          info: {
++            iid: 11,
++            project: 'gitlab-org/gitlab-runner',
++          },
++          type: 'merge_request',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/charts/gitlab/merge_requests/12',
++          name: 'Refactor authentication',
++          isEnabled: false,
++          info: {
++            project: 'gitlab-org/charts/gitlab',
++            disabledReason: 'Duo is not enabled for this project',
++            iid: 12,
++          },
++          type: 'merge_request',
++        },
++        {
++          id: 'file:///Users/gitlab/gitlab/app/src/index.js',
++          name: 'index.js',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab', relFilePath: '/src/index.js' },
++          type: 'file',
++        },
++        {
++          id: 'file:///Users/gitlab/gitlab-runner/app/src/app.vue',
++          name: 'app.vue',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab-runner', relFilePath: '/src/app.vue' },
++          type: 'file',
++        },
++        {
++          id: 'file:///Users/gitlab/charts/gitlab/app/src/styles.css',
++          name: 'styles.css',
++          isEnabled: false,
++          info: {
++            project: 'gitlab-org/charts/gitlab',
++            disabledReason: 'Duo is not enabled for this project',
++            relFilePath: '/src/styles.css',
++          },
++          type: 'file',
++        },
++      ];
++
++      const filteredResults = mockData.filter(
++        (item) => item.type === category && item.name.toLowerCase().includes(query.toLowerCase())
++      );
++      this.loggerInfo += `Search results for ${category} - "${query}": ${JSON.stringify(filteredResults)}\n\n`;
++
++      // Simulate an async operation
++      await new Promise((resolve) => setTimeout(resolve, 100));
++
++      return filteredResults;
++    },
+   },
+   template: `
+-  <div style="height: 800px">
+-    <div id="logger" class="gl-w-1/2">
+-      <pre class="gl-text-sm" style="text-wrap: wrap">
+-<code>{{ loggerInfo }}</code>
+-      </pre>
+-      <gl-button v-if="promptInFlight" @click="onResponseRequested">Mock the response</gl-button>
++    <div style="height: 800px">
++      <!-- ... existing template -->
++      <gl-duo-chat
++        v-if="!isHidden"
++        :title="title"
++        :messages="msgs"
++        :error="error"
++        :canceled-request-ids="canceledMessageRequestIds"
++        :is-loading="promptInFlight"
++        :is-chat-available="isChatAvailable"
++        :predefined-prompts="predefinedPrompts"
++        :badge-help-page-url="badgeHelpPageUrl"
++        :badge-type="badgeType"
++        :tool-name="toolName"
++        :show-header="showHeader"
++        :empty-state-title="emptyStateTitle"
++        :empty-state-description="emptyStateDescription"
++        :chat-prompt-placeholder="chatPromptPlaceholder"
++        :slash-commands="slashCommands"
++        :handle-search="handleSearch"
++        :selectedIncludes="selectedIncludes"
++        class="gl-drawer-default"
++        @send-chat-prompt="onSendChatPrompt"
++        @chat-hidden="onChatHidden"
++        @chat-cancel="onChatCancel"
++        @add-selected-item="onAddSelectedItem"
++        @remove-selected-item="onRemoveSelectedItem"
++      />
+     </div>
+-    <gl-button v-if="isHidden" @click="showChat">Show chat</gl-button>
+-    <gl-duo-chat
+-      v-if="!isHidden"
+-      :title="title"
+-      :messages="msgs"
+-      :error="error"
+-      :canceled-request-ids="canceledMessageRequestIds"
+-      :is-loading="promptInFlight"
+-      :is-chat-available="isChatAvailable"
+-      :predefined-prompts="predefinedPrompts"
+-      :badge-help-page-url="badgeHelpPageUrl"
+-      :badge-type="badgeType"
+-      :tool-name="toolName"
+-      :show-header="showHeader"
+-      :empty-state-title="emptyStateTitle"
+-      :empty-state-description="emptyStateDescription"
+-      :chat-prompt-placeholder="chatPromptPlaceholder"
+-      :slash-commands="slashCommands"
+-      class="gl-drawer-default"
+-      @send-chat-prompt="onSendChatPrompt"
+-      @chat-hidden="onChatHidden"
+-      @chat-cancel="onChatCancel"
+-    />
+-  </div>`,
++  `,
+ });
+ Interactive.args = generateProps({});
+ 
+diff --git a/src/components/experimental/duo/chat/duo_chat.vue b/src/components/experimental/duo/chat/duo_chat.vue
+index ec8c9bd0c..9c4dfcfcd 100644
+--- a/src/components/experimental/duo/chat/duo_chat.vue
++++ b/src/components/experimental/duo/chat/duo_chat.vue
+@@ -202,6 +202,17 @@ export default {
+       required: false,
+       default: '',
+     },
++
++    handleSearch: {
++      type: Function,
++      required: true,
++    },
++
++    selectedIncludes: {
++      type: Array,
++      required: true,
++      default: () => []
++    }
+   },
+   data() {
+     return {
+@@ -213,7 +224,6 @@ export default {
+       compositionJustEnded: false,
+       showIncludeDropdown: false,
+       cursorPosition: 0,
+-      selectedIncludes: [],
+     };
+   },
+   computed: {
+@@ -341,6 +351,8 @@ export default {
+         this.$emit('send-chat-prompt', this.prompt.trim());
+ 
+         this.setPromptAndFocus();
++
++        this.selectedIncludes = [];
+       }
+     },
+     sendPredefinedPrompt(prompt) {
+@@ -448,15 +460,16 @@ export default {
+       return context.measureText(text).width;
+     },
+     handleItemSelected(item) {
+-      this.selectedIncludes.push(item);
++      this.$emit('add-selected-item', item);
+       this.prompt = this.prompt.replace('/include', '').trim();
+       this.$nextTick(() => {
+         this.$refs.prompt.$el.focus();
+       });
+     },
+     removeInclude(include) {
+-      this.selectedIncludes = this.selectedIncludes.filter((i) => i.id !== include.id);
++      this.$emit('remove-selected-item', include);
+     },
++
+   },
+   i18n,
+   emptySvg,
+@@ -620,6 +633,7 @@ export default {
+               ref="includeComponent"
+               :show-include-dropdown="showIncludeDropdown"
+               :cursor-position="cursorPosition"
++              :handle-search="handleSearch"
+               class="gl-absolute"
+               style="top: 0; left: 0"
+               @update:showIncludeDropdown="showIncludeDropdown = $event"
+diff --git a/src/components/experimental/duo/chat/duo_chat_include.vue b/src/components/experimental/duo/chat/duo_chat_include.vue
+index 4ab1d225d..47acfd527 100644
+--- a/src/components/experimental/duo/chat/duo_chat_include.vue
++++ b/src/components/experimental/duo/chat/duo_chat_include.vue
+@@ -27,6 +27,11 @@ export default {
+       default: 0,
+       required: true,
+     },
++
++    handleSearch: {
++      type: Function,
++      required: true,
++    },
+   },
+   data() {
+     return {
+@@ -77,112 +82,34 @@ export default {
+         this.$refs.searchInput.$el.focus();
+       }
+     },
+-    selectCategory(category) {
++
++    async selectCategory(category) {
+       this.selectedCategory = category;
+       this.searchQuery = '';
+       this.filteredItems = [];
+-      this.debouncedSearch();
++      // Call handleSearch with the selected category
++      this.filteredItems = await this.handleSearch(this.selectedCategory.value, '');
+     },
+-    debouncedSearch: debounce(function () {
+-      /** @type {DuoChatContextItem[]} */
+-      const mockData = [
+-        {
+-          id: 'https://gitlab.com/gitlab-org/gitlab/issues/42',
+-          name: 'Bug in login form',
+-          isEnabled: true,
+-          info: { project: 'gitlab-org/gitlab', iid: 42 },
+-          type: 'issue',
+-        },
+-        {
+-          id: 'https://gitlab.com/gitlab-org/gitlab-runner/issues/43',
+-          name: 'Improve performance',
+-          isEnabled: true,
+-          info: { project: 'gitlab-org/gitlab-runner', iid: 43 },
+-          type: 'issue',
+-        },
+-        {
+-          id: 'https://gitlab.com/gitlab-org/charts/gitlab/issues/44',
+-          name: 'Update dependencies',
+-          isEnabled: false,
+-          info: {
+-            iid: 44,
+-            project: 'gitlab-org/charts/gitlab',
+-            disabledReason: 'Duo is not enabled for this project',
+-          },
+-          type: 'issue',
+-        },
+-        {
+-          id: 'https://gitlab.com/gitlab-org/gitlab/merge_requests/10',
+-          name: 'Add new feature',
+-          isEnabled: true,
+-          info: { project: 'gitlab-org/gitlab', iid: 10 },
+-          type: 'merge_request',
+-        },
+-        {
+-          id: 'https://gitlab.com/gitlab-org/gitlab-runner/merge_requests/11',
+-          name: 'Fix typo in README',
+-          isEnabled: true,
+-          info: {
+-            iid: 11,
+-            project: 'gitlab-org/gitlab-runner',
+-          },
+-          type: 'merge_request',
+-        },
+-        {
+-          id: 'https://gitlab.com/gitlab-org/charts/gitlab/merge_requests/12',
+-          name: 'Refactor authentication',
+-          isEnabled: false,
+-          info: {
+-            project: 'gitlab-org/charts/gitlab',
+-            disabledReason: 'Duo is not enabled for this project',
+-            iid: 12,
+-          },
+-          type: 'merge_request',
+-        },
+-        {
+-          id: 'file:///Users/gitlab/gitlab/app/src/index.js',
+-          name: 'index.js',
+-          isEnabled: true,
+-          info: { project: 'gitlab-org/gitlab', relFilePath: '/src/index.js' },
+-          type: 'file',
+-        },
+-        {
+-          id: 'file:///Users/gitlab/gitlab-runner/app/src/app.vue',
+-          name: 'app.vue',
+-          isEnabled: true,
+-          info: { project: 'gitlab-org/gitlab-runner', relFilePath: '/src/app.vue' },
+-          type: 'file',
+-        },
+-        {
+-          id: 'file:///Users/gitlab/charts/gitlab/app/src/styles.css',
+-          name: 'styles.css',
+-          isEnabled: false,
+-          info: {
+-            project: 'gitlab-org/charts/gitlab',
+-            disabledReason: 'Duo is not enabled for this project',
+-            relFilePath: '/src/styles.css',
+-          },
+-          type: 'file',
+-        },
+-      ];
+-      this.filteredItems = mockData.filter(
+-        (item) =>
+-          item.name?.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
+-          item.type === this.selectedCategory.value
+-      );
++
++    debouncedSearch: debounce(async function () {
++      // Call handleSearch instead of using mockData
++      this.filteredItems = await this.handleSearch(this.selectedCategory.value, this.searchQuery);
+     }, 300),
++
++
+     selectItem(item) {
+       this.$emit('item-selected', { ...item, category: this.selectedCategory?.value });
+       this.$emit('update:showIncludeDropdown', false);
+       this.resetSelection();
+     },
++
+     resetSelection() {
+       this.selectedCategory = null;
+       this.searchQuery = '';
+       this.filteredItems = [];
+       this.activeIndex = 0;
+     },
+-    handleKeydown(e) {
++    async handleKeydown(e) {
+       if (!this.showIncludeDropdown) return;
+ 
+       if (this.showItemSearch && !['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
+@@ -206,7 +133,7 @@ export default {
+             return;
+           }
+           if (this.showCategorySelection) {
+-            this.selectCategory(this.currentItems[this.activeIndex]);
++            await this.selectCategory(this.currentItems[this.activeIndex]);
+           } else {
+             this.selectItem(this.currentItems[this.activeIndex]);
+           }

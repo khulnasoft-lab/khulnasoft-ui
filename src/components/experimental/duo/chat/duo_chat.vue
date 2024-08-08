@@ -202,6 +202,16 @@ export default {
       required: false,
       default: '',
     },
+
+    handleSearch: {
+      type: Function,
+      required: true,
+    },
+    selectedArray: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -213,7 +223,6 @@ export default {
       compositionJustEnded: false,
       showIncludeDropdown: false,
       cursorPosition: 0,
-      selectedIncludes: [],
     };
   },
   computed: {
@@ -448,14 +457,15 @@ export default {
       return context.measureText(text).width;
     },
     handleItemSelected(item) {
-      this.selectedIncludes.push(item);
+      this.$emit('add-selected-item', item);
       this.prompt = this.prompt.replace('/include', '').trim();
       this.$nextTick(() => {
         this.$refs.prompt.$el.focus();
       });
+      console.log('handled item selected');
     },
     removeInclude(include) {
-      this.selectedIncludes = this.selectedIncludes.filter((i) => i.id !== include.id);
+      this.$emit('remove-selected-item', include);
     },
   },
   i18n,
@@ -543,7 +553,6 @@ export default {
           :messages="conversation"
           :canceled-request-ids="canceledRequestIds"
           :show-delimiter="index > 0"
-          :selected-includes="selectedIncludes"
           @track-feedback="onTrackFeedback"
           @insert-code-snippet="onInsertCodeSnippet"
         />
@@ -574,7 +583,7 @@ export default {
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
         <gl-duo-chat-selected-includes
-          :selected-includes="selectedIncludes"
+          :selected-includes="selectedArray"
           @remove="removeInclude"
         />
         <gl-form-input-group>
@@ -620,6 +629,7 @@ export default {
               ref="includeComponent"
               :show-include-dropdown="showIncludeDropdown"
               :cursor-position="cursorPosition"
+              :handle-search="handleSearch"
               class="gl-absolute"
               style="top: 0; left: 0"
               @update:showIncludeDropdown="showIncludeDropdown = $event"

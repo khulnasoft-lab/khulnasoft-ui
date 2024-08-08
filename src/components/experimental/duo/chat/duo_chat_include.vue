@@ -27,6 +27,11 @@ export default {
       default: 0,
       required: true,
     },
+
+    handleSearch: {
+      type: Function,
+      required: true,
+    },
   },
   data() {
     return {
@@ -77,112 +82,34 @@ export default {
         this.$refs.searchInput.$el.focus();
       }
     },
-    selectCategory(category) {
+
+    async selectCategory(category) {
       this.selectedCategory = category;
       this.searchQuery = '';
       this.filteredItems = [];
-      this.debouncedSearch();
+      // Call handleSearch with the selected category
+      this.filteredItems = await this.handleSearch(this.selectedCategory.value, '');
     },
-    debouncedSearch: debounce(function () {
-      /** @type {DuoChatContextItem[]} */
-      const mockData = [
-        {
-          id: 'https://gitlab.com/gitlab-org/gitlab/issues/42',
-          name: 'Bug in login form',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab', iid: 42 },
-          type: 'issue',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/gitlab-runner/issues/43',
-          name: 'Improve performance',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab-runner', iid: 43 },
-          type: 'issue',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/charts/gitlab/issues/44',
-          name: 'Update dependencies',
-          isEnabled: false,
-          info: {
-            iid: 44,
-            project: 'gitlab-org/charts/gitlab',
-            disabledReason: 'Duo is not enabled for this project',
-          },
-          type: 'issue',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/gitlab/merge_requests/10',
-          name: 'Add new feature',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab', iid: 10 },
-          type: 'merge_request',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/gitlab-runner/merge_requests/11',
-          name: 'Fix typo in README',
-          isEnabled: true,
-          info: {
-            iid: 11,
-            project: 'gitlab-org/gitlab-runner',
-          },
-          type: 'merge_request',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/charts/gitlab/merge_requests/12',
-          name: 'Refactor authentication',
-          isEnabled: false,
-          info: {
-            project: 'gitlab-org/charts/gitlab',
-            disabledReason: 'Duo is not enabled for this project',
-            iid: 12,
-          },
-          type: 'merge_request',
-        },
-        {
-          id: 'file:///Users/gitlab/gitlab/app/src/index.js',
-          name: 'index.js',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab', relFilePath: '/src/index.js' },
-          type: 'file',
-        },
-        {
-          id: 'file:///Users/gitlab/gitlab-runner/app/src/app.vue',
-          name: 'app.vue',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab-runner', relFilePath: '/src/app.vue' },
-          type: 'file',
-        },
-        {
-          id: 'file:///Users/gitlab/charts/gitlab/app/src/styles.css',
-          name: 'styles.css',
-          isEnabled: false,
-          info: {
-            project: 'gitlab-org/charts/gitlab',
-            disabledReason: 'Duo is not enabled for this project',
-            relFilePath: '/src/styles.css',
-          },
-          type: 'file',
-        },
-      ];
-      this.filteredItems = mockData.filter(
-        (item) =>
-          item.name?.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
-          item.type === this.selectedCategory.value
-      );
+
+    debouncedSearch: debounce(async function () {
+      // Call handleSearch instead of using mockData
+      this.filteredItems = await this.handleSearch(this.selectedCategory.value, this.searchQuery);
     }, 300),
+
+
     selectItem(item) {
       this.$emit('item-selected', { ...item, category: this.selectedCategory?.value });
       this.$emit('update:showIncludeDropdown', false);
       this.resetSelection();
     },
+
     resetSelection() {
       this.selectedCategory = null;
       this.searchQuery = '';
       this.filteredItems = [];
       this.activeIndex = 0;
     },
-    handleKeydown(e) {
+    async handleKeydown(e) {
       if (!this.showIncludeDropdown) return;
 
       if (this.showItemSearch && !['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
@@ -206,7 +133,7 @@ export default {
             return;
           }
           if (this.showCategorySelection) {
-            this.selectCategory(this.currentItems[this.activeIndex]);
+            await this.selectCategory(this.currentItems[this.activeIndex]);
           } else {
             this.selectItem(this.currentItems[this.activeIndex]);
           }

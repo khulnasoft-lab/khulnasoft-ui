@@ -81,11 +81,6 @@ export default {
       type: Boolean,
       required: true,
     },
-    selectedIncludes: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
   },
   data() {
     return {
@@ -139,15 +134,10 @@ export default {
     },
 
     displaySelectedIncludes() {
-      return (
-        this.selectedIncludes.length > 0 ||
-        (this.message.extras && this.message.extras.selectedIncludes)
-      );
+      return this.message.extras && this.message.extras.selectedIncludes;
     },
     messageTitleIncludes() {
-      return this.selectedIncludes.length > 0
-        ? this.selectedIncludes
-        : (this.message.extras && this.message.extras.selectedIncludes) || [];
+      return this.message.extras.selectedIncludes;
     },
   },
   beforeCreate() {

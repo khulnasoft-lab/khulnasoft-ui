@@ -44,11 +44,6 @@ export default {
       required: false,
       default: true,
     },
-     selectedIncludes: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
   },
   methods: {
     onTrackFeedback(event) {
@@ -83,7 +78,6 @@ export default {
       :key="`${msg.role}-${index}`"
       :message="msg"
       :is-cancelled="canceledRequestIds.includes(msg.requestId)"
-      :selected-includes="index === 0 ? selectedIncludes : []"
       @track-feedback="onTrackFeedback"
       @insert-code-snippet="onInsertCodeSnippet"
     />
