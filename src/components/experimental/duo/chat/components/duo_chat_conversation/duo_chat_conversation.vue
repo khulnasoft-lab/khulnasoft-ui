@@ -77,6 +77,7 @@ export default {
       v-for="(msg, index) in messages"
       :key="`${msg.role}-${index}`"
       :message="msg"
+      :message-index="index"
       :is-cancelled="canceledRequestIds.includes(msg.requestId)"
       @track-feedback="onTrackFeedback"
       @insert-code-snippet="onInsertCodeSnippet"

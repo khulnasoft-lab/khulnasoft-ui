@@ -81,6 +81,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    messageIndex: {
+      type: Number,
+      required: true,
+    },
   },
   data() {
     return {
@@ -136,8 +140,25 @@ export default {
     displaySelectedIncludes() {
       return this.message.extras && this.message.extras.selectedIncludes;
     },
-    messageTitleIncludes() {
+    getSelectedIncludes() {
       return this.message.extras.selectedIncludes;
+    },
+
+    showSelectedIncludesCollapsible() {
+      return this.messageIndex === 1; // Make the second message (index 1) collapsible
+    },
+    selectedIncludesTitle() {
+      if (!this.displaySelectedIncludes) return '';
+      const count = this.messageTitleIncludes.length;
+
+      if (this.messageIndex === 0) {
+        return `added context`;
+      }
+
+      return `used ${count} reference${count !== 1 ? 's' : ''}`;
+    },
+    messageTitleIncludes() {
+      return this.message.extras?.selectedIncludes || [];
     },
   },
   beforeCreate() {
@@ -225,6 +246,9 @@ export default {
       <gl-duo-chat-selected-includes
         v-if="displaySelectedIncludes"
         :selected-includes="messageTitleIncludes"
+        :title="selectedIncludesTitle"
+        :collapsable="showSelectedIncludesCollapsible"
+        :show-close="false"
         class="gl-mb-3"
       />
       <div

@@ -80,6 +80,8 @@ Default.args = generateProps({
 });
 Default.decorators = [makeContainer({ height: '800px' })];
 
+let selectedIncludesCopy = []
+
 export const Interactive = (args, { argTypes }) => ({
   components: { GlDuoChat, GlButton },
   props: Object.keys(argTypes),
@@ -101,12 +103,13 @@ export const Interactive = (args, { argTypes }) => ({
   },
   methods: {
     onSendChatPrompt(prompt) {
+      selectedIncludesCopy =  [...this.selectedIncludes]
       const newPrompt = {
         ...MOCK_USER_PROMPT_MESSAGE,
         contentHtml: '',
         content: prompt,
         requestId: this.requestId,
-        extras: { selectedIncludes: [...this.selectedIncludes] },
+        extras: { selectedIncludes: selectedIncludesCopy },
       };
       this.loggerInfo += `New prompt: ${JSON.stringify(newPrompt)}\n\n`;
       if ([CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE].includes(prompt)) {
@@ -152,6 +155,8 @@ export const Interactive = (args, { argTypes }) => ({
       const generator = generateMockResponseChunks(this.requestId);
 
       for await (const newResponse of generator) {
+        newResponse.extras.selectedIncludes = selectedIncludesCopy;
+        console.log(newResponse)
         if (!this.canceledMessageRequestIds.includes(newResponse.requestId)) {
           const existingMessageIndex = this.msgs.findIndex(
             (msg) => msg.requestId === newResponse.requestId && msg.role === newResponse.role
