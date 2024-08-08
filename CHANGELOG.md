@@ -1,3 +1,10 @@
+# [88.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.3.0...v88.4.0) (2024-08-08)
+
+
+### Features
+
+* Add missing badge design tokens ([d36a5f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/d36a5f85d35a211bdb264ee4926c07852bffa73e))
+
 # [88.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.2.1...v88.3.0) (2024-08-07)
 
 
