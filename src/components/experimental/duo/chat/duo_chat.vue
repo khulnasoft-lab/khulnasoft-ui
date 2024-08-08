@@ -426,7 +426,6 @@ export default {
       } else {
         this.setPromptAndFocus(`${command.name} `);
         if (command.name === '/include') {
-          console.log('including dropdown');
           this.showIncludeDropdown = true;
         }
       }

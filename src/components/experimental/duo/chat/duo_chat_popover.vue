@@ -41,7 +41,7 @@ export default {
       </div>
       <div v-if="item.type === 'file'" class="gl-mb-2">
         <strong class="gl-mr-1">Path:</strong>
-        <span>{{ item.info.path }}</span>
+        <span>{{ item.info.relFilePath }}</span>
       </div>
       <div v-else-if="item.type === 'issue' || item.type === 'merge_request'" class="gl-mb-2">
         <strong class="gl-mr-1">ID:</strong>

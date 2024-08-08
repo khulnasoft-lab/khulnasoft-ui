@@ -143,14 +143,14 @@ export default {
           id: 'file:///Users/gitlab/gitlab/app/src/index.js',
           name: 'index.js',
           isEnabled: true,
-          info: { project: 'gitlab-org/gitlab', path: '/src/index.js' },
+          info: { project: 'gitlab-org/gitlab', relFilePath: '/src/index.js' },
           type: 'file',
         },
         {
           id: 'file:///Users/gitlab/gitlab-runner/app/src/app.vue',
           name: 'app.vue',
           isEnabled: true,
-          info: { project: 'gitlab-org/gitlab-runner', path: '/src/app.vue' },
+          info: { project: 'gitlab-org/gitlab-runner', relFilePath: '/src/app.vue' },
           type: 'file',
         },
         {
@@ -160,7 +160,7 @@ export default {
           info: {
             project: 'gitlab-org/charts/gitlab',
             disabledReason: 'Duo is not enabled for this project',
-            path: '/src/styles.css',
+            relFilePath: '/src/styles.css',
           },
           type: 'file',
         },
@@ -267,13 +267,13 @@ export default {
             >
               <div class="gl-display-flex gl-align-items-center">
                 <gl-icon
-                  name="document"
+                  :name="selectedCategory.icon"
                   class="gl-mr-2"
                   :class="{ 'gl-text-gray-500': !item.isEnabled }"
                 />
                 <span :class="{ 'gl-text-gray-500': !item.isEnabled }">{{ item.name }}</span>
                 <span class="gl-ml-3 gl-text-gray-300">
-                  <template v-if="item.type === 'file'">{{ item.info.path }}</template>
+                  <template v-if="item.type === 'file'">{{ item.info.relFilePath }}</template>
                   <template v-else-if="item.type === 'merge_request'"
                     >!{{ item.info.iid }}</template
                   >

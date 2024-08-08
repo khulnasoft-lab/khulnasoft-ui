@@ -1,5 +1,6 @@
 <script>
 import GlIcon from '../../../base/icon/icon.vue';
+import GlToken from '../../../base/token/token.vue';
 import GlDuoChatItemPopover from './duo_chat_popover.vue';
 
 export default {
@@ -7,6 +8,7 @@ export default {
   components: {
     GlIcon,
     GlDuoChatItemPopover,
+    GlToken,
   },
   props: {
     selectedIncludes: {
@@ -15,34 +17,38 @@ export default {
     },
   },
   methods: {
-    getIconName(category) {
+    getIconName(type) {
       const iconMap = {
         file: 'document',
         issue: 'issues',
         merge_request: 'merge-request',
       };
-      return iconMap[category] || 'document';
+      return iconMap[type] || 'document';
     },
   },
 };
 </script>
 
 <template>
-  <div class="gl-mb-2">
-    <span
+  <div class="gl-display-flex gl-mb-2 gl-flex-wrap">
+    <gl-token
       v-for="(include, index) in selectedIncludes"
       :id="`selected-include-${index}`"
       :key="include.id"
-      class="gl-rounded gl-display-inline-flex gl-align-items-center gl-mr-2 gl-bg-blue-100 gl-px-2 gl-py-1 gl-text-sm"
+      :view-only="false"
+      variant="default"
+      class="gl-mb-2 gl-mr-2"
+      @close="$emit('remove', include)"
     >
-      <gl-icon :name="getIconName(include.type)" class="gl-mr-1" />
-      {{ include.name }}
-      <span class="gl-ml-1 gl-cursor-pointer" @click.stop="$emit('remove', include)">&times;</span>
+      <div class="gl-display-flex gl-align-items-center">
+        <gl-icon :name="getIconName(include.type)" :size="12" />
+        {{ include.name }}
+      </div>
       <gl-duo-chat-item-popover
         :item="include"
         :target="`selected-include-${index}`"
-        placement="top"
+        placement="bottom"
       />
-    </span>
+    </gl-token>
   </div>
 </template>

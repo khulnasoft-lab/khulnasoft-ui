@@ -3,7 +3,7 @@
  * @property {string} project - The GitLab project ID
  * @property {string} [disabledReason] - The reason why the item is disabled (if applicable)
  * @property {number} iid - The internal ID of the item (for issues and merge requests)
- * @property {string} [path] - The file path (for files)
+ * @property {string} [relFilePath] - The file path (for files)
  */
 
 /**
