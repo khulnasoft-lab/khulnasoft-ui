@@ -1,0 +1,224 @@
+{
+  "alert": {
+    "neutral": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{text.color.heading}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of a neutral alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.neutral.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of a neutral alert."
+        }
+      },
+      "border": {
+        "top" : {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.neutral.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border center color of a neutral alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the border bottom color of a neutral alert."
+          }
+        }
+      }
+    },
+    "info": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{color.blue.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of an info alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.info.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of an info alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border color of an info alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the border bottom color of an info alert."
+          }
+        }
+      }
+    },
+    "success": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{color.green.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of a success alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.success.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of a success alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.green.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border color of a success alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the border bottom color of a success alert."
+          }
+        }
+      }
+    },
+    "warning": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of a warning alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.warning.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of a warning alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.orange.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border color of a warning alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the border bottom color of a warning alert."
+          }
+        }
+      }
+    },
+    "danger": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of a danger alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.danger.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of a danger alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.red.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border color of a danger alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the border bottom color of a danger alert."
+          }
+        }
+      }
+    }
+  }
+}
