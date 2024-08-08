@@ -1,3 +1,10 @@
+## [88.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.4.0...v88.4.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* **DuoChat:** Add missing pre padding ([c168652](https://gitlab.com/gitlab-org/gitlab-ui/commit/c168652a097002ca379bb4073ffe974bc8b1e1c3))
+
 # [88.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.3.0...v88.4.0) (2024-08-08)
 
 
