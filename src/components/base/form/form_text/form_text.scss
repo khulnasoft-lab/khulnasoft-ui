@@ -1,5 +1,5 @@
 .gl-form-text {
-  @apply gl-text-subtle;
+  @apply gl-text-base gl-font-normal gl-text-subtle;
 
   &.gl-form-text-block {
     @apply gl-block gl-mt-2;
