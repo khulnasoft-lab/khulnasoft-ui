@@ -543,6 +543,7 @@ export default {
           :messages="conversation"
           :canceled-request-ids="canceledRequestIds"
           :show-delimiter="index > 0"
+          :selected-includes="selectedIncludes"
           @track-feedback="onTrackFeedback"
           @insert-code-snippet="onInsertCodeSnippet"
         />
@@ -572,7 +573,10 @@ export default {
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
-        <gl-duo-chat-selected-includes :selected-includes="selectedIncludes" @remove="removeInclude" />
+        <gl-duo-chat-selected-includes
+          :selected-includes="selectedIncludes"
+          @remove="removeInclude"
+        />
         <gl-form-input-group>
           <div
             class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"

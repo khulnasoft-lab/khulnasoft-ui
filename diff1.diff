@@ -1,0 +1,667 @@
+diff --git a/src/components/experimental/duo/chat/duo_chat.md b/src/components/experimental/duo/chat/duo_chat.md
+index c12ba0935..b716b537d 100644
+--- a/src/components/experimental/duo/chat/duo_chat.md
++++ b/src/components/experimental/duo/chat/duo_chat.md
+@@ -150,6 +150,28 @@ export default {
+ }
+ ```
+ 
++categories - files, issues, merge requests (slash command pattern)
++
++
++handleDefaultSearchResults - object
++
++searchContext - type, query: string (eg. index.js)
++
++handleSearchResults -  array of objects
++
++handleSelectedItem - object
++
++handleSelectedItemResult - object
++
++jannik
++
++
++
++
++
++
++
++
+ With this template in place, consumer is left with the following things to implement:
+ 
+ - Fetch `messages`. For Duo Chat, we rely on GraphQL query to get the cached
+diff --git a/src/components/experimental/duo/chat/duo_chat.vue b/src/components/experimental/duo/chat/duo_chat.vue
+index 1dc3cdba1..d6bf9c32f 100644
+--- a/src/components/experimental/duo/chat/duo_chat.vue
++++ b/src/components/experimental/duo/chat/duo_chat.vue
+@@ -16,6 +16,8 @@ import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/
+ import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
+ import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
+ import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
++import GlDuoChatInclude from './duo_chat_include.vue';
++import GlDuoChatSelectedIncludes from './duo_chat_selected_include.vue';
+ import { CHAT_CLEAN_MESSAGE, CHAT_RESET_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
+ 
+ export const i18n = {
+@@ -62,6 +64,8 @@ export default {
+     GlDuoChatConversation,
+     GlCard,
+     GlDropdownItem,
++    GlDuoChatInclude,
++    GlDuoChatSelectedIncludes,
+   },
+   directives: {
+     SafeHtml,
+@@ -207,6 +211,9 @@ export default {
+       activeCommandIndex: 0,
+       displaySubmitButton: true,
+       compositionJustEnded: false,
++      showIncludeDropdown: false,
++      cursorPosition: 0,
++      selectedIncludes: [],
+     };
+   },
+   computed: {
+@@ -365,6 +372,12 @@ export default {
+     onInputKeyup(e) {
+       const { key } = e;
+ 
++      if (this.showIncludeDropdown) {
++        this.$refs.includeComponent.handleKeydown(e);
++        this.compositionJustEnded = false;
++        return;
++      }
++
+       if (this.shouldShowSlashCommands) {
+         e.preventDefault();
+ 
+@@ -412,11 +425,38 @@ export default {
+         this.sendChatPrompt();
+       } else {
+         this.setPromptAndFocus(`${command.name} `);
++        if (command.name === '/include') {
++          this.showIncludeDropdown = true;
++        }
+       }
+     },
+     onInsertCodeSnippet(e) {
+       this.$emit('insert-code-snippet', e);
+     },
++
++    updateCursorPosition() {
++      const textArea = this.$refs.prompt.$el;
++      const cursorPosition = textArea.selectionStart;
++      const textBeforeCursor = this.prompt.substring(0, cursorPosition);
++      const textWidth = this.getTextWidth(textBeforeCursor, getComputedStyle(textArea));
++      this.cursorPosition = textWidth;
++    },
++    getTextWidth(text, style) {
++      const canvas = document.createElement('canvas');
++      const context = canvas.getContext('2d');
++      context.font = `${style.fontSize} ${style.fontFamily}`;
++      return context.measureText(text).width;
++    },
++    handleItemSelected(item) {
++      this.selectedIncludes.push(item);
++      this.prompt = this.prompt.replace('/include', '').trim();
++      this.$nextTick(() => {
++        this.$refs.prompt.$el.focus();
++      });
++    },
++    removeInclude(include) {
++      this.selectedIncludes = this.selectedIncludes.filter((i) => i.id !== include.id);
++    },
+   },
+   i18n,
+   emptySvg,
+@@ -532,6 +572,7 @@ export default {
+       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
+     >
+       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
++        <gl-duo-chat-selected-includes :selected-includes="selectedIncludes" @remove="removeInclude" />
+         <gl-form-input-group>
+           <div
+             class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
+@@ -558,7 +599,6 @@ export default {
+                 </span>
+               </gl-dropdown-item>
+             </gl-card>
+-
+             <gl-form-textarea
+               ref="prompt"
+               v-model="prompt"
+@@ -571,6 +611,16 @@ export default {
+               @keyup.native="onInputKeyup"
+               @compositionend="compositionEnd"
+             />
++
++            <gl-duo-chat-include
++              ref="includeComponent"
++              :show-include-dropdown="showIncludeDropdown"
++              :cursor-position="cursorPosition"
++              class="gl-absolute"
++              style="top: 0; left: 0"
++              @update:showIncludeDropdown="showIncludeDropdown = $event"
++              @item-selected="handleItemSelected"
++            />
+           </div>
+           <template #append>
+             <gl-button
+@@ -604,3 +654,9 @@ export default {
+     </footer>
+   </aside>
+ </template>
++<style scoped>
++/* ... (previous styles) ... */
++.duo-chat-input {
++  position: relative;
++}
++</style>
+diff --git a/src/components/experimental/duo/chat/duo_chat_context_types.js b/src/components/experimental/duo/chat/duo_chat_context_types.js
+new file mode 100644
+index 000000000..a66f16945
+--- /dev/null
++++ b/src/components/experimental/duo/chat/duo_chat_context_types.js
+@@ -0,0 +1,20 @@
++/**
++ * @typedef {Object} DuoChatContextItemInfo
++ * @property {string} project - The GitLab project ID
++ * @property {string} [disabledReason] - The reason why the item is disabled (if applicable)
++ * @property {number} iid - The internal ID of the item (for issues and merge requests)
++ * @property {string} [relFilePath] - The file path (for files)
++ */
++
++/**
++ * @typedef {'issue' | 'merge_request' | 'files'} DuoChatContextItemType
++ */
++
++/**
++ * @typedef {Object} DuoChatContextItem
++ * @property {string} id - The unique identifier of the item
++ * @property {string} name - The name or title of the item
++ * @property {boolean} isEnabled - Whether the item is enabled or not
++ * @property {DuoChatContextItemInfo} info - Additional information about the item
++ * @property {DuoChatContextItemType} type - The type of the item
++ */
+diff --git a/src/components/experimental/duo/chat/duo_chat_include.vue b/src/components/experimental/duo/chat/duo_chat_include.vue
+new file mode 100644
+index 000000000..4ab1d225d
+--- /dev/null
++++ b/src/components/experimental/duo/chat/duo_chat_include.vue
+@@ -0,0 +1,319 @@
++<script>
++import debounce from 'lodash/debounce';
++import GlDropdownItem from '../../../base/dropdown/dropdown_item.vue';
++import GlFormInput from '../../../base/form/form_input/form_input.vue';
++import GlCard from '../../../base/card/card.vue';
++import GlIcon from '../../../base/icon/icon.vue';
++import GlDuoChatItemPopover from './duo_chat_popover.vue';
++/// <reference path="./duo_chat_types" />
++
++export default {
++  name: 'GlDuoChatInclude',
++  components: {
++    GlDropdownItem,
++    GlFormInput,
++    GlCard,
++    GlIcon,
++    GlDuoChatItemPopover,
++  },
++  props: {
++    showIncludeDropdown: {
++      type: Boolean,
++      default: false,
++      required: true,
++    },
++    cursorPosition: {
++      type: Number,
++      default: 0,
++      required: true,
++    },
++  },
++  data() {
++    return {
++      categories: [
++        { label: 'Files', value: 'file', icon: 'document' },
++        { label: 'Issues', value: 'issue', icon: 'issues' },
++        { label: 'Merge Requests', value: 'merge_request', icon: 'merge-request' },
++      ],
++      selectedCategory: null,
++      searchQuery: '',
++      filteredItems: [],
++      activeIndex: 0,
++    };
++  },
++  computed: {
++    showCategorySelection() {
++      return this.showIncludeDropdown && !this.selectedCategory;
++    },
++    showItemSearch() {
++      return this.showIncludeDropdown && this.selectedCategory;
++    },
++    currentItems() {
++      return this.showCategorySelection ? this.categories : this.filteredItems;
++    },
++  },
++  watch: {
++    showIncludeDropdown(newVal) {
++      if (newVal) {
++        this.activeIndex = 0;
++        this.$nextTick(() => {
++          this.focusSearchInput();
++        });
++      }
++    },
++    selectedCategory() {
++      this.activeIndex = 0;
++      this.$nextTick(() => {
++        this.focusSearchInput();
++      });
++    },
++    filteredItems() {
++      this.activeIndex = 0;
++    },
++  },
++  methods: {
++    focusSearchInput() {
++      if (this.showItemSearch && this.$refs.searchInput && this.$refs.searchInput.$el) {
++        this.$refs.searchInput.$el.focus();
++      }
++    },
++    selectCategory(category) {
++      this.selectedCategory = category;
++      this.searchQuery = '';
++      this.filteredItems = [];
++      this.debouncedSearch();
++    },
++    debouncedSearch: debounce(function () {
++      /** @type {DuoChatContextItem[]} */
++      const mockData = [
++        {
++          id: 'https://gitlab.com/gitlab-org/gitlab/issues/42',
++          name: 'Bug in login form',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab', iid: 42 },
++          type: 'issue',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/gitlab-runner/issues/43',
++          name: 'Improve performance',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab-runner', iid: 43 },
++          type: 'issue',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/charts/gitlab/issues/44',
++          name: 'Update dependencies',
++          isEnabled: false,
++          info: {
++            iid: 44,
++            project: 'gitlab-org/charts/gitlab',
++            disabledReason: 'Duo is not enabled for this project',
++          },
++          type: 'issue',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/gitlab/merge_requests/10',
++          name: 'Add new feature',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab', iid: 10 },
++          type: 'merge_request',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/gitlab-runner/merge_requests/11',
++          name: 'Fix typo in README',
++          isEnabled: true,
++          info: {
++            iid: 11,
++            project: 'gitlab-org/gitlab-runner',
++          },
++          type: 'merge_request',
++        },
++        {
++          id: 'https://gitlab.com/gitlab-org/charts/gitlab/merge_requests/12',
++          name: 'Refactor authentication',
++          isEnabled: false,
++          info: {
++            project: 'gitlab-org/charts/gitlab',
++            disabledReason: 'Duo is not enabled for this project',
++            iid: 12,
++          },
++          type: 'merge_request',
++        },
++        {
++          id: 'file:///Users/gitlab/gitlab/app/src/index.js',
++          name: 'index.js',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab', relFilePath: '/src/index.js' },
++          type: 'file',
++        },
++        {
++          id: 'file:///Users/gitlab/gitlab-runner/app/src/app.vue',
++          name: 'app.vue',
++          isEnabled: true,
++          info: { project: 'gitlab-org/gitlab-runner', relFilePath: '/src/app.vue' },
++          type: 'file',
++        },
++        {
++          id: 'file:///Users/gitlab/charts/gitlab/app/src/styles.css',
++          name: 'styles.css',
++          isEnabled: false,
++          info: {
++            project: 'gitlab-org/charts/gitlab',
++            disabledReason: 'Duo is not enabled for this project',
++            relFilePath: '/src/styles.css',
++          },
++          type: 'file',
++        },
++      ];
++      this.filteredItems = mockData.filter(
++        (item) =>
++          item.name?.toLowerCase().includes(this.searchQuery.toLowerCase()) &&
++          item.type === this.selectedCategory.value
++      );
++    }, 300),
++    selectItem(item) {
++      this.$emit('item-selected', { ...item, category: this.selectedCategory?.value });
++      this.$emit('update:showIncludeDropdown', false);
++      this.resetSelection();
++    },
++    resetSelection() {
++      this.selectedCategory = null;
++      this.searchQuery = '';
++      this.filteredItems = [];
++      this.activeIndex = 0;
++    },
++    handleKeydown(e) {
++      if (!this.showIncludeDropdown) return;
++
++      if (this.showItemSearch && !['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
++        this.focusSearchInput();
++        return;
++      }
++
++      switch (e.key) {
++        case 'ArrowDown':
++          e.preventDefault();
++          this.activeIndex = (this.activeIndex + 1) % this.currentItems.length;
++          break;
++        case 'ArrowUp':
++          e.preventDefault();
++          this.activeIndex =
++            (this.activeIndex - 1 + this.currentItems.length) % this.currentItems.length;
++          break;
++        case 'Enter':
++          e.preventDefault();
++          if (!this.currentItems.length) {
++            return;
++          }
++          if (this.showCategorySelection) {
++            this.selectCategory(this.currentItems[this.activeIndex]);
++          } else {
++            this.selectItem(this.currentItems[this.activeIndex]);
++          }
++          break;
++        case 'Escape':
++          e.preventDefault();
++          this.$emit('update:showIncludeDropdown', false);
++          break;
++        default:
++          break;
++      }
++    },
++    onSearchInputKeydown(e) {
++      if (['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
++        this.handleKeydown(e);
++      }
++    },
++  },
++};
++</script>
++
++<template>
++  <div class="gl-duo-chat-include gl-relative">
++    <gl-card v-if="showIncludeDropdown" class="include-card gl-position-absolute">
++      <template v-if="showCategorySelection">
++        <ul class="list-unstyled gl-mb-0">
++          <li v-for="(category, index) in categories" :key="category.value">
++            <gl-dropdown-item
++              :class="{ 'gl-bg-gray-50': index === activeIndex }"
++              @click="selectCategory(category)"
++            >
++              <div class="gl-display-flex gl-align-items-center">
++                <gl-icon :name="category.icon" class="gl-mr-2" />
++                {{ category.label }}
++              </div>
++            </gl-dropdown-item>
++          </li>
++        </ul>
++      </template>
++      <template v-else-if="showItemSearch">
++        <gl-form-input
++          ref="searchInput"
++          v-model="searchQuery"
++          :placeholder="`Search ${selectedCategory.label.toLowerCase()}...`"
++          class="gl-mb-3"
++          @input="debouncedSearch"
++          @keydown="onSearchInputKeydown"
++        />
++        <ul class="list-unstyled gl-mb1">
++          <li v-for="(item, index) in filteredItems" :key="item.id">
++            <gl-dropdown-item
++              :id="`dropdown-item-${index}`"
++              :class="[
++                { 'gl-bg-gray-50': index === activeIndex },
++                { 'disabled-item': !item.isEnabled },
++              ]"
++              @click="item.isEnabled && selectItem(item)"
++            >
++              <div class="gl-display-flex gl-align-items-center gl-truncate">
++                <gl-icon
++                  :name="selectedCategory.icon"
++                  class="gl-mr-2"
++                  :class="{ 'gl-text-gray-500': !item.isEnabled }"
++                />
++                <span :class="{ 'gl-text-gray-500': !item.isEnabled }">{{ item.name }}</span>
++                <span class="gl-ml-3 gl-text-gray-300">
++                  <template v-if="item.type === 'file'">{{ item.info.relFilePath }}</template>
++                  <template v-else-if="item.type === 'merge_request'"
++                    >!{{ item.info.iid }}</template
++                  >
++                  <template v-else-if="item.type === 'issue'">#{{ item.info.iid }}</template>
++                </span>
++              </div>
++            </gl-dropdown-item>
++            <gl-duo-chat-item-popover
++              :item="item"
++              :target="`dropdown-item-${index}`"
++              placement="top"
++            />
++          </li>
++        </ul>
++      </template>
++    </gl-card>
++  </div>
++</template>
++
++<style scoped>
++.gl-duo-chat-include {
++  display: inline-block;
++}
++
++.include-card {
++  top: 100%;
++  left: v-bind('cursorPosition + "px"');
++  z-index: 100;
++  min-width: 250px;
++  max-width: 400px;
++  max-height: 300px;
++  overflow-y: auto;
++}
++
++.disabled-item {
++  cursor: not-allowed;
++  background-color: #f9f9f9;
++}
++
++.disabled-item:hover {
++  background-color: #f9f9f9 !important;
++}
++</style>
+diff --git a/src/components/experimental/duo/chat/duo_chat_popover.vue b/src/components/experimental/duo/chat/duo_chat_popover.vue
+new file mode 100644
+index 000000000..a3acbf238
+--- /dev/null
++++ b/src/components/experimental/duo/chat/duo_chat_popover.vue
+@@ -0,0 +1,61 @@
++<script>
++import GlPopover from '../../../base/popover/popover.vue';
++
++export default {
++  name: 'DuoChatItemPopover',
++  components: {
++    GlPopover,
++  },
++  props: {
++    item: {
++      type: Object,
++      required: true,
++    },
++    target: {
++      type: String,
++      required: true,
++    },
++    placement: {
++      type: String,
++      default: 'top',
++      required: true
++    }
++  },
++};
++</script>
++<template>
++  <gl-popover
++    :target="target"
++    triggers="hover focus"
++    :placement="placement"
++    :title="item.name"
++    custom-class="gl-duo-chat-item-popover"
++  >
++    <template #title>
++      <span class="gl-font-sm gl-text-gray-500">{{ item.name }}</span>
++    </template>
++    <div class="gl-p-3">
++      <div class="gl-mb-2">
++        <strong class="gl-mr-1">Project:</strong>
++        <span>{{ item.info.project }}</span>
++      </div>
++      <div v-if="item.type === 'file'" class="gl-mb-2">
++        <strong class="gl-mr-1">Path:</strong>
++        <span>{{ item.info.relFilePath }}</span>
++      </div>
++      <div v-else-if="item.type === 'issue' || item.type === 'merge_request'" class="gl-mb-2">
++        <strong class="gl-mr-1">ID:</strong>
++        <span>{{ item.type === 'issue' ? '#' : '!' }}{{ item.info.iid }}</span>
++      </div>
++      <div class="gl-mb-2">
++        <strong class="gl-mr-1">Type:</strong>
++        <span>{{ item.type }}</span>
++      </div>
++      <div v-if="!item.isEnabled" class="gl-text-red-500">
++        <strong class="gl-mr-1">Note:</strong>
++        <span>{{ item.info.disabledReason || 'This item is disabled' }}</span>
++      </div>
++    </div>
++  </gl-popover>
++</template>
++
+diff --git a/src/components/experimental/duo/chat/duo_chat_selected_include.vue b/src/components/experimental/duo/chat/duo_chat_selected_include.vue
+new file mode 100644
+index 000000000..004896d37
+--- /dev/null
++++ b/src/components/experimental/duo/chat/duo_chat_selected_include.vue
+@@ -0,0 +1,57 @@
++<script>
++import GlIcon from '../../../base/icon/icon.vue';
++import GlToken from '../../../base/token/token.vue';
++import GlDuoChatItemPopover from './duo_chat_popover.vue';
++
++export default {
++  name: 'DuoChatSelectedIncludes',
++  components: {
++    GlIcon,
++    GlDuoChatItemPopover,
++    GlToken,
++  },
++  props: {
++    selectedIncludes: {
++      type: Array,
++      required: true,
++    },
++  },
++  methods: {
++    getIconName(type) {
++      const iconMap = {
++        file: 'document',
++        issue: 'issues',
++        merge_request: 'merge-request',
++      };
++      return iconMap[type] || 'document';
++    },
++  },
++};
++</script>
++
++<template>
++  <div v-if="selectedIncludes.length > 0" class="gl-display-flex gl-align-items-start gl-mb-3">
++    <div class="gl-text-xs gl-text-gray-500 gl-mr-3 gl-mt-2 gl-opacity-5 ">added context</div>
++    <div class="gl-display-flex gl-flex-wrap gl-flex-grow-1">
++      <gl-token
++        v-for="(include, index) in selectedIncludes"
++        :id="`selected-include-${index}`"
++        :key="include.id"
++        :view-only="false"
++        variant="default"
++        class="gl-mb-2 gl-mr-2"
++        @close="$emit('remove', include)"
++      >
++        <div class="gl-display-flex gl-align-items-center">
++          <gl-icon :name="getIconName(include.type)" :size="12" />
++          {{ include.name }}
++        </div>
++        <gl-duo-chat-item-popover
++          :item="include"
++          :target="`selected-include-${index}`"
++          placement="bottom"
++        />
++      </gl-token>
++    </div>
++  </div>
++</template>
+diff --git a/src/components/experimental/duo/chat/mock_data.js b/src/components/experimental/duo/chat/mock_data.js
+index ae45a12ea..1968ef30d 100644
+--- a/src/components/experimental/duo/chat/mock_data.js
++++ b/src/components/experimental/duo/chat/mock_data.js
+@@ -165,4 +165,8 @@ export const SLASH_COMMANDS = [
+     name: '/explain',
+     description: 'Explain the selected snippet.',
+   },
++  {
++    name: '/include',
++    description: 'Add context to your chat.'
++  }
+ ];
+diff --git a/tsconfig.json b/tsconfig.json
+new file mode 100644
+index 000000000..9a602becb
+--- /dev/null
++++ b/tsconfig.json
+@@ -0,0 +1,7 @@
++{
++  "compilerOptions": {
++    "allowJs": true,
++    "checkJs": true
++  }
++}
++
