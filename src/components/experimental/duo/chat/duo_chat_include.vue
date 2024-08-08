@@ -265,7 +265,7 @@ export default {
               ]"
               @click="item.isEnabled && selectItem(item)"
             >
-              <div class="gl-display-flex gl-align-items-center">
+              <div class="gl-display-flex gl-align-items-center gl-truncate">
                 <gl-icon
                   :name="selectedCategory.icon"
                   class="gl-mr-2"
@@ -281,7 +281,11 @@ export default {
                 </span>
               </div>
             </gl-dropdown-item>
-            <gl-duo-chat-item-popover :item="item" :target="`dropdown-item-${index}`" placement="top" />
+            <gl-duo-chat-item-popover
+              :item="item"
+              :target="`dropdown-item-${index}`"
+              placement="top"
+            />
           </li>
         </ul>
       </template>
