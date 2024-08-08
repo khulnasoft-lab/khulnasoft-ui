@@ -8,6 +8,7 @@
 
   pre {
     @include gl-reset-color;
+    padding: $gl-spacing-scale-3 $gl-spacing-scale-4;
   }
 
   pre code {
