@@ -1,3 +1,10 @@
+# [88.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.5.0...v88.6.0) (2024-08-09)
+
+
+### Features
+
+* **Avatar:** Use new darkmode colors ([9af079a](https://gitlab.com/gitlab-org/gitlab-ui/commit/9af079a40db520c589116a0174f6321ac6ff6fb7))
+
 # [88.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.4.1...v88.5.0) (2024-08-09)
 
 
