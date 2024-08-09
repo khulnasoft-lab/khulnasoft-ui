@@ -18,6 +18,22 @@
           "$type": "color",
           "$description": "Used for disabled form control (checkbox, input, radio button, textarea) background."
         },
+        "concatenation": {
+          "$value": {
+            "default": "{color.neutral.10}",
+            "dark": "{color.alpha.light.4}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of static content that prepends or appends a text input."
+        },
+        "readonly": {
+          "$value": {
+            "default": "{color.alpha.dark.8}",
+            "dark": "{color.alpha.light.8}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of static content that prepends or appends a text input."
+        },
         "selected": {
           "default": {
             "$value": {
@@ -43,14 +59,6 @@
             "$type": "color",
             "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover."
           }
-        },
-        "concatenation": {
-          "$value": {
-            "default": "{color.neutral.10}",
-            "dark": "{color.alpha.light.4}"
-          },
-          "$type": "color",
-          "$description": "Used for the background of static content that prepends or appends a text input."
         }
       }
     },

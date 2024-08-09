@@ -11093,6 +11093,52 @@
             "disabled"
           ]
         },
+        "concatenation": {
+          "value": "rgba(255, 255, 255, 0.04)",
+          "$type": "color",
+          "comment": "Used for the background of static content that prepends or appends a text input.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.10}",
+              "dark": "{color.alpha.light.4}"
+            },
+            "$type": "color",
+            "comment": "Used for the background of static content that prepends or appends a text input."
+          },
+          "name": "CONTROL_BACKGROUND_COLOR_CONCATENATION",
+          "attributes": {},
+          "path": [
+            "control",
+            "background",
+            "color",
+            "concatenation"
+          ]
+        },
+        "readonly": {
+          "value": "rgba(255, 255, 255, 0.08)",
+          "$type": "color",
+          "comment": "Used for the background of static content that prepends or appends a text input.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.alpha.dark.8}",
+              "dark": "{color.alpha.light.8}"
+            },
+            "$type": "color",
+            "comment": "Used for the background of static content that prepends or appends a text input."
+          },
+          "name": "CONTROL_BACKGROUND_COLOR_READONLY",
+          "attributes": {},
+          "path": [
+            "control",
+            "background",
+            "color",
+            "readonly"
+          ]
+        },
         "selected": {
           "default": {
             "value": "#63a6e9",
@@ -11166,29 +11212,6 @@
               "focus"
             ]
           }
-        },
-        "concatenation": {
-          "value": "rgba(255, 255, 255, 0.04)",
-          "$type": "color",
-          "comment": "Used for the background of static content that prepends or appends a text input.",
-          "filePath": "src/tokens/control.tokens.json",
-          "isSource": true,
-          "original": {
-            "value": {
-              "default": "{color.neutral.10}",
-              "dark": "{color.alpha.light.4}"
-            },
-            "$type": "color",
-            "comment": "Used for the background of static content that prepends or appends a text input."
-          },
-          "name": "CONTROL_BACKGROUND_COLOR_CONCATENATION",
-          "attributes": {},
-          "path": [
-            "control",
-            "background",
-            "color",
-            "concatenation"
-          ]
         }
       }
     },

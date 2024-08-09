@@ -21,14 +21,17 @@
     box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-hover);
   }
 
-  &:disabled,
-  &:not(.form-control-plaintext):not([type='color']):read-only {
-    background: var(--gl-control-background-color-disabled);
-    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-disabled);
+  &:read-only {
+    background: var(--gl-control-background-color-readonly);
+    box-shadow: none;
   }
+
+  //  &:not(.form-control-plaintext):not([type='color']):read-only
 
   &:disabled {
     @include gl-cursor-not-allowed;
+    background: var(--gl-control-background-color-disabled);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-disabled);
     color: var(--gl-text-color-disabled);
   }
 
