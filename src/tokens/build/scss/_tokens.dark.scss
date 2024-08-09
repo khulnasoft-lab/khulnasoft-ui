@@ -685,6 +685,7 @@ $gl-action-disabled-foreground-color: $gl-color-neutral-500; // Used for the for
 $gl-focus-ring-inner-color: $gl-background-color-default; // Used for the inner neutral portion of the focus ring.
 $gl-table-sorting-icon-color: $gl-text-color-heading; // Used for the color of the sorting icons in the column headers.
 $gl-table-row-background-color-hover: $gl-background-color-subtle; // Used for the background of a table row in hover state.
+$gl-datepicker-date-text-color-selected: $gl-control-indicator-color-selected; // Used for the datepicker date text color state indicators.
 $gl-button-selected-border-color-focus: $gl-button-selected-border-color-hover; // Used for the border of a selected button in the focus state.
 $gl-button-selected-background-color-active: $gl-button-default-primary-background-color-active; // Used for the background of a selected button in the active state.
 $gl-button-selected-background-color-hover: $gl-button-default-primary-background-color-hover; // Used for the background of a selected button in the hover state.

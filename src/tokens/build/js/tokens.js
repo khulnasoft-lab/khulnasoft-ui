@@ -518,6 +518,7 @@ export const GL_BUTTON_SELECTED_BORDER_COLOR_ACTIVE = '#626168'; // Used for the
 export const GL_BUTTON_DISABLED_FOREGROUND_COLOR = '#737278'; // Used for the foreground of a disabled button.
 export const GL_BUTTON_DISABLED_BACKGROUND_COLOR = '#fbfafd'; // Used for the background of a disabled button.
 export const GL_BUTTON_DISABLED_BORDER_COLOR = '#dcdcde'; // Used for the border of a disabled button.
+export const GL_DATEPICKER_DATE_TEXT_COLOR_SELECTED = '#fff'; // Used for the datepicker date text color state indicators.
 export const GL_LABEL_LIGHT_TEXT_COLOR = '#18171d'; // Used for the label text color on a light background color.
 export const GL_LABEL_LIGHT_BUTTON_BACKGROUND_COLOR_DEFAULT = 'transparent'; // Used for the label remove button background on a light background color in the default state.
 export const GL_LABEL_LIGHT_BUTTON_BACKGROUND_COLOR_HOVER = '#18171d'; // Used for the label remove button background on a light background color in the hover state.
