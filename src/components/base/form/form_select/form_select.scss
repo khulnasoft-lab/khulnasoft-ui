@@ -87,6 +87,13 @@ div:has(>.gl-form-select) {
   }
 }
 
+div:has(>.gl-form-select:disabled) {
+
+  &::after {
+    background-color: var(--gl-icon-color-disabled);
+  }
+}
+
 @each $name, $size in $gl-form-input-sizes {
   .gl-form-select-#{$name} {
     max-width: $size;
