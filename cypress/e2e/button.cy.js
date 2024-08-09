@@ -24,6 +24,7 @@ describe('GlButton', () => {
     }
   }
 
+  // eslint-disable-next-line max-params
   function checkA11YButton(variant, category, state, story) {
     const argsObject = { args: { variant } };
     if (category) argsObject.args.category = category;

@@ -44,6 +44,7 @@ module.exports = {
       },
     ],
     'vue/no-v-html': 'error',
+    'max-params': ['error', { max: 3 }],
   },
   overrides: [
     {
