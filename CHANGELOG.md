@@ -1,3 +1,10 @@
+# [88.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.4.1...v88.5.0) (2024-08-09)
+
+
+### Features
+
+* **GlDatepicker:** Use design tokens in GlDatepicker ([e33a305](https://gitlab.com/gitlab-org/gitlab-ui/commit/e33a30548d42c52baf82250f89e753164621d029))
+
 ## [88.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.4.0...v88.4.1) (2024-08-08)
 
 
