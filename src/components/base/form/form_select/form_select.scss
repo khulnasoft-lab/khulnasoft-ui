@@ -88,7 +88,6 @@ div:has(>.gl-form-select) {
 }
 
 div:has(>.gl-form-select:disabled) {
-
   &::after {
     background-color: var(--gl-icon-color-disabled);
   }
