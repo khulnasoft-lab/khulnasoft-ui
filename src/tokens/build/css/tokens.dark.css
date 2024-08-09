@@ -182,6 +182,12 @@
   --theme-indigo-100: #303083;
   --theme-indigo-50: #222261;
   --theme-indigo-10: #14143d;
+  --gl-avatar-fallback-background-color-neutral: #bfbfc33d; /* Neutral background for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-background-color-orange: #e9be743d; /* Orange background for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-background-color-green: #91d4a83d; /* Green background for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-background-color-blue: #9dc7f13d; /* Blue background for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-background-color-purple: #cbbbf23d; /* Purple background for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-background-color-red: #fcb5aa3d; /* Red background for avatar fallback with no particular meaning. */
   --data-viz-orange-950: #fae8d1;
   --data-viz-orange-900: #f5d6b3;
   --data-viz-orange-800: #eebd8c;
@@ -651,12 +657,12 @@
   --gl-badge-muted-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a muted badge when static or the default state when linked. */
   --gl-badge-muted-background-color-active: var(--gl-color-neutral-800); /* Used for the background of a muted badge in the active state. */
   --gl-badge-muted-background-color-default: var(--gl-color-neutral-900); /* Used for the background of a muted badge when static or the default state when linked. */
-  --gl-avatar-fallback-background-color-neutral: var(--gl-color-neutral-900); /* Neutral background for avatar fallback with no particular meaning. */
-  --gl-avatar-fallback-background-color-orange: var(--gl-color-orange-950); /* Orange background for avatar fallback with no particular meaning. */
-  --gl-avatar-fallback-background-color-green: var(--gl-color-green-950); /* Green background for avatar fallback with no particular meaning. */
-  --gl-avatar-fallback-background-color-blue: var(--gl-color-blue-950); /* Blue background for avatar fallback with no particular meaning. */
-  --gl-avatar-fallback-background-color-purple: var(--gl-color-purple-950); /* Purple background for avatar fallback with no particular meaning. */
-  --gl-avatar-fallback-background-color-red: var(--gl-color-red-950); /* Red background for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-text-color-neutral: var(--gl-color-neutral-200); /* Neutral text color for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-text-color-orange: var(--gl-color-orange-200); /* Orange text color for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-text-color-green: var(--gl-color-green-200); /* Green text color for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-text-color-blue: var(--gl-color-blue-200); /* Blue text color for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-text-color-purple: var(--gl-color-purple-200); /* Purple text color for avatar fallback with no particular meaning. */
+  --gl-avatar-fallback-text-color-red: var(--gl-color-red-200); /* Red text color for avatar fallback with no particular meaning. */
   --gl-avatar-border-color-hover: var(--gl-color-alpha-light-24); /* Used to increase the edge definition of an avatar in the hover state. */
   --gl-avatar-border-color-default: var(--gl-color-alpha-light-8); /* Used to define the edge of an avatar. */
   --gl-border-color-transparent: var(--gl-color-alpha-0); /* Used when a border needs to be present, but not visibly perceived. */
