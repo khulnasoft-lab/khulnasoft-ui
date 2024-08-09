@@ -471,6 +471,7 @@ $gl-feedback-strong-link-color: $gl-color-blue-700; // Used for a link on a stro
 $gl-feedback-strong-icon-color: $gl-color-neutral-900; // Used for an icon on a strong feedback background.
 $gl-feedback-strong-text-color: $gl-color-neutral-900; // Used for text on a strong feedback background.
 $gl-feedback-strong-background-color: $gl-color-neutral-10; // Used for a background associated with strong feedback like a tooltip or toast message.
+$gl-control-icon-color-default: $gl-color-neutral-950; // Used for checkbox and radio button state indicators.
 $gl-control-indicator-color-disabled: $gl-color-neutral-400; // Used for disabled checkbox and radio button state indicators.
 $gl-control-indicator-color-selected: $gl-color-neutral-950; // Used for checkbox and radio button state indicators.
 $gl-control-placeholder-color: $gl-color-neutral-400; // Used for placeholder text within inputs.
@@ -478,7 +479,7 @@ $gl-control-text-color-valid: $gl-color-green-300; // Used for the helper text w
 $gl-control-text-color-error: $gl-color-red-300; // Used for the helper text when the input is invalid.
 $gl-control-border-color-selected-focus: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) border on focus.
 $gl-control-border-color-selected-hover: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) border on hover.
-$gl-control-border-color-selected-default: $gl-color-blue-400; // Used for checked and indeterminate (selected) form control (checkbox, radio button) border.
+$gl-control-border-color-selected-default: $gl-color-blue-300; // Used for checked and indeterminate (selected) form control (checkbox, radio button) border.
 $gl-control-border-color-error: $gl-color-red-300; // Used for invalid form control (input, textarea) border.
 $gl-control-border-color-disabled: $gl-color-neutral-800; // Used for disabled form control (input, radio button, checkbox, textarea) border.
 $gl-control-border-color-focus: $gl-color-neutral-50; // Used for form control (input, radio button, checkbox, textarea) border on focus.

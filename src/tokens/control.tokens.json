@@ -100,7 +100,7 @@
           "default": {
             "$value": {
               "default": "{color.blue.500}",
-              "dark": "{color.blue.400}"
+              "dark": "{color.blue.300}"
             },
             "$type": "color",
             "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border."
@@ -171,6 +171,18 @@
           },
           "$type": "color",
           "$description": "Used for disabled checkbox and radio button state indicators."
+        }
+      }
+    },
+    "icon": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.950}"
+          },
+          "$type": "color",
+          "$description": "Used for checkbox and radio button state indicators."
         }
       }
     }

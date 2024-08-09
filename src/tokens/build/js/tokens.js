@@ -524,6 +524,7 @@ export const GL_CONTROL_TEXT_COLOR_VALID = '#108548'; // Used for the helper tex
 export const GL_CONTROL_PLACEHOLDER_COLOR = '#89888d'; // Used for placeholder text within inputs.
 export const GL_CONTROL_INDICATOR_COLOR_SELECTED = '#fff'; // Used for checkbox and radio button state indicators.
 export const GL_CONTROL_INDICATOR_COLOR_DISABLED = '#737278'; // Used for disabled checkbox and radio button state indicators.
+export const GL_CONTROL_ICON_COLOR_DEFAULT = '#fff'; // Used for checkbox and radio button state indicators.
 export const THEME_INDIGO_10 = '#f8f8ff';
 export const THEME_INDIGO_50 = '#f1f1ff';
 export const THEME_INDIGO_100 = '#dbdbf8';
