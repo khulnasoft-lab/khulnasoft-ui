@@ -3,7 +3,7 @@
 import { BPopover } from '../../../vendor/bootstrap-vue/src/components/popover/popover';
 import tooltipMixin from '../../mixins/tooltip_mixin';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
-import { popoverPlacements } from '../../../utils/constants';
+import { popoverPlacements, ESC_KEY_CODE } from '../../../utils/constants';
 
 const popoverRefName = 'bPopover';
 
@@ -70,6 +70,9 @@ export default {
       return this.hasTitle || this.showCloseButton;
     },
   },
+  beforeDestroy() {
+    this.teardownKeyListeners();
+  },
   methods: {
     close(e) {
       this.$refs[popoverRefName].doClose();
@@ -77,6 +80,23 @@ export default {
        * Emitted when the close button is clicked (requires showCloseButton to be `true`).
        */
       this.$emit('close-button-clicked', e);
+    },
+    onKeydown(e) {
+      if (e.keyCode === ESC_KEY_CODE) {
+        this.$refs[popoverRefName].doClose();
+      }
+    },
+    onShow() {
+      this.setupKeyListeners();
+    },
+    onHide() {
+      this.teardownKeyListeners();
+    },
+    setupKeyListeners() {
+      document.addEventListener('keydown', this.onKeydown);
+    },
+    teardownKeyListeners() {
+      document.removeEventListener('keydown', this.onKeydown);
     },
   },
   popoverRefName,
@@ -92,6 +112,8 @@ export default {
     :placement="placement"
     :boundary-padding="boundaryPadding"
     v-bind="$attrs"
+    @show="onShow"
+    @hide="onHide"
     v-on="$listeners"
   >
     <template v-if="shouldShowTitle" #title>

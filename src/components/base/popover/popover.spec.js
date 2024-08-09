@@ -1,22 +1,44 @@
 import { shallowMount } from '@vue/test-utils';
-import { tooltipActionEvents, popoverPlacements } from '../../../utils/constants';
+import { tooltipActionEvents, popoverPlacements, ESC_KEY_CODE } from '../../../utils/constants';
 import GlPopover from './popover.vue';
 
 describe('GlPopover', () => {
   let wrapper;
+  let doCloseMock;
+  let BPopoverStub;
 
-  const createWrapper = (props, stubs = {}) => {
+  beforeEach(() => {
+    doCloseMock = jest.fn();
+    BPopoverStub = {
+      template: `
+      <div>
+        <slot name="title" />
+      </div>
+    `,
+      methods: {
+        doClose: doCloseMock,
+      },
+      props: ['customClass'],
+    };
+  });
+
+  const createWrapper = (props, { stubs = {}, listeners = {} } = {}) => {
     wrapper = shallowMount(GlPopover, {
       propsData: {
         target: document.body,
         ...props,
       },
       stubs,
+      listeners,
     });
   };
 
   const findBVPopover = () => wrapper.findComponent({ ref: 'bPopover' });
   const findCloseButton = () => findBVPopover().find('[data-testid="close-button"]');
+
+  const clickESC = () => {
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', keyCode: ESC_KEY_CODE }));
+  };
 
   it.each(tooltipActionEvents)('passes through the %s event to the bvPopover instance', (event) => {
     createWrapper();
@@ -70,30 +92,9 @@ describe('GlPopover', () => {
   });
 
   describe('close button', () => {
-    let doCloseMock;
-
     const createWrapperWithCloseButton = (title = '') => {
-      createWrapper(
-        { showCloseButton: true, title },
-        {
-          BPopover: {
-            template: `
-            <div>
-              <slot name="title" />
-            </div>
-          `,
-            methods: {
-              doClose: doCloseMock,
-            },
-            props: ['customClass'],
-          },
-        }
-      );
+      createWrapper({ showCloseButton: true, title }, { stubs: { BPopover: BPopoverStub } });
     };
-
-    beforeEach(() => {
-      doCloseMock = jest.fn();
-    });
 
     describe('when there is no title', () => {
       beforeEach(() => {
@@ -131,6 +132,55 @@ describe('GlPopover', () => {
         expect(findBVPopover().props('customClass')).toBe('gl-popover has-title has-close-button');
         expect(findCloseButton().classes()).not.toContain('gl-float-right');
       });
+    });
+  });
+
+  describe('when shown', () => {
+    let showSpy;
+    let hideSpy;
+
+    beforeEach(async () => {
+      showSpy = jest.fn();
+      hideSpy = jest.fn();
+
+      createWrapper(
+        {},
+        { listeners: { show: showSpy, hide: hideSpy }, stubs: { BPopover: BPopoverStub } }
+      );
+
+      findBVPopover().vm.$emit('show');
+    });
+
+    it('triggers show spy', () => {
+      expect(showSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not trigger hide spy', () => {
+      expect(hideSpy).not.toHaveBeenCalled();
+    });
+
+    it('does not trigger doClose', () => {
+      expect(doCloseMock).not.toHaveBeenCalled();
+    });
+
+    it('when esc is clicked, hides popover', async () => {
+      clickESC();
+
+      expect(doCloseMock).toHaveBeenCalledTimes(1);
+    });
+
+    it('when esc is clicked after destroy, does nothing', async () => {
+      wrapper.destroy();
+      clickESC();
+
+      expect(doCloseMock).not.toHaveBeenCalled();
+    });
+
+    it('when esc is clicked after hide, does nothing', async () => {
+      findBVPopover().vm.$emit('hide');
+      clickESC();
+
+      expect(doCloseMock).not.toHaveBeenCalled();
     });
   });
 });
