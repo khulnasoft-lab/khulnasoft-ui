@@ -404,6 +404,7 @@ $gl-color-alpha-light-8: rgba(255, 255, 255, 0.08);
 $gl-color-alpha-light-6: rgba(255, 255, 255, 0.06);
 $gl-color-alpha-light-4: rgba(255, 255, 255, 0.04);
 $gl-color-alpha-light-2: rgba(255, 255, 255, 0.02);
+$gl-color-alpha-dark-40: rgba(05, 05, 06, 0.4);
 $gl-color-alpha-dark-24: rgba(05, 05, 06, 0.24);
 $gl-color-alpha-dark-16: rgba(05, 05, 06, 0.16);
 $gl-color-alpha-dark-8: rgba(05, 05, 06, 0.08);
@@ -477,23 +478,22 @@ $gl-feedback-strong-icon-color: $gl-color-neutral-900; // Used for an icon on a 
 $gl-feedback-strong-text-color: $gl-color-neutral-900; // Used for text on a strong feedback background.
 $gl-feedback-strong-background-color: $gl-color-neutral-10; // Used for a background associated with strong feedback like a tooltip or toast message.
 $gl-control-indicator-color-disabled: $gl-color-neutral-400; // Used for disabled checkbox and radio button state indicators.
-$gl-control-indicator-color-selected: $gl-color-neutral-900; // Used for checkbox and radio button state indicators.
-$gl-control-placeholder-color: $gl-color-neutral-500; // Used for placeholder text within inputs.
-$gl-control-text-color-valid: $gl-color-green-400; // Used for the helper text when the input is valid.
-$gl-control-text-color-error: $gl-color-red-400; // Used for the helper text when the input is invalid.
+$gl-control-indicator-color-selected: $gl-color-neutral-950; // Used for checkbox and radio button state indicators.
 $gl-control-border-color-selected-focus: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) border on focus.
 $gl-control-border-color-selected-hover: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) border on hover.
 $gl-control-border-color-selected-default: $gl-color-blue-400; // Used for checked and indeterminate (selected) form control (checkbox, radio button) border.
-$gl-control-border-color-error: $gl-color-red-400; // Used for invalid form control (input, textarea) border.
+$gl-control-border-color-error: $gl-color-red-300; // Used for invalid form control (input, textarea) border.
 $gl-control-border-color-disabled: $gl-color-neutral-800; // Used for disabled form control (input, radio button, checkbox, textarea) border.
 $gl-control-border-color-focus: $gl-color-neutral-50; // Used for form control (input, radio button, checkbox, textarea) border on focus.
 $gl-control-border-color-hover: $gl-color-neutral-300; // Used for form control (input, radio button, checkbox, textarea) border on hover.
 $gl-control-border-color-default: $gl-color-neutral-500; // Used for form control (input, radio button, checkbox, textarea) default border.
 $gl-control-background-color-selected-focus: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover.
 $gl-control-background-color-selected-hover: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover.
-$gl-control-background-color-selected-default: $gl-color-blue-400; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background.
-$gl-control-background-color-disabled: $gl-color-neutral-950; // Used for disabled form control (checkbox, input, radio button, textarea) background.
-$gl-control-background-color-default: $gl-color-neutral-900; // Used for form control (input, radio button, checkbox, textarea) default background.
+$gl-control-background-color-selected-default: $gl-color-blue-300; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background.
+$gl-control-background-color-readonly: $gl-color-neutral-900; // Used for the background of static content that prepends or appends a text input.
+$gl-control-background-color-concatenation: $gl-color-alpha-light-4; // Used for the background of static content that prepends or appends a text input.
+$gl-control-background-color-disabled: $gl-color-alpha-light-4; // Used for disabled form control (checkbox, input, radio button, textarea) background.
+$gl-control-background-color-default: $gl-color-alpha-dark-40; // Used for form control (input, radio button, checkbox, textarea) default background.
 $gl-spinner-segment-color-light: $gl-color-neutral-200; // Used for the animated segment of a loading spinner on a dark background.
 $gl-spinner-segment-color-default: $gl-color-neutral-200; // Used for the animated segment of a loading spinner.
 $gl-spinner-track-color-light: $gl-color-neutral-800; // Used for the static track (background) of a loading spinner on a dark background.
@@ -513,6 +513,7 @@ $gl-label-light-button-icon-color-default: $gl-color-neutral-950; // Used for th
 $gl-label-light-button-background-color-hover: $gl-color-neutral-950; // Used for the label remove button background on a light background color in the hover state.
 $gl-label-light-button-background-color-default: $gl-color-alpha-0; // Used for the label remove button background on a light background color in the default state.
 $gl-label-light-text-color: $gl-color-neutral-950; // Used for the label text color on a light background color.
+$gl-datepicker-background-color: $gl-color-neutral-900; // Used for the background color of datepicker.
 $gl-button-disabled-border-color: $gl-color-neutral-800; // Used for the border of a disabled button.
 $gl-button-disabled-background-color: $gl-color-neutral-950; // Used for the background of a disabled button.
 $gl-button-disabled-foreground-color: $gl-color-neutral-400; // Used for the foreground of a disabled button.
@@ -689,6 +690,9 @@ $gl-action-disabled-border-color: $gl-color-neutral-800; // Used for the border 
 $gl-action-disabled-background-color: $gl-color-neutral-900; // Used for the background of a disabled action.
 $gl-action-disabled-foreground-color: $gl-color-neutral-500; // Used for the foreground of a disabled action.
 $gl-focus-ring-inner-color: $gl-background-color-default; // Used for the inner neutral portion of the focus ring.
+$gl-control-placeholder-color: $gl-text-color-disabled; // Used for placeholder text within inputs.
+$gl-control-text-color-valid: $gl-text-color-success; // Used for the helper text when the input is valid.
+$gl-control-text-color-error: $gl-text-color-danger; // Used for the helper text when the input is invalid.
 $gl-table-sorting-icon-color: $gl-text-color-heading; // Used for the color of the sorting icons in the column headers.
 $gl-table-row-background-color-hover: $gl-background-color-subtle; // Used for the background of a table row in hover state.
 $gl-datepicker-date-text-color-selected: $gl-control-indicator-color-selected; // Used for the datepicker date text color state indicators.

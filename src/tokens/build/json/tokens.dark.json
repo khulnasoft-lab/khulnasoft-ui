@@ -1254,6 +1254,24 @@
             "dark",
             "24"
           ]
+        },
+        "40": {
+          "value": "rgba(05, 05, 06, 0.4)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(05, 05, 06, 0.4)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_DARK_40",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "dark",
+            "40"
+          ]
         }
       },
       "light": {
@@ -11359,11 +11377,35 @@
     }
   },
   "datepicker": {
+    "background": {
+      "color": {
+        "value": "#28272d",
+        "$type": "color",
+        "comment": "Used for the background color of datepicker.",
+        "filePath": "src/tokens/contextual/datepicker.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "comment": "Used for the background color of datepicker."
+        },
+        "name": "DATEPICKER_BACKGROUND_COLOR",
+        "attributes": {},
+        "path": [
+          "datepicker",
+          "background",
+          "color"
+        ]
+      }
+    },
     "date": {
       "text": {
         "color": {
           "selected": {
-            "value": "#28272d",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the datepicker date text color state indicators.",
             "filePath": "src/tokens/contextual/datepicker.tokens.json",
@@ -11930,7 +11972,7 @@
     "background": {
       "color": {
         "default": {
-          "value": "#28272d",
+          "value": "rgba(05, 05, 06, 0.4)",
           "$type": "color",
           "comment": "Used for form control (input, radio button, checkbox, textarea) default background.",
           "filePath": "src/tokens/control.tokens.json",
@@ -11938,7 +11980,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.0}",
-              "dark": "{color.neutral.900}"
+              "dark": "{color.alpha.dark.40}"
             },
             "$type": "color",
             "comment": "Used for form control (input, radio button, checkbox, textarea) default background."
@@ -11953,7 +11995,7 @@
           ]
         },
         "disabled": {
-          "value": "#18171d",
+          "value": "rgba(255, 255, 255, 0.04)",
           "$type": "color",
           "comment": "Used for disabled form control (checkbox, input, radio button, textarea) background.",
           "filePath": "src/tokens/control.tokens.json",
@@ -11961,7 +12003,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.10}",
-              "dark": "{color.neutral.950}"
+              "dark": "{color.alpha.light.4}"
             },
             "$type": "color",
             "comment": "Used for disabled form control (checkbox, input, radio button, textarea) background."
@@ -11975,9 +12017,55 @@
             "disabled"
           ]
         },
+        "concatenation": {
+          "value": "rgba(255, 255, 255, 0.04)",
+          "$type": "color",
+          "comment": "Used for the background of static content that prepends or appends a text input.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.10}",
+              "dark": "{color.alpha.light.4}"
+            },
+            "$type": "color",
+            "comment": "Used for the background of static content that prepends or appends a text input."
+          },
+          "name": "CONTROL_BACKGROUND_COLOR_CONCATENATION",
+          "attributes": {},
+          "path": [
+            "control",
+            "background",
+            "color",
+            "concatenation"
+          ]
+        },
+        "readonly": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background of static content that prepends or appends a text input.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.10}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "comment": "Used for the background of static content that prepends or appends a text input."
+          },
+          "name": "CONTROL_BACKGROUND_COLOR_READONLY",
+          "attributes": {},
+          "path": [
+            "control",
+            "background",
+            "color",
+            "readonly"
+          ]
+        },
         "selected": {
           "default": {
-            "value": "#428fdc",
+            "value": "#63a6e9",
             "$type": "color",
             "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background.",
             "filePath": "src/tokens/control.tokens.json",
@@ -11985,7 +12073,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.500}",
-                "dark": "{color.blue.400}"
+                "dark": "{color.blue.300}"
               },
               "$type": "color",
               "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background."
@@ -12146,7 +12234,7 @@
           ]
         },
         "error": {
-          "value": "#ec5941",
+          "value": "#f57f6c",
           "$type": "color",
           "comment": "Used for invalid form control (input, textarea) border.",
           "filePath": "src/tokens/control.tokens.json",
@@ -12154,7 +12242,7 @@
           "original": {
             "value": {
               "default": "{color.red.500}",
-              "dark": "{color.red.400}"
+              "dark": "{color.red.300}"
             },
             "$type": "color",
             "comment": "Used for invalid form control (input, textarea) border."
@@ -12247,16 +12335,13 @@
     "text": {
       "color": {
         "error": {
-          "value": "#ec5941",
+          "value": "#f57f6c",
           "$type": "color",
           "comment": "Used for the helper text when the input is invalid.",
           "filePath": "src/tokens/control.tokens.json",
           "isSource": true,
           "original": {
-            "value": {
-              "default": "{color.red.500}",
-              "dark": "{color.red.400}"
-            },
+            "value": "{text.color.danger}",
             "$type": "color",
             "comment": "Used for the helper text when the input is invalid."
           },
@@ -12270,16 +12355,13 @@
           ]
         },
         "valid": {
-          "value": "#2da160",
+          "value": "#52b87a",
           "$type": "color",
           "comment": "Used for the helper text when the input is valid.",
           "filePath": "src/tokens/control.tokens.json",
           "isSource": true,
           "original": {
-            "value": {
-              "default": "{color.green.500}",
-              "dark": "{color.green.400}"
-            },
+            "value": "{text.color.success}",
             "$type": "color",
             "comment": "Used for the helper text when the input is valid."
           },
@@ -12296,16 +12378,13 @@
     },
     "placeholder": {
       "color": {
-        "value": "#737278",
+        "value": "#89888d",
         "$type": "color",
         "comment": "Used for placeholder text within inputs.",
         "filePath": "src/tokens/control.tokens.json",
         "isSource": true,
         "original": {
-          "value": {
-            "default": "{color.neutral.400}",
-            "dark": "{color.neutral.500}"
-          },
+          "value": "{text.color.disabled}",
           "$type": "color",
           "comment": "Used for placeholder text within inputs."
         },
@@ -12321,7 +12400,7 @@
     "indicator": {
       "color": {
         "selected": {
-          "value": "#28272d",
+          "value": "#18171d",
           "$type": "color",
           "comment": "Used for checkbox and radio button state indicators.",
           "filePath": "src/tokens/control.tokens.json",
@@ -12329,7 +12408,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.0}",
-              "dark": "{color.neutral.900}"
+              "dark": "{color.neutral.950}"
             },
             "$type": "color",
             "comment": "Used for checkbox and radio button state indicators."
