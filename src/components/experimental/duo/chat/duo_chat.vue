@@ -9,7 +9,6 @@ import GlAlert from '../../../base/alert/alert.vue';
 import GlFormInputGroup from '../../../base/form/form_input_group/form_input_group.vue';
 import GlFormTextarea from '../../../base/form/form_textarea/form_textarea.vue';
 import GlForm from '../../../base/form/form.vue';
-import GlFormText from '../../../base/form/form_text/form_text.vue';
 import GlExperimentBadge from '../../experiment_badge/experiment_badge.vue';
 import { badgeTypes, badgeTypeValidator } from '../../experiment_badge/constants';
 import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/safe_html';
@@ -55,7 +54,6 @@ export default {
     GlFormInputGroup,
     GlFormTextarea,
     GlForm,
-    GlFormText,
     GlExperimentBadge,
     GlDuoChatLoader,
     GlDuoChatPredefinedPrompts,
@@ -602,11 +600,12 @@ export default {
             />
           </template>
         </gl-form-input-group>
-        <gl-form-text
-          class="gl-mt-3 gl-leading-20 gl-text-gray-400"
+        <p
+          class="gl-mb-0 gl-mt-3 gl-text-sm gl-leading-20 gl-text-subtle"
           data-testid="chat-legal-disclaimer"
-          >{{ $options.i18n.CHAT_LEGAL_DISCLAIMER }}</gl-form-text
         >
+          {{ $options.i18n.CHAT_LEGAL_DISCLAIMER }}
+        </p>
       </gl-form>
     </footer>
   </aside>
