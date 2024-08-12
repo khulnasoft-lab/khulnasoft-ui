@@ -110,6 +110,27 @@ export function getColorContrast(foreground, background) {
   };
 }
 
+export function LightenColor(color, magnitude) {
+  // Based of https://natclark.com/tutorials/javascript-lighten-darken-hex-color
+  const hexColor = color.replace(`#`, ``);
+
+  if (hexColor.length === 6) {
+    const decimalColor = parseInt(hexColor, 16);
+    let r = (decimalColor >> 16) + magnitude; // eslint-disable-line no-bitwise
+    r > 255 && (r = 255); // eslint-disable-line no-unused-expressions
+    r < 0 && (r = 0); // eslint-disable-line no-unused-expressions
+    let g = (decimalColor & 0x0000ff) + magnitude; // eslint-disable-line no-bitwise
+    g > 255 && (g = 255); // eslint-disable-line no-unused-expressions
+    g < 0 && (g = 0); // eslint-disable-line no-unused-expressions
+    let b = ((decimalColor >> 8) & 0x00ff) + magnitude; // eslint-disable-line no-bitwise
+    b > 255 && (b = 255); // eslint-disable-line no-unused-expressions
+    b < 0 && (b = 0); // eslint-disable-line no-unused-expressions
+    return `#${(g | (b << 8) | (r << 16)).toString(16)}`; // eslint-disable-line no-bitwise
+  }
+
+  return hexColor;
+}
+
 export function uid() {
   return Math.random().toString(36).substring(2);
 }

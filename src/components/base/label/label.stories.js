@@ -54,6 +54,98 @@ WithCloseButton.args = generateProps({ showCloseButton: true });
 export const WithoutTarget = Template.bind({});
 WithoutTarget.args = generateProps({ target: '' });
 
+const labelVariantOptions = [
+  {
+    title: 'UX',
+    scoped: false,
+    target: '#',
+    backgroundColor: '#D10069',
+  },
+  {
+    title: 'accessibility',
+    scoped: false,
+    target: '#',
+    backgroundColor: '#0000FF',
+  },
+  {
+    title: 'UX scorecard',
+    scoped: false,
+    target: '#',
+    backgroundColor: '#A8D695',
+  },
+  {
+    title: 'devops::secure',
+    scoped: true,
+    target: '#',
+    backgroundColor: '#E44D2A',
+  },
+  {
+    title: 'severity::3',
+    scoped: true,
+    target: '#',
+    backgroundColor: '#FFF600',
+  },
+  {
+    title: 'type::maintenance',
+    scoped: true,
+    target: '#',
+    backgroundColor: '#330066',
+  },
+  {
+    title: 'workflow::design',
+    scoped: true,
+    target: '#',
+    backgroundColor: '#428BCA',
+  },
+  {
+    title: 'white',
+    scoped: false,
+    target: '#',
+    backgroundColor: '#ffffff',
+  },
+  {
+    title: 'Light grey',
+    scoped: false,
+    target: '#',
+    backgroundColor: '#dddddd',
+  },
+  {
+    title: 'Grey',
+    scoped: false,
+    target: '#',
+    backgroundColor: '#555555',
+  },
+  {
+    title: 'Dark grey',
+    scoped: false,
+    target: '#',
+    backgroundColor: '#111111',
+  },
+  {
+    title: 'black',
+    scoped: false,
+    target: '#',
+    backgroundColor: '#000000',
+  },
+];
+
+export const Variants = (args, { argTypes }) => ({
+  components: { GlLabel },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="gl-flex gl-flex-wrap gl-gap-2">
+      <gl-label
+        v-for="variant in $options.labelVariantOptions"
+        :background-color="variant.backgroundColor"
+        :title="variant.title"
+        :target="variant.target"
+        :scoped="variant.scoped"
+      />
+    </div>
+  `,
+  labelVariantOptions,
+});
+
 export default {
   title: 'base/label',
   component: GlLabel,

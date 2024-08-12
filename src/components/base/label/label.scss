@@ -15,12 +15,20 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   @include gl-line-height-normal;
   box-shadow: var(--label-inset-border) !important;
 
+  .gl-dark & {
+    box-shadow: unquote("inset 0 0 0 1px rgb(from lch(from var(--label-background-color) calc(l * 10) c h) r g b / 20%) !important");
+  }
+
   @media (forced-colors: active) {
     border: 1px solid; // stylelint-disable-line declaration-property-value-disallowed-list
   }
 
   &:not(.gl-label-scoped) {
     background-color: var(--label-background-color);
+
+    .gl-dark & {
+      background-color: unquote("rgb(from var(--label-background-color) r g b / 30%)");
+    }
   }
 
   &:has(*:first-child:focus) {
@@ -53,6 +61,12 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
       .gl-label-text-scoped {
         text-decoration: underline;
       }
+    }
+  }
+
+  .gl-label-text {
+    .gl-dark & {
+      color: unquote("rgb(from lch(from var(--label-color) calc(l * 10) c h) r g b / 75%)");
     }
   }
 
@@ -132,6 +146,10 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   .gl-label-text {
     background-color: var(--label-background-color);
 
+    .gl-dark & {
+      background-color: unquote("rgb(from lch(from var(--label-background-color) calc(l * 10) c h) r g b / 24%)");
+    }
+
     @media (forced-colors: active) {
       border-right: 1px solid;
     }
@@ -141,6 +159,13 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     color: var(--gl-label-scoped-text-color);
     padding-left: $gl-spacing-scale-2;
     padding-right: $gl-spacing-scale-3;
+
+    .gl-dark & {
+      opacity: 0.8;
+      border-top-right-radius: 0.625rem;
+      border-bottom-right-radius: 0.625rem;
+      box-shadow: unquote("inset -1px 0 0 0 rgb(from lch(from var(--label-background-color) calc(l * 10) c h) r g b / 24%), inset 0 -1px 0 0 rgb(from lch(from var(--label-background-color) calc(l * 10) c h) r g b / 24%), inset 0 1px 0 0 rgb(from lch(from var(--label-background-color) calc(l * 10) c h) r g b / 24%)");
+    }
   }
 }
 

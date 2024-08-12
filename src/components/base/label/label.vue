@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { labelColorOptions } from '../../../utils/constants';
-import { colorFromBackground } from '../../../utils/utils';
+import { LightenColor, colorFromBackground } from '../../../utils/utils';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLink from '../link/link.vue';
@@ -73,6 +73,7 @@ export default {
     },
     cssVariables() {
       return {
+        '--label-color': LightenColor(this.backgroundColor, 75),
         '--label-background-color': this.backgroundColor,
         '--label-inset-border': `inset 0 0 0 2px ${this.backgroundColor}`,
       };
