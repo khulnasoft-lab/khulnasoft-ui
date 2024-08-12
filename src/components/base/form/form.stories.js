@@ -22,7 +22,6 @@ export const Default = (args) => ({
   data() {
     return {
       form: {
-        submitDisabled: false,
         email: '',
         name: '',
         mergeState: null,
@@ -37,13 +36,10 @@ export const Default = (args) => ({
   methods: {
     onReset() {
       this.form.name = '';
-      this.form.submitDisabled = false;
     },
     onSubmit(evt) {
       evt.preventDefault();
-      this.form.submitDisabled = true;
       setStoryTimeout(() => {
-        this.form.submitDisabled = false;
         // eslint-disable-next-line no-alert
         alert(JSON.stringify(this.form));
       }, 1000);
