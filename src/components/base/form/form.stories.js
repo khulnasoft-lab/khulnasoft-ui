@@ -26,9 +26,11 @@ export const Default = (args) => ({
         email: '',
         name: '',
         mergeState: null,
+        date: '01/02/24',
+        groupID: '12312312',
         checked: [],
       },
-      states: [{ text: 'Select One', value: null }, 'Open', 'Resolved', 'Closed', 'Blocked'],
+      states: [{ text: 'Select one', value: null }, 'Open', 'Resolved', 'Closed', 'Blocked'],
       show: true,
     };
   },
@@ -51,31 +53,39 @@ export const Default = (args) => ({
     <gl-form @submit="onSubmit" @reset="onReset">
       <gl-form-group
         id="input-group-1"
-        label="Email address:"
+        label="Email address"
         label-for="input-1"
-        description="We'll never share your email with anyone else."
+        label-description="We'll never share your email with anyone else."
       >
         <gl-form-input
           id="input-1"
           v-model="form.email"
           type="email"
           required
-          placeholder="Enter email"
+          placeholder="name@domain.com"
         />
       </gl-form-group>
 
-      <gl-form-group id="input-group-2" label="Your Name:" label-for="input-2">
-        <gl-form-input id="input-2" v-model="form.name" required placeholder="Enter name" />
+      <gl-form-group id="input-group-2" label="Your name" label-for="input-2">
+        <gl-form-input id="input-2" v-model="form.name" required />
       </gl-form-group>
 
-      <gl-form-group id="input-group-3" label="Merge State:" label-for="input-3">
+      <gl-form-group id="input-group-3" label="Merge state" label-for="input-3">
         <gl-form-select id="input-3" v-model="form.mergeState" :options="states" required />
       </gl-form-group>
 
-      <gl-form-group id="input-group-4">
-        <gl-form-checkbox-group id="checkboxes-4" v-model="form.checked">
-          <gl-form-checkbox value="squash">Squash Commits</gl-form-checkbox>
-          <gl-form-checkbox value="new">Create New Issue</gl-form-checkbox>
+      <gl-form-group id="input-group-4" label="Date" label-for="input-4">
+        <gl-form-input id="input-4" v-model="form.date" disabled />
+      </gl-form-group>
+
+      <gl-form-group id="input-group-5" label="Group ID" label-for="input-5">
+        <gl-form-input id="input-5" v-model="form.groupID" readonly />
+      </gl-form-group>
+
+      <gl-form-group id="input-group-6">
+        <gl-form-checkbox-group id="checkboxes-6" v-model="form.checked">
+          <gl-form-checkbox value="squash">Squash commits</gl-form-checkbox>
+          <gl-form-checkbox value="new">Create new issue</gl-form-checkbox>
         </gl-form-checkbox-group>
       </gl-form-group>
 
