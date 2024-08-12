@@ -77,8 +77,7 @@ focused (for sighted keyboard users).
 Bootstrap includes support for the
 [`prefers-reduced-motion` media feature](https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion).
 In browsers/environments that allow the user to specify their preference for reduced motion, most
-CSS transition effects in Bootstrap (for instance, when a modal dialog is opened or closed, or the
-sliding animation in carousels) will be disabled.
+CSS transition effects in Bootstrap (for instance, when a modal dialog is opened or closed) will be disabled.
 
 If you are expecting animations and/or transitions to work and they are not, then you may have the
 reduced motion (no animation) setting enabled in your operating system control panel.

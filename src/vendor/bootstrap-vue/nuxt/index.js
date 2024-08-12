@@ -79,7 +79,6 @@ module.exports = function nuxtBootstrapVue(moduleOptions = {}) {
       'b-card': 'img-src',
       'b-card-img': 'src',
       'b-card-img-lazy': ['src', 'blank-src'],
-      'b-carousel-slide': 'img-src',
       'b-embed': 'src',
       // Ensure super supplied values/overrides are not lost
       ...this.options.build.loaders.vue.transformAssetUrls
