@@ -98,6 +98,11 @@ export default {
       required: false,
       default: () => [],
     },
+    includeLegendAvgMax: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
     legendAverageText: {
       type: String,
       required: false,
@@ -242,7 +247,7 @@ export default {
           name: series.name,
           type: series.type,
           color: this.getColor(index),
-          data: series.data.map((data) => data),
+          data: this.includeLegendAvgMax ? series.data.map((data) => data) : undefined,
           yAxisIndex: series.yAxisIndex,
         });
         return acc;

@@ -86,6 +86,21 @@ describe('stacked column chart component', () => {
   });
 
   describe('legend', () => {
+    beforeEach(() => {
+      mockChartInstance = {
+        ...createMockChartInstance(),
+        getOption: jest.fn().mockReturnValueOnce({
+          series: [
+            {
+              type: 'solid',
+              name: 'Foo Bar',
+              data: [1, 2, 3, 4, 5],
+            },
+          ],
+        }),
+      };
+    });
+
     it('is inline by default', () => {
       createShallowWrapper();
 
@@ -107,6 +122,46 @@ describe('stacked column chart component', () => {
 
       return wrapper.vm.$nextTick(() => {
         expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
+      });
+    });
+
+    it('passes correct series info to legend', () => {
+      createShallowWrapper();
+
+      return wrapper.vm.$nextTick(() => {
+        expect(findLegend().props('seriesInfo')).toEqual(
+          expect.arrayContaining([
+            {
+              type: 'solid',
+              name: 'Foo Bar',
+              color: expect.any(String),
+              data: [1, 2, 3, 4, 5],
+              yAxisIndex: undefined,
+            },
+          ])
+        );
+      });
+    });
+
+    describe('when `includeLegendAvgMax` prop is disabled', () => {
+      beforeEach(() => {
+        createShallowWrapper({ props: { includeLegendAvgMax: false } });
+      });
+
+      it('passes correct series info to legend', () => {
+        return wrapper.vm.$nextTick(() => {
+          expect(findLegend().props('seriesInfo')).toEqual(
+            expect.arrayContaining([
+              {
+                type: 'solid',
+                name: 'Foo Bar',
+                color: expect.any(String),
+                data: undefined,
+                yAxisIndex: undefined,
+              },
+            ])
+          );
+        });
       });
     });
   });
