@@ -18,7 +18,7 @@ $gl-popover-max-width: $grid-size * 35;
     @include gl-px-4;
     color: var(--gl-text-color-default);
     
-    >.popover-hr {
+    > .popover-hr {
       @include gl-my-5;
       @include gl-mx-0;
     }
