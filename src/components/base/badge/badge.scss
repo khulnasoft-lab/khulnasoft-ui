@@ -5,19 +5,24 @@ $badge-min-width: $gl-spacing-scale-3;
   $variant,
   $color,
   $icon-color,
-  $bg,
+  $background-color,
   $hover-color,
   $hover-icon-color,
-  $border-color,
+  $hover-background-color,
+  $hover-border-color,
+  $focus-color,
+  $focus-icon-color,
+  $focus-background-color,
   $active-color,
   $active-icon-color,
-  $active-bg
+  $active-background-color
 ) {
   .gl-badge.badge-#{$variant} {
-    background-color: $bg;
+    background-color: $background-color;
     color: $color;
 
     .gl-badge-icon {
+      color: $icon-color;
       transition: inherit;
     }
   }
@@ -26,8 +31,8 @@ $badge-min-width: $gl-spacing-scale-3;
     &:hover {
       color: $hover-color;
       // Needed to override bootstrap's badge variant background
-      background-color: $bg;
-      box-shadow: inset 0 0 0 $gl-border-size-1 $border-color;
+      background-color: $hover-background-color;
+      box-shadow: inset 0 0 0 $gl-border-size-1 $hover-border-color;
       @include gl-text-decoration-none;
 
       .gl-badge-icon {
@@ -35,20 +40,20 @@ $badge-min-width: $gl-spacing-scale-3;
       }
     }
 
+
     &:focus {
-      color: $hover-color;
-      // Needed to override bootstrap's badge variant background
-      background-color: $bg;
+      color: $focus-color;
+      background-color: $focus-background-color;
 
       .gl-badge-icon {
-        color: $hover-icon-color;
+        color: $focus-icon-color;
       }
     }
 
     &.active,
     &:active {
       color: $active-color;
-      background-color: $active-bg;
+      background-color: $active-background-color;
 
       .gl-badge-icon {
         color: $active-icon-color;
@@ -118,91 +123,119 @@ $badge-min-width: $gl-spacing-scale-3;
   $variant: muted,
   $color: var(--gl-badge-muted-text-color-default),
   $icon-color: var(--gl-badge-muted-icon-color-default),
-  $bg: var(--gl-badge-muted-background-color-default),
+  $background-color: var(--gl-badge-muted-background-color-default),
   $hover-color: var(--gl-badge-muted-text-color-hover),
   $hover-icon-color: var(--gl-badge-muted-icon-color-hover),
-  $border-color: var(--gl-badge-muted-border-color-hover),
+  $hover-background-color: var(--gl-badge-muted-background-color-hover),
+  $hover-border-color: var(--gl-badge-muted-border-color-hover),
+  $focus-color: var(--gl-badge-muted-text-color-focus),
+  $focus-icon-color:var(--gl-badge-muted-icon-color-focus),
+  $focus-background-color: var(--gl-badge-muted-background-color-focus),
   $active-color: var(--gl-badge-muted-text-color-active),
   $active-icon-color:var(--gl-badge-muted-icon-color-active),
-  $active-bg: var(--gl-badge-muted-background-color-active)
+  $active-background-color: var(--gl-badge-muted-background-color-active)
 );
 
 @include gl-badge-variant(
   $variant: neutral,
   $color: var(--gl-badge-neutral-text-color-default),
   $icon-color: var(--gl-badge-neutral-icon-color-default),
-  $bg: var(--gl-badge-neutral-background-color-default),
+  $background-color: var(--gl-badge-neutral-background-color-default),
   $hover-color: var(--gl-badge-neutral-text-color-hover),
   $hover-icon-color: var(--gl-badge-neutral-icon-color-hover),
-  $border-color: var(--gl-badge-neutral-border-color-hover),
+  $hover-background-color: var(--gl-badge-neutral-background-color-hover),
+  $hover-border-color: var(--gl-badge-neutral-border-color-hover),
+  $focus-color: var(--gl-badge-neutral-text-color-focus),
+  $focus-icon-color:var(--gl-badge-neutral-icon-color-focus),
+  $focus-background-color: var(--gl-badge-neutral-background-color-focus),
   $active-color: var(--gl-badge-neutral-text-color-active),
   $active-icon-color:var(--gl-badge-neutral-icon-color-active),
-  $active-bg: var(--gl-badge-neutral-background-color-active)
+  $active-background-color: var(--gl-badge-neutral-background-color-active)
 );
 
 @include gl-badge-variant(
   $variant: info,
   $color: var(--gl-badge-info-text-color-default),
   $icon-color: var(--gl-badge-info-icon-color-default),
-  $bg: var(--gl-badge-info-background-color-default),
+  $background-color: var(--gl-badge-info-background-color-default),
   $hover-color: var(--gl-badge-info-text-color-hover),
   $hover-icon-color: var(--gl-badge-info-icon-color-hover),
-  $border-color: var(--gl-badge-info-border-color-hover),
+  $hover-background-color: var(--gl-badge-info-background-color-hover),
+  $hover-border-color: var(--gl-badge-info-border-color-hover),
+  $focus-color: var(--gl-badge-info-text-color-focus),
+  $focus-icon-color:var(--gl-badge-info-icon-color-focus),
+  $focus-background-color: var(--gl-badge-info-background-color-focus),
   $active-color: var(--gl-badge-info-text-color-active),
   $active-icon-color:var(--gl-badge-info-icon-color-active),
-  $active-bg: var(--gl-badge-info-background-color-active)
+  $active-background-color: var(--gl-badge-info-background-color-active)
 );
 
 @include gl-badge-variant(
   $variant: success,
   $color: var(--gl-badge-success-text-color-default),
   $icon-color: var(--gl-badge-success-icon-color-default),
-  $bg: var(--gl-badge-success-background-color-default),
+  $background-color: var(--gl-badge-success-background-color-default),
   $hover-color: var(--gl-badge-success-text-color-hover),
   $hover-icon-color: var(--gl-badge-success-icon-color-hover),
-  $border-color: var(--gl-badge-success-border-color-hover),
+  $hover-background-color: var(--gl-badge-success-background-color-hover),
+  $hover-border-color: var(--gl-badge-success-border-color-hover),
+  $focus-color: var(--gl-badge-success-text-color-focus),
+  $focus-icon-color:var(--gl-badge-success-icon-color-focus),
+  $focus-background-color: var(--gl-badge-success-background-color-focus),
   $active-color: var(--gl-badge-success-text-color-active),
   $active-icon-color:var(--gl-badge-success-icon-color-active),
-  $active-bg: var(--gl-badge-success-background-color-active)
+  $active-background-color: var(--gl-badge-success-background-color-active)
 );
 
 @include gl-badge-variant(
   $variant: warning,
   $color: var(--gl-badge-warning-text-color-default),
   $icon-color: var(--gl-badge-warning-icon-color-default),
-  $bg: var(--gl-badge-warning-background-color-default),
+  $background-color: var(--gl-badge-warning-background-color-default),
   $hover-color: var(--gl-badge-warning-text-color-hover),
   $hover-icon-color: var(--gl-badge-warning-icon-color-hover),
-  $border-color: var(--gl-badge-warning-border-color-hover),
+  $hover-background-color: var(--gl-badge-warning-background-color-hover),
+  $hover-border-color: var(--gl-badge-warning-border-color-hover),
+  $focus-color: var(--gl-badge-warning-text-color-focus),
+  $focus-icon-color:var(--gl-badge-warning-icon-color-focus),
+  $focus-background-color: var(--gl-badge-warning-background-color-focus),
   $active-color: var(--gl-badge-warning-text-color-active),
   $active-icon-color:var(--gl-badge-warning-icon-color-active),
-  $active-bg: var(--gl-badge-warning-background-color-active)
+  $active-background-color: var(--gl-badge-warning-background-color-active)
 );
 
 @include gl-badge-variant(
   $variant: danger,
   $color: var(--gl-badge-danger-text-color-default),
   $icon-color: var(--gl-badge-danger-icon-color-default),
-  $bg: var(--gl-badge-danger-background-color-default),
+  $background-color: var(--gl-badge-danger-background-color-default),
   $hover-color: var(--gl-badge-danger-text-color-hover),
   $hover-icon-color: var(--gl-badge-danger-icon-color-hover),
-  $border-color: var(--gl-badge-danger-border-color-hover),
+  $hover-background-color: var(--gl-badge-danger-background-color-hover),
+  $hover-border-color: var(--gl-badge-danger-border-color-hover),
+  $focus-color: var(--gl-badge-danger-text-color-focus),
+  $focus-icon-color:var(--gl-badge-danger-icon-color-focus),
+  $focus-background-color: var(--gl-badge-danger-background-color-focus),
   $active-color: var(--gl-badge-danger-text-color-active),
   $active-icon-color:var(--gl-badge-danger-icon-color-active),
-  $active-bg: var(--gl-badge-danger-background-color-active)
+  $active-background-color: var(--gl-badge-danger-background-color-active)
 );
 
 @include gl-badge-variant(
   $variant: tier,
   $color: var(--gl-badge-tier-text-color-default),
   $icon-color: var(--gl-badge-tier-icon-color-default),
-  $bg: var(--gl-badge-tier-background-color-default),
+  $background-color: var(--gl-badge-tier-background-color-default),
   $hover-color: var(--gl-badge-tier-text-color-hover),
   $hover-icon-color: var(--gl-badge-tier-icon-color-hover),
-  $border-color: var(--gl-badge-tier-border-color-hover),
+  $hover-background-color: var(--gl-badge-tier-background-color-hover),
+  $hover-border-color: var(--gl-badge-tier-border-color-hover),
+  $focus-color: var(--gl-badge-tier-text-color-focus),
+  $focus-icon-color:var(--gl-badge-tier-icon-color-focus),
+  $focus-background-color: var(--gl-badge-tier-background-color-focus),
   $active-color: var(--gl-badge-tier-text-color-active),
   $active-icon-color:var(--gl-badge-tier-icon-color-active),
-  $active-bg: var(--gl-badge-tier-background-color-active)
+  $active-background-color: var(--gl-badge-tier-background-color-active)
 );
 
 // overriding Bootstap's `.btn .badge {top: -1px}` as the badge is not vertically centered otherwise
