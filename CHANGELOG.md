@@ -1,3 +1,15 @@
+# [89.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.6.0...v89.0.0) (2024-08-12)
+
+
+### Code Refactoring
+
+* **GlCarousel:** Remove Carousel component from design system ([1e9e2f0](https://gitlab.com/gitlab-org/gitlab-ui/commit/1e9e2f05d7e3dc35897a60b853beca4fd35aeb03))
+
+
+### BREAKING CHANGES
+
+* **GlCarousel:** Removes Carousel component entirely
+
 # [88.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.5.0...v88.6.0) (2024-08-09)
 
 
