@@ -66,18 +66,21 @@ const labelVariantOptions = [
     scoped: false,
     target: '#',
     backgroundColor: '#0000FF',
+    showCloseButton: true,
   },
   {
     title: 'UX scorecard',
     scoped: false,
     target: '#',
     backgroundColor: '#A8D695',
+    showCloseButton: true,
   },
   {
     title: 'devops::secure',
     scoped: true,
     target: '#',
     backgroundColor: '#E44D2A',
+    showCloseButton: true,
   },
   {
     title: 'severity::3',
@@ -102,6 +105,7 @@ const labelVariantOptions = [
     scoped: false,
     target: '#',
     backgroundColor: '#ffffff',
+    showCloseButton: true,
   },
   {
     title: 'Light grey',
@@ -140,6 +144,10 @@ export const Variants = (args, { argTypes }) => ({
         :title="variant.title"
         :target="variant.target"
         :scoped="variant.scoped"
+<<<<<<< HEAD
+=======
+        :show-close-button="variant.showCloseButton"
+>>>>>>> 96375eb5a279 (feat(Label): Label changes to align with darkmode direction)
       />
     </div>
   `,

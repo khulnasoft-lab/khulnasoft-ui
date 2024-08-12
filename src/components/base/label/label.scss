@@ -77,13 +77,21 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     @include str-truncated($label-max-width);
   }
 
+  &:not(.gl-label-scoped):has(.gl-icon) {
+    @apply gl-pr-5;
+  }
+
+  &.gl-label-scoped:has(.gl-icon) .gl-label-text-scoped {
+    padding-right: #{$gl-spacing-scale-5 + $gl-spacing-scale-2};
+  }
+
   > #{$label-close-button} {
     @apply gl-border-0;
     @include gl-display-flex;
     width: px-to-rem(14px);
     height: px-to-rem(14px);
-    margin-left: -$label-padding-horizontal-half;
-    margin-right: $label-padding-horizontal-half;
+    position: absolute;
+    right: $label-padding-horizontal-half;
     @include gl-p-0;
     @include gl-rounded-full;
     @include gl-shadow-none;
@@ -126,6 +134,20 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     &:focus,
     &:hover {
       color: var(--label-background-color);
+      background-color: var(--gl-label-dark-button-background-color-hover);
+    }
+  }
+}
+
+// darkmode overrides
+.gl-dark .gl-label-text-light,
+.gl-dark .gl-label-text-dark {
+  #{$label-close-button} {
+    color: var(--gl-icon-color-default);
+
+    &:focus,
+    &:hover {
+      color: var(--gl-label-light-text-color);
       background-color: var(--gl-label-dark-button-background-color-hover);
     }
   }
