@@ -144,10 +144,7 @@ export const Variants = (args, { argTypes }) => ({
         :title="variant.title"
         :target="variant.target"
         :scoped="variant.scoped"
-<<<<<<< HEAD
-=======
         :show-close-button="variant.showCloseButton"
->>>>>>> 96375eb5a279 (feat(Label): Label changes to align with darkmode direction)
       />
     </div>
   `,

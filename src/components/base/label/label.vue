@@ -75,7 +75,6 @@ export default {
       return {
         '--label-color': LightenColor(this.backgroundColor, 75),
         '--label-background-color': this.backgroundColor,
-        '--label-inset-border': `inset 0 0 0 2px ${this.backgroundColor}`,
       };
     },
     scopedKey() {
