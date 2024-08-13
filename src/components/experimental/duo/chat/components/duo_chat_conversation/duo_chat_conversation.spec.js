@@ -14,7 +14,6 @@ describe('GlDuoChatConversation', () => {
 
   const defaultProps = {
     messages,
-    canceledRequestIds: [],
     enableCodeInsertion: true,
   };
 
@@ -59,24 +58,6 @@ describe('GlDuoChatConversation', () => {
         showDelimiter: false,
       });
       expect(findDelimiter().exists()).toBe(false);
-    });
-
-    it('passes correct boolean to message when request is canceled', () => {
-      const canceledRequestIds = [MOCK_USER_PROMPT_MESSAGE.requestId];
-
-      createComponent({
-        canceledRequestIds,
-      });
-
-      const chatMessages = findChatMessages();
-      expect(chatMessages.at(0).props('isCancelled')).toBe(true);
-    });
-
-    it('passes correct boolean to message when request is not canceled', () => {
-      createComponent();
-
-      const chatMessages = findChatMessages();
-      expect(chatMessages.at(0).props('isCancelled')).toBe(false);
     });
   });
 });

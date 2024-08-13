@@ -75,10 +75,6 @@ export default {
       type: Object,
       required: true,
     },
-    isCancelled: {
-      type: Boolean,
-      required: true,
-    },
   },
   data() {
     return {
@@ -93,10 +89,10 @@ export default {
       return typeof this.message.chunkId === 'number';
     },
     isNotChunkOrCancelled() {
-      return !this.isChunk || this.isCancelled;
+      return !this.isChunk || this.message.canceled;
     },
     isChunkAndNotCancelled() {
-      return this.isChunk && !this.isCancelled;
+      return this.isChunk && !this.message.canceled;
     },
     isAssistantMessage() {
       return this.message.role.toLowerCase() === MESSAGE_MODEL_ROLES.assistant;

@@ -25,10 +25,6 @@ export default {
       default: () => [],
       validator: itemsValidator,
     },
-    canceledRequestIds: {
-      type: Array,
-      required: true,
-    },
     /**
      * Whether the insertCode feature should be available.
      */
@@ -77,7 +73,6 @@ export default {
       v-for="(msg, index) in messages"
       :key="`${msg.role}-${index}`"
       :message="msg"
-      :is-cancelled="canceledRequestIds.includes(msg.requestId)"
       @track-feedback="onTrackFeedback"
       @insert-code-snippet="onInsertCodeSnippet"
     />

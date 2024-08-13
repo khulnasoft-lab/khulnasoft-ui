@@ -17,7 +17,6 @@ consumer component.
   :is-chat-available="isChatAvailable"
   :predefined-prompts="predefinedPrompts"
   :badge-help-page-url="badgeHelpPageUrl"
-  :canceled-request-ids="cancelledRequestIds"
   :tool-name="toolName"
   :empty-state-title="emptyStateTitle"
   :empty-state-description="emptyStateDescription"
@@ -92,8 +91,7 @@ export default {
       messages: [],
       error: null,
       isLoading: false,
-      toolName: '',
-      cancelledRequestIds: []
+      toolName: ''
     }
   },
   provide: {
@@ -116,8 +114,6 @@ export default {
   }
   methods: {
     onChatCancel() {
-       // pushing last requestId of messages to canceled Request Ids
-      this.cancelledRequestIds.push(this.messages[this.messages.length - 1].requestId);
       this.isLoading = false;
     },
     onChatHidden() {
@@ -132,10 +128,6 @@ export default {
       ...
     },
     onAiResponse(data) {
-      // check if requestId was not cancelled
-      if (requestId && !this.cancelledRequestIds.includes(data.requestId)) {
-        this.messages = data
-      }
       …
       this.isLoading = false;
     },

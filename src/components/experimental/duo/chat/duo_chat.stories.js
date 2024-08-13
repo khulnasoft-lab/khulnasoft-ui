@@ -174,7 +174,6 @@ export const Interactive = (args, { argTypes }) => ({
       :title="title"
       :messages="msgs"
       :error="error"
-      :canceled-request-ids="canceledMessageRequestIds"
       :is-loading="promptInFlight"
       :is-chat-available="isChatAvailable"
       :predefined-prompts="predefinedPrompts"

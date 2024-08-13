@@ -22,7 +22,7 @@ const Template = (args, { argTypes }) => ({
     renderMarkdown,
   },
   template: `
-    <gl-duo-chat-conversation :enableCodeInsertion="true" :canceledRequestIds=[] :messages="messages" :show-delimiter="showDelimiter" />
+    <gl-duo-chat-conversation :enableCodeInsertion="true" :messages="messages" :show-delimiter="showDelimiter" />
   `,
 });
 
@@ -40,8 +40,8 @@ export const MultipleConversations = (args, { argTypes }) => ({
   },
   template: `
     <div>
-      <gl-duo-chat-conversation :enableCodeInsertion="true" :canceledRequestIds=[] :messages="messages" :show-delimiter="false" />
-      <gl-duo-chat-conversation :enableCodeInsertion="true" :canceledRequestIds=[] :messages="messages" :show-delimiter="true" />
+      <gl-duo-chat-conversation :enableCodeInsertion="true" :messages="messages" :show-delimiter="false" />
+      <gl-duo-chat-conversation :enableCodeInsertion="true" :messages="messages" :show-delimiter="true" />
     </div>
   `,
 });

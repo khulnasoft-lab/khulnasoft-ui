@@ -151,12 +151,9 @@ describe('GlDuoChat', () => {
             content: 'Great!',
           },
         ];
-        const canceledRequestIds = [1];
-        createComponent({ propsData: { messages: newMessages, canceledRequestIds } });
+
+        createComponent({ propsData: { messages: newMessages } });
         expect(findChatConversations().at(0).props('messages')).toEqual(newMessages);
-        expect(findChatConversations().at(0).props('canceledRequestIds')).toEqual(
-          canceledRequestIds
-        );
         expect(findChatConversations().at(0).props('showDelimiter')).toEqual(false);
       });
 
@@ -603,51 +600,34 @@ describe('GlDuoChat', () => {
         expect(wrapper.emitted('chat-cancel').length).toBe(1);
       });
 
-      it('cancel button toggles correctly when last message contains incomplete stream chunks', async () => {
-        const unfinishedStreamMessage = { ...MOCK_RESPONSE_MESSAGE, chunkId: 1 };
-        const propsBase = () => ({
-          messages: [unfinishedStreamMessage],
-          canceledRequestIds: [MOCK_RESPONSE_MESSAGE.requestId],
-          isLoading: false,
+      it('should add canceled to last message when cancel button is clicked', async () => {
+        createComponent({
+          propsData: {
+            messages: [
+              {
+                role: MESSAGE_MODEL_ROLES.user,
+                content: 'How are you?',
+              },
+              {
+                role: MESSAGE_MODEL_ROLES.assistant,
+                content: 'Great!',
+              },
+            ],
+            isChatAvailable: true,
+          },
+          mountFn: mount,
         });
-        createComponent({ propsData: propsBase(), mountFn: mount });
 
-        // Expect submit button
-        expect(findSubmitButton().exists()).toBe(true);
-        expect(findCancelButton().exists()).toBe(false);
-
-        // User submits a new prompt, which resets button state
         await setPromptInput('TEST!');
         clickSubmit();
         await nextTick();
-
-        // Expect cancel button
-        expect(findSubmitButton().exists()).toBe(false);
-        expect(findCancelButton().exists()).toBe(true);
-
-        // User message is added
-        wrapper.setProps({
-          ...propsBase(),
-          messages: [unfinishedStreamMessage, MOCK_USER_PROMPT_MESSAGE],
-        });
+        const cancelButton = findCancelButton();
+        expect(cancelButton.exists()).toBe(true);
+        await cancelButton.trigger('click');
         await nextTick();
 
-        // This should not reset the button state
-        // Expect cancel button
-        expect(findSubmitButton().exists()).toBe(false);
-        expect(findCancelButton().exists()).toBe(true);
-
-        // Set isLoading to true
-        wrapper.setProps({
-          ...propsBase(),
-          messages: [unfinishedStreamMessage, MOCK_USER_PROMPT_MESSAGE],
-          isLoading: true,
-        });
-        await nextTick();
-
-        // Expect cancel button
-        expect(findSubmitButton().exists()).toBe(false);
-        expect(findCancelButton().exists()).toBe(true);
+        expect(findChatConversations().at(0).props('messages')[0].canceled).toBe(undefined);
+        expect(findChatConversations().at(0).props('messages')[1].canceled).toBe(true);
       });
     });
 

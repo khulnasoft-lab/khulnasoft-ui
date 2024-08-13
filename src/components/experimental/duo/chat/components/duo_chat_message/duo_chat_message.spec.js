@@ -450,7 +450,7 @@ describe('DuoChatMessage', () => {
         // setProps is justified here because we are testing the component's
         // reactive behavior which consistutes an exception
         // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
-        await wrapper.setProps({ message: CHUNK1, isCancelled: true });
+        await wrapper.setProps({ message: { ...CHUNK1, canceled: true } });
         expect(findLoadingIcon().exists()).toBe(false);
       });
 
@@ -458,7 +458,7 @@ describe('DuoChatMessage', () => {
         // setProps is justified here because we are testing the component's
         // reactive behavior which consistutes an exception
         // See https://docs.gitlab.com/ee/development/fe_guide/style/vue.html#setting-component-state
-        await wrapper.setProps({ message: CHUNK1, isCancelled: true });
+        await wrapper.setProps({ message: { ...CHUNK1, canceled: true } });
         expect(findUserFeedback().exists()).toBe(true);
       });
 

@@ -16,7 +16,12 @@ import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/
 import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
-import { CHAT_CLEAN_MESSAGE, CHAT_RESET_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
+import {
+  CHAT_CLEAN_MESSAGE,
+  CHAT_RESET_MESSAGE,
+  CHAT_CLEAR_MESSAGE,
+  MESSAGE_MODEL_ROLES,
+} from './constants';
 
 export const i18n = {
   CHAT_DEFAULT_TITLE: 'GitLab Duo Chat',
@@ -83,14 +88,6 @@ export default {
       required: false,
       default: () => [],
       validator: itemsValidator,
-    },
-    /**
-     * Array of RequestIds that have been canceled.
-     */
-    canceledRequestIds: {
-      type: Array,
-      required: false,
-      default: () => [],
     },
     /**
      * A non-recoverable error message to display in the chat.
@@ -241,9 +238,6 @@ export default {
       return this.lastMessage?.content === CHAT_RESET_MESSAGE;
     },
     isStreaming() {
-      if (this.canceledRequestIds.includes(this.lastMessage?.requestId)) {
-        return false;
-      }
       return Boolean(
         (this.lastMessage?.chunks?.length > 0 && !this.lastMessage?.content) ||
           typeof this.lastMessage?.chunkId === 'number'
@@ -309,9 +303,18 @@ export default {
       /**
        * Emitted when user clicks the stop button in the textarea
        */
+      const lastConversation = this.conversations[this.conversations.length - 1];
+
+      if (lastConversation && lastConversation.length > 0) {
+        const lastMessage = lastConversation[lastConversation.length - 1];
+        if (lastMessage.role.toLowerCase() === MESSAGE_MODEL_ROLES.assistant) {
+          this.$set(lastMessage, 'canceled', true);
+        }
+      }
 
       this.displaySubmitButton = true;
       this.$emit('chat-cancel');
+
       this.setPromptAndFocus();
     },
     sendChatPrompt() {
@@ -508,7 +511,6 @@ export default {
           :key="`conversation-${index}`"
           :enable-code-insertion="enableCodeInsertion"
           :messages="conversation"
-          :canceled-request-ids="canceledRequestIds"
           :show-delimiter="index > 0"
           @track-feedback="onTrackFeedback"
           @insert-code-snippet="onInsertCodeSnippet"
