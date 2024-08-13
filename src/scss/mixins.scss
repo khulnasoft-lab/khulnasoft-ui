@@ -197,3 +197,39 @@
     line-height: $gl-line-height-heading;
   }
 }
+
+/**
+* Defines padding for components with borders.
+* For example, GlButton, GlFormInput and etc.
+*/
+
+@mixin gl-padding-minus-border(
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $x: null,
+  $y: null,
+  $border-width: $gl-border-size-1
+) {
+  @if $top {
+    padding-top: calc($top - $border-width);
+  }
+  @if $right {
+    padding-right: calc($right - $border-width);
+  }
+  @if $bottom {
+    padding-bottom: calc($bottom - $border-width);
+  }
+  @if $left {
+    padding-left: calc($left - $border-width);
+  }
+  @if $x {
+    padding-left: calc($x - $border-width);
+    padding-right: calc($x - $border-width);
+  }
+  @if $y {
+    padding-top: calc($y - $border-width);
+    padding-bottom: calc($y - $border-width);
+  }
+}

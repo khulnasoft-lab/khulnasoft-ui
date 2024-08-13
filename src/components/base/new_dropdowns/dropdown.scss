@@ -52,10 +52,10 @@
   .gl-new-dropdown-toggle {
     // optically align the caret
     &.gl-button:not(.gl-new-dropdown-toggle-no-caret) {
-      @include gl-pr-3;
+      @include gl-padding-minus-border($right: $gl-spacing-scale-3);
 
       &.btn-sm {
-        @include gl-pr-2;
+        @include gl-padding-minus-border($right: $gl-spacing-scale-2);
       }
     }
 
@@ -93,7 +93,7 @@
   .gl-new-dropdown-icon-only {
     // optically align the caret
     &.gl-button:not(.gl-new-dropdown-toggle-no-caret) {
-      @include gl-pr-2;
+      @include gl-padding-minus-border($right: $gl-spacing-scale-2);
 
       &.btn-sm {
         @include gl-pr-0;
@@ -111,7 +111,7 @@
 
   .gl-new-dropdown-caret-only {
     // optically center the caret
-    @include gl-pl-2;
+    @include gl-padding-minus-border($left: $gl-spacing-scale-2);
 
     &.btn-sm {
       @include gl-pl-0;

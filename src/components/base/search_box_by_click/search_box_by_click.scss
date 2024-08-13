@@ -2,16 +2,14 @@
   @include gl-font-base;
 
   .gl-search-box-by-click-history > .gl-button {
-    padding-left: $gl-spacing-scale-4 !important;
-    padding-right: $gl-spacing-scale-3 !important;
-    @apply gl-border-none;
+    @include gl-padding-minus-border($left: $gl-spacing-scale-4, $right: $gl-spacing-scale-3);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    @include gl-inset-border-1-gray-400;
+    border-color: $gray-400;
   }
 
   .gl-search-box-by-click-search-button.gl-button:not(:disabled) {
-    @include gl-inset-border-1-gray-400;
+    border-color: $gray-400;
   }
 
   .gl-search-box-by-click-input {

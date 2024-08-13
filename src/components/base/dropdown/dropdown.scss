@@ -67,16 +67,22 @@
 
     &.gl-button,
     &.gl-button.btn-block {
-      @include gl-pr-3;
+      padding-right: calc($gl-spacing-scale-3 - $gl-border-size-1);
 
       &.btn-sm {
-        @include gl-pr-2;
+        padding-right: calc($gl-spacing-scale-2 - $gl-border-size-1);
       }
     }
 
     &.dropdown-toggle-no-caret,
     &.dropdown-toggle-no-caret.btn-sm {
-      @include gl-p-3;
+      &:not([class*='-tertiary']) {
+        @include gl-padding-minus-border($x: $gl-spacing-scale-3, $y: $gl-spacing-scale-3);
+      }
+
+      &[class*='-tertiary'] {
+        @include gl-py-3
+      }
 
       .dropdown-chevron {
         display: none;
@@ -113,10 +119,12 @@
     }
 
     &.gl-button {
-      @include gl-px-3;
+      padding-left: calc($gl-spacing-scale-3 - $gl-border-size-1);
+      padding-right: calc($gl-spacing-scale-3 - $gl-border-size-1);
 
       &.btn-sm {
-        @include gl-px-2;
+        padding-left: calc($gl-spacing-scale-2 - $gl-border-size-1);
+        padding-right: calc($gl-spacing-scale-2 - $gl-border-size-1);
       }
     }
   }
