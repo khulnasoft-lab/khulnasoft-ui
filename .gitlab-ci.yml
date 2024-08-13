@@ -417,6 +417,9 @@ create_integration_branch:
   stage: manual
   needs:
     - build_package
+  before_script:
+    - apt-get update
+    - apt-get upgrade -y git
   script:
     - bin/create_integration_branch.mjs
 
