@@ -369,7 +369,7 @@ export default {
 
 <template>
   <div :class="datepickerClasses">
-    <div v-if="showDefaultField" class="gl-align-items-start gl-flex gl-gap-3">
+    <div v-if="showDefaultField" class="gl-flex gl-items-start gl-gap-3">
       <div class="gl-relative gl-flex gl-grow">
         <!--
       @slot (optional) Input to display and bind the datepicker to. Defaults to `<gl-form-input />`
