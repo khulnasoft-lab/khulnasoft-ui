@@ -286,6 +286,31 @@ The Design Tokens Format Module allows for
 which are custom properties that provide additional metadata or functionality.  
 Refer to the format module for authoring extensions.  
 
+#### com.figma.scope
+
+Indicates a token's scope within Figma. Value is an array (even for tokens with a single scope)  
+and should follow the [VariableScope](https://www.figma.com/plugin-docs/api/VariableScope/)  
+type from Figma's Plugin API.
+
+```json
+{
+  "text": {
+    "$value": "#000",
+    "$type": "color",
+    "$extensions": {
+      "com.figma.scope": ["TEXT_FILL"],
+    }
+  },
+  "icon": {
+    "$value": "#333",
+    "$type": "color",
+    "$extensions": {
+      "com.figma.scope": ["SHAPE_FILL", "STROKE_COLOR"],
+    }
+  }
+}
+```
+
 #### com.gitlab.deprecated
 
 Indicates that a token is slated to be removed in the future and should
