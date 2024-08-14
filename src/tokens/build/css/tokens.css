@@ -570,6 +570,46 @@
   --gl-button-default-primary-background-color-hover: var(--gl-color-neutral-50); /* Used for the background of an default primary button in the hover state. */
   --gl-button-default-primary-background-color-default: var(--gl-color-neutral-0); /* Used for the background of an default primary button in the default state. */
   --gl-button-default-primary-foreground-color-default: var(--gl-color-neutral-800); /* Used for the foreground of a default primary button in the default state. */
+  --gl-broadcast-banner-text-color-red: var(--gl-color-neutral-0); /* Used for the text for the red banner type. */
+  --gl-broadcast-banner-text-color-lightred: var(--gl-color-neutral-0); /* Used for the text for the lightred banner type. */
+  --gl-broadcast-banner-text-color-lightindigo: var(--gl-color-neutral-0); /* Used for the text for the lightindigo banner type. */
+  --gl-broadcast-banner-text-color-lightgreen: var(--gl-color-neutral-0); /* Used for the text for the lightgreen banner type. */
+  --gl-broadcast-banner-text-color-lightblue: var(--gl-color-neutral-0); /* Used for the text for the lightblue banner type. */
+  --gl-broadcast-banner-text-color-light: var(--gl-color-neutral-900); /* Used for the text for the light banner type. */
+  --gl-broadcast-banner-text-color-indigo: var(--gl-color-neutral-0); /* Used for the text for the indigo banner type. */
+  --gl-broadcast-banner-text-color-green: var(--gl-color-neutral-0); /* Used for the text for the green banner type. */
+  --gl-broadcast-banner-text-color-dark: var(--gl-color-neutral-0); /* Used for the text for the dark banner type. */
+  --gl-broadcast-banner-text-color-blue: var(--gl-color-neutral-0); /* Used for the text for the blue banner type. */
+  --gl-broadcast-banner-icon-color-red: var(--gl-color-neutral-0); /* Used for the icon for the red banner type. */
+  --gl-broadcast-banner-icon-color-lightred: var(--gl-color-neutral-0); /* Used for the icon for the lightred banner type. */
+  --gl-broadcast-banner-icon-color-lightindigo: var(--gl-color-neutral-0); /* Used for the icon for the lightindigo banner type. */
+  --gl-broadcast-banner-icon-color-lightgreen: var(--gl-color-neutral-0); /* Used for the icon for the lightgreen banner type. */
+  --gl-broadcast-banner-icon-color-lightblue: var(--gl-color-neutral-0); /* Used for the icon for the lightblue banner type. */
+  --gl-broadcast-banner-icon-color-light: var(--gl-color-neutral-900); /* Used for the icon for the light banner type. */
+  --gl-broadcast-banner-icon-color-indigo: var(--gl-color-neutral-0); /* Used for the icon for the indigo banner type. */
+  --gl-broadcast-banner-icon-color-green: var(--gl-color-neutral-0); /* Used for the icon for the green banner type. */
+  --gl-broadcast-banner-icon-color-dark: var(--gl-color-neutral-0); /* Used for the icon for the dark banner type. */
+  --gl-broadcast-banner-icon-color-blue: var(--gl-color-neutral-0); /* Used for the icon for the blue banner type. */
+  --gl-broadcast-banner-border-color-red: var(--gl-color-theme-red-900); /* Used for the border for the red banner type. */
+  --gl-broadcast-banner-border-color-lightred: var(--gl-color-theme-red-700); /* Used for the border for the lightred banner type. */
+  --gl-broadcast-banner-border-color-lightindigo: var(--gl-color-theme-indigo-700); /* Used for the border for the lightindigo banner type. */
+  --gl-broadcast-banner-border-color-lightgreen: var(--gl-color-theme-green-700); /* Used for the border for the lightgreen banner type. */
+  --gl-broadcast-banner-border-color-lightblue: var(--gl-color-theme-blue-700); /* Used for the border for the lightblue banner type. */
+  --gl-broadcast-banner-border-color-light: var(--gl-color-neutral-100); /* Used for the border for the light banner type. */
+  --gl-broadcast-banner-border-color-indigo: var(--gl-color-theme-indigo-900); /* Used for the border for the indigo banner type. */
+  --gl-broadcast-banner-border-color-green: var(--gl-color-theme-green-900); /* Used for the border for the green banner type. */
+  --gl-broadcast-banner-border-color-dark: var(--gl-color-neutral-700); /* Used for the border for the dark banner type. */
+  --gl-broadcast-banner-border-color-blue: var(--gl-color-theme-blue-900); /* Used for the border for the blue banner type. */
+  --gl-broadcast-banner-background-color-red: var(--gl-color-theme-red-700); /* Used for the background for the red banner type. */
+  --gl-broadcast-banner-background-color-lightred: var(--gl-color-theme-red-500); /* Used for the background for the lightred banner type. */
+  --gl-broadcast-banner-background-color-lightindigo: var(--gl-color-theme-indigo-500); /* Used for the background for the lightindigo banner type. */
+  --gl-broadcast-banner-background-color-lightgreen: var(--gl-color-theme-green-500); /* Used for the background for the lightgreen banner type. */
+  --gl-broadcast-banner-background-color-lightblue: var(--gl-color-theme-blue-500); /* Used for the background for the lightblue banner type. */
+  --gl-broadcast-banner-background-color-light: var(--gl-color-neutral-50); /* Used for the background for the light banner type. */
+  --gl-broadcast-banner-background-color-indigo: var(--gl-color-theme-indigo-700); /* Used for the background for the indigo banner type. */
+  --gl-broadcast-banner-background-color-green: var(--gl-color-theme-green-700); /* Used for the background for the green banner type. */
+  --gl-broadcast-banner-background-color-dark: var(--gl-color-neutral-500); /* Used for the background for the dark banner type. */
+  --gl-broadcast-banner-background-color-blue: var(--gl-color-theme-blue-700); /* Used for the background for the blue banner type. */
   --gl-breadcrumb-separator-color: var(--gl-color-neutral-400); /* Used for the breadcrumb level separator. */
   --gl-banner-promo-border-color: var(--gl-color-purple-100); /* Used for the border of a promo banner. */
   --gl-banner-promo-background-color: var(--gl-color-purple-50); /* Used for the background of a promo banner. */
