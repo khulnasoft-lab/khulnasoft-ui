@@ -793,7 +793,8 @@ export default {
       <gl-button
         v-if="showResetButton"
         category="tertiary"
-        class="!gl-m-0 !gl-w-auto gl-max-w-1/2 gl-shrink-0 gl-text-ellipsis !gl-px-2 !gl-py-2 !gl-text-sm focus:!gl-shadow-inner-2-blue-400"
+        class="!gl-m-0 !gl-w-auto gl-max-w-1/2 gl-flex-shrink-0 gl-text-ellipsis !gl-px-2 !gl-text-sm focus:!gl-shadow-inner-2-blue-400"
+        size="small"
         data-testid="listbox-reset-button"
         @click="onResetButtonClicked"
       >
@@ -802,7 +803,8 @@ export default {
       <gl-button
         v-if="showSelectAllButton"
         category="tertiary"
-        class="!gl-m-0 !gl-w-auto gl-max-w-1/2 gl-shrink-0 gl-text-ellipsis !gl-px-2 !gl-py-2 !gl-text-sm focus:!gl-shadow-inner-2-blue-400"
+        class="!gl-m-0 !gl-w-auto gl-max-w-1/2 gl-flex-shrink-0 gl-text-ellipsis !gl-px-2 !gl-text-sm focus:!gl-shadow-inner-2-blue-400"
+        size="small"
         data-testid="listbox-select-all-button"
         @click="onSelectAllButtonClicked"
       >

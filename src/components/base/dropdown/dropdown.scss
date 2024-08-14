@@ -109,11 +109,21 @@
       margin-left: -1px;
     }
 
-    &.gl-button {
-      @apply gl-px-3;
+    @if $feature-button-border {
+      &.gl-button {
+        @apply gl-px-0;
 
-      &.btn-sm {
-        @apply gl-px-2;
+        &.btn-sm {
+          @apply gl-px-0;
+        }
+      }
+    } @else {
+      &.gl-button {
+        @apply gl-px-3;
+
+        &.btn-sm {
+          @apply gl-px-2;
+        }
       }
     }
   }
@@ -170,6 +180,12 @@
   }
 
   .dropdown-icon-only {
+    @if $feature-button-border {
+      &.dropdown-toggle-no-caret {
+        padding: 0 !important;
+      }
+    }
+
     .dropdown-icon,
     .gl-button-icon.gl-button-icon {
       @apply gl-mr-0;

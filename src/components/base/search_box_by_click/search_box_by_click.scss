@@ -4,14 +4,23 @@
   .gl-search-box-by-click-history > .gl-button {
     padding-left: $gl-spacing-scale-4 !important;
     padding-right: $gl-spacing-scale-3 !important;
-    @apply gl-border-none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    @apply gl-shadow-inner-1-gray-400;
+
+    @if $feature-button-border {
+      border-color: var(--gl-border-color-strong);
+    } @else {
+      @apply gl-border-none;
+      @include gl-inset-border-1-gray-400;
+    }
   }
 
   .gl-search-box-by-click-search-button.gl-button:not(:disabled) {
-    @apply gl-shadow-inner-1-gray-400;
+    @if $feature-button-border {
+      border-color: var(--gl-border-color-strong);
+    } @else {
+      @include gl-inset-border-1-gray-400;
+    }
   }
 
   .gl-search-box-by-click-input {

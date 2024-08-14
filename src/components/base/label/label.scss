@@ -74,6 +74,11 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     @apply gl-rounded-full;
     @apply gl-shadow-none;
 
+    @if $feature-button-border {
+      min-height: auto !important;
+      min-width: auto !important;
+    }
+
     &:focus,
     &:active {
       @apply gl-focus;

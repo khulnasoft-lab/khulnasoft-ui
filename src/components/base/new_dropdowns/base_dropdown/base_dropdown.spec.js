@@ -257,7 +257,7 @@ describe('base dropdown', () => {
 
   describe.each`
     props                                                            | toggleClasses
-    ${{}}                                                            | ${['gl-new-dropdown-caret-only']}
+    ${{}}                                                            | ${['gl-new-dropdown-caret-only', 'btn-icon']}
     ${{ toggleText: 'toggleText' }}                                  | ${[]}
     ${{ icon: 'close' }}                                             | ${['gl-new-dropdown-icon-only', 'btn-icon']}
     ${{ icon: 'close', toggleText: 'toggleText', textSrOnly: true }} | ${['gl-new-dropdown-icon-only', 'btn-icon']}
