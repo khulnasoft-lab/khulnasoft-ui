@@ -1,3 +1,10 @@
+## [89.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.0.0...v89.0.1) (2024-08-14)
+
+
+### Bug Fixes
+
+* Add gl-align-items-start ([06e4768](https://gitlab.com/gitlab-org/gitlab-ui/commit/06e4768a0d302a3450e7c21afec9a6db03a1881d))
+
 # [89.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v88.6.0...v89.0.0) (2024-08-12)
 
 
