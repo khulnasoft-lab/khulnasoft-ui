@@ -4,11 +4,11 @@
       "border": {
         "color": {
           "$value": {
-            "default": "{color.blue.300}",
-            "dark": "{color.blue.600}"
+            "default": "{color.blue.100}",
+            "dark": "{color.blue.800}"
           },
           "$type": "color",
-          "$description": "Used to compliment the info banner."
+          "$description": "Used for the border of an info banner."
         }
       }
     },
@@ -16,11 +16,21 @@
       "background": {
         "color": {
           "$value": {
-            "default": "{color.neutral.10}",
-            "dark": "{color.neutral.900}"
+            "default": "{color.purple.50}",
+            "dark": "{color.purple.950}"
           },
           "$type": "color",
-          "$description": "Used as background for the default banner type."
+          "$description": "Used for the background of a promo banner."
+        }
+      },
+      "border": {
+        "color": {
+          "$value": {
+            "default": "{color.purple.100}",
+            "dark": "{color.purple.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the border of a promo banner."
         }
       }
     }
