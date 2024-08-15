@@ -44,8 +44,7 @@ Your development flow would then look like this:
 1. Get your GitLab MR merged.
 
 To help with this process, GitLab UI exposes a `create_integration_branch` manual CI job that will
-automatically create (or update) an integration branch in GitLab and install the `@gitlab/ui`
-development build.
+automatically create (or update) an integration branch and install the `@gitlab/ui` development build.
 
 ![Create integration branch CI job location](../images/create_integration_branch.png 'Create integration branch CI job location')
 
@@ -57,3 +56,11 @@ the end of the `create_integration_branch` job's output.
 Once you create the GitLab integration Merge Request, add a note to the GitLab UI Merge Request
 with a link pointing to it. This way, the reviewers can use the integration Merge Request to run
 their own verifications.
+
+> **Note:** When running the `create_integration_branch` CI job, integration branches are created
+> in a [fork of GitLab](https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations).
+> The fork is set up to mirror the `master` branch from the GitLab repository.
+> We are using a fork to circumvent issues where pushing directly to the GitLab repository could
+> time out. Therefore, keep in mind that the fork might be slightly behind the upstream branch
+> between mirroring schedules. When working with such branches in your GDK, also bear in mind that
+> changes need to be pushed to the fork, not the GitLab repository.
