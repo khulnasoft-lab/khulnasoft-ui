@@ -1,3 +1,10 @@
+# [89.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.0.1...v89.1.0) (2024-08-15)
+
+
+### Features
+
+* **Toggle:** Change icon size to xs ([da56600](https://gitlab.com/gitlab-org/gitlab-ui/commit/da566008f38afb4520bcb9e7458663676c75657d))
+
 ## [89.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.0.0...v89.0.1) (2024-08-14)
 
 
