@@ -1,11 +1,8 @@
 import Vue from 'vue';
 import { h } from '@vue/compat';
 import { useArgs } from '@storybook/preview-api';
-
 import 'iframe-resizer/js/iframeResizer.contentWindow.min.js';
 import setConfigs from '../src/config';
-import logoWithBlackText from '../static/img/_logo_with_black_text.svg';
-import logoWithWhiteText from '../static/img/_logo_with_white_text.svg';
 
 import '../src/scss/bootstrap.scss';
 import '../src/scss/storybook.scss';
@@ -13,6 +10,10 @@ import '../src/scss/storybook.scss';
 let decorators = [
   (story, context) => {
     const [_, updateArgs] = useArgs();
+    // Determine the background and apply corresponding class
+    const colorModeClass = context.globals.backgrounds?.value;
+    document.documentElement.classList.remove('gl-light', 'gl-dark', 'gl-nacht');
+    document.documentElement.classList.toggle(colorModeClass);
     return story({ ...context, updateArgs });
   },
   () => ({
@@ -39,19 +40,13 @@ const theme = {
 };
 
 const parameters = {
-  darkMode: {
-    current: 'light',
-    stylePreview: true,
-    classTarget: 'html',
-    darkClass: 'gl-dark',
-    dark: {
-      ...theme,
-      brandImage: logoWithWhiteText,
-    },
-    light: {
-      ...theme,
-      brandImage: logoWithBlackText,
-    },
+  backgrounds: {
+    default: 'light',
+    values: [
+      { name: 'light', value: 'gl-light' },
+      { name: 'dark', value: 'gl-dark' },
+      { name: 'nacht', value: 'gl-nacht' },
+    ],
   },
   a11y: {},
   viewport: {
