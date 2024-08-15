@@ -2,7 +2,7 @@ const stylelint = require('stylelint');
 
 const {
   createPlugin,
-  utils: { report, ruleMessages }
+  utils: { report, ruleMessages },
 } = stylelint;
 
 const MIXIN_NAME = 'gl-media-breakpoint-down';
@@ -27,7 +27,7 @@ const ruleFunction = () => {
       });
     });
   };
-}
+};
 
 module.exports = createPlugin(ruleName, ruleFunction);
 module.exports.ruleName = ruleName;
