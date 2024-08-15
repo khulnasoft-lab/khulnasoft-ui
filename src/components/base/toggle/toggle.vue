@@ -105,7 +105,7 @@ export default {
       ];
     },
     icon() {
-      return this.value ? 'mobile-issue-close' : 'close';
+      return this.value ? 'check-xs' : 'close-xs';
     },
     helpId() {
       return this.shouldRenderHelp ? `toggle-help-${this.uuid}` : undefined;
@@ -184,7 +184,7 @@ export default {
     >
       <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
       <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
-        <gl-icon :name="icon" :size="16" />
+        <gl-icon :name="icon" :size="12" />
       </span>
     </button>
     <span v-if="shouldRenderHelp" :id="helpId" class="gl-help-label" data-testid="toggle-help">
