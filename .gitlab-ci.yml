@@ -86,7 +86,7 @@ secret_detection:
     CYPRESS_INSTALL_BINARY: 0
   before_script:
     - apt-get update
-    - apt-get install -y make gcc
+    - apt-get install -y make gcc g++
     - yarn install --frozen-lockfile
   cache:
     <<: *cache-template
