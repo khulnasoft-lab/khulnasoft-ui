@@ -670,6 +670,12 @@
   --gl-background-color-strong: var(--gl-color-neutral-50); /* Used to make the background easily stand out from the default. */
   --gl-background-color-subtle: var(--gl-color-neutral-10); /* Used to slightly differentiate the background from the default. */
   --gl-background-color-default: var(--gl-color-neutral-0); /* Used for the default background color. */
+  --gl-action-selected-border-color-active: var(--gl-color-blue-700); /* Used for the border of a selected action in the active state. */
+  --gl-action-selected-border-color-hover: var(--gl-color-blue-600); /* Used for the border of a selected action in the hover state. */
+  --gl-action-selected-border-color-default: var(--gl-color-blue-500); /* Used for the border of a selected action in the default state. */
+  --gl-action-selected-background-color-active: var(--gl-color-blue-200); /* Used for the background of a selected action in the active state. */
+  --gl-action-selected-background-color-hover: var(--gl-color-blue-100); /* Used for the background of a selected action in the hover state. */
+  --gl-action-selected-background-color-default: var(--gl-color-blue-50); /* Used for the background of a selected action in the default state. */
   --gl-action-strong-neutral-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a strong neutral action in the default state. */
   --gl-action-strong-neutral-foreground-color-default: var(--gl-color-neutral-0); /* Used for the foreground of a strong neutral action in the default state. */
   --gl-action-strong-neutral-background-color-active: var(--gl-color-neutral-800); /* Used for the background of a strong neutral action in the active state. */
@@ -762,6 +768,9 @@
   --gl-badge-muted-icon-color-focus: var(--gl-badge-muted-icon-color-hover); /* Used for the icon of a muted badge in the focus state. */
   --gl-badge-muted-text-color-focus: var(--gl-badge-muted-text-color-hover); /* Used for the text of a muted badge in the focus state. */
   --gl-badge-muted-background-color-hover: var(--gl-badge-muted-background-color-default); /* Used for the background of a muted badge in the hover state. */
+  --gl-action-selected-border-color-focus: var(--gl-action-selected-border-color-hover); /* Used for the border of a selected action in the focus state. */
+  --gl-action-selected-background-color-focus: var(--gl-action-selected-background-color-hover); /* Used for the background of a selected action in the focus state. */
+  --gl-action-selected-foreground-color-default: var(--gl-action-neutral-foreground-color-default); /* Used for the foreground of a selected action in the default state. */
   --gl-action-strong-neutral-border-color-hover: var(--gl-action-strong-neutral-border-color-default); /* Used for the border of a strong neutral action in the hover state. */
   --gl-action-strong-neutral-foreground-color-hover: var(--gl-action-strong-neutral-foreground-color-default); /* Used for the foreground of a strong neutral action in the hover state. */
   --gl-action-strong-neutral-background-color-focus: var(--gl-action-strong-neutral-background-color-hover); /* Used for the background of a strong neutral action in the focus state. */
@@ -814,6 +823,9 @@
   --gl-badge-info-background-color-focus: var(--gl-badge-info-background-color-hover); /* Used for the background of an informational badge in the focus state. */
   --gl-badge-neutral-background-color-focus: var(--gl-badge-neutral-background-color-hover); /* Used for the background of a neutral badge in the focus state. */
   --gl-badge-muted-background-color-focus: var(--gl-badge-muted-background-color-hover); /* Used for the background of a muted badge in the focus state. */
+  --gl-action-selected-foreground-color-active: var(--gl-action-neutral-foreground-color-active); /* Used for the foreground of a selected action in the active state. */
+  --gl-action-selected-foreground-color-focus: var(--gl-action-neutral-foreground-color-focus); /* Used for the foreground of a selected action in the focus state. */
+  --gl-action-selected-foreground-color-hover: var(--gl-action-neutral-foreground-color-hover); /* Used for the foreground of a selected action in the hover state. */
   --gl-action-strong-neutral-border-color-focus: var(--gl-action-strong-neutral-border-color-hover); /* Used for the border of a strong neutral action in the focus state. */
   --gl-action-strong-neutral-foreground-color-focus: var(--gl-action-strong-neutral-foreground-color-hover); /* Used for the foreground of a strong neutral action in the focus state. */
   --gl-action-strong-confirm-border-color-focus: var(--gl-action-strong-confirm-border-color-hover); /* Used for the border of a strong confirm action in the focus state. */

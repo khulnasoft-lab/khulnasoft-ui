@@ -1,36 +1,43 @@
 .gl-pagination {
-  @include gl-font-base;
+  @apply gl-text-base;
 
   a {
-    @include gl-text-gray-900;
+    color: var(--gl-action-neutral-foreground-color-default);
   }
 
-  .page-link {
-    @apply gl-border-gray-200;
+                                                                                                                                                                                                                                                                .page-link {
     @include gl-line-height-normal;
     @include gl-px-4;
     @include gl-py-3;
+    border-radius: 4px;
+      color: var(--gl-action-neutral-foreground-color-default);
+      background-color: var(--gl-action-neutral-background-color-default);
+      border-color: var(--gl-action-neutral-border-color-default);
 
     &.prev-page-item,
     &.next-page-item {
       @include gl-px-3;
     }
 
-    &:not(.active):hover {
-      @include gl-text-gray-900;
-      box-shadow: inset 0 0 0 1px $gray-400;
-      border-color: $gray-400;
-      background: $gray-50;
+                &:not(.active):hover {
       @include gl-z-index-1;
+      color: var(--gl-action-neutral-foreground-color-hover);
+        background-color: var(--gl-action-neutral-background-color-hover);
+        border-color: var(--gl-action-neutral-border-color-hover);
+        box-shadow: inset 0 0 0 1px var(--gl-action-neutral-border-color-hover);
     }
 
     &:not(.active):focus {
-      @include gl-bg-gray-50;
+      color: var(--gl-action-neutral-foreground-color-focus);
+        background-color: var(--gl-action-neutral-background-color-focus);
+        border-color: var(--gl-action-neutral-border-color-focus);
     }
 
     &:not(.active):active,
     &:not(.active).active {
-      @include gl-bg-gray-100;
+      color: var(--gl-action-neutral-foreground-color-active);
+        background-color: var(--gl-action-neutral-background-color-active);
+        border-color: var(--gl-action-neutral-border-color-active);
     }
 
     &:not(.active):focus,
@@ -47,21 +54,44 @@
 
   .page-item {
     &:not(.disabled) a.active {
-      @include gl-bg-blue-500;
-      @apply gl-border-blue-500;
-      @include gl-text-white;
-      @include gl-z-index-2;
-      @include gl-shadow-none;
+      color: var(--gl-action-selected-foreground-color-default);
+        background-color: var(--gl-action-selected-background-color-default);
+        border-color: var(--gl-action-selected-border-color-default);
+        box-shadow: inset 0 0 0 1px var(--gl-action-selected-border-color-default);
+      
+        &:hover {
+          color: var(--gl-action-selected-foreground-color-hover);
+          background-color: var(--gl-action-selected-background-color-hover);
+          border-color: var(--gl-action-selected-border-color-hover);
+          box-shadow: inset 0 0 0 1px var(--gl-action-selected-border-color-hover);
+        }
 
       &:focus {
+        color: var(--gl-action-selected-foreground-color-focus);
+          background-color: var(--gl-action-selected-background-color-focus);
+          border-color: var(--gl-action-selected-border-color-focus);
+          box-shadow: inset 0 0 0 1px var(--gl-action-selected-border-color-focus);
+        }
+        
+        &:active {
+          color: var(--gl-action-selected-foreground-color-active);
+          background-color: var(--gl-action-selected-background-color-active);
+          border-color: var(--gl-action-selected-border-color-active);
+          box-shadow: inset 0 0 0 1px var(--gl-action-selected-border-color-active);
+        }
+        
+        &:focus,
+        &:active:focus {
         @include gl-focus();
       }
     }
 
     &.disabled .page-link {
-      @include gl-bg-gray-10;
-      @apply gl-border-gray-200;
-      @include gl-text-gray-500;
+      // background-color: var(--gl-action-disabled-background-color);
+        color: var(--gl-action-disabled-foreground-color);
+        // reset bootstrap
+        border-color: var(--gl-color-alpha-0);
+        cursor: not-allowed;
     }
   }
 
