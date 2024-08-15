@@ -3,8 +3,8 @@ import { ref } from 'vue';
 export default {
   title: 'Experimental/layers',
   component: {
-    template: '<div>Layer Tokens Component</div>'
-  }
+    template: '<div>Layer Tokens Component</div>',
+  },
 };
 
 const Template = () => ({
