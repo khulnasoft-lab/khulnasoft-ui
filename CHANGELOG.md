@@ -1,3 +1,10 @@
+# [89.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.1.0...v89.2.0) (2024-08-15)
+
+
+### Features
+
+* **forms:** update form design tokens ([d41dc86](https://gitlab.com/gitlab-org/gitlab-ui/commit/d41dc86b79a61341d8a2136059e016d2f418b694))
+
 # [89.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.0.1...v89.1.0) (2024-08-15)
 
 
