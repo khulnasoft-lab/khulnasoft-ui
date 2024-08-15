@@ -9647,7 +9647,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{color.neutral.0}",
+                "value": "{action.strong.confirm.foreground.color.default}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the default state."
               },
@@ -9669,7 +9669,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.hover}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the hover state."
               },
@@ -9691,7 +9691,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.focus}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the focus state."
               },
@@ -9713,7 +9713,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.active}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the active state."
               },
@@ -9739,10 +9739,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.500}",
-                  "dark": "{color.blue.400}"
-                },
+                "value": "{action.strong.confirm.background.color.default}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the default state."
               },
@@ -9764,10 +9761,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.600}",
-                  "dark": "{color.blue.300}"
-                },
+                "value": "{action.strong.confirm.background.color.hover}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the hover state."
               },
@@ -9789,7 +9783,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.background.color.hover}",
+                "value": "{action.strong.confirm.background.color.focus}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the focus state."
               },
@@ -9811,10 +9805,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.700}",
-                  "dark": "{color.blue.200}"
-                },
+                "value": "{action.strong.confirm.background.color.active}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the active state."
               },

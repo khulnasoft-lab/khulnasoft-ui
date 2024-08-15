@@ -554,10 +554,6 @@ $gl-button-confirm-secondary-foreground-color-default: $gl-color-blue-500; // Us
 $gl-button-confirm-primary-border-color-active: $gl-color-blue-900; // Used for the border of a confirm (positive) primary button in the active state.
 $gl-button-confirm-primary-border-color-hover: $gl-color-blue-800; // Used for the border of a confirm (positive) primary button in the hover state.
 $gl-button-confirm-primary-border-color-default: $gl-color-blue-600; // Used for the border of a confirm (positive) primary button in the default state.
-$gl-button-confirm-primary-background-color-active: $gl-color-blue-700; // Used for the background of a confirm (positive) primary button in the active state.
-$gl-button-confirm-primary-background-color-hover: $gl-color-blue-600; // Used for the background of a confirm (positive) primary button in the hover state.
-$gl-button-confirm-primary-background-color-default: $gl-color-blue-500; // Used for the background of a confirm (positive) primary button in the default state.
-$gl-button-confirm-primary-foreground-color-default: $gl-color-neutral-0; // Used for the foreground of a confirm (positive) primary button in the default state.
 $gl-button-default-tertiary-background-color-active: $gl-action-neutral-background-color-active; // Used for the background of a default borderless, tertiary button in the active state.
 $gl-button-default-tertiary-background-color-hover: $gl-action-neutral-background-color-hover; // Used for the background of a default borderless, tertiary button in the hover state.
 $gl-button-default-tertiary-background-color-default: $gl-action-neutral-background-color-default; // Used for the background of a default borderless, tertiary button in the default state.
@@ -731,10 +727,10 @@ $gl-button-confirm-secondary-border-color-focus: $gl-button-confirm-secondary-bo
 $gl-button-confirm-secondary-background-color-focus: $gl-button-confirm-secondary-background-color-hover; // Used for the background of an outlined confirm (positive) button in the focus state.
 $gl-button-confirm-secondary-foreground-color-focus: $gl-button-confirm-secondary-foreground-color-hover; // Used for the foreground of a confirm (positive) button in the focus state.
 $gl-button-confirm-primary-border-color-focus: $gl-button-confirm-primary-border-color-hover; // Used for the border of a confirm (positive) primary button in the focus state.
-$gl-button-confirm-primary-background-color-focus: $gl-button-confirm-primary-background-color-hover; // Used for the background of a confirm (positive) primary button in the focus state.
-$gl-button-confirm-primary-foreground-color-active: $gl-button-confirm-primary-foreground-color-default; // Used for the foreground of a confirm (positive) primary button in the active state.
-$gl-button-confirm-primary-foreground-color-focus: $gl-button-confirm-primary-foreground-color-default; // Used for the foreground of a confirm (positive) primary button in the focus state.
-$gl-button-confirm-primary-foreground-color-hover: $gl-button-confirm-primary-foreground-color-default; // Used for the foreground of a confirm (positive) primary button in the hover state.
+$gl-button-confirm-primary-background-color-active: $gl-action-strong-confirm-background-color-active; // Used for the background of a confirm (positive) primary button in the active state.
+$gl-button-confirm-primary-background-color-hover: $gl-action-strong-confirm-background-color-hover; // Used for the background of a confirm (positive) primary button in the hover state.
+$gl-button-confirm-primary-background-color-default: $gl-action-strong-confirm-background-color-default; // Used for the background of a confirm (positive) primary button in the default state.
+$gl-button-confirm-primary-foreground-color-default: $gl-action-strong-confirm-foreground-color-default; // Used for the foreground of a confirm (positive) primary button in the default state.
 $gl-button-default-tertiary-border-color-default: $gl-action-neutral-border-color-default; // Used for the border of a default borderless, tertiary button in the default state.
 $gl-button-default-tertiary-background-color-focus: $gl-action-neutral-background-color-focus; // Used for the background of a default borderless, tertiary button in the focus state.
 $gl-button-default-tertiary-foreground-color-default: $gl-action-neutral-foreground-color-default; // Used for the foreground of a default borderless, tertiary button in the default state.
@@ -801,6 +797,8 @@ $gl-button-confirm-tertiary-border-color-active: $gl-action-confirm-border-color
 $gl-button-confirm-tertiary-border-color-focus: $gl-action-confirm-border-color-focus; // Used for the border of a borderless, tertiary confirm (positive) button in the focus state.
 $gl-button-confirm-tertiary-border-color-hover: $gl-action-confirm-border-color-hover; // Used for the border of a borderless, tertiary confirm (positive) button in the hover state.
 $gl-button-confirm-tertiary-foreground-color-focus: $gl-action-confirm-foreground-color-focus; // Used for the foreground of a borderless, tertiary confirm (positive) button in the focus state.
+$gl-button-confirm-primary-background-color-focus: $gl-action-strong-confirm-background-color-focus; // Used for the background of a confirm (positive) primary button in the focus state.
+$gl-button-confirm-primary-foreground-color-hover: $gl-action-strong-confirm-foreground-color-hover; // Used for the foreground of a confirm (positive) primary button in the hover state.
 $gl-button-default-tertiary-border-color-active: $gl-action-neutral-border-color-active; // Used for the border of a default borderless, tertiary button in the active state.
 $gl-button-default-tertiary-border-color-focus: $gl-action-neutral-border-color-focus; // Used for the border of a default borderless, tertiary button in the focus state.
 $gl-button-default-tertiary-border-color-hover: $gl-action-neutral-border-color-hover; // Used for the border of a default borderless, tertiary button in the hover state.
@@ -818,7 +816,9 @@ $gl-action-strong-neutral-border-color-focus: $gl-action-strong-neutral-border-c
 $gl-action-strong-neutral-foreground-color-focus: $gl-action-strong-neutral-foreground-color-hover; // Used for the foreground of a strong neutral action in the focus state.
 $gl-action-strong-confirm-border-color-focus: $gl-action-strong-confirm-border-color-hover; // Used for the border of a strong confirm action in the focus state.
 $gl-action-strong-confirm-foreground-color-focus: $gl-action-strong-confirm-foreground-color-hover; // Used for the foreground of a strong confirm action in the focus state.
+$gl-button-confirm-primary-foreground-color-focus: $gl-action-strong-confirm-foreground-color-focus; // Used for the foreground of a confirm (positive) primary button in the focus state.
 $gl-action-strong-neutral-border-color-active: $gl-action-strong-neutral-border-color-focus; // Used for the border of a strong neutral action in the active state.
 $gl-action-strong-neutral-foreground-color-active: $gl-action-strong-neutral-foreground-color-focus; // Used for the foreground of a strong neutral action in the active state.
 $gl-action-strong-confirm-border-color-active: $gl-action-strong-confirm-border-color-focus; // Used for the border of a strong confirm action in the active state.
 $gl-action-strong-confirm-foreground-color-active: $gl-action-strong-confirm-foreground-color-focus; // Used for the foreground of a strong confirm action in the active state.
+$gl-button-confirm-primary-foreground-color-active: $gl-action-strong-confirm-foreground-color-active; // Used for the foreground of a confirm (positive) primary button in the active state.
