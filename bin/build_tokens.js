@@ -64,6 +64,18 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'value/nacht',
+  type: 'value',
+  transitive: true,
+  matcher: (token) => {
+    return hasDefaultAndDarkValues(token);
+  },
+  transformer: ({ value }) => {
+    return value.nacht || value.dark;
+  },
+});
+
 /**
  * Transform Groups
  * https://amzn.github.io/style-dictionary/#/api?id=registertransformgroup
@@ -86,6 +98,16 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransformGroup({
   name: 'js/dark',
   transforms: ['value/dark', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'css/nacht',
+  transforms: ['value/nacht', 'name/cti/kebab', 'size/pxToRem', 'name/stripPrefix'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'js/nacht',
+  transforms: ['value/nacht', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
 });
 
 /**
@@ -409,9 +431,59 @@ const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
 };
 
 /**
+ * Creates style-dictionary config
+ * https://amzn.github.io/style-dictionary/#/config
+ *
+ * @returns {Object} style-dictionary config
+ */
+const getStyleDictionaryConfigNachtMode = (buildPath = 'dist/tokens') => {
+  return merge(getStyleDictionaryConfigDefault(buildPath), {
+    platforms: {
+      css: {
+        transformGroup: 'css/nacht',
+        files: [
+          {
+            destination: 'tokens.nacht.css',
+            options: {
+              selector: ':root.gl-nacht',
+            },
+          },
+        ],
+      },
+      js: {
+        transformGroup: 'js/nacht',
+        files: [
+          {
+            destination: 'tokens.nacht.js',
+          },
+        ],
+      },
+      json: {
+        transformGroup: 'js/nacht',
+        files: [
+          {
+            destination: 'tokens.nacht.json',
+          },
+        ],
+      },
+      scss: {
+        transformGroup: 'css/nacht',
+        files: [
+          {
+            destination: '_tokens.nacht.scss',
+          },
+        ],
+      },
+    },
+  });
+};
+
+/**
  * Build tokens from config
  */
 StyleDictionary.extend(getStyleDictionaryConfigDefault()).buildAllPlatforms();
 StyleDictionary.extend(getStyleDictionaryConfigDefault('src/tokens/build')).buildAllPlatforms();
 StyleDictionary.extend(getStyleDictionaryConfigDarkMode()).buildAllPlatforms();
 StyleDictionary.extend(getStyleDictionaryConfigDarkMode('src/tokens/build')).buildAllPlatforms();
+StyleDictionary.extend(getStyleDictionaryConfigNachtMode()).buildAllPlatforms();
+StyleDictionary.extend(getStyleDictionaryConfigNachtMode('src/tokens/build')).buildAllPlatforms();
