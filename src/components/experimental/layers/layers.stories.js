@@ -2,9 +2,12 @@ import { ref } from 'vue';
 
 export default {
   title: 'Experimental/layers',
+  component: {
+    template: '<div>Layer Tokens Component</div>'
+  }
 };
 
-const Template = (args) => ({
+const Template = () => ({
   setup() {
     const tokens = ref({
       depth: [0, 1, 2, 3],
