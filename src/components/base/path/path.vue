@@ -4,12 +4,11 @@ import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import uniqueId from 'lodash/uniqueId';
 import findLast from 'lodash/findLast';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
-import { glThemes } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 
 const BOUNDARY_WIDTH = 40;
 const PATH_ITEM_CLASS = 'gl-path-button';
-const PATH_ACTIVE_ITEM_PREFIX = 'gl-path-active-item';
+const PATH_ACTIVE_ITEM_CLASS = 'gl-path-active-item';
 
 export default {
   name: 'GlPath',
@@ -37,15 +36,6 @@ export default {
       default: () => [],
     },
     /**
-     * The color theme to be used.
-     */
-    theme: {
-      type: String,
-      required: false,
-      default: 'indigo',
-      validator: (theme) => glThemes.includes(theme),
-    },
-    /**
      * The items' background color.
      */
     backgroundColor: {
@@ -62,9 +52,6 @@ export default {
     };
   },
   computed: {
-    activeClass() {
-      return `${PATH_ACTIVE_ITEM_PREFIX}-${this.theme}`;
-    },
     entireListVisible() {
       return this.width >= this.getScrollWidth();
     },
@@ -97,7 +84,7 @@ export default {
   methods: {
     pathItemClass(index) {
       return index === this.selectedIndex
-        ? `${PATH_ITEM_CLASS} ${this.activeClass}`
+        ? `${PATH_ITEM_CLASS} ${PATH_ACTIVE_ITEM_CLASS}`
         : PATH_ITEM_CLASS;
     },
     onItemClicked(selectedIndex) {

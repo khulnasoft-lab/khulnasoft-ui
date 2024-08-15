@@ -1,5 +1,4 @@
 import GlPopover from '../popover/popover.vue';
-import { glThemes } from '../../../utils/constants';
 import GlPath from './path.vue';
 import { mockPathItems } from './data';
 import readme from './path.md';
@@ -7,17 +6,15 @@ import readme from './path.md';
 const defaultValue = (prop) => GlPath.props[prop].default;
 
 const generateProps = ({
-  theme = defaultValue('theme'),
   items = mockPathItems,
   backgroundColor = defaultValue('backgroundColor'),
 } = {}) => ({
-  theme,
   items,
   backgroundColor,
 });
 
 const template = (slot = '') => `
-  <gl-path :items="items" :theme="theme" :background-color="backgroundColor">
+  <gl-path :items="items" :background-color="backgroundColor">
     ${slot}
   </gl-path>`;
 
@@ -73,10 +70,6 @@ export default {
     },
   },
   argTypes: {
-    theme: {
-      options: glThemes,
-      control: 'select',
-    },
     backgroundColor: {
       control: 'color',
     },

@@ -3,8 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 import { mockPathItems } from './data';
 import GlPath from './path.vue';
 
-const SELECTED_CLASS_INDIGO = 'gl-path-active-item-indigo';
-const SELECTED_CLASS_GREEN = 'gl-path-active-item-green';
+const PATH_ACTIVE_ITEM_CLASS = 'gl-path-active-item';
 const BACKGROUND_COLOR_DEFAULT = 'rgba(0,0,0,0)';
 const BACKGROUND_COLOR_LIGHT_GRAY = '#f0f0f0';
 
@@ -47,24 +46,6 @@ describe('Path', () => {
 
   it('matches the snapshot', () => {
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  describe('theme selection', () => {
-    describe('default', () => {
-      it('applies the indigo theme', () => {
-        expect(pathItemAt(0).classList).toContain(SELECTED_CLASS_INDIGO);
-      });
-    });
-
-    describe('with a theme specified', () => {
-      beforeEach(() => {
-        wrapper = createComponent({ theme: 'green' });
-      });
-
-      it('sets the correct theme', () => {
-        expect(pathItemAt(0).classList).toContain(SELECTED_CLASS_GREEN);
-      });
-    });
   });
 
   describe('background color selection', () => {
@@ -142,7 +123,7 @@ describe('Path', () => {
   describe('renders the correct selected item', () => {
     describe('with no selected item passed in', () => {
       it('selects the first item', () => {
-        expect(pathItemAt(0).classList).toContain(SELECTED_CLASS_INDIGO);
+        expect(pathItemAt(0).classList).toContain(PATH_ACTIVE_ITEM_CLASS);
       });
 
       it('updates the selected item when props change', async () => {
@@ -152,8 +133,8 @@ describe('Path', () => {
         wrapper.setProps({ items });
         await nextTick();
 
-        expect(pathItemAt(0).classList).not.toContain(SELECTED_CLASS_INDIGO);
-        expect(pathItemAt(3).classList).toContain(SELECTED_CLASS_INDIGO);
+        expect(pathItemAt(0).classList).not.toContain(PATH_ACTIVE_ITEM_CLASS);
+        expect(pathItemAt(3).classList).toContain(PATH_ACTIVE_ITEM_CLASS);
       });
     });
 
@@ -166,7 +147,7 @@ describe('Path', () => {
       });
 
       it('selects the correct item', () => {
-        expect(pathItemAt(3).classList).toContain(SELECTED_CLASS_INDIGO);
+        expect(pathItemAt(3).classList).toContain(PATH_ACTIVE_ITEM_CLASS);
       });
     });
 
@@ -180,8 +161,8 @@ describe('Path', () => {
       });
 
       it('selects the first selected option', () => {
-        expect(pathItemAt(3).classList).toContain(SELECTED_CLASS_INDIGO);
-        expect(pathItemAt(5).classList).not.toContain(SELECTED_CLASS_INDIGO);
+        expect(pathItemAt(3).classList).toContain(PATH_ACTIVE_ITEM_CLASS);
+        expect(pathItemAt(5).classList).not.toContain(PATH_ACTIVE_ITEM_CLASS);
       });
     });
   });

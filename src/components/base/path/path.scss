@@ -6,25 +6,14 @@ $path-chevron-dimension: px-to-rem(24px);
 $path-chevron-border-radius: px-to-rem(10px);
 $path-chevron-tip-border-radius: px-to-rem(2px);
 $path-button-right-padding: 1.25 * $grid-size;
-$path-chevron-drop-shadow: drop-shadow(0 0 px-to-rem(1px) $white)
-  drop-shadow(0 0 px-to-rem(2px) $blue-500);
 $path-chevron-transformation: rotate(45deg) skew(14deg, 14deg);
 $path-chevron-right-margin: px-to-rem(14px);
 
 // Mixins
-@mixin gl-path-active-item-color($color) {
-  @include gl-text-contrast-light;
-  background-color: $color;
-
-  &::after {
-    background-color: $color;
-  }
-}
-
 @mixin gl-path-chevron {
+  @include gl-reset-bg;
   content: '';
   position: absolute;
-  @include gl-reset-bg;
   top: $path-chevron-top;
   right: $path-chevron-right;
   width: $path-chevron-dimension;
@@ -34,6 +23,7 @@ $path-chevron-right-margin: px-to-rem(14px);
   border-top-left-radius: $path-chevron-border-radius;
   border-bottom-right-radius: $path-chevron-border-radius;
   border-top-right-radius: $path-chevron-tip-border-radius;
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
 }
 
 .gl-path-nav {
@@ -43,11 +33,11 @@ $path-chevron-right-margin: px-to-rem(14px);
   .gl-path-nav-list {
     @include gl-p-1;
     @include gl-m-0;
-    position: relative;
     @include gl-list-style-none;
     @include gl-display-inline-flex;
     @include gl-overflow-hidden;
     margin-left: -1px;
+    position: relative;
   }
 
   .gl-path-nav-list-item {
@@ -65,18 +55,18 @@ $path-chevron-right-margin: px-to-rem(14px);
     @include gl-pl-5;
     @include gl-py-3;
     @include gl-display-flex;
-    position: relative;
     @include gl-font-base;
     @include gl-z-index-0;
-    @apply gl-border-none;
-    @include gl-text-gray-500;
     @include gl-font-weight-bold;
     @include gl-line-height-normal;
     @include gl-rounded-top-left-base;
     @include gl-rounded-bottom-left-base;
-    background-color: var(--path-bg-color);
-    padding-right: $path-button-right-padding;
+    @apply gl-border-none;
+    background-color: var(--gl-action-neutral-background-color-default);
+    color: var(--gl-action-neutral-foreground-color-default);
     margin-right: $path-chevron-right-margin;
+    padding-right: $path-button-right-padding;
+    position: relative;
 
     &::before,
     &::after {
@@ -85,36 +75,58 @@ $path-chevron-right-margin: px-to-rem(14px);
 
     // Pseudo focus element
     &::before {
+      background-color: var(--gl-color-alpha-0);
       display: none;
       z-index: 2;
       right: calc(-0.75rem + 1px);
-      box-shadow: 0 0 0 1px $white, 0.5px -0.5px 0 2.5px $blue-400;
+      box-shadow: 0 0 0 1px var(--gl-focus-ring-inner-color), 0.5px -0.5px 0 2.5px var(--gl-focus-ring-outer-color);
       clip-path: polygon(0% 0%, 0% -30%, 160% 0%, 75% 130%, 100% 100%);
       transform: rotate(45deg) skew(14deg, 14deg) scale(0.99);
     }
 
-    &[disabled] {
-      color: $gl-text-color-disabled;
-      @include gl-cursor-not-allowed;
+    &:hover {
+      background-color: var(--gl-action-neutral-background-color-hover);
+      color: var(--gl-action-neutral-foreground-color-hover);
     }
 
-    &:not([disabled]):hover {
-      @include gl-path-active-item-color($gray-100);
-      color: $gl-text-color;
+    &:focus {
+      background-color: var(--gl-action-neutral-background-color-focus);
+      color: var(--gl-action-neutral-foreground-color-focus);
+    }
+
+    &:active {
+      background-color: var(--gl-action-neutral-background-color-active);
+      color: var(--gl-action-neutral-foreground-color-active);
     }
 
     &:active,
     &:focus,
     &:focus:active {
-      // Custom focus
+      // Custom focus to account for path shape
+      box-shadow: 5px -3px 0 -2px var(--gl-focus-ring-inner-color), 5px 3px 0 -2px var(--gl-focus-ring-inner-color), 0 0 0 1px var(--gl-focus-ring-inner-color),
+        0 0 0 3px var(--gl-focus-ring-outer-color);
+      outline: none;
       border-top-right-radius: 1px;
       border-bottom-right-radius: 1px;
-      box-shadow: 5px -3px 0 -2px $white, 5px 3px 0 -2px $white, 0 0 0 1px $white,
-        0 0 0 3px $blue-400;
-      outline: none;
 
       &::before {
         display: block;
+      }
+    }
+
+    &.gl-path-active-item {
+      background-color: var(--gl-action-selected-background-color-default);
+      color: var(--gl-action-selected-foreground-color-default);
+    }
+
+    &:disabled {
+      @include gl-cursor-not-allowed;
+      background-color: var(--gl-color-alpha-0);
+      box-shadow: none;
+      color: var(--gl-action-disabled-foreground-color);
+
+      &::before {
+        box-shadow: none;
       }
     }
   }
@@ -122,10 +134,10 @@ $path-chevron-right-margin: px-to-rem(14px);
   .gl-path-fade {
     @include gl-w-8;
     @include gl-h-full;
-    bottom: 0;
-    position: absolute;
     @include gl-z-index-2;
-    @include gl-text-gray-500;
+    bottom: 0;
+    color: var(--gl-text-color-subtle);
+    position: absolute;
 
     &-left {
       left: 0;
@@ -141,41 +153,11 @@ $path-chevron-right-margin: px-to-rem(14px);
 
   .gl-clear-icon-button {
     @include gl-p-0;
-    @include gl-text-gray-400;
     @include gl-h-full;
+    color: var(--gl-icon-color-subtle);
 
     .gl-icon {
       @include gl-vertical-align-middle;
     }
-  }
-
-  .gl-path-active-item-indigo,
-  .gl-path-active-item-indigo:hover {
-    @include gl-path-active-item-color($theme-indigo-700);
-  }
-
-  .gl-path-active-item-blue,
-  .gl-path-active-item-blue:hover {
-    @include gl-path-active-item-color($theme-blue-500);
-  }
-
-  .gl-path-active-item-light-blue,
-  .gl-path-active-item-light-blue:hover {
-    @include gl-path-active-item-color($theme-light-blue-500);
-  }
-
-  .gl-path-active-item-red,
-  .gl-path-active-item-red:hover {
-    @include gl-path-active-item-color($theme-red-500);
-  }
-
-  .gl-path-active-item-light-red,
-  .gl-path-active-item-light-red:hover {
-    @include gl-path-active-item-color($theme-light-red-500);
-  }
-
-  .gl-path-active-item-green,
-  .gl-path-active-item-green:hover {
-    @include gl-path-active-item-color($theme-green-500);
   }
 }

@@ -77,6 +77,284 @@
         }
       }
     },
+    "selected": {
+      "foreground": {
+        "color": {
+          "default": {
+            "value": "#18171d",
+            "$type": "color",
+            "comment": "Used for the foreground of a selected action in the default state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color",
+              "comment": "Used for the foreground of a selected action in the default state."
+            },
+            "name": "ACTION_SELECTED_FOREGROUND_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "foreground",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#18171d",
+            "$type": "color",
+            "comment": "Used for the foreground of a selected action in the hover state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.selected.foreground.color.default}",
+              "$type": "color",
+              "comment": "Used for the foreground of a selected action in the hover state."
+            },
+            "name": "ACTION_SELECTED_FOREGROUND_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "foreground",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#18171d",
+            "$type": "color",
+            "comment": "Used for the foreground of a selected action in the focus state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.selected.foreground.color.hover}",
+              "$type": "color",
+              "comment": "Used for the foreground of a selected action in the focus state."
+            },
+            "name": "ACTION_SELECTED_FOREGROUND_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "foreground",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#18171d",
+            "$type": "color",
+            "comment": "Used for the foreground of a selected action in the active state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.selected.foreground.color.focus}",
+              "$type": "color",
+              "comment": "Used for the foreground of a selected action in the active state."
+            },
+            "name": "ACTION_SELECTED_FOREGROUND_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "foreground",
+              "color",
+              "active"
+            ]
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "value": "#63a6e9",
+            "$type": "color",
+            "comment": "Used for the background of a selected action in the default state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "comment": "Used for the background of a selected action in the default state."
+            },
+            "name": "ACTION_SELECTED_BACKGROUND_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "background",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#9dc7f1",
+            "$type": "color",
+            "comment": "Used for the background of a selected action in the hover state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "comment": "Used for the background of a selected action in the hover state."
+            },
+            "name": "ACTION_SELECTED_BACKGROUND_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "background",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#9dc7f1",
+            "$type": "color",
+            "comment": "Used for the background of a selected action in the focus state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.selected.background.color.hover}",
+              "$type": "color",
+              "comment": "Used for the background of a selected action in the focus state."
+            },
+            "name": "ACTION_SELECTED_BACKGROUND_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "background",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#cbe2f9",
+            "$type": "color",
+            "comment": "Used for the background of a selected action in the active state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.800}",
+                "dark": "{color.blue.100}"
+              },
+              "$type": "color",
+              "comment": "Used for the background of a selected action in the active state."
+            },
+            "name": "ACTION_SELECTED_BACKGROUND_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "background",
+              "color",
+              "active"
+            ]
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "value": "#63a6e9",
+            "$type": "color",
+            "comment": "Used for the border of a selected action in the default state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.selected.background.color.default}",
+              "$type": "color",
+              "comment": "Used for the border of a selected action in the default state."
+            },
+            "name": "ACTION_SELECTED_BORDER_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "border",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#9dc7f1",
+            "$type": "color",
+            "comment": "Used for the border of a selected action in the hover state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.selected.background.color.hover}",
+              "$type": "color",
+              "comment": "Used for the border of a selected action in the hover state."
+            },
+            "name": "ACTION_SELECTED_BORDER_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "border",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#9dc7f1",
+            "$type": "color",
+            "comment": "Used for the border of a selected action in the focus state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.selected.background.color.focus}",
+              "$type": "color",
+              "comment": "Used for the border of a selected action in the focus state."
+            },
+            "name": "ACTION_SELECTED_BORDER_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "border",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#cbe2f9",
+            "$type": "color",
+            "comment": "Used for the border of a selected action in the active state.",
+            "filePath": "src/tokens/action.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.selected.background.color.active}",
+              "$type": "color",
+              "comment": "Used for the border of a selected action in the active state."
+            },
+            "name": "ACTION_SELECTED_BORDER_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "action",
+              "selected",
+              "border",
+              "color",
+              "active"
+            ]
+          }
+        }
+      }
+    },
     "neutral": {
       "foreground": {
         "color": {
