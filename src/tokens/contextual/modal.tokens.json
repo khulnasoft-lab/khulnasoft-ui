@@ -1,0 +1,14 @@
+{
+  "modal": {
+    "background": {
+      "color": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used for the background color of a modal."
+      }
+    }
+  }
+}

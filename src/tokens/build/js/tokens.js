@@ -539,6 +539,7 @@ export const GL_LABEL_SCOPED_TEXT_COLOR = '#18171d'; // Used for the scoped labe
 export const GL_LABEL_SCOPED_BUTTON_BACKGROUND_COLOR_HOVER = '#18171d'; // Used for the scoped label remove button background in the hover state.
 export const GL_LABEL_SCOPED_BUTTON_ICON_COLOR_DEFAULT = '#18171d'; // Used for the scoped label remove button icon in the default state.
 export const GL_LABEL_SCOPED_BUTTON_ICON_COLOR_HOVER = '#fff'; // Used for the scoped label remove button icon in the hover state.
+export const GL_MODAL_BACKGROUND_COLOR = '#fff'; // Used for the background color of a modal.
 export const GL_POPOVER_BACKGROUND_COLOR = '#fff'; // Used for the background color of popover.
 export const GL_SKELETON_LOADER_BACKGROUND_COLOR = '#dcdcde'; // Used for the skeleton loader background color.
 export const GL_SKELETON_LOADER_SHIMMER_COLOR = '#ececef'; // Used for the animated shimmer effect in a skeleton loader.
