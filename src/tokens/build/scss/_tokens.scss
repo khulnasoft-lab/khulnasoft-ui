@@ -672,6 +672,16 @@ $gl-background-color-disabled: $gl-color-neutral-10; // Used to identify a disab
 $gl-background-color-strong: $gl-color-neutral-50; // Used to make the background easily stand out from the default.
 $gl-background-color-subtle: $gl-color-neutral-10; // Used to slightly differentiate the background from the default.
 $gl-background-color-default: $gl-color-neutral-0; // Used for the default background color.
+$gl-action-strong-neutral-border-color-default: $gl-color-alpha-0; // Used for the border of a strong neutral action in the default state.
+$gl-action-strong-neutral-foreground-color-default: $gl-color-neutral-0; // Used for the foreground of a strong neutral action in the default state.
+$gl-action-strong-neutral-background-color-active: $gl-color-neutral-800; // Used for the background of a strong neutral action in the active state.
+$gl-action-strong-neutral-background-color-hover: $gl-color-neutral-700; // Used for the background of a strong neutral action in the hover state.
+$gl-action-strong-neutral-background-color-default: $gl-color-neutral-600; // Used for the background of a strong neutral action in the default state.
+$gl-action-strong-confirm-border-color-default: $gl-color-alpha-0; // Used for the border of a strong confirm action in the default state.
+$gl-action-strong-confirm-foreground-color-default: $gl-color-neutral-0; // Used for the foreground of a strong confirm action in the default state.
+$gl-action-strong-confirm-background-color-active: $gl-color-blue-700; // Used for the background of a strong confirm action in the active state.
+$gl-action-strong-confirm-background-color-hover: $gl-color-blue-600; // Used for the background of a strong confirm action in the hover state.
+$gl-action-strong-confirm-background-color-default: $gl-color-blue-500; // Used for the background of a strong confirm action in the default state.
 $gl-action-danger-border-color-default: $gl-color-alpha-0; // Used for the border of a danger action in the default state.
 $gl-action-danger-background-color-focus: $gl-action-danger-background-color-hover; // Used for the background of a danger (destructive) action in the focus state.
 $gl-action-danger-foreground-color-active: $gl-color-red-900; // Used for the foreground of a danger (destructive) action in the active state.
@@ -754,6 +764,12 @@ $gl-badge-neutral-background-color-hover: $gl-badge-neutral-background-color-def
 $gl-badge-muted-icon-color-focus: $gl-badge-muted-icon-color-hover; // Used for the icon of a muted badge in the focus state.
 $gl-badge-muted-text-color-focus: $gl-badge-muted-text-color-hover; // Used for the text of a muted badge in the focus state.
 $gl-badge-muted-background-color-hover: $gl-badge-muted-background-color-default; // Used for the background of a muted badge in the hover state.
+$gl-action-strong-neutral-border-color-hover: $gl-action-strong-neutral-border-color-default; // Used for the border of a strong neutral action in the hover state.
+$gl-action-strong-neutral-foreground-color-hover: $gl-action-strong-neutral-foreground-color-default; // Used for the foreground of a strong neutral action in the hover state.
+$gl-action-strong-neutral-background-color-focus: $gl-action-strong-neutral-background-color-hover; // Used for the background of a strong neutral action in the focus state.
+$gl-action-strong-confirm-border-color-hover: $gl-action-strong-confirm-border-color-default; // Used for the border of a strong confirm action in the hover state.
+$gl-action-strong-confirm-foreground-color-hover: $gl-action-strong-confirm-foreground-color-default; // Used for the foreground of a strong confirm action in the hover state.
+$gl-action-strong-confirm-background-color-focus: $gl-action-strong-confirm-background-color-hover; // Used for the background of a strong confirm action in the focus state.
 $gl-action-danger-border-color-active: $gl-action-danger-border-color-default; // Used for the border of a danger action in the active state.
 $gl-action-danger-border-color-focus: $gl-action-danger-border-color-default; // Used for the border of a danger action in the focus state.
 $gl-action-danger-border-color-hover: $gl-action-danger-border-color-default; // Used for the border of a danger action in the hover state.
@@ -798,3 +814,11 @@ $gl-badge-success-background-color-focus: $gl-badge-success-background-color-hov
 $gl-badge-info-background-color-focus: $gl-badge-info-background-color-hover; // Used for the background of an informational badge in the focus state.
 $gl-badge-neutral-background-color-focus: $gl-badge-neutral-background-color-hover; // Used for the background of a neutral badge in the focus state.
 $gl-badge-muted-background-color-focus: $gl-badge-muted-background-color-hover; // Used for the background of a muted badge in the focus state.
+$gl-action-strong-neutral-border-color-focus: $gl-action-strong-neutral-border-color-hover; // Used for the border of a strong neutral action in the focus state.
+$gl-action-strong-neutral-foreground-color-focus: $gl-action-strong-neutral-foreground-color-hover; // Used for the foreground of a strong neutral action in the focus state.
+$gl-action-strong-confirm-border-color-focus: $gl-action-strong-confirm-border-color-hover; // Used for the border of a strong confirm action in the focus state.
+$gl-action-strong-confirm-foreground-color-focus: $gl-action-strong-confirm-foreground-color-hover; // Used for the foreground of a strong confirm action in the focus state.
+$gl-action-strong-neutral-border-color-active: $gl-action-strong-neutral-border-color-focus; // Used for the border of a strong neutral action in the active state.
+$gl-action-strong-neutral-foreground-color-active: $gl-action-strong-neutral-foreground-color-focus; // Used for the foreground of a strong neutral action in the active state.
+$gl-action-strong-confirm-border-color-active: $gl-action-strong-confirm-border-color-focus; // Used for the border of a strong confirm action in the active state.
+$gl-action-strong-confirm-foreground-color-active: $gl-action-strong-confirm-foreground-color-focus; // Used for the foreground of a strong confirm action in the active state.
