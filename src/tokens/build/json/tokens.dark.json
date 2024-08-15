@@ -17405,6 +17405,326 @@
       }
     }
   },
+  "layer": {
+    "depth": {
+      "0": {
+        "background": {
+          "color": {
+            "value": "#18171d",
+            "$type": "color",
+            "comment": "Used for elements at the base layer (depth 0).",
+            "filePath": "src/tokens/layer.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color",
+              "comment": "Used for elements at the base layer (depth 0)."
+            },
+            "name": "LAYER_DEPTH_0_BACKGROUND_COLOR",
+            "attributes": {},
+            "path": [
+              "layer",
+              "depth",
+              "0",
+              "background",
+              "color"
+            ]
+          }
+        },
+        "shadow": {
+          "value": "none",
+          "$type": "shadow",
+          "comment": "No shadow for base layer elements.",
+          "filePath": "src/tokens/layer.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "none",
+              "dark": "none"
+            },
+            "$type": "shadow",
+            "comment": "No shadow for base layer elements."
+          },
+          "name": "LAYER_DEPTH_0_SHADOW",
+          "attributes": {},
+          "path": [
+            "layer",
+            "depth",
+            "0",
+            "shadow"
+          ]
+        }
+      },
+      "1": {
+        "background": {
+          "color": {
+            "value": "#28272d",
+            "$type": "color",
+            "comment": "Used for slightly elevated elements (depth 1).",
+            "filePath": "src/tokens/layer.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "comment": "Used for slightly elevated elements (depth 1)."
+            },
+            "name": "LAYER_DEPTH_1_BACKGROUND_COLOR",
+            "attributes": {},
+            "path": [
+              "layer",
+              "depth",
+              "1",
+              "background",
+              "color"
+            ]
+          }
+        },
+        "shadow": {
+          "value": "0 0 2px 0 rgba(05, 05, 06, 0.24), 0 1px 4px 0 rgba(05, 05, 06, 0.24)",
+          "$type": "shadow",
+          "comment": "Subtle shadow for depth 1 elements.",
+          "filePath": "src/tokens/layer.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "0 0 2px 0 {color.alpha.dark.16}, 0 1px 4px 0 {color.alpha.dark.16}",
+              "dark": "0 0 2px 0 {color.alpha.dark.24}, 0 1px 4px 0 {color.alpha.dark.24}"
+            },
+            "$type": "shadow",
+            "comment": "Subtle shadow for depth 1 elements."
+          },
+          "name": "LAYER_DEPTH_1_SHADOW",
+          "attributes": {},
+          "path": [
+            "layer",
+            "depth",
+            "1",
+            "shadow"
+          ]
+        }
+      },
+      "2": {
+        "background": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for moderately elevated elements (depth 2).",
+            "filePath": "src/tokens/layer.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for moderately elevated elements (depth 2)."
+            },
+            "name": "LAYER_DEPTH_2_BACKGROUND_COLOR",
+            "attributes": {},
+            "path": [
+              "layer",
+              "depth",
+              "2",
+              "background",
+              "color"
+            ]
+          }
+        },
+        "shadow": {
+          "value": "0 0 1px 0 rgba(05, 05, 06, 0.24), 0 0 2px 0 rgba(05, 05, 06, 0.24), 0 2px 8px 0 rgba(05, 05, 06, 0.24)",
+          "$type": "shadow",
+          "comment": "Medium shadow for depth 2 elements.",
+          "filePath": "src/tokens/layer.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "0 0 1px 0 {color.alpha.dark.16}, 0 0 2px 0 {color.alpha.dark.16}, 0 2px 8px 0 {color.alpha.dark.16}",
+              "dark": "0 0 1px 0 {color.alpha.dark.24}, 0 0 2px 0 {color.alpha.dark.24}, 0 2px 8px 0 {color.alpha.dark.24}"
+            },
+            "$type": "shadow",
+            "comment": "Medium shadow for depth 2 elements."
+          },
+          "name": "LAYER_DEPTH_2_SHADOW",
+          "attributes": {},
+          "path": [
+            "layer",
+            "depth",
+            "2",
+            "shadow"
+          ]
+        }
+      },
+      "3": {
+        "background": {
+          "color": {
+            "value": "#4c4b51",
+            "$type": "color",
+            "comment": "Used for highly elevated elements (depth 3).",
+            "filePath": "src/tokens/layer.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "comment": "Used for highly elevated elements (depth 3)."
+            },
+            "name": "LAYER_DEPTH_3_BACKGROUND_COLOR",
+            "attributes": {},
+            "path": [
+              "layer",
+              "depth",
+              "3",
+              "background",
+              "color"
+            ]
+          }
+        },
+        "shadow": {
+          "value": "0 0 2px 0 rgba(05, 05, 06, 0.24), 0 0 2px 0 rgba(05, 05, 06, 0.24), 0 4px 12px 0 rgba(05, 05, 06, 0.24)",
+          "$type": "shadow",
+          "comment": "Strong shadow for depth 3 elements.",
+          "filePath": "src/tokens/layer.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "0 0 2px 0 {color.alpha.dark.16}, 0 0 2px 0 {color.alpha.dark.16}, 0 4px 12px 0 {color.alpha.dark.16}",
+              "dark": "0 0 2px 0 {color.alpha.dark.24}, 0 0 2px 0 {color.alpha.dark.24}, 0 4px 12px 0 {color.alpha.dark.24}"
+            },
+            "$type": "shadow",
+            "comment": "Strong shadow for depth 3 elements."
+          },
+          "name": "LAYER_DEPTH_3_SHADOW",
+          "attributes": {},
+          "path": [
+            "layer",
+            "depth",
+            "3",
+            "shadow"
+          ]
+        }
+      }
+    },
+    "emphasis": {
+      "contained": {
+        "background": {
+          "color": {
+            "value": "#18171d",
+            "$type": "color",
+            "comment": "Used for contained emphasis, providing no background difference and paired with a border.",
+            "filePath": "src/tokens/layer.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color",
+              "comment": "Used for contained emphasis, providing no background difference and paired with a border."
+            },
+            "name": "LAYER_EMPHASIS_CONTAINED_BACKGROUND_COLOR",
+            "attributes": {},
+            "path": [
+              "layer",
+              "emphasis",
+              "contained",
+              "background",
+              "color"
+            ]
+          }
+        },
+        "border": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for contained emphasis, providing a subtle background difference.",
+            "filePath": "src/tokens/layer.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for contained emphasis, providing a subtle background difference."
+            },
+            "name": "LAYER_EMPHASIS_CONTAINED_BORDER_COLOR",
+            "attributes": {},
+            "path": [
+              "layer",
+              "emphasis",
+              "contained",
+              "border",
+              "color"
+            ]
+          }
+        }
+      },
+      "subtle": {
+        "background": {
+          "color": {
+            "value": "#28272d",
+            "$type": "color",
+            "comment": "Used for subtle emphasis, slightly more noticeable than contained.",
+            "filePath": "src/tokens/layer.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.10}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "comment": "Used for subtle emphasis, slightly more noticeable than contained."
+            },
+            "name": "LAYER_EMPHASIS_SUBTLE_BACKGROUND_COLOR",
+            "attributes": {},
+            "path": [
+              "layer",
+              "emphasis",
+              "subtle",
+              "background",
+              "color"
+            ]
+          }
+        }
+      },
+      "strong": {
+        "background": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for strong emphasis, creating a clear visual distinction.",
+            "filePath": "src/tokens/layer.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for strong emphasis, creating a clear visual distinction."
+            },
+            "name": "LAYER_EMPHASIS_STRONG_BACKGROUND_COLOR",
+            "attributes": {},
+            "path": [
+              "layer",
+              "emphasis",
+              "strong",
+              "background",
+              "color"
+            ]
+          }
+        }
+      }
+    }
+  },
   "line-height": {
     "12": {
       "value": "0.75rem",

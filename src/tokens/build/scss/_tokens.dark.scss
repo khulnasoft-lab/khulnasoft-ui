@@ -15,6 +15,7 @@ $gl-line-height-24: 1.5rem;
 $gl-line-height-20: 1.25rem;
 $gl-line-height-16: 1rem;
 $gl-line-height-12: 0.75rem;
+$gl-layer-depth-0-shadow: none; // No shadow for base layer elements.
 $t-white-a-08: rgba(255, 255, 255, 0.08) !default; // Use color.alpha.light.8 instead.
 $t-white-a-06: rgba(255, 255, 255, 0.06) !default; // Use color.alpha.light.6 instead.
 $t-white-a-04: rgba(255, 255, 255, 0.04) !default; // Use color.alpha.light.4 instead.
@@ -448,6 +449,17 @@ $gl-status-neutral-icon-color: $gl-color-neutral-400; // Used for the icon of a 
 $gl-status-neutral-text-color: $gl-color-neutral-200; // Used for the text of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state.
 $gl-status-neutral-background-color: $gl-color-neutral-800; // Used for the background of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state.
 $gl-shadow-color-default: $gl-color-alpha-dark-24; // Used for the default shadow color.
+$gl-layer-emphasis-strong-background-color: $gl-color-neutral-800; // Used for strong emphasis, creating a clear visual distinction.
+$gl-layer-emphasis-subtle-background-color: $gl-color-neutral-900; // Used for subtle emphasis, slightly more noticeable than contained.
+$gl-layer-emphasis-contained-border-color: $gl-color-neutral-800; // Used for contained emphasis, providing a subtle background difference.
+$gl-layer-emphasis-contained-background-color: $gl-color-neutral-950; // Used for contained emphasis, providing no background difference and paired with a border.
+$gl-layer-depth-3-shadow: 0 0 2px 0 $gl-color-alpha-dark-24, 0 0 2px 0 $gl-color-alpha-dark-24, 0 4px 12px 0 $gl-color-alpha-dark-24; // Strong shadow for depth 3 elements.
+$gl-layer-depth-3-background-color: $gl-color-neutral-700; // Used for highly elevated elements (depth 3).
+$gl-layer-depth-2-shadow: 0 0 1px 0 $gl-color-alpha-dark-24, 0 0 2px 0 $gl-color-alpha-dark-24, 0 2px 8px 0 $gl-color-alpha-dark-24; // Medium shadow for depth 2 elements.
+$gl-layer-depth-2-background-color: $gl-color-neutral-800; // Used for moderately elevated elements (depth 2).
+$gl-layer-depth-1-shadow: 0 0 2px 0 $gl-color-alpha-dark-24, 0 1px 4px 0 $gl-color-alpha-dark-24; // Subtle shadow for depth 1 elements.
+$gl-layer-depth-1-background-color: $gl-color-neutral-900; // Used for slightly elevated elements (depth 1).
+$gl-layer-depth-0-background-color: $gl-color-neutral-950; // Used for elements at the base layer (depth 0).
 $gl-icon-color-success: $gl-color-green-300; // Used for an icon associated with success or validity.
 $gl-icon-color-danger: $gl-color-red-300; // Used for an icon associated with an error or danger.
 $gl-icon-color-warning: $gl-color-orange-300; // Used for an icon associated with a warning.

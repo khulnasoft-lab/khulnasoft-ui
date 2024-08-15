@@ -1,0 +1,134 @@
+{
+  "layer": {
+    "depth": {
+      "0": {
+        "background": {
+          "color": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for elements at the base layer (depth 0)."
+          }
+        },
+        "shadow": {
+          "$value": {
+            "default": "none",
+            "dark": "none"
+          },
+          "$type": "shadow",
+          "$description": "No shadow for base layer elements."
+        }
+      },
+      "1": {
+        "background": {
+          "color": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for slightly elevated elements (depth 1)."
+          }
+        },
+        "shadow": {
+          "$value": {
+            "default": "0 0 2px 0 {color.alpha.dark.16}, 0 1px 4px 0 {color.alpha.dark.16}",
+            "dark": "0 0 2px 0 {color.alpha.dark.24}, 0 1px 4px 0 {color.alpha.dark.24}"
+          },
+          "$type": "shadow",
+          "$description": "Subtle shadow for depth 1 elements."
+        }
+      },
+      "2": {
+        "background": {
+          "color": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for moderately elevated elements (depth 2)."
+          }
+        },
+        "shadow": {
+          "$value": {
+            "default": "0 0 1px 0 {color.alpha.dark.16}, 0 0 2px 0 {color.alpha.dark.16}, 0 2px 8px 0 {color.alpha.dark.16}",
+            "dark": "0 0 1px 0 {color.alpha.dark.24}, 0 0 2px 0 {color.alpha.dark.24}, 0 2px 8px 0 {color.alpha.dark.24}"
+          },
+          "$type": "shadow",
+          "$description": "Medium shadow for depth 2 elements."
+        }
+      },
+      "3": {
+        "background": {
+          "color": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.700}"
+            },
+            "$type": "color",
+            "$description": "Used for highly elevated elements (depth 3)."
+          }
+        },
+        "shadow": {
+          "$value": {
+            "default": "0 0 2px 0 {color.alpha.dark.16}, 0 0 2px 0 {color.alpha.dark.16}, 0 4px 12px 0 {color.alpha.dark.16}",
+            "dark": "0 0 2px 0 {color.alpha.dark.24}, 0 0 2px 0 {color.alpha.dark.24}, 0 4px 12px 0 {color.alpha.dark.24}"
+          },
+          "$type": "shadow",
+          "$description": "Strong shadow for depth 3 elements."
+        }
+      }
+    },
+    "emphasis": {
+      "contained": {
+        "background": {
+          "color": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for contained emphasis, providing no background difference and paired with a border."
+          }
+        },
+        "border": {
+          "color": {
+            "$value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for contained emphasis, providing a subtle background difference."
+          }
+        }
+      },
+      "subtle": {
+        "background": {
+          "color": {
+            "$value": {
+              "default": "{color.neutral.10}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for subtle emphasis, slightly more noticeable than contained."
+          }
+        }
+      },
+      "strong": {
+        "background": {
+          "color": {
+            "$value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.800}"
+            },
+            "$type": "color",
+            "$description": "Used for strong emphasis, creating a clear visual distinction."
+          }
+        }
+      }
+    }
+  }
+}

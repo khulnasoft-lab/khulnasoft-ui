@@ -763,6 +763,21 @@ export const GL_ICON_COLOR_INFO = '#1068bf'; // Used for an icon associated with
 export const GL_ICON_COLOR_WARNING = '#9e5400'; // Used for an icon associated with a warning.
 export const GL_ICON_COLOR_DANGER = '#c91c00'; // Used for an icon associated with an error or danger.
 export const GL_ICON_COLOR_SUCCESS = '#217645'; // Used for an icon associated with success or validity.
+export const GL_LAYER_DEPTH_0_BACKGROUND_COLOR = '#fff'; // Used for elements at the base layer (depth 0).
+export const GL_LAYER_DEPTH_0_SHADOW = 'none'; // No shadow for base layer elements.
+export const GL_LAYER_DEPTH_1_BACKGROUND_COLOR = '#fff'; // Used for slightly elevated elements (depth 1).
+export const GL_LAYER_DEPTH_1_SHADOW =
+  '0 0 2px 0 rgba(05, 05, 06, 0.16), 0 1px 4px 0 rgba(05, 05, 06, 0.16)'; // Subtle shadow for depth 1 elements.
+export const GL_LAYER_DEPTH_2_BACKGROUND_COLOR = '#fff'; // Used for moderately elevated elements (depth 2).
+export const GL_LAYER_DEPTH_2_SHADOW =
+  '0 0 1px 0 rgba(05, 05, 06, 0.16), 0 0 2px 0 rgba(05, 05, 06, 0.16), 0 2px 8px 0 rgba(05, 05, 06, 0.16)'; // Medium shadow for depth 2 elements.
+export const GL_LAYER_DEPTH_3_BACKGROUND_COLOR = '#fff'; // Used for highly elevated elements (depth 3).
+export const GL_LAYER_DEPTH_3_SHADOW =
+  '0 0 2px 0 rgba(05, 05, 06, 0.16), 0 0 2px 0 rgba(05, 05, 06, 0.16), 0 4px 12px 0 rgba(05, 05, 06, 0.16)'; // Strong shadow for depth 3 elements.
+export const GL_LAYER_EMPHASIS_CONTAINED_BACKGROUND_COLOR = '#fff'; // Used for contained emphasis, providing no background difference and paired with a border.
+export const GL_LAYER_EMPHASIS_CONTAINED_BORDER_COLOR = '#ececef'; // Used for contained emphasis, providing a subtle background difference.
+export const GL_LAYER_EMPHASIS_SUBTLE_BACKGROUND_COLOR = '#fbfafd'; // Used for subtle emphasis, slightly more noticeable than contained.
+export const GL_LAYER_EMPHASIS_STRONG_BACKGROUND_COLOR = '#ececef'; // Used for strong emphasis, creating a clear visual distinction.
 export const GL_LINE_HEIGHT_12 = '0.75rem';
 export const GL_LINE_HEIGHT_16 = '1rem';
 export const GL_LINE_HEIGHT_20 = '1.25rem';
