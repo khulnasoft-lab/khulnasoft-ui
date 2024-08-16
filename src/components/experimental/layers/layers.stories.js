@@ -63,5 +63,3 @@ export const LayerTokens = () => ({
   components: { LayerTokensComponent },
   template: '<LayerTokensComponent />',
 });
-
-LayerTokens.storyName = 'Layer Tokens';
