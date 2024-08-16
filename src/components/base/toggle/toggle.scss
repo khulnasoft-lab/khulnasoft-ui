@@ -18,6 +18,10 @@
 *  </button>
 */
 
+$toggle-width: 4.5 * $grid-size;
+$toggle-translate-width: 2 * $grid-size;
+$toggle-height: 2.5 * $grid-size;
+
 .gl-toggle-wrapper {
   @include gl-line-height-normal;
   @include gl-font-weight-normal;
@@ -83,10 +87,9 @@
   @apply gl-border-0;
   @include gl-cursor-pointer;
   @include gl-bg-gray-600;
-  @include gl-p-1;
   position: relative;
-  @include gl-w-9;
-  @include gl-h-6;
+  width: $toggle-width;
+  height: $toggle-height;
   @include gl-outline-none;
   user-select: none;
   @include gl-rounded-pill;
@@ -126,7 +129,7 @@
     top: $gl-spacing-scale-1;
     @include gl-transition-medium;
     @include gl-justify-content-center;
-    @include gl-p-2;
+    @include gl-p-1;
 
     > svg {
       @include gl-w-4;
@@ -147,7 +150,7 @@
     }
 
     .toggle-icon {
-      transform: translateX($gl-spacing-scale-6);
+      transform: translateX($toggle-translate-width);
 
       > svg {
         @include gl-fill-blue-500;
