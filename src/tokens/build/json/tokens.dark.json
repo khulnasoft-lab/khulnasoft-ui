@@ -926,10 +926,10 @@
   },
   "background": {
     "color": {
-      "default": {
+      "body": {
         "value": "#18171d",
         "$type": "color",
-        "comment": "Used for the default background color.",
+        "comment": "Used for the body (page) background color.",
         "filePath": "src/tokens/background.tokens.json",
         "isSource": true,
         "original": {
@@ -938,7 +938,29 @@
             "dark": "{color.neutral.950}"
           },
           "$type": "color",
-          "comment": "Used for the default background color."
+          "comment": "Used for the body (page) background color."
+        },
+        "name": "BACKGROUND_COLOR_BODY",
+        "attributes": {},
+        "path": [
+          "background",
+          "color",
+          "body"
+        ]
+      },
+      "default": {
+        "value": "#3a383f",
+        "$type": "color",
+        "comment": "Used for the default background color of content or elements when the page background or contents are covered.",
+        "filePath": "src/tokens/background.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "comment": "Used for the default background color of content or elements when the page background or contents are covered."
         },
         "name": "BACKGROUND_COLOR_DEFAULT",
         "attributes": {},
@@ -971,7 +993,7 @@
         ]
       },
       "strong": {
-        "value": "#3a383f",
+        "value": "#4c4b51",
         "$type": "color",
         "comment": "Used to make the background easily stand out from the default.",
         "filePath": "src/tokens/background.tokens.json",
@@ -979,7 +1001,7 @@
         "original": {
           "value": {
             "default": "{color.neutral.50}",
-            "dark": "{color.neutral.800}"
+            "dark": "{color.neutral.700}"
           },
           "$type": "color",
           "comment": "Used to make the background easily stand out from the default."
@@ -5414,6 +5436,80 @@
           "data-viz",
           "orange",
           "950"
+        ]
+      }
+    }
+  },
+  "container": {
+    "header": {
+      "background": {
+        "color": {
+          "value": "#3a383f",
+          "$type": "color",
+          "comment": "Used for the header background color of a basic container.",
+          "filePath": "src/tokens/container.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{background.color.default}",
+            "$type": "color",
+            "comment": "Used for the header background color of a basic container."
+          },
+          "name": "CONTAINER_HEADER_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "container",
+            "header",
+            "background",
+            "color"
+          ]
+        }
+      }
+    },
+    "content": {
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the content background color of a basic container.",
+          "filePath": "src/tokens/container.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{background.color.subtle}",
+            "$type": "color",
+            "comment": "Used for the content background color of a basic container."
+          },
+          "name": "CONTAINER_CONTENT_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "container",
+            "content",
+            "background",
+            "color"
+          ]
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "value": "#18171d",
+        "$type": "color",
+        "comment": "Used for the border color of a basic container.",
+        "filePath": "src/tokens/container.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{border.color.default}",
+            "dark": "{background.color.body}"
+          },
+          "$type": "color",
+          "comment": "Used for the border color of a basic container."
+        },
+        "name": "CONTAINER_BORDER_COLOR",
+        "attributes": {},
+        "path": [
+          "container",
+          "border",
+          "color"
         ]
       }
     }
@@ -17183,7 +17279,7 @@
     },
     "inner": {
       "color": {
-        "value": "#18171d",
+        "value": "#3a383f",
         "$type": "color",
         "comment": "Used for the inner neutral portion of the focus ring.",
         "filePath": "src/tokens/focus-ring.tokens.json",

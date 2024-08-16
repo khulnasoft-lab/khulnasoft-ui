@@ -672,7 +672,8 @@ $gl-background-color-overlay: $gl-color-alpha-dark-24; // Used for an overlay th
 $gl-background-color-disabled: $gl-color-neutral-10; // Used to identify a disabled section.
 $gl-background-color-strong: $gl-color-neutral-50; // Used to make the background easily stand out from the default.
 $gl-background-color-subtle: $gl-color-neutral-10; // Used to slightly differentiate the background from the default.
-$gl-background-color-default: $gl-color-neutral-0; // Used for the default background color.
+$gl-background-color-default: $gl-color-neutral-0; // Used for the default background color of content or elements when the page background or contents are covered.
+$gl-background-color-body: $gl-color-neutral-0; // Used for the body (page) background color.
 $gl-action-danger-border-color-default: $gl-color-alpha-0; // Used for the border of a danger action in the default state.
 $gl-action-danger-background-color-focus: $gl-action-danger-background-color-hover; // Used for the background of a danger (destructive) action in the focus state.
 $gl-action-danger-foreground-color-active: $gl-color-red-900; // Used for the foreground of a danger (destructive) action in the active state.
@@ -758,6 +759,9 @@ $gl-badge-neutral-background-color-hover: $gl-badge-neutral-background-color-def
 $gl-badge-muted-icon-color-focus: $gl-badge-muted-icon-color-hover; // Used for the icon of a muted badge in the focus state.
 $gl-badge-muted-text-color-focus: $gl-badge-muted-text-color-hover; // Used for the text of a muted badge in the focus state.
 $gl-badge-muted-background-color-hover: $gl-badge-muted-background-color-default; // Used for the background of a muted badge in the hover state.
+$gl-container-border-color: $gl-border-color-default; // Used for the border color of a basic container.
+$gl-container-content-background-color: $gl-background-color-subtle; // Used for the content background color of a basic container.
+$gl-container-header-background-color: $gl-background-color-default; // Used for the header background color of a basic container.
 $gl-action-danger-border-color-active: $gl-action-danger-border-color-default; // Used for the border of a danger action in the active state.
 $gl-action-danger-border-color-focus: $gl-action-danger-border-color-default; // Used for the border of a danger action in the focus state.
 $gl-action-danger-border-color-hover: $gl-action-danger-border-color-default; // Used for the border of a danger action in the hover state.

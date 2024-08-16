@@ -674,7 +674,8 @@
   --gl-background-color-disabled: var(--gl-color-neutral-10); /* Used to identify a disabled section. */
   --gl-background-color-strong: var(--gl-color-neutral-50); /* Used to make the background easily stand out from the default. */
   --gl-background-color-subtle: var(--gl-color-neutral-10); /* Used to slightly differentiate the background from the default. */
-  --gl-background-color-default: var(--gl-color-neutral-0); /* Used for the default background color. */
+  --gl-background-color-default: var(--gl-color-neutral-0); /* Used for the default background color of content or elements when the page background or contents are covered. */
+  --gl-background-color-body: var(--gl-color-neutral-0); /* Used for the body (page) background color. */
   --gl-action-danger-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a danger action in the default state. */
   --gl-action-danger-background-color-focus: var(--gl-action-danger-background-color-hover); /* Used for the background of a danger (destructive) action in the focus state. */
   --gl-action-danger-foreground-color-active: var(--gl-color-red-900); /* Used for the foreground of a danger (destructive) action in the active state. */
@@ -760,6 +761,9 @@
   --gl-badge-muted-icon-color-focus: var(--gl-badge-muted-icon-color-hover); /* Used for the icon of a muted badge in the focus state. */
   --gl-badge-muted-text-color-focus: var(--gl-badge-muted-text-color-hover); /* Used for the text of a muted badge in the focus state. */
   --gl-badge-muted-background-color-hover: var(--gl-badge-muted-background-color-default); /* Used for the background of a muted badge in the hover state. */
+  --gl-container-border-color: var(--gl-border-color-default); /* Used for the border color of a basic container. */
+  --gl-container-content-background-color: var(--gl-background-color-subtle); /* Used for the content background color of a basic container. */
+  --gl-container-header-background-color: var(--gl-background-color-default); /* Used for the header background color of a basic container. */
   --gl-action-danger-border-color-active: var(--gl-action-danger-border-color-default); /* Used for the border of a danger action in the active state. */
   --gl-action-danger-border-color-focus: var(--gl-action-danger-border-color-default); /* Used for the border of a danger action in the focus state. */
   --gl-action-danger-border-color-hover: var(--gl-action-danger-border-color-default); /* Used for the border of a danger action in the hover state. */

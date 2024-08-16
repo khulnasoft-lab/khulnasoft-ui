@@ -1,13 +1,21 @@
 {
   "background": {
     "color": {
-      "default": {
+      "body": {
         "$value": {
           "default": "{color.neutral.0}",
           "dark": "{color.neutral.950}"
         },
         "$type": "color",
-        "$description": "Used for the default background color."
+        "$description": "Used for the body (page) background color."
+      },
+      "default": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for the default background color of content or elements when the page background or contents are covered."
       },
       "subtle": {
         "$value": {
@@ -20,7 +28,7 @@
       "strong": {
         "$value": {
           "default": "{color.neutral.50}",
-          "dark": "{color.neutral.800}"
+          "dark": "{color.neutral.700}"
         },
         "$type": "color",
         "$description": "Used to make the background easily stand out from the default."

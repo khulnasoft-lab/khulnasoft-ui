@@ -214,6 +214,7 @@ const textColors = {
   disabled: 'var(--gl-text-color-disabled, var(--gl-color-neutral-400, #89888d))',
 };
 const backgroundColors = {
+  body: 'var(--gl-background-color-body, var(--gl-color-neutral-0, #fff))',
   default: 'var(--gl-background-color-default, var(--gl-color-neutral-0, #fff))',
   subtle: 'var(--gl-background-color-subtle, var(--gl-color-neutral-10, #fbfafd))',
   strong: 'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',

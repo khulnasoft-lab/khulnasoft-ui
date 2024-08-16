@@ -1,0 +1,32 @@
+{
+  "container": {
+    "header": {
+      "background": {
+        "color": {
+          "$value": "{background.color.default}",
+          "$type": "color",
+          "$description": "Used for the header background color of a basic container."
+        }
+      }
+    },
+    "content": {
+      "background": {
+        "color": {
+          "$value": "{background.color.subtle}",
+          "$type": "color",
+          "$description": "Used for the content background color of a basic container."
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "$value": {
+          "default": "{border.color.default}",
+          "dark": "{background.color.body}"
+        },
+        "$type": "color",
+        "$description": "Used for the border color of a basic container."
+      }
+    }
+  }
+}

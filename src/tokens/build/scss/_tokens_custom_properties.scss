@@ -42,6 +42,7 @@ $gl-action-danger-border-color-default: var(--gl-action-danger-border-color-defa
 $gl-action-danger-border-color-hover: var(--gl-action-danger-border-color-hover);
 $gl-action-danger-border-color-focus: var(--gl-action-danger-border-color-focus);
 $gl-action-danger-border-color-active: var(--gl-action-danger-border-color-active);
+$gl-background-color-body: var(--gl-background-color-body);
 $gl-background-color-default: var(--gl-background-color-default);
 $gl-background-color-subtle: var(--gl-background-color-subtle);
 $gl-background-color-strong: var(--gl-background-color-strong);
@@ -277,6 +278,9 @@ $data-viz-orange-700: var(--data-viz-orange-700);
 $data-viz-orange-800: var(--data-viz-orange-800);
 $data-viz-orange-900: var(--data-viz-orange-900);
 $data-viz-orange-950: var(--data-viz-orange-950);
+$gl-container-header-background-color: var(--gl-container-header-background-color);
+$gl-container-content-background-color: var(--gl-container-content-background-color);
+$gl-container-border-color: var(--gl-container-border-color);
 $gl-avatar-border-color-default: var(--gl-avatar-border-color-default);
 $gl-avatar-border-color-hover: var(--gl-avatar-border-color-hover);
 $gl-avatar-fallback-text-color-red: var(--gl-avatar-fallback-text-color-red);
