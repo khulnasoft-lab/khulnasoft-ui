@@ -82,6 +82,11 @@ $pd-week-color: var(--gl-text-color-subtle);
       opacity: 100%;
 
       &::before {
+        /* Apply a slightly larger border-radius to the ::before pseudo-element
+        to prevent background color shimmer issue in Safari.
+        This is necessary because the parent element (which already has a border-radius)
+        requires the ::before element to extend beyond its edges to ensure proper coverage. */
+        @apply gl-rounded-lg;
         content: '';
         position: absolute;
         top: 0;
