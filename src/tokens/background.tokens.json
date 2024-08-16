@@ -33,6 +33,30 @@
         "$type": "color",
         "$description": "Used to identify a disabled section."
       },
+      "depth-1": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used for slightly elevated elements (depth 1)."
+      },
+      "depth-2": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for moderately elevated elements (depth 2)."
+      },
+      "depth-3": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.700}"
+        },
+        "$type": "color",
+        "$description": "Used for highly elevated elements (depth 3)."
+      },
       "overlay": {
         "$value": {
           "default": "{color.alpha.dark.24}",

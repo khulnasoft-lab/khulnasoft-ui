@@ -669,6 +669,9 @@ $gl-border-color-strong: $gl-color-neutral-400; // Used for a distinct border th
 $gl-border-color-subtle: $gl-color-neutral-50; // Used for a subtle border in combination with the default background.
 $gl-border-color-default: $gl-color-neutral-100; // Used for the default border color.
 $gl-background-color-overlay: $gl-color-alpha-dark-24; // Used for an overlay that covers other content.
+$gl-background-color-depth-3: $gl-color-neutral-0; // Used for highly elevated elements (depth 3).
+$gl-background-color-depth-2: $gl-color-neutral-0; // Used for moderately elevated elements (depth 2).
+$gl-background-color-depth-1: $gl-color-neutral-0; // Used for slightly elevated elements (depth 1).
 $gl-background-color-disabled: $gl-color-neutral-10; // Used to identify a disabled section.
 $gl-background-color-strong: $gl-color-neutral-50; // Used to make the background easily stand out from the default.
 $gl-background-color-subtle: $gl-color-neutral-10; // Used to slightly differentiate the background from the default.

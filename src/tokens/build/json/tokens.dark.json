@@ -1014,6 +1014,72 @@
           "disabled"
         ]
       },
+      "depth-1": {
+        "value": "#28272d",
+        "$type": "color",
+        "comment": "Used for slightly elevated elements (depth 1).",
+        "filePath": "src/tokens/background.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "comment": "Used for slightly elevated elements (depth 1)."
+        },
+        "name": "BACKGROUND_COLOR_DEPTH_1",
+        "attributes": {},
+        "path": [
+          "background",
+          "color",
+          "depth-1"
+        ]
+      },
+      "depth-2": {
+        "value": "#3a383f",
+        "$type": "color",
+        "comment": "Used for moderately elevated elements (depth 2).",
+        "filePath": "src/tokens/background.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "comment": "Used for moderately elevated elements (depth 2)."
+        },
+        "name": "BACKGROUND_COLOR_DEPTH_2",
+        "attributes": {},
+        "path": [
+          "background",
+          "color",
+          "depth-2"
+        ]
+      },
+      "depth-3": {
+        "value": "#4c4b51",
+        "$type": "color",
+        "comment": "Used for highly elevated elements (depth 3).",
+        "filePath": "src/tokens/background.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.700}"
+          },
+          "$type": "color",
+          "comment": "Used for highly elevated elements (depth 3)."
+        },
+        "name": "BACKGROUND_COLOR_DEPTH_3",
+        "attributes": {},
+        "path": [
+          "background",
+          "color",
+          "depth-3"
+        ]
+      },
       "overlay": {
         "value": "rgba(0,0,0,0.64)",
         "$type": "color",

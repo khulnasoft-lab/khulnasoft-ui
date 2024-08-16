@@ -218,6 +218,9 @@ const backgroundColors = {
   subtle: 'var(--gl-background-color-subtle, var(--gl-color-neutral-10, #fbfafd))',
   strong: 'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
   disabled: 'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
+  'depth-1': 'var(--gl-background-color-depth-1, var(--gl-color-neutral-0, #fff))',
+  'depth-2': 'var(--gl-background-color-depth-2, var(--gl-color-neutral-0, #fff))',
+  'depth-3': 'var(--gl-background-color-depth-3, var(--gl-color-neutral-0, #fff))',
   overlay:
     'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, rgba(05, 05, 06, 0.24)))',
 };
