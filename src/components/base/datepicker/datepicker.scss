@@ -2,7 +2,7 @@
 $pd-text-color: var(--gl-text-color-default);
 $pd-title-color: var(--gl-action-neutral-foreground-color-default);
 $pd-title-bg: var(--gl-action-neutral-background-color-default);
-$pd-picker-bg: var(--gl-datepicker-background-color);
+$pd-picker-bg: var(--gl-background-color-depth-1);
 $pd-picker-border: var(--gl-border-color-default);
 $pd-picker-border-bottom: var(--gl-border-color-default);
 $pd-th-color: var(--gl-text-color-subtle);
@@ -41,7 +41,7 @@ $pd-week-color: var(--gl-text-color-subtle);
   @apply gl-border-none;
   @apply gl-rounded-base;
   @include gl-mt-3;
-  background-color: var(--gl-datepicker-background-color);
+  background-color: var(--gl-background-color-depth-1);
 
   &.is-bound {
     @include gl-shadow-md;

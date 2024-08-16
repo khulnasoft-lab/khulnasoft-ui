@@ -11443,30 +11443,6 @@
     }
   },
   "datepicker": {
-    "background": {
-      "color": {
-        "value": "#28272d",
-        "$type": "color",
-        "comment": "Used for the background color of datepicker.",
-        "filePath": "src/tokens/contextual/datepicker.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": {
-            "default": "{color.neutral.0}",
-            "dark": "{color.neutral.900}"
-          },
-          "$type": "color",
-          "comment": "Used for the background color of datepicker."
-        },
-        "name": "DATEPICKER_BACKGROUND_COLOR",
-        "attributes": {},
-        "path": [
-          "datepicker",
-          "background",
-          "color"
-        ]
-      }
-    },
     "date": {
       "text": {
         "color": {
@@ -11806,32 +11782,6 @@
             }
           }
         }
-      }
-    }
-  },
-  "popover": {
-    "background": {
-      "color": {
-        "value": "#28272d",
-        "$type": "color",
-        "comment": "Used for the background color of popover.",
-        "filePath": "src/tokens/contextual/popover.tokens.json",
-        "isSource": true,
-        "original": {
-          "value": {
-            "default": "{color.neutral.0}",
-            "dark": "{color.neutral.900}"
-          },
-          "$type": "color",
-          "comment": "Used for the background color of popover."
-        },
-        "name": "POPOVER_BACKGROUND_COLOR",
-        "attributes": {},
-        "path": [
-          "popover",
-          "background",
-          "color"
-        ]
       }
     }
   },
