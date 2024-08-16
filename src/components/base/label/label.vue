@@ -73,8 +73,8 @@ export default {
     },
     cssVariables() {
       return {
-        '--label-background-color': this.backgroundColor,
-        '--label-inset-border': `inset 0 0 0 2px ${this.backgroundColor}`,
+        '--label-background-color-solid': this.backgroundColor,
+        '--label-background-color-alpha': `${this.backgroundColor}a3`,
       };
     },
     scopedKey() {

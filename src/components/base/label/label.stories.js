@@ -54,6 +54,93 @@ WithCloseButton.args = generateProps({ showCloseButton: true });
 export const WithoutTarget = Template.bind({});
 WithoutTarget.args = generateProps({ target: '' });
 
+export const Temp = () => ({
+  components: { GlLabel },
+  template: `
+    <div>
+      <div class="gl-display-flex gl-gap-2 gl-mb-3">
+        <gl-label
+          background-color="#92D4A8"
+          title="label"
+        />
+        <gl-label
+          background-color="#92D4A8"
+          title="label"
+          target="#"
+          :show-close-button="true"
+        />
+        <gl-label
+          background-color="#92D4A8"
+          title="scoped::label"
+          target="#"
+          :scoped="true"
+          :show-close-button="true"
+        />
+        <gl-label
+          background-color="#0C532A"
+          title="label"
+        />
+        <gl-label
+          background-color="#0C532A"
+          title="label"
+          target="#"
+          :show-close-button="true"
+        />
+        <gl-label
+          background-color="#0C532A"
+          title="scoped::label"
+          target="#"
+          :scoped="true"
+          :show-close-button="true"
+        />
+      </div>
+      <div class="gl-display-flex gl-gap-2">
+        <gl-label
+          background-color="#92D4A8"
+          :disabled="true"
+          title="label"
+        />
+        <gl-label
+          background-color="#92D4A8"
+          :disabled="true"
+          title="label"
+          target="#"
+          :show-close-button="true"
+        />
+        <gl-label
+          background-color="#92D4A8"
+          :disabled="true"
+          title="scoped::label"
+          target="#"
+          :scoped="true"
+          :show-close-button="true"
+        />
+        <gl-label
+          background-color="#0C532A"
+          :disabled="true"
+          title="label"
+        />
+        <gl-label
+          background-color="#0C532A"
+          :disabled="true"
+          title="label"
+          target="#"
+          :show-close-button="true"
+        />
+        <gl-label
+          background-color="#0C532A"
+          :disabled="true"
+          title="scoped::label"
+          target="#"
+          :scoped="true"
+          :show-close-button="true"
+        />
+      </div>
+    </div>
+  `,
+});
+Temp.tags = ['skip-visual-test'];
+
 export default {
   title: 'base/label',
   component: GlLabel,
