@@ -17412,7 +17412,7 @@
           "color": {
             "value": "#18171d",
             "$type": "color",
-            "comment": "Used for elements at the base layer (depth 0).",
+            "comment": "Used for the page body and elements that match it (depth 0).",
             "filePath": "src/tokens/layer.tokens.json",
             "isSource": true,
             "original": {
@@ -17421,7 +17421,7 @@
                 "dark": "{color.neutral.950}"
               },
               "$type": "color",
-              "comment": "Used for elements at the base layer (depth 0)."
+              "comment": "Used for the page body and elements that match it (depth 0)."
             },
             "name": "LAYER_DEPTH_0_BACKGROUND_COLOR",
             "attributes": {},
@@ -17437,7 +17437,7 @@
         "shadow": {
           "value": "none",
           "$type": "shadow",
-          "comment": "No shadow for base layer elements.",
+          "comment": "No shadow for page body or elements at this depth.",
           "filePath": "src/tokens/layer.tokens.json",
           "isSource": true,
           "original": {
@@ -17446,7 +17446,7 @@
               "dark": "none"
             },
             "$type": "shadow",
-            "comment": "No shadow for base layer elements."
+            "comment": "No shadow for page body or elements at this depth."
           },
           "name": "LAYER_DEPTH_0_SHADOW",
           "attributes": {},

@@ -17,7 +17,7 @@
   --gl-line-height-20: 1.25rem;
   --gl-line-height-16: 1rem;
   --gl-line-height-12: 0.75rem;
-  --gl-layer-depth-0-shadow: none; /* No shadow for base layer elements. */
+  --gl-layer-depth-0-shadow: none; /* No shadow for page body or elements at this depth. */
   --t-white-a-08: rgba(255, 255, 255, 0.08); /* Use color.alpha.light.8 instead. */
   --t-white-a-06: rgba(255, 255, 255, 0.06); /* Use color.alpha.light.6 instead. */
   --t-white-a-04: rgba(255, 255, 255, 0.04); /* Use color.alpha.light.4 instead. */
@@ -461,7 +461,7 @@
   --gl-layer-depth-2-background-color: var(--gl-color-neutral-800); /* Used for moderately elevated elements (depth 2). */
   --gl-layer-depth-1-shadow: 0 0 2px 0 var(--gl-color-alpha-dark-24), 0 1px 4px 0 var(--gl-color-alpha-dark-24); /* Subtle shadow for depth 1 elements. */
   --gl-layer-depth-1-background-color: var(--gl-color-neutral-900); /* Used for slightly elevated elements (depth 1). */
-  --gl-layer-depth-0-background-color: var(--gl-color-neutral-950); /* Used for elements at the base layer (depth 0). */
+  --gl-layer-depth-0-background-color: var(--gl-color-neutral-950); /* Used for the page body and elements that match it (depth 0). */
   --gl-icon-color-success: var(--gl-color-green-300); /* Used for an icon associated with success or validity. */
   --gl-icon-color-danger: var(--gl-color-red-300); /* Used for an icon associated with an error or danger. */
   --gl-icon-color-warning: var(--gl-color-orange-300); /* Used for an icon associated with a warning. */

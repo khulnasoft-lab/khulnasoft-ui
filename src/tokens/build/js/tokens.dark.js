@@ -763,8 +763,8 @@ export const GL_ICON_COLOR_INFO = '#63a6e9'; // Used for an icon associated with
 export const GL_ICON_COLOR_WARNING = '#d99530'; // Used for an icon associated with a warning.
 export const GL_ICON_COLOR_DANGER = '#f57f6c'; // Used for an icon associated with an error or danger.
 export const GL_ICON_COLOR_SUCCESS = '#52b87a'; // Used for an icon associated with success or validity.
-export const GL_LAYER_DEPTH_0_BACKGROUND_COLOR = '#18171d'; // Used for elements at the base layer (depth 0).
-export const GL_LAYER_DEPTH_0_SHADOW = 'none'; // No shadow for base layer elements.
+export const GL_LAYER_DEPTH_0_BACKGROUND_COLOR = '#18171d'; // Used for the page body and elements that match it (depth 0).
+export const GL_LAYER_DEPTH_0_SHADOW = 'none'; // No shadow for page body or elements at this depth.
 export const GL_LAYER_DEPTH_1_BACKGROUND_COLOR = '#28272d'; // Used for slightly elevated elements (depth 1).
 export const GL_LAYER_DEPTH_1_SHADOW =
   '0 0 2px 0 rgba(05, 05, 06, 0.24), 0 1px 4px 0 rgba(05, 05, 06, 0.24)'; // Subtle shadow for depth 1 elements.

@@ -9,7 +9,7 @@
               "dark": "{color.neutral.950}"
             },
             "$type": "color",
-            "$description": "Used for elements at the base layer (depth 0)."
+            "$description": "Used for the page body and elements that match it (depth 0)."
           }
         },
         "shadow": {
@@ -18,7 +18,7 @@
             "dark": "none"
           },
           "$type": "shadow",
-          "$description": "No shadow for base layer elements."
+          "$description": "No shadow for page body or elements at this depth."
         }
       },
       "1": {

@@ -1,13 +1,6 @@
 import { ref } from 'vue';
 
-export default {
-  title: 'Experimental/layers',
-  component: {
-    template: '<div>Layer Tokens Component</div>',
-  },
-};
-
-const Template = () => ({
+const LayerTokensComponent = {
   setup() {
     const tokens = ref({
       depth: [0, 1, 2, 3],
@@ -59,7 +52,16 @@ const Template = () => ({
       </div>
     </div>
   `,
+};
+
+export default {
+  title: 'Experimental/layers',
+  component: LayerTokensComponent,
+};
+
+export const LayerTokens = () => ({
+  components: { LayerTokensComponent },
+  template: '<LayerTokensComponent />',
 });
 
-export const LayerTokens = Template.bind({});
-LayerTokens.args = {};
+LayerTokens.storyName = 'Layer Tokens';
