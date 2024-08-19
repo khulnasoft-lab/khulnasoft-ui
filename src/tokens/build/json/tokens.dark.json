@@ -8999,18 +8999,18 @@
     "intro": {
       "border": {
         "color": {
-          "value": "#1068bf",
+          "value": "#064787",
           "$type": "color",
-          "comment": "Used to compliment the info banner.",
+          "comment": "Used for the border of an info banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
           "isSource": true,
           "original": {
             "value": {
-              "default": "{color.blue.300}",
-              "dark": "{color.blue.600}"
+              "default": "{color.blue.100}",
+              "dark": "{color.blue.800}"
             },
             "$type": "color",
-            "comment": "Used to compliment the info banner."
+            "comment": "Used for the border of an info banner."
           },
           "name": "BANNER_INTRO_BORDER_COLOR",
           "attributes": {},
@@ -9026,18 +9026,18 @@
     "promo": {
       "background": {
         "color": {
-          "value": "#28272d",
+          "value": "#232150",
           "$type": "color",
-          "comment": "Used as background for the default banner type.",
+          "comment": "Used for the background of a promo banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
           "isSource": true,
           "original": {
             "value": {
-              "default": "{color.neutral.10}",
-              "dark": "{color.neutral.900}"
+              "default": "{color.purple.50}",
+              "dark": "{color.purple.950}"
             },
             "$type": "color",
-            "comment": "Used as background for the default banner type."
+            "comment": "Used for the background of a promo banner."
           },
           "name": "BANNER_PROMO_BACKGROUND_COLOR",
           "attributes": {},
@@ -9045,6 +9045,31 @@
             "banner",
             "promo",
             "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "color": {
+          "value": "#453894",
+          "$type": "color",
+          "comment": "Used for the border of a promo banner.",
+          "filePath": "src/tokens/contextual/banner.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.purple.100}",
+              "dark": "{color.purple.800}"
+            },
+            "$type": "color",
+            "comment": "Used for the border of a promo banner."
+          },
+          "name": "BANNER_PROMO_BORDER_COLOR",
+          "attributes": {},
+          "path": [
+            "banner",
+            "promo",
+            "border",
             "color"
           ]
         }
@@ -17417,7 +17442,7 @@
     "info": {
       "background": {
         "color": {
-          "value": "#033464",
+          "value": "#002850",
           "$type": "color",
           "comment": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action.",
           "filePath": "src/tokens/feedback.tokens.json",
@@ -17425,7 +17450,7 @@
           "original": {
             "value": {
               "default": "{color.blue.50}",
-              "dark": "{color.blue.900}"
+              "dark": "{color.blue.950}"
             },
             "$type": "color",
             "comment": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action."

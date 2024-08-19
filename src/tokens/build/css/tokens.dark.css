@@ -471,7 +471,7 @@
   --gl-feedback-success-background-color: var(--gl-color-green-900); /* Used for the background of a success feedback item when confirming the successful completion of a user-initiated action. */
   --gl-feedback-info-icon-color: var(--gl-color-blue-300); /* Used for the icon of an informational feedback item when highlighting new information or a change that doesn't require immediate action. */
   --gl-feedback-info-text-color: var(--gl-color-blue-200); /* Used for the text of an informational feedback item when highlighting new information or a change that doesn't require immediate action. */
-  --gl-feedback-info-background-color: var(--gl-color-blue-900); /* Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action. */
+  --gl-feedback-info-background-color: var(--gl-color-blue-950); /* Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action. */
   --gl-feedback-neutral-icon-color: var(--gl-color-neutral-300); /* Used for the icon of a neutral feedback item when there isn't a specific meaning or urgency. */
   --gl-feedback-neutral-text-color: var(--gl-color-neutral-200); /* Used for the text of a neutral feedback item when there isn't a specific meaning or urgency. */
   --gl-feedback-neutral-background-color: var(--gl-color-neutral-900); /* Used for the background of a neutral feedback item when there isn't a specific meaning or urgency. */
@@ -568,8 +568,9 @@
   --gl-button-default-primary-background-color-default: var(--gl-color-neutral-900); /* Used for the background of an default primary button in the default state. */
   --gl-button-default-primary-foreground-color-default: var(--gl-color-neutral-50); /* Used for the foreground of a default primary button in the default state. */
   --gl-breadcrumb-separator-color: var(--gl-color-neutral-400); /* Used for the breadcrumb level separator. */
-  --gl-banner-promo-background-color: var(--gl-color-neutral-900); /* Used as background for the default banner type. */
-  --gl-banner-intro-border-color: var(--gl-color-blue-600); /* Used to compliment the info banner. */
+  --gl-banner-promo-border-color: var(--gl-color-purple-800); /* Used for the border of a promo banner. */
+  --gl-banner-promo-background-color: var(--gl-color-purple-950); /* Used for the background of a promo banner. */
+  --gl-banner-intro-border-color: var(--gl-color-blue-800); /* Used for the border of an info banner. */
   --gl-badge-tier-icon-color-active: var(--gl-color-purple-950); /* Used for the icon of a tier related badge in the active state. */
   --gl-badge-tier-icon-color-hover: var(--gl-color-purple-950); /* Used for the icon of a tier related badge in the hover state. */
   --gl-badge-tier-icon-color-default: var(--gl-color-purple-950); /* Used for the icon of a tier related badge when static or the default state when linked. */
