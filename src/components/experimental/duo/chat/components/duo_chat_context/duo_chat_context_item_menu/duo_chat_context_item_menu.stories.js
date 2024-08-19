@@ -2,7 +2,6 @@ import Vue from 'vue';
 import { action } from '@storybook/addon-actions';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
 
-// Create a global event bus
 const eventBus = new Vue();
 
 export default {
@@ -50,7 +49,7 @@ const Template = (args, { argTypes }) => ({
     },
   },
   template: `
-    <div>
+    <div style="padding-top: 200px;"> <!-- Add padding to the top -->
       <button @click="toggleMenu">Toggle Context Menu</button>
       <gl-duo-chat-context-item-menu
         :event-bus="localEventBus"

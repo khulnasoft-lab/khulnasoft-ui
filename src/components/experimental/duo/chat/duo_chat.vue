@@ -203,6 +203,15 @@ export default {
       default: '',
     },
 
+    /**
+     * Additional Context Menu Item Event Bus
+     */
+    contextItemMenuEventBus: {
+      type: Object,
+      required: false,
+      default: null,
+    },
+
     handleSearch: {
       type: Function,
       required: true,

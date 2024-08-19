@@ -35,7 +35,7 @@ export default {
       ],
       selectedCategory: null,
       searchQuery: '',
-      filteredItems: [],
+      contextItems: [],
       activeIndex: 0,
       showContextItemDropdown: false,
     };
@@ -48,7 +48,7 @@ export default {
       return this.showContextItemDropdown && this.selectedCategory;
     },
     currentItems() {
-      return this.showCategorySelection ? this.categories : this.filteredItems;
+      return this.showCategorySelection ? this.categories : this.contextItems;
     },
   },
   watch: {
@@ -66,7 +66,7 @@ export default {
         this.focusSearchInput();
       });
     },
-    filteredItems() {
+    contextItems() {
       this.activeIndex = 0;
     },
   },
@@ -96,7 +96,7 @@ export default {
     selectCategory(category) {
       this.selectedCategory = category;
       this.searchQuery = '';
-      this.filteredItems = [];
+      this.contextItems = [];
       this.eventBus.$emit('context_item_search_query', { category: category.value, query: '' });
     },
     debouncedSearch: debounce(function () {
@@ -106,7 +106,7 @@ export default {
       });
     }, 300),
     handleSearchResult(results) {
-      this.filteredItems = results;
+      this.contextItems = results;
     },
     selectItem(item) {
       this.eventBus.$emit('context_item_added', { ...item, category: this.selectedCategory?.value });
@@ -115,7 +115,7 @@ export default {
     resetSelection() {
       this.selectedCategory = null;
       this.searchQuery = '';
-      this.filteredItems = [];
+      this.contextItems = [];
       this.activeIndex = 0;
       this.showContextItemDropdown = false;
     },
@@ -167,14 +167,14 @@ export default {
 
 <template>
   <div class="gl-duo-chat-context-item gl-relative">
-    <gl-card v-if="showContextItemDropdown" class="context-item-card gl-position-absolute">
+    <gl-card v-if="showContextItemDropdown"
+      class="slash-commands !gl-absolute gl-w-full -gl-translate-y-full gl-list-none gl-pl-0 gl-shadow-md context-item-card gl-position-absolute"
+      body-class="!gl-p-2">
       <template v-if="showCategorySelection">
         <ul class="list-unstyled gl-mb-0">
           <li v-for="(category, index) in categories" :key="category.value">
-            <gl-dropdown-item
-              :class="{ 'gl-bg-gray-50': index === activeIndex }"
-              @click="selectCategory(category)"
-            >
+            <gl-dropdown-item :class="{ 'gl-bg-gray-50': index === activeIndex, 'hover:gl-bg-gray-50': true }"
+              @click="selectCategory(category)">
               <div class="gl-display-flex gl-align-items-center">
                 <gl-icon :name="category.icon" class="gl-mr-2" />
                 {{ category.label }}
@@ -184,46 +184,31 @@ export default {
         </ul>
       </template>
       <template v-else-if="showItemSearch">
-        <gl-form-input
-          ref="searchInput"
-          v-model="searchQuery"
-          :placeholder="`Search ${selectedCategory.label.toLowerCase()}...`"
-          class="gl-mb-3"
-          @input="debouncedSearch"
-          @keydown="onSearchInputKeydown"
-        />
+
         <ul class="list-unstyled gl-mb-1">
-          <li v-for="(item, index) in filteredItems" :key="item.id">
-            <gl-dropdown-item
-              :id="`dropdown-item-${index}`"
-              :class="[
-                { 'gl-bg-gray-50': index === activeIndex },
-                { 'disabled-item': !item.isEnabled },
-              ]"
-              @click="item.isEnabled && selectItem(item)"
-            >
+          <li v-for="(item, index) in contextItems" :key="item.id">
+            <gl-dropdown-item :id="`dropdown-item-${index}`" :class="[
+              { 'gl-bg-gray-50': index === activeIndex },
+              { 'disabled-item': !item.isEnabled },
+              'hover:gl-bg-gray-50'
+            ]" @click="item.isEnabled && selectItem(item)">
               <div class="gl-display-flex gl-align-items-center gl-truncate">
-                <gl-icon
-                  :name="selectedCategory.icon"
-                  class="gl-mr-2"
-                  :class="{ 'gl-text-gray-500': !item.isEnabled }"
-                />
+                <gl-icon :name="selectedCategory.icon" class="gl-mr-2"
+                  :class="{ 'gl-text-gray-500': !item.isEnabled }" />
                 <span :class="{ 'gl-text-gray-500': !item.isEnabled }">{{ item.name }}</span>
                 <span class="gl-ml-3 gl-text-gray-300">
                   <template v-if="item.type === 'file'">{{ item.info.relFilePath }}</template>
-                  <template v-else-if="item.type === 'merge_request'"
-                    >!{{ item.info.iid }}</template
-                  >
+                  <template v-else-if="item.type === 'merge_request'">!{{ item.info.iid }}</template>
                   <template v-else-if="item.type === 'issue'">#{{ item.info.iid }}</template>
                 </span>
               </div>
             </gl-dropdown-item>
-            <gl-duo-chat-context-item-popover
-              :item="item"
-              :target="`dropdown-item-${index}`"
-              placement="top"
-            />
+            <gl-duo-chat-context-item-popover :item="item" :target="`dropdown-item-${index}`" placement="top" />
           </li>
+          <gl-form-input ref="searchInput" v-model="searchQuery"
+            :placeholder="`Search ${selectedCategory.label.toLowerCase()}...`" class="gl-mb-3" @input="debouncedSearch"
+            @keydown="onSearchInputKeydown" />
+
         </ul>
       </template>
     </gl-card>
@@ -253,4 +238,4 @@ export default {
 .disabled-item:hover {
   background-color: #f9f9f9 !important;
 }
-</style>
+</style>gv
