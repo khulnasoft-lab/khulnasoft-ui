@@ -1,7 +1,7 @@
 import GlButton from '../../../base/button/button.vue';
 import GlAlert from '../../../base/alert/alert.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
-import { select } from '../../../../vendor/bootstrap-vue/src/utils/dom';
+import { setStoryTimeout } from '../../../../utils/test_utils';
 import GlDuoChat from './duo_chat.vue';
 import readme from './duo_chat.md';
 import { CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
@@ -80,7 +80,7 @@ Default.args = generateProps({
 });
 Default.decorators = [makeContainer({ height: '800px' })];
 
-let selectedIncludesCopy = []
+let selectedIncludesCopy = [];
 
 export const Interactive = (args, { argTypes }) => ({
   components: { GlDuoChat, GlButton },
@@ -103,7 +103,7 @@ export const Interactive = (args, { argTypes }) => ({
   },
   methods: {
     onSendChatPrompt(prompt) {
-      selectedIncludesCopy =  [...this.selectedIncludes]
+      selectedIncludesCopy = [...this.selectedIncludes];
       const newPrompt = {
         ...MOCK_USER_PROMPT_MESSAGE,
         contentHtml: '',
@@ -156,7 +156,7 @@ export const Interactive = (args, { argTypes }) => ({
 
       for await (const newResponse of generator) {
         newResponse.extras.selectedIncludes = selectedIncludesCopy;
-        console.log(newResponse)
+        console.log(newResponse);
         if (!this.canceledMessageRequestIds.includes(newResponse.requestId)) {
           const existingMessageIndex = this.msgs.findIndex(
             (msg) => msg.requestId === newResponse.requestId && msg.role === newResponse.role
@@ -272,7 +272,9 @@ export const Interactive = (args, { argTypes }) => ({
       this.loggerInfo += `Search results for ${category} - "${query}": ${JSON.stringify(filteredResults)}\n\n`;
 
       // Simulate an async operation
-      await new Promise((resolve) => setTimeout(resolve, 100));
+      await new Promise((resolve) => {
+        setStoryTimeout(resolve, 100);
+      });
 
       return filteredResults;
     },

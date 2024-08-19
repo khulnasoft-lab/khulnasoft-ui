@@ -1,5 +1,3 @@
-
-
 /**
  * @typedef {Object} AiContextItemInfo
  * @property {string} [project] - The project associated with the context item
@@ -32,4 +30,3 @@
 /**
  * @typedef {AiContextItem & {content: string}} AiContextItemWithContent
  */
-

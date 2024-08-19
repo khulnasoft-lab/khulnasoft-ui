@@ -18,8 +18,8 @@ export default {
     placement: {
       type: String,
       default: 'top',
-      required: true
-    }
+      required: true,
+    },
   },
 };
 </script>
@@ -58,4 +58,3 @@ export default {
     </div>
   </gl-popover>
 </template>
-

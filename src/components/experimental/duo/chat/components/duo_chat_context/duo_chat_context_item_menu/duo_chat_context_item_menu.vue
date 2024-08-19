@@ -85,7 +85,7 @@ export default {
   beforeDestroy() {
     this.eventBus.$off(EVENT_BUS_TYPES.TOGGLE_CONTEXT_MENU, this.toggleContextMenu);
     this.eventBus.$off(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_RESULT, this.handleSearchResult);
-    this.eventBus.$off(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_ERROR, this.handleSearchError); 
+    this.eventBus.$off(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_ERROR, this.handleSearchError);
   },
   methods: {
     truncateText(text, maxLength) {
@@ -109,7 +109,10 @@ export default {
       this.selectedCategory = category;
       this.searchQuery = '';
       this.contextItems = [];
-      this.eventBus.$emit(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_QUERY, { category: category.value, query: '' });
+      this.eventBus.$emit(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_QUERY, {
+        category: category.value,
+        query: '',
+      });
     },
     debouncedSearch: debounce(function () {
       this.userInitiatedSearch = true;

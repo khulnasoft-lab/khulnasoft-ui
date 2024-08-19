@@ -167,6 +167,6 @@ export const SLASH_COMMANDS = [
   },
   {
     name: '/include',
-    description: 'Add context to your chat.'
-  }
+    description: 'Add context to your chat.',
+  },
 ];

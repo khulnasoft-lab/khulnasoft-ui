@@ -96,7 +96,6 @@ export default {
       this.filteredItems = await this.handleSearch(this.selectedCategory.value, this.searchQuery);
     }, 300),
 
-
     selectItem(item) {
       this.$emit('item-selected', { ...item, category: this.selectedCategory?.value });
       this.$emit('update:showIncludeDropdown', false);

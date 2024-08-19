@@ -11,7 +11,7 @@ const generateFile = () => ({
   name: faker.system.fileName({ extensionCount: { min: 1, max: 3 } }),
   isEnabled: faker.datatype.boolean(),
   info: {
-    project: `${faker.internet.domainWord()  }/${  faker.internet.domainWord()}`,
+    project: `${faker.internet.domainWord()}/${faker.internet.domainWord()}`,
     relFilePath: faker.system.filePath(),
   },
   type: 'file',
@@ -23,9 +23,11 @@ const generateIssue = () => ({
   name: faker.hacker.phrase(),
   isEnabled: faker.datatype.boolean(),
   info: {
-    project: `${faker.internet.domainWord()  }/${  faker.internet.domainWord()}`,
+    project: `${faker.internet.domainWord()}/${faker.internet.domainWord()}`,
     iid: faker.number.int({ min: 1000, max: 9999 }),
-    disabledReasons: faker.datatype.boolean() ? [faker.lorem.sentence(), faker.lorem.sentence()] : [],
+    disabledReasons: faker.datatype.boolean()
+      ? [faker.lorem.sentence(), faker.lorem.sentence()]
+      : [],
   },
   type: 'issue',
 });
@@ -35,7 +37,7 @@ const generateMergeRequest = () => ({
   name: faker.git.commitMessage(),
   isEnabled: faker.datatype.boolean(),
   info: {
-    project: `${faker.internet.domainWord()  }/${  faker.internet.domainWord()}`,
+    project: `${faker.internet.domainWord()}/${faker.internet.domainWord()}`,
     iid: faker.number.int({ min: 1000, max: 9999 }),
   },
   type: 'merge_request',

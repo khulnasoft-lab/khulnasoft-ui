@@ -5,8 +5,8 @@ import { EVENT_BUS_TYPES } from '../duo_chat_context_event_bus';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
 
 const eventBus = new Vue();
-const sampleCategories = categories
-const sampleContextItems = generateSampleContextItems()
+const sampleCategories = categories;
+const sampleContextItems = generateSampleContextItems();
 
 export default {
   title: 'experimental/duo/chat/components/duo-chat-context/duo-chat-context-item-menu',
@@ -24,7 +24,7 @@ const Template = (args, { argTypes }) => ({
       localEventBus: eventBus,
       contextCategories: sampleCategories,
       contextItems: sampleContextItems,
-      addedItemJson: null
+      addedItemJson: null,
     };
   },
   mounted() {
@@ -38,14 +38,14 @@ const Template = (args, { argTypes }) => ({
   methods: {
     handleSearch({ category, query }) {
       const filteredResults = this.contextItems
-        .filter(item => item.type === category)
-        .filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
+        .filter((item) => item.type === category)
+        .filter((item) => item.name.toLowerCase().includes(query.toLowerCase()));
       setStoryTimeout(() => {
         this.localEventBus.$emit(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_RESULT, filteredResults);
       }, 300);
     },
     handleItemAdded(item) {
-      this.addedItemJson = JSON.stringify(item, null, 2); 
+      this.addedItemJson = JSON.stringify(item, null, 2);
     },
     toggleMenu() {
       this.localEventBus.$emit(EVENT_BUS_TYPES.TOGGLE_CONTEXT_MENU, true);
@@ -110,8 +110,6 @@ const ErrorTemplate = (args, { argTypes }) => ({
     </div>
   `,
 });
-
-
 
 export const WithError = ErrorTemplate.bind({});
 WithError.args = {
