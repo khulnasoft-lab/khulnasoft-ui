@@ -1,3 +1,10 @@
+# [89.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.3.0...v89.4.0) (2024-08-19)
+
+
+### Features
+
+* Add strong action design tokens ([53ebb85](https://gitlab.com/gitlab-org/gitlab-ui/commit/53ebb857fcfd8ea7341eafcd659c6619d87987af))
+
 # [89.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.2.0...v89.3.0) (2024-08-19)
 
 
