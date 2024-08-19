@@ -10,6 +10,7 @@ import {
   SLASH_COMMANDS as slashCommands,
   generateMockResponseChunks,
   renderGFM,
+  MOCK_RESPONSE_MESSAGE,
 } from './mock_data';
 import { EVENT_BUS_TYPES } from './components/duo_chat_context/duo_chat_context_event_bus';
 import readme from './duo_chat.md';
@@ -55,6 +56,35 @@ const generateProps = ({
   chatPromptPlaceholder,
   enableCodeInsertion,
 });
+
+export const Default = (args, { argTypes }) => ({
+  components: { GlDuoChat },
+  props: Object.keys(argTypes),
+  provide: {
+    renderGFM,
+  },
+  template: `
+    <gl-duo-chat
+      :title="title"
+      :messages="messages"
+      :error="error"
+      :is-loading="isLoading"
+      :is-chat-available="isChatAvailable"
+      :predefined-prompts="predefinedPrompts"
+      :badge-help-page-url="badgeHelpPageUrl"
+      :badge-type="badgeType"
+      :tool-name="toolName"
+      :show-header="showHeader"
+      :empty-state-title="emptyStateTitle"
+      :empty-state-description="emptyStateDescription"
+      :chat-prompt-placeholder="chatPromptPlaceholder"
+      :enable-code-insertion="enableCodeInsertion"
+    />`,
+});
+Default.args = generateProps({
+  messages: [MOCK_USER_PROMPT_MESSAGE, MOCK_RESPONSE_MESSAGE],
+});
+Default.decorators = [makeContainer({ height: '800px' })];
 
 const contextItemMenuEventBus = new Vue();
 
