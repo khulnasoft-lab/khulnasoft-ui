@@ -922,6 +922,582 @@
           }
         }
       }
+    },
+    "strong": {
+      "confirm": {
+        "background": {
+          "color": {
+            "default": {
+              "value": "#428fdc",
+              "$type": "color",
+              "comment": "Used for the background of a strong confirm action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.blue.500}",
+                  "dark": "{color.blue.400}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong confirm action in the default state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BACKGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "background",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#63a6e9",
+              "$type": "color",
+              "comment": "Used for the background of a strong confirm action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.blue.600}",
+                  "dark": "{color.blue.300}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong confirm action in the hover state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BACKGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "background",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#63a6e9",
+              "$type": "color",
+              "comment": "Used for the background of a strong confirm action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.background.color.hover}",
+                "$type": "color",
+                "comment": "Used for the background of a strong confirm action in the focus state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BACKGROUND_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "background",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#9dc7f1",
+              "$type": "color",
+              "comment": "Used for the background of a strong confirm action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.blue.700}",
+                  "dark": "{color.blue.200}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong confirm action in the active state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BACKGROUND_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "background",
+                "color",
+                "active"
+              ]
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong confirm action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.0}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong confirm action in the default state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_FOREGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "foreground",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong confirm action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.foreground.color.default}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong confirm action in the hover state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_FOREGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "foreground",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong confirm action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.foreground.color.hover}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong confirm action in the focus state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_FOREGROUND_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "foreground",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong confirm action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.foreground.color.focus}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong confirm action in the active state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_FOREGROUND_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "foreground",
+                "color",
+                "active"
+              ]
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong confirm action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.alpha.0}",
+                "$type": "color",
+                "comment": "Used for the border of a strong confirm action in the default state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BORDER_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "border",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong confirm action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.border.color.default}",
+                "$type": "color",
+                "comment": "Used for the border of a strong confirm action in the hover state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BORDER_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "border",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong confirm action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.border.color.hover}",
+                "$type": "color",
+                "comment": "Used for the border of a strong confirm action in the focus state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BORDER_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "border",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong confirm action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.border.color.focus}",
+                "$type": "color",
+                "comment": "Used for the border of a strong confirm action in the active state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BORDER_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "border",
+                "color",
+                "active"
+              ]
+            }
+          }
+        }
+      },
+      "neutral": {
+        "background": {
+          "color": {
+            "default": {
+              "value": "#a4a3a8",
+              "$type": "color",
+              "comment": "Used for the background of a strong neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.600}",
+                  "dark": "{color.neutral.300}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong neutral action in the default state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BACKGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "background",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#bfbfc3",
+              "$type": "color",
+              "comment": "Used for the background of a strong neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.700}",
+                  "dark": "{color.neutral.200}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong neutral action in the hover state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BACKGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "background",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#bfbfc3",
+              "$type": "color",
+              "comment": "Used for the background of a strong neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.background.color.hover}",
+                "$type": "color",
+                "comment": "Used for the background of a strong neutral action in the focus state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BACKGROUND_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "background",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#dcdcde",
+              "$type": "color",
+              "comment": "Used for the background of a strong neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.800}",
+                  "dark": "{color.neutral.100}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong neutral action in the active state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BACKGROUND_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "background",
+                "color",
+                "active"
+              ]
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.0}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong neutral action in the default state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_FOREGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "foreground",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.foreground.color.default}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong neutral action in the hover state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_FOREGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "foreground",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.foreground.color.hover}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong neutral action in the focus state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_FOREGROUND_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "foreground",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.foreground.color.focus}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong neutral action in the active state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_FOREGROUND_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "foreground",
+                "color",
+                "active"
+              ]
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.alpha.0}",
+                "$type": "color",
+                "comment": "Used for the border of a strong neutral action in the default state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BORDER_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "border",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.border.color.default}",
+                "$type": "color",
+                "comment": "Used for the border of a strong neutral action in the hover state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BORDER_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "border",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.border.color.hover}",
+                "$type": "color",
+                "comment": "Used for the border of a strong neutral action in the focus state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BORDER_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "border",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.border.color.focus}",
+                "$type": "color",
+                "comment": "Used for the border of a strong neutral action in the active state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BORDER_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "border",
+                "color",
+                "active"
+              ]
+            }
+          }
+        }
+      }
     }
   },
   "background": {
@@ -9089,7 +9665,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{color.neutral.0}",
+                "value": "{action.strong.confirm.foreground.color.default}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the default state."
               },
@@ -9111,7 +9687,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.hover}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the hover state."
               },
@@ -9133,7 +9709,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.focus}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the focus state."
               },
@@ -9155,7 +9731,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.active}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the active state."
               },
@@ -9181,10 +9757,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.500}",
-                  "dark": "{color.blue.400}"
-                },
+                "value": "{action.strong.confirm.background.color.default}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the default state."
               },
@@ -9206,10 +9779,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.600}",
-                  "dark": "{color.blue.300}"
-                },
+                "value": "{action.strong.confirm.background.color.hover}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the hover state."
               },
@@ -9231,7 +9801,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.background.color.hover}",
+                "value": "{action.strong.confirm.background.color.focus}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the focus state."
               },
@@ -9253,10 +9823,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.700}",
-                  "dark": "{color.blue.200}"
-                },
+                "value": "{action.strong.confirm.background.color.active}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the active state."
               },

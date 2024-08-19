@@ -176,22 +176,22 @@
         "foreground": {
           "color": {
             "default": {
-              "$value": "{color.neutral.0}",
+              "$value": "{action.strong.confirm.foreground.color.default}",
               "$type": "color",
               "$description": "Used for the foreground of a confirm (positive) primary button in the default state."
             },
             "hover": {
-              "$value": "{button.confirm.primary.foreground.color.default}",
+              "$value": "{action.strong.confirm.foreground.color.hover}",
               "$type": "color",
               "$description": "Used for the foreground of a confirm (positive) primary button in the hover state."
             },
             "focus": {
-              "$value": "{button.confirm.primary.foreground.color.default}",
+              "$value": "{action.strong.confirm.foreground.color.focus}",
               "$type": "color",
               "$description": "Used for the foreground of a confirm (positive) primary button in the focus state."
             },
             "active": {
-              "$value": "{button.confirm.primary.foreground.color.default}",
+              "$value": "{action.strong.confirm.foreground.color.active}",
               "$type": "color",
               "$description": "Used for the foreground of a confirm (positive) primary button in the active state."
             }
@@ -200,31 +200,22 @@
         "background": {
           "color": {
             "default": {
-              "$value": {
-                "default": "{color.blue.500}",
-                "dark": "{color.blue.400}"
-              },
+              "$value": "{action.strong.confirm.background.color.default}",
               "$type": "color",
               "$description": "Used for the background of a confirm (positive) primary button in the default state."
             },
             "hover": {
-              "$value": {
-                "default": "{color.blue.600}",
-                "dark": "{color.blue.300}"
-              },
+              "$value": "{action.strong.confirm.background.color.hover}",
               "$type": "color",
               "$description": "Used for the background of a confirm (positive) primary button in the hover state."
             },
             "focus": {
-              "$value": "{button.confirm.primary.background.color.hover}",
+              "$value": "{action.strong.confirm.background.color.focus}",
               "$type": "color",
               "$description": "Used for the background of a confirm (positive) primary button in the focus state."
             },
             "active": {
-              "$value": {
-                "default": "{color.blue.700}",
-                "dark": "{color.blue.200}"
-              },
+              "$value": "{action.strong.confirm.background.color.active}",
               "$type": "color",
               "$description": "Used for the background of a confirm (positive) primary button in the active state."
             }
