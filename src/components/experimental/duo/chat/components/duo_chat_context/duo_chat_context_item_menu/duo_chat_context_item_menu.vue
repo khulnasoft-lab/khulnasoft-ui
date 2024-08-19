@@ -4,7 +4,6 @@ import GlDropdownItem from '../../../../../../base/dropdown/dropdown_item.vue';
 import GlFormInput from '../../../../../../base/form/form_input/form_input.vue';
 import GlCard from '../../../../../../base/card/card.vue';
 import GlIcon from '../../../../../../base/icon/icon.vue';
-import GlLoadingIcon from '../../../../../../base/loading_icon/loading_icon.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 
 export default {
@@ -14,7 +13,6 @@ export default {
     GlFormInput,
     GlCard,
     GlIcon,
-    GlLoadingIcon,
     GlDuoChatContextItemPopover,
   },
   props: {
@@ -27,25 +25,19 @@ export default {
       default: 0,
       required: true,
     },
-    categories: {
-      type: Array,
-      default: () => [
+  },
+  data() {
+    return {
+      categories: [
         { label: 'Files', value: 'file', icon: 'document' },
         { label: 'Issues', value: 'issue', icon: 'issues' },
         { label: 'Merge Requests', value: 'merge_request', icon: 'merge-request' },
       ],
-      validator: (categories) => categories.every(cat => ['file', 'issue', 'merge_request'].includes(cat.value)),
-    },
-  },
-  data() {
-    return {
       selectedCategory: null,
       searchQuery: '',
       filteredItems: [],
       activeIndex: 0,
       showContextItemDropdown: false,
-      isLoading: false,
-      error: null,
     };
   },
   computed: {
@@ -105,26 +97,16 @@ export default {
       this.selectedCategory = category;
       this.searchQuery = '';
       this.filteredItems = [];
-      this.initiateSearch();
+      this.eventBus.$emit('context_item_search_query', { category: category.value, query: '' });
     },
     debouncedSearch: debounce(function () {
-      this.initiateSearch();
-    }, 300),
-    initiateSearch() {
-      this.isLoading = true;
-      this.error = null;
       this.eventBus.$emit('context_item_search_query', {
         category: this.selectedCategory.value,
         query: this.searchQuery,
       });
-    },
+    }, 300),
     handleSearchResult(results) {
-      this.isLoading = false;
       this.filteredItems = results;
-    },
-    handleSearchError(error) {
-      this.isLoading = false;
-      this.error = error;
     },
     selectItem(item) {
       this.eventBus.$emit('context_item_added', { ...item, category: this.selectedCategory?.value });
@@ -136,7 +118,6 @@ export default {
       this.filteredItems = [];
       this.activeIndex = 0;
       this.showContextItemDropdown = false;
-      this.error = null;
     },
     handleKeydown(e) {
       if (!this.showContextItemDropdown) return;
@@ -176,7 +157,9 @@ export default {
       }
     },
     onSearchInputKeydown(e) {
-      this.handleKeydown(e);
+      if (['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
+        this.handleKeydown(e);
+      }
     },
   },
 };
@@ -184,17 +167,12 @@ export default {
 
 <template>
   <div class="gl-duo-chat-context-item gl-relative">
-    <gl-card
-      v-if="showContextItemDropdown"
-      ref="contextItemDropdown"
-      class="context-item-card gl-position-absolute"
-      body-class="!gl-p-2"
-    >
+    <gl-card v-if="showContextItemDropdown" class="context-item-card gl-position-absolute">
       <template v-if="showCategorySelection">
         <ul class="list-unstyled gl-mb-0">
           <li v-for="(category, index) in categories" :key="category.value">
             <gl-dropdown-item
-              :class="{ 'active-command': index === activeIndex }"
+              :class="{ 'gl-bg-gray-50': index === activeIndex }"
               @click="selectCategory(category)"
             >
               <div class="gl-display-flex gl-align-items-center">
@@ -214,25 +192,12 @@ export default {
           @input="debouncedSearch"
           @keydown="onSearchInputKeydown"
         />
-        <div v-if="isLoading" class="gl-p-3 gl-rounded-base gl-text-center">
-          <gl-loading-icon
-            label="Loading"
-            size="sm"
-            color="dark"
-            variant="spinner"
-            :inline="false"
-          />
-          Loading
-        </div>
-        <div v-else-if="error" class="gl-p-3 gl-rounded-base gl-bg-red-50 gl-text-red-600">
-          {{ error }}
-        </div>
-        <ul v-else class="list-unstyled gl-mb-1">
+        <ul class="list-unstyled gl-mb-1">
           <li v-for="(item, index) in filteredItems" :key="item.id">
             <gl-dropdown-item
               :id="`dropdown-item-${index}`"
               :class="[
-                { 'active-command': index === activeIndex },
+                { 'gl-bg-gray-50': index === activeIndex },
                 { 'disabled-item': !item.isEnabled },
               ]"
               @click="item.isEnabled && selectItem(item)"
@@ -271,9 +236,8 @@ export default {
 }
 
 .context-item-card {
-  bottom: v-bind('cursorPosition + "px"');
-  left: 0;
-  transform: translateY(-100%);
+  top: 100%;
+  left: v-bind('cursorPosition + "px"');
   z-index: 100;
   min-width: 250px;
   max-width: 400px;
@@ -288,41 +252,5 @@ export default {
 
 .disabled-item:hover {
   background-color: #f9f9f9 !important;
-}
-
-.active-command {
-  background-color: #eee;
-}
-</style>-card>
-  </div>
-</template>
-
-<style scoped>
-.gl-duo-chat-context-item {
-  display: inline-block;
-}
-
-.context-item-card {
-  bottom: v-bind('cursorPosition + "px"');
-  left: 0;
-  transform: translateY(-100%);
-  z-index: 100;
-  min-width: 250px;
-  max-width: 400px;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.disabled-item {
-  cursor: not-allowed;
-  background-color: #f9f9f9;
-}
-
-.disabled-item:hover {
-  background-color: #f9f9f9 !important;
-}
-
-.active-command {
-  background-color: #eee;
 }
 </style>
