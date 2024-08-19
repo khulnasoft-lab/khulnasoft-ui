@@ -16,8 +16,9 @@ import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/
 import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
-import GlDuoChatInclude from './duo_chat_include.vue';
-import GlDuoChatSelectedIncludes from './duo_chat_selected_include.vue';
+import GlDuoChatContextItemMenu from './components/duo_chat_context/duo_chat_context_item_menu/duo_chat_context_item_menu.vue';
+import GlDuoChatContextItemSelections from './components/duo_chat_context/duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
+import { EVENT_BUS_TYPES } from './components/duo_chat_context/duo_chat_context_event_bus';
 import { CHAT_CLEAN_MESSAGE, CHAT_RESET_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
 
 export const i18n = {
@@ -64,8 +65,8 @@ export default {
     GlDuoChatConversation,
     GlCard,
     GlDropdownItem,
-    GlDuoChatInclude,
-    GlDuoChatSelectedIncludes,
+    GlDuoChatContextItemMenu,
+    GlDuoChatContextItemSelections,
   },
   directives: {
     SafeHtml,
@@ -209,14 +210,25 @@ export default {
     contextItemMenuEventBus: {
       type: Object,
       required: false,
-      default: null,
+      default: () => ({
+        $on: () => {},
+        $emit: () => {},
+      }),
     },
 
-    handleSearch: {
-      type: Function,
-      required: true,
+    /**
+     * Items selected by Additional Context Menu
+     */
+    contextItemSelections: {
+      type: Array,
+      required: false,
+      default: () => [],
     },
-    selectedArray: {
+
+    /**
+     * Categories to enable in the Additional Context Menu
+     */
+    contextCategories: {
       type: Array,
       required: false,
       default: () => [],
@@ -230,7 +242,7 @@ export default {
       activeCommandIndex: 0,
       displaySubmitButton: true,
       compositionJustEnded: false,
-      showIncludeDropdown: false,
+      contextMenuOpen: false,
       cursorPosition: 0,
     };
   },
@@ -315,6 +327,10 @@ export default {
   },
   created() {
     this.handleScrollingTrottled = throttle(this.handleScrolling, 200); // Assume a 200ms throttle for example
+    this.contextItemMenuEventBus.$on(
+      EVENT_BUS_TYPES.CONTEXT_ITEM_ADDED,
+      this.handleContextItemAdded
+    );
   },
   mounted() {
     this.scrollToBottom();
@@ -390,8 +406,8 @@ export default {
     onInputKeyup(e) {
       const { key } = e;
 
-      if (this.showIncludeDropdown) {
-        this.$refs.includeComponent.handleKeydown(e);
+      if (this.contextMenuOpen) {
+        this.$refs.contextItemMenu.handleKeydown(e);
         this.compositionJustEnded = false;
         return;
       }
@@ -444,7 +460,7 @@ export default {
       } else {
         this.setPromptAndFocus(`${command.name} `);
         if (command.name === '/include') {
-          this.showIncludeDropdown = true;
+          this.showContextItemMenu(true);
         }
       }
     },
@@ -452,29 +468,16 @@ export default {
       this.$emit('insert-code-snippet', e);
     },
 
-    updateCursorPosition() {
-      const textArea = this.$refs.prompt.$el;
-      const cursorPosition = textArea.selectionStart;
-      const textBeforeCursor = this.prompt.substring(0, cursorPosition);
-      const textWidth = this.getTextWidth(textBeforeCursor, getComputedStyle(textArea));
-      this.cursorPosition = textWidth;
+    showContextItemMenu(show = true) {
+      this.contextMenuOpen = show;
+      this.contextItemMenuEventBus.$emit(EVENT_BUS_TYPES.TOGGLE_CONTEXT_MENU, show);
     },
-    getTextWidth(text, style) {
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      context.font = `${style.fontSize} ${style.fontFamily}`;
-      return context.measureText(text).width;
-    },
-    handleItemSelected(item) {
-      this.$emit('add-selected-item', item);
+
+    handleContextItemAdded() {
       this.prompt = this.prompt.replace('/include', '').trim();
       this.$nextTick(() => {
         this.$refs.prompt.$el.focus();
       });
-      console.log('handled item selected');
-    },
-    removeInclude(include) {
-      this.$emit('remove-selected-item', include);
     },
   },
   i18n,
@@ -591,7 +594,10 @@ export default {
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
-        <gl-duo-chat-selected-includes :selected-includes="selectedArray" @remove="removeInclude" />
+        <gl-duo-chat-context-item-selections
+          :selections="contextItemSelections"
+          :event-bus="contextItemMenuEventBus"
+        />
         <gl-form-input-group>
           <div
             class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
@@ -631,15 +637,13 @@ export default {
               @compositionend="compositionEnd"
             />
 
-            <gl-duo-chat-include
-              ref="includeComponent"
-              :show-include-dropdown="showIncludeDropdown"
+            <gl-duo-chat-context-item-menu
+              ref="contextItemMenu"
               :cursor-position="cursorPosition"
-              :handle-search="handleSearch"
+              :event-bus="contextItemMenuEventBus"
+              :categories="contextCategories"
               class="gl-absolute"
               style="top: 0; left: 0"
-              @update:showIncludeDropdown="showIncludeDropdown = $event"
-              @item-selected="handleItemSelected"
             />
           </div>
           <template #append>
@@ -674,9 +678,3 @@ export default {
     </footer>
   </aside>
 </template>
-<style scoped>
-/* ... (previous styles) ... */
-.duo-chat-input {
-  position: relative;
-}
-</style>

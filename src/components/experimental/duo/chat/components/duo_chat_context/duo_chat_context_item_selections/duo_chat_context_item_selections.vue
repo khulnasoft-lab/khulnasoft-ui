@@ -14,9 +14,12 @@ export default {
   props: {
     eventBus: {
       type: Object,
-      required: true,
+      required: false,
+      default: () => ({
+        $emit: () => {},
+      }),
     },
-    contextItemSelections: {
+    selections: {
       type: Array,
       required: true,
     },
@@ -71,10 +74,7 @@ export default {
 </script>
 
 <template>
-  <div
-    v-if="contextItemSelections.length > 0"
-    class="gl-display-flex gl-flex-direction-column gl-mb-3"
-  >
+  <div v-if="selections.length > 0" class="gl-display-flex gl-flex-direction-column gl-mb-3">
     <div
       class="gl-display-flex gl-align-items-center"
       :class="{ 'gl-cursor-pointer': collapsable }"
@@ -88,7 +88,7 @@ export default {
       class="gl-display-flex gl-flex-grow-1 gl-mt-1 gl-flex-wrap"
     >
       <gl-token
-        v-for="(item, index) in contextItemSelections"
+        v-for="(item, index) in selections"
         :key="item.id"
         :view-only="!showClose"
         variant="default"

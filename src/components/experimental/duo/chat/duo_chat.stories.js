@@ -1,17 +1,22 @@
+import Vue from 'vue';
 import GlButton from '../../../base/button/button.vue';
-import GlAlert from '../../../base/alert/alert.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import { setStoryTimeout } from '../../../../utils/test_utils';
+import GlAlert from '../../../base/alert/alert.vue';
 import GlDuoChat from './duo_chat.vue';
-import readme from './duo_chat.md';
 import { CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
 import {
-  MOCK_RESPONSE_MESSAGE,
   MOCK_USER_PROMPT_MESSAGE,
   SLASH_COMMANDS as slashCommands,
   generateMockResponseChunks,
   renderGFM,
 } from './mock_data';
+import { EVENT_BUS_TYPES } from './components/duo_chat_context/duo_chat_context_event_bus';
+import readme from './duo_chat.md';
+import {
+  categories,
+  generateSampleContextItems,
+} from './components/duo_chat_context/duo_chat_context_items_sample_data';
 
 const defaultValue = (prop) =>
   typeof GlDuoChat.props[prop].default === 'function'
@@ -51,36 +56,9 @@ const generateProps = ({
   enableCodeInsertion,
 });
 
-export const Default = (args, { argTypes }) => ({
-  components: { GlDuoChat },
-  props: Object.keys(argTypes),
-  provide: {
-    renderGFM,
-  },
-  template: `
-    <gl-duo-chat
-      :title="title"
-      :messages="messages"
-      :error="error"
-      :is-loading="isLoading"
-      :is-chat-available="isChatAvailable"
-      :predefined-prompts="predefinedPrompts"
-      :badge-help-page-url="badgeHelpPageUrl"
-      :badge-type="badgeType"
-      :tool-name="toolName"
-      :show-header="showHeader"
-      :empty-state-title="emptyStateTitle"
-      :empty-state-description="emptyStateDescription"
-      :chat-prompt-placeholder="chatPromptPlaceholder"
-      :enable-code-insertion="enableCodeInsertion"
-    />`,
-});
-Default.args = generateProps({
-  messages: [MOCK_USER_PROMPT_MESSAGE, MOCK_RESPONSE_MESSAGE],
-});
-Default.decorators = [makeContainer({ height: '800px' })];
+const contextItemMenuEventBus = new Vue();
 
-let selectedIncludesCopy = [];
+let previousSelectedContextItems = [];
 
 export const Interactive = (args, { argTypes }) => ({
   components: { GlDuoChat, GlButton },
@@ -98,18 +76,30 @@ export const Interactive = (args, { argTypes }) => ({
       timeout: null,
       requestId: 1,
       canceledMessageRequestIds: [],
-      selectedIncludes: [],
+      sampleContextItems: [],
+      eventBus: contextItemMenuEventBus,
+      sampleContextCategories: categories,
     };
+  },
+  mounted() {
+    this.eventBus.$on(EVENT_BUS_TYPES.CONTEXT_ITEM_ADDED, this.onAddSelectedItem);
+    this.eventBus.$on(EVENT_BUS_TYPES.CONTEXT_ITEM_REMOVED, this.onRemoveSelectedItem);
+    this.eventBus.$on(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_QUERY, this.handleMockSearch);
+  },
+  beforeDestroy() {
+    this.eventBus.$off(EVENT_BUS_TYPES.CONTEXT_ITEM_ADDED, this.onAddSelectedItem);
+    this.eventBus.$off(EVENT_BUS_TYPES.CONTEXT_ITEM_REMOVED, this.onRemoveSelectedItem);
+    this.eventBus.$off(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_QUERY, this.handleMockSearch);
   },
   methods: {
     onSendChatPrompt(prompt) {
-      selectedIncludesCopy = [...this.selectedIncludes];
+      previousSelectedContextItems = [...this.sampleContextItems];
       const newPrompt = {
         ...MOCK_USER_PROMPT_MESSAGE,
         contentHtml: '',
         content: prompt,
         requestId: this.requestId,
-        extras: { selectedIncludes: selectedIncludesCopy },
+        extras: { contextItems: previousSelectedContextItems },
       };
       this.loggerInfo += `New prompt: ${JSON.stringify(newPrompt)}\n\n`;
       if ([CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE].includes(prompt)) {
@@ -118,21 +108,16 @@ export const Interactive = (args, { argTypes }) => ({
         this.msgs.push(newPrompt);
         this.promptInFlight = true;
       }
-      this.selectedIncludes = []; // Clear selected includes after sending
+      this.sampleContextItems = [];
     },
-
     onAddSelectedItem(item) {
-      console.log('added item', item);
-      console.log(this.selectedIncludes, 'selectedIncludes');
-      this.selectedIncludes = [...this.selectedIncludes, item];
+      this.sampleContextItems = [...this.sampleContextItems, item];
       this.loggerInfo += `Added selected item: ${JSON.stringify(item)}\n\n`;
     },
-
     onRemoveSelectedItem(item) {
-      this.selectedIncludes = this.selectedIncludes.filter((i) => i.id !== item.id);
+      this.sampleContextItems = this.sampleContextItems.filter((i) => i.id !== item.id);
       this.loggerInfo += `Removed selected item: ${JSON.stringify(item)}\n\n`;
     },
-
     onChatHidden() {
       this.isHidden = true;
       this.loggerInfo += `Chat closed\n\n`;
@@ -153,10 +138,8 @@ export const Interactive = (args, { argTypes }) => ({
     },
     async mockResponseFromAi() {
       const generator = generateMockResponseChunks(this.requestId);
-
       for await (const newResponse of generator) {
-        newResponse.extras.selectedIncludes = selectedIncludesCopy;
-        console.log(newResponse);
+        newResponse.extras.contextItems = previousSelectedContextItems;
         if (!this.canceledMessageRequestIds.includes(newResponse.requestId)) {
           const existingMessageIndex = this.msgs.findIndex(
             (msg) => msg.requestId === newResponse.requestId && msg.role === newResponse.role
@@ -182,90 +165,8 @@ export const Interactive = (args, { argTypes }) => ({
       });
     },
 
-    async handleMockSearch(category, query) {
-      console.log('handling Search', category, query);
-
-      const mockData = [
-        {
-          id: 'https://gitlab.com/gitlab-org/gitlab/issues/42',
-          name: 'Bug in login form',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab', iid: 42 },
-          type: 'issue',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/gitlab-runner/issues/43',
-          name: 'Improve performance',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab-runner', iid: 43 },
-          type: 'issue',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/charts/gitlab/issues/44',
-          name: 'Update dependencies',
-          isEnabled: false,
-          info: {
-            iid: 44,
-            project: 'gitlab-org/charts/gitlab',
-            disabledReason: 'Duo is not enabled for this project',
-          },
-          type: 'issue',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/gitlab/merge_requests/10',
-          name: 'Add new feature',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab', iid: 10 },
-          type: 'merge_request',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/gitlab-runner/merge_requests/11',
-          name: 'Fix typo in README',
-          isEnabled: true,
-          info: {
-            iid: 11,
-            project: 'gitlab-org/gitlab-runner',
-          },
-          type: 'merge_request',
-        },
-        {
-          id: 'https://gitlab.com/gitlab-org/charts/gitlab/merge_requests/12',
-          name: 'Refactor authentication',
-          isEnabled: false,
-          info: {
-            project: 'gitlab-org/charts/gitlab',
-            disabledReason: 'Duo is not enabled for this project',
-            iid: 12,
-          },
-          type: 'merge_request',
-        },
-        {
-          id: 'file:///Users/gitlab/gitlab/app/src/index.js',
-          name: 'index.js',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab', relFilePath: '/src/index.js' },
-          type: 'file',
-        },
-        {
-          id: 'file:///Users/gitlab/gitlab-runner/app/src/app.vue',
-          name: 'app.vue',
-          isEnabled: true,
-          info: { project: 'gitlab-org/gitlab-runner', relFilePath: '/src/app.vue' },
-          type: 'file',
-        },
-        {
-          id: 'file:///Users/gitlab/charts/gitlab/app/src/styles.css',
-          name: 'styles.css',
-          isEnabled: false,
-          info: {
-            project: 'gitlab-org/charts/gitlab',
-            disabledReason: 'Duo is not enabled for this project',
-            relFilePath: '/src/styles.css',
-          },
-          type: 'file',
-        },
-      ];
-
+    async handleMockSearch({ category, query }) {
+      const mockData = generateSampleContextItems(30);
       const filteredResults = mockData.filter(
         (item) => item.type === category && item.name.toLowerCase().includes(query.toLowerCase())
       );
@@ -276,7 +177,7 @@ export const Interactive = (args, { argTypes }) => ({
         setStoryTimeout(resolve, 100);
       });
 
-      return filteredResults;
+      this.eventBus.$emit(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_RESULT, filteredResults);
     },
   },
   template: `
@@ -299,14 +200,13 @@ export const Interactive = (args, { argTypes }) => ({
         :empty-state-description="emptyStateDescription"
         :chat-prompt-placeholder="chatPromptPlaceholder"
         :slash-commands="slashCommands"
-        :handle-search="handleMockSearch"
-        :selected-array="selectedIncludes"
+        :context-item-menu-event-bus="eventBus"
+        :context-item-selections="sampleContextItems"
+        :context-categories="sampleContextCategories"
         class="gl-drawer-default"
         @send-chat-prompt="onSendChatPrompt"
         @chat-hidden="onChatHidden"
         @chat-cancel="onChatCancel"
-        @add-selected-item="onAddSelectedItem"
-        @remove-selected-item="onRemoveSelectedItem"
       />
     </div>
   `,

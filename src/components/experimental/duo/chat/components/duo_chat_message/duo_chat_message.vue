@@ -10,7 +10,7 @@ import { MESSAGE_MODEL_ROLES } from '../../constants';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';
 // eslint-disable-next-line no-restricted-imports
 import { renderDuoChatMarkdownPreview } from '../../markdown_renderer';
-import GlDuoChatSelectedIncludes from '../../duo_chat_selected_include.vue';
+import GlDuoChatContextItemSelections from '../duo_chat_context/duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import { CopyCodeElement } from './copy_code_element';
 import { InsertCodeSnippetElement } from './insert_code_snippet_element';
 import { concatUntilEmpty } from './utils';
@@ -41,7 +41,7 @@ export default {
     GlFormTextarea,
     GlIcon,
     GlLoadingIcon,
-    GlDuoChatSelectedIncludes,
+    GlDuoChatContextItemSelections,
   },
   directives: {
     SafeHtml,
@@ -136,29 +136,24 @@ export default {
     error() {
       return Boolean(this.message?.errors?.length) && this.message.errors.join('; ');
     },
-
-    displaySelectedIncludes() {
-      return this.message.extras && this.message.extras.selectedIncludes;
+    selectedContextItems() {
+      return this.message.extras?.contextItems || [];
     },
-    getSelectedIncludes() {
-      return this.message.extras.selectedIncludes;
+    displaySelectedContextItems() {
+      return this.message.extras && this.message.extras.contextItems;
     },
-
-    showSelectedIncludesCollapsible() {
+    showSelectedContextItemCollapsible() {
       return this.messageIndex === 1; // Make the second message (index 1) collapsible
     },
-    selectedIncludesTitle() {
-      if (!this.displaySelectedIncludes) return '';
-      const count = this.messageTitleIncludes.length;
+    selectedContextItemTitle() {
+      if (!this.displaySelectedContextItems) return '';
+      const count = this.selectedContextItems.length;
 
       if (this.messageIndex === 0) {
         return `added context`;
       }
 
       return `used ${count} reference${count !== 1 ? 's' : ''}`;
-    },
-    messageTitleIncludes() {
-      return this.message.extras?.selectedIncludes || [];
     },
   },
   beforeCreate() {
@@ -243,11 +238,11 @@ export default {
       data-testid="error"
     />
     <div ref="content-wrapper" :class="{ 'has-error': error }">
-      <gl-duo-chat-selected-includes
-        v-if="displaySelectedIncludes"
-        :selected-includes="messageTitleIncludes"
-        :title="selectedIncludesTitle"
-        :collapsable="showSelectedIncludesCollapsible"
+      <gl-duo-chat-context-item-selections
+        v-if="displaySelectedContextItems"
+        :selections="selectedContextItems"
+        :title="selectedContextItemTitle"
+        :collapsable="showSelectedContextItemCollapsible"
         :show-close="false"
         class="gl-mb-3"
       />

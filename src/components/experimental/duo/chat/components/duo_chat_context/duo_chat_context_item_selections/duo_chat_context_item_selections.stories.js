@@ -43,7 +43,7 @@ const Template = (args, { argTypes }) => ({
     <div>
       <gl-duo-chat-context-item-selections
         :event-bus="localEventBus"
-        :context-item-selections="itemSelections"
+        :selections="itemSelections"
         v-bind="$props"
       />
     </div>

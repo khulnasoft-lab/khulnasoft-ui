@@ -150,28 +150,6 @@ export default {
 }
 ```
 
-categories - files, issues, merge requests (slash command pattern)
-
-
-handleDefaultSearchResults - object
-
-searchContext - type, query: string (eg. index.js)
-
-handleSearchResults -  array of objects
-
-handleSelectedItem - object
-
-handleSelectedItemResult - object
-
-jannik
-
-
-
-
-
-
-
-
 With this template in place, consumer is left with the following things to implement:
 
 - Fetch `messages`. For Duo Chat, we rely on GraphQL query to get the cached
