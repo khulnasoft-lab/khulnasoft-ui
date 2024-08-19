@@ -18,8 +18,8 @@ export default {
     placement: {
       type: String,
       default: 'top',
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     popoverData() {
@@ -35,16 +35,18 @@ export default {
         project: info.project || '',
         type: this.item.type || '',
         isEnabled: this.item.isEnabled !== false, // true by default
-        filePath: this.item.type === 'file' ? (info.relFilePath || '') : null,
-        id: (this.item.type === 'issue' || this.item.type === 'merge_request') ? (info.iid || '') : null,
+        filePath: this.item.type === 'file' ? info.relFilePath || '' : null,
+        id:
+          this.item.type === 'issue' || this.item.type === 'merge_request' ? info.iid || '' : null,
         idPrefix,
         disabledReasons: Array.isArray(info.disabledReasons) ? info.disabledReasons : [],
-        disabledMessage: Array.isArray(info.disabledReasons) && info.disabledReasons.length > 0 
-          ? info.disabledReasons.join(', ') 
-          : 'This item is disabled'
+        disabledMessage:
+          Array.isArray(info.disabledReasons) && info.disabledReasons.length > 0
+            ? info.disabledReasons.join(', ')
+            : 'This item is disabled',
       };
-    }
-  }
+    },
+  },
 };
 </script>
 <template>
@@ -82,4 +84,3 @@ export default {
     </div>
   </gl-popover>
 </template>
-
