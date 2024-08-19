@@ -1,3 +1,16 @@
+# [89.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.2.0...v89.3.0) (2024-08-19)
+
+
+### Bug Fixes
+
+* **GlDatepicker:** Add border radius to icon to prevent Safari issue ([41c8eea](https://gitlab.com/gitlab-org/gitlab-ui/commit/41c8eeaa3bd256f3d4e4999114fe2b234737ec70))
+
+
+### Features
+
+* **Badge:** Update darkmode design ([ce00b04](https://gitlab.com/gitlab-org/gitlab-ui/commit/ce00b041b90ba961bb432a0d84ca323877f2f697))
+* **Toggle:** Update size to 20px ([789b10c](https://gitlab.com/gitlab-org/gitlab-ui/commit/789b10c5d3df8ea9dd185efe0964a31e8a579311))
+
 # [89.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.1.0...v89.2.0) (2024-08-15)
 
 
