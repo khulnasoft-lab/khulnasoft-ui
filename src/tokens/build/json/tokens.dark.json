@@ -12535,6 +12535,38 @@
       }
     }
   },
+  "tab": {
+    "selected": {
+      "indicator": {
+        "color": {
+          "default": {
+            "value": "#428fdc",
+            "$type": "color",
+            "comment": "Used for the selected indicator of a tab.",
+            "filePath": "src/tokens/contextual/tabs.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the selected indicator of a tab."
+            },
+            "name": "TAB_SELECTED_INDICATOR_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "tab",
+              "selected",
+              "indicator",
+              "color",
+              "default"
+            ]
+          }
+        }
+      }
+    }
+  },
   "control": {
     "background": {
       "color": {

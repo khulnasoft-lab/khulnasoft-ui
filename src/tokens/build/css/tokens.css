@@ -496,6 +496,7 @@
   --gl-control-background-color-concatenation: var(--gl-color-neutral-10); /* Used for the background of static content that prepends or appends a text input. */
   --gl-control-background-color-disabled: var(--gl-color-neutral-10); /* Used for disabled form control (checkbox, input, radio button, textarea) background. */
   --gl-control-background-color-default: var(--gl-color-neutral-0); /* Used for form control (input, radio button, checkbox, textarea) default background. */
+  --gl-tab-selected-indicator-color-default: var(--gl-color-blue-500); /* Used for the selected indicator of a tab. */
   --gl-spinner-segment-color-light: var(--gl-color-neutral-200); /* Used for the animated segment of a loading spinner on a dark background. */
   --gl-spinner-segment-color-default: var(--gl-color-neutral-700); /* Used for the animated segment of a loading spinner. */
   --gl-spinner-track-color-light: var(--gl-color-neutral-800); /* Used for the static track (background) of a loading spinner on a dark background. */
