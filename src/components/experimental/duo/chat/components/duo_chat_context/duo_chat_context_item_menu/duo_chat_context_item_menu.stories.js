@@ -1,8 +1,11 @@
 import Vue from 'vue';
 import { action } from '@storybook/addon-actions';
+import { categories, generateSampleContextItems } from '../duo_chat_context_items_sample_data';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
 
 const eventBus = new Vue();
+let sampleCategories = categories
+let sampleContextItems = generateSampleContextItems()
 
 export default {
   title: 'experimental/duo/chat/components/duo_chat_context/duo_chat_context_item_menu',
@@ -16,9 +19,10 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { GlDuoChatContextItemMenu },
   data() {
-    console.log('angelo testing', eventBus)
     return {
-      localEventBus: eventBus, // Use the global event bus
+      localEventBus: eventBus,
+      contextCategories: sampleCategories,
+      contextItems: sampleContextItems,
     };
   },
   mounted() {
@@ -31,29 +35,28 @@ const Template = (args, { argTypes }) => ({
   },
   methods: {
     handleSearch({ category, query }) {
-      action('Search initiated')(category, query);
-      const mockResults = [
-        { id: '1', name: 'Item 1', isEnabled: true, info: { iid: 1 }, type: category },
-        { id: '2', name: 'Item 2', isEnabled: false, info: { iid: 2 }, type: category },
-        { id: '3', name: 'Item 3', isEnabled: true, info: { iid: 3 }, type: category },
-      ];
+      action('Search initiated')({ category, query });
+      const filteredResults = this.contextItems
+        .filter(item => item.type === category)
+        .filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
       setTimeout(() => {
-        this.localEventBus.$emit('context_item_search_result', mockResults);
+        this.localEventBus.$emit('context_item_search_result', filteredResults);
       }, 300);
     },
     handleItemAdded(item) {
-      action('Item added')(item);
+      action('Item added')(JSON.parse(JSON.stringify(item)));
     },
     toggleMenu() {
       this.localEventBus.$emit('toggle_context_menu', true);
     },
   },
   template: `
-    <div style="padding-top: 200px;"> <!-- Add padding to the top -->
+    <div style="padding-top: 400px;">
       <button @click="toggleMenu">Toggle Context Menu</button>
       <gl-duo-chat-context-item-menu
         :event-bus="localEventBus"
         :cursor-position="cursorPosition"
+        :categories="contextCategories"
       />
     </div>
   `,

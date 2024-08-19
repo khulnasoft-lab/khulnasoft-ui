@@ -1,20 +1,35 @@
+
+
 /**
- * @typedef {Object} DuoChatContextItemInfo
- * @property {string} project - The GitLab project ID
- * @property {string} [disabledReason] - The reason why the item is disabled (if applicable)
- * @property {number} iid - The internal ID of the item (for issues and merge requests)
- * @property {string} [relFilePath] - The file path (for files)
+ * @typedef {Object} AiContextItemInfo
+ * @property {string} [project] - The project associated with the context item
+ * @property {string[]} [disabledReasons] - Reasons why the context item might be disabled
+ * @property {number} [iid] - Internal ID of the context item
+ * @property {string} [relFilePath] - Relative file path of the context item
  */
 
 /**
- * @typedef {'issue' | 'merge_request' | 'files'} DuoChatContextItemType
+ * @typedef {'issue' | 'merge_request' | 'file'} AiContextItemType
  */
 
 /**
- * @typedef {Object} DuoChatContextItem
- * @property {string} id - The unique identifier of the item
- * @property {string} name - The name or title of the item
- * @property {boolean} isEnabled - Whether the item is enabled or not
- * @property {DuoChatContextItemInfo} info - Additional information about the item
- * @property {DuoChatContextItemType} type - The type of the item
+ * @typedef {'open_tab' | 'local_file_search'} AiContextItemSubType
  */
+
+/**
+ * @typedef {Object} AiContextItemBase
+ * @property {string} id - Unique identifier for the context item
+ * @property {string} name - Name of the context item
+ * @property {boolean} isEnabled - Whether the context item is enabled
+ * @property {AiContextItemInfo} info - Additional information about the context item
+ * @property {AiContextItemType} type - Type of the context item
+ */
+
+/**
+ * @typedef {AiContextItemBase & ({type: 'issue' | 'merge_request', subType?: never} | {type: 'file', subType: AiContextItemSubType})} AiContextItem
+ */
+
+/**
+ * @typedef {AiContextItem & {content: string}} AiContextItemWithContent
+ */
+
