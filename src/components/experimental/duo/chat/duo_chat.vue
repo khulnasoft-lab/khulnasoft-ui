@@ -212,6 +212,7 @@ export default {
       required: false,
       default: () => ({
         $on: () => {},
+        $off: () => {},
         $emit: () => {},
       }),
     },

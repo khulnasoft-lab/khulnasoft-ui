@@ -114,7 +114,7 @@ export default {
         query: '',
       });
     },
-    debouncedSearch: debounce(function () {
+    debouncedSearch: debounce(function search() {
       this.userInitiatedSearch = true;
       this.searchLoading = true;
       this.searchError = null;
