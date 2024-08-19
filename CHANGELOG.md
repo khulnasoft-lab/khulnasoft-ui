@@ -1,3 +1,10 @@
+# [89.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.4.0...v89.5.0) (2024-08-19)
+
+
+### Features
+
+* **CSS:** add base background-color and color styles on body ([e6a008c](https://gitlab.com/gitlab-org/gitlab-ui/commit/e6a008c6d84dcba4d322960cb857b7695ba75edc))
+
 # [89.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.3.0...v89.4.0) (2024-08-19)
 
 
