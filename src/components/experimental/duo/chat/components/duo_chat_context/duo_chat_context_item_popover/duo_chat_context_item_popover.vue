@@ -34,7 +34,7 @@ export default {
         name: this.item.name || '',
         project: info.project || '',
         type: this.item.type || '',
-        isEnabled: this.item.isEnabled !== false, // true by default
+        isEnabled: this.item.isEnabled !== false, 
         filePath: this.item.type === 'file' ? info.relFilePath || '' : null,
         id:
           this.item.type === 'issue' || this.item.type === 'merge_request' ? info.iid || '' : null,

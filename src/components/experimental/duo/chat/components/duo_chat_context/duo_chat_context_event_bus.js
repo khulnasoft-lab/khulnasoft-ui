@@ -1,4 +1,3 @@
-// create an object with all the event bus types you see
 export const EVENT_BUS_TYPES = {
   TOGGLE_CONTEXT_MENU: 'toggle_context_menu',
   CONTEXT_ITEM_SEARCH_QUERY: 'context_item_search_query',
