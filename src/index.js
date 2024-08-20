@@ -11,7 +11,6 @@ export { default as GlTableLite } from './components/base/table_lite/table_lite.
 export { default as GlDropdownForm } from './components/base/dropdown/dropdown_form.vue';
 export { default as GlKeysetPagination } from './components/base/keyset_pagination/keyset_pagination.vue';
 export { default as GlInputGroupText } from './components/base/form/input_group_text/input_group_text.vue';
-export { default as GlFormText } from './components/base/form/form_text/form_text.vue';
 export { default as GlFormCombobox } from './components/base/form/form_combobox/form_combobox.vue';
 export { default as GlTokenSelector } from './components/base/token_selector/token_selector.vue';
 export { default as GlNavItemDropdown } from './components/base/nav/nav_item_dropdown.vue';
