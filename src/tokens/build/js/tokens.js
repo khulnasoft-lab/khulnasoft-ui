@@ -573,6 +573,7 @@ export const GL_SPINNER_SEGMENT_COLOR_DEFAULT = '#4c4b51'; // Used for the anima
 export const GL_SPINNER_SEGMENT_COLOR_LIGHT = '#bfbfc3'; // Used for the animated segment of a loading spinner on a dark background.
 export const GL_TABLE_ROW_BACKGROUND_COLOR_HOVER = '#fbfafd'; // Used for the background of a table row in hover state.
 export const GL_TABLE_SORTING_ICON_COLOR = '#18171d'; // Used for the color of the sorting icons in the column headers.
+export const GL_TAB_SELECTED_INDICATOR_COLOR_DEFAULT = '#1f75cb'; // Used for the selected indicator of a tab.
 export const GL_CONTROL_BACKGROUND_COLOR_DEFAULT = '#fff'; // Used for form control (input, radio button, checkbox, textarea) default background.
 export const GL_CONTROL_BACKGROUND_COLOR_DISABLED = '#fbfafd'; // Used for disabled form control (checkbox, input, radio button, textarea) background.
 export const GL_CONTROL_BACKGROUND_COLOR_CONCATENATION = '#fbfafd'; // Used for the background of static content that prepends or appends a text input.
