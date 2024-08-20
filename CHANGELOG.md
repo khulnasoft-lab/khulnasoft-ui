@@ -1,3 +1,10 @@
+# [89.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.5.0...v89.6.0) (2024-08-20)
+
+
+### Features
+
+* **GlDaterangePicker:** Migrate design tokens ([a469e29](https://gitlab.com/gitlab-org/gitlab-ui/commit/a469e29dd6787c7af8687afbca59a68de55d69af))
+
 # [89.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.4.0...v89.5.0) (2024-08-19)
 
 
