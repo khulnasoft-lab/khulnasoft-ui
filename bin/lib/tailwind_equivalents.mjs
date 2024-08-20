@@ -187,7 +187,6 @@ export const tailwindEquivalents = {
   'gl-align-items-flex-start': 'gl-items-start',
   'gl-align-items-flex-start!': '!gl-items-start',
   'gl-align-items-flex-end': 'gl-items-end',
-  'gl-align-items-start': 'gl-items-start',
   'gl-align-items-stretch': 'gl-items-stretch',
   'gl-align-items-stretch!': '!gl-items-stretch',
   'gl-sm-align-items-center': 'sm:gl-items-center',

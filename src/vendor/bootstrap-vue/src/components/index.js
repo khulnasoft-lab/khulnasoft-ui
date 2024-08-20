@@ -11,6 +11,7 @@ import { ButtonGroupPlugin } from './button-group'
 import { ButtonToolbarPlugin } from './button-toolbar'
 import { CalendarPlugin } from './calendar'
 import { CardPlugin } from './card'
+import { CarouselPlugin } from './carousel'
 import { CollapsePlugin } from './collapse'
 import { DropdownPlugin } from './dropdown'
 import { EmbedPlugin } from './embed'
@@ -65,6 +66,7 @@ export const componentsPlugin = /*#__PURE__*/ pluginFactory({
     ButtonToolbarPlugin,
     CalendarPlugin,
     CardPlugin,
+    CarouselPlugin,
     CollapsePlugin,
     DropdownPlugin,
     EmbedPlugin,

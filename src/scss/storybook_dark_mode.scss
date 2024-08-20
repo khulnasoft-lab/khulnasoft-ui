@@ -18,4 +18,10 @@
   --gray-600: #{$gray-300};
 
   color-scheme: dark;
+
+  &,
+  body {
+    background-color: var(--gl-background-color-default);
+    color: var(--gl-text-color-default);
+  }
 }

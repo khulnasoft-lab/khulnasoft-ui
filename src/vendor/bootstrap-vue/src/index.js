@@ -115,6 +115,11 @@ export { BCardSubTitle } from './components/card/card-sub-title'
 export { BCardText } from './components/card/card-text'
 export { BCardTitle } from './components/card/card-title'
 
+// export * from './components/carousel'
+export { CarouselPlugin } from './components/carousel'
+export { BCarousel } from './components/carousel/carousel'
+export { BCarouselSlide } from './components/carousel/carousel-slide'
+
 // export * from './components/collapse'
 export { CollapsePlugin } from './components/collapse'
 export { BCollapse } from './components/collapse/collapse'

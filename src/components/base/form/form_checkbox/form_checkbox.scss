@@ -102,17 +102,17 @@
     }
 
     .custom-control-input[type='checkbox']:checked ~ .custom-control-label::after {
-      background-color: var(--gl-control-indicator-color-selected);
+      background-image: url('#{$gl-icon-check}');
       mask-image: url('#{$gl-icon-check}');
     }
 
     .custom-control-input[type='checkbox']:indeterminate ~ .custom-control-label::after {
-      background-color: var(--gl-control-indicator-color-selected);
+      background-image: url('#{$gl-icon-indeterminate}');
       mask-image: url('#{$gl-icon-indeterminate}');
     }
 
     .custom-control-input[type='radio']:checked ~ .custom-control-label::after {
-      background-color: var(--gl-control-indicator-color-selected);
+      background-image: url('#{$gl-icon-radio}');
       mask-image: url('#{$gl-icon-radio}');
     }
 

@@ -245,7 +245,6 @@ const alphaDarkColors = {
   8: 'var(--gl-color-alpha-dark-8, rgba(05, 05, 06, 0.08))',
   16: 'var(--gl-color-alpha-dark-16, rgba(05, 05, 06, 0.16))',
   24: 'var(--gl-color-alpha-dark-24, rgba(05, 05, 06, 0.24))',
-  40: 'var(--gl-color-alpha-dark-40, rgba(05, 05, 06, 0.4))',
 };
 const alphaLightColors = {
   2: 'var(--gl-color-alpha-light-2, rgba(255, 255, 255, 0.02))',

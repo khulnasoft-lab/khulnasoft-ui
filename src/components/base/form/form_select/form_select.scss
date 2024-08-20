@@ -11,87 +11,46 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
 .gl-form-select {
   @include gl-font-base;
   @include gl-font-regular;
+  @include gl-text-gray-900;
   @include gl-opacity-10;
   @include gl-line-height-normal;
   @include gl-py-3;
   @include gl-pl-4;
+  padding-right: $gl-spacing-scale-2 + $gl-spacing-scale-6;
   @include gl-h-auto;
-  @include gl-text-truncate;
-  @include gl-bg-no-repeat;
+  @include gl-inset-border-1-gray-400;
   @apply gl-border-none;
   appearance: none;
-  background-color: var(--gl-control-background-color-default);
-  background-image: none;
-  box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-default);
-  color: var(--gl-text-color-default);
-  padding-right: $gl-spacing-scale-2 + $gl-spacing-scale-6;
-  position: relative;
+  @include gl-text-truncate;
+  @include gl-bg-no-repeat;
+  background-image: url($gl-icon-select-chevron-down);
 
   @media (forced-colors: active) {
     box-shadow: none;
     border: 1px solid;
   }
 
-  &:hover {
-    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-hover);
-  }
-
   &:focus,
   &:focus:active {
-    @include gl-focus($color: var(--gl-control-border-color-focus), $important: true);
+    @include gl-focus($color: $gray-900, $important: true);
   }
 
   &:disabled {
+    @include gl-bg-gray-10;
+    @include gl-inset-border-1-gray-100;
+    @include gl-text-gray-500;
     @include gl-cursor-not-allowed;
-    color: var(--gl-text-color-disabled);
-    background-color: var(--gl-control-background-color-disabled);
-    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-disabled);
   }
 
   &.is-invalid:not(:disabled) {
-    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-error);
-    
-    &:hover {
-      box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-error);
-    }
+    @include gl-inset-border-1-red-400;
 
     &:focus {
-      @include gl-focus($color: var(--gl-control-border-color-error), $important: true);
+      @include gl-focus($color: $red-500, $important: true);
     }
-  }
-}
 
-// Chevron dropdown icon
-// References wrapping div because select can't have pseudo elements reliably
-.gl-form-select-wrapper {
-  position: relative;
-
-  &::after {
-    content: "";
-    background-color: var(--gl-icon-color-default);
-    mask-image: url('#{$gl-icon-select-chevron-down}');
-    mask-repeat: no-repeat;
-    mask-position: center center;
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    right: $gl-spacing-scale-4;
-    transform: translateY(-50%);
-    height: 5px;
-    width: 8px;
-
-    @media (forced-colors: active) {
-      background-color: CanvasText; // stylelint-disable-line scale-unlimited/declaration-strict-value
-    }
-  }
-
-  &:has(>.gl-form-select:disabled) {
-    &::after {
-      background-color: var(--gl-icon-color-disabled);
-
-      @media (forced-colors: active) {
-        background-color: GrayText; // stylelint-disable-line scale-unlimited/declaration-strict-value
-      }
+    &:hover {
+      @include gl-inset-border-1-red-500;
     }
   }
 }

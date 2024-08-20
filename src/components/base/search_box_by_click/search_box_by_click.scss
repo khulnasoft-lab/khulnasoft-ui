@@ -1,7 +1,7 @@
 .gl-search-box-by-click {
   @include gl-font-base;
 
-  .gl-search-box-by-click-history > .gl-button {
+  .gl-search-box-by-click-history > button {
     padding-left: $gl-spacing-scale-4 !important;
     padding-right: $gl-spacing-scale-3 !important;
     @apply gl-border-none;
@@ -10,7 +10,8 @@
     @include gl-inset-border-1-gray-400;
   }
 
-  .gl-search-box-by-click-search-button.gl-button:not(:disabled) {
+  .gl-search-box-by-click-search-button {
+    @include gl-text-secondary;
     @include gl-inset-border-1-gray-400;
   }
 

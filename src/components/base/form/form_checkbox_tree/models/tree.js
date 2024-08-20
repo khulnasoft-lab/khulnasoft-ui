@@ -45,7 +45,6 @@ export class Tree {
    * @param {object} parent The options' parent
    * @param {number} depth  The current depth-level in the tree
    */
-  // eslint-disable-next-line max-params
   initNodes(options = [], selected = [], parent = null, depth = 0) {
     if (!options.length) {
       return;

@@ -79,7 +79,7 @@
         "color": {
           "$value": {
             "default": "{color.blue.50}",
-            "dark": "{color.blue.950}"
+            "dark": "{color.blue.900}"
           },
           "$type": "color",
           "$description": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action."

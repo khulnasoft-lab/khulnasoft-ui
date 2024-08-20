@@ -746,7 +746,7 @@ export const BVTooltip = /*#__PURE__*/ extend({
       // Dropdown open events (if we are attached to a dropdown)
       this.setDropdownListener(on)
       // Periodic $element visibility check
-      // For handling when tip target is in <keepalive>, tabs, etc
+      // For handling when tip target is in <keepalive>, tabs, carousel, etc
       this.visibleCheck(on)
       // On-touch start listeners
       this.setOnTouchStartListener(on)

@@ -161,6 +161,7 @@ export default {
       return {
         type: 'line',
         symbol: 'circle',
+        hoverAnimation: false,
         animation: true,
         cursor: 'auto',
         symbolSize,

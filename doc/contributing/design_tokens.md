@@ -10,8 +10,7 @@ tokens.
 ## Usage
 
 We manage design tokens in this repository which is published on npm, and managed as a dependency
-with yarn. To upgrade to a new version run `yarn upgrade @gitlab/ui`. To build tokens locally run
- `yarn build-tokens`.
+with yarn. To upgrade to a new version run `yarn upgrade @gitlab/ui`.
 
 Design tokens are provided in different modes (default/dark) and file formats for use in CSS (custom
 properties), JavaScript (ES6 Constants/JSON), and SCSS (variables), for example:
@@ -279,74 +278,6 @@ reliably interpret their value.
 }
 ```
 
-### Extensions
-
-The Design Tokens Format Module allows for  
-[extensions](https://tr.designtokens.org/format/#extensions),  
-which are custom properties that provide additional metadata or functionality.  
-Refer to the format module for authoring extensions.  
-
-#### com.figma.scope
-
-Indicates a token's scope within Figma. Value is an array (even for tokens with a single scope)  
-and should follow the [VariableScope](https://www.figma.com/plugin-docs/api/VariableScope/)  
-type from Figma's Plugin API.
-
-```json
-{
-  "text": {
-    "$value": "#000",
-    "$type": "color",
-    "$extensions": {
-      "com.figma.scope": ["TEXT_FILL"],
-    }
-  },
-  "icon": {
-    "$value": "#333",
-    "$type": "color",
-    "$extensions": {
-      "com.figma.scope": ["SHAPE_FILL", "STROKE_COLOR"],
-    }
-  }
-}
-```
-
-#### com.gitlab.deprecated
-
-Indicates that a token is slated to be removed in the future and should
-no longer be used in new contexts.  
-It helps teams identify which tokens are outdated and plan for their eventual removal.
-
-```json
-{
-  "button": {
-    "$value": "#c0ffee",
-    "$type": "color",
-    "$extensions": {
-      "com.gitlab.deprecated": true,
-    }
-  }
-}
-```
-
-#### com.gitlab.locked
-
-Indicates that a token has a restricted scope of use and should not be
-used outside a single component.  
-This is useful for maintaining strict design consistency within specific components.
-
-```json
-{
-  "button": {
-    "$value": "#c0ffee",
-    "$type": "color",
-    "$extensions": {
-      "com.gitlab.locked": true,
-    }
-  }
-}
-```
-
 ## Modes
 
 Modes allow design tokens to update value for different use cases, for example, light and dark mode
@@ -413,19 +344,3 @@ export const TEXT_COLOR = '#000';
 ```javascript
 export const TEXT_COLOR = '#fff';
 ```
-
-## Adding and editing design tokens
-
-1. Create a new constant design token when there's a need for a reusable value that represents a
-specific design attribute across the system, otherwise keep new values limited to a specific
-context.
-   1. Follow existing naming conventions.
-   1. Keep in mind that a new constant design token encourages wider use while a contextual one has
-   limited use.
-1. A new or edited token should be reviewed by ~"group::design system" to ensure it aligns with the
-system.
-
-## Deprecation
-
-Add `"deprecated": true` to deprecated token JSON. When all tokens in a file are deprecated move to
-a `deprecated.*.json` file.

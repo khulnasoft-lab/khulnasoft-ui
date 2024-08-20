@@ -1,5 +1,4 @@
 <script>
-// eslint-disable-next-line max-params
 const makePathRect = (startX, startY, width, height) =>
   `M${startX},${startY}H${startX + width}V${startY + height}H${startX}Z`;
 

@@ -1,0 +1,29 @@
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators li {
+  &:focus {
+    @include gl-focus;
+  }
+}
+
+// Make size of focus border on indicator and prev/next button equal to themselves
+.carousel-indicators li {
+  @apply gl-border-t-0 gl-border-b-0;
+  margin-bottom: 10px;
+}
+
+.carousel-control-prev {
+  margin-left: 7%;
+}
+
+.carousel-control-next {
+  margin-right: 7%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
