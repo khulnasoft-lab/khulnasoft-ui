@@ -1,0 +1,18 @@
+.gl-duo-chat-context-item-disabled {
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    background: var(--gl-control-background-color-disabled);
+    color: var(--gl-text-color-disabled);
+    cursor: not-allowed;
+  }
+
+  span {
+    color: var(--gl-text-color-disabled);
+  }
+
+  .gl-icon {
+    color: var(--gl-text-color-disabled);
+  }
+}

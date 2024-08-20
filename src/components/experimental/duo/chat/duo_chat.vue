@@ -336,6 +336,9 @@ export default {
   mounted() {
     this.scrollToBottom();
   },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleContextMenuKeydown);
+  },
   methods: {
     compositionEnd() {
       this.compositionJustEnded = true;
@@ -407,12 +410,6 @@ export default {
     onInputKeyup(e) {
       const { key } = e;
 
-      if (this.contextMenuOpen) {
-        this.$refs.contextItemMenu.handleKeydown(e);
-        this.compositionJustEnded = false;
-        return;
-      }
-
       if (this.shouldShowSlashCommands) {
         e.preventDefault();
 
@@ -460,7 +457,7 @@ export default {
         this.sendChatPrompt();
       } else {
         this.setPromptAndFocus(`${command.name} `);
-        if (command.name === '/include') {
+        if (command.name === '/include' && this.contextCategories.length > 0) {
           this.showContextItemMenu(true);
         }
       }
@@ -469,16 +466,32 @@ export default {
       this.$emit('insert-code-snippet', e);
     },
 
-    showContextItemMenu(show = true) {
+    async showContextItemMenu(show = true) {
       this.contextMenuOpen = show;
-      this.contextItemMenuEventBus.$emit(EVENT_BUS_TYPES.TOGGLE_CONTEXT_MENU, show);
+
+      if (show) {
+        await this.$nextTick();
+        this.$refs.prompt.$el.blur();
+        document.addEventListener('keydown', this.handleContextMenuKeydown);
+        await this.$nextTick();
+        this.$refs.contextItemMenu.focusSearchInput();
+      } else {
+        document.removeEventListener('keydown', this.handleContextMenuKeydown);
+        this.$refs.prompt.$el.focus();
+      }
     },
 
-    handleContextItemAdded() {
+    async handleContextMenuKeydown(event) {
+      if (this.contextMenuOpen) {
+        this.$refs.contextItemMenu.handleKeydown(event);
+      }
+    },
+
+    async handleContextItemAdded() {
       this.prompt = this.prompt.replace('/include', '').trim();
-      this.$nextTick(() => {
-        this.$refs.prompt.$el.focus();
-      });
+      await this.$nextTick();
+      this.$refs.prompt.$el.focus();
+      this.contextMenuOpen = false;
     },
   },
   i18n,
@@ -637,14 +650,15 @@ export default {
               @keyup.native="onInputKeyup"
               @compositionend="compositionEnd"
             />
-
             <gl-duo-chat-context-item-menu
               ref="contextItemMenu"
+              :open="contextMenuOpen"
               :cursor-position="cursorPosition"
               :event-bus="contextItemMenuEventBus"
               :categories="contextCategories"
               class="gl-absolute"
               style="top: 0; left: 0"
+              @toggle="showContextItemMenu"
             />
           </div>
           <template #append>

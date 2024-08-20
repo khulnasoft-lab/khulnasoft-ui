@@ -19,6 +19,10 @@ export default {
     GlLoadingIcon,
   },
   props: {
+    open: {
+      type: Boolean,
+      required: true,
+    },
     eventBus: {
       type: Object,
       required: true,
@@ -41,7 +45,6 @@ export default {
       searchQuery: '',
       contextItems: [],
       activeIndex: 0,
-      showContextItemDropdown: false,
       userInitiatedSearch: false,
       searchLoading: false,
       searchError: null,
@@ -49,41 +52,28 @@ export default {
   },
   computed: {
     showCategorySelection() {
-      return this.showContextItemDropdown && !this.selectedCategory;
+      return this.open && !this.selectedCategory;
     },
     showItemSearch() {
-      return this.showContextItemDropdown && this.selectedCategory;
+      return this.open && this.selectedCategory;
     },
     currentItems() {
       return this.showCategorySelection ? this.categories : this.contextItems;
     },
   },
   watch: {
-    showContextItemDropdown(newVal) {
-      if (newVal) {
-        this.activeIndex = 0;
-        this.$nextTick(() => {
-          this.focusSearchInput();
-        });
-      }
-    },
     selectedCategory() {
       this.activeIndex = 0;
-      this.$nextTick(() => {
-        this.focusSearchInput();
-      });
     },
     contextItems() {
       this.activeIndex = 0;
     },
   },
   created() {
-    this.eventBus.$on(EVENT_BUS_TYPES.TOGGLE_CONTEXT_MENU, this.toggleContextMenu);
     this.eventBus.$on(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_RESULT, this.handleSearchResult);
     this.eventBus.$on(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_ERROR, this.handleSearchError);
   },
   beforeDestroy() {
-    this.eventBus.$off(EVENT_BUS_TYPES.TOGGLE_CONTEXT_MENU, this.toggleContextMenu);
     this.eventBus.$off(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_RESULT, this.handleSearchResult);
     this.eventBus.$off(EVENT_BUS_TYPES.CONTEXT_ITEM_SEARCH_ERROR, this.handleSearchError);
   },
@@ -92,7 +82,6 @@ export default {
       return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
     },
     toggleContextMenu(show) {
-      this.showContextItemDropdown = show;
       if (show) {
         this.activeIndex = 0;
         this.$nextTick(() => {
@@ -100,9 +89,14 @@ export default {
         });
       }
     },
-    focusSearchInput() {
-      if (this.showItemSearch && this.$refs.searchInput && this.$refs.searchInput.$el) {
-        this.$refs.searchInput.$el.focus();
+    async focusSearchInput() {
+      if (
+        this.showItemSearch &&
+        this.$refs.contextMenuSearchInput &&
+        this.$refs.contextMenuSearchInput.$el
+      ) {
+        await this.$nextTick();
+        this.$refs.contextMenuSearchInput.$el.focus();
       }
     },
     selectCategory(category) {
@@ -143,7 +137,6 @@ export default {
       this.searchQuery = '';
       this.contextItems = [];
       this.activeIndex = 0;
-      this.showContextItemDropdown = false;
     },
     scrollActiveItemIntoView() {
       this.$nextTick(() => {
@@ -154,8 +147,6 @@ export default {
       });
     },
     handleKeydown(e) {
-      if (!this.showContextItemDropdown) return;
-
       if (this.showItemSearch && !['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
         this.focusSearchInput();
         return;
@@ -186,15 +177,11 @@ export default {
           break;
         case 'Escape':
           e.preventDefault();
-          this.eventBus.$emit(EVENT_BUS_TYPES.TOGGLE_CONTEXT_MENU, false);
+          this.$emit('toggle', false);
+          this.selectedCategory = null;
           break;
         default:
           break;
-      }
-    },
-    onSearchInputKeydown(e) {
-      if (['ArrowDown', 'ArrowUp', 'Enter', 'Escape'].includes(e.key)) {
-        this.handleKeydown(e);
       }
     },
     handleSearchError(error) {
@@ -208,7 +195,7 @@ export default {
 
 <template>
   <gl-card
-    v-if="showContextItemDropdown"
+    v-if="open"
     class="slash-commands context-item-card gl-position-absolute !gl-absolute gl-w-full -gl-translate-y-full gl-list-none gl-pl-0 gl-shadow-md"
     body-class="!gl-p-2"
   >
@@ -216,7 +203,7 @@ export default {
       <ul class="list-unstyled gl-mb-0">
         <li v-for="(category, index) in categories" :key="category.value">
           <gl-dropdown-item
-            :class="{ 'gl-bg-gray-50': index === activeIndex, 'hover:gl-bg-gray-50': true }"
+            :class="{ 'active-command': index === activeIndex }"
             @click="selectCategory(category)"
           >
             <div class="gl-display-flex gl-align-items-center">
@@ -237,9 +224,8 @@ export default {
             <gl-dropdown-item
               :id="`dropdown-item-${index}`"
               :class="[
-                { 'gl-bg-gray-50': index === activeIndex },
-                { 'disabled-item': !item.isEnabled },
-                'hover:gl-bg-gray-50',
+                { 'active-command': index === activeIndex },
+                { 'gl-duo-chat-context-item-disabled': !item.isEnabled },
               ]"
               @click="item.isEnabled && selectItem(item)"
             >
@@ -248,10 +234,10 @@ export default {
                   <gl-icon
                     :name="selectedCategory.icon"
                     class="gl-mr-2 gl-flex-shrink-0"
-                    :class="{ 'gl-text-gray-500': !item.isEnabled }"
+                    :class="{ 'disabled-context-item': !item.isEnabled }"
                   />
                   <span
-                    :class="{ 'gl-text-gray-500': !item.isEnabled }"
+                    :class="{ 'disabled-context-item': !item.isEnabled }"
                     class="gl-white-space-nowrap"
                   >
                     {{ item.name }}
@@ -309,12 +295,12 @@ export default {
         </div>
       </div>
       <gl-form-input
-        ref="searchInput"
+        ref="contextMenuSearchInput"
         v-model="searchQuery"
         :placeholder="`Search ${selectedCategory.label.toLowerCase()}...`"
         class="gl-mb-3"
         @input="debouncedSearch"
-        @keydown="onSearchInputKeydown"
+        @keydown="handleKeydown"
       />
     </template>
   </gl-card>
@@ -330,14 +316,4 @@ export default {
   max-height: 300px;
   overflow-y: auto;
 }
-
-.disabled-item {
-  cursor: not-allowed;
-  background-color: #f9f9f9;
-}
-
-.disabled-item:hover {
-  background-color: #f9f9f9 !important;
-}
 </style>
-gv
