@@ -30,6 +30,7 @@ export function test(received) {
   return received instanceof Element && !visited.has(received);
 }
 
+// eslint-disable-next-line max-params
 export function serialize(received, config, indentation, depth, refs, printer) {
   const clone = received.cloneNode(true);
   visited.add(clone);

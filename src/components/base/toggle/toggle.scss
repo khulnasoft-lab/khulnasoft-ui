@@ -18,6 +18,10 @@
 *  </button>
 */
 
+$toggle-width: 4.5 * $grid-size;
+$toggle-translate-width: 2 * $grid-size;
+$toggle-height: 2.5 * $grid-size;
+
 .gl-toggle-wrapper {
   @include gl-line-height-normal;
   @include gl-font-weight-normal;
@@ -83,10 +87,9 @@
   @apply gl-border-0;
   @include gl-cursor-pointer;
   @include gl-bg-gray-600;
-  @include gl-p-1;
   position: relative;
-  @include gl-w-9;
-  @include gl-h-6;
+  width: $toggle-width;
+  height: $toggle-height;
   @include gl-outline-none;
   user-select: none;
   @include gl-rounded-pill;
@@ -129,9 +132,9 @@
     @include gl-p-1;
 
     > svg {
-      @include gl-w-5;
-      @include gl-h-5;
-      @include gl-fill-gray-400;
+      @include gl-w-4;
+      @include gl-h-4;
+      @include gl-fill-gray-600;
       @include gl-vertical-align-baseline;
     }
   }
@@ -147,7 +150,7 @@
     }
 
     .toggle-icon {
-      transform: translateX($gl-spacing-scale-6);
+      transform: translateX($toggle-translate-width);
 
       > svg {
         @include gl-fill-blue-500;

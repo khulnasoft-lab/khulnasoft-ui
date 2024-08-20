@@ -1,29 +1,34 @@
 .gl-tabs-nav {
-  @apply gl-border-solid gl-border-gray-100 gl-border-0 gl-border-b-1;
+  @apply gl-border-b;
 }
 
 .gl-tab-nav-item {
   position: relative;
-  @include gl-text-gray-900;
   @include gl-px-4;
   @include gl-py-5;
   @include gl-line-height-normal;
   @include gl-font-base;
   @include gl-display-flex;
   @include gl-justify-content-center;
-  @include gl-overflow-hidden;
-  transition: box-shadow $gl-transition-duration-medium $gl-easing-out-cubic,
-              border-radius $gl-transition-duration-fast $gl-easing-out-cubic;
+  @apply gl-border;
+  @include gl-action-neutral-colors;
+  transition:
+    box-shadow $gl-transition-duration-medium $gl-easing-out-cubic,
+    background-color $gl-transition-duration-medium $gl-easing-out-cubic,
+    border-radius $gl-transition-duration-fast $gl-easing-out-cubic;
 
   &::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    width: 100%;
     border-bottom: $gl-border-size-2 solid transparent;
     translate: 0 $gl-border-size-2;
-    transition: border-bottom $gl-transition-duration-medium $gl-easing-out-cubic,
-                translate $gl-transition-duration-medium $gl-easing-out-cubic;
+    transition:
+      border-bottom $gl-transition-duration-medium $gl-easing-out-cubic,
+      translate $gl-transition-duration-medium $gl-easing-out-cubic;
+    //offsets the bottom border from the parent border
+    bottom: -$gl-border-size-1;
+    left: -$gl-border-size-1;
+    right: -$gl-border-size-1;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -32,12 +37,8 @@
     }
   }
 
-  &:hover {
-    @include gl-text-gray-900;
-  }
-
   &:hover:not(.gl-tab-nav-item-active)::before {
-    border-bottom-color: $gray-200;
+    border-bottom-color: var(--gl-border-color-strong);
     translate: 0;
   }
 
@@ -48,7 +49,7 @@
   &.disabled {
     @include gl-pointer-events-auto;
     @include gl-cursor-not-allowed;
-    @include gl-text-gray-400;
+    color: var(--gl-action-disabled-foreground-color);
 
     &:hover {
       @include gl-shadow-none;
@@ -65,23 +66,38 @@
   @include gl-py-3;
   @include gl-font-base;
   @include gl-line-height-normal;
-  @include gl-text-gray-900;
+  color: var(--gl-text-color-default);
 }
 
 .gl-tab-nav-item-active {
   @include gl-font-weight-bold;
-  @include gl-text-gray-900;
   z-index: 1;
 
   &:active,
   &:focus,
   &:focus:active {
-    @include gl-outline-none;
-    @include gl-focus;
+    @include gl-focus($color: var(--gl-action-neutral-border-color-active));
+
+    .gl-scrollable-tabs-nav & {
+      @include gl-focus($inset: true);
+
+      &::before {
+        border-radius: 0 0 $gl-border-size-1 $gl-border-size-1;
+        left: $gl-border-size-3;
+        right: $gl-border-size-3;
+        bottom: $gl-border-size-3;
+      }
+    }
+
+    &::before {
+      border-radius: 0 0 $gl-border-size-2 $gl-border-size-2;
+      left: 0;
+      right: 0;
+    }
   }
 
   &::before {
-    border-bottom-color: $blue-500;
+    border-bottom-color: var(--gl-tab-selected-indicator-color-default);
     translate: 0;
   }
 }
@@ -121,25 +137,23 @@
   @include gl-w-8;
   bottom: 0;
   position: sticky;
-  @include gl-text-gray-500;
   @include gl-p-2;
 }
 
 .gl-tabs-fade-left {
   left: 0;
-  @include gl-bg-gradient-blur(left, $white);
+  @include gl-bg-gradient-blur(left, var(--gl-background-color-default));
 }
 
 .gl-tabs-fade-right {
   right: 0;
-  @include gl-bg-gradient-blur(right, $white);
+  @include gl-bg-gradient-blur(right, var(--gl-background-color-default));
 }
 
 .gl-tabs-fade-icon-button {
-  @include gl-bg-transparent;
-  @apply gl-border-none;
+  @apply gl-border;
+  @include gl-action-neutral-colors;
   @include gl-p-0;
-  @include gl-text-gray-400;
   @include gl-h-full;
 }
 

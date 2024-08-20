@@ -3,6 +3,7 @@ import { formStateOptions, formInputWidths } from '../../../../utils/constants';
 import { formSelectOptions } from './constants';
 import GlFormSelect from './form_select.vue';
 
+const SELECT_WRAPPER_CLASS = 'gl-form-select-wrapper';
 const DEFAULT_SELECT_CLASSES = ['gl-form-select', 'custom-select'];
 const excludeDefaultNull = (values) => Object.values(values).filter((value) => value !== null);
 
@@ -14,6 +15,7 @@ describe('GlFormSelect', () => {
       propsData,
     });
   };
+  const findSelect = () => wrapper.find('.gl-form-select');
 
   describe('state prop', () => {
     it.each`
@@ -25,7 +27,7 @@ describe('GlFormSelect', () => {
     `('adds $expectedClass class for state $state', ({ state, expectedClasses }) => {
       createComponent({ state });
 
-      expect(wrapper.classes().sort()).toEqual(
+      expect(findSelect().classes().sort()).toEqual(
         [...DEFAULT_SELECT_CLASSES, ...expectedClasses].sort()
       );
     });
@@ -39,20 +41,20 @@ describe('GlFormSelect', () => {
       createComponent({ width });
 
       expect(wrapper.classes().sort()).toEqual(
-        [...DEFAULT_SELECT_CLASSES, `gl-form-select-${width}`].sort()
+        [SELECT_WRAPPER_CLASS, `gl-form-select-${width}`].sort()
       );
     });
 
     it('does not add a width class if not given the width prop', () => {
       createComponent();
 
-      expect(wrapper.classes().sort()).toEqual([...DEFAULT_SELECT_CLASSES].sort());
+      expect(wrapper.classes()).toEqual([SELECT_WRAPPER_CLASS]);
     });
 
     it('does not add a width class if passed null', () => {
       createComponent({ width: null });
 
-      expect(wrapper.classes().sort()).toEqual([...DEFAULT_SELECT_CLASSES].sort());
+      expect(wrapper.classes()).toEqual([SELECT_WRAPPER_CLASS]);
     });
   });
 

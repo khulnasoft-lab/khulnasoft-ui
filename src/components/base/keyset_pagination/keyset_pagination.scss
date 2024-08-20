@@ -5,12 +5,5 @@
     .gl-icon {
       @include gl-m-0;
     }
-
-    &.disabled,
-    &[disabled] {
-      .gl-icon {
-        @include gl-text-gray-400;
-      }
-    }
   }
 }

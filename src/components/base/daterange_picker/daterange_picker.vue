@@ -332,7 +332,14 @@ export default {
     >
       <!-- @slot Content to display for days selected. The value is -1 when no date range is selected.-->
       <slot v-bind="{ daysSelected: numberOfDays }"></slot>
-      <gl-icon v-if="tooltip" v-gl-tooltip name="information-o" :title="tooltip" :size="16" />
+      <gl-icon
+        v-if="tooltip"
+        v-gl-tooltip
+        name="information-o"
+        :title="tooltip"
+        :size="16"
+        variant="info"
+      />
     </div>
   </div>
 </template>

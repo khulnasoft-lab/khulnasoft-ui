@@ -12,6 +12,13 @@ $gl-avatar-identicon-bgs: var(--gl-avatar-fallback-background-color-red),
   var(--gl-avatar-fallback-background-color-orange),
   var(--gl-avatar-fallback-background-color-neutral);
 
+$gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
+  var(--gl-avatar-fallback-text-color-purple),
+  var(--gl-avatar-fallback-text-color-purple), var(--gl-avatar-fallback-text-color-blue),
+  var(--gl-avatar-fallback-text-color-green),
+  var(--gl-avatar-fallback-text-color-orange),
+  var(--gl-avatar-fallback-text-color-neutral);
+
 @mixin gl-avatar {
   @include gl-display-inline-flex;
   @include gl-overflow-hidden;
@@ -215,6 +222,7 @@ $gl-avatar-identicon-bgs: var(--gl-avatar-fallback-background-color-red),
 // Background colors
 @for $i from 1 through length($gl-avatar-identicon-bgs) {
   .gl-avatar-identicon-bg#{$i} {
+    color: nth($gl-avatar-identicon-texts, $i);
     background-color: nth($gl-avatar-identicon-bgs, $i);
   }
 }

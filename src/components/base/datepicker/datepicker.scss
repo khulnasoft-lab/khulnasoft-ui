@@ -1,22 +1,21 @@
 // pikaday colors override
-$pd-text-color: $gray-900;
-$pd-title-color: $gray-900;
-$pd-title-bg: $white;
-$pd-picker-bg: $white;
-$pd-picker-border: $border-color;
-$pd-picker-border-bottom: $border-color;
-$pd-picker-shadow: rgba(0, 0, 0, 0.5);
-$pd-th-color: $gray-500;
-$pd-day-color: $gray-900;
+$pd-text-color: var(--gl-text-color-default);
+$pd-title-color: var(--gl-action-neutral-foreground-color-default);
+$pd-title-bg: var(--gl-action-neutral-background-color-default);
+$pd-picker-bg: var(--gl-datepicker-background-color);
+$pd-picker-border: var(--gl-border-color-default);
+$pd-picker-border-bottom: var(--gl-border-color-default);
+$pd-th-color: var(--gl-text-color-subtle);
+$pd-day-color: var(--gl-text-color-default);
 $pd-day-bg: transparent;
-$pd-day-hover-color: $gray-500;
-$pd-day-hover-bg: $gray-50;
-$pd-day-today-color: $gray-900;
-$pd-day-selected-color: $gray-50;
-$pd-day-selected-bg: $blue-500;
-$pd-day-selected-shadow: $blue-500;
-$pd-day-disabled-color: $gray-500;
-$pd-week-color: $gray-500;
+$pd-day-hover-color: var(--gl-text-color-default);
+$pd-day-hover-bg: transparent;
+$pd-day-today-color: var(--gl-text-color-default);
+$pd-day-selected-color: var(--gl-datepicker-date-text-color-selected);
+$pd-day-selected-bg: var(--gl-control-background-color-selected-default);
+$pd-day-selected-shadow: var(--gl-control-background-color-selected-default);
+$pd-day-disabled-color: var(--gl-text-color-disabled);
+$pd-week-color: var(--gl-text-color-subtle);
 
 @import 'pikaday/scss/pikaday';
 
@@ -42,9 +41,14 @@ $pd-week-color: $gray-500;
   @apply gl-border-none;
   @apply gl-rounded-base;
   @include gl-mt-3;
+  background-color: var(--gl-datepicker-background-color);
 
   &.is-bound {
     @include gl-shadow-md;
+
+    @media (forced-colors: active) {
+      border: 1px solid;
+    }
   }
 
   .pika-lendar {
@@ -52,7 +56,6 @@ $pd-week-color: $gray-500;
     @include gl-pt-5;
     @include gl-px-3;
     @include gl-pb-3;
-    @include gl-inset-border-1-gray-100;
     @apply gl-rounded-base;
   }
 
@@ -64,37 +67,106 @@ $pd-week-color: $gray-500;
 
   .pika-next,
   .pika-prev {
-    @include gl-bg-center;
-    @include gl-bg-no-repeat;
-    @include gl-bg-size-100p;
+    @apply gl-rounded-small;
     @include gl-w-5;
     @include gl-h-5;
-
-    &:hover {
-      @include gl-rounded-small;
-      @include gl-bg-gray-50;
-    }
 
     &.is-disabled {
       @include gl-cursor-not-allowed;
     }
+
+    @media (forced-colors: none) {
+      background-color: var(--gl-action-neutral-background-color-default);
+      box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-neutral-border-color-default);
+      background-image: none;
+      opacity: 100%;
+
+      &::before {
+        /* Apply a slightly larger border-radius to the ::before pseudo-element
+        to prevent background color shimmer issue in Safari.
+        This is necessary because the parent element (which already has a border-radius)
+        requires the ::before element to extend beyond its edges to ensure proper coverage. */
+        @apply gl-rounded-lg;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--gl-action-neutral-foreground-color-default);
+      }
+
+      &:not(.is-disabled):hover {
+        background-color: var(--gl-action-neutral-background-color-hover);
+
+        &::before {
+          background-color: var(--gl-action-neutral-foreground-color-hover);
+        }
+      }
+
+      &:not(.is-disabled):focus {
+        background-color: var(--gl-action-neutral-background-color-focus);
+
+        &::before {
+          background-color: var(--gl-action-neutral-foreground-color-focus);
+        }
+      }
+
+      &:not(.is-disabled):active {
+        background-color: var(--gl-action-neutral-background-color-active);
+
+        &::before {
+          background-color: var(--gl-action-neutral-foreground-color-active);
+        }
+      }
+
+      &.is-disabled::before {
+        background-color: var(--gl-action-disabled-foreground-color);
+      }
+    }
+
+    @media (forced-colors: active) {
+      border: 1px solid;
+    }
   }
 
   .pika-next {
-    @include gl-bg-chevron-right;
+    &::before {
+      mask-image: url('#{$gl-icon-chevron-right}');
+    }
+
+    @media (forced-colors: active) {
+      background-image: url('#{$gl-icon-chevron-right}');
+    }
   }
 
   .pika-prev {
-    @include gl-bg-chevron-left;
+    &::before {
+      mask-image: url('#{$gl-icon-chevron-left}');
+    }
+
+    @media (forced-colors: active) {
+      background-image: url('#{$gl-icon-chevron-left}');
+    }
   }
 
   .pika-label {
+    @apply gl-rounded-small;
     @include gl-font-base;
     @include gl-py-0;
 
+    background-color: var(--gl-action-neutral-background-color-default);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-neutral-border-color-default);
+    color: var(--gl-action-neutral-foreground-color-default);
+
     &:hover {
-      @include gl-rounded-small;
-      @include gl-bg-gray-50;
+      background-color: var(--gl-action-neutral-background-color-hover);
+      box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-neutral-border-color-hover);
+      color: var(--gl-action-neutral-foreground-color-hover);
+    }
+
+    @media (forced-colors: active) {
+      border: 1px solid;
     }
   }
 
@@ -123,19 +195,34 @@ $pd-week-color: $gray-500;
     @include gl-w-7;
     @include gl-font-base;
 
-    &.is-past-date {
-      @include gl-text-gray-400;
+    &:hover {
+      box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-hover);
+    }
+
+    @media (forced-colors: active) {
+      border: 1px solid;
     }
   }
 
   .is-today > .pika-button {
     @include gl-font-weight-bold;
-    @include gl-text-gray-900;
   }
 
   .is-selected > .pika-button {
-    @include gl-bg-blue-500;
     @include gl-font-weight-normal;
-    @include gl-text-white;
+
+    &:hover {
+      background-color: var(--gl-control-background-color-selected-hover);
+      color: var(--gl-datepicker-date-text-color-selected);
+      box-shadow: none;
+    }
+  }
+
+  .is-selected.is-today > .pika-button {
+    @include gl-font-weight-bold;
+  }
+
+  .is-disabled {
+    @include gl-cursor-not-allowed;
   }
 }

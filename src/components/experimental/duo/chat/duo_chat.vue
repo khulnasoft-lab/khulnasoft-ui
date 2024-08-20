@@ -390,9 +390,16 @@ export default {
       this.scrolledToBottom = scrollTop + offsetHeight >= scrollHeight;
     },
     async scrollToBottom() {
+      // This method is also called directly by consumers of this component
+      // https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/blob/3269f6200dc3821c62a3992b40c971dd9ee55d87/webviews/vue2/gitlab_duo_chat/src/App.vue#L97
       await this.$nextTick();
 
       this.$refs.anchor?.scrollIntoView?.();
+    },
+    focusChatInput() {
+      // This method is also called directly by consumers of this component
+      // https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/blob/dae2d4669ab4da327921492a2962beae8a05c290/webviews/vue2/gitlab_duo_chat/src/App.vue#L109
+      this.$refs.prompt?.$el?.focus();
     },
     onTrackFeedback(event) {
       /**
@@ -448,7 +455,7 @@ export default {
     async setPromptAndFocus(prompt = '') {
       this.prompt = prompt;
       await this.$nextTick();
-      this.$refs.prompt.$el.focus();
+      this.focusChatInput();
     },
     selectSlashCommand(index) {
       const command = this.filteredSlashCommands[index];
