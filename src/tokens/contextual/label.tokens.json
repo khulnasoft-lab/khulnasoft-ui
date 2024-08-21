@@ -3,7 +3,10 @@
     "light": {
       "text": {
         "color": {
-          "$value": "{color.neutral.950}",
+          "$value": {
+            "default": "{color.neutral.950}",
+            "dark": "{color.neutral.0}"
+          },
           "$type": "color",
           "$description": "Used for the label text color on a light background color."
         }
@@ -17,7 +20,10 @@
               "$description": "Used for the label remove button background on a light background color in the default state."
             },
             "hover": {
-              "$value": "{color.neutral.950}",
+              "$value": {
+                "default": "{color.neutral.950}",
+                "dark": "{color.neutral.0}"
+              },
               "$type": "color",
               "$description": "Used for the label remove button background on a light background color in the hover state."
             }
@@ -26,7 +32,10 @@
         "icon": {
           "color": {
             "default": {
-              "$value": "{color.neutral.950}",
+              "$value": {
+                "default": "{color.neutral.950}",
+                "dark": "{color.neutral.0}"
+              },
               "$type": "color",
               "$description": "Used for the label remove button icon on a light background color in the default state."
             }

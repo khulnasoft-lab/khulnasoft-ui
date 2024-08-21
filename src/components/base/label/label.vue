@@ -73,8 +73,9 @@ export default {
     },
     cssVariables() {
       return {
-        '--label-background-color-solid': this.backgroundColor,
-        '--label-background-color-alpha': `${this.backgroundColor}a3`,
+        '--label-background-color-100': this.backgroundColor,
+        '--label-background-color-80': `${this.backgroundColor}cc`,
+        '--label-background-color-40': `${this.backgroundColor}66`,
       };
     },
     scopedKey() {
