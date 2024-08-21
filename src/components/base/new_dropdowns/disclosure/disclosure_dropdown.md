@@ -84,7 +84,7 @@ type Item = {
   // or, a Vue router link with `to`
   to?: string;
   // Item action
-  action?: (item: Item) => void;
+  action?: (item: Item, event: MouseEvent) => void;
   // Set of extra attributes applied directly to the element
   extraAttrs?: Object;
   // Additional class/classes applied to the item wrapper

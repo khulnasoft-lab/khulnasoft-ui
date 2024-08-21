@@ -40,7 +40,7 @@ describe('GlDisclosureDropdownItem', () => {
       trigger();
       const emittedAction = wrapper.emitted('action');
       expect(emittedAction).toHaveLength(1);
-      expect(emittedAction).toEqual([[item]]);
+      expect(emittedAction).toEqual([[item, expect.any(Event)]]);
     });
 
     it('sets tabIndex on li element', () => {
@@ -82,7 +82,7 @@ describe('GlDisclosureDropdownItem', () => {
       findLink().trigger('click');
       const emittedAction = wrapper.emitted('action');
       expect(emittedAction).toHaveLength(1);
-      expect(emittedAction).toEqual([[item]]);
+      expect(emittedAction).toEqual([[item, expect.any(Event)]]);
     });
 
     it.each`
@@ -93,7 +93,7 @@ describe('GlDisclosureDropdownItem', () => {
       trigger();
       const emittedAction = wrapper.emitted('action');
       expect(emittedAction).toHaveLength(1);
-      expect(emittedAction).toEqual([[item]]);
+      expect(emittedAction).toEqual([[item, expect.any(Event)]]);
     });
 
     it('sets tabIndex on link element', () => {
@@ -131,11 +131,12 @@ describe('GlDisclosureDropdownItem', () => {
       expect(actionThisArg).toBe(undefined);
 
       const actionArgs = action.mock.calls[0];
-      expect(actionArgs).toEqual([item]);
+
+      expect(actionArgs).toEqual([item, expect.any(Event)]);
 
       const emittedAction = wrapper.emitted('action');
       expect(emittedAction).toHaveLength(1);
-      expect(emittedAction).toEqual([[item]]);
+      expect(emittedAction).toEqual([[item, expect.any(Event)]]);
     });
 
     it.each`
@@ -145,11 +146,11 @@ describe('GlDisclosureDropdownItem', () => {
     `(`$event on parent will execute action and emit 'action' event`, ({ trigger }) => {
       trigger();
       expect(action).toHaveBeenCalledTimes(1);
-      expect(action.mock.calls[0]).toEqual([item]);
+      expect(action.mock.calls[0]).toEqual([item, expect.any(Event)]);
 
       const emittedAction = wrapper.emitted('action');
       expect(emittedAction).toHaveLength(1);
-      expect(emittedAction).toEqual([[item]]);
+      expect(emittedAction).toEqual([[item, expect.any(Event)]]);
     });
 
     it('should apply the default classes to the item wrapper', () => {

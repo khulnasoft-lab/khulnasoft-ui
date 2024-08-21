@@ -49,9 +49,9 @@ export default {
           type: 'button',
         },
         listeners: {
-          click: () => {
-            item?.action?.call(undefined, item);
-            this.action();
+          click: (event) => {
+            item?.action?.call(undefined, item, event);
+            this.action(event);
           },
         },
       };
@@ -81,7 +81,7 @@ export default {
 
       if (code === ENTER || code === SPACE) {
         if (this.isCustomContent) {
-          this.action();
+          this.action(event);
         } else {
           stopEvent(event);
           /** Instead of simply navigating or calling the action, we want
@@ -97,8 +97,8 @@ export default {
         }
       }
     },
-    action() {
-      this.$emit('action', this.item);
+    action(event) {
+      this.$emit('action', this.item, event);
     },
   },
 };
