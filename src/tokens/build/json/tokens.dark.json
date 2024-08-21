@@ -12310,6 +12310,62 @@
       }
     }
   },
+  "link": {
+    "mention": {
+      "background": {
+        "color": {
+          "default": {
+            "value": "#064787",
+            "$type": "color",
+            "comment": "Used for the mention link default background.",
+            "filePath": "src/tokens/contextual/link.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.100}",
+                "dark": "{color.blue.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the mention link default background."
+            },
+            "name": "LINK_MENTION_BACKGROUND_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "link",
+              "mention",
+              "background",
+              "color",
+              "default"
+            ]
+          },
+          "current": {
+            "value": "#703800",
+            "$type": "color",
+            "comment": "Used for the mention link background when referencing the current user.",
+            "filePath": "src/tokens/contextual/link.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.orange.100}",
+                "dark": "{color.orange.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the mention link background when referencing the current user."
+            },
+            "name": "LINK_MENTION_BACKGROUND_COLOR_CURRENT",
+            "attributes": {},
+            "path": [
+              "link",
+              "mention",
+              "background",
+              "color",
+              "current"
+            ]
+          }
+        }
+      }
+    }
+  },
   "popover": {
     "background": {
       "color": {
