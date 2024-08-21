@@ -51,7 +51,7 @@
 
   // Deprecated, soon to be removed
   .text-gl-muted {
-    color: var(--gl-text-color-subtle);
+    @apply gl-text-subtle #{!important};
   }
 
   legend {
