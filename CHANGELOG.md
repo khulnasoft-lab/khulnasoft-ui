@@ -1,3 +1,10 @@
+# [89.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.6.0...v89.7.0) (2024-08-21)
+
+
+### Features
+
+* **Alert:** Update darkmode ([54007c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/54007c2949c79c1d1ab29e26b2578774ada1c25e))
+
 # [89.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.5.0...v89.6.0) (2024-08-20)
 
 
