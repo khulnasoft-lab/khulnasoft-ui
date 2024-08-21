@@ -13,6 +13,9 @@ default:
   tags:
     - gitlab-org
 
+variables:
+  GITLAB_ADVANCED_SAST_ENABLED: 'true'
+
 include:
   - template: Jobs/Code-Quality.gitlab-ci.yml
   - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
@@ -47,6 +50,9 @@ gemnasium-dependency_scanning:
   needs: []
 
 semgrep-sast:
+  needs: []
+
+gitlab-advanced-sast:
   needs: []
 
 nodejs-scan-sast:
