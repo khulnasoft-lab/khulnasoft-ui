@@ -15,6 +15,10 @@ const popoverDelayConfig = {
   hide: 150, // Increased hide delay so that it doesn't disappear to quickly when user attempts to interact with the content.
 };
 
+const bFormTextGlobalConfig = {
+  textVariant: 'gl-muted',
+};
+
 /**
  * Guard against nonexistent localStorage,
  * or corrupted localStorage
@@ -58,6 +62,7 @@ const setConfigs = ({ translations, useImprovedHideHeuristics } = {}) => {
   configured = true;
 
   Vue.use(BVConfigPlugin, {
+    BFormText: bFormTextGlobalConfig,
     BTooltip: tooltipGlobalConfig,
     BPopover: {
       delay: popoverDelayConfig,
