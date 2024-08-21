@@ -5994,6 +5994,538 @@
       }
     }
   },
+  "alert": {
+    "neutral": {
+      "title": {
+        "color": {
+          "value": "#fff",
+          "$type": "color",
+          "comment": "Used for the title color of a neutral alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{text.color.heading}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of a neutral alert."
+          },
+          "name": "ALERT_NEUTRAL_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "neutral",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of a neutral alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.neutral.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of a neutral alert."
+          },
+          "name": "ALERT_NEUTRAL_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "neutral",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#89888d",
+            "$type": "color",
+            "comment": "Used for the border center color of a neutral alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border center color of a neutral alert."
+            },
+            "name": "ALERT_NEUTRAL_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "neutral",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of a neutral alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of a neutral alert."
+            },
+            "name": "ALERT_NEUTRAL_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "neutral",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    },
+    "info": {
+      "title": {
+        "color": {
+          "value": "#63a6e9",
+          "$type": "color",
+          "comment": "Used for the title color of an info alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{color.blue.300}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of an info alert."
+          },
+          "name": "ALERT_INFO_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "info",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of an info alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.info.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of an info alert."
+          },
+          "name": "ALERT_INFO_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "info",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#428fdc",
+            "$type": "color",
+            "comment": "Used for the border color of an info alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border color of an info alert."
+            },
+            "name": "ALERT_INFO_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "info",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of an info alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of an info alert."
+            },
+            "name": "ALERT_INFO_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "info",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    },
+    "success": {
+      "title": {
+        "color": {
+          "value": "#52b87a",
+          "$type": "color",
+          "comment": "Used for the title color of a success alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{color.green.300}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of a success alert."
+          },
+          "name": "ALERT_SUCCESS_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "success",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of a success alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.success.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of a success alert."
+          },
+          "name": "ALERT_SUCCESS_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "success",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#2da160",
+            "$type": "color",
+            "comment": "Used for the border color of a success alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.green.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border color of a success alert."
+            },
+            "name": "ALERT_SUCCESS_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "success",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of a success alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of a success alert."
+            },
+            "name": "ALERT_SUCCESS_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "success",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    },
+    "warning": {
+      "title": {
+        "color": {
+          "value": "#d99530",
+          "$type": "color",
+          "comment": "Used for the title color of a warning alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{color.orange.300}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of a warning alert."
+          },
+          "name": "ALERT_WARNING_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "warning",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of a warning alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.warning.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of a warning alert."
+          },
+          "name": "ALERT_WARNING_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "warning",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#c17d10",
+            "$type": "color",
+            "comment": "Used for the border color of a warning alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.orange.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border color of a warning alert."
+            },
+            "name": "ALERT_WARNING_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "warning",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of a warning alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of a warning alert."
+            },
+            "name": "ALERT_WARNING_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "warning",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    },
+    "danger": {
+      "title": {
+        "color": {
+          "value": "#f57f6c",
+          "$type": "color",
+          "comment": "Used for the title color of a danger alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{color.red.300}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of a danger alert."
+          },
+          "name": "ALERT_DANGER_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "danger",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of a danger alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.danger.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of a danger alert."
+          },
+          "name": "ALERT_DANGER_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "danger",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#ec5941",
+            "$type": "color",
+            "comment": "Used for the border color of a danger alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border color of a danger alert."
+            },
+            "name": "ALERT_DANGER_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "danger",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of a danger alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of a danger alert."
+            },
+            "name": "ALERT_DANGER_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "danger",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    }
+  },
   "avatar": {
     "border": {
       "color": {

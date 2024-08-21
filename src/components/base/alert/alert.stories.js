@@ -113,7 +113,7 @@ export const Variants = () => ({
       title="Alert title"
       primary-button-text="Primary"
       secondary-button-text="Secondary"
-      class="mb-2"
+      class="gl-mb-3"
     >
       <span class="text-capitalize">{{ variant }}</span> lorem ipsum dolor sit
       <gl-link href="#">text link</gl-link> amet

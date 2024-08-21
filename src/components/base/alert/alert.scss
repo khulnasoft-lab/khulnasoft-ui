@@ -7,6 +7,35 @@
  */
 // stylelint-disable length-zero-no-unit
 $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
+$gl-alert-top-border-size: 2px;
+
+@mixin gl-alert-variant(
+  $variant,
+  $background-color,
+  $title-color,
+  $border-top-color,
+  $border-bottom-color,
+  $icon-color
+) {
+  .gl-alert-#{$variant} {
+    background-color: $background-color;
+    border-bottom: 1px solid $border-bottom-color;
+
+    &::before {
+      background: linear-gradient(to right, transparent 0%, $border-top-color 50%, transparent 100%);
+    }
+
+    .gl-alert-title {
+      color: $title-color;
+    }
+
+    @media (forced-colors: none) {
+      .gl-alert-icon {
+        color: $icon-color;
+      }
+    }
+  }
+}
 
 .gl-alert {
   @include gl-font-base;
@@ -15,7 +44,17 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
   @include gl-py-5;
 
   @media (forced-colors: active) {
-    border: 1px solid;
+    border: 1px solid transparent;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: $gl-alert-top-border-size;
+    position: absolute;
+    top: -1px; // To accumilate for the border width
+    left: 0;
   }
 
   &-not-dismissible {
@@ -80,46 +119,53 @@ $gl-alert-padding-x: var(--gl-alert-padding-x, 0px);
 // This is the replacement for .gl-alert-dismiss
 .gl-dismiss-btn {
   position: absolute;
-  top: $gl-spacing-scale-4;
+  top: calc(#{$gl-spacing-scale-4} + #{$gl-alert-top-border-size});
   right: calc(#{$gl-spacing-scale-4} + #{$gl-alert-padding-x});
 }
 
-.gl-alert-danger {
-  background-color: var(--gl-feedback-danger-background-color);
+/* Variants */
 
-  .gl-alert-icon {
-    color: var(--gl-feedback-danger-icon-color);
-  }
-}
+@include gl-alert-variant(
+  $variant: danger,
+  $background-color: var(--gl-alert-danger-background-color),
+  $title-color: var(--gl-alert-danger-title-color),
+  $border-top-color: var(--gl-alert-danger-border-top-color),
+  $border-bottom-color: var(--gl-alert-danger-border-bottom-color),
+  $icon-color: var(--gl-feedback-danger-icon-color),
+);
 
-.gl-alert-warning {
-  background-color: var(--gl-feedback-warning-background-color);
+@include gl-alert-variant(
+  $variant: warning,
+  $background-color: var(--gl-alert-warning-background-color),
+  $title-color: var(--gl-alert-warning-title-color),
+  $border-top-color: var(--gl-alert-warning-border-top-color),
+  $border-bottom-color: var(--gl-alert-warning-border-bottom-color),
+  $icon-color: var(--gl-feedback-warning-icon-color),
+);
 
-  .gl-alert-icon {
-    color: var(--gl-feedback-warning-icon-color);
-  }
-}
+@include gl-alert-variant(
+  $variant: tip,
+  $background-color: var(--gl-alert-neutral-background-color),
+  $title-color: var(--gl-alert-neutral-title-color),
+  $border-top-color: var(--gl-alert-neutral-border-top-color),
+  $border-bottom-color: var(--gl-alert-neutral-border-bottom-color),
+  $icon-color: var(--gl-feedback-neutral-icon-color),
+);
 
-.gl-alert-tip {
-  background-color: var(--gl-feedback-neutral-background-color);
+@include gl-alert-variant(
+  $variant: info,
+  $background-color: var(--gl-alert-info-background-color),
+  $title-color: var(--gl-alert-info-title-color),
+  $border-top-color: var(--gl-alert-info-border-top-color),
+  $border-bottom-color: var(--gl-alert-info-border-bottom-color),
+  $icon-color: var(--gl-feedback-info-icon-color),
+);
 
-  .gl-alert-icon {
-    color: var(--gl-feedback-neutral-icon-color);
-  }
-}
-
-.gl-alert-info {
-  background-color: var(--gl-feedback-info-background-color);
-
-  .gl-alert-icon {
-    color: var(--gl-feedback-info-icon-color);
-  }
-}
-
-.gl-alert-success {
-  background-color: var(--gl-feedback-success-background-color);
-
-  .gl-alert-icon {
-    color: var(--gl-feedback-success-icon-color);
-  }
-}
+@include gl-alert-variant(
+  $variant: success,
+  $background-color: var(--gl-alert-success-background-color),
+  $title-color: var(--gl-alert-success-title-color),
+  $border-top-color: var(--gl-alert-success-border-top-color),
+  $border-bottom-color: var(--gl-alert-success-border-bottom-color),
+  $icon-color: var(--gl-feedback-success-icon-color),
+);
