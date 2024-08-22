@@ -27,6 +27,7 @@ const template = `
     :secondary-data-title="secondaryDataTitle"
     :height="height"
     :custom-palette="customPalette"
+    :includeLegendAvgMax="includeLegendAvgMax"
   />
 `;
 
@@ -45,6 +46,7 @@ const generateProps = ({
   secondaryDataTitle = '',
   height = null,
   customPalette,
+  includeLegendAvgMax = true,
 } = {}) => ({
   bars,
   lines,
@@ -58,6 +60,7 @@ const generateProps = ({
   secondaryData,
   height,
   customPalette,
+  includeLegendAvgMax,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -113,6 +116,9 @@ export const WithCustomColorPalette = Template.bind({});
 WithCustomColorPalette.args = generateProps({
   customPalette: [DATA_VIZ_ORANGE_600, DATA_VIZ_AQUA_500, DATA_VIZ_GREEN_600, DATA_VIZ_MAGENTA_500],
 });
+
+export const WithoutLegendValues = Template.bind({});
+WithoutLegendValues.args = generateProps({ includeLegendAvgMax: false });
 
 export default {
   title: 'charts/stacked-column-chart',
