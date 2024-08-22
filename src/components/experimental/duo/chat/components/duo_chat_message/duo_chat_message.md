@@ -62,3 +62,8 @@ The component emits the `track-feedback` event, a proxy of the `feedback` event 
 the `GlDuoUserFeedback` component. Please refer to
 [the documentation on that component](/story/experimental-duo-user-feedback--docs#listening-to-the-feedback-form-submission)
 when processing feedback from users.
+
+## Included context references
+
+Messages will display any included context references (files, issues merge requests etc.) when
+the message `meta.contextItems` array contains valid items.

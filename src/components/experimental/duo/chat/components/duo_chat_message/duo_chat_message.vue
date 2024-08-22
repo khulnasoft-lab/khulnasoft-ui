@@ -2,10 +2,12 @@
 import GlIcon from '../../../../../base/icon/icon.vue';
 import GlLoadingIcon from '../../../../../base/loading_icon/loading_icon.vue';
 import { GlTooltipDirective } from '../../../../../../directives/tooltip';
+import GlDuoChatContextItemSelections from '../duo_chat_context/duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import GlFormGroup from '../../../../../base/form/form_group/form_group.vue';
 import GlFormTextarea from '../../../../../base/form/form_textarea/form_textarea.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
+import { sprintf, translatePlural } from '../../../../../../utils/i18n';
 import { MESSAGE_MODEL_ROLES } from '../../constants';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';
 // eslint-disable-next-line no-restricted-imports
@@ -35,6 +37,7 @@ export default {
   },
   components: {
     DocumentationSources,
+    GlDuoChatContextItemSelections,
     GlDuoUserFeedback,
     GlFormGroup,
     GlFormTextarea,
@@ -130,6 +133,39 @@ export default {
     error() {
       return Boolean(this.message?.errors?.length) && this.message.errors.join('; ');
     },
+    selectedContextItems() {
+      return this.message.extras?.contextItems || [];
+    },
+    displaySelectedContextItems() {
+      return Boolean(this.selectedContextItems.length);
+    },
+    selectedContextItemsDefaultCollapsed() {
+      return this.isAssistantMessage;
+    },
+    selectedContextItemsTitle() {
+      if (!this.displaySelectedContextItems) return '';
+
+      const count = this.selectedContextItems.length;
+
+      if (this.isUserMessage) {
+        return translatePlural(
+          'GlDuoChatMessage.SelectedContextItemsTitleUserMessage',
+          'Included reference',
+          'Included references'
+        )(count);
+      }
+
+      return sprintf(
+        translatePlural(
+          'GlDuoChatMessage.SelectedContextItemsTitleAssistantMessage',
+          'Used %{count} included reference',
+          'Used %{count} included references'
+        )(count),
+        {
+          count,
+        }
+      );
+    },
   },
   beforeCreate() {
     if (!customElements.get('copy-code')) {
@@ -213,6 +249,13 @@ export default {
       data-testid="error"
     />
     <div ref="content-wrapper" :class="{ 'has-error': error }">
+      <gl-duo-chat-context-item-selections
+        v-if="displaySelectedContextItems"
+        :selections="selectedContextItems"
+        :title="selectedContextItemsTitle"
+        :default-collapsed="selectedContextItemsDefaultCollapsed"
+        class="gl-mb-3"
+      />
       <div
         v-if="error"
         ref="error-message"

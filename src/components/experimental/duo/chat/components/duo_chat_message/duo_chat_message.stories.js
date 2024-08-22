@@ -20,7 +20,7 @@ const Template = (args, { argTypes }) => ({
     renderGFM,
   },
   template: `
-    <gl-duo-chat-message :message="message" />
+    <gl-duo-chat-message :message="message" :is-cancelled="false" />
   `,
 });
 
@@ -38,6 +38,7 @@ export const ErrorResponse = Template.bind({});
 ErrorResponse.args = generateProps({
   message: {
     ...MOCK_RESPONSE_MESSAGE,
+    extras: {},
     errors: ['Error: Whatever you see is wrong'],
   },
 });

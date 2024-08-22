@@ -8,7 +8,9 @@ import {
   MOCK_RESPONSE_MESSAGE,
   generateSeparateChunks,
 } from '../../mock_data';
+import GlDuoChatContextItemSelections from '../duo_chat_context/duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';
+import { getMockContextItems } from '../duo_chat_context/mock_context_data';
 import GlDuoChatMessage from './duo_chat_message.vue';
 
 describe('DuoChatMessage', () => {
@@ -23,6 +25,8 @@ describe('DuoChatMessage', () => {
   const findInsertCodeSnippetButton = () => wrapper.find('insert-code-snippet');
   const findErrorIcon = () => wrapper.findComponent(GlIcon);
   const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
+  const findContextItemSelections = () => wrapper.findComponent(GlDuoChatContextItemSelections);
+
   const mockMarkdownContent = 'foo **bar**';
 
   let renderMarkdown;
@@ -164,6 +168,119 @@ describe('DuoChatMessage', () => {
           },
         ],
       ]);
+    });
+  });
+
+  describe('context item selections', () => {
+    it('does not render context item selections when there are no items', () => {
+      const messageWithoutContext = {
+        ...MOCK_USER_PROMPT_MESSAGE,
+        extras: {},
+      };
+      createComponent({ message: messageWithoutContext });
+      expect(findContextItemSelections().exists()).toBe(false);
+    });
+
+    describe('title rendering', () => {
+      describe('when there is one context item', () => {
+        it('uses singular form for assistant message', () => {
+          const contextItems = [getMockContextItems().at(0)];
+          createComponent({
+            message: {
+              ...MOCK_RESPONSE_MESSAGE,
+              extras: { ...MOCK_RESPONSE_MESSAGE.extras, contextItems },
+            },
+          });
+          const selections = findContextItemSelections();
+          expect(selections.props('title')).toBe('Used 1 included reference');
+        });
+
+        it('uses singular form for user message', () => {
+          const contextItems = [getMockContextItems().at(0)];
+          createComponent({
+            message: {
+              ...MOCK_USER_PROMPT_MESSAGE,
+              extras: { ...MOCK_RESPONSE_MESSAGE.extras, contextItems },
+            },
+          });
+          const selections = findContextItemSelections();
+          expect(selections.props('title')).toBe('Included reference');
+        });
+      });
+
+      describe('when there are multiple context items', () => {
+        it('uses plural form for assistant message', () => {
+          const contextItems = getMockContextItems().slice(0, 2);
+          createComponent({
+            message: {
+              ...MOCK_RESPONSE_MESSAGE,
+              extras: { ...MOCK_RESPONSE_MESSAGE.extras, contextItems },
+            },
+          });
+          const selections = findContextItemSelections();
+          expect(selections.props('title')).toBe('Used 2 included references');
+        });
+
+        it('uses plural form for user message', () => {
+          const contextItems = getMockContextItems().slice(0, 2);
+          createComponent({
+            message: {
+              ...MOCK_USER_PROMPT_MESSAGE,
+              extras: { ...MOCK_RESPONSE_MESSAGE.extras, contextItems },
+            },
+          });
+          const selections = findContextItemSelections();
+          expect(selections.props('title')).toBe('Included references');
+        });
+      });
+    });
+
+    it('renders context item selections when there are items', () => {
+      const contextItems = getMockContextItems().slice(0, 2);
+      createComponent({
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          extras: { contextItems },
+        },
+      });
+
+      expect(findContextItemSelections().exists()).toBe(true);
+    });
+
+    it('passes correct props to context item selections for user message', () => {
+      const contextItems = getMockContextItems().slice(0, 2);
+      createComponent({
+        message: {
+          ...MOCK_USER_PROMPT_MESSAGE,
+          extras: { contextItems },
+        },
+      });
+
+      const selections = findContextItemSelections();
+      expect(selections.props()).toMatchObject(
+        expect.objectContaining({
+          selections: contextItems,
+          defaultCollapsed: false,
+        })
+      );
+    });
+
+    it('passes correct props to context item selections for assistant message', () => {
+      const contextItems = getMockContextItems().slice(0, 2);
+      createComponent({
+        message: {
+          ...MOCK_RESPONSE_MESSAGE,
+          extras: { contextItems },
+        },
+      });
+
+      const selections = findContextItemSelections();
+      expect(selections.props()).toMatchObject(
+        expect.objectContaining({
+          selections: contextItems,
+          defaultCollapsed: true,
+        })
+      );
     });
   });
 

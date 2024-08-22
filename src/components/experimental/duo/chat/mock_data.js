@@ -6,6 +6,7 @@ import {
   CHAT_RESET_MESSAGE,
   CHAT_CLEAN_MESSAGE,
 } from './constants';
+import { getMockContextItems } from './components/duo_chat_context/mock_context_data';
 
 const MOCK_SOURCES = [
   {
@@ -36,6 +37,7 @@ export const MOCK_RESPONSE_MESSAGE = {
   role: MESSAGE_MODEL_ROLES.assistant,
   extras: {
     sources: MOCK_SOURCES,
+    contextItems: getMockContextItems().slice(0, 2),
   },
   requestId: '987',
   errors: [],
@@ -81,7 +83,9 @@ export const MOCK_RESPONSE_MESSAGE_FOR_STREAMING = {
   which is rendered while streaming.
   `,
   role: 'assistant',
-  extras: {},
+  extras: {
+    contextItems: getMockContextItems().slice(0, 2),
+  },
   requestId: '987',
   errors: [],
   timestamp: '2021-04-21T12:00:00.000Z',
@@ -130,7 +134,9 @@ export const MOCK_USER_PROMPT_MESSAGE = {
   requestId: '987',
   errors: [],
   timestamp: '2021-04-21T12:00:00.000Z',
-  extras: null,
+  extras: {
+    contextItems: getMockContextItems().slice(0, 2),
+  },
 };
 
 export const renderMarkdown = (content) => content;
