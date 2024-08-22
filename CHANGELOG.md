@@ -1,3 +1,10 @@
+# [90.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.1.0...v90.2.0) (2024-08-22)
+
+
+### Features
+
+* **BaseDropdown:** Listen on click and focusin to close dropdown ([d89d99d](https://gitlab.com/gitlab-org/gitlab-ui/commit/d89d99d5dbeeae4dd7287625b059ad6726610204))
+
 # [90.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.0.0...v90.1.0) (2024-08-22)
 
 
