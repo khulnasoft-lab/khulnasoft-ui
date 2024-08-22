@@ -1,3 +1,16 @@
+# [90.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.7.0...v90.0.0) (2024-08-22)
+
+
+### Code Refactoring
+
+* **GlFormText:** Remove component ([9f0c757](https://gitlab.com/gitlab-org/gitlab-ui/commit/9f0c757e76e91245ba5794ab4a578393b984820d))
+
+
+### BREAKING CHANGES
+
+* **GlFormText:** Remove GlFormText component entirely. Bootstrap's
+internal BFormText does still exist and is used in e.g. the GlFormGroup
+
 # [89.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.6.0...v89.7.0) (2024-08-21)
 
 
