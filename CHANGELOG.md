@@ -1,3 +1,10 @@
+# [90.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.0.0...v90.1.0) (2024-08-22)
+
+
+### Features
+
+* **GlStackedColumnChart:** Add `includeLegendAvgMax` prop ([70874ae](https://gitlab.com/gitlab-org/gitlab-ui/commit/70874ae8860799e0f6a4de326cb38863dc2b1265))
+
 # [90.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v89.7.0...v90.0.0) (2024-08-22)
 
 
