@@ -30,8 +30,8 @@ describe('GlFormDate', () => {
       args: {
         min: '2020-01-01',
         max: '2020-01-31',
-        minInvalidFeedback: 'Must be after 2020-01-01',
-        maxInvalidFeedback: 'Must be before 2020-01-31',
+        minInvalidFeedback: 'Must be after 2020-01-01.',
+        maxInvalidFeedback: 'Must be before 2020-01-31.',
       },
     });
   }
@@ -52,8 +52,8 @@ describe('GlFormDate', () => {
       args: {
         min: '2020-01-01',
         max: '2020-01-31',
-        minInvalidFeedback: 'Must be after 2020-01-01',
-        maxInvalidFeedback: 'Must be before 2020-01-31',
+        minInvalidFeedback: 'Must be after 2020-01-01.',
+        maxInvalidFeedback: 'Must be before 2020-01-31.',
         value: '2020-02-02',
       },
     });

@@ -32,10 +32,10 @@ const Template = (args, { updateArgs }) => ({
       updateArgs({ ...this.$props, value });
     },
     remainingCountText(count) {
-      return count === 1 ? `${count} character remaining` : `${count} characters remaining`;
+      return count === 1 ? `${count} character remaining.` : `${count} characters remaining.`;
     },
     overLimitText(count) {
-      return count === 1 ? `${count} character over limit` : `${count} characters over limit`;
+      return count === 1 ? `${count} character over limit.` : `${count} characters over limit.`;
     },
   },
   template,

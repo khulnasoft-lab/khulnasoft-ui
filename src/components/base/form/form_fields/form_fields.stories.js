@@ -109,10 +109,10 @@ const Template = () => ({
             </div>
           </template>
           <template #group(confirmPassword)-description>
-            Description using <code>group(confirmPassword)-description</code> slot
+            Description using <code>group(confirmPassword)-description</code> slot.
           </template>
           <template #after(confirmPassword)>
-            <gl-alert class="gl-mb-5" :dismissible="false">Custom content using <code>after(confirmPassword)</code> slot</gl-alert>
+            <gl-alert class="gl-mb-5" :dismissible="false">Custom content using <code>after(confirmPassword)</code> slot.</gl-alert>
           </template>
           <template #input(custom)="{ id, value, input, blur }">
             <button :id="id" @click="input(value + 1)" @blur="blur" type="button">{{value}}</button>
@@ -121,7 +121,7 @@ const Template = () => ({
             <gl-listbox :id="id" :items="$options.ITEMS" :selected="value" :toggle-text="favoriteItemToggleText" @select="input" @hidden="blur" />
           </template>
           <template #group(favoriteItem)-label-description>
-            Label description using <code>group(favoriteItem)-label-description</code> slot
+            Label description using <code>group(favoriteItem)-label-description</code> slot.
           </template>
         </gl-form-fields>
         <gl-button type="submit" category="primary" :loading="loading">Submit</gl-button>

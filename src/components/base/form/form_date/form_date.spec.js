@@ -65,7 +65,7 @@ describe('GlFormDate', () => {
 
       expect(findInput().attributes('aria-describedby')).toMatch('form-date-invalid-feedback-');
       expect(findInput().attributes('aria-invalid')).toBe('true');
-      expect(findInvalidFeedback().text()).toBe('Must be after minimum date');
+      expect(findInvalidFeedback().text()).toBe('Must be after minimum date.');
     });
 
     it('when `value` is greater than `max` adds `aria-invalid="true"` attribute and invalid-feedback`', () => {
@@ -79,7 +79,7 @@ describe('GlFormDate', () => {
 
       expect(findInput().attributes('aria-describedby')).toMatch('form-date-invalid-feedback-');
       expect(findInput().attributes('aria-invalid')).toBe('true');
-      expect(findInvalidFeedback().text()).toBe('Must be before maximum date');
+      expect(findInvalidFeedback().text()).toBe('Must be before maximum date.');
     });
   });
 });

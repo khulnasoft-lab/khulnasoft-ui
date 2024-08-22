@@ -17,7 +17,7 @@ const components = {
 const generateProps = ({
   id = 'group-1',
   label = 'Label Name',
-  description = 'form group description (used as help text)',
+  description = 'form group description (used as help text).',
   labelDescription = '',
   optional = GlFormGroup.props.optional.default,
   optionalText = GlFormGroup.props.optionalText.default,
@@ -64,7 +64,7 @@ export const Disabled = (_args, { argTypes }) => ({
   components: { ...components, GlFormInput },
   template: wrap('<gl-form-input :id="id"  type="text" value="Disabled" disabled />'),
 });
-Disabled.args = generateProps({ description: 'This feature is disabled' });
+Disabled.args = generateProps({ description: 'This feature is disabled.' });
 
 export const WithTextarea = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -84,14 +84,14 @@ export const WithLabelDescription = (_args, { argTypes }) => ({
 });
 WithLabelDescription.args = generateProps({
   optional: true,
-  labelDescription: 'form group label description (used as description)',
+  labelDescription: 'form group label description (used as description).',
 });
 
 const WithLabelSlotTemplateString = `<template #label>
     Label name
     <gl-icon v-gl-tooltip title="Information" name="information-o" :size="16" />
     <div class="label-description">
-      form group label description with a <gl-link href="#">link</gl-link> (used as description)
+      form group label description with a <gl-link href="#">link</gl-link> (used as description).
     </div>
   </template>
   <gl-form-input :id="id" />`;
@@ -125,7 +125,7 @@ WithLabelSlot.parameters = {
 
 const WithDescriptionSlotTemplateString = `<gl-form-input :id="id" />
   <template #description>
-    form group description with a <gl-link href="#">link</gl-link> (used as help text)
+    form group description with a <gl-link href="#">link</gl-link> (used as help text).
   </template> `;
 export const WithDescriptionSlot = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),

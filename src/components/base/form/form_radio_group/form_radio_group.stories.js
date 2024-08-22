@@ -24,7 +24,7 @@ const template = `
         <gl-form-radio value="slot-option">
           Slot option with help text
           <template #help>
-            Help text
+            Help text.
           </template>
         </gl-form-radio>
       </template>

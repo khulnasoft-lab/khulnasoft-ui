@@ -31,12 +31,12 @@ export default {
     minInvalidFeedback: {
       type: String,
       required: false,
-      default: 'Must be after minimum date',
+      default: 'Must be after minimum date.',
     },
     maxInvalidFeedback: {
       type: String,
       required: false,
-      default: 'Must be before maximum date',
+      default: 'Must be before maximum date.',
     },
     value: {
       type: String,
