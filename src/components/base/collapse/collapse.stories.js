@@ -1,7 +1,11 @@
+import Vue from 'vue';
+import { GlCollapseToggleDirective } from '../../../directives/collapse_toggle';
 import GlButton from '../button/button.vue';
 import GlCard from '../card/card.vue';
 import GlCollapse from './collapse.vue';
 import readme from './collapse.md';
+
+Vue.directive('gl-collapse-toggle', GlCollapseToggleDirective);
 
 const generateProps = ({ visible = false } = {}) => ({ visible });
 
@@ -13,7 +17,7 @@ const template = `
     </gl-button>
     <gl-collapse :visible="visible" id="collapse" class="gl-mt-2">
       <span>
-        This content can be hidden by default, which is good if there are some extensive details 
+        This content can be hidden by default, which is good if there are some extensive details
         that should only be visible if the user wants to interact with them
       </span>
     </gl-collapse>
