@@ -142,22 +142,24 @@ export default {
 
 <template>
   <div>
-    <div class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse">
+    <div class="gl-flex-row-reverse gl-justify-between sm:gl-flex">
       <slot name="header"></slot>
       <gl-search-box-by-type v-if="filterable" @input="query" />
     </div>
 
     <slot name="subheader"></slot>
 
-    <ul class="list-group list-group-flush list-unstyled">
-      <li v-for="listItem in paginatedList" :key="listItem[itemKey]" class="list-group-item">
+    <ul
+      class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
+    >
+      <li v-for="listItem in paginatedList" :key="listItem[itemKey]" class="gl-px-5 gl-py-4">
         <slot :list-item="listItem" :query="queryStr">{{ listItem.id }}</slot>
       </li>
     </ul>
 
     <gl-pagination
       v-if="!emptyList"
-      class="d-flex justify-content-center prepend-top-default"
+      align="center"
       :per-page="pageInfo.perPage"
       v-bind="$attrs"
       :value="pageInfo.page"
