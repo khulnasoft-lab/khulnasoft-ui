@@ -30,8 +30,8 @@ const DEFAULT_BTN_TOGGLE_CLASSES = [
 describe('base dropdown', () => {
   let wrapper;
 
-  const buildWrapper = (propsData, { slots = {}, ...options } = {}) => {
-    wrapper = mount(GlBaseDropdown, {
+  const buildWrapper = (propsData, { component = GlBaseDropdown, slots = {}, ...options } = {}) => {
+    wrapper = mount(component, {
       propsData: {
         toggleId: 'dropdown-toggle-btn-1',
         ...propsData,
@@ -511,6 +511,43 @@ describe('base dropdown', () => {
         expect(menu.classes('!gl-block')).toBe(false);
         expect(firstToggleChild.attributes('aria-expanded')).toBe('false');
         expect(wrapper.emitted(GL_DROPDOWN_HIDDEN)).toHaveLength(1);
+      });
+
+      it('should close the menu when focusing on another element', async () => {
+        const testid = 'btn-outside';
+
+        buildWrapper(undefined, {
+          component: {
+            template: `
+              <div>
+                <button data-testid="${testid}">Focus on me</button>
+                <GlBaseDropdown toggleId='dropdown-toggle-btn-1'>
+                  <template v-slot:default>
+                    <div class="${GL_DROPDOWN_CONTENTS_CLASS}">
+                      <button />
+                    </div>
+                  </template>
+                </GlBaseDropdown>
+              </div>
+            `,
+            components: {
+              GlBaseDropdown,
+            },
+          },
+        });
+
+        const toggle = findDefaultDropdownToggle();
+        const menu = findDropdownMenu();
+
+        // open menu clicking toggle btn
+        await toggle.trigger('click');
+        expect(menu.classes('!gl-block')).toBe(true);
+        expect(toggle.attributes('aria-expanded')).toBe('true');
+
+        // close menu by focusing on another element
+        await wrapper.find(`[data-testid="${testid}"]`).trigger('focusin');
+        expect(menu.classes('!gl-block')).toBe(false);
+        expect(toggle.attributes('aria-expanded')).toBe('false');
       });
 
       it('should close the menu when Escape is pressed inside menu and focus first child in the toggle', async () => {

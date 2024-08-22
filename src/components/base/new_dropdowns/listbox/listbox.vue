@@ -4,7 +4,6 @@ import clamp from 'lodash/clamp';
 import uniqueId from 'lodash/uniqueId';
 import isNil from 'lodash/isNil';
 import { stopEvent } from '../../../../utils/utils';
-import { glDropdownConfig } from '../../../../config';
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
@@ -349,17 +348,6 @@ export default {
         '%d result',
         '%d results'
       ),
-    },
-    /**
-     * Whether to use an improved hide
-     * functionality for the dropdown.
-     */
-    improvedHideHeuristics: {
-      type: Boolean,
-      required: false,
-      default() {
-        return Boolean(glDropdownConfig.useImprovedHideHeuristics);
-      },
     },
   },
   data() {
@@ -782,7 +770,6 @@ export default {
     :offset="dropdownOffset"
     :fluid-width="fluidWidth"
     :positioning-strategy="positioningStrategy"
-    :improved-hide-heuristics="improvedHideHeuristics"
     @[$options.events.GL_DROPDOWN_SHOWN]="onShow"
     @[$options.events.GL_DROPDOWN_HIDDEN]="onHide"
   >

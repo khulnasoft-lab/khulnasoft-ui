@@ -35,8 +35,6 @@ try {
 
 export const i18n = translationKeys;
 
-export const glDropdownConfig = {};
-
 let configured = false;
 
 /**
@@ -45,9 +43,8 @@ let configured = false;
  * @typedef {object} GitLabUIConfiguration
  * @template TValue=string
  * @property {undefined | Object} translations Generic translations for component labels to fall back to.
- * @property {boolean} [useImprovedHideHeuristics] Temporary flag to enable improved hide heuristics for dropdowns.
  */
-const setConfigs = ({ translations, useImprovedHideHeuristics } = {}) => {
+const setConfigs = ({ translations } = {}) => {
   if (configured) {
     if (process.env.NODE_ENV === 'development') {
       throw new Error('GitLab UI can only be configured once!');
@@ -83,23 +80,6 @@ const setConfigs = ({ translations, useImprovedHideHeuristics } = {}) => {
     }
 
     Object.assign(i18n, translations);
-  }
-
-  // Temporary flag to enable the improved hide heuristics feature.
-  // This flag allows the feature to be opt-in during the rollout phase,
-  // giving us the flexibility to test and validate its impact on user experience.
-
-  // The global variable `useImprovedHideHeuristics` is set to a boolean value
-  // to indicate whether the improved hide heuristics should be used.
-
-  // Future Plan:
-  // Once the improved hide heuristics feature is validated and stable,
-  // we will remove this temporary flag and make the feature the default behavior.
-  // At that point, there will be no need for opt-in or opt-out mechanisms for this feature.
-  if (typeof useImprovedHideHeuristics === 'boolean') {
-    Object.assign(glDropdownConfig, {
-      useImprovedHideHeuristics,
-    });
   }
 };
 

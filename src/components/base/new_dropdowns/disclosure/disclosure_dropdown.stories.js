@@ -46,7 +46,6 @@ const makeBindings = (overrides = {}) =>
     ':auto-close': 'autoClose',
     ':positioning-strategy': 'positioningStrategy',
     ':start-opened': 'startOpened',
-    ':improved-hide-heuristics': 'improvedHideHeuristics',
     ...overrides,
   })
     .map(([key, value]) => `${key}="${value}"`)
