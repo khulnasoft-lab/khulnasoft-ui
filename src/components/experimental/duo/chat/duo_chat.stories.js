@@ -129,6 +129,10 @@ export const Interactive = (args, { argTypes }) => ({
       this.isHidden = false;
       this.loggerInfo += `Chat opened\n\n`;
     },
+    onInsertCodeSnippet(codeSnippet) {
+      // eslint-disable-next-line no-alert
+      alert(`Code snippet inserted: ${codeSnippet}\n\n`);
+    },
     async onResponseRequested() {
       this.timeout = null;
       await this.mockResponseFromAi();
@@ -194,6 +198,7 @@ export const Interactive = (args, { argTypes }) => ({
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
       @chat-cancel="onChatCancel"
+      @insert-code-snippet="onInsertCodeSnippet"
     />
   </div>`,
 });
