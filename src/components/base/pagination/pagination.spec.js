@@ -15,8 +15,8 @@ const mockResizeWidth = (width) => {
 
 describe('pagination component', () => {
   let wrapper;
-  const findButtons = () => wrapper.findAll('.page-link');
-  const findItems = () => wrapper.findAll('.page-item');
+  const findButtons = () => wrapper.findAll('[data-testid="gl-pagination-item"]');
+  const findItems = () => wrapper.findAll('[data-testid="gl-pagination-li"]');
   const propsData = {
     value: 3,
     perPage: 5,

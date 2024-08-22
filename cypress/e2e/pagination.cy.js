@@ -12,7 +12,7 @@ describe('GlPagination', () => {
       },
     });
 
-    cy.get('[data-testid="page-item"]')
+    cy.get('[data-testid="gl-pagination-li"]')
       .eq(-1)
       .should('have.class', 'disabled', 'true')
       .should('have.attr', 'aria-hidden', 'true');
@@ -20,12 +20,12 @@ describe('GlPagination', () => {
 
   function checkA11YHoveredState() {
     cy.visitStory('base/pagination');
-    cy.get('[data-testid="page-link"]').eq(1).realHover();
+    cy.get('[data-testid="gl-pagination-item"]').eq(1).realHover();
   }
 
   function checkA11YActiveHoveredState() {
     cy.visitStory('base/pagination');
-    cy.get('[data-testid="page-item"]').eq(1).realHover();
+    cy.get('[data-testid="gl-pagination-li"]').eq(1).realHover();
   }
 
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
