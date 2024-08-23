@@ -48,6 +48,21 @@ const spacing = {
 
 function addCustomDefinitions({ addComponents, addUtilities }) {
   addComponents({
+    '.animate-skeleton-loader': {
+      overflow: 'hidden',
+      'max-width': '32rem',
+      'background-size': '32rem 100%',
+      'background-position': '-32rem 0',
+      'background-color': 'var(--gray-100, #dcdcde)',
+      'background-image':
+        'linear-gradient(to right, var(--gray-100, #dcdcde) 0, var(--gray-50, #ececef) 23%, var(--gray-50, #ececef) 27%, var(--gray-100, #dcdcde) 50%)',
+      'background-repeat': 'no-repeat',
+      '@media (prefers-reduced-motion: no-preference)': {
+        animation: 'gl-keyframes-skeleton-loader 2.5s linear',
+        'animation-delay': 'inherit',
+        'animation-iteration-count': '3',
+      },
+    },
     '.border': {
       'border-style': 'solid',
       'border-color': 'var(--gray-100, #dcdcde)',
