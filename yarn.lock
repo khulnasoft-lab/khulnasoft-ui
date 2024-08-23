@@ -8585,6 +8585,11 @@ header-case@^2.0.4:
     capital-case "^1.0.4"
     tslib "^2.0.3"
 
+highlight.js@^11.10.0:
+  version "11.10.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.10.0.tgz#6e3600dc4b33d6dc23d5bd94fbf72405f5892b92"
+  integrity sha512-SYVnVFswQER+zu1laSya563s+F8VDGt7o35d4utbamowvUNLLMovFqwCLSocpZTz3MgaSRA1IbqRWZv97dtErQ==
+
 hoek@5.x.x:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-5.0.4.tgz#0f7fa270a1cafeb364a4b2ddfaa33f864e4157da"
@@ -10892,6 +10897,11 @@ marked-bidi@^1.0.8:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/marked-bidi/-/marked-bidi-1.0.9.tgz#16ca7d87f9acc87f8ce1ec34b34c1c20e825720b"
   integrity sha512-nVFPysVKno/KBRF2vPurez/nmN3sdhB+Sm0qBxJgqPkk0ltYUs96SNswE4YcGUcCq8Smk0mHmURM/y15zKt7eA==
+
+marked-highlight@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/marked-highlight/-/marked-highlight-2.1.4.tgz#33d4d74b55e5acc76ee95fa5117e847795392a42"
+  integrity sha512-D1GOkcdzP+1dzjoColL7umojefFrASDuLeyaHS0Zr/Uo9jkr1V6vpLRCzfi1djmEaWyK0SYMFtHnpkZ+cwFT1w==
 
 marked@^12.0.0:
   version "12.0.0"

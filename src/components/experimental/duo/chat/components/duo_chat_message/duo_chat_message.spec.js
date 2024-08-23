@@ -289,7 +289,7 @@ describe('DuoChatMessage', () => {
 
       await nextTick();
 
-      expect(findContent().html()).toContain('<p><a>click here</a></p>');
+      expect(findContent().html()).toContain('<p dir="auto"><a>click here</a></p>');
     });
 
     it('deprecated: sanitizes html produced by chunks', async () => {
@@ -308,7 +308,7 @@ describe('DuoChatMessage', () => {
 
       await nextTick();
 
-      expect(findContent().html()).toContain('<p><a>click here</a></p>');
+      expect(findContent().html()).toContain('<p dir="auto"><a>click here</a></p>');
     });
 
     it('sanitizes contentHtml', async () => {
