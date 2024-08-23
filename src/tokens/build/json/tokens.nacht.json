@@ -922,6 +922,582 @@
           }
         }
       }
+    },
+    "strong": {
+      "confirm": {
+        "background": {
+          "color": {
+            "default": {
+              "value": "#428fdc",
+              "$type": "color",
+              "comment": "Used for the background of a strong confirm action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.blue.500}",
+                  "dark": "{color.blue.400}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong confirm action in the default state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BACKGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "background",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#63a6e9",
+              "$type": "color",
+              "comment": "Used for the background of a strong confirm action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.blue.600}",
+                  "dark": "{color.blue.300}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong confirm action in the hover state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BACKGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "background",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#63a6e9",
+              "$type": "color",
+              "comment": "Used for the background of a strong confirm action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.background.color.hover}",
+                "$type": "color",
+                "comment": "Used for the background of a strong confirm action in the focus state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BACKGROUND_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "background",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#9dc7f1",
+              "$type": "color",
+              "comment": "Used for the background of a strong confirm action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.blue.700}",
+                  "dark": "{color.blue.200}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong confirm action in the active state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BACKGROUND_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "background",
+                "color",
+                "active"
+              ]
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong confirm action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.0}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong confirm action in the default state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_FOREGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "foreground",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong confirm action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.foreground.color.default}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong confirm action in the hover state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_FOREGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "foreground",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong confirm action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.foreground.color.hover}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong confirm action in the focus state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_FOREGROUND_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "foreground",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong confirm action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.foreground.color.focus}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong confirm action in the active state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_FOREGROUND_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "foreground",
+                "color",
+                "active"
+              ]
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong confirm action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.alpha.0}",
+                "$type": "color",
+                "comment": "Used for the border of a strong confirm action in the default state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BORDER_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "border",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong confirm action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.border.color.default}",
+                "$type": "color",
+                "comment": "Used for the border of a strong confirm action in the hover state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BORDER_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "border",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong confirm action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.border.color.hover}",
+                "$type": "color",
+                "comment": "Used for the border of a strong confirm action in the focus state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BORDER_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "border",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong confirm action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.border.color.focus}",
+                "$type": "color",
+                "comment": "Used for the border of a strong confirm action in the active state."
+              },
+              "name": "ACTION_STRONG_CONFIRM_BORDER_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "confirm",
+                "border",
+                "color",
+                "active"
+              ]
+            }
+          }
+        }
+      },
+      "neutral": {
+        "background": {
+          "color": {
+            "default": {
+              "value": "#a4a3a8",
+              "$type": "color",
+              "comment": "Used for the background of a strong neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.600}",
+                  "dark": "{color.neutral.300}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong neutral action in the default state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BACKGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "background",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#bfbfc3",
+              "$type": "color",
+              "comment": "Used for the background of a strong neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.700}",
+                  "dark": "{color.neutral.200}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong neutral action in the hover state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BACKGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "background",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#bfbfc3",
+              "$type": "color",
+              "comment": "Used for the background of a strong neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.background.color.hover}",
+                "$type": "color",
+                "comment": "Used for the background of a strong neutral action in the focus state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BACKGROUND_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "background",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#dcdcde",
+              "$type": "color",
+              "comment": "Used for the background of a strong neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.800}",
+                  "dark": "{color.neutral.100}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a strong neutral action in the active state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BACKGROUND_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "background",
+                "color",
+                "active"
+              ]
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.neutral.0}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong neutral action in the default state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_FOREGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "foreground",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.foreground.color.default}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong neutral action in the hover state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_FOREGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "foreground",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.foreground.color.hover}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong neutral action in the focus state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_FOREGROUND_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "foreground",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the foreground of a strong neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.foreground.color.focus}",
+                "$type": "color",
+                "comment": "Used for the foreground of a strong neutral action in the active state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_FOREGROUND_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "foreground",
+                "color",
+                "active"
+              ]
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong neutral action in the default state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{color.alpha.0}",
+                "$type": "color",
+                "comment": "Used for the border of a strong neutral action in the default state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BORDER_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "border",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong neutral action in the hover state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.border.color.default}",
+                "$type": "color",
+                "comment": "Used for the border of a strong neutral action in the hover state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BORDER_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "border",
+                "color",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong neutral action in the focus state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.border.color.hover}",
+                "$type": "color",
+                "comment": "Used for the border of a strong neutral action in the focus state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BORDER_COLOR_FOCUS",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "border",
+                "color",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "transparent",
+              "$type": "color",
+              "comment": "Used for the border of a strong neutral action in the active state.",
+              "filePath": "src/tokens/action.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.border.color.focus}",
+                "$type": "color",
+                "comment": "Used for the border of a strong neutral action in the active state."
+              },
+              "name": "ACTION_STRONG_NEUTRAL_BORDER_COLOR_ACTIVE",
+              "attributes": {},
+              "path": [
+                "action",
+                "strong",
+                "neutral",
+                "border",
+                "color",
+                "active"
+              ]
+            }
+          }
+        }
+      }
     }
   },
   "background": {
@@ -1253,6 +1829,24 @@
             "alpha",
             "dark",
             "24"
+          ]
+        },
+        "40": {
+          "value": "rgba(05, 05, 06, 0.4)",
+          "$type": "color",
+          "filePath": "src/tokens/color.alpha.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "rgba(05, 05, 06, 0.4)",
+            "$type": "color"
+          },
+          "name": "COLOR_ALPHA_DARK_40",
+          "attributes": {},
+          "path": [
+            "color",
+            "alpha",
+            "dark",
+            "40"
           ]
         }
       },
@@ -5400,6 +5994,538 @@
       }
     }
   },
+  "alert": {
+    "neutral": {
+      "title": {
+        "color": {
+          "value": "#fff",
+          "$type": "color",
+          "comment": "Used for the title color of a neutral alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{text.color.heading}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of a neutral alert."
+          },
+          "name": "ALERT_NEUTRAL_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "neutral",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of a neutral alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.neutral.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of a neutral alert."
+          },
+          "name": "ALERT_NEUTRAL_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "neutral",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#89888d",
+            "$type": "color",
+            "comment": "Used for the border center color of a neutral alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border center color of a neutral alert."
+            },
+            "name": "ALERT_NEUTRAL_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "neutral",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of a neutral alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of a neutral alert."
+            },
+            "name": "ALERT_NEUTRAL_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "neutral",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    },
+    "info": {
+      "title": {
+        "color": {
+          "value": "#63a6e9",
+          "$type": "color",
+          "comment": "Used for the title color of an info alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{color.blue.300}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of an info alert."
+          },
+          "name": "ALERT_INFO_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "info",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of an info alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.info.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of an info alert."
+          },
+          "name": "ALERT_INFO_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "info",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#428fdc",
+            "$type": "color",
+            "comment": "Used for the border color of an info alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border color of an info alert."
+            },
+            "name": "ALERT_INFO_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "info",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of an info alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of an info alert."
+            },
+            "name": "ALERT_INFO_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "info",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    },
+    "success": {
+      "title": {
+        "color": {
+          "value": "#52b87a",
+          "$type": "color",
+          "comment": "Used for the title color of a success alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{color.green.300}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of a success alert."
+          },
+          "name": "ALERT_SUCCESS_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "success",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of a success alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.success.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of a success alert."
+          },
+          "name": "ALERT_SUCCESS_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "success",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#2da160",
+            "$type": "color",
+            "comment": "Used for the border color of a success alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.green.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border color of a success alert."
+            },
+            "name": "ALERT_SUCCESS_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "success",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of a success alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of a success alert."
+            },
+            "name": "ALERT_SUCCESS_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "success",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    },
+    "warning": {
+      "title": {
+        "color": {
+          "value": "#d99530",
+          "$type": "color",
+          "comment": "Used for the title color of a warning alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{color.orange.300}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of a warning alert."
+          },
+          "name": "ALERT_WARNING_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "warning",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of a warning alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.warning.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of a warning alert."
+          },
+          "name": "ALERT_WARNING_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "warning",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#c17d10",
+            "$type": "color",
+            "comment": "Used for the border color of a warning alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.orange.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border color of a warning alert."
+            },
+            "name": "ALERT_WARNING_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "warning",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of a warning alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of a warning alert."
+            },
+            "name": "ALERT_WARNING_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "warning",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    },
+    "danger": {
+      "title": {
+        "color": {
+          "value": "#f57f6c",
+          "$type": "color",
+          "comment": "Used for the title color of a danger alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{text.color.heading}",
+              "dark": "{color.red.300}"
+            },
+            "$type": "color",
+            "comment": "Used for the title color of a danger alert."
+          },
+          "name": "ALERT_DANGER_TITLE_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "danger",
+            "title",
+            "color"
+          ]
+        }
+      },
+      "background": {
+        "color": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background color of a danger alert.",
+          "filePath": "src/tokens/contextual/alert.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{feedback.danger.background.color}",
+              "dark": "{background.color.subtle}"
+            },
+            "$type": "color",
+            "comment": "Used for the background color of a danger alert."
+          },
+          "name": "ALERT_DANGER_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "alert",
+            "danger",
+            "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "value": "#ec5941",
+            "$type": "color",
+            "comment": "Used for the border color of a danger alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the border color of a danger alert."
+            },
+            "name": "ALERT_DANGER_BORDER_TOP_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "danger",
+              "border",
+              "top",
+              "color"
+            ]
+          }
+        },
+        "bottom": {
+          "color": {
+            "value": "#3a383f",
+            "$type": "color",
+            "comment": "Used for the border bottom color of a danger alert.",
+            "filePath": "src/tokens/contextual/alert.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.alpha.0}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "comment": "Used for the border bottom color of a danger alert."
+            },
+            "name": "ALERT_DANGER_BORDER_BOTTOM_COLOR",
+            "attributes": {},
+            "path": [
+              "alert",
+              "danger",
+              "border",
+              "bottom",
+              "color"
+            ]
+          }
+        }
+      }
+    }
+  },
   "avatar": {
     "border": {
       "color": {
@@ -5737,7 +6863,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#28272d",
+            "value": "#89888d",
             "$type": "color",
             "comment": "Used for the background of a muted badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5745,7 +6871,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.50}",
-                "dark": "{color.neutral.900}"
+                "dark": "{color.neutral.400}"
               },
               "$type": "color",
               "comment": "Used for the background of a muted badge when static or the default state when linked."
@@ -5761,7 +6887,7 @@
             ]
           },
           "hover": {
-            "value": "#28272d",
+            "value": "#89888d",
             "$type": "color",
             "comment": "Used for the background of a muted badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5782,7 +6908,7 @@
             ]
           },
           "focus": {
-            "value": "#28272d",
+            "value": "#89888d",
             "$type": "color",
             "comment": "Used for the background of a muted badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5803,7 +6929,7 @@
             ]
           },
           "active": {
-            "value": "#3a383f",
+            "value": "#a4a3a8",
             "$type": "color",
             "comment": "Used for the background of a muted badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5811,7 +6937,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.100}",
-                "dark": "{color.neutral.800}"
+                "dark": "{color.neutral.300}"
               },
               "$type": "color",
               "comment": "Used for the background of a muted badge in the active state."
@@ -5852,7 +6978,7 @@
             ]
           },
           "hover": {
-            "value": "#4c4b51",
+            "value": "#a4a3a8",
             "$type": "color",
             "comment": "Used for the border of a muted badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5860,7 +6986,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.200}",
-                "dark": "{color.neutral.700}"
+                "dark": "{color.neutral.300}"
               },
               "$type": "color",
               "comment": "Used for the border of a muted badge in the hover state."
@@ -5922,7 +7048,7 @@
       "text": {
         "color": {
           "default": {
-            "value": "#a4a3a8",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the text of a muted badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5930,7 +7056,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.600}",
-                "dark": "{color.neutral.300}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a muted badge when static or the default state when linked."
@@ -5946,7 +7072,7 @@
             ]
           },
           "hover": {
-            "value": "#bfbfc3",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the text of a muted badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5954,7 +7080,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.700}",
-                "dark": "{color.neutral.200}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a muted badge in the hover state."
@@ -5970,7 +7096,7 @@
             ]
           },
           "focus": {
-            "value": "#bfbfc3",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the text of a muted badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5991,7 +7117,7 @@
             ]
           },
           "active": {
-            "value": "#dcdcde",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the text of a muted badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5999,7 +7125,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.800}",
-                "dark": "{color.neutral.100}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a muted badge in the active state."
@@ -6019,7 +7145,7 @@
       "icon": {
         "color": {
           "default": {
-            "value": "#89888d",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the icon of a muted badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6027,7 +7153,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.500}",
-                "dark": "{color.neutral.400}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a muted badge when static or the default state when linked."
@@ -6043,7 +7169,7 @@
             ]
           },
           "hover": {
-            "value": "#a4a3a8",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the icon of a muted badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6051,7 +7177,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.600}",
-                "dark": "{color.neutral.300}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a muted badge in the hover state."
@@ -6067,7 +7193,7 @@
             ]
           },
           "focus": {
-            "value": "#a4a3a8",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the icon of a muted badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6088,7 +7214,7 @@
             ]
           },
           "active": {
-            "value": "#bfbfc3",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the icon of a muted badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6096,7 +7222,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.700}",
-                "dark": "{color.neutral.200}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a muted badge in the active state."
@@ -6118,7 +7244,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#3a383f",
+            "value": "#a4a3a8",
             "$type": "color",
             "comment": "Used for the background of a neutral badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6126,7 +7252,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.100}",
-                "dark": "{color.neutral.800}"
+                "dark": "{color.neutral.300}"
               },
               "$type": "color",
               "comment": "Used for the background of a neutral badge when static or the default state when linked."
@@ -6142,7 +7268,7 @@
             ]
           },
           "hover": {
-            "value": "#3a383f",
+            "value": "#a4a3a8",
             "$type": "color",
             "comment": "Used for the background of a neutral badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6163,7 +7289,7 @@
             ]
           },
           "focus": {
-            "value": "#3a383f",
+            "value": "#a4a3a8",
             "$type": "color",
             "comment": "Used for the background of a neutral badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6184,7 +7310,7 @@
             ]
           },
           "active": {
-            "value": "#4c4b51",
+            "value": "#bfbfc3",
             "$type": "color",
             "comment": "Used for the background of a neutral badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6192,7 +7318,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.200}",
-                "dark": "{color.neutral.700}"
+                "dark": "{color.neutral.200}"
               },
               "$type": "color",
               "comment": "Used for the background of a neutral badge in the active state."
@@ -6233,7 +7359,7 @@
             ]
           },
           "hover": {
-            "value": "#4c4b51",
+            "value": "#bfbfc3",
             "$type": "color",
             "comment": "Used for the border of a neutral badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6241,7 +7367,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.200}",
-                "dark": "{color.neutral.700}"
+                "dark": "{color.neutral.200}"
               },
               "$type": "color",
               "comment": "Used for the border of a neutral badge in the hover state."
@@ -6303,7 +7429,7 @@
       "text": {
         "color": {
           "default": {
-            "value": "#bfbfc3",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the text of a neutral badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6311,7 +7437,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.700}",
-                "dark": "{color.neutral.200}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a neutral badge when static or the default state when linked."
@@ -6327,7 +7453,7 @@
             ]
           },
           "hover": {
-            "value": "#dcdcde",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the text of a neutral badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6335,7 +7461,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.800}",
-                "dark": "{color.neutral.100}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a neutral badge in the hover state."
@@ -6351,7 +7477,7 @@
             ]
           },
           "focus": {
-            "value": "#dcdcde",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the text of a neutral badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6372,7 +7498,7 @@
             ]
           },
           "active": {
-            "value": "#ececef",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the text of a neutral badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6380,7 +7506,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.900}",
-                "dark": "{color.neutral.50}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a neutral badge in the active state."
@@ -6400,7 +7526,7 @@
       "icon": {
         "color": {
           "default": {
-            "value": "#89888d",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the icon of a neutral badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6408,7 +7534,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.500}",
-                "dark": "{color.neutral.400}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a neutral badge when static or the default state when linked."
@@ -6424,7 +7550,7 @@
             ]
           },
           "hover": {
-            "value": "#a4a3a8",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the icon of a neutral badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6432,7 +7558,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.600}",
-                "dark": "{color.neutral.300}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a neutral badge in the hover state."
@@ -6448,7 +7574,7 @@
             ]
           },
           "focus": {
-            "value": "#a4a3a8",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the icon of a neutral badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6469,7 +7595,7 @@
             ]
           },
           "active": {
-            "value": "#bfbfc3",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the icon of a neutral badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6477,7 +7603,7 @@
             "original": {
               "value": {
                 "default": "{color.neutral.700}",
-                "dark": "{color.neutral.200}"
+                "dark": "{color.neutral.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a neutral badge in the active state."
@@ -6499,7 +7625,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#064787",
+            "value": "#63a6e9",
             "$type": "color",
             "comment": "Used for the background of an informational badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6507,7 +7633,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.100}",
-                "dark": "{color.blue.800}"
+                "dark": "{color.blue.300}"
               },
               "$type": "color",
               "comment": "Used for the background of an informational badge when static or the default state when linked."
@@ -6523,7 +7649,7 @@
             ]
           },
           "hover": {
-            "value": "#064787",
+            "value": "#63a6e9",
             "$type": "color",
             "comment": "Used for the background of an informational badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6544,7 +7670,7 @@
             ]
           },
           "focus": {
-            "value": "#064787",
+            "value": "#63a6e9",
             "$type": "color",
             "comment": "Used for the background of an informational badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6565,7 +7691,7 @@
             ]
           },
           "active": {
-            "value": "#0b5cad",
+            "value": "#9dc7f1",
             "$type": "color",
             "comment": "Used for the background of an informational badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6573,7 +7699,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.200}",
-                "dark": "{color.blue.700}"
+                "dark": "{color.blue.200}"
               },
               "$type": "color",
               "comment": "Used for the background of an informational badge in the active state."
@@ -6614,7 +7740,7 @@
             ]
           },
           "hover": {
-            "value": "#0b5cad",
+            "value": "#9dc7f1",
             "$type": "color",
             "comment": "Used for the border of an informational badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6622,7 +7748,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.200}",
-                "dark": "{color.blue.700}"
+                "dark": "{color.blue.200}"
               },
               "$type": "color",
               "comment": "Used for the border of an informational badge in the hover state."
@@ -6684,7 +7810,7 @@
       "text": {
         "color": {
           "default": {
-            "value": "#9dc7f1",
+            "value": "#002850",
             "$type": "color",
             "comment": "Used for the text of an informational badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6692,7 +7818,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.700}",
-                "dark": "{color.blue.200}"
+                "dark": "{color.blue.950}"
               },
               "$type": "color",
               "comment": "Used for the text of an informational badge when static or the default state when linked."
@@ -6708,7 +7834,7 @@
             ]
           },
           "hover": {
-            "value": "#cbe2f9",
+            "value": "#002850",
             "$type": "color",
             "comment": "Used for the text of an informational badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6716,7 +7842,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.800}",
-                "dark": "{color.blue.100}"
+                "dark": "{color.blue.950}"
               },
               "$type": "color",
               "comment": "Used for the text of an informational badge in the hover state."
@@ -6732,7 +7858,7 @@
             ]
           },
           "focus": {
-            "value": "#cbe2f9",
+            "value": "#002850",
             "$type": "color",
             "comment": "Used for the text of an informational badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6753,7 +7879,7 @@
             ]
           },
           "active": {
-            "value": "#e9f3fc",
+            "value": "#002850",
             "$type": "color",
             "comment": "Used for the text of an informational badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6761,7 +7887,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.900}",
-                "dark": "{color.blue.50}"
+                "dark": "{color.blue.950}"
               },
               "$type": "color",
               "comment": "Used for the text of an informational badge in the active state."
@@ -6781,7 +7907,7 @@
       "icon": {
         "color": {
           "default": {
-            "value": "#428fdc",
+            "value": "#002850",
             "$type": "color",
             "comment": "Used for the icon of an informational badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6789,7 +7915,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.500}",
-                "dark": "{color.blue.400}"
+                "dark": "{color.blue.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of an informational badge when static or the default state when linked."
@@ -6805,7 +7931,7 @@
             ]
           },
           "hover": {
-            "value": "#63a6e9",
+            "value": "#002850",
             "$type": "color",
             "comment": "Used for the icon of an informational badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6813,7 +7939,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.600}",
-                "dark": "{color.blue.300}"
+                "dark": "{color.blue.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of an informational badge in the hover state."
@@ -6829,7 +7955,7 @@
             ]
           },
           "focus": {
-            "value": "#63a6e9",
+            "value": "#002850",
             "$type": "color",
             "comment": "Used for the icon of an informational badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6850,7 +7976,7 @@
             ]
           },
           "active": {
-            "value": "#9dc7f1",
+            "value": "#002850",
             "$type": "color",
             "comment": "Used for the icon of an informational badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6858,7 +7984,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.700}",
-                "dark": "{color.blue.200}"
+                "dark": "{color.blue.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of an informational badge in the active state."
@@ -6880,7 +8006,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#0d532a",
+            "value": "#52b87a",
             "$type": "color",
             "comment": "Used for the background of a success badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6888,7 +8014,7 @@
             "original": {
               "value": {
                 "default": "{color.green.100}",
-                "dark": "{color.green.800}"
+                "dark": "{color.green.300}"
               },
               "$type": "color",
               "comment": "Used for the background of a success badge when static or the default state when linked."
@@ -6904,7 +8030,7 @@
             ]
           },
           "hover": {
-            "value": "#0d532a",
+            "value": "#52b87a",
             "$type": "color",
             "comment": "Used for the background of a success badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6925,7 +8051,7 @@
             ]
           },
           "focus": {
-            "value": "#0d532a",
+            "value": "#52b87a",
             "$type": "color",
             "comment": "Used for the background of a success badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6946,7 +8072,7 @@
             ]
           },
           "active": {
-            "value": "#24663b",
+            "value": "#91d4a8",
             "$type": "color",
             "comment": "Used for the background of a success badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6954,7 +8080,7 @@
             "original": {
               "value": {
                 "default": "{color.green.200}",
-                "dark": "{color.green.700}"
+                "dark": "{color.green.200}"
               },
               "$type": "color",
               "comment": "Used for the background of a success badge in the active state."
@@ -6995,7 +8121,7 @@
             ]
           },
           "hover": {
-            "value": "#24663b",
+            "value": "#91d4a8",
             "$type": "color",
             "comment": "Used for the border of a success badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7003,7 +8129,7 @@
             "original": {
               "value": {
                 "default": "{color.green.200}",
-                "dark": "{color.green.700}"
+                "dark": "{color.green.200}"
               },
               "$type": "color",
               "comment": "Used for the border of a success badge in the hover state."
@@ -7065,7 +8191,7 @@
       "text": {
         "color": {
           "default": {
-            "value": "#91d4a8",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Used for the text of a success badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7073,7 +8199,7 @@
             "original": {
               "value": {
                 "default": "{color.green.700}",
-                "dark": "{color.green.200}"
+                "dark": "{color.green.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a success badge when static or the default state when linked."
@@ -7089,7 +8215,7 @@
             ]
           },
           "hover": {
-            "value": "#c3e6cd",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Used for the text of a success badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7097,7 +8223,7 @@
             "original": {
               "value": {
                 "default": "{color.green.800}",
-                "dark": "{color.green.100}"
+                "dark": "{color.green.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a success badge in the hover state."
@@ -7113,7 +8239,7 @@
             ]
           },
           "focus": {
-            "value": "#c3e6cd",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Used for the text of a success badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7134,7 +8260,7 @@
             ]
           },
           "active": {
-            "value": "#ecf4ee",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Used for the text of a success badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7142,7 +8268,7 @@
             "original": {
               "value": {
                 "default": "{color.green.900}",
-                "dark": "{color.green.50}"
+                "dark": "{color.green.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a success badge in the active state."
@@ -7162,7 +8288,7 @@
       "icon": {
         "color": {
           "default": {
-            "value": "#2da160",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Used for the icon of a success badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7170,7 +8296,7 @@
             "original": {
               "value": {
                 "default": "{color.green.500}",
-                "dark": "{color.green.400}"
+                "dark": "{color.green.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a success badge when static or the default state when linked."
@@ -7186,7 +8312,7 @@
             ]
           },
           "hover": {
-            "value": "#52b87a",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Used for the icon of a success badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7194,7 +8320,7 @@
             "original": {
               "value": {
                 "default": "{color.green.600}",
-                "dark": "{color.green.300}"
+                "dark": "{color.green.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a success badge in the hover state."
@@ -7210,7 +8336,7 @@
             ]
           },
           "focus": {
-            "value": "#52b87a",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Used for the icon of a success badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7231,7 +8357,7 @@
             ]
           },
           "active": {
-            "value": "#91d4a8",
+            "value": "#072b15",
             "$type": "color",
             "comment": "Used for the icon of a success badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7239,7 +8365,7 @@
             "original": {
               "value": {
                 "default": "{color.green.700}",
-                "dark": "{color.green.200}"
+                "dark": "{color.green.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a success badge in the active state."
@@ -7261,7 +8387,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#703800",
+            "value": "#d99530",
             "$type": "color",
             "comment": "Used for the background of a warning badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7269,7 +8395,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.100}",
-                "dark": "{color.orange.800}"
+                "dark": "{color.orange.300}"
               },
               "$type": "color",
               "comment": "Used for the background of a warning badge when static or the default state when linked."
@@ -7285,7 +8411,7 @@
             ]
           },
           "hover": {
-            "value": "#703800",
+            "value": "#d99530",
             "$type": "color",
             "comment": "Used for the background of a warning badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7306,7 +8432,7 @@
             ]
           },
           "focus": {
-            "value": "#703800",
+            "value": "#d99530",
             "$type": "color",
             "comment": "Used for the background of a warning badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7327,7 +8453,7 @@
             ]
           },
           "active": {
-            "value": "#8f4700",
+            "value": "#e9be74",
             "$type": "color",
             "comment": "Used for the background of a warning badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7335,7 +8461,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.200}",
-                "dark": "{color.orange.700}"
+                "dark": "{color.orange.200}"
               },
               "$type": "color",
               "comment": "Used for the background of a warning badge in the active state."
@@ -7376,7 +8502,7 @@
             ]
           },
           "hover": {
-            "value": "#8f4700",
+            "value": "#e9be74",
             "$type": "color",
             "comment": "Used for the border of a warning badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7384,7 +8510,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.200}",
-                "dark": "{color.orange.700}"
+                "dark": "{color.orange.200}"
               },
               "$type": "color",
               "comment": "Used for the border of a warning badge in the hover state."
@@ -7446,7 +8572,7 @@
       "text": {
         "color": {
           "default": {
-            "value": "#e9be74",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Used for the text of a warning badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7454,7 +8580,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.700}",
-                "dark": "{color.orange.200}"
+                "dark": "{color.orange.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a warning badge when static or the default state when linked."
@@ -7470,7 +8596,7 @@
             ]
           },
           "hover": {
-            "value": "#f5d9a8",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Used for the text of a warning badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7478,7 +8604,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.800}",
-                "dark": "{color.orange.100}"
+                "dark": "{color.orange.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a warning badge in the hover state."
@@ -7494,7 +8620,7 @@
             ]
           },
           "focus": {
-            "value": "#f5d9a8",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Used for the text of a warning badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7515,7 +8641,7 @@
             ]
           },
           "active": {
-            "value": "#fdf1dd",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Used for the text of a warning badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7523,7 +8649,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.900}",
-                "dark": "{color.orange.50}"
+                "dark": "{color.orange.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a warning badge in the active state."
@@ -7543,7 +8669,7 @@
       "icon": {
         "color": {
           "default": {
-            "value": "#c17d10",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Used for the icon of a warning badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7551,7 +8677,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.500}",
-                "dark": "{color.orange.400}"
+                "dark": "{color.orange.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a warning badge when static or the default state when linked."
@@ -7567,7 +8693,7 @@
             ]
           },
           "hover": {
-            "value": "#d99530",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Used for the icon of a warning badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7575,7 +8701,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.600}",
-                "dark": "{color.orange.300}"
+                "dark": "{color.orange.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a warning badge in the hover state."
@@ -7591,7 +8717,7 @@
             ]
           },
           "focus": {
-            "value": "#d99530",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Used for the icon of a warning badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7612,7 +8738,7 @@
             ]
           },
           "active": {
-            "value": "#e9be74",
+            "value": "#421f00",
             "$type": "color",
             "comment": "Used for the icon of a warning badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7620,7 +8746,7 @@
             "original": {
               "value": {
                 "default": "{color.orange.700}",
-                "dark": "{color.orange.200}"
+                "dark": "{color.orange.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a warning badge in the active state."
@@ -7642,7 +8768,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#8d1300",
+            "value": "#f57f6c",
             "$type": "color",
             "comment": "Used for the background of a danger badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7650,7 +8776,7 @@
             "original": {
               "value": {
                 "default": "{color.red.100}",
-                "dark": "{color.red.800}"
+                "dark": "{color.red.300}"
               },
               "$type": "color",
               "comment": "Used for the background of a danger badge when static or the default state when linked."
@@ -7666,7 +8792,7 @@
             ]
           },
           "hover": {
-            "value": "#8d1300",
+            "value": "#f57f6c",
             "$type": "color",
             "comment": "Used for the background of a danger badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7687,7 +8813,7 @@
             ]
           },
           "focus": {
-            "value": "#8d1300",
+            "value": "#f57f6c",
             "$type": "color",
             "comment": "Used for the background of a danger badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7708,7 +8834,7 @@
             ]
           },
           "active": {
-            "value": "#ae1800",
+            "value": "#fcb5aa",
             "$type": "color",
             "comment": "Used for the background of a danger badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7716,7 +8842,7 @@
             "original": {
               "value": {
                 "default": "{color.red.200}",
-                "dark": "{color.red.700}"
+                "dark": "{color.red.200}"
               },
               "$type": "color",
               "comment": "Used for the background of a danger badge in the active state."
@@ -7757,7 +8883,7 @@
             ]
           },
           "hover": {
-            "value": "#ae1800",
+            "value": "#fcb5aa",
             "$type": "color",
             "comment": "Used for the border of a danger badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7765,7 +8891,7 @@
             "original": {
               "value": {
                 "default": "{color.red.200}",
-                "dark": "{color.red.700}"
+                "dark": "{color.red.200}"
               },
               "$type": "color",
               "comment": "Used for the border of a danger badge in the hover state."
@@ -7827,7 +8953,7 @@
       "text": {
         "color": {
           "default": {
-            "value": "#fcb5aa",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Used for the text of a danger badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7835,7 +8961,7 @@
             "original": {
               "value": {
                 "default": "{color.red.700}",
-                "dark": "{color.red.200}"
+                "dark": "{color.red.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a danger badge when static or the default state when linked."
@@ -7851,7 +8977,7 @@
             ]
           },
           "hover": {
-            "value": "#fdd4cd",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Used for the text of a danger badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7859,7 +8985,7 @@
             "original": {
               "value": {
                 "default": "{color.red.800}",
-                "dark": "{color.red.100}"
+                "dark": "{color.red.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a danger badge in the hover state."
@@ -7875,7 +9001,7 @@
             ]
           },
           "focus": {
-            "value": "#fdd4cd",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Used for the text of a danger badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7896,7 +9022,7 @@
             ]
           },
           "active": {
-            "value": "#fcf1ef",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Used for the text of a danger badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7904,7 +9030,7 @@
             "original": {
               "value": {
                 "default": "{color.red.900}",
-                "dark": "{color.red.50}"
+                "dark": "{color.red.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a danger badge in the active state."
@@ -7924,15 +9050,15 @@
       "icon": {
         "color": {
           "default": {
-            "value": "#ec5941",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Used for the icon of a danger badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
               "value": {
-                "default": "{color.red.500}",
-                "dark": "{color.red.400}"
+                "default": "{color.red.700}",
+                "dark": "{color.red.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a danger badge when static or the default state when linked."
@@ -7948,15 +9074,15 @@
             ]
           },
           "hover": {
-            "value": "#f57f6c",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Used for the icon of a danger badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
               "value": {
-                "default": "{color.red.600}",
-                "dark": "{color.red.300}"
+                "default": "{color.red.800}",
+                "dark": "{color.red.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a danger badge in the hover state."
@@ -7972,7 +9098,7 @@
             ]
           },
           "focus": {
-            "value": "#f57f6c",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Used for the icon of a danger badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7993,15 +9119,15 @@
             ]
           },
           "active": {
-            "value": "#fcb5aa",
+            "value": "#4d0a00",
             "$type": "color",
             "comment": "Used for the icon of a danger badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
               "value": {
-                "default": "{color.red.700}",
-                "dark": "{color.red.200}"
+                "default": "{color.red.900}",
+                "dark": "{color.red.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a danger badge in the active state."
@@ -8023,7 +9149,7 @@
       "background": {
         "color": {
           "default": {
-            "value": "#2f2a6b",
+            "value": "#ac93e6",
             "$type": "color",
             "comment": "Used for the background of a tier related badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8031,7 +9157,7 @@
             "original": {
               "value": {
                 "default": "{color.purple.100}",
-                "dark": "{color.purple.900}"
+                "dark": "{color.purple.300}"
               },
               "$type": "color",
               "comment": "Used for the background of a tier related badge when static or the default state when linked."
@@ -8047,7 +9173,7 @@
             ]
           },
           "hover": {
-            "value": "#2f2a6b",
+            "value": "#ac93e6",
             "$type": "color",
             "comment": "Used for the background of a tier related badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8068,7 +9194,7 @@
             ]
           },
           "focus": {
-            "value": "#2f2a6b",
+            "value": "#ac93e6",
             "$type": "color",
             "comment": "Used for the background of a tier related badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8089,7 +9215,7 @@
             ]
           },
           "active": {
-            "value": "#453894",
+            "value": "#cbbbf2",
             "$type": "color",
             "comment": "Used for the background of a tier related badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8097,7 +9223,7 @@
             "original": {
               "value": {
                 "default": "{color.purple.200}",
-                "dark": "{color.purple.800}"
+                "dark": "{color.purple.200}"
               },
               "$type": "color",
               "comment": "Used for the background of a tier related badge in the active state."
@@ -8138,7 +9264,7 @@
             ]
           },
           "hover": {
-            "value": "#453894",
+            "value": "#cbbbf2",
             "$type": "color",
             "comment": "Used for the border of a tier related badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8146,7 +9272,7 @@
             "original": {
               "value": {
                 "default": "{color.purple.200}",
-                "dark": "{color.purple.800}"
+                "dark": "{color.purple.200}"
               },
               "$type": "color",
               "comment": "Used for the border of a tier related badge in the hover state."
@@ -8208,7 +9334,7 @@
       "text": {
         "color": {
           "default": {
-            "value": "#ac93e6",
+            "value": "#232150",
             "$type": "color",
             "comment": "Used for the text of a tier related badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8216,7 +9342,7 @@
             "original": {
               "value": {
                 "default": "{color.purple.700}",
-                "dark": "{color.purple.300}"
+                "dark": "{color.purple.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a tier related badge when static or the default state when linked."
@@ -8232,7 +9358,7 @@
             ]
           },
           "hover": {
-            "value": "#cbbbf2",
+            "value": "#232150",
             "$type": "color",
             "comment": "Used for the text of a tier related badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8240,7 +9366,7 @@
             "original": {
               "value": {
                 "default": "{color.purple.800}",
-                "dark": "{color.purple.200}"
+                "dark": "{color.purple.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a tier related badge in the hover state."
@@ -8256,7 +9382,7 @@
             ]
           },
           "focus": {
-            "value": "#cbbbf2",
+            "value": "#232150",
             "$type": "color",
             "comment": "Used for the text of a tier related badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8277,7 +9403,7 @@
             ]
           },
           "active": {
-            "value": "#e1d8f9",
+            "value": "#232150",
             "$type": "color",
             "comment": "Used for the text of a tier related badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8285,7 +9411,7 @@
             "original": {
               "value": {
                 "default": "{color.purple.900}",
-                "dark": "{color.purple.100}"
+                "dark": "{color.purple.950}"
               },
               "$type": "color",
               "comment": "Used for the text of a tier related badge in the active state."
@@ -8305,15 +9431,15 @@
       "icon": {
         "color": {
           "default": {
-            "value": "#7b58cf",
+            "value": "#232150",
             "$type": "color",
             "comment": "Used for the icon of a tier related badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
               "value": {
-                "default": "{color.purple.500}",
-                "dark": "{color.purple.500}"
+                "default": "{color.purple.700}",
+                "dark": "{color.purple.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a tier related badge when static or the default state when linked."
@@ -8329,15 +9455,15 @@
             ]
           },
           "hover": {
-            "value": "#9475db",
+            "value": "#232150",
             "$type": "color",
             "comment": "Used for the icon of a tier related badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
               "value": {
-                "default": "{color.purple.600}",
-                "dark": "{color.purple.400}"
+                "default": "{color.purple.800}",
+                "dark": "{color.purple.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a tier related badge in the hover state."
@@ -8353,7 +9479,7 @@
             ]
           },
           "focus": {
-            "value": "#9475db",
+            "value": "#232150",
             "$type": "color",
             "comment": "Used for the icon of a tier related badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -8374,15 +9500,15 @@
             ]
           },
           "active": {
-            "value": "#ac93e6",
+            "value": "#232150",
             "$type": "color",
             "comment": "Used for the icon of a tier related badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
             "isSource": true,
             "original": {
               "value": {
-                "default": "{color.purple.700}",
-                "dark": "{color.purple.300}"
+                "default": "{color.purple.900}",
+                "dark": "{color.purple.950}"
               },
               "$type": "color",
               "comment": "Used for the icon of a tier related badge in the active state."
@@ -8405,18 +9531,18 @@
     "intro": {
       "border": {
         "color": {
-          "value": "#1068bf",
+          "value": "#064787",
           "$type": "color",
-          "comment": "Used to compliment the info banner.",
+          "comment": "Used for the border of an info banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
           "isSource": true,
           "original": {
             "value": {
-              "default": "{color.blue.300}",
-              "dark": "{color.blue.600}"
+              "default": "{color.blue.100}",
+              "dark": "{color.blue.800}"
             },
             "$type": "color",
-            "comment": "Used to compliment the info banner."
+            "comment": "Used for the border of an info banner."
           },
           "name": "BANNER_INTRO_BORDER_COLOR",
           "attributes": {},
@@ -8432,18 +9558,18 @@
     "promo": {
       "background": {
         "color": {
-          "value": "#28272d",
+          "value": "#232150",
           "$type": "color",
-          "comment": "Used as background for the default banner type.",
+          "comment": "Used for the background of a promo banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
           "isSource": true,
           "original": {
             "value": {
-              "default": "{color.neutral.10}",
-              "dark": "{color.neutral.900}"
+              "default": "{color.purple.50}",
+              "dark": "{color.purple.950}"
             },
             "$type": "color",
-            "comment": "Used as background for the default banner type."
+            "comment": "Used for the background of a promo banner."
           },
           "name": "BANNER_PROMO_BACKGROUND_COLOR",
           "attributes": {},
@@ -8451,6 +9577,31 @@
             "banner",
             "promo",
             "background",
+            "color"
+          ]
+        }
+      },
+      "border": {
+        "color": {
+          "value": "#453894",
+          "$type": "color",
+          "comment": "Used for the border of a promo banner.",
+          "filePath": "src/tokens/contextual/banner.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.purple.100}",
+              "dark": "{color.purple.800}"
+            },
+            "$type": "color",
+            "comment": "Used for the border of a promo banner."
+          },
+          "name": "BANNER_PROMO_BORDER_COLOR",
+          "attributes": {},
+          "path": [
+            "banner",
+            "promo",
+            "border",
             "color"
           ]
         }
@@ -9071,7 +10222,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{color.neutral.0}",
+                "value": "{action.strong.confirm.foreground.color.default}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the default state."
               },
@@ -9093,7 +10244,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.hover}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the hover state."
               },
@@ -9115,7 +10266,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.focus}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the focus state."
               },
@@ -9137,7 +10288,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.foreground.color.default}",
+                "value": "{action.strong.confirm.foreground.color.active}",
                 "$type": "color",
                 "comment": "Used for the foreground of a confirm (positive) primary button in the active state."
               },
@@ -9163,10 +10314,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.500}",
-                  "dark": "{color.blue.400}"
-                },
+                "value": "{action.strong.confirm.background.color.default}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the default state."
               },
@@ -9188,10 +10336,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.600}",
-                  "dark": "{color.blue.300}"
-                },
+                "value": "{action.strong.confirm.background.color.hover}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the hover state."
               },
@@ -9213,7 +10358,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{button.confirm.primary.background.color.hover}",
+                "value": "{action.strong.confirm.background.color.focus}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the focus state."
               },
@@ -9235,10 +10380,7 @@
               "filePath": "src/tokens/contextual/button.tokens.json",
               "isSource": true,
               "original": {
-                "value": {
-                  "default": "{color.blue.700}",
-                  "dark": "{color.blue.200}"
-                },
+                "value": "{action.strong.confirm.background.color.active}",
                 "$type": "color",
                 "comment": "Used for the background of a confirm (positive) primary button in the active state."
               },
@@ -11359,11 +12501,35 @@
     }
   },
   "datepicker": {
+    "background": {
+      "color": {
+        "value": "#28272d",
+        "$type": "color",
+        "comment": "Used for the background color of datepicker.",
+        "filePath": "src/tokens/contextual/datepicker.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "comment": "Used for the background color of datepicker."
+        },
+        "name": "DATEPICKER_BACKGROUND_COLOR",
+        "attributes": {},
+        "path": [
+          "datepicker",
+          "background",
+          "color"
+        ]
+      }
+    },
     "date": {
       "text": {
         "color": {
           "selected": {
-            "value": "#28272d",
+            "value": "#18171d",
             "$type": "color",
             "comment": "Used for the datepicker date text color state indicators.",
             "filePath": "src/tokens/contextual/datepicker.tokens.json",
@@ -11926,11 +13092,43 @@
       }
     }
   },
+  "tab": {
+    "selected": {
+      "indicator": {
+        "color": {
+          "default": {
+            "value": "#428fdc",
+            "$type": "color",
+            "comment": "Used for the selected indicator of a tab.",
+            "filePath": "src/tokens/contextual/tabs.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "comment": "Used for the selected indicator of a tab."
+            },
+            "name": "TAB_SELECTED_INDICATOR_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "tab",
+              "selected",
+              "indicator",
+              "color",
+              "default"
+            ]
+          }
+        }
+      }
+    }
+  },
   "control": {
     "background": {
       "color": {
         "default": {
-          "value": "#28272d",
+          "value": "rgba(05, 05, 06, 0.4)",
           "$type": "color",
           "comment": "Used for form control (input, radio button, checkbox, textarea) default background.",
           "filePath": "src/tokens/control.tokens.json",
@@ -11938,7 +13136,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.0}",
-              "dark": "{color.neutral.900}"
+              "dark": "{color.alpha.dark.40}"
             },
             "$type": "color",
             "comment": "Used for form control (input, radio button, checkbox, textarea) default background."
@@ -11953,7 +13151,7 @@
           ]
         },
         "disabled": {
-          "value": "#18171d",
+          "value": "rgba(255, 255, 255, 0.04)",
           "$type": "color",
           "comment": "Used for disabled form control (checkbox, input, radio button, textarea) background.",
           "filePath": "src/tokens/control.tokens.json",
@@ -11961,7 +13159,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.10}",
-              "dark": "{color.neutral.950}"
+              "dark": "{color.alpha.light.4}"
             },
             "$type": "color",
             "comment": "Used for disabled form control (checkbox, input, radio button, textarea) background."
@@ -11975,9 +13173,55 @@
             "disabled"
           ]
         },
+        "concatenation": {
+          "value": "rgba(255, 255, 255, 0.04)",
+          "$type": "color",
+          "comment": "Used for the background of static content that prepends or appends a text input.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.10}",
+              "dark": "{color.alpha.light.4}"
+            },
+            "$type": "color",
+            "comment": "Used for the background of static content that prepends or appends a text input."
+          },
+          "name": "CONTROL_BACKGROUND_COLOR_CONCATENATION",
+          "attributes": {},
+          "path": [
+            "control",
+            "background",
+            "color",
+            "concatenation"
+          ]
+        },
+        "readonly": {
+          "value": "#28272d",
+          "$type": "color",
+          "comment": "Used for the background of static content that prepends or appends a text input.",
+          "filePath": "src/tokens/control.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": {
+              "default": "{color.neutral.10}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "comment": "Used for the background of static content that prepends or appends a text input."
+          },
+          "name": "CONTROL_BACKGROUND_COLOR_READONLY",
+          "attributes": {},
+          "path": [
+            "control",
+            "background",
+            "color",
+            "readonly"
+          ]
+        },
         "selected": {
           "default": {
-            "value": "#428fdc",
+            "value": "#63a6e9",
             "$type": "color",
             "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background.",
             "filePath": "src/tokens/control.tokens.json",
@@ -11985,7 +13229,7 @@
             "original": {
               "value": {
                 "default": "{color.blue.500}",
-                "dark": "{color.blue.400}"
+                "dark": "{color.blue.300}"
               },
               "$type": "color",
               "comment": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background."
@@ -12146,7 +13390,7 @@
           ]
         },
         "error": {
-          "value": "#ec5941",
+          "value": "#f57f6c",
           "$type": "color",
           "comment": "Used for invalid form control (input, textarea) border.",
           "filePath": "src/tokens/control.tokens.json",
@@ -12154,7 +13398,7 @@
           "original": {
             "value": {
               "default": "{color.red.500}",
-              "dark": "{color.red.400}"
+              "dark": "{color.red.300}"
             },
             "$type": "color",
             "comment": "Used for invalid form control (input, textarea) border."
@@ -12247,16 +13491,13 @@
     "text": {
       "color": {
         "error": {
-          "value": "#ec5941",
+          "value": "#f57f6c",
           "$type": "color",
           "comment": "Used for the helper text when the input is invalid.",
           "filePath": "src/tokens/control.tokens.json",
           "isSource": true,
           "original": {
-            "value": {
-              "default": "{color.red.500}",
-              "dark": "{color.red.400}"
-            },
+            "value": "{text.color.danger}",
             "$type": "color",
             "comment": "Used for the helper text when the input is invalid."
           },
@@ -12270,16 +13511,13 @@
           ]
         },
         "valid": {
-          "value": "#2da160",
+          "value": "#52b87a",
           "$type": "color",
           "comment": "Used for the helper text when the input is valid.",
           "filePath": "src/tokens/control.tokens.json",
           "isSource": true,
           "original": {
-            "value": {
-              "default": "{color.green.500}",
-              "dark": "{color.green.400}"
-            },
+            "value": "{text.color.success}",
             "$type": "color",
             "comment": "Used for the helper text when the input is valid."
           },
@@ -12296,16 +13534,13 @@
     },
     "placeholder": {
       "color": {
-        "value": "#737278",
+        "value": "#89888d",
         "$type": "color",
         "comment": "Used for placeholder text within inputs.",
         "filePath": "src/tokens/control.tokens.json",
         "isSource": true,
         "original": {
-          "value": {
-            "default": "{color.neutral.400}",
-            "dark": "{color.neutral.500}"
-          },
+          "value": "{text.color.disabled}",
           "$type": "color",
           "comment": "Used for placeholder text within inputs."
         },
@@ -12321,7 +13556,7 @@
     "indicator": {
       "color": {
         "selected": {
-          "value": "#28272d",
+          "value": "#18171d",
           "$type": "color",
           "comment": "Used for checkbox and radio button state indicators.",
           "filePath": "src/tokens/control.tokens.json",
@@ -12329,7 +13564,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.0}",
-              "dark": "{color.neutral.900}"
+              "dark": "{color.neutral.950}"
             },
             "$type": "color",
             "comment": "Used for checkbox and radio button state indicators."
@@ -16771,7 +18006,7 @@
     "info": {
       "background": {
         "color": {
-          "value": "#033464",
+          "value": "#002850",
           "$type": "color",
           "comment": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action.",
           "filePath": "src/tokens/feedback.tokens.json",
@@ -16779,7 +18014,7 @@
           "original": {
             "value": {
               "default": "{color.blue.50}",
-              "dark": "{color.blue.900}"
+              "dark": "{color.blue.950}"
             },
             "$type": "color",
             "comment": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
