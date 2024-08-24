@@ -10,6 +10,11 @@
     @include gl-line-height-normal;
     @include gl-px-4;
     @include gl-py-3;
+    @include gl-prefers-reduced-motion-transition;
+    transition: border-color $gl-transition-duration-medium $gl-easing-out-cubic,
+                color $gl-transition-duration-medium $gl-easing-out-cubic,
+                background-color $gl-transition-duration-medium $gl-easing-out-cubic,
+                box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
 
     &.prev-page-item,
     &.next-page-item {
@@ -18,7 +23,6 @@
 
     &:not(.active):hover {
       @include gl-text-gray-900;
-      box-shadow: inset 0 0 0 1px $gray-400;
       border-color: $gray-400;
       background: $gray-50;
       @include gl-z-index-1;
