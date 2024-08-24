@@ -3,28 +3,31 @@
   @include gl-font-regular;
   @apply gl-text-base;
   @apply gl-leading-normal;
-  @apply gl-py-3;
-  @apply gl-px-4;
+  @apply gl-p-3;
   @include gl-h-auto;
-  @apply gl-border-none;
   @include form-control-focus($ignore-warning: true);
   appearance: none;
+  align-content: center;
   background: var(--gl-control-background-color-default);
   color: var(--gl-text-color-default);
-  box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-default);
-
-  @media (forced-colors: active) {
-    border: 1px solid;
-  }
+  border: $gl-border-size-1 solid var(--gl-control-border-color-default);
+  @include gl-prefers-reduced-motion-transition;
+  transition: box-shadow $gl-transition-duration-medium $gl-easing-out-cubic,
+              border-color $gl-transition-duration-medium $gl-easing-out-cubic;
 
   &:hover {
-    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-hover);
+    border-color: var(--gl-control-border-color-hover);
+  }
+
+  &:not(textarea) {
+    @include gl-py-0;
+    height: $gl-component-height-medium;
   }
 
   &:read-only,
   &:not(:disabled):not(.form-control-plaintext):not([type='color']):read-only {
     background: var(--gl-control-background-color-readonly);
-    box-shadow: none;
+    border-width: 0;
   }
 
   &:disabled {
@@ -35,25 +38,21 @@
   }
 
   &:not(.form-control-plaintext):focus {
-    @include gl-focus($color: var(--gl-control-border-color-focus));
     background: var(--gl-control-background-color-default);
     color: var(--gl-text-color-default);
   }
 
-  &.is-invalid {
-    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-error);
+  &:not(:disabled):focus {
+    @include gl-focus;
+    border-color: var(--gl-control-border-color-focus);
+  }
 
-    &:focus {
-      @include gl-focus($color: var(--gl-control-border-color-error));
-    }
+  &.is-invalid {
+    border-color: var(--gl-control-border-color-error);
   }
 
   &::placeholder {
     color: var(--gl-control-placeholder-color);
-  }
-
-  &.form-control-plaintext {
-    @include gl-shadow-none;
   }
 }
 
@@ -70,5 +69,12 @@
         }
       }
     }
+  }
+}
+
+.input-group {
+  .gl-form-input,
+  .gl-form-input.form-control {
+    @include gl-h-auto;
   }
 }
