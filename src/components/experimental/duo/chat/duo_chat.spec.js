@@ -295,6 +295,21 @@ describe('GlDuoChat', () => {
       );
     });
 
+    describe('showDisclaimer', () => {
+      it.each`
+        desc                 | showDisclaimer | shouldRender
+        ${'renders'}         | ${undefined}   | ${true}
+        ${'does not render'} | ${false}       | ${false}
+        ${'renders'}         | ${true}        | ${true}
+      `(
+        '$desc the legal disclaimer when isChatAvailable is true and showDisclaimer is "$showDisclaimer"',
+        ({ showDisclaimer, shouldRender }) => {
+          createComponent({ propsData: { showDisclaimer, isChatAvailable: true } });
+          expect(findLegalDisclaimer().exists()).toBe(shouldRender);
+        }
+      );
+    });
+
     describe('prompt placeholder', () => {
       it.each`
         chatPromptPlaceholder   | commands         | expectedPlaceholder
@@ -332,11 +347,6 @@ describe('GlDuoChat', () => {
     it('does not render the prompt input if `isChatAvailable` prop is `false`', () => {
       createComponent({ propsData: { messages, isChatAvailable: false } });
       expect(findChatInput().exists()).toBe(false);
-    });
-
-    it('renders the legal disclaimer if `isChatAvailable` prop is `true', () => {
-      createComponent({ propsData: { messages, isChatAvailable: true } });
-      expect(findLegalDisclaimer().exists()).toBe(true);
     });
 
     describe('submit/cancel button', () => {

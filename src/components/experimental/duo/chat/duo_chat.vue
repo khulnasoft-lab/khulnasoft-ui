@@ -196,6 +196,14 @@ export default {
       required: false,
       default: '',
     },
+    /**
+     * Whether the legal disclaimer should be displayed.
+     */
+    showDisclaimer: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   data() {
     return {
@@ -601,6 +609,7 @@ export default {
           </template>
         </gl-form-input-group>
         <p
+          v-if="showDisclaimer"
           class="gl-mb-0 gl-mt-3 gl-text-sm gl-leading-20 gl-text-subtle"
           data-testid="chat-legal-disclaimer"
         >

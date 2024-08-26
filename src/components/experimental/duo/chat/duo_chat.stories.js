@@ -28,6 +28,7 @@ const generateProps = ({
   badgeType = defaultValue('badgeType'),
   toolName = defaultValue('toolName'),
   showHeader = defaultValue('showHeader'),
+  showDisclaimer = defaultValue('showDisclaimer'),
   emptyStateTitle = defaultValue('emptyStateTitle'),
   emptyStateDescription = defaultValue('emptyStateDescription'),
   chatPromptPlaceholder = defaultValue('chatPromptPlaceholder'),
@@ -44,6 +45,7 @@ const generateProps = ({
   toolName,
   slashCommands,
   showHeader,
+  showDisclaimer,
   emptyStateTitle,
   emptyStateDescription,
   chatPromptPlaceholder,
@@ -68,6 +70,7 @@ export const Default = (args, { argTypes }) => ({
       :badge-type="badgeType"
       :tool-name="toolName"
       :show-header="showHeader"
+      :show-disclaimer="showDisclaimer"
       :empty-state-title="emptyStateTitle"
       :empty-state-description="emptyStateDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
