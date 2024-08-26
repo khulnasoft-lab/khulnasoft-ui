@@ -1,6 +1,15 @@
 @mixin gl-prefers-reduced-motion-transition {
   @media (prefers-reduced-motion) {
     transition-duration: .01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+@mixin gl-prefers-reduced-motion-animation {
+  @media (prefers-reduced-motion) {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
   }
 }
 
