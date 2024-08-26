@@ -399,6 +399,7 @@ export default {
   <nav v-if="isVisible" class="gl-pagination" :aria-label="labelNav">
     <ul :class="wrapperClasses">
       <li
+        :aria-disabled="prevPageIsDisabled"
         :aria-hidden="prevPageIsDisabled"
         :class="{
           disabled: prevPageIsDisabled,
@@ -464,6 +465,7 @@ export default {
       </li>
 
       <li
+        :aria-disabled="nextPageIsDisabled"
         :aria-hidden="nextPageIsDisabled"
         :class="{
           disabled: nextPageIsDisabled,
