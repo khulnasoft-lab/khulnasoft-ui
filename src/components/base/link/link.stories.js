@@ -1,50 +1,80 @@
-import { targetOptions } from '../../../utils/constants';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/link/README.md';
 import BVueReadmeRouterLinks from '../../../vendor/bootstrap-vue/docs/markdown/reference/router-links/README.md';
+import { linkVariantOptions, targetOptions } from '../../../utils/constants';
 import GlLink from './link.vue';
 import readme from './link.md';
 
-const generateProps = ({ href = '#', target = null } = {}) => ({
+const defaultValue = (prop) => GlLink.props[prop].default;
+
+const generateProps = ({
+  text = 'link',
+  href = '#',
+  showExternalIcon = defaultValue('showExternalIcon'),
+  target = null,
+  variant = defaultValue('variant'),
+} = {}) => ({
+  text,
   href,
+  showExternalIcon,
   target,
+  variant,
 });
 
-const makeStory =
-  (options) =>
-  (args, { argTypes }) => ({
-    components: {
-      GlLink,
-    },
-    props: Object.keys(argTypes),
-    ...options,
-  });
-
-export const DefaultLink = makeStory({
-  components: { GlLink },
+const Template = (args) => ({
+  components: {
+    GlLink,
+  },
+  props: Object.keys(args),
   template: `
     <gl-link
       :href="href"
+      :show-external-icon="showExternalIcon"
       :target="target"
+      :variant="variant"
     >
-        This is a link
-    </gl-link>`,
+      {{ text }}
+    </gl-link>
+  `,
 });
-DefaultLink.args = generateProps();
 
-export const LongLink = makeStory({
-  components: { GlLink },
-  template: `
-    <gl-link
-      :href="href"
-      :target="target"
-    >
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Quamquam tu hanc copiosiorem etiam soles dicere.
-    Ergo illi intellegunt quid Epicurus dicat, ego non intellego? Claudii libidini, qui tum erat summo ne imperio, dederetur.
-    Si quicquam extra virtutem habeatur in bonis. Nunc omni virtuti vitium contrario nomine opponitur. Duo Reges: constructio interrete.
-    </gl-link>`,
+export const Default = Template.bind({});
+Default.args = generateProps({
+  text: 'This is a UI link',
 });
-LongLink.args = generateProps();
+Default.storyName = 'UI Link (Default)';
+
+export const InlineLink = Template.bind({});
+InlineLink.args = generateProps({
+  text: 'This is an inline link',
+  variant: 'inline',
+});
+
+export const InlineExternalLink = Template.bind({});
+InlineExternalLink.args = generateProps({
+  text: 'I have an arrow character because my target URL is external',
+  href: 'https://design.gitlab.com',
+  showExternalIcon: true,
+  target: '_blank',
+  variant: 'inline',
+});
+
+export const MetaLink = Template.bind({});
+MetaLink.args = generateProps({
+  text: 'This is a meta link',
+  variant: 'meta',
+});
+
+export const MentionLink = Template.bind({});
+MentionLink.args = generateProps({
+  text: '@anotheruser',
+  variant: 'mention',
+});
+
+export const MentionLinkCurrentUser = Template.bind({});
+MentionLinkCurrentUser.args = generateProps({
+  text: '@currentuser',
+  variant: 'mentionCurrent',
+});
 
 export default {
   title: 'base/link',
@@ -59,6 +89,10 @@ export default {
     },
   },
   argTypes: {
+    variant: {
+      options: Object.keys(linkVariantOptions),
+      control: 'select',
+    },
     target: {
       options: targetOptions,
       control: 'select',
