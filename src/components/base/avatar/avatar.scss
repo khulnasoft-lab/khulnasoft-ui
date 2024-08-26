@@ -27,6 +27,7 @@ $gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
   @include gl-object-fit-contain;
   outline: 1px solid var(--gl-avatar-border-color-default);
   outline-offset: -1px;
+  @apply gl-bg-default;
 }
 
 @mixin gl-avatar-s16 {
@@ -223,6 +224,12 @@ $gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
 @for $i from 1 through length($gl-avatar-identicon-bgs) {
   .gl-avatar-identicon-bg#{$i} {
     color: nth($gl-avatar-identicon-texts, $i);
+    // Fallback background color
     background-color: nth($gl-avatar-identicon-bgs, $i);
+    // Stacked background colors
+    // First linear gradient is the background color of the identicon
+    // Second adds a default background color underneath it to avoid shine through
+    background-image: linear-gradient(to right, nth($gl-avatar-identicon-bgs, $i), nth($gl-avatar-identicon-bgs, $i)),
+                      linear-gradient(to right, var(--gl-background-color-default), var(--gl-background-color-default));
   }
 }
