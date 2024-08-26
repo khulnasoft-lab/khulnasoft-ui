@@ -1,0 +1,26 @@
+{
+  "link": {
+    "mention": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.100}",
+              "dark": "{color.blue.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the mention link default background."
+          },
+          "current": {
+            "$value": {
+              "default": "{color.orange.100}",
+              "dark": "{color.orange.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the mention link background when referencing the current user."
+          }
+        }
+      }
+    }
+  }
+}

@@ -504,6 +504,8 @@
   --gl-skeleton-loader-shimmer-color: var(--gl-color-neutral-50); /* Used for the animated shimmer effect in a skeleton loader. */
   --gl-skeleton-loader-background-color: var(--gl-color-neutral-100); /* Used for the skeleton loader background color. */
   --gl-popover-background-color: var(--gl-color-neutral-0); /* Used for the background color of popover. */
+  --gl-link-mention-background-color-current: var(--gl-color-orange-100); /* Used for the mention link background when referencing the current user. */
+  --gl-link-mention-background-color-default: var(--gl-color-blue-100); /* Used for the mention link default background. */
   --gl-label-scoped-button-icon-color-hover: var(--gl-color-neutral-0); /* Used for the scoped label remove button icon in the hover state. */
   --gl-label-scoped-button-icon-color-default: var(--gl-color-neutral-950); /* Used for the scoped label remove button icon in the default state. */
   --gl-label-scoped-button-background-color-hover: var(--gl-color-neutral-950); /* Used for the scoped label remove button background in the hover state. */
