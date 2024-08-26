@@ -1,3 +1,10 @@
+# [90.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.2.0...v90.3.0) (2024-08-26)
+
+
+### Features
+
+* Add gl-animate-skeleton-loader as Tailwind Component ([4b5d3ef](https://gitlab.com/gitlab-org/gitlab-ui/commit/4b5d3ef1798db44017d50a03ffa3a6f5204817dc))
+
 # [90.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.1.0...v90.2.0) (2024-08-22)
 
 
