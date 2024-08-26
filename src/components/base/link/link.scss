@@ -1,7 +1,8 @@
 .gl-link {
-  &,
-  &:hover {
-    @apply gl-text-link;
+  text-underline-offset: 2px;
+
+  &, &:hover, &:active, &:focus {
+    color: $gl-text-color-link;
   }
 
   &:active,
@@ -9,5 +10,58 @@
   &:focus:active {
     @apply gl-underline;
     @include gl-focus($outline: true, $outline-offset: $outline-width);
+  }
+
+  &-inline {
+    &, &:hover {
+      @apply gl-underline;
+    }
+  }
+
+  &-ui,
+  &-meta {
+    &:hover {
+      @apply gl-underline;
+    }
+  }
+
+  &-mention {
+    padding: 0 2px;
+    @apply gl-rounded-base;
+
+    &, &:hover {  
+      @apply gl-underline;
+    }
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      @apply gl-no-underline;
+    }
+  }
+
+  &-mention {
+    @apply gl-no-underline;
+    background-color: $gl-link-mention-background-color-default;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus:active {
+      color: $gl-link-mention-text-color-default;
+    }
+  }
+
+  &-mention-current {
+    background-color: $gl-link-mention-background-color-current;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus,
+    &:focus:active {
+      color: $gl-link-mention-text-color-current;
+    }
   }
 }

@@ -5,7 +5,7 @@ const getBaseURL = () => {
   return `${protocol}//${host}`;
 };
 
-const isExternalURL = (target, hostname) => {
+export const isExternalURL = (target, hostname) => {
   return target === '_blank' && hostname !== window.location.hostname;
 };
 

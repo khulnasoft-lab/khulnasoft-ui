@@ -92,7 +92,7 @@ const WithLabelSlotTemplateString = `<template #label>
     Label name
     <gl-icon v-gl-tooltip title="Information" name="information-o" :size="16" />
     <div class="label-description">
-      form group label description with a <gl-link href="#">link</gl-link> (used as description).
+      form group label description with a <gl-link variant="ui" href="#">link</gl-link> (used as description).
     </div>
   </template>
   <gl-form-input :id="id" />`;
@@ -126,7 +126,7 @@ WithLabelSlot.parameters = {
 
 const WithDescriptionSlotTemplateString = `<gl-form-input :id="id" />
   <template #description>
-    form group description with a <gl-link href="#">link</gl-link> (used as help text).
+    form group description with a <gl-link variant="ui" href="#">link</gl-link> (used as help text).
   </template> `;
 export const WithDescriptionSlot = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),

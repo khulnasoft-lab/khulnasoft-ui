@@ -25,7 +25,7 @@ export const SentenceWithLink = makeStory({
     <div class="gl-text-base">
       <gl-sprintf :message="message" :placeholders="placeholders">
         <template #link="{ content }">
-          <gl-link href="#" target="_blank">{{ content }}</gl-link>
+          <gl-link variant="ui" href="#" target="_blank">{{ content }}</gl-link>
         </template>
       </gl-sprintf>
     </div>
@@ -43,7 +43,7 @@ export const SentenceWithLinkWithCustomPlaceholders = makeStory({
     <div class="gl-text-base">
       <gl-sprintf :message="message" :placeholders="placeholders">
         <template #link="{ content }">
-          <gl-link href="#" target="_blank">{{ content }}</gl-link>
+          <gl-link variant="ui" href="#" target="_blank">{{ content }}</gl-link>
         </template>
       </gl-sprintf>
     </div>

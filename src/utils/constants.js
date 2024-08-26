@@ -183,6 +183,13 @@ export const iconVariantOptions = {
   success: 'gl-fill-icon-success',
 };
 
+export const linkVariantOptions = {
+  inline: 'inline',
+  ui: 'ui',
+  meta: 'meta',
+  mention: 'mention',
+};
+
 export const triggerVariantOptions = {
   click: 'click',
   hover: 'hover',

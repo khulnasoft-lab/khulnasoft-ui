@@ -26,6 +26,30 @@ describe('link component', () => {
     });
   });
 
+  it.each`
+    variant      | isCurrentUser | expectedClass
+    ${'inline'}  | ${false}      | ${['gl-link', 'gl-link-inline']}
+    ${'inline'}  | ${true}       | ${['gl-link', 'gl-link-inline']}
+    ${'ui'}      | ${false}      | ${['gl-link', 'gl-link-ui']}
+    ${'ui'}      | ${true}       | ${['gl-link', 'gl-link-ui']}
+    ${'meta'}    | ${false}      | ${['gl-link', 'gl-link-meta']}
+    ${'meta'}    | ${true}       | ${['gl-link', 'gl-link-meta']}
+    ${'mention'} | ${false}      | ${['gl-link', 'gl-link-mention']}
+    ${'mention'} | ${true}       | ${['gl-link', 'gl-link-mention', 'gl-link-mention-current']}
+  `(
+    'adds $expectedClass class when variant=$variant and isCurrentUser=$isCurrentUser',
+    ({ variant, isCurrentUser, expectedClass }) => {
+      createWrapper({
+        propsData: {
+          variant,
+          isCurrentUser,
+        },
+      });
+
+      expect(wrapper.classes()).toStrictEqual(expectedClass);
+    }
+  );
+
   describe('target blank', () => {
     it('should set secure rels for hrefs in a different domain', () => {
       createWrapper({

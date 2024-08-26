@@ -9,7 +9,7 @@ export default {
 };
 </script>
 <template>
-  <gl-link class="gl-avatar-link" v-bind="$attrs" v-on="$listeners">
+  <gl-link class="gl-avatar-link" v-bind="$attrs" variant="meta" v-on="$listeners">
     <slot></slot>
   </gl-link>
 </template>

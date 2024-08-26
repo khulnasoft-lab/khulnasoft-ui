@@ -75,7 +75,7 @@ export default {
           :name="getSourceIcon(source.source_type)"
           class="gl-mr-2 gl-shrink-0"
         />
-        <gl-link :href="source.source_url">{{ getSourceTitle(source) }}</gl-link>
+        <gl-link :href="source.source_url" variant="ui">{{ getSourceTitle(source) }}</gl-link>
       </li>
     </ul>
   </div>
