@@ -1,3 +1,11 @@
+# [90.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.3.0...v90.4.0) (2024-08-26)
+
+
+### Features
+
+* **DesignTokens:** link tokens ([0f388c6](https://gitlab.com/gitlab-org/gitlab-ui/commit/0f388c684f9cccaab29369a9112cd53a4601490c))
+* **Forms:** Update design tokens ([1cb4d5e](https://gitlab.com/gitlab-org/gitlab-ui/commit/1cb4d5ef8d8ad909149d909a9fb1cd1b69943d58))
+
 # [90.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.2.0...v90.3.0) (2024-08-26)
 
 
