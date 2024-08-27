@@ -409,7 +409,7 @@ export default {
       >
         <component
           :is="prevPageIsDisabled ? 'span' : 'a'"
-          data-testid="gl-pagination-item"
+          data-testid="gl-pagination-prev"
           class="gl-pagination-item"
           :aria-label="prevPageAriaLabel"
           :href="prevPageHref"
@@ -475,7 +475,7 @@ export default {
       >
         <component
           :is="nextPageIsDisabled ? 'span' : 'a'"
-          data-testid="gl-pagination-item"
+          data-testid="gl-pagination-next"
           class="gl-pagination-item"
           :aria-label="nextPageAriaLabel"
           :href="nextPageHref"
