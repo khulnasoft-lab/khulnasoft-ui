@@ -12757,7 +12757,7 @@
     "scoped": {
       "text": {
         "color": {
-          "value": "#fff",
+          "value": "#bfbfc3",
           "$type": "color",
           "comment": "Used for the scoped label text color.",
           "filePath": "src/tokens/contextual/label.tokens.json",
@@ -12765,7 +12765,7 @@
           "original": {
             "value": {
               "default": "{color.neutral.950}",
-              "dark": "{color.neutral.0}"
+              "dark": "{text.color.subtle}"
             },
             "$type": "color",
             "comment": "Used for the scoped label text color."
@@ -12813,7 +12813,7 @@
         "icon": {
           "color": {
             "default": {
-              "value": "#fff",
+              "value": "#dcdcde",
               "$type": "color",
               "comment": "Used for the scoped label remove button icon in the default state.",
               "filePath": "src/tokens/contextual/label.tokens.json",
@@ -12821,7 +12821,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.950}",
-                  "dark": "{color.neutral.0}"
+                  "dark": "{icon.color.default}"
                 },
                 "$type": "color",
                 "comment": "Used for the scoped label remove button icon in the default state."

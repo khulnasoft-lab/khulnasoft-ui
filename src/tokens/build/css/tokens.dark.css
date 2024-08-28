@@ -507,9 +507,9 @@
   --gl-link-mention-background-color-current: var(--gl-color-orange-800); /* Used for the mention link background when referencing the current user. */
   --gl-link-mention-background-color-default: var(--gl-color-blue-800); /* Used for the mention link default background. */
   --gl-label-scoped-button-icon-color-hover: var(--gl-color-neutral-950); /* Used for the scoped label remove button icon in the hover state. */
-  --gl-label-scoped-button-icon-color-default: var(--gl-color-neutral-0); /* Used for the scoped label remove button icon in the default state. */
+  --gl-label-scoped-button-icon-color-default: var(--gl-icon-color-default); /* Used for the scoped label remove button icon in the default state. */
   --gl-label-scoped-button-background-color-hover: var(--gl-color-neutral-0); /* Used for the scoped label remove button background in the hover state. */
-  --gl-label-scoped-text-color: var(--gl-color-neutral-0); /* Used for the scoped label text color. */
+  --gl-label-scoped-text-color: var(--gl-text-color-subtle); /* Used for the scoped label text color. */
   --gl-label-dark-button-icon-color-default: var(--gl-color-neutral-0); /* Used for the label remove button icon on a dark background color in the default state. */
   --gl-label-dark-button-background-color-hover: var(--gl-color-neutral-0); /* Used for the label remove button background on a dark background color in the hover state. */
   --gl-label-dark-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label remove button background on a dark background color in the default state. */

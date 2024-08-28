@@ -73,7 +73,7 @@
         "color": {
           "$value": {
             "default": "{color.neutral.950}",
-            "dark": "{color.neutral.0}"
+            "dark": "{text.color.subtle}"
           },
           "$type": "color",
           "$description": "Used for the scoped label text color."
@@ -97,7 +97,7 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.950}",
-                "dark": "{color.neutral.0}"
+                "dark": "{icon.color.default}"
               },
               "$type": "color",
               "$description": "Used for the scoped label remove button icon in the default state."

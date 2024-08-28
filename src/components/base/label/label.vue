@@ -1,11 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { labelColorOptions } from '../../../utils/constants';
-import { colorFromBackground } from '../../../utils/utils';
+import { colorFromBackground, rgbToHsl } from '../../../utils/utils';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import GlLink from '../link/link.vue';
 import GlTooltip from '../tooltip/tooltip.vue';
+
+const htmlElement = document.documentElement;
 
 export default {
   name: 'GlLabel',
@@ -60,6 +62,7 @@ export default {
   data() {
     return {
       splitScopedLabelIndex: this.title.lastIndexOf('::'),
+      isDark: htmlElement.classList.contains('gl-dark'),
     };
   },
   computed: {
@@ -67,14 +70,16 @@ export default {
       const textColorVariant = colorFromBackground(this.backgroundColor);
       return {
         'gl-label-scoped': this.scoped,
-        'gl-label-text-dark': textColorVariant === labelColorOptions.dark,
-        'gl-label-text-light': textColorVariant === labelColorOptions.light,
+        'gl-label-text-dark': !this.isDark && textColorVariant === labelColorOptions.dark,
+        'gl-label-text-light': !this.isDark && textColorVariant === labelColorOptions.light,
       };
     },
     cssVariables() {
+      const hsl = rgbToHsl(this.backgroundColor);
       return {
-        '--label-background-color': this.backgroundColor,
-        '--label-dark-background-color': `${this.backgroundColor}2d`,
+        '--h': hsl.h,
+        '--s': hsl.s,
+        '--l': hsl.l,
       };
     },
     scopedKey() {
@@ -94,6 +99,18 @@ export default {
     title() {
       this.splitScopedLabelIndex = this.title.lastIndexOf('::');
     },
+  },
+  mounted() {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          this.isDark = htmlElement.classList.contains('gl-dark');
+        }
+      });
+    });
+
+    // Start observing the <html> element for attribute changes
+    observer.observe(htmlElement, { attributes: true });
   },
   methods: {
     onClick(e) {

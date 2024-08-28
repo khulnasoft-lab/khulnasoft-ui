@@ -40,9 +40,10 @@ const theme = {
 
 const parameters = {
   darkMode: {
-    current: 'light',
+    current: 'gl-light',
     stylePreview: true,
     classTarget: 'html',
+    lightClass: 'gl-light',
     darkClass: 'gl-dark',
     dark: {
       ...theme,

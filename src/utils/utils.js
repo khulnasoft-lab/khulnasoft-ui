@@ -54,6 +54,57 @@ export function toSrgb(value) {
   return normalized <= 0.03928 ? normalized / 12.92 : ((normalized + 0.055) / 1.055) ** 2.4;
 }
 
+export function rgbToHsl(hexColor) {
+  const color = hexColor.replace('#', '');
+
+  // Convert hex to RGB first
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  if (color.length === 3) {
+    // eslint-disable-next-line prefer-template
+    r = '0x' + color[0] + color[0];
+    // eslint-disable-next-line prefer-template
+    g = '0x' + color[1] + color[1];
+    // eslint-disable-next-line prefer-template
+    b = '0x' + color[2] + color[2];
+  } else if (color.length === 6) {
+    // eslint-disable-next-line prefer-template
+    r = '0x' + color[0] + color[1];
+    // eslint-disable-next-line prefer-template
+    g = '0x' + color[2] + color[3];
+    // eslint-disable-next-line prefer-template
+    b = '0x' + color[4] + color[5];
+  }
+
+  // Convert to HSL
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  const cmin = Math.min(r, g, b);
+  const cmax = Math.max(r, g, b);
+  const delta = cmax - cmin;
+  let h = 0;
+  let s = 0;
+  let l = 0;
+
+  if (delta === 0) h = 0;
+  else if (cmax === r) h = ((g - b) / delta) % 6;
+  else if (cmax === g) h = (b - r) / delta + 2;
+  else h = (r - g) / delta + 4;
+
+  h = Math.round(h * 60);
+
+  if (h < 0) h += 360;
+
+  l = (cmax + cmin) / 2;
+  s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+  s = Number((s * 100).toFixed(1));
+  l = Number((l * 100).toFixed(1));
+
+  return { h, s, l };
+}
+
 export function relativeLuminance(rgb) {
   // WCAG 2.1 formula: https://www.w3.org/TR/WCAG21/#dfn-relative-luminance
   // -
@@ -112,7 +163,7 @@ export function getColorContrast(foreground, background) {
 
 export function LightenColor(color, magnitude) {
   // Based of https://natclark.com/tutorials/javascript-lighten-darken-hex-color
-  const hexColor = color.replace(`#`, ``);
+  const hexColor = color.replace('#', '');
 
   if (hexColor.length === 6) {
     const decimalColor = parseInt(hexColor, 16);
