@@ -1,3 +1,10 @@
+# [90.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.4.0...v90.5.0) (2024-08-28)
+
+
+### Features
+
+* **Alert:** Update design to match new design vision ([27a6f98](https://gitlab.com/gitlab-org/gitlab-ui/commit/27a6f982ab9e7a96f899cd74915be075006c8e2c))
+
 # [90.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.3.0...v90.4.0) (2024-08-26)
 
 
