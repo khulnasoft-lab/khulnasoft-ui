@@ -42,6 +42,7 @@ $gl-alert-top-border-size: 2px;
   position: relative;
   padding-inline: calc(#{$gl-spacing-scale-9} + #{$gl-alert-padding-x});
   @include gl-py-5;
+  @apply gl-rounded-base;
 
   @media (forced-colors: active) {
     border: 1px solid transparent;
@@ -81,9 +82,7 @@ $gl-alert-top-border-size: 2px;
 }
 
 .gl-alert-title {
-  @include gl-heading-scale-500;
-  @include gl-mb-3;
-  color: var(--gl-text-color-heading);
+  @apply gl-heading-scale-400 -gl-mt-1 gl-mb-2;
 }
 
 .gl-alert-icon-container {
@@ -95,8 +94,7 @@ $gl-alert-top-border-size: 2px;
   height: $gl-line-height-20;
 
   .gl-alert-has-title & {
-    @include gl-heading-scale-500; // get dynamic font-size
-    height: $gl-line-height-heading * 1em; // give unit to unitless relative line-height (1.25)
+    top: calc(#{$gl-spacing-scale-4} + #{$gl-alert-top-border-size});
   }
 }
 
@@ -107,7 +105,7 @@ $gl-alert-top-border-size: 2px;
 
 .gl-alert-actions {
   @include gl-display-flex;
-  @include gl-mt-5;
+  @include gl-mt-3;
 }
 
 .gl-alert-action {
@@ -121,6 +119,10 @@ $gl-alert-top-border-size: 2px;
   position: absolute;
   top: calc(#{$gl-spacing-scale-4} + #{$gl-alert-top-border-size});
   right: calc(#{$gl-spacing-scale-4} + #{$gl-alert-padding-x});
+
+  .gl-alert-has-title & {
+    top: $gl-spacing-scale-4;
+  }
 }
 
 /* Variants */
