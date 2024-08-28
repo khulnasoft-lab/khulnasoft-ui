@@ -104,7 +104,7 @@ export default {
       >
         {{ badgeLabel }}
       </span>
-      <span data-testid="badge-sr-only-text" class="sr-only">{{ badgeSrOnlyText }}</span>
+      <span data-testid="badge-sr-only-text" class="gl-sr-only">{{ badgeSrOnlyText }}</span>
     </div>
   </div>
 </template>
