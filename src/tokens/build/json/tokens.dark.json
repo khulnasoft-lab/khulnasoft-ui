@@ -9645,7 +9645,8 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.800}",
-                  "dark": "{color.neutral.50}"
+                  "dark": "{color.neutral.50}",
+                  "vscode": "var(--vscode-button-foreground)"
                 },
                 "$type": "color",
                 "comment": "Used for the foreground of a default primary button in the default state."
@@ -9740,7 +9741,8 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.0}",
-                  "dark": "{color.neutral.900}"
+                  "dark": "{color.neutral.900}",
+                  "vscode": "var(--vscode-button-background)"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an default primary button in the default state."
@@ -9765,7 +9767,8 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.50}",
-                  "dark": "{color.neutral.900}"
+                  "dark": "{color.neutral.900}",
+                  "vscode": "var(--vscode-button-hoverBackground)"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an default primary button in the hover state."
@@ -9812,7 +9815,8 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.100}",
-                  "dark": "{color.neutral.800}"
+                  "dark": "{color.neutral.800}",
+                  "vscode": "var(--vscode-button-hoverBackground)"
                 },
                 "$type": "color",
                 "comment": "Used for the background of an default primary button in the active state."
@@ -9841,7 +9845,8 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.200}",
-                  "dark": "{color.neutral.700}"
+                  "dark": "{color.neutral.700}",
+                  "vscode": "var(--vscode-button-border)"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an default primary button in the default state."
@@ -9866,7 +9871,8 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.400}",
-                  "dark": "{color.neutral.500}"
+                  "dark": "{color.neutral.500}",
+                  "vscode": "var(--vscode-button-border)"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an default primary button in the hover state."
@@ -9913,7 +9919,8 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.600}",
-                  "dark": "{color.neutral.300}"
+                  "dark": "{color.neutral.300}",
+                  "vscode": "var(--vscode-button-border)"
                 },
                 "$type": "color",
                 "comment": "Used for the border of an default primary button in the active state."
@@ -18426,7 +18433,8 @@
         "original": {
           "value": {
             "default": "{color.neutral.700}",
-            "dark": "{color.neutral.100}"
+            "dark": "{color.neutral.100}",
+            "vscode": "var(--vscode-icon-foreground)"
           },
           "$type": "color",
           "comment": "Used for the default icon color. Can be paired with default text."
@@ -19399,7 +19407,8 @@
         "original": {
           "value": {
             "default": "{color.neutral.800}",
-            "dark": "{color.neutral.50}"
+            "dark": "{color.neutral.50}",
+            "vscode": "var(--vscode-foreground)"
           },
           "$type": "color",
           "comment": "Used for the default text color."
@@ -19421,7 +19430,8 @@
         "original": {
           "value": {
             "default": "{color.neutral.600}",
-            "dark": "{color.neutral.200}"
+            "dark": "{color.neutral.200}",
+            "vscode": "var(--vscode-disabledForeground)"
           },
           "$type": "color",
           "comment": "Used for supplemental text that doesn't need to be as prominent as other text."
@@ -19553,7 +19563,8 @@
         "original": {
           "value": {
             "default": "{color.neutral.400}",
-            "dark": "{color.neutral.400}"
+            "dark": "{color.neutral.400}",
+            "vscode": "var(--vscode-disabledForeground)"
           },
           "$type": "color",
           "comment": "Used for disabled text."

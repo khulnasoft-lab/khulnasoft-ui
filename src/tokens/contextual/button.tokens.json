@@ -7,7 +7,8 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.800}",
-                "dark": "{color.neutral.50}"
+                "dark": "{color.neutral.50}",
+                "vscode": "var(--vscode-button-foreground)"
               },
               "$type": "color",
               "$description": "Used for the foreground of a default primary button in the default state."
@@ -34,7 +35,8 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.0}",
-                "dark": "{color.neutral.900}"
+                "dark": "{color.neutral.900}",
+                "vscode": "var(--vscode-button-background)"
               },
               "$type": "color",
               "$description": "Used for the background of an default primary button in the default state."
@@ -42,7 +44,8 @@
             "hover": {
               "$value": {
                 "default": "{color.neutral.50}",
-                "dark": "{color.neutral.900}"
+                "dark": "{color.neutral.900}",
+                "vscode": "var(--vscode-button-hoverBackground)"
               },
               "$type": "color",
               "$description": "Used for the background of an default primary button in the hover state."
@@ -55,7 +58,8 @@
             "active": {
               "$value": {
                 "default": "{color.neutral.100}",
-                "dark": "{color.neutral.800}"
+                "dark": "{color.neutral.800}",
+                "vscode": "var(--vscode-button-hoverBackground)"
               },
               "$type": "color",
               "$description": "Used for the background of an default primary button in the active state."
@@ -67,7 +71,8 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.200}",
-                "dark": "{color.neutral.700}"
+                "dark": "{color.neutral.700}",
+                "vscode": "var(--vscode-button-border)"
               },
               "$type": "color",
               "$description": "Used for the border of an default primary button in the default state."
@@ -75,7 +80,8 @@
             "hover": {
               "$value": {
                 "default": "{color.neutral.400}",
-                "dark": "{color.neutral.500}"
+                "dark": "{color.neutral.500}",
+                "vscode": "var(--vscode-button-border)"
               },
               "$type": "color",
               "$description": "Used for the border of an default primary button in the hover state."
@@ -88,7 +94,8 @@
             "active": {
               "$value": {
                 "default": "{color.neutral.600}",
-                "dark": "{color.neutral.300}"
+                "dark": "{color.neutral.300}",
+                "vscode": "var(--vscode-button-border)"
               },
               "$type": "color",
               "$description": "Used for the border of an default primary button in the active state."

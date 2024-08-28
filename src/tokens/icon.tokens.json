@@ -4,7 +4,8 @@
       "default": {
         "$value": {
           "default": "{color.neutral.700}",
-          "dark": "{color.neutral.100}"
+          "dark": "{color.neutral.100}",
+          "vscode": "var(--vscode-icon-foreground)"
         },
         "$type": "color",
         "$description": "Used for the default icon color. Can be paired with default text."

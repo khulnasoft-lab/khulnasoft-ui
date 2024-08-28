@@ -64,6 +64,18 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'value/vscode',
+  type: 'value',
+  transitive: true,
+  matcher: (token) => {
+    return hasDefaultAndDarkValues(token);
+  },
+  transformer: ({ value }) => {
+    return value.vscode || value.dark;
+  },
+});
+
 /**
  * Transform Groups
  * https://amzn.github.io/style-dictionary/#/api?id=registertransformgroup
@@ -86,6 +98,16 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransformGroup({
   name: 'js/dark',
   transforms: ['value/dark', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'css/vscode',
+  transforms: ['value/vscode', 'name/cti/kebab', 'size/pxToRem', 'name/stripPrefix'],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'js/vscode',
+  transforms: ['value/vscode', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
 });
 
 /**
@@ -409,9 +431,32 @@ const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
 };
 
 /**
+ * Creates style-dictionary config
+ * https://amzn.github.io/style-dictionary/#/config
+ *
+ * @returns {Object} style-dictionary config
+ */
+const getStyleDictionaryConfigVSCodeMode = (buildPath = 'dist/tokens') => {
+  return merge(getStyleDictionaryConfigDefault(buildPath), {
+    platforms: {
+      css: {
+        transformGroup: 'css/vscode',
+        files: [
+          {
+            destination: 'tokens.vscode.css',
+          },
+        ],
+      },
+    },
+  });
+};
+
+/**
  * Build tokens from config
  */
 StyleDictionary.extend(getStyleDictionaryConfigDefault()).buildAllPlatforms();
 StyleDictionary.extend(getStyleDictionaryConfigDefault('src/tokens/build')).buildAllPlatforms();
 StyleDictionary.extend(getStyleDictionaryConfigDarkMode()).buildAllPlatforms();
 StyleDictionary.extend(getStyleDictionaryConfigDarkMode('src/tokens/build')).buildAllPlatforms();
+StyleDictionary.extend(getStyleDictionaryConfigVSCodeMode()).buildAllPlatforms();
+StyleDictionary.extend(getStyleDictionaryConfigVSCodeMode('src/tokens/build')).buildAllPlatforms();

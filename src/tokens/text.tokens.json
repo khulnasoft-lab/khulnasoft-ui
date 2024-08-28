@@ -31,7 +31,8 @@
       "default": {
         "$value": {
           "default": "{color.neutral.800}",
-          "dark": "{color.neutral.50}"
+          "dark": "{color.neutral.50}",
+          "vscode": "var(--vscode-foreground)"
         },
         "$type": "color",
         "$description": "Used for the default text color."
@@ -39,7 +40,8 @@
       "subtle": {
         "$value": {
           "default": "{color.neutral.600}",
-          "dark": "{color.neutral.200}"
+          "dark": "{color.neutral.200}",
+          "vscode": "var(--vscode-disabledForeground)"
         },
         "$type": "color",
         "$description": "Used for supplemental text that doesn't need to be as prominent as other text."
@@ -87,7 +89,8 @@
       "disabled": {
         "$value": {
           "default": "{color.neutral.400}",
-          "dark": "{color.neutral.400}"
+          "dark": "{color.neutral.400}",
+          "vscode": "var(--vscode-disabledForeground)"
         },
         "$type": "color",
         "$description": "Used for disabled text."
