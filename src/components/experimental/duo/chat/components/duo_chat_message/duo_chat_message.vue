@@ -8,7 +8,7 @@ import GlFormGroup from '../../../../../base/form/form_group/form_group.vue';
 import GlFormTextarea from '../../../../../base/form/form_textarea/form_textarea.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
 import { sprintf, translatePlural } from '../../../../../../utils/i18n';
-import { MESSAGE_MODEL_ROLES } from '../../constants';
+import { MESSAGE_MODEL_ROLES, SELECTED_CONTEXT_ITEMS_DEFAULT_COLLAPSED } from '../../constants';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';
 // eslint-disable-next-line no-restricted-imports
 import { renderDuoChatMarkdownPreview } from '../../markdown_renderer';
@@ -89,6 +89,7 @@ export default {
       improveWhat: '',
       messageWatcher: null, // imperatively set up watcher on message
       messageChunks: [],
+      selectedContextItemsDefaultCollapsed: SELECTED_CONTEXT_ITEMS_DEFAULT_COLLAPSED,
     };
   },
   computed: {
@@ -138,9 +139,6 @@ export default {
     },
     displaySelectedContextItems() {
       return Boolean(this.selectedContextItems.length);
-    },
-    selectedContextItemsDefaultCollapsed() {
-      return this.isAssistantMessage;
     },
     selectedContextItemsTitle() {
       if (!this.displaySelectedContextItems) return '';
@@ -250,11 +248,11 @@ export default {
     />
     <div ref="content-wrapper" :class="{ 'has-error': error }">
       <gl-duo-chat-context-item-selections
-        v-if="displaySelectedContextItems"
+        v-if="displaySelectedContextItems && isAssistantMessage"
         :selections="selectedContextItems"
         :title="selectedContextItemsTitle"
         :default-collapsed="selectedContextItemsDefaultCollapsed"
-        class="gl-mb-3"
+        variant="assistant"
       />
       <div
         v-if="error"
@@ -294,6 +292,13 @@ export default {
           </div>
         </template>
       </div>
+      <gl-duo-chat-context-item-selections
+        v-if="displaySelectedContextItems && isUserMessage"
+        :selections="selectedContextItems"
+        :title="selectedContextItemsTitle"
+        :default-collapsed="selectedContextItemsDefaultCollapsed"
+        variant="user"
+      />
     </div>
   </div>
 </template>

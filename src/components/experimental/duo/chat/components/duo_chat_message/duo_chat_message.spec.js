@@ -260,7 +260,7 @@ describe('DuoChatMessage', () => {
       expect(selections.props()).toMatchObject(
         expect.objectContaining({
           selections: contextItems,
-          defaultCollapsed: false,
+          defaultCollapsed: true,
         })
       );
     });

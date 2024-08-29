@@ -64,15 +64,19 @@ describe('GlDuoChatContextItemPopover', () => {
 
   describe('item info rendering', () => {
     it.each([
-      ['file', MOCK_CONTEXT_ITEM_FILE],
-      ['issue', MOCK_CONTEXT_ITEM_ISSUE],
-      ['merge request', MOCK_CONTEXT_ITEM_MERGE_REQUEST],
-    ])('renders correct project and type for %s', (_, item) => {
+      ['file', MOCK_CONTEXT_ITEM_FILE, MOCK_CONTEXT_ITEM_FILE.metadata.info.relFilePath],
+      ['issue', MOCK_CONTEXT_ITEM_ISSUE, MOCK_CONTEXT_ITEM_ISSUE.metadata.info.iid.toString()],
+      [
+        'merge request',
+        MOCK_CONTEXT_ITEM_MERGE_REQUEST,
+        MOCK_CONTEXT_ITEM_MERGE_REQUEST.metadata.info.iid.toString(),
+      ],
+    ])('renders correct project and type for %s', (_, item, expected) => {
       createComponent({ item });
 
       const content = findPopover().text();
       expect(content).toContain(item.metadata.info.project);
-      expect(content).toContain(item.type);
+      expect(content).toContain(expected);
     });
 
     it('renders file path for file items', () => {
