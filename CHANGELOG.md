@@ -1,3 +1,10 @@
+# [91.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.0.0...v91.1.0) (2024-08-29)
+
+
+### Features
+
+* **GlDuoChat:** display attached context in chat messages ([be92188](https://gitlab.com/gitlab-org/gitlab-ui/commit/be92188062f895f5f27117f501d4b31ba52ac598))
+
 # [91.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.5.0...v91.0.0) (2024-08-29)
 
 
