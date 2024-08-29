@@ -48,6 +48,11 @@ export default {
       required: false,
       default: false,
     },
+    variant: {
+      type: String,
+      required: false,
+      default: 'assistant',
+    },
   },
   data() {
     return {
@@ -58,6 +63,18 @@ export default {
   computed: {
     collapseIconName() {
       return this.isCollapsed ? 'chevron-right' : 'chevron-down';
+    },
+    variantClasses() {
+      if (this.variant === 'user') {
+        return 'gl-mb-0 gl-mt-2 gl-text-blue-700';
+      }
+      return 'gl-mb-2 gl-text-gray-500';
+    },
+    tokenVariantClasses() {
+      if (this.variant === 'user') {
+        return 'gl-bg-blue-50 gl-text-blue-600';
+      }
+      return '';
     },
   },
   methods: {
@@ -84,9 +101,9 @@ export default {
 </script>
 
 <template>
-  <div class="gl-mb-3 gl-flex gl-flex-col">
+  <div class="gl-flex gl-flex-col" :class="variantClasses">
     <button
-      class="gl-flex gl-w-full gl-items-center gl-border-0 gl-bg-transparent gl-p-0 gl-text-left gl-text-xs gl-lowercase gl-text-gray-500"
+      class="gl-flex gl-w-full gl-items-center gl-border-0 gl-bg-transparent gl-p-0 gl-text-left gl-text-xs gl-lowercase gl-text-inherit"
       data-testid="chat-context-selections-title"
       @click="toggleCollapse"
     >
@@ -99,20 +116,22 @@ export default {
       data-testid="chat-context-tokens-wrapper"
     >
       <gl-token
-        v-for="contextItem in selections"
-        :key="contextItem.id"
+        v-for="item in selections"
+        :id="`context-item-${item.id}-${selectionsId}-token`"
+        :key="item.id"
         :view-only="!removable"
         variant="default"
         class="gl-mb-2 gl-mr-2"
-        @close="onRemoveItem(contextItem)"
+        :class="tokenVariantClasses"
+        @close="onRemoveItem(item)"
       >
-        <div :id="`context-item-${contextItem.id}-${selectionsId}`" class="gl-flex gl-items-center">
-          <gl-icon :name="getIconName(contextItem.type)" :size="12" class="gl-mr-1" />
-          {{ contextItem.metadata.name }}
+        <div :id="`context-item-${item.id}-${selectionsId}`" class="gl-flex gl-items-center">
+          <gl-icon :name="getIconName(item.type)" :size="12" class="gl-mr-1" />
+          {{ item.metadata.name }}
         </div>
         <gl-duo-chat-context-item-popover
-          :context-item="contextItem"
-          :target="`context-item-${contextItem.id}-${selectionsId}`"
+          :context-item="item"
+          :target="`context-item-${item.id}-${selectionsId}-token`"
           placement="bottom"
         />
       </gl-token>
