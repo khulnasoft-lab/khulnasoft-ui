@@ -1,3 +1,10 @@
+## [91.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.1.1...v91.1.2) (2024-08-29)
+
+
+### Bug Fixes
+
+* **GlFormSelect:** restore inline layout ([0b8e854](https://gitlab.com/gitlab-org/gitlab-ui/commit/0b8e85411dddfcbc12639616d881e1237859044d))
+
 ## [91.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.1.0...v91.1.1) (2024-08-29)
 
 
