@@ -490,7 +490,7 @@ $gl-control-border-color-default: $gl-color-neutral-500; // Used for form contro
 $gl-control-background-color-selected-focus: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover.
 $gl-control-background-color-selected-hover: $gl-color-blue-200; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover.
 $gl-control-background-color-selected-default: $gl-color-blue-300; // Used for checked and indeterminate (selected) form control (checkbox, radio button) background.
-$gl-control-background-color-readonly: $gl-color-neutral-900; // Used for the background of static content that prepends or appends a text input.
+$gl-control-background-color-readonly: $gl-color-alpha-light-8; // Used for the background of static content that prepends or appends a text input.
 $gl-control-background-color-concatenation: $gl-color-alpha-light-4; // Used for the background of static content that prepends or appends a text input.
 $gl-control-background-color-disabled: $gl-color-alpha-light-4; // Used for disabled form control (checkbox, input, radio button, textarea) background.
 $gl-control-background-color-default: $gl-color-alpha-dark-40; // Used for form control (input, radio button, checkbox, textarea) default background.
