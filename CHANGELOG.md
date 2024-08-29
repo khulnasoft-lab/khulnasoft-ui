@@ -1,3 +1,16 @@
+# [91.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.5.0...v91.0.0) (2024-08-29)
+
+
+### Code Refactoring
+
+* **Path:** Update to tokens ([f57c5e4](https://gitlab.com/gitlab-org/gitlab-ui/commit/f57c5e48d73f9ccb143ddf60e6b604dd84d129ee))
+
+
+### BREAKING CHANGES
+
+* **Path:** Replace SCSS variables with design tokens for the
+Path component and make some minor design tweaks. Remove theme option.
+
 # [90.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v90.4.0...v90.5.0) (2024-08-28)
 
 
