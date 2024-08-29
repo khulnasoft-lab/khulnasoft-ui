@@ -1,3 +1,10 @@
+## [91.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.1.0...v91.1.1) (2024-08-29)
+
+
+### Bug Fixes
+
+* **avatarsInline:** fix incorrect class name ([ab8f1c2](https://gitlab.com/gitlab-org/gitlab-ui/commit/ab8f1c22048cdff1db4194aed5b8bec4d2d68d6a))
+
 # [91.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.0.0...v91.1.0) (2024-08-29)
 
 
