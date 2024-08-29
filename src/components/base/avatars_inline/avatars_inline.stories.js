@@ -61,7 +61,7 @@ WithLinksAndTooltips.args = generateProps(
     href: '//gitlab.com',
     tooltip: `Avatar ${index}`,
   })),
-  { badgeTooltipProp: 'tooltip' }
+  { badgeTooltipProp: 'tooltip', badgeSrOnlyText: 'screen reader only text' }
 );
 
 export default {
