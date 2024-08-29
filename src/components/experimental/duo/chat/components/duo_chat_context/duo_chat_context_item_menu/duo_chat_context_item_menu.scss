@@ -1,0 +1,14 @@
+.duo-chat-context-search-result-item.disabled {
+  > button {
+    @apply gl-cursor-not-allowed gl-text-secondary #{!important};
+
+    &:hover {
+      @apply gl-text-secondary #{!important};
+    }
+
+    &:active,
+    &:focus {
+      @apply gl-shadow-none #{!important};
+    }
+  }
+}

@@ -8,6 +8,7 @@ import {
   CONTEXT_ITEM_TYPE_MERGE_REQUEST,
   CONTEXT_ITEM_TYPE_PROJECT_FILE,
 } from '../constants';
+import { contextItemsValidator } from '../utils';
 
 export default {
   name: 'GlDuoChatContextItemSelections',
@@ -20,6 +21,7 @@ export default {
     selections: {
       type: Array,
       required: true,
+      validator: contextItemsValidator,
     },
     title: {
       type: String,
@@ -28,6 +30,11 @@ export default {
     defaultCollapsed: {
       type: Boolean,
       required: true,
+    },
+    removable: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   data() {
@@ -53,6 +60,9 @@ export default {
     toggleCollapse() {
       this.isCollapsed = !this.isCollapsed;
     },
+    onRemoveItem(item) {
+      this.$emit('remove', item);
+    },
   },
 };
 </script>
@@ -75,9 +85,10 @@ export default {
       <gl-token
         v-for="item in selections"
         :key="item.id"
-        :view-only="true"
+        :view-only="!removable"
         variant="default"
         class="gl-mb-2 gl-mr-2"
+        @close="onRemoveItem(item)"
       >
         <div :id="`context-item-${item.id}-${selectionsId}`" class="gl-flex gl-items-center">
           <gl-icon :name="getIconName(item.type)" :size="12" class="gl-mr-1" />
