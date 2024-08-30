@@ -46,7 +46,7 @@ def warn_about_missing_spec_changes(all_changed_files)
     ## Missing spec changes
 
     The following spec files were expected to have changes based on the changes
-    in this Merge Reqest:
+    in this Merge Request:
 
     * #{missing_changed_specs.map { |path| "`#{path}`" }.join("\n* ")}
 
