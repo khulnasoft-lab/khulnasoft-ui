@@ -1,4 +1,5 @@
 <script>
+import { translate } from '../../../utils/i18n';
 import GlButton from '../../base/button/button.vue';
 
 export default {
@@ -10,7 +11,7 @@ export default {
     label: {
       type: String,
       required: false,
-      default: 'Close',
+      default: () => translate('CloseButton.title', 'Close'),
     },
   },
 };

@@ -1,8 +1,10 @@
 /* eslint-disable import/no-default-export */
 export default {
   'ClearIconButton.title': 'Clear',
+  'CloseButton.title': 'Close',
   'DuoChatContextItemPopover.DisabledReason': 'This item is disabled',
   'GlBreadcrumb.showMoreLabel': 'Show more breadcrumbs',
+  'GlBroadcastMessage.closeButtonTitle': 'Dismiss',
   'GlCollapsibleListbox.srOnlyResultsLabel': null,
   'GlDuoChatMessage.SelectedContextItemsTitleAssistantMessage': null,
   'GlDuoChatMessage.SelectedContextItemsTitleUserMessage': null,
