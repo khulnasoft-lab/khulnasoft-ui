@@ -90,7 +90,7 @@ export default {
     <close-button
       v-if="showDismissButton"
       ref="dismiss"
-      class="gl-close-btn-color-inherit gl-broadcast-message-dismiss"
+      class="gl-broadcast-message-dismiss"
       :label="dismissLabel"
       @click="onDismiss"
     />

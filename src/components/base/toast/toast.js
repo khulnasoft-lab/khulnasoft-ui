@@ -17,7 +17,7 @@ let toastsCount = 0;
 function renderTitle(h, toast, options) {
   const nodes = [
     h(CloseButton, {
-      class: ['gl-toast-close-button', 'gl-close-btn-color-inherit'],
+      class: ['gl-toast-close-button'],
       on: {
         click: toast.hide,
       },
