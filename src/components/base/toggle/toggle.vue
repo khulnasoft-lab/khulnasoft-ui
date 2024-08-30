@@ -152,7 +152,7 @@ export default {
     <span
       :id="labelId"
       :class="toggleClasses"
-      class="gl-toggle-label gl-flex-shrink-0"
+      class="gl-toggle-label gl-shrink-0"
       data-testid="toggle-label"
     >
       <!-- @slot The toggle's label. -->
@@ -178,7 +178,7 @@ export default {
         'is-checked': value,
         'is-disabled': disabled,
       }"
-      class="gl-flex-shrink-0"
+      class="gl-shrink-0"
       type="button"
       @click.prevent="toggleFeature"
     >
