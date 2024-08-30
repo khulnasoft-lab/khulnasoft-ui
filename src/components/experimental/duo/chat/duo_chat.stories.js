@@ -30,6 +30,7 @@ const generateProps = ({
   showHeader = defaultValue('showHeader'),
   emptyStateTitle = defaultValue('emptyStateTitle'),
   emptyStateDescription = defaultValue('emptyStateDescription'),
+  emptyStateSecondaryDescription = defaultValue('emptyStateSecondaryDescription'),
   chatPromptPlaceholder = defaultValue('chatPromptPlaceholder'),
   enableCodeInsertion = defaultValue('enableCodeInsertion'),
 } = {}) => ({
@@ -46,6 +47,7 @@ const generateProps = ({
   showHeader,
   emptyStateTitle,
   emptyStateDescription,
+  emptyStateSecondaryDescription,
   chatPromptPlaceholder,
   enableCodeInsertion,
 });
@@ -70,6 +72,7 @@ export const Default = (args, { argTypes }) => ({
       :show-header="showHeader"
       :empty-state-title="emptyStateTitle"
       :empty-state-description="emptyStateDescription"
+      :empty-state-secondary-description="emptyStateSecondaryDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
       :enable-code-insertion="enableCodeInsertion"
     />`,
@@ -184,6 +187,7 @@ export const Interactive = (args, { argTypes }) => ({
       :show-header="showHeader"
       :empty-state-title="emptyStateTitle"
       :empty-state-description="emptyStateDescription"
+      :empty-state-secondary-description="emptyStateSecondaryDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
       :slash-commands="slashCommands"
       class="gl-drawer-default"
@@ -217,6 +221,7 @@ export const Slots = (args, { argTypes }) => ({
         :show-header="showHeader"
         :empty-state-title="emptyStateTitle"
         :empty-state-description="emptyStateDescription"
+        :empty-state-secondary-description="emptyStateSecondaryDescription"
         :chat-prompt-placeholder="chatPromptPlaceholder">
         <template #subheader>
           <gl-alert

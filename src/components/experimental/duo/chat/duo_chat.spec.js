@@ -52,6 +52,7 @@ describe('GlDuoChat', () => {
       slots,
       stubs: {
         DuoChatLoader,
+        GlEmptyState,
       },
     });
   };
@@ -68,6 +69,10 @@ describe('GlDuoChat', () => {
   const findGeneratedByAI = () => wrapper.find('[data-testid="chat-legal-warning"]');
   const findBadge = () => wrapper.findComponent(GlExperimentBadge);
   const findEmptyState = () => wrapper.findComponent(GlEmptyState);
+  const findEmptyStateDescription = () =>
+    wrapper.find('[data-testid="gl-duo-chat-empty-state-description"]');
+  const findEmptyStateSecondaryDescription = () =>
+    wrapper.find('[data-testid="gl-duo-chat-empty-state-secondary-description"]');
   const findPredefined = () => wrapper.findComponent(DuoChatPredefinedPrompts);
   const findChatInput = () => wrapper.find('[data-testid="chat-prompt-input"]');
   const findCloseChatButton = () => wrapper.find('[data-testid="chat-close-button"]');
@@ -283,14 +288,29 @@ describe('GlDuoChat', () => {
     describe('emptyStateDescription', () => {
       it.each`
         emptyStateDescription   | expectedDescription
-        ${undefined}            | ${'AI generated explanations will appear here.'}
+        ${undefined}            | ${'GitLab Duo Chat is your AI-powered assistant.'}
         ${''}                   | ${''}
         ${'custom description'} | ${'custom description'}
       `(
         'displays "$expectedDescription" when emptyStateDescription is "$emptyStateDescription"',
         ({ emptyStateDescription, expectedDescription }) => {
           createComponent({ propsData: { emptyStateDescription } });
-          expect(findEmptyState().props('description')).toBe(expectedDescription);
+          expect(findEmptyStateDescription().text()).toBe(expectedDescription);
+        }
+      );
+    });
+
+    describe('emptyStateSecondaryDescription', () => {
+      it.each`
+        emptyStateSecondaryDescription | expectedDescription
+        ${undefined}                   | ${'Responses may be inaccurate. Verify before use.'}
+        ${''}                          | ${''}
+        ${'custom description'}        | ${'custom description'}
+      `(
+        'displays "$expectedDescription" when emptyStateSecondaryDescription is "$emptyStateSecondaryDescription"',
+        ({ emptyStateSecondaryDescription, expectedDescription }) => {
+          createComponent({ propsData: { emptyStateSecondaryDescription } });
+          expect(findEmptyStateSecondaryDescription().text()).toBe(expectedDescription);
         }
       );
     });
