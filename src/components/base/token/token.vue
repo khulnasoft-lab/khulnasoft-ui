@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { tokenVariants } from '../../../utils/constants';
+import { translate } from '../../../utils/i18n';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 
 export default {
@@ -22,6 +23,14 @@ export default {
       required: false,
       default: 'default',
       validator: (variant) => tokenVariants.includes(variant),
+    },
+    /**
+     * The close button's label, it is used for the button's aria-label attribute.
+     */
+    removeLabel: {
+      type: String,
+      required: false,
+      default: () => translate('GlToken.closeButtonTitle', 'Remove'),
     },
   },
   computed: {
@@ -54,6 +63,7 @@ export default {
       <close-button
         v-if="!viewOnly"
         class="gl-token-close gl-close-btn-color-inherit"
+        :label="removeLabel"
         @click="close"
       />
     </span>

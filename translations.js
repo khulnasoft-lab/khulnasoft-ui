@@ -34,4 +34,5 @@ export default {
   'GlSearchBoxByType.input.placeholder': 'Search',
   'GlSorting.sortAscending': 'Sort direction: ascending',
   'GlSorting.sortDescending': 'Sort direction: descending',
+  'GlToken.closeButtonTitle': 'Remove',
 };

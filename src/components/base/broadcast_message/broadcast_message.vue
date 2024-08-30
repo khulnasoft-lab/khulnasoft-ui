@@ -29,7 +29,7 @@ export default {
       default: true,
     },
     /**
-     * The dismiss button's label, it is visible in mobile viewports and used for the button's aria-label attribute.
+     * The dismiss button's label, it is used for the button's aria-label attribute.
      */
     dismissLabel: {
       type: String,
