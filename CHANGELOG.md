@@ -1,3 +1,10 @@
+# [91.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.1.2...v91.2.0) (2024-08-30)
+
+
+### Features
+
+* Replace legacy classes with new util classes ([703e9af](https://gitlab.com/gitlab-org/gitlab-ui/commit/703e9af826ffb8671b6b6bb108898e51fb86e9eb))
+
 ## [91.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.1.1...v91.1.2) (2024-08-29)
 
 
