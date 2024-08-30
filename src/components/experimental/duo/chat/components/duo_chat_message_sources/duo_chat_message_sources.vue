@@ -72,7 +72,7 @@ export default {
         <gl-icon
           v-if="source.source_type"
           :name="getSourceIcon(source.source_type)"
-          class="gl-mr-2 gl-flex-shrink-0"
+          class="gl-mr-2 gl-shrink-0"
         />
         <gl-link :href="source.source_url">{{ getSourceTitle(source) }}</gl-link>
       </li>
