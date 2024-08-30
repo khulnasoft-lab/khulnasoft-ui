@@ -66,15 +66,18 @@ export default {
       <li
         v-for="(source, index) in sources"
         :key="index"
-        class="gl-flex gl-items-center gl-pt-3"
+        class="gl-flex gl-items-center gl-pt-2 gl-text-sm"
         data-testid="source-list-item"
       >
         <gl-icon
           v-if="source.source_type"
           :name="getSourceIcon(source.source_type)"
+          :size="12"
           class="gl-mr-2 gl-shrink-0"
         />
-        <gl-link :href="source.source_url">{{ getSourceTitle(source) }}</gl-link>
+        <gl-link :href="source.source_url" class="gl-underline">{{
+          getSourceTitle(source)
+        }}</gl-link>
       </li>
     </ul>
   </div>
