@@ -1,5 +1,6 @@
 <script>
 import { bannerVariants } from '../../../utils/constants';
+import { translate } from '../../../utils/i18n';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlButton from '../button/button.vue';
 import GlCard from '../card/card.vue';
@@ -62,12 +63,12 @@ export default {
       },
     },
     /**
-     * Dismiss button's aria-label.
+     * The close button's label, it is used for the button's aria-label attribute.
      */
     dismissLabel: {
       type: String,
       required: false,
-      default: 'Dismiss',
+      default: () => translate('GlBanner.closeButtonTitle', 'Dismiss'),
     },
   },
   computed: {

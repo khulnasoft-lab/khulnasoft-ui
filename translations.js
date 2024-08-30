@@ -3,6 +3,7 @@ export default {
   'ClearIconButton.title': 'Clear',
   'CloseButton.title': 'Close',
   'DuoChatContextItemPopover.DisabledReason': 'This item is disabled',
+  'GlBanner.closeButtonTitle': 'Dismiss',
   'GlBreadcrumb.showMoreLabel': 'Show more breadcrumbs',
   'GlBroadcastMessage.closeButtonTitle': 'Dismiss',
   'GlCollapsibleListbox.srOnlyResultsLabel': null,
