@@ -1,3 +1,10 @@
+# [91.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.2.0...v91.3.0) (2024-08-30)
+
+
+### Features
+
+* **GlDuoChat:** Change empty state ([87d3384](https://gitlab.com/gitlab-org/gitlab-ui/commit/87d3384045da79aff0676bbe282626615f776b5f))
+
 # [91.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.1.2...v91.2.0) (2024-08-30)
 
 
