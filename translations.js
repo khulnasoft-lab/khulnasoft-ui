@@ -24,6 +24,7 @@ export default {
   'GlKeysetPagination.navigationLabel': 'Pagination',
   'GlKeysetPagination.nextText': 'Next',
   'GlKeysetPagination.prevText': 'Previous',
+  'GlModal.closeButtonTitle': 'Close',
   'GlPagination.labelFirstPage': 'Go to first page',
   'GlPagination.labelLastPage': 'Go to last page',
   'GlPagination.labelNextPage': 'Go to next page',
