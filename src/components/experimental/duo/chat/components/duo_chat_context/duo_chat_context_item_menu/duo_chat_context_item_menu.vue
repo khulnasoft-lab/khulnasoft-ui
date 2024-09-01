@@ -265,22 +265,20 @@ export default {
       body-class="!gl-p-2"
       data-testid="context-item-menu"
     >
-      <template v-if="showCategorySelection">
-        <ul class="list-unstyled gl-mb-0">
-          <gl-dropdown-item
-            v-for="(category, index) in categories"
-            :key="category.value"
-            :class="{ 'active-command': index === activeIndex }"
-            data-testid="category-item"
-            @click="selectCategory(category)"
-          >
-            <div class="gl-display-flex gl-align-items-center" @mouseenter="activeIndex = index">
-              <gl-icon :name="category.icon" class="gl-mr-2" />
-              {{ category.label }}
-            </div>
-          </gl-dropdown-item>
-        </ul>
-      </template>
+      <ul v-if="showCategorySelection" class="list-unstyled gl-mb-0">
+        <gl-dropdown-item
+          v-for="(category, index) in categories"
+          :key="category.value"
+          :class="{ 'active-command': index === activeIndex }"
+          data-testid="category-item"
+          @click="selectCategory(category)"
+        >
+          <div class="gl-display-flex gl-align-items-center" @mouseenter="activeIndex = index">
+            <gl-icon :name="category.icon" class="gl-mr-2" />
+            {{ category.label }}
+          </div>
+        </gl-dropdown-item>
+      </ul>
       <template v-else-if="showItemSearch">
         <div class="gl-max-h-31 gl-overflow-y-scroll">
           <div v-if="loading">
