@@ -91,6 +91,9 @@ export default {
         }
       );
     },
+    allResultsAreDisabled() {
+      return this.results.every((result) => !result.isEnabled);
+    }
   },
   watch: {
     open(isOpen) {
@@ -202,7 +205,7 @@ export default {
       if (!this.results.length) {
         return;
       }
-      if (this.results.every((result) => !result.isEnabled)) {
+      if (this.allResultsAreDisabled) {
         return;
       }
 
