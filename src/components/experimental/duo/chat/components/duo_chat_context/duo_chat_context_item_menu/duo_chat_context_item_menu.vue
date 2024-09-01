@@ -43,7 +43,7 @@ export default {
       required: true,
     },
     error: {
-      type: String,
+      type: [String, null],
       required: false,
       default: null,
     },
