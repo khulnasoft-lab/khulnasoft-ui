@@ -144,4 +144,32 @@ describe('GlDuoChatContextItemSelections', () => {
       expect(popover.props('placement')).toBe('bottom');
     });
   });
+
+  describe('removable items', () => {
+    describe('when items cannot be removed', () => {
+      beforeEach(() => createComponent({ removable: false }));
+
+      it('renders view-only tokens', () => {
+        findTokens().wrappers.forEach((token) => {
+          expect(token.props('viewOnly')).toBe(true);
+        });
+      });
+    });
+
+    describe('when items can be removed', () => {
+      beforeEach(() => createComponent({ removable: true }));
+
+      it('renders removable tokens', () => {
+        findTokens().wrappers.forEach((token) => {
+          expect(token.props('viewOnly')).toBe(false);
+        });
+      });
+
+      it('emits remove event when token is closed', async () => {
+        await findTokens().at(0).vm.$emit('close');
+        expect(wrapper.emitted('remove')).toHaveLength(1);
+        expect(wrapper.emitted('remove')[0]).toEqual([MOCK_CONTEXT_ITEM_FILE]);
+      });
+    });
+  })
 });
