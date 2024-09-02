@@ -36,7 +36,7 @@ export default {
       data-testid="category-item"
       @click="selectCategory(category)"
     >
-      <div class="gl-display-flex gl-align-items-center" @mouseenter="setActiveIndex(index)">
+      <div class="gl-flex gl-items-center" @mouseenter="setActiveIndex(index)">
         <gl-icon :name="category.icon" class="gl-mr-2" />
         {{ category.label }}
       </div>

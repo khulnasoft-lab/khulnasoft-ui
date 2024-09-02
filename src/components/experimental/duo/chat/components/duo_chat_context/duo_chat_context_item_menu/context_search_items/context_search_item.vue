@@ -26,16 +26,16 @@ export default {
 };
 </script>
 <template>
-  <div class="gl-display-flex gl-flex-direction-column">
-    <div class="gl-display-flex gl-align-items-center">
-      <gl-icon :name="category.icon" class="gl-mr-2 gl-flex-shrink-0" data-testid="category-icon" />
-      <span class="gl-white-space-nowrap">
+  <div class="gl-flex gl-flex-col">
+    <div class="gl-flex gl-items-center">
+      <gl-icon :name="category.icon" class="gl-mr-2 gl-shrink-0" data-testid="category-icon" />
+      <span class="gl-whitespace-nowrap">
         <slot name="title">{{ title }}</slot>
       </span>
       <gl-icon
         :id="`info-icon-${item.id}`"
         name="information-o"
-        class="gl-ml-auto gl-flex-shrink-0 gl-cursor-pointer gl-text-secondary"
+        class="gl-ml-auto gl-shrink-0 gl-cursor-pointer gl-text-secondary"
         :size="12"
       />
       <gl-duo-chat-context-item-popover
@@ -44,7 +44,7 @@ export default {
         placement="left"
       />
     </div>
-    <div class="gl-white-space-nowrap gl-mt-1 gl-flex-shrink-0 gl-text-secondary">
+    <div class="gl-mt-1 gl-shrink-0 gl-whitespace-nowrap gl-text-secondary">
       <slot name="secondary"></slot>
     </div>
   </div>
