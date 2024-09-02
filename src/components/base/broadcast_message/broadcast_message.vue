@@ -1,5 +1,6 @@
 <script>
 import { colorThemes } from '../../../utils/constants';
+import { translate } from '../../../utils/i18n';
 import CloseButton from '../../shared_components/close_button/close_button.vue';
 import GlIcon from '../icon/icon.vue';
 import { TYPE_BANNER, TYPE_NOTIFICATION, TYPE_LIST } from './constants';
@@ -28,12 +29,12 @@ export default {
       default: true,
     },
     /**
-     * The dismiss button's label, it is visible in mobile viewports and used for the button's aria-label attribute.
+     * The dismiss button's label, it is used for the button's aria-label attribute.
      */
     dismissLabel: {
       type: String,
       required: false,
-      default: 'Dismiss',
+      default: () => translate('GlBroadcastMessage.closeButtonTitle', 'Dismiss'),
     },
     /**
      * The theme's name to use, this should correspond to the user's selected theme in GitLab.

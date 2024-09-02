@@ -1,5 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
+import { translate } from '../../../utils/i18n';
 import {
   alertVariantOptions,
   alertVariantIconMap,
@@ -39,12 +40,12 @@ export default {
       default: true,
     },
     /**
-     * Dismiss button's aria-label.
+     * The close button's label, it is used for the button's aria-label attribute.
      */
     dismissLabel: {
       type: String,
       required: false,
-      default: 'Dismiss',
+      default: () => translate('GlAlert.closeButtonTitle', 'Dismiss'),
     },
     variant: {
       type: String,

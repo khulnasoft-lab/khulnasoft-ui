@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { BModal } from '../../../vendor/bootstrap-vue/src/components/modal/modal';
+import { translate } from '../../../utils/i18n';
 import {
   COMMA,
   focusableTags,
@@ -71,10 +72,13 @@ export default {
       default: modalSizeOptions.md,
       validator: (val) => Object.keys(modalSizeOptions).includes(val),
     },
+    /**
+     * The close button's label, it is used for the button's aria-label attribute.
+     */
     dismissLabel: {
       type: String,
       required: false,
-      default: 'Close',
+      default: () => translate('GlModal.closeButtonTitle', 'Close'),
     },
     visible: {
       type: Boolean,

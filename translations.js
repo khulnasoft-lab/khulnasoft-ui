@@ -1,8 +1,12 @@
 /* eslint-disable import/no-default-export */
 export default {
   'ClearIconButton.title': 'Clear',
+  'CloseButton.title': 'Close',
   'DuoChatContextItemPopover.DisabledReason': 'This item is disabled',
+  'GlAlert.closeButtonTitle': 'Dismiss',
+  'GlBanner.closeButtonTitle': 'Dismiss',
   'GlBreadcrumb.showMoreLabel': 'Show more breadcrumbs',
+  'GlBroadcastMessage.closeButtonTitle': 'Dismiss',
   'GlCollapsibleListbox.srOnlyResultsLabel': null,
   'GlDuoChatMessage.SelectedContextItemsTitleAssistantMessage': null,
   'GlDuoChatMessage.SelectedContextItemsTitleUserMessage': null,
@@ -21,6 +25,7 @@ export default {
   'GlKeysetPagination.navigationLabel': 'Pagination',
   'GlKeysetPagination.nextText': 'Next',
   'GlKeysetPagination.prevText': 'Previous',
+  'GlModal.closeButtonTitle': 'Close',
   'GlPagination.labelFirstPage': 'Go to first page',
   'GlPagination.labelLastPage': 'Go to last page',
   'GlPagination.labelNextPage': 'Go to next page',
@@ -32,4 +37,5 @@ export default {
   'GlSearchBoxByType.input.placeholder': 'Search',
   'GlSorting.sortAscending': 'Sort direction: ascending',
   'GlSorting.sortDescending': 'Sort direction: descending',
+  'GlToken.closeButtonTitle': 'Remove',
 };
