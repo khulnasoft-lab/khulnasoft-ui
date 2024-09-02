@@ -1,32 +1,21 @@
 <script>
 import debounce from 'lodash/debounce';
-import { sprintf, translate } from '../../../../../../../utils/i18n';
-import GlAlert from '../../../../../../base/alert/alert.vue';
+import { translate } from '../../../../../../../utils/i18n';
 import GlCard from '../../../../../../base/card/card.vue';
-import GlDropdownItem from '../../../../../../base/dropdown/dropdown_item.vue';
-import GlFormInput from '../../../../../../base/form/form_input/form_input.vue';
-import GlIcon from '../../../../../../base/icon/icon.vue';
-import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
-import {
-  CONTEXT_ITEM_TYPE_ISSUE,
-  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-  CONTEXT_ITEM_TYPE_PROJECT_FILE,
-} from '../constants';
-import { contextItemsValidator } from '../utils';
+import { categoriesValidator, contextItemsValidator } from '../utils';
+import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
+import GlDuoChatContextItemMenuContextSearchItems from './duo_chat_context_item_menu_context_search_items.vue';
 
 const SEARCH_DEBOUNCE_MS = 30;
 
 export default {
   name: 'GlDuoChatContextItemMenu',
   components: {
-    GlAlert,
     GlCard,
-    GlDropdownItem,
-    GlDuoChatContextItemPopover,
+    GlDuoChatContextItemMenuCategoryItems,
+    GlDuoChatContextItemMenuContextSearchItems,
     GlDuoChatContextItemSelections,
-    GlFormInput,
-    GlIcon,
   },
   props: {
     open: {
@@ -50,8 +39,7 @@ export default {
     categories: {
       type: Array,
       required: true,
-      validator: (categories) =>
-        categories.every((category) => category.value && category.label && category.icon),
+      validator: categoriesValidator,
     },
     results: {
       type: Array,
@@ -63,7 +51,6 @@ export default {
     return {
       selectedCategory: null,
       searchQuery: '',
-      userInitiatedSearch: false,
       activeIndex: 0,
     };
   },
@@ -71,29 +58,9 @@ export default {
     showCategorySelection() {
       return this.open && !this.selectedCategory;
     },
-    showItemSearch() {
-      return Boolean(this.open && this.selectedCategory);
-    },
-    showEmptyState() {
-      return Boolean(
-        this.open &&
-          this.userInitiatedSearch &&
-          !this.loading &&
-          !this.error &&
-          !this.results.length
-      );
-    },
-    searchInputPlaceholder() {
-      return sprintf(
-        translate('GlDuoChatContextItemMenu.searchInputPlaceholder', 'Search %{categoryLabel}...'),
-        {
-          categoryLabel: this.selectedCategory.label.toLowerCase(),
-        }
-      );
-    },
     allResultsAreDisabled() {
       return this.results.every((result) => !result.isEnabled);
-    }
+    },
   },
   watch: {
     open(isOpen) {
@@ -109,7 +76,7 @@ export default {
     async focusSearchInput() {
       await this.$nextTick();
 
-      if (!this.showItemSearch) {
+      if (this.showCategorySelection) {
         return;
       }
 
@@ -127,7 +94,6 @@ export default {
       this.focusSearchInput();
     },
     debouncedSearch: debounce(function search(query) {
-      this.userInitiatedSearch = true;
       this.$emit('search', {
         category: this.selectedCategory.value,
         query,
@@ -149,7 +115,6 @@ export default {
       this.$emit('remove', item);
     },
     resetSelection() {
-      this.userInitiatedSearch = false;
       this.selectedCategory = null;
       this.searchQuery = '';
       this.activeIndex = 0;
@@ -222,28 +187,12 @@ export default {
 
       this.activeIndex = newIndex;
     },
-    setSearchResultActiveIndex(index) {
-      if (this.results[index]?.isEnabled) {
-        this.activeIndex = index;
-      }
-    },
-    isProjectFile(item) {
-      return item.type === CONTEXT_ITEM_TYPE_PROJECT_FILE;
-    },
-    isIssue(item) {
-      return item.type === CONTEXT_ITEM_TYPE_ISSUE;
-    },
-    isMergeRequest(item) {
-      return item.type === CONTEXT_ITEM_TYPE_MERGE_REQUEST;
-    },
   },
   i18n: {
     selectedContextItemsTitle: translate(
       'GlDuoChatContextItemMenu.selectedContextItemsTitle',
       'Included references'
     ),
-    emptyStateMessage: translate('GlDuoChatContextItemMenu.emptyStateMessage', 'No results found'),
-    loadingMessage: translate('GlDuoChatContextItemMenu.loadingMessage', 'Loading...'),
   },
 };
 </script>
@@ -265,106 +214,25 @@ export default {
       body-class="!gl-p-2"
       data-testid="context-item-menu"
     >
-      <ul v-if="showCategorySelection" class="list-unstyled gl-mb-0">
-        <gl-dropdown-item
-          v-for="(category, index) in categories"
-          :key="category.value"
-          :class="{ 'active-command': index === activeIndex }"
-          data-testid="category-item"
-          @click="selectCategory(category)"
-        >
-          <div class="gl-display-flex gl-align-items-center" @mouseenter="activeIndex = index">
-            <gl-icon :name="category.icon" class="gl-mr-2" />
-            {{ category.label }}
-          </div>
-        </gl-dropdown-item>
-      </ul>
-      <template v-else-if="showItemSearch">
-        <div class="gl-max-h-31 gl-overflow-y-scroll">
-          <div v-if="loading">
-            <div
-              v-for="index in 3"
-              :key="index"
-              class="gl-mx-3 gl-mb-4 gl-pt-3"
-              data-testid="search-results-loading"
-            >
-              <div class="gl-mb-2 gl-flex">
-                <div class="gl-animate-skeleton-loader gl-mr-3 gl-h-5 gl-w-5 gl-rounded-base"></div>
-                <div class="gl-animate-skeleton-loader gl-h-5 gl-grow gl-rounded-base"></div>
-              </div>
-              <div class="gl-animate-skeleton-loader gl-h-4 gl-w-1/2 gl-rounded-base"></div>
-              <span class="sr-only">{{ $options.i18n.loadingMessage }}</span>
-            </div>
-          </div>
-          <gl-alert
-            v-else-if="error"
-            variant="danger"
-            :dismissible="false"
-            class="gl-m-3"
-            data-testid="search-results-error"
-          >
-            {{ error }}
-          </gl-alert>
-          <div
-            v-else-if="showEmptyState"
-            class="gl-rounded-base gl-p-3 gl-text-center gl-text-secondary"
-            data-testid="search-results-empty-state"
-          >
-            {{ $options.i18n.emptyStateMessage }}
-          </div>
-          <ul v-else class="list-unstyled gl-mb-1 gl-flex-row">
-            <gl-dropdown-item
-              v-for="(item, index) in results"
-              :id="`dropdown-item-${index}`"
-              :key="item.id"
-              :class="[{ 'active-command': index === activeIndex, disabled: !item.isEnabled }]"
-              :tabindex="!item.isEnabled ? -1 : undefined"
-              class="duo-chat-context-search-result-item"
-              data-testid="search-result-item"
-              @click="selectItem(item)"
-            >
-              <div
-                class="gl-display-flex gl-flex-direction-column"
-                @mouseenter="setSearchResultActiveIndex(index)"
-              >
-                <div class="gl-display-flex gl-align-items-center">
-                  <gl-icon :name="selectedCategory.icon" class="gl-mr-2 gl-flex-shrink-0" />
-                  <span class="gl-white-space-nowrap">
-                    {{ item.metadata.name }}
-                  </span>
-                  <gl-icon
-                    :id="`info-icon-${item.id}`"
-                    name="information-o"
-                    class="gl-ml-auto gl-flex-shrink-0 gl-cursor-pointer gl-text-secondary"
-                    :size="12"
-                  />
-                  <gl-duo-chat-context-item-popover
-                    :item="item"
-                    :target="`info-icon-${item.id}`"
-                    placement="left"
-                  />
-                </div>
-                <div class="gl-white-space-nowrap gl-mt-1 gl-flex-shrink-0 gl-text-secondary">
-                  <template v-if="isProjectFile(item)">{{
-                    item.metadata.info.relFilePath
-                  }}</template>
-                  <template v-else-if="isMergeRequest(item)"
-                    >!{{ item.metadata.info.iid }}</template
-                  >
-                  <template v-else-if="isIssue(item)">#{{ item.metadata.info.iid }}</template>
-                </div>
-              </div>
-            </gl-dropdown-item>
-          </ul>
-        </div>
-        <gl-form-input
-          ref="contextMenuSearchInput"
-          v-model="searchQuery"
-          :placeholder="searchInputPlaceholder"
-          data-testid="context-menu-search-input"
-          @keyup="handleKeyUp"
-        />
-      </template>
+      <gl-duo-chat-context-item-menu-category-items
+        v-if="showCategorySelection"
+        :active-index="activeIndex"
+        :categories="categories"
+        @select="selectCategory"
+        @active-index-change="activeIndex = $event"
+      />
+      <gl-duo-chat-context-item-menu-context-search-items
+        v-else
+        v-model="searchQuery"
+        :active-index="activeIndex"
+        :category="selectedCategory"
+        :loading="loading"
+        :error="error"
+        :results="results"
+        @select="selectItem"
+        @keyup="handleKeyUp"
+        @active-index-change="activeIndex = $event"
+      />
     </gl-card>
   </div>
 </template>

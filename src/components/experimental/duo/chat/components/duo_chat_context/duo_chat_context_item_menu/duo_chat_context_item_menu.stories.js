@@ -40,6 +40,7 @@ const Template = (args, { argTypes }) => ({
       this.errorMessage = null;
       setStoryTimeout(() => {
         this.isLoading = false;
+        // this.errorMessage = 'OH NO SOME ERROR';
         this.searchResults = sampleContextItems
           .filter((item) => item.type === category)
           .filter(

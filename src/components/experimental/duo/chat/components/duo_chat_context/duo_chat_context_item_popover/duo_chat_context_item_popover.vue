@@ -6,6 +6,7 @@ import {
   CONTEXT_ITEM_TYPE_MERGE_REQUEST,
   CONTEXT_ITEM_TYPE_PROJECT_FILE,
 } from '../constants';
+import { contextItemValidator } from '../utils';
 
 const ID_PREFIXES = {
   issue: '#',
@@ -21,6 +22,7 @@ export default {
     item: {
       type: Object,
       required: true,
+      validator: contextItemValidator,
     },
     target: {
       type: String,

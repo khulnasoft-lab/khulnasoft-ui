@@ -171,5 +171,5 @@ describe('GlDuoChatContextItemSelections', () => {
         expect(wrapper.emitted('remove')[0]).toEqual([MOCK_CONTEXT_ITEM_FILE]);
       });
     });
-  })
+  });
 });

@@ -1,8 +1,29 @@
-export function contextItemsValidator(items) {
+export function categoryValidator(category) {
+  return Boolean(category && category.value && category.label && category.icon);
+}
+
+export function categoriesValidator(categories) {
+  return Array.isArray(categories) && categories.every((category) => categoryValidator(category));
+}
+
+function disabledReasonsValidator(disabledReasons) {
   return (
-    Array.isArray(items) &&
-    items.every((item) => {
-      return item.id && item.metadata.name && typeof item.isEnabled === 'boolean';
-    })
+    disabledReasons === undefined ||
+    (Array.isArray(disabledReasons) &&
+      disabledReasons.every((reason) => typeof reason === 'string'))
   );
+}
+
+export function contextItemValidator(item) {
+  return Boolean(
+    item &&
+      item.id &&
+      item.type &&
+      typeof item.isEnabled === 'boolean' &&
+      disabledReasonsValidator(item.disabledReasons)
+  );
+}
+
+export function contextItemsValidator(items) {
+  return Array.isArray(items) && items.every((item) => contextItemValidator(item));
 }

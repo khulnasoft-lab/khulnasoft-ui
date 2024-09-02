@@ -7,6 +7,8 @@ import {
 } from '../constants';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
+import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
+import GlDuoChatContextItemMenuContextSearchItems from './duo_chat_context_item_menu_context_search_items.vue';
 
 jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
 
@@ -29,20 +31,11 @@ describe('GlDuoChatContextItemMenu', () => {
   };
 
   const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
-  const findAllByTestId = (testId) => wrapper.findAll(`[data-testid="${testId}"]`);
 
   const findMenu = () => findByTestId('context-item-menu');
   const findContextItemSelections = () => wrapper.findComponent(GlDuoChatContextItemSelections);
-  const findCategoryItems = () => findAllByTestId('category-item');
-  const findCategory = (category) =>
-    findCategoryItems().wrappers.find((item) => item.text().includes(category));
-  const findSearchInput = () => findByTestId('context-menu-search-input');
-  const findResultItems = () => findAllByTestId('search-result-item');
-  const findActiveItem = () => wrapper.find('.active-command');
-  const findLoadingIndicator = () => findByTestId('search-results-loading');
-  const findLoadingError = () => findByTestId('search-results-error');
-  const findEmptyState = () => findByTestId('search-results-empty-state');
-  const findActiveItemText = () => findActiveItem().text().trim();
+  const findCategoryItems = () => wrapper.findComponent(GlDuoChatContextItemMenuCategoryItems);
+  const findResultItems = () => wrapper.findComponent(GlDuoChatContextItemMenuContextSearchItems);
 
   // Keyboard events are passed by $ref from the parent GlDuoChat component, simulate that here
   const triggerKeyUp = async (key) => wrapper.vm.handleKeyUp({ key, preventDefault: jest.fn() });
@@ -93,19 +86,20 @@ describe('GlDuoChatContextItemMenu', () => {
       });
 
       it('shows categories', () => {
-        const items = findCategoryItems().wrappers.map((item) => item.text());
-
-        expect(items).toEqual(expect.arrayContaining(['Files', 'Issues', 'Merge Requests']));
+        expect(findCategoryItems().props()).toEqual({
+          activeIndex: 0,
+          categories: MOCK_CATEGORIES,
+        });
       });
 
       it('cycles through the categories when the arrow keys are pressed', async () => {
-        expect(findActiveItem().text()).toBe('Files');
+        expect(findCategoryItems().props('activeIndex')).toBe(0);
         await triggerKeyUp('ArrowDown');
-        expect(findActiveItem().text()).toBe('Issues');
+        expect(findCategoryItems().props('activeIndex')).toBe(1);
         await triggerKeyUp('ArrowDown');
-        expect(findActiveItem().text()).toBe('Merge Requests');
+        expect(findCategoryItems().props('activeIndex')).toBe(2);
         await triggerKeyUp('ArrowUp');
-        expect(findActiveItem().text()).toBe('Issues');
+        expect(findCategoryItems().props('activeIndex')).toBe(1);
       });
 
       it('emits "close" event when escape is pressed', async () => {
@@ -124,78 +118,64 @@ describe('GlDuoChatContextItemMenu', () => {
           },
         ]);
       });
-
-      it('selects the category when clicked', async () => {
-        await findActiveItem().vm.$emit('click');
-
-        expect(wrapper.emitted('search').at(0)).toEqual([
-          {
-            category: MOCK_CATEGORIES[0].value,
-            query: '',
-          },
-        ]);
-      });
     });
 
     describe.each([
       CONTEXT_ITEM_TYPE_ISSUE,
       CONTEXT_ITEM_TYPE_MERGE_REQUEST,
       CONTEXT_ITEM_TYPE_PROJECT_FILE,
-    ])('when a "%s" category has been selected', (category) => {
+    ])('when a "%s" category has been selected', (categoryValue) => {
+      let category;
       let results;
       beforeEach(() => {
-        const selectedCategory = MOCK_CATEGORIES.find((c) => c.value === category);
+        category = MOCK_CATEGORIES.find((cat) => cat.value === categoryValue);
         results = getMockContextItems()
-          .filter((item) => item.type === category)
+          .filter((item) => item.type === categoryValue)
           .map((item, index) => ({
             ...item,
-            isEnabled: index % 2 === 0,
+            isEnabled: index % 2 === 0, // disable odd indexed items
           }));
 
         createComponent({
           results,
         });
 
-        return findCategory(selectedCategory.label).vm.$emit('click');
-      });
-
-      it('shows item search input', () => {
-        expect(findSearchInput().exists()).toBe(true);
+        return findCategoryItems().vm.$emit('select', category);
       });
 
       it('shows search result items', () => {
-        const items = findResultItems().wrappers.map((item) => item.text().trim());
-
-        expect(items).toEqual(
-          expect.arrayContaining(
-            results.map((result) => expect.stringContaining(result.metadata.name))
-          )
-        );
+        expect(findResultItems().props()).toEqual({
+          activeIndex: 0,
+          category,
+          error: null,
+          loading: false,
+          results,
+          searchQuery: '',
+        });
       });
 
       it('cycles through the items when the arrow keys are pressed', async () => {
+        expect(findResultItems().props('activeIndex')).toBe(0);
         await triggerKeyUp('ArrowDown');
-        expect(findActiveItemText()).toEqual(expect.stringContaining(results.at(2).metadata.name));
+        expect(findResultItems().props('activeIndex')).toBe(2);
         await triggerKeyUp('ArrowUp');
-        expect(findActiveItemText()).toEqual(expect.stringContaining(results.at(0).metadata.name));
+        expect(findResultItems().props('activeIndex')).toBe(0);
       });
 
       it('does not cycle to the next item if it is disabled', async () => {
         await triggerKeyUp('ArrowDown');
-        expect(findActiveItemText()).toEqual(expect.stringContaining(results.at(2).metadata.name));
+        expect(findResultItems().props('activeIndex')).toBe(2);
         await triggerKeyUp('ArrowDown');
-        expect(findActiveItemText()).not.toEqual(
-          expect.stringContaining(results.at(1).metadata.name) // disabled
-        );
-        expect(findActiveItemText()).toEqual(expect.stringContaining(results.at(0).metadata.name)); // cycles back to first result
+        expect(findResultItems().props('activeIndex')).not.toBe(1); // odd indexes disabled
+        expect(findResultItems().props('activeIndex')).toBe(0); // cycles back to first result
         await triggerKeyUp('ArrowDown');
-        expect(findActiveItemText()).toEqual(expect.stringContaining(results.at(2).metadata.name));
+        expect(findResultItems().props('activeIndex')).toBe(2);
       });
 
       it('clears category selection when escape is pressed', async () => {
         await triggerKeyUp('Escape');
-        expect(findCategoryItems()).toHaveLength(3);
-        expect(findResultItems()).toHaveLength(0);
+        expect(findCategoryItems().exists()).toBe(true);
+        expect(findResultItems().exists()).toBe(false);
       });
 
       it('selects the item when enter is pressed', async () => {
@@ -204,24 +184,24 @@ describe('GlDuoChatContextItemMenu', () => {
       });
 
       it('selects the item when clicked', async () => {
-        await findActiveItem().vm.$emit('click');
+        await findResultItems().vm.$emit('select', results.at(0));
         expect(wrapper.emitted('select').at(0)).toEqual([results.at(0)]);
       });
 
       it('emits "close" event when selecting an item', async () => {
-        await findActiveItem().vm.$emit('click');
+        await findResultItems().vm.$emit('select', results.at(0));
         expect(wrapper.emitted('close')).toHaveLength(1);
       });
 
       it('does not select a disabled item when clicked', async () => {
-        await findResultItems().at(1).vm.$emit('click');
+        await findResultItems().vm.$emit('select', results.at(1));
         expect(wrapper.emitted('select')).toBeUndefined();
       });
 
       describe('when searching', () => {
         const query = 'e';
         beforeEach(async () => {
-          await findSearchInput().vm.$emit('input', query);
+          await findResultItems().vm.$emit('update:searchQuery', query);
 
           await wrapper.setProps({
             loading: true,
@@ -231,14 +211,14 @@ describe('GlDuoChatContextItemMenu', () => {
         it('emits search event', async () => {
           expect(wrapper.emitted('search').at(1)).toEqual([
             {
-              category,
+              category: categoryValue,
               query,
             },
           ]);
         });
 
         it('shows loading state', async () => {
-          expect(findLoadingIndicator().exists()).toBe(true);
+          expect(findResultItems().props('loading')).toBe(true);
         });
 
         describe('when there is an error', () => {
@@ -250,20 +230,7 @@ describe('GlDuoChatContextItemMenu', () => {
           });
 
           it('shows error state', async () => {
-            expect(findLoadingError().text()).toBe('oh no');
-          });
-        });
-
-        describe('when there are no results', () => {
-          beforeEach(async () => {
-            await wrapper.setProps({
-              loading: false,
-              results: [],
-            });
-          });
-
-          it('shows empty state', async () => {
-            expect(findEmptyState().text()).toBe('No results found');
+            expect(findResultItems().props('error')).toBe('oh no');
           });
         });
 
@@ -279,8 +246,7 @@ describe('GlDuoChatContextItemMenu', () => {
           });
 
           it('shows matching results', async () => {
-            expect(findResultItems()).toHaveLength(1);
-            expect(findActiveItemText()).toContain(matchingResult.metadata.name);
+            expect(findResultItems().props('results')).toEqual([matchingResult]);
           });
         });
       });
