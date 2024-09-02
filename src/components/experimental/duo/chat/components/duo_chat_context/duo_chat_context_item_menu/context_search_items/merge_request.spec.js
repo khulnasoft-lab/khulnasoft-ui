@@ -17,6 +17,7 @@ describe('GlDuoChatContextItemMenuContextSearchItemMergeRequest', () => {
 
   it('should render the merge request ID', () => {
     createWrapper();
+
     expect(wrapper.text()).toContain('!1122');
   });
 });

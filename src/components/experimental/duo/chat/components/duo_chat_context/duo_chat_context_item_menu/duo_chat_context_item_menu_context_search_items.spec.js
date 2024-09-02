@@ -162,13 +162,13 @@ describe('GlDuoChatContextItemMenuContextSearchItems', () => {
       });
 
       it('marks the correct item as active', async () => {
-        expect(findActiveItemDetails().props('item')).toBe(results.at(0));
+        expect(findActiveItemDetails().props('item')).toEqual(results.at(0));
 
         await wrapper.setProps({
           activeIndex: 1,
         });
 
-        expect(findActiveItemDetails().props('item')).toBe(results.at(1));
+        expect(findActiveItemDetails().props('item')).toEqual(results.at(1));
       });
 
       it('emits "active-index-change" event when hovering over an item', async () => {
