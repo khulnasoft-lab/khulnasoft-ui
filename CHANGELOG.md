@@ -1,3 +1,14 @@
+# [91.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.3.0...v91.4.0) (2024-09-02)
+
+
+### Features
+
+* **GlAlert:** Replace english text with translation ([38582dd](https://gitlab.com/gitlab-org/gitlab-ui/commit/38582dddee70e6bf2b19945b5f20953359f5bc7a))
+* **GlBanner:** Replace english text with translation ([a8ad872](https://gitlab.com/gitlab-org/gitlab-ui/commit/a8ad872011660d2973c9008e63b314355032e632))
+* **GlBroadcastMessage:** Replace english text with translation ([6cf3e7c](https://gitlab.com/gitlab-org/gitlab-ui/commit/6cf3e7cfe272c1eb48c61d0d79dec9245a825d75))
+* **GlModal:** Replace english text with translation ([2498b0e](https://gitlab.com/gitlab-org/gitlab-ui/commit/2498b0e38f74d2af7efae62b3686ff189b056932))
+* **GlToken:** Add property 'removeLabel' ([87b81a6](https://gitlab.com/gitlab-org/gitlab-ui/commit/87b81a6f0838e8a644af20558a65b02d5b99e25e))
+
 # [91.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.2.0...v91.3.0) (2024-08-30)
 
 
