@@ -1,11 +1,34 @@
-import { categoriesValidator, contextItemsValidator } from './utils';
+import {
+  categoriesValidator,
+  categoryValidator,
+  contextItemsValidator,
+  contextItemValidator,
+} from './utils';
 import {
   MOCK_CATEGORIES,
   MOCK_CONTEXT_ITEM_FILE,
+  MOCK_CONTEXT_ITEM_FILE_DISABLED,
   MOCK_CONTEXT_ITEM_MERGE_REQUEST,
 } from './mock_context_data';
 
 describe('duo_chat_context utils', () => {
+  describe('categoryValidator', () => {
+    it.each(MOCK_CATEGORIES)('returns true for a valid category', (category) => {
+      expect(categoryValidator(category)).toBe(true);
+    });
+
+    it.each([
+      { value: { value: 'test', label: 'Test' }, description: 'missing icon' },
+      { value: { value: 'test', icon: 'icon' }, description: 'missing label' },
+      { value: { label: 'Test', icon: 'icon' }, description: 'missing value' },
+      { value: {}, description: 'empty object' },
+      { value: null, description: 'null' },
+      { value: undefined, description: 'undefined' },
+    ])('returns false for "$description"', ({ value }) => {
+      expect(categoryValidator(value)).toBe(false);
+    });
+  });
+
   describe('categoriesValidator', () => {
     it('returns true for valid categories', () => {
       expect(categoriesValidator(MOCK_CATEGORIES)).toBe(true);
@@ -35,6 +58,70 @@ describe('duo_chat_context utils', () => {
       },
     ])('returns false for "$description', ({ value }) => {
       expect(categoriesValidator(value)).toBe(false);
+    });
+  });
+
+  describe('contextItemValidator', () => {
+    describe('with a valid item', () => {
+      it('returns true for a valid file item', () => {
+        expect(contextItemValidator(MOCK_CONTEXT_ITEM_FILE)).toBe(true);
+      });
+
+      it('returns true for a valid merge request item', () => {
+        expect(contextItemValidator(MOCK_CONTEXT_ITEM_MERGE_REQUEST)).toBe(true);
+      });
+
+      it('returns true for a valid disabled item', () => {
+        expect(contextItemValidator(MOCK_CONTEXT_ITEM_FILE_DISABLED)).toBe(true);
+      });
+    });
+
+    describe.each([
+      { value: null, description: 'null' },
+      { value: undefined, description: 'undefined' },
+      { value: {}, description: 'empty object' },
+      { value: 'not an item', description: 'string instead of object' },
+      { value: 42, description: 'number instead of object' },
+      {
+        value: { ...MOCK_CONTEXT_ITEM_FILE, id: undefined },
+        description: 'missing id',
+      },
+      {
+        value: { ...MOCK_CONTEXT_ITEM_FILE, type: undefined },
+        description: 'missing type',
+      },
+      {
+        value: {
+          ...MOCK_CONTEXT_ITEM_FILE,
+          isEnabled: undefined,
+        },
+        description: 'missing enabled',
+      },
+      {
+        value: {
+          ...MOCK_CONTEXT_ITEM_FILE,
+          isEnabled: 'true',
+        },
+        description: 'non-boolean enabled',
+      },
+      {
+        value: {
+          ...MOCK_CONTEXT_ITEM_FILE,
+          disabledReasons: 'not an array',
+        },
+        description: 'non-array disabledReasons',
+      },
+      {
+        value: {
+          ...MOCK_CONTEXT_ITEM_FILE,
+          disabledReasons: [42],
+        },
+        description: 'non-string items in disabledReasons array',
+      },
+    ])('with "$description"', ({ value }) => {
+      it('returns false', () => {
+        expect(contextItemValidator(value)).toBe(false);
+      });
     });
   });
 
