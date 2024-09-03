@@ -19,6 +19,23 @@ describe('GlFormGroup', () => {
     });
   }
 
+  function checkA11YWithLabelSlot() {
+    cy.visitStory('base/form/form-group', {
+      story: 'with-label-slot',
+      args: {
+        optional: true,
+      },
+    });
+  }
+
+  function checkA11YWithDescriptionSlot() {
+    cy.visitStory('base/form/form-group', {
+      story: 'with-description-slot',
+      args: {
+        optional: true,
+      },
+    });
+  }
   function checkA11YWithValidations() {
     cy.visitStory('base/form/form-group', {
       story: 'with-validations',
@@ -34,6 +51,8 @@ describe('GlFormGroup', () => {
       checkA11YDefaultState,
       checkA11YWithDescription,
       checkA11YDisabled,
+      checkA11YWithLabelSlot,
+      checkA11YWithDescriptionSlot,
       checkA11YWithValidations,
     });
   });
