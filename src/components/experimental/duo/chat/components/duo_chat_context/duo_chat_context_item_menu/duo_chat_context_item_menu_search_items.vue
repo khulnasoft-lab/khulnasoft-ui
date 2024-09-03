@@ -5,14 +5,16 @@ import GlAlert from '../../../../../../base/alert/alert.vue';
 import { sprintf, translate } from '../../../../../../../utils/i18n';
 import { categoryValidator, contextItemsValidator } from '../utils';
 import GlDuoChatContextItemMenuSearchItemsLoading from './duo_chat_context_item_menu_search_items_loading.vue';
+import GlDuoChatContextItemMenuSearchItem from './duo_chat_context_item_menu_search_item.vue';
 
 export default {
   name: 'GlDuoChatContextItemMenuSearchItems',
   components: {
     GlAlert,
-    GlFormInput,
     GlDropdownItem,
+    GlDuoChatContextItemMenuSearchItem,
     GlDuoChatContextItemMenuSearchItemsLoading,
+    GlFormInput,
   },
   model: {
     prop: 'searchQuery',
@@ -77,8 +79,8 @@ export default {
     },
   },
   methods: {
-    selectItem(item) {
-      this.$emit('select', item);
+    selectItem(contextItem) {
+      this.$emit('select', contextItem);
       this.userInitiatedSearch = false;
     },
     setActiveIndex(index) {
@@ -114,20 +116,25 @@ export default {
       </div>
       <ul v-else class="gl-mb-1 gl-list-none gl-flex-row gl-pl-0">
         <gl-dropdown-item
-          v-for="(item, index) in results"
+          v-for="(contextItem, index) in results"
           :id="`dropdown-item-${index}`"
-          :key="item.id"
-          :class="[{ 'active-command': index === activeIndex, disabled: !item.isEnabled }]"
-          :tabindex="!item.isEnabled ? -1 : undefined"
+          :key="contextItem.id"
+          :class="{
+            'active-command': index === activeIndex,
+            'gl-cursor-not-allowed [&>button]:focus-within:!gl-shadow-none': !contextItem.isEnabled,
+          }"
+          :tabindex="!contextItem.isEnabled ? -1 : undefined"
           class="duo-chat-context-search-result-item"
           data-testid="search-result-item"
-          @click="selectItem(item)"
+          @click="selectItem(contextItem)"
         >
           <div @mouseenter="setActiveIndex(index)">
-            <div data-testid="search-result-item-details">
-              <!-- Placeholder for upcoming GlDuoChatContextItemMenuSearchItem component -->
-              {{ item.metadata.name }} {{ item.isEnabled ? '' : '(disabled)' }}
-            </div>
+            <gl-duo-chat-context-item-menu-search-item
+              :context-item="contextItem"
+              :category="category"
+              :class="{ 'gl-text-secondary': !contextItem.isEnabled }"
+              data-testid="search-result-item-details"
+            />
           </div>
         </gl-dropdown-item>
       </ul>

@@ -6,11 +6,7 @@ import {
   CONTEXT_ITEM_TYPE_MERGE_REQUEST,
   CONTEXT_ITEM_TYPE_PROJECT_FILE,
 } from '../constants';
-
-const ID_PREFIXES = {
-  issue: '#',
-  merge_request: '!',
-};
+import { formatIssueId, formatMergeRequestId } from '../utils';
 
 export default {
   name: 'DuoChatContextItemPopover',
@@ -19,9 +15,9 @@ export default {
   },
   props: {
     /**
-     * The context item to display in the popover.
+     * The context contextItem to display in the popover.
      */
-    item: {
+    contextItem: {
       type: Object,
       required: true,
     },
@@ -43,28 +39,36 @@ export default {
   },
   computed: {
     itemInfo() {
-      return this.item.metadata?.info || {};
+      return this.contextItem.metadata?.info || {};
     },
     id() {
       const isIssuable =
-        this.item.type === CONTEXT_ITEM_TYPE_ISSUE ||
-        this.item.type === CONTEXT_ITEM_TYPE_MERGE_REQUEST;
+        this.contextItem.type === CONTEXT_ITEM_TYPE_ISSUE ||
+        this.contextItem.type === CONTEXT_ITEM_TYPE_MERGE_REQUEST;
       return isIssuable ? this.itemInfo.iid || '' : null;
     },
-    idPrefix() {
-      return ID_PREFIXES[this.item.type] || '';
+    formattedId() {
+      switch (this.contextItem.type) {
+        case CONTEXT_ITEM_TYPE_ISSUE:
+          return formatIssueId(this.id);
+        case CONTEXT_ITEM_TYPE_MERGE_REQUEST:
+          return formatMergeRequestId(this.id);
+        default:
+          return '';
+      }
     },
     filePath() {
-      return this.item.type === CONTEXT_ITEM_TYPE_PROJECT_FILE
+      return this.contextItem.type === CONTEXT_ITEM_TYPE_PROJECT_FILE
         ? this.itemInfo.relFilePath || ''
         : null;
     },
     isEnabled() {
-      return this.item.isEnabled !== false;
+      return this.contextItem.isEnabled !== false;
     },
     disabledMessage() {
-      return Array.isArray(this.item.disabledReasons) && this.item.disabledReasons.length > 0
-        ? this.item.disabledReasons.join(', ')
+      return Array.isArray(this.contextItem.disabledReasons) &&
+        this.contextItem.disabledReasons.length > 0
+        ? this.contextItem.disabledReasons.join(', ')
         : translate('DuoChatContextItemPopover.DisabledReason', 'This item is disabled');
     },
   },
@@ -78,12 +82,12 @@ export default {
     :target="target"
     triggers="hover focus"
     :placement="placement"
-    :title="item.metadata.name"
+    :title="contextItem.metadata.name"
     custom-class="gl-duo-chat-item-popover"
   >
     <template #title>
       <span class="gl-text-sm gl-text-gray-500" data-testid="chat-context-popover-title">{{
-        item.metadata.name
+        contextItem.metadata.name
       }}</span>
     </template>
     <div class="gl-p-3">
@@ -101,13 +105,13 @@ export default {
       </div>
       <div v-if="id !== null" class="gl-mb-2">
         <strong class="gl-mr-1">{{ translate('DuoChatContextItemPopover.IdLabel', 'ID:') }}</strong>
-        <span>{{ idPrefix }}{{ id }}</span>
+        <span>{{ formattedId }}</span>
       </div>
       <div class="gl-mb-2">
         <strong class="gl-mr-1">{{
           translate('DuoChatContextItemPopover.TypeLabel', 'Type:')
         }}</strong>
-        <span>{{ item.type }}</span>
+        <span>{{ contextItem.type }}</span>
       </div>
       <div v-if="!isEnabled" class="gl-text-red-500" data-testid="chat-context-popover-disabled">
         <strong class="gl-mr-1">{{

@@ -134,10 +134,10 @@ describe('GlDuoChatContextItemSelections', () => {
       createComponent();
 
       const index = 0;
-      const item = mockSelections.at(index);
+      const contextItem = mockSelections.at(index);
       const popover = findPopovers().at(index);
 
-      expect(popover.props('item')).toEqual(item);
+      expect(popover.props('contextItem')).toEqual(contextItem);
       expect(popover.props('target')).toMatch(
         /^context-item-123e4567-e89b-12d3-a456-426614174000-\d+$/
       );

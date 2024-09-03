@@ -10,6 +10,10 @@ export const MOCK_CATEGORIES = [
   { label: 'Merge Requests', value: CONTEXT_ITEM_TYPE_MERGE_REQUEST, icon: 'merge-request' },
 ];
 
+export function getMockCategory(categoryValue) {
+  return MOCK_CATEGORIES.find((cat) => cat.value === categoryValue);
+}
+
 export const MOCK_CONTEXT_ITEM_FILE = {
   id: '123e4567-e89b-12d3-a456-426614174000',
   isEnabled: true,

@@ -15,7 +15,7 @@ describe('GlDuoChatContextItemPopover', () => {
   const createComponent = (props = {}, options = {}) => {
     wrapper = shallowMount(GlDuoChatContextItemPopover, {
       propsData: {
-        item: MOCK_CONTEXT_ITEM_FILE,
+        contextItem: MOCK_CONTEXT_ITEM_FILE,
         target: 'test-target',
         placement: 'top',
         ...props,
@@ -67,16 +67,16 @@ describe('GlDuoChatContextItemPopover', () => {
       ['file', MOCK_CONTEXT_ITEM_FILE],
       ['issue', MOCK_CONTEXT_ITEM_ISSUE],
       ['merge request', MOCK_CONTEXT_ITEM_MERGE_REQUEST],
-    ])('renders correct project and type for %s', (_, item) => {
-      createComponent({ item });
+    ])('renders correct project and type for %s', (_, contextItem) => {
+      createComponent({ contextItem });
 
       const content = findPopover().text();
-      expect(content).toContain(item.metadata.info.project);
-      expect(content).toContain(item.type);
+      expect(content).toContain(contextItem.metadata.info.project);
+      expect(content).toContain(contextItem.type);
     });
 
     it('renders file path for file items', () => {
-      createComponent({ item: MOCK_CONTEXT_ITEM_FILE });
+      createComponent({ contextItem: MOCK_CONTEXT_ITEM_FILE });
 
       const content = findPopover().text();
       expect(content).toContain(MOCK_CONTEXT_ITEM_FILE.metadata.info.relFilePath);
@@ -85,8 +85,8 @@ describe('GlDuoChatContextItemPopover', () => {
     it.each([
       ['issue', MOCK_CONTEXT_ITEM_ISSUE, '#1234'],
       ['merge request', MOCK_CONTEXT_ITEM_MERGE_REQUEST, '!1122'],
-    ])('renders ID for %s items with correct prefix', (_, item, expected) => {
-      createComponent({ item });
+    ])('renders ID for %s items with correct prefix', (_, contextItem, expected) => {
+      createComponent({ contextItem });
 
       const content = findPopover().text();
       expect(content).toContain(expected);
@@ -95,7 +95,7 @@ describe('GlDuoChatContextItemPopover', () => {
 
   describe('disabled items', () => {
     it('renders disabled message', () => {
-      createComponent({ item: MOCK_CONTEXT_ITEM_ISSUE_DISABLED });
+      createComponent({ contextItem: MOCK_CONTEXT_ITEM_ISSUE_DISABLED });
 
       expect(findDisabledMessage().text()).toContain(
         'This foo is not available to bar, Lorem something something wow?'
@@ -107,7 +107,7 @@ describe('GlDuoChatContextItemPopover', () => {
         ...MOCK_CONTEXT_ITEM_FILE_DISABLED,
         info: { ...MOCK_CONTEXT_ITEM_FILE_DISABLED.metadata.info, disabledReasons: undefined },
       };
-      createComponent({ item: itemWithoutReasons });
+      createComponent({ contextItem: itemWithoutReasons });
 
       expect(findDisabledMessage().text()).toContain('This item is disabled');
     });

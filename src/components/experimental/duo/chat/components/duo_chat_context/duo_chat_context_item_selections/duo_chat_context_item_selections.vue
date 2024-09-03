@@ -72,12 +72,12 @@ export default {
     toggleCollapse() {
       this.isCollapsed = !this.isCollapsed;
     },
-    onRemoveItem(item) {
+    onRemoveItem(contextItem) {
       /**
-       * Emitted when a context item should be removed.
-       * @property {Object} item - The context item to be removed
+       * Emitted when a context contextItem should be removed.
+       * @property {Object} item - The context contextItem to be removed
        */
-      this.$emit('remove', item);
+      this.$emit('remove', contextItem);
     },
   },
 };
@@ -99,20 +99,20 @@ export default {
       data-testid="chat-context-tokens-wrapper"
     >
       <gl-token
-        v-for="item in selections"
-        :key="item.id"
+        v-for="contextItem in selections"
+        :key="contextItem.id"
         :view-only="!removable"
         variant="default"
         class="gl-mb-2 gl-mr-2"
-        @close="onRemoveItem(item)"
+        @close="onRemoveItem(contextItem)"
       >
-        <div :id="`context-item-${item.id}-${selectionsId}`" class="gl-flex gl-items-center">
-          <gl-icon :name="getIconName(item.type)" :size="12" class="gl-mr-1" />
-          {{ item.metadata.name }}
+        <div :id="`context-item-${contextItem.id}-${selectionsId}`" class="gl-flex gl-items-center">
+          <gl-icon :name="getIconName(contextItem.type)" :size="12" class="gl-mr-1" />
+          {{ contextItem.metadata.name }}
         </div>
         <gl-duo-chat-context-item-popover
-          :item="item"
-          :target="`context-item-${item.id}-${selectionsId}`"
+          :context-item="contextItem"
+          :target="`context-item-${contextItem.id}-${selectionsId}`"
           placement="bottom"
         />
       </gl-token>
