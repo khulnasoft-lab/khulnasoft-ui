@@ -2,8 +2,8 @@
 import debounce from 'lodash/debounce';
 import { translate } from '../../../../../../../utils/i18n';
 import GlCard from '../../../../../../base/card/card.vue';
-import { categoriesValidator, contextItemsValidator } from '../utils';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
+import { categoriesValidator, contextItemsValidator, wrapIndex } from '../utils';
 import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
 import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
 
@@ -67,14 +67,17 @@ export default {
   },
   data() {
     return {
-      activeIndex: 0,
-      searchQuery: '',
       selectedCategory: null,
+      searchQuery: '',
+      activeIndex: 0,
     };
   },
   computed: {
     showCategorySelection() {
       return this.open && !this.selectedCategory;
+    },
+    allResultsAreDisabled() {
+      return this.results.every((result) => !result.isEnabled);
     },
   },
   watch: {
@@ -86,13 +89,22 @@ export default {
     searchQuery(query) {
       this.debouncedSearch(query);
     },
+    results(newResults) {
+      const firstEnabledIndex = newResults.findIndex((result) => result.isEnabled);
+      this.activeIndex = firstEnabledIndex >= 0 ? firstEnabledIndex : 0;
+    },
   },
   methods: {
     selectCategory(category) {
-      this.activeIndex = 0;
       this.searchQuery = '';
       this.selectedCategory = category;
 
+      this.$emit('search', {
+        category: category.value,
+        query: '',
+      });
+    },
+    debouncedSearch: debounce(function search(query) {
       /**
        * Emitted when a search should be performed.
        * @property {Object} filter
@@ -100,10 +112,10 @@ export default {
        * @property {string} filter.query - The search query
        */
       this.$emit('search', {
-        category: category.value,
-        query: '',
+        category: this.selectedCategory.value,
+        query,
       });
-    },
+    }, SEARCH_DEBOUNCE_MS),
     selectItem(item) {
       if (!item.isEnabled) {
         return;
@@ -131,15 +143,75 @@ export default {
        */
       this.$emit('remove', item);
     },
-    debouncedSearch: debounce(function search(query) {
-      this.$emit('search', {
-        category: this.selectedCategory.value,
-        query,
-      });
-    }, SEARCH_DEBOUNCE_MS),
     resetSelection() {
       this.selectedCategory = null;
+      this.searchQuery = '';
       this.activeIndex = 0;
+    },
+    async scrollActiveItemIntoView() {
+      await this.$nextTick();
+
+      const activeItem = document.getElementById(`dropdown-item-${this.activeIndex}`);
+      if (activeItem) {
+        activeItem.scrollIntoView({ block: 'nearest', inline: 'start' });
+      }
+    },
+    handleKeyUp(e) {
+      switch (e.key) {
+        case 'ArrowDown':
+        case 'ArrowUp':
+          e.preventDefault();
+          this.moveActiveIndex(e.key === 'ArrowDown' ? 1 : -1);
+          this.scrollActiveItemIntoView();
+          break;
+        case 'Enter':
+          e.preventDefault();
+          if (this.showCategorySelection) {
+            this.selectCategory(this.categories[this.activeIndex]);
+            return;
+          }
+          if (!this.results.length) {
+            return;
+          }
+          this.selectItem(this.results[this.activeIndex]);
+          break;
+        case 'Escape':
+          e.preventDefault();
+          if (this.showCategorySelection) {
+            this.$emit('close');
+            return;
+          }
+
+          this.selectedCategory = null;
+          break;
+        default:
+          break;
+      }
+    },
+    moveActiveIndex(step) {
+      if (this.showCategorySelection) {
+        // Categories cannot be disabled, so just loop to the next/prev one
+        this.activeIndex = wrapIndex(this.activeIndex, step, this.categories.length);
+        return;
+      }
+
+      // Return early if there are no results or all results are disabled
+      if (!this.results.length || this.allResultsAreDisabled) {
+        return;
+      }
+
+      // contextItems CAN be disabled, so loop to next/prev but ensure we don't land on a disabled one
+      let newIndex = this.activeIndex;
+      do {
+        newIndex = wrapIndex(newIndex, step, this.results.length);
+
+        if (newIndex === this.activeIndex) {
+          // If we've looped through all items and found no enabled ones, keep the current index
+          return;
+        }
+      } while (!this.results[newIndex].isEnabled);
+
+      this.activeIndex = newIndex;
     },
   },
   i18n: {
@@ -184,6 +256,7 @@ export default {
         :error="error"
         :results="results"
         @select="selectItem"
+        @keyup="handleKeyUp"
         @active-index-change="activeIndex = $event"
       />
     </gl-card>

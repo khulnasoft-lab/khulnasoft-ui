@@ -83,10 +83,16 @@ export default {
       this.$emit('select', contextItem);
       this.userInitiatedSearch = false;
     },
+    handleKeyUp(e) {
+      this.$emit('keyup', e);
+    },
     setActiveIndex(index) {
       if (this.results[index]?.isEnabled) {
         this.$emit('active-index-change', index);
       }
+    },
+    isActiveItem(contextItem, index) {
+      return index === this.activeIndex && contextItem.isEnabled;
     },
   },
   i18n: {
@@ -120,7 +126,7 @@ export default {
           :id="`dropdown-item-${index}`"
           :key="contextItem.id"
           :class="{
-            'active-command': index === activeIndex,
+            'active-command': isActiveItem(contextItem, index),
             'gl-cursor-not-allowed [&>button]:focus-within:!gl-shadow-none': !contextItem.isEnabled,
           }"
           :tabindex="!contextItem.isEnabled ? -1 : undefined"
@@ -146,6 +152,7 @@ export default {
       autofocus
       data-testid="context-menu-search-input"
       @input="$emit('update:searchQuery', $event)"
+      @keyup="handleKeyUp"
     />
   </div>
 </template>
