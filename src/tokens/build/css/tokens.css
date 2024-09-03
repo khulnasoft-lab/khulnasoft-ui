@@ -506,6 +506,8 @@
   --gl-popover-background-color: var(--gl-color-neutral-0); /* Used for the background color of popover. */
   --gl-link-mention-background-color-current: var(--gl-color-orange-100); /* Used for the mention link background when referencing the current user. */
   --gl-link-mention-background-color-default: var(--gl-color-blue-100); /* Used for the mention link default background. */
+  --gl-link-mention-text-color-current: var(--gl-color-orange-800); /* Used for the mention link text color when referencing the current user. */
+  --gl-link-mention-text-color-default: var(--gl-color-blue-700); /* Used for the mention link text color. */
   --gl-label-scoped-button-icon-color-hover: var(--gl-color-neutral-0); /* Used for the scoped label remove button icon in the hover state. */
   --gl-label-scoped-button-icon-color-default: var(--gl-color-neutral-950); /* Used for the scoped label remove button icon in the default state. */
   --gl-label-scoped-button-background-color-hover: var(--gl-color-neutral-950); /* Used for the scoped label remove button background in the hover state. */
