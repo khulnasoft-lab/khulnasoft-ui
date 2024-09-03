@@ -8,6 +8,7 @@ import {
   CONTEXT_ITEM_TYPE_MERGE_REQUEST,
   CONTEXT_ITEM_TYPE_PROJECT_FILE,
 } from '../constants';
+import { contextItemsValidator } from '../utils';
 
 export default {
   name: 'GlDuoChatContextItemSelections',
@@ -17,17 +18,35 @@ export default {
     GlToken,
   },
   props: {
+    /**
+     * Array of selected context items.
+     */
     selections: {
       type: Array,
       required: true,
+      validator: contextItemsValidator,
     },
+    /**
+     * The title to display for the selections.
+     */
     title: {
       type: String,
       required: true,
     },
+    /**
+     * Whether the selections should be collapsed by default.
+     */
     defaultCollapsed: {
       type: Boolean,
       required: true,
+    },
+    /**
+     * Whether the selections can be removed.
+     */
+    removable: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   data() {
@@ -53,6 +72,13 @@ export default {
     toggleCollapse() {
       this.isCollapsed = !this.isCollapsed;
     },
+    onRemoveItem(item) {
+      /**
+       * Emitted when a context item should be removed.
+       * @property {Object} item - The context item to be removed
+       */
+      this.$emit('remove', item);
+    },
   },
 };
 </script>
@@ -75,9 +101,10 @@ export default {
       <gl-token
         v-for="item in selections"
         :key="item.id"
-        :view-only="true"
+        :view-only="!removable"
         variant="default"
         class="gl-mb-2 gl-mr-2"
+        @close="onRemoveItem(item)"
       >
         <div :id="`context-item-${item.id}-${selectionsId}`" class="gl-flex gl-items-center">
           <gl-icon :name="getIconName(item.type)" :size="12" class="gl-mr-1" />

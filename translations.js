@@ -8,6 +8,7 @@ export default {
   'GlBreadcrumb.showMoreLabel': 'Show more breadcrumbs',
   'GlBroadcastMessage.closeButtonTitle': 'Dismiss',
   'GlCollapsibleListbox.srOnlyResultsLabel': null,
+  'GlDuoChatContextItemMenu.selectedContextItemsTitle': 'Included references',
   'GlDuoChatMessage.SelectedContextItemsTitleAssistantMessage': null,
   'GlDuoChatMessage.SelectedContextItemsTitleUserMessage': null,
   'GlDuoWorkflowPanel.collapseButtonTitle': 'Collapse',

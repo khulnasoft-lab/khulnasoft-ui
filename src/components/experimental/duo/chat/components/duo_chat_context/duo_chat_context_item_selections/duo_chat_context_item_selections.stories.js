@@ -9,6 +9,7 @@ export default {
   component: GlDuoChatContextItemSelections,
   argTypes: {
     defaultCollapsed: { control: 'boolean' },
+    removable: { control: 'boolean' },
     title: { control: 'text' },
     selections: { control: 'object' },
   },
@@ -25,6 +26,7 @@ const Template = (args, { argTypes }) => ({
         v-if="selections.length"
         :title="title"
         :default-collapsed="defaultCollapsed"
+        :removable="removable"
         :selections="selections"
         v-bind="$props"
       />
@@ -36,5 +38,6 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Included references',
   defaultCollapsed: true,
+  removable: true,
   selections: sampleContextItems,
 };

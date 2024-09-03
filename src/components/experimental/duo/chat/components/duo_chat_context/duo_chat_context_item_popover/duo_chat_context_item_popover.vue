@@ -18,14 +18,23 @@ export default {
     GlPopover,
   },
   props: {
+    /**
+     * The context item to display in the popover.
+     */
     item: {
       type: Object,
       required: true,
     },
+    /**
+     * The target element ID for the popover.
+     */
     target: {
       type: String,
       required: true,
     },
+    /**
+     * The placement of the popover relative to the target.
+     */
     placement: {
       type: String,
       default: 'bottom',
