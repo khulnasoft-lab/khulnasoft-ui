@@ -1,10 +1,15 @@
 <script>
-import GlDuoChatContextItemPopover from '../../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
-import GlIcon from '../../../../../../../base/icon/icon.vue';
-import { categoryValidator, contextItemValidator } from '../../utils';
+import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
+import GlIcon from '../../../../../../base/icon/icon.vue';
+import { categoryValidator, contextItemValidator } from '../utils';
+import {
+  CONTEXT_ITEM_TYPE_ISSUE,
+  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
+  CONTEXT_ITEM_TYPE_PROJECT_FILE,
+} from '../constants';
 
 export default {
-  name: 'GlDuoChatContextItemMenuContextSearchItem',
+  name: 'GlDuoChatContextItemMenuSearchItem',
   components: { GlIcon, GlDuoChatContextItemPopover },
   props: {
     category: {
@@ -22,6 +27,18 @@ export default {
     title() {
       return this.item.metadata?.name || '';
     },
+    secondary() {
+      switch (this.category.value) {
+        case CONTEXT_ITEM_TYPE_PROJECT_FILE:
+          return this.item.metadata.info.relFilePath;
+        case CONTEXT_ITEM_TYPE_ISSUE:
+          return `#${this.item.metadata.info.iid}`;
+        case CONTEXT_ITEM_TYPE_MERGE_REQUEST:
+          return `!${this.item.metadata.info.iid}`;
+        default:
+          return '';
+      }
+    },
   },
 };
 </script>
@@ -30,7 +47,7 @@ export default {
     <div class="gl-flex gl-items-center">
       <gl-icon :name="category.icon" class="gl-mr-2 gl-shrink-0" data-testid="category-icon" />
       <span class="gl-whitespace-nowrap">
-        <slot name="title">{{ title }}</slot>
+        {{ title }}
       </span>
       <gl-icon
         :id="`info-icon-${item.id}`"
@@ -45,7 +62,7 @@ export default {
       />
     </div>
     <div class="gl-mt-1 gl-shrink-0 gl-whitespace-nowrap gl-text-secondary">
-      <slot name="secondary"></slot>
+      {{ secondary }}
     </div>
   </div>
 </template>

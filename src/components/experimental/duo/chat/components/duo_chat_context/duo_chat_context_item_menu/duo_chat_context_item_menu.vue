@@ -5,7 +5,7 @@ import GlCard from '../../../../../../base/card/card.vue';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import { categoriesValidator, contextItemsValidator } from '../utils';
 import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
-import GlDuoChatContextItemMenuContextSearchItems from './duo_chat_context_item_menu_context_search_items.vue';
+import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
 
 const SEARCH_DEBOUNCE_MS = 30;
 
@@ -14,7 +14,7 @@ export default {
   components: {
     GlCard,
     GlDuoChatContextItemMenuCategoryItems,
-    GlDuoChatContextItemMenuContextSearchItems,
+    GlDuoChatContextItemMenuSearchItems,
     GlDuoChatContextItemSelections,
   },
   props: {
@@ -221,7 +221,7 @@ export default {
         @select="selectCategory"
         @active-index-change="activeIndex = $event"
       />
-      <gl-duo-chat-context-item-menu-context-search-items
+      <gl-duo-chat-context-item-menu-search-items
         v-else
         v-model="searchQuery"
         :active-index="activeIndex"

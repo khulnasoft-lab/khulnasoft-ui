@@ -8,7 +8,7 @@ import {
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
 import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
-import GlDuoChatContextItemMenuContextSearchItems from './duo_chat_context_item_menu_context_search_items.vue';
+import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
 
 jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
 
@@ -35,7 +35,7 @@ describe('GlDuoChatContextItemMenu', () => {
   const findMenu = () => findByTestId('context-item-menu');
   const findContextItemSelections = () => wrapper.findComponent(GlDuoChatContextItemSelections);
   const findCategoryItems = () => wrapper.findComponent(GlDuoChatContextItemMenuCategoryItems);
-  const findResultItems = () => wrapper.findComponent(GlDuoChatContextItemMenuContextSearchItems);
+  const findResultItems = () => wrapper.findComponent(GlDuoChatContextItemMenuSearchItems);
 
   // Keyboard events are passed by $ref from the parent GlDuoChat component, simulate that here
   const triggerKeyUp = async (key) => wrapper.vm.handleKeyUp({ key, preventDefault: jest.fn() });

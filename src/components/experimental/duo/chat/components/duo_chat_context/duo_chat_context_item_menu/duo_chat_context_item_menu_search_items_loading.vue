@@ -1,8 +1,8 @@
 <script>
-import { translate } from '../../../../../../../../utils/i18n';
+import { translate } from '../../../../../../../utils/i18n';
 
 export default {
-  name: 'GlDuoChatContextItemMenuContextSearchItemsLoading',
+  name: 'GlDuoChatContextItemMenuSearchItemsLoading',
   i18n: {
     loadingMessage: translate('GlDuoChatContextItemMenu.loadingMessage', 'Loading...'),
   },

@@ -4,20 +4,20 @@ import {
   MOCK_CONTEXT_ITEM_FILE,
   MOCK_CONTEXT_ITEM_ISSUE,
   MOCK_CONTEXT_ITEM_MERGE_REQUEST,
-} from '../../mock_context_data';
+} from '../mock_context_data';
 import {
   CONTEXT_ITEM_TYPE_ISSUE,
   CONTEXT_ITEM_TYPE_MERGE_REQUEST,
   CONTEXT_ITEM_TYPE_PROJECT_FILE,
-} from '../../constants';
-import GlDuoChatContextItemPopover from '../../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
-import GlDuoChatContextItemMenuContextSearchItem from './context_search_item.vue';
+} from '../constants';
+import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
+import GlDuoChatContextItemMenuSearchItem from './duo_chat_context_item_menu_search_item.vue';
 
 describe('GlDuoChatContextItemMenuContextSearchItem', () => {
   let wrapper;
 
   const createWrapper = (props) => {
-    wrapper = shallowMount(GlDuoChatContextItemMenuContextSearchItem, {
+    wrapper = shallowMount(GlDuoChatContextItemMenuSearchItem, {
       propsData: {
         ...props,
       },

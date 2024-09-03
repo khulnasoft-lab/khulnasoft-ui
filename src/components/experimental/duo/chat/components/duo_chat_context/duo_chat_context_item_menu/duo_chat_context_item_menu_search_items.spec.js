@@ -5,13 +5,11 @@ import {
   CONTEXT_ITEM_TYPE_MERGE_REQUEST,
   CONTEXT_ITEM_TYPE_PROJECT_FILE,
 } from '../constants';
-import GlDuoChatContextItemMenuContextSearchItemFile from './context_search_items/file.vue';
-import GlDuoChatContextItemMenuContextSearchItemIssue from './context_search_items/issue.vue';
-import GlDuoChatContextItemMenuContextSearchItemMergeRequest from './context_search_items/merge_request.vue';
-import GlDuoChatContextItemMenuContextSearchItems from './duo_chat_context_item_menu_context_search_items.vue';
-import GlDuoChatContextItemMenuContextSearchItemsLoading from './context_search_items/context_search_items_loading.vue';
+import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
+import GlDuoChatContextItemMenuSearchItemsLoading from './duo_chat_context_item_menu_search_items_loading.vue';
+import GlDuoChatContextItemMenuSearchItem from './duo_chat_context_item_menu_search_item.vue';
 
-describe('GlDuoChatContextItemMenuContextSearchItems', () => {
+describe('GlDuoChatContextItemMenuSearchItems', () => {
   let wrapper;
   let category;
   let results;
@@ -20,7 +18,7 @@ describe('GlDuoChatContextItemMenuContextSearchItems', () => {
     category = props.category || MOCK_CATEGORIES.at(0);
     results = props.results || getMockContextItems().filter((item) => item.type === category.value);
 
-    wrapper = shallowMount(GlDuoChatContextItemMenuContextSearchItems, {
+    wrapper = shallowMount(GlDuoChatContextItemMenuSearchItems, {
       propsData: {
         activeIndex: 0,
         searchQuery: '',
@@ -38,7 +36,7 @@ describe('GlDuoChatContextItemMenuContextSearchItems', () => {
 
   const findSearchInput = () => findByTestId('context-menu-search-input');
   const findLoadingIndicator = () =>
-    wrapper.findComponent(GlDuoChatContextItemMenuContextSearchItemsLoading);
+    wrapper.findComponent(GlDuoChatContextItemMenuSearchItemsLoading);
   const findLoadingError = () => findByTestId('search-results-error');
   const findEmptyState = () => findByTestId('search-results-empty-state');
   const findResultItems = () => findAllByTestId('search-result-item');
@@ -151,9 +149,7 @@ describe('GlDuoChatContextItemMenuContextSearchItems', () => {
         });
 
         expect(findResultItems()).toHaveLength(1);
-        expect(
-          wrapper.findComponent(GlDuoChatContextItemMenuContextSearchItemFile).props()
-        ).toEqual(
+        expect(wrapper.findComponent(GlDuoChatContextItemMenuSearchItem).props()).toEqual(
           expect.objectContaining({
             item: matchingResult,
             category,
@@ -210,34 +206,24 @@ describe('GlDuoChatContextItemMenuContextSearchItems', () => {
     {
       testCase: MOCK_CATEGORIES.find((cat) => cat.value === CONTEXT_ITEM_TYPE_PROJECT_FILE),
       expectedPlaceholder: 'Search files...',
-      expectedComponent: GlDuoChatContextItemMenuContextSearchItemFile,
     },
     {
       testCase: MOCK_CATEGORIES.find((cat) => cat.value === CONTEXT_ITEM_TYPE_ISSUE),
       expectedPlaceholder: 'Search issues...',
-      expectedComponent: GlDuoChatContextItemMenuContextSearchItemIssue,
     },
     {
       testCase: MOCK_CATEGORIES.find((cat) => cat.value === CONTEXT_ITEM_TYPE_MERGE_REQUEST),
       expectedPlaceholder: 'Search merge requests...',
-      expectedComponent: GlDuoChatContextItemMenuContextSearchItemMergeRequest,
     },
-  ])(
-    'when category is "$testCase.label"',
-    ({ testCase, expectedPlaceholder, expectedComponent }) => {
-      beforeEach(() =>
-        createWrapper({
-          category: testCase,
-        })
-      );
+  ])('when category is "$testCase.label"', ({ testCase, expectedPlaceholder }) => {
+    beforeEach(() =>
+      createWrapper({
+        category: testCase,
+      })
+    );
 
-      it('renders the expected input placeholder text', () => {
-        expect(findSearchInput().attributes('placeholder')).toEqual(expectedPlaceholder);
-      });
-
-      it('renders the correct category search item component', () => {
-        expect(wrapper.findComponent(expectedComponent).exists()).toBe(true);
-      });
-    }
-  );
+    it('renders the expected input placeholder text', () => {
+      expect(findSearchInput().attributes('placeholder')).toEqual(expectedPlaceholder);
+    });
+  });
 });

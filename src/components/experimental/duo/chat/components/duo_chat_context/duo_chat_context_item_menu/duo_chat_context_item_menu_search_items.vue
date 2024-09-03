@@ -1,30 +1,20 @@
 <script>
 import GlDropdownItem from '../../../../../../base/dropdown/dropdown_item.vue';
-import GlIcon from '../../../../../../base/icon/icon.vue';
-import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 import GlFormInput from '../../../../../../base/form/form_input/form_input.vue';
 import GlAlert from '../../../../../../base/alert/alert.vue';
-import {
-  CONTEXT_ITEM_TYPE_ISSUE,
-  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-  CONTEXT_ITEM_TYPE_PROJECT_FILE,
-} from '../constants';
 import { sprintf, translate } from '../../../../../../../utils/i18n';
 import { categoryValidator, contextItemsValidator } from '../utils';
-import GlDuoChatContextItemMenuContextSearchItemFile from './context_search_items/file.vue';
-import GlDuoChatContextItemMenuContextSearchItemIssue from './context_search_items/issue.vue';
-import GlDuoChatContextItemMenuContextSearchItemMergeRequest from './context_search_items/merge_request.vue';
-import GlDuoChatContextItemMenuContextSearchItemsLoading from './context_search_items/context_search_items_loading.vue';
+import GlDuoChatContextItemMenuSearchItemsLoading from './duo_chat_context_item_menu_search_items_loading.vue';
+import GlDuoChatContextItemMenuSearchItem from './duo_chat_context_item_menu_search_item.vue';
 
 export default {
-  name: 'GlDuoChatContextItemMenuContextSearchItems',
+  name: 'GlDuoChatContextItemMenuSearchItems',
   components: {
     GlAlert,
     GlFormInput,
-    GlDuoChatContextItemPopover,
-    GlIcon,
     GlDropdownItem,
-    GlDuoChatContextItemMenuContextSearchItemsLoading,
+    GlDuoChatContextItemMenuSearchItem,
+    GlDuoChatContextItemMenuSearchItemsLoading,
   },
   model: {
     prop: 'searchQuery',
@@ -78,18 +68,6 @@ export default {
         }
       );
     },
-    searchResultItemComponent() {
-      switch (this.category.value) {
-        case CONTEXT_ITEM_TYPE_PROJECT_FILE:
-          return GlDuoChatContextItemMenuContextSearchItemFile;
-        case CONTEXT_ITEM_TYPE_ISSUE:
-          return GlDuoChatContextItemMenuContextSearchItemIssue;
-        case CONTEXT_ITEM_TYPE_MERGE_REQUEST:
-          return GlDuoChatContextItemMenuContextSearchItemMergeRequest;
-        default:
-          throw new Error(`Unknown context item type "${this.category.value}".`);
-      }
-    },
   },
   watch: {
     searchQuery() {
@@ -118,7 +96,7 @@ export default {
 <template>
   <div>
     <div class="gl-max-h-31 gl-overflow-y-scroll">
-      <gl-duo-chat-context-item-menu-context-search-items-loading v-if="loading" />
+      <gl-duo-chat-context-item-menu-search-items-loading v-if="loading" />
       <gl-alert
         v-else-if="error"
         variant="danger"
@@ -147,8 +125,7 @@ export default {
           @click="selectItem(item)"
         >
           <div @mouseenter="setActiveIndex(index)">
-            <component
-              :is="searchResultItemComponent"
+            <gl-duo-chat-context-item-menu-search-item
               :item="item"
               :category="category"
               data-testid="search-result-item-details"
