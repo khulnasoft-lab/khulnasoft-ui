@@ -1,13 +1,15 @@
 <script>
 import { translate } from '../../../../../../../utils/i18n';
 import GlCard from '../../../../../../base/card/card.vue';
-import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import { categoriesValidator, contextItemsValidator } from '../utils';
+import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
+import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
 
 export default {
   name: 'GlDuoChatContextItemMenu',
   components: {
     GlCard,
+    GlDuoChatContextItemMenuCategoryItems,
     GlDuoChatContextItemSelections,
   },
   props: {
@@ -60,6 +62,7 @@ export default {
   },
   data() {
     return {
+      activeIndex: 0,
       selectedCategory: null,
     };
   },
@@ -78,6 +81,7 @@ export default {
   methods: {
     selectCategory(category) {
       this.selectedCategory = category;
+      this.activeIndex = 0;
 
       /**
        * Emitted when a search should be performed.
@@ -119,6 +123,7 @@ export default {
     },
     resetSelection() {
       this.selectedCategory = null;
+      this.activeIndex = 0;
     },
   },
   i18n: {
@@ -147,12 +152,13 @@ export default {
       body-class="!gl-p-2"
       data-testid="context-item-menu"
     >
-      <ul v-if="showCategorySelection" data-testid="context-menu-category-items">
-        <!-- Placeholder for GlDuoChatContextItemMenuCategoryItems component coming in a future iteration -->
-        <li v-for="category of categories" :key="category.value" @click="selectCategory(category)">
-          {{ category.label }}
-        </li>
-      </ul>
+      <gl-duo-chat-context-item-menu-category-items
+        v-if="showCategorySelection"
+        :active-index="activeIndex"
+        :categories="categories"
+        @select="selectCategory"
+        @active-index-change="activeIndex = $event"
+      />
       <div v-else data-testid="context-menu-search-items">
         <!-- Placeholder for GlDuoChatContextItemMenuSearchItem component coming in a future iteration -->
         <template v-if="loading">Loading...</template>
