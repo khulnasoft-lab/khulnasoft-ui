@@ -1,3 +1,15 @@
+import {
+  CONTEXT_ITEM_TYPE_ISSUE,
+  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
+  CONTEXT_ITEM_TYPE_PROJECT_FILE,
+} from './constants';
+
+export const MOCK_CATEGORIES = [
+  { label: 'Files', value: CONTEXT_ITEM_TYPE_PROJECT_FILE, icon: 'document' },
+  { label: 'Issues', value: CONTEXT_ITEM_TYPE_ISSUE, icon: 'issues' },
+  { label: 'Merge Requests', value: CONTEXT_ITEM_TYPE_MERGE_REQUEST, icon: 'merge-request' },
+];
+
 export const MOCK_CONTEXT_ITEM_FILE = {
   id: '123e4567-e89b-12d3-a456-426614174000',
   isEnabled: true,
@@ -8,7 +20,7 @@ export const MOCK_CONTEXT_ITEM_FILE = {
       relFilePath: 'src/plants/strawberry.ts',
     },
   },
-  type: 'project_file',
+  type: CONTEXT_ITEM_TYPE_PROJECT_FILE,
 };
 
 export const MOCK_CONTEXT_ITEM_FILE_DISABLED = {
@@ -21,7 +33,7 @@ export const MOCK_CONTEXT_ITEM_FILE_DISABLED = {
       relFilePath: '/src/VehicleFoo/motorbike.cs',
     },
   },
-  type: 'project_file',
+  type: CONTEXT_ITEM_TYPE_PROJECT_FILE,
 };
 const mockFiles = [
   MOCK_CONTEXT_ITEM_FILE,
@@ -35,7 +47,7 @@ const mockFiles = [
         relFilePath: '/src/plants/potato.ts',
       },
     },
-    type: 'project_file',
+    type: CONTEXT_ITEM_TYPE_PROJECT_FILE,
   },
   MOCK_CONTEXT_ITEM_FILE_DISABLED,
 ];
@@ -50,20 +62,20 @@ export const MOCK_CONTEXT_ITEM_ISSUE = {
       iid: 1234,
     },
   },
-  type: 'issue',
+  type: CONTEXT_ITEM_TYPE_ISSUE,
 };
 export const MOCK_CONTEXT_ITEM_ISSUE_DISABLED = {
   id: 'c463fb31-2a4c-4f8e-a609-97230ac48ae5',
   isEnabled: false,
   metadata: {
-    name: 'Fix vehicle colours',
+    name: `Fix vehicle colours and make them look real nice and colourful won't that be wonderful wow this issue title is really long I sure hope it's gonna wrap OK`,
     info: {
       project: 'example/vehicle',
       iid: 91011,
     },
   },
   disabledReasons: ['This foo is not available to bar', 'Lorem something something wow?'],
-  type: 'issue',
+  type: CONTEXT_ITEM_TYPE_ISSUE,
 };
 
 const mockIssues = [
@@ -78,7 +90,7 @@ const mockIssues = [
         iid: 5678,
       },
     },
-    type: 'issue',
+    type: CONTEXT_ITEM_TYPE_ISSUE,
   },
   MOCK_CONTEXT_ITEM_ISSUE_DISABLED,
 ];
@@ -93,7 +105,7 @@ export const MOCK_CONTEXT_ITEM_MERGE_REQUEST = {
       iid: 1122,
     },
   },
-  type: 'merge_request',
+  type: CONTEXT_ITEM_TYPE_MERGE_REQUEST,
 };
 export const MOCK_CONTEXT_ITEM_MERGE_REQUEST_DISABLED = {
   id: '4eb665fc-e5e1-49b0-9789-2a16964e461a',
@@ -106,7 +118,7 @@ export const MOCK_CONTEXT_ITEM_MERGE_REQUEST_DISABLED = {
     },
   },
   disabledReasons: ['This foo is not available to bar', 'Lorem something something wow?'],
-  type: 'merge_request',
+  type: CONTEXT_ITEM_TYPE_MERGE_REQUEST,
 };
 
 const mockMergeRequests = [
@@ -122,7 +134,7 @@ const mockMergeRequests = [
       },
     },
     disabledReasons: ['This foo is not available to bar', 'Lorem something something wow?'],
-    type: 'merge_request',
+    type: CONTEXT_ITEM_TYPE_MERGE_REQUEST,
   },
   MOCK_CONTEXT_ITEM_MERGE_REQUEST_DISABLED,
 ];
