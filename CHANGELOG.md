@@ -1,3 +1,10 @@
+# [91.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.7.0...v91.8.0) (2024-09-04)
+
+
+### Features
+
+* **GlLink:** Add and update tokens ([df90a00](https://gitlab.com/gitlab-org/gitlab-ui/commit/df90a0020dabcb05357dc0a65f468ef77c5575cd))
+
 # [91.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.6.0...v91.7.0) (2024-09-04)
 
 
