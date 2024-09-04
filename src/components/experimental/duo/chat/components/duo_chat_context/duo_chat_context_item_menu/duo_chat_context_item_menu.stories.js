@@ -16,7 +16,7 @@ export default {
       description: {
         component: `Allows selecting and removing context items for the conversation.
 
-Note that this is an incomplete implementation which has future iterations in-progress to build out remaining functionality.`,
+Note that keyboard events don't work properly in this story (independently of the main GlDuoChat component), test in the GlDuoChat interactive story with the /include command.`,
       },
     },
   },

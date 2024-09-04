@@ -1,14 +1,17 @@
-import { nextTick } from 'vue';
+import { h, nextTick } from 'vue';
 import { mount, shallowMount } from '@vue/test-utils';
+import * as Vue from 'vue';
 import GlEmptyState from '../../../regions/empty_state/empty_state.vue';
 import GlExperimentBadge from '../../experiment_badge/experiment_badge.vue';
 import GlCard from '../../../base/card/card.vue';
 import GlDropdownItem from '../../../base/dropdown/dropdown_item.vue';
+import GlPopover from '../../../base/popover/popover.vue';
 import DuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import DuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import DuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
 import GlDuoChat from './duo_chat.vue';
 import {
+  INCLUDE_SLASH_COMMAND,
   MOCK_RESPONSE_MESSAGE,
   MOCK_USER_PROMPT_MESSAGE,
   SLASH_COMMANDS as slashCommands,
@@ -19,6 +22,7 @@ import {
   CHAT_RESET_MESSAGE,
   CHAT_CLEAN_MESSAGE,
   CHAT_CLEAR_MESSAGE,
+  CHAT_INCLUDE_MESSAGE,
 } from './constants';
 
 const invalidSlashCommands = [
@@ -33,6 +37,16 @@ const invalidSlashCommands = [
   },
 ];
 
+const mockContextItemMenuHandleKeyUp = jest.fn();
+const MockContextItemMenu = {
+  name: 'MockContextItemMenu',
+  template: '<div>Mock context item menu</div>',
+  props: ['open'],
+  methods: {
+    handleKeyUp: mockContextItemMenuHandleKeyUp,
+  },
+};
+
 const generatePartialSlashCommands = () => {
   const res = [];
   slashCommands.forEach((command) => {
@@ -44,15 +58,23 @@ const generatePartialSlashCommands = () => {
 describe('GlDuoChat', () => {
   let wrapper;
 
-  const createComponent = ({ propsData = {}, slots = {}, mountFn = shallowMount } = {}) => {
+  const createComponent = ({
+    propsData = {},
+    slots = {},
+    scopedSlots = {},
+    mountFn = shallowMount,
+  } = {}) => {
     jest.spyOn(DuoChatLoader.methods, 'computeTransitionWidth').mockImplementation();
 
     wrapper = mountFn(GlDuoChat, {
       propsData,
       slots,
+      scopedSlots,
       stubs: {
         DuoChatLoader,
         GlEmptyState,
+        GlDuoChatContextItemMenu: MockContextItemMenu,
+        GlPopover,
       },
     });
   };
@@ -82,6 +104,9 @@ describe('GlDuoChat', () => {
   const findSelectedSlashCommand = () => wrapper.find('.active-command');
   const findSubmitButton = () => wrapper.find('[data-testid="chat-prompt-submit-button"]');
   const findCancelButton = () => wrapper.find('[data-testid="chat-prompt-cancel-button"]');
+  const findContextItemMenu = () => wrapper.findComponent(MockContextItemMenu);
+  const findIncludeSlashCommand = () =>
+    findSlashCommands().wrappers.find((w) => w.text().includes(CHAT_INCLUDE_MESSAGE));
 
   const setPromptInput = (val) => findChatInput().vm.$emit('input', val);
 
@@ -671,6 +696,144 @@ describe('GlDuoChat', () => {
       });
     });
 
+    describe('when chat has a content-items-menu component in slot', () => {
+      beforeEach(() => {
+        createComponent({
+          mountFn: mount,
+          propsData: {
+            slashCommands: [...slashCommands, INCLUDE_SLASH_COMMAND],
+            predefinedPrompts: ['Foo bar baz?'],
+          },
+          scopedSlots: {
+            'context-items-menu': ({ isOpen, setRef, onClose, focusPrompt }) => {
+              // Vue 2/3 vNode creation has different structure
+              return Vue.version.startsWith('3')
+                ? h(MockContextItemMenu, {
+                    open: isOpen,
+                    onClose,
+                    onFocusPrompt: focusPrompt,
+                    ref: setRef,
+                  })
+                : h(MockContextItemMenu, {
+                    props: {
+                      open: isOpen,
+                    },
+                    on: {
+                      close: onClose,
+                      'focus-prompt': focusPrompt,
+                    },
+                    ref: setRef,
+                  });
+            },
+          },
+        });
+      });
+
+      it('does not open context menu by default', () => {
+        expect(findContextItemMenu().exists()).toBe(true);
+        expect(findContextItemMenu().props('open')).toBe(false);
+      });
+
+      it('shows "/include" slash command in list', async () => {
+        await setPromptInput('/');
+        await nextTick();
+
+        expect(findIncludeSlashCommand().exists()).toBe(true);
+      });
+
+      it.each(['/include', '/incl'])(
+        'opens context menu when running "%s" command',
+        async (command) => {
+          await setPromptInput(command);
+          await nextTick();
+
+          findChatInput().trigger('keyup', { key: 'Enter' });
+          await nextTick();
+          await nextTick();
+
+          expect(findContextItemMenu().props('open')).toBe(true);
+        }
+      );
+
+      it('opens context menu when manually typing full "/include" command', async () => {
+        await setPromptInput('/include');
+        await nextTick();
+
+        findChatInput().trigger('keyup', { key: '' });
+        await nextTick();
+
+        expect(findContextItemMenu().props('open')).toBe(true);
+      });
+
+      describe('when the context menu is open', () => {
+        beforeEach(async () => {
+          await setPromptInput('/include');
+          await nextTick();
+
+          findChatInput().trigger('keyup', { key: 'Enter' });
+          await nextTick();
+        });
+
+        it('does not show the slash command menu', () => {
+          expect(findSlashCommandsCard().exists()).toBe(false);
+        });
+
+        it('closes context menu when calling onClose', async () => {
+          findContextItemMenu().vm.$emit('close');
+          await nextTick();
+
+          expect(findContextItemMenu().props('open')).toBe(false);
+        });
+
+        it('closes context menu when clicking a predefined prompt', async () => {
+          findPredefined().vm.$emit('click', 'Some predefined prompt');
+          await nextTick();
+
+          expect(findContextItemMenu().props('open')).toBe(false);
+        });
+
+        it.each(['/', '', 'how does bread?'])(
+          'closes context menu when prompt is modified to "%s"',
+          async (newPrompt) => {
+            await setPromptInput(newPrompt);
+            findChatInput().trigger('keyup', { key: 'ArrowRight' });
+            await nextTick();
+
+            expect(findContextItemMenu().props('open')).toBe(false);
+          }
+        );
+
+        it('focuses on prompt when calling focusPrompt', async () => {
+          const focusSpy = jest.fn();
+          jest.spyOn(HTMLElement.prototype, 'focus').mockImplementation(function focusMockImpl() {
+            focusSpy(this);
+          });
+
+          findContextItemMenu().vm.$emit('focus-prompt');
+          await nextTick();
+
+          expect(focusSpy).toHaveBeenCalledWith(findChatInput().element);
+        });
+
+        it('passes keyboard events to component ref when the menu is open', async () => {
+          findChatInput().trigger('keyup', { key: 'ArrowDown' });
+          expect(mockContextItemMenuHandleKeyUp).toHaveBeenCalledWith(
+            expect.objectContaining({ key: 'ArrowDown' })
+          );
+
+          findChatInput().trigger('keyup', { key: 'ArrowUp' });
+          expect(mockContextItemMenuHandleKeyUp).toHaveBeenCalledWith(
+            expect.objectContaining({ key: 'ArrowUp' })
+          );
+
+          findChatInput().trigger('keyup', { key: 'Z' });
+          expect(mockContextItemMenuHandleKeyUp).toHaveBeenCalledWith(
+            expect.objectContaining({ key: 'Z' })
+          );
+        });
+      });
+    });
+
     describe('methods called by external consumers', () => {
       describe('focusChatInput', () => {
         it('focuses on prompt', async () => {
@@ -869,6 +1032,21 @@ describe('GlDuoChat', () => {
               },
             });
           }).toHaveLength(0);
+        });
+
+        it('does not render the "/include" command when there is no context-menu component rendered in the named slot', async () => {
+          createComponent({
+            mountFn: mount,
+            propsData: {
+              slashCommands: [...slashCommands, INCLUDE_SLASH_COMMAND],
+            },
+            scopedSlots: {},
+          });
+          setPromptInput('/');
+
+          await nextTick();
+
+          expect(findIncludeSlashCommand()).toBeUndefined();
         });
 
         describe('when the prompt includes the "/" character or no characters', () => {

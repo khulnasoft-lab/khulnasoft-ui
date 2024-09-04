@@ -88,6 +88,7 @@ export default {
     <button
       class="gl-flex gl-w-full gl-items-center gl-border-0 gl-bg-transparent gl-p-0 gl-text-left gl-text-xs gl-lowercase gl-text-gray-500"
       data-testid="chat-context-selections-title"
+      type="button"
       @click="toggleCollapse"
     >
       <gl-icon :name="collapseIconName" data-testid="chat-context-collapse-icon" /> {{ title }}

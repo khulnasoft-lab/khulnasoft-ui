@@ -4,6 +4,7 @@ import {
   MESSAGE_MODEL_ROLES,
   CHAT_RESET_MESSAGE,
   CHAT_CLEAN_MESSAGE,
+  CHAT_INCLUDE_MESSAGE,
 } from './constants';
 import { getMockContextItems } from './components/duo_chat_context/mock_context_data';
 
@@ -170,3 +171,8 @@ export const SLASH_COMMANDS = [
     description: 'Explain the selected snippet.',
   },
 ];
+
+export const INCLUDE_SLASH_COMMAND = {
+  name: CHAT_INCLUDE_MESSAGE,
+  description: 'Include additional context in the conversation.',
+};

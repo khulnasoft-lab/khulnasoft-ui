@@ -100,6 +100,7 @@ export { default as GlAccordionItem } from './components/base/accordion/accordio
 export { default as GlExperimentBadge } from './components/experimental/experiment_badge/experiment_badge.vue';
 export { default as GlDuoUserFeedback } from './components/experimental/duo/user_feedback/user_feedback.vue';
 export { default as GlDuoChat } from './components/experimental/duo/chat/duo_chat.vue';
+export { default as GlDuoChatContextItemMenu } from './components/experimental/duo/chat/components/duo_chat_context/duo_chat_context_item_menu/duo_chat_context_item_menu.vue';
 
 // Utilities
 export { default as GlAnimatedNumber } from './components/utilities/animated_number/animated_number.vue';

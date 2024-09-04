@@ -15,7 +15,13 @@ import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/
 import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
-import { CHAT_CLEAN_MESSAGE, CHAT_RESET_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
+import {
+  CHAT_CLEAN_MESSAGE,
+  CHAT_RESET_MESSAGE,
+  CHAT_CLEAR_MESSAGE,
+  CHAT_INCLUDE_MESSAGE,
+} from './constants';
+import { INCLUDE_SLASH_COMMAND } from './mock_data';
 
 export const i18n = {
   CHAT_DEFAULT_TITLE: 'GitLab Duo Chat',
@@ -214,6 +220,8 @@ export default {
       activeCommandIndex: 0,
       displaySubmitButton: true,
       compositionJustEnded: false,
+      contextItemsMenuIsOpen: false,
+      contextItemMenuRef: null,
     };
   },
   computed: {
@@ -241,6 +249,9 @@ export default {
     lastMessage() {
       return this.messages?.[this.messages.length - 1];
     },
+    caseInsensitivePrompt() {
+      return this.prompt.toLowerCase().trim();
+    },
     resetDisabled() {
       if (this.isLoading || !this.hasMessages) {
         return true;
@@ -257,19 +268,35 @@ export default {
       );
     },
     filteredSlashCommands() {
-      const caseInsensitivePrompt = this.prompt.toLowerCase();
-      return this.slashCommands.filter((c) =>
-        c.name.toLowerCase().startsWith(caseInsensitivePrompt)
-      );
+      return this.slashCommands
+        .filter((c) => c.name.toLowerCase().startsWith(this.caseInsensitivePrompt))
+        .filter((c) => {
+          if (c.name === CHAT_INCLUDE_MESSAGE) {
+            return this.hasContextItemSelectionMenu;
+          }
+          return true;
+        });
     },
     shouldShowSlashCommands() {
-      if (!this.withSlashCommands) return false;
-      const caseInsensitivePrompt = this.prompt.toLowerCase();
-      const startsWithSlash = caseInsensitivePrompt.startsWith('/');
+      if (!this.withSlashCommands || this.contextItemsMenuIsOpen) return false;
+      const startsWithSlash = this.caseInsensitivePrompt.startsWith('/');
       const startsWithSlashCommand = this.slashCommands.some((c) =>
-        caseInsensitivePrompt.startsWith(c.name)
+        this.caseInsensitivePrompt.startsWith(c.name)
       );
       return startsWithSlash && this.filteredSlashCommands.length && !startsWithSlashCommand;
+    },
+    shouldShowContextItemSelectionMenu() {
+      if (!this.hasContextItemSelectionMenu) {
+        return false;
+      }
+
+      const isSlash = this.caseInsensitivePrompt === '/';
+      if (!this.caseInsensitivePrompt || isSlash) {
+        // if user has removed entire command (or whole command except for '/') we should close context item menu and allow slash command menu to show again
+        return false;
+      }
+
+      return INCLUDE_SLASH_COMMAND.name.startsWith(this.caseInsensitivePrompt);
     },
     inputPlaceholder() {
       if (this.chatPromptPlaceholder) {
@@ -279,6 +306,9 @@ export default {
       return this.withSlashCommands
         ? i18n.CHAT_PROMPT_PLACEHOLDER_WITH_COMMANDS
         : i18n.CHAT_PROMPT_PLACEHOLDER_DEFAULT;
+    },
+    hasContextItemSelectionMenu() {
+      return Boolean(this.contextItemMenuRef);
     },
   },
   watch: {
@@ -322,28 +352,42 @@ export default {
       this.setPromptAndFocus();
     },
     sendChatPrompt() {
-      if (!this.displaySubmitButton) {
+      if (!this.displaySubmitButton || this.contextItemsMenuIsOpen) {
         return;
       }
       if (this.prompt) {
-        if (this.prompt === CHAT_RESET_MESSAGE && this.resetDisabled) {
+        if (this.caseInsensitivePrompt === CHAT_RESET_MESSAGE && this.resetDisabled) {
           return;
         }
+
+        if (
+          this.caseInsensitivePrompt.startsWith(CHAT_INCLUDE_MESSAGE) &&
+          this.hasContextItemSelectionMenu
+        ) {
+          this.contextItemsMenuIsOpen = true;
+          return;
+        }
+
+        if (
+          ![CHAT_RESET_MESSAGE, CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE].includes(
+            this.caseInsensitivePrompt
+          )
+        ) {
+          this.displaySubmitButton = false;
+        }
+
         /**
          * Emitted when a new user prompt should be sent out.
          *
          * @param {String} prompt The user prompt to send.
          */
-
-        if (![CHAT_RESET_MESSAGE, CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE].includes(this.prompt)) {
-          this.displaySubmitButton = false;
-        }
         this.$emit('send-chat-prompt', this.prompt.trim());
 
         this.setPromptAndFocus();
       }
     },
     sendPredefinedPrompt(prompt) {
+      this.contextItemsMenuIsOpen = false;
       this.prompt = prompt;
       this.sendChatPrompt();
     },
@@ -378,6 +422,18 @@ export default {
     },
     onInputKeyup(e) {
       const { key } = e;
+
+      if (this.contextItemsMenuIsOpen) {
+        if (!this.shouldShowContextItemSelectionMenu) {
+          this.contextItemsMenuIsOpen = false;
+        }
+        this.contextItemMenuRef?.handleKeyUp(e);
+        return;
+      }
+      if (this.caseInsensitivePrompt === INCLUDE_SLASH_COMMAND.name) {
+        this.contextItemsMenuIsOpen = true;
+        return;
+      }
 
       if (this.shouldShowSlashCommands) {
         e.preventDefault();
@@ -426,6 +482,10 @@ export default {
         this.sendChatPrompt();
       } else {
         this.setPromptAndFocus(`${command.name} `);
+
+        if (command.name === CHAT_INCLUDE_MESSAGE && this.hasContextItemSelectionMenu) {
+          this.contextItemsMenuIsOpen = true;
+        }
       }
     },
     onInsertCodeSnippet(e) {
@@ -434,6 +494,13 @@ export default {
        * @param {*} event An event containing code string in the "detail.code" field.
        */
       this.$emit('insert-code-snippet', e);
+    },
+    closeContextItemsMenuOpen() {
+      this.contextItemsMenuIsOpen = false;
+      this.setPromptAndFocus();
+    },
+    setContextItemsMenuRef(ref) {
+      this.contextItemMenuRef = ref;
     },
   },
   i18n,
@@ -561,6 +628,19 @@ export default {
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
+        <div class="gl-relative gl-max-w-full">
+          <!--
+            @slot For integrating `<gl-context-items-menu>` component if pinned-context should be available. The following scopedSlot properties are provided: `isOpen`, `onClose`, `setRef`, `focusPrompt`, which should be passed to the `<gl-context-items-menu>` component when rendering, e.g. `<template #context-items-menu="{ isOpen, onClose, setRef, focusPrompt }">` `<gl-duo-chat-context-item-menu :ref="setRef" :open="isOpen" @close="onClose" @focus-prompt="focusPrompt" ...`
+          -->
+          <slot
+            name="context-items-menu"
+            :is-open="contextItemsMenuIsOpen"
+            :on-close="closeContextItemsMenuOpen"
+            :set-ref="setContextItemsMenuRef"
+            :focus-prompt="focusChatInput"
+          ></slot>
+        </div>
+
         <gl-form-input-group>
           <div
             class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
