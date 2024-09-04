@@ -1,3 +1,10 @@
+# [91.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.5.0...v91.6.0) (2024-09-04)
+
+
+### Features
+
+* add initial duo chat context item menu component ([40635b0](https://gitlab.com/gitlab-org/gitlab-ui/commit/40635b0afbb33b099f48922a36498bd4b709df00))
+
 # [91.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.4.0...v91.5.0) (2024-09-04)
 
 
