@@ -6353,16 +6353,13 @@
         },
         "bottom": {
           "color": {
-            "value": "#3a383f",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border bottom color of a neutral alert.",
             "filePath": "src/tokens/contextual/alert.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "{color.alpha.0}",
-                "dark": "{color.neutral.800}"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border bottom color of a neutral alert."
             },
@@ -6459,16 +6456,13 @@
         },
         "bottom": {
           "color": {
-            "value": "#3a383f",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border bottom color of an info alert.",
             "filePath": "src/tokens/contextual/alert.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "{color.alpha.0}",
-                "dark": "{color.neutral.800}"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border bottom color of an info alert."
             },
@@ -6565,16 +6559,13 @@
         },
         "bottom": {
           "color": {
-            "value": "#3a383f",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border bottom color of a success alert.",
             "filePath": "src/tokens/contextual/alert.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "{color.alpha.0}",
-                "dark": "{color.neutral.800}"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border bottom color of a success alert."
             },
@@ -6671,16 +6662,13 @@
         },
         "bottom": {
           "color": {
-            "value": "#3a383f",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border bottom color of a warning alert.",
             "filePath": "src/tokens/contextual/alert.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "{color.alpha.0}",
-                "dark": "{color.neutral.800}"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border bottom color of a warning alert."
             },
@@ -6777,16 +6765,13 @@
         },
         "bottom": {
           "color": {
-            "value": "#3a383f",
+            "value": "transparent",
             "$type": "color",
             "comment": "Used for the border bottom color of a danger alert.",
             "filePath": "src/tokens/contextual/alert.tokens.json",
             "isSource": true,
             "original": {
-              "value": {
-                "default": "{color.alpha.0}",
-                "dark": "{color.neutral.800}"
-              },
+              "value": "{color.alpha.0}",
               "$type": "color",
               "comment": "Used for the border bottom color of a danger alert."
             },

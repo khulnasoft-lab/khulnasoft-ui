@@ -34,10 +34,7 @@
         },
         "bottom": {
           "color": {
-            "$value": {
-              "default": "{color.alpha.0}",
-              "dark": "{color.neutral.800}"
-            },
+            "$value": "{color.alpha.0}",
             "$type": "color",
             "$description": "Used for the border bottom color of a neutral alert."
           }
@@ -78,10 +75,7 @@
         },
         "bottom": {
           "color": {
-            "$value": {
-              "default": "{color.alpha.0}",
-              "dark": "{color.neutral.800}"
-            },
+            "$value": "{color.alpha.0}",
             "$type": "color",
             "$description": "Used for the border bottom color of an info alert."
           }
@@ -122,10 +116,7 @@
         },
         "bottom": {
           "color": {
-            "$value": {
-              "default": "{color.alpha.0}",
-              "dark": "{color.neutral.800}"
-            },
+            "$value": "{color.alpha.0}",
             "$type": "color",
             "$description": "Used for the border bottom color of a success alert."
           }
@@ -166,10 +157,7 @@
         },
         "bottom": {
           "color": {
-            "$value": {
-              "default": "{color.alpha.0}",
-              "dark": "{color.neutral.800}"
-            },
+            "$value": "{color.alpha.0}",
             "$type": "color",
             "$description": "Used for the border bottom color of a warning alert."
           }
@@ -210,10 +198,7 @@
         },
         "bottom": {
           "color": {
-            "$value": {
-              "default": "{color.alpha.0}",
-              "dark": "{color.neutral.800}"
-            },
+            "$value": "{color.alpha.0}",
             "$type": "color",
             "$description": "Used for the border bottom color of a danger alert."
           }
