@@ -1,3 +1,10 @@
+# [91.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.8.0...v91.9.0) (2024-09-04)
+
+
+### Features
+
+* **GlDuoChat:** make insert code snippet work with server-generated elements ([ce66a88](https://gitlab.com/gitlab-org/gitlab-ui/commit/ce66a88f7a477d5120c70633850106e8a8c1200e))
+
 # [91.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.7.0...v91.8.0) (2024-09-04)
 
 
