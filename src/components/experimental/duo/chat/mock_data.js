@@ -1,5 +1,4 @@
 import { setStoryTimeout } from '../../../../utils/test_utils';
-import { InsertCodeSnippetElement } from './components/duo_chat_message/insert_code_snippet_element';
 import {
   DOCUMENTATION_SOURCE_TYPES,
   MESSAGE_MODEL_ROLES,
@@ -144,7 +143,6 @@ export const renderGFM = (el) => {
   const codeBlock = el.querySelectorAll('.markdown-code-block');
   codeBlock.forEach((block) => {
     block?.classList.add('gl-markdown', 'gl-compact-markdown');
-    block?.appendChild(new InsertCodeSnippetElement(block));
   });
 };
 

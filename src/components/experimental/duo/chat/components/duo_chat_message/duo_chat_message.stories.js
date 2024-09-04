@@ -10,6 +10,10 @@ import readme from './duo_chat_message.md';
 
 const generateProps = ({ message = MOCK_RESPONSE_MESSAGE } = {}) => ({
   message,
+  onInsertCode: (event) => {
+    // eslint-disable-next-line no-alert
+    alert(`Insert code snippet triggered:\n${event.detail.code}`);
+  },
 });
 
 const Template = (args, { argTypes }) => ({
@@ -20,7 +24,7 @@ const Template = (args, { argTypes }) => ({
     renderGFM,
   },
   template: `
-    <gl-duo-chat-message :message="message" :is-cancelled="false" />
+    <gl-duo-chat-message :message="message" :is-cancelled="false" @insert-code-snippet="onInsertCode" />
   `,
 });
 

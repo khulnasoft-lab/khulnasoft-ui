@@ -18,42 +18,63 @@ describe('insert-code-snippet element', () => {
 
   customElements.define('insert-code-snippet', InsertCodeSnippetElement);
 
-  const code = 'function sum(a, b) {\n  return a + b;\n}';
+  const code = '\n\nfunction sum(a, b) {\n  return a + b;\n}';
   const findButton = () => document.querySelector('insert-code-snippet button');
   const findButtonIcon = () => document.querySelector('insert-code-snippet button svg use');
-  const findCodeElement = () => document.querySelector('pre code');
+  const findCodeElement = () => document.querySelector('.js-markdown-code');
 
-  beforeEach(() => {
-    document.body.innerHTML = `<div class="wrapper"><pre><code>${code}</code></pre><insert-code-snippet></insert-code-snippet></div>`;
-    const codeBlock = findCodeElement().parentElement;
-    const insertCodeSnippetElement = new InsertCodeSnippetElement(codeBlock);
-    document.querySelector('insert-code-snippet').replaceWith(insertCodeSnippetElement);
-  });
+  describe.each`
+    includeCodeBlockInConstructor
+    ${true}
+    ${false}
+  `(
+    'when includeCodeBlockInConstructor is $includeCodeBlockInConstructor',
+    (includeCodeBlockInConstructor) => {
+      beforeEach(() => {
+        document.body.innerHTML = `<div class="wrapper js-markdown-code"><pre><code>${code}</code></pre><insert-code-snippet></insert-code-snippet></div>`;
+        const codeBlock = includeCodeBlockInConstructor ? findCodeElement() : undefined;
+        const insertCodeSnippetElement = new InsertCodeSnippetElement(codeBlock);
+        document.querySelector('insert-code-snippet').replaceWith(insertCodeSnippetElement);
+      });
 
-  it('should create a button', () => {
-    expect(customElements.get('insert-code-snippet')).toBeDefined();
-  });
+      it('should create a button', () => {
+        expect(customElements.get('insert-code-snippet')).toBeDefined();
+      });
 
-  it('adds the correct icon to the button', () => {
-    expect(findButtonIcon().getAttribute('href')).toContain('#insert');
-  });
+      it('adds the correct icon to the button', () => {
+        expect(findButtonIcon().getAttribute('href')).toContain('#insert');
+      });
 
-  describe('interaction', () => {
-    it('throws custom event on click', () => {
-      const wrapper = findCodeElement().parentElement;
-      const spy = jest.spyOn(wrapper, 'dispatchEvent');
+      describe('interaction', () => {
+        const spy = jest.fn();
+        let wrapper;
 
-      findButton().click();
+        beforeEach(() => {
+          wrapper = findCodeElement();
+          wrapper.addEventListener('insert-code-snippet', spy);
+          findButton().click();
+        });
 
-      expect(spy).toHaveBeenCalledWith(
-        expect.objectContaining({
-          type: 'insert-code-snippet',
-          bubbles: true,
-          cancelable: true,
-        })
-      );
+        afterEach(() => {
+          wrapper.removeEventListener('insert-code-snippet', spy);
+        });
 
-      spy.mockRestore();
-    });
-  });
+        it('throws custom event on click', () => {
+          const [event] = spy.mock.calls[0];
+
+          expect(spy).toHaveBeenCalledTimes(1);
+          expect(event).toEqual(
+            expect.objectContaining({
+              detail: {
+                code: code.trim(),
+              },
+              bubbles: true,
+              cancelable: true,
+              target: wrapper,
+            })
+          );
+        });
+      });
+    }
+  );
 });

@@ -429,6 +429,10 @@ export default {
       }
     },
     onInsertCodeSnippet(e) {
+      /**
+       * Emit insert-code-snippet event that clients can use to interact with a suggested code.
+       * @param {*} event An event containing code string in the "detail.code" field.
+       */
       this.$emit('insert-code-snippet', e);
     },
   },
