@@ -1,3 +1,11 @@
+# [91.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.6.0...v91.7.0) (2024-09-04)
+
+
+### Features
+
+* add improved duo chat context menu category items ([05bdfa0](https://gitlab.com/gitlab-org/gitlab-ui/commit/05bdfa0698d8fc5117e995958044fa29dfef0b68))
+* **DesignTokens:** Update read-only control background color ([f6afc9a](https://gitlab.com/gitlab-org/gitlab-ui/commit/f6afc9a3e9dd141684ffb09ab0fde0be23456353))
+
 # [91.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.5.0...v91.6.0) (2024-09-04)
 
 
