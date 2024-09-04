@@ -13516,15 +13516,15 @@
           ]
         },
         "readonly": {
-          "value": "#28272d",
+          "value": "rgba(255, 255, 255, 0.08)",
           "$type": "color",
           "comment": "Used for the background of static content that prepends or appends a text input.",
           "filePath": "src/tokens/control.tokens.json",
           "isSource": true,
           "original": {
             "value": {
-              "default": "{color.neutral.10}",
-              "dark": "{color.neutral.900}"
+              "default": "{color.alpha.dark.2}",
+              "dark": "{color.alpha.light.8}"
             },
             "$type": "color",
             "comment": "Used for the background of static content that prepends or appends a text input."

@@ -28,8 +28,8 @@
         },
         "readonly": {
           "$value": {
-            "default": "{color.neutral.10}",
-            "dark": "{color.neutral.900}"
+            "default": "{color.alpha.dark.2}",
+            "dark": "{color.alpha.light.8}"
           },
           "$type": "color",
           "$description": "Used for the background of static content that prepends or appends a text input."
