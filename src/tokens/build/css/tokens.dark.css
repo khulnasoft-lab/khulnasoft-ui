@@ -666,15 +666,15 @@
   --gl-avatar-fallback-text-color-red: var(--gl-color-red-200); /* Red text color for avatar fallback with no particular meaning. */
   --gl-avatar-border-color-hover: var(--gl-color-alpha-light-24); /* Used to increase the edge definition of an avatar in the hover state. */
   --gl-avatar-border-color-default: var(--gl-color-alpha-light-8); /* Used to define the edge of an avatar. */
-  --gl-alert-danger-border-bottom-color: var(--gl-color-neutral-800); /* Used for the border bottom color of a danger alert. */
+  --gl-alert-danger-border-bottom-color: var(--gl-color-alpha-0); /* Used for the border bottom color of a danger alert. */
   --gl-alert-danger-border-top-color: var(--gl-color-red-400); /* Used for the border color of a danger alert. */
-  --gl-alert-warning-border-bottom-color: var(--gl-color-neutral-800); /* Used for the border bottom color of a warning alert. */
+  --gl-alert-warning-border-bottom-color: var(--gl-color-alpha-0); /* Used for the border bottom color of a warning alert. */
   --gl-alert-warning-border-top-color: var(--gl-color-orange-400); /* Used for the border color of a warning alert. */
-  --gl-alert-success-border-bottom-color: var(--gl-color-neutral-800); /* Used for the border bottom color of a success alert. */
+  --gl-alert-success-border-bottom-color: var(--gl-color-alpha-0); /* Used for the border bottom color of a success alert. */
   --gl-alert-success-border-top-color: var(--gl-color-green-400); /* Used for the border color of a success alert. */
-  --gl-alert-info-border-bottom-color: var(--gl-color-neutral-800); /* Used for the border bottom color of an info alert. */
+  --gl-alert-info-border-bottom-color: var(--gl-color-alpha-0); /* Used for the border bottom color of an info alert. */
   --gl-alert-info-border-top-color: var(--gl-color-blue-400); /* Used for the border color of an info alert. */
-  --gl-alert-neutral-border-bottom-color: var(--gl-color-neutral-800); /* Used for the border bottom color of a neutral alert. */
+  --gl-alert-neutral-border-bottom-color: var(--gl-color-alpha-0); /* Used for the border bottom color of a neutral alert. */
   --gl-alert-neutral-border-top-color: var(--gl-color-neutral-400); /* Used for the border center color of a neutral alert. */
   --gl-border-color-transparent: var(--gl-color-alpha-0); /* Used when a border needs to be present, but not visibly perceived. */
   --gl-border-color-strong: var(--gl-color-neutral-400); /* Used for a distinct border that emphasizes an edge or boundaries. */
