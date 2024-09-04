@@ -186,9 +186,9 @@ export const Interactive = (args, { argTypes }) => ({
       setStoryTimeout(() => {
         this.contextItemsLoading = false;
         this.contextItemsResults = sampleContextItems
-          .filter((item) => item.type === category)
+          .filter((item) => item.category === category)
           .filter(
-            (item) => !query || item.metadata.name.toLowerCase().includes(query.toLowerCase())
+            (item) => !query || item.metadata.title.toLowerCase().includes(query.toLowerCase())
           )
           .filter((item) => !this.contextItems.some((contextItem) => contextItem.id === item.id));
       }, 300);

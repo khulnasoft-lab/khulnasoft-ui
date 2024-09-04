@@ -2,9 +2,9 @@ import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { MOCK_CATEGORIES, getMockContextItems, getMockCategory } from '../mock_context_data';
 import {
-  CONTEXT_ITEM_TYPE_ISSUE,
-  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-  CONTEXT_ITEM_TYPE_PROJECT_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
+  CONTEXT_ITEM_CATEGORY_FILE,
 } from '../constants';
 import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
 import GlDuoChatContextItemMenuSearchItemsLoading from './duo_chat_context_item_menu_search_items_loading.vue';
@@ -17,7 +17,8 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
 
   const createWrapper = (props = {}) => {
     category = props.category || MOCK_CATEGORIES.at(0);
-    results = props.results || getMockContextItems().filter((item) => item.type === category.value);
+    results =
+      props.results || getMockContextItems().filter((item) => item.category === category.value);
 
     wrapper = shallowMount(GlDuoChatContextItemMenuSearchItems, {
       propsData: {
@@ -196,7 +197,10 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
           await wrapper.setProps({
             results: results.map((result, index) => ({
               ...result,
-              isEnabled: index !== disabledIndex,
+              metadata: {
+                ...result.metadata,
+                enabled: index !== disabledIndex,
+              },
             })),
           });
 
@@ -218,7 +222,10 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
           wrapper.setProps({
             results: getMockContextItems().map((result) => ({
               ...result,
-              isEnabled: false,
+              metadata: {
+                ...result.metadata,
+                enabled: false,
+              },
             })),
           });
           await nextTick();
@@ -231,15 +238,15 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
 
   describe.each([
     {
-      testCase: getMockCategory(CONTEXT_ITEM_TYPE_PROJECT_FILE),
+      testCase: getMockCategory(CONTEXT_ITEM_CATEGORY_FILE),
       expectedPlaceholder: 'Search files...',
     },
     {
-      testCase: getMockCategory(CONTEXT_ITEM_TYPE_ISSUE),
+      testCase: getMockCategory(CONTEXT_ITEM_CATEGORY_ISSUE),
       expectedPlaceholder: 'Search issues...',
     },
     {
-      testCase: getMockCategory(CONTEXT_ITEM_TYPE_MERGE_REQUEST),
+      testCase: getMockCategory(CONTEXT_ITEM_CATEGORY_MERGE_REQUEST),
       expectedPlaceholder: 'Search merge requests...',
     },
   ])('when category is "$testCase.label"', ({ testCase, expectedPlaceholder }) => {

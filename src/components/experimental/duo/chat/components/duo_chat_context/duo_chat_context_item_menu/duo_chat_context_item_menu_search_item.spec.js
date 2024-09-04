@@ -6,9 +6,9 @@ import {
   MOCK_CONTEXT_ITEM_MERGE_REQUEST,
 } from '../mock_context_data';
 import {
-  CONTEXT_ITEM_TYPE_ISSUE,
-  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-  CONTEXT_ITEM_TYPE_PROJECT_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
+  CONTEXT_ITEM_CATEGORY_FILE,
 } from '../constants';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 import GlDuoChatContextItemMenuSearchItem from './duo_chat_context_item_menu_search_item.vue';
@@ -30,15 +30,15 @@ describe('GlDuoChatContextItemMenuContextSearchItem', () => {
 
   describe.each([
     {
-      category: getMockCategory(CONTEXT_ITEM_TYPE_PROJECT_FILE),
+      category: getMockCategory(CONTEXT_ITEM_CATEGORY_FILE),
       contextItem: MOCK_CONTEXT_ITEM_FILE,
     },
     {
-      category: getMockCategory(CONTEXT_ITEM_TYPE_ISSUE),
+      category: getMockCategory(CONTEXT_ITEM_CATEGORY_ISSUE),
       contextItem: MOCK_CONTEXT_ITEM_ISSUE,
     },
     {
-      category: getMockCategory(CONTEXT_ITEM_TYPE_MERGE_REQUEST),
+      category: getMockCategory(CONTEXT_ITEM_CATEGORY_MERGE_REQUEST),
       contextItem: MOCK_CONTEXT_ITEM_MERGE_REQUEST,
     },
   ])('for "$category"', ({ category, contextItem }) => {
@@ -58,7 +58,7 @@ describe('GlDuoChatContextItemMenuContextSearchItem', () => {
     });
 
     it('renders the default context item title', () => {
-      expect(wrapper.text()).toContain(contextItem.metadata.name);
+      expect(wrapper.text()).toContain(contextItem.metadata.title);
     });
   });
 });

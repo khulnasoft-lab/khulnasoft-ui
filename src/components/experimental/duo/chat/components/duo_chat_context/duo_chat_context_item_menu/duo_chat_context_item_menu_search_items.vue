@@ -87,12 +87,12 @@ export default {
       this.$emit('keyup', e);
     },
     setActiveIndex(index) {
-      if (this.results[index]?.isEnabled) {
+      if (this.results[index]?.metadata.enabled) {
         this.$emit('active-index-change', index);
       }
     },
     isActiveItem(contextItem, index) {
-      return index === this.activeIndex && contextItem.isEnabled;
+      return index === this.activeIndex && contextItem.metadata.enabled;
     },
   },
   i18n: {
@@ -127,9 +127,10 @@ export default {
           :key="contextItem.id"
           :class="{
             'active-command': isActiveItem(contextItem, index),
-            'gl-cursor-not-allowed [&>button]:focus-within:!gl-shadow-none': !contextItem.isEnabled,
+            'gl-cursor-not-allowed [&>button]:focus-within:!gl-shadow-none':
+              !contextItem.metadata.enabled,
           }"
-          :tabindex="!contextItem.isEnabled ? -1 : undefined"
+          :tabindex="!contextItem.metadata.enabled ? -1 : undefined"
           class="duo-chat-context-search-result-item"
           data-testid="search-result-item"
           @click="selectItem(contextItem)"
@@ -138,7 +139,7 @@ export default {
             <gl-duo-chat-context-item-menu-search-item
               :context-item="contextItem"
               :category="category"
-              :class="{ 'gl-text-secondary': !contextItem.isEnabled }"
+              :class="{ 'gl-text-secondary': !contextItem.metadata.enabled }"
               data-testid="search-result-item-details"
             />
           </div>

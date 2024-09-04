@@ -8,9 +8,9 @@ import {
   formatMergeRequestId,
 } from '../utils';
 import {
-  CONTEXT_ITEM_TYPE_ISSUE,
-  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-  CONTEXT_ITEM_TYPE_PROJECT_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
+  CONTEXT_ITEM_CATEGORY_FILE,
 } from '../constants';
 
 export default {
@@ -30,16 +30,16 @@ export default {
   },
   computed: {
     title() {
-      return this.contextItem.metadata?.name || '';
+      return this.contextItem.metadata?.title || '';
     },
     secondaryText() {
       switch (this.category.value) {
-        case CONTEXT_ITEM_TYPE_PROJECT_FILE:
-          return this.contextItem.metadata.info.relFilePath;
-        case CONTEXT_ITEM_TYPE_ISSUE:
-          return formatIssueId(this.contextItem.metadata.info.iid);
-        case CONTEXT_ITEM_TYPE_MERGE_REQUEST:
-          return formatMergeRequestId(this.contextItem.metadata.info.iid);
+        case CONTEXT_ITEM_CATEGORY_FILE:
+          return this.contextItem.metadata.relativePath;
+        case CONTEXT_ITEM_CATEGORY_ISSUE:
+          return formatIssueId(this.contextItem.metadata.iid);
+        case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
+          return formatMergeRequestId(this.contextItem.metadata.iid);
         default:
           return '';
       }

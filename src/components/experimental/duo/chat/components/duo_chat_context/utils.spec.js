@@ -90,34 +90,50 @@ describe('duo_chat_context utils', () => {
         description: 'missing id',
       },
       {
-        value: { ...MOCK_CONTEXT_ITEM_FILE, type: undefined },
-        description: 'missing type',
+        value: { ...MOCK_CONTEXT_ITEM_FILE, category: undefined },
+        description: 'missing category',
+      },
+      {
+        value: { ...MOCK_CONTEXT_ITEM_FILE, metadata: undefined },
+        description: 'missing metadata',
       },
       {
         value: {
           ...MOCK_CONTEXT_ITEM_FILE,
-          isEnabled: undefined,
+          metadata: {
+            ...MOCK_CONTEXT_ITEM_FILE.metadata,
+            enabled: undefined,
+          },
         },
         description: 'missing enabled',
       },
       {
         value: {
           ...MOCK_CONTEXT_ITEM_FILE,
-          isEnabled: 'true',
+          metadata: {
+            ...MOCK_CONTEXT_ITEM_FILE.metadata,
+            enabled: 'true',
+          },
         },
         description: 'non-boolean enabled',
       },
       {
         value: {
           ...MOCK_CONTEXT_ITEM_FILE,
-          disabledReasons: 'not an array',
+          metadata: {
+            ...MOCK_CONTEXT_ITEM_FILE.metadata,
+            disabledReasons: 'not an array',
+          },
         },
         description: 'non-array disabledReasons',
       },
       {
         value: {
           ...MOCK_CONTEXT_ITEM_FILE,
-          disabledReasons: [42],
+          metadata: {
+            ...MOCK_CONTEXT_ITEM_FILE.metadata,
+            disabledReasons: [42],
+          },
         },
         description: 'non-string items in disabledReasons array',
       },
@@ -148,23 +164,71 @@ describe('duo_chat_context utils', () => {
     describe.each([
       { value: null, description: 'null' },
       { value: undefined, description: 'undefined' },
-      { value: {}, description: 'object instead of array' },
-      { value: 'not an array', description: 'string instead of array' },
+      { value: {}, description: 'empty object' },
+      { value: 'not an item', description: 'string instead of array' },
       { value: 42, description: 'number instead of array' },
       {
-        value: [{ id: '1', metadata: { name: 'Item 1' } }],
-        description: 'array with item missing isEnabled',
+        value: [{ ...MOCK_CONTEXT_ITEM_FILE, id: undefined }],
+        description: 'missing id',
       },
       {
-        value: [{ metadata: { name: 'Item 1' }, isEnabled: true }],
-        description: 'array with item missing id',
+        value: [{ ...MOCK_CONTEXT_ITEM_FILE, category: undefined }],
+        description: 'missing category',
       },
       {
-        value: [{ id: '1', metadata: { name: 'Item 1' }, isEnabled: 'true' }],
-        description: 'array with item having non-boolean isEnabled',
+        value: [{ ...MOCK_CONTEXT_ITEM_FILE, metadata: undefined }],
+        description: 'missing metadata',
       },
       {
-        value: [MOCK_CONTEXT_ITEM_FILE, { metadata: { name: 'Item 2' }, isEnabled: false }],
+        value: [
+          {
+            ...MOCK_CONTEXT_ITEM_FILE,
+            metadata: {
+              ...MOCK_CONTEXT_ITEM_FILE.metadata,
+              enabled: undefined,
+            },
+          },
+        ],
+        description: 'missing enabled',
+      },
+      {
+        value: [
+          {
+            ...MOCK_CONTEXT_ITEM_FILE,
+            metadata: {
+              ...MOCK_CONTEXT_ITEM_FILE.metadata,
+              enabled: 'true',
+            },
+          },
+        ],
+        description: 'non-boolean enabled',
+      },
+      {
+        value: [
+          {
+            ...MOCK_CONTEXT_ITEM_FILE,
+            metadata: {
+              ...MOCK_CONTEXT_ITEM_FILE.metadata,
+              disabledReasons: 'not an array',
+            },
+          },
+        ],
+        description: 'non-array disabledReasons',
+      },
+      {
+        value: [
+          {
+            ...MOCK_CONTEXT_ITEM_FILE,
+            metadata: {
+              ...MOCK_CONTEXT_ITEM_FILE.metadata,
+              disabledReasons: [42],
+            },
+          },
+        ],
+        description: 'non-string items in disabledReasons array',
+      },
+      {
+        value: [MOCK_CONTEXT_ITEM_FILE, { id: 1234, invalid: true }],
         description: 'array with one valid and one invalid item',
       },
     ])('with "$description"', ({ value }) => {

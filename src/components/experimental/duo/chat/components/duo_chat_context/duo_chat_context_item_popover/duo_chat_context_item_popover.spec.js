@@ -43,7 +43,7 @@ describe('GlDuoChatContextItemPopover', () => {
     expect(popover.attributes('target')).toBe('test-target');
     expect(popover.props('triggers')).toBe('hover focus');
     expect(popover.props('placement')).toBe('top');
-    expect(popover.props('title')).toBe(MOCK_CONTEXT_ITEM_FILE.metadata.name);
+    expect(popover.props('title')).toBe(MOCK_CONTEXT_ITEM_FILE.metadata.title);
   });
 
   it('renders the item name in the title slot', () => {
@@ -59,23 +59,23 @@ describe('GlDuoChatContextItemPopover', () => {
       }
     );
 
-    expect(findPopoverTitle().text()).toBe(MOCK_CONTEXT_ITEM_FILE.metadata.name);
+    expect(findPopoverTitle().text()).toBe(MOCK_CONTEXT_ITEM_FILE.metadata.title);
   });
 
   describe('item info rendering', () => {
     it.each([
-      ['file', MOCK_CONTEXT_ITEM_FILE, MOCK_CONTEXT_ITEM_FILE.metadata.info.relFilePath],
-      ['issue', MOCK_CONTEXT_ITEM_ISSUE, MOCK_CONTEXT_ITEM_ISSUE.metadata.info.iid.toString()],
+      ['file', MOCK_CONTEXT_ITEM_FILE, MOCK_CONTEXT_ITEM_FILE.metadata.relativePath],
+      ['issue', MOCK_CONTEXT_ITEM_ISSUE, MOCK_CONTEXT_ITEM_ISSUE.metadata.iid.toString()],
       [
         'merge request',
         MOCK_CONTEXT_ITEM_MERGE_REQUEST,
-        MOCK_CONTEXT_ITEM_MERGE_REQUEST.metadata.info.iid.toString(),
+        MOCK_CONTEXT_ITEM_MERGE_REQUEST.metadata.iid.toString(),
       ],
     ])('renders correct project and type for %s', (_, contextItem, expected) => {
       createComponent({ contextItem });
 
       const content = findPopover().text();
-      expect(content).toContain(contextItem.metadata.info.project);
+      expect(content).toContain(contextItem.metadata.project);
       expect(content).toContain(expected);
     });
 
@@ -83,7 +83,7 @@ describe('GlDuoChatContextItemPopover', () => {
       createComponent({ contextItem: MOCK_CONTEXT_ITEM_FILE });
 
       const content = findPopover().text();
-      expect(content).toContain(MOCK_CONTEXT_ITEM_FILE.metadata.info.relFilePath);
+      expect(content).toContain(MOCK_CONTEXT_ITEM_FILE.metadata.relativePath);
     });
 
     it.each([
@@ -109,7 +109,7 @@ describe('GlDuoChatContextItemPopover', () => {
     it('renders default disabled message when no specific reasons are provided', () => {
       const itemWithoutReasons = {
         ...MOCK_CONTEXT_ITEM_FILE_DISABLED,
-        info: { ...MOCK_CONTEXT_ITEM_FILE_DISABLED.metadata.info, disabledReasons: undefined },
+        metadata: { ...MOCK_CONTEXT_ITEM_FILE_DISABLED.metadata, disabledReasons: undefined },
       };
       createComponent({ contextItem: itemWithoutReasons });
 

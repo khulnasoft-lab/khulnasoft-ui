@@ -22,10 +22,10 @@ const Template = (args, { argTypes }) => ({
   template: `
     <div class="gl-flex gl-flex-col gl-items-center">
       <button :id="item.id">
-        Hover me ({{ item.type }}){{ item.isEnabled ? '' : ' (item is disabled)' }}
+        Hover me ({{ item.category }}){{ item.metadata.enabled ? '' : ' (item is disabled)' }}
       </button>
       <gl-duo-chat-context-item-popover
-        :item="item"
+        :context-item="item"
         :target="item.id"
       />
     </div>

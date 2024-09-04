@@ -2,9 +2,9 @@ import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { getMockCategory, getMockContextItems, MOCK_CATEGORIES } from '../mock_context_data';
 import {
-  CONTEXT_ITEM_TYPE_ISSUE,
-  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-  CONTEXT_ITEM_TYPE_PROJECT_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
+  CONTEXT_ITEM_CATEGORY_FILE,
 } from '../constants';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
@@ -122,19 +122,22 @@ describe('GlDuoChatContextItemMenu', () => {
     });
 
     describe.each([
-      CONTEXT_ITEM_TYPE_ISSUE,
-      CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-      CONTEXT_ITEM_TYPE_PROJECT_FILE,
+      CONTEXT_ITEM_CATEGORY_ISSUE,
+      CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
+      CONTEXT_ITEM_CATEGORY_FILE,
     ])('when a "%s" category has been selected', (categoryValue) => {
       let category;
       let results;
       beforeEach(() => {
         category = getMockCategory(categoryValue);
         results = getMockContextItems()
-          .filter((item) => item.type === categoryValue)
+          .filter((item) => item.category === categoryValue)
           .map((item, index) => ({
             ...item,
-            isEnabled: index % 2 === 0, // disable odd indexed items
+            metadata: {
+              ...item.metadata,
+              enabled: index % 2 === 0, // disable odd indexed items
+            },
           }));
 
         createComponent({
@@ -260,7 +263,10 @@ describe('GlDuoChatContextItemMenu', () => {
             await wrapper.setProps({
               results: results.map((result, index) => ({
                 ...result,
-                isEnabled: index === firstEnabledIndex,
+                metadata: {
+                  ...result.metadata,
+                  enabled: index === firstEnabledIndex,
+                },
               })),
             });
             await nextTick();
