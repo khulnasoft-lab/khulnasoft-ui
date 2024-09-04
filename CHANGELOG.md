@@ -1,3 +1,10 @@
+# [91.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.4.0...v91.5.0) (2024-09-04)
+
+
+### Features
+
+* **Alert:** Transparent border bottom ([30f1863](https://gitlab.com/gitlab-org/gitlab-ui/commit/30f1863f6921426ea4b907a3e0c74ed98b41e727))
+
 # [91.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.3.0...v91.4.0) (2024-09-02)
 
 
