@@ -6,6 +6,7 @@ import {
   CONTEXT_ITEM_TYPE_PROJECT_FILE,
 } from '../constants';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
+import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
 
 jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
@@ -32,7 +33,7 @@ describe('GlDuoChatContextItemMenu', () => {
 
   const findMenu = () => findByTestId('context-item-menu');
   const findContextItemSelections = () => wrapper.findComponent(GlDuoChatContextItemSelections);
-  const findCategoryItems = () => findByTestId('context-menu-category-items');
+  const findCategoryItems = () => wrapper.findComponent(GlDuoChatContextItemMenuCategoryItems);
   const findResultItems = () => findByTestId('context-menu-search-items');
 
   describe('context item selection', () => {
@@ -81,18 +82,10 @@ describe('GlDuoChatContextItemMenu', () => {
       });
 
       it('shows categories', () => {
-        expect(findCategoryItems().exists()).toBe(true);
-      });
-
-      it('selects the category when clicked', async () => {
-        await findCategoryItems().find('li').trigger('click');
-
-        expect(wrapper.emitted('search').at(0)).toEqual([
-          {
-            category: MOCK_CATEGORIES[0].value,
-            query: '',
-          },
-        ]);
+        expect(findCategoryItems().props()).toEqual({
+          activeIndex: 0,
+          categories: MOCK_CATEGORIES,
+        });
       });
     });
 
@@ -116,7 +109,7 @@ describe('GlDuoChatContextItemMenu', () => {
           results,
         });
 
-        return findCategoryItems().find('li', { text: category.label }).trigger('click');
+        return findCategoryItems().vm.$emit('select', category);
       });
 
       it('shows search result items', () => {
