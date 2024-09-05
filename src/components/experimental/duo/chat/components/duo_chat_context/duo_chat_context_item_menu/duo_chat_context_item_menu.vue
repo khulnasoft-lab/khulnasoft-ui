@@ -1,15 +1,20 @@
 <script>
+import debounce from 'lodash/debounce';
 import { translate } from '../../../../../../../utils/i18n';
 import GlCard from '../../../../../../base/card/card.vue';
 import { categoriesValidator, contextItemsValidator } from '../utils';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
+import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
+
+const SEARCH_DEBOUNCE_MS = 30;
 
 export default {
   name: 'GlDuoChatContextItemMenu',
   components: {
     GlCard,
     GlDuoChatContextItemMenuCategoryItems,
+    GlDuoChatContextItemMenuSearchItems,
     GlDuoChatContextItemSelections,
   },
   props: {
@@ -63,6 +68,7 @@ export default {
   data() {
     return {
       activeIndex: 0,
+      searchQuery: '',
       selectedCategory: null,
     };
   },
@@ -77,11 +83,15 @@ export default {
         this.resetSelection();
       }
     },
+    searchQuery(query) {
+      this.debouncedSearch(query);
+    },
   },
   methods: {
     selectCategory(category) {
-      this.selectedCategory = category;
       this.activeIndex = 0;
+      this.searchQuery = '';
+      this.selectedCategory = category;
 
       /**
        * Emitted when a search should be performed.
@@ -121,6 +131,12 @@ export default {
        */
       this.$emit('remove', item);
     },
+    debouncedSearch: debounce(function search(query) {
+      this.$emit('search', {
+        category: this.selectedCategory.value,
+        query,
+      });
+    }, SEARCH_DEBOUNCE_MS),
     resetSelection() {
       this.selectedCategory = null;
       this.activeIndex = 0;
@@ -159,16 +175,17 @@ export default {
         @select="selectCategory"
         @active-index-change="activeIndex = $event"
       />
-      <div v-else data-testid="context-menu-search-items">
-        <!-- Placeholder for GlDuoChatContextItemMenuSearchItem component coming in a future iteration -->
-        <template v-if="loading">Loading...</template>
-        <template v-else-if="error">Error: {{ error }}</template>
-        <ul v-else>
-          <li v-for="result of results" :key="result.id" @click="selectItem(result)">
-            {{ result.metadata.name }} {{ result.isEnabled ? '' : '(disabled)' }}
-          </li>
-        </ul>
-      </div>
+      <gl-duo-chat-context-item-menu-search-items
+        v-else
+        v-model="searchQuery"
+        :active-index="activeIndex"
+        :category="selectedCategory"
+        :loading="loading"
+        :error="error"
+        :results="results"
+        @select="selectItem"
+        @active-index-change="activeIndex = $event"
+      />
     </gl-card>
   </div>
 </template>

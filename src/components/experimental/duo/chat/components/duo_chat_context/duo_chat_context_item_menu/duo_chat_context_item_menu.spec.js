@@ -7,6 +7,7 @@ import {
 } from '../constants';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
+import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
 
 jest.mock('lodash/debounce', () => jest.fn((fn) => fn));
@@ -34,7 +35,7 @@ describe('GlDuoChatContextItemMenu', () => {
   const findMenu = () => findByTestId('context-item-menu');
   const findContextItemSelections = () => wrapper.findComponent(GlDuoChatContextItemSelections);
   const findCategoryItems = () => wrapper.findComponent(GlDuoChatContextItemMenuCategoryItems);
-  const findResultItems = () => findByTestId('context-menu-search-items');
+  const findSearchItems = () => wrapper.findComponent(GlDuoChatContextItemMenuSearchItems);
 
   describe('context item selection', () => {
     describe('and there are selections', () => {
@@ -113,37 +114,52 @@ describe('GlDuoChatContextItemMenu', () => {
       });
 
       it('shows search result items', () => {
-        expect(findResultItems().exists()).toBe(true);
+        expect(findSearchItems().props()).toEqual({
+          activeIndex: 0,
+          category,
+          error: null,
+          loading: false,
+          results,
+          searchQuery: '',
+        });
       });
 
       it('selects the item when clicked', async () => {
-        await findResultItems().find('li').trigger('click');
+        await findSearchItems().vm.$emit('select', results.at(0));
         expect(wrapper.emitted('select').at(0)).toEqual([results.at(0)]);
       });
 
       it('emits "close" event when selecting an item', async () => {
-        await findResultItems().find('li').trigger('click');
+        await findSearchItems().vm.$emit('select', results.at(0));
         expect(wrapper.emitted('close')).toHaveLength(1);
       });
 
       it('does not select a disabled item when clicked', async () => {
-        const item = findResultItems()
-          .findAll('li')
-          .wrappers.find((i) => i.text().includes(results.at(1).metadata.name));
-        await item.trigger('click');
-
+        await findSearchItems().vm.$emit('select', results.at(1));
         expect(wrapper.emitted('select')).toBeUndefined();
       });
 
       describe('when searching', () => {
+        const query = 'e';
         beforeEach(async () => {
+          await findSearchItems().vm.$emit('update:searchQuery', query);
+
           await wrapper.setProps({
             loading: true,
           });
         });
 
+        it('emits search event', async () => {
+          expect(wrapper.emitted('search').at(1)).toEqual([
+            {
+              category: categoryValue,
+              query,
+            },
+          ]);
+        });
+
         it('shows loading state', async () => {
-          expect(wrapper.text()).toContain('Loading...');
+          expect(findSearchItems().props('loading')).toBe(true);
         });
 
         describe('when there is an error', () => {
@@ -155,7 +171,7 @@ describe('GlDuoChatContextItemMenu', () => {
           });
 
           it('shows error state', async () => {
-            expect(wrapper.text()).toContain('Error: oh no');
+            expect(findSearchItems().props('error')).toBe('oh no');
           });
         });
 
@@ -171,8 +187,7 @@ describe('GlDuoChatContextItemMenu', () => {
           });
 
           it('shows matching results', async () => {
-            expect(findResultItems().findAll('li')).toHaveLength(1);
-            expect(findResultItems().text()).toContain(matchingResult.metadata.name);
+            expect(findSearchItems().props('results')).toEqual([matchingResult]);
           });
         });
       });

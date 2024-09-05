@@ -1,4 +1,4 @@
-function categoryValidator(category) {
+export function categoryValidator(category) {
   return Boolean(category && category.value && category.label && category.icon);
 }
 
@@ -14,7 +14,7 @@ function disabledReasonsValidator(disabledReasons) {
   );
 }
 
-function contextItemValidator(item) {
+export function contextItemValidator(item) {
   return Boolean(
     item &&
       item.id &&
