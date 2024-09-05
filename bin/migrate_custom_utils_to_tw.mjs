@@ -9,7 +9,7 @@ import { format, resolveConfig } from 'prettier';
 import { sync as globbySync } from 'globby';
 import * as tailwindPlugin from 'prettier-plugin-tailwindcss';
 import { tailwindEquivalents } from './lib/tailwind_equivalents.mjs';
-import { parseMigrations, runMigrations } from './lib/tailwind_migrations.mjs';
+import { parseMigrations, runSCSSMigrations, runMigrations } from './lib/tailwind_migrations.mjs';
 
 function isFrontendFile(file) {
   return file.endsWith('.js') || file.endsWith('.vue');
@@ -24,7 +24,9 @@ function createRewriter(dryRun, migrationsToDo) {
   return async function rewrite(file) {
     const contents = await readFile(file, { encoding: 'utf8' });
 
-    const newContents = runMigrations(contents, migrationsToDo);
+    const newContents = file.endsWith('.scss')
+      ? runSCSSMigrations(contents, migrationsToDo)
+      : runMigrations(contents, migrationsToDo);
 
     if (contents === newContents) {
       console.warn(`No changes to ${file}`);
@@ -136,7 +138,7 @@ async function getFilesAndDirectories(directories, dryRun) {
       directories[0]
       : `{${directories.join(',')}}`;
 
-  const extensions = ['haml', 'rb', 'vue', 'js', 'snap', 'html'];
+  const extensions = ['haml', 'rb', 'vue', 'js', 'snap', 'html', 'scss'];
   const filesPattern = `${directoriesPattern}/**/*.{${extensions.join(',')}}`;
 
   return {
