@@ -1,3 +1,10 @@
+# [91.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.10.0...v91.11.0) (2024-09-05)
+
+
+### Features
+
+* **Tailwind:** use border default design token for border classes ([642bc1c](https://gitlab.com/gitlab-org/gitlab-ui/commit/642bc1c3776402cd30d84452374805811d2246bb))
+
 # [91.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.9.0...v91.10.0) (2024-09-05)
 
 
