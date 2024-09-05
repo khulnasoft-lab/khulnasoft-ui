@@ -1,3 +1,10 @@
+# [91.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.9.0...v91.10.0) (2024-09-05)
+
+
+### Features
+
+* add duo chat context menu search ([6ac53de](https://gitlab.com/gitlab-org/gitlab-ui/commit/6ac53dee88bcd395b85bacd68ebde35ae56149ff))
+
 # [91.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.8.0...v91.9.0) (2024-09-04)
 
 
