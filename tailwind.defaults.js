@@ -65,23 +65,23 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
     },
     '.border': {
       'border-style': 'solid',
-      'border-color': 'var(--gray-100, #dcdcde)',
+      'border-color': 'var(--gl-border-color-default)',
     },
     '.border-t': {
       'border-top-style': 'solid',
-      'border-top-color': 'var(--gray-100, #dcdcde)',
+      'border-top-color': 'var(--gl-border-color-default)',
     },
     '.border-r': {
       'border-right-style': 'solid',
-      'border-right-color': 'var(--gray-100, #dcdcde)',
+      'border-right-color': 'var(--gl-border-color-default)',
     },
     '.border-b': {
       'border-bottom-style': 'solid',
-      'border-bottom-color': 'var(--gray-100, #dcdcde)',
+      'border-bottom-color': 'var(--gl-border-color-default)',
     },
     '.border-l': {
       'border-left-style': 'solid',
-      'border-left-color': 'var(--gray-100, #dcdcde)',
+      'border-left-color': 'var(--gl-border-color-default)',
     },
     '.str-truncated': {
       display: 'inline-block',
