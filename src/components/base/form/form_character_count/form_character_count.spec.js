@@ -20,10 +20,10 @@ describe('GlFormCharacterCount', () => {
       },
       scopedSlots: {
         'remaining-count-text': function remainingCountText({ count }) {
-          return count === 1 ? `${count} character remaining` : `${count} characters remaining`;
+          return count === 1 ? `${count} character remaining.` : `${count} characters remaining.`;
         },
         'over-limit-text': function overLimitText({ count }) {
-          return count === 1 ? `${count} character over limit` : `${count} characters over limit`;
+          return count === 1 ? `${count} character over limit.` : `${count} characters over limit.`;
         },
       },
     });
@@ -38,7 +38,7 @@ describe('GlFormCharacterCount', () => {
 
   describe('when textarea character count is under the max character count', () => {
     const textareaCharacterCount = 5;
-    const expectedText = `${defaultPropsData.limit - textareaCharacterCount} characters remaining`;
+    const expectedText = `${defaultPropsData.limit - textareaCharacterCount} characters remaining.`;
 
     beforeEach(() => {
       createComponent({
@@ -55,7 +55,7 @@ describe('GlFormCharacterCount', () => {
 
   describe('when textarea character count is over the max character count', () => {
     const textareaCharacterCount = 15;
-    const expectedText = `${textareaCharacterCount - defaultPropsData.limit} characters over limit`;
+    const expectedText = `${textareaCharacterCount - defaultPropsData.limit} characters over limit.`;
 
     beforeEach(() => {
       createComponent({
@@ -75,7 +75,7 @@ describe('GlFormCharacterCount', () => {
     const newTextareaCharacterCount = textareaCharacterCount + 3;
     const expectedText = `${
       defaultPropsData.limit - newTextareaCharacterCount
-    } characters remaining`;
+    } characters remaining.`;
 
     beforeEach(() => {
       createComponent({
@@ -93,7 +93,7 @@ describe('GlFormCharacterCount', () => {
   });
 
   describe('when `value` prop is `null`', () => {
-    const expectedText = `${defaultPropsData.limit} characters remaining`;
+    const expectedText = `${defaultPropsData.limit} characters remaining.`;
 
     beforeEach(() => {
       createComponent({
@@ -110,7 +110,7 @@ describe('GlFormCharacterCount', () => {
 
   describe('when `value` prop is updated to `null`', () => {
     const textareaCharacterCount = 5;
-    const expectedText = `${defaultPropsData.limit} characters remaining`;
+    const expectedText = `${defaultPropsData.limit} characters remaining.`;
 
     beforeEach(() => {
       createComponent({

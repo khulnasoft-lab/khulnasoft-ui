@@ -73,8 +73,8 @@ export const MinMaxDates = Template.bind({});
 MinMaxDates.args = generateProps({
   min: '2020-01-01',
   max: '2020-01-31',
-  minInvalidFeedback: 'Must be after 2020-01-01',
-  maxInvalidFeedback: 'Must be before 2020-01-31',
+  minInvalidFeedback: 'Must be after 2020-01-01.',
+  maxInvalidFeedback: 'Must be before 2020-01-31.',
 });
 
 export const Readonly = Template.bind({});
@@ -90,8 +90,8 @@ export const InvalidDate = Template.bind({});
 InvalidDate.args = generateProps({
   min: '2020-01-01',
   max: '2020-01-31',
-  minInvalidFeedback: 'Must be after 2020-01-01',
-  maxInvalidFeedback: 'Must be before 2020-01-31',
+  minInvalidFeedback: 'Must be after 2020-01-01.',
+  maxInvalidFeedback: 'Must be before 2020-01-31.',
   value: '2020-02-02',
 });
 

@@ -23,10 +23,10 @@ count separate from the input, use `GlFormCharacterCount`.
     },
     methods: {
       remainingCountText(count) {
-        return  n__('%d character remaining', '%d characters remaining', count)
+        return  n__('%d character remaining.', '%d characters remaining.', count)
       },
       overLimitText(count) {
-        return n__('%d character over limit', '%d characters over limit', count);
+        return n__('%d character over limit.', '%d characters over limit.', count);
       },
     },
   }

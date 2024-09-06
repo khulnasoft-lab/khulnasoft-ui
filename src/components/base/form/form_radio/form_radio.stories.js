@@ -3,7 +3,7 @@ import readme from './form_radio.md';
 
 const defaultOptions = [
   { value: 'Option', name: 'radio-group' },
-  { value: 'Slot option', name: 'radio-group', slot: 'With help text' },
+  { value: 'Slot option', name: 'radio-group', slot: 'With help text.' },
   { value: 'Checked option', name: 'radio-group' },
   {
     value: 'Checked disabled option',
@@ -16,7 +16,7 @@ const defaultOptions = [
     value: 'Disabled option with help text',
     disabled: true,
     name: 'radio-group',
-    slot: 'With help text',
+    slot: 'With help text.',
   },
   { value: 'Indeterminate option', name: 'indeterminate-radio-group' },
   { value: 'Indeterminate disabled option', disabled: true, name: 'indeterminate-radio-group' },

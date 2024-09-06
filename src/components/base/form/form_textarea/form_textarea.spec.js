@@ -15,10 +15,10 @@ describe('GlFormTextArea', () => {
       propsData,
       scopedSlots: {
         'remaining-character-count-text': function remainingCharacterCountText({ count }) {
-          return count === 1 ? `${count} character remaining` : `${count} characters remaining`;
+          return count === 1 ? `${count} character remaining.` : `${count} characters remaining.`;
         },
         'character-count-over-limit-text': function characterCountOverLimitText({ count }) {
-          return count === 1 ? `${count} character over limit` : `${count} characters over limit`;
+          return count === 1 ? `${count} character over limit.` : `${count} characters over limit.`;
         },
       },
     });
@@ -161,7 +161,7 @@ describe('GlFormTextArea', () => {
 
     describe('when textarea character count is under the max character count', () => {
       const textareaCharacterCount = 5;
-      const expectedText = `${characterCountLimit - textareaCharacterCount} characters remaining`;
+      const expectedText = `${characterCountLimit - textareaCharacterCount} characters remaining.`;
 
       beforeEach(() => {
         createComponent({
@@ -179,7 +179,7 @@ describe('GlFormTextArea', () => {
 
     describe('when textarea character count is over the max character count', () => {
       const textareaCharacterCount = 15;
-      const expectedText = `${textareaCharacterCount - characterCountLimit} characters over limit`;
+      const expectedText = `${textareaCharacterCount - characterCountLimit} characters over limit.`;
 
       beforeEach(() => {
         createComponent({
@@ -200,7 +200,7 @@ describe('GlFormTextArea', () => {
       const newTextareaCharacterCount = textareaCharacterCount + 3;
       const expectedText = `${
         characterCountLimit - newTextareaCharacterCount
-      } characters remaining`;
+      } characters remaining.`;
 
       beforeEach(() => {
         createComponent({
@@ -219,7 +219,7 @@ describe('GlFormTextArea', () => {
     });
 
     describe('when `value` prop is `null`', () => {
-      const expectedText = `${characterCountLimit} characters remaining`;
+      const expectedText = `${characterCountLimit} characters remaining.`;
 
       beforeEach(() => {
         createComponent({
@@ -237,7 +237,7 @@ describe('GlFormTextArea', () => {
 
     describe('when `value` prop is updated to `null`', () => {
       const textareaCharacterCount = 5;
-      const expectedText = `${characterCountLimit} characters remaining`;
+      const expectedText = `${characterCountLimit} characters remaining.`;
 
       beforeEach(() => {
         createComponent({

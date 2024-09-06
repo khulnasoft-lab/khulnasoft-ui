@@ -73,12 +73,12 @@ export default {
   <div>
     <small :class="['form-text', countTextClass]" aria-hidden="true">
       <!--
-      @slot Internationalized over limit text. Example: `<template #over-limit-text="{ count }">{{ n__('%d character over limit', '%d characters over limit', count) }}</template>`
+      @slot Internationalized over limit text. Example: `<template #over-limit-text="{ count }">{{ n__('%d character over limit.', '%d characters over limit.', count) }}</template>`
       @binding {number} count
       -->
       <slot v-if="isOverLimit" name="over-limit-text" :count="Math.abs(remainingCount)"></slot>
       <!--
-      @slot Internationalized character count text. Example: `<template #remaining-count-text="{ count }">{{ n__('%d character remaining', '%d characters remaining', count) }}</template>`
+      @slot Internationalized character count text. Example: `<template #remaining-count-text="{ count }">{{ n__('%d character remaining.', '%d characters remaining.', count) }}</template>`
       @binding {number} count
       -->
 

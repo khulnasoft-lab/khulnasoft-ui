@@ -116,7 +116,7 @@ export default {
     >
       <template #over-limit-text="{ count }">
         <!--
-        @slot Internationalized over character count text. Example: `<template #character-count-over-limit-text="{ count }">{{ n__('%d character over limit', '%d characters over limit', count) }}</template>`
+        @slot Internationalized over character count text. Example: `<template #character-count-over-limit-text="{ count }">{{ n__('%d character over limit.', '%d characters over limit.', count) }}</template>`
         @binding {number} count
         -->
         <slot name="character-count-over-limit-text" :count="count"></slot>
@@ -124,7 +124,7 @@ export default {
 
       <template #remaining-count-text="{ count }">
         <!--
-        @slot Internationalized character count text. Example: `<template #remaining-character-count-text="{ count }">{{ n__('%d character remaining', '%d characters remaining', count) }}</template>`
+        @slot Internationalized character count text. Example: `<template #remaining-character-count-text="{ count }">{{ n__('%d character remaining.', '%d characters remaining.', count) }}</template>`
         @binding {number} count
         -->
 
