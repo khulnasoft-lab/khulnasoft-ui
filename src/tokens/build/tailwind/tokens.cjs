@@ -218,6 +218,8 @@ const backgroundColors = {
   subtle: 'var(--gl-background-color-subtle, var(--gl-color-neutral-10, #fbfafd))',
   strong: 'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
   disabled: 'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
+  overlap: 'var(--gl-background-color-overlap, var(--gl-color-neutral-0, #fff))',
+  section: 'var(--gl-background-color-section, var(--gl-background-color-overlap, #fff))',
   overlay:
     'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, rgba(05, 05, 06, 0.24)))',
 };
@@ -225,6 +227,7 @@ const borderColors = {
   default: 'var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
   subtle: 'var(--gl-border-color-subtle, var(--gl-color-neutral-50, #ececef))',
   strong: 'var(--gl-border-color-strong, var(--gl-color-neutral-400, #89888d))',
+  section: 'var(--gl-border-color-section, var(--gl-border-color-default, #dcdcde))',
   transparent: 'var(--gl-border-color-transparent, var(--gl-color-alpha-0, transparent))',
 };
 const iconColors = {
