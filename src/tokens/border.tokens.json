@@ -25,6 +25,14 @@
         "$type": "color",
         "$description": "Used for a distinct border that emphasizes an edge or boundaries."
       },
+      "section": {
+        "$value": {
+          "default": "{border.color.default}",
+          "dark": "{background.color.default}"
+        },
+        "$type": "color",
+        "$description": "Used for the border color that surrounds content or elements when they appear as a closed container or closed section of the page."
+      },
       "transparent": {
         "$value": "{color.alpha.0}",
         "$type": "color",
