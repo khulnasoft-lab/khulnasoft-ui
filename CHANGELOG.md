@@ -1,3 +1,11 @@
+# [91.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.12.0...v91.13.0) (2024-09-06)
+
+
+### Features
+
+* **DesignTokens:** add overlap and section design tokens ([f6ebeec](https://gitlab.com/gitlab-org/gitlab-ui/commit/f6ebeec8558401a724ddc98a2ec483f840943127))
+* **DuoChat:** Adjust right alignment of copy code and insert code ([aba2397](https://gitlab.com/gitlab-org/gitlab-ui/commit/aba23970cebfa7cf5279daa9a9890c2920d8e161))
+
 # [91.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.11.0...v91.12.0) (2024-09-06)
 
 
