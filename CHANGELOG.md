@@ -1,3 +1,10 @@
+# [91.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.11.0...v91.12.0) (2024-09-06)
+
+
+### Features
+
+* **GlBroadcast:** Create and use design tokens ([b6d73ad](https://gitlab.com/gitlab-org/gitlab-ui/commit/b6d73ad8298d224d370b15a9507dab2e98edc104))
+
 # [91.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.10.0...v91.11.0) (2024-09-05)
 
 
