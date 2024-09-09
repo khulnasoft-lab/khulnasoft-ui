@@ -20,6 +20,7 @@ import {
   CHAT_RESET_MESSAGE,
   CHAT_CLEAR_MESSAGE,
   CHAT_INCLUDE_MESSAGE,
+  MESSAGE_MODEL_ROLES,
 } from './constants';
 import { INCLUDE_SLASH_COMMAND } from './mock_data';
 
@@ -317,11 +318,17 @@ export default {
         this.displaySubmitButton = true; // Re-enable submit button when loading stops
       }
       this.isHidden = false;
-      this.scrollToBottom();
     },
     isStreaming(newVal) {
       if (!newVal && !this.isLoading) {
         this.displaySubmitButton = true; // Re-enable submit button when streaming stops
+      }
+    },
+    lastMessage(newMessage) {
+      if (this.scrolledToBottom || newMessage.role.toLowerCase() === MESSAGE_MODEL_ROLES.user) {
+        // only scroll to bottom on new message if the user hasn't explicitly scrolled up to view an earlier message
+        // or if the user has just submitted a new message
+        this.scrollToBottom();
       }
     },
   },
@@ -396,8 +403,6 @@ export default {
       this.scrolledToBottom = scrollTop + offsetHeight >= scrollHeight;
     },
     async scrollToBottom() {
-      // This method is also called directly by consumers of this component
-      // https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/blob/3269f6200dc3821c62a3992b40c971dd9ee55d87/webviews/vue2/gitlab_duo_chat/src/App.vue#L97
       await this.$nextTick();
 
       this.$refs.anchor?.scrollIntoView?.();
