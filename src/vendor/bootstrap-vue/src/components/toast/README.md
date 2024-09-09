@@ -502,11 +502,9 @@ for generating more complex toast content:
           'p',
           { class: ['text-center', 'mb-0'] },
           [
-            h('b-spinner', { props: { type: 'grow', small: true } }),
             ' Flashy ',
             h('strong', 'toast'),
-            ` message #${this.count} `,
-            h('b-spinner', { props: { type: 'grow', small: true } })
+            ` message #${this.count} `
           ]
         )
         // Create the title

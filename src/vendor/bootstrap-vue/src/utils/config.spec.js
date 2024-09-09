@@ -1,7 +1,7 @@
 import { createLocalVue } from '@vue/test-utils'
 import { isVue3 } from '../../src/vue'
 import { BootstrapVue } from '../../src'
-import { AlertPlugin } from '../../src/components/alert'
+import { BadgePlugin } from '../../src/components/badge'
 import { BVConfigPlugin } from '../../src/bv-config'
 import { setConfig, resetConfig } from './config-set'
 import {
@@ -24,7 +24,7 @@ describe('utils/config', () => {
 
   it('setConfig() works', async () => {
     const config = {
-      BAlert: { variant: 'danger' }
+      BButton: { variant: 'danger' }
     }
     const breakpointsConfig = {
       breakpoints: ['aa', 'bb', 'cc', 'dd', 'ee']
@@ -35,9 +35,9 @@ describe('utils/config', () => {
     setConfig(config)
     expect(getConfig()).toEqual(config)
     expect(getConfig()).not.toBe(config)
-    expect(getComponentConfig('BAlert')).toEqual(config.BAlert)
-    expect(getComponentConfig('BAlert')).not.toBe(config.BAlert)
-    expect(getComponentConfig('BAlert', 'variant')).toEqual('danger')
+    expect(getComponentConfig('BButton')).toEqual(config.BButton)
+    expect(getComponentConfig('BButton')).not.toBe(config.BButton)
+    expect(getComponentConfig('BButton', 'variant')).toEqual('danger')
 
     // Try breakpoint config (should merge)
     setConfig(breakpointsConfig)
@@ -45,7 +45,7 @@ describe('utils/config', () => {
     expect(getBreakpoints()).not.toBe(breakpointsConfig.breakpoints)
     expect(getConfigValue('breakpoints')).toEqual(breakpointsConfig.breakpoints)
     // should leave previous config
-    expect(getComponentConfig('BAlert', 'variant')).toEqual('danger')
+    expect(getComponentConfig('BButton', 'variant')).toEqual('danger')
     // Should merge config
     expect(getConfig()).toEqual({ ...config, ...breakpointsConfig })
 
@@ -59,7 +59,7 @@ describe('utils/config', () => {
     it('config via Vue.use(BootstrapVue) works', async () => {
       const localVue = createLocalVue()
       const config = {
-        BAlert: { variant: 'foobar' }
+        BButton: { variant: 'foobar' }
       }
 
       expect(getConfig()).toEqual({})
@@ -75,12 +75,12 @@ describe('utils/config', () => {
     it('config via Vue.use(ComponentPlugin) works', async () => {
       const localVue = createLocalVue()
       const config = {
-        BAlert: { variant: 'foobar' }
+        BButton: { variant: 'foobar' }
       }
 
       expect(getConfig()).toEqual({})
 
-      localVue.use(AlertPlugin, config)
+      localVue.use(BadgePlugin, config)
       expect(getConfig()).toEqual(config)
 
       // Reset the configuration
@@ -91,7 +91,7 @@ describe('utils/config', () => {
     it('config via Vue.use(BVConfig) works', async () => {
       const localVue = createLocalVue()
       const config = {
-        BAlert: { variant: 'foobar' }
+        BButton: { variant: 'foobar' }
       }
 
       expect(getConfig()).toEqual({})
@@ -122,20 +122,20 @@ describe('utils/config', () => {
 
   it('getComponentConfig() works', async () => {
     const config = {
-      BAlert: { variant: 'info' }
+      BButton: { variant: 'info' }
     }
     setConfig(config)
 
     // Specific component config key
-    expect(getComponentConfig('BAlert', 'variant')).toEqual('info')
+    expect(getComponentConfig('BButton', 'variant')).toEqual('info')
     // Component's full config
-    expect(getComponentConfig('BAlert')).toEqual(config.BAlert)
+    expect(getComponentConfig('BButton')).toEqual(config.BButton)
     // Should return a deep clone for full config
-    expect(getComponentConfig('BAlert')).not.toBe(config.BAlert)
+    expect(getComponentConfig('BButton')).not.toBe(config.BButton)
     // Should return empty object for not found component
     expect(getComponentConfig('foobar')).toEqual({})
     // Should return undefined for not found component key
-    expect(getComponentConfig('BAlert', 'foobar')).toBeUndefined()
+    expect(getComponentConfig('BButton', 'foobar')).toBeUndefined()
   })
 
   it('getBreakpoints() works', async () => {

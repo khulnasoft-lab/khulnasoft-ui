@@ -39,26 +39,6 @@ $b-custom-switch-indicator-size-sm: calc(
   #{$b-custom-control-indicator-size-sm} - #{$custom-control-indicator-border-width * 4}
 ) !default;
 
-// Custom file sizes
-$b-custom-file-font-size-lg: $input-font-size-lg !default;
-$b-custom-file-font-size-sm: $input-font-size-sm !default;
-$b-custom-file-line-height-lg: $input-line-height-lg !default;
-$b-custom-file-line-height-sm: $input-line-height-sm !default;
-$b-custom-file-height-lg: $input-height-lg !default;
-$b-custom-file-height-sm: $input-height-sm !default;
-$b-custom-file-border-radius-lg: $input-border-radius-lg !default;
-$b-custom-file-border-radius-sm: $input-border-radius-sm !default;
-$b-custom-file-padding-y-lg: $input-padding-y-lg !default;
-$b-custom-file-padding-y-sm: $input-padding-y-sm !default;
-$b-custom-file-padding-x-lg: $input-padding-x-lg !default;
-$b-custom-file-padding-x-sm: $input-padding-x-sm !default;
-$b-custom-file-height-inner-lg: calc(
-  #{$b-custom-file-line-height-lg * 1em} + #{$b-custom-file-padding-y-lg * 2}
-) !default;
-$b-custom-file-height-inner-sm: calc(
-  #{$b-custom-file-line-height-sm * 1em} + #{$b-custom-file-padding-y-sm * 2}
-) !default;
-
 // --- Icons ---
 
 $b-icon-vertical-offset: -0.15em;
@@ -72,15 +52,6 @@ $b-icon-animation-spin-reverse-duration: $b-icon-animation-spin-duration !defaul
 $b-icon-animation-spin-pulse-duration: 1s !default;
 $b-icon-animation-spin-reverse-pulse-duration: $b-icon-animation-spin-pulse-duration !default;
 $b-icon-animation-throb-duration: 0.75s !default;
-
-// --- Sidebar ---
-
-$b-sidebar-width: 320px !default;
-$b-sidebar-transition-duration: 0.3s !default;
-$b-sidebar-zindex: calc(#{$zindex-fixed} + 5) !default;
-$b-sidebar-header-font-size: 1.5rem !default;
-$b-sidebar-header-padding-y: $navbar-padding-y !default;
-$b-sidebar-header-padding-x: $navbar-padding-x !default;
 
 // --- Tables ---
 
@@ -152,26 +123,3 @@ $bv-enable-popover-variants: true !default;
 $b-popover-bg-level: $alert-bg-level !default;
 $b-popover-border-level: $alert-border-level !default;
 $b-popover-color-level: $alert-color-level !default;
-
-// --- Avatar ---
-
-$b-avatar-size: 2.5rem !default;
-$b-avatar-size-sm: 1.5rem !default;
-$b-avatar-size-lg: 3.5rem !default;
-$b-avatar-font-size-scale: 0.4 !default;
-$b-avatar-badge-font-size-scale: $b-avatar-font-size-scale * 0.7 !default;
-
-// --- Skeleton ---
-
-$b-skeleton-background-color: rgba(0, 0, 0, 0.12) !default;
-$b-skeleton-loading-cursor: wait !default;
-$b-skeleton-animation-duration: 1.75s !default;
-$b-skeleton-text-spacing: map-get($spacers, 1) !default;
-$b-skeleton-btn-width: 75px !default;
-$b-skeleton-animate-wave-color: hsla(0, 0%, 100%, 0.4) !default;
-$b-skeleton-animate-wave-background: linear-gradient(
-  90deg,
-  transparent,
-  $b-skeleton-animate-wave-color,
-  transparent
-) !default;

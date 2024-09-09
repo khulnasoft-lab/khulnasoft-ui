@@ -77,11 +77,8 @@ const MODAL_SELECTOR = '.modal-content'
 // Modal `$root` hidden event
 const ROOT_EVENT_NAME_MODAL_HIDDEN = getRootEventName(NAME_MODAL, EVENT_NAME_HIDDEN)
 
-// Sidebar container selector for appending tooltip/popover
-const SIDEBAR_SELECTOR = '.b-sidebar'
-
 // For finding the container to append to
-const CONTAINER_SELECTOR = [MODAL_SELECTOR, SIDEBAR_SELECTOR].join(', ')
+const CONTAINER_SELECTOR = MODAL_SELECTOR
 
 // For dropdown sniffing
 const DROPDOWN_CLASS = 'dropdown'
@@ -571,8 +568,7 @@ export const BVTooltip = /*#__PURE__*/ extend({
       const container = this.container ? this.container.$el || this.container : false
       const body = document.body
       const target = this.getTarget()
-      // If we are in a modal, we append to the modal, If we
-      // are in a sidebar, we append to the sidebar, else append
+      // If we are in a modal, we append to the modal, else append
       // to body, unless a container is specified
       // TODO:
       //   Template should periodically check to see if it is in dom

@@ -72,51 +72,6 @@
         ]
       },
       {
-        "component": "BNavText",
-        "slots": [
-          {
-            "name": "default",
-            "description": "Content to place in the nav text"
-          }
-        ]
-      },
-      {
-        "component": "BNavForm",
-        "props": [
-          {
-            "prop": "formClass",
-            "description": "CSS class (or classes) to add to the form"
-          },
-          {
-            "prop": "novalidate",
-            "description": "When set, disables browser native HTML5 validation on controls in the form"
-          },
-          {
-            "prop": "validated",
-            "description": "When set, adds the Bootstrap class 'was-validated' on the form, triggering the native browser validation states"
-          }
-        ],
-        "events": [
-          {
-            "event": "submit",
-            "description": "Emitted when the form is being submitted",
-            "args": [
-              {
-                "arg": "event",
-                "type": "Event",
-                "description": "Native submit event"
-              }
-            ]
-          }
-        ],
-        "slots": [
-          {
-            "name": "default",
-            "description": "Content to place in the nav form"
-          }
-        ]
-      },
-      {
         "component": "BNavItemDropdown",
         "aliases": [
           "BNavItemDd",

@@ -106,18 +106,6 @@
             "description": "Content to place in the form valid feedback element"
           }
         ]
-      },
-      {
-        "component": "BFormDatalist",
-        "aliases": [
-          "BDatalist"
-        ],
-        "slots": [
-          {
-            "name": "default",
-            "description": "Content to place in the from datalist"
-          }
-        ]
       }
     ]
   }

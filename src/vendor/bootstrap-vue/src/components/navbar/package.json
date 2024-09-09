@@ -46,86 +46,11 @@
         ]
       },
       {
-        "component": "BNavbarNav",
-        "props": [
-          {
-            "prop": "align",
-            "description": "Align the nav items in the nav: 'start' (or 'left'), 'center', 'end' (or 'right')"
-          },
-          {
-            "prop": "fill",
-            "description": "Proportionately fills all horizontal space with nav items. All horizontal space is occupied, but not every nav item has the same width"
-          },
-          {
-            "prop": "justified",
-            "description": "Fills all horizontal space with nav items, but unlike 'fill', every nav item will be the same width"
-          },
-          {
-            "prop": "small",
-            "description": "Makes the nav smaller"
-          }
-        ],
-        "slots": [
-          {
-            "name": "default",
-            "description": "Content to place in the navbar nav"
-          }
-        ]
-      },
-      {
         "component": "BNavbarBrand",
         "slots": [
           {
             "name": "default",
             "description": "Content to place in the navbar brand"
-          }
-        ]
-      },
-      {
-        "component": "BNavbarToggle",
-        "aliases": [
-          "BNavToggle"
-        ],
-        "props": [
-          {
-            "prop": "disabled",
-            "version": "2.15.0",
-            "description": "When `true`, disables the navbar toggle button, and adds class `disabled` to the button"
-          },
-          {
-            "prop": "label",
-            "description": "String to place in the toggle's 'aria-label' attribute"
-          },
-          {
-            "prop": "target",
-            "description": "ID (or array of IDs) of the collapse/sidebar components that should be toggled"
-          }
-        ],
-        "events": [
-          {
-            "event": "click",
-            "description": "Emitted when the toggle is clicked",
-            "args": [
-              {
-                "name": "event",
-                "type": "MouseEvent",
-                "description": "Native click event object"
-              }
-            ]
-          }
-        ],
-        "slots": [
-          {
-            "name": "default",
-            "description": "Alternate content to replace the default Bootstrap hamburger",
-            "scope": [
-              {
-                "prop": "expanded",
-                "version": "2.9.0",
-                "type": "Boolean",
-                "description": "`true` if the collapse is expanded, `false` otherwise"
-              }
-            ]
           }
         ]
       }

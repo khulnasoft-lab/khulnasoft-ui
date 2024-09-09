@@ -78,8 +78,8 @@ properties.
   },
 
   // Component configuration
-  "BAlert": {
-    "variant": "info"
+  "BButton": {
+    "variant": "primary"
     // ...
   }
   // ...
@@ -109,7 +109,6 @@ Or if changing the default variants for `<b-button>` and `<b-alert>`:
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(BootstrapVue, {
-  BAlert: { variant: 'danger' },
   BButton: { variant: 'primary' }
 })
 ```
@@ -136,11 +135,10 @@ and subsequent changes to the breakpoints will **not** be reflected.
 <!-- eslint-disable import/first, import/no-duplicates -->
 
 ```js
-import { LayoutPlugin, AlertPlugin, ButtonPlugin } from 'bootstrap-vue'
+import { LayoutPlugin, ButtonPlugin } from 'bootstrap-vue'
 
 // Supply configs via each plugin as it is `Vue.use()`'d
 Vue.use(LayoutPlugin, { breakpoints: ['xs', 'sm', 'lg', 'xl', 'xxl'] })
-Vue.use(AlertPlugin, { BAlert: { variant: 'danger' } })
 Vue.use(ButtonPlugin, { BButton: { variant: 'primary' } })
 ```
 
@@ -149,15 +147,13 @@ Vue.use(ButtonPlugin, { BButton: { variant: 'primary' } })
 <!-- eslint-disable import/first, import/no-duplicates -->
 
 ```js
-import { LayoutPlugin, AlertPlugin, ButtonPlugin } from 'bootstrap-vue'
+import { LayoutPlugin, ButtonPlugin } from 'bootstrap-vue'
 
 // Supply complete config to first `Vue.use()`'d plugin
 Vue.use(LayoutPlugin, {
   breakpoints: ['xs', 'sm', 'lg', 'xl', 'xxl'],
-  BAlert: { variant: 'danger' },
   BButton: { variant: 'primary' }
 })
-Vue.use(AlertPlugin)
 Vue.use(ButtonPlugin)
 ```
 
@@ -166,18 +162,16 @@ Vue.use(ButtonPlugin)
 <!-- eslint-disable import/first, import/no-duplicates -->
 
 ```js
-import { BVConfigPlugin, LayoutPlugin, AlertPlugin, ButtonPlugin } from 'bootstrap-vue'
+import { BVConfigPlugin, LayoutPlugin, ButtonPlugin } from 'bootstrap-vue'
 
 // Supply complete config to the BVConfigPlugin helper plugin
 Vue.use(BVConfigPlugin, {
   breakpoints: ['xs', 'sm', 'lg', 'xl', 'xxl'],
-  BAlert: { variant: 'danger' },
   BButton: { variant: 'primary' }
 })
 
 // Then use component plugins
 Vue.use(LayoutPlugin)
-Vue.use(AlertPlugin)
 Vue.use(ButtonPlugin)
 ```
 
@@ -186,28 +180,23 @@ Vue.use(ButtonPlugin)
 <!-- eslint-disable import/first, import/no-duplicates -->
 
 ```js
-import { BVConfigPlugin, BAlert, BButton, BRow, BCol } from 'bootstrap-vue'
+import { BVConfigPlugin, BButton, BCol } from 'bootstrap-vue'
 
 // Supply complete config to the BVConfig helper plugin
 Vue.use(BVConfigPlugin, {
   breakpoints: ['xs', 'sm', 'lg', 'xl', 'xxl'],
-  BAlert: { variant: 'danger' },
   BButton: { variant: 'primary' }
 })
 
 // Then install components globally
-Vue.component('BAlert', BAlert)
 Vue.component('BButton', BButton)
-Vue.component('BRow', BRow)
 Vue.component('BCol', BCol)
 
 // Or register components as local to your custom component
 export default {
   name: 'MyComponent',
   components: {
-    BAlert,
     BButton,
-    BRow,
     BCol
   }
   // ...

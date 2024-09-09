@@ -776,7 +776,7 @@ table.b-table[aria-busy='true'] {
 
 You can override this styling using your own CSS.
 
-You may optionally provide a `table-busy` slot to show a custom loading message or spinner whenever
+You may optionally provide a `table-busy` slot to show a custom loading message whenever
 the table's busy state is `true`. The slot will be placed in a `<tr>` element with class
 `b-table-busy-slot`, which has one single `<td>` with a `colspan` set to the number of fields.
 
@@ -790,7 +790,6 @@ the table's busy state is `true`. The slot will be placed in a `<tr>` element wi
     <b-table :items="items" :busy="isBusy" class="mt-3" outlined>
       <template #table-busy>
         <div class="text-center text-danger my-2">
-          <b-spinner class="align-middle"></b-spinner>
           <strong>Loading...</strong>
         </div>
       </template>
