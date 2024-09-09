@@ -10,7 +10,7 @@ $gl-popover-max-width: $grid-size * 35;
 
   &,
   .popover-header {
-    background-color: var(--gl-popover-background-color);
+    background-color: var(--gl-background-color-overlap);
   }
 
   .popover-body {
@@ -23,52 +23,52 @@ $gl-popover-max-width: $grid-size * 35;
     */
     > .arrow::before {
       bottom: 1px;
-      border-top-color: var(--gl-popover-background-color);
+      border-top-color: var(--gl-background-color-overlap);
     }
 
     > .arrow::after {
       bottom: 2px;
-      border-top-color: var(--gl-popover-background-color);
+      border-top-color: var(--gl-background-color-overlap);
     }
   }
 
   &.bs-popover-bottom {
     > .arrow::before {
       top: 1px;
-      border-bottom-color: var(--gl-popover-background-color);
+      border-bottom-color: var(--gl-background-color-overlap);
     }
 
     > .arrow::after {
       top: 2px;
-      border-bottom-color: var(--gl-popover-background-color);
+      border-bottom-color: var(--gl-background-color-overlap);
     }
 
     > .popover-header::before {
-      border-color: var(--gl-popover-background-color);
+      border-color: var(--gl-background-color-overlap);
     }
   }
 
   &.bs-popover-right {
     > .arrow::before {
       left: 1px;
-      border-right-color: var(--gl-popover-background-color);
+      border-right-color: var(--gl-background-color-overlap);
     }
 
     > .arrow::after {
       left: 2px;
-      border-right-color: var(--gl-popover-background-color);
+      border-right-color: var(--gl-background-color-overlap);
     }
   }
 
   &.bs-popover-left {
     > .arrow::before {
       right: 1px;
-      border-left-color: var(--gl-popover-background-color);
+      border-left-color: var(--gl-background-color-overlap);
     }
 
     > .arrow::after {
       right: 2px;
-      border-left-color: var(--gl-popover-background-color);
+      border-left-color: var(--gl-background-color-overlap);
     }
   }
 
