@@ -19,7 +19,6 @@
   }
 
   .gl-toast {
-    color: color-yiq($toast-background-color);
     @apply gl-rounded-base;
     @include gl-font-base;
     @include gl-py-5;
@@ -28,6 +27,8 @@
     @include gl-display-flex;
     @include gl-align-items-center;
     @include gl-justify-content-space-between;
+    background: var(--gl-feedback-strong-background-color);
+    color: var(--gl-feedback-strong-text-color);
   }
 
   .toast-body {
