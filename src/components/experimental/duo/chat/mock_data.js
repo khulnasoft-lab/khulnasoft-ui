@@ -134,7 +134,7 @@ export const MOCK_USER_PROMPT_MESSAGE = {
   errors: [],
   timestamp: '2021-04-21T12:00:00.000Z',
   extras: {
-    contextItems: getMockContextItems().slice(0, 99),
+    contextItems: getMockContextItems().slice(0, 2),
   },
 };
 

@@ -79,22 +79,24 @@ export default {
         : translate('DuoChatContextItemPopover.DisabledReason', 'This item is disabled');
     },
     iconName() {
-      if (this.contextItem.type === 'merge_request') {
-        return 'merge-request';
+      switch (this.contextItem.type) {
+        case 'merge_request':
+          return 'merge-request';
+        case 'issue':
+          return 'issues';
+        default:
+          return 'project';
       }
-      if (this.contextItem.type === 'issue') {
-        return 'issues';
-      }
-      return 'project';
     },
     itemTypeLabel() {
-      if (this.contextItem.type === 'merge_request') {
-        return translate('DuoChatContextItemPopover.MergeRequest', 'Merge request');
+      switch (this.contextItem.type) {
+        case 'merge_request':
+          return translate('DuoChatContextItemPopover.MergeRequest', 'Merge request');
+        case 'issue':
+          return translate('DuoChatContextItemPopover.Issue', 'Issue');
+        default:
+          return translate('DuoChatContextItemPopover.File', 'Project file');
       }
-      if (this.contextItem.type === 'issue') {
-        return translate('DuoChatContextItemPopover.Issue', 'Issue');
-      }
-      return translate('DuoChatContextItemPopover.File', 'Project file');
     },
   },
   methods: {
@@ -125,14 +127,14 @@ export default {
       <div v-if="filePath !== null" class="gl-flex gl-flex-wrap gl-items-center">
         <gl-icon name="document" :size="12" variant="subtle" class="gl-mr-1" />
         <span>{{ itemInfo.project }}</span
-        ><span v-for="(pathPart, index) in filePathArray" :key="pathPart"
+        ><span v-for="(pathPart, index) in filePathArray" :key="pathPart" class="gl-break-all"
           >{{ pathPart }}{{ index + 1 < filePathArray.length ? '/' : '' }}</span
         >
       </div>
 
       <div
         v-if="filePath === null"
-        class="items-center gl-flex gl-flex-wrap gl-leading-1 gl-text-subtle"
+        class="gl-flex gl-flex-wrap gl-items-center gl-leading-1 gl-text-subtle"
       >
         <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1" />
 
