@@ -13,8 +13,8 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   @include gl-font-regular;
   @include gl-opacity-10;
   @include gl-line-height-normal;
-  @include gl-py-3;
-  @include gl-pl-4;
+  @apply gl-py-3;
+  @apply gl-pl-4;
   @include gl-h-auto;
   @include gl-text-truncate;
   @include gl-bg-no-repeat;

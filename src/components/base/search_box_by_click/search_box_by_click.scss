@@ -24,14 +24,14 @@
     position: absolute;
     top: $gl-spacing-scale-2;
     right: $gl-spacing-scale-2;
-    @include gl-mr-2;
+    @apply gl-mr-2;
     @include gl-z-index-3;
   }
 }
 
 .gl-search-box-by-click-with-search-button {
   .gl-search-box-by-click-input {
-    @include gl-pr-7;
+    @apply gl-pr-7;
   }
 
   .gl-search-box-by-click-clear-button {

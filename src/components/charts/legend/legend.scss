@@ -37,7 +37,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     @include gl-flex-shrink-0;
     @include gl-justify-content-space-between;
     @include gl-align-items-center;
-    @include gl-pr-5;
+    @apply gl-pr-5;
 
     &:hover {
       @include gl-cursor-pointer;
@@ -45,7 +45,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     }
 
     .gl-legend-inline-series-label {
-      @include gl-mr-3;
+      @apply gl-mr-3;
     }
   }
 }
@@ -68,7 +68,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
   .gl-legend-tabular-header-cell {
     @include gl-font-weight-bold;
     @include gl-line-height-24;
-    @include gl-px-3;
+    @apply gl-px-3;
   }
 
   .gl-legend-tabular-body {
@@ -87,7 +87,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
   .gl-legend-tabular-title-cell,
   .gl-legend-tabular-details-cell {
     @include gl-line-height-24;
-    @include gl-px-3;
+    @apply gl-px-3;
   }
 
   .gl-legend-tabular-title-cell {

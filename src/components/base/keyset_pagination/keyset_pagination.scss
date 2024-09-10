@@ -3,7 +3,7 @@
   // for the reasoning behind the double .gl-button.gl-button
   .gl-button.gl-button {
     .gl-icon {
-      @include gl-m-0;
+      @apply gl-m-0;
     }
   }
 }

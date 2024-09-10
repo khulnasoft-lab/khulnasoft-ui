@@ -7,10 +7,10 @@ $breadcrumb-max-width: $grid-size * 16;
 
 .gl-breadcrumb-list {
   @include gl-bg-transparent;
-  @include gl-p-0;
+  @apply gl-p-0;
   @include gl-align-items-center;
   @include gl-line-height-normal;
-  @include gl-m-0;
+  @apply gl-m-0;
   @include gl-flex-nowrap;
   @include gl-max-w-full;
 }
@@ -23,7 +23,7 @@ $breadcrumb-max-width: $grid-size * 16;
 
   &:not(:last-child)::after {
     color: var(--gl-breadcrumb-separator-color);
-    @include gl-px-3;
+    @apply gl-px-3;
     content: '/';
   }
 

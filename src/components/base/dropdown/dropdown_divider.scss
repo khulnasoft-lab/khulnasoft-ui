@@ -1,9 +1,9 @@
 @mixin gl-tmp-dropdown-divider-style {
   @include gl-overflow-hidden;
   @include gl-h-0;
-  @include gl-my-2;
-  @include gl-mx-0;
-  @include gl-p-0;
+  @apply gl-my-2;
+  @apply gl-mx-0;
+  @apply gl-p-0;
   @apply gl-border-t-1 gl-border-t-solid gl-border-t-gray-200;
 }
 

@@ -55,7 +55,7 @@ $toggle-height: 2.5 * $grid-size;
 }
 
 .gl-help-label {
-  @include gl-mt-3;
+  @apply gl-mt-3;
   @include gl-text-gray-500;
   @include gl-font-weight-normal;
 }
@@ -66,13 +66,13 @@ $toggle-height: 2.5 * $grid-size;
 
   .gl-toggle-label {
     @include gl-white-space-nowrap;
-    @include gl-mb-0;
-    @include gl-mr-3;
+    @apply gl-mb-0;
+    @apply gl-mr-3;
   }
 
   .gl-help-label {
-    @include gl-mt-0;
-    @include gl-ml-3;
+    @apply gl-mt-0;
+    @apply gl-ml-3;
   }
 }
 
@@ -129,7 +129,7 @@ $toggle-height: 2.5 * $grid-size;
     top: $gl-spacing-scale-1;
     @include gl-transition-medium;
     @include gl-justify-content-center;
-    @include gl-p-1;
+    @apply gl-p-1;
 
     > svg {
       @include gl-w-4;

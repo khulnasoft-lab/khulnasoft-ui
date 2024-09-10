@@ -9,7 +9,7 @@
 
   &-label {
     @include gl-line-height-normal;
-    @include gl-mr-7;
+    @apply gl-mr-7;
   }
 
   &-value {

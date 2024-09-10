@@ -4,8 +4,8 @@
 
 .gl-tab-nav-item {
   position: relative;
-  @include gl-px-4;
-  @include gl-py-5;
+  @apply gl-px-4;
+  @apply gl-py-5;
   @include gl-line-height-normal;
   @include gl-font-base;
   @include gl-display-flex;
@@ -58,12 +58,12 @@
 
   > .gl-tab-counter-badge {
     font-weight: inherit;
-    @include gl-ml-2;
+    @apply gl-ml-2;
   }
 }
 
 .gl-tab-content {
-  @include gl-py-3;
+  @apply gl-py-3;
   @include gl-font-base;
   @include gl-line-height-normal;
   color: var(--gl-text-color-default);
@@ -106,7 +106,7 @@
   @include gl-w-full;
   @include gl-display-flex;
   @include gl-flex-direction-column;
-  @include gl-mt-3;
+  @apply gl-mt-3;
   @include gl-md-display-none;
 }
 
@@ -116,20 +116,20 @@
   @include gl-justify-content-end;
   @include gl-align-items-center;
   @include gl-flex-direction-row;
-  @include gl-mt-0;
+  @apply gl-mt-0;
   @include gl-md-display-flex;
 }
 
 .gl-actions-tabs-start,
 .gl-actions-tabs-end {
   button {
-    @include gl-mb-3;
+    @apply gl-mb-3;
     @include gl-md-mr-3;
     @include gl-md-mb-0;
   }
 
   button:last-child {
-    @include gl-m-0;
+    @apply gl-m-0;
   }
 }
 
@@ -137,7 +137,7 @@
   @include gl-w-8;
   bottom: 0;
   position: sticky;
-  @include gl-p-2;
+  @apply gl-p-2;
 }
 
 .gl-tabs-fade-left {
@@ -153,7 +153,7 @@
 .gl-tabs-fade-icon-button {
   @apply gl-border;
   @include gl-action-neutral-colors;
-  @include gl-p-0;
+  @apply gl-p-0;
   @include gl-h-full;
 }
 

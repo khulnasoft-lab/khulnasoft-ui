@@ -5,9 +5,9 @@
   @include gl-flex-basis-0;
   @include gl-overflow-hidden;
   @include gl-align-items-center;
-  @include gl-py-2;
-  @include gl-pl-4;
-  @include gl-pr-7;
+  @apply gl-py-2;
+  @apply gl-pl-4;
+  @apply gl-pr-7;
   @include gl-inset-border-1-gray-400;
   @apply gl-border-none;
   @apply gl-rounded-base;
@@ -29,10 +29,10 @@
 
 .gl-filtered-search-item {
   @include gl-display-flex;
-  @include gl-px-1;
+  @apply gl-px-1;
 
   &:first-child {
-    @include gl-pl-0;
+    @apply gl-pl-0;
   }
 }
 
@@ -44,8 +44,8 @@
   }
 
   @include gl-flex-grow-1;
-  @include gl-p-0;
-  @include gl-pl-1;
+  @apply gl-p-0;
+  @apply gl-pl-1;
   @include gl-h-6;
   min-width: $gl-spacing-scale-12;
 }

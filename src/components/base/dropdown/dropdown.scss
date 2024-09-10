@@ -3,19 +3,19 @@
     @apply gl-border-1 gl-border-gray-200;
     @apply gl-rounded-base;
     @include gl-bg-white;
-    @include gl-mt-2;
-    @include gl-mb-2;
-    @include gl-p-0;
+    @apply gl-mt-2;
+    @apply gl-mb-2;
+    @apply gl-p-0;
     @include gl-shadow-x0-y2-b4-s0;
     width: $gl-dropdown-width;
 
     .gl-search-box-by-type {
-      @include gl-m-3;
+      @apply gl-m-3;
     }
   }
 
   .dropdown-menu li {
-    @include gl-p-0;
+    @apply gl-p-0;
   }
 
   .gl-dropdown-inner {
@@ -24,11 +24,11 @@
     max-height: $gl-max-dropdown-max-height;
 
     > :first-child {
-      @include gl-pt-3;
+      @apply gl-pt-3;
     }
 
     > :last-child {
-      @include gl-pb-3;
+      @apply gl-pb-3;
     }
   }
 
@@ -44,10 +44,10 @@
     @include gl-font-weight-bold;
     @include gl-justify-content-center;
     @include gl-line-height-normal;
-    @include gl-m-0;
-    @include gl-mb-3;
-    @include gl-pb-3;
-    @include gl-px-5;
+    @apply gl-m-0;
+    @apply gl-mb-3;
+    @apply gl-pb-3;
+    @apply gl-px-5;
   }
 
   .gl-dropdown-header {
@@ -56,7 +56,7 @@
 
   .gl-dropdown-footer {
     @apply gl-border-t-1 gl-border-t-solid gl-border-t-gray-200;
-    @include gl-py-3;
+    @apply gl-py-3;
   }
 
   .dropdown-toggle {
@@ -67,16 +67,16 @@
 
     &.gl-button,
     &.gl-button.btn-block {
-      @include gl-pr-3;
+      @apply gl-pr-3;
 
       &.btn-sm {
-        @include gl-pr-2;
+        @apply gl-pr-2;
       }
     }
 
     &.dropdown-toggle-no-caret,
     &.dropdown-toggle-no-caret.btn-sm {
-      @include gl-p-3;
+      @apply gl-p-3;
 
       .dropdown-chevron {
         display: none;
@@ -113,10 +113,10 @@
     }
 
     &.gl-button {
-      @include gl-px-3;
+      @apply gl-px-3;
 
       &.btn-sm {
-        @include gl-px-2;
+        @apply gl-px-2;
       }
     }
   }
@@ -146,8 +146,8 @@
   // The `&.dropdown` is necessary to strengthen the specificity of these selectors
   &.dropdown {
     &.btn-sm .gl-icon {
-      @include gl-mt-0;
-      @include gl-mb-0;
+      @apply gl-mt-0;
+      @apply gl-mb-0;
 
       &.dropdown-chevron {
         @include gl-h-5;
@@ -158,40 +158,40 @@
     .gl-button .dropdown-chevron,
     .gl-button.btn-block .dropdown-chevron,
     .dropdown-chevron {
-      @include gl-ml-2;
-      @include gl-mr-0;
+      @apply gl-ml-2;
+      @apply gl-mr-0;
     }
   }
 
   .dropdown-icon {
-    @include gl-mr-2;
+    @apply gl-mr-2;
   }
 
   .dropdown-icon-text,
   .dropdown-icon-only {
-    @include gl-pl-3;
+    @apply gl-pl-3;
   }
 
   .dropdown-icon-only {
     .dropdown-icon,
     .gl-button-icon.gl-button-icon {
-      @include gl-mr-0;
+      @apply gl-mr-0;
     }
 
     &.btn-sm .dropdown-chevron {
-      @include gl-mx-0;
+      @apply gl-mx-0;
     }
   }
 
   .split-content-button {
-    @include gl-px-4;
+    @apply gl-px-4;
   }
 
   .icon-split-content-button {
-    @include gl-pl-3;
+    @apply gl-pl-3;
 
     .dropdown-icon {
-      @include gl-mr-0;
+      @apply gl-mr-0;
     }
   }
 }

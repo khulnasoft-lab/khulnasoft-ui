@@ -241,8 +241,8 @@ $badge-min-width: $gl-spacing-scale-3;
 // overriding Bootstap's `.btn .badge {top: -1px}` as the badge is not vertically centered otherwise
 .gl-button .gl-badge {
   top: 0;
-  @include gl-py-0;
-  @include gl-px-2;
+  @apply gl-py-0;
+  @apply gl-px-2;
 }
 
 .gl-new-dropdown-contents .gl-badge,

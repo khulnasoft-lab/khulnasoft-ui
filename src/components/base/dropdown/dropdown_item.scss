@@ -6,8 +6,8 @@
   @include gl-font-base;
   @include gl-font-weight-normal;
   @include gl-line-height-normal;
-  @include gl-px-5;
-  @include gl-py-0;
+  @apply gl-px-5;
+  @apply gl-py-0;
   position: relative;
   @include gl-rounded-0;
   @include gl-shadow-none;
@@ -24,34 +24,34 @@
 
     .gl-avatar {
       @include gl-flex-shrink-0;
-      @include gl-mr-3;
+      @apply gl-mr-3;
     }
 
     .gl-dropdown-item-check-icon {
       @include gl-flex-shrink-0;
-      @include gl-mr-3;
+      @apply gl-mr-3;
       @include gl-text-gray-700;
     }
 
     .gl-dropdown-item-icon {
       @include gl-flex-shrink-0;
-      @include gl-mr-3;
+      @apply gl-mr-3;
     }
 
     .gl-dropdown-item-text-primary {
-      @include gl-m-0;
+      @apply gl-m-0;
     }
 
     .gl-dropdown-item-text-secondary {
-      @include gl-m-0;
+      @apply gl-m-0;
       @include gl-text-gray-700;
     }
 
     .gl-dropdown-item-text-wrapper {
       @include gl-min-w-0;
       @include gl-flex-grow-1;
-      @include gl-mr-3;
-      @include gl-py-3;
+      @apply gl-mr-3;
+      @apply gl-py-3;
     }
 
     // make sure the text color is not overridden

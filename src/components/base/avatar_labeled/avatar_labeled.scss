@@ -2,7 +2,7 @@
   @include gl-display-inline-flex;
 
   &-labels {
-    @include gl-ml-3;
+    @apply gl-ml-3;
     @include gl-display-flex;
     @include gl-flex-direction-column;
     @include gl-justify-content-center;
@@ -19,7 +19,7 @@
 
   &-label {
     @include gl-font-weight-bold;
-    @include gl-p-1;
+    @apply gl-p-1;
     color: var(--gl-text-color-strong);
   }
 

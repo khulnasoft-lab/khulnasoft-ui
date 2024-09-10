@@ -256,7 +256,7 @@
 
 @mixin gl-md-pt-12 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pt-12;
+    @apply gl-pt-12;
   }
 }
 
@@ -979,43 +979,43 @@
 */
 @mixin gl-sm-ml-3 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-ml-3;
+    @apply gl-ml-3;
   }
 }
 
 @mixin gl-sm-ml-5 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-ml-5;
+    @apply gl-ml-5;
   }
 }
 
 @mixin gl-sm-ml-7 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-ml-7;
+    @apply gl-ml-7;
   }
 }
 
 @mixin gl-sm-mr-0 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-mr-0;
+    @apply gl-mr-0;
   }
 }
 
 @mixin gl-sm-mt-0 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-mt-0;
+    @apply gl-mt-0;
   }
 }
 
 @mixin gl-sm-mt-5 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 }
 
 @mixin gl-sm-mt-6 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-mt-6;
+    @apply gl-mt-6;
   }
 }
 
@@ -1027,67 +1027,67 @@
 
 @mixin gl-sm-mb-7 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-mb-7;
+    @apply gl-mb-7;
   }
 }
 
 @mixin gl-sm-my-12 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-my-12;
+    @apply gl-my-12;
   }
 }
 
 @mixin gl-sm-mx-0 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-mx-0;
+    @apply gl-mx-0;
   }
 }
 
 @mixin gl-md-mt-0 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mt-0;
+    @apply gl-mt-0;
   }
 }
 
 @mixin gl-md-mt-5 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 }
 
 @mixin gl-md-mb-0 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mb-0;
+    @apply gl-mb-0;
   }
 }
 
 @mixin gl-md-mb-3 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mb-3;
+    @apply gl-mb-3;
   }
 }
 
 @mixin gl-md-mb-6 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mb-6;
+    @apply gl-mb-6;
   }
 }
 
 @mixin gl-md-mb-12 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mb-12;
+    @apply gl-mb-12;
   }
 }
 
 @mixin gl-lg-mb-0 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-mb-0;
+    @apply gl-mb-0;
   }
 }
 
 @mixin gl-lg-mb-5 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-mb-5;
+    @apply gl-mb-5;
   }
 }
 
@@ -1099,43 +1099,43 @@
 
 @mixin gl-md-ml-2 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-ml-2;
+    @apply gl-ml-2;
   }
 }
 
 @mixin gl-md-ml-3 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-ml-3;
+    @apply gl-ml-3;
   }
 }
 
 @mixin gl-md-mr-0 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mr-0;
+    @apply gl-mr-0;
   }
 }
 
 @mixin gl-md-mr-3 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mr-3;
+    @apply gl-mr-3;
   }
 }
 
 @mixin gl-md-mr-5 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-mr-5;
+    @apply gl-mr-5;
   }
 }
 
 @mixin gl-lg-mr-2 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-mr-2;
+    @apply gl-mr-2;
   }
 }
 
 @mixin gl-lg-mr-3 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-mr-3;
+    @apply gl-mr-3;
   }
 }
 
@@ -1153,13 +1153,13 @@
 
 @mixin gl-lg-ml-2 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-ml-2;
+    @apply gl-ml-2;
   }
 }
 
 @mixin gl-lg-ml-3 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-ml-3;
+    @apply gl-ml-3;
   }
 }
 
@@ -1183,13 +1183,13 @@
 
 @mixin gl-lg-mx-2 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-mx-2;
+    @apply gl-mx-2;
   }
 }
 
 @mixin gl-lg-mx-3 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-mx-3;
+    @apply gl-mx-3;
   }
 }
 
@@ -1202,19 +1202,19 @@
 
 @mixin gl-lg-my-5 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-my-5;
+    @apply gl-my-5;
   }
 }
 
 @mixin gl-lg-mt-0 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-mt-0;
+    @apply gl-mt-0;
   }
 }
 
 @mixin gl-lg-mt-5 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 }
 
@@ -1228,325 +1228,325 @@
 
 @mixin gl-sm-pr-2 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-pr-2;
+    @apply gl-pr-2;
   }
 }
 
 @mixin gl-sm-pr-4 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-pr-4;
+    @apply gl-pr-4;
   }
 }
 
 @mixin gl-sm-pl-0 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-pl-0;
+    @apply gl-pl-0;
   }
 }
 
 @mixin gl-sm-pl-6 {
   @include gl-media-breakpoint-up(sm) {
-    @include gl-pl-6;
+    @apply gl-pl-6;
   }
 }
 
 @mixin gl-md-pt-0 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pt-0;
+    @apply gl-pt-0;
   }
 }
 
 @mixin gl-md-pt-1 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pt-1;
+    @apply gl-pt-1;
   }
 }
 
 @mixin gl-md-pt-2 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pt-2;
+    @apply gl-pt-2;
   }
 }
 
 @mixin gl-md-pt-3 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pt-3;
+    @apply gl-pt-3;
   }
 }
 
 @mixin gl-md-pt-4 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pt-4;
+    @apply gl-pt-4;
   }
 }
 
 @mixin gl-md-pt-5 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pt-5;
+    @apply gl-pt-5;
   }
 }
 
 @mixin gl-md-pt-11 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pt-11;
+    @apply gl-pt-11;
   }
 }
 
 @mixin gl-md-pr-0 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pr-0;
+    @apply gl-pr-0;
   }
 }
 
 @mixin gl-md-pr-1 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pr-1;
+    @apply gl-pr-1;
   }
 }
 
 @mixin gl-md-pr-3 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pr-3;
+    @apply gl-pr-3;
   }
 }
 
 @mixin gl-md-pr-4 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pr-4;
+    @apply gl-pr-4;
   }
 }
 
 @mixin gl-md-pr-5 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pr-5;
+    @apply gl-pr-5;
   }
 }
 
 @mixin gl-md-pb-0 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pb-0;
+    @apply gl-pb-0;
   }
 }
 
 @mixin gl-md-pb-1 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pb-1;
+    @apply gl-pb-1;
   }
 }
 
 @mixin gl-md-pb-2 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pb-2;
+    @apply gl-pb-2;
   }
 }
 
 @mixin gl-md-pb-3 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pb-3;
+    @apply gl-pb-3;
   }
 }
 
 @mixin gl-md-pb-4 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pb-4;
+    @apply gl-pb-4;
   }
 }
 
 @mixin gl-md-pb-5 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pb-5;
+    @apply gl-pb-5;
   }
 }
 
 @mixin gl-md-pl-0 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pl-0;
+    @apply gl-pl-0;
   }
 }
 
 @mixin gl-md-pl-1 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pl-1;
+    @apply gl-pl-1;
   }
 }
 
 @mixin gl-md-pl-2 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pl-2;
+    @apply gl-pl-2;
   }
 }
 
 @mixin gl-md-pl-3 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pl-3;
+    @apply gl-pl-3;
   }
 }
 
 @mixin gl-md-pl-4 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pl-4;
+    @apply gl-pl-4;
   }
 }
 
 @mixin gl-md-pl-5 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pl-5;
+    @apply gl-pl-5;
   }
 }
 
 @mixin gl-md-pl-7 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-pl-7;
+    @apply gl-pl-7;
   }
 }
 
 @mixin gl-md-px-7 {
   @include gl-media-breakpoint-up(md) {
-    @include gl-px-7;
+    @apply gl-px-7;
   }
 }
 
 @mixin gl-lg-pt-0 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pt-0;
+    @apply gl-pt-0;
   }
 }
 
 @mixin gl-lg-pt-1 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pt-1;
+    @apply gl-pt-1;
   }
 }
 
 @mixin gl-lg-pt-2 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pt-2;
+    @apply gl-pt-2;
   }
 }
 
 @mixin gl-lg-pt-3 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pt-3;
+    @apply gl-pt-3;
   }
 }
 
 @mixin gl-lg-pt-4 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pt-4;
+    @apply gl-pt-4;
   }
 }
 
 @mixin gl-lg-pt-5 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pt-5;
+    @apply gl-pt-5;
   }
 }
 
 @mixin gl-lg-pr-0 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pr-0;
+    @apply gl-pr-0;
   }
 }
 
 @mixin gl-lg-pr-1 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pr-1;
+    @apply gl-pr-1;
   }
 }
 
 @mixin gl-lg-pr-2 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pr-2;
+    @apply gl-pr-2;
   }
 }
 
 @mixin gl-lg-pr-3 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pr-3;
+    @apply gl-pr-3;
   }
 }
 
 @mixin gl-lg-pr-4 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pr-4;
+    @apply gl-pr-4;
   }
 }
 
 @mixin gl-lg-pr-5 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pr-5;
+    @apply gl-pr-5;
   }
 }
 
 @mixin gl-lg-pb-0 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pb-0;
+    @apply gl-pb-0;
   }
 }
 
 @mixin gl-lg-pb-1 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pb-1;
+    @apply gl-pb-1;
   }
 }
 
 @mixin gl-lg-pb-2 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pb-2;
+    @apply gl-pb-2;
   }
 }
 
 @mixin gl-lg-pb-3 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pb-3;
+    @apply gl-pb-3;
   }
 }
 
 @mixin gl-lg-pb-4 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pb-4;
+    @apply gl-pb-4;
   }
 }
 
 @mixin gl-lg-pb-5 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pb-5;
+    @apply gl-pb-5;
   }
 }
 
 @mixin gl-lg-pl-0 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pl-0;
+    @apply gl-pl-0;
   }
 }
 
 @mixin gl-lg-pl-1 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pl-1;
+    @apply gl-pl-1;
   }
 }
 
 @mixin gl-lg-pl-2 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pl-2;
+    @apply gl-pl-2;
   }
 }
 
 @mixin gl-lg-pl-3 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pl-3;
+    @apply gl-pl-3;
   }
 }
 
 @mixin gl-lg-pl-4 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pl-4;
+    @apply gl-pl-4;
   }
 }
 
 @mixin gl-lg-pl-5 {
   @include gl-media-breakpoint-up(lg) {
-    @include gl-pl-5;
+    @apply gl-pl-5;
   }
 }
 

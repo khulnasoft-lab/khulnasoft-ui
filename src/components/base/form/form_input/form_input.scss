@@ -3,8 +3,8 @@
   @include gl-font-regular;
   @include gl-font-base;
   @include gl-line-height-normal;
-  @include gl-py-3;
-  @include gl-px-4;
+  @apply gl-py-3;
+  @apply gl-px-4;
   @include gl-h-auto;
   @apply gl-border-none;
   @include form-control-focus($ignore-warning: true);

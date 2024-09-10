@@ -21,8 +21,8 @@
   .gl-h5,
   .gl-h6 {
     @include gl-font-weight-bold;
-    @include gl-mt-0;
-    @include gl-mb-0;
+    @apply gl-mt-0;
+    @apply gl-mb-0;
   }
 
   .h-display {
@@ -67,12 +67,12 @@
   .gl-paragraph {
     @include gl-font-base;
     @include gl-line-height-20;
-    @include gl-mt-0;
-    @include gl-mb-0;
+    @apply gl-mt-0;
+    @apply gl-mb-0;
 
     + p,
     + .gl-paragraph {
-      @include gl-mt-5;
+      @apply gl-mt-5;
     }
 
     &.lg {
@@ -94,10 +94,10 @@
 
   blockquote {
     @include gl-text-gray-700;
-    @include gl-py-3;
-    @include gl-pl-6;
-    @include gl-my-3;
-    @include gl-mx-0;
+    @apply gl-py-3;
+    @apply gl-pl-6;
+    @apply gl-my-3;
+    @apply gl-mx-0;
     @include gl-inset-border-l-4-gray-100;
   }
 }

@@ -35,9 +35,9 @@
     position: relative;
     @include gl-flex-grow-1;
     @include gl-overflow-y-auto;
-    @include gl-pl-0;
-    @include gl-mb-0;
-    @include gl-py-2;
+    @apply gl-pl-0;
+    @apply gl-mb-0;
+    @apply gl-py-2;
     @include gl-list-style-none;
 
     &:focus-visible {
@@ -52,10 +52,10 @@
   .gl-new-dropdown-toggle {
     // optically align the caret
     &.gl-button:not(.gl-new-dropdown-toggle-no-caret) {
-      @include gl-pr-3;
+      @apply gl-pr-3;
 
       &.btn-sm {
-        @include gl-pr-2;
+        @apply gl-pr-2;
       }
     }
 
@@ -77,7 +77,7 @@
   }
 
   &.btn-sm .gl-icon {
-    @include gl-my-0;
+    @apply gl-my-0;
 
     &.gl-new-dropdown-chevron {
       @include gl-h-5;
@@ -86,35 +86,35 @@
   }
 
   .gl-button .gl-button-icon.gl-new-dropdown-chevron {
-    @include gl-ml-2;
-    @include gl-mr-0;
+    @apply gl-ml-2;
+    @apply gl-mr-0;
   }
 
   .gl-new-dropdown-icon-only {
     // optically align the caret
     &.gl-button:not(.gl-new-dropdown-toggle-no-caret) {
-      @include gl-pr-2;
+      @apply gl-pr-2;
 
       &.btn-sm {
-        @include gl-pr-0;
+        @apply gl-pr-0;
       }
     }
 
     .gl-button-icon.gl-button-icon {
-      @include gl-mr-0;
+      @apply gl-mr-0;
     }
 
     &.btn-sm .gl-new-dropdown-chevron {
-      @include gl-mx-0;
+      @apply gl-mx-0;
     }
   }
 
   .gl-new-dropdown-caret-only {
     // optically center the caret
-    @include gl-pl-2;
+    @apply gl-pl-2;
 
     &.btn-sm {
-      @include gl-pl-0;
+      @apply gl-pl-0;
     }
   }
 

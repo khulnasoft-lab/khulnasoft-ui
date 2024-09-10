@@ -1,13 +1,13 @@
 .gl-accordion-item {
-  @include gl-mb-5;
+  @apply gl-mb-5;
 
   .gl-accordion-item-header {
-    @include gl-m-0;
+    @apply gl-m-0;
     @include gl-line-height-normal;
   }
 
   &:last-child {
-    @include gl-mb-0;
+    @apply gl-mb-0;
   }
 
   .collapse {

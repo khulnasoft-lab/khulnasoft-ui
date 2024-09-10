@@ -1,16 +1,16 @@
 .gl-form-group {
-  @include gl-mb-5;
+  @apply gl-mb-5;
 
   .col-form-label {
     @include gl-font-base;
     @include gl-font-weight-bold;
     @include gl-line-height-normal;
-    @include gl-pt-0;
-    @include gl-pb-3;
+    @apply gl-pt-0;
+    @apply gl-pb-3;
     color: var(--gl-text-color-strong);
 
     > .label-description {
-      @include gl-mt-3;
+      @apply gl-mt-3;
       color: var(--gl-text-color-subtle);
     }
   }
@@ -49,7 +49,7 @@
     &.is-valid + .invalid-feedback + .gl-text-secondary {
       // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2806
       // for the reasoning behind the "valid+invalid" selector above
-      @include gl-mt-3;
+      @apply gl-mt-3;
     }
   }
 

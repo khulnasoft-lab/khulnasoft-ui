@@ -39,7 +39,7 @@ $gl-loader-dots-size-xl: 1rem;
   @include gl-rounded-full;
   @apply gl-border-solid;
   @include gl-mx-auto;
-  @include gl-my-0;
+  @apply gl-my-0;
   @include gl-font-base;
 
   animation-name: gl-spinner-rotate;

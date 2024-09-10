@@ -4,8 +4,8 @@
   @include gl-line-height-normal;
   @include gl-text-left;
   @include gl-font-weight-bold;
-  @include gl-py-3;
-  @include gl-px-4;
+  @apply gl-py-3;
+  @apply gl-px-4;
   @include gl-white-space-normal;
 }
 

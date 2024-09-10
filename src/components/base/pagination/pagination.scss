@@ -8,12 +8,12 @@
   .page-link {
     @apply gl-border-gray-200;
     @include gl-line-height-normal;
-    @include gl-px-4;
-    @include gl-py-3;
+    @apply gl-px-4;
+    @apply gl-py-3;
 
     &.prev-page-item,
     &.next-page-item {
-      @include gl-px-3;
+      @apply gl-px-3;
     }
 
     &:not(.active):hover {

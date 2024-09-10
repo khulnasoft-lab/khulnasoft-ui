@@ -31,7 +31,7 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
 
   .duo-chat-drawer-header,
   .duo-chat-drawer-body > * {
-    @include gl-p-5;
+    @apply gl-p-5;
   }
 }
 
@@ -69,7 +69,7 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
 
 .duo-chat-drawer-footer {
   @apply gl-border-t-solid gl-border-t-gray-100 gl-border-t-1;
-  @include gl-p-5;
+  @apply gl-p-5;
 }
 
 .duo-chat-drawer-footer-sticky {
@@ -144,7 +144,7 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
     content: attr(data-value) ' ';
     @include gl-visibility-hidden;
     @include gl-white-space-pre-wrap;
-    @include gl-py-4;
+    @apply gl-py-4;
   }
 }
 
@@ -158,7 +158,7 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
 
   .gl-dropdown-item button.dropdown-item {
     @include gl-font-sm;
-    @include gl-px-3;
+    @apply gl-px-3;
     @include gl-bg-none;
 
     &:hover {

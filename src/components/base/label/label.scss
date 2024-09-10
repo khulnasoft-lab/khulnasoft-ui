@@ -70,7 +70,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     height: px-to-rem(14px);
     margin-left: -$label-padding-horizontal-half;
     margin-right: $label-padding-horizontal-half;
-    @include gl-p-0;
+    @apply gl-p-0;
     @include gl-rounded-full;
     @include gl-shadow-none;
 

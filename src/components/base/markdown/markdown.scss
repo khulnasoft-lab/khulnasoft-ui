@@ -6,53 +6,53 @@
   @include gl-font-weight-normal;
 
   :first-child {
-    @include gl-mt-0;
+    @apply gl-mt-0;
   }
 
   h1,
   .gl-h1 {
     @include gl-heading-1;
-    @include gl-mt-7;
+    @apply gl-mt-7;
   }
 
   h2,
   .gl-h2 {
     @include gl-heading-2;
-    @include gl-mt-6;
+    @apply gl-mt-6;
   }
 
   h3,
   .gl-h3 {
     @include gl-heading-3;
-    @include gl-mt-6;
+    @apply gl-mt-6;
   }
 
   h4,
   .gl-h4 {
     @include gl-heading-4;
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 
   h5,
   .gl-h5 {
     @include gl-heading-5;
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 
   h6,
   .gl-h6 {
     @include gl-heading-6;
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 
   p,
   .gl-paragraph {
-    @include gl-mt-0;
-    @include gl-mb-0;
+    @apply gl-mt-0;
+    @apply gl-mb-0;
 
     + p,
     + .gl-paragraph {
-      @include gl-mt-5;
+      @apply gl-mt-5;
     }
 
     &.sm {
@@ -73,17 +73,17 @@
 
   blockquote {
     @include gl-text-gray-700;
-    @include gl-py-3;
-    @include gl-pl-6;
-    @include gl-my-3;
-    @include gl-mx-0;
+    @apply gl-py-3;
+    @apply gl-pl-6;
+    @apply gl-my-3;
+    @apply gl-mx-0;
     @include gl-inset-border-l-4-gray-100;
   }
 
   .idiff {
     @apply gl-rounded-base;
     @include gl-display-inline-flex;
-    @include gl-px-2;
+    @apply gl-px-2;
   }
 
   .deletion {
@@ -98,23 +98,23 @@
     @apply gl-rounded-base;
     @include gl-bg-gray-50;
     @include gl-text-gray-950;
-    @include gl-px-2;
-    @include gl-py-1;
+    @apply gl-px-2;
+    @apply gl-py-1;
   }
 
   pre {
     @apply gl-rounded-base;
-    @include gl-py-3;
-    @include gl-px-4;
+    @apply gl-py-3;
+    @apply gl-px-4;
     @include gl-inset-border-1-gray-100;
-    @include gl-my-7;
+    @apply gl-my-7;
     @include gl-overflow-auto;
 
     code {
       @include gl-bg-white;
       @include gl-rounded-0;
       @include gl-text-gray-900;
-      @include gl-p-0;
+      @apply gl-p-0;
     }
   }
 
@@ -128,10 +128,10 @@
     }
 
     a {
-      @include gl-mt-3;
+      @apply gl-mt-3;
 
       &::before {
-        @include gl-mr-2;
+        @apply gl-mr-2;
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
         content: '📎';
@@ -140,12 +140,12 @@
   }
 
   table {
-    @include gl-my-7;
+    @apply gl-my-7;
 
     th,
     td {
-      @include gl-px-3;
-      @include gl-py-4;
+      @apply gl-px-3;
+      @apply gl-py-4;
       @include gl-inset-border-b-1-gray-100;
       @include gl-vertical-align-top;
     }
@@ -172,37 +172,37 @@
   h1,
   .gl-h1 {
     @include gl-heading-1-fixed;
-    @include gl-mt-7; 
+    @apply gl-mt-7;
   }
 
   h2,
   .gl-h2 {
     @include gl-heading-2-fixed;
-    @include gl-mt-6;
+    @apply gl-mt-6;
   }
 
   h3,
   .gl-h3 {
     @include gl-heading-3-fixed;
-    @include gl-mt-6;
+    @apply gl-mt-6;
   }
 
   h4,
   .gl-h4 {
     @include gl-heading-4-fixed;
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 
   h5,
   .gl-h5 {
     @include gl-heading-5-fixed;
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 
   h6,
   .gl-h6 {
     @include gl-heading-6-fixed;
-    @include gl-mt-5;
+    @apply gl-mt-5;
   }
 
   .sm {
@@ -217,7 +217,7 @@
   table {
     th,
     td {
-      @include gl-py-3;
+      @apply gl-py-3;
     }
   }
 }

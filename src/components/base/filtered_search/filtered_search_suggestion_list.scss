@@ -4,7 +4,7 @@
 .gl-filtered-search-suggestion-list.dropdown-menu {
   @include gl-display-block;
   width: $gl-dropdown-width;
-  @include gl-p-2;
+  @apply gl-p-2;
   @apply gl-border-gray-200;
   @include gl-rounded-lg;
   @include gl-shadow-md;
@@ -26,10 +26,10 @@
   }
 
   .gl-spinner-container {
-    @include gl-my-2;
+    @apply gl-my-2;
   }
 
   .gl-filtered-search-suggestion {
-    @include gl-p-0;
+    @apply gl-p-0;
   }
 }

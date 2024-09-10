@@ -7,7 +7,7 @@ table.gl-table {
     td {
       @apply gl-border-b-solid gl-border-b-1;
       border-color: var(--gl-border-color-default);
-      @include gl-p-5;
+      @apply gl-p-5;
       @include gl-bg-transparent;
       @include gl-line-height-normal;
       @include gl-font-base;
@@ -22,8 +22,8 @@ table.gl-table {
         flex-direction: row-reverse;
 
         div.gl-ml-2 {
-          @include gl-ml-0;
-          @include gl-mr-2;
+          @apply gl-ml-0;
+          @apply gl-mr-2;
         }
       }
 
@@ -62,7 +62,7 @@ table.gl-table {
   }
 
   caption {
-    @include gl-pt-2;
+    @apply gl-pt-2;
     color: var(--gl-text-color-subtle);
   }
 

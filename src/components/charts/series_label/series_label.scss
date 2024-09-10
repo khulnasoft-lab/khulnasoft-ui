@@ -7,7 +7,7 @@
 
 .gl-series-label-color {
   @include gl-flex-shrink-0;
-  @include gl-mr-3;
+  @apply gl-mr-3;
 
   svg {
     @include gl-display-block;

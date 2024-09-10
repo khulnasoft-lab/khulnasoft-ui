@@ -16,7 +16,7 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
   @include gl-line-height-20;
   padding-left: calc(#{$gl-spacing-scale-5} + #{$gl-broadcast-message-padding-x});
   padding-right: calc(#{$gl-spacing-scale-4} + #{$gl-broadcast-message-padding-x});
-  @include gl-py-5;
+  @apply gl-py-5;
 
   &.indigo {
     --gl-broadcast-message-bg-color: var(--gl-broadcast-banner-background-color-indigo);
@@ -113,7 +113,7 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
   }
 
   &-icon {
-    @include gl-mr-5;
+    @apply gl-mr-5;
     line-height: $gl-line-height-16;
 
     > svg {
@@ -129,6 +129,6 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
 
   &-dismiss {
     @include gl-my-n2;
-    @include gl-ml-5;
+    @apply gl-ml-5;
   }
 }

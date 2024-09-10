@@ -31,8 +31,8 @@ $path-chevron-right-margin: px-to-rem(14px);
   @include gl-display-flex;
 
   .gl-path-nav-list {
-    @include gl-p-1;
-    @include gl-m-0;
+    @apply gl-p-1;
+    @apply gl-m-0;
     @include gl-list-style-none;
     @include gl-display-inline-flex;
     @include gl-overflow-hidden;
@@ -52,8 +52,8 @@ $path-chevron-right-margin: px-to-rem(14px);
   }
 
   .gl-path-button {
-    @include gl-pl-5;
-    @include gl-py-3;
+    @apply gl-pl-5;
+    @apply gl-py-3;
     @include gl-display-flex;
     @include gl-font-base;
     @include gl-z-index-0;
@@ -152,7 +152,7 @@ $path-chevron-right-margin: px-to-rem(14px);
   }
 
   .gl-clear-icon-button {
-    @include gl-p-0;
+    @apply gl-p-0;
     @include gl-h-full;
     color: var(--gl-icon-color-subtle);
 
