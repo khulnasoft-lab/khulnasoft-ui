@@ -27,7 +27,7 @@
     @include gl-display-flex;
     @include gl-align-items-center;
     @include gl-justify-content-space-between;
-    background: var(--gl-feedback-strong-background-color);
+    background-color: var(--gl-feedback-strong-background-color);
     color: var(--gl-feedback-strong-text-color);
   }
 
