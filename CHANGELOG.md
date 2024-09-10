@@ -1,3 +1,10 @@
+# [91.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.14.0...v91.15.0) (2024-09-10)
+
+
+### Features
+
+* add duo chat context menu keyboard interactions ([a031d8c](https://gitlab.com/gitlab-org/gitlab-ui/commit/a031d8c823757e7a22138c3bdc7de9ff24c25da9))
+
 # [91.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.13.0...v91.14.0) (2024-09-10)
 
 
