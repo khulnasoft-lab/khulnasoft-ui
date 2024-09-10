@@ -1,3 +1,10 @@
+# [92.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.0.0...v92.1.0) (2024-09-10)
+
+
+### Features
+
+* **GlDuoChat:** add /include command, integrate context-item-menu ([3f664f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/3f664f89a35aa426bb043f1563cd2bdb9722878c))
+
 # [92.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.15.0...v92.0.0) (2024-09-10)
 
 
