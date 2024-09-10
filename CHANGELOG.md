@@ -1,3 +1,19 @@
+# [92.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.15.0...v92.0.0) (2024-09-10)
+
+
+### Features
+
+* **Feedback:** Update feedback tokens ([2f47efa](https://gitlab.com/gitlab-org/gitlab-ui/commit/2f47efa9e71154b7567f59d4c2029095ea35d91b))
+* **Modal:** Use new semantic bg tokens ([bf79388](https://gitlab.com/gitlab-org/gitlab-ui/commit/bf79388fc22d83a85408d9184b1072f288b144ac))
+* **Popover:** Use new semantic bg tokens ([6113aa2](https://gitlab.com/gitlab-org/gitlab-ui/commit/6113aa2e62a1c898ab484ae6ef0ca3047405de25))
+* **Toast:** Remove SCSS var ([fe32492](https://gitlab.com/gitlab-org/gitlab-ui/commit/fe3249273e048ace87c2e98398711032e3afc58a))
+
+
+### BREAKING CHANGES
+
+* **Popover:** Update the popover to use new semantic overlap design
+tokens and remove the contextual ones.
+
 # [91.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v91.14.0...v91.15.0) (2024-09-10)
 
 
