@@ -183,6 +183,11 @@ export default {
           }
 
           this.selectedCategory = null;
+
+          /**
+           * Emitted when the parent GlDuoChat component should refocus on the main prompt input
+           */
+          this.$emit('focus-prompt');
           break;
         default:
           break;

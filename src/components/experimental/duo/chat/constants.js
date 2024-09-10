@@ -1,6 +1,7 @@
 export const CHAT_RESET_MESSAGE = '/reset';
 export const CHAT_CLEAN_MESSAGE = '/clean';
 export const CHAT_CLEAR_MESSAGE = '/clear';
+export const CHAT_INCLUDE_MESSAGE = '/include';
 
 export const LOADING_TRANSITION_DURATION = 7500;
 

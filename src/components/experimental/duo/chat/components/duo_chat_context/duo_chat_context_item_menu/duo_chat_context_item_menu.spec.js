@@ -179,6 +179,11 @@ describe('GlDuoChatContextItemMenu', () => {
         expect(findResultItems().exists()).toBe(false);
       });
 
+      it('refocuses on parent prompt when clearing category selection', async () => {
+        await triggerKeyUp('Escape');
+        expect(wrapper.emitted('focus-prompt')).toHaveLength(1);
+      });
+
       it('selects the item when enter is pressed', async () => {
         await triggerKeyUp('Enter');
         expect(wrapper.emitted('select').at(0)).toEqual([results.at(0)]);

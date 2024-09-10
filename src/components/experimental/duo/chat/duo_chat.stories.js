@@ -1,6 +1,12 @@
 import GlButton from '../../../base/button/button.vue';
 import GlAlert from '../../../base/alert/alert.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
+import { setStoryTimeout } from '../../../../utils/test_utils';
+import GlDuoChatContextItemMenu from './components/duo_chat_context/duo_chat_context_item_menu/duo_chat_context_item_menu.vue';
+import {
+  getMockContextItems,
+  MOCK_CATEGORIES,
+} from './components/duo_chat_context/mock_context_data';
 import GlDuoChat from './duo_chat.vue';
 import readme from './duo_chat.md';
 import { CHAT_CLEAN_MESSAGE, CHAT_CLEAR_MESSAGE } from './constants';
@@ -8,9 +14,12 @@ import {
   MOCK_RESPONSE_MESSAGE,
   MOCK_USER_PROMPT_MESSAGE,
   SLASH_COMMANDS as slashCommands,
+  INCLUDE_SLASH_COMMAND,
   generateMockResponseChunks,
   renderGFM,
 } from './mock_data';
+
+const sampleContextItems = getMockContextItems();
 
 const defaultValue = (prop) =>
   typeof GlDuoChat.props[prop].default === 'function'
@@ -43,7 +52,7 @@ const generateProps = ({
   badgeHelpPageUrl,
   badgeType,
   toolName,
-  slashCommands,
+  slashCommands: [...slashCommands, INCLUDE_SLASH_COMMAND],
   showHeader,
   emptyStateTitle,
   emptyStateDescription,
@@ -83,7 +92,7 @@ Default.args = generateProps({
 Default.decorators = [makeContainer({ height: '800px' })];
 
 export const Interactive = (args, { argTypes }) => ({
-  components: { GlDuoChat, GlButton },
+  components: { GlDuoChat, GlDuoChatContextItemMenu, GlButton },
   props: Object.keys(argTypes),
   provide: {
     renderGFM,
@@ -98,8 +107,13 @@ export const Interactive = (args, { argTypes }) => ({
       timeout: null,
       requestId: 1,
       canceledMessageRequestIds: [],
+      contextItems: [],
+      contextItemsLoading: false,
+      contextItemsError: null,
+      contextItemsResults: [],
     };
   },
+  MOCK_CONTEXT_ITEM_CATEGORIES: MOCK_CATEGORIES,
   methods: {
     onSendChatPrompt(prompt) {
       const newPrompt = {
@@ -166,6 +180,30 @@ export const Interactive = (args, { argTypes }) => ({
         ...newResponse,
       });
     },
+    handleContextItemsSearch({ category, query }) {
+      this.contextItemsLoading = true;
+      this.contextItemsError = null;
+      setStoryTimeout(() => {
+        this.contextItemsLoading = false;
+        this.contextItemsResults = sampleContextItems
+          .filter((item) => item.type === category)
+          .filter(
+            (item) => !query || item.metadata.name.toLowerCase().includes(query.toLowerCase())
+          )
+          .filter((item) => !this.contextItems.some((contextItem) => contextItem.id === item.id));
+      }, 300);
+    },
+    handleContextItemSelect(item) {
+      if (!this.contextItems.some((i) => i.id === item.id)) {
+        this.contextItems.push(item);
+      }
+    },
+    handleContextItemRemove(item) {
+      const index = this.contextItems.findIndex((i) => i.id === item.id);
+      if (index !== -1) {
+        this.contextItems.splice(index, 1);
+      }
+    },
   },
   template: `
   <div style="height: 800px">
@@ -199,7 +237,24 @@ export const Interactive = (args, { argTypes }) => ({
       @chat-hidden="onChatHidden"
       @chat-cancel="onChatCancel"
       @insert-code-snippet="onInsertCodeSnippet"
-    />
+    >
+      <template #context-items-menu="{ isOpen, onClose, setRef, focusPrompt }">
+        <gl-duo-chat-context-item-menu
+          :ref="setRef"
+          :open="isOpen"
+          :selections="contextItems"
+          :categories="$options.MOCK_CONTEXT_ITEM_CATEGORIES"
+          :loading="contextItemsLoading"
+          :error="contextItemsError"
+          :results="contextItemsResults"
+          @search="handleContextItemsSearch"
+          @select="handleContextItemSelect"
+          @remove="handleContextItemRemove"
+          @close="onClose"
+          @focus-prompt="focusPrompt"
+        />
+      </template>
+    </gl-duo-chat>
   </div>`,
 });
 Interactive.args = generateProps({});
