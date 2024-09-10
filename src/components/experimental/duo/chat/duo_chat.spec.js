@@ -834,20 +834,16 @@ describe('GlDuoChat', () => {
       });
     });
 
-    describe('methods called by external consumers', () => {
-      describe('focusChatInput', () => {
-        it('focuses on prompt', async () => {
-          const focusSpy = jest.fn();
-          jest.spyOn(HTMLElement.prototype, 'focus').mockImplementation(function focusMockImpl() {
-            focusSpy(this);
-          });
-          createComponent({ propsData: { messages } });
-
-          await wrapper.vm.focusChatInput();
-
+    describe('refs used by external consumers', () => {
+      // VSCode uses the prompt ref to manually trigger focus in the prompt input when running some VSCode commands
+      // https://gitlab.com/gitlab-org/gitlab-vscode-extension/blob/main/webviews/vue2/gitlab_duo_chat/src/App.vue#L112
+      describe('prompt ref', () => {
+        it('adds prompt ref which external consumer uses', async () => {
+          createComponent({ propsData: { messages }, mountFn: mount });
           await nextTick();
 
-          expect(focusSpy).toHaveBeenCalledWith(findChatInput().element);
+          expect(wrapper.vm.$refs.prompt).toBeDefined();
+          expect(wrapper.vm.$refs.prompt.$el.focus).toEqual(expect.any(Function));
         });
       });
 
