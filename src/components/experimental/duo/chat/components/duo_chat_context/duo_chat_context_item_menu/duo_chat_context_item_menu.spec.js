@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { getMockCategory, getMockContextItems, MOCK_CATEGORIES } from '../mock_context_data';
 import {
   CONTEXT_ITEM_TYPE_ISSUE,
@@ -35,7 +36,10 @@ describe('GlDuoChatContextItemMenu', () => {
   const findMenu = () => findByTestId('context-item-menu');
   const findContextItemSelections = () => wrapper.findComponent(GlDuoChatContextItemSelections);
   const findCategoryItems = () => wrapper.findComponent(GlDuoChatContextItemMenuCategoryItems);
-  const findSearchItems = () => wrapper.findComponent(GlDuoChatContextItemMenuSearchItems);
+  const findResultItems = () => wrapper.findComponent(GlDuoChatContextItemMenuSearchItems);
+
+  // Keyboard events are passed by $ref from the parent GlDuoChat component, simulate that here
+  const triggerKeyUp = async (key) => wrapper.vm.handleKeyUp({ key, preventDefault: jest.fn() });
 
   describe('context item selection', () => {
     describe('and there are selections', () => {
@@ -88,6 +92,33 @@ describe('GlDuoChatContextItemMenu', () => {
           categories: MOCK_CATEGORIES,
         });
       });
+
+      it('cycles through the categories when the arrow keys are pressed', async () => {
+        expect(findCategoryItems().props('activeIndex')).toBe(0);
+        await triggerKeyUp('ArrowDown');
+        expect(findCategoryItems().props('activeIndex')).toBe(1);
+        await triggerKeyUp('ArrowDown');
+        expect(findCategoryItems().props('activeIndex')).toBe(2);
+        await triggerKeyUp('ArrowUp');
+        expect(findCategoryItems().props('activeIndex')).toBe(1);
+      });
+
+      it('emits "close" event when escape is pressed', async () => {
+        await triggerKeyUp('Escape');
+
+        expect(wrapper.emitted('close')).toHaveLength(1);
+      });
+
+      it('selects the category when enter is pressed', async () => {
+        await triggerKeyUp('Enter');
+
+        expect(wrapper.emitted('search').at(0)).toEqual([
+          {
+            category: MOCK_CATEGORIES[0].value,
+            query: '',
+          },
+        ]);
+      });
     });
 
     describe.each([
@@ -114,7 +145,7 @@ describe('GlDuoChatContextItemMenu', () => {
       });
 
       it('shows search result items', () => {
-        expect(findSearchItems().props()).toEqual({
+        expect(findResultItems().props()).toEqual({
           activeIndex: 0,
           category,
           error: null,
@@ -124,25 +155,54 @@ describe('GlDuoChatContextItemMenu', () => {
         });
       });
 
+      it('cycles through the items when the arrow keys are pressed', async () => {
+        expect(findResultItems().props('activeIndex')).toBe(0);
+        await triggerKeyUp('ArrowDown');
+        expect(findResultItems().props('activeIndex')).toBe(2);
+        await triggerKeyUp('ArrowUp');
+        expect(findResultItems().props('activeIndex')).toBe(0);
+      });
+
+      it('does not cycle to the next item if it is disabled', async () => {
+        await triggerKeyUp('ArrowDown');
+        expect(findResultItems().props('activeIndex')).toBe(2);
+        await triggerKeyUp('ArrowDown');
+        expect(findResultItems().props('activeIndex')).not.toBe(1); // odd indexes disabled
+        expect(findResultItems().props('activeIndex')).toBe(0); // cycles back to first result
+        await triggerKeyUp('ArrowDown');
+        expect(findResultItems().props('activeIndex')).toBe(2);
+      });
+
+      it('clears category selection when escape is pressed', async () => {
+        await triggerKeyUp('Escape');
+        expect(findCategoryItems().exists()).toBe(true);
+        expect(findResultItems().exists()).toBe(false);
+      });
+
+      it('selects the item when enter is pressed', async () => {
+        await triggerKeyUp('Enter');
+        expect(wrapper.emitted('select').at(0)).toEqual([results.at(0)]);
+      });
+
       it('selects the item when clicked', async () => {
-        await findSearchItems().vm.$emit('select', results.at(0));
+        await findResultItems().vm.$emit('select', results.at(0));
         expect(wrapper.emitted('select').at(0)).toEqual([results.at(0)]);
       });
 
       it('emits "close" event when selecting an item', async () => {
-        await findSearchItems().vm.$emit('select', results.at(0));
+        await findResultItems().vm.$emit('select', results.at(0));
         expect(wrapper.emitted('close')).toHaveLength(1);
       });
 
       it('does not select a disabled item when clicked', async () => {
-        await findSearchItems().vm.$emit('select', results.at(1));
+        await findResultItems().vm.$emit('select', results.at(1));
         expect(wrapper.emitted('select')).toBeUndefined();
       });
 
       describe('when searching', () => {
         const query = 'e';
         beforeEach(async () => {
-          await findSearchItems().vm.$emit('update:searchQuery', query);
+          await findResultItems().vm.$emit('update:searchQuery', query);
 
           await wrapper.setProps({
             loading: true,
@@ -159,7 +219,7 @@ describe('GlDuoChatContextItemMenu', () => {
         });
 
         it('shows loading state', async () => {
-          expect(findSearchItems().props('loading')).toBe(true);
+          expect(findResultItems().props('loading')).toBe(true);
         });
 
         describe('when there is an error', () => {
@@ -171,7 +231,7 @@ describe('GlDuoChatContextItemMenu', () => {
           });
 
           it('shows error state', async () => {
-            expect(findSearchItems().props('error')).toBe('oh no');
+            expect(findResultItems().props('error')).toBe('oh no');
           });
         });
 
@@ -187,7 +247,20 @@ describe('GlDuoChatContextItemMenu', () => {
           });
 
           it('shows matching results', async () => {
-            expect(findSearchItems().props('results')).toEqual([matchingResult]);
+            expect(findResultItems().props('results')).toEqual([matchingResult]);
+          });
+
+          it('initially marks the first enabled item as active', async () => {
+            const firstEnabledIndex = 2;
+            await wrapper.setProps({
+              results: results.map((result, index) => ({
+                ...result,
+                isEnabled: index === firstEnabledIndex,
+              })),
+            });
+            await nextTick();
+
+            expect(findResultItems().props('activeIndex')).toEqual(firstEnabledIndex);
           });
         });
       });

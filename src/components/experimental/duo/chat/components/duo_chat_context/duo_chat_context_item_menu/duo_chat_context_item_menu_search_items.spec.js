@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 import { MOCK_CATEGORIES, getMockContextItems, getMockCategory } from '../mock_context_data';
 import {
   CONTEXT_ITEM_TYPE_ISSUE,
@@ -171,7 +172,7 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
         );
       });
 
-      it('marks the correct item as active', async () => {
+      it('marks the correct item as active when the index changes', async () => {
         expect(findActiveItemDetails().props('contextItem')).toEqual(results.at(0));
 
         await wrapper.setProps({
@@ -211,6 +212,18 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
         it('disables the item', () => {
           expect(disabledItem.attributes('tabindex')).toBe('-1');
           expect(disabledItem.classes()).toContain('gl-cursor-not-allowed');
+        });
+
+        it('does not mark any item as active if all items are disabled', async () => {
+          wrapper.setProps({
+            results: getMockContextItems().map((result) => ({
+              ...result,
+              isEnabled: false,
+            })),
+          });
+          await nextTick();
+
+          expect(findActiveItem().exists()).toBe(false);
         });
       });
     });

@@ -5,6 +5,7 @@ import {
   contextItemValidator,
   formatIssueId,
   formatMergeRequestId,
+  wrapIndex,
 } from './utils';
 import {
   MOCK_CATEGORIES,
@@ -200,6 +201,49 @@ describe('duo_chat_context utils', () => {
       expect(formatMergeRequestId()).toBe('');
       expect(formatMergeRequestId(null)).toBe('');
       expect(formatMergeRequestId('')).toBe('');
+    });
+  });
+
+  describe('wrapIndex', () => {
+    it('wraps forward within bounds', () => {
+      expect(wrapIndex(2, 1, 5)).toBe(3);
+    });
+
+    it('wraps backward within bounds', () => {
+      expect(wrapIndex(2, -1, 5)).toBe(1);
+    });
+
+    it('wraps forward beyond upper bound', () => {
+      expect(wrapIndex(4, 1, 5)).toBe(0);
+    });
+
+    it('wraps backward beyond lower bound', () => {
+      expect(wrapIndex(0, -1, 5)).toBe(4);
+    });
+
+    it('wraps forward multiple steps', () => {
+      expect(wrapIndex(3, 3, 5)).toBe(1);
+    });
+
+    it('wraps backward multiple steps', () => {
+      expect(wrapIndex(1, -3, 5)).toBe(3);
+    });
+
+    it('handles zero step', () => {
+      expect(wrapIndex(2, 0, 5)).toBe(2);
+    });
+
+    it('handles step larger than total length', () => {
+      expect(wrapIndex(1, 7, 5)).toBe(3);
+    });
+
+    it('handles negative step larger than total length', () => {
+      expect(wrapIndex(3, -7, 5)).toBe(1);
+    });
+
+    it('works with single-item array', () => {
+      expect(wrapIndex(0, 1, 1)).toBe(0);
+      expect(wrapIndex(0, -1, 1)).toBe(0);
     });
   });
 });
