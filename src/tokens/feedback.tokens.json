@@ -3,20 +3,14 @@
     "strong": {
       "background": {
         "color": {
-          "$value": {
-            "default": "{color.neutral.950}",
-            "dark": "{color.neutral.10}"
-          },
+          "$value": "{color.neutral.800}",
           "$type": "color",
           "$description": "Used for a background associated with strong feedback like a tooltip or toast message."
         }
       },
       "text": {
         "color": {
-          "$value": {
-            "default": "{color.neutral.0}",
-            "dark": "{color.neutral.900}"
-          },
+          "$value": "{color.neutral.0}",
           "$type": "color",
           "$description": "Used for text on a strong feedback background."
         }

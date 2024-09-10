@@ -19095,16 +19095,13 @@
     "strong": {
       "background": {
         "color": {
-          "value": "#fbfafd",
+          "value": "#3a383f",
           "$type": "color",
           "comment": "Used for a background associated with strong feedback like a tooltip or toast message.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
-            "value": {
-              "default": "{color.neutral.950}",
-              "dark": "{color.neutral.10}"
-            },
+            "value": "{color.neutral.800}",
             "$type": "color",
             "comment": "Used for a background associated with strong feedback like a tooltip or toast message."
           },
@@ -19120,16 +19117,13 @@
       },
       "text": {
         "color": {
-          "value": "#28272d",
+          "value": "#fff",
           "$type": "color",
           "comment": "Used for text on a strong feedback background.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
-            "value": {
-              "default": "{color.neutral.0}",
-              "dark": "{color.neutral.900}"
-            },
+            "value": "{color.neutral.0}",
             "$type": "color",
             "comment": "Used for text on a strong feedback background."
           },
