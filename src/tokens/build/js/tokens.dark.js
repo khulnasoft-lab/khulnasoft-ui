@@ -643,7 +643,6 @@ export const GL_LINK_MENTION_TEXT_COLOR_DEFAULT = '#9dc7f1'; // Used for the men
 export const GL_LINK_MENTION_TEXT_COLOR_CURRENT = '#f5d9a8'; // Used for the mention link text color when referencing the current user.
 export const GL_LINK_MENTION_BACKGROUND_COLOR_DEFAULT = '#064787'; // Used for the mention link default background.
 export const GL_LINK_MENTION_BACKGROUND_COLOR_CURRENT = '#703800'; // Used for the mention link background when referencing the current user.
-export const GL_POPOVER_BACKGROUND_COLOR = '#28272d'; // Used for the background color of popover.
 export const GL_SKELETON_LOADER_BACKGROUND_COLOR = '#3a383f'; // Used for the skeleton loader background color.
 export const GL_SKELETON_LOADER_SHIMMER_COLOR = '#4c4b51'; // Used for the animated shimmer effect in a skeleton loader.
 export const GL_SPINNER_TRACK_COLOR_DEFAULT = '#3a383f'; // Used for the static track (background) of a loading spinner.
