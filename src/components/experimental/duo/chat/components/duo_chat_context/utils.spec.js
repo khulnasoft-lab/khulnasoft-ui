@@ -3,6 +3,8 @@ import {
   categoryValidator,
   contextItemsValidator,
   contextItemValidator,
+  formatIssueId,
+  formatMergeRequestId,
 } from './utils';
 import {
   MOCK_CATEGORIES,
@@ -168,6 +170,36 @@ describe('duo_chat_context utils', () => {
       it('returns false', () => {
         expect(contextItemsValidator(value)).toBe(false);
       });
+    });
+  });
+
+  describe('formatIssueId', () => {
+    it.each([
+      { id: '123', expected: '#123' },
+      { id: 123, expected: '#123' },
+    ])('formats "$id" as "$expected"', ({ id, expected }) => {
+      expect(formatIssueId(id)).toBe(expected);
+    });
+
+    it('returns empty string for falsy values', () => {
+      expect(formatIssueId()).toBe('');
+      expect(formatIssueId(null)).toBe('');
+      expect(formatIssueId('')).toBe('');
+    });
+  });
+
+  describe('formatMergeRequestId', () => {
+    it.each([
+      { id: '123', expected: '!123' },
+      { id: 123, expected: '!123' },
+    ])('formats "$id" as "$expected"', ({ id, expected }) => {
+      expect(formatMergeRequestId(id)).toBe(expected);
+    });
+
+    it('returns empty string for falsy values', () => {
+      expect(formatMergeRequestId()).toBe('');
+      expect(formatMergeRequestId(null)).toBe('');
+      expect(formatMergeRequestId('')).toBe('');
     });
   });
 });

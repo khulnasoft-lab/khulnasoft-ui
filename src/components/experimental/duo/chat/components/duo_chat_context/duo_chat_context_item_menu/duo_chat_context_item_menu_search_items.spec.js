@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { MOCK_CATEGORIES, getMockContextItems } from '../mock_context_data';
+import { MOCK_CATEGORIES, getMockContextItems, getMockCategory } from '../mock_context_data';
 import {
   CONTEXT_ITEM_TYPE_ISSUE,
   CONTEXT_ITEM_TYPE_MERGE_REQUEST,
@@ -7,6 +7,7 @@ import {
 } from '../constants';
 import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
 import GlDuoChatContextItemMenuSearchItemsLoading from './duo_chat_context_item_menu_search_items_loading.vue';
+import GlDuoChatContextItemMenuSearchItem from './duo_chat_context_item_menu_search_item.vue';
 
 describe('GlDuoChatContextItemMenuSearchItems', () => {
   let wrapper;
@@ -94,11 +95,8 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
       ])('when there are $numResults results', ({ numResults, expectedRows }) => {
         beforeEach(async () => {
           await wrapper.setProps({
-            loading: false,
-            results: getMockContextItems().slice(0, numResults),
-          });
-          await wrapper.setProps({
             loading: true,
+            results: getMockContextItems().slice(0, numResults),
           });
         });
 
@@ -165,19 +163,22 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
         });
 
         expect(findResultItems()).toHaveLength(1);
-        expect(findByTestId('search-result-item-details').text()).toEqual(
-          matchingResult.metadata.name
+        expect(wrapper.findComponent(GlDuoChatContextItemMenuSearchItem).props()).toEqual(
+          expect.objectContaining({
+            contextItem: matchingResult,
+            category,
+          })
         );
       });
 
       it('marks the correct item as active', async () => {
-        expect(findActiveItemDetails().text()).toEqual(results.at(0).metadata.name);
+        expect(findActiveItemDetails().props('contextItem')).toEqual(results.at(0));
 
         await wrapper.setProps({
           activeIndex: 1,
         });
 
-        expect(findActiveItemDetails().text()).toEqual(results.at(1).metadata.name);
+        expect(findActiveItemDetails().props('contextItem')).toEqual(results.at(1));
       });
 
       it('emits "active-index-change" event when hovering over an item', async () => {
@@ -209,7 +210,7 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
 
         it('disables the item', () => {
           expect(disabledItem.attributes('tabindex')).toBe('-1');
-          expect(disabledItem.classes()).toContain('disabled');
+          expect(disabledItem.classes()).toContain('gl-cursor-not-allowed');
         });
       });
     });
@@ -217,15 +218,15 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
 
   describe.each([
     {
-      testCase: MOCK_CATEGORIES.find((cat) => cat.value === CONTEXT_ITEM_TYPE_PROJECT_FILE),
+      testCase: getMockCategory(CONTEXT_ITEM_TYPE_PROJECT_FILE),
       expectedPlaceholder: 'Search files...',
     },
     {
-      testCase: MOCK_CATEGORIES.find((cat) => cat.value === CONTEXT_ITEM_TYPE_ISSUE),
+      testCase: getMockCategory(CONTEXT_ITEM_TYPE_ISSUE),
       expectedPlaceholder: 'Search issues...',
     },
     {
-      testCase: MOCK_CATEGORIES.find((cat) => cat.value === CONTEXT_ITEM_TYPE_MERGE_REQUEST),
+      testCase: getMockCategory(CONTEXT_ITEM_TYPE_MERGE_REQUEST),
       expectedPlaceholder: 'Search merge requests...',
     },
   ])('when category is "$testCase.label"', ({ testCase, expectedPlaceholder }) => {

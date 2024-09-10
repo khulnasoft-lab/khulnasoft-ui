@@ -27,3 +27,15 @@ export function contextItemValidator(item) {
 export function contextItemsValidator(items) {
   return Array.isArray(items) && items.every((item) => contextItemValidator(item));
 }
+
+export function formatIssueId(iid) {
+  if (!iid) return '';
+
+  return `#${iid}`;
+}
+
+export function formatMergeRequestId(iid) {
+  if (!iid) return '';
+
+  return `!${iid}`;
+}

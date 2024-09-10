@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { getMockContextItems, MOCK_CATEGORIES } from '../mock_context_data';
+import { getMockCategory, getMockContextItems, MOCK_CATEGORIES } from '../mock_context_data';
 import {
   CONTEXT_ITEM_TYPE_ISSUE,
   CONTEXT_ITEM_TYPE_MERGE_REQUEST,
@@ -98,7 +98,7 @@ describe('GlDuoChatContextItemMenu', () => {
       let category;
       let results;
       beforeEach(() => {
-        category = MOCK_CATEGORIES.find((cat) => cat.value === categoryValue);
+        category = getMockCategory(categoryValue);
         results = getMockContextItems()
           .filter((item) => item.type === categoryValue)
           .map((item, index) => ({
