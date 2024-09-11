@@ -42,33 +42,28 @@ const template = `
   />
 `;
 
-const Template = (args) => ({
+export const Default = (args) => ({
   components,
   props: Object.keys(args),
   template,
 });
-
-export const Default = Template.bind({});
-Object.assign(Default, {
-  args: generateProps({
-    text: '',
-    sortOptions: [
-      {
-        value: 'first',
-        text: 'First item',
-      },
-      {
-        value: 'second',
-        text: 'Second item',
-      },
-      {
-        value: 'third',
-        text: 'Third item',
-      },
-    ],
-    sortBy: 'first',
-  }),
-  parameters: {},
+Default.args = generateProps({
+  text: '',
+  sortOptions: [
+    {
+      value: 'first',
+      text: 'First item',
+    },
+    {
+      value: 'second',
+      text: 'Second item',
+    },
+    {
+      value: 'third',
+      text: 'Third item',
+    },
+  ],
+  sortBy: 'first',
 });
 Default.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
