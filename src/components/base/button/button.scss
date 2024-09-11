@@ -59,6 +59,7 @@
   }
 }
 
+// low specificity so that display can be overridden to hide buttons
 .gl-button {
   @include gl-display-inline-flex;
 }
@@ -71,8 +72,8 @@
   }
 }
 
-.gl-button.gl-button,
-.gl-button.gl-button.btn-block {
+// double specificity to override bootstrap and reboot styling
+.gl-button.gl-button {
   @apply gl-border-0;
   @apply gl-rounded-base;
   @include gl-py-3;
@@ -504,6 +505,15 @@
     &[disabled] {
       @include gl-bg-transparent;
       @include gl-shadow-none;
+    }
+  }
+
+  &.btn-block {
+    @apply gl-w-full;
+
+    // Vertically space out multiple block buttons
+    + .btn-block {
+      @apply gl-mt-2;
     }
   }
 
