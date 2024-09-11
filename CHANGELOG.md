@@ -1,3 +1,12 @@
+# [92.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.1.1...v92.2.0) (2024-09-11)
+
+
+### Features
+
+* **DuoChat:** MR Feedback from vanessaotto ([0cf5b57](https://gitlab.com/gitlab-org/gitlab-ui/commit/0cf5b57b8445c9e180ae3e1b7b7f1aab56eeb3a6))
+* **DuoChat:** UI Polish on context ([4ab5ed8](https://gitlab.com/gitlab-org/gitlab-ui/commit/4ab5ed84c18c316317135d97851e911823df50e9))
+* **GlButton:** Explicitly add btn-block styling rather than relying on bootstrap ([40dc96b](https://gitlab.com/gitlab-org/gitlab-ui/commit/40dc96b35a8885c12de9c43d7a292db5e83e22dc))
+
 ## [92.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.1.0...v92.1.1) (2024-09-11)
 
 
