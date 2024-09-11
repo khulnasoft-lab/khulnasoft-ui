@@ -65,6 +65,7 @@ describe('GlDuoWorkflowPrompt', () => {
       headerIcon: 'issue-type-objective',
       expandPanelButtonTitle,
       collapsePanelButtonTitle,
+      expanded: true,
     });
     expect(findDuoWorkflowPanel().text()).toMatch(title);
     expect(findDuoWorkflowPanel().text()).toMatch(summary);

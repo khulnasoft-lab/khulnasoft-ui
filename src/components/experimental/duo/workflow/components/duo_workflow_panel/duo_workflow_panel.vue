@@ -34,9 +34,14 @@ export default {
       required: false,
       default: translate('GlDuoWorkflowPanel.collapseButtonTitle', 'Collapse'),
     },
-  },
-  data() {
-    return { expanded: true };
+    /**
+     * Whether the panel is expanded or not
+     */
+    expanded: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   computed: {
     buttonIcon() {
@@ -44,11 +49,6 @@ export default {
     },
     buttonTitle() {
       return this.expanded ? this.collapsePanelButtonTitle : this.expandPanelButtonTitle;
-    },
-  },
-  methods: {
-    toggleExpanded() {
-      this.expanded = !this.expanded;
     },
   },
 };
@@ -74,7 +74,7 @@ export default {
         :icon="buttonIcon"
         :title="buttonTitle"
         :aria-label="buttonTitle"
-        @click="toggleExpanded"
+        @click="$emit('toggle-panel')"
       />
     </div>
     <gl-collapse :visible="expanded">

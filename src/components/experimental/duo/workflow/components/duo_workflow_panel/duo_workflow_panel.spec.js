@@ -26,13 +26,20 @@ describe('GlDuoWorkflowPanel', () => {
     });
 
     expect(findIcon().props().name).toBe(headerIcon);
+    expect(findButton().attributes().title).toBe(collapsePanelButtonTitle);
+  });
 
-    const button = findButton();
+  describe('when expanded', () => {
+    beforeEach(() => {
+      createWrapper({ propsData: { expanded: false } });
+    });
+    it('sets the panel as collapsed when expanded is false', () => {
+      expect(findButton().attributes().title).toBe('Expand');
+    });
 
-    expect(button.attributes().title).toBe(collapsePanelButtonTitle);
-    await button.vm.$emit('click');
-
-    expect(button.attributes().title).toBe(expandPanelButtonTitle);
+    it('sets the button icon appropriately', () => {
+      expect(findButton().props().icon).toBe('chevron-down');
+    });
   });
 
   it('sets the button icon appropriately', async () => {
@@ -41,10 +48,14 @@ describe('GlDuoWorkflowPanel', () => {
     const button = findButton();
 
     expect(button.props().icon).toBe('chevron-up');
+  });
 
-    await button.vm.$emit('click');
+  it('emits toggle-panel event when the button is clicked', async () => {
+    createWrapper();
 
-    expect(button.props().icon).toBe('chevron-down');
+    await findButton().vm.$emit('click');
+
+    expect(wrapper.emitted('toggle-panel')).toHaveLength(1);
   });
 
   it('shows the slot content correctly', () => {
