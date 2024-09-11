@@ -1,3 +1,10 @@
+## [92.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.1.0...v92.1.1) (2024-09-11)
+
+
+### Bug Fixes
+
+* ensure chat scrolls to bottom with new message ([3d048f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/3d048f82c586cd3860a7cf5c86d0572ee44d0dc6))
+
 # [92.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.0.0...v92.1.0) (2024-09-10)
 
 
