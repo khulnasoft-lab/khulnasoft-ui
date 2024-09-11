@@ -25,3 +25,5 @@ export const MESSAGE_MODEL_ROLES = {
   system: 'system',
   assistant: 'assistant',
 };
+
+export const SELECTED_CONTEXT_ITEMS_DEFAULT_COLLAPSED = true;

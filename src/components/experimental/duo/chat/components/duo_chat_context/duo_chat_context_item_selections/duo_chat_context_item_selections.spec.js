@@ -139,7 +139,7 @@ describe('GlDuoChatContextItemSelections', () => {
 
       expect(popover.props('contextItem')).toEqual(contextItem);
       expect(popover.props('target')).toMatch(
-        /^context-item-123e4567-e89b-12d3-a456-426614174000-\d+$/
+        /^context-item-123e4567-e89b-12d3-a456-426614174000-\d+-token$/
       );
       expect(popover.props('placement')).toBe('bottom');
     });
