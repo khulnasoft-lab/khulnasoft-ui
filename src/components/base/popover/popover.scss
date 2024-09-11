@@ -76,7 +76,7 @@ $gl-popover-max-width: $grid-size * 35;
     color: var(--gl-text-color-heading);
     @include gl-heading-scale-200;
     @apply gl-border-b-0;
-    @include gl-pb-0;
+    @apply gl-pb-0;
   }
 
   &.has-title .popover-header {
@@ -91,12 +91,12 @@ $gl-popover-max-width: $grid-size * 35;
   }
 
   .popover-body {
-    @include gl-py-3;
-    @include gl-px-4;
+    @apply gl-py-3;
+    @apply gl-px-4;
 
     > .popover-hr {
-      @include gl-my-5;
-      @include gl-mx-0;
+      @apply gl-my-5;
+      @apply gl-mx-0;
     }
   }
 }

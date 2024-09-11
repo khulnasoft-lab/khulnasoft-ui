@@ -30,15 +30,15 @@
     @include gl-bg-gray-50;
     @include gl-rounded-top-right-none;
     @include gl-rounded-bottom-right-none;
-    @include gl-py-2;
-    @include gl-px-3;
-    @include gl-mr-1;
+    @apply gl-py-2;
+    @apply gl-px-3;
+    @apply gl-mr-1;
   }
 
   &.gl-filtered-search-token-operator {
     @include gl-h-6;
     @include gl-bg-gray-50;
-    @include gl-mr-1;
+    @apply gl-mr-1;
     @include gl-rounded-0;
   }
 

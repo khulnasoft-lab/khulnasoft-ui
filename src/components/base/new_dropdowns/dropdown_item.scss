@@ -1,19 +1,19 @@
 .gl-new-dropdown-item {
   @include gl-cursor-pointer;
-  @include gl-px-2;
-  @include gl-my-1;
+  @apply gl-px-2;
+  @apply gl-my-1;
 
   /* when there is a scrim `li` items inside the list, the first and last real items
   do not match the selector `:first-child` and `:last-child`,
   that's why we have to target them with a different selector */
   &:first-child,
   .gl-new-dropdown-contents-with-scrim-overlay > &:nth-child(3):not(:last-child) {
-    @include gl-mt-0;
+    @apply gl-mt-0;
   }
 
   &:last-child,
   .gl-new-dropdown-contents-with-scrim-overlay > &:nth-last-child(3):not(:first-child) {
-    @include gl-mb-0;
+    @apply gl-mb-0;
   }
 
   &:hover,
@@ -86,8 +86,8 @@
     @include gl-font-base;
     @include gl-font-weight-normal;
     @include gl-line-height-normal;
-    @include gl-px-3;
-    @include gl-py-0;
+    @apply gl-px-3;
+    @apply gl-py-0;
     position: relative;
     @include gl-text-decoration-none;
     @include gl-text-gray-900;
@@ -99,19 +99,19 @@
 
     .gl-new-dropdown-item-check-icon {
       @include gl-flex-shrink-0;
-      @include gl-mr-3;
+      @apply gl-mr-3;
       @include gl-text-blue-500;
     }
 
     .gl-new-dropdown-item-icon {
       @include gl-flex-shrink-0;
-      @include gl-mr-3;
+      @apply gl-mr-3;
     }
 
     .gl-new-dropdown-item-text-wrapper {
       @include gl-min-w-0;
       @include gl-flex-grow-1;
-      @include gl-py-3;
+      @apply gl-py-3;
     }
   }
 }

@@ -82,6 +82,9 @@ module.exports = ({ config }) => {
       type: 'asset/source',
       use: [
         {
+          loader: 'postcss-loader',
+        },
+        {
           loader: 'sass-loader',
           options: sassLoaderOptions,
         },

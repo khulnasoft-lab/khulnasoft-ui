@@ -5,7 +5,7 @@
 }
 
 .gl-filtered-search-term-input {
-  @include gl-p-0;
+  @apply gl-p-0;
   @apply gl-border-none;
   @include gl-outline-none;
   @include gl-h-6;
@@ -14,5 +14,5 @@
 }
 
 .gl-filtered-search-term-icon {
-  @include gl-mr-2;
+  @apply gl-mr-2;
 }

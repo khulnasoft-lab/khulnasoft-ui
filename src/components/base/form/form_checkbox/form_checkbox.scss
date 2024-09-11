@@ -1,10 +1,10 @@
 @mixin gl-tmp-form-checkbox-inline-styles {
-  @include gl-mt-1;
-  @include gl-ml-0;
+  @apply gl-mt-1;
+  @apply gl-ml-0;
   @include gl-align-self-start;
   position: static;
   @include gl-h-auto;
-  @include gl-mr-0;
+  @apply gl-mr-0;
 }
 
 .gl-form-checkbox-group {
@@ -19,7 +19,7 @@
 
   &.form-check {
     @include gl-display-flex;
-    @include gl-pl-0;
+    @apply gl-pl-0;
   }
 
   &.form-check-inline {
@@ -38,7 +38,7 @@
   }
 
   .form-check-label {
-    @include gl-pl-3;
+    @apply gl-pl-3;
     @include gl-line-height-normal;
   }
 
@@ -52,12 +52,12 @@
   }
 
   &.custom-control {
-    @include gl-pl-5;
+    @apply gl-pl-5;
 
     .custom-control-input ~ .custom-control-label {
       @include gl-cursor-pointer;
-      @include gl-pl-3;
-      @include gl-mb-3;
+      @apply gl-pl-3;
+      @apply gl-mb-3;
 
       &::before,
       &::after {
@@ -212,8 +212,8 @@
   }
 
   .help-text {
-    @include gl-mt-2;
-    @include gl-mb-0;
+    @apply gl-mt-2;
+    @apply gl-mb-0;
     @include gl-font-base;
     @include gl-line-height-normal;
     color: var(--gl-text-color-subtle);

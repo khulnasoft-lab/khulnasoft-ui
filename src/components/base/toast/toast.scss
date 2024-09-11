@@ -21,8 +21,8 @@
   .gl-toast {
     @apply gl-rounded-base;
     @include gl-font-base;
-    @include gl-py-5;
-    @include gl-px-6;
+    @apply gl-py-5;
+    @apply gl-px-6;
     @include gl-line-height-normal;
     @include gl-display-flex;
     @include gl-align-items-center;
@@ -33,7 +33,7 @@
 
   .toast-body {
     @include gl-font-weight-300;
-    @include gl-pr-3;
+    @apply gl-pr-3;
     order: 1;
   }
 
@@ -44,9 +44,9 @@
 
   .gl-toast-action {
     @include gl-text-blue-300;
-    @include gl-p-3;
-    @include gl-m-0;
-    @include gl-ml-5;
+    @apply gl-p-3;
+    @apply gl-m-0;
+    @apply gl-ml-5;
     @include gl-text-transform-none;
     @include gl-font-base;
     @include gl-white-space-nowrap;
@@ -55,6 +55,6 @@
   }
 
   .gl-toast-close-button {
-    @include gl-ml-5;
+    @apply gl-ml-5;
   }
 }

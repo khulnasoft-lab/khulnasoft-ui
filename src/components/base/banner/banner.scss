@@ -5,7 +5,7 @@
 
 .gl-banner-illustration {
   @include gl-flex-shrink-0;
-  @include gl-mr-6;
+  @apply gl-mr-6;
 
   img {
     max-width: $grid-size * 15;
@@ -18,7 +18,7 @@
 
 .gl-banner-title {
   @include gl-heading-scale-500;
-  @include gl-mb-3;
+  @apply gl-mb-3;
   color: var(--gl-text-color-heading);
 }
 

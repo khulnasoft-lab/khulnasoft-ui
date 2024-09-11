@@ -41,7 +41,7 @@ $gl-alert-top-border-size: 2px;
   @include gl-font-base;
   position: relative;
   padding-inline: calc(#{$gl-spacing-scale-9} + #{$gl-alert-padding-x});
-  @include gl-py-5;
+  @apply gl-py-5;
   @apply gl-rounded-base;
 
   @media (forced-colors: active) {
@@ -105,11 +105,11 @@ $gl-alert-top-border-size: 2px;
 
 .gl-alert-actions {
   @include gl-display-flex;
-  @include gl-mt-3;
+  @apply gl-mt-3;
 }
 
 .gl-alert-action {
-  @include gl-mr-3;
+  @apply gl-mr-3;
   @include gl-font-base;
   @include gl-line-height-normal;
 }

@@ -76,8 +76,8 @@
 .gl-button.gl-button {
   @apply gl-border-0;
   @apply gl-rounded-base;
-  @include gl-py-3;
-  @include gl-px-4;
+  @apply gl-py-3;
+  @apply gl-px-4;
   background-color: var(--gl-button-default-primary-background-color-default);
   @include gl-line-height-normal;
   color: var(--gl-button-default-primary-foreground-color-default);
@@ -106,12 +106,12 @@
     @include gl-h-5;
     @include gl-w-5;
     @include gl-flex-shrink-0;
-    @include gl-mr-2;
+    @apply gl-mr-2;
     top: auto;
   }
 
   gl-emoji {
-    @include gl-mr-2;
+    @apply gl-mr-2;
     position: relative;
     @include gl-font-lg;
   }
@@ -398,8 +398,8 @@
   }
 
   &.btn-sm {
-    @include gl-py-2;
-    @include gl-px-3;
+    @apply gl-py-2;
+    @apply gl-px-3;
     @include gl-line-height-normal;
     @include gl-font-base;
 
@@ -441,27 +441,27 @@
   }
 
   &.btn-icon {
-    @include gl-p-3;
+    @apply gl-p-3;
     @include gl-line-height-normal;
 
     .gl-button-icon {
-      @include gl-mr-0;
+      @apply gl-mr-0;
     }
 
     &.btn-sm {
-      @include gl-p-2;
+      @apply gl-p-2;
     }
   }
 
   &.button-ellipsis-horizontal,
   &.button-ellipsis-horizontal.btn-sm {
-    @include gl-py-0;
-    @include gl-px-2;
+    @apply gl-py-0;
+    @apply gl-px-2;
 
     svg {
       @include gl-h-5;
       @include gl-w-5;
-      @include gl-m-0;
+      @apply gl-m-0;
     }
   }
 
@@ -480,8 +480,8 @@
     @include gl-font-base;
     @include gl-line-height-normal;
     color: var(--gl-button-link-text-color-default);
-    @include gl-py-0;
-    @include gl-px-0;
+    @apply gl-py-0;
+    @apply gl-px-0;
     @include gl-shadow-none;
 
     &:hover {
