@@ -158,7 +158,7 @@ const addRootListeners = (el, instance) => {
 }
 
 const setToggleState = (el, state) => {
-  // State refers to the visibility of the collapse/sidebar
+  // State refers to the visibility of the collapse
   if (state) {
     removeClass(el, CLASS_BV_TOGGLE_COLLAPSED)
     addClass(el, CLASS_BV_TOGGLE_NOT_COLLAPSED)

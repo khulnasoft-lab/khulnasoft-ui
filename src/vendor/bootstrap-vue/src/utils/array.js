@@ -15,8 +15,3 @@ export const createArray = (length, fillFn) => {
   const mapFn = isFunction(fillFn) ? fillFn : () => fillFn
   return Array.apply(null, { length }).map(mapFn)
 }
-
-export const flatten = array => array.reduce((result, item) => concat(result, item), [])
-
-export const flattenDeep = array =>
-  array.reduce((result, item) => concat(result, Array.isArray(item) ? flattenDeep(item) : item), [])

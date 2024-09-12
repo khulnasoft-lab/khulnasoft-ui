@@ -9,34 +9,16 @@ $bv-enable-popover-variants: false;
 
 @import '../vendor/bootstrap-vue/src/utilities.scss';
 
-// Used by BFormSpinbutton, BFormDatepicker, BFormTimepicker, BTime, BCalendar
-@import '../vendor/bootstrap-vue/src/custom-controls.scss';
-
-// Comment out components we are not importing in gitlab-ui
-// Still listed for easy comparison
-// @import '../vendor/bootstrap-vue/src/components/avatar/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/calendar/index.scss';
-@import '../vendor/bootstrap-vue/src/components/card/index.scss';
 @import '../vendor/bootstrap-vue/src/components/dropdown/index.scss';
 @import '../vendor/bootstrap-vue/src/components/form-checkbox/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/form-file/index.scss';
 @import '../vendor/bootstrap-vue/src/components/form-input/index.scss';
 @import '../vendor/bootstrap-vue/src/components/form-radio/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/form-rating/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/form-spinbutton/index.scss';
-@import '../vendor/bootstrap-vue/src/components/form-tags/index.scss';
 @import '../vendor/bootstrap-vue/src/components/input-group/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/media/index.scss';
 @import '../vendor/bootstrap-vue/src/components/modal/index.scss';
 @import '../vendor/bootstrap-vue/src/components/nav/index.scss';
 @import '../vendor/bootstrap-vue/src/components/navbar/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/pagination/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/pagination-nav/index.scss';
 @import '../vendor/bootstrap-vue/src/components/popover/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/skeleton/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/sidebar/index.scss';
 @import '../vendor/bootstrap-vue/src/components/table/index.scss';
-// @import '../vendor/bootstrap-vue/src/components/time/index.scss';
 @import '../vendor/bootstrap-vue/src/components/toast/index.scss';
 @import '../vendor/bootstrap-vue/src/components/tooltip/index.scss';
 

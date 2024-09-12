@@ -975,7 +975,6 @@ method to generate VNodes.
             h('strong', 'msgBoxOk'),
             ' message ',
           ]),
-          h('p', { class: ['text-center'] }, [h('b-spinner')]),
           h('b-img', {
             props: {
               src: 'https://picsum.photos/id/20/250/250',

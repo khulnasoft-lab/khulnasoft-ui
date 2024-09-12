@@ -7,13 +7,8 @@ export const create = (proto, optionalProps) => Object.create(proto, optionalPro
 export const defineProperties = (obj, props) => Object.defineProperties(obj, props)
 export const defineProperty = (obj, prop, descriptor) =>
   Object.defineProperty(obj, prop, descriptor)
-export const freeze = obj => Object.freeze(obj)
 export const getOwnPropertyNames = obj => Object.getOwnPropertyNames(obj)
-export const getOwnPropertyDescriptor = (obj, prop) => Object.getOwnPropertyDescriptor(obj, prop)
-export const getOwnPropertySymbols = obj => Object.getOwnPropertySymbols(obj)
-export const getPrototypeOf = obj => Object.getPrototypeOf(obj)
 export const is = (value1, value2) => Object.is(value1, value2)
-export const isFrozen = obj => Object.isFrozen(obj)
 export const keys = obj => Object.keys(obj)
 
 // --- "Instance" ---

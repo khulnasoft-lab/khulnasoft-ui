@@ -33,12 +33,6 @@ export const startCase = str =>
     .replace(RX_LOWER_UPPER, (str, $1, $2) => $1 + ' ' + $2)
     .replace(RX_START_SPACE_WORD, (str, $1, $2) => $1 + $2.toUpperCase())
 
-// Lowercases the first letter of a string and returns a new string
-export const lowerFirst = str => {
-  str = isString(str) ? str.trim() : String(str)
-  return str.charAt(0).toLowerCase() + str.slice(1)
-}
-
 // Uppercases the first letter of a string and returns a new string
 export const upperFirst = str => {
   str = isString(str) ? str.trim() : String(str)
@@ -70,6 +64,3 @@ export const trim = str => toString(str).trim()
 
 // Lower case a string
 export const lowerCase = str => toString(str).toLowerCase()
-
-// Upper case a string
-export const upperCase = str => toString(str).toUpperCase()

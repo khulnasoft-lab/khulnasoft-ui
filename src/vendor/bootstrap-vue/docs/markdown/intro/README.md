@@ -549,7 +549,7 @@ BootstrapVue `components` or `directives` you want to globally install in your N
 module.exports = {
   modules: ['bootstrap-vue/nuxt'],
   bootstrapVue: {
-    components: ['BContainer', 'BRow', 'BCol', 'BFormInput', 'BButton', 'BTable', 'BModal'],
+    components: ['BCol', 'BFormInput', 'BButton', 'BTable', 'BModal'],
     directives: ['VBModal', 'VBPopover', 'VBTooltip', 'VBScrollspy']
   }
 }

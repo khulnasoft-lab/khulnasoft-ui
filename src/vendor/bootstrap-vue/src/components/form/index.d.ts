@@ -18,6 +18,3 @@ export declare class BFormInvalidFeedback extends BvComponent {}
 
 // Component: b-form-valid-feedback
 export declare class BFormValidFeedback extends BvComponent {}
-
-// Component: b-form-datalist
-export declare class BFormDatalist extends BvComponent {}

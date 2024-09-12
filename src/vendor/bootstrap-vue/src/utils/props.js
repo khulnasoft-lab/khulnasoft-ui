@@ -4,13 +4,7 @@ import { getComponentConfig } from './config'
 import { identity } from './identity'
 import { isArray, isFunction, isObject, isUndefined } from './inspect'
 import { clone, hasOwnProperty, keys } from './object'
-import { lowerFirst, upperFirst } from './string'
-
-// Prefix a property
-export const prefixPropName = (prefix, value) => prefix + upperFirst(value)
-
-// Remove a prefix from a property
-export const unprefixPropName = (prefix, value) => lowerFirst(value.replace(prefix, ''))
+import { upperFirst } from './string'
 
 // Suffix can be a falsey value so nothing is appended to string
 // (helps when looping over props & some shouldn't change)

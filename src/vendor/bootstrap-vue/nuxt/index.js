@@ -72,14 +72,6 @@ module.exports = function nuxtBootstrapVue(moduleOptions = {}) {
       video: ['src', 'poster'],
       // Nuxt default is missing image
       image: 'xlink:href',
-      // Add BootstrapVue specific component asset items
-      'b-avatar': 'src',
-      'b-img': 'src',
-      'b-img-lazy': ['src', 'blank-src'],
-      'b-card': 'img-src',
-      'b-card-img': 'src',
-      'b-card-img-lazy': ['src', 'blank-src'],
-      'b-embed': 'src',
       // Ensure super supplied values/overrides are not lost
       ...this.options.build.loaders.vue.transformAssetUrls
     }

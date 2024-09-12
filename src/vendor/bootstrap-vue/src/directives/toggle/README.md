@@ -1,13 +1,12 @@
 # Toggle
 
-> `v-b-toggle` is a light-weight directive for toggling the visibility of collapses and sidebars,
+> `v-b-toggle` is a light-weight directive for toggling the visibility of collapses,
 > and includes automated [WAI-ARIA accessibility](/docs/reference/accessibility) attribute handling.
 
 ## Overview
 
-The `v-b-toggle` directive can be used on interactive elements, such as buttons, to toggle the
-visibility state of the [`<b-collapse>`](/docs/components/collapse) and
-[`<b-sidebar>`](/docs/components/sidebar) components.
+The `v-b-toggle` directive can be used on interactive elements, such as buttons and to toggle the
+visibility state of the [`<b-collapse>`](/docs/components/collapse) component.
 
 Besides toggling the visibility of the target component, the directive automatically updates ARIA
 accessibility attributes on the element it is applied to so that they reflect the visibility state
@@ -41,7 +40,6 @@ Modifiers, argument, and the value can be used at the same time when targeting m
   <div>
     <div class="mb-3">
       <b-button v-b-toggle.my-collapse>Toggle Collapse</b-button>
-      <b-button v-b-toggle.my-sidebar>Toggle Sidebar</b-button>
     </div>
 
     <b-collapse id="my-collapse">
@@ -49,13 +47,6 @@ Modifiers, argument, and the value can be used at the same time when targeting m
         Hello world!
       </b-card>
     </b-collapse>
-
-    <b-sidebar id="my-sidebar" title="Sidebar" shadow>
-      <div class="px-3 py-2">
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-        in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-      </div>
-    </b-sidebar>
   </div>
 </template>
 
@@ -79,7 +70,6 @@ URL from changing and the page from scrolling, add `@click.prevent` to the link.
   <div>
     <div class="mb-3">
       <a v-b-toggle href="#example-collapse" @click.prevent>Toggle Collapse</a>
-      <b-button v-b-toggle href="#example-sidebar" @click.prevent>Toggle Sidebar</b-button>
     </div>
 
     <b-collapse id="example-collapse">
@@ -87,13 +77,6 @@ URL from changing and the page from scrolling, add `@click.prevent` to the link.
         Hello world!
       </b-card>
     </b-collapse>
-
-    <b-sidebar id="example-sidebar" title="Sidebar" shadow>
-      <div class="px-3 py-2">
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-        in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-      </div>
-    </b-sidebar>
   </div>
 </template>
 
@@ -146,8 +129,8 @@ controls other than buttons.
 The directive applies, and dynamically updates, the following ARIA attributes on the trigger
 element:
 
-- `aria-controls` - the ID(s) of the collapse or sidebar component(s) being toggled
-- `aria-expanded` - the visibility state of the collapse or sidebar (see the
+- `aria-controls` - the ID(s) of the collapse component(s) being toggled
+- `aria-expanded` - the visibility state of the collapse (see the
   [caveats section](#caveats-with-multiple-targets) below)
 
 ### Caveats with multiple targets
@@ -159,6 +142,5 @@ via `v-model`, other controls with `v-b-toggle` directive, or CSS visibility).
 ## See also
 
 - [`<b-collapse>`](/docs/components/collapse) Collapsible content with accordion support
-- [`<b-sidebar>`](/docs/components/sidebar) Off-canvas sidebar
 - [`<b-navbar-toggle>`](/docs/components/navbar#b-navbar-toggle-and-b-collapse-is-nav) Navbar
   hamburger toggle button (based on `v-b-toggle` directive)
