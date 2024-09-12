@@ -1,3 +1,10 @@
+# [92.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.2.0...v92.3.0) (2024-09-12)
+
+
+### Features
+
+* Remove unused BootstrapVue components ([cdd4a17](https://gitlab.com/gitlab-org/gitlab-ui/commit/cdd4a17b5ef19fd00e47e272a308e6e1e8541c32))
+
 # [92.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.1.1...v92.2.0) (2024-09-11)
 
 
