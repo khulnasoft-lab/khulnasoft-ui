@@ -8,9 +8,13 @@ import isObject from 'lodash/isObject';
  * @param value
  * @returns {*}
  */
-export const setObjectProperty = (source, key = '', value = '') => {
+export const setObjectProperty = (source, key, value = '') => {
   if (!source || !key || !isObject(source)) {
     return {};
+  }
+
+  if (typeof key !== 'string') {
+    return source;
   }
 
   return {

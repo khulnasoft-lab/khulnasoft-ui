@@ -148,7 +148,7 @@ export default {
   },
   methods: {
     setFieldDirty(fieldName) {
-      this.fieldDirtyStatuses = setObjectProperty(this.fieldDirtyStatuses, [fieldName], true);
+      this.fieldDirtyStatuses = setObjectProperty(this.fieldDirtyStatuses, fieldName, true);
     },
     setAllFieldsDirty() {
       this.fieldNames.forEach((fieldName) => this.setFieldDirty(fieldName));
