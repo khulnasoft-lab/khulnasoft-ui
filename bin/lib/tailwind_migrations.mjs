@@ -50,6 +50,7 @@ function addFromRegExps(rawMigrations) {
   return rawMigrations.map((migration) => ({
     ...migration,
     fromRegExp: new RegExp(`(?<!${classChars})${migration.from}(?!${classChars})`, 'g'),
+    fromAtIncludeRegExp: new RegExp(`@include ${migration.from};`, 'g'),
   }));
 }
 
@@ -74,6 +75,15 @@ export async function parseMigrations(obj) {
     console.error(error.message);
     return [];
   }
+}
+
+export function runSCSSMigrations(contents, migrationsToDo) {
+  let newContents = contents;
+  for (const { fromAtIncludeRegExp, to } of migrationsToDo) {
+    newContents = newContents.replaceAll(fromAtIncludeRegExp, `@apply ${to};`);
+  }
+
+  return newContents;
 }
 
 export function runMigrations(contents, migrationsToDo) {
