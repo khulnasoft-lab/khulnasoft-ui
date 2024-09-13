@@ -25,6 +25,7 @@ const buildUtilityClass = (name, important = false) => {
 
 const buildStatefulClasses = (name, statefulFlags = [], important = false) => {
   return statefulFlags.map((statefulFlag) => {
+    // eslint-disable-next-line @gitlab/tailwind -- Will be removed once we get rid of the legacy utils library.
     const baseSelector = `.gl-${statefulFlag}-${name.replace('gl-', '')}$1:${statefulFlag}`;
     const selector = baseSelector.replace('$1', important ? '\\!' : '');
 

@@ -34,13 +34,16 @@ export default {
         const { default: defaultWidth, ...nonDefaultWidths } = this.width;
 
         return [
+          // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
           ...(defaultWidth ? [`gl-form-select-${defaultWidth}`] : []),
           ...Object.entries(nonDefaultWidths).map(
+            // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
             ([breakpoint, width]) => `gl-${breakpoint}-form-select-${width}`
           ),
         ];
       }
 
+      // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
       return [`gl-form-select-${this.width}`];
     },
   },

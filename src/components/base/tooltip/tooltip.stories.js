@@ -10,6 +10,7 @@ function makeTooltip(modifier = '') {
     directives: {
       GlTooltip: GlTooltipDirective,
     },
+    // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
     template: `
     <div class="gl-flex gl-items-center gl-justify-center gl-p-7 gl-m-7">
       <gl-button
