@@ -1,5 +1,5 @@
 .gl-single-stat {
-  @include gl-line-height-1;
+  @apply gl-leading-1;
 
   &:hover[tabindex='0'] {
     @include gl-bg-gray-50;

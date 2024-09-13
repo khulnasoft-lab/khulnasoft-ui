@@ -9,13 +9,13 @@ table.gl-table {
       border-color: var(--gl-border-color-default);
       @apply gl-p-5;
       @include gl-bg-transparent;
-      @include gl-line-height-normal;
-      @include gl-font-base;
-      @include gl-vertical-align-top;
+      @apply gl-leading-normal;
+      @apply gl-text-base;
+      @apply gl-align-top;
     }
 
     th {
-      @include gl-font-weight-bold;
+      @apply gl-font-bold;
       color: var(--gl-text-color-heading);
 
       &.gl-text-right > div {
@@ -72,7 +72,7 @@ table.gl-table {
         content: '';
         @include gl-h-6;
         @include gl-w-full;
-        @include gl-display-block;
+        @apply gl-block;
       }
 
       > td[data-label] {
@@ -93,7 +93,7 @@ table.gl-table {
 
       div {
         @include gl-text-right;
-        @include gl-overflow-wrap-break;
+        @apply gl-break-words;
       }
     }
   }

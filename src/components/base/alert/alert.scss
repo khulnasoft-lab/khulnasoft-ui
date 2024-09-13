@@ -38,7 +38,7 @@ $gl-alert-top-border-size: 2px;
 }
 
 .gl-alert {
-  @include gl-font-base;
+  @apply gl-text-base;
   position: relative;
   padding-inline: calc(#{$gl-spacing-scale-9} + #{$gl-alert-padding-x});
   @apply gl-py-5;
@@ -68,7 +68,7 @@ $gl-alert-top-border-size: 2px;
 
   .gl-link:not(.gl-label-link) {
     @include gl-text-blue-600;
-    @include gl-text-decoration-underline;
+    @apply gl-underline;
 
     &:hover {
       @include gl-text-blue-700;
@@ -89,8 +89,8 @@ $gl-alert-top-border-size: 2px;
   position: absolute;
   top: $gl-spacing-scale-5;
   left: calc(#{$gl-spacing-scale-5} + #{$gl-alert-padding-x});
-  @include gl-display-flex;
-  @include gl-align-items-center;
+  @apply gl-flex;
+  @apply gl-items-center;
   height: $gl-line-height-20;
 
   .gl-alert-has-title & {
@@ -99,19 +99,19 @@ $gl-alert-top-border-size: 2px;
 }
 
 .gl-alert-body {
-  @include gl-line-height-20;
+  @apply gl-leading-20;
   color: var(--gl-text-color-default);
 }
 
 .gl-alert-actions {
-  @include gl-display-flex;
+  @apply gl-flex;
   @apply gl-mt-3;
 }
 
 .gl-alert-action {
   @apply gl-mr-3;
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @apply gl-text-base;
+  @apply gl-leading-normal;
 }
 
 // This is the replacement for .gl-alert-dismiss

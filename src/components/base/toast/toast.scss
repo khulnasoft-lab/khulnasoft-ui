@@ -20,25 +20,25 @@
 
   .gl-toast {
     @apply gl-rounded-base;
-    @include gl-font-base;
+    @apply gl-text-base;
     @apply gl-py-5;
     @apply gl-px-6;
-    @include gl-line-height-normal;
-    @include gl-display-flex;
-    @include gl-align-items-center;
-    @include gl-justify-content-space-between;
+    @apply gl-leading-normal;
+    @apply gl-flex;
+    @apply gl-items-center;
+    @apply gl-justify-between;
     background-color: var(--gl-feedback-strong-background-color);
     color: var(--gl-feedback-strong-text-color);
   }
 
   .toast-body {
-    @include gl-font-weight-300;
+    @apply gl-font-300;
     @apply gl-pr-3;
     order: 1;
   }
 
   .toast-header {
-    @include gl-display-flex;
+    @apply gl-flex;
     order: 2;
   }
 
@@ -48,9 +48,9 @@
     @apply gl-m-0;
     @apply gl-ml-5;
     @include gl-text-transform-none;
-    @include gl-font-base;
-    @include gl-white-space-nowrap;
-    @include gl-font-weight-bold;
+    @apply gl-text-base;
+    @apply gl-whitespace-nowrap;
+    @apply gl-font-bold;
     @include gl-cursor-pointer;
   }
 

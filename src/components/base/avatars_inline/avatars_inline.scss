@@ -7,7 +7,7 @@
   // Mask size plus border cutout effect
   --mask-cutout: calc(var(--avatar-radius) + 1.5px);
 
-  @include gl-display-inline-flex;
+  @apply gl-inline-flex;
 }
 
 .gl-avatars-inline-sm {
@@ -23,7 +23,7 @@
 }
 
 .gl-avatars-inline-child {
-  @include gl-display-inline-flex;
+  @apply gl-inline-flex;
 
   // Don't include the badge
   &:not(:last-child) {
@@ -39,18 +39,18 @@
   // Remove mask on hovered or focused avatar and bring it forward
   &:not(:last-child):hover,
   &:not(:last-child):focus-within {
-    @include gl-z-index-1;
+    @apply gl-z-1;
     mask: none;
   }
 }
 
 .gl-avatars-inline-badge {
-  @include gl-display-inline-flex;
-  @include gl-align-items-center;
-  @include gl-justify-content-center;
-  @include gl-font-sm;
+  @apply gl-inline-flex;
+  @apply gl-items-center;
+  @apply gl-justify-center;
+  @apply gl-text-sm;
   @apply gl-px-2;
-  @include gl-line-height-normal;
+  @apply gl-leading-normal;
   @include gl-rounded-pill;
   background-color: var(--gl-status-neutral-background-color);
   color: var(--gl-status-neutral-text-color);
@@ -58,7 +58,7 @@
   min-width: var(--avatar-size);
 
   &.lg {
-    @include gl-font-base;
+    @apply gl-text-base;
     @include gl-rounded-6;
   }
 }

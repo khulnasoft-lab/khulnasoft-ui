@@ -43,13 +43,13 @@ body.modal-open {
     color: var(--gl-text-color-default);
 
     > :first-child {
-      @include gl-rounded-top-left-base;
-      @include gl-rounded-top-right-base;
+      @apply gl-rounded-tl-base;
+      @apply gl-rounded-tr-base;
     }
 
     > :last-child {
-      @include gl-rounded-bottom-left-base;
-      @include gl-rounded-bottom-right-base;
+      @apply gl-rounded-bl-base;
+      @apply gl-rounded-br-base;
     }
   }
 
@@ -70,14 +70,14 @@ body.modal-open {
     @apply gl-p-5;
     @apply gl-py-3;
     @include gl-text-left;
-    @include gl-white-space-normal;
-    @include gl-font-base;
-    @include gl-line-height-20;
+    @apply gl-whitespace-normal;
+    @apply gl-text-base;
+    @apply gl-leading-20;
   }
 
   .modal-footer {
-    @include gl-display-flex;
-    @include gl-flex-direction-row;
+    @apply gl-flex;
+    @apply gl-flex-row;
     @apply gl-p-5;
     @apply gl-pt-3;
     @apply gl-border-none;
@@ -97,7 +97,7 @@ body.modal-open {
     }
 
     @include media-breakpoint-down(xs) {
-      @include gl-flex-direction-column;
+      @apply gl-flex-col;
 
       .btn + .btn:not(.dropdown-toggle-split),
       .btn + .btn-group,
@@ -122,8 +122,8 @@ body.modal-open {
     .modal-dialog {
       @include gl-mx-auto;
       @apply gl-my-0;
-      @include gl-display-flex;
-      @include gl-align-items-center;
+      @apply gl-flex;
+      @apply gl-items-center;
       min-height: calc(100% - 1rem);
     }
   }

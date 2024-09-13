@@ -7,13 +7,13 @@
   }
 
   pre {
-    @include gl-reset-color;
+    @apply gl-text-inherit;
     padding: $gl-spacing-scale-3 $gl-spacing-scale-4;
   }
 
   pre code {
-    @include gl-font-sm;
-    @include gl-line-height-1;
+    @apply gl-text-sm;
+    @apply gl-leading-1;
     @include gl-bg-transparent;
     white-space: inherit;
   }
@@ -25,7 +25,7 @@
   copy-code,
   insert-code-snippet {
     position: absolute;
-    @include gl-transition-medium;
+    @apply gl-transition-all;
     @include gl-opacity-0;
     right: $gl-spacing-scale-3;
     top: $gl-spacing-scale-3;

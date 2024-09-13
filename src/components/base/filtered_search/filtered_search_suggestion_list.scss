@@ -2,7 +2,7 @@
 // GitLab
 
 .gl-filtered-search-suggestion-list.dropdown-menu {
-  @include gl-display-block;
+  @apply gl-block;
   width: $gl-dropdown-width;
   @apply gl-p-2;
   @apply gl-border-gray-200;
@@ -22,7 +22,7 @@
   }
 
   .gl-dropdown-divider {
-    @include gl-mx-n2;
+    @apply -gl-mx-2;
   }
 
   .gl-spinner-container {

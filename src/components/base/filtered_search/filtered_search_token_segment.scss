@@ -1,9 +1,9 @@
 .gl-filtered-search-token-segment {
-  @include gl-display-inline-flex;
-  @include gl-align-items-center;
+  @apply gl-inline-flex;
+  @apply gl-items-center;
   @include gl-w-full;
   @include gl-h-6;
-  @include gl-white-space-nowrap;
+  @apply gl-whitespace-nowrap;
   @include gl-cursor-pointer;
 
   &.gl-filtered-search-token-segment-active {

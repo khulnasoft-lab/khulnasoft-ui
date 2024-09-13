@@ -3,9 +3,9 @@
   @include gl-bg-gray-100;
   @include gl-rounded-small;
   @apply gl-pl-3;
-  @include gl-display-inline-flex;
-  @include gl-flex-direction-column;
-  @include gl-justify-content-center;
+  @apply gl-inline-flex;
+  @apply gl-flex-col;
+  @apply gl-justify-center;
 
   &.gl-token-view-only {
     @apply gl-py-2;
@@ -15,21 +15,21 @@
 
 .gl-token-search-type-variant {
   @include gl-bg-gray-100;
-  @include gl-rounded-top-right-none;
-  @include gl-rounded-bottom-right-none;
+  @apply gl-rounded-tr-none;
+  @apply gl-rounded-br-none;
 }
 
 .gl-token-search-value-variant {
-  @include gl-rounded-top-left-none;
-  @include gl-rounded-bottom-left-none;
+  @apply gl-rounded-tl-none;
+  @apply gl-rounded-bl-none;
 }
 
 .gl-token-content {
-  @include gl-font-sm;
-  @include gl-line-height-normal;
-  @include gl-display-flex;
-  @include gl-align-items-center;
-  @include gl-reset-color;
+  @apply gl-text-sm;
+  @apply gl-leading-normal;
+  @apply gl-flex;
+  @apply gl-items-center;
+  @apply gl-text-inherit;
 
   > .gl-avatar:first-child,
   > .gl-spinner-container:first-child {
@@ -39,7 +39,7 @@
 
 .gl-token-close {
   @apply gl-ml-2;
-  @include gl-reset-color;
+  @apply gl-text-inherit;
   @include gl-cursor-pointer;
   opacity: 0.8;
   color: inherit !important;

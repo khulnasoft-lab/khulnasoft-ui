@@ -1,24 +1,24 @@
 .gl-avatar-labeled {
-  @include gl-display-inline-flex;
+  @apply gl-inline-flex;
 
   &-labels {
     @apply gl-ml-3;
-    @include gl-display-flex;
-    @include gl-flex-direction-column;
-    @include gl-justify-content-center;
-    @include gl-font-base;
-    @include gl-line-height-normal;
+    @apply gl-flex;
+    @apply gl-flex-col;
+    @apply gl-justify-center;
+    @apply gl-text-base;
+    @apply gl-leading-normal;
     color: var(--gl-text-color-strong);
   }
 
   &-labels.inline-labels {
-    @include gl-flex-direction-row;
-    @include gl-align-items-center;
+    @apply gl-flex-row;
+    @apply gl-items-center;
     @include gl-gap-2;
   }
 
   &-label {
-    @include gl-font-weight-bold;
+    @apply gl-font-bold;
     @apply gl-p-1;
     color: var(--gl-text-color-strong);
   }

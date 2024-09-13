@@ -6,10 +6,10 @@
   position: relative;
   @apply gl-px-4;
   @apply gl-py-5;
-  @include gl-line-height-normal;
-  @include gl-font-base;
-  @include gl-display-flex;
-  @include gl-justify-content-center;
+  @apply gl-leading-normal;
+  @apply gl-text-base;
+  @apply gl-flex;
+  @apply gl-justify-center;
   @apply gl-border;
   @include gl-action-neutral-colors;
   transition:
@@ -64,13 +64,13 @@
 
 .gl-tab-content {
   @apply gl-py-3;
-  @include gl-font-base;
-  @include gl-line-height-normal;
+  @apply gl-text-base;
+  @apply gl-leading-normal;
   color: var(--gl-text-color-default);
 }
 
 .gl-tab-nav-item-active {
-  @include gl-font-weight-bold;
+  @apply gl-font-bold;
   z-index: 1;
 
   &:active,
@@ -104,28 +104,28 @@
 
 .gl-actions-tabs-start {
   @include gl-w-full;
-  @include gl-display-flex;
-  @include gl-flex-direction-column;
+  @apply gl-flex;
+  @apply gl-flex-col;
   @apply gl-mt-3;
-  @include gl-md-display-none;
+  @apply md:gl-hidden;
 }
 
 .gl-actions-tabs-end {
-  @include gl-display-none;
-  @include gl-flex-grow-1;
-  @include gl-justify-content-end;
-  @include gl-align-items-center;
-  @include gl-flex-direction-row;
+  @apply gl-hidden;
+  @apply gl-grow;
+  @apply gl-justify-end;
+  @apply gl-items-center;
+  @apply gl-flex-row;
   @apply gl-mt-0;
-  @include gl-md-display-flex;
+  @apply md:gl-flex;
 }
 
 .gl-actions-tabs-start,
 .gl-actions-tabs-end {
   button {
     @apply gl-mb-3;
-    @include gl-md-mr-3;
-    @include gl-md-mb-0;
+    @apply md:gl-mr-3;
+    @apply md:gl-mb-0;
   }
 
   button:last-child {

@@ -4,7 +4,7 @@
 }
 
 .gl-banner-illustration {
-  @include gl-flex-shrink-0;
+  @apply gl-shrink-0;
   @apply gl-mr-6;
 
   img {

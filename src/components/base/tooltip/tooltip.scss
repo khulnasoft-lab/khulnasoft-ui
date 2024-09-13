@@ -1,11 +1,11 @@
 .gl-tooltip {
-  @include gl-font-sm;
+  @apply gl-text-sm;
   @apply gl-p-2;
 
   .tooltip-inner {
     @apply gl-rounded-base;
-    @include gl-line-height-normal;
-    @include gl-font-weight-normal;
+    @apply gl-leading-normal;
+    @apply gl-font-normal;
     @apply gl-py-3;
     @apply gl-px-4;
     background: var(--gl-feedback-strong-background-color);

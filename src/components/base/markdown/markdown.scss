@@ -1,9 +1,9 @@
 .gl-markdown {
-  @include gl-font-size-markdown;
-  @include gl-line-height-24;
+  @apply gl-text-lg;
+  @apply gl-leading-24;
   color: $gl-text-color;
   @include gl-font-regular;
-  @include gl-font-weight-normal;
+  @apply gl-font-normal;
 
   :first-child {
     @apply gl-mt-0;
@@ -57,13 +57,13 @@
 
     &.sm {
       @include gl-font-size-markdown-sm;
-      @include gl-line-height-20;
+      @apply gl-leading-20;
     }
   }
 
   .sm {
     @include gl-font-size-markdown-sm;
-    @include gl-line-height-20;
+    @apply gl-leading-20;
   }
 
   .monospace,
@@ -82,7 +82,7 @@
 
   .idiff {
     @apply gl-rounded-base;
-    @include gl-display-inline-flex;
+    @apply gl-inline-flex;
     @apply gl-px-2;
   }
 
@@ -112,15 +112,15 @@
 
     code {
       @include gl-bg-white;
-      @include gl-rounded-0;
+      @apply gl-rounded-none;
       @include gl-text-gray-900;
       @apply gl-p-0;
     }
   }
 
   .audio-container {
-    @include gl-display-inline-flex;
-    @include gl-flex-direction-column;
+    @apply gl-inline-flex;
+    @apply gl-flex-col;
     @include gl-w-full;
 
     audio {
@@ -147,12 +147,12 @@
       @apply gl-px-3;
       @apply gl-py-4;
       @include gl-inset-border-b-1-gray-100;
-      @include gl-vertical-align-top;
+      @apply gl-align-top;
     }
 
     th {
       @include gl-inset-border-y-1-gray-100;
-      @include gl-font-weight-bold;
+      @apply gl-font-bold;
     }
 
     thead {
@@ -166,8 +166,8 @@
 }
 
 .gl-compact-markdown {
-  @include gl-font-base;
-  @include gl-line-height-20;
+  @apply gl-text-base;
+  @apply gl-leading-20;
 
   h1,
   .gl-h1 {
@@ -206,7 +206,7 @@
   }
 
   .sm {
-    @include gl-font-sm;
+    @apply gl-text-sm;
   }
 
   .monospace,

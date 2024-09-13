@@ -1,14 +1,14 @@
 .gl-filtered-search-scrollable-container {
   @include gl-bg-white;
-  @include gl-display-flex;
-  @include gl-flex-grow-1;
-  @include gl-flex-basis-0;
+  @apply gl-flex;
+  @apply gl-grow;
+  @apply gl-basis-0;
   @include gl-overflow-hidden;
-  @include gl-align-items-center;
+  @apply gl-items-center;
   @apply gl-py-2;
   @apply gl-pl-4;
   @apply gl-pr-7;
-  @include gl-inset-border-1-gray-400;
+  @apply gl-shadow-inner-1-gray-400;
   @apply gl-border-none;
   @apply gl-rounded-base;
 
@@ -22,13 +22,13 @@
 }
 
 .gl-filtered-search-scrollable {
-  @include gl-display-flex;
+  @apply gl-flex;
   @include gl-overflow-y-auto;
   @include gl-w-full;
 }
 
 .gl-filtered-search-item {
-  @include gl-display-flex;
+  @apply gl-flex;
   @apply gl-px-1;
 
   &:first-child {
@@ -40,10 +40,10 @@
   .gl-filtered-search-term-value {
     @include gl-h-full;
     @include gl-w-full;
-    @include gl-align-items-center;
+    @apply gl-items-center;
   }
 
-  @include gl-flex-grow-1;
+  @apply gl-grow;
   @apply gl-p-0;
   @apply gl-pl-1;
   @include gl-h-6;

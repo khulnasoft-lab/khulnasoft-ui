@@ -81,36 +81,36 @@
     @apply gl-border-0;
     @include gl-w-full;
     @include gl-bg-transparent;
-    @include gl-align-items-center;
-    @include gl-display-flex;
-    @include gl-font-base;
-    @include gl-font-weight-normal;
-    @include gl-line-height-normal;
+    @apply gl-items-center;
+    @apply gl-flex;
+    @apply gl-text-base;
+    @apply gl-font-normal;
+    @apply gl-leading-normal;
     @apply gl-px-3;
     @apply gl-py-0;
     position: relative;
-    @include gl-text-decoration-none;
+    @apply gl-no-underline;
     @include gl-text-gray-900;
     @include gl-text-left;
-    @include gl-white-space-normal;
+    @apply gl-whitespace-normal;
     @include gl-prefers-reduced-motion-transition;
     transition: background-color $gl-transition-duration-fast $gl-easing-out-cubic,
                 box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
 
     .gl-new-dropdown-item-check-icon {
-      @include gl-flex-shrink-0;
+      @apply gl-shrink-0;
       @apply gl-mr-3;
       @include gl-text-blue-500;
     }
 
     .gl-new-dropdown-item-icon {
-      @include gl-flex-shrink-0;
+      @apply gl-shrink-0;
       @apply gl-mr-3;
     }
 
     .gl-new-dropdown-item-text-wrapper {
       @include gl-min-w-0;
-      @include gl-flex-grow-1;
+      @apply gl-grow;
       @apply gl-py-3;
     }
   }

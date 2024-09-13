@@ -4,15 +4,15 @@ $label-padding-horizontal: 0.75 * $grid-size;
 $label-padding-horizontal-half: 0.375 * $grid-size;
 
 .gl-label {
-  @include gl-align-items-center;
+  @apply gl-items-center;
   background-color: var(--gl-background-color-default);
   @include gl-overflow-hidden;
-  @include gl-display-inline-flex;
+  @apply gl-inline-flex;
   @include gl-rounded-pill;
   position: relative;
   @include gl-max-w-full;
-  @include gl-font-sm;
-  @include gl-line-height-normal;
+  @apply gl-text-sm;
+  @apply gl-leading-normal;
   box-shadow: var(--label-inset-border) !important;
 
   @media (forced-colors: active) {
@@ -28,16 +28,16 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   }
 
   .gl-label-link {
-    @include gl-display-flex;
-    @include gl-font-weight-normal;
+    @apply gl-flex;
+    @apply gl-font-normal;
     @include gl-overflow-hidden;
-    @include gl-reset-color;
+    @apply gl-text-inherit;
     @include gl-max-w-full;
 
     &:hover,
     &:focus,
     &:focus:active {
-      @include gl-reset-color;
+      @apply gl-text-inherit;
       @include gl-shadow-none;
       @include gl-outline-none;
     }
@@ -58,14 +58,14 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
 
   .gl-label-text,
   .gl-label-text-scoped {
-    @include gl-display-block;
+    @apply gl-block;
     padding: $gl-spacing-scale-1 $label-padding-horizontal;
     @include str-truncated($label-max-width);
   }
 
   > #{$label-close-button} {
     @apply gl-border-0;
-    @include gl-display-flex;
+    @apply gl-flex;
     width: px-to-rem(14px);
     height: px-to-rem(14px);
     margin-left: -$label-padding-horizontal-half;
@@ -145,7 +145,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
 }
 
 .gl-label-tooltip-title {
-  @include gl-display-block;
+  @apply gl-block;
   @include gl-text-theme-indigo-300;
-  @include gl-font-weight-bold;
+  @apply gl-font-bold;
 }

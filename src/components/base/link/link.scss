@@ -7,7 +7,7 @@
   &:active,
   &:focus,
   &:focus:active {
-    @include gl-text-decoration-underline;
+    @apply gl-underline;
     @include gl-focus($outline: true, $outline-offset: $outline-width);
   }
 }

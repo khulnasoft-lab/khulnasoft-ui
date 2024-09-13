@@ -1,20 +1,20 @@
 @mixin gl-tmp-dropdown-item-style {
-  @include gl-align-items-center;
+  @apply gl-items-center;
   @include gl-bg-transparent;
   @apply gl-border-0;
-  @include gl-display-flex;
-  @include gl-font-base;
-  @include gl-font-weight-normal;
-  @include gl-line-height-normal;
+  @apply gl-flex;
+  @apply gl-text-base;
+  @apply gl-font-normal;
+  @apply gl-leading-normal;
   @apply gl-px-5;
   @apply gl-py-0;
   position: relative;
-  @include gl-rounded-0;
+  @apply gl-rounded-none;
   @include gl-shadow-none;
   @include gl-text-gray-900;
   @include gl-text-left;
   @include gl-w-full;
-  @include gl-white-space-normal;
+  @apply gl-whitespace-normal;
 }
 
 .gl-dropdown-item {
@@ -23,18 +23,18 @@
     @include gl-cursor-pointer;
 
     .gl-avatar {
-      @include gl-flex-shrink-0;
+      @apply gl-shrink-0;
       @apply gl-mr-3;
     }
 
     .gl-dropdown-item-check-icon {
-      @include gl-flex-shrink-0;
+      @apply gl-shrink-0;
       @apply gl-mr-3;
       @include gl-text-gray-700;
     }
 
     .gl-dropdown-item-icon {
-      @include gl-flex-shrink-0;
+      @apply gl-shrink-0;
       @apply gl-mr-3;
     }
 
@@ -49,7 +49,7 @@
 
     .gl-dropdown-item-text-wrapper {
       @include gl-min-w-0;
-      @include gl-flex-grow-1;
+      @apply gl-grow;
       @apply gl-mr-3;
       @apply gl-py-3;
     }
@@ -60,18 +60,18 @@
     }
 
     &.disable-hover {
-      @include gl-text-decoration-none;
+      @apply gl-no-underline;
     }
 
     &:disabled {
       @include gl-text-gray-500;
 
       .gl-new-dropdown-item-check-icon {
-        @include gl-reset-color;
+        @apply gl-text-inherit;
       }
 
       .gl-new-dropdown-item-text-secondary {
-        @include gl-reset-color;
+        @apply gl-text-inherit;
       }
 
       .gl-avatar {
@@ -84,7 +84,7 @@
     &:focus,
     &.is-focused {
       @include gl-bg-gray-50;
-      @include gl-text-decoration-none;
+      @apply gl-no-underline;
       @include gl-text-gray-900;
 
       // make sure the text color is not overridden

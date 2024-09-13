@@ -61,14 +61,14 @@
 
 // low specificity so that display can be overridden to hide buttons
 .gl-button {
-  @include gl-display-inline-flex;
+  @apply gl-inline-flex;
 }
 
 .gl-button:not(.btn-link) {
   &:focus,
   &:active,
   &:focus:active {
-    @include gl-text-decoration-none;
+    @apply gl-no-underline;
   }
 }
 
@@ -79,13 +79,13 @@
   @apply gl-py-3;
   @apply gl-px-4;
   background-color: var(--gl-button-default-primary-background-color-default);
-  @include gl-line-height-normal;
+  @apply gl-leading-normal;
   color: var(--gl-button-default-primary-foreground-color-default);
   @include gl-fill-current-color;
   @include gl-button-border(var(--gl-button-default-primary-border-color-default));
-  @include gl-justify-content-center;
-  @include gl-align-items-center;
-  @include gl-font-base;
+  @apply gl-justify-center;
+  @apply gl-items-center;
+  @apply gl-text-base;
 
   @media (forced-colors: active) {
     border: 1px solid;
@@ -93,8 +93,8 @@
 
   .gl-button-text {
     @include gl-overflow-hidden;
-    @include gl-text-overflow-ellipsis;
-    @include gl-white-space-nowrap;
+    @apply gl-text-ellipsis;
+    @apply gl-whitespace-nowrap;
     // Added to address a FF bug which causes cut off text: https://bugzilla.mozilla.org/show_bug.cgi?id=1406552
     padding-top: 1px;
     padding-bottom: 1px;
@@ -105,7 +105,7 @@
   .gl-button-icon {
     @include gl-h-5;
     @include gl-w-5;
-    @include gl-flex-shrink-0;
+    @apply gl-shrink-0;
     @apply gl-mr-2;
     top: auto;
   }
@@ -113,7 +113,7 @@
   gl-emoji {
     @apply gl-mr-2;
     position: relative;
-    @include gl-font-lg;
+    @apply gl-text-lg;
   }
 
   &.btn-default,
@@ -370,7 +370,7 @@
   &.btn-success-tertiary {
     @include gl-bg-transparent;
     @include gl-text-green-500;
-    @include gl-font-weight-normal;
+    @apply gl-font-normal;
     @include gl-inset-border-1-green-500;
 
     &:hover {
@@ -400,11 +400,11 @@
   &.btn-sm {
     @apply gl-py-2;
     @apply gl-px-3;
-    @include gl-line-height-normal;
-    @include gl-font-base;
+    @apply gl-leading-normal;
+    @apply gl-text-base;
 
     gl-emoji {
-      @include gl-font-sm;
+      @apply gl-text-sm;
     }
   }
 
@@ -442,7 +442,7 @@
 
   &.btn-icon {
     @apply gl-p-3;
-    @include gl-line-height-normal;
+    @apply gl-leading-normal;
 
     .gl-button-icon {
       @apply gl-mr-0;
@@ -477,8 +477,8 @@
   &.btn-link {
     @include gl-bg-transparent;
     @apply gl-border-0;
-    @include gl-font-base;
-    @include gl-line-height-normal;
+    @apply gl-text-base;
+    @apply gl-leading-normal;
     color: var(--gl-button-link-text-color-default);
     @apply gl-py-0;
     @apply gl-px-0;
@@ -491,7 +491,7 @@
 
     &:active {
       color: var(--gl-button-link-text-color-active);
-      @include gl-text-decoration-underline;
+      @apply gl-underline;
     }
 
     &:active,

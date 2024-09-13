@@ -9,14 +9,14 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
 
 /* stylelint-disable property-no-vendor-prefix */
 .gl-form-select {
-  @include gl-font-base;
+  @apply gl-text-base;
   @include gl-font-regular;
   @include gl-opacity-10;
-  @include gl-line-height-normal;
+  @apply gl-leading-normal;
   @apply gl-py-3;
   @apply gl-pl-4;
   @include gl-h-auto;
-  @include gl-text-truncate;
+  @apply gl-truncate;
   @include gl-bg-no-repeat;
   @apply gl-border-none;
   appearance: none;

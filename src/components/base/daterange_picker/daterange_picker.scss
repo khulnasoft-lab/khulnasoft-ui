@@ -1,18 +1,18 @@
 .gl-daterange-picker {
-  @include gl-line-height-normal;
-  @include gl-font-base;
+  @apply gl-leading-normal;
+  @apply gl-text-base;
   @include gl-font-regular;
 
   label {
-    @include gl-font-weight-bold;
+    @apply gl-font-bold;
     color: var(--gl-text-color-strong);
   }
 
   .gl-daterange-picker-indicator {
-    @include gl-display-flex;
-    @include gl-flex-direction-row;
-    @include gl-align-items-center;
-    @include gl-align-self-end;
+    @apply gl-flex;
+    @apply gl-flex-row;
+    @apply gl-items-center;
+    @apply gl-self-end;
     @include gl-gap-3;
     @include gl-h-7;
     color: var(--gl-text-color-subtle);

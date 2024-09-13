@@ -33,7 +33,7 @@ $badge-min-width: $gl-spacing-scale-3;
       // Needed to override bootstrap's badge variant background
       background-color: $hover-background-color;
       box-shadow: inset 0 0 0 $gl-border-size-1 $hover-border-color;
-      @include gl-text-decoration-none;
+      @apply gl-no-underline;
 
       .gl-badge-icon {
         color: $hover-icon-color;
@@ -71,9 +71,9 @@ $badge-min-width: $gl-spacing-scale-3;
 /* Basic badge styles */
 
 .gl-badge {
-  @include gl-font-sm;
-  @include gl-font-weight-normal;
-  @include gl-line-height-normal;
+  @apply gl-text-sm;
+  @apply gl-font-normal;
+  @apply gl-leading-normal;
 
   /*
     CSS Grid is used here to deal with 3 cases:
@@ -106,7 +106,7 @@ $badge-min-width: $gl-spacing-scale-3;
   .gl-badge-icon {
     @include gl-h-5;
     @include gl-w-5;
-    @include gl-flex-shrink-0;
+    @apply gl-shrink-0;
     top: auto;
   }
 
@@ -247,5 +247,5 @@ $badge-min-width: $gl-spacing-scale-3;
 
 .gl-new-dropdown-contents .gl-badge,
 .gl-tab-nav-item .gl-badge {
-  @include gl-my-n1;
+  @apply -gl-my-1;
 }

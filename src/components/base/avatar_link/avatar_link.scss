@@ -1,14 +1,14 @@
 .gl-avatar-link {
-  @include gl-display-inline-flex;
+  @apply gl-inline-flex;
 
   .gl-avatar {
     @include gl-transition-property-border-color;
-    @include gl-transition-duration-slow;
-    @include gl-transition-timing-function-ease;
+    @apply gl-duration-slow;
+    @apply gl-ease-ease;
   }
 
   &:hover {
-    @include gl-text-decoration-none;
+    @apply gl-no-underline;
 
     .gl-avatar {
       outline: 1px solid var(--gl-avatar-border-color-hover);
@@ -16,12 +16,12 @@
 
     .gl-avatar-labeled {
       &-label {
-        @include gl-text-decoration-underline;
+        @apply gl-underline;
         @include gl-text-decoration-color-gray-900;
       }
 
       &-sublabel {
-        @include gl-text-decoration-underline;
+        @apply gl-underline;
         @include gl-text-decoration-color-gray-500;
       }
     }

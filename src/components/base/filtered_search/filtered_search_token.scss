@@ -4,8 +4,8 @@
   }
 
   @include gl-h-6;
-  @include gl-display-inline-flex;
-  @include gl-white-space-nowrap;
+  @apply gl-inline-flex;
+  @apply gl-whitespace-nowrap;
   @include gl-cursor-pointer;
 
   &.gl-filtered-search-token-hover {
@@ -23,13 +23,13 @@
 }
 
 .gl-token {
-  @include gl-rounded-0;
+  @apply gl-rounded-none;
 
   &.gl-filtered-search-token-type {
     @include gl-h-6;
     @include gl-bg-gray-50;
-    @include gl-rounded-top-right-none;
-    @include gl-rounded-bottom-right-none;
+    @apply gl-rounded-tr-none;
+    @apply gl-rounded-br-none;
     @apply gl-py-2;
     @apply gl-px-3;
     @apply gl-mr-1;
@@ -39,17 +39,17 @@
     @include gl-h-6;
     @include gl-bg-gray-50;
     @apply gl-mr-1;
-    @include gl-rounded-0;
+    @apply gl-rounded-none;
   }
 
   &.gl-filtered-search-token-data {
     @include gl-h-6;
     @include gl-bg-gray-100;
-    @include gl-rounded-top-right-small;
-    @include gl-rounded-bottom-right-small;
+    @apply gl-rounded-tr-small;
+    @apply gl-rounded-br-small;
 
     .gl-filtered-search-token-data-content {
-      @include gl-display-inline-flex;
+      @apply gl-inline-flex;
     }
   }
 }

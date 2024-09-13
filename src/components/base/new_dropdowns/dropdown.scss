@@ -1,6 +1,6 @@
 .gl-new-dropdown {
-  @include gl-display-inline-flex;
-  @include gl-vertical-align-middle;
+  @apply gl-inline-flex;
+  @apply gl-align-middle;
 
   .gl-new-dropdown-custom-toggle {
     *:first-child {
@@ -13,7 +13,7 @@
   }
 
   .gl-new-dropdown-panel {
-    @include gl-display-none;
+    @apply gl-hidden;
     @include gl-bg-white;
     @apply gl-border-1 gl-border-solid gl-border-gray-200;
     @include gl-rounded-lg;
@@ -26,26 +26,26 @@
   }
 
   .gl-new-dropdown-inner {
-    @include gl-display-flex;
-    @include gl-flex-direction-column;
+    @apply gl-flex;
+    @apply gl-flex-col;
     max-height: $gl-max-dropdown-max-height;
   }
 
   .gl-new-dropdown-contents {
     position: relative;
-    @include gl-flex-grow-1;
+    @apply gl-grow;
     @include gl-overflow-y-auto;
     @apply gl-pl-0;
     @apply gl-mb-0;
     @apply gl-py-2;
-    @include gl-list-style-none;
+    @apply gl-list-none;
 
     &:focus-visible {
       @include gl-focus;
     }
 
     ul {
-      @include gl-list-style-none;
+      @apply gl-list-none;
     }
   }
 
@@ -60,20 +60,20 @@
     }
 
     &.gl-new-dropdown-toggle-no-caret .gl-new-dropdown-chevron {
-      @include gl-display-none;
+      @apply gl-hidden;
     }
   }
 
   .gl-new-dropdown-toggle {
     .gl-button-text {
-      @include gl-display-inline-flex;
+      @apply gl-inline-flex;
     }
   }
 
   .gl-new-dropdown-button-text {
     @include gl-mr-auto;
     @include gl-overflow-hidden;
-    @include gl-text-overflow-ellipsis;
+    @apply gl-text-ellipsis;
   }
 
   &.btn-sm .gl-icon {
@@ -187,15 +187,15 @@
 .btn-group {
   .gl-new-dropdown:not(:last-child) {
     .gl-new-dropdown-toggle {
-      @include gl-rounded-top-right-none;
-      @include gl-rounded-bottom-right-none;
+      @apply gl-rounded-tr-none;
+      @apply gl-rounded-br-none;
     }
   }
 
   .gl-new-dropdown:not(:first-child) {
     .gl-new-dropdown-toggle {
-      @include gl-rounded-top-left-none;
-      @include gl-rounded-bottom-left-none;
+      @apply gl-rounded-tl-none;
+      @apply gl-rounded-bl-none;
 
       // Prevent double borders when buttons are next to each other
       margin-left: -1px;
@@ -221,14 +221,14 @@
 
   .gl-new-dropdown:hover {
     .gl-new-dropdown-toggle {
-      @include gl-z-index-1;
+      @apply gl-z-1;
     }
   }
 
   .gl-new-dropdown {
     .gl-new-dropdown-toggle:focus,
     .gl-new-dropdown-toggle:active {
-      @include gl-z-index-1;
+      @apply gl-z-1;
     }
   }
 }

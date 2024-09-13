@@ -20,14 +20,14 @@ $pd-week-color: var(--gl-text-color-subtle);
 @import 'pikaday/scss/pikaday';
 
 .gl-datepicker-actions {
-  @include gl-font-sm;
+  @apply gl-text-sm;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  @include gl-display-flex;
-  @include gl-justify-content-center;
-  @include gl-align-items-center;
+  @apply gl-flex;
+  @apply gl-justify-center;
+  @apply gl-items-center;
   @include gl-pointer-events-none;
   @apply gl-px-2;
 
@@ -60,7 +60,7 @@ $pd-week-color: var(--gl-text-color-subtle);
   }
 
   .pika-title {
-    @include gl-line-height-normal;
+    @apply gl-leading-normal;
     @apply gl-mb-5;
     @include gl-h-5;
   }
@@ -152,7 +152,7 @@ $pd-week-color: var(--gl-text-color-subtle);
 
   .pika-label {
     @apply gl-rounded-small;
-    @include gl-font-base;
+    @apply gl-text-base;
     @apply gl-py-0;
 
     background-color: var(--gl-action-neutral-background-color-default);
@@ -177,12 +177,12 @@ $pd-week-color: var(--gl-text-color-subtle);
 
   th {
     @apply gl-pb-3;
-    @include gl-font-weight-bold;
-    @include gl-line-height-normal;
+    @apply gl-font-bold;
+    @apply gl-leading-normal;
   }
 
   abbr[title] {
-    @include gl-text-decoration-none;
+    @apply gl-no-underline;
     @include gl-cursor-default;
   }
 
@@ -191,9 +191,9 @@ $pd-week-color: var(--gl-text-color-subtle);
     @include gl-shadow-none;
     @apply gl-py-3;
     @include gl-text-center;
-    @include gl-line-height-normal;
+    @apply gl-leading-normal;
     @include gl-w-7;
-    @include gl-font-base;
+    @apply gl-text-base;
 
     &:hover {
       box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-hover);
@@ -205,11 +205,11 @@ $pd-week-color: var(--gl-text-color-subtle);
   }
 
   .is-today > .pika-button {
-    @include gl-font-weight-bold;
+    @apply gl-font-bold;
   }
 
   .is-selected > .pika-button {
-    @include gl-font-weight-normal;
+    @apply gl-font-normal;
 
     &:hover {
       background-color: var(--gl-control-background-color-selected-hover);
@@ -219,7 +219,7 @@ $pd-week-color: var(--gl-text-color-subtle);
   }
 
   .is-selected.is-today > .pika-button {
-    @include gl-font-weight-bold;
+    @apply gl-font-bold;
   }
 
   .is-disabled {

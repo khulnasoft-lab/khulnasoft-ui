@@ -3,7 +3,7 @@
 
   .gl-accordion-item-header {
     @apply gl-m-0;
-    @include gl-line-height-normal;
+    @apply gl-leading-normal;
   }
 
   &:last-child {

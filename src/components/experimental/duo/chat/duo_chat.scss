@@ -37,16 +37,16 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
 
 .duo-chat-drawer {
   right: 0;
-  @include gl-transition-medium;
+  @apply gl-transition-all;
   position: fixed;
   @include gl-h-full;
   @include gl-w-full;
   @include gl-overflow-y-auto;
   @include gl-shadow-lg;
-  @include gl-font-base;
-  @include gl-line-height-normal;
-  @include gl-display-flex;
-  @include gl-flex-direction-column;
+  @apply gl-text-base;
+  @apply gl-leading-normal;
+  @apply gl-flex;
+  @apply gl-flex-col;
 }
 
 .duo-chat-drawer-header {
@@ -60,7 +60,7 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
 }
 
 .duo-chat-drawer-body {
-  @include gl-flex-grow-1;
+  @apply gl-grow;
   // prevent safari bug where box shadow is visible
   // above the drawer when hovering interactive elements
   // see https://gitlab.com/gitlab-org/gitlab/-/issues/366558
@@ -82,7 +82,7 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
   &::before {
     background: $duo-chat-scrim-gradient;
     top: -$gl-border-size-1;
-    @include gl-translate-y-n100;
+    @apply -gl-translate-y-full;
     content: '';
     left: 0;
     position: absolute;
@@ -124,8 +124,8 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
 }
 
 .duo-chat-input {
-  @include gl-display-flex;
-  @include gl-flex-direction-column;
+  @apply gl-flex;
+  @apply gl-flex-col;
   max-height: 240px;
   overflow: hidden;
 
@@ -142,14 +142,14 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
 
   &::after {
     content: attr(data-value) ' ';
-    @include gl-visibility-hidden;
-    @include gl-white-space-pre-wrap;
+    @apply gl-invisible;
+    @apply gl-whitespace-pre-wrap;
     @apply gl-py-4;
   }
 }
 
 .slash-commands {
-  @include gl-mt-n2;
+  @apply -gl-mt-2;
 
   .active-command {
     @include gl-bg-gray-50;
@@ -157,12 +157,12 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
   }
 
   .gl-dropdown-item button.dropdown-item {
-    @include gl-font-sm;
+    @apply gl-text-sm;
     @apply gl-px-3;
-    @include gl-bg-none;
+    @apply gl-bg-transparent;
 
     &:hover {
-      @include gl-bg-none;
+      @apply gl-bg-transparent;
     }
   }
 }

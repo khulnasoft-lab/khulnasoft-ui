@@ -19,8 +19,8 @@
   }
 
   .gl-dropdown-inner {
-    @include gl-display-flex;
-    @include gl-flex-direction-column;
+    @apply gl-flex;
+    @apply gl-flex-col;
     max-height: $gl-max-dropdown-max-height;
 
     > :first-child {
@@ -33,17 +33,17 @@
   }
 
   .gl-dropdown-contents {
-    @include gl-flex-grow-1;
+    @apply gl-grow;
     overflow-y: auto;
   }
 
   .gl-dropdown-header-top {
     @apply gl-border-1 gl-border-b-solid gl-border-gray-200;
-    @include gl-display-flex;
-    @include gl-font-base;
-    @include gl-font-weight-bold;
-    @include gl-justify-content-center;
-    @include gl-line-height-normal;
+    @apply gl-flex;
+    @apply gl-text-base;
+    @apply gl-font-bold;
+    @apply gl-justify-center;
+    @apply gl-leading-normal;
     @apply gl-m-0;
     @apply gl-mb-3;
     @apply gl-pb-3;
@@ -62,7 +62,7 @@
   .dropdown-toggle {
     // Remove bootstrap's dropdown caret
     &::after {
-      @include gl-display-none;
+      @apply gl-hidden;
     }
 
     &.gl-button,
@@ -88,7 +88,7 @@
     &::after {
       @apply gl-border-0;
       content: '';
-      @include gl-display-block;
+      @apply gl-block;
       @include gl-w-5;
       @include gl-h-5;
       @include gl-bg-current-color;
@@ -123,24 +123,24 @@
 
   .gl-dropdown-toggle {
     &.btn-block {
-      @include gl-justify-content-space-between;
+      @apply gl-justify-between;
     }
 
     .gl-button-text {
-      @include gl-display-inline-flex;
+      @apply gl-inline-flex;
     }
   }
 
   .gl-dropdown-button-text {
     @include gl-mr-auto;
     @include gl-overflow-hidden;
-    @include gl-text-overflow-ellipsis;
+    @apply gl-text-ellipsis;
   }
 
   // Fix rounded split dropdown button: https://gitlab.com/gitlab-org/gitlab-ui/issues/626
   &.dropdown.show .dropdown-toggle-split {
-    @include gl-rounded-top-left-none;
-    @include gl-rounded-bottom-left-none;
+    @apply gl-rounded-tl-none;
+    @apply gl-rounded-bl-none;
   }
 
   // The `&.dropdown` is necessary to strengthen the specificity of these selectors
