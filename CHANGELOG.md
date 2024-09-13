@@ -1,3 +1,10 @@
+## [92.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.3.0...v92.3.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* update context-items-menu components with updated schema ([afff4cb](https://gitlab.com/gitlab-org/gitlab-ui/commit/afff4cbed8b0d1fea836938a7e6b6d22ee92981a))
+
 # [92.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.2.0...v92.3.0) (2024-09-12)
 
 
