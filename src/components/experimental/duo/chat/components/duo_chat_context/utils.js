@@ -18,9 +18,11 @@ export function contextItemValidator(item) {
   return Boolean(
     item &&
       item.id &&
-      item.type &&
-      typeof item.isEnabled === 'boolean' &&
-      disabledReasonsValidator(item.disabledReasons)
+      item.category &&
+      item.metadata &&
+      typeof item.metadata === 'object' &&
+      typeof item.metadata.enabled === 'boolean' &&
+      disabledReasonsValidator(item.metadata.disabledReasons)
   );
 }
 

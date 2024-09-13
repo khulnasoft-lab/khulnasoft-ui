@@ -77,7 +77,7 @@ export default {
       return this.open && !this.selectedCategory;
     },
     allResultsAreDisabled() {
-      return this.results.every((result) => !result.isEnabled);
+      return this.results.every((result) => !result.metadata.enabled);
     },
   },
   watch: {
@@ -90,7 +90,7 @@ export default {
       this.debouncedSearch(query);
     },
     results(newResults) {
-      const firstEnabledIndex = newResults.findIndex((result) => result.isEnabled);
+      const firstEnabledIndex = newResults.findIndex((result) => result.metadata.enabled);
       this.activeIndex = firstEnabledIndex >= 0 ? firstEnabledIndex : 0;
     },
   },
@@ -117,7 +117,7 @@ export default {
       });
     }, SEARCH_DEBOUNCE_MS),
     selectItem(item) {
-      if (!item.isEnabled) {
+      if (!item.metadata.enabled) {
         return;
       }
 
@@ -214,7 +214,7 @@ export default {
           // If we've looped through all items and found no enabled ones, keep the current index
           return;
         }
-      } while (!this.results[newIndex].isEnabled);
+      } while (!this.results[newIndex].metadata.enabled);
 
       this.activeIndex = newIndex;
     },

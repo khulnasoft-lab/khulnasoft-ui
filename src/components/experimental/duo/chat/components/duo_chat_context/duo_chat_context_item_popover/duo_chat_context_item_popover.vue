@@ -3,9 +3,9 @@ import GlPopover from '../../../../../../base/popover/popover.vue';
 import GlIcon from '../../../../../../base/icon/icon.vue';
 import { translate } from '../../../../../../../utils/i18n';
 import {
-  CONTEXT_ITEM_TYPE_ISSUE,
-  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-  CONTEXT_ITEM_TYPE_PROJECT_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
+  CONTEXT_ITEM_CATEGORY_FILE,
 } from '../constants';
 import { formatIssueId, formatMergeRequestId } from '../utils';
 import GlAlert from '../../../../../../base/alert/alert.vue';
@@ -42,44 +42,44 @@ export default {
     },
   },
   computed: {
-    itemInfo() {
-      return this.contextItem.metadata?.info || {};
-    },
     id() {
       const isIssuable =
-        this.contextItem.type === CONTEXT_ITEM_TYPE_ISSUE ||
-        this.contextItem.type === CONTEXT_ITEM_TYPE_MERGE_REQUEST;
-      return isIssuable ? this.itemInfo.iid || '' : null;
+        this.contextItem.category === CONTEXT_ITEM_CATEGORY_ISSUE ||
+        this.contextItem.category === CONTEXT_ITEM_CATEGORY_MERGE_REQUEST;
+      return isIssuable ? this.contextItem.metadata.iid : null;
     },
     formattedId() {
-      switch (this.contextItem.type) {
-        case CONTEXT_ITEM_TYPE_ISSUE:
+      switch (this.contextItem.category) {
+        case CONTEXT_ITEM_CATEGORY_ISSUE:
           return formatIssueId(this.id);
-        case CONTEXT_ITEM_TYPE_MERGE_REQUEST:
+        case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
           return formatMergeRequestId(this.id);
         default:
           return '';
       }
     },
+    title() {
+      return this.contextItem.metadata.title || '';
+    },
     filePath() {
-      return this.contextItem.type === CONTEXT_ITEM_TYPE_PROJECT_FILE
-        ? this.itemInfo.relFilePath || ''
+      return this.contextItem.category === CONTEXT_ITEM_CATEGORY_FILE
+        ? this.contextItem.metadata.relativePath || ''
         : null;
     },
     filePathArray() {
       return this.filePath?.split('/');
     },
     isEnabled() {
-      return this.contextItem.isEnabled !== false;
+      return this.contextItem.metadata.enabled !== false;
     },
     disabledMessage() {
-      return Array.isArray(this.contextItem.disabledReasons) &&
-        this.contextItem.disabledReasons.length > 0
-        ? this.contextItem.disabledReasons.join(', ')
+      return Array.isArray(this.contextItem.metadata.disabledReasons) &&
+        this.contextItem.metadata.disabledReasons.length > 0
+        ? this.contextItem.metadata.disabledReasons.join(', ')
         : translate('DuoChatContextItemPopover.DisabledReason', 'This item is disabled');
     },
     iconName() {
-      switch (this.contextItem.type) {
+      switch (this.contextItem.category) {
         case 'merge_request':
           return 'merge-request';
         case 'issue':
@@ -89,7 +89,7 @@ export default {
       }
     },
     itemTypeLabel() {
-      switch (this.contextItem.type) {
+      switch (this.contextItem.category) {
         case 'merge_request':
           return translate('DuoChatContextItemPopover.MergeRequest', 'Merge request');
         case 'issue':
@@ -109,7 +109,7 @@ export default {
     :target="target"
     triggers="hover focus"
     :placement="placement"
-    :title="contextItem.metadata.name"
+    :title="title"
     custom-class="gl-duo-chat-item-popover"
   >
     <template #title>
@@ -118,7 +118,7 @@ export default {
           class="gl-heading-3 gl-mb-1 gl-mt-2 gl-leading-1"
           data-testid="chat-context-popover-title"
         >
-          {{ contextItem.metadata.name }}
+          {{ contextItem.metadata.title }}
         </div>
         <div class="gl-font-normal gl-text-subtle">{{ itemTypeLabel }}</div>
       </div>
@@ -126,7 +126,7 @@ export default {
     <div>
       <div v-if="filePath !== null" class="gl-flex gl-flex-wrap gl-items-center">
         <gl-icon name="document" :size="12" variant="subtle" class="gl-mr-1" />
-        <span>{{ itemInfo.project }}</span
+        <span>{{ contextItem.metadata.project }}</span
         ><span v-for="(pathPart, index) in filePathArray" :key="pathPart" class="gl-break-all"
           >{{ pathPart }}{{ index + 1 < filePathArray.length ? '/' : '' }}</span
         >
@@ -138,7 +138,7 @@ export default {
       >
         <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1" />
 
-        <span>{{ itemInfo.project }}</span
+        <span>{{ contextItem.metadata.project }}</span
         ><span v-if="id !== null">{{ formattedId }}</span>
       </div>
       <gl-alert

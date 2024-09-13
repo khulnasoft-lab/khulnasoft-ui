@@ -4,9 +4,9 @@ import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlToken from '../../../../../../base/token/token.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 import {
-  CONTEXT_ITEM_TYPE_ISSUE,
-  CONTEXT_ITEM_TYPE_MERGE_REQUEST,
-  CONTEXT_ITEM_TYPE_PROJECT_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
+  CONTEXT_ITEM_CATEGORY_FILE,
 } from '../constants';
 import { contextItemsValidator } from '../utils';
 
@@ -78,13 +78,13 @@ export default {
     },
   },
   methods: {
-    getIconName(type) {
+    getIconName(category) {
       const iconMap = {
-        [CONTEXT_ITEM_TYPE_PROJECT_FILE]: 'document',
-        [CONTEXT_ITEM_TYPE_ISSUE]: 'issues',
-        [CONTEXT_ITEM_TYPE_MERGE_REQUEST]: 'merge-request',
+        [CONTEXT_ITEM_CATEGORY_FILE]: 'document',
+        [CONTEXT_ITEM_CATEGORY_ISSUE]: 'issues',
+        [CONTEXT_ITEM_CATEGORY_MERGE_REQUEST]: 'merge-request',
       };
-      return iconMap[type] || 'document';
+      return iconMap[category] || 'document';
     },
     toggleCollapse() {
       this.isCollapsed = !this.isCollapsed;
@@ -127,8 +127,8 @@ export default {
         @close="onRemoveItem(item)"
       >
         <div :id="`context-item-${item.id}-${selectionsId}`" class="gl-flex gl-items-center">
-          <gl-icon :name="getIconName(item.type)" :size="12" class="gl-mr-1" />
-          {{ item.metadata.name }}
+          <gl-icon :name="getIconName(item.category)" :size="12" class="gl-mr-1" />
+          {{ item.metadata.title }}
         </div>
         <gl-duo-chat-context-item-popover
           :context-item="item"
