@@ -7,10 +7,12 @@ const generateProps = ({
   headerIcon = 'tanuki',
   expandPanelButtonTitle = defaultValue('expandPanelButtonTitle'),
   collapsePanelButtonTitle = defaultValue('collapsePanelButtonTitle'),
+  expanded = true,
 } = {}) => ({
   headerIcon,
   expandPanelButtonTitle,
   collapsePanelButtonTitle,
+  expanded,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -21,6 +23,7 @@ const Template = (args, { argTypes }) => ({
       :headerIcon="headerIcon"
       :expandPanelButtonTitle="expandPanelButtonTitle"
       :collapsePanelButtonTitle="collapsePanelButtonTitle"
+      :expanded="expanded"
     >
       <template #title>Title</template>
       <template #subtitle>Subtitle</template>
