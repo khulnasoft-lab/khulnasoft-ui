@@ -1,4 +1,4 @@
-import GlResizeObserver from './resize_observer';
+import { GlResizeObserverDirective } from './resize_observer';
 import readme from './resize_observer.md';
 
 const generateProps = ({ elementWidth = '100%', elementHeight = '100%' } = {}) => ({
@@ -9,7 +9,7 @@ const generateProps = ({ elementWidth = '100%', elementHeight = '100%' } = {}) =
 export const Default = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   directives: {
-    GlResizeObserver,
+    resizeObserver: GlResizeObserverDirective,
   },
   data() {
     return {
@@ -41,7 +41,7 @@ export const Default = (args, { argTypes }) => ({
       :style="wrapperStyles"
       class="d-flex justify-content-center align-items-center">
       <div
-        v-gl-resize-observer="handleResize"
+        v-resize-observer="handleResize"
         :style="elementStyles"
         class="d-flex position-relative justify-content-center align-items-center bg-light text-dark">
           <span class="d-inline-block p-2">
@@ -60,7 +60,7 @@ const makeControl = () => ({
 
 export default {
   title: 'directives/resize-observer-directive',
-  component: GlResizeObserver,
+  component: GlResizeObserverDirective,
   tags: ['skip-visual-test'],
   parameters: {
     docs: {
