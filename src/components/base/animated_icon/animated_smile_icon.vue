@@ -17,8 +17,8 @@ export default {
     xmlns="http://www.w3.org/2000/svg"
   >
     <g class="gl-animated-smile-eyes">
-      <circle stroke-width="2" stroke="currentColor" r="0.02" cy="7" cx="6" />
-      <circle stroke-width="2" stroke="currentColor" r="0.02" cy="7" cx="10" />
+      <circle cy="7" cx="6" r="0.5" />
+      <circle cy="7" cx="10" r="0.5" />
     </g>
     <path
       class="gl-animated-smile-big-smile"

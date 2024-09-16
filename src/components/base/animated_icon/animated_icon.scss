@@ -17,7 +17,7 @@
  * animated_chevron_right_down_icon.vue
  * * * * * * * * * * * * * * * * */
 
-.gl-animated-icon .gl-animated-chevron-right-down-arrow {
+.gl-animated-chevron-right-down-arrow {
   transform-origin: center center;
 }
 
@@ -39,8 +39,8 @@
  * animated_duo_chat_icon.vue
  * * * * * * * * * * * * * * * * */
 
-.gl-animated-icon .gl-animated-duo-chat-small-sparkle,
-.gl-animated-icon .gl-animated-duo-chat-big-sparkle {
+.gl-animated-duo-chat-small-sparkle,
+.gl-animated-duo-chat-big-sparkle {
   transform-origin: 50% 50%;
 }
 
@@ -113,24 +113,23 @@
 }
 
 .gl-animated-icon-on .gl-animated-notifications-top-part {
-  stroke-dashoffset: -3%;
-  stroke-dashoffset: 0%;
+  stroke-dashoffset: 0;
 }
 
 .gl-animated-icon-on .gl-animated-notifications-line {
   stroke-dasharray: 115% 120%;
-  stroke-dashoffset: 0%;
+  stroke-dashoffset: 0;
 }
 
 /* off state */
 .gl-animated-icon-off .gl-animated-notifications-bottom-part {
   stroke-dasharray: 145% 100%;
-  stroke-dashoffset: 0%;
+  stroke-dashoffset: 0;
 }
 
 .gl-animated-icon-off .gl-animated-notifications-top-part {
   stroke-dasharray: 100% 100%;
-  stroke-dashoffset: 0%;
+  stroke-dashoffset: 0;
 }
 
 .gl-animated-icon-off .gl-animated-notifications-line {
@@ -158,8 +157,12 @@
  * animated_smile_icon.vue
  * * * * * * * * * * * * * * * * */
 
-.gl-animated-icon .gl-animated-smile-big-smile {
+.gl-animated-smile-big-smile {
   transform-origin: 50% 70%;
+}
+
+.gl-animated-smile-eyes circle {
+  fill: currentColor !important;
 }
 
 /* on state */
@@ -271,7 +274,7 @@
  * animated_star_icon.vue
  * * * * * * * * * * * * * * * * */
 
-.gl-animated-icon .gl-animated-star-shape {
+.gl-animated-star-shape {
   transform-origin: center center;
 }
 
@@ -285,9 +288,11 @@
   25% {
     fill: transparent;
   }
+
   50% {
     fill: currentColor;
   }
+
   100% {
     fill: currentColor;
   }
@@ -296,9 +301,11 @@
   100% {
     scale: 1;
   }
+
   25% {
     scale: 0.7;
   }
+
   50% {
     scale: 1.1;
   }
@@ -314,9 +321,11 @@
   25% {
     fill: currentColor;
   }
+
   50% {
     fill: transparent;
   }
+
   100% {
     fill: transparent;
   }
@@ -325,9 +334,11 @@
   100% {
     scale: 1;
   }
+
   25% {
     scale: 0.7;
   }
+
   50% {
     scale: 1.1;
   }
@@ -352,7 +363,7 @@
 
 .gl-animated-icon-on .gl-animated-todo-check {
   stroke-dasharray: 76% 100%;
-  stroke-dashoffset: 0%;
+  stroke-dashoffset: 0;
 }
 
 /* off state */
@@ -363,7 +374,7 @@
 
 .gl-animated-icon-off .gl-animated-todo-plus-line {
   stroke-dasharray: 30% 100%;
-  stroke-dashoffset: 0%;
+  stroke-dashoffset: 0;
   translate: 0 0;
 }
 
@@ -388,8 +399,8 @@
   0%,
   50%,
   100% {
-    translate: 0% 0%;
-    stroke-dashoffset: 0%;
+    translate: 0 0;
+    stroke-dashoffset: 0;
   }
 
   10% {
@@ -398,8 +409,8 @@
   }
 
   40% {
-    translate: 0% -10%;
-    stroke-dashoffset: 0%;
+    translate: 0 -10%;
+    stroke-dashoffset: 0;
   }
 }
 
@@ -413,12 +424,14 @@
   0%,
   50%,
   100% {
-    translate: 0% 0%;
+    translate: 0 0;
   }
+
   10% {
-    translate: 0% 20%;
+    translate: 0 20%;
   }
+
   40% {
-    translate: 0% -7%;
+    translate: 0 -7%;
   }
 }
