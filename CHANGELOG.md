@@ -1,3 +1,10 @@
+# [92.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.3.1...v92.4.0) (2024-09-16)
+
+
+### Features
+
+* **DuoWorkflowPanel:** Add Duo panel isExpanded prop ([5916cd1](https://gitlab.com/gitlab-org/gitlab-ui/commit/5916cd18ac361baab554b2b2a64cbdbb62cb59a6))
+
 ## [92.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.3.0...v92.3.1) (2024-09-13)
 
 
