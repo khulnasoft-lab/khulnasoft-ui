@@ -1,9 +1,5 @@
-import GlHoverLoadDirective from './hover_load';
+import { HoverLoadDirective } from './hover_load';
 import readme from './hover_load.md';
-
-const directives = {
-  GlHoverLoadDirective,
-};
 
 // eslint-disable-next-line no-script-url
 const generateProps = ({ endpoint = 'some/endpoint' } = {}) => ({
@@ -12,7 +8,9 @@ const generateProps = ({ endpoint = 'some/endpoint' } = {}) => ({
 
 export const Default = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  directives,
+  directives: {
+    hoverLoad: HoverLoadDirective,
+  },
   data: () => ({
     isPreloaded: false,
   }),
@@ -26,7 +24,7 @@ export const Default = (_args, { argTypes }) => ({
   <div>
     <a
       :href="endpoint"
-      v-gl-hover-load="handlePreload"
+      v-hover-load="handlePreload"
     >
         Hover me to preload
     </a>
@@ -39,7 +37,7 @@ Default.args = generateProps();
 
 export default {
   title: 'directives/hover-load-directive',
-  component: GlHoverLoadDirective,
+  component: HoverLoadDirective,
   tags: ['skip-visual-test'],
   parameters: {
     docs: {
