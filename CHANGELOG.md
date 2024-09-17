@@ -1,3 +1,16 @@
+# [92.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.4.0...v92.5.0) (2024-09-17)
+
+
+### Bug Fixes
+
+* **GlAnimatedIcon:** Apply design suggestions ([7988cae](https://gitlab.com/gitlab-org/gitlab-ui/commit/7988cae4b453469d7563eee5b42ddf5e619d0883))
+* **GlAnimatedIcon:** Apply fixes ([ef99ace](https://gitlab.com/gitlab-org/gitlab-ui/commit/ef99ace0c82c313ff69a8c367356d86f90234200))
+
+
+### Features
+
+* **GlAnimatedIcon:** Add component ([5db8ae2](https://gitlab.com/gitlab-org/gitlab-ui/commit/5db8ae2fd3fbe7f6b339f2e419b37e7ba490bc66))
+
 # [92.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.3.1...v92.4.0) (2024-09-16)
 
 
