@@ -61,6 +61,22 @@ export default {
         ...Object.keys(this.$scopedSlots).filter((slotName) => slotName.startsWith('head(')),
       ];
     },
+    computedFields() {
+      return this.fields?.map((field) => {
+        if (typeof field === 'string') {
+          return field;
+        }
+        const { thAlignRight, thClass = '', ...rest } = field;
+        const computedThClass = Array.isArray(thClass) ? thClass : thClass.split(' ');
+        if (thAlignRight) {
+          computedThClass.push('gl-table-th-align-right');
+        }
+        return {
+          ...rest,
+          thClass: computedThClass,
+        };
+      });
+    },
   },
   mounted() {
     // logWarning will call isDev before logging any message
@@ -97,7 +113,7 @@ export default {
 <template>
   <b-table
     :table-class="localTableClass"
-    :fields="fields"
+    :fields="computedFields"
     :sort-by.sync="localSortBy"
     :sort-desc.sync="localSortDesc"
     no-sort-reset
@@ -112,7 +128,7 @@ export default {
         <slot :name="headSlotName" v-bind="scope"
           ><span>{{ scope.label }}</span></slot
         ><template v-if="isSortable(scope)">
-          <div class="gl-ml-2 gl-flex gl-w-5 gl-justify-center">
+          <div class="gl-table-th-sort-icon-wrapper gl-flex gl-w-5 gl-justify-center">
             <span
               name="sort-icon"
               data-testid="sort-icon"

@@ -5,9 +5,8 @@ table.gl-table {
   tr {
     th,
     td {
-      @apply gl-border-b-solid gl-border-b-1;
+      @apply gl-border-b-1 gl-p-5 gl-border-b-solid;
       border-color: var(--gl-border-color-default);
-      @apply gl-p-5;
       @include gl-bg-transparent;
       @apply gl-leading-normal;
       @apply gl-text-base;
@@ -18,12 +17,15 @@ table.gl-table {
       @apply gl-font-bold;
       color: var(--gl-text-color-heading);
 
-      &.gl-text-right > div {
-        flex-direction: row-reverse;
+      .gl-table-th-sort-icon-wrapper {
+        @apply gl-ml-2;
+      }
 
-        div.gl-ml-2 {
-          @apply gl-ml-0;
-          @apply gl-mr-2;
+      &.gl-table-th-align-right > div {
+        @apply gl-flex-row-reverse;
+
+        .gl-table-th-sort-icon-wrapper {
+          @apply gl-ml-0 gl-mr-2;
         }
       }
 
@@ -83,7 +85,7 @@ table.gl-table {
         }
 
         &:first-child {
-          @apply gl-border-t-solid gl-border-t-1;
+          @apply gl-border-t-1 gl-border-t-solid;
         }
 
         &:not(:first-child) {
