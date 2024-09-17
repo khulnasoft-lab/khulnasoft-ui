@@ -7,16 +7,18 @@ import path from 'node:path';
 import { tmpdir } from 'node:os';
 import childProcess from 'node:child_process';
 
+const { DEPENDENCY_URL, GITLAB_INTEGRATION_REST_TOKEN, CI_COMMIT_REF_NAME } = process.env;
+
 const TMP_DIR = path.join(tmpdir(), 'tmpIntegrationInstall');
 const TRACKED_FILES = ['package.json', 'yarn.lock'];
 const API_ROOT = 'https://gitlab.com/api/v4';
 const GITLAB_PROJECT_ID = encodeURIComponent('gitlab-org/gitlab');
 const FORK_PROJECT = 'gitlab-org/frontend/gitlab-ui-integrations';
 const FORK_PROJECT_ID = encodeURIComponent(FORK_PROJECT);
+const API_ENDPOINT_REPOSITORY_BRANCH = '/projects/:id/repository/branches/:branch';
 const API_ENDPOINT_REPOSITORY_RAW_FILE = '/projects/:id/repository/files/:file_path';
 const API_ENDPOINT_CREATE_COMMIT = '/projects/:id/repository/commits';
-
-const { DEPENDENCY_URL, GITLAB_INTEGRATION_REST_TOKEN, CI_COMMIT_REF_NAME } = process.env;
+const INTEGRATION_BRANCH_NAME = `gitlab-ui-integration/${CI_COMMIT_REF_NAME}`;
 
 function buildApiUrl(endpoint, params = {}, searchParams = {}) {
   let apiPath = endpoint;
@@ -41,17 +43,27 @@ function createTemporaryDirectory() {
   fs.mkdirSync(TMP_DIR);
 }
 
-async function pullFileFromUpstreamProject(file) {
-  console.log(`Fetching ${file} from the GitLab repository.`);
+async function remoteBranchExists() {
+  const response = await fetch(
+    buildApiUrl(API_ENDPOINT_REPOSITORY_BRANCH, {
+      id: FORK_PROJECT_ID,
+      branch: encodeURIComponent(INTEGRATION_BRANCH_NAME),
+    })
+  );
+  return response.status === 200;
+}
+
+async function pullFileFromProject(file, project, branch) {
+  console.log(`Fetching ${file} from the remote repository.`);
   const response = await fetch(
     buildApiUrl(
       API_ENDPOINT_REPOSITORY_RAW_FILE,
       {
-        id: GITLAB_PROJECT_ID,
+        id: project,
         file_path: encodeURIComponent(file),
       },
       {
-        ref: 'master',
+        ref: branch,
       }
     )
   );
@@ -68,13 +80,12 @@ function installGitLabUIDevBuild() {
   });
 }
 
-async function pushChangesToFork() {
+async function pushChangesToFork(createBranch = true) {
   console.log('Pushing changes to the forked repository.');
 
-  const branch = `gitlab-ui-integration/${CI_COMMIT_REF_NAME}`;
   const payload = {
-    start_branch: 'master',
-    branch,
+    ...(createBranch ? { start_branch: 'master' } : {}),
+    branch: INTEGRATION_BRANCH_NAME,
     commit_message: `GitLab UI integration test for ${CI_COMMIT_REF_NAME}`,
     actions: TRACKED_FILES.map((file) => ({
       action: 'update',
@@ -83,7 +94,7 @@ async function pushChangesToFork() {
     })),
   };
 
-  await fetch(
+  const res = await fetch(
     buildApiUrl(API_ENDPOINT_CREATE_COMMIT, {
       id: FORK_PROJECT_ID,
     }),
@@ -96,17 +107,54 @@ async function pushChangesToFork() {
       },
     }
   );
-  const createMRLink = `https://gitlab.com/${FORK_PROJECT}/-/merge_requests/new?merge_request%5Bsource_branch%5D=${branch}`;
-  console.log(
-    `Integration branch created successfully. Follow this link to create an MR: ${createMRLink}.`
-  );
+
+  const createMRLink = `https://gitlab.com/${FORK_PROJECT}/-/merge_requests/new?merge_request%5Bsource_branch%5D=${INTEGRATION_BRANCH_NAME}`;
+
+  if (createBranch && res.status === 201) {
+    console.log(
+      `Integration branch created successfully. Follow this link to create an MR: ${createMRLink}.`
+    );
+    return;
+  }
+
+  if (!createBranch && res.status === 201) {
+    console.log(
+      `Integration branch updated successfully. If you haven't created an MR yet, follow this link to create one: ${createMRLink}.`
+    );
+    return;
+  }
+
+  if (!createBranch && res.status === 400) {
+    console.warn(
+      `The integration branch is already up-to-date. If you haven't created an MR yet, follow this link to create one: ${createMRLink}.`
+    );
+    return;
+  }
+
+  console.error(`Could not push the changes. See below for more information about the failure.`);
+  console.error(res);
 }
 
 try {
+  const branchExists = await remoteBranchExists();
+
+  if (branchExists) {
+    console.log(
+      `The branch \`${INTEGRATION_BRANCH_NAME}\` exists on the remote so we will update it.`
+    );
+  } else {
+    console.log(`A new branch \`${INTEGRATION_BRANCH_NAME}\` will be created on the remote.`);
+  }
+
+  const sourceProject = branchExists ? FORK_PROJECT_ID : GITLAB_PROJECT_ID;
+  const sourceBranch = branchExists ? INTEGRATION_BRANCH_NAME : 'master';
+
   createTemporaryDirectory();
-  await Promise.all(TRACKED_FILES.map((file) => pullFileFromUpstreamProject(file)));
+  await Promise.all(
+    TRACKED_FILES.map((file) => pullFileFromProject(file, sourceProject, sourceBranch))
+  );
   installGitLabUIDevBuild();
-  await pushChangesToFork();
+  await pushChangesToFork(!branchExists);
 } catch (error) {
   console.error('Could not create integration branch.');
   console.error(error);
