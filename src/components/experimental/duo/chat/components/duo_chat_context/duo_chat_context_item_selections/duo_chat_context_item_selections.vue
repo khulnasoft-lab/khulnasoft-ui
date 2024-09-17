@@ -4,15 +4,26 @@ import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlToken from '../../../../../../base/token/token.vue';
 import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
+import { CONTEXT_ITEM_CATEGORY_FILE, CONTEXT_ITEM_CATEGORY_LOCAL_GIT } from '../constants';
+import GlDuoChatContextItemDetails from '../duo_chat_content_item_details/duo_chat_content_item_details.vue';
 import { contextItemsValidator, getContextItemIcon } from '../utils';
 
 export default {
   name: 'GlDuoChatContextItemSelections',
   components: {
     GlTruncate,
+    GlDuoChatContextItemDetails,
     GlIcon,
     GlDuoChatContextItemPopover,
     GlToken,
+  },
+  inject: {
+    renderGFM: {
+      from: 'renderGFM',
+      default: () => (element) => {
+        element.classList.add('gl-markdown', 'gl-compact-markdown');
+      },
+    },
   },
   props: {
     /**
@@ -55,6 +66,7 @@ export default {
     return {
       isCollapsed: this.defaultCollapsed,
       selectionsId: uniqueId(),
+      previewContextItemId: null,
     };
   },
   computed: {
@@ -73,6 +85,13 @@ export default {
       }
       return '';
     },
+    contextItemPreview() {
+      if (!this.previewContextItemId) {
+        return undefined;
+      }
+
+      return this.selections.find((item) => item.id === this.previewContextItemId);
+    },
   },
   methods: {
     getContextItemIcon,
@@ -85,6 +104,23 @@ export default {
        * @property {Object} item - The context contextItem to be removed
        */
       this.$emit('remove', contextItem);
+    },
+    onOpenItem(contextItem) {
+      if (!this.canOpen(contextItem)) {
+        return;
+      }
+      if (!contextItem.content) {
+        this.$emit('get-content', contextItem);
+      }
+      this.previewContextItemId = contextItem.id;
+    },
+    canOpen(contextItem) {
+      return [CONTEXT_ITEM_CATEGORY_LOCAL_GIT, CONTEXT_ITEM_CATEGORY_FILE].includes(
+        contextItem.category
+      );
+    },
+    onClosePreview() {
+      this.previewContextItemId = null;
     },
   },
 };
@@ -113,7 +149,12 @@ export default {
         :view-only="!removable"
         variant="default"
         class="gl-mb-2 gl-mr-2 gl-max-w-full"
-        :class="tokenVariantClasses"
+        :class="[tokenVariantClasses, canOpen(item) ? 'gl-cursor-pointer' : '']"
+        :tabindex="canOpen(item) ? 0 : -1"
+        role="button"
+        @click="onOpenItem(item)"
+        @keydown.enter="onOpenItem(item)"
+        @keydown.space.prevent="onOpenItem(item)"
         @close="onRemoveItem(item)"
       >
         <div
@@ -132,8 +173,14 @@ export default {
           :context-item="item"
           :target="`context-item-${item.id}-${selectionsId}-token`"
           placement="bottom"
+          @show-git-diff="onOpenItem(item)"
         />
       </gl-token>
     </div>
+    <gl-duo-chat-context-item-details
+      v-if="contextItemPreview"
+      :context-item="contextItemPreview"
+      @close="onClosePreview"
+    />
   </div>
 </template>

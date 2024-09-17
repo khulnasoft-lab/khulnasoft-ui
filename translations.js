@@ -27,6 +27,8 @@ export default {
   'GlDuoChat.chatPromptPlaceholderDefault': 'GitLab Duo Chat',
   'GlDuoChat.chatPromptPlaceholderWithCommands': 'Type "/" for slash commands',
   'GlDuoChat.chatSubmitLabel': 'Send chat message.',
+  'GlDuoChatContextItemDetails.close': 'Close',
+  'GlDuoChatContextItemDetails.title': 'Preview',
   'GlDuoChatContextItemMenu.emptyStateMessage': 'No results found',
   'GlDuoChatContextItemMenu.loadingMessage': 'Loading...',
   'GlDuoChatContextItemMenu.searchInputPlaceholder': 'Search %{categoryLabel}...',

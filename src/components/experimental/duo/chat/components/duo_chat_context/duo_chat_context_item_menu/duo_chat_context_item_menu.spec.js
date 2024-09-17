@@ -62,6 +62,18 @@ describe('GlDuoChatContextItemMenu', () => {
 
         expect(wrapper.emitted('remove').at(0)).toEqual([removed]);
       });
+
+      it('emits "get-context-item-content" event when an item is selected', () => {
+        const selections = getMockContextItems().slice(0, 2);
+        createComponent({ open: false, selections });
+
+        const selected = selections.at(0);
+        findContextItemSelections().vm.$emit('get-content', selected);
+
+        expect(wrapper.emitted('get-context-item-content').at(0)).toEqual([
+          { contextItem: selected },
+        ]);
+      });
     });
 
     describe('and there are no selections', () => {

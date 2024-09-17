@@ -5,3 +5,7 @@ export const CONTEXT_ITEM_CATEGORY_LOCAL_GIT = 'local_git';
 
 export const CONTEXT_ITEM_LOCAL_GIT_COMMIT = 'commit';
 export const CONTEXT_ITEM_LOCAL_GIT_DIFF = 'diff';
+
+export const LANGUAGE_IDENTIFIER_PREFIX = 'language-';
+export const LANGUAGE_IDENTIFIER_DIFF = 'language-diff';
+export const LANGUAGE_IDENTIFIER_PLAINTEXT = 'language-plaintext';

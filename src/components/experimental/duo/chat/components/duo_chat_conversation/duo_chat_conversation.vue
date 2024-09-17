@@ -57,6 +57,9 @@ export default {
     onInsertCodeSnippet(e) {
       this.$emit('insert-code-snippet', e);
     },
+    onGetContextItemContent(e) {
+      this.$emit('get-context-item-content', e);
+    },
   },
   i18n,
 };
@@ -81,6 +84,7 @@ export default {
       :is-cancelled="canceledRequestIds.includes(msg.requestId)"
       @track-feedback="onTrackFeedback"
       @insert-code-snippet="onInsertCodeSnippet"
+      @get-context-item-content="onGetContextItemContent"
     />
   </div>
 </template>

@@ -518,6 +518,14 @@ export default {
        */
       this.$emit('insert-code-snippet', e);
     },
+    onGetContextItemContent(event) {
+      /**
+       * Emit get-context-item-content event that tells clients to load the full file content for a selected context item.
+       * The fully hydrated context item should be updated in the chat message context item.
+       * @param {*} event An event containing the message ID and context item to hydrate
+       */
+      this.$emit('get-context-item-content', event);
+    },
     closeContextItemsMenuOpen() {
       this.contextItemsMenuIsOpen = false;
       this.setPromptAndFocus();
@@ -603,6 +611,7 @@ export default {
           :show-delimiter="index > 0"
           @track-feedback="onTrackFeedback"
           @insert-code-snippet="onInsertCodeSnippet"
+          @get-context-item-content="onGetContextItemContent"
         />
         <template v-if="!hasMessages && !isLoading">
           <gl-empty-state

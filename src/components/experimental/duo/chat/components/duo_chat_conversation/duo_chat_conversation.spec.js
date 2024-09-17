@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { MOCK_USER_PROMPT_MESSAGE, MOCK_RESPONSE_MESSAGE } from '../../mock_data';
+import { MOCK_CONTEXT_ITEM_FILE } from '../duo_chat_context/mock_context_data';
 import GlDuoChatMessage from '../duo_chat_message/duo_chat_message.vue';
 import GlDuoChatConversation from './duo_chat_conversation.vue';
 
@@ -77,6 +78,16 @@ describe('GlDuoChatConversation', () => {
 
       const chatMessages = findChatMessages();
       expect(chatMessages.at(0).props('isCancelled')).toBe(false);
+    });
+
+    it('emits "get-context-item-content" when a message requests hydrated context item', () => {
+      const contextItem = MOCK_CONTEXT_ITEM_FILE;
+      createComponent();
+      const message = findChatMessages().at(0);
+      message.vm.$emit('get-context-item-content', contextItem);
+
+      expect(wrapper.emitted('get-context-item-content')).toHaveLength(1);
+      expect(wrapper.emitted('get-context-item-content').at(0)).toEqual([contextItem]);
     });
   });
 });
