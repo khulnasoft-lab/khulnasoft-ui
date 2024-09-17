@@ -62,24 +62,24 @@
 
 @keyframes gl-animated-duo-chat-sparkle {
   0% {
-    translate: 0 -6%;
+    translate: -45% -45%;
     scale: 0;
   }
 
   20%,
   45% {
-    translate: 0 -6%;
-    scale: 0.8;
-  }
-
-  50%,
-  80% {
     translate: -31% -31%;
     scale: 1;
   }
 
+  50%,
+  80% {
+    translate: 0 -6%;
+    scale: 0.8;
+  }
+
   100% {
-    translate: -45% -45%;
+    translate: 0 -6%;
     scale: 0;
   }
 }
@@ -167,7 +167,7 @@
 
 /* on state */
 .gl-animated-icon-on .gl-animated-smile-eyes {
-  transition-timing-function: linear(0 0%, -0.6 20%, 1 100%);
+  transition-timing-function: linear(0 0%, -1 20%, 1 100%);
   translate: 0 -6%;
 }
 
@@ -199,9 +199,24 @@
  * animated_sort_icon.vue
  * * * * * * * * * * * * * * * * */
 
+ .gl-animated-sort-icon {
+  overflow: visible;
+}
+
 /* off state */
 .gl-animated-icon-off .gl-animated {
   animation-name: gl-animated-star-off;
+}
+
+.gl-animated-sort-arrow-left,
+.gl-animated-sort-arrow-right {
+  transform-origin: 18.7% 6.7%;
+}
+
+.gl-animated-icon-off .gl-animated-sort-arrow-left,
+.gl-animated-icon-off .gl-animated-sort-arrow-right {
+  rotate: 0deg;
+  translate: 0 10%;
 }
 
 .gl-animated-icon-off .gl-animated-sort-long-line-off,
@@ -227,16 +242,17 @@
   translate: 0 -7%;
 }
 
-.gl-animated-icon-off .gl-animated-sort-arrow-on {
-  opacity: 0;
-  translate: 0 15%;
-}
-
-.gl-animated-icon-off .gl-animated-sort-arrow-off {
-  opacity: 1;
-}
-
 /* on state */
+.gl-animated-icon-on .gl-animated-sort-arrow-left {
+  rotate: 90deg;
+  translate: 0 77%;
+}
+
+.gl-animated-icon-on .gl-animated-sort-arrow-right {
+  rotate: -90deg;
+  translate: 0 77%;
+}
+
 .gl-animated-icon-on .gl-animated-sort-long-line-on,
 .gl-animated-icon-on .gl-animated-sort-medium-line-on,
 .gl-animated-icon-on .gl-animated-sort-short-line-on {
@@ -245,7 +261,7 @@
 }
 
 .gl-animated-icon-on .gl-animated-sort-long-line-off {
-  transition-delay: 0.05s;
+  transition-delay: 0.15s;
 }
 
 .gl-animated-icon-on .gl-animated-sort-medium-line-off {
@@ -253,20 +269,11 @@
 }
 
 .gl-animated-icon-on .gl-animated-sort-short-line-off {
-  transition-delay: 0.15s;
+  transition-delay: 0.05s;
 }
 
 .gl-animated-icon-on .gl-animated-sort-line {
   translate: 0 0;
-}
-
-.gl-animated-icon-on .gl-animated-sort-arrow-off {
-  opacity: 0;
-  translate: 0 -15%;
-}
-
-.gl-animated-icon-on .gl-animated-sort-arrow-on {
-  opacity: 1;
 }
 
 
@@ -387,9 +394,12 @@
  * animated_upload_icon.vue
  * * * * * * * * * * * * * * * * */
 
+.gl-animated-upload-line {
+  stroke-dasharray: 70% 100%;
+}
+
 /* on state */
 .gl-animated-icon-on .gl-animated-upload-line {
-  stroke-dasharray: 50% 100%;
   animation-name: gl-animated-upload-line;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -397,7 +407,7 @@
 
 @keyframes gl-animated-upload-line {
   0%,
-  50%,
+  60%,
   100% {
     translate: 0 0;
     stroke-dashoffset: 0;
@@ -412,6 +422,11 @@
     translate: 0 -10%;
     stroke-dashoffset: 0;
   }
+
+  55% {
+    translate: 0 5%;
+    stroke-dashoffset: -5%;
+  }
 }
 
 .gl-animated-icon-on .gl-animated-upload-arrow {
@@ -422,7 +437,7 @@
 
 @keyframes gl-animated-upload-arrow {
   0%,
-  50%,
+  60%,
   100% {
     translate: 0 0;
   }
@@ -432,6 +447,10 @@
   }
 
   40% {
-    translate: 0 -7%;
+    translate: 0 -8%;
+  }
+
+  55% {
+    translate: 0 8%;
   }
 }

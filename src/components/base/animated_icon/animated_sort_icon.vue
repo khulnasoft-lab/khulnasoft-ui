@@ -9,6 +9,7 @@ export default {
 <template>
   <svg
     :class="iconStateClass"
+    class="gl-animated-sort-icon"
     :aria-label="ariaLabel"
     width="16"
     height="16"
@@ -16,6 +17,20 @@ export default {
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
+    <path
+      class="gl-animated-sort-arrow-left"
+      d="M3 1.06065L0.75 3.31065"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
+    <path
+      class="gl-animated-sort-arrow-right"
+      d="M5.25 3.31065L3 1.06065"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
     <path
       class="gl-animated-sort-long-line-on"
       d="M8.75 2.75L15.25 2.75"
@@ -33,13 +48,6 @@ export default {
     <path
       class="gl-animated-sort-short-line-on"
       d="M8.75 9.25L10.25 9.25"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-    />
-    <path
-      class="gl-animated-sort-arrow-off"
-      d="M5.25 10.6893L3 12.9393L0.75 10.6893"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
@@ -68,13 +76,6 @@ export default {
     <path
       class="gl-animated-sort-line"
       d="M3 13.2506L3 4.0006"
-      stroke="currentColor"
-      stroke-width="1.5"
-      stroke-linecap="round"
-    />
-    <path
-      class="gl-animated-sort-arrow-on"
-      d="M5.25 5.31065L3 3.06065L0.75 5.31065"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
