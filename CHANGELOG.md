@@ -1,3 +1,15 @@
+# [93.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v93.0.0...v93.1.0) (2024-09-18)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Add spacing after loading icon ([82eef91](https://gitlab.com/gitlab-org/gitlab-ui/commit/82eef91560f54092dfbc4fcd67e22324c59603fa))
+
+
+### Features
+
+* **i18n:** Setup translation for Duo Chat component and all sub-components ([0b766ef](https://gitlab.com/gitlab-org/gitlab-ui/commit/0b766ef6ec405ca2c13f9d3ead8d546a16e99f5d))
+
 # [93.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.5.0...v93.0.0) (2024-09-18)
 
 
