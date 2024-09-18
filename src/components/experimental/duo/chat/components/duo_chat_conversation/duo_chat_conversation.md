@@ -6,3 +6,13 @@ mark the beginning of the conversation.
 ```html
 <gl-duo-chat-conversation :messages="messages" :show-delimeter="showDelimiter" />
 ```
+
+Translations for newChatLabel can be set via the props as documented or via translation configuration:
+
+```js
+setConfigs({
+  translations: {
+    'GlDuoWorkflowPrompt.newChat': __('New chat'),
+  },
+});
+```

@@ -1,8 +1,9 @@
 <script>
 import GlDuoChatMessage from '../duo_chat_message/duo_chat_message.vue';
+import { translate } from '../../../../../../utils/i18n';
 
 const i18n = {
-  CONVERSATION_NEW_CHAT: 'New chat',
+  CONVERSATION_NEW_CHAT: translate('GlDuoChatConversation.newChat', 'New chat'),
 };
 
 const isMessage = (item) => Boolean(item) && item?.role;

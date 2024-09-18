@@ -1,11 +1,20 @@
 <script>
+import { translate } from '../../../../../../utils/i18n';
 import GlSprintf from '../../../../../utilities/sprintf/sprintf.vue';
 import { LOADING_TRANSITION_DURATION } from '../../constants';
 
 export const i18n = {
-  LOADER_LOADING_MESSAGE: '%{tool} is %{transition} an answer',
-  LOADER_LOADING_TRANSITIONS: ['finding', 'working on', 'generating', 'producing'],
-  GITLAB_DUO: 'GitLab Duo',
+  LOADER_LOADING_MESSAGE: translate(
+    'GlDuoChatLoader.loaderLoadingMessage',
+    '%{tool} is %{transition} an answer'
+  ),
+  LOADER_LOADING_TRANSITIONS: [
+    translate('GlDuoChatLoader.loaderLoadingTransitionsFinding', 'finding'),
+    translate('GlDuoChatLoader.loaderLoadingTransitionsWorkingOn', 'working on'),
+    translate('GlDuoChatLoader.loaderLoadingTransitionsGenerating', 'generating'),
+    translate('GlDuoChatLoader.loaderLoadingTransitionsProducing', 'producing'),
+  ],
+  GITLAB_DUO: translate('GlDuoChatLoader.gitlabDuo', 'GitLab Duo'),
 };
 
 export default {
