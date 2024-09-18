@@ -83,7 +83,7 @@ export default {
   <gl-badge :id="triggerId" class="gl-mx-4 hover:gl-cursor-pointer" variant="neutral">
     <span>{{ activeType.BADGE }}</span>
     <gl-popover
-      triggers="click"
+      triggers="hover focus click"
       show-close-button
       :placement="popoverPlacement"
       :target="triggerId"
