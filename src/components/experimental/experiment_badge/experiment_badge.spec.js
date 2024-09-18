@@ -68,7 +68,7 @@ describe('GlExperimentBadge', () => {
     });
 
     it('sets correct props on the popover', () => {
-      expect(findPopover().props('triggers')).toBe('click');
+      expect(findPopover().props('triggers')).toBe('hover focus click');
       expect(findPopover().props('title')).toBe(i18n[expectedType].POPOVER_TITLE);
     });
   });
