@@ -56,5 +56,6 @@
 
   .gl-toast-close-button {
     @apply gl-ml-5;
+    color: inherit !important;
   }
 }

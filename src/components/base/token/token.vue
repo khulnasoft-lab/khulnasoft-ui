@@ -60,12 +60,7 @@ export default {
   <span :class="['gl-token', variantClass, viewOnlyClass]" v-on="$listeners">
     <span class="gl-token-content">
       <slot></slot>
-      <close-button
-        v-if="!viewOnly"
-        class="gl-token-close gl-close-btn-color-inherit"
-        :label="removeLabel"
-        @click="close"
-      />
+      <close-button v-if="!viewOnly" class="gl-token-close" :label="removeLabel" @click="close" />
     </span>
   </span>
 </template>

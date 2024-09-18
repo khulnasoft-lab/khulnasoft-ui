@@ -41,14 +41,10 @@
   @apply gl-ml-2;
   @include gl-reset-color;
   @include gl-cursor-pointer;
+
   opacity: 0.8;
   color: inherit !important;
   background-color: transparent !important;
-
-  svg {
-    color: inherit !important;
-    mix-blend-mode: normal !important;
-  }
 
   &:hover,
   &:focus {
