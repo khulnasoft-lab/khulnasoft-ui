@@ -20,10 +20,10 @@ $gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
   var(--gl-avatar-fallback-text-color-neutral);
 
 @mixin gl-avatar {
-  @include gl-display-inline-flex;
+  @apply gl-inline-flex;
   @include gl-overflow-hidden;
-  @include gl-flex-shrink-0;
-  @include gl-line-height-ratio-1000;
+  @apply gl-shrink-0;
+  @apply gl-leading-1;
   @include gl-object-fit-contain;
   outline: 1px solid var(--gl-avatar-border-color-default);
   outline-offset: -1px;
@@ -213,9 +213,9 @@ $gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
 
 .gl-avatar-identicon {
   @include gl-text-center;
-  @include gl-vertical-align-top;
-  @include gl-justify-content-center;
-  @include gl-align-items-center;
+  @apply gl-align-top;
+  @apply gl-justify-center;
+  @apply gl-items-center;
   color: var(--gl-text-color-strong);
 }
 

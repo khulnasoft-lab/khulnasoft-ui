@@ -9,16 +9,16 @@ $gl-drawer-scrim-gradient: linear-gradient(
 .gl-drawer {
   background-color: var(--drawer-variant-bg-color);
   right: 0;
-  @include gl-transition-medium;
+  @apply gl-transition-all;
   position: fixed;
   @include gl-h-full;
   @include gl-w-full;
   @include gl-overflow-y-auto;
   @include gl-shadow-lg;
-  @include gl-font-base;
-  @include gl-line-height-normal;
-  @include gl-display-flex;
-  @include gl-flex-direction-column;
+  @apply gl-text-base;
+  @apply gl-leading-normal;
+  @apply gl-flex;
+  @apply gl-flex-col;
 
   .gl-drawer-header-sticky {
     background-color: var(--drawer-variant-bg-color);
@@ -69,7 +69,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
   &::before {
     background: $gl-drawer-scrim-gradient;
     top: -$gl-border-size-1;
-    @include gl-translate-y-n100;
+    @apply -gl-translate-y-full;
     content: '';
     left: 0;
     position: absolute;
@@ -92,25 +92,25 @@ $gl-drawer-scrim-gradient: linear-gradient(
 
 .gl-drawer-title {
   color: var(--gl-text-color-heading);
-  @include gl-display-flex;
-  @include gl-align-items-center;
-  @include gl-justify-content-space-between;
+  @apply gl-flex;
+  @apply gl-items-center;
+  @apply gl-justify-between;
 
   svg {
     @include gl-w-5;
     @include gl-h-5;
-    @include gl-vertical-align-middle;
+    @apply gl-align-middle;
   }
 }
 
 .gl-drawer-close-button {
-  @include gl-align-self-start;
-  @include gl-bg-none;
+  @apply gl-self-start;
+  @apply gl-bg-transparent;
   @apply gl-border-none;
 }
 
 .gl-drawer-body {
-  @include gl-flex-grow-1;
+  @apply gl-grow;
   // prevent safari bug where box shadow is visible
   // above the drawer when hovering interactive elements
   // see https://gitlab.com/gitlab-org/gitlab/-/issues/366558
@@ -149,5 +149,5 @@ $gl-drawer-scrim-gradient: linear-gradient(
 
 .gl-drawer-enter-active,
 .gl-drawer-leave-active {
-  @include gl-transition-medium;
+  @apply gl-transition-all;
 }

@@ -28,13 +28,13 @@ $path-chevron-right-margin: px-to-rem(14px);
 
 .gl-path-nav {
   position: relative;
-  @include gl-display-flex;
+  @apply gl-flex;
 
   .gl-path-nav-list {
     @apply gl-p-1;
     @apply gl-m-0;
-    @include gl-list-style-none;
-    @include gl-display-inline-flex;
+    @apply gl-list-none;
+    @apply gl-inline-flex;
     @include gl-overflow-hidden;
     margin-left: -1px;
     position: relative;
@@ -54,13 +54,13 @@ $path-chevron-right-margin: px-to-rem(14px);
   .gl-path-button {
     @apply gl-pl-5;
     @apply gl-py-3;
-    @include gl-display-flex;
-    @include gl-font-base;
+    @apply gl-flex;
+    @apply gl-text-base;
     @include gl-z-index-0;
-    @include gl-font-weight-bold;
-    @include gl-line-height-normal;
-    @include gl-rounded-top-left-base;
-    @include gl-rounded-bottom-left-base;
+    @apply gl-font-bold;
+    @apply gl-leading-normal;
+    @apply gl-rounded-tl-base;
+    @apply gl-rounded-bl-base;
     @apply gl-border-none;
     background-color: var(--gl-action-neutral-background-color-default);
     color: var(--gl-action-neutral-foreground-color-default);
@@ -134,7 +134,7 @@ $path-chevron-right-margin: px-to-rem(14px);
   .gl-path-fade {
     @include gl-w-8;
     @include gl-h-full;
-    @include gl-z-index-2;
+    @apply gl-z-2;
     bottom: 0;
     color: var(--gl-text-color-subtle);
     position: absolute;
@@ -157,7 +157,7 @@ $path-chevron-right-margin: px-to-rem(14px);
     color: var(--gl-icon-color-subtle);
 
     .gl-icon {
-      @include gl-vertical-align-middle;
+      @apply gl-align-middle;
     }
   }
 }

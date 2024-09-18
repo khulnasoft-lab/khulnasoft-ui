@@ -6,14 +6,14 @@ $clear-button-size: 24px;
 
   .gl-listbox-search-input {
     @include gl-w-full;
-    @include gl-line-height-normal;
+    @apply gl-leading-normal;
     @include gl-h-auto;
     @apply gl-border-none;
-    @include gl-rounded-0;
+    @apply gl-rounded-none;
     padding-left: calc(#{$gl-spacing-scale-7} + #{$gl-spacing-scale-2});
     padding-right: calc(#{$gl-spacing-scale-6} + #{$gl-spacing-scale-2});
     @apply gl-py-4;
-    @include gl-font-base;
+    @apply gl-text-base;
 
     &:focus {
       @include gl-focus($inset: true);
@@ -24,7 +24,7 @@ $clear-button-size: 24px;
     }
 
     &::-webkit-search-cancel-button {
-      @include gl-display-none;
+      @apply gl-hidden;
     }
   }
 

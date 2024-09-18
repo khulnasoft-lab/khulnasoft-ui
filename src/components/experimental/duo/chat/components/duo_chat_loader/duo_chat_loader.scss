@@ -1,5 +1,5 @@
 .duo-chat-loader {
-  @include gl-display-flex;
+  @apply gl-flex;
   @include gl-text-gray-500;
 
   .transition {

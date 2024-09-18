@@ -2,14 +2,14 @@
 $breadcrumb-max-width: $grid-size * 16;
 
 .gl-breadcrumbs {
-  @include gl-display-flex;
+  @apply gl-flex;
 }
 
 .gl-breadcrumb-list {
   @include gl-bg-transparent;
   @apply gl-p-0;
-  @include gl-align-items-center;
-  @include gl-line-height-normal;
+  @apply gl-items-center;
+  @apply gl-leading-normal;
   @apply gl-m-0;
   @include gl-flex-nowrap;
   @include gl-max-w-full;
@@ -17,9 +17,9 @@ $breadcrumb-max-width: $grid-size * 16;
 
 // bootstrap overrides
 .gl-breadcrumb-item {
-  @include gl-font-sm;
-  @include gl-line-height-normal;
-  @include gl-flex-shrink-0;
+  @apply gl-text-sm;
+  @apply gl-leading-normal;
+  @apply gl-shrink-0;
 
   &:not(:last-child)::after {
     color: var(--gl-breadcrumb-separator-color);
@@ -28,7 +28,7 @@ $breadcrumb-max-width: $grid-size * 16;
   }
 
   > a {
-    @include gl-display-inline-block;
+    @apply gl-inline-block;
     border-radius: $gl-border-radius-base;
     color: var(--gl-text-color-subtle);
     text-decoration-thickness: auto;
@@ -52,5 +52,5 @@ $breadcrumb-max-width: $grid-size * 16;
 
 .gl-breadcrumb-item:last-child > a {
   color: var(--gl-text-color-default);
-  @include gl-font-weight-bold;
+  @apply gl-font-bold;
 }

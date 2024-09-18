@@ -2,11 +2,11 @@
   background-color: var(--gl-background-color-default);
   @apply gl-border-solid;
   @apply gl-rounded-base;
-  @include gl-display-flex;
-  @include gl-flex-direction-column;
-  @include gl-overflow-wrap-break;
+  @apply gl-flex;
+  @apply gl-flex-col;
+  @apply gl-break-words;
   position: relative;
-  @include gl-font-base;
+  @apply gl-text-base;
 }
 
 .gl-card,

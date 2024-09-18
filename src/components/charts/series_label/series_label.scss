@@ -1,16 +1,16 @@
 .gl-series-label-container {
-  @include gl-display-flex;
-  @include gl-font-base;
+  @apply gl-flex;
+  @apply gl-text-base;
   @include gl-overflow-hidden;
-  @include gl-overflow-wrap-break;
+  @apply gl-break-words;
 }
 
 .gl-series-label-color {
-  @include gl-flex-shrink-0;
+  @apply gl-shrink-0;
   @apply gl-mr-3;
 
   svg {
-    @include gl-display-block;
+    @apply gl-block;
   }
 }
 
@@ -19,5 +19,5 @@
   // as there are quite a few possible cases where
   // Prometheus queries return long labels with no spaces.
   @include gl-overflow-hidden;
-  @include gl-overflow-wrap-break;
+  @apply gl-break-words;
 }

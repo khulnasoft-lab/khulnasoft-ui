@@ -2,9 +2,9 @@
   @apply gl-mb-5;
 
   .col-form-label {
-    @include gl-font-base;
-    @include gl-font-weight-bold;
-    @include gl-line-height-normal;
+    @apply gl-text-base;
+    @apply gl-font-bold;
+    @apply gl-leading-normal;
     @apply gl-pt-0;
     @apply gl-pb-3;
     color: var(--gl-text-color-strong);
@@ -17,7 +17,7 @@
 
   .optional-label,
   .label-description {
-    @include gl-font-weight-normal;
+    @apply gl-font-normal;
   }
 
   .invalid-feedback {
@@ -32,8 +32,8 @@
   .valid-feedback,
   .text-muted,
   .gl-text-secondary {
-    @include gl-font-base;
-    @include gl-line-height-normal;
+    @apply gl-text-base;
+    @apply gl-leading-normal;
   }
 
   .text-muted {

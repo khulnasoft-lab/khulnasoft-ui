@@ -20,7 +20,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     background-image: linear-gradient(to bottom, $transparent-rgba, var(--white, #{$white}));
     bottom: 0;
     content: '';
-    @include gl-display-block;
+    @apply gl-block;
     @include gl-h-4;
     position: absolute;
     @include gl-w-full;
@@ -28,20 +28,20 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 }
 
 .gl-legend-inline {
-    @include gl-display-flex;
+    @apply gl-flex;
     @include gl-flex-wrap;
-    @include gl-flex-shrink-0;
+    @apply gl-shrink-0;
 
   .gl-legend-inline-series {
-    @include gl-display-flex;
-    @include gl-flex-shrink-0;
-    @include gl-justify-content-space-between;
-    @include gl-align-items-center;
+    @apply gl-flex;
+    @apply gl-shrink-0;
+    @apply gl-justify-between;
+    @apply gl-items-center;
     @apply gl-pr-5;
 
     &:hover {
       @include gl-cursor-pointer;
-      @include gl-text-decoration-underline;
+      @apply gl-underline;
     }
 
     .gl-legend-inline-series-label {
@@ -52,22 +52,22 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 
 .gl-legend-tabular {
   .gl-legend-tabular-header {
-    @include gl-display-flex;
-    @include gl-justify-content-end;
+    @apply gl-flex;
+    @apply gl-justify-end;
   }
 
   .gl-legend-tabular-header-cell,
   .gl-legend-tabular-details-cell {
-    @include gl-white-space-nowrap;
+    @apply gl-whitespace-nowrap;
     @include gl-overflow-hidden;
-    @include gl-text-overflow-ellipsis;
+    @apply gl-text-ellipsis;
     @include gl-text-right;
     @include gl-w-eighth;
   }
 
   .gl-legend-tabular-header-cell {
-    @include gl-font-weight-bold;
-    @include gl-line-height-24;
+    @apply gl-font-bold;
+    @apply gl-leading-24;
     @apply gl-px-3;
   }
 
@@ -77,7 +77,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
   }
 
   .gl-legend-tabular-row {
-    @include gl-display-flex;
+    @apply gl-flex;
 
     &:nth-child(odd) {
       background-color: var(--gray-50, #{$gray-50});
@@ -86,12 +86,12 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 
   .gl-legend-tabular-title-cell,
   .gl-legend-tabular-details-cell {
-    @include gl-line-height-24;
+    @apply gl-leading-24;
     @apply gl-px-3;
   }
 
   .gl-legend-tabular-title-cell {
     @include gl-overflow-hidden;
-    @include gl-w-half;
+    @apply gl-w-1/2;
   }
 }

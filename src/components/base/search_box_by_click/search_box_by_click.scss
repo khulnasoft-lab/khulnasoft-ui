@@ -1,5 +1,5 @@
 .gl-search-box-by-click {
-  @include gl-font-base;
+  @apply gl-text-base;
 
   .gl-search-box-by-click-history > .gl-button {
     padding-left: $gl-spacing-scale-4 !important;
@@ -7,16 +7,16 @@
     @apply gl-border-none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    @include gl-inset-border-1-gray-400;
+    @apply gl-shadow-inner-1-gray-400;
   }
 
   .gl-search-box-by-click-search-button.gl-button:not(:disabled) {
-    @include gl-inset-border-1-gray-400;
+    @apply gl-shadow-inner-1-gray-400;
   }
 
   .gl-search-box-by-click-input {
     &::-webkit-search-cancel-button {
-      @include gl-display-none;
+      @apply gl-hidden;
     }
   }
 
@@ -25,7 +25,7 @@
     top: $gl-spacing-scale-2;
     right: $gl-spacing-scale-2;
     @apply gl-mr-2;
-    @include gl-z-index-3;
+    @apply gl-z-3;
   }
 }
 
