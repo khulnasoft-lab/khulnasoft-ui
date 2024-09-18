@@ -580,4 +580,11 @@ export const tailwindEquivalents = {
   'gl-inset-border-1-red-300': 'gl-shadow-inner-1-red-300',
   'gl-inset-border-1-red-500': 'gl-shadow-inner-1-red-500',
   'gl-column-gap-3': 'gl-gap-x-3',
+  // The following equivalents were found while migrating GitLab UI's stylesheets
+  'gl-text-decoration-color-gray-900': 'gl-decoration-gray-900',
+  'gl-text-decoration-color-gray-500': 'gl-decoration-gray-500',
+  'gl-text-transform-none': 'gl-normal-case',
+  'gl-bg-current-color': 'gl-bg-current',
+  'gl-w-eighth': 'gl-w-1/8',
+  'gl-w-max-content': 'gl-w-max',
 };
