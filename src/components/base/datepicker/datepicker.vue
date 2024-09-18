@@ -224,6 +224,7 @@ export default {
         'gl-datepicker',
         'd-inline-block',
         'gl-w-full',
+        // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
         `gl-form-input-${this.computedWidth}`,
       ];
     },

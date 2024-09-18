@@ -44,6 +44,7 @@ function renderTitle(h, toast, options) {
 }
 
 function showToast(message, options = {}) {
+  // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
   const id = `gl-toast-${toastsCount}`;
   toastsCount += 1;
   const hide = () => {

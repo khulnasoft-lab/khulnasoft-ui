@@ -6,6 +6,7 @@ module.exports = {
   rules: {
     'import/no-extraneous-dependencies': 'off',
     'import/no-relative-packages': 'off',
+    '@gitlab/tailwind': 'error',
     'no-restricted-imports': [
       'error',
       {
@@ -94,6 +95,7 @@ module.exports = {
             ],
           },
         ],
+        '@gitlab/tailwind': 'off',
       },
     },
     {
