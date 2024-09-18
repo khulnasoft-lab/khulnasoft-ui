@@ -4,6 +4,7 @@ import mapValues from 'lodash/mapValues';
 import uniqueId from 'lodash/uniqueId';
 import GlFormGroup from '../form_group/form_group.vue';
 import GlFormInput from '../form_input/form_input.vue';
+import { setObjectProperty } from '../../../../utils/set_utils';
 import GlFormFieldValidator from './form_field_validator.vue';
 
 export default {
@@ -147,7 +148,7 @@ export default {
   },
   methods: {
     setFieldDirty(fieldName) {
-      this.$set(this.fieldDirtyStatuses, fieldName, true);
+      this.fieldDirtyStatuses = setObjectProperty(this.fieldDirtyStatuses, fieldName, true);
     },
     setAllFieldsDirty() {
       this.fieldNames.forEach((fieldName) => this.setFieldDirty(fieldName));
@@ -173,7 +174,7 @@ export default {
       return val;
     },
     onFieldValidationUpdate(fieldName, invalidFeedback) {
-      this.$set(this.fieldValidations, fieldName, invalidFeedback);
+      this.fieldValidations = setObjectProperty(this.fieldValidations, fieldName, invalidFeedback);
     },
     onFieldBlur(fieldName) {
       this.setFieldDirty(fieldName);
