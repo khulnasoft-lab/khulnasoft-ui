@@ -7,8 +7,8 @@ import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import GlFormGroup from '../../../../../base/form/form_group/form_group.vue';
 import GlFormTextarea from '../../../../../base/form/form_textarea/form_textarea.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
-import { sprintf, translatePlural } from '../../../../../../utils/i18n';
 import { MESSAGE_MODEL_ROLES, SELECTED_CONTEXT_ITEMS_DEFAULT_COLLAPSED } from '../../constants';
+import { sprintf, translate, translatePlural } from '../../../../../../utils/i18n';
 import DocumentationSources from '../duo_chat_message_sources/duo_chat_message_sources.vue';
 // eslint-disable-next-line no-restricted-imports
 import { renderDuoChatMarkdownPreview } from '../../markdown_renderer';
@@ -18,14 +18,25 @@ import { concatUntilEmpty } from './utils';
 
 export const i18n = {
   MODAL: {
-    TITLE: 'Give feedback on GitLab Duo Chat',
-    ALERT_TEXT:
-      'GitLab team members cannot view your conversation. Please be as descriptive as possible.',
-    DID_WHAT: 'What were you doing?',
-    INTERACTION: 'The situation in which you interacted with GitLab Duo Chat.',
-    IMPROVE_WHAT: 'How could the response be improved?',
-    BETTER_RESPONSE: 'How the response might better meet your needs.',
-    MESSAGE_ERROR: 'Error sending the message',
+    TITLE: translate('GlDuoChatMessage.modalTitle', 'Give feedback on GitLab Duo Chat'),
+    ALERT_TEXT: translate(
+      'GlDuoChatMessage.modalAlertText',
+      'GitLab team members cannot view your conversation. Please be as descriptive as possible.'
+    ),
+    DID_WHAT: translate('GlDuoChatMessage.modalDidWhat', 'What were you doing?'),
+    INTERACTION: translate(
+      'GlDuoChatMessage.modalInteraction',
+      'The situation in which you interacted with GitLab Duo Chat.'
+    ),
+    IMPROVE_WHAT: translate(
+      'GlDuoChatMessage.modalImproveWhat',
+      'How could the response be improved?'
+    ),
+    BETTER_RESPONSE: translate(
+      'GlDuoChatMessage.modalBetterResponse',
+      'How the response might better meet your needs.'
+    ),
+    MESSAGE_ERROR: translate('GlDuoChatMessage.modalMessageError', 'Error sending the message'),
   },
 };
 

@@ -1,11 +1,12 @@
 <script>
+import { translatePlural } from '../../../../../../utils/i18n';
 import GlIcon from '../../../../../base/icon/icon.vue';
 import GlLink from '../../../../../base/link/link.vue';
 import { DOCUMENTATION_SOURCE_TYPES } from '../../constants';
 
 export const i18n = {
-  MESSAGE_SOURCE: 'Source',
-  MESSAGE_SOURCES: 'Sources',
+  MESSAGE_SOURCE: (count = 1) =>
+    translatePlural('GlDuoChatMessageSources.messageSources', 'Source', 'Sources')(count),
 };
 
 export default {
@@ -25,7 +26,7 @@ export default {
   },
   computed: {
     sourceLabel() {
-      return this.sources.length > 1 ? i18n.MESSAGE_SOURCES : i18n.MESSAGE_SOURCES;
+      return i18n.MESSAGE_SOURCE(this.sources.length);
     },
   },
   methods: {
@@ -53,7 +54,7 @@ export default {
         }
       }
 
-      return i18n.MESSAGE_SOURCE;
+      return this.sourceLabel;
     },
   },
 };
