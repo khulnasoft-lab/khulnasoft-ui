@@ -102,6 +102,10 @@
 
     .gl-button-icon.gl-button-icon {
       @apply gl-mr-0;
+
+      &.gl-button-loading-indicator {
+        @apply gl-mr-2;
+      }
     }
 
     &.btn-sm .gl-new-dropdown-chevron {
