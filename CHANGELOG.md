@@ -1,3 +1,20 @@
+# [93.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.5.0...v93.0.0) (2024-09-18)
+
+
+### Features
+
+* **CloseButton:** Replace close btn class with util class ([0cf9a37](https://gitlab.com/gitlab-org/gitlab-ui/commit/0cf9a373c7caa1ff2d517f2eac5b7c1fbc711322))
+
+
+### BREAKING CHANGES
+
+* **CloseButton:** Remove CSS Class .gl-close-btn-color-inherit
+
+This CSS Class was applying mix-blend styles. This style was creating
+an unwanted design on some background colors. Also, it makes it harder
+to use with design tokens. This CSS class is now replaced by using
+the Util CSS class !text-color-inherit.
+
 # [92.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v92.4.0...v92.5.0) (2024-09-17)
 
 
