@@ -29,15 +29,11 @@ export const HEX_REGEX = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
 export const LEFT_MOUSE_BUTTON = 0;
 
-export const variantOptions = {
+export const progressBarVariantOptions = {
   primary: 'primary',
-  secondary: 'secondary',
   success: 'success',
   warning: 'warning',
   danger: 'danger',
-  info: 'info',
-  light: 'light',
-  dark: 'dark',
 };
 
 export const badgeSizeOptions = {
