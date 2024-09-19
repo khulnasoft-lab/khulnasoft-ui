@@ -23,7 +23,6 @@ import {
   CHAT_INCLUDE_MESSAGE,
   MESSAGE_MODEL_ROLES,
 } from './constants';
-import { INCLUDE_SLASH_COMMAND } from './mock_data';
 
 export const i18n = {
   CHAT_DEFAULT_TITLE: translate('GlDuoChat.chatDefaultTitle', 'GitLab Duo Chat'),
@@ -324,7 +323,7 @@ export default {
         return false;
       }
 
-      return INCLUDE_SLASH_COMMAND.name.startsWith(this.caseInsensitivePrompt);
+      return CHAT_INCLUDE_MESSAGE.startsWith(this.caseInsensitivePrompt);
     },
     inputPlaceholder() {
       if (this.chatPromptPlaceholder) {
@@ -462,7 +461,7 @@ export default {
         this.contextItemMenuRef?.handleKeyUp(e);
         return;
       }
-      if (this.caseInsensitivePrompt === INCLUDE_SLASH_COMMAND.name) {
+      if (this.caseInsensitivePrompt === CHAT_INCLUDE_MESSAGE) {
         this.contextItemsMenuIsOpen = true;
         return;
       }
