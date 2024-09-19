@@ -426,6 +426,7 @@
   --gl-text-color-disabled: var(--gl-color-neutral-400); /* Used for disabled text. */
   --gl-text-color-success: var(--gl-color-green-300); /* Used for text indicating success, completion, approval, addition, or validity. */
   --gl-text-color-danger: var(--gl-color-red-300); /* Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination. */
+  --gl-text-color-warning: var(--gl-color-orange-300); /* Used for text that requires caution or careful attention. */
   --gl-text-color-link: var(--gl-color-blue-300); /* Used for default text links. */
   --gl-text-color-heading: var(--gl-color-neutral-0); /* Used for headings level 1-6. */
   --gl-text-color-strong: var(--gl-color-neutral-0); /* Used for text with the highest contrast. */
