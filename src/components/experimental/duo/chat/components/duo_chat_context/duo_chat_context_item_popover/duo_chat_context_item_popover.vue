@@ -124,22 +124,19 @@ export default {
       </div>
     </template>
     <div>
-      <div v-if="filePath !== null" class="gl-flex gl-flex-wrap gl-items-center">
-        <gl-icon name="document" :size="12" variant="subtle" class="gl-mr-1" />
-        <span>{{ contextItem.metadata.project }}</span
+      <div v-if="filePath !== null">
+        <gl-icon name="document" :size="12" variant="subtle" class="gl-mr-1" /><span
+          class="gl-break-all"
+          >{{ contextItem.metadata.project }}</span
         ><span v-for="(pathPart, index) in filePathArray" :key="pathPart" class="gl-break-all"
           >{{ pathPart }}{{ index + 1 < filePathArray.length ? '/' : '' }}</span
         >
       </div>
-
-      <div
-        v-if="filePath === null"
-        class="gl-flex gl-flex-wrap gl-items-center gl-leading-1 gl-text-subtle"
-      >
-        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1" />
-
-        <span>{{ contextItem.metadata.project }}</span
-        ><span v-if="id !== null">{{ formattedId }}</span>
+      <div v-else>
+        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1" /><span
+          class="gl-break-all"
+          >{{ contextItem.metadata.project }}</span
+        ><span v-if="id !== null" class="gl-break-all">{{ formattedId }}</span>
       </div>
       <gl-alert
         v-if="!isEnabled"
