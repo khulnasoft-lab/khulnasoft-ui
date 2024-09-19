@@ -904,6 +904,7 @@ export const GL_TEXT_COLOR_SUBTLE = '#626168'; // Used for supplemental text tha
 export const GL_TEXT_COLOR_STRONG = '#18171d'; // Used for text with the highest contrast.
 export const GL_TEXT_COLOR_HEADING = '#18171d'; // Used for headings level 1-6.
 export const GL_TEXT_COLOR_LINK = '#0b5cad'; // Used for default text links.
+export const GL_TEXT_COLOR_WARNING = '#9e5400'; // Used for text that requires caution or careful attention.
 export const GL_TEXT_COLOR_DANGER = '#c91c00'; // Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.
 export const GL_TEXT_COLOR_SUCCESS = '#217645'; // Used for text indicating success, completion, approval, addition, or validity.
 export const GL_TEXT_COLOR_DISABLED = '#89888d'; // Used for disabled text.

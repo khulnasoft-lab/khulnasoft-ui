@@ -209,6 +209,7 @@ const textColors = {
   strong: 'var(--gl-text-color-strong, var(--gl-color-neutral-950, #18171d))',
   heading: 'var(--gl-text-color-heading, var(--gl-color-neutral-950, #18171d))',
   link: 'var(--gl-text-color-link, var(--gl-color-blue-700, #0b5cad))',
+  warning: 'var(--gl-text-color-warning, var(--gl-color-orange-600, #9e5400))',
   danger: 'var(--gl-text-color-danger, var(--gl-color-red-600, #c91c00))',
   success: 'var(--gl-text-color-success, var(--gl-color-green-600, #217645))',
   disabled: 'var(--gl-text-color-disabled, var(--gl-color-neutral-400, #89888d))',
