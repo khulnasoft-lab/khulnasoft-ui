@@ -337,7 +337,7 @@
   }
 
   &.btn-success {
-    @include gl-text-contrast-light;
+    color: var(--gl-color-neutral-0); // The text is white in light and dark mode
     @include gl-bg-green-500;
     @include gl-inset-border-1-green-600;
 
