@@ -1,3 +1,10 @@
+# [93.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v93.2.0...v93.3.0) (2024-09-19)
+
+
+### Features
+
+* **DuoChatContextItemPopover:** fix styling for long strings ([b7b4517](https://gitlab.com/gitlab-org/gitlab-ui/commit/b7b451796eb0585b57922682a5cef42ac945a1f9))
+
 # [93.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v93.1.0...v93.2.0) (2024-09-19)
 
 
