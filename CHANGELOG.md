@@ -1,3 +1,10 @@
+# [93.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v93.1.0...v93.2.0) (2024-09-19)
+
+
+### Features
+
+* **DesignTokens:** add text warning design tokens ([e00b998](https://gitlab.com/gitlab-org/gitlab-ui/commit/e00b998524c1b974f49994059256dd340748ab20))
+
 # [93.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v93.0.0...v93.1.0) (2024-09-18)
 
 
