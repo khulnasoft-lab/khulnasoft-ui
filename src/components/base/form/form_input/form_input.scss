@@ -5,7 +5,7 @@
   @apply gl-leading-normal;
   @apply gl-py-3;
   @apply gl-px-4;
-  @include gl-h-auto;
+  @apply gl-h-auto;
   @apply gl-border-none;
   @include form-control-focus($ignore-warning: true);
   appearance: none;

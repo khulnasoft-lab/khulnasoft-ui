@@ -11,8 +11,8 @@ $gl-drawer-scrim-gradient: linear-gradient(
   right: 0;
   @apply gl-transition-all;
   position: fixed;
-  @include gl-h-full;
-  @include gl-w-full;
+  @apply gl-h-full;
+  @apply gl-w-full;
   @include gl-overflow-y-auto;
   @include gl-shadow-lg;
   @apply gl-text-base;
@@ -74,8 +74,8 @@ $gl-drawer-scrim-gradient: linear-gradient(
     left: 0;
     position: absolute;
     @include gl-pointer-events-none;
-    @include gl-w-full;
-    @include gl-h-7;
+    @apply gl-w-full;
+    @apply gl-h-7;
   }
 }
 
@@ -97,8 +97,8 @@ $gl-drawer-scrim-gradient: linear-gradient(
   @apply gl-justify-between;
 
   svg {
-    @include gl-w-5;
-    @include gl-h-5;
+    @apply gl-w-5;
+    @apply gl-h-5;
     @apply gl-align-middle;
   }
 }
@@ -123,9 +123,9 @@ $gl-drawer-scrim-gradient: linear-gradient(
     content: '';
     bottom: 0;
     @include gl-pointer-events-none;
-    @include gl-w-full;
+    @apply gl-w-full;
     position: fixed;
-    @include gl-h-7;
+    @apply gl-h-7;
   }
 }
 

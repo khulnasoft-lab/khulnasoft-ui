@@ -104,8 +104,8 @@ $badge-min-width: $gl-spacing-scale-3;
   }
 
   .gl-badge-icon {
-    @include gl-h-5;
-    @include gl-w-5;
+    @apply gl-h-5;
+    @apply gl-w-5;
     @apply gl-shrink-0;
     top: auto;
   }

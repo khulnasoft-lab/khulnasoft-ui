@@ -116,7 +116,7 @@ $toggle-height: 2.5 * $grid-size;
   }
 
   .toggle-loading {
-    @include gl-h-5;
+    @apply gl-h-5;
   }
 
   .toggle-icon {
@@ -132,8 +132,8 @@ $toggle-height: 2.5 * $grid-size;
     @apply gl-p-1;
 
     > svg {
-      @include gl-w-4;
-      @include gl-h-4;
+      @apply gl-w-4;
+      @apply gl-h-4;
       @include gl-fill-gray-600;
       @include gl-vertical-align-baseline;
     }

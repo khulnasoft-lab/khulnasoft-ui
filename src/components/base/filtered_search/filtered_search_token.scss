@@ -3,7 +3,7 @@
     @include gl-cursor-default;
   }
 
-  @include gl-h-6;
+  @apply gl-h-6;
   @apply gl-inline-flex;
   @apply gl-whitespace-nowrap;
   @include gl-cursor-pointer;
@@ -26,7 +26,7 @@
   @apply gl-rounded-none;
 
   &.gl-filtered-search-token-type {
-    @include gl-h-6;
+    @apply gl-h-6;
     @include gl-bg-gray-50;
     @apply gl-rounded-tr-none;
     @apply gl-rounded-br-none;
@@ -36,14 +36,14 @@
   }
 
   &.gl-filtered-search-token-operator {
-    @include gl-h-6;
+    @apply gl-h-6;
     @include gl-bg-gray-50;
     @apply gl-mr-1;
     @apply gl-rounded-none;
   }
 
   &.gl-filtered-search-token-data {
-    @include gl-h-6;
+    @apply gl-h-6;
     @include gl-bg-gray-100;
     @apply gl-rounded-tr-small;
     @apply gl-rounded-br-small;

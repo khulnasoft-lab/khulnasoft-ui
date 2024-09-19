@@ -39,8 +39,8 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
   right: 0;
   @apply gl-transition-all;
   position: fixed;
-  @include gl-h-full;
-  @include gl-w-full;
+  @apply gl-h-full;
+  @apply gl-w-full;
   @include gl-overflow-y-auto;
   @include gl-shadow-lg;
   @apply gl-text-base;
@@ -87,8 +87,8 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
     left: 0;
     position: absolute;
     @include gl-pointer-events-none;
-    @include gl-w-full;
-    @include gl-h-7;
+    @apply gl-w-full;
+    @apply gl-h-7;
   }
 }
 

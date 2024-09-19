@@ -1,8 +1,8 @@
 .gl-filtered-search-token-segment {
   @apply gl-inline-flex;
   @apply gl-items-center;
-  @include gl-w-full;
-  @include gl-h-6;
+  @apply gl-w-full;
+  @apply gl-h-6;
   @apply gl-whitespace-nowrap;
   @include gl-cursor-pointer;
 
@@ -13,7 +13,7 @@
 
 .gl-filtered-search-token-segment-input {
   @apply gl-p-0;
-  @include gl-h-full;
+  @apply gl-h-full;
   @apply gl-border-none;
   @include gl-outline-none;
   min-width: $gl-dropdown-width;

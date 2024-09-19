@@ -121,10 +121,10 @@
   .audio-container {
     @apply gl-inline-flex;
     @apply gl-flex-col;
-    @include gl-w-full;
+    @apply gl-w-full;
 
     audio {
-      @include gl-w-full;
+      @apply gl-w-full;
     }
 
     a {
