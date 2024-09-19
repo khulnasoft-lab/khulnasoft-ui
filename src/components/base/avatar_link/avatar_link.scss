@@ -17,12 +17,12 @@
     .gl-avatar-labeled {
       &-label {
         @apply gl-underline;
-        @include gl-text-decoration-color-gray-900;
+        @apply gl-decoration-gray-900;
       }
 
       &-sublabel {
         @apply gl-underline;
-        @include gl-text-decoration-color-gray-500;
+        @apply gl-decoration-gray-500;
       }
     }
   }

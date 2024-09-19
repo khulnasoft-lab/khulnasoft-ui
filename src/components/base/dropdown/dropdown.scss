@@ -91,7 +91,7 @@
       @apply gl-block;
       @include gl-w-5;
       @include gl-h-5;
-      @include gl-bg-current-color;
+      @apply gl-bg-current;
       @include mask-chevron-down;
     }
 
