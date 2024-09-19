@@ -113,9 +113,7 @@ export const props = makePropsConfigurable(
         return isUndefinedOrNull(value) || arrayIncludes(BUTTONS, value)
       }
     ),
-    bodyBgVariant: makeProp(PROP_TYPE_STRING),
     bodyClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
-    bodyTextVariant: makeProp(PROP_TYPE_STRING),
     busy: makeProp(PROP_TYPE_BOOLEAN, false),
     buttonSize: makeProp(PROP_TYPE_STRING),
     cancelDisabled: makeProp(PROP_TYPE_BOOLEAN, false),
@@ -125,19 +123,12 @@ export const props = makePropsConfigurable(
     centered: makeProp(PROP_TYPE_BOOLEAN, false),
     contentClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
     dialogClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
-    footerBgVariant: makeProp(PROP_TYPE_STRING),
-    footerBorderVariant: makeProp(PROP_TYPE_STRING),
     footerClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
     footerTag: makeProp(PROP_TYPE_STRING, 'footer'),
-    footerTextVariant: makeProp(PROP_TYPE_STRING),
-    headerBgVariant: makeProp(PROP_TYPE_STRING),
-    headerBorderVariant: makeProp(PROP_TYPE_STRING),
     headerClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
     headerCloseContent: makeProp(PROP_TYPE_STRING, '&times;'),
     headerCloseLabel: makeProp(PROP_TYPE_STRING, 'Close'),
-    headerCloseVariant: makeProp(PROP_TYPE_STRING),
     headerTag: makeProp(PROP_TYPE_STRING, 'header'),
-    headerTextVariant: makeProp(PROP_TYPE_STRING),
     // TODO: Rename to `noBackdrop` and deprecate `hideBackdrop`
     hideBackdrop: makeProp(PROP_TYPE_BOOLEAN, false),
     // TODO: Rename to `noFooter` and deprecate `hideFooter`
@@ -260,37 +251,8 @@ export const BModal = /*#__PURE__*/ extend({
         this.dialogClass
       ]
     },
-    headerClasses() {
-      return [
-        {
-          [`bg-${this.headerBgVariant}`]: this.headerBgVariant,
-          [`text-${this.headerTextVariant}`]: this.headerTextVariant,
-          [`border-${this.headerBorderVariant}`]: this.headerBorderVariant
-        },
-        this.headerClass
-      ]
-    },
     titleClasses() {
       return [{ 'sr-only': this.titleSrOnly }, this.titleClass]
-    },
-    bodyClasses() {
-      return [
-        {
-          [`bg-${this.bodyBgVariant}`]: this.bodyBgVariant,
-          [`text-${this.bodyTextVariant}`]: this.bodyTextVariant
-        },
-        this.bodyClass
-      ]
-    },
-    footerClasses() {
-      return [
-        {
-          [`bg-${this.footerBgVariant}`]: this.footerBgVariant,
-          [`text-${this.footerTextVariant}`]: this.footerTextVariant,
-          [`border-${this.footerBorderVariant}`]: this.footerBorderVariant
-        },
-        this.footerClass
-      ]
     },
     modalOuterStyle() {
       // Styles needed for proper stacking of modals
@@ -783,8 +745,7 @@ export const BModal = /*#__PURE__*/ extend({
                 props: {
                   content: this.headerCloseContent,
                   disabled: this.isTransitioning,
-                  ariaLabel: this.headerCloseLabel,
-                  textVariant: this.headerCloseVariant || this.headerTextVariant
+                  ariaLabel: this.headerCloseLabel
                 },
                 on: { click: this.onClose },
                 ref: 'close-button'
@@ -817,7 +778,7 @@ export const BModal = /*#__PURE__*/ extend({
           this.headerTag,
           {
             staticClass: 'modal-header',
-            class: this.headerClasses,
+            class: this.headerClass,
             attrs: { id: this.modalHeaderId },
             ref: 'header'
           },
@@ -830,7 +791,7 @@ export const BModal = /*#__PURE__*/ extend({
         'div',
         {
           staticClass: 'modal-body',
-          class: this.bodyClasses,
+          class: this.bodyClass,
           attrs: { id: this.modalBodyId },
           ref: 'body'
         },
@@ -891,7 +852,7 @@ export const BModal = /*#__PURE__*/ extend({
           this.footerTag,
           {
             staticClass: 'modal-footer',
-            class: this.footerClasses,
+            class: this.footerClass,
             attrs: { id: this.modalFooterId },
             ref: 'footer'
           },

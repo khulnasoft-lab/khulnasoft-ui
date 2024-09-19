@@ -28,18 +28,8 @@ export interface BvMsgBoxOptions {
   noFade?: boolean
   noCloseOnBackdrop?: boolean
   noCloseOnEsc?: boolean
-  headerBgVariant?: string
-  headerBorderVariant?: string
-  headerTextVariant?: string
-  headerCloseVariant?: string
   headerClass?: string | string[] | Array<any>
-  bodyBgVariant?: string
-  bodyBorderVariant?: string
-  bodyTextVariant?: string
   bodyClass?: string | string[] | Array<any>
-  footerBgVariant?: string
-  footerBorderVariant?: string
-  footerTextVariant?: string
   footerClass?: string | string[] | Array<any>
   headerCloseLabel?: string
   buttonSize?: string

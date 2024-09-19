@@ -1,9 +1,5 @@
 import { POSITION } from '../components/utilities/truncate/constants';
 
-function appendDefaultOption(options) {
-  return { ...options, default: '' };
-}
-
 export const COMMA = ',';
 
 export const CONTRAST_LEVELS = [
@@ -289,8 +285,6 @@ export const tabsButtonDefaults = {
 export const tokenVariants = ['default', 'search-type', 'search-value'];
 
 export const resizeDebounceTime = 200;
-
-export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
 
 // Datetime constants
 export const defaultDateFormat = 'YYYY-MM-DD';
