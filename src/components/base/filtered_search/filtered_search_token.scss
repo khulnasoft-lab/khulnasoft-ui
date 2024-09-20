@@ -11,12 +11,15 @@
   &.gl-filtered-search-token-hover {
     &:hover {
       .gl-filtered-search-token-type {
-        @apply gl-bg-gray-100;
+        background-color: var(--gl-filtered-search-token-type-background-color-hover);
       }
 
-      .gl-filtered-search-token-data,
+      .gl-filtered-search-token-data {
+        background-color: var(--gl-filtered-search-token-data-background-color-hover);
+      }
+
       .gl-filtered-search-token-operator {
-        @apply gl-bg-gray-200;
+        background-color: var(--gl-filtered-search-token-operator-background-color-hover);
       }
     }
   }
@@ -27,26 +30,26 @@
 
   &.gl-filtered-search-token-type {
     @apply gl-h-6;
-    @apply gl-bg-gray-50;
     @apply gl-rounded-tr-none;
     @apply gl-rounded-br-none;
     @apply gl-py-2;
     @apply gl-px-3;
     @apply gl-mr-1;
+    background-color: var(--gl-filtered-search-token-type-background-color-default);
   }
 
   &.gl-filtered-search-token-operator {
     @apply gl-h-6;
-    @apply gl-bg-gray-50;
     @apply gl-mr-1;
     @apply gl-rounded-none;
+    background-color: var(--gl-filtered-search-token-operator-background-color-default);
   }
 
   &.gl-filtered-search-token-data {
     @apply gl-h-6;
-    @apply gl-bg-gray-100;
     @apply gl-rounded-tr-small;
     @apply gl-rounded-br-small;
+    background-color: var(--gl-filtered-search-token-data-background-color-default);
 
     .gl-filtered-search-token-data-content {
       @apply gl-inline-flex;
