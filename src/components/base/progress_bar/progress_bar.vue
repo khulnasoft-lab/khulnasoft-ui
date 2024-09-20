@@ -11,5 +11,5 @@ export default {
 </script>
 
 <template>
-  <b-progress v-bind="$attrs" />
+  <b-progress v-bind="$attrs" class="gl-progress-bar" />
 </template>

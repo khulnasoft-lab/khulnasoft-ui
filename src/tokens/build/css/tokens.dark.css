@@ -505,6 +505,7 @@
   --gl-spinner-track-color-default: var(--gl-color-neutral-800); /* Used for the static track (background) of a loading spinner. */
   --gl-skeleton-loader-shimmer-color: var(--gl-color-neutral-700); /* Used for the animated shimmer effect in a skeleton loader. */
   --gl-skeleton-loader-background-color: var(--gl-color-neutral-800); /* Used for the skeleton loader background color. */
+  --gl-progress-bar-track-color: var(--gl-color-neutral-700); /* Used for the track color for all progress-bar variants. */
   --gl-link-mention-background-color-current: var(--gl-color-orange-800); /* Used for the mention link background when referencing the current user. */
   --gl-link-mention-background-color-default: var(--gl-color-blue-800); /* Used for the mention link default background. */
   --gl-link-mention-text-color-current: var(--gl-color-orange-100); /* Used for the mention link text color when referencing the current user. */
@@ -781,6 +782,10 @@
   --gl-token-foreground-color: var(--gl-text-color-default); /* Used for the token foreground color. */
   --gl-table-sorting-icon-color: var(--gl-text-color-heading); /* Used for the color of the sorting icons in the column headers. */
   --gl-table-row-background-color-hover: var(--gl-background-color-subtle); /* Used for the background of a table row in hover state. */
+  --gl-progress-bar-indicator-color-danger: var(--gl-status-danger-icon-color); /* Used for the indicator color for the danger progress-bar variant. */
+  --gl-progress-bar-indicator-color-warning: var(--gl-status-warning-icon-color); /* Used for the indicator color for the warning progress-bar variant. */
+  --gl-progress-bar-indicator-color-success: var(--gl-status-success-icon-color); /* Used for the indicator color for the success progress-bar variant. */
+  --gl-progress-bar-indicator-color-default: var(--gl-status-info-icon-color); /* Used for the indicator color for the primary progress-bar variant. */
   --gl-dropdown-option-background-color-selected-focus: var(--gl-dropdown-option-background-color-selected-hover); /* Used for the background of a selected dropdown option in the focus state. */
   --gl-dropdown-option-background-color-unselected-focus: var(--gl-action-neutral-background-color-focus); /* Used for the background of an unselected dropdown option in the focus state. */
   --gl-dropdown-option-indicator-color-selected-focus: var(--gl-color-neutral-0); /* Used for the dropdown selected option indicator in the focus state. */
