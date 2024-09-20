@@ -1,6 +1,6 @@
 .gl-token {
-  @apply gl-text-gray-900;
-  @apply gl-bg-gray-100;
+  color: var(--gl-token-foreground-color);
+  background-color: var(--gl-token-background-color);
   @apply gl-rounded-small;
   @apply gl-pl-3;
   @apply gl-inline-flex;
@@ -14,7 +14,7 @@
 }
 
 .gl-token-search-type-variant {
-  @apply gl-bg-gray-100;
+  background-color: var(--gl-token-background-color);
   @apply gl-rounded-tr-none;
   @apply gl-rounded-br-none;
 }
@@ -39,20 +39,6 @@
 
 .gl-token-close {
   @apply gl-ml-2;
-  @apply gl-text-inherit;
-  @include gl-cursor-pointer;
-
-  opacity: 0.8;
   color: inherit !important;
   background-color: transparent !important;
-
-  &:hover,
-  &:focus {
-    @include gl-opacity-10;
-  }
-
-  &:focus,
-  &:hover:focus {
-    @include gl-focus($important: true);
-  }
 }
