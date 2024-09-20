@@ -103,8 +103,8 @@
   }
 
   .gl-button-icon {
-    @include gl-h-5;
-    @include gl-w-5;
+    @apply gl-h-5;
+    @apply gl-w-5;
     @apply gl-shrink-0;
     @apply gl-mr-2;
     top: auto;
@@ -337,7 +337,7 @@
   }
 
   &.btn-success {
-    @include gl-text-contrast-light;
+    color: var(--gl-color-neutral-0); // The text is white in light and dark mode
     @include gl-bg-green-500;
     @include gl-inset-border-1-green-600;
 
@@ -459,8 +459,8 @@
     @apply gl-px-2;
 
     svg {
-      @include gl-h-5;
-      @include gl-w-5;
+      @apply gl-h-5;
+      @apply gl-w-5;
       @apply gl-m-0;
     }
   }

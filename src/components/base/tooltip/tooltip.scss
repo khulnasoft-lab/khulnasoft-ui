@@ -13,8 +13,8 @@
   }
 
   .arrow {
-    @include gl-h-3;
-    @include gl-w-2;
+    @apply gl-h-3;
+    @apply gl-w-2;
 
     &::before {
       @apply gl-border-4;
@@ -25,8 +25,8 @@
 .gl-tooltip.bs-tooltip-top,
 .gl-tooltip.bs-tooltip-bottom {
   .arrow {
-    @include gl-w-3;
-    @include gl-h-2;
+    @apply gl-w-3;
+    @apply gl-h-2;
   }
 }
 

@@ -5,9 +5,9 @@ $clear-button-size: 24px;
   position: relative;
 
   .gl-listbox-search-input {
-    @include gl-w-full;
+    @apply gl-w-full;
     @apply gl-leading-normal;
-    @include gl-h-auto;
+    @apply gl-h-auto;
     @apply gl-border-none;
     @apply gl-rounded-none;
     padding-left: calc(#{$gl-spacing-scale-7} + #{$gl-spacing-scale-2});

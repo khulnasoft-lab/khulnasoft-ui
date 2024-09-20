@@ -79,7 +79,7 @@
   .gl-new-dropdown-item-content {
     @apply gl-rounded-base;
     @apply gl-border-0;
-    @include gl-w-full;
+    @apply gl-w-full;
     @include gl-bg-transparent;
     @apply gl-items-center;
     @apply gl-flex;

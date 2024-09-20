@@ -103,7 +103,7 @@
 }
 
 .gl-actions-tabs-start {
-  @include gl-w-full;
+  @apply gl-w-full;
   @apply gl-flex;
   @apply gl-flex-col;
   @apply gl-mt-3;
@@ -134,7 +134,7 @@
 }
 
 .gl-tabs-fade {
-  @include gl-w-8;
+  @apply gl-w-8;
   bottom: 0;
   position: sticky;
   @apply gl-p-2;
@@ -154,7 +154,7 @@
   @apply gl-border;
   @include gl-action-neutral-colors;
   @apply gl-p-0;
-  @include gl-h-full;
+  @apply gl-h-full;
 }
 
 .gl-scrollable-tabs-nav {

@@ -3,7 +3,7 @@
 
   > .popover {
     @include gl-min-w-0;
-    @include gl-w-max-content;
+    @apply gl-w-max;
     max-width: $chart-tooltip-max-width;
   }
 }

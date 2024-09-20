@@ -21,9 +21,9 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     bottom: 0;
     content: '';
     @apply gl-block;
-    @include gl-h-4;
+    @apply gl-h-4;
     position: absolute;
-    @include gl-w-full;
+    @apply gl-w-full;
   }
 }
 
@@ -62,7 +62,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     @include gl-overflow-hidden;
     @apply gl-text-ellipsis;
     @include gl-text-right;
-    @include gl-w-eighth;
+    @apply gl-w-1/8;
   }
 
   .gl-legend-tabular-header-cell {

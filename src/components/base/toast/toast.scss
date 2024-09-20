@@ -8,10 +8,10 @@
       bottom: $gl-spacing-scale-6;
       left: $gl-spacing-scale-6;
       right: auto;
-      @include gl-w-auto;
+      @apply gl-w-auto;
 
       @include media-breakpoint-down(xs) {
-        @include gl-w-full;
+        @apply gl-w-full;
         left: 0;
         right: 0;
       }
@@ -47,7 +47,7 @@
     @apply gl-p-3;
     @apply gl-m-0;
     @apply gl-ml-5;
-    @include gl-text-transform-none;
+    @apply gl-normal-case;
     @apply gl-text-base;
     @apply gl-whitespace-nowrap;
     @apply gl-font-bold;

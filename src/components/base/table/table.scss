@@ -70,8 +70,8 @@ table.gl-table {
     tbody > tr {
       &::after {
         content: '';
-        @include gl-h-6;
-        @include gl-w-full;
+        @apply gl-h-6;
+        @apply gl-w-full;
         @apply gl-block;
       }
 

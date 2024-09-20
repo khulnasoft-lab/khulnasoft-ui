@@ -132,8 +132,8 @@ $path-chevron-right-margin: px-to-rem(14px);
   }
 
   .gl-path-fade {
-    @include gl-w-8;
-    @include gl-h-full;
+    @apply gl-w-8;
+    @apply gl-h-full;
     @apply gl-z-2;
     bottom: 0;
     color: var(--gl-text-color-subtle);
@@ -153,7 +153,7 @@ $path-chevron-right-margin: px-to-rem(14px);
 
   .gl-clear-icon-button {
     @apply gl-p-0;
-    @include gl-h-full;
+    @apply gl-h-full;
     color: var(--gl-icon-color-subtle);
 
     .gl-icon {

@@ -24,7 +24,7 @@
 .gl-filtered-search-scrollable {
   @apply gl-flex;
   @include gl-overflow-y-auto;
-  @include gl-w-full;
+  @apply gl-w-full;
 }
 
 .gl-filtered-search-item {
@@ -38,14 +38,14 @@
 
 .gl-filtered-search-last-item {
   .gl-filtered-search-term-value {
-    @include gl-h-full;
-    @include gl-w-full;
+    @apply gl-h-full;
+    @apply gl-w-full;
     @apply gl-items-center;
   }
 
   @apply gl-grow;
   @apply gl-p-0;
   @apply gl-pl-1;
-  @include gl-h-6;
+  @apply gl-h-6;
   min-width: $gl-spacing-scale-12;
 }
