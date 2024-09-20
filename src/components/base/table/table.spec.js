@@ -189,4 +189,45 @@ describe('GlTable', () => {
       });
     });
   });
+
+  describe("headers' alignment", () => {
+    it('does not add the `.gl-table-th-align-right` class by default', () => {
+      const fields = ['name'];
+      factory({ mountFn: mount, props: { fields } });
+
+      expect(findFirstColHeader().classes()).not.toContain('gl-table-th-align-right');
+    });
+
+    it('adds the `.gl-table-th-align-right` class if `thAlignRight` is `true`', () => {
+      const fields = [
+        {
+          key: 'name',
+          thAlignRight: true,
+        },
+      ];
+      factory({ mountFn: mount, props: { fields } });
+
+      expect(findFirstColHeader().classes()).toContain('gl-table-th-align-right');
+    });
+
+    it.each([['foo', 'bar'], 'foo bar'])(
+      'merges the `.gl-table-th-align-right` class with `thClass`',
+      (thClass) => {
+        const fields = [
+          {
+            key: 'name',
+            thAlignRight: true,
+            thClass,
+          },
+        ];
+        factory({ mountFn: mount, props: { fields } });
+
+        expect(findFirstColHeader().classes()).toStrictEqual([
+          'foo',
+          'bar',
+          'gl-table-th-align-right',
+        ]);
+      }
+    );
+  });
 });

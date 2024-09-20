@@ -78,7 +78,7 @@ export const Default = (args, { argTypes }) => ({
       sortable: true,
       label: 'Third column',
       formatter: (value) => value,
-      thClass: 'gl-text-right',
+      thAlignRight: true,
       tdClass: 'gl-text-right',
     },
   ],

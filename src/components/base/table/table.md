@@ -14,6 +14,23 @@ like mentioned in the implementation example.
 _Full documentation for the
 `field` prop [here.](https://bootstrap-vue.org/docs/components/table#fields-column-definitions)_
 
+## Header text alignment
+
+To align a given `TH` element's text to the right, set the `thAlignRight` property to `true` in
+the fields definition. This will ensure that proper styling is applied, including when the column
+is sortable.
+
+```js
+const fields = [
+  {
+    key: "column_one",
+    label: __("First column"),
+    sortable: true,
+    thAlignRight: true,
+  },
+];
+```
+
 ## Use `GlTableLite` when possible
 
 If you don't need all the features of `GlTable`, like filtering, sorting, or
