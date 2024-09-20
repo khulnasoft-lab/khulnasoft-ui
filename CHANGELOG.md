@@ -1,3 +1,45 @@
+# [94.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v93.4.0...v94.0.0) (2024-09-20)
+
+
+### Bug Fixes
+
+* **GlTable:** do not override CSS utils styling ([9c3ce10](https://gitlab.com/gitlab-org/gitlab-ui/commit/9c3ce1079e76a547dea0f78c981631cd4d15fdfc))
+
+
+### BREAKING CHANGES
+
+* **GlTable:** This rewrites how `GlTable`'s `TH` elements text
+alignment is applied. If you were previously passing `gl-text-right` to
+a table's `thClass` field option, you should migrate to the
+`thAlignRight` option instead. Not migrating could cause rendering
+issues in right-aligned sortable columns.
+
+Before:
+
+```js
+const fields = [
+  {
+    key: "column_one",
+    label: __("First column"),
+    sortable: true,
+    thClass: 'gl-text-right',
+  },
+];
+```
+
+After:
+
+```js
+const fields = [
+  {
+    key: "column_one",
+    label: __("First column"),
+    sortable: true,
+    thAlignRight: true,
+  },
+];
+```
+
 # [93.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v93.3.0...v93.4.0) (2024-09-20)
 
 
