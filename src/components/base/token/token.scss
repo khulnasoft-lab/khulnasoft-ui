@@ -1,6 +1,6 @@
 .gl-token {
-  @include gl-text-gray-900;
-  @include gl-bg-gray-100;
+  @apply gl-text-gray-900;
+  @apply gl-bg-gray-100;
   @include gl-rounded-small;
   @apply gl-pl-3;
   @apply gl-inline-flex;
@@ -14,7 +14,7 @@
 }
 
 .gl-token-search-type-variant {
-  @include gl-bg-gray-100;
+  @apply gl-bg-gray-100;
   @apply gl-rounded-tr-none;
   @apply gl-rounded-br-none;
 }

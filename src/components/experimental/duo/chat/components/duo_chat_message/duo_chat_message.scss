@@ -3,7 +3,7 @@
   position: relative;
 
   code {
-    @include gl-bg-gray-100;
+    @apply gl-bg-gray-100;
   }
 
   pre {
@@ -14,7 +14,7 @@
   pre code {
     @apply gl-text-sm;
     @apply gl-leading-1;
-    @include gl-bg-transparent;
+    @apply gl-bg-transparent;
     white-space: inherit;
   }
 

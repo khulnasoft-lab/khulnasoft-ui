@@ -61,7 +61,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     @apply gl-whitespace-nowrap;
     @include gl-overflow-hidden;
     @apply gl-text-ellipsis;
-    @include gl-text-right;
+    @apply gl-text-right;
     @apply gl-w-1/8;
   }
 

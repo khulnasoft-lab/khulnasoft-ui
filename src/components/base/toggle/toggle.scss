@@ -32,7 +32,7 @@ $toggle-height: 2.5 * $grid-size;
 
     .gl-toggle {
       @include gl-cursor-not-allowed;
-      @include gl-bg-gray-200;
+      @apply gl-bg-gray-200;
 
       .toggle-icon > svg {
         @include gl-fill-gray-200;
@@ -40,7 +40,7 @@ $toggle-height: 2.5 * $grid-size;
     }
 
     .gl-toggle.is-checked {
-      @include gl-bg-blue-200;
+      @apply gl-bg-blue-200;
 
       .toggle-icon > svg {
         @include gl-fill-blue-200;
@@ -49,14 +49,14 @@ $toggle-height: 2.5 * $grid-size;
 
     .gl-toggle-label,
     .gl-description-label {
-      @include gl-text-gray-500;
+      @apply gl-text-gray-500;
     }
   }
 }
 
 .gl-help-label {
   @apply gl-mt-3;
-  @include gl-text-gray-500;
+  @apply gl-text-gray-500;
   @apply gl-font-normal;
 }
 
@@ -86,7 +86,7 @@ $toggle-height: 2.5 * $grid-size;
   @apply gl-justify-center;
   @apply gl-border-0;
   @include gl-cursor-pointer;
-  @include gl-bg-gray-600;
+  @apply gl-bg-gray-600;
   position: relative;
   width: $toggle-width;
   height: $toggle-height;
@@ -106,7 +106,7 @@ $toggle-height: 2.5 * $grid-size;
   &:active,
   &:focus,
   &:focus:active {
-    @include gl-bg-gray-700;
+    @apply gl-bg-gray-700;
   }
 
   &:active,
@@ -121,7 +121,7 @@ $toggle-height: 2.5 * $grid-size;
 
   .toggle-icon {
     @include gl-rounded-full;
-    @include gl-bg-white;
+    @apply gl-bg-white;
     position: absolute;
     @apply gl-inline-flex;
     @apply gl-items-center;
@@ -140,13 +140,13 @@ $toggle-height: 2.5 * $grid-size;
   }
 
   &.is-checked {
-    @include gl-bg-blue-500;
+    @apply gl-bg-blue-500;
 
     &:hover,
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-bg-blue-600;
+      @apply gl-bg-blue-600;
     }
 
     .toggle-icon {

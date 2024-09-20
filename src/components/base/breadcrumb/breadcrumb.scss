@@ -6,7 +6,7 @@ $breadcrumb-max-width: $grid-size * 16;
 }
 
 .gl-breadcrumb-list {
-  @include gl-bg-transparent;
+  @apply gl-bg-transparent;
   @apply gl-p-0;
   @apply gl-items-center;
   @apply gl-leading-normal;

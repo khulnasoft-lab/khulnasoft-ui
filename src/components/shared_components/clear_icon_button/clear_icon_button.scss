@@ -1,8 +1,8 @@
 .gl-clear-icon-button {
-  @include gl-bg-transparent;
+  @apply gl-bg-transparent;
   @apply gl-border-none;
   @include gl-cursor-pointer;
-  @include gl-text-gray-500;
+  @apply gl-text-gray-500;
 
   &:focus {
     @include gl-focus;

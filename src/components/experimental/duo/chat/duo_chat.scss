@@ -73,7 +73,7 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
 }
 
 .duo-chat-drawer-footer-sticky {
-  @include gl-bg-white;
+  @apply gl-bg-white;
   bottom: 0;
   position: sticky;
 }
@@ -152,7 +152,7 @@ $duo-chat-scrim-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10
   @apply -gl-mt-2;
 
   .active-command {
-    @include gl-bg-gray-50;
+    @apply gl-bg-gray-50;
     @apply gl-rounded-base;
   }
 

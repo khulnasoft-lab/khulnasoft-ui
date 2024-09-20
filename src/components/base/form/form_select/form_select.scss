@@ -17,7 +17,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   @apply gl-pl-4;
   @apply gl-h-auto;
   @apply gl-truncate;
-  @include gl-bg-no-repeat;
+  @apply gl-bg-no-repeat;
   @apply gl-border-none;
   appearance: none;
   background-color: var(--gl-control-background-color-default);

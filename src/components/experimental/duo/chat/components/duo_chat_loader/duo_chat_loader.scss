@@ -1,6 +1,6 @@
 .duo-chat-loader {
   @apply gl-flex;
-  @include gl-text-gray-500;
+  @apply gl-text-gray-500;
 
   .transition {
     transition: width 0.5s ease;

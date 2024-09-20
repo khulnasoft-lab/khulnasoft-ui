@@ -30,7 +30,7 @@ $gl-loader-dots-size-xl: 1rem;
 
 .gl-spinner-container {
   @apply gl-leading-0;
-  @include gl-text-center;
+  @apply gl-text-center;
 }
 
 .gl-spinner {
@@ -79,7 +79,7 @@ $gl-loader-dots-size-xl: 1rem;
 
 .gl-dots-loader {
   @apply gl-leading-0;
-  @include gl-text-center;
+  @apply gl-text-center;
 }
 
 .gl-dots-loader {

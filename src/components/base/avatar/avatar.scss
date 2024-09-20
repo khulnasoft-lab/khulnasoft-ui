@@ -212,7 +212,7 @@ $gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
 }
 
 .gl-avatar-identicon {
-  @include gl-text-center;
+  @apply gl-text-center;
   @apply gl-align-top;
   @apply gl-justify-center;
   @apply gl-items-center;

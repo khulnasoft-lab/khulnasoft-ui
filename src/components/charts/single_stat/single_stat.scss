@@ -2,7 +2,7 @@
   @apply gl-leading-1;
 
   &:hover[tabindex='0'] {
-    @include gl-bg-gray-50;
+    @apply gl-bg-gray-50;
     @apply gl-rounded-base;
   }
 

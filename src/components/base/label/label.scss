@@ -146,6 +146,6 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
 
 .gl-label-tooltip-title {
   @apply gl-block;
-  @include gl-text-theme-indigo-300;
+  @apply gl-text-theme-indigo-300;
   @apply gl-font-bold;
 }

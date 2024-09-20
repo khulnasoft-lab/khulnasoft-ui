@@ -67,11 +67,11 @@ $gl-alert-top-border-size: 2px;
   }
 
   .gl-link:not(.gl-label-link) {
-    @include gl-text-blue-600;
+    @apply gl-text-blue-600;
     @apply gl-underline;
 
     &:hover {
-      @include gl-text-blue-700;
+      @apply gl-text-blue-700;
     }
   }
 }

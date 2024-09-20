@@ -72,7 +72,7 @@
   }
 
   blockquote {
-    @include gl-text-gray-700;
+    @apply gl-text-gray-700;
     @apply gl-py-3;
     @apply gl-pl-6;
     @apply gl-my-3;
@@ -87,17 +87,17 @@
   }
 
   .deletion {
-    @include gl-bg-red-100;
+    @apply gl-bg-red-100;
   }
 
   .addition {
-    @include gl-bg-green-100;
+    @apply gl-bg-green-100;
   }
 
   code {
     @apply gl-rounded-base;
-    @include gl-bg-gray-50;
-    @include gl-text-gray-950;
+    @apply gl-bg-gray-50;
+    @apply gl-text-gray-950;
     @apply gl-px-2;
     @apply gl-py-1;
   }
@@ -111,9 +111,9 @@
     @include gl-overflow-auto;
 
     code {
-      @include gl-bg-white;
+      @apply gl-bg-white;
       @apply gl-rounded-none;
-      @include gl-text-gray-900;
+      @apply gl-text-gray-900;
       @apply gl-p-0;
     }
   }
@@ -156,11 +156,11 @@
     }
 
     thead {
-      @include gl-bg-gray-50;
+      @apply gl-bg-gray-50;
     }
 
     tr:nth-child(even) {
-      @include gl-bg-gray-10;
+      @apply gl-bg-gray-10;
     }
   }
 }

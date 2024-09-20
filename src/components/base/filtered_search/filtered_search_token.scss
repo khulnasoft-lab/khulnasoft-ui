@@ -11,12 +11,12 @@
   &.gl-filtered-search-token-hover {
     &:hover {
       .gl-filtered-search-token-type {
-        @include gl-bg-gray-100;
+        @apply gl-bg-gray-100;
       }
 
       .gl-filtered-search-token-data,
       .gl-filtered-search-token-operator {
-        @include gl-bg-gray-200;
+        @apply gl-bg-gray-200;
       }
     }
   }
@@ -27,7 +27,7 @@
 
   &.gl-filtered-search-token-type {
     @apply gl-h-6;
-    @include gl-bg-gray-50;
+    @apply gl-bg-gray-50;
     @apply gl-rounded-tr-none;
     @apply gl-rounded-br-none;
     @apply gl-py-2;
@@ -37,14 +37,14 @@
 
   &.gl-filtered-search-token-operator {
     @apply gl-h-6;
-    @include gl-bg-gray-50;
+    @apply gl-bg-gray-50;
     @apply gl-mr-1;
     @apply gl-rounded-none;
   }
 
   &.gl-filtered-search-token-data {
     @apply gl-h-6;
-    @include gl-bg-gray-100;
+    @apply gl-bg-gray-100;
     @apply gl-rounded-tr-small;
     @apply gl-rounded-br-small;
 
@@ -55,6 +55,6 @@
 }
 
 .gl-filtered-search-token-operator-description {
-  @include gl-text-gray-600;
+  @apply gl-text-gray-600;
   @include gl-ml-auto;
 }
