@@ -92,7 +92,7 @@
   }
 
   .gl-button-text {
-    @include gl-overflow-hidden;
+    @apply gl-overflow-hidden;
     @apply gl-text-ellipsis;
     @apply gl-whitespace-nowrap;
     // Added to address a FF bug which causes cut off text: https://bugzilla.mozilla.org/show_bug.cgi?id=1406552

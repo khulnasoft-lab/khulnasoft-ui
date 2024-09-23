@@ -12,7 +12,7 @@
 
 .gl-filtered-search-suggestion-list {
   position: absolute;
-  @include gl-overflow-y-auto;
+  @apply gl-overflow-y-auto;
   max-height: $gl-max-dropdown-max-height;
 
   .gl-filtered-search-suggestion,

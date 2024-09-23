@@ -34,7 +34,7 @@
   .gl-new-dropdown-contents {
     position: relative;
     @apply gl-grow;
-    @include gl-overflow-y-auto;
+    @apply gl-overflow-y-auto;
     @apply gl-pl-0;
     @apply gl-mb-0;
     @apply gl-py-2;
@@ -72,7 +72,7 @@
 
   .gl-new-dropdown-button-text {
     @include gl-mr-auto;
-    @include gl-overflow-hidden;
+    @apply gl-overflow-hidden;
     @apply gl-text-ellipsis;
   }
 

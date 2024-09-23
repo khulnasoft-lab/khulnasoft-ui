@@ -3,7 +3,7 @@
   @apply gl-flex;
   @apply gl-grow;
   @apply gl-basis-0;
-  @include gl-overflow-hidden;
+  @apply gl-overflow-hidden;
   @apply gl-items-center;
   @apply gl-py-2;
   @apply gl-pl-4;
@@ -23,7 +23,7 @@
 
 .gl-filtered-search-scrollable {
   @apply gl-flex;
-  @include gl-overflow-y-auto;
+  @apply gl-overflow-y-auto;
   @apply gl-w-full;
 }
 

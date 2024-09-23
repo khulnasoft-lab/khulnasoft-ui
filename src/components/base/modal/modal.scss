@@ -9,7 +9,7 @@ $modal-box-shadow: 0 4px 16px $t-gray-a-24;
 }
 
 body.modal-open {
-  @include gl-overflow-hidden;
+  @apply gl-overflow-hidden;
 }
 
 .gl-modal {

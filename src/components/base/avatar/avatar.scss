@@ -21,7 +21,7 @@ $gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
 
 @mixin gl-avatar {
   @apply gl-inline-flex;
-  @include gl-overflow-hidden;
+  @apply gl-overflow-hidden;
   @apply gl-shrink-0;
   @apply gl-leading-1;
   @include gl-object-fit-contain;

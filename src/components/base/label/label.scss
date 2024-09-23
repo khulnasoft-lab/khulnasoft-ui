@@ -6,7 +6,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
 .gl-label {
   @apply gl-items-center;
   background-color: var(--gl-background-color-default);
-  @include gl-overflow-hidden;
+  @apply gl-overflow-hidden;
   @apply gl-inline-flex;
   @apply gl-rounded-pill;
   position: relative;
@@ -30,7 +30,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   .gl-label-link {
     @apply gl-flex;
     @apply gl-font-normal;
-    @include gl-overflow-hidden;
+    @apply gl-overflow-hidden;
     @apply gl-text-inherit;
     @include gl-max-w-full;
 

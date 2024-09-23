@@ -13,7 +13,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
   position: fixed;
   @apply gl-h-full;
   @apply gl-w-full;
-  @include gl-overflow-y-auto;
+  @apply gl-overflow-y-auto;
   @include gl-shadow-lg;
   @apply gl-text-base;
   @apply gl-leading-normal;

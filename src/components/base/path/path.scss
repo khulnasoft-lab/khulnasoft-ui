@@ -35,7 +35,7 @@ $path-chevron-right-margin: px-to-rem(14px);
     @apply gl-m-0;
     @apply gl-list-none;
     @apply gl-inline-flex;
-    @include gl-overflow-hidden;
+    @apply gl-overflow-hidden;
     margin-left: -1px;
     position: relative;
   }

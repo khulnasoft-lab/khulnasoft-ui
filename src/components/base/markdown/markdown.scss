@@ -108,7 +108,7 @@
     @apply gl-px-4;
     @include gl-inset-border-1-gray-100;
     @apply gl-my-7;
-    @include gl-overflow-auto;
+    @apply gl-overflow-auto;
 
     code {
       @apply gl-bg-white;
