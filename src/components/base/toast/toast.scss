@@ -27,6 +27,7 @@
     @apply gl-flex;
     @apply gl-items-center;
     @apply gl-justify-between;
+    @apply gl-shadow-md;
     background-color: var(--gl-feedback-strong-background-color);
     color: var(--gl-feedback-strong-text-color);
   }
