@@ -1,8 +1,9 @@
 .gl-tooltip {
   @apply gl-text-sm;
   @apply gl-p-2;
-
+  
   .tooltip-inner {
+    @apply gl-shadow-md;
     @apply gl-rounded-base;
     @apply gl-leading-normal;
     @apply gl-font-normal;
