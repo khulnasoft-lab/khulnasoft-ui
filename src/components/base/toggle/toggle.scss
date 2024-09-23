@@ -92,7 +92,7 @@ $toggle-height: 2.5 * $grid-size;
   height: $toggle-height;
   @include gl-outline-none;
   user-select: none;
-  @include gl-rounded-pill;
+  @apply gl-rounded-pill;
   @include gl-transition-slow;
   @apply gl-leading-normal;
 
@@ -120,7 +120,7 @@ $toggle-height: 2.5 * $grid-size;
   }
 
   .toggle-icon {
-    @include gl-rounded-full;
+    @apply gl-rounded-full;
     @apply gl-bg-white;
     position: absolute;
     @apply gl-inline-flex;

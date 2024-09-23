@@ -16,7 +16,7 @@
     @apply gl-hidden;
     @apply gl-bg-white;
     @apply gl-border-1 gl-border-solid gl-border-gray-200;
-    @include gl-rounded-lg;
+    @apply gl-rounded-lg;
     @include gl-shadow-md;
     top: 0;
     left: 0;

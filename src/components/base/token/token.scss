@@ -1,7 +1,7 @@
 .gl-token {
   @apply gl-text-gray-900;
   @apply gl-bg-gray-100;
-  @include gl-rounded-small;
+  @apply gl-rounded-small;
   @apply gl-pl-3;
   @apply gl-inline-flex;
   @apply gl-flex-col;

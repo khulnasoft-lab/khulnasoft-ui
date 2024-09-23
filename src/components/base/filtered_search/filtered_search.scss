@@ -13,12 +13,12 @@
   @apply gl-rounded-base;
 
   .input-group-prepend + & {
-    @include gl-rounded-left-none;
+    @apply gl-rounded-l-none;
   }
 }
 
 .gl-filtered-search-scrollable-container-with-search-button {
-  @include gl-rounded-right-none;
+  @apply gl-rounded-r-none;
 }
 
 .gl-filtered-search-scrollable {
