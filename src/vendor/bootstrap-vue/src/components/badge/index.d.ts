@@ -1,11 +1,7 @@
 //
 // Badge
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const BadgePlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-badge
 export declare class BBadge extends BvComponent {}

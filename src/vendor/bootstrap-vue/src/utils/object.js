@@ -8,13 +8,11 @@ export const defineProperties = (obj, props) => Object.defineProperties(obj, pro
 export const defineProperty = (obj, prop, descriptor) =>
   Object.defineProperty(obj, prop, descriptor)
 export const getOwnPropertyNames = obj => Object.getOwnPropertyNames(obj)
-export const is = (value1, value2) => Object.is(value1, value2)
 export const keys = obj => Object.keys(obj)
 
 // --- "Instance" ---
 
 export const hasOwnProperty = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop)
-export const toString = obj => Object.prototype.toString.call(obj)
 
 // --- Utilities ---
 

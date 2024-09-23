@@ -1,11 +1,7 @@
 //
 // Progress
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const ProgressPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-progress
 export declare class BProgress extends BvComponent {}

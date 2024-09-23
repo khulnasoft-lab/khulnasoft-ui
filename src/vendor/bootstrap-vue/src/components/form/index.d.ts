@@ -1,11 +1,7 @@
 //
 // Form
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const FormPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-form
 export declare class BForm extends BvComponent {}

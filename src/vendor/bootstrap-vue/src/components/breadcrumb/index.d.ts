@@ -1,11 +1,7 @@
 //
 // Breadcrumb
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const BreadcrumbPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-breadcrumb
 export declare class BBreadcrumb extends BvComponent {}

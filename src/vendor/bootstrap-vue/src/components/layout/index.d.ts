@@ -1,11 +1,7 @@
 //
 // Layout
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const LayoutPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-col
 export declare class BCol extends BvComponent {}

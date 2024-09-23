@@ -56,9 +56,6 @@ export * from './components'
 // Icons & Plugin
 export * from './icons'
 
-// Directives & Plugins
-export * from './directives'
-
 // BootstrapVue plugin
 export interface BootstrapVuePlugin extends BvPlugin {
   setConfig: (config: BvConfigOptions) => void

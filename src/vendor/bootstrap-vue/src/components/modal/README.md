@@ -362,11 +362,6 @@ are appended by specifying a container ID (refer to tooltip and popover docs for
 
   <b-modal id="modalPopover" title="Modal with Popover" ok-only>
     <p>
-      This
-      <b-button v-b-popover="'Popover inside a modal!'" title="Popover">Button</b-button>
-      triggers a popover on click.
-    </p>
-    <p>
       This <a href="#" v-b-tooltip title="Tooltip in a modal!">Link</a> will show a tooltip on
       hover.
     </p>
@@ -912,9 +907,6 @@ Example Confirm Message boxes
 
 ### Message box notes
 
-- The `this.$bvModal` injection is only available when using the full `BootstrapVue` plugin or the
-  `ModalPlugin` plugin. It is not available if importing just the `b-modal` component. To just
-  import the injection, use the `BVModalPlugin` plugin.
 - A new `$bvModal` injection (mixin) is created for each Vue virtual machine (i.e. each instantiated
   component), and is not usable via direct access to the `Vue.prototype`, as it needs access to the
   instance's `this` and `$root` contexts.

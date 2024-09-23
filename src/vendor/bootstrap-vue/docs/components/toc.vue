@@ -1,6 +1,5 @@
 <template>
   <b-nav
-    v-b-scrollspy="{ offset }"
     class="section-nav"
     vertical
   >

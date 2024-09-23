@@ -776,9 +776,9 @@ table.b-table[aria-busy='true'] {
 
 You can override this styling using your own CSS.
 
-You may optionally provide a `table-busy` slot to show a custom loading message whenever
-the table's busy state is `true`. The slot will be placed in a `<tr>` element with class
-`b-table-busy-slot`, which has one single `<td>` with a `colspan` set to the number of fields.
+You may optionally provide a `table-busy` slot to show a custom loading message whenever the table's
+busy state is `true`. The slot will be placed in a `<tr>` element with class `b-table-busy-slot`,
+which has one single `<td>` with a `colspan` set to the number of fields.
 
 **Example of `table-busy` slot usage:**
 
@@ -2503,12 +2503,6 @@ tabular data. The `<b-table-lite>` component provides all of the styling and for
 - Fixed top and bottom rows
 - Empty row support
 
-### Table lite as a plugin
-
-The `TablePlugin` includes `<b-table-lite>`. For convenience, BootstrapVue also provides a
-`TableLitePlugin` which installs only `<b-table-lite>`. `TableLitePlugin` is available as a top
-level named export.
-
 ## Simple tables
 
 The `<b-table-simple>` component gives the user complete control over the rendering of the table
@@ -2769,12 +2763,6 @@ be sticky. For example:
 
 As with `<b-table>` and `<b-table-lite>`, sticky columns are not supported when the `stacked` prop
 is set on `<b-table-simple>`.
-
-### Table simple as a plugin
-
-The `TablePlugin` includes `<b-table-simple>` and all of the helper components. For convenience,
-BootstrapVue also provides a `TableSimplePlugin` which installs `<b-table-simple>` and all of the
-helper components. `TableSimplePlugin` is available as a top level named export.
 
 ## Table helper components
 

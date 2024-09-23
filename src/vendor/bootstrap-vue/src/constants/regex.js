@@ -21,9 +21,6 @@ export const RX_UN_KEBAB = /-(\w)/g
 
 // --- URL ---
 
-// HREFs must end with a hash followed by at least one non-hash character
-export const RX_HREF = /^.*(#[^#]+)$/
-
 export const RX_ENCODED_COMMA = /%2C/g
 export const RX_ENCODE_REVERSE = /[!'()*]/g
 export const RX_QUERY_START = /^(\?|#|&)/

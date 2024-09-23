@@ -145,11 +145,10 @@ done with:
 
 ```js
 // Import the components as Vue plugins
-import { CardPlugin, TablePlugin } from 'bootstrap-vue'
+import { CardPlugin } from 'bootstrap-vue'
 
 // Add the plugins to Vue
 Vue.use(CardPlugin)
-Vue.use(TablePlugin)
 ```
 
 Now you can use the `<b-card>` (including the `<b-card-*>` sub-components) and `<b-table>`
