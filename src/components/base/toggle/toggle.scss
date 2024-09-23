@@ -112,7 +112,7 @@ $toggle-height: 2.5 * $grid-size;
   &:active,
   &:focus,
   &:focus:active {
-    @include gl-focus;
+    @apply gl-focus;
   }
 
   .toggle-loading {

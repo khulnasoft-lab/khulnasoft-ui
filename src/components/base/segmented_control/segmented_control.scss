@@ -77,7 +77,7 @@
     }
 
     &:focus-within {
-      @include gl-focus;
+      @apply gl-focus;
     }
 
     &.disabled,

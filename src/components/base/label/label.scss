@@ -76,7 +76,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
 
     &:focus,
     &:active {
-      @include gl-focus;
+      @apply gl-focus;
     }
 
     .gl-icon {

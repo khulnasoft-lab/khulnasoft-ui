@@ -7,7 +7,7 @@
       @include gl-cursor-pointer;
 
       &:focus {
-        @include gl-focus;
+        @apply gl-focus;
       }
     }
   }
@@ -41,7 +41,7 @@
     @apply gl-list-none;
 
     &:focus-visible {
-      @include gl-focus;
+      @apply gl-focus;
     }
 
     ul {

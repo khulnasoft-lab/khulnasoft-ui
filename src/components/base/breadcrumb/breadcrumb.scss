@@ -45,7 +45,7 @@ $breadcrumb-max-width: $grid-size * 16;
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-focus;
+      @apply gl-focus;
     }
   }
 }

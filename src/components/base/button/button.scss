@@ -322,7 +322,7 @@
       &:active,
       &:focus,
       &:focus:active {
-        @include gl-focus;
+        @apply gl-focus;
       }
     }
   }
@@ -498,7 +498,7 @@
     &:focus,
     &:focus:active {
       @apply gl-bg-transparent;
-      @include gl-focus;
+      @apply gl-focus;
     }
 
     &.disabled,
