@@ -277,6 +277,7 @@ export default {
   },
   mounted() {
     const $parentEl = this.$parent.$el;
+    const openedEvent = this.opened.bind(this);
     const drawEvent = this.draw.bind(this);
 
     const pikadayConfig = {
@@ -302,7 +303,7 @@ export default {
       onClose: this.closed.bind(this),
       onOpen: () => {
         addAccessibleLabels(this.$el);
-        this.opened.bind(this);
+        openedEvent();
       },
       onDraw: (pikaday) => {
         highlightPastDates(pikaday);
