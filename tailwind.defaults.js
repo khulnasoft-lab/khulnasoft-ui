@@ -409,9 +409,9 @@ module.exports = {
     boxShadow: {
       DEFAULT: '0 1px 4px 0 #0000004d',
       none: 'none',
-      sm: '0 1px 2px var(--gl-shadow-color-default, #05050629)',
-      md: '0 2px 8px var(--gl-shadow-color-default, #05050629), 0 0 2px var(--gl-shadow-color-default, #05050629)',
-      lg: '0 4px 12px var(--gl-shadow-color-default, #05050629), 0 0 4px var(--gl-shadow-color-default, #05050629)',
+      sm: '0 0 2px var(--gl-shadow-color-default, #05050629), 0 1px 4px var(--gl-shadow-color-default, #05050629),',
+      md: '0 0 1px var(--gl-shadow-color-default, #05050629), 0 0 2px var(--gl-shadow-color-default, #05050629), 0 2px 8px var(--gl-shadow-color-default, #05050629)',
+      lg: '0 0 2px var(--gl-shadow-color-default, #05050629), 0 0 2px var(--gl-shadow-color-default, #05050629), 0 4px 12px var(--gl-shadow-color-default, #05050629)',
       'inner-1-blue-500': 'inset 0 0 0 1px var(--blue-500, #1f75cb)',
       'inner-1-gray-100': 'inset 0 0 0 1px var(--gray-100, #dcdcde)',
       'inner-1-gray-200': 'inset 0 0 0 1px var(--gray-200, #bfbfc3)',
