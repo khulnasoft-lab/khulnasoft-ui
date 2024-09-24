@@ -33,7 +33,7 @@
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-focus;
+      @apply gl-focus;
     }
   }
 
@@ -76,7 +76,7 @@
     }
 
     .custom-control-input:not(:disabled):focus ~ .custom-control-label::before {
-      @include gl-focus;
+      @apply gl-focus;
       border-color: var(--gl-control-border-color-focus);
     }
 

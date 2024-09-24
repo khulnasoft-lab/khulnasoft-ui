@@ -6,13 +6,13 @@
   width: $gl-dropdown-width;
   @apply gl-p-2;
   @apply gl-border-gray-200;
-  @include gl-rounded-lg;
+  @apply gl-rounded-lg;
   @include gl-shadow-md;
 }
 
 .gl-filtered-search-suggestion-list {
   position: absolute;
-  @include gl-overflow-y-auto;
+  @apply gl-overflow-y-auto;
   max-height: $gl-max-dropdown-max-height;
 
   .gl-filtered-search-suggestion,

@@ -5,6 +5,6 @@
   @apply gl-text-gray-500;
 
   &:focus {
-    @include gl-focus;
+    @apply gl-focus;
   }
 }

@@ -63,7 +63,7 @@ $badge-min-width: $gl-spacing-scale-3;
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-focus;
+      @apply gl-focus;
     }
   }
 }

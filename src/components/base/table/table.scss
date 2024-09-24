@@ -39,7 +39,7 @@ table.gl-table {
     }
 
     &:focus-visible {
-      @include gl-focus;
+      @apply gl-focus;
       position: relative;
       z-index: 1;
     }

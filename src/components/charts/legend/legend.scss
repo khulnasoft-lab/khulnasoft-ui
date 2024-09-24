@@ -10,7 +10,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
   .gl-legend-inline {
       // match the height of gl-legend-tabular (header + body)
       max-height: $gl-line-height-24 + $legend-body-h;
-      @include gl-overflow-auto;
+      @apply gl-overflow-auto;
   }
 }
 
@@ -59,7 +59,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
   .gl-legend-tabular-header-cell,
   .gl-legend-tabular-details-cell {
     @apply gl-whitespace-nowrap;
-    @include gl-overflow-hidden;
+    @apply gl-overflow-hidden;
     @apply gl-text-ellipsis;
     @apply gl-text-right;
     @apply gl-w-1/8;
@@ -73,7 +73,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 
   .gl-legend-tabular-body {
     height: $legend-body-h;
-    @include gl-overflow-y-auto;
+    @apply gl-overflow-y-auto;
   }
 
   .gl-legend-tabular-row {
@@ -91,7 +91,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
   }
 
   .gl-legend-tabular-title-cell {
-    @include gl-overflow-hidden;
+    @apply gl-overflow-hidden;
     @apply gl-w-1/2;
   }
 }

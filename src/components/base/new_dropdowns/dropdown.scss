@@ -7,7 +7,7 @@
       @include gl-cursor-pointer;
 
       &:focus {
-        @include gl-focus;
+        @apply gl-focus;
       }
     }
   }
@@ -16,7 +16,7 @@
     @apply gl-hidden;
     @apply gl-bg-white;
     @apply gl-border-1 gl-border-solid gl-border-gray-200;
-    @include gl-rounded-lg;
+    @apply gl-rounded-lg;
     @include gl-shadow-md;
     top: 0;
     left: 0;
@@ -34,14 +34,14 @@
   .gl-new-dropdown-contents {
     position: relative;
     @apply gl-grow;
-    @include gl-overflow-y-auto;
+    @apply gl-overflow-y-auto;
     @apply gl-pl-0;
     @apply gl-mb-0;
     @apply gl-py-2;
     @apply gl-list-none;
 
     &:focus-visible {
-      @include gl-focus;
+      @apply gl-focus;
     }
 
     ul {
@@ -72,7 +72,7 @@
 
   .gl-new-dropdown-button-text {
     @include gl-mr-auto;
-    @include gl-overflow-hidden;
+    @apply gl-overflow-hidden;
     @apply gl-text-ellipsis;
   }
 

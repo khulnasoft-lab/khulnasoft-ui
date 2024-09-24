@@ -6,9 +6,9 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
 .gl-label {
   @apply gl-items-center;
   background-color: var(--gl-background-color-default);
-  @include gl-overflow-hidden;
+  @apply gl-overflow-hidden;
   @apply gl-inline-flex;
-  @include gl-rounded-pill;
+  @apply gl-rounded-pill;
   position: relative;
   @include gl-max-w-full;
   @apply gl-text-sm;
@@ -30,7 +30,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   .gl-label-link {
     @apply gl-flex;
     @apply gl-font-normal;
-    @include gl-overflow-hidden;
+    @apply gl-overflow-hidden;
     @apply gl-text-inherit;
     @include gl-max-w-full;
 
@@ -71,12 +71,12 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     margin-left: -$label-padding-horizontal-half;
     margin-right: $label-padding-horizontal-half;
     @apply gl-p-0;
-    @include gl-rounded-full;
+    @apply gl-rounded-full;
     @include gl-shadow-none;
 
     &:focus,
     &:active {
-      @include gl-focus;
+      @apply gl-focus;
     }
 
     .gl-icon {
