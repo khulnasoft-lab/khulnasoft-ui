@@ -1,3 +1,10 @@
+## [94.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.0.0...v94.0.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* add animated icons to src/index.js ([f73e078](https://gitlab.com/gitlab-org/gitlab-ui/commit/f73e078b65e1e49be6d85c4df9f73be30e1276e7))
+
 # [94.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v93.4.0...v94.0.0) (2024-09-20)
 
 
