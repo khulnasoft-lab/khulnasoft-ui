@@ -1,3 +1,10 @@
+## [94.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.1.0...v94.1.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* update `gl-focus` Tailwind util definition ([6bb0987](https://gitlab.com/gitlab-org/gitlab-ui/commit/6bb09876e69d6e717cc0a6cb1bb75abe377efecb))
+
 # [94.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.0.1...v94.1.0) (2024-09-24)
 
 
