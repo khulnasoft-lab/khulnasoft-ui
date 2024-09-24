@@ -1,3 +1,12 @@
+# [94.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.0.1...v94.1.0) (2024-09-24)
+
+
+### Features
+
+* **Elevation:** Clearer defined and more refined shadows ([635b416](https://gitlab.com/gitlab-org/gitlab-ui/commit/635b4168697d7221a0d36a36c9a505760bfd2ac0))
+* **GlToast:** Add shadow to communicate elevation ([942ab0f](https://gitlab.com/gitlab-org/gitlab-ui/commit/942ab0f7397b222ba59f2820aae3439f746699df))
+* **GlTooltip:** Add shadow to communicate elevation ([bf53d96](https://gitlab.com/gitlab-org/gitlab-ui/commit/bf53d96ccbe9c47ecc8c92ab20afd6a1217422f4))
+
 ## [94.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.0.0...v94.0.1) (2024-09-24)
 
 
