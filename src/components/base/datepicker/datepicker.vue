@@ -42,7 +42,7 @@ const highlightPastDates = (pikaday) => {
 const addAccessibleLabels = (element) => {
   // Pikaday sets `role="heading"`, which requires a corresponding
   // `aria-level`. Ensure we have one.
-  const titleEl = element.querySelector('.pika-title[role="heading"]')
+  const titleEl = element.querySelector('.pika-title[role="heading"]');
   if (titleEl) {
     titleEl.setAttribute('aria-level', 3);
   }
