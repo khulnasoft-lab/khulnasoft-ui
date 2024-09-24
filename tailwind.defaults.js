@@ -356,7 +356,8 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       },
     },
     '.focus': {
-      'box-shadow': '0 0 0 1px var(--white, #fff), 0 0 0 3px var(--blue-400, #428fdc)',
+      'box-shadow':
+        '0 0 0 1px var(--gl-focus-ring-inner-color), 0 0 0 3px var(--gl-focus-ring-outer-color)',
       outline: 'none',
     },
     '.text-align-inherit': {
