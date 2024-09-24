@@ -35,9 +35,9 @@
   .btn-gl-segmented-button {
     @apply gl-text-base;
     @apply gl-leading-normal;
-    @include gl-text-gray-900;
+    @apply gl-text-gray-900;
     @include gl-fill-current-color;
-    @include gl-bg-gray-10;
+    @apply gl-bg-gray-10;
     @include gl-inset-border-y-1-gray-200;
 
     &:first-child {
@@ -50,29 +50,29 @@
 
     &:hover {
       @include gl-inset-border-2-gray-400;
-      @include gl-bg-gray-50;
+      @apply gl-bg-gray-50;
     }
 
     &.focus {
       @apply gl-z-1;
       @include gl-btn-gl-segmented-button-focus($gray-400);
-      @include gl-bg-gray-50;
+      @apply gl-bg-gray-50;
     }
 
     &.active {
       @apply gl-z-2;
       @include gl-inset-border-2-gray-300;
-      @include gl-bg-white;
+      @apply gl-bg-white;
 
       &:hover {
         @include gl-inset-border-2-gray-400;
-        @include gl-bg-gray-50;
+        @apply gl-bg-gray-50;
       }
 
       &.focus,
       &.focus:hover {
         @include gl-btn-gl-segmented-button-focus($gray-400);
-        @include gl-bg-gray-50;
+        @apply gl-bg-gray-50;
       }
     }
 
@@ -84,7 +84,7 @@
     &[disabled],
     &.disabled:hover,
     &[disabled]:hover {
-      @include gl-text-gray-400;
+      @apply gl-text-gray-400;
       @include gl-inset-border-y-1-gray-200;
       @include gl-z-index-0;
       @include gl-cursor-not-allowed;

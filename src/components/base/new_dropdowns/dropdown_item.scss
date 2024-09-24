@@ -19,41 +19,41 @@
   &:hover,
   &:focus {
     .gl-new-dropdown-item-content {
-      @include gl-bg-gray-50;
+      @apply gl-bg-gray-50;
     }
   }
 
   &:active,
   &:focus:active {
     .gl-new-dropdown-item-content {
-      @include gl-bg-gray-100;
+      @apply gl-bg-gray-100;
     }
   }
 
   &[aria-selected="true"] {
     .gl-new-dropdown-item-content {
-      @include gl-bg-gray-50;
+      @apply gl-bg-gray-50;
     }
 
     &:hover,
     &:focus {
       .gl-new-dropdown-item-content {
-        @include gl-bg-gray-100;
+        @apply gl-bg-gray-100;
       }
 
       .gl-new-dropdown-item-check-icon {
-        @include gl-text-blue-600
+        @apply gl-text-blue-600
       }
     }
 
     &:active,
     &:focus:active {
       .gl-new-dropdown-item-content {
-        @include gl-bg-gray-200;
+        @apply gl-bg-gray-200;
       }
 
       .gl-new-dropdown-item-check-icon {
-        @include gl-text-blue-700
+        @apply gl-text-blue-700
       }
     }
   }
@@ -80,7 +80,7 @@
     @apply gl-rounded-base;
     @apply gl-border-0;
     @apply gl-w-full;
-    @include gl-bg-transparent;
+    @apply gl-bg-transparent;
     @apply gl-items-center;
     @apply gl-flex;
     @apply gl-text-base;
@@ -90,8 +90,8 @@
     @apply gl-py-0;
     position: relative;
     @apply gl-no-underline;
-    @include gl-text-gray-900;
-    @include gl-text-left;
+    @apply gl-text-gray-900;
+    @apply gl-text-left;
     @apply gl-whitespace-normal;
     @include gl-prefers-reduced-motion-transition;
     transition: background-color $gl-transition-duration-fast $gl-easing-out-cubic,
@@ -100,7 +100,7 @@
     .gl-new-dropdown-item-check-icon {
       @apply gl-shrink-0;
       @apply gl-mr-3;
-      @include gl-text-blue-500;
+      @apply gl-text-blue-500;
     }
 
     .gl-new-dropdown-item-icon {

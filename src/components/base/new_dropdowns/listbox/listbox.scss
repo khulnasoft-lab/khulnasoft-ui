@@ -20,7 +20,7 @@ $clear-button-size: 24px;
     }
 
     &::placeholder {
-      @include gl-text-gray-400;
+      @apply gl-text-gray-400;
     }
 
     &::-webkit-search-cancel-button {
@@ -42,7 +42,7 @@ $clear-button-size: 24px;
     position: absolute;
     top: calc(50% - #{$search-icon-size} / 2);
     left: $gl-spacing-scale-4;
-    @include gl-text-gray-500;
+    @apply gl-text-gray-500;
   }
 
   .gl-listbox-search-clear-button {

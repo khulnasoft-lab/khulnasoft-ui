@@ -5,7 +5,7 @@
 }
 
 .gl-infinite-scroll-legend {
-  @include gl-text-center;
+  @apply gl-text-center;
   @apply gl-text-sm;
-  @include gl-text-gray-900;
+  @apply gl-text-gray-900;
 }

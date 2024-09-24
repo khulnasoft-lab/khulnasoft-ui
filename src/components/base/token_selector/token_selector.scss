@@ -10,7 +10,7 @@
 }
 
 .gl-token-selector-token-container:focus .gl-token {
-  @include gl-bg-gray-300;
+  @apply gl-bg-gray-300;
 }
 
 .gl-token-selector-input {

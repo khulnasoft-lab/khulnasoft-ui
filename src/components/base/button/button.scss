@@ -338,7 +338,7 @@
 
   &.btn-success {
     color: var(--gl-color-neutral-0); // The text is white in light and dark mode
-    @include gl-bg-green-500;
+    @apply gl-bg-green-500;
     @include gl-inset-border-1-green-600;
 
     &:hover {
@@ -348,13 +348,13 @@
 
     &:focus {
       @include gl-focus($color: $green-800);
-      @include gl-bg-green-600;
+      @apply gl-bg-green-600;
     }
 
     &:active,
     &.active {
       @include gl-focus($color: $green-900);
-      @include gl-bg-green-700;
+      @apply gl-bg-green-700;
 
       &:focus {
         @include gl-focus($color: $green-900);
@@ -363,33 +363,33 @@
   }
 
   &.btn-success-secondary {
-    @include gl-bg-white;
+    @apply gl-bg-white;
   }
 
   &.btn-success-secondary,
   &.btn-success-tertiary {
-    @include gl-bg-transparent;
-    @include gl-text-green-500;
+    @apply gl-bg-transparent;
+    @apply gl-text-green-500;
     @apply gl-font-normal;
     @include gl-inset-border-1-green-500;
 
     &:hover {
-      @include gl-text-green-700;
+      @apply gl-text-green-700;
       @include gl-button-hover-border($green-700);
       background-color: $green-50;
     }
 
     &:focus {
-      @include gl-text-green-700;
+      @apply gl-text-green-700;
       @include gl-focus($color: $green-700);
-      @include gl-bg-green-50;
+      @apply gl-bg-green-50;
     }
 
     &:active,
     &.active {
-      @include gl-text-green-900;
+      @apply gl-text-green-900;
       @include gl-focus($color: $green-900);
-      @include gl-bg-green-100;
+      @apply gl-bg-green-100;
 
       &:focus {
         @include gl-focus($color: $green-900);
@@ -475,7 +475,7 @@
   }
 
   &.btn-link {
-    @include gl-bg-transparent;
+    @apply gl-bg-transparent;
     @apply gl-border-0;
     @apply gl-text-base;
     @apply gl-leading-normal;
@@ -485,7 +485,7 @@
     @include gl-shadow-none;
 
     &:hover {
-      @include gl-bg-transparent;
+      @apply gl-bg-transparent;
       color: var(--gl-button-link-text-color-hover);
     }
 
@@ -497,13 +497,13 @@
     &:active,
     &:focus,
     &:focus:active {
-      @include gl-bg-transparent;
+      @apply gl-bg-transparent;
       @include gl-focus;
     }
 
     &.disabled,
     &[disabled] {
-      @include gl-bg-transparent;
+      @apply gl-bg-transparent;
       @include gl-shadow-none;
     }
   }
@@ -536,7 +536,7 @@
 
   &.disabled[class*='-tertiary'],
   &[disabled][class*='-tertiary'] {
-    @include gl-bg-transparent;
+    @apply gl-bg-transparent;
     @include gl-shadow-none;
   }
 }

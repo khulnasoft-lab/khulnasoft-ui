@@ -43,7 +43,7 @@
   }
 
   .gl-toast-action {
-    @include gl-text-blue-300;
+    @apply gl-text-blue-300;
     @apply gl-p-3;
     @apply gl-m-0;
     @apply gl-ml-5;

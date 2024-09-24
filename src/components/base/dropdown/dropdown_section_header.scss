@@ -1,8 +1,8 @@
 @mixin gl-tmp-dropdown-section-header-style {
   @apply gl-text-base;
-  @include gl-text-gray-900;
+  @apply gl-text-gray-900;
   @apply gl-leading-normal;
-  @include gl-text-left;
+  @apply gl-text-left;
   @apply gl-font-bold;
   @apply gl-py-3;
   @apply gl-px-4;
