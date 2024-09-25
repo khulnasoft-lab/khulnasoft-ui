@@ -98,7 +98,6 @@ describe('GlDuoChat', () => {
   const findPredefined = () => wrapper.findComponent(DuoChatPredefinedPrompts);
   const findChatInput = () => wrapper.find('[data-testid="chat-prompt-input"]');
   const findCloseChatButton = () => wrapper.find('[data-testid="chat-close-button"]');
-  const findLegalDisclaimer = () => wrapper.find('[data-testid="chat-legal-disclaimer"]');
   const findSlashCommandsCard = () => wrapper.findComponent(GlCard);
   const findSlashCommands = () => wrapper.findAllComponents(GlDropdownItem);
   const findSelectedSlashCommand = () => wrapper.find('.active-command');
@@ -375,11 +374,6 @@ describe('GlDuoChat', () => {
     it('does not render the prompt input if `isChatAvailable` prop is `false`', () => {
       createComponent({ propsData: { messages, isChatAvailable: false } });
       expect(findChatInput().exists()).toBe(false);
-    });
-
-    it('renders the legal disclaimer if `isChatAvailable` prop is `true', () => {
-      createComponent({ propsData: { messages, isChatAvailable: true } });
-      expect(findLegalDisclaimer().exists()).toBe(true);
     });
 
     describe('submit/cancel button', () => {

@@ -21,8 +21,6 @@ export default {
   'GlDuoChat.chatEmptyStateDesc': 'GitLab Duo Chat is your AI-powered assistant.',
   'GlDuoChat.chatEmptyStateSecondaryDesc': 'Responses may be inaccurate. Verify before use.',
   'GlDuoChat.chatEmptyStateTitle': 'Ask a question',
-  'GlDuoChat.chatLegalDisclaimer':
-    "May provide inappropriate responses not representative of GitLab's views. Do not input personal data.",
   'GlDuoChat.chatPromptPlaceholderDefault': 'GitLab Duo Chat',
   'GlDuoChat.chatPromptPlaceholderWithCommands': 'Type "/" for slash commands',
   'GlDuoChat.chatSubmitLabel': 'Send chat message.',

@@ -46,10 +46,6 @@ export const i18n = {
   ),
   CHAT_SUBMIT_LABEL: translate('GlDuoChat.chatSubmitLabel', 'Send chat message.'),
   CHAT_CANCEL_LABEL: translate('GlDuoChat.chatCancelLabel', 'Cancel'),
-  CHAT_LEGAL_DISCLAIMER: translate(
-    'GlDuoChat.chatLegalDisclaimer',
-    "May provide inappropriate responses not representative of GitLab's views. Do not input personal data."
-  ),
   CHAT_DEFAULT_PREDEFINED_PROMPTS: [
     translate(
       'GlDuoChat.chatDefaultPredefinedPromptsChangePassword',
@@ -721,12 +717,6 @@ export default {
             />
           </template>
         </gl-form-input-group>
-        <p
-          class="gl-mb-0 gl-mt-3 gl-text-sm gl-leading-20 gl-text-subtle"
-          data-testid="chat-legal-disclaimer"
-        >
-          {{ $options.i18n.CHAT_LEGAL_DISCLAIMER }}
-        </p>
       </gl-form>
     </footer>
   </aside>
