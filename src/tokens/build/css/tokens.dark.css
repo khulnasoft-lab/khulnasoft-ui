@@ -497,6 +497,7 @@
   --gl-control-background-color-concatenation: var(--gl-color-alpha-light-4); /* Used for the background of static content that prepends or appends a text input. */
   --gl-control-background-color-disabled: var(--gl-color-alpha-light-4); /* Used for disabled form control (checkbox, input, radio button, textarea) background. */
   --gl-control-background-color-default: var(--gl-color-alpha-dark-40); /* Used for form control (input, radio button, checkbox, textarea) default background. */
+  --gl-token-background-color: var(--gl-color-neutral-800); /* Used for the token background color. */
   --gl-tab-selected-indicator-color-default: var(--gl-color-blue-400); /* Used for the selected indicator of a tab. */
   --gl-spinner-segment-color-light: var(--gl-color-neutral-200); /* Used for the animated segment of a loading spinner on a dark background. */
   --gl-spinner-segment-color-default: var(--gl-color-neutral-200); /* Used for the animated segment of a loading spinner. */
@@ -520,6 +521,12 @@
   --gl-label-light-button-background-color-hover: var(--gl-color-neutral-950); /* Used for the label remove button background on a light background color in the hover state. */
   --gl-label-light-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label remove button background on a light background color in the default state. */
   --gl-label-light-text-color: var(--gl-color-neutral-950); /* Used for the label text color on a light background color. */
+  --gl-filtered-search-token-operator-background-color-hover: var(--gl-color-neutral-700); /* Used for the filtered search operator token background color in the hover state. */
+  --gl-filtered-search-token-operator-background-color-default: var(--gl-color-neutral-900); /* Used for the filtered search operator background color in the default state. */
+  --gl-filtered-search-token-data-background-color-hover: var(--gl-color-neutral-700); /* Used for the filtered search data token background color in the hover state. */
+  --gl-filtered-search-token-data-background-color-default: var(--gl-color-neutral-800); /* Used for the filtered search data background color in the default state. */
+  --gl-filtered-search-token-type-background-color-hover: var(--gl-color-neutral-800); /* Used for the filtered search type token background color in the hover state. */
+  --gl-filtered-search-token-type-background-color-default: var(--gl-color-neutral-900); /* Used for the filtered search type token background color in the default state. */
   --gl-datepicker-background-color: var(--gl-color-neutral-900); /* Used for the background color of datepicker. */
   --gl-button-disabled-border-color: var(--gl-color-neutral-800); /* Used for the border of a disabled button. */
   --gl-button-disabled-background-color: var(--gl-color-neutral-950); /* Used for the background of a disabled button. */
@@ -762,6 +769,7 @@
   --gl-control-placeholder-color: var(--gl-text-color-disabled); /* Used for placeholder text within inputs. */
   --gl-control-text-color-valid: var(--gl-text-color-success); /* Used for the helper text when the input is valid. */
   --gl-control-text-color-error: var(--gl-text-color-danger); /* Used for the helper text when the input is invalid. */
+  --gl-token-foreground-color: var(--gl-text-color-default); /* Used for the token foreground color. */
   --gl-table-sorting-icon-color: var(--gl-text-color-heading); /* Used for the color of the sorting icons in the column headers. */
   --gl-table-row-background-color-hover: var(--gl-background-color-subtle); /* Used for the background of a table row in hover state. */
   --gl-datepicker-date-text-color-selected: var(--gl-control-indicator-color-selected); /* Used for the datepicker date text color state indicators. */

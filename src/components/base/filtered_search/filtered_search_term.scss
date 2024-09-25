@@ -6,6 +6,7 @@
 
 .gl-filtered-search-term-input {
   @apply gl-p-0;
+  @apply gl-bg-transparent;
   @apply gl-border-none;
   @include gl-outline-none;
   @apply gl-h-6;

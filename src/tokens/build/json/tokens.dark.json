@@ -13739,6 +13739,178 @@
       }
     }
   },
+  "filtered-search": {
+    "token": {
+      "type": {
+        "background": {
+          "color": {
+            "default": {
+              "value": "#28272d",
+              "$type": "color",
+              "comment": "Used for the filtered search type token background color in the default state.",
+              "filePath": "src/tokens/contextual/filtered-search.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.50}",
+                  "dark": "{color.neutral.900}"
+                },
+                "$type": "color",
+                "comment": "Used for the filtered search type token background color in the default state."
+              },
+              "name": "FILTERED_SEARCH_TOKEN_TYPE_BACKGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "filtered-search",
+                "token",
+                "type",
+                "background",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#3a383f",
+              "$type": "color",
+              "comment": "Used for the filtered search type token background color in the hover state.",
+              "filePath": "src/tokens/contextual/filtered-search.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.100}",
+                  "dark": "{color.neutral.800}"
+                },
+                "$type": "color",
+                "comment": "Used for the filtered search type token background color in the hover state."
+              },
+              "name": "FILTERED_SEARCH_TOKEN_TYPE_BACKGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "filtered-search",
+                "token",
+                "type",
+                "background",
+                "color",
+                "hover"
+              ]
+            }
+          }
+        }
+      },
+      "data": {
+        "background": {
+          "color": {
+            "default": {
+              "value": "#3a383f",
+              "$type": "color",
+              "comment": "Used for the filtered search data background color in the default state.",
+              "filePath": "src/tokens/contextual/filtered-search.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.100}",
+                  "dark": "{color.neutral.800}"
+                },
+                "$type": "color",
+                "comment": "Used for the filtered search data background color in the default state."
+              },
+              "name": "FILTERED_SEARCH_TOKEN_DATA_BACKGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "filtered-search",
+                "token",
+                "data",
+                "background",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#4c4b51",
+              "$type": "color",
+              "comment": "Used for the filtered search data token background color in the hover state.",
+              "filePath": "src/tokens/contextual/filtered-search.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.200}",
+                  "dark": "{color.neutral.700}"
+                },
+                "$type": "color",
+                "comment": "Used for the filtered search data token background color in the hover state."
+              },
+              "name": "FILTERED_SEARCH_TOKEN_DATA_BACKGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "filtered-search",
+                "token",
+                "data",
+                "background",
+                "color",
+                "hover"
+              ]
+            }
+          }
+        }
+      },
+      "operator": {
+        "background": {
+          "color": {
+            "default": {
+              "value": "#28272d",
+              "$type": "color",
+              "comment": "Used for the filtered search operator background color in the default state.",
+              "filePath": "src/tokens/contextual/filtered-search.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.50}",
+                  "dark": "{color.neutral.900}"
+                },
+                "$type": "color",
+                "comment": "Used for the filtered search operator background color in the default state."
+              },
+              "name": "FILTERED_SEARCH_TOKEN_OPERATOR_BACKGROUND_COLOR_DEFAULT",
+              "attributes": {},
+              "path": [
+                "filtered-search",
+                "token",
+                "operator",
+                "background",
+                "color",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#4c4b51",
+              "$type": "color",
+              "comment": "Used for the filtered search operator token background color in the hover state.",
+              "filePath": "src/tokens/contextual/filtered-search.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.200}",
+                  "dark": "{color.neutral.700}"
+                },
+                "$type": "color",
+                "comment": "Used for the filtered search operator token background color in the hover state."
+              },
+              "name": "FILTERED_SEARCH_TOKEN_OPERATOR_BACKGROUND_COLOR_HOVER",
+              "attributes": {},
+              "path": [
+                "filtered-search",
+                "token",
+                "operator",
+                "background",
+                "color",
+                "hover"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
   "label": {
     "light": {
       "text": {
@@ -14389,6 +14561,53 @@
             ]
           }
         }
+      }
+    }
+  },
+  "token": {
+    "foreground": {
+      "color": {
+        "value": "#ececef",
+        "$type": "color",
+        "comment": "Used for the token foreground color.",
+        "filePath": "src/tokens/contextual/token.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "{text.color.default}",
+          "$type": "color",
+          "comment": "Used for the token foreground color."
+        },
+        "name": "TOKEN_FOREGROUND_COLOR",
+        "attributes": {},
+        "path": [
+          "token",
+          "foreground",
+          "color"
+        ]
+      }
+    },
+    "background": {
+      "color": {
+        "value": "#3a383f",
+        "$type": "color",
+        "comment": "Used for the token background color.",
+        "filePath": "src/tokens/contextual/token.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "comment": "Used for the token background color."
+        },
+        "name": "TOKEN_BACKGROUND_COLOR",
+        "attributes": {},
+        "path": [
+          "token",
+          "background",
+          "color"
+        ]
       }
     }
   },
