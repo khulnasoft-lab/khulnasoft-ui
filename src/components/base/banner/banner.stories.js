@@ -1,4 +1,4 @@
-import emptyServiceDeskCallout from '@gitlab/svgs/dist/illustrations/empty-state/empty-service-desk-md.svg';
+import emptyServiceDeskCallout from '@gitlab/svgs/dist/illustrations/service-desk-sm.svg';
 import GlButton from '../button/button.vue';
 import { bannerVariants } from '../../../utils/constants';
 import GlBanner from './banner.vue';
