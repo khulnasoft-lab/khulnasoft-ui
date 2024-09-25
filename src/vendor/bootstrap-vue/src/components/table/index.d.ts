@@ -1,13 +1,7 @@
 //
 // Table
 //
-import Vue, { VNode } from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Table Plugins
-export declare const TablePlugin: BvPlugin
-export declare const TableLitePlugin: BvPlugin
-export declare const TableSimplePlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-table
 export declare class BTable extends BvComponent {

@@ -1,11 +1,7 @@
 //
 // Buttons
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const ButtonPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-button
 export declare class BButton extends BvComponent {}

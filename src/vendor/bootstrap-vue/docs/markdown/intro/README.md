@@ -283,42 +283,15 @@ CSS/SCSS.
 
 You can import component groups and directives as Vue plugins by importing from the `bootstrap-vue`:
 
-<!-- eslint-disable import/first, import/no-duplicates -->
-
 ```js
-// This imports all the layout components such as <b-container>, <b-row>, <b-col>:
-import { LayoutPlugin } from 'bootstrap-vue'
-Vue.use(LayoutPlugin)
-
-// This imports <b-modal> as well as the v-b-modal directive as a plugin:
-import { ModalPlugin } from 'bootstrap-vue'
-Vue.use(ModalPlugin)
-
-// This imports <b-card> along with all the <b-card-*> sub-components as a plugin:
-import { CardPlugin } from 'bootstrap-vue'
-Vue.use(CardPlugin)
-
-// This imports directive v-b-scrollspy as a plugin:
-import { VBScrollspyPlugin } from 'bootstrap-vue'
-Vue.use(VBScrollspyPlugin)
-
-// This imports the dropdown and table plugins
-import { DropdownPlugin, TablePlugin } from 'bootstrap-vue'
-Vue.use(DropdownPlugin)
-Vue.use(TablePlugin)
+// This imports the toast plugin
+import { ToastPlugin } from 'bootstrap-vue'
+Vue.use(ToastPlugin)
 ```
 
-When importing as plugins, all subcomponents and related directives are imported in most cases. i.e.
-When importing `<b-nav>`, all the `<nav-*>` sub components are also included, as well all dropdown
-sub components. Component shorthand aliases (if any) are also included in the plugin. Refer to the
-component and directive documentation for details.
+There is one additional helper plugin for providing the `$bvToast` injections (if you are not using
+the `ToastPlugin` plugin) which are available for import from `'bootstrap-vue'`:
 
-There are two additional helper plugins for providing the `$bvModal` and `$bvToast` injections (if
-you are not using the `ModalPlugin` or `ToastPlugin` plugins) which are available for import from
-`'bootstrap-vue'`:
-
-- `BVModalPlugin` - provides the injection `$bvModal` for generating
-  [message boxes](/docs/components/modal#modal-message-boxes).
 - `BVToastPlugin` - provides the injection `$bvToast` for generating
   [on demand toasts](/docs/components/toast#toasts-on-demand).
 
@@ -511,34 +484,22 @@ The BootstrapVue Nuxt plugin module will automatically add in the BootstrapVue s
 ### Tree shaking with Nuxt.js
 
 If you wish to reduce your production bundle size because you only use a subset of the available
-BootstrapVue plugins, you can configure the list of BootstrapVue `componentPlugins` or
-`directivePlugins` you want to globally install in your Nuxt.js project. Note tree shaking only
-applies to the JavaScript code and not CSS/SCSS.
+BootstrapVue plugins, you can configure the list of BootstrapVue `componentPlugins` you want to
+globally install in your Nuxt.js project. Note tree shaking only applies to the JavaScript code and
+not CSS/SCSS.
 
 ```js
 module.exports = {
   modules: ['bootstrap-vue/nuxt'],
   bootstrapVue: {
-    componentPlugins: [
-      'LayoutPlugin',
-      'FormPlugin',
-      'FormCheckboxPlugin',
-      'FormInputPlugin',
-      'FormRadioPlugin',
-      'ToastPlugin',
-      'ModalPlugin'
-    ],
-    directivePlugins: ['VBPopoverPlugin', 'VBTooltipPlugin', 'VBScrollspyPlugin']
+    componentPlugins: ['ToastPlugin']
   }
 }
 ```
 
-There are two additional helper plugins for providing the `$bvModal` and `$bvToast` injections (if
-you are not using the `ModalPlugin` or `ToastPlugin` plugins) that are available in the
-`componentPlugins` option:
+There is one additional helper plugins for providing the `$bvToast` injections (if you are not using
+the `ToastPlugin` plugin) that are available in the `componentPlugins` option:
 
-- `BVModalPlugin` - provides the injection `$bvModal` for generating
-  [message boxes](/docs/components/modal#modal-message-boxes).
 - `BVToastPlugin` - provides the injection `$bvToast` for generating
   [on demand toasts](/docs/components/toast#toasts-on-demand).
 
@@ -550,7 +511,7 @@ module.exports = {
   modules: ['bootstrap-vue/nuxt'],
   bootstrapVue: {
     components: ['BCol', 'BFormInput', 'BButton', 'BTable', 'BModal'],
-    directives: ['VBModal', 'VBPopover', 'VBTooltip', 'VBScrollspy']
+    directives: ['VBModal', 'VBTooltip']
   }
 }
 ```
@@ -575,7 +536,7 @@ If you want to import individual BootstrapVue components into _specific_ pages a
 your Nuxt app, you may want to bypass the Nuxt.js module and, instead, follow the
 [module bundlers](#using-module-bundlers) and
 [Tree shaking with module bundlers](#tree-shaking-with-module-bundlers) sections above.
-Alternatively you may want to to just import a few plugins (such as `LayoutPlugin`) in your Nuxt.js
+Alternatively you may want to to just import a few plugins (such as `ToastPlugin`) in your Nuxt.js
 module config, and then import additional components or plugins in the pages where needed.
 
 ### Icons

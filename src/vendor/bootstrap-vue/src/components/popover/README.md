@@ -1,15 +1,10 @@
 # Popover
 
 > The Popover feature, which provides a tooltip-like behavior, can be easily applied to any
-> interactive element via the `<b-popover>` component or [`v-b-popover`](/docs/directives/popover)
-> directive.
+> interactive element via the `<b-popover>` component.
 
 ```html
 <div class="text-center my-3">
-  <b-button v-b-popover.hover.top="'I am popover directive content!'" title="Popover Title">
-    Hover Me
-  </b-button>
-
   <b-button id="popover-target-1">
     Hover Me
   </b-button>
@@ -169,9 +164,6 @@ Positioning is relative to the trigger element.
 
   <div class="clearfix"></div>
 </div>
-
-Refer to the [Popover directive](/docs/directives/popover/#positioning) documentation for live
-examples of positioning.
 
 ## Triggers
 
@@ -350,9 +342,6 @@ A custom class can be applied to the popover outer wrapper `<div>` by using the 
 ```
 
 `variant` and `custom-class` are reactive and can be changed while the popover is open.
-
-Refer to the [popover directive](/docs/directives/popover) docs on applying variants and custom
-class to the directive version.
 
 ### Programmatically show and hide popover
 
@@ -607,40 +596,6 @@ events).
 
 You can also use `$root` events to trigger disabling and enabling of popover(s). See the **Disabling
 and enabling popovers via \$root events** section below for details.
-
-## `v-b-popover` Directive usage
-
-Just need quick popovers without too much markup? Use the
-[`v-b-popover` directive](/docs/directives/popover):
-
-```html
-<div>
-  <b-container fluid>
-    <b-row class="text-center">
-      <b-col md="3" class="py-3">
-        <b-button v-b-popover.hover.top="'Popover!'" title="Title" variant="primary">Top</b-button>
-      </b-col>
-
-      <b-col md="3" class="py-3">
-        <b-button v-b-popover.hover.right="'Popover!'" title="Title" variant="primary">Right</b-button>
-      </b-col>
-
-      <b-col md="3" class="py-3">
-        <b-button v-b-popover.hover.left="'Popover!'" title="Title" variant="primary">Left</b-button>
-      </b-col>
-
-      <b-col md="3" class="py-3">
-        <b-button v-b-popover.hover.bottom="'Popover!'" title="Title" variant="primary">Bottom</b-button>
-      </b-col>
-    </b-row>
-  </b-container>
-</div>
-
-<!-- b-popover-directive-placement.vue -->
-```
-
-Refer to the [`v-b-popover` directive](/docs/directives/popover) documentation for detailed
-information on the directive usage.
 
 ## Advanced `<b-popover>` usage with reactive content
 

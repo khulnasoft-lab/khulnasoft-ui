@@ -1,11 +1,7 @@
 //
 // Form Checkbox
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const FormCheckboxPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-form-checkbox
 export declare class BFormCheckbox extends BvComponent {}

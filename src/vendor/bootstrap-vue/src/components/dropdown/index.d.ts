@@ -1,11 +1,7 @@
 //
 // Dropdown
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const DropdownPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-dropdown
 export declare class BDropdown extends BvComponent {

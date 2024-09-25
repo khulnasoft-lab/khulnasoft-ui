@@ -1,7 +1,7 @@
 import { createLocalVue } from '@vue/test-utils'
 import { isVue3 } from '../../src/vue'
 import { BootstrapVue } from '../../src'
-import { BadgePlugin } from '../../src/components/badge'
+import { ToastPlugin } from '../../src/components/toast'
 import { BVConfigPlugin } from '../../src/bv-config'
 import { setConfig, resetConfig } from './config-set'
 import {
@@ -80,7 +80,7 @@ describe('utils/config', () => {
 
       expect(getConfig()).toEqual({})
 
-      localVue.use(BadgePlugin, config)
+      localVue.use(ToastPlugin, config)
       expect(getConfig()).toEqual(config)
 
       // Reset the configuration

@@ -1,4 +1,4 @@
-import { IS_BROWSER, HAS_PROMISE_SUPPORT, HAS_MUTATION_OBSERVER_SUPPORT } from '../constants/env'
+import { IS_BROWSER, HAS_MUTATION_OBSERVER_SUPPORT } from '../constants/env'
 import { getNoWarn } from './env'
 
 /**
@@ -22,21 +22,6 @@ export const warnNotClient = source => {
     return false
   } else {
     warn(`${source}: Can not be called during SSR.`)
-    return true
-  }
-}
-
-/**
- * Warn when no Promise support is given
- * @param {string} source
- * @returns {boolean} warned
- */
-export const warnNoPromiseSupport = source => {
-  /* istanbul ignore else */
-  if (HAS_PROMISE_SUPPORT) {
-    return false
-  } else {
-    warn(`${source}: Requires Promise support.`)
     return true
   }
 }

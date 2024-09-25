@@ -1,11 +1,7 @@
 //
 // Form Radio
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const FormRadioPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-form-radio
 export declare class BFormRadio extends BvComponent {}

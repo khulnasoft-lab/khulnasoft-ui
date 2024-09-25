@@ -1,11 +1,7 @@
 //
 // Link
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const LinkPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-link
 export declare class BLink extends BvComponent {

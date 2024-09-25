@@ -1,11 +1,7 @@
 //
 // InputGroup
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-
-// Plugin
-export declare const InputGroupPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-input-group
 export declare class BInputGroup extends BvComponent {}

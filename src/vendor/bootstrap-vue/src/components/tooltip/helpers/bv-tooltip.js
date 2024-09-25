@@ -142,7 +142,7 @@ export const BVTooltip = /*#__PURE__*/ extend({
   mixins: [listenOnRootMixin, useParentMixin],
   data() {
     return {
-      // BTooltip/BPopover/VBTooltip/VBPopover will update this data
+      // BTooltip/BPopover/VBTooltip will update this data
       // Via the exposed updateData() method on this instance
       // BVPopover will override some of these defaults
       ...templateData,

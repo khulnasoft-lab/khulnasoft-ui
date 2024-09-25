@@ -1,10 +1,7 @@
 //
 // Navbar
 //
-import Vue from 'vue'
-import { BvPlugin, BvComponent } from '../../'
-// Plugin
-export declare const NavbarPlugin: BvPlugin
+import { BvComponent } from '../../'
 
 // Component: b-navbar
 export declare class BNavbar extends BvComponent {}

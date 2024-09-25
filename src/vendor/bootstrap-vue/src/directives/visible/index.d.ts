@@ -1,11 +1,7 @@
 //
 // VBVisible
 //
-import Vue, { DirectiveOptions } from 'vue'
-import { BvPlugin } from '../../'
-
-// Plugin
-export declare const VBVisiblePlugin: BvPlugin
+import { DirectiveOptions } from 'vue'
 
 // Directive: v-b-visible
 export declare const VBVisible: DirectiveOptions
