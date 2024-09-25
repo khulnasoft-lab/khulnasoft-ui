@@ -1,3 +1,10 @@
+# [94.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.2.0...v94.3.0) (2024-09-25)
+
+
+### Features
+
+* **DuoChat:** Remove bottom disclaimer ([52c95b5](https://gitlab.com/gitlab-org/gitlab-ui/commit/52c95b5b5092ed5c03083aaecafa6acc9aa40363))
+
 # [94.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.1.1...v94.2.0) (2024-09-25)
 
 
