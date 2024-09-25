@@ -1,3 +1,18 @@
+# [94.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.1.1...v94.2.0) (2024-09-25)
+
+
+### Bug Fixes
+
+* **GlFilteredSearchTerm:** remove background from input ([47a75e9](https://gitlab.com/gitlab-org/gitlab-ui/commit/47a75e9e1b0d9f65c15606f1fba5dee018e2d4eb))
+
+
+### Features
+
+* **DesignTokens:** add token and filtered-search design tokens ([dbc64cc](https://gitlab.com/gitlab-org/gitlab-ui/commit/dbc64cc5979e98d8b8688a240f0757fa8db6ea93))
+* **GlFilteredSearch:** update input background and border color ([3dcb7cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/3dcb7cd8afb10fb86ab6f1cdfe4a7072ed21aba6))
+* **GlFilteredSearchToken:** use design tokens in GlFilteredSearchToken ([fbd61c0](https://gitlab.com/gitlab-org/gitlab-ui/commit/fbd61c0bdc4fb6377d2424daef474c5ebf0229e1))
+* **GlToken:** use design tokens in GlToken ([ce31604](https://gitlab.com/gitlab-org/gitlab-ui/commit/ce31604c2f26e6f9bca8f27e625fe854964efb48))
+
 ## [94.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.1.0...v94.1.1) (2024-09-24)
 
 
