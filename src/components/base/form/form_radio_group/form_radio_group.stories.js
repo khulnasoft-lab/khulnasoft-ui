@@ -1,4 +1,5 @@
 import GlFormRadio from '../form_radio/form_radio.vue';
+import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-radio/README.md';
 import GlFormRadioGroup from './form_radio_group.vue';
 import readme from './form_radio_group.md';
 
@@ -48,6 +49,7 @@ export default {
   title: 'base/form/form-radio-group',
   component: GlFormRadioGroup,
   parameters: {
+    bootstrapDocs: BVueReadme,
     bootstrapComponent: 'b-form-radio-group',
     docs: {
       description: {

@@ -31,6 +31,11 @@ $feature-button-border: true;
   padding-bottom: 0 !important;
 }
 
+.bootstrap-vue-docs {
+  @import "../vendor/bootstrap-vue/docs/assets/css/docs.min";
+  @import "../vendor/bootstrap-vue/docs/assets/scss/styles";
+}
+
 // This imports the tailwind.css file.
 // Note that adding `.css` here would break the inline import.
 // These utilities are imported last, because that's

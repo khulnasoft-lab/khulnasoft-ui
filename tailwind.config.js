@@ -4,6 +4,7 @@ const defaults = require('./tailwind.defaults');
 module.exports = {
   presets: [defaults],
   content: [
+    './.storybook/**/*.js',
     './src/**/*.{vue,js}',
     '!./src/**/*.spec.js',
     '!./src/vendor/bootstrap-vue/**',

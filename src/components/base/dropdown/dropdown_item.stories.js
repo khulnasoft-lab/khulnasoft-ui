@@ -1,5 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { variantCssColorMap } from '../../../utils/constants';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/dropdown/README.md';
 import GlDropdownItem from './dropdown_item.vue';
 import readme from './dropdown_item.md';
 
@@ -94,6 +95,8 @@ export default {
   component: GlDropdownItem,
   parameters: {
     bootstrapComponent: 'b-dropdown-item',
+    bootstrapDocs: BVueReadme,
+
     docs: {
       description: {
         component: readme,

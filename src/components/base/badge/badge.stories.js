@@ -1,6 +1,7 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/badge/README.md';
 import GlBadge from './badge.vue';
 import readme from './badge.md';
 
@@ -177,6 +178,7 @@ export default {
   component: GlBadge,
   parameters: {
     bootstrapComponent: 'b-badge',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

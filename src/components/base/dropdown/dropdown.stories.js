@@ -8,6 +8,7 @@ import {
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../utils/constants';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/dropdown/README.md';
 import GlDropdownDivider from './dropdown_divider.vue';
 import GlDropdownSectionHeader from './dropdown_section_header.vue';
 import GlDropdownItem from './dropdown_item.vue';
@@ -547,6 +548,8 @@ export default {
   },
   parameters: {
     bootstrapComponent: 'b-dropdown',
+    bootstrapDocs: BVueReadme,
+
     docs: {
       description: {
         component: readme,

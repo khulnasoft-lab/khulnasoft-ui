@@ -1,3 +1,4 @@
+import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-radio/README.md';
 import GlFormRadio from './form_radio.vue';
 import readme from './form_radio.md';
 
@@ -61,6 +62,8 @@ export default {
   component: GlFormRadio,
   parameters: {
     bootstrapComponent: 'b-form-radio',
+    bootstrapDocs: BVueReadme,
+
     docs: {
       description: {
         component: readme,

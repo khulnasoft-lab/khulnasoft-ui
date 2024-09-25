@@ -1,4 +1,5 @@
 import GlFormInput from '../form/form_input/form_input.vue';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/table/README.md';
 import GlTable from './table.vue';
 import readme from './table.md';
 
@@ -167,6 +168,7 @@ export default {
   component: GlTable,
   parameters: {
     bootstrapComponent: 'b-table',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

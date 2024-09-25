@@ -1,6 +1,7 @@
 import { userEvent, within, waitFor, expect } from '@storybook/test';
 import Vue from 'vue';
 import GlButton from '../button/button.vue';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/toast/README.md';
 import GlToast from './toast';
 import readme from './toast.md';
 
@@ -78,6 +79,7 @@ export default {
   title: 'base/toast',
   component: GlToast,
   parameters: {
+    bootstrapDocs: BVueReadme,
     bootstrapComponent: 'toast',
     docs: {
       description: {

@@ -1,3 +1,4 @@
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/table/README.md';
 import readme from './table_lite.md';
 import GlTableLite from './table_lite.vue';
 
@@ -59,6 +60,8 @@ export default {
   title: 'base/table/table_lite',
   component: GlTableLite,
   parameters: {
+    bootstrapDocs: BVueReadme,
+    bootstrapComponent: 'b-table-lite',
     docs: {
       description: {
         component: readme,

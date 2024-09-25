@@ -1,3 +1,4 @@
+import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-textarea/README.md';
 import GlFormTextarea from './form_textarea.vue';
 import readme from './form_textarea.md';
 
@@ -61,6 +62,7 @@ export default {
   component: GlFormTextarea,
   parameters: {
     bootstrapComponent: 'b-form-textarea',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

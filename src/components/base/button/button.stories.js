@@ -9,6 +9,7 @@ import {
 } from '../../../utils/constants';
 import GlBadge from '../badge/badge.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/button/README.md';
 import GlButton from './button.vue';
 import readme from './button.md';
 
@@ -486,6 +487,7 @@ export default {
   component: GlButton,
   parameters: {
     bootstrapComponent: 'b-button',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

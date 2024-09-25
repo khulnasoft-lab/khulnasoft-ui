@@ -2,6 +2,7 @@ import Vue from 'vue';
 import { GlCollapseToggleDirective } from '../../../directives/collapse_toggle';
 import GlButton from '../button/button.vue';
 import GlCard from '../card/card.vue';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/collapse/README.md';
 import GlCollapse from './collapse.vue';
 import readme from './collapse.md';
 
@@ -37,6 +38,7 @@ export default {
   component: GlCollapse,
   parameters: {
     bootstrapComponent: 'b-collapse',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

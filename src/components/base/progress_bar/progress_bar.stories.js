@@ -1,4 +1,5 @@
 import { progressBarVariantOptions } from '../../../utils/constants';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/progress/README.md';
 import GlProgressBar from './progress_bar.vue';
 
 const generateProps = ({ value = 30, variant = progressBarVariantOptions.primary } = {}) => ({
@@ -34,6 +35,7 @@ export default {
   title: 'base/progress-bar',
   component: GlProgressBar,
   parameters: {
+    bootstrapDocs: BVueReadme,
     bootstrapComponent: 'b-progress',
   },
   argTypes: {

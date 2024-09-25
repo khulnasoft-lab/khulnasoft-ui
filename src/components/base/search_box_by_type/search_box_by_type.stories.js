@@ -1,4 +1,5 @@
 import { disableControls } from '../../../utils/stories_utils';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/form-input/README.md';
 import GlSearchBoxByType from './search_box_by_type.vue';
 import readme from './search_box_by_type.md';
 
@@ -51,6 +52,8 @@ export default {
   component: GlSearchBoxByType,
   parameters: {
     bootstrapComponent: 'b-form-input',
+    bootstrapDocs: BVueReadme,
+
     docs: {
       description: {
         component: readme,

@@ -1,5 +1,6 @@
 import GlInputGroupText from '../input_group_text/input_group_text.vue';
 import { disableControls } from '../../../../utils/stories_utils';
+import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-input/README.md';
 import GlFormInputGroup from './form_input_group.vue';
 import readme from './form_input_group.md';
 
@@ -62,6 +63,7 @@ export default {
   component: GlFormInputGroup,
   parameters: {
     bootstrapComponent: 'b-form-input',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

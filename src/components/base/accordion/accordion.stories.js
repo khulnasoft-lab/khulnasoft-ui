@@ -43,7 +43,6 @@ export default {
   title: 'base/accordion',
   component: GlAccordion,
   parameters: {
-    bootstrapComponent: 'b-collapse',
     docs: {
       description: {
         component: readme,

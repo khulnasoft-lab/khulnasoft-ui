@@ -2,6 +2,7 @@ import range from 'lodash/range';
 import GlBadge from '../../badge/badge.vue';
 import { badgeVariantOptions } from '../../../../utils/constants';
 import GlTab from '../tab/tab.vue';
+import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/tabs/README.md';
 import GlScrollableTabs from './scrollable_tabs.vue';
 import GlTabs from './tabs.vue';
 import readme from './tabs.md';
@@ -192,6 +193,7 @@ export default {
   component: GlTabs,
   subcomponents: { GlTab, GlScrollableTabs },
   parameters: {
+    bootstrapDocs: BVueReadme,
     bootstrapComponent: 'b-tabs',
     docs: {
       description: {
