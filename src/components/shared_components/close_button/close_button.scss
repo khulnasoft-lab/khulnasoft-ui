@@ -1,0 +1,81 @@
+@mixin gl-button-border($color) {
+  box-shadow: inset 0 0 0 $gl-border-size-1 $color;
+}
+
+@mixin gl-button-hover-border($color) {
+  box-shadow: inset 0 0 0 $gl-border-size-2 $color;
+}
+
+@mixin gl-button-selected-border($color, $focus-ring: null) {
+  @if $focus-ring {
+    box-shadow: inset 0 0 0 $gl-border-size-2 $color, $focus-ring;
+  } @else {
+    box-shadow: inset 0 0 0 $gl-border-size-2 $color;
+  }
+}
+
+@mixin gl-button-theme(
+  $color: null,
+  $background-color: null,
+  $border-color: null,
+  $hover-color: null,
+  $hover-background-color: null,
+  $hover-border-color: null,
+  $focus-color: null,
+  $focus-background-color: null,
+  $focus-border-color: null,
+  $active-color: null,
+  $active-background-color: null,
+  $active-border-color: null,
+) {
+  color: $color;
+  background-color: $background-color;
+  @include gl-button-border($border-color);
+
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-background-color;
+    @include gl-button-hover-border($hover-border-color);
+  }
+
+  &:focus {
+    color: $focus-color;
+    background-color: $focus-background-color;
+    @include gl-focus($color: $focus-border-color);
+  }
+
+  &:active,
+  &.active {
+    color: $active-color;
+    background-color: $active-background-color;
+    @include gl-focus($color: $active-border-color);
+
+    &:focus {
+      @include gl-focus($color: $active-border-color);
+    }
+  }
+}
+
+.gl-close-button {
+  &--light {
+    @include gl-button-theme(
+      $color: var(--gl-color-neutral-900),
+      $background-color: var(--gl-button-default-tertiary-background-color-default),
+      $border-color: var(--gl-button-default-tertiary-border-color-default),
+      $hover-color: var(--gl-button-default-tertiary-foreground-color-hover),
+      $hover-background-color: var(--gl-button-default-tertiary-background-color-hover),
+      $hover-border-color: var(--gl-button-default-tertiary-border-color-hover),
+      $focus-color: var(--gl-button-default-tertiary-foreground-color-focus),
+      $focus-background-color: var(--gl-button-default-tertiary-background-color-focus),
+      $focus-border-color: var(--gl-button-default-tertiary-border-color-focus),
+      $active-color: var(--gl-button-default-tertiary-foreground-color-active),
+      $active-background-color: var(--gl-button-default-tertiary-background-color-active),
+      $active-border-color: var(--gl-button-default-tertiary-border-color-active),
+    );
+  }
+
+  &--dark {
+    @apply gl-font-bold;
+  }
+}
+  

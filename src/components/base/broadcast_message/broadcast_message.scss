@@ -130,6 +130,5 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
   &-dismiss {
     @apply -gl-my-2;
     @apply gl-ml-5;
-    color: inherit !important;
   }
 }
