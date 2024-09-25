@@ -1,6 +1,5 @@
 /**
- * Automatically generated
- * Do not edit directly
+ * Do not edit directly, this file was auto-generated.
  */
 
 const baseColors = {
