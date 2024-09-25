@@ -39,7 +39,6 @@ body.modal-open {
     @apply gl-rounded-base;
     @apply gl-border-0;
     box-shadow: $modal-box-shadow;
-    background-color: var(--gl-background-color-overlap);
     color: var(--gl-text-color-default);
 
     > :first-child {
