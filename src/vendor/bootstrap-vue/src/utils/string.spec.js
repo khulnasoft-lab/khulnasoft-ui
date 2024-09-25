@@ -1,4 +1,4 @@
-import { escapeRegExp, kebabCase, pascalCase, startCase, toString, upperFirst } from './string'
+import { escapeRegExp, kebabCase, startCase, toString, upperFirst } from './string'
 
 describe('utils/string', () => {
   it('kebabCase() works', async () => {
@@ -7,16 +7,6 @@ describe('utils/string', () => {
     expect(kebabCase('fooBar')).toBe('foo-bar')
     expect(kebabCase('FooBar')).toBe('foo-bar')
     expect(kebabCase('XFooBar')).toBe('x-foo-bar')
-  })
-
-  it('pascalCase() works', async () => {
-    expect(pascalCase('foo')).toBe('Foo')
-    expect(pascalCase('Foo')).toBe('Foo')
-    expect(pascalCase('fooBar')).toBe('FooBar')
-    expect(pascalCase('FooBar')).toBe('FooBar')
-    expect(pascalCase('foo-bar')).toBe('FooBar')
-    expect(pascalCase('x-foo-bar')).toBe('XFooBar')
-    expect(pascalCase('xFooBar')).toBe('XFooBar')
   })
 
   it('startCase() works', async () => {

@@ -103,8 +103,7 @@ module.exports = function nuxtBootstrapVue(moduleOptions = {}) {
     // Base options available to template
     const templateOptions = {
       // Flag if we are tree shaking
-      treeShake: false,
-      icons: !!options.icons
+      treeShake: false
     }
 
     // Specific component and/or directive plugins
@@ -146,17 +145,6 @@ module.exports = function nuxtBootstrapVue(moduleOptions = {}) {
       if (templateOptions[type].length > 0) {
         templateOptions.treeShake = true
       }
-    }
-
-    // If tree shaking, and icons requested, add in
-    // the IconsPlugin if not already specified
-    if (
-      templateOptions.treeShake &&
-      templateOptions.icons &&
-      templateOptions.componentPlugins.indexOf('IconsPlugin') === -1 &&
-      templateOptions.componentPlugins.indexOf('BootstrapVueIcons') === -1
-    ) {
-      templateOptions.componentPlugins.push('IconsPlugin')
     }
 
     // Add BootstrapVue configuration if present

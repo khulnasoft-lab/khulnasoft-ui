@@ -49,15 +49,6 @@ export { BVToastPlugin } from './components/toast/helpers/bv-toast'
 // can be reverted back to `export * from './table'` when Webpack v5 is released
 // See: https://github.com/webpack/webpack/pull/9203 (available in Webpack v5.0.0-alpha.15)
 
-// -- Export Icon components and IconPlugin/BootstrapVueIcons ---
-// export * from './icons'
-export { IconsPlugin, BootstrapVueIcons } from './icons/plugin'
-export { BIcon } from './icons/icon'
-export { BIconstack } from './icons/iconstack'
-// This re-export is only a single level deep, which
-// Webpack 4 (usually) handles correctly when tree shaking
-export * from './icons/icons'
-
 // --- Export all individual components and component group plugins as named exports ---
 
 // export * from './components/badge'

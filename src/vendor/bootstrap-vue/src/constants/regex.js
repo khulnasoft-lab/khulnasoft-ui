@@ -17,7 +17,6 @@ export const RX_START_SPACE_WORD = /(\s|^)(\w)/g
 export const RX_TRIM_LEFT = /^\s+/
 export const RX_TRIM_RIGHT = /\s+$/
 export const RX_UNDERSCORE = /_/g
-export const RX_UN_KEBAB = /-(\w)/g
 
 // --- URL ---
 
@@ -28,10 +27,6 @@ export const RX_QUERY_START = /^(\?|#|&)/
 // --- Grid ---
 
 export const RX_COL_CLASS = /^col-/
-
-// --- Icon ---
-
-export const RX_ICON_PREFIX = /^BIcon/
 
 // --- Locale ---
 

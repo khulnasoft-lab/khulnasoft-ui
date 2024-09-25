@@ -9,4 +9,3 @@ node_modules/
 nuxt/plugin.template.js
 nuxt/plugin.prod.js
 nuxt/plugin.dev.js
-src/icons/icons.js
