@@ -1,3 +1,10 @@
+# [94.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.3.0...v94.4.0) (2024-09-26)
+
+
+### Features
+
+* Add vendored bootstrap@4.6.2 SCSS ([d0181d5](https://gitlab.com/gitlab-org/gitlab-ui/commit/d0181d582f881a9756e9ba35c10942c0d1df495e))
+
 # [94.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.2.0...v94.3.0) (2024-09-25)
 
 
