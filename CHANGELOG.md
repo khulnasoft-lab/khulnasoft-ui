@@ -1,3 +1,10 @@
+## [94.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.4.0...v94.4.1) (2024-09-26)
+
+
+### Bug Fixes
+
+* **GlFormInput:** Set `noWheel` to `true` for number inputs ([a218651](https://gitlab.com/gitlab-org/gitlab-ui/commit/a218651603df75f4568fb1ffdee9d1729ff50450))
+
 # [94.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.3.0...v94.4.0) (2024-09-26)
 
 
