@@ -7,7 +7,7 @@ const template = `
 <gl-form-group :label="labelText" :label-for="inputId">
   <gl-form-input
     :id="inputId"
-    type="text"
+    :type="type"
     :readonly="readonly"
     :disabled="disabled"
     :value="value"
