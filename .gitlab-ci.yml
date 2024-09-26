@@ -451,9 +451,10 @@ update_deployments:
   forget-about-bootstrap-vue:
     - git fetch origin orphaned-semantic-commit
     # Replace bootstrap-vue@2.23.1 with orphaned commit
-    # This should prevent semantic-release from traversing bootstrap-vue's history
-    #             <bootstrap_vue_commit_sha>               <orphaned_commit_sha>
+    # This should prevent semantic-release from traversing bootstrap(-vue)?'s history
+    #             <bootstrap(_vue)?_commit_sha>            <orphaned_commit_sha>
     - git replace a1cebda1ef6e9579e742fdf3937a28643c8e31ec 936121d1c483f2279e9a3601c6442c7c2b65ed21
+    - git replace e1fa01d280bbed0ce43e6541d1d75f4474eff1fd 936121d1c483f2279e9a3601c6442c7c2b65ed21
 
 danger-review:
   before_script:
