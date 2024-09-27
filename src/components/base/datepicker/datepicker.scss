@@ -37,7 +37,7 @@ $pd-week-color: var(--gl-text-color-subtle);
 }
 
 .gl-datepicker-theme {
-  @include gl-font-regular;
+  @apply gl-font-regular;
   @apply gl-border-none;
   @apply gl-rounded-base;
   @apply gl-mt-3;

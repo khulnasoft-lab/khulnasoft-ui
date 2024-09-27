@@ -1,6 +1,6 @@
 .gl-form-input,
 .gl-form-input.form-control {
-  @include gl-font-regular;
+  @apply gl-font-regular;
   @apply gl-text-base;
   @apply gl-leading-normal;
   @apply gl-py-3;

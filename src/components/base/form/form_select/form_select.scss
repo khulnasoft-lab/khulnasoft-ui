@@ -10,7 +10,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
 /* stylelint-disable property-no-vendor-prefix */
 .gl-form-select {
   @apply gl-text-base;
-  @include gl-font-regular;
+  @apply gl-font-regular;
   @apply gl-opacity-10;
   @apply gl-leading-normal;
   @apply gl-py-3;

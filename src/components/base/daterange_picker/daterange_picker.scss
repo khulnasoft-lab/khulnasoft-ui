@@ -1,7 +1,7 @@
 .gl-daterange-picker {
   @apply gl-leading-normal;
   @apply gl-text-base;
-  @include gl-font-regular;
+  @apply gl-font-regular;
 
   label {
     @apply gl-font-bold;
