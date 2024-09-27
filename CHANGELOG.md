@@ -1,3 +1,10 @@
+## [94.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.4.1...v94.4.2) (2024-09-27)
+
+
+### Bug Fixes
+
+* update illustrations in stories ([8ab654e](https://gitlab.com/gitlab-org/gitlab-ui/commit/8ab654e9bcc83628c608cf67a026d2464add7171))
+
 ## [94.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.4.0...v94.4.1) (2024-09-26)
 
 
