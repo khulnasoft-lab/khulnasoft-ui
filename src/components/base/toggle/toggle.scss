@@ -28,10 +28,10 @@ $toggle-height: 2.5 * $grid-size;
   @apply gl-inline-flex;
 
   &.is-disabled {
-    @include gl-cursor-not-allowed;
+    @apply gl-cursor-not-allowed;
 
     .gl-toggle {
-      @include gl-cursor-not-allowed;
+      @apply gl-cursor-not-allowed;
       @apply gl-bg-gray-200;
 
       .toggle-icon > svg {
@@ -85,7 +85,7 @@ $toggle-height: 2.5 * $grid-size;
   @apply gl-items-center;
   @apply gl-justify-center;
   @apply gl-border-0;
-  @include gl-cursor-pointer;
+  @apply gl-cursor-pointer;
   @apply gl-bg-gray-600;
   position: relative;
   width: $toggle-width;

@@ -72,7 +72,7 @@ $pd-week-color: var(--gl-text-color-subtle);
     @apply gl-h-5;
 
     &.is-disabled {
-      @include gl-cursor-not-allowed;
+      @apply gl-cursor-not-allowed;
     }
 
     @media (forced-colors: none) {
@@ -183,7 +183,7 @@ $pd-week-color: var(--gl-text-color-subtle);
 
   abbr[title] {
     @apply gl-no-underline;
-    @include gl-cursor-default;
+    @apply gl-cursor-default;
   }
 
   .pika-button {
@@ -223,6 +223,6 @@ $pd-week-color: var(--gl-text-color-subtle);
   }
 
   .is-disabled {
-    @include gl-cursor-not-allowed;
+    @apply gl-cursor-not-allowed;
   }
 }

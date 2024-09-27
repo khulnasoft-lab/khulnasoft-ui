@@ -4,7 +4,7 @@
 
   .gl-new-dropdown-custom-toggle {
     *:first-child {
-      @include gl-cursor-pointer;
+      @apply gl-cursor-pointer;
 
       &:focus {
         @apply gl-focus;

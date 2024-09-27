@@ -40,7 +40,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     @apply gl-pr-5;
 
     &:hover {
-      @include gl-cursor-pointer;
+      @apply gl-cursor-pointer;
       @apply gl-underline;
     }
 

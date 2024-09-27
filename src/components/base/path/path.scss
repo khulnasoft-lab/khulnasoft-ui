@@ -120,7 +120,7 @@ $path-chevron-right-margin: px-to-rem(14px);
     }
 
     &:disabled {
-      @include gl-cursor-not-allowed;
+      @apply gl-cursor-not-allowed;
       background-color: var(--gl-color-alpha-0);
       box-shadow: none;
       color: var(--gl-action-disabled-foreground-color);

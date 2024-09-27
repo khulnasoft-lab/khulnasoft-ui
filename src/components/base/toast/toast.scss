@@ -52,7 +52,7 @@
     @apply gl-text-base;
     @apply gl-whitespace-nowrap;
     @apply gl-font-bold;
-    @include gl-cursor-pointer;
+    @apply gl-cursor-pointer;
   }
 
   .gl-toast-close-button {

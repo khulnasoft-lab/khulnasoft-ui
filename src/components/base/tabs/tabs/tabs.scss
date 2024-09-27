@@ -48,7 +48,7 @@
 
   &.disabled {
     @apply gl-pointer-events-auto;
-    @include gl-cursor-not-allowed;
+    @apply gl-cursor-not-allowed;
     color: var(--gl-action-disabled-foreground-color);
 
     &:hover {
