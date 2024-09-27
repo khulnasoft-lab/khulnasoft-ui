@@ -13,7 +13,7 @@
     @apply gl-flex-row;
     @apply gl-items-center;
     @apply gl-self-end;
-    @include gl-gap-3;
+    @apply gl-gap-3;
     @apply gl-h-7;
     color: var(--gl-text-color-subtle);
   }
