@@ -10,7 +10,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
   @apply gl-inline-flex;
   @apply gl-rounded-pill;
   position: relative;
-  @include gl-max-w-full;
+  @apply gl-max-w-full;
   @apply gl-text-sm;
   @apply gl-leading-normal;
   box-shadow: var(--label-inset-border) !important;
@@ -32,7 +32,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     @apply gl-font-normal;
     @apply gl-overflow-hidden;
     @apply gl-text-inherit;
-    @include gl-max-w-full;
+    @apply gl-max-w-full;
 
     &:hover,
     &:focus,
