@@ -132,7 +132,7 @@
   }
 
   .gl-dropdown-button-text {
-    @include gl-mr-auto;
+    @apply gl-mr-auto;
     @apply gl-overflow-hidden;
     @apply gl-text-ellipsis;
   }
