@@ -56,7 +56,7 @@ $path-chevron-right-margin: px-to-rem(14px);
     @apply gl-py-3;
     @apply gl-flex;
     @apply gl-text-base;
-    @include gl-z-index-0;
+    @apply gl-z-0;
     @apply gl-font-bold;
     @apply gl-leading-normal;
     @apply gl-rounded-tl-base;

@@ -86,7 +86,7 @@
     &[disabled]:hover {
       @apply gl-text-gray-400;
       @include gl-inset-border-y-1-gray-200;
-      @include gl-z-index-0;
+      @apply gl-z-0;
       @apply gl-cursor-not-allowed;
 
       &:first-child {
