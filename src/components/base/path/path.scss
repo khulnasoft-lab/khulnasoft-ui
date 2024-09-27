@@ -41,7 +41,7 @@ $path-chevron-right-margin: px-to-rem(14px);
   }
 
   .gl-path-nav-list-item {
-    @include gl-min-w-fit-content;
+    @apply gl-min-w-fit;
     padding-top: 1px;
     padding-bottom: 1px;
 

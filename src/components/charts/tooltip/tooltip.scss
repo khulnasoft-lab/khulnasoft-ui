@@ -2,7 +2,7 @@
   position: absolute;
 
   > .popover {
-    @include gl-min-w-0;
+    @apply gl-min-w-0;
     @apply gl-w-max;
     max-width: $chart-tooltip-max-width;
   }

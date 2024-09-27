@@ -48,7 +48,7 @@
     }
 
     .gl-dropdown-item-text-wrapper {
-      @include gl-min-w-0;
+      @apply gl-min-w-0;
       @apply gl-grow;
       @apply gl-mr-3;
       @apply gl-py-3;
