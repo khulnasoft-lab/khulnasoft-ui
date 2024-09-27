@@ -1,4 +1,4 @@
-import productivityAnalyticsEmptyStateSvg from '@gitlab/svgs/dist/illustrations/productivity-analytics-empty-state.svg';
+import productivityAnalyticsEmptyStateSvg from '@gitlab/svgs/dist/illustrations/status/status-nothing-md.svg';
 import issuesSvg from '@gitlab/svgs/dist/illustrations/rocket-launch-md.svg';
 import GlButton from '../../base/button/button.vue';
 import GlEmptyState from './empty_state.vue';
