@@ -160,5 +160,5 @@
 .gl-scrollable-tabs-nav {
   @apply gl-overflow-hidden;
   position: relative;
-  @include gl-flex-nowrap;
+  @apply gl-flex-nowrap;
 }

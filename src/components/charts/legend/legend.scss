@@ -29,7 +29,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 
 .gl-legend-inline {
     @apply gl-flex;
-    @include gl-flex-wrap;
+    @apply gl-flex-wrap;
     @apply gl-shrink-0;
 
   .gl-legend-inline-series {
