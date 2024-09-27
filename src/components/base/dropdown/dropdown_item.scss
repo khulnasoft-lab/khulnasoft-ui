@@ -75,7 +75,7 @@
       }
 
       .gl-avatar {
-        @include gl-opacity-7;
+        @apply gl-opacity-7;
       }
     }
 

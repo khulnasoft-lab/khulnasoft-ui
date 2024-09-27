@@ -7,7 +7,7 @@
   }
 
   .text-enter {
-    @include gl-opacity-0;
+    @apply gl-opacity-0;
   }
 
   .text-enter-active {
@@ -15,11 +15,11 @@
   }
 
   .text-enter-to {
-    @include gl-opacity-10;
+    @apply gl-opacity-10;
   }
 
   .text-leave {
-    @include gl-opacity-10;
+    @apply gl-opacity-10;
   }
 
   .text-leave-active {
@@ -27,7 +27,7 @@
   }
 
   .text-leave-to {
-    @include gl-opacity-0;
+    @apply gl-opacity-0;
   }
 
   &__dot {
