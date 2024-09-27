@@ -44,7 +44,7 @@ $pd-week-color: var(--gl-text-color-subtle);
   background-color: var(--gl-datepicker-background-color);
 
   &.is-bound {
-    @include gl-shadow-md;
+    @apply gl-shadow-md;
 
     @media (forced-colors: active) {
       border: 1px solid;
@@ -188,7 +188,7 @@ $pd-week-color: var(--gl-text-color-subtle);
 
   .pika-button {
     @apply gl-rounded-base;
-    @include gl-shadow-none;
+    @apply gl-shadow-none;
     @apply gl-py-3;
     @apply gl-text-center;
     @apply gl-leading-normal;

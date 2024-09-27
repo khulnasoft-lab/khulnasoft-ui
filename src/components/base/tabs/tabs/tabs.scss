@@ -52,7 +52,7 @@
     color: var(--gl-action-disabled-foreground-color);
 
     &:hover {
-      @include gl-shadow-none;
+      @apply gl-shadow-none;
     }
   }
 

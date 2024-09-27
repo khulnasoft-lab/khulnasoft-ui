@@ -14,7 +14,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
   @apply gl-h-full;
   @apply gl-w-full;
   @apply gl-overflow-y-auto;
-  @include gl-shadow-lg;
+  @apply gl-shadow-lg;
   @apply gl-text-base;
   @apply gl-leading-normal;
   @apply gl-flex;

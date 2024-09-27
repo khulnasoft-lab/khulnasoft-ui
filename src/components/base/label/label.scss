@@ -38,7 +38,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     &:focus,
     &:focus:active {
       @apply gl-text-inherit;
-      @include gl-shadow-none;
+      @apply gl-shadow-none;
       @include gl-outline-none;
     }
   }
@@ -72,7 +72,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     margin-right: $label-padding-horizontal-half;
     @apply gl-p-0;
     @apply gl-rounded-full;
-    @include gl-shadow-none;
+    @apply gl-shadow-none;
 
     &:focus,
     &:active {

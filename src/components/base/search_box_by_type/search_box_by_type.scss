@@ -43,7 +43,7 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
   @apply gl-leading-normal;
   @apply gl-pl-7;
   @apply gl-py-4;
-  @include gl-shadow-none;
+  @apply gl-shadow-none;
   @apply gl-w-full;
   border-radius: 0;
   padding-right: calc(#{$gl-spacing-scale-6} + #{$gl-spacing-scale-2});
