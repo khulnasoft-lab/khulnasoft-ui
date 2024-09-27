@@ -2,6 +2,6 @@
   position: relative;
 
   .gl-legend-inline-series {
-    @include gl-pointer-events-none;
+    @apply gl-pointer-events-none;
   }
 }

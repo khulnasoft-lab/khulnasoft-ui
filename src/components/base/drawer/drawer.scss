@@ -73,7 +73,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
     content: '';
     left: 0;
     position: absolute;
-    @include gl-pointer-events-none;
+    @apply gl-pointer-events-none;
     @apply gl-w-full;
     @apply gl-h-7;
   }
@@ -122,7 +122,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
     background: $gl-drawer-scrim-gradient;
     content: '';
     bottom: 0;
-    @include gl-pointer-events-none;
+    @apply gl-pointer-events-none;
     @apply gl-w-full;
     position: fixed;
     @apply gl-h-7;

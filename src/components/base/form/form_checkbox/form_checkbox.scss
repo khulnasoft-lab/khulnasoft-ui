@@ -174,7 +174,7 @@
       @include gl-cursor-not-allowed;
 
       &::before {
-        @include gl-pointer-events-auto;
+        @apply gl-pointer-events-auto;
         background-color: var(--gl-control-background-color-disabled);
         border-color: var(--gl-control-border-color-disabled);
 

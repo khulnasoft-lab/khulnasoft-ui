@@ -28,7 +28,7 @@ $pd-week-color: var(--gl-text-color-subtle);
   @apply gl-flex;
   @apply gl-justify-center;
   @apply gl-items-center;
-  @include gl-pointer-events-none;
+  @apply gl-pointer-events-none;
   @apply gl-px-2;
 
   .gl-button.gl-button {

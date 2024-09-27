@@ -47,7 +47,7 @@
   }
 
   &.disabled {
-    @include gl-pointer-events-auto;
+    @apply gl-pointer-events-auto;
     @include gl-cursor-not-allowed;
     color: var(--gl-action-disabled-foreground-color);
 
