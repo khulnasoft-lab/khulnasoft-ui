@@ -1,21 +1,25 @@
 <script>
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
+import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import GlIcon from '../../../../../../base/icon/icon.vue';
 import {
   categoryValidator,
   contextItemValidator,
+  formatGitItemSecondaryText,
   formatIssueId,
   formatMergeRequestId,
+  getGitItemIcon,
 } from '../utils';
 import {
-  CONTEXT_ITEM_CATEGORY_ISSUE,
-  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
   CONTEXT_ITEM_CATEGORY_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
+  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
 } from '../constants';
 
 export default {
   name: 'GlDuoChatContextItemMenuSearchItem',
-  components: { GlIcon, GlDuoChatContextItemPopover },
+  components: { GlTruncate, GlIcon, GlDuoChatContextItemPopover },
   props: {
     category: {
       type: Object,
@@ -40,9 +44,19 @@ export default {
           return formatIssueId(this.contextItem.metadata.iid);
         case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
           return formatMergeRequestId(this.contextItem.metadata.iid);
+        case CONTEXT_ITEM_CATEGORY_LOCAL_GIT: {
+          return formatGitItemSecondaryText(this.contextItem);
+        }
         default:
           return '';
       }
+    },
+    icon() {
+      if (this.category.value === CONTEXT_ITEM_CATEGORY_LOCAL_GIT) {
+        return getGitItemIcon(this.contextItem) || this.category.icon;
+      }
+
+      return this.category.icon;
     },
   },
 };
@@ -50,8 +64,8 @@ export default {
 <template>
   <div class="gl-flex gl-flex-col">
     <div class="gl-flex gl-items-center">
-      <gl-icon :name="category.icon" class="gl-mr-2 gl-shrink-0" data-testid="category-icon" />
-      <span>{{ title }}</span>
+      <gl-icon :name="icon" class="gl-mr-2 gl-shrink-0" data-testid="category-icon" />
+      <gl-truncate :text="title" class="gl-min-w-0" />
       <gl-icon
         :id="`info-icon-${contextItem.id}`"
         name="information-o"
@@ -64,8 +78,8 @@ export default {
         placement="left"
       />
     </div>
-    <div class="gl-mt-1 gl-shrink-0 gl-whitespace-nowrap gl-text-secondary">
-      {{ secondaryText }}
+    <div v-if="secondaryText" class="gl-mt-1 gl-shrink-0 gl-whitespace-nowrap gl-text-secondary">
+      <gl-truncate :text="secondaryText" />
     </div>
   </div>
 </template>

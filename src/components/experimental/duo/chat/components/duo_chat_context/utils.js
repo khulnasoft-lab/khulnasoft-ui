@@ -1,3 +1,5 @@
+import { CONTEXT_ITEM_LOCAL_GIT_COMMIT, CONTEXT_ITEM_LOCAL_GIT_DIFF } from './constants';
+
 export function categoryValidator(category) {
   return Boolean(category && category.value && category.label && category.icon);
 }
@@ -40,6 +42,21 @@ export function formatMergeRequestId(iid) {
   if (!iid) return '';
 
   return `!${iid}`;
+}
+
+export function getGitItemIcon(contextItem) {
+  const iconMap = {
+    [CONTEXT_ITEM_LOCAL_GIT_COMMIT]: 'commit',
+    [CONTEXT_ITEM_LOCAL_GIT_DIFF]: 'comparison',
+  };
+  const { gitType } = contextItem.metadata;
+  return iconMap[gitType] || null;
+}
+
+export function formatGitItemSecondaryText(contextItem) {
+  const { repositoryName, commitId } = contextItem.metadata;
+  const separator = commitId ? ' - ' : '';
+  return `${repositoryName}${separator}${commitId || ''}`;
 }
 
 /**

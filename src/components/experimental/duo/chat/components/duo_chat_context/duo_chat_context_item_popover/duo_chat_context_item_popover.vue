@@ -1,18 +1,26 @@
 <script>
-import GlPopover from '../../../../../../base/popover/popover.vue';
+import GlAlert from '../../../../../../base/alert/alert.vue';
 import GlIcon from '../../../../../../base/icon/icon.vue';
+import GlPopover from '../../../../../../base/popover/popover.vue';
+import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import { translate } from '../../../../../../../utils/i18n';
 import {
   CONTEXT_ITEM_CATEGORY_ISSUE,
   CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
   CONTEXT_ITEM_CATEGORY_FILE,
+  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
 } from '../constants';
-import { formatIssueId, formatMergeRequestId } from '../utils';
-import GlAlert from '../../../../../../base/alert/alert.vue';
+import {
+  formatGitItemSecondaryText,
+  formatIssueId,
+  formatMergeRequestId,
+  getGitItemIcon,
+} from '../utils';
 
 export default {
   name: 'DuoChatContextItemPopover',
   components: {
+    GlTruncate,
     GlAlert,
     GlIcon,
     GlPopover,
@@ -69,6 +77,11 @@ export default {
     filePathArray() {
       return this.filePath?.split('/');
     },
+    gitDetails() {
+      return this.contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT
+        ? formatGitItemSecondaryText(this.contextItem)
+        : null;
+    },
     isEnabled() {
       return this.contextItem.metadata.enabled !== false;
     },
@@ -78,24 +91,33 @@ export default {
         ? this.contextItem.metadata.disabledReasons.join(', ')
         : translate('DuoChatContextItemPopover.DisabledReason', 'This item is disabled');
     },
+    gitIconName() {
+      return getGitItemIcon(this.contextItem) || this.category.icon;
+    },
     iconName() {
       switch (this.contextItem.category) {
-        case 'merge_request':
+        case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
           return 'merge-request';
-        case 'issue':
+        case CONTEXT_ITEM_CATEGORY_ISSUE:
           return 'issues';
-        default:
+        case CONTEXT_ITEM_CATEGORY_FILE:
           return 'project';
+        default:
+          return '';
       }
     },
     itemTypeLabel() {
       switch (this.contextItem.category) {
-        case 'merge_request':
+        case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
           return translate('DuoChatContextItemPopover.MergeRequest', 'Merge request');
-        case 'issue':
+        case CONTEXT_ITEM_CATEGORY_ISSUE:
           return translate('DuoChatContextItemPopover.Issue', 'Issue');
-        default:
+        case CONTEXT_ITEM_CATEGORY_LOCAL_GIT:
+          return translate('DuoChatContextItemPopover.Git', 'Local Git repository diff');
+        case CONTEXT_ITEM_CATEGORY_FILE:
           return translate('DuoChatContextItemPopover.File', 'Project file');
+        default:
+          return '';
       }
     },
   },
@@ -118,9 +140,9 @@ export default {
           class="gl-heading-3 gl-mb-1 gl-mt-2 gl-leading-1"
           data-testid="chat-context-popover-title"
         >
-          {{ contextItem.metadata.title }}
+          {{ title }}
         </div>
-        <div class="gl-font-normal gl-text-subtle">{{ itemTypeLabel }}</div>
+        <div v-if="itemTypeLabel" class="gl-font-normal gl-text-subtle">{{ itemTypeLabel }}</div>
       </div>
     </template>
     <div>
@@ -132,10 +154,22 @@ export default {
           >{{ pathPart }}{{ index + 1 < filePathArray.length ? '/' : '' }}</span
         >
       </div>
+      <div v-else-if="gitDetails !== null" class="gl-flex gl-items-center">
+        <gl-icon
+          :name="gitIconName"
+          :size="12"
+          variant="subtle"
+          class="gl-mr-1 gl-shrink-0"
+        /><gl-truncate :text="gitDetails" class="gl-min-w-0" />
+      </div>
       <div v-else>
-        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1" /><span
-          class="gl-break-all"
-          >{{ contextItem.metadata.project }}</span
+        <gl-icon
+          v-if="iconName"
+          :name="iconName"
+          :size="12"
+          variant="subtle"
+          class="gl-mr-1"
+        /><span class="gl-break-all">{{ contextItem.metadata.project }}</span
         ><span v-if="id !== null" class="gl-break-all">{{ formattedId }}</span>
       </div>
       <gl-alert

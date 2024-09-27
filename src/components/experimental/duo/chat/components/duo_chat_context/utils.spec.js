@@ -3,14 +3,18 @@ import {
   categoryValidator,
   contextItemsValidator,
   contextItemValidator,
+  formatGitItemSecondaryText,
   formatIssueId,
   formatMergeRequestId,
+  getGitItemIcon,
   wrapIndex,
 } from './utils';
 import {
   MOCK_CATEGORIES,
   MOCK_CONTEXT_ITEM_FILE,
   MOCK_CONTEXT_ITEM_FILE_DISABLED,
+  MOCK_CONTEXT_ITEM_GIT_COMMIT,
+  MOCK_CONTEXT_ITEM_GIT_DIFF,
   MOCK_CONTEXT_ITEM_MERGE_REQUEST,
 } from './mock_context_data';
 
@@ -265,6 +269,48 @@ describe('duo_chat_context utils', () => {
       expect(formatMergeRequestId()).toBe('');
       expect(formatMergeRequestId(null)).toBe('');
       expect(formatMergeRequestId('')).toBe('');
+    });
+  });
+
+  describe('getGitItemIcon', () => {
+    it('returns "commit" icon for git commit items', () => {
+      const result = getGitItemIcon(MOCK_CONTEXT_ITEM_GIT_COMMIT);
+      expect(result).toBe('commit');
+    });
+
+    it('returns "comparison" icon for git diff items', () => {
+      const result = getGitItemIcon(MOCK_CONTEXT_ITEM_GIT_DIFF);
+      expect(result).toBe('comparison');
+    });
+
+    it('returns null for unknown git types', () => {
+      const unknownGitItem = {
+        ...MOCK_CONTEXT_ITEM_GIT_COMMIT,
+        metadata: { ...MOCK_CONTEXT_ITEM_GIT_COMMIT.metadata, gitType: 'unknown' },
+      };
+      const result = getGitItemIcon(unknownGitItem);
+      expect(result).toBeNull();
+    });
+  });
+
+  describe('formatGitItemSecondaryText', () => {
+    it('formats secondary text with repository name and commit ID for commit items', () => {
+      const result = formatGitItemSecondaryText(MOCK_CONTEXT_ITEM_GIT_COMMIT);
+      expect(result).toBe('example/garden - 20f8caf94cb8f5e5f9dbd1a9ac32702321de201b');
+    });
+
+    it('formats secondary text with only repository name and commit ID for diff items', () => {
+      const result = formatGitItemSecondaryText(MOCK_CONTEXT_ITEM_GIT_DIFF);
+      expect(result).toBe('example/garden - main');
+    });
+
+    it('handles items without commitId', () => {
+      const itemWithoutCommitId = {
+        ...MOCK_CONTEXT_ITEM_GIT_DIFF,
+        metadata: { ...MOCK_CONTEXT_ITEM_GIT_DIFF.metadata, commitId: undefined },
+      };
+      const result = formatGitItemSecondaryText(itemWithoutCommitId);
+      expect(result).toBe('example/garden');
     });
   });
 

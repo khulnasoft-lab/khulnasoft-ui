@@ -1,8 +1,12 @@
 import { shallowMount } from '@vue/test-utils';
+import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlPopover from '../../../../../../base/popover/popover.vue';
+import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import {
   MOCK_CONTEXT_ITEM_FILE,
   MOCK_CONTEXT_ITEM_FILE_DISABLED,
+  MOCK_CONTEXT_ITEM_GIT_COMMIT,
+  MOCK_CONTEXT_ITEM_GIT_DIFF,
   MOCK_CONTEXT_ITEM_ISSUE,
   MOCK_CONTEXT_ITEM_ISSUE_DISABLED,
   MOCK_CONTEXT_ITEM_MERGE_REQUEST,
@@ -20,6 +24,9 @@ describe('GlDuoChatContextItemPopover', () => {
         placement: 'top',
         ...props,
       },
+      stubs: {
+        GlTruncate,
+      },
       ...options,
     });
   };
@@ -28,6 +35,7 @@ describe('GlDuoChatContextItemPopover', () => {
   const findPopover = () => wrapper.findComponent(GlPopover);
   const findPopoverTitle = () => findByTestId('chat-context-popover-title');
   const findDisabledMessage = () => findByTestId('chat-context-popover-disabled');
+  const findIcon = () => wrapper.findComponent(GlIcon);
 
   it('renders the popover component', () => {
     createComponent();
@@ -51,6 +59,7 @@ describe('GlDuoChatContextItemPopover', () => {
       {},
       {
         stubs: {
+          GlTruncate,
           GlPopover: {
             name: 'GlPopover',
             template: '<div><slot name="title"></slot></div>',
@@ -94,6 +103,24 @@ describe('GlDuoChatContextItemPopover', () => {
 
       const content = findPopover().text();
       expect(content).toContain(expected);
+    });
+
+    it('renders expected content for git diff', () => {
+      createComponent({ contextItem: MOCK_CONTEXT_ITEM_GIT_DIFF });
+
+      const content = findPopover().text();
+      expect(content).toContain(MOCK_CONTEXT_ITEM_GIT_DIFF.metadata.repositoryName);
+      expect(content).toContain(MOCK_CONTEXT_ITEM_GIT_DIFF.metadata.commitId);
+      expect(findIcon().props('name')).toBe('comparison');
+    });
+
+    it('renders expected content for git commit', () => {
+      createComponent({ contextItem: MOCK_CONTEXT_ITEM_GIT_COMMIT });
+
+      const content = findPopover().text();
+      expect(content).toContain(MOCK_CONTEXT_ITEM_GIT_COMMIT.metadata.repositoryName);
+      expect(content).toContain(MOCK_CONTEXT_ITEM_GIT_COMMIT.metadata.commitId);
+      expect(findIcon().props('name')).toBe('commit');
     });
   });
 

@@ -4,6 +4,7 @@ export default {
   'CloseButton.title': 'Close',
   'DuoChatContextItemPopover.DisabledReason': 'This item is disabled',
   'DuoChatContextItemPopover.File': 'Project file',
+  'DuoChatContextItemPopover.Git': 'Local Git repository diff',
   'DuoChatContextItemPopover.Issue': 'Issue',
   'DuoChatContextItemPopover.MergeRequest': 'Merge request',
   'GlAlert.closeButtonTitle': 'Dismiss',
