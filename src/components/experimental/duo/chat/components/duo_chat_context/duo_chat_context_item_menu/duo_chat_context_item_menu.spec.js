@@ -5,6 +5,7 @@ import {
   CONTEXT_ITEM_CATEGORY_ISSUE,
   CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
   CONTEXT_ITEM_CATEGORY_FILE,
+  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
 } from '../constants';
 import GlDuoChatContextItemSelections from '../duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import GlDuoChatContextItemMenuCategoryItems from './duo_chat_context_item_menu_category_items.vue';
@@ -125,6 +126,7 @@ describe('GlDuoChatContextItemMenu', () => {
       CONTEXT_ITEM_CATEGORY_ISSUE,
       CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
       CONTEXT_ITEM_CATEGORY_FILE,
+      CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
     ])('when a "%s" category has been selected', (categoryValue) => {
       let category;
       let results;
@@ -138,7 +140,8 @@ describe('GlDuoChatContextItemMenu', () => {
               ...item.metadata,
               enabled: index % 2 === 0, // disable odd indexed items
             },
-          }));
+          }))
+          .slice(0, 3); // ensure consistent number of items for testing wrapping/cycling logic
 
         createComponent({
           results,

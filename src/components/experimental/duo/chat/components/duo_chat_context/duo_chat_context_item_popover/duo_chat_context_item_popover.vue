@@ -1,18 +1,27 @@
 <script>
-import GlPopover from '../../../../../../base/popover/popover.vue';
+import GlAlert from '../../../../../../base/alert/alert.vue';
 import GlIcon from '../../../../../../base/icon/icon.vue';
+import GlPopover from '../../../../../../base/popover/popover.vue';
+import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import { translate } from '../../../../../../../utils/i18n';
 import {
-  CONTEXT_ITEM_CATEGORY_ISSUE,
-  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
   CONTEXT_ITEM_CATEGORY_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
+  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
 } from '../constants';
-import { formatIssueId, formatMergeRequestId } from '../utils';
-import GlAlert from '../../../../../../base/alert/alert.vue';
+import {
+  formatGitItemSecondaryText,
+  formatIssueId,
+  formatMergeRequestId,
+  getContextItemIcon,
+  getContextItemTypeLabel,
+} from '../utils';
 
 export default {
   name: 'DuoChatContextItemPopover',
   components: {
+    GlTruncate,
     GlAlert,
     GlIcon,
     GlPopover,
@@ -69,6 +78,11 @@ export default {
     filePathArray() {
       return this.filePath?.split('/');
     },
+    gitDetails() {
+      return this.contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT
+        ? formatGitItemSecondaryText(this.contextItem)
+        : null;
+    },
     isEnabled() {
       return this.contextItem.metadata.enabled !== false;
     },
@@ -79,24 +93,10 @@ export default {
         : translate('DuoChatContextItemPopover.DisabledReason', 'This item is disabled');
     },
     iconName() {
-      switch (this.contextItem.category) {
-        case 'merge_request':
-          return 'merge-request';
-        case 'issue':
-          return 'issues';
-        default:
-          return 'project';
-      }
+      return getContextItemIcon(this.contextItem);
     },
     itemTypeLabel() {
-      switch (this.contextItem.category) {
-        case 'merge_request':
-          return translate('DuoChatContextItemPopover.MergeRequest', 'Merge request');
-        case 'issue':
-          return translate('DuoChatContextItemPopover.Issue', 'Issue');
-        default:
-          return translate('DuoChatContextItemPopover.File', 'Project file');
-      }
+      return getContextItemTypeLabel(this.contextItem);
     },
   },
   methods: {
@@ -118,25 +118,27 @@ export default {
           class="gl-heading-3 gl-mb-1 gl-mt-2 gl-leading-1"
           data-testid="chat-context-popover-title"
         >
-          {{ contextItem.metadata.title }}
+          {{ title }}
         </div>
-        <div class="gl-font-normal gl-text-subtle">{{ itemTypeLabel }}</div>
+        <div v-if="itemTypeLabel" class="gl-font-normal gl-text-subtle">{{ itemTypeLabel }}</div>
       </div>
     </template>
     <div>
-      <div v-if="filePath !== null">
-        <gl-icon name="document" :size="12" variant="subtle" class="gl-mr-1" /><span
-          class="gl-break-all"
-          >{{ contextItem.metadata.project }}</span
-        ><span v-for="(pathPart, index) in filePathArray" :key="pathPart" class="gl-break-all"
+      <div v-if="filePath">
+        <gl-icon name="document" :size="12" variant="subtle" />
+        <span class="gl-break-all">{{ contextItem.metadata.project }}</span>
+        <span v-for="(pathPart, index) in filePathArray" :key="pathPart" class="gl-break-all"
           >{{ pathPart }}{{ index + 1 < filePathArray.length ? '/' : '' }}</span
         >
       </div>
+      <div v-else-if="gitDetails" class="gl-flex gl-items-center" data-testid="git-details">
+        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1 gl-shrink-0" />
+        <gl-truncate :text="gitDetails" class="gl-min-w-0" />
+      </div>
       <div v-else>
-        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1" /><span
-          class="gl-break-all"
-          >{{ contextItem.metadata.project }}</span
-        ><span v-if="id !== null" class="gl-break-all">{{ formattedId }}</span>
+        <gl-icon v-if="iconName" :name="iconName" :size="12" variant="subtle" />
+        <span class="gl-break-all">{{ contextItem.metadata.project }}</span>
+        <span v-if="id" class="gl-break-all">{{ formattedId }}</span>
       </div>
       <gl-alert
         v-if="!isEnabled"
