@@ -47,7 +47,7 @@
   .custom-control-input:disabled,
   .custom-control-input:disabled ~ .custom-control-label,
   .custom-control-input:disabled ~ .custom-control-label > .help-text {
-    @include gl-cursor-not-allowed;
+    @apply gl-cursor-not-allowed;
     color: var(--gl-text-color-disabled);
   }
 
@@ -55,7 +55,7 @@
     @apply gl-pl-5;
 
     .custom-control-input ~ .custom-control-label {
-      @include gl-cursor-pointer;
+      @apply gl-cursor-pointer;
       @apply gl-pl-3;
       @apply gl-mb-3;
 
@@ -171,10 +171,10 @@
     }
 
     .custom-control-input:disabled ~ .custom-control-label {
-      @include gl-cursor-not-allowed;
+      @apply gl-cursor-not-allowed;
 
       &::before {
-        @include gl-pointer-events-auto;
+        @apply gl-pointer-events-auto;
         background-color: var(--gl-control-background-color-disabled);
         border-color: var(--gl-control-border-color-disabled);
 

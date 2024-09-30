@@ -14,7 +14,7 @@
   &-labels.inline-labels {
     @apply gl-flex-row;
     @apply gl-items-center;
-    @include gl-gap-2;
+    @apply gl-gap-2;
   }
 
   &-label {

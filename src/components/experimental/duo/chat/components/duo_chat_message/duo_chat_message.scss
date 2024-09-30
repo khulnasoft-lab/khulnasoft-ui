@@ -26,7 +26,7 @@
   insert-code-snippet {
     position: absolute;
     @apply gl-transition-all;
-    @include gl-opacity-0;
+    @apply gl-opacity-0;
     right: $gl-spacing-scale-3;
     top: $gl-spacing-scale-3;
   }
@@ -40,7 +40,7 @@
     copy-code:focus-within,
     insert-code-snippet,
     insert-code-snippet:focus-within {
-      @include gl-opacity-10;
+      @apply gl-opacity-10;
     }
   }
 

@@ -10,8 +10,8 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
 /* stylelint-disable property-no-vendor-prefix */
 .gl-form-select {
   @apply gl-text-base;
-  @include gl-font-regular;
-  @include gl-opacity-10;
+  @apply gl-font-regular;
+  @apply gl-opacity-10;
   @apply gl-leading-normal;
   @apply gl-py-3;
   @apply gl-pl-4;
@@ -42,7 +42,7 @@ See: https://gitlab.com/gitlab-org/gitlab/issues/30055
   }
 
   &:disabled {
-    @include gl-cursor-not-allowed;
+    @apply gl-cursor-not-allowed;
     color: var(--gl-text-color-disabled);
     background-color: var(--gl-control-background-color-disabled);
     box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-disabled);

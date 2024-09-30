@@ -1,12 +1,12 @@
 .gl-filtered-search-token {
   &.gl-filtered-search-token-active {
-    @include gl-cursor-default;
+    @apply gl-cursor-default;
   }
 
   @apply gl-h-6;
   @apply gl-inline-flex;
   @apply gl-whitespace-nowrap;
-  @include gl-cursor-pointer;
+  @apply gl-cursor-pointer;
 
   &.gl-filtered-search-token-hover {
     &:hover {
@@ -59,5 +59,5 @@
 
 .gl-filtered-search-token-operator-description {
   @apply gl-text-subtle;
-  @include gl-ml-auto;
+  @apply gl-ml-auto;
 }

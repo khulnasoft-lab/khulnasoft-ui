@@ -47,12 +47,12 @@
   }
 
   &.disabled {
-    @include gl-pointer-events-auto;
-    @include gl-cursor-not-allowed;
+    @apply gl-pointer-events-auto;
+    @apply gl-cursor-not-allowed;
     color: var(--gl-action-disabled-foreground-color);
 
     &:hover {
-      @include gl-shadow-none;
+      @apply gl-shadow-none;
     }
   }
 
@@ -160,5 +160,5 @@
 .gl-scrollable-tabs-nav {
   @apply gl-overflow-hidden;
   position: relative;
-  @include gl-flex-nowrap;
+  @apply gl-flex-nowrap;
 }

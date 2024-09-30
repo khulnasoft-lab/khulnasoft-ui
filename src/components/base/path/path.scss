@@ -41,7 +41,7 @@ $path-chevron-right-margin: px-to-rem(14px);
   }
 
   .gl-path-nav-list-item {
-    @include gl-min-w-fit-content;
+    @apply gl-min-w-fit;
     padding-top: 1px;
     padding-bottom: 1px;
 
@@ -56,7 +56,7 @@ $path-chevron-right-margin: px-to-rem(14px);
     @apply gl-py-3;
     @apply gl-flex;
     @apply gl-text-base;
-    @include gl-z-index-0;
+    @apply gl-z-0;
     @apply gl-font-bold;
     @apply gl-leading-normal;
     @apply gl-rounded-tl-base;
@@ -120,7 +120,7 @@ $path-chevron-right-margin: px-to-rem(14px);
     }
 
     &:disabled {
-      @include gl-cursor-not-allowed;
+      @apply gl-cursor-not-allowed;
       background-color: var(--gl-color-alpha-0);
       box-shadow: none;
       color: var(--gl-action-disabled-foreground-color);

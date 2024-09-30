@@ -2,7 +2,7 @@
   @apply gl-text-lg;
   @apply gl-leading-24;
   color: $gl-text-color;
-  @include gl-font-regular;
+  @apply gl-font-regular;
   @apply gl-font-normal;
 
   :first-child {
@@ -68,7 +68,7 @@
 
   .monospace,
   code {
-    @include gl-font-monospace;
+    @apply gl-font-monospace;
   }
 
   blockquote {
@@ -211,7 +211,7 @@
 
   .monospace,
   code {
-    @include gl-font-monospace;
+    @apply gl-font-monospace;
   }
 
   table {

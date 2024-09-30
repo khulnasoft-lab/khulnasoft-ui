@@ -4,7 +4,7 @@
 
   .gl-new-dropdown-custom-toggle {
     *:first-child {
-      @include gl-cursor-pointer;
+      @apply gl-cursor-pointer;
 
       &:focus {
         @apply gl-focus;
@@ -17,7 +17,7 @@
     @apply gl-bg-white;
     @apply gl-border-1 gl-border-solid gl-border-gray-200;
     @apply gl-rounded-lg;
-    @include gl-shadow-md;
+    @apply gl-shadow-md;
     top: 0;
     left: 0;
     min-width: $gl-new-dropdown-min-width;
@@ -71,7 +71,7 @@
   }
 
   .gl-new-dropdown-button-text {
-    @include gl-mr-auto;
+    @apply gl-mr-auto;
     @apply gl-overflow-hidden;
     @apply gl-text-ellipsis;
   }

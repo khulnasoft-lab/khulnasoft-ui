@@ -307,7 +307,7 @@
   &.btn-success,
   &.btn-danger {
     &-tertiary {
-      @include gl-shadow-none;
+      @apply gl-shadow-none;
 
       @media (forced-colors: active) {
         color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
@@ -316,7 +316,7 @@
       }
 
       &:hover {
-        @include gl-shadow-none;
+        @apply gl-shadow-none;
       }
 
       &:active,
@@ -470,7 +470,7 @@
   &.btn-label:focus,
   &.btn-label:active {
     background-color: var(--gl-background-color-subtle);
-    @include gl-cursor-default;
+    @apply gl-cursor-default;
     user-select: text;
   }
 
@@ -482,7 +482,7 @@
     color: var(--gl-button-link-text-color-default);
     @apply gl-py-0;
     @apply gl-px-0;
-    @include gl-shadow-none;
+    @apply gl-shadow-none;
 
     &:hover {
       @apply gl-bg-transparent;
@@ -504,7 +504,7 @@
     &.disabled,
     &[disabled] {
       @apply gl-bg-transparent;
-      @include gl-shadow-none;
+      @apply gl-shadow-none;
     }
   }
 
@@ -537,6 +537,6 @@
   &.disabled[class*='-tertiary'],
   &[disabled][class*='-tertiary'] {
     @apply gl-bg-transparent;
-    @include gl-shadow-none;
+    @apply gl-shadow-none;
   }
 }

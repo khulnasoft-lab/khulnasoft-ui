@@ -11,8 +11,8 @@ $breadcrumb-max-width: $grid-size * 16;
   @apply gl-items-center;
   @apply gl-leading-normal;
   @apply gl-m-0;
-  @include gl-flex-nowrap;
-  @include gl-max-w-full;
+  @apply gl-flex-nowrap;
+  @apply gl-max-w-full;
 }
 
 // bootstrap overrides

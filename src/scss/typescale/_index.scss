@@ -2,7 +2,7 @@
   #{$selector} {
     @apply gl-text-base;
     @apply gl-text-gray-900;
-    @include gl-font-regular;
+    @apply gl-font-regular;
     @apply gl-font-normal;
     @apply gl-leading-normal;
   }
@@ -89,7 +89,7 @@
   }
 
   .monospace {
-    @include gl-font-monospace;
+    @apply gl-font-monospace;
   }
 
   blockquote {

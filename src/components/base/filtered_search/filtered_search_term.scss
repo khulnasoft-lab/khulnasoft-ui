@@ -1,6 +1,6 @@
 .gl-filtered-search-term {
   .gl-filtered-search-term-token {
-    @include gl-cursor-text;
+    @apply gl-cursor-text;
   }
 }
 

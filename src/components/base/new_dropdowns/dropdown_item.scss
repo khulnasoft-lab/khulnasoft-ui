@@ -1,5 +1,5 @@
 .gl-new-dropdown-item {
-  @include gl-cursor-pointer;
+  @apply gl-cursor-pointer;
   @apply gl-px-2;
   @apply gl-my-1;
 
@@ -109,7 +109,7 @@
     }
 
     .gl-new-dropdown-item-text-wrapper {
-      @include gl-min-w-0;
+      @apply gl-min-w-0;
       @apply gl-grow;
       @apply gl-py-3;
     }

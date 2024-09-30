@@ -4,7 +4,7 @@
 
 .gl-skeleton-loader {
   stop {
-    @include gl-opacity-10;
+    @apply gl-opacity-10;
   }
 
   .background-stop {

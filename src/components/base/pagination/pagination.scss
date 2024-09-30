@@ -51,7 +51,7 @@
       @apply gl-border-blue-500;
       @apply gl-text-white;
       @apply gl-z-2;
-      @include gl-shadow-none;
+      @apply gl-shadow-none;
 
       &:focus {
         @include gl-focus();

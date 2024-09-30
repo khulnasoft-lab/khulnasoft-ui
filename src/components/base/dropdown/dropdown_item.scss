@@ -10,7 +10,7 @@
   @apply gl-py-0;
   position: relative;
   @apply gl-rounded-none;
-  @include gl-shadow-none;
+  @apply gl-shadow-none;
   @apply gl-text-gray-900;
   @apply gl-text-left;
   @apply gl-w-full;
@@ -20,7 +20,7 @@
 .gl-dropdown-item {
   .dropdown-item {
     @include gl-tmp-dropdown-item-style;
-    @include gl-cursor-pointer;
+    @apply gl-cursor-pointer;
 
     .gl-avatar {
       @apply gl-shrink-0;
@@ -48,7 +48,7 @@
     }
 
     .gl-dropdown-item-text-wrapper {
-      @include gl-min-w-0;
+      @apply gl-min-w-0;
       @apply gl-grow;
       @apply gl-mr-3;
       @apply gl-py-3;
@@ -75,7 +75,7 @@
       }
 
       .gl-avatar {
-        @include gl-opacity-7;
+        @apply gl-opacity-7;
       }
     }
 

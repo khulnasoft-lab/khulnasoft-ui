@@ -1,7 +1,7 @@
 .gl-daterange-picker {
   @apply gl-leading-normal;
   @apply gl-text-base;
-  @include gl-font-regular;
+  @apply gl-font-regular;
 
   label {
     @apply gl-font-bold;
@@ -13,7 +13,7 @@
     @apply gl-flex-row;
     @apply gl-items-center;
     @apply gl-self-end;
-    @include gl-gap-3;
+    @apply gl-gap-3;
     @apply gl-h-7;
     color: var(--gl-text-color-subtle);
   }

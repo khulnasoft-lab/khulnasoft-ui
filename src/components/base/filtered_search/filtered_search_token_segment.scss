@@ -4,10 +4,10 @@
   @apply gl-w-full;
   @apply gl-h-6;
   @apply gl-whitespace-nowrap;
-  @include gl-cursor-pointer;
+  @apply gl-cursor-pointer;
 
   &.gl-filtered-search-token-segment-active {
-    @include gl-cursor-default;
+    @apply gl-cursor-default;
   }
 }
 

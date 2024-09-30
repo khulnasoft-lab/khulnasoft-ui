@@ -6,7 +6,7 @@
     @apply gl-mt-2;
     @apply gl-mb-2;
     @apply gl-p-0;
-    @include gl-shadow-x0-y2-b4-s0;
+    @apply gl-shadow-x0-y2-b4-s0;
     width: $gl-dropdown-width;
 
     .gl-search-box-by-type {
@@ -132,7 +132,7 @@
   }
 
   .gl-dropdown-button-text {
-    @include gl-mr-auto;
+    @apply gl-mr-auto;
     @apply gl-overflow-hidden;
     @apply gl-text-ellipsis;
   }

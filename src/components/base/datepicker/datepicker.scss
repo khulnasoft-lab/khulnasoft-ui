@@ -28,7 +28,7 @@ $pd-week-color: var(--gl-text-color-subtle);
   @apply gl-flex;
   @apply gl-justify-center;
   @apply gl-items-center;
-  @include gl-pointer-events-none;
+  @apply gl-pointer-events-none;
   @apply gl-px-2;
 
   .gl-button.gl-button {
@@ -37,14 +37,14 @@ $pd-week-color: var(--gl-text-color-subtle);
 }
 
 .gl-datepicker-theme {
-  @include gl-font-regular;
+  @apply gl-font-regular;
   @apply gl-border-none;
   @apply gl-rounded-base;
   @apply gl-mt-3;
   background-color: var(--gl-datepicker-background-color);
 
   &.is-bound {
-    @include gl-shadow-md;
+    @apply gl-shadow-md;
 
     @media (forced-colors: active) {
       border: 1px solid;
@@ -72,7 +72,7 @@ $pd-week-color: var(--gl-text-color-subtle);
     @apply gl-h-5;
 
     &.is-disabled {
-      @include gl-cursor-not-allowed;
+      @apply gl-cursor-not-allowed;
     }
 
     @media (forced-colors: none) {
@@ -183,12 +183,12 @@ $pd-week-color: var(--gl-text-color-subtle);
 
   abbr[title] {
     @apply gl-no-underline;
-    @include gl-cursor-default;
+    @apply gl-cursor-default;
   }
 
   .pika-button {
     @apply gl-rounded-base;
-    @include gl-shadow-none;
+    @apply gl-shadow-none;
     @apply gl-py-3;
     @apply gl-text-center;
     @apply gl-leading-normal;
@@ -223,6 +223,6 @@ $pd-week-color: var(--gl-text-color-subtle);
   }
 
   .is-disabled {
-    @include gl-cursor-not-allowed;
+    @apply gl-cursor-not-allowed;
   }
 }

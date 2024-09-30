@@ -120,7 +120,7 @@ body.modal-open {
 
   @include media-breakpoint-up(sm) {
     .modal-dialog {
-      @include gl-mx-auto;
+      @apply gl-mx-auto;
       @apply gl-my-0;
       @apply gl-flex;
       @apply gl-items-center;
