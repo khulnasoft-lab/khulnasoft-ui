@@ -182,6 +182,12 @@
   --theme-indigo-100: #dbdbf8;
   --theme-indigo-50: #f1f1ff;
   --theme-indigo-10: #f8f8ff;
+  --gl-close-negative-background-color-active: rgba(137, 136, 141, 0.16); /* Used for the background of a negative close button (light on dark) in the active state. */
+  --gl-close-negative-background-color-hover: rgba(137, 136, 141, 0.4); /* Used for the background of a negative close button (light on dark) in the hover state. */
+  --gl-close-negative-background-color-default: rgba(137, 136, 141, 0.0); /* Used for the background of a negative close button (light on dark) in the default state. */
+  --gl-close-positive-background-color-active: rgba(83, 81, 88, 0.24); /* Used for the background of a positive close button (dark on light) in the active state. */
+  --gl-close-positive-background-color-hover: rgba(164, 163, 168, 0.16); /* Used for the background of a positive close button (dark on light) in the hover state. */
+  --gl-close-positive-background-color-default: rgba(164, 163, 168, 0.0); /* Used for the background of a positive close button (dark on light) in the default state. */
   --gl-avatar-fallback-background-color-neutral: #bfbfc33d; /* Neutral background for avatar fallback with no particular meaning. */
   --gl-avatar-fallback-background-color-orange: #e9be743d; /* Orange background for avatar fallback with no particular meaning. */
   --gl-avatar-fallback-background-color-green: #91d4a83d; /* Green background for avatar fallback with no particular meaning. */
@@ -528,6 +534,15 @@
   --gl-filtered-search-token-type-background-color-hover: var(--gl-color-neutral-100); /* Used for the filtered search type token background color in the hover state. */
   --gl-filtered-search-token-type-background-color-default: var(--gl-color-neutral-50); /* Used for the filtered search type token background color in the default state. */
   --gl-datepicker-background-color: var(--gl-color-neutral-0); /* Used for the background color of datepicker. */
+  --gl-close-negative-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a negative close button (light on dark) in the default state. */
+  --gl-close-negative-background-color-focus: var(--gl-close-negative-background-color-hover); /* Used for the background of a negative close button (light on dark) in the focus state. */
+  --gl-close-negative-foreground-color-default: var(--gl-color-neutral-50); /* Used for the foreground of a negative close button (light on dark) in the default state. */
+  --gl-close-positive-border-color-default: var(--gl-color-alpha-0); /* Used for the border of a positive close button (dark on light) in the default state. */
+  --gl-close-positive-background-color-focus: var(--gl-close-positive-background-color-hover); /* Used for the background of a positive close button (dark on light) in the focus state. */
+  --gl-close-positive-foreground-color-default: var(--gl-color-neutral-900); /* Used for the foreground of a positive close button (dark on light) in the default state. */
+  --gl-close-background-color-active: var(--gl-action-neutral-background-color-active); /* Used for the background of a close button in the active state. */
+  --gl-close-background-color-hover: var(--gl-action-neutral-background-color-hover); /* Used for the background of a close button in the hover state. */
+  --gl-close-background-color-default: var(--gl-action-neutral-background-color-default); /* Used for the background of a close button in the default state. */
   --gl-button-disabled-border-color: var(--gl-color-neutral-100); /* Used for the border of a disabled button. */
   --gl-button-disabled-background-color: var(--gl-color-neutral-10); /* Used for the background of a disabled button. */
   --gl-button-disabled-foreground-color: var(--gl-color-neutral-500); /* Used for the foreground of a disabled button. */
@@ -773,6 +788,13 @@
   --gl-table-sorting-icon-color: var(--gl-text-color-heading); /* Used for the color of the sorting icons in the column headers. */
   --gl-table-row-background-color-hover: var(--gl-background-color-subtle); /* Used for the background of a table row in hover state. */
   --gl-datepicker-date-text-color-selected: var(--gl-control-indicator-color-selected); /* Used for the datepicker date text color state indicators. */
+  --gl-close-negative-border-color-hover: var(--gl-close-negative-border-color-default); /* Used for the border of a negative close button (light on dark) in the hover state. */
+  --gl-close-negative-foreground-color-hover: var(--gl-close-negative-foreground-color-default); /* Used for the foreground of a negative close button (light on dark) in the hover state. */
+  --gl-close-positive-border-color-hover: var(--gl-close-positive-border-color-default); /* Used for the border of a positive close button (dark on light) in the hover state. */
+  --gl-close-positive-foreground-color-hover: var(--gl-close-positive-foreground-color-default); /* Used for the foreground of a positive close button (dark on light) in the hover state. */
+  --gl-close-border-color-default: var(--gl-action-neutral-border-color-default); /* Used for the border of a close button in the default state. */
+  --gl-close-background-color-focus: var(--gl-action-neutral-background-color-focus); /* Used for the background of a close button in the focus state. */
+  --gl-close-foreground-color-default: var(--gl-action-neutral-foreground-color-default); /* Used for the foreground of a close button in the default state. */
   --gl-button-selected-border-color-focus: var(--gl-button-selected-border-color-hover); /* Used for the border of a selected button in the focus state. */
   --gl-button-selected-background-color-active: var(--gl-button-default-primary-background-color-active); /* Used for the background of a selected button in the active state. */
   --gl-button-selected-background-color-hover: var(--gl-button-default-primary-background-color-hover); /* Used for the background of a selected button in the hover state. */
@@ -872,6 +894,16 @@
   --gl-action-selected-border-color-default: var(--gl-action-selected-background-color-default); /* Used for the border of a selected action in the default state. */
   --gl-action-selected-background-color-focus: var(--gl-action-selected-background-color-hover); /* Used for the background of a selected action in the focus state. */
   --gl-action-selected-foreground-color-hover: var(--gl-action-selected-foreground-color-default); /* Used for the foreground of a selected action in the hover state. */
+  --gl-close-negative-border-color-focus: var(--gl-close-negative-border-color-hover); /* Used for the border of a negative close button (light on dark) in the focus state. */
+  --gl-close-negative-foreground-color-focus: var(--gl-close-negative-foreground-color-hover); /* Used for the foreground of a negative close button (light on dark) in the focus state. */
+  --gl-close-positive-border-color-focus: var(--gl-close-positive-border-color-hover); /* Used for the border of a positive close button (dark on light) in the focus state. */
+  --gl-close-positive-foreground-color-focus: var(--gl-close-positive-foreground-color-hover); /* Used for the foreground of a positive close button (dark on light) in the focus state. */
+  --gl-close-border-color-active: var(--gl-action-neutral-border-color-active); /* Used for the border of a close button in the active state. */
+  --gl-close-border-color-focus: var(--gl-action-neutral-border-color-focus); /* Used for the border of a close button in the focus state. */
+  --gl-close-border-color-hover: var(--gl-action-neutral-border-color-hover); /* Used for the border of a close button in the hover state. */
+  --gl-close-foreground-color-active: var(--gl-action-neutral-foreground-color-active); /* Used for the foreground of a close button in the active state. */
+  --gl-close-foreground-color-focus: var(--gl-action-neutral-foreground-color-focus); /* Used for the foreground of a close button in the focus state. */
+  --gl-close-foreground-color-hover: var(--gl-action-neutral-foreground-color-hover); /* Used for the foreground of a close button in the hover state. */
   --gl-button-selected-background-color-focus: var(--gl-button-default-primary-background-color-focus); /* Used for the background of a selected button in the focus state. */
   --gl-button-selected-foreground-color-active: var(--gl-button-default-primary-foreground-color-active); /* Used for the foreground of a selected button in the active state. */
   --gl-button-selected-foreground-color-focus: var(--gl-button-default-primary-foreground-color-focus); /* Used for the foreground of a selected button in the focus state. */
@@ -910,6 +942,10 @@
   --gl-action-strong-confirm-foreground-color-focus: var(--gl-action-strong-confirm-foreground-color-hover); /* Used for the foreground of a strong confirm action in the focus state. */
   --gl-action-selected-border-color-focus: var(--gl-action-selected-background-color-focus); /* Used for the border of a selected action in the focus state. */
   --gl-action-selected-foreground-color-focus: var(--gl-action-selected-foreground-color-hover); /* Used for the foreground of a selected action in the focus state. */
+  --gl-close-negative-border-color-active: var(--gl-close-negative-border-color-focus); /* Used for the border of a negative close button (light on dark) in the active state. */
+  --gl-close-negative-foreground-color-active: var(--gl-close-negative-foreground-color-focus); /* Used for the foreground of a negative close button (light on dark) in the active state. */
+  --gl-close-positive-border-color-active: var(--gl-close-positive-border-color-focus); /* Used for the border of a positive close button (dark on light) in the active state. */
+  --gl-close-positive-foreground-color-active: var(--gl-close-positive-foreground-color-focus); /* Used for the foreground of a positive close button (dark on light) in the active state. */
   --gl-button-confirm-primary-foreground-color-focus: var(--gl-action-strong-confirm-foreground-color-focus); /* Used for the foreground of a confirm (positive) primary button in the focus state. */
   --gl-action-strong-neutral-border-color-active: var(--gl-action-strong-neutral-border-color-focus); /* Used for the border of a strong neutral action in the active state. */
   --gl-action-strong-neutral-foreground-color-active: var(--gl-action-strong-neutral-foreground-color-focus); /* Used for the foreground of a strong neutral action in the active state. */

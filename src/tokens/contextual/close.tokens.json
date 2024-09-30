@@ -1,0 +1,224 @@
+{
+  "close": {
+    "foreground": {
+      "color": {
+        "default": {
+          "$value": "{action.neutral.foreground.color.default}",
+          "$type": "color",
+          "$description": "Used for the foreground of a close button in the default state."
+        },
+        "hover": {
+          "$value": "{action.neutral.foreground.color.hover}",
+          "$type": "color",
+          "$description": "Used for the foreground of a close button in the hover state."
+        },
+        "focus": {
+          "$value": "{action.neutral.foreground.color.focus}",
+          "$type": "color",
+          "$description": "Used for the foreground of a close button in the focus state."
+        },
+        "active": {
+          "$value": "{action.neutral.foreground.color.active}",
+          "$type": "color",
+          "$description": "Used for the foreground of a close button in the active state."
+        }
+      }
+    },
+    "background": {
+      "color": {
+        "default": {
+          "$value": "{action.neutral.background.color.default}",
+          "$type": "color",
+          "$description": "Used for the background of a close button in the default state."
+        },
+        "hover": {
+          "$value": "{action.neutral.background.color.hover}",
+          "$type": "color",
+          "$description": "Used for the background of a close button in the hover state."
+        },
+        "focus": {
+          "$value": "{action.neutral.background.color.focus}",
+          "$type": "color",
+          "$description": "Used for the background of a close button in the focus state."
+        },
+        "active": {
+          "$value": "{action.neutral.background.color.active}",
+          "$type": "color",
+          "$description": "Used for the background of a close button in the active state."
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "default": {
+          "$value": "{action.neutral.border.color.default}",
+          "$type": "color",
+          "$description": "Used for the border of a close button in the default state."
+        },
+        "hover": {
+          "$value": "{action.neutral.border.color.hover}",
+          "$type": "color",
+          "$description": "Used for the border of a close button in the hover state."
+        },
+        "focus": {
+          "$value": "{action.neutral.border.color.focus}",
+          "$type": "color",
+          "$description": "Used for the border of a close button in the focus state."
+        },
+        "active": {
+          "$value": "{action.neutral.border.color.active}",
+          "$type": "color",
+          "$description": "Used for the border of a close button in the active state."
+        }
+      }
+    },
+    "positive": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": "{color.neutral.900}",
+            "$type": "color",
+            "$description": "Used for the foreground of a positive close button (dark on light) in the default state."
+          },
+          "hover": {
+            "$value": "{close.positive.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a positive close button (dark on light) in the hover state."
+          },
+          "focus": {
+            "$value": "{close.positive.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the foreground of a positive close button (dark on light) in the focus state."
+          },
+          "active": {
+            "$value": "{close.positive.foreground.color.focus}",
+            "$type": "color",
+            "$description": "Used for the foreground of a positive close button (dark on light) in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": "rgba(164, 163, 168, 0.0)",
+            "$type": "color",
+            "$description": "Used for the background of a positive close button (dark on light) in the default state."
+          },
+          "hover": {
+            "$value": "rgba(164, 163, 168, 0.16)",
+            "$type": "color",
+            "$description": "Used for the background of a positive close button (dark on light) in the hover state."
+          },
+          "focus": {
+            "$value": "{close.positive.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a positive close button (dark on light) in the focus state."
+          },
+          "active": {
+            "$value": "rgba(83, 81, 88, 0.24)",
+            "$type": "color",
+            "$description": "Used for the background of a positive close button (dark on light) in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a positive close button (dark on light) in the default state."
+          },
+          "hover": {
+            "$value": "{close.positive.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a positive close button (dark on light) in the hover state."
+          },
+          "focus": {
+            "$value": "{close.positive.border.color.hover}",
+            "$type": "color",
+            "$description": "Used for the border of a positive close button (dark on light) in the focus state."
+          },
+          "active": {
+            "$value": "{close.positive.border.color.focus}",
+            "$type": "color",
+            "$description": "Used for the border of a positive close button (dark on light) in the active state."
+          }
+        }
+      }
+    },
+    "negative": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": "{color.neutral.50}",
+            "$type": "color",
+            "$description": "Used for the foreground of a negative close button (light on dark) in the default state."
+          },
+          "hover": {
+            "$value": "{close.negative.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a negative close button (light on dark) in the hover state."
+          },
+          "focus": {
+            "$value": "{close.negative.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the foreground of a negative close button (light on dark) in the focus state."
+          },
+          "active": {
+            "$value": "{close.negative.foreground.color.focus}",
+            "$type": "color",
+            "$description": "Used for the foreground of a negative close button (light on dark) in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": "rgba(137, 136, 141, 0.0)",
+            "$type": "color",
+            "$description": "Used for the background of a negative close button (light on dark) in the default state."
+          },
+          "hover": {
+            "$value": "rgba(137, 136, 141, 0.4)",
+            "$type": "color",
+            "$description": "Used for the background of a negative close button (light on dark) in the hover state."
+          },
+          "focus": {
+            "$value": "{close.negative.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a negative close button (light on dark) in the focus state."
+          },
+          "active": {
+            "$value": "rgba(137, 136, 141, 0.16)",
+            "$type": "color",
+            "$description": "Used for the background of a negative close button (light on dark) in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a negative close button (light on dark) in the default state."
+          },
+          "hover": {
+            "$value": "{close.negative.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a negative close button (light on dark) in the hover state."
+          },
+          "focus": {
+            "$value": "{close.negative.border.color.hover}",
+            "$type": "color",
+            "$description": "Used for the border of a negative close button (light on dark) in the focus state."
+          },
+          "active": {
+            "$value": "{close.negative.border.color.focus}",
+            "$type": "color",
+            "$description": "Used for the border of a negative close button (light on dark) in the active state."
+          }
+        }
+      }
+    }
+  }
+}
