@@ -728,6 +728,7 @@ $gl-border-color-strong: $gl-color-neutral-400; // Used for a distinct border th
 $gl-border-color-subtle: $gl-color-neutral-50; // Used for a subtle border in combination with the default background.
 $gl-border-color-default: $gl-color-neutral-100; // Used for the default border color.
 $gl-background-color-overlay: $gl-color-alpha-dark-24; // Used for an overlay that covers other content.
+$gl-background-color-section: $gl-color-neutral-0; // Used for containers, like a card header, that are visually distinct from the default page background only when necessary to maintain affordance and hierarchy in different modes.
 $gl-background-color-overlap: $gl-color-neutral-0; // Used for components, like tooltips and drawers, and content, like a sticky header, that overlap other content.
 $gl-background-color-disabled: $gl-color-neutral-10; // Used to identify a disabled section.
 $gl-background-color-strong: $gl-color-neutral-50; // Used to make the background easily stand out from the default.
@@ -844,7 +845,6 @@ $gl-alert-info-title-color: $gl-text-color-heading; // Used for the title color 
 $gl-alert-neutral-background-color: $gl-feedback-neutral-background-color; // Used for the background color of a neutral alert.
 $gl-alert-neutral-title-color: $gl-text-color-heading; // Used for the title color of a neutral alert.
 $gl-border-color-section: $gl-border-color-default; // Used for the border color that surrounds content or elements when they appear as a closed container or closed section of the page.
-$gl-background-color-section: $gl-background-color-overlap; // Used for containers, like a card header, that are visually distinct from the default page background only when necessary to maintain affordance and hierarchy in different modes.
 $gl-action-strong-neutral-border-color-hover: $gl-action-strong-neutral-border-color-default; // Used for the border of a strong neutral action in the hover state.
 $gl-action-strong-neutral-foreground-color-hover: $gl-action-strong-neutral-foreground-color-default; // Used for the foreground of a strong neutral action in the hover state.
 $gl-action-strong-neutral-background-color-focus: $gl-action-strong-neutral-background-color-hover; // Used for the background of a strong neutral action in the focus state.
