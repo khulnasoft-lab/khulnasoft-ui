@@ -1,3 +1,10 @@
+# [94.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.5.0...v94.6.0) (2024-10-01)
+
+
+### Features
+
+* **DesignTokens:** update overlap background color to color.neutral.900 ([e0a8b98](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0a8b98acf0760062495f25b16367c2755d89f62))
+
 # [94.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.4.2...v94.5.0) (2024-10-01)
 
 
