@@ -1,3 +1,10 @@
+# [94.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.4.2...v94.5.0) (2024-10-01)
+
+
+### Features
+
+* support "local git" Duo Chat pinned context category ([127691f](https://gitlab.com/gitlab-org/gitlab-ui/commit/127691f786b076d2f20b44d4030ab2f526e8bf3a))
+
 ## [94.4.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.4.1...v94.4.2) (2024-09-27)
 
 
