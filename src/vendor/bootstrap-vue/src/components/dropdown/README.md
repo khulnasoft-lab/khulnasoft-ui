@@ -723,7 +723,7 @@ the dropdown menu, ensure they are wrapped with a plain `<li>`.
 ## See also
 
 - [`<b-nav-item-dropdown>`](?path=/docs/base-nav--docs#dropdown-support) for dropdown support inside
-  `<b-nav>` and `<n-navbar>`
+  `<b-nav>`
 - [Router Link Support](?path=/docs/base-link--docs#router-link-support) reference for information
   about router-link specific props available on `<b-dropdown-item>`
 

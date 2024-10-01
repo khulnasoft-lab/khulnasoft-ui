@@ -1,7 +1,6 @@
 import Popper from 'popper.js'
 import { extend } from '../vue'
 import { NAME_DROPDOWN } from '../constants/components'
-import { HAS_TOUCH_SUPPORT } from '../constants/env'
 import {
   EVENT_NAME_CLICK,
   EVENT_NAME_HIDDEN,
@@ -29,7 +28,6 @@ import { HTMLElement } from '../constants/safe-types'
 import { BvEvent } from '../utils/bv-event.class'
 import { attemptFocus, closest, contains, isVisible, requestAF, selectAll } from '../utils/dom'
 import { getRootEventName, stopEvent } from '../utils/events'
-import { isNull } from '../utils/inspect'
 import { mergeDeep, sortKeys } from '../utils/object'
 import { makeProp, makePropsConfigurable } from '../utils/props'
 import { warn } from '../utils/warn'
@@ -93,9 +91,6 @@ export const dropdownMixin = extend({
   provide() {
     return { getBvDropdown: () => this }
   },
-  inject: {
-    getBvNavbar: { default: () => () => null }
-  },
   props,
   data() {
     return {
@@ -104,12 +99,6 @@ export const dropdownMixin = extend({
     }
   },
   computed: {
-    bvNavbar() {
-      return this.getBvNavbar()
-    },
-    inNavbar() {
-      return !isNull(this.bvNavbar)
-    },
     toggler() {
       const { toggle } = this.$refs
       return toggle ? toggle.$el || toggle : null
@@ -128,10 +117,7 @@ export const dropdownMixin = extend({
       // Position `static` is needed to allow menu to "breakout" of the `scrollParent`
       // boundaries when boundary is anything other than `scrollParent`
       // See: https://github.com/twbs/bootstrap/issues/24251#issuecomment-341413786
-      return this.boundary !== 'scrollParent' && !this.inNavbar ? 'position-static' : ''
-    },
-    hideDelay() {
-      return this.inNavbar ? (HAS_TOUCH_SUPPORT ? 300 : 50) : 0
+      return this.boundary !== 'scrollParent' ? 'position-static' : ''
     }
   },
   watch: {
@@ -176,7 +162,6 @@ export const dropdownMixin = extend({
   created() {
     // Create private non-reactive props
     this.$_popper = null
-    this.$_hideTimeout = null
   },
   /* istanbul ignore next */
   deactivated() {
@@ -192,7 +177,6 @@ export const dropdownMixin = extend({
     this.visible = false
     this.whileOpenListen(false)
     this.destroyPopper()
-    this.clearHideTimeout()
     removeElementToInstance(this.$el)
   },
   methods: {
@@ -208,19 +192,16 @@ export const dropdownMixin = extend({
         return
       }
 
-      // Only instantiate Popper.js when dropdown is not in `<b-navbar>`
-      if (!this.inNavbar) {
-        if (typeof Popper === 'undefined') {
-          /* istanbul ignore next */
-          warn('Popper.js not found. Falling back to CSS positioning', NAME_DROPDOWN)
-        } else {
-          // For dropup with alignment we use the parent element as popper container
-          let el = (this.dropup && this.right) || this.split ? this.$el : this.$refs.toggle
-          // Make sure we have a reference to an element, not a component!
-          el = el.$el || el
-          // Instantiate Popper.js
-          this.createPopper(el)
-        }
+      if (typeof Popper === 'undefined') {
+        /* istanbul ignore next */
+        warn('Popper.js not found. Falling back to CSS positioning', NAME_DROPDOWN)
+      } else {
+        // For dropup with alignment we use the parent element as popper container
+        let el = (this.dropup && this.right) || this.split ? this.$el : this.$refs.toggle
+        // Make sure we have a reference to an element, not a component!
+        el = el.$el || el
+        // Instantiate Popper.js
+        this.createPopper(el)
       }
 
       // Ensure other menus are closed
@@ -258,10 +239,6 @@ export const dropdownMixin = extend({
       try {
         this.$_popper.scheduleUpdate()
       } catch {}
-    },
-    clearHideTimeout() {
-      clearTimeout(this.$_hideTimeout)
-      this.$_hideTimeout = null
     },
     getPopperConfig() {
       let placement = PLACEMENT_BOTTOM_START
@@ -400,8 +377,7 @@ export const dropdownMixin = extend({
     hideHandler(event) {
       const { target } = event
       if (this.visible && !contains(this.$refs.menu, target) && !contains(this.toggler, target)) {
-        this.clearHideTimeout()
-        this.$_hideTimeout = setTimeout(() => this.hide(), this.hideDelay)
+        this.hide()
       }
     },
     // Document click-out listener

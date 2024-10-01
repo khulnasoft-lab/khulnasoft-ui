@@ -187,7 +187,7 @@ const BVTabButton = /*#__PURE__*/ extend({
 
 // --- Props ---
 
-const navProps = omit(BNavProps, ['tabs', 'isNavBar', 'cardHeader'])
+const navProps = omit(BNavProps, ['tabs', 'cardHeader'])
 
 export const props = makePropsConfigurable(
   sortKeys({

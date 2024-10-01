@@ -128,10 +128,6 @@ export { BNav } from './components/nav/nav'
 export { BNavItem } from './components/nav/nav-item'
 export { BNavItemDropdown } from './components/nav/nav-item-dropdown'
 
-// export * from './components/navbar'
-export { BNavbar } from './components/navbar/navbar'
-export { BNavbarBrand } from './components/navbar/navbar-brand'
-
 // export * from './components/popover'
 export { BPopover } from './components/popover/popover'
 

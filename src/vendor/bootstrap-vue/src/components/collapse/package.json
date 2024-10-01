@@ -21,10 +21,6 @@
             "description": "When set, and prop 'visible' is true on mount, will animate on initial mount"
           },
           {
-            "prop": "isNav",
-            "description": "When set, signifies that the collapse is part of a navbar, enabling certain features for navbar support"
-          },
-          {
             "prop": "visible",
             "description": "When 'true', expands the collapse"
           }
