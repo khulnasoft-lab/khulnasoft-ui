@@ -220,7 +220,7 @@ const backgroundColors = {
   strong: 'var(--gl-background-color-strong, var(--gl-color-neutral-50, #ececef))',
   disabled: 'var(--gl-background-color-disabled, var(--gl-color-neutral-10, #fbfafd))',
   overlap: 'var(--gl-background-color-overlap, var(--gl-color-neutral-0, #fff))',
-  section: 'var(--gl-background-color-section, var(--gl-background-color-overlap, #fff))',
+  section: 'var(--gl-background-color-section, var(--gl-color-neutral-0, #fff))',
   overlay:
     'var(--gl-background-color-overlay, var(--gl-color-alpha-dark-24, rgba(05, 05, 06, 0.24)))',
 };

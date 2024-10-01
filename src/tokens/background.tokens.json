@@ -36,13 +36,16 @@
       "overlap": {
         "$value": {
           "default": "{color.neutral.0}",
-          "dark": "{color.neutral.800}"
+          "dark": "{color.neutral.900}"
         },
         "$type": "color",
         "$description": "Used for components, like tooltips and drawers, and content, like a sticky header, that overlap other content."
       },
       "section": {
-        "$value": "{background.color.overlap}",
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.800}"
+        },
         "$type": "color",
         "$description": "Used for containers, like a card header, that are visually distinct from the default page background only when necessary to maintain affordance and hierarchy in different modes."
       },
