@@ -5,6 +5,8 @@ import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_ch
 import {
   getMockContextItems,
   MOCK_CONTEXT_ITEM_FILE,
+  MOCK_CONTEXT_ITEM_GIT_COMMIT,
+  MOCK_CONTEXT_ITEM_GIT_DIFF,
   MOCK_CONTEXT_ITEM_ISSUE,
   MOCK_CONTEXT_ITEM_MERGE_REQUEST,
 } from '../mock_context_data';
@@ -121,11 +123,23 @@ describe('GlDuoChatContextItemSelections', () => {
       expect(findTokensIcons().at(0).props('name')).toBe('merge-request');
     });
 
-    it('renders the default icon for unknown types', () => {
-      const unknownItem = { ...MOCK_CONTEXT_ITEM_FILE, type: 'unknown' };
+    it('renders the correct icon for git diff type', () => {
+      createComponent({ selections: [MOCK_CONTEXT_ITEM_GIT_DIFF] });
+
+      expect(findTokensIcons().at(0).props('name')).toBe('comparison');
+    });
+
+    it('renders the correct icon for git commit type', () => {
+      createComponent({ selections: [MOCK_CONTEXT_ITEM_GIT_COMMIT] });
+
+      expect(findTokensIcons().at(0).props('name')).toBe('commit');
+    });
+
+    it('does not render an icon for unknown types', () => {
+      const unknownItem = { ...MOCK_CONTEXT_ITEM_FILE, category: 'unknown' };
       createComponent({ selections: [unknownItem] });
 
-      expect(findTokensIcons().at(0).props('name')).toBe('document');
+      expect(findTokensIcons()).toHaveLength(0);
     });
   });
 

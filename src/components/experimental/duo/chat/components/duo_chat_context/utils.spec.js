@@ -3,14 +3,21 @@ import {
   categoryValidator,
   contextItemsValidator,
   contextItemValidator,
+  formatGitItemSecondaryText,
   formatIssueId,
   formatMergeRequestId,
+  getContextItemIcon,
+  getContextItemTypeLabel,
   wrapIndex,
 } from './utils';
 import {
+  getMockCategory,
   MOCK_CATEGORIES,
   MOCK_CONTEXT_ITEM_FILE,
   MOCK_CONTEXT_ITEM_FILE_DISABLED,
+  MOCK_CONTEXT_ITEM_GIT_COMMIT,
+  MOCK_CONTEXT_ITEM_GIT_DIFF,
+  MOCK_CONTEXT_ITEM_ISSUE,
   MOCK_CONTEXT_ITEM_MERGE_REQUEST,
 } from './mock_context_data';
 
@@ -265,6 +272,78 @@ describe('duo_chat_context utils', () => {
       expect(formatMergeRequestId()).toBe('');
       expect(formatMergeRequestId(null)).toBe('');
       expect(formatMergeRequestId('')).toBe('');
+    });
+  });
+
+  describe('getContextItemIcon', () => {
+    describe('Git items', () => {
+      it.each([
+        ['commit', MOCK_CONTEXT_ITEM_GIT_COMMIT],
+        ['comparison', MOCK_CONTEXT_ITEM_GIT_DIFF],
+      ])('returns "%s" icon for git %s items', (expected, gitItem) => {
+        expect(getContextItemIcon(gitItem)).toBe(expected);
+      });
+
+      it('returns "git" icon for unknown git types', () => {
+        const unknownGitItem = {
+          ...MOCK_CONTEXT_ITEM_GIT_COMMIT,
+          metadata: { ...MOCK_CONTEXT_ITEM_GIT_COMMIT.metadata, gitType: 'unknown' },
+        };
+        expect(getContextItemIcon(unknownGitItem)).toBe('git');
+      });
+    });
+
+    describe('Non-Git items', () => {
+      it.each([
+        [MOCK_CONTEXT_ITEM_FILE, 'document'],
+        [MOCK_CONTEXT_ITEM_ISSUE, 'issues'],
+        [MOCK_CONTEXT_ITEM_MERGE_REQUEST, 'merge-request'],
+      ])('returns correct icon for %s category', (item, expected) => {
+        expect(getContextItemIcon(item)).toBe(expected);
+      });
+
+      it('returns null for unknown categories', () => {
+        const unknownItem = { category: 'unknown' };
+        expect(getContextItemIcon(unknownItem)).toBeNull();
+      });
+    });
+
+    it('uses category icon when provided', () => {
+      const category = getMockCategory(MOCK_CONTEXT_ITEM_FILE.category);
+      expect(getContextItemIcon(MOCK_CONTEXT_ITEM_FILE, category)).toBe(category.icon);
+    });
+  });
+
+  describe('getContextItemTypeLabel', () => {
+    it.each([
+      { contextItem: MOCK_CONTEXT_ITEM_FILE, expected: 'Project file' },
+      { contextItem: MOCK_CONTEXT_ITEM_ISSUE, expected: 'Issue' },
+      { contextItem: MOCK_CONTEXT_ITEM_MERGE_REQUEST, expected: 'Merge request' },
+      { contextItem: MOCK_CONTEXT_ITEM_GIT_DIFF, expected: 'Local Git repository diff' },
+      { contextItem: MOCK_CONTEXT_ITEM_GIT_COMMIT, expected: 'Local Git repository commit' },
+    ])('returns "$expected" for "$contextItem.category"', ({ contextItem, expected }) => {
+      expect(getContextItemTypeLabel(contextItem)).toEqual(expected);
+    });
+  });
+
+  describe('formatGitItemSecondaryText', () => {
+    it('formats secondary text with repository name and commit ID for commit items', () => {
+      const result = formatGitItemSecondaryText(MOCK_CONTEXT_ITEM_GIT_COMMIT);
+      expect(result).toBe('example/garden - 20f8caf94cb8f5e5f9dbd1a9ac32702321de201b');
+    });
+
+    it('formats secondary text with only repository name and commit ID for diff items', () => {
+      const result = formatGitItemSecondaryText(MOCK_CONTEXT_ITEM_GIT_DIFF);
+      expect(result).toBe('example/garden - main');
+    });
+
+    it('handles items without commitId', () => {
+      const itemWithoutCommitId = {
+        ...MOCK_CONTEXT_ITEM_GIT_DIFF,
+        metadata: { ...MOCK_CONTEXT_ITEM_GIT_DIFF.metadata, commitId: undefined },
+      };
+      const result = formatGitItemSecondaryText(itemWithoutCommitId);
+      expect(result).toBe('example/garden');
     });
   });
 

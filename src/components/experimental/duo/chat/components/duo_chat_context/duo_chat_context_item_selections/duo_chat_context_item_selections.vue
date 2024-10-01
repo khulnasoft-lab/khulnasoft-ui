@@ -2,17 +2,14 @@
 import uniqueId from 'lodash/uniqueId';
 import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlToken from '../../../../../../base/token/token.vue';
+import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
-import {
-  CONTEXT_ITEM_CATEGORY_ISSUE,
-  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
-  CONTEXT_ITEM_CATEGORY_FILE,
-} from '../constants';
-import { contextItemsValidator } from '../utils';
+import { contextItemsValidator, getContextItemIcon } from '../utils';
 
 export default {
   name: 'GlDuoChatContextItemSelections',
   components: {
+    GlTruncate,
     GlIcon,
     GlDuoChatContextItemPopover,
     GlToken,
@@ -78,14 +75,7 @@ export default {
     },
   },
   methods: {
-    getIconName(category) {
-      const iconMap = {
-        [CONTEXT_ITEM_CATEGORY_FILE]: 'document',
-        [CONTEXT_ITEM_CATEGORY_ISSUE]: 'issues',
-        [CONTEXT_ITEM_CATEGORY_MERGE_REQUEST]: 'merge-request',
-      };
-      return iconMap[category] || 'document';
-    },
+    getContextItemIcon,
     toggleCollapse() {
       this.isCollapsed = !this.isCollapsed;
     },
@@ -122,13 +112,21 @@ export default {
         :key="item.id"
         :view-only="!removable"
         variant="default"
-        class="gl-mb-2 gl-mr-2"
+        class="gl-mb-2 gl-mr-2 gl-max-w-full"
         :class="tokenVariantClasses"
         @close="onRemoveItem(item)"
       >
-        <div :id="`context-item-${item.id}-${selectionsId}`" class="gl-flex gl-items-center">
-          <gl-icon :name="getIconName(item.category)" :size="12" class="gl-mr-1" />
-          {{ item.metadata.title }}
+        <div
+          :id="`context-item-${item.id}-${selectionsId}`"
+          class="gl-flex gl-min-w-0 gl-items-center"
+        >
+          <gl-icon
+            v-if="getContextItemIcon(item)"
+            :name="getContextItemIcon(item)"
+            :size="12"
+            class="gl-mr-1"
+          />
+          <gl-truncate :text="item.metadata.title" position="middle" />
         </div>
         <gl-duo-chat-context-item-popover
           :context-item="item"

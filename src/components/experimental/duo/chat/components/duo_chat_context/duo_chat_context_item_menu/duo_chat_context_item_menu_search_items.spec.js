@@ -5,6 +5,7 @@ import {
   CONTEXT_ITEM_CATEGORY_ISSUE,
   CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
   CONTEXT_ITEM_CATEGORY_FILE,
+  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
 } from '../constants';
 import GlDuoChatContextItemMenuSearchItems from './duo_chat_context_item_menu_search_items.vue';
 import GlDuoChatContextItemMenuSearchItemsLoading from './duo_chat_context_item_menu_search_items_loading.vue';
@@ -248,6 +249,10 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
     {
       testCase: getMockCategory(CONTEXT_ITEM_CATEGORY_MERGE_REQUEST),
       expectedPlaceholder: 'Search merge requests...',
+    },
+    {
+      testCase: getMockCategory(CONTEXT_ITEM_CATEGORY_LOCAL_GIT),
+      expectedPlaceholder: 'Search local git...',
     },
   ])('when category is "$testCase.label"', ({ testCase, expectedPlaceholder }) => {
     beforeEach(() =>

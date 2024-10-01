@@ -2,10 +2,12 @@ import {
   CONTEXT_ITEM_CATEGORY_ISSUE,
   CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
   CONTEXT_ITEM_CATEGORY_FILE,
+  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
 } from './constants';
 
 export const MOCK_CATEGORIES = [
   { label: 'Files', value: CONTEXT_ITEM_CATEGORY_FILE, icon: 'document' },
+  { label: 'Local Git', value: CONTEXT_ITEM_CATEGORY_LOCAL_GIT, icon: 'git' },
   { label: 'Issues', value: CONTEXT_ITEM_CATEGORY_ISSUE, icon: 'issues' },
   { label: 'Merge Requests', value: CONTEXT_ITEM_CATEGORY_MERGE_REQUEST, icon: 'merge-request' },
 ];
@@ -126,8 +128,69 @@ const mockMergeRequests = [
   MOCK_CONTEXT_ITEM_MERGE_REQUEST_DISABLED,
 ];
 
+export const MOCK_CONTEXT_ITEM_GIT_DIFF = {
+  id: '6d88b466-0c38-48d6-b271-deda47f97cee',
+  category: CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+  metadata: {
+    enabled: true,
+    title: 'Current working changes',
+    commitId: 'main',
+    repositoryName: 'example/garden',
+    gitType: 'diff',
+  },
+};
+export const MOCK_CONTEXT_ITEM_GIT_COMMIT = {
+  id: '20f8caf94cb8f5e5f9dbd1a9ac32702321de201b',
+  category: CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+  metadata: {
+    enabled: true,
+    title: 'fix: some bug fix commit',
+    commitId: '20f8caf94cb8f5e5f9dbd1a9ac32702321de201b',
+    repositoryName: 'example/garden',
+    gitType: 'commit',
+  },
+};
+
+const mockGitItems = [
+  MOCK_CONTEXT_ITEM_GIT_DIFF,
+  {
+    id: 'diff-example/garden',
+    category: CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+    metadata: {
+      enabled: true,
+      title: 'Diff from default branch',
+      commitId: 'main',
+      repositoryName: 'example/garden',
+      gitType: 'diff',
+    },
+  },
+  MOCK_CONTEXT_ITEM_GIT_COMMIT,
+  {
+    id: '32b9b56b6de75b32909986755fbc470f20fb6fc0',
+    category: CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+    metadata: {
+      enabled: true,
+      title: 'feat: add cool new feature',
+      commitId: '32b9b56b6de75b32909986755fbc470f20fb6fc0',
+      repositoryName: 'example/garden',
+      gitType: 'commit',
+    },
+  },
+  {
+    id: '775d7efdce25c1af48c55abcadbefd1f181b92ce',
+    category: CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+    metadata: {
+      enabled: true,
+      title: 'fix: stop foo from bar when baz because customers ding',
+      commitId: '775d7efdce25c1af48c55abcadbefd1f181b92ce',
+      repositoryName: 'example/garden',
+      gitType: 'commit',
+    },
+  },
+];
+
 export const getMockContextItems = () => {
-  const allItems = [...mockFiles, ...mockIssues, ...mockMergeRequests];
+  const allItems = [...mockFiles, ...mockGitItems, ...mockIssues, ...mockMergeRequests];
 
   // put disabled items in the back
   const disabledItems = allItems.filter((item) => !item.metadata.enabled);
