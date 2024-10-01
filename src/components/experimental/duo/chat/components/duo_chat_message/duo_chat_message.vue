@@ -3,9 +3,6 @@ import GlIcon from '../../../../../base/icon/icon.vue';
 import GlLoadingIcon from '../../../../../base/loading_icon/loading_icon.vue';
 import { GlTooltipDirective } from '../../../../../../directives/tooltip';
 import GlDuoChatContextItemSelections from '../duo_chat_context/duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
-import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
-import GlFormGroup from '../../../../../base/form/form_group/form_group.vue';
-import GlFormTextarea from '../../../../../base/form/form_textarea/form_textarea.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../directives/safe_html/safe_html';
 import { MESSAGE_MODEL_ROLES, SELECTED_CONTEXT_ITEMS_DEFAULT_COLLAPSED } from '../../constants';
 import { sprintf, translate, translatePlural } from '../../../../../../utils/i18n';
@@ -49,9 +46,6 @@ export default {
   components: {
     DocumentationSources,
     GlDuoChatContextItemSelections,
-    GlDuoUserFeedback,
-    GlFormGroup,
-    GlFormTextarea,
     GlIcon,
     GlLoadingIcon,
   },
@@ -278,28 +272,6 @@ export default {
 
           <div class="duo-chat-message-feedback gl-mt-4 gl-flex gl-items-end">
             <gl-loading-icon v-if="isChunkAndNotCancelled" class="gl-pt-4" variant="dots" inline />
-            <gl-duo-user-feedback
-              v-if="isNotChunkOrCancelled"
-              :feedback-received="hasFeedback"
-              :modal-title="$options.i18n.MODAL.TITLE"
-              :modal-alert="$options.i18n.MODAL.ALERT_TEXT"
-              @feedback="logEvent"
-            >
-              <template #feedback-extra-fields>
-                <gl-form-group :label="$options.i18n.MODAL.DID_WHAT" optional>
-                  <gl-form-textarea
-                    v-model="didWhat"
-                    :placeholder="$options.i18n.MODAL.INTERACTION"
-                  />
-                </gl-form-group>
-                <gl-form-group :label="$options.i18n.MODAL.IMPROVE_WHAT" optional>
-                  <gl-form-textarea
-                    v-model="improveWhat"
-                    :placeholder="$options.i18n.MODAL.BETTER_RESPONSE"
-                  />
-                </gl-form-group>
-              </template>
-            </gl-duo-user-feedback>
           </div>
         </template>
       </div>

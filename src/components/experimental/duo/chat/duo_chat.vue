@@ -16,6 +16,7 @@ import { translate } from '../../../../utils/i18n';
 import GlDuoChatLoader from './components/duo_chat_loader/duo_chat_loader.vue';
 import GlDuoChatPredefinedPrompts from './components/duo_chat_predefined_prompts/duo_chat_predefined_prompts.vue';
 import GlDuoChatConversation from './components/duo_chat_conversation/duo_chat_conversation.vue';
+import GlDuoChatDrawer from './components/duo_chat_drawer/duo_chat_drawer.vue';
 import {
   CHAT_CLEAN_MESSAGE,
   CHAT_RESET_MESSAGE,
@@ -61,6 +62,8 @@ export const i18n = {
       'How do I create a template?'
     ),
   ],
+  OPEN_DRAWER_BUTTON_LABEL: translate('GlDuoChat.openDrawerButtonLabel', 'Open Drawer'),
+  CHAT_MENU_LABEL: translate('GlDuoChat.chatMenuLabel', 'Menu'),
 };
 
 const isMessage = (item) => Boolean(item) && item?.role;
@@ -86,6 +89,7 @@ export default {
     GlDuoChatConversation,
     GlCard,
     GlDropdownItem,
+    GlDuoChatDrawer,
   },
   directives: {
     SafeHtml,
@@ -230,6 +234,22 @@ export default {
       required: false,
       default: '',
     },
+    /**
+     * Object containing thread information
+     */
+    threads: {
+      type: Object,
+      required: false,
+      default: () => ({}),
+    },
+    /**
+     * The loading message to display.
+     */
+    loadingMessage: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
   data() {
     return {
@@ -241,6 +261,8 @@ export default {
       compositionJustEnded: false,
       contextItemsMenuIsOpen: false,
       contextItemMenuRef: null,
+      drawerOpen: false,
+      activeThreadId: null,
     };
   },
   computed: {
@@ -328,6 +350,16 @@ export default {
     },
     hasContextItemSelectionMenu() {
       return Boolean(this.contextItemMenuRef);
+    },
+    activeThread() {
+      return this.threads[this.activeThreadId] || null;
+    },
+    threadList() {
+      return Object.entries(this.threads).map(([id, thread]) => ({
+        id,
+        title: thread.title,
+        description: thread.description,
+      }));
     },
   },
   watch: {
@@ -525,6 +557,18 @@ export default {
     setContextItemsMenuRef(ref) {
       this.contextItemMenuRef = ref;
     },
+    handleDrawer() {
+      this.drawerOpen = !this.drawerOpen;
+    },
+    onThreadSelected(threadId) {
+      this.activeThreadId = threadId;
+      this.drawerOpen = false;
+      /**
+       * Emitted when a thread is selected from the drawer
+       * @param {String} threadId The ID of the selected thread
+       */
+      this.$emit('thread-selected', threadId);
+    },
   },
   i18n,
   emptySvg,
@@ -544,7 +588,7 @@ export default {
       class="duo-chat-drawer-header duo-chat-drawer-header-sticky gl-z-200 gl-bg-gray-10 !gl-p-0"
     >
       <div class="drawer-title gl-flex gl-items-center gl-justify-start gl-p-5">
-        <h3 class="gl-my-0 gl-text-size-h2">{{ title }}</h3>
+        <h3 class="gl-my-0 gl-ml-3 gl-text-size-h2">{{ title }}</h3>
         <gl-experiment-badge
           v-if="badgeType"
           :help-page-url="badgeHelpPageUrl"
@@ -566,7 +610,13 @@ export default {
       <!--
         @slot Subheader to be rendered right after the title. It is sticky and stays on top of the chat no matter the number of messages.
       -->
-      <slot name="subheader"></slot>
+      <slot name="subheader">
+        <div class="gl-flex gl-justify-start gl-mt-3 gl-ml-1 gl-p-2">
+          <gl-button icon="list-bulleted" category="secondary" @click="handleDrawer" > 
+            {{ $options.i18n.CHAT_MENU_LABEL }}
+          </gl-button>
+        </div>
+      </slot>
 
       <!-- Ensure that the global error is not scrolled away -->
       <gl-alert
@@ -630,7 +680,12 @@ export default {
             @click="sendPredefinedPrompt"
           />
         </template>
-        <gl-duo-chat-loader v-if="isLoading" key="loader" :tool-name="toolName" />
+        <gl-duo-chat-loader
+          v-if="isLoading"
+          key="loader"
+          :tool-name="toolName"
+          :loading-message="loadingMessage"
+        />
         <div key="anchor" ref="anchor" class="scroll-anchor"></div>
       </transition-group>
     </div>
@@ -719,5 +774,13 @@ export default {
         </gl-form-input-group>
       </gl-form>
     </footer>
+
+    <gl-duo-chat-drawer
+      :open="drawerOpen"
+      :threads="threadList"
+      :active-thread="activeThread"
+      @close="handleDrawer"
+      @thread-selected="onThreadSelected"
+    />
   </aside>
 </template>

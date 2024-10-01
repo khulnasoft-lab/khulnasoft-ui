@@ -42,6 +42,33 @@ const generateProps = ({
   emptyStateSecondaryDescription = defaultValue('emptyStateSecondaryDescription'),
   chatPromptPlaceholder = defaultValue('chatPromptPlaceholder'),
   enableCodeInsertion = defaultValue('enableCodeInsertion'),
+  threads = {
+    thread1: {
+      title: 'First Conversation',
+      description: 'A conversation about GitLab features',
+      messages: [
+        { role: 'user', content: 'What are the key features of GitLab?' },
+        { role: 'assistant', content: 'GitLab offers a complete DevOps platform...' },
+      ],
+    },
+    thread2: {
+      title: 'CI/CD Pipeline Help',
+      description: 'Troubleshooting CI/CD pipelines',
+      messages: [
+        { role: 'assistant', content: 'Hello, how can I help you today?' },
+        { role: 'user', content: 'How do I debug a failing CI/CD pipeline?' },
+        { role: 'assistant', content: 'To debug a failing CI/CD pipeline, you can start by...' },
+      ],
+    },
+    thread3: {
+      title: 'Merge Request Best Practices',
+      description: 'Discussion about MR workflows',
+      messages: [
+        { role: 'user', content: 'What are some best practices for managing merge requests?' },
+        { role: 'assistant', content: 'When it comes to managing merge requests effectively...' },
+      ],
+    },
+  },
 } = {}) => ({
   title,
   messages,
@@ -59,6 +86,7 @@ const generateProps = ({
   emptyStateSecondaryDescription,
   chatPromptPlaceholder,
   enableCodeInsertion,
+  threads,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -84,6 +112,7 @@ export const Default = (args, { argTypes }) => ({
       :empty-state-secondary-description="emptyStateSecondaryDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
       :enable-code-insertion="enableCodeInsertion"
+      :threads="threads"
     />`,
 });
 Default.args = generateProps({
@@ -102,7 +131,6 @@ export const Interactive = (args, { argTypes }) => ({
       isHidden: false,
       loggerInfo: '',
       promptInFlight: false,
-      msgs: args.messages,
       chunks: [],
       timeout: null,
       requestId: 1,
@@ -111,6 +139,16 @@ export const Interactive = (args, { argTypes }) => ({
       contextItemsLoading: false,
       contextItemsError: null,
       contextItemsResults: [],
+      drawerOpen: false, // Add this line to track drawer state
+      activeThreadId: null,
+      msgs: [], // Initialize msgs as an empty array
+      currentLoadingMessage: '',
+      loadingMessageIndex: 0,
+      loadingMessages: [
+        '%{tool} is analyzing the request...',
+        '%{tool} is searching for relevant information...',
+        '%{tool} is formulating a response...',
+      ],
     };
   },
   MOCK_CONTEXT_ITEM_CATEGORIES: MOCK_CATEGORIES,
@@ -129,6 +167,7 @@ export const Interactive = (args, { argTypes }) => ({
         this.msgs.push(newPrompt);
         this.promptInFlight = true;
       }
+      this.simulateLoadingMessages();
     },
     onChatHidden() {
       this.isHidden = true;
@@ -204,6 +243,52 @@ export const Interactive = (args, { argTypes }) => ({
         this.contextItems.splice(index, 1);
       }
     },
+    onDrawerOpen() {
+      this.drawerOpen = true;
+      this.loggerInfo += `Drawer opened\n\n`;
+    },
+    onDrawerClose() {
+      this.drawerOpen = false;
+      this.loggerInfo += `Drawer closed\n\n`;
+    },
+    onThreadSelected(threadId) {
+      this.activeThreadId = threadId;
+      const selectedThread = this.threads[threadId];
+      console.log('selectedThread', selectedThread);
+      if (selectedThread && Array.isArray(selectedThread.messages)) {
+        this.msgs = [...selectedThread.messages]; // Create a new array to trigger reactivity
+      } else {
+        console.warn(`Thread with id ${threadId} not found or has no messages`);
+        this.msgs = []; // Reset to empty array if thread or messages are not found
+      }
+      this.loggerInfo += `Thread selected: ${threadId}\n\n`;
+    },
+    // Add this method to initialize messages when the component is created
+    initializeMessages() {
+      const firstThreadId = Object.keys(this.threads)[0];
+      if (firstThreadId) {
+        this.onThreadSelected(firstThreadId);
+      }
+    },
+    simulateLoadingMessages() {
+      this.loadingMessageIndex = 0;
+      this.updateLoadingMessage();
+
+      const interval = setInterval(() => {
+        this.loadingMessageIndex = (this.loadingMessageIndex + 1) % this.loadingMessages.length;
+        this.updateLoadingMessage();
+
+        if (this.loadingMessageIndex === 0) {
+          clearInterval(interval);
+        }
+      }, 2000);
+    },
+    updateLoadingMessage() {
+      this.currentLoadingMessage = this.loadingMessages[this.loadingMessageIndex];
+    },
+  },
+  created() {
+    this.initializeMessages();
   },
   template: `
   <div style="height: 800px">
@@ -232,11 +317,16 @@ export const Interactive = (args, { argTypes }) => ({
       :empty-state-secondary-description="emptyStateSecondaryDescription"
       :chat-prompt-placeholder="chatPromptPlaceholder"
       :slash-commands="slashCommands"
+      :threads="threads"
+      :loading-message="currentLoadingMessage"
       class="gl-drawer-default"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
       @chat-cancel="onChatCancel"
       @insert-code-snippet="onInsertCodeSnippet"
+      @drawer-open="onDrawerOpen"
+      @drawer-close="onDrawerClose"
+      @thread-selected="onThreadSelected"
     >
       <template #context-items-menu="{ isOpen, onClose, setRef, focusPrompt }">
         <gl-duo-chat-context-item-menu
