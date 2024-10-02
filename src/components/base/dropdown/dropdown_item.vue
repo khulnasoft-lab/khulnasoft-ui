@@ -68,7 +68,7 @@ export default {
       return href || to ? BDropdownItem : BDropdownItemButton;
     },
     iconColorCss() {
-      return variantCssColorMap[this.iconColor] || 'gl-text-gray-700';
+      return variantCssColorMap[this.iconColor] || 'gl-fill-icon-default';
     },
     shouldShowCheckIcon() {
       return this.isChecked || this.isCheckItem;
