@@ -3,9 +3,9 @@
 }
 
 .gl-filtered-search-suggestion-active {
-  @apply gl-bg-gray-100;
+  background-color: var(--gl-dropdown-option-background-color-selected-default);
   @apply gl-no-underline;
-  @apply gl-text-gray-900;
+  color: var(--gl-dropdown-option-text-color-default);
   @apply gl-outline-none;
   @include gl-focus($inset: true);
 }
