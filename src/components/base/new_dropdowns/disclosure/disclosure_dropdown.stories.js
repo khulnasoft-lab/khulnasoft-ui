@@ -317,23 +317,156 @@ WithDynamicWrapperText.args = {
 WithDynamicWrapperText.decorators = [makeContainer({ height: '200px' })];
 WithDynamicWrapperText.tags = ['skip-visual-test'];
 
-export const MiscellaneousContent = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: {
-    GlDisclosureDropdown,
-  },
-  template: template(
-    `
-      <div class="gl-p-3">A disclosure dropdown is a button that toggles a panel containing a list of items and/or links.</div>
-    `
-  ),
-});
+export const MiscellaneousContent = (args, { argTypes }) => {
+  const content = `<div class="gl-p-3">A disclosure dropdown is a button that toggles a panel containing a list of items and/or links.</div>`;
+
+  const variants = [
+    { ':block': true, ':text-sr-only': false, ':no-caret': false, ':loading': true },
+    {
+      ':block': true,
+      ':text-sr-only': false,
+      ':no-caret': false,
+      ':loading': true,
+      ':icon': undefined,
+    },
+    { ':block': true, ':text-sr-only': false, ':no-caret': false, ':loading': false },
+    {
+      ':block': true,
+      ':text-sr-only': false,
+      ':no-caret': false,
+      ':loading': false,
+      ':icon': undefined,
+    },
+    { ':block': true, ':text-sr-only': false, ':no-caret': true, ':loading': true },
+    {
+      ':block': true,
+      ':text-sr-only': false,
+      ':no-caret': true,
+      ':loading': true,
+      ':icon': undefined,
+    },
+    { ':block': true, ':text-sr-only': false, ':no-caret': true, ':loading': false },
+    {
+      ':block': true,
+      ':text-sr-only': false,
+      ':no-caret': true,
+      ':loading': false,
+      ':icon': undefined,
+    },
+    { ':block': true, ':text-sr-only': true, ':no-caret': false, ':loading': true },
+    {
+      ':block': true,
+      ':text-sr-only': true,
+      ':no-caret': false,
+      ':loading': true,
+      ':icon': undefined,
+    },
+    { ':block': true, ':text-sr-only': true, ':no-caret': false, ':loading': false },
+    {
+      ':block': true,
+      ':text-sr-only': true,
+      ':no-caret': false,
+      ':loading': false,
+      ':icon': undefined,
+    },
+    { ':block': true, ':text-sr-only': true, ':no-caret': true, ':loading': true },
+    {
+      ':block': true,
+      ':text-sr-only': true,
+      ':no-caret': true,
+      ':loading': true,
+      ':icon': undefined,
+    },
+    { ':block': true, ':text-sr-only': true, ':no-caret': true, ':loading': false },
+    { ':block': false, ':text-sr-only': false, ':no-caret': false, ':loading': true },
+    {
+      ':block': false,
+      ':text-sr-only': false,
+      ':no-caret': false,
+      ':loading': true,
+      ':icon': undefined,
+    },
+    { ':block': false, ':text-sr-only': false, ':no-caret': false, ':loading': false },
+    {
+      ':block': false,
+      ':text-sr-only': false,
+      ':no-caret': false,
+      ':loading': false,
+      ':icon': undefined,
+    },
+    { ':block': false, ':text-sr-only': false, ':no-caret': true, ':loading': true },
+    {
+      ':block': false,
+      ':text-sr-only': false,
+      ':no-caret': true,
+      ':loading': true,
+      ':icon': undefined,
+    },
+    { ':block': false, ':text-sr-only': false, ':no-caret': true, ':loading': false },
+    {
+      ':block': false,
+      ':text-sr-only': false,
+      ':no-caret': true,
+      ':loading': false,
+      ':icon': undefined,
+    },
+    { ':block': false, ':text-sr-only': true, ':no-caret': false, ':loading': true },
+    {
+      ':block': false,
+      ':text-sr-only': true,
+      ':no-caret': false,
+      ':loading': true,
+      ':icon': undefined,
+    },
+    { ':block': false, ':text-sr-only': true, ':no-caret': false, ':loading': false },
+    {
+      ':block': false,
+      ':text-sr-only': true,
+      ':no-caret': false,
+      ':loading': false,
+      ':icon': undefined,
+    },
+    { ':block': false, ':text-sr-only': true, ':no-caret': true, ':loading': true },
+    {
+      ':block': false,
+      ':text-sr-only': true,
+      ':no-caret': true,
+      ':loading': true,
+      ':icon': undefined,
+    },
+    { ':block': false, ':text-sr-only': true, ':no-caret': true, ':loading': false },
+  ];
+
+  const renderedVariants = variants
+    .map((x) => template(content, { bindingOverrides: x }))
+    .join('\n');
+
+  return {
+    props: Object.keys(argTypes),
+    components: {
+      GlDisclosureDropdown,
+    },
+    template: `<div>
+        <div class="gl-my-2">
+          Interactive:
+        </div>
+        ${template(content)}
+        <div class="gl-my-2">
+          Variants:
+        </div>
+        <div class="gl-grid gl-gap-2 gl-grid-cols-3">
+        ${renderedVariants}
+        </div>
+      </div>`,
+  };
+};
 
 MiscellaneousContent.args = {
   icon: 'doc-text',
-  toggleText: 'Miscellaneous content',
+  toggleText: 'text',
   textSrOnly: true,
   fluidWidth: true,
+  startOpened: false,
 };
 MiscellaneousContent.decorators = [makeContainer({ height: '200px' })];
 
