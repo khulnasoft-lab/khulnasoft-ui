@@ -25,7 +25,7 @@ export default {
     <li
       :id="nameId"
       role="presentation"
-      class="gl-pb-2 gl-pl-4 gl-pt-3 gl-text-sm gl-font-bold"
+      class="gl-pb-2 gl-pl-4 gl-pt-3 gl-text-sm gl-font-bold gl-text-strong"
       :class="{ 'gl-sr-only': textSrOnly }"
     >
       <slot name="group-label">{{ name }}</slot>

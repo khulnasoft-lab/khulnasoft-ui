@@ -33,8 +33,8 @@ import GlListboxGroup from './listbox_group.vue';
 import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
-const HEADER_ITEMS_BORDER_CLASSES = ['gl-border-b-1', 'gl-border-b-solid', 'gl-border-b-gray-200'];
-const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-border-t-gray-200', 'gl-pt-1', 'gl-mt-2'];
+const HEADER_ITEMS_BORDER_CLASSES = ['gl-border-b-1', 'gl-border-b-solid', 'gl-border-b-dropdown'];
+const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-border-t-dropdown', 'gl-pt-1', 'gl-mt-2'];
 export const SEARCH_INPUT_SELECTOR = '.gl-listbox-search-input';
 
 export default {
@@ -462,7 +462,7 @@ export default {
       const toggleClasses = [this.toggleClass];
 
       if (!this.hasSelection) {
-        toggleClasses.push('!gl-text-gray-500');
+        toggleClasses.push('!gl-text-subtle');
       }
       return toggleClasses;
     },
@@ -785,7 +785,7 @@ export default {
     >
       <div
         :id="headerId"
-        class="gl-grow gl-pr-2 gl-text-sm gl-font-bold"
+        class="gl-grow gl-pr-2 gl-text-sm gl-font-bold gl-text-strong"
         data-testid="listbox-header-text"
       >
         {{ headerText }}
@@ -927,7 +927,7 @@ export default {
     <div
       v-else-if="showNoResultsText"
       aria-live="assertive"
-      class="gl-py-3 gl-pl-7 gl-pr-5 gl-text-base gl-text-gray-600"
+      class="gl-py-3 gl-pl-7 gl-pr-5 gl-text-base gl-text-subtle"
       data-testid="listbox-no-results-text"
     >
       {{ noResultsText }}

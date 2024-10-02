@@ -100,15 +100,15 @@ describe('GlCollapsibleListbox', () => {
       ${'customClass'}         | ${false} | ${mockOptions[0].value}   | ${['customClass']}
       ${{ customClass: true }} | ${false} | ${mockOptions[0].value}   | ${[{ customClass: true }]}
       ${['customClass']}       | ${false} | ${mockOptions[0].value}   | ${[['customClass']]}
-      ${'customClass'}         | ${false} | ${null}                   | ${['customClass', '!gl-text-gray-500']}
-      ${{ customClass: true }} | ${false} | ${undefined}              | ${[{ customClass: true }, '!gl-text-gray-500']}
-      ${['customClass']}       | ${false} | ${null}                   | ${[['customClass'], '!gl-text-gray-500']}
+      ${'customClass'}         | ${false} | ${null}                   | ${['customClass', '!gl-text-subtle']}
+      ${{ customClass: true }} | ${false} | ${undefined}              | ${[{ customClass: true }, '!gl-text-subtle']}
+      ${['customClass']}       | ${false} | ${null}                   | ${[['customClass'], '!gl-text-subtle']}
       ${'customClass'}         | ${true}  | ${[mockOptions[0].value]} | ${['customClass']}
       ${{ customClass: true }} | ${true}  | ${[mockOptions[0].value]} | ${[{ customClass: true }]}
       ${['customClass']}       | ${true}  | ${[mockOptions[0].value]} | ${[['customClass']]}
-      ${'customClass'}         | ${true}  | ${null}                   | ${['customClass', '!gl-text-gray-500']}
-      ${{ customClass: true }} | ${true}  | ${undefined}              | ${[{ customClass: true }, '!gl-text-gray-500']}
-      ${['customClass']}       | ${true}  | ${null}                   | ${[['customClass'], '!gl-text-gray-500']}
+      ${'customClass'}         | ${true}  | ${null}                   | ${['customClass', '!gl-text-subtle']}
+      ${{ customClass: true }} | ${true}  | ${undefined}              | ${[{ customClass: true }, '!gl-text-subtle']}
+      ${['customClass']}       | ${true}  | ${null}                   | ${[['customClass'], '!gl-text-subtle']}
     `('when listbox', ({ toggleClass, multiple, selected, expectedToggleClasses }) => {
       beforeEach(() => {
         buildWrapper({ items: mockOptions, toggleClass, multiple, selected });
