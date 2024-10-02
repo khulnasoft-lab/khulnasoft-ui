@@ -14,8 +14,8 @@
 
   .gl-new-dropdown-panel {
     @apply gl-hidden;
-    @apply gl-bg-white;
-    @apply gl-border-1 gl-border-solid gl-border-gray-200;
+    @apply gl-bg-dropdown;
+    @apply gl-border-1 gl-border-solid gl-border-dropdown;
     @apply gl-rounded-lg;
     @apply gl-shadow-md;
     top: 0;
@@ -154,12 +154,12 @@
         &.top-scrim-light {
           height: 2.25rem;
           border-radius: 0.375rem 0.375rem 0 0;
-          background: linear-gradient(180deg, $white 0%, $transparent-rgba);
+          background: linear-gradient(180deg, var(--gl-dropdown-background-color) 0%, var(--gl-color-alpha-0));
         }
 
         &.top-scrim-dark {
           height: 0.25rem;
-          background: linear-gradient(180deg, $t-gray-a-16 0%, $transparent-rgba 100%);
+          background: linear-gradient(180deg, var(--gl-shadow-color-default) 0%, var(--gl-color-alpha-0) 100%);
         }
       }
     }
@@ -173,7 +173,7 @@
         position: relative;
         top: calc(-2.25rem + #{$dropdown-content-padding});
         border-radius: 0 0 0.375rem 0.375rem;
-        background: linear-gradient(180deg, $transparent-rgba 0%, $white);
+        background: linear-gradient(180deg, var(--gl-color-alpha-0) 0%, var(--gl-dropdown-background-color));
       }
     }
 

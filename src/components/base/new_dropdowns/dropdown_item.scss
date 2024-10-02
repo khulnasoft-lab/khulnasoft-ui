@@ -16,44 +16,61 @@
     @apply gl-mb-0;
   }
 
-  &:hover,
+  &:hover {
+    .gl-new-dropdown-item-content {
+      color: var(--gl-dropdown-option-text-color-hover);
+      background-color: var(--gl-dropdown-option-background-color-unselected-hover);
+    }
+  }
+
   &:focus {
     .gl-new-dropdown-item-content {
-      @apply gl-bg-gray-50;
+      color: var(--gl-dropdown-option-text-color-focus);
+      background-color: var(--gl-dropdown-option-background-color-unselected-focus);
     }
   }
 
   &:active,
   &:focus:active {
     .gl-new-dropdown-item-content {
-      @apply gl-bg-gray-100;
+      color: var(--gl-dropdown-option-text-color-active);
+      background-color: var(--gl-dropdown-option-background-color-unselected-active);
     }
   }
 
   &[aria-selected="true"] {
     .gl-new-dropdown-item-content {
-      @apply gl-bg-gray-50;
+      background-color: var(--gl-dropdown-option-background-color-selected-default);
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
       .gl-new-dropdown-item-content {
-        @apply gl-bg-gray-100;
+        background-color: var(--gl-dropdown-option-background-color-selected-hover);
       }
 
       .gl-new-dropdown-item-check-icon {
-        @apply gl-text-blue-600
+        color: var(--gl-dropdown-option-indicator-color-selected-hover);
+      }
+    }
+
+    &:focus {
+      .gl-new-dropdown-item-content {
+        background-color: var(--gl-dropdown-option-background-color-selected-focus);
+      }
+
+      .gl-new-dropdown-item-check-icon {
+        color: var(--gl-dropdown-option-indicator-color-selected-focus);
       }
     }
 
     &:active,
     &:focus:active {
       .gl-new-dropdown-item-content {
-        @apply gl-bg-gray-200;
+        background-color: var(--gl-dropdown-option-background-color-selected-active);
       }
 
       .gl-new-dropdown-item-check-icon {
-        @apply gl-text-blue-700
+        color: var(--gl-dropdown-option-indicator-color-selected-active);
       }
     }
   }
@@ -80,7 +97,7 @@
     @apply gl-rounded-base;
     @apply gl-border-0;
     @apply gl-w-full;
-    @apply gl-bg-transparent;
+    background-color: var(--gl-dropdown-option-background-color-unselected-default);
     @apply gl-items-center;
     @apply gl-flex;
     @apply gl-text-base;
@@ -90,7 +107,7 @@
     @apply gl-py-0;
     position: relative;
     @apply gl-no-underline;
-    @apply gl-text-gray-900;
+    color: var(--gl-dropdown-option-text-color-default);
     @apply gl-text-left;
     @apply gl-whitespace-normal;
     @include gl-prefers-reduced-motion-transition;
@@ -100,7 +117,7 @@
     .gl-new-dropdown-item-check-icon {
       @apply gl-shrink-0;
       @apply gl-mr-3;
-      @apply gl-text-blue-500;
+      color: var(--gl-dropdown-option-indicator-color-selected-default);
     }
 
     .gl-new-dropdown-item-icon {
