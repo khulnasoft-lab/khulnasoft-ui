@@ -199,11 +199,13 @@ StyleDictionary.registerFormat({
     const backgroundColor = {
       ...colors,
       ...backgroundColors,
+      dropdown: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.dropdown.background.color)}',
     };
 
     const borderColor  = {
       ...colors,
       ...borderColors,
+      dropdown: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.dropdown.border.color)}',
     };
 
     const fill = {
