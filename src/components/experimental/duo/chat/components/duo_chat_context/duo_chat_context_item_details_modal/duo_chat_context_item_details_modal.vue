@@ -4,16 +4,16 @@ import { contextItemValidator } from '../utils';
 import GlModal from '../../../../../../base/modal/modal.vue';
 import { SafeHtmlDirective as SafeHtml } from '../../../../../../../directives/safe_html/safe_html';
 import GlSkeletonLoader from '../../../../../../base/skeleton_loader/skeleton_loader.vue';
+import { translate } from '../../../../../../../utils/i18n';
 import {
   CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
   LANGUAGE_IDENTIFIER_DIFF,
   LANGUAGE_IDENTIFIER_PLAINTEXT,
   LANGUAGE_IDENTIFIER_PREFIX,
 } from '../constants';
-import { translate } from '../../../../../../../utils/i18n';
 
 export default {
-  name: 'GlDuoChatContextItemDetails',
+  name: 'GlDuoChatContextItemDetailsModal',
   components: {
     GlSkeletonLoader,
     GlModal,
@@ -59,7 +59,7 @@ export default {
       return (
         this.contextItem.metadata?.title ||
         this.contextItem.metadata?.relativePath ||
-        translate('GlDuoChatContextItemDetails.title', 'Preview')
+        translate('GlDuoChatContextItemDetailsModal.title', 'Preview')
       );
     },
   },
@@ -84,7 +84,7 @@ export default {
       }
     },
   },
-  ACTION_PRIMARY: { text: translate('GlDuoChatContextItemDetails.close', 'Close') },
+  ACTION_PRIMARY: { text: translate('GlDuoChatContextItemDetailsModal.close', 'Close') },
 };
 </script>
 

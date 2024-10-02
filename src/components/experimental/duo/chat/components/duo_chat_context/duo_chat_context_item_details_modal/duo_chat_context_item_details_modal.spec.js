@@ -9,15 +9,15 @@ import {
   LANGUAGE_IDENTIFIER_PLAINTEXT,
   LANGUAGE_IDENTIFIER_PREFIX,
 } from '../constants';
-import GlDuoChatContextItemDetails from './duo_chat_content_item_details.vue';
+import GlDuoChatContextItemDetailsModal from './duo_chat_context_item_details_modal.vue';
 
-describe('GlDuoChatContextItemDetails', () => {
+describe('GlDuoChatContextItemDetailsModal', () => {
   let wrapper;
   let renderGFM;
 
   const createComponent = (propsData = {}) => {
     renderGFM = jest.fn();
-    wrapper = shallowMount(GlDuoChatContextItemDetails, {
+    wrapper = shallowMount(GlDuoChatContextItemDetailsModal, {
       propsData,
       provide: { renderGFM },
     });

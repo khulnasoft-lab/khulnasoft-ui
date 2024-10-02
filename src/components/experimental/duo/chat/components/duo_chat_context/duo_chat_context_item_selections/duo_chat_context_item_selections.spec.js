@@ -2,7 +2,7 @@ import { nextTick } from 'vue';
 import { mount, shallowMount } from '@vue/test-utils';
 import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlToken from '../../../../../../base/token/token.vue';
-import GlDuoChatContextItemDetails from '../duo_chat_content_item_details/duo_chat_content_item_details.vue';
+import GlDuoChatContextItemDetailsModal from '../duo_chat_context_item_details_modal/duo_chat_context_item_details_modal.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 
 import {
@@ -43,7 +43,7 @@ describe('GlDuoChatContextItemSelections', () => {
   const findTokensIcons = () => findTokensWrapper().findAllComponents(GlIcon);
   const findPopovers = () => wrapper.findAllComponents(GlDuoChatContextItemPopover);
   const findCollapseIcon = () => findByTestId('chat-context-collapse-icon');
-  const findItemDetailsModal = () => wrapper.findComponent(GlDuoChatContextItemDetails);
+  const findItemDetailsModal = () => wrapper.findComponent(GlDuoChatContextItemDetailsModal);
 
   describe('component rendering', () => {
     it('renders the component when selections are provided', () => {

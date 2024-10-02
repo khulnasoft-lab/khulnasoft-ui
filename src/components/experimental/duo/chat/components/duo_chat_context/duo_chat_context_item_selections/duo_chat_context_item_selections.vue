@@ -5,14 +5,14 @@ import GlToken from '../../../../../../base/token/token.vue';
 import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 import { CONTEXT_ITEM_CATEGORY_FILE, CONTEXT_ITEM_CATEGORY_LOCAL_GIT } from '../constants';
-import GlDuoChatContextItemDetails from '../duo_chat_content_item_details/duo_chat_content_item_details.vue';
+import GlDuoChatContextItemDetailsModal from '../duo_chat_context_item_details_modal/duo_chat_context_item_details_modal.vue';
 import { contextItemsValidator, getContextItemIcon } from '../utils';
 
 export default {
   name: 'GlDuoChatContextItemSelections',
   components: {
     GlTruncate,
-    GlDuoChatContextItemDetails,
+    GlDuoChatContextItemDetailsModal,
     GlIcon,
     GlDuoChatContextItemPopover,
     GlToken,
@@ -184,7 +184,7 @@ export default {
         />
       </gl-token>
     </div>
-    <gl-duo-chat-context-item-details
+    <gl-duo-chat-context-item-details-modal
       v-if="contextItemPreview"
       :context-item="contextItemPreview"
       @close="onClosePreview"
