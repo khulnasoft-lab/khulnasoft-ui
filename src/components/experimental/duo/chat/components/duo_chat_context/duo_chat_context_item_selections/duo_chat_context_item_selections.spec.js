@@ -221,6 +221,16 @@ describe('GlDuoChatContextItemSelections', () => {
               });
             }
           );
+
+          it('should not open the item when emitting key event on gl-token internal close button', async () => {
+            const token = findTokens().at(0);
+            const closeButton = token.find('svg');
+
+            closeButton.trigger('keydown.enter');
+            await nextTick();
+
+            expect(findItemDetailsModal().exists()).toBe(false);
+          });
         }
       );
 
@@ -229,7 +239,7 @@ describe('GlDuoChatContextItemSelections', () => {
         ({ item }) => {
           beforeEach(() => {
             createComponent({ selections: [item] });
-            return findTokens().at(0).vm.$emit('click');
+            return findTokens().at(0).vm.$emit('click', { type: 'click' });
           });
 
           it('should not display any details view', () => {

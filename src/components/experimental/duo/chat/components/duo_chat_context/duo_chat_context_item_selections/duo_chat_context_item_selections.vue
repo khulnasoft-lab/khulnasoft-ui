@@ -105,7 +105,14 @@ export default {
        */
       this.$emit('remove', contextItem);
     },
-    onOpenItem(contextItem) {
+    onOpenItem(event, contextItem) {
+      const isKeypressOnCloseButton =
+        event.type === 'keydown' && event.target !== event.currentTarget;
+      if (isKeypressOnCloseButton) {
+        // don't respond to events triggered by the gl-token children (e.g. the close button)
+        return;
+      }
+
       if (!this.canOpen(contextItem)) {
         return;
       }
@@ -152,9 +159,9 @@ export default {
         :class="[tokenVariantClasses, canOpen(item) ? 'gl-cursor-pointer' : '']"
         :tabindex="canOpen(item) ? 0 : -1"
         role="button"
-        @click="onOpenItem(item)"
-        @keydown.enter="onOpenItem(item)"
-        @keydown.space.prevent="onOpenItem(item)"
+        @click="onOpenItem($event, item)"
+        @keydown.enter="onOpenItem($event, item)"
+        @keydown.space.prevent="onOpenItem($event, item)"
         @close="onRemoveItem(item)"
       >
         <div
