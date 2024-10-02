@@ -189,7 +189,7 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
   template: template(
     `
       <template #toggle>
-     <button class="gl-rounded-base gl-border-none gl-p-2 gl-bg-gray-50 ">
+     <button class="gl-rounded-base gl-border-none gl-p-2 gl-bg-strong">
         <span class="gl-sr-only">
           Orange Fox user's menu
         </span>
