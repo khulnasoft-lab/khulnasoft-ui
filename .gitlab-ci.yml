@@ -92,7 +92,7 @@ secret_detection:
     CYPRESS_INSTALL_BINARY: 0
   before_script:
     - apt-get update
-    - apt-get install -y make gcc g++
+    - apt-get install -y make
     - yarn install --frozen-lockfile
   cache:
     <<: *cache-template
@@ -354,7 +354,7 @@ merge_coverage_reports:
     - unit_tests_vue2
     - unit_tests_vue3
   script:
-    - yarn run cobertura-merge -o coverage/cobertura-coverage.xml package1=coverage/vue2/cobertura-coverage.xml package2=coverage/vue3/cobertura-coverage.xml
+    - yarn run merge-cobertura -o coverage/cobertura-coverage.xml package1=coverage/vue2/cobertura-coverage.xml package2=coverage/vue3/cobertura-coverage.xml
   artifacts:
     name: coverage
     when: always
