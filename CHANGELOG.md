@@ -1,3 +1,10 @@
+## [94.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.6.0...v94.6.1) (2024-10-02)
+
+
+### Bug Fixes
+
+* **GlBreadcrumb:** Fix items watcher behavior ([f4256e4](https://gitlab.com/gitlab-org/gitlab-ui/commit/f4256e41fec4d2b5ede133b4f0d070ffa049d78b))
+
 # [94.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.5.0...v94.6.0) (2024-10-01)
 
 
