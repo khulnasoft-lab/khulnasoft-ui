@@ -296,6 +296,40 @@ describe('datepicker component', () => {
     }
   );
 
+  describe('when open event is emitted', () => {
+    let wrapper;
+    let mockElement;
+
+    beforeEach(async () => {
+      wrapper = mountWithOptions();
+      const config = pikadayConfig();
+      mockElement = document.createElement('div');
+      mockElement.innerHTML = `
+        <div class="pika-title" role="heading"></div>
+        <select class="pika-select-month"></select>
+        <select class="pika-select-year"></select>
+      `;
+      wrapper.vm.$el.appendChild(mockElement);
+      config.onOpen();
+    });
+
+    it('adds level', () => {
+      expect(mockElement.querySelector('.pika-title').getAttribute('aria-level')).toBe('3');
+    });
+
+    it('adds month label', () => {
+      expect(mockElement.querySelector('.pika-select-month').getAttribute('aria-label')).toBe(
+        'Month'
+      );
+    });
+
+    it('adds year label', () => {
+      expect(mockElement.querySelector('.pika-select-year').getAttribute('aria-label')).toBe(
+        'Year'
+      );
+    });
+  });
+
   describe('when draw event is emitted', () => {
     let pikaday;
     let pastDateButton;
