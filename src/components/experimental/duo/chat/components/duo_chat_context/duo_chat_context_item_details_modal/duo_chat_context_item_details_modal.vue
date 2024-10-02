@@ -83,8 +83,12 @@ export default {
         this.renderGFM(this.$refs.content);
       }
     },
+    onModalVisibilityChange(isVisible) {
+      if (!isVisible) {
+        this.$emit('close');
+      }
+    },
   },
-  ACTION_PRIMARY: { text: translate('GlDuoChatContextItemDetailsModal.close', 'Close') },
 };
 </script>
 
@@ -93,17 +97,16 @@ export default {
     modal-id="context-item-details-modal"
     :title="title"
     :visible="true"
-    :action-primary="$options.ACTION_PRIMARY"
     :scrollable="true"
+    hide-footer
     size="lg"
-    @change="$emit('close')"
-    @primary="$emit('close')"
+    @change="onModalVisibilityChange"
   >
     <gl-skeleton-loader v-if="isLoadingContent" />
     <div v-else ref="content" data-testid="context-item-content">
       <pre
         v-safe-html="contextItem.content"
-        class="code js-syntax-highlight p-3"
+        class="code js-syntax-highlight gl-p-3"
         :class="languageIdentifierClass"
       ></pre>
     </div>

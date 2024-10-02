@@ -17,14 +17,6 @@ export default {
     GlDuoChatContextItemPopover,
     GlToken,
   },
-  inject: {
-    renderGFM: {
-      from: 'renderGFM',
-      default: () => (element) => {
-        element.classList.add('gl-markdown', 'gl-compact-markdown');
-      },
-    },
-  },
   props: {
     /**
      * Array of selected context items.
@@ -86,10 +78,6 @@ export default {
       return '';
     },
     contextItemPreview() {
-      if (!this.previewContextItemId) {
-        return undefined;
-      }
-
       return this.selections.find((item) => item.id === this.previewContextItemId);
     },
   },
@@ -156,9 +144,9 @@ export default {
         :view-only="!removable"
         variant="default"
         class="gl-mb-2 gl-mr-2 gl-max-w-full"
-        :class="[tokenVariantClasses, canOpen(item) ? 'gl-cursor-pointer' : '']"
+        :class="tokenVariantClasses"
         :tabindex="canOpen(item) ? 0 : -1"
-        role="button"
+        :role="canOpen(item) ? 'button' : undefined"
         @click="onOpenItem($event, item)"
         @keydown.enter="onOpenItem($event, item)"
         @keydown.space.prevent="onOpenItem($event, item)"

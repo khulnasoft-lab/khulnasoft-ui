@@ -42,10 +42,8 @@ describe('GlDuoChatContextItemDetailsModal', () => {
       expect(findModal().props()).toEqual(
         expect.objectContaining({
           dismissLabel: 'Close',
-          actionPrimary: {
-            text: 'Close',
-          },
           actionCancel: null,
+          actionPrimary: null,
           actionSecondary: null,
           size: 'lg',
           visible: true,
@@ -76,11 +74,11 @@ describe('GlDuoChatContextItemDetailsModal', () => {
       expect(wrapper.emitted('close')).toHaveLength(1);
     });
 
-    it('emits "close" event when modal primary action is triggered', () => {
+    it('does not emit "close" event when modal becomes visible', () => {
       createComponent({ contextItem: MOCK_CONTEXT_ITEM_FILE });
-      findModal().vm.$emit('primary');
+      findModal().vm.$emit('change', true);
 
-      expect(wrapper.emitted('close')).toHaveLength(1);
+      expect(wrapper.emitted('close')).toBeUndefined();
     });
   });
 
@@ -130,7 +128,7 @@ describe('GlDuoChatContextItemDetailsModal', () => {
       });
 
       describe('language identifier classes', () => {
-        it('should apply "language-diff" for a contextItem fo category "git"', async () => {
+        it('should apply "language-diff" for a contextItem of category "git"', async () => {
           wrapper.setProps({
             contextItem: {
               ...MOCK_CONTEXT_ITEM_FILE,
