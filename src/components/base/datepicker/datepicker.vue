@@ -7,6 +7,7 @@ import { areDatesEqual } from '../../../utils/datetime_utility';
 import GlButton from '../button/button.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlIcon from '../icon/icon.vue';
+import { translate } from '../../../utils/i18n';
 
 export const pad = (val, len = 2) => `0${val}`.slice(-len);
 
@@ -50,12 +51,12 @@ const addAccessibleLabels = (element) => {
   // Add aria-label to month & year select dropdowns
   const monthEl = element.querySelector('select.pika-select-month');
   if (monthEl) {
-    monthEl.setAttribute('aria-label', 'Month');
+    monthEl.setAttribute('aria-label', translate('GlDatepicker.monthLabel', 'Month'));
   }
 
   const yearEl = element.querySelector('select.pika-select-year');
   if (yearEl) {
-    yearEl.setAttribute('aria-label', 'Year');
+    yearEl.setAttribute('aria-label', translate('GlDatepicker.yearLabel', 'Year'));
   }
 };
 
