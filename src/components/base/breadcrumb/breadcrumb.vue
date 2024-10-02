@@ -121,8 +121,9 @@ export default {
       this.overflowingItems = [];
     },
     async measureAndMakeBreadcrumbsFit() {
-      this.resizeDone = false;
       this.resetItems();
+      if (!this.autoResize) return;
+      this.resizeDone = false;
 
       // Wait for DOM update so all items get rendered and can be measured.
       await this.$nextTick();

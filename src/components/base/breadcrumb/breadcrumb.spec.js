@@ -158,6 +158,16 @@ describe('Breadcrumb component', () => {
         expect(findBreadcrumbItems().length).toEqual(items.length);
       });
 
+      it('does not trigger auto-resize behavior when items change', async () => {
+        await wrapper.setProps({
+          items: [...items, { text: 'fourth_breadcrumb', to: 'the_moon' }],
+        });
+        await wrapper.vm.$nextTick();
+
+        expect(findOverflowDropdown().exists()).toBe(false);
+        expect(findBreadcrumbItems().length).toEqual(items.length + 1);
+      });
+
       it('reacts to prop changing to true', async () => {
         expect(findOverflowDropdown().exists()).toBe(false);
         await wrapper.setProps({ autoResize: true });
