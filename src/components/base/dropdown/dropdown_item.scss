@@ -11,7 +11,7 @@
   position: relative;
   @apply gl-rounded-none;
   @apply gl-shadow-none;
-  @apply gl-text-gray-900;
+  color: var(--gl-dropdown-option-text-color-default);
   @apply gl-text-left;
   @apply gl-w-full;
   @apply gl-whitespace-normal;
@@ -30,7 +30,7 @@
     .gl-dropdown-item-check-icon {
       @apply gl-shrink-0;
       @apply gl-mr-3;
-      @apply gl-text-gray-700;
+      color: var(--gl-dropdown-option-indicator-color-selected-default);
     }
 
     .gl-dropdown-item-icon {
@@ -44,7 +44,7 @@
 
     .gl-dropdown-item-text-secondary {
       @apply gl-m-0;
-      @apply gl-text-gray-700;
+      @apply gl-text-subtle;
     }
 
     .gl-dropdown-item-text-wrapper {
@@ -56,7 +56,7 @@
 
     // make sure the text color is not overridden
     &.text-danger {
-      @apply gl-text-red-500;
+      @apply gl-text-danger;
     }
 
     &.disable-hover {
@@ -64,7 +64,7 @@
     }
 
     &:disabled {
-      @apply gl-text-gray-500;
+      @apply gl-text-disabled;
 
       .gl-new-dropdown-item-check-icon {
         @apply gl-text-inherit;
@@ -83,17 +83,13 @@
     &:active,
     &:focus,
     &.is-focused {
-      @apply gl-bg-gray-50;
+      background-color: var(--gl-dropdown-option-background-color-unselected-hover);
       @apply gl-no-underline;
-      @apply gl-text-gray-900;
+      color: var(--gl-dropdown-option-text-color-default);
 
       // make sure the text color is not overridden
       &.text-danger {
-        @apply gl-text-red-500;
-      }
-
-      .avatar {
-        @apply gl-border-white;
+        @apply gl-text-danger;
       }
     }
 

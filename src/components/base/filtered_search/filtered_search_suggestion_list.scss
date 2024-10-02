@@ -5,7 +5,8 @@
   @apply gl-block;
   width: $gl-dropdown-width;
   @apply gl-p-2;
-  @apply gl-border-gray-200;
+  @apply gl-bg-dropdown;
+  @apply gl-border-dropdown;
   @apply gl-rounded-lg;
   @apply gl-shadow-md;
 }

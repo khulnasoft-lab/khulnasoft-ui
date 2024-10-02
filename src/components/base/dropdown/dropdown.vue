@@ -279,7 +279,7 @@ export default {
           class="gl-justify-content-flex-start gl-flex gl-grow"
           :class="highlightedItemsTitleClass"
         >
-          <span class="gl-font-bold" data-testid="highlighted-items-title">{{
+          <span class="gl-font-bold gl-text-strong" data-testid="highlighted-items-title">{{
             highlightedItemsTitle
           }}</span>
         </div>

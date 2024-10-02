@@ -8,8 +8,8 @@ import {
 } from './constants';
 
 export const BORDER_CLASSES = {
-  [borderPositions.top]: 'gl-border-t gl-border-t-gray-200 gl-pt-2 gl-mt-2',
-  [borderPositions.bottom]: 'gl-border-b gl-border-b-gray-200 gl-pb-2 gl-mb-2',
+  [borderPositions.top]: 'gl-border-t gl-border-t-dropdown gl-pt-2 gl-mt-2',
+  [borderPositions.bottom]: 'gl-border-b gl-border-b-dropdown gl-pb-2 gl-mb-2',
 };
 
 export default {
@@ -81,7 +81,7 @@ export default {
       v-if="showHeader"
       :id="nameId"
       aria-hidden="true"
-      class="gl-py-2 gl-pl-4 gl-text-sm gl-font-bold"
+      class="gl-py-2 gl-pl-4 gl-text-sm gl-font-bold gl-text-strong"
     >
       <slot name="group-label">{{ group.name }}</slot>
     </div>

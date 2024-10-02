@@ -303,11 +303,13 @@ const colors = {
 const backgroundColor = {
   ...colors,
   ...backgroundColors,
+  dropdown: 'var(--gl-dropdown-background-color, var(--gl-background-color-overlap, #fff))',
 };
 
 const borderColor = {
   ...colors,
   ...borderColors,
+  dropdown: 'var(--gl-dropdown-border-color, var(--gl-color-neutral-200, #bfbfc3))',
 };
 
 const fill = {

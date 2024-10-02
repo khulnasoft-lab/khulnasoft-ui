@@ -13742,6 +13742,463 @@
       }
     }
   },
+  "dropdown": {
+    "background": {
+      "color": {
+        "value": "#28272d",
+        "$type": "color",
+        "comment": "Used for the background of a dropdown.",
+        "filePath": "src/tokens/contextual/dropdown.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": "{background.color.overlap}",
+          "$type": "color",
+          "comment": "Used for the background of a dropdown."
+        },
+        "name": "DROPDOWN_BACKGROUND_COLOR",
+        "attributes": {},
+        "path": [
+          "dropdown",
+          "background",
+          "color"
+        ]
+      }
+    },
+    "border": {
+      "color": {
+        "value": "#4c4b51",
+        "$type": "color",
+        "comment": "Used for the border of a dropdown.",
+        "filePath": "src/tokens/contextual/dropdown.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.200}",
+            "dark": "{color.neutral.700}"
+          },
+          "$type": "color",
+          "comment": "Used for the border of a dropdown."
+        },
+        "name": "DROPDOWN_BORDER_COLOR",
+        "attributes": {},
+        "path": [
+          "dropdown",
+          "border",
+          "color"
+        ]
+      }
+    },
+    "option": {
+      "text": {
+        "color": {
+          "default": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the text of a dropdown option in the default state.",
+            "filePath": "src/tokens/contextual/dropdown.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.neutral.foreground.color.default}",
+              "$type": "color",
+              "comment": "Used for the text of a dropdown option in the default state."
+            },
+            "name": "DROPDOWN_OPTION_TEXT_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "dropdown",
+              "option",
+              "text",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the text of a dropdown option in the hover state.",
+            "filePath": "src/tokens/contextual/dropdown.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.neutral.foreground.color.hover}",
+              "$type": "color",
+              "comment": "Used for the text of a dropdown option in the hover state."
+            },
+            "name": "DROPDOWN_OPTION_TEXT_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "dropdown",
+              "option",
+              "text",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the text of a dropdown option in the focus state.",
+            "filePath": "src/tokens/contextual/dropdown.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.neutral.foreground.color.focus}",
+              "$type": "color",
+              "comment": "Used for the text of a dropdown option in the focus state."
+            },
+            "name": "DROPDOWN_OPTION_TEXT_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "dropdown",
+              "option",
+              "text",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the text of a dropdown option in the active state.",
+            "filePath": "src/tokens/contextual/dropdown.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.neutral.foreground.color.active}",
+              "$type": "color",
+              "comment": "Used for the text of a dropdown option in the active state."
+            },
+            "name": "DROPDOWN_OPTION_TEXT_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "dropdown",
+              "option",
+              "text",
+              "color",
+              "active"
+            ]
+          },
+          "disabled": {
+            "value": "#737278",
+            "$type": "color",
+            "comment": "Used for the text of a dropdown option in the disabled state.",
+            "filePath": "src/tokens/contextual/dropdown.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.disabled.foreground.color}",
+              "$type": "color",
+              "comment": "Used for the text of a dropdown option in the disabled state."
+            },
+            "name": "DROPDOWN_OPTION_TEXT_COLOR_DISABLED",
+            "attributes": {},
+            "path": [
+              "dropdown",
+              "option",
+              "text",
+              "color",
+              "disabled"
+            ]
+          }
+        }
+      },
+      "indicator": {
+        "color": {
+          "selected": {
+            "default": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the dropdown selected option indicator in the default state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{control.background.color.selected.default}",
+                  "dark": "{color.neutral.0}"
+                },
+                "$type": "color",
+                "comment": "Used for the dropdown selected option indicator in the default state."
+              },
+              "name": "DROPDOWN_OPTION_INDICATOR_COLOR_SELECTED_DEFAULT",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "indicator",
+                "color",
+                "selected",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the dropdown selected option indicator in the hover state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{control.background.color.selected.hover}",
+                  "dark": "{color.neutral.0}"
+                },
+                "$type": "color",
+                "comment": "Used for the dropdown selected option indicator in the hover state."
+              },
+              "name": "DROPDOWN_OPTION_INDICATOR_COLOR_SELECTED_HOVER",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "indicator",
+                "color",
+                "selected",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#fff",
+              "$type": "color",
+              "comment": "Used for the dropdown selected option indicator in the focus state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{control.background.color.selected.focus}",
+                  "dark": "{color.neutral.0}"
+                },
+                "$type": "color",
+                "comment": "Used for the dropdown selected option indicator in the focus state."
+              },
+              "name": "DROPDOWN_OPTION_INDICATOR_COLOR_SELECTED_FOCUS",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "indicator",
+                "color",
+                "selected",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#dcdcde",
+              "$type": "color",
+              "comment": "Used for the dropdown selected option indicator in the active state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.blue.700}",
+                  "dark": "{color.neutral.100}"
+                },
+                "$type": "color",
+                "comment": "Used for the dropdown selected option indicator in the active state."
+              },
+              "name": "DROPDOWN_OPTION_INDICATOR_COLOR_SELECTED_ACTIVE",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "indicator",
+                "color",
+                "selected",
+                "active"
+              ]
+            }
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "unselected": {
+            "default": {
+              "value": "rgba(137, 136, 141, 0.0)",
+              "$type": "color",
+              "comment": "Used for the background of an unselected dropdown option in the default state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.neutral.background.color.default}",
+                "$type": "color",
+                "comment": "Used for the background of an unselected dropdown option in the default state."
+              },
+              "name": "DROPDOWN_OPTION_BACKGROUND_COLOR_UNSELECTED_DEFAULT",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "background",
+                "color",
+                "unselected",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "rgba(137, 136, 141, 0.4)",
+              "$type": "color",
+              "comment": "Used for the background of an unselected dropdown option in the hover state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.neutral.background.color.hover}",
+                "$type": "color",
+                "comment": "Used for the background of an unselected dropdown option in the hover state."
+              },
+              "name": "DROPDOWN_OPTION_BACKGROUND_COLOR_UNSELECTED_HOVER",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "background",
+                "color",
+                "unselected",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "rgba(137, 136, 141, 0.4)",
+              "$type": "color",
+              "comment": "Used for the background of an unselected dropdown option in the focus state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.neutral.background.color.focus}",
+                "$type": "color",
+                "comment": "Used for the background of an unselected dropdown option in the focus state."
+              },
+              "name": "DROPDOWN_OPTION_BACKGROUND_COLOR_UNSELECTED_FOCUS",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "background",
+                "color",
+                "unselected",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "rgba(137, 136, 141, 0.16)",
+              "$type": "color",
+              "comment": "Used for the background of an unselected dropdown option in the active state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.neutral.background.color.active}",
+                "$type": "color",
+                "comment": "Used for the background of an unselected dropdown option in the active state."
+              },
+              "name": "DROPDOWN_OPTION_BACKGROUND_COLOR_UNSELECTED_ACTIVE",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "background",
+                "color",
+                "unselected",
+                "active"
+              ]
+            }
+          },
+          "selected": {
+            "default": {
+              "value": "#3a383f",
+              "$type": "color",
+              "comment": "Used for the background of a selected dropdown option in the default state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.50}",
+                  "dark": "{color.neutral.800}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a selected dropdown option in the default state."
+              },
+              "name": "DROPDOWN_OPTION_BACKGROUND_COLOR_SELECTED_DEFAULT",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "background",
+                "color",
+                "selected",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#4c4b51",
+              "$type": "color",
+              "comment": "Used for the background of a selected dropdown option in the hover state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.100}",
+                  "dark": "{color.neutral.700}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a selected dropdown option in the hover state."
+              },
+              "name": "DROPDOWN_OPTION_BACKGROUND_COLOR_SELECTED_HOVER",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "background",
+                "color",
+                "selected",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#4c4b51",
+              "$type": "color",
+              "comment": "Used for the background of a selected dropdown option in the focus state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{dropdown.option.background.color.selected.hover}",
+                "$type": "color",
+                "comment": "Used for the background of a selected dropdown option in the focus state."
+              },
+              "name": "DROPDOWN_OPTION_BACKGROUND_COLOR_SELECTED_FOCUS",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "background",
+                "color",
+                "selected",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#28272d",
+              "$type": "color",
+              "comment": "Used for the background of a selected dropdown option in the active state.",
+              "filePath": "src/tokens/contextual/dropdown.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": {
+                  "default": "{color.neutral.200}",
+                  "dark": "{color.neutral.900}"
+                },
+                "$type": "color",
+                "comment": "Used for the background of a selected dropdown option in the active state."
+              },
+              "name": "DROPDOWN_OPTION_BACKGROUND_COLOR_SELECTED_ACTIVE",
+              "attributes": {},
+              "path": [
+                "dropdown",
+                "option",
+                "background",
+                "color",
+                "selected",
+                "active"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
   "filtered-search": {
     "token": {
       "type": {
