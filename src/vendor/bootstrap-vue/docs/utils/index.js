@@ -9,12 +9,6 @@ export const parseVersion = version => {
   return matches.length > 0 ? matches[0] : ''
 }
 
-// Parse a fully qualified version from a string (including alpha/beta/etc.)
-export const parseFullVersion = version => {
-  const matches = version.match(/([0-9]+\.[0-9]+\.[0-9]+(-[a-z]+[.-]?[0-9]+)?)/) || []
-  return matches.length > 0 ? matches[0] : ''
-}
-
 export const getComponentName = component => kebabCase(component).replace(/{/g, '-{')
 export const getCleanComponentName = component => getComponentName(component).replace(/({|})/g, '')
 

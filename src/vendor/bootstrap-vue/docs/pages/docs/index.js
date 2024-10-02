@@ -4,7 +4,6 @@ import QuickLinks from '~/components/quick-links'
 import Section from '~/components/section'
 import docsMixin from '~/plugins/docs-mixin'
 import {
-  bootstrapIconsCount,
   bootstrapVersion,
   bootstrapVersionMajor,
   bootstrapVersionMinor,
@@ -43,7 +42,6 @@ export default {
       bootstrapVersion,
       bootstrapVersionMinor,
       bootstrapVersionMajor,
-      bootstrapIconsCount,
       nuxtVersion,
       nuxtVersionMinor,
       nuxtVersionMajor,

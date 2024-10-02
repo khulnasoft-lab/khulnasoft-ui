@@ -300,8 +300,7 @@ and not an `array`.
 
     <b-navbar-toggle target="navbar-toggle-collapse">
       <template #default="{ expanded }">
-        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-        <b-icon v-else icon="chevron-bar-down"></b-icon>
+        {{ expanded ? 'Close' : 'Open' }}
       </template>
     </b-navbar-toggle>
 

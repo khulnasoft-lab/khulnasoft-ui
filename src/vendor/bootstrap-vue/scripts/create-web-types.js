@@ -21,7 +21,6 @@ const commonPropsMeta = require(path.resolve(docsDir, 'common-props.json'))
 
 // Placeholder arrays
 let componentGroups = {}
-let iconGroups = {}
 let directiveGroups = {}
 
 // Base web-types object
@@ -373,90 +372,6 @@ const processComponentGroup = groupSlug => {
   })
 }
 
-// Create vue-component entries for each component in a component group
-const processIconGroup = groupSlug => {
-  // Array of components in the group
-  const groupMeta = iconGroups[groupSlug] || {}
-  const iconsMeta = groupMeta.components || []
-
-  // The URL to the components docs
-  const docUrl = `${baseDocs}/docs/icons/`
-
-  // We import the component from the transpiled `esm/` dir
-  const groupRef = require(path.resolve(baseDir, 'esm/icons'))
-
-  // Get SVGs for each icon
-  const iconsFile = fs.readFileSync(path.resolve(baseDir, 'esm/icons/icons.js')).toString()
-  const regex = /makeIcon\('([a-zA-Z0-9]+)','([^']+)'/g
-  let m = regex.exec(iconsFile)
-  const svgs = {}
-  while (m) {
-    svgs[m[1]] = m[2]
-    m = regex.exec(iconsFile)
-  }
-  const svgPrefix = `<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 16 16" xml:space="preserve" height="16px" width="16px">`
-
-  // Create list of vue-bootstrap-icons
-  const iconNames = iconsMeta
-    .filter(it => !!it['auto-gen'] && it.component.startsWith('BIcon'))
-    .map(it => it.component.substring('BIcon'.length))
-
-  webTypes.contributions.html['vue-bootstrap-icons'] = iconNames.map(name => ({
-    name,
-    icon: `${svgPrefix}${svgs[name]}</svg>`,
-    'doc-url': 'https://bootstrap-vue.org/docs/icons/#icons-1'
-  }))
-
-  webTypes.contributions.html['vue-bootstrap-icons-kebabized'] = iconNames.map(name => ({
-    name: kebabCase(name),
-    icon: `${svgPrefix}${svgs[name]}</svg>`,
-    'doc-url': 'https://bootstrap-vue.org/docs/icons/#icons-1'
-  }))
-
-  // Process each regular component
-  iconsMeta.filter(it => !it['auto-gen'] || !it.component.startsWith('BIcon')).forEach(meta => {
-    processComponentMeta(meta, groupRef, groupMeta.description, docUrl, component => {
-      // Add list of icons to BIcon icon prop
-      if (component.name === 'BIcon') {
-        const iconProp = component.props.find(it => it.name === 'icon')
-        iconProp['attribute-value'] = {
-          kind: 'plain',
-          type: 'enum'
-        }
-        iconProp.values = {
-          name: 'Bootstrap icon',
-          pattern: {
-            items: '/html/vue-bootstrap-icons-kebabized'
-          }
-        }
-      }
-    })
-  })
-
-  // Add special Vue component, which enables completion for all icons based on IconBlank
-  processComponentMeta(
-    iconsMeta.find(it => it['auto-gen'] && it.component.startsWith('BIcon')),
-    groupRef,
-    groupMeta.description,
-    docUrl,
-    component => {
-      component.name = 'Bootstrap Icon'
-      component.pattern = {
-        or: [
-          {
-            items: '/html/vue-bootstrap-icons',
-            template: ['BIcon', '$...', '#item:icon name']
-          },
-          {
-            items: '/html/vue-bootstrap-icons-kebabized',
-            template: ['b-icon-', '$...', '#item:icon name']
-          }
-        ]
-      }
-    }
-  )
-}
-
 // Create vue-directive entries for each directive
 const processDirectiveGroup = groupSlug => {
   // Directives only have a single entry in their Meta for `directive`
@@ -477,10 +392,6 @@ try {
   )
   componentGroups = importAll(componentsContext)
 
-  // Grab the icons meta data
-  const iconsContext = requireContext(path.resolve(baseDir, 'src/icons'), false, /package.json/)
-  iconGroups = importAll(iconsContext)
-
   // Grab the directive meta data
   const directivesContext = requireContext(
     path.resolve(baseDir, 'src/directives'),
@@ -491,9 +402,6 @@ try {
 
   // Process all components into webTypes
   Object.keys(componentGroups).forEach(processComponentGroup)
-
-  // Process all icons into webTypes (note there is only one group)
-  Object.keys(iconGroups).forEach(processIconGroup)
 
   // Process all directives into webTypes
   Object.keys(directiveGroups).forEach(processDirectiveGroup)
@@ -523,30 +431,6 @@ try {
       }
     })
   })
-
-  // Create icon components info
-  const blankIcon = webTypes.contributions.html['vue-components'].find(
-    it => it.name === 'Bootstrap Icon'
-  )
-  for (const icon of webTypes.contributions.html['vue-bootstrap-icons-kebabized']) {
-    const tag = 'b-icon-' + icon.name
-    // Component tag
-    veturTags[tag] = {
-      // `subtags` is a list of supported child components, but
-      // we do not have a way of populating this at the moment
-      // subtags: [],
-      description: blankIcon.description,
-      attributes: blankIcon.props.map(attrObj => kebabCase(attrObj.name))
-    }
-    // Component props
-    blankIcon.props.forEach(attrObj => {
-      const type = (attrObj['attribute-value'] || { type: 'any' }).type
-      veturAttributes[`${tag}/${kebabCase(attrObj.name)}`] = {
-        description: attrObj.description || `One of: ${type.split('|').join(' or ')}`,
-        type
-      }
-    })
-  }
 
   // Add global directive "attributes"
   Object.keys(webTypes.contributions.html['vue-directives']).forEach(directive => {

@@ -99,7 +99,7 @@ wrapped in these components for proper styling.
       <b-button variant="outline-secondary">Button</b-button>
       <b-button variant="outline-primary">Button</b-button>
       <b-input-group-text>
-        <b-icon icon="x" />
+        x
       </b-input-group-text>
     </b-input-group-append>
   </b-input-group>

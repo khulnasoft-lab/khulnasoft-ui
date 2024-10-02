@@ -7,11 +7,6 @@ BV_BANNER=$(node -p "require('./scripts/banner')")
 echo "Building BootstrapVue ${BV_VERSION}"
 echo ''
 
-echo 'Generating icon source files...'
-yarn jiti ./scripts/create-icons || exit 1
-echo 'done.'
-echo ''
-
 echo 'Checking plugin metadata...'
 yarn jiti ./scripts/check-plugin-meta || exit 1
 echo 'Done.'
@@ -29,9 +24,7 @@ echo 'Compiling ESM modular build...'
 NODE_ENV=esm babel src \
     --out-dir esm \
     --ignore 'src/**/*.spec.js' \
-    --ignore 'src/browser.js' \
-    --ignore 'src/browser-icons.js' \
-    --ignore 'src/icons-only.js'
+    --ignore 'src/browser.js'
 echo "${BV_BANNER}" | cat - esm/index.js > esm/tmp.js && mv -f esm/tmp.js esm/index.js
 echo 'Done.'
 echo ''
@@ -47,14 +40,6 @@ terser dist/bootstrap-vue.js \
     --comments "/^!/" \
     --source-map "content=dist/bootstrap-vue.js.map,includeSources,url=bootstrap-vue.min.js.map" \
     --output dist/bootstrap-vue.min.js
-terser dist/bootstrap-vue-icons.js \
-    --compress typeofs=false \
-    --mangle reserved=['BvEvent','BvModalEvent','Element','HTMLElement','SVGElement'] \
-    --toplevel \
-    --keep-classnames \
-    --comments "/^!/" \
-    --source-map "content=dist/bootstrap-vue-icons.js.map,includeSources,url=bootstrap-vue-icons.min.js.map" \
-    --output dist/bootstrap-vue-icons.min.js
 terser dist/bootstrap-vue.common.js \
     --compress typeofs=false \
     --mangle reserved=['BvEvent','BvModalEvent','Element','HTMLElement','SVGElement'] \
@@ -63,14 +48,6 @@ terser dist/bootstrap-vue.common.js \
     --comments "/^!/" \
     --source-map "content=dist/bootstrap-vue.common.js.map,includeSources,url=bootstrap-vue.common.min.js.map" \
     --output dist/bootstrap-vue.common.min.js
-terser dist/bootstrap-vue-icons.common.js \
-    --compress typeofs=false \
-    --mangle reserved=['BvEvent','BvModalEvent','Element','HTMLElement','SVGElement'] \
-    --toplevel \
-    --keep-classnames \
-    --comments "/^!/" \
-    --source-map "content=dist/bootstrap-vue-icons.common.js.map,includeSources,url=bootstrap-vue-icons.common.min.js.map" \
-    --output dist/bootstrap-vue-icons.common.min.js
 terser dist/bootstrap-vue.esm.js \
     --compress typeofs=false \
     --mangle reserved=['BvEvent','BvModalEvent','Element','HTMLElement','SVGElement'] \
@@ -79,14 +56,6 @@ terser dist/bootstrap-vue.esm.js \
     --comments "/^!/" \
     --source-map "content=dist/bootstrap-vue.esm.js.map,includeSources,url=bootstrap-vue.esm.min.js.map" \
     --output dist/bootstrap-vue.esm.min.js
-terser dist/bootstrap-vue-icons.esm.js \
-    --compress typeofs=false \
-    --mangle reserved=['BvEvent','BvModalEvent','Element','HTMLElement','SVGElement'] \
-    --toplevel \
-    --keep-classnames \
-    --comments "/^!/" \
-    --source-map "content=dist/bootstrap-vue-icons.esm.js.map,includeSources,url=bootstrap-vue-icons.esm.min.js.map" \
-    --output dist/bootstrap-vue-icons.esm.min.js
 echo 'Done.'
 echo ''
 
@@ -99,14 +68,6 @@ SASS_PATH=node_modules sass --style expanded \
     dist/bootstrap-vue.css
 postcss --config scripts/postcss.config.js \
     --replace dist/bootstrap-vue.css
-# BootstrapVue Icons only CSS
-SASS_PATH=node_modules sass --style expanded \
-    --embed-source-map \
-    --precision 6 \
-    scripts/icons.scss \
-    dist/bootstrap-vue-icons.css
-postcss --config scripts/postcss.config.js \
-    --replace dist/bootstrap-vue-icons.css
 echo 'Done.'
 echo ''
 
@@ -118,13 +79,6 @@ cleancss --level 1 \
     --source-map-inline-sources \
     --output dist/bootstrap-vue.min.css \
     dist/bootstrap-vue.css
-# Icons only CSS
-cleancss --level 1 \
-    --format breaksWith=lf \
-    --source-map \
-    --source-map-inline-sources \
-    --output dist/bootstrap-vue-icons.min.css \
-    dist/bootstrap-vue-icons.css
 echo 'Done.'
 echo ''
 

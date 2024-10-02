@@ -81,7 +81,6 @@
             <b-row class="mb-4">
               <b-col lg="10" offset-lg="1">
                 <p class="text-lg-center">
-                  With more than 85 components, over 45 available plugins, several directives, and {{ bootstrapIconsCount }}+ icons,
                   <span class="bd-text-purple-bright">BootstrapVue</span> provides one of the most
                   comprehensive implementations of the
                   <span class="bd-text-purple-bright">Bootstrap v{{ bootstrapVersionMajor }}</span> component and grid system
@@ -145,7 +144,6 @@
         <b-card-group deck class="mb-sm-4">
           <b-card tag="article" body-text-variant="muted" class="rounded-0 border-0">
             <b-card-text text-tag="h3" class="h5 text-center mb-2 bd-text-purple-bright">
-              <b-icon icon="phone" width="2.5em" height="2.5em" class="mx-auto d-block mb-3"></b-icon>
               <span>Responsive</span>
             </b-card-text>
             <b-card-text class="text-center">
@@ -155,7 +153,6 @@
 
           <b-card tag="article" body-text-variant="muted" class="rounded-0 border-0">
             <b-card-text text-tag="h3" class="h5 text-center bd-text-purple-bright mb-2">
-              <b-icon icon="puzzle" width="2.5em" height="2.5em" class="mx-auto d-block mb-3"></b-icon>
               <span>Modular</span>
             </b-card-text>
             <b-card-text class="text-center">
@@ -165,13 +162,6 @@
 
           <b-card tag="article" body-text-variant="muted" class="rounded-0 border-0">
             <b-card-text text-tag="h3" class="h5 text-center bd-text-purple-bright mb-2">
-              <b-icon
-                icon="eye-slash"
-                width="2.5em"
-                height="2.5em"
-                scale="1.2"
-                class="mx-auto d-block mb-3"
-              ></b-icon>
               <span>Accessible</span>
             </b-card-text>
             <b-card-text class="text-center">
@@ -207,7 +197,6 @@
 
           <b-card tag="article" body-text-variant="muted" body-class="px-2" class="rounded-0 border-0">
             <b-card-text text-tag="h3" class="h5 text-center bd-text-purple-bright mb-2">
-              <b-icon icon="gear" width="2.5em" height="2.5em" class="mx-auto d-block mb-3"></b-icon>
               <span>Configurable</span>
             </b-card-text>
             <b-card-text class="text-center">
@@ -392,13 +381,7 @@
 </template>
 
 <script>
-import {
-  bootstrapIconsCount,
-  bootstrapVersionMajor,
-  bootstrapVersionMinor,
-  version,
-  vueVersionMinor
-} from '~/content'
+import { bootstrapVersionMajor, bootstrapVersionMinor, version, vueVersionMinor } from '~/content'
 import BvLogo from '~/components/bv-logo'
 import BVCarbonAd from '~/components/carbon-ad'
 import BVContributors from '~/components/contributors'
@@ -413,7 +396,6 @@ export default {
     this.bootstrapUrl = `https://getbootstrap.com/docs/${bootstrapVersionMinor}`
     this.bootstrapVersionMajor = bootstrapVersionMajor
     this.bootstrapVersionMinor = bootstrapVersionMinor
-    this.bootstrapIconsCount = bootstrapIconsCount
     this.vueVersionMinor = vueVersionMinor
     this.version = version
   }

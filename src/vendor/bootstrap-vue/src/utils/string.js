@@ -6,8 +6,7 @@ import {
   RX_START_SPACE_WORD,
   RX_TRIM_LEFT,
   RX_TRIM_RIGHT,
-  RX_UNDERSCORE,
-  RX_UN_KEBAB
+  RX_UNDERSCORE
 } from '../constants/regex'
 import { isArray, isPlainObject, isString, isUndefinedOrNull } from './inspect'
 
@@ -16,12 +15,6 @@ import { isArray, isPlainObject, isString, isUndefinedOrNull } from './inspect'
 // Converts PascalCase or camelCase to kebab-case
 export const kebabCase = str => {
   return str.replace(RX_HYPHENATE, '-$1').toLowerCase()
-}
-
-// Converts a kebab-case or camelCase string to PascalCase
-export const pascalCase = str => {
-  str = kebabCase(str).replace(RX_UN_KEBAB, (_, c) => (c ? c.toUpperCase() : ''))
-  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 // Converts a string, including strings in camelCase or snake_case, into Start Case

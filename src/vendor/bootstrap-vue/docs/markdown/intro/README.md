@@ -24,7 +24,6 @@ The online documentation comprises:
 
 - [Components](/docs/components) - Components and component plugin documentation
 - [Directives](/docs/directives) - Directives and directive plugin documentation
-- [Icons](/docs/icons) - Icons and icon plugin documentation <b-badge>v2.2.0+</b-badge>
 - [Reference](/docs/reference) - Reference information and documentation
 - [Playground](/play) - Online playground
 - [Themes](/themes) - Themes and dashboards
@@ -130,7 +129,7 @@ Then, register BootstrapVue in your app entry point (typically `app.js` or `main
 ```js
 // app.js
 import Vue from 'vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { BootstrapVue } from 'bootstrap-vue'
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -138,8 +137,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
 ```
 
 ### Theming Bootstrap
@@ -426,9 +423,6 @@ module.exports = {
 }
 ```
 
-Note that this will **not** install the Icons components. To see how to include icons via the
-Nuxt.js module, refer to the [Icons section](#icons) below.
-
 ### Using custom Bootstrap SCSS
 
 If you are using custom Bootstrap SCSS, you can disable automatic inclusion of Bootstrap and
@@ -539,48 +533,6 @@ your Nuxt app, you may want to bypass the Nuxt.js module and, instead, follow th
 Alternatively you may want to to just import a few plugins (such as `ToastPlugin`) in your Nuxt.js
 module config, and then import additional components or plugins in the pages where needed.
 
-### Icons
-
-The [icons plugin](/docs/icons) is **not** automatically installed when using the Nuxt.js module.
-You must either explicitly enable the `IconsPlugin`, or specify which icon components you wish to
-import.
-
-All Icons:
-
-```js
-module.exports = {
-  modules: ['bootstrap-vue/nuxt'],
-  bootstrapVue: {
-    // Install the `IconsPlugin` plugin (in addition to `BootstrapVue` plugin)
-    icons: true
-  }
-}
-```
-
-Specific icons:
-
-```js
-module.exports = {
-  modules: ['bootstrap-vue/nuxt'],
-  bootstrapVue: {
-    // Add the desired icon components to the `components` array
-    components: ['BIcon', 'BIconAlertFill', 'BIconCalendar', 'BIconGears']
-  }
-}
-```
-
-Icons plugin:
-
-```js
-module.exports = {
-  modules: ['bootstrap-vue/nuxt'],
-  bootstrapVue: {
-    // Add the icon plugin to the `componentsPlugins` array
-    componentPlugins: ['IconsPlugin']
-  }
-}
-```
-
 ### Passing custom BootstrapVue config with Nuxt.js
 
 If you need to pass a custom
@@ -629,13 +581,12 @@ instructions.
 
 ```js
 import Vue from 'vue'
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
+import { BootstrapVue } from 'bootstrap-vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
-Vue.use(BootstrapVueIcons)
 ```
 
 For additional configuration for Vue CLI 3 for using project relative paths for image src props on
@@ -658,8 +609,6 @@ This will create a new app with basic BootstrapVue settings to get your project 
 
 In the future this plugin will provide options for more advanced configurations and templates.
 
-For Icons support, you may need to edit the resultant config file.
-
 ## Browser
 
 If not using a module bundler or compile process, you can instead add the Bootstrap and BootstrapVue
@@ -679,9 +628,6 @@ JavaScript files.
 <!-- Load Vue followed by BootstrapVue -->
 <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
 <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
-
-<!-- Load the following for BootstrapVueIcons support -->
-<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
 ```
 
 ## Build variants
@@ -694,20 +640,7 @@ bundler supports esm modules, it will automatically prefer it over commonjs.
 | **ESM module** | webpack 2+ / rollup.js | Yes        | `esm/index.js`                                                         |
 | ESM bundle     | webpack 2+ / rollup.js | Yes        | `dist/bootstrap-vue.esm.js`                                            |
 | commonjs2      | webpack 1 / ...        | No         | `dist/bootstrap-vue.common.js` _or_ `dist/bootstrap-vue.common.min.js` |
-| UMD            | Browser                | No         | `dist/bootstrap-vue.js` _or_ `dist/bootstrap-vue.min.js`               |
-
-Note the UMD (browser) variant **does not** include BootstrapVue [icons](/docs/icons) support. All
-other variants listed above _do include_ the `BootstrapVueIcons` (`IconsPlugin`) plugin (note the
-icons plugin is not automatically installed, and must explicitly installed via `Vue.use()`. See the
-[Icons usage](/docs/icons#usage) section for more details.
-
-Icons only modules:
-
-| Variant        | Environments           | Tree Shake | Package path                                                                       |
-| -------------- | ---------------------- | ---------- | ---------------------------------------------------------------------------------- |
-| **ESM bundle** | webpack 2+ / rollup.js | Yes        | `dist/bootstrap-vue-icons.esm.js`                                                  |
-| commonjs2      | webpack 1 / ...        | No         | `dist/bootstrap-vue-icons.common.js` _or_ `dist/bootstrap-vue-icons.common.min.js` |
-| UMD            | Browser                | No         | `dist/bootstrap-vue-icons.js` _or_ `dist/bootstrap-vue-icons.min.js`               |
+| UMD            | Browser                | No         | `dist/bootstrap-vue.js` _or_ `dist/bootstrap-vue.min.js`               |  |
 
 The `ESM` module build and the `ESM` bundles (single file) are
 [tree-shakeable](#tree-shaking-with-module-bundlers), but you will experience smaller final bundle
@@ -727,9 +660,8 @@ section above for more details.
 BootstrapVue relies on `Popper.js` (for Tooltip, Popover, and Dropdown positioning),
 [`PortalVue`](https://portal-vue.linusb.org/) (for toasts) and
 [`vue-functional-data-merge`](https://github.com/alexsasharegan/vue-functional-data-merge) (used by
-our functional components). These three dependencies are included in the BootstrapVue `UMD` bundle,
-while the UMD (browser) icons only bundle includes `vue-functional-data-merge`. All other builds do
-not include these dependencies.
+our functional components). These three dependencies are included in the BootstrapVue `UMD` bundle.
+All other builds do not include these dependencies.
 
 ## Migrating a project already using Bootstrap
 

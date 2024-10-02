@@ -15,15 +15,6 @@ Note: Many of the 3rd party components listed are lacking accessibility features
 fully WAI-ARIA compliant, nor accessible to keyboard-only and/or screen-reader users. These
 libraries may also not be tailored for mobile devices.
 
-### Icons
-
-Alternatives to BootstrapVue's [`b-icon-*`](/docs/icons) components:
-
-- [Vue Font Awesome](https://fontawesome.com/how-to-use/on-the-web/using-with/vuejs)
-- [Vue Icon](https://github.com/qinshenxue/vue-icon)
-- [Vue Ionicons](https://mazipan.github.io/vue-ionicons/)
-- [Vue Unicons](https://antonreshetov.github.io/vue-unicons/)
-
 ### Date and Time Pickers
 
 Alternatives to BootstrapVue's [`<b-form-datepicker>`](/docs/components/form-datepicker),
