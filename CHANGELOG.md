@@ -1,3 +1,10 @@
+# [94.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.8.0...v94.9.0) (2024-10-03)
+
+
+### Features
+
+* **GlButton:** Add animation and migrate box-shadow to border ([602811d](https://gitlab.com/gitlab-org/gitlab-ui/commit/602811dc9caf78fa7f56b2c2689c2263bb218000))
+
 # [94.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.7.0...v94.8.0) (2024-10-03)
 
 
