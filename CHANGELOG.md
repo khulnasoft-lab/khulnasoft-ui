@@ -1,3 +1,10 @@
+# [94.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.9.0...v94.10.0) (2024-10-03)
+
+
+### Features
+
+* **GlFormComboBox:** use design tokens in GlFormComboBox ([7dd5b86](https://gitlab.com/gitlab-org/gitlab-ui/commit/7dd5b86806a49b2ced86051891bf278fc8114585))
+
 # [94.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.8.0...v94.9.0) (2024-10-03)
 
 
