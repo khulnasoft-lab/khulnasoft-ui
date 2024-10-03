@@ -207,6 +207,10 @@ $gl-border-radius-6: $gl-spacing-scale-6;
 $gl-border-radius-7: $gl-spacing-scale-7;
 $gl-border-radius-full: 50%;
 
+// component height
+$gl-button-small-size: px-to-rem(24px);
+$gl-button-medium-size: px-to-rem(32px);
+
 // transition parameters
 $gl-transition-duration-slow: 0.4s;
 $gl-transition-duration-medium: 0.2s;
@@ -328,3 +332,6 @@ $popover-arrow-color: $popover-bg;
 $popover-arrow-outer-color: $gray-100;
 
 $tooltip-opacity: 1;
+
+// Feature flag for GlButton border migration
+$feature-button-border: false !default;

@@ -51,7 +51,7 @@
 
   .gl-new-dropdown-toggle {
     // optically align the caret
-    &.gl-button:not(.gl-new-dropdown-toggle-no-caret) {
+    &.gl-button:not(.gl-new-dropdown-toggle-no-caret, .btn-icon) {
       @apply gl-pr-3;
 
       &.btn-sm {
@@ -67,6 +67,10 @@
   .gl-new-dropdown-toggle {
     .gl-button-text {
       @apply gl-inline-flex;
+
+      &:has(.gl-sr-only) {
+        width: auto;
+      }
     }
   }
 
@@ -85,7 +89,7 @@
     }
   }
 
-  .gl-button .gl-button-icon.gl-new-dropdown-chevron {
+  .gl-button:not(.gl-new-dropdown-caret-only) .gl-button-icon.gl-new-dropdown-chevron {
     @apply gl-ml-2;
     @apply gl-mr-0;
   }
@@ -94,6 +98,7 @@
     // optically align the caret
     &.gl-button:not(.gl-new-dropdown-toggle-no-caret) {
       @apply gl-pr-2;
+      @apply gl-pl-3;
 
       &.btn-sm {
         @apply gl-pr-0;

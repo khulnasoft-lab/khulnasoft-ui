@@ -33,28 +33,51 @@
 ) {
   color: $color;
   background-color: $background-color;
-  @include gl-button-border($border-color);
+  @if $feature-button-border {
+    border-color: $border-color;
+  } @else {
+    @include gl-button-border($border-color);
+  }
 
   &:hover {
     color: $hover-color;
     background-color: $hover-background-color;
-    @include gl-button-hover-border($hover-border-color);
+    @if $feature-button-border {
+      border-color: $hover-border-color;
+    } @else {
+      @include gl-button-hover-border($hover-border-color);
+    }
   }
 
   &:focus {
     color: $focus-color;
     background-color: $focus-background-color;
-    @include gl-focus($color: $focus-border-color);
+    @if $feature-button-border {
+      border-color: $focus-border-color;
+    } @else {
+      @include gl-focus($color: $focus-border-color);
+    }
   }
 
   &:active,
   &.active {
     color: $active-color;
     background-color: $active-background-color;
-    @include gl-focus($color: $active-border-color);
+    @if $feature-button-border {
+      border-color: $active-border-color;
+    } @else {
+      @include gl-focus($color: $focus-border-color);
+    }
 
-    &:focus {
-      @include gl-focus($color: $active-border-color);
+    @if $feature-button-border {
+      :focus,
+      &:focus:active {
+        @include gl-focus;
+      }
+    } @else {
+      &:focus {
+        @include gl-focus($color: $active-border-color);
+      }
     }
   }
 }
@@ -72,23 +95,43 @@
   }
 }
 
-// double specificity to override bootstrap and reboot styling
 .gl-button.gl-button {
-  @apply gl-border-0;
   @apply gl-rounded-base;
-  @apply gl-py-3;
   @apply gl-px-4;
   background-color: var(--gl-button-default-primary-background-color-default);
   @apply gl-leading-normal;
   color: var(--gl-button-default-primary-foreground-color-default);
   @include gl-fill-current-color;
-  @include gl-button-border(var(--gl-button-default-primary-border-color-default));
   @apply gl-justify-center;
   @apply gl-items-center;
   @apply gl-text-base;
 
-  @media (forced-colors: active) {
-    border: 1px solid;
+  @if $feature-button-border {
+    @apply gl-py-0;
+    border: $gl-border-size-1 solid var(--gl-button-default-primary-border-color-default);
+    min-height: $gl-button-medium-size;
+    min-width: $gl-button-medium-size;
+    @include gl-prefers-reduced-motion-transition;
+    transition: color $gl-transition-duration-medium $gl-easing-out-cubic,
+                background-color $gl-transition-duration-medium $gl-easing-out-cubic,
+                border-color $gl-transition-duration-medium $gl-easing-out-cubic,
+                box-shadow $gl-transition-duration-medium $gl-easing-out-cubic,
+                text-decoration-color $gl-transition-duration-medium $gl-easing-out-cubic;
+  } @else {
+    @apply gl-border-0;
+    @apply gl-py-3;
+    @include gl-button-border(var(--gl-button-default-primary-border-color-default));
+  }
+
+  @if $feature-button-border {
+    &:focus,
+    &:focus:active {
+      @include gl-focus;
+    }
+  } @else {
+    @media (forced-colors: active) {
+      border: 1px solid;
+    }
   }
 
   .gl-button-text {
@@ -136,28 +179,45 @@
     &.selected {
       color: var(--gl-button-selected-foreground-color-default);
       background-color: var(--gl-button-selected-background-color-default);
-      @include gl-button-selected-border(var(--gl-button-selected-border-color-default));
+      @if $feature-button-border {
+        border-width: $gl-border-size-2;
+        border-color: var(--gl-button-selected-border-color-default);
+      } @else {
+        @include gl-button-selected-border(var(--gl-button-selected-border-color-default));
+      }
 
       &:hover {
         color: var(--gl-button-selected-foreground-color-hover);
         background-color: var(--gl-button-selected-background-color-hover);
-        @include gl-button-selected-border(var(--gl-button-selected-border-color-hover));
+        @if $feature-button-border {
+          border-color: var(--gl-button-selected-border-color-hover);
+        } @else {
+          @include gl-button-selected-border(var(--gl-button-selected-border-color-hover));
+        }
       }
 
       &:focus {
         color: var(--gl-button-selected-foreground-color-focus);
         background-color: var(--gl-button-selected-background-color-focus);
-        @include gl-button-selected-border(var(--gl-button-selected-border-color-focus), $focus-ring);
+        @if $feature-button-border {
+          border-color: var(--gl-button-selected-border-color-focus);
+        } @else {
+          @include gl-button-selected-border(var(--gl-button-selected-border-color-focus), $focus-ring);
+        }
       }
 
       &:active,
       &.active {
         color: var(--gl-button-selected-foreground-color-active);
         background-color: var(--gl-button-selected-background-color-active);
-        @include gl-button-selected-border(var(--gl-button-selected-border-color-active), $focus-ring);
-
-        &:focus {
+        @if $feature-button-border {
+          border-color: var(--gl-button-selected-border-color-active);
+        } @else {
           @include gl-button-selected-border(var(--gl-button-selected-border-color-active), $focus-ring);
+
+          &:focus {
+            @include gl-button-selected-border(var(--gl-button-selected-border-color-active), $focus-ring);
+          }
         }
       }
     }
@@ -307,7 +367,9 @@
   &.btn-success,
   &.btn-danger {
     &-tertiary {
-      @apply gl-shadow-none;
+      @if not $feature-button-border {
+        @apply gl-shadow-none;
+      }
 
       @media (forced-colors: active) {
         color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
@@ -315,14 +377,16 @@
         border: 0;
       }
 
-      &:hover {
-        @apply gl-shadow-none;
-      }
+      @if not $feature-button-border {
+        &:hover {
+          @apply gl-shadow-none;
+        }
 
-      &:active,
-      &:focus,
-      &:focus:active {
-        @apply gl-focus;
+        &:active,
+        &:focus,
+        &:focus:active {
+          @apply gl-focus;
+        }
       }
     }
   }
@@ -339,25 +403,44 @@
   &.btn-success {
     color: var(--gl-color-neutral-0); // The text is white in light and dark mode
     @apply gl-bg-green-500;
-    @include gl-inset-border-1-green-600;
+    @if $feature-button-border {
+      border-color: $green-600;
+    } @else {
+      @include gl-inset-border-1-green-600;
+    }
 
     &:hover {
-      @include gl-button-hover-border($green-800);
-      background-color: $green-600;
+      @if $feature-button-border {
+        border-color: $green-800;
+        background-color: $green-600;
+      } @else {
+        @include gl-button-hover-border($green-800);
+        background-color: $green-600;
+      }
     }
 
     &:focus {
-      @include gl-focus($color: $green-800);
-      @apply gl-bg-green-600;
+      @if $feature-button-border {
+        border-color: $green-800;
+        background-color: $green-600;
+      } @else {
+        @include gl-focus($color: $green-800);
+        @apply gl-bg-green-600;
+      }
     }
 
     &:active,
     &.active {
-      @include gl-focus($color: $green-900);
       @apply gl-bg-green-700;
 
-      &:focus {
+      @if $feature-button-border {
+        border-color: $green-900;
+      } @else {
         @include gl-focus($color: $green-900);
+
+        &:focus {
+          @include gl-focus($color: $green-900);
+        }
       }
     }
   }
@@ -371,37 +454,61 @@
     @apply gl-bg-transparent;
     @apply gl-text-green-500;
     @apply gl-font-normal;
-    @include gl-inset-border-1-green-500;
+    @if $feature-button-border {
+      border-color: $green-500;
+    } @else {
+      @include gl-inset-border-1-green-500;
+    }
 
     &:hover {
-      @apply gl-text-green-700;
-      @include gl-button-hover-border($green-700);
-      background-color: $green-50;
+      @if $feature-button-border {
+        @include gl-text-green-700;
+        border-color: $green-700;
+        background-color: $green-50;
+      } @else {
+        @apply gl-text-green-700;
+        @include gl-button-hover-border($green-700);
+        background-color: $green-50;
+      }
     }
 
     &:focus {
       @apply gl-text-green-700;
-      @include gl-focus($color: $green-700);
-      @apply gl-bg-green-50;
+      @if $feature-button-border {
+        border-color: $green-700;
+        background-color: $green-50;
+      } @else {
+        @include gl-focus($color: $green-700);
+        @apply gl-bg-green-50;
+      }
     }
 
     &:active,
     &.active {
       @apply gl-text-green-900;
-      @include gl-focus($color: $green-900);
       @apply gl-bg-green-100;
-
-      &:focus {
+      @if $feature-button-border {
+        border-color: $green-900;
+      } @else {
         @include gl-focus($color: $green-900);
+
+        &:focus {
+          @include gl-focus($color: $green-900);
+        }
       }
     }
   }
 
   &.btn-sm {
-    @apply gl-py-2;
     @apply gl-px-3;
     @apply gl-leading-normal;
     @apply gl-text-base;
+    @if $feature-button-border {
+      min-height: $gl-button-small-size;
+      min-width: $gl-button-small-size;
+    } @else {
+      @apply gl-py-2;
+    }
 
     gl-emoji {
       @apply gl-text-sm;
@@ -410,53 +517,81 @@
 
   &.btn-dashed,
   &.btn-dashed-tertiary {
-    @include gl-button-border(var(--gl-button-dashed-border-color-default));
-    outline: 3px dotted var(--gl-background-color-default);
-    outline-offset: (-$gl-border-size-1);
-
-    &:hover {
-      @include gl-button-border($color: var(--gl-button-dashed-border-color-hover));
+    @if $feature-button-border {
+      border-style: dashed;
+      border-color: var(--gl-button-dashed-border-color-default);
+    } @else {
+      @include gl-button-border(var(--gl-button-dashed-border-color-default));
       outline: 3px dotted var(--gl-background-color-default);
       outline-offset: (-$gl-border-size-1);
     }
 
+    &:hover {
+      @if $feature-button-border {
+        border-color: var(--gl-button-dashed-border-color-hover);
+      } @else {
+        @include gl-button-border($color: var(--gl-button-dashed-border-color-hover));
+        outline: 3px dotted var(--gl-background-color-default);
+        outline-offset: (-$gl-border-size-1);
+      }
+    }
+
     &:focus {
-      @include gl-focus($color: var(--gl-button-dashed-border-color-focus));
-      outline: 3px dotted var(--gl-background-color-default);
-      outline-offset: (-$gl-border-size-1);
+      @if $feature-button-border {
+        border-color: var(--gl-button-dashed-border-color-focus);
+      } @else {
+        @include gl-focus($color: var(--gl-button-dashed-border-color-focus));
+        outline: 3px dotted var(--gl-background-color-default);
+        outline-offset: (-$gl-border-size-1);
+      }
     }
 
     &:active,
     &.active {
-      @include gl-focus($color: var(--gl-button-dashed-border-color-active));
-      outline: 3px dotted var(--gl-background-color-default);
-      outline-offset: (-$gl-border-size-1);
-
-      &:focus {
+      @if $feature-button-border {
+        border-color: var(--gl-button-dashed-border-color-active);
+      } @else {
         @include gl-focus($color: var(--gl-button-dashed-border-color-active));
         outline: 3px dotted var(--gl-background-color-default);
         outline-offset: (-$gl-border-size-1);
+
+        &:focus {
+          @include gl-focus($color: var(--gl-button-dashed-border-color-active));
+          outline: 3px dotted var(--gl-background-color-default);
+          outline-offset: (-$gl-border-size-1);
+        }
       }
     }
   }
 
   &.btn-icon {
-    @apply gl-p-3;
     @apply gl-leading-normal;
+    @if $feature-button-border {
+      @apply gl-p-0;
+    } @else {
+      @apply gl-p-3;
+    }
 
     .gl-button-icon {
       @apply gl-mr-0;
     }
 
-    &.btn-sm {
-      @apply gl-p-2;
+    @if not $feature-button-border {
+      &.btn-sm {
+        @apply gl-p-2;
+      }
     }
   }
 
   &.button-ellipsis-horizontal,
   &.button-ellipsis-horizontal.btn-sm {
-    @apply gl-py-0;
     @apply gl-px-2;
+    @if $feature-button-border {
+      min-height: auto;
+      min-width: auto;
+    } @else {
+      @apply gl-py-0;
+    }
 
     svg {
       @apply gl-h-5;
@@ -480,25 +615,43 @@
     @apply gl-text-base;
     @apply gl-leading-normal;
     color: var(--gl-button-link-text-color-default);
-    @apply gl-py-0;
-    @apply gl-px-0;
-    @apply gl-shadow-none;
+    @if $feature-button-border {
+      @include gl-px-0;
+      min-height: auto;
+      min-width: auto;
+      text-decoration-thickness: auto;
+      text-decoration-style: solid;
+      text-decoration-color: transparent;
+    } @else {
+      @apply gl-py-0;
+      @apply gl-px-0;
+      @apply gl-shadow-none;
+    }
 
     &:hover {
       @apply gl-bg-transparent;
       color: var(--gl-button-link-text-color-hover);
+      @if $feature-button-border {
+        text-decoration-color: var(--gl-button-link-text-color-hover);
+      }
     }
 
     &:active {
       color: var(--gl-button-link-text-color-active);
-      @apply gl-underline;
+      @if $feature-button-border {
+        text-decoration-color: var(--gl-button-link-text-color-active);
+      } @else {
+        @apply gl-underline;
+      }
     }
 
     &:active,
     &:focus,
     &:focus:active {
       @apply gl-bg-transparent;
-      @apply gl-focus;
+      @if not $feature-button-border {
+        @apply gl-focus;
+      }
     }
 
     &.disabled,
@@ -529,9 +682,13 @@
   &[disabled].selected {
     background-color: var(--gl-button-disabled-background-color);
     color: var(--gl-button-disabled-foreground-color);
-    @include gl-button-border(var(--gl-button-disabled-border-color));
     opacity: 1;
     cursor: not-allowed !important;
+    @if $feature-button-border {
+      border-color: var(--gl-button-disabled-border-color);
+    } @else {
+      @include gl-button-border(var(--gl-button-disabled-border-color));
+    }
   }
 
   &.disabled[class*='-tertiary'],
