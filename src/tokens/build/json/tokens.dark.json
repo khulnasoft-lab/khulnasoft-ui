@@ -13689,6 +13689,792 @@
       }
     }
   },
+  "close-button": {
+    "foreground": {
+      "color": {
+        "default": {
+          "value": "#ececef",
+          "$type": "color",
+          "comment": "Used for the foreground of a close button in the default state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.foreground.color.default}",
+            "$type": "color",
+            "comment": "Used for the foreground of a close button in the default state."
+          },
+          "name": "CLOSE_BUTTON_FOREGROUND_COLOR_DEFAULT",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "foreground",
+            "color",
+            "default"
+          ]
+        },
+        "hover": {
+          "value": "#ececef",
+          "$type": "color",
+          "comment": "Used for the foreground of a close button in the hover state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.foreground.color.hover}",
+            "$type": "color",
+            "comment": "Used for the foreground of a close button in the hover state."
+          },
+          "name": "CLOSE_BUTTON_FOREGROUND_COLOR_HOVER",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "foreground",
+            "color",
+            "hover"
+          ]
+        },
+        "focus": {
+          "value": "#ececef",
+          "$type": "color",
+          "comment": "Used for the foreground of a close button in the focus state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.foreground.color.focus}",
+            "$type": "color",
+            "comment": "Used for the foreground of a close button in the focus state."
+          },
+          "name": "CLOSE_BUTTON_FOREGROUND_COLOR_FOCUS",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "foreground",
+            "color",
+            "focus"
+          ]
+        },
+        "active": {
+          "value": "#ececef",
+          "$type": "color",
+          "comment": "Used for the foreground of a close button in the active state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.foreground.color.active}",
+            "$type": "color",
+            "comment": "Used for the foreground of a close button in the active state."
+          },
+          "name": "CLOSE_BUTTON_FOREGROUND_COLOR_ACTIVE",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "foreground",
+            "color",
+            "active"
+          ]
+        }
+      }
+    },
+    "background": {
+      "color": {
+        "default": {
+          "value": "rgba(137, 136, 141, 0.0)",
+          "$type": "color",
+          "comment": "Used for the background of a close button in the default state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.background.color.default}",
+            "$type": "color",
+            "comment": "Used for the background of a close button in the default state."
+          },
+          "name": "CLOSE_BUTTON_BACKGROUND_COLOR_DEFAULT",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "background",
+            "color",
+            "default"
+          ]
+        },
+        "hover": {
+          "value": "rgba(137, 136, 141, 0.4)",
+          "$type": "color",
+          "comment": "Used for the background of a close button in the hover state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.background.color.hover}",
+            "$type": "color",
+            "comment": "Used for the background of a close button in the hover state."
+          },
+          "name": "CLOSE_BUTTON_BACKGROUND_COLOR_HOVER",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "background",
+            "color",
+            "hover"
+          ]
+        },
+        "focus": {
+          "value": "rgba(137, 136, 141, 0.4)",
+          "$type": "color",
+          "comment": "Used for the background of a close button in the focus state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.background.color.focus}",
+            "$type": "color",
+            "comment": "Used for the background of a close button in the focus state."
+          },
+          "name": "CLOSE_BUTTON_BACKGROUND_COLOR_FOCUS",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "background",
+            "color",
+            "focus"
+          ]
+        },
+        "active": {
+          "value": "rgba(137, 136, 141, 0.16)",
+          "$type": "color",
+          "comment": "Used for the background of a close button in the active state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.background.color.active}",
+            "$type": "color",
+            "comment": "Used for the background of a close button in the active state."
+          },
+          "name": "CLOSE_BUTTON_BACKGROUND_COLOR_ACTIVE",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "background",
+            "color",
+            "active"
+          ]
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "default": {
+          "value": "transparent",
+          "$type": "color",
+          "comment": "Used for the border of a close button in the default state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.border.color.default}",
+            "$type": "color",
+            "comment": "Used for the border of a close button in the default state."
+          },
+          "name": "CLOSE_BUTTON_BORDER_COLOR_DEFAULT",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "border",
+            "color",
+            "default"
+          ]
+        },
+        "hover": {
+          "value": "transparent",
+          "$type": "color",
+          "comment": "Used for the border of a close button in the hover state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.border.color.hover}",
+            "$type": "color",
+            "comment": "Used for the border of a close button in the hover state."
+          },
+          "name": "CLOSE_BUTTON_BORDER_COLOR_HOVER",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "border",
+            "color",
+            "hover"
+          ]
+        },
+        "focus": {
+          "value": "transparent",
+          "$type": "color",
+          "comment": "Used for the border of a close button in the focus state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.border.color.focus}",
+            "$type": "color",
+            "comment": "Used for the border of a close button in the focus state."
+          },
+          "name": "CLOSE_BUTTON_BORDER_COLOR_FOCUS",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "border",
+            "color",
+            "focus"
+          ]
+        },
+        "active": {
+          "value": "transparent",
+          "$type": "color",
+          "comment": "Used for the border of a close button in the active state.",
+          "filePath": "src/tokens/contextual/close.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{action.neutral.border.color.active}",
+            "$type": "color",
+            "comment": "Used for the border of a close button in the active state."
+          },
+          "name": "CLOSE_BUTTON_BORDER_COLOR_ACTIVE",
+          "attributes": {},
+          "path": [
+            "close-button",
+            "border",
+            "color",
+            "active"
+          ]
+        }
+      }
+    },
+    "positive": {
+      "foreground": {
+        "color": {
+          "default": {
+            "value": "#28272d",
+            "$type": "color",
+            "comment": "Used for the foreground of a positive close button (dark on light) in the default state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{color.neutral.900}",
+              "$type": "color",
+              "comment": "Used for the foreground of a positive close button (dark on light) in the default state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_FOREGROUND_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "foreground",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#28272d",
+            "$type": "color",
+            "comment": "Used for the foreground of a positive close button (dark on light) in the hover state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.positive.foreground.color.default}",
+              "$type": "color",
+              "comment": "Used for the foreground of a positive close button (dark on light) in the hover state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_FOREGROUND_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "foreground",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#28272d",
+            "$type": "color",
+            "comment": "Used for the foreground of a positive close button (dark on light) in the focus state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.positive.foreground.color.hover}",
+              "$type": "color",
+              "comment": "Used for the foreground of a positive close button (dark on light) in the focus state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_FOREGROUND_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "foreground",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#28272d",
+            "$type": "color",
+            "comment": "Used for the foreground of a positive close button (dark on light) in the active state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.positive.foreground.color.focus}",
+              "$type": "color",
+              "comment": "Used for the foreground of a positive close button (dark on light) in the active state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_FOREGROUND_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "foreground",
+              "color",
+              "active"
+            ]
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "value": "rgba(164, 163, 168, 0.0)",
+            "$type": "color",
+            "comment": "Used for the background of a positive close button (dark on light) in the default state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "rgba(164, 163, 168, 0.0)",
+              "$type": "color",
+              "comment": "Used for the background of a positive close button (dark on light) in the default state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_BACKGROUND_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "background",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "rgba(164, 163, 168, 0.16)",
+            "$type": "color",
+            "comment": "Used for the background of a positive close button (dark on light) in the hover state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "rgba(164, 163, 168, 0.16)",
+              "$type": "color",
+              "comment": "Used for the background of a positive close button (dark on light) in the hover state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_BACKGROUND_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "background",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "rgba(164, 163, 168, 0.16)",
+            "$type": "color",
+            "comment": "Used for the background of a positive close button (dark on light) in the focus state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.positive.background.color.hover}",
+              "$type": "color",
+              "comment": "Used for the background of a positive close button (dark on light) in the focus state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_BACKGROUND_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "background",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "rgba(83, 81, 88, 0.24)",
+            "$type": "color",
+            "comment": "Used for the background of a positive close button (dark on light) in the active state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "rgba(83, 81, 88, 0.24)",
+              "$type": "color",
+              "comment": "Used for the background of a positive close button (dark on light) in the active state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_BACKGROUND_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "background",
+              "color",
+              "active"
+            ]
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "value": "transparent",
+            "$type": "color",
+            "comment": "Used for the border of a positive close button (dark on light) in the default state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{color.alpha.0}",
+              "$type": "color",
+              "comment": "Used for the border of a positive close button (dark on light) in the default state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_BORDER_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "border",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "transparent",
+            "$type": "color",
+            "comment": "Used for the border of a positive close button (dark on light) in the hover state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.positive.border.color.default}",
+              "$type": "color",
+              "comment": "Used for the border of a positive close button (dark on light) in the hover state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_BORDER_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "border",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "transparent",
+            "$type": "color",
+            "comment": "Used for the border of a positive close button (dark on light) in the focus state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.positive.border.color.hover}",
+              "$type": "color",
+              "comment": "Used for the border of a positive close button (dark on light) in the focus state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_BORDER_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "border",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "transparent",
+            "$type": "color",
+            "comment": "Used for the border of a positive close button (dark on light) in the active state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.positive.border.color.focus}",
+              "$type": "color",
+              "comment": "Used for the border of a positive close button (dark on light) in the active state."
+            },
+            "name": "CLOSE_BUTTON_POSITIVE_BORDER_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "positive",
+              "border",
+              "color",
+              "active"
+            ]
+          }
+        }
+      }
+    },
+    "negative": {
+      "foreground": {
+        "color": {
+          "default": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the foreground of a negative close button (light on dark) in the default state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{color.neutral.50}",
+              "$type": "color",
+              "comment": "Used for the foreground of a negative close button (light on dark) in the default state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_FOREGROUND_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "foreground",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the foreground of a negative close button (light on dark) in the hover state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.negative.foreground.color.default}",
+              "$type": "color",
+              "comment": "Used for the foreground of a negative close button (light on dark) in the hover state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_FOREGROUND_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "foreground",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the foreground of a negative close button (light on dark) in the focus state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.negative.foreground.color.hover}",
+              "$type": "color",
+              "comment": "Used for the foreground of a negative close button (light on dark) in the focus state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_FOREGROUND_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "foreground",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "#ececef",
+            "$type": "color",
+            "comment": "Used for the foreground of a negative close button (light on dark) in the active state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.negative.foreground.color.focus}",
+              "$type": "color",
+              "comment": "Used for the foreground of a negative close button (light on dark) in the active state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_FOREGROUND_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "foreground",
+              "color",
+              "active"
+            ]
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "value": "rgba(137, 136, 141, 0.0)",
+            "$type": "color",
+            "comment": "Used for the background of a negative close button (light on dark) in the default state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "rgba(137, 136, 141, 0.0)",
+              "$type": "color",
+              "comment": "Used for the background of a negative close button (light on dark) in the default state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_BACKGROUND_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "background",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "rgba(137, 136, 141, 0.4)",
+            "$type": "color",
+            "comment": "Used for the background of a negative close button (light on dark) in the hover state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "rgba(137, 136, 141, 0.4)",
+              "$type": "color",
+              "comment": "Used for the background of a negative close button (light on dark) in the hover state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_BACKGROUND_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "background",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "rgba(137, 136, 141, 0.4)",
+            "$type": "color",
+            "comment": "Used for the background of a negative close button (light on dark) in the focus state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.negative.background.color.hover}",
+              "$type": "color",
+              "comment": "Used for the background of a negative close button (light on dark) in the focus state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_BACKGROUND_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "background",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "rgba(137, 136, 141, 0.16)",
+            "$type": "color",
+            "comment": "Used for the background of a negative close button (light on dark) in the active state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "rgba(137, 136, 141, 0.16)",
+              "$type": "color",
+              "comment": "Used for the background of a negative close button (light on dark) in the active state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_BACKGROUND_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "background",
+              "color",
+              "active"
+            ]
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "value": "transparent",
+            "$type": "color",
+            "comment": "Used for the border of a negative close button (light on dark) in the default state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{color.alpha.0}",
+              "$type": "color",
+              "comment": "Used for the border of a negative close button (light on dark) in the default state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_BORDER_COLOR_DEFAULT",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "border",
+              "color",
+              "default"
+            ]
+          },
+          "hover": {
+            "value": "transparent",
+            "$type": "color",
+            "comment": "Used for the border of a negative close button (light on dark) in the hover state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.negative.border.color.default}",
+              "$type": "color",
+              "comment": "Used for the border of a negative close button (light on dark) in the hover state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_BORDER_COLOR_HOVER",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "border",
+              "color",
+              "hover"
+            ]
+          },
+          "focus": {
+            "value": "transparent",
+            "$type": "color",
+            "comment": "Used for the border of a negative close button (light on dark) in the focus state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.negative.border.color.hover}",
+              "$type": "color",
+              "comment": "Used for the border of a negative close button (light on dark) in the focus state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_BORDER_COLOR_FOCUS",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "border",
+              "color",
+              "focus"
+            ]
+          },
+          "active": {
+            "value": "transparent",
+            "$type": "color",
+            "comment": "Used for the border of a negative close button (light on dark) in the active state.",
+            "filePath": "src/tokens/contextual/close.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{close-button.negative.border.color.focus}",
+              "$type": "color",
+              "comment": "Used for the border of a negative close button (light on dark) in the active state."
+            },
+            "name": "CLOSE_BUTTON_NEGATIVE_BORDER_COLOR_ACTIVE",
+            "attributes": {},
+            "path": [
+              "close-button",
+              "negative",
+              "border",
+              "color",
+              "active"
+            ]
+          }
+        }
+      }
+    }
+  },
   "datepicker": {
     "background": {
       "color": {
