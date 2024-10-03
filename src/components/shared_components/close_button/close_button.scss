@@ -1,0 +1,72 @@
+@mixin gl-close-button-variant(
+  $color: null,
+  $background-color: null,
+  $hover-color: null,
+  $hover-background-color: null,
+  $focus-color: null,
+  $focus-background-color: null,
+  $active-color: null,
+  $active-background-color: null,
+) {
+  color: $color;
+  background-color: $background-color;
+
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-background-color;
+  }
+
+  &:focus {
+    color: $focus-color;
+    background-color: $focus-background-color;
+    @include gl-focus();
+  }
+
+  &:active {
+    color: $active-color;
+    background-color: $active-background-color;
+
+    &:focus {
+      @include gl-focus();
+    }
+  }
+}
+
+.gl-button.gl-button.gl-close-button-default {
+  @include gl-close-button-variant(
+    $color: var(--gl-close-button-foreground-color-default),
+    $background-color: var(--gl-close-button-background-color-default),
+    $hover-color: var(--gl-close-button-foreground-color-hover),
+    $hover-background-color: var(--gl-close-button-background-color-hover),
+    $focus-color: var(--gl-close-button-foreground-color-focus),
+    $focus-background-color: var(--gl-close-button-background-color-focus),
+    $active-color: var(--gl-close-button-foreground-color-active),
+    $active-background-color: var(--gl-close-button-background-color-active),
+  );
+}
+
+.gl-button.gl-button.gl-close-button-positive {
+  @include gl-close-button-variant(
+    $color: var(--gl-close-button-positive-foreground-color-default),
+    $background-color: var(--gl-close-button-positive-background-color-default),
+    $hover-color: var(--gl-close-button-positive-foreground-color-hover),
+    $hover-background-color: var(--gl-close-button-positive-background-color-hover),
+    $focus-color: var(--gl-close-button-positive-foreground-color-focus),
+    $focus-background-color: var(--gl-close-button-positive-background-color-focus),
+    $active-color: var(--gl-close-button-positive-foreground-color-active),
+    $active-background-color: var(--gl-close-button-positive-background-color-active),
+  );
+}
+
+.gl-button.gl-button.gl-close-button-negative {
+  @include gl-close-button-variant(
+    $color: var(--gl-close-button-negative-foreground-color-default),
+    $background-color: var(--gl-close-button-negative-background-color-default),
+    $hover-color: var(--gl-close-button-negative-foreground-color-hover),
+    $hover-background-color: var(--gl-close-button-negative-background-color-hover),
+    $focus-color: var(--gl-close-button-negative-foreground-color-focus),
+    $focus-background-color: var(--gl-close-button-negative-background-color-focus),
+    $active-color: var(--gl-close-button-negative-foreground-color-active),
+    $active-background-color: var(--gl-close-button-negative-background-color-active),
+  );
+}

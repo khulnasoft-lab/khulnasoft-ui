@@ -123,6 +123,12 @@ export const buttonVariantOptions = {
   reset: 'gl-reset',
 };
 
+export const closeButtonVariantOptions = {
+  default: 'default',
+  negative: 'negative',
+  positive: 'positive',
+};
+
 export const badgeForButtonOptions = {
   [buttonVariantOptions.default]: badgeVariantOptions.neutral,
   [buttonVariantOptions.confirm]: badgeVariantOptions.info,
