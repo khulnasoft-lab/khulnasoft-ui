@@ -135,10 +135,6 @@ export { BNavbarBrand } from './components/navbar/navbar-brand'
 // export * from './components/popover'
 export { BPopover } from './components/popover/popover'
 
-// export * from './components/progress'
-export { BProgress } from './components/progress/progress'
-export { BProgressBar } from './components/progress/progress-bar'
-
 // export * from './components/table'
 export { BTable } from './components/table/table'
 export { BTableLite } from './components/table/table-lite'
