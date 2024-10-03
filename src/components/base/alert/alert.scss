@@ -104,14 +104,20 @@ $gl-alert-top-border-size: 2px;
 }
 
 .gl-alert-actions {
-  @apply gl-flex;
+  @apply gl-flex gl-flex-col gl-flex-wrap gl-gap-y-3;
   @apply gl-mt-3;
+  @include gl-media-breakpoint-up(sm) {
+    @apply gl-flex-row;
+  }
 }
 
 .gl-alert-action {
-  @apply gl-mr-3;
+  @apply gl-mr-0 gl-w-full;
   @apply gl-text-base;
   @apply gl-leading-normal;
+  @include gl-media-breakpoint-up(sm) {
+    @apply gl-mr-3 gl-w-auto;
+  }
 }
 
 // This is the replacement for .gl-alert-dismiss
