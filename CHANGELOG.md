@@ -1,3 +1,15 @@
+# [94.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.6.1...v94.7.0) (2024-10-03)
+
+
+### Features
+
+* **DesignTokens:** add dropdown design tokens ([d67bf54](https://gitlab.com/gitlab-org/gitlab-ui/commit/d67bf54718d063d3345df31cc1792b7e019d5738))
+* **DesignTokens:** use design tokens in dropdown styles ([93f89ed](https://gitlab.com/gitlab-org/gitlab-ui/commit/93f89ed3bed5e26c1d1943a678b4c23e5b36f0f4))
+* **GlCollapsibleListbox:** use design tokens in GlCollapsibleListbox ([76c3f00](https://gitlab.com/gitlab-org/gitlab-ui/commit/76c3f00f69fe8de77b7d83088c5cf04a1c553138))
+* **GlDisclosureDropdown:** use design tokens in GlDisclosureDropdown ([b2a622c](https://gitlab.com/gitlab-org/gitlab-ui/commit/b2a622c567ff469ed6118b3bd5ddcb6d96ec58c4))
+* **GlDropdown:** use design tokens in GlDropdown ([62d74e0](https://gitlab.com/gitlab-org/gitlab-ui/commit/62d74e0e4e678568dea7cfd5c99a166fe6b3eef7))
+* **GlFilteredSearchSuggestion:** use design tokens ([942d8b9](https://gitlab.com/gitlab-org/gitlab-ui/commit/942d8b9ccf109c1e460360ada36766b718223216))
+
 ## [94.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.6.0...v94.6.1) (2024-10-02)
 
 
