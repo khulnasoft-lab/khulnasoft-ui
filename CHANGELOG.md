@@ -1,3 +1,10 @@
+# [94.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.7.0...v94.8.0) (2024-10-03)
+
+
+### Features
+
+* **Alert:** Ensure Alert actions can wrap ([cc4df4c](https://gitlab.com/gitlab-org/gitlab-ui/commit/cc4df4c32eb2dfe10548df9901f4c0f3d624ba0c))
+
 # [94.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.6.1...v94.7.0) (2024-10-03)
 
 
