@@ -235,7 +235,7 @@ export default {
       :id="suggestionsId"
       ref="suggestionsMenu"
       data-testid="combobox-dropdown"
-      class="dropdown-menu gl-form-combobox-inner gl-mb-0 gl-flex gl-w-full gl-list-none gl-flex-col gl-pl-0"
+      class="dropdown-menu gl-form-combobox-inner gl-mb-0 gl-flex gl-w-full gl-list-none gl-flex-col gl-border-dropdown gl-bg-dropdown gl-pl-0"
       @keydown.down="onArrowDown"
       @keydown.up="onArrowUp"
       @keydown.esc.stop="onEsc"
