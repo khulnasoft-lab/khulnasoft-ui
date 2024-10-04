@@ -1,3 +1,15 @@
+# [95.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.0.0...v95.1.0) (2024-10-04)
+
+
+### Bug Fixes
+
+* don't open details modal if selecting close button via keyboard ([8e8a4c3](https://gitlab.com/gitlab-org/gitlab-ui/commit/8e8a4c3dc7fc9f30d4c02a3a9a4acf7da96c2aac))
+
+
+### Features
+
+* **GlDuoChat:** view context item content/details ([63909dd](https://gitlab.com/gitlab-org/gitlab-ui/commit/63909dd79aa2570ecd7375c22619d892ea1935c2))
+
 # [95.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.10.0...v95.0.0) (2024-10-04)
 
 
