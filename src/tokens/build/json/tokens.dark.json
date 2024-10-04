@@ -14793,6 +14793,116 @@
       }
     }
   },
+  "progress-bar": {
+    "indicator": {
+      "color": {
+        "default": {
+          "value": "#428fdc",
+          "$type": "color",
+          "comment": "Used for the indicator color for the primary progress-bar variant.",
+          "filePath": "src/tokens/contextual/progress-bar.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{status.info.icon.color}",
+            "$type": "color",
+            "comment": "Used for the indicator color for the primary progress-bar variant."
+          },
+          "name": "PROGRESS_BAR_INDICATOR_COLOR_DEFAULT",
+          "attributes": {},
+          "path": [
+            "progress-bar",
+            "indicator",
+            "color",
+            "default"
+          ]
+        },
+        "success": {
+          "value": "#2da160",
+          "$type": "color",
+          "comment": "Used for the indicator color for the success progress-bar variant.",
+          "filePath": "src/tokens/contextual/progress-bar.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{status.success.icon.color}",
+            "$type": "color",
+            "comment": "Used for the indicator color for the success progress-bar variant."
+          },
+          "name": "PROGRESS_BAR_INDICATOR_COLOR_SUCCESS",
+          "attributes": {},
+          "path": [
+            "progress-bar",
+            "indicator",
+            "color",
+            "success"
+          ]
+        },
+        "warning": {
+          "value": "#c17d10",
+          "$type": "color",
+          "comment": "Used for the indicator color for the warning progress-bar variant.",
+          "filePath": "src/tokens/contextual/progress-bar.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{status.warning.icon.color}",
+            "$type": "color",
+            "comment": "Used for the indicator color for the warning progress-bar variant."
+          },
+          "name": "PROGRESS_BAR_INDICATOR_COLOR_WARNING",
+          "attributes": {},
+          "path": [
+            "progress-bar",
+            "indicator",
+            "color",
+            "warning"
+          ]
+        },
+        "danger": {
+          "value": "#ec5941",
+          "$type": "color",
+          "comment": "Used for the indicator color for the danger progress-bar variant.",
+          "filePath": "src/tokens/contextual/progress-bar.tokens.json",
+          "isSource": true,
+          "original": {
+            "value": "{status.danger.icon.color}",
+            "$type": "color",
+            "comment": "Used for the indicator color for the danger progress-bar variant."
+          },
+          "name": "PROGRESS_BAR_INDICATOR_COLOR_DANGER",
+          "attributes": {},
+          "path": [
+            "progress-bar",
+            "indicator",
+            "color",
+            "danger"
+          ]
+        }
+      }
+    },
+    "track": {
+      "color": {
+        "value": "#4c4b51",
+        "$type": "color",
+        "comment": "Used for the track color for all progress-bar variants.",
+        "filePath": "src/tokens/contextual/progress-bar.tokens.json",
+        "isSource": true,
+        "original": {
+          "value": {
+            "default": "{color.neutral.200}",
+            "dark": "{color.neutral.700}"
+          },
+          "$type": "color",
+          "comment": "Used for the track color for all progress-bar variants."
+        },
+        "name": "PROGRESS_BAR_TRACK_COLOR",
+        "attributes": {},
+        "path": [
+          "progress-bar",
+          "track",
+          "color"
+        ]
+      }
+    }
+  },
   "skeleton-loader": {
     "background": {
       "color": {

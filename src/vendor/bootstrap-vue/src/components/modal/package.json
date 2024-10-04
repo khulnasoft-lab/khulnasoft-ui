@@ -37,16 +37,8 @@
             "description": "Specify which built-in button to focus once the modal opens: 'ok', 'cancel', or 'close'"
           },
           {
-            "prop": "bodyBgVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the body background"
-          },
-          {
             "prop": "bodyClass",
             "description": "CSS class (or classes) to apply to the '.modal-body' wrapper element"
-          },
-          {
-            "prop": "bodyTextVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the body text"
           },
           {
             "prop": "busy",
@@ -86,33 +78,13 @@
             "description": "CSS class (or classes) to apply to the '.modal-dialog' wrapper element"
           },
           {
-            "prop": "footerBgVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the footer background"
-          },
-          {
-            "prop": "footerBorderVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the footer border"
-          },
-          {
             "prop": "footerClass",
             "description": "CSS class (or classes) to apply to the '.modal-footer' wrapper element"
-          },
-          {
-            "prop": "footerTextVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the footer text"
           },
           {
             "prop": "footerTag",
             "version": "2.22.0",
             "description": "Specify the HTML tag to render instead of the default tag for the footer"
-          },
-          {
-            "prop": "headerBgVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the header background"
-          },
-          {
-            "prop": "headerBorderVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the header border"
           },
           {
             "prop": "headerClass",
@@ -126,14 +98,6 @@
           {
             "prop": "headerCloseLabel",
             "description": "Value of the 'aria-label' on the header close button"
-          },
-          {
-            "prop": "headerCloseVariant",
-            "description": "Text theme color variant to apply to the header close button"
-          },
-          {
-            "prop": "headerTextVariant",
-            "description": "Applies one of the Bootstrap theme color variants to the header text"
           },
           {
             "prop": "headerTag",

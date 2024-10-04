@@ -1,0 +1,19 @@
+.gl-progress-bar {
+  background-color: var(--gl-progress-bar-track-color);
+
+  .bg-primary {
+    background-color: var(--gl-progress-bar-indicator-color-default) !important;
+  }
+
+  .bg-success {
+    background-color: var(--gl-progress-bar-indicator-color-success) !important;
+  }
+
+  .bg-warning {
+    background-color: var(--gl-progress-bar-indicator-color-warning) !important;
+  }
+
+  .bg-danger {
+    background-color: var(--gl-progress-bar-indicator-color-danger) !important;
+  }
+}

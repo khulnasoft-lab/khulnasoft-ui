@@ -1,7 +1,7 @@
-import { variantOptions } from '../../../utils/constants';
+import { progressBarVariantOptions } from '../../../utils/constants';
 import GlProgressBar from './progress_bar.vue';
 
-const generateProps = ({ value = 30, variant = variantOptions.primary } = {}) => ({
+const generateProps = ({ value = 30, variant = progressBarVariantOptions.primary } = {}) => ({
   value,
   variant,
 });
@@ -15,9 +15,20 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
-export const SuccessVariant = Template.bind({});
-SuccessVariant.args = generateProps({ variant: variantOptions.success });
-SuccessVariant.parameters = { controls: { disabled: true } };
+export const Variants = (args, { argTypes = {} }) => ({
+  props: Object.keys(argTypes),
+  components: { GlProgressBar },
+  variants: Object.keys(progressBarVariantOptions),
+  template: `
+      <div class="gl-flex gl-flex-col gl-gap-3">
+        <template v-for="variant in $options.variants">
+          <gl-progress-bar :value="value" :variant="variant" />
+        </template>
+      </div>
+    `,
+});
+Variants.args = generateProps();
+Variants.parameters = { controls: { disable: true } };
 
 export default {
   title: 'base/progress-bar',
@@ -27,7 +38,7 @@ export default {
   },
   argTypes: {
     variant: {
-      options: variantOptions,
+      options: progressBarVariantOptions,
       control: 'select',
     },
   },

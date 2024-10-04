@@ -1,9 +1,5 @@
 import { POSITION } from '../components/utilities/truncate/constants';
 
-function appendDefaultOption(options) {
-  return { ...options, default: '' };
-}
-
 export const COMMA = ',';
 
 export const CONTRAST_LEVELS = [
@@ -33,15 +29,11 @@ export const HEX_REGEX = /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/;
 
 export const LEFT_MOUSE_BUTTON = 0;
 
-export const variantOptions = {
+export const progressBarVariantOptions = {
   primary: 'primary',
-  secondary: 'secondary',
   success: 'success',
   warning: 'warning',
   danger: 'danger',
-  info: 'info',
-  light: 'light',
-  dark: 'dark',
 };
 
 export const badgeSizeOptions = {
@@ -289,8 +281,6 @@ export const tabsButtonDefaults = {
 export const tokenVariants = ['default', 'search-type', 'search-value'];
 
 export const resizeDebounceTime = 200;
-
-export const variantOptionsWithNoDefault = appendDefaultOption(variantOptions);
 
 // Datetime constants
 export const defaultDateFormat = 'YYYY-MM-DD';

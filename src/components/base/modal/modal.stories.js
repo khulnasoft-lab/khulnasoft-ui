@@ -1,7 +1,6 @@
 import { userEvent, within, waitFor, expect } from '@storybook/test';
 import { GlModalDirective } from '../../../directives/modal';
 import GlButton from '../button/button.vue';
-import { variantOptionsWithNoDefault } from '../../../utils/constants';
 import GlModal from './modal.vue';
 import readme from './modal.md';
 
@@ -25,14 +24,6 @@ const generateTemplate = ({ props = {}, slots = {} } = {}) => {
         Open modal
       </gl-button>
       <gl-modal
-        :header-bg-variant="headerBgVariant"
-        :header-border-variant="headerBorderVariant"
-        :header-text-variant="headerTextVariant"
-        :body-bg-variant="bodyBgVariant"
-        :body-text-variant="bodyTextVariant"
-        :footer-bg-variant="footerBgVariant"
-        :footer-border-variant="footerBorderVariant"
-        :footer-text-variant="footerTextVariant"
         ${extraProps}
         :action-primary="{text: 'Okay'}"
         :action-secondary="{text: 'Discard Changes'}"
@@ -63,19 +54,10 @@ const Template = (args, { argTypes, viewMode }) => ({
 });
 
 const generateProps = ({
-  variant = variantOptionsWithNoDefault.default,
   contentPagraphs = 1,
   scrollable = false,
   noFocusOnShow = false,
 } = {}) => ({
-  headerBgVariant: variant,
-  headerBorderVariant: variant,
-  headerTextVariant: variant,
-  bodyBgVariant: variant,
-  bodyTextVariant: variant,
-  footerBgVariant: variant,
-  footerBorderVariant: variant,
-  footerTextVariant: variant,
   contentParagraphs: contentPagraphs,
   scrollable,
   noFocusOnShow,
@@ -158,40 +140,6 @@ export default {
       description: {
         component: readme,
       },
-    },
-  },
-  argTypes: {
-    headerBgVariant: {
-      options: variantOptionsWithNoDefault,
-      control: 'select',
-    },
-    headerBorderVariant: {
-      options: variantOptionsWithNoDefault,
-      control: 'select',
-    },
-    headerTextVariant: {
-      options: variantOptionsWithNoDefault,
-      control: 'select',
-    },
-    bodyBgVariant: {
-      options: variantOptionsWithNoDefault,
-      control: 'select',
-    },
-    bodyTextVariant: {
-      options: variantOptionsWithNoDefault,
-      control: 'select',
-    },
-    footerBgVariant: {
-      options: variantOptionsWithNoDefault,
-      control: 'select',
-    },
-    footerBorderVariant: {
-      options: variantOptionsWithNoDefault,
-      control: 'select',
-    },
-    footerTextVariant: {
-      options: variantOptionsWithNoDefault,
-      control: 'select',
     },
   },
 };
