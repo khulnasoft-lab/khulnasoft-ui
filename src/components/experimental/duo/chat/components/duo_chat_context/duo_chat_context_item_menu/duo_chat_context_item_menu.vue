@@ -218,6 +218,14 @@ export default {
 
       this.activeIndex = newIndex;
     },
+    onGetContextItemContent(contextItem) {
+      /**
+       * Emit get-context-item-content event that tells clients to load the full file content for a selected context item.
+       * The fully hydrated context item should be updated in the context item selections.
+       * @param {*} event An event containing the context item to hydrate
+       */
+      this.$emit('get-context-item-content', { contextItem });
+    },
   },
   i18n: {
     selectedContextItemsTitle: translate(
@@ -233,11 +241,13 @@ export default {
     <gl-duo-chat-context-item-selections
       v-if="selections.length"
       :selections="selections"
+      :categories="categories"
       :removable="true"
       :title="$options.i18n.selectedContextItemsTitle"
       :default-collapsed="false"
       class="gl-mb-3"
       @remove="removeItem"
+      @get-content="onGetContextItemContent"
     />
     <gl-card
       v-if="open"

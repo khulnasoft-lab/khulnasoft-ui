@@ -1,6 +1,12 @@
 import { makeContainer } from '../../../../../../../utils/story_decorators/container';
 import { setStoryTimeout } from '../../../../../../../utils/test_utils';
-import { getMockContextItems, MOCK_CATEGORIES } from '../mock_context_data';
+import {
+  getMockContextItems,
+  MOCK_CATEGORIES,
+  MOCK_CONTEXT_FILE_CONTENT,
+  MOCK_CONTEXT_FILE_DIFF_CONTENT,
+} from '../mock_context_data';
+import { CONTEXT_ITEM_CATEGORY_LOCAL_GIT } from '../constants';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
 
 const sampleCategories = MOCK_CATEGORIES;
@@ -59,6 +65,20 @@ const Template = (args, { argTypes }) => ({
         this.selectedItems.splice(index, 1);
       }
     },
+    handleGetContent(contextItem) {
+      this.selectedItems = this.selectedItems.map((item) => {
+        if (item.id === contextItem.id) {
+          return {
+            ...contextItem,
+            content:
+              contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT
+                ? MOCK_CONTEXT_FILE_DIFF_CONTENT
+                : MOCK_CONTEXT_FILE_CONTENT,
+          };
+        }
+        return item;
+      });
+    },
   },
   template: `
     <div class="gl-h-full gl-flex gl-flex-col gl-justify-end">
@@ -73,6 +93,7 @@ const Template = (args, { argTypes }) => ({
           @search="handleContextItemsSearch"
           @select="handleContextItemSelect"
           @remove="handleContextItemRemove"
+          @get-context-item-content="handleGetContent"
           @close="isOpen = false"
         />
       </div>

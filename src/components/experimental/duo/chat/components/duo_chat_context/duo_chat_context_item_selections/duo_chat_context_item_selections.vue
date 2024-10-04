@@ -4,12 +4,15 @@ import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlToken from '../../../../../../base/token/token.vue';
 import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
+import { CONTEXT_ITEM_CATEGORY_FILE, CONTEXT_ITEM_CATEGORY_LOCAL_GIT } from '../constants';
+import GlDuoChatContextItemDetailsModal from '../duo_chat_context_item_details_modal/duo_chat_context_item_details_modal.vue';
 import { contextItemsValidator, getContextItemIcon } from '../utils';
 
 export default {
   name: 'GlDuoChatContextItemSelections',
   components: {
     GlTruncate,
+    GlDuoChatContextItemDetailsModal,
     GlIcon,
     GlDuoChatContextItemPopover,
     GlToken,
@@ -55,6 +58,7 @@ export default {
     return {
       isCollapsed: this.defaultCollapsed,
       selectionsId: uniqueId(),
+      previewContextItemId: null,
     };
   },
   computed: {
@@ -73,6 +77,9 @@ export default {
       }
       return '';
     },
+    contextItemPreview() {
+      return this.selections.find((item) => item.id === this.previewContextItemId);
+    },
   },
   methods: {
     getContextItemIcon,
@@ -85,6 +92,30 @@ export default {
        * @property {Object} item - The context contextItem to be removed
        */
       this.$emit('remove', contextItem);
+    },
+    onOpenItem(event, contextItem) {
+      const isKeypressOnCloseButton =
+        event.type === 'keydown' && event.target !== event.currentTarget;
+      if (isKeypressOnCloseButton) {
+        // don't respond to events triggered by the gl-token children (e.g. the close button)
+        return;
+      }
+
+      if (!this.canOpen(contextItem)) {
+        return;
+      }
+      if (!contextItem.content) {
+        this.$emit('get-content', contextItem);
+      }
+      this.previewContextItemId = contextItem.id;
+    },
+    canOpen(contextItem) {
+      return [CONTEXT_ITEM_CATEGORY_LOCAL_GIT, CONTEXT_ITEM_CATEGORY_FILE].includes(
+        contextItem.category
+      );
+    },
+    onClosePreview() {
+      this.previewContextItemId = null;
     },
   },
 };
@@ -114,6 +145,11 @@ export default {
         variant="default"
         class="gl-mb-2 gl-mr-2 gl-max-w-full"
         :class="tokenVariantClasses"
+        :tabindex="canOpen(item) ? 0 : -1"
+        :role="canOpen(item) ? 'button' : undefined"
+        @click="onOpenItem($event, item)"
+        @keydown.enter="onOpenItem($event, item)"
+        @keydown.space.prevent="onOpenItem($event, item)"
         @close="onRemoveItem(item)"
       >
         <div
@@ -132,8 +168,14 @@ export default {
           :context-item="item"
           :target="`context-item-${item.id}-${selectionsId}-token`"
           placement="bottom"
+          @show-git-diff="onOpenItem(item)"
         />
       </gl-token>
     </div>
+    <gl-duo-chat-context-item-details-modal
+      v-if="contextItemPreview"
+      :context-item="contextItemPreview"
+      @close="onClosePreview"
+    />
   </div>
 </template>

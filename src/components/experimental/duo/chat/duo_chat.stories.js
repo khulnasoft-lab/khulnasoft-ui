@@ -6,6 +6,8 @@ import GlDuoChatContextItemMenu from './components/duo_chat_context/duo_chat_con
 import {
   getMockContextItems,
   MOCK_CATEGORIES,
+  MOCK_CONTEXT_FILE_CONTENT,
+  MOCK_CONTEXT_FILE_DIFF_CONTENT,
 } from './components/duo_chat_context/mock_context_data';
 import GlDuoChat from './duo_chat.vue';
 import readme from './duo_chat.md';
@@ -18,6 +20,7 @@ import {
   generateMockResponseChunks,
   renderGFM,
 } from './mock_data';
+import { CONTEXT_ITEM_CATEGORY_LOCAL_GIT } from './components/duo_chat_context/constants';
 
 const sampleContextItems = getMockContextItems();
 
@@ -204,6 +207,36 @@ export const Interactive = (args, { argTypes }) => ({
         this.contextItems.splice(index, 1);
       }
     },
+    handleGetContextItemContent({ messageId, contextItem }) {
+      const hydratedItem = {
+        ...contextItem,
+        content:
+          contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT
+            ? MOCK_CONTEXT_FILE_DIFF_CONTENT
+            : MOCK_CONTEXT_FILE_CONTENT,
+      };
+
+      if (messageId === undefined) {
+        const index = this.contextItems.findIndex((item) => item.id === hydratedItem.id);
+        if (index !== -1) {
+          this.$set(this.contextItems, index, hydratedItem);
+        }
+        return;
+      }
+
+      const messageIndex = this.msgs.findIndex((msg) => msg.id === messageId);
+      if (messageIndex !== -1) {
+        const message = this.msgs[messageIndex];
+        if (message.extras && Array.isArray(message.extras.contextItems)) {
+          const contextItemIndex = message.extras.contextItems.findIndex(
+            (item) => item.id === contextItem.id
+          );
+          if (contextItemIndex !== -1) {
+            this.$set(message.extras.contextItems, contextItemIndex, hydratedItem);
+          }
+        }
+      }
+    },
   },
   template: `
   <div style="height: 800px">
@@ -237,6 +270,7 @@ export const Interactive = (args, { argTypes }) => ({
       @chat-hidden="onChatHidden"
       @chat-cancel="onChatCancel"
       @insert-code-snippet="onInsertCodeSnippet"
+      @get-context-item-content="handleGetContextItemContent"
     >
       <template #context-items-menu="{ isOpen, onClose, setRef, focusPrompt }">
         <gl-duo-chat-context-item-menu
@@ -252,6 +286,7 @@ export const Interactive = (args, { argTypes }) => ({
           @remove="handleContextItemRemove"
           @close="onClose"
           @focus-prompt="focusPrompt"
+          @get-context-item-content="handleGetContextItemContent"
         />
       </template>
     </gl-duo-chat>

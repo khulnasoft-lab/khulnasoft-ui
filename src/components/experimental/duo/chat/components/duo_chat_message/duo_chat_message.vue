@@ -234,6 +234,12 @@ export default {
     onInsertCodeSnippet(e) {
       this.$emit('insert-code-snippet', e);
     },
+    onGetContextItemContent(contextItem) {
+      this.$emit('get-context-item-content', {
+        messageId: this.message.id,
+        contextItem,
+      });
+    },
   },
 };
 </script>
@@ -264,6 +270,7 @@ export default {
         :title="selectedContextItemsTitle"
         :default-collapsed="selectedContextItemsDefaultCollapsed"
         variant="assistant"
+        @get-content="onGetContextItemContent"
       />
       <div
         v-if="error"
@@ -309,6 +316,7 @@ export default {
         :title="selectedContextItemsTitle"
         :default-collapsed="selectedContextItemsDefaultCollapsed"
         variant="user"
+        @get-content="onGetContextItemContent"
       />
     </div>
   </div>

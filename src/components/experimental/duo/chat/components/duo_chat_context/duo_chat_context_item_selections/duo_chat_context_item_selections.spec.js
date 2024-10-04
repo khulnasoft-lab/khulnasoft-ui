@@ -1,7 +1,10 @@
-import { shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
+import { mount, shallowMount } from '@vue/test-utils';
 import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlToken from '../../../../../../base/token/token.vue';
+import GlDuoChatContextItemDetailsModal from '../duo_chat_context_item_details_modal/duo_chat_context_item_details_modal.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
+
 import {
   getMockContextItems,
   MOCK_CONTEXT_ITEM_FILE,
@@ -16,15 +19,18 @@ describe('GlDuoChatContextItemSelections', () => {
   let wrapper;
   let mockSelections;
 
-  const createComponent = (props = {}) => {
+  const createComponent = (props = {}, mountFn = shallowMount) => {
     mockSelections = getMockContextItems().slice(0, 3);
-    wrapper = shallowMount(GlDuoChatContextItemSelections, {
+    wrapper = mountFn(GlDuoChatContextItemSelections, {
       propsData: {
         selections: mockSelections,
         title: 'Test Title',
         defaultCollapsed: true,
         showClose: true,
         ...props,
+      },
+      stubs: {
+        GlSkeletonLoader: { name: 'GlSkeletonLoaderStub', template: '<div></div>' },
       },
     });
   };
@@ -37,6 +43,7 @@ describe('GlDuoChatContextItemSelections', () => {
   const findTokensIcons = () => findTokensWrapper().findAllComponents(GlIcon);
   const findPopovers = () => wrapper.findAllComponents(GlDuoChatContextItemPopover);
   const findCollapseIcon = () => findByTestId('chat-context-collapse-icon');
+  const findItemDetailsModal = () => wrapper.findComponent(GlDuoChatContextItemDetailsModal);
 
   describe('component rendering', () => {
     it('renders the component when selections are provided', () => {
@@ -184,6 +191,66 @@ describe('GlDuoChatContextItemSelections', () => {
         expect(wrapper.emitted('remove')).toHaveLength(1);
         expect(wrapper.emitted('remove')[0]).toEqual([MOCK_CONTEXT_ITEM_FILE]);
       });
+    });
+
+    describe('when opening context items', () => {
+      describe.each([{ item: MOCK_CONTEXT_ITEM_FILE }, { item: MOCK_CONTEXT_ITEM_GIT_DIFF }])(
+        'and the item is a "$item.category"',
+        ({ item }) => {
+          beforeEach(() => createComponent({ selections: [item] }, mount));
+
+          describe.each(['click', 'keydown.enter', 'keydown.space'])(
+            'when opening by "$eventType"',
+            (eventType) => {
+              beforeEach(() => findTokens().at(0).trigger(eventType));
+
+              it('should display the details view', () => {
+                expect(findItemDetailsModal().props('contextItem')).toEqual(item);
+              });
+
+              it('should emit a "get-content" event to hydrate the item', () => {
+                expect(wrapper.emitted('get-content')).toHaveLength(1);
+                expect(wrapper.emitted('get-content').at(0)).toEqual([item]);
+              });
+
+              it('should close the details view when modal emits "close" event', async () => {
+                findItemDetailsModal().vm.$emit('close');
+                await nextTick();
+
+                expect(findItemDetailsModal().exists()).toBe(false);
+              });
+            }
+          );
+
+          it('should not open the item when emitting key event on gl-token internal close button', async () => {
+            const token = findTokens().at(0);
+            const closeButton = token.find('svg');
+
+            closeButton.trigger('keydown.enter');
+            await nextTick();
+
+            expect(findItemDetailsModal().exists()).toBe(false);
+          });
+        }
+      );
+
+      describe.each([{ item: MOCK_CONTEXT_ITEM_MERGE_REQUEST }, { item: MOCK_CONTEXT_ITEM_ISSUE }])(
+        'and the item is a "$item.category"',
+        ({ item }) => {
+          beforeEach(() => {
+            createComponent({ selections: [item] });
+            return findTokens().at(0).vm.$emit('click', { type: 'click' });
+          });
+
+          it('should not display any details view', () => {
+            expect(findItemDetailsModal().exists()).toBe(false);
+          });
+
+          it('should not emit any "get-content" event', () => {
+            expect(wrapper.emitted('get-content')).toBe(undefined);
+          });
+        }
+      );
     });
   });
 });

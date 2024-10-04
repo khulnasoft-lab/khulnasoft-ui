@@ -14,6 +14,10 @@ const generateProps = ({ message = MOCK_RESPONSE_MESSAGE } = {}) => ({
     // eslint-disable-next-line no-alert
     alert(`Insert code snippet triggered:\n${event.detail.code}`);
   },
+  onGetContextItemContent: (event) => {
+    // eslint-disable-next-line no-alert
+    alert(`Get context item content triggered:\n${JSON.stringify(event.contextItem, null, 4)}`);
+  },
 });
 
 const Template = (args, { argTypes }) => ({
@@ -24,7 +28,7 @@ const Template = (args, { argTypes }) => ({
     renderGFM,
   },
   template: `
-    <gl-duo-chat-message :message="message" :is-cancelled="false" @insert-code-snippet="onInsertCode" />
+    <gl-duo-chat-message :message="message" :is-cancelled="false" @insert-code-snippet="onInsertCode" @get-context-item-content="onGetContextItemContent" />
   `,
 });
 

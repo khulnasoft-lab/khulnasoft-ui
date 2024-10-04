@@ -16,6 +16,21 @@ export function getMockCategory(categoryValue) {
   return MOCK_CATEGORIES.find((cat) => cat.value === categoryValue);
 }
 
+export const MOCK_CONTEXT_FILE_CONTENT = `export function waterPlants() {
+    console.log('sprinkle');
+}`;
+
+export const MOCK_CONTEXT_FILE_DIFF_CONTENT = `diff --git a/src/plants/strawberry.ts b/src/plants/strawberry.ts
+index 1234567..8901234 100644
+--- a/src/plants/strawberry.ts
++++ b/src/plants/strawberry.ts
+@@ -1,4 +1,4 @@
+ export const strawberry = {
+   name: 'Strawberry',
+-  waterNeeds: 'moderate',
++  waterNeeds: 'high',
+ };`;
+
 export const MOCK_CONTEXT_ITEM_FILE = {
   id: '123e4567-e89b-12d3-a456-426614174000',
   category: CONTEXT_ITEM_CATEGORY_FILE,
