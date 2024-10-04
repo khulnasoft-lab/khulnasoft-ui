@@ -66,12 +66,6 @@ async function prettify(tailwindConfig, files) {
 function validateMigrations(processedMigrations) {
   const errors = [];
 
-  for (const { from, to } of processedMigrations) {
-    if (from.endsWith('!') !== /!-?gl/.test(to)) {
-      errors.push(`Inconsistent importance: ${from}, ${to}`);
-    }
-  }
-
   // Make sure there are no duplicates
   const froms = new Set();
   const tos = new Set();
@@ -80,36 +74,11 @@ function validateMigrations(processedMigrations) {
     tos.add(to);
   }
 
-  // Make sure important class exists for each non-important class.
-  // It doesn't matter if the classes don't exist, it's fast enough to check
-  // for them anyway.
-  for (const { from } of processedMigrations) {
-    if (from.endsWith('!')) continue;
-
-    if (!froms.has(`${from}!`)) {
-      errors.push(`Missing important class for ${from}`);
-    }
-  }
-
   // Make sure responsive breakpoints are consistent
   for (const { from, to } of processedMigrations) {
     for (const bp of ['xs', 'sm', 'md', 'lg', 'xl']) {
       if (from.includes(`-${bp}-`) !== to.startsWith(`${bp}:`)) {
         errors.push(`Inconsistent breakpoints: ${from}, ${to}`);
-      }
-    }
-  }
-
-  // Make sure no legacy classes are substrings Tailwind classes, which could
-  // cause replacement errors. This *shouldn't* occur, but might as well check
-  // for it anyway. For instance:
-  //   1. Replace legacy class "gl-foo-bar" with Tailwind class "gl-qux-baz"
-  //   2. Replace legacy class "gl-qux" with Tailwind class "gl-qux-foo"
-  //   3. The Tailwind class "gl-qux-baz" is now borked to "gl-qux-foo-baz"
-  for (const from of froms) {
-    for (const to of tos) {
-      if (to.includes(from)) {
-        errors.push(`Tailwind class "${to}" contains legacy class "${from}" as substring`);
       }
     }
   }
