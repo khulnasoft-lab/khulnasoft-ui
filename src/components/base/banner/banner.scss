@@ -17,7 +17,7 @@
 }
 
 .gl-banner-title {
-  @include gl-heading-scale-500;
+  @apply gl-heading-scale-500;
   @apply gl-mb-3;
   color: var(--gl-text-color-heading);
 }

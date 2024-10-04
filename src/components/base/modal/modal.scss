@@ -58,7 +58,7 @@ body.modal-open {
     @apply gl-border-none;
 
     .modal-title {
-      @include gl-heading-scale-500;
+      @apply gl-heading-scale-500;
       color: var(--gl-text-color-heading);
     }
   }

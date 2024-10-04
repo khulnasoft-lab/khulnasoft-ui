@@ -8,7 +8,7 @@
   @apply gl-p-0;
   @apply gl-bg-transparent;
   @apply gl-border-none;
-  @include gl-outline-none;
+  @apply gl-outline-none;
   @apply gl-h-6;
   @apply gl-w-full;
   min-width: $gl-dropdown-width;

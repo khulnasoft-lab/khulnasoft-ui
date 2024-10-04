@@ -11,37 +11,37 @@
 
   h1,
   .gl-h1 {
-    @include gl-heading-1;
+    @apply gl-heading-1;
     @apply gl-mt-7;
   }
 
   h2,
   .gl-h2 {
-    @include gl-heading-2;
+    @apply gl-heading-2;
     @apply gl-mt-6;
   }
 
   h3,
   .gl-h3 {
-    @include gl-heading-3;
+    @apply gl-heading-3;
     @apply gl-mt-6;
   }
 
   h4,
   .gl-h4 {
-    @include gl-heading-4;
+    @apply gl-heading-4;
     @apply gl-mt-5;
   }
 
   h5,
   .gl-h5 {
-    @include gl-heading-5;
+    @apply gl-heading-5;
     @apply gl-mt-5;
   }
 
   h6,
   .gl-h6 {
-    @include gl-heading-6;
+    @apply gl-heading-6;
     @apply gl-mt-5;
   }
 
@@ -171,37 +171,37 @@
 
   h1,
   .gl-h1 {
-    @include gl-heading-1-fixed;
+    @apply gl-heading-1-fixed;
     @apply gl-mt-7;
   }
 
   h2,
   .gl-h2 {
-    @include gl-heading-2-fixed;
+    @apply gl-heading-2-fixed;
     @apply gl-mt-6;
   }
 
   h3,
   .gl-h3 {
-    @include gl-heading-3-fixed;
+    @apply gl-heading-3-fixed;
     @apply gl-mt-6;
   }
 
   h4,
   .gl-h4 {
-    @include gl-heading-4-fixed;
+    @apply gl-heading-4-fixed;
     @apply gl-mt-5;
   }
 
   h5,
   .gl-h5 {
-    @include gl-heading-5-fixed;
+    @apply gl-heading-5-fixed;
     @apply gl-mt-5;
   }
 
   h6,
   .gl-h6 {
-    @include gl-heading-6-fixed;
+    @apply gl-heading-6-fixed;
     @apply gl-mt-5;
   }
 

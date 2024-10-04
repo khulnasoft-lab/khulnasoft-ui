@@ -139,12 +139,12 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-enter-to {
-  @include gl-translate-x-0;
+  @apply gl-translate-x-0;
 }
 
 .gl-drawer-enter,
 .gl-drawer-leave-to {
-  @include gl-translate-x-100;
+  @apply gl-translate-x-full;
 }
 
 .gl-drawer-enter-active,

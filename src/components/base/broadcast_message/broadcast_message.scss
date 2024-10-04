@@ -124,7 +124,7 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
   &-text {
     margin-top: -$gl-spacing-scale-1;
     margin-bottom: -$gl-spacing-scale-1;
-    @include gl-overflow-anywhere;
+    @apply gl-hyphens-auto gl-break-anywhere;
   }
 
   &-dismiss {

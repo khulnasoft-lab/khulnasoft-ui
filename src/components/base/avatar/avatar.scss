@@ -24,7 +24,7 @@ $gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
   @apply gl-overflow-hidden;
   @apply gl-shrink-0;
   @apply gl-leading-1;
-  @include gl-object-fit-contain;
+  @apply gl-object-contain;
   outline: 1px solid var(--gl-avatar-border-color-default);
   outline-offset: -1px;
 }

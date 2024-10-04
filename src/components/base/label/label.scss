@@ -39,7 +39,7 @@ $label-padding-horizontal-half: 0.375 * $grid-size;
     &:focus:active {
       @apply gl-text-inherit;
       @apply gl-shadow-none;
-      @include gl-outline-none;
+      @apply gl-outline-none;
     }
   }
 

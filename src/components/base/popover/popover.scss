@@ -74,13 +74,13 @@ $gl-popover-max-width: $grid-size * 35;
 
   .popover-header {
     color: var(--gl-text-color-heading);
-    @include gl-heading-scale-200;
+    @apply gl-heading-scale-200;
     @apply gl-border-b-0;
     @apply gl-pb-0;
   }
 
   &.has-title .popover-header {
-    @include gl-overflow-anywhere;
+    @apply gl-hyphens-auto gl-break-anywhere;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;

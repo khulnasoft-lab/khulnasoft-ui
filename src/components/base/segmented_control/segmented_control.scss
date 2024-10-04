@@ -37,8 +37,8 @@
     @apply gl-text-base;
     @apply gl-leading-normal;
     @apply gl-text-gray-900;
-    @include gl-fill-current-color;
-    @include gl-bg-gray-10;
+    @apply gl-fill-current;
+    @apply gl-bg-gray-10;
     border-color: $gray-200;
 
       &:not(:first-child) {
@@ -51,32 +51,32 @@
 
       &:hover {
         border-color: $gray-400;
-        @include gl-bg-gray-50;
+        @apply gl-bg-gray-50;
       }
 
       &.focus {
-        @include gl-z-index-1;
+        @apply gl-z-1;
         border-color: $gray-400;
-        @include gl-focus;
-        @include gl-bg-gray-50;
+        @apply gl-focus;
+        @apply gl-bg-gray-50;
       }
 
       &.active {
-        @include gl-z-index-2;
+        @apply gl-z-2;
         border-color: $gray-400;
         @include gl-inset-border-1-gray-400;
-        @include gl-bg-white;
+        @apply gl-bg-white;
 
         &:hover {
           @include gl-inset-border-1-gray-400;
-          @include gl-bg-gray-50;
+          @apply gl-bg-gray-50;
         }
 
         &.focus,
         &.focus:hover {
           border-color: $gray-400;
-          @include gl-focus;
-          @include gl-bg-gray-50;
+          @apply gl-focus;
+          @apply gl-bg-gray-50;
         }
       }
 
@@ -88,10 +88,10 @@
       &[disabled],
       &.disabled:hover,
       &[disabled]:hover {
-        @include gl-text-gray-400;
+        @apply gl-text-gray-400;
         border-color: $gray-200;
-        @include gl-z-index-0;
-        @include gl-cursor-not-allowed;
+        @apply gl-z-0;
+        @apply gl-cursor-not-allowed;
 
         &:first-child {
           border-right-color: transparent;
@@ -106,15 +106,15 @@
 } @else {
   .gl-segmented-control {
     label:not(.disabled) {
-      @include gl-cursor-pointer;
+      @apply gl-cursor-pointer;
     }
 
     .btn-gl-segmented-button {
-      @include gl-font-base;
-      @include gl-line-height-normal;
-      @include gl-text-gray-900;
-      @include gl-fill-current-color;
-      @include gl-bg-gray-10;
+      @apply gl-text-base;
+      @apply gl-leading-normal;
+      @apply gl-text-gray-900;
+      @apply gl-fill-current;
+      @apply gl-bg-gray-10;
       @include gl-inset-border-y-1-gray-200;
 
       &:first-child {
@@ -127,34 +127,34 @@
 
       &:hover {
         @include gl-inset-border-2-gray-400;
-        @include gl-bg-gray-50;
+        @apply gl-bg-gray-50;
       }
 
       &.focus {
-        @include gl-z-index-1;
+        @apply gl-z-1;
         @include gl-btn-gl-segmented-button-focus($gray-400);
-        @include gl-bg-gray-50;
+        @apply gl-bg-gray-50;
       }
 
       &.active {
-        @include gl-z-index-2;
+        @apply gl-z-2;
         @include gl-inset-border-2-gray-300;
-        @include gl-bg-white;
+        @apply gl-bg-white;
 
         &:hover {
           @include gl-inset-border-2-gray-400;
-          @include gl-bg-gray-50;
+          @apply gl-bg-gray-50;
         }
 
         &.focus,
         &.focus:hover {
           @include gl-btn-gl-segmented-button-focus($gray-400);
-          @include gl-bg-gray-50;
+          @apply gl-bg-gray-50;
         }
       }
 
       &:focus-within {
-        @include gl-focus;
+        @apply gl-focus;
       }
 
       &.disabled,
