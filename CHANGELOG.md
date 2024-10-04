@@ -1,3 +1,38 @@
+# [95.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.10.0...v95.0.0) (2024-10-04)
+
+
+### Features
+
+* **GlModal:** Remove variant options ([5580ba3](https://gitlab.com/gitlab-org/gitlab-ui/commit/5580ba31ecb247855842327684457ba63a33c3f6))
+* **GlProgressBar:** Apply design tokens ([4776905](https://gitlab.com/gitlab-org/gitlab-ui/commit/47769055aa4da1c0b29ea9d2a514bc2e9c3957b1))
+* **GlProgressBar:** Remove some progress bar color variants ([4a3289d](https://gitlab.com/gitlab-org/gitlab-ui/commit/4a3289d7c722fd92c70406581c87fb1cf2c910a5))
+
+
+### BREAKING CHANGES
+
+* **GlProgressBar:** * Rename variantOptions to progressBarOptions since they're only used
+for the GlProgressBar
+* Remove options: secondary, light, dark, info
+* **GlModal:** Remove util constants variantOptionsWithNoDefault,
+and possibility to apply header, body, and footer variants.
+
+BootstrapVue's Modal supported multiple variants:
+
+* headerBgVariant
+* headerBorderVariant
+* headerTextVariant
+* headerCloseVariant
+* bodyBgVariant
+* bodyTextVariant
+* footerBgVariant
+* footerBorderVariant
+* footerTextVariant
+
+These attributes were passed through the GitLab UI Component to the
+BootstrapVue's original component. These variants have never been used
+and are now deleted. Alongside with the exported constant in the utils
+folder.
+
 # [94.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v94.9.0...v94.10.0) (2024-10-03)
 
 
