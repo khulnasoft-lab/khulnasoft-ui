@@ -1,3 +1,10 @@
+## [95.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.1.0...v95.1.1) (2024-10-05)
+
+
+### Bug Fixes
+
+* update dropdown headers to use strong text color ([6f6b208](https://gitlab.com/gitlab-org/gitlab-ui/commit/6f6b208f892257c02d92c9f49f1675226b71b5a8))
+
 # [95.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.0.0...v95.1.0) (2024-10-04)
 
 
