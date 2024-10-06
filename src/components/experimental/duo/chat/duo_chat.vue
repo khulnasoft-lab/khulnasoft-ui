@@ -599,7 +599,8 @@ export default {
         <div class="gl-ml-auto gl-flex gl-items-center">
           <gl-button
             icon="list-bulleted"
-            category="secondary"
+            category="primary"
+            variant="confirm"
             class="gl-mr-3 gl-text-white"
             @click="handleDrawer"
           >
