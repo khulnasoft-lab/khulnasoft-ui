@@ -25,6 +25,7 @@ export const MOCK_CONTEXT_ITEM_FILE = {
     project: 'example/garden',
     relativePath: 'src/plants/strawberry.ts',
   },
+  content: '``` csharp\npublic class Motorbike {\n  public string Name { get; set; }\n}\n```',
 };
 
 export const MOCK_CONTEXT_ITEM_FILE_DISABLED = {

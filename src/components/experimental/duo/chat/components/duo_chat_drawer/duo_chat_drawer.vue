@@ -1,15 +1,18 @@
 <script>
 import GlDrawer from '../../../../../base/drawer/drawer.vue';
+import GlButton from '../../../../../base/button/button.vue';
 import { translate } from '../../../../../../utils/i18n';
 
 export const i18n = {
   DRAWER_TITLE: translate('GlDuoChatDrawer.drawerTitle', 'Chat Threads'),
+  NEW_CHAT_BUTTON: translate('GlDuoChatDrawer.newChatButton', 'New Chat'),
 };
 
 export default {
   name: 'GlDuoChatDrawer',
   components: {
     GlDrawer,
+    GlButton,
   },
   props: {
     /**
@@ -59,15 +62,29 @@ export default {
     isActiveThread(thread) {
       return this.activeThread && this.activeThread.title === thread.title;
     },
+    onNewChat() {
+      this.$emit('new-chat');
+    },
   },
   i18n,
 };
 </script>
 
 <template>
-  <gl-drawer :open="open" variant="sidebar" class="gl-w-3/4 mt-6" @close="onClose">
+  <gl-drawer :open="open" variant="sidebar" class="gl-w-5/6" @close="onClose">
     <template #title>
-      {{ $options.i18n.DRAWER_TITLE }}
+      <div class="gl-flex gl-flex-col">
+        <span class="gl-my-0 gl-text-lg gl-font-semibold">{{ $options.i18n.DRAWER_TITLE }}</span>
+        <gl-button 
+          category="primary" 
+          variant="confirm" 
+          size="medium"
+          class="gl-mt-3"
+          @click="onNewChat"
+        >
+          {{ $options.i18n.NEW_CHAT_BUTTON }}
+        </gl-button>
+      </div>
     </template>
     <template #default>
       <ul class="gl-list-style-none gl-pl-0">

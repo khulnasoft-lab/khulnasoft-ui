@@ -16,6 +16,10 @@ import {
   formatMergeRequestId,
   getGitItemIcon,
 } from '../utils';
+// eslint-disable-next-line no-restricted-imports
+import { renderDuoChatMarkdownPreview } from '../../../markdown_renderer';
+
+import { SafeHtmlDirective as SafeHtml } from '../../../../../../../directives/safe_html/safe_html';
 
 export default {
   name: 'DuoChatContextItemPopover',
@@ -24,6 +28,15 @@ export default {
     GlAlert,
     GlIcon,
     GlPopover,
+  },
+  directives: {
+    SafeHtml,
+  },
+  inject: {
+    renderMarkdown: {
+      from: 'renderMarkdown',
+      default: () => renderDuoChatMarkdownPreview,
+    },
   },
   props: {
     /**
@@ -95,6 +108,9 @@ export default {
       return getGitItemIcon(this.contextItem) || this.category.icon;
     },
     iconName() {
+      if (this.contextItem.metadata.icon) {
+        return this.contextItem.metadata.icon;
+      }
       switch (this.contextItem.category) {
         case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
           return 'merge-request';
@@ -119,6 +135,9 @@ export default {
         default:
           return '';
       }
+    },
+    messageContent() {
+      return this.renderMarkdown(this.contextItem.content, false);
     },
   },
   methods: {
@@ -182,6 +201,9 @@ export default {
       >
         {{ disabledMessage }}
       </gl-alert>
+      <div class="gl-p-1 duo-chat-message gl-markdown ">
+        <div ref="content" v-safe-html:[$options.safeHtmlConfigExtension]="messageContent"></div>
+      </div>
     </div>
   </gl-popover>
 </template>

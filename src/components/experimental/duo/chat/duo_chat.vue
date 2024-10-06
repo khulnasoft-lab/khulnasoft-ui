@@ -9,7 +9,6 @@ import GlAlert from '../../../base/alert/alert.vue';
 import GlFormInputGroup from '../../../base/form/form_input_group/form_input_group.vue';
 import GlFormTextarea from '../../../base/form/form_textarea/form_textarea.vue';
 import GlForm from '../../../base/form/form.vue';
-import GlExperimentBadge from '../../experiment_badge/experiment_badge.vue';
 import { badgeTypes, badgeTypeValidator } from '../../experiment_badge/constants';
 import { SafeHtmlDirective as SafeHtml } from '../../../../directives/safe_html/safe_html';
 import { translate } from '../../../../utils/i18n';
@@ -83,7 +82,6 @@ export default {
     GlFormInputGroup,
     GlFormTextarea,
     GlForm,
-    GlExperimentBadge,
     GlDuoChatLoader,
     GlDuoChatPredefinedPrompts,
     GlDuoChatConversation,
@@ -328,6 +326,7 @@ export default {
     },
     shouldShowContextItemSelectionMenu() {
       if (!this.hasContextItemSelectionMenu) {
+        console.log('shouldShowContextItemSelectionMenu', false);
         return false;
       }
 
@@ -364,12 +363,14 @@ export default {
   },
   watch: {
     isLoading(newVal) {
+      console.log('isLoading', newVal, this.isStreaming);
       if (!newVal && !this.isStreaming) {
         this.displaySubmitButton = true; // Re-enable submit button when loading stops
       }
       this.isHidden = false;
     },
     isStreaming(newVal) {
+      console.log('isStreaming', newVal, this.isLoading);
       if (!newVal && !this.isLoading) {
         this.displaySubmitButton = true; // Re-enable submit button when streaming stops
       }
@@ -569,6 +570,13 @@ export default {
        */
       this.$emit('thread-selected', threadId);
     },
+    onNewChat() {
+      // Handle new chat creation logic here
+      this.drawerOpen = false;
+      this.activeThreadId = null;
+      this.msgs = [];
+      this.$emit('new-chat');
+    },
   },
   i18n,
   emptySvg,
@@ -583,40 +591,27 @@ export default {
     data-testid="chat-component"
   >
     <header
-      v-if="showHeader"
       data-testid="chat-header"
       class="duo-chat-drawer-header duo-chat-drawer-header-sticky gl-z-200 gl-bg-gray-10 !gl-p-0"
     >
       <div class="drawer-title gl-flex gl-items-center gl-justify-start gl-p-5">
         <h3 class="gl-my-0 gl-ml-3 gl-text-size-h2">{{ title }}</h3>
-        <gl-experiment-badge
-          v-if="badgeType"
-          :help-page-url="badgeHelpPageUrl"
-          :type="badgeType"
-          container-id="chat-component"
-        />
-        <gl-button
-          category="tertiary"
-          variant="default"
-          icon="close"
-          size="small"
-          class="gl-ml-auto"
-          data-testid="chat-close-button"
-          :aria-label="$options.i18n.CHAT_CLOSE_LABEL"
-          @click="hideChat"
-        />
+        <div class="gl-ml-auto gl-flex gl-items-center">
+          <gl-button
+            icon="list-bulleted"
+            category="secondary"
+            class="gl-mr-3 gl-text-white"
+            @click="handleDrawer"
+          >
+            {{ $options.i18n.CHAT_MENU_LABEL }}
+          </gl-button>
+        </div>
       </div>
 
       <!--
         @slot Subheader to be rendered right after the title. It is sticky and stays on top of the chat no matter the number of messages.
       -->
-      <slot name="subheader">
-        <div class="gl-flex gl-justify-start gl-mt-3 gl-ml-1 gl-p-2">
-          <gl-button icon="list-bulleted" category="secondary" @click="handleDrawer" > 
-            {{ $options.i18n.CHAT_MENU_LABEL }}
-          </gl-button>
-        </div>
-      </slot>
+      <slot name="subheader"> </slot>
 
       <!-- Ensure that the global error is not scrolled away -->
       <gl-alert
@@ -630,6 +625,14 @@ export default {
       >
         <span v-safe-html="error"></span>
       </gl-alert>
+      <gl-duo-chat-drawer
+        :open="drawerOpen"
+        :threads="threadList"
+        :active-thread="activeThread"
+        @close="handleDrawer"
+        @thread-selected="onThreadSelected"
+        @new-chat="onNewChat"
+      />
     </header>
 
     <div class="duo-chat-drawer-body" data-testid="chat-history" @scroll="handleScrollingTrottled">
@@ -774,13 +777,5 @@ export default {
         </gl-form-input-group>
       </gl-form>
     </footer>
-
-    <gl-duo-chat-drawer
-      :open="drawerOpen"
-      :threads="threadList"
-      :active-thread="activeThread"
-      @close="handleDrawer"
-      @thread-selected="onThreadSelected"
-    />
   </aside>
 </template>

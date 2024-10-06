@@ -83,6 +83,9 @@ export default {
   },
   methods: {
     getIconName(contextItem) {
+      if (contextItem.metadata.icon) {
+        return contextItem.metadata.icon;
+      }
       const { category } = contextItem;
       const iconMap = {
         [CONTEXT_ITEM_CATEGORY_FILE]: 'document',
@@ -102,7 +105,7 @@ export default {
        */
       this.$emit('remove', contextItem);
     },
-  },
+  }
 };
 </script>
 

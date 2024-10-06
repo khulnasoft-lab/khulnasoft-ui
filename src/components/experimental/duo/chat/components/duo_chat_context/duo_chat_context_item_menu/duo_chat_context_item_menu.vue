@@ -74,6 +74,7 @@ export default {
   },
   computed: {
     showCategorySelection() {
+      console.log('showCategorySelection', this.open, this.selectedCategory);
       return this.open && !this.selectedCategory;
     },
     allResultsAreDisabled() {
