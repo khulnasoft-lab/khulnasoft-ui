@@ -1,3 +1,10 @@
+# [95.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.1.1...v95.2.0) (2024-10-07)
+
+
+### Features
+
+* **tailwind:** add support for border-color transition ([d1b38c3](https://gitlab.com/gitlab-org/gitlab-ui/commit/d1b38c3175216046901ada5b2b2162c647202b3f))
+
 ## [95.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.1.0...v95.1.1) (2024-10-05)
 
 
