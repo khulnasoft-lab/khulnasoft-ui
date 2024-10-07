@@ -7,7 +7,7 @@ const components = { GlPagination };
 const defaultValue = (name) => GlPagination.props[name].default;
 
 const generateProps = ({
-  page = 3,
+  value = 3,
   align = defaultValue('align'),
   disabled = defaultValue('disabled'),
   linkGen = defaultValue('linkGen'),
@@ -18,7 +18,7 @@ const generateProps = ({
   prevText = defaultValue('prevText'),
   totalItems = 200, // The component's default value of 0 is for compact pagination, which most stories here do not use.
 } = {}) => ({
-  page,
+  value,
   align,
   disabled,
   linkGen,
@@ -32,7 +32,7 @@ const generateProps = ({
 
 const template = `
   <gl-pagination
-    v-model="page"
+    v-model="value"
     :align="align"
     :disabled="disabled"
     :link-gen="linkGen"
@@ -48,13 +48,13 @@ const template = `
 const defaults = (args) => ({
   data() {
     return {
-      currentPage: args.page,
+      currentPage: args.value,
       alignOptions,
     };
   },
   watch: {
-    initialPage(page) {
-      this.page = page;
+    initialPage(value) {
+      this.value = value;
     },
   },
 });
