@@ -1,3 +1,4 @@
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/form-radio/README.md';
 import GlSegmentedControl from './segmented_control.vue';
 import readme from './segmented_control.md';
 
@@ -39,6 +40,7 @@ export default {
   component: GlSegmentedControl,
   parameters: {
     bootstrapComponent: 'b-form-radio-group',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

@@ -1,4 +1,5 @@
 import { targetOptions } from '../../../utils/constants';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/link/README.md';
 import GlLink from './link.vue';
 import readme from './link.md';
 
@@ -49,6 +50,7 @@ export default {
   component: GlLink,
   parameters: {
     bootstrapComponent: 'b-link',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

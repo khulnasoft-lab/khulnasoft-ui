@@ -1,4 +1,5 @@
 import { BNavbarBrand } from '../../../vendor/bootstrap-vue/src/components/navbar/navbar-brand';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/navbar/README.md';
 import GlNavbar from './navbar.vue';
 import readme from './navbar.md';
 
@@ -24,5 +25,6 @@ export default {
       },
     },
     bootstrapComponent: 'b-navbar',
+    bootstrapDocs: BVueReadme,
   },
 };

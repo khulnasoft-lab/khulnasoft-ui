@@ -1,6 +1,7 @@
 import { userEvent, within, waitFor, expect } from '@storybook/test';
 import { GlModalDirective } from '../../../directives/modal';
 import GlButton from '../button/button.vue';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/modal/README.md';
 import GlModal from './modal.vue';
 import readme from './modal.md';
 
@@ -134,8 +135,9 @@ export default {
   title: 'base/modal',
   component: GlModal,
   directives: { GlModalDirective },
-  bootstrapComponent: 'b-modal',
   parameters: {
+    bootstrapComponent: 'b-modal',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

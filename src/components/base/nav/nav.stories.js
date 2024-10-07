@@ -1,6 +1,7 @@
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlDropdownDivider from '../dropdown/dropdown_divider.vue';
 import GlIcon from '../icon/icon.vue';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/nav/README.md';
 import GlNavItemDropdown from './nav_item_dropdown.vue';
 import GlNavItem from './nav_item.vue';
 import GlNav from './nav.vue';
@@ -48,6 +49,8 @@ export default {
   },
   parameters: {
     bootstrapComponent: 'b-nav',
+    bootstrapDocs: BVueReadme,
+
     docs: {
       description: {
         component: readme,

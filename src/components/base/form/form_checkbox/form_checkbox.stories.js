@@ -1,3 +1,4 @@
+import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-checkbox/README.md';
 import GlFormCheckbox from './form_checkbox.vue';
 import GlFormCheckboxGroup from './form_checkbox_group.vue';
 import readme from './form_checkbox.md';
@@ -50,6 +51,7 @@ export default {
   component: GlFormCheckbox,
   parameters: {
     bootstrapComponent: 'b-form-checkbox',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

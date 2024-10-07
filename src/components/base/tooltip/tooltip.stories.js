@@ -1,6 +1,7 @@
 import { userEvent, within, waitFor, expect } from '@storybook/test';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import GlButton from '../button/button.vue';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/tooltip/README.md';
 import GlTooltip from './tooltip.vue';
 import readme from './tooltip.md';
 
@@ -61,6 +62,7 @@ export default {
   component: GlTooltip,
   parameters: {
     bootstrapComponent: 'b-tooltip',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

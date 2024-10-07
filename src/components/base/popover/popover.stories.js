@@ -1,5 +1,6 @@
 import GlButton from '../button/button.vue';
 import { popoverPlacements } from '../../../utils/constants';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/popover/README.md';
 import GlPopover from './popover.vue';
 
 const defaultValue = (prop) => GlPopover.props[prop].default;
@@ -97,6 +98,7 @@ export default {
   title: 'base/popover',
   component: GlPopover,
   parameters: {
+    bootstrapDocs: BVueReadme,
     bootstrapComponent: 'b-popover',
   },
   argTypes: {

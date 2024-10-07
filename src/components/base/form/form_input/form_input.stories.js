@@ -1,5 +1,6 @@
 import { formInputWidths } from '../../../../utils/constants';
 import GlFormGroup from '../form_group/form_group.vue';
+import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-input/README.md';
 import readme from './form_input.md';
 import GlFormInput from './form_input.vue';
 
@@ -119,6 +120,7 @@ export default {
   component: GlFormInput,
   parameters: {
     bootstrapComponent: 'b-form-input',
+    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

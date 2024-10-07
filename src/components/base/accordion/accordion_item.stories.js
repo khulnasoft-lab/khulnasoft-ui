@@ -39,7 +39,6 @@ Default.args = generateProps({ visible: true, titleVisible: 'Accordion Item Titl
 export default {
   title: 'base/accordion/accordion-item',
   component: GlAccordionItem,
-  bootstrapComponent: 'b-collapse',
   tags: ['skip-visual-test'],
   parameters: {
     docs: {

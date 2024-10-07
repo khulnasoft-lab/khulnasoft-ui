@@ -1,5 +1,6 @@
 import GlButton from '../button/button.vue';
 import { setStoryTimeout } from '../../../utils/test_utils';
+import BVueReadme from '../../../vendor/bootstrap-vue/src/components/form/README.md';
 import GlFormCheckboxGroup from './form_checkbox/form_checkbox_group.vue';
 import GlForm from './form.vue';
 import GlFormGroup from './form_group/form_group.vue';
@@ -98,6 +99,8 @@ export default {
   component: GlForm,
   parameters: {
     bootstrapComponent: 'b-form',
+    bootstrapDocs: BVueReadme,
+
     docs: {
       description: {
         component: readme,

@@ -1,3 +1,4 @@
+import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/input-group/README.md';
 import readme from './input_group_text.md';
 import GlInputGroupText from './input_group_text.vue';
 
@@ -20,6 +21,8 @@ export default {
   title: 'base/form/input-group-text',
   component: GlInputGroupText,
   parameters: {
+    bootstrapDocs: BVueReadme,
+    bootstrapComponent: 'b-input-group',
     controls: { disable: true },
     docs: {
       description: {
