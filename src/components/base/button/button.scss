@@ -72,7 +72,7 @@
     @if $feature-button-border {
       :focus,
       &:focus:active {
-        @include gl-focus;
+        @apply gl-focus;
       }
     } @else {
       &:focus {
@@ -101,7 +101,7 @@
   background-color: var(--gl-button-default-primary-background-color-default);
   @apply gl-leading-normal;
   color: var(--gl-button-default-primary-foreground-color-default);
-  @include gl-fill-current-color;
+  @apply gl-fill-current;
   @apply gl-justify-center;
   @apply gl-items-center;
   @apply gl-text-base;
@@ -126,7 +126,7 @@
   @if $feature-button-border {
     &:focus,
     &:focus:active {
-      @include gl-focus;
+      @apply gl-focus;
     }
   } @else {
     @media (forced-colors: active) {
@@ -462,7 +462,7 @@
 
     &:hover {
       @if $feature-button-border {
-        @include gl-text-green-700;
+        @apply gl-text-green-700;
         border-color: $green-700;
         background-color: $green-50;
       } @else {
@@ -616,7 +616,7 @@
     @apply gl-leading-normal;
     color: var(--gl-button-link-text-color-default);
     @if $feature-button-border {
-      @include gl-px-0;
+      @apply gl-px-0;
       min-height: auto;
       min-width: auto;
       text-decoration-thickness: auto;

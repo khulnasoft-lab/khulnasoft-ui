@@ -526,6 +526,7 @@ module.exports = {
       },
       transitionProperty: {
         'box-shadow': 'box-shadow',
+        'border-color': 'border-color',
         'stroke-opacity': 'stroke-opacity',
         background: 'background',
         left: 'left',

@@ -36,7 +36,7 @@
     &:not(.active):focus,
     &:not(.active):active,
     &:not(.active).active {
-      @include gl-focus();
+      @apply gl-focus;
     }
 
     &,
@@ -54,7 +54,7 @@
       @apply gl-shadow-none;
 
       &:focus {
-        @include gl-focus();
+        @apply gl-focus;
       }
     }
 

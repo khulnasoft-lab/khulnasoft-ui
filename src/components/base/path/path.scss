@@ -11,7 +11,7 @@ $path-chevron-right-margin: px-to-rem(14px);
 
 // Mixins
 @mixin gl-path-chevron {
-  @include gl-reset-bg;
+  @apply gl-bg-inherit;
   content: '';
   position: absolute;
   top: $path-chevron-top;

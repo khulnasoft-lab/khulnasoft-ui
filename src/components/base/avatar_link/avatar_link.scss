@@ -2,7 +2,7 @@
   @apply gl-inline-flex;
 
   .gl-avatar {
-    @include gl-transition-property-border-color;
+    @apply gl-transition-border-color;
     @apply gl-duration-slow;
     @apply gl-ease-ease;
   }

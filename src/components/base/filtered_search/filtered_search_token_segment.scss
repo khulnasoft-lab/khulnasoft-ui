@@ -16,7 +16,7 @@
   @apply gl-h-full;
   @apply gl-bg-transparent;
   @apply gl-border-none;
-  @include gl-outline-none;
+  @apply gl-outline-none;
   min-width: $gl-dropdown-width;
 }
 
