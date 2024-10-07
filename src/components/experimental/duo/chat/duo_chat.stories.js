@@ -42,33 +42,67 @@ const generateProps = ({
   emptyStateSecondaryDescription = defaultValue('emptyStateSecondaryDescription'),
   chatPromptPlaceholder = defaultValue('chatPromptPlaceholder'),
   enableCodeInsertion = defaultValue('enableCodeInsertion'),
-  threads = {
-    thread1: {
+  threads = [
+    {
+      id: '1',
       title: 'First Conversation',
       description: 'A conversation about GitLab features',
+      modifiedAt: '2024-02-14T12:00:00Z',
+      createdAt: '2024-02-14T12:00:00Z',
+      tokens: 1000,
       messages: [
         { role: 'user', content: 'What are the key features of GitLab?' },
         { role: 'assistant', content: 'GitLab offers a complete DevOps platform...' },
       ],
     },
-    thread2: {
+    {
+      id: '2',
       title: 'CI/CD Pipeline Help',
       description: 'Troubleshooting CI/CD pipelines',
+      modifiedAt: '2024-02-14T12:00:00Z',
+      createdAt: '2024-02-14T12:00:00Z',
+      tokens: 1000,
       messages: [
         { role: 'assistant', content: 'Hello, how can I help you today?' },
         { role: 'user', content: 'How do I debug a failing CI/CD pipeline?' },
         { role: 'assistant', content: 'To debug a failing CI/CD pipeline, you can start by...' },
       ],
     },
-    thread3: {
+    {
+      id: '3',
       title: 'Merge Request Best Practices',
       description: 'Discussion about MR workflows',
+      modifiedAt: '2024-02-14T12:00:00Z',
+      createdAt: '2024-02-14T12:00:00Z',
+      tokens: 1000,
       messages: [
         { role: 'user', content: 'What are some best practices for managing merge requests?' },
         { role: 'assistant', content: 'When it comes to managing merge requests effectively...' },
       ],
     },
-  },
+  ],
+  tools = [
+    {
+      name: 'Code Analyzer',
+      enabled: true,
+      description: 'Analyzes code for potential issues and improvements',
+    },
+    {
+      name: 'Language Translator',
+      enabled: false,
+      description: 'Translates text between different languages',
+    },
+    {
+      name: 'Data Visualizer',
+      enabled: true,
+      description: 'Creates visual representations of data sets',
+    },
+  ],
+  customTools = [
+    { name: 'Custom Tool 1', enabled: true, description: 'Description for Custom Tool 1', path: 'path/to/custom/tool/1', custom: true },
+    { name: 'Custom Tool 2', enabled: false, description: 'Description for Custom Tool 2', path: 'path/to/custom/tool/2', custom: true },
+  ],
+
 } = {}) => ({
   title,
   messages,
@@ -87,6 +121,8 @@ const generateProps = ({
   chatPromptPlaceholder,
   enableCodeInsertion,
   threads,
+  tools,
+  customTools,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -140,7 +176,6 @@ export const Interactive = (args, { argTypes }) => ({
       contextItemsError: null,
       contextItemsResults: [],
       drawerOpen: false, // Add this line to track drawer state
-      activeThreadId: null,
       msgs: [], // Initialize msgs as an empty array
       currentLoadingMessage: '',
       loadingMessageIndex: 0,
@@ -149,6 +184,7 @@ export const Interactive = (args, { argTypes }) => ({
         '%{tool} is searching for relevant information...',
         '%{tool} is formulating a response...',
       ],
+      currentThread: null,
     };
   },
   MOCK_CONTEXT_ITEM_CATEGORIES: MOCK_CATEGORIES,
@@ -252,8 +288,8 @@ export const Interactive = (args, { argTypes }) => ({
       this.loggerInfo += `Drawer closed\n\n`;
     },
     onThreadSelected(threadId) {
-      this.activeThreadId = threadId;
-      const selectedThread = this.threads[threadId];
+      const selectedThread = this.threads[Number(threadId) - 1];
+      this.currentThread = selectedThread;
       console.log('selectedThread', selectedThread);
       if (selectedThread && Array.isArray(selectedThread.messages)) {
         this.msgs = [...selectedThread.messages]; // Create a new array to trigger reactivity
@@ -286,9 +322,41 @@ export const Interactive = (args, { argTypes }) => ({
     updateLoadingMessage() {
       this.currentLoadingMessage = this.loadingMessages[this.loadingMessageIndex];
     },
+    onNewChat() {
+      this.drawerOpen = false;
+      this.msgs = [];
+    },
+    onToolUpdated(tool) {
+      console.log('tool', tool);
+      const isCustomTool = tool.custom;
+      if (isCustomTool) {
+        this.customTools = this.customTools.map((t) => {
+          if (t.name === tool.name) {
+            return { ...t, enabled: tool.enabled };
+          }
+          return t;
+        });
+      } else {
+        this.tools = this.tools.map((t) => {
+          if (t.name === tool.name) {
+            return { ...t, enabled: tool.enabled };
+          }
+          return t;
+        });
+      }
+    },
+    onAddCustomTool(tool) {
+      console.log('add custom tool', tool);
+      this.customTools.push(tool);
+    },
   },
   created() {
     this.initializeMessages();
+  },
+  computed: {
+    getActiveThread() {
+      return this.threads.find((thread) => thread.id === this.currentThread?.id) ?? null;
+    },
   },
   template: `
   <div style="height: 800px">
@@ -319,6 +387,9 @@ export const Interactive = (args, { argTypes }) => ({
       :slash-commands="slashCommands"
       :threads="threads"
       :loading-message="currentLoadingMessage"
+      :active-thread="getActiveThread"
+      :tools="tools"
+      :custom-tools="customTools"
       class="gl-drawer-default"
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
@@ -327,6 +398,9 @@ export const Interactive = (args, { argTypes }) => ({
       @drawer-open="onDrawerOpen"
       @drawer-close="onDrawerClose"
       @thread-selected="onThreadSelected"
+      @new-chat="onNewChat"
+      @tool-updated="onToolUpdated"
+      @add-custom-tool="onAddCustomTool"
     >
       <template #context-items-menu="{ isOpen, onClose, setRef, focusPrompt }">
         <gl-duo-chat-context-item-menu

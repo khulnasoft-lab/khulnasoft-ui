@@ -233,13 +233,40 @@ export default {
       default: '',
     },
     /**
-     * Object containing thread information
+     * Array containing thread information
      */
     threads: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    /**
+     * Active thread ID
+     */
+    activeThread: {
       type: Object,
       required: false,
-      default: () => ({}),
+      default: null,
     },
+    /**
+     * tools  
+     */
+    tools: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    /**
+     * custom tools
+     */
+    customTools: {
+      type: Array,
+      required: false,
+      default: () => [],
+    },
+    /**
+     * 
+     */
     /**
      * The loading message to display.
      */
@@ -260,7 +287,6 @@ export default {
       contextItemsMenuIsOpen: false,
       contextItemMenuRef: null,
       drawerOpen: false,
-      activeThreadId: null,
     };
   },
   computed: {
@@ -350,15 +376,8 @@ export default {
     hasContextItemSelectionMenu() {
       return Boolean(this.contextItemMenuRef);
     },
-    activeThread() {
-      return this.threads[this.activeThreadId] || null;
-    },
     threadList() {
-      return Object.entries(this.threads).map(([id, thread]) => ({
-        id,
-        title: thread.title,
-        description: thread.description,
-      }));
+      return this.threads;
     },
   },
   watch: {
@@ -562,7 +581,6 @@ export default {
       this.drawerOpen = !this.drawerOpen;
     },
     onThreadSelected(threadId) {
-      this.activeThreadId = threadId;
       this.drawerOpen = false;
       /**
        * Emitted when a thread is selected from the drawer
@@ -573,9 +591,14 @@ export default {
     onNewChat() {
       // Handle new chat creation logic here
       this.drawerOpen = false;
-      this.activeThreadId = null;
       this.msgs = [];
       this.$emit('new-chat');
+    },
+    onToolUpdated(tool) {
+      this.$emit('tool-updated', tool);
+    },
+    onAddCustomTool(tool) {
+      this.$emit('add-custom-tool', tool);
     },
   },
   i18n,
@@ -630,9 +653,13 @@ export default {
         :open="drawerOpen"
         :threads="threadList"
         :active-thread="activeThread"
+        :tools="tools"
+        :custom-tools="customTools"
         @close="handleDrawer"
         @thread-selected="onThreadSelected"
         @new-chat="onNewChat"
+        @tool-updated="onToolUpdated"
+        @add-custom-tool="onAddCustomTool"
       />
     </header>
 
