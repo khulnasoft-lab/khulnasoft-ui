@@ -130,7 +130,7 @@ export default {
 
 <template>
   <div class="gl-search-box-by-type">
-    <gl-icon name="search" class="gl-search-box-by-type-search-icon" />
+    <gl-icon name="search" class="gl-search-box-by-type-search-icon" variant="subtle" />
     <gl-form-input
       ref="input"
       :value="value"
