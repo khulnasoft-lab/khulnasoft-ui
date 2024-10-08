@@ -1,3 +1,18 @@
+# [95.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.2.1...v95.3.0) (2024-10-08)
+
+
+### Bug Fixes
+
+* **GlPagination:** add aria-disabled attribute to disabled li items ([af70cb2](https://gitlab.com/gitlab-org/gitlab-ui/commit/af70cb201867b7341a1d0e75a3c9b5304ecd8f0e))
+
+
+### Features
+
+* **DesignTokens:** add action selected design tokens ([ac6c84b](https://gitlab.com/gitlab-org/gitlab-ui/commit/ac6c84b888fec629bee78e0d4725c9dc64ecee9b))
+* **GlKeysetPagination:** use tertiary category for buttons ([573fd1a](https://gitlab.com/gitlab-org/gitlab-ui/commit/573fd1ae8b26593f56f347a16de36f1d4f3e53e5))
+* **GlPaginatedList:** use design tokens in GlPaginatedList ([656b9fd](https://gitlab.com/gitlab-org/gitlab-ui/commit/656b9fd185d9d1aac667d0e4c2a2d0df77e8c80b))
+* **GlPagination:** use design tokens in GlPagination ([26f4592](https://gitlab.com/gitlab-org/gitlab-ui/commit/26f4592b95c88dd42b352a4b33a8642235d6a5f8))
+
 ## [95.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.2.0...v95.2.1) (2024-10-08)
 
 
