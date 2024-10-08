@@ -1,3 +1,14 @@
+## [95.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.2.0...v95.2.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* **GlDatepicker:** adds tests ([21a6964](https://gitlab.com/gitlab-org/gitlab-ui/commit/21a69648b077fc93f614a89bcf1432717f2e8945))
+* **GlDatepicker:** Bind correct this ([392a6cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/392a6cd192d443e6ca2be6e5cccb409894492126))
+* **GlDatepicker:** Fix accessibility violations ([c753967](https://gitlab.com/gitlab-org/gitlab-ui/commit/c753967ea5a0dc113182f051500983881d579c6e))
+* **GlDatepicker:** format with prettier ([0af6cff](https://gitlab.com/gitlab-org/gitlab-ui/commit/0af6cfff35a997925ee830ce2a0e44b52ea1bac0))
+* **GlDatepicker:** Use translate function for aria-label ([ae13b84](https://gitlab.com/gitlab-org/gitlab-ui/commit/ae13b8412a40ecedf2fbc52247f9ed7a6962b4db))
+
 # [95.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.1.1...v95.2.0) (2024-10-07)
 
 

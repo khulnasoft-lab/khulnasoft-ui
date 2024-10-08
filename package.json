@@ -1,6 +1,6 @@
 {
   "name": "@gitlab/ui",
-  "version": "95.2.0",
+  "version": "95.2.1",
   "description": "GitLab UI Components",
   "license": "MIT",
   "main": "dist/index.js",
