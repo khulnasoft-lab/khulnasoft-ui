@@ -26,32 +26,6 @@ $toggle-height: 2.5 * $grid-size;
   @apply gl-leading-normal;
   @apply gl-font-normal;
   @apply gl-inline-flex;
-
-  &.is-disabled {
-    @apply gl-cursor-not-allowed;
-
-    .gl-toggle {
-      @apply gl-cursor-not-allowed;
-      @apply gl-bg-gray-200;
-
-      .toggle-icon > svg {
-        @apply gl-fill-gray-200;
-      }
-    }
-
-    .gl-toggle.is-checked {
-      @apply gl-bg-blue-200;
-
-      .toggle-icon > svg {
-        @apply gl-fill-blue-200;
-      }
-    }
-
-    .gl-toggle-label,
-    .gl-description-label {
-      @apply gl-text-gray-500;
-    }
-  }
 }
 
 .gl-description-label {
@@ -106,6 +80,17 @@ $toggle-height: 2.5 * $grid-size;
   &::before::selection,
   &::after::selection {
     @apply gl-bg-transparent;
+  }
+
+  &.is-disabled {
+    @apply gl-cursor-not-allowed;
+    //important is added to colors so that it is not overridden with non-disabled hover/focus/active state
+    color: var(--gl-action-disabled-background-color) !important;
+    background-color: var(--gl-action-disabled-background-color) !important;
+
+    .toggle-icon {
+      background-color: var(--gl-action-disabled-foreground-color) !important;
+    }
   }
 
   &:hover {
