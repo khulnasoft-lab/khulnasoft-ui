@@ -174,16 +174,15 @@ export default {
       :aria-describedby="helpId"
       :aria-disabled="disabled"
       :class="{
-        'gl-toggle': true,
         'is-checked': value,
-        'is-disabled': disabled,
+        'is-disabled': disabled || isLoading,
       }"
-      class="gl-shrink-0"
+      class="gl-toggle gl-shrink-0"
       type="button"
       @click.prevent="toggleFeature"
     >
       <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
-      <span v-else :class="{ 'toggle-icon': true, disabled: disabled }">
+      <span v-else class="toggle-icon">
         <gl-icon :name="icon" :size="12" />
       </span>
     </button>
