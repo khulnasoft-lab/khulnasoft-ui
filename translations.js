@@ -14,6 +14,8 @@ export default {
   'GlBreadcrumb.showMoreLabel': 'Show more breadcrumbs',
   'GlBroadcastMessage.closeButtonTitle': 'Dismiss',
   'GlCollapsibleListbox.srOnlyResultsLabel': null,
+  'GlDatepicker.monthLabel': 'Month',
+  'GlDatepicker.yearLabel': 'Year',
   'GlDuoChat.chatCancelLabel': 'Cancel',
   'GlDuoChat.chatCloseLabel': 'Close the Code Explanation',
   'GlDuoChat.chatDefaultPredefinedPromptsChangePassword': 'How do I change my password in GitLab?',

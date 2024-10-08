@@ -7,6 +7,7 @@ import { areDatesEqual } from '../../../utils/datetime_utility';
 import GlButton from '../button/button.vue';
 import GlFormInput from '../form/form_input/form_input.vue';
 import GlIcon from '../icon/icon.vue';
+import { translate } from '../../../utils/i18n';
 
 export const pad = (val, len = 2) => `0${val}`.slice(-len);
 
@@ -37,6 +38,26 @@ const highlightPastDates = (pikaday) => {
       pikaButton.classList.add('is-past-date');
     }
   });
+};
+
+const addAccessibleLabels = (element) => {
+  // Pikaday sets `role="heading"`, which requires a corresponding
+  // `aria-level`. Ensure we have one.
+  const titleEl = element.querySelector('.pika-title[role="heading"]');
+  if (titleEl) {
+    titleEl.setAttribute('aria-level', 3);
+  }
+
+  // Add aria-label to month & year select dropdowns
+  const monthEl = element.querySelector('select.pika-select-month');
+  if (monthEl) {
+    monthEl.setAttribute('aria-label', translate('GlDatepicker.monthLabel', 'Month'));
+  }
+
+  const yearEl = element.querySelector('select.pika-select-year');
+  if (yearEl) {
+    yearEl.setAttribute('aria-label', translate('GlDatepicker.yearLabel', 'Year'));
+  }
 };
 
 export default {
@@ -257,6 +278,7 @@ export default {
   },
   mounted() {
     const $parentEl = this.$parent.$el;
+    const openedEvent = this.opened.bind(this);
     const drawEvent = this.draw.bind(this);
 
     const pikadayConfig = {
@@ -280,7 +302,10 @@ export default {
       toString: (date) => defaultDateFormatter(date),
       onSelect: this.selected.bind(this),
       onClose: this.closed.bind(this),
-      onOpen: this.opened.bind(this),
+      onOpen: () => {
+        addAccessibleLabels(this.$el);
+        openedEvent();
+      },
       onDraw: (pikaday) => {
         highlightPastDates(pikaday);
         drawEvent();
