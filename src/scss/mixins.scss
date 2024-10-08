@@ -236,3 +236,27 @@
     animation-delay: 0ms !important;
   }
 }
+
+@mixin gl-action-selected-colors {
+  color: var(--gl-action-selected-foreground-color-default);
+  background-color: var(--gl-action-selected-background-color-default);
+  border-color: var(--gl-action-selected-border-color-default);
+
+  &:hover {
+    color: var(--gl-action-selected-foreground-color-hover);
+    background-color: var(--gl-action-selected-background-color-hover);
+    border-color: var(--gl-action-selected-border-color-hover);
+  }
+
+  &:focus {
+    color: var(--gl-action-selected-foreground-color-focus);
+    background-color: var(--gl-action-selected-background-color-focus);
+    border-color: var(--gl-action-selected-border-color-focus);
+  }
+
+  &:active {
+    color: var(--gl-action-selected-foreground-color-active);
+    background-color: var(--gl-action-selected-background-color-active);
+    border-color: var(--gl-action-selected-border-color-active);
+  }
+}

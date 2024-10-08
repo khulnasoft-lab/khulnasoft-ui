@@ -109,7 +109,6 @@ export const WithHeaderSlot = (args, { argTypes }) => ({
 
       <template #header>
         <gl-button
-          variant="success"
           class="order-1"
           @click="alert"
         >
@@ -147,9 +146,9 @@ export const WithSubheaderSlot = (args, { argTypes }) => ({
     >
 
     <template #subheader>
-      Dropdown content can go here when like when an action button is clicked 
+      Dropdown content can go here when like when an action button is clicked
     </template>
-    
+
     </gl-paginated-list>
   `,
 });
@@ -172,17 +171,16 @@ export const WithRowSlot = (args, { argTypes }) => ({
     :emptyMessage="emptyMessage"
     :emptySearchMessage="emptySearchMessage"
     >
-    
+
       <template slot-scope="{ listItem }"  >
         <gl-button
-        variant="success"
         class="order-1"
         @click="alert"
         >
           {{ listItem.id }}
         </gl-button>
       </template>
-    
+
     </gl-paginated-list>
     `,
   methods: {

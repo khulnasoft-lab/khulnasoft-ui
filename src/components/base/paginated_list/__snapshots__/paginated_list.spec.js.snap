@@ -3,7 +3,7 @@
 exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 and 13 total items 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -11,10 +11,10 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -28,11 +28,11 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -49,7 +49,7 @@ exports[`Paginated List Pagination renders 1 item on page 7 with page size of 2 
 exports[`Paginated List Pagination renders 3 items on page 2 with default page size of 10 and 13 total items 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -57,10 +57,10 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -73,7 +73,7 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -86,7 +86,7 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -100,11 +100,11 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -121,7 +121,7 @@ exports[`Paginated List Pagination renders 3 items on page 2 with default page s
 exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 5, 13 total itmes and renders pagination 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -129,10 +129,10 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -145,7 +145,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -158,7 +158,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -171,7 +171,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -184,7 +184,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -198,11 +198,11 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -219,7 +219,7 @@ exports[`Paginated List Pagination renders 5 items on page 1 for a page size of 
 exports[`Paginated List Pagination renders 10 items for a default page size of 10, 13 total 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -227,10 +227,10 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -243,7 +243,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -256,7 +256,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -269,7 +269,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -282,7 +282,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -295,7 +295,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -308,7 +308,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -321,7 +321,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -334,7 +334,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -347,7 +347,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -361,11 +361,11 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -382,7 +382,7 @@ exports[`Paginated List Pagination renders 10 items for a default page size of 1
 exports[`Paginated List Pagination renders 13 items for a default page size of 20 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -390,10 +390,10 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -406,7 +406,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -419,7 +419,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -432,7 +432,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -445,7 +445,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -458,7 +458,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -471,7 +471,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -484,7 +484,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -497,7 +497,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -510,7 +510,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -523,7 +523,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -536,7 +536,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -549,7 +549,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -563,11 +563,11 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -584,7 +584,7 @@ exports[`Paginated List Pagination renders 13 items for a default page size of 2
 exports[`Paginated List Search states renders the custom empty search message when there are no search results 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -592,7 +592,7 @@ exports[`Paginated List Search states renders the custom empty search message wh
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   />
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
@@ -605,7 +605,7 @@ exports[`Paginated List Search states renders the custom empty search message wh
 exports[`Paginated List Search states renders the default empty search message when there are no search results 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -613,7 +613,7 @@ exports[`Paginated List Search states renders the default empty search message w
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   />
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
@@ -626,7 +626,7 @@ exports[`Paginated List Search states renders the default empty search message w
 exports[`Paginated List Search states renders the list filtered by search results 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -634,10 +634,10 @@ exports[`Paginated List Search states renders the list filtered by search result
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -650,7 +650,7 @@ exports[`Paginated List Search states renders the list filtered by search result
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -664,11 +664,11 @@ exports[`Paginated List Search states renders the list filtered by search result
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -685,7 +685,7 @@ exports[`Paginated List Search states renders the list filtered by search result
 exports[`Paginated List Searchless states renders the list in an empty state with a custom empty message, when one is provided 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -693,7 +693,7 @@ exports[`Paginated List Searchless states renders the list in an empty state wit
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   />
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
@@ -706,7 +706,7 @@ exports[`Paginated List Searchless states renders the list in an empty state wit
 exports[`Paginated List Searchless states renders the list in an empty state, when no items are provided 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -714,7 +714,7 @@ exports[`Paginated List Searchless states renders the list in an empty state, wh
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   />
   <div
     class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
@@ -727,7 +727,7 @@ exports[`Paginated List Searchless states renders the list in an empty state, wh
 exports[`Paginated List Searchless states renders the list with nested items, when an array of items is provided 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -735,10 +735,10 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -751,7 +751,7 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
       </div>
     </li>
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -765,11 +765,11 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -786,7 +786,7 @@ exports[`Paginated List Searchless states renders the list with nested items, wh
 exports[`Paginated List props filter filters on default "id" key 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -794,10 +794,10 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -811,11 +811,11 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -832,7 +832,7 @@ exports[`Paginated List props filter filters on default "id" key 1`] = `
 exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -840,10 +840,10 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -857,11 +857,11 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"
@@ -878,7 +878,7 @@ exports[`Paginated List props filter filters on provided "myKey" key 1`] = `
 exports[`Paginated List props filter filters with provided filter function 1`] = `
 <div>
   <div
-    class="row-content-block second-block d-sm-flex justify-content-between flex-row-reverse"
+    class="gl-flex-row-reverse gl-justify-between sm:gl-flex"
   >
     <gl-search-box-by-type-stub
       clearbuttontitle="Clear"
@@ -886,10 +886,10 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
     />
   </div>
   <ul
-    class="list-group list-group-flush list-unstyled"
+    class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   >
     <li
-      class="list-group-item"
+      class="gl-px-5 gl-py-4"
     >
       <div
         class="slot"
@@ -903,11 +903,11 @@ exports[`Paginated List props filter filters with provided filter function 1`] =
     </li>
   </ul>
   <gl-pagination-stub
-    align="left"
-    class="d-flex justify-content-center prepend-top-default"
+    align="center"
     ellipsistext="…"
     labelfirstpage="Go to first page"
     labellastpage="Go to last page"
+    labelnav="Pagination"
     labelnextpage="Go to next page"
     labelpage="Go to page %{page}"
     labelprevpage="Go to previous page"

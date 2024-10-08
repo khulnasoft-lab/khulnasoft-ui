@@ -121,6 +121,7 @@ export default {
         :href="prevButtonLink"
         :disabled="disabled || !hasPreviousPage"
         data-testid="prevButton"
+        category="tertiary"
         @click="$emit('prev', startCursor)"
       >
         <!-- @slot Used to customize the appearance of the "Prev" button -->
@@ -135,6 +136,7 @@ export default {
         :href="nextButtonLink"
         :disabled="disabled || !hasNextPage"
         data-testid="nextButton"
+        category="tertiary"
         @click="$emit('next', endCursor)"
       >
         <!-- @slot Used to customize the appearance of the "Next" button -->

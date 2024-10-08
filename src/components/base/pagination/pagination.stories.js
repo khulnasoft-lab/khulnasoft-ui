@@ -32,7 +32,7 @@ const generateProps = ({
 
 const template = `
   <gl-pagination
-    v-model="value"
+    v-model="currentPage"
     :align="align"
     :disabled="disabled"
     :link-gen="linkGen"

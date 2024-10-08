@@ -111,6 +111,14 @@ export default {
       default: '…',
     },
     /**
+     * aria-label for the nav
+     */
+    labelNav: {
+      type: String,
+      required: false,
+      default: translate('GlPagination.nav', 'Pagination'),
+    },
+    /**
      * aria-label for the first page item
      */
     labelFirstPage: {
@@ -197,13 +205,13 @@ export default {
     wrapperClasses() {
       const classes = [];
       if (this.align === alignOptions.center) {
-        classes.push('justify-content-center');
+        classes.push('gl-justify-center');
       }
       if (this.align === alignOptions.right) {
-        classes.push('justify-content-end');
+        classes.push('gl-justify-end');
       }
       if (this.isFillAlign) {
-        classes.push('text-center');
+        classes.push('gl-text-center');
       }
       return classes;
     },
@@ -388,21 +396,21 @@ export default {
 </script>
 
 <template>
-  <nav v-if="isVisible" class="gl-pagination text-nowrap" aria-label="Pagination">
-    <ul class="pagination" :class="wrapperClasses">
+  <nav v-if="isVisible" class="gl-pagination" :aria-label="labelNav">
+    <ul :class="wrapperClasses">
       <li
-        class="page-item"
-        data-testid="page-item"
+        :aria-disabled="prevPageIsDisabled"
+        :aria-hidden="prevPageIsDisabled"
         :class="{
           disabled: prevPageIsDisabled,
-          'flex-fill': isFillAlign,
+          'gl-flex-auto': isFillAlign,
         }"
-        :aria-hidden="prevPageIsDisabled"
+        data-testid="gl-pagination-li"
       >
         <component
           :is="prevPageIsDisabled ? 'span' : 'a'"
-          data-testid="page-link"
-          class="gl-link page-link prev-page-item gl-flex"
+          data-testid="gl-pagination-prev"
+          class="gl-pagination-item"
           :aria-label="prevPageAriaLabel"
           :href="prevPageHref"
           @click="handlePrevious($event, value - 1)"
@@ -415,26 +423,25 @@ export default {
             -->
           <slot name="previous" v-bind="{ page: value - 1, disabled: prevPageIsDisabled }">
             <gl-icon name="chevron-left" />
-            <span>{{ prevText }}</span>
+            <span class="gl-hidden sm:gl-block">{{ prevText }}</span>
           </slot>
         </component>
       </li>
       <li
         v-for="item in visibleItems"
         :key="item.key"
-        class="page-item"
-        data-testid="page-item"
         :class="{
           disabled: item.disabled,
-          'flex-fill': isFillAlign,
+          'gl-flex-auto': isFillAlign,
         }"
+        data-testid="gl-pagination-li"
       >
         <component
           :is="item.component"
-          data-testid="page-link"
+          data-testid="gl-pagination-item"
           size="md"
           :aria-disabled="item.disabled"
-          class="page-link"
+          class="gl-pagination-item"
           v-bind="item.attrs"
           v-on="item.listeners"
         >
@@ -458,18 +465,18 @@ export default {
       </li>
 
       <li
-        class="page-item"
-        data-testid="page-item"
+        :aria-disabled="nextPageIsDisabled"
+        :aria-hidden="nextPageIsDisabled"
         :class="{
           disabled: nextPageIsDisabled,
-          'flex-fill': isFillAlign,
+          'gl-flex-auto': isFillAlign,
         }"
-        :aria-hidden="nextPageIsDisabled"
+        data-testid="gl-pagination-li"
       >
         <component
           :is="nextPageIsDisabled ? 'span' : 'a'"
-          data-testid="page-link"
-          class="gl-link page-link next-page-item gl-flex"
+          data-testid="gl-pagination-next"
+          class="gl-pagination-item"
           :aria-label="nextPageAriaLabel"
           :href="nextPageHref"
           @click="handleNext($event, value + 1)"
@@ -481,7 +488,7 @@ export default {
             @binding {number} number
             -->
           <slot name="next" v-bind="{ page: value + 1, disabled: nextPageIsDisabled }">
-            <span>{{ nextText }}</span>
+            <span class="gl-hidden sm:gl-block">{{ nextText }}</span>
             <gl-icon name="chevron-right" />
           </slot>
         </component>
