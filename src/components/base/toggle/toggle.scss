@@ -54,10 +54,14 @@ $toggle-height: 2.5 * $grid-size;
   }
 }
 
+.gl-description-label {
+  @apply gl-text-subtle;
+}
+
 .gl-help-label {
   @apply gl-mt-3;
-  @apply gl-text-gray-500;
   @apply gl-font-normal;
+  @apply gl-text-subtle;
 }
 
 .gl-toggle-label-inline {
@@ -78,6 +82,7 @@ $toggle-height: 2.5 * $grid-size;
 
 .gl-toggle-label {
   @apply gl-font-bold;
+  @apply gl-text-strong;
 }
 
 .gl-toggle {
@@ -86,7 +91,8 @@ $toggle-height: 2.5 * $grid-size;
   @apply gl-justify-center;
   @apply gl-border-0;
   @apply gl-cursor-pointer;
-  @apply gl-bg-gray-600;
+  color: var(--gl-toggle-switch-icon-color-unchecked-default);
+  background-color: var(--gl-action-strong-neutral-background-color-default);
   position: relative;
   width: $toggle-width;
   height: $toggle-height;
@@ -102,11 +108,19 @@ $toggle-height: 2.5 * $grid-size;
     @apply gl-bg-transparent;
   }
 
-  &:hover,
-  &:active,
-  &:focus,
-  &:focus:active {
-    @apply gl-bg-gray-700;
+  &:hover {
+    color: var(--gl-toggle-switch-icon-color-unchecked-hover);
+    background-color: var(--gl-action-strong-neutral-background-color-hover);
+  }
+
+  &:focus {
+    color: var(--gl-toggle-switch-icon-color-unchecked-focus);
+    background-color: var(--gl-action-strong-neutral-background-color-focus);
+  }
+
+  &:active {
+    color: var(--gl-toggle-switch-icon-color-unchecked-active);
+    background-color: var(--gl-action-strong-neutral-background-color-active);
   }
 
   &:active,
@@ -121,7 +135,6 @@ $toggle-height: 2.5 * $grid-size;
 
   .toggle-icon {
     @apply gl-rounded-full;
-    @apply gl-bg-white;
     position: absolute;
     @apply gl-inline-flex;
     @apply gl-items-center;
@@ -130,30 +143,60 @@ $toggle-height: 2.5 * $grid-size;
     @apply gl-transition-all;
     @apply gl-justify-center;
     @apply gl-p-1;
+    background-color: var(--gl-action-strong-neutral-foreground-color-default);
+
+    &:hover {
+      background-color: var(--gl-action-strong-neutral-foreground-color-hover);
+    }
+
+    &:focus {
+      background-color: var(--gl-action-strong-neutral-foreground-color-focus);
+    }
+
+    &:active {
+      background-color: var(--gl-action-strong-neutral-foreground-color-active);
+    }
 
     > svg {
       @apply gl-w-4;
       @apply gl-h-4;
-      @apply gl-fill-gray-600;
       @apply gl-align-baseline;
     }
   }
 
   &.is-checked {
-    @apply gl-bg-blue-500;
+    color: var(--gl-toggle-switch-icon-color-checked-default);
+    background-color: var(--gl-action-strong-confirm-background-color-default);
 
-    &:hover,
-    &:active,
-    &:focus,
-    &:focus:active {
-      @apply gl-bg-blue-600;
+    &:hover {
+      color: var(--gl-toggle-switch-icon-color-unchecked-default);
+      background-color: var(--gl-action-strong-confirm-background-color-hover);
+    }
+
+    &:focus {
+      color: var(--gl-toggle-switch-icon-color-unchecked-default);
+      background-color: var(--gl-action-strong-confirm-background-color-focus);
+    }
+
+    &:active {
+      color: var(--gl-toggle-switch-icon-color-unchecked-default);
+      background-color: var(--gl-action-strong-confirm-background-color-active);
     }
 
     .toggle-icon {
       transform: translateX($toggle-translate-width);
+      background-color: var(--gl-action-strong-confirm-foreground-color-default);
 
-      > svg {
-        @apply gl-fill-blue-500;
+      &:hover {
+        background-color: var(--gl-action-strong-confirm-foreground-color-hover);
+      }
+
+      &:focus {
+        background-color: var(--gl-action-strong-confirm-foreground-color-focus);
+      }
+
+      &:active {
+        background-color: var(--gl-action-strong-confirm-foreground-color-active);
       }
     }
   }
