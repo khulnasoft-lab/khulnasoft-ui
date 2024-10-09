@@ -2,7 +2,6 @@ $gl-search-box-by-type-search-icon-size: 16px;
 $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
 
 .gl-search-box-by-type-search-icon {
-  @apply gl-text-gray-500;
   @apply gl-w-5;
   position: absolute;
   left: $gl-spacing-scale-3;
@@ -15,7 +14,7 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
 }
 
 .gl-search-box-by-type-loading-icon {
-  @apply gl-text-gray-500;
+  @apply gl-fill-icon-subtle;
   @apply gl-w-5;
   @apply gl-mr-2;
 }
@@ -53,7 +52,7 @@ $gl-search-box-by-type-input-padding: 3.5 * $grid-size;
   }
 
   &::placeholder {
-    @apply gl-text-gray-400;
+    color: var(--gl-control-placeholder-color);
   }
 
   &::-webkit-search-cancel-button {
