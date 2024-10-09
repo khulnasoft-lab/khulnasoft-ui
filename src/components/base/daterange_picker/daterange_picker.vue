@@ -4,6 +4,7 @@ import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils
 import GlDatepicker from '../datepicker/datepicker.vue';
 import GlIcon from '../icon/icon.vue';
 import { datepickerWidthOptionsMap } from '../../../utils/constants';
+import { translate } from '../../../utils/i18n';
 
 const CONTAINER_CLASSES = [
   'gl-flex',
@@ -153,6 +154,16 @@ export default {
       default: null,
       validator: (value) => Object.keys(datepickerWidthOptionsMap).includes(value),
     },
+    monthLabel: {
+      type: String,
+      required: false,
+      default: translate('GlDaterangePicker.GlDatepicker.monthLabel', 'Month'),
+    },
+    yearLabel: {
+      type: String,
+      required: false,
+      default: translate('GlDaterangePicker.GlDatepicker.yearLabel', 'Year'),
+    },
   },
   data() {
     return {
@@ -289,6 +300,8 @@ export default {
         :start-opened="startOpened"
         :state="startPickerState"
         :width="width"
+        :month-label="monthLabel"
+        :year-label="yearLabel"
         @input="onStartDateSelected"
         @open="onStartPickerOpen"
         @close="onStartPickerClose"
@@ -315,6 +328,8 @@ export default {
         :default-date="toCalendarDefaultDate"
         :width="width"
         :state="endPickerState"
+        :month-label="monthLabel"
+        :year-label="yearLabel"
         @input="onEndDateSelected"
         @open="onEndPickerOpen"
         @close="onEndPickerClose"

@@ -16,6 +16,8 @@ export default {
   'GlCollapsibleListbox.srOnlyResultsLabel': null,
   'GlDatepicker.monthLabel': 'Month',
   'GlDatepicker.yearLabel': 'Year',
+  'GlDaterangePicker.GlDatepicker.monthLabel': 'Month',
+  'GlDaterangePicker.GlDatepicker.yearLabel': 'Year',
   'GlDuoChat.chatCancelLabel': 'Cancel',
   'GlDuoChat.chatCloseLabel': 'Close the Code Explanation',
   'GlDuoChat.chatDefaultPredefinedPromptsChangePassword': 'How do I change my password in GitLab?',

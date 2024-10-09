@@ -40,26 +40,6 @@ const highlightPastDates = (pikaday) => {
   });
 };
 
-const addAccessibleLabels = (element) => {
-  // Pikaday sets `role="heading"`, which requires a corresponding
-  // `aria-level`. Ensure we have one.
-  const titleEl = element.querySelector('.pika-title[role="heading"]');
-  if (titleEl) {
-    titleEl.setAttribute('aria-level', 3);
-  }
-
-  // Add aria-label to month & year select dropdowns
-  const monthEl = element.querySelector('select.pika-select-month');
-  if (monthEl) {
-    monthEl.setAttribute('aria-label', translate('GlDatepicker.monthLabel', 'Month'));
-  }
-
-  const yearEl = element.querySelector('select.pika-select-year');
-  if (yearEl) {
-    yearEl.setAttribute('aria-label', translate('GlDatepicker.yearLabel', 'Year'));
-  }
-};
-
 export default {
   name: 'GlDatepicker',
   components: {
@@ -193,6 +173,16 @@ export default {
       required: false,
       default: null,
     },
+    monthLabel: {
+      type: String,
+      required: false,
+      default: translate('GlDatepicker.monthLabel', 'Month'),
+    },
+    yearLabel: {
+      type: String,
+      required: false,
+      default: translate('GlDatepicker.yearLabel', 'Year'),
+    },
     /**
      * Maximum width of the Datepicker
      */
@@ -303,7 +293,7 @@ export default {
       onSelect: this.selected.bind(this),
       onClose: this.closed.bind(this),
       onOpen: () => {
-        addAccessibleLabels(this.$el);
+        this.addAccessibleLabels(this.$el);
         openedEvent();
       },
       onDraw: (pikaday) => {
@@ -387,6 +377,25 @@ export default {
         const resetDate = this.minDate || null;
         this.calendar.setDate(resetDate);
         this.selected(resetDate);
+      }
+    },
+    addAccessibleLabels(element) {
+      // Pikaday sets `role="heading"`, which requires a corresponding
+      // `aria-level`. Ensure we have one.
+      const titleEl = element.querySelector('.pika-title[role="heading"]');
+      if (titleEl) {
+        titleEl.setAttribute('aria-level', 3);
+      }
+
+      // Add aria-label to month & year select dropdowns
+      const monthEl = element.querySelector('select.pika-select-month');
+      if (monthEl) {
+        monthEl.setAttribute('aria-label', this.monthLabel);
+      }
+
+      const yearEl = element.querySelector('select.pika-select-year');
+      if (yearEl) {
+        yearEl.setAttribute('aria-label', this.yearLabel);
       }
     },
   },
