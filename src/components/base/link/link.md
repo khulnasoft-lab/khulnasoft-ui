@@ -14,7 +14,7 @@
   multiple meta links. Meta links share a meaningful datapoint or reference, and are only links
   secondarily. For example, the primary function of including "%15.8" in a string is to
   communicate the milestone, though it can also link to more information about it. Meta links
-  represent a wide variety of content and their style adapts for each context.
+  represent a wide variety of content and should be styled specifically for the contexts in which they appear.
 - Mention: Indicates when a user is "@" mentioned in the content. The username links to the
   user's profile. A mention link can be within body or meta content.
 

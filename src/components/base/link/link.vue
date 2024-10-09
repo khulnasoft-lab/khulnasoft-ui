@@ -15,7 +15,8 @@ export default {
     href: {
       type: String,
       required: false,
-      default: '',
+      // Same as BLink's default href.
+      default: undefined,
     },
     /**
      * If inline variant, controls ↗ character visibility
