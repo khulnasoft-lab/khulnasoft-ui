@@ -1,3 +1,10 @@
+## [95.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.5.0...v95.5.1) (2024-10-09)
+
+
+### Bug Fixes
+
+* Mark merge-cobertura as a dev dependency ([7e56374](https://gitlab.com/gitlab-org/gitlab-ui/commit/7e563744596471d54ee7f0e3fff89481141bfff3))
+
 # [95.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.4.0...v95.5.0) (2024-10-09)
 
 
