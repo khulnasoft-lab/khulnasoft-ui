@@ -1,3 +1,10 @@
+# [95.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.3.0...v95.4.0) (2024-10-09)
+
+
+### Features
+
+* **design-tokens:** Add new design tokens for GlToggle ([fd32020](https://gitlab.com/gitlab-org/gitlab-ui/commit/fd320201ccae9d467b6990609d398c886b9c03de))
+
 # [95.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.2.1...v95.3.0) (2024-10-08)
 
 
