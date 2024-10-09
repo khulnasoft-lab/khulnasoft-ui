@@ -117,6 +117,7 @@ $toggle-height: 2.5 * $grid-size;
     @apply gl-transition-all;
     @apply gl-justify-center;
     @apply gl-p-1;
+    pointer-events: none;
     background-color: var(--gl-action-strong-neutral-foreground-color-default);
 
     &:hover {
