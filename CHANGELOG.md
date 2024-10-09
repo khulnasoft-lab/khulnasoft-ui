@@ -1,3 +1,11 @@
+# [95.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.5.1...v95.6.0) (2024-10-09)
+
+
+### Features
+
+* **toggle:** fix typos in design tokens ([fde8641](https://gitlab.com/gitlab-org/gitlab-ui/commit/fde86411df64ef504689fb8b55d44d0391477069))
+* **toggle:** Use design tokens in place of legacy color styling ([a094269](https://gitlab.com/gitlab-org/gitlab-ui/commit/a094269c8b583e5b8b6beaff23610df97f5557d9))
+
 ## [95.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.5.0...v95.5.1) (2024-10-09)
 
 
