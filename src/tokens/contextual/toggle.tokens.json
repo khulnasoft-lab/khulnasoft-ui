@@ -1,0 +1,59 @@
+{
+  "toggle": {
+    "switch": {
+      "icon": {
+        "color": {
+          "unchecked": {
+            "default": {
+              "$value": "{action.strong.neutral.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the icon color of an unchecked toggle switch in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.neutral.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon color of an unchecked toggle switch in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.neutral.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the icon color of an unchecked toggle switch in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.neutral.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the icon color of an unchecked toggle switch in the active state."
+            }
+          },
+          "checked": {
+            "default": {
+              "$value": "{action.strong.confirm.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the icon color of a checked toggle switch in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.confirm.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon color of a checked toggle switch in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the icon color of a checked toggle switch in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.confirm.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the icon color of a checked toggle switch in the active state."
+            }
+          },
+          "disabled": {
+            "$value": "{action.disabled.background.color}",
+            "$type": "color",
+            "$description": "Used for the icon color of a disabled toggle switch."
+          }
+        }
+      }
+    }
+  }
+}

@@ -426,7 +426,10 @@
         "foreground": {
           "color": {
             "default": {
-              "$value": "{color.neutral.0}",
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
               "$type": "color",
               "$description": "Used for the foreground of a strong confirm action in the default state."
             },
@@ -478,7 +481,7 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.600}",
-                "dark": "{color.neutral.300}"
+                "dark": "{color.neutral.700}"
               },
               "$type": "color",
               "$description": "Used for the background of a strong neutral action in the default state."
@@ -486,7 +489,7 @@
             "hover": {
               "$value": {
                 "default": "{color.neutral.700}",
-                "dark": "{color.neutral.200}"
+                "dark": "{color.neutral.600}"
               },
               "$type": "color",
               "$description": "Used for the background of a strong neutral action in the hover state."
@@ -499,7 +502,7 @@
             "active": {
               "$value": {
                 "default": "{color.neutral.800}",
-                "dark": "{color.neutral.100}"
+                "dark": "{color.neutral.500}"
               },
               "$type": "color",
               "$description": "Used for the background of a strong neutral action in the active state."
@@ -509,7 +512,10 @@
         "foreground": {
           "color": {
             "default": {
-              "$value": "{color.neutral.0}",
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.50}"
+              },
               "$type": "color",
               "$description": "Used for the foreground of a strong neutral action in the default state."
             },

@@ -778,6 +778,13 @@ $gl-control-placeholder-color: $gl-text-color-disabled; // Used for placeholder 
 $gl-control-text-color-valid: $gl-text-color-success; // Used for the helper text when the input is valid.
 $gl-control-text-color-error: $gl-text-color-danger; // Used for the helper text when the input is invalid.
 $gl-token-foreground-color: $gl-text-color-default; // Used for the token foreground color.
+$gl-toggle-switch-icon-color-disabled: $gl-action-disabled-background-color; // Used for the icon color of a disabled toggle switch.
+$gl-toggle-switch-icon-color-checked-active: $gl-action-strong-confirm-background-color-active; // Used for the icon color of a checked toggle switch in the active state.
+$gl-toggle-switch-icon-color-checked-hover: $gl-action-strong-confirm-background-color-hover; // Used for the icon color of a checked toggle switch in the hover state.
+$gl-toggle-switch-icon-color-checked-default: $gl-action-strong-confirm-background-color-default; // Used for the icon color of a checked toggle switch in the default state.
+$gl-toggle-switch-icon-color-unchecked-active: $gl-action-strong-neutral-background-color-active; // Used for the icon color of an unchecked toggle switch in the active state.
+$gl-toggle-switch-icon-color-unchecked-hover: $gl-action-strong-neutral-background-color-hover; // Used for the icon color of an unchecked toggle switch in the hover state.
+$gl-toggle-switch-icon-color-unchecked-default: $gl-action-strong-neutral-background-color-default; // Used for the icon color of an unchecked toggle switch in the default state.
 $gl-table-sorting-icon-color: $gl-text-color-heading; // Used for the color of the sorting icons in the column headers.
 $gl-table-row-background-color-hover: $gl-background-color-subtle; // Used for the background of a table row in hover state.
 $gl-progress-bar-indicator-color-danger: $gl-status-danger-icon-color; // Used for the indicator color for the danger progress-bar variant.
@@ -891,6 +898,8 @@ $gl-action-selected-border-color-hover: $gl-action-selected-background-color-hov
 $gl-action-selected-border-color-default: $gl-action-selected-background-color-default; // Used for the border of a selected action in the default state.
 $gl-action-selected-background-color-focus: $gl-action-selected-background-color-hover; // Used for the background of a selected action in the focus state.
 $gl-action-selected-foreground-color-hover: $gl-action-selected-foreground-color-default; // Used for the foreground of a selected action in the hover state.
+$gl-toggle-switch-icon-color-checked-focus: $gl-action-strong-confirm-background-color-focus; // Used for the icon color of a checked toggle switch in the focus state.
+$gl-toggle-switch-icon-color-unchecked-focus: $gl-action-strong-neutral-background-color-focus; // Used for the icon color of an unchecked toggle switch in the focus state.
 $gl-dropdown-option-text-color-active: $gl-action-neutral-foreground-color-active; // Used for the text of a dropdown option in the active state.
 $gl-dropdown-option-text-color-focus: $gl-action-neutral-foreground-color-focus; // Used for the text of a dropdown option in the focus state.
 $gl-dropdown-option-text-color-hover: $gl-action-neutral-foreground-color-hover; // Used for the text of a dropdown option in the hover state.

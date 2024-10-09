@@ -1307,13 +1307,16 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a strong confirm action in the default state.",
               "filePath": "src/tokens/action.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{color.neutral.0}",
+                "value": {
+                  "default": "{color.neutral.0}",
+                  "dark": "{color.neutral.950}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a strong confirm action in the default state."
               },
@@ -1329,7 +1332,7 @@
               ]
             },
             "hover": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a strong confirm action in the hover state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1351,7 +1354,7 @@
               ]
             },
             "focus": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a strong confirm action in the focus state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1373,7 +1376,7 @@
               ]
             },
             "active": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a strong confirm action in the active state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1493,7 +1496,7 @@
         "background": {
           "color": {
             "default": {
-              "value": "#a4a3a8",
+              "value": "#4c4b51",
               "$type": "color",
               "comment": "Used for the background of a strong neutral action in the default state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1501,7 +1504,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.600}",
-                  "dark": "{color.neutral.300}"
+                  "dark": "{color.neutral.700}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a strong neutral action in the default state."
@@ -1518,7 +1521,7 @@
               ]
             },
             "hover": {
-              "value": "#bfbfc3",
+              "value": "#626168",
               "$type": "color",
               "comment": "Used for the background of a strong neutral action in the hover state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1526,7 +1529,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.700}",
-                  "dark": "{color.neutral.200}"
+                  "dark": "{color.neutral.600}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a strong neutral action in the hover state."
@@ -1543,7 +1546,7 @@
               ]
             },
             "focus": {
-              "value": "#bfbfc3",
+              "value": "#626168",
               "$type": "color",
               "comment": "Used for the background of a strong neutral action in the focus state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1565,7 +1568,7 @@
               ]
             },
             "active": {
-              "value": "#dcdcde",
+              "value": "#737278",
               "$type": "color",
               "comment": "Used for the background of a strong neutral action in the active state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1573,7 +1576,7 @@
               "original": {
                 "value": {
                   "default": "{color.neutral.800}",
-                  "dark": "{color.neutral.100}"
+                  "dark": "{color.neutral.500}"
                 },
                 "$type": "color",
                 "comment": "Used for the background of a strong neutral action in the active state."
@@ -1594,13 +1597,16 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#fff",
+              "value": "#ececef",
               "$type": "color",
               "comment": "Used for the foreground of a strong neutral action in the default state.",
               "filePath": "src/tokens/action.tokens.json",
               "isSource": true,
               "original": {
-                "value": "{color.neutral.0}",
+                "value": {
+                  "default": "{color.neutral.0}",
+                  "dark": "{color.neutral.50}"
+                },
                 "$type": "color",
                 "comment": "Used for the foreground of a strong neutral action in the default state."
               },
@@ -1616,7 +1622,7 @@
               ]
             },
             "hover": {
-              "value": "#fff",
+              "value": "#ececef",
               "$type": "color",
               "comment": "Used for the foreground of a strong neutral action in the hover state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1638,7 +1644,7 @@
               ]
             },
             "focus": {
-              "value": "#fff",
+              "value": "#ececef",
               "$type": "color",
               "comment": "Used for the foreground of a strong neutral action in the focus state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -1660,7 +1666,7 @@
               ]
             },
             "active": {
-              "value": "#fff",
+              "value": "#ececef",
               "$type": "color",
               "comment": "Used for the foreground of a strong neutral action in the active state.",
               "filePath": "src/tokens/action.tokens.json",
@@ -11405,7 +11411,7 @@
         "foreground": {
           "color": {
             "default": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11427,7 +11433,7 @@
               ]
             },
             "hover": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) primary button in the hover state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11449,7 +11455,7 @@
               ]
             },
             "focus": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) primary button in the focus state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -11471,7 +11477,7 @@
               ]
             },
             "active": {
-              "value": "#fff",
+              "value": "#18171d",
               "$type": "color",
               "comment": "Used for the foreground of a confirm (positive) primary button in the active state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -15128,6 +15134,215 @@
               "indicator",
               "color",
               "default"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "toggle": {
+    "switch": {
+      "icon": {
+        "color": {
+          "unchecked": {
+            "default": {
+              "value": "#4c4b51",
+              "$type": "color",
+              "comment": "Used for the icon color of an unchecked toggle switch in the default state.",
+              "filePath": "src/tokens/contextual/toggle.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.background.color.default}",
+                "$type": "color",
+                "comment": "Used for the icon color of an unchecked toggle switch in the default state."
+              },
+              "name": "TOGGLE_SWITCH_ICON_COLOR_UNCHECKED_DEFAULT",
+              "attributes": {},
+              "path": [
+                "toggle",
+                "switch",
+                "icon",
+                "color",
+                "unchecked",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#626168",
+              "$type": "color",
+              "comment": "Used for the icon color of an unchecked toggle switch in the hover state.",
+              "filePath": "src/tokens/contextual/toggle.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.background.color.hover}",
+                "$type": "color",
+                "comment": "Used for the icon color of an unchecked toggle switch in the hover state."
+              },
+              "name": "TOGGLE_SWITCH_ICON_COLOR_UNCHECKED_HOVER",
+              "attributes": {},
+              "path": [
+                "toggle",
+                "switch",
+                "icon",
+                "color",
+                "unchecked",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#626168",
+              "$type": "color",
+              "comment": "Used for the icon color of an unchecked toggle switch in the focus state.",
+              "filePath": "src/tokens/contextual/toggle.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.background.color.focus}",
+                "$type": "color",
+                "comment": "Used for the icon color of an unchecked toggle switch in the focus state."
+              },
+              "name": "TOGGLE_SWITCH_ICON_COLOR_UNCHECKED_FOCUS",
+              "attributes": {},
+              "path": [
+                "toggle",
+                "switch",
+                "icon",
+                "color",
+                "unchecked",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#737278",
+              "$type": "color",
+              "comment": "Used for the icon color of an unchecked toggle switch in the active state.",
+              "filePath": "src/tokens/contextual/toggle.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.neutral.background.color.active}",
+                "$type": "color",
+                "comment": "Used for the icon color of an unchecked toggle switch in the active state."
+              },
+              "name": "TOGGLE_SWITCH_ICON_COLOR_UNCHECKED_ACTIVE",
+              "attributes": {},
+              "path": [
+                "toggle",
+                "switch",
+                "icon",
+                "color",
+                "unchecked",
+                "active"
+              ]
+            }
+          },
+          "checked": {
+            "default": {
+              "value": "#428fdc",
+              "$type": "color",
+              "comment": "Used for the icon color of a checked toggle switch in the default state.",
+              "filePath": "src/tokens/contextual/toggle.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.background.color.default}",
+                "$type": "color",
+                "comment": "Used for the icon color of a checked toggle switch in the default state."
+              },
+              "name": "TOGGLE_SWITCH_ICON_COLOR_CHECKED_DEFAULT",
+              "attributes": {},
+              "path": [
+                "toggle",
+                "switch",
+                "icon",
+                "color",
+                "checked",
+                "default"
+              ]
+            },
+            "hover": {
+              "value": "#63a6e9",
+              "$type": "color",
+              "comment": "Used for the icon color of a checked toggle switch in the hover state.",
+              "filePath": "src/tokens/contextual/toggle.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.background.color.hover}",
+                "$type": "color",
+                "comment": "Used for the icon color of a checked toggle switch in the hover state."
+              },
+              "name": "TOGGLE_SWITCH_ICON_COLOR_CHECKED_HOVER",
+              "attributes": {},
+              "path": [
+                "toggle",
+                "switch",
+                "icon",
+                "color",
+                "checked",
+                "hover"
+              ]
+            },
+            "focus": {
+              "value": "#63a6e9",
+              "$type": "color",
+              "comment": "Used for the icon color of a checked toggle switch in the focus state.",
+              "filePath": "src/tokens/contextual/toggle.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.background.color.focus}",
+                "$type": "color",
+                "comment": "Used for the icon color of a checked toggle switch in the focus state."
+              },
+              "name": "TOGGLE_SWITCH_ICON_COLOR_CHECKED_FOCUS",
+              "attributes": {},
+              "path": [
+                "toggle",
+                "switch",
+                "icon",
+                "color",
+                "checked",
+                "focus"
+              ]
+            },
+            "active": {
+              "value": "#9dc7f1",
+              "$type": "color",
+              "comment": "Used for the icon color of a checked toggle switch in the active state.",
+              "filePath": "src/tokens/contextual/toggle.tokens.json",
+              "isSource": true,
+              "original": {
+                "value": "{action.strong.confirm.background.color.active}",
+                "$type": "color",
+                "comment": "Used for the icon color of a checked toggle switch in the active state."
+              },
+              "name": "TOGGLE_SWITCH_ICON_COLOR_CHECKED_ACTIVE",
+              "attributes": {},
+              "path": [
+                "toggle",
+                "switch",
+                "icon",
+                "color",
+                "checked",
+                "active"
+              ]
+            }
+          },
+          "disabled": {
+            "value": "#28272d",
+            "$type": "color",
+            "comment": "Used for the icon color of a disabled toggle switch.",
+            "filePath": "src/tokens/contextual/toggle.tokens.json",
+            "isSource": true,
+            "original": {
+              "value": "{action.disabled.background.color}",
+              "$type": "color",
+              "comment": "Used for the icon color of a disabled toggle switch."
+            },
+            "name": "TOGGLE_SWITCH_ICON_COLOR_DISABLED",
+            "attributes": {},
+            "path": [
+              "toggle",
+              "switch",
+              "icon",
+              "color",
+              "disabled"
             ]
           }
         }
