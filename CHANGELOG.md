@@ -1,3 +1,10 @@
+# [95.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.4.0...v95.5.0) (2024-10-09)
+
+
+### Features
+
+* **GlSearchBoxByType:** use design tokens in GlSearchBoxByType ([4872b5a](https://gitlab.com/gitlab-org/gitlab-ui/commit/4872b5afb6f802a45730958f9fcef8b8d5860142))
+
 # [95.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.3.0...v95.4.0) (2024-10-09)
 
 
