@@ -157,6 +157,7 @@ $toggle-height: 2.5 * $grid-size;
 
     .toggle-icon {
       transform: translateX($toggle-translate-width);
+
       &:hover {
         color: var(--gl-toggle-switch-icon-color-checked-hover);
       }
