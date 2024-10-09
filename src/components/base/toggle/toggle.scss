@@ -84,12 +84,24 @@ $toggle-height: 2.5 * $grid-size;
 
   &.is-disabled {
     @apply gl-cursor-not-allowed;
-    //important is added to colors so that it is not overridden with non-disabled hover/focus/active state
-    color: var(--gl-action-disabled-background-color) !important;
-    background-color: var(--gl-action-disabled-background-color) !important;
+    color: var(--gl-action-disabled-background-color);
+    background-color: var(--gl-action-disabled-background-color);
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      color: var(--gl-action-disabled-background-color);
+      background-color: var(--gl-action-disabled-background-color);
+    }
 
     .toggle-icon {
-      background-color: var(--gl-action-disabled-foreground-color) !important;
+      background-color: var(--gl-action-disabled-foreground-color);
+
+      &:active,
+      &:focus,
+      &:focus:active {
+        background-color: var(--gl-action-disabled-background-color);
+      }
     }
   }
 

@@ -181,7 +181,7 @@ export default {
       type="button"
       @click.prevent="toggleFeature"
     >
-      <gl-loading-icon v-if="isLoading" color="light" class="toggle-loading" />
+      <gl-loading-icon v-if="isLoading" color="dark" class="toggle-loading" />
       <span v-else class="toggle-icon">
         <gl-icon :name="icon" :size="12" />
       </span>
