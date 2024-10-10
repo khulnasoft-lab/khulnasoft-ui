@@ -1,3 +1,19 @@
+# [96.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v96.0.0...v96.1.0) (2024-10-10)
+
+
+### Features
+
+* **GlToggle:** pairing with James feedback ([f261031](https://gitlab.com/gitlab-org/gitlab-ui/commit/f261031f76f4c5c3c36340b230ee50ed5a2022d4))
+* **toggle:** adds specificity for when is-checked and is-disabled ([9fd0daf](https://gitlab.com/gitlab-org/gitlab-ui/commit/9fd0dafa1042dc2a82c519bd4d7b6fe8d6075817))
+* **toggle:** another clean up of css states ([77a6672](https://gitlab.com/gitlab-org/gitlab-ui/commit/77a66724cb19da077a66fe951f4e446725279348))
+* **toggle:** apply suggestions ([fd2e809](https://gitlab.com/gitlab-org/gitlab-ui/commit/fd2e809c8a1d130dad02ebfc2a6776d70c97d5aa))
+* **toggle:** fix linting error ([2218423](https://gitlab.com/gitlab-org/gitlab-ui/commit/2218423bf50585d54833bf1e84dd809c94e11722))
+* **toggle:** further cleanup of CSS ([b278a9e](https://gitlab.com/gitlab-org/gitlab-ui/commit/b278a9e7a7b990f2d80809f6f76b636d56b314dc))
+* **toggle:** make no pointer events on toggle icon ([ac7c1f4](https://gitlab.com/gitlab-org/gitlab-ui/commit/ac7c1f43d9f26ea4dd270236d4143b18b8347881))
+* **toggle:** rearrange css order for specificity ([589e39e](https://gitlab.com/gitlab-org/gitlab-ui/commit/589e39e93da54f3fd4310e4b5dc4cbe3f0f151bf))
+* **toggle:** set class to is-disabled when loading ([478f2fb](https://gitlab.com/gitlab-org/gitlab-ui/commit/478f2fb91e79529d45ec5b46590e1a6c444a5837))
+* **toggle:** use design tokens for is-disabled colors and clean up styling ([fad38fa](https://gitlab.com/gitlab-org/gitlab-ui/commit/fad38fa365115e3e55640280701077e6a9c4267c))
+
 # [96.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.6.0...v96.0.0) (2024-10-10)
 
 
