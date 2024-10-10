@@ -212,6 +212,7 @@ export default {
         ref="historyDropdown"
         class="gl-search-box-by-click-history"
         icon="history"
+        category="tertiary"
         toggle-text="Toggle history"
         text-sr-only
         fluid-width
@@ -219,7 +220,7 @@ export default {
       >
         <template #header>
           <div
-            class="gl-search-box-by-click-history-header gl-flex gl-min-h-8 gl-grow gl-items-center gl-border-b-1 gl-border-b-gray-200 !gl-p-4 gl-text-sm gl-font-bold gl-border-b-solid"
+            class="gl-search-box-by-click-history-header gl-flex gl-min-h-8 gl-grow gl-items-center gl-border-b-1 gl-border-b-dropdown !gl-p-4 gl-text-sm gl-font-bold gl-border-b-solid"
           >
             {{ recentSearchesHeader }}
           </div>
@@ -238,13 +239,13 @@ export default {
             </template>
           </gl-disclosure-dropdown-item>
         </template>
-        <div v-else class="gl-px-4 gl-py-2 gl-text-sm gl-text-secondary">
+        <div v-else class="gl-px-4 gl-py-2 gl-text-sm gl-text-subtle">
           {{ noRecentSearchesText }}
         </div>
 
         <template v-if="historyItems.length" #footer>
           <div
-            class="gl-flex gl-flex-col gl-border-t-1 gl-border-t-gray-200 gl-p-2 gl-border-t-solid"
+            class="gl-flex gl-flex-col gl-border-t-1 gl-border-t-dropdown gl-p-2 gl-border-t-solid"
           >
             <gl-button
               ref="clearHistory"
@@ -285,6 +286,7 @@ export default {
         v-bind="searchButtonAttributes"
         ref="searchButton"
         class="gl-search-box-by-click-search-button"
+        category="tertiary"
         icon="search"
         :disabled="disabled"
         aria-label="Search"
