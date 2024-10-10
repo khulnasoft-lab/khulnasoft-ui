@@ -1,3 +1,16 @@
+# [96.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.6.0...v96.0.0) (2024-10-10)
+
+
+### Bug Fixes
+
+* **DuoChat:** Remove the clean slash command ([eb10c71](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb10c71d3c31210063bfd9bf526531118cf2242c))
+
+
+### BREAKING CHANGES
+
+* **DuoChat:** Remove support for using /clean slash command.
+Use documented /clear command.
+
 # [95.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v95.5.1...v95.6.0) (2024-10-09)
 
 
