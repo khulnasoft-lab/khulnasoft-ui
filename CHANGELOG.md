@@ -1,3 +1,10 @@
+# [96.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v96.1.0...v96.2.0) (2024-10-10)
+
+
+### Features
+
+* Add new mainField `vueSource` to package.json ([bec84bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/bec84bcf78399bff477612a883ae3a3694a87297))
+
 # [96.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v96.0.0...v96.1.0) (2024-10-10)
 
 
