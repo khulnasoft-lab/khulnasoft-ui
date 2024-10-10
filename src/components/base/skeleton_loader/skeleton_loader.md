@@ -9,7 +9,9 @@ loading animation. Any skeleton state components should be created with
 `<gl-skeleton-loader></gl-skeleton-loader>`. If no shape is passed via the slot the default skeleton
 will be used. See "Default" and "Default With Custom Props" examples.
 
-**NOTE:** Skeleton loaders can also be composed with a `.gl-animate-skeleton-loader`
+## The `.gl-animate-skeleton-loader` class
+
+Skeleton loaders can also be composed with a `.gl-animate-skeleton-loader`
 CSS class. This CSS-based approach is easier to make responsive and match mocked elements.
 Feel free to use this approach if it suits your use case and please leave your
 feedback in this [Feedback for css-based skeleton loading
@@ -28,9 +30,31 @@ CSS-based approach:
 </div>
 ```
 
-See
-[animation.scss](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/src/scss/utility-mixins/animation.scss#L17)
-to learn more.
+**USAGE NOTES:** if you're using `gl-max-w-xx` you'll need to add
+important (e.g. `!gl-max-w-20`). This is because `.gl-animate-skeleton-loader` already
+has a `max-width` statement, and we need to override it. You can override it
+only with lower numbers. Width rules (`gl-w-xx`) don't need an override, you
+can use them as-is. If you want to "synchronize" two elements next to each
+other, try adding `animation-delay` to offset elements.
+
+More complex example (with different shapes and an animation delay for offset elements):
+
+```html
+<div class="gl-display-flex gl-flex-direction-column gl-gap-2 gl-w-30">
+  <div class="gl-animate-skeleton-loader gl-h-8 gl-rounded-base gl-mb-4"></div>
+  <div class="gl-display-flex gl-flex-direction-row gl-gap-2">
+    <div class="gl-animate-skeleton-loader gl-h-8 gl-w-8 gl-rounded-full"></div>
+    <div class="gl-flex-grow-1" style="animation-delay: 100ms">
+      <div class="gl-animate-skeleton-loader gl-h-4 gl-rounded-base gl-my-2"></div>
+      <div class="gl-animate-skeleton-loader gl-h-4 gl-rounded-base gl-my-2"></div>
+      <div class="gl-animate-skeleton-loader gl-display-inline-block gl-h-4 gl-w-10 gl-rounded-base gl-my-2"></div>
+      <div
+        class="gl-animate-skeleton-loader gl-display-inline-block gl-h-4 gl-w-10 gl-rounded-base gl-my-2"
+        style="animation-delay: 250ms"></div>
+    </div>
+  </div>
+</div>
+```
 
 ## Progressive Loading
 

@@ -1,9 +1,0 @@
-// See https://github.com/twbs/bootstrap/blob/v4-dev/scss/mixins/_clearfix.scss
-
-@mixin gl-clearfix {
-  &::after {
-    display: block;
-    clear: both;
-    content: '';
-  }
-}
