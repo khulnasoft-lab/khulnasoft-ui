@@ -56,13 +56,13 @@
     }
 
     &.sm {
-      @include gl-font-size-markdown-sm;
+      font-size: $gl-font-size-markdown-sm;
       @apply gl-leading-20;
     }
   }
 
   .sm {
-    @include gl-font-size-markdown-sm;
+    font-size: $gl-font-size-markdown-sm;
     @apply gl-leading-20;
   }
 
@@ -77,7 +77,7 @@
     @apply gl-pl-6;
     @apply gl-my-3;
     @apply gl-mx-0;
-    @include gl-inset-border-l-4-gray-100;
+    box-shadow: inset $gl-border-size-4 0 0 0 $gray-100;
   }
 
   .idiff {
@@ -106,7 +106,7 @@
     @apply gl-rounded-base;
     @apply gl-py-3;
     @apply gl-px-4;
-    @include gl-inset-border-1-gray-100;
+    box-shadow: inset 0 0 0 $gl-border-size-1 $gray-100;
     @apply gl-my-7;
     @apply gl-overflow-auto;
 
@@ -146,12 +146,14 @@
     td {
       @apply gl-px-3;
       @apply gl-py-4;
-      @include gl-inset-border-b-1-gray-100;
+      box-shadow: inset 0 -#{$gl-border-size-1} 0 0 $gray-100;
       @apply gl-align-top;
     }
 
     th {
-      @include gl-inset-border-y-1-gray-100;
+      box-shadow:
+        inset 0 #{$gl-border-size-1} 0 0 $gray-100,
+        inset 0 -#{$gl-border-size-1} 0 0 $gray-100;
       @apply gl-font-bold;
     }
 

@@ -406,7 +406,7 @@
     @if $feature-button-border {
       border-color: $green-600;
     } @else {
-      @include gl-inset-border-1-green-600;
+      box-shadow: inset 0 0 0 1px var(--green-600, #{$green-600});
     }
 
     &:hover {
@@ -457,7 +457,7 @@
     @if $feature-button-border {
       border-color: $green-500;
     } @else {
-      @include gl-inset-border-1-green-500;
+      box-shadow: inset 0 0 0 1px var(--green-500, #{$green-500});
     }
 
     &:hover {
