@@ -26,32 +26,6 @@ $toggle-height: 2.5 * $grid-size;
   @apply gl-leading-normal;
   @apply gl-font-normal;
   @apply gl-inline-flex;
-
-  &.is-disabled {
-    @apply gl-cursor-not-allowed;
-
-    .gl-toggle {
-      @apply gl-cursor-not-allowed;
-      @apply gl-bg-gray-200;
-
-      .toggle-icon > svg {
-        @apply gl-fill-gray-200;
-      }
-    }
-
-    .gl-toggle.is-checked {
-      @apply gl-bg-blue-200;
-
-      .toggle-icon > svg {
-        @apply gl-fill-blue-200;
-      }
-    }
-
-    .gl-toggle-label,
-    .gl-description-label {
-      @apply gl-text-gray-500;
-    }
-  }
 }
 
 .gl-description-label {
@@ -184,20 +158,20 @@ $toggle-height: 2.5 * $grid-size;
     }
 
     .toggle-icon {
-      transform: translateX($toggle-translate-width);
       background-color: var(--gl-action-strong-confirm-foreground-color-default);
+      transform: translateX($toggle-translate-width);
+    }
+  }
 
-      &:hover {
-        background-color: var(--gl-action-strong-confirm-foreground-color-hover);
-      }
+  &.is-disabled,
+  &.is-checked.is-disabled {
+    @apply gl-cursor-not-allowed;
+    color: var(--gl-action-disabled-background-color);
+    background-color: var(--gl-action-disabled-background-color);
 
-      &:focus {
-        background-color: var(--gl-action-strong-confirm-foreground-color-focus);
-      }
-
-      &:active {
-        background-color: var(--gl-action-strong-confirm-foreground-color-active);
-      }
+    .toggle-icon {
+      color: var(--gl-action-disabled-background-color);
+      background-color: var(--gl-action-disabled-foreground-color);
     }
   }
 }
