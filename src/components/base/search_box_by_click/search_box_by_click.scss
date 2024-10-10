@@ -11,7 +11,7 @@
       border-color: var(--gl-border-color-strong);
     } @else {
       @apply gl-border-none;
-      @include gl-inset-border-1-gray-400;
+      @apply gl-shadow-inner-1-gray-400;
     }
   }
 
@@ -19,7 +19,7 @@
     @if $feature-button-border {
       border-color: var(--gl-border-color-strong);
     } @else {
-      @include gl-inset-border-1-gray-400;
+      @apply gl-shadow-inner-1-gray-400;
     }
   }
 
