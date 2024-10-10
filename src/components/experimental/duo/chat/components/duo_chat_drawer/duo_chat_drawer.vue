@@ -10,6 +10,7 @@ import GlModal from '../../../../../base/modal/modal.vue';
 import GlForm from '../../../../../base/form/form.vue';
 import GlFormInput from '../../../../../base/form/form_input/form_input.vue';
 import GlFormGroup from '../../../../../base/form/form_group/form_group.vue';
+import GlFormTextarea from '../../../../../base/form/form_textarea/form_textarea.vue';
 
 export const i18n = {
   CHAT_MENU_TITLE: translate('GlDuoChatDrawer.chatMenuTitle', 'Chat Menu'),
@@ -24,6 +25,7 @@ export const i18n = {
   TOOL_PATH: translate('GlDuoChatDrawer.toolPath', 'Tool Path'),
   TOOL_DESCRIPTION: translate('GlDuoChatDrawer.toolDescription', 'Description'),
   CURRENT_CHAT_TITLE: translate('GlDuoChatDrawer.currentChatTitle', 'Chat Details'),
+  TOOL_PARAMETERS: translate('GlDuoChatDrawer.toolParameters', 'Parameters'),
 };
 
 export default {
@@ -39,6 +41,7 @@ export default {
     GlForm,
     GlFormInput,
     GlFormGroup,
+    GlFormTextarea,
   },
   props: {
     /**
@@ -117,6 +120,8 @@ export default {
         name: '',
         path: '',
         description: '',
+        parameters: '',
+        enabled: true,
       },
       modalId: 'new-tool-modal',
       modalActionPrimary: {
@@ -156,6 +161,8 @@ export default {
         name: '',
         path: '',
         description: '',
+        parameters: '',
+        enabled: true,
       };
     },
     addNewCustomTool() {
@@ -164,6 +171,7 @@ export default {
         enabled: true,
         description: this.newTool.description,
         path: this.newTool.path,
+        parameters: this.newTool.parameters,
         custom: true,
       });
       this.closeNewToolModal();
@@ -282,6 +290,9 @@ export default {
         </gl-form-group>
         <gl-form-group :label="$options.i18n.TOOL_DESCRIPTION" label-for="new-tool-description">
           <gl-form-input id="new-tool-description" v-model="newTool.description" required />
+        </gl-form-group>
+        <gl-form-group :label="$options.i18n.TOOL_PARAMETERS" label-for="new-tool-parameters">
+          <gl-form-textarea id="new-tool-parameters" v-model="newTool.parameters" required />
         </gl-form-group>
       </gl-form>
     </gl-modal>
