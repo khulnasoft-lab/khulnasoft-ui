@@ -515,7 +515,7 @@ disabled.
 
 ## See also
 
-- [`<b-tooltip>` component](/docs/components/tooltip)
-- [`<b-popover>` component](/docs/components/popover)
+- [tooltip](?path=/docs/base-tooltip--docs)
+- [popover](?path=/docs/base-popover--docs)
 
 <!-- Directive reference section auto generated from directive package.json -->

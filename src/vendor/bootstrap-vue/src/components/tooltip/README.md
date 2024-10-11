@@ -553,7 +553,7 @@ with the auto generated ID of the tooltip.
 
 **Note:** The animation effect of this component is dependent on the `prefers-reduced-motion` media
 query. See the
-[reduced motion section of our accessibility documentation](/docs/reference/accessibility) for
-additional details.
+[reduced motion section of our accessibility documentation](?path=/docs/base-tooltip--docs#accessibility)
+for additional details.
 
 <!-- Component reference added automatically from component package.json -->

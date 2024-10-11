@@ -104,9 +104,4 @@ that split dropdown menus are not supported when prop `vertical` is set.
 <!-- b-button-group-menu.vue -->
 ```
 
-## See also
-
-Also check out the [`<b-button-toolbar>`](/docs/components/button-toolbar) component for generating
-toolbars containing button groups and input groups.
-
 <!-- Component reference added automatically from component package.json -->

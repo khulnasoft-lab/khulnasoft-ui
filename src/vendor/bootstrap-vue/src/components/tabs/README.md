@@ -4,7 +4,7 @@
 > cards internally, and provides full keyboard navigation control of the tabs.
 
 For navigation based tabs (i.e. tabs that would change the URL), use the
-[`<b-nav>`](/docs/components/nav) component instead.
+[nav](?path=/docs/base-nav--docs) component instead.
 
 ## Basic usage
 
@@ -91,7 +91,7 @@ When `<b-tabs>` is in `card` mode, each `<b-tab>` sub-component will automatical
 **Note:** Setting the `no-body` prop on `<b-tab>` will have no affect when `<b-tabs>` is not in
 `card` mode (as the `card-body` class is only set when in `card` mode).
 
-Refer to the [Cards documentation](/docs/components/card) for more details on card components.
+Refer to the [Cards documentation](?path=/docs/base-card--docs) for more details on card components.
 
 ## Pills variant
 

@@ -279,7 +279,7 @@ like `<b-navbar-brand>`, they'll automatically be aligned to the far right. Reve
 will reverse the placement of the toggler.
 
 See the first example on this page for reference, and also refer to
-[`<b-collapse>`](/docs/components/collapse) for details on the collapse component.
+[`<gl-collapse>`](?path=/docs/base-collapse--docs) for details on the collapse component.
 
 Internally, `<b-navbar-toggle>` uses the [`v-b-toggle` directive](/docs/directives/toggle).
 
@@ -322,12 +322,11 @@ Navbars are hidden by default when printing. Force them to be printed by setting
 
 ## See also
 
-- [`<b-collapse>` component](/docs/components/collapse)
+- [collapse](?path=/docs/base-collapse--docs)
 - [`v-b-toggle` directive](/docs/directives/toggle)
-- [`<b-nav>` documentation](/docs/components/nav) for additional components and sub-component
-  aliases
+- [nav](?path=/docs/base-nav--docs) for additional components and sub-component aliases
 
-Refer to the [Router support](/docs/reference/router-links) reference page for router-link specific
-props.
+Refer to the [Router support](?path=/docs/base-link--docs#router-link-support) reference page for
+router-link specific props.
 
 <!-- Component reference added automatically from component package.json -->

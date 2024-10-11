@@ -508,8 +508,8 @@ the `tag` prop to any valid HTML5 tag on the `<b-dropdown-text>` sub-component.
 
 Dropdowns support basic forms. Put a `<b-dropdown-form>` within a dropdown menu and place form
 controls within the `<b-dropdown-form>`. The `<b-dropdown-form>` is based on the
-[`<b-form>`](/docs/components/form) component, and supports the same props and attributes as a
-regular form.
+[`<gl-form>`](?path=/docs/base-form-form--docs) component, and supports the same props and
+attributes as a regular form.
 
 ```html
 <template>
@@ -722,9 +722,9 @@ the dropdown menu, ensure they are wrapped with a plain `<li>`.
 
 ## See also
 
-- [`<b-nav-item-dropdown>`](/docs/components/nav#dropdown-support) for dropdown support inside
+- [`<b-nav-item-dropdown>`](?path=/docs/base-nav--docs#dropdown-support) for dropdown support inside
   `<b-nav>` and `<n-navbar>`
-- [Router Link Support](/docs/reference/router-links) reference for information about router-link
-  specific props available on `<b-dropdown-item>`
+- [Router Link Support](?path=/docs/base-link--docs#router-link-support) reference for information
+  about router-link specific props available on `<b-dropdown-item>`
 
 <!-- Component reference added automatically from component package.json -->

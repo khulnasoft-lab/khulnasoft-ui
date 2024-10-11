@@ -535,7 +535,7 @@ for generating more complex toast content:
 In some cases you may need just a simple alert style message (i.e. cookie usage notifications,
 etc.). In these cases it is usually better to use an fixed position alert instead of a toast, by
 applying a few Bootstrap [utility classes](/docs/reference/utility-classes) and a small bit of
-custom styling on a [`<b-alert>`](/docs/components/alert) component:
+custom styling on a [`<gl-alert>`](?path=/docs/base-alert--docs) component:
 
 ```html
 <template>
@@ -615,7 +615,7 @@ that can impact both people with and without disabilities. The following list, w
 provides general guidelines when using toasts.
 
 - If the information needed is important for the process, e.g. for a list of errors in a form, then
-  use the [`<b-alert>`](/docs/components/alert) component instead of `<b-toast>`.
+  use the [`<gl-alert>`](?path=/docs/base-alert--docs) component instead of `<b-toast>`.
 - `<b-toast>`, by default, sets the attributes `role` to `'alert'` and `aria-live` to `'assertive'`.
   If it's an important message like an error, this default setting is appropriate, otherwise set the
   prop `is-status` to `true` which will change the attributes `role` to `'status'` and `aria-live`

@@ -304,8 +304,8 @@ invalid), `true` (for valid), or `null` (no validation state).
 <!-- b-form-input-states-feedback.vue -->
 ```
 
-> **Tip:** Use the [`<b-form-group>`](/docs/components/form-group) component to automatically
-> generate markup similar to above.
+> **Tip:** Use the [`<gl-form-group>`](?path=/docs/base-form-form-group--docs) component to
+> automatically generate markup similar to above.
 
 ### Conveying contextual state to assistive technologies and colorblind users
 
@@ -463,8 +463,8 @@ chosen, or new values to be entered.
 ```
 
 BootstrapVue provides the form helper component
-[`<b-form-datalist>`](/docs/components/form/#datalist-helper) for quickly creating a `<datalist>`
-from an array of options.
+[`<b-form-datalist>`](?path=/docs/base-form-form--docs#datalist-helper) for quickly creating a
+`<datalist>` from an array of options.
 
 **Notes:**
 
