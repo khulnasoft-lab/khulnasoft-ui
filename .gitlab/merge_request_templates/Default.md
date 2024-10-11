@@ -27,8 +27,17 @@ please list the integration merge requests below.
 
 - [ ] **[GitLab](https://gitlab.com/gitlab-org/gitlab)**: mr_url
 - [ ] **[CustomersDot](https://gitlab.com/gitlab-org/customers-gitlab-com)**: mr_url
+- [ ] **[switchboard](https://gitlab.com/gitlab-com/gl-infra/gitlab-dedicated/switchboard)**: mr_url
+- [ ] **[gitlab-docs](https://gitlab.com/gitlab-org/gitlab-docs)**: mr_url
+
+<details>
+<summary>Depending on how breaking your change is, please check the other satellite projects as well</summary>
+
+- [ ] **[design.gitlab.com](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com)**: mr_url
+- [ ] **[gitlab-docs-hugo](https://gitlab.com/gitlab-org/technical-writing-group/gitlab-docs-hugo)**: mr_url
 - [ ] **[Status Page](https://gitlab.com/gitlab-org/status-page)**: mr_url
 
+</details>
 ## Does this MR meet the acceptance criteria?
 
 This checklist encourages the authors, reviewers, and maintainers of merge requests (MRs) to confirm
