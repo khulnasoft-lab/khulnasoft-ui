@@ -47,7 +47,6 @@
   "files": [
     "dist",
     "esm",
-    "nuxt",
     "src"
   ],
   "sideEffects": [
