@@ -186,23 +186,19 @@ technologies may resort to using the `placeholder` attribute, if present, but no
 
 See also:
 
-- [`<b-form-input>`](/docs/components/form-input) Textual and text-like inputs
-- [`<b-form-textarea>`](/docs/components/form-textarea) Text area inputs
-- [`<b-form-select>`](/docs/components/form-select) Select input
-- [`<b-form-radio>`](/docs/components/form-radio) Radio Inputs
-- [`<b-form-checkbox>`](/docs/components/form-checkbox) Checkbox Inputs
-- [`<b-form-file>`](/docs/components/form-file) File Input
-- [`<b-form-datepicker>`](/docs/components/form-datepicker) Date picker input
-- [`<b-form-spinbutton>`](/docs/components/form-spinbutton) Numerical range spinbutton input
-- [`<b-form-tags>`](/docs/components/form-tags) Customizable tag input
-- [`<b-form-timepicker>`](/docs/components/form-timepicker) Time picker custom form input
-- [`<b-form-rating>`](/docs/components/form-rating) Star rating custom form input and display
-- [`<b-button>`](/docs/components/button) Buttons
-- [`<b-form-group>`](/docs/components/form-group) Form Input wrapper to generate form-groups that
-  support labels, help text and feedback
-- [`<b-input-group>`](/docs/components/input-group) Form Inputs with add-ons
-- [`<b-form-row>`](/docs/components/layout) Create grid rows and columns with tighter margins
-  (available via the [Layout and grid components](/docs/components/layout))
+- [form-input](?path=/docs/base-form-form-input--docs) Textual and text-like inputs
+- [form-textarea](?path=/docs/base-form-form-textarea--docs) Text area inputs
+- [form-select](?path=/docs/base-form-form-select--docs) Select input
+- [form-radio](?path=/docs/base-form-form-radio--docs) Radio Inputs
+- [form-checkbox](?path=/docs/base-form-form-checkbox--docs) Checkbox Inputs
+- [form-date](?path=/docs/base-form-form-date--docs) Date input
+- [button](?path=/docs/base-button--docs) Buttons
+- [form-group](/?path=/docs/base-form-form-group--docs) Form Input wrapper to generate form-groups
+  that support labels, help text and feedback
+- [form-input-group](/?path=/docs/base-form-form-input-group--docs) Form Inputs with add-ons
+- [form-row](?path=/docs/base-form-form-group--docs#rows-b-row-and-b-form-row) Create grid rows and
+  columns with tighter margins (available via the
+  [Layout and grid components](?path=/docs/base-form-form-group--docs#layout-and-grid-system))
 
 ## Form helper components
 
@@ -253,12 +249,11 @@ class). Note that tooltip style feedback may, since its positioning is static, o
 labels, etc.
 
 **Note:** Some form controls, such as
-[`<b-form-radio>`](/docs/components/form-radio#contextual-states),
-[`<b-form-checkbox>`](/docs/components/form-checkbox#contextual-states), and
-[`<b-form-file>`](/docs/components/form-file) have wrapper elements which will prevent the feedback
-text from automatically showing (as the feedback component is not a direct sibling of the form
-control's input). Use the feedback component's `state` prop (bound to the state of the form control)
-or the `force-show` prop to display the feedback.
+[`<gl-form-radio>`](?path=/docs/base-form-form-radio--docs#contextual-states) and
+[`<gl-form-checkbox>`](?path=/docs/base-form-form-checkbox--docs#contextual-states) have wrapper
+elements which will prevent the feedback text from automatically showing (as the feedback component
+is not a direct sibling of the form control's input). Use the feedback component's `state` prop
+(bound to the state of the form control) or the `force-show` prop to display the feedback.
 
 ```html
 <template>
@@ -330,9 +325,9 @@ export default {
 
 See also:
 
-- [`<b-form-input> datalist`](/docs/components/form-input#datalist-support) for datalist usage.
-- [`<b-form-select>` `options` prop](/docs/components/form-select#options-property) docs for details
-  on the formats and helper props associated with `options`.
+- [form-input datalist](?path=/docs/base-form-form-input--docs#datalist-support) for datalist usage.
+- [form-select `options` prop](?path=/docs/base-form-form-select--docs#options-property) docs for
+  details on the formats and helper props associated with `options`.
 
 ## Validation
 

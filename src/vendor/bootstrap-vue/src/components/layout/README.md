@@ -147,13 +147,13 @@ You can remove the margin from `<b-row>` and padding from `<b-col>` by setting t
 on `<b-row>`.
 
 Or, for compact margins (smaller gutters between columns), use the `<b-form-row>` component, which
-is typically used when laying out [forms](/docs/components/form).
+is typically used when laying out [forms](?path=/docs/base-form-form--docs).
 
 ## Columns `<b-col>`
 
 `<b-col>` Must be placed inside a `<b-row>` component, or an element (such as a `<div>`) that has
-the class `row` applied to it, or - in the case of [forms](/docs/components/form) - inside a
-`<b-form-row>` component (to obtain columns with more compact margins).
+the class `row` applied to it, or - in the case of [forms](?path=/docs/base-form-form--docs) -
+inside a `<b-form-row>` component (to obtain columns with more compact margins).
 
 ## Grid options
 

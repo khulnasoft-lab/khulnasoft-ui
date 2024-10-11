@@ -252,8 +252,8 @@ modifier (available in Vue 2.3+) on the `pressed` property
 ```
 
 If using toggle button style for a radio or checkbox style interface, it is best to use the built-in
-`button` style support of [`<b-form-radio-group>`](/docs/components/form-radio) and
-[`<b-form-checkbox-group>`](/docs/components/form-checkbox).
+`button` style support of [`<b-form-radio-group>`](?path=/docs/base-form-form-radio--docs) and
+[`<b-form-checkbox-group>`](?path=/docs/base-form-form-checkbox--docs).
 
 ## Router link support
 
@@ -272,9 +272,8 @@ added, nor will the keyboard event listeners be enabled.
 
 ## See also
 
-- [`<b-button-group>`](/docs/components/button-group)
-- [`<b-button-toolbar>`](/docs/components/button-toolbar)
-- [`<b-link>`](/docs/components/link)
+- [button-group](?path=/docs/base-button-group--docs)
+- [link](?path=/docs/base-link--docs)
 - [Router Link Support](?path=/docs/base-link--docs#router-link-support)
 
 <!-- Component reference added automatically from component package.json -->

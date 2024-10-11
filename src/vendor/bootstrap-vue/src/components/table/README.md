@@ -2168,7 +2168,7 @@ Setting the prop `filter` to null or an empty string will clear local items filt
 ### Debouncing filter criteria changes
 
 <span class="badge badge-warning small">deprecated in v2.1.0</span> Use the `debounce` feature of
-[`<b-form-input>`](/docs/components/form-input#debounce-support) instead.
+[form-input](?path=/docs/base-form-form-input--docst#debounce-support) instead.
 
 If you have a text input tied to the `filter` prop of `<b-table>`, the filtering process will occur
 for each character typed by the user. With large items datasets, this process can take a while and
@@ -2198,7 +2198,7 @@ at a time by setting the `per-page` prop to the maximum number of rows you would
 use the `current-page` prop to specify which page to display (starting from page `1`). If you set
 `current-page` to a value larger than the computed number of pages, then no rows will be shown.
 
-You can use the [`<b-pagination>`](/docs/components/pagination) component in conjunction with
+You can use the [`<gl-pagination>`](?path=/docs/base-pagination--docs) component in conjunction with
 `<b-table>` for providing control over pagination.
 
 Setting `per-page` to `0` (default) will disable the local items pagination feature.
@@ -2415,9 +2415,9 @@ of records.
   respective `no-provider-*` prop set to `true`).
 - The `no-local-sorting` prop has no effect when `items` is a provider function.
 - When using provider filtering, you may find that setting the
-  [`debounce` prop on `<b-form-input>`](/docs/components/form-input#debounce-support) to a value
-  greater than `100` ms will help minimize the number of calls to your back end API as the user
-  types in the criteria.
+  [`debounce` prop on `<gl-form-input>`](?path=/docs/base-form-form-input--docs#debounce-support) to
+  a value greater than `100` ms will help minimize the number of calls to your back end API as the
+  user types in the criteria.
 
 ### Force refreshing of table data
 

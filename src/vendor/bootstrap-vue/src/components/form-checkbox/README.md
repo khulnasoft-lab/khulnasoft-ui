@@ -361,8 +361,8 @@ This will inform users of assistive technologies that the checkboxes are related
 browser keyboard navigation.
 
 Whenever using multiple checkboxes, it is recommended that the checkboxes be placed in a
-[`<b-form-group>`](/docs/components/form-group) component to associate a label with the entire group
-of checkboxes. See examples above.
+[`<gl-form-group>`](?path=/docs/base-form-form-group--docs) component to associate a label with the
+entire group of checkboxes. See examples above.
 
 ## Button style checkboxes
 
@@ -376,8 +376,8 @@ are in the _checked_ state.
 A single checkbox can be rendered with a button appearance by setting the prop `button` to `true`
 
 Change the button variant by setting the `button-variant` prop to one of the standard Bootstrap
-button variants (see [`<b-button>`](/docs/components/button) for supported variants). The default
-variant is `secondary`.
+button variants (see [`<gl-button>`](?path=/docs/base-button--docs) for supported variants). The
+default variant is `secondary`.
 
 ```html
 <template>
@@ -411,8 +411,8 @@ The `inline` prop has no effect on individual button-style checkboxes.
 
 Render groups of checkboxes with the look of a button-group by setting the prop `buttons` on
 `<b-form-checkbox-group>`. Change the button variant by setting the `button-variant` prop to one of
-the standard Bootstrap button variants (see [`<b-button>`](/docs/components/button) for supported
-variants). The default `button-variant` is `secondary`.
+the standard Bootstrap button variants (see [`<gl-button>`](?path=/docs/base-button--docs) for
+supported variants). The default `button-variant` is `secondary`.
 
 ```html
 <template>
