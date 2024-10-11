@@ -1,3 +1,10 @@
+# [96.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v96.2.0...v96.3.0) (2024-10-11)
+
+
+### Features
+
+* **GlSearchBoxByClick:** use design tokens in GlSearchBoxByClick ([23606cf](https://gitlab.com/gitlab-org/gitlab-ui/commit/23606cf83e91486e153ea8de23d9dd33a59e3497))
+
 # [96.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v96.1.0...v96.2.0) (2024-10-10)
 
 
