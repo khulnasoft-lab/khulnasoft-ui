@@ -724,7 +724,7 @@ the dropdown menu, ensure they are wrapped with a plain `<li>`.
 
 - [`<b-nav-item-dropdown>`](/docs/components/nav#dropdown-support) for dropdown support inside
   `<b-nav>` and `<n-navbar>`
-- [Router Link Support](/docs/reference/router-links) reference for information about router-link
-  specific props available on `<b-dropdown-item>`
+- [Router Link Support](?path=/docs/base-link--docs#router-link-support) reference for information
+  about router-link specific props available on `<b-dropdown-item>`
 
 <!-- Component reference added automatically from component package.json -->

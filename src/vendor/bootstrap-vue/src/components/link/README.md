@@ -19,7 +19,7 @@ By specifying a value in the `href` prop, a standard link (`<a>`) element will b
 generate a `<router-link>` instead, specify the route location via the `to` prop.
 
 Router links support various additional props. Refer to the
-[Router support](/docs/reference/router-links) reference section for details.
+[Router support](?path=/docs/base-link--docs#router-link-support) reference section for details.
 
 If your app is running under [Nuxt.js](https://nuxtjs.org), the
 [`<nuxt-link>`](https://nuxtjs.org/api/components-nuxt-link) component will be used instead of

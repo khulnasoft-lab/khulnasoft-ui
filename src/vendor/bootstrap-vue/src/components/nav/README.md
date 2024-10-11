@@ -474,7 +474,7 @@ issues:
   elements in a concise header.
 - [`<b-dropdown>`](/docs/components/dropdown) for sub-components that you can place inside
   `<b-nav-item-dropdown>`
-- [Router Link Support reference](/docs/reference/router-links) for information about router-link
-  specific props available on `<b-nav-item>`
+- [Router Link Support reference](?path=/docs/base-link--docs#router-link-support) for information
+  about router-link specific props available on `<b-nav-item>`
 
 <!-- Component reference added automatically from component package.json -->

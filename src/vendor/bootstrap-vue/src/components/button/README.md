@@ -257,8 +257,8 @@ If using toggle button style for a radio or checkbox style interface, it is best
 
 ## Router link support
 
-Refer to the [`Router support`](/docs/reference/router-links) reference docs for the various
-supported `<router-link>` related props.
+Refer to the [`Router support`](?path=/docs/base-link--docs#router-link-support) reference docs for
+the various supported `<router-link>` related props.
 
 ## Accessibility
 
@@ -275,7 +275,6 @@ added, nor will the keyboard event listeners be enabled.
 - [`<b-button-group>`](/docs/components/button-group)
 - [`<b-button-toolbar>`](/docs/components/button-toolbar)
 - [`<b-link>`](/docs/components/link)
-- [Router Link Support](/docs/reference/router-links)
-- [Color Variants](/docs/reference/color-variants)
+- [Router Link Support](?path=/docs/base-link--docs#router-link-support)
 
 <!-- Component reference added automatically from component package.json -->

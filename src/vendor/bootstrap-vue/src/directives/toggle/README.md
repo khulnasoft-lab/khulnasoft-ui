@@ -1,7 +1,8 @@
 # Toggle
 
-> `v-b-toggle` is a light-weight directive for toggling the visibility of collapses,
-> and includes automated [WAI-ARIA accessibility](/docs/reference/accessibility) attribute handling.
+> `v-b-toggle` is a light-weight directive for toggling the visibility of collapses, and includes
+> automated [WAI-ARIA accessibility](?path=/docs/base-tooltip--docs#accessibility) attribute
+> handling.
 
 ## Overview
 
