@@ -887,8 +887,8 @@ interacting with it (keeping focus inside the popover until it is closed by the 
 
 **Note:** The animation effect of this component is dependent on the `prefers-reduced-motion` media
 query. See the
-[reduced motion section of our accessibility documentation](/docs/reference/accessibility) for
-additional details.
+[reduced motion section of our accessibility documentation](?path=/docs/base-tooltip--docs#accessibility)
+for additional details.
 
 ### Making popovers work for keyboard and assistive technology users
 

@@ -48,8 +48,6 @@ for things such as button variations, alert variations, form validation indicato
 when used against a light background. Authors will need to manually modify/extend these default
 colors to ensure adequate color contrast ratios.
 
-Refer to the [Theming](/docs/reference/theming) section for customizing Bootstrap's SCSS.
-
 ## Visually hidden content
 
 Content which should be visually hidden, but remain accessible to assistive technologies such as
@@ -77,7 +75,8 @@ focused (for sighted keyboard users).
 Bootstrap includes support for the
 [`prefers-reduced-motion` media feature](https://drafts.csswg.org/mediaqueries-5/#prefers-reduced-motion).
 In browsers/environments that allow the user to specify their preference for reduced motion, most
-CSS transition effects in Bootstrap (for instance, when a modal dialog is opened or closed) will be disabled.
+CSS transition effects in Bootstrap (for instance, when a modal dialog is opened or closed) will be
+disabled.
 
 If you are expecting animations and/or transitions to work and they are not, then you may have the
 reduced motion (no animation) setting enabled in your operating system control panel.

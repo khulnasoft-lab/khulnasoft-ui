@@ -97,9 +97,4 @@ cd ..
 echo 'Done.'
 echo ''
 
-echo 'Building IDE auto-complete helper files...'
-yarn jiti ./scripts/create-web-types || exit 1
-echo 'Done.'
-echo ''
-
 echo 'Done building assets.'

@@ -1,12 +1,13 @@
 # Toggle
 
-> `v-b-toggle` is a light-weight directive for toggling the visibility of collapses,
-> and includes automated [WAI-ARIA accessibility](/docs/reference/accessibility) attribute handling.
+> `v-b-toggle` is a light-weight directive for toggling the visibility of collapses, and includes
+> automated [WAI-ARIA accessibility](?path=/docs/base-tooltip--docs#accessibility) attribute
+> handling.
 
 ## Overview
 
 The `v-b-toggle` directive can be used on interactive elements, such as buttons and to toggle the
-visibility state of the [`<b-collapse>`](/docs/components/collapse) component.
+visibility state of the [`<gl-collapse>`](?path=/docs/base-collapse--docs) component.
 
 Besides toggling the visibility of the target component, the directive automatically updates ARIA
 accessibility attributes on the element it is applied to so that they reflect the visibility state
@@ -141,6 +142,4 @@ via `v-model`, other controls with `v-b-toggle` directive, or CSS visibility).
 
 ## See also
 
-- [`<b-collapse>`](/docs/components/collapse) Collapsible content with accordion support
-- [`<b-navbar-toggle>`](/docs/components/navbar#b-navbar-toggle-and-b-collapse-is-nav) Navbar
-  hamburger toggle button (based on `v-b-toggle` directive)
+- [collapse](?path=/docs/base-collapse--docs) Collapsible content with accordion support

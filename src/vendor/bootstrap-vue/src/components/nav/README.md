@@ -277,18 +277,18 @@ Use the `<b-nav-form>` child component to place an _inline_ form into the nav:
 <!-- b-nav-form.vue -->
 ```
 
-Refer to the [`<b-form>` inline](/docs/components/form#inline-form) documentation for additional
-details on placing form controls.
+Refer to the [`<gl-form>` inline](?path=/docs/base-form-form--docs#inline-formm) documentation for
+additional details on placing form controls.
 
 ## Tabbed local content support
 
-See the [`<b-tabs>`](/docs/components/tabs) component for creating tabbable panes of local content
-(not suited for navigation).
+See the [`<gl-tabs>`](?path=/docs/base-tabs--docs) component for creating tabbable panes of local
+content (not suited for navigation).
 
 ## Card integration
 
-Use a `<b-nav>` in a [`<b-card>`](/docs/components/card) header, by enabling the `card-header` prop
-on `<b-nav>` and setting either the `pills` or `tabs` props:
+Use a `<b-nav>` in a [`<gl-card>`](?path=/docs/base-card--docs) header, by enabling the
+`card-header` prop on `<b-nav>` and setting either the `pills` or `tabs` props:
 
 **Tabs style:**
 
@@ -453,9 +453,10 @@ generated.
 
 Note that navigation bars, even if visually styled as tabs, should **not** be given
 `role="tablist"`, `role="tab"` or `role="tabpanel"` attributes. These are only appropriate for
-[tabbed interfaces](/docs/components/tabs) that do not change the URL or `$route`, as described in
-the [WAI ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#tabpanel). See
-[`<b-tabs>`](/docs/components/tabs) for dynamic tabbed interfaces that are compliant with WAI ARIA.
+[tabbed interfaces](?path=/docs/base-tabs--docs) that do not change the URL or `$route`, as
+described in the [WAI ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#tabpanel).
+See [`<gl-tabs>`](?path=/docs/base-tabs--docs) for dynamic tabbed interfaces that are compliant with
+WAI ARIA.
 
 Tabbed interfaces should avoid using dropdown menus, as this causes both usability and accessibility
 issues:
@@ -468,13 +469,11 @@ issues:
 
 ## See also
 
-- [`<b-tabs>`](/docs/components/tabs) to create tabbable panes of local content, even via dropdown
+- [tabs](?path=/docs/base-tabs--docs) to create tabbable panes of local content, even via dropdown
   menus.
-- [`<b-navbar>`](/docs/components/navbar) a wrapper that positions branding, navigation, and other
-  elements in a concise header.
 - [`<b-dropdown>`](/docs/components/dropdown) for sub-components that you can place inside
   `<b-nav-item-dropdown>`
-- [Router Link Support reference](/docs/reference/router-links) for information about router-link
-  specific props available on `<b-nav-item>`
+- [Router Link Support reference](?path=/docs/base-link--docs#router-link-support) for information
+  about router-link specific props available on `<b-nav-item>`
 
 <!-- Component reference added automatically from component package.json -->

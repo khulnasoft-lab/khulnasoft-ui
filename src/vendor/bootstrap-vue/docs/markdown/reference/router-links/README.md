@@ -9,10 +9,10 @@
 
 In the following sections, we are using the `<b-link>` component to render router links. `<b-link>`
 is the building block of most of BootstrapVue's _actionable_ components. You could use any other
-component that supports link generation such as [`<b-link>`](/docs/components/link),
-[`<b-button>`](/docs/components/button), [`<b-avatar>`](/docs/components/avatar),
-[`<b-breadcrumb-item>`](/docs/components/breadcrumb),
-[`<b-list-group-item>`](/docs/components/list-group), [`<b-nav-item>`](/docs/components/nav),
+component that supports link generation such as [`<gl-link>`](?path=/docs/base-link--docs),
+[`<gl-button>`](?path=/docs/base-button--docs), [`<gl-avatar>`](?path=/docs/base-avatar--docs),
+[`<b-breadcrumb-item>`](?path=/docs/base-breadcrumb--docs),
+[`<b-list-group-item>`](/docs/components/list-group), [`<b-nav-item>`](?path=/docs/base-nav--docs),
 [`<b-dropdown-item>`](/docs/components/dropdown), and
 [`<b-pagination-nav>`](/docs/components/pagination-nav). Note that not all props are available on
 all components. Refer to the respective component documentation for details.

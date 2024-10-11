@@ -6,6 +6,8 @@ import GlLink from '../../link/link.vue';
 import GlFormInput from '../form_input/form_input.vue';
 import GlFormTextarea from '../form_textarea/form_textarea.vue';
 import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-group/README.md';
+import BVueReadmeLayout from '../../../../vendor/bootstrap-vue/src/components/layout/README.md';
+import BVueReadmeSettings from '../../../../vendor/bootstrap-vue/docs/markdown/reference/settings/README.md';
 import readme from './form_group.md';
 import GlFormGroup from './form_group.vue';
 
@@ -183,7 +185,7 @@ export default {
   component: GlFormGroup,
   parameters: {
     bootstrapComponent: 'b-form-group',
-    bootstrapDocs: BVueReadme,
+    bootstrapDocs: BVueReadme + BVueReadmeLayout + BVueReadmeSettings,
     docs: {
       description: {
         component: readme,

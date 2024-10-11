@@ -84,7 +84,8 @@ occupy in the row via the `content-cols` and `content-cols-{breakpoint}` props.
 When using both, the `label-cols` and `content-cols` props, make sure that the total amount of
 columns doesn't exceed `12`.
 
-See the [Layout and Grid System](/docs/components/layout#how-it-works) docs for further information.
+See the [Layout and Grid System](?path=/docs/base-form-form-group--docs#how-it-works) docs for
+further information.
 
 | Prop              | Description                                                                           |
 | ----------------- | ------------------------------------------------------------------------------------- |
@@ -165,7 +166,7 @@ Alignment has no effect if the `label-sr-only` prop is set.
 
 Optional descriptive text which is always shown with the `.text-muted` class by setting the
 `description` prop or using the named slot `description`. The description text is rendered using the
-[`<b-form-text>`](/docs/components/form#helper-components) form sub-component.
+[`<b-form-text>`](?path=/docs/base-form-form--docs#helper-components) form sub-component.
 
 ## Nested form groups
 
@@ -281,7 +282,8 @@ Show optional invalid state feedback text to provide textual state feedback (htm
 setting the prop `invalid-feedback` or using the named slot `invalid-feedback`.
 
 Invalid feedback is rendered using the
-[`<b-form-invalid-feedback>`](/docs/components/form#helper-components) form sub-component.
+[`<b-form-invalid-feedback>`](?path=/docs/base-form-form--docs#helper-components) form
+sub-component.
 
 ### Valid feedback
 
@@ -289,7 +291,7 @@ Show optional valid state feedback text to provide textual state feedback (html 
 setting the prop `valid-feedback` or using the named slot `valid-feedback`.
 
 Valid feedback is rendered using the
-[`<b-form-valid-feedback>`](/docs/components/form#helper-components) form sub-component.
+[`<b-form-valid-feedback>`](?path=/docs/base-form-form--docs#helper-components) form sub-component.
 
 ### Feedback style
 
