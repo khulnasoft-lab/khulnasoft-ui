@@ -26,6 +26,10 @@ export const i18n = {
   TOOL_DESCRIPTION: translate('GlDuoChatDrawer.toolDescription', 'Description'),
   CURRENT_CHAT_TITLE: translate('GlDuoChatDrawer.currentChatTitle', 'Chat Details'),
   TOOL_PARAMETERS: translate('GlDuoChatDrawer.toolParameters', 'Parameters'),
+  UPDATE_CUSTOM_TOOL: translate('GlDuoChatDrawer.updateCustomTool', 'Update Custom Tool'),
+  DELETE_CUSTOM_TOOL: translate('GlDuoChatDrawer.deleteCustomTool', 'Delete Custom Tool'),
+  EDIT: translate('GlDuoChatDrawer.edit', 'Edit'),
+  DELETE: translate('GlDuoChatDrawer.delete', 'Delete'),
 };
 
 export default {
@@ -113,6 +117,7 @@ export default {
         { key: 'name', label: 'Tool Name' },
         { key: 'enabled', label: 'Enabled' },
         { key: 'description', label: 'Description' },
+        { key: 'actions', label: 'Actions' },
         { key: 'path', label: 'Path' },
       ],
       showNewToolModal: false,
@@ -130,6 +135,12 @@ export default {
       },
       modalActionCancel: {
         text: 'Cancel',
+      },
+      showEditToolModal: false,
+      editingTool: null,
+      modalActionUpdate: {
+        text: this.$options.i18n.UPDATE_CUSTOM_TOOL,
+        attributes: { variant: 'confirm' },
       },
     };
   },
@@ -183,6 +194,24 @@ export default {
       const formattedTime = dateObj.toLocaleTimeString();
       return `${formattedDate} ${formattedTime}`;
     },
+    openEditToolModal(tool) {
+      this.editingTool = { ...tool };
+      this.showEditToolModal = true;
+    },
+
+    closeEditToolModal() {
+      this.showEditToolModal = false;
+      this.editingTool = null;
+    },
+
+    updateCustomTool() {
+      this.$emit('update-custom-tool', this.editingTool);
+      this.closeEditToolModal();
+    },
+
+    deleteCustomTool(tool) {
+        this.$emit('delete-custom-tool', tool);
+    },
   },
   i18n,
 };
@@ -235,6 +264,24 @@ export default {
             <gl-table-lite :items="customTools" :fields="customToolFields">
               <template #cell(enabled)="{ item }">
                 <gl-toggle :value="item.enabled" label="" @change="onToolToggle(item)" />
+              </template>
+              <template #cell(actions)="{ item }">
+                <gl-button
+                  category="tertiary"
+                  variant="link"
+                  size="small"
+                  icon="pencil"
+                  :title="$options.i18n.EDIT"
+                  @click="openEditToolModal(item)"
+                />
+                <gl-button
+                  category="tertiary"
+                  variant="link"
+                  size="small"
+                  icon="remove"
+                  :title="$options.i18n.DELETE"
+                  @click="deleteCustomTool(item)"
+                />
               </template>
             </gl-table-lite>
             <gl-button
@@ -292,7 +339,32 @@ export default {
           <gl-form-input id="new-tool-description" v-model="newTool.description" required />
         </gl-form-group>
         <gl-form-group :label="$options.i18n.TOOL_PARAMETERS" label-for="new-tool-parameters">
-          <gl-form-textarea id="new-tool-parameters" v-model="newTool.parameters" required />
+          <gl-form-textarea id="new-tool-parameters" v-model="newTool.parameters" required :no-resize="false" :rows="15" />
+        </gl-form-group>
+      </gl-form>
+    </gl-modal>
+    <gl-modal
+      :visible="showEditToolModal"
+      :modal-id="'edit-tool-modal'"
+      :title="$options.i18n.UPDATE_CUSTOM_TOOL"
+      :action-primary="modalActionUpdate"
+      :action-cancel="modalActionCancel"
+      @primary="updateCustomTool"
+      @cancel="closeEditToolModal"
+      @hidden="closeEditToolModal"
+    >
+      <gl-form v-if="editingTool">
+        <gl-form-group :label="$options.i18n.TOOL_NAME" label-for="edit-tool-name">
+          <gl-form-input id="edit-tool-name" v-model="editingTool.name" required />
+        </gl-form-group>
+        <gl-form-group :label="$options.i18n.TOOL_PATH" label-for="edit-tool-path">
+          <gl-form-input id="edit-tool-path" v-model="editingTool.path" required />
+        </gl-form-group>
+        <gl-form-group :label="$options.i18n.TOOL_DESCRIPTION" label-for="edit-tool-description">
+          <gl-form-input id="edit-tool-description" v-model="editingTool.description" required />
+        </gl-form-group>
+        <gl-form-group :label="$options.i18n.TOOL_PARAMETERS" label-for="edit-tool-parameters">
+          <gl-form-textarea id="edit-tool-parameters" v-model="editingTool.parameters" required :no-resize="false" :rows="15" />
         </gl-form-group>
       </gl-form>
     </gl-modal>

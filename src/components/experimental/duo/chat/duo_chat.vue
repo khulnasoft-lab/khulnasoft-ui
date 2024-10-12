@@ -600,6 +600,12 @@ export default {
     onAddCustomTool(tool) {
       this.$emit('add-custom-tool', tool);
     },
+    onDeleteCustomTool(tool) {
+      this.$emit('delete-custom-tool', tool);
+    },
+    onUpdateCustomTool(tool) {
+      this.$emit('update-custom-tool', tool);
+    },
   },
   i18n,
   emptySvg,
@@ -660,6 +666,8 @@ export default {
         @new-chat="onNewChat"
         @tool-updated="onToolUpdated"
         @add-custom-tool="onAddCustomTool"
+        @delete-custom-tool="onDeleteCustomTool"
+        @update-custom-tool="onUpdateCustomTool"
       />
     </header>
 
