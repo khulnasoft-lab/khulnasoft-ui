@@ -226,6 +226,7 @@ export default {
       }
     },
     onInsertCodeSnippet(e) {
+      console.log('onInsertCodeSnippet', e);
       this.$emit('insert-code-snippet', e);
     },
   },
