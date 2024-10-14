@@ -61,8 +61,9 @@
     "lint": "eslint --ext .js,.md,.vue ./",
     "prepare": "yarn run build",
     "prettify": "prettier --write '**/*.{js,json,md,scss,ts,vue}'",
-    "test": "yarn run test:lint && yarn run test:unit",
+    "test": "yarn run test:meta && yarn run test:lint && yarn run test:unit",
     "test:lint": "yarn run lint",
+    "test:meta": "scripts/check-meta.sh",
     "test:unit": "jest",
     "watch": "rollup -c scripts/rollup.config.js --watch"
   },
@@ -103,7 +104,6 @@
     "eslint-plugin-vue": "^7.9.0",
     "improved-yarn-audit": "^3.0.0",
     "jest": "^26.6.3",
-    "jiti": "^1.9.2",
     "lodash": "^4.17.21",
     "postcss": "^8.2.15",
     "postcss-cli": "^8.3.1",

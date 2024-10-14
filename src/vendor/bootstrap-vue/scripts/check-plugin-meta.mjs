@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 
-import fs from 'fs'
-import path from 'path'
-import assert from 'assert'
-import startCase from 'lodash/startCase'
-import { promisify } from 'util'
+import { readFile, readdir, stat } from 'node:fs/promises'
+import path from 'node:path'
+import assert from 'node:assert'
+import startCase from 'lodash/startCase.js'
 
-const readDir = promisify(fs.readdir)
-const stat = promisify(fs.stat)
-
-const baseDir = path.resolve(__dirname, '..')
+const baseDir = path.resolve(import.meta.dirname, '..')
 const componentsDir = path.resolve(baseDir, 'src/components')
+
+async function readJSON(path) {
+  const content = await readFile(path, 'utf-8')
+  return JSON.parse(content)
+}
 
 const verbose = process.argv.includes('-v')
 
@@ -36,7 +37,7 @@ const checkPluginMeta = async plugin => {
   }
 
   const pluginName = getPluginName(plugin)
-  const files = await readDir(pluginDir)
+  const files = await readdir(pluginDir)
   const componentModules = files.filter(f => isComponentModule(f)).map(file => {
     if (verbose && !UNPREFIXED_PLUGINS.includes(pluginName) && !file.startsWith(pluginName)) {
       console.warn(`Found unexpected unprefixed module ${file} for plugin ${plugin}`)
@@ -44,7 +45,7 @@ const checkPluginMeta = async plugin => {
     return file.replace(/\.js/, '')
   })
 
-  const { private: isPrivate, meta } = await import(`${pluginDir}/package.json`)
+  const { private: isPrivate, meta } = await readJSON(`${pluginDir}/package.json`)
   if (isPrivate || !meta) {
     return
   }
@@ -84,7 +85,7 @@ const checkPluginMeta = async plugin => {
 }
 
 async function main() {
-  const plugins = await readDir(componentsDir)
+  const plugins = await readdir(componentsDir)
   await Promise.all(plugins.map(plugin => checkPluginMeta(plugin)))
 }
 

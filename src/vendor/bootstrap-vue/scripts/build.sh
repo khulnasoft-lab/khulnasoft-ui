@@ -8,7 +8,7 @@ echo "Building BootstrapVue ${BV_VERSION}"
 echo ''
 
 echo 'Checking plugin metadata...'
-yarn jiti ./scripts/check-plugin-meta || exit 1
+node ./scripts/check-plugin-meta.mjs || exit 1
 echo 'Done.'
 echo ''
 
