@@ -179,6 +179,7 @@ export default {
       }"
       class="gl-toggle gl-shrink-0"
       type="button"
+      :disabled="disabled"
       @click.prevent="toggleFeature"
     >
       <gl-loading-icon v-if="isLoading" color="dark" class="toggle-loading" />
