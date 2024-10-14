@@ -129,7 +129,6 @@ describe('b-popover', () => {
   })
 
   it('initially open has expected structure', async () => {
-    jest.useFakeTimers()
     const wrapper = mount(App, {
       attachTo: document.body,
       propsData: {

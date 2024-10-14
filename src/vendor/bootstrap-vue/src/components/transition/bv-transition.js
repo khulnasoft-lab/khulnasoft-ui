@@ -42,6 +42,8 @@ export const props = {
   transProps: makeProp(PROP_TYPE_OBJECT)
 }
 
+const hasAnimateSupport = Boolean(Element.prototype.animate)
+
 // --- Main component ---
 
 // @vue/component
@@ -67,8 +69,19 @@ export const BVTransition = /*#__PURE__*/ extend({
     transProps = {
       mode: props.mode,
       ...transProps,
-      // We always need `css` true
-      css: true
+      /*
+       bootstrap-vue says: We always need `css` true
+
+       @gitlab/ui says: OMG. THE FREAKING TRANSITIONS.
+       So apparently jsdom doesn't implement animations (who can blame them)
+       but a Vue Transition relies on the native animationend/transitionend
+       events in order to fire onAfterLeave. jsdom will never fire the `onAfterLeave`
+       which is relied on by e.g. the tooltip component to do it's `hidden` logic.
+
+       So if in specs, we set `css: false`, everything will work as expected.
+       The best way we have found is to do a feature detection on `Element.prototype.animate`
+       */
+      css: hasAnimateSupport
     }
 
     const dataCopy = { ...data }

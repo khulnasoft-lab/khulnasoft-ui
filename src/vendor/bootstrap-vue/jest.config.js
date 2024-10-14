@@ -19,5 +19,7 @@ module.exports = {
   testEnvironmentOptions: {
     pretendToBeVisual: true
   },
+  testEnvironment: 'jsdom',
+  testRunner: 'jest-circus/runner',
   setupFilesAfterEnv: ['./tests/setup.js']
 }

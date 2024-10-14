@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { waitNT, waitRAF } from '../../../tests/utils'
+import { ensureEventEmitted, waitNT, waitRAF } from '../../../tests/utils'
 import { BToast } from './toast'
 
 describe('b-toast', () => {
@@ -217,14 +217,14 @@ describe('b-toast', () => {
   })
 
   it('auto-hide works', async () => {
-    jest.useFakeTimers()
     const wrapper = mount(BToast, {
       attachTo: document.body,
       propsData: {
         static: true,
         noAutoHide: false,
         visible: true,
-        title: 'title'
+        title: 'title',
+        autoHideDelay: 1000
       },
       slots: {
         default: 'content'
@@ -232,10 +232,7 @@ describe('b-toast', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+
     await waitNT(wrapper.vm)
     await waitRAF()
     await waitNT(wrapper.vm)
@@ -244,19 +241,10 @@ describe('b-toast', () => {
     expect(wrapper.element.tagName).toBe('DIV')
     expect(wrapper.vm.$_dismissTimer).not.toEqual(null)
 
-    jest.runOnlyPendingTimers()
+    await ensureEventEmitted(wrapper, 'hidden')
 
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-
-    expect(wrapper.element.nodeType).toBe(Node.COMMENT_NODE)
     expect(wrapper.vm.$_dismissTimer).toBe(null)
+    expect(wrapper.element.nodeType).toBe(Node.COMMENT_NODE)
 
     wrapper.destroy()
   })

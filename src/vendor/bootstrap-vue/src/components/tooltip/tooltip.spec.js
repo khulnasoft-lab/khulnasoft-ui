@@ -1,5 +1,5 @@
 import { createWrapper, mount } from '@vue/test-utils'
-import { waitNT, waitRAF } from '../../../tests/utils'
+import { ensureEventEmitted, waitNT, waitRAF } from '../../../tests/utils'
 import { BTooltip } from './tooltip'
 
 const MODAL_CLOSE_EVENT = 'bv::modal::hidden'
@@ -60,11 +60,15 @@ const App = {
   }
 }
 
-// Note: `wrapper.destroy()` MUST be called at the end of each test in order for
-// the next test to function properly!
+/**
+ * @gitlab/ui Note: These specs have been rewritten to be working with jest >= 29
+ * Instead of relying on an arcane mix of nextTick and waiting on requestAnimationFrame
+ * we are now waiting for certain events to happen
+ */
 describe('b-tooltip', () => {
   const originalCreateRange = document.createRange
   const origGetBCR = Element.prototype.getBoundingClientRect
+  let wrapper
 
   beforeEach(() => {
     // https://github.com/FezVrasta/popper.js/issues/478#issuecomment-407422016
@@ -91,15 +95,16 @@ describe('b-tooltip', () => {
     }))
   })
 
-  afterEach(() => {
+  afterEach(async () => {
     // Reset overrides
     document.createRange = originalCreateRange
     Element.prototype.getBoundingClientRect = origGetBCR
-    return waitRAF()
+    await waitRAF()
+    return wrapper.destroy()
   })
 
   it('has expected default structure', async () => {
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click'
@@ -130,13 +135,10 @@ describe('b-tooltip', () => {
     const $tipHolder = wrapper.findComponent(BTooltip)
     expect($tipHolder.exists()).toBe(true)
     expect($tipHolder.element.nodeType).toEqual(Node.COMMENT_NODE)
-
-    wrapper.destroy()
   })
 
   it('initially open has expected structure', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -149,10 +151,6 @@ describe('b-tooltip', () => {
 
     expect(wrapper.vm).toBeDefined()
     await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
 
     expect(wrapper.element.tagName).toBe('ARTICLE')
     expect(wrapper.attributes('id')).toBeDefined()
@@ -185,11 +183,7 @@ describe('b-tooltip', () => {
 
     // Hide the tooltip
     await wrapper.setProps({ show: false })
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     expect($button.attributes('aria-describedby')).toBeUndefined()
 
@@ -199,11 +193,7 @@ describe('b-tooltip', () => {
 
     // Show the tooltip
     await wrapper.setProps({ show: true })
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
-    await waitRAF()
 
     expect($button.attributes('aria-describedby')).toBeDefined()
 
@@ -214,13 +204,10 @@ describe('b-tooltip', () => {
     expect(tip2.tagName).toEqual('DIV')
     expect(tip2.classList.contains('tooltip')).toBe(true)
     expect(tip2.classList.contains('b-tooltip')).toBe(true)
-
-    wrapper.destroy()
   })
 
   it('title prop is reactive', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -231,14 +218,6 @@ describe('b-tooltip', () => {
 
     expect(wrapper.vm).toBeDefined()
     await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
 
     expect(wrapper.element.tagName).toBe('ARTICLE')
     expect(wrapper.attributes('id')).toBeDefined()
@@ -273,7 +252,7 @@ describe('b-tooltip', () => {
 
     // Change the title prop
     await wrapper.setProps({ title: 'world' })
-    await waitRAF()
+    await waitNT(wrapper.vm)
     await waitRAF()
 
     // Tooltip element should still be in the document
@@ -282,13 +261,10 @@ describe('b-tooltip', () => {
     expect($tip.classes()).toContain('b-tooltip')
     // Should contain the new updated content
     expect($tip.text()).toContain('world')
-
-    wrapper.destroy()
   })
 
   it('providing the trigger element by function works', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         target: () => wrapper.vm.$refs.target,
@@ -303,9 +279,6 @@ describe('b-tooltip', () => {
     expect(wrapper.vm).toBeDefined()
     await waitNT(wrapper.vm)
     await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
 
     expect(wrapper.element.tagName).toBe('ARTICLE')
     expect(wrapper.attributes('id')).toBeDefined()
@@ -324,11 +297,7 @@ describe('b-tooltip', () => {
 
     // Activate tooltip by trigger
     await $button.trigger('click')
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'shown')
 
     expect($button.attributes('id')).toBeDefined()
     expect($button.attributes('id')).toEqual('foo')
@@ -343,13 +312,10 @@ describe('b-tooltip', () => {
     expect(tip.tagName).toEqual('DIV')
     expect(tip.classList.contains('tooltip')).toBe(true)
     expect(tip.classList.contains('b-tooltip')).toBe(true)
-
-    wrapper.destroy()
   })
 
   it('activating trigger element (click) opens tooltip', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -363,9 +329,6 @@ describe('b-tooltip', () => {
     expect(wrapper.vm).toBeDefined()
     await waitNT(wrapper.vm)
     await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
 
     expect(wrapper.element.tagName).toBe('ARTICLE')
     expect(wrapper.attributes('id')).toBeDefined()
@@ -384,11 +347,7 @@ describe('b-tooltip', () => {
 
     // Activate tooltip by trigger
     await $button.trigger('click')
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'shown')
 
     expect($button.attributes('id')).toBeDefined()
     expect($button.attributes('id')).toEqual('foo')
@@ -403,13 +362,10 @@ describe('b-tooltip', () => {
     expect(tip.tagName).toEqual('DIV')
     expect(tip.classList.contains('tooltip')).toBe(true)
     expect(tip.classList.contains('b-tooltip')).toBe(true)
-
-    wrapper.destroy()
   })
 
   it('activating trigger element (focus) opens tooltip', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'focus',
@@ -422,13 +378,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -449,11 +398,7 @@ describe('b-tooltip', () => {
 
     // Activate tooltip by trigger
     await $button.trigger('focusin')
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'shown')
 
     expect($button.attributes('id')).toBeDefined()
     expect($button.attributes('id')).toEqual('foo')
@@ -470,24 +415,18 @@ describe('b-tooltip', () => {
     expect(tip.classList.contains('b-tooltip')).toBe(true)
 
     // Deactivate tooltip by trigger
+    expect($tipHolder.emitted('hidden')).toBeFalsy()
     await $button.trigger('focusout', { relatedTarget: document.body })
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     // Tooltip element should not be in the document
     expect($button.attributes('aria-describedby')).toBeUndefined()
     expect(document.body.contains(tip)).toBe(false)
     expect(document.getElementById(adb)).toBe(null)
-
-    wrapper.destroy()
   })
 
   it('activating trigger element (hover) opens tooltip', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'hover',
@@ -501,11 +440,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -526,11 +460,7 @@ describe('b-tooltip', () => {
 
     // Activate tooltip by trigger
     await $button.trigger('mouseenter')
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'shown')
 
     expect($button.attributes('id')).toBeDefined()
     expect($button.attributes('id')).toEqual('foo')
@@ -548,25 +478,16 @@ describe('b-tooltip', () => {
 
     // Deactivate tooltip by trigger
     await $button.trigger('mouseleave', { relatedTarget: document.body })
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     // Tooltip element should not be in the document
     expect($button.attributes('aria-describedby')).toBeUndefined()
     expect(document.body.contains(tip)).toBe(false)
     expect(document.getElementById(adb)).toBe(null)
-
-    wrapper.destroy()
   })
 
   it('disabled tooltip does not open on trigger', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -579,11 +500,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -601,35 +517,24 @@ describe('b-tooltip', () => {
     // b-tooltip wrapper
     const $tipHolder = wrapper.findComponent(BTooltip)
     expect($tipHolder.exists()).toBe(true)
+    expect($tipHolder.emitted('enabled')).toBeUndefined()
 
     // Try to activate tooltip by trigger
     await $button.trigger('click')
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
     // Tooltip should not have opened
     expect($button.attributes('aria-describedby')).toBeUndefined()
+    expect($tipHolder.emitted('shown')).toBeUndefined()
 
     // Now enable the tooltip
     await wrapper.setProps({ disabled: false })
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    expect($tipHolder.emitted('enabled').length).toBe(1)
 
     // Try to activate tooltip by trigger
     await $button.trigger('click')
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'shown')
 
     expect($button.attributes('aria-describedby')).toBeDefined()
     const adb = $button.attributes('aria-describedby')
@@ -642,33 +547,13 @@ describe('b-tooltip', () => {
     expect(tip.classList.contains('tooltip')).toBe(true)
 
     // Now disable the tooltip
+    expect($tipHolder.emitted('disabled').length).toBe(2)
     await wrapper.setProps({ disabled: true })
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-
-    // Try to close tooltip by trigger
-    await $button.trigger('click')
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-
-    // expect($button.attributes('aria-describedby')).toBeUndefined()
-
-    wrapper.destroy()
+    expect($tipHolder.emitted('disabled').length).toBe(3)
   })
 
   it('closes/opens on instance events', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -682,11 +567,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -711,18 +591,10 @@ describe('b-tooltip', () => {
     expect(tip.classList.contains('tooltip')).toBe(true)
     expect(tip.classList.contains('b-tooltip')).toBe(true)
 
-    // Hide the tooltip by emitting event on instance
-    const bTooltip = wrapper.findComponent(BTooltip)
-    expect(bTooltip.exists()).toBe(true)
-    bTooltip.vm.$emit('close')
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    expect($tipHolder.emitted('hidden')).toBeFalsy()
+    $tipHolder.vm.$emit('close')
 
+    await ensureEventEmitted($tipHolder, 'hidden')
     expect($button.attributes('aria-describedby')).toBeUndefined()
 
     // Tooltip element should not be in the document
@@ -730,26 +602,16 @@ describe('b-tooltip', () => {
     expect(document.getElementById(adb)).toBe(null)
 
     // Show the tooltip by emitting event on instance
-    bTooltip.vm.$emit('open')
-
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    $tipHolder.vm.$emit('open')
+    await ensureEventEmitted($tipHolder, 'shown')
 
     // Tooltip element should be in the document
     expect($button.attributes('aria-describedby')).toBeDefined()
     expect(document.getElementById(adb)).not.toBe(null)
-
-    wrapper.destroy()
   })
 
   it('closes on $root close specific ID event', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -763,11 +625,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -802,26 +659,17 @@ describe('b-tooltip', () => {
 
     // Hide the tooltip by emitting root event with correct ID (forceHide)
     wrapper.vm.$root.$emit('bv::hide::tooltip', 'foo')
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     expect($button.attributes('aria-describedby')).toBeUndefined()
 
     // Tooltip element should not be in the document
     expect(document.body.contains(tip)).toBe(false)
     expect(document.getElementById(adb)).toBe(null)
-
-    wrapper.destroy()
   })
 
   it('does not close on $root close specific other ID event', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -835,11 +683,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -873,11 +716,11 @@ describe('b-tooltip', () => {
 
     // Tooltip should ignore when ID is not its own
     wrapper.vm.$root.$emit('bv::hide::tooltip', 'wrong-id')
+    //TODO: No event in.
     await waitNT(wrapper.vm)
     await waitRAF()
     await waitNT(wrapper.vm)
     await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -886,13 +729,10 @@ describe('b-tooltip', () => {
     // Tooltip element should still be in the document
     expect(document.body.contains(tip)).toBe(true)
     expect(document.getElementById(adb)).not.toBe(null)
-
-    wrapper.destroy()
   })
 
   it('closes on $root close all event', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -906,11 +746,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -946,26 +781,17 @@ describe('b-tooltip', () => {
 
     // Hide the tooltip by emitting root event with no ID (forceHide)
     wrapper.vm.$root.$emit('bv::hide::tooltip')
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     expect($button.attributes('aria-describedby')).toBeUndefined()
 
     // Tooltip element should not be in the document
     expect(document.body.contains(tip)).toBe(false)
     expect(document.getElementById(adb)).toBe(null)
-
-    wrapper.destroy()
   })
 
   it('does not close on $root modal hidden event by default', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -979,11 +805,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -1022,7 +843,6 @@ describe('b-tooltip', () => {
     await waitRAF()
     await waitNT(wrapper.vm)
     await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -1031,13 +851,10 @@ describe('b-tooltip', () => {
     // Tooltip element should still be in the document
     expect(document.body.contains(tip)).toBe(true)
     expect(document.getElementById(adb)).not.toBe(null)
-
-    wrapper.destroy()
   })
 
   it('closes on $root modal hidden event when inside a modal', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -1052,11 +869,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -1091,27 +903,15 @@ describe('b-tooltip', () => {
 
     // Tooltip should ignore when ID is not its own
     wrapper.vm.$root.$emit(MODAL_CLOSE_EVENT, 'some-modal')
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     // Tooltip element should not be in the document
     expect(document.body.contains(tip)).toBe(false)
     expect(document.getElementById(adb)).toBe(null)
-
-    wrapper.destroy()
   })
 
   it('closes when trigger element is no longer visible', async () => {
-    jest.useFakeTimers()
-    // Prevent warns from appearing in the test logs
-    jest.spyOn(console, 'warn').mockImplementation(() => {})
-
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -1124,13 +924,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -1161,46 +954,11 @@ describe('b-tooltip', () => {
 
     // Hide the tooltip by removing the trigger button from DOM
     $button.element.parentNode.removeChild($button.element)
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    // The visibility check runs on an interval of 100ms
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     // Tooltip element should not be in the document
     expect(document.body.contains(tip)).toBe(false)
     expect(document.getElementById('adb')).toBe(null)
-
-    // Try and show element via root event (using ID of trigger button)
-    // Note that this generates a console warning
-    wrapper.vm.$root.$emit('bv::show::tooltip', 'foo')
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-
-    // Tooltip element should not be in the document
-    expect(document.getElementById(adb)).toBe(null)
 
     // Try and show element via root event (using show all)
     wrapper.vm.$root.$emit('bv::show::tooltip')
@@ -1208,22 +966,17 @@ describe('b-tooltip', () => {
     await waitRAF()
     await waitNT(wrapper.vm)
     await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
     // Tooltip element should not be in the document
     expect(document.getElementById(adb)).toBe(null)
-
-    wrapper.destroy()
   })
 
   it('closes when title is set to empty', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         show: true,
@@ -1232,13 +985,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -1275,19 +1021,15 @@ describe('b-tooltip', () => {
 
     // Change the title prop
     await wrapper.setProps({ title: '' })
-    await waitRAF()
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     // Tooltip element should not be in the document
     expect(document.body.contains(tip)).toBe(false)
     expect(document.getElementById('adb')).toBe(null)
-
-    wrapper.destroy()
   })
 
   it('applies noninteractive class based on noninteractive prop', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         show: true
@@ -1298,11 +1040,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -1331,17 +1068,14 @@ describe('b-tooltip', () => {
 
     // Enable 'noninteractive'. Should be reactive
     await wrapper.setProps({ noninteractive: true })
-    await waitRAF()
+    await waitNT(wrapper.vm)
     expect(tip.classList.contains('tooltip')).toBe(true)
     expect(tip.classList.contains('b-tooltip')).toBe(true)
     expect(tip.classList.contains('noninteractive')).toBe(true)
-
-    wrapper.destroy()
   })
 
   it('applies variant class', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         show: true,
@@ -1353,11 +1087,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -1383,17 +1112,15 @@ describe('b-tooltip', () => {
 
     // Change variant type. Should be reactive
     await wrapper.setProps({ variant: 'success' })
-    await waitRAF()
+    await waitNT(wrapper.vm)
+
     expect(tip.classList.contains('tooltip')).toBe(true)
     expect(tip.classList.contains('b-tooltip-success')).toBe(true)
     expect(tip.classList.contains('b-tooltip-danger')).toBe(false)
-
-    wrapper.destroy()
   })
 
   it('applies custom class', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         show: true,
@@ -1405,11 +1132,6 @@ describe('b-tooltip', () => {
     })
 
     expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
     await waitNT(wrapper.vm)
     await waitRAF()
 
@@ -1438,17 +1160,14 @@ describe('b-tooltip', () => {
 
     // Change custom class. Should be reactive
     await wrapper.setProps({ customClass: 'barbaz-class' })
-    await waitRAF()
+    await waitNT(wrapper.vm)
     expect(tip.classList.contains('tooltip')).toBe(true)
     expect(tip.classList.contains('barbaz-class')).toBe(true)
     expect(tip.classList.contains('foobar-class')).toBe(false)
-
-    wrapper.destroy()
   })
 
   it('saves title in data attribute on open and adds to back on hide', async () => {
-    jest.useFakeTimers()
-    const wrapper = mount(App, {
+    wrapper = mount(App, {
       attachTo: document.body,
       propsData: {
         triggers: 'click',
@@ -1463,9 +1182,6 @@ describe('b-tooltip', () => {
     expect(wrapper.vm).toBeDefined()
     await waitNT(wrapper.vm)
     await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    jest.runOnlyPendingTimers()
 
     expect(wrapper.element.tagName).toBe('ARTICLE')
     expect(wrapper.attributes('id')).toBeDefined()
@@ -1481,8 +1197,14 @@ describe('b-tooltip', () => {
     expect($button.attributes('data-original-title')).toBeUndefined()
     expect($button.attributes('aria-describedby')).toBeUndefined()
 
+    // <b-tooltip> wrapper
+    const $tipHolder = wrapper.findComponent(BTooltip)
+    expect($tipHolder.exists()).toBe(true)
+    expect($tipHolder.element.nodeType).toEqual(Node.COMMENT_NODE)
+
     // Show tooltip
     await wrapper.setProps({ show: true })
+    await ensureEventEmitted($tipHolder, 'shown')
 
     expect($button.attributes('title')).toBeDefined()
     expect($button.attributes('title')).toEqual('')
@@ -1491,11 +1213,6 @@ describe('b-tooltip', () => {
     expect($button.attributes('aria-describedby')).toBeDefined()
     // ID of the tooltip that will be in the body
     const adb = $button.attributes('aria-describedby')
-
-    // <b-tooltip> wrapper
-    const $tipHolder = wrapper.findComponent(BTooltip)
-    expect($tipHolder.exists()).toBe(true)
-    expect($tipHolder.element.nodeType).toEqual(Node.COMMENT_NODE)
 
     // Find the tooltip element in the document
     const tip = document.getElementById(adb)
@@ -1509,11 +1226,7 @@ describe('b-tooltip', () => {
 
     // Hide the tooltip
     await wrapper.setProps({ show: false })
-    await waitRAF()
-    await waitRAF()
-    jest.runOnlyPendingTimers()
-    await waitNT(wrapper.vm)
-    await waitRAF()
+    await ensureEventEmitted($tipHolder, 'hidden')
 
     expect($button.attributes('title')).toBeDefined()
     expect($button.attributes('title')).toEqual('bar')
@@ -1523,7 +1236,5 @@ describe('b-tooltip', () => {
     // Tooltip element should not be in the document
     expect(document.body.contains(tip)).toBe(false)
     expect(document.querySelector(adb)).toBe(null)
-
-    wrapper.destroy()
   })
 })
