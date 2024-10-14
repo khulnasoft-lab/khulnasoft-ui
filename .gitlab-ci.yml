@@ -312,9 +312,7 @@ bootstrap-vue:
     - yarn run test
 
 bootstrap-vue_vue3:
-  extends: [bootstrap-vue]
-  variables:
-    USE_VUE3: '1'
+  extends: [bootstrap-vue, .use_vue3]
 
 .unit_tests:
   extends: [.node, .yarn_install]
