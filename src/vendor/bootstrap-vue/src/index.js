@@ -51,9 +51,6 @@ export { BVToastPlugin } from './components/toast/helpers/bv-toast'
 
 // --- Export all individual components and component group plugins as named exports ---
 
-// export * from './components/badge'
-export { BBadge } from './components/badge/badge'
-
 // export * from './components/breadcrumb'
 export { BBreadcrumb } from './components/breadcrumb/breadcrumb'
 export { BBreadcrumbItem } from './components/breadcrumb/breadcrumb-item'

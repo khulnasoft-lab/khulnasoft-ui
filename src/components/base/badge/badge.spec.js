@@ -1,4 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
+import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
+import { badgeVariantOptions } from '../../../utils/constants';
 import Icon from '../icon/icon.vue';
 import Badge from './badge.vue';
 
@@ -6,6 +8,7 @@ describe('badge', () => {
   let wrapper;
 
   const findIcon = () => wrapper.findComponent(Icon);
+  const findLink = () => wrapper.findComponent(BLink);
 
   const createComponent = ({ attrs = {}, propsData = {}, slots } = {}) => {
     wrapper = shallowMount(Badge, {
@@ -72,6 +75,66 @@ describe('badge', () => {
 
     it('sets aria-label', () => {
       expect(wrapper.attributes('aria-label')).toBe('Success');
+    });
+  });
+
+  describe('wrapper element', () => {
+    it('uses "span" element by default', () => {
+      createComponent();
+
+      expect(wrapper.element.tagName).toBe('SPAN');
+    });
+
+    it('creates element based on "tag" if not link', () => {
+      createComponent({ propsData: { tag: 'div' } });
+
+      expect(wrapper.element.tagName).toBe('DIV');
+    });
+
+    it('uses a link if "href" prop is set, regardless of "tag" prop', () => {
+      createComponent({ propsData: { tag: 'div', href: 'https://www.gitlab.com' } });
+
+      expect(findLink().exists()).toBe(true);
+    });
+  });
+
+  describe('classes', () => {
+    it('sets default classes', () => {
+      createComponent({ slots: { default: 'slot-content' } });
+
+      expect(wrapper.classes()).toMatchObject(['gl-badge', 'badge', 'badge-pill', 'badge-muted']);
+    });
+
+    it.each(Object.values(badgeVariantOptions))(
+      'sets correct css class for variant %s',
+      (variant) => {
+        createComponent({ propsData: { variant } });
+
+        expect(wrapper.classes(`badge-${variant}`)).toBe(true);
+      }
+    );
+
+    it('sets "!gl-px-2" class when no child content is set', () => {
+      createComponent();
+
+      expect(wrapper.classes('!gl-px-2')).toBe(true);
+    });
+  });
+
+  describe('link badge', () => {
+    it('passes link props to BLink', () => {
+      const linkProps = {
+        href: 'https://www.gitlab.com',
+        rel: 'external',
+        target: '_blank',
+        active: true,
+        disabled: true,
+      };
+      createComponent({
+        propsData: linkProps,
+      });
+
+      expect(findLink().props()).toMatchObject(linkProps);
     });
   });
 });
