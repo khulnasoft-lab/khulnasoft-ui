@@ -1,6 +1,6 @@
-const useVue3 = 'USE_VUE3' in process.env
+const { USE_VUE_3 } = require('../../../use_vue3')
 
-const moduleNameMapper = useVue3
+const moduleNameMapper = USE_VUE_3
   ? {
       '^vue$': '@vue/compat',
       '^@vue/test-utils$': '@vue/test-utils-vue3'
@@ -15,7 +15,7 @@ module.exports = {
     '^.+\\.js$': 'babel-jest'
   },
   transformIgnorePatterns: ['/node_modules(?![\\\\/]vue-test-utils-compat[\\\\/])'],
-  coverageDirectory: useVue3 ? './coverage-vue3' : './coverage/',
+  coverageDirectory: USE_VUE_3 ? './coverage-vue3' : './coverage/',
   testEnvironmentOptions: {
     pretendToBeVisual: true
   },

@@ -8,7 +8,6 @@ module.exports = {
   ],
   plugins: ['jest', 'node', 'promise'],
   parserOptions: {
-    parser: 'babel-eslint',
     sourceType: 'module'
   },
   env: {
