@@ -13584,15 +13584,6 @@ sane@^5.0.1:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass-export@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/sass-export/-/sass-export-2.1.2.tgz#93cfac5eff20f47ca2f559d75bd12a5b370b81d6"
-  integrity sha512-p6bLjnD/0l+aoVkoToClGSUgIK3PsL3x9/lratp4kVtcvYqoM/JFCxnhcumW8lFVkF8o7K9kWQ6q8upC22S0dA==
-  dependencies:
-    glob "^7.1.6"
-    minimist "^1.2.5"
-    sass "^1.32.8"
-
 sass-loader@^10.2.0:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-10.2.1.tgz#17e51df313f1a7a203889ce8ff91be362651276e"
@@ -13614,7 +13605,7 @@ sass-true@^6.1.0:
     jest-diff "^27.5.1"
     lodash "^4.17.21"
 
-sass@^1.18.0, sass@^1.32.8, sass@^1.49.9:
+sass@^1.18.0, sass@^1.49.9:
   version "1.49.9"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.9.tgz#b15a189ecb0ca9e24634bae5d1ebc191809712f9"
   integrity sha512-YlYWkkHP9fbwaFRZQRXgDi3mXZShslVmmo+FVK3kHLUELHHEYrCmL1x6IUjC7wLS6VuJSAFXRQS/DxdsC4xL1A==
