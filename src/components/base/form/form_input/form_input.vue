@@ -42,16 +42,16 @@ export default {
         const { default: defaultWidth, ...nonDefaultWidths } = this.width;
 
         return [
-          // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+          // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
           ...(defaultWidth ? [`gl-form-input-${defaultWidth}`] : []),
           ...Object.entries(nonDefaultWidths).map(
-            // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+            // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
             ([breakpoint, width]) => `gl-${breakpoint}-form-input-${width}`
           ),
         ];
       }
 
-      // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+      // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
       return [`gl-form-input-${this.width}`];
     },
     listeners() {

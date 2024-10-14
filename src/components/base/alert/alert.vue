@@ -156,7 +156,7 @@ export default {
       }, []);
     },
     variantClass() {
-      // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+      // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
       return `gl-alert-${this.variant}`;
     },
   },

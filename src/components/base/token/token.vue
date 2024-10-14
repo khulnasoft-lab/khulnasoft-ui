@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     variantClass() {
-      // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+      // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
       return `gl-token-${this.variant}-variant`;
     },
     viewOnlyClass() {

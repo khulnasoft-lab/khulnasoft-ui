@@ -72,17 +72,17 @@ export default {
   computed: {
     sizeClasses() {
       if (isNumber(this.size)) {
-        // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+        // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
         return `gl-avatar-s${this.size}`;
       }
 
       const { default: defaultSize, ...nonDefaultSizes } = this.size;
 
       return [
-        // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+        // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
         `gl-avatar-s${defaultSize || avatarSizeOptions[1]}`,
         ...Object.entries(nonDefaultSizes).map(
-          // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+          // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
           ([breakpoint, size]) => `gl-${breakpoint}-avatar-s${size}`
         ),
       ];
@@ -96,7 +96,7 @@ export default {
        * Gets the remainder after dividing the 'entityId' by the number of available backgrounds.
        */
       const type = (this.entityId % IDENTICON_BG_COUNT) + 1;
-      // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+      // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
       return `gl-avatar-identicon-bg${type}`;
     },
     identiconText() {
