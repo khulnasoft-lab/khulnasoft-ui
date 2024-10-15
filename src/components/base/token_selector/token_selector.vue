@@ -187,13 +187,14 @@ export default {
       return false;
     },
     stateClass() {
-      if (this.state === null) {
-        return '!gl-shadow-inner-1-gray-400';
+      switch (this.state) {
+        case true:
+          return 'is-valid';
+        case false:
+          return 'is-invalid';
+        default:
+          return '';
       }
-
-      return this.state
-        ? 'is-valid !gl-shadow-inner-1-gray-400'
-        : 'is-invalid !gl-shadow-inner-1-red-500';
     },
     hasSelectedTokens() {
       return this.selectedTokens.length > 0;
@@ -387,8 +388,15 @@ export default {
   <div>
     <div
       ref="container"
-      class="gl-token-selector gl-form-input form-control form-control-plaintext gl-flex !gl-cursor-text gl-items-center !gl-px-3 !gl-py-2"
-      :class="[inputFocused ? 'gl-token-selector-focus-glow' : '', containerClass, stateClass]"
+      class="gl-token-selector gl-form-input gl-form-input-not-readonly form-control gl-flex !gl-cursor-text gl-items-center !gl-px-3 !gl-py-2"
+      :class="[
+        {
+          'gl-token-selector-focus-glow': inputFocused,
+          'gl-token-selector-view-only': viewOnly,
+        },
+        containerClass,
+        stateClass,
+      ]"
       @click="handleContainerClick"
     >
       <!-- @slot Optional content to display a placeholder when tokens list is empty
@@ -417,7 +425,7 @@ export default {
           <input
             ref="textInput"
             type="text"
-            class="gl-token-selector-input gl-h-auto gl-w-4/10 gl-grow gl-border-none gl-bg-transparent gl-px-1 gl-font-regular gl-text-base gl-leading-normal gl-text-gray-900 gl-outline-none"
+            class="gl-token-selector-input gl-h-auto gl-w-4/10 gl-grow gl-border-none gl-bg-transparent gl-px-1 gl-font-regular gl-text-base gl-leading-normal gl-text-default gl-outline-none"
             :value="inputText"
             :autocomplete="autocomplete"
             :aria-labelledby="ariaLabelledby"

@@ -174,6 +174,10 @@ describe('GlTokenSelector', () => {
         createComponent({ propsData: { viewOnly: true } });
       });
 
+      it('adds `gl-token-selector-view-only` class', () => {
+        expect(findContainer().classes()).toContain('gl-token-selector-view-only');
+      });
+
       it('passes `viewOnly` prop to GlTokenContainer', () => {
         expect(findTokenContainer().props('viewOnly')).toBe(true);
       });
@@ -289,19 +293,19 @@ describe('GlTokenSelector', () => {
 
     describe('state', () => {
       describe.each`
-        value    | expectedClasses
-        ${true}  | ${['is-valid', '!gl-shadow-inner-1-gray-400']}
-        ${false} | ${['is-invalid', '!gl-shadow-inner-1-red-500']}
-        ${null}  | ${['!gl-shadow-inner-1-gray-400']}
-      `('when `state` is `$value`', ({ value, expectedClasses }) => {
-        it(`adds \`${expectedClasses}\` to CSS classes`, () => {
+        value    | expectedClass   | unexpectedClass
+        ${true}  | ${'is-valid'}   | ${'is-invalid'}
+        ${false} | ${'is-invalid'} | ${'is-valid'}
+      `('when `state` is `$value`', ({ value, expectedClass, unexpectedClass }) => {
+        it(`adds \`${expectedClass}\` to CSS classes`, () => {
           createComponent({
             propsData: {
               state: value,
             },
           });
 
-          expect(findContainer().classes()).toEqual(expect.arrayContaining(expectedClasses));
+          expect(findContainer().classes()).toContain(expectedClass);
+          expect(findContainer().classes()).not.toContain(unexpectedClass);
         });
       });
 
