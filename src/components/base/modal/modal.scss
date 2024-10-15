@@ -1,7 +1,6 @@
 // variables
 $modal-body-height: 80px;
 $modal-body-line-height: 1.5;
-$modal-box-shadow: 0 4px 16px $t-gray-a-24;
 
 // mixins
 @mixin gl-tmp-modal-btn-group-ml {
@@ -38,7 +37,7 @@ body.modal-open {
   .modal-content {
     @apply gl-rounded-base;
     @apply gl-border-0;
-    box-shadow: $modal-box-shadow;
+    @apply gl-shadow-lg;
     background-color: var(--gl-background-color-overlap);
     color: var(--gl-text-color-default);
 
