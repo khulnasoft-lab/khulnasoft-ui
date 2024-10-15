@@ -496,6 +496,7 @@ $gl-control-background-color-concatenation: $gl-color-neutral-10; // Used for th
 $gl-control-background-color-disabled: $gl-color-neutral-10; // Used for disabled form control (checkbox, input, radio button, textarea) background.
 $gl-control-background-color-default: $gl-color-neutral-0; // Used for form control (input, radio button, checkbox, textarea) default background.
 $gl-token-background-color: $gl-color-neutral-100; // Used for the token background color.
+$gl-token-selector-token-container-token-background-color-focus: $gl-color-neutral-300; // Used for the background color of a token in a token-selector when it's token-container is in the focus state.
 $gl-tab-selected-indicator-color-default: $gl-color-blue-500; // Used for the selected indicator of a tab.
 $gl-spinner-segment-color-light: $gl-color-neutral-200; // Used for the animated segment of a loading spinner on a dark background.
 $gl-spinner-segment-color-default: $gl-color-neutral-700; // Used for the animated segment of a loading spinner.
