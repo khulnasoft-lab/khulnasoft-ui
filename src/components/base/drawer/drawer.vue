@@ -62,7 +62,7 @@ export default {
       return Boolean(this.$slots.footer);
     },
     variantClass() {
-      // eslint-disable-next-line @gitlab/tailwind -- Not a CSS utility
+      // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
       return `gl-drawer-${this.variant}`;
     },
   },
