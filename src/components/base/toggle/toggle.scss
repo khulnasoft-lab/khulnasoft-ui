@@ -89,7 +89,7 @@ $toggle-height: 2.5 * $grid-size;
   &:hover {
     color: var(--gl-toggle-switch-icon-color-unchecked-hover);
     background-color: var(--gl-action-strong-neutral-background-color-hover);
-    @include gl-focus($color: var(--gl-action-strong-neutral-border-color-hover), $important: true);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-neutral-border-color-hover);
   }
 
   &:focus {
@@ -150,10 +150,7 @@ $toggle-height: 2.5 * $grid-size;
     &:hover {
       color: var(--gl-toggle-switch-icon-color-checked-hover);
       background-color: var(--gl-action-strong-confirm-background-color-hover);
-      @include gl-focus(
-        $color: var(--gl-action-strong-confirm-border-color-hover),
-        $important: true
-      );
+      box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-confirm-border-color-hover);
     }
 
     &:focus {
