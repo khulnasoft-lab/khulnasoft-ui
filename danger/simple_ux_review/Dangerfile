@@ -13,7 +13,7 @@ FOUNDATION_UX_REVIEWERS = %w[
 COMPONENT_UX_MAP = {
   accordion: %w[rayana],
   alert: %w[andyvolpe],
-  badge: %w[pedroms],
+  badge: %w[seggenberger],
   banner: %w[andyvolpe],
   breadcrumb: %w[ameliabauerly],
   'broadcast-message': %w[jeldergl],
