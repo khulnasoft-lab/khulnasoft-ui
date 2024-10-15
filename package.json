@@ -157,7 +157,7 @@
     "esbuild": "^0.18.0",
     "eslint": "8.57.1",
     "eslint-import-resolver-jest": "3.0.2",
-    "eslint-plugin-cypress": "3.5.0",
+    "eslint-plugin-cypress": "3.6.0",
     "eslint-plugin-storybook": "0.9.0",
     "gitlab-api-async-iterator": "^1.3.1",
     "glob": "10.3.3",
