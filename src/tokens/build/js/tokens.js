@@ -691,6 +691,7 @@ export const GL_TOGGLE_SWITCH_ICON_COLOR_CHECKED_HOVER = '#1068bf'; // Used for 
 export const GL_TOGGLE_SWITCH_ICON_COLOR_CHECKED_FOCUS = '#1068bf'; // Used for the icon color of a checked toggle switch in the focus state.
 export const GL_TOGGLE_SWITCH_ICON_COLOR_CHECKED_ACTIVE = '#0b5cad'; // Used for the icon color of a checked toggle switch in the active state.
 export const GL_TOGGLE_SWITCH_ICON_COLOR_DISABLED = '#ececef'; // Used for the icon color of a disabled toggle switch.
+export const GL_TOKEN_SELECTOR_TOKEN_CONTAINER_TOKEN_BACKGROUND_COLOR_FOCUS = '#a4a3a8'; // Used for the background color of a token in a token-selector when it's token-container is in the focus state.
 export const GL_TOKEN_FOREGROUND_COLOR = '#3a383f'; // Used for the token foreground color.
 export const GL_TOKEN_BACKGROUND_COLOR = '#dcdcde'; // Used for the token background color.
 export const GL_CONTROL_BACKGROUND_COLOR_DEFAULT = '#fff'; // Used for form control (input, radio button, checkbox, textarea) default background.

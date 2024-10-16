@@ -21,8 +21,7 @@
     box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-hover);
   }
 
-  &:read-only,
-  &:not(:disabled):not(.form-control-plaintext):not([type='color']):read-only {
+  &:not(.gl-form-input-not-readonly):not(:disabled):not(.form-control-plaintext):not([type='color']):read-only {
     background: var(--gl-control-background-color-readonly);
     box-shadow: none;
   }
