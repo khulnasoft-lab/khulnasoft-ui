@@ -64,7 +64,7 @@ Twelve options are available for positioning: `top`, `topleft`, `topright`, `rig
 `rightbottom`, `bottom`, `bottomleft`, `bottomright`, `left`, `lefttop`, and `leftbottom` aligned.
 The default position is `top`. Positioning is relative to the trigger element.
 
-<div class="bd-example bd-example-tooltip-static">
+<section class="bd-example bd-example-tooltip-static">
   <div class="tooltip b-tooltip bs-tooltip-top bs-tooltip-top-docs" role="tooltip">
     <div class="arrow" style="left: calc(50% - 6px)"></div>
     <div class="tooltip-inner">Tooltip on the top</div>
@@ -113,7 +113,7 @@ The default position is `top`. Positioning is relative to the trigger element.
     <div class="arrow" style="top: 0px"></div>
     <div class="tooltip-inner">Tooltip on the leftbottom</div>
   </div>
-</div>
+</section>
 
 Refer to the [Tooltip directive](/docs/directives/tooltip/#positioning) documentation for live
 examples of positioning.
