@@ -61,7 +61,7 @@ Twelve options are available for positioning: `top`, `topleft`, `topright`, `rig
 `rightbottom`, `bottom`, `bottomleft`, `bottomright`, `left`, `lefttop`, and `leftbottom` aligned.
 Positioning is relative to the trigger element.
 
-<div class="bd-example bd-example-popover-static">
+<section class="bd-example bd-example-popover-static">
   <div class="popover b-popover bs-popover-top bs-popover-top-docs">
     <div class="arrow" style="left: calc(50% - 8px)"></div>
     <h3 class="popover-header">Popover top</h3>
@@ -163,7 +163,7 @@ Positioning is relative to the trigger element.
   </div>
 
   <div class="clearfix"></div>
-</div>
+</section>
 
 ## Triggers
 
