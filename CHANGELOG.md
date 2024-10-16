@@ -1,3 +1,24 @@
+# [97.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v96.3.0...v97.0.0) (2024-10-16)
+
+
+### Features
+
+* migrate GlProgressBar component ([c58a6c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/c58a6c8197388cd97e44c7b87a6ec87e5bf23b4a))
+
+
+### BREAKING CHANGES
+
+* Remove GlProgressBar's `animated`, `precision`,
+`showValue`, `showProgress`, `striped` props, and functionality to use
+the default slot.
+
+* Migrate GlProgressBar component so it does not depend
+on Bootstrap Vue's BProgress and BProgressBar components anymore
+* Remove Bootstrap Vue's BProgress, BProgressBar, styling, and docs
+* Include documentation for GlProgressBar
+* Update stories to include `height` and `max`
+* Update toast docs to remove mention of progress bar styling
+
 # [96.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v96.2.0...v96.3.0) (2024-10-11)
 
 
