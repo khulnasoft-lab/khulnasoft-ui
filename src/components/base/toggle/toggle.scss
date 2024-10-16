@@ -70,11 +70,15 @@ $toggle-height: 2.5 * $grid-size;
   position: relative;
   width: $toggle-width;
   height: $toggle-height;
-  @apply gl-outline-none;
   user-select: none;
+  box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-neutral-border-color-default);
   @apply gl-rounded-pill;
   @apply gl-duration-slow;
   @apply gl-leading-normal;
+
+  @media (forced-colors: active) {
+    border: 1px solid;
+  }
 
   &::selection,
   &::before::selection,
@@ -85,22 +89,22 @@ $toggle-height: 2.5 * $grid-size;
   &:hover {
     color: var(--gl-toggle-switch-icon-color-unchecked-hover);
     background-color: var(--gl-action-strong-neutral-background-color-hover);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-neutral-border-color-hover);
   }
 
   &:focus {
     color: var(--gl-toggle-switch-icon-color-unchecked-focus);
     background-color: var(--gl-action-strong-neutral-background-color-focus);
+    @include gl-focus($color: var(--gl-action-strong-neutral-border-color-focus), $important: true);
   }
 
   &:active {
     color: var(--gl-toggle-switch-icon-color-unchecked-active);
     background-color: var(--gl-action-strong-neutral-background-color-active);
-  }
-
-  &:active,
-  &:focus,
-  &:focus:active {
-    @apply gl-focus;
+    @include gl-focus(
+      $color: var(--gl-action-strong-neutral-border-color-active),
+      $important: true
+    );
   }
 
   .toggle-loading {
@@ -141,20 +145,30 @@ $toggle-height: 2.5 * $grid-size;
   &.is-checked {
     color: var(--gl-toggle-switch-icon-color-checked-default);
     background-color: var(--gl-action-strong-confirm-background-color-default);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-confirm-border-color-default);
 
     &:hover {
       color: var(--gl-toggle-switch-icon-color-checked-hover);
       background-color: var(--gl-action-strong-confirm-background-color-hover);
+      box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-confirm-border-color-hover);
     }
 
     &:focus {
       color: var(--gl-toggle-switch-icon-color-checked-focus);
       background-color: var(--gl-action-strong-confirm-background-color-focus);
+      @include gl-focus(
+        $color: var(--gl-action-strong-confirm-border-color-focus),
+        $important: true
+      );
     }
 
     &:active {
       color: var(--gl-toggle-switch-icon-color-checked-active);
       background-color: var(--gl-action-strong-confirm-background-color-active);
+      @include gl-focus(
+        $color: var(--gl-action-strong-confirm-border-color-active),
+        $important: true
+      );
     }
 
     .toggle-icon {
@@ -168,10 +182,17 @@ $toggle-height: 2.5 * $grid-size;
     @apply gl-cursor-not-allowed;
     color: var(--gl-action-disabled-background-color);
     background-color: var(--gl-action-disabled-background-color);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-disabled-border-color);
 
     .toggle-icon {
       color: var(--gl-action-disabled-background-color);
       background-color: var(--gl-action-disabled-foreground-color);
+    }
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-focus($color: var(--gl-action-disabled-border-color), $important: true);
     }
   }
 }
