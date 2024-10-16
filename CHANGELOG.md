@@ -1,3 +1,14 @@
+# [97.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.0.0...v97.1.0) (2024-10-16)
+
+
+### Features
+
+* **DesignTokens:** add token-selector design tokens ([54a79d3](https://gitlab.com/gitlab-org/gitlab-ui/commit/54a79d319a32fd7a117a68dd201ff69ffc0185af))
+* **glToggle:** add border color and disabled attribute on toggle when disabled ([9047a39](https://gitlab.com/gitlab-org/gitlab-ui/commit/9047a390676b1c87ddd2607f2175ae0e3b9e2cc8))
+* **GlToggle:** change border color for interactive pseudo-classes ([bd3d5c8](https://gitlab.com/gitlab-org/gitlab-ui/commit/bd3d5c8e305d7e44d143b98b935a7e146cf7ea83))
+* **GlToggle:** remove gl-focus on hover ([877326a](https://gitlab.com/gitlab-org/gitlab-ui/commit/877326a1aaed05ad5f84724b4732f7e85b5d6293))
+* **GlTokenSelector:** use design tokens in GlTokenSelector ([cc5b2bc](https://gitlab.com/gitlab-org/gitlab-ui/commit/cc5b2bc193cd63fe8b0caceafac45b20132ae01b))
+
 # [97.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v96.3.0...v97.0.0) (2024-10-16)
 
 
