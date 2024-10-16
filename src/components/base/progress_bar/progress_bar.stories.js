@@ -1,16 +1,22 @@
 import { progressBarVariantOptions } from '../../../utils/constants';
-import BVueReadme from '../../../vendor/bootstrap-vue/src/components/progress/README.md';
 import GlProgressBar from './progress_bar.vue';
 
-const generateProps = ({ value = 30, variant = progressBarVariantOptions.primary } = {}) => ({
+const generateProps = ({
+  value = 30,
+  variant = progressBarVariantOptions.primary,
+  height,
+  max = 100,
+} = {}) => ({
   value,
   variant,
+  height,
+  max,
 });
 
 const Template = (args, { argTypes }) => ({
   components: { GlProgressBar },
   props: Object.keys(argTypes),
-  template: '<gl-progress-bar :value="value" :variant="variant" />',
+  template: '<gl-progress-bar :value="value" :variant="variant" :height="height" :max="max" />',
 });
 
 export const Default = Template.bind({});
@@ -34,10 +40,6 @@ Variants.parameters = { controls: { disable: true } };
 export default {
   title: 'base/progress-bar',
   component: GlProgressBar,
-  parameters: {
-    bootstrapDocs: BVueReadme,
-    bootstrapComponent: 'b-progress',
-  },
   argTypes: {
     variant: {
       options: progressBarVariantOptions,

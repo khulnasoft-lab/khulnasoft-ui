@@ -1,15 +1,64 @@
 <script>
-import { BProgress } from '../../../vendor/bootstrap-vue/src/components/progress/progress';
+import { progressBarVariantOptions } from '../../../utils/constants';
+import { toFloat } from '../../../utils/number_utils';
 
 export default {
   name: 'GlProgressBar',
-  components: {
-    BProgress,
+  props: {
+    value: {
+      type: [Number, String],
+      required: false,
+      default: 0,
+    },
+    variant: {
+      type: String,
+      required: false,
+      default: 'primary',
+      validator: (value) => Object.keys(progressBarVariantOptions).includes(value),
+    },
+    max: {
+      type: [Number, String],
+      required: false,
+      default: 100,
+    },
+    height: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
-  inheritAttrs: false,
+  computed: {
+    progressHeight() {
+      return { height: this.height };
+    },
+    computedValue() {
+      return toFloat(this.value, 0);
+    },
+    computedMax() {
+      const max = toFloat(this.max, 100);
+      return max > 0 ? max : 100;
+    },
+    progressBarStyles() {
+      return {
+        transform: `scaleX(${this.computedValue / this.computedMax})`,
+      };
+    },
+    classes() {
+      return ['gl-progress', `bg-${this.variant}`];
+    },
+  },
 };
 </script>
 
 <template>
-  <b-progress v-bind="$attrs" class="gl-progress-bar" />
+  <div class="gl-progress-bar progress" :style="progressHeight">
+    <div
+      :class="classes"
+      :style="progressBarStyles"
+      role="progressbar"
+      aria-valuemin="0"
+      :aria-valuemax="String(computedMax)"
+      :aria-valuenow="computedValue"
+    ></div>
+  </div>
 </template>

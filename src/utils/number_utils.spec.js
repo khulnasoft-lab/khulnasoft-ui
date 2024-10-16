@@ -107,4 +107,28 @@ describe('number utils', () => {
       expect(numberUtils.formatNumberToLocale('222222.233', {}, 'de-de')).toEqual('222.222,233');
     });
   });
+
+  describe('toFloat', () => {
+    it.each`
+      value              | defaultValue | output
+      ${1}               | ${undefined} | ${1}
+      ${'1'}             | ${undefined} | ${1}
+      ${1.23}            | ${undefined} | ${1.23}
+      ${'1.23'}          | ${undefined} | ${1.23}
+      ${1e5}             | ${undefined} | ${100000}
+      ${'1e5'}           | ${undefined} | ${100000}
+      ${'256 foobar'}    | ${undefined} | ${256}
+      ${'256.78 foobar'} | ${undefined} | ${256.78}
+      ${'foo 256bar'}    | ${undefined} | ${NaN}
+      ${{}}              | ${undefined} | ${NaN}
+      ${[]}              | ${undefined} | ${NaN}
+      ${new Date()}      | ${undefined} | ${NaN}
+      ${null}            | ${undefined} | ${NaN}
+      ${undefined}       | ${undefined} | ${NaN}
+      ${null}            | ${0}         | ${0}
+      ${undefined}       | ${-1}        | ${-1}
+    `('toFloat($input, $defaultValue) === $output', ({ value, defaultValue, output }) => {
+      expect(numberUtils.toFloat(value, defaultValue)).toBe(output);
+    });
+  });
 });

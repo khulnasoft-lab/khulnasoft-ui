@@ -22,7 +22,7 @@ under the toast.
 
 ```html
 <template>
-  <div class="p-3 bg-secondary progress-bar-striped" style="min-height: 170px;">
+  <div class="p-3 bg-secondary" style="min-height: 170px;">
     <b-button class="mb-2" variant="primary" @click="$bvToast.show('example-toast')">
       Show toast
     </b-button>
@@ -36,8 +36,8 @@ under the toast.
 ```
 
 **Note:** we are using the `static` prop in the above example to render the toast in-place in the
-document, rather than transporting it to a `<b-toaster>` target container. And we have added classes
-`bg-secondary` and `progress-bar-striped` to the outer `<div>` for illustrative purposes of toast
+document, rather than transporting it to a `<b-toaster>` target container. And we have added class
+`bg-secondary` to the outer `<div>` for illustrative purposes of toast
 transparency only.
 
 ### Toast features and notes

@@ -118,3 +118,10 @@ export const formatNumberToLocale = (value, options = {}, locales = undefined) =
 
   return new Intl.NumberFormat(locales, options).format(value);
 };
+
+// Converts a value (string, number, etc.) to a number
+// Taken from bootstrap-vue
+export const toFloat = (value, defaultValue = NaN) => {
+  const float = parseFloat(value);
+  return Number.isNaN(float) ? defaultValue : float;
+};
