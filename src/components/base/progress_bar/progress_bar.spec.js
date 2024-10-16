@@ -26,7 +26,7 @@ describe('GlProgressBar', () => {
     it('renders child with expected classes and attributes', () => {
       const progress = findProgress();
 
-      expect(progress.classes()).toMatchObject(['gl-progress', 'bg-primary']);
+      expect(progress.classes()).toMatchObject(['gl-progress', 'gl-progress-bar-primary']);
       expect(progress.attributes('style')).toBe('transform: scaleX(0);');
       expect(progress.attributes('aria-label')).toBe('Progress bar');
       expect(progress.attributes('aria-valuemin')).toBe('0');
@@ -80,7 +80,10 @@ describe('GlProgressBar', () => {
       (variant) => {
         createWrapper({ variant });
 
-        expect(findProgress().classes()).toMatchObject(['gl-progress', `bg-${variant}`]);
+        expect(findProgress().classes()).toMatchObject([
+          'gl-progress',
+          `gl-progress-bar-${variant}`,
+        ]);
       }
     );
   });

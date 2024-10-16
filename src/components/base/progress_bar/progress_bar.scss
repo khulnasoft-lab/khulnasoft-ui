@@ -1,30 +1,30 @@
 .gl-progress-bar {
   background-color: var(--gl-progress-bar-track-color);
+}
   
-  .gl-progress {
-    @apply gl-flex-col;
-    @apply gl-justify-center;
-    @apply gl-w-full;
-    @apply gl-overflow-hidden;
-    @apply gl-text-center;
-    @apply gl-whitespace-nowrap;
-    transition: transform 0.6s $gl-easing-out-cubic;
-    transform-origin: left;
-  }
+.gl-progress {
+  @apply gl-flex-col;
+  @apply gl-justify-center;
+  @apply gl-w-full;
+  @apply gl-overflow-hidden;
+  @apply gl-text-center;
+  @apply gl-whitespace-nowrap;
+  transition: transform 0.6s $gl-easing-out-cubic;
+  transform-origin: left;
+}
 
-  .bg-primary {
-    background-color: var(--gl-progress-bar-indicator-color-default) !important;
-  }
+.gl-progress-bar-primary {
+  background-color: var(--gl-progress-bar-indicator-color-default);
+}
 
-  .bg-success {
-    background-color: var(--gl-progress-bar-indicator-color-success) !important;
-  }
+.gl-progress-bar-success {
+  background-color: var(--gl-progress-bar-indicator-color-success);
+}
 
-  .bg-warning {
-    background-color: var(--gl-progress-bar-indicator-color-warning) !important;
-  }
+.gl-progress-bar-warning {
+  background-color: var(--gl-progress-bar-indicator-color-warning);
+}
 
-  .bg-danger {
-    background-color: var(--gl-progress-bar-indicator-color-danger) !important;
-  }
+.gl-progress-bar-danger {
+  background-color: var(--gl-progress-bar-indicator-color-danger);
 }
