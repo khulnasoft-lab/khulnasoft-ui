@@ -186,7 +186,7 @@ $gl-font-size-compact-markdown-h1-md: px-to-rem(20px);
 // media xl (min-width: 1200px)
 $gl-font-size-compact-markdown-h1-xl: px-to-rem(23px);
 
-$border-color: $gray-100 !default;
+$border-color: $gl-border-color-default !default;
 
 // use px for borders rather than rem
 // we don't want borders to scale with font size
@@ -278,7 +278,18 @@ $modal-backdrop-opacity: 0.64;
 // Bootstrap overrides
 // these should ideally be moved further up in the file to the compoent-relevant sections
 // but they can wait here for now
-$body-color: $gl-text-color !default;
+$body-bg: $gl-background-color-default !default;
+$body-color: $gl-text-color-default !default;
+
+$input-bg: $gl-control-background-color-default !default;
+$input-focus-bg: $gl-control-background-color-default !default;
+$input-color: $gl-text-color-default !default;
+$input-group-addon-bg: var(--gl-control-background-color-concatenation) !default;
+
+$card-cap-bg: $gl-background-color-subtle !default;
+
+$yiq-text-dark: $gl-color-neutral-900 !default;
+$yiq-text-light: $gl-color-neutral-0 !default;
 $enable-validation-icons: false;
 
 $secondary: $gray-50;
