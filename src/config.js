@@ -34,6 +34,7 @@ try {
 }
 
 export const i18n = translationKeys;
+export const featureFlagsConfig = {};
 
 let configured = false;
 
@@ -44,7 +45,7 @@ let configured = false;
  * @template TValue=string
  * @property {undefined | Object} translations Generic translations for component labels to fall back to.
  */
-const setConfigs = ({ translations } = {}) => {
+const setConfigs = ({ translations, featureFlags } = {}) => {
   if (configured) {
     if (process.env.NODE_ENV === 'development') {
       throw new Error('GitLab UI can only be configured once!');
@@ -80,6 +81,10 @@ const setConfigs = ({ translations } = {}) => {
     }
 
     Object.assign(i18n, translations);
+  }
+
+  if (typeof featureFlags !== 'undefined') {
+    Object.assign(featureFlagsConfig, featureFlags);
   }
 };
 

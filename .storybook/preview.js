@@ -31,7 +31,7 @@ if (Vue.version.startsWith('3')) {
   });
 }
 
-setConfigs();
+setConfigs({ featureFlags: { USE_NEW_GL_BADGE: process.env.USE_NEW_GL_BADGE } });
 
 const theme = {
   brandTitle: 'GitLab UI',

@@ -2,8 +2,9 @@ import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/badge/README.md';
-import GlBadge from './badge.vue';
 import readme from './badge.md';
+// eslint-disable-next-line no-restricted-imports
+import GlBadge from './index';
 
 const template = `
     <gl-badge

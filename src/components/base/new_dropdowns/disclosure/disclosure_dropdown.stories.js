@@ -4,7 +4,7 @@ import {
   buttonVariantOptions,
   dropdownPlacements,
 } from '../../../../utils/constants';
-import GlBadge from '../../badge/badge.vue';
+import GlBadge from '../../badge';
 import GlToggle from '../../toggle/toggle.vue';
 import GlAvatar from '../../avatar/avatar.vue';
 import GlModal from '../../modal/modal.vue';

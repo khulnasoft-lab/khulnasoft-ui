@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import GlBadge from '../badge/badge.vue';
+import GlBadge from '../badge';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';

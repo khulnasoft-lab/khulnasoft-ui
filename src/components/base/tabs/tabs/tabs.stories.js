@@ -1,5 +1,5 @@
 import range from 'lodash/range';
-import GlBadge from '../../badge/badge.vue';
+import GlBadge from '../../badge';
 import { badgeVariantOptions } from '../../../../utils/constants';
 import GlTab from '../tab/tab.vue';
 import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/tabs/README.md';

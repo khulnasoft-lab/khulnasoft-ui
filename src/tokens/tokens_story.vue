@@ -1,7 +1,7 @@
 <script>
 import { colorFromBackground } from '../utils/utils';
 import { GlTooltipDirective } from '../directives/tooltip';
-import GlBadge from '../components/base/badge/badge.vue';
+import GlBadge from '../components/base/badge';
 import GlColorContrast from '../internal/color_contrast/color_contrast.vue';
 
 export default {

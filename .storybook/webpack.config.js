@@ -135,6 +135,7 @@ module.exports = ({ config }) => {
   config.plugins.push(
     new webpack.EnvironmentPlugin({
       IS_VISUAL_TEST: false,
+      USE_NEW_GL_BADGE: false,
     })
   );
 

@@ -1,5 +1,5 @@
 <script>
-import GlBadge from '../components/base/badge/badge.vue';
+import GlBadge from '../components/base/badge';
 import GlButton from '../components/base/button/button.vue';
 import GlCollapsibleListbox from '../components/base/new_dropdowns/listbox/listbox.vue';
 import GlFormInput from '../components/base/form/form_input/form_input.vue';

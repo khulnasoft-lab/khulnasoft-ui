@@ -8,7 +8,7 @@ import GlIcon from '../../icon/icon.vue';
 import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
 import GlButtonGroup from '../../button_group/button_group.vue';
 import GlButton from '../../button/button.vue';
-import GlBadge from '../../badge/badge.vue';
+import GlBadge from '../../badge';
 import GlAvatar from '../../avatar/avatar.vue';
 import GlTruncate from '../../../utilities/truncate/truncate.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';

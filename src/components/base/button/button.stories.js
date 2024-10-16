@@ -7,7 +7,7 @@ import {
   buttonSizeOptions,
   targetOptions,
 } from '../../../utils/constants';
-import GlBadge from '../badge/badge.vue';
+import GlBadge from '../badge';
 import GlButtonGroup from '../button_group/button_group.vue';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/button/README.md';
 import GlButton from './button.vue';

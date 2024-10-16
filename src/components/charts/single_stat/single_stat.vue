@@ -1,6 +1,6 @@
 <script>
 import { badgeVariantOptions, variantCssColorMap } from '../../../utils/constants';
-import GlBadge from '../../base/badge/badge.vue';
+import GlBadge from '../../base/badge';
 import GlIcon from '../../base/icon/icon.vue';
 import GlAnimatedNumber from '../../utilities/animated_number/animated_number.vue';
 import { formatNumberToLocale } from '../../../utils/number_utils';
