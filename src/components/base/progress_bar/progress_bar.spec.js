@@ -28,6 +28,7 @@ describe('GlProgressBar', () => {
 
       expect(progress.classes()).toMatchObject(['gl-progress', 'bg-primary']);
       expect(progress.attributes('style')).toBe('transform: scaleX(0);');
+      expect(progress.attributes('aria-label')).toBe('Progress bar');
       expect(progress.attributes('aria-valuemin')).toBe('0');
       expect(progress.attributes('aria-valuemax')).toBe('100');
       expect(progress.attributes('aria-valuenow')).toBe('0');
@@ -44,6 +45,17 @@ describe('GlProgressBar', () => {
 
       expect(progress.attributes('style')).toBe(`transform: scaleX(${computedValue});`);
       expect(progress.attributes('aria-valuenow')).toBe(`${parseFloat(value)}`);
+    });
+  });
+
+  describe('ariaLabel', () => {
+    it('sets value from prop', () => {
+      const label = 'Progress';
+      createWrapper({ ariaLabel: label });
+
+      const progress = findProgress();
+
+      expect(progress.attributes('aria-label')).toBe('Progress');
     });
   });
 

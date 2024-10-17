@@ -1,10 +1,16 @@
 <script>
+import { translate } from '../../../utils/i18n';
 import { progressBarVariantOptions } from '../../../utils/constants';
 import { toFloat } from '../../../utils/number_utils';
 
 export default {
   name: 'GlProgressBar',
   props: {
+    ariaLabel: {
+      type: String,
+      required: false,
+      default: translate('GlProgressBar.ariaLabel', 'Progress bar'),
+    },
     value: {
       type: [Number, String],
       required: false,
@@ -56,6 +62,7 @@ export default {
       :class="classes"
       :style="progressBarStyles"
       role="progressbar"
+      :aria-label="ariaLabel"
       aria-valuemin="0"
       :aria-valuemax="String(computedMax)"
       :aria-valuenow="computedValue"
