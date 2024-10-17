@@ -1,3 +1,10 @@
+# [97.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.1.0...v97.2.0) (2024-10-17)
+
+
+### Features
+
+* **GlIcon:** Add iconOpticallyAligned prop ([041e211](https://gitlab.com/gitlab-org/gitlab-ui/commit/041e211a5133562787064cb143dd1280876c5785))
+
 # [97.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.0.0...v97.1.0) (2024-10-16)
 
 
