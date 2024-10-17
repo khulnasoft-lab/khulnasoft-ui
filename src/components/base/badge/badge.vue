@@ -40,6 +40,14 @@ export default {
       validator: (value) => Object.keys(badgeIconSizeOptions).includes(value),
       required: false,
     },
+    /**
+     * Optically aligns circular icons with the badge.
+     */
+    iconOpticallyAligned: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
   },
   computed: {
     hasIconOnly() {
@@ -47,7 +55,7 @@ export default {
       return Boolean(this.icon && Object.keys(this.$slots).length === 0);
     },
     isCircularIcon() {
-      return ['issue-open-m', 'issue-close'].includes(this.icon);
+      return this.iconOpticallyAligned || ['issue-open-m', 'issue-close'].includes(this.icon);
     },
     role() {
       return this.hasIconOnly ? 'img' : undefined;

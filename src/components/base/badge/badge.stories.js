@@ -102,6 +102,18 @@ export const BadgeIcon = (args, { argTypes }) => ({
 });
 BadgeIcon.argTypes = disableControls(['content', 'iconSize']);
 
+export const iconOpticallyAligned = (args, { argTypes }) => ({
+  components: { GlBadge },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="gl-flex gl-gap-3">
+      <gl-badge variant="neutral" icon="dash-circle" icon-optically-aligned>Status pending</gl-badge>
+      <gl-badge variant="success" icon="check-circle" icon-optically-aligned>Status complete</gl-badge>
+    </div>
+  `,
+});
+iconOpticallyAligned.argTypes = disableControls(['content', 'iconSize']);
+
 export const IconOnly = (args, { argTypes }) => ({
   components: { GlBadge },
   props: Object.keys(argTypes),
