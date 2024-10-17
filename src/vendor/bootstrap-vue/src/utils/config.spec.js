@@ -18,8 +18,26 @@ describe('utils/config', () => {
     resetConfig()
   })
 
-  it('getConfig() works', async () => {
-    expect(getConfig()).toEqual({})
+  /**
+   * We needed to adjust this test to have it reflect the @gitlab/ui defaults
+   */
+  it('getConfig() works and has @gitlab/ui defaults', async () => {
+    expect(getConfig()).toEqual({
+      BPopover: {
+        delay: {
+          hide: 150,
+          show: 50
+        }
+      },
+      BTooltip: {
+        boundaryPadding: 5,
+        customClass: 'gl-tooltip',
+        delay: {
+          hide: 0,
+          show: 500
+        }
+      }
+    })
   })
 
   it('setConfig() works', async () => {

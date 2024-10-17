@@ -39,7 +39,7 @@ module.exports = {
     ...customModuleNameMappers,
   },
   modulePathIgnorePatterns: ['cypress/integration', '.cypress_cache'],
-  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/vendor'],
+  testPathIgnorePatterns: ['/node_modules/'],
   transform: {
     '^.+\\.m?js$': 'babel-jest',
     '.*\\.(vue)$': JEST_VUE_TRANSFORMER,

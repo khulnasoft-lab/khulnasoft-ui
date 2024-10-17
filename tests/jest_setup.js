@@ -19,6 +19,14 @@ VTU.config.deprecationWarningHandler = (method, message) => {
   throw new Error(`[vue-test-utils] ${method}: ${message}`);
 };
 
+// bootstrap-vue uses transitions and relies on some actual functionality from them
+// Vue Test Utils stubs them by default. Let's unstub them to be able to rely on the
+// functionality
+if (VTU.config.stubs) {
+  VTU.config.stubs.transition = false;
+  VTU.config.stubs['transition-group'] = false;
+}
+
 const vueErrorHandler = jest.fn();
 expect.extend({
   toHaveLoggedVueErrors() {
