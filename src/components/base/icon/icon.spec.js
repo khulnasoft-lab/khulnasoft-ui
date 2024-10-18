@@ -64,13 +64,8 @@ describe('Icon component', () => {
   describe('name validator', () => {
     it('fails with name that does not exist', () => {
       const badName = `${TEST_NAME}-bogus-zebra`;
-      consoleSpy = jest.spyOn(console, 'warn').mockImplementation();
 
       expect(validateName(badName)).toBe(false);
-
-      expect(consoleSpy).toHaveBeenCalledWith(
-        `Icon '${badName}' is not a known icon of @gitlab/svgs`
-      );
     });
 
     it('passes with name that exists', () => {

@@ -1,30 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import iconsPath from '@gitlab/svgs/dist/icons.svg';
+import iconsInfo from '@gitlab/svgs/dist/icons.json';
 import { iconSizeOptions, iconVariantOptions } from '../../../utils/constants';
 
-let iconValidator = () => true;
-
-/*
- During development/tests we want to validate that we are just using icons that are actually defined
-*/
-if (process.env.NODE_ENV !== 'production') {
-  (async function setup() {
-    try {
-      const { icons } = await import('@gitlab/svgs/dist/icons.json');
-      iconValidator = (value) => {
-        if (icons.includes(value)) {
-          return true;
-        }
-        // eslint-disable-next-line no-console
-        console.warn(`Icon '${value}' is not a known icon of @gitlab/svgs`);
-        return false;
-      };
-    } catch {
-      /* empty */
-    }
-  })();
-}
+const knownIcons = new Set(iconsInfo.icons);
 
 /** This is a re-usable vue component for rendering a svg sprite icon
  *  @example
@@ -52,7 +32,7 @@ export default {
     name: {
       type: String,
       required: true,
-      validator: (value) => iconValidator(value),
+      validator: (value) => knownIcons.has(value),
     },
     /**
      * Icon size
