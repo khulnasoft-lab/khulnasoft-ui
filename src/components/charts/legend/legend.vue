@@ -198,7 +198,7 @@ export default {
           :key="key"
           :class="{
             'text-muted': disabledSeries[key],
-            'w-100': seriesNameIsLong(series.name),
+            'gl-w-full': seriesNameIsLong(series.name),
             'hover:!gl-cursor-not-allowed':
               hasOneSeriesElement || isToggleDisabled(series.name, series.disabled),
           }"
@@ -214,7 +214,7 @@ export default {
             :color="getColor(series.color, key)"
             :type="series.type"
             class="gl-legend-inline-series-label"
-            :class="{ 'w-75': seriesNameIsLong(series.name) }"
+            :class="{ 'gl-w-3/4': seriesNameIsLong(series.name) }"
           >
             <gl-truncate class="gl-font-bold" :text="series.name" />
           </gl-chart-series-label>
@@ -242,7 +242,8 @@ export default {
             v-for="(series, key) in seriesInfo"
             :key="key"
             :class="{
-              'text-muted': disabledSeries[key],
+              'gl-text-subtle': disabledSeries[key],
+              'gl-text-strong': !disabledSeries[key],
               'hover:!gl-cursor-not-allowed':
                 hasOneSeriesElement || isToggleDisabled(series.name, series.disabled),
             }"

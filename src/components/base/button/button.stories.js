@@ -427,10 +427,10 @@ export const Sizes = (args, { argTypes = {} }) => ({
     <div>
       <gl-button size="small">Small button</gl-button>
       <gl-button>Default button</gl-button>
-      <div class="mt-2">
+      <div class="gl-mt-3">
         <gl-button size="small" block>Full width small button</gl-button>
       </div>
-      <div class="mt-2">
+      <div class="gl-mt-3">
         <gl-button block>Full width button</gl-button>
       </div>
     </div>
@@ -476,7 +476,7 @@ export const BadgeWithSROnlyText = (args, { argTypes = {} }) => ({
       <gl-button variant="confirm" buttonTextClasses="gl-flex gl-items-center">
           Submit review
           <gl-badge variant="info" class="gl-ml-2">2</gl-badge>
-          <span class="sr-only">pending comments</span>
+          <span class="gl-sr-only">pending comments</span>
       </gl-button>
   `,
 });

@@ -273,7 +273,7 @@ const LabelToken = {
         </template>
         <template v-else>
         <gl-filtered-search-suggestion :key="label.id" v-for="label in labels" :value="label.title">
-          <div class="d-flex">
+          <div class="gl-flex">
             <span
               :style="{ backgroundColor: label.color, height: '16px', width: '16px' }"
               class="d-inline-block mr-2"

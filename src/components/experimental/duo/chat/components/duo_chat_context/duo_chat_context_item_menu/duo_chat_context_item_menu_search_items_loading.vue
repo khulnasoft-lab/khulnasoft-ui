@@ -29,6 +29,6 @@ export default {
       </div>
       <div class="gl-animate-skeleton-loader gl-h-4 gl-w-1/2 gl-rounded-base"></div>
     </div>
-    <span class="sr-only">{{ $options.i18n.loadingMessage }}</span>
+    <span class="gl-sr-only">{{ $options.i18n.loadingMessage }}</span>
   </div>
 </template>

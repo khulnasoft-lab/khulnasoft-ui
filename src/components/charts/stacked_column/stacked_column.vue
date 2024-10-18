@@ -296,7 +296,7 @@ export default {
 };
 </script>
 <template>
-  <div class="position-relative" :class="{ [$options.HEIGHT_AUTO_CLASSES]: autoHeight }">
+  <div class="gl-relative" :class="{ [$options.HEIGHT_AUTO_CLASSES]: autoHeight }">
     <chart
       v-bind="$attrs"
       :class="{ 'gl-grow': autoHeight }"
