@@ -371,7 +371,7 @@ describe('table > filtering', () => {
       lastFilterTimer = wrapper.vm.$_filterTimer
       expect(wrapper.vm.localFilter).not.toEqual('z')
 
-      jest.runTimersToTime(101)
+      jest.advanceTimersByTime(101)
       await waitNT(wrapper.vm)
       expect(wrapper.emitted('input').length).toBe(2)
       expect(wrapper.emitted('input')[1][0]).toEqual([testItems[2]])

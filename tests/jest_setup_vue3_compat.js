@@ -37,6 +37,11 @@ if (global.document) {
     CONFIG_WHITESPACE: 'suppress-warning',
     PRIVATE_APIS: 'suppress-warning',
     WATCH_ARRAY: 'suppress-warning',
+
+    // Used in bootstrap-vue. Let's supress the warnings
+    // so that the tests don't fail
+    TRANSITION_GROUP_ROOT: 'suppress-warning',
+    GLOBAL_PRIVATE_UTIL: 'suppress-warning',
   };
 
   let compatH;
