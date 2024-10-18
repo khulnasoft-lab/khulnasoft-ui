@@ -40,9 +40,6 @@ export const HAS_PASSIVE_EVENT_SUPPORT = (() => {
   return passiveEventSupported
 })()
 
-export const HAS_TOUCH_SUPPORT =
-  IS_BROWSER && ('ontouchstart' in DOCUMENT.documentElement || NAVIGATOR.maxTouchPoints > 0)
-
 export const HAS_POINTER_EVENT_SUPPORT =
   IS_BROWSER && Boolean(WINDOW.PointerEvent || WINDOW.MSPointerEvent)
 

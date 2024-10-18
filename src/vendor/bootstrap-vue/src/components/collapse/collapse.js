@@ -1,18 +1,16 @@
 import { extend } from '../../vue'
 import { NAME_COLLAPSE } from '../../constants/components'
 import { CLASS_NAME_SHOW } from '../../constants/classes'
-import { IS_BROWSER } from '../../constants/env'
 import {
   EVENT_NAME_HIDDEN,
   EVENT_NAME_HIDE,
   EVENT_NAME_SHOW,
-  EVENT_NAME_SHOWN,
-  EVENT_OPTIONS_NO_CAPTURE
+  EVENT_NAME_SHOWN
 } from '../../constants/events'
 import { PROP_TYPE_BOOLEAN, PROP_TYPE_STRING } from '../../constants/props'
 import { SLOT_NAME_DEFAULT } from '../../constants/slots'
 import { addClass, hasClass, removeClass, closest, matches, getCS } from '../../utils/dom'
-import { getRootActionEventName, getRootEventName, eventOnOff } from '../../utils/events'
+import { getRootActionEventName, getRootEventName } from '../../utils/events'
 import { makeModelMixin } from '../../utils/model'
 import { sortKeys } from '../../utils/object'
 import { makeProp, makePropsConfigurable } from '../../utils/props'
@@ -46,7 +44,6 @@ export const props = makePropsConfigurable(
     // If `true` (and `visible` is `true` on mount), animate initially visible
     accordion: makeProp(PROP_TYPE_STRING),
     appear: makeProp(PROP_TYPE_BOOLEAN, false),
-    isNav: makeProp(PROP_TYPE_BOOLEAN, false),
     tag: makeProp(PROP_TYPE_STRING, 'div')
   }),
   NAME_COLLAPSE
@@ -70,7 +67,6 @@ export const BCollapse = /*#__PURE__*/ extend({
       const { transitioning } = this
 
       return {
-        'navbar-collapse': this.isNav,
         collapse: !transitioning,
         show: this.show && !transitioning
       }
@@ -105,11 +101,6 @@ export const BCollapse = /*#__PURE__*/ extend({
     this.listenOnRoot(ROOT_ACTION_EVENT_NAME_TOGGLE, this.handleToggleEvent)
     // Listen to other collapses for accordion events
     this.listenOnRoot(ROOT_EVENT_NAME_ACCORDION, this.handleAccordionEvent)
-    if (this.isNav) {
-      // Set up handlers
-      this.setWindowEvents(true)
-      this.handleResize()
-    }
     this.$nextTick(() => {
       this.emitState()
     })
@@ -126,31 +117,11 @@ export const BCollapse = /*#__PURE__*/ extend({
     // It is emitted regardless if the visible state changes
     this.emitSync()
   },
-  /* istanbul ignore next */
-  deactivated() {
-    if (this.isNav) {
-      this.setWindowEvents(false)
-    }
-  },
-  /* istanbul ignore next */
-  activated() {
-    if (this.isNav) {
-      this.setWindowEvents(true)
-    }
-    this.emitSync()
-  },
   beforeDestroy() {
     // Trigger state emit if needed
     this.show = false
-    if (this.isNav && IS_BROWSER) {
-      this.setWindowEvents(false)
-    }
   },
   methods: {
-    setWindowEvents(on) {
-      eventOnOff(on, window, 'resize', this.handleResize, EVENT_OPTIONS_NO_CAPTURE)
-      eventOnOff(on, window, 'orientationchange', this.handleResize, EVENT_OPTIONS_NO_CAPTURE)
-    },
     toggle() {
       this.show = !this.show
     },
@@ -206,9 +177,8 @@ export const BCollapse = /*#__PURE__*/ extend({
     },
     clickHandler(event) {
       const { target: el } = event
-      // If we are in a nav/navbar, close the collapse when non-disabled link clicked
       /* istanbul ignore next: can't test `getComputedStyle()` in JSDOM */
-      if (!this.isNav || !el || getCS(this.$el).display !== 'block') {
+      if (!el || getCS(this.$el).display !== 'block') {
         return
       }
       // Only close the collapse if it is not forced to be `display: block !important`
@@ -235,10 +205,6 @@ export const BCollapse = /*#__PURE__*/ extend({
       if ((isThis && !show) || (!isThis && show)) {
         this.toggle()
       }
-    },
-    handleResize() {
-      // Handler for orientation/resize to set collapsed state in nav/navbar
-      this.show = getCS(this.$el).display === 'block'
     }
   },
   render(h) {
