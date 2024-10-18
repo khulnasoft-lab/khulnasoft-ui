@@ -1,3 +1,10 @@
+# [97.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.2.1...v97.3.0) (2024-10-18)
+
+
+### Features
+
+* **GlProgressBar:** Replace Bootstrap Background Class with Custom CSS ([3cec71c](https://gitlab.com/gitlab-org/gitlab-ui/commit/3cec71c0d9d6c52a5b40160b12e539e1fda8b6eb))
+
 ## [97.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.2.0...v97.2.1) (2024-10-18)
 
 
