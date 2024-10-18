@@ -1,5 +1,6 @@
 const { range, round } = require('lodash');
 const plugin = require('tailwindcss/plugin');
+const containerQueriesPlugin = require('@tailwindcss/container-queries');
 const {
   colors,
   backgroundColor,
@@ -391,7 +392,7 @@ module.exports = {
      */
     preflight: false,
   },
-  plugins: [plugin(addCustomDefinitions)],
+  plugins: [plugin(addCustomDefinitions), containerQueriesPlugin],
   theme: {
     animation: {
       spin: 'spin 2s infinite linear',
@@ -431,6 +432,12 @@ module.exports = {
       'x0-y2-b4-s0': '0 2px 4px 0 #0000001a',
     },
     colors,
+    containers: {
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+    },
     fill,
     fontFamily: {
       regular:

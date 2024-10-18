@@ -81,6 +81,7 @@
   },
   "dependencies": {
     "@floating-ui/dom": "1.4.3",
+    "@tailwindcss/container-queries": "^0.1.1",
     "echarts": "^5.3.2",
     "iframe-resizer": "^4.3.2",
     "lodash": "^4.17.20",
