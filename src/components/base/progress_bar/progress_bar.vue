@@ -3,6 +3,13 @@ import { translate } from '../../../utils/i18n';
 import { progressBarVariantOptions } from '../../../utils/constants';
 import { toFloat } from '../../../utils/number_utils';
 
+const backgroundClasses = {
+  [progressBarVariantOptions.primary]: 'gl-progress-bar-primary',
+  [progressBarVariantOptions.success]: 'gl-progress-bar-success',
+  [progressBarVariantOptions.danger]: 'gl-progress-bar-danger',
+  [progressBarVariantOptions.warning]: 'gl-progress-bar-warning',
+};
+
 export default {
   name: 'GlProgressBar',
   props: {
@@ -50,7 +57,7 @@ export default {
       };
     },
     classes() {
-      return ['gl-progress', `bg-${this.variant}`];
+      return ['gl-progress', backgroundClasses[this.variant]];
     },
   },
 };
