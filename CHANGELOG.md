@@ -1,3 +1,10 @@
+## [97.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.2.0...v97.2.1) (2024-10-18)
+
+
+### Bug Fixes
+
+* **GlProgressBar:** adds accessible name ([dad2627](https://gitlab.com/gitlab-org/gitlab-ui/commit/dad262736cf44b04ffd04ce731960c23b23d0dc1)), closes [/gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4125#note_1878259355](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4125/issues/note_1878259355)
+
 # [97.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.1.0...v97.2.0) (2024-10-17)
 
 
