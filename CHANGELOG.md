@@ -1,3 +1,16 @@
+# [98.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.3.0...v98.0.0) (2024-10-18)
+
+
+### Features
+
+* Remove GlNavbar, BNavbar and traces of the component ([9094341](https://gitlab.com/gitlab-org/gitlab-ui/commit/909434196bc6be755280bc2267854e6df719930f))
+
+
+### BREAKING CHANGES
+
+* * Remove component GlNavbar
+* Remove prop 'isNav' from GlCollapse
+
 # [97.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.2.1...v97.3.0) (2024-10-18)
 
 
