@@ -77,6 +77,7 @@ export default {
   'GlPagination.nav': 'Pagination',
   'GlPagination.nextText': 'Next',
   'GlPagination.prevText': 'Previous',
+  'GlProgressBar.ariaLabel': 'Progress bar',
   'GlSearchBoxByType.clearButtonTitle': 'Clear',
   'GlSearchBoxByType.input.placeholder': 'Search',
   'GlSorting.sortAscending': 'Sort direction: ascending',
