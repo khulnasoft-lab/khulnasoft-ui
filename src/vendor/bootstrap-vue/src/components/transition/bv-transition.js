@@ -42,7 +42,7 @@ export const props = {
   transProps: makeProp(PROP_TYPE_OBJECT)
 }
 
-const hasAnimateSupport = Boolean(Element.prototype.animate)
+const hasAnimateSupport = typeof Element !== 'undefined' && Boolean(Element.prototype.animate)
 
 // --- Main component ---
 
