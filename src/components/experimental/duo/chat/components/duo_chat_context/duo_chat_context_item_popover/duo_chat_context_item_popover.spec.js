@@ -36,7 +36,6 @@ describe('GlDuoChatContextItemPopover', () => {
   const findPopoverTitle = () => findByTestId('chat-context-popover-title');
   const findDisabledMessage = () => findByTestId('chat-context-popover-disabled');
   const findIcon = () => wrapper.findComponent(GlIcon);
-  const findGitDetails = () => findByTestId('git-details');
 
   it('renders the popover component', () => {
     createComponent();
@@ -55,89 +54,43 @@ describe('GlDuoChatContextItemPopover', () => {
     expect(popover.props('title')).toBe(MOCK_CONTEXT_ITEM_FILE.metadata.title);
   });
 
-  it('renders the item name in the title slot', () => {
-    createComponent(
-      {},
-      {
-        stubs: {
-          GlTruncate,
-          GlPopover: {
-            name: 'GlPopover',
-            template: '<div><slot name="title"></slot></div>',
-          },
+  describe.each([
+    { contextItem: MOCK_CONTEXT_ITEM_FILE },
+    { contextItem: MOCK_CONTEXT_ITEM_ISSUE },
+    { contextItem: MOCK_CONTEXT_ITEM_MERGE_REQUEST },
+    { contextItem: MOCK_CONTEXT_ITEM_GIT_COMMIT },
+    { contextItem: MOCK_CONTEXT_ITEM_GIT_DIFF },
+  ])('$contextItem.category', ({ contextItem }) => {
+    it('renders the item name in the title slot', () => {
+      createComponent(
+        {
+          contextItem,
         },
-      }
-    );
+        {
+          stubs: {
+            GlTruncate,
+            GlPopover: {
+              name: 'GlPopover',
+              template: '<div><slot name="title"></slot></div>',
+            },
+          },
+        }
+      );
 
-    expect(findPopoverTitle().text()).toBe(MOCK_CONTEXT_ITEM_FILE.metadata.title);
-  });
+      expect(findPopoverTitle().text()).toBe(contextItem.metadata.title);
+    });
 
-  describe('item info rendering', () => {
-    it.each([
-      ['file', MOCK_CONTEXT_ITEM_FILE, MOCK_CONTEXT_ITEM_FILE.metadata.relativePath],
-      ['issue', MOCK_CONTEXT_ITEM_ISSUE, MOCK_CONTEXT_ITEM_ISSUE.metadata.iid.toString()],
-      [
-        'merge request',
-        MOCK_CONTEXT_ITEM_MERGE_REQUEST,
-        MOCK_CONTEXT_ITEM_MERGE_REQUEST.metadata.iid.toString(),
-      ],
-    ])('renders correct project and type for %s', (_, contextItem, expected) => {
+    it('renders the icon', () => {
+      createComponent({ contextItem });
+
+      expect(findIcon().props('name')).toBe(contextItem.metadata.icon);
+    });
+
+    it('renders the secondary text', () => {
       createComponent({ contextItem });
 
       const content = findPopover().text();
-      expect(content).toContain(contextItem.metadata.project);
-      expect(content).toContain(expected);
-    });
-
-    it('renders file path for file items', () => {
-      createComponent({ contextItem: MOCK_CONTEXT_ITEM_FILE });
-
-      const content = findPopover().text();
-      expect(content).toContain(MOCK_CONTEXT_ITEM_FILE.metadata.relativePath);
-    });
-
-    it.each([
-      ['issue', MOCK_CONTEXT_ITEM_ISSUE, '#1234'],
-      ['merge request', MOCK_CONTEXT_ITEM_MERGE_REQUEST, '!1122'],
-    ])('renders ID for %s items with correct prefix', (_, contextItem, expected) => {
-      createComponent({ contextItem });
-
-      const content = findPopover().text();
-      expect(content).toContain(expected);
-    });
-
-    describe('for git diff item', () => {
-      beforeEach(() => createComponent({ contextItem: MOCK_CONTEXT_ITEM_GIT_DIFF }));
-
-      it('renders expected item content', () => {
-        const gitDetails = findGitDetails();
-        const truncated = gitDetails.findComponent(GlTruncate);
-        expect(truncated.props('text')).toContain(
-          MOCK_CONTEXT_ITEM_GIT_DIFF.metadata.repositoryName
-        );
-        expect(truncated.props('text')).toContain(MOCK_CONTEXT_ITEM_GIT_DIFF.metadata.commitId);
-      });
-
-      it('renders expected git icon', () => {
-        expect(findIcon().props('name')).toBe('comparison');
-      });
-    });
-
-    describe('for git commit item', () => {
-      beforeEach(() => createComponent({ contextItem: MOCK_CONTEXT_ITEM_GIT_COMMIT }));
-
-      it('renders expected item content', () => {
-        const gitDetails = findGitDetails();
-        const truncated = gitDetails.findComponent(GlTruncate);
-        expect(truncated.props('text')).toContain(
-          MOCK_CONTEXT_ITEM_GIT_COMMIT.metadata.repositoryName
-        );
-        expect(truncated.props('text')).toContain(MOCK_CONTEXT_ITEM_GIT_COMMIT.metadata.commitId);
-      });
-
-      it('renders expected git icon', () => {
-        expect(findIcon().props('name')).toBe('commit');
-      });
+      expect(content).toContain(contextItem.metadata.secondaryText);
     });
   });
 

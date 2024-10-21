@@ -8,6 +8,7 @@ import {
 } from '../mock_context_data';
 import { CONTEXT_ITEM_CATEGORY_LOCAL_GIT } from '../constants';
 import GlDuoChatContextItemMenu from './duo_chat_context_item_menu.vue';
+import readme from './duo_chat_context_item_menu.md';
 
 const sampleCategories = MOCK_CATEGORIES;
 const sampleContextItems = getMockContextItems();
@@ -20,9 +21,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `Allows selecting and removing context items for the conversation.
-
-Note that keyboard events don't work properly in this story (independently of the main GlDuoChat component), test in the GlDuoChat interactive story with the /include command.`,
+        component: readme,
       },
     },
   },

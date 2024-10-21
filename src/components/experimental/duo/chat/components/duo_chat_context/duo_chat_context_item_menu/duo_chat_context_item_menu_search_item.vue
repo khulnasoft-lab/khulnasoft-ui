@@ -5,21 +5,15 @@ import GlIcon from '../../../../../../base/icon/icon.vue';
 import {
   categoryValidator,
   contextItemValidator,
-  formatGitItemSecondaryText,
-  formatIssueId,
-  formatMergeRequestId,
   getContextItemIcon,
+  getContextItemSecondaryText,
+  getContextItemSource,
 } from '../utils';
-import {
-  CONTEXT_ITEM_CATEGORY_FILE,
-  CONTEXT_ITEM_CATEGORY_ISSUE,
-  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
-  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
-} from '../constants';
+import GlBadge from '../../../../../../base/badge/badge.vue';
 
 export default {
   name: 'GlDuoChatContextItemMenuSearchItem',
-  components: { GlTruncate, GlIcon, GlDuoChatContextItemPopover },
+  components: { GlBadge, GlTruncate, GlIcon, GlDuoChatContextItemPopover },
   props: {
     category: {
       type: Object,
@@ -37,21 +31,13 @@ export default {
       return this.contextItem.metadata?.title || '';
     },
     secondaryText() {
-      switch (this.category.value) {
-        case CONTEXT_ITEM_CATEGORY_FILE:
-          return this.contextItem.metadata.relativePath;
-        case CONTEXT_ITEM_CATEGORY_ISSUE:
-          return formatIssueId(this.contextItem.metadata.iid);
-        case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
-          return formatMergeRequestId(this.contextItem.metadata.iid);
-        case CONTEXT_ITEM_CATEGORY_LOCAL_GIT:
-          return formatGitItemSecondaryText(this.contextItem);
-        default:
-          return '';
-      }
+      return getContextItemSecondaryText(this.contextItem);
     },
     icon() {
       return getContextItemIcon(this.contextItem, this.category);
+    },
+    itemSource() {
+      return getContextItemSource(this.contextItem);
     },
   },
 };
@@ -75,10 +61,17 @@ export default {
     </div>
     <div
       v-if="secondaryText"
-      class="gl-mt-1 gl-shrink-0 gl-whitespace-nowrap gl-text-secondary"
+      class="gl-align-items-center gl-mt-1 gl-flex gl-shrink-0 gl-whitespace-nowrap gl-text-secondary"
       data-testid="item-secondary-text"
     >
-      <gl-truncate :text="secondaryText" />
+      <gl-badge
+        v-if="itemSource"
+        variant="neutral"
+        class="gl-mr-1"
+        data-testid="context-item-source"
+        >{{ itemSource }}</gl-badge
+      >
+      <gl-truncate class="gl-min-w-0" position="middle" :text="secondaryText" />
     </div>
   </div>
 </template>
