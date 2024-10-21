@@ -1,7 +1,15 @@
+import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
-import { getBinding } from '~helpers/vue_mock_directive';
+import {
+  getBinding,
+  createMockDirective as mockDirectiveCreator,
+} from '~helpers/vue_mock_directive';
 import { POSITION } from './constants';
 import Truncate from './truncate.vue';
+
+jest.mock('../../../directives/resize_observer/resize_observer', () => ({
+  GlResizeObserverDirective: mockDirectiveCreator('gl-resize-observer'),
+}));
 
 const removeSpecialChar = (text) => {
   return text.replace(/&lrm;|\u200E/gi, '');
@@ -25,17 +33,46 @@ describe('Truncate component', () => {
     });
   };
 
+  const forceTruncate = () => {
+    // We check that scrollWidth > offsetWidth so we can force this in our test environment by overriding the properties.
+    const child = wrapper.findComponent({ ref: 'text' }).element;
+
+    Object.defineProperties(child, {
+      scrollWidth: {
+        get() {
+          return 9001;
+        },
+      },
+      offsetWidth: {
+        get() {
+          return 1;
+        },
+      },
+    });
+  };
+
+  const triggerResizeObserver = async () => {
+    const callback = getBinding(
+      wrapper.find('.gl-truncate-component').element,
+      'gl-resize-observer'
+    ).value;
+
+    callback();
+
+    await nextTick();
+  };
+
   describe('All', () => {
     beforeEach(() => {
       createComponent();
     });
 
     it.each(positionOptions)(
-      '%s truncation: should have title, class, original text',
+      '%s truncation: should class, original text, and no title',
       (position) => {
         createComponent({ position });
         const element = wrapper.find('span');
-        expect(element.attributes('title')).toBe(defaultProps.text);
+        expect(element.attributes('title')).toBeUndefined();
         expect(element.attributes('class')).toBe('gl-truncate-component');
         expect(removeSpecialChar(wrapper.text())).toBe(defaultProps.text);
       }
@@ -49,6 +86,27 @@ describe('Truncate component', () => {
       expect(
         getBinding(wrapper.find('.gl-truncate-component').element, 'gl-tooltip').value.disabled
       ).toBe(true);
+    });
+  });
+
+  describe('with tooltip', () => {
+    beforeEach(() => {
+      createComponent({ withTooltip: true });
+    });
+
+    it('enables the tooltip', async () => {
+      forceTruncate();
+      await triggerResizeObserver();
+
+      expect(
+        getBinding(wrapper.find('.gl-truncate-component').element, 'gl-tooltip').value.disabled
+      ).toBe(false);
+    });
+
+    it('has title', () => {
+      const element = wrapper.find('span');
+
+      expect(element.attributes('title')).toBe(defaultProps.text);
     });
   });
 
