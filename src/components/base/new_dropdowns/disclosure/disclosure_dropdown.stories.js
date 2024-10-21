@@ -337,6 +337,66 @@ MiscellaneousContent.args = {
 };
 MiscellaneousContent.decorators = [makeContainer({ height: '200px' })];
 
+export const NestedDropdowns = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlDisclosureDropdown,
+    GlDisclosureDropdownGroup,
+    GlDisclosureDropdownItem,
+  },
+  data() {
+    return {
+      nestedActions: [
+        {
+          text: 'Restart',
+        },
+        {
+          text: 'Terminate',
+        },
+      ],
+    };
+  },
+  template: template(
+    `
+    <gl-disclosure-dropdown-group>
+      <gl-disclosure-dropdown-item>
+        <template #list-item>
+          <span class="gl-flex gl-justify-between gl-items-center">
+            <span class="gl-font-bold gl-whitespace-nowrap">My Workspace</span>
+            <span @click.stop.prevent>
+              <gl-disclosure-dropdown
+                :items="nestedActions"
+                icon="ellipsis_v"
+                toggle-text="Actions"
+                text-sr-only
+                category="tertiary"
+                no-caret
+                positioning-strategy="fixed"
+                data-testid="workspace-actions-dropdown"
+                start-opened
+              >
+                <template #list-item="{ item }">
+                  <span :id="item.id" :key="item.key">
+                    {{ item.text }}
+                  </span>
+                </template>
+              </gl-disclosure-dropdown>
+            </span>
+          </span>
+        </template>
+      </gl-disclosure-dropdown-item>
+  </gl-disclosure-dropdown-group>`
+  ),
+});
+
+NestedDropdowns.args = {
+  items: mockItemsCustomItem,
+  toggleText: 'Workspaces',
+  placement: 'center',
+};
+
+NestedDropdowns.decorators = [makeContainer({ height: '200px' })];
+
 export default {
   title: 'base/dropdown/disclosure-dropdown',
   component: GlDisclosureDropdown,

@@ -17,7 +17,7 @@
   }
 
   &:hover {
-    .gl-new-dropdown-item-content {
+    > .gl-new-dropdown-item-content {
       color: var(--gl-dropdown-option-text-color-hover);
       background-color: var(--gl-dropdown-option-background-color-unselected-hover);
     }
