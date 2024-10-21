@@ -191,7 +191,6 @@
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-vue": "^5.1.6",
     "sass": "^1.49.9",
-    "sass-export": "^2.1.2",
     "sass-loader": "^10.2.0",
     "sass-true": "^6.1.0",
     "start-server-and-test": "^1.10.6",
