@@ -1,3 +1,10 @@
+# [98.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.0.0...v98.1.0) (2024-10-21)
+
+
+### Features
+
+* **GlButton:** Update design tokens for darkmode ([6185229](https://gitlab.com/gitlab-org/gitlab-ui/commit/61852296aa288c1d3bace16f25e495b701fed900))
+
 # [98.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v97.3.0...v98.0.0) (2024-10-18)
 
 
