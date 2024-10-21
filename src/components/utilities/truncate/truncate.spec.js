@@ -50,6 +50,13 @@ describe('Truncate component', () => {
         getBinding(wrapper.find('.gl-truncate-component').element, 'gl-tooltip').value.disabled
       ).toBe(true);
     });
+
+    it('does not have a title when hidetitle is true', () => {
+      createComponent({ hideTitle: true });
+
+      const element = wrapper.find('span');
+      expect(element.attributes('title')).toBe(undefined);
+    });
   });
 
   describe('start truncation', () => {

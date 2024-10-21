@@ -36,6 +36,11 @@ export default {
       required: false,
       default: false,
     },
+    hideTitle: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -80,7 +85,7 @@ export default {
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
     class="gl-truncate-component"
-    :title="text"
+    :title="hideTitle ? undefined : text"
   >
     <span ref="text" class="gl-truncate-start !gl-text-ellipsis">&lrm;{{ text }}&lrm;</span>
   </span>
@@ -90,7 +95,7 @@ export default {
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
     class="gl-truncate-component"
-    :title="text"
+    :title="hideTitle ? undefined : text"
   >
     <span ref="text" class="gl-truncate-end">{{ first }}</span
     ><span class="gl-truncate-start">&lrm;{{ last }}&lrm;</span>
@@ -102,7 +107,7 @@ export default {
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
     class="gl-truncate-component"
     data-testid="truncate-end-container"
-    :title="text"
+    :title="hideTitle ? undefined : text"
   >
     <span ref="text" class="gl-truncate-end">{{ text }}</span>
   </span>

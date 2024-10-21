@@ -162,7 +162,7 @@ export default {
             :size="12"
             class="gl-mr-1"
           />
-          <gl-truncate :text="item.metadata.title" position="middle" />
+          <gl-truncate hide-title :text="item.metadata.title" position="middle" />
         </div>
         <gl-duo-chat-context-item-popover
           :context-item="item"
