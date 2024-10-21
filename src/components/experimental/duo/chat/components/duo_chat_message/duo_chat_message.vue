@@ -1,4 +1,5 @@
 <script>
+import throttle from 'lodash/throttle';
 import GlIcon from '../../../../../base/icon/icon.vue';
 import GlLoadingIcon from '../../../../../base/loading_icon/loading_icon.vue';
 import { GlTooltipDirective } from '../../../../../../directives/tooltip';
@@ -15,6 +16,11 @@ import { renderDuoChatMarkdownPreview } from '../../markdown_renderer';
 import { CopyCodeElement } from './copy_code_element';
 import { InsertCodeSnippetElement } from './insert_code_snippet_element';
 import { concatUntilEmpty } from './utils';
+import {
+  DUO_CODE_SCRIM_BOTTOM_CLASS,
+  DUO_CODE_SCRIM_OFFSET,
+  DUO_CODE_SCRIM_TOP_CLASS,
+} from './constants';
 
 export const i18n = {
   MODAL: {
@@ -216,6 +222,7 @@ export default {
       if (!this.isChunk && this.$refs.content) {
         this.$nextTick(this.renderGFM(this.$refs.content));
       }
+      this.detectScrollableCodeBlocks();
     },
     logEvent(e) {
       this.$emit('track-feedback', {
@@ -239,6 +246,30 @@ export default {
         messageId: this.message.id,
         contextItem,
       });
+    },
+    detectScrollableCodeBlocks() {
+      const codeBlocks = document.querySelectorAll('.duo-chat-message pre');
+      codeBlocks.forEach((e) => {
+        if (e.scrollHeight > e.offsetHeight) {
+          e.classList.add(DUO_CODE_SCRIM_BOTTOM_CLASS);
+          e.addEventListener(
+            'scroll',
+            throttle(() => this.toggleScrolling(e), 200)
+          );
+        }
+      });
+    },
+    toggleScrolling(e) {
+      if (e.scrollHeight - e.scrollTop <= e.offsetHeight + DUO_CODE_SCRIM_OFFSET) {
+        e.classList.remove(DUO_CODE_SCRIM_BOTTOM_CLASS);
+      } else {
+        e.classList.add(DUO_CODE_SCRIM_BOTTOM_CLASS);
+      }
+      if (e.scrollTop > DUO_CODE_SCRIM_OFFSET) {
+        e.classList.add(DUO_CODE_SCRIM_TOP_CLASS);
+      } else {
+        e.classList.remove(DUO_CODE_SCRIM_TOP_CLASS);
+      }
     },
   },
 };
