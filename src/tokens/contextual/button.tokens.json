@@ -34,7 +34,7 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.0}",
-                "dark": "{color.neutral.900}"
+                "dark": "rgba(137, 136, 141, 0.4)"
               },
               "$type": "color",
               "$description": "Used for the background of an default primary button in the default state."
@@ -42,7 +42,7 @@
             "hover": {
               "$value": {
                 "default": "{color.neutral.50}",
-                "dark": "{color.neutral.900}"
+                "dark": "rgba(137, 136, 141, 0.64)"
               },
               "$type": "color",
               "$description": "Used for the background of an default primary button in the hover state."
@@ -55,7 +55,7 @@
             "active": {
               "$value": {
                 "default": "{color.neutral.100}",
-                "dark": "{color.neutral.800}"
+                "dark": "rgba(137, 136, 141, 0.32)"
               },
               "$type": "color",
               "$description": "Used for the background of an default primary button in the active state."
@@ -67,7 +67,7 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.200}",
-                "dark": "{color.neutral.700}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an default primary button in the default state."
@@ -75,7 +75,7 @@
             "hover": {
               "$value": {
                 "default": "{color.neutral.400}",
-                "dark": "{color.neutral.500}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an default primary button in the hover state."
@@ -88,7 +88,7 @@
             "active": {
               "$value": {
                 "default": "{color.neutral.600}",
-                "dark": "{color.neutral.300}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an default primary button in the active state."
@@ -176,7 +176,10 @@
         "foreground": {
           "color": {
             "default": {
-              "$value": "{action.strong.confirm.foreground.color.default}",
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
               "$type": "color",
               "$description": "Used for the foreground of a confirm (positive) primary button in the default state."
             },
@@ -226,7 +229,7 @@
             "default": {
               "$value": {
                 "default": "{color.blue.600}",
-                "dark": "{color.blue.300}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a confirm (positive) primary button in the default state."
@@ -234,7 +237,7 @@
             "hover": {
               "$value": {
                 "default": "{color.blue.800}",
-                "dark": "{color.blue.100}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a confirm (positive) primary button in the hover state."
@@ -247,7 +250,7 @@
             "active": {
               "$value": {
                 "default": "{color.blue.900}",
-                "dark": "{color.blue.50}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a confirm (positive) primary button in the active state."
@@ -261,7 +264,7 @@
             "default": {
               "$value": {
                 "default": "{color.blue.500}",
-                "dark": "{color.blue.400}"
+                "dark": "{color.blue.100}"
               },
               "$type": "color",
               "$description": "Used for the foreground of a confirm (positive) button in the default state."
@@ -269,7 +272,7 @@
             "hover": {
               "$value": {
                 "default": "{color.blue.700}",
-                "dark": "{color.blue.200}"
+                "dark": "{color.blue.100}"
               },
               "$type": "color",
               "$description": "Used for the foreground of a confirm (positive) button in the hover state."
@@ -282,7 +285,7 @@
             "active": {
               "$value": {
                 "default": "{color.blue.900}",
-                "dark": "{color.blue.50}"
+                "dark": "{color.blue.100}"
               },
               "$type": "color",
               "$description": "Used for the foreground of a confirm (positive) button in the active state."
@@ -294,7 +297,7 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.0}",
-                "dark": "{color.neutral.900}"
+                "dark": "rgba(66, 143, 220, 0.4)"
               },
               "$type": "color",
               "$description": "Used for the background of an outlined confirm (positive) button in the default state."
@@ -302,7 +305,7 @@
             "hover": {
               "$value": {
                 "default": "{color.blue.50}",
-                "dark": "{color.blue.900}"
+                "dark": "rgba(66, 143, 220, 0.64)"
               },
               "$type": "color",
               "$description": "Used for the background of an outlined confirm (positive) button in the hover state."
@@ -315,7 +318,7 @@
             "active": {
               "$value": {
                 "default": "{color.blue.100}",
-                "dark": "{color.blue.800}"
+                "dark": "rgba(66, 143, 220, 0.32)"
               },
               "$type": "color",
               "$description": "Used for the background of an outlined confirm (positive) button in the active state."
@@ -327,7 +330,7 @@
             "default": {
               "$value": {
                 "default": "{color.blue.500}",
-                "dark": "{color.blue.400}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an outlined confirm (positive) button in the default state."
@@ -335,7 +338,7 @@
             "hover": {
               "$value": {
                 "default": "{color.blue.700}",
-                "dark": "{color.blue.200}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an outlined confirm (positive) button in the hover state."
@@ -348,7 +351,7 @@
             "active": {
               "$value": {
                 "default": "{color.blue.900}",
-                "dark": "{color.blue.50}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an outlined confirm (positive) button in the active state."
@@ -436,7 +439,10 @@
         "foreground": {
           "color": {
             "default": {
-              "$value": "{color.neutral.0}",
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
               "$type": "color",
               "$description": "Used for the foreground of a danger (destructive) primary button in the default state."
             },
@@ -462,7 +468,7 @@
             "default": {
               "$value": {
                 "default": "{color.red.500}",
-                "dark": "{color.red.400}"
+                "dark": "{color.red.300}"
               },
               "$type": "color",
               "$description": "Used for the background of a danger (destructive) primary button in the default state."
@@ -470,7 +476,7 @@
             "hover": {
               "$value": {
                 "default": "{color.red.600}",
-                "dark": "{color.red.300}"
+                "dark": "{color.red.200}"
               },
               "$type": "color",
               "$description": "Used for the background of a danger (destructive) primary button in the hover state."
@@ -483,7 +489,7 @@
             "active": {
               "$value": {
                 "default": "{color.red.800}",
-                "dark": "{color.red.100}"
+                "dark": "{color.red.400}"
               },
               "$type": "color",
               "$description": "Used for the background of a danger (destructive) primary button in the active state."
@@ -495,7 +501,7 @@
             "default": {
               "$value": {
                 "default": "{color.red.600}",
-                "dark": "{color.red.300}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a danger (destructive) primary button in the default state."
@@ -503,7 +509,7 @@
             "hover": {
               "$value": {
                 "default": "{color.red.800}",
-                "dark": "{color.red.100}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a danger (destructive) primary button in the hover state."
@@ -516,7 +522,7 @@
             "active": {
               "$value": {
                 "default": "{color.red.900}",
-                "dark": "{color.red.50}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a danger (destructive) primary button in the active state."
@@ -530,7 +536,7 @@
             "default": {
               "$value": {
                 "default": "{color.red.500}",
-                "dark": "{color.red.400}"
+                "dark": "{color.red.100}"
               },
               "$type": "color",
               "$description": "Used for the foreground of a danger (destructive) button in the default state."
@@ -538,7 +544,7 @@
             "hover": {
               "$value": {
                 "default": "{color.red.700}",
-                "dark": "{color.red.200}"
+                "dark": "{color.red.50}"
               },
               "$type": "color",
               "$description": "Used for the foreground of a danger (destructive) button in the hover state."
@@ -551,7 +557,7 @@
             "active": {
               "$value": {
                 "default": "{color.red.900}",
-                "dark": "{color.red.50}"
+                "dark": "{button.danger.secondary.foreground.color.focus}"
               },
               "$type": "color",
               "$description": "Used for the foreground of a danger (destructive) button in the active state."
@@ -563,7 +569,7 @@
             "default": {
               "$value": {
                 "default": "{color.neutral.0}",
-                "dark": "{color.neutral.900}"
+                "dark": "rgba(236, 89, 65, 0.40)"
               },
               "$type": "color",
               "$description": "Used for the background of an outlined danger (destructive) button in the default state."
@@ -571,7 +577,7 @@
             "hover": {
               "$value": {
                 "default": "{color.red.50}",
-                "dark": "{color.red.900}"
+                "dark": "rgba(236, 89, 65, 0.64)"
               },
               "$type": "color",
               "$description": "Used for the background of an outlined danger (destructive) button in the hover state."
@@ -584,7 +590,7 @@
             "active": {
               "$value": {
                 "default": "{color.red.100}",
-                "dark": "{color.red.800}"
+                "dark": "rgba(236, 89, 65, 0.32)"
               },
               "$type": "color",
               "$description": "Used for the background of an outlined danger (destructive) button in the active state."
@@ -596,7 +602,7 @@
             "default": {
               "$value": {
                 "default": "{color.red.500}",
-                "dark": "{color.red.400}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an outlined danger (destructive) button in the default state."
@@ -604,7 +610,7 @@
             "hover": {
               "$value": {
                 "default": "{color.red.700}",
-                "dark": "{color.red.200}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an outlined danger (destructive) button in the hover state."
@@ -617,7 +623,7 @@
             "active": {
               "$value": {
                 "default": "{color.red.900}",
-                "dark": "{color.red.50}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of an outlined danger (destructive) button in the active state."
@@ -853,7 +859,7 @@
         "color": {
           "$value": {
             "default": "{color.neutral.10}",
-            "dark": "{color.neutral.950}"
+            "dark": "rgba(137, 136, 141, 0.16)"
           },
           "$type": "color",
           "$description": "Used for the background of a disabled button."
@@ -863,7 +869,7 @@
         "color": {
           "$value": {
             "default": "{color.neutral.100}",
-            "dark": "{color.neutral.800}"
+            "dark": "{color.alpha.0}"
           },
           "$type": "color",
           "$description": "Used for the border of a disabled button."
