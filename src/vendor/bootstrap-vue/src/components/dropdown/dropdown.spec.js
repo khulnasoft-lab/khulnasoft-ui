@@ -905,7 +905,7 @@ describe('dropdown', () => {
     expect(wrapper.element.tagName).toBe('DIV')
     expect(wrapper.vm).toBeDefined()
     await waitNT(wrapper.vm)
-    expect(wrapper.classes()).not.toContain('position-static')
+    expect(wrapper.classes()).not.toContain('gl-static')
     wrapper.destroy()
   })
 
@@ -919,7 +919,7 @@ describe('dropdown', () => {
     expect(wrapper.element.tagName).toBe('DIV')
     expect(wrapper.vm).toBeDefined()
     await waitNT(wrapper.vm)
-    expect(wrapper.classes()).toContain('position-static')
+    expect(wrapper.classes()).toContain('gl-static')
     wrapper.destroy()
   })
 
