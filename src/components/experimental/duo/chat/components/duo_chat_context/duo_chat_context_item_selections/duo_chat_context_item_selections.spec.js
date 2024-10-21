@@ -143,7 +143,11 @@ describe('GlDuoChatContextItemSelections', () => {
     });
 
     it('does not render an icon for unknown types', () => {
-      const unknownItem = { ...MOCK_CONTEXT_ITEM_FILE, category: 'unknown' };
+      const unknownItem = {
+        ...MOCK_CONTEXT_ITEM_FILE,
+        category: 'unknown',
+        metadata: { ...MOCK_CONTEXT_ITEM_FILE.metadata, icon: undefined },
+      };
       createComponent({ selections: [unknownItem] });
 
       expect(findTokensIcons()).toHaveLength(0);

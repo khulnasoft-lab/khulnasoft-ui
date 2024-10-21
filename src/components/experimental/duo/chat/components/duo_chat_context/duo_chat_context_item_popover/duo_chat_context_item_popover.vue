@@ -15,6 +15,7 @@ import {
   formatIssueId,
   formatMergeRequestId,
   getContextItemIcon,
+  getContextItemSecondaryText,
   getContextItemTypeLabel,
 } from '../utils';
 
@@ -98,6 +99,9 @@ export default {
     itemTypeLabel() {
       return getContextItemTypeLabel(this.contextItem);
     },
+    secondaryText() {
+      return getContextItemSecondaryText(this.contextItem);
+    },
   },
   methods: {
     translate,
@@ -120,20 +124,22 @@ export default {
         >
           {{ title }}
         </div>
-        <div v-if="itemTypeLabel" class="gl-font-normal gl-text-subtle">{{ itemTypeLabel }}</div>
+        <div v-if="itemTypeLabel" class="gl-font-normal gl-text-subtle">
+          <gl-truncate :text="itemTypeLabel" class="gl-min-w-0" />
+        </div>
       </div>
     </template>
     <div>
-      <div v-if="filePath">
+      <div v-if="secondaryText" class="gl-flex gl-items-center">
+        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1 gl-shrink-0" />
+        <gl-truncate :text="secondaryText" class="gl-min-w-0" />
+      </div>
+      <div v-else-if="filePath">
         <gl-icon name="document" :size="12" variant="subtle" />
         <span class="gl-break-all">{{ contextItem.metadata.project }}</span>
         <span v-for="(pathPart, index) in filePathArray" :key="pathPart" class="gl-break-all"
           >{{ pathPart }}{{ index + 1 < filePathArray.length ? '/' : '' }}</span
         >
-      </div>
-      <div v-else-if="gitDetails" class="gl-flex gl-items-center" data-testid="git-details">
-        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1 gl-shrink-0" />
-        <gl-truncate :text="gitDetails" class="gl-min-w-0" />
       </div>
       <div v-else>
         <gl-icon v-if="iconName" :name="iconName" :size="12" variant="subtle" />
