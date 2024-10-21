@@ -4,20 +4,8 @@ import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlPopover from '../../../../../../base/popover/popover.vue';
 import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import { translate } from '../../../../../../../utils/i18n';
-import {
-  CONTEXT_ITEM_CATEGORY_FILE,
-  CONTEXT_ITEM_CATEGORY_ISSUE,
-  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
-} from '../constants';
-import {
-  formatIssueId,
-  formatMergeRequestId,
-  getContextItemIcon,
-  getContextItemSecondaryText,
-  getContextItemSource,
-  getContextItemTypeLabel,
-} from '../utils';
 import GlBadge from '../../../../../../base/badge/badge.vue';
+import { getContextItemSource } from '../utils';
 
 export default {
   name: 'DuoChatContextItemPopover',
@@ -53,32 +41,8 @@ export default {
     },
   },
   computed: {
-    id() {
-      const isIssuable =
-        this.contextItem.category === CONTEXT_ITEM_CATEGORY_ISSUE ||
-        this.contextItem.category === CONTEXT_ITEM_CATEGORY_MERGE_REQUEST;
-      return isIssuable ? this.contextItem.metadata.iid : null;
-    },
-    formattedId() {
-      switch (this.contextItem.category) {
-        case CONTEXT_ITEM_CATEGORY_ISSUE:
-          return formatIssueId(this.id);
-        case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
-          return formatMergeRequestId(this.id);
-        default:
-          return '';
-      }
-    },
     title() {
       return this.contextItem.metadata.title || '';
-    },
-    filePath() {
-      return this.contextItem.category === CONTEXT_ITEM_CATEGORY_FILE
-        ? this.contextItem.metadata.relativePath || ''
-        : null;
-    },
-    filePathArray() {
-      return this.filePath?.split('/');
     },
     isEnabled() {
       return this.contextItem.metadata.enabled !== false;
@@ -89,21 +53,9 @@ export default {
         ? this.contextItem.metadata.disabledReasons.join(', ')
         : translate('DuoChatContextItemPopover.DisabledReason', 'This item is disabled');
     },
-    iconName() {
-      return getContextItemIcon(this.contextItem);
-    },
-    itemTypeLabel() {
-      return getContextItemTypeLabel(this.contextItem);
-    },
-    secondaryText() {
-      return getContextItemSecondaryText(this.contextItem);
-    },
     itemSource() {
       return getContextItemSource(this.contextItem);
     },
-  },
-  methods: {
-    translate,
   },
 };
 </script>
@@ -123,28 +75,21 @@ export default {
         >
           {{ title }}
         </div>
-        <div v-if="itemTypeLabel" class="gl-flex gl-items-center gl-font-normal gl-text-subtle">
-          <gl-truncate :text="itemTypeLabel" class="gl-min-w-0" />
+        <div v-if="contextItem.metadata.subTypeLabel" class="gl-font-normal gl-text-subtle">
+          <gl-truncate :text="contextItem.metadata.subTypeLabel" class="gl-min-w-0" />
         </div>
       </div>
     </template>
     <div>
-      <div v-if="secondaryText" class="gl-flex gl-items-center">
-        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1 gl-shrink-0" />
+      <div v-if="contextItem.metadata.secondaryText" class="gl-flex gl-items-center">
+        <gl-icon
+          :name="contextItem.metadata.icon"
+          :size="12"
+          variant="subtle"
+          class="gl-mr-1 gl-shrink-0"
+        />
         <gl-badge v-if="itemSource" class="gl-mr-1">{{ itemSource }}</gl-badge>
-        <gl-truncate :text="secondaryText" class="gl-min-w-0" />
-      </div>
-      <div v-else-if="filePath">
-        <gl-icon name="document" :size="12" variant="subtle" />
-        <span class="gl-break-all">{{ contextItem.metadata.project }}</span>
-        <span v-for="(pathPart, index) in filePathArray" :key="pathPart" class="gl-break-all"
-          >{{ pathPart }}{{ index + 1 < filePathArray.length ? '/' : '' }}</span
-        >
-      </div>
-      <div v-else>
-        <gl-icon v-if="iconName" :name="iconName" :size="12" variant="subtle" />
-        <span class="gl-break-all">{{ contextItem.metadata.project }}</span>
-        <span v-if="id" class="gl-break-all">{{ formattedId }}</span>
+        <gl-truncate :text="contextItem.metadata.secondaryText" class="gl-min-w-0" />
       </div>
       <gl-alert
         v-if="!isEnabled"

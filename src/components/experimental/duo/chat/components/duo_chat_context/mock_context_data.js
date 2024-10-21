@@ -221,6 +221,7 @@ const mockGitItems = [
       secondaryText: '32b9b56b6de75b32909986755fbc470f20fb6fc0',
       subTypeLabel: 'Local Git repository commit',
       icon: 'commit',
+
       commitId: '32b9b56b6de75b32909986755fbc470f20fb6fc0',
       repositoryName: 'example/garden',
       gitType: 'commit',

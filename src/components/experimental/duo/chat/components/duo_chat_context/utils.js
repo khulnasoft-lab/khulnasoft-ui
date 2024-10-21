@@ -1,13 +1,3 @@
-import { translate } from '../../../../../../utils/i18n';
-import {
-  CONTEXT_ITEM_CATEGORY_FILE,
-  CONTEXT_ITEM_CATEGORY_ISSUE,
-  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
-  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
-  CONTEXT_ITEM_LOCAL_GIT_COMMIT,
-  CONTEXT_ITEM_LOCAL_GIT_DIFF,
-} from './constants';
-
 export function categoryValidator(category) {
   return Boolean(category && category.value && category.label && category.icon);
 }
@@ -31,6 +21,10 @@ export function contextItemValidator(item) {
       item.category &&
       item.metadata &&
       typeof item.metadata === 'object' &&
+      typeof item.metadata.title === 'string' && // new
+      typeof item.metadata.secondaryText === 'string' && // new
+      typeof item.metadata.subTypeLabel === 'string' && // new
+      typeof item.metadata.icon === 'string' && // new
       typeof item.metadata.enabled === 'boolean' &&
       disabledReasonsValidator(item.metadata.disabledReasons)
   );
@@ -40,112 +34,8 @@ export function contextItemsValidator(items) {
   return Array.isArray(items) && items.every((item) => contextItemValidator(item));
 }
 
-export function formatIssueId(iid) {
-  if (!iid) return '';
-
-  return `#${iid}`;
-}
-
-export function formatMergeRequestId(iid) {
-  if (!iid) return '';
-
-  return `!${iid}`;
-}
-
 export function getContextItemSource(contextItem) {
   return contextItem.metadata.repositoryName || contextItem.metadata.project || null;
-}
-
-function getGitItemIcon(contextItem) {
-  const iconMap = {
-    [CONTEXT_ITEM_LOCAL_GIT_COMMIT]: 'commit',
-    [CONTEXT_ITEM_LOCAL_GIT_DIFF]: 'comparison',
-  };
-  const { gitType } = contextItem.metadata;
-  return iconMap[gitType] || null;
-}
-
-/**
- * Gets the icon name for a given contextItem.
- */
-export function getContextItemIcon(contextItem, category = { icon: null }) {
-  if (contextItem.metadata.icon) {
-    return contextItem.metadata.icon;
-  }
-
-  if (contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT) {
-    const gitIcon = getGitItemIcon(contextItem);
-    if (gitIcon) return gitIcon;
-  }
-
-  if (category.icon) {
-    return category.icon;
-  }
-
-  const iconMap = {
-    [CONTEXT_ITEM_CATEGORY_FILE]: 'document',
-    [CONTEXT_ITEM_CATEGORY_ISSUE]: 'issues',
-    [CONTEXT_ITEM_CATEGORY_MERGE_REQUEST]: 'merge-request',
-    [CONTEXT_ITEM_CATEGORY_LOCAL_GIT]: 'git',
-  };
-
-  return iconMap[contextItem.category] || null;
-}
-
-export function getContextItemTypeLabel(contextItem) {
-  if (contextItem.metadata.subTypeLabel) {
-    return contextItem.metadata.subTypeLabel;
-  }
-
-  if (contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT) {
-    switch (contextItem.metadata.gitType) {
-      case CONTEXT_ITEM_LOCAL_GIT_DIFF:
-        return translate('DuoChatContextItemTypeLabel.GitDiff', 'Local Git repository diff');
-      case CONTEXT_ITEM_LOCAL_GIT_COMMIT:
-        return translate('DuoChatContextItemTypeLabel.GitCommit', 'Local Git repository commit');
-      default:
-        return translate('DuoChatContextItemTypeLabel.GitDefault', 'Local Git repository');
-    }
-  }
-
-  switch (contextItem.category) {
-    case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
-      return translate('DuoChatContextItemTypeLabel.MergeRequest', 'Merge request');
-    case CONTEXT_ITEM_CATEGORY_ISSUE:
-      return translate('DuoChatContextItemTypeLabel.Issue', 'Issue');
-    case CONTEXT_ITEM_CATEGORY_FILE:
-      return translate('DuoChatContextItemTypeLabel.File', 'Project file');
-    default:
-      return '';
-  }
-}
-
-/**
- * Gets the secondary text line for a git context item, showing repository and commit ID
- */
-export function formatGitItemSecondaryText(contextItem) {
-  const { repositoryName, commitId } = contextItem.metadata;
-  const separator = commitId ? ' - ' : '';
-  return `${repositoryName}${separator}${commitId || ''}`;
-}
-
-export function getContextItemSecondaryText(contextItem) {
-  if (contextItem.metadata.secondaryText) {
-    return contextItem.metadata.secondaryText;
-  }
-
-  switch (contextItem.category) {
-    case CONTEXT_ITEM_CATEGORY_FILE:
-      return contextItem.metadata.relativePath;
-    case CONTEXT_ITEM_CATEGORY_ISSUE:
-      return formatIssueId(contextItem.metadata.iid);
-    case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
-      return formatMergeRequestId(contextItem.metadata.iid);
-    case CONTEXT_ITEM_CATEGORY_LOCAL_GIT:
-      return formatGitItemSecondaryText(contextItem);
-    default:
-      return '';
-  }
 }
 
 /**

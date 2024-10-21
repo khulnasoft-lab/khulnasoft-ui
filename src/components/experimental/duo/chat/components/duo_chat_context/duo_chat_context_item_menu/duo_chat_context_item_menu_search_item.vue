@@ -2,13 +2,7 @@
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import GlIcon from '../../../../../../base/icon/icon.vue';
-import {
-  categoryValidator,
-  contextItemValidator,
-  getContextItemIcon,
-  getContextItemSecondaryText,
-  getContextItemSource,
-} from '../utils';
+import { categoryValidator, contextItemValidator, getContextItemSource } from '../utils';
 import GlBadge from '../../../../../../base/badge/badge.vue';
 
 export default {
@@ -30,12 +24,6 @@ export default {
     title() {
       return this.contextItem.metadata?.title || '';
     },
-    secondaryText() {
-      return getContextItemSecondaryText(this.contextItem);
-    },
-    icon() {
-      return getContextItemIcon(this.contextItem, this.category);
-    },
     itemSource() {
       return getContextItemSource(this.contextItem);
     },
@@ -45,7 +33,11 @@ export default {
 <template>
   <div class="gl-flex gl-flex-col">
     <div class="gl-flex gl-items-center">
-      <gl-icon :name="icon" class="gl-mr-2 gl-shrink-0" data-testid="category-icon" />
+      <gl-icon
+        :name="contextItem.metadata.icon"
+        class="gl-mr-2 gl-shrink-0"
+        data-testid="category-icon"
+      />
       <gl-truncate :text="title" class="gl-min-w-0" data-testid="item-title" />
       <gl-icon
         :id="`info-icon-${contextItem.id}`"
@@ -60,7 +52,7 @@ export default {
       />
     </div>
     <div
-      v-if="secondaryText"
+      v-if="contextItem.metadata.secondaryText"
       class="gl-mt-1 gl-shrink-0 gl-whitespace-nowrap gl-text-secondary"
       data-testid="item-secondary-text"
     >
@@ -71,7 +63,7 @@ export default {
         data-testid="context-item-source"
         >{{ itemSource }}</gl-badge
       >
-      <gl-truncate :text="secondaryText" />
+      <gl-truncate :text="contextItem.metadata.secondaryText" />
     </div>
   </div>
 </template>

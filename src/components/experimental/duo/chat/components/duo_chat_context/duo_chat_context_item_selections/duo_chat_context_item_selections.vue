@@ -6,7 +6,7 @@ import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 import { CONTEXT_ITEM_CATEGORY_FILE, CONTEXT_ITEM_CATEGORY_LOCAL_GIT } from '../constants';
 import GlDuoChatContextItemDetailsModal from '../duo_chat_context_item_details_modal/duo_chat_context_item_details_modal.vue';
-import { contextItemsValidator, getContextItemIcon } from '../utils';
+import { contextItemsValidator } from '../utils';
 
 export default {
   name: 'GlDuoChatContextItemSelections',
@@ -82,7 +82,6 @@ export default {
     },
   },
   methods: {
-    getContextItemIcon,
     toggleCollapse() {
       this.isCollapsed = !this.isCollapsed;
     },
@@ -157,8 +156,8 @@ export default {
           class="gl-flex gl-min-w-0 gl-items-center"
         >
           <gl-icon
-            v-if="getContextItemIcon(item)"
-            :name="getContextItemIcon(item)"
+            v-if="item.metadata.icon"
+            :name="item.metadata.icon"
             :size="12"
             class="gl-mr-1"
           />
