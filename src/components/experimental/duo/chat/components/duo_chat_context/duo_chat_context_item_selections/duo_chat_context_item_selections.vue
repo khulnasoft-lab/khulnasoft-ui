@@ -4,7 +4,11 @@ import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlToken from '../../../../../../base/token/token.vue';
 import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
-import { CONTEXT_ITEM_CATEGORY_FILE, CONTEXT_ITEM_CATEGORY_LOCAL_GIT } from '../constants';
+import {
+  CONTEXT_ITEM_CATEGORY_DEPENDENCY,
+  CONTEXT_ITEM_CATEGORY_FILE,
+  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+} from '../constants';
 import GlDuoChatContextItemDetailsModal from '../duo_chat_context_item_details_modal/duo_chat_context_item_details_modal.vue';
 import { contextItemsValidator, getContextItemIcon } from '../utils';
 
@@ -110,9 +114,11 @@ export default {
       this.previewContextItemId = contextItem.id;
     },
     canOpen(contextItem) {
-      return [CONTEXT_ITEM_CATEGORY_LOCAL_GIT, CONTEXT_ITEM_CATEGORY_FILE].includes(
-        contextItem.category
-      );
+      return [
+        CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+        CONTEXT_ITEM_CATEGORY_FILE,
+        CONTEXT_ITEM_CATEGORY_DEPENDENCY,
+      ].includes(contextItem.category);
     },
     onClosePreview() {
       this.previewContextItemId = null;

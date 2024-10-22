@@ -1,8 +1,9 @@
 import {
-  CONTEXT_ITEM_CATEGORY_ISSUE,
-  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
+  CONTEXT_ITEM_CATEGORY_DEPENDENCY,
   CONTEXT_ITEM_CATEGORY_FILE,
+  CONTEXT_ITEM_CATEGORY_ISSUE,
   CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+  CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
 } from './constants';
 
 export const MOCK_CATEGORIES = [
@@ -10,6 +11,7 @@ export const MOCK_CATEGORIES = [
   { label: 'Local Git', value: CONTEXT_ITEM_CATEGORY_LOCAL_GIT, icon: 'git' },
   { label: 'Issues', value: CONTEXT_ITEM_CATEGORY_ISSUE, icon: 'issues' },
   { label: 'Merge Requests', value: CONTEXT_ITEM_CATEGORY_MERGE_REQUEST, icon: 'merge-request' },
+  { label: 'Dependencies', value: CONTEXT_ITEM_CATEGORY_DEPENDENCY, icon: 'package' },
 ];
 
 export function getMockCategory(categoryValue) {
@@ -242,8 +244,107 @@ const mockGitItems = [
   },
 ];
 
+export const MOCK_CONTEXT_ITEM_DEPENDENCY = {
+  id: '823e4567-e89b-12d3-a456-426614174007',
+  category: CONTEXT_ITEM_CATEGORY_DEPENDENCY,
+  content: JSON.stringify([
+    {
+      javascript: [
+        '@types/node@16.11.7',
+        '@vue/compiler-sfc@3.2.37',
+        'typescript@4.5.5',
+        'vue@3.2.37',
+      ],
+    },
+  ]),
+  metadata: {
+    enabled: true,
+    title: 'example/garden',
+    secondaryText: 'package.json',
+    icon: 'package',
+    subType: 'dependency',
+    subTypeLabel: 'Project dependencies',
+    project: 'example/garden',
+  },
+};
+
+export const MOCK_CONTEXT_ITEM_DEPENDENCY_DISABLED = {
+  id: '923e4567-e89b-12d3-a456-426614174008',
+  category: CONTEXT_ITEM_CATEGORY_DEPENDENCY,
+  content: JSON.stringify([
+    {
+      javascript: [
+        '@types/node@16.11.7',
+        '@vue/compiler-sfc@3.2.37',
+        'typescript@4.5.5',
+        'vue@3.2.37',
+      ],
+      csharp: ['newtonsoft.json@13.0.1', 'microsoft.net.test.sdk@16.11.0'],
+    },
+  ]),
+  metadata: {
+    enabled: false,
+    disabledReasons: ['Dependencies are not available for this project', 'Access restricted'],
+    title: 'example/vehicle',
+    secondaryText: 'package.json, vehicle.csproj',
+    icon: 'package',
+    subType: 'dependency',
+    subTypeLabel: 'Project dependencies',
+    project: 'example/vehicle',
+  },
+};
+
+const mockDependencies = [
+  MOCK_CONTEXT_ITEM_DEPENDENCY,
+  MOCK_CONTEXT_ITEM_DEPENDENCY_DISABLED,
+  {
+    id: 'b23e4567-e89b-12d3-a456-426614174010',
+    category: CONTEXT_ITEM_CATEGORY_DEPENDENCY,
+    content: JSON.stringify([
+      {
+        python: ['django@3.2.9', 'djangorestframework@3.12.4', 'psycopg2@2.9.2', 'celery@5.2.1'],
+        csharp: ['newtonsoft.json@13.0.1', 'microsoft.net.test.sdk@16.11.0'],
+      },
+    ]),
+    metadata: {
+      enabled: true,
+      title: 'example/backend',
+      secondaryText: 'requirements.txt, some.backend.csproj',
+      icon: 'package',
+      subType: 'dependency',
+      subTypeLabel: 'Project dependencies',
+      project: 'example/backend',
+    },
+  },
+  {
+    id: 'c23e4567-e89b-12d3-a456-426614174011',
+    category: CONTEXT_ITEM_CATEGORY_DEPENDENCY,
+    content: JSON.stringify([
+      {
+        javascript: ['jquery@3.5.1', 'backbone@1.4.0', 'underscore@1.13.1', 'moment@2.29.1'],
+      },
+    ]),
+    metadata: {
+      enabled: false,
+      disabledReasons: ['Project is archived'],
+      title: 'example/legacy',
+      secondaryText: 'bower.json',
+      icon: 'package',
+      subType: 'dependency',
+      subTypeLabel: 'Project dependencies',
+      project: 'example/legacy',
+    },
+  },
+];
+
 export const getMockContextItems = () => {
-  const allItems = [...mockFiles, ...mockGitItems, ...mockIssues, ...mockMergeRequests];
+  const allItems = [
+    ...mockFiles,
+    ...mockGitItems,
+    ...mockIssues,
+    ...mockMergeRequests,
+    ...mockDependencies,
+  ];
 
   // put disabled items in the back
   const disabledItems = allItems.filter((item) => !item.metadata.enabled);

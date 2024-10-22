@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import GlTruncate from '../../../../../../utilities/truncate/truncate.vue';
 import {
   getMockCategory,
+  MOCK_CONTEXT_ITEM_DEPENDENCY,
   MOCK_CONTEXT_ITEM_FILE,
   MOCK_CONTEXT_ITEM_GIT_COMMIT,
   MOCK_CONTEXT_ITEM_GIT_DIFF,
@@ -13,6 +14,7 @@ import {
   CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
   CONTEXT_ITEM_CATEGORY_FILE,
   CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
+  CONTEXT_ITEM_CATEGORY_DEPENDENCY,
 } from '../constants';
 import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_chat_context_item_popover.vue';
 import GlDuoChatContextItemMenuSearchItem from './duo_chat_context_item_menu_search_item.vue';
@@ -68,6 +70,12 @@ describe('GlDuoChatContextItemMenuContextSearchItem', () => {
       contextItem: MOCK_CONTEXT_ITEM_GIT_DIFF,
       expectedIcon: 'comparison',
       expectedSecondaryText: `main`,
+    },
+    {
+      category: getMockCategory(CONTEXT_ITEM_CATEGORY_DEPENDENCY),
+      contextItem: MOCK_CONTEXT_ITEM_DEPENDENCY,
+      expectedIcon: 'package',
+      expectedSecondaryText: `package.json`,
     },
   ])(
     'for category "$contextItem.category" and type "$contextItem.metadata.gitType"',

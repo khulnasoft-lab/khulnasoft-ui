@@ -7,6 +7,7 @@ import GlDuoChatContextItemPopover from '../duo_chat_context_item_popover/duo_ch
 
 import {
   getMockContextItems,
+  MOCK_CONTEXT_ITEM_DEPENDENCY,
   MOCK_CONTEXT_ITEM_FILE,
   MOCK_CONTEXT_ITEM_GIT_COMMIT,
   MOCK_CONTEXT_ITEM_GIT_DIFF,
@@ -198,45 +199,46 @@ describe('GlDuoChatContextItemSelections', () => {
     });
 
     describe('when opening context items', () => {
-      describe.each([{ item: MOCK_CONTEXT_ITEM_FILE }, { item: MOCK_CONTEXT_ITEM_GIT_DIFF }])(
-        'and the item is a "$item.category"',
-        ({ item }) => {
-          beforeEach(() => createComponent({ selections: [item] }, mount));
+      describe.each([
+        { item: MOCK_CONTEXT_ITEM_FILE },
+        { item: MOCK_CONTEXT_ITEM_GIT_DIFF },
+        { item: { ...MOCK_CONTEXT_ITEM_DEPENDENCY, content: '' } },
+      ])('and the item is a "$item.category"', ({ item }) => {
+        beforeEach(() => createComponent({ selections: [item] }, mount));
 
-          describe.each(['click', 'keydown.enter', 'keydown.space'])(
-            'when opening by "$eventType"',
-            (eventType) => {
-              beforeEach(() => findTokens().at(0).trigger(eventType));
+        describe.each(['click', 'keydown.enter', 'keydown.space'])(
+          'when opening by "$eventType"',
+          (eventType) => {
+            beforeEach(() => findTokens().at(0).trigger(eventType));
 
-              it('should display the details view', () => {
-                expect(findItemDetailsModal().props('contextItem')).toEqual(item);
-              });
+            it('should display the details view', () => {
+              expect(findItemDetailsModal().props('contextItem')).toEqual(item);
+            });
 
-              it('should emit a "get-content" event to hydrate the item', () => {
-                expect(wrapper.emitted('get-content')).toHaveLength(1);
-                expect(wrapper.emitted('get-content').at(0)).toEqual([item]);
-              });
+            it('should emit a "get-content" event to hydrate the item', () => {
+              expect(wrapper.emitted('get-content')).toHaveLength(1);
+              expect(wrapper.emitted('get-content').at(0)).toEqual([item]);
+            });
 
-              it('should close the details view when modal emits "close" event', async () => {
-                findItemDetailsModal().vm.$emit('close');
-                await nextTick();
+            it('should close the details view when modal emits "close" event', async () => {
+              findItemDetailsModal().vm.$emit('close');
+              await nextTick();
 
-                expect(findItemDetailsModal().exists()).toBe(false);
-              });
-            }
-          );
+              expect(findItemDetailsModal().exists()).toBe(false);
+            });
+          }
+        );
 
-          it('should not open the item when emitting key event on gl-token internal close button', async () => {
-            const token = findTokens().at(0);
-            const closeButton = token.find('svg');
+        it('should not open the item when emitting key event on gl-token internal close button', async () => {
+          const token = findTokens().at(0);
+          const closeButton = token.find('svg');
 
-            closeButton.trigger('keydown.enter');
-            await nextTick();
+          closeButton.trigger('keydown.enter');
+          await nextTick();
 
-            expect(findItemDetailsModal().exists()).toBe(false);
-          });
-        }
-      );
+          expect(findItemDetailsModal().exists()).toBe(false);
+        });
+      });
 
       describe.each([{ item: MOCK_CONTEXT_ITEM_MERGE_REQUEST }, { item: MOCK_CONTEXT_ITEM_ISSUE }])(
         'and the item is a "$item.category"',
