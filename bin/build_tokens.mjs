@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const prettier = require('prettier');
-const StyleDictionary = require('style-dictionary');
-const merge = require('lodash/merge');
-const { TailwindTokenFormatter } = require('./lib/tailwind_token_formatter');
+import fs from 'fs';
+import path from 'path';
+import prettier from 'prettier';
+import StyleDictionary from 'style-dictionary';
+import lodash from 'lodash';
+const { merge } = lodash;
+import { TailwindTokenFormatter } from './lib/tailwind_token_formatter.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const { fileHeader } = StyleDictionary.formatHelpers;
+
+import { fileHeader, formattedVariables } from 'style-dictionary/utils';
 
 /**
  * Design tokens
@@ -18,10 +22,29 @@ const PREFIX = 'gl';
 /**
  * Utils
  */
-const hasDefaultValue = (token) => token.original.value.default;
-const hasDarkValue = (token) => token.original.value.dark;
+const hasDefaultValue = (token) => {
+  if (token.original.$value) {
+    return token.original.$value.default;
+  }
+  if (token.original.value) {
+    return token.original.value.default;
+  }
+  return false;
+};
+
+const hasDarkValue = (token) => {
+  if (token.original.$value) {
+    return token.original.$value.dark;
+  }
+  if (token.original.value) {
+    return token.original.value.dark;
+  }
+  return false;
+};
+
 const hasDefaultAndDarkValues = (token) =>
-  token.original.value && hasDefaultValue(token) && hasDarkValue(token);
+  token.original && (token.original.$value || token.original.value) && 
+  hasDefaultValue(token) && hasDarkValue(token);
 
 /**
  * Transforms
@@ -30,25 +53,21 @@ const hasDefaultAndDarkValues = (token) =>
 StyleDictionary.registerTransform({
   name: 'name/stripPrefix',
   type: 'name',
-  matcher: (token) => {
-    // Prefix is added by `name/cti/*` transform.
-    // If token has `prefix` explicitly set to `false` then we remove the prefix.
-    return token.prefix === false;
-  },
-  transformer: (token) => {
-    return token.name.slice(PREFIX.length + 1);
-  },
+  filter: (token) => token.prefix === false, // Changed from matcher to filter
+  transform: (token) => token.name.slice(PREFIX.length + 1),
 });
 
 StyleDictionary.registerTransform({
   name: 'value/default',
   type: 'value',
   transitive: true,
-  matcher: (token) => {
-    return hasDefaultAndDarkValues(token);
-  },
-  transformer: ({ value }) => {
-    return value.default;
+  filter: (token) => hasDefaultAndDarkValues(token),
+  transform: (token) => {
+    // Handle both old and new format
+    if (token.original.$value) {
+      return token.original.$value.default;
+    }
+    return token.original.value.default;
   },
 });
 
@@ -56,36 +75,59 @@ StyleDictionary.registerTransform({
   name: 'value/dark',
   type: 'value',
   transitive: true,
-  matcher: (token) => {
-    return hasDefaultAndDarkValues(token);
-  },
-  transformer: ({ value }) => {
-    return value.dark;
+  filter: (token) => hasDefaultAndDarkValues(token),
+  transform: (token) => {
+    // Handle both old and new format
+    if (token.original.$value) {
+      return token.original.$value.dark;
+    }
+    return token.original.value.dark;
   },
 });
 
 /**
  * Transform Groups
  * https://amzn.github.io/style-dictionary/#/api?id=registertransformgroup
+ * - Now under hooks.transformGroups
  */
 StyleDictionary.registerTransformGroup({
   name: 'css/default',
-  transforms: ['value/default', 'name/cti/kebab', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: [
+    'value/default',
+    'name/kebab', // Changed from name/cti/kebab
+    'size/rem',   // Changed from size/pxToRem
+    'name/stripPrefix'
+  ],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js/default',
-  transforms: ['value/default', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: [
+    'value/default',
+    'name/constant', // Changed from name/cti/constant
+    'size/rem',      // Changed from size/pxToRem
+    'name/stripPrefix'
+  ],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'css/dark',
-  transforms: ['value/dark', 'name/cti/kebab', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: [
+    'value/dark',
+    'name/kebab', // Changed from name/cti/kebab
+    'size/rem',   // Changed from size/pxToRem
+    'name/stripPrefix'
+  ],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js/dark',
-  transforms: ['value/dark', 'name/cti/constant', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: [
+    'value/dark',
+    'name/constant', // Changed from name/cti/constant
+    'size/rem',      // Changed from size/pxToRem
+    'name/stripPrefix'
+  ],
 });
 
 /**
@@ -94,29 +136,29 @@ StyleDictionary.registerTransformGroup({
  */
 StyleDictionary.registerFileHeader({
   name: 'withoutTimestamp',
-  fileHeader() {
+  fileHeader: async () => {
     return ['Automatically generated', 'Do not edit directly'];
-  },
+  }
 });
 
 /**
  * Formats
  * https://amzn.github.io/style-dictionary/#/api?id=registerformat
+ * Now using async format function
  */
 StyleDictionary.registerFormat({
   name: 'scss/customProperties',
-  formatter({ dictionary, file }) {
-    let output = [];
-    dictionary.allTokens.forEach((token) => {
-      output = output.concat(`$${token.name}: var(--${token.name});`);
-    });
-    return `${fileHeader({ file })}${output.join('\n')}\n`;
+  format: async ({ dictionary, file, options }) => {
+    const output = dictionary.allTokens.map(token => 
+      `$${token.name}: var(--${token.name});`
+    ).join('\n');
+    return `${await fileHeader({ file, options })}${output}\n`;
   },
 });
 
 StyleDictionary.registerFormat({
   name: 'tailwind',
-  formatter: ({ dictionary, file }) => {
+  format: async ({ dictionary, file, options }) => {
     const f = new TailwindTokenFormatter(dictionary.tokens);
     const COMPILED_TOKENS = dictionary.tokens;
 
@@ -168,8 +210,10 @@ StyleDictionary.registerFormat({
       'brand-pink': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-pink']),
     };
 
-    return `${fileHeader({ file })}
-    const baseColors = ${JSON.stringify(baseColors)};
+    const header = await fileHeader({ file, options });
+
+    return `${header}
+    const baseColors = ${JSON.stringify(baseColors, null, 2)};
     const themeColors = ${JSON.stringify(themeColors)};
     const dataVizColors = ${JSON.stringify(dataVizColors)};
     const textColors = ${JSON.stringify(textColors)};
@@ -229,8 +273,7 @@ StyleDictionary.registerFormat({
       borderColor,
       textColor,
       fill,
-    }
-    `;
+    }`;
   },
 });
 
@@ -241,8 +284,9 @@ StyleDictionary.registerFormat({
  * @pattern supported file extensions `.json`
  */
 StyleDictionary.registerParser({
+  name: 'custom/json',
   pattern: /\.json$|\.tokens\.json$|\.tokens$/,
-  parse: ({ contents }) => {
+  parser: ({ contents, filePath }) => {
     const output = contents
       .replace(/["|']?\$value["|']?:/g, '"value":')
       .replace(/["|']?\$?description["|']?:/g, '"comment":');
@@ -256,17 +300,22 @@ StyleDictionary.registerParser({
  */
 StyleDictionary.registerAction({
   name: 'prettier',
-  do(dictionary, config) {
-    config.files.forEach(async (file) => {
+  do: async (dictionary, config) => {
+    for (const file of config.files) {
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = dirname(__filename);
       const filePath = `${config.buildPath}${file.destination}`;
       const fileContent = fs.readFileSync(filePath, 'utf8');
       const options = await prettier.resolveConfig(path.join(__dirname, '../.prettierrc'));
-      const formattedOutput = await prettier.format(fileContent, { ...options, parser: 'babel' });
+      const formattedOutput = await prettier.format(fileContent, { 
+        ...options, 
+        parser: 'babel' 
+      });
       fs.writeFileSync(filePath, formattedOutput);
-    });
+    }
   },
-  undo() {
-    // ignore clean function
+  undo: () => {
+    // Clean-up function if needed
   },
 });
 
@@ -277,90 +326,97 @@ StyleDictionary.registerAction({
  * @param {String} buildPath for destination directory
  * @returns {Object} style-dictionary config
  */
-const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => {
-  return {
-    include: ['src/tokens/**/*.tokens.json'],
-    source: ['src/tokens/**/*.tokens.json'],
-    platforms: {
-      css: {
-        prefix: PREFIX,
-        buildPath: `${buildPath}/css/`,
-        transformGroup: 'css/default',
-        options: {
-          outputReferences: true,
-          fileHeader: 'withoutTimestamp',
-        },
-        files: [
-          {
-            destination: 'tokens.css',
-            format: 'css/variables',
-          },
-        ],
+const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => ({
+  source: ['src/tokens/**/*.tokens.json'],
+  platforms: {
+    css: {
+      prefix: PREFIX,
+      buildPath: `${buildPath}/css/`,
+      transformGroup: 'css/default',
+      options: {
+        outputReferences: true,
+        formatting: {
+          fileHeaderTimestamp: false
+        }
       },
-      js: {
-        prefix: PREFIX,
-        buildPath: `${buildPath}/js/`,
-        transformGroup: 'js/default',
-        actions: ['prettier'],
-        options: {
-          fileHeader: 'withoutTimestamp',
+      files: [
+        {
+          destination: 'tokens.css',
+          format: 'css/variables',
         },
-        files: [
-          {
-            destination: 'tokens.js',
-            format: 'javascript/es6',
-          },
-        ],
-      },
-      json: {
-        buildPath: `${buildPath}/json/`,
-        transformGroup: 'js/default',
-        options: {
-          fileHeader: 'withoutTimestamp',
-        },
-        files: [
-          {
-            destination: 'tokens.json',
-            format: 'json',
-          },
-        ],
-      },
-      tailwind: {
-        buildPath: `${buildPath}/tailwind/`,
-        transformGroup: 'js/default',
-        actions: ['prettier'],
-        options: {
-          fileHeader: 'withoutTimestamp',
-        },
-        files: [
-          {
-            destination: 'tokens.cjs',
-            format: 'tailwind',
-          },
-        ],
-      },
-      scss: {
-        prefix: PREFIX,
-        buildPath: `${buildPath}/scss/`,
-        transformGroup: 'css/default',
-        options: {
-          outputReferences: true,
-          fileHeader: 'withoutTimestamp',
-        },
-        files: [
-          {
-            destination: '_tokens.scss',
-            format: 'scss/variables',
-          },
-          {
-            destination: '_tokens_custom_properties.scss',
-            format: 'scss/customProperties',
-          },
-        ],
-      },
+      ],
     },
-  };
-};
+    js: {
+      prefix: PREFIX,
+      buildPath: `${buildPath}/js/`,
+      transformGroup: 'js/default',
+      actions: ['prettier'],
+      options: {
+        formatting: {
+          fileHeaderTimestamp: false
+        }
+      },
+      files: [
+        {
+          destination: 'tokens.js',
+          format: 'javascript/es6',
+        },
+      ],
+    },
+    json: {
+      buildPath: `${buildPath}/json/`,
+      transformGroup: 'js/default',
+      options: {
+        formatting: {
+          fileHeaderTimestamp: false
+        }
+      },
+      files: [
+        {
+          destination: 'tokens.json',
+          format: 'json',
+        },
+      ],
+    },
+    tailwind: {
+      buildPath: `${buildPath}/tailwind/`,
+      transformGroup: 'js/default',
+      actions: ['prettier'],
+      options: {
+        formatting: {
+          fileHeaderTimestamp: false
+        }
+      },
+      files: [
+        {
+          destination: 'tokens.cjs',
+          format: 'tailwind',
+        },
+      ],
+    },
+    scss: {
+      prefix: PREFIX,
+      buildPath: `${buildPath}/scss/`,
+      transformGroup: 'css/default',
+      options: {
+        outputReferences: true,
+        formatting: {
+          fileHeaderTimestamp: false
+        }
+      },
+      files: [
+        {
+          destination: '_tokens.scss',
+          format: 'scss/variables',
+        },
+        {
+          destination: '_tokens_custom_properties.scss',
+          format: 'scss/customProperties',
+        },
+      ],
+    },
+  },
+});
 
 /**
  * Creates style-dictionary config
@@ -368,8 +424,8 @@ const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => {
  *
  * @returns {Object} style-dictionary config
  */
-const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
-  return merge(getStyleDictionaryConfigDefault(buildPath), {
+const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => 
+  merge(getStyleDictionaryConfigDefault(buildPath), {
     platforms: {
       css: {
         transformGroup: 'css/dark',
@@ -408,12 +464,28 @@ const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
       },
     },
   });
-};
 
 /**
  * Build tokens from config
  */
-StyleDictionary.extend(getStyleDictionaryConfigDefault()).buildAllPlatforms();
-StyleDictionary.extend(getStyleDictionaryConfigDefault('src/tokens/build')).buildAllPlatforms();
-StyleDictionary.extend(getStyleDictionaryConfigDarkMode()).buildAllPlatforms();
-StyleDictionary.extend(getStyleDictionaryConfigDarkMode('src/tokens/build')).buildAllPlatforms();
+const buildConfigs = async () => {
+  // Default configs
+  const sd = new StyleDictionary(getStyleDictionaryConfigDefault());
+  await sd.hasInitialized;
+  await sd.buildAllPlatforms();
+
+  const sdSource = new StyleDictionary(getStyleDictionaryConfigDefault('src/tokens/build'));
+  await sdSource.hasInitialized;
+  await sdSource.buildAllPlatforms();
+
+  // Dark mode configs
+  const darkConfig = new StyleDictionary(getStyleDictionaryConfigDarkMode());
+  await darkConfig.hasInitialized;
+  await darkConfig.buildAllPlatforms();
+
+  const darkConfigSource = new StyleDictionary(getStyleDictionaryConfigDarkMode('src/tokens/build'));
+  await darkConfigSource.hasInitialized;
+  await darkConfigSource.buildAllPlatforms();
+};
+
+buildConfigs().catch(console.error);
