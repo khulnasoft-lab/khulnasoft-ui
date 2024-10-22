@@ -32,9 +32,7 @@ describe('GlDuoChatContextItemMenu', () => {
     });
   };
 
-  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
-
-  const findMenu = () => findByTestId('context-item-menu');
+  const findMenu = () => findByTestId('context-item-menu', wrapper);
   const findContextItemSelections = () => wrapper.findComponent(GlDuoChatContextItemSelections);
   const findCategoryItems = () => wrapper.findComponent(GlDuoChatContextItemMenuCategoryItems);
   const findResultItems = () => wrapper.findComponent(GlDuoChatContextItemMenuSearchItems);

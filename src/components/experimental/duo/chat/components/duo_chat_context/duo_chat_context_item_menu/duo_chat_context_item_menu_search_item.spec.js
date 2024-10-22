@@ -25,8 +25,7 @@ describe('GlDuoChatContextItemMenuContextSearchItem', () => {
     });
   };
 
-  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
-  const findCategoryIcon = () => findByTestId('category-icon');
+  const findCategoryIcon = () => findByTestId('category-icon', wrapper);
   const findContextItemPopover = () => wrapper.findComponent(GlDuoChatContextItemPopover);
 
   describe.each([

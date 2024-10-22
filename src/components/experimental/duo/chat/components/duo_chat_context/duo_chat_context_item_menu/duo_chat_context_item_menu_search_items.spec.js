@@ -34,15 +34,12 @@ describe('GlDuoChatContextItemMenuSearchItems', () => {
     });
   };
 
-  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
-  const findAllByTestId = (testId) => wrapper.findAll(`[data-testid="${testId}"]`);
-
-  const findSearchInput = () => findByTestId('context-menu-search-input');
+  const findSearchInput = () => findByTestId('context-menu-search-input', wrapper);
   const findLoadingIndicator = () =>
     wrapper.findComponent(GlDuoChatContextItemMenuSearchItemsLoading);
-  const findLoadingError = () => findByTestId('search-results-error');
-  const findEmptyState = () => findByTestId('search-results-empty-state');
-  const findResultItems = () => findAllByTestId('search-result-item');
+  const findLoadingError = () => findByTestId('search-results-error', wrapper);
+  const findEmptyState = () => findByTestId('search-results-empty-state', wrapper);
+  const findResultItems = () => wrapper.findAll('[data-testid="search-result-item"]');
   const findActiveItem = () => wrapper.find('.active-command');
   const findActiveItemDetails = () =>
     findActiveItem().find('[data-testid="search-result-item-details"]');

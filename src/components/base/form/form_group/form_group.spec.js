@@ -6,10 +6,8 @@ import GlFormGroup from './form_group.vue';
 describe('Form group component', () => {
   let wrapper;
 
-  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
-
-  const findLabelDescription = () => findByTestId('label-description');
-  const findOptionalLabel = () => findByTestId('optional-label');
+  const findLabelDescription = () => findByTestId('label-description', wrapper);
+  const findOptionalLabel = () => findByTestId('optional-label', wrapper);
 
   const createComponent = (options) => {
     wrapper = shallowMount(GlFormGroup, {
