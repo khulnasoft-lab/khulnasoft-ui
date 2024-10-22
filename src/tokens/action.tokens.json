@@ -210,7 +210,7 @@
           "default": {
             "$value": {
               "default": "{color.blue.500}",
-              "dark": "{color.blue.200}"
+              "dark": "{color.blue.400}"
             },
             "$type": "color",
             "$description": "Used for the foreground of a confirm (positive) action in the default state."
@@ -218,7 +218,7 @@
           "hover": {
             "$value": {
               "default": "{color.blue.700}",
-              "dark": "{color.blue.100}"
+              "dark": "{color.blue.200}"
             },
             "$type": "color",
             "$description": "Used for the foreground of a confirm (positive) action in the hover state."
@@ -231,7 +231,7 @@
           "active": {
             "$value": {
               "default": "{color.blue.900}",
-              "dark": "{color.blue.100}"
+              "dark": "{color.blue.50}"
             },
             "$type": "color",
             "$description": "Used for the foreground of a confirm (positive) action in the active state."
@@ -302,7 +302,7 @@
           "default": {
             "$value": {
               "default": "{color.red.500}",
-              "dark": "{color.red.200}"
+              "dark": "{color.red.400}"
             },
             "$type": "color",
             "$description": "Used for the foreground of a danger (destructive) action in the default state."
@@ -310,7 +310,7 @@
           "hover": {
             "$value": {
               "default": "{color.red.700}",
-              "dark": "{color.red.100}"
+              "dark": "{color.red.200}"
             },
             "$type": "color",
             "$description": "Used for the foreground of a danger (destructive) action in the hover state."
@@ -323,7 +323,7 @@
           "active": {
             "$value": {
               "default": "{color.red.900}",
-              "dark": "{color.red.100}"
+              "dark": "{color.red.50}"
             },
             "$type": "color",
             "$description": "Used for the foreground of a danger (destructive) action in the active state."
@@ -395,7 +395,7 @@
             "default": {
               "$value": {
                 "default": "{color.blue.500}",
-                "dark": "{color.blue.300}"
+                "dark": "{color.blue.400}"
               },
               "$type": "color",
               "$description": "Used for the background of a strong confirm action in the default state."
@@ -403,7 +403,7 @@
             "hover": {
               "$value": {
                 "default": "{color.blue.600}",
-                "dark": "{color.blue.200}"
+                "dark": "{color.blue.300}"
               },
               "$type": "color",
               "$description": "Used for the background of a strong confirm action in the hover state."
@@ -416,7 +416,7 @@
             "active": {
               "$value": {
                 "default": "{color.blue.700}",
-                "dark": "{color.blue.400}"
+                "dark": "{color.blue.200}"
               },
               "$type": "color",
               "$description": "Used for the background of a strong confirm action in the active state."
@@ -520,26 +520,17 @@
               "$description": "Used for the foreground of a strong neutral action in the default state."
             },
             "hover": {
-              "$value": {
-                "default": "{action.strong.neutral.foreground.color.default}",
-                "dark": "{color.neutral.0}"
-              },
+              "$value": "{action.strong.neutral.foreground.color.default}",
               "$type": "color",
               "$description": "Used for the foreground of a strong neutral action in the hover state."
             },
             "focus": {
-              "$value": {
-                "default": "{action.strong.neutral.foreground.color.hover}",
-                "dark": "{color.neutral.0}"
-              },
+              "$value": "{action.strong.neutral.foreground.color.hover}",
               "$type": "color",
               "$description": "Used for the foreground of a strong neutral action in the focus state."
             },
             "active": {
-              "$value": {
-                "default": "{action.strong.neutral.foreground.color.focus}",
-                "dark": "{color.neutral.0}"
-              },
+              "$value": "{action.strong.neutral.foreground.color.focus}",
               "$type": "color",
               "$description": "Used for the foreground of a strong neutral action in the active state."
             }
