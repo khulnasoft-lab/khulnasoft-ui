@@ -94,12 +94,18 @@ const config: TestRunnerConfig = {
     // isn't 100% reliable.
     await page.waitForTimeout(500);
 
-    await checkA11y(page, '#storybook-root', {
-      detailedReport: true,
-      detailedReportOptions: {
-        html: true,
+    await checkA11y(
+      page,
+      '#storybook-root',
+      {
+        detailedReport: true,
+        detailedReportOptions: {
+          html: true,
+        },
       },
-    });
+      false,
+      'v2'
+    );
 
     const image = await page.screenshot();
 
