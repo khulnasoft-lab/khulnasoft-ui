@@ -146,6 +146,7 @@
     "acorn-walk": "^8.3.2",
     "autoprefixer": "^9.7.6",
     "axe-core": "^4.2.3",
+    "axe-playwright": "^2.0.3",
     "babel-jest": "29.0.1",
     "babel-loader": "^8.0.5",
     "bootstrap": "4.6.2",

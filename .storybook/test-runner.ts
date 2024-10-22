@@ -1,4 +1,5 @@
 import { TestRunnerConfig, waitForPageReady } from '@storybook/test-runner';
+import { injectAxe, checkA11y } from 'axe-playwright';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { getResetAnimationsCSS } from '../src/utils/test_utils';
 import { join, relative } from 'node:path';
@@ -57,6 +58,8 @@ const config: TestRunnerConfig = {
   async preVisit(page) {
     page.setViewportSize(DEFAULT_VIEWPORT_SIZE);
 
+    await injectAxe(page);
+
     // Wait until assets have finished loading. It is worth noting that we ran into several timing
     // issues while setting up Test Runner that were eventually addressed by the addition of an
     // arbitrary timeout below in the `postVisit` hook. That works around the fact that
@@ -90,6 +93,13 @@ const config: TestRunnerConfig = {
     // elements are properly positioned. For the time being, this is required as `waitForPageReady`
     // isn't 100% reliable.
     await page.waitForTimeout(500);
+
+    await checkA11y(page, '#storybook-root', {
+      detailedReport: true,
+      detailedReportOptions: {
+        html: true,
+      },
+    });
 
     const image = await page.screenshot();
 
