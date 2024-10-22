@@ -358,7 +358,7 @@ export const NestedDropdowns = (args, { argTypes }) => ({
   },
   template: template(
     `
-    <span class="gl-flex gl-justify-between gl-items-center gl-p-3">
+    <span class="gl-flex gl-justify-between gl-items-center gl-px-3 gl-py-2">
       <span class="gl-text-base gl-whitespace-nowrap">My Workspace</span>
       <span @click.stop.prevent>
         <gl-disclosure-dropdown
