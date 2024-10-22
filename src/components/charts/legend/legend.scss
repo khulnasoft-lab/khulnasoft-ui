@@ -9,7 +9,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 .gl-chart-h-auto {
   .gl-legend-inline {
       // match the height of gl-legend-tabular (header + body)
-      max-height: $gl-line-height-24 + $legend-body-h;
+      max-height: calc(#{$gl-line-height-24} + #{$legend-body-h});
       @apply gl-overflow-auto;
   }
 }
