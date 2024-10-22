@@ -100,7 +100,7 @@ describe('Filtered search term', () => {
       }),
       expect.objectContaining({
         value: TERM_TOKEN_TYPE,
-        title: 'Search for this text',
+        title: 'Search for this text (minimum 3 characters)',
       }),
     ]);
   });

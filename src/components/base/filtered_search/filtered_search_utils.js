@@ -175,7 +175,7 @@ export function match(text, query) {
 export const termTokenDefinition = {
   type: TERM_TOKEN_TYPE,
   icon: 'title',
-  title: 'Search for this text',
+  title: 'Search for this text (minimum 3 characters)',
 };
 
 export function splitOnQuotes(str) {
