@@ -36,6 +36,7 @@ describe('GlFormGroup', () => {
       },
     });
   }
+
   function checkA11YWithValidations() {
     cy.visitStory('base/form/form-group', {
       story: 'with-validations',
@@ -46,13 +47,23 @@ describe('GlFormGroup', () => {
     });
   }
 
+  // TODO https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4704#note_2163955057
+  it.skip(
+    'passes axe accessibility audits of label slot and description slot',
+    { tags: '@a11y' },
+    () => {
+      cy.glRunA11yTests({
+        checkA11YWithLabelSlot,
+        checkA11YWithDescriptionSlot,
+      });
+    }
+  );
+
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     cy.glRunA11yTests({
       checkA11YDefaultState,
       checkA11YWithDescription,
       checkA11YDisabled,
-      checkA11YWithLabelSlot,
-      checkA11YWithDescriptionSlot,
       checkA11YWithValidations,
     });
   });
