@@ -1,0 +1,132 @@
+{
+  "severity": {
+    "critical": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.red.800}",
+            "dark": "{color.red.400}"
+          },
+          "$type": "color",
+          "$description": "Critical severity status background color."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.red.800}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Critical severity status text color."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.red.800}",
+            "dark": "{color.red.400}"
+          },
+          "$type": "color",
+          "$description": "Critical severity status icon color."
+        }
+      }
+    },
+    "high": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.red.600}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "High severity status background color."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.red.600}",
+            "dark": "{color.red.200}"
+          },
+          "$type": "color",
+          "$description": "High severity status text color."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.red.600}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "High severity status icon color."
+        }
+      }
+    },
+    "medium": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.400}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Medium severity status background color."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.600}",
+            "dark": "{color.orange.200}"
+          },
+          "$type": "color",
+          "$description": "Medium severity status text color."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.400}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Medium severity status icon color."
+        }
+      }
+    },
+    "low": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.600}",
+            "dark": "{color.orange.400}"
+          },
+          "$type": "color",
+          "$description": "Low severity status background color."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.700}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Low severity status text color."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.600}",
+            "dark": "{color.orange.400}"
+          },
+          "$type": "color",
+          "$description": "Low severity status icon color."
+        }
+      }
+    }
+  }
+}

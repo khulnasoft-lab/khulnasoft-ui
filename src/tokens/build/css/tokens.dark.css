@@ -506,6 +506,18 @@
   --gl-spinner-track-color-default: var(--gl-color-neutral-800); /* Used for the static track (background) of a loading spinner. */
   --gl-skeleton-loader-shimmer-color: var(--gl-color-neutral-700); /* Used for the animated shimmer effect in a skeleton loader. */
   --gl-skeleton-loader-background-color: var(--gl-color-neutral-800); /* Used for the skeleton loader background color. */
+  --gl-severity-low-icon-color: var(--gl-color-orange-400); /* Low severity status icon color. */
+  --gl-severity-low-text-color: var(--gl-color-orange-300); /* Low severity status text color. */
+  --gl-severity-low-background-color: var(--gl-color-orange-400); /* Low severity status background color. */
+  --gl-severity-medium-icon-color: var(--gl-color-orange-300); /* Medium severity status icon color. */
+  --gl-severity-medium-text-color: var(--gl-color-orange-200); /* Medium severity status text color. */
+  --gl-severity-medium-background-color: var(--gl-color-orange-300); /* Medium severity status background color. */
+  --gl-severity-high-icon-color: var(--gl-color-red-300); /* High severity status icon color. */
+  --gl-severity-high-text-color: var(--gl-color-red-200); /* High severity status text color. */
+  --gl-severity-high-background-color: var(--gl-color-red-300); /* High severity status background color. */
+  --gl-severity-critical-icon-color: var(--gl-color-red-400); /* Critical severity status icon color. */
+  --gl-severity-critical-text-color: var(--gl-color-red-300); /* Critical severity status text color. */
+  --gl-severity-critical-background-color: var(--gl-color-red-400); /* Critical severity status background color. */
   --gl-progress-bar-track-color: var(--gl-color-neutral-700); /* Used for the track color for all progress-bar variants. */
   --gl-link-mention-background-color-current: var(--gl-color-orange-800); /* Used for the mention link background when referencing the current user. */
   --gl-link-mention-background-color-default: var(--gl-color-blue-800); /* Used for the mention link default background. */
