@@ -1,3 +1,10 @@
+## [98.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.1.0...v98.1.1) (2024-10-22)
+
+
+### Bug Fixes
+
+* Revert merge commit updating darkmode tokens ([a4c0c77](https://gitlab.com/gitlab-org/gitlab-ui/commit/a4c0c77ca41025de33f3fd6803351d64f30c299a))
+
 # [98.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.0.0...v98.1.0) (2024-10-21)
 
 
