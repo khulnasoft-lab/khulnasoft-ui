@@ -358,34 +358,28 @@ export const NestedDropdowns = (args, { argTypes }) => ({
   },
   template: template(
     `
-    <gl-disclosure-dropdown-group>
-      <gl-disclosure-dropdown-item>
-        <template #list-item>
-          <span class="gl-flex gl-justify-between gl-items-center">
-            <span class="gl-font-bold gl-whitespace-nowrap">My Workspace</span>
-            <span @click.stop.prevent>
-              <gl-disclosure-dropdown
-                :items="nestedActions"
-                icon="ellipsis_v"
-                toggle-text="Actions"
-                text-sr-only
-                category="tertiary"
-                no-caret
-                positioning-strategy="fixed"
-                data-testid="workspace-actions-dropdown"
-                start-opened
-              >
-                <template #list-item="{ item }">
-                  <span :id="item.id" :key="item.key">
-                    {{ item.text }}
-                  </span>
-                </template>
-              </gl-disclosure-dropdown>
+    <span class="gl-flex gl-justify-between gl-items-center gl-p-3">
+      <span class="gl-text-base gl-whitespace-nowrap">My Workspace</span>
+      <span @click.stop.prevent>
+        <gl-disclosure-dropdown
+          :items="nestedActions"
+          icon="ellipsis_v"
+          toggle-text="Actions"
+          text-sr-only
+          category="tertiary"
+          no-caret
+          positioning-strategy="fixed"
+          data-testid="workspace-actions-dropdown"
+          start-opened
+        >
+          <template #list-item="{ item }">
+            <span :id="item.id" :key="item.key">
+              {{ item.text }}
             </span>
-          </span>
-        </template>
-      </gl-disclosure-dropdown-item>
-  </gl-disclosure-dropdown-group>`
+          </template>
+        </gl-disclosure-dropdown>
+      </span>
+    </span>`
   ),
 });
 
