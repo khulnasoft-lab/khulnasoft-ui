@@ -1,5 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { variantCssColorMap } from '../../../utils/constants';
+import { getA11yParameters } from '../../../utils/stories_utils';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/dropdown/README.md';
 import GlDropdownItem from './dropdown_item.vue';
 import readme from './dropdown_item.md';
@@ -94,6 +95,7 @@ export default {
   title: 'base/dropdown/deprecated/dropdown-item',
   component: GlDropdownItem,
   parameters: {
+    a11y: getA11yParameters({ skipRules: ['aria-required-parent', 'list'] }),
     bootstrapComponent: 'b-dropdown-item',
     bootstrapDocs: BVueReadme,
 

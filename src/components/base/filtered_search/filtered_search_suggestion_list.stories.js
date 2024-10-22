@@ -1,4 +1,5 @@
 import { userEvent, within } from '@storybook/test';
+import { getA11yParameters } from '../../../utils/stories_utils';
 import GlFilteredSearchSuggestionList from './filtered_search_suggestion_list.vue';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import { provide } from './common_story_options';
@@ -44,6 +45,7 @@ export default {
   title: 'base/filtered-search/suggestion-list',
   component: GlFilteredSearchSuggestionList,
   parameters: {
+    a11y: getA11yParameters({ skipRules: ['aria-required-parent', 'list'] }),
     docs: {
       description: {
         component: readme,

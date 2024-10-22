@@ -1,4 +1,5 @@
 import { setStoryTimeout } from '../../../utils/test_utils';
+import { getA11yParameters } from '../../../utils/stories_utils';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import GlInfiniteScroll from './infinite_scroll.vue';
 import readme from './infinite_scroll.md';
@@ -85,6 +86,7 @@ export default {
   title: 'base/infinite-scroll',
   component: GlInfiniteScroll,
   parameters: {
+    a11y: getA11yParameters({ skipRules: ['scrollable-region-focusable'] }),
     docs: {
       description: {
         component: readme,

@@ -1,3 +1,4 @@
+import { getA11yParameters } from '../../../utils/stories_utils';
 import readme from './accordion.md';
 import GlAccordion from './accordion.vue';
 import GlAccordionItem from './accordion_item.vue';
@@ -43,6 +44,7 @@ export default {
   title: 'base/accordion',
   component: GlAccordion,
   parameters: {
+    a11y: getA11yParameters({ skipRules: ['color-contrast'] }),
     docs: {
       description: {
         component: readme,

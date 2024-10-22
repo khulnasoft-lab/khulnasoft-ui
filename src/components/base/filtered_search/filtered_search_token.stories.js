@@ -1,6 +1,7 @@
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import { triggerBlurEvent } from '../../../utils/play_utils';
+import { getA11yParameters } from '../../../utils/stories_utils';
 import GlIcon from '../icon/icon.vue';
 import GlDatepicker from '../datepicker/datepicker.vue';
 import { provide } from './common_story_options';
@@ -190,6 +191,7 @@ export default {
   title: 'base/filtered-search/token',
   component: GlFilteredSearchToken,
   parameters: {
+    a11y: getA11yParameters({ skipRules: ['aria-required-parent', 'list'] }),
     docs: {
       description: {
         component: readme,

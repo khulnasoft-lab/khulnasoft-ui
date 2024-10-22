@@ -1,4 +1,5 @@
-import { TestRunnerConfig, waitForPageReady } from '@storybook/test-runner';
+import { getStoryContext, TestRunnerConfig, waitForPageReady } from '@storybook/test-runner';
+import { checkA11y, configureAxe, injectAxe } from 'axe-playwright';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { getResetAnimationsCSS } from '../src/utils/test_utils';
 import { join, relative } from 'node:path';
@@ -27,6 +28,8 @@ const chartsFailureThreshold = 0.0018;
 
 const isChart = ({ title }) => title.startsWith('charts/');
 
+const isBaseComponent = ({ title }) => title.startsWith('base/');
+
 const getMatchOptions = (context) => {
   const failureThresholdType: Threshold = isChart(context)
     ? chartsFailureThresholdType
@@ -40,6 +43,29 @@ const getMatchOptions = (context) => {
 };
 
 const fileExists = async (path) => !!(await stat(path).catch((e) => false));
+
+const runA11y = async (page, context) => {
+  const storyContext = await getStoryContext(page, context);
+
+  if (isBaseComponent(context) && !storyContext.parameters?.a11y?.disable) {
+    await configureAxe(page, {
+      rules: storyContext.parameters?.a11y?.config?.rules,
+    });
+
+    await checkA11y(
+      page,
+      '#storybook-root',
+      {
+        detailedReport: true,
+        detailedReportOptions: {
+          html: true,
+        },
+      },
+      false,
+      'v2'
+    );
+  }
+};
 
 // For now, we generate identifiers that match legacy storyshots-generated files so that Git
 // understands we are moving files, not creating new ones.
@@ -56,6 +82,8 @@ const config: TestRunnerConfig = {
   },
   async preVisit(page) {
     page.setViewportSize(DEFAULT_VIEWPORT_SIZE);
+
+    await injectAxe(page);
 
     // Wait until assets have finished loading. It is worth noting that we ran into several timing
     // issues while setting up Test Runner that were eventually addressed by the addition of an
@@ -111,6 +139,9 @@ const config: TestRunnerConfig = {
       storeReceivedOnFailure: true,
       ...getMatchOptions(context),
     });
+
+    // run accessibility tests
+    await runA11y(page, context);
   },
   tags: {
     skip: ['skip-visual-test'],

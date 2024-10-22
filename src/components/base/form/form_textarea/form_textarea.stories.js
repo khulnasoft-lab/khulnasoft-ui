@@ -1,3 +1,4 @@
+import { getA11yParameters } from '../../../../utils/stories_utils';
 import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-textarea/README.md';
 import GlFormTextarea from './form_textarea.vue';
 import readme from './form_textarea.md';
@@ -56,6 +57,9 @@ WithCharacterCount.args = generateProps({
   placeholder: 'hello',
   characterCountLimit: 100,
 });
+WithCharacterCount.parameters = {
+  a11y: getA11yParameters({ skipRules: ['label-title-only'] }),
+};
 
 export default {
   title: 'base/form/form-textarea',

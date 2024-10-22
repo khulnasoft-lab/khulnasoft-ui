@@ -8,6 +8,7 @@ import {
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../utils/constants';
+import { getA11yParameters } from '../../../utils/stories_utils';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/dropdown/README.md';
 import GlDropdownDivider from './dropdown_divider.vue';
 import GlDropdownSectionHeader from './dropdown_section_header.vue';
@@ -181,6 +182,9 @@ export const WithForm = (_args, { argTypes }) => ({
   },
 });
 WithForm.args = generateProps({ text: 'Some dropdown' });
+WithForm.parameters = {
+  a11y: getA11yParameters({ skipRules: ['aria-required-children'] }),
+};
 
 export const WithDivider = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -237,6 +241,9 @@ WithHeaderAndFooter.args = generateProps({
   headerText: 'Header',
   hideHeaderBorder: true,
 });
+WithHeaderAndFooter.parameters = {
+  a11y: getA11yParameters({ skipRules: ['aria-required-children'] }),
+};
 
 export const WithSectionHeader = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -259,6 +266,11 @@ export const WithSectionHeader = (args, { argTypes }) => ({
   },
 });
 WithSectionHeader.args = generateProps({ text: 'Some dropdown' });
+WithSectionHeader.parameters = {
+  a11y: getA11yParameters({
+    skipRules: ['aria-required-children', 'landmark-no-duplicate-banner', 'landmark-unique'],
+  }),
+};
 
 export const WithCheckedItems = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -485,6 +497,9 @@ WithClearAll.args = generateProps({
   clearAllText: 'Clear all',
   clearAllTextClass: 'gl-px-5',
 });
+WithClearAll.parameters = {
+  a11y: getA11yParameters({ skipRules: ['aria-required-children'] }),
+};
 
 export const WithHighlightedItems = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
