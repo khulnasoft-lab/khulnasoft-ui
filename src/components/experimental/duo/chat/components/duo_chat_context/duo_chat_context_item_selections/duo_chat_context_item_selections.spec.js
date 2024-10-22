@@ -1,3 +1,4 @@
+import { findByTestId } from '../../../../../../../utils/test/test-utils';
 import { shallowMount } from '@vue/test-utils';
 import GlIcon from '../../../../../../base/icon/icon.vue';
 import GlToken from '../../../../../../base/token/token.vue';
@@ -27,14 +28,12 @@ describe('GlDuoChatContextItemSelections', () => {
     });
   };
 
-  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
-
-  const findTitle = () => findByTestId('chat-context-selections-title');
-  const findTokensWrapper = () => findByTestId('chat-context-tokens-wrapper');
+  const findTitle = () => findByTestId('chat-context-selections-title', wrapper);
+  const findTokensWrapper = () => findByTestId('chat-context-tokens-wrapper', wrapper);
   const findTokens = () => wrapper.findAllComponents(GlToken);
   const findTokensIcons = () => findTokensWrapper().findAllComponents(GlIcon);
   const findPopovers = () => wrapper.findAllComponents(GlDuoChatContextItemPopover);
-  const findCollapseIcon = () => findByTestId('chat-context-collapse-icon');
+  const findCollapseIcon = () => findByTestId('chat-context-collapse-icon', wrapper);
 
   describe('component rendering', () => {
     it('renders the component when selections are provided', () => {

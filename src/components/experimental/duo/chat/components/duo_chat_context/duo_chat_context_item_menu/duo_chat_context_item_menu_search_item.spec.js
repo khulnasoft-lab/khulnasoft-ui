@@ -1,3 +1,4 @@
+import { findByTestId } from '../../../../../../../utils/test/test-utils';
 import { shallowMount } from '@vue/test-utils';
 import {
   getMockCategory,

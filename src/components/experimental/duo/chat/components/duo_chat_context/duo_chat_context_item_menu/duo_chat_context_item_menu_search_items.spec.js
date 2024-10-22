@@ -1,3 +1,4 @@
+import { findByTestId } from '../../../../../../../utils/test/test-utils';
 import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { MOCK_CATEGORIES, getMockContextItems, getMockCategory } from '../mock_context_data';

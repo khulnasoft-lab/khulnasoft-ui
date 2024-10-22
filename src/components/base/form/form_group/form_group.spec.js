@@ -1,3 +1,4 @@
+import { findByTestId } from '../../../../utils/test/test-utils';
 import { shallowMount } from '@vue/test-utils';
 import { BFormGroup } from '../../../../vendor/bootstrap-vue/src/components/form-group/form-group';
 import GlFormGroup from './form_group.vue';

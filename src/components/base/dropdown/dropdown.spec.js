@@ -1,3 +1,4 @@
+import { findByTestId } from '../../../utils/test/test-utils';
 import { mount } from '@vue/test-utils';
 
 import { BDropdown } from '../../../vendor/bootstrap-vue/src/components/dropdown/dropdown';

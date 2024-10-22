@@ -1,3 +1,4 @@
+import { findByTestId } from '../../../../../utils/test/test-utils';
 import { shallowMount } from '@vue/test-utils';
 import GlModal from '../../../base/modal/modal.vue';
 import GlAlert from '../../../base/alert/alert.vue';
@@ -12,9 +13,8 @@ const DummyComponent = {
 
 describe('FeedbackModal', () => {
   let wrapper;
-  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
   const findModal = () => wrapper.findComponent(GlModal);
-  const findOptions = () => findByTestId('feedback-options');
+  const findOptions = () => findByTestId('feedback-options', wrapper);
   const findOptionsCheckboxes = () => findOptions().findAllComponents(GlFormCheckbox);
   const findTextarea = () => wrapper.findComponent(GlFormTextarea);
 

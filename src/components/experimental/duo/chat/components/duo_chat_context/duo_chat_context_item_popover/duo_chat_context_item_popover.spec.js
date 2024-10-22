@@ -1,3 +1,4 @@
+import { findByTestId } from '../../../../../../../utils/test/test-utils';
 import { shallowMount } from '@vue/test-utils';
 import GlPopover from '../../../../../../base/popover/popover.vue';
 import {
@@ -24,10 +25,9 @@ describe('GlDuoChatContextItemPopover', () => {
     });
   };
 
-  const findByTestId = (testId) => wrapper.find(`[data-testid="${testId}"]`);
   const findPopover = () => wrapper.findComponent(GlPopover);
-  const findPopoverTitle = () => findByTestId('chat-context-popover-title');
-  const findDisabledMessage = () => findByTestId('chat-context-popover-disabled');
+  const findPopoverTitle = () => findByTestId('chat-context-popover-title', wrapper);
+  const findDisabledMessage = () => findByTestId('chat-context-popover-disabled', wrapper);
 
   it('renders the popover component', () => {
     createComponent();
