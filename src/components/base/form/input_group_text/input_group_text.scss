@@ -2,4 +2,6 @@
     background-color: var(--gl-control-background-color-concatenation);
     border-color: var(--gl-control-border-color-default);
     color: var(--gl-text-color-default);
+    @apply gl-text-base;
+    @apply gl-leading-normal;
 }
