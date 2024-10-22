@@ -63,8 +63,13 @@ function showToast(message, options = {}) {
     this.$root.$on('bv::toast:hidden', toastHiddenCallback);
   }
 
+  const updatedAutoHideDelay = !Number.isNaN(options?.autoHideDelay)
+    ? { autoHideDelay: options.autoHideDelay }
+    : null;
+
   this.$bvToast.toast(message, {
     ...DEFAULT_OPTIONS,
+    ...updatedAutoHideDelay,
     id,
     title: renderTitle(this.$createElement, toast, options),
   });
