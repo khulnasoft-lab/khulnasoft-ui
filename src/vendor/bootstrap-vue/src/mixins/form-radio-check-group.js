@@ -1,5 +1,5 @@
 import { extend } from '../vue'
-import { PROP_TYPE_BOOLEAN, PROP_TYPE_BOOLEAN_STRING, PROP_TYPE_STRING } from '../constants/props'
+import { PROP_TYPE_BOOLEAN, PROP_TYPE_BOOLEAN_STRING } from '../constants/props'
 import { SLOT_NAME_FIRST } from '../constants/slots'
 import { htmlOrText } from '../utils/html'
 import { looseEqual } from '../utils/loose-equal'
@@ -42,10 +42,6 @@ export const props = makePropsConfigurable(
     ...formStateProps,
     ...formCustomProps,
     ariaInvalid: makeProp(PROP_TYPE_BOOLEAN_STRING, false),
-    // Only applicable when rendered with button style
-    buttonVariant: makeProp(PROP_TYPE_STRING),
-    // Render as button style
-    buttons: makeProp(PROP_TYPE_BOOLEAN, false),
     stacked: makeProp(PROP_TYPE_BOOLEAN, false),
     validated: makeProp(PROP_TYPE_BOOLEAN, false)
   }),
@@ -83,22 +79,9 @@ export const formRadioCheckGroupMixin = extend({
       return this.name || this.safeId()
     },
     groupClasses() {
-      const { inline, size, validated } = this
+      const { validated } = this
 
-      let classes = { 'was-validated': validated }
-      if (this.buttons) {
-        classes = [
-          classes,
-          'btn-group-toggle',
-          {
-            'btn-group': inline,
-            'btn-group-vertical': !inline,
-            [`btn-group-${size}`]: size
-          }
-        ]
-      }
-
-      return classes
+      return { 'was-validated': validated }
     }
   },
   watch: {
