@@ -1,3 +1,10 @@
+## [98.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.1.1...v98.1.2) (2024-10-23)
+
+
+### Bug Fixes
+
+* **Breadcrumb:** Add key attribute to v-for loop ([b460ea3](https://gitlab.com/gitlab-org/gitlab-ui/commit/b460ea341ca329c62c8f9482958f79861af31e3b))
+
 ## [98.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.1.0...v98.1.1) (2024-10-22)
 
 
