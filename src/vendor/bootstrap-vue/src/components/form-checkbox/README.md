@@ -364,127 +364,9 @@ Whenever using multiple checkboxes, it is recommended that the checkboxes be pla
 [`<gl-form-group>`](?path=/docs/base-form-form-group--docs) component to associate a label with the
 entire group of checkboxes. See examples above.
 
-## Button style checkboxes
-
-You can optionally render checkboxes to appear as buttons, either individually, or in a group.
-
-Button style checkboxes will have the class `.active` automatically applied to the label when they
-are in the _checked_ state.
-
-### Individual checkbox button style
-
-A single checkbox can be rendered with a button appearance by setting the prop `button` to `true`
-
-Change the button variant by setting the `button-variant` prop to one of the standard Bootstrap
-button variants (see [`<gl-button>`](?path=/docs/base-button--docs) for supported variants). The
-default variant is `secondary`.
-
-```html
-<template>
-  <div>
-    <b-form-checkbox v-model="checked1" name="check-button" button>
-      Button Checkbox <b>(Checked: {{ checked1 }})</b>
-    </b-form-checkbox>
-    <b-form-checkbox v-model="checked2" name="check-button" button button-variant="info">
-      Button Checkbox <b>(Checked: {{ checked2 }})</b>
-    </b-form-checkbox>
-  </div>
-</template>
-
-<script>
-  export default {
-    data() {
-      return {
-        checked1: false,
-        checked2: false
-      }
-    }
-  }
-</script>
-
-<!-- b-form-checkbox-button.vue -->
-```
-
-The `inline` prop has no effect on individual button-style checkboxes.
-
-### Grouped button style checkboxes
-
-Render groups of checkboxes with the look of a button-group by setting the prop `buttons` on
-`<b-form-checkbox-group>`. Change the button variant by setting the `button-variant` prop to one of
-the standard Bootstrap button variants (see [`<gl-button>`](?path=/docs/base-button--docs) for
-supported variants). The default `button-variant` is `secondary`.
-
-```html
-<template>
-  <div>
-    <b-form-group
-      label="Button-group style checkboxes"
-      v-slot="{ ariaDescribedby }"
-    >
-      <b-form-checkbox-group
-        v-model="selected"
-        :options="options"
-        :aria-describedby="ariaDescribedby"
-        name="buttons-1"
-        buttons
-      ></b-form-checkbox-group>
-    </b-form-group>
-
-    <b-form-group
-      label="Button-group style checkboxes with variant primary and large buttons"
-      v-slot="{ ariaDescribedby }"
-    >
-      <b-form-checkbox-group
-        v-model="selected"
-        :options="options"
-        :aria-describedby="ariaDescribedby"
-        buttons
-        button-variant="primary"
-        size="lg"
-        name="buttons-2"
-      ></b-form-checkbox-group>
-    </b-form-group>
-
-    <b-form-group
-      label="Stacked (vertical) button-group style checkboxes"
-      v-slot="{ ariaDescribedby }"
-    >
-      <b-form-checkbox-group
-        v-model="selected"
-        :options="options"
-        :aria-describedby="ariaDescribedby"
-        stacked
-        buttons
-      ></b-form-checkbox-group>
-    </b-form-group>
-  </div>
-</template>
-
-<script>
-  export default {
-    data() {
-      return {
-        selected: [], // Must be an array reference!
-        options: [
-          { text: 'Orange', value: 'orange' },
-          { text: 'Apple', value: 'apple' },
-          { text: 'Pineapple', value: 'pineapple' },
-          { text: 'Grape', value: 'grape' }
-        ]
-      }
-    }
-  }
-</script>
-
-<!-- b-form-checkbox-button-group.vue -->
-```
-
 ## Switch style checkboxes
 
 Switch styling is supported on `<b-form-checkbox>` and `<b-form-checkbox-group>` components.
-
-**Note:** If the checkbox is in [button mode](#button-style-checkboxes), switch mode will have no
-effect.
 
 ### Individual checkbox switch style
 
@@ -635,8 +517,6 @@ by setting the `plain` prop.
 <!-- b-form-checkbox-plain.vue -->
 ```
 
-**Note:** The `plain` prop has no effect when `button` or `buttons` is set.
-
 ## Contextual states
 
 Bootstrap includes validation styles for `valid` and `invalid` states on most form controls.
@@ -651,8 +531,6 @@ Generally speaking, you'll want to use a particular state for specific types of 
 
 To apply one of the contextual state icons on `<b-form-checkbox>`, set the `state` prop to `false`
 (for invalid), `true` (for valid), or `null` (no validation state).
-
-**Note:** Contextual states are **not** supported when in button mode.
 
 ### Contextual state and validation example
 
@@ -732,7 +610,7 @@ better make sense in your UI!
 prop can be synced to the checkbox's state by v-binding the `indeterminate` prop with the `.sync`
 modifier.
 
-**Note:** indeterminate styling is not supported in button or switch mode, nor is it supported in
+**Note:** indeterminate styling is not supported in switch mode, nor is it supported in
 `<b-form-checkbox-group>` (multiple checkboxes).
 
 **Single Indeterminate checkbox:**
@@ -849,9 +727,8 @@ modifier.
 <!-- b-form-checkbox-indeterminate-multiple.vue -->
 ```
 
-**Note:** indeterminate is not supported in `button` mode, nor in multiple checkbox mode. Also pay
-attention that plain checkbox (i.e. with prop `plain`) also supports indeterminate state on
-Windows/Linux/Mac/Android, but not on iOS.
+**Note:** Pay attention that plain checkbox (i.e. with prop `plain`) also supports indeterminate
+state on Windows/Linux/Mac/Android, but not on iOS.
 
 ### Indeterminate state and accessibility
 
