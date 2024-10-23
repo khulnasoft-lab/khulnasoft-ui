@@ -33,7 +33,7 @@ const baseStoryOptions = {
 
 const getStoryOptions = (tooltipContent) => ({
   ...baseStoryOptions,
-  template: `<div class="position-relative">
+  template: `<div class="gl-relative">
     <gl-chart
       :options="options"
       :height="100"

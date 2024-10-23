@@ -13,7 +13,7 @@ const generateProps = ({ visible = false } = {}) => ({ visible });
 const template = `
   <div>
     <h1>Here's a headline</h1>
-    <gl-button v-gl-collapse-toggle.collapse class="float-right" category="primary">
+    <gl-button v-gl-collapse-toggle.collapse class="gl-float-right" category="primary">
       Toggle Collapse
     </gl-button>
     <gl-collapse :visible="visible" id="collapse" class="gl-mt-2">

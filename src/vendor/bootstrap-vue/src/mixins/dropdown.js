@@ -117,7 +117,7 @@ export const dropdownMixin = extend({
       // Position `static` is needed to allow menu to "breakout" of the `scrollParent`
       // boundaries when boundary is anything other than `scrollParent`
       // See: https://github.com/twbs/bootstrap/issues/24251#issuecomment-341413786
-      return this.boundary !== 'scrollParent' ? 'position-static' : ''
+      return this.boundary !== 'scrollParent' ? 'gl-static' : ''
     }
   },
   watch: {

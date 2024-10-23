@@ -7,8 +7,7 @@ module.exports = {
     './.storybook/**/*.js',
     './src/**/*.{vue,js}',
     '!./src/**/*.spec.js',
-    '!./src/vendor/bootstrap-vue/**',
+    '!./src/vendor/bootstrap-vue/node_modules/**',
     '!./src/vendor/bootstrap/**',
-    './src/vendor/bootstrap-vue/src/**/*.{js,vue}',
   ],
 };

@@ -243,7 +243,7 @@ export default {
     datepickerClasses() {
       return [
         'gl-datepicker',
-        'd-inline-block',
+        'gl-inline-block',
         'gl-w-full',
         // eslint-disable-next-line @gitlab/tailwind-no-interpolation -- Not a CSS utility
         `gl-form-input-${this.computedWidth}`,
