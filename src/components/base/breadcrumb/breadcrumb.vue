@@ -205,10 +205,10 @@ export default {
         />
       </li>
 
-      <!-- eslint-disable-next-line vue/valid-v-for (for @vue/compat) -->
       <gl-breadcrumb-item
         v-for="(item, index) in fittingItems"
         ref="breadcrumbs"
+        :key="index"
         :text="item.text"
         :href="item.href"
         :style="itemStyle"
