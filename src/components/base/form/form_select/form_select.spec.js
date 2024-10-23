@@ -58,6 +58,35 @@ describe('GlFormSelect', () => {
     });
   });
 
+  describe('selectClass prop', () => {
+    const selectClass = 'select-class';
+    const anotherClass = 'another-class';
+
+    it.each`
+      type        | selectClassProp
+      ${'String'} | ${'select-class'}
+      ${'Array'}  | ${['select-class']}
+      ${'Object'} | ${{ [selectClass]: true, [anotherClass]: false }}
+    `('adds class for select using $type', ({ selectClassProp }) => {
+      createComponent({ selectClass: selectClassProp });
+
+      expect(findSelect().classes()).toContain(selectClass);
+      expect(findSelect().classes()).not.toContain(anotherClass);
+    });
+
+    it('does not add a select class if not given the prop', () => {
+      createComponent();
+
+      expect(findSelect().classes()).not.toContain(selectClass);
+    });
+
+    it('does not add a select class if passed null', () => {
+      createComponent({ selectClass: null });
+
+      expect(findSelect().classes()).not.toContain(selectClass);
+    });
+  });
+
   describe('v-model', () => {
     it('should select an option element and update the v-model bound data', async () => {
       createComponent({ options: formSelectOptions });
