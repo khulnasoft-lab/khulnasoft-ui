@@ -1,3 +1,12 @@
+# [98.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.1.2...v98.2.0) (2024-10-23)
+
+
+### Features
+
+* **GlButton:** Update design tokens for darkmode ([aa25a3f](https://gitlab.com/gitlab-org/gitlab-ui/commit/aa25a3f3da2bbb19333784768b892e0850850a72))
+* **GlForm:** Input group use default font size ([22280fb](https://gitlab.com/gitlab-org/gitlab-ui/commit/22280fbb8b2bf853b14dffc938e298ab5f1e314e))
+* **GlForm:** Input group use design tokens ([533f374](https://gitlab.com/gitlab-org/gitlab-ui/commit/533f374a97875f37f27d1a077cc2531dea4d8735))
+
 ## [98.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.1.1...v98.1.2) (2024-10-23)
 
 
