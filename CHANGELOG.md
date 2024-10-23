@@ -1,3 +1,11 @@
+# [98.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.2.0...v98.3.0) (2024-10-23)
+
+
+### Features
+
+* **bootstrap-vue:** Replace BootstrapCSS Util classes with GitLab Classes ([aaf2df9](https://gitlab.com/gitlab-org/gitlab-ui/commit/aaf2df9b0995bf9cb0e7055bfdc30d9c81b1d6b7))
+* Replace Bootstrap CSS Utils with GitLab Ui Utils ([5f93b5c](https://gitlab.com/gitlab-org/gitlab-ui/commit/5f93b5c446ce33caafac8a490cdad63edbbd92f6))
+
 # [98.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.1.2...v98.2.0) (2024-10-23)
 
 
