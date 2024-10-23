@@ -23,6 +23,11 @@ export default {
         return widths.every((width) => Object.values(formInputWidths).includes(width));
       },
     },
+    selectClasses: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     cssClasses() {
@@ -51,7 +56,7 @@ export default {
 </script>
 <template>
   <span class="gl-form-select-wrapper" :class="cssClasses">
-    <b-form-select class="gl-form-select" v-bind="$attrs" v-on="$listeners">
+    <b-form-select class="gl-form-select" v-bind="$attrs" :class="selectClasses" v-on="$listeners">
       <!-- eslint-disable-next-line @gitlab/vue-prefer-dollar-scopedslots -->
       <template v-for="slot in Object.keys($slots)" #[slot]>
         <slot :name="slot"></slot>

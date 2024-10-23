@@ -33,6 +33,28 @@ describe('GlFormSelect', () => {
     });
   });
 
+  describe('selectClasses prop', () => {
+    const selectClasses = 'select-class';
+
+    it('adds class for select', () => {
+      createComponent({ selectClasses });
+
+      expect(findSelect().classes()).toContain(selectClasses);
+    });
+
+    it('does not add a select class if not given the prop', () => {
+      createComponent();
+
+      expect(findSelect().classes()).not.toContain(selectClasses);
+    });
+
+    it('does not add a select class if passed null', () => {
+      createComponent({ selectClasses: null });
+
+      expect(findSelect().classes()).not.toContain(selectClasses);
+    });
+  });
+
   describe('width prop', () => {
     // Exclude the default null value
     const nonNullWidths = excludeDefaultNull(formInputWidths);

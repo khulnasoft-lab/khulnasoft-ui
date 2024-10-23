@@ -20,6 +20,7 @@ const template = `
     :state="state"
     :multiple="multiple"
     :selectSize="selectSize"
+    :selectClasses="selectClasses"
     :options="options">
   </gl-form-select>
 </gl-form-group>
@@ -33,6 +34,7 @@ const generateProps = ({
   disabled = false,
   multiple = false,
   selectSize = 1,
+  selectClasses = null,
   options = formSelectOptions,
 } = {}) => ({
   inputId,
@@ -42,6 +44,7 @@ const generateProps = ({
   state,
   multiple,
   selectSize,
+  selectClasses,
   options,
 });
 
@@ -63,6 +66,9 @@ ValidState.args = generateProps({ state: true });
 
 export const InvalidState = Template.bind({});
 InvalidState.args = generateProps({ state: false });
+
+export const WithSelectClass = Template.bind({});
+WithSelectClass.args = generateProps({ selectClasses: 'gl-text-blue-600' });
 
 export const WithTruncation = (args, { argTypes }) => ({
   components: { GlFormSelect, GlFormGroup },
