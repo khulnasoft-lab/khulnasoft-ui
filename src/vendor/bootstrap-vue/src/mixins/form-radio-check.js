@@ -203,7 +203,7 @@ export const formRadioCheckMixin = extend({
           'form-check-input': isPlain,
           'custom-control-input': !isPlain,
           // https://github.com/bootstrap-vue/bootstrap-vue/issues/2911
-          'position-static': isPlain && !$content
+          'gl-static': isPlain && !$content
         },
         this.stateClass
       ],
