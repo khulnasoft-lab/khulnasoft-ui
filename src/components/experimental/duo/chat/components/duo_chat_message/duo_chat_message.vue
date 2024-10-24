@@ -251,7 +251,7 @@ export default {
       'gl-rounded-bl-none gl-border-1 gl-border-solid gl-border-gray-50 gl-text-gray-900':
         isAssistantMessage,
       'gl-bg-white': isAssistantMessage && !error,
-      '!gl-border-none gl-bg-red-50': error,
+      'duo-chat-message-with-error !gl-border-none gl-bg-red-50': error,
     }"
     @insert-code-snippet="onInsertCodeSnippet"
   >
