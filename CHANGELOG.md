@@ -1,3 +1,10 @@
+# [98.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.3.0...v98.4.0) (2024-10-24)
+
+
+### Features
+
+* **DuoChatMessage:** Add a stable CSS selector for error messages ([1fe03be](https://gitlab.com/gitlab-org/gitlab-ui/commit/1fe03beb3a877d19b2a993fc280306841509abff))
+
 # [98.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.2.0...v98.3.0) (2024-10-23)
 
 
