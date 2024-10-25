@@ -57,10 +57,37 @@ Once you create the GitLab integration Merge Request, add a note to the GitLab U
 with a link pointing to it. This way, the reviewers can use the integration Merge Request to run
 their own verifications.
 
-> **Note:** When running the `create_integration_branch` CI job, integration branches are created
-> in a [fork of GitLab](https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations).
-> The fork is set up to mirror the `master` branch from the GitLab repository.
-> We are using a fork to circumvent issues where pushing directly to the GitLab repository could
-> time out. Therefore, keep in mind that the fork might be slightly behind the upstream branch
-> between mirroring schedules. When working with such branches in your GDK, also bear in mind that
-> changes need to be pushed to the fork, not the GitLab repository.
+## The GitLab UI Integrations fork
+
+When running the `create_integration_branch` CI job, integration branches are created
+in a [fork of GitLab](https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations).
+The fork is set up to mirror the `master` branch from the GitLab repository.
+We are using a fork to circumvent issues where pushing directly to the GitLab repository could
+time out. Therefore, keep in mind that the fork might be slightly behind the upstream branch
+between mirroring schedules. When working with such branches in your GDK, also bear in mind that
+changes need to be pushed to the fork, not the GitLab repository.
+
+### How is the fork set up to mirror GitLab?
+
+The repository mirroring is set up as a push mirror from the GitLab project. Push events
+are authored by a bot user associated with a Project Access Token created in the fork.
+
+Since Project Access Tokens eventually expire, the mirror needs to be set up again from
+time to time. This requires maintainer access to both GitLab and the GitLab UI Integrations
+projects. Here's how the mirroring should be configured:
+
+1. Create a Project Access Token with the `Developer` role and `write_repository` scope in the
+   [GitLab UI Integrations](https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations/-/settings/access_tokens)
+   project.
+1. Give the PAT's user permission to push to the `master` branch in the
+   [repository settings](https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations/-/settings/repository).
+1. In the [GitLab](https://gitlab.com/gitlab-org/gitlab/-/settings/repository#js-push-remote-settings)
+   project, remove the outdated mirroring configuration if any. Make sure you're _only_ removing
+   GitLab UI Integrations mirrors.
+1. Create a new mirroring configuration with the following settings:
+    * **Git repository URL**: `https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations.git`.
+    * **Mirror direction**: `Push`.
+    * **Username**: The PAT's username.
+    * **Password**: The PAT.
+    * **Mirror branches**:
+        * `Mirror specific branches`: `^master$`.
