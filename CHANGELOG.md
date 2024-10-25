@@ -1,3 +1,10 @@
+## [98.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.5.1...v98.5.2) (2024-10-25)
+
+
+### Bug Fixes
+
+* **GlExperimentBadge:** Added hover and focus to GlExperimentBadge ([26940f4](https://gitlab.com/gitlab-org/gitlab-ui/commit/26940f46860eac8b5773ae0cc6fdad08a521f396))
+
 ## [98.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.5.0...v98.5.1) (2024-10-25)
 
 
