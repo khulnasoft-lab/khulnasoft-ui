@@ -17,7 +17,7 @@ const Template = (args, { argTypes }) => ({
   components: { GlExperimentBadge },
   props: Object.keys(argTypes),
   template: `
-    <div class='gl-h-13'>
+    <div class="gl-flex gl-justify-center gl-items-center gl-h-62">
       <gl-experiment-badge
         :help-page-url='helpPageUrl'
         :popover-placement='popoverPlacement'
