@@ -1,3 +1,10 @@
+# [98.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.4.0...v98.5.0) (2024-10-25)
+
+
+### Features
+
+* **DuoChatMessage:** add max height for code blocks in messages ([4493ca9](https://gitlab.com/gitlab-org/gitlab-ui/commit/4493ca9fca716aee2c4fb7b06abe0e90f60aa7e0))
+
 # [98.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.3.0...v98.4.0) (2024-10-24)
 
 
