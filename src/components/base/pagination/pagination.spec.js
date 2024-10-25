@@ -121,7 +121,7 @@ describe('pagination component', () => {
   it('emits previous event when previous item is clicked', () => {
     createComponent({
       ...propsData,
-      value: 1,
+      value: 2, // 'previous' is disabled when the value is 1
       totalItems: 75,
     });
 
@@ -223,6 +223,9 @@ describe('pagination component', () => {
       expect(items.at(1).find('a').classes()).toEqual(expectClassActive);
       expect(items.at(1).find('a').attributes('aria-current')).toEqual('page');
       expect(items.at(items.length - 1).element.tagName).not.toBe('SPAN');
+
+      findPrev().trigger('click');
+      expect(wrapper.emitted('previous')).toBeUndefined();
     });
 
     it('shows first 5 pages and collapses right side on desktop', () => {
@@ -312,6 +315,9 @@ describe('pagination component', () => {
       expect(items.at(7).find('a').classes()).toEqual(expectClassActive);
       expect(items.at(7).find('a').attributes('aria-current')).toEqual('page');
       expect(findNext().element.tagName).toBe('SPAN');
+
+      findNext().trigger('click');
+      expect(wrapper.emitted('next')).toBeUndefined();
     });
 
     it('shows pages 11 to 15 and collapses left side on desktop', () => {
