@@ -1,3 +1,6 @@
+$duo-code-scrim-bottom-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10);
+$duo-code-scrim-top-gradient: linear-gradient(to top, rgba($gray-10, 0), $gray-10);
+
 .duo-chat-message {
   max-width: 90%;
   position: relative;
@@ -7,8 +10,34 @@
   }
 
   pre {
-    @apply gl-text-inherit;
-    padding: $gl-spacing-scale-3 $gl-spacing-scale-4;
+    box-shadow: none !important;
+    @apply gl-border gl-max-h-[60vh] gl-px-4 gl-py-3 gl-text-inherit;
+
+    &::before,
+    &::after {
+      content: '';
+      left: 1px;
+      width: calc(100% - 2px);
+      position: absolute;
+      @apply gl-pointer-events-none;
+      @apply gl-h-7;
+    }
+
+    &.scrim-top {
+      &::before {
+        background: $duo-code-scrim-top-gradient;
+        top: 1px;
+        @apply gl-rounded-t-base;
+      }
+    }
+
+    &.scrim-bottom {
+      &::after {
+        background: $duo-code-scrim-bottom-gradient;
+        bottom: 1px;
+        @apply gl-rounded-b-base;
+      }
+    }
   }
 
   pre code {
