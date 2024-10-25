@@ -1,3 +1,10 @@
+## [98.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.5.0...v98.5.1) (2024-10-25)
+
+
+### Bug Fixes
+
+* **Pagination:** Prevent clicks on prev and next links when disabled ([74b2a39](https://gitlab.com/gitlab-org/gitlab-ui/commit/74b2a396b41c6bb3adfb1dd39e95f8bbfc5fb890))
+
 # [98.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.4.0...v98.5.0) (2024-10-25)
 
 
