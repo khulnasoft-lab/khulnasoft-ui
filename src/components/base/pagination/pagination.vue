@@ -413,7 +413,7 @@ export default {
           class="gl-pagination-item"
           :aria-label="prevPageAriaLabel"
           :href="prevPageHref"
-          @click="handlePrevious($event, value - 1)"
+          @click="!prevPageIsDisabled ? handlePrevious($event, value - 1) : null"
         >
           <!--
             @slot Content for the "previous" button. Overrides the "prevText" prop.
@@ -479,7 +479,7 @@ export default {
           class="gl-pagination-item"
           :aria-label="nextPageAriaLabel"
           :href="nextPageHref"
-          @click="handleNext($event, value + 1)"
+          @click="!nextPageIsDisabled ? handleNext($event, value + 1) : null"
         >
           <!--
             @slot Content for the "next" button. Overrides the "nextText" prop.
