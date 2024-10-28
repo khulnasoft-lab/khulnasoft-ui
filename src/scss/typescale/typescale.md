@@ -17,7 +17,6 @@ code demonstrates the minimal configuration required to use the UI Typescale in 
 ```scss
 @import '@gitlab/ui/src/scss/variables';
 @import '@gitlab/ui/src/scss/mixins';
-@import '@gitlab/ui/src/scss/utility-mixins/index';
 @import '@gitlab/ui/src/scss/typescale/index';
 
 @include gl-typescale-ui;

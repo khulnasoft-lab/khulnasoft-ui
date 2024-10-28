@@ -135,25 +135,6 @@ export default glob
     };
   })
   .concat({
-    input: './src/scss/utilities.scss',
-    output: {
-      file: 'dist/utility_classes.css',
-    },
-    plugins: [
-      replace({
-        delimiters: ['/* ', ' */'],
-        values: {
-          'auto-inject-scss-lib': `
-          @import './functions';
-          @import './variables';
-          @import './utility-mixins/index';
-        `,
-        },
-      }),
-      postCssPlugin(),
-    ],
-  })
-  .concat({
     input: './src/scss/tailwind.css',
     output: {
       file: 'dist/tailwind.css',

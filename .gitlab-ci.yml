@@ -183,7 +183,6 @@ build_package:
     paths:
       - bin/migrate_custom_utils_to_tw.bundled.mjs
       - dist
-      - src/scss/utilities.scss
       - $TAR_ARCHIVE_NAME
 
 .build_storybook:
@@ -226,13 +225,6 @@ lint:
       && echo "Vue components should not contain <style tags"
       && exit 1
       || echo "No Vue component contains <style tags"
-
-generate_utility_classes:
-  extends: [.node, '.yarn_install']
-  needs: []
-  stage: test
-  script:
-    - yarn generate-utilities
 
 check_translations_dictionary:
   extends: [.node, '.yarn_install']

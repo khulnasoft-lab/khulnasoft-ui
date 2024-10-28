@@ -9,5 +9,6 @@ module.exports = {
     '!./src/**/*.spec.js',
     '!./src/vendor/bootstrap-vue/node_modules/**',
     '!./src/vendor/bootstrap/**',
+    './src/scss/typescale/*_demo.html',
   ],
 };
