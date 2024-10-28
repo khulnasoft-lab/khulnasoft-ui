@@ -1,135 +1,127 @@
+import * as Vue from 'vue';
 import { shallowMount } from '@vue/test-utils';
+import GlButtonGroup from '../button_group/button_group.vue';
+import GlButton from '../button/button.vue';
 import SegmentedControl from './segmented_control.vue';
 
-const DISABLED_VALUE = 'disabled-three';
+const DEFAULT_OPTIONS = [
+  { text: 'Lorem', value: 'abc' },
+  { text: 'Ipsum', value: 'def' },
+  { text: 'Foo', value: 'x', disabled: true },
+  { text: 'Dolar', value: 'ghi' },
+];
 
-describe('segmented control', () => {
+describe('GlSegmentedControl', () => {
   let wrapper;
-  let consoleWarnSpy;
 
-  const defaultProps = {
-    options: [
-      { value: 'disabled-zero', text: 'zero', disabled: true },
-      { value: 'valid-one', text: 'one' },
-      { value: 'valid-two', text: 'two' },
-      { value: DISABLED_VALUE, text: 'three', disabled: true },
-    ],
-    checked: 'valid-one',
-  };
-
-  const createComponent = (propsData) => {
-    const options = {
+  const createComponent = (props = {}, slots = {}) => {
+    wrapper = shallowMount(SegmentedControl, {
       propsData: {
-        ...defaultProps,
-        ...propsData,
+        value: DEFAULT_OPTIONS[0].value,
+        options: DEFAULT_OPTIONS,
+        ...props,
       },
-      shouldProxy: true,
-    };
-
-    wrapper = shallowMount(SegmentedControl, options);
+      // https://test-utils.vuejs.org/migration/#scopedSlots-is-now-merged-with-slots
+      ...(Vue.version.startsWith('3') ? { slots } : { scopedSlots: slots }),
+    });
   };
 
-  beforeAll(() => {
-    consoleWarnSpy = jest.spyOn(global.console, 'warn');
-  });
+  const findButtonGroup = () => wrapper.findComponent(GlButtonGroup);
+  const findButtons = () => findButtonGroup().findAllComponents(GlButton);
+  const findButtonsData = () =>
+    findButtons().wrappers.map((x) => ({
+      selected: x.props('selected'),
+      text: x.text(),
+      disabled: x.props('disabled'),
+    }));
+  const findButtonWithText = (text) => findButtons().wrappers.find((x) => x.text() === text);
 
-  afterAll(() => {
-    consoleWarnSpy.mockRestore();
-  });
+  const optionsAsButtonData = (options) =>
+    options.map(({ text, disabled = false }) => ({
+      selected: false,
+      text,
+      disabled,
+    }));
 
-  beforeEach(() => {
-    consoleWarnSpy.mockClear();
-  });
-
-  const warning = 'Segmented button should always have valid option selected';
-  describe('with options and valid value', () => {
+  describe('default', () => {
     beforeEach(() => {
       createComponent();
     });
 
-    it('should not warn or emit', () => {
-      expect(global.console.warn).not.toHaveBeenCalled();
-      expect(Object.keys(wrapper.emitted)).toHaveLength(0);
+    it('renders button group', () => {
+      expect(findButtonGroup().exists()).toBe(true);
+    });
+
+    it('renders buttons', () => {
+      const expectation = optionsAsButtonData(DEFAULT_OPTIONS);
+      expectation[0].selected = true;
+
+      expect(findButtonsData()).toEqual(expectation);
+    });
+
+    describe.each(DEFAULT_OPTIONS.filter((x) => !x.disabled))(
+      'when button clicked %p',
+      ({ text, value }) => {
+        it('emits input with value', () => {
+          expect(wrapper.emitted('input')).toBeUndefined();
+
+          findButtonWithText(text).vm.$emit('click');
+
+          expect(wrapper.emitted('input')).toEqual([[value]]);
+        });
+      }
+    );
+  });
+
+  const VALUE_TEST_CASES = [0, 1, 3].map((index) => [DEFAULT_OPTIONS[index].value, index]);
+
+  describe.each(VALUE_TEST_CASES)('with value=%s', (value, index) => {
+    it(`renders selected button at ${index}`, () => {
+      createComponent({ value });
+
+      const expectation = optionsAsButtonData(DEFAULT_OPTIONS);
+      expectation[index].selected = true;
+
+      expect(findButtonsData()).toEqual(expectation);
     });
   });
 
-  describe.each`
-    checked                | desc
-    ${'nonexistent-value'} | ${'non existent'}
-    ${DISABLED_VALUE}      | ${'disabled'}
-  `('with value $desc', ({ checked }) => {
-    beforeEach(() => {
-      createComponent({ checked });
-    });
+  describe('with button-content slot', () => {
+    it('renders button content based on slot', () => {
+      createComponent(
+        {},
+        {
+          'button-content': `<template #button-content="option">In a slot - {{ option.text }}</template>`,
+        }
+      );
 
-    it('should warn', () => {
-      expect(global.console.warn).toHaveBeenCalledWith(warning);
-    });
-
-    it('should emit', () => {
-      expect(wrapper.emitted('input')).toEqual([['valid-one']]);
+      expect(findButtonsData().map((x) => x.text)).toEqual(
+        DEFAULT_OPTIONS.map((x) => `In a slot - ${x.text}`)
+      );
     });
   });
 
-  describe('with all options disabled', () => {
-    beforeEach(() => {
-      createComponent({
-        options: [{ value: 'disabled', disabled: true }],
-        checked: 'bogus',
-      });
+  describe('options prop validation', () => {
+    it.each([
+      [[{ disabled: true }]],
+      [[{ value: '1', disabled: 'false' }]],
+      [[{ value: null, disabled: 'true' }]],
+      [[[{ value: true }, null]]],
+    ])('with options=%j, fails validation', (options) => {
+      createComponent({ options });
+
+      expect(wrapper).toHaveLoggedVueErrors();
     });
 
-    it('should not emit', () => {
-      expect(Object.keys(wrapper.emitted())).toHaveLength(0);
-    });
-  });
+    it.each([
+      [[{ value: '1' }]],
+      [[{ value: 1, disabled: true }]],
+      [[{ value: true, disabled: false }]],
+      [[{ value: true, props: { 'data-testid': 'test' } }]],
+    ])('with options=%j, passes validation', (options) => {
+      createComponent({ options });
 
-  describe('when updated with bad value', () => {
-    beforeEach(async () => {
-      createComponent();
-      wrapper.setProps({ checked: 'nonexistent-value' });
-      await wrapper.vm.$nextTick();
-    });
-
-    it('should log warning', () => {
-      expect(global.console.warn).toHaveBeenCalledWith(warning);
-    });
-
-    it('should emit value', () => {
-      expect(wrapper.emitted('input')).toEqual([['valid-one']]);
-    });
-  });
-
-  describe('when updated with bad options', () => {
-    beforeEach(async () => {
-      createComponent();
-      wrapper.setProps({ options: [{ value: 'bogus' }] });
-      await wrapper.vm.$nextTick();
-    });
-
-    it('should log warning', () => {
-      expect(global.console.warn).toHaveBeenCalledWith(warning);
-    });
-
-    it('should emit value', () => {
-      expect(wrapper.emitted('input')).toEqual([['bogus']]);
-    });
-  });
-
-  describe('when updated with a invalid value we only emit values that are legitimate', () => {
-    beforeEach(async () => {
-      createComponent();
-      wrapper.setProps({ checked: 'doomed-value' });
-      await wrapper.vm.$nextTick();
-      wrapper.setProps({ checked: 'doomed-value-2' });
-    });
-
-    it('should log warning', () => {
-      expect(global.console.warn).toHaveBeenCalledWith(warning);
-    });
-
-    it('should only emit a legitimate value', () => {
-      expect(wrapper.emitted('input')).toEqual([['valid-one'], ['valid-one']]);
+      expect(wrapper).not.toHaveLoggedVueErrors();
     });
   });
 });
