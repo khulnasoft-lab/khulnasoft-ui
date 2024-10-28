@@ -1,3 +1,10 @@
+# [99.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v99.0.1...v99.1.0) (2024-10-28)
+
+
+### Features
+
+* **GlFormSelect:** Add class property ([482ba49](https://gitlab.com/gitlab-org/gitlab-ui/commit/482ba491d264053ae2dfacda383d3604397e17b4))
+
 ## [99.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v99.0.0...v99.0.1) (2024-10-28)
 
 
