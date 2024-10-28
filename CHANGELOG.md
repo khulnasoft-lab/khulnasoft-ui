@@ -1,3 +1,19 @@
+# [99.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.5.2...v99.0.0) (2024-10-28)
+
+
+### chore
+
+* remove legacy utils library ([cd7bf70](https://gitlab.com/gitlab-org/gitlab-ui/commit/cd7bf70a81e35abf54c838a1099bca2600604d90))
+
+
+### BREAKING CHANGES
+
+* This effectively removes all of the legacy utility
+mixins as well as the generated & published CSS utilities. Consumers
+that leverage `gl-` utils should migrate to Tailwind CSS. See
+https://gitlab.com/gitlab-org/gitlab-ui/-/blob/9defa96b76de82182561d2cec869194e576c60a8/doc/css.md
+for more information.
+
 ## [98.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.5.1...v98.5.2) (2024-10-25)
 
 
