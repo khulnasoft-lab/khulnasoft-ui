@@ -1,3 +1,10 @@
+## [99.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v99.0.0...v99.0.1) (2024-10-28)
+
+
+### Bug Fixes
+
+* **BvTransition:** Check whether Element is defined in DOM API ([b69838d](https://gitlab.com/gitlab-org/gitlab-ui/commit/b69838d1b72587cddafecf1f72d93bb9672beb2d))
+
 # [99.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v98.5.2...v99.0.0) (2024-10-28)
 
 
