@@ -79,7 +79,7 @@ export default {
     renderGFM: {
       from: 'renderGFM',
       default: () => (element) => {
-        element.classList.add('gl-markdown', 'gl-compact-markdown');
+        element.classList.add('duo-chat-markdown', 'duo-chat-compact-markdown');
       },
     },
     renderMarkdown: {

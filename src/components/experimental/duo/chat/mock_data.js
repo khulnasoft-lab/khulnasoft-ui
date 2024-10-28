@@ -143,7 +143,7 @@ export const renderMarkdown = (content) => content;
 export const renderGFM = (el) => {
   const codeBlock = el.querySelectorAll('.markdown-code-block');
   codeBlock.forEach((block) => {
-    block?.classList.add('gl-markdown', 'gl-compact-markdown');
+    block?.classList.add('duo-chat-markdown', 'duo-chat-compact-markdown');
   });
 };
 

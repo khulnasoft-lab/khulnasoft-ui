@@ -445,7 +445,7 @@ describe('DuoChatMessage', () => {
       await nextTick();
 
       expect(findContent().html()).toBe(
-        '<div class="gl-markdown gl-compact-markdown"><a>click here</a></div>'
+        '<div class="duo-chat-markdown duo-chat-compact-markdown"><a>click here</a></div>'
       );
     });
 
