@@ -1,3 +1,25 @@
+# [100.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v99.1.0...v100.0.0) (2024-10-29)
+
+
+### Features
+
+* migrate GlBadge ([02f3e90](https://gitlab.com/gitlab-org/gitlab-ui/commit/02f3e906087dfb5dffe7ca5c34c78c3d24aed185))
+
+
+### BREAKING CHANGES
+
+* Remove GlBadge's router link and nuxt link related
+props.
+
+* Migrates GlBadge so it does not make use of Bootstrap Vue's
+BBadge anymore.
+* Still uses the BLink component if link props are provided.
+* Specs are added for the additional functionality.
+* Docs for the badge include information about the link badge now.
+* Include link badge styling for disabled case.
+* Update GlBadge default story.
+* Removes vendored BBadge code.
+
 # [99.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v99.0.1...v99.1.0) (2024-10-28)
 
 
