@@ -1,3 +1,18 @@
+# [101.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v100.0.0...v101.0.0) (2024-10-29)
+
+
+### Features
+
+* Remove bootstrap peer-depenceny and use vendored version instead ([1628107](https://gitlab.com/gitlab-org/gitlab-ui/commit/1628107e3fd80e2accd7f0fe30505fd600073acc))
+
+
+### BREAKING CHANGES
+
+* In release 94.4.0 we added vendored bootstrap@4.6.2 SCSS. Now
+@gitlab/ui stops relying on the bootstrap peer dependency and uses the
+vendored bootstrap SCSS files instead. Unless you use JavaScript bits
+of bootstrap, you can simply drop the bootstrap dependency.
+
 # [100.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v99.1.0...v100.0.0) (2024-10-29)
 
 
