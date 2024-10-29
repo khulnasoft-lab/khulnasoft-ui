@@ -1,7 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
 import { disableControls } from '../../../utils/stories_utils';
-import BVueReadme from '../../../vendor/bootstrap-vue/src/components/badge/README.md';
 import GlBadge from './badge.vue';
 import readme from './badge.md';
 
@@ -11,6 +10,12 @@ const template = `
       :variant="variant"
       :icon="icon"
       :icon-size="iconSize"
+      :icon-optically-aligned="iconOpticallyAligned"
+      :tag="tag"
+      :rel="rel"
+      :target="target"
+      :active="active"
+      :disabled="disabled"
     >{{ content }}</gl-badge>
   `;
 
@@ -22,12 +27,24 @@ const generateProps = ({
   content = 'TestBadge',
   icon = '',
   iconSize = defaultValue('iconSize'),
+  iconOpticallyAligned = false,
+  tag,
+  rel,
+  target,
+  active = false,
+  disabled = false,
 } = {}) => ({
   variant,
   href,
   content,
   icon,
   iconSize,
+  iconOpticallyAligned,
+  tag,
+  rel,
+  target,
+  active,
+  disabled,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -189,8 +206,6 @@ export default {
   title: 'base/badge',
   component: GlBadge,
   parameters: {
-    bootstrapComponent: 'b-badge',
-    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,

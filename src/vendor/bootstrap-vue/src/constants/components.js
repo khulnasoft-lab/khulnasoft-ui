@@ -1,5 +1,4 @@
 // Component names
-export const NAME_BADGE = 'BBadge'
 export const NAME_BREADCRUMB = 'BBreadcrumb'
 export const NAME_BREADCRUMB_ITEM = 'BBreadcrumbItem'
 export const NAME_BREADCRUMB_LINK = 'BBreadcrumbLink'

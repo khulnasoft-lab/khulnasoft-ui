@@ -23,16 +23,8 @@ badge for best accessibility.
 <gl-badge icon="eye" aria-label="Mark as confidential" />
 ```
 
-## Edge cases
+## Link badges
 
-While this component is based on
-[`BBadge`](https://bootstrap-vue.org/docs/components/badge) from
-`bootstrap-vue`, it is not a drop-in replacement. Specifically, this component:
-
-- Has a different set of valid `variant`s. See the examples or props
-   documentation for those values.
-- Always sets the `pill` prop of the underlying
-[`BBadge`](https://bootstrap-vue.org/docs/components/badge) to `true`. Any passed
-   in `pill` prop value is ignored.
-- Does _not_ scale itself to match the size of its immediate parent, like
-   [`BBadge`](https://bootstrap-vue.org/docs/components/badge) does.
+Badges can be made actionable and turn into links by providing the `href` prop,
+which can be used in combination with the props `rel`, `target`, `active`, and `disabled`.
+The prop `tag` will be ignored and the `BLink` component will be used instead.

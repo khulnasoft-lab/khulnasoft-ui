@@ -27,7 +27,7 @@ $badge-min-width: $gl-spacing-scale-3;
     }
   }
 
-  a.gl-badge.badge-#{$variant} {
+  a.gl-badge.badge-#{$variant}:not(.disabled) {
     &:hover {
       color: $hover-color;
       // Needed to override bootstrap's badge variant background
@@ -116,6 +116,11 @@ $badge-min-width: $gl-spacing-scale-3;
     min-width: $badge-min-width;
   }
 }
+
+a.gl-badge.disabled {
+  cursor: not-allowed;
+}
+  
 
 /* Variants */
 

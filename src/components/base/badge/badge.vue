@@ -1,16 +1,25 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BBadge } from '../../../vendor/bootstrap-vue/src/components/badge/badge';
+import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
 import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
+
+const variantClass = {
+  [badgeVariantOptions.muted]: 'badge-muted',
+  [badgeVariantOptions.neutral]: 'badge-neutral',
+  [badgeVariantOptions.info]: 'badge-info',
+  [badgeVariantOptions.success]: 'badge-success',
+  [badgeVariantOptions.warning]: 'badge-warning',
+  [badgeVariantOptions.danger]: 'badge-danger',
+  [badgeVariantOptions.tier]: 'badge-tier',
+};
 
 export default {
   name: 'GlBadge',
   components: {
-    BBadge,
+    BLink,
     GlIcon,
   },
-  inheritAttrs: false,
   props: {
     /**
      * The variant of the badge.
@@ -48,6 +57,54 @@ export default {
       default: false,
       required: false,
     },
+    /**
+     * Custom tag to use (unless `href` is defined)
+     */
+    tag: {
+      type: String,
+      required: false,
+      default: 'span',
+    },
+    /**
+     * Creates the badge as link (ignores `tag` property)
+     */
+    href: {
+      type: String,
+      required: false,
+      default: undefined,
+    },
+    /**
+     * Sets the `rel` attributes, when `href` is defined
+     */
+    rel: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    /**
+     * Sets the `target`, when `href` is defined
+     */
+    target: {
+      type: String,
+      required: false,
+      default: '_self',
+    },
+    /**
+     * Adds the `active` class, when `href` is defined
+     */
+    active: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    /**
+     * Disables the link, when `href` is defined
+     */
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   computed: {
     hasIconOnly() {
@@ -70,19 +127,38 @@ export default {
     iconSizeComputed() {
       return badgeIconSizeOptions[this.iconSize];
     },
+    isLink() {
+      return Boolean(this.href);
+    },
+    computedTag() {
+      return this.isLink ? BLink : this.tag;
+    },
+    computedProps() {
+      if (!this.isLink) return {};
+
+      const { href, rel, target, active, disabled } = this;
+      return { href, rel, target, active, disabled };
+    },
+    classes() {
+      return [
+        'gl-badge',
+        'badge',
+        'badge-pill',
+        variantClass[this.variant],
+        { '!gl-px-2': !this.$scopedSlots.default },
+      ];
+    },
   },
 };
 </script>
 
 <template>
-  <b-badge
-    v-bind="$attrs"
-    :variant="variant"
-    class="gl-badge"
-    :class="{ '!gl-px-2': !$scopedSlots.default }"
+  <component
+    :is="computedTag"
+    v-bind="computedProps"
+    :class="classes"
     :role="role"
     :aria-label="ariaLabel"
-    pill
   >
     <gl-icon
       v-if="icon"
@@ -95,5 +171,5 @@ export default {
     <span v-if="$slots.default" class="gl-badge-content">
       <slot></slot>
     </span>
-  </b-badge>
+  </component>
 </template>
