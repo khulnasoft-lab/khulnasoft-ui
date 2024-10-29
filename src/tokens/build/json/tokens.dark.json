@@ -20193,16 +20193,13 @@
       },
       "icon": {
         "color": {
-          "value": "#28272d",
+          "value": "#fff",
           "$type": "color",
           "comment": "Used for an icon on a strong feedback background.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
-            "value": {
-              "default": "{color.neutral.0}",
-              "dark": "{color.neutral.900}"
-            },
+            "value": "{color.neutral.0}",
             "$type": "color",
             "comment": "Used for an icon on a strong feedback background."
           },
@@ -20218,16 +20215,13 @@
       },
       "link": {
         "color": {
-          "value": "#0b5cad",
+          "value": "#63a6e9",
           "$type": "color",
           "comment": "Used for a link on a strong feedback background.",
           "filePath": "src/tokens/feedback.tokens.json",
           "isSource": true,
           "original": {
-            "value": {
-              "default": "{color.blue.300}",
-              "dark": "{color.blue.700}"
-            },
+            "value": "{color.blue.300}",
             "$type": "color",
             "comment": "Used for a link on a strong feedback background."
           },
