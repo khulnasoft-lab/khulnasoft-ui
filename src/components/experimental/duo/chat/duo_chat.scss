@@ -50,13 +50,13 @@
 }
 
 .duo-chat-drawer-header {
-  @apply gl-border-b-1 gl-border-b-gray-100 gl-border-b-solid;
+  @apply gl-border-b;
 }
 
 .duo-chat-drawer-header-sticky {
   top: 0;
   position: sticky;
-  @apply gl-border-b-1 gl-border-b-gray-100 gl-border-b-solid;
+  @apply gl-border-b;
 }
 
 .duo-chat-drawer-body {
@@ -68,7 +68,7 @@
 }
 
 .duo-chat-drawer-footer {
-  @apply gl-border-t-1 gl-border-t-gray-100 gl-border-t-solid;
+  @apply gl-border-t;
   @apply gl-p-5;
 }
 
@@ -143,8 +143,10 @@
   &::after {
     content: attr(data-value) ' ';
     @apply gl-invisible;
-    @apply gl-whitespace-pre-wrap;
-    @apply gl-py-4;
+    @apply gl-p-4;
+    @apply gl-font-regular;
+    padding-right: 40px;
+    word-break: break-word;
   }
 }
 
