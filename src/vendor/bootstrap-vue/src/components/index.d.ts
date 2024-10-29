@@ -4,7 +4,6 @@ import { BvPlugin } from '../'
 export declare const componentsPlugin: BvPlugin
 
 // Export all components as named exports
-export * from './badge'
 export * from './breadcrumb'
 export * from './button'
 export * from './button-group'
