@@ -1,3 +1,10 @@
+## [101.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.0.0...v101.0.1) (2024-10-29)
+
+
+### Bug Fixes
+
+* feedback.strong.* icon and link contrast ([68b00cf](https://gitlab.com/gitlab-org/gitlab-ui/commit/68b00cfbc0be018d87d405b127805e6296ffc01c))
+
 # [101.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v100.0.0...v101.0.0) (2024-10-29)
 
 
