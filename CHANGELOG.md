@@ -1,3 +1,10 @@
+# [101.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.0.1...v101.1.0) (2024-10-29)
+
+
+### Features
+
+* **toast:** Accept 'autoHideDelay' as an option argument for toast ([016b159](https://gitlab.com/gitlab-org/gitlab-ui/commit/016b159a6fd22bef51429e88fbb1367c377d8d84))
+
 ## [101.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.0.0...v101.0.1) (2024-10-29)
 
 
