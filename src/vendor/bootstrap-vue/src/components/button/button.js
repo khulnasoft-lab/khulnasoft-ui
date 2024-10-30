@@ -22,12 +22,10 @@ export const props = makePropsConfigurable(
     ...linkProps,
     block: makeProp(PROP_TYPE_BOOLEAN, false),
     disabled: makeProp(PROP_TYPE_BOOLEAN, false),
-    pill: makeProp(PROP_TYPE_BOOLEAN, false),
     // Tri-state: `true`, `false` or `null`
     // => On, off, not a toggle
     pressed: makeProp(PROP_TYPE_BOOLEAN, null),
     size: makeProp(PROP_TYPE_STRING),
-    squared: makeProp(PROP_TYPE_BOOLEAN, false),
     tag: makeProp(PROP_TYPE_STRING, 'button'),
     type: makeProp(PROP_TYPE_STRING, 'button'),
     variant: makeProp(PROP_TYPE_STRING, 'secondary')
@@ -66,8 +64,6 @@ const computeClass = props => [
   {
     [`btn-${props.size}`]: props.size,
     'btn-block': props.block,
-    'rounded-pill': props.pill,
-    'rounded-0': props.squared && !props.pill,
     disabled: props.disabled,
     active: props.pressed
   }

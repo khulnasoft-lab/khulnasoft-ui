@@ -134,45 +134,6 @@ prop.
 <!-- b-button-block.vue -->
 ```
 
-## Pill style
-
-Prefer buttons with a more rounded-pill style? Just set the prop `pill` to true.
-
-```html
-<div>
-  <b-button pill>Button</b-button>
-  <b-button pill variant="primary">Button</b-button>
-  <b-button pill variant="outline-secondary">Button</b-button>
-  <b-button pill variant="success">Button</b-button>
-  <b-button pill variant="outline-danger">Button</b-button>
-  <b-button pill variant="info">Button</b-button>
-</div>
-
-<!-- b-button-pill.vue -->
-```
-
-This prop adds the Bootstrap v4.3 utility class `.rounded-pill` on the rendered button.
-
-## Squared style
-
-Prefer buttons with a more square corner style? Just set the prop `squared` to true.
-
-```html
-<div>
-  <b-button squared>Button</b-button>
-  <b-button squared variant="primary">Button</b-button>
-  <b-button squared variant="outline-secondary">Button</b-button>
-  <b-button squared variant="success">Button</b-button>
-  <b-button squared variant="outline-danger">Button</b-button>
-  <b-button squared variant="info">Button</b-button>
-</div>
-
-<!-- b-button-square.vue -->
-```
-
-The `squared` prop adds the Bootstrap v4.3 utility class `.rounded-0` on the rendered button. The
-`pill` prop takes precedence over the `squared` prop.
-
 ## Disabled state
 
 Set the `disabled` prop to disable button default functionality. `disabled` also works with buttons

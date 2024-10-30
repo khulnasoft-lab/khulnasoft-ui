@@ -100,42 +100,6 @@ describe('button', () => {
     wrapper.destroy()
   })
 
-  it('applies rounded-pill class when pill prop set', async () => {
-    const wrapper = mount(BButton, {
-      propsData: {
-        pill: true
-      }
-    })
-
-    expect(wrapper.element.tagName).toBe('BUTTON')
-    expect(wrapper.attributes('type')).toBeDefined()
-    expect(wrapper.attributes('type')).toBe('button')
-    expect(wrapper.classes()).toContain('btn')
-    expect(wrapper.classes()).toContain('btn-secondary')
-    expect(wrapper.classes()).toContain('rounded-pill')
-    expect(wrapper.classes().length).toBe(3)
-
-    wrapper.destroy()
-  })
-
-  it('applies rounded-0 class when squared prop set', async () => {
-    const wrapper = mount(BButton, {
-      propsData: {
-        squared: true
-      }
-    })
-
-    expect(wrapper.element.tagName).toBe('BUTTON')
-    expect(wrapper.attributes('type')).toBeDefined()
-    expect(wrapper.attributes('type')).toBe('button')
-    expect(wrapper.classes()).toContain('btn')
-    expect(wrapper.classes()).toContain('btn-secondary')
-    expect(wrapper.classes()).toContain('rounded-0')
-    expect(wrapper.classes().length).toBe(3)
-
-    wrapper.destroy()
-  })
-
   it('renders custom root element', async () => {
     const wrapper = mount(BButton, {
       propsData: {
