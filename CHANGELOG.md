@@ -1,3 +1,10 @@
+## [101.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.2.0...v101.2.1) (2024-10-30)
+
+
+### Bug Fixes
+
+* **GlBroadcastMessage:** Fix link color in content ([1e7b459](https://gitlab.com/gitlab-org/gitlab-ui/commit/1e7b459e7e2e34bb3091eec1d763d92b548e9765))
+
 # [101.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.1.0...v101.2.0) (2024-10-30)
 
 
