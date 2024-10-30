@@ -1,5 +1,4 @@
-$duo-code-scrim-bottom-gradient: linear-gradient(to bottom, rgba($gray-10, 0), $gray-10);
-$duo-code-scrim-top-gradient: linear-gradient(to top, rgba($gray-10, 0), $gray-10);
+@import '../../variables';
 
 .duo-chat-message {
   max-width: 90%;
@@ -16,26 +15,24 @@ $duo-code-scrim-top-gradient: linear-gradient(to top, rgba($gray-10, 0), $gray-1
     &::before,
     &::after {
       content: '';
-      left: 1px;
-      width: calc(100% - 2px);
+      left: $gl-border-size-1;
+      width: calc(100% - calc(2 * $gl-border-size-1));
       position: absolute;
-      @apply gl-pointer-events-none;
-      @apply gl-h-7;
+      @apply gl-pointer-events-none gl-h-7 gl-rounded-b-base;
     }
 
     &.scrim-top {
       &::before {
-        background: $duo-code-scrim-top-gradient;
-        top: 1px;
-        @apply gl-rounded-t-base;
+        background: $duo-chat-scrim-gradient;
+        top: $gl-border-size-1;
+        @apply -gl-rotate-180;
       }
     }
 
     &.scrim-bottom {
       &::after {
-        background: $duo-code-scrim-bottom-gradient;
-        bottom: 1px;
-        @apply gl-rounded-b-base;
+        background: $duo-chat-scrim-gradient;
+        bottom: $gl-border-size-1;
       }
     }
   }
