@@ -2,6 +2,5 @@
 /storybook/
 /dist/
 /public/
-/templates/
 .cypress_cache
 /src/vendor/
