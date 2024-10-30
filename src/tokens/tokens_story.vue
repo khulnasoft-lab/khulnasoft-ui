@@ -56,8 +56,8 @@ export default {
         v-for="token in tokens"
         :key="token.name"
         class="gl-flex gl-flex-wrap gl-items-center gl-justify-between gl-gap-3 gl-p-3"
-        :class="getClasses(token.value)"
-        :style="getStyle(token.value)"
+        :class="getClasses(token.$value)"
+        :style="getStyle(token.$value)"
       >
         <code v-gl-tooltip :title="token.comment" class="gl-text-inherit">
           {{ getTokenName(token) }}
@@ -66,15 +66,15 @@ export default {
           <gl-badge v-if="token.deprecated" v-gl-tooltip :title="token.comment" variant="danger">
             Deprecated
           </gl-badge>
-          <code class="gl-text-inherit">{{ token.value }}</code>
+          <code class="gl-text-inherit">{{ token.$value }}</code>
           <gl-color-contrast
-            v-if="isHex(token.value)"
-            :foreground="token.value"
+            v-if="isHex(token.$value)"
+            :foreground="token.$value"
             :background="darkBackground"
           />
           <gl-color-contrast
-            v-if="isHex(token.value)"
-            :foreground="token.value"
+            v-if="isHex(token.$value)"
+            :foreground="token.$value"
             :background="lightBackground"
           />
         </div>
