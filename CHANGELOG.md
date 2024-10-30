@@ -1,3 +1,10 @@
+# [101.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.1.0...v101.2.0) (2024-10-30)
+
+
+### Features
+
+* **DuoChat:** consolidate sass variable for duo scrim ([980d5ad](https://gitlab.com/gitlab-org/gitlab-ui/commit/980d5adfe9aaf2fcaea4e2f778a950cabc341687))
+
 # [101.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.0.1...v101.1.0) (2024-10-29)
 
 
