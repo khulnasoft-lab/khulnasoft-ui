@@ -7,20 +7,22 @@ import { translate } from '../../../../../../../utils/i18n';
 import {
   CONTEXT_ITEM_CATEGORY_FILE,
   CONTEXT_ITEM_CATEGORY_ISSUE,
-  CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
   CONTEXT_ITEM_CATEGORY_MERGE_REQUEST,
 } from '../constants';
 import {
-  formatGitItemSecondaryText,
   formatIssueId,
   formatMergeRequestId,
   getContextItemIcon,
+  getContextItemSecondaryText,
+  getContextItemSource,
   getContextItemTypeLabel,
 } from '../utils';
+import GlBadge from '../../../../../../base/badge/badge.vue';
 
 export default {
   name: 'DuoChatContextItemPopover',
   components: {
+    GlBadge,
     GlTruncate,
     GlAlert,
     GlIcon,
@@ -78,11 +80,6 @@ export default {
     filePathArray() {
       return this.filePath?.split('/');
     },
-    gitDetails() {
-      return this.contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT
-        ? formatGitItemSecondaryText(this.contextItem)
-        : null;
-    },
     isEnabled() {
       return this.contextItem.metadata.enabled !== false;
     },
@@ -97,6 +94,12 @@ export default {
     },
     itemTypeLabel() {
       return getContextItemTypeLabel(this.contextItem);
+    },
+    secondaryText() {
+      return getContextItemSecondaryText(this.contextItem);
+    },
+    itemSource() {
+      return getContextItemSource(this.contextItem);
     },
   },
   methods: {
@@ -120,20 +123,23 @@ export default {
         >
           {{ title }}
         </div>
-        <div v-if="itemTypeLabel" class="gl-font-normal gl-text-subtle">{{ itemTypeLabel }}</div>
+        <div v-if="itemTypeLabel" class="gl-flex gl-items-center gl-font-normal gl-text-subtle">
+          <gl-truncate :text="itemTypeLabel" class="gl-min-w-0" />
+        </div>
       </div>
     </template>
     <div>
-      <div v-if="filePath">
+      <div v-if="secondaryText" class="gl-flex gl-items-center">
+        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1 gl-shrink-0" />
+        <gl-badge v-if="itemSource" class="gl-mr-1">{{ itemSource }}</gl-badge>
+        <gl-truncate :text="secondaryText" class="gl-min-w-0" />
+      </div>
+      <div v-else-if="filePath">
         <gl-icon name="document" :size="12" variant="subtle" />
         <span class="gl-break-all">{{ contextItem.metadata.project }}</span>
         <span v-for="(pathPart, index) in filePathArray" :key="pathPart" class="gl-break-all"
           >{{ pathPart }}{{ index + 1 < filePathArray.length ? '/' : '' }}</span
         >
-      </div>
-      <div v-else-if="gitDetails" class="gl-flex gl-items-center" data-testid="git-details">
-        <gl-icon :name="iconName" :size="12" variant="subtle" class="gl-mr-1 gl-shrink-0" />
-        <gl-truncate :text="gitDetails" class="gl-min-w-0" />
       </div>
       <div v-else>
         <gl-icon v-if="iconName" :name="iconName" :size="12" variant="subtle" />

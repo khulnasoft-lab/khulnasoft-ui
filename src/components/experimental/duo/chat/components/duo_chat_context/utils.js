@@ -52,6 +52,10 @@ export function formatMergeRequestId(iid) {
   return `!${iid}`;
 }
 
+export function getContextItemSource(contextItem) {
+  return contextItem.metadata.repositoryName || contextItem.metadata.project || null;
+}
+
 function getGitItemIcon(contextItem) {
   const iconMap = {
     [CONTEXT_ITEM_LOCAL_GIT_COMMIT]: 'commit',
@@ -65,6 +69,10 @@ function getGitItemIcon(contextItem) {
  * Gets the icon name for a given contextItem.
  */
 export function getContextItemIcon(contextItem, category = { icon: null }) {
+  if (contextItem.metadata.icon) {
+    return contextItem.metadata.icon;
+  }
+
   if (contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT) {
     const gitIcon = getGitItemIcon(contextItem);
     if (gitIcon) return gitIcon;
@@ -85,6 +93,10 @@ export function getContextItemIcon(contextItem, category = { icon: null }) {
 }
 
 export function getContextItemTypeLabel(contextItem) {
+  if (contextItem.metadata.subTypeLabel) {
+    return contextItem.metadata.subTypeLabel;
+  }
+
   if (contextItem.category === CONTEXT_ITEM_CATEGORY_LOCAL_GIT) {
     switch (contextItem.metadata.gitType) {
       case CONTEXT_ITEM_LOCAL_GIT_DIFF:
@@ -115,6 +127,25 @@ export function formatGitItemSecondaryText(contextItem) {
   const { repositoryName, commitId } = contextItem.metadata;
   const separator = commitId ? ' - ' : '';
   return `${repositoryName}${separator}${commitId || ''}`;
+}
+
+export function getContextItemSecondaryText(contextItem) {
+  if (contextItem.metadata.secondaryText) {
+    return contextItem.metadata.secondaryText;
+  }
+
+  switch (contextItem.category) {
+    case CONTEXT_ITEM_CATEGORY_FILE:
+      return contextItem.metadata.relativePath;
+    case CONTEXT_ITEM_CATEGORY_ISSUE:
+      return formatIssueId(contextItem.metadata.iid);
+    case CONTEXT_ITEM_CATEGORY_MERGE_REQUEST:
+      return formatMergeRequestId(contextItem.metadata.iid);
+    case CONTEXT_ITEM_CATEGORY_LOCAL_GIT:
+      return formatGitItemSecondaryText(contextItem);
+    default:
+      return '';
+  }
 }
 
 /**

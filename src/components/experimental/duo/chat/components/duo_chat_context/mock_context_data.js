@@ -37,6 +37,9 @@ export const MOCK_CONTEXT_ITEM_FILE = {
   metadata: {
     enabled: true,
     title: 'strawberry.ts',
+    secondaryText: 'src/plants/strawberry.ts',
+    subTypeLabel: 'Project file',
+    icon: 'document',
     project: 'example/garden',
     relativePath: 'src/plants/strawberry.ts',
   },
@@ -48,6 +51,9 @@ export const MOCK_CONTEXT_ITEM_FILE_DISABLED = {
   metadata: {
     enabled: false,
     title: 'motorbike.cs',
+    secondaryText: '/src/VehicleFoo/motorbike.cs',
+    subTypeLabel: 'Project file',
+    icon: 'document',
     project: 'example/vehicles',
     relativePath: '/src/VehicleFoo/motorbike.cs',
   },
@@ -60,6 +66,9 @@ const mockFiles = [
     metadata: {
       enabled: true,
       title: 'potato.ts',
+      secondaryText: '/src/plants/potato.ts',
+      subTypeLabel: 'Project file',
+      icon: 'document',
       project: 'example/garden',
       relativePath: '/src/plants/potato.ts',
     },
@@ -73,7 +82,9 @@ export const MOCK_CONTEXT_ITEM_ISSUE = {
   metadata: {
     enabled: true,
     title: 'Implement watering schedule',
-    project: 'example/garden',
+    secondaryText: 'example/garden#1234',
+    subTypeLabel: 'Issue',
+    icon: 'issues',
     iid: 1234,
   },
 };
@@ -85,7 +96,9 @@ export const MOCK_CONTEXT_ITEM_ISSUE_DISABLED = {
     enabled: false,
     disabledReasons: ['This foo is not available to bar', 'Lorem something something wow?'],
     title: `Fix vehicle colours and make them look real nice and colourful won't that be wonderful wow this issue title is really long I sure hope it's gonna wrap OK`,
-    project: 'example/vehicle',
+    secondaryText: 'example/vehicle#91011',
+    subTypeLabel: 'Issue',
+    icon: 'issues',
     iid: 91011,
   },
 };
@@ -98,7 +111,9 @@ const mockIssues = [
     metadata: {
       enabled: true,
       title: 'Refactor plant growth rates',
-      project: 'example/garden',
+      secondaryText: 'example/garden#5678',
+      subTypeLabel: 'Issue',
+      icon: 'issues',
       iid: 5678,
     },
   },
@@ -111,7 +126,9 @@ export const MOCK_CONTEXT_ITEM_MERGE_REQUEST = {
   metadata: {
     enabled: true,
     title: 'Improve database performance',
-    project: 'example/garden',
+    secondaryText: 'example/garden!1122',
+    subTypeLabel: 'Merge request',
+    icon: 'merge-request',
     iid: 1122,
   },
 };
@@ -122,7 +139,9 @@ export const MOCK_CONTEXT_ITEM_MERGE_REQUEST_DISABLED = {
     enabled: false,
     disabledReasons: ['This foo is not available to bar', 'Lorem something something wow?'],
     title: 'Fix broken layout at small viewports',
-    project: 'example/vehicle',
+    secondaryText: 'example/vehicle!5566',
+    subTypeLabel: 'Merge request',
+    icon: 'merge-request',
     iid: 5566,
   },
 };
@@ -136,7 +155,9 @@ const mockMergeRequests = [
       enabled: false,
       disabledReasons: ['This foo is not available to bar', 'Lorem something something wow?'],
       title: 'Add vehicle registration details',
-      project: 'example/vehicle',
+      secondaryText: 'example/vehicle!3344',
+      subTypeLabel: 'Merge request',
+      icon: 'merge-request',
       iid: 3344,
     },
   },
@@ -149,6 +170,10 @@ export const MOCK_CONTEXT_ITEM_GIT_DIFF = {
   metadata: {
     enabled: true,
     title: 'Current working changes',
+    secondaryText: 'main',
+    subType: 'local_git',
+    subTypeLabel: 'Local Git repository diff',
+    icon: 'comparison',
     commitId: 'main',
     repositoryName: 'example/garden',
     gitType: 'diff',
@@ -160,6 +185,10 @@ export const MOCK_CONTEXT_ITEM_GIT_COMMIT = {
   metadata: {
     enabled: true,
     title: 'fix: some bug fix commit',
+    secondaryText: '20f8caf94cb8f5e5f9dbd1a9ac32702321de201b',
+    subType: 'local_git',
+    subTypeLabel: 'Local Git repository commit',
+    icon: 'commit',
     commitId: '20f8caf94cb8f5e5f9dbd1a9ac32702321de201b',
     repositoryName: 'example/garden',
     gitType: 'commit',
@@ -174,6 +203,9 @@ const mockGitItems = [
     metadata: {
       enabled: true,
       title: 'Diff from default branch',
+      secondaryText: 'main',
+      subTypeLabel: 'Local Git repository diff',
+      icon: 'comparison',
       commitId: 'main',
       repositoryName: 'example/garden',
       gitType: 'diff',
@@ -186,6 +218,9 @@ const mockGitItems = [
     metadata: {
       enabled: true,
       title: 'feat: add cool new feature',
+      secondaryText: '32b9b56b6de75b32909986755fbc470f20fb6fc0',
+      subTypeLabel: 'Local Git repository commit',
+      icon: 'commit',
       commitId: '32b9b56b6de75b32909986755fbc470f20fb6fc0',
       repositoryName: 'example/garden',
       gitType: 'commit',
@@ -197,6 +232,9 @@ const mockGitItems = [
     metadata: {
       enabled: true,
       title: 'fix: stop foo from bar when baz because customers ding',
+      secondaryText: '775d7efdce25c1af48c55abcadbefd1f181b92ce',
+      subTypeLabel: 'Local Git repository commit',
+      icon: 'commit',
       commitId: '775d7efdce25c1af48c55abcadbefd1f181b92ce',
       repositoryName: 'example/garden',
       gitType: 'commit',

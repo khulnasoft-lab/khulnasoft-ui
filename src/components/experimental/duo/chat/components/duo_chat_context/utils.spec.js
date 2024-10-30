@@ -287,7 +287,11 @@ describe('duo_chat_context utils', () => {
       it('returns "git" icon for unknown git types', () => {
         const unknownGitItem = {
           ...MOCK_CONTEXT_ITEM_GIT_COMMIT,
-          metadata: { ...MOCK_CONTEXT_ITEM_GIT_COMMIT.metadata, gitType: 'unknown' },
+          metadata: {
+            ...MOCK_CONTEXT_ITEM_GIT_COMMIT.metadata,
+            icon: undefined,
+            gitType: 'unknown',
+          },
         };
         expect(getContextItemIcon(unknownGitItem)).toBe('git');
       });
@@ -303,7 +307,7 @@ describe('duo_chat_context utils', () => {
       });
 
       it('returns null for unknown categories', () => {
-        const unknownItem = { category: 'unknown' };
+        const unknownItem = { category: 'unknown', metadata: {} };
         expect(getContextItemIcon(unknownItem)).toBeNull();
       });
     });

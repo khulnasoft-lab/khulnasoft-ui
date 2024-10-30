@@ -36,76 +36,113 @@ describe('GlDuoChatContextItemMenuContextSearchItem', () => {
   const findContextItemPopover = () => wrapper.findComponent(GlDuoChatContextItemPopover);
   const findItemTitle = () => findByTestId('item-title');
   const findItemSecondaryText = () => findByTestId('item-secondary-text');
+  const findItemSource = () => findByTestId('context-item-source');
 
   describe.each([
     {
       category: getMockCategory(CONTEXT_ITEM_CATEGORY_FILE),
       contextItem: MOCK_CONTEXT_ITEM_FILE,
       expectedIcon: 'document',
+      expectedSecondaryText: `src/plants/strawberry.ts`,
     },
     {
       category: getMockCategory(CONTEXT_ITEM_CATEGORY_ISSUE),
       contextItem: MOCK_CONTEXT_ITEM_ISSUE,
       expectedIcon: 'issues',
+      expectedSecondaryText: `example/garden#1234`,
     },
     {
       category: getMockCategory(CONTEXT_ITEM_CATEGORY_MERGE_REQUEST),
       contextItem: MOCK_CONTEXT_ITEM_MERGE_REQUEST,
       expectedIcon: 'merge-request',
+      expectedSecondaryText: `example/garden!1122`,
     },
     {
       category: getMockCategory(CONTEXT_ITEM_CATEGORY_LOCAL_GIT),
       contextItem: MOCK_CONTEXT_ITEM_GIT_COMMIT,
       expectedIcon: 'commit',
+      expectedSecondaryText: `20f8caf94cb8f5e5f9dbd1a9ac32702321de201b`,
     },
     {
       category: getMockCategory(CONTEXT_ITEM_CATEGORY_LOCAL_GIT),
       contextItem: MOCK_CONTEXT_ITEM_GIT_DIFF,
       expectedIcon: 'comparison',
+      expectedSecondaryText: `main`,
     },
-  ])('for "$category"', ({ category, contextItem, expectedIcon }) => {
-    beforeEach(() => createWrapper({ category, contextItem }));
+  ])(
+    'for category "$contextItem.category" and type "$contextItem.metadata.gitType"',
+    ({ category, contextItem, expectedIcon, expectedSecondaryText }) => {
+      beforeEach(() => createWrapper({ category, contextItem }));
 
-    it('renders the category icon', () => {
-      expect(findCategoryIcon().props('name')).toBe(expectedIcon);
-    });
+      it('renders the expected icon', () => {
+        expect(findCategoryIcon().props('name')).toBe(expectedIcon);
+      });
 
-    it('renders the item title', () => {
-      const title = findItemTitle();
+      it('renders the item title', () => {
+        const title = findItemTitle();
 
-      expect(title.props('text')).toEqual(contextItem.metadata.title);
-    });
+        expect(title.props('text')).toEqual(contextItem.metadata.title);
+      });
 
-    it('renders the context item popover', () => {
-      expect(findContextItemPopover().props()).toEqual(
-        expect.objectContaining({
-          contextItem,
-          target: `info-icon-${contextItem.id}`,
-        })
-      );
-    });
+      it('renders the context item popover', () => {
+        expect(findContextItemPopover().props()).toEqual(
+          expect.objectContaining({
+            contextItem,
+            target: `info-icon-${contextItem.id}`,
+          })
+        );
+      });
 
-    it('renders the default context item title', () => {
-      expect(wrapper.text()).toContain(contextItem.metadata.title);
-    });
-  });
-
-  describe('for local git category', () => {
-    describe.each([
-      { contextItem: MOCK_CONTEXT_ITEM_GIT_COMMIT },
-      { contextItem: MOCK_CONTEXT_ITEM_GIT_DIFF },
-    ])('for git type "$contextItem.metadata.gitType"', ({ contextItem }) => {
-      beforeEach(() =>
-        createWrapper({ category: getMockCategory(CONTEXT_ITEM_CATEGORY_LOCAL_GIT), contextItem })
-      );
+      it('renders the default context item title', () => {
+        expect(wrapper.text()).toContain(contextItem.metadata.title);
+      });
 
       it('renders expected secondary text', () => {
-        const expectedText = `${contextItem.metadata.repositoryName} - ${contextItem.metadata.commitId}`;
         const secondaryText = findItemSecondaryText();
         const truncated = secondaryText.findComponent(GlTruncate);
 
-        expect(truncated.props('text')).toEqual(expectedText);
+        expect(truncated.props('text')).toEqual(expectedSecondaryText);
       });
+    }
+  );
+
+  describe.each([
+    {
+      category: getMockCategory(CONTEXT_ITEM_CATEGORY_ISSUE),
+      contextItem: MOCK_CONTEXT_ITEM_ISSUE,
+    },
+    {
+      category: getMockCategory(CONTEXT_ITEM_CATEGORY_MERGE_REQUEST),
+      contextItem: MOCK_CONTEXT_ITEM_MERGE_REQUEST,
+    },
+  ])('for $contextItem.category', ({ category, contextItem }) => {
+    beforeEach(() => {
+      createWrapper({ category, contextItem });
+    });
+
+    it('does not render item source badge', () => {
+      expect(findItemSource().exists()).toBe(false);
+    });
+  });
+
+  describe.each([
+    {
+      category: getMockCategory(CONTEXT_ITEM_CATEGORY_FILE),
+      contextItem: MOCK_CONTEXT_ITEM_FILE,
+      expectedSource: 'example/garden',
+    },
+    {
+      category: getMockCategory(CONTEXT_ITEM_CATEGORY_LOCAL_GIT),
+      contextItem: MOCK_CONTEXT_ITEM_GIT_COMMIT,
+      expectedSource: 'example/garden',
+    },
+  ])('for $contextItem.category', ({ category, contextItem, expectedSource }) => {
+    beforeEach(() => {
+      createWrapper({ category, contextItem });
+    });
+
+    it('renders item source badge', () => {
+      expect(findItemSource().text()).toEqual(expectedSource);
     });
   });
 });
