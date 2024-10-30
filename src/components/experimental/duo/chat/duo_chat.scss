@@ -65,6 +65,8 @@
   // above the drawer when hovering interactive elements
   // see https://gitlab.com/gitlab-org/gitlab/-/issues/366558
   background-color: inherit;
+  // prevent scroll behind the chat
+  overscroll-behavior: contain;
 }
 
 .duo-chat-drawer-footer {
