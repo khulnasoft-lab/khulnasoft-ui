@@ -276,13 +276,13 @@ export default {
 </script>
 <template>
   <div
-    class="duo-chat-message gl-mb-4 gl-rounded-lg gl-p-4 gl-leading-20 gl-break-anywhere"
+    class="duo-chat-message gl-p-4 gl-leading-20 gl-break-anywhere"
     :class="{
       'gl-ml-auto gl-rounded-br-none gl-bg-blue-100 gl-text-blue-900': isUserMessage,
       'gl-rounded-bl-none gl-border-1 gl-border-solid gl-border-gray-50 gl-text-gray-900':
         isAssistantMessage,
-      'gl-bg-white': isAssistantMessage && !error,
-      'duo-chat-message-with-error !gl-border-none gl-bg-red-50': error,
+      'gl-bg-gray-10': isAssistantMessage && !error,
+      'duo-chat-message-with-error gl-bg-red-50': error,
     }"
     @insert-code-snippet="onInsertCodeSnippet"
   >

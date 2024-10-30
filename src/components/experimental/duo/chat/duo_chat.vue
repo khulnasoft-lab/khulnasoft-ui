@@ -537,14 +537,14 @@ export default {
   <aside
     v-if="!isHidden"
     id="chat-component"
-    class="markdown-code-block duo-chat-drawer duo-chat gl-border-t gl-border-l gl-bottom-0 gl-max-h-full gl-shadow-none"
+    class="markdown-code-block duo-chat-drawer duo-chat gl-bottom-0 gl-max-h-full"
     role="complementary"
     data-testid="chat-component"
   >
     <header
       v-if="showHeader"
       data-testid="chat-header"
-      class="duo-chat-drawer-header duo-chat-drawer-header-sticky gl-z-200 gl-bg-gray-10 !gl-p-0"
+      class="duo-chat-drawer-header duo-chat-drawer-header-sticky gl-z-200 gl-border-0 gl-bg-white !gl-p-0"
     >
       <div class="drawer-title gl-flex gl-items-center gl-justify-start gl-p-5">
         <h3 class="gl-my-0 gl-text-size-h2">{{ title }}</h3>
@@ -589,7 +589,7 @@ export default {
       <transition-group
         tag="section"
         name="message"
-        class="duo-chat-history gl-flex gl-flex-col gl-justify-end gl-bg-gray-10"
+        class="duo-chat-history gl-flex gl-flex-col gl-justify-end"
         :class="[
           {
             'gl-h-full': !hasMessages,
@@ -641,7 +641,7 @@ export default {
     <footer
       v-if="isChatAvailable"
       data-testid="chat-footer"
-      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-border-t gl-bg-gray-10 gl-p-5"
+      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-border-0 gl-bg-white gl-p-5"
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
@@ -660,7 +660,7 @@ export default {
 
         <gl-form-input-group>
           <div
-            class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-rounded-base gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
+            class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
             :data-value="prompt"
           >
             <gl-card
@@ -704,7 +704,7 @@ export default {
               icon="paper-airplane"
               category="primary"
               variant="confirm"
-              class="!gl-absolute gl-bottom-2 gl-right-2 !gl-rounded-base"
+              class="!gl-absolute gl-bottom-2 gl-right-2 !gl-rounded-full"
               type="submit"
               data-testid="chat-prompt-submit-button"
               :aria-label="$options.i18n.CHAT_SUBMIT_LABEL"
@@ -714,7 +714,7 @@ export default {
               icon="stop"
               category="primary"
               variant="default"
-              class="!gl-absolute gl-bottom-2 gl-right-2 !gl-rounded-base"
+              class="!gl-absolute gl-bottom-2 gl-right-2 !gl-rounded-full"
               data-testid="chat-prompt-cancel-button"
               :aria-label="$options.i18n.CHAT_CANCEL_LABEL"
               @click="cancelPrompt"
