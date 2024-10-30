@@ -3,26 +3,26 @@ pre-push:
   commands:
     eslint:
       files: git diff --name-only --diff-filter=d origin/main...HEAD
-      glob: "*.{js,vue}"
+      glob: '*.{js,vue}'
       run: ./node_modules/.bin/eslint {files}
     prettier:
       files: git diff --name-only --diff-filter=d origin/main...HEAD
-      glob: "*.{js,vue}"
+      glob: '*.{js,vue}'
       run: ./node_modules/.bin/prettier --check {files}
     stylelint:
       files: git diff --name-only --diff-filter=d origin/main...HEAD
-      glob: "*.{scss}"
+      glob: '*.{scss}'
       run: ./node_modules/.bin/stylelint {files}
     markdown-lint:
-      glob: "*.md"
+      glob: '*.md'
       run: yarn markdownlint
 pre-commit:
   commands:
     generate_translations:
       files: git diff --name-only --staged
-      glob: "*.{js,vue}"
+      glob: '*.{js,vue}'
       run: yarn translations:collect && git add ./translations.js
     build_tokens:
       files: git diff --name-only --staged
       glob: '*.tokens.json'
-      run: node ./bin/build_tokens.js && git add ./src/tokens/build
+      run: node ./bin/build_tokens.mjs && git add ./src/tokens/build

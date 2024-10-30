@@ -45,11 +45,13 @@ class TailwindFormatter {
    * @returns {string} CSS custom property with default value
    */
   aliasToCSSCustomProperty = (token) => {
-    const { value } = token.original;
+    const { $value } = token.original;
     const aliasedToken =
-      typeof value === 'string' ? this.getAliasedToken(value) : this.getAliasedToken(value.default);
+      typeof $value === 'string'
+        ? this.getAliasedToken($value)
+        : this.getAliasedToken($value.default);
     const prefix = aliasedToken.prefix !== false ? 'gl' : false;
-    return `var(--${[prefix, ...aliasedToken.path].filter(Boolean).join('-')}, ${token.value})`;
+    return `var(--${[prefix, ...aliasedToken.path].filter(Boolean).join('-')}, ${token.$value})`;
   };
 
   /**
@@ -60,9 +62,9 @@ class TailwindFormatter {
    */
   cssCustomPropertyWithValue = (token) => {
     const path = [token.prefix !== false ? 'gl' : false, ...token.path].filter(Boolean);
-    const value = hasAliases(token.original.value)
+    const value = hasAliases(token.original.$value)
       ? this.aliasToCSSCustomProperty(token)
-      : token.value;
+      : token.$value;
     return `var(--${path.join('-')}, ${value})`;
   };
 }

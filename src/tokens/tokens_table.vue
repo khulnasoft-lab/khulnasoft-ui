@@ -97,21 +97,21 @@ export default {
       return value;
     },
     getValueLabel(token) {
-      const { value } = token.original;
+      const value = token.original.$value;
       if (this.isAliasObject(value)) {
         return this.getAliasValueName(value[this.selectedMode]);
       }
       if (this.isAliasValue(value)) {
         return this.getAliasValueName(value);
       }
-      return token.value;
+      return token.$value;
     },
     transformTokenToTableColumns(token) {
       return {
         id: token.path.filter(Boolean).join('-'),
         name: this.formatTokenName(this.selectedPlatform, token),
         type: token.$type,
-        value: token.value,
+        value: token.$value,
         valueLabel: this.getValueLabel(token),
         deprecated: token.deprecated,
         description: token.comment,
@@ -122,7 +122,7 @@ export default {
 
       Object.keys(tokens).forEach((key) => {
         const token = tokens[key];
-        if (token.value) {
+        if (token.$value) {
           tokensArray.push(this.transformTokenToTableColumns(token));
         } else {
           tokensArray.push(...this.transformTokensToTableRows(token));
