@@ -3,6 +3,7 @@ const defaults = require('./tailwind.defaults');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [defaults],
+  darkMode: ['variant', ['&:where(.dark *)']],
   content: [
     './.storybook/**/*.js',
     './src/**/*.{vue,js}',
