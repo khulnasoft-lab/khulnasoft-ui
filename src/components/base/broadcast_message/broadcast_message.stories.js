@@ -1,4 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
+import { SafeHtmlDirective as SafeHtml } from '../../../directives/safe_html/safe_html';
 import { colorThemes } from '../../../utils/constants';
 import GlBroadcastMessage from './broadcast_message.vue';
 import { TYPE_LIST, TYPE_NOTIFICATION } from './constants';
@@ -11,7 +12,7 @@ const template = `
       :dismiss-label="dismissLabel"
       :theme="theme"
       :type="type">
-      {{ text }}
+      <span v-safe-html="text" />
     </gl-broadcast-message>
   `;
 
@@ -22,14 +23,14 @@ const templateWithTheme = (theme) => `
     :dismiss-label="dismissLabel"
     theme="${theme}"
     :type="type">
-    {{ text }}
+    <span v-safe-html="text" />
   </gl-broadcast-message>
 `;
 
 const defaultValue = (prop) => GlBroadcastMessage.props[prop].default;
 
 const generateProps = ({
-  text = 'Tuesday June 12th, at 14:30 UTC we will perform database maintenance that will require up to 1 minute of downtime.',
+  text = '<p>Tuesday June 12th, at 14:30 UTC we will <a href="">perform database maintenance</a> that will require up to 1 minute of downtime.</p>',
   iconName = defaultValue('iconName'),
   dismissible = defaultValue('dismissible'),
   dismissLabel = defaultValue('dismissLabel'),
@@ -48,6 +49,9 @@ const DefaultStory = (args, { argTypes }) => ({
   components: {
     GlBroadcastMessage,
   },
+  directives: {
+    SafeHtml,
+  },
   props: Object.keys(argTypes),
   template: `<div>${template}</div>`,
 });
@@ -58,6 +62,9 @@ const NotificationStory = (args, { argTypes }) => ({
   components: {
     GlBroadcastMessage,
   },
+  directives: {
+    SafeHtml,
+  },
   props: Object.keys(argTypes),
   template: `<div>${template}</div>`,
 });
@@ -67,6 +74,9 @@ Notification.args = generateProps({ type: TYPE_NOTIFICATION });
 const StackedStory = (args, { argTypes }) => ({
   components: {
     GlBroadcastMessage,
+  },
+  directives: {
+    SafeHtml,
   },
   props: Object.keys(argTypes),
   // eslint-disable-next-line unicorn/no-array-callback-reference
@@ -79,6 +89,9 @@ Stacked.tags = ['skip-visual-test'];
 export const IncreasedSpacing = (args, { argTypes }) => ({
   components: {
     GlBroadcastMessage,
+  },
+  directives: {
+    SafeHtml,
   },
   props: Object.keys(argTypes),
   template: `<div style="--gl-broadcast-message-padding-x: 0.5rem;">${template}</div>`,

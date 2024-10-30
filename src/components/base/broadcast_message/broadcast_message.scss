@@ -110,6 +110,15 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
   &-content {
     @apply gl-flex;
     @apply gl-justify-center;
+
+    a {
+      @apply gl-text-inherit;
+      @apply gl-underline;
+    }
+
+    p:last-of-type {
+      @apply gl-mb-0;
+    }
   }
 
   &-icon {
