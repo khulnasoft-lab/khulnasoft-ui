@@ -3,18 +3,18 @@ import { isAliasValue, hasAliases, TailwindTokenFormatter } from './tailwind_tok
 const tokens = {
   color: {
     constant: {
-      value: '#000',
+      $value: '#000',
       prefix: false,
       original: {
-        value: '#000',
+        $value: '#000',
       },
       path: ['color', 'constant'],
     },
     constantObject: {
-      value: '#000',
+      $value: '#000',
       prefix: false,
       original: {
-        value: {
+        $value: {
           default: '#000',
           dark: '#fff',
         },
@@ -22,35 +22,35 @@ const tokens = {
       path: ['color', 'constantObject'],
     },
     alias: {
-      value: '#000',
+      $value: '#000',
       prefix: false,
       original: {
-        value: '{color.constant}',
+        $value: '{color.constant}',
         dark: '#fff',
       },
       path: ['color', 'alias'],
     },
     aliasObject: {
-      value: '#000',
+      $value: '#000',
       prefix: false,
       original: {
-        value: {
+        $value: {
           default: '{color.constant}',
         },
       },
       path: ['color', 'aliasObject'],
     },
     prefixConstant: {
-      value: '#000',
+      $value: '#000',
       original: {
-        value: '#000',
+        $value: '#000',
       },
       path: ['color', 'prefixConstant'],
     },
     prefixAlias: {
-      value: '#000',
+      $value: '#000',
       original: {
-        value: '{color.prefixConstant}',
+        $value: '{color.prefixConstant}',
       },
       path: ['color', 'prefixAlias'],
     },
@@ -70,19 +70,19 @@ describe('Tailwind Token Formatter', () => {
 
   describe('hasAliases', () => {
     it('returns true when original value is alias', () => {
-      expect(hasAliases(tokens.color.alias.original.value)).toBe(true);
+      expect(hasAliases(tokens.color.alias.original.$value)).toBe(true);
     });
 
     it('returns false when original value is string', () => {
-      expect(hasAliases(tokens.color.constant.original.value)).toBe(false);
+      expect(hasAliases(tokens.color.constant.original.$value)).toBe(false);
     });
 
     it('returns true when original value property contains alias in a nested object', () => {
-      expect(hasAliases(tokens.color.aliasObject.original.value)).toBe(true);
+      expect(hasAliases(tokens.color.aliasObject.original.$value)).toBe(true);
     });
 
     it('returns false when original value property contains strings in a nested object', () => {
-      expect(hasAliases(tokens.color.constantObject.original.value)).toBe(false);
+      expect(hasAliases(tokens.color.constantObject.original.$value)).toBe(false);
     });
   });
 
@@ -95,7 +95,7 @@ describe('Tailwind Token Formatter', () => {
 
     describe('#getAliasedToken', () => {
       it('returns original object of alias', () => {
-        expect(f.getAliasedToken(tokens.color.alias.original.value)).toBe(tokens.color.constant);
+        expect(f.getAliasedToken(tokens.color.alias.original.$value)).toBe(tokens.color.constant);
       });
     });
 
