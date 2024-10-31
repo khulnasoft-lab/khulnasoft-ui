@@ -1,3 +1,10 @@
+# [101.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.5.0...v101.6.0) (2024-10-31)
+
+
+### Features
+
+* **Typography:** Update gl-heading to use design token color ([539409e](https://gitlab.com/gitlab-org/gitlab-ui/commit/539409e3747d0f59e282256b89b455d5db6448ff))
+
 # [101.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.4.0...v101.5.0) (2024-10-31)
 
 
