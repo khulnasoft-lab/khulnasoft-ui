@@ -1,14 +1,13 @@
-import BVueReadme from '../../../vendor/bootstrap-vue/src/components/form-radio/README.md';
 import GlSegmentedControl from './segmented_control.vue';
 import readme from './segmented_control.md';
 
 const defaultOptions = [
-  { value: 'Pizza', text: 'Pizza' },
-  { value: 'Tacos', text: 'Tacos' },
-  { value: 'Burger', text: 'Burger', disabled: true },
+  { value: 'pizza', text: 'Pizza' },
+  { value: 'tacos', text: 'Tacos' },
+  { value: 'burger', text: 'Burger', disabled: true },
 ];
 
-const generateProps = ({ options = defaultOptions, initSelected = 'Tacos' } = {}) => ({
+const generateProps = ({ options = defaultOptions, initSelected = 'tacos' } = {}) => ({
   options,
   initSelected,
 });
@@ -27,20 +26,44 @@ export const Default = (args, { argTypes }) => ({
     },
   },
   template: `
-     <gl-segmented-control
+    <gl-segmented-control
       :options="options"
       v-model="selected"
-     />
+    />
     `,
 });
 Default.args = generateProps();
+
+export const WithButtonContentSlot = (args, { argTypes }) => ({
+  components: { GlSegmentedControl },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      selected: this.initSelected,
+    };
+  },
+  watch: {
+    initSelected(val) {
+      this.selected = val;
+    },
+  },
+  template: `
+    <gl-segmented-control
+      :options="options"
+      v-model="selected"
+    >
+      <template #button-content="option">
+        Slot Content - {{ option.text }}
+      </template>
+    </gl-segmented-control>
+    `,
+});
+WithButtonContentSlot.args = generateProps();
 
 export default {
   title: 'base/segmented control',
   component: GlSegmentedControl,
   parameters: {
-    bootstrapComponent: 'b-form-radio-group',
-    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,
