@@ -1,3 +1,10 @@
+## [101.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.3.0...v101.3.1) (2024-10-31)
+
+
+### Bug Fixes
+
+* fix dynamic height of duo chat textarea ([502a983](https://gitlab.com/gitlab-org/gitlab-ui/commit/502a9831c885441abe4ca78ea51a0652af30905c))
+
 # [101.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.2.1...v101.3.0) (2024-10-31)
 
 
