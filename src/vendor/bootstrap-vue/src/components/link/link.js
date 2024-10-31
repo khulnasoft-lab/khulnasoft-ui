@@ -1,18 +1,11 @@
 import { extend } from '../../vue'
 import { NAME_LINK } from '../../constants/components'
 import { EVENT_NAME_CLICK } from '../../constants/events'
-import {
-  PROP_TYPE_ARRAY_STRING,
-  PROP_TYPE_BOOLEAN,
-  PROP_TYPE_OBJECT_STRING,
-  PROP_TYPE_STRING
-} from '../../constants/props'
 import { concat } from '../../utils/array'
 import { attemptBlur, attemptFocus, isTag } from '../../utils/dom'
 import { getRootEventName, stopEvent } from '../../utils/events'
 import { isBoolean, isEvent, isFunction, isUndefined } from '../../utils/inspect'
-import { omit, sortKeys } from '../../utils/object'
-import { makeProp, makePropsConfigurable, pluckProps } from '../../utils/props'
+import { pluckProps } from '../../utils/props'
 import { computeHref, computeRel, computeTag, isRouterLink } from '../../utils/router'
 import { attrsMixin } from '../../mixins/attrs'
 import { listenOnRootMixin } from '../../mixins/listen-on-root'
@@ -25,51 +18,91 @@ const ROOT_EVENT_NAME_CLICKED = getRootEventName(NAME_LINK, 'clicked')
 
 // --- Props ---
 
-// `<router-link>` specific props
-export const routerLinkProps = {
-  activeClass: makeProp(PROP_TYPE_STRING),
-  append: makeProp(PROP_TYPE_BOOLEAN, false),
-  event: makeProp(PROP_TYPE_ARRAY_STRING),
-  exact: makeProp(PROP_TYPE_BOOLEAN, false),
-  exactActiveClass: makeProp(PROP_TYPE_STRING),
-  exactPath: makeProp(PROP_TYPE_BOOLEAN, false),
-  exactPathActiveClass: makeProp(PROP_TYPE_STRING),
-  replace: makeProp(PROP_TYPE_BOOLEAN, false),
-  routerTag: makeProp(PROP_TYPE_STRING),
-  to: makeProp(PROP_TYPE_OBJECT_STRING)
-}
-
-// `<nuxt-link>` specific props
-export const nuxtLinkProps = {
-  noPrefetch: makeProp(PROP_TYPE_BOOLEAN, false),
+export const props = {
+  active: {
+    type: Boolean,
+    default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  href: {
+    type: String,
+    default: undefined
+  },
+  // Must be `null` if no value provided
+  rel: {
+    type: String,
+    default: null
+  },
+  // To support 3rd party router links based on `<router-link>` (i.e. `g-link` for Gridsome)
+  // Default is to auto choose between `<router-link>` and `<nuxt-link>`
+  // Gridsome doesn't provide a mechanism to auto detect and has caveats
+  // such as not supporting FQDN URLs or hash only URLs
+  routerComponentName: {
+    type: String,
+    default: undefined
+  },
+  target: {
+    type: String,
+    default: '_self'
+  },
+  activeClass: {
+    type: String,
+    default: undefined
+  },
+  append: {
+    type: Boolean,
+    default: false
+  },
+  event: {
+    type: [Array, String],
+    default: undefined
+  },
+  exact: {
+    type: Boolean,
+    default: false
+  },
+  exactActiveClass: {
+    type: String,
+    default: undefined
+  },
+  exactPath: {
+    type: Boolean,
+    default: false
+  },
+  exactPathActiveClass: {
+    type: String,
+    default: undefined
+  },
+  replace: {
+    type: Boolean,
+    default: false
+  },
+  routerTag: {
+    type: String,
+    default: undefined
+  },
+  to: {
+    type: [Object, String],
+    default: undefined
+  },
+  noPrefetch: {
+    type: Boolean,
+    default: false
+  },
   // Must be `null` to fall back to the value defined in the
   // `nuxt.config.js` configuration file for `router.prefetchLinks`
   // We convert `null` to `undefined`, so that Nuxt.js will use the
   // compiled default
   // Vue treats `undefined` as default of `false` for Boolean props,
   // so we must set it as `null` here to be a true tri-state prop
-  prefetch: makeProp(PROP_TYPE_BOOLEAN, null)
+  prefetch: {
+    type: Boolean,
+    default: null
+  }
 }
-
-// All `<b-link>` props
-export const props = makePropsConfigurable(
-  sortKeys({
-    ...nuxtLinkProps,
-    ...routerLinkProps,
-    active: makeProp(PROP_TYPE_BOOLEAN, false),
-    disabled: makeProp(PROP_TYPE_BOOLEAN, false),
-    href: makeProp(PROP_TYPE_STRING),
-    // Must be `null` if no value provided
-    rel: makeProp(PROP_TYPE_STRING, null),
-    // To support 3rd party router links based on `<router-link>` (i.e. `g-link` for Gridsome)
-    // Default is to auto choose between `<router-link>` and `<nuxt-link>`
-    // Gridsome doesn't provide a mechanism to auto detect and has caveats
-    // such as not supporting FQDN URLs or hash only URLs
-    routerComponentName: makeProp(PROP_TYPE_STRING),
-    target: makeProp(PROP_TYPE_STRING, '_self')
-  }),
-  NAME_LINK
-)
 
 // --- Main component ---
 
@@ -86,6 +119,9 @@ export const BLink = /*#__PURE__*/ extend({
       const { to, disabled, routerComponentName } = this
       return computeTag({ to, disabled, routerComponentName }, this)
     },
+    isNuxtLink() {
+      return this.computedTag === 'nuxt-link'
+    },
     isRouterLink() {
       return isRouterLink(this.computedTag)
     },
@@ -100,23 +136,30 @@ export const BLink = /*#__PURE__*/ extend({
       return computeHref({ to, href }, this.computedTag)
     },
     computedProps() {
+      if (!this.isRouterLink) return {}
+
       const { event, prefetch, routerTag } = this
-      return this.isRouterLink
-        ? {
-            ...pluckProps(
-              omit(
-                { ...routerLinkProps, ...(this.computedTag === 'nuxt-link' ? nuxtLinkProps : {}) },
-                ['event', 'prefetch', 'routerTag']
-              ),
-              this
-            ),
-            // Only add these props, when actually defined
-            ...(event ? { event } : {}),
-            ...(isBoolean(prefetch) ? { prefetch } : {}),
-            // Pass `router-tag` as `tag` prop
-            ...(routerTag ? { tag: routerTag } : {})
-          }
-        : {}
+
+      const propsToPass = [
+        'activeClass',
+        'append',
+        'exact',
+        'exactActiveClass',
+        'exactPath',
+        'exactPathActiveClass',
+        'replace',
+        'to'
+      ]
+      if (this.isNuxtLink) propsToPass.push('noPrefetch')
+
+      return {
+        ...pluckProps(propsToPass, this),
+        // Only add these props, when actually defined
+        ...(event ? { event } : {}),
+        ...(isBoolean(prefetch) ? { prefetch } : {}),
+        // Pass `router-tag` as `tag` prop
+        ...(routerTag ? { tag: routerTag } : {})
+      }
     },
     computedAttrs() {
       const {
