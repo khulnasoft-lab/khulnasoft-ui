@@ -109,6 +109,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': 'inherit',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-6-fixed': {
       'font-weight': '600',
@@ -117,6 +118,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': 'inherit',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-5': {
       'font-weight': '600',
@@ -125,6 +127,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': 'inherit',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-5-fixed': {
       'font-weight': '600',
@@ -133,6 +136,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': 'inherit',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-4': {
       'font-weight': '600',
@@ -141,6 +145,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': 'inherit',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-4-fixed': {
       'font-weight': '600',
@@ -149,6 +154,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': 'inherit',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-3': {
       'font-weight': '600',
@@ -157,6 +163,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': 'inherit',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-3-fixed': {
       'font-weight': '600',
@@ -165,6 +172,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': 'inherit',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-2': {
       'font-weight': '600',
@@ -173,6 +181,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': '-0.01em',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-2-fixed': {
       'font-weight': '600',
@@ -181,6 +190,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': '-0.01em',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-1': {
       'font-weight': '600',
@@ -189,6 +199,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': '-0.01em',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-1-fixed': {
       'font-weight': '600',
@@ -197,6 +208,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': '-0.01em',
       'line-height': '1.25',
       'margin-bottom': '1rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-display': {
       'font-weight': '600',
@@ -205,6 +217,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'letter-spacing': '-0.01em',
       'line-height': '1.125',
       'margin-bottom': '1.5rem',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-100': {
       'font-weight': '600',
@@ -212,6 +225,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '0.75rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-100-fixed': {
       'font-weight': '600',
@@ -219,6 +233,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '0.75rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-200': {
       'font-weight': '600',
@@ -226,6 +241,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '0.8125rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-200-fixed': {
       'font-weight': '600',
@@ -233,6 +249,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '0.8125rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-300': {
       'font-weight': '600',
@@ -240,6 +257,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '0.875rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-300-fixed': {
       'font-weight': '600',
@@ -247,6 +265,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '0.875rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-400': {
       'font-weight': '600',
@@ -254,6 +273,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '1rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-400-fixed': {
       'font-weight': '600',
@@ -261,6 +281,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '1rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-500': {
       'font-weight': '600',
@@ -268,6 +289,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': 'clamp(1.125rem, 0.9027777778rem + 0.462962963vw, 1.25rem)',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-500-fixed': {
       'font-weight': '600',
@@ -275,6 +297,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '1.125rem',
       'letter-spacing': 'inherit',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-600': {
       'font-weight': '600',
@@ -282,6 +305,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': 'clamp(1.3125rem, 0.8680555556rem + 0.9259259259vw, 1.5625rem)',
       'letter-spacing': '-0.01em',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-600-fixed': {
       'font-weight': '600',
@@ -289,6 +313,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '1.3125rem',
       'letter-spacing': '-0.01em',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-700': {
       'font-weight': '600',
@@ -296,6 +321,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': 'clamp(1.5rem, 0.8333333333rem + 1.3888888889vw, 1.875rem)',
       'letter-spacing': '-0.01em',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-700-fixed': {
       'font-weight': '600',
@@ -303,6 +329,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '1.5rem',
       'letter-spacing': '-0.01em',
       'line-height': '1.25',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-800': {
       'font-weight': '600',
@@ -310,6 +337,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': 'clamp(1.75rem, 0.8611111111rem + 1.8518518519vw, 2.25rem)',
       'letter-spacing': '-0.01em',
       'line-height': '1.125',
+      color: 'var(--gl-text-color-heading)',
     },
     '.heading-scale-800-fixed': {
       'font-weight': '600',
@@ -317,6 +345,7 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'font-size': '1.75rem',
       'letter-spacing': '-0.01em',
       'line-height': '1.125',
+      color: 'var(--gl-text-color-heading)',
     },
   });
 
