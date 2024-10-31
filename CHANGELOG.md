@@ -1,3 +1,10 @@
+# [101.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.2.1...v101.3.0) (2024-10-31)
+
+
+### Features
+
+* **GlCard:** Update design tokens ([b5ac971](https://gitlab.com/gitlab-org/gitlab-ui/commit/b5ac97157bb723232090aa0c8b2665c62ee29ee0))
+
 ## [101.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.2.0...v101.2.1) (2024-10-30)
 
 
