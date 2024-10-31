@@ -182,6 +182,7 @@
   font-weight: $gl-font-weight-heading;
   margin-top: 0; // override bootstrap reset in GitLab
   font-size: get-font-size-variable($size, $fixed);
+  @apply gl-text-heading;
 
   // Larger headings have reduced letter spacing
   @if ($size <= 500) {
