@@ -15,7 +15,7 @@ import { concat } from '../../../utils/array'
 import { getComponentConfig } from '../../../utils/config'
 import { requestAF } from '../../../utils/dom'
 import { getRootEventName, getRootActionEventName } from '../../../utils/events'
-import { isUndefined, isString } from '../../../utils/inspect'
+import { isUndefined } from '../../../utils/inspect'
 import {
   assign,
   defineProperties,
@@ -127,13 +127,8 @@ const plugin = Vue => {
     })
     // Convert certain props to slots
     keys(propsToSlots).forEach(prop => {
-      let value = props[prop]
+      const value = props[prop]
       if (!isUndefined(value)) {
-        // Can be a string, or array of VNodes
-        if (prop === 'title' && isString(value)) {
-          // Special case for title if it is a string, we wrap in a <strong>
-          value = [parent.$createElement('strong', { class: 'mr-2' }, value)]
-        }
         toast.$slots[propsToSlots[prop]] = concat(value)
       }
     })
