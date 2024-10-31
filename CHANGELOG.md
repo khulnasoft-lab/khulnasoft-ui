@@ -1,3 +1,10 @@
+# [101.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.3.1...v101.4.0) (2024-10-31)
+
+
+### Features
+
+* **GlDuoChat:** Update the chat appearance ([3413814](https://gitlab.com/gitlab-org/gitlab-ui/commit/3413814b420f0a3d55a28db0a48de7dbed463f63))
+
 ## [101.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.3.0...v101.3.1) (2024-10-31)
 
 
