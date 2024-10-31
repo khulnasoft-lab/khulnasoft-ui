@@ -1,3 +1,10 @@
+# [101.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.4.0...v101.5.0) (2024-10-31)
+
+
+### Features
+
+* **GlSegmentedControl:** Reactivate deprecated component ([317673e](https://gitlab.com/gitlab-org/gitlab-ui/commit/317673e74e1bd694fdd30ed575f51038b399d43d))
+
 # [101.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.3.1...v101.4.0) (2024-10-31)
 
 
