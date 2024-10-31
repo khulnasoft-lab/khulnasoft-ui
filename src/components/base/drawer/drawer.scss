@@ -91,7 +91,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-title {
-  color: var(--gl-text-color-heading);
+  @apply gl-text-heading;
   @apply gl-flex;
   @apply gl-items-center;
   @apply gl-justify-between;

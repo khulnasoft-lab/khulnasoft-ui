@@ -13,8 +13,7 @@ table.gl-table {
     }
 
     th {
-      @apply gl-font-bold;
-      color: var(--gl-text-color-heading);
+      @apply gl-text-heading gl-font-bold;
 
       .gl-table-th-sort-icon-wrapper {
         @apply gl-ml-2;
