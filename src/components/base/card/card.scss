@@ -1,11 +1,11 @@
 .gl-card {
-  background-color: var(--gl-background-color-default);
+  @apply gl-bg-subtle;
   @apply gl-border-solid;
   @apply gl-rounded-base;
   @apply gl-flex;
   @apply gl-flex-col;
   @apply gl-break-words;
-  position: relative;
+  @apply gl-relative;
   @apply gl-text-base;
 }
 
@@ -13,20 +13,21 @@
 .gl-card-header,
 .gl-card-footer {
   @apply gl-border-1;
-  border-color: var(--gl-border-color-default);
+  @apply gl-border-section;
 }
 
 .gl-card-header,
 .gl-card-body,
 .gl-card-footer {
-  @apply gl-p-5;
+  @apply gl-px-5;
+  @apply gl-py-4;
 }
 
 .gl-card-header {
   @apply gl-border-b-solid;
   border-top-left-radius: calc($gl-border-radius-base - $gl-border-size-1);
   border-top-right-radius: calc($gl-border-radius-base - $gl-border-size-1);
-  color: var(--gl-text-color-heading);
+  @apply gl-text-heading;
 }
 
 .gl-card-footer {
@@ -37,10 +38,10 @@
 
 .gl-card-header,
 .gl-card-footer {
-  background-color: var(--gl-background-color-subtle);
+  @apply gl-bg-section;
 }
 
 .gl-card-body,
 .gl-card-footer {
-  color: var(--gl-text-color-default);
+  @apply gl-text-default;
 }
