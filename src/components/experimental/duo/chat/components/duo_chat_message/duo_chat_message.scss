@@ -3,6 +3,11 @@
 .duo-chat-message {
   max-width: 90%;
   position: relative;
+  border-radius: px-to-rem(20px);
+
+  &:not(:last-child) {
+    @apply gl-mb-4;
+  }
 
   code {
     @apply gl-bg-gray-100;

@@ -81,14 +81,14 @@
 .duo-chat-drawer-body-scrim-on-footer {
   &::before {
     background: $duo-chat-scrim-gradient;
-    top: -$gl-border-size-1;
+    top: 0;
     @apply -gl-translate-y-full;
     content: '';
     left: 0;
     position: absolute;
     @apply gl-pointer-events-none;
     @apply gl-w-full;
-    @apply gl-h-7;
+    @apply gl-h-5;
   }
 }
 
@@ -128,6 +128,7 @@
   @apply gl-flex-col;
   max-height: 240px;
   overflow: hidden;
+  border-radius: px-to-rem(20px);
 
   &:focus-within {
     @include gl-focus($color: $gray-900);
