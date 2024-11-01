@@ -1,3 +1,10 @@
+## [101.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.6.1...v101.6.2) (2024-11-01)
+
+
+### Bug Fixes
+
+* **GlTruncate:** Don't add title attr when withTooltip is [secure] ([9fdc7a4](https://gitlab.com/gitlab-org/gitlab-ui/commit/9fdc7a41b24e8d92862660838869a8a9e4e0f307))
+
 ## [101.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.6.0...v101.6.1) (2024-11-01)
 
 
