@@ -1,3 +1,10 @@
+## [101.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.6.0...v101.6.1) (2024-11-01)
+
+
+### Bug Fixes
+
+* **GlDuoChat:** Fix chat body background ([0526ba1](https://gitlab.com/gitlab-org/gitlab-ui/commit/0526ba165864f1028a45f8ca506554d2a25133d4))
+
 # [101.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.5.0...v101.6.0) (2024-10-31)
 
 
