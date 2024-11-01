@@ -17,6 +17,13 @@ describe('GlToast', () => {
     wrapper = mount(Component);
   });
 
+  afterEach(async () => {
+    await waitForAnimationFrame();
+    await waitForAnimationFrame();
+    await waitForAnimationFrame();
+    findToasts().forEach((toast) => toast.remove());
+  });
+
   it('attaches $toast property', () => {
     expect(wrapper.vm.$toast).toEqual({
       show: expect.any(Function),
