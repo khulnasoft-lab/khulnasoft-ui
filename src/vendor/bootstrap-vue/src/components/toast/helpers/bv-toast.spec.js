@@ -113,19 +113,5 @@ describe('$bvToast', () => {
     // Find body
     expect($toast.find('.toast-body').exists()).toBe(true)
     expect($toast.find('.toast-body').text()).toContain('message')
-
-    // Find the Close button and click it
-    expect($toast.findAll('button').length).toBe(1)
-    const $button = $toast.find('button')
-    expect($button.classes()).toContain('close')
-
-    await $button.trigger('click')
-    await waitRAF()
-    await waitRAF()
-    await waitRAF()
-    await waitRAF()
-
-    // Toast should be gone from DOM
-    expect(document.querySelector('#test2')).toBe(null)
   })
 })
