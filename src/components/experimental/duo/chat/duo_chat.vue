@@ -585,7 +585,11 @@ export default {
       </gl-alert>
     </header>
 
-    <div class="duo-chat-drawer-body" data-testid="chat-history" @scroll="handleScrollingTrottled">
+    <div
+      class="duo-chat-drawer-body gl-bg-white"
+      data-testid="chat-history"
+      @scroll="handleScrollingTrottled"
+    >
       <transition-group
         tag="section"
         name="message"
