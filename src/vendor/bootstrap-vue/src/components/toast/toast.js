@@ -340,15 +340,13 @@ export const BToast = /*#__PURE__*/ extend({
     },
     // Render helper for generating the toast
     makeToast(h) {
-      const { title, slotScope } = this
+      const { slotScope } = this
       const link = isLink(this)
       const $headerContent = []
 
       const $title = this.normalizeSlot(SLOT_NAME_TOAST_TITLE, slotScope)
       if ($title) {
         $headerContent.push($title)
-      } else if (title) {
-        $headerContent.push(h('strong', { staticClass: 'mr-2' }, title))
       }
 
       if (!this.noCloseButton) {
