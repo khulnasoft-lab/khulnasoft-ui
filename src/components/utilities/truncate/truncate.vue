@@ -56,6 +56,9 @@ export default {
     isTooltipDisabled() {
       return !this.withTooltip || !this.isTruncated;
     },
+    title() {
+      return this.withTooltip ? this.text : undefined;
+    },
   },
   watch: {
     withTooltip(withTooltip) {
@@ -80,7 +83,7 @@ export default {
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
     class="gl-truncate-component"
-    :title="text"
+    :title="title"
   >
     <span ref="text" class="gl-truncate-start !gl-text-ellipsis">&lrm;{{ text }}&lrm;</span>
   </span>
@@ -90,7 +93,7 @@ export default {
     v-gl-tooltip="{ disabled: isTooltipDisabled }"
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
     class="gl-truncate-component"
-    :title="text"
+    :title="title"
   >
     <span ref="text" class="gl-truncate-end">{{ first }}</span
     ><span class="gl-truncate-start">&lrm;{{ last }}&lrm;</span>
@@ -102,7 +105,7 @@ export default {
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
     class="gl-truncate-component"
     data-testid="truncate-end-container"
-    :title="text"
+    :title="title"
   >
     <span ref="text" class="gl-truncate-end">{{ text }}</span>
   </span>
