@@ -1,3 +1,10 @@
+## [101.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.7.0...v101.7.1) (2024-11-04)
+
+
+### Bug Fixes
+
+* **GlDuoChat:** Prevent scrolling the content behind the Duo Chat ([2b48d08](https://gitlab.com/gitlab-org/gitlab-ui/commit/2b48d0885cfdf409c8d84a1cd046149fae111496))
+
 # [101.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.6.2...v101.7.0) (2024-11-04)
 
 
