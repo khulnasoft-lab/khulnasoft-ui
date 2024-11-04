@@ -108,7 +108,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@cypress/grep": "^4.0.1",
-    "@gitlab/eslint-plugin": "20.4.1",
+    "@gitlab/eslint-plugin": "20.5.0",
     "@gitlab/fonts": "^1.3.0",
     "@gitlab/stylelint-config": "6.2.2",
     "@gitlab/svgs": "3.120.0",
