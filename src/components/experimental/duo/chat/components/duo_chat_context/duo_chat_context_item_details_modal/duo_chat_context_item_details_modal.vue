@@ -77,15 +77,19 @@ export default {
   watch: {
     contextItem: {
       async handler(newVal, oldVal) {
+        // Dependency items contain structured data as content, not code/markdown.
+        // So skip running this content through GFM, we'll parse and render it here in the component.
         if (newVal.category === CONTEXT_ITEM_CATEGORY_DEPENDENCY) {
           return;
         }
 
-        const shouldFormat = newVal?.content !== oldVal?.content && newVal?.content;
-        if (shouldFormat) {
-          await nextTick();
-          await this.hydrateContentWithGFM();
+        const isUnchangedOrEmptyContent = !newVal?.content || newVal?.content === oldVal?.content;
+        if (isUnchangedOrEmptyContent) {
+          return;
         }
+
+        await nextTick();
+        await this.hydrateContentWithGFM();
       },
       immediate: true,
     },
