@@ -1,6 +1,7 @@
 <script>
 import { translate } from '../../../../../../utils/i18n';
 import GlSprintf from '../../../../../utilities/sprintf/sprintf.vue';
+import GlAnimatedLoaderIcon from '../../../../../base/animated_icon/animated_loader_icon.vue';
 import { LOADING_TRANSITION_DURATION } from '../../constants';
 
 export const i18n = {
@@ -21,6 +22,7 @@ export default {
   name: 'GlDuoChatLoader',
   components: {
     GlSprintf,
+    GlAnimatedLoaderIcon,
   },
   i18n,
   props: {
@@ -70,12 +72,8 @@ export default {
 </script>
 
 <template>
-  <div class="duo-chat-loader gl-mt-5 gl-flex gl-items-center">
-    <div class="gl-mr-3 gl-flex">
-      <div class="duo-chat-loader__dot duo-chat-loader__dot--1"></div>
-      <div class="duo-chat-loader__dot duo-chat-loader__dot--2"></div>
-      <div class="duo-chat-loader__dot duo-chat-loader__dot--3"></div>
-    </div>
+  <div class="duo-chat-loader gl-mt-5 gl-flex gl-items-center gl-gap-3">
+    <gl-animated-loader-icon :is-on="true" />
     <div>
       <gl-sprintf :message="$options.i18n.LOADER_LOADING_MESSAGE">
         <template #tool>
