@@ -1,3 +1,11 @@
+# [101.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.6.2...v101.7.0) (2024-11-04)
+
+
+### Features
+
+* **CSS:** add typography.scss to set heading text color ([2ed35b5](https://gitlab.com/gitlab-org/gitlab-ui/commit/2ed35b522a110cc76e30e3faa16548e50ba96558))
+* **Tailwind:** add text.color.heading to heading utility classes ([98e7d1e](https://gitlab.com/gitlab-org/gitlab-ui/commit/98e7d1e03a321ca2156c0344114f9a6d2e7e4636))
+
 ## [101.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.6.1...v101.6.2) (2024-11-01)
 
 
