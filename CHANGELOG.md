@@ -1,3 +1,10 @@
+# [101.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.7.1...v101.8.0) (2024-11-05)
+
+
+### Features
+
+* **GlLink:** Update darkmode token value ([b8c03e0](https://gitlab.com/gitlab-org/gitlab-ui/commit/b8c03e04663fc560e1821c9030733b079aa08279))
+
 ## [101.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.7.0...v101.7.1) (2024-11-04)
 
 
