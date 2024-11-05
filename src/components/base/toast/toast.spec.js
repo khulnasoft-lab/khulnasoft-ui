@@ -13,14 +13,22 @@ describe('GlToast', () => {
 
   const findToasts = () => document.body.querySelectorAll('.gl-toast');
 
+  async function showToast() {
+    const toast = wrapper.vm.$toast.show('foo');
+
+    await waitForAnimationFrame();
+    await wrapper.vm.$nextTick();
+    await waitForAnimationFrame();
+    await wrapper.vm.$nextTick();
+
+    return toast;
+  }
+
   beforeEach(() => {
     wrapper = mount(Component);
   });
 
   afterEach(async () => {
-    await waitForAnimationFrame();
-    await waitForAnimationFrame();
-    await waitForAnimationFrame();
     findToasts().forEach((toast) => toast.remove());
   });
 
@@ -33,24 +41,17 @@ describe('GlToast', () => {
   it('shows a toast', async () => {
     expect(findToasts()).toHaveLength(0);
 
-    const toast = wrapper.vm.$toast.show('foo');
+    const toast = await showToast();
     expect(toast).toEqual({
       id: expect.any(String),
       hide: expect.any(Function),
     });
 
-    await waitForAnimationFrame();
-    await waitForAnimationFrame();
-    await waitForAnimationFrame();
-
     expect(findToasts()).toHaveLength(1);
   });
 
   it('closes the toast when clicking on the close button', async () => {
-    wrapper.vm.$toast.show('foo');
-    await waitForAnimationFrame();
-    await waitForAnimationFrame();
-    await waitForAnimationFrame();
+    await showToast();
 
     const toasts = findToasts();
     expect(toasts).toHaveLength(1);
@@ -60,7 +61,7 @@ describe('GlToast', () => {
 
     closeButton.click();
     await waitForAnimationFrame();
-    await waitForAnimationFrame();
+    await wrapper.vm.$nextTick();
 
     expect(findToasts()).toHaveLength(0);
   });
