@@ -8,7 +8,6 @@ const DEFAULT_OPTIONS = {
   autoHideDelay: 5000,
   toastClass: 'gl-toast',
   isStatus: true,
-  noCloseButton: true,
   toaster: 'b-toaster-bottom-left',
 };
 

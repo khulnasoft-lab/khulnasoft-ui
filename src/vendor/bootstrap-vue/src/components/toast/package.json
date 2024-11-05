@@ -42,10 +42,6 @@
             "description": "When set, disabled the toast from automatically dismissing itself"
           },
           {
-            "prop": "noCloseButton",
-            "description": "When set, hides the close button in the toast header"
-          },
-          {
             "prop": "noHoverPause",
             "description": "When set, disables the pausing of the auto hide delay when the mouse hovers the toast"
           },

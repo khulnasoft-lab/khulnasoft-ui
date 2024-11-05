@@ -46,51 +46,11 @@ describe('b-toast', () => {
     expect($toast.classes()).toContain('toast')
     expect($toast.attributes('tabindex')).toEqual('0')
 
-    expect($toast.find('.toast-header').exists()).toBe(true)
-    const $header = $toast.find('.toast-header')
-    expect($header.element.tagName).toBe('HEADER')
-    expect($header.classes().length).toBe(1)
-    expect($header.find('strong').exists()).toBe(true)
-    expect($header.find('strong').text()).toEqual('title')
-    expect($header.find('strong').classes()).toContain('mr-2')
-    expect($header.find('button').exists()).toBe(true)
-    expect($header.find('button').classes()).toContain('close')
-    expect($header.find('button').classes()).toContain('ml-auto')
-    expect($header.find('button').classes()).toContain('mb-1')
-
     expect($toast.find('.toast-body').exists()).toBe(true)
     const $body = $toast.find('.toast-body')
     expect($body.element.tagName).toBe('DIV')
     expect($body.classes().length).toBe(1)
     expect($body.text()).toEqual('content')
-
-    wrapper.destroy()
-  })
-
-  it('has correct header tag when "header-tag" prop is set', async () => {
-    const wrapper = mount(BToast, {
-      attachTo: document.body,
-      propsData: {
-        static: true,
-        noAutoHide: true,
-        visible: true,
-        title: 'title',
-        headerTag: 'div'
-      },
-      slots: {
-        default: 'content'
-      }
-    })
-
-    expect(wrapper.vm).toBeDefined()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-    await waitNT(wrapper.vm)
-    await waitRAF()
-
-    const $header = wrapper.find('.toast-header')
-    expect($header.exists()).toBe(true)
-    expect($header.element.tagName).toBe('DIV')
 
     wrapper.destroy()
   })

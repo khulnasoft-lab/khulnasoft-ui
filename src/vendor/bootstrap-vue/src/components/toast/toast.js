@@ -32,7 +32,6 @@ import { idMixin, props as idProps } from '../../mixins/id'
 import { listenOnRootMixin } from '../../mixins/listen-on-root'
 import { normalizeSlotMixin } from '../../mixins/normalize-slot'
 import { scopedStyleMixin } from '../../mixins/scoped-style'
-import { BButtonClose } from '../button/button-close'
 import { BLink, props as BLinkProps } from '../link/link'
 import { BVTransition } from '../transition/bv-transition'
 import { BToaster } from './toaster'
@@ -69,7 +68,6 @@ export const props = makePropsConfigurable(
     // Switches role to 'status' and aria-live to 'polite'
     isStatus: makeProp(PROP_TYPE_BOOLEAN, false),
     noAutoHide: makeProp(PROP_TYPE_BOOLEAN, false),
-    noCloseButton: makeProp(PROP_TYPE_BOOLEAN, false),
     noFade: makeProp(PROP_TYPE_BOOLEAN, false),
     noHoverPause: makeProp(PROP_TYPE_BOOLEAN, false),
     solid: makeProp(PROP_TYPE_BOOLEAN, false),
@@ -340,28 +338,13 @@ export const BToast = /*#__PURE__*/ extend({
     },
     // Render helper for generating the toast
     makeToast(h) {
-      const { title, slotScope } = this
+      const { slotScope } = this
       const link = isLink(this)
       const $headerContent = []
 
       const $title = this.normalizeSlot(SLOT_NAME_TOAST_TITLE, slotScope)
       if ($title) {
         $headerContent.push($title)
-      } else if (title) {
-        $headerContent.push(h('strong', { staticClass: 'mr-2' }, title))
-      }
-
-      if (!this.noCloseButton) {
-        $headerContent.push(
-          h(BButtonClose, {
-            staticClass: 'ml-auto mb-1',
-            on: {
-              click: () => {
-                this.hide()
-              }
-            }
-          })
-        )
       }
 
       let $header = h()

@@ -313,8 +313,7 @@ the `this.$bvToast.hide(id)` method to hide the specific toast:
         // Create the toast
         this.$bvToast.toast([$closeButton], {
           id: id,
-          title: `Toast ${this.count}`,
-          noCloseButton: true
+          title: `Toast ${this.count}`
         })
       }
     }
