@@ -686,7 +686,6 @@ $gl-label-scoped-text-color: $gl-color-neutral-950; // Used for the scoped label
 $gl-label-scoped-button-background-color-hover: $gl-color-neutral-950; // Used for the scoped label remove button background in the hover state.
 $gl-label-scoped-button-icon-color-default: $gl-color-neutral-950; // Used for the scoped label remove button icon in the default state.
 $gl-label-scoped-button-icon-color-hover: $gl-color-neutral-0; // Used for the scoped label remove button icon in the hover state.
-$gl-link-mention-text-color-default: $gl-color-blue-700; // Used for the mention link text color.
 $gl-link-mention-text-color-current: $gl-color-orange-800; // Used for the mention link text color when referencing the current user.
 $gl-link-mention-background-color-default: $gl-color-blue-100; // Used for the mention link default background.
 $gl-link-mention-background-color-current: $gl-color-orange-100; // Used for the mention link background when referencing the current user.
@@ -880,6 +879,7 @@ $gl-dropdown-option-indicator-color-selected-hover: $gl-control-background-color
 $gl-dropdown-option-indicator-color-selected-focus: $gl-control-background-color-selected-focus; // Used for the dropdown selected option indicator in the focus state.
 $gl-dropdown-option-background-color-unselected-focus: $gl-action-neutral-background-color-focus; // Used for the background of an unselected dropdown option in the focus state.
 $gl-dropdown-option-background-color-selected-focus: $gl-dropdown-option-background-color-selected-hover; // Used for the background of a selected dropdown option in the focus state.
+$gl-link-mention-text-color-default: $gl-text-color-link; // Used for the mention link text color.
 $gl-progress-bar-indicator-color-default: $gl-status-info-icon-color; // Used for the indicator color for the primary progress-bar variant.
 $gl-progress-bar-indicator-color-success: $gl-status-success-icon-color; // Used for the indicator color for the success progress-bar variant.
 $gl-progress-bar-indicator-color-warning: $gl-status-warning-icon-color; // Used for the indicator color for the warning progress-bar variant.

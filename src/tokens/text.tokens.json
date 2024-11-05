@@ -63,7 +63,7 @@
       "link": {
         "$value": {
           "default": "{color.blue.700}",
-          "dark": "{color.blue.300}"
+          "dark": "{color.blue.200}"
         },
         "$type": "color",
         "$description": "Used for default text links."
