@@ -27,7 +27,7 @@ export default {
   'GlDuoChat.chatEmptyStateSecondaryDesc': 'Responses may be inaccurate. Verify before use.',
   'GlDuoChat.chatEmptyStateTitle': 'Ask a question',
   'GlDuoChat.chatPromptPlaceholderDefault': 'GitLab Duo Chat',
-  'GlDuoChat.chatPromptPlaceholderWithCommands': 'Type "/" for slash commands',
+  'GlDuoChat.chatPromptPlaceholderWithCommands': 'Type /help to learn more',
   'GlDuoChat.chatSubmitLabel': 'Send chat message.',
   'GlDuoChatContextItemDetailsModal.title': 'Preview',
   'GlDuoChatContextItemMenu.emptyStateMessage': 'No results found',

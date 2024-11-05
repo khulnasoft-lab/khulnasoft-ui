@@ -345,8 +345,8 @@ describe('GlDuoChat', () => {
         ${undefined}            | ${[]}            | ${'GitLab Duo Chat'}
         ${''}                   | ${[]}            | ${'GitLab Duo Chat'}
         ${'custom placeholder'} | ${[]}            | ${'custom placeholder'}
-        ${undefined}            | ${slashCommands} | ${'Type "/" for slash commands'}
-        ${''}                   | ${slashCommands} | ${'Type "/" for slash commands'}
+        ${undefined}            | ${slashCommands} | ${'Type /help to learn more'}
+        ${''}                   | ${slashCommands} | ${'Type /help to learn more'}
         ${'custom placeholder'} | ${slashCommands} | ${'custom placeholder'}
       `(
         'displays "$expectedPlaceholder" when chatPromptPlaceholder is "$chatPromptPlaceholder", and slashCommands are "$commands"',
