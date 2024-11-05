@@ -13271,7 +13271,7 @@
       "text": {
         "color": {
           "default": {
-            "$value": "#63a6e9",
+            "$value": "#9dc7f1",
             "$type": "color",
             "$description": "Used for the text of a link button in the default state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -13292,7 +13292,7 @@
             ]
           },
           "hover": {
-            "$value": "#63a6e9",
+            "$value": "#9dc7f1",
             "$type": "color",
             "$description": "Used for the text of a link button in the hover state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -13313,7 +13313,7 @@
             ]
           },
           "focus": {
-            "$value": "#63a6e9",
+            "$value": "#9dc7f1",
             "$type": "color",
             "$description": "Used for the text of a link button in the focus state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -13334,7 +13334,7 @@
             ]
           },
           "active": {
-            "$value": "#63a6e9",
+            "$value": "#9dc7f1",
             "$type": "color",
             "$description": "Used for the text of a link button in the active state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -14717,10 +14717,7 @@
             "filePath": "src/tokens/contextual/link.tokens.json",
             "isSource": true,
             "original": {
-              "$value": {
-                "default": "{color.blue.700}",
-                "dark": "{color.blue.200}"
-              },
+              "$value": "{text.color.link}",
               "$type": "color",
               "$description": "Used for the mention link text color."
             },
@@ -21733,7 +21730,7 @@
         ]
       },
       "link": {
-        "$value": "#63a6e9",
+        "$value": "#9dc7f1",
         "$type": "color",
         "$description": "Used for default text links.",
         "filePath": "src/tokens/text.tokens.json",
@@ -21741,7 +21738,7 @@
         "original": {
           "$value": {
             "default": "{color.blue.700}",
-            "dark": "{color.blue.300}"
+            "dark": "{color.blue.200}"
           },
           "$type": "color",
           "$description": "Used for default text links."
