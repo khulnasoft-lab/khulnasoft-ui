@@ -1,3 +1,10 @@
+# [101.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.8.0...v101.9.0) (2024-11-06)
+
+
+### Features
+
+* **GlDuoChat:** Use design tokens to improve darkmode & WHCM ([1f315fc](https://gitlab.com/gitlab-org/gitlab-ui/commit/1f315fc9459644679fdc1eb8e23bb2eba83f306d))
+
 # [101.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.7.1...v101.8.0) (2024-11-05)
 
 
