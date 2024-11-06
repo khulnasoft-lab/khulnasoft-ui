@@ -72,7 +72,7 @@ export const BDropdown = /*#__PURE__*/ extend({
           'btn-group': split || !block,
           // When `block` is enabled and we are in `split` mode the 'd-flex' class
           // needs to be applied to allow the buttons to stretch to full width
-          'd-flex': block && split
+          'gl-flex': block && split
         }
       ]
     },
@@ -137,7 +137,7 @@ export const BDropdown = /*#__PURE__*/ extend({
       )
 
       // Overwrite button content for the toggle when in `split` mode
-      $buttonChildren = [h('span', { class: ['sr-only'] }, [this.toggleText])]
+      $buttonChildren = [h('span', { class: ['gl-sr-only'] }, [this.toggleText])]
       buttonContentDomProps = {}
     }
     const ariaHasPopupRoles = ['menu', 'listbox', 'tree', 'grid', 'dialog']
