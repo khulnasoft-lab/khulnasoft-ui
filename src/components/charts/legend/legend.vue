@@ -197,7 +197,8 @@ export default {
           v-for="(series, key) in seriesInfo"
           :key="key"
           :class="{
-            'text-muted': disabledSeries[key],
+            'gl-text-subtle': disabledSeries[key],
+            'gl-text-strong': !disabledSeries[key],
             'gl-w-full': seriesNameIsLong(series.name),
             'hover:!gl-cursor-not-allowed':
               hasOneSeriesElement || isToggleDisabled(series.name, series.disabled),
