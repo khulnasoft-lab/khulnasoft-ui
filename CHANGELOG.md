@@ -1,3 +1,10 @@
+# [101.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.11.0...v101.12.0) (2024-11-06)
+
+
+### Features
+
+* **DuoChat:** Update input placeholder text ([657bde9](https://gitlab.com/gitlab-org/gitlab-ui/commit/657bde9c93a152a1296f7a2a1e71eb5d45583559))
+
 # [101.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.10.0...v101.11.0) (2024-11-06)
 
 
