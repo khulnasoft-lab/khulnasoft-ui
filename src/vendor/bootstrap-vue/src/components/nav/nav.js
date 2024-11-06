@@ -22,8 +22,7 @@ export const props = makePropsConfigurable(
     pills: makeProp(PROP_TYPE_BOOLEAN, false),
     small: makeProp(PROP_TYPE_BOOLEAN, false),
     tabs: makeProp(PROP_TYPE_BOOLEAN, false),
-    tag: makeProp(PROP_TYPE_STRING, 'ul'),
-    vertical: makeProp(PROP_TYPE_BOOLEAN, false)
+    tag: makeProp(PROP_TYPE_STRING, 'ul')
   },
   NAME_NAV
 )
@@ -36,7 +35,7 @@ export const BNav = /*#__PURE__*/ extend({
   functional: true,
   props,
   render(h, { props, data, children }) {
-    const { tabs, pills, vertical, align, cardHeader } = props
+    const { tabs, pills, align, cardHeader } = props
 
     return h(
       props.tag,
@@ -45,12 +44,11 @@ export const BNav = /*#__PURE__*/ extend({
         class: {
           'nav-tabs': tabs,
           'nav-pills': pills && !tabs,
-          'card-header-tabs': !vertical && cardHeader && tabs,
-          'card-header-pills': !vertical && cardHeader && pills && !tabs,
-          'flex-column': vertical,
-          'nav-fill': !vertical && props.fill,
-          'nav-justified': !vertical && props.justified,
-          [computeJustifyContent(align)]: !vertical && align,
+          'card-header-tabs': cardHeader && tabs,
+          'card-header-pills': cardHeader && pills && !tabs,
+          'nav-fill': props.fill,
+          'nav-justified': props.justified,
+          [computeJustifyContent(align)]: align,
           small: props.small
         }
       }),

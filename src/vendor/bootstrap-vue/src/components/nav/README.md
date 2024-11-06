@@ -144,24 +144,6 @@ and `right`.
 <!-- b-nav-alignment.vue -->
 ```
 
-## Vertical variation
-
-By default `<b-nav>` appear on a horizontal line. Stack your navigation by setting the `vertical`
-prop.
-
-```html
-<div>
-  <b-nav vertical class="w-25">
-    <b-nav-item active>Active</b-nav-item>
-    <b-nav-item>Link</b-nav-item>
-    <b-nav-item>Another Link</b-nav-item>
-    <b-nav-item disabled>Disabled</b-nav-item>
-  </b-nav>
-</div>
-
-<!-- b-nav-vertical.vue -->
-```
-
 ## Dropdown support
 
 Use `<b-nav-item-dropdown>` to place dropdown items within your nav.
@@ -370,8 +352,6 @@ Bootstrap v4 SCSS does not have special styling for `active` state plain style n
 
 <!-- nav-card-plain.vue -->
 ```
-
-The `card-header` prop has no styling effect if the `<b-nav>` is in `vertical` mode.
 
 ### Using with Vue Router
 
