@@ -70,7 +70,7 @@ export default {
 </script>
 
 <template>
-  <div class="duo-chat-loader gl-flex gl-items-center">
+  <div class="duo-chat-loader gl-mt-5 gl-flex gl-items-center">
     <div class="gl-mr-3 gl-flex">
       <div class="duo-chat-loader__dot duo-chat-loader__dot--1"></div>
       <div class="duo-chat-loader__dot duo-chat-loader__dot--2"></div>

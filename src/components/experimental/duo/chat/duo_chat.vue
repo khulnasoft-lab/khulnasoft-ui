@@ -544,7 +544,7 @@ export default {
     <header
       v-if="showHeader"
       data-testid="chat-header"
-      class="duo-chat-drawer-header duo-chat-drawer-header-sticky gl-z-200 gl-border-0 gl-bg-white !gl-p-0"
+      class="duo-chat-drawer-header duo-chat-drawer-header-sticky gl-z-200 gl-border-0 gl-bg-default !gl-p-0"
     >
       <div class="drawer-title gl-flex gl-items-center gl-justify-start gl-p-5">
         <h3 class="gl-my-0 gl-text-size-h2">{{ title }}</h3>
@@ -586,7 +586,7 @@ export default {
     </header>
 
     <div
-      class="duo-chat-drawer-body gl-bg-white"
+      class="duo-chat-drawer-body gl-bg-default"
       data-testid="chat-history"
       @scroll="handleScrollingTrottled"
     >
@@ -645,7 +645,7 @@ export default {
     <footer
       v-if="isChatAvailable"
       data-testid="chat-footer"
-      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-border-0 gl-bg-white gl-p-5"
+      class="duo-chat-drawer-footer duo-chat-drawer-footer-sticky gl-border-0 gl-bg-default gl-p-5"
       :class="{ 'duo-chat-drawer-body-scrim-on-footer': !scrolledToBottom }"
     >
       <gl-form data-testid="chat-prompt-form" @submit.stop.prevent="sendChatPrompt">
@@ -664,7 +664,7 @@ export default {
 
         <gl-form-input-group>
           <div
-            class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-bg-white gl-align-top gl-shadow-inner-1-gray-400"
+            class="duo-chat-input gl-min-h-8 gl-max-w-full gl-grow gl-align-top"
             :data-value="prompt"
           >
             <gl-card
@@ -682,7 +682,7 @@ export default {
               >
                 <span class="gl-flex gl-justify-between">
                   <span class="gl-block">{{ command.name }}</span>
-                  <small class="gl-pl-3 gl-text-right gl-italic gl-text-gray-500">{{
+                  <small class="gl-pl-3 gl-text-right gl-italic gl-text-subtle">{{
                     command.description
                   }}</small>
                 </span>
