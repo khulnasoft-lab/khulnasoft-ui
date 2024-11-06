@@ -58,8 +58,8 @@
             },
             "hover": {
               "$value": {
-                "default": "{color.neutral.200}",
-                "dark": "{color.neutral.700}"
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
               },
               "$type": "color",
               "$description": "Used for the filtered search operator token background color in the hover state."

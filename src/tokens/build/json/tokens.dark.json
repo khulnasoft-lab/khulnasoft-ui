@@ -14363,15 +14363,15 @@
               ]
             },
             "hover": {
-              "$value": "#4c4b51",
+              "$value": "#3a383f",
               "$type": "color",
               "$description": "Used for the filtered search operator token background color in the hover state.",
               "filePath": "src/tokens/contextual/filtered-search.tokens.json",
               "isSource": true,
               "original": {
                 "$value": {
-                  "default": "{color.neutral.200}",
-                  "dark": "{color.neutral.700}"
+                  "default": "{color.neutral.100}",
+                  "dark": "{color.neutral.800}"
                 },
                 "$type": "color",
                 "$description": "Used for the filtered search operator token background color in the hover state."

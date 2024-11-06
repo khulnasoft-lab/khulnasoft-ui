@@ -675,7 +675,7 @@
   --gl-filtered-search-token-data-background-color-default: var(--gl-color-neutral-100); /* Used for the filtered search data background color in the default state. */
   --gl-filtered-search-token-data-background-color-hover: var(--gl-color-neutral-200); /* Used for the filtered search data token background color in the hover state. */
   --gl-filtered-search-token-operator-background-color-default: var(--gl-color-neutral-50); /* Used for the filtered search operator background color in the default state. */
-  --gl-filtered-search-token-operator-background-color-hover: var(--gl-color-neutral-200); /* Used for the filtered search operator token background color in the hover state. */
+  --gl-filtered-search-token-operator-background-color-hover: var(--gl-color-neutral-100); /* Used for the filtered search operator token background color in the hover state. */
   --gl-label-light-text-color: var(--gl-color-neutral-950); /* Used for the label text color on a light background color. */
   --gl-label-light-button-background-color-default: var(--gl-color-alpha-0); /* Used for the label remove button background on a light background color in the default state. */
   --gl-label-light-button-background-color-hover: var(--gl-color-neutral-950); /* Used for the label remove button background on a light background color in the hover state. */
