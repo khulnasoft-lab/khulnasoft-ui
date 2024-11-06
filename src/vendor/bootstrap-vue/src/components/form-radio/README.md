@@ -341,55 +341,6 @@ Sizes can be set on individual `<b-form-radio>` components, or inherited from th
 **Note:** Bootstrap v4.x does not natively support sizes for the custom radio control. However,
 BootstrapVue includes custom SCSS/CSS that adds support for sizing the custom radios.
 
-## Non-custom style radio inputs (plain)
-
-You can have `<b-form-radio>` and `<b-form-radio-group>` render a browser native-styled radio input
-by setting the `plain` prop.
-
-```html
-<template>
-  <div>
-    <b-form-group label="Plain inline radios" v-slot="{ ariaDescribedby }">
-      <b-form-radio-group
-        v-model="selected"
-        :options="options"
-        :aria-describedby="ariaDescribedby"
-        name="plain-inline"
-        plain
-      ></b-form-radio-group>
-    </b-form-group>
-
-    <b-form-group label="Plain stacked radios" v-slot="{ ariaDescribedby }">
-      <b-form-radio-group
-        v-model="selected"
-        :options="options"
-        :aria-describedby="ariaDescribedby"
-        name="plain-stacked"
-        plain
-        stacked
-      ></b-form-radio-group>
-    </b-form-group>
-  </div>
-</template>
-
-<script>
-  export default {
-    data() {
-      return {
-        selected: 'first',
-        options: [
-          { text: 'First radio', value: 'first' },
-          { text: 'Second radio', value: 'second' },
-          { text: 'Third radio', value: 'third' }
-        ]
-      }
-    }
-  }
-</script>
-
-<!-- b-form-radio-plain.vue -->
-```
-
 ## Required constraint
 
 When using individual `<b-form-radio>` components (not in a `<b-form-radio-group>`), and you want

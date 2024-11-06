@@ -88,16 +88,9 @@ export const formRadioCheckMixin = extend({
       // Is this check/radio a child of check-group or radio-group?
       return !!this.bvGroup
     },
-    isPlain() {
-      return this.isGroup ? this.bvGroup.plain : this.plain
-    },
     isSwitch() {
       // Custom switch styling (checkboxes only)
-      return this.isRadio || this.isPlain
-        ? false
-        : this.isGroup
-          ? this.bvGroup.switches
-          : this.switch
+      return this.isRadio ? false : this.isGroup ? this.bvGroup.switches : this.switch
     },
     isInline() {
       return this.isGroup ? this.bvGroup.inline : this.inline
@@ -194,19 +187,11 @@ export const formRadioCheckMixin = extend({
     }
   },
   render(h) {
-    const { isRadio, isPlain, isInline, isSwitch, computedSize, bvAttrs } = this
+    const { isRadio, isInline, isSwitch, computedSize, bvAttrs } = this
     const $content = this.normalizeSlot()
 
     const $input = h('input', {
-      class: [
-        {
-          'form-check-input': isPlain,
-          'custom-control-input': !isPlain,
-          // https://github.com/bootstrap-vue/bootstrap-vue/issues/2911
-          'position-static': isPlain && !$content
-        },
-        this.stateClass
-      ],
+      class: ['custom-control-input', this.stateClass],
       directives: [{ name: 'model', value: this.computedLocalChecked }],
       attrs: this.computedAttrs,
       domProps: {
@@ -220,17 +205,12 @@ export const formRadioCheckMixin = extend({
       ref: 'input'
     })
 
-    // If no label content in plain mode we dont render the label
-    // See: https://github.com/bootstrap-vue/bootstrap-vue/issues/2911
     let $label = h()
-    if (!(isPlain && !$content)) {
+    if ($content) {
       $label = h(
         'label',
         {
-          class: {
-            'form-check-label': isPlain,
-            'custom-control-label': !isPlain
-          },
+          class: 'custom-control-label',
           attrs: { for: this.safeId() }
         },
         $content
@@ -242,16 +222,14 @@ export const formRadioCheckMixin = extend({
       {
         class: [
           {
-            'form-check': isPlain,
-            'form-check-inline': isPlain && isInline,
-            'custom-control': !isPlain,
-            'custom-control-inline': !isPlain && isInline,
-            'custom-checkbox': !isPlain && !isRadio && !isSwitch,
+            'custom-control-inline': isInline,
+            'custom-checkbox': !isRadio && !isSwitch,
             'custom-switch': isSwitch,
-            'custom-radio': !isPlain && isRadio,
+            'custom-radio': isRadio,
             // Temporary until Bootstrap v4 supports sizing (most likely in V5)
             [`b-custom-control-${computedSize}`]: computedSize
           },
+          'custom-control',
           bvAttrs.class
         ],
         style: bvAttrs.style

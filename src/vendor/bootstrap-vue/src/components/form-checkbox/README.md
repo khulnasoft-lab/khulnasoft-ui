@@ -469,54 +469,6 @@ Sizes can be set on individual `<b-form-checkbox>` components, or inherited from
 **Note:** Bootstrap v4.x does not natively support sizes for the custom switch control. However,
 BootstrapVue includes custom SCSS/CSS that adds support for sizing the custom switches.
 
-## Non custom check inputs (plain)
-
-You can have `<b-form-checkbox-group>` or `<b-form-checkbox>` render a browser native checkbox input
-by setting the `plain` prop.
-
-```html
-<template>
-  <div>
-    <b-form-group label="Plain inline checkboxes" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        v-model="selected"
-        :options="options"
-        :aria-describedby="ariaDescribedby"
-        plain
-      ></b-form-checkbox-group>
-    </b-form-group>
-
-    <b-form-group label="Plain stacked checkboxes" v-slot="{ ariaDescribedby }">
-      <b-form-checkbox-group
-        v-model="selected"
-        :options="options"
-        :aria-describedby="ariaDescribedby"
-        plain
-        stacked
-      ></b-form-checkbox-group>
-    </b-form-group>
-  </div>
-</template>
-
-<script>
-  export default {
-    data() {
-      return {
-        selected: [], // Must be an array reference!
-        options: [
-          { text: 'Orange', value: 'orange' },
-          { text: 'Apple', value: 'apple' },
-          { text: 'Pineapple', value: 'pineapple' },
-          { text: 'Grape', value: 'grape' }
-        ]
-      }
-    }
-  }
-</script>
-
-<!-- b-form-checkbox-plain.vue -->
-```
-
 ## Contextual states
 
 Bootstrap includes validation styles for `valid` and `invalid` states on most form controls.
