@@ -1,3 +1,10 @@
+# [101.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.9.0...v101.10.0) (2024-11-06)
+
+
+### Features
+
+* **Tokens:** Update hover values ([3b3b9cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/3b3b9cd4b95785e77c34e49928a54fa3a6639e14))
+
 # [101.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.8.0...v101.9.0) (2024-11-06)
 
 
