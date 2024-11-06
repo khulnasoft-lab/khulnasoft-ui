@@ -1,3 +1,10 @@
+# [101.11.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.10.0...v101.11.0) (2024-11-06)
+
+
+### Features
+
+* **GlChartsLegend:** Replace legacy CSS Class with design tokens ([78a3ece](https://gitlab.com/gitlab-org/gitlab-ui/commit/78a3ece8857c554d3fc2b491af62fc0e7ef8e5d0))
+
 # [101.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.9.0...v101.10.0) (2024-11-06)
 
 
