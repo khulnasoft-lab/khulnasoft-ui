@@ -103,7 +103,7 @@ export const BToaster = /*#__PURE__*/ extend({
     }
   },
   render(h) {
-    let $toaster = h('div', { class: ['d-none', { 'b-dead-toaster': this.dead }] })
+    let $toaster = h('div', { class: ['gl-hidden', { 'b-dead-toaster': this.dead }] })
     if (this.doRender) {
       const $target = h(PortalTarget, {
         staticClass: 'b-toaster-slot',
