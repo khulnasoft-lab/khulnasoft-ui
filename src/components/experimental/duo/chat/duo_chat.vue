@@ -41,7 +41,7 @@ export const i18n = {
   ),
   CHAT_PROMPT_PLACEHOLDER_WITH_COMMANDS: translate(
     'GlDuoChat.chatPromptPlaceholderWithCommands',
-    'Type "/" for slash commands'
+    'Type /help to learn more'
   ),
   CHAT_SUBMIT_LABEL: translate('GlDuoChat.chatSubmitLabel', 'Send chat message.'),
   CHAT_CANCEL_LABEL: translate('GlDuoChat.chatCancelLabel', 'Cancel'),
