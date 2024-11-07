@@ -132,8 +132,8 @@ describe('dropdown', () => {
     expect($toggle.attributes('id')).toEqual(`${wrapperId}__BV_toggle_`)
     expect($toggle.attributes('type')).toBeDefined()
     expect($toggle.attributes('type')).toEqual('button')
-    expect($toggle.findAll('span.sr-only').length).toBe(1)
-    expect($toggle.find('span.sr-only').text()).toEqual('Toggle dropdown')
+    expect($toggle.findAll('span.gl-sr-only').length).toBe(1)
+    expect($toggle.find('span.gl-sr-only').text()).toEqual('Toggle dropdown')
     expect($toggle.text()).toEqual('Toggle dropdown')
 
     expect(wrapper.findAll('.dropdown-menu').length).toBe(1)
@@ -239,7 +239,7 @@ describe('dropdown', () => {
 
     expect($split.text()).toEqual('foobar')
     expect($toggle.classes()).toContain('dropdown-toggle')
-    // Toggle has `sr-only` hidden text
+    // Toggle has `gl-sr-only` hidden text
     expect($toggle.text()).toEqual('Toggle dropdown')
 
     wrapper.destroy()
@@ -306,7 +306,7 @@ describe('dropdown', () => {
     wrapper.destroy()
   })
 
-  it('should have "btn-group" and "d-flex" classes when block and split are true', async () => {
+  it('should have "btn-group" and "gl-flex" classes when block and split are true', async () => {
     const wrapper = mount(BDropdown, {
       attachTo: document.body,
       propsData: {
@@ -316,7 +316,7 @@ describe('dropdown', () => {
     })
 
     expect(wrapper.classes()).toContain('btn-group')
-    expect(wrapper.classes()).toContain('d-flex')
+    expect(wrapper.classes()).toContain('gl-flex')
 
     wrapper.destroy()
   })
