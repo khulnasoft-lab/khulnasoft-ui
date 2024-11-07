@@ -1,3 +1,10 @@
+# [101.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.15.0...v101.16.0) (2024-11-07)
+
+
+### Features
+
+* **GlDuoChat, GlAnimatedIcon:** Update loading icon ([23d0874](https://gitlab.com/gitlab-org/gitlab-ui/commit/23d08749510808b1ece754025714ad2a6dd9fd65))
+
 # [101.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.14.0...v101.15.0) (2024-11-07)
 
 
