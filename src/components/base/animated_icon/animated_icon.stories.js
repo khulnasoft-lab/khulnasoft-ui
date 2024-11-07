@@ -2,6 +2,7 @@ import GlButton from '../button/button.vue';
 import GlBaseAnimatedIcon from './base_animated_icon.vue';
 import GlAnimatedChevronRightDownIcon from './animated_chevron_right_down_icon.vue';
 import GlAnimatedDuoChatIcon from './animated_duo_chat_icon.vue';
+import GlAnimatedLoaderIcon from './animated_loader_icon.vue';
 import GlAnimatedNotificationIcon from './animated_notifications_icon.vue';
 import GlAnimatedSidebarIcon from './animated_sidebar_icon.vue';
 import GlAnimatedSmileIcon from './animated_smile_icon.vue';
@@ -67,6 +68,7 @@ const InfiniteTemplate = (args, { argTypes }) => ({
   components: {
     GlButton,
     GlAnimatedDuoChatIcon,
+    GlAnimatedLoaderIcon,
     GlAnimatedUploadIcon,
   },
   props: Object.keys(argTypes),
@@ -84,6 +86,10 @@ const InfiniteTemplate = (args, { argTypes }) => ({
     <div class="gl-py-4 gl-px-5 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2" @mouseenter="animationsOn = true" @mouseleave="animationsOn = false">
       <gl-animated-duo-chat-icon :aria-label="ariaLabel" name="duo_chat" :isOn="animationsOn" />
       duo-chat
+    </div>
+    <div class="gl-py-4 gl-px-5 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2" @mouseenter="animationsOn = true" @mouseleave="animationsOn = false">
+      <gl-animated-loader-icon :aria-label="ariaLabel" name="loader" :isOn="animationsOn" />
+      loader
     </div>
   </div>`,
 });

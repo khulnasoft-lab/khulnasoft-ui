@@ -23,6 +23,7 @@ export { default as GlLink, default as GlDeprecatedLink } from './components/bas
 export { default as GlIcon } from './components/base/icon/icon.vue';
 export { default as GlAnimatedChevronRightDownIcon } from './components/base/animated_icon/animated_chevron_right_down_icon.vue';
 export { default as GlAnimatedDuoChatIcon } from './components/base/animated_icon/animated_duo_chat_icon.vue';
+export { default as GlAnimatedLoaderIcon } from './components/base/animated_icon/animated_loader_icon.vue';
 export { default as GlAnimatedNotificationIcon } from './components/base/animated_icon/animated_notifications_icon.vue';
 export { default as GlAnimatedSidebarIcon } from './components/base/animated_icon/animated_sidebar_icon.vue';
 export { default as GlAnimatedSmileIcon } from './components/base/animated_icon/animated_smile_icon.vue';

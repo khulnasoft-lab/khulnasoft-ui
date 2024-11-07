@@ -2,7 +2,7 @@ import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
 import GlIcon from '../../../../../base/icon/icon.vue';
-import GlLoadingIcon from '../../../../../base/loading_icon/loading_icon.vue';
+import GlAnimatedLoaderIcon from '../../../../../base/animated_icon/animated_loader_icon.vue';
 import {
   MOCK_USER_PROMPT_MESSAGE,
   MOCK_RESPONSE_MESSAGE,
@@ -24,7 +24,7 @@ describe('DuoChatMessage', () => {
   const findCopyCodeButton = () => wrapper.find('copy-code');
   const findInsertCodeSnippetButton = () => wrapper.find('insert-code-snippet');
   const findErrorIcon = () => wrapper.findComponent(GlIcon);
-  const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
+  const findLoadingIcon = () => wrapper.findComponent(GlAnimatedLoaderIcon);
   const findContextItemSelections = () => wrapper.findComponent(GlDuoChatContextItemSelections);
 
   const mockMarkdownContent = 'foo **bar**';

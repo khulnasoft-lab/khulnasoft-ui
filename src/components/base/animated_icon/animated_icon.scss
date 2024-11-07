@@ -103,6 +103,27 @@
 }
 
 /* * * * * * * * * * * * * * * * *
+ * animated_loader_icon.vue
+ * * * * * * * * * * * * * * * * */
+.gl-animated-icon-on .gl-animated-loader-shape {
+  animation: gl-animated-loader-on 1.8s $gl-easing-default infinite;
+}
+
+.gl-animated-icon-on .gl-animated-loader-shape-1 {
+  animation-delay: 0.15s;
+}
+
+.gl-animated-icon-on .gl-animated-loader-shape-2 {
+  animation-delay: 0.3s;
+}
+
+@keyframes gl-animated-loader-on {
+  30% { translate: 0 -30%; }
+  60% { translate: 0 2%; }
+  65% { translate: 0 0; }
+}
+
+ /* * * * * * * * * * * * * * * * *
  * animated_notifications_icon.vue
  * * * * * * * * * * * * * * * * */
 

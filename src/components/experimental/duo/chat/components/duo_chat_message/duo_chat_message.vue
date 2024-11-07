@@ -1,7 +1,7 @@
 <script>
 import throttle from 'lodash/throttle';
 import GlIcon from '../../../../../base/icon/icon.vue';
-import GlLoadingIcon from '../../../../../base/loading_icon/loading_icon.vue';
+import GlAnimatedLoaderIcon from '../../../../../base/animated_icon/animated_loader_icon.vue';
 import { GlTooltipDirective } from '../../../../../../directives/tooltip';
 import GlDuoChatContextItemSelections from '../duo_chat_context/duo_chat_context_item_selections/duo_chat_context_item_selections.vue';
 import GlDuoUserFeedback from '../../../user_feedback/user_feedback.vue';
@@ -59,7 +59,7 @@ export default {
     GlFormGroup,
     GlFormTextarea,
     GlIcon,
-    GlLoadingIcon,
+    GlAnimatedLoaderIcon,
   },
   directives: {
     SafeHtml,
@@ -315,7 +315,7 @@ export default {
           <documentation-sources v-if="sources" :sources="sources" />
 
           <div class="duo-chat-message-feedback gl-mt-4 gl-flex gl-items-end">
-            <gl-loading-icon v-if="isChunkAndNotCancelled" class="gl-pt-4" variant="dots" inline />
+            <gl-animated-loader-icon v-if="isChunkAndNotCancelled" :is-on="true" />
             <gl-duo-user-feedback
               v-if="isNotChunkOrCancelled"
               :feedback-received="hasFeedback"
