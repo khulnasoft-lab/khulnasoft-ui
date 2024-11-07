@@ -1,3 +1,10 @@
+# [101.15.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.14.0...v101.15.0) (2024-11-07)
+
+
+### Features
+
+* **DuoChat:** support project dependencies context item type ([e212121](https://gitlab.com/gitlab-org/gitlab-ui/commit/e2121217e000b14361fdf45087449b0299234845))
+
 # [101.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.13.0...v101.14.0) (2024-11-07)
 
 
