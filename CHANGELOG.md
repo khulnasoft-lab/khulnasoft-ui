@@ -1,3 +1,10 @@
+# [101.14.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.13.0...v101.14.0) (2024-11-07)
+
+
+### Features
+
+* **GlToast:** Replace BootstrapCSS Util with GitLab UI Class ([57d069b](https://gitlab.com/gitlab-org/gitlab-ui/commit/57d069bc84a6d8546fb77155043f888a4adf58ce))
+
 # [101.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.12.0...v101.13.0) (2024-11-07)
 
 
