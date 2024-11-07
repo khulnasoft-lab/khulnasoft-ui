@@ -6,15 +6,18 @@ import { SafeHtmlDirective as SafeHtml } from '../../../../../../../directives/s
 import GlSkeletonLoader from '../../../../../../base/skeleton_loader/skeleton_loader.vue';
 import { translate } from '../../../../../../../utils/i18n';
 import {
+  CONTEXT_ITEM_CATEGORY_DEPENDENCY,
   CONTEXT_ITEM_CATEGORY_LOCAL_GIT,
   LANGUAGE_IDENTIFIER_DIFF,
   LANGUAGE_IDENTIFIER_PLAINTEXT,
   LANGUAGE_IDENTIFIER_PREFIX,
 } from '../constants';
+import GlAlert from '../../../../../../base/alert/alert.vue';
 
 export default {
   name: 'GlDuoChatContextItemDetailsModal',
   components: {
+    GlAlert,
     GlSkeletonLoader,
     GlModal,
   },
@@ -39,6 +42,11 @@ export default {
       validator: contextItemValidator,
     },
   },
+  data() {
+    return {
+      contentErrorIsVisible: false,
+    };
+  },
   computed: {
     isLoadingContent() {
       return this.contextItem.content === undefined;
@@ -62,15 +70,26 @@ export default {
         translate('GlDuoChatContextItemDetailsModal.title', 'Preview')
       );
     },
+    isDependencies() {
+      return this.contextItem.category === CONTEXT_ITEM_CATEGORY_DEPENDENCY;
+    },
   },
   watch: {
     contextItem: {
       async handler(newVal, oldVal) {
-        const shouldFormat = newVal?.content !== oldVal?.content && newVal?.content;
-        if (shouldFormat) {
-          await nextTick();
-          await this.hydrateContentWithGFM();
+        // Dependency items contain structured data as content, not code/markdown.
+        // So skip running this content through GFM, we'll parse and render it here in the component.
+        if (newVal.category === CONTEXT_ITEM_CATEGORY_DEPENDENCY) {
+          return;
         }
+
+        const isUnchangedOrEmptyContent = !newVal?.content || newVal?.content === oldVal?.content;
+        if (isUnchangedOrEmptyContent) {
+          return;
+        }
+
+        await nextTick();
+        await this.hydrateContentWithGFM();
       },
       immediate: true,
     },
@@ -83,12 +102,28 @@ export default {
         this.renderGFM(this.$refs.content);
       }
     },
+    parseDependencies() {
+      if (this.contextItem.category !== CONTEXT_ITEM_CATEGORY_DEPENDENCY) {
+        return null;
+      }
+
+      try {
+        return JSON.parse(this.contextItem.content);
+      } catch (error) {
+        this.contentErrorIsVisible = true;
+        return {};
+      }
+    },
     onModalVisibilityChange(isVisible) {
       if (!isVisible) {
         this.$emit('close');
       }
     },
   },
+  CONTENT_ERROR_MESSAGE: translate(
+    'GlDuoChatContextItemDetailsModal.contentErrorMessage',
+    'Item content could not be displayed.'
+  ),
 };
 </script>
 
@@ -103,6 +138,27 @@ export default {
     @change="onModalVisibilityChange"
   >
     <gl-skeleton-loader v-if="isLoadingContent" />
+    <gl-alert
+      v-else-if="contentErrorIsVisible"
+      variant="danger"
+      :dismissible="false"
+      data-testid="content-error-alert"
+    >
+      {{ $options.CONTENT_ERROR_MESSAGE }}
+    </gl-alert>
+    <div v-else-if="isDependencies" data-testid="context-item-content">
+      <p>Project dependencies from {{ contextItem.metadata.secondaryText }}</p>
+      <div v-for="(matches, index) in parseDependencies()" :key="index">
+        <div v-for="(dependencies, language) in matches" :key="language">
+          <h3 class="gl-heading-4 gl-mb-2">{{ language }}</h3>
+          <ul class="gl-pl-6">
+            <li v-for="dependency in dependencies" :key="dependency" class="">
+              {{ dependency }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div v-else ref="content" data-testid="context-item-content">
       <pre
         v-safe-html="contextItem.content"

@@ -29,6 +29,7 @@ export default {
   'GlDuoChat.chatPromptPlaceholderDefault': 'GitLab Duo Chat',
   'GlDuoChat.chatPromptPlaceholderWithCommands': 'Type /help to learn more',
   'GlDuoChat.chatSubmitLabel': 'Send chat message.',
+  'GlDuoChatContextItemDetailsModal.contentErrorMessage': 'Item content could not be displayed.',
   'GlDuoChatContextItemDetailsModal.title': 'Preview',
   'GlDuoChatContextItemMenu.emptyStateMessage': 'No results found',
   'GlDuoChatContextItemMenu.loadingMessage': 'Loading...',
