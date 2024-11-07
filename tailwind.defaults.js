@@ -62,6 +62,15 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
         'animation-delay': 'inherit',
         'animation-iteration-count': '3',
       },
+      '@keyframes gl-keyframes-skeleton-loader': {
+        '0%': {
+          // absolute numbers are required to make the animation width-independent
+          'background-position-x': '-32rem',
+        },
+        '100%': {
+          'background-position-x': '32rem',
+        },
+      },
     },
     '.border': {
       'border-style': 'solid',
