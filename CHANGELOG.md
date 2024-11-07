@@ -1,3 +1,10 @@
+# [101.13.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.12.0...v101.13.0) (2024-11-07)
+
+
+### Features
+
+* **GlDropdown:** Replace BootstrapCSS Util Class with GitLab UI Class ([8772f60](https://gitlab.com/gitlab-org/gitlab-ui/commit/8772f60748198a11f8db12e57316e907cbbdb4fb))
+
 # [101.12.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.11.0...v101.12.0) (2024-11-06)
 
 
