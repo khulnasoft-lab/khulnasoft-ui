@@ -205,17 +205,14 @@ export const formRadioCheckMixin = extend({
       ref: 'input'
     })
 
-    let $label = h()
-    if ($content) {
-      $label = h(
-        'label',
-        {
-          class: 'custom-control-label',
-          attrs: { for: this.safeId() }
-        },
-        $content
-      )
-    }
+    const $label = h(
+      'label',
+      {
+        class: 'custom-control-label',
+        attrs: { for: this.safeId() }
+      },
+      $content
+    )
 
     return h(
       'div',
