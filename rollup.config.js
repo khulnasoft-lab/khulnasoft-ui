@@ -1,7 +1,6 @@
 import path from 'path';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
 import glob from 'glob';
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
@@ -91,13 +90,6 @@ export default glob
         file: `dist/${outputFilename}.js`,
       },
       plugins: [
-        replace({
-          delimiters: ['/* ', ' */'],
-          include: 'src/index.js',
-          values: {
-            'auto-inject-styles': "import './scss/gitlab_ui.scss';",
-          },
-        }),
         postCssPlugin(),
         string({
           include: '**/*.md',
