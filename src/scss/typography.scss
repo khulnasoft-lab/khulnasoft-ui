@@ -3,6 +3,19 @@ h1, h2, h3, h4, h5, h6,
   @apply gl-text-heading;
 }
 
+a {
+  @apply gl-text-link gl-no-underline hover:gl-text-link hover:gl-underline;
+}
+
+// Copied from https://gitlab.com/gitlab-org/gitlab-ui/-/blob/5db1e111501c9e252a388a780e2789dce11dedf4/src/vendor/bootstrap/scss/_reboot.scss#L194.
+// And undo these styles for placeholder links/named anchors (without href).
+// It would be more straightforward to just use a[href] in previous block, but that
+// causes specificity issues in many other styles that are too complex to fix.
+// See https://github.com/twbs/bootstrap/issues/19402
+a:not([href]):not([class]) {
+  @apply gl-text-inherit gl-no-underline hover:gl-text-inherit hover:gl-no-underline;
+}
+
 caption {
   @apply gl-text-subtle;
 }
