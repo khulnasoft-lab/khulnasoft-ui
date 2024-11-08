@@ -106,6 +106,9 @@ export default {
       if (this.contextItem.category !== CONTEXT_ITEM_CATEGORY_DEPENDENCY) {
         return null;
       }
+      if (!this.contextItem.content) {
+        return null;
+      }
 
       try {
         return JSON.parse(this.contextItem.content);
