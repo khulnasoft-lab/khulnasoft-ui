@@ -10,19 +10,39 @@ When component or dependency updates result in an accessibility violation, acces
 
 To inspect the violations causing the pipeline to fail, browse the failing `visual` job's artifacts.
 
-## View violations locally
+## Viewing and fixing accessibility violations
 
-Start Storybook on `http://localhost:9001`.
-This can be done by running the following command:
+* During development:
+  * Start Storybook on `http://localhost:9001`.
+    This can be done by running the following command:
 
-```shell
-yarn storybook
-```
+    ```shell
+    yarn storybook
+    ```
 
-The failing violations should also be visible on corresponding story for
-the component under the accessibility panel where you can inspect the results of the tests.
+  * Use the accessibility panel in Storybook to identify and fix violations.
+  * This provides immediate feedback without waiting for CI jobs.
+* In CI pipeline:
+  * Accessibility tests will run as part of the CI process.
+  * Check the CI job output for any reported violations.
+* Fixing violations:
+  * Address each violation reported by the test runner.
+  * Refer to the Storybook accessibility panel for detailed information on each issue.
+  * Update the component/story code to resolve the violation.
+  * Re-run the tests to confirm the fix.
 
-## Excluding stories from accessibility testing
+### Handling new violations
+
+As `axe-core` (the underlying accessibility testing engine) is updated, new violations may be detected.
+To handle these:
+
+* Review the new violations in the test output or Storybook Accessibility panel.
+* Assess each violation for validity and impact.
+* Create issues for legitimate violations that need addressing.
+* Update tests if necessary, using the `getA11yParameters.skipRules` option
+  judiciously for false positives or non-applicable rules.
+
+### Excluding stories from accessibility testing
 
 Excluding a story from [visual regression testing](doc/contributing/visual_testing.md#excluding-stories-from-visual-testing)
 using `skip-visual-tests` also excludes it from accessbility tests.
