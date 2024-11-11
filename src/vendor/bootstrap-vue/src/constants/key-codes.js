@@ -4,7 +4,6 @@ export const CODE_ENTER = 13
 export const CODE_ESC = 27
 export const CODE_HOME = 36
 export const CODE_LEFT = 37
-export const CODE_PAGEUP = 33
 export const CODE_RIGHT = 39
 export const CODE_SPACE = 32
 export const CODE_UP = 38

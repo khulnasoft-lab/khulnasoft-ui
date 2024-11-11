@@ -1,6 +1,5 @@
 import { extend } from '../../vue'
 import { NAME_COLLAPSE } from '../../constants/components'
-import { CLASS_NAME_SHOW } from '../../constants/classes'
 import {
   EVENT_NAME_HIDDEN,
   EVENT_NAME_HIDE,
@@ -20,6 +19,7 @@ import { normalizeSlotMixin } from '../../mixins/normalize-slot'
 import { BVCollapse } from './helpers/bv-collapse'
 
 // --- Constants ---
+const CLASS_NAME_SHOW = 'show'
 
 const ROOT_ACTION_EVENT_NAME_TOGGLE = getRootActionEventName(NAME_COLLAPSE, 'toggle')
 const ROOT_ACTION_EVENT_NAME_REQUEST_STATE = getRootActionEventName(NAME_COLLAPSE, 'request-state')
