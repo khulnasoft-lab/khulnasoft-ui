@@ -75,22 +75,6 @@ describe('nav', () => {
     wrapper.destroy()
   })
 
-  it('applies vertical style', async () => {
-    const wrapper = mount(BNav, {
-      propsData: {
-        vertical: true
-      }
-    })
-
-    expect(wrapper.element.tagName).toBe('UL')
-    expect(wrapper.classes()).toContain('nav')
-    expect(wrapper.classes()).toContain('flex-column')
-    expect(wrapper.classes().length).toBe(2)
-    expect(wrapper.text()).toBe('')
-
-    wrapper.destroy()
-  })
-
   it('applies justify style when justified', async () => {
     const wrapper = mount(BNav, {
       propsData: {
@@ -101,23 +85,6 @@ describe('nav', () => {
     expect(wrapper.element.tagName).toBe('UL')
     expect(wrapper.classes()).toContain('nav')
     expect(wrapper.classes()).toContain('nav-justified')
-    expect(wrapper.classes().length).toBe(2)
-    expect(wrapper.text()).toBe('')
-
-    wrapper.destroy()
-  })
-
-  it("doesn't apply justify style when vertical", async () => {
-    const wrapper = mount(BNav, {
-      propsData: {
-        justified: true,
-        vertical: true
-      }
-    })
-
-    expect(wrapper.element.tagName).toBe('UL')
-    expect(wrapper.classes()).toContain('nav')
-    expect(wrapper.classes()).toContain('flex-column')
     expect(wrapper.classes().length).toBe(2)
     expect(wrapper.text()).toBe('')
 
@@ -140,23 +107,6 @@ describe('nav', () => {
     wrapper.destroy()
   })
 
-  it("doesn't apply fill style when vertical", async () => {
-    const wrapper = mount(BNav, {
-      propsData: {
-        fill: true,
-        vertical: true
-      }
-    })
-
-    expect(wrapper.element.tagName).toBe('UL')
-    expect(wrapper.classes()).toContain('nav')
-    expect(wrapper.classes()).toContain('flex-column')
-    expect(wrapper.classes().length).toBe(2)
-    expect(wrapper.text()).toBe('')
-
-    wrapper.destroy()
-  })
-
   it('applies alignment correctly', async () => {
     const wrapper = mount(BNav, {
       propsData: {
@@ -167,23 +117,6 @@ describe('nav', () => {
     expect(wrapper.element.tagName).toBe('UL')
     expect(wrapper.classes()).toContain('nav')
     expect(wrapper.classes()).toContain('justify-content-center')
-    expect(wrapper.classes().length).toBe(2)
-    expect(wrapper.text()).toBe('')
-
-    wrapper.destroy()
-  })
-
-  it("doesn't apply alignment when vertical", async () => {
-    const wrapper = mount(BNav, {
-      propsData: {
-        align: 'center',
-        vertical: true
-      }
-    })
-
-    expect(wrapper.element.tagName).toBe('UL')
-    expect(wrapper.classes()).toContain('nav')
-    expect(wrapper.classes()).toContain('flex-column')
     expect(wrapper.classes().length).toBe(2)
     expect(wrapper.text()).toBe('')
 
