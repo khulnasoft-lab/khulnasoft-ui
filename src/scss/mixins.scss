@@ -168,37 +168,6 @@
   }
 }
 
-/**
-* Defines default properties for heading typography based on font-size
-* scale value and default or fixed sizing.
-*
-* Note: overrides Bootstrap margin-top, other margin is determined by
-* individual context
-*
-* @param $size Number font-size scale
-* @param $fixed Boolean toggle default and fixed font size scales
-*/
-@mixin gl-heading-scale($size, $fixed: false) {
-  font-weight: $gl-font-weight-heading;
-  margin-top: 0; // override bootstrap reset in GitLab
-  font-size: get-font-size-variable($size, $fixed);
-  @apply gl-text-heading;
-
-  // Larger headings have reduced letter spacing
-  @if ($size <= 500) {
-    letter-spacing: $gl-letter-spacing-heading;
-  } @else {
-    letter-spacing: $gl-letter-spacing-heading-reduced;
-  }
-
-  // Display heading has different line height
-  @if ($size == 800) {
-    line-height: $gl-line-height-heading-display;
-  } @else {
-    line-height: $gl-line-height-heading;
-  }
-}
-
 @mixin gl-action-neutral-colors {
   color: var(--gl-action-neutral-foreground-color-default);
   background-color: var(--gl-action-neutral-background-color-default);

@@ -229,6 +229,14 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'margin-bottom': '1.5rem',
       color: 'var(--gl-text-color-heading)',
     },
+    /**
+     * gl-heading-scale classes define default properties for heading typography
+     * based on font-size scale value and default or fixed sizing.
+     *
+     * Note: overrides Bootstrap margin-top, other margin is determined by
+     * individual context. Larger headings have reduced letter spacing.
+     * Display heading (800) has different line height.
+     */
     '.heading-scale-100': {
       'font-weight': '600',
       'margin-top': '0',
