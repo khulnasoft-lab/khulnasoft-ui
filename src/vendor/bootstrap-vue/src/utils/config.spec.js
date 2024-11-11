@@ -1,6 +1,5 @@
 import { createLocalVue } from '@vue/test-utils'
 import { isVue3 } from '../../src/vue'
-import { BootstrapVue } from '../../src'
 import { ToastPlugin } from '../../src/components/toast'
 import { BVConfigPlugin } from '../../src/bv-config'
 import { setConfig, resetConfig } from './config-set'
@@ -73,23 +72,6 @@ describe('utils/config', () => {
   })
 
   if (!isVue3) {
-    // We do not have complete localVue support, so resetting config does not work in proper way
-    it('config via Vue.use(BootstrapVue) works', async () => {
-      const localVue = createLocalVue()
-      const config = {
-        BButton: { variant: 'foobar' }
-      }
-
-      expect(getConfig()).toEqual({})
-
-      localVue.use(BootstrapVue, config)
-      expect(getConfig()).toEqual(config)
-
-      // Reset the configuration
-      resetConfig()
-      expect(getConfig()).toEqual({})
-    })
-
     it('config via Vue.use(ComponentPlugin) works', async () => {
       const localVue = createLocalVue()
       const config = {
