@@ -15,7 +15,6 @@ export const NAVIGATOR = HAS_NAVIGATOR_SUPPORT ? navigator : {}
 export const USER_AGENT = (NAVIGATOR.userAgent || '').toLowerCase()
 
 export const IS_JSDOM = USER_AGENT.indexOf('jsdom') > 0
-export const IS_IE = /msie|trident/.test(USER_AGENT)
 
 // Determine if the browser supports the option passive for events
 export const HAS_PASSIVE_EVENT_SUPPORT = (() => {
@@ -39,16 +38,3 @@ export const HAS_PASSIVE_EVENT_SUPPORT = (() => {
   }
   return passiveEventSupported
 })()
-
-export const HAS_POINTER_EVENT_SUPPORT =
-  IS_BROWSER && Boolean(WINDOW.PointerEvent || WINDOW.MSPointerEvent)
-
-/* istanbul ignore next: JSDOM only checks for 'IntersectionObserver' */
-export const HAS_INTERACTION_OBSERVER_SUPPORT =
-  IS_BROWSER &&
-  'IntersectionObserver' in WINDOW &&
-  'IntersectionObserverEntry' in WINDOW &&
-  // Edge 15 and UC Browser lack support for `isIntersecting`
-  // but we an use `intersectionRatio > 0` instead
-  // 'isIntersecting' in window.IntersectionObserverEntry.prototype &&
-  'intersectionRatio' in WINDOW.IntersectionObserverEntry.prototype

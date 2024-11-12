@@ -50,29 +50,6 @@ export const installFactory = ({ components, directives, plugins } = {}) => {
 }
 
 /**
- * Plugin install factory function (no plugin config option).
- * @param {object} { components, directives }
- * @returns {function} plugin install function
- */
-export const installFactoryNoConfig = ({ components, directives, plugins } = {}) => {
-  const install = Vue => {
-    if (install.installed) {
-      /* istanbul ignore next */
-      return
-    }
-    install.installed = true
-    checkMultipleVue(Vue)
-    registerComponents(Vue, components)
-    registerDirectives(Vue, directives)
-    registerPlugins(Vue, plugins)
-  }
-
-  install.installed = false
-
-  return install
-}
-
-/**
  * Plugin object factory function.
  * @param {object} { components, directives, plugins }
  * @returns {object} plugin install object
@@ -80,16 +57,6 @@ export const installFactoryNoConfig = ({ components, directives, plugins } = {})
 export const pluginFactory = (options = {}, extend = {}) => ({
   ...extend,
   install: installFactory(options)
-})
-
-/**
- * Plugin object factory function (no config option).
- * @param {object} { components, directives, plugins }
- * @returns {object} plugin install object
- */
-export const pluginFactoryNoConfig = (options = {}, extend = {}) => ({
-  ...extend,
-  install: installFactoryNoConfig(options)
 })
 
 /**
