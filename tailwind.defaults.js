@@ -4,6 +4,7 @@ const {
   colors,
   backgroundColor,
   borderColor,
+  outlineColor,
   fill,
   textColor,
 } = require('./src/tokens/build/tailwind/tokens.cjs');
@@ -389,6 +390,11 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
         '0 0 0 1px var(--gl-focus-ring-inner-color), 0 0 0 3px var(--gl-focus-ring-outer-color)',
       outline: 'none',
     },
+    '.focus-inset': {
+      'box-shadow':
+        'inset 0 0 0 2px var(--gl-focus-ring-outer-color), inset 0 0 0 3px var(--gl-focus-ring-inner-color), inset 0 0 0 1px var(--gl-focus-ring-inner-color)',
+      outline: 'none',
+    },
     '.text-align-inherit': {
       'text-align': 'inherit',
     },
@@ -419,6 +425,11 @@ module.exports = {
      * More on this at https://tailwindcss.com/docs/preflight.
      */
     preflight: false,
+    ringOffsetColor: false,
+    ringOpacity: false,
+    ringWidth: false,
+    ringColor: false,
+    ringOffsetWidth: false,
   },
   plugins: [plugin(addCustomDefinitions)],
   theme: {
@@ -509,6 +520,7 @@ module.exports = {
       9: '.9',
       10: '1',
     },
+    outlineColor,
     screens: {
       sm: '576px',
       md: '768px',
