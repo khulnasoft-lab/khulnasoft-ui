@@ -1,3 +1,35 @@
+# [102.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.16.0...v102.0.0) (2024-11-12)
+
+
+### Bug Fixes
+
+* **GlCheckbox:** always add a label, even for empty content ([4154c08](https://gitlab.com/gitlab-org/gitlab-ui/commit/4154c082e5935031f1f5670fc16ad3c87b736251))
+
+
+### Features
+
+* **FormRadio,FormCheckbox:** Remove buttons style ([5ca17b0](https://gitlab.com/gitlab-org/gitlab-ui/commit/5ca17b0841d2d13c5a977cc674ef24a7273fa1d4))
+* **GlButton:** Remove pill and squared properties ([7c61763](https://gitlab.com/gitlab-org/gitlab-ui/commit/7c617631e03f4e042caf95471d3d15a22856fac3))
+* **GlFormRadio,GlFormCheckbox:** Remove plain style ([415542c](https://gitlab.com/gitlab-org/gitlab-ui/commit/415542c144bcd599428065c736db16233801526a))
+* **GlNav,GlTabs:** Remove vertical and card designs ([8bd8b00](https://gitlab.com/gitlab-org/gitlab-ui/commit/8bd8b00821494e80aacffb5210b24c73fc9a608a))
+
+
+### BREAKING CHANGES
+
+* **GlNav,GlTabs:** BootstrapVue's Nav and Tabs components support a vertical, and card
+styles. These styles are now removed in GitLab UI.
+* **GlFormRadio,GlFormCheckbox:** The GlFormRadio and GlFormCheckbox do not support the property 'plain'
+anymore. Prefer overriding the CSS styles in case native browser styles
+should be used instead.
+* **FormRadio,FormCheckbox:** BootstrapVue's Radio Buttons and Checkboxes support a button style mode
+which was never documented within our system. We do not support adding
+the property 'button' on GlFormRadio and GlFormCheckbox.
+* **GlButton:** The GlButton does not support the properties 'pill' and 'squared'
+anymore.
+Prefer using the styles with the usual border radius. When absolutely
+necessary, apply GitLab UI Util CSS classes to override the border
+radius
+
 # [101.16.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.15.0...v101.16.0) (2024-11-07)
 
 
