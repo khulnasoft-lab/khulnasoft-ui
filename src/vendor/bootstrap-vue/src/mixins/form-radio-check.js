@@ -38,10 +38,6 @@ export const props = makePropsConfigurable(
     ...formCustomProps,
     ariaLabel: makeProp(PROP_TYPE_STRING),
     ariaLabelledby: makeProp(PROP_TYPE_STRING),
-    // Only applicable in standalone mode (non group)
-    button: makeProp(PROP_TYPE_BOOLEAN, false),
-    // Only applicable when rendered with button style
-    buttonVariant: makeProp(PROP_TYPE_STRING),
     inline: makeProp(PROP_TYPE_BOOLEAN, false),
     value: makeProp(PROP_TYPE_ANY)
   }),
@@ -66,8 +62,7 @@ export const formRadioCheckMixin = extend({
   props,
   data() {
     return {
-      localChecked: this.isGroup ? this.bvGroup[MODEL_PROP_NAME] : this[MODEL_PROP_NAME],
-      hasFocus: false
+      localChecked: this.isGroup ? this.bvGroup[MODEL_PROP_NAME] : this[MODEL_PROP_NAME]
     }
   },
   computed: {
@@ -93,23 +88,9 @@ export const formRadioCheckMixin = extend({
       // Is this check/radio a child of check-group or radio-group?
       return !!this.bvGroup
     },
-    isBtnMode() {
-      // Support button style in single input mode
-      return this.isGroup ? this.bvGroup.buttons : this.button
-    },
-    isPlain() {
-      return this.isBtnMode ? false : this.isGroup ? this.bvGroup.plain : this.plain
-    },
-    isCustom() {
-      return this.isBtnMode ? false : !this.isPlain
-    },
     isSwitch() {
       // Custom switch styling (checkboxes only)
-      return this.isBtnMode || this.isRadio || this.isPlain
-        ? false
-        : this.isGroup
-          ? this.bvGroup.switches
-          : this.switch
+      return this.isRadio ? false : this.isGroup ? this.bvGroup.switches : this.switch
     },
     isInline() {
       return this.isGroup ? this.bvGroup.inline : this.inline
@@ -136,33 +117,6 @@ export const formRadioCheckMixin = extend({
     },
     computedState() {
       return this.isGroup ? this.bvGroup.computedState : isBoolean(this.state) ? this.state : null
-    },
-    computedButtonVariant() {
-      // Local variant preferred over group variant
-      const { buttonVariant } = this
-      if (buttonVariant) {
-        return buttonVariant
-      }
-      if (this.isGroup && this.bvGroup.buttonVariant) {
-        return this.bvGroup.buttonVariant
-      }
-      return 'secondary'
-    },
-    buttonClasses() {
-      const { computedSize } = this
-      return [
-        'btn',
-        `btn-${this.computedButtonVariant}`,
-        {
-          [`btn-${computedSize}`]: computedSize,
-          // 'disabled' class makes "button" look disabled
-          disabled: this.isDisabled,
-          // 'active' class makes "button" look pressed
-          active: this.isChecked,
-          // Focus class makes button look focused
-          focus: this.hasFocus
-        }
-      ]
     },
     computedAttrs() {
       const { isDisabled: disabled, isRequired: required } = this
@@ -218,17 +172,6 @@ export const formRadioCheckMixin = extend({
         }
       })
     },
-    handleFocus(event) {
-      // When in buttons mode, we need to add 'focus' class to label when input focused
-      // As it is the hidden input which has actual focus
-      if (event.target) {
-        if (event.type === 'focus') {
-          this.hasFocus = true
-        } else if (event.type === 'blur') {
-          this.hasFocus = false
-        }
-      }
-    },
 
     // Convenience methods for focusing the input
     focus() {
@@ -236,6 +179,7 @@ export const formRadioCheckMixin = extend({
         attemptFocus(this.$refs.input)
       }
     },
+
     blur() {
       if (!this.isDisabled) {
         attemptBlur(this.$refs.input)
@@ -243,28 +187,11 @@ export const formRadioCheckMixin = extend({
     }
   },
   render(h) {
-    const {
-      isRadio,
-      isBtnMode,
-      isPlain,
-      isCustom,
-      isInline,
-      isSwitch,
-      computedSize,
-      bvAttrs
-    } = this
+    const { isRadio, isInline, isSwitch, computedSize, bvAttrs } = this
     const $content = this.normalizeSlot()
 
     const $input = h('input', {
-      class: [
-        {
-          'form-check-input': isPlain,
-          'custom-control-input': isCustom,
-          // https://github.com/bootstrap-vue/bootstrap-vue/issues/2911
-          'position-static': isPlain && !$content
-        },
-        isBtnMode ? '' : this.stateClass
-      ],
+      class: ['custom-control-input', this.stateClass],
       directives: [{ name: 'model', value: this.computedLocalChecked }],
       attrs: this.computedAttrs,
       domProps: {
@@ -272,56 +199,34 @@ export const formRadioCheckMixin = extend({
         checked: this.isChecked
       },
       on: {
-        change: this.handleChange,
-        ...(isBtnMode ? { focus: this.handleFocus, blur: this.handleFocus } : {})
+        change: this.handleChange
       },
       key: 'input',
       ref: 'input'
     })
 
-    if (isBtnMode) {
-      let $button = h('label', { class: this.buttonClasses }, [$input, $content])
-      if (!this.isGroup) {
-        // Standalone button mode, so wrap in 'btn-group-toggle'
-        // and flag it as inline-block to mimic regular buttons
-        $button = h('div', { class: ['btn-group-toggle', 'd-inline-block'] }, [$button])
-      }
-
-      return $button
-    }
-
-    // If no label content in plain mode we dont render the label
-    // See: https://github.com/bootstrap-vue/bootstrap-vue/issues/2911
-    let $label = h()
-    if (!(isPlain && !$content)) {
-      $label = h(
-        'label',
-        {
-          class: {
-            'form-check-label': isPlain,
-            'custom-control-label': isCustom
-          },
-          attrs: { for: this.safeId() }
-        },
-        $content
-      )
-    }
+    const $label = h(
+      'label',
+      {
+        class: 'custom-control-label',
+        attrs: { for: this.safeId() }
+      },
+      $content
+    )
 
     return h(
       'div',
       {
         class: [
           {
-            'form-check': isPlain,
-            'form-check-inline': isPlain && isInline,
-            'custom-control': isCustom,
-            'custom-control-inline': isCustom && isInline,
-            'custom-checkbox': isCustom && !isRadio && !isSwitch,
+            'custom-control-inline': isInline,
+            'custom-checkbox': !isRadio && !isSwitch,
             'custom-switch': isSwitch,
-            'custom-radio': isCustom && isRadio,
+            'custom-radio': isRadio,
             // Temporary until Bootstrap v4 supports sizing (most likely in V5)
-            [`b-custom-control-${computedSize}`]: computedSize && !isBtnMode
+            [`b-custom-control-${computedSize}`]: computedSize
           },
+          'custom-control',
           bvAttrs.class
         ],
         style: bvAttrs.style

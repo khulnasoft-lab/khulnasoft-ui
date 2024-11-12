@@ -199,7 +199,6 @@ export const props = makePropsConfigurable(
     // Only applied to the currently active `<b-tab>`
     // This prop is sniffed by the `<b-tab>` child
     activeTabClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
-    card: makeProp(PROP_TYPE_BOOLEAN, false),
     contentClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
     // Synonym for 'bottom'
     end: makeProp(PROP_TYPE_BOOLEAN, false),
@@ -241,13 +240,6 @@ export const BTabs = /*#__PURE__*/ extend({
     fade() {
       // This computed prop is sniffed by the tab child
       return !this.noFade
-    },
-    localNavClass() {
-      const classes = []
-      if (this.card && this.vertical) {
-        classes.push('card-header', 'h-100', 'border-bottom-0', 'rounded-0')
-      }
-      return [...classes, this.navClass]
     }
   },
   watch: {
@@ -539,7 +531,6 @@ export const BTabs = /*#__PURE__*/ extend({
   render(h) {
     const {
       align,
-      card,
       end,
       fill,
       firstTab,
@@ -551,8 +542,7 @@ export const BTabs = /*#__PURE__*/ extend({
       pills,
       previousTab,
       small,
-      tabs: $tabs,
-      vertical
+      tabs: $tabs
     } = this
 
     // Currently active tab
@@ -605,7 +595,7 @@ export const BTabs = /*#__PURE__*/ extend({
     let $nav = h(
       BNav,
       {
-        class: this.localNavClass,
+        class: this.navClass,
         attrs: {
           role: 'tablist',
           id: this.safeId('_BV_tab_controls_')
@@ -616,9 +606,7 @@ export const BTabs = /*#__PURE__*/ extend({
           align,
           tabs: !noNavStyle && !pills,
           pills: !noNavStyle && pills,
-          vertical,
-          small,
-          cardHeader: card && !vertical
+          small
         },
         ref: 'nav'
       },
@@ -632,14 +620,7 @@ export const BTabs = /*#__PURE__*/ extend({
     $nav = h(
       'div',
       {
-        class: [
-          {
-            'card-header': card && !vertical && !end,
-            'card-footer': card && !vertical && end,
-            'col-auto': vertical
-          },
-          this.navWrapperClass
-        ],
+        class: this.navWrapperClass,
         key: 'bv-tabs-nav'
       },
       [$nav]
@@ -652,7 +633,7 @@ export const BTabs = /*#__PURE__*/ extend({
       $empty = h(
         'div',
         {
-          class: ['tab-pane', 'active', { 'card-body': card }],
+          class: ['tab-pane', 'active'],
           key: 'bv-empty-tab'
         },
         this.normalizeSlot(SLOT_NAME_EMPTY)
@@ -663,7 +644,7 @@ export const BTabs = /*#__PURE__*/ extend({
       'div',
       {
         staticClass: 'tab-content',
-        class: [{ col: vertical }, this.contentClass],
+        class: this.contentClass,
         attrs: { id: this.safeId('_BV_tab_container_') },
         key: 'bv-content',
         ref: 'content'
@@ -676,10 +657,6 @@ export const BTabs = /*#__PURE__*/ extend({
       this.tag,
       {
         staticClass: 'tabs',
-        class: {
-          row: vertical,
-          'no-gutters': vertical && card
-        },
         attrs: { id: this.safeId() }
       },
       [end ? $content : h(), $nav, end ? h() : $content]

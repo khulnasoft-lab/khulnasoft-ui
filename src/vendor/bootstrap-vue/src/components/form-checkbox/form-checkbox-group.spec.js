@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { waitNT } from '../../../tests/utils'
 import { BFormCheckboxGroup } from './form-checkbox-group'
-import { BFormCheckbox } from './form-checkbox'
 
 describe('form-checkbox-group', () => {
   // --- Structure, class and attributes tests ---
@@ -234,122 +233,6 @@ describe('form-checkbox-group', () => {
     expect($checkboxes.length).toBe(3)
     expect($checkboxes.wrappers.every(c => c.classes().includes('is-valid'))).toBe(false)
     expect($checkboxes.wrappers.every(c => c.classes().includes('is-invalid'))).toBe(false)
-
-    wrapper.destroy()
-  })
-
-  // --- Button mode structure ---
-
-  it('button mode has classes button-group and button-group-toggle', async () => {
-    const wrapper = mount(BFormCheckboxGroup, {
-      attachTo: document.body,
-      propsData: {
-        buttons: true
-      }
-    })
-
-    expect(wrapper.classes()).toBeDefined()
-    expect(wrapper.classes().length).toBe(3)
-    expect(wrapper.classes()).toContain('btn-group')
-    expect(wrapper.classes()).toContain('btn-group-toggle')
-    expect(wrapper.classes()).toContain('bv-no-focus-ring')
-
-    wrapper.destroy()
-  })
-
-  it('button mode has classes button-group-vertical and button-group-toggle when stacked=true', async () => {
-    const wrapper = mount(BFormCheckboxGroup, {
-      attachTo: document.body,
-      propsData: {
-        buttons: true,
-        stacked: true
-      }
-    })
-
-    expect(wrapper.classes()).toBeDefined()
-    expect(wrapper.classes().length).toBe(3)
-    expect(wrapper.classes()).toContain('btn-group-vertical')
-    expect(wrapper.classes()).toContain('btn-group-toggle')
-    expect(wrapper.classes()).toContain('bv-no-focus-ring')
-
-    wrapper.destroy()
-  })
-
-  it('button mode has size class when size prop set', async () => {
-    const wrapper = mount(BFormCheckboxGroup, {
-      attachTo: document.body,
-      propsData: {
-        buttons: true,
-        size: 'lg'
-      }
-    })
-
-    expect(wrapper.classes()).toBeDefined()
-    expect(wrapper.classes().length).toBe(4)
-    expect(wrapper.classes()).toContain('btn-group')
-    expect(wrapper.classes()).toContain('btn-group-toggle')
-    expect(wrapper.classes()).toContain('btn-group-lg')
-    expect(wrapper.classes()).toContain('bv-no-focus-ring')
-
-    wrapper.destroy()
-  })
-
-  it('button mode has size class when size prop set and stacked', async () => {
-    const wrapper = mount(BFormCheckboxGroup, {
-      attachTo: document.body,
-      propsData: {
-        buttons: true,
-        stacked: true,
-        size: 'lg'
-      }
-    })
-
-    expect(wrapper.classes()).toBeDefined()
-    expect(wrapper.classes().length).toBe(4)
-    expect(wrapper.classes()).toContain('btn-group-vertical')
-    expect(wrapper.classes()).toContain('btn-group-toggle')
-    expect(wrapper.classes()).toContain('btn-group-lg')
-    expect(wrapper.classes()).toContain('bv-no-focus-ring')
-
-    wrapper.destroy()
-  })
-
-  it('button mode button variant works', async () => {
-    const App = {
-      render(h) {
-        return h(
-          BFormCheckboxGroup,
-          {
-            props: {
-              checked: [],
-              buttons: true,
-              buttonVariant: 'primary'
-            }
-          },
-          [
-            h(BFormCheckbox, { props: { value: 'one' } }, 'button 1'),
-            h(BFormCheckbox, { props: { value: 'two' } }, 'button 2'),
-            h(BFormCheckbox, { props: { value: 'three', buttonVariant: 'danger' } }, 'button 3')
-          ]
-        )
-      }
-    }
-
-    const wrapper = mount(App, {
-      attachTo: document.body
-    })
-
-    expect(wrapper).toBeDefined()
-    await waitNT(wrapper.vm)
-
-    // Find all the labels with `.btn` class
-    const $btns = wrapper.findAll('label.btn')
-    expect($btns).toBeDefined()
-    expect($btns.length).toBe(3)
-    // Expect them to have the correct variant classes
-    expect($btns.at(0).classes()).toContain('btn-primary')
-    expect($btns.at(1).classes()).toContain('btn-primary')
-    expect($btns.at(2).classes()).toContain('btn-danger')
 
     wrapper.destroy()
   })

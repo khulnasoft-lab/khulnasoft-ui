@@ -1,7 +1,7 @@
 # Tabs
 
-> Create a widget of tabbable panes of _local content_. The tabs component is built upon navs and
-> cards internally, and provides full keyboard navigation control of the tabs.
+> Create a widget of tabbable panes of _local content_. The tabs component is built upon navs
+> internally, and provides full keyboard navigation control of the tabs.
 
 For navigation based tabs (i.e. tabs that would change the URL), use the
 [nav](?path=/docs/base-nav--docs) component instead.
@@ -24,75 +24,6 @@ For navigation based tabs (i.e. tabs that would change the URL), use the
 or removing `<b-tab>` components (i.e. `v-if` or for loops). The `key` attribute is a special Vue
 attribute, see https://vuejs.org/v2/api/#key.
 
-## Cards integration
-
-Tabs support integrating with Bootstrap cards. Just add the `card` property to `<b-tabs>` and place
-it inside a `<b-card>` component. Note that you should add the`no-body` prop on the `<b-card>`
-component in order to properly decorate the card header and remove the extra padding introduced by
-`card-body`.
-
-```html
-<div>
-  <b-card no-body>
-    <b-tabs card>
-      <b-tab title="Tab 1" active>
-        <b-card-text>Tab contents 1</b-card-text>
-      </b-tab>
-      <b-tab title="Tab 2">
-        <b-card-text>Tab contents 2</b-card-text>
-      </b-tab>
-    </b-tabs>
-  </b-card>
-</div>
-
-<!-- b-tabs-card.vue -->
-```
-
-When `<b-tabs>` is in `card` mode, each `<b-tab>` sub-component will automatically have the
-`card-body` class applied (this class provides the padding around the tab content). To disable the
-`card-body` class, set the `no-body` prop on the `<b-tab>` sub component.
-
-```html
-<div>
-  <b-card no-body>
-    <b-tabs card>
-      <b-tab no-body title="Picture 1">
-        <b-card-img bottom src="https://picsum.photos/600/200/?image=21" alt="Image 21"></b-card-img>
-        <b-card-footer>Picture 1 footer</b-card-footer>
-      </b-tab>
-
-      <b-tab no-body title="Picture 2">
-        <b-card-img bottom src="https://picsum.photos/600/200/?image=25" alt="Image 25"></b-card-img>
-        <b-card-footer>Picture 2 footer</b-card-footer>
-      </b-tab>
-
-      <b-tab no-body title="Picture 3">
-        <b-card-img bottom src="https://picsum.photos/600/200/?image=26" alt="Image 26"></b-card-img>
-        <b-card-footer>Picture 3 footer</b-card-footer>
-      </b-tab>
-
-      <b-tab title="Text">
-        <b-card-title>This tab does not have the <code>no-body</code> prop set</b-card-title>
-        <b-card-text>
-          Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum
-          consequat non elit enim exercitation cillum aliqua consequat id aliqua. Esse ex
-          consectetur mollit voluptate est in duis laboris ad sit ipsum anim Lorem. Incididunt
-          veniam velit elit elit veniam Lorem aliqua quis ullamco deserunt sit enim elit aliqua
-          esse irure.
-        </b-card-text>
-      </b-tab>
-    </b-tabs>
-  </b-card>
-</div>
-
-<!-- b-tabs-card-no-body.vue -->
-```
-
-**Note:** Setting the `no-body` prop on `<b-tab>` will have no affect when `<b-tabs>` is not in
-`card` mode (as the `card-body` class is only set when in `card` mode).
-
-Refer to the [Cards documentation](?path=/docs/base-card--docs) for more details on card components.
-
 ## Pills variant
 
 Tabs use the `tabs` styling by default. Just add `pills` property to `<b-tabs>` for the pill style
@@ -100,12 +31,10 @@ variant.
 
 ```html
 <div>
-  <b-card no-body>
-    <b-tabs pills card>
-      <b-tab title="Tab 1" active><b-card-text>Tab contents 1</b-card-text></b-tab>
-      <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
-    </b-tabs>
-  </b-card>
+  <b-tabs pills>
+    <b-tab title="Tab 1" active>Tab contents 1</b-tab>
+    <b-tab title="Tab 2">Tab contents 2></b-tab>
+  </b-tabs>
 </div>
 
 <!-- b-tabs-pills.vue -->
@@ -173,12 +102,10 @@ Visually move the tab controls to the bottom by setting the prop `end`.
 
 ```html
 <div>
-  <b-card no-body>
-    <b-tabs pills card end>
-      <b-tab title="Tab 1" active><b-card-text>Tab contents 1</b-card-text></b-tab>
-      <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
-    </b-tabs>
-  </b-card>
+  <b-tabs pills end>
+    <b-tab title="Tab 1" active>Tab contents 1</b-tab>
+    <b-tab title="Tab 2">Tab contents 2</b-tab>
+  </b-tabs>
 </div>
 
 <!-- b-tabs-bottom.vue -->
@@ -192,67 +119,6 @@ Visually move the tab controls to the bottom by setting the prop `end`.
 - To provide a better user experience with bottom placed controls, ensure that the content of each
   tab pane is the same height and fits completely within the visible viewport, otherwise the user
   will need to scroll up to read the start of the tabbed content.
-
-## Vertical tabs
-
-Have the tab controls placed on the lefthand side by setting the `vertical` prop to `true`. Vertical
-tabs work with or without `card` mode enabled.
-
-```html
-<div>
-  <b-card no-body>
-    <b-tabs pills card vertical>
-      <b-tab title="Tab 1" active><b-card-text>Tab contents 1</b-card-text></b-tab>
-      <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
-      <b-tab title="Tab 3"><b-card-text>Tab contents 3</b-card-text></b-tab>
-    </b-tabs>
-  </b-card>
-</div>
-
-<!-- b-tabs-vertical.vue -->
-```
-
-Visually move the tab controls to the right hand side by setting the `end` prop:
-
-```html
-<div>
-  <b-card no-body>
-    <b-tabs pills card vertical end>
-      <b-tab title="Tab 1" active><b-card-text>Tab contents 1</b-card-text></b-tab>
-      <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
-      <b-tab title="Tab 3"><b-card-text>Tab contents 3</b-card-text></b-tab>
-    </b-tabs>
-  </b-card>
-</div>
-
-<!-- b-tabs-vertical-end.vue -->
-```
-
-The width of the vertical tab controls will expand to fit the width of the tab title. To control the
-width, set a [width utility class](/docs/reference/size-props#sizing-utility-classes) via the prop
-`nav-wrapper-class`. You can use values such as `w-25` (25% width), `w-50` (50% width), etc., or
-column classes such as `col-2`, `col-3`, etc.
-
-```html
-<div>
-  <b-card no-body>
-    <b-tabs pills card vertical nav-wrapper-class="w-50">
-      <b-tab title="Tab 1" active><b-card-text>Tab contents 1</b-card-text></b-tab>
-      <b-tab title="Tab 2"><b-card-text>Tab contents 2</b-card-text></b-tab>
-      <b-tab title="Tab 3"><b-card-text>Tab contents 3</b-card-text></b-tab>
-    </b-tabs>
-  </b-card>
-</div>
-
-<!-- b-tabs-vertical-width.vue -->
-```
-
-Vertical placement visually works best with the `pills` variant. When using the default `tabs`
-variant, you may want to provided your own custom styling classes, as Bootstrap v4 CSS assumes the
-tab controls will always be placed on the top of the tabs content.
-
-**Note:** _overflowing text may occur if your width is narrower than the tab title. You may need
-additional custom styling._
 
 ## Active classes
 
@@ -348,13 +214,11 @@ need to accommodate your custom classes for this._
 ```html
 <template>
   <div>
-    <b-card no-body>
-      <b-tabs v-model="tabIndex" card>
-        <b-tab title="Tab 1" :title-link-class="linkClass(0)">Tab contents 1</b-tab>
-        <b-tab title="Tab 2" :title-link-class="linkClass(1)">Tab contents 2</b-tab>
-        <b-tab title="Tab 3" :title-link-class="linkClass(2)">Tab contents 3</b-tab>
-      </b-tabs>
-    </b-card>
+    <b-tabs v-model="tabIndex">
+      <b-tab title="Tab 1" :title-link-class="linkClass(0)">Tab contents 1</b-tab>
+      <b-tab title="Tab 2" :title-link-class="linkClass(1)">Tab contents 2</b-tab>
+      <b-tab title="Tab 3" :title-link-class="linkClass(2)">Tab contents 3</b-tab>
+    </b-tabs>
   </div>
 </template>
 
@@ -476,18 +340,14 @@ It is recommended to use the `disabled` attribute on the `<b-tab>` component ins
 ```html
 <template>
   <div>
-    <!-- Tabs with card integration -->
-    <b-card no-body>
-      <b-tabs v-model="tabIndex" small card>
-        <b-tab title="General">I'm the first fading tab</b-tab>
-        <b-tab title="Edit profile">
-          I'm the second tab
-          <b-card>I'm the card in tab</b-card>
-        </b-tab>
-        <b-tab title="Premium Plan" disabled>Sibzamini!</b-tab>
-        <b-tab title="Info">I'm the last tab</b-tab>
-      </b-tabs>
-    </b-card>
+    <b-tabs v-model="tabIndex" small>
+      <b-tab title="General">I'm the first fading tab</b-tab>
+      <b-tab title="Edit profile">
+        I'm the second tab
+      </b-tab>
+      <b-tab title="Premium Plan" disabled>Sibzamini!</b-tab>
+      <b-tab title="Info">I'm the last tab</b-tab>
+    </b-tabs>
 
     <!-- Control buttons-->
     <div class="text-center">
@@ -519,30 +379,28 @@ It is recommended to use the `disabled` attribute on the `<b-tab>` component ins
 ```html
 <template>
   <div>
-    <b-card no-body>
-      <b-tabs card>
-        <!-- Render Tabs, supply a unique `key` to each tab -->
-        <b-tab v-for="i in tabs" :key="'dyn-tab-' + i" :title="'Tab ' + i">
-          Tab contents {{ i }}
-          <b-button size="sm" variant="danger" class="float-right" @click="closeTab(i)">
-            Close tab
-          </b-button>
-        </b-tab>
+    <b-tabs>
+      <!-- Render Tabs, supply a unique `key` to each tab -->
+      <b-tab v-for="i in tabs" :key="'dyn-tab-' + i" :title="'Tab ' + i">
+        Tab contents {{ i }}
+        <b-button size="sm" variant="danger" class="float-right" @click="closeTab(i)">
+          Close tab
+        </b-button>
+      </b-tab>
 
-        <!-- New Tab Button (Using tabs-end slot) -->
-        <template #tabs-end>
-          <b-nav-item role="presentation" @click.prevent="newTab" href="#"><b>+</b></b-nav-item>
-        </template>
+      <!-- New Tab Button (Using tabs-end slot) -->
+      <template #tabs-end>
+        <b-nav-item role="presentation" @click.prevent="newTab" href="#"><b>+</b></b-nav-item>
+      </template>
 
-        <!-- Render this if no tabs -->
-        <template #empty>
-          <div class="text-center text-muted">
-            There are no open tabs<br>
-            Open a new tab using the <b>+</b> button above.
-          </div>
-        </template>
-      </b-tabs>
-    </b-card>
+      <!-- Render this if no tabs -->
+      <template #empty>
+        <div class="text-center text-muted">
+          There are no open tabs<br>
+          Open a new tab using the <b>+</b> button above.
+        </div>
+      </template>
+    </b-tabs>
   </div>
 </template>
 
