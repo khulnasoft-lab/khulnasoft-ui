@@ -1,3 +1,15 @@
+# [102.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.0.0...v102.1.0) (2024-11-12)
+
+
+### Bug Fixes
+
+* Add index.js back to the library ([c3e38b1](https://gitlab.com/gitlab-org/gitlab-ui/commit/c3e38b1776794f573bc1175e83c3b870ae5a3787))
+
+
+### Features
+
+* **Bootstrap:** Remove reboot colors on body ([9e76796](https://gitlab.com/gitlab-org/gitlab-ui/commit/9e76796b74d37b39ece81789065b6beca59dd7d4))
+
 # [102.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v101.16.0...v102.0.0) (2024-11-12)
 
 
