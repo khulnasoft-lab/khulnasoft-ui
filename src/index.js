@@ -4,8 +4,6 @@
 // builds. We do this to avoid having the stylesheet included multiple times in Storybook.
 
 // Components
-export { default as GlDuoWorkflowPrompt } from './components/experimental/duo/workflow/components/duo_workflow_prompt/duo_workflow_prompt.vue';
-export { default as GlDuoWorkflowPanel } from './components/experimental/duo/workflow/components/duo_workflow_panel/duo_workflow_panel.vue';
 export { default as GlTableLite } from './components/base/table_lite/table_lite.vue';
 export { default as GlDropdownForm } from './components/base/dropdown/dropdown_form.vue';
 export { default as GlKeysetPagination } from './components/base/keyset_pagination/keyset_pagination.vue';
@@ -106,9 +104,6 @@ export { default as GlAccordionItem } from './components/base/accordion/accordio
 
 // Experimental
 export { default as GlExperimentBadge } from './components/experimental/experiment_badge/experiment_badge.vue';
-export { default as GlDuoUserFeedback } from './components/experimental/duo/user_feedback/user_feedback.vue';
-export { default as GlDuoChat } from './components/experimental/duo/chat/duo_chat.vue';
-export { default as GlDuoChatContextItemMenu } from './components/experimental/duo/chat/components/duo_chat_context/duo_chat_context_item_menu/duo_chat_context_item_menu.vue';
 
 // Utilities
 export { default as GlAnimatedNumber } from './components/utilities/animated_number/animated_number.vue';

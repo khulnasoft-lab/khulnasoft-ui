@@ -16,12 +16,6 @@ module.exports = {
             message:
               'Import components and directives directly rather than via the top-level barrel file.',
           },
-          {
-            group: ['**/markdown_renderer'],
-            importNames: ['renderDuoChatMarkdownPreview'],
-            message:
-              'Importing `renderDuoChatMarkdownPreview` outside of the Duo chat components is a no-go. If you want other components to be able to render markdown, please open an issue.\n',
-          },
         ],
         paths: [
           {
@@ -35,11 +29,6 @@ module.exports = {
           {
             name: 'lodash/isFinite',
             message: 'Prefer native Number.isFinite method.',
-          },
-          {
-            name: 'marked',
-            message:
-              'Importing `marked` outside of the Duo chat components is a no-go. If you want other components to be able to render markdown, please open an issue.\n',
           },
         ],
       },
