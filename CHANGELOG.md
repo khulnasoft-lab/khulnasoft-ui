@@ -1,3 +1,10 @@
+## [102.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.2...v102.1.3) (2024-11-13)
+
+
+### Bug Fixes
+
+* **GlAlert:** remove link color override ([21c2930](https://gitlab.com/gitlab-org/gitlab-ui/commit/21c2930dea63c5aca4d34edc59c761c2a5a2ff23))
+
 ## [102.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.1...v102.1.2) (2024-11-13)
 
 
