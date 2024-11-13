@@ -5,7 +5,7 @@
         "default": {
           "$value": {
             "default": "{color.neutral.100}",
-            "dark": "{color.neutral.800}"
+            "dark": "{color.neutral.600}"
           },
           "$type": "color",
           "$description": "Used for the static track (background) of a loading spinner."
@@ -22,7 +22,7 @@
         "default": {
           "$value": {
             "default": "{color.neutral.700}",
-            "dark": "{color.neutral.200}"
+            "dark": "{color.neutral.100}"
           },
           "$type": "color",
           "$description": "Used for the animated segment of a loading spinner."

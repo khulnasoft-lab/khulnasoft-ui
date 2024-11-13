@@ -692,9 +692,9 @@ $gl-link-mention-background-color-current: $gl-color-orange-800; // Used for the
 $gl-progress-bar-track-color: $gl-color-neutral-700; // Used for the track color for all progress-bar variants.
 $gl-skeleton-loader-background-color: $gl-color-neutral-800; // Used for the skeleton loader background color.
 $gl-skeleton-loader-shimmer-color: $gl-color-neutral-700; // Used for the animated shimmer effect in a skeleton loader.
-$gl-spinner-track-color-default: $gl-color-neutral-800; // Used for the static track (background) of a loading spinner.
+$gl-spinner-track-color-default: $gl-color-neutral-600; // Used for the static track (background) of a loading spinner.
 $gl-spinner-track-color-light: $gl-color-neutral-800; // Used for the static track (background) of a loading spinner on a dark background.
-$gl-spinner-segment-color-default: $gl-color-neutral-200; // Used for the animated segment of a loading spinner.
+$gl-spinner-segment-color-default: $gl-color-neutral-100; // Used for the animated segment of a loading spinner.
 $gl-spinner-segment-color-light: $gl-color-neutral-200; // Used for the animated segment of a loading spinner on a dark background.
 $gl-tab-selected-indicator-color-default: $gl-color-blue-400; // Used for the selected indicator of a tab.
 $gl-token-selector-token-container-token-background-color-focus: $gl-color-neutral-600; // Used for the background color of a token in a token-selector when it's token-container is in the focus state.

@@ -694,9 +694,9 @@
   --gl-progress-bar-track-color: var(--gl-color-neutral-700); /* Used for the track color for all progress-bar variants. */
   --gl-skeleton-loader-background-color: var(--gl-color-neutral-800); /* Used for the skeleton loader background color. */
   --gl-skeleton-loader-shimmer-color: var(--gl-color-neutral-700); /* Used for the animated shimmer effect in a skeleton loader. */
-  --gl-spinner-track-color-default: var(--gl-color-neutral-800); /* Used for the static track (background) of a loading spinner. */
+  --gl-spinner-track-color-default: var(--gl-color-neutral-600); /* Used for the static track (background) of a loading spinner. */
   --gl-spinner-track-color-light: var(--gl-color-neutral-800); /* Used for the static track (background) of a loading spinner on a dark background. */
-  --gl-spinner-segment-color-default: var(--gl-color-neutral-200); /* Used for the animated segment of a loading spinner. */
+  --gl-spinner-segment-color-default: var(--gl-color-neutral-100); /* Used for the animated segment of a loading spinner. */
   --gl-spinner-segment-color-light: var(--gl-color-neutral-200); /* Used for the animated segment of a loading spinner on a dark background. */
   --gl-tab-selected-indicator-color-default: var(--gl-color-blue-400); /* Used for the selected indicator of a tab. */
   --gl-token-selector-token-container-token-background-color-focus: var(--gl-color-neutral-600); /* Used for the background color of a token in a token-selector when it's token-container is in the focus state. */
