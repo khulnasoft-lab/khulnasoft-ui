@@ -148,7 +148,11 @@ export default {
           {{ title }}
         </h1>
       </slot>
-      <p v-if="description || $scopedSlots.description" ref="description" class="gl-mb-0 gl-mt-4">
+      <p
+        v-if="description || $scopedSlots.description"
+        ref="description"
+        class="gl-mb-0 gl-mt-4 gl-text-subtle"
+      >
         <!--
           @slot Use this slot to customize the empty state's description
           area. Overrides the `description` prop.
