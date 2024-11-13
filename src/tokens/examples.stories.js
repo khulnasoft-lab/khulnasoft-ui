@@ -36,6 +36,22 @@ export const Section = () => ({
   `,
 });
 
+export const Shadows = () => ({
+  template: `
+    <div class="gl-grid md:gl-grid-cols-3 gl-gap-5 gl-text-base">
+      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-default gl-shadow-sm">
+        sm
+      </div>
+      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-default gl-shadow-md">
+        md
+      </div>
+      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-default gl-shadow-lg">
+        lg
+      </div>
+    </div>
+  `,
+});
+
 export default {
   title: 'tokens/examples',
   component: '',
