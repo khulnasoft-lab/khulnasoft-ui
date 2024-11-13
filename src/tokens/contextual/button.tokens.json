@@ -710,7 +710,10 @@
       "border": {
         "color": {
           "default": {
-            "$value": "{border.color.strong}",
+            "$value": {
+              "default": "{color.neutral.400}",
+              "dark": "{color.neutral.400}"
+            },
             "$type": "color",
             "$description": "Used for the border of a dashed button in the default state."
           },

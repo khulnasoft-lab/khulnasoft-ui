@@ -459,7 +459,7 @@ $gl-background-color-section: $gl-color-neutral-0; // Used for containers, like 
 $gl-background-color-overlay: $gl-color-alpha-dark-24; // Used for an overlay that covers other content.
 $gl-border-color-default: $gl-color-neutral-100; // Used for the default border color.
 $gl-border-color-subtle: $gl-color-neutral-50; // Used for a subtle border in combination with the default background.
-$gl-border-color-strong: $gl-color-neutral-400; // Used for a distinct border that emphasizes an edge or boundaries.
+$gl-border-color-strong: $gl-color-neutral-200; // Used for a distinct border that emphasizes an edge or boundaries.
 $gl-border-color-transparent: $gl-color-alpha-0; // Used when a border needs to be present, but not visibly perceived.
 $gl-alert-neutral-border-top-color: $gl-color-alpha-0; // Used for the border center color of a neutral alert.
 $gl-alert-neutral-border-bottom-color: $gl-color-alpha-0; // Used for the border bottom color of a neutral alert.
@@ -652,6 +652,7 @@ $gl-button-danger-secondary-border-color-active: $gl-color-red-900; // Used for 
 $gl-button-danger-tertiary-background-color-default: $gl-action-danger-background-color-default; // Used for the background of a borderless, tertiary danger (destructive) button in the default state.
 $gl-button-danger-tertiary-background-color-hover: $gl-action-danger-background-color-hover; // Used for the background of a borderless, tertiary danger (destructive) button in the hover state.
 $gl-button-danger-tertiary-background-color-active: $gl-action-danger-background-color-active; // Used for the background of a borderless, tertiary danger (destructive) button in the active state.
+$gl-button-dashed-border-color-default: $gl-color-neutral-400; // Used for the border of a dashed button in the default state.
 $gl-button-dashed-border-color-active: $gl-color-neutral-600; // Used for the border of a dashed button in the active state.
 $gl-button-selected-border-color-default: $gl-color-neutral-300; // Used for the border of a selected button in the default state.
 $gl-button-selected-border-color-hover: $gl-color-neutral-400; // Used for the border of a selected button in the hover state.
@@ -863,7 +864,8 @@ $gl-button-danger-tertiary-foreground-color-hover: $gl-action-danger-foreground-
 $gl-button-danger-tertiary-foreground-color-active: $gl-action-danger-foreground-color-active; // Used for the foreground of a borderless, tertiary danger (destructive) button in the active state.
 $gl-button-danger-tertiary-background-color-focus: $gl-action-danger-background-color-focus; // Used for the background of a borderless, tertiary danger (destructive) button in the focus state.
 $gl-button-danger-tertiary-border-color-default: $gl-action-danger-border-color-default; // Used for the border of a borderless, tertiary danger (destructive) button in the default state.
-$gl-button-dashed-border-color-default: $gl-border-color-strong; // Used for the border of a dashed button in the default state.
+$gl-button-dashed-border-color-hover: $gl-button-dashed-border-color-default; // Used for the border of a dashed button in the hover state.
+$gl-button-dashed-border-color-focus: $gl-button-dashed-border-color-default; // Used for the border of a dashed button in the focus state.
 $gl-button-link-text-color-default: $gl-text-color-link; // Used for the text of a link button in the default state.
 $gl-button-selected-foreground-color-default: $gl-button-default-primary-foreground-color-default; // Used for the foreground of a selected button in the default state.
 $gl-button-selected-background-color-default: $gl-button-default-primary-background-color-default; // Used for the background of a selected button in the default state.
@@ -927,8 +929,6 @@ $gl-button-danger-tertiary-foreground-color-focus: $gl-action-danger-foreground-
 $gl-button-danger-tertiary-border-color-hover: $gl-action-danger-border-color-hover; // Used for the border of a borderless, tertiary danger (destructive) button in the hover state.
 $gl-button-danger-tertiary-border-color-focus: $gl-action-danger-border-color-focus; // Used for the border of a borderless, tertiary danger (destructive) button in the focus state.
 $gl-button-danger-tertiary-border-color-active: $gl-action-danger-border-color-active; // Used for the border of a borderless, tertiary danger (destructive) button in the active state.
-$gl-button-dashed-border-color-hover: $gl-button-dashed-border-color-default; // Used for the border of a dashed button in the hover state.
-$gl-button-dashed-border-color-focus: $gl-button-dashed-border-color-default; // Used for the border of a dashed button in the focus state.
 $gl-button-link-text-color-hover: $gl-button-link-text-color-default; // Used for the text of a link button in the hover state.
 $gl-button-link-text-color-focus: $gl-button-link-text-color-default; // Used for the text of a link button in the focus state.
 $gl-button-link-text-color-active: $gl-button-link-text-color-default; // Used for the text of a link button in the active state.

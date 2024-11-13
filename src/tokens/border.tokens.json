@@ -4,7 +4,7 @@
       "default": {
         "$value": {
           "default": "{color.neutral.100}",
-          "dark": "{color.neutral.800}"
+          "dark": "{color.neutral.700}"
         },
         "$type": "color",
         "$description": "Used for the default border color."
@@ -19,8 +19,8 @@
       },
       "strong": {
         "$value": {
-          "default": "{color.neutral.400}",
-          "dark": "{color.neutral.400}"
+          "default": "{color.neutral.200}",
+          "dark": "{color.neutral.600}"
         },
         "$type": "color",
         "$description": "Used for a distinct border that emphasizes an edge or boundaries."
