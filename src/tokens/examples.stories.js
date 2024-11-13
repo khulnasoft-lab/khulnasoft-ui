@@ -38,14 +38,14 @@ export const Section = () => ({
 
 export const Shadows = () => ({
   template: `
-    <div class="gl-grid md:gl-grid-cols-3 gl-gap-5 gl-text-base">
-      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-default gl-shadow-sm">
+    <div class="gl-grid md:gl-grid-cols-3 gl-gap-5 gl-text-base gl-p-8 gl-bg-subtle">
+      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-overlap gl-shadow-sm">
         sm
       </div>
-      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-default gl-shadow-md">
+      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-overlap gl-shadow-md">
         md
       </div>
-      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-default gl-shadow-lg">
+      <div class="gl-grid gl-place-items-center gl-p-5 gl-rounded-lg gl-bg-overlap gl-shadow-lg">
         lg
       </div>
     </div>
