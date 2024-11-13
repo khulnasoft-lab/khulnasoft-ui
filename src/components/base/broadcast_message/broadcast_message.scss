@@ -101,8 +101,8 @@ $gl-broadcast-message-padding-x: var(--gl-broadcast-message-padding-x, 0px);
   &.notification {
     @apply gl-rounded-base;
     @apply gl-border;
-    @apply gl-shadow-x0-y2-b4-s0;
-    background-color: var(--gl-background-color-default);
+    @apply gl-shadow-md;
+    background-color: var(--gl-background-color-overlap);
     color: var(--gl-text-color-default);
     max-width: $gl-broadcast-message-notification-max-width;
   }
