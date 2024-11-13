@@ -53,9 +53,9 @@ function addCustomDefinitions({ addComponents, addUtilities }) {
       'max-width': '32rem',
       'background-size': '32rem 100%',
       'background-position': '-32rem 0',
-      'background-color': 'var(--gray-100, #dcdcde)',
+      'background-color': 'var(--gl-skeleton-loader-background-color)',
       'background-image':
-        'linear-gradient(to right, var(--gray-100, #dcdcde) 0, var(--gray-50, #ececef) 23%, var(--gray-50, #ececef) 27%, var(--gray-100, #dcdcde) 50%)',
+        'linear-gradient(to right, var(--gl-skeleton-loader-background-color) 0, var(--gl-skeleton-loader-shimmer-color) 23%, var(--gl-skeleton-loader-shimmer-color) 27%, var(--gl-skeleton-loader-background-color) 50%)',
       'background-repeat': 'no-repeat',
       '@media (prefers-reduced-motion: no-preference)': {
         animation: 'gl-keyframes-skeleton-loader 2.5s linear',
