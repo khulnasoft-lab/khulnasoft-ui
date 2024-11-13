@@ -13,10 +13,17 @@ describe('GlSkeletonLoader', () => {
     });
   }
 
+  function checkA11YWithCSSBasedAnimation() {
+    cy.visitStory('base/skeleton-loader', {
+      story: 'css-based-skeleton-loader',
+    });
+  }
+
   it('passes axe accessibility audits', { tags: '@a11y' }, () => {
     cy.glRunA11yTests({
       checkA11YDefaultState,
       checkA11YWithCustomShapes,
+      checkA11YWithCSSBasedAnimation,
     });
   });
 });

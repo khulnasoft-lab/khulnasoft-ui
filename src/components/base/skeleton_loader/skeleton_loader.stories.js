@@ -73,6 +73,16 @@ Object.assign(WithCustomShapes, {
   decorators: [makeContainer({ width: '250px' })],
 });
 
+export const CSSBasedSkeletonLoader = () => ({
+  template: `
+    <div>
+      <div class="gl-animate-skeleton-loader gl-h-4 gl-rounded-base gl-my-3 !gl-max-w-20"></div>
+      <div class="gl-animate-skeleton-loader gl-h-4 gl-rounded-base gl-my-3 !gl-max-w-30"></div>
+      <div class="gl-animate-skeleton-loader gl-h-4 gl-rounded-base gl-my-3 !gl-max-w-26"></div>
+    </div>
+  `,
+});
+
 export default {
   title: 'base/skeleton-loader',
   component: GlSkeletonLoader,
