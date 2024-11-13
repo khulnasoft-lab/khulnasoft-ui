@@ -1,3 +1,10 @@
+## [102.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.1...v102.1.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* **GlAvatarLink:** remove hover underline color overrides ([6f5918a](https://gitlab.com/gitlab-org/gitlab-ui/commit/6f5918abf45c205f828a874510a12491f2e9883e))
+
 ## [102.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.0...v102.1.1) (2024-11-13)
 
 
