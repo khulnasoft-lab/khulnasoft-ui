@@ -1,3 +1,10 @@
+## [102.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.0...v102.1.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* **GlSkeletonLoader:** add missing keyframes instruction ([b7cd4f5](https://gitlab.com/gitlab-org/gitlab-ui/commit/b7cd4f55e0cabc8dd32f02483a919c837fbacf78))
+
 # [102.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.0.0...v102.1.0) (2024-11-12)
 
 
