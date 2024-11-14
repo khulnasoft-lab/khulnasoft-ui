@@ -1,3 +1,10 @@
+## [102.1.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.4...v102.1.5) (2024-11-14)
+
+
+### Bug Fixes
+
+* **GlBroadcastMessage:** use ds shadow and overlap background ([0ffc7c9](https://gitlab.com/gitlab-org/gitlab-ui/commit/0ffc7c9ecb2fd1fa60d557548062dceb10e6a0e1))
+
 ## [102.1.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.3...v102.1.4) (2024-11-14)
 
 
