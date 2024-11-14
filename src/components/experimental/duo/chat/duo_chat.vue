@@ -357,6 +357,11 @@ export default {
         this.scrollToBottom();
       }
     },
+    shouldShowSlashCommands(shouldShow) {
+      if (shouldShow) {
+        this.onShowSlashCommands();
+      }
+    },
   },
   created() {
     this.handleScrollingTrottled = throttle(this.handleScrolling, 200); // Assume a 200ms throttle for example
@@ -440,6 +445,12 @@ export default {
        * @param {*} event An event, containing the feedback choices and the extended feedback text.
        */
       this.$emit('track-feedback', event);
+    },
+    onShowSlashCommands() {
+      /**
+       * Emitted when user opens the slash commands menu
+       */
+      this.$emit('chat-slash');
     },
     sendChatPromptOnEnter(e) {
       const { metaKey, ctrlKey, altKey, shiftKey, isComposing } = e;

@@ -1010,12 +1010,20 @@ describe('GlDuoChat', () => {
           expect(findSlashCommandsCard().exists()).toBe(false);
         });
 
-        it('does not render slash commands when prompt is "/"', async () => {
-          createComponent();
-          setPromptInput('/');
+        describe('when prompt is "/"', () => {
+          beforeEach(async () => {
+            createComponent();
+            setPromptInput('/');
+            await nextTick();
+          });
 
-          await nextTick();
-          expect(findSlashCommandsCard().exists()).toBe(false);
+          it('does not render slash', () => {
+            expect(findSlashCommandsCard().exists()).toBe(false);
+          });
+
+          it('does not emit chat-slash', () => {
+            expect(wrapper.emitted('chat-slash')).toBeUndefined();
+          });
         });
       });
 
@@ -1029,24 +1037,6 @@ describe('GlDuoChat', () => {
 
           await nextTick();
           expect(findSlashCommandsCard().exists()).toBe(false);
-        });
-
-        it('renders all slash commands when prompt is "/"', async () => {
-          createComponent({
-            propsData: {
-              slashCommands,
-            },
-          });
-          setPromptInput('/');
-
-          await nextTick();
-          expect(findSlashCommandsCard().exists()).toBe(true);
-          expect(findSlashCommands()).toHaveLength(slashCommands.length);
-
-          slashCommands.forEach((command, index) => {
-            expect(findSlashCommands().at(index).text()).toContain(command.name);
-            expect(findSlashCommands().at(index).text()).toContain(command.description);
-          });
         });
 
         it('prevents passing down invalid slash commands', () => {
@@ -1075,20 +1065,28 @@ describe('GlDuoChat', () => {
         });
 
         describe('when the prompt includes the "/" character or no characters', () => {
-          it.each(['', '//', '\\', 'foo', '/foo'])(
-            'does not render the slash commands if prompt is "$prompt"',
-            async (prompt) => {
-              createComponent({
-                propsData: {
-                  slashCommands,
-                },
-              });
-              setPromptInput(prompt);
+          beforeEach(() => {
+            createComponent({
+              propsData: {
+                slashCommands,
+              },
+            });
+          });
 
+          describe.each(['', '//', '\\', 'foo', '/foo'])('when prompt is "%s"', (prompt) => {
+            beforeEach(async () => {
+              setPromptInput(prompt);
               await nextTick();
+            });
+
+            it('does not emit a chat-slash event', () => {
+              expect(wrapper.emitted('chat-slash')).toBeUndefined();
+            });
+
+            it('does not render the slash commands', () => {
               expect(findSlashCommandsCard().exists()).toBe(false);
-            }
-          );
+            });
+          });
         });
 
         describe('when prompt presents a partial match to an existing slash command', () => {
@@ -1123,6 +1121,32 @@ describe('GlDuoChat', () => {
               expect(findSlashCommandsCard().exists()).toBe(false);
             }
           );
+        });
+      });
+
+      describe('with slash commands and prompt "/"', () => {
+        beforeEach(async () => {
+          createComponent({
+            propsData: {
+              slashCommands,
+            },
+          });
+          setPromptInput('/');
+          await nextTick();
+        });
+
+        it('renders all slash commands', () => {
+          expect(findSlashCommandsCard().exists()).toBe(true);
+          expect(findSlashCommands()).toHaveLength(slashCommands.length);
+
+          slashCommands.forEach((command, index) => {
+            expect(findSlashCommands().at(index).text()).toContain(command.name);
+            expect(findSlashCommands().at(index).text()).toContain(command.description);
+          });
+        });
+
+        it('emits slash event', () => {
+          expect(wrapper.emitted('chat-slash')).toHaveLength(1);
         });
       });
     });

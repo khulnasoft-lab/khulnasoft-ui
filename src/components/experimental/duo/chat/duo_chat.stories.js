@@ -151,6 +151,9 @@ export const Interactive = (args, { argTypes }) => ({
       this.requestId += 1;
       this.promptInFlight = false;
     },
+    onChatSlash() {
+      this.loggerInfo += `Slash command menu opened\n\n`;
+    },
     showChat() {
       this.isHidden = false;
       this.loggerInfo += `Chat opened\n\n`;
@@ -278,6 +281,7 @@ export const Interactive = (args, { argTypes }) => ({
       @send-chat-prompt="onSendChatPrompt"
       @chat-hidden="onChatHidden"
       @chat-cancel="onChatCancel"
+      @chat-slash="onChatSlash"
       @insert-code-snippet="onInsertCodeSnippet"
       @get-context-item-content="handleGetContextItemContent"
     >
