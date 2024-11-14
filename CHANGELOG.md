@@ -1,3 +1,10 @@
+## [102.1.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.3...v102.1.4) (2024-11-14)
+
+
+### Bug Fixes
+
+* **GlSkeletonLoader:** tailwind use design tokens ([5192f87](https://gitlab.com/gitlab-org/gitlab-ui/commit/5192f87550e3d15ecec5cbc2f131e74a8418d595))
+
 ## [102.1.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.2...v102.1.3) (2024-11-13)
 
 
