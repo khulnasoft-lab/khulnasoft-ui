@@ -140,5 +140,10 @@ export default {
         </template>
       </div>
     </template>
+    <template #empty="scope">
+      <slot name="empty" v-bind="scope">
+        <p class="gl-mb-0 gl-py-2 gl-text-subtle">{{ scope.emptyText }}</p>
+      </slot>
+    </template>
   </b-table>
 </template>
