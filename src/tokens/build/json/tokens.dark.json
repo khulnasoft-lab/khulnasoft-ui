@@ -21083,7 +21083,7 @@
   "shadow": {
     "color": {
       "default": {
-        "$value": "rgba(05, 05, 06, 0.24)",
+        "$value": "rgba(05, 05, 06, 0.4)",
         "$type": "color",
         "$description": "Used for the default shadow color.",
         "filePath": "src/tokens/shadow.tokens.json",
@@ -21091,7 +21091,7 @@
         "original": {
           "$value": {
             "default": "{color.alpha.dark.16}",
-            "dark": "{color.alpha.dark.24}"
+            "dark": "{color.alpha.dark.40}"
           },
           "$type": "color",
           "$description": "Used for the default shadow color."
