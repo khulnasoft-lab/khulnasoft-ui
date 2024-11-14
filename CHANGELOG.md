@@ -1,3 +1,17 @@
+# [102.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.2.0...v102.3.0) (2024-11-14)
+
+
+### Bug Fixes
+
+* tailwind sm shadow ([293b3a1](https://gitlab.com/gitlab-org/gitlab-ui/commit/293b3a1118adaef76365811d50a465420793b128))
+
+
+### Features
+
+* **LoadingIcon:** Update spinner contrast ([ac31224](https://gitlab.com/gitlab-org/gitlab-ui/commit/ac31224347712fe61bf7c7a49801d3801bd6ce00))
+* **Shadows:** Darken dark shadows ([6655110](https://gitlab.com/gitlab-org/gitlab-ui/commit/6655110938fa5f2e3e4cdd68184f05c17f7e3f9b))
+* **Shadows:** Darken dark shadows ([5a38d0c](https://gitlab.com/gitlab-org/gitlab-ui/commit/5a38d0c822986ec75fbbbb9f48928c58e2f7390d))
+
 # [102.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.6...v102.2.0) (2024-11-14)
 
 
