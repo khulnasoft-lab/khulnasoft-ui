@@ -1,3 +1,10 @@
+# [102.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.6...v102.2.0) (2024-11-14)
+
+
+### Features
+
+* **DuoChat:** Emit chat-slash event on slash commands opened ([07d8ed6](https://gitlab.com/gitlab-org/gitlab-ui/commit/07d8ed6062ca498bfcf7a2b156dcae6deaf7b08f))
+
 ## [102.1.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.5...v102.1.6) (2024-11-14)
 
 
