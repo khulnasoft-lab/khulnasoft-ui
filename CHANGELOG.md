@@ -1,3 +1,10 @@
+## [102.1.6](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.5...v102.1.6) (2024-11-14)
+
+
+### Bug Fixes
+
+* **GlInfiniteScroll:** legend styles to use design token ([74cef1a](https://gitlab.com/gitlab-org/gitlab-ui/commit/74cef1abb0291992e30dd042101a7d73502bbc60))
+
 ## [102.1.5](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.1.4...v102.1.5) (2024-11-14)
 
 
