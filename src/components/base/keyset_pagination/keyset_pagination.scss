@@ -1,9 +1,8 @@
-.gl-keyset-pagination {
+.gl-keyset-pagination.btn-group {
   // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1487
   // for the reasoning behind the double .gl-button.gl-button
   .gl-button.gl-button {
-    .gl-icon {
-      @apply gl-m-0;
-    }
+    @apply gl-px-3;
+    @apply gl-rounded-base;
   }
 }
