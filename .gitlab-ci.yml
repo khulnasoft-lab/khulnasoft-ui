@@ -17,7 +17,6 @@ variables:
   GITLAB_ADVANCED_SAST_ENABLED: 'true'
 
 include:
-  - template: Jobs/Code-Quality.gitlab-ci.yml
   - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
   - template: Jobs/SAST.latest.gitlab-ci.yml
   - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
@@ -34,16 +33,6 @@ include:
 # from forks when a GitLab UI team member triggered a pipeline
 .is-gitlab-ui-mr: &is-gitlab-ui-mr
   if: '$CI_MERGE_REQUEST_IID && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"'
-
-
-code_quality:
-  needs: []
-  # Code quality scanning doesn't work otherwise on MR pipelines
-  rules:
-    - when: always
-  # It's running docker-in-docker, so we want to set the correct tag
-  tags:
-    - gitlab-org-docker
 
 # Execute the security scanners immediately
 gemnasium-dependency_scanning:
