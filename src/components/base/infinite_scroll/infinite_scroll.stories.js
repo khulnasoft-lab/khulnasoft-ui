@@ -14,7 +14,7 @@ const template = `
     >
     <template #items>
       <ul class="list-group list-group-flushed list-unstyled">
-        <li v-for="item in localFetchedItems" :key="item" class="list-group-item">Item #{{ item }}</li>
+        <li v-for="item in localFetchedItems" :key="item" class="list-group-item gl-bg-default gl-border-default">Item #{{ item }}</li>
       </ul>
     </template>
 
