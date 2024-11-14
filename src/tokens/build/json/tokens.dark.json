@@ -3387,12 +3387,12 @@
         ]
       },
       "300": {
-        "$value": "#f57f6c",
+        "$value": "#f6806d",
         "$type": "color",
         "filePath": "src/tokens/color.constant.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#f57f6c",
+          "$value": "#f6806d",
           "$type": "color"
         },
         "name": "COLOR_RED_300",
@@ -6769,7 +6769,7 @@
     "danger": {
       "title": {
         "color": {
-          "$value": "#f57f6c",
+          "$value": "#f6806d",
           "$type": "color",
           "$description": "Used for the title color of a danger alert.",
           "filePath": "src/tokens/contextual/alert.tokens.json",
@@ -9112,7 +9112,7 @@
       "background": {
         "color": {
           "default": {
-            "$value": "#f57f6c",
+            "$value": "#f6806d",
             "$type": "color",
             "$description": "Used for the background of a danger badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -9136,7 +9136,7 @@
             ]
           },
           "hover": {
-            "$value": "#f57f6c",
+            "$value": "#f6806d",
             "$type": "color",
             "$description": "Used for the background of a danger badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -9157,7 +9157,7 @@
             ]
           },
           "focus": {
-            "$value": "#f57f6c",
+            "$value": "#f6806d",
             "$type": "color",
             "$description": "Used for the background of a danger badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -12390,7 +12390,7 @@
         "background": {
           "color": {
             "default": {
-              "$value": "#f57f6c",
+              "$value": "#f6806d",
               "$type": "color",
               "$description": "Used for the background of a danger (destructive) primary button in the default state.",
               "filePath": "src/tokens/contextual/button.tokens.json",
@@ -15709,7 +15709,7 @@
           ]
         },
         "error": {
-          "$value": "#f57f6c",
+          "$value": "#f6806d",
           "$type": "color",
           "$description": "Used for invalid form control (input, textarea) border.",
           "filePath": "src/tokens/control.tokens.json",
@@ -15810,7 +15810,7 @@
     "text": {
       "color": {
         "error": {
-          "$value": "#f57f6c",
+          "$value": "#f6806d",
           "$type": "color",
           "$description": "Used for the helper text when the input is invalid.",
           "filePath": "src/tokens/control.tokens.json",
@@ -20594,7 +20594,7 @@
       },
       "icon": {
         "color": {
-          "$value": "#f57f6c",
+          "$value": "#f6806d",
           "$type": "color",
           "$description": "Used for the icon of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention.",
           "filePath": "src/tokens/feedback.tokens.json",
@@ -20823,7 +20823,7 @@
         ]
       },
       "danger": {
-        "$value": "#f57f6c",
+        "$value": "#f6806d",
         "$type": "color",
         "$description": "Used for an icon associated with an error or danger.",
         "filePath": "src/tokens/icon.tokens.json",
@@ -21774,7 +21774,7 @@
         ]
       },
       "danger": {
-        "$value": "#f57f6c",
+        "$value": "#f6806d",
         "$type": "color",
         "$description": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination.",
         "filePath": "src/tokens/text.tokens.json",
