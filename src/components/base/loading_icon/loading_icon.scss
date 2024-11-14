@@ -71,7 +71,7 @@ $gl-loader-dots-size-xl: 1rem;
 
   &.gl-spinner-light {
     // This is the variant we use on backgrounds that are dark even in light mode.
-    // This varient doesn't change its colors for dark mode.
+    // This variant doesn't change its colors for dark mode.
     border-color: var(--gl-spinner-track-color-light);
     border-top-color: var(--gl-spinner-segment-color-light);
   }
