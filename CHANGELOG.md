@@ -1,3 +1,10 @@
+# [102.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.3.0...v102.4.0) (2024-11-15)
+
+
+### Features
+
+* **Borders:** Update border tokens ([6fa4405](https://gitlab.com/gitlab-org/gitlab-ui/commit/6fa440591be9fc79a0547267e43c02daaa6753d8))
+
 # [102.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.2.0...v102.3.0) (2024-11-14)
 
 
