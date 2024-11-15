@@ -1,3 +1,10 @@
+# [102.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.4.1...v102.5.0) (2024-11-15)
+
+
+### Features
+
+* **GlKeysetPagination:** buttons match pagination styles ([874fe3f](https://gitlab.com/gitlab-org/gitlab-ui/commit/874fe3f0b8241de06fc2e63371e996a63b5be1f8))
+
 ## [102.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.4.0...v102.4.1) (2024-11-15)
 
 
