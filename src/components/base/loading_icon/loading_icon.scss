@@ -41,11 +41,7 @@ $gl-loader-dots-size-xl: 1rem;
   @apply gl-mx-auto;
   @apply gl-my-0;
   @apply gl-text-base;
-
-  animation-name: gl-spinner-rotate;
-  animation-duration: 0.6s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  @apply gl-animate-spin;
 
   // default size
   @include gl-tmp-spinner-size($gl-spacing-scale-5, $gl-border-size-2);
