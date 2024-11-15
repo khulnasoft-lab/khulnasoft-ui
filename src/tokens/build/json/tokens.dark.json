@@ -1954,7 +1954,7 @@
   "border": {
     "color": {
       "default": {
-        "$value": "#3a383f",
+        "$value": "#4c4b51",
         "$type": "color",
         "$description": "Used for the default border color.",
         "filePath": "src/tokens/border.tokens.json",
@@ -1962,7 +1962,7 @@
         "original": {
           "$value": {
             "default": "{color.neutral.100}",
-            "dark": "{color.neutral.800}"
+            "dark": "{color.neutral.700}"
           },
           "$type": "color",
           "$description": "Used for the default border color."
@@ -1998,15 +1998,15 @@
         ]
       },
       "strong": {
-        "$value": "#89888d",
+        "$value": "#626168",
         "$type": "color",
         "$description": "Used for a distinct border that emphasizes an edge or boundaries.",
         "filePath": "src/tokens/border.tokens.json",
         "isSource": true,
         "original": {
           "$value": {
-            "default": "{color.neutral.400}",
-            "dark": "{color.neutral.400}"
+            "default": "{color.neutral.200}",
+            "dark": "{color.neutral.600}"
           },
           "$type": "color",
           "$description": "Used for a distinct border that emphasizes an edge or boundaries."
@@ -13184,7 +13184,10 @@
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{border.color.strong}",
+              "$value": {
+                "default": "{color.neutral.400}",
+                "dark": "{color.neutral.400}"
+              },
               "$type": "color",
               "$description": "Used for the border of a dashed button in the default state."
             },

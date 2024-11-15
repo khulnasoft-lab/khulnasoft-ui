@@ -226,7 +226,7 @@ const backgroundColors = {
 const borderColors = {
   default: 'var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
   subtle: 'var(--gl-border-color-subtle, var(--gl-color-neutral-50, #ececef))',
-  strong: 'var(--gl-border-color-strong, var(--gl-color-neutral-400, #89888d))',
+  strong: 'var(--gl-border-color-strong, var(--gl-color-neutral-200, #bfbfc3))',
   section: 'var(--gl-border-color-section, var(--gl-border-color-default, #dcdcde))',
   transparent: 'var(--gl-border-color-transparent, var(--gl-color-alpha-0, transparent))',
 };
