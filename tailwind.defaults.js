@@ -432,7 +432,7 @@ module.exports = {
   plugins: [plugin(addCustomDefinitions)],
   theme: {
     animation: {
-      spin: 'spin 2s infinite linear',
+      spin: 'spin 0.6s infinite linear',
     },
     backgroundColor,
     borderColor,
