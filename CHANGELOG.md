@@ -1,3 +1,10 @@
+## [102.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.4.0...v102.4.1) (2024-11-15)
+
+
+### Bug Fixes
+
+* **GlLoadingSpinner:** restore spin CSS animation ([fb62ce8](https://gitlab.com/gitlab-org/gitlab-ui/commit/fb62ce817aa27d7502e90d214a641a3bc78656a3))
+
 # [102.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.3.0...v102.4.0) (2024-11-15)
 
 
