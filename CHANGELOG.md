@@ -1,3 +1,18 @@
+# [103.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.5.0...v103.0.0) (2024-11-17)
+
+
+### Features
+
+* **Tailwind:** remove ring Tailwind classes and adjust outline colors ([1d88666](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d8866682337dfb1ba4fda3c2730656ec830d22a))
+
+
+### BREAKING CHANGES
+
+* **Tailwind:** We have a custom `gl-focus` class so removing ring
+classes to avoid confusion.
+Also we should only allow outline color to be
+--gl-focus-ring-outer-color for consistency.
+
 # [102.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.4.1...v102.5.0) (2024-11-15)
 
 
