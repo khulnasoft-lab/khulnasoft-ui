@@ -1,3 +1,12 @@
+# [103.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.0.0...v103.1.0) (2024-11-17)
+
+
+### Features
+
+* **Bootstrap:** Move _reboot color on caption to typography.scss ([660b70b](https://gitlab.com/gitlab-org/gitlab-ui/commit/660b70bf14f5884910baa5372a66c30d8e678e16))
+* **Color:** Update red 300 ([e94bf80](https://gitlab.com/gitlab-org/gitlab-ui/commit/e94bf80ab0c7d7e99fea6b139afa89a171eadb4f))
+* **EmptyState:** Change description to use subtle text ([cb34f91](https://gitlab.com/gitlab-org/gitlab-ui/commit/cb34f91259d9c3b392e157f74c25812b63725777))
+
 # [103.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v102.5.0...v103.0.0) (2024-11-17)
 
 
