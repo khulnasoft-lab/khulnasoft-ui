@@ -311,6 +311,10 @@ const borderColor = {
   dropdown: 'var(--gl-dropdown-border-color, var(--gl-color-neutral-200, #bfbfc3))',
 };
 
+const outlineColor = {
+  focus: 'var(--gl-focus-ring-outer-color, var(--gl-color-blue-500, #1f75cb))',
+};
+
 const fill = {
   ...colors,
   icon: {
@@ -330,6 +334,7 @@ module.exports = {
   colors,
   backgroundColor,
   borderColor,
+  outlineColor,
   textColor,
   fill,
 };

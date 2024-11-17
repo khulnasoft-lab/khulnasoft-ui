@@ -196,6 +196,10 @@ StyleDictionary.registerFormat({
       dropdown: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.dropdown.border.color)}',
     };
 
+    const outlineColor = {
+      focus: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS['focus-ring'].outer.color)}',
+    };
+
     const fill = {
       ...colors,
       icon: {
@@ -215,6 +219,7 @@ StyleDictionary.registerFormat({
       colors,
       backgroundColor,
       borderColor,
+      outlineColor,
       textColor,
       fill,
     }
