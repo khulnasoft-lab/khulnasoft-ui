@@ -29,7 +29,8 @@
   @include gl-prefers-reduced-motion-transition;
   transition: color $gl-transition-duration-medium $gl-easing-out-cubic,
               background-color $gl-transition-duration-medium $gl-easing-out-cubic,
-              border-color $gl-transition-duration-medium $gl-easing-out-cubic;
+              border-color $gl-transition-duration-medium $gl-easing-out-cubic,
+              box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
 
   &:hover {
     @apply gl-no-underline;
