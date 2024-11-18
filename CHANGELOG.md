@@ -1,3 +1,10 @@
+# [103.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.1.0...v103.2.0) (2024-11-18)
+
+
+### Features
+
+* **GlPadination:** use animation for a focus ring ([4fd78d8](https://gitlab.com/gitlab-org/gitlab-ui/commit/4fd78d8e989a494765f57f80700782232b73caa2))
+
 # [103.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.0.0...v103.1.0) (2024-11-17)
 
 
