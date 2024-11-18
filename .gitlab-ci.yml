@@ -204,8 +204,10 @@ lint:
   extends: [.node, .yarn_install]
   needs: []
   stage: test
+  variables:
+    ESLINT_CODE_QUALITY_REPORT: "gl-code-quality-report-eslint.json"
   script:
-    - yarn eslint
+    - yarn eslint --format gitlab
     - yarn prettier
     - yarn stylelint
     - yarn markdownlint
@@ -214,6 +216,9 @@ lint:
       && echo "Vue components should not contain <style tags"
       && exit 1
       || echo "No Vue component contains <style tags"
+  artifacts:
+    reports:
+      codequality: gl-code-quality-report-eslint.json
 
 check_translations_dictionary:
   extends: [.node, '.yarn_install']
