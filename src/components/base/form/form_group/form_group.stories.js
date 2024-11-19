@@ -173,10 +173,7 @@ export const WithFormInputGroup = (_args, { argTypes }) => ({
   components: { ...components, GlFormInputGroup, GlInputGroupText },
   template: wrap(WithFormInputGroupTemplateString),
 });
-WithFormInputGroup.args = generateProps({
-  label: 'Label',
-  description: 'description',
-});
+WithFormInputGroup.args = generateProps();
 
 export const WithValidations = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
