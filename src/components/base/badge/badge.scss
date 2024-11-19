@@ -86,6 +86,7 @@ $badge-min-width: $gl-spacing-scale-3;
   justify-content: center;
   gap: $gl-spacing-scale-2;
   padding: $gl-spacing-scale-1 $badge-padding-horizontal;
+  @include gl-prefers-reduced-motion-transition;
   transition: color $gl-transition-duration-medium $gl-easing-out-cubic,
               background-color $gl-transition-duration-medium $gl-easing-out-cubic,
               border-color $gl-transition-duration-medium $gl-easing-out-cubic,
@@ -93,10 +94,6 @@ $badge-min-width: $gl-spacing-scale-3;
 
   &:has(.gl-truncate, .gl-text-truncate) {
     max-width: 100%;
-  }
-
-  @media (prefers-reduced-motion) {
-    transition-duration: .01ms !important;
   }
 
   @media (forced-colors: active) {
@@ -120,7 +117,7 @@ $badge-min-width: $gl-spacing-scale-3;
 a.gl-badge.disabled {
   cursor: not-allowed;
 }
-  
+
 
 /* Variants */
 
