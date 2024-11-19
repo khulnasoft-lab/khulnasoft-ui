@@ -1,26 +1,31 @@
 import Vue from 'vue';
 
 // Fragment will be available only in Vue.js 3
-const { Fragment, Comment } = Vue;
+const { Fragment, Comment, Text } = Vue;
 
 function callIfNeeded(fnOrResult, args) {
   return fnOrResult instanceof Function ? fnOrResult(args) : fnOrResult;
 }
 
-function isEmpty(vnode) {
+export function isVnodeEmpty(vnode) {
   if (!vnode || (Comment && vnode.type === Comment)) {
+    return true;
+  }
+
+  if (Text && vnode.type === Text && !vnode.children.trim()) {
+    // Vue.js 3 text string is located in the children
     return true;
   }
 
   if (Array.isArray(vnode)) {
     // eslint-disable-next-line unicorn/no-array-callback-reference
-    return vnode.every(isEmpty);
+    return vnode.every(isVnodeEmpty);
   }
 
   if (Fragment && vnode.type === Fragment) {
     // Vue.js 3 fragment, check children
     // eslint-disable-next-line unicorn/no-array-callback-reference
-    return vnode.children.every(isEmpty);
+    return vnode.children.every(isVnodeEmpty);
   }
 
   return false;
@@ -36,5 +41,5 @@ export function isSlotEmpty(vueInstance, slot, slotArgs) {
     : vueInstance.$scopedSlots[slot]?.(slotArgs);
 
   // eslint-disable-next-line unicorn/no-array-callback-reference
-  return isEmpty(slotContent);
+  return isVnodeEmpty(slotContent);
 }
