@@ -1,3 +1,10 @@
+# [103.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.2.0...v103.3.0) (2024-11-19)
+
+
+### Features
+
+* **GlBadge:** migrate to reduce motion mixin ([5430718](https://gitlab.com/gitlab-org/gitlab-ui/commit/5430718ab4b7206c439a55f69b7a59019afc068a))
+
 # [103.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.1.0...v103.2.0) (2024-11-18)
 
 
