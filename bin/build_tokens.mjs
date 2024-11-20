@@ -155,6 +155,19 @@ StyleDictionary.registerFormat({
       'brand-gray': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-gray']),
       'brand-pink': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-pink']),
     };
+    const statusTypes = ['neutral', 'info', 'success', 'warning', 'danger', 'brand'];
+
+    const generateColorObject = (property) =>
+      Object.fromEntries(
+        statusTypes.map((variant) => [
+          `status-${variant}`,
+          f.cssCustomPropertyWithValue(COMPILED_TOKENS.status[variant][property].color),
+        ])
+      );
+
+    const statusBackgroundColors = generateColorObject('background');
+    const statusTextColors = generateColorObject('text');
+    const statusIconColors = generateColorObject('icon');
 
     return `${await fileHeader({ file })}
     const baseColors = ${JSON.stringify(baseColors)};
@@ -167,6 +180,9 @@ StyleDictionary.registerFormat({
     const alphaDarkColors = ${JSON.stringify(alphaDarkColors)};
     const alphaLightColors = ${JSON.stringify(alphaLightColors)};
     const brandColors = ${JSON.stringify(brandColors)};
+    const statusBackgroundColors = ${JSON.stringify(statusBackgroundColors)};
+    const statusTextColors = ${JSON.stringify(statusTextColors)};
+    const statusIconColors = ${JSON.stringify(statusIconColors)};
 
     const colors = {
       inherit: 'inherit',
@@ -187,6 +203,7 @@ StyleDictionary.registerFormat({
     const backgroundColor = {
       ...colors,
       ...backgroundColors,
+      ...statusBackgroundColors,
       dropdown: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.dropdown.background.color)}',
     };
 
@@ -202,6 +219,7 @@ StyleDictionary.registerFormat({
 
     const fill = {
       ...colors,
+      ...statusIconColors,
       icon: {
         ...iconColors,
       },
@@ -210,6 +228,7 @@ StyleDictionary.registerFormat({
     const textColor = {
       ...colors,
       ...textColors,
+      ...statusTextColors,
       primary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.primary)}',
       secondary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.secondary)}',
       tertiary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.tertiary)}',

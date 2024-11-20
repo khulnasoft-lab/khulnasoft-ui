@@ -282,6 +282,32 @@ const brandColors = {
   },
   'brand-pink': { '01g': 'var(--gl-color-brand-pink-01g, #ffb9c9)' },
 };
+const statusBackgroundColors = {
+  'status-neutral':
+    'var(--gl-status-neutral-background-color, var(--gl-color-neutral-100, #dcdcde))',
+  'status-info': 'var(--gl-status-info-background-color, var(--gl-color-blue-100, #cbe2f9))',
+  'status-success': 'var(--gl-status-success-background-color, var(--gl-color-green-100, #c3e6cd))',
+  'status-warning':
+    'var(--gl-status-warning-background-color, var(--gl-color-orange-100, #f5d9a8))',
+  'status-danger': 'var(--gl-status-danger-background-color, var(--gl-color-red-100, #fdd4cd))',
+  'status-brand': 'var(--gl-status-brand-background-color, var(--gl-color-purple-100, #e1d8f9))',
+};
+const statusTextColors = {
+  'status-neutral': 'var(--gl-status-neutral-text-color, var(--gl-color-neutral-700, #4c4b51))',
+  'status-info': 'var(--gl-status-info-text-color, var(--gl-color-blue-700, #0b5cad))',
+  'status-success': 'var(--gl-status-success-text-color, var(--gl-color-green-700, #24663b))',
+  'status-warning': 'var(--gl-status-warning-text-color, var(--gl-color-orange-700, #8f4700))',
+  'status-danger': 'var(--gl-status-danger-text-color, var(--gl-color-red-700, #ae1800))',
+  'status-brand': 'var(--gl-status-brand-text-color, var(--gl-color-purple-700, #5943b6))',
+};
+const statusIconColors = {
+  'status-neutral': 'var(--gl-status-neutral-icon-color, var(--gl-color-neutral-500, #737278))',
+  'status-info': 'var(--gl-status-info-icon-color, var(--gl-color-blue-500, #1f75cb))',
+  'status-success': 'var(--gl-status-success-icon-color, var(--gl-color-green-500, #108548))',
+  'status-warning': 'var(--gl-status-warning-icon-color, var(--gl-color-orange-500, #ab6100))',
+  'status-danger': 'var(--gl-status-danger-icon-color, var(--gl-color-red-500, #dd2b0e))',
+  'status-brand': 'var(--gl-status-brand-icon-color, var(--gl-color-purple-500, #7b58cf))',
+};
 
 const colors = {
   inherit: 'inherit',
@@ -302,6 +328,7 @@ const colors = {
 const backgroundColor = {
   ...colors,
   ...backgroundColors,
+  ...statusBackgroundColors,
   dropdown: 'var(--gl-dropdown-background-color, var(--gl-background-color-overlap, #fff))',
 };
 
@@ -317,6 +344,7 @@ const outlineColor = {
 
 const fill = {
   ...colors,
+  ...statusIconColors,
   icon: {
     ...iconColors,
   },
@@ -325,6 +353,7 @@ const fill = {
 const textColor = {
   ...colors,
   ...textColors,
+  ...statusTextColors,
   primary: 'var(--gl-text-primary, #28272d)',
   secondary: 'var(--gl-text-secondary, #737278)',
   tertiary: 'var(--gl-text-tertiary, #89888d)',
