@@ -131,4 +131,33 @@
       @apply gl-py-3;
     }
   }
+
+  &.gl-new-dropdown-item-danger {
+    .gl-new-dropdown-item-content {
+      color: var(--gl-action-danger-foreground-color-default);
+      background-color: var(--gl-action-danger-background-color-default);
+    }
+
+    &:hover {
+      .gl-new-dropdown-item-content {
+        color: var(--gl-action-danger-foreground-color-hover);
+        background-color: var(--gl-action-danger-background-color-hover);
+      }
+    }
+
+    &:focus {
+      .gl-new-dropdown-item-content {
+        color: var(--gl-action-danger-foreground-color-focus);
+        background-color: var(--gl-action-danger-background-color-focus);
+      }
+    }
+
+    &:active,
+    &:focus:active {
+      .gl-new-dropdown-item-content {
+        color: var(--gl-action-danger-foreground-color-active);
+        background-color: var(--gl-action-danger-background-color-active);
+      }
+    }
+  }
 }

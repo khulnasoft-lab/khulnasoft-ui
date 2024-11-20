@@ -10,11 +10,19 @@
     "border": {
       "color": {
         "$value": {
-          "default": "{color.neutral.200}",
-          "dark": "{color.neutral.700}"
+          "default": "{border.color.strong}",
+          "dark": "{border.color.default}"
         },
         "$type": "color",
         "$description": "Used for the border of a dropdown."
+      }
+    },
+    "divider": {
+      "color": {
+        "$value": {
+          "default": "{border.color.default}",
+          "dark": "{border.color.subtle}"
+        },
       }
     },
     "option": {
@@ -51,34 +59,22 @@
         "color": {
           "selected": {
             "default": {
-              "$value": {
-                "default": "{control.background.color.selected.default}",
-                "dark": "{color.neutral.0}"
-              },
+              "$value": "{control.background.color.selected.default}",
               "$type": "color",
               "$description": "Used for the dropdown selected option indicator in the default state."
             },
             "hover": {
-              "$value": {
-                "default": "{control.background.color.selected.hover}",
-                "dark": "{color.neutral.0}"
-              },
+              "$value": "{control.background.color.selected.hover}",
               "$type": "color",
               "$description": "Used for the dropdown selected option indicator in the hover state."
             },
             "focus": {
-              "$value": {
-                "default": "{control.background.color.selected.focus}",
-                "dark": "{color.neutral.0}"
-              },
+              "$value": "{control.background.color.selected.focus}",
               "$type": "color",
               "$description": "Used for the dropdown selected option indicator in the focus state."
             },
             "active": {
-              "$value": {
-                "default": "{color.blue.700}",
-                "dark": "{color.neutral.100}"
-              },
+              "$value": "{control.background.color.selected.focus}",
               "$type": "color",
               "$description": "Used for the dropdown selected option indicator in the active state."
             }
@@ -140,6 +136,18 @@
               "$description": "Used for the background of a selected dropdown option in the active state."
             }
           }
+        }
+      }
+    },
+    "search": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.alpha.dark.2}",
+            "dark": "{color.alpha.dark.24}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a search input in a dropdown listbox."
         }
       }
     }

@@ -229,6 +229,9 @@ export const CustomGroupsItemsAndToggle = makeGroupedExample({
         <gl-disclosure-dropdown-item @action="toggleModalVisibility(true)">
           <template #list-item>Provide feedback</template>
         </gl-disclosure-dropdown-item>
+        <gl-disclosure-dropdown-item  @action="closeDropdown" variant="danger">
+          <template #list-item>Danger item</template>
+        </gl-disclosure-dropdown-item>
       </gl-disclosure-dropdown-group>
       <gl-disclosure-dropdown-group :bordered="bordered" :border-position="borderPosition" :group="$options.groups[1]" @action="closeDropdown"/>
     `,

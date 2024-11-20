@@ -38,7 +38,7 @@
   }
 
   .gl-dropdown-header-top {
-    @apply gl-border-1 gl-border-b-solid gl-border-dropdown;
+    @apply gl-border-1 gl-border-b-solid gl-border-dropdown-divider;
     @apply gl-flex;
     @apply gl-text-base;
     @apply gl-text-strong;
@@ -52,11 +52,11 @@
   }
 
   .gl-dropdown-header {
-    @apply gl-border-b-1 gl-border-b-solid gl-border-b-dropdown;
+    @apply gl-border-b-1 gl-border-b-solid gl-border-b-dropdown-divider;
   }
 
   .gl-dropdown-footer {
-    @apply gl-border-t-1 gl-border-t-solid gl-border-t-dropdown;
+    @apply gl-border-t-1 gl-border-t-solid gl-border-t-dropdown-divider;
     @apply gl-py-3;
   }
 

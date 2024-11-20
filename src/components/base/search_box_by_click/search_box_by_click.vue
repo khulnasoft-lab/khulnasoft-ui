@@ -220,7 +220,7 @@ export default {
       >
         <template #header>
           <div
-            class="gl-search-box-by-click-history-header gl-flex gl-min-h-8 gl-grow gl-items-center gl-border-b-1 gl-border-b-dropdown !gl-p-4 gl-text-sm gl-font-bold gl-border-b-solid"
+            class="gl-search-box-by-click-history-header gl-flex gl-min-h-8 gl-grow gl-items-center gl-border-b-1 gl-border-b-dropdown-divider !gl-p-4 gl-text-sm gl-font-bold gl-border-b-solid"
           >
             {{ recentSearchesHeader }}
           </div>
@@ -245,7 +245,7 @@ export default {
 
         <template v-if="historyItems.length" #footer>
           <div
-            class="gl-flex gl-flex-col gl-border-t-1 gl-border-t-dropdown gl-p-2 gl-border-t-solid"
+            class="gl-flex gl-flex-col gl-border-t-1 gl-border-t-dropdown-divider gl-p-2 gl-border-t-solid"
           >
             <gl-button
               ref="clearHistory"

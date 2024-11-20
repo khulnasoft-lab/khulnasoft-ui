@@ -127,6 +127,11 @@ export const dropdownVariantOptions = {
   link: 'link',
 };
 
+export const dropdownItemVariantOptions = {
+  default: 'default',
+  danger: 'danger',
+};
+
 export const dropdownPlacements = {
   'right-start': 'right-start',
   'bottom-start': 'bottom-start',

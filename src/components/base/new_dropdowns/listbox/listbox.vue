@@ -33,8 +33,18 @@ import GlListboxGroup from './listbox_group.vue';
 import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
-const HEADER_ITEMS_BORDER_CLASSES = ['gl-border-b-1', 'gl-border-b-solid', 'gl-border-b-dropdown'];
-const GROUP_TOP_BORDER_CLASSES = ['gl-border-t', 'gl-border-t-dropdown', 'gl-pt-1', 'gl-mt-2'];
+const HEADER_ITEMS_BORDER_CLASSES = [
+  'gl-border-b-1',
+  'gl-border-b-solid',
+  'gl-border-b-dropdown-divider',
+];
+const GROUP_TOP_BORDER_CLASSES = [
+  'gl-border-t-1',
+  'gl-border-t-solid',
+  'gl-border-t-dropdown-divider',
+  'gl-pt-1',
+  'gl-mt-2',
+];
 export const SEARCH_INPUT_SELECTOR = '.gl-listbox-search-input';
 
 export default {

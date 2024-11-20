@@ -119,7 +119,7 @@ describe('GlDisclosureDropdownItem', () => {
     it('should set correct attributes', () => {
       const attrs = { ...item.extraAttrs };
       delete attrs.class;
-      expect(findButton().classes()).toContain(item.extraAttrs.class);
+      expect(findButton().classes()).toContain('gl-new-dropdown-item-content');
       expect(findButton().attributes()).toMatchObject(attrs);
     });
 
@@ -152,9 +152,23 @@ describe('GlDisclosureDropdownItem', () => {
       expect(emittedAction).toEqual([[item]]);
     });
 
-    it('should apply the default classes to the item wrapper', () => {
-      expect(findItem().classes()).toEqual(['gl-new-dropdown-item']);
-    });
+    it.each`
+      variant      | expectedClasses
+      ${'default'} | ${['gl-new-dropdown-item']}
+      ${'danger'}  | ${['gl-new-dropdown-item', 'gl-new-dropdown-item-danger']}
+    `(
+      'should add the correct class when $variant variant is used',
+      ({ variant, expectedClasses }) => {
+        buildWrapper({
+          item: {
+            ...mockItems[0],
+          },
+          variant,
+        });
+
+        expect(findItem().classes()).toEqual(expectedClasses);
+      }
+    );
 
     it('sets tabIndex on link element', () => {
       expect(findButton().attributes('tabindex')).toBe('-1');
@@ -174,6 +188,37 @@ describe('GlDisclosureDropdownItem', () => {
 
     it('should add the extra class to the item wrapper', () => {
       expect(findItem().classes()).toContain(TEST_CLASS);
+    });
+  });
+
+  describe('when variant is set', () => {
+    it('item variant', () => {
+      buildWrapper({
+        item: {
+          text: 'Close merge request',
+          variant: 'danger',
+        },
+      });
+
+      expect(findItem().attributes()).toMatchObject({
+        class: 'gl-new-dropdown-item gl-new-dropdown-item-danger',
+        tabindex: '0',
+      });
+    });
+
+    it('overrides item variant when variant prop is set', () => {
+      buildWrapper({
+        item: {
+          text: 'Close merge request',
+          variant: 'danger',
+        },
+        variant: 'default',
+      });
+
+      expect(findItem().attributes()).toMatchObject({
+        class: 'gl-new-dropdown-item',
+        tabindex: '0',
+      });
     });
   });
 
