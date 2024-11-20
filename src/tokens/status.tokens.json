@@ -25,7 +25,7 @@
         "color": {
           "$value": {
             "default": "{color.neutral.500}",
-            "dark": "{color.neutral.400}"
+            "dark": "{color.neutral.300}"
           },
           "$type": "color",
           "$description": "Used for the icon of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state."
@@ -57,7 +57,7 @@
         "color": {
           "$value": {
             "default": "{color.blue.500}",
-            "dark": "{color.blue.400}"
+            "dark": "{color.blue.300}"
           },
           "$type": "color",
           "$description": "Used for the icon of an informational status item when indicating a noteworthy ongoing condition or a state of active progress."
@@ -89,7 +89,7 @@
         "color": {
           "$value": {
             "default": "{color.green.500}",
-            "dark": "{color.green.400}"
+            "dark": "{color.green.300}"
           },
           "$type": "color",
           "$description": "Used for the icon of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation."
@@ -121,7 +121,7 @@
         "color": {
           "$value": {
             "default": "{color.orange.500}",
-            "dark": "{color.orange.400}"
+            "dark": "{color.orange.300}"
           },
           "$type": "color",
           "$description": "Used for the icon of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item."
@@ -153,7 +153,7 @@
         "color": {
           "$value": {
             "default": "{color.red.500}",
-            "dark": "{color.red.400}"
+            "dark": "{color.red.300}"
           },
           "$type": "color",
           "$description": "Used for the icon of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition."
