@@ -12,7 +12,7 @@
       "subtle": {
         "$value": {
           "default": "{color.neutral.50}",
-          "dark": "{color.neutral.900}"
+          "dark": "{color.neutral.800}"
         },
         "$type": "color",
         "$description": "Used for a subtle border in combination with the default background."

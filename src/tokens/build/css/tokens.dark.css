@@ -460,7 +460,7 @@
   --gl-background-color-section: var(--gl-color-neutral-800); /* Used for containers, like a card header, that are visually distinct from the default page background only when necessary to maintain affordance and hierarchy in different modes. */
   --gl-background-color-overlay: rgba(0,0,0,0.64); /* Used for an overlay that covers other content. */
   --gl-border-color-default: var(--gl-color-neutral-700); /* Used for the default border color. */
-  --gl-border-color-subtle: var(--gl-color-neutral-900); /* Used for a subtle border in combination with the default background. */
+  --gl-border-color-subtle: var(--gl-color-neutral-800); /* Used for a subtle border in combination with the default background. */
   --gl-border-color-strong: var(--gl-color-neutral-600); /* Used for a distinct border that emphasizes an edge or boundaries. */
   --gl-border-color-transparent: var(--gl-color-alpha-0); /* Used when a border needs to be present, but not visibly perceived. */
   --gl-alert-neutral-border-top-color: var(--gl-color-neutral-400); /* Used for the border center color of a neutral alert. */
