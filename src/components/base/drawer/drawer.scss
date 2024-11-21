@@ -50,7 +50,6 @@ $gl-drawer-scrim-gradient: linear-gradient(
 
   .gl-drawer-body > * {
     @apply gl-mx-5;
-    @apply gl-border-b-default;
   }
 
   .gl-drawer-header {
@@ -60,7 +59,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
 
 .gl-drawer-footer {
   @apply gl-bg-overlap;
-  @apply gl-border-t-solid gl-border-t-1 gl-border-t-default;
+  @apply gl-border-t;
   @apply gl-p-5;
 }
 
@@ -84,7 +83,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-header {
-  @apply gl-border-b-solid gl-border-b-1 gl-border-b-default;
+  @apply gl-border-b;
 }
 
 .gl-drawer-title {
@@ -127,7 +126,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-body > * {
-  @apply gl-border-b-solid gl-border-b-1 gl-border-b-default;
+  @apply gl-border-b;
 
   &:last-child {
     @apply gl-border-none;
