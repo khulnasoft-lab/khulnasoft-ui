@@ -1,6 +1,7 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
 import { BCollapse } from '../../../vendor/bootstrap-vue/src/components/collapse/collapse';
+import GlAnimatedChevronRightDownIcon from '../animated_icon/animated_chevron_right_down_icon.vue';
 import { GlCollapseToggleDirective } from '../../../directives/collapse_toggle';
 import GlButton from '../button/button.vue';
 
@@ -9,6 +10,7 @@ export default {
   components: {
     BCollapse,
     GlButton,
+    GlAnimatedChevronRightDownIcon,
   },
   directives: {
     GlCollapseToggle: GlCollapseToggleDirective,
@@ -77,9 +79,6 @@ export default {
     accordion() {
       return this.accordionSetId() || undefined;
     },
-    icon() {
-      return this.isVisible ? 'chevron-down' : 'chevron-right';
-    },
     buttonTitle() {
       return this.isVisible && this.titleVisible ? this.titleVisible : this.title;
     },
@@ -102,8 +101,8 @@ export default {
         v-gl-collapse-toggle="accordionItemId"
         variant="link"
         button-text-classes="gl-flex"
-        :icon="icon"
       >
+        <gl-animated-chevron-right-down-icon :is-on="isVisible" />
         {{ buttonTitle }}
       </gl-button>
     </component>
