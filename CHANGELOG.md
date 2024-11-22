@@ -1,3 +1,10 @@
+# [103.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.4.1...v103.5.0) (2024-11-22)
+
+
+### Features
+
+* **GlAccordion:** add chevron animation ([fee4ef4](https://gitlab.com/gitlab-org/gitlab-ui/commit/fee4ef4dac649ee09ce3f9a9a2610d68fe9a8e88))
+
 ## [103.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.4.0...v103.4.1) (2024-11-22)
 
 
