@@ -8,7 +8,6 @@ import {
 } from '../../constants/events'
 import { PROP_TYPE_BOOLEAN, PROP_TYPE_STRING } from '../../constants/props'
 import { SLOT_NAME_DEFAULT } from '../../constants/slots'
-import { addClass, hasClass, removeClass, closest, matches, getCS } from '../../utils/dom'
 import { getRootActionEventName, getRootEventName } from '../../utils/events'
 import { makeModelMixin } from '../../utils/model'
 import { sortKeys } from '../../utils/object'
@@ -19,8 +18,6 @@ import { normalizeSlotMixin } from '../../mixins/normalize-slot'
 import { BVCollapse } from './helpers/bv-collapse'
 
 // --- Constants ---
-const CLASS_NAME_SHOW = 'show'
-
 const ROOT_ACTION_EVENT_NAME_TOGGLE = getRootActionEventName(NAME_COLLAPSE, 'toggle')
 const ROOT_ACTION_EVENT_NAME_REQUEST_STATE = getRootActionEventName(NAME_COLLAPSE, 'request-state')
 
@@ -162,33 +159,6 @@ export const BCollapse = /*#__PURE__*/ extend({
       // It is emitted regardless if the visible state changes
       this.emitOnRoot(ROOT_EVENT_NAME_SYNC_STATE, this.safeId(), this.show)
     },
-    checkDisplayBlock() {
-      // Check to see if the collapse has `display: block !important` set
-      // We can't set `display: none` directly on `this.$el`, as it would
-      // trigger a new transition to start (or cancel a current one)
-      const { $el } = this
-      const restore = hasClass($el, CLASS_NAME_SHOW)
-      removeClass($el, CLASS_NAME_SHOW)
-      const isBlock = getCS($el).display === 'block'
-      if (restore) {
-        addClass($el, CLASS_NAME_SHOW)
-      }
-      return isBlock
-    },
-    clickHandler(event) {
-      const { target: el } = event
-      /* istanbul ignore next: can't test `getComputedStyle()` in JSDOM */
-      if (!el || getCS(this.$el).display !== 'block') {
-        return
-      }
-      // Only close the collapse if it is not forced to be `display: block !important`
-      if (
-        (matches(el, '.nav-link,.dropdown-item') || closest('.nav-link,.dropdown-item', el)) &&
-        !this.checkDisplayBlock()
-      ) {
-        this.show = false
-      }
-    },
     handleToggleEvent(id) {
       if (id === this.safeId()) {
         this.toggle()
@@ -215,8 +185,7 @@ export const BCollapse = /*#__PURE__*/ extend({
       {
         class: this.classObject,
         directives: [{ name: 'show', value: this.show }],
-        attrs: { id: this.safeId() },
-        on: { click: this.clickHandler }
+        attrs: { id: this.safeId() }
       },
       this.normalizeSlot(SLOT_NAME_DEFAULT, this.slotScope)
     )
