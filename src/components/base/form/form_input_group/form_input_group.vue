@@ -18,6 +18,7 @@ export default {
     GlDropdownItem,
   },
   mixins: [InputGroupMixin],
+  inheritAttrs: false,
   props: {
     /**
      * Automatically selects the content of the input field on click.

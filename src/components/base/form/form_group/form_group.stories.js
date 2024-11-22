@@ -4,7 +4,9 @@ import { GlTooltipDirective } from '../../../../directives/tooltip';
 import GlIcon from '../../icon/icon.vue';
 import GlLink from '../../link/link.vue';
 import GlFormInput from '../form_input/form_input.vue';
+import GlFormInputGroup from '../form_input_group/form_input_group.vue';
 import GlFormTextarea from '../form_textarea/form_textarea.vue';
+import GlInputGroupText from '../input_group_text/input_group_text.vue';
 import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-group/README.md';
 import BVueReadmeLayout from '../../../../vendor/bootstrap-vue/src/components/layout/README.md';
 import BVueReadmeSettings from '../../../../vendor/bootstrap-vue/docs/markdown/reference/settings/README.md';
@@ -157,6 +159,21 @@ WithDescriptionSlot.parameters = {
     },
   },
 };
+
+const WithFormInputGroupTemplateString = `
+    <gl-form-input-group
+      :id="id">
+      <template #prepend>
+        <gl-input-group-text>Username</gl-input-group-text>
+      </template>
+    </gl-form-input-group>
+  `;
+export const WithFormInputGroup = (_args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { ...components, GlFormInputGroup, GlInputGroupText },
+  template: wrap(WithFormInputGroupTemplateString),
+});
+WithFormInputGroup.args = generateProps();
 
 export const WithValidations = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
