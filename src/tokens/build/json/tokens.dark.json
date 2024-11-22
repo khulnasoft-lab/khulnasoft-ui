@@ -14818,7 +14818,7 @@
     "indicator": {
       "color": {
         "default": {
-          "$value": "#428fdc",
+          "$value": "#63a6e9",
           "$type": "color",
           "$description": "Used for the indicator color for the primary progress-bar variant.",
           "filePath": "src/tokens/contextual/progress-bar.tokens.json",
@@ -14838,7 +14838,7 @@
           ]
         },
         "success": {
-          "$value": "#2da160",
+          "$value": "#52b87a",
           "$type": "color",
           "$description": "Used for the indicator color for the success progress-bar variant.",
           "filePath": "src/tokens/contextual/progress-bar.tokens.json",
@@ -14858,7 +14858,7 @@
           ]
         },
         "warning": {
-          "$value": "#c17d10",
+          "$value": "#d99530",
           "$type": "color",
           "$description": "Used for the indicator color for the warning progress-bar variant.",
           "filePath": "src/tokens/contextual/progress-bar.tokens.json",
@@ -14878,7 +14878,7 @@
           ]
         },
         "danger": {
-          "$value": "#ec5941",
+          "$value": "#f6806d",
           "$type": "color",
           "$description": "Used for the indicator color for the danger progress-bar variant.",
           "filePath": "src/tokens/contextual/progress-bar.tokens.json",
@@ -21163,7 +21163,7 @@
       },
       "icon": {
         "color": {
-          "$value": "#89888d",
+          "$value": "#a4a3a8",
           "$type": "color",
           "$description": "Used for the icon of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state.",
           "filePath": "src/tokens/status.tokens.json",
@@ -21171,7 +21171,7 @@
           "original": {
             "$value": {
               "default": "{color.neutral.500}",
-              "dark": "{color.neutral.400}"
+              "dark": "{color.neutral.300}"
             },
             "$type": "color",
             "$description": "Used for the icon of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state."
@@ -21240,7 +21240,7 @@
       },
       "icon": {
         "color": {
-          "$value": "#428fdc",
+          "$value": "#63a6e9",
           "$type": "color",
           "$description": "Used for the icon of an informational status item when indicating a noteworthy ongoing condition or a state of active progress.",
           "filePath": "src/tokens/status.tokens.json",
@@ -21248,7 +21248,7 @@
           "original": {
             "$value": {
               "default": "{color.blue.500}",
-              "dark": "{color.blue.400}"
+              "dark": "{color.blue.300}"
             },
             "$type": "color",
             "$description": "Used for the icon of an informational status item when indicating a noteworthy ongoing condition or a state of active progress."
@@ -21317,7 +21317,7 @@
       },
       "icon": {
         "color": {
-          "$value": "#2da160",
+          "$value": "#52b87a",
           "$type": "color",
           "$description": "Used for the icon of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation.",
           "filePath": "src/tokens/status.tokens.json",
@@ -21325,7 +21325,7 @@
           "original": {
             "$value": {
               "default": "{color.green.500}",
-              "dark": "{color.green.400}"
+              "dark": "{color.green.300}"
             },
             "$type": "color",
             "$description": "Used for the icon of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation."
@@ -21394,7 +21394,7 @@
       },
       "icon": {
         "color": {
-          "$value": "#c17d10",
+          "$value": "#d99530",
           "$type": "color",
           "$description": "Used for the icon of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item.",
           "filePath": "src/tokens/status.tokens.json",
@@ -21402,7 +21402,7 @@
           "original": {
             "$value": {
               "default": "{color.orange.500}",
-              "dark": "{color.orange.400}"
+              "dark": "{color.orange.300}"
             },
             "$type": "color",
             "$description": "Used for the icon of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item."
@@ -21471,7 +21471,7 @@
       },
       "icon": {
         "color": {
-          "$value": "#ec5941",
+          "$value": "#f6806d",
           "$type": "color",
           "$description": "Used for the icon of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition.",
           "filePath": "src/tokens/status.tokens.json",
@@ -21479,7 +21479,7 @@
           "original": {
             "$value": {
               "default": "{color.red.500}",
-              "dark": "{color.red.400}"
+              "dark": "{color.red.300}"
             },
             "$type": "color",
             "$description": "Used for the icon of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition."
