@@ -1,3 +1,10 @@
+## [103.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.4.0...v103.4.1) (2024-11-22)
+
+
+### Bug Fixes
+
+* **GlFormInputGroup:** announce description when wrapped in GlFormGroup ([59bb6b1](https://gitlab.com/gitlab-org/gitlab-ui/commit/59bb6b195ce3c0a447a131d87c475554141eb8dc))
+
 # [103.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.3.0...v103.4.0) (2024-11-22)
 
 
