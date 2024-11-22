@@ -1,3 +1,13 @@
+# [103.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.3.0...v103.4.0) (2024-11-22)
+
+
+### Features
+
+* **Drawer:** Apply suggestions ([fca336a](https://gitlab.com/gitlab-org/gitlab-ui/commit/fca336a1ef97e46333827c8b09b191173ba34e0e))
+* **Drawer:** Cleanup apply and classes ([de760bf](https://gitlab.com/gitlab-org/gitlab-ui/commit/de760bf0ac69aecfcf6b4c2e7a2ec45ce357e0e4))
+* **Drawer:** Update design tokens ([34dc4c5](https://gitlab.com/gitlab-org/gitlab-ui/commit/34dc4c5a4810e889afb3613f5f26613de2ba231b))
+* **StatusTokens:** Update status icon token values ([5005220](https://gitlab.com/gitlab-org/gitlab-ui/commit/5005220435496f838b39261f77e92150a8a98942))
+
 # [103.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.2.0...v103.3.0) (2024-11-19)
 
 
