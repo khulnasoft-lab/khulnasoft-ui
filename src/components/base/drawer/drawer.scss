@@ -2,12 +2,12 @@ $gl-drawer-width: 400px;
 $gl-sidebar-width: 290px;
 $gl-drawer-scrim-gradient: linear-gradient(
   to bottom,
-  $transparent-rgba,
-  var(--drawer-variant-bg-color)
+  var(--gl-color-alpha-0),
+  var(--gl-background-color-overlap)
 );
 
 .gl-drawer {
-  background-color: var(--drawer-variant-bg-color);
+  @apply gl-bg-overlap;
   right: 0;
   @apply gl-transition-all;
   position: fixed;
@@ -21,14 +21,13 @@ $gl-drawer-scrim-gradient: linear-gradient(
   @apply gl-flex-col;
 
   .gl-drawer-header-sticky {
-    background-color: var(--drawer-variant-bg-color);
+    @apply gl-bg-overlap;
     top: 0;
     position: sticky;
   }
 }
 
 .gl-drawer-default {
-  --drawer-variant-bg-color: var(--gl-background-color-default);
   @include media-breakpoint-up(md) {
     width: $gl-drawer-width;
   }
@@ -40,7 +39,6 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-sidebar {
-  --drawer-variant-bg-color: var(--gl-background-color-subtle);
   @include media-breakpoint-up(md) {
     width: $gl-sidebar-width;
   }
@@ -60,8 +58,8 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-footer {
-  @apply gl-border-t-solid gl-border-t-1;
-  border-top-color: var(--gl-border-color-default);
+  @apply gl-bg-overlap;
+  @apply gl-border-t;
   @apply gl-p-5;
 }
 
@@ -80,14 +78,12 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-footer-sticky {
-  background-color: var(--drawer-variant-bg-color);
   bottom: 0;
   position: sticky;
 }
 
 .gl-drawer-header {
-  @apply gl-border-b-solid gl-border-b-1;
-  border-bottom-color: var(--gl-border-color-default);
+  @apply gl-border-b;
 }
 
 .gl-drawer-title {
@@ -130,8 +126,7 @@ $gl-drawer-scrim-gradient: linear-gradient(
 }
 
 .gl-drawer-body > * {
-  @apply gl-border-b-solid gl-border-b-1;
-  border-bottom-color: var(--gl-border-color-default);
+  @apply gl-border-b;
 
   &:last-child {
     @apply gl-border-none;
