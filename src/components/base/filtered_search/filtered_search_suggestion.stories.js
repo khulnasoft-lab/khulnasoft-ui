@@ -25,7 +25,7 @@ export default {
   title: 'base/filtered-search/suggestion',
   component: GlFilteredSearchSuggestion,
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['aria-required-parent', 'list'] }),
+    a11y: getA11yParameters({ temporarySkipRules: ['aria-required-parent', 'list'] }),
     docs: {
       description: {
         component: readme,

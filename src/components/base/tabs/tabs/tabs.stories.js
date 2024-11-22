@@ -122,7 +122,7 @@ export const ContentlessTab = (_args, { argTypes }) => ({
     </template>`),
 });
 ContentlessTab.parameters = {
-  a11y: getA11yParameters({ skipRules: ['aria-required-children', 'listitem'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children', 'listitem'] }),
 };
 
 export const EmptyState = (_args, { argTypes }) => ({
@@ -173,7 +173,7 @@ export const WithScroll = (_args, { argTypes }) => ({
   template: '<scrollable-tabs-generator :count="50" />',
 });
 WithScroll.parameters = {
-  a11y: getA11yParameters({ skipRules: ['aria-required-children', 'listitem'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children', 'listitem'] }),
 };
 
 export const WithScrollAndGrowing = (_args, { argTypes }) => ({

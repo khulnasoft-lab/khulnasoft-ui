@@ -183,7 +183,7 @@ export const WithForm = (_args, { argTypes }) => ({
 });
 WithForm.args = generateProps({ text: 'Some dropdown' });
 WithForm.parameters = {
-  a11y: getA11yParameters({ skipRules: ['aria-required-children'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children'] }),
 };
 
 export const WithDivider = (args, { argTypes }) => ({
@@ -242,7 +242,7 @@ WithHeaderAndFooter.args = generateProps({
   hideHeaderBorder: true,
 });
 WithHeaderAndFooter.parameters = {
-  a11y: getA11yParameters({ skipRules: ['aria-required-children'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children'] }),
 };
 
 export const WithSectionHeader = (args, { argTypes }) => ({
@@ -268,7 +268,11 @@ export const WithSectionHeader = (args, { argTypes }) => ({
 WithSectionHeader.args = generateProps({ text: 'Some dropdown' });
 WithSectionHeader.parameters = {
   a11y: getA11yParameters({
-    skipRules: ['aria-required-children', 'landmark-no-duplicate-banner', 'landmark-unique'],
+    temporarySkipRules: [
+      'aria-required-children',
+      'landmark-no-duplicate-banner',
+      'landmark-unique',
+    ],
   }),
 };
 
@@ -498,7 +502,7 @@ WithClearAll.args = generateProps({
   clearAllTextClass: 'gl-px-5',
 });
 WithClearAll.parameters = {
-  a11y: getA11yParameters({ skipRules: ['aria-required-children'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children'] }),
 };
 
 export const WithHighlightedItems = (args, { argTypes }) => ({

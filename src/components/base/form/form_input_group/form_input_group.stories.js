@@ -62,7 +62,7 @@ export default {
   title: 'base/form/form-input-group',
   component: GlFormInputGroup,
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['label'] }),
+    a11y: getA11yParameters({ temporarySkipRules: ['label'] }),
     bootstrapComponent: 'b-form-input',
     bootstrapDocs: BVueReadme,
     docs: {

@@ -44,7 +44,7 @@ export default {
   title: 'base/accordion',
   component: GlAccordion,
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['color-contrast'] }),
+    a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
     docs: {
       description: {
         component: readme,

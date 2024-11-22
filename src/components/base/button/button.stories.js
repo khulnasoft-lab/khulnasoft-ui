@@ -234,7 +234,7 @@ export const DropdownIconSplitButton = (args, { argTypes }) => ({
 });
 DropdownIconSplitButton.args = generateProps({ category: 'secondary', variant: 'danger' });
 DropdownIconSplitButton.parameters = {
-  a11y: getA11yParameters({ skipRules: ['button-name'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['button-name'] }),
 };
 
 export const DropdownLoadingButton = (args, { argTypes }) => ({

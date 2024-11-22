@@ -103,7 +103,12 @@ export default {
   component: GlTokenSelector,
   parameters: {
     a11y: getA11yParameters({
-      skipRules: ['aria-input-field-name', 'aria-required-children', 'nested-interactive', 'label'],
+      temporarySkipRules: [
+        'aria-input-field-name',
+        'aria-required-children',
+        'nested-interactive',
+        'label',
+      ],
     }),
     docs: {
       description: {

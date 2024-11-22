@@ -102,7 +102,7 @@ export default {
   title: 'base/filtered-search/token-segment',
   component: GlFilteredSearchTokenSegment,
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['aria-required-parent', 'list'] }),
+    a11y: getA11yParameters({ temporarySkipRules: ['aria-required-parent', 'list'] }),
     docs: {
       description: {
         component: readme,

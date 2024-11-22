@@ -86,7 +86,7 @@ export default {
   title: 'base/infinite-scroll',
   component: GlInfiniteScroll,
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['scrollable-region-focusable'] }),
+    a11y: getA11yParameters({ temporarySkipRules: ['scrollable-region-focusable'] }),
     docs: {
       description: {
         component: readme,

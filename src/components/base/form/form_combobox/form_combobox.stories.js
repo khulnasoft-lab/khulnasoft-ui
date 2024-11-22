@@ -109,7 +109,7 @@ export default {
   component: GlFormCombobox,
   parameters: {
     a11y: getA11yParameters({
-      skipRules: [
+      temporarySkipRules: [
         'aria-required-attr',
         'aria-required-parent',
         'nested-interactive',

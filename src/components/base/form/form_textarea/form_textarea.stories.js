@@ -58,7 +58,7 @@ WithCharacterCount.args = generateProps({
   characterCountLimit: 100,
 });
 WithCharacterCount.parameters = {
-  a11y: getA11yParameters({ skipRules: ['label-title-only'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['label-title-only'] }),
 };
 
 export default {

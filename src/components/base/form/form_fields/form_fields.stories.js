@@ -138,7 +138,7 @@ export default {
   title: 'base/form/form-fields',
   component: GlFormFields,
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['color-contrast'] }),
+    a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
     knobs: {
       disable: true,
     },

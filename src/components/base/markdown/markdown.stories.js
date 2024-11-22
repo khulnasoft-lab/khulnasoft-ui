@@ -25,7 +25,9 @@ export default {
   title: 'base/markdown',
   component: GlMarkdown,
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['color-contrast', 'scrollable-region-focusable'] }),
+    a11y: getA11yParameters({
+      temporarySkipRules: ['color-contrast', 'scrollable-region-focusable'],
+    }),
     docs: {
       description: {
         component: readme,

@@ -304,7 +304,7 @@ CustomListItem.args = generateProps({
 });
 CustomListItem.decorators = [makeContainer({ height: '200px' })];
 CustomListItem.parameters = {
-  a11y: getA11yParameters({ skipRules: ['color-contrast'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
 };
 
 export const CustomToggle = (args, { argTypes }) => ({
@@ -346,7 +346,7 @@ CustomToggle.args = generateProps({
 });
 CustomToggle.decorators = [makeContainer({ height: '200px' })];
 CustomToggle.parameters = {
-  a11y: getA11yParameters({ skipRules: ['color-contrast'] }),
+  a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
 };
 
 const makeGroupedExample = (changes) => {

@@ -95,7 +95,7 @@ export default {
   title: 'base/dropdown/deprecated/dropdown-item',
   component: GlDropdownItem,
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['aria-required-parent', 'list'] }),
+    a11y: getA11yParameters({ temporarySkipRules: ['aria-required-parent', 'list'] }),
     bootstrapComponent: 'b-dropdown-item',
     bootstrapDocs: BVueReadme,
 

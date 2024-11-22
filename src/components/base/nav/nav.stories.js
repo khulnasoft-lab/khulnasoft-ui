@@ -49,7 +49,7 @@ export default {
     GlNavItemDropdown,
   },
   parameters: {
-    a11y: getA11yParameters({ skipRules: ['color-contrast', 'link-name'] }),
+    a11y: getA11yParameters({ temporarySkipRules: ['color-contrast', 'link-name'] }),
     bootstrapComponent: 'b-nav',
     bootstrapDocs: BVueReadme,
 
