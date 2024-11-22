@@ -39,8 +39,25 @@ To handle these:
 * Review the new violations in the test output or Storybook Accessibility panel.
 * Assess each violation for validity and impact.
 * Create issues for legitimate violations that need addressing.
+  Add the `component:<component-name>` & `accessibility` labels to the issue.
 * Update tests if necessary, using the `getA11yParameters.skipRules` option
   judiciously for false positives or non-applicable rules.
+
+#### Finding rule IDs for violations
+
+To identify the rule ID of a failing accessibility violation:
+
+1. In the Storybook accessibility panel:
+   * Click on the violation to expand its details
+   * Click the "More info" link
+   * This will open the Deque University documentation page (`https://dequeuniversity.com/rules/axe/...`)
+
+2. On the Deque University page:
+   * Locate the rule ID under the main heading (h1)
+   * Use this ID when configuring rule exceptions in your story parameters
+
+This rule ID can be used in component or story-level configurations to customize accessibility
+testing behavior, as shown in the configuration examples above.
 
 ### Excluding stories from accessibility testing
 
@@ -49,74 +66,8 @@ using `skip-visual-tests` also excludes it from accessbility tests.
 
 ## Configuring the addon
 
-It also lets us fine-tune the [addon configuration](https://storybook.js.org/docs/writing-tests/accessibility-testing#configure)
-or override axe ruleset.
-
-### Component level accessibility configuration
-
-Update your story's default export and add a parameter with the required configuration.
-
-```js
-import CustomActions from './custom_actions.vue';
- 
-export default {
-  component: CustomActions,
-  parameters: {
-    a11y: {
-      // Optional selector to inspect
-      element: '#storybook-root',
-      config: {
-        rules: [
-          {
-            // The autocomplete rule will not run based on the CSS selector provided
-            id: 'autocomplete-valid',
-            selector: '*:not([autocomplete="nope"])',
-          },
-          {
-            // Setting the enabled option to false will disable checks
-            // for this particular rule on all stories.
-            id: 'image-alt',
-            enabled: false,
-          },
-        ],
-      },
-      options: {},
-      manual: true,
-    },
-  },
-};
-```
-
-### Story-level accessibility configuration
-
-Customize the accesibility ruleset at the story level by
-updating your story to include a new parameter:
-
-```js
-// custom_actions.stories.js
-export const CustomActions = () => ({
-  // ...
-});
-CustomActions.parameters = {
-  a11y: {
-    // Optional selector to inspect
-    element: '#storybook-root',
-    config: {
-      rules: [
-        {
-          // The autocomplete rule will not run based on the CSS selector provided
-          id: 'autocomplete-valid',
-          selector: '*:not([autocomplete="nope"])',
-        },
-        {
-          // Setting the enabled option to false will disable checks 
-          // for this particular rule on all stories.
-          id: 'image-alt',
-          enabled: false,
-        },
-      ],
-    },
-    options: {},
-  },
-},
-```
+The test runner also lets us fine-tune the [addon configuration](https://storybook.js.org/docs/writing-tests/accessibility-testing#configure)
+or override axe ruleset at [global](https://storybook.js.org/docs/writing-tests/accessibility-testing#global-a11y-configuration),
+[component](https://storybook.js.org/docs/writing-tests/accessibility-testing#component-level-a11y-configuration)
+or [story](https://storybook.js.org/docs/writing-tests/accessibility-testing#story-level-a11y-configuration)
+level.
