@@ -1,6 +1,7 @@
 import GlButton from '../button/button.vue';
 import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
 import GlCollapsibleListbox from '../new_dropdowns/listbox/listbox.vue';
+import GlDropdown from '../dropdown/dropdown.vue';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
@@ -16,18 +17,20 @@ const generateProps = ({
   category = buttonCategoryOptions.primary,
   size = defaultValue('size'),
   variant = 'default',
+  disabled = false,
 } = {}) => ({
   vertical,
   category,
   size,
   variant,
+  disabled,
 });
 
 const template = `
   <gl-button-group :vertical="vertical">
-    <gl-button :category="category" :size="size" :variant="variant">Button 1</gl-button>
-    <gl-button :category="category" :size="size" :variant="variant">Button 2</gl-button>
-    <gl-button :category="category" :size="size" :variant="variant">Button 3</gl-button>
+    <gl-button :category="category" :size="size" :variant="variant" :disabled="disabled">Button 1</gl-button>
+    <gl-button :category="category" :size="size" :variant="variant" :disabled="disabled">Button 2</gl-button>
+    <gl-button :category="category" :size="size" :variant="variant" :disabled="disabled">Button 3</gl-button>
   </gl-button-group>`;
 
 const Template = (args, { argTypes }) => ({
@@ -38,6 +41,107 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = generateProps();
+
+export const Vertical = Template.bind({});
+Vertical.args = generateProps({ vertical: true });
+
+export const AllDefaultVariants = (args, { argTypes }) => ({
+  components: { GlButton, GlButtonGroup },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="gl-flex gl-flex-col gl-gap-3 gl-items-start">
+      <gl-button-group :vertical="vertical">
+        <gl-button category="primary" :size="size" variant="default" :disabled="disabled">Default primary</gl-button>
+        <gl-button category="primary" :size="size" variant="default" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="primary" :size="size" variant="default" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+      <gl-button-group :vertical="vertical">
+        <gl-button category="secondary" :size="size" variant="default" :disabled="disabled">Default secondary</gl-button>
+        <gl-button category="secondary" :size="size" variant="default" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="secondary" :size="size" variant="default" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+
+      <gl-button-group :vertical="vertical">
+        <gl-button category="primary" :size="size" variant="confirm" :disabled="disabled">Confirm primary</gl-button>
+        <gl-button category="primary" :size="size" variant="confirm" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="primary" :size="size" variant="confirm" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+      <gl-button-group :vertical="vertical">
+        <gl-button category="secondary" :size="size" variant="confirm" :disabled="disabled">Confirm secondary</gl-button>
+        <gl-button category="secondary" :size="size" variant="confirm" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="secondary" :size="size" variant="confirm" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+
+      <gl-button-group :vertical="vertical">
+        <gl-button category="primary" :size="size" variant="danger" :disabled="disabled">Danger primary</gl-button>
+        <gl-button category="primary" :size="size" variant="danger" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="primary" :size="size" variant="danger" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+      <gl-button-group :vertical="vertical">
+        <gl-button category="secondary" :size="size" variant="danger" :disabled="disabled">Danger secondary</gl-button>
+        <gl-button category="secondary" :size="size" variant="danger" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="secondary" :size="size" variant="danger" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+
+      <gl-button-group :vertical="vertical">
+        <gl-button category="primary" :size="size" variant="dashed" :disabled="disabled">Dashed primary</gl-button>
+        <gl-button category="primary" :size="size" variant="dashed" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="primary" :size="size" variant="dashed" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+      <gl-button-group :vertical="vertical">
+        <gl-button category="secondary" :size="size" variant="dashed" :disabled="disabled">Dashed secondary</gl-button>
+        <gl-button category="secondary" :size="size" variant="dashed" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="secondary" :size="size" variant="dashed" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+
+      <gl-button-group :vertical="vertical">
+        <gl-button category="primary" :size="size" variant="reset" :disabled="disabled">Reset primary</gl-button>
+        <gl-button category="primary" :size="size" variant="reset" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="primary" :size="size" variant="reset" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+      <gl-button-group :vertical="vertical">
+        <gl-button category="secondary" :size="size" variant="reset" :disabled="disabled">Reset secondary</gl-button>
+        <gl-button category="secondary" :size="size" variant="reset" :disabled="disabled">Button 2</gl-button>
+        <gl-button category="secondary" :size="size" variant="reset" :disabled="disabled">Button 3</gl-button>
+      </gl-button-group>
+    </div>
+  `,
+});
+Object.assign(AllDefaultVariants, {
+  args: generateProps(),
+  parameters: {
+    controls: {
+      include: ['vertical', 'disabled', 'size'],
+    },
+  },
+});
+
+export const CombinedVariants = (args, { argTypes }) => ({
+  components: { GlButton, GlButtonGroup },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="gl-flex gl-flex-col gl-gap-3 gl-items-start">
+      <gl-button-group :vertical="vertical">
+        <gl-button category="primary" :size="size" variant="default" :disabled="disabled">Default primary</gl-button>
+        <gl-button category="primary" :size="size" variant="confirm" :disabled="disabled">Confirm primary</gl-button>
+        <gl-button category="primary" :size="size" variant="danger" :disabled="disabled">Danger primary</gl-button>
+      </gl-button-group>
+      <gl-button-group :vertical="vertical">
+        <gl-button category="secondary" :size="size" variant="default" :disabled="disabled">Default secondary</gl-button>
+        <gl-button category="secondary" :size="size" variant="confirm" :disabled="disabled">Confirm secondary</gl-button>
+        <gl-button category="secondary" :size="size" variant="danger" :disabled="disabled">Danger secondary</gl-button>
+      </gl-button-group>
+    </div>
+  `,
+});
+Object.assign(CombinedVariants, {
+  args: generateProps(),
+  parameters: {
+    controls: {
+      include: ['vertical', 'disabled', 'size'],
+    },
+  },
+});
 
 export const SplitDropdowns = (args, { argTypes }) => ({
   components: { GlButton, GlButtonGroup, GlCollapsibleListbox, GlDisclosureDropdown },
@@ -96,10 +200,353 @@ export const SplitDropdowns = (args, { argTypes }) => ({
   `,
 });
 Object.assign(SplitDropdowns, {
-  args: { ...generateProps({ variant: 'confirm' }), disabled: false },
+  args: generateProps(),
   parameters: {
     controls: {
       include: ['category', 'disabled', 'size', 'variant'],
+    },
+  },
+});
+
+export const AllSplitDropdownsVariants = (args, { argTypes }) => ({
+  components: { GlButton, GlButtonGroup, GlDisclosureDropdown },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      firstListboxValue: 1,
+      secondListboxValue: 1,
+      items: [
+        { text: 'One', value: 1 },
+        { text: 'Two', value: 2 },
+      ],
+    };
+  },
+  template: `
+    <div class="gl-flex gl-flex-col gl-gap-3 gl-items-start">
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="primary"
+          :size="size"
+          variant="default"
+        >Default primary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="primary"
+          :size="size"
+          :variant="variant"
+        />
+      </gl-button-group>
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="secondary"
+          :size="size"
+          variant="default"
+        >Default secondary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="secondary"
+          :size="size"
+          :variant="variant"
+        />
+      </gl-button-group>
+
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="primary"
+          :size="size"
+          variant="confirm"
+        >Confirm primary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="primary"
+          :size="size"
+          variant="confirm"
+        />
+      </gl-button-group>
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="secondary"
+          :size="size"
+          variant="confirm"
+        >Confirm secondary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="secondary"
+          :size="size"
+          variant="confirm"
+        />
+      </gl-button-group>
+
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="primary"
+          :size="size"
+          variant="danger"
+        >Danger primary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="primary"
+          :size="size"
+          variant="danger"
+        />
+      </gl-button-group>
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="secondary"
+          :size="size"
+          variant="danger"
+        >Danger secondary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="secondary"
+          :size="size"
+          variant="danger"
+        />
+      </gl-button-group>
+
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="secondary"
+          :size="size"
+          variant="dashed"
+        >Dashed primary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="secondary"
+          :size="size"
+          variant="dashed"
+        />
+      </gl-button-group>
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="secondary"
+          :size="size"
+          variant="dashed"
+        >Dashed secondary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="secondary"
+          :size="size"
+          variant="dashed"
+        />
+      </gl-button-group>
+
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="secondary"
+          :size="size"
+          variant="reset"
+        >Reset primary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="secondary"
+          :size="size"
+          variant="reset"
+        />
+      </gl-button-group>
+      <gl-button-group>
+        <gl-button
+          :disabled="disabled"
+          category="secondary"
+          :size="size"
+          variant="reset"
+        >Reset secondary</gl-button>
+
+        <gl-disclosure-dropdown
+          :disabled="disabled"
+          :items="items"
+          toggle-text="Other actions"
+          text-sr-only
+          category="secondary"
+          :size="size"
+          variant="reset"
+        />
+      </gl-button-group>
+
+    </div>
+  `,
+});
+Object.assign(AllSplitDropdownsVariants, {
+  args: generateProps(),
+  parameters: {
+    controls: {
+      include: ['disabled', 'size'],
+    },
+  },
+});
+
+export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
+  components: { GlButton, GlDropdown },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="gl-flex gl-flex-col gl-gap-3 gl-items-start">
+      <gl-dropdown
+        split
+        text="Default primary"
+        category="primary"
+        variant="default"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+      <gl-dropdown
+        split
+        text="Default secondary"
+        category="secondary"
+        variant="default"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+
+      <gl-dropdown
+        split
+        text="Confirm primary"
+        category="primary"
+        variant="confirm"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+      <gl-dropdown
+        split
+        text="Confirm secondary"
+        category="secondary"
+        variant="confirm"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+
+      <gl-dropdown
+        split
+        text="Danger primary"
+        category="primary"
+        variant="danger"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+      <gl-dropdown
+        split
+        text="Danger secondary"
+        category="secondary"
+        variant="danger"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+
+      <gl-dropdown
+        split
+        text="Dashed primary"
+        category="primary"
+        variant="dashed"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+      <gl-dropdown
+        split
+        text="Dashed secondary"
+        category="secondary"
+        variant="dashed"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+
+      <gl-dropdown
+        split
+        text="Reset primary"
+        category="primary"
+        variant="reset"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+      <gl-dropdown
+        split
+        text="Reset secondary"
+        category="secondary"
+        variant="reset"
+        :size="size"
+        :block="block"
+        :disabled="disabled"
+      >
+        <gl-dropdown-item>Dropdown item</gl-dropdown-item>
+      </gl-dropdown>
+    </div>
+  `,
+});
+Object.assign(AllLegacyDropdownsVariants, {
+  args: generateProps(),
+  parameters: {
+    controls: {
+      include: ['disabled', 'size'],
     },
   },
 });

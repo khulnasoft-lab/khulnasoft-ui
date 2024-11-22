@@ -14,7 +14,11 @@ export default {
 };
 </script>
 <template>
-  <div :class="!vertical ? 'btn-group' : 'btn-group-vertical'" role="group" v-on="$listeners">
+  <div
+    :class="!vertical ? 'gl-button-group btn-group' : 'gl-button-group-vertical btn-group-vertical'"
+    role="group"
+    v-on="$listeners"
+  >
     <!-- @slot The buttons to group. -->
     <slot></slot>
   </div>

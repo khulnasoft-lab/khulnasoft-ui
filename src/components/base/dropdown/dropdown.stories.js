@@ -544,7 +544,7 @@ export const OnRightEdge = (args, { argTypes }) => ({
     <gl-dropdown-item>Fourth item</gl-dropdown-item>
     `,
     200,
-    'gl-block gl-text-right'
+    '!gl-block gl-text-right'
   ),
   mounted() {
     clickDropdown(this);

@@ -39,6 +39,12 @@
     @include gl-button-border($border-color);
   }
 
+  &::before {
+    background-color: $border-color;
+    transition: background-color $gl-transition-duration-medium $gl-easing-out-cubic,
+                border-color $gl-transition-duration-medium $gl-easing-out-cubic;
+  }
+
   &:hover {
     color: $hover-color;
     background-color: $hover-background-color;
@@ -220,6 +226,12 @@
           }
         }
       }
+    }
+  }
+
+  &.btn-reset {
+    &::before {
+      background-color: var(--gl-button-default-primary-border-color-default);
     }
   }
 
@@ -578,6 +590,11 @@
     color: var(--gl-button-disabled-foreground-color);
     opacity: 1;
     cursor: not-allowed !important;
+
+    &::before {
+      background-color: var(--gl-button-disabled-border-color);
+    }
+
     @if $feature-button-border {
       border-color: var(--gl-button-disabled-border-color);
     } @else {

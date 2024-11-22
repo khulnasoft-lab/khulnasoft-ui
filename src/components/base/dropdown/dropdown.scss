@@ -96,17 +96,6 @@
       @include mask-chevron-down;
     }
 
-    &.btn-confirm,
-    &.btn-danger {
-      margin-left: 1px;
-    }
-
-    &:disabled,
-    &.disabled,
-    &[class*='-secondary'] {
-      margin-left: -1px;
-    }
-
     @if $feature-button-border {
       &.gl-button {
         @apply gl-px-0;
