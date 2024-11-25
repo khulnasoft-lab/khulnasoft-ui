@@ -4,7 +4,6 @@
 // builds. We do this to avoid having the stylesheet included multiple times in Storybook.
 
 // Components
-// ADD COMPONENT EXPORTS - needed for yarn generate:component. Do not remove
 export { default as GlDuoWorkflowPrompt } from './components/experimental/duo/workflow/components/duo_workflow_prompt/duo_workflow_prompt.vue';
 export { default as GlDuoWorkflowPanel } from './components/experimental/duo/workflow/components/duo_workflow_panel/duo_workflow_panel.vue';
 export { default as GlTableLite } from './components/base/table_lite/table_lite.vue';

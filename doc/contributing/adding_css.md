@@ -29,10 +29,6 @@ Additionally, [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/i
 reports any conflicting styles, letting you spot superfluous `@apply`s that might make your intention
 harder to understand.
 
-When running `yarn generate:component`, the component's SCSS file will be created in the right place
-and imported in the main `components.scss`. Read more about
-[adding new components](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/adding_components.md#general-guidelines).
-
 Each component's stylesheet should contain its "modularized" style:
 
 ```scss
