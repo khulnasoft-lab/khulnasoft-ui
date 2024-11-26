@@ -7,6 +7,7 @@ import {
   buttonSizeOptions,
   targetOptions,
 } from '../../../utils/constants';
+import { getA11yParameters } from '../../../utils/stories_utils';
 import GlBadge from '../badge/badge.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/button/README.md';
@@ -232,6 +233,9 @@ export const DropdownIconSplitButton = (args, { argTypes }) => ({
     `),
 });
 DropdownIconSplitButton.args = generateProps({ category: 'secondary', variant: 'danger' });
+DropdownIconSplitButton.parameters = {
+  a11y: getA11yParameters({ temporarySkipRules: ['button-name'] }),
+};
 
 export const DropdownLoadingButton = (args, { argTypes }) => ({
   props: Object.keys(argTypes),

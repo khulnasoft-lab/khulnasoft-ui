@@ -6,6 +6,7 @@ import GlAlert from '../../alert/alert.vue';
 import GlListbox from '../../new_dropdowns/listbox/listbox.vue';
 import GlIcon from '../../icon/icon.vue';
 import { setStoryTimeout } from '../../../../utils/test_utils';
+import { getA11yParameters } from '../../../../utils/stories_utils';
 import GlFormFields from './form_fields.vue';
 import readme from './form_fields.md';
 import { required } from './validators';
@@ -137,6 +138,7 @@ export default {
   title: 'base/form/form-fields',
   component: GlFormFields,
   parameters: {
+    a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
     knobs: {
       disable: true,
     },

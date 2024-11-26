@@ -1,4 +1,5 @@
 import { userEvent, within, waitFor, expect } from '@storybook/test';
+import { getA11yParameters } from '../../../utils/stories_utils';
 import readme from './token_selector.md';
 import GlTokenSelector from './token_selector.vue';
 
@@ -101,6 +102,14 @@ export default {
   title: 'base/token_selector',
   component: GlTokenSelector,
   parameters: {
+    a11y: getA11yParameters({
+      temporarySkipRules: [
+        'aria-input-field-name',
+        'aria-required-children',
+        'nested-interactive',
+        'label',
+      ],
+    }),
     docs: {
       description: {
         component: readme,

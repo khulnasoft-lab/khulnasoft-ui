@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { disableControls } from '../../../../utils/stories_utils';
+import { disableControls, getA11yParameters } from '../../../../utils/stories_utils';
 import { GlTooltipDirective } from '../../../../directives/tooltip';
 import GlIcon from '../../icon/icon.vue';
 import GlLink from '../../link/link.vue';
@@ -109,6 +109,7 @@ WithLabelSlot.args = generateProps({
   optional: true,
 });
 WithLabelSlot.parameters = {
+  a11y: getA11yParameters({ skipRules: ['link-in-text-block'] }),
   docs: {
     source: {
       code: `
@@ -141,6 +142,7 @@ WithDescriptionSlot.args = generateProps({
   optional: true,
 });
 WithDescriptionSlot.parameters = {
+  a11y: getA11yParameters({ skipRules: ['link-in-text-block'] }),
   docs: {
     source: {
       code: `

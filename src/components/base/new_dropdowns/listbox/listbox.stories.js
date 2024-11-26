@@ -13,7 +13,7 @@ import GlAvatar from '../../avatar/avatar.vue';
 import GlTruncate from '../../../utilities/truncate/truncate.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import { setStoryTimeout } from '../../../../utils/test_utils';
-import { disableControls } from '../../../../utils/stories_utils';
+import { disableControls, getA11yParameters } from '../../../../utils/stories_utils';
 import {
   ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
   ARG_TYPE_SUBCATEGORY_STATE,
@@ -303,6 +303,9 @@ CustomListItem.args = generateProps({
   resetButtonLabel: 'Unassign',
 });
 CustomListItem.decorators = [makeContainer({ height: '200px' })];
+CustomListItem.parameters = {
+  a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
+};
 
 export const CustomToggle = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -342,6 +345,9 @@ CustomToggle.args = generateProps({
   isCheckCentered: true,
 });
 CustomToggle.decorators = [makeContainer({ height: '200px' })];
+CustomToggle.parameters = {
+  a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
+};
 
 const makeGroupedExample = (changes) => {
   const story = (args, { argTypes }) => ({

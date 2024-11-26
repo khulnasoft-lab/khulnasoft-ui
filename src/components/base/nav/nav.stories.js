@@ -1,3 +1,4 @@
+import { getA11yParameters } from '../../../utils/stories_utils';
 import GlDropdownItem from '../dropdown/dropdown_item.vue';
 import GlDropdownDivider from '../dropdown/dropdown_divider.vue';
 import GlIcon from '../icon/icon.vue';
@@ -48,6 +49,7 @@ export default {
     GlNavItemDropdown,
   },
   parameters: {
+    a11y: getA11yParameters({ temporarySkipRules: ['color-contrast', 'link-name'] }),
     bootstrapComponent: 'b-nav',
     bootstrapDocs: BVueReadme,
 

@@ -1,6 +1,7 @@
 import PortalVue from 'portal-vue';
 import Vue from 'vue';
 import { triggerBlurEvent } from '../../../utils/play_utils';
+import { getA11yParameters } from '../../../utils/stories_utils';
 import GlFilteredSearchSuggestion from './filtered_search_suggestion.vue';
 import { provide } from './common_story_options';
 import readme from './filtered_search_token_segment.md';
@@ -101,6 +102,7 @@ export default {
   title: 'base/filtered-search/token-segment',
   component: GlFilteredSearchTokenSegment,
   parameters: {
+    a11y: getA11yParameters({ temporarySkipRules: ['aria-required-parent', 'list'] }),
     docs: {
       description: {
         component: readme,

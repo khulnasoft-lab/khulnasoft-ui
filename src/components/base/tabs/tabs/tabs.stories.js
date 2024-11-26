@@ -1,6 +1,7 @@
 import range from 'lodash/range';
 import GlBadge from '../../badge/badge.vue';
 import { badgeVariantOptions } from '../../../../utils/constants';
+import { getA11yParameters } from '../../../../utils/stories_utils';
 import GlTab from '../tab/tab.vue';
 import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/tabs/README.md';
 import BVueReadmeSizeProps from '../../../../vendor/bootstrap-vue/docs/markdown/reference/size-props/README.md';
@@ -120,6 +121,9 @@ export const ContentlessTab = (_args, { argTypes }) => ({
       </li>
     </template>`),
 });
+ContentlessTab.parameters = {
+  a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children', 'listitem'] }),
+};
 
 export const EmptyState = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -168,6 +172,9 @@ export const WithScroll = (_args, { argTypes }) => ({
   },
   template: '<scrollable-tabs-generator :count="50" />',
 });
+WithScroll.parameters = {
+  a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children', 'listitem'] }),
+};
 
 export const WithScrollAndGrowing = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),

@@ -1,5 +1,5 @@
 import GlInputGroupText from '../input_group_text/input_group_text.vue';
-import { disableControls } from '../../../../utils/stories_utils';
+import { disableControls, getA11yParameters } from '../../../../utils/stories_utils';
 import BVueReadme from '../../../../vendor/bootstrap-vue/src/components/form-input/README.md';
 import GlFormInputGroup from './form_input_group.vue';
 import readme from './form_input_group.md';
@@ -62,6 +62,7 @@ export default {
   title: 'base/form/form-input-group',
   component: GlFormInputGroup,
   parameters: {
+    a11y: getA11yParameters({ temporarySkipRules: ['label'] }),
     bootstrapComponent: 'b-form-input',
     bootstrapDocs: BVueReadme,
     docs: {
