@@ -1,3 +1,10 @@
+## [103.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.6.0...v103.6.1) (2024-11-26)
+
+
+### Bug Fixes
+
+* **GlCollapse:** Don't close on nav-link clicks ([d789933](https://gitlab.com/gitlab-org/gitlab-ui/commit/d789933f6cf88d759e8d8c56b00e66e60ec02c9e))
+
 # [103.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.5.1...v103.6.0) (2024-11-26)
 
 
