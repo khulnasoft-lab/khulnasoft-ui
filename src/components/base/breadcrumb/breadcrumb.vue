@@ -222,7 +222,7 @@ export default {
           class="gl-breadcrumb-avatar-tile gl-border gl-mr-2 !gl-rounded-base"
           shape="rect"
           data-testid="avatar"
-        /><span>{{ item.text }}</span>
+        /><span class="gl-align-middle">{{ item.text }}</span>
       </gl-breadcrumb-item>
     </b-breadcrumb>
   </nav>
