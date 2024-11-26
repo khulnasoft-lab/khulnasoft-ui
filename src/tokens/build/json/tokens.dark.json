@@ -1976,7 +1976,7 @@
         ]
       },
       "subtle": {
-        "$value": "#28272d",
+        "$value": "#3a383f",
         "$type": "color",
         "$description": "Used for a subtle border in combination with the default background.",
         "filePath": "src/tokens/border.tokens.json",
@@ -1984,7 +1984,7 @@
         "original": {
           "$value": {
             "default": "{color.neutral.50}",
-            "dark": "{color.neutral.900}"
+            "dark": "{color.neutral.800}"
           },
           "$type": "color",
           "$description": "Used for a subtle border in combination with the default background."
