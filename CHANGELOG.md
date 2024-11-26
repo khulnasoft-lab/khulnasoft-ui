@@ -1,3 +1,10 @@
+## [103.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.5.0...v103.5.1) (2024-11-26)
+
+
+### Bug Fixes
+
+* **GlIntersperse:** Ignore empty nodes in Vue 3 ([91ec35b](https://gitlab.com/gitlab-org/gitlab-ui/commit/91ec35b664aa9c8a8959247e92dd29c1409e57ea))
+
 # [103.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.4.1...v103.5.0) (2024-11-22)
 
 
