@@ -83,16 +83,30 @@ describe('Intersperse Component', () => {
   );
 
   it.each`
-    defaultSlotContent              | expectedText
-    ${'<i>Foo</i> <i>Bar</i>'}      | ${'Foo, Bar'}
-    ${'<i>Foo</i>\n<i>Bar</i>'}     | ${'Foo, Bar'}
-    ${'<i>Foo</i>\t<i>Bar</i>'}     | ${'Foo, Bar'}
-    ${'<i>Foo</i>    <i>Bar</i>'}   | ${'Foo, Bar'}
-    ${'<i>Foo</i>&nbsp;<i>Bar</i>'} | ${'Foo, Bar'}
-    ${'<i>Foo</i><i>Bar</i>  '}     | ${'Foo, Bar'}
-    ${'<i>Foo</i><i>Bar</i>\n'}     | ${'Foo, Bar'}
+    defaultSlotContent
+    ${'<i>Foo</i>\n<i>Bar</i>'}
+    ${'<i>Foo</i>\t<i>Bar</i>'}
+    ${'<i>Foo</i>    <i>Bar</i>'}
+    ${'<i>Foo</i>&nbsp;<i>Bar</i>'}
+    ${'<i>Foo</i><i>Bar</i>  '}
+    ${'<i>Foo</i><i>Bar</i>\n'}
   `(
-    'strips whitespace elements that are direct children of the slot',
+    'strips whitespace and empty elements that are direct children "$defaultSlotContent"',
+    ({ defaultSlotContent }) => {
+      createComponent(defaultSlotContent);
+
+      expect(wrapper.text()).toBe('Foo, Bar');
+    }
+  );
+
+  it.each`
+    defaultSlotContent                                                                          | expectedText
+    ${'<i>Foo</i><!-- comment --><i>Bar</i>'}                                                   | ${'Foo, Bar'}
+    ${'<i>Foo</i><i v-if="false">Nop</i><i>Bar</i>\n'}                                          | ${'Foo, Bar'}
+    ${`<i v-for="s in ['Foo', 'Bar', 'Baz']">{{ s }}</i>\n`}                                    | ${'Foo, Bar, Baz'}
+    ${`<i v-for="s in ['Foo', 'Bar']">{{ s }}</i><i v-for="s in ['Baz', 'Qaz']">{{ s }}</i>\n`} | ${'Foo, Bar, Baz, Qaz'}
+  `(
+    'strips comments and elements with directives that are direct children "$defaultSlotContent"',
     ({ defaultSlotContent, expectedText }) => {
       createComponent(defaultSlotContent);
 

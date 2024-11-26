@@ -1,15 +1,31 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
+import Vue from 'vue';
 import compose from 'lodash/fp/compose';
 import fill from 'lodash/fp/fill';
 import filter from 'lodash/fp/filter';
-
 import { intersperse, insert } from '../../../utils/data_utils';
+import { isVnodeEmpty } from '../../../utils/is_slot_empty';
 
-const containsWhitespaceOnly = (vNode) => vNode.text.trim() === '';
-const isTag = (vNode) => typeof vNode.tag === 'string';
-const filterWhitespaceNodes = filter((vNode) => isTag(vNode) || !containsWhitespaceOnly(vNode));
+const filterEmptyNodesVue2 = filter(
+  (vNode) => typeof vNode.tag === 'string' || vNode.text.trim() !== ''
+);
 
+const { Fragment } = Vue;
+const filterEmptyNodesVue3 = (vNode) => {
+  return vNode
+    .reduce((acc, node) => {
+      if (Fragment && node.type === Fragment && Array.isArray(node.children)) {
+        acc.push(...node.children);
+      } else {
+        acc.push(node);
+      }
+      return acc;
+    }, [])
+    .filter((node) => !isVnodeEmpty(node));
+};
+
+const filterEmptyNodes = Vue.version.startsWith('3') ? filterEmptyNodesVue3 : filterEmptyNodesVue2;
 const insertAfterSecondLastItem = insert(-1);
 const replaceSecondLastItem = fill(-2, -1);
 
@@ -51,7 +67,7 @@ export default {
     const filterAndSeparate = compose(
       addLastSeparator(lastSeparator),
       intersperse(separator),
-      filterWhitespaceNodes
+      filterEmptyNodes
     );
 
     return createElement('span', data, filterAndSeparate(slots().default));
