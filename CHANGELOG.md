@@ -1,3 +1,10 @@
+# [103.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.6.1...v103.7.0) (2024-11-26)
+
+
+### Features
+
+* **Borders:** Update subtle dark ([ff7d79d](https://gitlab.com/gitlab-org/gitlab-ui/commit/ff7d79d18efe398b53cffd3e459fcec295eeb9a4))
+
 ## [103.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.6.0...v103.6.1) (2024-11-26)
 
 
