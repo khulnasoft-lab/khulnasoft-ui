@@ -42,6 +42,8 @@ To handle these:
   Add the `component:<component-name>` & `accessibility` labels to the issue.
 * Update tests if necessary, using the `getA11yParameters.skipRules` option
   judiciously for false positives or non-applicable rules.
+* Alternatively, use `getA11yParameters.temporarySkipRules` to skip rules
+  temporarily until issue is resolved.
 
 #### Finding rule IDs for violations
 
