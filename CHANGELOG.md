@@ -1,3 +1,10 @@
+# [103.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.5.1...v103.6.0) (2024-11-26)
+
+
+### Features
+
+* **Tailwind:** add status design tokens to Tailwind classes ([b57449f](https://gitlab.com/gitlab-org/gitlab-ui/commit/b57449f522dd4c38c58830cc84735658c12a09be))
+
 ## [103.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.5.0...v103.5.1) (2024-11-26)
 
 
