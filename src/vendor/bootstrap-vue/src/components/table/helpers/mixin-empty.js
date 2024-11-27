@@ -61,7 +61,7 @@ export const emptyMixin = extend({
 
         if (!$empty) {
           $empty = h('div', {
-            class: ['text-center', 'my-2'],
+            class: ['gl-text-center', 'gl-my-3'],
             domProps: isFiltered
               ? htmlOrText(emptyFilteredHtml, emptyFilteredText)
               : htmlOrText(emptyHtml, emptyText)
