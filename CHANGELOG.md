@@ -1,3 +1,10 @@
+## [103.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.7.0...v103.7.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* **GlBreadcrumbs:** alignment of text when avatar is present ([dde617a](https://gitlab.com/gitlab-org/gitlab-ui/commit/dde617acf084a98ef609d74d7e7600dbb24bd166))
+
 # [103.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.6.1...v103.7.0) (2024-11-26)
 
 
