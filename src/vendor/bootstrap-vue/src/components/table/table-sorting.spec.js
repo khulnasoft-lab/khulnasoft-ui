@@ -122,7 +122,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(0)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortDesc)
 
@@ -133,7 +133,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(1)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortAsc)
 
@@ -144,7 +144,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(2)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortClear)
 
@@ -172,7 +172,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(0)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortAsc)
 
@@ -182,7 +182,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(1)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortAsc)
 
@@ -192,7 +192,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(2)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortClear)
 
@@ -228,7 +228,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(0)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortAsc)
 
@@ -238,7 +238,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(1)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortAsc)
 
@@ -248,7 +248,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(2)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .exists()
     ).toBe(false)
 
@@ -439,7 +439,7 @@ describe('table > sorting', () => {
     expect(columnA[2]).toBe('2')
     // Should have aria-* labels
     expect(wrapper.findAll('tfoot > tr > th[aria-sort]').length).toBe(2)
-    expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(2)
+    expect(wrapper.findAll('tfoot > tr > th > .gl-sr-only').length).toBe(2)
 
     // Sort by first column
     await wrapper
@@ -463,7 +463,7 @@ describe('table > sorting', () => {
     expect(columnA[2]).toBe('3')
     // Should have aria-* labels
     expect(wrapper.findAll('tfoot > tr > th[aria-sort]').length).toBe(2)
-    expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(3)
+    expect(wrapper.findAll('tfoot > tr > th > .gl-sr-only').length).toBe(3)
 
     // Click first column header again to reverse sort
     await wrapper
@@ -486,7 +486,7 @@ describe('table > sorting', () => {
     expect(columnA[2]).toBe('1')
     // Should have aria-* labels
     expect(wrapper.findAll('tfoot > tr > th[aria-sort]').length).toBe(2)
-    expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(3)
+    expect(wrapper.findAll('tfoot > tr > th > .gl-sr-only').length).toBe(3)
 
     // Click second column header to sort by it (by using keydown.enter)
     await wrapper
@@ -529,7 +529,7 @@ describe('table > sorting', () => {
     expect(columnA[2]).toBe('2')
     // Should have aria-* labels
     expect(wrapper.findAll('tfoot > tr > th[aria-sort]').length).toBe(2)
-    expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(2)
+    expect(wrapper.findAll('tfoot > tr > th > .gl-sr-only').length).toBe(2)
 
     wrapper.destroy()
   })
@@ -567,7 +567,7 @@ describe('table > sorting', () => {
     expect(columnA[2]).toBe('2')
     // Shouldn't have aria-* labels
     expect(wrapper.findAll('tfoot > tr > th[aria-sort]').length).toBe(0)
-    expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(0)
+    expect(wrapper.findAll('tfoot > tr > th > .gl-sr-only').length).toBe(0)
 
     // Click first column
     await wrapper
@@ -589,7 +589,7 @@ describe('table > sorting', () => {
     expect(columnA[2]).toBe('2')
     // Shouldn't have aria-* labels
     expect(wrapper.findAll('tfoot > tr > th[aria-sort]').length).toBe(0)
-    expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(0)
+    expect(wrapper.findAll('tfoot > tr > th > .gl-sr-only').length).toBe(0)
 
     // Click third column header
     await wrapper
@@ -611,7 +611,7 @@ describe('table > sorting', () => {
     expect(columnA[2]).toBe('2')
     // Shouldn't have aria-* labels
     expect(wrapper.findAll('tfoot > tr > th[aria-sort]').length).toBe(0)
-    expect(wrapper.findAll('tfoot > tr > th > .sr-only').length).toBe(0)
+    expect(wrapper.findAll('tfoot > tr > th > .gl-sr-only').length).toBe(0)
 
     wrapper.destroy()
   })
@@ -653,7 +653,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(0)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortDesc)
 
@@ -663,7 +663,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(1)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortDesc)
 
@@ -673,7 +673,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(2)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .exists()
     ).toBe(false)
 
@@ -704,7 +704,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(0)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortAsc)
 
@@ -714,7 +714,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(1)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortDesc)
 
@@ -724,7 +724,7 @@ describe('table > sorting', () => {
     expect(
       $ths
         .at(2)
-        .find('.sr-only')
+        .find('.gl-sr-only')
         .text()
     ).toContain(wrapper.vm.labelSortClear)
 
