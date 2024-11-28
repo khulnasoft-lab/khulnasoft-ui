@@ -101,8 +101,6 @@ export const buttonCategoryOptions = {
 export const buttonVariantOptions = {
   default: 'default',
   confirm: 'confirm',
-  info: 'info (deprecated)',
-  success: 'success (deprecated)',
   danger: 'danger',
   dashed: 'dashed',
   link: 'link',
@@ -125,7 +123,6 @@ export const dropdownVariantOptions = {
   default: 'default',
   confirm: 'confirm',
   info: 'info (deprecated)',
-  success: 'success (deprecated)',
   danger: 'danger',
   link: 'link',
 };
@@ -266,7 +263,7 @@ export const modalButtonDefaults = {
 
 export const tabsButtonDefaults = {
   actionPrimary: {
-    variant: 'success',
+    variant: 'confirm',
     category: 'primary',
   },
   actionSecondary: {

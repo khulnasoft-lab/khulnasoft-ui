@@ -147,7 +147,7 @@ describe('tabs component', () => {
             actionPrimary: {
               text: 'A button!',
               attributes: {
-                variant: 'success',
+                variant: 'confirm',
                 category: 'primary',
               },
             },
@@ -155,7 +155,7 @@ describe('tabs component', () => {
         });
 
         expect(wrapper.findComponent(GlButton).props()).toMatchObject({
-          variant: 'success',
+          variant: 'confirm',
           category: 'primary',
         });
       });
