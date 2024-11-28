@@ -141,6 +141,12 @@ StyleDictionary.registerFormat({
       return acc;
     }, {});
 
+    const neutralColors = Object.entries(COMPILED_TOKENS.color.neutral).reduce((acc, [, token]) => {
+      const colorName = token.path.filter((segment) => segment !== 'color').join('-');
+      acc[colorName] = f.cssCustomPropertyWithValue(token);
+      return acc;
+    }, {});
+
     const textColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.text.color);
     const backgroundColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.background.color);
     const iconColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.icon.color);
@@ -182,6 +188,7 @@ StyleDictionary.registerFormat({
     const baseColors = ${JSON.stringify(baseColors)};
     const themeColors = ${JSON.stringify(themeColors)};
     const dataVizColors = ${JSON.stringify(dataVizColors)};
+    const neutralColors = ${JSON.stringify(neutralColors)};
     const textColors = ${JSON.stringify(textColors)};
     const backgroundColors = ${JSON.stringify(backgroundColors)};
     const borderColors = ${JSON.stringify(borderColors)};
@@ -209,6 +216,7 @@ StyleDictionary.registerFormat({
       ...baseColors,
       ...themeColors,
       ...dataVizColors,
+      ...neutralColors,
       ...brandColors,
     };
 
