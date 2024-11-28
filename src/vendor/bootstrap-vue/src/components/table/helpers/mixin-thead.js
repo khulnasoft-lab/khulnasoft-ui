@@ -118,7 +118,7 @@ export const theadMixin = extend({
             {
               // We need to make the header cell relative when we have
               // a `.sr-only` sort label to work around overflow issues
-              'position-relative': sortLabel
+              'gl-relative': sortLabel
             },
             this.fieldClasses(field),
             sortClass
@@ -174,7 +174,9 @@ export const theadMixin = extend({
           this.normalizeSlot(slotNames, scope) ||
           h('div', { domProps: htmlOrText(labelHtml, label) })
 
-        const $srLabel = sortLabel ? h('span', { staticClass: 'sr-only' }, ` (${sortLabel})`) : null
+        const $srLabel = sortLabel
+          ? h('span', { staticClass: 'gl-sr-only' }, ` (${sortLabel})`)
+          : null
 
         // Return the header cell
         return h(BTh, data, [$content, $srLabel].filter(identity))
