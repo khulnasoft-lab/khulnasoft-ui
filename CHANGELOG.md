@@ -1,3 +1,15 @@
+# [104.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.7.1...v104.0.0) (2024-11-29)
+
+
+### Features
+
+* **Button:** Remove deprecated button variants ([2da00cd](https://gitlab.com/gitlab-org/gitlab-ui/commit/2da00cd5573ba4a3d0dcb8e57fb287884a2aa3af))
+
+
+### BREAKING CHANGES
+
+* **Button:** Removes the success and info variants.
+
 ## [103.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.7.0...v103.7.1) (2024-11-27)
 
 
