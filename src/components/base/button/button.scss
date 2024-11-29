@@ -241,8 +241,7 @@
     );
   }
 
-  &.btn-confirm,
-  &.btn-info {
+  &.btn-confirm {
     @include gl-button-theme(
       $color: var(--gl-button-confirm-primary-foreground-color-default),
       $background-color: var(--gl-button-confirm-primary-background-color-default),
@@ -259,8 +258,7 @@
     );
   }
 
-  &.btn-confirm-secondary,
-  &.btn-info-secondary {
+  &.btn-confirm-secondary {
     @include gl-button-theme(
       $color: var(--gl-button-confirm-secondary-foreground-color-default),
       $background-color: var(--gl-button-confirm-secondary-background-color-default),
@@ -277,8 +275,7 @@
     );
   }
 
-  &.btn-confirm-tertiary,
-  &.btn-info-tertiary {
+  &.btn-confirm-tertiary {
     @include gl-button-theme(
       $color: var(--gl-button-confirm-tertiary-foreground-color-default),
       $background-color: var(--gl-button-confirm-tertiary-background-color-default),
@@ -349,8 +346,6 @@
   &.btn-default-secondary,
   &.btn-dashed-secondary,
   &.btn-confirm-secondary,
-  &.btn-info-secondary,
-  &.btn-success-secondary,
   &.btn-danger-secondary,
   &.btn-reset-secondary,
   &.btn-reset-tertiary {
@@ -363,8 +358,6 @@
   &.btn-default,
   &.btn-dashed,
   &.btn-confirm,
-  &.btn-info,
-  &.btn-success,
   &.btn-danger {
     &-tertiary {
       @if not $feature-button-border {
@@ -397,105 +390,6 @@
     @media (forced-colors: active) {
       color: $black;
       border: 0;
-    }
-  }
-
-  &.btn-success {
-    color: var(--gl-color-neutral-0); // The text is white in light and dark mode
-    @apply gl-bg-green-500;
-    @if $feature-button-border {
-      border-color: $green-600;
-    } @else {
-      box-shadow: inset 0 0 0 1px var(--green-600, #{$green-600});
-    }
-
-    &:hover {
-      @if $feature-button-border {
-        border-color: $green-800;
-        background-color: $green-600;
-      } @else {
-        @include gl-button-hover-border($green-800);
-        background-color: $green-600;
-      }
-    }
-
-    &:focus {
-      @if $feature-button-border {
-        border-color: $green-800;
-        background-color: $green-600;
-      } @else {
-        @include gl-focus($color: $green-800);
-        @apply gl-bg-green-600;
-      }
-    }
-
-    &:active,
-    &.active {
-      @apply gl-bg-green-700;
-
-      @if $feature-button-border {
-        border-color: $green-900;
-      } @else {
-        @include gl-focus($color: $green-900);
-
-        &:focus {
-          @include gl-focus($color: $green-900);
-        }
-      }
-    }
-  }
-
-  &.btn-success-secondary {
-    @apply gl-bg-white;
-  }
-
-  &.btn-success-secondary,
-  &.btn-success-tertiary {
-    @apply gl-bg-transparent;
-    @apply gl-text-green-500;
-    @apply gl-font-normal;
-    @if $feature-button-border {
-      border-color: $green-500;
-    } @else {
-      box-shadow: inset 0 0 0 1px var(--green-500, #{$green-500});
-    }
-
-    &:hover {
-      @if $feature-button-border {
-        @apply gl-text-green-700;
-        border-color: $green-700;
-        background-color: $green-50;
-      } @else {
-        @apply gl-text-green-700;
-        @include gl-button-hover-border($green-700);
-        background-color: $green-50;
-      }
-    }
-
-    &:focus {
-      @apply gl-text-green-700;
-      @if $feature-button-border {
-        border-color: $green-700;
-        background-color: $green-50;
-      } @else {
-        @include gl-focus($color: $green-700);
-        @apply gl-bg-green-50;
-      }
-    }
-
-    &:active,
-    &.active {
-      @apply gl-text-green-900;
-      @apply gl-bg-green-100;
-      @if $feature-button-border {
-        border-color: $green-900;
-      } @else {
-        @include gl-focus($color: $green-900);
-
-        &:focus {
-          @include gl-focus($color: $green-900);
-        }
-      }
     }
   }
 
