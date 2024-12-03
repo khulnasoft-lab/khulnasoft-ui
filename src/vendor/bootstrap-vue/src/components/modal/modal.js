@@ -228,7 +228,7 @@ export const BModal = /*#__PURE__*/ extend({
         {
           fade: !this.noFade,
           show: this.isShow,
-          'd-block': this.isBlock
+          'gl-block': this.isBlock
         },
         this.modalClass
       ]
