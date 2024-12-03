@@ -464,6 +464,8 @@ module.exports = {
       lg: '0 0 2px var(--gl-shadow-color-default, #05050629), 0 0 2px var(--gl-shadow-color-default, #05050629), 0 4px 12px var(--gl-shadow-color-default, #05050629)',
       'inner-1-blue-500': 'inset 0 0 0 1px var(--blue-500, #1f75cb)',
       'inner-1-gray-100': 'inset 0 0 0 1px var(--gray-100, #dcdcde)',
+      'inner-1-border-default':
+        'inset 0 0 0 1px var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
       'inner-1-gray-200': 'inset 0 0 0 1px var(--gray-200, #bfbfc3)',
       'inner-1-gray-400': 'inset 0 0 0 1px var(--gray-400, #89888d)',
       'inner-1-red-300': 'inset 0 0 0 1px var(--red-300, #f57f6c)',
@@ -471,6 +473,8 @@ module.exports = {
       'inner-1-red-500': 'inset 0 0 0 1px var(--red-500, #dd2b0e)',
       'inner-2-blue-400': 'inset 0 0 0 2px var(--blue-400, #428fdc)',
       'inner-b-1-gray-100': 'inset 0 -1px 0 0 var(--gray-100, #dcdcde)',
+      'inner-b-1-border-default':
+        'inset 0 0 0 1px var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
       'inner-b-2-blue-500': 'inset 0 -2px 0 0 var(--blue-500, #1f75cb)',
       'inner-b-2-theme-accent':
         'inset 0 -2px 0 0 var(--gl-theme-accent, var(--theme-indigo-500, #6666c4))',
