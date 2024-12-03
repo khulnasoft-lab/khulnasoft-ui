@@ -158,7 +158,6 @@ export const props = makePropsConfigurable(
     title: makeProp(PROP_TYPE_STRING),
     titleClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
     titleHtml: makeProp(PROP_TYPE_STRING),
-    titleSrOnly: makeProp(PROP_TYPE_BOOLEAN, false),
     titleTag: makeProp(PROP_TYPE_STRING, 'h5')
   }),
   NAME_MODAL
@@ -229,7 +228,7 @@ export const BModal = /*#__PURE__*/ extend({
         {
           fade: !this.noFade,
           show: this.isShow,
-          'd-block': this.isBlock
+          'gl-block': this.isBlock
         },
         this.modalClass
       ]
@@ -250,9 +249,6 @@ export const BModal = /*#__PURE__*/ extend({
         },
         this.dialogClass
       ]
-    },
-    titleClasses() {
-      return [{ 'sr-only': this.titleSrOnly }, this.titleClass]
     },
     modalOuterStyle() {
       // Styles needed for proper stacking of modals
@@ -760,7 +756,7 @@ export const BModal = /*#__PURE__*/ extend({
               this.titleTag,
               {
                 staticClass: 'modal-title',
-                class: this.titleClasses,
+                class: this.titleClass,
                 attrs: { id: this.modalTitleId },
                 // TODO: Rename slot to `title` and deprecate `modal-title`
                 domProps: this.hasNormalizedSlot(SLOT_NAME_MODAL_TITLE)

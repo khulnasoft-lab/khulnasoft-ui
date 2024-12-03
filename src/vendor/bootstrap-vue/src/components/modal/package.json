@@ -183,10 +183,6 @@
             "description": "Set the size of the modal's width. 'sm', 'md' (default), 'lg', or 'xl'"
           },
           {
-            "prop": "titleSrOnly",
-            "description": "Wraps the title in an '.sr-only' wrapper"
-          },
-          {
             "prop": "titleTag",
             "description": "Specify the HTML tag to render instead of the default tag for the title"
           },
