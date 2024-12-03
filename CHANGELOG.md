@@ -1,3 +1,10 @@
+# [104.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.0.0...v104.1.0) (2024-12-03)
+
+
+### Features
+
+* **Tailwind:** add border default design token to shadow utils ([2aae4d3](https://gitlab.com/gitlab-org/gitlab-ui/commit/2aae4d3d0fb0edd8126a6f2c56dc559875a0bba7))
+
 # [104.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v103.7.1...v104.0.0) (2024-11-29)
 
 
