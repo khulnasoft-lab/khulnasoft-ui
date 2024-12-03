@@ -1,3 +1,10 @@
+## [104.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.1.0...v104.1.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* remove unused `title-sr-only` prop in `modal.js` ([d41a24e](https://gitlab.com/gitlab-org/gitlab-ui/commit/d41a24e28c4d72058701bd5aad1758c3da72f3b6))
+
 # [104.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.0.0...v104.1.0) (2024-12-03)
 
 
