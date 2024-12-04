@@ -474,7 +474,7 @@ module.exports = {
       'inner-2-blue-400': 'inset 0 0 0 2px var(--blue-400, #428fdc)',
       'inner-b-1-gray-100': 'inset 0 -1px 0 0 var(--gray-100, #dcdcde)',
       'inner-b-1-border-default':
-        'inset 0 0 0 1px var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
+        'inset 0 -1px 0 0 var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
       'inner-b-2-blue-500': 'inset 0 -2px 0 0 var(--blue-500, #1f75cb)',
       'inner-b-2-theme-accent':
         'inset 0 -2px 0 0 var(--gl-theme-accent, var(--theme-indigo-500, #6666c4))',
