@@ -1,3 +1,10 @@
+## [104.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.1.1...v104.1.2) (2024-12-04)
+
+
+### Bug Fixes
+
+* **Tailwind:** fix gl-shadow-inner-b-border class shadow ([951cd36](https://gitlab.com/gitlab-org/gitlab-ui/commit/951cd36c1dc319192f6cd6c2fcbf7b2f14e0a336))
+
 ## [104.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.1.0...v104.1.1) (2024-12-03)
 
 
