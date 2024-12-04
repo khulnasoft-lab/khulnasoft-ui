@@ -3207,6 +3207,15 @@
     ts-dedent "^2.0.0"
     type-fest "~2.19"
 
+"@studiometa/stylelint-formatter-gitlab@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@studiometa/stylelint-formatter-gitlab/-/stylelint-formatter-gitlab-0.0.1.tgz#53d0c51412068e9d4fe36879570cfec3fe7b6925"
+  integrity sha512-V6IO8cmvjJvOUztOgl9Rpi6IeaU1C+RKqP50sSUmYw7N0wjQejHpd4hL8TVi0Qo9OCBX9HGKeaAqtfPd9+L9hw==
+  dependencies:
+    chalk "^5.3.0"
+    jest-diff "^29.7.0"
+    js-yaml "^4.1.0"
+
 "@swc/core-darwin-arm64@1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@swc/core-darwin-arm64/-/core-darwin-arm64-1.7.0.tgz#fdc694dd6e8543f3efea0619a6fba9ce82939205"

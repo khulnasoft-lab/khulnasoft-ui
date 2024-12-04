@@ -127,6 +127,7 @@
     "@storybook/vue-webpack5": "^7.6.17",
     "@storybook/vue3": "^7.6.20",
     "@storybook/vue3-webpack5": "^7.6.20",
+    "@studiometa/stylelint-formatter-gitlab": "^0.0.1",
     "@types/jest-image-snapshot": "^6.4.0",
     "@vue/compat": "^3.2.40",
     "@vue/compiler-sfc": "^3.2.40",

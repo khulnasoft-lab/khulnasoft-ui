@@ -209,7 +209,6 @@ lint:
   script:
     - yarn eslint --format gitlab
     - yarn prettier
-    - yarn stylelint
     - yarn markdownlint
     - >
       grep -r -i '<style' --include \*.vue src/components
@@ -219,6 +218,18 @@ lint:
   artifacts:
     reports:
       codequality: gl-code-quality-report-eslint.json
+
+stylelint:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: test
+  variables:
+    STYLELINT_CODE_QUALITY_REPORT: "gl-code-quality-report-stylelint.json"
+  script:
+    - yarn stylelint --custom-formatter=@studiometa/stylelint-formatter-gitlab
+  artifacts:
+    reports:
+      codequality: "$STYLELINT_CODE_QUALITY_REPORT"
 
 check_translations_dictionary:
   extends: [.node, '.yarn_install']
