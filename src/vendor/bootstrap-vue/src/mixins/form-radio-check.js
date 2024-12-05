@@ -192,7 +192,6 @@ export const formRadioCheckMixin = extend({
 
     const $input = h('input', {
       class: ['custom-control-input', this.stateClass],
-      directives: [{ name: 'model', value: this.computedLocalChecked }],
       attrs: this.computedAttrs,
       domProps: {
         value: this.value,

@@ -46,6 +46,18 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 
+const Single = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components,
+  template: `
+    <div>
+      <gl-form-checkbox value="checked-option" checked="checked-option">Checked option</gl-form-checkbox>
+    </div>
+  `,
+});
+
+export const SingleCheckbox = Single.bind({});
+
 export default {
   title: 'base/form/form checkbox',
   component: GlFormCheckbox,
