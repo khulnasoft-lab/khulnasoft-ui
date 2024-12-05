@@ -1,3 +1,10 @@
+## [105.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.0.0...v105.0.1) (2024-12-05)
+
+
+### Bug Fixes
+
+* **GlFormCheckbox:** checked state with non-boolean value ([eb28dd3](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb28dd37fcfb934a9e1c820b4ce09fd51d781d49)), closes [/gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4863#note_2236852320](https://gitlab.com//gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4863/issues/note_2236852320)
+
 # [105.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.2.0...v105.0.0) (2024-12-05)
 
 
