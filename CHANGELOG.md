@@ -1,3 +1,16 @@
+# [105.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.2.0...v105.0.0) (2024-12-05)
+
+
+### chore
+
+* remove deprecated Duo components in favor of Duo-UI ([8e8d394](https://gitlab.com/gitlab-org/gitlab-ui/commit/8e8d394d0a6f299a87ea3614a0282d8fb1634cdd))
+
+
+### BREAKING CHANGES
+
+* Refactored code to fully remove deprecated
+duo components, Updated references and imports to Duo-UI for consistency
+
 # [104.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.1.2...v104.2.0) (2024-12-05)
 
 
