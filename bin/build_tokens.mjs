@@ -155,19 +155,28 @@ StyleDictionary.registerFormat({
       'brand-gray': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-gray']),
       'brand-pink': getScalesAndCSSCustomProperties(COMPILED_TOKENS.color['brand-pink']),
     };
-    const statusTypes = ['neutral', 'info', 'success', 'warning', 'danger', 'brand'];
 
-    const generateColorObject = (property) =>
+    const generateColorObject = (parent, variants = [], property) =>
       Object.fromEntries(
-        statusTypes.map((variant) => [
-          `status-${variant}`,
-          f.cssCustomPropertyWithValue(COMPILED_TOKENS.status[variant][property].color),
+        variants.map((variant) => [
+          `${parent}-${variant}`,
+          f.cssCustomPropertyWithValue(COMPILED_TOKENS[parent][variant][property].color),
         ])
       );
 
-    const statusBackgroundColors = generateColorObject('background');
-    const statusTextColors = generateColorObject('text');
-    const statusIconColors = generateColorObject('icon');
+    const statusVariants = ['neutral', 'info', 'success', 'warning', 'danger', 'brand'];
+    const statusBackgroundColors = generateColorObject('status', statusVariants, 'background');
+    const statusTextColors = generateColorObject('status', statusVariants, 'text');
+    const statusIconColors = generateColorObject('status', statusVariants, 'icon');
+
+    const feedbackVariants = ['strong', 'neutral', 'info', 'success', 'warning', 'danger'];
+    const feedbackBackgroundColors = generateColorObject(
+      'feedback',
+      feedbackVariants,
+      'background'
+    );
+    const feedbackTextColors = generateColorObject('feedback', feedbackVariants, 'text');
+    const feedbackIconColors = generateColorObject('feedback', feedbackVariants, 'icon');
 
     return `${await fileHeader({ file })}
     const baseColors = ${JSON.stringify(baseColors)};
@@ -183,6 +192,9 @@ StyleDictionary.registerFormat({
     const statusBackgroundColors = ${JSON.stringify(statusBackgroundColors)};
     const statusTextColors = ${JSON.stringify(statusTextColors)};
     const statusIconColors = ${JSON.stringify(statusIconColors)};
+    const feedbackBackgroundColors = ${JSON.stringify(feedbackBackgroundColors)};
+    const feedbackTextColors = ${JSON.stringify(feedbackTextColors)};
+    const feedbackIconColors = ${JSON.stringify(feedbackIconColors)};
 
     const colors = {
       inherit: 'inherit',
@@ -204,6 +216,7 @@ StyleDictionary.registerFormat({
       ...colors,
       ...backgroundColors,
       ...statusBackgroundColors,
+      ...feedbackBackgroundColors,
       dropdown: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.dropdown.background.color)}',
     };
 
@@ -220,6 +233,7 @@ StyleDictionary.registerFormat({
     const fill = {
       ...colors,
       ...statusIconColors,
+      ...feedbackIconColors,
       icon: {
         ...iconColors,
       },
@@ -229,6 +243,7 @@ StyleDictionary.registerFormat({
       ...colors,
       ...textColors,
       ...statusTextColors,
+      ...feedbackTextColors,
       primary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.primary)}',
       secondary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.secondary)}',
       tertiary: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.text.tertiary)}',
