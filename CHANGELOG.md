@@ -1,3 +1,10 @@
+# [104.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.1.2...v104.2.0) (2024-12-05)
+
+
+### Features
+
+* **Bootstrap:** Update link color and link hover color ([6812034](https://gitlab.com/gitlab-org/gitlab-ui/commit/6812034cdf0d44e1277e95addd45da526dc8e688))
+
 ## [104.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v104.1.1...v104.1.2) (2024-12-04)
 
 
