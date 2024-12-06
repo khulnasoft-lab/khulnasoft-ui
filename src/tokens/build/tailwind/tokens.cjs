@@ -308,6 +308,34 @@ const statusIconColors = {
   'status-danger': 'var(--gl-status-danger-icon-color, var(--gl-color-red-500, #dd2b0e))',
   'status-brand': 'var(--gl-status-brand-icon-color, var(--gl-color-purple-500, #7b58cf))',
 };
+const feedbackBackgroundColors = {
+  'feedback-strong':
+    'var(--gl-feedback-strong-background-color, var(--gl-color-neutral-800, #3a383f))',
+  'feedback-neutral':
+    'var(--gl-feedback-neutral-background-color, var(--gl-color-neutral-50, #ececef))',
+  'feedback-info': 'var(--gl-feedback-info-background-color, var(--gl-color-blue-50, #e9f3fc))',
+  'feedback-success':
+    'var(--gl-feedback-success-background-color, var(--gl-color-green-50, #ecf4ee))',
+  'feedback-warning':
+    'var(--gl-feedback-warning-background-color, var(--gl-color-orange-50, #fdf1dd))',
+  'feedback-danger': 'var(--gl-feedback-danger-background-color, var(--gl-color-red-50, #fcf1ef))',
+};
+const feedbackTextColors = {
+  'feedback-strong': 'var(--gl-feedback-strong-text-color, var(--gl-color-neutral-0, #fff))',
+  'feedback-neutral': 'var(--gl-feedback-neutral-text-color, var(--gl-color-neutral-700, #4c4b51))',
+  'feedback-info': 'var(--gl-feedback-info-text-color, var(--gl-color-blue-700, #0b5cad))',
+  'feedback-success': 'var(--gl-feedback-success-text-color, var(--gl-color-green-700, #24663b))',
+  'feedback-warning': 'var(--gl-feedback-warning-text-color, var(--gl-color-orange-700, #8f4700))',
+  'feedback-danger': 'var(--gl-feedback-danger-text-color, var(--gl-color-red-700, #ae1800))',
+};
+const feedbackIconColors = {
+  'feedback-strong': 'var(--gl-feedback-strong-icon-color, var(--gl-color-neutral-0, #fff))',
+  'feedback-neutral': 'var(--gl-feedback-neutral-icon-color, var(--gl-color-neutral-600, #626168))',
+  'feedback-info': 'var(--gl-feedback-info-icon-color, var(--gl-color-blue-600, #1068bf))',
+  'feedback-success': 'var(--gl-feedback-success-icon-color, var(--gl-color-green-600, #217645))',
+  'feedback-warning': 'var(--gl-feedback-warning-icon-color, var(--gl-color-orange-600, #9e5400))',
+  'feedback-danger': 'var(--gl-feedback-danger-icon-color, var(--gl-color-red-600, #c91c00))',
+};
 
 const colors = {
   inherit: 'inherit',
@@ -329,6 +357,7 @@ const backgroundColor = {
   ...colors,
   ...backgroundColors,
   ...statusBackgroundColors,
+  ...feedbackBackgroundColors,
   dropdown: 'var(--gl-dropdown-background-color, var(--gl-background-color-overlap, #fff))',
 };
 
@@ -345,6 +374,7 @@ const outlineColor = {
 const fill = {
   ...colors,
   ...statusIconColors,
+  ...feedbackIconColors,
   icon: {
     ...iconColors,
   },
@@ -354,6 +384,7 @@ const textColor = {
   ...colors,
   ...textColors,
   ...statusTextColors,
+  ...feedbackTextColors,
   primary: 'var(--gl-text-primary, #28272d)',
   secondary: 'var(--gl-text-secondary, #737278)',
   tertiary: 'var(--gl-text-tertiary, #89888d)',
