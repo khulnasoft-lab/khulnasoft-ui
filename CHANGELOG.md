@@ -1,3 +1,10 @@
+# [105.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.0.1...v105.1.0) (2024-12-06)
+
+
+### Features
+
+* **Tailwind:** add feedback design tokens to Tailwind classes ([1af64c6](https://gitlab.com/gitlab-org/gitlab-ui/commit/1af64c635872b5ac05a0b790a0f8f66d9bc0f2f6))
+
 ## [105.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.0.0...v105.0.1) (2024-12-05)
 
 
