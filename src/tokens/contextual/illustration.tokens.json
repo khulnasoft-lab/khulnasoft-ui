@@ -1,0 +1,346 @@
+{
+  "illustration": {
+    "stroke": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "#171321",
+            "dark": "#e3e3e8"
+          },
+          "$type": "color",
+          "$description": "Default stroke color to define shape and provide essential detail."
+        }
+      }
+    },
+    "fill": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "#fff",
+            "dark": "#423f4f"
+          },
+          "$type": "color",
+          "$description": "Default fill color for an element where specific meaning or emphasis is not required."
+        }
+      }
+    },
+    "status": {
+      "fill": {
+        "color": {
+          "neutral": {
+            "$value": {
+              "default": "#aea5d6",
+              "dark": "#6f6796"
+            },
+            "$type": "color",
+            "$description": "Used as a fill to convey a concept which is neither positive or negative."
+          },
+          "success": {
+            "$value": {
+              "default": "#6fdac9",
+              "dark": "#3b8581"
+            },
+            "$type": "color",
+            "$description": "Used as a fill to convey a success or active concept, has a positive connotation."
+          },
+          "warning": {
+            "$value": {
+              "default": "#fca326",
+              "dark": "#ab752f"
+            },
+            "$type": "color",
+            "$description": "Used as a fill to convey a caution or warning concept, has a slightly negative connotation."
+          },
+          "danger": {
+            "$value": {
+              "default": "#ff9d73",
+              "dark": "#aa563a"
+            },
+            "$type": "color",
+            "$description": "Used as a fill to convey a critical or danger concept, has a negative connotation."
+          }
+        }
+      }
+    },
+    "accent": {
+      "stroke": {
+        "color": {
+          "orange": {
+            "$value": {
+              "default": "#ff9d73",
+              "dark": "#e3865f"
+            },
+            "$type": "color",
+            "$description": "Used for orange accent stroke detail on an object or attention-drawing element."
+          },
+          "teal": {
+            "$value": {
+              "default": "#6fdac9",
+              "dark": "#6baea3"
+            },
+            "$type": "color",
+            "$description": "Used for teal accent stroke detail on an object or attention-drawing element."
+          },
+          "strong": {
+            "$value": {
+              "default": "#aea5d6",
+              "dark": "#aea5d6"
+            },
+            "$type": "color",
+            "$description": "Used for dark accent stroke detail on an object or attention-drawing element."
+          }
+        }
+      },
+      "fill": {
+        "color": {
+          "subtle": {
+            "$value": {
+              "default": "#d0c5e2",
+              "dark": "#5c5371"
+            },
+            "$type": "color",
+            "$description": "Used to add depth to a secondary element and supporting surface."
+          },
+          "strong": {
+            "$value": {
+              "default": "#aea5d6",
+              "dark": "#6f6796"
+            },
+            "$type": "color",
+            "$description": "Used for an element requiring visual emphasis without competing with primary content or status indicators."
+          },
+          "orange": {
+            "$value": {
+              "default": "#ff9d73",
+              "dark": "#aa563a"
+            },
+            "$type": "color",
+            "$description": "Used to add orange to a secondary element and supporting surface."
+          },
+          "teal": {
+            "$value": {
+              "default": "#6fdac9",
+              "dark": "#3b8581"
+            },
+            "$type": "color",
+            "$description": "Used to add teal to a secondary element and supporting surface."
+          }
+        }
+      }
+    },
+    "base": {
+      "fill": {
+        "color": {
+          "$value": {
+            "default": "#e7e4f2",
+            "dark": "#32303c"
+          },
+          "$type": "color",
+          "$description": "Used for the consistent background shape present across all illustrations. Provides a unified foundation that visually grounds each illustration while maintaining system cohesion."
+        }
+      }
+    },
+    "isometric": {
+      "stroke": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "#171321",
+              "dark": "#e3e3e8"
+            },
+            "$type": "color",
+            "$description": "Default stroke color to define shape and provide essential detail in isometric illustration."
+          }
+        }
+      },
+      "glyph": {
+        "top": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#c5f4ec",
+                "dark": "#5a566c"
+              },
+              "$type": "color",
+              "$description": "Used for the top face of isometric text and number elements."
+            }
+          }
+        },
+        "front": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#fff",
+                "dark": "#423f4f"
+              },
+              "$type": "color",
+              "$description": "Used for the front face of isometric text and number elements."
+            }
+          }
+        },
+        "side": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#6fdac9",
+                "dark": "#373441"
+              },
+              "$type": "color",
+              "$description": "Used for the side face of isometric text and number elements."
+            }
+          }
+        },
+        "shadow": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#10b1b1",
+                "dark": "#292730"
+              },
+              "$type": "color",
+              "$description": "Used for the shadow of isometric text and number elements."
+            }
+          }
+        }
+      },
+      "object": {
+        "top": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#ff9d73",
+                "dark": "#aa563a"
+              },
+              "$type": "color",
+              "$description": "Used for the top face of an isometric object or symbol."
+            }
+          }
+        },
+        "front": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#ffc2a8",
+                "dark": "#a54623"
+              },
+              "$type": "color",
+              "$description": "Used for the front face of an isometric object or symbol."
+            }
+          }
+        },
+        "side": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#ff7b42",
+                "dark": "#8f4424"
+              },
+              "$type": "color",
+              "$description": "Used for the side face of an isometric object or symbol."
+            }
+          }
+        },
+        "highlight": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#fff",
+                "dark": "#423f4f"
+              },
+              "$type": "color",
+              "$description": "Used for the face of an isometric object or symbol that requires maximum distinction from other elements."
+            }
+          }
+        },
+        "shadow": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#e24329",
+                "dark": "#3d2b2a"
+              },
+              "$type": "color",
+              "$description": "Used for the shadow of an isometric object or symbol."
+            }
+          }
+        }
+      },
+      "accent": {
+        "top": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#45424d",
+                "dark": "#6d6972"
+              },
+              "$type": "color",
+              "$description": "Used for the top face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content."
+            }
+          }
+        },
+        "front": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#74717a",
+                "dark": "#49474d"
+              },
+              "$type": "color",
+              "$description": "Used for the front face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content."
+            }
+          }
+        },
+        "side": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#2b2838",
+                "dark": "#212023"
+              },
+              "$type": "color",
+              "$description": "Used for the side face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content."
+            }
+          }
+        }
+      },
+      "base": {
+        "top": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#e7e4f2",
+                "dark": "#32303c"
+              },
+              "$type": "color",
+              "$description": "Used for the top surface of an isometric base platform."
+            }
+          }
+        },
+        "front": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#d5d0e8",
+                "dark": "#2b2932"
+              },
+              "$type": "color",
+              "$description": "Used for the front face of an isometric base platform."
+            }
+          }
+        },
+        "side": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#aea5d6",
+                "dark": "#23222b"
+              },
+              "$type": "color",
+              "$description": "Used for the side face of an isometric base platform."
+            }
+          }
+        }
+      }
+    }
+  }
+}

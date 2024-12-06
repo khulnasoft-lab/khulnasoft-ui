@@ -242,6 +242,36 @@ $gl-avatar-fallback-background-color-blue: #9dc7f13d; // Blue background for ava
 $gl-avatar-fallback-background-color-green: #91d4a83d; // Green background for avatar fallback with no particular meaning.
 $gl-avatar-fallback-background-color-orange: #e9be743d; // Orange background for avatar fallback with no particular meaning.
 $gl-avatar-fallback-background-color-neutral: #bfbfc33d; // Neutral background for avatar fallback with no particular meaning.
+$gl-illustration-stroke-color-default: #171321; // Default stroke color to define shape and provide essential detail.
+$gl-illustration-fill-color-default: #fff; // Default fill color for an element where specific meaning or emphasis is not required.
+$gl-illustration-status-fill-color-neutral: #aea5d6; // Used as a fill to convey a concept which is neither positive or negative.
+$gl-illustration-status-fill-color-success: #6fdac9; // Used as a fill to convey a success or active concept, has a positive connotation.
+$gl-illustration-status-fill-color-warning: #fca326; // Used as a fill to convey a caution or warning concept, has a slightly negative connotation.
+$gl-illustration-status-fill-color-danger: #ff9d73; // Used as a fill to convey a critical or danger concept, has a negative connotation.
+$gl-illustration-accent-stroke-color-orange: #ff9d73; // Used for orange accent stroke detail on an object or attention-drawing element.
+$gl-illustration-accent-stroke-color-teal: #6fdac9; // Used for teal accent stroke detail on an object or attention-drawing element.
+$gl-illustration-accent-stroke-color-strong: #aea5d6; // Used for dark accent stroke detail on an object or attention-drawing element.
+$gl-illustration-accent-fill-color-subtle: #d0c5e2; // Used to add depth to a secondary element and supporting surface.
+$gl-illustration-accent-fill-color-strong: #aea5d6; // Used for an element requiring visual emphasis without competing with primary content or status indicators.
+$gl-illustration-accent-fill-color-orange: #ff9d73; // Used to add orange to a secondary element and supporting surface.
+$gl-illustration-accent-fill-color-teal: #6fdac9; // Used to add teal to a secondary element and supporting surface.
+$gl-illustration-base-fill-color: #e7e4f2; // Used for the consistent background shape present across all illustrations. Provides a unified foundation that visually grounds each illustration while maintaining system cohesion.
+$gl-illustration-isometric-stroke-color-default: #171321; // Default stroke color to define shape and provide essential detail in isometric illustration.
+$gl-illustration-isometric-glyph-top-fill-color: #c5f4ec; // Used for the top face of isometric text and number elements.
+$gl-illustration-isometric-glyph-front-fill-color: #fff; // Used for the front face of isometric text and number elements.
+$gl-illustration-isometric-glyph-side-fill-color: #6fdac9; // Used for the side face of isometric text and number elements.
+$gl-illustration-isometric-glyph-shadow-fill-color: #10b1b1; // Used for the shadow of isometric text and number elements.
+$gl-illustration-isometric-object-top-fill-color: #ff9d73; // Used for the top face of an isometric object or symbol.
+$gl-illustration-isometric-object-front-fill-color: #ffc2a8; // Used for the front face of an isometric object or symbol.
+$gl-illustration-isometric-object-side-fill-color: #ff7b42; // Used for the side face of an isometric object or symbol.
+$gl-illustration-isometric-object-highlight-fill-color: #fff; // Used for the face of an isometric object or symbol that requires maximum distinction from other elements.
+$gl-illustration-isometric-object-shadow-fill-color: #e24329; // Used for the shadow of an isometric object or symbol.
+$gl-illustration-isometric-accent-top-fill-color: #45424d; // Used for the top face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content.
+$gl-illustration-isometric-accent-front-fill-color: #74717a; // Used for the front face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content.
+$gl-illustration-isometric-accent-side-fill-color: #2b2838; // Used for the side face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content.
+$gl-illustration-isometric-base-top-fill-color: #e7e4f2; // Used for the top surface of an isometric base platform.
+$gl-illustration-isometric-base-front-fill-color: #d5d0e8; // Used for the front face of an isometric base platform.
+$gl-illustration-isometric-base-side-fill-color: #aea5d6; // Used for the side face of an isometric base platform.
 $theme-indigo-10: #f8f8ff !default;
 $theme-indigo-50: #f1f1ff !default;
 $theme-indigo-100: #dbdbf8 !default;
