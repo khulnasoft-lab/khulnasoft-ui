@@ -142,7 +142,7 @@
     "axe-playwright": "^2.0.3",
     "babel-jest": "29.0.1",
     "babel-loader": "^8.0.5",
-    "cypress": "13.16.0",
+    "cypress": "13.16.1",
     "cypress-axe": "^1.4.0",
     "cypress-real-events": "^1.11.0",
     "dompurify": "^3.1.2",
