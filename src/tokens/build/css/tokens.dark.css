@@ -245,6 +245,7 @@
   --gl-avatar-fallback-background-color-orange: #e9be743d; /* Orange background for avatar fallback with no particular meaning. */
   --gl-avatar-fallback-background-color-neutral: #bfbfc33d; /* Neutral background for avatar fallback with no particular meaning. */
   --gl-illustration-stroke-color-default: #e3e3e8; /* Default stroke color to define shape and provide essential detail. */
+  --gl-illustration-stroke-width-default: 0.09375rem; /* Default stroke width to define shape and provide essential detail. */
   --gl-illustration-fill-color-default: #423f4f; /* Default fill color for an element where specific meaning or emphasis is not required. */
   --gl-illustration-status-fill-color-neutral: #6f6796; /* Used as a fill to convey a concept which is neither positive or negative. */
   --gl-illustration-status-fill-color-success: #3b8581; /* Used as a fill to convey a success or active concept, has a positive connotation. */
@@ -259,6 +260,7 @@
   --gl-illustration-accent-fill-color-teal: #3b8581; /* Used to add teal to a secondary element and supporting surface. */
   --gl-illustration-base-fill-color: #32303c; /* Used for the consistent background shape present across all illustrations. Provides a unified foundation that visually grounds each illustration while maintaining system cohesion. */
   --gl-illustration-isometric-stroke-color-default: #e3e3e8; /* Default stroke color to define shape and provide essential detail in isometric illustration. */
+  --gl-illustration-isometric-stroke-width-default: 0.09375rem; /* Default stroke width to define shape and provide essential detail in isometric illustration. */
   --gl-illustration-isometric-glyph-top-fill-color: #5a566c; /* Used for the top face of isometric text and number elements. */
   --gl-illustration-isometric-glyph-front-fill-color: #423f4f; /* Used for the front face of isometric text and number elements. */
   --gl-illustration-isometric-glyph-side-fill-color: #373441; /* Used for the side face of isometric text and number elements. */
