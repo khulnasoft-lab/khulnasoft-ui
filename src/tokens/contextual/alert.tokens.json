@@ -22,7 +22,7 @@
         }
       },
       "border": {
-        "top" : {
+        "top": {
           "color": {
             "$value": {
               "default": "{color.alpha.0}",

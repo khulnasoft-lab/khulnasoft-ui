@@ -1,0 +1,1423 @@
+{
+  "action": {
+    "disabled": {
+      "foreground": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.400}",
+            "dark": "{color.neutral.500}"
+          },
+          "$type": "color",
+          "$description": "Used for the foreground of a disabled action."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.50}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a disabled action."
+        }
+      },
+      "border": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the border of a disabled action."
+        }
+      }
+    },
+    "selected": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a selected action in the default state."
+          },
+          "hover": {
+            "$value": "{action.selected.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a selected action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.selected.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the foreground of a selected action in the focus state."
+          },
+          "active": {
+            "$value": "{action.selected.foreground.color.focus}",
+            "$type": "color",
+            "$description": "Used for the foreground of a selected action in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.selected.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a selected action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.800}",
+              "dark": "{color.blue.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected action in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{action.selected.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a selected action in the default state."
+          },
+          "hover": {
+            "$value": "{action.selected.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the border of a selected action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.selected.background.color.focus}",
+            "$type": "color",
+            "$description": "Used for the border of a selected action in the focus state."
+          },
+          "active": {
+            "$value": "{action.selected.background.color.active}",
+            "$type": "color",
+            "$description": "Used for the border of a selected action in the active state."
+          }
+        }
+      }
+    },
+    "neutral": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a neutral action in the default state."
+          },
+          "hover": {
+            "$value": "{action.neutral.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a neutral action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.neutral.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a neutral action in the focus state."
+          },
+          "active": {
+            "$value": "{action.neutral.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a neutral action in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "rgba(164, 163, 168, 0.0)",
+              "dark": "rgba(137, 136, 141, 0.0)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a neutral action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "rgba(164, 163, 168, 0.16)",
+              "dark": "rgba(137, 136, 141, 0.4)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a neutral action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.neutral.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a neutral action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "rgba(83, 81, 88, 0.24)",
+              "dark": "rgba(137, 136, 141, 0.16)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a neutral action in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral action in the default state."
+          },
+          "hover": {
+            "$value": "{action.neutral.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.neutral.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral action in the focus state."
+          },
+          "active": {
+            "$value": "{action.neutral.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral action in the active state."
+          }
+        }
+      }
+    },
+    "confirm": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a confirm (positive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a confirm (positive) action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.confirm.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the foreground of a confirm (positive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.900}",
+              "dark": "{color.blue.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a confirm (positive) action in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "rgba(99, 166, 233, 0.0)",
+              "dark": "rgba(66, 143, 220, 0.0)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a confirm (positive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "rgba(99, 166, 233, 0.16)",
+              "dark": "rgba(66, 143, 220, 0.4)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a confirm (positive) action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.confirm.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a confirm (positive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "rgba(11, 92, 173, 0.24)",
+              "dark": "rgba(66, 143, 220, 0.16)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a confirm (positive) action in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a confirm action in the default state."
+          },
+          "hover": {
+            "$value": "{action.confirm.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a confirm action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.confirm.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a confirm action in the focus state."
+          },
+          "active": {
+            "$value": "{action.confirm.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a confirm action in the active state."
+          }
+        }
+      }
+    },
+    "danger": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.red.500}",
+              "dark": "{color.red.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a danger (destructive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.red.700}",
+              "dark": "{color.red.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a danger (destructive) action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.danger.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the foreground of a danger (destructive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.red.900}",
+              "dark": "{color.red.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a danger (destructive) action in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "rgba(245, 127, 108, 0.0)",
+              "dark": "rgba(236, 89, 65, 0.0)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a danger (destructive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "rgba(245, 127, 108, 0.16)",
+              "dark": "rgba(236, 89, 65, 0.4)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a danger (destructive) action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.danger.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a danger (destructive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "rgba(174, 24, 0, 0.24)",
+              "dark": "rgba(236, 89, 65, 0.16)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a danger (destructive) action in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a danger action in the default state."
+          },
+          "hover": {
+            "$value": "{action.danger.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a danger action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.danger.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a danger action in the focus state."
+          },
+          "active": {
+            "$value": "{action.danger.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a danger action in the active state."
+          }
+        }
+      }
+    },
+    "strong": {
+      "confirm": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong confirm action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong confirm action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a strong confirm action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong confirm action in the active state."
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong confirm action in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.confirm.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a strong confirm action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.foreground.color.hover}",
+              "$type": "color",
+              "$description": "Used for the foreground of a strong confirm action in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.confirm.foreground.color.focus}",
+              "$type": "color",
+              "$description": "Used for the foreground of a strong confirm action in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the border of a strong confirm action in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.confirm.border.color.default}",
+              "$type": "color",
+              "$description": "Used for the border of a strong confirm action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a strong confirm action in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.confirm.border.color.focus}",
+              "$type": "color",
+              "$description": "Used for the border of a strong confirm action in the active state."
+            }
+          }
+        }
+      },
+      "neutral": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong neutral action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.700}",
+                "dark": "{color.neutral.600}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong neutral action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.neutral.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a strong neutral action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.800}",
+                "dark": "{color.neutral.500}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong neutral action in the active state."
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong neutral action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{action.strong.neutral.foreground.color.default}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong neutral action in the hover state."
+            },
+            "focus": {
+              "$value": {
+                "default": "{action.strong.neutral.foreground.color.hover}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong neutral action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{action.strong.neutral.foreground.color.focus}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong neutral action in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the border of a strong neutral action in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.neutral.border.color.default}",
+              "$type": "color",
+              "$description": "Used for the border of a strong neutral action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.neutral.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a strong neutral action in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.neutral.border.color.focus}",
+              "$type": "color",
+              "$description": "Used for the border of a strong neutral action in the active state."
+            }
+          }
+        }
+      }
+    }
+  },
+  "background": {
+    "color": {
+      "default": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.950}"
+        },
+        "$type": "color",
+        "$description": "Used for the default background color."
+      },
+      "subtle": {
+        "$value": {
+          "default": "{color.neutral.10}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used to slightly differentiate the background from the default."
+      },
+      "strong": {
+        "$value": {
+          "default": "{color.neutral.50}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used to make the background easily stand out from the default."
+      },
+      "disabled": {
+        "$value": {
+          "default": "{color.neutral.10}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used to identify a disabled section."
+      },
+      "overlap": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used for components, like tooltips and drawers, and content, like a sticky header, that overlap other content."
+      },
+      "section": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for containers, like a card header, that are visually distinct from the default page background only when necessary to maintain affordance and hierarchy in different modes."
+      },
+      "overlay": {
+        "$value": {
+          "default": "{color.alpha.dark.24}",
+          "dark": "rgba(0,0,0,0.64)"
+        },
+        "$type": "color",
+        "$description": "Used for an overlay that covers other content."
+      }
+    }
+  },
+  "border": {
+    "color": {
+      "default": {
+        "$value": {
+          "default": "{color.neutral.100}",
+          "dark": "{color.neutral.700}"
+        },
+        "$type": "color",
+        "$description": "Used for the default border color."
+      },
+      "subtle": {
+        "$value": {
+          "default": "{color.neutral.50}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for a subtle border in combination with the default background."
+      },
+      "strong": {
+        "$value": {
+          "default": "{color.neutral.200}",
+          "dark": "{color.neutral.600}"
+        },
+        "$type": "color",
+        "$description": "Used for a distinct border that emphasizes an edge or boundaries."
+      },
+      "section": {
+        "$value": {
+          "default": "{border.color.default}",
+          "dark": "{background.color.default}"
+        },
+        "$type": "color",
+        "$description": "Used for the border color that surrounds content or elements when they appear as a closed container or closed section of the page."
+      },
+      "transparent": {
+        "$value": "{color.alpha.0}",
+        "$type": "color",
+        "$description": "Used when a border needs to be present, but not visibly perceived."
+      }
+    }
+  },
+  "control": {
+    "background": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.alpha.dark.40}"
+          },
+          "$type": "color",
+          "$description": "Used for form control (input, radio button, checkbox, textarea) default background."
+        },
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.10}",
+            "dark": "{color.alpha.light.4}"
+          },
+          "$type": "color",
+          "$description": "Used for disabled form control (checkbox, input, radio button, textarea) background."
+        },
+        "concatenation": {
+          "$value": {
+            "default": "{color.neutral.10}",
+            "dark": "{color.alpha.light.4}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of static content that prepends or appends a text input."
+        },
+        "readonly": {
+          "$value": {
+            "default": "{color.alpha.dark.2}",
+            "dark": "{color.alpha.light.8}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of static content that prepends or appends a text input."
+        },
+        "selected": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.300}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover."
+          }
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "{color.neutral.400}",
+            "dark": "{color.neutral.500}"
+          },
+          "$type": "color",
+          "$description": "Used for form control (input, radio button, checkbox, textarea) default border."
+        },
+        "hover": {
+          "$value": {
+            "default": "{color.neutral.600}",
+            "dark": "{color.neutral.300}"
+          },
+          "$type": "color",
+          "$description": "Used for form control (input, radio button, checkbox, textarea) border on hover."
+        },
+        "focus": {
+          "$value": {
+            "default": "{color.neutral.900}",
+            "dark": "{color.neutral.50}"
+          },
+          "$type": "color",
+          "$description": "Used for form control (input, radio button, checkbox, textarea) border on focus."
+        },
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "$description": "Used for disabled form control (input, radio button, checkbox, textarea) border."
+        },
+        "error": {
+          "$value": {
+            "default": "{color.red.500}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Used for invalid form control (input, textarea) border."
+        },
+        "selected": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on hover."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on focus."
+          }
+        }
+      }
+    },
+    "text": {
+      "color": {
+        "error": {
+          "$value": "{text.color.danger}",
+          "$type": "color",
+          "$description": "Used for the helper text when the input is invalid."
+        },
+        "valid": {
+          "$value": "{text.color.success}",
+          "$type": "color",
+          "$description": "Used for the helper text when the input is valid."
+        }
+      }
+    },
+    "placeholder": {
+      "color": {
+        "$value": "{text.color.disabled}",
+        "$type": "color",
+        "$description": "Used for placeholder text within inputs."
+      }
+    },
+    "indicator": {
+      "color": {
+        "selected": {
+          "$value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.950}"
+          },
+          "$type": "color",
+          "$description": "Used for checkbox and radio button state indicators."
+        },
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.500}",
+            "dark": "{color.neutral.400}"
+          },
+          "$type": "color",
+          "$description": "Used for disabled checkbox and radio button state indicators."
+        }
+      }
+    }
+  },
+  "feedback": {
+    "strong": {
+      "background": {
+        "color": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Used for a background associated with strong feedback like a tooltip or toast message."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Used for text on a strong feedback background."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Used for an icon on a strong feedback background."
+        }
+      },
+      "link": {
+        "color": {
+          "$value": "{color.blue.300}",
+          "$type": "color",
+          "$description": "Used for a link on a strong feedback background."
+        }
+      }
+    },
+    "neutral": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.50}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a neutral feedback item when there isn't a specific meaning or urgency."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.700}",
+            "dark": "{color.neutral.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a neutral feedback item when there isn't a specific meaning or urgency."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.600}",
+            "dark": "{color.neutral.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a neutral feedback item when there isn't a specific meaning or urgency."
+        }
+      }
+    },
+    "info": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.50}",
+            "dark": "{color.blue.950}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.700}",
+            "dark": "{color.blue.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.600}",
+            "dark": "{color.blue.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
+        }
+      }
+    },
+    "success": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.green.50}",
+            "dark": "{color.green.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a success feedback item when confirming the successful completion of a user-initiated action."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.green.700}",
+            "dark": "{color.green.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a success feedback item when confirming the successful completion of a user-initiated action."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.green.600}",
+            "dark": "{color.green.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a success feedback item when confirming the successful completion of a user-initiated action."
+        }
+      }
+    },
+    "warning": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.50}",
+            "dark": "{color.orange.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a warning feedback item when notifying about a potential issue or sensitive information."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.700}",
+            "dark": "{color.orange.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a warning feedback item when notifying about a potential issue or sensitive information."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.600}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a warning feedback item when notifying about a potential issue or sensitive information."
+        }
+      }
+    },
+    "danger": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.red.50}",
+            "dark": "{color.red.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.red.700}",
+            "dark": "{color.red.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.red.600}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
+        }
+      }
+    }
+  },
+  "focus-ring": {
+    "outer": {
+      "color": {
+        "$value": {
+          "default": "{color.blue.500}",
+          "dark": "{color.blue.400}"
+        },
+        "$type": "color",
+        "$description": "Used for the outer color portion of the focus ring."
+      }
+    },
+    "inner": {
+      "color": {
+        "$value": "{background.color.default}",
+        "$type": "color",
+        "$description": "Used for the inner neutral portion of the focus ring."
+      }
+    }
+  },
+  "icon": {
+    "color": {
+      "default": {
+        "$value": "{text.color.default}",
+        "$type": "color",
+        "$description": "Used for the default icon color. Can be paired with default text."
+      },
+      "subtle": {
+        "$value": "{text.color.subtle}",
+        "$type": "color",
+        "$description": "Used for a static or decorational icon. Can be paired with subtle text."
+      },
+      "strong": {
+        "$value": "{text.color.strong}",
+        "$type": "color",
+        "$description": "Used for an icon with the highest contrast."
+      },
+      "disabled": {
+        "$value": "{text.color.disabled}",
+        "$type": "color",
+        "$description": "Used for an icon within a disabled section."
+      },
+      "link": {
+        "$value": "{text.color.link}",
+        "$type": "color",
+        "$description": "Used for an icon within a link."
+      },
+      "info": {
+        "$value": {
+          "default": "{color.blue.700}",
+          "dark": "{color.blue.200}"
+        },
+        "$type": "color",
+        "$description": "Used for an icon associated with information or help."
+      },
+      "warning": {
+        "$value": "{text.color.warning}",
+        "$type": "color",
+        "$description": "Used for an icon associated with a warning."
+      },
+      "danger": {
+        "$value": "{text.color.danger}",
+        "$type": "color",
+        "$description": "Used for an icon associated with an error or danger."
+      },
+      "success": {
+        "$value": "{text.color.success}",
+        "$type": "color",
+        "$description": "Used for an icon associated with success or validity."
+      }
+    }
+  },
+  "shadow": {
+    "color": {
+      "default": {
+        "$value": {
+          "default": "{color.alpha.dark.16}",
+          "dark": "{color.alpha.dark.40}"
+        },
+        "$type": "color",
+        "$description": "Used for the default shadow color."
+      }
+    }
+  },
+  "status": {
+    "neutral": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.700}",
+            "dark": "{color.neutral.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.500}",
+            "dark": "{color.neutral.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state."
+        }
+      }
+    },
+    "info": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.100}",
+            "dark": "{color.blue.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of an informational status item when indicating a noteworthy ongoing condition or a state of active progress."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.700}",
+            "dark": "{color.blue.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of an informational status item when indicating a noteworthy ongoing condition or a state of active progress."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.500}",
+            "dark": "{color.blue.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of an informational status item when indicating a noteworthy ongoing condition or a state of active progress."
+        }
+      }
+    },
+    "success": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.green.100}",
+            "dark": "{color.green.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.green.700}",
+            "dark": "{color.green.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.green.500}",
+            "dark": "{color.green.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation."
+        }
+      }
+    },
+    "warning": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.100}",
+            "dark": "{color.orange.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.700}",
+            "dark": "{color.orange.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.500}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item."
+        }
+      }
+    },
+    "danger": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.red.100}",
+            "dark": "{color.red.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.red.700}",
+            "dark": "{color.red.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.red.500}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition."
+        }
+      }
+    },
+    "brand": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.purple.100}",
+            "dark": "{color.purple.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a brand-related status item when highlighting the state of unique features or elements specific to the GitLab brand identity. Helps distinguish and emphasize brand-specific elements within the interface."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.purple.700}",
+            "dark": "{color.purple.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a brand-related status item when highlighting the state of unique features or elements specific to the GitLab brand identity. Helps distinguish and emphasize brand-specific elements within the interface."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.purple.500}",
+            "dark": "{color.purple.500}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a brand-related status item when highlighting the state of unique features or elements specific to the GitLab brand identity. Helps distinguish and emphasize brand-specific elements within the interface."
+        }
+      }
+    }
+  },
+  "text": {
+    "primary": {
+      "$value": {
+        "default": "#28272d",
+        "dark": "#ececef"
+      },
+      "$type": "color",
+      "$description": "Use text.color.default instead.",
+      "deprecated": true
+    },
+    "secondary": {
+      "$value": {
+        "default": "#737278",
+        "dark": "#89888d"
+      },
+      "$type": "color",
+      "$description": "Use text.color.subtle instead.",
+      "deprecated": true
+    },
+    "tertiary": {
+      "$value": {
+        "default": "#89888d",
+        "dark": "#737278"
+      },
+      "$type": "color",
+      "$description": "Use text.color.disabled instead.",
+      "deprecated": true
+    },
+    "color": {
+      "default": {
+        "$value": {
+          "default": "{color.neutral.800}",
+          "dark": "{color.neutral.50}"
+        },
+        "$type": "color",
+        "$description": "Used for the default text color."
+      },
+      "subtle": {
+        "$value": {
+          "default": "{color.neutral.600}",
+          "dark": "{color.neutral.200}"
+        },
+        "$type": "color",
+        "$description": "Used for supplemental text that doesn't need to be as prominent as other text."
+      },
+      "strong": {
+        "$value": {
+          "default": "{color.neutral.950}",
+          "dark": "{color.neutral.0}"
+        },
+        "$type": "color",
+        "$description": "Used for text with the highest contrast."
+      },
+      "heading": {
+        "$value": {
+          "default": "{color.neutral.950}",
+          "dark": "{color.neutral.0}"
+        },
+        "$type": "color",
+        "$description": "Used for headings level 1-6."
+      },
+      "link": {
+        "$value": {
+          "default": "{color.blue.700}",
+          "dark": "{color.blue.200}"
+        },
+        "$type": "color",
+        "$description": "Used for default text links."
+      },
+      "warning": {
+        "$value": {
+          "default": "{color.orange.600}",
+          "dark": "{color.orange.300}"
+        },
+        "$type": "color",
+        "$description": "Used for text that requires caution or careful attention."
+      },
+      "danger": {
+        "$value": {
+          "default": "{color.red.600}",
+          "dark": "{color.red.300}"
+        },
+        "$type": "color",
+        "$description": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination."
+      },
+      "success": {
+        "$value": {
+          "default": "{color.green.600}",
+          "dark": "{color.green.300}"
+        },
+        "$type": "color",
+        "$description": "Used for text indicating success, completion, approval, addition, or validity."
+      },
+      "disabled": {
+        "$value": {
+          "default": "{color.neutral.400}",
+          "dark": "{color.neutral.400}"
+        },
+        "$type": "color",
+        "$description": "Used for disabled text."
+      }
+    }
+  }
+}
