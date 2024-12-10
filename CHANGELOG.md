@@ -1,3 +1,10 @@
+## [105.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.1.0...v105.1.1) (2024-12-10)
+
+
+### Bug Fixes
+
+* **GlFilteredSearch:** allow passing null values to non multi select inputs ([01446a9](https://gitlab.com/gitlab-org/gitlab-ui/commit/01446a98d1afc579574e1bacad742788a0bf4837))
+
 # [105.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.0.1...v105.1.0) (2024-12-06)
 
 
