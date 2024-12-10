@@ -100,7 +100,7 @@ const ModalManager = /*#__PURE__*/ extend({
         // Create a temporary `div.modal-backdrop` to get computed z-index
         const div = document.createElement('div')
         addClass(div, 'modal-backdrop')
-        addClass(div, 'd-none')
+        addClass(div, 'gl-hidden')
         setStyle(div, 'display', 'none')
         document.body.appendChild(div)
         this.baseZIndex = toInteger(getCS(div).zIndex, DEFAULT_ZINDEX)

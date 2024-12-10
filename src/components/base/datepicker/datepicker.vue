@@ -283,8 +283,8 @@ export default {
 
     const pikadayConfig = {
       field: this.$el.querySelector('input[type="text"]'),
-      // `position-absolute` is needed because of this bug: https://github.com/Pikaday/Pikaday/issues/840
-      theme: `gl-datepicker-theme position-absolute ${this.theme}`,
+      // `!gl-absolute` is needed because of this bug: https://github.com/Pikaday/Pikaday/issues/840
+      theme: `gl-datepicker-theme !gl-absolute ${this.theme}`,
       defaultDate: this.defaultDate || this.value,
       setDefaultDate: Boolean(this.value) || Boolean(this.defaultDate),
       minDate: this.minDate,

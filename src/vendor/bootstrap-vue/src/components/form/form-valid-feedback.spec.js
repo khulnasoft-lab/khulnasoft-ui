@@ -18,10 +18,10 @@ describe('form-valid-feedback', () => {
     wrapper.destroy()
   })
 
-  it('default should not have class d-block', async () => {
+  it('default should not have class !gl-block', async () => {
     const wrapper = mount(BFormValidFeedback)
 
-    expect(wrapper.classes()).not.toContain('d-block')
+    expect(wrapper.classes()).not.toContain('!gl-block')
 
     wrapper.destroy()
   })
@@ -70,7 +70,7 @@ describe('form-valid-feedback', () => {
     wrapper.destroy()
   })
 
-  it('should contain class d-block when force-show is set', async () => {
+  it('should contain class !gl-block when force-show is set', async () => {
     const wrapper = mount(BFormValidFeedback, {
       context: {
         props: {
@@ -79,12 +79,12 @@ describe('form-valid-feedback', () => {
       }
     })
 
-    expect(wrapper.classes()).toContain('d-block')
+    expect(wrapper.classes()).toContain('!gl-block')
 
     wrapper.destroy()
   })
 
-  it('should contain class d-block when state is true', async () => {
+  it('should contain class !gl-block when state is true', async () => {
     const wrapper = mount(BFormValidFeedback, {
       context: {
         props: {
@@ -93,12 +93,12 @@ describe('form-valid-feedback', () => {
       }
     })
 
-    expect(wrapper.classes()).toContain('d-block')
+    expect(wrapper.classes()).toContain('!gl-block')
 
     wrapper.destroy()
   })
 
-  it('should not contain class d-block when state is false', async () => {
+  it('should not contain class !gl-block when state is false', async () => {
     const wrapper = mount(BFormValidFeedback, {
       context: {
         props: {
@@ -107,12 +107,12 @@ describe('form-valid-feedback', () => {
       }
     })
 
-    expect(wrapper.classes()).not.toContain('d-block')
+    expect(wrapper.classes()).not.toContain('!gl-block')
 
     wrapper.destroy()
   })
 
-  it('should contain class d-block when force-show is true and state is false', async () => {
+  it('should contain class !gl-block when force-show is true and state is false', async () => {
     const wrapper = mount(BFormValidFeedback, {
       context: {
         props: {
@@ -122,7 +122,7 @@ describe('form-valid-feedback', () => {
       }
     })
 
-    expect(wrapper.classes()).toContain('d-block')
+    expect(wrapper.classes()).toContain('!gl-block')
 
     wrapper.destroy()
   })

@@ -39,12 +39,12 @@ export const Default = (args, { argTypes }) => ({
   template: `
     <div
       :style="wrapperStyles"
-      class="d-flex justify-content-center align-items-center">
+      class="gl-flex gl-justify-center gl-items-center">
       <div
         v-resize-observer="handleResize"
         :style="elementStyles"
-        class="d-flex position-relative justify-content-center align-items-center bg-light text-dark">
-          <span class="d-inline-block p-2">
+        class="gl-flex gl-relative gl-justify-center gl-items-center gl-bg-status-neutral gl-text-default">
+          <span class="gl-inline-block gl-p-3">
             I am {{ width }}px wide and {{ height }}px high.
           </span>
       </div>

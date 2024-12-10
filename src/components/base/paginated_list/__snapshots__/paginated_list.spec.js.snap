@@ -595,7 +595,7 @@ exports[`Paginated List Search states renders the custom empty search message wh
     class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   />
   <div
-    class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
+    class="bs-callout bs-callout-warning empty-message gl-mt-5 empty-search"
   >
     Custom empty message
   </div>
@@ -616,7 +616,7 @@ exports[`Paginated List Search states renders the default empty search message w
     class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   />
   <div
-    class="bs-callout bs-callout-warning mt-3 empty-message empty-search"
+    class="bs-callout bs-callout-warning empty-message gl-mt-5 empty-search"
   >
     Sorry, your filter produced no results.
   </div>
@@ -696,7 +696,7 @@ exports[`Paginated List Searchless states renders the list in an empty state wit
     class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   />
   <div
-    class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
+    class="bs-callout bs-callout-warning empty-message gl-mt-5 empty-message"
   >
     List is passed in empty
   </div>
@@ -717,7 +717,7 @@ exports[`Paginated List Searchless states renders the list in an empty state, wh
     class="gl-m-0 gl-grid gl-list-none gl-grid-cols-1 gl-divide-x-0 gl-divide-y gl-divide-solid gl-divide-default gl-p-0"
   />
   <div
-    class="bs-callout bs-callout-warning mt-3 empty-message empty-message"
+    class="bs-callout bs-callout-warning empty-message gl-mt-5 empty-message"
   >
     There are currently no items in this list.
   </div>

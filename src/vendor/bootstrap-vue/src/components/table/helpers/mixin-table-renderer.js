@@ -101,7 +101,7 @@ export const tableRendererMixin = extend({
           'table-borderless': this.borderless,
           'table-sm': this.small,
           // The following are b-table custom styles
-          border: this.outlined,
+          'gl-border': this.outlined,
           'b-table-fixed': this.fixed,
           'b-table-caption-top': this.captionTop,
           'b-table-no-border-collapse': this.noBorderCollapse

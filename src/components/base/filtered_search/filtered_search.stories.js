@@ -276,7 +276,7 @@ const LabelToken = {
           <div class="gl-flex">
             <span
               :style="{ backgroundColor: label.color, height: '16px', width: '16px' }"
-              class="d-inline-block mr-2"
+              class="gl-inline-block gl-mr-3"
             ></span>
             {{ label.title }}
           </div>

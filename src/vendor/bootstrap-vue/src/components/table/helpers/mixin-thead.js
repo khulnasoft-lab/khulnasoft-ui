@@ -117,7 +117,7 @@ export const theadMixin = extend({
           class: [
             {
               // We need to make the header cell relative when we have
-              // a `.sr-only` sort label to work around overflow issues
+              // a `.gl-sr-only` sort label to work around overflow issues
               'gl-relative': sortLabel
             },
             this.fieldClasses(field),
