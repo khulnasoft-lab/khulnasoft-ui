@@ -1,6 +1,14 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { computePosition, autoUpdate, offset, size, autoPlacement, shift } from '@floating-ui/dom';
+import {
+  arrow,
+  computePosition,
+  autoUpdate,
+  offset,
+  size,
+  autoPlacement,
+  shift,
+} from '@floating-ui/dom';
 import {
   buttonCategoryOptions,
   buttonSizeOptions,
@@ -24,7 +32,7 @@ import { logWarning, isElementTabbable, isElementFocusable } from '../../../../u
 import { OutsideDirective } from '../../../../directives/outside/outside';
 import GlButton from '../../button/button.vue';
 import GlIcon from '../../icon/icon.vue';
-import { DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
+import { ARROW_X_MINIMUM, DEFAULT_OFFSET, FIXED_WIDTH_CLASS } from './constants';
 
 export const BASE_DROPDOWN_CLASS = 'gl-new-dropdown';
 
@@ -278,15 +286,15 @@ export default {
             allowedPlacements: dropdownAllowedAutoPlacements[this.placement],
           }),
           shift(),
+          arrow({ element: this.$refs.dropdownArrow }),
           size({
             apply: ({ availableHeight, elements }) => {
               const contentsEl = elements.floating.querySelector(`.${GL_DROPDOWN_CONTENTS_CLASS}`);
-              if (!contentsEl) {
-                return;
-              }
+              if (!contentsEl) return;
 
               const contentsAvailableHeight =
                 availableHeight - (this.nonScrollableContentHeight ?? 0) - DEFAULT_OFFSET;
+
               Object.assign(contentsEl.style, {
                 maxHeight: `${Math.max(contentsAvailableHeight, 0)}px`,
               });
@@ -324,17 +332,39 @@ export default {
         );
       }
     },
+    getArrowOffsets(actualPlacement) {
+      // Try to extract the base direction (top, bottom, left, right) from the placement
+      const direction = actualPlacement?.split('-')[0];
+
+      const offsetConfigs = {
+        top: {
+          staticSide: 'bottom',
+          rotation: '225deg',
+        },
+        bottom: {
+          staticSide: 'top',
+          rotation: '45deg',
+        },
+        left: {
+          staticSide: 'right',
+          rotation: '135deg',
+        },
+        right: {
+          staticSide: 'left',
+          rotation: '315deg',
+        },
+      };
+
+      return offsetConfigs[direction] || offsetConfigs.bottom;
+    },
+
     async startFloating() {
       this.calculateNonScrollableAreaHeight();
       this.observer = new MutationObserver(this.calculateNonScrollableAreaHeight);
-      this.observer.observe(this.$refs.content, {
-        attributes: false,
-        childList: true,
-        subtree: true,
-      });
+      this.observer.observe(this.$refs.content, { childList: true, subtree: true });
 
       this.stopAutoUpdate = autoUpdate(this.toggleElement, this.$refs.content, async () => {
-        const { x, y } = await computePosition(
+        const result = await computePosition(
           this.toggleElement,
           this.$refs.content,
           this.floatingUIConfig
@@ -347,10 +377,41 @@ export default {
          */
         if (!this.$refs.content) return;
 
+        const { x, y, middlewareData, placement } = result;
+
+        // Get offsets based on actual placement, not requested placement
+        const { rotation, staticSide } = this.getArrowOffsets(placement);
+
+        // Assign dropdown window position
         Object.assign(this.$refs.content.style, {
           left: `${x}px`,
           top: `${y}px`,
         });
+
+        // Assign arrow position
+        if (middlewareData && middlewareData.arrow) {
+          const { x: arrowX, y: arrowY } = middlewareData.arrow;
+
+          /**
+           * Clamp arrow X position to a minimum of 24px from the edge of the dropdown.
+           * This prevents wide toggles from pushing the arrow to the very edge of the dropdown.
+           */
+          const toggleRect = this.toggleElement.getBoundingClientRect();
+          const contentRect = this.$refs.content.getBoundingClientRect();
+          const clampedArrowX =
+            toggleRect.width > contentRect.width
+              ? Math.min(Math.max(arrowX, ARROW_X_MINIMUM), contentRect.width - ARROW_X_MINIMUM)
+              : arrowX;
+
+          Object.assign(this.$refs.dropdownArrow.style, {
+            left: arrowX != null ? `${clampedArrowX}px` : '',
+            top: arrowY != null ? `${arrowY}px` : '',
+            right: '',
+            bottom: '',
+            [staticSide]: '-4px',
+            transform: `rotate(${rotation})`,
+          });
+        }
       });
     },
     stopFloating() {
@@ -499,6 +560,7 @@ export default {
       :class="panelClasses"
       @keydown.esc.stop.prevent="closeAndFocus"
     >
+      <div ref="dropdownArrow" class="gl-new-dropdown-arrow"></div>
       <div class="gl-new-dropdown-inner">
         <slot></slot>
       </div>

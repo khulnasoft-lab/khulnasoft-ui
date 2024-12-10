@@ -366,6 +366,7 @@ export default {
   <gl-base-dropdown
     ref="baseDropdown"
     :aria-labelledby="toggleAriaLabelledBy"
+    :arrow-element="$refs.disclosureArrow"
     :toggle-id="toggleId"
     :toggle-text="toggleText"
     :toggle-class="toggleClass"
