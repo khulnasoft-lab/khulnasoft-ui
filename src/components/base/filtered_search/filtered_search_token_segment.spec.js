@@ -205,6 +205,18 @@ describe('Filtered search token segment', () => {
     expect(wrapper.findComponent(GlFilteredSearchTokenSegment).emitted().input).toBe(undefined);
   });
 
+  it('works as expected when the value is set to `null`', async () => {
+    createWrappedComponent({
+      active: true,
+      value: 'something',
+    });
+
+    await wrapper.setData({ value: null });
+
+    // Shouldn't emit anything
+    expect(wrapper.emitted('input')).toBeUndefined();
+  });
+
   describe('applySuggestion', () => {
     it('emits original token when no spaces are present', () => {
       createComponent({ value: '' });

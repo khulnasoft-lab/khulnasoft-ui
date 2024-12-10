@@ -232,6 +232,18 @@ export default {
 
       if (this.multiSelect) return;
 
+      /**
+       * This is a temporary workaround to implement the same behaviour
+       * implemented in https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2381
+       * for tokens with `terms-as-tokens=false` and `multi-select=false`.
+       *
+       * We're aiming to remove this temporary fix when
+       * https://gitlab.com/groups/gitlab-org/-/epics/15948 gets completed, as
+       * that refactoring will use the `@input` handler on the GlFilteredSearch
+       * component to handle tokens instead of doing workarounds.
+       */
+      if (typeof newValue !== 'string') return;
+
       const hasUnclosedQuote = newValue.split('"').length % 2 === 0;
       if (newValue.indexOf(' ') === -1 || hasUnclosedQuote) {
         return;
