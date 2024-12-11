@@ -114,7 +114,7 @@ export default {
         value: token.$value,
         valueLabel: this.getValueLabel(token),
         deprecated: token.deprecated,
-        description: token.comment,
+        description: token.$description,
       };
     },
     transformTokensToTableRows(tokens) {
