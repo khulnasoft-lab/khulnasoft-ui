@@ -34,7 +34,7 @@ export const BFormValidFeedback = /*#__PURE__*/ extend({
       props.tag,
       mergeData(data, {
         class: {
-          'd-block': show,
+          '!gl-block': show,
           'valid-feedback': !tooltip,
           'valid-tooltip': tooltip
         },

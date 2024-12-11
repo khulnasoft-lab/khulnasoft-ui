@@ -163,7 +163,7 @@ describe('form-group', () => {
 
     const $label = wrapper.find('label')
     expect($label.exists()).toBe(true)
-    expect($label.classes()).toContain('d-block')
+    expect($label.classes()).toContain('!gl-block')
     expect($label.text()).toEqual('test')
     expect($label.attributes('id')).toEqual(`${formGroupId}__BV_label_`)
     expect($label.attributes('for')).toEqual('input-id')
@@ -424,7 +424,7 @@ describe('form-group', () => {
     wrapper.destroy()
   })
 
-  it('Label sr-only works', async () => {
+  it('Label gl-sr-only works', async () => {
     const wrapper = mount(BFormGroup, {
       propsData: {
         id: 'group-id',
@@ -442,7 +442,7 @@ describe('form-group', () => {
 
     const $label = wrapper.find('label')
     expect($label.exists()).toBe(true)
-    expect($label.classes()).toContain('sr-only')
+    expect($label.classes()).toContain('gl-sr-only')
     expect($label.text()).toEqual('test')
   })
 

@@ -185,11 +185,13 @@ export const WithValidations = (_args, { argTypes }) => ({
     ${wrap('<gl-form-input :id="id + \'-name1\'" :state="false" />', {
       'invalid-feedback': 'This field is required.',
       ':label-for': "id + '-name1'",
+      ':state': 'false',
     })}
     ${wrap('<gl-form-input :id="id + \'-name2\'" :state="true" value="Sidney Jones" />', {
       'valid-feedback': 'This field is valid.',
       ':id': "'group2'",
       ':label-for': "id + '-name2'",
+      ':state': 'true',
     })}
     </div>
   `,

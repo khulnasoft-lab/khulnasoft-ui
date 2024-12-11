@@ -250,7 +250,7 @@ export const BFormGroup = {
           $label = h(
             labelTag,
             {
-              class: 'sr-only',
+              class: 'gl-sr-only',
               attrs: { id: labelId, for: labelFor || null }
             },
             [labelContent]
@@ -281,10 +281,10 @@ export const BFormGroup = {
               // See: https://github.com/twbs/bootstrap/issues/27805
               isHorizontal || isFieldset ? 'col-form-label' : '',
               // Emulate label padding top of `0` on legend when not horizontal
-              !isHorizontal && isFieldset ? 'pt-0' : '',
-              // If not horizontal and not a legend, we add 'd-block' class to label
+              !isHorizontal && isFieldset ? '!gl-pt-0' : '',
+              // If not horizontal and not a legend, we add '!gl-block' class to label
               // so that label-align works
-              !isHorizontal && !isFieldset ? 'd-block' : '',
+              !isHorizontal && !isFieldset ? '!gl-block' : '',
               labelSize ? `col-form-label-${labelSize}` : '',
               this.labelAlignClasses,
               this.labelClass

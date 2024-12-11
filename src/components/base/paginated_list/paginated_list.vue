@@ -171,7 +171,7 @@ export default {
     <!-- display: inline -->
     <div
       v-if="emptyList"
-      class="bs-callout bs-callout-warning mt-3 empty-message"
+      class="bs-callout bs-callout-warning empty-message gl-mt-5"
       :class="{ 'empty-message': zeroTotal, 'empty-search': zeroSearchResults }"
       >{{ zeroTotal ? emptyMessage : emptySearchMessage }}</div
     >

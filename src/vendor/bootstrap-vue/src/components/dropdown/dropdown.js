@@ -70,7 +70,7 @@ export const BDropdown = /*#__PURE__*/ extend({
           // It needs also to be applied when `block` is disabled to allow multiple
           // dropdowns to be aligned one line
           'btn-group': split || !block,
-          // When `block` is enabled and we are in `split` mode the 'd-flex' class
+          // When `block` is enabled and we are in `split` mode the 'gl-flex' class
           // needs to be applied to allow the buttons to stretch to full width
           'gl-flex': block && split
         }

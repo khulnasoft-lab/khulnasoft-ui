@@ -261,7 +261,7 @@ export const sortingMixin = extend({
         'aria-sort': ariaSort
       }
     },
-    // A label to be placed in an `.sr-only` element in the header cell
+    // A label to be placed in an `.gl-sr-only` element in the header cell
     sortTheadThLabel(key, field, isFoot) {
       // No label if not a sortable table
       if (!this.isSortable || (isFoot && this.noFooterSorting)) {
@@ -292,7 +292,7 @@ export const sortingMixin = extend({
         // Non sortable column
         labelSorting = localSortBy ? this.labelSortClear : ''
       }
-      // Return the `.sr-only` sort label or `null` if no label
+      // Return the `.gl-sr-only` sort label or `null` if no label
       return trim(labelSorting) || null
     }
   }

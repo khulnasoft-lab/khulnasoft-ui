@@ -27,7 +27,7 @@ export default {
     const textParts = splitAfterSymbols(symbols, text ?? '');
     const content = intersperse(() => createElement('wbr'), textParts);
 
-    return createElement('span', { class: 'text-break' }, content);
+    return createElement('span', { class: 'gl-break-words' }, content);
   },
 };
 </script>

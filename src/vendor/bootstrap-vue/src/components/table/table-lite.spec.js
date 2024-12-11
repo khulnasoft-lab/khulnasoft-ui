@@ -137,7 +137,7 @@ describe('table-lite', () => {
     wrapper.destroy()
   })
 
-  it('has class "border" when outlined=true', async () => {
+  it('has class "gl-border" when outlined=true', async () => {
     const wrapper = mount(BTableLite, {
       propsData: {
         items: items1,
@@ -148,7 +148,7 @@ describe('table-lite', () => {
 
     expect(wrapper).toBeDefined()
     expect(wrapper.element.tagName).toBe('TABLE')
-    expect(wrapper.classes()).toContain('border')
+    expect(wrapper.classes()).toContain('gl-border')
     expect(wrapper.classes()).toContain('table')
     expect(wrapper.classes()).toContain('b-table')
     expect(wrapper.classes().length).toBe(3)
