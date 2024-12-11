@@ -62,3 +62,25 @@ version number of GitLab UI is incremented with any breaking changes.
 
 [integration MRs]: ./gitlab_integration_test.md#using-the-remote-development-package
 [script]: https://gitlab.com/gitlab-org/frontend/playground/create-migrate-deprecated-component-issues
+
+## Temporary dependency bottleneck between @gitlab/ui and @gitlab/duo-ui
+
+- `@gitlab/duo-ui` requires a specific major version of `@gitlab/ui` (e.g., ^100).
+- Dependent projects cannot upgrade to a new `@gitlab/ui` major version (e.g., 101.0.0) until `@gitlab/duo-ui`
+updates its peer dependency.
+
+### Workaround
+
+When releasing a new major version of `@gitlab/ui`:
+
+1. Release a new major version of `@gitlab/duo-ui` with an updated peer dependency for the new
+`@gitlab/ui` major version. [Example MR](https://gitlab.com/gitlab-org/duo-ui/-/merge_requests/31)
+2. Ensure the migration MR upgrades both `@gitlab/ui` and `@gitlab/duo-ui` to compatible versions.
+
+This ensures dependent projects can adopt new versions without breaking dependencies.
+
+### Resolution
+
+Follow the plan and progress in this
+[Issue](https://gitlab.com/gitlab-org/duo-ui/-/issues/30). For concerns, reach out in
+the Issue or in #duo-ui.
