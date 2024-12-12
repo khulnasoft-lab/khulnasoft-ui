@@ -1,3 +1,10 @@
+# [105.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.2.0...v105.3.0) (2024-12-12)
+
+
+### Features
+
+* **CSS:** remove gl-heading-scale SCSS mixin ([67b5429](https://gitlab.com/gitlab-org/gitlab-ui/commit/67b54299df281fd5cae5bae71e3c9955aa2a37c2))
+
 # [105.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.1.1...v105.2.0) (2024-12-12)
 
 
