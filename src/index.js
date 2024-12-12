@@ -102,6 +102,9 @@ export { default as GlCollapse } from './components/base/collapse/collapse.vue';
 export { default as GlAccordion } from './components/base/accordion/accordion.vue';
 export { default as GlAccordionItem } from './components/base/accordion/accordion_item.vue';
 
+// Dashboards
+export { default as GlDashboardPanel } from './components/dashboards/panel/panel.vue';
+
 // Experimental
 export { default as GlExperimentBadge } from './components/experimental/experiment_badge/experiment_badge.vue';
 
