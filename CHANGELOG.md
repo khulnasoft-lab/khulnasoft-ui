@@ -1,3 +1,11 @@
+# [105.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.1.1...v105.2.0) (2024-12-12)
+
+
+### Features
+
+* **DesignTokens:** Add design tokens for illustrations ([1682bb4](https://gitlab.com/gitlab-org/gitlab-ui/commit/1682bb4ef172ad67f4115c891fa9bcabb70a67d7))
+* **DesignTokens:** Add illustration stroke width ([75cbe2d](https://gitlab.com/gitlab-org/gitlab-ui/commit/75cbe2d3bd77d89dc10da93652e35b3f48132d65))
+
 ## [105.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.1.0...v105.1.1) (2024-12-10)
 
 
