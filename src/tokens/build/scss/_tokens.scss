@@ -243,6 +243,7 @@ $gl-avatar-fallback-background-color-green: #91d4a83d; // Green background for a
 $gl-avatar-fallback-background-color-orange: #e9be743d; // Orange background for avatar fallback with no particular meaning.
 $gl-avatar-fallback-background-color-neutral: #bfbfc33d; // Neutral background for avatar fallback with no particular meaning.
 $gl-illustration-stroke-color-default: #171321; // Default stroke color to define shape and provide essential detail.
+$gl-illustration-stroke-width-default: 0.125rem; // Default stroke width to define shape and provide essential detail.
 $gl-illustration-fill-color-default: #fff; // Default fill color for an element where specific meaning or emphasis is not required.
 $gl-illustration-status-fill-color-neutral: #aea5d6; // Used as a fill to convey a concept which is neither positive or negative.
 $gl-illustration-status-fill-color-success: #6fdac9; // Used as a fill to convey a success or active concept, has a positive connotation.
@@ -257,6 +258,7 @@ $gl-illustration-accent-fill-color-orange: #ff9d73; // Used to add orange to a s
 $gl-illustration-accent-fill-color-teal: #6fdac9; // Used to add teal to a secondary element and supporting surface.
 $gl-illustration-base-fill-color: #e7e4f2; // Used for the consistent background shape present across all illustrations. Provides a unified foundation that visually grounds each illustration while maintaining system cohesion.
 $gl-illustration-isometric-stroke-color-default: #171321; // Default stroke color to define shape and provide essential detail in isometric illustration.
+$gl-illustration-isometric-stroke-width-default: 0.125rem; // Default stroke width to define shape and provide essential detail in isometric illustration.
 $gl-illustration-isometric-glyph-top-fill-color: #c5f4ec; // Used for the top face of isometric text and number elements.
 $gl-illustration-isometric-glyph-front-fill-color: #fff; // Used for the front face of isometric text and number elements.
 $gl-illustration-isometric-glyph-side-fill-color: #6fdac9; // Used for the side face of isometric text and number elements.

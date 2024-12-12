@@ -10,6 +10,16 @@
           "$type": "color",
           "$description": "Default stroke color to define shape and provide essential detail."
         }
+      },
+      "width" : {
+        "default": {
+          "$value": {
+            "default": "2px",
+            "dark": "1.5px"
+          },
+          "$type": "dimension",
+          "$description": "Default stroke width to define shape and provide essential detail."
+        }
       }
     },
     "fill": {
@@ -150,6 +160,16 @@
             },
             "$type": "color",
             "$description": "Default stroke color to define shape and provide essential detail in isometric illustration."
+          }
+        },
+        "width": {
+          "default": {
+            "$value": {
+              "default": "2px",
+              "dark": "1.5px"
+            },
+            "$type": "dimension",
+            "$description": "Default stroke width to define shape and provide essential detail in isometric illustration."
           }
         }
       },
