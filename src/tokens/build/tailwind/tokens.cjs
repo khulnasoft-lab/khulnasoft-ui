@@ -202,6 +202,22 @@ const dataVizColors = {
   'data-viz-orange-900': 'var(--data-viz-orange-900, #5e2f05)',
   'data-viz-orange-950': 'var(--data-viz-orange-950, #4b2707)',
 };
+const neutralColors = {
+  'neutral-0': 'var(--gl-color-neutral-0, #fff)',
+  'neutral-10': 'var(--gl-color-neutral-10, #fbfafd)',
+  'neutral-50': 'var(--gl-color-neutral-50, #ececef)',
+  'neutral-100': 'var(--gl-color-neutral-100, #dcdcde)',
+  'neutral-200': 'var(--gl-color-neutral-200, #bfbfc3)',
+  'neutral-300': 'var(--gl-color-neutral-300, #a4a3a8)',
+  'neutral-400': 'var(--gl-color-neutral-400, #89888d)',
+  'neutral-500': 'var(--gl-color-neutral-500, #737278)',
+  'neutral-600': 'var(--gl-color-neutral-600, #626168)',
+  'neutral-700': 'var(--gl-color-neutral-700, #4c4b51)',
+  'neutral-800': 'var(--gl-color-neutral-800, #3a383f)',
+  'neutral-900': 'var(--gl-color-neutral-900, #28272d)',
+  'neutral-950': 'var(--gl-color-neutral-950, #18171d)',
+  'neutral-1000': 'var(--gl-color-neutral-1000, #050506)',
+};
 const textColors = {
   default: 'var(--gl-text-color-default, var(--gl-color-neutral-800, #3a383f))',
   subtle: 'var(--gl-text-color-subtle, var(--gl-color-neutral-600, #626168))',
@@ -350,6 +366,7 @@ const colors = {
   ...baseColors,
   ...themeColors,
   ...dataVizColors,
+  ...neutralColors,
   ...brandColors,
 };
 
