@@ -44,12 +44,10 @@ export default {
       required: false,
       default: '',
     },
-    tooltip: {
+    titlePopover: {
       type: Object,
       required: false,
       default: () => ({}),
-      validator: (tooltip) =>
-        Object.keys(tooltip).every((k) => ['description', 'descriptionLink'].includes(k)),
     },
     loading: {
       type: Boolean,
@@ -86,7 +84,7 @@ export default {
   data() {
     return {
       panelId: uniqueId('gl-dashboard-panel-id-'),
-      titleTooltipId: uniqueId('gl-dashboard-panel-title-tooltip-id-'),
+      titlePopoverId: uniqueId('gl-dashboard-panel-title-popover-id-'),
     };
   },
   computed: {
@@ -106,11 +104,11 @@ export default {
     hasTitle() {
       return this.title?.length > 0;
     },
-    hasTooltip() {
-      return this.tooltip?.description?.length > 0;
+    hasTitlePopover() {
+      return this.titlePopover?.description?.length > 0;
     },
-    hasTooltipLink() {
-      return this.tooltip?.descriptionLink?.length > 0;
+    hasTitlePopoverLink() {
+      return this.titlePopover?.descriptionLink?.length > 0;
     },
     shouldShowActions() {
       return this.editing && this.actions?.length > 0;
@@ -139,28 +137,28 @@ export default {
             data-testid="panel-title-icon"
           />
           <strong v-if="hasTitle" class="gl-text-gray-700">{{ title }}</strong>
-          <template v-if="hasTooltip">
+          <template v-if="hasTitlePopover">
             <gl-icon
-              :id="titleTooltipId"
+              :id="titlePopoverId"
               class="gl-ml-2"
-              data-testid="panel-title-tooltip-icon"
+              data-testid="panel-title-popover-icon"
               name="information-o"
               variant="info"
             />
             <gl-popover
               data-testid="panel-title-popover"
               boundary="viewport"
-              :target="titleTooltipId"
+              :target="titlePopoverId"
             >
-              <gl-sprintf v-if="hasTooltipLink" :message="tooltip.description">
+              <gl-sprintf v-if="hasTitlePopoverLink" :message="titlePopover.description">
                 <template #link="{ content }">
-                  <gl-link :href="tooltip.descriptionLink" class="gl-text-sm">{{
+                  <gl-link :href="titlePopover.descriptionLink" class="gl-text-sm">{{
                     content
                   }}</gl-link>
                 </template>
               </gl-sprintf>
               <template v-else>
-                {{ tooltip.description }}
+                {{ titlePopover.description }}
               </template>
             </gl-popover>
           </template>

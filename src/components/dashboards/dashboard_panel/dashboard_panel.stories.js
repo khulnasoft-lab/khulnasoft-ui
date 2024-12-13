@@ -109,7 +109,7 @@ Default.args = {
   containerClass: null,
   borderColorClass: null,
   title: 'Dashboard panel',
-  tooltip: null,
+  titlePopover: null,
   loading: false,
   loadingDelayed: false,
   loadingDelayedText: 'Still loading...',
@@ -118,10 +118,10 @@ Default.args = {
   editing: false,
 };
 
-export const WithTooltip = Template.bind({});
-WithTooltip.args = {
+export const WithTitlePopover = Template.bind({});
+WithTitlePopover.args = {
   ...Default.args,
-  tooltip: {
+  titlePopover: {
     description: 'Find out %{linkStart}more%{linkEnd}',
     descriptionLink: 'http://test.com',
   },

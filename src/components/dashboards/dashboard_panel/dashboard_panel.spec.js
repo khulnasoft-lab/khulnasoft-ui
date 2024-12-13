@@ -32,7 +32,7 @@ describe('GlDashboardPanel', () => {
   const findLoadingIcon = () => wrapper.findComponent(GlLoadingIcon);
   const findLoadingDelayedIndicator = () =>
     wrapper.find('[data-testid="panel-loading-delayed-indicator"]');
-  const findPanelTitleTooltipIcon = () => wrapper.find('[data-testid="panel-title-tooltip-icon"]');
+  const findPanelTitlePopoverIcon = () => wrapper.find('[data-testid="panel-title-popover-icon"]');
   const findPanelTitlePopover = () => wrapper.find('[data-testid="panel-title-popover"]');
   const findPanelTitlePopoverLink = () => findPanelTitlePopover().findComponent(GlLink);
   const findPanelActionsDropdown = () => wrapper.findComponent(GlDisclosureDropdown);
@@ -68,8 +68,8 @@ describe('GlDashboardPanel', () => {
       expect(findPanelActionsDropdown().exists()).toBe(false);
     });
 
-    it('does not render the tooltip icon', () => {
-      expect(findPanelTitleTooltipIcon().exists()).toBe(false);
+    it('does not render the title popover icon', () => {
+      expect(findPanelTitlePopoverIcon().exists()).toBe(false);
     });
   });
 
@@ -207,13 +207,13 @@ describe('GlDashboardPanel', () => {
     });
   });
 
-  describe('when there is a title with a tooltip', () => {
+  describe('when there is a title with a popover', () => {
     describe('with description and link', () => {
       beforeEach(() => {
         createWrapper({
           props: {
             title: 'Panel Title',
-            tooltip: {
+            titlePopover: {
               description: 'This is just information, %{linkStart}learn more%{linkEnd}',
               descriptionLink: '/foo',
             },
@@ -221,8 +221,8 @@ describe('GlDashboardPanel', () => {
         });
       });
 
-      it('renders the panel title tooltip icon with special content', () => {
-        expect(findPanelTitleTooltipIcon().exists()).toBe(true);
+      it('renders the panel title popover icon with special content', () => {
+        expect(findPanelTitlePopoverIcon().exists()).toBe(true);
         expect(findPanelTitlePopover().text()).toBe('This is just information, learn more');
         expect(findPanelTitlePopoverLink().attributes('href')).toBe('/foo');
       });
@@ -233,15 +233,15 @@ describe('GlDashboardPanel', () => {
         createWrapper({
           props: {
             title: 'Panel Title',
-            tooltip: {
+            titlePopover: {
               description: 'This is just information.',
             },
           },
         });
       });
 
-      it('renders the panel title tooltip icon with description only', () => {
-        expect(findPanelTitleTooltipIcon().exists()).toBe(true);
+      it('renders the panel title popover icon with description only', () => {
+        expect(findPanelTitlePopoverIcon().exists()).toBe(true);
         expect(findPanelTitlePopoverLink().exists()).toBe(false);
         expect(findPanelTitlePopover().text()).toBe('This is just information.');
       });
@@ -252,15 +252,15 @@ describe('GlDashboardPanel', () => {
         createWrapper({
           props: {
             title: 'Panel Title',
-            tooltip: {
+            titlePopover: {
               descriptionLink: '/foo',
             },
           },
         });
       });
 
-      it('does not render the panel title tooltip icon', () => {
-        expect(findPanelTitleTooltipIcon().exists()).toBe(false);
+      it('does not render the panel title popover icon', () => {
+        expect(findPanelTitlePopoverIcon().exists()).toBe(false);
       });
     });
   });
