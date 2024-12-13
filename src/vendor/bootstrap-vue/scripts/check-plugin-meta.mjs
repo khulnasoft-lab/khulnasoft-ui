@@ -17,7 +17,6 @@ const verbose = process.argv.includes('-v')
 
 const PLUGIN_NAME_MAP = { image: 'img' }
 const UNPREFIXED_PLUGINS = ['layout', 'tabs']
-const IGNORED_COMPONENTS = ['breadcrumb-link']
 
 const getPluginName = p => PLUGIN_NAME_MAP[p] || p
 
@@ -55,7 +54,7 @@ const checkPluginMeta = async plugin => {
   const components = meta.components || []
   if (componentModules.length > 1) {
     componentModules
-      .filter(c => c !== plugin && !IGNORED_COMPONENTS.includes(c))
+      .filter(c => c !== plugin)
       .forEach(component => {
         const componentName = getComponentName(component)
         const componentMeta = components.find(

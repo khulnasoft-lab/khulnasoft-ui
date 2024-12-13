@@ -1,6 +1,5 @@
 import avatarPath1 from '../../../../static/img/avatar_1.png';
 import avatarPath2 from '../../../../static/img/avatar_2.png';
-import BVueReadme from '../../../vendor/bootstrap-vue/src/components/breadcrumb/README.md';
 import GlBreadcrumb from './breadcrumb.vue';
 import readme from './breadcrumb.md';
 
@@ -70,8 +69,6 @@ export default {
   title: 'base/breadcrumb',
   component: GlBreadcrumb,
   parameters: {
-    bootstrapComponent: 'b-breadcrumb',
-    bootstrapDocs: BVueReadme,
     docs: {
       description: {
         component: readme,
