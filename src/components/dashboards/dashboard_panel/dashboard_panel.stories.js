@@ -115,7 +115,6 @@ Default.args = {
   loadingDelayedText: 'Still loading...',
   actions: [],
   actionsToggleText: 'Actions',
-  editing: false,
 };
 
 export const WithTitlePopover = Template.bind({});
@@ -140,10 +139,9 @@ WithLoadingAndLoadingDelayed.args = {
   loadingDelayed: true,
 };
 
-export const WithEditingAndEditingActions = Template.bind({});
-WithEditingAndEditingActions.args = {
+export const WithActions = Template.bind({});
+WithActions.args = {
   ...Default.args,
-  editing: true,
   actions: [
     {
       text: 'Delete',

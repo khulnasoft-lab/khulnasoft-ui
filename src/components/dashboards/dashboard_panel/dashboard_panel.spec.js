@@ -265,22 +265,7 @@ describe('GlDashboardPanel', () => {
     });
   });
 
-  describe('when editing and there are no actions', () => {
-    beforeEach(() => {
-      createWrapper({
-        props: {
-          editing: true,
-        },
-        mountFn: mount,
-      });
-    });
-
-    it('does not render the panel actions dropdown', () => {
-      expect(findPanelActionsDropdown().exists()).toBe(false);
-    });
-  });
-
-  describe('when editing and there are actions', () => {
+  describe('when there are actions', () => {
     const actions = [
       {
         icon: 'pencil',
@@ -292,7 +277,6 @@ describe('GlDashboardPanel', () => {
     beforeEach(() => {
       createWrapper({
         props: {
-          editing: true,
           actions,
           actionsToggleText: 'Actions',
         },

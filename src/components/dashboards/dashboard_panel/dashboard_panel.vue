@@ -75,11 +75,6 @@ export default {
       required: false,
       default: '',
     },
-    editing: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
   },
   data() {
     return {
@@ -111,7 +106,7 @@ export default {
       return this.titlePopover?.descriptionLink?.length > 0;
     },
     shouldShowActions() {
-      return this.editing && this.actions?.length > 0;
+      return this.actions?.length > 0;
     },
     isLoadingDelayed() {
       return this.loadingDelayed && this.loadingDelayedText?.length > 0;
