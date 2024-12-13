@@ -36,11 +36,13 @@ describe('GlDashboardPanel', () => {
   const findPanelTitlePopover = () => wrapper.find('[data-testid="panel-title-popover"]');
   const findPanelTitlePopoverLink = () => findPanelTitlePopover().findComponent(GlLink);
   const findPanelActionsDropdown = () => wrapper.findComponent(GlDisclosureDropdown);
-  const findDropdownItemByText = (text) =>
+  const findPanelActionsDropdownItems = () =>
     findPanelActionsDropdown()
       .findAllComponents(GlDisclosureDropdownItem)
-      .filter((w) => w.text() === text)
-      .at(0);
+      .wrappers.map((x) => ({
+        text: x.text(),
+        icon: x.findComponent(GlIcon).props('name'),
+      }));
 
   describe('default behaviour', () => {
     beforeEach(() => {
@@ -290,10 +292,12 @@ describe('GlDashboardPanel', () => {
     });
 
     it('renders the panel action dropdown item and icon', () => {
-      const dropdownItem = findDropdownItemByText(actions[0].text);
-
-      expect(dropdownItem.exists()).toBe(true);
-      expect(dropdownItem.findComponent(GlIcon).props('name')).toBe(actions[0].icon);
+      expect(findPanelActionsDropdownItems()).toStrictEqual(
+        actions.map((x) => ({
+          icon: x.icon,
+          text: x.text,
+        }))
+      );
     });
   });
 });
