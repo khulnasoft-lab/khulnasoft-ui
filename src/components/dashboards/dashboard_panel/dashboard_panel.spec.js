@@ -6,7 +6,7 @@ import GlIcon from '~/components/base/icon/icon.vue';
 import GlLoadingIcon from '~/components/base/loading_icon/loading_icon.vue';
 import GlSprintf from '~/components/utilities/sprintf/sprintf.vue';
 import GlLink from '~/components/base/link/link.vue';
-import GlDashboardPanel from './panel.vue';
+import GlDashboardPanel from './dashboard_panel.vue';
 
 describe('GlDashboardPanel', () => {
   let wrapper;

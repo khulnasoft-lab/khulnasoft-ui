@@ -103,7 +103,7 @@ export { default as GlAccordion } from './components/base/accordion/accordion.vu
 export { default as GlAccordionItem } from './components/base/accordion/accordion_item.vue';
 
 // Dashboards
-export { default as GlDashboardPanel } from './components/dashboards/panel/panel.vue';
+export { default as GlDashboardPanel } from './components/dashboards/dashboard_panel/dashboard_panel.vue';
 
 // Experimental
 export { default as GlExperimentBadge } from './components/experimental/experiment_badge/experiment_badge.vue';

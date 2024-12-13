@@ -2,11 +2,11 @@ import GlLineChart from '../../charts/line/line.vue';
 import GlIcon from '../../base/icon/icon.vue';
 import GlPopover from '../../base/popover/popover.vue';
 import GlLink from '../../base/link/link.vue';
-import GlDashboardPanel from './panel.vue';
-import readme from './panel.md';
+import GlDashboardPanel from './dashboard_panel.vue';
+import readme from './dashboard_panel.md';
 
 export default {
-  title: 'dashboards/panel',
+  title: 'dashboards/dashboards-panel',
   component: GlDashboardPanel,
   parameters: {
     docs: {
