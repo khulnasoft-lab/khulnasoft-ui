@@ -184,7 +184,7 @@ export default {
         :class="{ 'gl-flex gl-flex-wrap gl-content-center gl-text-center': loading }"
       >
         <template v-if="loading">
-          <gl-loading-icon size="lg" class="gl-w-full" />
+          <gl-loading-icon size="lg" class="gl-min-h-8 gl-w-full" />
           <div
             v-if="isLoadingDelayed"
             class="gl-w-full gl-text-subtle"

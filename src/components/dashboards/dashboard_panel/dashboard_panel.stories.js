@@ -132,8 +132,8 @@ WithLoading.args = {
   loading: true,
 };
 
-export const WithLoadingAndLoadingDelayed = Template.bind({});
-WithLoadingAndLoadingDelayed.args = {
+export const WithLoadingDelayed = Template.bind({});
+WithLoadingDelayed.args = {
   ...Default.args,
   loading: true,
   loadingDelayed: true,
