@@ -1,3 +1,10 @@
+# [105.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.3.0...v105.4.0) (2024-12-13)
+
+
+### Features
+
+* **Tailwind:** add neutral constant colors ([85bd8dd](https://gitlab.com/gitlab-org/gitlab-ui/commit/85bd8ddf43a3d6ed2a38bd7253d2e97c6cf5aa66))
+
 # [105.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.2.0...v105.3.0) (2024-12-12)
 
 
