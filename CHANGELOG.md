@@ -1,3 +1,10 @@
+# [105.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.4.0...v105.5.0) (2024-12-16)
+
+
+### Features
+
+* **DesignTokens:** add stories for feedback and status design tokens ([f97417a](https://gitlab.com/gitlab-org/gitlab-ui/commit/f97417a9b466c932c9e15f85c58022445558e55b))
+
 # [105.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.3.0...v105.4.0) (2024-12-13)
 
 
