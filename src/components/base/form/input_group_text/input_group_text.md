@@ -1,4 +1,1 @@
-### Under the hood
-
-Uses [`BInputGroupText`](https://bootstrap-vue.org/docs/components/input-group#comp-ref-b-input-group-text)
-from Vue Boostrap
+GlInputGroupText components are used to add text to an input group.

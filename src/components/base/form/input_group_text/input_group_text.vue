@@ -1,17 +1,11 @@
 <script>
-import { BInputGroupText } from '../../../../vendor/bootstrap-vue/src/components/input-group/input-group-text';
-
 export default {
   name: 'GlInputGroupText',
-  components: {
-    BInputGroupText,
-  },
-  inheritAttrs: false,
 };
 </script>
 
 <template>
-  <b-input-group-text v-bind="$attrs" v-on="$listeners">
+  <div class="input-group-text">
     <slot></slot>
-  </b-input-group-text>
+  </div>
 </template>
