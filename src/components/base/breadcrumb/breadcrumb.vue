@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import debounce from 'lodash/debounce';
-import { BBreadcrumb } from '../../../vendor/bootstrap-vue/src/components/breadcrumb/breadcrumb';
 import { translate } from '../../../utils/i18n';
 import GlAvatar from '../avatar/avatar.vue';
 import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
@@ -11,7 +10,6 @@ import GlBreadcrumbItem from './breadcrumb_item.vue';
 export default {
   name: 'GlBreadcrumb',
   components: {
-    BBreadcrumb,
     GlBreadcrumbItem,
     GlAvatar,
     GlDisclosureDropdown,
@@ -192,7 +190,7 @@ export default {
 </script>
 <template>
   <nav class="gl-breadcrumbs" :aria-label="ariaLabel" :style="breadcrumbStyle">
-    <b-breadcrumb class="gl-breadcrumb-list" v-bind="$attrs" v-on="$listeners">
+    <ol class="gl-breadcrumb-list breadcrumb" v-bind="$attrs" v-on="$listeners">
       <li v-if="hasCollapsible" class="gl-breadcrumb-item">
         <gl-disclosure-dropdown
           :items="overflowingItems"
@@ -224,6 +222,6 @@ export default {
           data-testid="avatar"
         /><span class="gl-align-middle">{{ item.text }}</span>
       </gl-breadcrumb-item>
-    </b-breadcrumb>
+    </ol>
   </nav>
 </template>
