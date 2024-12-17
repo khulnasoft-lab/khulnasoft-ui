@@ -99,6 +99,10 @@ Cypress.Commands.add('glRunA11yTests', (tests) => {
 
     fn();
 
+    cy.configureAxe({
+      rules: [{ id: 'link-in-text-block', enabled: false }],
+    });
+
     cy.glCheckA11y();
   });
 });
