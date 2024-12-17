@@ -1,3 +1,10 @@
+# [105.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.5.0...v105.6.0) (2024-12-17)
+
+
+### Features
+
+* migrate GlInputGroupText ([eb12e80](https://gitlab.com/gitlab-org/gitlab-ui/commit/eb12e8089e766bec41744a42b668b12d7138d7da))
+
 # [105.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.4.0...v105.5.0) (2024-12-16)
 
 
