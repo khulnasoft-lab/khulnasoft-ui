@@ -1,16 +1,21 @@
 <script>
-import { BButtonGroup } from '../../../vendor/bootstrap-vue/src/components/button-group/button-group';
-
 export default {
   name: 'GlButtonGroup',
-  components: {
-    BButtonGroup,
+  props: {
+    /**
+     * When set, rendered the button group in vertical mode.
+     */
+    vertical: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
 };
 </script>
 <template>
-  <b-button-group v-bind="$attrs" v-on="$listeners">
+  <div :class="!vertical ? 'btn-group' : 'btn-group-vertical'" role="group" v-on="$listeners">
     <!-- @slot The buttons to group. -->
     <slot></slot>
-  </b-button-group>
+  </div>
 </template>

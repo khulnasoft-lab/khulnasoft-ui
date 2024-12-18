@@ -6,7 +6,6 @@ import {
   buttonSizeOptions,
   buttonVariantOptions,
 } from '../../../utils/constants';
-import BVueReadme from '../../../vendor/bootstrap-vue/src/components/button-group/README.md';
 import GlButtonGroup from './button_group.vue';
 import readme from './button_group.md';
 
@@ -109,9 +108,6 @@ export default {
   title: 'base/button group',
   component: GlButtonGroup,
   parameters: {
-    bootstrapComponent: 'b-button-group',
-    bootstrapDocs: BVueReadme,
-
     docs: {
       description: {
         component: readme,
