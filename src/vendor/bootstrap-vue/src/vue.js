@@ -33,17 +33,35 @@ if (isVue3) {
   const originalVModelDynamicCreated = Vue.vModelDynamic.created
   const originalVModelDynamicBeforeUpdate = Vue.vModelDynamic.beforeUpdate
 
+  let assignSymbol
+
   // See https://github.com/vuejs/vue-next/pull/4121 for details
   Vue.vModelDynamic.created = function(el, binding, vnode) {
     originalVModelDynamicCreated.call(this, el, binding, vnode)
     if (!el._assign) {
       el._assign = () => {}
     }
+
+    // Added check for Symbol('_assign') to fix in compat 3.3.5+ based on https://github.com/bootstrap-vue/bootstrap-vue/issues/7181
+    if (!assignSymbol) {
+      assignSymbol = Object.getOwnPropertySymbols(el).find(s => s.description === '_assign')
+    }
+    if (!el[assignSymbol]) {
+      el[assignSymbol] = function() {}
+    }
   }
   Vue.vModelDynamic.beforeUpdate = function(el, binding, vnode) {
     originalVModelDynamicBeforeUpdate.call(this, el, binding, vnode)
     if (!el._assign) {
       el._assign = () => {}
+    }
+
+    // Added check for Symbol('_assign') to fix in 3.3.5+ based on https://github.com/bootstrap-vue/bootstrap-vue/issues/7181
+    if (!assignSymbol) {
+      assignSymbol = Object.getOwnPropertySymbols(el).find(s => s.description === '_assign')
+    }
+    if (!el[assignSymbol]) {
+      el[assignSymbol] = function() {}
     }
   }
   extend = function patchedBootstrapVueExtend(definition) {

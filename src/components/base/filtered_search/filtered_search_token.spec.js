@@ -347,10 +347,8 @@ describe('Filtered search token', () => {
     });
 
     it('emits input event when active is false', async () => {
-      wrapper.setProps({ value: { data: 'user', operator: '=' } });
-      wrapper.setProps({ active: false });
-
-      await nextTick();
+      await wrapper.setProps({ value: { data: 'user', operator: '=' } });
+      await wrapper.setProps({ active: false });
 
       expect(wrapper.emitted('input')).toEqual([
         [{ data: 'user', operator: '=' }],
@@ -359,10 +357,8 @@ describe('Filtered search token', () => {
     });
 
     it('emits input event when active is false and search term empty', async () => {
-      wrapper.setProps({ value: { data: '', operator: '=' } });
-      wrapper.setProps({ active: false });
-
-      await nextTick();
+      await wrapper.setProps({ value: { data: '', operator: '=' } });
+      await wrapper.setProps({ active: false });
 
       expect(wrapper.emitted('input')).toEqual([
         [{ data: '', operator: '=' }],

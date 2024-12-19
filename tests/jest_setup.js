@@ -27,17 +27,35 @@ if (VTU.config.stubs) {
   VTU.config.stubs['transition-group'] = false;
 }
 
-const vueErrorHandler = jest.fn();
+const vueWarnHandler = jest.fn();
+
+const vueWarnIgnoreList = [
+  /**
+   * In Vue Test Utils 2, function prop values of stubbed or shallow mounted components are rendered as attributes with the string value `[Function]`.
+   *
+   * https://github.com/vuejs/test-utils/blob/v2.2.0/src/vnodeTransformers/stubComponentsTransformer.ts#L83-L85
+   * https://github.com/vuejs/test-utils/blob/v2.2.0/src/vnodeTransformers/stubComponentsTransformer.ts#L50-L52.
+   *
+   * Since Vue v3.4.22, doing this results in this warning, which we can safely ignore.
+   *
+   * See: https://github.com/vuejs/core/commit/7ccd453dd004076cad49ec9f56cd5fe97b7b6ed8
+   */
+  /Wrong type passed as event handler to .* - did you forget @ or : in front of your prop\?\nExpected function or array of functions, received type string./,
+];
+
 expect.extend({
   toHaveLoggedVueErrors() {
-    const { calls } = vueErrorHandler.mock;
-    vueErrorHandler.mockClear();
+    const calls = vueWarnHandler.mock.calls.filter(
+      (call) => !vueWarnIgnoreList.some((ignore) => call[0].match(ignore))
+    );
+    vueWarnHandler.mockClear();
+
     return {
       pass: calls.length > 0,
       message: () =>
         calls.length > 0
-          ? `Vue errors were logged to the console: ${calls.map((c) => c[0]).join('\n')}`
-          : 'No Vue errors were logged to the console',
+          ? `Vue warnings were logged to the console: ${calls.map((c) => c[0]).join('\n')}`
+          : 'No Vue warnings were logged to the console',
     };
   },
 });
@@ -65,7 +83,7 @@ if (!process.env.IS_VISUAL_TEST) {
   useMockResizeObserver();
 
   beforeAll(() => {
-    Vue.config.warnHandler = vueErrorHandler;
+    Vue.config.warnHandler = vueWarnHandler;
   });
 
   afterEach(() => {
