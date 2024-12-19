@@ -1,3 +1,10 @@
+# [105.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.6.0...v105.7.0) (2024-12-19)
+
+
+### Features
+
+* **GlDashboardPanel:** Add dashboards panel component ([3099226](https://gitlab.com/gitlab-org/gitlab-ui/commit/309922689a3496fbbbf69ee69fe0617b74a6831b))
+
 # [105.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.5.0...v105.6.0) (2024-12-17)
 
 
