@@ -42,6 +42,21 @@ The listbox is closed by any of the following:
 
 After closing, `GlCollapsibleListbox` emits a `hidden` event.
 
+### Closing the listbox programmatically
+
+It's possible to close the listbox programmatically by calling the `closeAndFocus` or `close` methods
+on the listbox via a template ref. For example:
+
+```js
+this.$refs.listbox.closeAndFocus()
+```
+
+The `closeAndFocus` method is preferred in most cases, especially when triggering it from some action
+within the listbox, because it will move focus back to the listbox trigger.
+
+The `close` method should only be used when closing the listbox and moving the focus to some other element.
+For example, closing the listbox to focus a newly revealed text input.
+
 ## Selecting items
 
 Set the `v-model` on the listbox to have 2-way data binding for the selected items in the listbox.
