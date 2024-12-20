@@ -94,22 +94,22 @@ export default {
       return `${this.containerClass} ${this.borderClass}`;
     },
     hasTitleIcon() {
-      return this.titleIcon?.length > 0;
+      return Boolean(this.titleIcon);
     },
     hasTitle() {
-      return this.title?.length > 0;
+      return Boolean(this.title);
     },
     hasTitlePopover() {
-      return this.titlePopover?.description?.length > 0;
+      return Boolean(this.titlePopover?.description);
     },
     hasTitlePopoverLink() {
-      return this.titlePopover?.descriptionLink?.length > 0;
+      return Boolean(this.titlePopover?.descriptionLink);
     },
     shouldShowActions() {
       return this.actions?.length > 0;
     },
     isLoadingDelayed() {
-      return this.loadingDelayed && this.loadingDelayedText?.length > 0;
+      return this.loadingDelayed && Boolean(this.loadingDelayedText);
     },
   },
 };
