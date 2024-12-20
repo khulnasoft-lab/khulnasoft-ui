@@ -1,7 +1,6 @@
 // Component names
 export const NAME_BUTTON = 'BButton'
 export const NAME_BUTTON_CLOSE = 'BButtonClose'
-export const NAME_BUTTON_GROUP = 'BButtonGroup'
 export const NAME_COL = 'BCol'
 export const NAME_COLLAPSE = 'BCollapse'
 export const NAME_DROPDOWN = 'BDropdown'

@@ -1,5 +1,13 @@
 Button groups are an easy way to group a series of buttons together.
 
+```html
+<gl-button-group>
+  <gl-button>Download</b-button>
+  <gl-button>Browse</b-button>
+  <gl-button variant="danger">Delete</b-button>
+</gl-button-group>
+```
+
 ## Split dropdowns
 
 Both `GlCollapsibleListbox` and `GlDisclosureDropdown` can be added as the last
@@ -22,7 +30,15 @@ dropdown's `toggle-text` _and_ `text-sr-only` props are set.
 </gl-button-group>
 ```
 
-## vue-bootstrap component
+## Vertical variation
 
-This component uses [`BButtonGroup`](https://bootstrap-vue.org/docs/components/button-group) from vue-bootstrap
-internally. So please take a look also there at their extensive documentation.
+Make a set of buttons appear vertically stacked rather than horizontally by setting the `vertical` prop.
+Split button dropdowns are not supported here.
+
+```html
+<gl-button-group vertical>
+  <gl-button>Top</b-button>
+  <gl-button>Middle</b-button>
+  <gl-button>Bottom</b-button>
+</gl-button-group>
+```
