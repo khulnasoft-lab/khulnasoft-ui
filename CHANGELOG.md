@@ -1,3 +1,16 @@
+# [106.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.7.0...v106.0.0) (2024-12-20)
+
+
+### Features
+
+* **GlButtonGroup:** migrate GlButtonGroup ([e1f4927](https://gitlab.com/gitlab-org/gitlab-ui/commit/e1f4927497af1c5e16debfb8a3a668f3c064d5c5))
+
+
+### BREAKING CHANGES
+
+* **GlButtonGroup:** this removes the `size`, `tag`, and `ariaRole`
+props from GlButtonGroup.
+
 # [105.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.6.0...v105.7.0) (2024-12-19)
 
 
