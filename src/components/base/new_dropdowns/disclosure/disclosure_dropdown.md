@@ -61,6 +61,21 @@ You can use the `preventDefault` to filter out events that are causing undesired
 
 After closing, `GlDisclosureDropdown` emits a `hidden` event.
 
+### Closing the disclosure dropdown programmatically
+
+It's possible to close the disclosure dropdown programmatically by calling the `closeAndFocus` or
+`close` methods on the disclosure dropdown via a template ref. For example:
+
+```js
+this.$refs.disclosureDropdown.closeAndFocus()
+```
+
+The `closeAndFocus` method is preferred in most cases, especially when triggering it from some action
+within the disclosure dropdown, because it will move focus back to the disclosure dropdown trigger.
+
+The `close` method should only be used when closing the disclosure dropdown and moving the focus to
+some other element. For example, closing the disclosure dropdown to focus a newly revealed text input.
+
 ## Setting disclosure dropdown items
 
 Use the `items` prop to provide actions/links to the disclosure dropdown. Each
