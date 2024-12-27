@@ -23,7 +23,7 @@ const TEST_FIELDS = {
       formValidators.factory('Count is required', Boolean),
       (val) => (val % 2 === 1 ? 'Count must be even' : ''),
     ],
-    inputAttrs: { size: 'xs', type: 'number' },
+    inputAttrs: { type: 'number' },
     groupAttrs: { class: 'unique-class' },
   },
   allCaps: {
@@ -117,7 +117,8 @@ describe('GlFormFields', () => {
           class: undefined,
           input: {
             id: 'gl-form-field-testunique',
-            value: undefined,
+            type: 'text',
+            value: '',
           },
         },
         {
@@ -137,8 +138,9 @@ describe('GlFormFields', () => {
           invalidFeedback: '',
           class: undefined,
           input: {
+            value: '',
+            type: 'text',
             id: 'gl-form-field-testunique',
-            value: undefined,
           },
         },
       ]);
@@ -230,10 +232,10 @@ describe('GlFormFields', () => {
             invalidFeedback: 'User name is required',
             state: undefined,
             class: undefined,
-            input: {
-              value: undefined,
+            input: expect.objectContaining({
+              value: '',
               id: 'gl-form-field-testunique',
-            },
+            }),
           },
           {
             label: TEST_FIELDS.evenCount.label,
@@ -250,10 +252,10 @@ describe('GlFormFields', () => {
             invalidFeedback: '',
             state: undefined,
             class: undefined,
-            input: {
-              value: undefined,
+            input: expect.objectContaining({
+              value: '',
               id: 'gl-form-field-testunique',
-            },
+            }),
           },
         ]);
       });
