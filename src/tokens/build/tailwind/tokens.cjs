@@ -251,7 +251,7 @@ const iconColors = {
   subtle: 'var(--gl-icon-color-subtle, var(--gl-color-neutral-500, #737278))',
   strong: 'var(--gl-icon-color-strong, var(--gl-color-neutral-900, #28272d))',
   disabled: 'var(--gl-icon-color-disabled, var(--gl-color-neutral-300, #a4a3a8))',
-  link: 'var(--gl-icon-color-link, var(--gl-color-blue-600, #1068bf))',
+  link: 'var(--gl-icon-color-link, var(--gl-color-blue-700, #0b5cad))',
   info: 'var(--gl-icon-color-info, var(--gl-color-blue-600, #1068bf))',
   warning: 'var(--gl-icon-color-warning, var(--gl-color-orange-600, #9e5400))',
   danger: 'var(--gl-icon-color-danger, var(--gl-color-red-600, #c91c00))',
