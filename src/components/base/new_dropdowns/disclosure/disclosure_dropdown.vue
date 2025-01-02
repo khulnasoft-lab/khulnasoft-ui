@@ -431,7 +431,7 @@ export default {
                 <slot name="group-label" :group="item"></slot>
               </template>
 
-              <template v-if="$scopedSlots['list-item']">
+              <template v-if="$scopedSlots['list-item']" #default>
                 <!-- eslint-disable vue/valid-v-for -->
                 <gl-disclosure-dropdown-item
                   v-for="groupItem in item.items"
