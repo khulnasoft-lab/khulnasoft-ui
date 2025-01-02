@@ -16,7 +16,6 @@ describe('Input Group', () => {
   it('renders without errors', () => {
     createWrapper();
     expect(wrapper.findComponent(BInputGroup).exists()).toBe(true);
-    expect(wrapper).not.toHaveLoggedVueErrors();
   });
 
   it('renders prepend and append texts properly in the slots', () => {
@@ -87,7 +86,7 @@ describe('Input Group', () => {
         propsData: { predefinedOptions: [{ foo: 'bar' }] },
       });
 
-      expect(global.console).toHaveLoggedVueErrors();
+      expect(wrapper).toHaveLoggedVueWarnings();
     });
 
     it('are rendered when supplied', () => {

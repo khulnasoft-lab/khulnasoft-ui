@@ -110,7 +110,7 @@ describe('GlSegmentedControl', () => {
     ])('with options=%j, fails validation', (options) => {
       createComponent({ options });
 
-      expect(wrapper).toHaveLoggedVueErrors();
+      expect(wrapper).toHaveLoggedVueWarnings();
     });
 
     it.each([
@@ -121,7 +121,7 @@ describe('GlSegmentedControl', () => {
     ])('with options=%j, passes validation', (options) => {
       createComponent({ options });
 
-      expect(wrapper).not.toHaveLoggedVueErrors();
+      expect(wrapper).not.toHaveLoggedVueWarnings();
     });
   });
 });

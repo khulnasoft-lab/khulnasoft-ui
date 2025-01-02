@@ -44,7 +44,7 @@ const vueWarnIgnoreList = [
 ];
 
 expect.extend({
-  toHaveLoggedVueErrors() {
+  toHaveLoggedVueWarnings() {
     const calls = vueWarnHandler.mock.calls.filter(
       (call) => !vueWarnIgnoreList.some((ignore) => call[0].match(ignore))
     );
@@ -88,6 +88,6 @@ if (!process.env.IS_VISUAL_TEST) {
 
   afterEach(() => {
     // eslint-disable-next-line jest/no-standalone-expect
-    expect(global.console).not.toHaveLoggedVueErrors();
+    expect(global.console).not.toHaveLoggedVueWarnings();
   });
 }

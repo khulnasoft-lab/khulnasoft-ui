@@ -108,7 +108,7 @@ describe('gauge component', () => {
       createComponent({ value: 'not a number' });
 
       return wrapper.vm.$nextTick().then(() => {
-        expect(wrapper).toHaveLoggedVueErrors();
+        expect(wrapper).toHaveLoggedVueWarnings();
         expect(findDetailText()).toBe(placeholder);
       });
     });
@@ -196,7 +196,7 @@ describe('gauge component', () => {
       it('if some of them are invalid values they are skipped', () => {
         createComponent({ thresholds: [undefined, 95, 'a string', NaN, 50, 15, 25] });
 
-        expect(wrapper).toHaveLoggedVueErrors();
+        expect(wrapper).toHaveLoggedVueWarnings();
 
         expect(findAxisColor().length).toBe(3);
       });
@@ -215,7 +215,7 @@ describe('gauge component', () => {
       it('when some values are invalid', () => {
         createComponent({ thresholds: [NaN, 95, undefined, 'a string', 50, 15, 25] });
 
-        expect(wrapper).toHaveLoggedVueErrors();
+        expect(wrapper).toHaveLoggedVueWarnings();
 
         expect(findAxisColor().length).toBe(3);
         expect(findAxisColor()[0]).toEqual([0.5, gaugeSafeHues[0]]);
@@ -240,7 +240,7 @@ describe('gauge component', () => {
 
         await wrapper.vm.$nextTick();
         // eslint-disable-next-line jest/no-standalone-expect
-        expect(wrapper).toHaveLoggedVueErrors();
+        expect(wrapper).toHaveLoggedVueWarnings();
       });
 
       it('axis has a single color set', () => {
