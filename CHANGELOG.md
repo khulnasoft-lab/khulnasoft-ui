@@ -1,3 +1,10 @@
+# [106.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.0.0...v106.1.0) (2025-01-07)
+
+
+### Features
+
+* Update @vue/compat to 3.5.13 ([8d6d8b0](https://gitlab.com/gitlab-org/gitlab-ui/commit/8d6d8b03017ab694ef2bd51d5d127ecf7a94778d))
+
 # [106.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v105.7.0...v106.0.0) (2024-12-20)
 
 
