@@ -200,7 +200,8 @@
     "vue-template-compiler": "2.7.16",
     "vue-test-utils-compat": "^0.0.10",
     "webpack": "^5.9.0",
-    "yargs": "^17.3.1"
+    "yargs": "^17.3.1",
+    "yarn-deduplicate": "^6.0.2"
   },
   "overrides": {
     "cypress-axe": {
