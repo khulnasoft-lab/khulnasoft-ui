@@ -136,6 +136,19 @@ populate_npm_cache:
       when: always
     - when: never
 
+yarn_deduplicate:
+  extends: [.node, .yarn_install]
+  stage: test
+  needs: []
+  script:
+    - yarn yarn-deduplicate --strategy fewer --list --fail
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - package.json
+        - yarn.lock
+      when: always
+
 .build_test_storybook:
   extends: [.node, .yarn_install]
   stage: pre-build

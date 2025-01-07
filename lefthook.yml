@@ -16,6 +16,9 @@ pre-push:
     markdown-lint:
       glob: '*.md'
       run: yarn markdownlint
+    yarn-deduplicate:
+      glob: 'yarn.lock'
+      run: yarn yarn-deduplicate --strategy fewer --list --fail
 pre-commit:
   commands:
     generate_translations:
