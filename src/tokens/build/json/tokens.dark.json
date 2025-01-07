@@ -21669,15 +21669,15 @@
         ]
       },
       "info": {
-        "$value": "#63a6e9",
+        "$value": "#9dc7f1",
         "$type": "color",
         "$description": "Used for an icon associated with information or help.",
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
           "$value": {
-            "default": "{color.blue.600}",
-            "dark": "{color.blue.300}"
+            "default": "{color.blue.700}",
+            "dark": "{color.blue.200}"
           },
           "$type": "color",
           "$description": "Used for an icon associated with information or help."

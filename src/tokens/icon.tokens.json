@@ -43,8 +43,8 @@
       },
       "info": {
         "$value": {
-          "default": "{color.blue.600}",
-          "dark": "{color.blue.300}"
+          "default": "{color.blue.700}",
+          "dark": "{color.blue.200}"
         },
         "$type": "color",
         "$description": "Used for an icon associated with information or help."
