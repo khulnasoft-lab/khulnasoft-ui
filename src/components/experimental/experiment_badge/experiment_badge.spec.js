@@ -1,7 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import GlBadge from '../../base/badge/badge.vue';
 import GlPopover from '../../base/popover/popover.vue';
-import GlLink from '../../base/link/link.vue';
 import GlSprintf from '../../utilities/sprintf/sprintf.vue';
 import GlExperimentBadge, { i18n } from './experiment_badge.vue';
 
@@ -12,7 +11,6 @@ describe('GlExperimentBadge', () => {
 
   const findBadge = () => wrapper.findComponent(GlBadge);
   const findPopover = () => wrapper.findComponent(GlPopover);
-  const findHelpLink = () => wrapper.findComponent(GlLink);
 
   const createComponent = (props = {}) => {
     wrapper = shallowMount(GlExperimentBadge, {
@@ -38,12 +36,6 @@ describe('GlExperimentBadge', () => {
     const popoverPlacement = 'right';
     createComponent({ popoverPlacement });
     expect(findPopover().props('placement')).toBe(popoverPlacement);
-  });
-
-  it('sets the link to the help page if passed', () => {
-    const helpPageUrl = 'https://gitlab.com';
-    createComponent({ helpPageUrl });
-    expect(findHelpLink().attributes('href')).toBe(helpPageUrl);
   });
 
   it('generates the unique ID to connect the button and the popover', () => {

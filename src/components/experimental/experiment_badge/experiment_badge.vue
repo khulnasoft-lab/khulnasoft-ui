@@ -4,11 +4,12 @@ import GlBadge from '../../base/badge/badge.vue';
 import GlLink from '../../base/link/link.vue';
 import GlPopover from '../../base/popover/popover.vue';
 import GlSprintf from '../../utilities/sprintf/sprintf.vue';
-import { badgeTypes, badgeTypeValidator } from './constants';
+import { badgeTypeValidator } from './constants';
 
 export const i18n = {
   experiment: {
     BADGE: 'Experiment',
+    HELP_PAGE_URL: 'https://docs.gitlab.com/ee/policy/development_stages_support.html#experiment',
     POPOVER_TITLE: "What's an experiment?",
     POPOVER_CONTENT:
       'An %{linkStart}experiment%{linkEnd} is not yet production-ready, but is released for initial testing and feedback during development.%{line-breakStart}Experiments:%{line-breakEnd} %{bullets}',
@@ -16,11 +17,11 @@ export const i18n = {
       'Might be unstable or cause data loss.',
       'Are not supported and might not be documented.',
       'Could be changed or removed at any time.',
-      'Are subject to the GitLab Testing Agreement.',
     ],
   },
   beta: {
     BADGE: 'Beta',
+    HELP_PAGE_URL: 'https://docs.gitlab.com/ee/policy/development_stages_support.html#beta',
     POPOVER_TITLE: "What's a beta?",
     POPOVER_CONTENT:
       "A %{linkStart}beta%{linkEnd} feature is not yet production-ready, but is ready for testing and unlikely to change significantly before it's released.%{line-breakStart}Beta features:%{line-breakEnd} %{bullets}",
@@ -28,7 +29,6 @@ export const i18n = {
       'Have a low risk of data loss, but might still be unstable.',
       'Are supported on a commercially-reasonable effort basis.',
       'Have a near complete user experience.',
-      'Are subject to the GitLab Testing Agreement.',
     ],
   },
 };
@@ -43,14 +43,6 @@ export default {
   },
   props: {
     /**
-     * The URL of a page to provide more explanations on the experiment.
-     */
-    helpPageUrl: {
-      type: String,
-      required: false,
-      default: '',
-    },
-    /**
      * The placement of the popover in relation to the button.
      */
     popoverPlacement: {
@@ -59,12 +51,12 @@ export default {
       default: 'bottom',
     },
     /**
-     * The type of the badge.
+     * The type of the badge. Can be 'experiment' or 'beta'.
      */
     type: {
       type: String,
       required: false,
-      default: badgeTypes[0],
+      default: 'experiment',
       validator: badgeTypeValidator,
     },
   },
@@ -98,10 +90,9 @@ export default {
     >
       <gl-sprintf :message="activeType.POPOVER_CONTENT">
         <template #link="{ content }">
-          <gl-link v-if="helpPageUrl" :href="helpPageUrl" target="_blank" class="!gl-text-sm">
-            {{ content }}
-          </gl-link>
-          <span v-else>{{ content }}</span>
+          <gl-link :href="activeType.HELP_PAGE_URL" target="_blank" class="!gl-text-sm">
+            {{ content }}</gl-link
+          >
         </template>
         <template #bullets>
           <ul class="gl-mb-0 gl-pl-5">
