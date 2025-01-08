@@ -118,7 +118,7 @@ describe('resize observer directive', () => {
         expect(() => {
           wrapper = shallowMount(testComponentWithoutHandler);
         }).toThrow(TypeError);
-        expect(wrapper).toHaveLoggedVueWarnings();
+        expect(wrapper).toHaveLoggedVueErrors();
       }
     );
   });

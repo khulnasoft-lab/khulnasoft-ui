@@ -27,37 +27,50 @@ if (VTU.config.stubs) {
   VTU.config.stubs['transition-group'] = false;
 }
 
+const vueErrorHandler = jest.fn();
 const vueWarnHandler = jest.fn();
 
-const vueWarnIgnoreList = [
-  /**
-   * In Vue Test Utils 2, function prop values of stubbed or shallow mounted components are rendered as attributes with the string value `[Function]`.
-   *
-   * https://github.com/vuejs/test-utils/blob/v2.2.0/src/vnodeTransformers/stubComponentsTransformer.ts#L83-L85
-   * https://github.com/vuejs/test-utils/blob/v2.2.0/src/vnodeTransformers/stubComponentsTransformer.ts#L50-L52.
-   *
-   * Since Vue v3.4.22, doing this results in this warning, which we can safely ignore.
-   *
-   * See: https://github.com/vuejs/core/commit/7ccd453dd004076cad49ec9f56cd5fe97b7b6ed8
-   */
-  /Wrong type passed as event handler to .* - did you forget @ or : in front of your prop\?\nExpected function or array of functions, received type string./,
-];
+function toHaveLoggedVueWarnings() {
+  const { calls } = vueWarnHandler.mock;
+  vueWarnHandler.mockClear();
+
+  return {
+    pass: calls.length > 0,
+    message: () =>
+      calls.length > 0
+        ? `Vue warnings were logged: ${calls.map((c) => c[0]).join('\n')}`
+        : 'No Vue warnings were logged',
+  };
+}
 
 expect.extend({
-  toHaveLoggedVueWarnings() {
-    const calls = vueWarnHandler.mock.calls.filter(
-      (call) => !vueWarnIgnoreList.some((ignore) => call[0].match(ignore))
-    );
-    vueWarnHandler.mockClear();
+  toHaveLoggedVueErrors() {
+    if (Vue.version.startsWith('3')) {
+      const { calls } = vueErrorHandler.mock;
+      vueErrorHandler.mockClear();
 
-    return {
-      pass: calls.length > 0,
-      message: () =>
-        calls.length > 0
-          ? `Vue warnings were logged to the console: ${calls.map((c) => c[0]).join('\n')}`
-          : 'No Vue warnings were logged to the console',
-    };
+      return {
+        pass: calls.length > 0,
+        message: () =>
+          calls.length > 0
+            ? `Vue errors were logged: ${calls.map((c) => c[0]).join('\n')}`
+            : 'No Vue errors were logged',
+      };
+    }
+
+    // VTU@1 (for Vue 2) forcefully overwrites Vue.config.errorHandler[1], so
+    // we can't track calls to it. The error handler it sets up throws the
+    // error[2] because we don't use localVue, which is then caught by Vue's
+    // error handling, which then falls through to Vue.config.warningHandler[3].
+    //
+    // In other words, errors are logged as warnings in this case.
+    //
+    // [1]: https://github.com/vuejs/vue-test-utils/blob/v1.3.6/packages/test-utils/src/error.js#L50-L68
+    // [2]: https://github.com/vuejs/vue-test-utils/blob/v1.3.6/packages/test-utils/src/error.js#L26
+    // [3]: https://github.com/vuejs/vue/blob/v2.7.16/src/core/util/error.ts#L56-L69
+    return toHaveLoggedVueWarnings();
   },
+  toHaveLoggedVueWarnings,
 });
 
 // Adopted from https://github.com/testing-library/jest-dom/blob/main/src/to-have-focus.js
@@ -84,9 +97,15 @@ if (!process.env.IS_VISUAL_TEST) {
 
   beforeAll(() => {
     Vue.config.warnHandler = vueWarnHandler;
+
+    if (Vue.version.startsWith('3')) {
+      Vue.config.errorHandler = vueErrorHandler;
+    }
   });
 
   afterEach(() => {
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(global.console).not.toHaveLoggedVueErrors();
     // eslint-disable-next-line jest/no-standalone-expect
     expect(global.console).not.toHaveLoggedVueWarnings();
   });
