@@ -252,7 +252,7 @@ const iconColors = {
   strong: 'var(--gl-icon-color-strong, var(--gl-color-neutral-900, #28272d))',
   disabled: 'var(--gl-icon-color-disabled, var(--gl-color-neutral-300, #a4a3a8))',
   link: 'var(--gl-icon-color-link, var(--gl-color-blue-700, #0b5cad))',
-  info: 'var(--gl-icon-color-info, var(--gl-color-blue-600, #1068bf))',
+  info: 'var(--gl-icon-color-info, var(--gl-color-blue-700, #0b5cad))',
   warning: 'var(--gl-icon-color-warning, var(--gl-color-orange-600, #9e5400))',
   danger: 'var(--gl-icon-color-danger, var(--gl-color-red-600, #c91c00))',
   success: 'var(--gl-icon-color-success, var(--gl-color-green-600, #217645))',

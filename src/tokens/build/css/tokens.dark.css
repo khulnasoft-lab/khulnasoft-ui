@@ -776,7 +776,7 @@
   --gl-icon-color-strong: var(--gl-color-neutral-10); /* Used for an icon with the highest contrast. */
   --gl-icon-color-disabled: var(--gl-color-neutral-500); /* Used for an icon within a disabled section. */
   --gl-icon-color-link: var(--gl-color-blue-200); /* Used for an icon within a link. */
-  --gl-icon-color-info: var(--gl-color-blue-300); /* Used for an icon associated with information or help. */
+  --gl-icon-color-info: var(--gl-color-blue-200); /* Used for an icon associated with information or help. */
   --gl-icon-color-warning: var(--gl-color-orange-300); /* Used for an icon associated with a warning. */
   --gl-icon-color-danger: var(--gl-color-red-300); /* Used for an icon associated with an error or danger. */
   --gl-icon-color-success: var(--gl-color-green-300); /* Used for an icon associated with success or validity. */
