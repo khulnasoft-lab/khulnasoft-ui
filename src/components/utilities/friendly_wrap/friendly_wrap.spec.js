@@ -115,7 +115,7 @@ describe('Friendly wrap component', () => {
     });
 
     // Assert prop validation failed
-    expect(wrapper).toHaveLoggedVueErrors();
+    expect(wrapper).toHaveLoggedVueWarnings();
 
     // But it still rendered
     expect(wrapper.text()).toBe('');

@@ -132,7 +132,7 @@ describe('outside directive', () => {
         })
       ).rejects.toThrow('must be a function');
 
-      expect(global.console).toHaveLoggedVueErrors();
+      expect(wrapper).toHaveLoggedVueWarnings();
       expect(document.addEventListener).not.toHaveBeenCalled();
     });
 
@@ -143,7 +143,7 @@ describe('outside directive', () => {
         })
       ).rejects.toThrow('Arguments are not supported.');
 
-      expect(global.console).toHaveLoggedVueErrors();
+      expect(wrapper).toHaveLoggedVueWarnings();
       expect(document.addEventListener).not.toHaveBeenCalled();
     });
 
@@ -244,7 +244,7 @@ describe('outside directive', () => {
           })
         ).rejects.toThrow(`Cannot bind ${eventType} events`);
 
-        expect(global.console).toHaveLoggedVueErrors();
+        expect(wrapper).toHaveLoggedVueWarnings();
         expect(document.addEventListener).not.toHaveBeenCalled();
       }
     );
@@ -256,7 +256,7 @@ describe('outside directive', () => {
         })
       ).rejects.toThrow(`Cannot bind mouseup, mousedown events`);
 
-      expect(global.console).toHaveLoggedVueErrors();
+      expect(wrapper).toHaveLoggedVueWarnings();
       expect(document.addEventListener).not.toHaveBeenCalled();
     });
   });
