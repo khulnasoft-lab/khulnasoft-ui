@@ -522,8 +522,9 @@ export default {
             immediate: true,
             handler(newValue) {
               if (newValue && this.items.some((item) => !isOption(item))) {
-                throw new Error(
-                  'Infinite scroll does not support groups. Please set the "infiniteScroll" prop to "false"'
+                // eslint-disable-next-line no-console
+                console.warn(
+                  'When using grouped options infinite scroll can only be used on the last group.'
                 );
               }
             },

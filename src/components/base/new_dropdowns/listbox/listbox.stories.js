@@ -752,6 +752,9 @@ SearchableGroups.args = generateProps({
 });
 SearchableGroups.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
+const departmentsPage1 = mockOptions.slice(0, 10);
+const departmentsPage2 = mockOptions.slice(10, 12);
+
 export const InfiniteScroll = (
   args,
   { argTypes: { infiniteScroll, infiniteScrollLoading, items, ...argTypes } }
@@ -763,7 +766,7 @@ export const InfiniteScroll = (
   data() {
     return {
       selected: mockOptions[1].value,
-      items: mockOptions.slice(0, 10),
+      items: departmentsPage1,
       infiniteScrollLoading: false,
       infiniteScroll: true,
     };
@@ -773,7 +776,7 @@ export const InfiniteScroll = (
       this.infiniteScrollLoading = true;
 
       setStoryTimeout(() => {
-        this.items.push(...mockOptions.slice(10, 12));
+        this.items.push(...departmentsPage2);
         this.infiniteScrollLoading = false;
         this.infiniteScroll = false;
       }, 1000);
@@ -796,6 +799,59 @@ InfiniteScroll.argTypes = {
 InfiniteScroll.tags = ['skip-visual-test'];
 InfiniteScroll.args = generateProps();
 InfiniteScroll.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
+
+export const InfiniteScrollGroups = (
+  args,
+  { argTypes: { infiniteScroll, infiniteScrollLoading, items, ...argTypes } }
+) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlCollapsibleListbox,
+  },
+  data() {
+    return {
+      selected: mockOptions[1].value,
+      items: [
+        {
+          text: 'People',
+          options: [{ text: 'John Smith', value: 'John Smith' }],
+        },
+        {
+          text: 'Departments',
+          options: departmentsPage1,
+        },
+      ],
+      infiniteScrollLoading: false,
+      infiniteScroll: true,
+    };
+  },
+  methods: {
+    onBottomReached() {
+      this.infiniteScrollLoading = true;
+
+      setStoryTimeout(() => {
+        this.items[1].options.push(...departmentsPage2);
+        this.infiniteScrollLoading = false;
+        this.infiniteScroll = false;
+      }, 1000);
+    },
+  },
+  template: template('', {
+    label: `<span class="gl-my-0" id="listbox-label">Select an item</span>`,
+    bindingOverrides: {
+      ':items': 'items',
+      ':infinite-scroll': 'infiniteScroll',
+      ':infinite-scroll-loading': 'infiniteScrollLoading',
+      '@bottom-reached': 'onBottomReached',
+    },
+  }),
+});
+InfiniteScrollGroups.argTypes = {
+  ...disableControls(['infiniteScroll', 'infiniteScrollLoading', 'items']),
+};
+InfiniteScrollGroups.tags = ['skip-visual-test'];
+InfiniteScrollGroups.args = generateProps();
+InfiniteScrollGroups.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
 export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => ({
   props: Object.keys(argTypes),

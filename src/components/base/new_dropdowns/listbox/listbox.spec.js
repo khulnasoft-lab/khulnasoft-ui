@@ -749,16 +749,17 @@ describe('GlCollapsibleListbox', () => {
   });
 
   describe('when `infiniteScroll` prop is `true`', () => {
-    it('should throw an error when items are groups', () => {
-      expect(() => {
-        buildWrapper({
-          items: mockGroups,
-          infiniteScroll: true,
-        });
-      }).toThrow(
-        'Infinite scroll does not support groups. Please set the "infiniteScroll" prop to "false"'
+    it('should warn when items are groups', () => {
+      const consoleWarnSpy = jest.spyOn(console, 'warn');
+
+      buildWrapper({
+        items: mockGroups,
+        infiniteScroll: true,
+      });
+
+      expect(consoleWarnSpy).toHaveBeenCalledWith(
+        'When using grouped options infinite scroll can only be used on the last group.'
       );
-      expect(wrapper).toHaveLoggedVueErrors();
     });
 
     it('renders `GlIntersectionObserver` component', () => {
