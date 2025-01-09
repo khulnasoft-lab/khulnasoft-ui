@@ -1,3 +1,10 @@
+# [106.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.1.0...v106.2.0) (2025-01-09)
+
+
+### Features
+
+* **GlExperimentBadge:** Add story for beta ([5c63782](https://gitlab.com/gitlab-org/gitlab-ui/commit/5c63782fa999a4a2a4676c1109974f1bb8647f67))
+
 # [106.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.0.0...v106.1.0) (2025-01-07)
 
 
