@@ -182,7 +182,7 @@ describe('GlCollapsibleListbox', () => {
             items: mockOptions,
           });
         }).toThrow('To allow multi-selection, please, set "multiple" property to "true"');
-        expect(wrapper).toHaveLoggedVueWarnings();
+        expect(wrapper).toHaveLoggedVueErrors();
       });
 
       it('should render item as selected when `selected` provided', () => {
@@ -510,7 +510,7 @@ describe('GlCollapsibleListbox', () => {
       }).toThrow(
         'The reset button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the resetButtonLabel prop.'
       );
-      expect(wrapper).toHaveLoggedVueWarnings();
+      expect(wrapper).toHaveLoggedVueErrors();
     });
 
     it.each`
@@ -618,7 +618,7 @@ describe('GlCollapsibleListbox', () => {
       }).toThrow(
         'The select all button cannot be rendered without a header. Either provide a header via the headerText prop, or do not provide the showSelectAllButtonLabel prop.'
       );
-      expect(wrapper).toHaveLoggedVueWarnings();
+      expect(wrapper).toHaveLoggedVueErrors();
     });
 
     describe.each`
@@ -758,7 +758,7 @@ describe('GlCollapsibleListbox', () => {
       }).toThrow(
         'Infinite scroll does not support groups. Please set the "infiniteScroll" prop to "false"'
       );
-      expect(wrapper).toHaveLoggedVueWarnings();
+      expect(wrapper).toHaveLoggedVueErrors();
     });
 
     it('renders `GlIntersectionObserver` component', () => {

@@ -840,7 +840,7 @@ describe('Filtered search integration tests', () => {
 
     wrapper
       .findAll('button')
-      .filter((b) => b.attributes('name') === 'clear')
+      .wrappers.find((b) => b.attributes('name') === 'clear')
       .trigger('click');
 
     await nextTick();
