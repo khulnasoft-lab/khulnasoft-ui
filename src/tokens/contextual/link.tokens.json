@@ -4,7 +4,10 @@
       "text": {
         "color": {
           "default": {
-            "$value": "{text.color.link}",
+            "$value": {
+              "default": "{color.blue.800}",
+              "dark": "{color.blue.100}"
+            },
             "$type": "color",
             "$description": "Used for the mention link text color."
           },

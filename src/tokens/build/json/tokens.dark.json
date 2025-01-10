@@ -15601,13 +15601,16 @@
       "text": {
         "color": {
           "default": {
-            "$value": "#9dc7f1",
+            "$value": "#cbe2f9",
             "$type": "color",
             "$description": "Used for the mention link text color.",
             "filePath": "src/tokens/contextual/link.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{text.color.link}",
+              "$value": {
+                "default": "{color.blue.800}",
+                "dark": "{color.blue.100}"
+              },
               "$type": "color",
               "$description": "Used for the mention link text color."
             },
