@@ -5,6 +5,7 @@ import GlDisclosureDropdownItem from '~/components/base/new_dropdowns/disclosure
 import GlIcon from '~/components/base/icon/icon.vue';
 import GlLoadingIcon from '~/components/base/loading_icon/loading_icon.vue';
 import GlSprintf from '~/components/utilities/sprintf/sprintf.vue';
+import GlTruncate from '~/components/utilities/truncate/truncate.vue';
 import GlLink from '~/components/base/link/link.vue';
 import GlDashboardPanel from './dashboard_panel.vue';
 
@@ -23,7 +24,7 @@ describe('GlDashboardPanel', () => {
       },
       slots,
       scopedSlots,
-      stubs: { GlSprintf },
+      stubs: { GlSprintf, GlTruncate },
     });
   };
 
