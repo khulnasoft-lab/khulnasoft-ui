@@ -106,6 +106,6 @@ export default {
         />
       </div>
     </template>
-    <slot></slot>
+    <template v-if="$scopedSlots.default" #default><slot></slot></template>
   </b-popover>
 </template>
