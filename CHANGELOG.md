@@ -1,3 +1,10 @@
+## [106.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.2.0...v106.2.1) (2025-01-13)
+
+
+### Bug Fixes
+
+* **GlDashboardPanel:** Fix title truncation ([5bde012](https://gitlab.com/gitlab-org/gitlab-ui/commit/5bde0125bc2f886cdb032d642bdc72c7fa10fa89))
+
 # [106.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.1.0...v106.2.0) (2025-01-09)
 
 
