@@ -103,10 +103,11 @@ const WithLabelSlotTemplateString = `<template #label>
 export const WithLabelSlot = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { ...components, GlFormInput, GlLink, GlIcon },
-  template: wrap(WithLabelSlotTemplateString, { description: '' }),
+  template: wrap(WithLabelSlotTemplateString),
 });
 WithLabelSlot.args = generateProps({
   optional: true,
+  description: null,
 });
 WithLabelSlot.parameters = {
   a11y: getA11yParameters({ skipRules: ['link-in-text-block'] }),
