@@ -137,10 +137,11 @@ const WithDescriptionSlotTemplateString = `<gl-form-input :id="id" />
 export const WithDescriptionSlot = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { ...components, GlFormInput, GlLink },
-  template: wrap(WithDescriptionSlotTemplateString, { description: '' }),
+  template: wrap(WithDescriptionSlotTemplateString),
 });
 WithDescriptionSlot.args = generateProps({
   optional: true,
+  description: null,
 });
 WithDescriptionSlot.parameters = {
   a11y: getA11yParameters({ skipRules: ['link-in-text-block'] }),
