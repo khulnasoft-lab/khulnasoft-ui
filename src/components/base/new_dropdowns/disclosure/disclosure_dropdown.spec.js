@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { autoUpdate } from '@floating-ui/dom';
-import { nextTick } from 'vue';
+import { nextTick, h } from 'vue';
 import * as utils from '../../../../utils/utils';
 import { useMockIntersectionObserver } from '../../../../utils/use_mock_intersection_observer';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
@@ -32,7 +32,7 @@ const ITEM_SELECTOR = '[data-testid="disclosure-dropdown-item"]';
 describe('GlDisclosureDropdown', () => {
   let wrapper;
 
-  const buildWrapper = (propsData, slots = {}) => {
+  const buildWrapper = (propsData, options) => {
     wrapper = mount(GlDisclosureDropdown, {
       propsData,
       components: {
@@ -41,8 +41,8 @@ describe('GlDisclosureDropdown', () => {
         GlDisclosureDropdownGroup,
         GlCollapsibleListbox,
       },
-      slots,
       attachTo: document.body,
+      ...options,
     });
   };
 
@@ -242,7 +242,7 @@ describe('GlDisclosureDropdown', () => {
     };
 
     it('renders all slot content', () => {
-      buildWrapper({}, slots);
+      buildWrapper({}, { slots });
       expect(wrapper.text()).toContain(headerContent);
       expect(wrapper.text()).toContain(footerContent);
       expect(wrapper.text()).toContain(toggleContent);
@@ -261,6 +261,31 @@ describe('GlDisclosureDropdown', () => {
       mockGroups.forEach((group, i) => {
         expect(findDisclosureItems(groups.at(i))).toHaveLength(group.items.length);
       });
+    });
+
+    it('renders group slots', () => {
+      buildWrapper(
+        { items: mockGroups },
+        {
+          scopedSlots: {
+            'group-label': ({ group }) => h('em', {}, `Group: ${group.name}`),
+            'list-item': ({ item }) => h('em', {}, `Item: ${item.text}`),
+          },
+        }
+      );
+
+      const texts = wrapper.findAll('em').wrappers.map((em) => em.text());
+
+      expect(texts).toEqual([
+        'Group: This project',
+        'Item: New issue',
+        'Item: New merge request',
+        'Item: New snippet',
+        'Group: GitLab',
+        'Item: New project',
+        'Item: New group',
+        'Item: New snippet',
+      ]);
     });
   });
 
@@ -302,7 +327,7 @@ describe('GlDisclosureDropdown', () => {
         `,
       };
 
-      buildWrapper({}, slots);
+      buildWrapper({}, { slots });
       expect(findDisclosureContent().element.tagName).toBe('UL');
     });
 
@@ -315,7 +340,7 @@ describe('GlDisclosureDropdown', () => {
         `,
       };
 
-      buildWrapper({}, slots);
+      buildWrapper({}, { slots });
       expect(findDisclosureContent().element.tagName).toBe('UL');
     });
 
@@ -330,7 +355,7 @@ describe('GlDisclosureDropdown', () => {
         `,
       };
 
-      buildWrapper({}, slots);
+      buildWrapper({}, { slots });
       expect(findDisclosureContent().element.tagName).toBe('DIV');
     });
 
@@ -349,7 +374,7 @@ describe('GlDisclosureDropdown', () => {
           `,
         };
 
-        buildWrapper({}, slots);
+        buildWrapper({}, { slots });
         expect(findDisclosureContent().element.tagName).toBe('UL');
       });
     });
@@ -440,7 +465,7 @@ describe('GlDisclosureDropdown', () => {
           />
         `,
       };
-      buildWrapper({ startOpened: true }, slots);
+      buildWrapper({ startOpened: true }, { slots });
       const isOpened = (root) => findDropdownMenu(root).classes('!gl-block');
       const nestedWrapper = wrapper.findComponent("[data-testid='nested']");
 
