@@ -164,6 +164,14 @@ WithTitleIcon.args = {
   titleIconClass: 'gl-text-red-500',
 };
 
+export const WithLongTitle = Template.bind({});
+WithLongTitle.args = {
+  ...Default.args,
+  containerClass: 'gl-max-w-48',
+  title:
+    'Very long title that will be truncated and the tooltip will be displayed to reveal the full text.',
+};
+
 export const WithAlertMessage = (args, { argTypes }) => ({
   components: { GlDashboardPanel, GlLineChart, GlIcon, GlPopover, GlLink },
   props: Object.keys(argTypes),

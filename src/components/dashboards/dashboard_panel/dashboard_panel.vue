@@ -7,6 +7,7 @@ import GlLoadingIcon from '../../base/loading_icon/loading_icon.vue';
 import GlPopover from '../../base/popover/popover.vue';
 import GlSprintf from '../../utilities/sprintf/sprintf.vue';
 import GlLink from '../../base/link/link.vue';
+import GlTruncate from '../../utilities/truncate/truncate.vue';
 
 export default {
   name: 'GlDashboardPanel',
@@ -17,6 +18,7 @@ export default {
     GlPopover,
     GlSprintf,
     GlLink,
+    GlTruncate,
   },
   props: {
     containerClass: {
@@ -123,7 +125,7 @@ export default {
   >
     <div class="gl-flex gl-h-full gl-flex-col">
       <div class="gl-flex gl-items-start gl-justify-between" data-testid="panel-title">
-        <div class="gl-flex gl-items-center gl-pb-3">
+        <div class="gl-flex gl-items-center gl-overflow-hidden gl-pb-3">
           <gl-icon
             v-if="hasTitleIcon"
             class="gl-mr-1"
@@ -131,7 +133,14 @@ export default {
             :name="titleIcon"
             data-testid="panel-title-icon"
           />
-          <strong v-if="hasTitle" class="gl-text-gray-700">{{ title }}</strong>
+
+          <gl-truncate
+            v-if="hasTitle"
+            class="gl-font-bold gl-text-default"
+            :text="title"
+            with-tooltip
+          />
+
           <template v-if="hasTitlePopover">
             <gl-icon
               :id="titlePopoverId"
