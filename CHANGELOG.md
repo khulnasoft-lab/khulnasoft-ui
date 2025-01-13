@@ -1,3 +1,10 @@
+## [106.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.2.1...v106.2.2) (2025-01-13)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdown:** Render group items in Vue 3 ([8eaa952](https://gitlab.com/gitlab-org/gitlab-ui/commit/8eaa952eb49149a0b200aa12608a781cbb219552))
+
 ## [106.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.2.0...v106.2.1) (2025-01-13)
 
 
