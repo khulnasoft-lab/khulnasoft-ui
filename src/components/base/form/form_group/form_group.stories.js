@@ -106,7 +106,6 @@ export const WithLabelSlot = (_args, { argTypes }) => ({
   template: wrap(WithLabelSlotTemplateString),
 });
 WithLabelSlot.args = generateProps({
-  optional: true,
   description: null,
 });
 WithLabelSlot.parameters = {
@@ -116,8 +115,6 @@ WithLabelSlot.parameters = {
       code: `
 <gl-form-group
   labelDescription=""
-  optional
-  optionalText=""
   id="group-1_group"
   label-for="group-1"
   label=""
