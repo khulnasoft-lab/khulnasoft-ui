@@ -114,11 +114,8 @@ WithLabelSlot.parameters = {
     source: {
       code: `
 <gl-form-group
-  labelDescription=""
   id="group-1_group"
   label-for="group-1"
-  label=""
-  description=""
 >
   ${WithLabelSlotTemplateString}
 </gl-form-group>
