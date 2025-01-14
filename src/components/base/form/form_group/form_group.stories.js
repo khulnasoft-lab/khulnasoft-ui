@@ -103,10 +103,10 @@ const WithLabelSlotTemplateString = `<template #label>
 export const WithLabelSlot = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { ...components, GlFormInput, GlLink, GlIcon },
-  template: wrap(WithLabelSlotTemplateString, { description: '' }),
+  template: wrap(WithLabelSlotTemplateString),
 });
 WithLabelSlot.args = generateProps({
-  optional: true,
+  description: null,
 });
 WithLabelSlot.parameters = {
   a11y: getA11yParameters({ skipRules: ['link-in-text-block'] }),
@@ -114,13 +114,8 @@ WithLabelSlot.parameters = {
     source: {
       code: `
 <gl-form-group
-  labelDescription=""
-  optional
-  optionalText=""
   id="group-1_group"
   label-for="group-1"
-  label=""
-  description=""
 >
   ${WithLabelSlotTemplateString}
 </gl-form-group>
@@ -136,10 +131,11 @@ const WithDescriptionSlotTemplateString = `<gl-form-input :id="id" />
 export const WithDescriptionSlot = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { ...components, GlFormInput, GlLink },
-  template: wrap(WithDescriptionSlotTemplateString, { description: '' }),
+  template: wrap(WithDescriptionSlotTemplateString),
 });
 WithDescriptionSlot.args = generateProps({
   optional: true,
+  description: null,
 });
 WithDescriptionSlot.parameters = {
   a11y: getA11yParameters({ skipRules: ['link-in-text-block'] }),
