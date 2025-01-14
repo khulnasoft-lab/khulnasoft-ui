@@ -25,12 +25,6 @@ let decorators = [
   }),
 ];
 
-if (Vue.version.startsWith('3')) {
-  decorators.unshift(function passArgsCorrectlyForVueCompat(storyFn, storyContext) {
-    return h(storyContext.undecoratedStoryFn(storyContext), storyContext.args);
-  });
-}
-
 setConfigs();
 
 const theme = {
