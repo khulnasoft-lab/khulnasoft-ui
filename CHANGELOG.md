@@ -1,3 +1,16 @@
+# [107.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.2.2...v107.0.0) (2025-01-15)
+
+
+### Features
+
+* Remove GlPaginatedList ([ac6abf9](https://gitlab.com/gitlab-org/gitlab-ui/commit/ac6abf99b671994e4b2e327961c1c8b1e4ff19b9))
+
+
+### BREAKING CHANGES
+
+* The GlPaginatedList component has been removed.
+Reimplement the component locally if needed.
+
 ## [106.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.2.1...v106.2.2) (2025-01-13)
 
 
