@@ -1,0 +1,20 @@
+diff --git a/node_modules/@storybook/vue3/dist/entry-preview.mjs b/node_modules/@storybook/vue3/dist/entry-preview.mjs
+index 5a7c517..d6415e0 100644
+--- a/node_modules/@storybook/vue3/dist/entry-preview.mjs
++++ b/node_modules/@storybook/vue3/dist/entry-preview.mjs
+@@ -1,4 +1,14 @@
+-export { decorateStory as applyDecorators, render, renderToCanvas } from './chunk-UXHY756F.mjs';
++import { decorateStory } from './chunk-UXHY756F.mjs';
++export { render, renderToCanvas } from './chunk-UXHY756F.mjs';
++import { h } from 'vue';
++
++function passArgsCorrectlyForVueCompat(storyFn, storyContext) {
++  return h(storyContext.undecoratedStoryFn(storyContext), storyContext.args);
++}
++
++export function applyDecorators(storyFn, decorators) {
++  return decorateStory(storyFn, [passArgsCorrectlyForVueCompat, ...decorators]);
++}
+ 
+ var parameters={renderer:"vue3"};
+ 
