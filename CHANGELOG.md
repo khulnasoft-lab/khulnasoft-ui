@@ -1,3 +1,10 @@
+## [107.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.0.0...v107.0.1) (2025-01-15)
+
+
+### Bug Fixes
+
+* **GlChartTooltip:** Render correctly in Vue 3 ([50203aa](https://gitlab.com/gitlab-org/gitlab-ui/commit/50203aa2a8ebfa5de4312d7ec1e9a2b993ce8179))
+
 # [107.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v106.2.2...v107.0.0) (2025-01-15)
 
 
