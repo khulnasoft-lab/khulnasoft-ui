@@ -1,5 +1,53 @@
 import { mount } from '@vue/test-utils';
+import VueRouter from 'vue-router';
+import Vue from 'vue';
+import { isVue3 } from '../../../utils/constants';
 import Link from './link.vue';
+
+Vue.use(VueRouter);
+
+const routerLinkStubProps = {
+  to: {
+    type: [String, Object],
+    required: true,
+  },
+  replace: Boolean,
+  activeClass: String,
+  exactActiveClass: String,
+  prefetch: Boolean,
+};
+
+const navigate = jest.fn();
+
+// Adapted from https://github.com/vuejs/vue-test-utils/blob/dev/packages/test-utils/src/components/RouterLinkStub.js
+const RouterLinkStubVue2 = {
+  name: 'RouterLinkStub',
+  props: routerLinkStubProps,
+  render: function render(h) {
+    return h('a', undefined, this.$scopedSlots.default());
+  },
+};
+
+// Adapted from https://github.com/vuejs/test-utils/blob/main/src/components/RouterLinkStub.ts
+const RouterLinkStubVue3 = {
+  name: 'RouterLinkStub',
+  props: {
+    ...routerLinkStubProps,
+    custom: Boolean,
+  },
+  render: function render(h) {
+    const children = this.$scopedSlots?.default?.({
+      href: this.to,
+      isActive: true,
+      isExactActive: true,
+      navigate,
+    });
+
+    return this.custom ? children : h('a', undefined, children);
+  },
+};
+
+const RouterLinkStub = isVue3 ? RouterLinkStubVue3 : RouterLinkStubVue2;
 
 describe('link component', () => {
   let wrapper;
@@ -7,6 +55,8 @@ describe('link component', () => {
   const createWrapper = (options) => {
     wrapper = mount(Link, options);
   };
+
+  const clickLink = (event) => wrapper.find('a').trigger('click', event);
 
   describe('default settings', () => {
     beforeEach(() => {
@@ -56,17 +106,14 @@ describe('link component', () => {
       expect(wrapper.attributes('rel')).toBe('noopener noreferrer');
     });
 
-    it('should set noopener rel for hrefs for the same domain', () => {
-      // This behavior is due to the fact that
-      // bootstrap-vue link component adds rel="noopener" when target is set as "_blank"
-      // https://github.com/bootstrap-vue/bootstrap-vue/pull/418/files#diff-997fcb1eb150236aec5306a4d72229beR25
+    it('should set noopener noreferrer rel for hrefs for the same domain', () => {
       createWrapper({
         propsData: {
           target: '_blank',
           href: window.location.hostname,
         },
       });
-      expect(wrapper.attributes('rel')).toBe('noopener');
+      expect(wrapper.attributes('rel')).toBe('noopener noreferrer');
     });
 
     it('should keep rel attribute for hrefs in the same domain', () => {
@@ -101,6 +148,440 @@ describe('link component', () => {
       });
 
       expect(wrapper.attributes('href')).toBe(unsafeUrl);
+    });
+  });
+
+  it('has expected default structure', () => {
+    createWrapper();
+
+    expect(wrapper.element.tagName).toBe('A');
+    expect(wrapper.attributes('href')).toBe('#');
+    expect(wrapper.attributes('rel')).toBeUndefined();
+    expect(wrapper.attributes('aria-disabled')).toBeUndefined();
+    expect(wrapper.text()).toBe('');
+  });
+
+  it('renders content from default slot', () => {
+    createWrapper({
+      slots: {
+        default: 'foobar',
+      },
+    });
+
+    expect(wrapper.text()).toBe('foobar');
+  });
+
+  it('sets attribute href to user supplied value', () => {
+    createWrapper({
+      propsData: {
+        href: '/foobar',
+      },
+    });
+
+    expect(wrapper.attributes('href')).toBe('/foobar');
+  });
+
+  it('sets attribute href when user supplied href is hash target', () => {
+    createWrapper({
+      propsData: {
+        href: '#foobar',
+      },
+    });
+
+    expect(wrapper.attributes('href')).toBe('#foobar');
+  });
+
+  it('should set href to string `to` prop', () => {
+    createWrapper({
+      propsData: {
+        to: '/foobar',
+      },
+    });
+
+    expect(wrapper.attributes('href')).toBe('/foobar');
+  });
+
+  it('should set href to path from `to` prop', () => {
+    createWrapper({
+      propsData: {
+        to: { path: '/foobar' },
+      },
+    });
+
+    expect(wrapper.attributes('href')).toBe('/foobar');
+  });
+
+  it('should default rel to `noopener noreferrer` when target==="_blank"', () => {
+    createWrapper({
+      propsData: {
+        href: '/foobar',
+        target: '_blank',
+      },
+    });
+
+    expect(wrapper.attributes('rel')).toBe('noopener noreferrer');
+  });
+
+  it('should merge rel with noopener noreferrer when target==="_blank"', () => {
+    createWrapper({
+      propsData: {
+        href: '/foobar',
+        target: '_blank',
+        rel: 'alternate',
+      },
+    });
+
+    expect(wrapper.attributes('rel')).toBe('alternate noopener noreferrer');
+  });
+
+  it('should add "active" class when prop active=true', async () => {
+    createWrapper({
+      propsData: {
+        active: true,
+      },
+    });
+
+    expect(wrapper.classes()).toContain('active');
+  });
+
+  describe('when disabled', () => {
+    beforeEach(() => {
+      createWrapper({
+        propsData: {
+          disabled: true,
+        },
+      });
+    });
+
+    it('adds aria-disabled="true"', () => {
+      expect(wrapper.attributes('aria-disabled')).toBe('true');
+    });
+
+    it('adds disabled class', () => {
+      expect(wrapper.classes()).toContain('disabled');
+    });
+
+    it('adds tabindex="-1"', () => {
+      expect(wrapper.attributes('tabindex')).toBe('-1');
+    });
+  });
+
+  it('focus and blur methods work', () => {
+    createWrapper({
+      attachTo: document.body,
+      propsData: {
+        href: '#foobar',
+      },
+    });
+
+    expect(document.activeElement).not.toBe(wrapper.element);
+    wrapper.vm.focus();
+    expect(document.activeElement).toBe(wrapper.element);
+    wrapper.vm.blur();
+    expect(document.activeElement).not.toBe(wrapper.element);
+  });
+
+  describe('click handling', () => {
+    it('should invoke click handler bound by Vue when clicked on', async () => {
+      const clickHandlerMock = jest.fn();
+
+      createWrapper({
+        listeners: {
+          click: clickHandlerMock,
+        },
+      });
+      expect(clickHandlerMock).not.toHaveBeenCalled();
+      await clickLink();
+      expect(clickHandlerMock).toHaveBeenCalledWith(expect.any(MouseEvent));
+    });
+
+    it('should invoke multiple click handlers bound by Vue when clicked on', async () => {
+      const clickHandlerMock1 = jest.fn();
+      const clickHandlerMock2 = jest.fn();
+
+      createWrapper({
+        listeners: {
+          click: [clickHandlerMock1, clickHandlerMock2],
+        },
+      });
+
+      expect(clickHandlerMock1).not.toHaveBeenCalled();
+      expect(clickHandlerMock2).not.toHaveBeenCalled();
+      await clickLink();
+      expect(clickHandlerMock1).toHaveBeenCalled();
+      expect(clickHandlerMock2).toHaveBeenCalled();
+    });
+
+    it('should NOT invoke click handler bound by Vue when disabled and clicked', async () => {
+      const clickHandlerMock = jest.fn();
+
+      createWrapper({
+        propsData: {
+          disabled: true,
+        },
+        listeners: {
+          click: clickHandlerMock,
+        },
+      });
+
+      expect(clickHandlerMock).not.toHaveBeenCalled();
+      await clickLink();
+      expect(clickHandlerMock).not.toHaveBeenCalled();
+    });
+
+    it('should emit "clicked::link" on $root when clicked on', async () => {
+      const clickHandlerMock = jest.fn();
+      const App = {
+        render(h) {
+          return h('div', [h(Link, { props: { href: '/foo' } }, 'link')]);
+        },
+      };
+
+      wrapper = mount(App);
+      wrapper.vm.$root.$on('clicked::link', clickHandlerMock);
+      await clickLink();
+      expect(clickHandlerMock).toHaveBeenCalled();
+    });
+
+    it('should not emit "clicked::link" on $root when clicked on when disabled', async () => {
+      const clickHandlerMock = jest.fn();
+      const App = {
+        render(h) {
+          return h('div', [h(Link, { props: { href: '/foo', disabled: true } }, 'link')]);
+        },
+      };
+
+      wrapper = mount(App);
+      wrapper.vm.$root.$on('clicked::link', clickHandlerMock);
+      await clickLink();
+      expect(clickHandlerMock).not.toHaveBeenCalled();
+    });
+
+    describe('when href is #', () => {
+      it('prevents default but does not stopPropagation or stopImmediatePropagation', async () => {
+        const event = {
+          preventDefault: jest.fn(),
+          stopPropagation: jest.fn(),
+          stopImmediatePropagation: jest.fn(),
+        };
+        const clickHandlerMock = jest.fn();
+
+        createWrapper({
+          propsData: {
+            href: '#',
+          },
+          listeners: {
+            click: clickHandlerMock,
+          },
+        });
+
+        await clickLink(event);
+        expect(event.preventDefault).toHaveBeenCalled();
+        expect(event.stopPropagation).not.toHaveBeenCalled();
+        expect(event.stopImmediatePropagation).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('router-link support', () => {
+    const router = new VueRouter({
+      mode: 'abstract',
+      routes: [
+        {
+          path: '/',
+          component: {
+            name: 'R',
+            render(h) {
+              return h('div', 'ROOT');
+            },
+          },
+        },
+        {
+          path: '/a',
+          component: {
+            name: 'A',
+            render(h) {
+              return h('div', 'A');
+            },
+          },
+        },
+        {
+          path: '/b',
+          component: {
+            name: 'B',
+            render(h) {
+              return h('div', 'B');
+            },
+          },
+        },
+      ],
+    });
+
+    it('correctly renders `<router-link>` component', () => {
+      const App = {
+        router,
+        components: { Link },
+        render(h) {
+          return h('main', [
+            h(Link, { props: { to: '/a' } }, 'to-a'),
+            h(Link, { props: { href: '/a' } }, 'href-a'),
+            h(Link, { props: { to: { path: '/b' } } }, 'to-path-b'),
+          ]);
+        },
+      };
+
+      wrapper = mount(App, {
+        attachTo: document.body,
+      });
+
+      const links = wrapper.findAll('a');
+      expect(links.length).toBe(3);
+      expect(
+        links.wrappers.map((link) => link.findComponent({ name: 'RouterLink' }).exists())
+      ).toStrictEqual([true, false, true]);
+    });
+
+    it('passes router link props to `<router-link>` component', () => {
+      const routerProps = {
+        to: '/a',
+        activeClass: 'active',
+        exactActiveClass: 'exact-active',
+        replace: true,
+      };
+
+      const App = {
+        router,
+        components: { Link },
+        render(h) {
+          return h('main', [h(Link, { props: routerProps }, 'to-a')]);
+        },
+      };
+
+      wrapper = mount(App, {
+        attachTo: document.body,
+        stubs: { RouterLink: RouterLinkStub },
+      });
+
+      expect(wrapper.findComponent(RouterLinkStub).props()).toMatchObject(routerProps);
+    });
+
+    (isVue3 ? it : it.skip)(
+      'adds activeClass and exactActiveClass classes to anchor tag in Vue 3',
+      () => {
+        const routerProps = {
+          to: '/a',
+          activeClass: 'active',
+          exactActiveClass: 'exact-active',
+        };
+
+        const App = {
+          router,
+          components: { Link },
+          render(h) {
+            return h('main', [h(Link, { props: routerProps }, 'to-a')]);
+          },
+        };
+
+        wrapper = mount(App, {
+          attachTo: document.body,
+          stubs: { RouterLink: RouterLinkStub },
+        });
+
+        // eslint-disable-next-line jest/no-standalone-expect
+        expect(wrapper.find('a').classes()).toEqual(
+          expect.arrayContaining(['active', 'exact-active'])
+        );
+      }
+    );
+
+    it('passes prefetch prop `<router-link>` component when set to a boolean', () => {
+      const App = {
+        router,
+        components: { Link },
+        render(h) {
+          return h('main', [h(Link, { props: { to: '/a', prefetch: true } }, 'to-a')]);
+        },
+      };
+
+      wrapper = mount(App, {
+        attachTo: document.body,
+        stubs: { RouterLink: RouterLinkStub },
+      });
+
+      expect(wrapper.findComponent(RouterLinkStub).props('prefetch')).toBe(true);
+    });
+
+    describe('when router link is clicked', () => {
+      it('calls click handler', async () => {
+        const clickHandlerMock = jest.fn();
+
+        const App = {
+          router,
+          components: { Link },
+          render(h) {
+            return h('main', [
+              h(
+                Link,
+                {
+                  props: { to: '/a' },
+                  on: {
+                    click: clickHandlerMock,
+                  },
+                },
+                'to-a'
+              ),
+            ]);
+          },
+        };
+
+        wrapper = mount(App, {
+          attachTo: document.body,
+          stubs: { RouterLink: RouterLinkStub },
+        });
+
+        expect(clickHandlerMock).not.toHaveBeenCalled();
+        await clickLink();
+        if (isVue3) {
+          expect(clickHandlerMock).toHaveBeenCalledWith(expect.any(MouseEvent), navigate);
+          expect(navigate).toHaveBeenCalled();
+        } else {
+          expect(clickHandlerMock).toHaveBeenCalledWith(expect.any(MouseEvent));
+        }
+      });
+
+      it('calls multiple click handlers', async () => {
+        const clickHandlerMock1 = jest.fn();
+        const clickHandlerMock2 = jest.fn();
+
+        const App = {
+          router,
+          components: { Link },
+          render(h) {
+            return h('main', [
+              h(
+                Link,
+                {
+                  props: { to: '/a' },
+                  on: {
+                    click: [clickHandlerMock1, clickHandlerMock2],
+                  },
+                },
+                'to-a'
+              ),
+            ]);
+          },
+        };
+
+        wrapper = mount(App, {
+          attachTo: document.body,
+        });
+
+        expect(clickHandlerMock1).not.toHaveBeenCalled();
+        expect(clickHandlerMock2).not.toHaveBeenCalled();
+        await clickLink();
+        expect(clickHandlerMock1).toHaveBeenCalled();
+        expect(clickHandlerMock2).toHaveBeenCalled();
+      });
     });
   });
 });

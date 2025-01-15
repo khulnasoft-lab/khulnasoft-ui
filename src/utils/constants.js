@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { POSITION } from '../components/utilities/truncate/constants';
 
 export const COMMA = ',';
@@ -372,3 +373,5 @@ export const loadingIconVariants = {
   spinner: 'spinner',
   dots: 'dots',
 };
+
+export const isVue3 = Boolean(Vue.Fragment);

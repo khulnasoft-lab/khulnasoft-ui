@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { isVue3 } from './constants';
 
 // Fragment will be available only in Vue.js 3
 const { Fragment, Comment, Text } = Vue;
@@ -32,8 +33,6 @@ export function isVnodeEmpty(vnode) {
 }
 
 export function isSlotEmpty(vueInstance, slot, slotArgs) {
-  const isVue3 = Boolean(Fragment);
-
   const slotContent = isVue3
     ? // we need to check both $slots and $scopedSlots due to https://github.com/vuejs/core/issues/8869
       // additionally, in @vue/compat $slot might be a function instead of array of vnodes (sigh)

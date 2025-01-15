@@ -5,8 +5,12 @@ const getBaseURL = () => {
   return `${protocol}//${host}`;
 };
 
+const isTargetBlank = (target) => {
+  return target === '_blank';
+};
+
 export const isExternalURL = (target, hostname) => {
-  return target === '_blank' && hostname !== window.location.hostname;
+  return isTargetBlank(target) && hostname !== window.location.hostname;
 };
 
 const secureRel = (rel) => {
@@ -35,13 +39,13 @@ const transform = (el, { arg: { skipSanitization = false } = {} } = {}) => {
     return;
   }
 
-  const { href, target, rel, hostname } = el;
+  const { href, target, rel } = el;
 
   if (!isSafeURL(href)) {
     el.href = 'about:blank';
   }
 
-  if (isExternalURL(target, hostname)) {
+  if (isTargetBlank(target)) {
     el.rel = secureRel(rel);
   }
 };
