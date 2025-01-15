@@ -13,6 +13,18 @@ export const Red = createDesignTokenStory({ tokens: COMPILED_TOKENS.color.red })
 
 export const Purple = createDesignTokenStory({ tokens: COMPILED_TOKENS.color.purple });
 
+export const DataGreen = createDesignTokenStory({ tokens: COMPILED_TOKENS.color['data-green'] });
+
+export const DataAqua = createDesignTokenStory({ tokens: COMPILED_TOKENS.color['data-aqua'] });
+
+export const DataBlue = createDesignTokenStory({ tokens: COMPILED_TOKENS.color['data-blue'] });
+
+export const DataMagenta = createDesignTokenStory({
+  tokens: COMPILED_TOKENS.color['data-magenta'],
+});
+
+export const DataOrange = createDesignTokenStory({ tokens: COMPILED_TOKENS.color['data-orange'] });
+
 export const ThemeIndigo = createDesignTokenStory({
   tokens: COMPILED_TOKENS.color['theme-indigo'],
 });
