@@ -232,6 +232,7 @@ StyleDictionary.registerFormat({
       ...colors,
       ...borderColors,
       dropdown: '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.dropdown.border.color)}',
+      'dropdown-divider': '${f.cssCustomPropertyWithValue(COMPILED_TOKENS.dropdown.divider.color)}',
     };
 
     const outlineColor = {

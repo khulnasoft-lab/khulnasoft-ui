@@ -183,7 +183,7 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
   template: template(
     `
     <template #footer>
-       <div class="gl-border-t-solid gl-border-t-1 gl-border-t-dropdown gl-flex gl-flex-col !gl-p-2 !gl-pt-0">
+       <div class="gl-border-t-solid gl-border-t-1 gl-border-t-dropdown-divider gl-flex gl-flex-col !gl-p-2 !gl-pt-0">
         <gl-button category="tertiary" block class="!gl-justify-start !gl-mt-2" data-testid="footer-bottom-button">
           Manage departments
         </gl-button>

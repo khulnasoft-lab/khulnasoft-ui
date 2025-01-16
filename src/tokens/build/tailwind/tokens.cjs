@@ -381,7 +381,8 @@ const backgroundColor = {
 const borderColor = {
   ...colors,
   ...borderColors,
-  dropdown: 'var(--gl-dropdown-border-color, var(--gl-color-neutral-200, #bfbfc3))',
+  dropdown: 'var(--gl-dropdown-border-color, var(--gl-border-color-strong, #bfbfc3))',
+  'dropdown-divider': 'var(--gl-dropdown-divider-color, var(--gl-border-color-default, #dcdcde))',
 };
 
 const outlineColor = {

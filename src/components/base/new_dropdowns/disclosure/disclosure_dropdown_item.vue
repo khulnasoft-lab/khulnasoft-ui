@@ -2,6 +2,7 @@
 import { BLink } from '../../../../vendor/bootstrap-vue/src/components/link/link';
 import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
+import { dropdownItemVariantOptions } from '../../../../utils/constants';
 import { isItem } from './utils';
 import { DISCLOSURE_DROPDOWN_ITEM_NAME } from './constants';
 
@@ -17,6 +18,17 @@ export default {
       required: false,
       default: null,
       validator: isItem,
+    },
+    /**
+     * The variant of the dropdown item.
+     */
+    variant: {
+      type: String,
+      default: null,
+      validator(value) {
+        return dropdownItemVariantOptions[value] !== undefined;
+      },
+      required: false,
     },
   },
   computed: {
@@ -62,8 +74,20 @@ export default {
     componentIndex() {
       return this.item?.extraAttrs?.disabled ? null : -1;
     },
-    wrapperClass() {
-      return this.item?.wrapperClass ?? '';
+    itemVariant() {
+      return this.variant || this.item?.variant;
+    },
+    classes() {
+      return [
+        this.$options.ITEM_CLASS,
+        this.item?.wrapperClass ?? '',
+        // This isn't a Tailwind class, so this lint rule isn't relevant.
+        // It just so happens this class has the same prefix `gl-`.
+        this.itemVariant && this.itemVariant !== 'default'
+          ? // eslint-disable-next-line @gitlab/tailwind-no-interpolation
+            `gl-new-dropdown-item-${this.itemVariant}`
+          : '',
+      ];
     },
     wrapperListeners() {
       const listeners = {
@@ -107,7 +131,7 @@ export default {
 <template>
   <li
     :tabindex="listIndex"
-    :class="[$options.ITEM_CLASS, wrapperClass]"
+    :class="classes"
     data-testid="disclosure-dropdown-item"
     v-on="wrapperListeners"
   >

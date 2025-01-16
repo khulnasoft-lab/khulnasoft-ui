@@ -14,6 +14,7 @@ $clear-button-size: 24px;
     padding-right: calc(#{$gl-spacing-scale-6} + #{$gl-spacing-scale-2});
     @apply gl-py-4;
     @apply gl-text-base;
+    background-color: var(--gl-dropdown-search-background-color);
 
     &:focus {
       @include gl-focus($inset: true);

@@ -13797,8 +13797,8 @@
         "isSource": true,
         "original": {
           "$value": {
-            "default": "{color.neutral.200}",
-            "dark": "{color.neutral.700}"
+            "default": "{border.color.strong}",
+            "dark": "{border.color.default}"
           },
           "$type": "color",
           "$description": "Used for the border of a dropdown."
@@ -13808,6 +13808,26 @@
         "path": [
           "dropdown",
           "border",
+          "color"
+        ]
+      }
+    },
+    "divider": {
+      "color": {
+        "$value": "#3a383f",
+        "filePath": "src/tokens/contextual/dropdown.tokens.json",
+        "isSource": true,
+        "original": {
+          "$value": {
+            "default": "{border.color.default}",
+            "dark": "{border.color.subtle}"
+          }
+        },
+        "name": "DROPDOWN_DIVIDER_COLOR",
+        "attributes": {},
+        "path": [
+          "dropdown",
+          "divider",
           "color"
         ]
       }
@@ -13926,16 +13946,13 @@
         "color": {
           "selected": {
             "default": {
-              "$value": "#fff",
+              "$value": "#63a6e9",
               "$type": "color",
               "$description": "Used for the dropdown selected option indicator in the default state.",
               "filePath": "src/tokens/contextual/dropdown.tokens.json",
               "isSource": true,
               "original": {
-                "$value": {
-                  "default": "{control.background.color.selected.default}",
-                  "dark": "{color.neutral.0}"
-                },
+                "$value": "{control.background.color.selected.default}",
                 "$type": "color",
                 "$description": "Used for the dropdown selected option indicator in the default state."
               },
@@ -13951,16 +13968,13 @@
               ]
             },
             "hover": {
-              "$value": "#fff",
+              "$value": "#9dc7f1",
               "$type": "color",
               "$description": "Used for the dropdown selected option indicator in the hover state.",
               "filePath": "src/tokens/contextual/dropdown.tokens.json",
               "isSource": true,
               "original": {
-                "$value": {
-                  "default": "{control.background.color.selected.hover}",
-                  "dark": "{color.neutral.0}"
-                },
+                "$value": "{control.background.color.selected.hover}",
                 "$type": "color",
                 "$description": "Used for the dropdown selected option indicator in the hover state."
               },
@@ -13976,16 +13990,13 @@
               ]
             },
             "focus": {
-              "$value": "#fff",
+              "$value": "#9dc7f1",
               "$type": "color",
               "$description": "Used for the dropdown selected option indicator in the focus state.",
               "filePath": "src/tokens/contextual/dropdown.tokens.json",
               "isSource": true,
               "original": {
-                "$value": {
-                  "default": "{control.background.color.selected.focus}",
-                  "dark": "{color.neutral.0}"
-                },
+                "$value": "{control.background.color.selected.focus}",
                 "$type": "color",
                 "$description": "Used for the dropdown selected option indicator in the focus state."
               },
@@ -14001,16 +14012,13 @@
               ]
             },
             "active": {
-              "$value": "#dcdcde",
+              "$value": "#9dc7f1",
               "$type": "color",
               "$description": "Used for the dropdown selected option indicator in the active state.",
               "filePath": "src/tokens/contextual/dropdown.tokens.json",
               "isSource": true,
               "original": {
-                "$value": {
-                  "default": "{color.blue.700}",
-                  "dark": "{color.neutral.100}"
-                },
+                "$value": "{control.background.color.selected.focus}",
                 "$type": "color",
                 "$description": "Used for the dropdown selected option indicator in the active state."
               },
@@ -14219,6 +14227,33 @@
               ]
             }
           }
+        }
+      }
+    },
+    "search": {
+      "background": {
+        "color": {
+          "$value": "rgba(05, 05, 06, 0.24)",
+          "$type": "color",
+          "$description": "Used for the background of a search input in a dropdown listbox.",
+          "filePath": "src/tokens/contextual/dropdown.tokens.json",
+          "isSource": true,
+          "original": {
+            "$value": {
+              "default": "{color.alpha.dark.2}",
+              "dark": "{color.alpha.dark.24}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a search input in a dropdown listbox."
+          },
+          "name": "DROPDOWN_SEARCH_BACKGROUND_COLOR",
+          "attributes": {},
+          "path": [
+            "dropdown",
+            "search",
+            "background",
+            "color"
+          ]
         }
       }
     }
