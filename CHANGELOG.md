@@ -1,3 +1,10 @@
+# [107.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.0.1...v107.1.0) (2025-01-16)
+
+
+### Features
+
+* **Dropdown:** Update design tokens ([c8663b6](https://gitlab.com/gitlab-org/gitlab-ui/commit/c8663b6c2eb08c65d33b6ec66b519d2ec0c7de69))
+
 ## [107.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.0.0...v107.0.1) (2025-01-15)
 
 
