@@ -283,7 +283,6 @@ visual:
 visual_vue3:
   needs: [build_test_storybook_vue3]
   extends: [.visual, .use_vue3]
-  allow_failure: true
 
 .integration_tests:
   image: cypress/browsers:node-22.11.0-chrome-131.0.6778.85-1-ff-132.0.2-edge-131.0.2903.70-1
