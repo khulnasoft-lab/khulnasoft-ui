@@ -1,3 +1,10 @@
+# [107.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.1.1...v107.2.0) (2025-01-17)
+
+
+### Features
+
+* **ButtonGroup:** Change border color separator in darkmode ([866456f](https://gitlab.com/gitlab-org/gitlab-ui/commit/866456fc0d2684413d5194a178aac75bc29331fa))
+
 ## [107.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.1.0...v107.1.1) (2025-01-17)
 
 
