@@ -1,0 +1,147 @@
+$gl-button-group-focus-z-index: 3;
+$gl-button-group-border-z-index: $gl-button-group-focus-z-index + 1;
+
+.gl-button-group:not(.gl-keyset-pagination),
+.btn-group:not(.gl-keyset-pagination),
+.gl-dropdown.btn-group {
+  @apply gl-inline-flex gl-relative;
+
+  // Reset borders
+  > .gl-button:not(:first-child),
+  > .btn-group:not(:first-child) > .gl-button,
+  > .gl-new-dropdown:not(:first-child) .gl-button {
+    @apply gl-border-l-0 gl-rounded-l-none;
+  }
+
+  > .gl-button:not(:last-child):not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > .gl-button,
+  > .gl-new-dropdown:not(:last-child) .gl-button {
+    @apply gl-border-r-0 gl-rounded-r-none;
+  }
+
+  // Pseudo element to mock border between buttons
+  > .gl-button:not(:first-child),
+  > .btn-group:not(:first-child) > .gl-button,
+  > .gl-new-dropdown:not(:first-child) .gl-button {
+    @apply gl-relative gl-ml-[1px];
+
+    &::before {
+      content: '';
+      @apply gl-absolute gl-block gl-top-[-1px] gl-bottom-[-1px] gl-left-[-1px] gl-w-[1px];
+      z-index: $gl-button-group-border-z-index;
+    }
+  }
+
+  // Bring focus to front
+  > .gl-button {
+    &:focus,
+    &:active,
+    &.active {
+      z-index: $gl-button-group-focus-z-index;
+    }
+  }
+
+  // Button separators
+  .btn-dashed {
+    &::before {
+      @apply gl-bg-transparent;
+      border-left: 1px dashed var(--gl-button-dashed-border-color-default);
+    }
+
+    &.disabled::before,
+    &[disabled]::before {
+      @apply gl-bg-transparent;
+      border-left: 1px dashed var(--gl-button-disabled-border-color);
+    }
+  }
+
+  // GlButton confirm and danger variants have transparent gap between items
+  .btn-confirm,
+  .btn-danger {
+    &:not(.disabled):not([disabled])::before {
+      @apply gl-bg-transparent;
+    }
+  }
+
+  // Move icon by 1px as we add a pseudo divider
+  .gl-button.btn-icon .gl-button-text .gl-button-icon {
+    @apply gl-mr-[-1px];
+  }
+
+  &.disabled,
+  &[disabled] {
+    &::before {
+      background-color: var(--gl-button-disabled-border-color);
+    }
+  }
+
+  .btn-confirm-secondary {
+    &:not(.disabled):not([disabled])::before {
+      background-color: var(--gl-button-confirm-secondary-border-color-default);
+    }
+  }
+
+  .btn-danger-secondary {
+    &:not(.disabled):not([disabled])::before {
+      background-color: var(--gl-button-danger-secondary-border-color-default);
+    }
+  }
+}
+
+.gl-button-group-vertical,
+.btn-group-vertical {
+  @apply gl-flex-col gl-items-start gl-justify-center;
+
+  > .gl-button,
+  > .btn-group {
+    @apply gl-relative gl-w-full;
+  }
+
+  // Reset borders
+  > .gl-button:not(:first-child),
+  > .btn-group:not(:first-child) > .gl-button,
+  > .gl-new-dropdown:not(:first-child) .gl-button {
+    @apply gl-border-t-0 gl-rounded-t-none;
+  }
+
+  > .gl-button:not(:last-child):not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > .gl-button,
+  > .gl-new-dropdown:not(:last-child) .gl-button {
+    @apply gl-border-b-0 gl-rounded-b-none;
+  }
+
+  // Pseudo element to mock border between buttons
+  > .gl-button:not(:first-child),
+  > .btn-group:not(:first-child) > .gl-button,
+  > .gl-new-dropdown:not(:first-child) .gl-button {
+    @apply gl-relative gl-mt-[1px];
+
+    &::before {
+      content: '';
+      @apply gl-absolute gl-block gl-left-[-1px] gl-right-[-1px] gl-top-[-1px] gl-h-[1px];
+      z-index: $gl-button-group-border-z-index;
+    }
+  }
+
+  // GlButton confirm and danger variants have transparent gap between items
+  .btn-confirm,
+  .btn-danger {
+    &:not(.disabled):not([disabled])::before {
+      @apply gl-bg-transparent;
+    }
+  }
+
+  // Dashed button
+  > .gl-button.btn-dashed:not(:first-child),
+  > .btn-group:not(:first-child) > .gl-button.btn-dashed,
+  > .gl-new-dropdown:not(:first-child) .gl-button.btn-dashed {
+    &::before {
+      border-top: 1px dashed var(--gl-button-dashed-border-color-default);
+    }
+
+    &.disabled::before,
+    &[disabled]::before {
+      border-top: 1px dashed var(--gl-button-disabled-border-color);
+    }
+  }
+}

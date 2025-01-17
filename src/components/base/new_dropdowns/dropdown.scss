@@ -205,26 +205,6 @@
     .gl-new-dropdown-toggle {
       @apply gl-rounded-tl-none;
       @apply gl-rounded-bl-none;
-
-      // Prevent double borders when buttons are next to each other
-      margin-left: -1px;
-    }
-  }
-
-  // The dropdown toggle of a "split" is by design supposed to be the last
-  // child of a button group, so only apply styles for that.
-  .gl-new-dropdown:last-child {
-    .gl-new-dropdown-caret-only {
-      &.btn-confirm,
-      &.btn-danger {
-        margin-left: 1px;
-      }
-
-      &:disabled,
-      &.disabled,
-      &[class*='-secondary'] {
-        margin-left: -1px;
-      }
     }
   }
 

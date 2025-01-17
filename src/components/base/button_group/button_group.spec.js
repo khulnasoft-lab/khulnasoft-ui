@@ -11,13 +11,13 @@ describe('GlButtonGroup', () => {
   it('renders button group', () => {
     createWrapper();
     expect(wrapper.element.tagName).toBe('DIV');
-    expect(wrapper.classes()).toMatchObject(['btn-group']);
+    expect(wrapper.classes()).toMatchObject(['gl-button-group', 'btn-group']);
     expect(wrapper.attributes('role')).toBe('group');
   });
 
   it('sets "btn-group-vertical" css class when `vertical` prop is `true`', () => {
     createWrapper({ propsData: { vertical: true } });
-    expect(wrapper.classes()).toMatchObject(['btn-group-vertical']);
+    expect(wrapper.classes()).toMatchObject(['gl-button-group-vertical', 'btn-group-vertical']);
   });
 
   it('renders content of default slot', () => {
