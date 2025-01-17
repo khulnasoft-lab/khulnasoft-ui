@@ -11,6 +11,7 @@
   @apply gl-flex;
   @apply gl-justify-center;
   @apply gl-border;
+  @apply gl-h-full;
   @include gl-action-neutral-colors;
   transition:
     box-shadow $gl-transition-duration-medium $gl-easing-out-cubic,
