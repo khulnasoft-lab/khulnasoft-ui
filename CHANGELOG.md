@@ -1,3 +1,10 @@
+## [107.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.2.0...v107.2.1) (2025-01-17)
+
+
+### Bug Fixes
+
+* Installation as a dependency ([e7ceee9](https://gitlab.com/gitlab-org/gitlab-ui/commit/e7ceee95c6b2d63446c8e0b04110b3a3896b2121))
+
 # [107.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.1.1...v107.2.0) (2025-01-17)
 
 
