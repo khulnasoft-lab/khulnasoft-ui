@@ -1,3 +1,10 @@
+## [107.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.1.0...v107.1.1) (2025-01-17)
+
+
+### Bug Fixes
+
+* **GlPopover:** Render content prop when given ([55c98a1](https://gitlab.com/gitlab-org/gitlab-ui/commit/55c98a16d457d94400b92b84923224681843ac4a))
+
 # [107.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.0.1...v107.1.0) (2025-01-16)
 
 
