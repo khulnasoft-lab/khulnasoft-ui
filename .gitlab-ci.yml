@@ -44,9 +44,6 @@ semgrep-sast:
 gitlab-advanced-sast:
   needs: []
 
-nodejs-scan-sast:
-  needs: []
-
 secret_detection:
   needs: []
 
