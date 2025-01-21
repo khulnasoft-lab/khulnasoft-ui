@@ -15,5 +15,5 @@ export const DataVizOrange = createDesignTokenStory({ tokens: COMPILED_TOKENS['d
 
 // eslint-disable-next-line storybook/csf-component
 export default {
-  title: 'tokens/color/data-viz/light',
+  title: 'tokens/color/deprecated/data-viz/light',
 };
