@@ -1,3 +1,10 @@
+# [107.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.3.0...v107.4.0) (2025-01-21)
+
+
+### Features
+
+* **Tailwind:** Add subtle and strong border tokens to shadow utils ([3584dfc](https://gitlab.com/gitlab-org/gitlab-ui/commit/3584dfc68f45f3d86edca2160748811f490f799e))
+
 # [107.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.2.1...v107.3.0) (2025-01-21)
 
 
