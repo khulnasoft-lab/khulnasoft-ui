@@ -1,3 +1,10 @@
+# [107.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.4.0...v107.5.0) (2025-01-21)
+
+
+### Features
+
+* **GlListbox:** Allow infinite scroll with grouped listbox items ([4d2703f](https://gitlab.com/gitlab-org/gitlab-ui/commit/4d2703f7e17e2be2bb3cdeeb31c028755751c5d1))
+
 # [107.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.3.0...v107.4.0) (2025-01-21)
 
 
