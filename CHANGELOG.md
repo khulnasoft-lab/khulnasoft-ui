@@ -1,3 +1,11 @@
+# [107.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.2.1...v107.3.0) (2025-01-21)
+
+
+### Features
+
+* **DesignTokens:** add data color design tokens ([780029e](https://gitlab.com/gitlab-org/gitlab-ui/commit/780029e5f9f963aab8e3fbdf683fefaa56c5c7fb))
+* **DesignTokens:** deprecate data-viz design tokens ([68a4521](https://gitlab.com/gitlab-org/gitlab-ui/commit/68a45215b36b69437b261ee13f008913b664f6e5))
+
 ## [107.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.2.0...v107.2.1) (2025-01-17)
 
 
