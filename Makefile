@@ -16,11 +16,11 @@ static/fonts:
 
 # Translations
 translations_file = translations.js
-collect_translations_script = ${bin_dir}/collect_translations.js
+collect_translations_script = $(bin_dir)/collect_translations.js
 js_vue_files = $(shell find src/ -type f \( -iname \*.js -o -iname \*.vue \))
 
-${translations_file}: ${collect_translations_script} ${js_vue_files}
-	node ${collect_translations_script} > ${translations_file}
+$(translations_file): $(collect_translations_script) $(js_vue_files)
+	node $(collect_translations_script) > $(translations_file)
 
 # Design tokens
 tokens_src_dir := src/tokens
