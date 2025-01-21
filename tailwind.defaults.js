@@ -474,6 +474,10 @@ module.exports = {
       'inner-1-gray-100': 'inset 0 0 0 1px var(--gray-100, #dcdcde)',
       'inner-1-border-default':
         'inset 0 0 0 1px var(--gl-border-color-default, var(--gl-color-neutral-100, #dcdcde))',
+      'inner-1-border-subtle':
+        'inset 0 0 0 1px var(--gl-border-color-subtle, var(--gl-color-neutral-50, #ececef))',
+      'inner-1-border-strong':
+        'inset 0 0 0 1px var(--gl-border-color-strong, var(--gl-color-neutral-200, #bfbfc3))',
       'inner-1-gray-200': 'inset 0 0 0 1px var(--gray-200, #bfbfc3)',
       'inner-1-gray-400': 'inset 0 0 0 1px var(--gray-400, #89888d)',
       'inner-1-red-300': 'inset 0 0 0 1px var(--red-300, #f57f6c)',
