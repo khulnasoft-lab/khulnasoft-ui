@@ -8,12 +8,6 @@ import { fileHeader } from 'style-dictionary/utils';
 import merge from 'lodash/merge.js';
 import { TailwindTokenFormatter } from './lib/tailwind_token_formatter.js';
 
-if (process.env.NO_BUILD_TOKENS) {
-  // eslint-disable-next-line no-console
-  console.log(`Skipping building tokens due to NO_BUILD_TOKENS environment variable`);
-  process.exit(0);
-}
-
 /**
  * Design tokens
  * https://docs.gitlab.com/ee/development/fe_guide/design_tokens.html

@@ -28,4 +28,4 @@ pre-commit:
     build_tokens:
       files: git diff --name-only --staged
       glob: '*.tokens.json'
-      run: node ./bin/build_tokens.mjs && git add ./src/tokens/build
+      run: make tokens && git add ./src/tokens/build
