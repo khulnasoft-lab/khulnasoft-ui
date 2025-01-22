@@ -1,25 +1,30 @@
 <script>
+import Fuse from 'fuse.js';
 import GlBadge from '../components/base/badge/badge.vue';
 import GlButton from '../components/base/button/button.vue';
 import GlCollapsibleListbox from '../components/base/new_dropdowns/listbox/listbox.vue';
-import GlFormInput from '../components/base/form/form_input/form_input.vue';
+import GlSearchBoxByType from '../components/base/search_box_by_type/search_box_by_type.vue';
 import GlLink from '../components/base/link/link.vue';
 import GlTable from '../components/base/table/table.vue';
+import GlPagination from '../components/base/pagination/pagination.vue';
 import { GlTooltipDirective } from '../directives/tooltip';
 import TOKENS_DEFAULT from './build/json/tokens.json';
 import TOKENS_DARK from './build/json/tokens.dark.json';
 
 export default {
   name: 'TokensTable',
-  TOKENS_DEFAULT,
-  TOKENS_DARK,
+  tokens: {
+    default: TOKENS_DEFAULT,
+    dark: TOKENS_DARK,
+  },
   components: {
     GlBadge,
     GlButton,
     GlCollapsibleListbox,
-    GlFormInput,
+    GlSearchBoxByType,
     GlLink,
     GlTable,
+    GlPagination,
   },
   directives: {
     GlTooltip: GlTooltipDirective,
@@ -36,7 +41,7 @@ export default {
   ],
   data() {
     return {
-      filter: null,
+      filter: '',
       platforms: [
         {
           value: 'name',
@@ -67,16 +72,15 @@ export default {
       ],
       selectedPlatform: 'name',
       selectedMode: 'default',
-      tokens: {
-        default: this.$options.TOKENS_DEFAULT,
-        dark: this.$options.TOKENS_DARK,
-      },
+      currentPage: 1,
+      perPage: 50,
+      totalFilteredItems: 0,
     };
   },
-  computed: {
-    items() {
-      return this.transformTokensToTableRows(this.tokens[this.selectedMode]);
-    },
+  watch: {
+    selectedPlatform: 'refresh',
+    selectedMode: 'refresh',
+    filter: 'resetCurrentPage',
   },
   methods: {
     isColor(type) {
@@ -113,9 +117,43 @@ export default {
         type: token.$type,
         value: token.$value,
         valueLabel: this.getValueLabel(token),
-        deprecated: token.deprecated,
+        deprecated: token.deprecated ? 'deprecated' : '',
         description: token.$description,
       };
+    },
+    filterItems(items, filter) {
+      if (!filter) return items;
+
+      const fuse = new Fuse(items, {
+        keys: Object.keys(items[0]),
+        includeScore: true,
+      });
+      const results = fuse.search(filter);
+
+      return results
+        .sort((a, b) => {
+          if (a.item.deprecated && !b.item.deprecated) return 1;
+          if (!a.item.deprecated && b.item.deprecated) return -1;
+          return a.score - b.score;
+        })
+        .map(({ item }) => item);
+    },
+    paginateItems(items, currentPage, perPage) {
+      const start = (currentPage - 1) * perPage;
+      return items.slice(start, start + perPage);
+    },
+    itemsProvider({ currentPage, perPage, filter }) {
+      try {
+        const items = this.transformTokensToTableRows(this.$options.tokens[this.selectedMode]);
+        const filteredItems = this.filterItems(items, filter);
+        this.totalFilteredItems = filteredItems.length;
+        const paginatedFilteredItems = this.paginateItems(filteredItems, currentPage, perPage);
+        return paginatedFilteredItems;
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.error('Failed to provide items', e);
+        return [];
+      }
     },
     transformTokensToTableRows(tokens) {
       const tokensArray = [];
@@ -179,6 +217,12 @@ export default {
     copyToClipboard(value) {
       navigator.clipboard.writeText(value);
     },
+    resetCurrentPage() {
+      this.currentPage = 1;
+    },
+    refresh() {
+      this.$root.$emit('bv::refresh::table', 'tokens-table');
+    },
   },
 };
 </script>
@@ -194,7 +238,7 @@ export default {
       >
     </p>
     <div class="gl-mb-5 gl-flex gl-items-center gl-gap-3">
-      <gl-form-input v-model="filter" placeholder="Type to search" />
+      <gl-search-box-by-type v-model="filter" debounce="250" class="gl-grow" />
       <gl-collapsible-listbox
         v-model="selectedPlatform"
         :selected="selectedPlatform"
@@ -209,11 +253,15 @@ export default {
       />
     </div>
     <gl-table
+      id="tokens-table"
       :filter="filter"
-      :items="items"
+      :items="itemsProvider"
       :fields="$options.fields"
       :tbody-tr-attr="(item) => ({ id: item.id })"
+      :current-page="currentPage"
+      :per-page="perPage"
       hover
+      fixed
       stacked="sm"
     >
       <template #cell(description)="{ item: { name, deprecated, description } }">
@@ -240,9 +288,16 @@ export default {
             class="gl-h-5 gl-w-5 gl-rounded-base"
             :style="{ 'background-color': value }"
           ></div>
-          <code class="gl-text-base gl-text-strong">{{ valueLabel }}</code>
+          <code class="gl-min-w-0 gl-text-base gl-text-strong">{{ valueLabel }}</code>
         </div>
       </template>
     </gl-table>
+
+    <gl-pagination
+      v-model="currentPage"
+      align="center"
+      :per-page="perPage"
+      :total-items="totalFilteredItems"
+    />
   </div>
 </template>
