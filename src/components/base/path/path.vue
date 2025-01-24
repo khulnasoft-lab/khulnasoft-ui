@@ -155,12 +155,12 @@ export default {
     <ul ref="pathNavList" class="gl-path-nav-list">
       <li
         v-for="(item, index) in items"
-        :id="pathId(index)"
         ref="pathListItems"
         :key="index"
         class="gl-path-nav-list-item"
       >
         <button
+          :id="pathId(index)"
           :class="pathItemClass(index)"
           :category="item.disabled ? 'tertiary' : undefined"
           :disabled="item.disabled"

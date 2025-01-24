@@ -30,7 +30,7 @@ export const WithPopovers = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: template(`
     <template #default="{ pathItem, pathId }">
-      <gl-popover triggers="hover" placement="bottom" :target="pathId">
+      <gl-popover placement="bottom" :target="pathId">
         <template #title>
           {{ pathItem.title }}
         </template>
