@@ -231,6 +231,7 @@ export default {
             v-for="(item, idx) in historyItems"
             :key="idx"
             class="gl-search-box-by-click-history-item"
+            :aria-label="`Select recent search: ${item || 'empty search'}`"
             @action="selectHistoryItem(item)"
           >
             <template #list-item>
