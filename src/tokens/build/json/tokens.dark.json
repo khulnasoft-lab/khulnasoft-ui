@@ -9488,15 +9488,15 @@
     "intro": {
       "border": {
         "color": {
-          "$value": "#064787",
+          "$value": "#0b5cad",
           "$type": "color",
           "$description": "Used for the border of an info banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
           "isSource": true,
           "original": {
             "$value": {
-              "default": "{color.blue.100}",
-              "dark": "{color.blue.800}"
+              "default": "{color.blue.200}",
+              "dark": "{color.blue.700}"
             },
             "$type": "color",
             "$description": "Used for the border of an info banner."
@@ -9540,15 +9540,15 @@
       },
       "border": {
         "color": {
-          "$value": "#453894",
+          "$value": "#5943b6",
           "$type": "color",
           "$description": "Used for the border of a promo banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
           "isSource": true,
           "original": {
             "$value": {
-              "default": "{color.purple.100}",
-              "dark": "{color.purple.800}"
+              "default": "{color.purple.200}",
+              "dark": "{color.purple.700}"
             },
             "$type": "color",
             "$description": "Used for the border of a promo banner."

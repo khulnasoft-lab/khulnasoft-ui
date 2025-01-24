@@ -652,9 +652,9 @@
   --gl-badge-tier-icon-color-default: var(--gl-color-purple-950); /* Used for the icon of a tier related badge when static or the default state when linked. */
   --gl-badge-tier-icon-color-hover: var(--gl-color-purple-950); /* Used for the icon of a tier related badge in the hover state. */
   --gl-badge-tier-icon-color-active: var(--gl-color-purple-950); /* Used for the icon of a tier related badge in the active state. */
-  --gl-banner-intro-border-color: var(--gl-color-blue-800); /* Used for the border of an info banner. */
+  --gl-banner-intro-border-color: var(--gl-color-blue-700); /* Used for the border of an info banner. */
   --gl-banner-promo-background-color: var(--gl-color-purple-950); /* Used for the background of a promo banner. */
-  --gl-banner-promo-border-color: var(--gl-color-purple-800); /* Used for the border of a promo banner. */
+  --gl-banner-promo-border-color: var(--gl-color-purple-700); /* Used for the border of a promo banner. */
   --gl-breadcrumb-separator-color: var(--gl-color-neutral-400); /* Used for the breadcrumb level separator. */
   --gl-broadcast-banner-background-color-blue: var(--gl-color-theme-blue-700); /* Used for the background for the blue banner type. */
   --gl-broadcast-banner-background-color-dark: var(--gl-color-neutral-500); /* Used for the background for the dark banner type. */

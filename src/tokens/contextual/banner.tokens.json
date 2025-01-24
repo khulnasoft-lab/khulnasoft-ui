@@ -4,8 +4,8 @@
       "border": {
         "color": {
           "$value": {
-            "default": "{color.blue.100}",
-            "dark": "{color.blue.800}"
+            "default": "{color.blue.200}",
+            "dark": "{color.blue.700}"
           },
           "$type": "color",
           "$description": "Used for the border of an info banner."
@@ -26,8 +26,8 @@
       "border": {
         "color": {
           "$value": {
-            "default": "{color.purple.100}",
-            "dark": "{color.purple.800}"
+            "default": "{color.purple.200}",
+            "dark": "{color.purple.700}"
           },
           "$type": "color",
           "$description": "Used for the border of a promo banner."
