@@ -1,3 +1,10 @@
+# [107.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.5.0...v107.6.0) (2025-01-24)
+
+
+### Features
+
+* **Banner:** Update border tokens ([0faf4bb](https://gitlab.com/gitlab-org/gitlab-ui/commit/0faf4bbbf668af1e8607a2e578c490d9719c12ff))
+
 # [107.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.4.0...v107.5.0) (2025-01-21)
 
 
