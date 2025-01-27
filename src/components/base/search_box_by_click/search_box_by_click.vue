@@ -243,7 +243,7 @@ export default {
         </template>
         <gl-disclosure-dropdown-item
           v-else
-          class="gl-search-box-by-click-history-item"
+          class="gl-px-4 gl-py-2 gl-text-sm gl-text-subtle"
           :aria-label="`Select recent search: ${noRecentSearchesText}`"
         >
           {{ noRecentSearchesText }}
