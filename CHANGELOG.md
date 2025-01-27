@@ -1,3 +1,10 @@
+## [107.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.6.0...v107.6.1) (2025-01-27)
+
+
+### Bug Fixes
+
+* **GlPath:** move id from list item to button ([99ce2ac](https://gitlab.com/gitlab-org/gitlab-ui/commit/99ce2ac481d8c8a429c285e9daf3539e557d8922))
+
 # [107.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.5.0...v107.6.0) (2025-01-24)
 
 
