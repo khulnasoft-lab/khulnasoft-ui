@@ -430,6 +430,19 @@ create_integration_branch:
   script:
     - bin/create_integration_branch.mjs
 
+duo_job:
+  extends:
+    - .rules:gitlab-ui-mr-manual
+  stage: manual
+  needs:
+    - build_package
+  trigger:
+    project: gitlab-org/duo-ui
+    branch: main
+  variables:
+    UPSTREAM_GITLAB_UI_VERSION: $DEPENDENCY_URL
+    UPSTREAM_BRANCH_NAME: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+
 update_deployments:
   extends: [.node, .yarn_install]
   stage: manual
