@@ -63,24 +63,15 @@ version number of GitLab UI is incremented with any breaking changes.
 [integration MRs]: ./gitlab_integration_test.md#using-the-remote-development-package
 [script]: https://gitlab.com/gitlab-org/frontend/playground/create-migrate-deprecated-component-issues
 
-## Temporary dependency bottleneck between @gitlab/ui and @gitlab/duo-ui
+## Testing breaking changes with duo-ui integration
 
-- `@gitlab/duo-ui` requires a specific major version of `@gitlab/ui` (e.g., ^100).
-- Dependent projects cannot upgrade to a new `@gitlab/ui` major version (e.g., 101.0.0) until `@gitlab/duo-ui`
-updates its peer dependency.
+When making breaking changes, it's important to test them against the duo-ui project.
+We have a CI pipeline setup that automatically tests integration with duo-ui on every MR.
+Here's how it works:
 
-### Workaround
-
-When releasing a new major version of `@gitlab/ui`:
-
-1. Release a new major version of `@gitlab/duo-ui` with an updated peer dependency for the new
-`@gitlab/ui` major version. [Example MR](https://gitlab.com/gitlab-org/duo-ui/-/merge_requests/31)
-2. Ensure the migration MR upgrades both `@gitlab/ui` and `@gitlab/duo-ui` to compatible versions.
-
-This ensures dependent projects can adopt new versions without breaking dependencies.
-
-### Resolution
-
-Follow the plan and progress in this
-[Issue](https://gitlab.com/gitlab-org/duo-ui/-/issues/30). For concerns, reach out in
-the Issue or in #duo-ui.
+1. Every MR automatically runs a `duo_job` that tests integration with duo-ui
+2. By default, if the duo-ui integration fails, it will fail the entire pipeline
+3. If you need to make breaking changes that will temporarily break duo-ui, you can:
+   - Add the `duo-ui-allowed-to-fail` label to your MR
+   - This will allow the duo-ui integration to fail without failing the pipeline
+4. Once your breaking changes are merged, create a follow-up MR in duo-ui to fix the integration
