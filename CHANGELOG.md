@@ -1,3 +1,10 @@
+## [107.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.6.1...v107.6.2) (2025-01-30)
+
+
+### Bug Fixes
+
+* **GlButtonGroup:** Fix specificity problem ([837d85c](https://gitlab.com/gitlab-org/gitlab-ui/commit/837d85c744068fc4d44301b75a6d672fac757e77))
+
 ## [107.6.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.6.0...v107.6.1) (2025-01-27)
 
 
