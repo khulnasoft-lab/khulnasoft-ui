@@ -10,12 +10,13 @@ describe('Breadcrumb Item Component', () => {
   const findBLink = () => wrapper.findComponent(BLink);
   const findDefaultSlot = () => wrapper.find('[data-testid="default-slot"]');
 
-  const createComponent = () => {
+  const createComponent = (propsData) => {
     wrapper = shallowMount(BreadcrumbItem, {
       propsData: {
         href: item.href,
         to: item.to,
         ariaCurrent: item.ariaCurrent,
+        ...propsData,
       },
       slots: {
         default: '<div data-testid="default-slot"></div>',
@@ -28,6 +29,18 @@ describe('Breadcrumb Item Component', () => {
       createComponent();
 
       expect(findDefaultSlot().exists()).toBe(true);
+    });
+  });
+
+  describe('size', () => {
+    it('has default size of "sm"', () => {
+      createComponent();
+      expect(wrapper.classes()).toContain('gl-breadcrumb-item-sm');
+    });
+
+    it('applies correct class for "md" size', () => {
+      createComponent({ size: 'md' });
+      expect(wrapper.classes()).toContain('gl-breadcrumb-item-md');
     });
   });
 

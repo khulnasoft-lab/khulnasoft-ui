@@ -1,5 +1,6 @@
 <script>
 import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
+import { breadCrumbSizeOptions } from '../../../utils/constants';
 
 export default {
   name: 'GlBreadcrumbItem',
@@ -31,12 +32,18 @@ export default {
         return [false, 'page'].indexOf(value) !== -1;
       },
     },
+    size: {
+      type: String,
+      required: false,
+      default: breadCrumbSizeOptions.sm,
+      validator: (value) => Object.keys(breadCrumbSizeOptions).includes(value),
+    },
   },
 };
 </script>
 
 <template>
-  <li class="gl-breadcrumb-item">
+  <li :class="`gl-breadcrumb-item gl-breadcrumb-item-${size}`">
     <b-link :href="href" :to="to" :aria-current="ariaCurrent">
       <slot>{{ text }}</slot>
     </b-link>

@@ -5,6 +5,7 @@ import { translate } from '../../../utils/i18n';
 import GlAvatar from '../avatar/avatar.vue';
 import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
 import { GlTooltipDirective } from '../../../directives/tooltip';
+import { breadCrumbSizeOptions } from '../../../utils/constants';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
 
 export default {
@@ -54,13 +55,22 @@ export default {
       required: false,
       default: true,
     },
+    /**
+     * Size of the breadcrumb item. Use `sm` for page breadcrumbs.
+     */
+    size: {
+      type: String,
+      required: false,
+      default: breadCrumbSizeOptions.sm,
+      validator: (value) => Object.keys(breadCrumbSizeOptions).includes(value),
+    },
   },
   data() {
     return {
       fittingItems: [...this.items], // array of items that fit on the screen
       overflowingItems: [], // array of items that didn't fit and were put in a dropdown instead
       totalBreadcrumbsWidth: 0, // the total width of all breadcrumb items combined
-      widthPerItem: [], // array with the indivudal widths of each breadcrumb item
+      widthPerItem: [], // array with the individual widths of each breadcrumb item
       resizeDone: false, // to apply some CSS only during/after resizing
     };
   },
@@ -88,6 +98,12 @@ export default {
         };
       }
       return {};
+    },
+    dropdownSize() {
+      return this.size === 'sm' ? 'small' : 'medium';
+    },
+    avatarSize() {
+      return this.size === 'sm' ? 16 : 24;
     },
   },
   watch: {
@@ -191,7 +207,7 @@ export default {
 <template>
   <nav class="gl-breadcrumbs" :aria-label="ariaLabel" :style="breadcrumbStyle">
     <ol class="gl-breadcrumb-list breadcrumb" v-bind="$attrs" v-on="$listeners">
-      <li v-if="hasCollapsible" class="gl-breadcrumb-item">
+      <li v-if="hasCollapsible" :class="`gl-breadcrumb-item gl-breadcrumb-item-${size}`">
         <gl-disclosure-dropdown
           :items="overflowingItems"
           :toggle-text="showMoreLabel"
@@ -199,7 +215,7 @@ export default {
           text-sr-only
           no-caret
           icon="ellipsis_h"
-          size="small"
+          :size="dropdownSize"
         />
       </li>
 
@@ -211,11 +227,12 @@ export default {
         :href="item.href"
         :style="itemStyle"
         :to="item.to"
+        :size="size"
         :aria-current="getAriaCurrentAttr(index)"
         ><gl-avatar
           v-if="item.avatarPath"
           :src="item.avatarPath"
-          :size="16"
+          :size="avatarSize"
           aria-hidden="true"
           class="gl-breadcrumb-avatar-tile gl-border gl-mr-2 !gl-rounded-base"
           shape="rect"
