@@ -52,15 +52,13 @@ const makeBindings = (overrides = {}) =>
     .join('\n');
 
 const template = (content = '', { bindingOverrides = {}, after = '' } = {}) => `
-  <div>
-    <gl-disclosure-dropdown
-      ref="disclosure"
-      ${makeBindings(bindingOverrides)}
-    >
-      ${content}
-    </gl-disclosure-dropdown>
-    ${after}
-  </div>
+  <gl-disclosure-dropdown
+    ref="disclosure"
+    ${makeBindings(bindingOverrides)}
+  >
+    ${content}
+  </gl-disclosure-dropdown>
+  ${after}
 `;
 
 const TOGGLE_ID = 'custom-toggle-id';
@@ -339,6 +337,40 @@ MiscellaneousContent.args = {
   fluidWidth: true,
 };
 MiscellaneousContent.decorators = [makeContainer({ height: '200px' })];
+
+export const ViewportPositioning = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlDisclosureDropdown,
+  },
+  template: `
+    <div class="gl-h-screen gl-flex gl-flex-col gl-justify-between gl-pb-10">
+      <div class="gl-p-3">
+        ${template('', { bindingOverrides: { ':placement': "'bottom-start'", toggleText: 'My arrow should be on the top and the dropdown left aligned.', ':block': true } })}
+      </div>
+      <div class="gl-p-3 gl-text-right">
+        ${template('', { bindingOverrides: { ':placement': "'bottom'", toggleText: 'My arrow should be on the top.' } })}
+      </div>
+      <div class="gl-p-3">
+        ${template('', { bindingOverrides: { ':placement': "'right-start'", toggleText: 'My arrow should be on the left.' } })}
+      </div>
+      <div class="gl-p-3 gl-text-right">
+        ${template('', { bindingOverrides: { ':placement': "'right-start'", toggleText: 'My arrow should be on the right.' } })}
+      </div>
+      <div class="gl-p-3">
+        ${template('', { bindingOverrides: { toggleText: 'My arrow should be on the bottom.' } })}
+      </div>
+      <div class="gl-p-3">
+        ${template('', { bindingOverrides: { ':placement': "'bottom-end'", toggleText: 'My arrow should be on the top and the dropdown right aligned.', ':block': true } })}
+      </div>
+    </div>
+  `,
+});
+
+ViewportPositioning.args = {
+  items: mockButtons,
+  startOpened: true,
+};
 
 export default {
   title: 'base/dropdown/disclosure-dropdown',

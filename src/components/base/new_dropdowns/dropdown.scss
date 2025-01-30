@@ -2,6 +2,22 @@
   @apply gl-inline-flex;
   @apply gl-align-middle;
 
+  .gl-new-dropdown-arrow {
+    width: 8px;
+    height: 8px;
+
+    // blend in with the dropdown background
+    background: var(--gl-dropdown-background-color);
+    // these create the 45deg cutoff angle at the base of the caret
+    border-bottom: 1px solid var(--gl-dropdown-background-color);
+    border-right: 1px solid var(--gl-dropdown-background-color);
+
+    // match the dropdown border
+    border-top: 1px solid var(--gl-dropdown-border-color);
+    border-left: 1px solid var(--gl-dropdown-border-color);
+    position: absolute;
+  }
+
   .gl-new-dropdown-custom-toggle {
     *:first-child {
       @apply gl-cursor-pointer;
