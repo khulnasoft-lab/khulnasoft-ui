@@ -1,10 +1,16 @@
 $gl-button-group-focus-z-index: 3;
 $gl-button-group-border-z-index: $gl-button-group-focus-z-index + 1;
 
+.gl-button-group,
+.btn-group,
+.gl-dropdown.btn-group {
+  @apply gl-inline-flex;
+}
+
 .gl-button-group:not(.gl-keyset-pagination),
 .btn-group:not(.gl-keyset-pagination),
 .gl-dropdown.btn-group {
-  @apply gl-inline-flex gl-relative;
+  @apply gl-relative;
 
   // Reset borders
   > .gl-button:not(:first-child),
