@@ -431,17 +431,23 @@ create_integration_branch:
     - bin/create_integration_branch.mjs
 
 duo_job:
-  extends:
-    - .rules:gitlab-ui-mr-manual
-  stage: manual
+  stage: deploy
   needs:
     - build_package
   trigger:
     project: gitlab-org/duo-ui
     branch: main
+    strategy: depend
   variables:
     UPSTREAM_GITLAB_UI_VERSION: $DEPENDENCY_URL
     UPSTREAM_BRANCH_NAME: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+  rules:
+    - if: '$CI_MERGE_REQUEST_LABELS =~ /duo-ui-allowed-to-fail/'
+      when: always
+      allow_failure: true
+    - if: '$CI_MERGE_REQUEST_IID'
+      when: always
+      allow_failure: false
 
 update_deployments:
   extends: [.node, .yarn_install]
