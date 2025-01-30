@@ -1,3 +1,10 @@
+# [107.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.6.2...v107.7.0) (2025-01-30)
+
+
+### Features
+
+* **Dropdown:** Add indicator ([065c810](https://gitlab.com/gitlab-org/gitlab-ui/commit/065c810e49345d97748f7c3341604641372ad5b8))
+
 ## [107.6.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.6.1...v107.6.2) (2025-01-30)
 
 
