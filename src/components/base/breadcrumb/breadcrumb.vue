@@ -201,6 +201,12 @@ export default {
       }
       this.resetItems();
     },
+    hideItemClass(item) {
+      // TODO once https://gitlab.com/gitlab-org/gitlab/-/issues/520089 is addressed:
+      // - Remove this hiding of empty breadcrumbs.
+      // - Tighten `items` validator to require non-empty `text`.
+      return !item.text ? 'gl-hidden' : '';
+    },
   },
 };
 </script>
@@ -229,6 +235,7 @@ export default {
         :to="item.to"
         :size="size"
         :aria-current="getAriaCurrentAttr(index)"
+        :class="hideItemClass(item)"
         ><gl-avatar
           v-if="item.avatarPath"
           :src="item.avatarPath"
