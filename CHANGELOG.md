@@ -1,3 +1,16 @@
+# [108.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.7.1...v108.0.0) (2025-02-03)
+
+
+### Features
+
+* remove BFormInput from GlFormInput ([f71e397](https://gitlab.com/gitlab-org/gitlab-ui/commit/f71e397e62bc04b6163bf585bbcaad94d332eece))
+
+
+### BREAKING CHANGES
+
+* Remove support for `size` prop which does not have
+any effect anyway.
+
 ## [107.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.7.0...v107.7.1) (2025-01-31)
 
 
