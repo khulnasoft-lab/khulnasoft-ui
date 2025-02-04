@@ -8,7 +8,7 @@ import GlFormInput from '../form/form_input/form_input.vue';
 import GlFormInputGroup from '../form/form_input_group/form_input_group.vue';
 
 export default {
-  name: 'GlSearchboxByClick',
+  name: 'GlSearchBoxByClick',
   components: {
     GlClearIconButton,
     GlButton,
