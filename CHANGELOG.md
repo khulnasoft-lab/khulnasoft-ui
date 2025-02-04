@@ -1,3 +1,11 @@
+## [108.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.0.0...v108.0.1) (2025-02-04)
+
+
+### Bug Fixes
+
+* Correct GlSearchBoxByClick and GlSearchBoxByType component names ([bf56a82](https://gitlab.com/gitlab-org/gitlab-ui/commit/bf56a826d846552f0ae86140cfd2d1ae115315ca))
+* Correct the N letter ([748bb3e](https://gitlab.com/gitlab-org/gitlab-ui/commit/748bb3e7d6af5ec057a05f9790858e0da7202f8f))
+
 # [108.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v107.7.1...v108.0.0) (2025-02-03)
 
 
