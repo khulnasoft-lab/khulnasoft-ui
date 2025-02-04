@@ -6,7 +6,7 @@ import GlLoadingIcon from '../loading_icon/loading_icon.vue';
 import { translate } from '../../../utils/i18n';
 
 export default {
-  name: 'GlSearchNoxByType',
+  name: 'GlSearchBoxByType',
   components: {
     GlClearIconButton,
     GlIcon,
