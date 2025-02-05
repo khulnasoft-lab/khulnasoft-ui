@@ -1,5 +1,6 @@
 import avatarPath1 from '../../../../static/img/avatar_1.png';
 import avatarPath2 from '../../../../static/img/avatar_2.png';
+import { breadCrumbSizeOptions } from '../../../utils/constants';
 import GlBreadcrumb from './breadcrumb.vue';
 import readme from './breadcrumb.md';
 
@@ -8,6 +9,7 @@ const template = `
         :items="items"
         :aria-label="ariaLabel"
         :auto-resize="autoResize"
+        :size="size"
     />
   `;
 
@@ -17,6 +19,7 @@ const collapsedTemplate = `
         :items="items"
         :aria-label="ariaLabel"
         :auto-resize="autoResize"
+        :size="size"
     />
   </div>
 `;
@@ -42,9 +45,10 @@ const defaultItems = [
   },
 ];
 
-const generateProps = ({ items = defaultItems, ariaLabel } = {}) => ({
+const generateProps = ({ items = defaultItems, ariaLabel, size } = {}) => ({
   items,
   ariaLabel,
+  size,
 });
 
 const Template = (args, { argTypes }) => ({
@@ -75,6 +79,12 @@ export default {
       },
     },
   },
+  argTypes: {
+    size: {
+      options: Object.keys(breadCrumbSizeOptions),
+      control: 'select',
+    },
+  },
 };
 
 const extraItems = [
@@ -98,3 +108,9 @@ const extraItems = [
 
 export const CollapsedItems = CollapsedTemplate.bind({});
 CollapsedItems.args = generateProps({ items: [...defaultItems, ...extraItems] });
+
+export const MediumSize = Template.bind({});
+MediumSize.args = generateProps({ items: defaultItems, size: 'md' });
+
+export const CollapsedMediumSize = CollapsedTemplate.bind({});
+CollapsedMediumSize.args = generateProps({ items: [...defaultItems, ...extraItems], size: 'md' });

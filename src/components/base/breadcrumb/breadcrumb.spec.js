@@ -188,6 +188,40 @@ describe('Breadcrumb component', () => {
     });
   });
 
+  describe('size', () => {
+    describe('when `size` is not provided', () => {
+      beforeEach(async () => {
+        createComponent({ items });
+        mockSmallWrapperWidth();
+        mockItemsWidths();
+        await wrapper.vm.$nextTick();
+      });
+
+      it('sets default size to "sm"', async () => {
+        const breadcrumbItem = wrapper.findComponent(GlBreadcrumbItem);
+        expect(breadcrumbItem.props('size')).toBe('sm');
+        expect(findOverflowDropdown().props('size')).toBe('small');
+        expect(findAllAvatars().at(0).props('size')).toBe(16);
+      });
+    });
+
+    describe('when `size` is provided', () => {
+      beforeEach(async () => {
+        createComponent({ items, size: 'md' });
+        mockSmallWrapperWidth();
+        mockItemsWidths();
+        await wrapper.vm.$nextTick();
+      });
+
+      it('handles "md" size when specified', async () => {
+        const breadcrumbItem = wrapper.findComponent(GlBreadcrumbItem);
+        expect(breadcrumbItem.props('size')).toBe('md');
+        expect(findOverflowDropdown().props('size')).toBe('medium');
+        expect(findAllAvatars().at(0).props('size')).toBe(24);
+      });
+    });
+  });
+
   describe('bindings', () => {
     beforeEach(() => {
       createComponent();

@@ -92,6 +92,11 @@ export const formStateOptions = {
   invalid: false,
 };
 
+export const breadCrumbSizeOptions = {
+  sm: 'sm',
+  md: 'md',
+};
+
 export const buttonCategoryOptions = {
   primary: 'primary',
   secondary: 'secondary',

@@ -17,7 +17,6 @@ $breadcrumb-max-width: $grid-size * 16;
 
 // bootstrap overrides
 .gl-breadcrumb-item {
-  @apply gl-text-sm;
   @apply gl-leading-normal;
   @apply gl-shrink-0;
 
@@ -59,4 +58,12 @@ $breadcrumb-max-width: $grid-size * 16;
 .gl-breadcrumb-item:last-child > a {
   color: var(--gl-text-color-default);
   @apply gl-font-bold;
+}
+
+.gl-breadcrumb-item-sm {
+  @apply gl-text-sm;
+}
+
+.gl-breadcrumb-item-md {
+  @apply gl-text-base;
 }
