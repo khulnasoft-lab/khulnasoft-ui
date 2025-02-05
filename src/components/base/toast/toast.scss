@@ -44,7 +44,6 @@
   }
 
   .gl-toast-action {
-    @apply gl-text-blue-300;
     @apply gl-p-3;
     @apply gl-m-0;
     @apply gl-ml-5;
@@ -53,6 +52,7 @@
     @apply gl-whitespace-nowrap;
     @apply gl-font-bold;
     @apply gl-cursor-pointer;
+    color: var(--gl-feedback-strong-link-color);
   }
 
   .gl-toast-close-button {
