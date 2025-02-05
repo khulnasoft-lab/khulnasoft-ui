@@ -84,6 +84,36 @@ describe('GlFormCombobox', () => {
     }
   });
 
+  describe('accessibility', () => {
+    beforeEach(() => {
+      createComponent();
+    });
+
+    it('properly manages aria-activedescendant on input', async () => {
+      await setInput(partialToken);
+      await nextTick();
+      const input = findInput().element;
+
+      expect(input.hasAttribute('aria-activedescendant')).toBe(false);
+
+      await arrowDown();
+      await nextTick();
+      const suggestionsId = wrapper.find('[role="listbox"]').attributes('id');
+      expect(input.getAttribute('aria-activedescendant')).toBe(`${suggestionsId}-option-0`);
+    });
+
+    it('updates aria-expanded based on dropdown visibility', async () => {
+      const input = findInput().element;
+      expect(input.getAttribute('aria-expanded')).toBe('false');
+
+      await setInput(partialToken);
+      expect(input.getAttribute('aria-expanded')).toBe('true');
+
+      await findInput().trigger('keydown.esc');
+      expect(input.getAttribute('aria-expanded')).toBe('false');
+    });
+  });
+
   describe.each`
     valueType   | tokens             | matchValueToAttr | partialTokenMatch
     ${'string'} | ${stringTokenList} | ${undefined}     | ${partialStringTokenMatch}

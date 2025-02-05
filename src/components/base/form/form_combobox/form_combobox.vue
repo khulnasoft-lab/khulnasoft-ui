@@ -70,11 +70,12 @@ export default {
       userDismissedResults: false,
       suggestionsId: uniqueId('token-suggestions-'),
       inputId: uniqueId('token-input-'),
+      dropdownItemComponent: GlDropdownItem,
     };
   },
   computed: {
-    ariaExpanded() {
-      return this.showSuggestions.toString();
+    isExpanded() {
+      return this.showSuggestions && !this.userDismissedResults;
     },
     showAutocomplete() {
       return this.showSuggestions ? 'off' : 'on';
@@ -149,6 +150,14 @@ export default {
       this.arrowCounter = newCount;
       this.focusItem(newCount);
     },
+    onArrowLeft() {
+      // don't prevent default, we want the cursor to move
+      this.$refs.input.focus();
+    },
+    onArrowRight() {
+      // don't prevent default, we want the cursor to move
+      this.$refs.input.focus();
+    },
     onEsc() {
       if (!this.showSuggestions) {
         this.$emit('input', '');
@@ -202,79 +211,88 @@ export default {
   },
 };
 </script>
+
 <template>
-  <div
-    class="gl-form-combobox dropdown"
-    role="combobox"
-    :aria-owns="suggestionsId"
-    :aria-expanded="ariaExpanded"
-  >
+  <div class="gl-form-combobox dropdown">
     <gl-form-group :label="labelText" :label-for="inputId" :label-sr-only="labelSrOnly">
       <gl-form-input
         :id="inputId"
+        ref="input"
         :value="displayedValue"
         type="text"
-        role="searchbox"
-        :autocomplete="showAutocomplete"
-        aria-autocomplete="list"
+        role="combobox"
+        :aria-expanded="String(isExpanded)"
         :aria-controls="suggestionsId"
+        :aria-owns="isExpanded ? suggestionsId : null"
+        aria-autocomplete="list"
         aria-haspopup="listbox"
+        :aria-activedescendant="
+          arrowCounter >= 0 ? `${suggestionsId}-option-${arrowCounter}` : undefined
+        "
         :autofocus="autofocus"
         :placeholder="placeholder"
         @input="onEntry"
         @focus="resetCounter"
         @keydown.down="onArrowDown"
         @keydown.up="onArrowUp"
+        @keydown.left="onArrowLeft"
+        @keydown.right="onArrowRight"
         @keydown.esc.stop="onEsc"
         @keydown.tab="closeSuggestions"
       />
     </gl-form-group>
 
-    <ul
-      v-show="showSuggestions && !userDismissedResults"
+    <div
+      v-show="isExpanded"
       :id="suggestionsId"
       ref="suggestionsMenu"
       data-testid="combobox-dropdown"
+      role="listbox"
       class="dropdown-menu gl-form-combobox-inner gl-mb-0 gl-flex gl-w-full gl-list-none gl-flex-col gl-border-dropdown gl-bg-dropdown gl-pl-0"
       @keydown.down="onArrowDown"
       @keydown.up="onArrowUp"
+      @keydown.left="onArrowLeft"
+      @keydown.right="onArrowRight"
       @keydown.esc.stop="onEsc"
     >
-      <li class="show-dropdown gl-overflow-y-auto">
-        <ul class="gl-mb-0 gl-list-none gl-pl-0">
-          <gl-dropdown-item
-            v-for="(result, i) in results"
-            ref="results"
-            :key="i"
-            role="option"
-            :aria-selected="i === arrowCounter"
-            tabindex="-1"
-            @click="selectToken(result)"
-            @keydown.enter.native="selectToken(result)"
-          >
-            <!-- @slot The suggestion result item to display. -->
-            <slot name="result" :item="result">{{ result }}</slot>
-          </gl-dropdown-item>
-        </ul>
-      </li>
-      <gl-dropdown-divider v-if="resultsLength > 0 && actionList.length > 0" />
-      <li>
-        <ul class="gl-mb-0 gl-list-none gl-pl-0">
-          <gl-dropdown-item
-            v-for="(action, i) in actionList"
-            :key="i + resultsLength"
-            role="option"
-            :aria-selected="i + resultsLength === arrowCounter"
-            tabindex="-1"
-            data-testid="combobox-action"
-            @click="selectAction(action)"
-            @keydown.enter.native="selectAction(action)"
-          >
-            <!-- @slot The action item to display. -->
-            <slot name="action" :item="action">{{ action.label }}</slot>
-          </gl-dropdown-item>
-        </ul>
-      </li>
-    </ul>
+      <div class="gl-overflow-y-auto">
+        <gl-dropdown-item
+          v-for="(result, i) in results"
+          :id="`${suggestionsId}-option-${i}`"
+          ref="results"
+          :key="i"
+          :active="i === arrowCounter"
+          tabindex="-1"
+          role="option"
+          data-testid="combobox-result"
+          @click="selectToken(result)"
+          @keydown.enter.native="selectToken(result)"
+        >
+          <!-- @slot The suggestion result item to display. -->
+          <slot name="result" :item="result">{{ result }}</slot>
+        </gl-dropdown-item>
+      </div>
+
+      <gl-dropdown-divider v-if="resultsLength > 0 && actionList.length > 0" aria-hidden="true" />
+
+      <div>
+        <gl-dropdown-item
+          v-for="(action, i) in actionList"
+          :id="`${suggestionsId}-option-${i + resultsLength}`"
+          :key="i + resultsLength"
+          :active="i + resultsLength === arrowCounter"
+          tabindex="-1"
+          role="option"
+          data-testid="combobox-action"
+          @click="selectAction(action)"
+          @keydown.enter.native="selectAction(action)"
+          @keydown.left="onArrowLeft"
+          @keydown.right="onArrowRight"
+        >
+          <!-- @slot The action item to display. -->
+          <slot name="action" :item="action">{{ action.label }}</slot>
+        </gl-dropdown-item>
+      </div>
+    </div>
   </div>
 </template>

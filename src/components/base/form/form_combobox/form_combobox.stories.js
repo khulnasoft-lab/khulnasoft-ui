@@ -69,13 +69,13 @@ WithObjectValue.args = generateProps({ tokenList: objectTokenList, matchValueToA
 WithObjectValue.decorators = [makeContainer({ height: '370px' })];
 WithObjectValue.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const searchbox = canvas.getByRole('searchbox');
-  userEvent.type(searchbox, 'g');
+  const combobox = canvas.getByRole('combobox');
+  userEvent.type(combobox, 'g');
 
   await waitFor(() =>
-    expect(within(document).getByRole('menuitem', { name: '1 giraffe' })).toBeVisible()
+    expect(within(document).getByRole('option', { name: '1 giraffe' })).toBeVisible()
   );
-  await waitFor(() => expect(searchbox).toHaveFocus());
+  await waitFor(() => expect(combobox).toHaveFocus());
 };
 
 export const WithActions = (args, { argTypes }) => ({
@@ -95,13 +95,11 @@ WithActions.args = generateProps({
 WithActions.decorators = [makeContainer({ height: '180px' })];
 WithActions.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const searchbox = canvas.getByRole('searchbox');
-  userEvent.type(searchbox, 'dog');
+  const combobox = canvas.getByRole('combobox');
+  userEvent.type(combobox, 'dog');
 
-  await waitFor(() =>
-    expect(within(document).getByRole('menuitem', { name: 'dog' })).toBeVisible()
-  );
-  await waitFor(() => expect(searchbox).toHaveFocus());
+  await waitFor(() => expect(within(document).getByRole('option', { name: 'dog' })).toBeVisible());
+  await waitFor(() => expect(combobox).toHaveFocus());
 };
 
 export default {

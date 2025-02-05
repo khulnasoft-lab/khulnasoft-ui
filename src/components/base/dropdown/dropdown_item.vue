@@ -60,12 +60,22 @@ export default {
       required: false,
       default: '',
     },
+    role: {
+      type: String,
+      required: false,
+      default: null,
+    },
   },
   computed: {
     bootstrapComponent() {
       const { href, to } = this.$attrs;
       // Support 'href' and Vue Router's 'to'
       return href || to ? BDropdownItem : BDropdownItemButton;
+    },
+    bootstrapComponentProps() {
+      const props = { ...this.$attrs };
+      if (this.role) props.role = this.role;
+      return props;
     },
     iconColorCss() {
       return variantCssColorMap[this.iconColor] || 'gl-fill-icon-default';
@@ -90,7 +100,12 @@ export default {
 </script>
 
 <template>
-  <component :is="bootstrapComponent" class="gl-dropdown-item" v-bind="$attrs" v-on="$listeners">
+  <component
+    :is="bootstrapComponent"
+    class="gl-dropdown-item"
+    v-bind="bootstrapComponentProps"
+    v-on="$listeners"
+  >
     <gl-icon
       v-if="shouldShowCheckIcon"
       name="mobile-issue-close"
