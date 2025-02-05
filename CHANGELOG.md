@@ -1,3 +1,10 @@
+# [108.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.0.1...v108.1.0) (2025-02-05)
+
+
+### Features
+
+* **GlBreadcrumb:** Add `size` prop ([47cf4bd](https://gitlab.com/gitlab-org/gitlab-ui/commit/47cf4bd6416ab99b918e409e9ef918a55fb9026f))
+
 ## [108.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.0.0...v108.0.1) (2025-02-04)
 
 
