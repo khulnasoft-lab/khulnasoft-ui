@@ -1,3 +1,10 @@
+# [108.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.1.0...v108.2.0) (2025-02-10)
+
+
+### Features
+
+* **GlToast:** Use token for action color ([5eec4df](https://gitlab.com/gitlab-org/gitlab-ui/commit/5eec4dff2c1a91c9ff6b869d6b34b9b8856c842c))
+
 # [108.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.0.1...v108.1.0) (2025-02-05)
 
 
