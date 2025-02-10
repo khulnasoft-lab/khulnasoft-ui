@@ -8,7 +8,7 @@ export default {
 </script>
 <template>
   <svg
-    :class="iconStateClass"
+    :class="[iconStateClass, iconVariantClass]"
     class="gl-animated-sort-icon"
     :aria-label="ariaLabel"
     width="16"

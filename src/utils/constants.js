@@ -190,6 +190,19 @@ export const iconVariantOptions = {
   success: 'gl-fill-icon-success',
 };
 
+export const animatedIconVariantOptions = {
+  current: 'gl-animated-icon-current',
+  default: 'gl-animated-icon-default',
+  subtle: 'gl-animated-icon-subtle',
+  strong: 'gl-animated-icon-strong',
+  disabled: 'gl-animated-icon-disabled',
+  link: 'gl-animated-icon-link',
+  info: 'gl-animated-icon-info',
+  warning: 'gl-animated-icon-warning',
+  danger: 'gl-animated-icon-danger',
+  success: 'gl-animated-icon-success',
+};
+
 export const triggerVariantOptions = {
   click: 'click',
   hover: 'hover',

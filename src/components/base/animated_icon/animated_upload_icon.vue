@@ -8,7 +8,7 @@ export default {
 </script>
 <template>
   <svg
-    :class="iconStateClass"
+    :class="[iconStateClass, iconVariantClass]"
     :aria-label="ariaLabel"
     width="16"
     height="16"
