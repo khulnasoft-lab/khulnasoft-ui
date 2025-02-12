@@ -90,14 +90,8 @@ workflow:
     # Commits on default branch
     - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
       when: always
-      variables:
-        PAGES_ENV_NAME: "pages"
-        PAGES_PREFIX: "" # no prefix
     # MR-Pipelines
     - if: $CI_MERGE_REQUEST_IID
-      variables:
-        PAGES_ENV_NAME: "review/mr-$CI_MERGE_REQUEST_IID"
-        PAGES_PREFIX: '${CI_ENVIRONMENT_SLUG}'
       when: always
     - when: never
 
@@ -397,28 +391,42 @@ update_screenshots:
   script:
     - ./bin/update-screenshots.sh
 
-pages:
-  rules:
-    - !reference ['.rules:gitlab-ui-default-branch', rules]
-    - !reference ['.rules:gitlab-ui-mr', rules]
+.pages:
   stage: deploy
   needs:
     - build_storybook
     - build_storybook_vue3
     - build_tailwind_config_viewer
-  pages:
-    path_prefix: "${PAGES_PREFIX}"
   script:
     - echo "Deploying to Pages"
     - echo "Pages accessible through ${CI_ENVIRONMENT_URL}"
     - mv ./tailwind-config-viewer-static ./public/tailwind-config-viewer
   environment:
-    name: "${PAGES_ENV_NAME}"
-    url: "${CI_PAGES_URL}/${PAGES_PREFIX}"
+    url: "${CI_PAGES_URL}"
   publish: public
   artifacts:
     paths:
       - public
+
+pages:
+  extends:
+    - .pages
+    - .rules:gitlab-ui-default-branch
+  pages:
+    expire_in: never
+  environment:
+    name: "pages"
+
+review-app:
+  extends:
+    - .pages
+    - .rules:gitlab-ui-mr
+  pages:
+    path_prefix: '$CI_ENVIRONMENT_SLUG'
+    expire_in: "2 weeks"
+  environment:
+    name: "review/mr-$CI_MERGE_REQUEST_IID"
+    auto_stop_in: "2 weeks"
 
 create_integration_branch:
   extends:
