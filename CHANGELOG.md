@@ -1,3 +1,10 @@
+# [108.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.2.0...v108.3.0) (2025-02-12)
+
+
+### Features
+
+* **GlAnimatedIcon:** Add variant prop ([a1f1d8f](https://gitlab.com/gitlab-org/gitlab-ui/commit/a1f1d8f2151d8dbb6c158873329a0b8df37c1d15))
+
 # [108.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.1.0...v108.2.0) (2025-02-10)
 
 
