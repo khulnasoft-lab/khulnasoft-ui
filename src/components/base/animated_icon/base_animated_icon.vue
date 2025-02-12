@@ -1,4 +1,6 @@
 <script>
+import { animatedIconVariantOptions } from '../../../utils/constants';
+
 export default {
   name: 'GlBaseAnimatedIcon',
   props: {
@@ -10,6 +12,15 @@ export default {
       type: String,
       required: false,
       default: undefined,
+    },
+    /**
+     * Icon variant
+     */
+    variant: {
+      type: String,
+      required: false,
+      default: 'current',
+      validator: (value) => Object.keys(animatedIconVariantOptions).includes(value),
     },
     isOn: {
       type: Boolean,
@@ -23,12 +34,15 @@ export default {
         ? 'gl-animated-icon gl-animated-icon-on'
         : 'gl-animated-icon gl-animated-icon-off';
     },
+    iconVariantClass() {
+      return this.variant ? animatedIconVariantOptions[this.variant] : '';
+    },
   },
 };
 </script>
 <template>
   <svg
-    :class="iconStateClass"
+    :class="[iconStateClass, iconVariantClass]"
     :aria-label="ariaLabel"
     width="16"
     height="16"

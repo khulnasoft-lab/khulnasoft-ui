@@ -1,4 +1,5 @@
 import GlButton from '../button/button.vue';
+import { animatedIconVariantOptions } from '../../../utils/constants';
 import GlBaseAnimatedIcon from './base_animated_icon.vue';
 import GlAnimatedChevronRightDownIcon from './animated_chevron_right_down_icon.vue';
 import GlAnimatedDuoChatIcon from './animated_duo_chat_icon.vue';
@@ -32,31 +33,31 @@ const MorphTemplate = (args, { argTypes }) => ({
   template: `
   <div class="gl-flex gl-gap-5 gl-flex-wrap hover:gl-cursor-pointer" @click="animationsOn = !animationsOn">
     <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
-      <gl-animated-todo-icon :aria-label="ariaLabel" name="todo" aria-label="todo checkmark icon" :isOn="animationsOn" />
+      <gl-animated-todo-icon :variant="variant" :aria-label="ariaLabel" name="todo" :isOn="animationsOn" />
       todo
     </div>
     <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
-      <gl-animated-star-icon :aria-label="ariaLabel" name="star" aria-label="favourite star icon" :isOn="animationsOn" />
+      <gl-animated-star-icon :variant="variant" :aria-label="ariaLabel" name="star" :isOn="animationsOn" />
       star
     </div>
     <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
-      <gl-animated-sort-icon :aria-label="ariaLabel" name="sort" :isOn="animationsOn" />
+      <gl-animated-sort-icon :variant="variant" :aria-label="ariaLabel" name="sort" :isOn="animationsOn" />
       sort
     </div>
     <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
-      <gl-animated-smile-icon :aria-label="ariaLabel" name="smile" :isOn="animationsOn" />
+      <gl-animated-smile-icon :variant="variant" :aria-label="ariaLabel" name="smile" :isOn="animationsOn" />
       smile
     </div>
     <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
-      <gl-animated-sidebar-icon :aria-label="ariaLabel" name="sidebar" :isOn="animationsOn" />
+      <gl-animated-sidebar-icon :variant="variant" :aria-label="ariaLabel" name="sidebar" :isOn="animationsOn" />
       sidebar
     </div>
     <div class="gl-py-4 gl-px-5 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
-      <gl-animated-notification-icon :aria-label="ariaLabel" name="notifications" aria-label="notification bell icon" :isOn="animationsOn" />
+      <gl-animated-notification-icon :variant="variant" :aria-label="ariaLabel" name="notifications" :isOn="animationsOn" />
       notifications
     </div>
     <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
-      <gl-animated-chevron-right-down-icon :aria-label="ariaLabel" name="chevron_right_down" :isOn="animationsOn" />
+      <gl-animated-chevron-right-down-icon :variant="variant" :aria-label="ariaLabel" name="chevron_right_down" :isOn="animationsOn" />
       chevron-right-down
     </div>
   </div>`,
@@ -80,15 +81,15 @@ const InfiniteTemplate = (args, { argTypes }) => ({
   template: `
   <div class="gl-flex gl-gap-5 gl-flex-wrap">
     <div class="gl-py-4 gl-px-5 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2" @mouseenter="animationsOn = true" @mouseleave="animationsOn = false">
-      <gl-animated-upload-icon :aria-label="ariaLabel" name="upload" :isOn="animationsOn" />
+      <gl-animated-upload-icon :variant="variant" :aria-label="ariaLabel" name="upload" :isOn="animationsOn" />
       upload
     </div>
     <div class="gl-py-4 gl-px-5 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2" @mouseenter="animationsOn = true" @mouseleave="animationsOn = false">
-      <gl-animated-duo-chat-icon :aria-label="ariaLabel" name="duo_chat" :isOn="animationsOn" />
+      <gl-animated-duo-chat-icon :variant="variant" :aria-label="ariaLabel" name="duo_chat" :isOn="animationsOn" />
       duo-chat
     </div>
     <div class="gl-py-4 gl-px-5 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2" @mouseenter="animationsOn = true" @mouseleave="animationsOn = false">
-      <gl-animated-loader-icon :aria-label="ariaLabel" name="loader" :isOn="animationsOn" />
+      <gl-animated-loader-icon :variant="variant" :aria-label="ariaLabel" name="loader" :isOn="animationsOn" />
       loader
     </div>
   </div>`,
@@ -113,6 +114,10 @@ export default {
     },
     ariaLabel: {
       control: { disable: true },
+    },
+    variant: {
+      options: Object.keys(animatedIconVariantOptions),
+      control: 'select',
     },
   },
 };

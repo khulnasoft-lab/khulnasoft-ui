@@ -14,6 +14,46 @@
 }
 
 /* * * * * * * * * * * * * * * * *
+ * Color variants.
+ * * * * * * * * * * * * * * * * */
+
+.gl-animated-icon-default {
+  color: var(--gl-icon-color-default);
+}
+
+.gl-animated-icon-subtle {
+  color: var(--gl-icon-color-subtle);
+}
+
+.gl-animated-icon-strong {
+  color: var(--gl-icon-color-strong);
+}
+
+.gl-animated-icon-disabled {
+  color: var(--gl-icon-color-disabled);
+}
+
+.gl-animated-icon-link {
+  color: var(--gl-icon-color-link);
+}
+
+.gl-animated-icon-info {
+  color: var(--gl-icon-color-info);
+}
+
+.gl-animated-icon-warning {
+  color: var(--gl-icon-color-warning);
+}
+
+.gl-animated-icon-danger {
+  color: var(--gl-icon-color-danger);
+}
+
+.gl-animated-icon-success {
+  color: var(--gl-icon-color-success);
+}
+
+/* * * * * * * * * * * * * * * * *
  * animated_chevron_right_down_icon.vue
  * * * * * * * * * * * * * * * * */
 
