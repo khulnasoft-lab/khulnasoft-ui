@@ -42,6 +42,46 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
+export const Selected = (args, { argTypes }) => ({
+  components: { GlButton, GlButtonGroup },
+  props: Object.keys(argTypes),
+  template: `
+      <div class="gl-flex gl-flex-col gl-gap-5 gl-items-start">
+        <gl-button-group :vertical="vertical">
+          <gl-button selected :size="size" :disabled="disabled">Selected</gl-button>
+          <gl-button :size="size" :disabled="disabled">Option</gl-button>
+          <gl-button :size="size" :disabled="disabled">Option</gl-button>
+        </gl-button-group>
+
+        <gl-button-group :vertical="vertical">
+          <gl-button :size="size" :disabled="disabled">Option</gl-button>
+          <gl-button selected :size="size" :disabled="disabled">Selected</gl-button>
+          <gl-button :size="size" :disabled="disabled">Option</gl-button>
+        </gl-button-group>
+
+        <gl-button-group :vertical="vertical">
+          <gl-button :size="size" :disabled="disabled">Option</gl-button>
+          <gl-button :size="size" :disabled="disabled">Option</gl-button>
+          <gl-button selected :size="size" :disabled="disabled">Selected</gl-button>
+        </gl-button-group>
+
+        <gl-button-group :vertical="vertical">
+          <gl-button selected icon="code" :size="size" :disabled="disabled" aria-label="Code button" />
+          <gl-button icon="upload" :size="size" :disabled="disabled" aria-label="Upload button" />
+          <gl-button :size="size" :disabled="disabled">Blame</gl-button>
+        </gl-button-group>
+      </div>
+    `,
+});
+Object.assign(Selected, {
+  args: generateProps(),
+  parameters: {
+    controls: {
+      include: ['vertical', 'disabled', 'size'],
+    },
+  },
+});
+
 export const Vertical = Template.bind({});
 Vertical.args = generateProps({ vertical: true });
 

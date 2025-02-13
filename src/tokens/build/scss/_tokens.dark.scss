@@ -741,9 +741,10 @@ $gl-button-danger-tertiary-background-color-hover: $gl-action-danger-background-
 $gl-button-danger-tertiary-background-color-active: $gl-action-danger-background-color-active; // Used for the background of a borderless, tertiary danger (destructive) button in the active state.
 $gl-button-dashed-border-color-default: $gl-color-neutral-400; // Used for the border of a dashed button in the default state.
 $gl-button-dashed-border-color-active: $gl-color-neutral-300; // Used for the border of a dashed button in the active state.
-$gl-button-selected-border-color-default: $gl-color-neutral-600; // Used for the border of a selected button in the default state.
-$gl-button-selected-border-color-hover: $gl-color-neutral-500; // Used for the border of a selected button in the hover state.
-$gl-button-selected-border-color-active: $gl-color-neutral-300; // Used for the border of a selected button in the active state.
+$gl-button-selected-background-color-default: $gl-color-neutral-300; // Used for the background of a selected button in the default state.
+$gl-button-selected-border-color-default: $gl-color-alpha-0; // Used for the border of a selected button in the default state.
+$gl-button-selected-border-color-hover: $gl-color-alpha-0; // Used for the border of a selected button in the hover state.
+$gl-button-selected-border-color-active: $gl-color-alpha-0; // Used for the border of a selected button in the active state.
 $gl-button-disabled-foreground-color: $gl-color-neutral-400; // Used for the foreground of a disabled button.
 $gl-button-disabled-background-color: rgba(137, 136, 141, 0.16); // Used for the background of a disabled button.
 $gl-button-disabled-border-color: $gl-color-alpha-0; // Used for the border of a disabled button.
@@ -954,10 +955,9 @@ $gl-button-danger-tertiary-border-color-default: $gl-action-danger-border-color-
 $gl-button-dashed-border-color-hover: $gl-button-dashed-border-color-default; // Used for the border of a dashed button in the hover state.
 $gl-button-dashed-border-color-focus: $gl-button-dashed-border-color-default; // Used for the border of a dashed button in the focus state.
 $gl-button-link-text-color-default: $gl-text-color-link; // Used for the text of a link button in the default state.
-$gl-button-selected-foreground-color-default: $gl-button-default-primary-foreground-color-default; // Used for the foreground of a selected button in the default state.
-$gl-button-selected-background-color-default: $gl-button-default-primary-background-color-default; // Used for the background of a selected button in the default state.
-$gl-button-selected-background-color-hover: $gl-button-default-primary-background-color-hover; // Used for the background of a selected button in the hover state.
-$gl-button-selected-background-color-active: $gl-button-default-primary-background-color-active; // Used for the background of a selected button in the active state.
+$gl-button-selected-foreground-color-default: $gl-color-neutral-900; // Used for the foreground of a selected button in the default state.
+$gl-button-selected-background-color-hover: $gl-color-neutral-200; // Used for the background of a selected button in the hover state.
+$gl-button-selected-background-color-active: $gl-color-neutral-400; // Used for the background of a selected button in the active state.
 $gl-button-selected-border-color-focus: $gl-button-selected-border-color-hover; // Used for the border of a selected button in the focus state.
 $gl-datepicker-date-text-color-selected: $gl-control-indicator-color-selected; // Used for the datepicker date text color state indicators.
 $gl-dropdown-background-color: $gl-background-color-overlap; // Used for the background of a dropdown.
@@ -1021,10 +1021,10 @@ $gl-button-danger-tertiary-border-color-active: $gl-action-danger-border-color-a
 $gl-button-link-text-color-hover: $gl-button-link-text-color-default; // Used for the text of a link button in the hover state.
 $gl-button-link-text-color-focus: $gl-button-link-text-color-default; // Used for the text of a link button in the focus state.
 $gl-button-link-text-color-active: $gl-button-link-text-color-default; // Used for the text of a link button in the active state.
-$gl-button-selected-foreground-color-hover: $gl-button-default-primary-foreground-color-hover; // Used for the foreground of a selected button in the hover state.
-$gl-button-selected-foreground-color-focus: $gl-button-default-primary-foreground-color-focus; // Used for the foreground of a selected button in the focus state.
-$gl-button-selected-foreground-color-active: $gl-button-default-primary-foreground-color-active; // Used for the foreground of a selected button in the active state.
-$gl-button-selected-background-color-focus: $gl-button-default-primary-background-color-focus; // Used for the background of a selected button in the focus state.
+$gl-button-selected-foreground-color-hover: $gl-color-neutral-950; // Used for the foreground of a selected button in the hover state.
+$gl-button-selected-foreground-color-focus: $gl-color-neutral-950; // Used for the foreground of a selected button in the focus state.
+$gl-button-selected-foreground-color-active: $gl-color-neutral-950; // Used for the foreground of a selected button in the active state.
+$gl-button-selected-background-color-focus: $gl-color-neutral-200; // Used for the background of a selected button in the focus state.
 $gl-dropdown-option-text-color-hover: $gl-action-neutral-foreground-color-hover; // Used for the text of a dropdown option in the hover state.
 $gl-dropdown-option-text-color-focus: $gl-action-neutral-foreground-color-focus; // Used for the text of a dropdown option in the focus state.
 $gl-dropdown-option-text-color-active: $gl-action-neutral-foreground-color-active; // Used for the text of a dropdown option in the active state.

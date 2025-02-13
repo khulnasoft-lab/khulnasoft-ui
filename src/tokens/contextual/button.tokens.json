@@ -768,22 +768,34 @@
       "foreground": {
         "color": {
           "default": {
-            "$value": "{button.default.primary.foreground.color.default}",
+            "$value": {
+              "default": "{button.default.primary.foreground.color.default}",
+              "dark": "{color.neutral.900}"
+            },
             "$type": "color",
             "$description": "Used for the foreground of a selected button in the default state."
           },
           "hover": {
-            "$value": "{button.default.primary.foreground.color.hover}",
+            "$value": {
+              "default": "{button.default.primary.foreground.color.hover}",
+              "dark": "{color.neutral.950}"
+            },
             "$type": "color",
             "$description": "Used for the foreground of a selected button in the hover state."
           },
           "focus": {
-            "$value": "{button.default.primary.foreground.color.focus}",
+            "$value": {
+              "default": "{button.default.primary.foreground.color.focus}",
+              "dark": "{color.neutral.950}"
+            },
             "$type": "color",
             "$description": "Used for the foreground of a selected button in the focus state."
           },
           "active": {
-            "$value": "{button.default.primary.foreground.color.active}",
+            "$value": {
+              "default": "{button.default.primary.foreground.color.active}",
+              "dark": "{color.neutral.950}"
+            },
             "$type": "color",
             "$description": "Used for the foreground of a selected button in the active state."
           }
@@ -792,22 +804,34 @@
       "background": {
         "color": {
           "default": {
-            "$value": "{button.default.primary.background.color.default}",
+            "$value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.300}"
+            },
             "$type": "color",
             "$description": "Used for the background of a selected button in the default state."
           },
           "hover": {
-            "$value": "{button.default.primary.background.color.hover}",
+            "$value": {
+              "default": "{button.default.primary.background.color.hover}",
+              "dark": "{color.neutral.200}"
+            },
             "$type": "color",
             "$description": "Used for the background of a selected button in the hover state."
           },
           "focus": {
-            "$value": "{button.default.primary.background.color.focus}",
+            "$value": {
+              "default": "{button.default.primary.background.color.focus}",
+              "dark": "{color.neutral.200}"
+            },
             "$type": "color",
             "$description": "Used for the background of a selected button in the focus state."
           },
           "active": {
-            "$value": "{button.default.primary.background.color.active}",
+            "$value": {
+              "default": "{button.default.primary.background.color.active}",
+              "dark": "{color.neutral.400}"
+            },
             "$type": "color",
             "$description": "Used for the background of a selected button in the active state."
           }
@@ -818,7 +842,7 @@
           "default": {
             "$value": {
               "default": "{color.neutral.300}",
-              "dark": "{color.neutral.600}"
+              "dark": "{color.alpha.0}"
             },
             "$type": "color",
             "$description": "Used for the border of a selected button in the default state."
@@ -826,7 +850,7 @@
           "hover": {
             "$value": {
               "default": "{color.neutral.400}",
-              "dark": "{color.neutral.500}"
+              "dark": "{color.alpha.0}"
             },
             "$type": "color",
             "$description": "Used for the border of a selected button in the hover state."
@@ -839,7 +863,7 @@
           "active": {
             "$value": {
               "default": "{color.neutral.600}",
-              "dark": "{color.neutral.300}"
+              "dark": "{color.alpha.0}"
             },
             "$type": "color",
             "$description": "Used for the border of a selected button in the active state."
