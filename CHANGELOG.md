@@ -1,3 +1,10 @@
+## [108.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.3.0...v108.3.1) (2025-02-14)
+
+
+### Bug Fixes
+
+* **GlDisclosureDropdownItem:** remove improper aria-hidden ([37977f8](https://gitlab.com/gitlab-org/gitlab-ui/commit/37977f861dee1f84dcdd6ca1ed9702c6d8a19752))
+
 # [108.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.2.0...v108.3.0) (2025-02-12)
 
 
