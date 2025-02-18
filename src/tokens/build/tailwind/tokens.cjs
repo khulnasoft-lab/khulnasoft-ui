@@ -247,15 +247,15 @@ const borderColors = {
   transparent: 'var(--gl-border-color-transparent, var(--gl-color-alpha-0, transparent))',
 };
 const iconColors = {
-  default: 'var(--gl-icon-color-default, var(--gl-color-neutral-700, #4c4b51))',
-  subtle: 'var(--gl-icon-color-subtle, var(--gl-color-neutral-500, #737278))',
-  strong: 'var(--gl-icon-color-strong, var(--gl-color-neutral-900, #28272d))',
-  disabled: 'var(--gl-icon-color-disabled, var(--gl-color-neutral-300, #a4a3a8))',
-  link: 'var(--gl-icon-color-link, var(--gl-color-blue-700, #0b5cad))',
+  default: 'var(--gl-icon-color-default, var(--gl-text-color-default, #3a383f))',
+  subtle: 'var(--gl-icon-color-subtle, var(--gl-text-color-subtle, #626168))',
+  strong: 'var(--gl-icon-color-strong, var(--gl-text-color-strong, #18171d))',
+  disabled: 'var(--gl-icon-color-disabled, var(--gl-text-color-disabled, #89888d))',
+  link: 'var(--gl-icon-color-link, var(--gl-text-color-link, #0b5cad))',
   info: 'var(--gl-icon-color-info, var(--gl-color-blue-700, #0b5cad))',
-  warning: 'var(--gl-icon-color-warning, var(--gl-color-orange-600, #9e5400))',
-  danger: 'var(--gl-icon-color-danger, var(--gl-color-red-600, #c91c00))',
-  success: 'var(--gl-icon-color-success, var(--gl-color-green-600, #217645))',
+  warning: 'var(--gl-icon-color-warning, var(--gl-text-color-warning, #9e5400))',
+  danger: 'var(--gl-icon-color-danger, var(--gl-text-color-danger, #c91c00))',
+  success: 'var(--gl-icon-color-success, var(--gl-text-color-success, #217645))',
 };
 const alphaDarkColors = {
   2: 'var(--gl-color-alpha-dark-2, rgba(05, 05, 06, 0.02))',

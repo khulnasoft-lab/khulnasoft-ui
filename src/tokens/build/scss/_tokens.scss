@@ -824,15 +824,7 @@ $gl-feedback-danger-background-color: $gl-color-red-50; // Used for the backgrou
 $gl-feedback-danger-text-color: $gl-color-red-700; // Used for the text of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention.
 $gl-feedback-danger-icon-color: $gl-color-red-600; // Used for the icon of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention.
 $gl-focus-ring-outer-color: $gl-color-blue-500; // Used for the outer color portion of the focus ring.
-$gl-icon-color-default: $gl-color-neutral-700; // Used for the default icon color. Can be paired with default text.
-$gl-icon-color-subtle: $gl-color-neutral-500; // Used for a static or decorational icon. Can be paired with subtle text.
-$gl-icon-color-strong: $gl-color-neutral-900; // Used for an icon with the highest contrast.
-$gl-icon-color-disabled: $gl-color-neutral-300; // Used for an icon within a disabled section.
-$gl-icon-color-link: $gl-color-blue-700; // Used for an icon within a link.
 $gl-icon-color-info: $gl-color-blue-700; // Used for an icon associated with information or help.
-$gl-icon-color-warning: $gl-color-orange-600; // Used for an icon associated with a warning.
-$gl-icon-color-danger: $gl-color-red-600; // Used for an icon associated with an error or danger.
-$gl-icon-color-success: $gl-color-green-600; // Used for an icon associated with success or validity.
 $gl-shadow-color-default: $gl-color-alpha-dark-16; // Used for the default shadow color.
 $gl-status-neutral-background-color: $gl-color-neutral-100; // Used for the background of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state.
 $gl-status-neutral-text-color: $gl-color-neutral-700; // Used for the text of a neutral status item when the status is neither positive nor negative, or when indicating a special but stable state.
@@ -989,6 +981,14 @@ $gl-control-text-color-error: $gl-text-color-danger; // Used for the helper text
 $gl-control-text-color-valid: $gl-text-color-success; // Used for the helper text when the input is valid.
 $gl-control-placeholder-color: $gl-text-color-disabled; // Used for placeholder text within inputs.
 $gl-focus-ring-inner-color: $gl-background-color-default; // Used for the inner neutral portion of the focus ring.
+$gl-icon-color-default: $gl-text-color-default; // Used for the default icon color. Can be paired with default text.
+$gl-icon-color-subtle: $gl-text-color-subtle; // Used for a static or decorational icon. Can be paired with subtle text.
+$gl-icon-color-strong: $gl-text-color-strong; // Used for an icon with the highest contrast.
+$gl-icon-color-disabled: $gl-text-color-disabled; // Used for an icon within a disabled section.
+$gl-icon-color-link: $gl-text-color-link; // Used for an icon within a link.
+$gl-icon-color-warning: $gl-text-color-warning; // Used for an icon associated with a warning.
+$gl-icon-color-danger: $gl-text-color-danger; // Used for an icon associated with an error or danger.
+$gl-icon-color-success: $gl-text-color-success; // Used for an icon associated with success or validity.
 $gl-action-selected-foreground-color-focus: $gl-action-selected-foreground-color-hover; // Used for the foreground of a selected action in the focus state.
 $gl-action-selected-border-color-focus: $gl-action-selected-background-color-focus; // Used for the border of a selected action in the focus state.
 $gl-action-strong-confirm-foreground-color-focus: $gl-action-strong-confirm-foreground-color-hover; // Used for the foreground of a strong confirm action in the focus state.
