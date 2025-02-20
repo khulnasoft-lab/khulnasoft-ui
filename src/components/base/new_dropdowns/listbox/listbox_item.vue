@@ -24,6 +24,11 @@ export default {
       required: false,
       default: false,
     },
+    isHighlighted: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
   },
   computed: {
     checkedClasses() {
@@ -52,7 +57,7 @@ export default {
 
 <template>
   <li
-    class="gl-new-dropdown-item"
+    :class="['gl-new-dropdown-item', { 'gl-new-dropdown-item-highlighted': isHighlighted }]"
     role="option"
     :tabindex="isFocused ? 0 : -1"
     :aria-selected="isSelected"
