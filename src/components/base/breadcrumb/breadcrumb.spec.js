@@ -78,6 +78,29 @@ describe('Breadcrumb component', () => {
 
       expect(findBreadcrumbItems()).toHaveLength(0);
     });
+
+    it('applies class gl-hidden to an item if it has no text', () => {
+      createComponent({
+        items: [
+          { text: 'Foo', href: 'some_path' },
+          { text: 'Bar', to: 'some_path' },
+          { text: 'Baz', to: null },
+          { text: null, to: { name: 'quux' } },
+          { text: null, href: 'some_path' },
+          { text: null, href: '' },
+          { text: null, to: { name: '' } },
+        ],
+      });
+
+      expect(findBreadcrumbItems().length).toBe(7);
+      expect(wrapper.findAllComponents(GlBreadcrumbItem).at(0).classes('gl-hidden')).toBe(false);
+      expect(wrapper.findAllComponents(GlBreadcrumbItem).at(1).classes('gl-hidden')).toBe(false);
+      expect(wrapper.findAllComponents(GlBreadcrumbItem).at(2).classes('gl-hidden')).toBe(false);
+      expect(wrapper.findAllComponents(GlBreadcrumbItem).at(3).classes('gl-hidden')).toBe(true);
+      expect(wrapper.findAllComponents(GlBreadcrumbItem).at(4).classes('gl-hidden')).toBe(true);
+      expect(wrapper.findAllComponents(GlBreadcrumbItem).at(5).classes('gl-hidden')).toBe(true);
+      expect(wrapper.findAllComponents(GlBreadcrumbItem).at(6).classes('gl-hidden')).toBe(true);
+    });
   });
 
   describe('ariaLabel', () => {
