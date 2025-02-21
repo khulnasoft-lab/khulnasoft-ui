@@ -13,7 +13,9 @@ import {
 } from '../../../tokens/build/js/tokens';
 import readme from './stacked_column.md';
 
-const template = `
+const components = { GlStackedColumnChart };
+
+const template = (content) => `
   <gl-stacked-column-chart
     :bars="bars"
     :lines="lines"
@@ -28,7 +30,9 @@ const template = `
     :height="height"
     :custom-palette="customPalette"
     :includeLegendAvgMax="includeLegendAvgMax"
-  />
+  >
+    ${content}
+  </gl-stacked-column-chart>
 `;
 
 const mockSecondaryDataTitle = 'Merges';
@@ -64,9 +68,9 @@ const generateProps = ({
 });
 
 const Template = (args, { argTypes }) => ({
-  components: { GlStackedColumnChart },
+  components,
   props: Object.keys(argTypes),
-  template,
+  template: template(),
 });
 
 export const Default = Template.bind({});
@@ -119,6 +123,31 @@ WithCustomColorPalette.args = generateProps({
 
 export const WithoutLegendValues = Template.bind({});
 WithoutLegendValues.args = generateProps({ includeLegendAvgMax: false });
+
+export const WithCustomTooltip = (_args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: template(`
+    <template #tooltip-title="{ params }">Month: {{params && params.value}}</template>
+    <template #tooltip-content="{ params }">
+      <div v-for="p in params && params.seriesData">{{p.seriesName}}: {{p.value}}</div>
+    </template>
+  `),
+});
+WithCustomTooltip.args = generateProps();
+WithCustomTooltip.tags = ['skip-visual-test'];
+
+export const WithCustomTooltipValue = (_args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: template(`
+    <template #tooltip-value="{value}">
+      {{ value.toFixed(2) }} commits
+    </template>
+  `),
+});
+WithCustomTooltipValue.args = generateProps();
+WithCustomTooltipValue.tags = ['skip-visual-test'];
 
 export default {
   title: 'charts/stacked-column-chart',

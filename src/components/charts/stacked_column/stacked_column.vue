@@ -22,10 +22,10 @@ import {
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 
 const yAxisDefaults = {
   ...yAxis,
@@ -131,6 +131,12 @@ export default {
         return [LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE].indexOf(layout) !== -1;
       },
     },
+    /**
+     * Callback called when showing or refreshing a tooltip.
+     * **Deprecated:** Use slots `#tooltip-title`, `#tooltip-content` or `#tooltip-value`.
+     *
+     * @deprecated Use slots `#tooltip-title`, `#tooltip-content` or `#tooltip-value`.
+     */
     formatTooltipText: {
       type: Function,
       required: false,
@@ -153,8 +159,6 @@ export default {
   data() {
     return {
       chart: null,
-      tooltipTitle: '',
-      tooltipContent: {},
     };
   },
   computed: {
@@ -206,7 +210,7 @@ export default {
               show: true,
               type: 'none',
               label: {
-                formatter: this.onLabelChange,
+                formatter: this.formatTooltipText,
               },
             },
             data: this.groupBy,
@@ -265,31 +269,24 @@ export default {
       this.chart = chart;
       this.$emit('created', chart);
     },
-    defaultFormatTooltipText(params) {
-      const { tooltipContent } = params.seriesData.reverse().reduce(
-        (acc, bar) => {
-          acc.tooltipContent[bar.seriesName] = {
-            value: bar.value,
-            index: bar.seriesIndex,
-            color: this.getColor(bar.seriesIndex),
-          };
+    getTooltipTitle({ params }) {
+      if (!params) return '';
 
-          return acc;
-        },
-        {
-          tooltipContent: {},
-        }
-      );
-
-      this.tooltipTitle = params.value;
-      this.$set(this, 'tooltipContent', tooltipContent);
+      const options = this.chart.getOption();
+      const titleAxisName = options?.xAxis?.[0]?.name;
+      return titleAxisName ? `${params.value} (${titleAxisName})` : params.value;
     },
-    onLabelChange(params) {
-      if (this.formatTooltipText) {
-        this.formatTooltipText(params);
-      } else {
-        this.defaultFormatTooltipText(params);
-      }
+    getTooltipContent({ params }) {
+      if (!params) return {};
+
+      const tooltipContentEntries = params.seriesData
+        .toSorted((a, b) => b.seriesIndex - a.seriesIndex) // Invert stacking order so it matches chart (see https://github.com/apache/echarts/issues/14700)
+        .map(({ seriesName = '', value, borderColor }) => [
+          seriesName,
+          { value, color: borderColor },
+        ]);
+
+      return Object.fromEntries(tooltipContentEntries);
     },
   },
   HEIGHT_AUTO_CLASSES,
@@ -305,14 +302,19 @@ export default {
       v-on="$listeners"
       @created="onCreated"
     />
-    <chart-tooltip v-if="chart" :chart="chart">
-      <template #title>
-        <slot name="tooltip-title">{{ tooltipTitle }} ({{ xAxisTitle }})</slot>
+    <chart-tooltip v-if="chart" :chart="chart" :use-default-tooltip-formatter="!formatTooltipText">
+      <template #title="scope">
+        <slot name="tooltip-title" v-bind="scope">{{ getTooltipTitle(scope) }}</slot>
       </template>
-
-      <slot name="tooltip-content">
-        <tooltip-default-format :tooltip-content="tooltipContent" />
-      </slot>
+      <template #default="scope">
+        <slot name="tooltip-content" v-bind="scope">
+          <tooltip-default-format :tooltip-content="getTooltipContent(scope)">
+            <template v-if="$scopedSlots['tooltip-value']" #tooltip-value="valueScope">
+              <slot name="tooltip-value" v-bind="valueScope"></slot>
+            </template>
+          </tooltip-default-format>
+        </slot>
+      </template>
     </chart-tooltip>
     <chart-legend
       v-if="compiledOptions"

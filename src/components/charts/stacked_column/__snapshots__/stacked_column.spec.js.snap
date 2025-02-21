@@ -199,7 +199,7 @@ Object {
     },
     "axisPointer": Object {
       "label": Object {
-        "formatter": [Function],
+        "formatter": null,
       },
       "show": true,
       "type": "none",
@@ -455,7 +455,7 @@ Object {
     },
     "axisPointer": Object {
       "label": Object {
-        "formatter": [Function],
+        "formatter": null,
       },
       "show": true,
       "type": "none",
@@ -560,7 +560,7 @@ Object {
     },
     "axisPointer": Object {
       "label": Object {
-        "formatter": [Function],
+        "formatter": null,
       },
       "show": true,
       "type": "none",
@@ -847,7 +847,7 @@ Object {
     },
     "axisPointer": Object {
       "label": Object {
-        "formatter": [Function],
+        "formatter": null,
       },
       "show": true,
       "type": "none",
