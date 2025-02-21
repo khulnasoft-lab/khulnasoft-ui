@@ -30,6 +30,7 @@ const generateProps = ({
   stacked = false,
   caption = 'This is the table caption',
   selectable = false,
+  bordered = false,
 } = {}) => ({
   stickyHeader,
   fixed,
@@ -37,6 +38,7 @@ const generateProps = ({
   stacked,
   caption,
   selectable,
+  bordered,
 });
 
 export const Default = (args, { argTypes }) => ({
@@ -51,6 +53,7 @@ export const Default = (args, { argTypes }) => ({
     :stacked="stacked"
     :foot-clone="footClone"
     :selectable="selectable"
+    :bordered="bordered"
     sort-by="col_three"
     sort-desc
     sort-direction="desc"
