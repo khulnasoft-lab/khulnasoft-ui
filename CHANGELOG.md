@@ -1,3 +1,10 @@
+## [108.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.4.0...v108.4.1) (2025-02-21)
+
+
+### Bug Fixes
+
+* **GlBreadcrumb:** Hide breadcrumb item if it has no text ([d9badd5](https://gitlab.com/gitlab-org/gitlab-ui/commit/d9badd5613402e0fcf5d93d3ae6e3e4d414a3cda))
+
 # [108.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.3.1...v108.4.0) (2025-02-21)
 
 
