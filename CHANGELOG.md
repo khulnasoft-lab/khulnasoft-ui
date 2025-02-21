@@ -1,3 +1,10 @@
+# [108.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.3.1...v108.4.0) (2025-02-21)
+
+
+### Features
+
+* **GlLink:** Add variants and use design tokens in GlLink ([ec6b16d](https://gitlab.com/gitlab-org/gitlab-ui/commit/ec6b16d5142e07a3abe6b6e11fc61f58cb7c2baa))
+
 ## [108.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.3.0...v108.3.1) (2025-02-14)
 
 
