@@ -74,14 +74,20 @@ export default {
     <gl-avatar v-bind="$attrs" :class="avatarCssClasses" alt v-on="avatarListeners" />
     <div class="gl-avatar-labeled-labels !gl-text-left" :class="avatarRowLayoutClass">
       <div class="-gl-mx-1 -gl-my-1 gl-flex gl-flex-wrap gl-items-center !gl-text-left">
-        <gl-link v-if="hasLabelLink" ref="labelLink" :href="labelLink" class="gl-avatar-link">
+        <gl-link
+          v-if="hasLabelLink"
+          ref="labelLink"
+          :href="labelLink"
+          class="gl-avatar-link"
+          variant="meta"
+        >
           <span class="gl-avatar-labeled-label">{{ label }}</span>
         </gl-link>
         <span v-else class="gl-avatar-labeled-label">{{ label }}</span>
         <!-- @slot Metadata to add to the avatar. Generally used for badges or user status emoji. -->
         <slot name="meta"></slot>
       </div>
-      <gl-link v-if="hasSubLabelLink" :href="subLabelLink" class="gl-avatar-link">
+      <gl-link v-if="hasSubLabelLink" :href="subLabelLink" class="gl-avatar-link" variant="meta">
         <span class="gl-avatar-labeled-sublabel">{{ subLabel }}</span>
       </gl-link>
       <span v-else class="gl-avatar-labeled-sublabel">{{ subLabel }}</span>

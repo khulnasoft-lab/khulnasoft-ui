@@ -26,6 +26,24 @@ describe('link component', () => {
     });
   });
 
+  it.each`
+    variant             | expectedClass
+    ${'inline'}         | ${['gl-link', 'gl-link-inline']}
+    ${undefined}        | ${['gl-link']}
+    ${'meta'}           | ${['gl-link', 'gl-link-meta']}
+    ${'mention'}        | ${['gl-link', 'gl-link-mention']}
+    ${'mentionCurrent'} | ${['gl-link', 'gl-link-mention-current']}
+  `('adds $expectedClass class when variant=$variant', ({ variant, expectedClass }) => {
+    createWrapper({
+      propsData: {
+        variant,
+        expectedClass,
+      },
+    });
+
+    expect(wrapper.classes()).toStrictEqual(expectedClass);
+  });
+
   describe('target blank', () => {
     it('should set secure rels for hrefs in a different domain', () => {
       createWrapper({

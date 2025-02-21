@@ -203,6 +203,13 @@ export const animatedIconVariantOptions = {
   success: 'gl-animated-icon-success',
 };
 
+export const linkVariantOptions = {
+  inline: 'gl-link-inline',
+  meta: 'gl-link-meta',
+  mention: 'gl-link-mention',
+  mentionCurrent: 'gl-link-mention-current',
+};
+
 export const triggerVariantOptions = {
   click: 'click',
   hover: 'hover',
