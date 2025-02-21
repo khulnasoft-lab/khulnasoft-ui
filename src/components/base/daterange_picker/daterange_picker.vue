@@ -1,4 +1,5 @@
 <script>
+import uniqueId from 'lodash/uniqueId';
 import { GlTooltipDirective } from '../../../directives/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils/datetime_utility';
 import GlDatepicker from '../datepicker/datepicker.vue';
@@ -32,6 +33,16 @@ export default {
       type: String,
       required: false,
       default: 'To',
+    },
+    fromAriaLabel: {
+      type: String,
+      required: false,
+      default: 'From date',
+    },
+    toAriaLabel: {
+      type: String,
+      required: false,
+      default: 'To date',
     },
     value: {
       type: Object,
@@ -208,6 +219,12 @@ export default {
     showIndicator() {
       return Boolean(this.$scopedSlots.default || this.tooltip);
     },
+    fromId() {
+      return uniqueId('date-from-field-');
+    },
+    toId() {
+      return uniqueId('date-to-field-');
+    },
   },
   watch: {
     value(val) {
@@ -274,10 +291,12 @@ export default {
 <template>
   <div class="gl-daterange-picker gl-flex gl-gap-5">
     <div :class="startContainerClasses" data-testid="daterange-picker-start-container">
-      <label :class="labelClass">{{ fromLabel }}</label>
+      <label :class="labelClass" :for="fromId">{{ fromLabel }}</label>
 
       <gl-datepicker
         v-model="startDate"
+        :input-id="fromId"
+        :input-label="fromAriaLabel"
         :min-date="defaultMinDate"
         :max-date="fromCalendarMaxDate"
         :start-range="defaultMinDate"
@@ -299,10 +318,12 @@ export default {
       </gl-datepicker>
     </div>
     <div :class="endContainerClasses" data-testid="daterange-picker-end-container">
-      <label :class="labelClass">{{ toLabel }}</label>
+      <label :class="labelClass" :for="toId">{{ toLabel }}</label>
       <gl-datepicker
         :key="numericStartTime"
         v-model="endDate"
+        :input-id="toId"
+        :input-label="toAriaLabel"
         :min-date="toCalendarMinDate"
         :max-date="toCalendarMaxDate"
         :start-range="toCalendarMinDate"
