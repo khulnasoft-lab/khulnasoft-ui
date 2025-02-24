@@ -2,6 +2,9 @@
 
 exports[`stacked column chart component color palette custom palette matches the snapshot 1`] = `
 Object {
+  "aria": Object {
+    "enabled": true,
+  },
   "grid": Object {
     "bottom": 44,
     "left": 64,
@@ -258,6 +261,9 @@ Object {
 
 exports[`stacked column chart component should correctly render the chart 1`] = `
 Object {
+  "aria": Object {
+    "enabled": true,
+  },
   "grid": Object {
     "bottom": 44,
     "left": 64,
@@ -514,6 +520,9 @@ Object {
 
 exports[`stacked column chart component with line data provided should correctly render the chart 1`] = `
 Object {
+  "aria": Object {
+    "enabled": true,
+  },
   "grid": Object {
     "bottom": 44,
     "left": 64,
@@ -619,6 +628,9 @@ Object {
 
 exports[`stacked column chart component with secondary axis data provided should correctly render the chart 1`] = `
 Object {
+  "aria": Object {
+    "enabled": true,
+  },
   "grid": Object {
     "bottom": 44,
     "left": 64,

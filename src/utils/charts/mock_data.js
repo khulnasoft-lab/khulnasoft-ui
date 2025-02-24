@@ -61,6 +61,9 @@ export const mockDefaultChartOptions = {
   legend: {
     show: false,
   },
+  aria: {
+    enabled: true,
+  },
 };
 
 /**

@@ -2,6 +2,9 @@
 
 exports[`column chart component mounted should correctly render the chart 1`] = `
 Object {
+  "aria": Object {
+    "enabled": true,
+  },
   "grid": Object {
     "bottom": 44,
     "left": 64,
@@ -96,6 +99,9 @@ Object {
 
 exports[`column chart component with line data provided should correctly render the chart 1`] = `
 Object {
+  "aria": Object {
+    "enabled": true,
+  },
   "grid": Object {
     "bottom": 44,
     "left": 64,
@@ -184,6 +190,9 @@ Object {
 
 exports[`column chart component with secondary axis data provided should correctly render the chart 1`] = `
 Object {
+  "aria": Object {
+    "enabled": true,
+  },
   "grid": Object {
     "bottom": 44,
     "left": 64,

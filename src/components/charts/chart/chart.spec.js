@@ -19,7 +19,11 @@ jest.mock('echarts', () => ({
 }));
 
 describe('chart component', () => {
-  const options = {};
+  const options = {
+    aria: {
+      enabled: true,
+    },
+  };
   const mountArgs = [Chart, { propsData: { options: {} } }];
   const themeName = 'gitlab';
   let wrapper;
@@ -161,6 +165,7 @@ describe('chart component', () => {
       expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith({
         ...optionsWithToolbox,
         grid: { top: toolboxHeight },
+        aria: { enabled: true },
       });
     });
   });
