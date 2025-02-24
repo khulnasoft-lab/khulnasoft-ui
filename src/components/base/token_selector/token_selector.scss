@@ -16,6 +16,7 @@
 
 .gl-token-selector-token-container:focus .gl-token {
   background-color: var(--gl-token-selector-token-container-token-background-color-focus);
+  @apply gl-focus;
 }
 
 .gl-token-selector-input {
