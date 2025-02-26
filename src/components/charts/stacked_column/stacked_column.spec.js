@@ -1,6 +1,11 @@
+import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 
-import { createMockChartInstance } from '~helpers/chart_stubs';
+import {
+  createMockChartInstance,
+  ChartTooltipStub,
+  chartTooltipStubData,
+} from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import {
@@ -12,6 +17,7 @@ import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
 import ChartTooltip from '../tooltip/tooltip.vue';
 import * as themeUtils from '../../../utils/charts/theme';
+import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
 import StackedColumnChart from './stacked_column.vue';
 
 let mockChartInstance;
@@ -35,13 +41,18 @@ describe('stacked column chart component', () => {
   const findChart = () => wrapper.findComponent(Chart);
   const findLegend = () => wrapper.findComponent(ChartLegend);
   const findDataTooltip = () => wrapper.findComponent(ChartTooltip);
+  const findTooltipDefaultFormat = () => wrapper.findComponent(TooltipDefaultFormat);
 
   const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
 
-  const createShallowWrapper = ({ props = {}, slots = {} } = {}) => {
+  const createShallowWrapper = ({ props = {}, stubs, ...options } = {}) => {
     wrapper = shallowMount(StackedColumnChart, {
       propsData: { ...defaultChartProps, ...props },
-      slots,
+      stubs: {
+        'chart-tooltip': ChartTooltipStub,
+        ...stubs,
+      },
+      ...options,
     });
     emitChartCreated();
   };
@@ -198,6 +209,80 @@ describe('stacked column chart component', () => {
 
     it('is initialized', () => {
       expect(findDataTooltip().props('chart')).toBe(mockChartInstance);
+    });
+
+    it('inverts order of series in tooltip and uses border color', async () => {
+      createShallowWrapper({
+        stubs: {
+          TooltipDefaultFormat,
+        },
+      });
+      await nextTick();
+
+      const tooltipContentEntries = Object.entries(
+        findTooltipDefaultFormat().props('tooltipContent')
+      );
+
+      expect(tooltipContentEntries).toEqual([
+        ['Apples (2)', { color: 'red2', value: ['Count', 10] }],
+        ['Oranges (1)', { color: 'orange2', value: ['Count', 9] }],
+      ]);
+    });
+
+    describe('is customized via slots', () => {
+      const { params, title, content } = chartTooltipStubData;
+
+      it('customizes tooltip value', async () => {
+        const tooltipValueSlot = jest.fn().mockReturnValue('Custom tooltip value');
+
+        createShallowWrapper({
+          stubs: {
+            TooltipDefaultFormat,
+          },
+          scopedSlots: {
+            'tooltip-value': tooltipValueSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipValueSlot).toHaveBeenCalledWith({ value: ['Count', 10] });
+        expect(findDataTooltip().text()).toContain('Custom tooltip value');
+      });
+
+      it('customizes title', async () => {
+        const tooltipTitleSlot = jest.fn().mockReturnValue('Title');
+
+        createShallowWrapper({
+          scopedSlots: {
+            'tooltip-title': tooltipTitleSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipTitleSlot).toHaveBeenCalledWith({
+          params,
+          title,
+        });
+
+        expect(findDataTooltip().text()).toBe('Title');
+      });
+
+      it('customizes content', async () => {
+        const tooltipContentSlot = jest.fn().mockReturnValue('Custom Content');
+
+        createShallowWrapper({
+          scopedSlots: {
+            'tooltip-content': tooltipContentSlot,
+          },
+        });
+        await nextTick();
+
+        expect(tooltipContentSlot).toHaveBeenCalledWith({
+          params,
+          content,
+        });
+        expect(findDataTooltip().text()).toBe('Custom Content');
+      });
     });
   });
 

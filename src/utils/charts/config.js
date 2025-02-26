@@ -469,7 +469,8 @@ export const getTooltipContent = (params = null, valueAxisName = null) => {
     };
   }
 
-  return seriesData.reduce((acc, { value: [, yValue], seriesName, color }) => {
+  return seriesData.reduce((acc, { value, seriesName, color }) => {
+    const yValue = value[1];
     acc[seriesName] = { value: yValue, color };
     return acc;
   }, {});

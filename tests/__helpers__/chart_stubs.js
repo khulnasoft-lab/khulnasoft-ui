@@ -36,12 +36,29 @@ export const createMockChartInstance = () => {
 export const chartTooltipStubData = {
   title: 'Stub tooltip title',
   content: 'Stub tooltip content',
-  params: { value: 'Stub tooltip value', seriesData: [{ value: ['Stub tooltip value', 9] }] },
+  params: {
+    seriesData: [
+      {
+        seriesName: 'Oranges (1)',
+        seriesIndex: 0,
+        color: 'orange1',
+        borderColor: 'orange2',
+        value: ['Count', 9],
+      },
+      {
+        seriesName: 'Apples (2)',
+        seriesIndex: 1,
+        color: 'red1',
+        borderColor: 'red2',
+        value: ['Count', 10],
+      },
+    ],
+  },
 };
 
 export const ChartTooltipStub = {
   props: ChartTooltip.props,
-  name: 'chart-tooltip',
+  name: ChartTooltip.name,
   data() {
     return chartTooltipStubData;
   },
