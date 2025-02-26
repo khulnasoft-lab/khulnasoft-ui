@@ -1,3 +1,10 @@
+# [108.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.5.0...v108.6.0) (2025-02-26)
+
+
+### Features
+
+* **GlButtonGroup:** Selected state ([f4afaec](https://gitlab.com/gitlab-org/gitlab-ui/commit/f4afaecf6dca9c0c188289f69f0fa2204d43c047))
+
 # [108.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.4.1...v108.5.0) (2025-02-26)
 
 
