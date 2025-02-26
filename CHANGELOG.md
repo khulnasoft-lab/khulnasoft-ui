@@ -1,3 +1,10 @@
+# [108.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.6.0...v108.7.0) (2025-02-26)
+
+
+### Features
+
+* **GlStackedColumnChart:** Simplify chart tooltip API ([837c638](https://gitlab.com/gitlab-org/gitlab-ui/commit/837c638616a4cf1856482859b04a8315f2c99b65))
+
 # [108.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.5.0...v108.6.0) (2025-02-26)
 
 
