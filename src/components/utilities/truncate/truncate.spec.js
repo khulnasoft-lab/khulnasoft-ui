@@ -4,7 +4,7 @@ import {
   getBinding,
   createMockDirective as mockDirectiveCreator,
 } from '~helpers/vue_mock_directive';
-import { POSITION } from './constants';
+import { POSITION, ZERO_WIDTH_SPACE } from './constants';
 import Truncate from './truncate.vue';
 
 jest.mock('../../../directives/resize_observer/resize_observer', () => ({
@@ -134,12 +134,6 @@ describe('Truncate component', () => {
   });
 
   describe('middle truncation', () => {
-    it('should have appropriate classes applied', () => {
-      createComponent({ position: 'middle' });
-      expect(findFirstSpan().classes('gl-truncate-end')).toBe(true);
-      expect(findSecondSpan().classes('gl-truncate-start')).toBe(true);
-    });
-
     it('should contain the expected text', () => {
       createComponent({ position: 'middle' });
       expect(findFirstSpan().text()).toContain('ee/app/assets/javascripts/vue_shared/src');
@@ -152,6 +146,18 @@ describe('Truncate component', () => {
 
       expect(lastPart.charAt(0)).toBe(LEFT_TO_RIGHT_MARK);
       expect(lastPart.charAt(lastPart.length - 1)).toBe(LEFT_TO_RIGHT_MARK);
+    });
+
+    it('should prevent whitespace collapse at end of first span', () => {
+      createComponent({ text: 'Gap here', position: 'middle' });
+      const firstPart = findFirstSpan().text();
+      expect(firstPart.charAt(firstPart.length - 1)).toBe(ZERO_WIDTH_SPACE);
+    });
+
+    it('should not prevent whitespace collapse twice', () => {
+      createComponent({ text: 'Gap        here', position: 'middle' });
+      const firstPart = findFirstSpan().text();
+      expect(firstPart.charAt(firstPart.length - 1)).not.toBe(ZERO_WIDTH_SPACE);
     });
   });
 

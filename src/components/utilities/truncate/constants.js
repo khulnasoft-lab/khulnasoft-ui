@@ -3,3 +3,5 @@ export const POSITION = {
   MIDDLE: 'middle',
   END: 'end',
 };
+
+export const ZERO_WIDTH_SPACE = '\u200b';
