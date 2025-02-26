@@ -1,3 +1,10 @@
+# [108.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.4.1...v108.5.0) (2025-02-26)
+
+
+### Features
+
+* **GlTable:** Update empty state to use text.subtle ([10b8cda](https://gitlab.com/gitlab-org/gitlab-ui/commit/10b8cdac7ea2ce923e8ae3801ca4dacfede73f16))
+
 ## [108.4.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.4.0...v108.4.1) (2025-02-21)
 
 
