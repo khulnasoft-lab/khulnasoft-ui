@@ -185,9 +185,20 @@
     &.selected {
       color: var(--gl-button-selected-foreground-color-default);
       background-color: var(--gl-button-selected-background-color-default);
+
+      &::before {
+        width: $gl-border-size-2 !important;
+      }
+
+      &::before,
+      + .gl-button::before {
+        background-color: var(--gl-button-selected-border-color-default);
+      }
+
       @if $feature-button-border {
-        border-width: $gl-border-size-2;
+        border-width: $gl-border-size-1;
         border-color: var(--gl-button-selected-border-color-default);
+        box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-button-selected-border-color-default);
       } @else {
         @include gl-button-selected-border(var(--gl-button-selected-border-color-default));
       }
@@ -197,14 +208,21 @@
         background-color: var(--gl-button-selected-background-color-hover);
         @if $feature-button-border {
           border-color: var(--gl-button-selected-border-color-hover);
+          box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-button-selected-border-color-hover);
         } @else {
           @include gl-button-selected-border(var(--gl-button-selected-border-color-hover));
         }
       }
 
+      &:hover::before,
+      &:hover + .gl-button::before {
+        background-color: var(--gl-button-selected-border-color-hover);
+      }
+
       &:focus {
         color: var(--gl-button-selected-foreground-color-focus);
         background-color: var(--gl-button-selected-background-color-focus);
+        @apply gl-focus;
         @if $feature-button-border {
           border-color: var(--gl-button-selected-border-color-focus);
         } @else {
@@ -212,10 +230,16 @@
         }
       }
 
+      &:focus::before,
+      &:focus + .gl-button::before {
+        background-color: var(--gl-button-selected-border-color-focus);
+      }
+
       &:active,
       &.active {
         color: var(--gl-button-selected-foreground-color-active);
         background-color: var(--gl-button-selected-background-color-active);
+        box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-button-selected-border-color-active);
         @if $feature-button-border {
           border-color: var(--gl-button-selected-border-color-active);
         } @else {
@@ -225,6 +249,13 @@
             @include gl-button-selected-border(var(--gl-button-selected-border-color-active), $focus-ring);
           }
         }
+      }
+
+      &:active::before,
+      &.active::before,
+      &:active + .gl-button::before,
+      &.active + .gl-button::before {
+        background-color: var(--gl-button-selected-border-color-active);
       }
     }
   }

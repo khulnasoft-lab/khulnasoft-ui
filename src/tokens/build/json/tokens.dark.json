@@ -12977,13 +12977,16 @@
       "foreground": {
         "color": {
           "default": {
-            "$value": "#ececef",
+            "$value": "#28272d",
             "$type": "color",
             "$description": "Used for the foreground of a selected button in the default state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{button.default.primary.foreground.color.default}",
+              "$value": {
+                "default": "{button.default.primary.foreground.color.default}",
+                "dark": "{color.neutral.900}"
+              },
               "$type": "color",
               "$description": "Used for the foreground of a selected button in the default state."
             },
@@ -12998,13 +13001,16 @@
             ]
           },
           "hover": {
-            "$value": "#ececef",
+            "$value": "#18171d",
             "$type": "color",
             "$description": "Used for the foreground of a selected button in the hover state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{button.default.primary.foreground.color.hover}",
+              "$value": {
+                "default": "{button.default.primary.foreground.color.hover}",
+                "dark": "{color.neutral.950}"
+              },
               "$type": "color",
               "$description": "Used for the foreground of a selected button in the hover state."
             },
@@ -13019,13 +13025,16 @@
             ]
           },
           "focus": {
-            "$value": "#ececef",
+            "$value": "#18171d",
             "$type": "color",
             "$description": "Used for the foreground of a selected button in the focus state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{button.default.primary.foreground.color.focus}",
+              "$value": {
+                "default": "{button.default.primary.foreground.color.focus}",
+                "dark": "{color.neutral.950}"
+              },
               "$type": "color",
               "$description": "Used for the foreground of a selected button in the focus state."
             },
@@ -13040,13 +13049,16 @@
             ]
           },
           "active": {
-            "$value": "#ececef",
+            "$value": "#18171d",
             "$type": "color",
             "$description": "Used for the foreground of a selected button in the active state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{button.default.primary.foreground.color.active}",
+              "$value": {
+                "default": "{button.default.primary.foreground.color.active}",
+                "dark": "{color.neutral.950}"
+              },
               "$type": "color",
               "$description": "Used for the foreground of a selected button in the active state."
             },
@@ -13065,13 +13077,16 @@
       "background": {
         "color": {
           "default": {
-            "$value": "rgba(137, 136, 141, 0.4)",
+            "$value": "#a4a3a8",
             "$type": "color",
             "$description": "Used for the background of a selected button in the default state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{button.default.primary.background.color.default}",
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.300}"
+              },
               "$type": "color",
               "$description": "Used for the background of a selected button in the default state."
             },
@@ -13086,13 +13101,16 @@
             ]
           },
           "hover": {
-            "$value": "rgba(137, 136, 141, 0.64)",
+            "$value": "#bfbfc3",
             "$type": "color",
             "$description": "Used for the background of a selected button in the hover state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{button.default.primary.background.color.hover}",
+              "$value": {
+                "default": "{button.default.primary.background.color.hover}",
+                "dark": "{color.neutral.200}"
+              },
               "$type": "color",
               "$description": "Used for the background of a selected button in the hover state."
             },
@@ -13107,13 +13125,16 @@
             ]
           },
           "focus": {
-            "$value": "rgba(137, 136, 141, 0.64)",
+            "$value": "#bfbfc3",
             "$type": "color",
             "$description": "Used for the background of a selected button in the focus state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{button.default.primary.background.color.focus}",
+              "$value": {
+                "default": "{button.default.primary.background.color.focus}",
+                "dark": "{color.neutral.200}"
+              },
               "$type": "color",
               "$description": "Used for the background of a selected button in the focus state."
             },
@@ -13128,13 +13149,16 @@
             ]
           },
           "active": {
-            "$value": "rgba(137, 136, 141, 0.32)",
+            "$value": "#89888d",
             "$type": "color",
             "$description": "Used for the background of a selected button in the active state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
             "isSource": true,
             "original": {
-              "$value": "{button.default.primary.background.color.active}",
+              "$value": {
+                "default": "{button.default.primary.background.color.active}",
+                "dark": "{color.neutral.400}"
+              },
               "$type": "color",
               "$description": "Used for the background of a selected button in the active state."
             },
@@ -13153,7 +13177,7 @@
       "border": {
         "color": {
           "default": {
-            "$value": "#626168",
+            "$value": "transparent",
             "$type": "color",
             "$description": "Used for the border of a selected button in the default state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -13161,7 +13185,7 @@
             "original": {
               "$value": {
                 "default": "{color.neutral.300}",
-                "dark": "{color.neutral.600}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a selected button in the default state."
@@ -13177,7 +13201,7 @@
             ]
           },
           "hover": {
-            "$value": "#737278",
+            "$value": "transparent",
             "$type": "color",
             "$description": "Used for the border of a selected button in the hover state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -13185,7 +13209,7 @@
             "original": {
               "$value": {
                 "default": "{color.neutral.400}",
-                "dark": "{color.neutral.500}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a selected button in the hover state."
@@ -13201,7 +13225,7 @@
             ]
           },
           "focus": {
-            "$value": "#737278",
+            "$value": "transparent",
             "$type": "color",
             "$description": "Used for the border of a selected button in the focus state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -13222,7 +13246,7 @@
             ]
           },
           "active": {
-            "$value": "#a4a3a8",
+            "$value": "transparent",
             "$type": "color",
             "$description": "Used for the border of a selected button in the active state.",
             "filePath": "src/tokens/contextual/button.tokens.json",
@@ -13230,7 +13254,7 @@
             "original": {
               "$value": {
                 "default": "{color.neutral.600}",
-                "dark": "{color.neutral.300}"
+                "dark": "{color.alpha.0}"
               },
               "$type": "color",
               "$description": "Used for the border of a selected button in the active state."
