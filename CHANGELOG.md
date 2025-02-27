@@ -1,3 +1,11 @@
+# [108.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.7.0...v108.8.0) (2025-02-27)
+
+
+### Features
+
+* **GlDatepicker:** use variant prop on GlIcon for disabled control ([f64fe84](https://gitlab.com/gitlab-org/gitlab-ui/commit/f64fe843b018b4fe04ea8626c38d942b729bd279))
+* **GlLabel:** update scoped label title text color to text.color.strong ([6df7597](https://gitlab.com/gitlab-org/gitlab-ui/commit/6df7597071f2e24800a784b164616a1a7a5b5f44))
+
 # [108.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.6.0...v108.7.0) (2025-02-26)
 
 
