@@ -4,15 +4,17 @@ import {
   getBinding,
   createMockDirective as mockDirectiveCreator,
 } from '~helpers/vue_mock_directive';
-import { POSITION } from './constants';
+import { POSITION, ZERO_WIDTH_SPACE } from './constants';
 import Truncate from './truncate.vue';
 
 jest.mock('../../../directives/resize_observer/resize_observer', () => ({
   GlResizeObserverDirective: mockDirectiveCreator('gl-resize-observer'),
 }));
 
+const LEFT_TO_RIGHT_MARK = '\u200e';
+
 const removeSpecialChar = (text) => {
-  return text.replace(/&lrm;|\u200E/gi, '');
+  return text.replaceAll(LEFT_TO_RIGHT_MARK, '');
 };
 
 const positionOptions = Object.values(POSITION);
@@ -32,6 +34,10 @@ describe('Truncate component', () => {
       },
     });
   };
+
+  const findChildSpan = (index) => wrapper.findAll('.gl-truncate-component span').at(index);
+  const findFirstSpan = () => findChildSpan(0);
+  const findSecondSpan = () => findChildSpan(1);
 
   const forceTruncate = () => {
     // We check that scrollWidth > offsetWidth so we can force this in our test environment by overriding the properties.
@@ -122,36 +128,36 @@ describe('Truncate component', () => {
     it('should have the special char surrounded', () => {
       const spanTag = wrapper.findAll('.gl-truncate-component span').at(0).text();
 
-      expect(spanTag.charAt(0)).toBe('\u200E');
-      expect(spanTag.charAt(spanTag.length - 1)).toBe('\u200E');
+      expect(spanTag.charAt(0)).toBe(LEFT_TO_RIGHT_MARK);
+      expect(spanTag.charAt(spanTag.length - 1)).toBe(LEFT_TO_RIGHT_MARK);
     });
   });
 
   describe('middle truncation', () => {
-    let firstSpan;
-    let secondSpan;
-
-    beforeEach(() => {
+    it('should contain the expected text', () => {
       createComponent({ position: 'middle' });
-      firstSpan = wrapper.findAll('.gl-truncate-component span').at(0);
-      secondSpan = wrapper.findAll('.gl-truncate-component span').at(1);
+      expect(findFirstSpan().text()).toContain('ee/app/assets/javascripts/vue_shared/src');
+      expect(findSecondSpan().text()).toContain('/utils_reports/components/utils/index.js');
     });
 
-    it('should have appropriate classes applied', () => {
-      expect(firstSpan.classes('gl-truncate-end')).toBe(true);
-      expect(secondSpan.classes('gl-truncate-start')).toBe(true);
+    it('last part should be surrounded with left-to-right marks', () => {
+      createComponent({ position: 'middle' });
+      const lastPart = findSecondSpan().text();
+
+      expect(lastPart.charAt(0)).toBe(LEFT_TO_RIGHT_MARK);
+      expect(lastPart.charAt(lastPart.length - 1)).toBe(LEFT_TO_RIGHT_MARK);
     });
 
-    it('should have the spans positioned correctly', () => {
-      expect(firstSpan.text()).toBe('ee/app/assets/javascripts/vue_shared/src');
-      expect(secondSpan.text()).toBe('‎/utils_reports/components/utils/index.js‎');
+    it('should prevent whitespace collapse at end of first span', () => {
+      createComponent({ text: 'Gap here', position: 'middle' });
+      const firstPart = findFirstSpan().text();
+      expect(firstPart.charAt(firstPart.length - 1)).toBe(ZERO_WIDTH_SPACE);
     });
 
-    it('last part should have the special char surrounded', () => {
-      const lastPart = secondSpan.text();
-
-      expect(lastPart.charAt(0)).toBe('\u200E');
-      expect(lastPart.charAt(lastPart.length - 1)).toBe('\u200E');
+    it('should not prevent whitespace collapse twice', () => {
+      createComponent({ text: 'Gap        here', position: 'middle' });
+      const firstPart = findFirstSpan().text();
+      expect(firstPart.charAt(firstPart.length - 1)).not.toBe(ZERO_WIDTH_SPACE);
     });
   });
 
@@ -161,7 +167,7 @@ describe('Truncate component', () => {
     });
 
     it('should not have the special char', () => {
-      expect(wrapper.text()).not.toContain('\u200E');
+      expect(wrapper.text()).not.toContain(LEFT_TO_RIGHT_MARK);
     });
 
     it('should have the truncate-end class', () => {
