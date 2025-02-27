@@ -432,9 +432,13 @@ export default {
             v-if="triggerOnFocus || disabled"
             data-testid="datepicker-calendar-icon"
             class="gl-px-2"
-            :class="disabled ? 'gl-text-gray-400' : 'gl-text-gray-500'"
           >
-            <gl-icon class="gl-block" name="calendar" :size="16" />
+            <gl-icon
+              class="gl-block"
+              name="calendar"
+              :size="16"
+              :variant="disabled ? 'disabled' : 'default'"
+            />
           </span>
           <gl-button
             v-else
