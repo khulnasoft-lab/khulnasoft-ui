@@ -2,7 +2,8 @@
 
 ## Does GitLab UI work with Vue 3?
 
-Not yet.
+It works with `@vue/compat`! It will be [a while](https://gitlab.com/groups/gitlab-org/-/epics/6252)
+before it can run with the main Vue 3 build.
 
 ## What icons library do we use in GitLab UI?
 
