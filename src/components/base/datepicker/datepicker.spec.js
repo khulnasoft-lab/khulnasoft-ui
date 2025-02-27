@@ -130,7 +130,7 @@ describe('datepicker component', () => {
 
       expect(findTriggerButton(wrapper).exists()).toBe(false);
       expect(calendarIcon.exists()).toBe(true);
-      expect(calendarIcon.classes()).toContain('gl-text-gray-500');
+      expect(calendarIcon.props('variant')).toBe('default');
     });
   });
 
@@ -393,7 +393,7 @@ describe('datepicker component', () => {
 
       expect(findTriggerButton(wrapper).exists()).toBe(false);
       expect(calendarIcon.exists()).toBe(true);
-      expect(calendarIcon.classes()).toContain('gl-text-gray-400');
+      expect(calendarIcon.props('variant')).toBe('disabled');
     });
   });
 

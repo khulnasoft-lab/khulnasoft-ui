@@ -428,13 +428,10 @@ export default {
             icon="clear"
             @click="cleared"
           />
-          <span
-            v-if="triggerOnFocus || disabled"
-            data-testid="datepicker-calendar-icon"
-            class="gl-px-2"
-          >
+          <span v-if="triggerOnFocus || disabled" class="gl-px-2">
             <gl-icon
               class="gl-block"
+              data-testid="datepicker-calendar-icon"
               name="calendar"
               :size="16"
               :variant="disabled ? 'disabled' : 'default'"
