@@ -1,3 +1,10 @@
+## [108.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.8.0...v108.8.1) (2025-02-27)
+
+
+### Bug Fixes
+
+* **GlTruncate:** Prevent total whitespace collapse ([2811b7e](https://gitlab.com/gitlab-org/gitlab-ui/commit/2811b7e7e9a7fc37bd17042063ee3e4504cb380d))
+
 # [108.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.7.0...v108.8.0) (2025-02-27)
 
 
