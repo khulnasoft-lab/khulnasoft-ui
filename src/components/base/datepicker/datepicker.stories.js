@@ -20,10 +20,12 @@ const defaultMaxDate = new Date(currentYear, 2, 31);
 const generateProps = ({
   minDate = defaultMinDate,
   maxDate = defaultMaxDate,
+  disabled = false,
   state = true,
 } = {}) => ({
   minDate,
   maxDate,
+  disabled,
   state,
 });
 
@@ -35,7 +37,7 @@ export const Default = (_args, { argTypes }) => ({
       pickerValue: defaultDate,
     };
   },
-  template: `<gl-datepicker :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" :state="state"/>`,
+  template: `<gl-datepicker :max-date="new Date(maxDate)" :min-date="new Date(minDate)" v-model="pickerValue" :disabled="disabled" :state="state"/>`,
 });
 Default.args = generateProps();
 Default.play = async ({ canvasElement }) => {
@@ -129,7 +131,6 @@ export default {
       'ariaLabel',
       'placeholder',
       'autocomplete',
-      'disabled',
       'displayField',
       'startOpened',
       'defaultDate',
