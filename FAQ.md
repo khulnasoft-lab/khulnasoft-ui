@@ -55,6 +55,10 @@ it('should log an error', () => {
 });
 ```
 
+## How do I run Storybook/Cypress tests on a different host/port?
+
+Set the `STORYBOOK_HOST` and `STORYBOOK_PORT` environment variables.
+
 ## Does GitLab UI have a changelog/version history?
 
 Yes! We generate changelogs automatically based on GitLab UI's
