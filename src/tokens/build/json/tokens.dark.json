@@ -22676,16 +22676,13 @@
   "icon": {
     "color": {
       "default": {
-        "$value": "#dcdcde",
+        "$value": "#ececef",
         "$type": "color",
         "$description": "Used for the default icon color. Can be paired with default text.",
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
-          "$value": {
-            "default": "{color.neutral.700}",
-            "dark": "{color.neutral.100}"
-          },
+          "$value": "{text.color.default}",
           "$type": "color",
           "$description": "Used for the default icon color. Can be paired with default text."
         },
@@ -22698,16 +22695,13 @@
         ]
       },
       "subtle": {
-        "$value": "#a4a3a8",
+        "$value": "#bfbfc3",
         "$type": "color",
         "$description": "Used for a static or decorational icon. Can be paired with subtle text.",
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
-          "$value": {
-            "default": "{color.neutral.500}",
-            "dark": "{color.neutral.300}"
-          },
+          "$value": "{text.color.subtle}",
           "$type": "color",
           "$description": "Used for a static or decorational icon. Can be paired with subtle text."
         },
@@ -22720,16 +22714,13 @@
         ]
       },
       "strong": {
-        "$value": "#fbfafd",
+        "$value": "#fff",
         "$type": "color",
         "$description": "Used for an icon with the highest contrast.",
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
-          "$value": {
-            "default": "{color.neutral.900}",
-            "dark": "{color.neutral.10}"
-          },
+          "$value": "{text.color.strong}",
           "$type": "color",
           "$description": "Used for an icon with the highest contrast."
         },
@@ -22742,16 +22733,13 @@
         ]
       },
       "disabled": {
-        "$value": "#737278",
+        "$value": "#89888d",
         "$type": "color",
         "$description": "Used for an icon within a disabled section.",
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
-          "$value": {
-            "default": "{color.neutral.300}",
-            "dark": "{color.neutral.500}"
-          },
+          "$value": "{text.color.disabled}",
           "$type": "color",
           "$description": "Used for an icon within a disabled section."
         },
@@ -22770,10 +22758,7 @@
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
-          "$value": {
-            "default": "{color.blue.700}",
-            "dark": "{color.blue.200}"
-          },
+          "$value": "{text.color.link}",
           "$type": "color",
           "$description": "Used for an icon within a link."
         },
@@ -22814,10 +22799,7 @@
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
-          "$value": {
-            "default": "{color.orange.600}",
-            "dark": "{color.orange.300}"
-          },
+          "$value": "{text.color.warning}",
           "$type": "color",
           "$description": "Used for an icon associated with a warning."
         },
@@ -22836,10 +22818,7 @@
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
-          "$value": {
-            "default": "{color.red.600}",
-            "dark": "{color.red.300}"
-          },
+          "$value": "{text.color.danger}",
           "$type": "color",
           "$description": "Used for an icon associated with an error or danger."
         },
@@ -22858,10 +22837,7 @@
         "filePath": "src/tokens/icon.tokens.json",
         "isSource": true,
         "original": {
-          "$value": {
-            "default": "{color.green.600}",
-            "dark": "{color.green.300}"
-          },
+          "$value": "{text.color.success}",
           "$type": "color",
           "$description": "Used for an icon associated with success or validity."
         },
