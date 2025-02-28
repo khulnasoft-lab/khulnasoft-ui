@@ -1,3 +1,10 @@
+# [108.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.8.1...v108.9.0) (2025-02-28)
+
+
+### Features
+
+* **DesignTokens:** Update neutral icons ([62316ba](https://gitlab.com/gitlab-org/gitlab-ui/commit/62316ba93ca7eb944119a2ae8143120b26d1b26c))
+
 ## [108.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.8.0...v108.8.1) (2025-02-27)
 
 
