@@ -1,5 +1,8 @@
 const { defineConfig } = require('cypress');
 
+const STORYBOOK_HOST = process.env.STORYBOOK_HOST || 'localhost';
+const STORYBOOK_PORT = process.env.STORYBOOK_PORT || 9001;
+
 module.exports = defineConfig({
   defaultCommandTimeout: 10000,
   env: {
@@ -11,7 +14,7 @@ module.exports = defineConfig({
     grepOmitFiltered: true,
   },
   e2e: {
-    baseUrl: 'http://localhost:9001',
+    baseUrl: `http://${STORYBOOK_HOST}:${STORYBOOK_PORT}`,
     setupNodeEvents(on) {
       on('task', {
         log(message) {

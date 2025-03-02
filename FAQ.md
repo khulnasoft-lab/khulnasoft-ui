@@ -2,7 +2,8 @@
 
 ## Does GitLab UI work with Vue 3?
 
-Not yet.
+It works with `@vue/compat`! It will be [a while](https://gitlab.com/groups/gitlab-org/-/epics/6252)
+before it can run with the main Vue 3 build.
 
 ## What icons library do we use in GitLab UI?
 
@@ -54,6 +55,10 @@ it('should log an error', () => {
   global.console.error.mockReset();
 });
 ```
+
+## How do I run Storybook/Cypress tests on a different host/port?
+
+Set the `STORYBOOK_HOST` and `STORYBOOK_PORT` environment variables.
 
 ## Does GitLab UI have a changelog/version history?
 
