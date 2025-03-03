@@ -1,3 +1,10 @@
+# [108.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.9.1...v108.10.0) (2025-03-03)
+
+
+### Features
+
+* **charts:** Set up charts to auto generate long description ([96bb848](https://gitlab.com/gitlab-org/gitlab-ui/commit/96bb848c2d359c5e6ed21683d7f689db138aa2f3))
+
 ## [108.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.9.0...v108.9.1) (2025-03-03)
 
 
