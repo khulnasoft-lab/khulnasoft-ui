@@ -1,3 +1,10 @@
+## [108.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.9.0...v108.9.1) (2025-03-03)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** fix button focus ring color in dark mode ([2f2bfdc](https://gitlab.com/gitlab-org/gitlab-ui/commit/2f2bfdcb7ff26fac438b4c68420fbf83286fdda7))
+
 # [108.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.8.1...v108.9.0) (2025-02-28)
 
 
