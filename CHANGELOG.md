@@ -1,3 +1,33 @@
+# [109.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.10.0...v109.0.0) (2025-03-03)
+
+
+### Code Refactoring
+
+* **GlCollapse:** remove `BCollapse` component ([f53fdd4](https://gitlab.com/gitlab-org/gitlab-ui/commit/f53fdd4fc9d0ee3bfa01ad19cc209f54612ccda6))
+
+
+### BREAKING CHANGES
+
+* **GlCollapse:** `GlCollapse` now has its own implementation and does not rely on
+`BCollapse` anymore.
+
+Drops support of the `toggle` directive for toggling the `GlCollapse`'s
+state. Going forward, the `v-model` should be used instead.
+Drops support of `hide`, `show` events.
+
+Also drops supports of:
+- `appear` prop
+- `v-b-toggle`, which can be used to trigger multiple collapse elements
+- turn a group of collapse components into an accordion with `accordion`
+ prop
+- navbar support with `is-nav` prop
+- $root event
+- `show` and `hide` events
+
+See bootstrap doc
+(https://bootstrap-vue.org/docs/components/collapse#collapse) for
+details.
+
 # [108.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v108.9.1...v108.10.0) (2025-03-03)
 
 
