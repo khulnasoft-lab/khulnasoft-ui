@@ -46,6 +46,9 @@ export const defaultChartOptions = {
   grid,
   xAxis,
   yAxis,
+  aria: {
+    enabled: true,
+  },
 };
 
 export const gridWithSecondaryYAxis = {

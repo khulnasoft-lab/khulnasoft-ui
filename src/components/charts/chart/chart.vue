@@ -155,7 +155,12 @@ export default {
   },
   methods: {
     draw() {
-      this.chart.setOption(this.normalizedOptions);
+      this.chart.setOption({
+        ...this.normalizedOptions,
+        aria: {
+          enabled: true,
+        },
+      });
       /**
        * Emitted after calling `echarts.setOption`
        */
