@@ -41,16 +41,6 @@ export default {
       type: Object,
       required: true,
     },
-    /**
-     * Warning: this prop is deprecated and will soon be removed
-     * Please do not utilize `disableTheme` for formatting
-     * Use the `options` prop to set desired echarts formatting
-     */
-    disableTheme: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     width: {
       type: [Number, String],
       required: false,
@@ -120,14 +110,12 @@ export default {
     },
   },
   created() {
-    if (!this.disableTheme) {
-      echarts.registerTheme(themeName, createTheme(this.options));
-    }
+    echarts.registerTheme(themeName, createTheme(this.options));
   },
   async mounted() {
     await this.$nextTick();
 
-    const chart = echarts.init(this.$refs.chart, this.disableTheme ? null : themeName, {
+    const chart = echarts.init(this.$refs.chart, themeName, {
       renderer: this.renderer,
       width: defaultWidth,
       height: defaultHeight,
