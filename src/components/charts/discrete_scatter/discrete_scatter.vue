@@ -8,9 +8,9 @@ import {
 } from '../../../utils/charts/config';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import TooltipDefaultFormat from '../shared/tooltip/tooltip_default_format/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
 
 export default {
   name: 'GlDiscreteScatterChart',

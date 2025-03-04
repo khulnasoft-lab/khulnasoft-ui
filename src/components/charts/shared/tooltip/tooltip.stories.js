@@ -1,9 +1,11 @@
-import { GlChart, GlChartTooltip, GlChartSeriesLabel } from '../../../charts';
+import { GlChart, GlChartSeriesLabel } from '../../../../charts';
 import {
   SERIES_NAME,
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
-} from '../../../utils/stories_constants';
+} from '../../../../utils/stories_constants';
+
+import GlChartTooltip from './tooltip.vue';
 import readme from './tooltip.md';
 
 const components = {

@@ -4,7 +4,7 @@ import { nextTick } from 'vue';
 import { createMockChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
 import HeatMapChart from './heatmap.vue';
 
 let mockChartInstance;

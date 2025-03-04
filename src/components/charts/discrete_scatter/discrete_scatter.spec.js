@@ -3,8 +3,8 @@ import { nextTick } from 'vue';
 import { createMockChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
+import TooltipDefaultFormat from '../shared/tooltip/tooltip_default_format/tooltip_default_format.vue';
 import DiscreteScatterChart from './discrete_scatter.vue';
 
 let mockChartInstance;
