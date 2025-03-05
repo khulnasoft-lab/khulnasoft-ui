@@ -1,3 +1,10 @@
+# [109.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v109.1.0...v109.2.0) (2025-03-05)
+
+
+### Features
+
+* **GlCollapsibleListbox:** Visually highlight first result when searching ([0430cc4](https://gitlab.com/gitlab-org/gitlab-ui/commit/0430cc48d1832c95800f00e173d5c54be65abcb4))
+
 # [109.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v109.0.0...v109.1.0) (2025-03-05)
 
 
