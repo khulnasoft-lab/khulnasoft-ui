@@ -93,6 +93,13 @@
     }
   }
 
+  // Used in Listbox to visually highlight the first item after search
+  &.gl-new-dropdown-item-highlighted .gl-new-dropdown-item-content {
+    color: var(--gl-dropdown-option-text-color-focus);
+    background-color: var(--gl-dropdown-option-background-color-unselected-focus);
+    @include gl-focus($inset: true);
+  }
+
   .gl-new-dropdown-item-content {
     @apply gl-rounded-base;
     @apply gl-border-0;

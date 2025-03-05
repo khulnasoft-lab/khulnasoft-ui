@@ -7,6 +7,7 @@ import { stopEvent } from '../../../../utils/utils';
 import {
   GL_DROPDOWN_SHOWN,
   GL_DROPDOWN_HIDDEN,
+  ENTER,
   HOME,
   END,
   ARROW_DOWN,
@@ -389,6 +390,9 @@ export default {
     flattenedOptions() {
       return flattenedOptions(this.items);
     },
+    searchHasOptions() {
+      return this.flattenedOptions.length > 0 && this.searchStr;
+    },
     hasItems() {
       return this.items.length > 0;
     },
@@ -503,6 +507,16 @@ export default {
           /* Every time the list of items changes (on search),
            * the observed elements are recreated, thus we need to start obesrving them again */
           this.observeScroll();
+
+          /**
+           * Every time the list of items changes, and there is a search string,
+           * we want to visually highlight the first item
+           */
+          if (this.searchHasOptions) {
+            this.nextFocusedItemIndex = 0;
+          } else {
+            this.nextFocusedItemIndex = null;
+          }
         });
       },
     },
@@ -564,6 +578,13 @@ export default {
     onShow() {
       if (this.searchable) {
         this.focusSearchInput();
+
+        /**
+         * If the search string is not empty, highlight the first item
+         */
+        if (this.searchHasOptions) {
+          this.nextFocusedItemIndex = 0;
+        }
       } else {
         this.focusItem(this.selectedIndices[0] ?? 0, this.getFocusableListItemElements());
       }
@@ -608,6 +629,9 @@ export default {
         }
         if (this.searchable && elements.indexOf(target) === 0) {
           this.focusSearchInput();
+          if (!this.searchHasOptions) {
+            this.nextFocusedItemIndex = null;
+          }
         } else {
           this.focusNextItem(event, elements, -1);
         }
@@ -617,6 +641,11 @@ export default {
         } else {
           this.focusNextItem(event, elements, 1);
         }
+      } else if (code === ENTER && isSearchInput) {
+        if (this.searchHasOptions && elements.length > 0) {
+          this.onSelect(this.flattenedOptions[0], true);
+        }
+        stop = true;
       } else {
         stop = false;
       }
@@ -651,6 +680,9 @@ export default {
         this.onSingleSelect(item.value, isSelected);
       }
     },
+    isHighlighted(item) {
+      return this.nextFocusedItemIndex === this.flattenedOptions.indexOf(item);
+    },
     isSelected(item) {
       return this.selectedValues.some((value) => value === item.value);
     },
@@ -666,7 +698,6 @@ export default {
          */
         this.$emit('select', value);
       }
-
       this.closeAndFocus();
     },
     onMultiSelect(value, isSelected) {
@@ -866,6 +897,7 @@ export default {
           <gl-listbox-item
             :key="item.value"
             :data-testid="`listbox-item-${item.value}`"
+            :is-highlighted="isHighlighted(item)"
             :is-selected="isSelected(item)"
             :is-focused="isFocused(item)"
             :is-check-centered="isCheckCentered"
@@ -895,6 +927,7 @@ export default {
               v-for="option in item.options"
               :key="option.value"
               :data-testid="`listbox-item-${option.value}`"
+              :is-highlighted="isHighlighted(option)"
               :is-selected="isSelected(option)"
               :is-focused="isFocused(option)"
               :is-check-centered="isCheckCentered"

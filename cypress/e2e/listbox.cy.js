@@ -139,6 +139,72 @@ describe('GlCollapsibleListbox', () => {
     });
   });
 
+  describe('enter keypress', () => {
+    beforeEach(() => {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
+        story: 'searchable',
+        args: {
+          startOpened: true,
+        },
+      });
+    });
+
+    it('should select the first filtered option when Enter is pressed', () => {
+      searchInput().clear().type('pro');
+      getDropdownItem('Product').should('be.visible');
+      searchInput().type('{enter}');
+      toggleBtn().should('contain', 'Product');
+    });
+  });
+
+  describe('highlight first filtered option on search', () => {
+    beforeEach(() => {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
+        story: 'searchable',
+        args: {
+          startOpened: true,
+        },
+      });
+    });
+
+    const dropdownItemAtIndex = (i) =>
+      getDropdownItem(['Product', 'People', 'Finance', 'Support'][i]);
+
+    const highlightClass = 'gl-new-dropdown-item-highlighted';
+
+    it('should highlight the first filtered option only when the search input has a value', () => {
+      searchInput().type('p');
+      dropdownItemAtIndex(0).should('have.class', highlightClass);
+      dropdownItemAtIndex(1).should('not.have.class', highlightClass);
+      searchInput().clear();
+      dropdownItemAtIndex(0).should('not.have.class', highlightClass);
+      dropdownItemAtIndex(1).should('not.have.class', highlightClass);
+    });
+
+    it('should maintain highlight through keyboard navigation and menu open/close', () => {
+      searchInput().type('p');
+      dropdownItemAtIndex(0).should('have.class', highlightClass);
+      searchInput().type('{downArrow}');
+      dropdownItemAtIndex(0)
+        .should('be.focused')
+        .should('have.class', highlightClass)
+        .type('{downArrow}');
+      dropdownItemAtIndex(1).should('have.class', highlightClass);
+      dropdownItemAtIndex(0).should('not.have.class', highlightClass);
+      dropdownItemAtIndex(1).type('{upArrow}');
+      dropdownItemAtIndex(0).type('{upArrow}');
+      searchInput().should('be.focused');
+      dropdownItemAtIndex(0).should('have.class', highlightClass);
+      dropdownItemAtIndex(1).should('not.have.class', highlightClass);
+      toggleBtn().click();
+      dropdownMenu().should('not.be.visible');
+      toggleBtn().click();
+      dropdownMenu().should('be.visible');
+      dropdownItemAtIndex(0).should('have.class', highlightClass);
+      dropdownItemAtIndex(1).should('not.have.class', highlightClass);
+    });
+  });
+
   describe('overflow scrim', () => {
     it('should display overflow scrim when content is overflowing', () => {
       cy.visitStory('base/dropdown/collapsible-listbox', {
