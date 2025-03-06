@@ -18,7 +18,8 @@ export const props = makePropsConfigurable(
     activeClass: makeProp(PROP_TYPE_STRING, 'active'),
     buttonClass: makeProp(PROP_TYPE_ARRAY_OBJECT_STRING),
     disabled: makeProp(PROP_TYPE_BOOLEAN, false),
-    variant: makeProp(PROP_TYPE_STRING)
+    variant: makeProp(PROP_TYPE_STRING),
+    role: makeProp(PROP_TYPE_STRING, 'menuitem')
   },
   NAME_DROPDOWN_ITEM_BUTTON
 )
@@ -42,9 +43,10 @@ export const BDropdownItemButton = /*#__PURE__*/ extend({
     computedAttrs() {
       return {
         ...this.bvAttrs,
-        role: 'menuitem',
+        role: this.role,
         type: 'button',
-        disabled: this.disabled
+        disabled: this.disabled,
+        'aria-selected': this.active ? 'true' : null
       }
     }
   },
