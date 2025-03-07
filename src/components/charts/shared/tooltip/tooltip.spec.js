@@ -1,10 +1,10 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import { createMockChartInstance } from '~helpers/chart_stubs';
-import GlPopover from '../../base/popover/popover.vue';
-import { popoverPlacements } from '../../../utils/constants';
-import { waitForAnimationFrame } from '../../../utils/test_utils';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import GlPopover from '../../../base/popover/popover.vue';
+import { popoverPlacements } from '../../../../utils/constants';
+import { waitForAnimationFrame } from '../../../../utils/test_utils';
+import TooltipDefaultFormat from './tooltip_default_format/tooltip_default_format.vue';
 
 import ChartTooltip from './tooltip.vue';
 

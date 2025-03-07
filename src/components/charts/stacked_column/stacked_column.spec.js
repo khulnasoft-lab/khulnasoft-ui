@@ -15,9 +15,9 @@ import {
 } from '../../../utils/charts/mock_data';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
 import * as themeUtils from '../../../utils/charts/theme';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import TooltipDefaultFormat from '../shared/tooltip/tooltip_default_format/tooltip_default_format.vue';
 import StackedColumnChart from './stacked_column.vue';
 
 let mockChartInstance;

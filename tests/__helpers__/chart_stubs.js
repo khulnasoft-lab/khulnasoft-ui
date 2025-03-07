@@ -1,4 +1,4 @@
-import ChartTooltip from '~/components/charts/tooltip/tooltip.vue';
+import ChartTooltip from '~/components/charts/shared/tooltip/tooltip.vue';
 
 export const createMockChartInstance = () => {
   const dom = {

@@ -11,7 +11,7 @@ import {
 } from '../../../utils/charts/config';
 import { HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES } from '../../../utils/charts/constants';
 import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
 
 // the padding is needed so the mark points don't overflow when visible
 const gridPadding = symbolSize / 2;

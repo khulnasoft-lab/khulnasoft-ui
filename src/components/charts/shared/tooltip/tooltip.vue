@@ -1,12 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import * as echarts from 'echarts';
-import { uid, debounceByAnimationFrame } from '../../../utils/utils';
-import GlPopover from '../../base/popover/popover.vue';
-import { popoverPlacements } from '../../../utils/constants';
-import { TOOLTIP_LEFT_OFFSET, TOOLTIP_TOP_OFFSET } from '../../../utils/charts/constants';
-import { getTooltipTitle, getTooltipContent } from '../../../utils/charts/config';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import { uid, debounceByAnimationFrame } from '../../../../utils/utils';
+import GlPopover from '../../../base/popover/popover.vue';
+import { popoverPlacements } from '../../../../utils/constants';
+import { TOOLTIP_LEFT_OFFSET, TOOLTIP_TOP_OFFSET } from '../../../../utils/charts/constants';
+import { getTooltipTitle, getTooltipContent } from '../../../../utils/charts/config';
+
+import TooltipDefaultFormat from './tooltip_default_format/tooltip_default_format.vue';
 
 export default {
   name: 'GlChartTooltip',

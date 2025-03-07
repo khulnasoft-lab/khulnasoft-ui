@@ -22,10 +22,10 @@ import {
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
+import TooltipDefaultFormat from '../shared/tooltip/tooltip_default_format/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
-import TooltipDefaultFormat from '../../shared_components/charts/tooltip_default_format.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
 
 const yAxisDefaults = {
   ...yAxis,

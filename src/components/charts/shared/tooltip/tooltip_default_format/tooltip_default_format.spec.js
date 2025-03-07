@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import SeriesLabel from '../../charts/series_label/series_label.vue';
+import SeriesLabel from '../../../series_label/series_label.vue';
 import TooltipDefaultFormat from './tooltip_default_format.vue';
 
 const mockTooltipContent = {

@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import { createMockChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
 import BarChart from './bar.vue';
 
 let mockChartInstance;

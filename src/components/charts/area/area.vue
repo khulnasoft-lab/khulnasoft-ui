@@ -41,7 +41,7 @@ import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { seriesHasAnnotations, isDataPointAnnotation } from '../../../utils/charts/utils';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
 
 export default {
   name: 'GlAreaChart',

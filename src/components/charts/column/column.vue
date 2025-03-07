@@ -15,7 +15,7 @@ import { CHART_TYPE_LINE, HEIGHT_AUTO_CLASSES } from '../../../utils/charts/cons
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
 import { columnOptions } from '../../../utils/constants';
 import Chart from '../chart/chart.vue';
-import ChartTooltip from '../tooltip/tooltip.vue';
+import ChartTooltip from '../shared/tooltip/tooltip.vue';
 
 const yAxisDefaults = {
   ...yAxis,
