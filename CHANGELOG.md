@@ -1,3 +1,16 @@
+# [110.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v109.2.1...v110.0.0) (2025-03-07)
+
+
+### Features
+
+* **charts:** Removes GlChartTooltip component from published package ([99517f4](https://gitlab.com/gitlab-org/gitlab-ui/commit/99517f418f6b9116a724eba247dc004403557a77))
+
+
+### BREAKING CHANGES
+
+* **charts:** GlChartTooltip cannot be imported
+from '@gitlab/ui/dist/charts'
+
 ## [109.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v109.2.0...v109.2.1) (2025-03-07)
 
 
