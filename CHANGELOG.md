@@ -1,3 +1,10 @@
+## [109.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v109.2.0...v109.2.1) (2025-03-07)
+
+
+### Bug Fixes
+
+* **combobox:** Combobox ARIA labeling ([2d46733](https://gitlab.com/gitlab-org/gitlab-ui/commit/2d4673351a44c8413188dbe708a06ea973694a32))
+
 # [109.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v109.1.0...v109.2.0) (2025-03-05)
 
 
