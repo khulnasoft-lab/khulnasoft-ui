@@ -19,3 +19,20 @@ a:not([href]):not([class]) {
 caption {
   @apply gl-text-subtle;
 }
+
+.table {
+  @apply gl-w-full gl-mb-3 gl-text-default gl-bg-transparent;
+
+  th,
+  td {
+    @apply gl-p-4 gl-align-top gl-border-t;
+  }
+
+  thead th {
+    @apply gl-align-bottom gl-border-b gl-border-b-2;
+  }
+
+  tbody + tbody {
+    @apply gl-border-t gl-border-t-2;
+  }
+}
