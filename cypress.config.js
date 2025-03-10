@@ -15,21 +15,5 @@ module.exports = defineConfig({
   },
   e2e: {
     baseUrl: `http://${STORYBOOK_HOST}:${STORYBOOK_PORT}`,
-    setupNodeEvents(on) {
-      on('task', {
-        log(message) {
-          // eslint-disable-next-line no-console
-          console.log(message);
-
-          return null;
-        },
-        table(message) {
-          // eslint-disable-next-line no-console
-          console.table(message);
-
-          return null;
-        },
-      });
-    },
   },
 });

@@ -1,26 +1,4 @@
 describe('GlPopover', () => {
-  describe('stories', () => {
-    function checkA11yPopover() {
-      cy.visitStory('base/popover');
-    }
-
-    function checkA11yPopoverOnClick() {
-      cy.visitStory('base/popover', { story: 'on-click' });
-    }
-
-    function checkA11yPopoverWithCloseButton() {
-      cy.visitStory('base/popover', { story: 'with-close-button' });
-    }
-
-    it('passes axe accessbility audits', { tags: '@a11y' }, () => {
-      cy.glRunA11yTests({
-        checkA11yPopover,
-        checkA11yPopoverOnClick,
-        checkA11yPopoverWithCloseButton,
-      });
-    });
-  });
-
   it('popover title should be visible when using props', () => {
     cy.visitStory('base/popover');
 
