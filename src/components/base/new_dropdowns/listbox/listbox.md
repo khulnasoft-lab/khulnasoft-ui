@@ -27,6 +27,27 @@ Optionally, you can use `no-caret` to remove the caret and `category="tertiary"`
 >
 ```
 
+## Labeling the listbox
+
+The `toggleId` prop sets the `id` of the toggle element. This is useful for associating a label
+element with the toggle.
+
+```html
+<gl-form-group label="Department" label-for="department-picker">
+  <gl-collapsible-listbox
+    toggle-id="department-picker"
+    :items="departments"
+  />
+</gl-form-group>
+```
+
+Prefer using `toggleId` over `toggleAriaLabelledBy`, as it is more similar to how
+label elements are associated with other form components.
+
+**Note:** Do not use the `toggleId` prop in conjunction with the `toggle` slot.
+Instead, set the `id` directly on the custom toggle element, and pass the same
+value to `GlFormGroup`'s `labelFor` prop.
+
 ## Opening the listbox
 
 Listbox will open on toggle button click (if it was previously closed).
