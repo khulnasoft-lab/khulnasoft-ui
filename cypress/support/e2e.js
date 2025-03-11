@@ -14,7 +14,6 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import 'cypress-axe';
 import 'cypress-real-events';
 import registerCypressGrep from '@cypress/grep/src/support';
 import './commands';

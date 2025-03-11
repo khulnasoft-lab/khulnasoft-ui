@@ -209,7 +209,7 @@ lint:
   needs: []
   stage: test
   variables:
-    ESLINT_CODE_QUALITY_REPORT: "gl-code-quality-report-eslint.json"
+    ESLINT_CODE_QUALITY_REPORT: 'gl-code-quality-report-eslint.json'
   script:
     - yarn eslint --format gitlab
     - yarn prettier
@@ -228,12 +228,12 @@ stylelint:
   needs: []
   stage: test
   variables:
-    STYLELINT_CODE_QUALITY_REPORT: "gl-code-quality-report-stylelint.json"
+    STYLELINT_CODE_QUALITY_REPORT: 'gl-code-quality-report-stylelint.json'
   script:
     - yarn stylelint --custom-formatter=@studiometa/stylelint-formatter-gitlab
   artifacts:
     reports:
-      codequality: "$STYLELINT_CODE_QUALITY_REPORT"
+      codequality: '$STYLELINT_CODE_QUALITY_REPORT'
 
 check_translations_dictionary:
   extends: [.node, '.yarn_install']
@@ -280,11 +280,11 @@ visual_vue3:
   extends: [.node, .yarn_install]
   variables:
     # Allow these jobs to install cypress binaries
-    CYPRESS_INSTALL_BINARY: ""
+    CYPRESS_INSTALL_BINARY: ''
   needs: [build_test_storybook]
   parallel:
     matrix:
-      - SUITE: ['cy:a11y', 'cy:edge', 'cy:run']
+      - SUITE: ['cy:edge', 'cy:run']
   stage: test
   script:
     - yarn cypress install --force
@@ -319,8 +319,8 @@ bootstrap-vue_vue3:
   needs: []
   stage: test
   variables:
-    ARTIFACT_NAME: "coverage"
-    COVERAGE_DIR: "coverage"
+    ARTIFACT_NAME: 'coverage'
+    COVERAGE_DIR: 'coverage'
   script:
     - yarn test:unit:coverage --coverageReporters=cobertura --coverageDirectory=$COVERAGE_DIR
   artifacts:
@@ -337,14 +337,14 @@ bootstrap-vue_vue3:
 unit_tests_vue2:
   extends: [.unit_tests]
   variables:
-    ARTIFACT_NAME: "coverage-vue2"
-    COVERAGE_DIR: "coverage/vue2"
+    ARTIFACT_NAME: 'coverage-vue2'
+    COVERAGE_DIR: 'coverage/vue2'
 
 unit_tests_vue3:
   extends: [.unit_tests, .use_vue3]
   variables:
-    ARTIFACT_NAME: "coverage-vue3"
-    COVERAGE_DIR: "coverage/vue3"
+    ARTIFACT_NAME: 'coverage-vue3'
+    COVERAGE_DIR: 'coverage/vue3'
 
 merge_coverage_reports:
   extends: [.node, .yarn_install]
@@ -402,7 +402,7 @@ update_screenshots:
     - echo "Pages accessible through ${CI_ENVIRONMENT_URL}"
     - mv ./tailwind-config-viewer-static ./public/tailwind-config-viewer
   environment:
-    url: "${CI_PAGES_URL}"
+    url: '${CI_PAGES_URL}'
   publish: public
   artifacts:
     paths:
@@ -415,7 +415,7 @@ pages:
   pages:
     expire_in: never
   environment:
-    name: "pages"
+    name: 'pages'
 
 review-app:
   extends:
@@ -423,10 +423,10 @@ review-app:
     - .rules:gitlab-ui-mr
   pages:
     path_prefix: '$CI_ENVIRONMENT_SLUG'
-    expire_in: "2 weeks"
+    expire_in: '2 weeks'
   environment:
-    name: "review/mr-$CI_MERGE_REQUEST_IID"
-    auto_stop_in: "2 weeks"
+    name: 'review/mr-$CI_MERGE_REQUEST_IID'
+    auto_stop_in: '2 weeks'
 
 create_integration_branch:
   extends:
@@ -474,7 +474,7 @@ update_deployments:
       changes:
         paths:
           - bin/update_deployments.mjs
-        compare_to: "refs/heads/main"
+        compare_to: 'refs/heads/main'
 
 .snippets:
   # The usage of these snippets can be removed after we had the first proper release
@@ -516,7 +516,7 @@ publish-to-npm-dry-run:
     # semantic-release is not playing well with pipelines from forks.
     # even if triggered by a project member. So let's not run it on
     # e.g. renovate MRs which come from forks
-    - if: "$CI_MERGE_REQUEST_SOURCE_PROJECT_ID != $CI_MERGE_REQUEST_ID"
+    - if: '$CI_MERGE_REQUEST_SOURCE_PROJECT_ID != $CI_MERGE_REQUEST_ID'
       when: never
     - !reference ['.rules:gitlab-ui-mr', rules]
   stage: deploy

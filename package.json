@@ -36,9 +36,8 @@
     "build-tokens": "make tokens",
     "build-migration-script": "esbuild --bundle --platform=node --target=esnext --outfile=bin/migrate_custom_utils_to_tw.bundled.mjs --format=esm --banner:js=\"import { createRequire as __gl__createRequire } from 'node:module'; const require = __gl__createRequire(import.meta.url);\" bin/migrate_custom_utils_to_tw.mjs",
     "clean": "rm -r dist storybook",
-    "cy:a11y": "cypress run --browser chrome --env grepTags=@a11y",
-    "cy:edge": "cypress run --browser edge --env grepTags=-@a11y+-@storybook",
-    "cy:run": "cypress run --browser firefox --env grepTags=-@a11y+-@storybook",
+    "cy:edge": "cypress run --browser edge --env grepTags=-@storybook",
+    "cy:run": "cypress run --browser firefox --env grepTags=-@storybook",
     "start": "yarn storybook",
     "storybook": "yarn storybook:prepare && storybook dev --ci --host ${STORYBOOK_HOST:-localhost} --port ${STORYBOOK_PORT:-9001} -c .storybook",
     "storybook-vue3": "yarn storybook:prepare && VUE_VERSION=3 storybook dev --ci --host ${STORYBOOK_HOST:-localhost} --port ${STORYBOOK_PORT:-9001} -c .storybook",
@@ -49,7 +48,7 @@
     "storybook:run": "npx http-server -bgs -p ${STORYBOOK_PORT:-9001} ./storybook",
     "pretest:unit": "yarn build-tokens",
     "test": "run-s test:unit test:visual",
-    "test:integration": "yarn run test:integration:server 'yarn cy:run && yarn cy:edge && yarn cy:a11y'",
+    "test:integration": "yarn run test:integration:server 'yarn cy:run && yarn cy:edge'",
     "test:integration:server": "NODE_ENV=test start-test storybook:run http-get://${STORYBOOK_HOST:-localhost}:${STORYBOOK_PORT:-9001}/iframe.html",
     "test:unit": "NODE_ENV=test jest",
     "test:unit:watch": "yarn test:unit --watch",
@@ -140,12 +139,10 @@
     "acorn": "^8.11.3",
     "acorn-walk": "^8.3.2",
     "autoprefixer": "^9.7.6",
-    "axe-core": "^4.2.3",
     "axe-playwright": "^2.1.0",
     "babel-jest": "29.0.1",
     "babel-loader": "^8.0.5",
     "cypress": "14.1.0",
-    "cypress-axe": "^1.4.0",
     "cypress-real-events": "^1.11.0",
     "dompurify": "^3.1.2",
     "emoji-regex": "^10.0.0",
@@ -207,11 +204,6 @@
     "webpack": "^5.9.0",
     "yargs": "^17.3.1",
     "yarn-deduplicate": "^6.0.2"
-  },
-  "overrides": {
-    "cypress-axe": {
-      "axe-core": "4.2.3"
-    }
   },
   "release": {
     "branches": [
