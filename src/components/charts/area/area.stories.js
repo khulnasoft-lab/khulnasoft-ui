@@ -1,7 +1,7 @@
 import times from 'lodash/times';
 import { GlAreaChart } from '../../../charts';
 import { mockAnnotationsSeries, mockAnnotationsConfigs } from '../../../utils/charts/mock_data';
-import { DATA_VIZ_AQUA_500, DATA_VIZ_ORANGE_600 } from '../../../tokens/build/js/tokens';
+import { GL_COLOR_DATA_AQUA_500, GL_COLOR_DATA_ORANGE_600 } from '../../../tokens/build/js/tokens';
 import { timeSeriesDateFormatter } from '../../../utils/charts/utils';
 import { generateTimeSeries } from '../../../utils/data_utils';
 import { disableControls } from '../../../utils/stories_utils';
@@ -165,13 +165,13 @@ WithCustomLegendItems.args = generateProps({
     {
       name: 'Custom Legend Item 1',
       type: 'solid',
-      color: DATA_VIZ_ORANGE_600,
+      color: GL_COLOR_DATA_ORANGE_600,
       data: [10, 20],
     },
     {
       name: 'Custom Legend Item 2',
       type: 'solid',
-      color: DATA_VIZ_AQUA_500,
+      color: GL_COLOR_DATA_AQUA_500,
       data: [30, 50],
     },
   ],

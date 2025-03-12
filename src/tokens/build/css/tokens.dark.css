@@ -244,6 +244,7 @@
   --gl-avatar-fallback-background-color-green: #91d4a83d; /* Green background for avatar fallback with no particular meaning. */
   --gl-avatar-fallback-background-color-orange: #e9be743d; /* Orange background for avatar fallback with no particular meaning. */
   --gl-avatar-fallback-background-color-neutral: #bfbfc33d; /* Neutral background for avatar fallback with no particular meaning. */
+  --gl-chart-threshold-area-color: rgba(221,43,14,0.1); /* Used in charts to delineate a threshold area in a chart. */
   --gl-illustration-stroke-color-default: #e3e3e8; /* Default stroke color to define shape and provide essential detail. */
   --gl-illustration-stroke-width-default: 0.09375rem; /* Default stroke width to define shape and provide essential detail. */
   --gl-illustration-fill-color-default: #423f4f; /* Default fill color for an element where specific meaning or emphasis is not required. */
@@ -750,6 +751,9 @@
   --gl-button-disabled-foreground-color: var(--gl-color-neutral-400); /* Used for the foreground of a disabled button. */
   --gl-button-disabled-background-color: rgba(137, 136, 141, 0.16); /* Used for the background of a disabled button. */
   --gl-button-disabled-border-color: var(--gl-color-alpha-0); /* Used for the border of a disabled button. */
+  --gl-chart-axis-line-color: var(--gl-color-neutral-700); /* Used in charts for axis line color. */
+  --gl-chart-threshold-line-color: var(--gl-color-red-600); /* Used in charts to divide a threshold area in a chart from other data. */
+  --gl-chart-zoom-filler-color: var(--gl-color-alpha-light-16); /* Used in charts for the overlay color when zooming in on a specific area of data. */
   --gl-datepicker-background-color: var(--gl-color-neutral-900); /* Used for the background color of datepicker. */
   --gl-dropdown-option-background-color-unselected-default: var(--gl-action-neutral-background-color-default); /* Used for the background of an unselected dropdown option in the default state. */
   --gl-dropdown-option-background-color-unselected-hover: var(--gl-action-neutral-background-color-hover); /* Used for the background of an unselected dropdown option in the hover state. */
@@ -953,6 +957,7 @@
   --gl-button-selected-background-color-hover: var(--gl-color-neutral-200); /* Used for the background of a selected button in the hover state. */
   --gl-button-selected-background-color-active: var(--gl-color-neutral-400); /* Used for the background of a selected button in the active state. */
   --gl-button-selected-border-color-focus: var(--gl-button-selected-border-color-hover); /* Used for the border of a selected button in the focus state. */
+  --gl-chart-axis-text-color: var(--gl-text-color-subtle); /* Used in charts for the text color of axis titles and labels. */
   --gl-datepicker-date-text-color-selected: var(--gl-control-indicator-color-selected); /* Used for the datepicker date text color state indicators. */
   --gl-dropdown-background-color: var(--gl-background-color-overlap); /* Used for the background of a dropdown. */
   --gl-dropdown-border-color: var(--gl-border-color-default); /* Used for the border of a dropdown. */
@@ -1027,6 +1032,8 @@
   --gl-button-selected-foreground-color-focus: var(--gl-color-neutral-950); /* Used for the foreground of a selected button in the focus state. */
   --gl-button-selected-foreground-color-active: var(--gl-color-neutral-950); /* Used for the foreground of a selected button in the active state. */
   --gl-button-selected-background-color-focus: var(--gl-color-neutral-200); /* Used for the background of a selected button in the focus state. */
+  --gl-chart-axis-pointer-color: var(--gl-icon-color-subtle); /* Used in charts for the color of the reference line and axis value under mouse pointer. */
+  --gl-chart-zoom-handle-color: var(--gl-icon-color-subtle); /* Used in charts for the handle color when zooming in on a specific area of data. */
   --gl-dropdown-option-text-color-hover: var(--gl-action-neutral-foreground-color-hover); /* Used for the text of a dropdown option in the hover state. */
   --gl-dropdown-option-text-color-focus: var(--gl-action-neutral-foreground-color-focus); /* Used for the text of a dropdown option in the focus state. */
   --gl-dropdown-option-text-color-active: var(--gl-action-neutral-foreground-color-active); /* Used for the text of a dropdown option in the active state. */

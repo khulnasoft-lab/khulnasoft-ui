@@ -6,7 +6,6 @@ import {
   SERIES_NAME_LONG,
   SERIES_NAME_LONG_WITHOUT_SPACES,
 } from '../../../utils/stories_constants';
-import { GRAY_200 } from '../../../tokens/build/js/tokens';
 import readme from './legend.md';
 
 const generateOptions = (seriesLength, seriesNameType) => {
@@ -85,7 +84,7 @@ const baseStoryOptions = {
 const disabledLegendItem = {
   type: 'solid',
   name: 'Disabled Item',
-  color: GRAY_200,
+  color: 'var(--gl-chart-axis-line-color)',
   disabled: true,
 };
 
