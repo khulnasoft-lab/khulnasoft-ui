@@ -1,7 +1,14 @@
 import { mount } from '@vue/test-utils';
 import VueRouter from 'vue-router';
 import Vue from 'vue';
-import { isVue3 } from '../../../utils/constants';
+import {
+  isVue3,
+  linkVariantInline,
+  linkVariantMeta,
+  linkVariantMention,
+  linkVariantMentionCurrent,
+  linkVariantUnstyled,
+} from '../../../utils/constants';
 import Link from './link.vue';
 
 Vue.use(VueRouter);
@@ -77,12 +84,13 @@ describe('link component', () => {
   });
 
   it.each`
-    variant             | expectedClass
-    ${'inline'}         | ${['gl-link', 'gl-link-inline']}
-    ${undefined}        | ${['gl-link']}
-    ${'meta'}           | ${['gl-link', 'gl-link-meta']}
-    ${'mention'}        | ${['gl-link', 'gl-link-mention']}
-    ${'mentionCurrent'} | ${['gl-link', 'gl-link-mention-current']}
+    variant                      | expectedClass
+    ${linkVariantInline}         | ${['gl-link', 'gl-link-inline']}
+    ${undefined}                 | ${['gl-link']}
+    ${linkVariantMeta}           | ${['gl-link', 'gl-link-meta']}
+    ${linkVariantMention}        | ${['gl-link', 'gl-link-mention']}
+    ${linkVariantMentionCurrent} | ${['gl-link', 'gl-link-mention-current']}
+    ${linkVariantUnstyled}       | ${[]}
   `('adds $expectedClass class when variant=$variant', ({ variant, expectedClass }) => {
     createWrapper({
       propsData: {

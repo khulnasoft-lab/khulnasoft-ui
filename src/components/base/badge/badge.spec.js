@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
-import { badgeVariantOptions } from '../../../utils/constants';
+import GlLink from '../link/link.vue';
+import { badgeVariantOptions, linkVariantUnstyled } from '../../../utils/constants';
 import Icon from '../icon/icon.vue';
 import Badge from './badge.vue';
 
@@ -8,7 +8,7 @@ describe('badge', () => {
   let wrapper;
 
   const findIcon = () => wrapper.findComponent(Icon);
-  const findLink = () => wrapper.findComponent(BLink);
+  const findLink = () => wrapper.findComponent(GlLink);
 
   const createComponent = ({ attrs = {}, propsData = {}, slots } = {}) => {
     wrapper = shallowMount(Badge, {
@@ -122,8 +122,8 @@ describe('badge', () => {
   });
 
   describe('link badge', () => {
-    it('passes link props to BLink', () => {
-      const linkProps = {
+    it('passes link props to GlLink', () => {
+      const propsData = {
         href: 'https://www.gitlab.com',
         rel: 'external',
         target: '_blank',
@@ -131,10 +131,15 @@ describe('badge', () => {
         disabled: true,
       };
       createComponent({
-        propsData: linkProps,
+        propsData,
       });
 
-      expect(findLink().props()).toMatchObject(linkProps);
+      const expectedLinkProps = {
+        ...propsData,
+        variant: linkVariantUnstyled,
+      };
+
+      expect(findLink().props()).toMatchObject(expectedLinkProps);
     });
   });
 });
