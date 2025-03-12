@@ -1,3 +1,18 @@
+# [111.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v110.1.0...v111.0.0) (2025-03-12)
+
+
+### Features
+
+* **GlLink:** Remove `BLink` from `GlLink` ([22f8323](https://gitlab.com/gitlab-org/gitlab-ui/commit/22f8323023ed9d44e2af3705c12f02ba93edd506))
+
+
+### BREAKING CHANGES
+
+* **GlLink:** Removed support for the following props:
+`append`, `event`, `exact`, `exact-path`, `exact-path-active-class`,
+`no-prefetch`, `router-component-name`, `router-tag`.
+Also removed support for `bv::link::clicked` global event.
+
 # [110.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v110.0.0...v110.1.0) (2025-03-10)
 
 
