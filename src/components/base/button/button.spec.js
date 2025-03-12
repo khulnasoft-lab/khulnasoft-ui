@@ -142,17 +142,14 @@ describe('button component', () => {
         expect(wrapper.attributes('rel')).toBe('noopener noreferrer');
       });
 
-      it('should set noopener rel for hrefs for the same domain', () => {
-        // This behavior is due to the fact that
-        // bootstrap-vue link component adds rel="noopener" when target is set as "_blank"
-        // https://github.com/bootstrap-vue/bootstrap-vue/pull/418/files#diff-997fcb1eb150236aec5306a4d72229beR25
+      it('should set noopener noreferrer rel for hrefs for the same domain', () => {
         buildWrapper({
           propsData: {
             target: '_blank',
             href: window.location.hostname,
           },
         });
-        expect(wrapper.attributes('rel')).toBe('noopener');
+        expect(wrapper.attributes('rel')).toBe('noopener noreferrer');
       });
 
       it('should keep rel attribute for hrefs in the same domain', () => {
