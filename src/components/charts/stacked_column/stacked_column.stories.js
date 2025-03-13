@@ -6,10 +6,10 @@ import {
 } from '../../../utils/charts/mock_data';
 import { columnOptions } from '../../../utils/constants';
 import {
-  DATA_VIZ_ORANGE_600,
-  DATA_VIZ_AQUA_500,
-  DATA_VIZ_GREEN_600,
-  DATA_VIZ_MAGENTA_500,
+  GL_COLOR_DATA_ORANGE_600,
+  GL_COLOR_DATA_AQUA_500,
+  GL_COLOR_DATA_GREEN_600,
+  GL_COLOR_DATA_MAGENTA_500,
 } from '../../../tokens/build/js/tokens';
 import readme from './stacked_column.md';
 
@@ -118,7 +118,12 @@ SecondaryYAxisLine.args = generateProps({
 
 export const WithCustomColorPalette = Template.bind({});
 WithCustomColorPalette.args = generateProps({
-  customPalette: [DATA_VIZ_ORANGE_600, DATA_VIZ_AQUA_500, DATA_VIZ_GREEN_600, DATA_VIZ_MAGENTA_500],
+  customPalette: [
+    GL_COLOR_DATA_ORANGE_600,
+    GL_COLOR_DATA_AQUA_500,
+    GL_COLOR_DATA_GREEN_600,
+    GL_COLOR_DATA_MAGENTA_500,
+  ],
 });
 
 export const WithoutLegendValues = Template.bind({});

@@ -1,6 +1,5 @@
 <script>
 import merge from 'lodash/merge';
-import { GRAY_200 } from '../../../tokens/build/js/tokens';
 import {
   defaultChartOptions,
   dataZoomAdjustments,
@@ -112,7 +111,7 @@ export default {
               alignWithLabel: true,
               show: true,
               lineStyle: {
-                color: GRAY_200,
+                color: 'var(--gl-chart-axis-line-color)',
               },
             },
             axisLabel: {

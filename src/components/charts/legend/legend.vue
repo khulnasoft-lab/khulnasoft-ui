@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import * as echarts from 'echarts';
-import { GRAY_200 } from '../../../tokens/build/js/tokens';
 import { defaultFontSize } from '../../../utils/charts/config';
 import {
   LEGEND_LAYOUT_INLINE,
@@ -146,7 +145,7 @@ export default {
       this.chart.dispatchAction({ type: 'downplay', seriesName: name });
     },
     getColor(color, key) {
-      return this.disabledSeries[key] ? GRAY_200 : color;
+      return this.disabledSeries[key] ? 'var(--gl-chart-axis-line-color)' : color;
     },
     suppressLastActiveSeriesLabelToggle({ selected }) {
       const selectedSeriesLabels = Object.entries(selected).filter(([, isSelected]) =>

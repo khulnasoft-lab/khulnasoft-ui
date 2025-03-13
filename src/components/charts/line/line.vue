@@ -19,7 +19,6 @@
  */
 
 import merge from 'lodash/merge';
-import { GRAY_200 } from '../../../tokens/build/js/tokens';
 import {
   defaultChartOptions,
   grid,
@@ -193,7 +192,7 @@ export default {
             alignWithLabel: true,
             show: true,
             lineStyle: {
-              color: GRAY_200,
+              color: 'var(--gl-chart-axis-line-color)',
             },
           },
         },

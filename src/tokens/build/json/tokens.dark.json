@@ -13350,6 +13350,177 @@
       }
     }
   },
+  "chart": {
+    "axis": {
+      "pointer": {
+        "color": {
+          "$value": "#bfbfc3",
+          "$type": "color",
+          "$description": "Used in charts for the color of the reference line and axis value under mouse pointer.",
+          "filePath": "src/tokens/contextual/chart.tokens.json",
+          "isSource": true,
+          "original": {
+            "$value": "{icon.color.subtle}",
+            "$type": "color",
+            "$description": "Used in charts for the color of the reference line and axis value under mouse pointer."
+          },
+          "name": "CHART_AXIS_POINTER_COLOR",
+          "attributes": {},
+          "path": [
+            "chart",
+            "axis",
+            "pointer",
+            "color"
+          ]
+        }
+      },
+      "line": {
+        "color": {
+          "$value": "#4c4b51",
+          "$type": "color",
+          "$description": "Used in charts for axis line color.",
+          "filePath": "src/tokens/contextual/chart.tokens.json",
+          "isSource": true,
+          "original": {
+            "$value": {
+              "default": "{color.neutral.200}",
+              "dark": "{color.neutral.700}"
+            },
+            "$type": "color",
+            "$description": "Used in charts for axis line color."
+          },
+          "name": "CHART_AXIS_LINE_COLOR",
+          "attributes": {},
+          "path": [
+            "chart",
+            "axis",
+            "line",
+            "color"
+          ]
+        }
+      },
+      "text": {
+        "color": {
+          "$value": "#bfbfc3",
+          "$type": "color",
+          "$description": "Used in charts for the text color of axis titles and labels.",
+          "filePath": "src/tokens/contextual/chart.tokens.json",
+          "isSource": true,
+          "original": {
+            "$value": "{text.color.subtle}",
+            "$type": "color",
+            "$description": "Used in charts for the text color of axis titles and labels."
+          },
+          "name": "CHART_AXIS_TEXT_COLOR",
+          "attributes": {},
+          "path": [
+            "chart",
+            "axis",
+            "text",
+            "color"
+          ]
+        }
+      }
+    },
+    "threshold": {
+      "area": {
+        "color": {
+          "$value": "rgba(221,43,14,0.1)",
+          "$type": "color",
+          "$description": "Used in charts to delineate a threshold area in a chart.",
+          "filePath": "src/tokens/contextual/chart.tokens.json",
+          "isSource": true,
+          "original": {
+            "$value": "rgba(221,43,14,0.1)",
+            "$type": "color",
+            "$description": "Used in charts to delineate a threshold area in a chart."
+          },
+          "name": "CHART_THRESHOLD_AREA_COLOR",
+          "attributes": {},
+          "path": [
+            "chart",
+            "threshold",
+            "area",
+            "color"
+          ]
+        }
+      },
+      "line": {
+        "color": {
+          "$value": "#c91c00",
+          "$type": "color",
+          "$description": "Used in charts to divide a threshold area in a chart from other data.",
+          "filePath": "src/tokens/contextual/chart.tokens.json",
+          "isSource": true,
+          "original": {
+            "$value": {
+              "default": "{color.red.500}",
+              "dark": "{color.red.600}"
+            },
+            "$type": "color",
+            "$description": "Used in charts to divide a threshold area in a chart from other data."
+          },
+          "name": "CHART_THRESHOLD_LINE_COLOR",
+          "attributes": {},
+          "path": [
+            "chart",
+            "threshold",
+            "line",
+            "color"
+          ]
+        }
+      }
+    },
+    "zoom": {
+      "filler": {
+        "color": {
+          "$value": "rgba(255, 255, 255, 0.16)",
+          "$type": "color",
+          "$description": "Used in charts for the overlay color when zooming in on a specific area of data.",
+          "filePath": "src/tokens/contextual/chart.tokens.json",
+          "isSource": true,
+          "original": {
+            "$value": {
+              "default": "{color.alpha.dark.8}",
+              "dark": "{color.alpha.light.16}"
+            },
+            "$type": "color",
+            "$description": "Used in charts for the overlay color when zooming in on a specific area of data."
+          },
+          "name": "CHART_ZOOM_FILLER_COLOR",
+          "attributes": {},
+          "path": [
+            "chart",
+            "zoom",
+            "filler",
+            "color"
+          ]
+        }
+      },
+      "handle": {
+        "color": {
+          "$value": "#bfbfc3",
+          "$type": "color",
+          "$description": "Used in charts for the handle color when zooming in on a specific area of data.",
+          "filePath": "src/tokens/contextual/chart.tokens.json",
+          "isSource": true,
+          "original": {
+            "$value": "{icon.color.subtle}",
+            "$type": "color",
+            "$description": "Used in charts for the handle color when zooming in on a specific area of data."
+          },
+          "name": "CHART_ZOOM_HANDLE_COLOR",
+          "attributes": {},
+          "path": [
+            "chart",
+            "zoom",
+            "handle",
+            "color"
+          ]
+        }
+      }
+    }
+  },
   "datepicker": {
     "background": {
       "color": {
