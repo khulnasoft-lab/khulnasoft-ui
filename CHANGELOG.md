@@ -1,3 +1,10 @@
+## [111.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.1.0...v111.1.1) (2025-03-13)
+
+
+### Bug Fixes
+
+* **DesignTokens:** Add missing dropdown token keys ([1d8b1f5](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d8b1f54fc38694207e45369d514910ed20be2b1))
+
 # [111.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.0.0...v111.1.0) (2025-03-13)
 
 
