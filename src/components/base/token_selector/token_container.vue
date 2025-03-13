@@ -131,11 +131,12 @@ export default {
   <div class="gl-flex gl-w-full gl-flex-nowrap gl-items-start">
     <div
       ref="tokenContainer"
-      class="-gl-mx-1 -gl-my-1 gl-flex gl-w-full gl-flex-wrap gl-items-center"
+      class="-gl-mx-1 -gl-my-1 gl-flex gl-w-auto gl-list-none gl-flex-wrap gl-items-center gl-p-0"
       role="listbox"
       aria-multiselectable="false"
       aria-orientation="horizontal"
       :aria-invalid="state === false && 'true'"
+      aria-label="token list"
       @keydown.left="handleLeftArrow"
       @keydown.right="handleRightArrow"
       @keydown.home="handleHome"
@@ -168,8 +169,8 @@ export default {
           </slot>
         </gl-token>
       </div>
-      <slot name="text-input"></slot>
     </div>
+    <slot name="text-input"></slot>
     <div v-if="showClearAllButton" class="gl-ml-3 gl-p-1">
       <gl-button
         size="small"

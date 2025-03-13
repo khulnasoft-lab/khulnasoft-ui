@@ -330,6 +330,8 @@ export default {
        * @property {object} token
        */
       this.$emit('token-add', dropdownItem);
+
+      this.focusTextInput();
     },
     removeToken(token) {
       /**
@@ -425,6 +427,7 @@ export default {
           <input
             ref="textInput"
             type="text"
+            aria-label="token selector"
             class="gl-token-selector-input gl-h-auto gl-w-4/10 gl-grow gl-border-none gl-bg-transparent gl-px-1 gl-font-regular gl-text-base gl-leading-normal gl-text-default gl-outline-none"
             :value="inputText"
             :autocomplete="autocomplete"
