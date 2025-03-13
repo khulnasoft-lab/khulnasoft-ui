@@ -54,6 +54,28 @@
 }
 
 /* * * * * * * * * * * * * * * * *
+ * animated_chevron_lg_right_down_icon.vue
+ * * * * * * * * * * * * * * * * */
+
+.gl-animated-chevron-lg-right-down-arrow {
+  transform-origin: center center;
+}
+
+/* on state */
+.gl-animated-icon-on {
+  .gl-animated-chevron-lg-right-down-arrow {
+    rotate: 90deg;
+  }
+}
+
+/* off state */
+.gl-animated-icon-off {
+  .gl-animated-chevron-lg-right-down-arrow {
+    rotate: 0deg;
+  }
+}
+
+/* * * * * * * * * * * * * * * * *
  * animated_chevron_right_down_icon.vue
  * * * * * * * * * * * * * * * * */
 
@@ -72,6 +94,90 @@
 .gl-animated-icon-off {
   .gl-animated-chevron-right-down-arrow {
     rotate: 0deg;
+  }
+}
+
+/* * * * * * * * * * * * * * * * *
+ * animated_chevron_lg_down_up_icon.vue
+ * * * * * * * * * * * * * * * * */
+
+ /* on state */
+ .gl-animated-icon-on {
+  .gl-animated-chevron-lg-down-up-arrow-left-line,
+  .gl-animated-chevron-lg-down-up-arrow-right-line {
+    translate: 50% 31.2%;
+    scale: 1 1.01;
+    transition: all $gl-transition-duration-medium $gl-easing-out-cubic,
+                scale $gl-transition-duration-medium linear(1 0%, -29 16%, 1 100%);
+  }
+
+  .gl-animated-chevron-lg-down-up-arrow-left-line {
+    rotate: 45deg;
+  }
+
+  .gl-animated-chevron-lg-down-up-arrow-right-line {
+    rotate: -45deg;
+  }
+}
+
+/* off state */
+.gl-animated-icon-off {
+  .gl-animated-chevron-lg-down-up-arrow-left-line,
+  .gl-animated-chevron-lg-down-up-arrow-right-line {
+    translate: 50% 68.8%;
+    scale: 1 1;
+    transition: all $gl-transition-duration-medium $gl-easing-out-cubic,
+                scale $gl-transition-duration-medium linear(1 0%, 29 16%, 1 100%);
+  }
+
+  .gl-animated-chevron-lg-down-up-arrow-left-line {
+    rotate: 135deg;
+  }
+
+  .gl-animated-chevron-lg-down-up-arrow-right-line {
+    rotate: -135deg;
+  }
+}
+
+/* * * * * * * * * * * * * * * * *
+ * animated_chevron_down_up_icon.vue
+ * * * * * * * * * * * * * * * * */
+
+ /* on state */
+ .gl-animated-icon-on {
+  .gl-animated-chevron-down-up-arrow-left-line,
+  .gl-animated-chevron-down-up-arrow-right-line {
+    translate: 50% 37.6%;
+    scale: 1 1.01;
+    transition: all $gl-transition-duration-medium $gl-easing-out-cubic,
+                scale $gl-transition-duration-medium linear(1 0%, -27 16%, 1 100%);
+  }
+
+  .gl-animated-chevron-down-up-arrow-left-line {
+    rotate: 45deg;
+  }
+
+  .gl-animated-chevron-down-up-arrow-right-line {
+    rotate: -45deg;
+  }
+}
+
+/* off state */
+.gl-animated-icon-off {
+  .gl-animated-chevron-down-up-arrow-left-line,
+  .gl-animated-chevron-down-up-arrow-right-line {
+    translate: 50% 62.6%;
+    scale: 1 1;
+    transition: all $gl-transition-duration-medium $gl-easing-out-cubic,
+                scale $gl-transition-duration-medium linear(1 0%, 27 16%, 1 100%);
+  }
+
+  .gl-animated-chevron-down-up-arrow-left-line {
+    rotate: 135deg;
+  }
+
+  .gl-animated-chevron-down-up-arrow-right-line {
+    rotate: -135deg;
   }
 }
 

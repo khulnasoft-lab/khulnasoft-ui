@@ -2,6 +2,9 @@ import GlButton from '../button/button.vue';
 import { animatedIconVariantOptions } from '../../../utils/constants';
 import GlBaseAnimatedIcon from './base_animated_icon.vue';
 import GlAnimatedChevronRightDownIcon from './animated_chevron_right_down_icon.vue';
+import GlAnimatedChevronLgRightDownIcon from './animated_chevron_lg_right_down_icon.vue';
+import GlAnimatedChevronDownUpIcon from './animated_chevron_down_up_icon.vue';
+import GlAnimatedChevronLgDownUpIcon from './animated_chevron_lg_down_up_icon.vue';
 import GlAnimatedDuoChatIcon from './animated_duo_chat_icon.vue';
 import GlAnimatedLoaderIcon from './animated_loader_icon.vue';
 import GlAnimatedNotificationIcon from './animated_notifications_icon.vue';
@@ -17,6 +20,9 @@ const MorphTemplate = (args, { argTypes }) => ({
   components: {
     GlButton,
     GlAnimatedChevronRightDownIcon,
+    GlAnimatedChevronLgRightDownIcon,
+    GlAnimatedChevronDownUpIcon,
+    GlAnimatedChevronLgDownUpIcon,
     GlAnimatedNotificationIcon,
     GlAnimatedSidebarIcon,
     GlAnimatedSmileIcon,
@@ -59,6 +65,18 @@ const MorphTemplate = (args, { argTypes }) => ({
     <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
       <gl-animated-chevron-right-down-icon :variant="variant" :aria-label="ariaLabel" name="chevron_right_down" :isOn="animationsOn" />
       chevron-right-down
+    </div>
+    <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
+      <gl-animated-chevron-lg-right-down-icon :variant="variant" :aria-label="ariaLabel" name="chevron_lg_right_down" :isOn="animationsOn" />
+      chevron-lg-right-down
+    </div>
+    <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
+      <gl-animated-chevron-down-up-icon :variant="variant" :aria-label="ariaLabel" name="chevron_down_up" :isOn="animationsOn" />
+      chevron-down-up
+    </div>
+    <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
+      <gl-animated-chevron-lg-down-up-icon :variant="variant" :aria-label="ariaLabel" name="chevron_lg_down_up" :isOn="animationsOn" />
+      chevron-lg-down-up
     </div>
   </div>`,
 });
