@@ -23,6 +23,8 @@
           "default": "{border.color.default}",
           "dark": "{border.color.subtle}"
         },
+        "$type": "color",
+        "$description": "Used for the divider of a dropdown."
       }
     },
     "option": {

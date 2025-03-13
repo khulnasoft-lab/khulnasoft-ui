@@ -961,7 +961,7 @@
   --gl-datepicker-date-text-color-selected: var(--gl-control-indicator-color-selected); /* Used for the datepicker date text color state indicators. */
   --gl-dropdown-background-color: var(--gl-background-color-overlap); /* Used for the background of a dropdown. */
   --gl-dropdown-border-color: var(--gl-border-color-strong); /* Used for the border of a dropdown. */
-  --gl-dropdown-divider-color: var(--gl-border-color-default);
+  --gl-dropdown-divider-color: var(--gl-border-color-default); /* Used for the divider of a dropdown. */
   --gl-dropdown-option-text-color-default: var(--gl-action-neutral-foreground-color-default); /* Used for the text of a dropdown option in the default state. */
   --gl-dropdown-option-text-color-disabled: var(--gl-action-disabled-foreground-color); /* Used for the text of a dropdown option in the disabled state. */
   --gl-dropdown-option-indicator-color-selected-default: var(--gl-control-background-color-selected-default); /* Used for the dropdown selected option indicator in the default state. */

@@ -13623,13 +13623,17 @@
     "divider": {
       "color": {
         "$value": "#3a383f",
+        "$type": "color",
+        "$description": "Used for the divider of a dropdown.",
         "filePath": "src/tokens/contextual/dropdown.tokens.json",
         "isSource": true,
         "original": {
           "$value": {
             "default": "{border.color.default}",
             "dark": "{border.color.subtle}"
-          }
+          },
+          "$type": "color",
+          "$description": "Used for the divider of a dropdown."
         },
         "name": "DROPDOWN_DIVIDER_COLOR",
         "attributes": {},

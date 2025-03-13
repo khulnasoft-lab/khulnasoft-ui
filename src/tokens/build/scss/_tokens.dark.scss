@@ -959,7 +959,7 @@ $gl-chart-axis-text-color: $gl-text-color-subtle; // Used in charts for the text
 $gl-datepicker-date-text-color-selected: $gl-control-indicator-color-selected; // Used for the datepicker date text color state indicators.
 $gl-dropdown-background-color: $gl-background-color-overlap; // Used for the background of a dropdown.
 $gl-dropdown-border-color: $gl-border-color-default; // Used for the border of a dropdown.
-$gl-dropdown-divider-color: $gl-border-color-subtle;
+$gl-dropdown-divider-color: $gl-border-color-subtle; // Used for the divider of a dropdown.
 $gl-dropdown-option-text-color-default: $gl-action-neutral-foreground-color-default; // Used for the text of a dropdown option in the default state.
 $gl-dropdown-option-text-color-disabled: $gl-action-disabled-foreground-color; // Used for the text of a dropdown option in the disabled state.
 $gl-dropdown-option-indicator-color-selected-default: $gl-control-background-color-selected-default; // Used for the dropdown selected option indicator in the default state.
