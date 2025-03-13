@@ -1,3 +1,10 @@
+# [111.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.0.0...v111.1.0) (2025-03-13)
+
+
+### Features
+
+* **DesignTokens:** define chart contextual design tokens ([57eafc4](https://gitlab.com/gitlab-org/gitlab-ui/commit/57eafc435b47fdec3a57ed8f2e0a6be4ac585ca3))
+
 # [111.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v110.1.0...v111.0.0) (2025-03-12)
 
 
