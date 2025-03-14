@@ -1,21 +1,18 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { BCollapse } from '../../../vendor/bootstrap-vue/src/components/collapse/collapse';
+import GlCollapse from '../collapse/collapse.vue';
 import GlAnimatedChevronRightDownIcon from '../animated_icon/animated_chevron_right_down_icon.vue';
-import { GlCollapseToggleDirective } from '../../../directives/collapse_toggle';
 import GlButton from '../button/button.vue';
+import { COLLAPSE_EVENT } from './constants';
 
 export default {
   name: 'GlAccordionItem',
   components: {
-    BCollapse,
+    GlCollapse,
     GlButton,
     GlAnimatedChevronRightDownIcon,
   },
-  directives: {
-    GlCollapseToggle: GlCollapseToggleDirective,
-  },
-  inject: ['accordionSetId', 'defaultHeaderLevel'],
+  inject: ['defaultHeaderLevel', 'autoCollapse'],
   inheritAttrs: false,
   model: {
     prop: 'visible',
@@ -68,7 +65,7 @@ export default {
   data() {
     return {
       accordionItemId: uniqueId('accordion-item-'),
-      isVisible: this.visible,
+      localVisible: this.visible,
     };
   },
   computed: {
@@ -76,19 +73,52 @@ export default {
       const level = this.headerLevel || this.defaultHeaderLevel();
       return `h${level}`;
     },
-    accordion() {
-      return this.accordionSetId() || undefined;
-    },
     buttonTitle() {
-      return this.isVisible && this.titleVisible ? this.titleVisible : this.title;
+      return this.localVisible && this.titleVisible ? this.titleVisible : this.title;
     },
   },
+
   watch: {
-    isVisible: {
-      immediate: true,
-      handler(isVisible) {
-        this.$emit('input', isVisible);
+    visible: {
+      handler(newVisible) {
+        this.localVisible = newVisible;
+
+        this.checkAndCollapseSiblingAccordionItems(newVisible);
       },
+    },
+  },
+  created() {
+    this.$emit('input', this.localVisible);
+  },
+  mounted() {
+    this.$parent.$el.addEventListener(COLLAPSE_EVENT, this.onParentCollapse);
+  },
+  beforeDestroy() {
+    this.$parent.$el.removeEventListener(COLLAPSE_EVENT, this.onParentCollapse);
+  },
+  methods: {
+    onParentCollapse({ detail: accordionItemId }) {
+      if (accordionItemId === this.accordionItemId) {
+        return;
+      }
+
+      this.$emit('input', false);
+      this.localVisible = false;
+    },
+    onButtonClick() {
+      const newLocalVisible = !this.localVisible;
+
+      this.$emit('input', newLocalVisible);
+      this.localVisible = newLocalVisible;
+
+      this.checkAndCollapseSiblingAccordionItems(newLocalVisible);
+    },
+    checkAndCollapseSiblingAccordionItems(newVisible) {
+      if (this.autoCollapse() && newVisible) {
+        this.$parent.$el.dispatchEvent(
+          new CustomEvent(COLLAPSE_EVENT, { detail: this.accordionItemId })
+        );
+      }
     },
   },
 };
@@ -98,24 +128,25 @@ export default {
   <div class="gl-accordion-item">
     <component :is="headerComponent" class="gl-accordion-item-header" :class="headerClass">
       <gl-button
-        v-gl-collapse-toggle="accordionItemId"
         variant="link"
         button-text-classes="gl-flex"
+        :aria-expanded="localVisible ? 'true' : 'false'"
+        :aria-controls="accordionItemId"
+        @click="onButtonClick"
       >
-        <gl-animated-chevron-right-down-icon :is-on="isVisible" />
+        <gl-animated-chevron-right-down-icon :is-on="localVisible" />
         {{ buttonTitle }}
       </gl-button>
     </component>
-    <b-collapse
+    <gl-collapse
       :id="accordionItemId"
-      v-model="isVisible"
-      :visible="isVisible"
-      :accordion="accordion"
-      class="gl-mt-3 gl-text-base"
+      v-model="localVisible"
       :data-testid="`accordion-item-collapse-${accordionItemId}`"
     >
-      <!-- @slot Item content -->
-      <slot></slot>
-    </b-collapse>
+      <div class="gl-mt-3 gl-text-base">
+        <!-- @slot Item content -->
+        <slot></slot>
+      </div>
+    </gl-collapse>
   </div>
 </template>

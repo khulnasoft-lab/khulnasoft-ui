@@ -1,15 +1,13 @@
 <script>
-import uniqueId from 'lodash/uniqueId';
-
 export default {
   name: 'GlAccordion',
   provide() {
-    const accordionId = uniqueId('accordion-set-');
-    // temporary fix for this issue: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2019#note_514671251
-    // MR for the upstream pending: https://github.com/vuejs/apollo/pull/1153
     return {
+      // temporary fix for this issue: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2019#note_514671251
+      // MR for the upstream pending: https://github.com/vuejs/apollo/pull/1153
+      // Track removing this workaround in https://gitlab.com/gitlab-org/gitlab-ui/-/issues/3152
       defaultHeaderLevel: () => this.headerLevel,
-      accordionSetId: () => this.autoCollapse && accordionId,
+      autoCollapse: () => this.autoCollapse,
     };
   },
   props: {

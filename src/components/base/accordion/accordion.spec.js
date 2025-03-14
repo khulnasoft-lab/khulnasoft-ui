@@ -1,5 +1,7 @@
 import { mount } from '@vue/test-utils';
-import Vue from 'vue';
+import Vue, { nextTick } from 'vue';
+import { waitForAnimationFrame } from '../../../utils/test_utils';
+import GlButton from '../button/button.vue';
 import GlAccordion from './accordion.vue';
 import GlAccordionItem from './accordion_item.vue';
 
@@ -31,24 +33,41 @@ describe('GlAccordion', () => {
   };
 
   const findAccordionItems = () => wrapper.findAllComponents(GlAccordionItem);
+  const findToggleButton = (title) =>
+    wrapper.findAllComponents(GlButton).wrappers.find((button) => button.text() === title);
 
-  it('does not populate the accordion prop by default', () => {
-    createComponent();
-    const accordionSetId = findAccordionItems().at(0).vm.accordion;
+  describe('when autoCollapse prop is true', () => {
+    beforeEach(async () => {
+      createComponent({ autoCollapse: true });
+      await nextTick();
+      await waitForAnimationFrame();
+      await findToggleButton('Item 1').trigger('click');
+      await waitForAnimationFrame();
+      await findToggleButton('Item 2').trigger('click');
+      await waitForAnimationFrame();
+    });
 
-    // accordion should not be set
-    expect(accordionSetId).toBeUndefined();
+    it('only allows one collapse to be open', () => {
+      expect(findToggleButton('Item 1').attributes('aria-expanded')).toBe('false');
+      expect(findToggleButton('Item 2').attributes('aria-expanded')).toBe('true');
+    });
   });
 
-  it('populates the accordion prop when autoCollapse is true', () => {
-    createComponent({ autoCollapse: true });
-    const accordionSetId = findAccordionItems().at(0).vm.accordion;
+  describe('when autoCollapse prop is false', () => {
+    beforeEach(async () => {
+      createComponent();
+      await nextTick();
+      await waitForAnimationFrame();
+      await findToggleButton('Item 1').trigger('click');
+      await waitForAnimationFrame();
+      await findToggleButton('Item 2').trigger('click');
+      await waitForAnimationFrame();
+    });
 
-    // accordion should be set
-    expect(accordionSetId).not.toBeUndefined();
-
-    // accordion should be the same across glAccordionItem children
-    expect(findAccordionItems().at(1).vm.accordion).toEqual(accordionSetId);
+    it('only allows multiple collapse to be open', () => {
+      expect(findToggleButton('Item 1').attributes('aria-expanded')).toBe('true');
+      expect(findToggleButton('Item 2').attributes('aria-expanded')).toBe('true');
+    });
   });
 
   it('passes a default headerLevel to children', () => {
