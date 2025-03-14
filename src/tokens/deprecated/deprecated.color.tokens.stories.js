@@ -1,5 +1,5 @@
-import COMPILED_TOKENS from './build/json/tokens.json';
-import { createDesignTokenStory } from './common_story_options';
+import COMPILED_TOKENS from '../build/json/tokens.json';
+import { createDesignTokenStory } from '../common_story_options';
 
 export const Default = createDesignTokenStory({
   tokens: {

@@ -1,4 +1,4 @@
-import GlIcon from '../components/base/icon/icon.vue';
+import GlIcon from '../../components/base/icon/icon.vue';
 
 export const Default = () => ({
   components: { GlIcon },
