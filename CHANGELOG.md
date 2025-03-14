@@ -1,3 +1,10 @@
+# [111.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.1.1...v111.2.0) (2025-03-14)
+
+
+### Features
+
+* **DesignTokens:** organise design tokens into directories ([f891a62](https://gitlab.com/gitlab-org/gitlab-ui/commit/f891a62f1395398e6fafa73a673c69ee4b8da14e))
+
 ## [111.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.1.0...v111.1.1) (2025-03-13)
 
 
