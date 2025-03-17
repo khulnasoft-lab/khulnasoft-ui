@@ -1,3 +1,10 @@
+# [111.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.2.0...v111.3.0) (2025-03-17)
+
+
+### Features
+
+* **GlCollapsibleListbox:** Add toggleId prop ([e3d6ed2](https://gitlab.com/gitlab-org/gitlab-ui/commit/e3d6ed2b4d8f04c3256c914a232226daa67b2839))
+
 # [111.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.1.1...v111.2.0) (2025-03-14)
 
 
