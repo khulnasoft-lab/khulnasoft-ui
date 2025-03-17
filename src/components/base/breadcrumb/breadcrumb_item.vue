@@ -1,11 +1,11 @@
 <script>
-import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
-import { breadCrumbSizeOptions } from '../../../utils/constants';
+import GlLink from '../link/link.vue';
+import { breadCrumbSizeOptions, linkVariantUnstyled } from '../../../utils/constants';
 
 export default {
   name: 'GlBreadcrumbItem',
   components: {
-    BLink,
+    GlLink,
   },
   inheritAttrs: false,
   props: {
@@ -39,13 +39,19 @@ export default {
       validator: (value) => Object.keys(breadCrumbSizeOptions).includes(value),
     },
   },
+  linkVariantUnstyled,
 };
 </script>
 
 <template>
   <li :class="`gl-breadcrumb-item gl-breadcrumb-item-${size}`">
-    <b-link :href="href" :to="to" :aria-current="ariaCurrent">
+    <gl-link
+      :href="href"
+      :to="to"
+      :aria-current="ariaCurrent"
+      :variant="$options.linkVariantUnstyled"
+    >
       <slot>{{ text }}</slot>
-    </b-link>
+    </gl-link>
   </li>
 </template>
