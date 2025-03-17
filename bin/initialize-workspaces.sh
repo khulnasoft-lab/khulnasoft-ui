@@ -6,7 +6,7 @@ set -u # Attempt to use undefined variable outputs error message, and forces an 
 set -o pipefail # Causes a pipeline to return the exit status of the last command in the pipe that returned a non-zero return value.
 
 if [[ -z "${GL_TOOLS_DIR:-}" ]]; then
-  echo "This environment is not a GitLab Workspaces. Skipping setup step..."
+  echo "This environment is not a GitLab Workspace. Skipping setup step..."
   exit 0
 else
   echo "Detected GitLab Workspaces environment. Running additional setup step..."

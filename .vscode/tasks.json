@@ -7,7 +7,7 @@
       "isBackground": false,
       "group": "none",
       "problemMatcher": [],
-      "label": "Workspaces: Set up workspaces",
+      "label": "GitLab Workspaces: Set up workspace",
       "runOptions": {
         "runOn": "folderOpen"
       },
