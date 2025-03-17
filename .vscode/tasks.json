@@ -2,13 +2,18 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Build and run storybook",
-			"type": "shell",
-			"command": "yarn install && yarn storybook",
-			"presentation": {
-				"echo": true,
-				"reveal": "always"
-			}
-		}
+      "type": "shell",
+      "command": "${workspaceFolder}/bin/initialize-workspaces.sh",
+      "isBackground": false,
+      "group": "none",
+      "problemMatcher": [],
+      "label": "Workspaces: Set up workspaces",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "presentation": {
+        "close": true
+      }
+    }
 	]
 }

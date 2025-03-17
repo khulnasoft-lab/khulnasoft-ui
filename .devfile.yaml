@@ -4,7 +4,7 @@ components:
     attributes:
       gl/inject-editor: true
     container:
-      image: registry.gitlab.com/gitlab-org/remote-development/gitlab-remote-development-docs/debian-bullseye-ruby-3.2.patched-golang-1.20-rust-1.65-node-18.16-postgresql-15@sha256:216b9bf0555349f4225cd16ea37d7a627f2dad24b7e85aa68f4d364319832754
+      image: registry.gitlab.com/gitlab-org/gitlab-build-images:workspaces-web-ide
       env:
         - name: STORYBOOK_HOST
           value: "0.0.0.0"
