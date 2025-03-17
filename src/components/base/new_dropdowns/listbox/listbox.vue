@@ -203,6 +203,14 @@ export default {
       default: false,
     },
     /**
+     * The `id` attribute value for the toggle button
+     */
+    toggleId: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    /**
      * The `aria-labelledby` attribute value for the toggle button
      * Provide the string of ids seperated by space
      */
@@ -364,7 +372,6 @@ export default {
   data() {
     return {
       selectedValues: [],
-      toggleId: uniqueId('dropdown-toggle-btn-'),
       listboxId: uniqueId('listbox-'),
       nextFocusedItemIndex: null,
       searchStr: '',
@@ -373,6 +380,9 @@ export default {
     };
   },
   computed: {
+    toggleIdComputed() {
+      return this.toggleId || uniqueId('dropdown-toggle-btn-');
+    },
     listboxTag() {
       if (!this.hasItems || isOption(this.items[0])) return 'ul';
       return 'div';
@@ -797,7 +807,7 @@ export default {
     aria-haspopup="listbox"
     :aria-labelledby="toggleAriaLabelledBy"
     :block="block"
-    :toggle-id="toggleId"
+    :toggle-id="toggleIdComputed"
     :toggle-text="listboxToggleText"
     :toggle-class="toggleButtonClasses"
     :text-sr-only="textSrOnly"
@@ -878,7 +888,7 @@ export default {
       v-if="showList"
       :id="listboxId"
       ref="list"
-      :aria-labelledby="listAriaLabelledBy || headerId || toggleId"
+      :aria-labelledby="listAriaLabelledBy || headerId || toggleIdComputed"
       role="listbox"
       class="gl-new-dropdown-contents gl-new-dropdown-contents-with-scrim-overlay"
       :class="listboxClasses"

@@ -23,6 +23,7 @@ import {
   LISTBOX_CONTAINER_HEIGHT,
 } from '../../../../utils/stories_constants';
 import { POSITION } from '../../../utilities/truncate/constants';
+import GlFormGroup from '../../form/form_group/form_group.vue';
 import readme from './listbox.md';
 import { mockOptions, mockGroups, mockGroupsWithTextSrOnly, mockUsers } from './mock_data';
 import { flattenedOptions } from './utils';
@@ -53,6 +54,7 @@ const generateProps = ({
   icon = '',
   multiple = defaultValue('multiple'),
   isCheckCentered = defaultValue('isCheckCentered'),
+  toggleId = defaultValue('toggleId'),
   toggleAriaLabelledBy,
   listAriaLabelledBy,
   resetButtonLabel = defaultValue('resetButtonLabel'),
@@ -84,6 +86,7 @@ const generateProps = ({
   icon,
   multiple,
   isCheckCentered,
+  toggleId,
   toggleAriaLabelledBy,
   listAriaLabelledBy,
   resetButtonLabel,
@@ -118,6 +121,7 @@ const makeBindings = (overrides = {}) =>
     ':icon': 'icon',
     ':multiple': 'multiple',
     ':is-check-centered': 'isCheckCentered',
+    ':toggle-id': 'toggleId',
     ':toggle-aria-labelled-by': 'toggleAriaLabelledBy',
     ':list-aria-labelled-by': 'listAriaLabelledBy',
     ':reset-button-label': 'resetButtonLabel',
@@ -131,19 +135,13 @@ const makeBindings = (overrides = {}) =>
     .map(([key, value]) => `${key}="${value}"`)
     .join('\n');
 
-const template = (content, { label = '', bindingOverrides = {} } = {}) => `
-  <div>
-    ${label}
-    ${label && '<br/>'}
+const template = ({ content = '', bindingOverrides = {} } = {}) => `
     <gl-collapsible-listbox
       ref="listbox"
       v-model="selected"
       ${makeBindings(bindingOverrides)}
-    >
-      ${content}
-    </gl-collapsible-listbox>
-  </div>
-`;
+    >${content}</gl-collapsible-listbox>
+  `;
 
 export const Default = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -155,11 +153,9 @@ export const Default = (args, { argTypes }) => ({
       selected: mockOptions[1].value,
     };
   },
-  template: template('', {
-    label: `<span class="gl-my-0" id="listbox-label">Select a department</span>`,
-  }),
+  template: template(),
 });
-Default.args = generateProps({ toggleAriaLabelledBy: 'listbox-label' });
+Default.args = generateProps();
 Default.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
 export const HeaderAndFooter = (args, { argTypes }) => ({
@@ -180,8 +176,8 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
       this.selected = [];
     },
   },
-  template: template(
-    `
+  template: template({
+    content: `
     <template #footer>
        <div class="gl-border-t-solid gl-border-t-1 gl-border-t-dropdown-divider gl-flex gl-flex-col !gl-p-2 !gl-pt-0">
         <gl-button category="tertiary" block class="!gl-justify-start !gl-mt-2" data-testid="footer-bottom-button">
@@ -190,12 +186,10 @@ export const HeaderAndFooter = (args, { argTypes }) => ({
       </div>
     </template>
   `,
-    {
-      bindingOverrides: {
-        '@reset': 'onReset',
-      },
-    }
-  ),
+    bindingOverrides: {
+      '@reset': 'onReset',
+    },
+  }),
 });
 HeaderAndFooter.args = generateProps({
   toggleText: 'Header and Footer',
@@ -232,7 +226,7 @@ export const HeaderActions = (args, { argTypes }) => ({
       this.selected = [];
     },
   },
-  template: template('', {
+  template: template({
     bindingOverrides: {
       '@reset': 'onReset',
       '@select-all': 'selectAllItems',
@@ -275,24 +269,22 @@ export const CustomListItem = (args, { argTypes }) => ({
       this.selected = [];
     },
   },
-  template: template(
-    `<template #list-item="{ item }">
-              <span class="gl-flex gl-items-center">
-                <gl-avatar :size="32" :entity-name="item.value" class="gl-mr-3"/>
-                  <span class="gl-flex gl-flex-col">
-                    <span class="gl-font-bold gl-whitespace-nowrap">{{ item.text }}</span>
-                    <span class="gl-text-subtle"> {{ item.secondaryText }}</span>
-                  </span>
-              </span>
-            </template>
-        `,
-    {
-      bindingOverrides: {
-        ':toggle-text': 'customToggleText',
-        '@reset': 'onReset',
-      },
-    }
-  ),
+  template: template({
+    content: `<template #list-item="{ item }">
+       <span class="gl-flex gl-items-center">
+         <gl-avatar :size="32" :entity-name="item.value" class="gl-mr-3"/>
+           <span class="gl-flex gl-flex-col">
+             <span class="gl-font-bold gl-whitespace-nowrap">{{ item.text }}</span>
+             <span class="gl-text-subtle"> {{ item.secondaryText }}</span>
+           </span>
+      </span>
+     </template>
+    `,
+    bindingOverrides: {
+      ':toggle-text': 'customToggleText',
+      '@reset': 'onReset',
+    },
+  }),
 });
 
 CustomListItem.args = generateProps({
@@ -318,8 +310,8 @@ export const CustomToggle = (args, { argTypes }) => ({
       selected: mockUsers[1].value,
     };
   },
-  template: template(
-    `
+  template: template({
+    content: `
     <template #toggle>
      <button class="gl-rounded-base gl-border-none gl-p-2 gl-bg-strong">
        <span class="gl-sr-only">
@@ -337,8 +329,8 @@ export const CustomToggle = (args, { argTypes }) => ({
           </span>
       </span>
     </template>
-  `
-  ),
+  `,
+  }),
 });
 CustomToggle.args = generateProps({
   items: mockUsers,
@@ -371,7 +363,7 @@ const makeGroupedExample = (changes) => {
 };
 
 export const Groups = makeGroupedExample({
-  template: template('', {
+  template: template({
     bindingOverrides: {
       ':toggle-text': 'customToggleText',
       ':items': 'computedItems',
@@ -423,14 +415,16 @@ export const Groups = makeGroupedExample({
 Groups.args = generateProps({ multiple: true });
 
 export const CustomGroupsAndItems = makeGroupedExample({
-  template: template(`
+  template: template({
+    content: `
     <template #group-label="{ group }">
       {{ group.text }} <gl-badge>{{ group.options.length }}</gl-badge>
     </template>
     <template #list-item="{ item }">
       {{ item.text }} <gl-badge v-if="item.value === 'main'">default</gl-badge>
     </template>
-  `),
+  `,
+  }),
 });
 
 export const GroupWithoutLabel = (args, { argTypes }) => ({
@@ -444,11 +438,13 @@ export const GroupWithoutLabel = (args, { argTypes }) => ({
       selected: mockGroupsWithTextSrOnly[1].options[1].value,
     };
   },
-  template: template(`
+  template: template({
+    content: `
     <template #list-item="{ item }">
       {{ item.text }} <gl-badge v-if="item.value === 'main'">default</gl-badge>
     </template>
-  `),
+  `,
+  }),
 });
 GroupWithoutLabel.args = generateProps({
   items: mockGroupsWithTextSrOnly,
@@ -468,14 +464,14 @@ export default {
   argTypes: {
     category: {
       control: 'select',
-      options: buttonCategoryOptions,
+      options: Object.keys(buttonCategoryOptions),
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
     },
     variant: {
       control: 'select',
-      options: buttonVariantOptions,
+      options: Object.keys(buttonVariantOptions),
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
       },
@@ -574,6 +570,11 @@ export default {
         subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
       },
     },
+    toggleId: {
+      table: {
+        subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
+      },
+    },
     toggleAriaLabelledBy: {
       table: {
         subcategory: ARG_TYPE_SUBCATEGORY_ACCESSIBILITY,
@@ -654,19 +655,17 @@ export const Searchable = (args, { argTypes }) => ({
       return `${this.filteredItems.length} department${this.filteredItems.length > 1 ? 's' : ''}`;
     },
   },
-  template: template(
-    `<template #search-summary-sr-only>
+  template: template({
+    content: `<template #search-summary-sr-only>
       {{ numberOfSearchResults }}
     </template>`,
-    {
-      bindingOverrides: {
-        ':items': 'filteredItems',
-        ':toggle-text': 'customToggleText',
-        ':searching': 'searchInProgress',
-        '@search': 'filterList',
-      },
-    }
-  ),
+    bindingOverrides: {
+      ':items': 'filteredItems',
+      ':toggle-text': 'customToggleText',
+      ':searching': 'searchInProgress',
+      '@search': 'filterList',
+    },
+  }),
 });
 Searchable.args = generateProps({
   headerText: 'Assign to department',
@@ -735,7 +734,7 @@ export const SearchableGroups = (args, { argTypes }) => ({
       return `${count} branch${count > 1 ? 'es' : ''} or tag${count > 1 ? 's' : ''}`;
     },
   },
-  template: template('', {
+  template: template({
     bindingOverrides: {
       ':items': 'filteredGroupOptions',
       ':toggle-text': 'customToggleText',
@@ -782,8 +781,7 @@ export const InfiniteScroll = (
       }, 1000);
     },
   },
-  template: template('', {
-    label: `<span class="gl-my-0" id="listbox-label">Select a department</span>`,
+  template: template({
     bindingOverrides: {
       ':items': 'items',
       ':infinite-scroll': 'infiniteScroll',
@@ -836,8 +834,7 @@ export const InfiniteScrollGroups = (
       }, 1000);
     },
   },
-  template: template('', {
-    label: `<span class="gl-my-0" id="listbox-label">Select an item</span>`,
+  template: template({
     bindingOverrides: {
       ':items': 'items',
       ':infinite-scroll': 'infiniteScroll',
@@ -853,7 +850,7 @@ InfiniteScrollGroups.tags = ['skip-visual-test'];
 InfiniteScrollGroups.args = generateProps();
 InfiniteScrollGroups.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
-export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => ({
+export const WithLongContent = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
     GlCollapsibleListbox,
@@ -861,18 +858,8 @@ export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => (
     GlTruncate,
   },
   data() {
-    const positions = Object.values(POSITION);
-    const longItems = Array.from({ length: positions.length }).map((_, index) => ({
-      value: `long_value_${index}`,
-      text: `${
-        index + 1
-      }. This is a super long option. Its text is so long that it overflows the max content width. Thankfully, we are truncating it!`,
-      truncatePosition: positions[index],
-    }));
-
     return {
-      selected: longItems[0].value,
-      items: longItems,
+      selected: this.items[0].value,
     };
   },
   computed: {
@@ -883,8 +870,8 @@ export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => (
       return this.filteredItems.length === 1 ? '1 result' : `${this.filteredItems.length} results`;
     },
   },
-  template: template(
-    `
+  template: template({
+    content: `
     <template #toggle>
       <gl-button class="gl-w-30">
         <gl-truncate :text="customToggleText" />
@@ -894,14 +881,35 @@ export const WithLongContent = (args, { argTypes: { items, ...argTypes } }) => (
       <gl-truncate :text="item.text" :position="item.truncatePosition" />
     </template>
   `,
-    {
-      label: `<span class="gl-my-0" id="listbox-label">Select the longest option</span>`,
-      bindingOverrides: {
-        ':items': 'items',
-      },
-    }
-  ),
+  }),
 });
 WithLongContent.args = generateProps({
   fluidWidth: true,
+  items: Object.values(POSITION).map((position, index) => ({
+    value: `long_value_${index}`,
+    text: `${
+      index + 1
+    }. This is a super long option. Its text is so long that it overflows the max content width. Thankfully, we are truncating it!`,
+    truncatePosition: position,
+  })),
 });
+
+export const InFormGroup = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlCollapsibleListbox,
+    GlFormGroup,
+  },
+  data() {
+    return {
+      selected: mockOptions[1].value,
+    };
+  },
+  template: `
+    <gl-form-group label="Department" label-for="${args.toggleId}">
+      ${template()}
+    </gl-form-group>
+  `,
+});
+InFormGroup.args = generateProps({ toggleId: 'department-picker' });
+InFormGroup.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
