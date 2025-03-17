@@ -12427,8 +12427,8 @@
           "isSource": true,
           "original": {
             "$value": {
-              "default": "2px",
-              "dark": "1.5px"
+              "default": "2",
+              "dark": "1.5"
             },
             "$type": "dimension",
             "$description": "Default stroke width to define shape and provide essential detail."
@@ -12815,8 +12815,8 @@
             "isSource": true,
             "original": {
               "$value": {
-                "default": "2px",
-                "dark": "1.5px"
+                "default": "2",
+                "dark": "1.5"
               },
               "$type": "dimension",
               "$description": "Default stroke width to define shape and provide essential detail in isometric illustration."
