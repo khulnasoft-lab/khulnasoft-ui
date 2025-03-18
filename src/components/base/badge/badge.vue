@@ -1,7 +1,11 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
-import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
+import GlLink from '../link/link.vue';
+import {
+  badgeVariantOptions,
+  badgeIconSizeOptions,
+  linkVariantUnstyled,
+} from '../../../utils/constants';
 import GlIcon from '../icon/icon.vue';
 
 const variantClass = {
@@ -17,7 +21,7 @@ const variantClass = {
 export default {
   name: 'GlBadge',
   components: {
-    BLink,
+    GlLink,
     GlIcon,
   },
   props: {
@@ -131,13 +135,13 @@ export default {
       return Boolean(this.href);
     },
     computedTag() {
-      return this.isLink ? BLink : this.tag;
+      return this.isLink ? GlLink : this.tag;
     },
     computedProps() {
       if (!this.isLink) return {};
 
       const { href, rel, target, active, disabled } = this;
-      return { href, rel, target, active, disabled };
+      return { href, rel, target, active, disabled, variant: linkVariantUnstyled };
     },
     classes() {
       return [

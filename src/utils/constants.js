@@ -204,11 +204,18 @@ export const animatedIconVariantOptions = {
   success: 'gl-animated-icon-success',
 };
 
+export const linkVariantInline = 'inline';
+export const linkVariantMeta = 'meta';
+export const linkVariantMention = 'mention';
+export const linkVariantMentionCurrent = 'mentionCurrent';
+export const linkVariantUnstyled = 'unstyled';
+
 export const linkVariantOptions = {
-  inline: 'gl-link-inline',
-  meta: 'gl-link-meta',
-  mention: 'gl-link-mention',
-  mentionCurrent: 'gl-link-mention-current',
+  [linkVariantInline]: 'gl-link-inline',
+  [linkVariantMeta]: 'gl-link-meta',
+  [linkVariantMention]: 'gl-link-mention',
+  [linkVariantMentionCurrent]: 'gl-link-mention-current',
+  [linkVariantUnstyled]: '',
 };
 
 export const triggerVariantOptions = {

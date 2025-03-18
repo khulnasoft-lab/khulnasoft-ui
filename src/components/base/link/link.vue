@@ -12,7 +12,12 @@ import { isEvent } from '../../../vendor/bootstrap-vue/src/utils/inspect';
 import { stringifyQueryObj } from '../../../vendor/bootstrap-vue/src/utils/router';
 import { safeVueInstance } from '../../../vendor/bootstrap-vue/src/utils/safe-vue-instance';
 import { attemptFocus, attemptBlur } from '../../../vendor/bootstrap-vue/src/utils/dom';
-import { linkVariantOptions, isVue3 } from '../../../utils/constants';
+import {
+  linkVariantOptions,
+  linkVariantInline,
+  linkVariantUnstyled,
+  isVue3,
+} from '../../../utils/constants';
 
 const ANCHOR_TAG = 'a';
 const NUXT_LINK_TAG = 'nuxt-link';
@@ -166,7 +171,7 @@ export default {
     isInlineAndHasExternalIcon() {
       return (
         this.showExternalIcon &&
-        this.variant === 'inline' &&
+        this.variant === linkVariantInline &&
         this.href &&
         isExternalURL(this.target, this.href)
       );
@@ -221,6 +226,10 @@ export default {
       return listenersWithoutClick;
     },
     computedClass() {
+      if (this.variant === linkVariantUnstyled) {
+        return [];
+      }
+
       return [
         'gl-link',
         linkVariantOptions[this.variant],
