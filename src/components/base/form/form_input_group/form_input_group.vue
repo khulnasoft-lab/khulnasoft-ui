@@ -1,19 +1,13 @@
 <script>
-import { BInputGroup } from '../../../../vendor/bootstrap-vue/src/components/input-group/input-group';
-import { BInputGroupPrepend } from '../../../../vendor/bootstrap-vue/src/components/input-group/input-group-prepend';
-import { BInputGroupAppend } from '../../../../vendor/bootstrap-vue/src/components/input-group/input-group-append';
-import { BFormInput } from '../../../../vendor/bootstrap-vue/src/components/form-input/form-input';
 import GlDropdown from '../../dropdown/dropdown.vue';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
+import GlFormInput from '../form_input/form_input.vue';
 import { InputGroupMixin } from './form_input_group_mixin';
 
 export default {
   name: 'GlFormInputGroup',
   components: {
-    BInputGroup,
-    BInputGroupPrepend,
-    BInputGroupAppend,
-    BFormInput,
+    GlFormInput,
     GlDropdown,
     GlDropdownItem,
   },
@@ -68,8 +62,8 @@ export default {
 };
 </script>
 <template>
-  <b-input-group>
-    <b-input-group-prepend v-if="activeOption || $scopedSlots.prepend">
+  <div role="group" class="input-group">
+    <div v-if="activeOption || $scopedSlots.prepend" class="input-group-prepend">
       <!-- @slot Is rendered in front of the input field. -->
       <slot name="prepend"></slot>
       <gl-dropdown v-if="activeOption" :text="activeOption">
@@ -83,22 +77,22 @@ export default {
           {{ option.name }}
         </gl-dropdown-item>
       </gl-dropdown>
-    </b-input-group-prepend>
+    </div>
     <!-- @slot Allows replacement of default input field. -->
     <slot>
-      <b-form-input
+      <gl-form-input
         ref="input"
         v-model="localValue"
-        :class="['gl-form-input', inputClass]"
+        :class="inputClass"
         :aria-label="label"
         v-bind="$attrs"
         v-on="$listeners"
         @click="handleClick"
       />
     </slot>
-    <b-input-group-append v-if="$scopedSlots.append">
+    <div v-if="$scopedSlots.append" class="input-group-append">
       <!-- @slot Is rendered after the input field. -->
       <slot name="append"></slot>
-    </b-input-group-append>
-  </b-input-group>
+    </div>
+  </div>
 </template>
