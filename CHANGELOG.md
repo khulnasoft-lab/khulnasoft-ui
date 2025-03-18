@@ -1,3 +1,10 @@
+## [111.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.3.0...v111.3.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* **GlTokenSelector:** Remove text intput `aria-label` attr ([85d1e7e](https://gitlab.com/gitlab-org/gitlab-ui/commit/85d1e7e4f5ed0393d498096962c671a05669122d))
+
 # [111.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.2.0...v111.3.0) (2025-03-17)
 
 
