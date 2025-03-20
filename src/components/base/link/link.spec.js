@@ -83,6 +83,12 @@ describe('link component', () => {
     });
   });
 
+  it('passes HTML attributes to anchor tag', () => {
+    createWrapper({ attrs: { 'aria-current': 'true' } });
+
+    expect(wrapper.attributes('aria-current')).toBe('true');
+  });
+
   it.each`
     variant                      | expectedClass
     ${linkVariantInline}         | ${['gl-link', 'gl-link-inline']}
@@ -471,6 +477,25 @@ describe('link component', () => {
       });
 
       expect(wrapper.findComponent(RouterLinkStub).props()).toMatchObject(routerProps);
+    });
+
+    it('passes HTML attributes to router link anchor tag', () => {
+      const App = {
+        router,
+        components: { Link },
+        render(h) {
+          return h('main', [
+            h(Link, { props: { to: '/a' }, attrs: { 'aria-current': 'true' } }, 'to-a'),
+          ]);
+        },
+      };
+
+      wrapper = mount(App, {
+        attachTo: document.body,
+        stubs: { RouterLink: RouterLinkStub },
+      });
+
+      expect(wrapper.find('a').attributes('aria-current')).toBe('true');
     });
 
     (isVue3 ? it : it.skip)(
