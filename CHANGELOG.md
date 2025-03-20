@@ -1,3 +1,10 @@
+# [111.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.4.0...v111.5.0) (2025-03-20)
+
+
+### Features
+
+* **DesignTokens:** Compile JSON files for Figma plugin ([2834c7e](https://gitlab.com/gitlab-org/gitlab-ui/commit/2834c7ed4f688050b386c289db996ce7e28e184e))
+
 # [111.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.3.1...v111.4.0) (2025-03-20)
 
 
