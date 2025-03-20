@@ -1,3 +1,10 @@
+# [111.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.3.1...v111.4.0) (2025-03-20)
+
+
+### Features
+
+* **DesignTokens:** Replace illustration stroke width with unitless ([f172642](https://gitlab.com/gitlab-org/gitlab-ui/commit/f172642437a13be85b4165349b0cad1d44d9c824))
+
 ## [111.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.3.0...v111.3.1) (2025-03-18)
 
 
