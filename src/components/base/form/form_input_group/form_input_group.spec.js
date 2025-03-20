@@ -1,6 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { BInputGroup } from '../../../../vendor/bootstrap-vue/src/components/input-group/input-group';
-import { BFormInput } from '../../../../vendor/bootstrap-vue/src/components/form-input/form-input';
+import GlFormInput from '../form_input/form_input.vue';
 import GlDropdownItem from '../../dropdown/dropdown_item.vue';
 import InputGroup from './form_input_group.vue';
 
@@ -13,9 +12,9 @@ describe('Input Group', () => {
     });
   };
 
-  it('renders without errors', () => {
+  it('renders wrapper with role of group', () => {
     createWrapper();
-    expect(wrapper.findComponent(BInputGroup).exists()).toBe(true);
+    expect(wrapper.attributes('role')).toBe('group');
   });
 
   it('renders prepend and append texts properly in the slots', () => {
@@ -61,8 +60,8 @@ describe('Input Group', () => {
         propsData: { inputClass },
       });
 
-      expect(wrapper.findComponent(BFormInput).classes()).toEqual(
-        expect.arrayContaining(['gl-form-input', 'foo-bar', 'baz'])
+      expect(wrapper.findComponent(GlFormInput).classes()).toEqual(
+        expect.arrayContaining(['foo-bar', 'baz'])
       );
     });
   });
