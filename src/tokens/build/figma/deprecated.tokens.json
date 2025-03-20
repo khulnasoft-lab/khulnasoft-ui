@@ -1,0 +1,2243 @@
+{
+  "data-viz": {
+    "green": {
+      "50": {
+        "$value": {
+          "default": "#ddfab7",
+          "dark": "#133a03"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#c6ed94",
+          "dark": "#1a4500"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#b0d97b",
+          "dark": "#275600"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#94c25e",
+          "dark": "#366800"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#81ac41",
+          "dark": "#4e7f0e"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#619025",
+          "dark": "#619025"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#4e7f0e",
+          "dark": "#81ac41"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#366800",
+          "dark": "#94c25e"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#275600",
+          "dark": "#b0d97b"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#1a4500",
+          "dark": "#c6ed94"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#133a03",
+          "dark": "#ddfab7"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "aqua": {
+      "50": {
+        "$value": {
+          "default": "#b5fefd",
+          "dark": "#00344b"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#93f2ef",
+          "dark": "#004059"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#5edee3",
+          "dark": "#00516c"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#32c5d2",
+          "dark": "#006381"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#00acc4",
+          "dark": "#007b9b"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#0090b1",
+          "dark": "#0090b1"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#007b9b",
+          "dark": "#00acc4"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#006381",
+          "dark": "#32c5d2"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#00516c",
+          "dark": "#5edee3"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#004059",
+          "dark": "#93f2ef"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#00344b",
+          "dark": "#b5fefd"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "blue": {
+      "50": {
+        "$value": {
+          "default": "#e9ebff",
+          "dark": "#2a2b59"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#d2dcff",
+          "dark": "#303470"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#b7c6ff",
+          "dark": "#374291"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#97acff",
+          "dark": "#3f51ae"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#7992f5",
+          "dark": "#4e65cd"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#617ae2",
+          "dark": "#617ae2"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#4e65cd",
+          "dark": "#7992f5"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#3f51ae",
+          "dark": "#97acff"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#374291",
+          "dark": "#b7c6ff"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#303470",
+          "dark": "#d2dcff"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#2a2b59",
+          "dark": "#e9ebff"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "magenta": {
+      "50": {
+        "$value": {
+          "default": "#ffe3eb",
+          "dark": "#541d31"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#ffccdb",
+          "dark": "#661e3a"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#fcacc5",
+          "dark": "#7c214f"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#f88aaf",
+          "dark": "#9a2e5d"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#e86e9a",
+          "dark": "#b93d71"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#cf4d81",
+          "dark": "#cf4d81"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#b93d71",
+          "dark": "#e86e9a"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#9a2e5d",
+          "dark": "#f88aaf"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#7c214f",
+          "dark": "#fcacc5"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#661e3a",
+          "dark": "#ffccdb"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#541d31",
+          "dark": "#ffe3eb"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "orange": {
+      "50": {
+        "$value": {
+          "default": "#fae8d1",
+          "dark": "#4b2707"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#f5d6b3",
+          "dark": "#5e2f05"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#eebd8c",
+          "dark": "#6f3500"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#e99b60",
+          "dark": "#92430a"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#e07e41",
+          "dark": "#b14f18"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#c95d2e",
+          "dark": "#c95d2e"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#b14f18",
+          "dark": "#e07e41"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#92430a",
+          "dark": "#e99b60"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#6f3500",
+          "dark": "#eebd8c"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#5e2f05",
+          "dark": "#f5d6b3"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#4b2707",
+          "dark": "#fae8d1"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "theme": {
+    "indigo": {
+      "10": {
+        "$value": {
+          "default": "#f8f8ff",
+          "dark": "#14143d"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "50": {
+        "$value": {
+          "default": "#f1f1ff",
+          "dark": "#222261"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#dbdbf8",
+          "dark": "#303083"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#c7c7f2",
+          "dark": "#41419f"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#a2a2e6",
+          "dark": "#5252b5"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#8181d7",
+          "dark": "#6666c4"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#6666c4",
+          "dark": "#8181d7"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#5252b5",
+          "dark": "#a2a2e6"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#41419f",
+          "dark": "#c7c7f2"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#303083",
+          "dark": "#dbdbf8"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#222261",
+          "dark": "#f1f1ff"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#14143d",
+          "dark": "#f8f8ff"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "blue": {
+      "10": {
+        "$value": {
+          "default": "#e6ecf0",
+          "dark": "#04101c"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "50": {
+        "$value": {
+          "default": "#cdd8e3",
+          "dark": "#0b2640"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#b9cadc",
+          "dark": "#153c63"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#a6bdd5",
+          "dark": "#235180"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#81a5c9",
+          "dark": "#346596"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#628eb9",
+          "dark": "#4977a5"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#4977a5",
+          "dark": "#628eb9"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#346596",
+          "dark": "#81a5c9"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#235180",
+          "dark": "#a6bdd5"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#153c63",
+          "dark": "#b9cadc"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#0b2640",
+          "dark": "#cdd8e3"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#04101c",
+          "dark": "#e6ecf0"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "light-blue": {
+      "10": {
+        "$value": {
+          "default": "#eef3f7",
+          "dark": "#0a3764"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "50": {
+        "$value": {
+          "default": "#dde6ee",
+          "dark": "#0c4277"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#c1d4e6",
+          "dark": "#0e4d8d"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#a0bedc",
+          "dark": "#145aa1"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#74a3d3",
+          "dark": "#2268ae"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#4f8bc7",
+          "dark": "#3476b9"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#3476b9",
+          "dark": "#4f8bc7"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#2268ae",
+          "dark": "#74a3d3"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#145aa1",
+          "dark": "#a0bedc"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#0e4d8d",
+          "dark": "#c1d4e6"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#0c4277",
+          "dark": "#dde6ee"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#0a3764",
+          "dark": "#eef3f7"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "green": {
+      "10": {
+        "$value": {
+          "default": "#eef4ef",
+          "dark": "#052e19"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "50": {
+        "$value": {
+          "default": "#dde9de",
+          "dark": "#0e4328"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#b1d6b5",
+          "dark": "#155635"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#8cc497",
+          "dark": "#1b653f"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#69af7d",
+          "dark": "#25744c"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#499767",
+          "dark": "#308258"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#308258",
+          "dark": "#499767"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#25744c",
+          "dark": "#69af7d"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#1b653f",
+          "dark": "#8cc497"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#155635",
+          "dark": "#b1d6b5"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#0e4328",
+          "dark": "#dde9de"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#052e19",
+          "dark": "#eef4ef"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "red": {
+      "10": {
+        "$value": {
+          "default": "#faf4f3",
+          "dark": "#380700"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "50": {
+        "$value": {
+          "default": "#f4e9e7",
+          "dark": "#580d02"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#ecd3d0",
+          "dark": "#761405"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#e3bab5",
+          "dark": "#8f2110"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#d59086",
+          "dark": "#a13322"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#c66e60",
+          "dark": "#ad4a3b"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#ad4a3b",
+          "dark": "#c66e60"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#a13322",
+          "dark": "#d59086"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#8f2110",
+          "dark": "#e3bab5"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#761405",
+          "dark": "#ecd3d0"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#580d02",
+          "dark": "#f4e9e7"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#380700",
+          "dark": "#faf4f3"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "light-red": {
+      "10": {
+        "$value": {
+          "default": "#fdf9f8",
+          "dark": "#5c1105"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "50": {
+        "$value": {
+          "default": "#faf2f1",
+          "dark": "#751709"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "100": {
+        "$value": {
+          "default": "#f6d9d5",
+          "dark": "#8b2212"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "200": {
+        "$value": {
+          "default": "#ebada2",
+          "dark": "#a02e1c"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "300": {
+        "$value": {
+          "default": "#e07f6f",
+          "dark": "#b53a26"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "400": {
+        "$value": {
+          "default": "#d36250",
+          "dark": "#c24b38"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "500": {
+        "$value": {
+          "default": "#c24b38",
+          "dark": "#d36250"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "600": {
+        "$value": {
+          "default": "#b53a26",
+          "dark": "#e07f6f"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "700": {
+        "$value": {
+          "default": "#a02e1c",
+          "dark": "#ebada2"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "800": {
+        "$value": {
+          "default": "#8b2212",
+          "dark": "#f6d9d5"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "900": {
+        "$value": {
+          "default": "#751709",
+          "dark": "#faf2f1"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "950": {
+        "$value": {
+          "default": "#5c1105",
+          "dark": "#fdf9f8"
+        },
+        "$type": "color",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "black": {
+    "$value": {
+      "default": "#050506",
+      "dark": "#fff"
+    },
+    "$type": "color",
+    "themeable": true,
+    "prefix": false,
+    "deprecated": true,
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "white": {
+    "$value": {
+      "default": "#fff",
+      "dark": "#28272d"
+    },
+    "$type": "color",
+    "themeable": true,
+    "prefix": false,
+    "deprecated": true,
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "blue": {
+    "50": {
+      "$value": {
+        "default": "#e9f3fc",
+        "dark": "#033464"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "100": {
+      "$value": {
+        "default": "#cbe2f9",
+        "dark": "#064787"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "200": {
+      "$value": {
+        "default": "#9dc7f1",
+        "dark": "#0b5cad"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "300": {
+      "$value": {
+        "default": "#63a6e9",
+        "dark": "#1068bf"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "400": {
+      "$value": {
+        "default": "#428fdc",
+        "dark": "#1f75cb"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "500": {
+      "$value": {
+        "default": "#1f75cb",
+        "dark": "#428fdc"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "600": {
+      "$value": {
+        "default": "#1068bf",
+        "dark": "#63a6e9"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "700": {
+      "$value": {
+        "default": "#0b5cad",
+        "dark": "#9dc7f1"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "800": {
+      "$value": {
+        "default": "#064787",
+        "dark": "#cbe2f9"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "900": {
+      "$value": {
+        "default": "#033464",
+        "dark": "#e9f3fc"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "950": {
+      "$value": {
+        "default": "#002850",
+        "dark": "#f2f9ff"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "gray": {
+    "10": {
+      "$value": {
+        "default": "#fbfafd",
+        "dark": "#18171d"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "50": {
+      "$value": {
+        "default": "#ececef",
+        "dark": "#28272d"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "100": {
+      "$value": {
+        "default": "#dcdcde",
+        "dark": "#3a383f"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "200": {
+      "$value": {
+        "default": "#bfbfc3",
+        "dark": "#4c4b51"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "300": {
+      "$value": {
+        "default": "#a4a3a8",
+        "dark": "#626168"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "400": {
+      "$value": {
+        "default": "#89888d",
+        "dark": "#737278"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "500": {
+      "$value": {
+        "default": "#737278",
+        "dark": "#89888d"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "600": {
+      "$value": {
+        "default": "#626168",
+        "dark": "#a4a3a8"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "700": {
+      "$value": {
+        "default": "#4c4b51",
+        "dark": "#bfbfc3"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "800": {
+      "$value": {
+        "default": "#3a383f",
+        "dark": "#dcdcde"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "900": {
+      "$value": {
+        "default": "#28272d",
+        "dark": "#ececef"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "950": {
+      "$value": {
+        "default": "#18171d",
+        "dark": "#fbfafd"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "green": {
+    "50": {
+      "$value": {
+        "default": "#ecf4ee",
+        "dark": "#0a4020"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "100": {
+      "$value": {
+        "default": "#c3e6cd",
+        "dark": "#0d532a"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "200": {
+      "$value": {
+        "default": "#91d4a8",
+        "dark": "#24663b"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "300": {
+      "$value": {
+        "default": "#52b87a",
+        "dark": "#217645"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "400": {
+      "$value": {
+        "default": "#2da160",
+        "dark": "#108548"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "500": {
+      "$value": {
+        "default": "#108548",
+        "dark": "#2da160"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "600": {
+      "$value": {
+        "default": "#217645",
+        "dark": "#52b87a"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "700": {
+      "$value": {
+        "default": "#24663b",
+        "dark": "#91d4a8"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "800": {
+      "$value": {
+        "default": "#0d532a",
+        "dark": "#c3e6cd"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "900": {
+      "$value": {
+        "default": "#0a4020",
+        "dark": "#ecf4ee"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "950": {
+      "$value": {
+        "default": "#072b15",
+        "dark": "#f1fdf6"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "orange": {
+    "50": {
+      "$value": {
+        "default": "#fdf1dd",
+        "dark": "#5c2900"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "100": {
+      "$value": {
+        "default": "#f5d9a8",
+        "dark": "#703800"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "200": {
+      "$value": {
+        "default": "#e9be74",
+        "dark": "#8f4700"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "300": {
+      "$value": {
+        "default": "#d99530",
+        "dark": "#9e5400"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "400": {
+      "$value": {
+        "default": "#c17d10",
+        "dark": "#ab6100"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "500": {
+      "$value": {
+        "default": "#ab6100",
+        "dark": "#c17d10"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "600": {
+      "$value": {
+        "default": "#9e5400",
+        "dark": "#d99530"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "700": {
+      "$value": {
+        "default": "#8f4700",
+        "dark": "#e9be74"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "800": {
+      "$value": {
+        "default": "#703800",
+        "dark": "#f5d9a8"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "900": {
+      "$value": {
+        "default": "#5c2900",
+        "dark": "#fdf1dd"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "950": {
+      "$value": {
+        "default": "#421f00",
+        "dark": "#fff4e1"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "purple": {
+    "50": {
+      "$value": {
+        "default": "#f4f0ff",
+        "dark": "#232150"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "100": {
+      "$value": {
+        "default": "#e1d8f9",
+        "dark": "#2f2a6b"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "200": {
+      "$value": {
+        "default": "#cbbbf2",
+        "dark": "#453894"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "300": {
+      "$value": {
+        "default": "#ac93e6",
+        "dark": "#5943b6"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "400": {
+      "$value": {
+        "default": "#9475db",
+        "dark": "#694cc0"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "500": {
+      "$value": {
+        "default": "#7b58cf",
+        "dark": "#7b58cf"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "600": {
+      "$value": {
+        "default": "#694cc0",
+        "dark": "#9475db"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "700": {
+      "$value": {
+        "default": "#5943b6",
+        "dark": "#ac93e6"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "800": {
+      "$value": {
+        "default": "#453894",
+        "dark": "#cbbbf2"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "900": {
+      "$value": {
+        "default": "#2f2a6b",
+        "dark": "#e1d8f9"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "950": {
+      "$value": {
+        "default": "#232150",
+        "dark": "#f4f0ff"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "red": {
+    "50": {
+      "$value": {
+        "default": "#fcf1ef",
+        "dark": "#660e00"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "100": {
+      "$value": {
+        "default": "#fdd4cd",
+        "dark": "#8d1300"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "200": {
+      "$value": {
+        "default": "#fcb5aa",
+        "dark": "#ae1800"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "300": {
+      "$value": {
+        "default": "#f57f6c",
+        "dark": "#c91c00"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "400": {
+      "$value": {
+        "default": "#ec5941",
+        "dark": "#dd2b0e"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "500": {
+      "$value": {
+        "default": "#dd2b0e",
+        "dark": "#ec5941"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "600": {
+      "$value": {
+        "default": "#c91c00",
+        "dark": "#f57f6c"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "700": {
+      "$value": {
+        "default": "#ae1800",
+        "dark": "#fcb5aa"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "800": {
+      "$value": {
+        "default": "#8d1300",
+        "dark": "#fdd4cd"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "900": {
+      "$value": {
+        "default": "#660e00",
+        "dark": "#fcf1ef"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "950": {
+      "$value": {
+        "default": "#4d0a00",
+        "dark": "#fff4f3"
+      },
+      "$type": "color",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "brand": {
+    "charcoal": {
+      "$value": "#171321",
+      "$type": "color",
+      "$description": "Use color.brand-charcoal instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "orange": {
+      "01": {
+        "$value": "#fca326",
+        "$type": "color",
+        "$description": "Use color.brand-orange.01p instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "02": {
+        "$value": "#fc6d26",
+        "$type": "color",
+        "$description": "Use color.brand-orange.02p instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "03": {
+        "$value": "#e24329",
+        "$type": "color",
+        "$description": "Use color.brand-orange.03p instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "purple": {
+      "01": {
+        "$value": "#a989f5",
+        "$type": "color",
+        "$description": "Use color.purple.01p instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "02": {
+        "$value": "#7759c2",
+        "$type": "color",
+        "$description": "Use color.purple.02p instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "gray": {
+      "01": {
+        "$value": "#d1d0d3",
+        "$type": "color",
+        "$description": "Use color.brand-gray.01 instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "02": {
+        "$value": "#a2a1a6",
+        "$type": "color",
+        "$description": "Use color.brand-gray.02 instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "03": {
+        "$value": "#74717a",
+        "$type": "color",
+        "$description": "Use color.brand-gray.03 instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "04": {
+        "$value": "#45424d",
+        "$type": "color",
+        "$description": "Use color.brand-gray.04 instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      },
+      "05": {
+        "$value": "#2b2838",
+        "$type": "color",
+        "$description": "Use color.brand-gray.05 instead.",
+        "themeable": true,
+        "prefix": false,
+        "deprecated": true
+      }
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "t-gray-a": {
+    "16": {
+      "$value": "rgba(05, 05, 06, 0.16)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.16 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "24": {
+      "$value": "rgba(05, 05, 06, 0.24)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.24 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "02": {
+      "$value": "rgba(05, 05, 06, 0.02)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.2 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "04": {
+      "$value": "rgba(05, 05, 06, 0.04)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.4 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "06": {
+      "$value": "rgba(05, 05, 06, 0.06)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.6 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "08": {
+      "$value": "rgba(05, 05, 06, 0.08)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.8 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  },
+  "t-white-a": {
+    "16": {
+      "$value": "rgba(255, 255, 255, 0.16)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.16 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "24": {
+      "$value": "rgba(255, 255, 255, 0.24)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.24 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "36": {
+      "$value": "rgba(255, 255, 255, 0.36)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.36 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "02": {
+      "$value": "rgba(255, 255, 255, 0.02)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.2 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "04": {
+      "$value": "rgba(255, 255, 255, 0.04)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.4 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "06": {
+      "$value": "rgba(255, 255, 255, 0.06)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.6 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "08": {
+      "$value": "rgba(255, 255, 255, 0.08)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.8 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "$extensions": {
+      "com.gitlab.deprecated": true
+    }
+  }
+}

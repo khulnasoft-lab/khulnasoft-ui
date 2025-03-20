@@ -2,6 +2,8 @@
 
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { globSync } from 'glob';
 import { format, resolveConfig } from 'prettier';
 import StyleDictionary from 'style-dictionary';
 import { fileHeader } from 'style-dictionary/utils';
@@ -422,21 +424,93 @@ const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
 };
 
 /**
+ * Add extension(s) to the tokens
+ * See https://tr.designtokens.org/format/#extensions
+ */
+function addExtension(tokens, extension, extensionValue = true) {
+  Object.values(tokens).forEach((value) => {
+    value.$extensions ||= {};
+    value.$extensions[extension] = extensionValue;
+  });
+
+  return tokens;
+}
+
+/**
+ * Load and concatenate token files from the tokens directory,
+ * categorized into four groups by subdirectory.
+ */
+async function buildFigmaTokens() {
+  const combineTokenFiles = (category) => {
+    const files = globSync(`./src/tokens/${category}/**/*.tokens.json`)
+      // Naive attempt to keep JSON output stable across builds. A more robust
+      // solution would be to use safe-stable-stringify or similar when writing
+      // the files.
+      .sort();
+
+    return files.reduce((acc, file) => {
+      const fileTokens = JSON.parse(fs.readFileSync(file, 'utf-8'));
+      return merge(acc, fileTokens);
+    }, {});
+  };
+
+  const tokenCategories = [
+    {
+      name: 'semantic.tokens.json',
+      tokens: combineTokenFiles('semantic'),
+    },
+    {
+      name: 'constants.tokens.json',
+      tokens: combineTokenFiles('constant'),
+    },
+    {
+      name: 'contextual.tokens.json',
+      tokens: addExtension(combineTokenFiles('contextual'), 'com.gitlab.locked'),
+    },
+    {
+      name: 'deprecated.tokens.json',
+      tokens: addExtension(combineTokenFiles('deprecated'), 'com.gitlab.deprecated'),
+    },
+  ];
+
+  const outputDir = join(process.cwd(), 'src', 'tokens', 'build', 'figma');
+  fs.mkdirSync(outputDir, { recursive: true });
+
+  for (const { name, tokens } of tokenCategories) {
+    fs.writeFileSync(join(outputDir, name), JSON.stringify(tokens, null, 2));
+  }
+
+  console.log('✔︎ Figma tokens built successfully');
+}
+
+/**
  * Build tokens from config
  */
+async function main() {
+  try {
+    // Build tokens using StyleDictionary
+    const defaultMode = new StyleDictionary(getStyleDictionaryConfigDefault());
+    await defaultMode.buildAllPlatforms();
 
-const defaultMode = new StyleDictionary(getStyleDictionaryConfigDefault());
-await defaultMode.buildAllPlatforms();
+    const darkMode = new StyleDictionary(getStyleDictionaryConfigDarkMode());
+    await darkMode.buildAllPlatforms();
 
-const darkMode = new StyleDictionary(getStyleDictionaryConfigDarkMode());
-await darkMode.buildAllPlatforms();
+    const defaultModeSrcDirectory = new StyleDictionary(
+      getStyleDictionaryConfigDefault('src/tokens/build')
+    );
+    await defaultModeSrcDirectory.buildAllPlatforms();
 
-const defaultModeSrcDirectory = new StyleDictionary(
-  getStyleDictionaryConfigDefault('src/tokens/build')
-);
-await defaultModeSrcDirectory.buildAllPlatforms();
+    const darkModeSrcDirectory = new StyleDictionary(
+      getStyleDictionaryConfigDarkMode('src/tokens/build')
+    );
+    await darkModeSrcDirectory.buildAllPlatforms();
 
-const darkModeSrcDirectory = new StyleDictionary(
-  getStyleDictionaryConfigDarkMode('src/tokens/build')
-);
-await darkModeSrcDirectory.buildAllPlatforms();
+    // Build tokens for Figma
+    await buildFigmaTokens();
+  } catch (error) {
+    console.error('🚨 Error building tokens:', error);
+    process.exit(1);
+  }
+}
+
+main();
