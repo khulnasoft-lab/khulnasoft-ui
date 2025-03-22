@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import { GlResizeObserverDirective } from '../../../directives/resize_observer/resize_observer';
 import { POSITION, ZERO_WIDTH_SPACE } from './constants';
 

@@ -3,6 +3,7 @@
 import { BTooltip } from '../../../vendor/bootstrap-vue/src/components/tooltip/tooltip';
 import { tooltipDelay } from '../../../utils/constants';
 import tooltipMixin from '../../mixins/tooltip_mixin';
+import { getGlTooltipDefaultContainer } from '../../../directives/tooltip/container';
 
 const tooltipRefName = 'bvTooltip';
 
@@ -15,6 +16,7 @@ export default {
   mixins: [tooltipMixin(tooltipRefName)],
   inheritAttrs: false,
   tooltipRefName,
+  getGlTooltipDefaultContainer,
 };
 </script>
 
@@ -22,6 +24,7 @@ export default {
   <b-tooltip
     :ref="$options.tooltipRefName"
     v-bind="$attrs"
+    :container="$attrs.container || $options.getGlTooltipDefaultContainer()"
     :delay="$options.tooltipDelay"
     v-on="$listeners"
   >

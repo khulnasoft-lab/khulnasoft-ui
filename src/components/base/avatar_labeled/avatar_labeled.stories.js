@@ -2,7 +2,7 @@ import Vue from 'vue';
 import GlBadge from '../badge/badge.vue';
 import GlButton from '../button/button.vue';
 import GlIcon from '../icon/icon.vue';
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import { avatarSizeOptions, avatarShapeOptions, tooltipPlacements } from '../../../utils/constants';
 import avatarPath from '../../../../static/img/avatar.png';
 import GlAvatarLabeled from './avatar_labeled.vue';

@@ -117,7 +117,8 @@ export { default as GlTruncateText } from './components/utilities/truncate_text/
 
 // Directives
 export { GlModalDirective } from './directives/modal';
-export { GlTooltipDirective } from './directives/tooltip';
+export { GlTooltipDirective } from './directives/tooltip/tooltip';
+export { setGlTooltipDefaultContainer } from './directives/tooltip/container';
 export { GlResizeObserverDirective } from './directives/resize_observer/resize_observer';
 export { GlCollapseToggleDirective } from './directives/collapse_toggle';
 export { SafeLinkDirective as GlSafeLinkDirective } from './directives/safe_link/safe_link';

@@ -11,7 +11,7 @@ VTU.enableAutoDestroy?.(afterEach);
 // Tooltips require complex DOM setup
 // Since we're just reusing bootstrap-vue functionality
 // We can safely mock it
-jest.mock('../src/directives/tooltip.js', () => ({
+jest.mock('../src/directives/tooltip/tooltip.js', () => ({
   GlTooltipDirective: mockDirectiveCreator('gl-tooltip'),
 }));
 
