@@ -104,42 +104,88 @@ describe('chart component', () => {
     expect(wrapper.vm.chart).toBeDefined();
   });
 
-  describe('sets chart options', () => {
-    beforeEach(async () => {
-      createWrapper({
-        options: {
+  describe('chart options', () => {
+    describe('when options are set', () => {
+      beforeEach(async () => {
+        createWrapper({
+          options: {
+            title: { text: 'My chart title' },
+          },
+        });
+        await nextTick();
+      });
+
+      it('inits chart options, adding aria.enabled', async () => {
+        expect(wrapper.vm.chart.setOption).toHaveBeenCalledTimes(1);
+        expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith({
           title: { text: 'My chart title' },
-        },
-      });
-      await nextTick();
-    });
+          aria: { enabled: true },
+        });
 
-    it('inits chart options, adding aria.enabled', async () => {
-      expect(wrapper.vm.chart.setOption).toHaveBeenCalledTimes(1);
-      expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith({
-        title: { text: 'My chart title' },
-        aria: { enabled: true },
+        expect(wrapper.emitted('updated').length).toEqual(1);
       });
 
-      expect(wrapper.emitted('updated').length).toEqual(1);
-    });
+      it('reacts to options changes by merging options', async () => {
+        wrapper.setProps({
+          options: {
+            title: { text: 'My new chart title' },
+            xAxis: { show: true },
+          },
+        });
+        await nextTick();
 
-    it('reacts to options changes by merging options', async () => {
-      wrapper.setProps({
-        options: {
+        expect(wrapper.vm.chart.setOption).toHaveBeenCalledTimes(2);
+        expect(wrapper.vm.chart.setOption).toHaveBeenLastCalledWith({
+          aria: { enabled: true },
           title: { text: 'My new chart title' },
           xAxis: { show: true },
-        },
+        });
+        expect(wrapper.emitted('updated').length).toEqual(2);
       });
-      await nextTick();
+    });
 
-      expect(wrapper.vm.chart.setOption).toHaveBeenCalledTimes(2);
-      expect(wrapper.vm.chart.setOption).toHaveBeenLastCalledWith({
-        title: { text: 'My new chart title' },
-        xAxis: { show: true },
-        aria: { enabled: true },
+    describe('when aria is explicitly disabled', () => {
+      it('does not enable aria', async () => {
+        createWrapper({
+          options: { aria: { enabled: false } },
+        });
+        await nextTick();
+
+        expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith({
+          aria: { enabled: false },
+        });
       });
-      expect(wrapper.emitted('updated').length).toEqual(2);
+    });
+
+    describe('when toolbox is enabled', () => {
+      it('sets grid top to `toolboxHeight`', async () => {
+        createWrapper({
+          options: { toolbox: { show: true } },
+        });
+        await nextTick();
+
+        expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith({
+          aria: { enabled: true },
+          toolbox: { show: true },
+          grid: { top: toolboxHeight },
+        });
+      });
+
+      it('increases grid top by `toolboxHeight`', async () => {
+        createWrapper({
+          options: {
+            toolbox: { show: true },
+            grid: { top: 100 },
+          },
+        });
+        await nextTick();
+
+        expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith({
+          aria: { enabled: true },
+          toolbox: { show: true },
+          grid: { top: 100 + toolboxHeight },
+        });
+      });
     });
   });
 
@@ -203,20 +249,6 @@ describe('chart component', () => {
           width: 'auto',
           height: 401,
         });
-      });
-    });
-  });
-
-  describe('with toolbox in options', () => {
-    it('increases grid top by `toolboxHeight`', async () => {
-      const optionsWithToolbox = { toolbox: { show: true } };
-      wrapper = shallowMount(Chart, { propsData: { options: optionsWithToolbox } });
-      await nextTick();
-
-      expect(wrapper.vm.chart.setOption).toHaveBeenCalledWith({
-        ...optionsWithToolbox,
-        grid: { top: toolboxHeight },
-        aria: { enabled: true },
       });
     });
   });
