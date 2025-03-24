@@ -1,12 +1,18 @@
 const Vue = require('vue');
 const VTU = require('@vue/test-utils');
 const { matcherHint, printReceived, printExpected } = require('jest-matcher-utils');
-const setConfigs = require('../src/config').default;
+const { default: setConfigs, defaultConfig } = require('../src/config');
 const { useMockResizeObserver } = require('./__helpers__/mock_dom_observer');
 const { createMockDirective: mockDirectiveCreator } = require('./__helpers__/vue_mock_directive');
 
-setConfigs();
 VTU.enableAutoDestroy?.(afterEach);
+
+beforeEach(() => {
+  // Reset global configuration
+  defaultConfig.firstDayOfWeek = undefined;
+
+  setConfigs();
+});
 
 // Tooltips require complex DOM setup
 // Since we're just reusing bootstrap-vue functionality
