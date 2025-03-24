@@ -5,23 +5,16 @@ import { toolboxHeight } from '~/utils/charts/config';
 import { createTheme } from '~/utils/charts/theme';
 import { waitForAnimationFrame } from '~/utils/test_utils';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
+import { mockCreateChartInstance as createdMockChartInstance } from '~helpers/chart_stubs';
 import Chart from './chart.vue';
 
-const defaultHeight = 400;
+let mockChartInstance;
 
 jest.mock('echarts', () => {
   return {
     init: jest.fn(() => {
-      let opts = null;
-      return {
-        setOption: jest.fn((o) => {
-          opts = o;
-        }),
-        getOption: jest.fn(() => opts),
-        resize: jest.fn(),
-        on: jest.fn(),
-        off: jest.fn(),
-      };
+      mockChartInstance = createdMockChartInstance();
+      return mockChartInstance;
     }),
     registerTheme: jest.fn(),
   };
@@ -29,6 +22,8 @@ jest.mock('echarts', () => {
 
 describe('chart component', () => {
   const themeName = 'gitlab';
+  const defaultHeight = 400;
+
   let wrapper;
 
   const createWrapper = (props) => {

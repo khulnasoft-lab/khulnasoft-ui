@@ -1,6 +1,6 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
-import { createMockChartInstance } from '~helpers/chart_stubs';
+import { mockCreateChartInstance } from '~helpers/chart_stubs';
 import GlPopover from '../../../base/popover/popover.vue';
 import { popoverPlacements } from '../../../../utils/constants';
 import { waitForAnimationFrame } from '../../../../utils/test_utils';
@@ -31,7 +31,7 @@ describe('ChartTooltip', () => {
 
   const createWrapper = (props = {}, options) => {
     mockChartInstance = {
-      ...createMockChartInstance(),
+      ...mockCreateChartInstance(),
       containPixel: mockContainPixel,
     };
 
