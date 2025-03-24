@@ -5,7 +5,7 @@ import { toolboxHeight } from '~/utils/charts/config';
 import { createTheme } from '~/utils/charts/theme';
 import { waitForAnimationFrame } from '~/utils/test_utils';
 import { useMockResizeObserver } from '~helpers/mock_dom_observer';
-import { mockCreateChartInstance as createdMockChartInstance } from '~helpers/chart_stubs';
+import { mockCreateChartInstance } from '~helpers/chart_stubs';
 import Chart from './chart.vue';
 
 let mockChartInstance;
@@ -13,7 +13,7 @@ let mockChartInstance;
 jest.mock('echarts', () => {
   return {
     init: jest.fn(() => {
-      mockChartInstance = createdMockChartInstance();
+      mockChartInstance = mockCreateChartInstance();
       return mockChartInstance;
     }),
     registerTheme: jest.fn(),
