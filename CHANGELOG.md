@@ -1,3 +1,10 @@
+# [111.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.6.0...v111.7.0) (2025-03-25)
+
+
+### Features
+
+* **GlChart:** Allow charts to opt-out of aria ([14c0bfc](https://gitlab.com/gitlab-org/gitlab-ui/commit/14c0bfc4d8cf1eb57b865856e6ecf0a7461d0be4))
+
 # [111.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.5.0...v111.6.0) (2025-03-25)
 
 
