@@ -28,6 +28,7 @@ export default {
   directives: {
     SafeLink: SafeLinkDirective,
   },
+  inheritAttrs: false,
   props: {
     /**
      * Denotes the target URL of the link for standard links.
@@ -202,13 +203,22 @@ export default {
       return fallback;
     },
     computedProps() {
+      const baseRouterLinkProps = {
+        to: this.to,
+        activeClass: this.activeClass,
+        exactActiveClass: this.exactActiveClass,
+        replace: this.replace,
+        ...(isBoolean(this.prefetch) ? { prefetch: this.prefetch } : {}),
+      };
+
       if (this.isRouterLink) {
+        if (this.isVue3RouterLink) {
+          return baseRouterLinkProps;
+        }
+
         return {
-          to: this.to,
-          activeClass: this.activeClass,
-          exactActiveClass: this.exactActiveClass,
-          replace: this.replace,
-          ...(isBoolean(this.prefetch) ? { prefetch: this.prefetch } : {}),
+          ...baseRouterLinkProps,
+          ...this.$attrs,
         };
       }
 
@@ -218,6 +228,7 @@ export default {
         rel: this.rel,
         target: this.target,
         href: this.computedHref,
+        ...this.$attrs,
       };
     },
     computedListeners() {
@@ -306,6 +317,7 @@ export default {
       v-safe-link:[safeLinkConfig]
       :class="[computedClass, { [activeClass]: isActive, [exactActiveClass]: isExactActive }]"
       :href="routerLinkHref"
+      v-bind="$attrs"
       v-on="computedListeners"
       @click="onClick($event, navigate)"
     >
