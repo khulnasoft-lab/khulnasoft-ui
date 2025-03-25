@@ -1,3 +1,10 @@
+## [111.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.7.0...v111.7.1) (2025-03-25)
+
+
+### Bug Fixes
+
+* **GlButtonGroup:** Isolate button divider so it doesn't overlap others ([7b0481c](https://gitlab.com/gitlab-org/gitlab-ui/commit/7b0481cb53851bee185baa4e4d139372064c9fb2))
+
 # [111.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.6.0...v111.7.0) (2025-03-25)
 
 
