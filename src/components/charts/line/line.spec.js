@@ -207,10 +207,12 @@ describe('line component', () => {
       });
     });
 
-    it('is customized via formatting function', async () => {
+    it('is customized via deprecated formatting function', async () => {
+      const formatTooltipText = jest.fn();
+
       createShallowWrapper({
         props: {
-          formatTooltipText: jest.fn(),
+          formatTooltipText,
         },
       });
 
@@ -220,6 +222,10 @@ describe('line component', () => {
         useDefaultTooltipFormatter: false,
         chart: mockChartInstance,
       });
+
+      expect(findChart().props('options').xAxis.axisPointer.label.formatter).toBe(
+        formatTooltipText
+      );
     });
   });
 

@@ -180,14 +180,8 @@ export default {
       return generateAnnotationSeries(this.annotations);
     },
     options() {
-      const defaultLineChartOptions = {
+      const lineChartOptions = {
         xAxis: {
-          axisPointer: {
-            show: true,
-            label: {
-              formatter: this.formatTooltipText,
-            },
-          },
           axisTick: {
             alignWithLabel: true,
             show: true,
@@ -200,10 +194,25 @@ export default {
           show: false,
         },
       };
+
+      // `formatTooltipText` is deprecated, these added options should be
+      // removed when `formatTooltipText` is removed.
+      const deprecatedTooltipFormatterOptions = {
+        xAxis: {
+          axisPointer: {
+            show: true,
+            label: {
+              formatter: this.formatTooltipText,
+            },
+          },
+        },
+      };
+
       const mergedOptions = merge(
         {},
         defaultChartOptions,
-        defaultLineChartOptions,
+        lineChartOptions,
+        this.formatTooltipText ? deprecatedTooltipFormatterOptions : {},
         this.option,
         dataZoomAdjustments(this.option.dataZoom)
       );

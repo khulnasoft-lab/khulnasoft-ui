@@ -192,46 +192,58 @@ export default {
       return [...this.barSeries, ...this.lineSeries, ...this.secondarySeries];
     },
     options() {
+      const stackedColumnChartOptions = {
+        grid: this.hasSecondaryAxis ? gridWithSecondaryYAxis : grid,
+        xAxis: {
+          boundaryGap: true,
+          axisLabel: {
+            margin: 20,
+            verticalAlign: 'bottom',
+          },
+          axisLine: {
+            show: false,
+          },
+          axisPointer: {
+            type: 'none',
+          },
+          data: this.groupBy,
+          name: this.xAxisTitle,
+          type: this.xAxisType,
+        },
+        yAxis: [
+          {
+            ...yAxisDefaults,
+            name: this.yAxisTitle,
+          },
+          {
+            ...yAxisDefaults,
+            name: this.secondaryDataTitle,
+            show: this.hasSecondaryAxis,
+          },
+        ],
+        legend: {
+          show: false,
+        },
+      };
+
+      // `formatTooltipText` is deprecated, these added options should be
+      // removed when `formatTooltipText` is removed.
+      const deprecatedTooltipFormatterOptions = {
+        xAxis: {
+          axisPointer: {
+            show: true,
+            label: {
+              formatter: this.formatTooltipText,
+            },
+          },
+        },
+      };
+
       const mergedOptions = merge(
         {},
         defaultChartOptions,
-        {
-          grid: this.hasSecondaryAxis ? gridWithSecondaryYAxis : grid,
-          xAxis: {
-            boundaryGap: true,
-            axisLabel: {
-              margin: 20,
-              verticalAlign: 'bottom',
-            },
-            axisLine: {
-              show: false,
-            },
-            axisPointer: {
-              show: true,
-              type: 'none',
-              label: {
-                formatter: this.formatTooltipText,
-              },
-            },
-            data: this.groupBy,
-            name: this.xAxisTitle,
-            type: this.xAxisType,
-          },
-          yAxis: [
-            {
-              ...yAxisDefaults,
-              name: this.yAxisTitle,
-            },
-            {
-              ...yAxisDefaults,
-              name: this.secondaryDataTitle,
-              show: this.hasSecondaryAxis,
-            },
-          ],
-          legend: {
-            show: false,
-          },
-        },
+        stackedColumnChartOptions,
+        this.formatTooltipText ? deprecatedTooltipFormatterOptions : {},
         this.option,
         dataZoomAdjustments(this.option.dataZoom)
       );
