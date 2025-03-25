@@ -23,7 +23,7 @@ $gl-button-group-border-z-index: $gl-button-group-focus-z-index + 1;
   > .gl-button:not(:first-child),
   > .btn-group:not(:first-child) > .gl-button,
   > .gl-new-dropdown:not(:first-child) > .gl-button {
-    @apply gl-relative gl-ml-[1px];
+    @apply gl-relative gl-ml-[1px] gl-isolate;
 
     &::before {
       content: '';
