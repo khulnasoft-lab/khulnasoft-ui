@@ -1,3 +1,15 @@
+# [111.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.5.0...v111.6.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* **GlLink:** fix passing of attributes to Vue 3 RouterLink ([0e2632d](https://gitlab.com/gitlab-org/gitlab-ui/commit/0e2632d609985500713c1c10dbe48548eb1f4317))
+
+
+### Features
+
+* **GlDatepicker:** Add global firstDay config ([4b3c9a8](https://gitlab.com/gitlab-org/gitlab-ui/commit/4b3c9a8fc21b534245274d30dee86562d48250bb))
+
 # [111.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.4.0...v111.5.0) (2025-03-20)
 
 
