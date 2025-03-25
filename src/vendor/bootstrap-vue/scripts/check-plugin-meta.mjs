@@ -2,6 +2,7 @@
 
 import { readFile, readdir, stat } from 'node:fs/promises'
 import path from 'node:path'
+import fs from 'node:fs'
 import assert from 'node:assert'
 import startCase from 'lodash/startCase.js'
 
@@ -43,6 +44,10 @@ const checkPluginMeta = async plugin => {
     }
     return file.replace(/\.js/, '')
   })
+
+  if (!fs.existsSync(`${pluginDir}/package.json`)) {
+    return
+  }
 
   const { private: isPrivate, meta } = await readJSON(`${pluginDir}/package.json`)
   if (isPrivate || !meta) {
