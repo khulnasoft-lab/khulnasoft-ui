@@ -1,6 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import * as echarts from 'echarts';
+import merge from 'lodash/merge';
 import {
   defaultHeight,
   defaultWidth,
@@ -16,16 +17,6 @@ import { debounceByAnimationFrame } from '../../../utils/utils';
  * https://echarts.apache.org/en/api.html#echartsInstance.resize
  */
 const sizeValidator = (size) => Number.isFinite(size) || size === 'auto' || size == null;
-
-const isChartWithToolbox = (options) => Boolean(options?.toolbox?.show);
-
-const increaseChartGridTop = (options, increaseBy) => ({
-  ...options,
-  grid: {
-    ...options.grid,
-    top: (options?.grid?.top || 0) + increaseBy,
-  },
-});
 
 export default {
   name: 'GlChart',
@@ -90,10 +81,21 @@ export default {
     };
   },
   computed: {
-    normalizedOptions() {
-      return isChartWithToolbox(this.options)
-        ? increaseChartGridTop(this.options, toolboxHeight)
-        : this.options;
+    modifiedOptions() {
+      let options = { ...this.options };
+
+      // Enable aria by default
+      if (options.aria?.enabled === undefined) {
+        options = merge({}, options, { aria: { enabled: true } });
+      }
+
+      // Add space at the top to fit the toolbox
+      if (options.toolbox?.show === true) {
+        const top = (options.grid?.top || 0) + toolboxHeight;
+        options = merge({}, options, { grid: { top } });
+      }
+
+      return options;
     },
   },
   watch: {
@@ -143,12 +145,7 @@ export default {
   },
   methods: {
     draw() {
-      this.chart.setOption({
-        ...this.normalizedOptions,
-        aria: {
-          enabled: true,
-        },
-      });
+      this.chart.setOption(this.modifiedOptions);
       /**
        * Emitted after calling `echarts.setOption`
        */
