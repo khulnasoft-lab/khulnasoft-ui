@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 
 import { nextTick } from 'vue';
-import { createMockChartInstance } from '~helpers/chart_stubs';
+import { mockCreateChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../shared/tooltip/tooltip.vue';
@@ -35,7 +35,7 @@ describe('heatmap component', () => {
   };
 
   beforeEach(async () => {
-    mockChartInstance = createMockChartInstance();
+    mockChartInstance = mockCreateChartInstance();
   });
 
   it('emits `created`, with the chart instance', () => {

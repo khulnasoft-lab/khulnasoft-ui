@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { createMockChartInstance } from '~helpers/chart_stubs';
+import { mockCreateChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../shared/tooltip/tooltip.vue';
@@ -39,7 +39,7 @@ describe('Bar chart component', () => {
   };
 
   beforeEach(() => {
-    mockChartInstance = createMockChartInstance();
+    mockChartInstance = mockCreateChartInstance();
   });
 
   describe('when mounted', () => {

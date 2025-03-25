@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { createMockChartInstance } from '~helpers/chart_stubs';
+import { mockCreateChartInstance } from '~helpers/chart_stubs';
 import Chart from '../chart/chart.vue';
 import GlChartSeriesLabel from '../series_label/series_label.vue';
 import Legend from './legend.vue';
@@ -71,7 +71,7 @@ describe('chart legend component', () => {
   };
 
   beforeEach(async () => {
-    mockChartInstance = createMockChartInstance();
+    mockChartInstance = mockCreateChartInstance();
 
     chartWrapper = shallowMount(...chartArgs);
     await chartWrapper.vm.$nextTick();

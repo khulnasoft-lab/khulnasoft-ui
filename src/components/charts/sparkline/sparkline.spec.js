@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import { waitForAnimationFrame } from '~/utils/test_utils';
 import { HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES } from '~/utils/charts/constants';
-import { createMockChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
+import { mockCreateChartInstance, ChartTooltipStub } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import SparklineChart from './sparkline.vue';
@@ -72,7 +72,7 @@ describe('sparkline chart component', () => {
   const emitChartCreated = () => getChart().vm.$emit('created', mockChartInstance);
 
   beforeEach(() => {
-    mockChartInstance = createMockChartInstance();
+    mockChartInstance = mockCreateChartInstance();
     factory();
     // needs to run after every mount, or the chart-instance is `null` and `beforeDestroy` throws
     emitChartCreated();

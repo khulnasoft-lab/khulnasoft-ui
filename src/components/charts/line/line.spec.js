@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import { LEGEND_LAYOUT_INLINE, LEGEND_LAYOUT_TABLE } from '~/utils/charts/constants';
 import {
-  createMockChartInstance,
+  mockCreateChartInstance,
   ChartTooltipStub,
   chartTooltipStubData,
 } from '~helpers/chart_stubs';
@@ -43,7 +43,7 @@ describe('line component', () => {
   };
 
   beforeEach(() => {
-    mockChartInstance = createMockChartInstance();
+    mockChartInstance = mockCreateChartInstance();
   });
 
   it('emits `created`, with the chart instance', async () => {

@@ -1,7 +1,7 @@
 import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import {
-  createMockChartInstance,
+  mockCreateChartInstance,
   ChartTooltipStub,
   chartTooltipStubData,
 } from '~helpers/chart_stubs';
@@ -50,7 +50,7 @@ describe('column chart component', () => {
     beforeEach(() => {
       factory();
 
-      mockChartInstance = createMockChartInstance();
+      mockChartInstance = mockCreateChartInstance();
       emitChartCreated();
     });
 
@@ -132,7 +132,7 @@ describe('column chart component', () => {
           'chart-tooltip': ChartTooltipStub,
         },
       });
-      mockChartInstance = createMockChartInstance();
+      mockChartInstance = mockCreateChartInstance();
       emitChartCreated();
       await nextTick();
 
@@ -157,7 +157,7 @@ describe('column chart component', () => {
           },
         });
 
-        mockChartInstance = createMockChartInstance();
+        mockChartInstance = mockCreateChartInstance();
         emitChartCreated();
         await nextTick();
 
@@ -177,7 +177,7 @@ describe('column chart component', () => {
           },
         });
 
-        mockChartInstance = createMockChartInstance();
+        mockChartInstance = mockCreateChartInstance();
         emitChartCreated();
         await nextTick();
 
@@ -200,7 +200,7 @@ describe('column chart component', () => {
           },
         });
 
-        mockChartInstance = createMockChartInstance();
+        mockChartInstance = mockCreateChartInstance();
         emitChartCreated();
         await nextTick();
 

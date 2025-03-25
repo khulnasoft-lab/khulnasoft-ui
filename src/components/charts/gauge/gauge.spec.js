@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { createMockChartInstance } from '~helpers/chart_stubs';
+import { mockCreateChartInstance } from '~helpers/chart_stubs';
 import { gaugeSafeHues, gaugeWarningHue } from '../../../utils/charts/theme';
 import Chart from '../chart/chart.vue';
 import GlGauge from './gauge.vue';
@@ -37,7 +37,7 @@ describe('gauge component', () => {
   };
 
   beforeEach(() => {
-    mockChartInstance = createMockChartInstance();
+    mockChartInstance = mockCreateChartInstance();
   });
 
   it('emits `created`, with the chart instance', () => {

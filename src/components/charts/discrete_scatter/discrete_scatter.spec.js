@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { createMockChartInstance } from '~helpers/chart_stubs';
+import { mockCreateChartInstance } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../shared/tooltip/tooltip.vue';
@@ -41,7 +41,7 @@ describe('column chart component', () => {
   };
 
   beforeEach(() => {
-    mockChartInstance = createMockChartInstance();
+    mockChartInstance = mockCreateChartInstance();
     mockChartInstance.convertToPixel.mockReturnValue([mockDataPixel.x, mockDataPixel.y]);
   });
 

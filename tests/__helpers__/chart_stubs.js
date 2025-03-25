@@ -1,6 +1,6 @@
 import ChartTooltip from '~/components/charts/shared/tooltip/tooltip.vue';
 
-export const createMockChartInstance = () => {
+export const mockCreateChartInstance = () => {
   const dom = {
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
@@ -10,20 +10,26 @@ export const createMockChartInstance = () => {
     on: jest.fn(),
     off: jest.fn(),
   };
+  let opts = null;
 
   return {
     // temporary workaround to ensure compatibility with @vue/compat
     __v_isReadonly: true,
 
+    setOption: jest.fn((o) => {
+      opts = o;
+    }),
+    getOption: jest.fn(() => ({
+      series: [], // mocks empty, but present data as if added by echarts
+      ...opts,
+    })),
+
     dispatchAction: jest.fn(),
-    setOption: jest.fn(),
     on: jest.fn(),
     off: jest.fn(),
     resize: jest.fn(),
     convertToPixel: jest.fn().mockReturnValue([]),
-    getOption: jest.fn().mockReturnValue({
-      series: [],
-    }),
+
     getDom: () => {
       return dom;
     },

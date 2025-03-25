@@ -2,7 +2,7 @@ import { nextTick } from 'vue';
 import { shallowMount } from '@vue/test-utils';
 
 import {
-  createMockChartInstance,
+  mockCreateChartInstance,
   ChartTooltipStub,
   chartTooltipStubData,
 } from '~helpers/chart_stubs';
@@ -58,7 +58,7 @@ describe('stacked column chart component', () => {
   };
 
   beforeEach(() => {
-    mockChartInstance = createMockChartInstance();
+    mockChartInstance = mockCreateChartInstance();
   });
 
   afterEach(() => {
@@ -99,7 +99,7 @@ describe('stacked column chart component', () => {
   describe('legend', () => {
     beforeEach(() => {
       mockChartInstance = {
-        ...createMockChartInstance(),
+        ...mockCreateChartInstance(),
         getOption: jest.fn().mockReturnValueOnce({
           series: [
             {
