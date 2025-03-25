@@ -2,6 +2,7 @@
 <script>
 import isString from 'lodash/isString';
 import Pikaday from 'pikaday';
+import { defaultConfig } from '../../../config';
 import { defaultDateFormat, datepickerWidthOptionsMap } from '../../../utils/constants';
 import { areDatesEqual } from '../../../utils/datetime_utility';
 import GlButton from '../button/button.vue';
@@ -120,7 +121,7 @@ export default {
     firstDay: {
       type: Number,
       required: false,
-      default: 0,
+      default: () => defaultConfig.firstDayOfWeek || 0, // Defaults to 0 (Sunday)
     },
     ariaLabel: {
       type: String,

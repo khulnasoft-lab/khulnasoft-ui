@@ -1,6 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils';
 import Pikaday from 'pikaday';
 import { defaultDateFormat } from '../../../utils/constants';
+import { defaultConfig } from '../../../config';
 import GlDatepicker from './datepicker.vue';
 
 jest.mock('pikaday');
@@ -79,6 +80,34 @@ describe('datepicker component', () => {
     wrapper.vm.show();
 
     expect(Pikaday.prototype.show).toHaveBeenCalled();
+  });
+
+  describe('"firstDay" configuration', () => {
+    it('configures pikaday with the default day', () => {
+      mountWithOptions();
+
+      expect(pikadayConfig().firstDay).toBe(0);
+    });
+
+    it('configures pikaday with configured first day', () => {
+      defaultConfig.firstDayOfWeek = 1;
+
+      mountWithOptions();
+
+      expect(pikadayConfig().firstDay).toBe(1);
+    });
+
+    it('configures pikaday with given first day', () => {
+      const firstDay = 1;
+
+      mountWithOptions({
+        propsData: {
+          firstDay,
+        },
+      });
+
+      expect(pikadayConfig().firstDay).toBe(1);
+    });
   });
 
   describe('when `ariaLabel` prop is passed', () => {
