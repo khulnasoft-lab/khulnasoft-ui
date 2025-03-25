@@ -1,10 +1,13 @@
+import { nextTick } from 'vue';
 import { mount } from '@vue/test-utils';
-import { BCollapse } from '../../../vendor/bootstrap-vue/src/components/collapse/collapse';
-import { GlCollapseToggleDirective } from '../../../directives/collapse_toggle';
 import { waitForAnimationFrame } from '../../../utils/test_utils';
 import GlAnimatedChevronRightDownIcon from '../animated_icon/animated_chevron_right_down_icon.vue';
+import GlCollapse from '../collapse/collapse.vue';
 import GlButton from '../button/button.vue';
 import GlAccordionItem from './accordion_item.vue';
+import { COLLAPSE_EVENT } from './constants';
+
+jest.mock('lodash/uniqueId', () => (val) => `${val}1`);
 
 describe('GlAccordionItem', () => {
   let wrapper;
@@ -12,14 +15,11 @@ describe('GlAccordionItem', () => {
   const titleVisible = 'Item 1 visible';
   const defaultSlot = 'Hello';
 
-  const createComponent = (props = {}, { defaultHeaderLevel = 3, accordionSetId = false } = {}) => {
+  const createComponent = (props = {}, { defaultHeaderLevel = 3, autoCollapse = false } = {}) => {
     wrapper = mount(GlAccordionItem, {
-      directives: {
-        GlCollapseToggle: GlCollapseToggleDirective,
-      },
       provide: {
         defaultHeaderLevel: () => defaultHeaderLevel,
-        accordionSetId: () => accordionSetId,
+        autoCollapse: () => autoCollapse,
       },
       propsData: {
         title: defaultTitle,
@@ -28,27 +28,30 @@ describe('GlAccordionItem', () => {
       slots: {
         default: defaultSlot,
       },
+      attachTo: document.body,
     });
   };
 
   const findButton = () => wrapper.findComponent(GlButton);
   const findChevron = () => wrapper.findComponent(GlAnimatedChevronRightDownIcon);
-  const findCollapse = () => wrapper.findComponent(BCollapse);
+  const findCollapse = () => wrapper.findComponent(GlCollapse);
   const findHeader = () => wrapper.find('.gl-accordion-item-header');
 
-  it('renders button text', () => {
+  it('renders button with text, aria-controls, and aria-expanded', () => {
     createComponent();
 
     expect(findButton().find('span').text()).toBe(defaultTitle);
+    expect(findButton().attributes('aria-controls')).toBe('accordion-item-1');
+    expect(findButton().attributes('aria-expanded')).toBe('false');
   });
 
   it('renders alternative button text when the content is visible and the titleVisible property is set', async () => {
     createComponent({ titleVisible });
-
+    await nextTick();
     expect(findButton().find('span').text()).toBe(defaultTitle);
 
-    await waitForAnimationFrame();
     await findButton().trigger('click');
+    await waitForAnimationFrame();
 
     expect(findButton().find('span').text()).toBe(titleVisible);
   });
@@ -91,26 +94,19 @@ describe('GlAccordionItem', () => {
 
   it('is expanded on button click', async () => {
     createComponent();
-
-    await waitForAnimationFrame();
+    await nextTick();
     await findButton().trigger('click');
+    await waitForAnimationFrame();
 
     expect(findChevron().props('isOn')).toBe(true);
     expect(findCollapse().props('visible')).toBe(true);
-  });
-
-  it('passes accordion identifier to BCollapse', () => {
-    const accordionId = 'my-accordion';
-
-    createComponent({}, { accordionSetId: accordionId });
-
-    expect(findCollapse().props('accordion')).toBe(accordionId);
+    expect(findButton().attributes('aria-expanded')).toBe('true');
   });
 
   it('expands initially when visible prop is passed', async () => {
     createComponent({ visible: true });
 
-    await wrapper.vm.$nextTick();
+    await nextTick();
 
     expect(findChevron().props('isOn')).toBe(true);
     expect(findCollapse().props('visible')).toBe(true);
@@ -124,10 +120,119 @@ describe('GlAccordionItem', () => {
 
   it('emits the visible state when toggled', async () => {
     createComponent({ visible: true });
-
-    await waitForAnimationFrame();
+    await nextTick();
     await findButton().trigger('click');
+    await waitForAnimationFrame();
 
     expect(wrapper.emitted('input')).toEqual([[true], [false]]);
+  });
+
+  describe('when autoCollapse prop is false', () => {
+    it('does not dispatch collapse event on parent element when opened', async () => {
+      createComponent({ visible: false });
+      await nextTick();
+
+      const dispatchSpy = jest.spyOn(wrapper.vm.$parent.$el, 'dispatchEvent');
+
+      await findButton().trigger('click');
+      await waitForAnimationFrame();
+
+      expect(dispatchSpy).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when autoCollapse prop is true', () => {
+    it('dispatches collapse event on parent element when opened', async () => {
+      createComponent({ visible: false }, { autoCollapse: true });
+      await nextTick();
+
+      const dispatchSpy = jest.spyOn(wrapper.vm.$parent.$el, 'dispatchEvent');
+
+      await findButton().trigger('click');
+      await waitForAnimationFrame();
+
+      expect(dispatchSpy).toHaveBeenCalledWith(
+        new CustomEvent(COLLAPSE_EVENT, { detail: 'accordion-item-1' })
+      );
+    });
+  });
+
+  describe('when visible prop is changed', () => {
+    it('opens accordion item', async () => {
+      createComponent({ visible: false });
+      await nextTick();
+      wrapper.setProps({ visible: true });
+      await waitForAnimationFrame();
+
+      expect(findButton().attributes('aria-expanded')).toBe('true');
+    });
+
+    describe('when autoCollapse prop is false', () => {
+      it('does not dispatch collapse event on parent element', async () => {
+        createComponent({ visible: false });
+        await nextTick();
+
+        const dispatchSpy = jest.spyOn(wrapper.vm.$parent.$el, 'dispatchEvent');
+
+        wrapper.setProps({ visible: true });
+        await waitForAnimationFrame();
+
+        expect(dispatchSpy).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when autoCollapse prop is true', () => {
+      it('dispatches collapse event on parent element', async () => {
+        createComponent({ visible: false }, { autoCollapse: true });
+        await nextTick();
+
+        const dispatchSpy = jest.spyOn(wrapper.vm.$parent.$el, 'dispatchEvent');
+
+        wrapper.setProps({ visible: true });
+        await waitForAnimationFrame();
+
+        expect(dispatchSpy).toHaveBeenCalledWith(
+          new CustomEvent(COLLAPSE_EVENT, { detail: 'accordion-item-1' })
+        );
+      });
+    });
+  });
+
+  describe('when collapse event is dispatched on parent element', () => {
+    describe('when accordion item ID matches current accordion item', () => {
+      beforeEach(async () => {
+        createComponent({ visible: true }, { autoCollapse: true });
+        await nextTick();
+
+        wrapper.vm.$parent.$el.dispatchEvent(
+          new CustomEvent(COLLAPSE_EVENT, { detail: 'accordion-item-1' })
+        );
+
+        await waitForAnimationFrame();
+      });
+
+      it('does not collapse accordion item', () => {
+        expect(wrapper.emitted('input')).toEqual([[true]]);
+        expect(findButton().attributes('aria-expanded')).toBe('true');
+      });
+    });
+
+    describe('when accordion item ID does not match current accordion item', () => {
+      beforeEach(async () => {
+        createComponent({ visible: true }, { autoCollapse: true });
+        await nextTick();
+
+        wrapper.vm.$parent.$el.dispatchEvent(
+          new CustomEvent(COLLAPSE_EVENT, { detail: 'accordion-item-2' })
+        );
+
+        await waitForAnimationFrame();
+      });
+
+      it('collapses accordion item', () => {
+        expect(wrapper.emitted('input')).toEqual([[true], [false]]);
+        expect(findButton().attributes('aria-expanded')).toBe('false');
+      });
+    });
   });
 });
