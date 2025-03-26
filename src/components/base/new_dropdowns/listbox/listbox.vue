@@ -34,6 +34,7 @@ import GlListboxGroup from './listbox_group.vue';
 import { isOption, itemsValidator, flattenedOptions } from './utils';
 
 export const ITEM_SELECTOR = '[role="option"]';
+export const ITEM_NULL_KEY = Symbol('null-key');
 const HEADER_ITEMS_BORDER_CLASSES = [
   'gl-border-b-1',
   'gl-border-b-solid',
@@ -757,6 +758,12 @@ export default {
        */
       this.$emit('bottom-reached');
     },
+    listboxItemKey(item) {
+      if (item.value === null) {
+        return ITEM_NULL_KEY;
+      }
+      return item.value;
+    },
     listboxItemMoreItemsAriaAttributes(index) {
       if (this.totalItems === null) {
         return {};
@@ -905,7 +912,7 @@ export default {
       <template v-for="(item, index) in items">
         <template v-if="isOption(item)">
           <gl-listbox-item
-            :key="item.value"
+            :key="listboxItemKey(item)"
             :data-testid="`listbox-item-${item.value}`"
             :is-highlighted="isHighlighted(item)"
             :is-selected="isSelected(item)"
@@ -935,7 +942,7 @@ export default {
 
             <gl-listbox-item
               v-for="option in item.options"
-              :key="option.value"
+              :key="listboxItemKey(option)"
               :data-testid="`listbox-item-${option.value}`"
               :is-highlighted="isHighlighted(option)"
               :is-selected="isSelected(option)"

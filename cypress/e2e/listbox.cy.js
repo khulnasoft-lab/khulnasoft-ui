@@ -28,8 +28,7 @@ describe('GlCollapsibleListbox', () => {
       });
     });
 
-    const dropdownItemAtIndex = (i) =>
-      getDropdownItem(['Product', 'People', 'Finance', 'Support'][i]);
+    const dropdownItemAtIndex = (i) => getDropdownItem(['Product', 'People', 'Finance', 'None'][i]);
 
     it('clicking on the toggle shows the menu and hides on the next click', () => {
       dropdownMenu().should('not.be.visible');
@@ -114,8 +113,7 @@ describe('GlCollapsibleListbox', () => {
       });
     });
 
-    const dropdownItemAtIndex = (i) =>
-      getDropdownItem(['Product', 'People', 'Finance', 'Support'][i]);
+    const dropdownItemAtIndex = (i) => getDropdownItem(['Product', 'People'][i]);
 
     it('navigates from search input to options and back', () => {
       toggleBtn().click();
@@ -167,8 +165,7 @@ describe('GlCollapsibleListbox', () => {
       });
     });
 
-    const dropdownItemAtIndex = (i) =>
-      getDropdownItem(['Product', 'People', 'Finance', 'Support'][i]);
+    const dropdownItemAtIndex = (i) => getDropdownItem(['Product', 'People'][i]);
 
     const highlightClass = 'gl-new-dropdown-item-highlighted';
 

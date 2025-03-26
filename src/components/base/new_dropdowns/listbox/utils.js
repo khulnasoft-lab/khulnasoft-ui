@@ -1,7 +1,8 @@
 import isNumber from 'lodash/isNumber';
 import isString from 'lodash/isString';
 
-const isOption = (item) => Boolean(item) && (isString(item.value) || isNumber(item.value));
+const isOption = (item) =>
+  Boolean(item) && (isString(item.value) || isNumber(item.value) || item.value === null);
 
 // eslint-disable-next-line unicorn/no-array-callback-reference
 const isGroup = ({ options } = {}) => Array.isArray(options) && options.every(isOption);
