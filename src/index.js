@@ -19,6 +19,9 @@ export { default as GlIntersectionObserver } from './components/utilities/inters
 export { default as GlLink, default as GlDeprecatedLink } from './components/base/link/link.vue';
 export { default as GlIcon } from './components/base/icon/icon.vue';
 export { default as GlAnimatedChevronRightDownIcon } from './components/base/animated_icon/animated_chevron_right_down_icon.vue';
+export { default as GlAnimatedChevronLgRightDownIcon } from './components/base/animated_icon/animated_chevron_lg_right_down_icon.vue';
+export { default as GlAnimatedChevronDownUpIcon } from './components/base/animated_icon/animated_chevron_down_up_icon.vue';
+export { default as GlAnimatedChevronLgDownUpIcon } from './components/base/animated_icon/animated_chevron_lg_down_up_icon.vue';
 export { default as GlAnimatedDuoChatIcon } from './components/base/animated_icon/animated_duo_chat_icon.vue';
 export { default as GlAnimatedLoaderIcon } from './components/base/animated_icon/animated_loader_icon.vue';
 export { default as GlAnimatedNotificationIcon } from './components/base/animated_icon/animated_notifications_icon.vue';
