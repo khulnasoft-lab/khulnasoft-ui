@@ -1,3 +1,10 @@
+# [111.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.7.1...v111.8.0) (2025-03-26)
+
+
+### Features
+
+* **GlAnimatedIcon:** add down-up, lg-down-up and lg-right-down chevrons ([1bc7430](https://gitlab.com/gitlab-org/gitlab-ui/commit/1bc7430bd3ebffb4decd2639867bb52fc544d4c5))
+
 ## [111.7.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.7.0...v111.7.1) (2025-03-25)
 
 
