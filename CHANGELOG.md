@@ -1,3 +1,10 @@
+## [111.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.8.0...v111.8.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* **GlLineChart, GlAreaChart, GlStackedColumn:** Fix tooltip updates ([7ac5e58](https://gitlab.com/gitlab-org/gitlab-ui/commit/7ac5e589838ad720e2767fb986b628b026467745))
+
 # [111.8.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.7.1...v111.8.0) (2025-03-26)
 
 
