@@ -1,3 +1,10 @@
+# [111.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.8.1...v111.9.0) (2025-03-27)
+
+
+### Features
+
+* **GlTooltip:** add custom global container selector ([691e2b0](https://gitlab.com/gitlab-org/gitlab-ui/commit/691e2b0a7dda4135f2c8b0a665952edb51ec046e))
+
 ## [111.8.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.8.0...v111.8.1) (2025-03-27)
 
 
