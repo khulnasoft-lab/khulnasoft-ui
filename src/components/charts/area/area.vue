@@ -186,18 +186,7 @@ export default {
       return generateAnnotationSeries(this.annotations);
     },
     options() {
-      const defaultAreaChartOptions = {
-        xAxis: {
-          axisPointer: {
-            show: true,
-            lineStyle: {
-              type: 'solid',
-            },
-            label: {
-              formatter: this.formatTooltipText,
-            },
-          },
-        },
+      const areaChartOptions = {
         yAxis: {
           axisTick: {
             show: false,
@@ -207,10 +196,25 @@ export default {
           show: false,
         },
       };
+
+      // `formatTooltipText` is deprecated, these added options should be
+      // removed when `formatTooltipText` is removed.
+      const deprecatedTooltipFormatterOptions = {
+        xAxis: {
+          axisPointer: {
+            show: true,
+            label: {
+              formatter: this.formatTooltipText,
+            },
+          },
+        },
+      };
+
       const mergedOptions = merge(
         {},
         defaultChartOptions,
-        defaultAreaChartOptions,
+        areaChartOptions,
+        this.formatTooltipText ? deprecatedTooltipFormatterOptions : {},
         this.option,
         dataZoomAdjustments(this.option.dataZoom)
       );

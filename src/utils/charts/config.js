@@ -42,6 +42,9 @@ export const grid = {
   right: 32,
 };
 
+/**
+ * Options for charts where the y-axis is the metrics axis.
+ */
 export const defaultChartOptions = {
   grid,
   xAxis,

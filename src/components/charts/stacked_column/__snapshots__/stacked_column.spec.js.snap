@@ -198,10 +198,6 @@ Object {
       "show": false,
     },
     "axisPointer": Object {
-      "label": Object {
-        "formatter": null,
-      },
-      "show": true,
       "type": "none",
     },
     "boundaryGap": true,
@@ -454,10 +450,6 @@ Object {
       "show": false,
     },
     "axisPointer": Object {
-      "label": Object {
-        "formatter": null,
-      },
-      "show": true,
       "type": "none",
     },
     "boundaryGap": true,
@@ -559,10 +551,6 @@ Object {
       "show": false,
     },
     "axisPointer": Object {
-      "label": Object {
-        "formatter": null,
-      },
-      "show": true,
       "type": "none",
     },
     "boundaryGap": true,
@@ -846,10 +834,6 @@ Object {
       "show": false,
     },
     "axisPointer": Object {
-      "label": Object {
-        "formatter": null,
-      },
-      "show": true,
       "type": "none",
     },
     "boundaryGap": true,

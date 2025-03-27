@@ -284,6 +284,27 @@ describe('stacked column chart component', () => {
         expect(findDataTooltip().text()).toBe('Custom Content');
       });
     });
+
+    it('is customized via deprecated formatting function', async () => {
+      const formatTooltipText = jest.fn();
+
+      createShallowWrapper({
+        props: {
+          formatTooltipText,
+        },
+      });
+
+      await nextTick();
+
+      expect(findDataTooltip().props()).toMatchObject({
+        useDefaultTooltipFormatter: false,
+        chart: mockChartInstance,
+      });
+
+      expect(findChart().props('options').xAxis.axisPointer.label.formatter).toBe(
+        formatTooltipText
+      );
+    });
   });
 
   describe('color palette', () => {
