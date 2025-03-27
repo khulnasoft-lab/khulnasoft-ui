@@ -1,5 +1,6 @@
 import GlFormInput from '../form/form_input/form_input.vue';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/table/README.md';
+import { makeContainer } from '../../../utils/story_decorators/container';
 import GlTable from './table.vue';
 import readme from './table.md';
 
@@ -109,10 +110,10 @@ export const WithFilter = (args, { argTypes }) => ({
               :sticky-header="stickyHeader"
               :items="$options.items"
               :fields="$options.fields"
-              :filter=filter
               :fixed="fixed"
               :stacked="stacked"
               :foot-clone="footClone"
+              :filter=filter
               hover
               selectable
               selected-variant="primary"
@@ -137,10 +138,10 @@ export const WithStickyHeader = (args, { argTypes }) => ({
               :sticky-header="stickyHeader"
               :items="$options.items"
               :fields="$options.fields"
-              :filter=filter
               :fixed="fixed"
               :stacked="stacked"
               :foot-clone="footClone"
+              :filter="filter"
               hover
               selectable
               selected-variant="primary"
@@ -165,6 +166,29 @@ export const WithStickyHeader = (args, { argTypes }) => ({
   },
 });
 WithStickyHeader.args = generateProps({ stickyHeader: true });
+
+export const Stacked = (args, { argTypes }) => ({
+  components,
+  props: Object.keys(argTypes),
+  template: `<gl-table
+              :sticky-header="stickyHeader"
+              :items="$options.items"
+              :fields="$options.fields"
+              :fixed="fixed"
+              :stacked="stacked"
+              :foot-clone="footClone"
+            />`,
+  items: [
+    ...tableItems.slice(0, 2),
+    {
+      column_one: 'wrapping text',
+      col_2: 'supercalifragilisticexpialidocious',
+      col_three: 9101,
+    },
+  ],
+});
+Stacked.args = generateProps({ stacked: true });
+Stacked.decorators = [makeContainer({ width: '300px' })];
 
 export default {
   title: 'base/table/table',
