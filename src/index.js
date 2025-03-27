@@ -10,7 +10,6 @@ export { default as GlKeysetPagination } from './components/base/keyset_paginati
 export { default as GlInputGroupText } from './components/base/form/input_group_text/input_group_text.vue';
 export { default as GlFormCombobox } from './components/base/form/form_combobox/form_combobox.vue';
 export { default as GlTokenSelector } from './components/base/token_selector/token_selector.vue';
-export { default as GlNavItemDropdown } from './components/base/nav/nav_item_dropdown.vue';
 export { default as GlNav } from './components/base/nav/nav.vue';
 export { default as GlNavItem } from './components/base/nav/nav_item.vue';
 export { default as GlFormCheckboxTree } from './components/base/form/form_checkbox_tree/form_checkbox_tree.vue';
