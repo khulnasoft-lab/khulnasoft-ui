@@ -2,7 +2,7 @@
 import isEqual from 'lodash/isEqual';
 import cloneDeep from 'lodash/cloneDeep';
 import { PortalTarget } from 'portal-vue';
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import GlIcon from '../icon/icon.vue';
 import GlSearchBoxByClick from '../search_box_by_click/search_box_by_click.vue';
 import GlFilteredSearchTerm from './filtered_search_term.vue';

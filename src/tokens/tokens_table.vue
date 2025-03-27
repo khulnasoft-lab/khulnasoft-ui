@@ -7,7 +7,7 @@ import GlSearchBoxByType from '../components/base/search_box_by_type/search_box_
 import GlLink from '../components/base/link/link.vue';
 import GlTable from '../components/base/table/table.vue';
 import GlPagination from '../components/base/pagination/pagination.vue';
-import { GlTooltipDirective } from '../directives/tooltip';
+import { GlTooltipDirective } from '../directives/tooltip/tooltip';
 import TOKENS_DEFAULT from './build/json/tokens.json';
 import TOKENS_DARK from './build/json/tokens.dark.json';
 

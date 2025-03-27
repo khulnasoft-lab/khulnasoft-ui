@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { disableControls, getA11yParameters } from '../../../../utils/stories_utils';
-import { GlTooltipDirective } from '../../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../../directives/tooltip/tooltip';
 import GlIcon from '../../icon/icon.vue';
 import GlLink from '../../link/link.vue';
 import GlFormInput from '../form_input/form_input.vue';

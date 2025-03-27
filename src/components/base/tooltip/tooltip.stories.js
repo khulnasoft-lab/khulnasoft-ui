@@ -1,5 +1,5 @@
 import { userEvent, within, waitFor, expect } from '@storybook/test';
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import GlButton from '../button/button.vue';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/tooltip/README.md';
 import BVueReadmeAccessibility from '../../../vendor/bootstrap-vue/docs/markdown/reference/accessibility/README.md';

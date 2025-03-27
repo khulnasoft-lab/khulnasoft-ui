@@ -1,5 +1,5 @@
 <script>
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import GlButton from '../button/button.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
 import GlCollapsibleListbox from '../new_dropdowns/listbox/listbox.vue';

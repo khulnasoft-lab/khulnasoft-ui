@@ -8,7 +8,7 @@ import GlFilteredSearchTerm from './filtered_search_term.vue';
 import GlFilteredSearchToken from './filtered_search_token.vue';
 import { TERM_TOKEN_TYPE, INTENT_ACTIVATE_PREVIOUS } from './filtered_search_utils';
 
-jest.mock('~/directives/tooltip');
+jest.mock('~/directives/tooltip/tooltip');
 
 // Vue3 is very agressive around making components reactive
 // While keeping Vue2 compatibility we avoid using `markRaw`

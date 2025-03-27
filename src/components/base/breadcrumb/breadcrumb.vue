@@ -4,7 +4,7 @@ import debounce from 'lodash/debounce';
 import { translate } from '../../../utils/i18n';
 import GlAvatar from '../avatar/avatar.vue';
 import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import { breadCrumbSizeOptions } from '../../../utils/constants';
 import GlBreadcrumbItem from './breadcrumb_item.vue';
 

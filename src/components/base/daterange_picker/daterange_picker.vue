@@ -1,6 +1,6 @@
 <script>
 import uniqueId from 'lodash/uniqueId';
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import { getDayDifference, getDateInPast, getDateInFuture } from '../../../utils/datetime_utility';
 import GlDatepicker from '../datepicker/datepicker.vue';
 import GlIcon from '../icon/icon.vue';

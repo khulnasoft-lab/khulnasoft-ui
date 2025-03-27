@@ -1,5 +1,5 @@
 <script>
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import GlClearIconButton from '../../shared_components/clear_icon_button/clear_icon_button.vue';
 import GlButton from '../button/button.vue';
 import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';

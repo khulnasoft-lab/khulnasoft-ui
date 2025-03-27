@@ -1,6 +1,6 @@
 import GlAvatar from '../avatar/avatar.vue';
 import GlAvatarLink from '../avatar_link/avatar_link.vue';
-import { GlTooltipDirective } from '../../../directives/tooltip';
+import { GlTooltipDirective } from '../../../directives/tooltip/tooltip';
 import { avatarsInlineSizeOptions } from '../../../utils/constants';
 import GlAvatarsInline from './avatars_inline.vue';
 import readme from './avatars_inline.md';
