@@ -1,3 +1,10 @@
+## [111.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.9.0...v111.9.1) (2025-03-28)
+
+
+### Bug Fixes
+
+* **GlCollapsibleListbox:** Enter press should toggle selection ([0a89dc6](https://gitlab.com/gitlab-org/gitlab-ui/commit/0a89dc60c427c5671bbb9a809c1b89088aff1735))
+
 # [111.9.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.8.1...v111.9.0) (2025-03-27)
 
 
