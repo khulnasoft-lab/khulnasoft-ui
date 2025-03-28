@@ -608,19 +608,7 @@ export default {
   },
 };
 
-export const Searchable = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: {
-    GlCollapsibleListbox,
-  },
-  data() {
-    return {
-      selected: mockOptions[1].value,
-      filteredItems: mockOptions,
-      searchInProgress: false,
-      timeoutId: null,
-    };
-  },
+const createSearchable = () => ({
   methods: {
     filterList(searchTerm) {
       if (this.timeoutId) {
@@ -633,26 +621,25 @@ export const Searchable = (args, { argTypes }) => ({
         this.filteredItems = this.items.filter(({ text }) =>
           text.toLowerCase().includes(searchTerm.toLowerCase())
         );
-
         this.searchInProgress = false;
       }, 2000);
     },
   },
   computed: {
-    customToggleText() {
-      let toggleText = 'Search for department';
-      const selectedValues = Array.isArray(this.selected) ? this.selected : [this.selected];
-
-      if (selectedValues.length === 1) {
-        toggleText = this.items.find(({ value }) => value === selectedValues[0]).text;
-      } else {
-        toggleText = `Selected ${selectedValues.length} departments`;
-      }
-
-      return toggleText;
-    },
     numberOfSearchResults() {
       return `${this.filteredItems.length} department${this.filteredItems.length > 1 ? 's' : ''}`;
+    },
+    customToggleText() {
+      const selectedValues = Array.isArray(this.selected) ? this.selected : [this.selected];
+
+      switch (selectedValues.length) {
+        case 1:
+          return this.items.find(({ value }) => value === selectedValues[0]).text;
+        case 0:
+          return 'Search for department';
+        default:
+          return `Selected ${selectedValues.length} departments`;
+      }
     },
   },
   template: template({
@@ -667,12 +654,51 @@ export const Searchable = (args, { argTypes }) => ({
     },
   }),
 });
+
+export const Searchable = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlCollapsibleListbox,
+  },
+  data() {
+    return {
+      selected: mockOptions[1].value,
+      filteredItems: mockOptions,
+      searchInProgress: false,
+      timeoutId: null,
+    };
+  },
+  ...createSearchable(),
+});
 Searchable.args = generateProps({
   headerText: 'Assign to department',
   searchable: true,
   searchPlaceholder: 'Find department',
 });
 Searchable.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
+
+export const SearchableMulti = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: {
+    GlCollapsibleListbox,
+  },
+  data() {
+    return {
+      selected: [mockOptions[0].value, mockOptions[1].value],
+      filteredItems: mockOptions,
+      searchInProgress: false,
+      timeoutId: null,
+    };
+  },
+  ...createSearchable(),
+});
+SearchableMulti.args = generateProps({
+  headerText: 'Assign to departments',
+  searchable: true,
+  searchPlaceholder: 'Find department',
+  multiple: true,
+});
+SearchableMulti.decorators = [makeContainer({ height: LISTBOX_CONTAINER_HEIGHT })];
 
 export const SearchableGroups = (args, { argTypes }) => ({
   props: Object.keys(argTypes),

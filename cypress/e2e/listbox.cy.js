@@ -157,6 +157,29 @@ describe('GlCollapsibleListbox', () => {
     });
   });
 
+  describe('enter keypress multiple options', () => {
+    beforeEach(() => {
+      cy.visitStory('base/dropdown/collapsible-listbox', {
+        story: 'searchable-multi',
+        args: {
+          startOpened: true,
+        },
+      });
+    });
+
+    it('should toggle the first filtered option when Enter is pressed', () => {
+      toggleBtn().should('contain', 'Selected 2 departments');
+      searchInput().clear().type('pro');
+      getDropdownItem('Product').should('be.visible');
+      searchInput().type('{enter}');
+      toggleBtn().should('contain', 'People');
+      searchInput().clear().type('pro');
+      getDropdownItem('Product').should('be.visible');
+      searchInput().type('{enter}');
+      toggleBtn().should('contain', 'Selected 2 departments');
+    });
+  });
+
   describe('highlight first filtered option on search', () => {
     beforeEach(() => {
       cy.visitStory('base/dropdown/collapsible-listbox', {

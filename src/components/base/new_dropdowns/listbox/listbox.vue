@@ -653,7 +653,9 @@ export default {
         }
       } else if (code === ENTER && isSearchInput) {
         if (this.searchHasOptions && elements.length > 0) {
-          this.onSelect(this.flattenedOptions[0], true);
+          // Toggle selection state of the first item
+          const firstItem = this.flattenedOptions[0];
+          this.onSelect(firstItem, !this.isSelected(firstItem));
         }
         stop = true;
       } else {
