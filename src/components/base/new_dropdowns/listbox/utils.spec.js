@@ -2,7 +2,7 @@ import { isOption, flattenedOptions, itemsValidator } from './utils';
 import { mockOptions, mockGroups } from './mock_data';
 
 describe('isOption', () => {
-  it.each([null, undefined, {}, { value: null }, { text: 'group', options: [] }])(
+  it.each([null, undefined, {}, { text: 'group', options: [] }])(
     'isOption(%p) === false',
     (notAnOption) => {
       expect(isOption(notAnOption)).toBe(false);
@@ -10,6 +10,7 @@ describe('isOption', () => {
   );
 
   it.each([
+    { value: null },
     { value: '' },
     { value: 5.3 },
     { value: 'foo', text: 'bar' },

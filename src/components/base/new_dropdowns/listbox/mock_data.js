@@ -47,6 +47,10 @@ export const mockOptions = [
     value: 'sup',
     text: 'Support',
   },
+  {
+    value: null,
+    text: 'None',
+  },
 ];
 
 export const mockOptionsValues = mockOptions.map(({ value }) => value);

@@ -100,7 +100,7 @@ objects:
 
 ```typescript
 type Option = {
-  value: string
+  value: string | number | null
   text?: string
 }
 
