@@ -1,3 +1,10 @@
+# [111.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.9.1...v111.10.0) (2025-03-28)
+
+
+### Features
+
+* **GlCollapsibleListbox:** Allow listbox options to have a null value ([6e1c5f6](https://gitlab.com/gitlab-org/gitlab-ui/commit/6e1c5f6af82d74c856ab4f1a5985d65316cbc39b))
+
 ## [111.9.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.9.0...v111.9.1) (2025-03-28)
 
 
