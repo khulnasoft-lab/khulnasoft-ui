@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import { BLink } from '../../../vendor/bootstrap-vue/src/components/link/link';
+import GlLink from '../link/link.vue';
+import { linkVariantUnstyled } from '../../../utils/constants';
 import BreadcrumbItem from './breadcrumb_item.vue';
 
 describe('Breadcrumb Item Component', () => {
@@ -7,7 +8,7 @@ describe('Breadcrumb Item Component', () => {
 
   const item = { href: 'http://about.gitlab.com', to: { name: 'about' }, ariaCurrent: 'page' };
 
-  const findBLink = () => wrapper.findComponent(BLink);
+  const findGlLink = () => wrapper.findComponent(GlLink);
   const findDefaultSlot = () => wrapper.find('[data-testid="default-slot"]');
 
   const createComponent = (propsData) => {
@@ -45,14 +46,20 @@ describe('Breadcrumb Item Component', () => {
   });
 
   describe('bindings', () => {
-    it('passes provided props down to BLink', () => {
+    it('passes provided props down to GlLink', () => {
       createComponent();
 
-      const bLink = findBLink();
+      const glLink = findGlLink();
 
-      expect(bLink.props('to')).toMatchObject(item.to);
-      expect(bLink.props('href')).toBe(item.href);
-      expect(bLink.attributes('aria-current')).toBe(item.ariaCurrent);
+      expect(glLink.props('to')).toMatchObject(item.to);
+      expect(glLink.props('href')).toBe(item.href);
+      expect(glLink.attributes('aria-current')).toBe(item.ariaCurrent);
+    });
+
+    it('uses unstyled GlLink variant', () => {
+      createComponent();
+
+      expect(findGlLink().props('variant')).toBe(linkVariantUnstyled);
     });
   });
 });
