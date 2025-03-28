@@ -123,9 +123,6 @@ export default {
             type: 'value',
             name: this.yAxisTitle,
           },
-          legend: {
-            show: false,
-          },
         },
         this.option,
         dataZoomAdjustments(this.option.dataZoom)

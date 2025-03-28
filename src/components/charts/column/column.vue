@@ -150,9 +150,6 @@ export default {
                 },
               ]
             : yAxisPrimary,
-          legend: {
-            show: false,
-          },
         },
         this.option,
         dataZoomAdjustments(this.option.dataZoom)

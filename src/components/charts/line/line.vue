@@ -190,9 +190,6 @@ export default {
             },
           },
         },
-        legend: {
-          show: false,
-        },
       };
 
       // `formatTooltipText` is deprecated, these added options should be

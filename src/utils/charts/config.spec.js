@@ -3,6 +3,7 @@ import { GlBreakpointInstance } from '../breakpoints';
 import { columnOptions } from '../constants';
 import { hexToRgba } from '../utils';
 import {
+  defaultChartOptions,
   getDataZoomConfig,
   getThresholdConfig,
   mergeSeriesToOptions,
@@ -14,7 +15,6 @@ import {
 } from './config';
 import {
   mockDefaultDataZoomConfig,
-  mockDefaultChartOptions,
   mockDefaultStackedBarData,
   mockDefaultLineData,
 } from './mock_data';
@@ -275,17 +275,17 @@ describe('chart config helpers', () => {
 
     it('create chart options with invalid series props', () => {
       const chartOptionsOutput = {
-        ...mockDefaultChartOptions,
+        ...defaultChartOptions,
         series: [],
       };
-      expect(mergeSeriesToOptions(mockDefaultChartOptions)).toEqual(chartOptionsOutput);
-      expect(mergeSeriesToOptions(mockDefaultChartOptions, [])).toEqual(chartOptionsOutput);
+      expect(mergeSeriesToOptions(defaultChartOptions)).toEqual(chartOptionsOutput);
+      expect(mergeSeriesToOptions(defaultChartOptions, [])).toEqual(chartOptionsOutput);
     });
 
     it('creates chart options with single series object passed as data prop', () => {
       // data for chart can also be passed as a data prop which is transformed to series
       const chartOptions = mergeSeriesToOptions({
-        ...mockDefaultChartOptions,
+        ...defaultChartOptions,
         series,
       });
 
@@ -295,7 +295,7 @@ describe('chart config helpers', () => {
 
     it('creates chart options with single series array passed as data prop', () => {
       const chartOptions = mergeSeriesToOptions({
-        ...mockDefaultChartOptions,
+        ...defaultChartOptions,
         series: [series],
       });
 
@@ -305,7 +305,7 @@ describe('chart config helpers', () => {
 
     it('creates chart options with multiple series array passed as data prop', () => {
       const chartOptions = mergeSeriesToOptions({
-        ...mockDefaultChartOptions,
+        ...defaultChartOptions,
         series: [series, series],
       });
 
@@ -314,21 +314,21 @@ describe('chart config helpers', () => {
     });
 
     it('creates chart options with single series object passed as series prop', () => {
-      const chartOptions = mergeSeriesToOptions(mockDefaultChartOptions, series);
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, series);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
       expect(chartOptions.series.length).toBe(1);
     });
 
     it('creates chart options with single series array passed as series prop', () => {
-      const chartOptions = mergeSeriesToOptions(mockDefaultChartOptions, [series]);
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series]);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
       expect(chartOptions.series.length).toBe(1);
     });
 
     it('creates chart options with multiple series array passed as series prop', () => {
-      const chartOptions = mergeSeriesToOptions(mockDefaultChartOptions, [series, series]);
+      const chartOptions = mergeSeriesToOptions(defaultChartOptions, [series, series]);
 
       expect(chartOptions.series).toBeInstanceOf(Array);
       expect(chartOptions.series.length).toBe(2);

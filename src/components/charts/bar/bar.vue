@@ -53,6 +53,9 @@ const defaultOptions = {
         }),
     },
   },
+  legend: {
+    show: false,
+  },
 };
 
 export default {
@@ -151,9 +154,6 @@ export default {
                 formatter: this.onLabelChange,
               },
             },
-          },
-          legend: {
-            show: false,
           },
         },
         this.option,

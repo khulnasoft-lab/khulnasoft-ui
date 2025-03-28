@@ -221,9 +221,6 @@ export default {
             show: this.hasSecondaryAxis,
           },
         ],
-        legend: {
-          show: false,
-        },
       };
 
       // `formatTooltipText` is deprecated, these added options should be
