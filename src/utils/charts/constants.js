@@ -1,3 +1,5 @@
+import { translate } from '../i18n';
+
 /**
  * As of %12.10 all annotations are added as a decorations
  * by piggybacking a scatter series. The series should
@@ -39,10 +41,10 @@ export const LEGEND_LAYOUT_TABLE = 'table';
 /**
  * Default values for the chart legend field labels
  */
-export const LEGEND_AVERAGE_TEXT = 'Avg';
-export const LEGEND_CURRENT_TEXT = 'Current';
-export const LEGEND_MIN_TEXT = 'Min';
-export const LEGEND_MAX_TEXT = 'Max';
+export const LEGEND_AVERAGE_TEXT = () => translate('GlChartLegend.average', 'Avg');
+export const LEGEND_CURRENT_TEXT = () => translate('GlChartLegend.current', 'Current');
+export const LEGEND_MIN_TEXT = () => translate('GlChartLegend.min', 'Min');
+export const LEGEND_MAX_TEXT = () => translate('GlChartLegend.max', 'Max');
 
 /**
  * These arrow symbols are used as markPoints under the annotations lines
