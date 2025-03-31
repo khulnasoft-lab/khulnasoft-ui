@@ -49,6 +49,9 @@ export const defaultChartOptions = {
   grid,
   xAxis,
   yAxis,
+  legend: {
+    show: false,
+  },
 };
 
 export const gridWithSecondaryYAxis = {

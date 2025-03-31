@@ -25,47 +25,6 @@ export const mockDefaultDataZoomConfig = {
   },
 };
 
-export const mockDefaultChartOptions = {
-  grid: {
-    top: 16,
-    bottom: 44,
-    left: 64,
-    right: 32,
-  },
-  xAxis: {
-    name: 'Value',
-    type: 'value',
-    nameLocation: 'center',
-    boundaryGap: false,
-    splitLine: {
-      show: false,
-    },
-    axisPointer: {
-      show: true,
-      label: {},
-      lineStyle: {
-        type: 'solid',
-      },
-    },
-  },
-  yAxis: {
-    name: 'Value',
-    type: 'value',
-    nameLocation: 'center',
-    nameGap: 50,
-    axisLabel: {},
-    axisTick: {
-      show: false,
-    },
-  },
-  legend: {
-    show: false,
-  },
-  aria: {
-    enabled: true,
-  },
-};
-
 /**
  * This is currently used in area.stories.js and line.stories.js
  */

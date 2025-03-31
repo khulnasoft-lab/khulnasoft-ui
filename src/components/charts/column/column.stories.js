@@ -77,14 +77,12 @@ WithToolbox.args = generateProps({
 
 export const SecondaryYAxis = Template.bind({});
 SecondaryYAxis.args = generateProps({
-  legend: true,
   secondaryData: mockSecondaryBarData,
   secondaryDataTitle: 'New bar data',
 });
 
 export const SecondaryYAxisLine = Template.bind({});
 SecondaryYAxisLine.args = generateProps({
-  legend: true,
   secondaryData: mockSecondaryTrendlineData,
   secondaryDataTitle: 'New line data',
 });
