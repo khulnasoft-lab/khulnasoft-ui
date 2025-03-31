@@ -2,7 +2,7 @@ describe('GlCollapsibleListbox', () => {
   const toggleSelector = 'button[aria-haspopup="listbox"]';
   const dropdownMenuSelector = '[role="listbox"]';
   const listItemSelector = '[role="option"]';
-  const searchInputSelector = '[data-testid="listbox-search-input"] input';
+  const searchInputSelector = '[data-testid="listbox-search-input"]';
   const topScrimSelector = '[data-testid="top-scrim"]';
   const bottomScrimSelector = '[data-testid="bottom-scrim"]';
 
@@ -44,13 +44,13 @@ describe('GlCollapsibleListbox', () => {
       toggleBtn().click();
       dropdownMenu().should('be.visible');
       toggleBtn().should('not.be.focused');
-      dropdownItemAtIndex(1).should('be.focused').type('{downArrow}');
-      dropdownItemAtIndex(2).should('be.focused').type('{upArrow}');
       dropdownItemAtIndex(1).should('be.focused').type('{upArrow}');
       dropdownItemAtIndex(0).should('be.focused').type('{upArrow}');
-      dropdownItemAtIndex(0).should('be.focused').type('{end}');
       dropdownItemAtIndex(3).should('be.focused').type('{home}');
-      dropdownItemAtIndex(0).should('be.focused');
+      dropdownItemAtIndex(0).should('be.focused').type('{end}');
+      dropdownItemAtIndex(3).should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(0).should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(1).should('be.focused');
     });
 
     it('closes the dropdown on pressing Esc and sets focus on toggle button', () => {
@@ -90,16 +90,15 @@ describe('GlCollapsibleListbox', () => {
       dropdownMenu().should('be.visible');
       toggleBtn().should('not.be.focused');
       dropdownItemAtIndex(0).should('be.focused').type('{upArrow}');
-      dropdownItemAtIndex(0).should('be.focused').type('{downArrow}');
-      dropdownItemAtIndex(1).should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(4).should('be.focused').type('{upArrow}');
+      dropdownItemAtIndex(3).should('be.focused').type('{upArrow}');
       dropdownItemAtIndex(2).should('be.focused').type('{upArrow}');
-      dropdownItemAtIndex(1).should('be.focused').type('{downArrow}');
-      dropdownItemAtIndex(2).should('be.focused').type('{downArrow}');
-      dropdownItemAtIndex(3).should('be.focused').type('{downArrow}');
-      dropdownItemAtIndex(4).should('be.focused').type('{downArrow}');
-      dropdownItemAtIndex(4).should('be.focused').type('{home}');
+      dropdownItemAtIndex(1).should('be.focused').type('{upArrow}');
+      dropdownItemAtIndex(0).should('be.focused').type('{home}');
       dropdownItemAtIndex(0).should('be.focused').type('{end}');
-      dropdownItemAtIndex(4).should('be.focused');
+      dropdownItemAtIndex(4).should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(0).should('be.focused').type('{downArrow}');
+      dropdownItemAtIndex(1).should('be.focused');
     });
   });
 
@@ -113,27 +112,33 @@ describe('GlCollapsibleListbox', () => {
       });
     });
 
-    const dropdownItemAtIndex = (i) => getDropdownItem(['Product', 'People'][i]);
+    const dropdownItemAtIndex = (i) => getDropdownItem(['Product', 'People', 'Finance', 'None'][i]);
 
-    it('navigates from search input to options and back', () => {
+    it('should retain focus on the input & manage aria-activedescendant', () => {
       toggleBtn().click();
       dropdownMenu().should('be.visible');
-      toggleBtn().should('not.be.focused');
-      searchInput().should('be.focused').type('{downArrow}');
-      dropdownItemAtIndex(0).should('be.focused').type('{downArrow}');
-      dropdownItemAtIndex(1).should('be.focused').type('{upArrow}');
-      dropdownItemAtIndex(0).should('be.focused').type('{upArrow}');
-      searchInput().should('be.focused').type('{upArrow}');
-      searchInput().should('be.focused');
-    });
+      searchInput().should('be.visible').type('{downArrow}');
 
-    it('does NOT navigate from the search input on Home and End', () => {
-      toggleBtn().click();
-      dropdownMenu().should('be.visible');
-      toggleBtn().should('not.be.focused');
-      searchInput().should('be.focused').type('{end}');
-      searchInput().should('be.focused').type('{home}');
-      searchInput().should('be.focused');
+      // Get the ID of the first highlighted item
+      return dropdownItemAtIndex(0)
+        .invoke('attr', 'id')
+        .then((firstItemId) => {
+          // Verify search input has aria-activedescendant pointing to the first item
+          searchInput().should('have.attr', 'aria-activedescendant', firstItemId);
+          searchInput().should('be.focused').type('{downArrow}');
+
+          // Get the ID of the next item
+          return dropdownItemAtIndex(1)
+            .invoke('attr', 'id')
+            .then((secondItemId) => {
+              // Verify aria-activedescendant updated to the second item
+              searchInput().should('have.attr', 'aria-activedescendant', secondItemId);
+              searchInput().should('be.focused').type('{upArrow}');
+
+              // Verify aria-activedescendant updated back to the first item
+              return searchInput().should('have.attr', 'aria-activedescendant', firstItemId);
+            });
+        });
     });
   });
 
@@ -205,15 +210,9 @@ describe('GlCollapsibleListbox', () => {
       searchInput().type('p');
       dropdownItemAtIndex(0).should('have.class', highlightClass);
       searchInput().type('{downArrow}');
-      dropdownItemAtIndex(0)
-        .should('be.focused')
-        .should('have.class', highlightClass)
-        .type('{downArrow}');
       dropdownItemAtIndex(1).should('have.class', highlightClass);
       dropdownItemAtIndex(0).should('not.have.class', highlightClass);
-      dropdownItemAtIndex(1).type('{upArrow}');
-      dropdownItemAtIndex(0).type('{upArrow}');
-      searchInput().should('be.focused');
+      searchInput().type('{upArrow}');
       dropdownItemAtIndex(0).should('have.class', highlightClass);
       dropdownItemAtIndex(1).should('not.have.class', highlightClass);
       toggleBtn().click();

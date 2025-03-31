@@ -26,7 +26,7 @@ import GlLoadingIcon from '../../loading_icon/loading_icon.vue';
 import GlIntersectionObserver from '../../../utilities/intersection_observer/intersection_observer.vue';
 import GlSearchBoxByType from '../../search_box_by_type/search_box_by_type.vue';
 import GlBaseDropdown from '../base_dropdown/base_dropdown.vue';
-import { translatePlural } from '../../../../utils/i18n';
+import { translate, translatePlural } from '../../../../utils/i18n';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxSearchInput from './listbox_search_input.vue';
 import GlListboxGroup from './listbox_group.vue';
@@ -373,13 +373,22 @@ export default {
     return {
       selectedValues: [],
       listboxId: uniqueId('listbox-'),
+      searchInputId: uniqueId('listbox-search-input-'),
       nextFocusedItemIndex: null,
       searchStr: '',
       topBoundaryVisible: true,
       bottomBoundaryVisible: true,
+      activeItemId: null,
+      itemIds: new Map(),
     };
   },
   computed: {
+    ariaLabelledByID() {
+      if (this.searchable) {
+        return this.searchInputId;
+      }
+      return this.listAriaLabelledBy || this.headerId || this.toggleIdComputed;
+    },
     toggleIdComputed() {
       return this.toggleId || uniqueId('dropdown-toggle-btn-');
     },
@@ -477,6 +486,9 @@ export default {
     showIntersectionObserver() {
       return this.infiniteScroll && !this.infiniteScrollLoading && !this.loading && !this.searching;
     },
+    isBusy() {
+      return this.infiniteScrollLoading || this.loading || this.searching;
+    },
     hasCustomToggle() {
       return Boolean(this.$scopedSlots.toggle);
     },
@@ -496,6 +508,24 @@ export default {
     },
     hasFooter() {
       return Boolean(this.$scopedSlots.footer);
+    },
+    loadingAnnouncementText() {
+      if (this.infiniteScrollLoading) {
+        return translate(
+          'GlCollapsibleListbox.loadingAnnouncementText.loadingMoreItems',
+          'Loading more items'
+        );
+      }
+      if (this.searching) {
+        return translate('GlCollapsibleListbox.loadingAnnouncementText.searching', 'Searching');
+      }
+      if (this.loading) {
+        return translate(
+          'GlCollapsibleListbox.loadingAnnouncementText.loadingItems',
+          'Loading items'
+        );
+      }
+      return '';
     },
   },
   watch: {
@@ -595,6 +625,9 @@ export default {
          */
         if (this.searchHasOptions) {
           this.nextFocusedItemIndex = 0;
+          // Set activeItemId for the first item
+          const firstItem = this.flattenedOptions[0];
+          this.activeItemId = this.generateItemId(firstItem);
         }
       } else {
         this.focusItem(this.selectedIndices[0] ?? 0, this.getFocusableListItemElements());
@@ -615,54 +648,80 @@ export default {
       this.$emit(GL_DROPDOWN_HIDDEN);
       this.nextFocusedItemIndex = null;
     },
+    getNextIndex(currentIndex, keyCode, totalLength) {
+      // For UP: move up or wrap to end
+      if (keyCode === ARROW_UP) {
+        return currentIndex > 0 ? currentIndex - 1 : totalLength - 1;
+      }
+
+      // For DOWN: move down or wrap to start
+      return currentIndex < totalLength - 1 ? currentIndex + 1 : 0;
+    },
+    handleListNavigation(keyCode, elements) {
+      const currentIndex = this.nextFocusedItemIndex ?? -1;
+      const nextIndex = this.getNextIndex(currentIndex, keyCode, elements.length);
+      this.focusItem(nextIndex, elements, this.searchable);
+    },
     onKeydown(event) {
       const { code, target } = event;
       const elements = this.getFocusableListItemElements();
 
       if (elements.length < 1) return;
 
-      let stop = true;
       const isSearchInput = target.matches(SEARCH_INPUT_SELECTOR);
+      let stop = true;
 
-      if (code === HOME) {
-        if (isSearchInput) {
-          return;
-        }
-        this.focusItem(0, elements);
-      } else if (code === END) {
-        if (isSearchInput) {
-          return;
-        }
-        this.focusItem(elements.length - 1, elements);
-      } else if (code === ARROW_UP) {
-        if (isSearchInput) {
-          return;
-        }
-        if (this.searchable && elements.indexOf(target) === 0) {
-          this.focusSearchInput();
-          if (!this.searchHasOptions) {
-            this.nextFocusedItemIndex = null;
+      switch (code) {
+        case HOME:
+          // Jump to first item if searchable or not in search input
+          if (this.searchable || !isSearchInput) {
+            this.focusItem(0, elements, this.searchable);
           }
-        } else {
-          this.focusNextItem(event, elements, -1);
-        }
-      } else if (code === ARROW_DOWN) {
-        if (isSearchInput) {
-          this.focusItem(0, elements);
-        } else {
-          this.focusNextItem(event, elements, 1);
-        }
-      } else if (code === ENTER && isSearchInput) {
-        if (this.searchHasOptions && elements.length > 0) {
-          // Toggle selection state of the first item
-          const firstItem = this.flattenedOptions[0];
-          this.onSelect(firstItem, !this.isSelected(firstItem));
-        }
-        stop = true;
-      } else {
-        stop = false;
+          break;
+
+        case END:
+          // Jump to last item if searchable or not in search input
+          if (this.searchable || !isSearchInput) {
+            this.focusItem(elements.length - 1, elements, this.searchable);
+          }
+          break;
+
+        case ARROW_UP:
+          // Let default behavior work for non-searchable input
+          if (isSearchInput && !this.searchable) {
+            return;
+          }
+          this.handleListNavigation(ARROW_UP, elements);
+          break;
+
+        case ARROW_DOWN:
+          // Focus first item from search input, otherwise navigate down
+          if (isSearchInput && !this.searchable) {
+            this.focusItem(0, elements);
+          } else {
+            this.handleListNavigation(ARROW_DOWN, elements);
+          }
+          break;
+
+        case ENTER:
+          if (isSearchInput) {
+            // Toggle selection of highlighted item if one exists
+            if (elements.length > 0 && this.nextFocusedItemIndex !== null) {
+              const highlightedItem = this.flattenedOptions[this.nextFocusedItemIndex];
+              this.onSelect(highlightedItem, !this.isSelected(highlightedItem));
+            }
+          } else {
+            stop = false;
+          }
+          break;
+
+        default:
+          // Allow default behavior for unhandled keys
+          stop = false;
+          break;
       }
 
+      // Prevent default behavior for handled keys
       if (stop) {
         stopEvent(event);
       }
@@ -678,10 +737,25 @@ export default {
 
       this.focusItem(nextIndex, elements);
     },
-    focusItem(index, elements) {
+    focusItem(index, elements, keepSearchFocused = false) {
       this.nextFocusedItemIndex = index;
 
-      elements[index]?.focus();
+      // Always update the activeItemId when focus changes
+      const item = this.flattenedOptions[index];
+      if (item) {
+        this.activeItemId = this.generateItemId(item);
+      } else {
+        this.activeItemId = null;
+      }
+
+      // If we're not keeping the search focused, focus the item
+      if (!keepSearchFocused) {
+        elements[index]?.focus();
+      }
+
+      this.$nextTick(() => {
+        this.scrollActiveItemIntoView();
+      });
     },
     focusSearchInput() {
       this.$refs.searchBox.focusInput();
@@ -806,6 +880,41 @@ export default {
       this.scrollObserver = observer;
     },
     isOption,
+    generateItemId(item) {
+      const key = item.value === null ? ITEM_NULL_KEY : item.value;
+      if (!this.itemIds.has(key)) {
+        this.itemIds.set(key, uniqueId('listbox-item-'));
+      }
+      return this.itemIds.get(key);
+    },
+    scrollActiveItemIntoView() {
+      const listContainer = this.$refs.list;
+      if (!this.activeItemId || !this.searchable || !listContainer) return;
+
+      const activeElement = document.getElementById(this.activeItemId);
+      if (!activeElement) return;
+
+      const containerRect = listContainer.getBoundingClientRect();
+      const itemRect = activeElement.getBoundingClientRect();
+      const itemTop = activeElement.offsetTop;
+      const padding = 30;
+
+      // If item is above the visible area
+      if (itemRect.top < containerRect.top) {
+        listContainer.scrollTo({
+          top: itemTop - padding,
+          behavior: 'smooth',
+        });
+      }
+
+      // If item is below the visible area
+      else if (itemRect.bottom > containerRect.bottom) {
+        listContainer.scrollTo({
+          top: itemTop - containerRect.height + activeElement.offsetHeight + padding,
+          behavior: 'smooth',
+        });
+      }
+    },
   },
 };
 </script>
@@ -839,165 +948,191 @@ export default {
       <slot name="toggle"></slot>
     </template>
 
-    <div
-      v-if="headerText"
-      class="gl-flex gl-min-h-8 gl-items-center !gl-p-4"
-      :class="$options.HEADER_ITEMS_BORDER_CLASSES"
-    >
+    <template #default="{ visible }">
       <div
-        :id="headerId"
-        class="gl-grow gl-pr-2 gl-text-sm gl-font-bold gl-text-strong"
-        data-testid="listbox-header-text"
+        v-if="headerText"
+        class="gl-flex gl-min-h-8 gl-items-center !gl-p-4"
+        :class="$options.HEADER_ITEMS_BORDER_CLASSES"
       >
-        {{ headerText }}
-      </div>
-      <gl-button
-        v-if="showResetButton"
-        category="tertiary"
-        class="!gl-m-0 !gl-w-auto gl-max-w-1/2 gl-flex-shrink-0 gl-text-ellipsis !gl-px-2 !gl-text-sm focus:!gl-focus-inset"
-        size="small"
-        data-testid="listbox-reset-button"
-        @click="onResetButtonClicked"
-      >
-        {{ resetButtonLabel }}
-      </gl-button>
-      <gl-button
-        v-if="showSelectAllButton"
-        category="tertiary"
-        class="!gl-m-0 !gl-w-auto gl-max-w-1/2 gl-flex-shrink-0 gl-text-ellipsis !gl-px-2 !gl-text-sm focus:!gl-focus-inset"
-        size="small"
-        data-testid="listbox-select-all-button"
-        @click="onSelectAllButtonClicked"
-      >
-        {{ showSelectAllButtonLabel }}
-      </gl-button>
-    </div>
-
-    <div v-if="searchable" :class="$options.HEADER_ITEMS_BORDER_CLASSES">
-      <gl-listbox-search-input
-        ref="searchBox"
-        v-model="searchStr"
-        data-testid="listbox-search-input"
-        :placeholder="searchPlaceholder"
-        :class="{ 'gl-listbox-topmost': !headerText }"
-        @input="search"
-        @keydown.enter.prevent
-        @keydown="onKeydown"
-      />
-      <gl-loading-icon
-        v-if="searching"
-        data-testid="listbox-search-loader"
-        size="md"
-        class="gl-my-3"
-      />
-    </div>
-
-    <component
-      :is="listboxTag"
-      v-if="showList"
-      :id="listboxId"
-      ref="list"
-      :aria-labelledby="listAriaLabelledBy || headerId || toggleIdComputed"
-      role="listbox"
-      class="gl-new-dropdown-contents gl-new-dropdown-contents-with-scrim-overlay"
-      :class="listboxClasses"
-      tabindex="0"
-      @keydown="onKeydown"
-    >
-      <component :is="itemTag" class="top-scrim-wrapper" aria-hidden="true" data-testid="top-scrim">
         <div
-          class="top-scrim"
-          :class="{ 'top-scrim-light': !hasHeader, 'top-scrim-dark': hasHeader }"
-        ></div>
-      </component>
-      <component :is="itemTag" ref="top-boundary" aria-hidden="true" />
-      <template v-for="(item, index) in items">
-        <template v-if="isOption(item)">
-          <gl-listbox-item
-            :key="listboxItemKey(item)"
-            :data-testid="`listbox-item-${item.value}`"
-            :is-highlighted="isHighlighted(item)"
-            :is-selected="isSelected(item)"
-            :is-focused="isFocused(item)"
-            :is-check-centered="isCheckCentered"
-            v-bind="listboxItemMoreItemsAriaAttributes(index)"
-            @select="onSelect(item, $event)"
-          >
-            <!-- @slot Custom template of the listbox item -->
-            <slot name="list-item" :item="item">
-              {{ item.text }}
-            </slot>
-          </gl-listbox-item>
-        </template>
+          :id="headerId"
+          class="gl-grow gl-pr-2 gl-text-sm gl-font-bold gl-text-strong"
+          data-testid="listbox-header-text"
+        >
+          {{ headerText }}
+        </div>
+        <gl-button
+          v-if="showResetButton"
+          category="tertiary"
+          class="!gl-m-0 !gl-w-auto gl-max-w-1/2 gl-flex-shrink-0 gl-text-ellipsis !gl-px-2 !gl-text-sm focus:!gl-focus-inset"
+          size="small"
+          data-testid="listbox-reset-button"
+          @click="onResetButtonClicked"
+        >
+          {{ resetButtonLabel }}
+        </gl-button>
+        <gl-button
+          v-if="showSelectAllButton"
+          category="tertiary"
+          class="!gl-m-0 !gl-w-auto gl-max-w-1/2 gl-flex-shrink-0 gl-text-ellipsis !gl-px-2 !gl-text-sm focus:!gl-focus-inset"
+          size="small"
+          data-testid="listbox-select-all-button"
+          @click="onSelectAllButtonClicked"
+        >
+          {{ showSelectAllButtonLabel }}
+        </gl-button>
+      </div>
 
-        <template v-else>
-          <gl-listbox-group
-            :key="item.text"
-            :name="item.text"
-            :text-sr-only="item.textSrOnly"
-            :class="groupClasses(index)"
-          >
-            <template v-if="$scopedSlots['group-label']" #group-label>
-              <!-- @slot Custom template for group names -->
-              <slot name="group-label" :group="item"></slot>
-            </template>
+      <div v-if="searchable" :class="$options.HEADER_ITEMS_BORDER_CLASSES">
+        <gl-listbox-search-input
+          :id="searchInputId"
+          ref="searchBox"
+          v-model="searchStr"
+          data-testid="listbox-search-input"
+          role="combobox"
+          :aria-expanded="String(visible)"
+          :aria-controls="listboxId"
+          :aria-activedescendant="activeItemId"
+          aria-haspopup="listbox"
+          :placeholder="searchPlaceholder"
+          :class="{ 'gl-listbox-topmost': !headerText }"
+          @input="search"
+          @keydown.enter.prevent
+          @keydown="onKeydown"
+        />
+        <gl-loading-icon
+          v-if="searching"
+          data-testid="listbox-search-loader"
+          size="md"
+          class="gl-my-3"
+        />
+      </div>
 
+      <component
+        :is="listboxTag"
+        v-if="showList"
+        :id="listboxId"
+        ref="list"
+        :aria-busy="isBusy"
+        :aria-labelledby="ariaLabelledByID"
+        :aria-multiselectable="multiple ? 'true' : undefined"
+        role="listbox"
+        class="gl-new-dropdown-contents gl-new-dropdown-contents-with-scrim-overlay"
+        :class="listboxClasses"
+        tabindex="0"
+        @keydown="onKeydown"
+      >
+        <component
+          :is="itemTag"
+          class="top-scrim-wrapper"
+          aria-hidden="true"
+          data-testid="top-scrim"
+        >
+          <div
+            class="top-scrim"
+            :class="{ 'top-scrim-light': !hasHeader, 'top-scrim-dark': hasHeader }"
+          ></div>
+        </component>
+        <component :is="itemTag" ref="top-boundary" aria-hidden="true" />
+        <template v-for="(item, index) in items">
+          <template v-if="isOption(item)">
             <gl-listbox-item
-              v-for="option in item.options"
-              :key="listboxItemKey(option)"
-              :data-testid="`listbox-item-${option.value}`"
-              :is-highlighted="isHighlighted(option)"
-              :is-selected="isSelected(option)"
-              :is-focused="isFocused(option)"
+              :id="generateItemId(item)"
+              :key="listboxItemKey(item)"
+              :data-testid="`listbox-item-${item.value}`"
+              :is-highlighted="isHighlighted(item)"
+              :is-selected="isSelected(item)"
+              :is-focused="isFocused(item)"
               :is-check-centered="isCheckCentered"
-              @select="onSelect(option, $event)"
+              v-bind="listboxItemMoreItemsAriaAttributes(index)"
+              @select="onSelect(item, $event)"
             >
               <!-- @slot Custom template of the listbox item -->
-              <slot name="list-item" :item="option">
-                {{ option.text }}
+              <slot name="list-item" :item="item">
+                {{ item.text }}
               </slot>
             </gl-listbox-item>
-          </gl-listbox-group>
-        </template>
-      </template>
-      <component :is="itemTag" v-if="infiniteScrollLoading">
-        <gl-loading-icon data-testid="listbox-infinite-scroll-loader" size="md" class="gl-my-3" />
-      </component>
-      <gl-intersection-observer
-        v-if="showIntersectionObserver"
-        @appear="onIntersectionObserverAppear"
-      />
-      <component :is="itemTag" ref="bottom-boundary" aria-hidden="true" />
-      <component
-        :is="itemTag"
-        class="bottom-scrim-wrapper"
-        aria-hidden="true"
-        data-testid="bottom-scrim"
-      >
-        <div class="bottom-scrim" :class="{ '!gl-rounded-none': hasFooter }"></div>
-      </component>
-    </component>
-    <span
-      v-if="announceSRSearchResults"
-      data-testid="listbox-number-of-results"
-      class="gl-sr-only"
-      aria-live="assertive"
-    >
-      <!-- @slot Text read by screen reader announcing a number of search results -->
-      <slot name="search-summary-sr-only">
-        {{ srOnlyResultsLabel(flattenedOptions.length) }}
-      </slot>
-    </span>
+          </template>
 
-    <div
-      v-else-if="showNoResultsText"
-      aria-live="assertive"
-      class="gl-py-3 gl-pl-7 gl-pr-5 gl-text-base gl-text-subtle"
-      data-testid="listbox-no-results-text"
-    >
-      {{ noResultsText }}
-    </div>
-    <!-- @slot Content to display in dropdown footer -->
-    <slot name="footer"></slot>
+          <template v-else>
+            <gl-listbox-group
+              :key="item.text"
+              :name="item.text"
+              :text-sr-only="item.textSrOnly"
+              :class="groupClasses(index)"
+            >
+              <template v-if="$scopedSlots['group-label']" #group-label>
+                <!-- @slot Custom template for group names -->
+                <slot name="group-label" :group="item"></slot>
+              </template>
+
+              <gl-listbox-item
+                v-for="option in item.options"
+                :id="generateItemId(option)"
+                :key="listboxItemKey(option)"
+                :data-testid="`listbox-item-${option.value}`"
+                :is-highlighted="isHighlighted(option)"
+                :is-selected="isSelected(option)"
+                :is-focused="isFocused(option)"
+                :is-check-centered="isCheckCentered"
+                @select="onSelect(option, $event)"
+              >
+                <!-- @slot Custom template of the listbox item -->
+                <slot name="list-item" :item="option">
+                  {{ option.text }}
+                </slot>
+              </gl-listbox-item>
+            </gl-listbox-group>
+          </template>
+        </template>
+        <component :is="itemTag" v-if="infiniteScrollLoading">
+          <gl-loading-icon data-testid="listbox-infinite-scroll-loader" size="md" class="gl-my-3" />
+        </component>
+        <gl-intersection-observer
+          v-if="showIntersectionObserver"
+          @appear="onIntersectionObserverAppear"
+        />
+        <component :is="itemTag" ref="bottom-boundary" aria-hidden="true" />
+        <component
+          :is="itemTag"
+          class="bottom-scrim-wrapper"
+          aria-hidden="true"
+          data-testid="bottom-scrim"
+        >
+          <div class="bottom-scrim" :class="{ '!gl-rounded-none': hasFooter }"></div>
+        </component>
+      </component>
+      <span
+        v-if="announceSRSearchResults"
+        data-testid="listbox-number-of-results"
+        class="gl-sr-only"
+        aria-live="assertive"
+      >
+        <!-- @slot Text read by screen reader announcing a number of search results -->
+        <slot name="search-summary-sr-only">
+          {{ srOnlyResultsLabel(flattenedOptions.length) }}
+        </slot>
+      </span>
+      <span
+        v-if="isBusy"
+        class="gl-sr-only"
+        aria-live="polite"
+        data-testid="listbox-loading-announcement"
+      >
+        {{ loadingAnnouncementText }}
+      </span>
+
+      <div
+        v-else-if="showNoResultsText"
+        aria-live="assertive"
+        class="gl-py-3 gl-pl-7 gl-pr-5 gl-text-base gl-text-subtle"
+        data-testid="listbox-no-results-text"
+      >
+        {{ noResultsText }}
+      </div>
+
+      <!-- @slot Content to display in dropdown footer -->
+      <slot name="footer"></slot>
+    </template>
   </gl-base-dropdown>
 </template>

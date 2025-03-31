@@ -16,6 +16,7 @@ import {
 } from '../constants';
 import GlIntersectionObserver from '../../../utilities/intersection_observer/intersection_observer.vue';
 import GlCollapsibleListbox, { ITEM_SELECTOR } from './listbox.vue';
+import GlListboxSearchInput from './listbox_search_input.vue';
 import GlListboxItem from './listbox_item.vue';
 import GlListboxGroup from './listbox_group.vue';
 import {
@@ -51,7 +52,7 @@ describe('GlCollapsibleListbox', () => {
   // eslint-disable-next-line unicorn/no-array-callback-reference
   const findListItem = (index) => findListboxItems().at(index).find(ITEM_SELECTOR);
   const findHeaderText = () => wrapper.find("[data-testid='listbox-header-text']");
-  const findSearchBox = () => wrapper.find("[data-testid='listbox-search-input']");
+  const findSearchBox = () => wrapper.findComponent(GlListboxSearchInput);
   const findNoResultsText = () => wrapper.find("[data-testid='listbox-no-results-text']");
   const findLoadingIcon = () => wrapper.find("[data-testid='listbox-search-loader']");
   const findSRNumberOfResultsText = () => wrapper.find("[data-testid='listbox-number-of-results']");
@@ -137,6 +138,28 @@ describe('GlCollapsibleListbox', () => {
       const listAriaLabelledBy = 'first-label-id second-label-id';
       await buildWrapper({ items: mockOptions, listAriaLabelledBy });
       expect(findListContainer().attributes('aria-labelledby')).toBe(listAriaLabelledBy);
+    });
+
+    it('sets aria-busy when loading', () => {
+      buildWrapper({ items: mockOptions, startOpened: true, loading: true });
+      expect(findListContainer().attributes('aria-busy')).toBe('true');
+    });
+
+    it('sets aria-busy when infiniteScrollLoading', () => {
+      buildWrapper({ items: mockOptions, startOpened: true, infiniteScrollLoading: true });
+      expect(findListContainer().attributes('aria-busy')).toBe('true');
+    });
+
+    it.each`
+      busyState                  | props                              | expectedText
+      ${'searching'}             | ${{ searching: true }}             | ${'Searching'}
+      ${'loading'}               | ${{ loading: true }}               | ${'Loading items'}
+      ${'infiniteScrollLoading'} | ${{ infiniteScrollLoading: true }} | ${'Loading more items'}
+    `('announces correct text when $busyState', ({ props, expectedText }) => {
+      buildWrapper({ items: mockOptions, ...props });
+      expect(wrapper.find('[data-testid="listbox-loading-announcement"]').text()).toBe(
+        expectedText
+      );
     });
   });
 
@@ -298,25 +321,23 @@ describe('GlCollapsibleListbox', () => {
       thirdItem = findListItem(2);
     });
 
-    it('should move the focus down the list of items on `ARROW_DOWN` and stop on the last item', async () => {
+    it('should move the focus down the list of items on `ARROW_DOWN` and wrap to the first item', async () => {
       expect(firstItem.element).toHaveFocus();
       await firstItem.trigger('keydown', { code: ARROW_DOWN });
       expect(secondItem.element).toHaveFocus();
       await secondItem.trigger('keydown', { code: ARROW_DOWN });
       expect(thirdItem.element).toHaveFocus();
       await thirdItem.trigger('keydown', { code: ARROW_DOWN });
-      expect(thirdItem.element).toHaveFocus();
+      expect(firstItem.element).toHaveFocus();
     });
 
-    it('should move the focus up the list of items on `ARROW_UP` and stop on the first item', async () => {
-      await firstItem.trigger('keydown', { code: ARROW_DOWN });
-      await secondItem.trigger('keydown', { code: ARROW_DOWN });
+    it('should move the focus up the list of items on `ARROW_UP` and wrap to the last item', async () => {
+      expect(firstItem.element).toHaveFocus();
+      await firstItem.trigger('keydown', { code: ARROW_UP });
       expect(thirdItem.element).toHaveFocus();
       await thirdItem.trigger('keydown', { code: ARROW_UP });
       expect(secondItem.element).toHaveFocus();
       await secondItem.trigger('keydown', { code: ARROW_UP });
-      expect(firstItem.element).toHaveFocus();
-      await firstItem.trigger('keydown', { code: ARROW_UP });
       expect(firstItem.element).toHaveFocus();
     });
 
@@ -348,15 +369,35 @@ describe('GlCollapsibleListbox', () => {
         searchboxInput = findSearchBox().find('input');
       });
 
-      it('should move focus to the first item on search input `ARROW_DOWN`', async () => {
+      it('should correctly track aria-activedescendant while retaining focus on the search input', async () => {
+        // Initial state check
         expect(searchboxInput.element).toHaveFocus();
-        searchboxInput.trigger('keydown', { code: ARROW_DOWN });
-        expect(firstItem.element).toHaveFocus();
-      });
+        expect(searchboxInput.element.getAttribute('aria-activedescendant')).toBe(null);
 
-      it('should move focus to the search input on first item `ARROW_UP', async () => {
-        searchboxInput.trigger('keydown', { code: ARROW_DOWN });
-        firstItem.trigger('keydown', { code: ARROW_UP });
+        // Navigate down to first item
+        await searchboxInput.trigger('keydown', { code: ARROW_DOWN });
+
+        // Check that input retains focus
+        expect(searchboxInput.element).toHaveFocus();
+
+        // Verify aria-activedescendant is set to the first item's ID
+        const firstItemId = firstItem.element.id;
+        expect(firstItemId).toBeDefined();
+        expect(searchboxInput.element.getAttribute('aria-activedescendant')).toBe(firstItemId);
+
+        // Verify the component's internal state reflects this focus
+        expect(wrapper.vm.activeItemId).toBe(firstItemId);
+
+        // Navigate to second item
+        await searchboxInput.trigger('keydown', { code: ARROW_DOWN });
+
+        // Verify aria-activedescendant is updated to the second item's ID
+        const secondItemId = findListItem(1).element.id;
+        expect(secondItemId).toBeDefined();
+        expect(searchboxInput.element.getAttribute('aria-activedescendant')).toBe(secondItemId);
+        expect(wrapper.vm.activeItemId).toBe(secondItemId);
+
+        // Input should still have focus
         expect(searchboxInput.element).toHaveFocus();
       });
 
