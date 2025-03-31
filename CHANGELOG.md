@@ -1,3 +1,10 @@
+## [111.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.10.0...v111.10.1) (2025-03-31)
+
+
+### Bug Fixes
+
+* **GlAreaChart:** Legend is updated on changes ([0caa619](https://gitlab.com/gitlab-org/gitlab-ui/commit/0caa61948ad48ee1098c063bacf3c3ddfff3e804))
+
 # [111.10.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.9.1...v111.10.0) (2025-03-28)
 
 
