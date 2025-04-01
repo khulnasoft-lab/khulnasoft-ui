@@ -138,6 +138,7 @@ export default {
     // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/618
     return {
       chart: null,
+      compiledOptions: null,
       showAnnotationsTooltip: false,
       annotationsTooltipTitle: '',
       annotationsTooltipContent: '',
@@ -233,23 +234,21 @@ export default {
     shouldShowAnnotationsTooltip() {
       return this.chart && this.hasAnnotations;
     },
-    compiledOptions() {
-      return this.chart ? this.chart.getOption() : null;
-    },
     legendStyle() {
       return { paddingLeft: `${grid.left}px` };
     },
     hasLegend() {
-      return this.compiledOptions && this.showLegend;
+      return this.showLegend && this.compiledOptions;
     },
     seriesInfo() {
-      return this.compiledOptions.series.reduce((acc, series, index) => {
+      const compiledSeries = this.compiledOptions?.series || [];
+      return compiledSeries.reduce((acc, series, index) => {
         if (series.type === 'line') {
           acc.push({
             name: series.name,
             type: series.lineStyle.type,
             color: series.lineStyle.color || colorFromDefaultPalette(index),
-            data: this.includeLegendAvgMax ? series.data.map((data) => data[1]) : undefined,
+            data: this.includeLegendAvgMax ? series.data?.map((data) => data[1]) : undefined,
           });
         }
         return acc;
@@ -289,6 +288,9 @@ export default {
       this.chart = chart;
       this.$emit('created', chart);
     },
+    onUpdated() {
+      this.compiledOptions = this.chart.getOption();
+    },
     onChartDataPointMouseOut() {
       this.showAnnotationsTooltip = false;
     },
@@ -325,6 +327,7 @@ export default {
       :options="options"
       v-on="$listeners"
       @created="onCreated"
+      @updated="onUpdated"
     />
     <chart-tooltip
       v-if="shouldShowAnnotationsTooltip"

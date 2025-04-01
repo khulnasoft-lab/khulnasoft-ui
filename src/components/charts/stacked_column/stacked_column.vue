@@ -159,6 +159,7 @@ export default {
   data() {
     return {
       chart: null,
+      compiledOptions: null,
     };
   },
   computed: {
@@ -251,11 +252,9 @@ export default {
     legendStyle() {
       return { paddingLeft: `${grid.left}px` };
     },
-    compiledOptions() {
-      return this.chart ? this.chart.getOption() : null;
-    },
     seriesInfo() {
-      return this.compiledOptions.series.reduce((acc, series, index) => {
+      const compiledSeries = this.compiledOptions?.series || [];
+      return compiledSeries.reduce((acc, series, index) => {
         acc.push({
           name: series.name,
           type: series.type,
@@ -277,6 +276,9 @@ export default {
     onCreated(chart) {
       this.chart = chart;
       this.$emit('created', chart);
+    },
+    onUpdated() {
+      this.compiledOptions = this.chart.getOption();
     },
     getTooltipTitle({ params }) {
       if (!params) return '';
@@ -310,6 +312,7 @@ export default {
       :options="options"
       v-on="$listeners"
       @created="onCreated"
+      @updated="onUpdated"
     />
     <chart-tooltip v-if="chart" :chart="chart" :use-default-tooltip-formatter="!formatTooltipText">
       <template #title="scope">

@@ -8,38 +8,37 @@ import {
   chartTooltipStubData,
 } from '~helpers/chart_stubs';
 import { expectHeightAutoClasses } from '~helpers/chart_height';
-
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
-
 import LineChart from './line.vue';
 
 let mockChartInstance;
 
 jest.mock('echarts', () => ({
   getInstanceByDom: () => mockChartInstance,
+  init: () => mockChartInstance,
+  registerTheme: jest.fn(),
 }));
 
 describe('line component', () => {
   let wrapper;
-  let option;
 
   const findChart = () => wrapper.findComponent(Chart);
   const findLegend = () => wrapper.findComponent(ChartLegend);
   const findDataTooltip = () => wrapper.findComponent({ ref: 'dataTooltip' });
   const findAnnotationsTooltip = () => wrapper.findComponent({ ref: 'annotationsTooltip' });
 
-  const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
-
-  const createShallowWrapper = ({ props = {}, ...options } = {}) => {
+  const createShallowWrapper = async ({ props = {}, ...options } = {}) => {
     wrapper = shallowMount(LineChart, {
-      propsData: { option, data: [], ...props },
+      propsData: { data: [], ...props },
       stubs: {
         'chart-tooltip': ChartTooltipStub,
+        Chart,
       },
       ...options,
     });
-    emitChartCreated();
+
+    await findChart().vm.$nextTick(); // GlChart waits for $nextTick when mounting, await for mount to complete.
   };
 
   beforeEach(() => {
@@ -47,9 +46,7 @@ describe('line component', () => {
   });
 
   it('emits `created`, with the chart instance', async () => {
-    createShallowWrapper();
-
-    await nextTick();
+    await createShallowWrapper();
 
     expect(wrapper.emitted('created').length).toBe(1);
     expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
@@ -57,15 +54,13 @@ describe('line component', () => {
 
   describe('Annotations tooltips', () => {
     it('are hidden by default', async () => {
-      createShallowWrapper();
-
-      await nextTick();
+      await createShallowWrapper();
 
       expect(findAnnotationsTooltip().exists()).toBe(false);
     });
 
     it('are displayed if passed via annotations props', async () => {
-      createShallowWrapper({
+      await createShallowWrapper({
         props: {
           annotations: [
             {
@@ -76,13 +71,11 @@ describe('line component', () => {
         },
       });
 
-      await nextTick();
-
       expect(findAnnotationsTooltip().exists()).toBe(true);
     });
 
     it('are displayed if passed via option props', async () => {
-      createShallowWrapper({
+      await createShallowWrapper({
         props: {
           option: {
             series: [
@@ -101,8 +94,6 @@ describe('line component', () => {
           },
         },
       });
-
-      await nextTick();
 
       expect(findAnnotationsTooltip().exists()).toBe(true);
     });
@@ -123,7 +114,7 @@ describe('line component', () => {
         },
       };
 
-      createShallowWrapper({
+      await createShallowWrapper({
         props: {
           annotations: [
             {
@@ -145,9 +136,7 @@ describe('line component', () => {
 
   describe('data tooltip', () => {
     it('is initialized', async () => {
-      createShallowWrapper();
-
-      await nextTick();
+      await createShallowWrapper();
 
       expect(findDataTooltip().props()).toMatchObject({
         useDefaultTooltipFormatter: true,
@@ -161,12 +150,11 @@ describe('line component', () => {
       it('customizes tooltip value', async () => {
         const tooltipValueSlot = jest.fn().mockReturnValue('Value');
 
-        createShallowWrapper({
+        await createShallowWrapper({
           scopedSlots: {
             'tooltip-value': tooltipValueSlot,
           },
         });
-        await nextTick();
 
         expect(tooltipValueSlot).toHaveBeenCalledWith({ value: 9 });
         expect(findDataTooltip().text()).toBe('Value');
@@ -175,12 +163,11 @@ describe('line component', () => {
       it('customizes title', async () => {
         const tooltipTitleSlot = jest.fn().mockReturnValue('Title');
 
-        createShallowWrapper({
+        await createShallowWrapper({
           scopedSlots: {
             'tooltip-title': tooltipTitleSlot,
           },
         });
-        await nextTick();
 
         expect(tooltipTitleSlot).toHaveBeenCalledWith({
           params,
@@ -192,12 +179,11 @@ describe('line component', () => {
       it('customizes content', async () => {
         const tooltipContentSlot = jest.fn().mockReturnValue('Title');
 
-        createShallowWrapper({
+        await createShallowWrapper({
           scopedSlots: {
             'tooltip-content': tooltipContentSlot,
           },
         });
-        await nextTick();
 
         expect(tooltipContentSlot).toHaveBeenCalledWith({
           params,
@@ -210,13 +196,11 @@ describe('line component', () => {
     it('is customized via deprecated formatting function', async () => {
       const formatTooltipText = jest.fn();
 
-      createShallowWrapper({
+      await createShallowWrapper({
         props: {
           formatTooltipText,
         },
       });
-
-      await nextTick();
 
       expect(findDataTooltip().props()).toMatchObject({
         useDefaultTooltipFormatter: false,
@@ -231,46 +215,70 @@ describe('line component', () => {
 
   describe('legend', () => {
     it('is inline by default', async () => {
-      createShallowWrapper();
-
-      await nextTick();
+      await createShallowWrapper();
 
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
 
     it('is inline if correct prop value is set', async () => {
-      createShallowWrapper({
+      await createShallowWrapper({
         props: {
           legendLayout: LEGEND_LAYOUT_INLINE,
         },
       });
 
-      await nextTick();
-
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
 
     it('is tabular if correct prop value is set', async () => {
-      createShallowWrapper({
+      await createShallowWrapper({
         props: {
           legendLayout: LEGEND_LAYOUT_TABLE,
         },
       });
 
-      await nextTick();
-
       expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
     });
+
     it('can be hidden', async () => {
-      createShallowWrapper({
+      await createShallowWrapper({
         props: {
           showLegend: false,
         },
       });
 
+      expect(findLegend().exists()).toBe(false);
+    });
+
+    it('reacts to data changes', async () => {
+      await createShallowWrapper({
+        props: {
+          data: [
+            {
+              name: 'Text 1',
+              lineStyle: { type: 'line' },
+            },
+          ],
+        },
+      });
+
+      expect(findLegend().props('seriesInfo')).toEqual([
+        { name: 'Text 1', type: 'line', color: '#617ae2' },
+      ]);
+
+      wrapper.setProps({
+        data: [
+          {
+            name: 'Text 2',
+            lineStyle: { type: 'line' },
+          },
+        ],
+      });
       await nextTick();
 
-      expect(findLegend().exists()).toBe(false);
+      expect(findLegend().props('seriesInfo')).toEqual([
+        { name: 'Text 2', type: 'line', color: '#617ae2' },
+      ]);
     });
   });
 
