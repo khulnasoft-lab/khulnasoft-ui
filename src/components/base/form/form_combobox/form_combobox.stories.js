@@ -1,6 +1,5 @@
 import { userEvent, within, waitFor, expect } from '@storybook/test';
 import { makeContainer } from '../../../../utils/story_decorators/container';
-import { getA11yParameters } from '../../../../utils/stories_utils';
 import { stringTokenList, labelText, objectTokenList, actionsList } from './constants';
 import readme from './form_combobox.md';
 import GlFormCombobox from './form_combobox.vue';
@@ -106,15 +105,6 @@ export default {
   title: 'base/form/form-combobox',
   component: GlFormCombobox,
   parameters: {
-    a11y: getA11yParameters({
-      temporarySkipRules: [
-        'aria-required-attr',
-        'aria-required-parent',
-        'nested-interactive',
-        'label',
-        'list',
-      ],
-    }),
     docs: {
       description: {
         component: readme,
