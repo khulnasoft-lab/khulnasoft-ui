@@ -80,6 +80,7 @@ export default {
           :href="labelLink"
           class="gl-avatar-link"
           variant="meta"
+          @click="$emit('label-link-click', $event)"
         >
           <span class="gl-avatar-labeled-label">{{ label }}</span>
         </gl-link>
