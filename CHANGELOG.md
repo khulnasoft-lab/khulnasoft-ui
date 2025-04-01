@@ -1,3 +1,10 @@
+## [111.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.10.1...v111.10.2) (2025-04-01)
+
+
+### Bug Fixes
+
+* **GlToggle:** Fix label required if slot is used ([c39ca40](https://gitlab.com/gitlab-org/gitlab-ui/commit/c39ca40c6f364f8e73a5d88eb7254c64c65057c4))
+
 ## [111.10.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.10.0...v111.10.1) (2025-03-31)
 
 
