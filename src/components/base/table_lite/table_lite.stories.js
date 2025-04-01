@@ -1,4 +1,5 @@
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/table/README.md';
+import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './table_lite.md';
 import GlTableLite from './table_lite.vue';
 
@@ -7,13 +8,11 @@ const fieldsMock = [
     key: 'column_one',
     label: 'First column',
     thClass: 'w-60p',
-    tdClass: 'table-col',
   },
   {
     key: 'column_two',
     label: 'Second column',
     thClass: 'w-60p',
-    tdClass: 'table-col',
   },
 ];
 
@@ -34,10 +33,12 @@ const tableItemsMock = [
 
 const generateProps = ({
   stickyHeader = false,
+  stacked = false,
   items = tableItemsMock,
   fields = fieldsMock,
 } = {}) => ({
   stickyHeader,
+  stacked,
   items,
   fields,
 });
@@ -48,6 +49,7 @@ const Template = (args, { argTypes }) => ({
   template: `
     <gl-table-lite
     :sticky-header="stickyHeader"
+    :stacked="stacked"
     :items="items"
     :fields="fields" />
   `,
@@ -55,6 +57,19 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = generateProps();
+
+export const Stacked = Template.bind({});
+Stacked.args = generateProps({
+  items: [
+    ...tableItemsMock.slice(0, 2),
+    {
+      column_one: 'wrapping text',
+      column_two: 'supercalifragilisticexpialidocious',
+    },
+  ],
+  stacked: true,
+});
+Stacked.decorators = [makeContainer({ width: '300px' })];
 
 export default {
   title: 'base/table/table_lite',
