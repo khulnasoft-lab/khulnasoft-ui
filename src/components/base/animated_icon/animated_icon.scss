@@ -7,6 +7,8 @@
     @include gl-prefers-reduced-motion-transition;
     @include gl-prefers-reduced-motion-animation;
     transition: all $gl-transition-duration-medium $gl-easing-out-cubic;
+    // 'all' will also animate the visibility property, which makes the icon disappear later than it should
+    transition-property: color, fill, opacity, transform, rotate, translate, scale, stroke-dasharray, stroke-dashoffset;
     animation-duration: $gl-transition-duration-slow;
     animation-timing-function: $gl-easing-out-cubic;
     animation-fill-mode: both;
