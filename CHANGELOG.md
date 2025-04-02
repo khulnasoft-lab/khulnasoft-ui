@@ -1,3 +1,18 @@
+# [112.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.10.2...v112.0.0) (2025-04-02)
+
+
+### chore
+
+* **GlNavItemDropdown:** Remove component ([b948f97](https://gitlab.com/gitlab-org/gitlab-ui/commit/b948f97142242fd870b4bc60f6d970d9e41d0c20))
+
+
+### BREAKING CHANGES
+
+* **GlNavItemDropdown:** This commit removes the GlNavItemDropdown component.
+
+It is not used by any of our projects. Removing it will allow us to
+drop another Bootstrap dependency, BNavItemDropdown.
+
 ## [111.10.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.10.1...v111.10.2) (2025-04-01)
 
 
