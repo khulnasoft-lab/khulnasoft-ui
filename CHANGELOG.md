@@ -1,3 +1,10 @@
+## [112.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.0.0...v112.0.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* **GlAnimatedIcon:** explicitly set animation properties ([cdd8fad](https://gitlab.com/gitlab-org/gitlab-ui/commit/cdd8fadd9d962a24666c5d8f710d6578270bf61e))
+
 # [112.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v111.10.2...v112.0.0) (2025-04-02)
 
 
