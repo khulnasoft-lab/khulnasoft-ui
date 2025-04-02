@@ -1,3 +1,10 @@
+# [112.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.0.1...v112.1.0) (2025-04-02)
+
+
+### Features
+
+* **GlAvatarLabeled:** add label-link-click event ([ed38bc9](https://gitlab.com/gitlab-org/gitlab-ui/commit/ed38bc9dc7b60687ba79ab30e371baad26c42d63))
+
 ## [112.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.0.0...v112.0.1) (2025-04-02)
 
 
