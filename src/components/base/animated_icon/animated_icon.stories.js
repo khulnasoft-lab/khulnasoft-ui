@@ -37,7 +37,7 @@ const MorphTemplate = (args, { argTypes }) => ({
     };
   },
   template: `
-  <div class="gl-flex gl-gap-5 gl-flex-wrap hover:gl-cursor-pointer" @click="animationsOn = !animationsOn">
+  <div class="gl-flex gl-gap-5 gl-flex-wrap hover:gl-cursor-pointer gl-select-none" @click="animationsOn = !animationsOn">
     <div class="gl-p-4 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2">
       <gl-animated-todo-icon :variant="variant" :aria-label="ariaLabel" name="todo" :isOn="animationsOn" />
       todo
@@ -97,7 +97,7 @@ const InfiniteTemplate = (args, { argTypes }) => ({
     };
   },
   template: `
-  <div class="gl-flex gl-gap-5 gl-flex-wrap">
+  <div class="gl-flex gl-gap-5 gl-flex-wrap gl-select-none">
     <div class="gl-py-4 gl-px-5 gl-border gl-rounded-base gl-flex gl-flex-col gl-items-center gl-gap-2" @mouseenter="animationsOn = true" @mouseleave="animationsOn = false">
       <gl-animated-upload-icon :variant="variant" :aria-label="ariaLabel" name="upload" :isOn="animationsOn" />
       upload
