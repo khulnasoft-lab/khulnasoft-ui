@@ -1,19 +1,177 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import GlNav from './nav.vue';
-import GlNavItem from './nav_item.vue';
 
-describe('GlNav', () => {
-  let wrapper;
+describe('nav', () => {
+  it('has expected default structure', async () => {
+    const wrapper = mount(GlNav);
 
-  describe('Nav style', () => {
-    it('renders slot content', () => {
-      wrapper = shallowMount(GlNav, {
-        slots: {
-          default: [GlNavItem, GlNavItem],
-        },
-      });
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes().length).toBe(1);
+    expect(wrapper.text()).toBe('');
 
-      expect(wrapper.findAllComponents(GlNavItem).exists()).toBe(true);
+    wrapper.destroy();
+  });
+
+  it('renders custom root element when prop tag set', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        tag: 'ol',
+      },
     });
+
+    expect(wrapper.element.tagName).toBe('OL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes().length).toBe(1);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
+  });
+
+  it('renders default slot content', async () => {
+    const wrapper = mount(GlNav, {
+      slots: {
+        default: 'foobar',
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes().length).toBe(1);
+    expect(wrapper.text()).toBe('foobar');
+
+    wrapper.destroy();
+  });
+
+  it('applies pill style', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        pills: true,
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes()).toContain('nav-pills');
+    expect(wrapper.classes().length).toBe(2);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
+  });
+
+  it('applies tab style', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        tabs: true,
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes()).toContain('nav-tabs');
+    expect(wrapper.classes().length).toBe(2);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
+  });
+
+  it('applies justify style when justified', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        justified: true,
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes()).toContain('nav-justified');
+    expect(wrapper.classes().length).toBe(2);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
+  });
+
+  it('applies fill style style when fill set', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        fill: true,
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes()).toContain('nav-fill');
+    expect(wrapper.classes().length).toBe(2);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
+  });
+
+  it('applies alignment correctly', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        align: 'center',
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes()).toContain('justify-content-center');
+    expect(wrapper.classes().length).toBe(2);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
+  });
+
+  it('applies small style', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        small: true,
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes()).toContain('small');
+    expect(wrapper.classes().length).toBe(2);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
+  });
+
+  it('applies card-header-tabs class when tabs and card-header props set', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        tabs: true,
+        cardHeader: true,
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes()).toContain('nav-tabs');
+    expect(wrapper.classes()).toContain('card-header-tabs');
+    expect(wrapper.classes().length).toBe(3);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
+  });
+
+  it('applies card-header-pills class when pills and card-header props set', async () => {
+    const wrapper = mount(GlNav, {
+      propsData: {
+        pills: true,
+        cardHeader: true,
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('UL');
+    expect(wrapper.classes()).toContain('nav');
+    expect(wrapper.classes()).toContain('nav-pills');
+    expect(wrapper.classes()).toContain('card-header-pills');
+    expect(wrapper.classes().length).toBe(3);
+    expect(wrapper.text()).toBe('');
+
+    wrapper.destroy();
   });
 });
