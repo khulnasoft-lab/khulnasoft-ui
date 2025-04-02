@@ -1,9 +1,24 @@
 import { getA11yParameters } from '../../../utils/stories_utils';
 import GlIcon from '../icon/icon.vue';
-import BVueReadme from '../../../vendor/bootstrap-vue/src/components/nav/README.md';
 import GlNavItem from './nav_item.vue';
 import GlNav from './nav.vue';
 import readme from './nav.md';
+
+const generateProps = ({
+  align = '',
+  fill = false,
+  justified = false,
+  pills = false,
+  small = false,
+  tabs = false,
+} = {}) => ({
+  align,
+  fill,
+  justified,
+  pills,
+  small,
+  tabs,
+});
 
 export const Default = (_args, { argTypes }) => ({
   props: Object.keys(argTypes),
@@ -14,13 +29,22 @@ export const Default = (_args, { argTypes }) => ({
   },
   template: `
     <div style="height: 150px">
-      <gl-nav>
-        <gl-nav-item active>Active</gl-nav-item>
-        <gl-nav-item>Link</gl-nav-item>
-        <gl-nav-item disabled>Disabled</gl-nav-item>
+      <gl-nav
+        :align="align"
+        :fill="fill"
+        :justified="justified"
+        :pills="pills"
+        :small="small"
+        :tabs="tabs"
+      >
+        <gl-nav-item active href='#foo'>Active</gl-nav-item>
+        <gl-nav-item href='#bar'>Link</gl-nav-item>
+        <gl-nav-item disabled href='https://gitlab.com'>Disabled</gl-nav-item>
       </gl-nav>
     </div>`,
 });
+
+Default.args = generateProps();
 
 export default {
   title: 'base/nav',
@@ -30,13 +54,16 @@ export default {
   },
   parameters: {
     a11y: getA11yParameters({ temporarySkipRules: ['link-name'] }),
-    bootstrapComponent: 'b-nav',
-    bootstrapDocs: BVueReadme,
-
     docs: {
       description: {
         component: readme,
       },
+    },
+  },
+  argTypes: {
+    align: {
+      options: ['left', 'center', 'right'],
+      control: 'select',
     },
   },
 };
