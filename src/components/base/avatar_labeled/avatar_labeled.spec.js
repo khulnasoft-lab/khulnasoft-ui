@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
 
 import Avatar from '../avatar/avatar.vue';
 import GlLink from '../link/link.vue';
@@ -87,6 +88,16 @@ describe('avatar labeled', () => {
         wrapper.findComponent(Avatar).vm.$emit('click');
 
         expect(labelLinkClickSpy).toHaveBeenCalled();
+      });
+
+      describe('when label link is clicked', () => {
+        it('emits label-link-click event', async () => {
+          const event = new MouseEvent('click');
+          findLabelLink().vm.$emit('click', event);
+          await nextTick();
+
+          expect(wrapper.emitted('label-link-click')).toEqual([[event]]);
+        });
       });
     });
 
