@@ -1,3 +1,10 @@
+## [112.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.1.0...v112.1.1) (2025-04-03)
+
+
+### Bug Fixes
+
+* **GlLineChart, GlStackedColumn:** Legend is updated on changes ([dabba78](https://gitlab.com/gitlab-org/gitlab-ui/commit/dabba7878e8cd7702bab88312983c4f03db20d04))
+
 # [112.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.0.1...v112.1.0) (2025-04-02)
 
 
