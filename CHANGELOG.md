@@ -1,3 +1,10 @@
+## [112.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.1.1...v112.1.2) (2025-04-03)
+
+
+### Bug Fixes
+
+* **GlTooltip:** use feedback.strong.text.color for tooltip scoped label ([25784e3](https://gitlab.com/gitlab-org/gitlab-ui/commit/25784e36f8859fe05555f4fa8c44c4196c783a25))
+
 ## [112.1.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.1.0...v112.1.1) (2025-04-03)
 
 
