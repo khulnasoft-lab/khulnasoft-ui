@@ -26,7 +26,6 @@ nav.
 `<b-nav>` supports the following child components:
 
 - `<b-nav-item>` for actionable links (or router-links)
-- `<b-nav-item-dropdown>` for dropdowns
 - `<b-nav-text>` for plain text content
 - `<b-nav-form>` for inline forms
 
@@ -143,86 +142,6 @@ and `right`.
 
 <!-- b-nav-alignment.vue -->
 ```
-
-## Dropdown support
-
-Use `<b-nav-item-dropdown>` to place dropdown items within your nav.
-
-```html
-<div>
-  <b-nav pills>
-    <b-nav-item active>Active</b-nav-item>
-    <b-nav-item>Link</b-nav-item>
-    <b-nav-item-dropdown
-      id="my-nav-dropdown"
-      text="Dropdown"
-      toggle-class="nav-link-custom"
-      right
-    >
-      <b-dropdown-item>One</b-dropdown-item>
-      <b-dropdown-item>Two</b-dropdown-item>
-      <b-dropdown-divider></b-dropdown-divider>
-      <b-dropdown-item>Three</b-dropdown-item>
-    </b-nav-item-dropdown>
-  </b-nav>
-</div>
-
-<!-- b-nav-item-dropdown.vue -->
-```
-
-Sometimes you want to add your own class names to the generated dropdown toggle button, that by
-default have the classes `nav-link` and `dropdown-toggle`. Use the `toggle-class` prop to add them
-(like above) which will render HTML similar to:
-
-```html
-<li id="my-nav-dropdown" class="nav-item b-nav-dropdown dropdown">
-  <a
-    role="button"
-    href="#my-nav-dropdown"
-    id="my-nav-dropdown__BV_button_"
-    aria-haspopup="true"
-    aria-expanded="false"
-    class="nav-link dropdown-toggle nav-link-custom"
-  ></a>
-  ...
-</li>
-```
-
-Refer to [`<b-dropdown>`](/docs/components/dropdown) for a list of supported sub-components.
-
-### Optionally scoped default slot
-
-The dropdown default slot is optionally scoped with the following scope available:
-
-| Property or Method | Description                                                                                                                      |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| `hide()`           | Can be used to close the dropdown menu. Accepts an optional boolean argument, which if `true` returns focus to the toggle button |
-
-### Lazy dropdown
-
-By default, `<b-nav-item-dropdown>` renders the menu contents in the DOM even when the menu is not
-shown. When there are a large number of dropdowns rendered on the same page, performance could be
-impacted due to larger overall memory utilization. You can instruct `<b-nav-item-dropdown>` to
-render the menu contents only when it is shown by setting the `lazy` prop to true.
-
-### Dropdown placement
-
-Use the dropdown props `right`, `dropup`, `dropright`, `dropleft`, `no-flip`, and `offset` to
-control the positioning of `<b-nav-item-dropdown>`.
-
-Refer to the [`<b-dropdown>` positioning section](/docs/components/dropdown#positioning) for details
-on the effects and usage of these props.
-
-### Dropdown implementation note
-
-Note that the toggle button is actually rendered as a link `<a>` tag with `role="button"` for
-styling purposes, and typically has the `href` set to `#` unless an ID is provided via the `id`
-prop.
-
-The toggle will prevent scroll-top-top behaviour (via JavaScript) when clicking the toggle link. In
-some cases when using SSR, and the user clicks the toggle button _before_ Vue has had a chance to
-hydrate the component, the page will scroll to top. In these cases, simply providing a unique ID via
-the `id` prop will prevent the unwanted scroll-to-top behaviour.
 
 ## Nav text content
 
@@ -425,10 +344,6 @@ most logical parent container of `<b-nav>`, or wrap a `<nav>` element around `<b
 add the role to the `<b-nav>` itself, as this would prevent it from being announced as an actual
 list by assistive technologies.
 
-When using a `<b-nav-item-dropdown>` in your `<b-nav>`, be sure to assign a unique `id` prop value
-to the `<b-nav-item-dropdown>` so that the appropriate `aria-*` attributes can be automatically
-generated.
-
 ### Tabbed interface accessibility
 
 Note that navigation bars, even if visually styled as tabs, should **not** be given
@@ -438,21 +353,9 @@ described in the [WAI ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-p
 See [`<gl-tabs>`](?path=/docs/base-tabs--docs) for dynamic tabbed interfaces that are compliant with
 WAI ARIA.
 
-Tabbed interfaces should avoid using dropdown menus, as this causes both usability and accessibility
-issues:
-
-- From a usability perspective, the fact that the currently displayed tab’s trigger element is not
-  immediately visible (as it’s inside the closed dropdown menu) can cause confusion.
-- From an accessibility point of view, there is currently no sensible way to map this sort of
-  construct to a standard WAI ARIA pattern, meaning that it cannot be easily made understandable to
-  users of assistive technologies.
-
 ## See also
 
-- [tabs](?path=/docs/base-tabs--docs) to create tabbable panes of local content, even via dropdown
-  menus.
-- [`<b-dropdown>`](/docs/components/dropdown) for sub-components that you can place inside
-  `<b-nav-item-dropdown>`
+- [tabs](?path=/docs/base-tabs--docs) to create tabbable panes of local content.
 - [Router Link Support reference](?path=/docs/base-link--docs#router-link-support) for information
   about router-link specific props available on `<b-nav-item>`
 
