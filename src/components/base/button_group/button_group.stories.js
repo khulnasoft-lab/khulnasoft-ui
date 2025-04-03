@@ -278,7 +278,7 @@ export const AllSplitDropdownsVariants = (args, { argTypes }) => ({
           text-sr-only
           category="primary"
           :size="size"
-          :variant="variant"
+          variant="default"
         />
       </gl-button-group>
       <gl-button-group>
@@ -296,7 +296,7 @@ export const AllSplitDropdownsVariants = (args, { argTypes }) => ({
           text-sr-only
           category="secondary"
           :size="size"
-          :variant="variant"
+          variant="default"
         />
       </gl-button-group>
 
@@ -471,7 +471,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="primary"
         variant="default"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -482,7 +481,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="secondary"
         variant="default"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -494,7 +492,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="primary"
         variant="confirm"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -505,7 +502,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="secondary"
         variant="confirm"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -517,7 +513,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="primary"
         variant="danger"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -528,7 +523,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="secondary"
         variant="danger"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -540,7 +534,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="primary"
         variant="dashed"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -551,7 +544,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="secondary"
         variant="dashed"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -563,7 +555,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="primary"
         variant="reset"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
@@ -574,7 +565,6 @@ export const AllLegacyDropdownsVariants = (args, { argTypes }) => ({
         category="secondary"
         variant="reset"
         :size="size"
-        :block="block"
         :disabled="disabled"
       >
         <gl-dropdown-item>Dropdown item</gl-dropdown-item>
