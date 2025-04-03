@@ -24,6 +24,8 @@ let mockChartInstance;
 
 jest.mock('echarts', () => ({
   getInstanceByDom: () => mockChartInstance,
+  init: () => mockChartInstance,
+  registerTheme: jest.fn(),
 }));
 
 const defaultChartProps = {
@@ -43,18 +45,18 @@ describe('stacked column chart component', () => {
   const findDataTooltip = () => wrapper.findComponent(ChartTooltip);
   const findTooltipDefaultFormat = () => wrapper.findComponent(TooltipDefaultFormat);
 
-  const emitChartCreated = () => findChart().vm.$emit('created', mockChartInstance);
-
-  const createShallowWrapper = ({ props = {}, stubs, ...options } = {}) => {
+  const createShallowWrapper = async ({ props = {}, stubs, ...options } = {}) => {
     wrapper = shallowMount(StackedColumnChart, {
       propsData: { ...defaultChartProps, ...props },
       stubs: {
         'chart-tooltip': ChartTooltipStub,
+        Chart,
         ...stubs,
       },
       ...options,
     });
-    emitChartCreated();
+
+    await findChart().vm.$nextTick(); // GlChart waits for $nextTick when mounting, await for mount to complete.
   };
 
   beforeEach(() => {
@@ -65,21 +67,17 @@ describe('stacked column chart component', () => {
     jest.restoreAllMocks();
   });
 
-  it('emits `created`, with the chart instance', () => {
-    createShallowWrapper();
+  it('emits `created`, with the chart instance', async () => {
+    await createShallowWrapper();
 
-    return wrapper.vm.$nextTick(() => {
-      expect(wrapper.emitted('created').length).toBe(1);
-      expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
-    });
+    expect(wrapper.emitted('created').length).toBe(1);
+    expect(wrapper.emitted('created')[0][0]).toBe(mockChartInstance);
   });
 
-  it('should correctly render the chart', () => {
-    createShallowWrapper();
+  it('should correctly render the chart', async () => {
+    await createShallowWrapper();
 
-    const chart = findChart();
-
-    expect(chart.props('options')).toMatchSnapshot();
+    expect(findChart().props('options')).toMatchSnapshot();
   });
 
   describe('with line data provided', () => {
@@ -97,82 +95,110 @@ describe('stacked column chart component', () => {
   });
 
   describe('legend', () => {
-    beforeEach(() => {
-      mockChartInstance = {
-        ...mockCreateChartInstance(),
-        getOption: jest.fn().mockReturnValueOnce({
-          series: [
-            {
-              type: 'solid',
-              name: 'Foo Bar',
-              data: [1, 2, 3, 4, 5],
-            },
-          ],
-        }),
-      };
+    it('is inline by default', async () => {
+      await createShallowWrapper();
+
+      expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
     });
 
-    it('is inline by default', () => {
-      createShallowWrapper();
+    it('is inline if correct prop value is set', async () => {
+      await createShallowWrapper({ props: { legendLayout: LEGEND_LAYOUT_INLINE } });
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
+      expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
+    });
+
+    it('is tabular if correct prop value is set', async () => {
+      await createShallowWrapper({ props: { legendLayout: LEGEND_LAYOUT_TABLE } });
+
+      expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
+    });
+
+    describe('legend series info', () => {
+      beforeEach(async () => {
+        await createShallowWrapper({
+          props: {
+            bars: [mockDefaultStackedBarData[0], mockDefaultStackedBarData[1]],
+          },
+        });
       });
-    });
 
-    it('is inline if correct prop value is set', () => {
-      createShallowWrapper({ props: { legendLayout: LEGEND_LAYOUT_INLINE } });
-
-      return wrapper.vm.$nextTick(() => {
-        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_INLINE);
+      it('passes correct series info to legend', () => {
+        expect(findLegend().props('seriesInfo')).toHaveLength(2);
+        expect(findLegend().props('seriesInfo')).toEqual([
+          {
+            name: 'Fun 1',
+            type: 'bar',
+            color: '#617ae2',
+            data: mockDefaultStackedBarData[0].data,
+            yAxisIndex: 0,
+          },
+          {
+            name: 'Fun 2',
+            type: 'bar',
+            color: '#b14f18',
+            data: mockDefaultStackedBarData[1].data,
+            yAxisIndex: 0,
+          },
+        ]);
       });
-    });
 
-    it('is tabular if correct prop value is set', () => {
-      createShallowWrapper({ props: { legendLayout: LEGEND_LAYOUT_TABLE } });
+      it('reacts to data changes', async () => {
+        wrapper.setProps({
+          bars: [...mockDefaultStackedBarData],
+        });
+        await nextTick();
 
-      return wrapper.vm.$nextTick(() => {
-        expect(findLegend().props('layout')).toBe(LEGEND_LAYOUT_TABLE);
-      });
-    });
-
-    it('passes correct series info to legend', () => {
-      createShallowWrapper();
-
-      return wrapper.vm.$nextTick(() => {
-        expect(findLegend().props('seriesInfo')).toEqual(
-          expect.arrayContaining([
-            {
-              type: 'solid',
-              name: 'Foo Bar',
-              color: expect.any(String),
-              data: [1, 2, 3, 4, 5],
-              yAxisIndex: undefined,
-            },
-          ])
-        );
+        expect(findLegend().props('seriesInfo')).toHaveLength(4);
+        expect(findLegend().props('seriesInfo')).toEqual([
+          {
+            name: 'Fun 1',
+            type: 'bar',
+            color: '#617ae2',
+            data: mockDefaultStackedBarData[0].data,
+            yAxisIndex: 0,
+          },
+          {
+            name: 'Fun 2',
+            type: 'bar',
+            color: '#b14f18',
+            data: mockDefaultStackedBarData[1].data,
+            yAxisIndex: 0,
+          },
+          {
+            name: 'Fun 3',
+            type: 'bar',
+            color: '#0090b1',
+            data: mockDefaultStackedBarData[2].data,
+            yAxisIndex: 0,
+          },
+          {
+            name: 'Fun 4',
+            type: 'bar',
+            color: '#4e7f0e',
+            data: mockDefaultStackedBarData[3].data,
+            yAxisIndex: 0,
+          },
+        ]);
       });
     });
 
     describe('when `includeLegendAvgMax` prop is disabled', () => {
-      beforeEach(() => {
-        createShallowWrapper({ props: { includeLegendAvgMax: false } });
+      beforeEach(async () => {
+        await createShallowWrapper({ props: { includeLegendAvgMax: false } });
       });
 
       it('passes correct series info to legend', () => {
-        return wrapper.vm.$nextTick(() => {
-          expect(findLegend().props('seriesInfo')).toEqual(
-            expect.arrayContaining([
-              {
-                type: 'solid',
-                name: 'Foo Bar',
-                color: expect.any(String),
-                data: undefined,
-                yAxisIndex: undefined,
-              },
-            ])
-          );
-        });
+        expect(findLegend().props('seriesInfo')).toEqual(
+          expect.arrayContaining([
+            {
+              type: 'bar',
+              name: 'Fun 1',
+              color: expect.any(String),
+              data: undefined,
+              yAxisIndex: 0,
+            },
+          ])
+        );
       });
     });
   });
@@ -212,12 +238,11 @@ describe('stacked column chart component', () => {
     });
 
     it('inverts order of series in tooltip and uses border color', async () => {
-      createShallowWrapper({
+      await createShallowWrapper({
         stubs: {
           TooltipDefaultFormat,
         },
       });
-      await nextTick();
 
       const tooltipContentEntries = Object.entries(
         findTooltipDefaultFormat().props('tooltipContent')
@@ -235,7 +260,7 @@ describe('stacked column chart component', () => {
       it('customizes tooltip value', async () => {
         const tooltipValueSlot = jest.fn().mockReturnValue('Custom tooltip value');
 
-        createShallowWrapper({
+        await createShallowWrapper({
           stubs: {
             TooltipDefaultFormat,
           },
@@ -243,7 +268,6 @@ describe('stacked column chart component', () => {
             'tooltip-value': tooltipValueSlot,
           },
         });
-        await nextTick();
 
         expect(tooltipValueSlot).toHaveBeenCalledWith({ value: ['Count', 10] });
         expect(findDataTooltip().text()).toContain('Custom tooltip value');
@@ -252,12 +276,11 @@ describe('stacked column chart component', () => {
       it('customizes title', async () => {
         const tooltipTitleSlot = jest.fn().mockReturnValue('Title');
 
-        createShallowWrapper({
+        await createShallowWrapper({
           scopedSlots: {
             'tooltip-title': tooltipTitleSlot,
           },
         });
-        await nextTick();
 
         expect(tooltipTitleSlot).toHaveBeenCalledWith({
           params,
@@ -270,12 +293,11 @@ describe('stacked column chart component', () => {
       it('customizes content', async () => {
         const tooltipContentSlot = jest.fn().mockReturnValue('Custom Content');
 
-        createShallowWrapper({
+        await createShallowWrapper({
           scopedSlots: {
             'tooltip-content': tooltipContentSlot,
           },
         });
-        await nextTick();
 
         expect(tooltipContentSlot).toHaveBeenCalledWith({
           params,
@@ -288,13 +310,11 @@ describe('stacked column chart component', () => {
     it('is customized via deprecated formatting function', async () => {
       const formatTooltipText = jest.fn();
 
-      createShallowWrapper({
+      await createShallowWrapper({
         props: {
           formatTooltipText,
         },
       });
-
-      await nextTick();
 
       expect(findDataTooltip().props()).toMatchObject({
         useDefaultTooltipFormatter: false,
