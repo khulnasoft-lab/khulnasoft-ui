@@ -1,3 +1,10 @@
+# [112.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.1.2...v112.2.0) (2025-04-04)
+
+
+### Features
+
+* **GlChartLegend:** Localizes chart legend labels ([d0e3716](https://gitlab.com/gitlab-org/gitlab-ui/commit/d0e3716d49fe3007567bf4914416e06bf4dd0f6f))
+
 ## [112.1.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.1.1...v112.1.2) (2025-04-03)
 
 
