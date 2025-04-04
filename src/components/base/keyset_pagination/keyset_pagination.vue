@@ -116,7 +116,7 @@ export default {
 
 <template>
   <nav v-if="isVisible" class="gl-pagination" :aria-label="navigationLabel">
-    <gl-button-group class="gl-keyset-pagination" v-bind="$attrs" v-on="$listeners">
+    <gl-button-group class="gl-keyset-pagination gl-gap-3" v-bind="$attrs" v-on="$listeners">
       <gl-button
         :href="prevButtonLink"
         :disabled="disabled || !hasPreviousPage"
