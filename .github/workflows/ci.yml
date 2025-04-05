@@ -227,7 +227,7 @@ jobs:
       - name: Install Cypress
         run: pnpm cypress install --force
       - name: Download Storybook artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: storybook
       - name: Run integration tests
@@ -261,7 +261,7 @@ jobs:
           sudo apt-get install -y make
           pnpm install --frozen-lockfile
       - name: Download Storybook artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: storybook
       - name: Run visual tests
@@ -299,7 +299,7 @@ jobs:
           sudo apt-get install -y make
           pnpm install --frozen-lockfile
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: khulnasoft-ui.${{ github.ref_name }}.tgz
       - name: Publish to npm
@@ -321,7 +321,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Download Storybook artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: storybook
       - name: Setup Pages
