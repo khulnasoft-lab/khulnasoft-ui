@@ -1,0 +1,222 @@
+{
+  "broadcast": {
+    "banner": {
+      "background": {
+        "color": {
+          "blue": {
+            "$value": "{color.theme-blue.700}",
+            "$type": "color",
+            "$description": "Used for the background for the blue banner type."
+          },
+          "dark": {
+            "$value": "{color.neutral.500}",
+            "$type": "color",
+            "$description": "Used for the background for the dark banner type."
+          },
+          "green": {
+            "$value": "{color.theme-green.700}",
+            "$type": "color",
+            "$description": "Used for the background for the green banner type."
+          },
+          "indigo": {
+            "$value": "{color.theme-indigo.700}",
+            "$type": "color",
+            "$description": "Used for the background for the indigo banner type."
+          },
+          "light": {
+            "$value": "{color.neutral.50}",
+            "$type": "color",
+            "$description": "Used for the background for the light banner type."
+          },
+          "lightblue": {
+            "$value": "{color.theme-blue.500}",
+            "$type": "color",
+            "$description": "Used for the background for the lightblue banner type."
+          },
+          "lightgreen": {
+            "$value": "{color.theme-green.500}",
+            "$type": "color",
+            "$description": "Used for the background for the lightgreen banner type."
+          },
+          "lightindigo": {
+            "$value": "{color.theme-indigo.500}",
+            "$type": "color",
+            "$description": "Used for the background for the lightindigo banner type."
+          },
+          "lightred": {
+            "$value": "{color.theme-red.500}",
+            "$type": "color",
+            "$description": "Used for the background for the lightred banner type."
+          },
+          "red": {
+            "$value": "{color.theme-red.700}",
+            "$type": "color",
+            "$description": "Used for the background for the red banner type."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "blue": {
+            "$value": "{color.theme-blue.900}",
+            "$type": "color",
+            "$description": "Used for the border for the blue banner type."
+          },
+          "dark": {
+            "$value": "{color.neutral.700}",
+            "$type": "color",
+            "$description": "Used for the border for the dark banner type."
+          },
+          "green": {
+            "$value": "{color.theme-green.900}",
+            "$type": "color",
+            "$description": "Used for the border for the green banner type."
+          },
+          "indigo": {
+            "$value": "{color.theme-indigo.900}",
+            "$type": "color",
+            "$description": "Used for the border for the indigo banner type."
+          },
+          "light": {
+            "$value": "{color.neutral.100}",
+            "$type": "color",
+            "$description": "Used for the border for the light banner type."
+          },
+          "lightblue": {
+            "$value": "{color.theme-blue.700}",
+            "$type": "color",
+            "$description": "Used for the border for the lightblue banner type."
+          },
+          "lightgreen": {
+            "$value": "{color.theme-green.700}",
+            "$type": "color",
+            "$description": "Used for the border for the lightgreen banner type."
+          },
+          "lightindigo": {
+            "$value": "{color.theme-indigo.700}",
+            "$type": "color",
+            "$description": "Used for the border for the lightindigo banner type."
+          },
+          "lightred": {
+            "$value": "{color.theme-red.700}",
+            "$type": "color",
+            "$description": "Used for the border for the lightred banner type."
+          },
+          "red": {
+            "$value": "{color.theme-red.900}",
+            "$type": "color",
+            "$description": "Used for the border for the red banner type."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "blue": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the blue banner type."
+          },
+          "dark": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the dark banner type."
+          },
+          "green": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the green banner type."
+          },
+          "indigo": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the indigo banner type."
+          },
+          "light": {
+            "$value": "{color.neutral.900}",
+            "$type": "color",
+            "$description": "Used for the icon for the light banner type."
+          },
+          "lightblue": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the lightblue banner type."
+          },
+          "lightgreen": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the lightgreen banner type."
+          },
+          "lightindigo": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the lightindigo banner type."
+          },
+          "lightred": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the lightred banner type."
+          },
+          "red": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the red banner type."
+          }
+        }
+      },
+      "text": {
+        "color": {
+           "blue": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the blue banner type."
+           },
+           "dark": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the dark banner type."
+           },
+           "green": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the green banner type."
+           },
+           "indigo": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the indigo banner type."
+           },
+           "light": {
+             "$value": "{color.neutral.900}",
+             "$type": "color",
+             "$description": "Used for the text for the light banner type."
+           },
+           "lightblue": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the lightblue banner type."
+           },
+           "lightgreen": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the lightgreen banner type."
+           },
+           "lightindigo": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the lightindigo banner type."
+           },
+           "lightred": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the lightred banner type."
+           },
+           "red": {
+             "$value": "{color.neutral.0}",
+             "$type": "color",
+             "$description": "Used for the text for the red banner type."
+           }
+         }
+      }
+    }
+  }
+}

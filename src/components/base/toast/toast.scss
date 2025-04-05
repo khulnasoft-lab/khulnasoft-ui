@@ -1,0 +1,62 @@
+/*
+* These styles are specific to the gl-toast component.
+* Documentation: https://design.gitlab.com/components/toast
+*/
+.b-toaster {
+  &.b-toaster-bottom-left {
+    .b-toaster-slot {
+      bottom: $gl-spacing-scale-6;
+      left: $gl-spacing-scale-6;
+      right: auto;
+      @apply gl-w-auto;
+
+      @include media-breakpoint-down(xs) {
+        @apply gl-w-full;
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+
+  .gl-toast {
+    @apply gl-rounded-base;
+    @apply gl-text-base;
+    @apply gl-py-5;
+    @apply gl-px-6;
+    @apply gl-leading-normal;
+    @apply gl-flex;
+    @apply gl-items-center;
+    @apply gl-justify-between;
+    @apply gl-shadow-md;
+    background-color: var(--gl-feedback-strong-background-color);
+    color: var(--gl-feedback-strong-text-color);
+  }
+
+  .toast-body {
+    @apply gl-font-300;
+    @apply gl-pr-3;
+    order: 1;
+  }
+
+  .toast-header {
+    @apply gl-flex;
+    order: 2;
+  }
+
+  .gl-toast-action {
+    @apply gl-p-3;
+    @apply gl-m-0;
+    @apply gl-ml-5;
+    @apply gl-normal-case;
+    @apply gl-text-base;
+    @apply gl-whitespace-nowrap;
+    @apply gl-font-bold;
+    @apply gl-cursor-pointer;
+    color: var(--gl-feedback-strong-link-color);
+  }
+
+  .gl-toast-close-button {
+    @apply gl-ml-5;
+    color: inherit !important;
+  }
+}

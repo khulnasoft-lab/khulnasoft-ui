@@ -1,0 +1,11 @@
+{
+  "breadcrumb": {
+    "separator": {
+      "color": {
+        "$value": "{color.neutral.400}",
+        "$type": "color",
+        "$description": "Used for the breadcrumb level separator."
+      }
+    }
+  }
+}

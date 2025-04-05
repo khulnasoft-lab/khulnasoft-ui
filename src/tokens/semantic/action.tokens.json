@@ -1,0 +1,575 @@
+{
+  "action": {
+    "disabled": {
+      "foreground": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.400}",
+            "dark": "{color.neutral.500}"
+          },
+          "$type": "color",
+          "$description": "Used for the foreground of a disabled action."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.50}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a disabled action."
+        }
+      },
+      "border": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "$description": "Used for the border of a disabled action."
+        }
+      }
+    },
+    "selected": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.0}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a selected action in the default state."
+          },
+          "hover": {
+            "$value": "{action.selected.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a selected action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.selected.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the foreground of a selected action in the focus state."
+          },
+          "active": {
+            "$value": "{action.selected.foreground.color.focus}",
+            "$type": "color",
+            "$description": "Used for the foreground of a selected action in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.selected.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a selected action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.800}",
+              "dark": "{color.blue.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected action in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{action.selected.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a selected action in the default state."
+          },
+          "hover": {
+            "$value": "{action.selected.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the border of a selected action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.selected.background.color.focus}",
+            "$type": "color",
+            "$description": "Used for the border of a selected action in the focus state."
+          },
+          "active": {
+            "$value": "{action.selected.background.color.active}",
+            "$type": "color",
+            "$description": "Used for the border of a selected action in the active state."
+          }
+        }
+      }
+    },
+    "neutral": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.50}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a neutral action in the default state."
+          },
+          "hover": {
+            "$value": "{action.neutral.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a neutral action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.neutral.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a neutral action in the focus state."
+          },
+          "active": {
+            "$value": "{action.neutral.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the foreground of a neutral action in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "rgba(164, 163, 168, 0.0)",
+              "dark": "rgba(137, 136, 141, 0.0)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a neutral action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "rgba(164, 163, 168, 0.16)",
+              "dark": "rgba(137, 136, 141, 0.4)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a neutral action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.neutral.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a neutral action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "rgba(83, 81, 88, 0.24)",
+              "dark": "rgba(137, 136, 141, 0.16)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a neutral action in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral action in the default state."
+          },
+          "hover": {
+            "$value": "{action.neutral.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.neutral.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral action in the focus state."
+          },
+          "active": {
+            "$value": "{action.neutral.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral action in the active state."
+          }
+        }
+      }
+    },
+    "confirm": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a confirm (positive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a confirm (positive) action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.confirm.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the foreground of a confirm (positive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.900}",
+              "dark": "{color.blue.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a confirm (positive) action in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "rgba(99, 166, 233, 0.0)",
+              "dark": "rgba(66, 143, 220, 0.0)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a confirm (positive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "rgba(99, 166, 233, 0.16)",
+              "dark": "rgba(66, 143, 220, 0.4)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a confirm (positive) action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.confirm.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a confirm (positive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "rgba(11, 92, 173, 0.24)",
+              "dark": "rgba(66, 143, 220, 0.16)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a confirm (positive) action in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a confirm action in the default state."
+          },
+          "hover": {
+            "$value": "{action.confirm.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a confirm action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.confirm.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a confirm action in the focus state."
+          },
+          "active": {
+            "$value": "{action.confirm.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a confirm action in the active state."
+          }
+        }
+      }
+    },
+    "danger": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.red.500}",
+              "dark": "{color.red.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a danger (destructive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.red.700}",
+              "dark": "{color.red.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a danger (destructive) action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.danger.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the foreground of a danger (destructive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.red.900}",
+              "dark": "{color.red.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a danger (destructive) action in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "rgba(245, 127, 108, 0.0)",
+              "dark": "rgba(236, 89, 65, 0.0)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a danger (destructive) action in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "rgba(245, 127, 108, 0.16)",
+              "dark": "rgba(236, 89, 65, 0.4)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a danger (destructive) action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.danger.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a danger (destructive) action in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "rgba(174, 24, 0, 0.24)",
+              "dark": "rgba(236, 89, 65, 0.16)"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a danger (destructive) action in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a danger action in the default state."
+          },
+          "hover": {
+            "$value": "{action.danger.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a danger action in the hover state."
+          },
+          "focus": {
+            "$value": "{action.danger.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a danger action in the focus state."
+          },
+          "active": {
+            "$value": "{action.danger.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a danger action in the active state."
+          }
+        }
+      }
+    },
+    "strong": {
+      "confirm": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong confirm action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.blue.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong confirm action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a strong confirm action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong confirm action in the active state."
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong confirm action in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.confirm.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a strong confirm action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.foreground.color.hover}",
+              "$type": "color",
+              "$description": "Used for the foreground of a strong confirm action in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.confirm.foreground.color.focus}",
+              "$type": "color",
+              "$description": "Used for the foreground of a strong confirm action in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the border of a strong confirm action in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.confirm.border.color.default}",
+              "$type": "color",
+              "$description": "Used for the border of a strong confirm action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a strong confirm action in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.confirm.border.color.focus}",
+              "$type": "color",
+              "$description": "Used for the border of a strong confirm action in the active state."
+            }
+          }
+        }
+      },
+      "neutral": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong neutral action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.700}",
+                "dark": "{color.neutral.600}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong neutral action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.neutral.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a strong neutral action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.800}",
+                "dark": "{color.neutral.500}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a strong neutral action in the active state."
+            }
+          }
+        },
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong neutral action in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{action.strong.neutral.foreground.color.default}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong neutral action in the hover state."
+            },
+            "focus": {
+              "$value": {
+                "default": "{action.strong.neutral.foreground.color.hover}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong neutral action in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{action.strong.neutral.foreground.color.focus}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a strong neutral action in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the border of a strong neutral action in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.neutral.border.color.default}",
+              "$type": "color",
+              "$description": "Used for the border of a strong neutral action in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.neutral.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a strong neutral action in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.neutral.border.color.focus}",
+              "$type": "color",
+              "$description": "Used for the border of a strong neutral action in the active state."
+            }
+          }
+        }
+      }
+    }
+  }
+}

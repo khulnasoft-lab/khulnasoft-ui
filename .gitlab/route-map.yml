@@ -1,0 +1,2 @@
+- source: /src\/components/([^_]+)\/([^_]+)\/[^/]+/
+  public: '/?path=/story/\1-\2--default'

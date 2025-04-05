@@ -1,0 +1,25 @@
+.gl-filtered-search-token-segment {
+  @apply gl-inline-flex;
+  @apply gl-items-center;
+  @apply gl-w-full;
+  @apply gl-h-6;
+  @apply gl-whitespace-nowrap;
+  @apply gl-cursor-pointer;
+
+  &.gl-filtered-search-token-segment-active {
+    @apply gl-cursor-default;
+  }
+}
+
+.gl-filtered-search-token-segment-input {
+  @apply gl-p-0;
+  @apply gl-h-full;
+  @apply gl-bg-transparent;
+  @apply gl-border-none;
+  @apply gl-outline-none;
+  min-width: $gl-dropdown-width;
+}
+
+.gl-filtered-search-token-segment-icon {
+  @apply gl-mr-2;
+}

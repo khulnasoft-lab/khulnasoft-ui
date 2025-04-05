@@ -1,0 +1,17 @@
+[KhulnaSoft UI]
+* @khulnasoft/engineering-leadership
+
+^[Charts]
+src/components/charts @nxpkg
+
+[CSS]
+*.scss @khulnasoft-bot @nxpkg @khulnasoft/engineering-leadership
+
+^[Technical Writing]
+doc/ @khulnasoft-bot
+
+[UX]
+/tests/__image_snapshots__/ @gitlab-com/gitlab-ux/designers
+
+[Design Tokens]
+src/tokens @khulnasoft/engineering-leadership

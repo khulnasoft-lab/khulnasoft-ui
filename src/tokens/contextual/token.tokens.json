@@ -1,0 +1,21 @@
+{
+  "token": {
+    "foreground": {
+      "color": {
+        "$value": "{text.color.default}",
+        "$type": "color",
+        "$description": "Used for the token foreground color."
+      }
+    },
+    "background": {
+      "color": {
+        "$value": {
+          "default": "{color.neutral.100}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for the token background color."
+      }
+    }
+  }
+}

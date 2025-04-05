@@ -1,0 +1,92 @@
+# frozen_string_literal: true
+
+# We could get these easily if the team was exposed on the roulette object
+# https://gitlab.com/gitlab-org/ruby/gems/gitlab-dangerfiles/-/issues/31
+FOUNDATION_UX_REVIEWERS = %w[
+  chrismicek
+  aregnery
+  jeldergl
+  danmh
+  igloude
+].freeze
+
+COMPONENT_UX_MAP = {
+  accordion: %w[rayana],
+  alert: %w[andyvolpe],
+  badge: %w[seggenberger],
+  banner: %w[andyvolpe],
+  breadcrumb: %w[ameliabauerly],
+  'broadcast-message': %w[jeldergl],
+  button: %w[jeldergl],
+  card: %w[beckalippert],
+  chart: %w[ameliabauerly],
+  checkbox: %w[pedroms],
+  'data-visualization': %w[ameliabauerly],
+  drawer: %w[andyvolpe],
+  dropdown: %w[jeldergl],
+  'file-uploader': %w[aregnery],
+  filter: %w[jeldergl],
+  icon: %w[jeldergl],
+  'infinite-scroll': %w[beckalippert],
+  label: %w[annabeldunstone],
+  link: %w[jeldergl],
+  modal: %w[aregnery],
+  pagination: %w[andyvolpe],
+  'progress-bar': %w[aregnery],
+  radio: %w[pedroms],
+  search: %w[matejlatin],
+  'segmented-control': %w[andyvolpe],
+  sorting: %w[ameliabauerly],
+  spinner: %w[jeldergl],
+  tab: %w[aregnery],
+  table: %w[lvanc],
+  toggle: %w[pedroms],
+  token: %w[annabeldunstone],
+  tooltip: %w[rayana],
+  tree: %w[rayana]
+}.freeze
+
+def ux_reviewers_for_label(label)
+  component = label.sub('component:', '')
+  COMPONENT_UX_MAP[component.to_sym] || FOUNDATION_UX_REVIEWERS
+end
+
+# If we could access roulette_company_members,
+# we could utilize team_mate.markdown_name instead
+# See: https://gitlab.com/gitlab-org/ruby/gems/gitlab-dangerfiles/-/issues/31
+def markdownify_username(username)
+  "[`@#{username}`](https://gitlab.com/#{username})"
+end
+
+foundation_members = FOUNDATION_UX_REVIEWERS
+                       .map{|u| " * #{markdownify_username(u)}" }
+                       .join("\n")
+
+UX_REVIEW_MESSAGE = <<MARKDOWN
+If your Merge Request changes one or more components, please have it reviewed by a Product Designer.
+One should have been suggested above. Otherwise, or if they are not available, feel free to
+assign to a UX Foundations designer:
+
+#{foundation_members}
+MARKDOWN
+
+TABLE_HEADER = <<MARKDOWN
+| Component | Reviewer |
+| --------- | -------- |
+MARKDOWN
+
+component_labels = helper.mr_labels.select { |label| label.start_with?('component:') }
+
+if component_labels.any?
+  rows = component_labels.map do |component_label|
+    reviewers = ux_reviewers_for_label(component_label)
+                  .map { |u| markdownify_username(u) }
+                  .join(" ")
+
+    "| ~\"#{component_label}\" | #{reviewers} |"
+  end
+
+  markdown("## UX Review")
+  markdown(TABLE_HEADER + rows.join("\n")) unless rows.empty?
+  markdown(UX_REVIEW_MESSAGE) unless rows.empty?
+end

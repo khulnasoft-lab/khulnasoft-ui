@@ -1,0 +1,24 @@
+{
+  "table": {
+    "row": {
+      "background": {
+        "color": {
+          "hover": {
+            "$value": "{background.color.subtle}",
+            "$type": "color",
+            "$description": "Used for the background of a table row in hover state."
+          }
+        }
+      }
+    },
+    "sorting": {
+      "icon": {
+        "color": {
+          "$value": "{text.color.heading}",
+          "$type": "color",
+          "$description": "Used for the color of the sorting icons in the column headers."
+        }
+      }
+    }
+  }
+}

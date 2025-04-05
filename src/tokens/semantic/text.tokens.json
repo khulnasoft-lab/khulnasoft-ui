@@ -1,0 +1,105 @@
+{
+  "text": {
+    "primary": {
+      "$value": {
+        "default": "#28272d",
+        "dark": "#ececef"
+      },
+      "$type": "color",
+      "$description": "Use text.color.default instead.",
+      "deprecated": true
+    },
+    "secondary": {
+      "$value": {
+        "default": "#737278",
+        "dark": "#89888d"
+      },
+      "$type": "color",
+      "$description": "Use text.color.subtle instead.",
+      "deprecated": true
+    },
+    "tertiary": {
+      "$value": {
+        "default": "#89888d",
+        "dark": "#737278"
+      },
+      "$type": "color",
+      "$description": "Use text.color.disabled instead.",
+      "deprecated": true
+    },
+    "color": {
+      "default": {
+        "$value": {
+          "default": "{color.neutral.800}",
+          "dark": "{color.neutral.50}"
+        },
+        "$type": "color",
+        "$description": "Used for the default text color."
+      },
+      "subtle": {
+        "$value": {
+          "default": "{color.neutral.600}",
+          "dark": "{color.neutral.200}"
+        },
+        "$type": "color",
+        "$description": "Used for supplemental text that doesn't need to be as prominent as other text."
+      },
+      "strong": {
+        "$value": {
+          "default": "{color.neutral.950}",
+          "dark": "{color.neutral.0}"
+        },
+        "$type": "color",
+        "$description": "Used for text with the highest contrast."
+      },
+      "heading": {
+        "$value": {
+          "default": "{color.neutral.950}",
+          "dark": "{color.neutral.0}"
+        },
+        "$type": "color",
+        "$description": "Used for headings level 1-6."
+      },
+      "link": {
+        "$value": {
+          "default": "{color.blue.700}",
+          "dark": "{color.blue.200}"
+        },
+        "$type": "color",
+        "$description": "Used for default text links."
+      },
+      "warning": {
+        "$value": {
+          "default": "{color.orange.600}",
+          "dark": "{color.orange.300}"
+        },
+        "$type": "color",
+        "$description": "Used for text that requires caution or careful attention."
+      },
+      "danger": {
+        "$value": {
+          "default": "{color.red.600}",
+          "dark": "{color.red.300}"
+        },
+        "$type": "color",
+        "$description": "Used for text indicating a problem, critical state, destructive action, error, failure, removal, stop, or declination."
+      },
+      "success": {
+        "$value": {
+          "default": "{color.green.600}",
+          "dark": "{color.green.300}"
+        },
+        "$type": "color",
+        "$description": "Used for text indicating success, completion, approval, addition, or validity."
+      },
+      "disabled": {
+        "$value": {
+          "default": "{color.neutral.400}",
+          "dark": "{color.neutral.400}"
+        },
+        "$type": "color",
+        "$description": "Used for disabled text."
+      }
+    }
+  }
+}

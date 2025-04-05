@@ -1,0 +1,43 @@
+{
+  "border": {
+    "color": {
+      "default": {
+        "$value": {
+          "default": "{color.neutral.100}",
+          "dark": "{color.neutral.700}"
+        },
+        "$type": "color",
+        "$description": "Used for the default border color."
+      },
+      "subtle": {
+        "$value": {
+          "default": "{color.neutral.50}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for a subtle border in combination with the default background."
+      },
+      "strong": {
+        "$value": {
+          "default": "{color.neutral.200}",
+          "dark": "{color.neutral.600}"
+        },
+        "$type": "color",
+        "$description": "Used for a distinct border that emphasizes an edge or boundaries."
+      },
+      "section": {
+        "$value": {
+          "default": "{border.color.default}",
+          "dark": "{background.color.default}"
+        },
+        "$type": "color",
+        "$description": "Used for the border color that surrounds content or elements when they appear as a closed container or closed section of the page."
+      },
+      "transparent": {
+        "$value": "{color.alpha.0}",
+        "$type": "color",
+        "$description": "Used when a border needs to be present, but not visibly perceived."
+      }
+    }
+  }
+}

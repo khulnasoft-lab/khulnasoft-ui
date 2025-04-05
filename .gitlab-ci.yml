@@ -1,0 +1,527 @@
+stages:
+  - pre-build
+  - test
+  - build
+  - deploy
+  - publish
+  - manual
+
+default:
+  interruptible: true
+  artifacts:
+    expire_in: 30 days
+  tags:
+    - gitlab-org
+
+variables:
+  GITLAB_ADVANCED_SAST_ENABLED: 'true'
+
+include:
+  - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
+  - template: Jobs/SAST.latest.gitlab-ci.yml
+  - template: Jobs/Secret-Detection.latest.gitlab-ci.yml
+  - project: gitlab-org/frontend/frontend-build-images
+    file: /semantic-release/.gitlab-ci-template.rules.yml
+  - project: gitlab-org/frontend/untamper-my-lockfile
+    file: 'templates/merge_request_pipelines.yml'
+  - component: ${CI_SERVER_FQDN}/gitlab-org/components/danger-review/danger-review@1.4.0
+
+.is-merge-train: &is-merge-train
+  if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merge_train"'
+
+# Only run on merge requests that come from KhulnaSoft UI or
+# from forks when a KhulnaSoft UI team member triggered a pipeline
+.is-khulnasoft-ui-mr: &is-khulnasoft-ui-mr
+  if: '$CI_MERGE_REQUEST_IID && $CI_PROJECT_PATH == "gitlab-org/khulnasoft-ui"'
+
+# Execute the security scanners immediately
+gemnasium-dependency_scanning:
+  needs: []
+
+semgrep-sast:
+  needs: []
+
+gitlab-advanced-sast:
+  needs: []
+
+secret_detection:
+  needs: []
+
+.playwright:
+  image: mcr.microsoft.com/playwright:v1.51.1-jammy
+
+.node:
+  image: node:22.14.0-bookworm
+
+.use_vue3:
+  variables:
+    VUE_VERSION: '3'
+
+# This is a cache template for caching node_modules
+# As a cache key we are using a SHA of .gitlab-ci.yml and yarn.lock
+# The latter is obvious, because it updates when we update dependencies
+# The former is to invalidate caches, in case we touch our CI config, which
+# could mean changing something in our caching logic
+.cache-template: &cache-template
+  paths:
+    - node_modules/
+  key:
+    files:
+      - .gitlab-ci.yml
+      - yarn.lock
+    prefix: node_modules
+
+.yarn_install:
+  variables:
+    # Per default we do not want to download cypress binaries, as this blows up the cache
+    # and makes all other jobs potentially slower, if no cache exists
+    CYPRESS_INSTALL_BINARY: 0
+  before_script:
+    - apt-get update
+    - apt-get install -y make
+    - yarn install --frozen-lockfile
+  cache:
+    <<: *cache-template
+    policy: pull
+
+# Only start pipelines on Merge Requests or the default branch
+workflow:
+  rules:
+    # Commits on default branch
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+      when: always
+    # MR-Pipelines
+    - if: $CI_MERGE_REQUEST_IID
+      when: always
+    - when: never
+
+# Only run on KhulnaSoft UI default branches
+.rules:khulnasoft-ui-default-branch:
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "gitlab-org/khulnasoft-ui"'
+
+.rules:khulnasoft-ui-mr:
+  rules:
+    - <<: *is-khulnasoft-ui-mr
+
+.rules:khulnasoft-ui-mr-manual:
+  rules:
+    - <<: *is-khulnasoft-ui-mr
+      when: manual
+      allow_failure: true
+
+# As we are caching based on the contents of our CI config and dependency lock file
+# We only need to execute when these change. However, we give a manual job as an escape hatch
+populate_npm_cache:
+  extends: [.node, .yarn_install]
+  stage: pre-build
+  script:
+    - echo "successfully installed dependencies"
+  cache:
+    <<: *cache-template
+    policy: push
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - yarn.lock
+      when: always
+    - when: never
+
+yarn_deduplicate:
+  extends: [.node, .yarn_install]
+  stage: test
+  needs: []
+  script:
+    - yarn yarn-deduplicate --strategy fewer --list --fail
+  rules:
+    - changes:
+        - .gitlab-ci.yml
+        - package.json
+        - yarn.lock
+      when: always
+
+.build_test_storybook:
+  extends: [.node, .yarn_install]
+  stage: pre-build
+  script:
+    - yarn storybook:build:test
+  artifacts:
+    when: always
+    paths:
+      - storybook/
+
+build_test_storybook:
+  extends: [.build_test_storybook]
+
+build_test_storybook_vue3:
+  extends: [.use_vue3, .build_test_storybook]
+
+build_package:
+  extends: [.node, .yarn_install]
+  variables:
+    TAR_ARCHIVE_NAME: khulnasoft-ui.$CI_COMMIT_REF_SLUG.tgz
+  needs: []
+  stage: build
+  script:
+    - yarn build
+    - npm pack
+    - mv *.tgz $TAR_ARCHIVE_NAME
+    - DEPENDENCY_URL="$CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/$TAR_ARCHIVE_NAME"
+    - echo "The package.json dependency URL is $DEPENDENCY_URL"
+    - echo "DEPENDENCY_URL=$DEPENDENCY_URL" > build_package.env
+  artifacts:
+    when: always
+    reports:
+      dotenv: build_package.env
+    paths:
+      - bin/migrate_custom_utils_to_tw.bundled.mjs
+      - dist
+      - $TAR_ARCHIVE_NAME
+
+.build_storybook:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: build
+  script:
+    - bin/build-storybook-static.sh
+  artifacts:
+    paths:
+      - public
+
+build_storybook:
+  extends: [.build_storybook]
+
+build_storybook_vue3:
+  extends: [.build_storybook, .use_vue3]
+
+build_tailwind_config_viewer:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: build
+  script:
+    - yarn tailwind-config-viewer:export
+  artifacts:
+    paths:
+      - tailwind-config-viewer-static/
+
+lint:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: test
+  variables:
+    ESLINT_CODE_QUALITY_REPORT: 'gl-code-quality-report-eslint.json'
+  script:
+    - yarn eslint --format gitlab
+    - yarn prettier
+    - yarn markdownlint
+    - >
+      grep -r -i '<style' --include \*.vue src/components
+      && echo "Vue components should not contain <style tags"
+      && exit 1
+      || echo "No Vue component contains <style tags"
+  artifacts:
+    reports:
+      codequality: gl-code-quality-report-eslint.json
+
+stylelint:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: test
+  variables:
+    STYLELINT_CODE_QUALITY_REPORT: 'gl-code-quality-report-stylelint.json'
+  script:
+    - yarn stylelint --custom-formatter=@studiometa/stylelint-formatter-gitlab
+  artifacts:
+    reports:
+      codequality: '$STYLELINT_CODE_QUALITY_REPORT'
+
+check_translations_dictionary:
+  extends: [.node, '.yarn_install']
+  needs: []
+  script:
+    - ./bin/check_translations_dict.sh
+
+check_tokens_build:
+  extends: [.node, '.yarn_install']
+  needs: []
+  script:
+    - ./bin/check_tokens_build.sh
+
+.visual:
+  extends:
+    - .playwright
+    - .yarn_install
+  needs: [build_test_storybook]
+  parallel: 2
+  stage: test
+  script:
+    - yarn test:visual
+  rules:
+    - !reference ['.rules:khulnasoft-ui-default-branch', rules]
+    - <<: *is-merge-train
+      when: always
+    - if: '$CI_MERGE_REQUEST_IID'
+      when: always
+  artifacts:
+    when: always
+    paths:
+      - tests/__image_snapshots__/
+      - tests/results.json
+
+visual:
+  extends: [.visual]
+
+visual_vue3:
+  needs: [build_test_storybook_vue3]
+  extends: [.visual, .use_vue3]
+
+.integration_tests:
+  image: cypress/browsers:node-22.11.0-chrome-131.0.6778.85-1-ff-132.0.2-edge-131.0.2903.70-1
+  extends: [.node, .yarn_install]
+  variables:
+    # Allow these jobs to install cypress binaries
+    CYPRESS_INSTALL_BINARY: ''
+  needs: [build_test_storybook]
+  parallel:
+    matrix:
+      - SUITE: ['cy:edge', 'cy:run']
+  stage: test
+  script:
+    - yarn cypress install --force
+    - "yarn test:integration:server 'yarn run $SUITE'"
+  artifacts:
+    when: on_failure
+    expire_in: 1 week
+    paths:
+      - cypress
+
+integration_tests:
+  extends: [.integration_tests]
+
+integration_tests_vue3:
+  extends: [.integration_tests, .use_vue3]
+  needs: [build_test_storybook_vue3]
+
+bootstrap-vue:
+  extends: [.node]
+  needs: []
+  stage: test
+  script:
+    - cd src/vendor/bootstrap-vue
+    - yarn install --check-files --frozen-lockfile --non-interactive
+    - yarn run test
+
+bootstrap-vue_vue3:
+  extends: [bootstrap-vue, .use_vue3]
+
+.unit_tests:
+  extends: [.node, .yarn_install]
+  needs: []
+  stage: test
+  variables:
+    ARTIFACT_NAME: 'coverage'
+    COVERAGE_DIR: 'coverage'
+  script:
+    - yarn test:unit:coverage --coverageReporters=cobertura --coverageDirectory=$COVERAGE_DIR
+  artifacts:
+    name: $ARTIFACT_NAME
+    expire_in: 7d
+    when: always
+    paths:
+      - $COVERAGE_DIR/
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: $COVERAGE_DIR/cobertura-coverage.xml
+
+unit_tests_vue2:
+  extends: [.unit_tests]
+  variables:
+    ARTIFACT_NAME: 'coverage-vue2'
+    COVERAGE_DIR: 'coverage/vue2'
+
+unit_tests_vue3:
+  extends: [.unit_tests, .use_vue3]
+  variables:
+    ARTIFACT_NAME: 'coverage-vue3'
+    COVERAGE_DIR: 'coverage/vue3'
+
+merge_coverage_reports:
+  extends: [.node, .yarn_install]
+  needs:
+    - unit_tests_vue2
+    - unit_tests_vue3
+  script:
+    - yarn run merge-cobertura -o coverage/cobertura-coverage.xml package1=coverage/vue2/cobertura-coverage.xml package2=coverage/vue3/cobertura-coverage.xml
+  artifacts:
+    name: coverage
+    when: always
+    paths:
+      - coverage/
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+
+# Manual jobs cannot depend on failing jobs
+# So we need to introduce an intermediary job which re-exposes the artifacts
+# See also: https://gitlab.com/groups/gitlab-org/-/epics/6788
+screenshot_collector:
+  stage: manual
+  variables:
+    GIT_STRATEGY: none
+  when: always
+  script:
+    - find tests
+  needs:
+    - job: visual
+  artifacts:
+    when: always
+    paths:
+      - tests/
+
+update_screenshots:
+  extends:
+    - .node
+    - .rules:khulnasoft-ui-mr-manual
+  when: manual
+  needs:
+    - job: screenshot_collector
+  stage: manual
+  script:
+    - ./bin/update-screenshots.sh
+
+.pages:
+  stage: deploy
+  needs:
+    - build_storybook
+    - build_storybook_vue3
+    - build_tailwind_config_viewer
+  script:
+    - echo "Deploying to Pages"
+    - echo "Pages accessible through ${CI_ENVIRONMENT_URL}"
+    - mv ./tailwind-config-viewer-static ./public/tailwind-config-viewer
+  environment:
+    url: '${CI_PAGES_URL}'
+  publish: public
+  artifacts:
+    paths:
+      - public
+
+pages:
+  extends:
+    - .pages
+    - .rules:khulnasoft-ui-default-branch
+  pages:
+    expire_in: never
+  environment:
+    name: 'pages'
+
+review-app:
+  extends:
+    - .pages
+    - .rules:khulnasoft-ui-mr
+  pages:
+    path_prefix: '$CI_ENVIRONMENT_SLUG'
+    expire_in: '2 weeks'
+  environment:
+    name: 'review/mr-$CI_MERGE_REQUEST_IID'
+    auto_stop_in: '2 weeks'
+
+create_integration_branch:
+  extends:
+    - .node
+    - .rules:khulnasoft-ui-mr-manual
+  stage: manual
+  needs:
+    - build_package
+  script:
+    - bin/create_integration_branch.mjs
+
+duo_job:
+  stage: deploy
+  needs:
+    - build_package
+  trigger:
+    project: gitlab-org/duo-ui
+    branch: main
+    strategy: depend
+  variables:
+    UPSTREAM_GITLAB_UI_VERSION: $DEPENDENCY_URL
+    UPSTREAM_BRANCH_NAME: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+  rules:
+    - if: '$CI_MERGE_REQUEST_LABELS =~ /duo-ui-allowed-to-fail/'
+      when: always
+      allow_failure: true
+    - if: '$CI_MERGE_REQUEST_IID'
+      when: always
+      allow_failure: false
+
+update_deployments:
+  extends: [.node, .yarn_install]
+  stage: manual
+  allow_failure: true
+  needs:
+    - job: publish_to_npm
+      optional: true
+  script:
+    - bin/update_deployments.mjs
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: manual
+      changes:
+        paths:
+          - bin/update_deployments.mjs
+        compare_to: 'refs/heads/main'
+
+.snippets:
+  # The usage of these snippets can be removed after we had the first proper release
+  # after the bootstrap-vue merge
+  forget-about-bootstrap-vue:
+    - git fetch origin orphaned-semantic-commit
+    # Replace bootstrap-vue@2.23.1 with orphaned commit
+    # This should prevent semantic-release from traversing bootstrap(-vue)?'s history
+    #             <bootstrap(_vue)?_commit_sha>            <orphaned_commit_sha>
+    - git replace a1cebda1ef6e9579e742fdf3937a28643c8e31ec 936121d1c483f2279e9a3601c6442c7c2b65ed21
+    - git replace e1fa01d280bbed0ce43e6541d1d75f4474eff1fd 936121d1c483f2279e9a3601c6442c7c2b65ed21
+
+danger-review:
+  before_script:
+    - !reference [.snippets, forget-about-bootstrap-vue]
+    - '[[ ! -f "Gemfile" ]] && bundle init && bundle add gitlab-dangerfiles'
+    - bundle install
+
+publish_to_npm:
+  extends:
+    - .semantic-release
+    - .rules:khulnasoft-ui-default-branch
+  before_script:
+    - !reference [.snippets, forget-about-bootstrap-vue]
+  # We need to run `publish` after pages, so that pages will get deployed
+  # properly, as the publish-to-npm step will create a new commit and this
+  # could lead to a side-effect where pages don't get published because of
+  # the commit being made before `pages` had a chance to run
+  stage: publish
+  # This job doesn't use the DAG feature, because we don't want it to
+  # run in case another job in the previous stages fails
+  dependencies:
+    - build_package
+
+publish-to-npm-dry-run:
+  extends:
+    - publish_to_npm
+  rules:
+    # semantic-release is not playing well with pipelines from forks.
+    # even if triggered by a project member. So let's not run it on
+    # e.g. renovate MRs which come from forks
+    - if: '$CI_MERGE_REQUEST_SOURCE_PROJECT_ID != $CI_MERGE_REQUEST_ID'
+      when: never
+    - !reference ['.rules:khulnasoft-ui-mr', rules]
+  stage: deploy
+  dependencies: []
+  needs:
+    - build_package
+  script:
+    - semantic-release --branches "$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME" --dry-run --no-ci

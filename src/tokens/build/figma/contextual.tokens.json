@@ -1,0 +1,3496 @@
+{
+  "alert": {
+    "neutral": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{text.color.heading}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of a neutral alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.neutral.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of a neutral alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.neutral.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border center color of a neutral alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border bottom color of a neutral alert."
+          }
+        }
+      }
+    },
+    "info": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{color.blue.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of an info alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.info.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of an info alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border color of an info alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border bottom color of an info alert."
+          }
+        }
+      }
+    },
+    "success": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{color.green.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of a success alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.success.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of a success alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.green.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border color of a success alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border bottom color of a success alert."
+          }
+        }
+      }
+    },
+    "warning": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of a warning alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.warning.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of a warning alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.orange.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border color of a warning alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border bottom color of a warning alert."
+          }
+        }
+      }
+    },
+    "danger": {
+      "title": {
+        "color": {
+          "$value": {
+            "default": "{text.color.heading}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the title color of a danger alert."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{feedback.danger.background.color}",
+            "dark": "{background.color.subtle}"
+          },
+          "$type": "color",
+          "$description": "Used for the background color of a danger alert."
+        }
+      },
+      "border": {
+        "top": {
+          "color": {
+            "$value": {
+              "default": "{color.alpha.0}",
+              "dark": "{color.red.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border color of a danger alert."
+          }
+        },
+        "bottom": {
+          "color": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border bottom color of a danger alert."
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "avatar": {
+    "border": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "{color.alpha.dark.8}",
+            "dark": "{color.alpha.light.8}"
+          },
+          "$type": "color",
+          "$description": "Used to define the edge of an avatar."
+        },
+        "hover": {
+          "$value": {
+            "default": "{color.alpha.dark.24}",
+            "dark": "{color.alpha.light.24}"
+          },
+          "$type": "color",
+          "$description": "Used to increase the edge definition of an avatar in the hover state."
+        }
+      }
+    },
+    "fallback": {
+      "text": {
+        "color": {
+          "red": {
+            "$value": {
+              "default": "{color.red.800}",
+              "dark": "{color.red.200}"
+            },
+            "$type": "color",
+            "$description": "Red text color for avatar fallback with no particular meaning."
+          },
+          "purple": {
+            "$value": {
+              "default": "{color.purple.800}",
+              "dark": "{color.purple.200}"
+            },
+            "$type": "color",
+            "$description": "Purple text color for avatar fallback with no particular meaning."
+          },
+          "blue": {
+            "$value": {
+              "default": "{color.blue.800}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Blue text color for avatar fallback with no particular meaning."
+          },
+          "green": {
+            "$value": {
+              "default": "{color.green.800}",
+              "dark": "{color.green.200}"
+            },
+            "$type": "color",
+            "$description": "Green text color for avatar fallback with no particular meaning."
+          },
+          "orange": {
+            "$value": {
+              "default": "{color.orange.800}",
+              "dark": "{color.orange.200}"
+            },
+            "$type": "color",
+            "$description": "Orange text color for avatar fallback with no particular meaning."
+          },
+          "neutral": {
+            "$value": {
+              "default": "{color.neutral.800}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "$description": "Neutral text color for avatar fallback with no particular meaning."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "red": {
+            "$value": "#fcb5aa3d",
+            "$type": "color",
+            "$description": "Red background for avatar fallback with no particular meaning."
+          },
+          "purple": {
+            "$value": "#cbbbf23d",
+            "$type": "color",
+            "$description": "Purple background for avatar fallback with no particular meaning."
+          },
+          "blue": {
+            "$value": "#9dc7f13d",
+            "$type": "color",
+            "$description": "Blue background for avatar fallback with no particular meaning."
+          },
+          "green": {
+            "$value": "#91d4a83d",
+            "$type": "color",
+            "$description": "Green background for avatar fallback with no particular meaning."
+          },
+          "orange": {
+            "$value": "#e9be743d",
+            "$type": "color",
+            "$description": "Orange background for avatar fallback with no particular meaning."
+          },
+          "neutral": {
+            "$value": "#bfbfc33d",
+            "$type": "color",
+            "$description": "Neutral background for avatar fallback with no particular meaning."
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "badge": {
+    "muted": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a muted badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.muted.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a muted badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.muted.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a muted badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.100}",
+              "dark": "{color.neutral.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a muted badge in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a muted badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.200}",
+              "dark": "{color.neutral.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a muted badge in the hover state."
+          },
+          "focus": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a muted badge in the focus state."
+          },
+          "active": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a muted badge in the active state."
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.600}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a muted badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.700}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a muted badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.muted.text.color.hover}",
+            "$type": "color",
+            "$description": "Used for the text of a muted badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.800}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a muted badge in the active state."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.500}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a muted badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.600}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a muted badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.muted.icon.color.hover}",
+            "$type": "color",
+            "$description": "Used for the icon of a muted badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.700}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a muted badge in the active state."
+          }
+        }
+      }
+    },
+    "neutral": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.100}",
+              "dark": "{color.neutral.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a neutral badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.neutral.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a neutral badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.neutral.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a neutral badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.200}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a neutral badge in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.200}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a neutral badge in the hover state."
+          },
+          "focus": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral badge in the focus state."
+          },
+          "active": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a neutral badge in the active state."
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.700}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a neutral badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.800}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a neutral badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.neutral.text.color.hover}",
+            "$type": "color",
+            "$description": "Used for the text of a neutral badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.900}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a neutral badge in the active state."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.500}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a neutral badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.600}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a neutral badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.neutral.icon.color.hover}",
+            "$type": "color",
+            "$description": "Used for the icon of a neutral badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.700}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a neutral badge in the active state."
+          }
+        }
+      }
+    },
+    "info": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.100}",
+              "dark": "{color.blue.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an informational badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.info.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of an informational badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.info.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of an informational badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.200}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of an informational badge in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of an informational badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.200}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of an informational badge in the hover state."
+          },
+          "focus": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of an informational badge in the focus state."
+          },
+          "active": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of an informational badge in the active state."
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of an informational badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.800}",
+              "dark": "{color.blue.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of an informational badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.info.text.color.hover}",
+            "$type": "color",
+            "$description": "Used for the text of an informational badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.900}",
+              "dark": "{color.blue.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of an informational badge in the active state."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of an informational badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.600}",
+              "dark": "{color.blue.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of an informational badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.info.icon.color.hover}",
+            "$type": "color",
+            "$description": "Used for the icon of an informational badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of an informational badge in the active state."
+          }
+        }
+      }
+    },
+    "success": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.green.100}",
+              "dark": "{color.green.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a success badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.success.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a success badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.success.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a success badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.green.200}",
+              "dark": "{color.green.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a success badge in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a success badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.green.200}",
+              "dark": "{color.green.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a success badge in the hover state."
+          },
+          "focus": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a success badge in the focus state."
+          },
+          "active": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a success badge in the active state."
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.green.700}",
+              "dark": "{color.green.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a success badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.green.800}",
+              "dark": "{color.green.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a success badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.success.text.color.hover}",
+            "$type": "color",
+            "$description": "Used for the text of a success badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.green.900}",
+              "dark": "{color.green.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a success badge in the active state."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.green.500}",
+              "dark": "{color.green.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a success badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.green.600}",
+              "dark": "{color.green.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a success badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.success.icon.color.hover}",
+            "$type": "color",
+            "$description": "Used for the icon of a success badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.green.700}",
+              "dark": "{color.green.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a success badge in the active state."
+          }
+        }
+      }
+    },
+    "warning": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.orange.100}",
+              "dark": "{color.orange.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a warning badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.warning.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a warning badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.warning.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a warning badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.orange.200}",
+              "dark": "{color.orange.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a warning badge in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a warning badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.orange.200}",
+              "dark": "{color.orange.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a warning badge in the hover state."
+          },
+          "focus": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a warning badge in the focus state."
+          },
+          "active": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a warning badge in the active state."
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.orange.700}",
+              "dark": "{color.orange.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a warning badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.orange.800}",
+              "dark": "{color.orange.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a warning badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.warning.text.color.hover}",
+            "$type": "color",
+            "$description": "Used for the text of a warning badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.orange.900}",
+              "dark": "{color.orange.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a warning badge in the active state."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.orange.500}",
+              "dark": "{color.orange.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a warning badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.orange.600}",
+              "dark": "{color.orange.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a warning badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.warning.icon.color.hover}",
+            "$type": "color",
+            "$description": "Used for the icon of a warning badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.orange.700}",
+              "dark": "{color.orange.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a warning badge in the active state."
+          }
+        }
+      }
+    },
+    "danger": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.red.100}",
+              "dark": "{color.red.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a danger badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.danger.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a danger badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.danger.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a danger badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.red.200}",
+              "dark": "{color.red.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a danger badge in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a danger badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.red.200}",
+              "dark": "{color.red.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a danger badge in the hover state."
+          },
+          "focus": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a danger badge in the focus state."
+          },
+          "active": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a danger badge in the active state."
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.red.700}",
+              "dark": "{color.red.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a danger badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.red.800}",
+              "dark": "{color.red.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a danger badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.danger.text.color.hover}",
+            "$type": "color",
+            "$description": "Used for the text of a danger badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.red.900}",
+              "dark": "{color.red.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a danger badge in the active state."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.red.700}",
+              "dark": "{color.red.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a danger badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.red.800}",
+              "dark": "{color.red.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a danger badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.danger.icon.color.hover}",
+            "$type": "color",
+            "$description": "Used for the icon of a danger badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.red.900}",
+              "dark": "{color.red.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a danger badge in the active state."
+          }
+        }
+      }
+    },
+    "tier": {
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.purple.100}",
+              "dark": "{color.purple.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a tier related badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": "{badge.tier.background.color.default}",
+            "$type": "color",
+            "$description": "Used for the background of a tier related badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.tier.background.color.hover}",
+            "$type": "color",
+            "$description": "Used for the background of a tier related badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.purple.200}",
+              "dark": "{color.purple.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a tier related badge in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a tier related badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.purple.200}",
+              "dark": "{color.purple.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a tier related badge in the hover state."
+          },
+          "focus": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a tier related badge in the focus state."
+          },
+          "active": {
+            "$value": "{color.alpha.0}",
+            "$type": "color",
+            "$description": "Used for the border of a tier related badge in the active state."
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.purple.700}",
+              "dark": "{color.purple.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a tier related badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.purple.800}",
+              "dark": "{color.purple.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a tier related badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.tier.text.color.hover}",
+            "$type": "color",
+            "$description": "Used for the text of a tier related badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.purple.900}",
+              "dark": "{color.purple.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the text of a tier related badge in the active state."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.purple.700}",
+              "dark": "{color.purple.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a tier related badge when static or the default state when linked."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.purple.800}",
+              "dark": "{color.purple.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a tier related badge in the hover state."
+          },
+          "focus": {
+            "$value": "{badge.tier.icon.color.hover}",
+            "$type": "color",
+            "$description": "Used for the icon of a tier related badge in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.purple.900}",
+              "dark": "{color.purple.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the icon of a tier related badge in the active state."
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "banner": {
+    "intro": {
+      "border": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.200}",
+            "dark": "{color.blue.700}"
+          },
+          "$type": "color",
+          "$description": "Used for the border of an info banner."
+        }
+      }
+    },
+    "promo": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.purple.50}",
+            "dark": "{color.purple.950}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a promo banner."
+        }
+      },
+      "border": {
+        "color": {
+          "$value": {
+            "default": "{color.purple.200}",
+            "dark": "{color.purple.700}"
+          },
+          "$type": "color",
+          "$description": "Used for the border of a promo banner."
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "breadcrumb": {
+    "separator": {
+      "color": {
+        "$value": "{color.neutral.400}",
+        "$type": "color",
+        "$description": "Used for the breadcrumb level separator."
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "broadcast": {
+    "banner": {
+      "background": {
+        "color": {
+          "blue": {
+            "$value": "{color.theme-blue.700}",
+            "$type": "color",
+            "$description": "Used for the background for the blue banner type."
+          },
+          "dark": {
+            "$value": "{color.neutral.500}",
+            "$type": "color",
+            "$description": "Used for the background for the dark banner type."
+          },
+          "green": {
+            "$value": "{color.theme-green.700}",
+            "$type": "color",
+            "$description": "Used for the background for the green banner type."
+          },
+          "indigo": {
+            "$value": "{color.theme-indigo.700}",
+            "$type": "color",
+            "$description": "Used for the background for the indigo banner type."
+          },
+          "light": {
+            "$value": "{color.neutral.50}",
+            "$type": "color",
+            "$description": "Used for the background for the light banner type."
+          },
+          "lightblue": {
+            "$value": "{color.theme-blue.500}",
+            "$type": "color",
+            "$description": "Used for the background for the lightblue banner type."
+          },
+          "lightgreen": {
+            "$value": "{color.theme-green.500}",
+            "$type": "color",
+            "$description": "Used for the background for the lightgreen banner type."
+          },
+          "lightindigo": {
+            "$value": "{color.theme-indigo.500}",
+            "$type": "color",
+            "$description": "Used for the background for the lightindigo banner type."
+          },
+          "lightred": {
+            "$value": "{color.theme-red.500}",
+            "$type": "color",
+            "$description": "Used for the background for the lightred banner type."
+          },
+          "red": {
+            "$value": "{color.theme-red.700}",
+            "$type": "color",
+            "$description": "Used for the background for the red banner type."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "blue": {
+            "$value": "{color.theme-blue.900}",
+            "$type": "color",
+            "$description": "Used for the border for the blue banner type."
+          },
+          "dark": {
+            "$value": "{color.neutral.700}",
+            "$type": "color",
+            "$description": "Used for the border for the dark banner type."
+          },
+          "green": {
+            "$value": "{color.theme-green.900}",
+            "$type": "color",
+            "$description": "Used for the border for the green banner type."
+          },
+          "indigo": {
+            "$value": "{color.theme-indigo.900}",
+            "$type": "color",
+            "$description": "Used for the border for the indigo banner type."
+          },
+          "light": {
+            "$value": "{color.neutral.100}",
+            "$type": "color",
+            "$description": "Used for the border for the light banner type."
+          },
+          "lightblue": {
+            "$value": "{color.theme-blue.700}",
+            "$type": "color",
+            "$description": "Used for the border for the lightblue banner type."
+          },
+          "lightgreen": {
+            "$value": "{color.theme-green.700}",
+            "$type": "color",
+            "$description": "Used for the border for the lightgreen banner type."
+          },
+          "lightindigo": {
+            "$value": "{color.theme-indigo.700}",
+            "$type": "color",
+            "$description": "Used for the border for the lightindigo banner type."
+          },
+          "lightred": {
+            "$value": "{color.theme-red.700}",
+            "$type": "color",
+            "$description": "Used for the border for the lightred banner type."
+          },
+          "red": {
+            "$value": "{color.theme-red.900}",
+            "$type": "color",
+            "$description": "Used for the border for the red banner type."
+          }
+        }
+      },
+      "icon": {
+        "color": {
+          "blue": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the blue banner type."
+          },
+          "dark": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the dark banner type."
+          },
+          "green": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the green banner type."
+          },
+          "indigo": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the indigo banner type."
+          },
+          "light": {
+            "$value": "{color.neutral.900}",
+            "$type": "color",
+            "$description": "Used for the icon for the light banner type."
+          },
+          "lightblue": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the lightblue banner type."
+          },
+          "lightgreen": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the lightgreen banner type."
+          },
+          "lightindigo": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the lightindigo banner type."
+          },
+          "lightred": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the lightred banner type."
+          },
+          "red": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the icon for the red banner type."
+          }
+        }
+      },
+      "text": {
+        "color": {
+          "blue": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the blue banner type."
+          },
+          "dark": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the dark banner type."
+          },
+          "green": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the green banner type."
+          },
+          "indigo": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the indigo banner type."
+          },
+          "light": {
+            "$value": "{color.neutral.900}",
+            "$type": "color",
+            "$description": "Used for the text for the light banner type."
+          },
+          "lightblue": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the lightblue banner type."
+          },
+          "lightgreen": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the lightgreen banner type."
+          },
+          "lightindigo": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the lightindigo banner type."
+          },
+          "lightred": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the lightred banner type."
+          },
+          "red": {
+            "$value": "{color.neutral.0}",
+            "$type": "color",
+            "$description": "Used for the text for the red banner type."
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "button": {
+    "default": {
+      "primary": {
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.800}",
+                "dark": "{color.neutral.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a default primary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.default.primary.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a default primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.primary.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a default primary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.default.primary.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a default primary button in the active state."
+            }
+          }
+        },
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "rgba(137, 136, 141, 0.4)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "rgba(137, 136, 141, 0.64)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.primary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of an default primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "rgba(137, 136, 141, 0.32)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an default primary button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.200}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.400}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.default.primary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of an default primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.600}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an default primary button in the active state."
+            }
+          }
+        }
+      },
+      "tertiary": {
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": "{action.neutral.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a default borderless, tertiary button in the default state."
+            },
+            "hover": {
+              "$value": "{action.neutral.foreground.color.hover}",
+              "$type": "color",
+              "$description": "Used for the foreground of a default borderless, tertiary button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.neutral.foreground.color.focus}",
+              "$type": "color",
+              "$description": "Used for the foreground of a default borderless, tertiary button in the focus state."
+            },
+            "active": {
+              "$value": "{action.neutral.foreground.color.active}",
+              "$type": "color",
+              "$description": "Used for the foreground of a default borderless, tertiary button in the active state."
+            }
+          }
+        },
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{action.neutral.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the background of a default borderless, tertiary button in the default state."
+            },
+            "hover": {
+              "$value": "{action.neutral.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a default borderless, tertiary button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.neutral.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the background of a default borderless, tertiary button in the focus state."
+            },
+            "active": {
+              "$value": "{action.neutral.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the background of a default borderless, tertiary button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": "{action.neutral.border.color.default}",
+              "$type": "color",
+              "$description": "Used for the border of a default borderless, tertiary button in the default state."
+            },
+            "hover": {
+              "$value": "{action.neutral.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a default borderless, tertiary button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.neutral.border.color.focus}",
+              "$type": "color",
+              "$description": "Used for the border of a default borderless, tertiary button in the focus state."
+            },
+            "active": {
+              "$value": "{action.neutral.border.color.active}",
+              "$type": "color",
+              "$description": "Used for the border of a default borderless, tertiary button in the active state."
+            }
+          }
+        }
+      }
+    },
+    "confirm": {
+      "primary": {
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a confirm (positive) primary button in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.confirm.foreground.color.hover}",
+              "$type": "color",
+              "$description": "Used for the foreground of a confirm (positive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.foreground.color.focus}",
+              "$type": "color",
+              "$description": "Used for the foreground of a confirm (positive) primary button in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.confirm.foreground.color.active}",
+              "$type": "color",
+              "$description": "Used for the foreground of a confirm (positive) primary button in the active state."
+            }
+          }
+        },
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{action.strong.confirm.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the background of a confirm (positive) primary button in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.confirm.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a confirm (positive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the background of a confirm (positive) primary button in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.confirm.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the background of a confirm (positive) primary button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.600}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a confirm (positive) primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.800}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a confirm (positive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.primary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a confirm (positive) primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a confirm (positive) primary button in the active state."
+            }
+          }
+        }
+      },
+      "secondary": {
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.blue.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.blue.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.secondary.foreground.color.hover}",
+              "$type": "color",
+              "$description": "Used for the foreground of a confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.blue.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a confirm (positive) button in the active state."
+            }
+          }
+        },
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "rgba(66, 143, 220, 0.4)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.50}",
+                "dark": "rgba(66, 143, 220, 0.64)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.secondary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of an outlined confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.100}",
+                "dark": "rgba(66, 143, 220, 0.32)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined confirm (positive) button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.blue.500}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.blue.700}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.confirm.secondary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of an outlined confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.blue.900}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined confirm (positive) button in the active state."
+            }
+          }
+        }
+      },
+      "tertiary": {
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": "{action.confirm.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a borderless, tertiary confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": "{action.confirm.foreground.color.hover}",
+              "$type": "color",
+              "$description": "Used for the foreground of a borderless, tertiary confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.confirm.foreground.color.focus}",
+              "$type": "color",
+              "$description": "Used for the foreground of a borderless, tertiary confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": "{action.confirm.foreground.color.active}",
+              "$type": "color",
+              "$description": "Used for the foreground of a borderless, tertiary confirm (positive) button in the active state."
+            }
+          }
+        },
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{action.confirm.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": "{action.confirm.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.confirm.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": "{action.confirm.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary confirm (positive) button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": "{action.confirm.border.color.default}",
+              "$type": "color",
+              "$description": "Used for the border of a borderless, tertiary confirm (positive) button in the default state."
+            },
+            "hover": {
+              "$value": "{action.confirm.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a borderless, tertiary confirm (positive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.confirm.border.color.focus}",
+              "$type": "color",
+              "$description": "Used for the border of a borderless, tertiary confirm (positive) button in the focus state."
+            },
+            "active": {
+              "$value": "{action.confirm.border.color.active}",
+              "$type": "color",
+              "$description": "Used for the border of a borderless, tertiary confirm (positive) button in the active state."
+            }
+          }
+        }
+      }
+    },
+    "danger": {
+      "primary": {
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a danger (destructive) primary button in the default state."
+            },
+            "hover": {
+              "$value": "{button.danger.primary.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a danger (destructive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.primary.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a danger (destructive) primary button in the focus state."
+            },
+            "active": {
+              "$value": "{button.danger.primary.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a danger (destructive) primary button in the active state."
+            }
+          }
+        },
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.red.300}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a danger (destructive) primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.600}",
+                "dark": "{color.red.200}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a danger (destructive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.primary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a danger (destructive) primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.800}",
+                "dark": "{color.red.400}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a danger (destructive) primary button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.600}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a danger (destructive) primary button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.800}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a danger (destructive) primary button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.primary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a danger (destructive) primary button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of a danger (destructive) primary button in the active state."
+            }
+          }
+        }
+      },
+      "secondary": {
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.red.100}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.700}",
+                "dark": "{color.red.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.secondary.foreground.color.hover}",
+              "$type": "color",
+              "$description": "Used for the foreground of a danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.red.50}"
+              },
+              "$type": "color",
+              "$description": "Used for the foreground of a danger (destructive) button in the active state."
+            }
+          }
+        },
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "rgba(236, 89, 65, 0.40)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.50}",
+                "dark": "rgba(236, 89, 65, 0.64)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.secondary.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of an outlined danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.100}",
+                "dark": "rgba(236, 89, 65, 0.32)"
+              },
+              "$type": "color",
+              "$description": "Used for the background of an outlined danger (destructive) button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.red.500}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.red.700}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{button.danger.secondary.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of an outlined danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.red.900}",
+                "dark": "{color.alpha.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the border of an outlined danger (destructive) button in the active state."
+            }
+          }
+        }
+      },
+      "tertiary": {
+        "foreground": {
+          "color": {
+            "default": {
+              "$value": "{action.danger.foreground.color.default}",
+              "$type": "color",
+              "$description": "Used for the foreground of a borderless, tertiary danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": "{action.danger.foreground.color.hover}",
+              "$type": "color",
+              "$description": "Used for the foreground of a borderless, tertiary danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.danger.foreground.color.focus}",
+              "$type": "color",
+              "$description": "Used for the foreground of a borderless, tertiary danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": "{action.danger.foreground.color.active}",
+              "$type": "color",
+              "$description": "Used for the foreground of a borderless, tertiary danger (destructive) button in the active state."
+            }
+          }
+        },
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{action.danger.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": "{action.danger.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.danger.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": "{action.danger.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the background of a borderless, tertiary danger (destructive) button in the active state."
+            }
+          }
+        },
+        "border": {
+          "color": {
+            "default": {
+              "$value": "{action.danger.border.color.default}",
+              "$type": "color",
+              "$description": "Used for the border of a borderless, tertiary danger (destructive) button in the default state."
+            },
+            "hover": {
+              "$value": "{action.danger.border.color.hover}",
+              "$type": "color",
+              "$description": "Used for the border of a borderless, tertiary danger (destructive) button in the hover state."
+            },
+            "focus": {
+              "$value": "{action.danger.border.color.focus}",
+              "$type": "color",
+              "$description": "Used for the border of a borderless, tertiary danger (destructive) button in the focus state."
+            },
+            "active": {
+              "$value": "{action.danger.border.color.active}",
+              "$type": "color",
+              "$description": "Used for the border of a borderless, tertiary danger (destructive) button in the active state."
+            }
+          }
+        }
+      }
+    },
+    "dashed": {
+      "border": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.400}",
+              "dark": "{color.neutral.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a dashed button in the default state."
+          },
+          "hover": {
+            "$value": "{button.dashed.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a dashed button in the hover state."
+          },
+          "focus": {
+            "$value": "{button.dashed.border.color.default}",
+            "$type": "color",
+            "$description": "Used for the border of a dashed button in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.600}",
+              "dark": "{color.neutral.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a dashed button in the active state."
+          }
+        }
+      }
+    },
+    "link": {
+      "text": {
+        "color": {
+          "default": {
+            "$value": "{text.color.link}",
+            "$type": "color",
+            "$description": "Used for the text of a link button in the default state."
+          },
+          "hover": {
+            "$value": "{button.link.text.color.default}",
+            "$type": "color",
+            "$description": "Used for the text of a link button in the hover state."
+          },
+          "focus": {
+            "$value": "{button.link.text.color.default}",
+            "$type": "color",
+            "$description": "Used for the text of a link button in the focus state."
+          },
+          "active": {
+            "$value": "{button.link.text.color.default}",
+            "$type": "color",
+            "$description": "Used for the text of a link button in the active state."
+          }
+        }
+      }
+    },
+    "selected": {
+      "foreground": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{button.default.primary.foreground.color.default}",
+              "dark": "{color.neutral.900}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a selected button in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{button.default.primary.foreground.color.hover}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a selected button in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{button.default.primary.foreground.color.focus}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a selected button in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{button.default.primary.foreground.color.active}",
+              "dark": "{color.neutral.950}"
+            },
+            "$type": "color",
+            "$description": "Used for the foreground of a selected button in the active state."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.50}",
+              "dark": "{color.neutral.300}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected button in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{button.default.primary.background.color.hover}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected button in the hover state."
+          },
+          "focus": {
+            "$value": {
+              "default": "{button.default.primary.background.color.focus}",
+              "dark": "{color.neutral.200}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected button in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{button.default.primary.background.color.active}",
+              "dark": "{color.neutral.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the background of a selected button in the active state."
+          }
+        }
+      },
+      "border": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.neutral.300}",
+              "dark": "{color.alpha.0}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a selected button in the default state."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.neutral.400}",
+              "dark": "{color.alpha.0}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a selected button in the hover state."
+          },
+          "focus": {
+            "$value": "{button.selected.border.color.hover}",
+            "$type": "color",
+            "$description": "Used for the border of a selected button in the focus state."
+          },
+          "active": {
+            "$value": {
+              "default": "{color.neutral.600}",
+              "dark": "{color.alpha.0}"
+            },
+            "$type": "color",
+            "$description": "Used for the border of a selected button in the active state."
+          }
+        }
+      }
+    },
+    "disabled": {
+      "foreground": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.500}",
+            "dark": "{color.neutral.400}"
+          },
+          "$type": "color",
+          "$description": "Used for the foreground of a disabled button."
+        }
+      },
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.10}",
+            "dark": "rgba(137, 136, 141, 0.16)"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a disabled button."
+        }
+      },
+      "border": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.alpha.0}"
+          },
+          "$type": "color",
+          "$description": "Used for the border of a disabled button."
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "chart": {
+    "axis": {
+      "pointer": {
+        "color": {
+          "$value": "{icon.color.subtle}",
+          "$type": "color",
+          "$description": "Used in charts for the color of the reference line and axis value under mouse pointer."
+        }
+      },
+      "line": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.200}",
+            "dark": "{color.neutral.700}"
+          },
+          "$type": "color",
+          "$description": "Used in charts for axis line color."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": "{text.color.subtle}",
+          "$type": "color",
+          "$description": "Used in charts for the text color of axis titles and labels."
+        }
+      }
+    },
+    "threshold": {
+      "area": {
+        "color": {
+          "$value": "rgba(221,43,14,0.1)",
+          "$type": "color",
+          "$description": "Used in charts to delineate a threshold area in a chart."
+        }
+      },
+      "line": {
+        "color": {
+          "$value": {
+            "default": "{color.red.500}",
+            "dark": "{color.red.600}"
+          },
+          "$type": "color",
+          "$description": "Used in charts to divide a threshold area in a chart from other data."
+        }
+      }
+    },
+    "zoom": {
+      "filler": {
+        "color": {
+          "$value": {
+            "default": "{color.alpha.dark.8}",
+            "dark": "{color.alpha.light.16}"
+          },
+          "$type": "color",
+          "$description": "Used in charts for the overlay color when zooming in on a specific area of data."
+        }
+      },
+      "handle": {
+        "color": {
+          "$value": "{icon.color.subtle}",
+          "$type": "color",
+          "$description": "Used in charts for the handle color when zooming in on a specific area of data."
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "datepicker": {
+    "background": {
+      "color": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used for the background color of datepicker."
+      }
+    },
+    "date": {
+      "text": {
+        "color": {
+          "selected": {
+            "$value": "{control.indicator.color.selected}",
+            "$type": "color",
+            "$description": "Used for the datepicker date text color state indicators."
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "dropdown": {
+    "background": {
+      "color": {
+        "$value": "{background.color.overlap}",
+        "$type": "color",
+        "$description": "Used for the background of a dropdown."
+      }
+    },
+    "border": {
+      "color": {
+        "$value": {
+          "default": "{border.color.strong}",
+          "dark": "{border.color.default}"
+        },
+        "$type": "color",
+        "$description": "Used for the border of a dropdown."
+      }
+    },
+    "divider": {
+      "color": {
+        "$value": {
+          "default": "{border.color.default}",
+          "dark": "{border.color.subtle}"
+        },
+        "$type": "color",
+        "$description": "Used for the divider of a dropdown."
+      }
+    },
+    "option": {
+      "text": {
+        "color": {
+          "default": {
+            "$value": "{action.neutral.foreground.color.default}",
+            "$type": "color",
+            "$description": "Used for the text of a dropdown option in the default state."
+          },
+          "hover": {
+            "$value": "{action.neutral.foreground.color.hover}",
+            "$type": "color",
+            "$description": "Used for the text of a dropdown option in the hover state."
+          },
+          "focus": {
+            "$value": "{action.neutral.foreground.color.focus}",
+            "$type": "color",
+            "$description": "Used for the text of a dropdown option in the focus state."
+          },
+          "active": {
+            "$value": "{action.neutral.foreground.color.active}",
+            "$type": "color",
+            "$description": "Used for the text of a dropdown option in the active state."
+          },
+          "disabled": {
+            "$value": "{action.disabled.foreground.color}",
+            "$type": "color",
+            "$description": "Used for the text of a dropdown option in the disabled state."
+          }
+        }
+      },
+      "indicator": {
+        "color": {
+          "selected": {
+            "default": {
+              "$value": "{control.background.color.selected.default}",
+              "$type": "color",
+              "$description": "Used for the dropdown selected option indicator in the default state."
+            },
+            "hover": {
+              "$value": "{control.background.color.selected.hover}",
+              "$type": "color",
+              "$description": "Used for the dropdown selected option indicator in the hover state."
+            },
+            "focus": {
+              "$value": "{control.background.color.selected.focus}",
+              "$type": "color",
+              "$description": "Used for the dropdown selected option indicator in the focus state."
+            },
+            "active": {
+              "$value": "{control.background.color.selected.focus}",
+              "$type": "color",
+              "$description": "Used for the dropdown selected option indicator in the active state."
+            }
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "unselected": {
+            "default": {
+              "$value": "{action.neutral.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the background of an unselected dropdown option in the default state."
+            },
+            "hover": {
+              "$value": "{action.neutral.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the background of an unselected dropdown option in the hover state."
+            },
+            "focus": {
+              "$value": "{action.neutral.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the background of an unselected dropdown option in the focus state."
+            },
+            "active": {
+              "$value": "{action.neutral.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the background of an unselected dropdown option in the active state."
+            }
+          },
+          "selected": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a selected dropdown option in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a selected dropdown option in the hover state."
+            },
+            "focus": {
+              "$value": "{dropdown.option.background.color.selected.hover}",
+              "$type": "color",
+              "$description": "Used for the background of a selected dropdown option in the focus state."
+            },
+            "active": {
+              "$value": {
+                "default": "{color.neutral.200}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the background of a selected dropdown option in the active state."
+            }
+          }
+        }
+      }
+    },
+    "search": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.alpha.dark.2}",
+            "dark": "{color.alpha.dark.24}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a search input in a dropdown listbox."
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "filtered-search": {
+    "token": {
+      "type": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the filtered search type token background color in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the filtered search type token background color in the hover state."
+            }
+          }
+        }
+      },
+      "data": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the filtered search data background color in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.200}",
+                "dark": "{color.neutral.700}"
+              },
+              "$type": "color",
+              "$description": "Used for the filtered search data token background color in the hover state."
+            }
+          }
+        }
+      },
+      "operator": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.50}",
+                "dark": "{color.neutral.900}"
+              },
+              "$type": "color",
+              "$description": "Used for the filtered search operator background color in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.100}",
+                "dark": "{color.neutral.800}"
+              },
+              "$type": "color",
+              "$description": "Used for the filtered search operator token background color in the hover state."
+            }
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "illustration": {
+    "stroke": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "#171321",
+            "dark": "#e3e3e8"
+          },
+          "$type": "color",
+          "$description": "Default stroke color to define shape and provide essential detail."
+        }
+      },
+      "width": {
+        "default": {
+          "$value": {
+            "default": "2",
+            "dark": "1.5"
+          },
+          "$type": "dimension",
+          "$description": "Default stroke width to define shape and provide essential detail."
+        }
+      }
+    },
+    "fill": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "#fff",
+            "dark": "#423f4f"
+          },
+          "$type": "color",
+          "$description": "Default fill color for an element where specific meaning or emphasis is not required."
+        }
+      }
+    },
+    "status": {
+      "fill": {
+        "color": {
+          "neutral": {
+            "$value": {
+              "default": "#aea5d6",
+              "dark": "#6f6796"
+            },
+            "$type": "color",
+            "$description": "Used as a fill to convey a concept which is neither positive or negative."
+          },
+          "success": {
+            "$value": {
+              "default": "#6fdac9",
+              "dark": "#3b8581"
+            },
+            "$type": "color",
+            "$description": "Used as a fill to convey a success or active concept, has a positive connotation."
+          },
+          "warning": {
+            "$value": {
+              "default": "#fca326",
+              "dark": "#ab752f"
+            },
+            "$type": "color",
+            "$description": "Used as a fill to convey a caution or warning concept, has a slightly negative connotation."
+          },
+          "danger": {
+            "$value": {
+              "default": "#ff9d73",
+              "dark": "#aa563a"
+            },
+            "$type": "color",
+            "$description": "Used as a fill to convey a critical or danger concept, has a negative connotation."
+          }
+        }
+      }
+    },
+    "accent": {
+      "stroke": {
+        "color": {
+          "orange": {
+            "$value": {
+              "default": "#ff9d73",
+              "dark": "#e3865f"
+            },
+            "$type": "color",
+            "$description": "Used for orange accent stroke detail on an object or attention-drawing element."
+          },
+          "teal": {
+            "$value": {
+              "default": "#6fdac9",
+              "dark": "#6baea3"
+            },
+            "$type": "color",
+            "$description": "Used for teal accent stroke detail on an object or attention-drawing element."
+          },
+          "strong": {
+            "$value": {
+              "default": "#aea5d6",
+              "dark": "#aea5d6"
+            },
+            "$type": "color",
+            "$description": "Used for dark accent stroke detail on an object or attention-drawing element."
+          }
+        }
+      },
+      "fill": {
+        "color": {
+          "subtle": {
+            "$value": {
+              "default": "#d0c5e2",
+              "dark": "#5c5371"
+            },
+            "$type": "color",
+            "$description": "Used to add depth to a secondary element and supporting surface."
+          },
+          "strong": {
+            "$value": {
+              "default": "#aea5d6",
+              "dark": "#6f6796"
+            },
+            "$type": "color",
+            "$description": "Used for an element requiring visual emphasis without competing with primary content or status indicators."
+          },
+          "orange": {
+            "$value": {
+              "default": "#ff9d73",
+              "dark": "#aa563a"
+            },
+            "$type": "color",
+            "$description": "Used to add orange to a secondary element and supporting surface."
+          },
+          "teal": {
+            "$value": {
+              "default": "#6fdac9",
+              "dark": "#3b8581"
+            },
+            "$type": "color",
+            "$description": "Used to add teal to a secondary element and supporting surface."
+          }
+        }
+      }
+    },
+    "base": {
+      "fill": {
+        "color": {
+          "$value": {
+            "default": "#e7e4f2",
+            "dark": "#32303c"
+          },
+          "$type": "color",
+          "$description": "Used for the consistent background shape present across all illustrations. Provides a unified foundation that visually grounds each illustration while maintaining system cohesion."
+        }
+      }
+    },
+    "isometric": {
+      "stroke": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "#171321",
+              "dark": "#e3e3e8"
+            },
+            "$type": "color",
+            "$description": "Default stroke color to define shape and provide essential detail in isometric illustration."
+          }
+        },
+        "width": {
+          "default": {
+            "$value": {
+              "default": "2",
+              "dark": "1.5"
+            },
+            "$type": "dimension",
+            "$description": "Default stroke width to define shape and provide essential detail in isometric illustration."
+          }
+        }
+      },
+      "glyph": {
+        "top": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#c5f4ec",
+                "dark": "#5a566c"
+              },
+              "$type": "color",
+              "$description": "Used for the top face of isometric text and number elements."
+            }
+          }
+        },
+        "front": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#fff",
+                "dark": "#423f4f"
+              },
+              "$type": "color",
+              "$description": "Used for the front face of isometric text and number elements."
+            }
+          }
+        },
+        "side": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#6fdac9",
+                "dark": "#373441"
+              },
+              "$type": "color",
+              "$description": "Used for the side face of isometric text and number elements."
+            }
+          }
+        },
+        "shadow": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#10b1b1",
+                "dark": "#292730"
+              },
+              "$type": "color",
+              "$description": "Used for the shadow of isometric text and number elements."
+            }
+          }
+        }
+      },
+      "object": {
+        "top": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#ff9d73",
+                "dark": "#aa563a"
+              },
+              "$type": "color",
+              "$description": "Used for the top face of an isometric object or symbol."
+            }
+          }
+        },
+        "front": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#ffc2a8",
+                "dark": "#a54623"
+              },
+              "$type": "color",
+              "$description": "Used for the front face of an isometric object or symbol."
+            }
+          }
+        },
+        "side": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#ff7b42",
+                "dark": "#8f4424"
+              },
+              "$type": "color",
+              "$description": "Used for the side face of an isometric object or symbol."
+            }
+          }
+        },
+        "highlight": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#fff",
+                "dark": "#423f4f"
+              },
+              "$type": "color",
+              "$description": "Used for the face of an isometric object or symbol that requires maximum distinction from other elements."
+            }
+          }
+        },
+        "shadow": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#e24329",
+                "dark": "#3d2b2a"
+              },
+              "$type": "color",
+              "$description": "Used for the shadow of an isometric object or symbol."
+            }
+          }
+        }
+      },
+      "accent": {
+        "top": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#45424d",
+                "dark": "#6d6972"
+              },
+              "$type": "color",
+              "$description": "Used for the top face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content."
+            }
+          }
+        },
+        "front": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#74717a",
+                "dark": "#49474d"
+              },
+              "$type": "color",
+              "$description": "Used for the front face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content."
+            }
+          }
+        },
+        "side": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#2b2838",
+                "dark": "#212023"
+              },
+              "$type": "color",
+              "$description": "Used for the side face of a supporting isometric element. Provides subtle dimensional variation without competing with primary content."
+            }
+          }
+        }
+      },
+      "base": {
+        "top": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#e7e4f2",
+                "dark": "#32303c"
+              },
+              "$type": "color",
+              "$description": "Used for the top surface of an isometric base platform."
+            }
+          }
+        },
+        "front": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#d5d0e8",
+                "dark": "#2b2932"
+              },
+              "$type": "color",
+              "$description": "Used for the front face of an isometric base platform."
+            }
+          }
+        },
+        "side": {
+          "fill": {
+            "color": {
+              "$value": {
+                "default": "#aea5d6",
+                "dark": "#23222b"
+              },
+              "$type": "color",
+              "$description": "Used for the side face of an isometric base platform."
+            }
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "label": {
+    "light": {
+      "text": {
+        "color": {
+          "$value": "{color.neutral.950}",
+          "$type": "color",
+          "$description": "Used for the label text color on a light background color."
+        }
+      },
+      "button": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the label remove button background on a light background color in the default state."
+            },
+            "hover": {
+              "$value": "{color.neutral.950}",
+              "$type": "color",
+              "$description": "Used for the label remove button background on a light background color in the hover state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": "{color.neutral.950}",
+              "$type": "color",
+              "$description": "Used for the label remove button icon on a light background color in the default state."
+            }
+          }
+        }
+      }
+    },
+    "dark": {
+      "text": {
+        "color": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Used for the label text color on a dark background color."
+        }
+      },
+      "button": {
+        "background": {
+          "color": {
+            "default": {
+              "$value": "{color.alpha.0}",
+              "$type": "color",
+              "$description": "Used for the label remove button background on a dark background color in the default state."
+            },
+            "hover": {
+              "$value": "{color.neutral.0}",
+              "$type": "color",
+              "$description": "Used for the label remove button background on a dark background color in the hover state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": "{color.neutral.0}",
+              "$type": "color",
+              "$description": "Used for the label remove button icon on a dark background color in the default state."
+            }
+          }
+        }
+      }
+    },
+    "scoped": {
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.950}",
+            "dark": "{color.neutral.0}"
+          },
+          "$type": "color",
+          "$description": "Used for the scoped label text color."
+        }
+      },
+      "button": {
+        "background": {
+          "color": {
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.950}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the scoped label remove button background in the hover state."
+            }
+          }
+        },
+        "icon": {
+          "color": {
+            "default": {
+              "$value": {
+                "default": "{color.neutral.950}",
+                "dark": "{color.neutral.0}"
+              },
+              "$type": "color",
+              "$description": "Used for the scoped label remove button icon in the default state."
+            },
+            "hover": {
+              "$value": {
+                "default": "{color.neutral.0}",
+                "dark": "{color.neutral.950}"
+              },
+              "$type": "color",
+              "$description": "Used for the scoped label remove button icon in the hover state."
+            }
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "link": {
+    "mention": {
+      "text": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.800}",
+              "dark": "{color.blue.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the mention link text color."
+          },
+          "current": {
+            "$value": {
+              "default": "{color.orange.800}",
+              "dark": "{color.orange.100}"
+            },
+            "$type": "color",
+            "$description": "Used for the mention link text color when referencing the current user."
+          }
+        }
+      },
+      "background": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.100}",
+              "dark": "{color.blue.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the mention link default background."
+          },
+          "current": {
+            "$value": {
+              "default": "{color.orange.100}",
+              "dark": "{color.orange.800}"
+            },
+            "$type": "color",
+            "$description": "Used for the mention link background when referencing the current user."
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "progress-bar": {
+    "indicator": {
+      "color": {
+        "default": {
+          "$value": "{status.info.icon.color}",
+          "$type": "color",
+          "$description": "Used for the indicator color for the primary progress-bar variant."
+        },
+        "success": {
+          "$value": "{status.success.icon.color}",
+          "$type": "color",
+          "$description": "Used for the indicator color for the success progress-bar variant."
+        },
+        "warning": {
+          "$value": "{status.warning.icon.color}",
+          "$type": "color",
+          "$description": "Used for the indicator color for the warning progress-bar variant."
+        },
+        "danger": {
+          "$value": "{status.danger.icon.color}",
+          "$type": "color",
+          "$description": "Used for the indicator color for the danger progress-bar variant."
+        }
+      }
+    },
+    "track": {
+      "color": {
+        "$value": {
+          "default": "{color.neutral.200}",
+          "dark": "{color.neutral.700}"
+        },
+        "$type": "color",
+        "$description": "Used for the track color for all progress-bar variants."
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "skeleton-loader": {
+    "background": {
+      "color": {
+        "$value": {
+          "default": "{color.neutral.100}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for the skeleton loader background color."
+      }
+    },
+    "shimmer": {
+      "color": {
+        "$value": {
+          "default": "{color.neutral.50}",
+          "dark": "{color.neutral.700}"
+        },
+        "$type": "color",
+        "$description": "Used for the animated shimmer effect in a skeleton loader."
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "spinner": {
+    "track": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.600}"
+          },
+          "$type": "color",
+          "$description": "Used for the static track (background) of a loading spinner."
+        },
+        "light": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Used for the static track (background) of a loading spinner on a dark background."
+        }
+      }
+    },
+    "segment": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "{color.neutral.700}",
+            "dark": "{color.neutral.100}"
+          },
+          "$type": "color",
+          "$description": "Used for the animated segment of a loading spinner."
+        },
+        "light": {
+          "$value": "{color.neutral.200}",
+          "$type": "color",
+          "$description": "Used for the animated segment of a loading spinner on a dark background."
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "table": {
+    "row": {
+      "background": {
+        "color": {
+          "hover": {
+            "$value": "{background.color.subtle}",
+            "$type": "color",
+            "$description": "Used for the background of a table row in hover state."
+          }
+        }
+      }
+    },
+    "sorting": {
+      "icon": {
+        "color": {
+          "$value": "{text.color.heading}",
+          "$type": "color",
+          "$description": "Used for the color of the sorting icons in the column headers."
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "tab": {
+    "selected": {
+      "indicator": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the selected indicator of a tab."
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "toggle": {
+    "switch": {
+      "icon": {
+        "color": {
+          "unchecked": {
+            "default": {
+              "$value": "{action.strong.neutral.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the icon color of an unchecked toggle switch in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.neutral.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon color of an unchecked toggle switch in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.neutral.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the icon color of an unchecked toggle switch in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.neutral.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the icon color of an unchecked toggle switch in the active state."
+            }
+          },
+          "checked": {
+            "default": {
+              "$value": "{action.strong.confirm.background.color.default}",
+              "$type": "color",
+              "$description": "Used for the icon color of a checked toggle switch in the default state."
+            },
+            "hover": {
+              "$value": "{action.strong.confirm.background.color.hover}",
+              "$type": "color",
+              "$description": "Used for the icon color of a checked toggle switch in the hover state."
+            },
+            "focus": {
+              "$value": "{action.strong.confirm.background.color.focus}",
+              "$type": "color",
+              "$description": "Used for the icon color of a checked toggle switch in the focus state."
+            },
+            "active": {
+              "$value": "{action.strong.confirm.background.color.active}",
+              "$type": "color",
+              "$description": "Used for the icon color of a checked toggle switch in the active state."
+            }
+          },
+          "disabled": {
+            "$value": "{action.disabled.background.color}",
+            "$type": "color",
+            "$description": "Used for the icon color of a disabled toggle switch."
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "token-selector": {
+    "token-container": {
+      "token": {
+        "background": {
+          "color": {
+            "focus": {
+              "$value": {
+                "default": "{color.neutral.300}",
+                "dark": "{color.neutral.600}"
+              },
+              "$type": "color",
+              "$description": "Used for the background color of a token in a token-selector when it's token-container is in the focus state."
+            }
+          }
+        }
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  },
+  "token": {
+    "foreground": {
+      "color": {
+        "$value": "{text.color.default}",
+        "$type": "color",
+        "$description": "Used for the token foreground color."
+      }
+    },
+    "background": {
+      "color": {
+        "$value": {
+          "default": "{color.neutral.100}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for the token background color."
+      }
+    },
+    "$extensions": {
+      "com.gitlab.locked": true
+    }
+  }
+}

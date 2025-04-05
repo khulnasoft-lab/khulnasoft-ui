@@ -1,0 +1,73 @@
+{
+  "name": "@bootstrap-vue/nav",
+  "version": "1.0.0",
+  "meta": {
+    "title": "Nav",
+    "description": "Navigation components that share general markup and styles, from the base <b-nav> class to the active and disabled states. Swap modifier props to switch between each style.",
+    "components": [
+      {
+        "component": "BNav",
+        "props": [
+          {
+            "prop": "align",
+            "description": "Align the nav items in the nav: 'start' (or 'left'), 'center', 'end' (or 'right')"
+          },
+          {
+            "prop": "cardHeader",
+            "version": "2.0.0",
+            "description": "Set this prop when the nav is placed inside a card header"
+          },
+          {
+            "prop": "fill",
+            "description": "Proportionately fills all horizontal space with nav items. All horizontal space is occupied, but not every nav item has the same width"
+          },
+          {
+            "prop": "justified",
+            "description": "Fills all horizontal space with nav items, but unlike 'fill', every nav item will be the same width"
+          },
+          {
+            "prop": "pills",
+            "description": "Renders the nav items with the appearance of pill buttons"
+          },
+          {
+            "prop": "small",
+            "description": "Makes the nav smaller"
+          },
+          {
+            "prop": "tabs",
+            "description": "Renders the nav items with the appearance of tabs"
+          },
+          {
+            "prop": "vertical",
+            "description": "Renders the nav vertically"
+          }
+        ],
+        "slots": [
+          {
+            "name": "default",
+            "description": "Content to place in the nav"
+          }
+        ]
+      },
+      {
+        "component": "BNavItem",
+        "props": [
+          {
+            "prop": "linkAttrs",
+            "description": "Additional attributes to place on the nested link element"
+          },
+          {
+            "prop": "linkClasses",
+            "description": "CSS class (or classes) to place on the nested link element"
+          }
+        ],
+        "slots": [
+          {
+            "name": "default",
+            "description": "Content to place in the nav item"
+          }
+        ]
+      }
+    ]
+  }
+}

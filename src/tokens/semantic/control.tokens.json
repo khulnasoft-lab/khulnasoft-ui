@@ -1,0 +1,177 @@
+{
+  "control": {
+    "background": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.alpha.dark.40}"
+          },
+          "$type": "color",
+          "$description": "Used for form control (input, radio button, checkbox, textarea) default background."
+        },
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.10}",
+            "dark": "{color.alpha.light.4}"
+          },
+          "$type": "color",
+          "$description": "Used for disabled form control (checkbox, input, radio button, textarea) background."
+        },
+        "concatenation": {
+          "$value": {
+            "default": "{color.neutral.10}",
+            "dark": "{color.alpha.light.4}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of static content that prepends or appends a text input."
+        },
+        "readonly": {
+          "$value": {
+            "default": "{color.alpha.dark.2}",
+            "dark": "{color.alpha.light.8}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of static content that prepends or appends a text input."
+        },
+        "selected": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.300}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) background on hover."
+          }
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "default": {
+          "$value": {
+            "default": "{color.neutral.400}",
+            "dark": "{color.neutral.500}"
+          },
+          "$type": "color",
+          "$description": "Used for form control (input, radio button, checkbox, textarea) default border."
+        },
+        "hover": {
+          "$value": {
+            "default": "{color.neutral.600}",
+            "dark": "{color.neutral.300}"
+          },
+          "$type": "color",
+          "$description": "Used for form control (input, radio button, checkbox, textarea) border on hover."
+        },
+        "focus": {
+          "$value": {
+            "default": "{color.neutral.900}",
+            "dark": "{color.neutral.50}"
+          },
+          "$type": "color",
+          "$description": "Used for form control (input, radio button, checkbox, textarea) border on focus."
+        },
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.100}",
+            "dark": "{color.neutral.800}"
+          },
+          "$type": "color",
+          "$description": "Used for disabled form control (input, radio button, checkbox, textarea) border."
+        },
+        "error": {
+          "$value": {
+            "default": "{color.red.500}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Used for invalid form control (input, textarea) border."
+        },
+        "selected": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border."
+          },
+          "hover": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on hover."
+          },
+          "focus": {
+            "$value": {
+              "default": "{color.blue.700}",
+              "dark": "{color.blue.200}"
+            },
+            "$type": "color",
+            "$description": "Used for checked and indeterminate (selected) form control (checkbox, radio button) border on focus."
+          }
+        }
+      }
+    },
+    "text": {
+      "color": {
+        "error": {
+          "$value": "{text.color.danger}",
+          "$type": "color",
+          "$description": "Used for the helper text when the input is invalid."
+        },
+        "valid": {
+          "$value": "{text.color.success}",
+          "$type": "color",
+          "$description": "Used for the helper text when the input is valid."
+        }
+      }
+    },
+    "placeholder": {
+      "color": {
+        "$value": "{text.color.disabled}",
+        "$type": "color",
+        "$description": "Used for placeholder text within inputs."
+      }
+    },
+    "indicator": {
+      "color": {
+        "selected": {
+          "$value": {
+            "default": "{color.neutral.0}",
+            "dark": "{color.neutral.950}"
+          },
+          "$type": "color",
+          "$description": "Used for checkbox and radio button state indicators."
+        },
+        "disabled": {
+          "$value": {
+            "default": "{color.neutral.500}",
+            "dark": "{color.neutral.400}"
+          },
+          "$type": "color",
+          "$description": "Used for disabled checkbox and radio button state indicators."
+        }
+      }
+    }
+  }
+}

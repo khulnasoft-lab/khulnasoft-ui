@@ -1,0 +1,198 @@
+/**
+* Toggle button
+*
+* @usage
+*  ### Active and Inactive text should be provided as data attributes:
+*  <button type="button" class="project-feature-toggle" data-enabled-text="Enabled" data-disabled-text="Disabled">
+*  <i class="fa fa-spinner fa-spin loading-icon hidden"></i>
+*  </button>
+
+*  ### Checked should have `is-checked` class
+*  <button type="button" class="project-feature-toggle is-checked" data-enabled-text="Enabled" data-disabled-text="Disabled">
+*  <i class="fa fa-spinner fa-spin loading-icon hidden"></i>
+*  </button>
+
+*  ### Disabled should have `is-disabled` class
+*  <button type="button" class="project-feature-toggle is-disabled" data-enabled-text="Enabled" data-disabled-text="Disabled" disabled="true">
+*  <i class="fa fa-spinner fa-spin loading-icon hidden"></i>
+*  </button>
+*/
+
+$toggle-width: 4.5 * $grid-size;
+$toggle-translate-width: 2 * $grid-size;
+$toggle-height: 2.5 * $grid-size;
+
+.gl-toggle-wrapper {
+  @apply gl-leading-normal;
+  @apply gl-font-normal;
+  @apply gl-inline-flex;
+}
+
+.gl-description-label {
+  @apply gl-text-subtle;
+}
+
+.gl-help-label {
+  @apply gl-mt-3;
+  @apply gl-font-normal;
+  @apply gl-text-subtle;
+}
+
+.gl-toggle-label-inline {
+  @apply gl-flex-row;
+  @apply gl-items-center;
+
+  .gl-toggle-label {
+    @apply gl-whitespace-nowrap;
+    @apply gl-mb-0;
+    @apply gl-mr-3;
+  }
+
+  .gl-help-label {
+    @apply gl-mt-0;
+    @apply gl-ml-3;
+  }
+}
+
+.gl-toggle-label {
+  @apply gl-font-bold;
+  @apply gl-text-strong;
+}
+
+.gl-toggle {
+  @apply gl-inline-flex;
+  @apply gl-items-center;
+  @apply gl-justify-center;
+  @apply gl-border-0;
+  @apply gl-cursor-pointer;
+  color: var(--gl-toggle-switch-icon-color-unchecked-default);
+  background-color: var(--gl-action-strong-neutral-background-color-default);
+  position: relative;
+  width: $toggle-width;
+  height: $toggle-height;
+  user-select: none;
+  box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-neutral-border-color-default);
+  @apply gl-rounded-pill;
+  @apply gl-duration-slow;
+  @apply gl-leading-normal;
+
+  @media (forced-colors: active) {
+    border: 1px solid;
+  }
+
+  &::selection,
+  &::before::selection,
+  &::after::selection {
+    @apply gl-bg-transparent;
+  }
+
+  &:hover {
+    color: var(--gl-toggle-switch-icon-color-unchecked-hover);
+    background-color: var(--gl-action-strong-neutral-background-color-hover);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-neutral-border-color-hover);
+  }
+
+  &:focus {
+    color: var(--gl-toggle-switch-icon-color-unchecked-focus);
+    background-color: var(--gl-action-strong-neutral-background-color-focus);
+    @include gl-focus($color: var(--gl-action-strong-neutral-border-color-focus), $important: true);
+  }
+
+  &:active {
+    color: var(--gl-toggle-switch-icon-color-unchecked-active);
+    background-color: var(--gl-action-strong-neutral-background-color-active);
+    @include gl-focus(
+      $color: var(--gl-action-strong-neutral-border-color-active),
+      $important: true
+    );
+  }
+
+  .toggle-loading {
+    @apply gl-h-5;
+  }
+
+  .toggle-icon {
+    @apply gl-rounded-full;
+    position: absolute;
+    @apply gl-inline-flex;
+    @apply gl-items-center;
+    left: $gl-spacing-scale-1;
+    top: $gl-spacing-scale-1;
+    @apply gl-transition-all;
+    @apply gl-justify-center;
+    @apply gl-p-1;
+    background-color: var(--gl-action-strong-neutral-foreground-color-default);
+
+    &:hover {
+      background-color: var(--gl-action-strong-neutral-foreground-color-hover);
+    }
+
+    &:focus {
+      background-color: var(--gl-action-strong-neutral-foreground-color-focus);
+    }
+
+    &:active {
+      background-color: var(--gl-action-strong-neutral-foreground-color-active);
+    }
+
+    > svg {
+      @apply gl-w-4;
+      @apply gl-h-4;
+      @apply gl-align-baseline;
+    }
+  }
+
+  &.is-checked {
+    color: var(--gl-toggle-switch-icon-color-checked-default);
+    background-color: var(--gl-action-strong-confirm-background-color-default);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-confirm-border-color-default);
+
+    &:hover {
+      color: var(--gl-toggle-switch-icon-color-checked-hover);
+      background-color: var(--gl-action-strong-confirm-background-color-hover);
+      box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-strong-confirm-border-color-hover);
+    }
+
+    &:focus {
+      color: var(--gl-toggle-switch-icon-color-checked-focus);
+      background-color: var(--gl-action-strong-confirm-background-color-focus);
+      @include gl-focus(
+        $color: var(--gl-action-strong-confirm-border-color-focus),
+        $important: true
+      );
+    }
+
+    &:active {
+      color: var(--gl-toggle-switch-icon-color-checked-active);
+      background-color: var(--gl-action-strong-confirm-background-color-active);
+      @include gl-focus(
+        $color: var(--gl-action-strong-confirm-border-color-active),
+        $important: true
+      );
+    }
+
+    .toggle-icon {
+      background-color: var(--gl-action-strong-confirm-foreground-color-default);
+      transform: translateX($toggle-translate-width);
+    }
+  }
+
+  &.is-disabled,
+  &.is-checked.is-disabled {
+    @apply gl-cursor-not-allowed;
+    color: var(--gl-action-disabled-background-color);
+    background-color: var(--gl-action-disabled-background-color);
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-action-disabled-border-color);
+
+    .toggle-icon {
+      color: var(--gl-action-disabled-background-color);
+      background-color: var(--gl-action-disabled-foreground-color);
+    }
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      @include gl-focus($color: var(--gl-action-disabled-border-color), $important: true);
+    }
+  }
+}

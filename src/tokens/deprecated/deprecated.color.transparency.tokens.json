@@ -1,0 +1,110 @@
+{
+  "t-gray-a": {
+    "02": {
+      "$value": "rgba(05, 05, 06, 0.02)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.2 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "04": {
+      "$value": "rgba(05, 05, 06, 0.04)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.4 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "06": {
+      "$value": "rgba(05, 05, 06, 0.06)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.6 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "08": {
+      "$value": "rgba(05, 05, 06, 0.08)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.8 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "16": {
+      "$value": "rgba(05, 05, 06, 0.16)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.16 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "24": {
+      "$value": "rgba(05, 05, 06, 0.24)",
+      "$type": "color",
+      "$description": "Use color.alpha.dark.24 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    }
+  },
+  "t-white-a": {
+    "02": {
+      "$value": "rgba(255, 255, 255, 0.02)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.2 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "04": {
+      "$value": "rgba(255, 255, 255, 0.04)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.4 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "06": {
+      "$value": "rgba(255, 255, 255, 0.06)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.6 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "08": {
+      "$value": "rgba(255, 255, 255, 0.08)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.8 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "16": {
+      "$value": "rgba(255, 255, 255, 0.16)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.16 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "24": {
+      "$value": "rgba(255, 255, 255, 0.24)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.24 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    },
+    "36": {
+      "$value": "rgba(255, 255, 255, 0.36)",
+      "$type": "color",
+      "$description": "Use color.alpha.light.36 instead.",
+      "themeable": true,
+      "prefix": false,
+      "deprecated": true
+    }
+  }
+}

@@ -1,0 +1,15 @@
+schemaVersion: 2.2.0
+components:
+  - name: khulnasoft-ui
+    attributes:
+      gl/inject-editor: true
+    container:
+      image: registry.gitlab.com/gitlab-org/gitlab-build-images:workspaces-web-ide
+      env:
+        - name: STORYBOOK_HOST
+          value: "0.0.0.0"
+      endpoints:
+        - name: storybook
+          targetPort: 9001
+          secure: true
+          protocol: http

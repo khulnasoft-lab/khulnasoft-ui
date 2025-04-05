@@ -1,0 +1,62 @@
+{
+  "background": {
+    "color": {
+      "default": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.950}"
+        },
+        "$type": "color",
+        "$description": "Used for the default background color."
+      },
+      "subtle": {
+        "$value": {
+          "default": "{color.neutral.10}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used to slightly differentiate the background from the default."
+      },
+      "strong": {
+        "$value": {
+          "default": "{color.neutral.50}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used to make the background easily stand out from the default."
+      },
+      "disabled": {
+        "$value": {
+          "default": "{color.neutral.10}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used to identify a disabled section."
+      },
+      "overlap": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.900}"
+        },
+        "$type": "color",
+        "$description": "Used for components, like tooltips and drawers, and content, like a sticky header, that overlap other content."
+      },
+      "section": {
+        "$value": {
+          "default": "{color.neutral.0}",
+          "dark": "{color.neutral.800}"
+        },
+        "$type": "color",
+        "$description": "Used for containers, like a card header, that are visually distinct from the default page background only when necessary to maintain affordance and hierarchy in different modes."
+      },
+      "overlay": {
+        "$value": {
+          "default": "{color.alpha.dark.24}",
+          "dark": "rgba(0,0,0,0.64)"
+        },
+        "$type": "color",
+        "$description": "Used for an overlay that covers other content."
+      }
+    }
+  }
+}

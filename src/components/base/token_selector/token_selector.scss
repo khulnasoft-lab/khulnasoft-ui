@@ -1,0 +1,25 @@
+// This is overridden in the `gitlab-org/gitlab` codebase so we need to increase specificity using `gl-token-selector`
+.gl-token-selector {
+  &.gl-token-selector-focus-glow {
+    @include gl-focus($color: var(--gl-control-border-color-focus), $important: true);
+
+    &.is-invalid {
+      @include gl-focus($color: var(--gl-control-border-color-error), $important: true);
+    }
+  }
+
+  &.gl-token-selector-view-only {
+    background: var(--gl-control-background-color-readonly) !important;
+    box-shadow: none !important;
+  }
+}
+
+.gl-token-selector-token-container:focus .gl-token {
+  background-color: var(--gl-token-selector-token-container-token-background-color-focus);
+  @apply gl-focus;
+}
+
+.gl-token-selector-input {
+  padding-bottom: $gl-spacing-scale-1 + $gl-spacing-scale-2;
+  padding-top: $gl-spacing-scale-1 + $gl-spacing-scale-2;
+}

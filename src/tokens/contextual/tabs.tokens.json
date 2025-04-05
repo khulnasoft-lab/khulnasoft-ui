@@ -1,0 +1,18 @@
+{
+  "tab": {
+    "selected": {
+      "indicator": {
+        "color": {
+          "default": {
+            "$value": {
+              "default": "{color.blue.500}",
+              "dark": "{color.blue.400}"
+            },
+            "$type": "color",
+            "$description": "Used for the selected indicator of a tab."
+          }
+        }
+      }
+    }
+  }
+}

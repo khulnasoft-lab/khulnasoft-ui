@@ -1,0 +1,69 @@
+// Breadcrumb max width 128px
+$breadcrumb-max-width: $grid-size * 16;
+
+.gl-breadcrumbs {
+  @apply gl-flex;
+}
+
+.gl-breadcrumb-list {
+  @apply gl-bg-transparent;
+  @apply gl-p-0;
+  @apply gl-items-center;
+  @apply gl-leading-normal;
+  @apply gl-m-0;
+  @apply gl-flex-nowrap;
+  @apply gl-max-w-full;
+}
+
+// bootstrap overrides
+.gl-breadcrumb-item {
+  @apply gl-leading-normal;
+  @apply gl-shrink-0;
+
+  &:not(:last-child)::after {
+    color: var(--gl-breadcrumb-separator-color);
+    @apply gl-px-3;
+    content: '/';
+  }
+
+  > a {
+    @apply gl-inline-block;
+    border-radius: $gl-border-radius-base;
+    color: var(--gl-text-color-subtle);
+    text-decoration-thickness: auto;
+    text-decoration-style: solid;
+    text-decoration-color: transparent;
+    @include gl-prefers-reduced-motion-transition;
+    transition: box-shadow $gl-transition-duration-medium $gl-easing-out-cubic,
+                text-decoration-color $gl-transition-duration-medium $gl-easing-out-cubic;
+
+    &:hover {
+      text-decoration-color: currentColor;
+    }
+
+    &:active,
+    &:focus,
+    &:focus:active {
+      @apply gl-focus;
+    }
+  }
+
+  @if $feature-button-border {
+    .gl-new-dropdown-icon-only.gl-button.btn-icon {
+      min-height: auto;
+    }
+  }
+}
+
+.gl-breadcrumb-item:last-child > a {
+  color: var(--gl-text-color-default);
+  @apply gl-font-bold;
+}
+
+.gl-breadcrumb-item-sm {
+  @apply gl-text-sm;
+}
+
+.gl-breadcrumb-item-md {
+  @apply gl-text-base;
+}

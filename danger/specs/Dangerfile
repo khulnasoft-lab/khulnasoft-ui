@@ -1,0 +1,58 @@
+# frozen_string_literal: true
+
+SPECS_MESSAGE = <<~MSG
+  You've changed some components or directives, but didn't change corresponding
+  tests. That's OK as long as you're refactoring existing code. If not, please
+  consider adding/updating tests.
+MSG
+
+IGNORED_SUFFIXES = ['.spec.js', '.stories.js', 'constants.js', 'mock_data.js']
+
+def component?(path)
+  path.start_with?('src/components/') &&
+    path.end_with?('.vue', '.js') &&
+    !path.end_with?(*IGNORED_SUFFIXES)
+end
+
+def directive?(path)
+  path.start_with?('src/directives/') &&
+    path.end_with?('.js') &&
+    !path.end_with?(*IGNORED_SUFFIXES)
+end
+
+def spec?(path)
+  path.end_with?('.spec.js')
+end
+
+def spec_for_file(path)
+  return nil unless component?(path) || directive?(path)
+
+  dir = File.dirname(path)
+  ext = File.extname(path)
+  base = File.basename(path, ext)
+
+  File.join(dir, "#{base}.spec.js")
+end
+
+def warn_about_missing_spec_changes(all_changed_files)
+  expected_changed_specs = all_changed_files.map { |path| spec_for_file(path) }.compact
+  changed_specs = all_changed_files.filter { |path| spec?(path) }
+  missing_changed_specs = expected_changed_specs - changed_specs
+
+  return if missing_changed_specs.empty?
+
+  warn(SPECS_MESSAGE)
+  markdown(<<~MARKDOWN)
+    ## Missing spec changes
+
+    The following spec files were expected to have changes based on the changes
+    in this Merge Request:
+
+    * #{missing_changed_specs.map { |path| "`#{path}`" }.join("\n* ")}
+
+    Consider adding or updating these to ensure new component/directive
+    behaviors are covered by tests.
+  MARKDOWN
+end
+
+warn_about_missing_spec_changes(helper.all_changed_files)

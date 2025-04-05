@@ -1,0 +1,67 @@
+/* -------------------------------------------------------
+GitLab Sans variable font.
+
+Usage:
+  html { font-family: 'GitLab Sans', sans-serif; }
+*/
+@font-face {
+  font-family: 'GitLab Sans';
+  font-weight: 100 900;
+  /**
+   * Applications should use a less aggressive font-display value than this.
+   * This is done to make sure Storybook Previews load the font.
+   */
+  font-display: block;
+  font-style: normal;
+  /* stylelint-disable-next-line property-no-unknown */
+  font-named-instance: 'Regular';
+  src: url('../../static/fonts/GitLabSans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'GitLab Sans';
+  font-weight: 100 900;
+  /**
+   * Applications should use a less aggressive font-display value than this.
+   * This is done to make sure Storybook Previews load the font.
+   */
+  font-display: block;
+  font-style: italic;
+  /* stylelint-disable-next-line property-no-unknown */
+  font-named-instance: 'Regular';
+  src: url('../../static/fonts/GitLabSans-Italic.woff2') format('woff2');
+}
+
+/* -------------------------------------------------------
+Monospaced font: GitLab Mono.
+
+Usage:
+  html { font-family: 'GitLab Mono', monospace; }
+*/
+@font-face {
+  font-family: 'GitLab Mono';
+  font-weight: 100 900;
+  /**
+   * Applications should use a less aggressive font-display value than this.
+   * This is done to make sure Storybook Previews load the font.
+   */
+  font-display: block;
+  font-style: normal;
+  src: url('../../static/fonts/GitLabMono.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'GitLab Mono';
+  font-weight: 100 900;
+  /**
+   * Applications should use a less aggressive font-display value than this.
+   * This is done to make sure Storybook Previews load the font.
+   */
+  font-display: block;
+  font-style: italic;
+  src: url('../../static/fonts/GitLabMono-Italic.woff2') format('woff2');
+}
+
+* {
+  font-synthesis: none;
+}

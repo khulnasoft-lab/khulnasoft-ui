@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "@gitlab/stylelint-config"
+  ],
+  "plugins": [
+    "./stylelint/no_gl_media_breakpoint_down.js"
+  ],
+  "rules": {
+    "@gitlab/no-gl-media-breakpoint-down": true,
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply"]
+      }
+    ]
+  }
+}

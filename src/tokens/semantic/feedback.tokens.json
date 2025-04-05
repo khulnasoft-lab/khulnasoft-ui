@@ -1,0 +1,194 @@
+{
+  "feedback": {
+    "strong": {
+      "background": {
+        "color": {
+          "$value": "{color.neutral.800}",
+          "$type": "color",
+          "$description": "Used for a background associated with strong feedback like a tooltip or toast message."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Used for text on a strong feedback background."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": "{color.neutral.0}",
+          "$type": "color",
+          "$description": "Used for an icon on a strong feedback background."
+        }
+      },
+      "link": {
+        "color": {
+          "$value": "{color.blue.300}",
+          "$type": "color",
+          "$description": "Used for a link on a strong feedback background."
+        }
+      }
+    },
+    "neutral": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.50}",
+            "dark": "{color.neutral.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a neutral feedback item when there isn't a specific meaning or urgency."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.700}",
+            "dark": "{color.neutral.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a neutral feedback item when there isn't a specific meaning or urgency."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.neutral.600}",
+            "dark": "{color.neutral.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a neutral feedback item when there isn't a specific meaning or urgency."
+        }
+      }
+    },
+    "info": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.50}",
+            "dark": "{color.blue.950}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.700}",
+            "dark": "{color.blue.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.blue.600}",
+            "dark": "{color.blue.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of an informational feedback item when highlighting new information or a change that doesn't require immediate action."
+        }
+      }
+    },
+    "success": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.green.50}",
+            "dark": "{color.green.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a success feedback item when confirming the successful completion of a user-initiated action."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.green.700}",
+            "dark": "{color.green.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a success feedback item when confirming the successful completion of a user-initiated action."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.green.600}",
+            "dark": "{color.green.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a success feedback item when confirming the successful completion of a user-initiated action."
+        }
+      }
+    },
+    "warning": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.50}",
+            "dark": "{color.orange.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a warning feedback item when notifying about a potential issue or sensitive information."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.700}",
+            "dark": "{color.orange.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a warning feedback item when notifying about a potential issue or sensitive information."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.orange.600}",
+            "dark": "{color.orange.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a warning feedback item when notifying about a potential issue or sensitive information."
+        }
+      }
+    },
+    "danger": {
+      "background": {
+        "color": {
+          "$value": {
+            "default": "{color.red.50}",
+            "dark": "{color.red.900}"
+          },
+          "$type": "color",
+          "$description": "Used for the background of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
+        }
+      },
+      "text": {
+        "color": {
+          "$value": {
+            "default": "{color.red.700}",
+            "dark": "{color.red.200}"
+          },
+          "$type": "color",
+          "$description": "Used for the text of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
+        }
+      },
+      "icon": {
+        "color": {
+          "$value": {
+            "default": "{color.red.600}",
+            "dark": "{color.red.300}"
+          },
+          "$type": "color",
+          "$description": "Used for the icon of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention."
+        }
+      }
+    }
+  }
+}

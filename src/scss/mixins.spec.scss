@@ -1,0 +1,93 @@
+@import './mixins';
+@import './variables';
+@import 'true';
+
+@include describe('gl-fluid-font-size') {
+  @include it('returns fluid font-size') {
+    @include assert {
+      @include output {
+        @include gl-fluid-font-size(2rem, 3.5rem);
+      }
+      @include expect {
+        // prettier-ignore
+        font-size: clamp(2rem, -0.6666666667rem + 5.5555555556vw, 3.5rem);
+      }
+    }
+  }
+}
+
+@include describe('gl-fluid-line-height') {
+  @include it('returns fluid line-height') {
+    @include assert {
+      @include output {
+        @include gl-fluid-line-height(2rem, 3.5rem);
+      }
+      @include expect {
+        // prettier-ignore
+        line-height: clamp(2rem, -0.6666666667rem + 5.5555555556vw, 3.5rem);
+      }
+    }
+  }
+}
+
+@include describe('gl-media-breakpoint-up') {
+  @include it('returns no media query for xs') {
+    @include assert {
+      @include output {
+        @include gl-media-breakpoint-up(xs) {
+          color: $green-100;
+        }
+      }
+      @include expect {
+        color: $green-100;
+      }
+    }
+  }
+  @include it('returns min-width media query for sm') {
+    @include assert {
+      @include output {
+        @include gl-media-breakpoint-up(sm) {
+          color: $blue-100;
+        }
+      }
+      @include expect {
+        @media (min-width: '576px') {
+          color: $blue-100;
+        }
+      }
+    }
+  }
+}
+
+@include describe('gl-media-breakpoint-down') {
+  @include it('returns max-width media query for lg') {
+    @include assert {
+      @include output {
+        // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
+        @include gl-media-breakpoint-down(lg) {
+          color: $red-100;
+        }
+      }
+      @include expect {
+        @media (max-width: '991.98px') {
+          color: $red-100;
+        }
+      }
+    }
+  }
+  @include it('returns max-width media query for md') {
+    @include assert {
+      @include output {
+        // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
+        @include gl-media-breakpoint-down(md) {
+          color: $orange-100;
+        }
+      }
+      @include expect {
+        @media (max-width: '767.98px') {
+          color: $orange-100;
+        }
+      }
+    }
+  }
+}
