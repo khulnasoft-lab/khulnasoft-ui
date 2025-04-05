@@ -175,7 +175,7 @@
     "pikaday": "^1.8.0",
     "playwright": "^1.51.1",
     "playwright-core": "^1.51.1",
-    "postcss": "8.4.28",
+    "postcss": "8.4.31",
     "postcss-loader": "^7.0.2",
     "postcss-scss": "4.0.4",
     "prettier": "3.3.2",
