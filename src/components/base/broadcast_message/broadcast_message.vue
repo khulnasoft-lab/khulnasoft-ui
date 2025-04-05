@@ -37,7 +37,7 @@ export default {
       default: () => translate('GlBroadcastMessage.closeButtonTitle', 'Dismiss'),
     },
     /**
-     * The theme's name to use, this should correspond to the user's selected theme in GitLab.
+     * The theme's name to use, this should correspond to the user's selected theme in KhulnaSoft.
      */
     theme: {
       type: String,

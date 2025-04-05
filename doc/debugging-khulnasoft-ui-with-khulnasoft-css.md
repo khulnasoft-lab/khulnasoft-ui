@@ -1,6 +1,6 @@
 # How KhulnaSoft UI interacts with GitLab
 
-- We do not import KhulnaSoft UI variables directly into GitLab. GitLab
+- We do not import KhulnaSoft UI variables directly into KhulnaSoft. GitLab
   UI variables are only available to KhulnaSoft UI components through their
   definitions in the KhulnaSoft UI.
 - In GitLab, if a CSS class relies on GitLab variables and it is applied to a

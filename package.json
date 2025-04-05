@@ -83,7 +83,9 @@
     "popper.js": "^1.16.1",
     "portal-vue": "^2.1.7",
     "vue-functional-data-merge": "^3.1.0",
-    "vue-runtime-helpers": "^1.1.2"
+    "vue-runtime-helpers": "^1.1.2",
+    "@vueuse/core": "^10.1.2",
+    "@types/uuid": "^9.0.1"
   },
   "peerDependencies": {
     "@gitlab/svgs": "^1.116.0 || ^2.0.0 || ^3.0.0",
@@ -108,7 +110,7 @@
     "@gitlab/eslint-plugin": "20.7.1",
     "@gitlab/fonts": "^1.3.0",
     "@gitlab/stylelint-config": "6.2.2",
-    "@gitlab/svgs": "3.126.0",
+    "@khulnasoft/svgs": "npm:@gitlab/svgs",
     "@jest/test-sequencer": "^29.7.0",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
@@ -204,7 +206,30 @@
     "vue-test-utils-compat": "^0.0.15",
     "webpack": "^5.9.0",
     "yargs": "^17.3.1",
-    "yarn-deduplicate": "^6.0.2"
+    "pnpm-deduplicate": "^0.4.2",
+    "@tsconfig/node18": "^2.0.0",
+    "@types/jsdom": "^21.1.1",
+    "@type-cacheable/core": "^11.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.59.7",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "@vue/server-renderer": "^3.3.4",
+    "@vue/test-utils": "^1.3.6",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^8.4.1",
+    "postcss-simple-vars": "^7.0.1",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.2.8",
+    "tailwindcss": "^3.3.2",
+    "tailwindcss-config-viewer": "^1.7.2",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.8",
+    "vitest": "^0.31.1",
+    "vue-tsc": "^1.6.5"
   },
   "release": {
     "branches": [

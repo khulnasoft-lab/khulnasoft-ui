@@ -13,10 +13,10 @@ if [ "$VUE_VERSION" = "3" ]; then
 fi
 mkdir -p "$DEST"
 
-apt-get update
-apt-get install -y brotli gzip
+sudo apt-get update
+sudo apt-get install -y brotli gzip
 echo "Building storybook..."
-yarn storybook:build:prod
+pnpm storybook:build:prod
 mv storybook/* "$DEST"
 # See: https://docs.gitlab.com/ee/user/project/pages/introduction.html#serving-compressed-assets
 echo "Compressing assets..."

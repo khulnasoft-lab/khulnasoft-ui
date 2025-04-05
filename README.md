@@ -1,138 +1,114 @@
 # KhulnaSoft UI
 
-KhulnaSoft UI is a UI component library that implements [Pajamas](https://design.gitlab.com/), our
-design system. KhulnaSoft UI is written in [Vue.js](https://vuejs.org) and its objectives are to:
+KhulnaSoft UI is KhulnaSoft's official component library, built on top of [Bootstrap](https://getbootstrap.com).
 
-- Create reusable UI components to accelerate frontend development.
-- Create UI consistency for all components within GitLab.
+KhulnaSoft UI components are designed to be used in all KhulnaSoft products and features.
+This ensures visual and functional cohesion across all features. By design, both the
+components and their implementation follow the [Pajamas](https://design.gitlab.com) design system.
 
-See <https://khulnasoft.github.io/khulnasoft-ui/> for documentation.
+**Migration notes**: This project has migrated from yarn to pnpm as the package manager.
+
+## Installation
+
+### Installation with a package manager
+
+The recommended way to install KhulnaSoft UI is with a package manager:
+
+```bash
+# Using pnpm
+pnpm add @khulnasoft/ui
+
+# Using npm
+npm install @khulnasoft/ui
+```
+
+### Nightly builds
+
+Every time a merge request is merged, a new version is released to the internal GitLab Package Registry.
 
 ## Usage
 
-1. To use KhulnaSoft UI in your project, add it as a dependency:
+See the [Usage documentation](doc/usage.md) if you're using something other than Vue.
 
-    ```sh
-    yarn add @khulnasoft/ui
-    ```
+You can directly import a KhulnaSoft UI component in your Vue component:
 
-    > **Note:** Make sure to also install KhulnaSoft UI's peer dependencies. Refer to the
-    > [`package.json`](./package.json) for the list of peer dependencies and their expected versions.
-
-1. In your main entrypoint **before** importing or using any component:
-
-    ```javascript
-    import setConfigs from '@khulnasoft/ui/dist/config'
-
-    setConfigs()
-    ```
-
-    This will set the global configs used by KhulnaSoft UI.
-
-1. Include the required stylesheets in your app. Refer to the [CSS docs](/doc/css.md) for
-   installation options.
-
-1. Import the components as desired:
-
-    ```javascript
-    import { GlButton } from '@khulnasoft/ui';
-    ```
-
-    > **Note:** KhulnaSoft UI is compatible with tree-shaking, you may enable this in your project to
-    > reduce bundle sizes.
-
-## Quick start - development
-
-**Note:** KhulnaSoft UI isn't designed to be built on Windows natively. Either
-[WSL](https://learn.microsoft.com/en-us/windows/wsl/) or
-[GitPod](https://www.gitpod.io/docs/configure/authentication/gitlab) can be used to set up a
-UNIX-like environment in which to build it.
-
-Make sure you have [Node](https://nodejs.org/en/) 16.x (LTS) and [Yarn](https://yarnpkg.com/) 1.22
-or newer.
-
-```sh
-# Clone the project
-git clone git@github.com:khulnasoft/khulnasoft-ui.git
-
-# Navigate to the root of the project
-cd khulnasoft-ui
-
-# Install all the dependencies of the project
-yarn # or yarn install
-
-# Build and launch storybook to see the components in the browser
-yarn storybook
+```javascript
+import { GlButton } from '@khulnasoft/ui';
 ```
 
-Go to <http://localhost:9001/>
+## Storybook
 
-## Testing
+KhulnaSoft UI uses [Storybook](https://storybook.js.org/) for testing and documentation.
+This provides rendered examples of how to use KhulnaSoft UI components.
 
-### Unit tests
+### Development
 
-Components’ unit tests live in the `tests/components`. The tests are organized following the same
-directory structure used to organize components.
+Make sure you have [Node](https://nodejs.org/en/) 16.x (LTS) and [pnpm](https://pnpm.io/).
 
-- `yarn test:unit` runs all unit tests.
+From inside the project folder, you can run:
 
-- `yarn test:unit:watch` runs all unit tests in watch mode.
+```
+pnpm # or pnpm install
+```
 
-- `yarn test:unit:debug` runs all unit tests and allow to attach a debugger to the test runner process.
+You can now run Storybook with:
 
-- `yarn jest [name_pattern]` runs spec files that match the specified name pattern.
+```
+pnpm storybook
+```
 
-#### Examples
+Check out their [documentation](https://storybook.js.org/docs/basics/introduction/) for examples on how
+to add stories.
 
-- `yarn jest datepicker` will match all spec files with a name that contains the word _datepicker_.
+### Testing
 
-- `yarn jest datepicker -t "when draw event is emitted"` goes a step further and only runs the test
-with a description that matches the argument passed to the `t` flag.
+KhulnaSoft UI is tested in various ways.
 
-### SCSS tests
+**Unit Tests**:
 
-Even though we try to avoid writing complex SASS code to maintain CSS complexity low, we’ve
-implemented some functions that benefit from automated testing. SASS tests live in the `tests/scss`
-directory. KhulnaSoft UI uses [sass-true](https://www.oddbird.net/true/) to implement these tests, and
-jest run them.
+- `pnpm test:unit` runs all unit tests.
 
-`yarn jest run_scss_tests` runs all SCSS tests.
+- `pnpm test:unit:watch` runs all unit tests in watch mode.
 
-### Visual regression tests
+- `pnpm test:unit:debug` runs all unit tests and allow to attach a debugger to the test runner process.
 
-KhulnaSoft UI uses visual snapshot tests to prevent introducing regressions with CSS and
-layout changes on components. Read more on this in the [visual testing documentation](doc/contributing/visual_testing.md).
+- `pnpm jest [name_pattern]` runs spec files that match the specified name pattern.
 
-#### GitLab visual regression tests
+  For example:
 
-KhulnaSoft UI components are a reference implementation of the
-[Pajamas Design System components](https://design.gitlab.com/components/status). These components
-should conform with the design system specs, and they should look correct in the pajamas website and
-the GitLab product. Please see [Debugging KhulnaSoft UI issues with GitLab product CSS](doc/debugging-khulnasoft-ui-with-gitlab-css.md)
-for information on how to debug issues with GitLab product CSS in KhulnaSoft UI.
+  - `pnpm jest datepicker` will match all spec files with a name that contains the word _datepicker_.
 
-### End to end tests
+  - `pnpm jest datepicker -t "when draw event is emitted"` goes a step further and only runs the test
+    _"when draw event is emitted"_ in files matching _datepicker_.
 
-Components’ end to end tests live in the `cypress/e2e` folder. See our
-[end to end testing documentation](doc/contributing/end_to_end_test.md) for more details.
+**SCSS Tests**:
 
-`yarn run cypress open` runs Cypress locally to run end to end tests.
+`pnpm jest run_scss_tests` runs all SCSS tests.
 
-### Design tokens
+**Visual Tests**:
 
-KhulnaSoft UI uses design tokens to maintain a single source of truth that, through automation,
-can be formatted for different uses. Read more on this in the [design tokens documentation](doc/contributing/design_tokens.md).
+Visual tests are made based on the snapshots taken from Storybook.
 
-## Releases
+There is no command to run them locally, because they depend heavily on pixel-perfect testing,
+which can only be done in CI with a consistent browser version and screen size.
 
-See [Updating KhulnaSoft UI Packages](doc/updating-khulnasoft-ui-packages.md) for information on how the
-`@khulnasoft/ui` package is kept up to date in various projects.
+If you want to debug test failures on `main`, you can check this job's results:
+<https://gitlab.com/gitlab-org/khulnasoft-ui/-/jobs/1211656111>
 
-## Contributing guide
+**End to End Tests**:
 
-Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to add new components and
-contribute in general to KhulnaSoft UI.
+`pnpm run cypress open` runs Cypress locally to run end to end tests.
 
-### FAQs
+## Built-in accessibility
 
-Any question? Have a look at our [FAQ.md](FAQ.md), you might find the answer there.
+KhulnaSoft UI components are designed to be accessible without requiring extra work from developers. For example a
+`GlButton` component is as accessible as a native `<button>`.
+
+## Components
+
+See the [components documentation](doc/components.md) for more details on component support.
+
+## Questions?
+
+We're all ears! Feel free to open an issue on this repo if it's public-facing, or ask in Slack:
+[#g_khulnasoft-ui](https://gitlab.slack.com/archives/g_khulnasoft-ui).

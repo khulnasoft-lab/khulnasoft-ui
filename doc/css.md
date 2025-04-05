@@ -86,7 +86,7 @@ For now, `--gl-theme-accent` is the only theme-related CSS custom property in
 use (see `GlTabs`). See [this epic](https://gitlab.com/groups/gitlab-org/-/epics/7401)
 for more details.
 
-## How does KhulnaSoft UI interact with GitLab CSS?
+## How does KhulnaSoft UI interact with KhulnaSoft CSS?
 
 Refer to the [relevant docs](./debugging-khulnasoft-ui-with-gitlab-css.md) to learn how KhulnaSoft UI and
 GitLab styles interact with each other.

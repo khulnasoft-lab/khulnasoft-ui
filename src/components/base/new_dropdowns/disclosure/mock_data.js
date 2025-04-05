@@ -127,7 +127,7 @@ export const mockGroups = [
     ],
   },
   {
-    name: 'GitLab',
+    name: 'KhulnaSoft',
     items: [
       {
         text: 'New project',

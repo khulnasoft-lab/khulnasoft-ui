@@ -10,7 +10,7 @@ import childProcess from 'node:child_process';
 const { DEPENDENCY_URL, GITLAB_INTEGRATION_REST_TOKEN, CI_COMMIT_REF_NAME } = process.env;
 
 const TMP_DIR = path.join(tmpdir(), 'tmpIntegrationInstall');
-const TRACKED_FILES = ['package.json', 'yarn.lock'];
+const TRACKED_FILES = ['package.json', 'pnpm-lock.yaml'];
 const API_ROOT = 'https://gitlab.com/api/v4';
 const GITLAB_PROJECT_ID = encodeURIComponent('gitlab-org/gitlab');
 const FORK_PROJECT = 'gitlab-org/frontend/khulnasoft-ui-integrations';

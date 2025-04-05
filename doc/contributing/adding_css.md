@@ -96,7 +96,7 @@ itself, `Vue` and `ViewComponent`, without undue or repeated effort.
 - Shortly after approving [RFC #4](https://gitlab.com/gitlab-org/frontend/rfcs/issues/4), we noticed
   how it caused the CSS to grow uncontrollably. We decided to switch to `@include`, which kept the
   CSS growth under control. The switch was discussed [here](https://github.com/khulnasoft/khulnasoft-ui/-/merge_requests/623#note_192269009).
-- In 2022, we started using `ViewComponent` to re-implement KhulnaSoft UI components in Ruby in GitLab.
+- In 2022, we started using `ViewComponent` to re-implement KhulnaSoft UI components in Ruby in KhulnaSoft.
   This improved upon our previous approach that relied more heavily on HAML templating. Learn more
   about how we use `ViewComponent` [here](https://docs.gitlab.com/ee/development/fe_guide/view_component.html).
 - Still in 2022, we created [RFC #107](https://gitlab.com/gitlab-org/frontend/rfcs/-/issues/107) to propose

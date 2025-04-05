@@ -5,7 +5,7 @@ and ensure consistency.
 
 ## Getting started
 
-When integrating a component into GitLab's code base, it's good to start by listing all the files
+When integrating a component into KhulnaSoft's code base, it's good to start by listing all the files
 where the previous implementation needs to be replaced by the KhulnaSoft UI component. These files can
 then be grouped into 3 categories: Vue components, Vanilla JS and Haml templates. It's also good to
 make a list of pages or areas where this component will be utilized, to go through regular
@@ -36,7 +36,7 @@ When the prompt appears, type the name of the file.
 
 #### Finding a component in the UI
 
-When opening your MR, you will want to provide before and after screenshots. To do this, you will
+When opening your PR, you will want to provide before and after screenshots. To do this, you will
 need to find the component you are migrating in the UI using GDK or a review app.
 
 ##### Using component text
@@ -92,4 +92,4 @@ over all the proper classes for it to render properly. If the component was prev
 using a utility or Ruby helper function, then this function should be updated to reflect the
 necessary changes to its look and feel. If the component is too complex to use the first method,
 then a helper function should be written for it. An example is the helper function for labels
-(app/helpers/labels_helper.rb in GitLab project).
+(app/helpers/labels_helper.rb in KhulnaSoft project).

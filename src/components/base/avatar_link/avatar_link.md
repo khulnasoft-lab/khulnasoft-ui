@@ -26,7 +26,7 @@ same effects described in the first example.
   <gl-avatar-labeled
     :size="32"
     entity-name="GitLab"
-    label="GitLab User"
+    label="KhulnaSoft User"
     sub-label="@gitlab"
   />
 </gl-avatar-link>

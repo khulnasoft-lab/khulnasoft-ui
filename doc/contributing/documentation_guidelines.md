@@ -1,6 +1,6 @@
 # KhulnaSoft UI documentation guidelines
 
-By GitLab's [Definition of Done](https://docs.gitlab.com/ee/development/contributing/merge_request_workflow.html#definition-of-done),
+By KhulnaSoft's [Definition of Done](https://docs.gitlab.com/ee/development/contributing/merge_request_workflow.html#definition-of-done),
 a feature isn't ready until the documentation is shipped. The KhulnaSoft UI project
 follows the same principle.
 
@@ -13,7 +13,7 @@ and don't leave any gaps so that other developers can reuse them as easily and q
 Use the terminology as described below and include the minimum required content
 for these docs.
 
-Use the GitLab's [documentation style guidelines](https://docs.gitlab.com/ee/development/documentation/styleguide.html)
+Use the KhulnaSoft's [documentation style guidelines](https://docs.gitlab.com/ee/development/documentation/styleguide.html)
 as the baseline for writing documentation.
 
 For consistency and scalability, whenever a component is changed, it's imperative

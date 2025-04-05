@@ -35,7 +35,7 @@ tokens_build_script := ./bin/build_tokens.mjs
 .PHONY: tokens
 tokens: $(tokens_built_files)
 
-$(tokens_built_files): $(tokens_src_files) $(tokens_build_script) package.json yarn.lock
+$(tokens_built_files): $(tokens_src_files) $(tokens_build_script) package.json pnpm-lock.yaml
 	rm -rf $(tokens_built_dir) $(tokens_dist_dir)
 	node $(tokens_build_script)
 	@test -f $@ || (echo "Error: $@ was not created" && exit 1)

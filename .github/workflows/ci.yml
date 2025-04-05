@@ -1,0 +1,337 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Run linters
+        run: |
+          pnpm eslint --format github
+          pnpm prettier
+          pnpm markdownlint
+          grep -r -i '<style' --include \*.vue src/components && echo "Vue components should not contain <style tags" && exit 1 || echo "No Vue component contains <style tags"
+
+  stylelint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Run stylelint
+        run: pnpm stylelint
+
+  translations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Check translations
+        run: ./bin/check_translations_dict.sh
+
+  tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Check tokens build
+        run: ./bin/check_tokens_build.sh
+
+  build_package:
+    runs-on: ubuntu-latest
+    outputs:
+      dependency_url: ${{ steps.pack.outputs.dependency_url }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Build package
+        id: pack
+        run: |
+          pnpm build
+          pnpm pack
+          TAR_ARCHIVE_NAME="khulnasoft-ui.${{ github.ref_name }}.tgz"
+          mv *.tgz $TAR_ARCHIVE_NAME
+          echo "dependency_url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/$TAR_ARCHIVE_NAME" >> $GITHUB_OUTPUT
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: khulnasoft-ui.${{ github.ref_name }}.tgz
+          path: |
+            khulnasoft-ui.${{ github.ref_name }}.tgz
+            bin/migrate_custom_utils_to_tw.bundled.mjs
+            dist/
+
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Run Vue 2 unit tests
+        run: pnpm test:unit:coverage --coverageReporters=cobertura --coverageDirectory=coverage/vue2
+      - name: Run Vue 3 unit tests
+        run: VUE_VERSION=3 pnpm test:unit:coverage --coverageReporters=cobertura --coverageDirectory=coverage/vue3
+      - name: Merge coverage reports
+        run: pnpm run merge-cobertura -o coverage/cobertura-coverage.xml package1=coverage/vue2/cobertura-coverage.xml package2=coverage/vue3/cobertura-coverage.xml
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage/
+
+  build_storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Build Storybook (Vue 2)
+        run: bin/build-storybook-static.sh
+      - name: Build Storybook (Vue 3)
+        run: VUE_VERSION=3 bin/build-storybook-static.sh
+      - name: Build Tailwind Config Viewer
+        run: pnpm tailwind-config-viewer:export
+      - name: Upload Storybook artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: storybook
+          path: |
+            public/
+            tailwind-config-viewer-static/
+
+  integration_tests:
+    runs-on: ubuntu-latest
+    needs: [build_storybook]
+    strategy:
+      matrix:
+        suite: ['cy:edge', 'cy:run']
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Install Cypress
+        run: pnpm cypress install --force
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: storybook
+      - name: Run integration tests
+        run: pnpm test:integration:server 'pnpm run ${{ matrix.suite }}'
+      - name: Upload Cypress artifacts (on failure)
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-${{ matrix.suite }}
+          path: cypress/
+
+  visual_tests:
+    runs-on: ubuntu-latest
+    needs: [build_storybook]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: storybook
+      - name: Run visual tests
+        run: pnpm test:visual
+      - name: Upload visual test artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: visual-test-results
+          path: |
+            tests/__image_snapshots__/
+            tests/results.json
+
+  publish_to_npm:
+    if: github.ref == 'refs/heads/main'
+    needs: [lint, stylelint, translations, tokens, build_package, unit_tests, build_storybook, integration_tests, visual_tests]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.14.0'
+          cache: 'pnpm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          pnpm install --frozen-lockfile
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: khulnasoft-ui.${{ github.ref_name }}.tgz
+      - name: Publish to npm
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  deploy_pages:
+    if: github.ref == 'refs/heads/main'
+    needs: [build_storybook]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download Storybook artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: storybook
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Move Tailwind Config Viewer
+        run: mv ./tailwind-config-viewer-static ./public/tailwind-config-viewer
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2 

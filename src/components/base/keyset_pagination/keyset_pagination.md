@@ -42,7 +42,7 @@ For more information on the difference between offset and keyset pagination see
 [our documentation on GraphQL
 pagination](https://docs.gitlab.com/ee/development/graphql_guide/pagination.html).
 
-[^1]: There's no intrinsic reason why GraphQL endpoints can't support offset pagination (in fact, [the official documentation](https://graphql.org/learn/pagination/#pagination-and-edges) shows an example offset pagination implementation) or why REST endpoints can't support keyset pagination. This is simply how we've chosen to implement our REST and GraphQL endpoints at GitLab.
+[^1]: There's no intrinsic reason why GraphQL endpoints can't support offset pagination (in fact, [the official documentation](https://graphql.org/learn/pagination/#pagination-and-edges) shows an example offset pagination implementation) or why REST endpoints can't support keyset pagination. This is simply how we've chosen to implement our REST and GraphQL endpoints at KhulnaSoft.
 
 ## Pajamas reference
 

@@ -3,9 +3,9 @@ export default {
   name: 'GlAccordion',
   provide() {
     return {
-      // temporary fix for this issue: https://github.com/khulnasoft/khulnasoft-ui/-/merge_requests/2019#note_514671251
-      // MR for the upstream pending: https://github.com/vuejs/apollo/pull/1153
-      // Track removing this workaround in https://github.com/khulnasoft/khulnasoft-ui/-/issues/3152
+      // temporary fix for this issue: https://github.com/khulnasoft/khulnasoft-ui/pull/2019#note_514671251
+      // PR for the upstream pending: https://github.com/vuejs/apollo/pull/1153
+      // Track removing this workaround in https://github.com/khulnasoft/khulnasoft-ui/issues/3152
       defaultHeaderLevel: () => this.headerLevel,
       autoCollapse: () => this.autoCollapse,
     };

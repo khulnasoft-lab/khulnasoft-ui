@@ -24,4 +24,4 @@ semantically be a button.
 ```
 
 For more information about icons within GitLab, visit the
-[GitLab accessibility guidelines](https://docs.gitlab.com/ee/development/fe_guide/accessibility#icons).
+[KhulnaSoft accessibility guidelines](https://docs.gitlab.com/ee/development/fe_guide/accessibility#icons).

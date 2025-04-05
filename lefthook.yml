@@ -15,16 +15,16 @@ pre-push:
       run: ./node_modules/.bin/stylelint {files}
     markdown-lint:
       glob: '*.md'
-      run: yarn markdownlint
-    yarn-deduplicate:
-      glob: 'yarn.lock'
-      run: yarn yarn-deduplicate --strategy fewer --list --fail
+      run: pnpm markdownlint
+    pnpm-deduplicate:
+      glob: 'pnpm-lock.yaml'
+      run: pnpm exec pnpm-deduplicate --list
 pre-commit:
   commands:
     generate_translations:
       files: git diff --name-only --staged
       glob: '*.{js,vue}'
-      run: yarn translations:collect && git add ./translations.js
+      run: pnpm translations:collect && git add ./translations.js
     build_tokens:
       files: git diff --name-only --staged
       glob: '*.tokens.json'

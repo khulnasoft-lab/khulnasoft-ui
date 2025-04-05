@@ -7,7 +7,7 @@ import isMatch from 'lodash/isMatch';
  *
  * Use this in place of MutationObserver or IntersectionObserver
  *
- * This class is largely influenced from [a test helper][1] in the main GitLab project
+ * This class is largely influenced from [a test helper][1] in the main KhulnaSoft project
  *
  * [1]: https://gitlab.com/gitlab-org/gitlab/blob/a123813c63147392b95cd03c4744ae9db0575b0f/spec/frontend/helpers/mock_dom_observer.js#L95
  */

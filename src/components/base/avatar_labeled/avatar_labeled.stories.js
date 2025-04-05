@@ -13,7 +13,7 @@ Vue.directive('gl-tooltip', GlTooltipDirective);
 const components = { GlAvatarLabeled };
 
 const generateProps = ({
-  label = 'GitLab User',
+  label = 'KhulnaSoft User',
   subLabel = '@gitlab',
   size = 32,
   shape = 'circle',
@@ -159,7 +159,7 @@ export const WithLinks = (args, { argTypes }) => ({
 WithLinks.args = generateProps({
   size: 48,
   shape: 'rect',
-  label: 'GitLab.org / GitLab',
+  label: 'KhulnaSoft.com / KhulnaSoft',
   subLabel: '',
   labelLink: 'https://gitlab.com/gitlab-org/gitlab',
 });

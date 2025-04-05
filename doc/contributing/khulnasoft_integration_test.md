@@ -12,7 +12,7 @@ See [Updating KhulnaSoft UI Packages](doc/updating-khulnasoft-ui-packages.md) fo
 ## Testing your changes in a local GitLab instance
 
 During development, you can use [yalc](https://github.com/wclr/yalc) to  link your local
-`@khulnasoft/ui` package changes to the GitLab project.
+`@khulnasoft/ui` package changes to the KhulnaSoft project.
 This means you don't need to update `package.json`, and can easily test changes.
 
 1. Install `yalc` with `yarn global add yalc`
@@ -69,7 +69,7 @@ changes need to be pushed to the fork, not the GitLab repository.
 
 ### How is the fork set up to mirror GitLab?
 
-The repository mirroring is set up as a push mirror from the GitLab project. Push events
+The repository mirroring is set up as a push mirror from the KhulnaSoft project. Push events
 are authored by a bot user associated with a Project Access Token created in the fork.
 
 Since Project Access Tokens eventually expire, the mirror needs to be set up again from
@@ -81,7 +81,7 @@ projects. Here's how the mirroring should be configured:
    project.
 1. Give the PAT's user permission to push to the `master` branch in the
    [repository settings](https://gitlab.com/gitlab-org/frontend/khulnasoft-ui-integrations/-/settings/repository).
-1. In the [GitLab](https://gitlab.com/gitlab-org/gitlab/-/settings/repository#js-push-remote-settings)
+1. In the [KhulnaSoft](https://gitlab.com/gitlab-org/gitlab/-/settings/repository#js-push-remote-settings)
    project, remove the outdated mirroring configuration if any. Make sure you're _only_ removing
    KhulnaSoft UI Integrations mirrors.
 1. Create a new mirroring configuration with the following settings:

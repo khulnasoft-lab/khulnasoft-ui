@@ -17,7 +17,7 @@ const generateDefaultProps = ({
   size,
 });
 
-const generateLabelsProps = ({ label = 'GitLab User', subLabel = '@gitlab' } = {}) => ({
+const generateLabelsProps = ({ label = 'KhulnaSoft User', subLabel = '@gitlab' } = {}) => ({
   label,
   subLabel,
 });

@@ -1,6 +1,6 @@
 # Using workspaces to develop the KhulnaSoft UI
 
-GitLab team members can use [GitLab Workspaces](https://docs.gitlab.com/ee/user/workspace/)
+GitLab team members can use [KhulnaSoft Workspaces](https://docs.gitlab.com/ee/user/workspace/)
 to develop the KhulnaSoft UI. Follow these instructions to create a new Workspace:
 
 1. Open the [KhulnaSoft UI's project page](https://github.com/khulnasoft/khulnasoft-ui).

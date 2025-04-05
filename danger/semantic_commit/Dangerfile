@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-URL_SEMANTIC_RELEASE = 'https://github.com/khulnasoft/khulnasoft-ui/-/blob/main/doc/contributing/commits.md'
+URL_SEMANTIC_RELEASE = 'https://github.com/khulnasoft/khulnasoft-ui/blob/main/doc/contributing/commits.md'
 SEMANTIC_COMMIT_TYPES = %w[build chore ci docs feat fix perf refactor revert style test].freeze
 
 NO_RELEASE = 1
@@ -43,7 +43,7 @@ def add_no_release_markdown
   markdown(<<~MARKDOWN)
     ## No release
 
-    This Merge Request will trigger _no_ release.
+    This Pull Request will trigger _no_ release.
     This means none of the commits warrant a semantic release according to
     [conventional commits](#{URL_SEMANTIC_RELEASE}) rules (e.g. they only update CI config).
 
@@ -73,7 +73,7 @@ def get_release_info(release_type)
     type = 'patch release'
     bump = 'This will bump the third part of the version number, e.g. `v1.2.3` -> `v1.2.4`.'
   else
-    warn 'This MR will trigger no release'
+    warn 'This PR will trigger no release'
     add_no_release_markdown
     return
   end
@@ -151,7 +151,7 @@ def lint_commit(commit)
       commit,
       'Use full URLs instead of short references ' \
         '(`gitlab-org/gitlab-ce#123` or `!123`), as short references are ' \
-        'displayed as plain text outside of GitLab'
+        'displayed as plain text outside of KhulnaSoft'
     )
 
     failed = true
@@ -182,7 +182,7 @@ end
 def lint_commits(commits)
   if commits.length > 10
     warn(
-      'This merge request includes more than 10 commits. ' \
+      'This pull request includes more than 10 commits. ' \
         'Please rebase these commits into a smaller number of commits.'
     )
   end
@@ -224,7 +224,7 @@ def lint_commits(commits)
   if type && bump
     add_release_type_markdown(type)
     markdown(<<~MARKDOWN)
-      This Merge Request will trigger a _#{type}_ of KhulnaSoft UI, triggered by commit:
+      This Pull Request will trigger a _#{type}_ of KhulnaSoft UI, triggered by commit:
       #{max_release[:commit].sha}
 
       #{bump}
@@ -237,7 +237,7 @@ def lint_mr
   return unless helper.squash_mr?
 
   fail(
-    'Your MR has **Squash commits when merge request is accepted** enabled, but this is not allowed. This should not be possible; contact a maintainer for assistance.'
+    'Your PR has **Squash commits when pull request is accepted** enabled, but this is not allowed. This should not be possible; contact a maintainer for assistance.'
   )
 end
 

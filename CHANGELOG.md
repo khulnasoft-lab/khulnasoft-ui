@@ -1121,8 +1121,8 @@ for more information.
 
 ### Features
 
-* **bootstrap-vue:** Replace BootstrapCSS Util classes with GitLab Classes ([aaf2df9](https://github.com/khulnasoft/khulnasoft-ui/commit/aaf2df9b0995bf9cb0e7055bfdc30d9c81b1d6b7))
-* Replace Bootstrap CSS Utils with GitLab Ui Utils ([5f93b5c](https://github.com/khulnasoft/khulnasoft-ui/commit/5f93b5c446ce33caafac8a490cdad63edbbd92f6))
+* **bootstrap-vue:** Replace BootstrapCSS Util classes with KhulnaSoft Classes ([aaf2df9](https://github.com/khulnasoft/khulnasoft-ui/commit/aaf2df9b0995bf9cb0e7055bfdc30d9c81b1d6b7))
+* Replace Bootstrap CSS Utils with KhulnaSoft Ui Utils ([5f93b5c](https://github.com/khulnasoft/khulnasoft-ui/commit/5f93b5c446ce33caafac8a490cdad63edbbd92f6))
 
 # [98.2.0](https://github.com/khulnasoft/khulnasoft-ui/compare/v98.1.2...v98.2.0) (2024-10-23)
 
@@ -6207,7 +6207,7 @@ via the `headerText` prop instead of the `header` slot.
 mobile-first and removes gl-md-pr-2. If you were relying on the former,
 please migrate to a mobile-first approach. If relying on the latter, you
 might need to add it back to the library. We are defaulting to removing
-utils that aren't used in GitLab projects while we remove desktop-first
+utils that aren't used in KhulnaSoft projects while we remove desktop-first
 utils, so it might be necessary to re-add some of them if they are used
 elsewhere.
 
@@ -7169,7 +7169,7 @@ also https://gitlab.com/gitlab-org/gitlab/-/merge_requests/83982.
 * The feature added in
 https://github.com/khulnasoft/khulnasoft-ui/-/merge_requests/2738 has been
 removed, as it causes complications regarding a validator used in
-GitLab. This feature will be reconsidered and re-implemented later.
+KhulnaSoft. This feature will be reconsidered and re-implemented later.
 
 # [38.12.0](https://github.com/khulnasoft/khulnasoft-ui/compare/v38.11.0...v38.12.0) (2022-04-21)
 

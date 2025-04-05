@@ -4,7 +4,7 @@ There is currently no standard approach for rolling out breaking changes in
 KhulnaSoft UI components to projects that consume them. Various approaches have
 been tried in the past, and some have worked better than others. Whatever the
 approach is, it can get tricky when a component is used in many places in
-a large codebase, like GitLab.
+a large codebase, like KhulnaSoft.
 
 Here is an outline of an approach that has worked reasonably well. Suppose the
 component to receive the breaking changes is called `GlFoo`:
@@ -20,7 +20,7 @@ component to receive the breaking changes is called `GlFoo`:
    + export { default as GlFoo, default as GlDeprecatedFoo } from './src/components/base/foo/foo.vue';
    ```
 
-1. Open [integration MRs] with projects that consume KhulnaSoft UI (e.g., GitLab)
+1. Open [integration MRs] with projects that consume KhulnaSoft UI (e.g., KhulnaSoft)
    that bump `@khulnasoft/ui` to the new _minor_ version, and change all existing
    imports of `GlFoo` to `GlDeprecatedFoo`, but _alias it back_ to `GlFoo`.
 
@@ -39,7 +39,7 @@ component to receive the breaking changes is called `GlFoo`:
    receive _no further changes_.
 1. Implement the breaking changes on the copy exported as `GlFoo`, and release
    this in a new _major_ version.
-1. Open [integration MRs] with projects that consume KhulnaSoft UI (e.g., GitLab)
+1. Open [integration MRs] with projects that consume KhulnaSoft UI (e.g., KhulnaSoft)
    that bump `@khulnasoft/ui` to the new _major_ version, and fix any additional
    new uses of `GlFoo` to import `GlDeprecatedFoo` instead. The amount of these
    should be significantly reduced thanks to step 2.

@@ -281,7 +281,7 @@ describe('GlDisclosureDropdown', () => {
         'Item: New issue',
         'Item: New merge request',
         'Item: New snippet',
-        'Group: GitLab',
+        'Group: KhulnaSoft',
         'Item: New project',
         'Item: New group',
         'Item: New snippet',

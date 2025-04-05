@@ -21,7 +21,7 @@ Useful public methods you can call via `$refs`:
 
 ## Implementation Example
 
-This is how a full implementation would look like with paginated results from GitLab's
+This is how a full implementation would look like with paginated results from KhulnaSoft's
 `projects` API.
 
 In the component's state, initialize a `pageInfo` object:
