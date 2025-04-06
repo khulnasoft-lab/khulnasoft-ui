@@ -142,7 +142,7 @@
     "acorn-walk": "^8.3.2",
     "autoprefixer": "^9.7.6",
     "axe-playwright": "^2.1.0",
-    "babel-jest": "29.0.1",
+    "babel-jest": "29.7.0",
     "babel-loader": "^8.0.5",
     "cypress": "14.2.1",
     "cypress-real-events": "^1.11.0",
