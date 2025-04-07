@@ -1,3 +1,10 @@
+## [112.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.2.0...v112.2.1) (2025-04-07)
+
+
+### Bug Fixes
+
+* **DesignTokens:** remove size/pxToRem transform from dimension type ([451fc7d](https://gitlab.com/gitlab-org/gitlab-ui/commit/451fc7d55031cdf1643534d0ead8781699d10fc6))
+
 # [112.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.1.2...v112.2.0) (2025-04-04)
 
 
