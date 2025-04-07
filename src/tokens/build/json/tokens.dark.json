@@ -3907,19 +3907,14 @@
     "12": {
       "$value": "0.75rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "12px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "0.75rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_12",
+      "attributes": {},
       "path": [
         "line-height",
         "12"
@@ -3928,19 +3923,14 @@
     "16": {
       "$value": "1rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "16px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "1rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_16",
+      "attributes": {},
       "path": [
         "line-height",
         "16"
@@ -3949,19 +3939,14 @@
     "20": {
       "$value": "1.25rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "20px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "1.25rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_20",
+      "attributes": {},
       "path": [
         "line-height",
         "20"
@@ -3970,19 +3955,14 @@
     "24": {
       "$value": "1.5rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "24px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "1.5rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_24",
+      "attributes": {},
       "path": [
         "line-height",
         "24"
@@ -3991,19 +3971,14 @@
     "28": {
       "$value": "1.75rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "28px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "1.75rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_28",
+      "attributes": {},
       "path": [
         "line-height",
         "28"
@@ -4012,19 +3987,14 @@
     "32": {
       "$value": "2rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "32px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "2rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_32",
+      "attributes": {},
       "path": [
         "line-height",
         "32"
@@ -4033,19 +4003,14 @@
     "36": {
       "$value": "2.25rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "36px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "2.25rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_36",
+      "attributes": {},
       "path": [
         "line-height",
         "36"
@@ -4054,19 +4019,14 @@
     "42": {
       "$value": "2.625rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "42px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "2.625rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_42",
+      "attributes": {},
       "path": [
         "line-height",
         "42"
@@ -4075,19 +4035,14 @@
     "44": {
       "$value": "2.75rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "44px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "2.75rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_44",
+      "attributes": {},
       "path": [
         "line-height",
         "44"
@@ -4096,19 +4051,14 @@
     "52": {
       "$value": "3.25rem",
       "$type": "dimension",
-      "attributes": {
-        "category": "size"
-      },
       "filePath": "src/tokens/constant/line_height.tokens.json",
       "isSource": true,
       "original": {
-        "$value": "52px",
-        "$type": "dimension",
-        "attributes": {
-          "category": "size"
-        }
+        "$value": "3.25rem",
+        "$type": "dimension"
       },
       "name": "LINE_HEIGHT_52",
+      "attributes": {},
       "path": [
         "line-height",
         "52"
@@ -12420,7 +12370,7 @@
       },
       "width": {
         "default": {
-          "$value": "0.09375rem",
+          "$value": "1.5",
           "$type": "dimension",
           "$description": "Default stroke width to define shape and provide essential detail.",
           "filePath": "src/tokens/contextual/illustration.tokens.json",
@@ -12808,7 +12758,7 @@
         },
         "width": {
           "default": {
-            "$value": "0.09375rem",
+            "$value": "1.5",
             "$type": "dimension",
             "$description": "Default stroke width to define shape and provide essential detail in isometric illustration.",
             "filePath": "src/tokens/contextual/illustration.tokens.json",

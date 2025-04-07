@@ -71,22 +71,22 @@ StyleDictionary.registerTransform({
  */
 StyleDictionary.registerTransformGroup({
   name: 'css/default',
-  transforms: ['value/default', 'name/kebab', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: ['value/default', 'name/kebab', 'name/stripPrefix'],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js/default',
-  transforms: ['value/default', 'name/constant', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: ['value/default', 'name/constant', 'name/stripPrefix'],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'css/dark',
-  transforms: ['value/dark', 'name/kebab', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: ['value/dark', 'name/kebab', 'name/stripPrefix'],
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'js/dark',
-  transforms: ['value/dark', 'name/constant', 'size/pxToRem', 'name/stripPrefix'],
+  transforms: ['value/dark', 'name/constant', 'name/stripPrefix'],
 });
 
 /**
