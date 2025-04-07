@@ -329,7 +329,7 @@ jobs:
       - name: Move Tailwind Config Viewer
         run: mv ./tailwind-config-viewer-static ./public/tailwind-config-viewer
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
       - name: Deploy to GitHub Pages
