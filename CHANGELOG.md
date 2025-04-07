@@ -1,3 +1,10 @@
+## [112.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.2.1...v112.2.2) (2025-04-07)
+
+
+### Bug Fixes
+
+* **GlKeysetPagination:** Fix spacing between buttons ([7991c38](https://gitlab.com/gitlab-org/gitlab-ui/commit/7991c38c56751580286ae17a28c9291b693f9954))
+
 ## [112.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.2.0...v112.2.1) (2025-04-07)
 
 
