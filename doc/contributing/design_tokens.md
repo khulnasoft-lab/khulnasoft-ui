@@ -425,6 +425,305 @@ context.
 1. A new or edited token should be reviewed by ~"group::design system" to ensure it aligns with the
 system.
 
+### Naming convention
+
+Design tokens follow a structured naming convention that helps establish their purpose and usage.
+The full naming pattern includes:
+
+`[group].[component].[variant/category].[element].[position].[relationship].[property].[type].[scale].[state]`
+
+Principles:
+
+- Name tokens to reduce ambiguity and increase clarity.
+- Add only the level of specificity needed for clarity.
+- Start with context (group or component) to establish scope.
+- Include an object in all semantic and contextual token names.
+- Maintain consistency in both terminology and patterns to enhance predictability.
+
+Learn more about [reading design tokens](https://design.gitlab.com/product-foundations/design-tokens-reading/).
+
+<!-- markdownlint-disable MD036-->
+<table>
+<thead>
+<tr>
+<th colspan="3">Context</th>
+<th colspan="3">Object</th>
+<th colspan="4">Modifier</th>
+</tr>
+<tr>
+<td>Group</td>
+<td>Component</td>
+<td>Variant/category</td>
+<td>Element</td>
+<td>Position</td>
+<td>Relationship</td>
+<td>Property</td>
+<td>Type</td>
+<td>Scale</td>
+<td>State</td>
+</tr>
+</thead>
+<tr>
+<td>
+
+- action
+- control
+- feedback
+- status
+
+_and so on…_
+</td>
+<td>
+
+- alert
+- avatar
+- badge
+- banner
+- breadcrumb
+- broadcast
+- button
+- chart
+- datepicker
+- dropdown
+- filtered-search
+- illustration
+- label
+- link
+- progress-bar
+- skeleton-loader
+- spinner
+- table
+- tabs
+- toggle
+- token-selector
+- token
+
+_and so on…_
+</td>
+<td>
+
+_Generic_
+
+- neutral
+- info
+- confirm
+- warning
+- danger
+- brand
+- selected
+- disabled
+
+_Component specific_
+
+- default-primary
+- danger-secondary
+- banner
+- notification
+- mention
+
+_and so on…_
+</td>
+<td>
+
+_Generic_
+
+- background
+- border
+- foreground
+- icon
+- text
+- cursor
+- image
+- element
+
+_Component specific_
+
+- separator
+- track
+- indicator
+- shimmer
+- segment
+- switch
+- button
+
+_and so on…_
+</td>
+<td>
+
+- top
+- bottom
+- left
+- right
+- inner
+- outer
+
+_and so on…_
+</td>
+<td>
+
+- x-to-x
+- between
+- gap
+
+_and so on…_
+</td>
+<td>
+
+- blend-mode
+- color
+- font-family
+- font-size
+- font-weight
+- height
+- shadow
+- size
+- space
+- style
+- time
+- transition
+- width
+
+_and so on…_
+</td>
+<td>
+
+_Generic_
+
+- neutral
+- info
+- confirm
+- warning
+- danger
+- brand
+
+_Appearance_
+
+- red
+- purple
+- indigo
+- blue
+- green
+- orange
+- neutral
+- sans
+- serif
+- mono
+- system
+
+_Component specific_
+
+- key
+- operator
+- value
+- body
+- heading
+- help
+- label
+- link
+
+_and so on…_
+</td>
+<td>
+
+_Millenial_
+
+- 0
+- 10
+- 50
+- 100
+- 200
+- 300
+- 400
+- 500
+- 600
+- 700
+- 800
+- 900
+- 950
+- 1000
+
+_T-shirt_
+
+- xs
+- sm
+- md
+- lg
+- xl
+- xxl
+
+_Proportion_
+
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+
+_Literal_
+
+- 2
+- 4
+- 8
+- 16
+- 24
+- 32
+- 64
+
+_Presentation_
+
+- default
+- subtle
+- strong
+
+_and so on…_
+</td>
+<td>
+
+_Selection_
+
+- checked
+- unchecked
+- indeterminate
+- active
+- current
+- selected
+
+_Interactive_
+
+- default
+- hover
+- focus
+- active
+- disabled
+
+_Visibility_
+
+- collapsed
+- expanded
+- hidden
+- visible
+
+_Binary_
+
+- on
+- off
+
+_Validation_
+
+- error
+- success
+
+_and so on…_
+</td>
+</tr>
+</table>
+<!-- markdownlint-enable MD036-->
+
 ## Deprecation
 
 Add `"deprecated": true` to deprecated token JSON. When all tokens in a file are deprecated move to
