@@ -2,7 +2,6 @@
 export const NAME_BUTTON = 'BButton'
 export const NAME_BUTTON_CLOSE = 'BButtonClose'
 export const NAME_COL = 'BCol'
-export const NAME_COLLAPSE = 'BCollapse'
 export const NAME_DROPDOWN = 'BDropdown'
 export const NAME_DROPDOWN_DIVIDER = 'BDropdownDivider'
 export const NAME_DROPDOWN_FORM = 'BDropdownForm'
@@ -46,7 +45,6 @@ export const NAME_TOOLTIP = 'BTooltip'
 export const NAME_TR = 'BTr'
 
 // Helper component names
-export const NAME_COLLAPSE_HELPER = 'BVCollapse'
 export const NAME_FORM_BUTTON_LABEL_CONTROL = 'BVFormBtnLabelControl'
 export const NAME_FORM_RATING_STAR = 'BVFormRatingStar'
 export const NAME_POPOVER_HELPER = 'BVPopover'
