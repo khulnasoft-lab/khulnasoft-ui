@@ -110,6 +110,23 @@ describe('search box by click component', () => {
     });
   });
 
+  describe('accessibility', () => {
+    it('has proper aria-labels on history items', () => {
+      createComponent({ historyItems: ['test search'] });
+      const dropdownItem = wrapper.findComponent(GlDisclosureDropdownItem);
+
+      expect(dropdownItem.attributes('aria-label')).toBe('Select recent search: test search');
+    });
+
+    // New test case for empty search string
+    it('has proper aria-label on history items with empty search string', () => {
+      createComponent({ historyItems: [''] });
+      const dropdownItem = wrapper.findComponent(GlDisclosureDropdownItem);
+
+      expect(dropdownItem.attributes('aria-label')).toBe('Select recent search: empty search');
+    });
+  });
+
   describe('disabled state', () => {
     beforeEach(() => {
       createComponent({

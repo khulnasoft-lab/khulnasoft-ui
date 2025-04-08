@@ -213,10 +213,11 @@ export default {
         class="gl-search-box-by-click-history"
         icon="history"
         category="tertiary"
-        toggle-text="Toggle history"
+        toggle-text="Toggle search history"
         text-sr-only
         fluid-width
         :disabled="disabled"
+        aria-label="Recent searches history"
       >
         <template #header>
           <div
@@ -231,6 +232,7 @@ export default {
             v-for="(item, idx) in historyItems"
             :key="idx"
             class="gl-search-box-by-click-history-item"
+            :aria-label="`Select recent search: ${item || 'empty search'}`"
             @action="selectHistoryItem(item)"
           >
             <template #list-item>
@@ -239,9 +241,13 @@ export default {
             </template>
           </gl-disclosure-dropdown-item>
         </template>
-        <div v-else class="gl-px-4 gl-py-2 gl-text-sm gl-text-subtle">
+        <gl-disclosure-dropdown-item
+          v-else
+          class="gl-px-4 gl-py-2 gl-text-sm gl-text-subtle"
+          :aria-label="`Select recent search: ${noRecentSearchesText}`"
+        >
           {{ noRecentSearchesText }}
-        </div>
+        </gl-disclosure-dropdown-item>
 
         <template v-if="historyItems.length" #footer>
           <div
