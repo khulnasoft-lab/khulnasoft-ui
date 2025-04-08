@@ -5,13 +5,13 @@ export default {
     align: { type: String, required: false, default: '' },
 
     // Set to `true` if placing in a card header
-    cardHeader: { type: Boolean, required: false },
+    cardHeader: { type: Boolean, required: false, default: false },
 
-    fill: { type: Boolean, required: false },
-    justified: { type: Boolean, required: false },
-    pills: { type: Boolean, required: false },
-    small: { type: Boolean, required: false },
-    tabs: { type: Boolean, required: false },
+    fill: { type: Boolean, required: false, default: false },
+    justified: { type: Boolean, required: false, default: false },
+    pills: { type: Boolean, required: false, default: false },
+    small: { type: Boolean, required: false, default: false },
+    tabs: { type: Boolean, required: false, default: false },
     tag: { type: String, required: false, default: 'ul' },
   },
   computed: {
