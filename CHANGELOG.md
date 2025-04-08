@@ -1,3 +1,12 @@
+## [112.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.2.2...v112.2.3) (2025-04-08)
+
+
+### Bug Fixes
+
+* **SearchBoxByClick:** add accessible name to empty search button ([0c3948d](https://gitlab.com/gitlab-org/gitlab-ui/commit/0c3948dddbb2381fcdd8f25378eb0278118da0d5))
+* apply feedback ([ffc8966](https://gitlab.com/gitlab-org/gitlab-ui/commit/ffc8966b89e2d051907553adac91808d5c29215b))
+* **SearchBoxByClick:** add accessible name to empty search button ([d29957a](https://gitlab.com/gitlab-org/gitlab-ui/commit/d29957a691fafeeee399d74b51523ec1b4b13b6b))
+
 ## [112.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.2.1...v112.2.2) (2025-04-07)
 
 
