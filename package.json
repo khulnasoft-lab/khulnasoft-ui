@@ -96,7 +96,8 @@
   "resolutions": {
     "chokidar": "^3.5.2",
     "sane": "^5.0.1",
-    "jackspeak": "2.1.1"
+    "jackspeak": "2.1.1",
+    "postcss": "8.5.3"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
@@ -138,7 +139,7 @@
     "@yarnpkg/lockfile": "^1.1.0",
     "acorn": "^8.11.3",
     "acorn-walk": "^8.3.2",
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "10.4.21",
     "axe-playwright": "^2.1.0",
     "babel-jest": "29.0.1",
     "babel-loader": "^8.0.5",
@@ -172,9 +173,9 @@
     "pikaday": "^1.8.0",
     "playwright": "^1.51.1",
     "playwright-core": "^1.51.1",
-    "postcss": "8.4.28",
-    "postcss-loader": "^7.0.2",
-    "postcss-scss": "4.0.4",
+    "postcss": "8.5.3",
+    "postcss-loader": "8.1.1",
+    "postcss-scss": "4.0.9",
     "prettier": "3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "react": "^18.2.0",
