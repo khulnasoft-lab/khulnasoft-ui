@@ -64,7 +64,7 @@ export default {
 </script>
 
 <template>
-  <component :is="tag" class="nav" :class="classes">
+  <component :is="tag" class="nav" :class="classes" v-on="$listeners">
     <slot></slot>
   </component>
 </template>
