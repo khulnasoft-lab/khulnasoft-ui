@@ -98,7 +98,8 @@
     "sane": "^5.0.1",
     "jackspeak": "2.1.1",
     "postcss": "8.5.3",
-    "json5": "2.2.3"
+    "json5": "2.2.3",
+    "rollup-plugin-vue/@vue/component-compiler/postcss-modules-sync/generic-names/loader-utils": "1.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
