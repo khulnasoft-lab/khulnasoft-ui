@@ -97,7 +97,8 @@
     "chokidar": "^3.5.2",
     "sane": "^5.0.1",
     "jackspeak": "2.1.1",
-    "postcss": "8.5.3"
+    "postcss": "8.5.3",
+    "json5": "2.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
