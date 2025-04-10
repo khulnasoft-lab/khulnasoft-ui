@@ -1390,7 +1390,7 @@
     },
     "600": {
       "$value": {
-        "default": "#1068bf",
+        "default": "#2f68b4",
         "dark": "#63a6e9"
       },
       "$type": "color",
@@ -1400,7 +1400,7 @@
     },
     "700": {
       "$value": {
-        "default": "#0b5cad",
+        "default": "#2f5ca0",
         "dark": "#9dc7f1"
       },
       "$type": "color",
@@ -1410,7 +1410,7 @@
     },
     "800": {
       "$value": {
-        "default": "#064787",
+        "default": "#284779",
         "dark": "#cbe2f9"
       },
       "$type": "color",
@@ -1420,7 +1420,7 @@
     },
     "900": {
       "$value": {
-        "default": "#033464",
+        "default": "#213454",
         "dark": "#e9f3fc"
       },
       "$type": "color",
@@ -1430,7 +1430,7 @@
     },
     "950": {
       "$value": {
-        "default": "#002850",
+        "default": "#1d283e",
         "dark": "#f2f9ff"
       },
       "$type": "color",
@@ -1630,7 +1630,7 @@
     },
     "600": {
       "$value": {
-        "default": "#217645",
+        "default": "#2f7549",
         "dark": "#52b87a"
       },
       "$type": "color",
@@ -1640,7 +1640,7 @@
     },
     "700": {
       "$value": {
-        "default": "#24663b",
+        "default": "#306440",
         "dark": "#91d4a8"
       },
       "$type": "color",
@@ -1650,7 +1650,7 @@
     },
     "800": {
       "$value": {
-        "default": "#0d532a",
+        "default": "#225131",
         "dark": "#c3e6cd"
       },
       "$type": "color",
@@ -1660,7 +1660,7 @@
     },
     "900": {
       "$value": {
-        "default": "#0a4020",
+        "default": "#1e3e28",
         "dark": "#ecf4ee"
       },
       "$type": "color",
@@ -1670,7 +1670,7 @@
     },
     "950": {
       "$value": {
-        "default": "#072b15",
+        "default": "#17291c",
         "dark": "#f1fdf6"
       },
       "$type": "color",
@@ -1745,7 +1745,7 @@
     },
     "600": {
       "$value": {
-        "default": "#9e5400",
+        "default": "#995715",
         "dark": "#d99530"
       },
       "$type": "color",
@@ -1755,7 +1755,7 @@
     },
     "700": {
       "$value": {
-        "default": "#8f4700",
+        "default": "#894b16",
         "dark": "#e9be74"
       },
       "$type": "color",
@@ -1765,7 +1765,7 @@
     },
     "800": {
       "$value": {
-        "default": "#703800",
+        "default": "#693c14",
         "dark": "#f5d9a8"
       },
       "$type": "color",
@@ -1775,7 +1775,7 @@
     },
     "900": {
       "$value": {
-        "default": "#5c2900",
+        "default": "#532e16",
         "dark": "#fdf1dd"
       },
       "$type": "color",
@@ -1785,7 +1785,7 @@
     },
     "950": {
       "$value": {
-        "default": "#421f00",
+        "default": "#382315",
         "dark": "#fff4e1"
       },
       "$type": "color",
@@ -1860,7 +1860,7 @@
     },
     "600": {
       "$value": {
-        "default": "#694cc0",
+        "default": "#6a4fb4",
         "dark": "#9475db"
       },
       "$type": "color",
@@ -1870,7 +1870,7 @@
     },
     "700": {
       "$value": {
-        "default": "#5943b6",
+        "default": "#5c47a6",
         "dark": "#ac93e6"
       },
       "$type": "color",
@@ -1880,7 +1880,7 @@
     },
     "800": {
       "$value": {
-        "default": "#453894",
+        "default": "#493c83",
         "dark": "#cbbbf2"
       },
       "$type": "color",
@@ -1890,7 +1890,7 @@
     },
     "900": {
       "$value": {
-        "default": "#2f2a6b",
+        "default": "#342d59",
         "dark": "#e1d8f9"
       },
       "$type": "color",
@@ -1900,7 +1900,7 @@
     },
     "950": {
       "$value": {
-        "default": "#232150",
+        "default": "#27243e",
         "dark": "#f4f0ff"
       },
       "$type": "color",
@@ -1975,7 +1975,7 @@
     },
     "600": {
       "$value": {
-        "default": "#c91c00",
+        "default": "#c02f12",
         "dark": "#f57f6c"
       },
       "$type": "color",
@@ -1985,7 +1985,7 @@
     },
     "700": {
       "$value": {
-        "default": "#ae1800",
+        "default": "#a32c12",
         "dark": "#fcb5aa"
       },
       "$type": "color",
@@ -1995,7 +1995,7 @@
     },
     "800": {
       "$value": {
-        "default": "#8d1300",
+        "default": "#812713",
         "dark": "#fdd4cd"
       },
       "$type": "color",
@@ -2005,7 +2005,7 @@
     },
     "900": {
       "$value": {
-        "default": "#660e00",
+        "default": "#582014",
         "dark": "#fcf1ef"
       },
       "$type": "color",
@@ -2015,7 +2015,7 @@
     },
     "950": {
       "$value": {
-        "default": "#4d0a00",
+        "default": "#3e1a14",
         "dark": "#fff4f3"
       },
       "$type": "color",

@@ -379,12 +379,12 @@
         ]
       },
       "600": {
-        "$value": "#1068bf",
+        "$value": "#2f68b4",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#1068bf",
+          "$value": "#2f68b4",
           "$type": "color"
         },
         "name": "COLOR_BLUE_600",
@@ -396,12 +396,12 @@
         ]
       },
       "700": {
-        "$value": "#0b5cad",
+        "$value": "#2f5ca0",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#0b5cad",
+          "$value": "#2f5ca0",
           "$type": "color"
         },
         "name": "COLOR_BLUE_700",
@@ -413,12 +413,12 @@
         ]
       },
       "800": {
-        "$value": "#064787",
+        "$value": "#284779",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#064787",
+          "$value": "#284779",
           "$type": "color"
         },
         "name": "COLOR_BLUE_800",
@@ -430,12 +430,12 @@
         ]
       },
       "900": {
-        "$value": "#033464",
+        "$value": "#213454",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#033464",
+          "$value": "#213454",
           "$type": "color"
         },
         "name": "COLOR_BLUE_900",
@@ -447,12 +447,12 @@
         ]
       },
       "950": {
-        "$value": "#002850",
+        "$value": "#1d283e",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#002850",
+          "$value": "#1d283e",
           "$type": "color"
         },
         "name": "COLOR_BLUE_950",
@@ -808,12 +808,12 @@
         ]
       },
       "600": {
-        "$value": "#217645",
+        "$value": "#2f7549",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#217645",
+          "$value": "#2f7549",
           "$type": "color"
         },
         "name": "COLOR_GREEN_600",
@@ -825,12 +825,12 @@
         ]
       },
       "700": {
-        "$value": "#24663b",
+        "$value": "#306440",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#24663b",
+          "$value": "#306440",
           "$type": "color"
         },
         "name": "COLOR_GREEN_700",
@@ -842,12 +842,12 @@
         ]
       },
       "800": {
-        "$value": "#0d532a",
+        "$value": "#225131",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#0d532a",
+          "$value": "#225131",
           "$type": "color"
         },
         "name": "COLOR_GREEN_800",
@@ -859,12 +859,12 @@
         ]
       },
       "900": {
-        "$value": "#0a4020",
+        "$value": "#1e3e28",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#0a4020",
+          "$value": "#1e3e28",
           "$type": "color"
         },
         "name": "COLOR_GREEN_900",
@@ -876,12 +876,12 @@
         ]
       },
       "950": {
-        "$value": "#072b15",
+        "$value": "#17291c",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#072b15",
+          "$value": "#17291c",
           "$type": "color"
         },
         "name": "COLOR_GREEN_950",
@@ -997,12 +997,12 @@
         ]
       },
       "600": {
-        "$value": "#9e5400",
+        "$value": "#995715",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#9e5400",
+          "$value": "#995715",
           "$type": "color"
         },
         "name": "COLOR_ORANGE_600",
@@ -1014,12 +1014,12 @@
         ]
       },
       "700": {
-        "$value": "#8f4700",
+        "$value": "#894b16",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#8f4700",
+          "$value": "#894b16",
           "$type": "color"
         },
         "name": "COLOR_ORANGE_700",
@@ -1031,12 +1031,12 @@
         ]
       },
       "800": {
-        "$value": "#703800",
+        "$value": "#693c14",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#703800",
+          "$value": "#693c14",
           "$type": "color"
         },
         "name": "COLOR_ORANGE_800",
@@ -1048,12 +1048,12 @@
         ]
       },
       "900": {
-        "$value": "#5c2900",
+        "$value": "#532e16",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#5c2900",
+          "$value": "#532e16",
           "$type": "color"
         },
         "name": "COLOR_ORANGE_900",
@@ -1065,12 +1065,12 @@
         ]
       },
       "950": {
-        "$value": "#421f00",
+        "$value": "#382315",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#421f00",
+          "$value": "#382315",
           "$type": "color"
         },
         "name": "COLOR_ORANGE_950",
@@ -1186,12 +1186,12 @@
         ]
       },
       "600": {
-        "$value": "#694cc0",
+        "$value": "#6a4fb4",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#694cc0",
+          "$value": "#6a4fb4",
           "$type": "color"
         },
         "name": "COLOR_PURPLE_600",
@@ -1203,12 +1203,12 @@
         ]
       },
       "700": {
-        "$value": "#5943b6",
+        "$value": "#5c47a6",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#5943b6",
+          "$value": "#5c47a6",
           "$type": "color"
         },
         "name": "COLOR_PURPLE_700",
@@ -1220,12 +1220,12 @@
         ]
       },
       "800": {
-        "$value": "#453894",
+        "$value": "#493c83",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#453894",
+          "$value": "#493c83",
           "$type": "color"
         },
         "name": "COLOR_PURPLE_800",
@@ -1237,12 +1237,12 @@
         ]
       },
       "900": {
-        "$value": "#2f2a6b",
+        "$value": "#342d59",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#2f2a6b",
+          "$value": "#342d59",
           "$type": "color"
         },
         "name": "COLOR_PURPLE_900",
@@ -1254,12 +1254,12 @@
         ]
       },
       "950": {
-        "$value": "#232150",
+        "$value": "#27243e",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#232150",
+          "$value": "#27243e",
           "$type": "color"
         },
         "name": "COLOR_PURPLE_950",
@@ -1375,12 +1375,12 @@
         ]
       },
       "600": {
-        "$value": "#c91c00",
+        "$value": "#c02f12",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#c91c00",
+          "$value": "#c02f12",
           "$type": "color"
         },
         "name": "COLOR_RED_600",
@@ -1392,12 +1392,12 @@
         ]
       },
       "700": {
-        "$value": "#ae1800",
+        "$value": "#a32c12",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#ae1800",
+          "$value": "#a32c12",
           "$type": "color"
         },
         "name": "COLOR_RED_700",
@@ -1409,12 +1409,12 @@
         ]
       },
       "800": {
-        "$value": "#8d1300",
+        "$value": "#812713",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#8d1300",
+          "$value": "#812713",
           "$type": "color"
         },
         "name": "COLOR_RED_800",
@@ -1426,12 +1426,12 @@
         ]
       },
       "900": {
-        "$value": "#660e00",
+        "$value": "#582014",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#660e00",
+          "$value": "#582014",
           "$type": "color"
         },
         "name": "COLOR_RED_900",
@@ -1443,12 +1443,12 @@
         ]
       },
       "950": {
-        "$value": "#4d0a00",
+        "$value": "#3e1a14",
         "$type": "color",
         "filePath": "src/tokens/constant/color.tokens.json",
         "isSource": true,
         "original": {
-          "$value": "#4d0a00",
+          "$value": "#3e1a14",
           "$type": "color"
         },
         "name": "COLOR_RED_950",
@@ -5866,7 +5866,7 @@
       "text": {
         "color": {
           "default": {
-            "$value": "#002850",
+            "$value": "#1d283e",
             "$type": "color",
             "$description": "Used for the text of an informational badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5890,7 +5890,7 @@
             ]
           },
           "hover": {
-            "$value": "#002850",
+            "$value": "#1d283e",
             "$type": "color",
             "$description": "Used for the text of an informational badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5914,7 +5914,7 @@
             ]
           },
           "focus": {
-            "$value": "#002850",
+            "$value": "#1d283e",
             "$type": "color",
             "$description": "Used for the text of an informational badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5935,7 +5935,7 @@
             ]
           },
           "active": {
-            "$value": "#002850",
+            "$value": "#1d283e",
             "$type": "color",
             "$description": "Used for the text of an informational badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5963,7 +5963,7 @@
       "icon": {
         "color": {
           "default": {
-            "$value": "#002850",
+            "$value": "#1d283e",
             "$type": "color",
             "$description": "Used for the icon of an informational badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -5987,7 +5987,7 @@
             ]
           },
           "hover": {
-            "$value": "#002850",
+            "$value": "#1d283e",
             "$type": "color",
             "$description": "Used for the icon of an informational badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6011,7 +6011,7 @@
             ]
           },
           "focus": {
-            "$value": "#002850",
+            "$value": "#1d283e",
             "$type": "color",
             "$description": "Used for the icon of an informational badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6032,7 +6032,7 @@
             ]
           },
           "active": {
-            "$value": "#002850",
+            "$value": "#1d283e",
             "$type": "color",
             "$description": "Used for the icon of an informational badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6247,7 +6247,7 @@
       "text": {
         "color": {
           "default": {
-            "$value": "#072b15",
+            "$value": "#17291c",
             "$type": "color",
             "$description": "Used for the text of a success badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6271,7 +6271,7 @@
             ]
           },
           "hover": {
-            "$value": "#072b15",
+            "$value": "#17291c",
             "$type": "color",
             "$description": "Used for the text of a success badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6295,7 +6295,7 @@
             ]
           },
           "focus": {
-            "$value": "#072b15",
+            "$value": "#17291c",
             "$type": "color",
             "$description": "Used for the text of a success badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6316,7 +6316,7 @@
             ]
           },
           "active": {
-            "$value": "#072b15",
+            "$value": "#17291c",
             "$type": "color",
             "$description": "Used for the text of a success badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6344,7 +6344,7 @@
       "icon": {
         "color": {
           "default": {
-            "$value": "#072b15",
+            "$value": "#17291c",
             "$type": "color",
             "$description": "Used for the icon of a success badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6368,7 +6368,7 @@
             ]
           },
           "hover": {
-            "$value": "#072b15",
+            "$value": "#17291c",
             "$type": "color",
             "$description": "Used for the icon of a success badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6392,7 +6392,7 @@
             ]
           },
           "focus": {
-            "$value": "#072b15",
+            "$value": "#17291c",
             "$type": "color",
             "$description": "Used for the icon of a success badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6413,7 +6413,7 @@
             ]
           },
           "active": {
-            "$value": "#072b15",
+            "$value": "#17291c",
             "$type": "color",
             "$description": "Used for the icon of a success badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6628,7 +6628,7 @@
       "text": {
         "color": {
           "default": {
-            "$value": "#421f00",
+            "$value": "#382315",
             "$type": "color",
             "$description": "Used for the text of a warning badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6652,7 +6652,7 @@
             ]
           },
           "hover": {
-            "$value": "#421f00",
+            "$value": "#382315",
             "$type": "color",
             "$description": "Used for the text of a warning badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6676,7 +6676,7 @@
             ]
           },
           "focus": {
-            "$value": "#421f00",
+            "$value": "#382315",
             "$type": "color",
             "$description": "Used for the text of a warning badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6697,7 +6697,7 @@
             ]
           },
           "active": {
-            "$value": "#421f00",
+            "$value": "#382315",
             "$type": "color",
             "$description": "Used for the text of a warning badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6725,7 +6725,7 @@
       "icon": {
         "color": {
           "default": {
-            "$value": "#421f00",
+            "$value": "#382315",
             "$type": "color",
             "$description": "Used for the icon of a warning badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6749,7 +6749,7 @@
             ]
           },
           "hover": {
-            "$value": "#421f00",
+            "$value": "#382315",
             "$type": "color",
             "$description": "Used for the icon of a warning badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6773,7 +6773,7 @@
             ]
           },
           "focus": {
-            "$value": "#421f00",
+            "$value": "#382315",
             "$type": "color",
             "$description": "Used for the icon of a warning badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -6794,7 +6794,7 @@
             ]
           },
           "active": {
-            "$value": "#421f00",
+            "$value": "#382315",
             "$type": "color",
             "$description": "Used for the icon of a warning badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7009,7 +7009,7 @@
       "text": {
         "color": {
           "default": {
-            "$value": "#4d0a00",
+            "$value": "#3e1a14",
             "$type": "color",
             "$description": "Used for the text of a danger badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7033,7 +7033,7 @@
             ]
           },
           "hover": {
-            "$value": "#4d0a00",
+            "$value": "#3e1a14",
             "$type": "color",
             "$description": "Used for the text of a danger badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7057,7 +7057,7 @@
             ]
           },
           "focus": {
-            "$value": "#4d0a00",
+            "$value": "#3e1a14",
             "$type": "color",
             "$description": "Used for the text of a danger badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7078,7 +7078,7 @@
             ]
           },
           "active": {
-            "$value": "#4d0a00",
+            "$value": "#3e1a14",
             "$type": "color",
             "$description": "Used for the text of a danger badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7106,7 +7106,7 @@
       "icon": {
         "color": {
           "default": {
-            "$value": "#4d0a00",
+            "$value": "#3e1a14",
             "$type": "color",
             "$description": "Used for the icon of a danger badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7130,7 +7130,7 @@
             ]
           },
           "hover": {
-            "$value": "#4d0a00",
+            "$value": "#3e1a14",
             "$type": "color",
             "$description": "Used for the icon of a danger badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7154,7 +7154,7 @@
             ]
           },
           "focus": {
-            "$value": "#4d0a00",
+            "$value": "#3e1a14",
             "$type": "color",
             "$description": "Used for the icon of a danger badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7175,7 +7175,7 @@
             ]
           },
           "active": {
-            "$value": "#4d0a00",
+            "$value": "#3e1a14",
             "$type": "color",
             "$description": "Used for the icon of a danger badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7390,7 +7390,7 @@
       "text": {
         "color": {
           "default": {
-            "$value": "#232150",
+            "$value": "#27243e",
             "$type": "color",
             "$description": "Used for the text of a tier related badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7414,7 +7414,7 @@
             ]
           },
           "hover": {
-            "$value": "#232150",
+            "$value": "#27243e",
             "$type": "color",
             "$description": "Used for the text of a tier related badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7438,7 +7438,7 @@
             ]
           },
           "focus": {
-            "$value": "#232150",
+            "$value": "#27243e",
             "$type": "color",
             "$description": "Used for the text of a tier related badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7459,7 +7459,7 @@
             ]
           },
           "active": {
-            "$value": "#232150",
+            "$value": "#27243e",
             "$type": "color",
             "$description": "Used for the text of a tier related badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7487,7 +7487,7 @@
       "icon": {
         "color": {
           "default": {
-            "$value": "#232150",
+            "$value": "#27243e",
             "$type": "color",
             "$description": "Used for the icon of a tier related badge when static or the default state when linked.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7511,7 +7511,7 @@
             ]
           },
           "hover": {
-            "$value": "#232150",
+            "$value": "#27243e",
             "$type": "color",
             "$description": "Used for the icon of a tier related badge in the hover state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7535,7 +7535,7 @@
             ]
           },
           "focus": {
-            "$value": "#232150",
+            "$value": "#27243e",
             "$type": "color",
             "$description": "Used for the icon of a tier related badge in the focus state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7556,7 +7556,7 @@
             ]
           },
           "active": {
-            "$value": "#232150",
+            "$value": "#27243e",
             "$type": "color",
             "$description": "Used for the icon of a tier related badge in the active state.",
             "filePath": "src/tokens/contextual/badge.tokens.json",
@@ -7587,7 +7587,7 @@
     "intro": {
       "border": {
         "color": {
-          "$value": "#0b5cad",
+          "$value": "#2f5ca0",
           "$type": "color",
           "$description": "Used for the border of an info banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
@@ -7614,7 +7614,7 @@
     "promo": {
       "background": {
         "color": {
-          "$value": "#232150",
+          "$value": "#27243e",
           "$type": "color",
           "$description": "Used for the background of a promo banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
@@ -7639,7 +7639,7 @@
       },
       "border": {
         "color": {
-          "$value": "#5943b6",
+          "$value": "#5c47a6",
           "$type": "color",
           "$description": "Used for the border of a promo banner.",
           "filePath": "src/tokens/contextual/banner.tokens.json",
@@ -11546,7 +11546,7 @@
       },
       "line": {
         "color": {
-          "$value": "#c91c00",
+          "$value": "#c02f12",
           "$type": "color",
           "$description": "Used in charts to divide a threshold area in a chart from other data.",
           "filePath": "src/tokens/contextual/chart.tokens.json",
@@ -13599,7 +13599,7 @@
       "background": {
         "color": {
           "default": {
-            "$value": "#064787",
+            "$value": "#284779",
             "$type": "color",
             "$description": "Used for the mention link default background.",
             "filePath": "src/tokens/contextual/link.tokens.json",
@@ -13623,7 +13623,7 @@
             ]
           },
           "current": {
-            "$value": "#703800",
+            "$value": "#693c14",
             "$type": "color",
             "$description": "Used for the mention link background when referencing the current user.",
             "filePath": "src/tokens/contextual/link.tokens.json",
@@ -17819,7 +17819,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#1068bf",
+          "default": "#2f68b4",
           "dark": "#63a6e9"
         },
         "$type": "color",
@@ -17844,7 +17844,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#0b5cad",
+          "default": "#2f5ca0",
           "dark": "#9dc7f1"
         },
         "$type": "color",
@@ -17869,7 +17869,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#064787",
+          "default": "#284779",
           "dark": "#cbe2f9"
         },
         "$type": "color",
@@ -17894,7 +17894,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#033464",
+          "default": "#213454",
           "dark": "#e9f3fc"
         },
         "$type": "color",
@@ -17919,7 +17919,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#002850",
+          "default": "#1d283e",
           "dark": "#f2f9ff"
         },
         "$type": "color",
@@ -18398,7 +18398,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#217645",
+          "default": "#2f7549",
           "dark": "#52b87a"
         },
         "$type": "color",
@@ -18423,7 +18423,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#24663b",
+          "default": "#306440",
           "dark": "#91d4a8"
         },
         "$type": "color",
@@ -18448,7 +18448,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#0d532a",
+          "default": "#225131",
           "dark": "#c3e6cd"
         },
         "$type": "color",
@@ -18473,7 +18473,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#0a4020",
+          "default": "#1e3e28",
           "dark": "#ecf4ee"
         },
         "$type": "color",
@@ -18498,7 +18498,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#072b15",
+          "default": "#17291c",
           "dark": "#f1fdf6"
         },
         "$type": "color",
@@ -18675,7 +18675,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#9e5400",
+          "default": "#995715",
           "dark": "#d99530"
         },
         "$type": "color",
@@ -18700,7 +18700,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#8f4700",
+          "default": "#894b16",
           "dark": "#e9be74"
         },
         "$type": "color",
@@ -18725,7 +18725,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#703800",
+          "default": "#693c14",
           "dark": "#f5d9a8"
         },
         "$type": "color",
@@ -18750,7 +18750,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#5c2900",
+          "default": "#532e16",
           "dark": "#fdf1dd"
         },
         "$type": "color",
@@ -18775,7 +18775,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#421f00",
+          "default": "#382315",
           "dark": "#fff4e1"
         },
         "$type": "color",
@@ -18952,7 +18952,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#694cc0",
+          "default": "#6a4fb4",
           "dark": "#9475db"
         },
         "$type": "color",
@@ -18977,7 +18977,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#5943b6",
+          "default": "#5c47a6",
           "dark": "#ac93e6"
         },
         "$type": "color",
@@ -19002,7 +19002,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#453894",
+          "default": "#493c83",
           "dark": "#cbbbf2"
         },
         "$type": "color",
@@ -19027,7 +19027,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#2f2a6b",
+          "default": "#342d59",
           "dark": "#e1d8f9"
         },
         "$type": "color",
@@ -19052,7 +19052,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#232150",
+          "default": "#27243e",
           "dark": "#f4f0ff"
         },
         "$type": "color",
@@ -19229,7 +19229,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#c91c00",
+          "default": "#c02f12",
           "dark": "#f57f6c"
         },
         "$type": "color",
@@ -19254,7 +19254,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#ae1800",
+          "default": "#a32c12",
           "dark": "#fcb5aa"
         },
         "$type": "color",
@@ -19279,7 +19279,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#8d1300",
+          "default": "#812713",
           "dark": "#fdd4cd"
         },
         "$type": "color",
@@ -19304,7 +19304,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#660e00",
+          "default": "#582014",
           "dark": "#fcf1ef"
         },
         "$type": "color",
@@ -19329,7 +19329,7 @@
       "isSource": true,
       "original": {
         "$value": {
-          "default": "#4d0a00",
+          "default": "#3e1a14",
           "dark": "#fff4f3"
         },
         "$type": "color",
@@ -22657,7 +22657,7 @@
     "info": {
       "background": {
         "color": {
-          "$value": "#002850",
+          "$value": "#1d283e",
           "$type": "color",
           "$description": "Used for the background of an informational feedback item when highlighting new information or a change that doesn't require immediate action.",
           "filePath": "src/tokens/semantic/feedback.tokens.json",
@@ -22734,7 +22734,7 @@
     "success": {
       "background": {
         "color": {
-          "$value": "#0a4020",
+          "$value": "#1e3e28",
           "$type": "color",
           "$description": "Used for the background of a success feedback item when confirming the successful completion of a user-initiated action.",
           "filePath": "src/tokens/semantic/feedback.tokens.json",
@@ -22811,7 +22811,7 @@
     "warning": {
       "background": {
         "color": {
-          "$value": "#5c2900",
+          "$value": "#532e16",
           "$type": "color",
           "$description": "Used for the background of a warning feedback item when notifying about a potential issue or sensitive information.",
           "filePath": "src/tokens/semantic/feedback.tokens.json",
@@ -22888,7 +22888,7 @@
     "danger": {
       "background": {
         "color": {
-          "$value": "#660e00",
+          "$value": "#582014",
           "$type": "color",
           "$description": "Used for the background of a danger feedback item when notifying about a critical issue that has just occurred and requires immediate attention.",
           "filePath": "src/tokens/semantic/feedback.tokens.json",
@@ -23295,7 +23295,7 @@
     "info": {
       "background": {
         "color": {
-          "$value": "#064787",
+          "$value": "#284779",
           "$type": "color",
           "$description": "Used for the background of an informational status item when indicating a noteworthy ongoing condition or a state of active progress.",
           "filePath": "src/tokens/semantic/status.tokens.json",
@@ -23372,7 +23372,7 @@
     "success": {
       "background": {
         "color": {
-          "$value": "#0d532a",
+          "$value": "#225131",
           "$type": "color",
           "$description": "Used for the background of a success status item when indicating a positive outcome, completion, or desired state. Clearly conveys a positive connotation.",
           "filePath": "src/tokens/semantic/status.tokens.json",
@@ -23449,7 +23449,7 @@
     "warning": {
       "background": {
         "color": {
-          "$value": "#703800",
+          "$value": "#693c14",
           "$type": "color",
           "$description": "Used for the background of a warning status item when indicating a state that requires heightened awareness or caution, but is not necessarily problematic. Represents a state that warrants extra attention or care when interacting with the item.",
           "filePath": "src/tokens/semantic/status.tokens.json",
@@ -23526,7 +23526,7 @@
     "danger": {
       "background": {
         "color": {
-          "$value": "#8d1300",
+          "$value": "#812713",
           "$type": "color",
           "$description": "Used for the background of a danger status item when indicating a critical or severely problematic current state. Clearly conveys a negative connotation, representing a serious, ongoing issue or undesired condition.",
           "filePath": "src/tokens/semantic/status.tokens.json",
@@ -23603,7 +23603,7 @@
     "brand": {
       "background": {
         "color": {
-          "$value": "#2f2a6b",
+          "$value": "#342d59",
           "$type": "color",
           "$description": "Used for the background of a brand-related status item when highlighting the state of unique features or elements specific to the GitLab brand identity. Helps distinguish and emphasize brand-specific elements within the interface.",
           "filePath": "src/tokens/semantic/status.tokens.json",
