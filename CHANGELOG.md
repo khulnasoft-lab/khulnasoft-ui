@@ -1,3 +1,10 @@
+# [112.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.2.3...v112.3.0) (2025-04-11)
+
+
+### Features
+
+* **Color:** Reduce saturation ([b6a73d1](https://gitlab.com/gitlab-org/gitlab-ui/commit/b6a73d15f4b73aeb477f76d76fbf52b1f0e9fa80))
+
 ## [112.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.2.2...v112.2.3) (2025-04-08)
 
 
