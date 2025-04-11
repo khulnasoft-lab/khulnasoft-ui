@@ -1,5 +1,11 @@
 # Design tokens
 
+Design tokens are a methodology to pair design decisions with options from the design system.
+Design tokens abstract out variables like color, typography, and spacing for consistent and
+meaningful user interface (UI) design across tools and platforms.
+
+Only design decisions that are part of the design system should be represented as design tokens.
+
 GitLab UI uses design tokens to maintain a single source of truth that, through automation, can be
 formatted for different uses. See
 [Pajamas](https://design.gitlab.com/product-foundations/design-tokens) for an overview on design
@@ -416,14 +422,36 @@ export const TEXT_COLOR = '#fff';
 
 ## Adding and editing design tokens
 
-1. Create a new constant design token when there's a need for a reusable value that represents a
-specific design attribute across the system, otherwise keep new values limited to a specific
-context.
-   1. Follow existing naming conventions.
-   1. Keep in mind that a new constant design token encourages wider use while a contextual one has
-   limited use.
-1. A new or edited token should be reviewed by ~"group::design system" to ensure it aligns with the
-system.
+Design tokens represent foundational design decisions that should be stable and consistent across
+the GitLab platform.
+Adding or modifying design tokens requires careful consideration:
+
+Before creating a new design token:
+
+1. Check if existing design tokens or design token compositions match the required intent and appearance.
+1. Verify it will be used across multiple components or contexts.
+1. Confirm the value represents a design system decision.
+
+### Governance requirements
+
+New design tokens require:
+
+- Collaborative design and engineering input.
+- Approval from the design system team (~"group::design system").
+- Clear naming, description and categorization aligned with existing patterns.
+- Consideration of impact on both design and developer tools.
+
+### Contribution steps
+
+If you need a design token that doesn't exist:
+
+1. Start by discussing your needs with the design system team.
+1. Create an issue describing the design token's purpose, usage contexts, and proposed values.
+1. Work with the team to refine the proposal.
+1. Submit an MR with the necessary additions after approval.
+
+Remember that design tokens should make building GitLab easier.
+If the design token creation process becomes a blocker, contact the design systems team to discuss alternatives.
 
 ### Naming convention
 
