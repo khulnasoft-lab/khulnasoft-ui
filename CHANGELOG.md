@@ -1,3 +1,11 @@
+## [112.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.3.0...v112.3.1) (2025-04-14)
+
+
+### Bug Fixes
+
+* **DesignTokens:** add token.path conditional check ([79a400b](https://gitlab.com/gitlab-org/gitlab-ui/commit/79a400bf7649ce60d568e226525cc2a3bf8aa0c9))
+* **DesignTokens:** use yarn build-tokens script for check tokens build ([f814b08](https://gitlab.com/gitlab-org/gitlab-ui/commit/f814b086764285e1126aac881274d83c2fbad02f))
+
 # [112.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.2.3...v112.3.0) (2025-04-11)
 
 
