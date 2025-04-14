@@ -16,6 +16,10 @@ import { TailwindTokenFormatter } from './lib/tailwind_token_formatter.js';
  */
 const PREFIX = 'gl';
 
+const ROOT = join(import.meta.dirname, '..');
+const BUILD_PATH = join(ROOT, 'src', 'tokens', 'build');
+const DIST_PATH = join(ROOT, 'dist', 'tokens');
+
 /**
  * Utils
  */
@@ -499,6 +503,11 @@ async function buildFigmaTokens() {
  */
 async function main() {
   try {
+    // Clean build directories first to prevent loose files.
+    await Promise.all(
+      [BUILD_PATH, DIST_PATH].map((path) => fs.promises.rm(path, { recursive: true, force: true }))
+    );
+
     // Build tokens using StyleDictionary
     const defaultMode = new StyleDictionary(getStyleDictionaryConfigDefault());
     await defaultMode.buildAllPlatforms();
