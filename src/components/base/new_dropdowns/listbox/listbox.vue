@@ -2,7 +2,6 @@
 <script>
 import clamp from 'lodash/clamp';
 import uniqueId from 'lodash/uniqueId';
-import isNil from 'lodash/isNil';
 import { stopEvent } from '../../../../utils/utils';
 import {
   GL_DROPDOWN_SHOWN,
@@ -84,7 +83,7 @@ export default {
      * Array of selected items values for multi-select and selected item value for single-select
      */
     selected: {
-      type: [Array, String, Number],
+      type: [Array, String, Number, null],
       required: false,
       default: () => [],
     },
@@ -420,6 +419,7 @@ export default {
     selectedIndices() {
       return this.selectedValues
         .map((selected) => this.flattenedOptions.findIndex(({ value }) => value === selected))
+        .filter((index) => index !== -1)
         .sort();
     },
     showList() {
@@ -508,7 +508,7 @@ export default {
           }
           this.selectedValues = [...newSelected];
         } else {
-          this.selectedValues = isNil(newSelected) ? [] : [newSelected];
+          this.selectedValues = [newSelected];
         }
       },
     },
