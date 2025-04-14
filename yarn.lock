@@ -5611,6 +5611,11 @@ commander@^10.0.0, commander@^10.0.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-10.0.1.tgz#881ee46b4f77d1c1dccc5823433aa39b022cbe06"
   integrity sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==
 
+commander@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-12.1.0.tgz#01423b36f501259fdaac4d0e4d60c96c991585d3"
+  integrity sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==
+
 commander@^2.20.0:
   version "2.20.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
@@ -11513,10 +11518,10 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-path-unified@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/path-unified/-/path-unified-0.1.0.tgz#fd751e787ab019a88cdf5cecbd7e5e4711c66c7d"
-  integrity sha512-/Oaz9ZJforrkmFrwkR/AcvjVsCAwGSJHO0X6O6ISj8YeFbATjIEBXLDcZfnK3MO4uvCBrJTdVIxdOc79PMqSdg==
+path-unified@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/path-unified/-/path-unified-0.2.0.tgz#9094ca9cc7e573f037884f6bf8f3d621a2f68f29"
+  integrity sha512-MNKqvrKbbbb5p7XHXV6ZAsf/1f/yJQa13S/fcX0uua8ew58Tgc6jXV+16JyAbnR/clgCH+euKDxrF2STxMHdrg==
 
 path@^0.12.7:
   version "0.12.7"
@@ -12135,6 +12140,11 @@ prettier@3.3.2:
   version "2.8.8"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
+
+prettier@^3.3.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.5.3.tgz#4fc2ce0d657e7a02e602549f053b239cb7dfe1b5"
+  integrity sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==
 
 pretty-bytes@^5.6.0:
   version "5.6.0"
@@ -13819,10 +13829,10 @@ strnum@^1.0.5:
   resolved "https://registry.yarnpkg.com/strnum/-/strnum-1.0.5.tgz#5c4e829fe15ad4ff0d20c3db5ac97b73c9b072db"
   integrity sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==
 
-style-dictionary@^4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-4.1.4.tgz#caa2a90dd4ca3fb161a9cf6840ad53566a352e93"
-  integrity sha512-JCfF5/my6yTBp8qtcxdEY1JwR3JDq9fyosoJ+mpl/jMVZ0zVNsseIDJA/xMmm0P3GwuryHkwJwBMkm99HlXhfQ==
+style-dictionary@^4.3.3:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/style-dictionary/-/style-dictionary-4.3.3.tgz#d09a27a98671b1bdc043180c86a6fc1f5b8580f9"
+  integrity sha512-93ISASYmvGdKOvNHFaOZ+mVsCNQdoZzhSEq7JINE0BjMoE8zUzkwFyGDUBnfmXayHq/F4B4MCWmtjqjgHAYthw==
   dependencies:
     "@bundled-es-modules/deepmerge" "^4.3.1"
     "@bundled-es-modules/glob" "^10.4.2"
@@ -13830,11 +13840,12 @@ style-dictionary@^4.1.4:
     "@zip.js/zip.js" "^2.7.44"
     chalk "^5.3.0"
     change-case "^5.3.0"
-    commander "^8.3.0"
+    commander "^12.1.0"
     is-plain-obj "^4.1.0"
     json5 "^2.2.2"
     patch-package "^8.0.0"
-    path-unified "^0.1.0"
+    path-unified "^0.2.0"
+    prettier "^3.3.3"
     tinycolor2 "^1.6.0"
 
 style-inject@^0.3.0:
