@@ -2,7 +2,7 @@
 
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { globSync } from 'glob';
 import { format, resolveConfig } from 'prettier';
 import StyleDictionary from 'style-dictionary';
@@ -316,7 +316,7 @@ StyleDictionary.registerAction({
  * @param {String} buildPath for destination directory
  * @returns {Object} style-dictionary config
  */
-const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => {
+const getStyleDictionaryConfigDefault = (buildPath) => {
   return {
     include: ['src/tokens/**/*.tokens.json'],
     source: ['src/tokens/**/*.tokens.json'],
@@ -396,7 +396,7 @@ const getStyleDictionaryConfigDefault = (buildPath = 'dist/tokens') => {
  *
  * @returns {Object} style-dictionary config
  */
-const getStyleDictionaryConfigDarkMode = (buildPath = 'dist/tokens') => {
+const getStyleDictionaryConfigDarkMode = (buildPath) => {
   return merge(getStyleDictionaryConfigDefault(buildPath), {
     platforms: {
       css: {
@@ -454,8 +454,10 @@ function addExtension(tokens, extension, extensionValue = true) {
 /**
  * Load and concatenate token files from the tokens directory,
  * categorized into four groups by subdirectory.
+ *
+ * @param {string} outputDir Directory where to write the output files (will be created if it does not exist)
  */
-async function buildFigmaTokens() {
+async function buildFigmaTokens(buildPath) {
   const combineTokenFiles = (category) => {
     const files = globSync(`./src/tokens/${category}/**/*.tokens.json`)
       // Naive attempt to keep JSON output stable across builds. A more robust
@@ -488,7 +490,7 @@ async function buildFigmaTokens() {
     },
   ];
 
-  const outputDir = join(process.cwd(), 'src', 'tokens', 'build', 'figma');
+  const outputDir = join(buildPath, 'figma');
   fs.mkdirSync(outputDir, { recursive: true });
 
   for (const { name, tokens } of tokenCategories) {
@@ -509,24 +511,18 @@ async function main() {
     );
 
     // Build tokens using StyleDictionary
-    const defaultMode = new StyleDictionary(getStyleDictionaryConfigDefault());
+    const defaultMode = new StyleDictionary(getStyleDictionaryConfigDefault(BUILD_PATH));
     await defaultMode.buildAllPlatforms();
 
-    const darkMode = new StyleDictionary(getStyleDictionaryConfigDarkMode());
+    const darkMode = new StyleDictionary(getStyleDictionaryConfigDarkMode(BUILD_PATH));
     await darkMode.buildAllPlatforms();
 
-    const defaultModeSrcDirectory = new StyleDictionary(
-      getStyleDictionaryConfigDefault('src/tokens/build')
-    );
-    await defaultModeSrcDirectory.buildAllPlatforms();
-
-    const darkModeSrcDirectory = new StyleDictionary(
-      getStyleDictionaryConfigDarkMode('src/tokens/build')
-    );
-    await darkModeSrcDirectory.buildAllPlatforms();
-
     // Build tokens for Figma
-    await buildFigmaTokens();
+    await buildFigmaTokens(BUILD_PATH);
+
+    // Finally, copy to DIST_PATH.
+    await fs.promises.cp(BUILD_PATH, DIST_PATH, { recursive: true });
+    console.log(`✔︎ Copied built tokens to ${relative(ROOT, DIST_PATH)}`);
   } catch (error) {
     console.error('🚨 Error building tokens:', error);
     process.exit(1);
