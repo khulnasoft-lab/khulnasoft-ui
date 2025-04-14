@@ -122,23 +122,34 @@ StyleDictionary.registerFormat({
       }, {});
     };
 
+    /**
+     * Adds token custom property to an accumulator
+     * @param {array} acc
+     * @param {object} token
+     */
+    const assignObjectKeyWithTokenCustomProperty = (acc, token) => {
+      if (token.path) {
+        acc[token.path.join('-')] = f.cssCustomPropertyWithValue(token);
+      }
+    };
+
     const baseColors = ['blue', 'gray', 'green', 'orange', 'purple', 'red'].reduce((acc, color) => {
       Object.entries(COMPILED_TOKENS[color]).forEach(([, token]) => {
-        acc[token.path.join('-')] = f.cssCustomPropertyWithValue(token);
+        assignObjectKeyWithTokenCustomProperty(acc, token);
       });
       return acc;
     }, {});
 
     const themeColors = Object.entries(COMPILED_TOKENS.theme).reduce((acc, [, scales]) => {
       Object.entries(scales).forEach(([, token]) => {
-        acc[token.path.join('-')] = f.cssCustomPropertyWithValue(token);
+        assignObjectKeyWithTokenCustomProperty(acc, token);
       });
       return acc;
     }, {});
 
     const dataVizColors = Object.entries(COMPILED_TOKENS['data-viz']).reduce((acc, [, scales]) => {
       Object.entries(scales).forEach(([, token]) => {
-        acc[token.path.join('-')] = f.cssCustomPropertyWithValue(token);
+        assignObjectKeyWithTokenCustomProperty(acc, token);
       });
       return acc;
     }, {});
