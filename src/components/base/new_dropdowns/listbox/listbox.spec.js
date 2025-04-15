@@ -81,6 +81,7 @@ describe('GlCollapsibleListbox', () => {
       ${''}               | ${true}  | ${[mockOptions[0]].value} | ${''}
       ${''}               | ${false} | ${mockOptions[0].value}   | ${mockOptions[0].text}
       ${''}               | ${false} | ${''}                     | ${''}
+      ${''}               | ${false} | ${null}                   | ${mockOptions[12].text}
     `('when listbox', ({ toggleText, multiple, selected, expectedToggleText }) => {
       beforeEach(() => {
         buildWrapper({ items: mockOptions, toggleText, multiple, selected });
@@ -88,7 +89,7 @@ describe('GlCollapsibleListbox', () => {
 
       it(`is ${multiple ? 'multi' : 'single'}-select, toggleText is ${
         toggleText.length ? '' : 'not '
-      }provided and ${selected ? 'has' : 'does not have'} selected`, () => {
+      }provided and selected is ${selected ? 'provided' : `"${selected}"`}`, () => {
         expect(findBaseDropdown().props('toggleText')).toBe(expectedToggleText);
       });
     });
@@ -100,15 +101,15 @@ describe('GlCollapsibleListbox', () => {
       ${'customClass'}         | ${false} | ${mockOptions[0].value}   | ${['customClass']}
       ${{ customClass: true }} | ${false} | ${mockOptions[0].value}   | ${[{ customClass: true }]}
       ${['customClass']}       | ${false} | ${mockOptions[0].value}   | ${[['customClass']]}
-      ${'customClass'}         | ${false} | ${null}                   | ${['customClass', '!gl-text-subtle']}
+      ${'customClass'}         | ${false} | ${undefined}              | ${['customClass', '!gl-text-subtle']}
       ${{ customClass: true }} | ${false} | ${undefined}              | ${[{ customClass: true }, '!gl-text-subtle']}
-      ${['customClass']}       | ${false} | ${null}                   | ${[['customClass'], '!gl-text-subtle']}
+      ${['customClass']}       | ${false} | ${undefined}              | ${[['customClass'], '!gl-text-subtle']}
       ${'customClass'}         | ${true}  | ${[mockOptions[0].value]} | ${['customClass']}
       ${{ customClass: true }} | ${true}  | ${[mockOptions[0].value]} | ${[{ customClass: true }]}
       ${['customClass']}       | ${true}  | ${[mockOptions[0].value]} | ${[['customClass']]}
-      ${'customClass'}         | ${true}  | ${null}                   | ${['customClass', '!gl-text-subtle']}
+      ${'customClass'}         | ${true}  | ${undefined}              | ${['customClass', '!gl-text-subtle']}
       ${{ customClass: true }} | ${true}  | ${undefined}              | ${[{ customClass: true }, '!gl-text-subtle']}
-      ${['customClass']}       | ${true}  | ${null}                   | ${[['customClass'], '!gl-text-subtle']}
+      ${['customClass']}       | ${true}  | ${undefined}              | ${[['customClass'], '!gl-text-subtle']}
     `('when listbox', ({ toggleClass, multiple, selected, expectedToggleClasses }) => {
       beforeEach(() => {
         buildWrapper({ items: mockOptions, toggleClass, multiple, selected });
@@ -227,14 +228,15 @@ describe('GlCollapsibleListbox', () => {
   describe('onShow', () => {
     let focusSpy;
 
-    const showDropdown = async ({ searchable = false } = {}) => {
+    const showDropdown = async (props = {}) => {
       buildWrapper({
         multiple: true,
         items: mockOptions,
         selected: [mockOptions[2].value, mockOptions[1].value],
-        searchable,
+        searchable: false,
+        ...props,
       });
-      if (searchable) {
+      if (props.searchable) {
         focusSpy = jest.spyOn(wrapper.vm.$refs.searchBox, 'focusInput');
       }
       findBaseDropdown().vm.$emit(GL_DROPDOWN_SHOWN);
@@ -251,6 +253,18 @@ describe('GlCollapsibleListbox', () => {
       await showDropdown();
       // eslint-disable-next-line unicorn/no-array-callback-reference
       expect(findListboxItems().at(1).find(ITEM_SELECTOR).element).toHaveFocus();
+    });
+
+    it('should focus the first item, if none are selected', async () => {
+      await showDropdown({ selected: [] });
+      // eslint-disable-next-line unicorn/no-array-callback-reference
+      expect(findListboxItems().at(0).find(ITEM_SELECTOR).element).toHaveFocus();
+    });
+
+    it('should focus the first item, if selected option is not found', async () => {
+      await showDropdown({ multiple: false, selected: 'not an option in the list' });
+      // eslint-disable-next-line unicorn/no-array-callback-reference
+      expect(findListboxItems().at(0).find(ITEM_SELECTOR).element).toHaveFocus();
     });
 
     it('should focus the search input when search is enabled', async () => {
