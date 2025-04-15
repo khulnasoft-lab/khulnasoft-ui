@@ -1,3 +1,10 @@
+## [112.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.3.1...v112.3.2) (2025-04-15)
+
+
+### Bug Fixes
+
+* **GlListbox:** Allows listbox to accept null values as defaults ([13848f1](https://gitlab.com/gitlab-org/gitlab-ui/commit/13848f15712c5954ca466b2de4336684aacc3e22))
+
 ## [112.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.3.0...v112.3.1) (2025-04-14)
 
 
