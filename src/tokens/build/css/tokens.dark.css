@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-:root.gl-dark {
+:root.gl-dark, .gl-dark-scope {
   --gl-color-alpha-0: transparent;
   --gl-color-alpha-dark-2: rgba(05, 05, 06, 0.02);
   --gl-color-alpha-dark-4: rgba(05, 05, 06, 0.04);
