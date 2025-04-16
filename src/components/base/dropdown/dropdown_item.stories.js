@@ -95,6 +95,7 @@ export default {
   title: 'base/dropdown/deprecated/dropdown-item',
   component: GlDropdownItem,
   parameters: {
+    // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
     a11y: getA11yParameters({ temporarySkipRules: ['aria-required-parent', 'list'] }),
     bootstrapComponent: 'b-dropdown-item',
     bootstrapDocs: BVueReadme,

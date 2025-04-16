@@ -138,6 +138,7 @@ export default {
   title: 'base/form/form-fields',
   component: GlFormFields,
   parameters: {
+    // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
     a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
     knobs: {
       disable: true,
