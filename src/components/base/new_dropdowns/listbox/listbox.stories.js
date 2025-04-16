@@ -296,6 +296,7 @@ CustomListItem.args = generateProps({
 });
 CustomListItem.decorators = [makeContainer({ height: '200px' })];
 CustomListItem.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
 };
 
@@ -338,6 +339,7 @@ CustomToggle.args = generateProps({
 });
 CustomToggle.decorators = [makeContainer({ height: '200px' })];
 CustomToggle.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['color-contrast'] }),
 };
 

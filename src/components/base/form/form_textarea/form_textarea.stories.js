@@ -58,6 +58,7 @@ WithCharacterCount.args = generateProps({
   characterCountLimit: 100,
 });
 WithCharacterCount.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['label-title-only'] }),
 };
 

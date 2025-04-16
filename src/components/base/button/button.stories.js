@@ -234,6 +234,7 @@ export const DropdownIconSplitButton = (args, { argTypes }) => ({
 });
 DropdownIconSplitButton.args = generateProps({ category: 'secondary', variant: 'danger' });
 DropdownIconSplitButton.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['button-name'] }),
 };
 

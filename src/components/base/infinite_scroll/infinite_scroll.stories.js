@@ -86,6 +86,7 @@ export default {
   title: 'base/infinite-scroll',
   component: GlInfiniteScroll,
   parameters: {
+    // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
     a11y: getA11yParameters({ temporarySkipRules: ['scrollable-region-focusable'] }),
     docs: {
       description: {

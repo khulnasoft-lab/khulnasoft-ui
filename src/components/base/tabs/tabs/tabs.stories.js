@@ -122,6 +122,7 @@ export const ContentlessTab = (_args, { argTypes }) => ({
     </template>`),
 });
 ContentlessTab.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children', 'listitem'] }),
 };
 
@@ -173,6 +174,7 @@ export const WithScroll = (_args, { argTypes }) => ({
   template: '<scrollable-tabs-generator :count="50" />',
 });
 WithScroll.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children', 'listitem'] }),
 };
 

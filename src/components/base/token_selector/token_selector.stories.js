@@ -102,6 +102,7 @@ export default {
   title: 'base/token_selector',
   component: GlTokenSelector,
   parameters: {
+    // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
     a11y: getA11yParameters({
       temporarySkipRules: [
         'aria-input-field-name',

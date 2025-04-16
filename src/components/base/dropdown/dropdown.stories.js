@@ -183,6 +183,7 @@ export const WithForm = (_args, { argTypes }) => ({
 });
 WithForm.args = generateProps({ text: 'Some dropdown' });
 WithForm.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children'] }),
 };
 
@@ -242,6 +243,7 @@ WithHeaderAndFooter.args = generateProps({
   hideHeaderBorder: true,
 });
 WithHeaderAndFooter.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children'] }),
 };
 
@@ -267,6 +269,7 @@ export const WithSectionHeader = (args, { argTypes }) => ({
 });
 WithSectionHeader.args = generateProps({ text: 'Some dropdown' });
 WithSectionHeader.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({
     temporarySkipRules: [
       'aria-required-children',
@@ -502,6 +505,7 @@ WithClearAll.args = generateProps({
   clearAllTextClass: 'gl-px-5',
 });
 WithClearAll.parameters = {
+  // Skip known axe-core failures, skipped rules should be removed when underlying violation is resolved
   a11y: getA11yParameters({ temporarySkipRules: ['aria-required-children'] }),
 };
 
