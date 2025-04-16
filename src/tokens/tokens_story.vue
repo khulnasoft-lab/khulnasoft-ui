@@ -34,8 +34,8 @@ export default {
 
       const textColorVariant = colorFromBackground(value, 4.5);
       return {
-        'gl-text-gray-950': textColorVariant === 'dark',
-        'gl-text-white': textColorVariant === 'light',
+        'gl-text-neutral-950': textColorVariant === 'dark',
+        'gl-text-neutral-0': textColorVariant === 'light',
       };
     },
     getStyle(value) {

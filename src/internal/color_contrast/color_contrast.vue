@@ -21,11 +21,11 @@ export default {
       return HEX_REGEX.test(this.foreground) && HEX_REGEX.test(this.background);
     },
     classes() {
-      if (!this.isValidColorCombination) return 'gl-text-gray-950';
+      if (!this.isValidColorCombination) return 'gl-text-neutral-950';
       const { grade } = this.contrast.level;
       const isFail = grade === 'F';
       const contrastScore = getColorContrast('#fff', this.background).score > 4.5;
-      const textClass = contrastScore ? 'gl-text-white' : 'gl-text-gray-950';
+      const textClass = contrastScore ? 'gl-text-neutral-0' : 'gl-text-neutral-950';
       const failClasses = contrastScore
         ? 'gl-shadow-inner-1-red-300 gl-text-red-300'
         : 'gl-shadow-inner-1-red-500 gl-text-red-500';
