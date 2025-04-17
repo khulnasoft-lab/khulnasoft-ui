@@ -8,6 +8,7 @@ import { format, resolveConfig } from 'prettier';
 import StyleDictionary from 'style-dictionary';
 import { fileHeader } from 'style-dictionary/utils';
 import merge from 'lodash/merge.js';
+import { stripDescriptionsPreprocessor } from './lib/build_tokens_config.js';
 import {
   TailwindTokenFormatter,
   getScalesAndCSSCustomProperties,
@@ -110,6 +111,16 @@ StyleDictionary.registerTransformGroup({
 });
 
 /**
+ * Preprocessors
+ * https://styledictionary.com/reference/hooks/preprocessors/
+ */
+StyleDictionary.registerPreprocessor({
+  // Descriptions are added as comments in some formats, remove those comments
+  name: 'stripDescriptions',
+  preprocessor: stripDescriptionsPreprocessor,
+});
+
+/**
  * Formats
  * https://styledictionary.com/reference/api/#registerformat
  */
@@ -119,17 +130,6 @@ StyleDictionary.registerFormat({
     let output = [];
     dictionary.allTokens.forEach((token) => {
       output = output.concat(`$${token.name}: var(--${token.name});`);
-    });
-    return `${await fileHeader({ file })}${output.join('\n')}\n`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'javascript/custom-no-description',
-  async format({ dictionary, file }) {
-    let output = [];
-    dictionary.allTokens.forEach((token) => {
-      output = output.concat(`export const ${token.name} = "${token.$value}";`);
     });
     return `${await fileHeader({ file })}${output.join('\n')}\n`;
   },
@@ -427,11 +427,12 @@ const getStyleDictionaryConfigDefault = (buildPath) => {
         prefix: PREFIX,
         buildPath: `${buildPath}/js/`,
         transformGroup: 'js/default',
+        preprocessors: ['stripDescriptions'],
         actions: ['prettier'],
         files: [
           {
             destination: 'tokens.js',
-            format: 'javascript/custom-no-description',
+            format: 'javascript/es6',
           },
         ],
       },
