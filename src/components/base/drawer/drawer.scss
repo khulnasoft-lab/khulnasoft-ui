@@ -49,7 +49,12 @@ $gl-drawer-scrim-gradient: linear-gradient(
   }
 
   .gl-drawer-body > * {
+    @apply gl-border-b;
     @apply gl-mx-5;
+  
+    &:last-child {
+      @apply gl-border-none;
+    }
   }
 
   .gl-drawer-header {
@@ -122,14 +127,6 @@ $gl-drawer-scrim-gradient: linear-gradient(
     @apply gl-w-full;
     position: fixed;
     @apply gl-h-7;
-  }
-}
-
-.gl-drawer-body > * {
-  @apply gl-border-b;
-
-  &:last-child {
-    @apply gl-border-none;
   }
 }
 
