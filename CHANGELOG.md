@@ -1,3 +1,10 @@
+## [112.3.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.3.2...v112.3.3) (2025-04-22)
+
+
+### Bug Fixes
+
+* **DesignTokens:** add custom format for JS output without comments ([14ee749](https://gitlab.com/gitlab-org/gitlab-ui/commit/14ee749590ce58ae26fe7237a93d35eff0d5ca00))
+
 ## [112.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.3.1...v112.3.2) (2025-04-15)
 
 
