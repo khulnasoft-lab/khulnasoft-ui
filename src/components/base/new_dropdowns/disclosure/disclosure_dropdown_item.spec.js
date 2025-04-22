@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import { BLink } from '../../../../vendor/bootstrap-vue/src/components/link/link';
+import GlLink from '../../link/link.vue';
 import { ENTER, SPACE } from '../constants';
 import { mockItems } from './mock_data';
 
@@ -59,7 +59,7 @@ describe('GlDisclosureDropdownItem', () => {
       buildWrapper({ item });
     });
 
-    const findLink = () => wrapper.findComponent(BLink);
+    const findLink = () => wrapper.findComponent(GlLink);
 
     it('should render a link', () => {
       expect(findLink().exists()).toBe(true);
@@ -69,9 +69,14 @@ describe('GlDisclosureDropdownItem', () => {
       expect(findLink().classes()).toContain('gl-new-dropdown-item-content');
     });
 
-    it('should set correct props and attributes', () => {
+    it('should set correct props', () => {
       expect(findLink().props(prop)).toBe(item[prop]);
-      expect(findLink().attributes()).toEqual(expect.objectContaining(item.extraAttrs));
+    });
+
+    it('should set correct attributes', () => {
+      Object.entries(item.extraAttrs).forEach(([key, value]) => {
+        expect(findLink().props(key) || findLink().attributes(key)).toBe(value);
+      });
     });
 
     it('should apply the default classes to the item wrapper', () => {
