@@ -120,6 +120,17 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
+  name: 'javascript/custom-no-description',
+  async format({ dictionary, file }) {
+    let output = [];
+    dictionary.allTokens.forEach((token) => {
+      output = output.concat(`export const ${token.name} = "${token.$value}";`);
+    });
+    return `${await fileHeader({ file })}${output.join('\n')}\n`;
+  },
+});
+
+StyleDictionary.registerFormat({
   name: 'docs',
   async format({ dictionary }) {
     const f = new TailwindTokenFormatter(dictionary.tokens);
@@ -450,7 +461,7 @@ const getStyleDictionaryConfigDefault = (buildPath) => {
         files: [
           {
             destination: 'tokens.js',
-            format: 'javascript/es6',
+            format: 'javascript/custom-no-description',
           },
         ],
       },
