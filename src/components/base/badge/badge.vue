@@ -163,6 +163,7 @@ export default {
     :class="classes"
     :role="role"
     :aria-label="ariaLabel"
+    v-on="$listeners"
   >
     <gl-icon
       v-if="icon"
