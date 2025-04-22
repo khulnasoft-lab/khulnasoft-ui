@@ -1,3 +1,17 @@
+# [113.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.3.3...v113.0.0) (2025-04-22)
+
+
+### Features
+
+* **GlForm:** remove BForm from GlForm ([5f2e51b](https://gitlab.com/gitlab-org/gitlab-ui/commit/5f2e51b5917c18268b82e51c7e808885ec82b2ae))
+
+
+### BREAKING CHANGES
+
+* **GlForm:** `id` and `novalidate` should now be passed as
+attributes, not props. `inline` and `validated` props are no
+longer supported.
+
 ## [112.3.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.3.2...v112.3.3) (2025-04-22)
 
 
