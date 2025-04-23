@@ -42,38 +42,98 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = generateProps();
 
+// Original static Selected example
 export const Selected = (args, { argTypes }) => ({
   components: { GlButton, GlButtonGroup },
   props: Object.keys(argTypes),
   template: `
-      <div class="gl-flex gl-flex-col gl-gap-5 gl-items-start">
-        <gl-button-group :vertical="vertical">
-          <gl-button selected :size="size" :disabled="disabled">Selected</gl-button>
-          <gl-button :size="size" :disabled="disabled">Option</gl-button>
-          <gl-button :size="size" :disabled="disabled">Option</gl-button>
-        </gl-button-group>
+    <div class="gl-flex gl-flex-col gl-gap-5 gl-items-start">
+      <gl-button-group :vertical="vertical">
+        <gl-button selected :size="size" :disabled="disabled">Option 1</gl-button>
+        <gl-button :size="size" :disabled="disabled">Option 2</gl-button>
+        <gl-button :size="size" :disabled="disabled">Option 3</gl-button>
+      </gl-button-group>
 
-        <gl-button-group :vertical="vertical">
-          <gl-button :size="size" :disabled="disabled">Option</gl-button>
-          <gl-button selected :size="size" :disabled="disabled">Selected</gl-button>
-          <gl-button :size="size" :disabled="disabled">Option</gl-button>
-        </gl-button-group>
+      <gl-button-group :vertical="vertical">
+        <gl-button :size="size" :disabled="disabled">Option 1</gl-button>
+        <gl-button selected :size="size" :disabled="disabled">Option 2</gl-button>
+        <gl-button :size="size" :disabled="disabled">Option 3</gl-button>
+      </gl-button-group>
 
-        <gl-button-group :vertical="vertical">
-          <gl-button :size="size" :disabled="disabled">Option</gl-button>
-          <gl-button :size="size" :disabled="disabled">Option</gl-button>
-          <gl-button selected :size="size" :disabled="disabled">Selected</gl-button>
-        </gl-button-group>
+      <gl-button-group :vertical="vertical">
+        <gl-button :size="size" :disabled="disabled">Option 1</gl-button>
+        <gl-button :size="size" :disabled="disabled">Option 2</gl-button>
+        <gl-button selected :size="size" :disabled="disabled">Option 3</gl-button>
+      </gl-button-group>
 
-        <gl-button-group :vertical="vertical">
-          <gl-button selected icon="code" :size="size" :disabled="disabled" aria-label="Code button" />
-          <gl-button icon="upload" :size="size" :disabled="disabled" aria-label="Upload button" />
-          <gl-button :size="size" :disabled="disabled">Blame</gl-button>
-        </gl-button-group>
-      </div>
-    `,
+      <gl-button-group :vertical="vertical">
+        <gl-button selected icon="arrow-left" :size="size" :disabled="disabled" aria-label="Left" />
+        <gl-button icon="arrow-up" :size="size" :disabled="disabled" aria-label="Up" />
+        <gl-button icon="arrow-right" :size="size" :disabled="disabled" aria-label="Right" />
+      </gl-button-group>
+
+      <gl-button-group :vertical="vertical">
+        <gl-button icon="arrow-left" :size="size" :disabled="disabled" aria-label="Left" />
+        <gl-button selected icon="arrow-up" :size="size" :disabled="disabled" aria-label="Up" />
+        <gl-button icon="arrow-right" :size="size" :disabled="disabled" aria-label="Right" />
+      </gl-button-group>
+
+      <gl-button-group :vertical="vertical">
+        <gl-button icon="arrow-left" :size="size" :disabled="disabled" aria-label="Left" />
+        <gl-button icon="arrow-up" :size="size" :disabled="disabled" aria-label="Up" />
+        <gl-button selected icon="arrow-right" :size="size" :disabled="disabled" aria-label="Right" />
+      </gl-button-group>
+    </div>
+  `,
 });
 Object.assign(Selected, {
+  args: generateProps(),
+  parameters: {
+    controls: {
+      include: ['vertical', 'disabled', 'size'],
+    },
+  },
+});
+
+// New interactive example
+export const InteractiveSelected = (args, { argTypes }) => ({
+  components: { GlButton, GlButtonGroup },
+  props: Object.keys(argTypes),
+  data() {
+    return {
+      selectedOption: 1,
+    };
+  },
+  template: `
+    <gl-button-group :vertical="vertical">
+      <gl-button
+        :selected="selectedOption === 1"
+        :size="size"
+        :disabled="disabled"
+        @click="selectedOption = 1"
+      >
+        Option 1
+      </gl-button>
+      <gl-button
+        :selected="selectedOption === 2"
+        :size="size"
+        :disabled="disabled"
+        @click="selectedOption = 2"
+      >
+        Option 2
+      </gl-button>
+      <gl-button
+        :selected="selectedOption === 3"
+        :size="size"
+        :disabled="disabled"
+        @click="selectedOption = 3"
+      >
+        Option 3
+      </gl-button>
+    </gl-button-group>
+  `,
+});
+Object.assign(InteractiveSelected, {
   args: generateProps(),
   parameters: {
     controls: {
