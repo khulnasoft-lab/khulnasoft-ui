@@ -1,3 +1,10 @@
+# [113.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.0.0...v113.1.0) (2025-04-24)
+
+
+### Features
+
+* **GlBadge:** pass listeners to badge ([9243c73](https://gitlab.com/gitlab-org/gitlab-ui/commit/9243c7362d2158141a392f84d3f20ae35c079aa6))
+
 # [113.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v112.3.3...v113.0.0) (2025-04-22)
 
 
