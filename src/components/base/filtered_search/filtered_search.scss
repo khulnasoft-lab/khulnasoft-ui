@@ -49,3 +49,8 @@
   @apply gl-h-6;
   min-width: $gl-spacing-scale-12;
 }
+
+.gl-filtered-search-view-only {
+  background: var(--gl-control-background-color-disabled);
+  box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-control-border-color-disabled);
+}

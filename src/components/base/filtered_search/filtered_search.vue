@@ -414,7 +414,7 @@ export default {
         class="gl-filtered-search-scrollable-container"
         :class="{
           'gl-filtered-search-scrollable-container-with-search-button': showSearchButton,
-          '!gl-bg-gray-10 !gl-shadow-inner-1-gray-100': viewOnly,
+          'gl-filtered-search-view-only': viewOnly,
         }"
       >
         <div class="gl-filtered-search-scrollable">
