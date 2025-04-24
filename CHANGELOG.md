@@ -1,3 +1,10 @@
+# [113.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.1.0...v113.2.0) (2025-04-24)
+
+
+### Features
+
+* **Token:** Use design tokens ([bcaf4ed](https://gitlab.com/gitlab-org/gitlab-ui/commit/bcaf4ed00425bf2dc33295c935a592fd5dcff6a0))
+
 # [113.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.0.0...v113.1.0) (2025-04-24)
 
 
