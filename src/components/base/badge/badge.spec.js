@@ -10,11 +10,12 @@ describe('badge', () => {
   const findIcon = () => wrapper.findComponent(Icon);
   const findLink = () => wrapper.findComponent(GlLink);
 
-  const createComponent = ({ attrs = {}, propsData = {}, slots } = {}) => {
+  const createComponent = ({ attrs = {}, propsData = {}, slots, listeners = {} } = {}) => {
     wrapper = shallowMount(Badge, {
       propsData,
       attrs,
       slots,
+      listeners,
     });
   };
 
@@ -96,6 +97,17 @@ describe('badge', () => {
 
       expect(findLink().exists()).toBe(true);
     });
+
+    it('passes listeners to badge', async () => {
+      const clickListener = jest.fn();
+      createComponent({
+        listeners: { click: clickListener },
+      });
+
+      await wrapper.trigger('click');
+
+      expect(clickListener).toHaveBeenCalled();
+    });
   });
 
   describe('classes', () => {
@@ -122,14 +134,15 @@ describe('badge', () => {
   });
 
   describe('link badge', () => {
+    const propsData = {
+      href: 'https://www.gitlab.com',
+      rel: 'external',
+      target: '_blank',
+      active: true,
+      disabled: true,
+    };
+
     it('passes link props to GlLink', () => {
-      const propsData = {
-        href: 'https://www.gitlab.com',
-        rel: 'external',
-        target: '_blank',
-        active: true,
-        disabled: true,
-      };
       createComponent({
         propsData,
       });
@@ -140,6 +153,18 @@ describe('badge', () => {
       };
 
       expect(findLink().props()).toMatchObject(expectedLinkProps);
+    });
+
+    it('passes listeners to badge', () => {
+      const clickListener = jest.fn();
+      createComponent({
+        propsData,
+        listeners: { click: clickListener },
+      });
+
+      findLink().vm.$emit('click');
+
+      expect(clickListener).toHaveBeenCalled();
     });
   });
 });
