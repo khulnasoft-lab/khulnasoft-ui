@@ -90,15 +90,17 @@ export default {
       required: false,
       default: false,
     },
+    // only set to 'assertive' if alert requires immediate user action, otherwise use a default value
+    politeness: {
+      type: String,
+      required: false,
+      default: 'polite',
+      validator(value) {
+        return ['off', 'polite', 'assertive'].includes(value);
+      },
+    },
   },
   computed: {
-    ariaLive() {
-      if ([alertVariantOptions.danger, alertVariantOptions.warning].includes(this.variant)) {
-        return 'assertive';
-      }
-
-      return 'polite';
-    },
     role() {
       if (
         [
@@ -206,7 +208,7 @@ export default {
     <div v-if="showIcon" class="gl-alert-icon-container">
       <gl-icon :name="iconName" class="gl-alert-icon" />
     </div>
-    <div class="gl-alert-content" :role="role" :aria-live="ariaLive">
+    <div class="gl-alert-content" :role="role" :aria-live="politeness">
       <h2 v-if="title" class="gl-alert-title">{{ title }}</h2>
 
       <div class="gl-alert-body">
