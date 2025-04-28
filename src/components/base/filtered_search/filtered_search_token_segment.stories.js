@@ -43,7 +43,7 @@ export const Default = (args, { argTypes }) => ({
   template: `
     <div>
       <div>v-model value: {{ value }} </div>
-      <div class="gl-border-1 gl-border-solid gl-border-gray-200">
+      <div class="gl-border">
         <gl-filtered-search-token-segment
           v-model="value"
           class="gl-h-full"
