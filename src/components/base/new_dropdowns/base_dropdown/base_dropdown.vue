@@ -288,16 +288,26 @@ export default {
           shift(),
           arrow({ element: this.$refs.dropdownArrow }),
           size({
-            apply: ({ availableHeight, elements }) => {
+            apply: ({ availableWidth, availableHeight, elements }) => {
               const contentsEl = elements.floating.querySelector(`.${GL_DROPDOWN_CONTENTS_CLASS}`);
               if (!contentsEl) return;
 
               const contentsAvailableHeight =
                 availableHeight - (this.nonScrollableContentHeight ?? 0) - DEFAULT_OFFSET;
 
-              Object.assign(contentsEl.style, {
-                maxHeight: `${Math.max(contentsAvailableHeight, 0)}px`,
-              });
+              const maxWidth = this.fluidWidth
+                ? {
+                    maxWidth: `${Math.max(0, availableWidth)}px`,
+                  }
+                : {};
+
+              Object.assign(
+                contentsEl.style,
+                {
+                  maxHeight: `${Math.max(contentsAvailableHeight, 0)}px`,
+                },
+                maxWidth
+              );
             },
           }),
         ],
