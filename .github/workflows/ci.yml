@@ -17,7 +17,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -43,7 +43,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -65,7 +65,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -87,7 +87,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -111,7 +111,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -147,7 +147,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -178,7 +178,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -215,7 +215,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -249,7 +249,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
@@ -289,7 +289,7 @@ jobs:
           node-version: '22.14.0'
           cache: 'pnpm'
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: 8
           run_install: false
