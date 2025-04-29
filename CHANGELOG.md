@@ -1,3 +1,10 @@
+## [113.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.0...v113.2.1) (2025-04-29)
+
+
+### Bug Fixes
+
+* **deps:** upgrade `@floating-ui/dom` to `v1.6.13` ([af9bb56](https://gitlab.com/gitlab-org/gitlab-ui/commit/af9bb56e81c397a1174ce59806bd6947bbf98527))
+
 # [113.2.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.1.0...v113.2.0) (2025-04-24)
 
 
