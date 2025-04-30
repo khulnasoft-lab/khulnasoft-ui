@@ -139,6 +139,7 @@ export default {
     v-gl-resize-observer:[withTooltip]="checkTruncationState"
     class="gl-truncate-component"
     :title="title"
+    :aria-label="text"
   >
     <span ref="text" class="gl-truncate-end">{{ first }}</span
     ><span class="gl-truncate-start">&lrm;{{ last }}&lrm;</span>
