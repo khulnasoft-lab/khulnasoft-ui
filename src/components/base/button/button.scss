@@ -431,7 +431,7 @@
   &.btn-confirm-tertiary,
   &.btn-danger-tertiary {
     @media (forced-colors: active) {
-      color: $black;
+      color: LinkText; // stylelint-disable-line scale-unlimited/declaration-strict-value
       border: 0;
     }
   }

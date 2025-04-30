@@ -59,11 +59,12 @@ $white-contrast: #fff !default;
 $white-normal: #f0f0f0 !default;
 $white-dark: #eaeaea !default;
 $white-transparent: rgba(255, 255, 255, 0.8) !default;
+/* stylelint-disable-next-line @gitlab/no-gl-deprecated-design-tokens */
 $transparent-rgba: rgba($white, 0);
 
 // Text
-$gl-text-color: $gray-900 !default;
-$gl-text-color-secondary: $gray-500 !default;
+$gl-text-color: $gl-text-color-default !default;
+$gl-text-color-secondary: $gl-text-color-subtle !default;
 
 $gl-font-weight-light: 300;
 $gl-font-weight-normal: 400;
@@ -186,7 +187,7 @@ $gl-font-size-compact-markdown-h1-md: px-to-rem(20px);
 // media xl (min-width: 1200px)
 $gl-font-size-compact-markdown-h1-xl: px-to-rem(23px);
 
-$border-color: $gray-100 !default;
+$border-color: $gl-border-color-default !default;
 
 // use px for borders rather than rem
 // we don't want borders to scale with font size
@@ -229,8 +230,6 @@ $focus-ring: 0 0 0 $outline-offset var(--gl-focus-ring-inner-color),
   0 0 0 #{$outline-offset + $outline-width} var(--gl-focus-ring-outer-color);
 $focus-ring-inset: inset 0 0 0 #{$outline-width + $outline-offset} var(--gl-focus-ring-inner-color),
   inset 0 0 0 $outline-offset var(--gl-focus-ring-inner-color);
-$focus-ring-dark: 0 0 0 $outline-offset rgba($black, 0.6),
-  0 0 0 #{$outline-offset + $outline-width} $blue-300;
 $focus-ring-outline: $outline-width solid var(--gl-focus-ring-outer-color);
 
 // Toasts
@@ -269,8 +268,8 @@ $gl-modal-medium-width: px-to-rem(768px);
 $gl-modal-large-width: px-to-rem(990px);
 
 // Modal bootstrap variables
-$modal-header-border-color: $gray-200;
-$modal-footer-border-color: $gray-200;
+$modal-header-border-color: $gl-border-color-strong;
+$modal-footer-border-color: $gl-border-color-strong;
 $modal-title-line-height: $gl-line-height-20;
 $modal-backdrop-bg: #000;
 $modal-backdrop-opacity: 0.64;
@@ -281,11 +280,13 @@ $modal-backdrop-opacity: 0.64;
 $body-color: $gl-text-color !default;
 $enable-validation-icons: false;
 
+/* stylelint-disable-next-line @gitlab/no-gl-deprecated-design-tokens */
 $secondary: $gray-50;
-$success: $green-500;
+$success: $gl-text-color-success;
+/* stylelint-disable-next-line @gitlab/no-gl-deprecated-design-tokens */
 $info: $blue-500;
-$warning: $orange-500;
-$danger: $red-500;
+$warning: $gl-text-color-warning;
+$danger: $gl-text-color-danger;
 
 $font-weight-bold: $gl-font-weight-bold;
 
@@ -312,9 +313,9 @@ $spacers: (
   9: $gl-spacing-scale-11,
 );
 
-$table-accent-bg: $gray-50;
-$card-border-color: $gray-100;
-$card-cap-bg: $gray-10 !default;
+$table-accent-bg: $gl-background-color-strong;
+$card-border-color: $gl-border-color-default;
+$card-cap-bg: $gl-background-color-subtle !default;
 
 // Form input sizes
 $gl-form-input-sizes: (
@@ -325,11 +326,11 @@ $gl-form-input-sizes: (
   xl: $grid-size * 70,
 );
 
-$popover-bg: $white !default;
+$popover-bg: $gl-background-color-default !default;
 $popover-arrow-width: 0.5rem;
 $popover-arrow-height: 0.25rem;
 $popover-arrow-color: $popover-bg;
-$popover-arrow-outer-color: $gray-100;
+$popover-arrow-outer-color: $gl-border-color-default;
 
 $tooltip-opacity: 1;
 
