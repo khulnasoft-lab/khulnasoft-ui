@@ -67,7 +67,7 @@
   @apply gl-py-3;
   @apply gl-text-base;
   @apply gl-leading-normal;
-  color: var(--gl-text-color-default);
+  @apply gl-text-default;
 }
 
 .gl-tab-nav-item-active {

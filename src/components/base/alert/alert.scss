@@ -95,7 +95,7 @@ $gl-alert-top-border-size: 2px;
 
 .gl-alert-body {
   @apply gl-leading-20;
-  color: var(--gl-text-color-default);
+  @apply gl-text-default;
 }
 
 .gl-alert-actions {

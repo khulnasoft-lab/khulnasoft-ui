@@ -216,7 +216,7 @@ $gl-avatar-identicon-texts: var(--gl-avatar-fallback-text-color-red),
   @apply gl-align-top;
   @apply gl-justify-center;
   @apply gl-items-center;
-  color: var(--gl-text-color-strong);
+  @apply gl-text-strong;
 }
 
 // Background colors

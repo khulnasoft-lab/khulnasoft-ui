@@ -7,11 +7,11 @@
     @apply gl-leading-normal;
     @apply gl-pt-0;
     @apply gl-pb-3;
-    color: var(--gl-text-color-strong);
+    @apply gl-text-strong;
 
     > .label-description {
       @apply gl-mt-3;
-      color: var(--gl-text-color-subtle);
+      @apply gl-text-subtle;
     }
   }
 

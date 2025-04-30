@@ -29,7 +29,7 @@ $breadcrumb-max-width: $grid-size * 16;
   > a {
     @apply gl-inline-block;
     border-radius: $gl-border-radius-base;
-    color: var(--gl-text-color-subtle);
+    @apply gl-text-subtle;
     text-decoration-thickness: auto;
     text-decoration-style: solid;
     text-decoration-color: transparent;
@@ -56,7 +56,7 @@ $breadcrumb-max-width: $grid-size * 16;
 }
 
 .gl-breadcrumb-item:last-child > a {
-  color: var(--gl-text-color-default);
+  @apply gl-text-default;
   @apply gl-font-bold;
 }
 
