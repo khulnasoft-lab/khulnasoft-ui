@@ -600,4 +600,18 @@ describe('base dropdown', () => {
       expect(findDropdownMenu().classes()).not.toContain(FIXED_WIDTH_CLASS);
     });
   });
+
+  describe('aria-labelledby', () => {
+    it('applies custom aria-labelledby', () => {
+      buildWrapper({ ariaLabelledby: 'label' });
+      expect(findDefaultDropdownToggle().attributes('aria-labelledby')).toBe(
+        'label dropdown-toggle-btn-1'
+      );
+    });
+
+    it('does not apply default aria-labelledby', () => {
+      buildWrapper();
+      expect(findDefaultDropdownToggle().attributes('aria-labelledby')).toBe(undefined);
+    });
+  });
 });
