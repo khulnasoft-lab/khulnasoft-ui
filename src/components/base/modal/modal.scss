@@ -38,8 +38,8 @@ body.modal-open {
     @apply gl-rounded-base;
     @apply gl-border-0;
     @apply gl-shadow-lg;
-    background-color: var(--gl-background-color-overlap);
-    color: var(--gl-text-color-default);
+    @apply gl-text-default;
+    @apply gl-bg-overlap;
 
     > :first-child {
       @apply gl-rounded-tl-base;
@@ -112,7 +112,7 @@ body.modal-open {
   }
 
   ~ .modal-backdrop {
-    background-color: var(--gl-background-color-overlay);
+    @apply gl-bg-overlay;
     opacity: 1;
   }
 

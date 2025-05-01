@@ -5,7 +5,7 @@
 
   label {
     @apply gl-font-bold;
-    color: var(--gl-text-color-strong);
+    @apply gl-text-strong;
   }
 
   .gl-daterange-picker-indicator {
@@ -15,6 +15,6 @@
     @apply gl-self-end;
     @apply gl-gap-3;
     @apply gl-h-7;
-    color: var(--gl-text-color-subtle);
+    @apply gl-text-subtle;
   }
 }

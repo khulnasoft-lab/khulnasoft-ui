@@ -15,7 +15,7 @@
 .gl-form-radio {
   @apply gl-text-base;
   @apply gl-leading-normal;
-  color: var(--gl-text-color-default);
+  @apply gl-text-default;
 
   &.form-check {
     @apply gl-flex;
@@ -48,7 +48,7 @@
   .custom-control-input:disabled ~ .custom-control-label,
   .custom-control-input:disabled ~ .custom-control-label > .help-text {
     @apply gl-cursor-not-allowed;
-    color: var(--gl-text-color-disabled);
+    @apply gl-text-disabled;
   }
 
   &.custom-control {
@@ -216,6 +216,6 @@
     @apply gl-mb-0;
     @apply gl-text-base;
     @apply gl-leading-normal;
-    color: var(--gl-text-color-subtle);
+    @apply gl-text-subtle;
   }
 }

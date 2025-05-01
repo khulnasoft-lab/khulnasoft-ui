@@ -10,11 +10,11 @@ $gl-popover-max-width: $grid-size * 35;
 
   &,
   .popover-header {
-    background-color: var(--gl-background-color-overlap);
+    @apply gl-bg-overlap;
   }
 
   .popover-body {
-    color: var(--gl-text-color-default);
+    @apply gl-text-default;
   }
 
   &.bs-popover-top {

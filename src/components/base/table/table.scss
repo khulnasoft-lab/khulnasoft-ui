@@ -1,12 +1,12 @@
 table.gl-table {
   background-color: var(--gl-color-alpha-0);
-  color: var(--gl-text-color-default);
+  @apply gl-text-default;
 
   tr {
     th,
     td {
       @apply gl-border-b-1 gl-bg-transparent gl-p-5 gl-border-b-solid;
-      border-color: var(--gl-border-color-default);
+      @apply gl-border-default;
       @apply gl-leading-normal;
       @apply gl-text-base;
       @apply gl-align-top;
@@ -34,7 +34,7 @@ table.gl-table {
     }
 
     td {
-      color: var(--gl-text-color-default);
+      @apply gl-text-default;
     }
 
     &:focus-visible {
@@ -48,7 +48,7 @@ table.gl-table {
   &--sticky-header thead tr {
     position: sticky;
     top: -1px;
-    background-color: var(--gl-background-color-default);
+    @apply gl-bg-default;
     box-shadow: inset 0 -1px 0 var(--gl-border-color-default);
   }
 
