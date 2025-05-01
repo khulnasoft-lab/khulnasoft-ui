@@ -7,7 +7,8 @@ const {
 
 const ruleName = '@gitlab/no-gl-deprecated-design-tokens';
 const messages = ruleMessages(ruleName, {
-  rejected: (match) => `Usage of "${match}" is deprecated.`,
+  rejected: (match) =>
+    `Usage of "${match}" is deprecated. Use semantic design tokens instead. See https://design.gitlab.com/product-foundations/design-tokens-technical-implementation`,
 });
 
 const matchPatterns = [
