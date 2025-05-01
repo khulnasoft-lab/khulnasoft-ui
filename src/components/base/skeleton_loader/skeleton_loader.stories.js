@@ -83,6 +83,29 @@ export const CSSBasedSkeletonLoader = () => ({
   `,
 });
 
+export const ReducedMotion = (args) => {
+  window.matchMedia = (query) => ({
+    matches: query === '(prefers-reduced-motion: reduce)',
+    media: query,
+    onchange: null,
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => false,
+  });
+
+  return {
+    components: { GlSkeletonLoader },
+    props: Object.keys(args),
+    template: template(),
+  };
+};
+Object.assign(ReducedMotion, {
+  args: generateProps(),
+  storyName: 'Reduced Motion',
+});
+
 export default {
   title: 'base/skeleton-loader',
   component: GlSkeletonLoader,

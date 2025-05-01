@@ -131,7 +131,7 @@ export default {
             width: width(),
             height: height(),
             ...(reducedMotion
-              ? { class: 'gl-fill-gray-100' }
+              ? { class: 'gl-skeleton-loader-fill-background-color' }
               : { fill: `url(${props.baseUrl}#${props.uniqueKey}-idGradient)` }),
           },
         }),
