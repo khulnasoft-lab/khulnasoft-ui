@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { alertVariantOptions, buttonCategoryOptions } from '../../../utils/constants';
+import { buttonCategoryOptions, isVue3 } from '../../../utils/constants';
 import GlAlert from './alert.vue';
 
 const DummyComponent = {
@@ -208,22 +208,24 @@ describe('Alert component', () => {
     });
   });
 
-  describe('role and aria-live', () => {
-    it.each`
-      variant                        | role        | assertiveness
-      ${alertVariantOptions.danger}  | ${'alert'}  | ${'assertive'}
-      ${alertVariantOptions.warning} | ${'alert'}  | ${'assertive'}
-      ${alertVariantOptions.info}    | ${'status'} | ${'polite'}
-      ${alertVariantOptions.success} | ${'alert'}  | ${'polite'}
-      ${alertVariantOptions.tip}     | ${'status'} | ${'polite'}
-    `(
-      '$variant variant has role "$role" and aria-live "$assertiveness"',
-      ({ variant, role, assertiveness }) => {
-        createComponent({ propsData: { variant } });
+  describe('aria-live', () => {
+    it('uses default politeness', () => {
+      createComponent();
+      expect(wrapper.find('[role="status"][aria-live="polite"]').exists()).toBe(true);
+    });
 
-        expect(wrapper.find(`[role="${role}"`).exists()).toBe(true);
-        expect(wrapper.find(`[aria-live="${assertiveness}"`).exists()).toBe(true);
+    it('uses custom politeness', () => {
+      createComponent({ propsData: { politeness: 'assertive' } });
+      expect(wrapper.find('[role="status"][aria-live="assertive"]').exists()).toBe(true);
+    });
+
+    it('ignores invalid custom politeness', () => {
+      createComponent({ propsData: { politeness: 'foo' } });
+      if (isVue3) {
+        expect(global.console).toHaveLoggedVueWarnings();
+      } else {
+        expect(wrapper).toHaveLoggedVueErrors();
       }
-    );
+    });
   });
 });
