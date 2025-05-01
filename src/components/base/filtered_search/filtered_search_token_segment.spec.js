@@ -378,14 +378,14 @@ describe('Filtered search token segment', () => {
       );
     });
 
-    it('sets the input `readonly` atttribute when viewOnly is true', () => {
+    it('sets the input `disabled` attribute when viewOnly is true', () => {
       createWrappedComponent({ value: 'test', active: true, viewOnly: true });
-      expect(wrapper.find('input').attributes('readonly')).toBeDefined();
+      expect(wrapper.find('input').attributes('disabled')).toBeDefined();
     });
 
-    it('does not set the input `readonly` atttribute when viewOnly is false', () => {
+    it('does not set the input `disabled` attribute when viewOnly is false', () => {
       createWrappedComponent({ value: 'test', active: true, viewOnly: false });
-      expect(wrapper.find('input').attributes('readonly')).toBeUndefined();
+      expect(wrapper.find('input').attributes('disabled')).toBeUndefined();
     });
 
     it.each`

@@ -205,8 +205,15 @@ describe('Filtered search term', () => {
       createComponent({ viewOnly, searchInputAttributes, placeholder: 'placeholder-stub' });
     });
 
-    it(`${viewOnly ? 'adds' : 'does not add'} \`gl-bg-gray-10\` class to search term input`, () => {
-      expect(findSearchInput().classes('gl-bg-gray-10')).toBe(viewOnly);
+    it(`${viewOnly ? 'disables' : 'enables'} the input`, () => {
+      expect(findSearchInput().attributes('disabled')).toBe(viewOnly ? 'disabled' : undefined);
+    });
+
+    it(`${viewOnly ? 'clears' : 'does not clear'} the suggestions`, async () => {
+      await nextTick();
+      expect(findTokenSegmentComponent().props('options')).toEqual(
+        viewOnly ? [] : expect.any(Array)
+      );
     });
   });
 });

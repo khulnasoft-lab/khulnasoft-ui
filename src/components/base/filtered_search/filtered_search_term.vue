@@ -100,6 +100,10 @@ export default {
       return this.termsAsTokens() && Boolean(this.value.data);
     },
     suggestedTokens() {
+      if (this.viewOnly) {
+        return [];
+      }
+
       const tokens = this.availableTokens.filter((token) => match(token.title, this.value.data));
       if (this.termsAsTokens() && this.value.data) {
         tokens.push({
@@ -227,10 +231,10 @@ export default {
           v-else-if="showInput"
           v-bind="searchInputAttributes"
           class="gl-filtered-search-term-input"
-          :class="{ 'gl-bg-gray-10': viewOnly }"
           :placeholder="placeholder"
           :aria-label="label"
           :readonly="viewOnly"
+          :disabled="viewOnly"
           data-testid="filtered-search-term-input"
           @focusin="$emit('activate')"
           @focusout="$emit('deactivate')"
