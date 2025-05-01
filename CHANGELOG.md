@@ -1,3 +1,10 @@
+## [113.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.2...v113.2.3) (2025-05-01)
+
+
+### Bug Fixes
+
+* **GlAlert:** remove assertive aria-live ([e0ba832](https://gitlab.com/gitlab-org/gitlab-ui/commit/e0ba8325912e055dba39bcf9544ed2b7159f56ce))
+
 ## [113.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.1...v113.2.2) (2025-05-01)
 
 
