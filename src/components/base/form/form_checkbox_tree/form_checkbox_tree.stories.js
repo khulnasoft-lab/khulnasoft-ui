@@ -1,3 +1,4 @@
+import { propDefaultFactory } from '../../../../utils/stories_utils';
 import GlToken from '../../token/token.vue';
 import readme from './form_checkbox_tree.md';
 import GlFormCheckboxTree from './form_checkbox_tree.vue';
@@ -80,7 +81,7 @@ const defaultOptions = [
   },
 ];
 
-const defaultValue = (prop) => GlFormCheckboxTree.props[prop].default;
+const defaultValue = propDefaultFactory(GlFormCheckboxTree);
 
 const generateProps = ({
   options = defaultOptions,

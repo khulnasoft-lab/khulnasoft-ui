@@ -1,6 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { variantCssColorMap } from '../../../utils/constants';
-import { getA11yParameters } from '../../../utils/stories_utils';
+import { propDefaultFactory, getA11yParameters } from '../../../utils/stories_utils';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/dropdown/README.md';
 import GlDropdownItem from './dropdown_item.vue';
 import readme from './dropdown_item.md';
@@ -27,7 +27,7 @@ const wrap = (template) => `
   </ul>
 `;
 
-const defaultValue = (prop) => GlDropdownItem.props[prop].default;
+const defaultValue = propDefaultFactory(GlDropdownItem);
 
 const generateProps = ({
   avatarUrl = defaultValue('avatarUrl'),

@@ -1,4 +1,5 @@
 import { userEvent, within, waitFor, expect } from '@storybook/test';
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import { makeContainer } from '../../../utils/story_decorators/container';
 import GlSorting from './sorting.vue';
 import readme from './sorting.md';
@@ -7,7 +8,7 @@ const components = {
   GlSorting,
 };
 
-const propDefault = (prop) => GlSorting.props[prop].default;
+const propDefault = propDefaultFactory(GlSorting);
 
 const generateProps = ({
   text = 'Sorting options',

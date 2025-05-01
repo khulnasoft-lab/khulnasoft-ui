@@ -1,3 +1,4 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import readme from './animated_number.md';
 import GlAnimatedNumber from './animated_number.vue';
 
@@ -8,7 +9,7 @@ const template = `
   </div>
 `;
 
-const defaultValue = (prop) => GlAnimatedNumber.props[prop].default;
+const defaultValue = propDefaultFactory(GlAnimatedNumber);
 
 const generateProps = ({
   initialNumber = 100,

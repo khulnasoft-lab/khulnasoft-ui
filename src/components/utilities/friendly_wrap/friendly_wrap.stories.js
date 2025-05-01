@@ -1,3 +1,4 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlFriendlyWrap from './friendly_wrap.vue';
 import readme from './friendly_wrap.md';
 
@@ -5,9 +6,9 @@ const components = {
   GlFriendlyWrap,
 };
 
-const defaultValue = (prop) => GlFriendlyWrap.props[prop].default;
+const defaultValue = propDefaultFactory(GlFriendlyWrap);
 
-const generateProps = ({ text = '', symbols = defaultValue('symbols')() } = {}) => ({
+const generateProps = ({ text = '', symbols = defaultValue('symbols') } = {}) => ({
   text,
   symbols,
 });

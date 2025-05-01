@@ -1,9 +1,9 @@
 import { toggleLabelPosition } from '../../../utils/constants';
-import { disableControls } from '../../../utils/stories_utils';
+import { propDefaultFactory, disableControls } from '../../../utils/stories_utils';
 import GlToggle from './toggle.vue';
 import readme from './toggle.md';
 
-const defaultValue = (prop) => GlToggle.props[prop].default;
+const defaultValue = propDefaultFactory(GlToggle);
 
 const withDescription = 'A dark color theme that is easier on the eyes.';
 

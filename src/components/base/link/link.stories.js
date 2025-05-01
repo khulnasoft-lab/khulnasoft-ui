@@ -1,8 +1,9 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import { linkVariantOptions, targetOptions } from '../../../utils/constants';
 import GlLink from './link.vue';
 import readme from './link.md';
 
-const defaultValue = (prop) => GlLink.props[prop].default;
+const defaultValue = propDefaultFactory(GlLink);
 
 const generateProps = ({
   text = 'link',

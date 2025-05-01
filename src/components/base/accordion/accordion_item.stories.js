@@ -1,3 +1,4 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import readme from './accordion_item.md';
 import GlAccordionItem from './accordion_item.vue';
 
@@ -7,7 +8,7 @@ const template = `
     </gl-accordion-item>
     `;
 
-const defaultValue = (prop) => GlAccordionItem.props[prop].default;
+const defaultValue = propDefaultFactory(GlAccordionItem);
 
 const generateProps = ({
   visible = defaultValue('visible'),

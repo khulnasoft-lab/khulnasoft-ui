@@ -1,4 +1,4 @@
-import { getA11yParameters } from '../../../utils/stories_utils';
+import { propDefaultFactory, getA11yParameters } from '../../../utils/stories_utils';
 import readme from './accordion.md';
 import GlAccordion from './accordion.vue';
 import GlAccordionItem from './accordion_item.vue';
@@ -21,7 +21,7 @@ const template = `
     </gl-accordion>
     `;
 
-const defaultValue = (prop) => GlAccordion.props[prop].default;
+const defaultValue = propDefaultFactory(GlAccordion);
 
 const generateProps = ({ autoCollapse = defaultValue('autoCollapse'), headerLevel = 3 } = {}) => ({
   autoCollapse,

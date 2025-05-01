@@ -1,7 +1,8 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlExperimentBadge from './experiment_badge.vue';
 import readme from './experiment_badge.md';
 
-const defaultValue = (prop) => GlExperimentBadge.props[prop].default;
+const defaultValue = propDefaultFactory(GlExperimentBadge);
 
 const generateProps = ({
   popoverPlacement = defaultValue('popoverPlacement'),

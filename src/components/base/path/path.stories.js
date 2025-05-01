@@ -1,9 +1,10 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlPopover from '../popover/popover.vue';
 import GlPath from './path.vue';
 import { mockPathItems } from './data';
 import readme from './path.md';
 
-const defaultValue = (prop) => GlPath.props[prop].default;
+const defaultValue = propDefaultFactory(GlPath);
 
 const generateProps = ({
   items = mockPathItems,
