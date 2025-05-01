@@ -12,25 +12,19 @@ const messages = ruleMessages(ruleName, {
 
 const matchPatterns = [
   // Match SCSS variables like $white, $black
-  '\\$(black|white)(?![\\w-])',
+  /gl-(bg|border|fill|text)-(black|white)\b/g,
 
   // // Match SCSS variables like $blue-500, $gray-100, etc.
-  '\\$(blue|gray|green|orange|purple|red|brand|data-viz|theme|t-white-a|t-gray-a)-[a-zA-Z0-9-_]*\\b',
+  /\$(blue|gray|green|orange|purple|red|brand|data-viz|theme|t-white-a|t-gray-a)-[a-zA-Z0-9-_]*\b/g,
 
   // Match Tailwind/utility classes like gl-bg-black, gl-text-white
-  'gl-(bg|border|fill|text)-(black|white)\\b',
+  /gl-(bg|border|fill|text)-(black|white)\b/g,
 
   // Match Tailwind/utility classes like gl-bg-blue-500, gl-text-red-100, etc.
-  'gl-(bg|border|fill|text)-(blue|gray|green|orange|purple|red|brand|data-viz|theme|t-white-a|t-gray-a)-[a-zA-Z0-9-_]*\\b',
+  /gl-(bg|border|fill|text)-(blue|gray|green|orange|purple|red|brand|data-viz|theme|t-white-a|t-gray-a)-[a-zA-Z0-9-_]*\b/g,
 ];
 
-function compileMatchers(patterns) {
-  return patterns.map((pattern) => new RegExp(pattern, 'g'));
-}
-
 const ruleFunction = () => {
-  const matchers = compileMatchers(matchPatterns);
-
   return (root, result) => {
     const valid = validateOptions(result, ruleName, {
       actual: matchPatterns,
@@ -43,7 +37,7 @@ const ruleFunction = () => {
     root.walkDecls((decl) => {
       const context = `${decl.prop}: ${decl.value}`;
 
-      matchers.forEach((regex) => {
+      matchPatterns.forEach((regex) => {
         let match;
         // eslint-disable-next-line no-cond-assign
         while ((match = regex.exec(context)) !== null) {
@@ -62,7 +56,7 @@ const ruleFunction = () => {
     root.walkAtRules('apply', (atRule) => {
       const context = atRule.params;
 
-      matchers.forEach((regex) => {
+      matchPatterns.forEach((regex) => {
         let match;
         // eslint-disable-next-line no-cond-assign
         while ((match = regex.exec(context)) !== null) {
