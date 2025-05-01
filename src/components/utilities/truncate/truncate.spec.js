@@ -159,6 +159,12 @@ describe('Truncate component', () => {
       const firstPart = findFirstSpan().text();
       expect(firstPart.charAt(firstPart.length - 1)).not.toBe(ZERO_WIDTH_SPACE);
     });
+
+    it('should have descriptive label', () => {
+      const text = 'long-no-whitespace-text';
+      createComponent({ text, position: 'middle' });
+      expect(wrapper.find('.gl-truncate-component').attributes('aria-label')).toBe(text);
+    });
   });
 
   describe('end truncation', () => {
