@@ -1,3 +1,10 @@
+## [113.2.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.1...v113.2.2) (2025-05-01)
+
+
+### Bug Fixes
+
+* **GlTruncate:** add aria-label when truncating in the middle ([a4d27ad](https://gitlab.com/gitlab-org/gitlab-ui/commit/a4d27ad3ccd47a0cde523d94dcaff0bce45b7379))
+
 ## [113.2.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.0...v113.2.1) (2025-04-29)
 
 
