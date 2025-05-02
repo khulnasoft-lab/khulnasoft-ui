@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import { buttonCategoryOptions, isVue3 } from '../../../utils/constants';
+import { buttonCategoryOptions } from '../../../utils/constants';
 import GlAlert from './alert.vue';
 
 const DummyComponent = {
@@ -221,11 +221,8 @@ describe('Alert component', () => {
 
     it('ignores invalid custom politeness', () => {
       createComponent({ propsData: { politeness: 'foo' } });
-      if (isVue3) {
-        expect(global.console).toHaveLoggedVueWarnings();
-      } else {
-        expect(wrapper).toHaveLoggedVueErrors();
-      }
+
+      expect(wrapper).toHaveLoggedVueWarnings();
     });
   });
 });
