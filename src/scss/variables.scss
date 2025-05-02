@@ -280,6 +280,8 @@ $modal-backdrop-opacity: 0.64;
 $body-color: $gl-text-color !default;
 $enable-validation-icons: false;
 
+// Not moved to a design token as it's a vague Bootstrap variable that might have far-reaching, unintended consequences.
+// Ideally, this variable would just be removed once we know it is not used anywhere.
 /* stylelint-disable-next-line @gitlab/no-gl-deprecated-design-tokens */
 $secondary: $gray-50;
 $success: $gl-text-color-success;
