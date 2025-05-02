@@ -1,5 +1,6 @@
 import GlToggle from '../toggle/toggle.vue';
 import { alertVariantOptions } from '../../../utils/constants';
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlAlert from './alert.vue';
 import readme from './alert.md';
 
@@ -17,7 +18,7 @@ const template = `
     :sticky="sticky"
   >{{ message }}</gl-alert>`;
 
-const defaultValue = (prop) => GlAlert.props[prop].default;
+const defaultValue = propDefaultFactory(GlAlert);
 
 const generateProps = ({
   title = defaultValue('title'),

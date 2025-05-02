@@ -1,4 +1,4 @@
-import { disableControls } from '../../../utils/stories_utils';
+import { propDefaultFactory, disableControls } from '../../../utils/stories_utils';
 import { makeContainer } from '../../../utils/story_decorators/container';
 import readme from './daterange_picker.md';
 import GlDaterangePicker from './daterange_picker.vue';
@@ -9,7 +9,7 @@ const defaultEndDateVal = new Date(currentYear, 9, 24);
 const defaultMinDateVal = new Date(currentYear, 9, 1);
 const defaultMaxDateVal = new Date(currentYear, 11, 30);
 
-const defaultValue = (prop) => GlDaterangePicker.props[prop].default;
+const defaultValue = propDefaultFactory(GlDaterangePicker);
 
 const generateProps = ({
   fromLabel = defaultValue('fromLabel'),

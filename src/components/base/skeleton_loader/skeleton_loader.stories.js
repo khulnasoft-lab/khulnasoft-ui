@@ -1,8 +1,9 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import { makeContainer } from '../../../utils/story_decorators/container';
 import GlSkeletonLoader from './skeleton_loader.vue';
 import readme from './skeleton_loader.md';
 
-const defaultValue = (prop) => GlSkeletonLoader.props[prop].default;
+const defaultValue = propDefaultFactory(GlSkeletonLoader);
 
 const generateProps = ({
   width = defaultValue('width'),

@@ -1,4 +1,5 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import { SafeHtmlDirective as SafeHtml } from '../../../directives/safe_html/safe_html';
 import { colorThemes } from '../../../utils/constants';
 import GlBroadcastMessage from './broadcast_message.vue';
@@ -27,7 +28,7 @@ const templateWithTheme = (theme) => `
   </gl-broadcast-message>
 `;
 
-const defaultValue = (prop) => GlBroadcastMessage.props[prop].default;
+const defaultValue = propDefaultFactory(GlBroadcastMessage);
 
 const generateProps = ({
   text = '<p>Tuesday June 12th, at 14:30 UTC we will <a href="">perform database maintenance</a> that will require up to 1 minute of downtime.</p>',

@@ -8,7 +8,7 @@ import {
   buttonSizeOptions,
   dropdownVariantOptions,
 } from '../../../utils/constants';
-import { getA11yParameters } from '../../../utils/stories_utils';
+import { propDefaultFactory, getA11yParameters } from '../../../utils/stories_utils';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/dropdown/README.md';
 import GlDropdownDivider from './dropdown_divider.vue';
 import GlDropdownSectionHeader from './dropdown_section_header.vue';
@@ -33,7 +33,7 @@ function addClass(component) {
   component.$el.querySelectorAll('.btn').forEach((el) => el.classList.add('gl-button'));
 }
 
-const defaultValue = (prop) => GlDropdown.props[prop].default;
+const defaultValue = propDefaultFactory(GlDropdown);
 
 const generateProps = ({
   headerText = defaultValue('headerText'),

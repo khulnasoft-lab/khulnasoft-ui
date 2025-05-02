@@ -1,3 +1,4 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlButton from '../button/button.vue';
 import GlMarkdown from '../markdown/markdown.vue';
 import { drawerVariants } from '../../../utils/constants';
@@ -75,7 +76,7 @@ const createSidebarTemplate = (content, { extraBindings = {} } = {}) => `
     @close="close">${content}</gl-drawer>
   `;
 
-const defaultValue = (prop) => GlDrawer.props[prop].default;
+const defaultValue = propDefaultFactory(GlDrawer);
 
 const generateProps = ({
   headerHeight = defaultValue('headerHeight'),

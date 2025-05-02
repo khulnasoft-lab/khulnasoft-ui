@@ -7,7 +7,7 @@ import {
   buttonSizeOptions,
   targetOptions,
 } from '../../../utils/constants';
-import { getA11yParameters } from '../../../utils/stories_utils';
+import { propDefaultFactory, getA11yParameters } from '../../../utils/stories_utils';
 import GlBadge from '../badge/badge.vue';
 import GlButtonGroup from '../button_group/button_group.vue';
 import BVueReadme from '../../../vendor/bootstrap-vue/src/components/button/README.md';
@@ -16,7 +16,7 @@ import readme from './button.md';
 
 const components = { GlButton };
 
-const defaultValue = (prop) => GlButton.props[prop].default;
+const defaultValue = propDefaultFactory(GlButton);
 
 const generateProps = ({
   category = defaultValue('category'),

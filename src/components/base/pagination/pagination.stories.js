@@ -1,10 +1,11 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import { alignOptions } from '../../../utils/constants';
 import readme from './pagination.md';
 import GlPagination from './pagination.vue';
 
 const components = { GlPagination };
 
-const defaultValue = (name) => GlPagination.props[name].default;
+const defaultValue = propDefaultFactory(GlPagination);
 
 const generateProps = ({
   value = 3,

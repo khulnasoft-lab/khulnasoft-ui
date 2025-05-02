@@ -1,7 +1,8 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlDashboardSkeleton from './dashboard_skeleton.vue';
 import readme from './dashboard_skeleton.md';
 
-const defaultValue = (prop) => GlDashboardSkeleton.props[prop].default;
+const defaultValue = propDefaultFactory(GlDashboardSkeleton);
 
 const generateProps = ({ cards = defaultValue('cards') } = {}) => ({
   cards,

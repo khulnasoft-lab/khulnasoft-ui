@@ -1,8 +1,9 @@
+import { propDefaultFactory } from '../../../../utils/stories_utils';
 import GlFormGroup from '../form_group/form_group.vue';
 import readme from './form_date.md';
 import GlFormDate from './form_date.vue';
 
-const defaultValue = (prop) => GlFormDate.props[prop].default;
+const defaultValue = propDefaultFactory(GlFormDate);
 
 const template = `
 <gl-form-group :label="labelText" :label-for="inputId">

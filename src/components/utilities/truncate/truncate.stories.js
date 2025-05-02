@@ -1,3 +1,4 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlTruncate from './truncate.vue';
 import { POSITION } from './constants';
 import readme from './truncate.md';
@@ -10,7 +11,7 @@ const template = `
   />
 `;
 
-const propDefault = (prop) => GlTruncate.props[prop].default;
+const propDefault = propDefaultFactory(GlTruncate);
 
 const generateProps = ({
   text = 'src/thisIs/AVeryLongFilePath/that/needs/to/be/smartly/truncated/from/the/middle/so/we/dont/lose/important/information/here.vue',

@@ -1,6 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { badgeVariantOptions, badgeIconSizeOptions } from '../../../utils/constants';
-import { disableControls } from '../../../utils/stories_utils';
+import { propDefaultFactory, disableControls } from '../../../utils/stories_utils';
 import GlBadge from './badge.vue';
 import readme from './badge.md';
 
@@ -19,7 +19,7 @@ const template = `
     >{{ content }}</gl-badge>
   `;
 
-const defaultValue = (prop) => GlBadge.props[prop].default;
+const defaultValue = propDefaultFactory(GlBadge);
 
 const generateProps = ({
   variant = defaultValue('variant'),

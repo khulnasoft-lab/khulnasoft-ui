@@ -1,3 +1,4 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlButton from '../button/button.vue';
 import GlDisclosureDropdown from '../new_dropdowns/disclosure/disclosure_dropdown.vue';
 import GlCollapsibleListbox from '../new_dropdowns/listbox/listbox.vue';
@@ -10,7 +11,7 @@ import {
 import GlButtonGroup from './button_group.vue';
 import readme from './button_group.md';
 
-const defaultValue = (prop) => GlButton.props[prop].default;
+const defaultValue = propDefaultFactory(GlButton);
 
 const generateProps = ({
   vertical = false,

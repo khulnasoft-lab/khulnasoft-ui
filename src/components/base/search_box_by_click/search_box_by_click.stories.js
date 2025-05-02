@@ -1,4 +1,4 @@
-import { disableControls } from '../../../utils/stories_utils';
+import { propDefaultFactory, disableControls } from '../../../utils/stories_utils';
 import GlSearchBoxByClick from './search_box_by_click.vue';
 import readme from './search_box_by_click.md';
 
@@ -20,7 +20,7 @@ const template = `
   />
 `;
 
-const defaultValue = (prop) => GlSearchBoxByClick.props[prop].default;
+const defaultValue = propDefaultFactory(GlSearchBoxByClick);
 
 const generateProps = ({
   disabled = defaultValue('disabled'),
@@ -33,7 +33,7 @@ const generateProps = ({
   closeButtonTitle = defaultValue('closeButtonTitle'),
   clearRecentSearchesText = defaultValue('clearRecentSearchesText'),
   noRecentSearchesText = defaultValue('noRecentSearchesText'),
-  searchButtonAttributes = defaultValue('searchButtonAttributes')(),
+  searchButtonAttributes = defaultValue('searchButtonAttributes'),
   showSearchButton = defaultValue('showSearchButton'),
 } = {}) => ({
   disabled,

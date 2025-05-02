@@ -1,10 +1,11 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import GlAvatar from '../avatar/avatar.vue';
 import { tokenVariants } from '../../../utils/constants';
 import GlToken from './token.vue';
 
 import readme from './token.md';
 
-const defaultValue = (prop) => GlToken.props[prop].default;
+const defaultValue = propDefaultFactory(GlToken);
 
 const generateProps = ({
   viewOnly = defaultValue('viewOnly'),

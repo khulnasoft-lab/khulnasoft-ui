@@ -13,7 +13,11 @@ import GlAvatar from '../../avatar/avatar.vue';
 import GlTruncate from '../../../utilities/truncate/truncate.vue';
 import { makeContainer } from '../../../../utils/story_decorators/container';
 import { setStoryTimeout } from '../../../../utils/test_utils';
-import { disableControls, getA11yParameters } from '../../../../utils/stories_utils';
+import {
+  disableControls,
+  getA11yParameters,
+  propDefaultFactory,
+} from '../../../../utils/stories_utils';
 import {
   ARG_TYPE_SUBCATEGORY_LOOK_AND_FEEL,
   ARG_TYPE_SUBCATEGORY_STATE,
@@ -29,7 +33,7 @@ import { mockOptions, mockGroups, mockGroupsWithTextSrOnly, mockUsers } from './
 import { flattenedOptions } from './utils';
 import GlCollapsibleListbox from './listbox.vue';
 
-const defaultValue = (prop) => GlCollapsibleListbox.props[prop].default;
+const defaultValue = propDefaultFactory(GlCollapsibleListbox);
 
 const generateProps = ({
   items = mockOptions,

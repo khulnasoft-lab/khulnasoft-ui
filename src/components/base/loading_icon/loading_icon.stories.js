@@ -1,3 +1,4 @@
+import { propDefaultFactory } from '../../../utils/stories_utils';
 import { viewModeOptions, loadingIconSizes, loadingIconVariants } from '../../../utils/constants';
 import GlLoadingIcon from './loading_icon.vue';
 import readme from './loading_icon.md';
@@ -14,7 +15,7 @@ const template = `
   </div>
 `;
 
-const defaultValue = (prop) => GlLoadingIcon.props[prop].default;
+const defaultValue = propDefaultFactory(GlLoadingIcon);
 
 const generateProps = () => ({
   label: defaultValue('label'),

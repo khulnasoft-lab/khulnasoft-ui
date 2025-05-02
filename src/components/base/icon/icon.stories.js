@@ -1,6 +1,6 @@
 import iconSpriteInfo from '@gitlab/svgs/dist/icons.json';
 import { iconSizeOptions, iconVariantOptions } from '../../../utils/constants';
-import { disableControls } from '../../../utils/stories_utils';
+import { propDefaultFactory, disableControls } from '../../../utils/stories_utils';
 import GlIcon from './icon.vue';
 import readme from './icon.md';
 
@@ -8,7 +8,7 @@ const components = {
   GlIcon,
 };
 
-const defaultValue = (prop) => GlIcon.props[prop].default;
+const defaultValue = propDefaultFactory(GlIcon);
 
 const generateProps = ({
   ariaLabel = 'This is an icon',

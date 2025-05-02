@@ -1,4 +1,4 @@
-import { disableControls } from '../../../utils/stories_utils';
+import { propDefaultFactory, disableControls } from '../../../utils/stories_utils';
 import GlSearchBoxByType from './search_box_by_type.vue';
 import readme from './search_box_by_type.md';
 
@@ -13,7 +13,7 @@ const template = `
   />
 `;
 
-const defaultValue = (prop) => GlSearchBoxByType.props[prop].default;
+const defaultValue = propDefaultFactory(GlSearchBoxByType);
 
 const generateProps = ({
   borderless = defaultValue('borderless'),
