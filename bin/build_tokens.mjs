@@ -275,19 +275,12 @@ const tailwindFormat = async ({ dictionary, file }) => {
   const borderColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.border.color);
   const brandColors = getScalesAndCSSCustomProperties(brandColorsTokens);
 
-  const variantColorObjects = generateColorMap(COMPILED_TOKENS, {
-    status: statusVariants,
-    feedback: feedbackVariants,
-  });
+  const statusColorObjects = generateColorMap(COMPILED_TOKENS, statusVariants, 'status');
+  const feedbackColorObjects = generateColorMap(COMPILED_TOKENS, feedbackVariants, 'feedback');
 
-  const {
-    statusBackgroundColors,
-    statusTextColors,
-    statusFillColors,
-    feedbackBackgroundColors,
-    feedbackTextColors,
-    feedbackFillColors,
-  } = variantColorObjects;
+  const { statusBackgroundColors, statusTextColors, statusFillColors } = statusColorObjects;
+
+  const { feedbackBackgroundColors, feedbackTextColors, feedbackFillColors } = feedbackColorObjects;
 
   return `${await fileHeader({ file })}
   const baseColors = ${JSON.stringify(baseColors)};

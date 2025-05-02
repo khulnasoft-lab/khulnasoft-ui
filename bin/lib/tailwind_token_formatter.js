@@ -28,7 +28,7 @@ const hasAliases = (value) => {
  */
 const getScalesAndCSSCustomProperties = (tokens = {}) => {
   return Object.entries(tokens).reduce((acc, [scale, token]) => {
-    if (token.path) {
+    if (token.cssWithValue) {
       acc[scale] = token.cssWithValue;
     } else {
       acc[scale] = getScalesAndCSSCustomProperties(token);
@@ -53,35 +53,35 @@ const generateBaseColors = (colorTokens) => {
 };
 
 /**
- * Generates color objects
+ * Generates color objects for a specific set of variants
  * @param {Object} tokens
- * @param {Object} config - Object mapping parent categories to their variant arrays
+ * @param {Array} variants - Array of variants (e.g. ['success', 'warning', 'error'])
+ * @param {string} parent - The parent category (e.g. 'status', 'feedback')
  * @param {Array} properties - Array of property types to generate
  * @returns {Object} - Object containing all color objects
  */
-const generateColorMap = (tokens, config, properties = ['background', 'text', 'fill']) =>
-  // Create the combination of all parents and properties
-  properties.reduce((result, property) => {
-    // Add entries for each parent with this property
-    return {
-      ...result,
-      // Add parent-specific entries for this property
-      ...Object.entries(config).reduce(
-        (propResult, [parent, variants]) => ({
-          ...propResult,
-          // Create the color object for this parent+property
-          [`${parent}${property.charAt(0).toUpperCase() + property.slice(1)}Colors`]:
-            Object.fromEntries(
-              variants.map((variant) => [
-                `${parent}-${variant}`,
-                tokens[property][parent][variant].cssWithValue,
-              ])
-            ),
-        }),
-        {}
-      ),
-    };
+
+const generateColorMap = (
+  tokens,
+  variants,
+  parent,
+  properties = ['background', 'text', 'fill']
+  // eslint-disable-next-line max-params
+) => {
+  return properties.reduce((acc, property) => {
+    const key = `${parent}${property.charAt(0).toUpperCase() + property.slice(1)}Colors`;
+
+    // Create the mapping of variant names to colors
+    acc[key] = Object.fromEntries(
+      variants.map((variant) => [
+        `${parent}-${variant}`,
+        tokens[property][parent][variant].cssWithValue,
+      ])
+    );
+
+    return acc;
   }, {});
+};
 
 class TailwindFormatter {
   constructor(tokens) {
