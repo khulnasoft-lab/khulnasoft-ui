@@ -1,5 +1,5 @@
 <script>
-import { BLink } from '../../../../vendor/bootstrap-vue/src/components/link/link';
+import GlLink from '../../link/link.vue';
 import { ENTER, SPACE } from '../constants';
 import { stopEvent } from '../../../../utils/utils';
 import { dropdownItemVariantOptions } from '../../../../utils/constants';
@@ -11,7 +11,7 @@ export const ITEM_CLASS = 'gl-new-dropdown-item';
 export default {
   name: DISCLOSURE_DROPDOWN_ITEM_NAME,
   ITEM_CLASS,
-  components: { BLink },
+  components: { GlLink },
   props: {
     item: {
       type: Object,
@@ -43,10 +43,11 @@ export default {
 
       if (this.isLink)
         return {
-          is: BLink,
+          is: GlLink,
           attrs: {
             href: item.href,
             to: item.to,
+            variant: 'unstyled',
             ...item.extraAttrs,
           },
           listeners: {
