@@ -1,3 +1,11 @@
+# [113.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.4...v113.3.0) (2025-05-02)
+
+
+### Features
+
+* **DesignTokens:** update stylesheets to remove deprecated color usage ([74ce6a8](https://gitlab.com/gitlab-org/gitlab-ui/commit/74ce6a8a13a1ac79701d994599f5310190d68c52))
+* **stylelint:** add rule for deprecated color usage ([4958e5e](https://gitlab.com/gitlab-org/gitlab-ui/commit/4958e5eb09b1e04a7527c7c128495f4672e01a14))
+
 ## [113.2.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.3...v113.2.4) (2025-05-02)
 
 
