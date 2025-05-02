@@ -1,3 +1,10 @@
+## [113.2.4](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.3...v113.2.4) (2025-05-02)
+
+
+### Bug Fixes
+
+* **GlBaseDropdown:** use aria-labelledby properly ([1d3a96f](https://gitlab.com/gitlab-org/gitlab-ui/commit/1d3a96fbb7db2d44e587a6df5840df6c81fe3485))
+
 ## [113.2.3](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.2...v113.2.3) (2025-05-01)
 
 
