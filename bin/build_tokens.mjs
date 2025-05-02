@@ -8,7 +8,12 @@ import { format, resolveConfig } from 'prettier';
 import StyleDictionary from 'style-dictionary';
 import { fileHeader } from 'style-dictionary/utils';
 import merge from 'lodash/merge.js';
-import { TailwindTokenFormatter } from './lib/tailwind_token_formatter.js';
+import {
+  TailwindTokenFormatter,
+  getScalesAndCSSCustomProperties,
+  generateBaseColors,
+  generateColorMap,
+} from './lib/tailwind_token_formatter.js';
 
 /**
  * Design tokens
@@ -241,45 +246,26 @@ const tailwindFormat = async ({ dictionary, file }) => {
   const COMPILED_TOKENS = dictionary.tokens;
   const COLOR_TOKENS = COMPILED_TOKENS.colors;
 
-  /**
-   * Returns key/value pairs of token scales and CSS custom properties
-   * @param {object} tokens
-   * @returns {object} { example: 'var(--gl-token-example, #000)' }
-   */
-  const getScalesAndCSSCustomProperties = (tokens = {}) => {
-    return Object.entries(tokens).reduce((acc, [scale, token]) => {
-      acc[scale] = token.cssWithValue;
-      return acc;
-    }, {});
-  };
+  const baseColorsTokens = Object.fromEntries(
+    baseColorVariants.map((color) => [color, COLOR_TOKENS[color]])
+  );
 
-  const generateBaseColors = (colorTokens) => {
-    return Object.entries(colorTokens).reduce((acc, [, scales]) => {
-      Object.entries(scales).forEach(([, token]) => {
-        if (token.path) {
-          acc[token.path.join('-')] = token.cssWithValue;
-        }
-      });
-      return acc;
-    }, {});
-  };
+  const brandColorsTokens = Object.fromEntries(
+    brandVariants.map((brand) => [brand, COLOR_TOKENS[brand]])
+  );
 
-  const baseColorsTokens = baseColorVariants.reduce((acc, color) => {
-    acc[color] = COLOR_TOKENS[color];
-    return acc;
-  }, {});
+  const neutralColors = Object.fromEntries(
+    Object.entries(COLOR_TOKENS.neutral)
+      .filter(([, token]) => token.path)
+      .map(([, token]) => [
+        token.path.filter((segment) => segment !== 'color').join('-'),
+        token.cssWithValue,
+      ])
+  );
 
   const baseColors = generateBaseColors(baseColorsTokens);
   const themeColors = generateBaseColors(COLOR_TOKENS.theme);
   const dataVizColors = generateBaseColors(COLOR_TOKENS['data-viz']);
-
-  const neutralColors = Object.entries(COLOR_TOKENS.neutral).reduce((acc, [, token]) => {
-    if (token.path) {
-      const colorName = token.path.filter((segment) => segment !== 'color').join('-');
-      acc[colorName] = token.cssWithValue;
-    }
-    return acc;
-  }, {});
 
   const textColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.text.color);
   const backgroundColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.background.color);
@@ -287,30 +273,14 @@ const tailwindFormat = async ({ dictionary, file }) => {
   const alphaDarkColors = getScalesAndCSSCustomProperties(COLOR_TOKENS.alpha.dark);
   const alphaLightColors = getScalesAndCSSCustomProperties(COLOR_TOKENS.alpha.light);
   const borderColors = getScalesAndCSSCustomProperties(COMPILED_TOKENS.border.color);
-  const brandColors = {
-    'brand-white': COLOR_TOKENS['brand-white'].cssWithValue,
-    'brand-charcoal': COLOR_TOKENS['brand-charcoal'].cssWithValue,
-    'brand-orange': getScalesAndCSSCustomProperties(COLOR_TOKENS['brand-orange']),
-    'brand-purple': getScalesAndCSSCustomProperties(COLOR_TOKENS['brand-purple']),
-    'brand-gray': getScalesAndCSSCustomProperties(COLOR_TOKENS['brand-gray']),
-    'brand-pink': getScalesAndCSSCustomProperties(COLOR_TOKENS['brand-pink']),
-  };
+  const brandColors = getScalesAndCSSCustomProperties(brandColorsTokens);
 
-  const generateColorObject = (parent, variants = [], property) =>
-    Object.fromEntries(
-      variants.map((variant) => [
-        `${parent}-${variant}`,
-        COMPILED_TOKENS[property][parent][variant].cssWithValue,
-      ])
-    );
+  const statusColorObjects = generateColorMap(COMPILED_TOKENS, statusVariants, 'status');
+  const feedbackColorObjects = generateColorMap(COMPILED_TOKENS, feedbackVariants, 'feedback');
 
-  const statusBackgroundColors = generateColorObject('status', statusVariants, 'background');
-  const statusTextColors = generateColorObject('status', statusVariants, 'text');
-  const statusIconColors = generateColorObject('status', statusVariants, 'fill');
+  const { statusBackgroundColors, statusTextColors, statusFillColors } = statusColorObjects;
 
-  const feedbackBackgroundColors = generateColorObject('feedback', feedbackVariants, 'background');
-  const feedbackTextColors = generateColorObject('feedback', feedbackVariants, 'text');
-  const feedbackIconColors = generateColorObject('feedback', feedbackVariants, 'fill');
+  const { feedbackBackgroundColors, feedbackTextColors, feedbackFillColors } = feedbackColorObjects;
 
   return `${await fileHeader({ file })}
   const baseColors = ${JSON.stringify(baseColors)};
@@ -326,10 +296,10 @@ const tailwindFormat = async ({ dictionary, file }) => {
   const brandColors = ${JSON.stringify(brandColors)};
   const statusBackgroundColors = ${JSON.stringify(statusBackgroundColors)};
   const statusTextColors = ${JSON.stringify(statusTextColors)};
-  const statusIconColors = ${JSON.stringify(statusIconColors)};
+  const statusIconColors = ${JSON.stringify(statusFillColors)};
   const feedbackBackgroundColors = ${JSON.stringify(feedbackBackgroundColors)};
   const feedbackTextColors = ${JSON.stringify(feedbackTextColors)};
-  const feedbackIconColors = ${JSON.stringify(feedbackIconColors)};
+  const feedbackIconColors = ${JSON.stringify(feedbackFillColors)};
 
   const colors = {
     inherit: 'inherit',
