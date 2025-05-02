@@ -212,7 +212,7 @@ export default {
       return this.block ? 'gl-w-full' : '';
     },
     toggleLabelledBy() {
-      return this.ariaLabelledby ? `${this.ariaLabelledby} ${this.toggleId}` : this.toggleId;
+      return this.ariaLabelledby ? `${this.ariaLabelledby} ${this.toggleId}` : undefined;
     },
     isDefaultToggle() {
       return !this.$scopedSlots.toggle;
