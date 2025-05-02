@@ -431,7 +431,8 @@
   &.btn-confirm-tertiary,
   &.btn-danger-tertiary {
     @media (forced-colors: active) {
-      color: $black;
+      /* stylelint-disable-next-line color-named */
+      color: black; // stylelint-disable-line scale-unlimited/declaration-strict-value
       border: 0;
     }
   }

@@ -1,7 +1,7 @@
 .gl-markdown {
   @apply gl-text-lg;
   @apply gl-leading-24;
-  color: $gl-text-color;
+  @apply gl-text-default;
   @apply gl-font-regular;
   @apply gl-font-normal;
 
@@ -72,12 +72,12 @@
   }
 
   blockquote {
-    @apply gl-text-gray-700;
+    @apply gl-text-subtle;
     @apply gl-py-3;
     @apply gl-pl-6;
     @apply gl-my-3;
     @apply gl-mx-0;
-    box-shadow: inset $gl-border-size-4 0 0 0 $gray-100;
+    box-shadow: inset $gl-border-size-4 0 0 0 var(--gl-border-color-strong);
   }
 
   .idiff {
@@ -87,17 +87,17 @@
   }
 
   .deletion {
-    @apply gl-bg-red-100;
+    @apply gl-bg-status-danger;
   }
 
   .addition {
-    @apply gl-bg-green-100;
+    @apply gl-bg-status-success;
   }
 
   code {
     @apply gl-rounded-base;
-    @apply gl-bg-gray-50;
-    @apply gl-text-gray-950;
+    @apply gl-bg-strong;
+    @apply gl-text-strong;
     @apply gl-px-2;
     @apply gl-py-1;
   }
@@ -106,14 +106,14 @@
     @apply gl-rounded-base;
     @apply gl-py-3;
     @apply gl-px-4;
-    box-shadow: inset 0 0 0 $gl-border-size-1 $gray-100;
+    box-shadow: inset 0 0 0 $gl-border-size-1 var(--gl-border-color-default);
     @apply gl-my-7;
     @apply gl-overflow-auto;
 
     code {
-      @apply gl-bg-white;
+      @apply gl-bg-default;
       @apply gl-rounded-none;
-      @apply gl-text-gray-900;
+      @apply gl-text-strong;
       @apply gl-p-0;
     }
   }
@@ -146,23 +146,23 @@
     td {
       @apply gl-px-3;
       @apply gl-py-4;
-      box-shadow: inset 0 -#{$gl-border-size-1} 0 0 $gray-100;
+      box-shadow: inset 0 -#{$gl-border-size-1} 0 0 var(--gl-border-color-default);
       @apply gl-align-top;
     }
 
     th {
       box-shadow:
-        inset 0 #{$gl-border-size-1} 0 0 $gray-100,
-        inset 0 -#{$gl-border-size-1} 0 0 $gray-100;
+        inset 0 #{$gl-border-size-1} 0 0 var(--gl-border-color-default),
+        inset 0 -#{$gl-border-size-1} 0 0 var(--gl-border-color-default);
       @apply gl-font-bold;
     }
 
     thead {
-      @apply gl-bg-gray-50;
+      @apply gl-bg-strong;
     }
 
     tr:nth-child(even) {
-      @apply gl-bg-gray-10;
+      @apply gl-bg-subtle;
     }
   }
 }

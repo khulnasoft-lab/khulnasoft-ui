@@ -35,11 +35,11 @@
     @include assert {
       @include output {
         @include gl-media-breakpoint-up(xs) {
-          color: $green-100;
+          color: $gl-color-green-100;
         }
       }
       @include expect {
-        color: $green-100;
+        color: $gl-color-green-100;
       }
     }
   }
@@ -47,12 +47,12 @@
     @include assert {
       @include output {
         @include gl-media-breakpoint-up(sm) {
-          color: $blue-100;
+          color: $gl-color-blue-100;
         }
       }
       @include expect {
         @media (min-width: '576px') {
-          color: $blue-100;
+          color: $gl-color-blue-100;
         }
       }
     }
@@ -65,12 +65,12 @@
       @include output {
         // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
         @include gl-media-breakpoint-down(lg) {
-          color: $red-100;
+          color: $gl-color-red-100;
         }
       }
       @include expect {
         @media (max-width: '991.98px') {
-          color: $red-100;
+          color: $gl-color-red-100;
         }
       }
     }
@@ -80,12 +80,12 @@
       @include output {
         // stylelint-disable-next-line @gitlab/no-gl-media-breakpoint-down
         @include gl-media-breakpoint-down(md) {
-          color: $orange-100;
+          color: $gl-color-orange-100;
         }
       }
       @include expect {
         @media (max-width: '767.98px') {
-          color: $orange-100;
+          color: $gl-color-orange-100;
         }
       }
     }

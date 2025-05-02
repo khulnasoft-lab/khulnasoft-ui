@@ -17,7 +17,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
 .gl-legend-tabular.gl-legend-b-fade,
 .gl-chart-h-auto .gl-legend-inline.gl-legend-b-fade {
   &::after {
-    background-image: linear-gradient(to bottom, $transparent-rgba, var(--white, #{$white}));
+    background-image: linear-gradient(to bottom, $transparent-rgba, var(--gl-background-color-default));
     bottom: 0;
     content: '';
     @apply gl-block;
@@ -80,7 +80,7 @@ $legend-body-h: $gl-spacing-scale-13 - $gl-spacing-scale-4;
     @apply gl-flex;
 
     &:nth-child(odd) {
-      background-color: var(--gray-50, #{$gray-50});
+      @apply gl-bg-strong;
     }
   }
 
