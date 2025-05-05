@@ -438,9 +438,10 @@ export default {
         v-bind="searchInputAttributes"
         v-model="inputValue"
         class="gl-filtered-search-token-segment-input"
+        :class="{ 'gl-filtered-search-token-segment-input-disabled': viewOnly }"
         data-testid="filtered-search-token-segment-input"
         :aria-label="label"
-        :readonly="viewOnly"
+        :disabled="viewOnly"
         @keydown="handleInputKeydown"
         @blur="handleBlur"
       />

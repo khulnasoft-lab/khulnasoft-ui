@@ -20,6 +20,10 @@
   min-width: $gl-dropdown-width;
 }
 
+.gl-filtered-search-token-segment-input-disabled {
+  background: var(--gl-control-background-color-disabled);
+}
+
 .gl-filtered-search-token-segment-icon {
   @apply gl-mr-2;
 }

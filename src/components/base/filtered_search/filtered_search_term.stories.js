@@ -8,45 +8,57 @@ import GlFilteredSearchTerm from './filtered_search_term.vue';
 
 Vue.use(PortalVue);
 
-const availableTokens = [
+const defaultTokens = [
   { title: 'Demo1', type: 'demo1', icon: 'label', token: {} },
   { title: 'Demo2', type: 'demo2', icon: 'rocket', token: {} },
 ];
 
-const generateProps = ({ active = true } = {}) => ({ active });
-
-// eslint-disable-next-line no-unused-vars
-export const Default = (_args, { argTypes }) => ({
-  props: ['active'],
-  components: {
-    GlFilteredSearchTerm,
-  },
-  provide,
-  data() {
-    return {
-      value: { data: 'demo' },
-      availableTokens,
-    };
-  },
-  template: `
-      <div>
-        <div> {{ value.data }} </div>
-        <div class="gl-border-1 gl-border-solid gl-border-gray-200">
-          <gl-filtered-search-term
-            v-model="value"
-            class="gl-h-full"
-            :active="active"
-            :available-tokens="availableTokens"
-          />
-        </div>
-        <div>
-          <portal-target name="portal" class="gl-relative" />
-        </div>
-      </div>
-    `,
+const generateProps = ({
+  active = true,
+  availableTokens = defaultTokens,
+  placeholder = 'Search...',
+  searchInputAttributes = { 'aria-label': 'search' },
+  isLastToken = false,
+  currentValue = [],
+  cursorPosition = 'end',
+  searchTextOptionLabel = 'Text',
+  viewOnly = false,
+  value = { data: 'demo' },
+} = {}) => ({
+  active,
+  availableTokens,
+  placeholder,
+  searchInputAttributes,
+  isLastToken,
+  currentValue,
+  cursorPosition,
+  searchTextOptionLabel,
+  viewOnly,
+  value,
 });
-Default.args = generateProps();
-Default.play = triggerBlurEvent;
+
+export const Standalone = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { GlFilteredSearchTerm },
+  provide,
+  template: `
+    <div>
+      <div class="gl-border">
+        <gl-filtered-search-term
+          v-bind="$props"
+          v-model="$props.value"
+          class="gl-h-full"
+        />
+      </div>
+      <div>
+        <portal-target name="portal" class="gl-relative" />
+      </div>
+    </div>
+  `,
+});
+
+Standalone.args = generateProps();
+Standalone.play = triggerBlurEvent;
 
 export default {
   title: 'base/filtered-search/term',
@@ -59,5 +71,20 @@ export default {
         component: readme,
       },
     },
+  },
+  argTypes: {
+    active: { control: 'boolean' },
+    availableTokens: { control: 'object' },
+    placeholder: { control: 'text' },
+    searchInputAttributes: { control: 'object' },
+    isLastToken: { control: 'boolean' },
+    currentValue: { control: 'object' },
+    cursorPosition: {
+      control: { type: 'select' },
+      options: ['start', 'end'],
+    },
+    searchTextOptionLabel: { control: 'text' },
+    viewOnly: { control: 'boolean' },
+    value: { control: 'object' },
   },
 };
