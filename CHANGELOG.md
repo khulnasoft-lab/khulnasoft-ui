@@ -1,3 +1,10 @@
+## [113.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.3.1...v113.3.2) (2025-05-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @floating-ui/dom to v1.7.0 ([00baf76](https://gitlab.com/gitlab-org/gitlab-ui/commit/00baf767c521a2f523b5fb9ef50b539bbe83f204))
+
 ## [113.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.3.0...v113.3.1) (2025-05-05)
 
 
