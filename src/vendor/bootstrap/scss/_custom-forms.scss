@@ -404,6 +404,7 @@
   }
 
   &::-webkit-slider-thumb {
+    appearance: none;
     width: $custom-range-thumb-width;
     height: $custom-range-thumb-height;
     margin-top: ($custom-range-track-height - $custom-range-thumb-height) * .5; // Webkit specific
@@ -412,7 +413,6 @@
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
     @include transition($custom-forms-transition);
-    appearance: none;
 
     &:active {
       @include gradient-bg($custom-range-thumb-active-bg);
@@ -431,6 +431,7 @@
   }
 
   &::-moz-range-thumb {
+    appearance: none;
     width: $custom-range-thumb-width;
     height: $custom-range-thumb-height;
     @include gradient-bg($custom-range-thumb-bg);
@@ -438,7 +439,6 @@
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
     @include transition($custom-forms-transition);
-    appearance: none;
 
     &:active {
       @include gradient-bg($custom-range-thumb-active-bg);
@@ -457,6 +457,7 @@
   }
 
   &::-ms-thumb {
+    appearance: none;
     width: $custom-range-thumb-width;
     height: $custom-range-thumb-height;
     margin-top: 0; // Edge specific
@@ -467,7 +468,6 @@
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
     @include transition($custom-forms-transition);
-    appearance: none;
 
     &:active {
       @include gradient-bg($custom-range-thumb-active-bg);

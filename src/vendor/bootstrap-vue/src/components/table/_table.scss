@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'sass:string';
+
 // --- General styling ---
 
 .table.b-table {
@@ -259,7 +262,7 @@ $bv-escaped-characters: (("<", "%3c"), (">", "%3e"), ("#", "%23"));
 // But if we want to preserve backwards compatibility with v4.3, we leave this in
 // See https://codepen.io/kevinweber/pen/dXWoRw
 @function bv-escape-svg($string) {
-  @if str-index($string, "data:image/svg+xml") {
+  @if string.index($string, "data:image/svg+xml") {
     @each $char, $encoded in $bv-escaped-characters {
       $string: str-replace($string, $char, $encoded);
     }
@@ -380,7 +383,7 @@ $bv-escaped-characters: (("<", "%3c"), (">", "%3e"), ("#", "%23"));
 @if $bv-enable-table-stacked {
   .table.b-table {
     &.b-table-stacked {
-      @each $breakpoint in map-keys($grid-breakpoints) {
+      @each $breakpoint in map.keys($grid-breakpoints) {
         $next: breakpoint-next($breakpoint, $grid-breakpoints);
         $infix: breakpoint-infix($next, $grid-breakpoints);
 

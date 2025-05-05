@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 @mixin str-truncated($max-width: 82%) {
   display: inline-block;
   overflow: hidden;
@@ -102,7 +104,7 @@
 * @param $name Breakpoint name, such as `sm` or `md`.
 */
 @mixin gl-media-breakpoint-up($name) {
-  $min: map-get($breakpoints, $name);
+  $min: map.get($breakpoints, $name);
   @if $min == null {
     @error "#{$name} is not a valid breakpoint for this @media query.";
   }
@@ -127,7 +129,7 @@
 * @param $name Breakpoint, such as `sm` or `md`. `xs` is not valid
 */
 @mixin gl-media-breakpoint-down($name) {
-  $max: map-get($breakpoints, $name);
+  $max: map.get($breakpoints, $name);
   @if ($max == null or $max == 0) {
     @error "#{$name} is not a valid breakpoint for this @media query.";
   }
@@ -153,14 +155,14 @@
 @function get-font-size-variable($size, $fixed) {
   @if $fixed == true {
     @if map-has-key($gl-font-sizes-fixed, $size) {
-      @return map-get($gl-font-sizes-fixed, $size);
+      @return map.get($gl-font-sizes-fixed, $size);
     } @else {
       @error "#{$size} is not a valid fixed font size property";
       @return null;
     }
   } @else {
     @if map-has-key($gl-font-sizes, $size) {
-      @return map-get($gl-font-sizes, $size);
+      @return map.get($gl-font-sizes, $size);
     } @else {
       @error "#{$size} is not a valid font size property";
       @return null;

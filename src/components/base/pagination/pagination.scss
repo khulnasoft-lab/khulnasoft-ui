@@ -15,6 +15,10 @@
 }
 
 .gl-pagination-item {
+  transition: color $gl-transition-duration-medium $gl-easing-out-cubic,
+              background-color $gl-transition-duration-medium $gl-easing-out-cubic,
+              border-color $gl-transition-duration-medium $gl-easing-out-cubic,
+              box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
   @apply gl-flex;
   @apply gl-justify-center;
   @apply gl-p-3;
@@ -27,10 +31,6 @@
   @apply gl-border-solid;
   @include gl-action-neutral-colors;
   @include gl-prefers-reduced-motion-transition;
-  transition: color $gl-transition-duration-medium $gl-easing-out-cubic,
-              background-color $gl-transition-duration-medium $gl-easing-out-cubic,
-              border-color $gl-transition-duration-medium $gl-easing-out-cubic,
-              box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
 
   &:hover {
     @apply gl-no-underline;
