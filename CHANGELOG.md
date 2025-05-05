@@ -1,3 +1,10 @@
+## [113.3.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.3.0...v113.3.1) (2025-05-05)
+
+
+### Bug Fixes
+
+* **FilteredSearchTerm:** Fix view-only logic and remove unused deprecated class ([3a142b7](https://gitlab.com/gitlab-org/gitlab-ui/commit/3a142b76e40567007a2280263ec993ca9bceb163))
+
 # [113.3.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.2.4...v113.3.0) (2025-05-02)
 
 
