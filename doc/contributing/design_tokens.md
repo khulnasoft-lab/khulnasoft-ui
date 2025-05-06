@@ -451,7 +451,7 @@ If you need a design token that doesn't exist:
 1. Submit an MR with the necessary additions after approval.
 
 Remember that design tokens should make building GitLab easier.
-If the design token creation process becomes a blocker, contact the design systems team to discuss alternatives.
+If the design token creation process becomes a blocker, contact the design systems team to discuss [alternatives](https://design.gitlab.com/product-foundations/design-tokens-technical-implementation).
 
 ### Naming convention
 
