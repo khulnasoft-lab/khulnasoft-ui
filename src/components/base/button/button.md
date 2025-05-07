@@ -7,12 +7,10 @@ button variant.
 
 A button link is a link that is styled to look like a button, semantically speaking it's a `<a>` tag
 with the necessary classes added to make it look like a button, it shares the same functionality as
-[`<gl-link>`]
+[<gl-link>](?path=/docs/base-link--docs)
 
 > Note: Setting a `target` attribute without a `href` attribute, will not create any side effects.
 > Without the presence of a `href` attribute, this component will render a `<button>`.
-
-[`<gl-link>`]: ./?path=/story/base-link--default-link
 
 ## Icon-only button
 
@@ -22,6 +20,66 @@ You can provide one with the `aria-label` attribute, which is read out by screen
 ```html
 <gl-button icon="close" aria-label="Close" />
 ```
+
+## Type
+
+You can specify the button's type by setting the prop `type` to `button`, `submit` or `reset`.
+The default type is `button`.
+
+Note the `type` prop has no effect when either `href` or `to` props are set.
+
+## Sizing
+
+Specify `small` or `medium` via the `size` prop. Defaults to `medium`.
+
+```html
+<gl-button size="small">Small Button</gl-button>
+<gl-button>Default Button (medium)</gl-button>
+<gl-button size="medium">Medium Button</gl-button>
+```
+
+## Categories
+
+Use the `category` prop to set the button category to `primary`, `secondary`, or `tertiary`.
+Defaults to `primary`.
+
+## Variants
+
+Use the `variant` prop to set the button variant to `default`, `confirm`, `danger`, `dashed`, or `link`.
+Defaults to `default`.
+
+## Block level buttons
+
+Create block level buttons, those that span the full width of a parent, by setting the `block`
+prop.
+
+```html
+<gl-button block>Block Level Button</gl-button>
+```
+
+## Disabled state
+
+Set the `disabled` prop to disable button default functionality. `disabled` also works with buttons
+rendered as `<a>` elements and `<router-link>` (i.e. with the `href` or `to` prop set).
+
+```html
+<gl-button disabled>Disabled</gl-button>
+```
+
+## Router link support
+
+Refer to the [Router support](?path=/docs/base-link--docs#router-links) reference docs for
+the various supported `<router-link>` related props.
+
+## Accessibility
+
+When the `href` prop is set to `'#'`, `<gl-button>` will render a link (`<a>`) element with attribute
+`role="button"` set and appropriate keydown listeners (<kbd>Enter</kbd> and <kbd>Space</kbd>) so
+that the link acts like a native HTML `<button>` for screen reader and keyboard-only users. When
+disabled, the `aria-disabled="true"` attribute will be set on the `<a>` element.
+
+When the `href` is set to any other value (or the `to` prop is used), `role="button"` will not be
+added, nor will the keyboard event listeners be enabled.
 
 ## Label button
 

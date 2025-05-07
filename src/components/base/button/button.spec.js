@@ -1,5 +1,7 @@
 import { mount } from '@vue/test-utils';
 import GlLoadingIcon from '../loading_icon/loading_icon.vue';
+import { SPACE, ENTER } from '../new_dropdowns/constants';
+import GlLink from '../link/link.vue';
 import GlButton from './button.vue';
 
 describe('button component', () => {
@@ -212,5 +214,198 @@ describe('button component', () => {
     wrapper = mount(DemoComponent);
 
     expect(wrapper.classes()).toContain('btn-icon');
+  });
+
+  it('passes link props to GlLink', () => {
+    buildWrapper({
+      propsData: {
+        to: '/foo/bar',
+        activeClass: 'active-foo',
+        exactActiveClass: 'exact-active-foo',
+        prefetch: true,
+        rel: 'author',
+        target: '_blank',
+      },
+    });
+
+    expect(wrapper.findComponent(GlLink).props()).toEqual({
+      active: false,
+      activeClass: 'active-foo',
+      disabled: false,
+      exactActiveClass: 'exact-active-foo',
+      isUnsafeLink: false,
+      prefetch: true,
+      rel: 'author',
+      replace: false,
+      showExternalIcon: false,
+      target: '_blank',
+      to: '/foo/bar',
+      variant: 'unstyled',
+    });
+  });
+
+  it('has default structure and classes', () => {
+    buildWrapper();
+
+    expect(wrapper.element.tagName).toBe('BUTTON');
+    expect(wrapper.attributes('type')).toBe('button');
+    expect(wrapper.classes()).toEqual(expect.arrayContaining(['btn', 'btn-default', 'gl-button']));
+    expect(wrapper.attributes('href')).toBeUndefined();
+    expect(wrapper.attributes('role')).toBeUndefined();
+    expect(wrapper.attributes('disabled')).toBeUndefined();
+    expect(wrapper.attributes('aria-disabled')).toBeUndefined();
+    expect(wrapper.attributes('tabindex')).toBeUndefined();
+  });
+
+  it('renders a link when href provided', () => {
+    buildWrapper({
+      propsData: {
+        href: '/foo/bar',
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('A');
+    expect(wrapper.attributes('href')).toBe('/foo/bar');
+  });
+
+  it('renders default slot content', () => {
+    buildWrapper({
+      slots: {
+        default: '<span>foobar</span>',
+      },
+    });
+
+    expect(wrapper.text()).toBe('foobar');
+  });
+
+  it('applies block class', () => {
+    buildWrapper({
+      propsData: {
+        block: true,
+      },
+    });
+
+    expect(wrapper.classes()).toContain('btn-block');
+  });
+
+  it('renders custom root element', () => {
+    buildWrapper({
+      propsData: {
+        tag: 'div',
+      },
+    });
+
+    expect(wrapper.element.tagName).toBe('DIV');
+    expect(wrapper.attributes('tabindex')).toBe('0');
+  });
+
+  it('button has disabled attribute when disabled set', () => {
+    buildWrapper({
+      propsData: {
+        disabled: true,
+      },
+    });
+
+    expect(wrapper.attributes('disabled')).toBe('disabled');
+    expect(wrapper.classes()).toContain('disabled');
+    expect(wrapper.attributes('aria-disabled')).toBeUndefined();
+  });
+
+  it('link has aria-disabled attribute when disabled set', () => {
+    buildWrapper({
+      propsData: {
+        href: '/foo/bar',
+        disabled: true,
+      },
+    });
+
+    expect(wrapper.classes()).toContain('disabled');
+    expect(wrapper.attributes('aria-disabled')).toBe('true');
+  });
+
+  it('link with href="#" should have role="button"', () => {
+    buildWrapper({
+      propsData: {
+        href: '#',
+      },
+    });
+
+    expect(wrapper.attributes('role')).toEqual('button');
+  });
+
+  it('should emit click event when clicked', async () => {
+    const onClick = jest.fn();
+
+    buildWrapper({
+      listeners: {
+        click: onClick,
+      },
+    });
+
+    await wrapper.trigger('click');
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('should treat link with href="#" keydown.space as click', async () => {
+    const onClick = jest.fn();
+    buildWrapper({
+      propsData: {
+        href: '#',
+      },
+      listeners: {
+        click: onClick,
+      },
+    });
+
+    // We add keydown.space to make links act like buttons
+    await wrapper.trigger('keydown', { code: SPACE });
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('should treat non-standard tag keydown.space as click', async () => {
+    const onClick = jest.fn();
+    buildWrapper({
+      propsData: {
+        tag: 'div',
+      },
+      listeners: {
+        click: onClick,
+      },
+    });
+
+    // We add keydown.space to make links act like buttons
+    await wrapper.trigger('keydown', { code: SPACE });
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('should treat non-standard tag keydown.enter as click', async () => {
+    const onClick = jest.fn();
+    buildWrapper({
+      propsData: {
+        tag: 'div',
+      },
+      listeners: {
+        click: onClick,
+      },
+    });
+
+    // We add keydown.space to make links act like buttons
+    await wrapper.trigger('keydown', { code: ENTER });
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('should not emit click event when clicked and disabled', async () => {
+    const onClick = jest.fn();
+    buildWrapper({
+      propsData: {
+        disabled: true,
+      },
+      listeners: {
+        click: onClick,
+      },
+    });
+
+    await wrapper.trigger('click');
+    expect(onClick).not.toHaveBeenCalled();
   });
 });
