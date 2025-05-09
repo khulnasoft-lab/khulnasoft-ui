@@ -1,3 +1,4 @@
+@use 'sass:map';
 @import 'functions';
 @import '../tokens/build/scss/tokens';
 
@@ -108,14 +109,14 @@ $gl-font-sizes-fixed: (
 
 // dynamic scale (default) resizes based on viewport width
 $gl-font-sizes: (
-  100: map-get($gl-font-sizes-fixed, 100),
-  200: map-get($gl-font-sizes-fixed, 200),
-  300: map-get($gl-font-sizes-fixed, 300),
-  400: map-get($gl-font-sizes-fixed, 400),
-  500: clamp-between(map-get($gl-font-sizes-fixed, 500), px-to-rem(20px)),
-  600: clamp-between(map-get($gl-font-sizes-fixed, 600), px-to-rem(25px)),
-  700: clamp-between(map-get($gl-font-sizes-fixed, 700), px-to-rem(30px)),
-  800: clamp-between(map-get($gl-font-sizes-fixed, 800), px-to-rem(36px)),
+  100: map.get($gl-font-sizes-fixed, 100),
+  200: map.get($gl-font-sizes-fixed, 200),
+  300: map.get($gl-font-sizes-fixed, 300),
+  400: map.get($gl-font-sizes-fixed, 400),
+  500: clamp-between(map.get($gl-font-sizes-fixed, 500), px-to-rem(20px)),
+  600: clamp-between(map.get($gl-font-sizes-fixed, 600), px-to-rem(25px)),
+  700: clamp-between(map.get($gl-font-sizes-fixed, 700), px-to-rem(30px)),
+  800: clamp-between(map.get($gl-font-sizes-fixed, 800), px-to-rem(36px)),
 );
 
 // Heading variables

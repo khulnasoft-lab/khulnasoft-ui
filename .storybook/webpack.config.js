@@ -28,6 +28,7 @@ const sassLoaderOptions = {
   implementation: sass,
   sassOptions: {
     includePaths: [path.resolve(ROOT_DIR, 'node_modules')],
+    silenceDeprecations: ['import', 'legacy-js-api', 'color-functions'],
   },
 };
 

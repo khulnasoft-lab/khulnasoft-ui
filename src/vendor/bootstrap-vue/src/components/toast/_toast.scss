@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // --- <b-toast> custom SCSS ---
 
 // Toast wrapper element class (needed for list transition in toasters)
@@ -45,7 +47,7 @@
 @mixin b-toast-variant($background, $border, $color) {
   // Based on alert-variant mixin
   .toast {
-    background-color: rgba(lighten($background, 5%), $b-toast-background-opacity);
+    background-color: rgba(color.adjust($background, $lightness: 5%), $b-toast-background-opacity);
     border-color: rgba($border, $b-toast-background-opacity);
     color: $color;
 
@@ -62,7 +64,7 @@
 
   &.b-toast-solid {
     .toast {
-      background-color: rgba(lighten($background, 5%), 1);
+      background-color: rgba(color.adjust($background, $lightness: 5%), 1);
     }
   }
 }

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // Temporary fix for cssnano bug: https://github.com/cssnano/cssnano/issues/712
 // By moving center to last value in `background-position` property
 // See: https://github.com/bootstrap-vue/bootstrap-vue/issues/2599
@@ -150,13 +152,13 @@ input[type="color"].form-control:disabled {
       // Pseudo-elements must be split across multiple rulesets to have an affect
       &:focus {
         &::-webkit-slider-thumb {
-          box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-btn-focus-width lighten($color, 35%);
+          box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-btn-focus-width color.adjust($color, $lightness: 35%);
         }
         &::-moz-range-thumb {
-          box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-btn-focus-width lighten($color, 35%);
+          box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-btn-focus-width color.adjust($color, $lightness: 35%);
         }
         &::-ms-thumb {
-          box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-btn-focus-width lighten($color, 35%);
+          box-shadow: 0 0 0 1px $body-bg, 0 0 0 $input-btn-focus-width color.adjust($color, $lightness: 35%);
         }
       }
 
@@ -165,7 +167,7 @@ input[type="color"].form-control:disabled {
         background-image: none;
 
         &:active {
-          background-color: lighten($color, 35%);
+          background-color: color.adjust($color, $lightness: 35%);
           background-image: none;
         }
       }
@@ -179,7 +181,7 @@ input[type="color"].form-control:disabled {
         background-image: none;
 
         &:active {
-          background-color: lighten($color, 35%);
+          background-color: color.adjust($color, $lightness: 35%);
           background-image: none;
         }
       }
@@ -198,7 +200,7 @@ input[type="color"].form-control:disabled {
         background-image: none;
 
         &:active {
-          background-color: lighten($color, 35%);
+          background-color: color.adjust($color, $lightness: 35%);
           background-image: none;
         }
       }

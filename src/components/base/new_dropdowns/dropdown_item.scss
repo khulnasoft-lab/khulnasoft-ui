@@ -101,6 +101,8 @@
   }
 
   .gl-new-dropdown-item-content {
+    transition: background-color $gl-transition-duration-fast $gl-easing-out-cubic,
+                box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
     @apply gl-rounded-base;
     @apply gl-border-0;
     @apply gl-w-full;
@@ -118,8 +120,6 @@
     @apply gl-text-left;
     @apply gl-whitespace-normal;
     @include gl-prefers-reduced-motion-transition;
-    transition: background-color $gl-transition-duration-fast $gl-easing-out-cubic,
-                box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
 
     .gl-new-dropdown-item-check-icon {
       @apply gl-shrink-0;

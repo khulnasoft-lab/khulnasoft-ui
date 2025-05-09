@@ -86,11 +86,11 @@ $badge-min-width: $gl-spacing-scale-3;
   justify-content: center;
   gap: $gl-spacing-scale-2;
   padding: $gl-spacing-scale-1 $badge-padding-horizontal;
-  @include gl-prefers-reduced-motion-transition;
   transition: color $gl-transition-duration-medium $gl-easing-out-cubic,
               background-color $gl-transition-duration-medium $gl-easing-out-cubic,
               border-color $gl-transition-duration-medium $gl-easing-out-cubic,
               box-shadow $gl-transition-duration-medium $gl-easing-out-cubic;
+  @include gl-prefers-reduced-motion-transition;
 
   &:has(.gl-truncate, .gl-text-truncate) {
     max-width: 100%;
