@@ -9,7 +9,10 @@ describe('GlListboxItem', () => {
 
   const buildWrapper = (propsData, slots = {}) => {
     wrapper = mount(GlListboxItem, {
-      propsData,
+      propsData: {
+        id: 'test-listbox-item',
+        ...propsData,
+      },
       slots,
     });
   };

@@ -572,7 +572,7 @@ export default {
     >
       <div ref="dropdownArrow" class="gl-new-dropdown-arrow"></div>
       <div class="gl-new-dropdown-inner">
-        <slot></slot>
+        <slot :visible="visible"></slot>
       </div>
     </div>
   </div>

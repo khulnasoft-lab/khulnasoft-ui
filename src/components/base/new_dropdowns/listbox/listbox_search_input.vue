@@ -8,6 +8,7 @@ export default {
     GlClearIconButton,
     GlIcon,
   },
+  inheritAttrs: false,
   model: {
     prop: 'value',
     event: 'input',
@@ -65,6 +66,7 @@ export default {
       class="gl-listbox-search-input"
       :aria-label="placeholder"
       :placeholder="placeholder"
+      v-bind="$attrs"
       v-on="inputListeners"
     />
     <gl-clear-icon-button
