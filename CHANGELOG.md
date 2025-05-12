@@ -1,3 +1,10 @@
+# [113.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.3.2...v113.4.0) (2025-05-12)
+
+
+### Features
+
+* **BaseDropdown:** Prevent dropdowns from overflowing viewport ([5f97ccb](https://gitlab.com/gitlab-org/gitlab-ui/commit/5f97ccb07514e4dbc4c1f90bf4e742db2e045c89))
+
 ## [113.3.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.3.1...v113.3.2) (2025-05-05)
 
 
