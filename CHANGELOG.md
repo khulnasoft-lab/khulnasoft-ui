@@ -1,3 +1,10 @@
+# [113.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.4.0...v113.5.0) (2025-05-12)
+
+
+### Features
+
+* **GlCollapsibleListbox:** improve a11y support ([13453e7](https://gitlab.com/gitlab-org/gitlab-ui/commit/13453e73c28ddc3acf22951738acfeb9e2ade4c0))
+
 # [113.4.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.3.2...v113.4.0) (2025-05-12)
 
 
