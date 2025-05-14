@@ -13,9 +13,9 @@ const messages = ruleMessages(ruleName, {
 
 const matchPatterns = [
   // Match SCSS variables like $white, $black
-  /gl-(bg|border|fill|text)-(black|white)\b/g,
+  /\$(black|white)\b/g,
 
-  // // Match SCSS variables like $blue-500, $gray-100, etc.
+  // Match SCSS variables like $blue-500, $gray-100, etc.
   /\$(blue|gray|green|orange|purple|red|brand|data-viz|theme|t-white-a|t-gray-a)-[a-zA-Z0-9-_]*\b/g,
 
   // Match Tailwind/utility classes like gl-bg-black, gl-text-white
