@@ -37,28 +37,28 @@ const generateDrawerContent = (items) =>
     .map(
       (str) => `
     <div>
-      <label class="gl-font-bold">${str}</label>
-      <div>None</div>
+      <strong class="gl-inline-block gl-mb-2">${str}</strong>
+      <div>Content…</div>
     </div>
     `
     )
     .join('');
 
 const drawerContent = generateDrawerContent([
-  'One',
-  'Two',
-  'Three',
-  'Four',
-  'Five',
-  'Six',
-  'Seven',
-  'Eight',
-  'Nine',
-  'Ten',
-  'Eleven',
-  'Twelve',
-  'Thirteen',
-  'Fourteen',
+  'Group one',
+  'Group two',
+  'Group three',
+  'Group four',
+  'Group five',
+  'Group six',
+  'Group seven',
+  'Group eight',
+  'Group nine',
+  'Group ten',
+  'Group eleven',
+  'Group twelve',
+  'Group thirteen',
+  'Group fourteen',
 ]);
 
 const drawerContentShortList = generateDrawerContent(['One', 'Two', 'Three']);
@@ -129,7 +129,7 @@ export const Default = (_args, { viewMode }) => ({
       <gl-button @click="toggle">Toggle Drawer</gl-button>
       ${createSidebarTemplate(
         `
-        <template #title>List Settings</template>
+        <template #title>Example title</template>
         ${drawerContent}
       `,
         { extraBindings: { '@opened': 'opened' } }
