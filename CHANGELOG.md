@@ -1,3 +1,10 @@
+## [113.5.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.5.0...v113.5.1) (2025-05-14)
+
+
+### Bug Fixes
+
+* **stylelint:** css variable regex ([c8d2b76](https://gitlab.com/gitlab-org/gitlab-ui/commit/c8d2b76d895b87c2917b174725492e22bd07b3c3))
+
 # [113.5.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.4.0...v113.5.0) (2025-05-12)
 
 
