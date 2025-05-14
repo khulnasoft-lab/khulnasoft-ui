@@ -1,3 +1,10 @@
+# [113.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.5.2...v113.6.0) (2025-05-14)
+
+
+### Features
+
+* **GlDrawer:** Remove explicit border ([58085a4](https://gitlab.com/gitlab-org/gitlab-ui/commit/58085a4347ebabee2bb974e76cad4b72bac32d76))
+
 ## [113.5.2](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.5.1...v113.5.2) (2025-05-14)
 
 
