@@ -20,6 +20,16 @@ caption {
   @apply gl-text-subtle;
 }
 
+kbd {
+  @apply gl-inline-block gl-text-default gl-bg-subtle gl-border gl-border-b-strong gl-leading-1;
+  font-size: 87.5%;
+  padding: 3px 5px;
+  vertical-align: unset;
+  border-image: none;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 var(--gl-border-color-strong);
+}
+
 .table {
   @apply gl-w-full gl-mb-3 gl-text-default gl-bg-transparent;
 
