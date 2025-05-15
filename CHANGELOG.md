@@ -1,3 +1,21 @@
+# [114.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.7.0...v114.0.0) (2025-05-15)
+
+
+### Features
+
+* **GlButton:** remove BButton from GlButton ([fcdca4e](https://gitlab.com/gitlab-org/gitlab-ui/commit/fcdca4ee51ed98d71d93a94a2ffa741cf720c4db))
+
+
+### BREAKING CHANGES
+
+* **GlButton:** support for following props have been dropped:
+- pressed
+- router-component-name
+- exact
+- exact-path
+- exact-path-active-class (replaced with exact-active-class)
+- no-prefetch (use prefetch instead)
+
 # [113.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.6.0...v113.7.0) (2025-05-15)
 
 
