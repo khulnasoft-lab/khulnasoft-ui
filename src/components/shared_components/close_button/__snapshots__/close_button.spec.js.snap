@@ -7,6 +7,8 @@ exports[`Clear Icon Button renders successfully 1`] = `
   category="tertiary"
   icon="close"
   size="small"
+  tag="button"
+  type="button"
   variant="default"
 />
 `;

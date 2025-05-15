@@ -97,7 +97,7 @@ describe('Alert component', () => {
       expect(button.text()).toContain(primaryButtonText);
 
       const props = button.props();
-      expect('href' in props).toBe(false);
+      expect(props.href).toBeUndefined();
       expect(props.category).toEqual(buttonCategoryOptions.primary);
     });
 
@@ -134,7 +134,7 @@ describe('Alert component', () => {
       expect(button.text()).toContain(secondaryButtonText);
 
       const props = button.props();
-      expect('href' in props).toBe(false);
+      expect(props.href).toBeUndefined();
       expect(props.category).toEqual(buttonCategoryOptions.secondary);
     });
 
