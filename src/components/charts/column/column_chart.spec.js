@@ -65,9 +65,13 @@ describe('column chart component', () => {
     });
 
     it('should correctly render the chart', () => {
-      const chart = findChart();
+      expect(findChart().props('options')).toMatchSnapshot();
+    });
 
-      expect(chart.props('options')).toMatchSnapshot();
+    it('should stack series', () => {
+      const options = findChart().props('options');
+
+      expect(options.series[0].stack).toBe('default-series-stack');
     });
   });
 
@@ -95,15 +99,21 @@ describe('column chart component', () => {
       });
     });
     it('should correctly render the chart', () => {
-      const chart = findChart();
+      const options = findChart().props('options');
 
-      expect(chart.props('options')).toMatchSnapshot();
+      expect(options).toMatchSnapshot();
     });
 
     it('should set the secondary Y axis name', () => {
-      const chart = findChart();
+      const options = findChart().props('options');
 
-      expect(chart.props('options').yAxis[1].name).toEqual(secondaryDataTitle);
+      expect(options.yAxis[1].name).toEqual(secondaryDataTitle);
+    });
+
+    it('should stack series', () => {
+      const options = findChart().props('options');
+
+      expect(options.series[1].stack).toBe('default-series-secondary-stack');
     });
   });
 

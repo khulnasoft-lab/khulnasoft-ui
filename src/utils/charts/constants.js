@@ -58,6 +58,10 @@ export const arrowSymbol = 'path://m5 229 5 8h-10z';
 export const CHART_TYPE_BAR = 'bar';
 export const CHART_TYPE_LINE = 'line';
 
+// Constants for "series.stack" option, series with the same value stack on top of each other
+export const CHART_DEFAULT_SERIES_STACK = 'default-series-stack';
+export const CHART_DEFAULT_SERIES_SECONDARY_STACK = 'default-series-secondary-stack';
+
 // Constants for height "auto"
 export const HEIGHT_AUTO_CLASSES = 'gl-chart-h-auto gl-flex gl-flex-col gl-h-full';
 export const HEIGHT_AUTO_HORIZONTAL_LAYOUT_CLASSES = 'gl-flex gl-h-full';

@@ -244,7 +244,7 @@ export const popoverPlacements = {
   left: 'left',
 };
 
-export const columnOptions = {
+export const stackedPresentationOptions = {
   stacked: 'stacked',
   tiled: 'tiled',
 };
