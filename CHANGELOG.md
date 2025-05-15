@@ -1,3 +1,10 @@
+# [113.7.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.6.0...v113.7.0) (2025-05-15)
+
+
+### Features
+
+* **CSS:** define basic styles for <kbd> element ([730ddb2](https://gitlab.com/gitlab-org/gitlab-ui/commit/730ddb2dc1a5912c1fa33fbb1db16aa70b044828))
+
 # [113.6.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.5.2...v113.6.0) (2025-05-14)
 
 
