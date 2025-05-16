@@ -1,3 +1,10 @@
+## [114.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v114.0.0...v114.0.1) (2025-05-16)
+
+
+### Bug Fixes
+
+* **GlColumnChart:** Use correct stack values ([6565a48](https://gitlab.com/gitlab-org/gitlab-ui/commit/6565a4895b9ec4fb907c9f0292c1bf49321cf310))
+
 # [114.0.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v113.7.0...v114.0.0) (2025-05-15)
 
 
