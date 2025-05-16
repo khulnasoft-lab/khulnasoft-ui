@@ -2,7 +2,6 @@ import castArray from 'lodash/castArray';
 import merge from 'lodash/merge';
 import { BLUE_500 } from '../../tokens/build/js/tokens';
 import { GlBreakpointInstance } from '../breakpoints';
-import { columnOptions } from '../constants';
 import { areDatesEqual } from '../datetime_utility';
 import { engineeringNotation } from '../number_utils';
 import { hexToRgba } from '../utils';
@@ -395,13 +394,7 @@ export const generateAnnotationSeries = (annotations, yAxisIndex = 1) => {
  * @param {number} [options.yAxisIndex] - specifies the yAxis to use (if there are multiple)
  * @returns {Object} Bar chart series
  */
-export const generateBarSeries = ({
-  name,
-  color,
-  data = [],
-  stack = columnOptions.stacked,
-  yAxisIndex = 0,
-}) => ({
+export const generateBarSeries = ({ name, color, stack, data = [], yAxisIndex = 0 }) => ({
   type: CHART_TYPE_BAR,
   name,
   data,

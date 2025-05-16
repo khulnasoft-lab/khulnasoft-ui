@@ -1,6 +1,5 @@
 import merge from 'lodash/merge';
 import { GlBreakpointInstance } from '../breakpoints';
-import { columnOptions } from '../constants';
 import { hexToRgba } from '../utils';
 import {
   defaultChartOptions,
@@ -343,7 +342,6 @@ describe('chart config helpers', () => {
     const barDefaultParams = {
       name: 'Bar chart',
       color: colorFromDefaultPalette(0),
-      stack: columnOptions.stacked,
     };
 
     it.each`
@@ -351,7 +349,6 @@ describe('chart config helpers', () => {
       ${'name'}       | ${'Cool new bar chart'}       | ${{ name: 'Cool new bar chart' }}
       ${'color'}      | ${colorFromDefaultPalette(1)} | ${defaultBarColors}
       ${'data'}       | ${mockDefaultStackedBarData}  | ${{ data: mockDefaultStackedBarData }}
-      ${'stack'}      | ${columnOptions.tiled}        | ${{ stack: columnOptions.tiled }}
       ${'yAxisIndex'} | ${3}                          | ${{ yAxisIndex: 3 }}
     `('with $param set will contain $result', ({ param, value, result }) => {
       expect(

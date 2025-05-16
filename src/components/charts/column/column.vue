@@ -11,9 +11,13 @@ import {
   generateBarSeries,
   generateLineSeries,
 } from '../../../utils/charts/config';
-import { CHART_TYPE_LINE, HEIGHT_AUTO_CLASSES } from '../../../utils/charts/constants';
+import {
+  CHART_TYPE_LINE,
+  HEIGHT_AUTO_CLASSES,
+  CHART_DEFAULT_SERIES_STACK,
+  CHART_DEFAULT_SERIES_SECONDARY_STACK,
+} from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
-import { columnOptions } from '../../../utils/constants';
 import Chart from '../chart/chart.vue';
 import ChartTooltip from '../shared/tooltip/tooltip.vue';
 
@@ -90,7 +94,7 @@ export default {
       return Boolean(this.secondaryData.length);
     },
     barSeries() {
-      return this.bars.map(({ name, data, stack }, index) => {
+      return this.bars.map(({ name, data, stack = CHART_DEFAULT_SERIES_STACK }, index) => {
         const color = colorFromDefaultPalette(index);
         return generateBarSeries({ name, data, stack, color });
       });
@@ -104,12 +108,14 @@ export default {
     },
     secondarySeries() {
       const offset = this.bars.length + this.lines.length;
-      return this.secondaryData.map(({ name, data, type, stack = columnOptions.tiled }, index) => {
-        const color = colorFromDefaultPalette(offset + index);
-        return type === CHART_TYPE_LINE
-          ? generateLineSeries({ color, name, data, yAxisIndex: 1 })
-          : generateBarSeries({ color, name, data, yAxisIndex: 1, stack });
-      });
+      return this.secondaryData.map(
+        ({ name, data, type, stack = CHART_DEFAULT_SERIES_SECONDARY_STACK }, index) => {
+          const color = colorFromDefaultPalette(offset + index);
+          return type === CHART_TYPE_LINE
+            ? generateLineSeries({ color, name, data, yAxisIndex: 1 })
+            : generateBarSeries({ color, name, data, yAxisIndex: 1, stack });
+        }
+      );
     },
     series() {
       return [...this.barSeries, ...this.lineSeries, ...this.secondarySeries];

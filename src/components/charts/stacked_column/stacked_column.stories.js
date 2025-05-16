@@ -4,7 +4,7 @@ import {
   mockDefaultStackedBarData,
   mockSecondaryData,
 } from '../../../utils/charts/mock_data';
-import { columnOptions } from '../../../utils/constants';
+import { stackedPresentationOptions } from '../../../utils/constants';
 import {
   GL_COLOR_DATA_ORANGE_600,
   GL_COLOR_DATA_AQUA_500,
@@ -45,7 +45,7 @@ const generateProps = ({
   xAxisType = 'category',
   xAxisTitle = 'January - December 2018',
   yAxisTitle = 'Commits',
-  presentation = columnOptions.stacked,
+  presentation = stackedPresentationOptions.stacked,
   secondaryData = [],
   secondaryDataTitle = '',
   height = null,
@@ -77,14 +77,14 @@ export const Default = Template.bind({});
 Default.args = generateProps();
 
 export const Tiled = Template.bind({});
-Tiled.args = generateProps({ presentation: columnOptions.tiled });
+Tiled.args = generateProps({ presentation: stackedPresentationOptions.tiled });
 
 export const StackedWithLineData = Template.bind({});
 StackedWithLineData.args = generateProps({ lines: mockDefaultStackedLineData });
 
 export const TiledWithLineData = Template.bind({});
 TiledWithLineData.args = generateProps({
-  presentation: columnOptions.tiled,
+  presentation: stackedPresentationOptions.tiled,
   lines: mockDefaultStackedLineData,
 });
 

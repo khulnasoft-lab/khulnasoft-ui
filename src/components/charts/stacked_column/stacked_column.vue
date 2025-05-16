@@ -19,9 +19,11 @@ import {
   LEGEND_MAX_TEXT,
   CHART_TYPE_LINE,
   HEIGHT_AUTO_CLASSES,
+  CHART_DEFAULT_SERIES_STACK,
+  CHART_DEFAULT_SERIES_SECONDARY_STACK,
 } from '../../../utils/charts/constants';
 import { colorFromDefaultPalette } from '../../../utils/charts/theme';
-import { columnOptions } from '../../../utils/constants';
+import { stackedPresentationOptions } from '../../../utils/constants';
 import TooltipDefaultFormat from '../shared/tooltip/tooltip_default_format/tooltip_default_format.vue';
 import Chart from '../chart/chart.vue';
 import ChartLegend from '../legend/legend.vue';
@@ -68,8 +70,8 @@ export default {
     presentation: {
       type: String,
       required: false,
-      default: 'stacked',
-      validator: (value) => ['stacked', 'tiled'].indexOf(value) !== -1,
+      default: stackedPresentationOptions.stacked,
+      validator: (value) => Object.values(stackedPresentationOptions).indexOf(value) !== -1,
     },
     groupBy: {
       type: Array,
@@ -167,10 +169,18 @@ export default {
       return Boolean(this.secondaryData.length);
     },
     barSeries() {
-      return this.bars.map(({ name, data }, index) => {
-        const stack = this.presentation === 'stacked' ? this.groupBy : null;
+      return this.bars.map(({ name, data, stack }, index) => {
         const color = this.getColor(index);
-        return generateBarSeries({ stack, name, data, color });
+        const seriesStack =
+          this.presentation === stackedPresentationOptions.stacked
+            ? stack || CHART_DEFAULT_SERIES_STACK
+            : null;
+        return generateBarSeries({
+          stack: seriesStack,
+          name,
+          data,
+          color,
+        });
       });
     },
     lineSeries() {
@@ -182,11 +192,21 @@ export default {
     },
     secondarySeries() {
       const offset = this.bars.length + this.lines.length;
-      return this.secondaryData.map(({ name, data, type, stack = columnOptions.tiled }, index) => {
+      return this.secondaryData.map(({ name, data, type, stack }, index) => {
         const color = this.getColor(offset + index);
+        const seriesStack =
+          this.presentation === stackedPresentationOptions.stacked
+            ? stack || CHART_DEFAULT_SERIES_SECONDARY_STACK
+            : null;
         return type === CHART_TYPE_LINE
           ? generateLineSeries({ color, name, data, yAxisIndex: 1 })
-          : generateBarSeries({ color, name, data, yAxisIndex: 1, stack });
+          : generateBarSeries({
+              color,
+              name,
+              data,
+              stack: seriesStack,
+              yAxisIndex: 1,
+            });
       });
     },
     series() {

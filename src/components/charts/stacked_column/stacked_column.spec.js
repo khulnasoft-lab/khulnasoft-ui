@@ -80,6 +80,38 @@ describe('stacked column chart component', () => {
     expect(findChart().props('options')).toMatchSnapshot();
   });
 
+  describe('with data provided', () => {
+    beforeEach(async () => {
+      await createShallowWrapper();
+    });
+
+    it('should stack series in the same stack', () => {
+      const options = findChart().props('options');
+
+      expect(options.series[0].stack).toBe('default-series-stack');
+      expect(options.series[1].stack).toBe('default-series-stack');
+      expect(options.series[2].stack).toBe('default-series-stack');
+      expect(options.series[3].stack).toBe('default-series-stack');
+    });
+  });
+
+  describe('with data provided in tiled style', () => {
+    beforeEach(async () => {
+      await createShallowWrapper({
+        props: { presentation: 'tiled' },
+      });
+    });
+
+    it('should not stack series', () => {
+      const options = findChart().props('options');
+
+      expect(options.series[0].stack).toBe(null);
+      expect(options.series[1].stack).toBe(null);
+      expect(options.series[2].stack).toBe(null);
+      expect(options.series[3].stack).toBe(null);
+    });
+  });
+
   describe('with line data provided', () => {
     beforeEach(() => {
       createShallowWrapper({
@@ -225,6 +257,12 @@ describe('stacked column chart component', () => {
       const chart = findChart();
 
       expect(chart.props('options').yAxis[1].name).toEqual(secondaryDataTitle);
+    });
+
+    it('should stack secondary series', () => {
+      const options = findChart().props('options');
+
+      expect(options.series[4].stack).toBe('default-series-secondary-stack');
     });
   });
 
