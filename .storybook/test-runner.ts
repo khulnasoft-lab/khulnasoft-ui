@@ -28,7 +28,8 @@ const chartsFailureThreshold = 0.0018;
 
 const isChart = ({ title }) => title.startsWith('charts/');
 
-const isBaseComponent = ({ title }) => title.startsWith('base/');
+const hasAccessibilityTests = ({ title }) =>
+  title.startsWith('base/') || title.startsWith('chart/') || title.startsWith('dashboard/');
 
 const getMatchOptions = (context) => {
   const failureThresholdType: Threshold = isChart(context)
@@ -47,7 +48,7 @@ const fileExists = async (path) => !!(await stat(path).catch((e) => false));
 const runA11y = async (page, context) => {
   const storyContext = await getStoryContext(page, context);
 
-  if (isBaseComponent(context) && !storyContext.parameters?.a11y?.disable) {
+  if (hasAccessibilityTests(context) && !storyContext.parameters?.a11y?.disable) {
     await configureAxe(page, {
       rules: storyContext.parameters?.a11y?.config?.rules,
     });
