@@ -5,6 +5,7 @@ import GlButton from '../../button/button.vue';
 import GlAlert from '../../alert/alert.vue';
 import GlListbox from '../../new_dropdowns/listbox/listbox.vue';
 import GlIcon from '../../icon/icon.vue';
+import GlFormCheckbox from '../form_checkbox/form_checkbox.vue';
 import { setStoryTimeout } from '../../../../utils/test_utils';
 import { getA11yParameters } from '../../../../utils/stories_utils';
 import GlFormFields from './form_fields.vue';
@@ -14,7 +15,15 @@ import { mapToNumber } from './mappers';
 
 const Template = () => ({
   ITEMS: ['Pizza', 'Keyboards', 'Guitars', 'Rocket ships'].map((text) => ({ text, value: text })),
-  components: { GlFormFields, GlButton, GlModal, GlListbox, GlAlert, GlIcon },
+  components: {
+    GlFormFields,
+    GlButton,
+    GlModal,
+    GlListbox,
+    GlAlert,
+    GlIcon,
+    GlFormCheckbox,
+  },
   data() {
     return {
       // why: We declare fields here so that we can test what binding the
@@ -48,7 +57,15 @@ const Template = () => ({
           validators: [(val) => (val < 1 ? 'Please click this at least once :)' : '')],
         },
         favoriteItem: {
-          label: 'Favorite Item (Optional)',
+          label: 'Favorite Item',
+          groupAttrs: {
+            optional: true,
+            'optional-text': '(optional)', // In GitLab.com translate this text with _('(optional)')
+          },
+        },
+        acknowledge: {
+          label: 'I acknowledge that...',
+          validators: [(val) => (val ? '' : required('Acknowledge before submitting!'))],
         },
       },
       formValues: {},
@@ -123,6 +140,16 @@ const Template = () => ({
           </template>
           <template #group(favoriteItem)-label-description>
             Label description using <code>group(favoriteItem)-label-description</code> slot.
+          </template>
+          <template #input(acknowledge)="{ id, input, validation, value }">
+            <gl-form-checkbox
+              :state="validation.state"
+              :id="id"
+              :checked="value"
+              @input="input"
+            >
+              GlFormFields is awesome
+            </gl-form-checkbox>
           </template>
         </gl-form-fields>
         <gl-button type="submit" category="primary" :loading="loading">Submit</gl-button>
