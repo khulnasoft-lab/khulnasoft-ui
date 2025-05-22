@@ -1,3 +1,10 @@
+# [114.1.0](https://gitlab.com/gitlab-org/gitlab-ui/compare/v114.0.1...v114.1.0) (2025-05-22)
+
+
+### Features
+
+* **echarts:** update to echarts@5.6.0 ([cdd8f36](https://gitlab.com/gitlab-org/gitlab-ui/commit/cdd8f36b556677a97ba93c01300b8a24e0616e08))
+
 ## [114.0.1](https://gitlab.com/gitlab-org/gitlab-ui/compare/v114.0.0...v114.0.1) (2025-05-16)
 
 
