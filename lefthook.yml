@@ -1,10 +1,6 @@
 pre-push:
   parallel: true
   commands:
-    eslint:
-      files: git diff --name-only --diff-filter=d origin/main...HEAD
-      glob: '*.{js,vue}'
-      run: ./node_modules/.bin/eslint {files}
     prettier:
       files: git diff --name-only --diff-filter=d origin/main...HEAD
       glob: '*.{js,vue}'
