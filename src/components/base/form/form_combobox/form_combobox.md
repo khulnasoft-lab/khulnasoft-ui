@@ -46,7 +46,7 @@ The algorithm to match tokens with the input is very naive. If you need to use t
 very large list of matches, you may want to update the implementation or use one of the search
 inputs, like [`GlSearchBoxByType`], [`GlSearchBoxByClick`], or [`GlFilteredSearch`].
 
-[`GlSearchBoxByType`]: https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-search-box-by-type--default
-[`GlSearchBoxByClick`]: https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-search-box-by-click--default
-[`GlTokenSelector`]: https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-token-selector--default
-[`GlFilteredSearch`]: https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-filtered-search--default
+[`GlSearchBoxByType`]: https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/story/base-search-box-by-type--default
+[`GlSearchBoxByClick`]: https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/story/base-search-box-by-click--default
+[`GlTokenSelector`]: https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/story/base-token-selector--default
+[`GlFilteredSearch`]: https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/story/base-filtered-search--default

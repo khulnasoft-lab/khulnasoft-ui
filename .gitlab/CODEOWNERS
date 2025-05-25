@@ -1,11 +1,11 @@
-[GitLab UI]
-* @gitlab-org/maintainers/gitlab-ui
+[KhulnaSoft UI]
+* @gitlab-org/maintainers/khulnasoft-ui
 
 ^[Charts]
 src/components/charts @svedova
 
 [CSS]
-*.scss @rayana @tauriedavis @gitlab-org/maintainers/gitlab-ui
+*.scss @rayana @tauriedavis @gitlab-org/maintainers/khulnasoft-ui
 
 ^[Technical Writing]
 doc/ @rdickenson

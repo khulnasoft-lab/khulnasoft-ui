@@ -1,6 +1,6 @@
 schemaVersion: 2.2.0
 components:
-  - name: gitlab-ui
+  - name: khulnasoft-ui
     attributes:
       gl/inject-editor: true
     container:

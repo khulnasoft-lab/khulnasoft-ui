@@ -1,50 +1,50 @@
-# Testing GitLab UI changes in GitLab
+# Testing KhulnaSoft UI changes in GitLab
 
-When introducing major, or potentially breaking changes in GitLab UI, you might want to verify that
-they properly integrate in GitLab before they are released in a new `@gitlab/ui` version.
+When introducing major, or potentially breaking changes in KhulnaSoft UI, you might want to verify that
+they properly integrate in GitLab before they are released in a new `@khulnasoft/ui` version.
 
-This can be done either by building the `@gitlab/ui` package locally, or by using the package that
+This can be done either by building the `@khulnasoft/ui` package locally, or by using the package that
 is built every time a pipeline runs against your branch.
 
-See [Updating GitLab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how the
-`@gitlab/ui` package is kept up to date in various other projects.
+See [Updating KhulnaSoft UI Packages](doc/updating-khulnasoft-ui-packages.md) for information on how the
+`@khulnasoft/ui` package is kept up to date in various other projects.
 
 ## Testing your changes in a local GitLab instance
 
 During development, you can use [yalc](https://github.com/wclr/yalc) to  link your local
-`@gitlab/ui` package changes to the GitLab project.
+`@khulnasoft/ui` package changes to the GitLab project.
 This means you don't need to update `package.json`, and can easily test changes.
 
 1. Install `yalc` with `yarn global add yalc`
-1. Navigate to the `@gitlab/ui` directory and publish the package with `yalc publish`.
-1. Navigate to the `gitlab` project and add published package with `yalc add @gitlab/ui`.
+1. Navigate to the `@khulnasoft/ui` directory and publish the package with `yalc publish`.
+1. Navigate to the `gitlab` project and add published package with `yalc add @khulnasoft/ui`.
 1. Run `yarn install --check-files` to pull package updates.
 
-To propagate changes in the `@gitlab/ui` project automatically to all installations use
+To propagate changes in the `@khulnasoft/ui` project automatically to all installations use
 the following command `yalc publish --push`.
 
 ## Using the remote development package
 
 This approach relies on the development package that's built and published as an artifact by the
-`build_package` CI job. This is especially useful if the changes you are making in GitLab UI require
+`build_package` CI job. This is especially useful if the changes you are making in KhulnaSoft UI require
 some code to be migrated in GitLab as you will be able to open a GitLab MR to preemptively integrate
-your changes before they are released with a new version of `@gitlab/ui`.
+your changes before they are released with a new version of `@khulnasoft/ui`.
 
 Your development flow would then look like this:
 
-1. Push your changes to GitLab UI.
+1. Push your changes to KhulnaSoft UI.
 1. A development package is built by the `build_package` job.
 1. Create a new branch in GitLab and install the development package.
 1. Do any required migration in the GitLab branch, push it and open an MR against it.
-1. Get your GitLab UI _and_ GitLab MRs reviewed.
-1. Get the GitLab UI MR merged.
-1. A new version of `@gitlab/ui` containing your changes is released.
-1. Update the GitLab MR to use the newly released version of `@gitlab/ui` instead of the development
+1. Get your KhulnaSoft UI _and_ GitLab MRs reviewed.
+1. Get the KhulnaSoft UI MR merged.
+1. A new version of `@khulnasoft/ui` containing your changes is released.
+1. Update the GitLab MR to use the newly released version of `@khulnasoft/ui` instead of the development
    build.
 1. Get your GitLab MR merged.
 
-To help with this process, GitLab UI exposes a `create_integration_branch` manual CI job that will
-automatically create (or update) an integration branch and install the `@gitlab/ui` development build.
+To help with this process, KhulnaSoft UI exposes a `create_integration_branch` manual CI job that will
+automatically create (or update) an integration branch and install the `@khulnasoft/ui` development build.
 
 ![Create integration branch CI job location](../images/create_integration_branch.png 'Create integration branch CI job location')
 
@@ -53,14 +53,14 @@ the end of the `create_integration_branch` job's output.
 
 ![Integration branch link location](../images/integration_branch_job_log.png 'Integration branch link location')
 
-Once you create the GitLab integration Merge Request, add a note to the GitLab UI Merge Request
+Once you create the GitLab integration Merge Request, add a note to the KhulnaSoft UI Merge Request
 with a link pointing to it. This way, the reviewers can use the integration Merge Request to run
 their own verifications.
 
-## The GitLab UI Integrations fork
+## The KhulnaSoft UI Integrations fork
 
 When running the `create_integration_branch` CI job, integration branches are created
-in a [fork of GitLab](https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations).
+in a [fork of GitLab](https://gitlab.com/gitlab-org/frontend/khulnasoft-ui-integrations).
 The fork is set up to mirror the `master` branch from the GitLab repository.
 We are using a fork to circumvent issues where pushing directly to the GitLab repository could
 time out. Therefore, keep in mind that the fork might be slightly behind the upstream branch
@@ -73,19 +73,19 @@ The repository mirroring is set up as a push mirror from the GitLab project. Pus
 are authored by a bot user associated with a Project Access Token created in the fork.
 
 Since Project Access Tokens eventually expire, the mirror needs to be set up again from
-time to time. This requires maintainer access to both GitLab and the GitLab UI Integrations
+time to time. This requires maintainer access to both GitLab and the KhulnaSoft UI Integrations
 projects. Here's how the mirroring should be configured:
 
 1. Create a Project Access Token with the `Developer` role and `write_repository` scope in the
-   [GitLab UI Integrations](https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations/-/settings/access_tokens)
+   [KhulnaSoft UI Integrations](https://gitlab.com/gitlab-org/frontend/khulnasoft-ui-integrations/-/settings/access_tokens)
    project.
 1. Give the PAT's user permission to push to the `master` branch in the
-   [repository settings](https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations/-/settings/repository).
+   [repository settings](https://gitlab.com/gitlab-org/frontend/khulnasoft-ui-integrations/-/settings/repository).
 1. In the [GitLab](https://gitlab.com/gitlab-org/gitlab/-/settings/repository#js-push-remote-settings)
    project, remove the outdated mirroring configuration if any. Make sure you're _only_ removing
-   GitLab UI Integrations mirrors.
+   KhulnaSoft UI Integrations mirrors.
 1. Create a new mirroring configuration with the following settings:
-    * **Git repository URL**: `https://gitlab.com/gitlab-org/frontend/gitlab-ui-integrations.git`.
+    * **Git repository URL**: `https://gitlab.com/gitlab-org/frontend/khulnasoft-ui-integrations.git`.
     * **Mirror direction**: `Push`.
     * **Username**: The PAT's username.
     * **Password**: The PAT.

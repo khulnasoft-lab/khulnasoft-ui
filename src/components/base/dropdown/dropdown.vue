@@ -21,7 +21,7 @@ const Selector = {
     '.dropdown-item:not(.disabled):not([disabled]),.form-control:not(.disabled):not([disabled])',
 };
 
-// see https://gitlab.com/gitlab-org/gitlab-ui/merge_requests/130#note_126406721
+// see https://gitlab.com/khulnasoft-org/khulnasoft-ui/merge_requests/130#note_126406721
 const ExtendedBDropdown = Vue.extend(BDropdown, {
   name: 'ExtendedBDropdown',
   methods: {

@@ -7,18 +7,18 @@ import path from 'node:path';
 import { tmpdir } from 'node:os';
 import childProcess from 'node:child_process';
 
-const { DEPENDENCY_URL, GITLAB_INTEGRATION_REST_TOKEN, CI_COMMIT_REF_NAME } = process.env;
+const { DEPENDENCY_URL, KHULNASOFT_INTEGRATION_REST_TOKEN, CI_COMMIT_REF_NAME } = process.env;
 
 const TMP_DIR = path.join(tmpdir(), 'tmpIntegrationInstall');
 const TRACKED_FILES = ['package.json', 'yarn.lock'];
 const API_ROOT = 'https://gitlab.com/api/v4';
-const GITLAB_PROJECT_ID = encodeURIComponent('gitlab-org/gitlab');
-const FORK_PROJECT = 'gitlab-org/frontend/gitlab-ui-integrations';
+const KHULNASOFT_PROJECT_ID = encodeURIComponent('gitlab-org/gitlab');
+const FORK_PROJECT = 'gitlab-org/frontend/khulnasoft-ui-integrations';
 const FORK_PROJECT_ID = encodeURIComponent(FORK_PROJECT);
 const API_ENDPOINT_REPOSITORY_BRANCH = '/projects/:id/repository/branches/:branch';
 const API_ENDPOINT_REPOSITORY_RAW_FILE = '/projects/:id/repository/files/:file_path';
 const API_ENDPOINT_CREATE_COMMIT = '/projects/:id/repository/commits';
-const INTEGRATION_BRANCH_NAME = `gitlab-ui-integration/${CI_COMMIT_REF_NAME}`;
+const INTEGRATION_BRANCH_NAME = `khulnasoft-ui-integration/${CI_COMMIT_REF_NAME}`;
 
 function buildApiUrl(endpoint, params = {}, searchParams = {}) {
   let apiPath = endpoint;
@@ -75,7 +75,7 @@ async function pullFileFromProject(file, project, branch) {
 
 function installGitLabUIDevBuild() {
   console.log(`Installing development build from ${DEPENDENCY_URL}.`);
-  childProcess.execSync(`yarn add --ignore-scripts @gitlab/ui@${DEPENDENCY_URL}`, {
+  childProcess.execSync(`yarn add --ignore-scripts @khulnasoft/ui@${DEPENDENCY_URL}`, {
     cwd: TMP_DIR,
   });
 }
@@ -86,7 +86,7 @@ async function pushChangesToFork(createBranch = true) {
   const payload = {
     ...(createBranch ? { start_branch: 'master' } : {}),
     branch: INTEGRATION_BRANCH_NAME,
-    commit_message: `GitLab UI integration test for ${CI_COMMIT_REF_NAME}`,
+    commit_message: `KhulnaSoft UI integration test for ${CI_COMMIT_REF_NAME}`,
     actions: TRACKED_FILES.map((file) => ({
       action: 'update',
       file_path: file,
@@ -102,7 +102,7 @@ async function pushChangesToFork(createBranch = true) {
       method: 'POST',
       body: JSON.stringify(payload),
       headers: {
-        'PRIVATE-TOKEN': GITLAB_INTEGRATION_REST_TOKEN,
+        'PRIVATE-TOKEN': KHULNASOFT_INTEGRATION_REST_TOKEN,
         'Content-Type': 'application/json',
       },
     }
@@ -146,7 +146,7 @@ try {
     console.log(`A new branch \`${INTEGRATION_BRANCH_NAME}\` will be created on the remote.`);
   }
 
-  const sourceProject = branchExists ? FORK_PROJECT_ID : GITLAB_PROJECT_ID;
+  const sourceProject = branchExists ? FORK_PROJECT_ID : KHULNASOFT_PROJECT_ID;
   const sourceBranch = branchExists ? INTEGRATION_BRANCH_NAME : 'master';
 
   createTemporaryDirectory();

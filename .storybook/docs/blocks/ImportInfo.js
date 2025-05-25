@@ -8,7 +8,7 @@ export const ImportInfo = () => {
   if (!componentName) {
     return null;
   }
-  const importStatement = `import { ${componentName} } from '@gitlab/ui';`;
+  const importStatement = `import { ${componentName} } from '@khulnasoft/ui';`;
   return (
     <SyntaxHighlighter data-testid="import-info" copyable bordered>
       {importStatement}

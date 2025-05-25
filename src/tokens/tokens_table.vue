@@ -232,9 +232,9 @@ export default {
     <p class="gl-text-sm gl-text-subtle">
       For full token details, see
       <gl-link
-        href="https://gitlab.com/gitlab-org/gitlab-ui/-/tree/main/src/tokens/build/json"
+        href="https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/tree/main/src/tokens/build/json"
         target="_blank"
-        >https://gitlab.com/gitlab-org/gitlab-ui/-/tree/main/src/tokens/build/json</gl-link
+        >https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/tree/main/src/tokens/build/json</gl-link
       >
     </p>
     <div class="gl-mb-5 gl-flex gl-items-center gl-gap-3">

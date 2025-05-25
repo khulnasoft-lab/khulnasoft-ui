@@ -1,7 +1,7 @@
 ## Usage
 
 `GlFormFields` provides form builder functionality for ease of building simple
-forms out of other GitLab UI form components.
+forms out of other KhulnaSoft UI form components.
 
 For a code example, look at the story. It covers usage of `mapValue`, `validators`,
 custom form elements, and `inputAttrs`.

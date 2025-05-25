@@ -6,9 +6,9 @@ meaningful user interface (UI) design across tools and platforms.
 
 Only design decisions that are part of the design system should be represented as design tokens.
 
-GitLab UI uses design tokens to maintain a single source of truth that, through automation, can be
+KhulnaSoft UI uses design tokens to maintain a single source of truth that, through automation, can be
 formatted for different uses. See
-[Pajamas](https://design.gitlab.com/product-foundations/design-tokens) for an overview on design
+[Pajamas](https://design.khulnasoft.com/product-foundations/design-tokens) for an overview on design
 tokens.
 
 [[_TOC_]]
@@ -16,7 +16,7 @@ tokens.
 ## Usage
 
 We manage design tokens in this repository which is published on npm, and managed as a dependency
-with yarn. To upgrade to a new version run `yarn upgrade @gitlab/ui`. To build tokens locally run
+with yarn. To upgrade to a new version run `yarn upgrade @khulnasoft/ui`. To build tokens locally run
  `yarn build-tokens`.
 
 Design tokens are provided in different modes (default/dark) and file formats for use in CSS (custom
@@ -25,7 +25,7 @@ properties), JavaScript (ES6 Constants/JSON), and SCSS (variables), for example:
 ### CSS
 
 ```css
-@import '@gitlab/ui/src/tokens/build/css/tokens';
+@import '@khulnasoft/ui/src/tokens/build/css/tokens';
 
 h1 {
   color: var(--gl-text-color-heading); /* #18171d */
@@ -35,7 +35,7 @@ h1 {
 ### SCSS
 
 ```scss
-@import '@gitlab/ui/src/tokens/build/scss/tokens';
+@import '@khulnasoft/ui/src/tokens/build/scss/tokens';
 
 h1 {
   color: $gl-text-color-heading; /* #18171d */
@@ -45,7 +45,7 @@ h1 {
 ### JavaScript
 
 ```js
-import { GL_TEXT_COLOR_HEADING } from '@gitlab/ui/src/tokens/build/js/tokens';
+import { GL_TEXT_COLOR_HEADING } from '@khulnasoft/ui/src/tokens/build/js/tokens';
 
 const color = GL_TEXT_COLOR_HEADING; // #18171d
 ```
@@ -58,7 +58,7 @@ files appended with `.dark`, for example:
 CSS:
 
 ```css
-@import '@gitlab/ui/src/tokens/build/css/tokens.dark';
+@import '@khulnasoft/ui/src/tokens/build/css/tokens.dark';
 
 h1 {
   color: var(--gl-text-color-heading); /* #fff */
@@ -68,7 +68,7 @@ h1 {
 SCSS:
 
 ```scss
-@import '@gitlab/ui/src/tokens/build/scss/tokens.dark';
+@import '@khulnasoft/ui/src/tokens/build/scss/tokens.dark';
 
 h1 {
   color: $gl-text-color-heading; /* #fff */
@@ -78,7 +78,7 @@ h1 {
 JavaScript:
 
 ```js
-import { GL_TEXT_COLOR_HEADING } from '@gitlab/ui/src/tokens/build/js/tokens.dark';
+import { GL_TEXT_COLOR_HEADING } from '@khulnasoft/ui/src/tokens/build/js/tokens.dark';
 
 const color = GL_TEXT_COLOR_HEADING; // #fff
 ```
@@ -451,7 +451,7 @@ If you need a design token that doesn't exist:
 1. Submit an MR with the necessary additions after approval.
 
 Remember that design tokens should make building GitLab easier.
-If the design token creation process becomes a blocker, contact the design systems team to discuss [alternatives](https://design.gitlab.com/product-foundations/design-tokens-technical-implementation).
+If the design token creation process becomes a blocker, contact the design systems team to discuss [alternatives](https://design.khulnasoft.com/product-foundations/design-tokens-technical-implementation).
 
 ### Naming convention
 
@@ -468,7 +468,7 @@ Principles:
 - Include an object in all semantic and contextual token names.
 - Maintain consistency in both terminology and patterns to enhance predictability.
 
-Learn more about [reading design tokens](https://design.gitlab.com/product-foundations/design-tokens-reading/).
+Learn more about [reading design tokens](https://design.khulnasoft.com/product-foundations/design-tokens-reading/).
 
 <!-- markdownlint-disable MD036-->
 <table>

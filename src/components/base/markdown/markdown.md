@@ -9,7 +9,7 @@ You can use the `GlMarkdown` component in two ways.
 
 ```html
 <script>
-import { GlMarkdown } from '@gitlab/ui';
+import { GlMarkdown } from '@khulnasoft/ui';
 
 export default {
   components: {
@@ -26,8 +26,8 @@ export default {
 
 ### `gl-markdown` class selector
 
-Follow the [GitLab UI CSS guidelines](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/css.md)
-to include GitLab UI CSS in your application. Afterwards, you can apply the `gl-markdown` class
+Follow the [KhulnaSoft UI CSS guidelines](https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/blob/main/doc/css.md)
+to include KhulnaSoft UI CSS in your application. Afterwards, you can apply the `gl-markdown` class
 selector to the root element that contains the markdown-generated HTML.
 
 ```html

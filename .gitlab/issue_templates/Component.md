@@ -35,12 +35,12 @@ Make sure the following are completed before closing the issue:
 /label ~"pajamas::build"
 
 [foundations-team]: https://about.gitlab.com/company/team/?department=fe-ux-foundations-team
-[pajamas-mr]: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/merge_requests/new
-[pajamas-issue]: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/issues/new
-[pajamas-component-documentation-template]: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/issues/new?issuable_template=Component%20documentation
-[pajamas-figma-update-template]: https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/issues/new?issuable_template=Figma%20update
-[component-lifecycle]: https://design.gitlab.com/get-started/lifecycle
-[adding-components]: https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/adding_components.md
-[adding-css]: https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/adding_css.md
-[breaking-changes]: https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/breaking_changes_to_components.md
+[pajamas-mr]: https://gitlab.com/khulnasoft/design.khulnasoft.com/design.khulnasoft.com/-/merge_requests/new
+[pajamas-issue]: https://gitlab.com/khulnasoft/design.khulnasoft.com/design.khulnasoft.com/-/issues/new
+[pajamas-component-documentation-template]: https://gitlab.com/khulnasoft/design.khulnasoft.com/design.khulnasoft.com/-/issues/new?issuable_template=Component%20documentation
+[pajamas-figma-update-template]: https://gitlab.com/khulnasoft/design.khulnasoft.com/design.khulnasoft.com/-/issues/new?issuable_template=Figma%20update
+[component-lifecycle]: https://design.khulnasoft.com/get-started/lifecycle
+[adding-components]: https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/blob/main/doc/contributing/adding_components.md
+[adding-css]: https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/blob/main/doc/contributing/adding_css.md
+[breaking-changes]: https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/blob/main/doc/contributing/breaking_changes_to_components.md
 [eng-week-in-review-doc]: https://docs.google.com/document/d/1JBdCl3MAOSdlgq3kzzRmtzTsFWsTIQ9iQg0RHhMht6E/edit

@@ -61,7 +61,7 @@ export function relativeLuminance(rgb) {
   // -
   // WCAG 3.0 will use APAC
   // Using APAC would be the ultimate goal, but was dismissed by engineering as of now
-  // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/3418#note_1370107090
+  // See https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/3418#note_1370107090
   return 0.2126 * toSrgb(rgb[0]) + 0.7152 * toSrgb(rgb[1]) + 0.0722 * toSrgb(rgb[2]);
 }
 

@@ -11,7 +11,7 @@ The following example listens for click events outside the specified element:
 
 ```html
 <script>
-import { GlOutsideDirective as Outside } from '@gitlab/ui';
+import { GlOutsideDirective as Outside } from '@khulnasoft/ui';
 
 export default {
   directives: { Outside },
@@ -82,7 +82,7 @@ function.
 
 ```html
 <script>
-import { GlOutsideDirective as Outside } from '@gitlab/ui';
+import { GlOutsideDirective as Outside } from '@khulnasoft/ui';
 
 export default {
   directives: { Outside },

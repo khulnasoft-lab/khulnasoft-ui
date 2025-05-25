@@ -138,7 +138,7 @@ export default {
     // Part of the tooltip related data can be
     // moved into the tooltip component.
     // Tracking that progress in
-    // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/618
+    // https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/618
     return {
       chart: null,
       compiledOptions: null,

@@ -234,7 +234,7 @@ export default {
 
       /**
        * This is a temporary workaround to implement the same behaviour
-       * implemented in https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2381
+       * implemented in https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/2381
        * for tokens with `terms-as-tokens=false` and `multi-select=false`.
        *
        * We're aiming to remove this temporary fix when

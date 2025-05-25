@@ -180,7 +180,7 @@ export default {
     },
     /**
      * For bar charts, the tooltip should be against x-axis values.
-     * This method will be removed after https://gitlab.com/gitlab-org/gitlab-ui/-/issues/674
+     * This method will be removed after https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/674
      *
      * @param {Object} params series data
      * @param {String} xAxisTitle x-axis title

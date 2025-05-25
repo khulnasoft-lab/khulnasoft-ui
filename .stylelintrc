@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@gitlab/stylelint-config"
+    "@khulnasoft/stylelint-config"
   ],
   "plugins": [
     "./stylelint/no_gl_media_breakpoint_down.js",

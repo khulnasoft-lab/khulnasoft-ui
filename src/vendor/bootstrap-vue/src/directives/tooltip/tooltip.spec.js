@@ -6,7 +6,7 @@ import { VBTooltip } from './tooltip'
 const BV_TOOLTIP = '__BV_Tooltip__'
 
 /**
- * @gitlab/ui Note: These specs have been rewritten to be working with jest >= 29
+ * @khulnasoft/ui Note: These specs have been rewritten to be working with jest >= 29
  */
 describe('v-b-tooltip directive', () => {
   const originalCreateRange = document.createRange

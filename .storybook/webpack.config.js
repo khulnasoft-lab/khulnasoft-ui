@@ -141,7 +141,7 @@ module.exports = ({ config }) => {
 
   config.resolve.extensions = ['.css', ...config.resolve.extensions];
 
-  config.resolve.alias['@gitlab/ui'] = path.join(__dirname, 'src', 'index.js');
+  config.resolve.alias['@khulnasoft/ui'] = path.join(__dirname, 'src', 'index.js');
 
   // disable HMR in test environment because this breaks playwright's networkidle setting
   // which is needed for visual regression tests to function

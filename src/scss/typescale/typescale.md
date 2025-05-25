@@ -1,23 +1,23 @@
-GitLab UI typescale is an implementation of the Pajamas [typescale specification](https://www.figma.com/file/qEddyqCrI7kPSBjGmwkZzQ/Pajamas-UI-Kit---Beta?node-id=542%3A2).
+KhulnaSoft UI typescale is an implementation of the Pajamas [typescale specification](https://www.figma.com/file/qEddyqCrI7kPSBjGmwkZzQ/Pajamas-UI-Kit---Beta?node-id=542%3A2).
 
 ## Usage
 
-When you import GitLab UI SCSS, the typescale is not applied automatically. To apply the UI
+When you import KhulnaSoft UI SCSS, the typescale is not applied automatically. To apply the UI
 Typescale, include the `gl-typescale-ui` `@mixin` in your application SCSS code:
 
 ```scss
-@import '@gitlab/ui/src/scss/gitlab_ui';
+@import '@khulnasoft/ui/src/scss/khulnasoft_ui';
 
 @include gl-typescale-ui;
 ```
 
-You can also include the Typescale and omit the rest of GitLab UI CSS. The following
+You can also include the Typescale and omit the rest of KhulnaSoft UI CSS. The following
 code demonstrates the minimal configuration required to use the UI Typescale in a project:
 
 ```scss
-@import '@gitlab/ui/src/scss/variables';
-@import '@gitlab/ui/src/scss/mixins';
-@import '@gitlab/ui/src/scss/typescale/index';
+@import '@khulnasoft/ui/src/scss/variables';
+@import '@khulnasoft/ui/src/scss/mixins';
+@import '@khulnasoft/ui/src/scss/typescale/index';
 
 @include gl-typescale-ui;
 ```

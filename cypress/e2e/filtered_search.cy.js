@@ -37,7 +37,7 @@ describe('GlFilteredSearch', () => {
       cy.contains('foo:').should('be.visible');
     });
 
-    // Regression test for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1761.
+    // Regression test for https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/1761.
     it('handles token destruction with consecutive tokens of the same type', () => {
       typeInInput('label');
       clickSuggestion('Label');
@@ -145,7 +145,7 @@ describe('GlFilteredSearch', () => {
       getTokenSegment(text).should('not.exist');
     });
 
-    // Regression test for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1761.
+    // Regression test for https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/1761.
     it('handles token destruction with consecutive tokens of the same type', () => {
       typeInInput('label');
       clickSuggestion('Label');

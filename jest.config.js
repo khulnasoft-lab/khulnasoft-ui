@@ -34,7 +34,7 @@ module.exports = {
   moduleNameMapper: {
     '^~helpers/(.*)$': '<rootDir>/tests/__helpers__/$1',
     '^~/(.*)$': '<rootDir>/src/$1',
-    '^@gitlab/ui$': '<rootDir>/index.js',
+    '^@khulnasoft/ui$': '<rootDir>/index.js',
     '\\.(css|scss|less)$': 'identity-obj-proxy',
     ...customModuleNameMappers,
   },

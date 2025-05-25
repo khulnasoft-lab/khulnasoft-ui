@@ -1,18 +1,18 @@
-# Adding a new component to GitLab UI
+# Adding a new component to KhulnaSoft UI
 
-The following provides guidance for engineers adding new components to GitLab UI.
+The following provides guidance for engineers adding new components to KhulnaSoft UI.
 
 ## Merge Request guidelines
 
-Create a Merge Request in GitLab UI with your new component code. Use the
+Create a Merge Request in KhulnaSoft UI with your new component code. Use the
 commit message `feat([ComponentName]): Implement [ComponentName] component`.
 This creates a conventional commit used by the
-[npm release CI job](https://gitlab.com/gitlab-org/gitlab-ui/pipelines) to
-create a new version of the GitLab UI package.
+[npm release CI job](https://gitlab.com/khulnasoft-org/khulnasoft-ui/pipelines) to
+create a new version of the KhulnaSoft UI package.
 
 Run the manual CI job (`update_screenshots`) to generate the baseline snapshots used by the visual
 tests. You can find it in last stage of
-[GitLab UI CI pipeline](https://gitlab.com/gitlab-org/gitlab-ui/pipelines).
+[KhulnaSoft UI CI pipeline](https://gitlab.com/khulnasoft-org/khulnasoft-ui/pipelines).
 This CI job commits the baseline snapshot images to the merge request branch.
 
 ![Update screenshots CI job location](../images/update_screenshots.png 'Update screenshots CI job location')
@@ -27,9 +27,9 @@ Then, create smaller branches targeting the principal branch to iterate through 
 ## Working on a Pajamas-documented component
 
 If you are adding or updating a component documented in the
-[Pajamas design system](https://design.gitlab.com), you should comply with the
-[component lifecycle workflow](https://design.gitlab.com/get-started/lifecycle).
+[Pajamas design system](https://design.khulnasoft.com), you should comply with the
+[component lifecycle workflow](https://design.khulnasoft.com/get-started/lifecycle).
 
 ## Testing your new component in GitLab
 
-This section has moved to [Testing GitlLab UI changes in GitLab](./gitlab_integration_test.md).
+This section has moved to [Testing GitlLab UI changes in GitLab](./khulnasoft_integration_test.md).

@@ -1,20 +1,20 @@
-# GitLab UI CSS
+# KhulnaSoft UI CSS
 
-GitLab UI provides component styles and a Pajamas-compliant Tailwind CSS preset.
+KhulnaSoft UI provides component styles and a Pajamas-compliant Tailwind CSS preset.
 
 ## Quick Start
 
-The fastest way to get GitLab UI components to render properly in your project is to import the main
+The fastest way to get KhulnaSoft UI components to render properly in your project is to import the main
 CSS bundle along with the internally-used CSS utilities:
 
 ```css
-@import '@gitlab/ui/dist/index.css';
-@import '@gitlab/ui/dist/tailwind.css';
+@import '@khulnasoft/ui/dist/index.css';
+@import '@khulnasoft/ui/dist/tailwind.css';
 ```
 
 > **Note:** If you wish to setup Tailwind CSS in your project, you _should not_ import the
-> `@gitlab/ui/dist/tailwind.css` stylesheet as that might result in duplicated CSS utilities being
-> included in your app. Instead, you should configure Tailwind to parse GitLab UI's files along with
+> `@khulnasoft/ui/dist/tailwind.css` stylesheet as that might result in duplicated CSS utilities being
+> included in your app. Instead, you should configure Tailwind to parse KhulnaSoft UI's files along with
 > your project's. See [Tailwind CSS](#tailwind-css) below.
 
 ## Usage with a SCSS preprocessor
@@ -22,7 +22,7 @@ CSS bundle along with the internally-used CSS utilities:
 If you use a SCSS preprocessor, you may include the base SCSS file instead of `index.css`:
 
 ```scss
-@import '@gitlab/ui/src/scss/gitlab_ui';
+@import '@khulnasoft/ui/src/scss/khulnasoft_ui';
 ```
 
 In addition to component styling, this provides various functions, variables and mixins.
@@ -31,12 +31,12 @@ In addition to component styling, this provides various functions, variables and
 
 Variables are imported as part of the [base SCSS file](#usage-with-a-scss-preprocessor).
 
-To use a variable without including GitLab UI components’ styles, import the variable file and its
+To use a variable without including KhulnaSoft UI components’ styles, import the variable file and its
 functions directly:
 
 ```scss
-@import '@gitlab/ui/src/scss/functions';
-@import '@gitlab/ui/src/scss/variables';
+@import '@khulnasoft/ui/src/scss/functions';
+@import '@khulnasoft/ui/src/scss/variables';
 
 .my-class {
   color: $theme-indigo-200;
@@ -47,19 +47,19 @@ To view a complete list of variables, see [variables.scss](/src/scss/variables.s
 
 ## Tailwind CSS
 
-As of 16.9, we have started migrating GitLab UI CSS utilities to [Tailwind CSS](https://tailwindcss.com/).
-Projects that consume `@gitlab/ui` and that wish to use its Pajamas-compliant Tailwind preset should
+As of 16.9, we have started migrating KhulnaSoft UI CSS utilities to [Tailwind CSS](https://tailwindcss.com/).
+Projects that consume `@khulnasoft/ui` and that wish to use its Pajamas-compliant Tailwind preset should
 therefore set Tailwind CSS up on their end by following the relevant installation [instructions](https://tailwindcss.com/docs/installation).
 
-Because some GitLab UI components use utility classes internally, you must configure the `content` option
-to scan `@gitlab/ui`'s own compiled bundles:
+Because some KhulnaSoft UI components use utility classes internally, you must configure the `content` option
+to scan `@khulnasoft/ui`'s own compiled bundles:
 
 ```js
-const tailwindDefaults = require('@gitlab/ui/tailwind.defaults.js');
+const tailwindDefaults = require('@khulnasoft/ui/tailwind.defaults.js');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  // Consume GitLab UI's Pajamas-compliant preset
+  // Consume KhulnaSoft UI's Pajamas-compliant preset
   presets: [tailwindDefaults],
   content: [
     // The consumer scans its own frontend assets
@@ -70,8 +70,8 @@ module.exports = {
     './{ee,}/app/components/**/*.{haml,rb}',
     './{ee,}/app/views/**/*.haml',
 
-    // Scan GitLab UI's own assets
-    './node_modules/@gitlab/ui/dist/**/*.js',
+    // Scan KhulnaSoft UI's own assets
+    './node_modules/@khulnasoft/ui/dist/**/*.js',
   ],
 };
 ```
@@ -86,7 +86,7 @@ For now, `--gl-theme-accent` is the only theme-related CSS custom property in
 use (see `GlTabs`). See [this epic](https://gitlab.com/groups/gitlab-org/-/epics/7401)
 for more details.
 
-## How does GitLab UI interact with GitLab CSS?
+## How does KhulnaSoft UI interact with GitLab CSS?
 
-Refer to the [relevant docs](./debugging-gitlab-ui-with-gitlab-css.md) to learn how GitLab UI and
+Refer to the [relevant docs](./debugging-khulnasoft-ui-with-gitlab-css.md) to learn how KhulnaSoft UI and
 GitLab styles interact with each other.

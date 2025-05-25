@@ -537,12 +537,12 @@ export const tailwindEquivalents = {
    - jh fork of GitLab
    - https://gitlab-org.gitlab.io/frontend/playground/gitlab-code-scanner
    - https://gitlab.com/gitlab-com/gl-infra/gitlab-dedicated/switchboard/
-   - https://gitlab.com/gitlab-org/customers-gitlab-com/
+   - https://gitlab.com/khulnasoft/
    - https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin
    - https://gitlab.com/gitlab-org/frontend/pajamas-adoption-scanner
    - https://gitlab.com/gitlab-org/frontend/playground/vue-compat-scanner
    - https://gitlab.com/gitlab-org/gitlab-docs/
-   - https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com
+   - https://gitlab.com/khulnasoft/design.khulnasoft.com/design.khulnasoft.com
    - https://gitlab.com/gitlab-org/gitlab-vscode-extension/
    - https://gitlab.com/gitlab-org/status-page
    - https://gitlab.com/gitlab-org/technical-writing-group/gitlab-docs-hugo
@@ -580,7 +580,7 @@ export const tailwindEquivalents = {
   'gl-inset-border-1-red-300': 'gl-shadow-inner-1-red-300',
   'gl-inset-border-1-red-500': 'gl-shadow-inner-1-red-500',
   'gl-column-gap-3': 'gl-gap-x-3',
-  // The following equivalents were found while migrating GitLab UI's stylesheets
+  // The following equivalents were found while migrating KhulnaSoft UI's stylesheets
   'gl-text-decoration-color-gray-900': 'gl-decoration-gray-900',
   'gl-text-decoration-color-gray-500': 'gl-decoration-gray-500',
   'gl-text-transform-none': 'gl-normal-case',

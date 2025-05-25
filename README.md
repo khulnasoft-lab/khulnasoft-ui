@@ -1,33 +1,33 @@
-# GitLab UI
+# KhulnaSoft UI
 
-GitLab UI is a UI component library that implements [Pajamas](https://design.gitlab.com/), our
-design system. GitLab UI is written in [Vue.js](https://vuejs.org) and its objectives are to:
+KhulnaSoft UI is a UI component library that implements [Pajamas](https://design.khulnasoft.com/), our
+design system. KhulnaSoft UI is written in [Vue.js](https://vuejs.org) and its objectives are to:
 
 - Create reusable UI components to accelerate frontend development.
 - Create UI consistency for all components within GitLab.
 
-See <https://gitlab-org.gitlab.io/gitlab-ui/> for documentation.
+See <https://gitlab-org.gitlab.io/khulnasoft-ui/> for documentation.
 
 ## Usage
 
-1. To use GitLab UI in your project, add it as a dependency:
+1. To use KhulnaSoft UI in your project, add it as a dependency:
 
     ```sh
-    yarn add @gitlab/ui
+    yarn add @khulnasoft/ui
     ```
 
-    > **Note:** Make sure to also install GitLab UI's peer dependencies. Refer to the
+    > **Note:** Make sure to also install KhulnaSoft UI's peer dependencies. Refer to the
     > [`package.json`](./package.json) for the list of peer dependencies and their expected versions.
 
 1. In your main entrypoint **before** importing or using any component:
 
     ```javascript
-    import setConfigs from '@gitlab/ui/dist/config'
+    import setConfigs from '@khulnasoft/ui/dist/config'
 
     setConfigs()
     ```
 
-    This will set the global configs used by GitLab UI.
+    This will set the global configs used by KhulnaSoft UI.
 
 1. Include the required stylesheets in your app. Refer to the [CSS docs](/doc/css.md) for
    installation options.
@@ -35,15 +35,15 @@ See <https://gitlab-org.gitlab.io/gitlab-ui/> for documentation.
 1. Import the components as desired:
 
     ```javascript
-    import { GlButton } from '@gitlab/ui';
+    import { GlButton } from '@khulnasoft/ui';
     ```
 
-    > **Note:** GitLab UI is compatible with tree-shaking, you may enable this in your project to
+    > **Note:** KhulnaSoft UI is compatible with tree-shaking, you may enable this in your project to
     > reduce bundle sizes.
 
 ## Quick start - development
 
-**Note:** GitLab UI isn't designed to be built on Windows natively. Either
+**Note:** KhulnaSoft UI isn't designed to be built on Windows natively. Either
 [WSL](https://learn.microsoft.com/en-us/windows/wsl/) or
 [GitPod](https://www.gitpod.io/docs/configure/authentication/gitlab) can be used to set up a
 UNIX-like environment in which to build it.
@@ -53,10 +53,10 @@ or newer.
 
 ```sh
 # Clone the project
-git clone git@gitlab.com:gitlab-org/gitlab-ui.git
+git clone git@gitlab.com:khulnasoft/khulnasoft-ui.git
 
 # Navigate to the root of the project
-cd gitlab-ui
+cd khulnasoft-ui
 
 # Install all the dependencies of the project
 yarn # or yarn install
@@ -93,23 +93,23 @@ with a description that matches the argument passed to the `t` flag.
 
 Even though we try to avoid writing complex SASS code to maintain CSS complexity low, we’ve
 implemented some functions that benefit from automated testing. SASS tests live in the `tests/scss`
-directory. GitLab UI uses [sass-true](https://www.oddbird.net/true/) to implement these tests, and
+directory. KhulnaSoft UI uses [sass-true](https://www.oddbird.net/true/) to implement these tests, and
 jest run them.
 
 `yarn jest run_scss_tests` runs all SCSS tests.
 
 ### Visual regression tests
 
-GitLab UI uses visual snapshot tests to prevent introducing regressions with CSS and
+KhulnaSoft UI uses visual snapshot tests to prevent introducing regressions with CSS and
 layout changes on components. Read more on this in the [visual testing documentation](doc/contributing/visual_testing.md).
 
 #### GitLab visual regression tests
 
-GitLab UI components are a reference implementation of the
-[Pajamas Design System components](https://design.gitlab.com/components/status). These components
+KhulnaSoft UI components are a reference implementation of the
+[Pajamas Design System components](https://design.khulnasoft.com/components/status). These components
 should conform with the design system specs, and they should look correct in the pajamas website and
-the GitLab product. Please see [Debugging GitLab UI issues with GitLab product CSS](doc/debugging-gitlab-ui-with-gitlab-css.md)
-for information on how to debug issues with GitLab product CSS in GitLab UI.
+the GitLab product. Please see [Debugging KhulnaSoft UI issues with GitLab product CSS](doc/debugging-khulnasoft-ui-with-gitlab-css.md)
+for information on how to debug issues with GitLab product CSS in KhulnaSoft UI.
 
 ### End to end tests
 
@@ -120,18 +120,18 @@ Components’ end to end tests live in the `cypress/e2e` folder. See our
 
 ### Design tokens
 
-GitLab UI uses design tokens to maintain a single source of truth that, through automation,
+KhulnaSoft UI uses design tokens to maintain a single source of truth that, through automation,
 can be formatted for different uses. Read more on this in the [design tokens documentation](doc/contributing/design_tokens.md).
 
 ## Releases
 
-See [Updating GitLab UI Packages](doc/updating-gitlab-ui-packages.md) for information on how the
-`@gitlab/ui` package is kept up to date in various projects.
+See [Updating KhulnaSoft UI Packages](doc/updating-khulnasoft-ui-packages.md) for information on how the
+`@khulnasoft/ui` package is kept up to date in various projects.
 
 ## Contributing guide
 
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to add new components and
-contribute in general to GitLab UI.
+contribute in general to KhulnaSoft UI.
 
 ### FAQs
 

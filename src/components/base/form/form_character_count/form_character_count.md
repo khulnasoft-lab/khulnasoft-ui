@@ -1,7 +1,7 @@
 ## Usage
 
 `GlFormCharacterCount` can be used to add a character count to an input.
-If you are using `GlFormTextarea` on its own see [with character count example](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-form-form-textarea--with-character-count).
+If you are using `GlFormTextarea` on its own see [with character count example](https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/story/base-form-form-textarea--with-character-count).
 If you are wrapping your input, such as in a markdown component, and need the character
 count separate from the input, use `GlFormCharacterCount`.
 
@@ -9,7 +9,7 @@ count separate from the input, use `GlFormCharacterCount`.
 
 ```html
 <script>
-  import { GlFormCharacterCount, GlFormInput, GlFormGroup } from '@gitlab/ui'
+  import { GlFormCharacterCount, GlFormInput, GlFormGroup } from '@khulnasoft/ui'
 
   export default {
     inputId: 'form-input-with-character-count',

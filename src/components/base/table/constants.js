@@ -45,4 +45,4 @@ export const tableFullProps = [
 ];
 
 export const glTableLiteWarning =
-  'This GlTable could be a GlTableLite component, please consider using GlTableLite instead of GlTable to reduce the page bundlesize more about this here: https://gitlab-org.gitlab.io/gitlab-ui/?path=/docs/base-table-table-lite--default';
+  'This GlTable could be a GlTableLite component, please consider using GlTableLite instead of GlTable to reduce the page bundlesize more about this here: https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/docs/base-table-table-lite--default';

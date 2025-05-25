@@ -1,6 +1,6 @@
 # Tailwind migration guide
 
-We are transitioning `@gitlab/ui` from custom utilities
+We are transitioning `@khulnasoft/ui` from custom utilities
 to a utility system based on [Tailwind CSS](https://tailwindcss.com/).
 
 We have put significant effort to make this transition as smooth as possible,
@@ -8,25 +8,25 @@ and there is a migration script available to automatically migrate a lot of old 
 classes to their Tailwind equivalents.
 
 1. Ensure your CSS build system now utilizes Tailwind as well.
-    Make sure your Tailwind config extends `@gitlab/ui/tailwind.defaults` and scans:
-    `./node_modules/@gitlab/ui/dist/**/*.{vue,js}`.
+    Make sure your Tailwind config extends `@khulnasoft/ui/tailwind.defaults` and scans:
+    `./node_modules/@khulnasoft/ui/dist/**/*.{vue,js}`.
     This migration depends on your build system, but here are a few relevant resources.
 
      - <https://tailwindcss.com/docs/installation>
-     - [Adding Tailwind to design.gitlab.com](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/merge_requests/3766)
-     - [Adding Tailwind to customers.gitlab.com (internal)](https://gitlab.com/gitlab-org/customers-gitlab-com/-/merge_requests/9665)
+     - [Adding Tailwind to design.khulnasoft.com](https://gitlab.com/khulnasoft/design.khulnasoft.com/design.khulnasoft.com/-/merge_requests/3766)
+     - [Adding Tailwind to customers.gitlab.com (internal)](https://gitlab.com/khulnasoft/-/merge_requests/9665)
      - [Tailwind config of gitlab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/tailwind.config.js)
 
 2. The following utility classes need to be migrated manually:
 
      - `gl-transition-slow` => `gl-transition-all gl-duration-slow`
      - `gl-bg-none` => `gl-bg-transparent` (no background color) or `gl-bg-none` (no background image)
-     - If updating from a `@gitlab/ui` version < 80, `gl-gap-(x|y)-*` utils [need to be updated](https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4159)
+     - If updating from a `@khulnasoft/ui` version < 80, `gl-gap-(x|y)-*` utils [need to be updated](https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/4159)
 
 3. In order to migrate remaining classes automatically, e.g. folder by folder:
 
     ```bash
-    node_modules/@gitlab/ui/bin/migrate_custom_utils_to_tw.bundled.mjs \
+    node_modules/@khulnasoft/ui/bin/migrate_custom_utils_to_tw.bundled.mjs \
       --directories app/assets/ other/folder \
       --tailwind-config tailwind.config.js # optional
     ```
@@ -34,7 +34,7 @@ classes to their Tailwind equivalents.
     If you provide a list of files, you can also migrate from stdin:
 
     ```bash
-      cat list_of_files.txt | node_modules/@gitlab/ui/bin/migrate_custom_utils_to_tw.bundled.mjs \
+      cat list_of_files.txt | node_modules/@khulnasoft/ui/bin/migrate_custom_utils_to_tw.bundled.mjs \
       --from-stdin \
       --tailwind-config tailwind.config.js # optional
     ```
@@ -63,7 +63,7 @@ Here's an example where we are running the migration script in dry mode to see w
 ```sh
 scripts/frontend/find_frontend_files.mjs \
   app/assets/javascripts/ci/pipeline_details/graph/graph_component_wrapper.vue | \
-  node_modules/@gitlab/ui/bin/migrate_custom_utils_to_tw.bundled.mjs \
+  node_modules/@khulnasoft/ui/bin/migrate_custom_utils_to_tw.bundled.mjs \
   --tailwind-config config/tailwind.config.js --from-stdin --dry-run
 ```
 
@@ -72,7 +72,7 @@ If you're happy with the report, execute the migration:
 ```sh
 scripts/frontend/find_frontend_files.mjs \
   app/assets/javascripts/ci/pipeline_details/graph/graph_component_wrapper.vue | \
-  node_modules/@gitlab/ui/bin/migrate_custom_utils_to_tw.bundled.mjs \
+  node_modules/@khulnasoft/ui/bin/migrate_custom_utils_to_tw.bundled.mjs \
   --tailwind-config config/tailwind.config.js --from-stdin
 ```
 

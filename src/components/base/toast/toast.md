@@ -9,7 +9,7 @@ In order to use the plugin, it needs to be included in your application with `Vu
 ```js
 // myApp.js
 
-import { GlToast } from '@gitlab/ui';
+import { GlToast } from '@khulnasoft/ui';
 
 // Note, this has to be done before `Vue.new()`
 Vue.use(GlToast);

@@ -1,7 +1,7 @@
-# GitLab UI's commit conventions
+# KhulnaSoft UI's commit conventions
 
 We use conventional commits specifications to write meaningful commit messages that are used as part
-of our [semantic release](https://gitlab.com/gitlab-org/gitlab-ui/wikis/Frequently-asked-questions#2-why-are-we-using-semantic-release)
+of our [semantic release](https://gitlab.com/khulnasoft-org/khulnasoft-ui/wikis/Frequently-asked-questions#2-why-are-we-using-semantic-release)
 process.
 
 Please read the official specifications for more details: <https://www.conventionalcommits.org/>.
@@ -51,7 +51,7 @@ To make this mergeable:
 ## Rewriting an MR's commit history
 
 The commits that get merged into the `main` branch should only describe changes since the
-previously released version of GitLab UI. Commits that describe changes within an MR, like
+previously released version of KhulnaSoft UI. Commits that describe changes within an MR, like
 applying review suggestions, should _not_ land in `main`. Therefore, it might be necessary to
 rewrite an MR's commit history before merging, so that no spurious changelog entries get
 generated.
@@ -71,13 +71,13 @@ It is the responsibility of the MR's assignee to rewrite its commit history.
 
 ## Why is [squash merging](https://docs.gitlab.com/ee/user/project/merge_requests/squash_and_merge.html) disabled?
 
-This feature is disabled in GitLab UI, since it allows for subtle ways to
+This feature is disabled in KhulnaSoft UI, since it allows for subtle ways to
 bypass our conventional-commits-based release process.
 
 This trades a slight decrease in ease of contribution for a more predictable
 release process.
 
-See [this issue](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1562) for
+See [this issue](https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/1562) for
 more information.
 
 ## What types can I use for my commit messages?

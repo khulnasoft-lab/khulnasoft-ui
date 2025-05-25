@@ -1,21 +1,21 @@
-# Consume components in GitLab
+# Consume components in KhulnaSoft
 
-GitLab UI provides a set of reusable components to be consumed in GitLab to follow design guidelines
+KhulnaSoft UI provides a set of reusable components to be consumed in GitLab to follow design guidelines
 and ensure consistency.
 
 ## Getting started
 
 When integrating a component into GitLab's code base, it's good to start by listing all the files
-where the previous implementation needs to be replaced by the GitLab UI component. These files can
+where the previous implementation needs to be replaced by the KhulnaSoft UI component. These files can
 then be grouped into 3 categories: Vue components, Vanilla JS and Haml templates. It's also good to
 make a list of pages or areas where this component will be utilized, to go through regular
 regression testing during the development process.
 
 ## Vue components
 
-This is the most straightforward aspect of integrating GitLab UI components. Components should be
+This is the most straightforward aspect of integrating KhulnaSoft UI components. Components should be
 consumed as Vue components in existing Vue files, as described in stories documented in
-the GitLab UI storybook. This should be the first step because the rendered result of a component
+the KhulnaSoft UI storybook. This should be the first step because the rendered result of a component
 will inform how to integrate it in the next steps.
 
 ### Troubleshooting tips

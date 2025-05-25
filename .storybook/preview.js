@@ -28,8 +28,8 @@ let decorators = [
 setConfigs();
 
 const theme = {
-  brandTitle: 'GitLab UI',
-  brandUrl: 'https://gitlab.com/gitlab-org/gitlab-ui',
+  brandTitle: 'KhulnaSoft UI',
+  brandUrl: 'https://gitlab.com/khulnasoft-org/khulnasoft-ui',
 };
 
 const parameters = {

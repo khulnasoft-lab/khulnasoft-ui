@@ -72,7 +72,7 @@ export const BVTransition = /*#__PURE__*/ extend({
       /*
        bootstrap-vue says: We always need `css` true
 
-       @gitlab/ui says: OMG. THE FREAKING TRANSITIONS.
+       @khulnasoft/ui says: OMG. THE FREAKING TRANSITIONS.
        So apparently jsdom doesn't implement animations (who can blame them)
        but a Vue Transition relies on the native animationend/transitionend
        events in order to fire onAfterLeave. jsdom will never fire the `onAfterLeave`

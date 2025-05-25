@@ -37,7 +37,7 @@ const isExternalModule = (moduleId) => {
    * Everything else is an "external module", this means we do not roll up external
    * dependencies ( lodash / ...) or internal imports (e.g. ./button)
    *
-   * This allows us to make @gitlab/ui treeshakeable.
+   * This allows us to make @khulnasoft/ui treeshakeable.
    */
   return true;
 };
@@ -95,7 +95,7 @@ export default glob
           delimiters: ['/* ', ' */'],
           include: 'src/index.js',
           values: {
-            'auto-inject-styles': "import './scss/gitlab_ui.scss';",
+            'auto-inject-styles': "import './scss/khulnasoft_ui.scss';",
           },
         }),
         postCssPlugin(),

@@ -87,7 +87,7 @@ export const gaugeWarningHue = GL_COLOR_DATA_ORANGE_500;
  * The default palette is based on the Categorical data palette
  * Categorical data (also known as qualitative or thematic) uses hue to
  * differentiate qualitative data, and lightness to differentiate quantitive data.
- * More info: https://design.gitlab.com/data-visualization/color#categorical-data
+ * More info: https://design.khulnasoft.com/data-visualization/color#categorical-data
  */
 export const colorPaletteDefault = [
   GL_COLOR_DATA_BLUE_500,
@@ -238,9 +238,9 @@ export const createTheme = (options = {}) => ({
         opacity: 1,
       },
       // render unfilled zoom-graph if the series is a line chart without area styles
-      // more details: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2364#note_666637306
+      // more details: https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/2364#note_666637306
       areaStyle: isLineChartWithoutArea(options)
-        ? {} // Use empty object instead of null, see https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2185#note_707711029 for more context
+        ? {} // Use empty object instead of null, see https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/2185#note_707711029 for more context
         : {
             color: 'var(--gl-background-color-strong)',
             opacity: 1,

@@ -15,7 +15,7 @@ Skeleton loaders can also be composed with a `.gl-animate-skeleton-loader`
 CSS class. This CSS-based approach is easier to make responsive and match mocked elements.
 Feel free to use this approach if it suits your use case and please leave your
 feedback in this [Feedback for css-based skeleton loading
-indicator](https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2319) issue.
+indicator](https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/2319) issue.
 To improve developer experience and simplify matching Pajamas styles we're considering
 several improvements in the future, including adding more CSS util classes for
 this animation, or creating a dedicated component.  Here is an example of how

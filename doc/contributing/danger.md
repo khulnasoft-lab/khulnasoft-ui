@@ -1,6 +1,6 @@
-# How is Danger used in GitLab UI?
+# How is Danger used in KhulnaSoft UI?
 
-We use [Danger](https://danger.systems/) in the GitLab UI codebase to streamline the review workflow
+We use [Danger](https://danger.systems/) in the KhulnaSoft UI codebase to streamline the review workflow
 and catch mistakes that reviewers might miss or not be aware of.
 
 ## Reviewer roulette

@@ -79,7 +79,7 @@ function showToast(message, options = {}) {
  * Note: This is not a typical Vue component and needs to be registered before instantiating a Vue app.
  * Once registered, the toast will be globally available throughout your app.
  *
- * See https://gitlab-org.gitlab.io/gitlab-ui/ for detailed documentation.
+ * See https://gitlab-org.gitlab.io/khulnasoft-ui/ for detailed documentation.
  */
 export default {
   install(Vue) {

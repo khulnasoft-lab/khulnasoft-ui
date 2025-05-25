@@ -110,7 +110,7 @@ sanitization. This component exposes the `is-unsafe-link` prop for that purpose.
   href="data:text/plain;charset=utf-8,GitLab%20is%20awesome">Download</gl-button>
 ```
 
-[SafeLinkDirective docs]: https://gitlab-org.gitlab.io/gitlab-ui/?path=/docs/directives-safe-link-directive--default
+[SafeLinkDirective docs]: https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/docs/directives-safe-link-directive--default
 [Data URL]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
 
 ## vue-bootstrap component

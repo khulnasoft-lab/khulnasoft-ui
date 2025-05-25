@@ -150,5 +150,5 @@ sanitization. This component exposes the `is-unsafe-link` prop for that purpose.
 </gl-link>
 ```
 
-[SafeLinkDirective docs]: https://gitlab-org.gitlab.io/gitlab-ui/?path=/docs/directives-safe-link-directive--default
+[SafeLinkDirective docs]: https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/docs/directives-safe-link-directive--default
 [Data URL]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs

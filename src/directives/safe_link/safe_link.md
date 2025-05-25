@@ -16,7 +16,7 @@ replaced with `about:blank` to prevent [URL injections].
 
 ```html
 <script>
-import { GlSafeLinkDirective as SafeLink } from '@gitlab/ui';
+import { GlSafeLinkDirective as SafeLink } from '@khulnasoft/ui';
 
 export default {
   data() {

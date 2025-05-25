@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { DocsContext } from '@storybook/addon-docs';
 import { Button } from '@storybook/components';
 
-const BASE_URL = 'https://gitlab.com/gitlab-org/gitlab-ui/-/tree/main';
+const BASE_URL = 'https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/tree/main';
 
 /**
  * Returns a source path given the current story path, if it exists. This works

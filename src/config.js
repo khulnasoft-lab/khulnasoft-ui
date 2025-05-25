@@ -42,7 +42,7 @@ export const defaultConfig = {
 let configured = false;
 
 /**
- * Set GitLab UI configuration.
+ * Set KhulnaSoft UI configuration.
  *
  * @typedef {object} GitLabUIConfiguration
  * @template TValue=string
@@ -52,7 +52,7 @@ let configured = false;
 const setConfigs = ({ translations, firstDayOfWeek } = {}) => {
   if (configured) {
     if (process.env.NODE_ENV === 'development') {
-      throw new Error('GitLab UI can only be configured once!');
+      throw new Error('KhulnaSoft UI can only be configured once!');
     }
 
     return;
@@ -81,7 +81,7 @@ const setConfigs = ({ translations, firstDayOfWeek } = {}) => {
       if (undefinedTranslationKeys.length) {
         /* eslint-disable no-console */
         console.warn(
-          '[@gitlab/ui] The following translations have not been given, so will fall back to their default US English strings:'
+          '[@khulnasoft/ui] The following translations have not been given, so will fall back to their default US English strings:'
         );
         console.table(undefinedTranslationKeys);
         /* eslint-enable no-console */

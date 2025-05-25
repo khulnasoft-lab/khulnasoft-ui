@@ -1,6 +1,6 @@
 # Lefthook
 
-You can use [lefthook] to setup Git hooks in GitLab UI so that changed files are linted upon
+You can use [lefthook] to setup Git hooks in KhulnaSoft UI so that changed files are linted upon
 committing changes. To install `lefthook`, run the following command:
 
 ```sh

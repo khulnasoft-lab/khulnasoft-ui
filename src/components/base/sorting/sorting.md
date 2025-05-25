@@ -41,7 +41,7 @@ A complete implementation example might look like:
 </template>
 
 <script>
-import { GlSorting } from '@gitlab/ui';
+import { GlSorting } from '@khulnasoft/ui';
 
 export default {
   components: {

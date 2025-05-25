@@ -5,7 +5,7 @@ announce that their platform will experience downtime during a specific period.
 In comparison with an alert, broadcast messages are created by an admin and not triggered by the
 system.
 
-Please refer to [Pajamas' documentation](https://design.gitlab.com/components/broadcast-message)
+Please refer to [Pajamas' documentation](https://design.khulnasoft.com/components/broadcast-message)
 for more information on when to use this component.
 
 ## Dismiss a broadcast message

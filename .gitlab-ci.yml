@@ -14,7 +14,7 @@ default:
     - gitlab-org
 
 variables:
-  GITLAB_ADVANCED_SAST_ENABLED: 'true'
+  KHULNASOFT_ADVANCED_SAST_ENABLED: 'true'
 
 include:
   - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
@@ -29,10 +29,10 @@ include:
 .is-merge-train: &is-merge-train
   if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merge_train"'
 
-# Only run on merge requests that come from GitLab UI or
-# from forks when a GitLab UI team member triggered a pipeline
-.is-gitlab-ui-mr: &is-gitlab-ui-mr
-  if: '$CI_MERGE_REQUEST_IID && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"'
+# Only run on merge requests that come from KhulnaSoft UI or
+# from forks when a KhulnaSoft UI team member triggered a pipeline
+.is-khulnasoft-ui-mr: &is-khulnasoft-ui-mr
+  if: '$CI_MERGE_REQUEST_IID && $CI_PROJECT_PATH == "khulnasoft/khulnasoft-ui"'
 
 # Execute the security scanners immediately
 gemnasium-dependency_scanning:
@@ -95,18 +95,18 @@ workflow:
       when: always
     - when: never
 
-# Only run on GitLab UI default branches
-.rules:gitlab-ui-default-branch:
+# Only run on KhulnaSoft UI default branches
+.rules:khulnasoft-ui-default-branch:
   rules:
-    - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "gitlab-org/gitlab-ui"'
+    - if: '$CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "khulnasoft/khulnasoft-ui"'
 
-.rules:gitlab-ui-mr:
+.rules:khulnasoft-ui-mr:
   rules:
-    - <<: *is-gitlab-ui-mr
+    - <<: *is-khulnasoft-ui-mr
 
-.rules:gitlab-ui-mr-manual:
+.rules:khulnasoft-ui-mr-manual:
   rules:
-    - <<: *is-gitlab-ui-mr
+    - <<: *is-khulnasoft-ui-mr
       when: manual
       allow_failure: true
 
@@ -159,7 +159,7 @@ build_test_storybook_vue3:
 build_package:
   extends: [.node, .yarn_install]
   variables:
-    TAR_ARCHIVE_NAME: gitlab-ui.$CI_COMMIT_REF_SLUG.tgz
+    TAR_ARCHIVE_NAME: khulnasoft-ui.$CI_COMMIT_REF_SLUG.tgz
   needs: []
   stage: build
   script:
@@ -257,7 +257,7 @@ check_tokens_build:
   script:
     - yarn test:visual
   rules:
-    - !reference ['.rules:gitlab-ui-default-branch', rules]
+    - !reference ['.rules:khulnasoft-ui-default-branch', rules]
     - <<: *is-merge-train
       when: always
     - if: '$CI_MERGE_REQUEST_IID'
@@ -383,7 +383,7 @@ screenshot_collector:
 update_screenshots:
   extends:
     - .node
-    - .rules:gitlab-ui-mr-manual
+    - .rules:khulnasoft-ui-mr-manual
   when: manual
   needs:
     - job: screenshot_collector
@@ -411,7 +411,7 @@ update_screenshots:
 pages:
   extends:
     - .pages
-    - .rules:gitlab-ui-default-branch
+    - .rules:khulnasoft-ui-default-branch
   pages:
     expire_in: never
   environment:
@@ -420,7 +420,7 @@ pages:
 review-app:
   extends:
     - .pages
-    - .rules:gitlab-ui-mr
+    - .rules:khulnasoft-ui-mr
   pages:
     path_prefix: '$CI_ENVIRONMENT_SLUG'
     expire_in: '2 weeks'
@@ -431,7 +431,7 @@ review-app:
 create_integration_branch:
   extends:
     - .node
-    - .rules:gitlab-ui-mr-manual
+    - .rules:khulnasoft-ui-mr-manual
   stage: manual
   needs:
     - build_package
@@ -447,7 +447,7 @@ duo_job:
     branch: main
     strategy: depend
   variables:
-    UPSTREAM_GITLAB_UI_VERSION: $DEPENDENCY_URL
+    UPSTREAM_KHULNASOFT_UI_VERSION: $DEPENDENCY_URL
     UPSTREAM_BRANCH_NAME: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
   rules:
     - if: '$CI_MERGE_REQUEST_LABELS =~ /duo-ui-allowed-to-fail/'
@@ -496,7 +496,7 @@ danger-review:
 publish_to_npm:
   extends:
     - .semantic-release
-    - .rules:gitlab-ui-default-branch
+    - .rules:khulnasoft-ui-default-branch
   before_script:
     - !reference [.snippets, forget-about-bootstrap-vue]
   # We need to run `publish` after pages, so that pages will get deployed
@@ -518,7 +518,7 @@ publish-to-npm-dry-run:
     # e.g. renovate MRs which come from forks
     - if: '$CI_MERGE_REQUEST_SOURCE_PROJECT_ID != $CI_MERGE_REQUEST_ID'
       when: never
-    - !reference ['.rules:gitlab-ui-mr', rules]
+    - !reference ['.rules:khulnasoft-ui-mr', rules]
   stage: deploy
   dependencies: []
   needs:

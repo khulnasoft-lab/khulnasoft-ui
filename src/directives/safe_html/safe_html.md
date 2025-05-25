@@ -17,7 +17,7 @@ DOMPurify will strip out dangerous HTML and will keep the safe HTML. You can ref
 
 ```html
 <script>
-import { GlSafeHtmlDirective as SafeHtml } from '@gitlab/ui';
+import { GlSafeHtmlDirective as SafeHtml } from '@khulnasoft/ui';
 
 export default {
   directives: {
@@ -54,5 +54,5 @@ For advanced configuration options, please refer to [DOMPurify's documentation](
 
 ### Notes
 
-1. `target` attribute is not allowed by default - See <https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1427>.
+1. `target` attribute is not allowed by default - See <https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/1427>.
 1. To know more about other tips & caveats - See <https://gitlab.com/groups/gitlab-org/-/epics/4273#caveats>.

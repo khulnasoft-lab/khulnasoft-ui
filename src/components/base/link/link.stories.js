@@ -51,7 +51,7 @@ InlineLink.args = generateProps({
 export const InlineExternalLink = Template.bind({});
 InlineExternalLink.args = generateProps({
   text: 'I have an arrow character because my target URL is external',
-  href: 'https://design.gitlab.com',
+  href: 'https://design.khulnasoft.com',
   showExternalIcon: true,
   target: '_blank',
   variant: 'inline',

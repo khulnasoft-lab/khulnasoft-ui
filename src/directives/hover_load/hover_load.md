@@ -4,7 +4,7 @@ A Vue Directive to help with preloading resources when hovering over an element.
 
 ```html
 <script>
-import { GlHoverLoadDirective } from '@gitlab/ui';
+import { GlHoverLoadDirective } from '@khulnasoft/ui';
 
 export default {
   directives: { GlHoverLoadDirective },

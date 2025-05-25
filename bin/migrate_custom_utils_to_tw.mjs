@@ -135,7 +135,7 @@ function getArgsParser() {
     .option('tailwind-config', {
       alias: 't',
       type: 'string',
-      describe: 'Optional. Path to tailwind config. Defaulting to GitLab UI default',
+      describe: 'Optional. Path to tailwind config. Defaulting to KhulnaSoft UI default',
       default: fileURLToPath(new URL('../tailwind.defaults.js', import.meta.url)),
     })
     .option('migrations', {
@@ -144,7 +144,7 @@ function getArgsParser() {
       describe:
         'Optional. Path to migrations JSON file, with { oldClass: newClass, ... } structure',
       default: NO_EQUIVALENTS,
-      defaultDescription: 'Defaults to definitions from @gitlab/ui',
+      defaultDescription: 'Defaults to definitions from @khulnasoft/ui',
       coerce: async (value) => {
         if (value === NO_EQUIVALENTS) {
           return tailwindEquivalents;

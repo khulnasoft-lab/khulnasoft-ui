@@ -61,7 +61,7 @@ const App = {
 }
 
 /**
- * @gitlab/ui Note: These specs have been rewritten to be working with jest >= 29
+ * @khulnasoft/ui Note: These specs have been rewritten to be working with jest >= 29
  * Instead of relying on an arcane mix of nextTick and waiting on requestAnimationFrame
  * we are now waiting for certain events to happen
  */

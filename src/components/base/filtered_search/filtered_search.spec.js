@@ -848,7 +848,7 @@ describe('Filtered search integration tests', () => {
     expect(wrapper.findAllComponents(GlFilteredSearchTerm)).toHaveLength(1);
   });
 
-  // Regression test for https://gitlab.com/gitlab-org/gitlab-ui/-/issues/1761
+  // Regression test for https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/1761
   it('does not incorrectly activate next token of the same type after token destruction', async () => {
     mountComponent({
       value: [

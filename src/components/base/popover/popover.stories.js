@@ -67,7 +67,7 @@ export const TextLinks = (_args, { viewMode, argTypes }) => ({
     'popover-with-text-links',
     `
     <template>
-      A popover is used to provide supplemental, useful, unique information about an element. This one has a link to <a class="gl-link" href="https://design.gitlab.com/components/popover">learn more about popovers.</a>
+      A popover is used to provide supplemental, useful, unique information about an element. This one has a link to <a class="gl-link" href="https://design.khulnasoft.com/components/popover">learn more about popovers.</a>
     </template>
   `
   ),

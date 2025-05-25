@@ -874,7 +874,7 @@ describe('form-input', () => {
     const origGetBCR = Element.prototype.getBoundingClientRect;
 
     beforeEach(() => {
-      // @gitlab-ui: In order to get these tests passing we needed to use real timers
+      // @khulnasoft-ui: In order to get these tests passing we needed to use real timers
       jest.useRealTimers();
       // Mock `getBoundingClientRect()` so that the `isVisible(el)` test returns `true`
       Element.prototype.getBoundingClientRect = jest.fn(() => ({

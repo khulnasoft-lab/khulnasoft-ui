@@ -18,9 +18,9 @@ describe('utils/config', () => {
   })
 
   /**
-   * We needed to adjust this test to have it reflect the @gitlab/ui defaults
+   * We needed to adjust this test to have it reflect the @khulnasoft/ui defaults
    */
-  it('getConfig() works and has @gitlab/ui defaults', async () => {
+  it('getConfig() works and has @khulnasoft/ui defaults', async () => {
     expect(getConfig()).toEqual({
       BPopover: {
         delay: {

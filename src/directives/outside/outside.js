@@ -58,9 +58,9 @@ const startListening = (eventTypes) => {
         document.addEventListener('mousedown', onMousedown);
       }
 
-      // Added { capture: true } to all event types to prevent the behavior discussed in https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1686#note_412545027
+      // Added { capture: true } to all event types to prevent the behavior discussed in https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/1686#note_412545027
       // Ensures the event listener handles the event in the capturing phase, avoiding issues encountered previously.
-      // Cannot be tested with Jest or Cypress, but can be tested with Playwright in the future: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4272#note_1947425384
+      // Cannot be tested with Jest or Cypress, but can be tested with Playwright in the future: https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/4272#note_1947425384
       document.addEventListener(eventType, globalListener, { capture: true });
       activeEventTypes.add(eventType);
     }

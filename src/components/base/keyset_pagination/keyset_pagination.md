@@ -46,4 +46,4 @@ pagination](https://docs.gitlab.com/ee/development/graphql_guide/pagination.html
 
 ## Pajamas reference
 
-<https://design.gitlab.com/components/pagination>
+<https://design.khulnasoft.com/components/pagination>

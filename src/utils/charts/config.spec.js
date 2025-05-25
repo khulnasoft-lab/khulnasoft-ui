@@ -224,7 +224,7 @@ describe('chart config helpers', () => {
 
     it('allows the filterMode to be set', () => {
       const actual = getDataZoomConfig({ filterMode: 'filter' });
-      // After https://gitlab.com/gitlab-org/gitlab-ui/issues/240
+      // After https://gitlab.com/khulnasoft-org/khulnasoft-ui/issues/240
       // all default dataZoom configs will have slider & inside.
       // inside is specifically to enable touch zoom for mobile devices
       const dataZoomWithFilter = [

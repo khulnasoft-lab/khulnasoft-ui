@@ -8,7 +8,7 @@ collapsed behind a button.
 > - For single or multiselect options, use `GlCollapsibleListbox`.
 > - For displaying a list of actions like "Edit user", "Delete user", use `GlDisclosureDropdown`.
 >
-> See [Which component should you use?](https://design.gitlab.com/components/dropdown-overview#which-component-should-you-use)
+> See [Which component should you use?](https://design.khulnasoft.com/components/dropdown-overview#which-component-should-you-use)
 > for what to use and when.
 
 ### Icon-only dropdown

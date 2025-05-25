@@ -541,7 +541,7 @@ export default {
       this.updateValue(formattedValue);
       /**
        * The `input` and `update` events are swapped
-       * see https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/1628
+       * see https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/1628
        */
       this.$emit('update', formattedValue);
     },

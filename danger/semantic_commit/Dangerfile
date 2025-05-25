@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-URL_SEMANTIC_RELEASE = 'https://gitlab.com/gitlab-org/gitlab-ui/-/blob/main/doc/contributing/commits.md'
+URL_SEMANTIC_RELEASE = 'https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/blob/main/doc/contributing/commits.md'
 SEMANTIC_COMMIT_TYPES = %w[build chore ci docs feat fix perf refactor revert style test].freeze
 
 NO_RELEASE = 1
@@ -64,7 +64,7 @@ def get_release_info(release_type)
     bump = <<~BUMP
       This will bump the first part of the version number, e.g. `v1.2.3` -> `v2.0.0`.
 
-      This means that GitLab UI has a breaking change.
+      This means that KhulnaSoft UI has a breaking change.
     BUMP
   when MINOR_RELEASE
     type = 'minor release'
@@ -224,7 +224,7 @@ def lint_commits(commits)
   if type && bump
     add_release_type_markdown(type)
     markdown(<<~MARKDOWN)
-      This Merge Request will trigger a _#{type}_ of GitLab UI, triggered by commit:
+      This Merge Request will trigger a _#{type}_ of KhulnaSoft UI, triggered by commit:
       #{max_release[:commit].sha}
 
       #{bump}

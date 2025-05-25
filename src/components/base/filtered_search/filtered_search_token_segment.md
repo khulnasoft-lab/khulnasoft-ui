@@ -3,7 +3,7 @@ or by selecting item through dropdown list
 
 ## Usage
 
-This component is internal and is not intended to be used by `@gitlab/ui` users.
+This component is internal and is not intended to be used by `@khulnasoft/ui` users.
 
 ## Internet Explorer 11
 

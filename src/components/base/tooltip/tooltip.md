@@ -22,7 +22,7 @@ You will need to import and register `GlTooltipDirective` before you can use it.
 
 ~~~html
 <script>
-import { GlTooltipDirective } from '@gitlab/ui';
+import { GlTooltipDirective } from '@khulnasoft/ui';
 
 export default {
   directives: {

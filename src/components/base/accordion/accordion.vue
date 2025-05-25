@@ -3,9 +3,9 @@ export default {
   name: 'GlAccordion',
   provide() {
     return {
-      // temporary fix for this issue: https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/2019#note_514671251
+      // temporary fix for this issue: https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/2019#note_514671251
       // MR for the upstream pending: https://github.com/vuejs/apollo/pull/1153
-      // Track removing this workaround in https://gitlab.com/gitlab-org/gitlab-ui/-/issues/3152
+      // Track removing this workaround in https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/3152
       defaultHeaderLevel: () => this.headerLevel,
       autoCollapse: () => this.autoCollapse,
     };

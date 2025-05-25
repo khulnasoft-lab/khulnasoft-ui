@@ -333,7 +333,7 @@ export default {
       this.$refs.baseDropdown.closeAndFocus();
     },
     handleAction(action) {
-      // See https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/4376 for
+      // See https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/merge_requests/4376 for
       // detailed explanation why we need requestAnimationFrame
       window.requestAnimationFrame(() => {
         /**

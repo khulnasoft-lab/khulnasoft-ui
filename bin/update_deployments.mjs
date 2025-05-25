@@ -6,7 +6,7 @@ import lockfile from '@yarnpkg/lockfile';
 
 const gitlabAPI = setupGitLabAPI(axios);
 
-const gitlabUIProject = encodeURIComponent('gitlab-org/gitlab-ui');
+const gitlabUIProject = encodeURIComponent('khulnasoft/khulnasoft-ui');
 
 async function ensureEnvironment(project, options) {
   const { name, ...rest } = options;
@@ -36,7 +36,7 @@ async function getGitLabUIVersionFromYarnLock(project, ref = 'master') {
   let json = lockfile.parse(file);
   if (json.type === 'success') {
     for (const [key, value] of Object.entries(json.object)) {
-      if (key.startsWith('@gitlab/ui')) {
+      if (key.startsWith('@khulnasoft/ui')) {
         return value.version;
       }
     }
@@ -49,7 +49,7 @@ async function createDeploymentIfNecessary(envName, version) {
     console.warn(`\tCouldn't extract version`);
     return;
   }
-  console.warn(`\tFound @gitlab/ui@${version}`);
+  console.warn(`\tFound @khulnasoft/ui@${version}`);
 
   const tagName = `v${version}`;
   const { data: release } = await gitlabAPI.get(`/projects/${gitlabUIProject}/releases/${tagName}`);
@@ -99,12 +99,12 @@ async function updateNPMPackage() {
 
   await ensureEnvironment(gitlabUIProject, {
     name: envName,
-    external_url: 'https://www.npmjs.com/package/@gitlab/ui',
+    external_url: 'https://www.npmjs.com/package/@khulnasoft/ui',
     tier: 'production',
   });
 
   console.warn(`\tGet version from NPM `);
-  const { data } = await axios.get(`https://registry.npmjs.org/-/package/@gitlab/ui/dist-tags`);
+  const { data } = await axios.get(`https://registry.npmjs.org/-/package/@khulnasoft/ui/dist-tags`);
 
   await createDeploymentIfNecessary(envName, data.latest);
 }

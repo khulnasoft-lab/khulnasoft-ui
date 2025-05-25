@@ -58,7 +58,7 @@ export default {
       return {
         ...this.$listeners,
         // Swap purpose of input and update events from underlying BFormTextarea.
-        // See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/631.
+        // See https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/631.
         input: (...args) => {
           /**
            * Emitted to update the v-model

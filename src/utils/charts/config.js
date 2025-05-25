@@ -97,7 +97,7 @@ const LESS_THAN = ['<', '&lt;'];
 
 /**
  * All default dataZoom configs will have slider & inside
- * (for reference, see https://gitlab.com/gitlab-org/gitlab-ui/issues/240)
+ * (for reference, see https://gitlab.com/khulnasoft-org/khulnasoft-ui/issues/240)
  * Inside is disabled for larger viewports (lg and xl)
  * and is specifically to enable touch zoom for mobile devices
  * @param {Object} options
@@ -479,7 +479,7 @@ export const getTooltipContent = (params = null, valueAxisName = null) => {
  * The method works well if tooltip content should be against y-axis values.
  * However, for bar charts, the tooltip should be against x-axis values.
  * This method should be updated to work with all types of visualizations.
- * https://gitlab.com/gitlab-org/gitlab-ui/-/issues/674
+ * https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/674
  *
  * @param {Object} params series data
  * @param {String} yAxisTitle y-axis title

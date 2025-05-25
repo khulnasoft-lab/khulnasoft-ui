@@ -1,7 +1,7 @@
-# GitLab UI documentation guidelines
+# KhulnaSoft UI documentation guidelines
 
 By GitLab's [Definition of Done](https://docs.gitlab.com/ee/development/contributing/merge_request_workflow.html#definition-of-done),
-a feature isn't ready until the documentation is shipped. The GitLab UI project
+a feature isn't ready until the documentation is shipped. The KhulnaSoft UI project
 follows the same principle.
 
 Documentation for this project is developer-oriented and should convey the
@@ -21,25 +21,25 @@ that its documentation is updated along with the code.
 
 ## Reviews
 
-The documentation review for the GitLab UI project is performed by the code
+The documentation review for the KhulnaSoft UI project is performed by the code
 reviewer themselves. The [Technical Writer assigned to Development Guidelines](https://about.gitlab.com/handbook/engineering/ux/technical-writing/#assignments-to-development-guidelines)
 can be requested at any time for help, inputs, and feedback, but it isn't
 required. To request their help, assign issues
 and merge requests to them and don't hesitate to ping them on Slack if immediate attention is needed.
 
-For updating these guidelines for GitLab UI's documentation, make sure to request the assigned
+For updating these guidelines for KhulnaSoft UI's documentation, make sure to request the assigned
 Technical Writer's review.
 
 ## Terminology
 
-### Referring to GitLab UI
+### Referring to KhulnaSoft UI
 
-When referring to the GitLab UI project in your documentation changes, use the human-friendly
-capitalized name: GitLab UI.
+When referring to the KhulnaSoft UI project in your documentation changes, use the human-friendly
+capitalized name: KhulnaSoft UI.
 
-**Don't** use the project's slug (gitlab-ui, `gitlab-ui`).
+**Don't** use the project's slug (khulnasoft-ui, `khulnasoft-ui`).
 
-When referring to GitLab UI's npm package, use the package's name with code formatting: `@gitlab/ui`.
+When referring to KhulnaSoft UI's npm package, use the package's name with code formatting: `@khulnasoft/ui`.
 
 ### Referring to a component
 
@@ -65,7 +65,7 @@ code when helpful.
 
 Also, make sure to mention (if relevant):
 
-- The component's purpose, which corresponds to the short description that's in [Pajamas' documentation](https://design.gitlab.com/components/).
+- The component's purpose, which corresponds to the short description that's in [Pajamas' documentation](https://design.khulnasoft.com/components/).
 - Usage information.
 - Dos and don'ts.
 - Props, slots, and events.
@@ -73,12 +73,12 @@ Also, make sure to mention (if relevant):
 - Edge cases.
 - Deprecation warnings.
 
-Example of well-written documentation: [base alert default component](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-alert--default).
+Example of well-written documentation: [base alert default component](https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/story/base-alert--default).
 
 ## Markdownlint
 
 [`markdownlint`](https://github.com/DavidAnson/markdownlint) enforces consistent styles throughout
-GitLab UI's documentation.
+KhulnaSoft UI's documentation.
 We use `markdownlint`'s default rules. Some of the rules are customized in
 [`.markdownlint.yaml`](../../.markdownlint.yaml).
 If you have set up [`lefthook`](./lefthook.md), `markdownlint` runs on every commit if you have changed

@@ -6,7 +6,7 @@
  * at the bottom. The dotted line is constructed
  * with markLine and arrows with markPoint. Most of this
  * logic is in GitLab and should be eventually moved to
- * GitLab UI https://gitlab.com/gitlab-org/gitlab/-/issues/213390.
+ * KhulnaSoft UI https://gitlab.com/gitlab-org/gitlab/-/issues/213390.
  *
  * Similar to how custom tooltips are displayed when line chart
  * is hovered, a tooltip should be displayed when the annotation
@@ -135,7 +135,7 @@ export default {
     // Part of the tooltip related data can be
     // moved into the tooltip component.
     // Tracking that progress in
-    // https://gitlab.com/gitlab-org/gitlab-ui/-/issues/618
+    // https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/618
     return {
       chart: null,
       compiledOptions: null,

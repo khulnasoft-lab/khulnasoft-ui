@@ -1,26 +1,26 @@
 # Frequently asked questions
 
-## Does GitLab UI work with Vue 3?
+## Does KhulnaSoft UI work with Vue 3?
 
 It works with `@vue/compat`! It will be [a while](https://gitlab.com/groups/gitlab-org/-/epics/6252)
 before it can run with the main Vue 3 build.
 
-## What icons library do we use in GitLab UI?
+## What icons library do we use in KhulnaSoft UI?
 
 GitLab has its own SVG icons library, explore it here: <https://gitlab-org.gitlab.io/gitlab-svgs/>
 
-## How can I import icons from GitLab SVGs into GitLab UI components?
+## How can I import icons from GitLab SVGs into KhulnaSoft UI components?
 
-In most circumstances, you can utilize the [icon](https://gitlab-org.gitlab.io/gitlab-ui/?path=/story/base-icon--default)
+In most circumstances, you can utilize the [icon](https://gitlab-org.gitlab.io/khulnasoft-ui/?path=/story/base-icon--default)
 component to render an SVG from the gitlab-svgs library. ECharts components, however,
 cannot use SVG sprite references and require the entire `path` content to be
 passed in via config options. For now, we are hard-coding these in [svg_paths.js](src/utils/svgs/svg_paths.js),
 but this will soon be done at build-time through a utility method.
 
-## Some GitLab UI components are not conforming to [Pajamas Design System](https://design.gitlab.com/) can I still use them?
+## Some KhulnaSoft UI components are not conforming to [Pajamas Design System](https://design.khulnasoft.com/) can I still use them?
 
-Some [Pajamas Design System](https://design.gitlab.com/) components implemented
-in GitLab UI do not conform with the design system specs because they lack some
+Some [Pajamas Design System](https://design.khulnasoft.com/) components implemented
+in KhulnaSoft UI do not conform with the design system specs because they lack some
 planned features or are not correctly styled yet. In the Pajamas website, a banner
 on top of the component examples indicates that:
 
@@ -29,7 +29,7 @@ System. Refer to the Design System documentation when referencing visuals for th
 component.
 
 For example, at the time of writing, this type of warning can be observed for
-[all form components](https://design.gitlab.com/components/forms). It, however,
+[all form components](https://design.khulnasoft.com/components/forms). It, however,
 doesn’t imply that the component should not be used.
 
 GitLab always asks to use `<gl-*>` components whenever a suitable component exists.
@@ -60,14 +60,14 @@ it('should log an error', () => {
 
 Set the `STORYBOOK_HOST` and `STORYBOOK_PORT` environment variables.
 
-## Does GitLab UI have a changelog/version history?
+## Does KhulnaSoft UI have a changelog/version history?
 
-Yes! We generate changelogs automatically based on GitLab UI's
+Yes! We generate changelogs automatically based on KhulnaSoft UI's
 [conventional commits](https://www.conventionalcommits.org/) history.
-Changelogs can be found in the [releases page](https://gitlab.com/gitlab-org/gitlab-ui/-/releases)
+Changelogs can be found in the [releases page](https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/releases)
 or in the [CHANGELOG.md](./CHANGELOG.md) file.
 
-## I've added some files to GitLab UI but they aren't published in the npm package, why is that?
+## I've added some files to KhulnaSoft UI but they aren't published in the npm package, why is that?
 
 The files that we want published are listed in the [`files`](https://docs.npmjs.com/files/package.json#files)
 field in the `package.json`. You might need to add your files to the field if its path isn't covered
@@ -78,7 +78,7 @@ by the current setup.
 Wrapping the components is an implementation of the [adapter design pattern](https://en.wikipedia.org/wiki/Adapter_pattern).
 We do this so that we can easily switch out Bootstrap Vue for another library (if we need to) and
 also to encapsulate the logic used for setting the styles/CSS class names. Developers should be able
-to easily import GitLab UI without worrying about the internal logic and styling setup.
+to easily import KhulnaSoft UI without worrying about the internal logic and styling setup.
 
 ## Why are we using `semantic-release` and how does it work?
 
@@ -86,7 +86,7 @@ We chose to use [semantic-release](https://github.com/semantic-release/semantic-
 our npm publishing because it was the most widely used tool for publishing and gave easy support for
 managing changelogs.
 
-Read more about GitLab UI's [commits guidelines](./doc/contributing/commits.md).
+Read more about KhulnaSoft UI's [commits guidelines](./doc/contributing/commits.md).
 
 ## Why did we decide to go for Rollup instead of Webpack?
 

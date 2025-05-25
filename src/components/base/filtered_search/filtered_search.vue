@@ -144,7 +144,7 @@ export default {
      *
      * This prop is *not* reactive.
      *
-     * See https://gitlab.com/gitlab-org/gitlab-ui/-/issues/2159.
+     * See https://gitlab.com/khulnasoft-org/khulnasoft-ui/-/issues/2159.
      */
     termsAsTokens: {
       type: Boolean,

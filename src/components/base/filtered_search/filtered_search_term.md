@@ -4,4 +4,4 @@ component when an autocomplete item is selected.
 
 ## Usage
 
-This component is internal and is not intended to be used by `@gitlab/ui` users.
+This component is internal and is not intended to be used by `@khulnasoft/ui` users.

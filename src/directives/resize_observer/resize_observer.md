@@ -2,7 +2,7 @@ This directive can be used to get notified whenever a given element's size (widt
 and to retrieve the updated dimensions.
 
 Under the hood, it leverages the [Resize Observer API](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
-If you use GitLab UI in an older browser which doesn't support the Resize Observer API,
+If you use KhulnaSoft UI in an older browser which doesn't support the Resize Observer API,
 you can use a [polyfill](https://github.com/que-etc/resize-observer-polyfill).
 
 The directive accepts a callback as a value and passes on the received

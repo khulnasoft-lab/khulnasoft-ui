@@ -131,7 +131,7 @@
     @apply gl-text-ellipsis;
   }
 
-  // Fix rounded split dropdown button: https://gitlab.com/gitlab-org/gitlab-ui/issues/626
+  // Fix rounded split dropdown button: https://gitlab.com/khulnasoft-org/khulnasoft-ui/issues/626
   &.dropdown.show .dropdown-toggle-split {
     @apply gl-rounded-tl-none;
     @apply gl-rounded-bl-none;

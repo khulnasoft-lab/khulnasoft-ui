@@ -45,7 +45,7 @@ describe('Storybook', { tags: '@storybook' }, () => {
       cy.getStoryPreviewIframe()
         .find('[data-testid="import-info"]')
         .invoke('text')
-        .should('equal', "import { GlAlert } from '@gitlab/ui';");
+        .should('equal', "import { GlAlert } from '@khulnasoft/ui';");
     });
   });
 

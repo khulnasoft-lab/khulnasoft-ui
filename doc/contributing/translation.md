@@ -4,7 +4,7 @@ Some components need to render text content. For example, a search input compone
 placeholder. In those cases, it's important for text content to be exposed via a public API so
 consumers can override and translate them as needed.
 
-GitLab UI provides a way to set default translations at configuration time for all labels marked
+KhulnaSoft UI provides a way to set default translations at configuration time for all labels marked
 as translatable, as well as a way to override individual labels contextually. This requires a bit of
 setup:
 
@@ -90,7 +90,7 @@ The `translate` helper is what we use to flag translatable labels. It accepts tw
 2. The default, US English label. This can be relied upon if the consumer does not have translation
    capabilities, in which case it might be simpler not to explicitly setup generic translations at
    configuration time. _Do not_ rely on this if the consumer is internationalized as you might end
-   up with untranslated labels scattered across the app. In development, GitLab UI warns about
+   up with untranslated labels scattered across the app. In development, KhulnaSoft UI warns about
    missing generic translations to make this caveat more visible.
 
 ## The `translatePlural` helper
@@ -136,7 +136,7 @@ To override a component label's translations in a specific context, provide the 
 
 ## Building the translations dictionary
 
-GitLab UI keeps tracks of translatable labels via the `translations.js` dictionary. When adding
+KhulnaSoft UI keeps tracks of translatable labels via the `translations.js` dictionary. When adding
 new translatable labels, make sure they are included in the dictionary by running
 `yarn translations:collect`, then commit the changes.
 If you have `lefthook` enabled, this is done automatically in the `pre-commit` hook.
